@@ -82,6 +82,10 @@ lazy(mega.gallery, "albums", () => {
    * @returns {void}
    */
   scope.reportDownload = () => {
+    if (pfcol) {
+      eventlog(99954);
+    }
+
     const onlySelection = scope.albums.grid.timeline && scope.albums.grid.timeline.selCount > 0;
     eventlog(onlySelection ? 99793 : 99792);
   };
@@ -228,6 +232,31 @@ lazy(mega.gallery, "albums", () => {
         });
       });
     }
+  };
+
+  /**
+   * Checking if the provided nodes qualify for the slideshow action
+   * @param {MegaNodep[]} nodes Nodes to check against
+   * @returns {Boolean}
+   */
+  scope.nodesAllowSlideshow = (nodes) => {
+    if (nodes.length <= 1) {
+      return false;
+    }
+
+    let imgCount = 0;
+
+    for (let i = 0; i < nodes.length; i++) {
+      if (scope.isImage(nodes[i])) {
+        imgCount++;
+
+        if (imgCount > 1) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   };
 
   /**
@@ -1281,7 +1310,7 @@ lazy(mega.gallery, "albums", () => {
                 for (let i = 0; i < nodes.length; i++) {
                   existingHandles[nodes[i].h] = true;
 
-                  if (mega.gallery.isVideo(nodes[i])) {
+                  if (scope.isVideo(nodes[i])) {
                     this.currentVideosCount++;
                   } else {
                     this.currentImagesCount++;
@@ -1295,7 +1324,7 @@ lazy(mega.gallery, "albums", () => {
                     addedCount++;
                     handlesToAdd.push({ h, o: (nodes.length + handlesToAdd.length + 1) * 1000 });
 
-                    if (M.d[h] && mega.gallery.isVideo(M.d[h])) {
+                    if (M.d[h] && scope.isVideo(M.d[h])) {
                       this.videosCount++;
                     } else {
                       this.imagesCount++;
@@ -2176,10 +2205,10 @@ lazy(mega.gallery, "albums", () => {
       super();
 
       const options = [];
-      const album = scope.albums.store[albumId];
-      const isUserAlbum = !album.filterFn;
+      const { nodes, p, filterFn } = scope.albums.store[albumId];
+      const isUserAlbum = !filterFn;
 
-      if (album.nodes.length && album.nodes.some((n) => !scope.isVideo(n))) {
+      if (scope.nodesAllowSlideshow(nodes)) {
         options.push({
           label: l.album_play_slideshow,
           icon: "play-square",
@@ -2195,7 +2224,7 @@ lazy(mega.gallery, "albums", () => {
       }
 
       if (isPublic) {
-        if (album.nodes.length) {
+        if (nodes.length) {
           options.push(
             {},
             generateDownloadMenuItem([albumId]),
@@ -2235,7 +2264,7 @@ lazy(mega.gallery, "albums", () => {
             {}
           );
 
-          if (album.p) {
+          if (p) {
             options.push(
               {
                 label: l[6909],
@@ -2265,7 +2294,7 @@ lazy(mega.gallery, "albums", () => {
 
           options.push({});
 
-          if (album.nodes.length) {
+          if (nodes.length) {
             options.push(generateDownloadMenuItem([albumId]), {
               label: l.set_album_cover,
               icon: "images",
@@ -2574,20 +2603,19 @@ lazy(mega.gallery, "albums", () => {
       span.textContent = span.title;
     }
 
-    setSpecificAlbumButtons(albumId, handles) {
-      const album = scope.albums.store[albumId];
-
-      if (!album) {
+    setSpecificAlbumButtons(albumId) {
+      if (!scope.albums.store[albumId]) {
         return;
       }
 
-      let nodesAvailable = false;
-      let needSlideshow = false;
+      const { nodes, filterFn, p } = scope.albums.store[albumId];
+
+      const nodesAvailable = !!nodes.length;
       const buttons = [];
+      const needSlideshow = scope.nodesAllowSlideshow(nodes);
 
       if (scope.albums.isPublic) {
-        needSlideshow = album.nodes.some((h) => !!scope.isImage(M.d[h]));
-        if (album.nodes.length && needSlideshow) {
+        if (needSlideshow) {
           buttons.push([
             l.album_play_slideshow,
             "play-square icon-blue",
@@ -2600,41 +2628,7 @@ lazy(mega.gallery, "albums", () => {
           ]);
         }
       } else {
-        const checkAlbumNodes = () => {
-          if (Array.isArray(handles) && handles.length) {
-            needSlideshow = true;
-            nodesAvailable = true;
-
-            for (let i = 0; i < handles.length; i++) {
-              const n = M.d[handles[i]];
-
-              if (!n) {
-                continue;
-              }
-
-              if (scope.isVideo(n)) {
-                needSlideshow = false;
-                break;
-              }
-            }
-          } else {
-            for (let i = 0; i < album.nodes.length; i++) {
-              nodesAvailable = true;
-
-              if (!scope.isVideo(album.nodes[i])) {
-                needSlideshow = true;
-              }
-
-              if (nodesAvailable && needSlideshow) {
-                break;
-              }
-            }
-          }
-        };
-
-        checkAlbumNodes();
-
-        if (!album.filterFn) {
+        if (!filterFn) {
           buttons.push(
             [
               l.add_album_items,
@@ -2647,10 +2641,10 @@ lazy(mega.gallery, "albums", () => {
               !M.v.length
             ],
             [
-              album.p ? l[6909] : mega.icu.format(l.album_share_link, 1),
+              p ? l[6909] : mega.icu.format(l.album_share_link, 1),
               "link icon-yellow",
               () => {
-                if (album.p) {
+                if (p) {
                   const dialog = new AlbumShareDialog([albumId]);
                   dialog.show();
                 } else {
@@ -2699,7 +2693,7 @@ lazy(mega.gallery, "albums", () => {
           ]);
         }
 
-        if (album.p) {
+        if (p) {
           buttons.push([
             l[6821],
             "link-remove",
@@ -2710,7 +2704,7 @@ lazy(mega.gallery, "albums", () => {
           ]);
         }
 
-        if (!album.filterFn) {
+        if (!filterFn) {
           buttons.push(
             [
               l.rename_album,
@@ -2783,15 +2777,15 @@ lazy(mega.gallery, "albums", () => {
       );
     }
 
-    update(albumId, handles) {
-      this.setRightControls(albumId, handles);
+    update(albumId) {
+      this.setRightControls(albumId);
       this.setBreadcrumbs(albumId);
 
       // Only 'Albums' section needs this. Otherwise the banner does not appear in albums
       $(".fm-right-files-block").addClass("visible-notification");
     }
 
-    setRightControls(albumId, handles) {
+    setRightControls(albumId) {
       if (this.rightButtons) {
         while (this.rightButtons.firstChild) {
           this.rightButtons.removeChild(this.rightButtons.firstChild);
@@ -2803,7 +2797,7 @@ lazy(mega.gallery, "albums", () => {
       }
 
       if (albumId) {
-        this.setSpecificAlbumButtons(albumId, handles);
+        this.setSpecificAlbumButtons(albumId);
       } else {
         this.setGlobalButtons();
       }
@@ -3387,6 +3381,7 @@ lazy(mega.gallery, "albums", () => {
       } else {
         this.showAlbumContents(id);
         this.header.update(id);
+        scope.reporter.report(false, "Album");
       }
     }
 
@@ -3748,12 +3743,17 @@ lazy(mega.gallery, "albums", () => {
           sortStore();
 
           if (isExisting) {
-            data.e = Object.keys(album.eIds).map((id) => {
-              return {
+            const ids = Object.keys(album.eIds);
+            data.e = Object.create(null);
+
+            for (let i = 0; i < ids.length; i++) {
+              const id = ids[i];
+
+              data.e[id] = {
                 id,
                 h: album.eIds[id]
               };
-            });
+            }
 
             data.p = album.p;
           }
@@ -3910,6 +3910,8 @@ lazy(mega.gallery, "albums", () => {
       const rfBlock = $(".fm-right-files-block", ".fmholder");
       rfBlock.removeClass("hidden");
       $(".onboarding-control-panel", rfBlock).addClass("hidden");
+
+      eventlog(99952);
     }
 
     /**
@@ -4638,7 +4640,7 @@ lazy(mega.gallery, "albums", () => {
 
       // Building stats object for removed and left items
       for (let i = 0; i < album.nodes.length; i++) {
-        statsObj[(handlesCache[album.nodes[i].h] ? "del" : "left") + (mega.gallery.isVideo(album.nodes[i]) ? "Vid" : "Img")]++;
+        statsObj[(handlesCache[album.nodes[i].h] ? "del" : "left") + (scope.isVideo(album.nodes[i]) ? "Vid" : "Img")]++;
       }
 
       mega.sets.elements
@@ -4712,7 +4714,7 @@ lazy(mega.gallery, "albums", () => {
         return name;
       }
 
-      const album = Object.values(mega.gallery.albums.store).find(({ p }) => p && p.ph === h);
+      const album = Object.values(scope.albums.store).find(({ p }) => p && p.ph === h);
       const newName = await AlbumNameDialog.prompt(album.id, names);
 
       return newName === null ? null : newName || name;

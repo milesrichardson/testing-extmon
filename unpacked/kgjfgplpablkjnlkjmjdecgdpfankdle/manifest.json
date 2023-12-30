@@ -1,6 +1,6 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "1.8.22",
+  "version": "1.8.26",
   "manifest_version": 3,
   "name": "Zoom Chrome Extension",
   "description": "Schedule Zoom meetings directly from Google Calendar",

@@ -65,9 +65,6 @@
   "Activate_rewards_too": {
     "message": "Ook rewards activeren"
   },
-  "Activate_Team_Deals_and_earn": {
-    "message": "Activeer Team Deals en verdien {SOLOREWARDGOLDVALUE} als je een aankoop doet, plus {SOLOREWARDGOLDVALUE} extra als een teamlid ook een aankoop doet. Dat is {TEAMREWARDGOLDVALUE} ({FORMATTEDTEAMREWARDGOLDVALUE} punten) in totaal!"
-  },
   "Activated": {
     "message": "Geactiveerd"
   },
@@ -130,9 +127,6 @@
   },
   "Add_your_Honey_email_to_your_PayPal_account": {
     "message": "Voeg je e-mailadres voor Honey aan je PayPal-rekening toe"
-  },
-  "Add_your_name": {
-    "message": "Je naam toevoegen"
   },
   "Added_to_Droplist": {
     "message": "Toegevoegd aan Droplist"
@@ -317,9 +311,6 @@
   "buy_now": {
     "message": "nu kopen"
   },
-  "Buy_now_to_score_MINGOLD_Gold_and_if_your_teammate_does_the_same_you_each_get_MAXGOLD_Gold_Thats_GOLDCURRENCYVALUE_in_cash_back_or_rewards": {
-    "message": "Koop nu om {MINGOLD} Gold te scoren. Als je teamlid hetzelfde doet, krijgen jullie ieder {MAXGOLD} Gold. Dat is {GOLDCURRENCYVALUE} in cashback of rewards."
-  },
   "Buy_this_item_with_Pay_in_4": {
     "message": "Koop dit object met Pay in 4!"
   },
@@ -410,12 +401,6 @@
   "Checkout": {
     "message": "Betalen"
   },
-  "Checkout_now_for_your_Team_Deal_bonus": {
-    "message": "Reken nu af om je Team Deal-bonus te ontvangen"
-  },
-  "Checkout_now_to_get_extra_Gold": {
-    "message": "Reken nu af om extra Gold te ontvangen"
-  },
   "Checkout_with_confidence_knowing_we_looked": {
     "message": "Reken met een gerust gevoel af en weet dat we voor je hebben gezocht."
   },
@@ -430,9 +415,6 @@
   },
   "Choose_a_gift_for_your_order": {
     "message": "Kies een cadeau voor je bestelling"
-  },
-  "Choose_an_invite_method_to_complete_activation": {
-    "message": "Kies een uitnodigingsmethode om de activering te voltooien."
   },
   "Choose_an_offer_and_well_automatically_apply_the_code_to_your_cart": {
     "message": "Kies een aanbieding en we passen de code automatisch toe op je winkelwagentje."
@@ -589,9 +571,6 @@
   },
   "Copy": {
     "message": "Kopiëren"
-  },
-  "Copy_Link": {
-    "message": "Link kopiëren"
   },
   "COUNTDOWN_left": {
     "message": "Nog {COUNTDOWN} geldig"
@@ -767,9 +746,6 @@
   "Double_Cash_Back_Offer_Activated_SEEDETAILS": {
     "message": "Dubbele cashbackaanbieding geactiveerd! {SEEDETAILS}."
   },
-  "Double_Gold_Bonus": {
-    "message": "Dubbele Gold-bonus"
-  },
   "Double_Gold_Offer_Activated_E": {
     "message": "Dubbel Gold geactiveerd!"
   },
@@ -818,9 +794,6 @@
   "Earn_extra_Honey_Gold_with_these_Exclusive_Offers": {
     "message": "Verdien extra Honey Gold met deze exclusieve aanbiedingen"
   },
-  "Earn_Gold_just_for_shopping": {
-    "message": "Verdien Gold door alleen maar te shoppen"
-  },
   "Earn_Gold_towards_gift_cards": {
     "message": "Verdien Gold om in te wisselen voor cadeaubonnen"
   },
@@ -854,9 +827,6 @@
   "Earn_Honey_Gold_on_your_eligible_items_at_STORENAME": {
     "message": "Verdien Honey Gold voor je in aanmerking komende objecten bij {STORENAME}"
   },
-  "Earn_more_when_you_buy_together": {
-    "message": "Verdien meer als je samen koopt."
-  },
   "Earn_OFFERVALUE_in_Honey_Gold": {
     "message": "Verdien {OFFERVALUE} in Honey Gold"
   },
@@ -874,15 +844,6 @@
   },
   "Earn_Rewards": {
     "message": "Verdien rewards"
-  },
-  "Earn_SOLOGOLD_Gold_if_you_buy_before_time_runs_out_and_TEAMGOLDBONUS_more_if_your_teammate_does_the_same": {
-    "message": "Verdien {SOLOGOLD} Gold als je een aankoop doet voordat de tijd om is, plus {TEAMGOLDBONUS} extra als je teamlid hetzelfde doet."
-  },
-  "Earn_up_to_GOLDCURRENCYVALUE_Cash_Back": {
-    "message": "Verdien tot {GOLDCURRENCYVALUE} cashback"
-  },
-  "Earn_up_to_GOLDVALUE_Gold": {
-    "message": "Verdien tot {GOLDVALUE} Gold"
   },
   "Earn_VALUE_GOLD_points_with_your_purchase": {
     "message": "Verdien {VALUE} ({GOLD} punten) met je aankoop."
@@ -992,9 +953,6 @@
   "Finishing_up": {
     "message": "Voltooien..."
   },
-  "First_Name": {
-    "message": "Voornaam"
-  },
   "Follow": {
     "message": "Volgen"
   },
@@ -1021,9 +979,6 @@
   },
   "For_a_demo_of_how_Honey_works_on_supported_sites_CLICKHERE": {
     "message": "Als je wilt zien hoe Honey op ondersteunde sites werkt, {CLICKHERE}."
-  },
-  "For_each": {
-    "message": "voor ieder"
   },
   "For_items_with_many_sizes_andor_colors_youll_need_to_first_choose_a_specific_version_of_this_item_so_we_can_show_you_the_right_price_info": {
     "message": "Voor objecten met veel verschillende maten en/of kleuren moet je eerst een specifieke versie van dit object kiezen, zodat we je de juiste prijsgegevens kunnen laten zien."
@@ -1259,23 +1214,11 @@
   "GOLDRANGE_points_back": {
     "message": "{GOLDRANGE} punten terug"
   },
-  "GOLDRANGE_points_TERMS_apply": {
-    "message": "{GOLDRANGE} punten • er zijn {TERMS} van toepassing"
-  },
   "GOLDRANGE_rewards_activated": {
     "message": "{GOLDRANGE} rewards geactiveerd!"
   },
-  "GOLDREDEEMLINK": {
-    "message": "https://www.joinhoney.com/nl/honeygold/redeem"
-  },
   "GOLDTEXT_could_be_yours_on_this_purchase_Rewards_rule": {
     "message": "Je kunt {GOLDTEXT} verdienen met deze aankoop. Er gaat niets boven rewards."
-  },
-  "GOLDTRANSACTIONLINK": {
-    "message": "https://www.joinhoney.com/nl/honeygold/activity"
-  },
-  "GOLDVALUE_Earned": {
-    "message": "{GOLDVALUE} verdiend"
   },
   "GOLDVALUE_Gold": {
     "message": "{GOLDVALUE} Gold"
@@ -1349,9 +1292,6 @@
   "Help_Center": {
     "message": "Hulp"
   },
-  "Help_your_team_get_even_more_Cash_Back_by_sharing_the_deal": {
-    "message": "Help je team nog meer cashback te krijgen door de aanbieding te delen."
-  },
   "here": {
     "message": "hier"
   },
@@ -1409,9 +1349,6 @@
   "Honey_depends_on_users_like_you": {
     "message": "Honey is afhankelijk van gebruikers zoals jij."
   },
-  "Honey_does_not_store_your_contacts_or_contact_them_without_your_permission": {
-    "message": "Honey bewaart of benadert je contactpersonen niet zonder jouw toestemming.​"
-  },
   "Honey_exclusive": {
     "message": "Exclusief bij Honey!"
   },
@@ -1445,12 +1382,6 @@
   "Honey_Gold_CB": {
     "message": "Honey Gold"
   },
-  "Honey_Gold_is_now_PayPal_Rewards": {
-    "message": "Honey Gold is nu PayPal Rewards!"
-  },
-  "Honey_Gold_is_our_rewards_program_where_members_can_earn_Honey_Gold_or_Gold_for_short_at_some_of_their_favorite_stores": {
-    "message": "Honey Gold is ons spaarprogramma waarmee leden Honey Gold (kortweg: Gold) kunnen verdienen bij enkele van hun favoriete winkels."
-  },
   "Honey_Gold_Rewards": {
     "message": "Honey Gold-rewards"
   },
@@ -1468,9 +1399,6 @@
   },
   "Honey_Gold_terms_lc": {
     "message": "Voorwaarden van Honey Gold"
-  },
-  "Honey_Gold_Transactions": {
-    "message": "Honey Gold-transacties"
   },
   "Honey_has_been_updated_to_version_EXTVERSION": {
     "message": "Honey is bijgewerkt naar versie {EXTVERSION}"
@@ -1522,12 +1450,6 @@
   },
   "How_It_Works": {
     "message": "Zo werkt het"
-  },
-  "How_Team_Deals_Work": {
-    "message": "Zo werken Team Deals"
-  },
-  "I_just_made_a_Team_Deal_with_Honey_If_we_both_buy_we_both_get_GOLD_Gold_We_can_redeem_GOLD_Gold_for_OFFERVALUE_in_cash_back_or_gift_cards": {
-    "message": "Ik heb zojuist een Team Deal gemaakt met Honey. Als we allebei een aankoop doen, krijgen we ieder {GOLD} Gold. We kunnen {GOLD} Gold inwisselen voor {OFFERVALUE} in cashback of cadeaubonnen. Minder dan 24 uur te gaan. Tijd om Gold te verdienen!"
   },
   "I_linked_my_account_already": {
     "message": "Ik heb mijn rekening al gekoppeld"
@@ -1585,30 +1507,6 @@
   },
   "International_issues": {
     "message": "Internationale kwesties"
-  },
-  "Invite_by_email_address": {
-    "message": "Uitnodigen via e-mailadres"
-  },
-  "Invite_Confirmation": {
-    "message": "Bevestiging van uitnodiging"
-  },
-  "Invite_Friends": {
-    "message": "Vrienden uitnodigen"
-  },
-  "Invite_Friends_and_Earn_Rewards": {
-    "message": "Nodig vrienden uit en verdien rewards"
-  },
-  "Invite_friends_to_join_your_Team_Deal": {
-    "message": "Nodig vrienden uit voor je Team Deal om extra cashback te scoren."
-  },
-  "Invite_friends_to_join_your_Team_Deal_All_you_need_is_one_extra_teammate": {
-    "message": "Nodig vrienden uit voor je Team Deal. Je hebt maar één extra teamlid nodig."
-  },
-  "Invite_more_friends": {
-    "message": "Meer vrienden uitnodigen"
-  },
-  "Invite_sent": {
-    "message": "Uitnodiging verzonden!"
   },
   "It_is_people_like_you_that_help_everyone_save": {
     "message": "Dankzij mensen zoals jij kan iedereen geld besparen."
@@ -1706,9 +1604,6 @@
   "Know_someone_who_wants_to_save_money_on_Amazon": {
     "message": "Ken je iemand die geld wil besparen op Amazon?"
   },
-  "Last_Name": {
-    "message": "Achternaam"
-  },
   "Last_Successful_Coupon": {
     "message": "Laatste geldige coupon"
   },
@@ -1744,12 +1639,6 @@
   },
   "Like_Honey": {
     "message": "Ben je met tevreden met Honey?"
-  },
-  "Link_copied": {
-    "message": "Link gekopieerd"
-  },
-  "Link_copied_to_clipboard": {
-    "message": "Link gekopieerd naar klembord"
   },
   "Link_my_PayPal_account": {
     "message": "Mijn PayPal-rekening koppelen"
@@ -1789,9 +1678,6 @@
   },
   "Log_in_with_PayPal": {
     "message": "Doorgaan met PayPal"
-  },
-  "Logging_Out": {
-    "message": "Uitloggen..."
   },
   "Login": {
     "message": "Inloggen"
@@ -1841,9 +1727,6 @@
   "Making_you_a_savings_mixtape": {
     "message": "We maken je kortingscompilatie..."
   },
-  "Max_of_MAXMEMBERS_members_per_team": {
-    "message": "Max. {MAXMEMBERS} leden per team"
-  },
   "May_exclude_tax_shipping_and_any_fees": {
     "message": "Mogelijk exclusief belasting, verzending en eventuele andere kosten."
   },
@@ -1873,9 +1756,6 @@
   },
   "Mobile_Extension": {
     "message": "Mobiele extensie"
-  },
-  "More_cash_back_with_Team_Deals": {
-    "message": "Meer cashback met Team Deals"
   },
   "More_Store_Coupons": {
     "message": "Meer coupons"
@@ -2008,12 +1888,6 @@
   },
   "Not_every_store_has_working_coupons_but_you_can_still_earn_Honey_Gold_towards_gift_cards_at_your_favorite_stores": {
     "message": "Niet elke winkel heeft geldige coupons, maar je kunt nog steeds Honey Gold verdienen voor cadeaubonnen van je favoriete winkels."
-  },
-  "Now_checkout_before_time_expires_to_get_all_that_extra_cash_back": {
-    "message": "Reken nu af voordat de tijd om is om al die extra cashback te krijgen."
-  },
-  "Now_just_buy_with_a_teammate_before_time_runs_out_to_get_up_to_MAXGOLD_Gold_Thats_a_GOLDCURRENCYVALUE_value": {
-    "message": "Koop nu met een teamlid voordat de tijd om is om tot {MAXGOLD} Gold te verdienen. Dat heeft een waarde van {GOLDCURRENCYVALUE}."
   },
   "Now_set_your_1Click_address": {
     "message": "Stel nu je adres voor 1-Click in."
@@ -2234,9 +2108,6 @@
   "PayPal_Rewards_Terms_apply": {
     "message": "De Voorwaarden van PayPal Rewards zijn van toepassing"
   },
-  "PayPal_Rewards_Transactions": {
-    "message": "PayPal Rewards-transacties"
-  },
   "PayPal_Shopping_Credit_Terms_and_Conditions": {
     "message": "Voorwaarden voor PayPal-winkeltegoed"
   },
@@ -2411,9 +2282,6 @@
   "Product_Name": {
     "message": "Productnaam"
   },
-  "PROFILESETTINGSLINK": {
-    "message": "https://www.joinhoney.com/nl/settings"
-  },
   "Psst_Weve_just_sent_you_an_email_which_gives_you_a_link_to_access_this_gift_card": {
     "message": "Psst. We hebben je zojuist een e-mail gestuurd met een link naar deze cadeaubon."
   },
@@ -2489,9 +2357,6 @@
   "Redeem_for_a_GOLDCURRENCYVALUE_gift_card_when_you_reach_GOLDVALUE_E": {
     "message": "Wissel het in voor een cadeaubon van {GOLDCURRENCYVALUE} als je {GOLDVALUE} bereikt!"
   },
-  "Redeem_FORMATTEDTEAMREWARDGOLD_points_for_TEAMREWARDGOLDVALUE_in_cash_back": {
-    "message": "Wissel {FORMATTEDTEAMREWARDGOLD} punten in voor {TEAMREWARDGOLDVALUE} in cashback"
-  },
   "Redeem_Honey_Gold": {
     "message": "Honey Gold inwisselen"
   },
@@ -2510,9 +2375,6 @@
   "Redeem_POINTS_points_for_AMOUNT_at_checkout": {
     "message": "Wissel {POINTS} punten in voor {AMOUNT} bij het afrekenen."
   },
-  "Redeem_Rewards": {
-    "message": "Rewards inwisselen"
-  },
   "Redeem_your_GOLDAMOUNT_Gold_points_for_a_GOLDCURRENCYVALUE_PayPal_shopping_credit_towards_this_purchase": {
     "message": "Wissel je {GOLDAMOUNT} Gold-punten in voor een {GOLDCURRENCYVALUE} PayPal-winkeltegoed voor deze aankoop."
   },
@@ -2524,9 +2386,6 @@
   },
   "Redeem_your_points_to_save": {
     "message": "Wissel je punten in en bespaar"
-  },
-  "Referrals": {
-    "message": "Uitnodigingen"
   },
   "Remember_to_add_the_item_to_your_cart_before_completing_checkout_in_order_to_receive_your_bonus": {
     "message": "Vergeet niet het object aan je winkelwagentje toe te voegen voordat je afrekent om je bonus te ontvangen."
@@ -2608,12 +2467,6 @@
   },
   "Rewards_Terms": {
     "message": "Voorwaarden voor rewards"
-  },
-  "REWARDVALUE_points_Earned": {
-    "message": "{REWARDVALUE} punten verdiend"
-  },
-  "REWARDVALUE_points_Pending": {
-    "message": "{REWARDVALUE} punten in behandeling"
   },
   "Save": {
     "message": "Opslaan"
@@ -2834,9 +2687,6 @@
   "Send": {
     "message": "Verzenden"
   },
-  "Send_Invite": {
-    "message": "Uitnodiging verzenden"
-  },
   "Sent": {
     "message": "Verzonden"
   },
@@ -2870,23 +2720,11 @@
   "Share_it_with_the_Honey_community": {
     "message": "Deel het met de Honey-community"
   },
-  "Share_the_deals_reward_yourself": {
-    "message": "Deel aanbiedingen en beloon jezelf"
-  },
   "Share_the_love": {
     "message": "Delen met anderen?"
   },
   "Share_your_link_here": {
     "message": "Deel je link hier:"
-  },
-  "Share_your_link_on_social_media_deal_forums_and_anywhere_else_you_think_you_can_find_teammates": {
-    "message": "Deel je link op social media, dealforums en overal waar je denkt dat je teamleden kunt vinden.​"
-  },
-  "Share_your_link_with_your_friends_For_each_friend_who_creates_an_account_with_your_link_and_earns_points_on_a_purchase_youll_qualify_for_POINTS": {
-    "message": "Deel je link met je vrienden. Voor elke vriend die een account opent met je link en punten voor een aankoop verdient, kom je in aanmerking voor {POINTS}."
-  },
-  "Share_your_link_with_your_friends_Once_they_create_an_account_and_earn_Gold_on_a_purchase_you_get_Gold": {
-    "message": "Deel je link met je vrienden. Zodra ze een account hebben geopend en Gold voor een aankoop hebben verdiend, krijg jij ook Gold."
   },
   "Shipping_Tax": {
     "message": "Verzending en belasting"
@@ -3086,21 +2924,6 @@
   "Tax_shipping_and_fees_may_be_extra": {
     "message": "Belastingen, verzendkosten en toeslagen zijn mogelijk niet inbegrepen."
   },
-  "Team_Deal_is_on": {
-    "message": "Team Deal is actief!"
-  },
-  "Team_Deals": {
-    "message": "Team Deals"
-  },
-  "Team_Deals_expire_24_hours_after_activation": {
-    "message": "Team Deals vervallen 24 uur na activering."
-  },
-  "Teaming_up_for_rewards_pays": {
-    "message": "Teamwerk is de moeite waard!"
-  },
-  "Teammate_Buys": {
-    "message": "Teamlid koopt"
-  },
   "Temporarily_out_of_stock": {
     "message": "Tijdelijk niet op voorraad"
   },
@@ -3128,9 +2951,6 @@
   "terms_lc": {
     "message": "voorwaarden"
   },
-  "TERMSAPPLY_Max_amount_of_Gold_you_can_earn_under_this_offer_is_MAXREDEEMABLEAMT": {
-    "message": "{TERMSAPPLY} De maximale hoeveelheid Gold die je met deze aanbieding kunt verdienen is {MAXREDEEMABLEAMT}."
-  },
   "TERMSLINK": {
     "message": "https://www.joinhoney.com/nl/terms"
   },
@@ -3140,17 +2960,11 @@
   "TERMSLINK_apply": {
     "message": "Er zijn {TERMSLINK} van toepassing."
   },
-  "TERMSLINK_apply_Limits_apply_on_max_amount_of_referral_bonuses_you_can_receive": {
-    "message": "Er zijn {TERMSLINK} van toepassing. Er zijn ook limieten van toepassing op het aantal uitnodigingsbonussen dat je kunt ontvangen."
-  },
   "TERMSLINK_HONEYGOLD": {
     "message": "https://www.joinhoney.com/nl/terms#honey-gold"
   },
   "TERMSLINK_PAYPAL": {
     "message": "https://www.paypal.com/us/webapps/mpp/ua/pp-rewards-program-tnc"
-  },
-  "TERMSLINK_TEAMDEALS": {
-    "message": "https://www.joinhoney.com/nl/terms/team-deals"
   },
   "Testing_1_coupon_code": {
     "message": "1 couponcode testen"
@@ -3190,9 +3004,6 @@
   },
   "Thanks_well_pass_it_on_E": {
     "message": "Bedankt, we geven het door!"
-  },
-  "That_means_even_more_ways_to_earn_and_redeem": {
-    "message": "Dit betekent nog meer manieren om te verdienen en in te wisselen, bijvoorbeeld door punten uit te geven bij het afrekenen. En alle punten die je hebt verdiend, zijn nu PayPal Rewards-punten."
   },
   "That_way_youll_have_the_latest_details_saved": {
     "message": "Zo zorg je ervoor dat je opgeslagen gegevens up-to-date zijn."
@@ -3400,9 +3211,6 @@
   },
   "Turn_on_Deal_Insights": {
     "message": "Informatie over aanbiedingen inschakelen"
-  },
-  "Turn_on_Team_Deals": {
-    "message": "Team Deals inschakelen"
   },
   "Turn_on_the_Smart_Droplist_option_to_automatically_save_frequently_viewed_items_Get_notified_as_soon_as_theres_a_price_drop": {
     "message": "Schakel de optie Smart Droplist in om veel bekeken objecten op bepaalde sites automatisch toe te voegen. Wanneer een object is toegevoegd, laten we het je weten als we een prijsdaling detecteren in die winkel of een andere winkel waarvan we denken dat deze hetzelfde object voor minder verkoopt."
@@ -3653,9 +3461,6 @@
   "Well_automatically_apply_your_shopping_credit_to_this_purchase": {
     "message": "We passen je winkeltegoed automatisch toe op deze aankoop."
   },
-  "Well_confirm_your_Gold_within_7_days_redeem_it_for_OFFERVALUE_in_cash_back_or_rewards": {
-    "message": "We bevestigen je Gold binnen 7 dagen – wissel het in voor {OFFERVALUE} in cashback of rewards."
-  },
   "Well_create_a_gift_card_for_your_order_total": {
     "message": "We maken een cadeaubon voor het totaalbedrag van de bestelling"
   },
@@ -3749,9 +3554,6 @@
   "Whats_Honey_Gold": {
     "message": "Wat is Honey Gold?"
   },
-  "Whats_PayPal_Rewards": {
-    "message": "Wat is PayPal Rewards?"
-  },
   "When_coupon_success_rates_are_high_theres_a_good_chance_youll_save_money_when_you_apply_codes_at_checkout": {
     "message": "Wanneer succespercentages hoog zijn, is de kans groot dat je geld bespaart wanneer je codes toepast bij het afrekenen."
   },
@@ -3760,9 +3562,6 @@
   },
   "When_we_can_find_savings_on_Amazon_youll_see_a_badge_next_to_the_price_like_this": {
     "message": "Wanneer we kortingen op Amazon vinden, zie je een badge naast de prijs, zoals deze:"
-  },
-  "When_you_shop_at_any_of_our_5500_participating_sites_youll_earn_a_percentage_back_in_PayPal_Rewards_points_Redeem_1000_points_for_10_USD": {
-    "message": "Als je bij een van de meer dan 5500 deelnemende sites shopt, verdien je een percentage in PayPal Rewards-punten terug. Wissel 1000 punten in voor 10 USD."
   },
   "When_youre_on_a_supported_store_Honey_will_pop_up_and_apply_the_best_working_coupon_to_your_cart_You_dont_have_to_do_a_thing": {
     "message": "Wanneer je een ondersteunde winkel gebruikt, verschijnt Honey in beeld en wordt de best werkende coupon op je winkelwagentje toegepast. Je hoeft niets te doen."
@@ -3821,9 +3620,6 @@
   "You_can_turn_this_feature_off_anytime_by_clicking_here": {
     "message": "Je kunt deze functie op elk gewenst moment uitschakelen door hier te klikken."
   },
-  "You_could_also_get": {
-    "message": "Wat je nog meer kunt krijgen:"
-  },
   "You_could_save_SAVINGSAMOUNT_towards_this_order": {
     "message": "Je kunt {SAVINGSAMOUNT} besparen op deze bestelling"
   },
@@ -3859,9 +3655,6 @@
   },
   "You_havent_followed_any_stores_yet": {
     "message": "Je hebt nog geen winkels gevolgd"
-  },
-  "You_only_need_one_more_teammate": {
-    "message": "Je hebt maar één extra teamlid nodig."
   },
   "You_saved_AMOUNT": {
     "message": "Je hebt {AMOUNT} bespaard"
@@ -3934,12 +3727,6 @@
   },
   "Your_Savings": {
     "message": "Je bespaart"
-  },
-  "Your_Team_Deal_is_activated": {
-    "message": "Je Team Deal is geactiveerd"
-  },
-  "Your_team_has_24_hours_to_buy_once_the_Team_Deal_is_activated": {
-    "message": "Zodra de Team Deal geactiveerd is, heeft je team 24 uur de tijd om een aankoop te doen."
   },
   "Youre_a_rewards_magnet_Apply_coupons_then_check_out_to_earn": {
     "message": "Je bent een Gold-magneet! Pas coupons toe en betaal om nog meer rewards te verdienen."

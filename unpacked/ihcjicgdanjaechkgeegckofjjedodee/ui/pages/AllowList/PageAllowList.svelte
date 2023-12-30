@@ -29,6 +29,7 @@
     import SearchIcon from "@/ui/svgs/SearchIcon.svelte";
     import AllowListSearchCloseIcon from "@/ui/svgs/AllowListSearchCloseIcon.svelte";
     import AllowListSearchActiveIcon from "@/ui/svgs/AllowListSearchActiveIcon.svelte";
+    import { translateText } from "@/utils/locales";
 
     const queryParams = new URLSearchParams($querystring);
     const exclusionService = getExclusionService();
@@ -50,7 +51,7 @@
 
     const tableHeaderPopupItems: MenuPopupItem[] = [
         {
-            label: "Remove all websites",
+            label: translateText("allowListRemoveOption"), //"Remove all websites",
             onClick: () => {
                 showConfirmDeleteAllModal = true;
             },
@@ -70,7 +71,7 @@
 
     $: tableEntryPopupItems = exclusions.map((exclusion, idx) => {
         return {
-            label: "Delete website",
+            label: translateText("deleteWebsiteModalOption"), // "Delete website",
             onClick: () => {
                 websiteToDel = idx;
                 showConfirmDeleteModal = true;
@@ -92,7 +93,8 @@
         console.debug("removing all exclusions");
         await exclusionService.removeAllExclusions();
         exclusions = [];
-        addSuccessToast("All websites have been deleted", 2000);
+        // msg: All websites have been deleted
+        addSuccessToast(translateText("removeAllAllowedWebsitesSnackbar"), 2000);
         loadAllowList();
     }
 
@@ -113,8 +115,8 @@
                 return;
             }
 
-            addSuccessToast(
-                "The website was removed from the Allow List",
+            addSuccessToast(                
+                translateText("allowWebsiteDeletedSnackbar"), // "The website was removed from the Allow List",
                 3000
             );
             exclusions = exclusions.filter((_, i) => i !== idx);
@@ -131,7 +133,8 @@
             event.detail.url,
             event.detail.protections
         );
-        addInfoToast("The website was added to the Allow List", 2000);
+        // addInfoToast("The website was added to the Allow List", 2000);
+        addInfoToast(translateText("allowWebsiteAddedSnackbar"), 2000);
         exclusions = [
             ...exclusions,
             {
@@ -162,13 +165,17 @@
     <p
         class="text-sm text-textPrimary dark:text-white dark:text-opacity-80 font-normal text-left mb-4"
     >
-        To customize protection for a website, enter its URL or IP address, and
-        then select the protection(s) you would like to disable
+        {translateText("allowListSummarySafari")}
+        <!-- To customize protection for a website, enter its URL or IP address, and
+        then select the protection(s) you would like to disable -->
     </p>
     <div class="flex flex-row w-full justify-end">
         <PrimaryButton class="gap-2" on:click={addItemClicked}>
             <AddIcon class="w-4 h-4" />
-            <span>Add a website</span>
+            <span>
+                {translateText("addWebsiteButton")}
+                <!-- Add a website -->
+            </span>
         </PrimaryButton>
     </div>
 
@@ -189,7 +196,8 @@
                             style="font-weight: 500 !important; padding-left: 16px !important;"
                             class="px-0 py-4 text-left align-middle"
                         >
-                            URL / IP address
+                            {translateText("urlColumnAllowList")}
+                            <!-- URL / IP address -->
                         </TableHeadCell>
                         <TableHeadCell
                             style="font-weight: 500 !important"
@@ -197,7 +205,10 @@
                             colspan="3"
                         >
                             <div class="flex flex-row w-full justify-between">
-                                <span class="min-w-[150px]">Allow</span>
+                                <span class="min-w-[150px]">
+                                    <!-- Allow -->
+                                    {translateText("allowColumnAllowList")}
+                                </span>
                                 <button on:click={() => (searchMode = true)}>
                                     <SearchIcon />
                                 </button>
@@ -285,16 +296,16 @@
 <AddWebsiteModal bind:open={showAddModal} on:websiteAdded={onWebsiteAdded} />
 <ConfirmModal
     bind:open={showConfirmDeleteAllModal}
-    title="Delete all websites"
-    message="Are you sure you want to delete all of the websites?"
-    confirmLabel="Yes, delete"
+    title={translateText("deleteAllModalTitle")}
+    message={translateText("deleteAllConfirmation")}
+    confirmLabel={translateText("yesDeleteButton")}
     onConfirm={removeAllClicked}
 />
 <ConfirmModal
     bind:open={showConfirmDeleteModal}
-    title="Delete website"
-    message="Are you sure you want to delete this website?"
-    confirmLabel="Yes, delete"
+    title={translateText("deleteWebsiteModalTitle")}
+    message={translateText("deleteWebsiteModalConfirmation")}
+    confirmLabel={translateText("yesDeleteButton")}
     onConfirm={() => {
         removeItemClicked(websiteToDel);
         showConfirmDeleteModal = false;

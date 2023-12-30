@@ -6,21 +6,19 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.config = void 0);
       const n = r(26634),
         a = r(1334),
-        o = r(2548),
-        s = r(39993),
-        i = r(33733),
-        c = r(79889),
-        u = r(26847),
-        d = r(68455);
+        o = r(39993),
+        s = r(33733),
+        i = r(79889),
+        c = r(26847),
+        u = r(68455);
       t.config = {
         commands: {
           getTeamInfo: { handler: a.getTeamInfo },
-          getTeamOffers: { handler: o.getTeamOffers },
-          getMidCycleTierUpgradePrice: { handler: s.getMidCycleTierUpgradePrice },
-          getExpectedTaxInformation: { handler: i.getExpectedTaxInformation },
-          changeTierMidCycle: { handler: c.changeTierMidCycle },
-          computePlanPricing: { handler: u.computePlanPricing },
-          addSeats: { handler: d.addSeats }
+          getMidCycleTierUpgradePrice: { handler: o.getMidCycleTierUpgradePrice },
+          getExpectedTaxInformation: { handler: s.getExpectedTaxInformation },
+          changeTierMidCycle: { handler: i.changeTierMidCycle },
+          computePlanPricing: { handler: c.computePlanPricing },
+          addSeats: { handler: u.addSeats }
         },
         queries: { getIsRecoveryEnabled: { selector: n.isRecoveryEnabledSelector } },
         liveQueries: {}
@@ -28,7 +26,7 @@
     },
     68455: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addSeats = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(11848),
         s = r(16593);
@@ -44,7 +42,7 @@
     },
     79889: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.changeTierMidCycle = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(38115),
         s = r(16593);
@@ -73,7 +71,7 @@
     },
     26847: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.computePlanPricing = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(21712),
         s = r(16593);
@@ -92,7 +90,7 @@
     },
     33733: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getExpectedTaxInformation = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(30782),
         s = r(16593);
@@ -114,7 +112,7 @@
     },
     39993: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getMidCycleTierUpgradePrice = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(78607),
         s = r(16593);
@@ -134,25 +132,9 @@
           : { success: !0, data: c };
       };
     },
-    2548: (e, t, r) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }), (t.getTeamOffers = void 0);
-      const n = r(53576),
-        a = r(46298),
-        o = r(47115),
-        s = r(16593);
-      t.getTeamOffers = async function (e, t) {
-        const { storeService: r } = e,
-          i = (0, s.userLoginSelector)(r.getState());
-        if (!i) throw new Error(n.AuthenticationCode[n.AuthenticationCode.USER_UNAUTHORIZED]);
-        const c = await (0, o.getTeamOffersRequest)(r, i, t.couponCode);
-        return (0, a.isApiError)(c)
-          ? { success: !1, error: { code: n.GetTeamOffersErrorType.GetTeamOffersFailed, message: `get Team Offers failed: ${c.message}` } }
-          : { success: !0, data: c };
-      };
-    },
     1334: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getTeamInfo = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(16593);
       t.getTeamInfo = async function (e) {
@@ -240,11 +222,11 @@
         f = r(44974),
         A = r(27218),
         E = r(70363),
-        I = r(97323),
+        I = r(50766),
         h = r(10002),
         _ = r(68538),
-        T = r(33150),
-        b = r(94228),
+        b = r(33150),
+        T = r(94228),
         C = r(60419),
         P = r(76154),
         D = r(70178),
@@ -274,7 +256,7 @@
           updateTeamDeviceEncryptedConfig: { handler: E.updateTeamDeviceEncryptedConfig },
           updateTeamSettings: { handler: D.updateTeamSettings },
           parseMetadataFields: { handler: _.parseMetadataFieldsHandler },
-          persistAdminProvisioningKey: { handler: T.persistAdminProvisioningKey },
+          persistAdminProvisioningKey: { handler: b.persistAdminProvisioningKey },
           removeAdminProvisioningKey: { handler: C.removeAdminProvisioningKey },
           createSSOConnectorConfig: { handler: m.createSSOConnectorConfig },
           generateSSOConnectorKey: { handler: g.generateSSOConnectorKey },
@@ -295,7 +277,7 @@
           getAdministrableUserGroup: { selector: n.administrableUserGroupSelector },
           getAdministrableUserGroups: { selector: n.administrableUserGroupsSelector },
           isGroupNameAvailable: { selector: n.isGroupNameAvailableSelector },
-          getAdminProvisioningKey: { selector: b.adminProvisioningKeySelector }
+          getAdminProvisioningKey: { selector: T.adminProvisioningKeySelector }
         },
         liveQueries: {
           liveAdministrableUserGroup: { operator: a.administrableUserGroup$ },
@@ -328,7 +310,7 @@
     },
     10002: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getAuditLogQueryResults = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(16593),
         o = r(46298);
       t.getAuditLogQueryResults = async function (e, t) {
@@ -349,9 +331,9 @@
             };
       };
     },
-    97323: (e, t, r) => {
+    50766: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.startAuditLogsQuery = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(16593),
         o = r(46298);
       t.startAuditLogsQuery = async function (e, t) {
@@ -580,7 +562,7 @@
                 return t;
               })
               .then(async function (e) {
-                if (!(await b(e, n))) {
+                if (!(await T(e, n))) {
                   const t = `[Directory Sync] in sync request ${e.content.id} for team ${n}: invalid signature.`;
                   c.default.log(t);
                   throw new A(t, e);
@@ -756,7 +738,7 @@
         const r = `<RSAKeyValue><Modulus>${e}</Modulus><Exponent>${t}</Exponent></RSAKeyValue>`;
         return y.encode(r);
       }
-      function T(e, t, r) {
+      function b(e, t, r) {
         return (
           e +
           t
@@ -800,12 +782,12 @@
           return (t = t.replace(/\./g, "$")), (t = t.replace(/@/g, "%")), (t = t.replace(/_/g, "'")), t;
         }
       }
-      async function b(e, t) {
+      async function T(e, t) {
         const {
             content: { signature: r, userGroups: n, publicKey: a }
           } = e,
           o = async (e) => {
-            const o = T(t, n, e),
+            const o = b(t, n, e),
               s = y.encode(o),
               c = (0, i.makeAsymmetricEncryption)();
             return await c.verifyJwk(a, r, s);
@@ -817,8 +799,8 @@
         (t.batchOperations = I),
         (t.chainOperations = h),
         (t.keyToXMLB64 = _),
-        (t.buildVerifiedSyncResponseData = T),
-        (t.isSignatureValid = b),
+        (t.buildVerifiedSyncResponseData = b),
+        (t.isSignatureValid = T),
         (t.keyRejectedByTacAdmin = function (e, t, r, n) {
           const a = e.getUserLogin(),
             o = (0, g.ukiSelector)(e.getState()),
@@ -938,7 +920,7 @@
         c = r(76404),
         u = r(5760),
         d = r(27218),
-        l = r(28354),
+        l = r(35088),
         p = r(70363),
         m = r(77672),
         g = async (e, t, r, o = {}, s) => {
@@ -1057,10 +1039,10 @@
               const I = { ...o, ...a },
                 h = { basicConfigs: [I] },
                 _ = await (0, i.getSpecialItemGroupKey)(p, r, n),
-                { itemKey: T } = y.find(({ itemId: e }) => e === f),
-                b = await p.symmetricEncryption.decryptAES256(_, T),
-                C = await p.symmetricEncryption.encryptAES256(b, btoa(JSON.stringify(h))),
-                P = await m.makeUpdateItemEvent(E, T, { itemId: f, itemContent: C }),
+                { itemKey: b } = y.find(({ itemId: e }) => e === f),
+                T = await p.symmetricEncryption.decryptAES256(_, b),
+                C = await p.symmetricEncryption.encryptAES256(T, btoa(JSON.stringify(h))),
+                P = await m.makeUpdateItemEvent(E, b, { itemId: f, itemContent: C }),
                 D = await m.updateItem(g, r.login, r.uki, P);
               if (!D.items.length) throw new Error("unable to update encryption service special item");
               const w = (0, c.currentTeamIdSelector)(s.getState());
@@ -1084,7 +1066,7 @@
     27218: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.registerTeamDeviceAccount = t.reregisterTeamDevice = t.generateDeviceKeyPair = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(81926),
         o = r(46298),
         s = r(97124),
@@ -1131,16 +1113,16 @@
           { revision: I } = await (0, g.loadSpecialUserGroup)(y, f.login, f.uki, E),
           h = await (0, u.getSpecialUserGroupKey)(v, f, E),
           _ = `${S.PUBLIC_KEY_HEADER}\n${n}\n${S.PUBLIC_KEY_FOOTER}`,
-          T = await v.asymmetricEncryption.encrypt(_, h),
-          b = `special-admin-${A}-${Math.floor(4294967296 * Math.random()).toString(16)}@teamdevice.dashlane.com`;
-        const C = await (0, i.generateProposeSignature)(v, h, b),
+          b = await v.asymmetricEncryption.encrypt(_, h),
+          T = `special-admin-${A}-${Math.floor(4294967296 * Math.random()).toString(16)}@teamdevice.dashlane.com`;
+        const C = await (0, i.generateProposeSignature)(v, h, T),
           P = await (0, m.createTeamDeviceAccount)(e, {
             teamDeviceAccessKey: r.deviceAccessKey,
             publicKey: n,
             proposeSignature: C,
             userGroupRevision: I,
-            groupKey: T,
-            teamDeviceLogin: b
+            groupKey: b,
+            teamDeviceLogin: T
           });
         return !1 === P.success
           ? { success: !1, error: { code: (0, o.getCode)(P.error.code, a.createTeamDeviceAccountErrors) } }
@@ -1191,7 +1173,7 @@
     44974: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getTeamDeviceEncryptedConfig = t.getParsedTeamDeviceEncryptedConfig = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(56668),
         o = r(46298),
         s = r(64910),
@@ -1267,10 +1249,10 @@
         E = r(34054),
         I = r(1334);
       t.updateTeamDeviceEncryptedConfig = async (e, t = {}, r) => {
-        const { storeService: h, teamDeviceEncryptedConfigEncryptorService: _, wsService: T } = e;
+        const { storeService: h, teamDeviceEncryptedConfigEncryptorService: _, wsService: b } = e;
         (0, v.requireAdmin)(h);
-        const b = (0, c.userLoginSelector)(h.getState());
-        if (!b) throw new Error("missing login");
+        const T = (0, c.userLoginSelector)(h.getState());
+        if (!T) throw new Error("missing login");
         const C = { ssoEnabled: !1, ssoIdpMetaData: "", ssoEndpoint: "" },
           P = await (0, I.getTeamInfo)(e);
         P.success &&
@@ -1293,7 +1275,7 @@
             }
           if (
             (
-              await (0, u.setTeamSettings)(h, T, (0, i.getCurrentUserInfo)(h), {
+              await (0, u.setTeamSettings)(h, b, (0, i.getCurrentUserInfo)(h), {
                 teamId: D,
                 settings: { ssoIdpMetadata: e || null, ssoIdpEntrypoint: O }
               })
@@ -1325,19 +1307,19 @@
           (F = await (0, f.getParsedTeamDeviceEncryptedConfig)(e, { encryptedConfig: t.config, configEncryptionKey: R })),
             (V = t.configurationVersion);
         }
-        const H = (0, s.makeSharingService)(h, T),
-          B = (0, d.currentTeamIdSelector)(h.getState()),
-          $ = (0, d.adminDataForTeamSelector)(h.getState(), B);
-        let x = $?.ssoConnectorKey?.ssoConnectorKey;
-        if (!x || t.ssoConnectorKey)
+        const H = (0, s.makeSharingService)(h, b),
+          x = (0, d.currentTeamIdSelector)(h.getState()),
+          B = (0, d.adminDataForTeamSelector)(h.getState(), x);
+        let $ = B?.ssoConnectorKey?.ssoConnectorKey;
+        if (!$ || t.ssoConnectorKey)
           try {
-            x && t.ssoConnectorKey && (await (0, y.removeTeamAdminItem)(e, "ssoConnectorKey"));
+            $ && t.ssoConnectorKey && (await (0, y.removeTeamAdminItem)(e, "ssoConnectorKey"));
             const r = t.ssoConnectorKey ?? (await (0, m.generateSSOConnectorKey)());
-            x = await (0, g.persistSSOConnectorKey)(e, H, r);
+            $ = await (0, g.persistSSOConnectorKey)(e, H, r);
           } catch (e) {
             return { success: !1, error: { code: n.UnknownError } };
           }
-        let W = $?.scimSignatureKey?.scimSignatureKey;
+        let W = B?.scimSignatureKey?.scimSignatureKey;
         if (!W) {
           const t = await (0, E.generateSCIMSignatureKey)();
           W = await (0, S.persistSCIMSignatureKey)(e, H, t);
@@ -1350,13 +1332,13 @@
             samlIdpCertificate: w ?? F?.samlIdpCertificate ?? ""
           },
           q = Boolean(t.ssoEnabled || F.connectorKey || C.ssoEnabled),
-          Q = { ...Y, teamDevicePrivateKey: G, teamDevicePublicKey: k, connectorKey: q ? x : "", scimSignatureKey: Y.scimEnabled ? W : "" },
+          Q = { ...Y, teamDevicePrivateKey: G, teamDevicePublicKey: k, connectorKey: q ? $ : "", scimSignatureKey: Y.scimEnabled ? W : "" },
           X = (0, A.generateTeamDeviceEncryptedConfig)(Q),
           z = (0, a.utf16ToDeflatedUtf8)(X, { skipUtf8Encoding: !0, skipDeflate: !0 }),
-          Z = (0, o.getNoDerivationCryptoConfig)();
-        _.setInstance({ raw: atob(R) }, "", Z);
-        const J = _.getInstance(),
-          ee = await J.encrypt(z),
+          J = (0, o.getNoDerivationCryptoConfig)();
+        _.setInstance({ raw: atob(R) }, "", J);
+        const Z = _.getInstance(),
+          ee = await Z.encrypt(z),
           te = {
             configurationVersion: V,
             deviceAccessKey: L,
@@ -1367,7 +1349,7 @@
             encryptedConfiguration: ee,
             teamDeviceUrl: t.teamDeviceUrl
           },
-          re = await (0, n.updateTeamDeviceEncryptedConfig)(h, b, te);
+          re = await (0, n.updateTeamDeviceEncryptedConfig)(h, T, te);
         return (0, n.isApiError)(re)
           ? { success: !1, error: { code: (0, n.getCode)(re.code, n.updateTeamDeviceEncryptedConfigErrors) } }
           : {
@@ -1409,7 +1391,7 @@
     },
     94453: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.clearSelfHostedESSettings = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(34376),
         s = r(89675),
@@ -1461,7 +1443,7 @@
     },
     62618: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.requireAdmin = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(27885);
       t.requireAdmin = (e) => {
         if (!(0, a.hasTACAccessInCurrentSpace)(e)) throw new Error(n.AuthenticationCode[n.AuthenticationCode.USER_UNAUTHORIZED]);
@@ -1489,7 +1471,7 @@
     },
     16382: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.changeInviteLinkTeamKey = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(62618),
         s = r(16593);
@@ -1515,7 +1497,7 @@
     },
     4658: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.createInviteLink = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(62618),
         s = r(16593);
@@ -1541,7 +1523,7 @@
     },
     7134: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getInviteLinkForAdmin = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(62618),
         s = r(16593);
@@ -1567,7 +1549,7 @@
     },
     64690: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getInviteLink = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298);
       t.getInviteLink = async function (e, t) {
         const { storeService: r } = e;
@@ -1583,7 +1565,7 @@
     },
     62218: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.requestInviteLinkToken = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298);
       t.requestInviteLinkToken = async function (e, t) {
         const { storeService: r } = e;
@@ -1599,7 +1581,7 @@
     },
     54419: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.toggleInviteLink = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(62618),
         s = r(16593);
@@ -1630,7 +1612,7 @@
     },
     76713: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.createSSOConnectorConfig = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(8995),
         o = r(23904),
         s = r(68538),
@@ -1665,7 +1647,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.generateSSOConnectorKey = void 0);
       const n = r(16038),
         a = r(69530),
-        o = r(28354);
+        o = r(35088);
       t.generateSSOConnectorKey = async function () {
         const e = await (0, a.generate64BytesKey)(),
           t = (0, n.bufferToBase64)(e);
@@ -1674,8 +1656,8 @@
     },
     68538: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.parseMetadataFieldsHandler = t.parseMetadataFields = t.SamlTags = void 0);
-      const n = r(53576),
-        a = r(44015),
+      const n = r(32626),
+        a = r(50616),
         o = r(61797);
       var s;
       !(function (e) {
@@ -2410,7 +2392,7 @@
     },
     76154: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getRecoveryCodesAsTeamCaptain = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(46298),
         o = r(74528),
         s = r(16593),
@@ -2713,9 +2695,9 @@
           I = await S.symmetricEncryption.generateNewAESKey(),
           h = await S.symmetricEncryption.encryptAES256(A, btoa(I)),
           _ = await S.symmetricEncryption.encryptAES256(I, btoa(JSON.stringify(r))),
-          T = await y.makeItemUpload(E, h, _),
-          b = await y.makeAddItemsEvent(f.groupId, f.revision, [T]),
-          C = await y.addItems(v, g.login, g.uki, b),
+          b = await y.makeItemUpload(E, h, _),
+          T = await y.makeAddItemsEvent(f.groupId, f.revision, [b]),
+          C = await y.addItems(v, g.login, g.uki, T),
           P = C?.items?.find(({ itemId: e }) => e === E);
         if (!P) throw new Error("unable to persist item");
         return (
@@ -2829,8 +2811,8 @@
           I = { teams: { [i]: E } },
           h = (0, n.teamAdminDataUpdated)(I),
           _ = e.dispatch(h),
-          T = t.getInstance();
-        return await T.storeTeamAdminData(_.teamAdminData), E;
+          b = t.getInstance();
+        return await b.storeTeamAdminData(_.teamAdminData), E;
       };
     },
     14432: (e, t, r) => {
@@ -2987,8 +2969,8 @@
           t.makeUserSessionService =
           t.ON_USER_SESSION_CLOSED =
             void 0);
-      const n = r(60765),
-        a = r(53576),
+      const n = r(93039),
+        a = r(32626),
         o = r(56668),
         s = r(58639),
         i = r(48313),
@@ -3008,8 +2990,8 @@
         I = r(70252),
         h = r(16356),
         _ = r(28445),
-        T = r(1370),
-        b = r(44197),
+        b = r(1370),
+        T = r(44197),
         C = r(33007),
         P = r(58217),
         D = r(59489),
@@ -3027,17 +3009,17 @@
         F = r(16593),
         V = r(34287),
         H = r(8481),
-        B = r(76901),
-        $ = r(12362),
-        x = r(86691),
+        x = r(76901),
+        B = r(12362),
+        $ = r(86691),
         W = r(40051),
         Y = r(72881),
         q = r(95303),
         Q = r(44999),
         X = r(16661),
         z = r(14651),
-        Z = r(46298),
-        J = r(61740),
+        J = r(46298),
+        Z = r(61740),
         ee = r(10824),
         te = r(35507),
         re = r(64910),
@@ -3061,8 +3043,8 @@
           (0, oe.setupEncryptorServices)(e),
           e.localStorageService.setInstance(t);
         const a = e.cryptoService || (0, A.makeCryptoService)(),
-          o = new B.LocalStorageEventStore(e.localStorageService);
-        (0, $.setInstance)(o), (0, x.setInstance)(o), (0, Q.setInstance)(e.storeService, e.localStorageService, e.wsService);
+          o = new x.LocalStorageEventStore(e.localStorageService);
+        (0, B.setInstance)(o), (0, $.setInstance)(o), (0, Q.setInstance)(e.storeService, e.localStorageService, e.wsService);
         let s = null;
         const c = () => {
           clearInterval(s);
@@ -3084,7 +3066,7 @@
           })(),
           {
             loadSessionData: () => _e(e.localStorageService, e.storeService),
-            loadNonResumableSessionData: () => Te(e.localStorageService, e.storeService),
+            loadNonResumableSessionData: () => be(e.localStorageService, e.storeService),
             accountExistsLocally: () =>
               (async function (e) {
                 const t = await (0, L.getLocalAccounts)(e.storeService, e.storageService),
@@ -3149,7 +3131,7 @@
                 if (n.userAnalyticsId && n.deviceAnalyticsId && a)
                   return Promise.resolve({ userAnalyticsId: n.userAnalyticsId, deviceAnalyticsId: n.deviceAnalyticsId, publicUserId: a });
                 return (0, z.accountInfo)(e, t).then((t) => {
-                  if ((0, Z.isApiError)(t) || "success" !== t.code) throw new Error("Unable to fetch updated account info");
+                  if ((0, J.isApiError)(t) || "success" !== t.code) throw new Error("Unable to fetch updated account info");
                   return (
                     e.dispatch((0, h.updateAnalyticsIds)(t.userAnalyticsId, t.deviceAnalyticsId)),
                     e.dispatch((0, h.updatePublicUserId)(t.publicUserId)),
@@ -3174,10 +3156,10 @@
       };
       const pe = async (e, t) => {
           const { storageService: r, storeService: n, eventBusService: a } = e;
-          n.isAuthenticated() && (t && (await (0, J.cleanRememberMeStorageData)(n, r)), a.sessionClosed({ login: null })),
+          n.isAuthenticated() && (t && (await (0, Z.cleanRememberMeStorageData)(n, r)), a.sessionClosed({ login: null })),
             (0, q.clearInstance)(),
-            (0, x.clearInstance)(),
             (0, $.clearInstance)(),
+            (0, B.clearInstance)(),
             (0, Q.clearInstance)();
           const { anonymousPartnerId: o, dashlaneServerDeltaTimestamp: s, appKeys: u, styxKeys: d } = n.getSdkAuthentication();
           n.dispatch((0, c.resetLoginStepInfo)()),
@@ -3335,10 +3317,10 @@
               .getInstance()
               .getTeamAdminData()
               .then((e) => {
-                u.Debugger.log(`teamAdminData loaded for ${t.getAccountInfo().login}`), t.dispatch((0, T.teamAdminDataUpdated)(e));
+                u.Debugger.log(`teamAdminData loaded for ${t.getAccountInfo().login}`), t.dispatch((0, b.teamAdminDataUpdated)(e));
               })
               .catch(he("loadTeamAdminDataPromise")),
-            b = e
+            T = e
               .getInstance()
               .getIcons()
               .then((e) => {
@@ -3369,10 +3351,10 @@
               })
               .catch(he("loadVaultReport"));
           return Promise.resolve().then(() => {
-            Promise.all([E, I, _, c, b, C, P]);
+            Promise.all([E, I, _, c, T, C, P]);
           });
         },
-        Te = async (e, t) => {
+        be = async (e, t) => {
           const r = (e) => (t) => {
               const r = `[Session] unable to ${e}. ErrorMessage: ${t}`;
               return u.Debugger.error(r), (0, I.sendExceptionLog)({ message: r });
@@ -3407,7 +3389,7 @@
               .getInstance()
               .getTeamAdminData()
               .then((e) => {
-                t.dispatch((0, T.teamAdminDataUpdated)(e));
+                t.dispatch((0, b.teamAdminDataUpdated)(e));
               })
               .catch(r("loadTeamAdminDataPromise")),
             c = e
@@ -3440,9 +3422,9 @@
           { missingLocally: a, missingRemotely: o } = (0, P.getMissingIdentifiers)(r, n, e.summary);
         return { transactionsToUpload: [...o], transactionsToDownload: [...a] };
       };
-      const be = async (e) => {
-        const t = (0, $.getInstance)(),
-          r = (0, x.getInstance)();
+      const Te = async (e) => {
+        const t = (0, B.getInstance)(),
+          r = (0, $.getInstance)();
         let n = null;
         try {
           const { storeService: u, applicationModulesAccess: l } = e,
@@ -3489,7 +3471,7 @@
           const { announce: t, personalData: r } = e;
           try {
             t(w.announcements.chronologicalSyncStarted(r));
-            const n = await be(e);
+            const n = await Te(e);
             return t(w.announcements.chronologicalSyncFinished(n.summary, n.fullBackupFileSize)), n;
           } catch (e) {
             throw (t(w.announcements.chronologicalSyncFailed(e)), e);
@@ -3504,7 +3486,7 @@
           if ((a(w.announcements.treatProblemDiffComputed(i, c)), i <= 0 && c <= 0)) return a(w.announcements.treatProblemFinished()), n;
           try {
             c > 0 && e.dispatch((0, d.storeChangesToUpload)(s));
-            const t = await be({ ...Ee(e, r.dataEncryptorService, r.ws, a), transactionIds: o }),
+            const t = await Te({ ...Ee(e, r.dataEncryptorService, r.ws, a), transactionIds: o }),
               i = { ...t, clearTransactions: [...t.clearTransactions, ...n.clearTransactions] };
             return a(w.announcements.treatProblemFinished()), i;
           } catch (e) {
@@ -3550,7 +3532,7 @@
             c = await (async (e, t, r, n) => {
               try {
                 r(w.announcements.teamAdminDataSyncStarted());
-                const a = await (0, b.syncUserGroupManagement)(e, t, n);
+                const a = await (0, T.syncUserGroupManagement)(e, t, n);
                 return r(w.announcements.teamAdminDataSyncFinished()), a;
               } catch (e) {
                 throw (r(w.announcements.teamAdminDataSyncFailed(e)), e);
@@ -3599,9 +3581,9 @@
         const E = (0, F.isRemoteKeyActivatedSelector)(v) ? p : l,
           h = (0, M.setupProbe)((0, O.makeEventLoggerSyncMonitor)(y).monitor, (0, U.makeDiagnosticReportMonitor)()),
           _ = { ...Ee(m, E, g, h, o), applicationModulesAccess: i },
-          { syncType: T } = _;
+          { syncType: b } = _;
         try {
-          h(w.announcements.syncStarted(o, T)), s.triggerSessionSyncStatus({ status: "syncing" }), m.dispatch((0, S.syncStarted)());
+          h(w.announcements.syncStarted(o, b)), s.triggerSessionSyncStatus({ status: "syncing" }), m.dispatch((0, S.syncStarted)());
           const e = await (0, t.storeSync)(m, _);
           return (
             await (0, t.treatKeysResult)(E, m, r, g, h, e),
@@ -3668,7 +3650,7 @@
               (s.syncType = m.SyncType.FULL_SYNC),
               (s.pushKeysToServer = { private: o.encryptedPrivateKey, public: o.keys.publicKey }),
               u.Debugger.log("SYNC RSA Keys - BEGIN"),
-              await be(s),
+              await Te(s),
               u.Debugger.log("SYNC RSA Keys - END"),
               r.dispatch((0, h.updateKeyPair)({ privateKey: o.keys.privateKey, publicKey: o.keys.publicKey }));
           }
@@ -3794,7 +3776,7 @@
     },
     83060: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.setupSubscriptions = void 0);
-      const n = r(60765),
+      const n = r(93039),
         a = r(18216),
         o = r(82262),
         s = r(95551);
@@ -3809,9 +3791,9 @@
     },
     98260: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.SyncTaskTracker = void 0);
-      const n = r(93699),
+      const n = r(50400),
         a = r(61475),
-        o = r(60765);
+        o = r(93039);
       t.SyncTaskTracker = class {
         constructor(e) {
           (this.taskTrackingId = null), (this.taskTrackingClient = null), (this.applicationModulesAccess = e);
@@ -3951,7 +3933,7 @@
     },
     75004: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.createTrialExpiredUserMessage = t.isTrialExpired = void 0);
-      const n = r(53576);
+      const n = r(32626);
       (t.isTrialExpired = function ({ premiumStatus: e, currentDate: t = Date.now() }) {
         switch (e?.statusCode) {
           case n.PremiumStatusCode.PREMIUM:
@@ -4006,7 +3988,7 @@
     },
     86903: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.sendUserSettingsLog = void 0);
-      const n = r(60765),
+      const n = r(93039),
         a = r(66102),
         o = r(21614);
       t.sendUserSettingsLog = async (e) => {
@@ -4048,7 +4030,7 @@
     },
     78320: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.generateItemUuid = void 0);
-      const n = r(28354);
+      const n = r(35088);
       t.generateItemUuid = function () {
         return `{${(0, n.v4)().toUpperCase()}}`;
       };
@@ -4203,7 +4185,7 @@
     },
     2749: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeVpnLogger = void 0);
-      const n = r(60765),
+      const n = r(93039),
         a = r(66102),
         o = r(29301),
         s = {
@@ -4310,7 +4292,7 @@
     },
     24827: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.VPNReducers = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(42238);
       t.VPNReducers = (e, t) => {
         switch (t.type) {
@@ -4332,7 +4314,7 @@
     8522: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.vpnCapabilitySettingSelector = t.getVpnCapabilitySetting = t.vpnAccountStatusSelector = t.vpnCredentialSelector = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(51319),
         o = r(32034),
         s = r(16593),
@@ -4385,7 +4367,7 @@
     17842: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CreateVpnService = void 0);
       const n = r(88544),
-        a = r(53576),
+        a = r(32626),
         o = r(9763),
         s = r(88779),
         i = r(92263),
@@ -4469,7 +4451,7 @@
     },
     46866: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.mockCarbon = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(18948),
         o = r(45619),
         s = r(46937),
@@ -4515,7 +4497,7 @@
     },
     18955: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.LEGACY_LEELOO_SLOTS_TO_IGNORE = void 0);
-      const n = r(53576),
+      const n = r(32626),
         a = r(61475),
         o = r(45619),
         s = r(46937);
@@ -4565,7 +4547,7 @@
         };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.LEGACY_LEELOO_SLOTS_ALL = t.CarbonLegacyInfrastructure = void 0);
       const a = r(18948),
-        o = r(53576),
+        o = r(32626),
         s = r(64827);
       let i = class {
         constructor() {
@@ -4669,7 +4651,7 @@
           return o > 3 && s && Object.defineProperty(t, r, s), s;
         };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonLegacyModule = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(64827),
         s = r(92910),
         i = r(76559),
@@ -4750,7 +4732,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.createHandlersConfigForConnectorCommands = t.CarbonApiCommandsHandler = void 0);
       const o = r(18948),
-        s = r(53576),
+        s = r(32626),
         i = r(61475),
         c = r(64827),
         u = r(46937);
@@ -4793,7 +4775,7 @@
         s = r(71796),
         i = r(61475),
         c = r(64827),
-        u = r(53576),
+        u = r(32626),
         d = r(46937);
       let l = class {
         constructor(e) {
@@ -4852,7 +4834,7 @@
             if ("object" == typeof Reflect && "function" == typeof Reflect.metadata) return Reflect.metadata(e, t);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonCommandHandler = void 0);
-      const o = r(53576),
+      const o = r(32626),
         s = r(64827),
         i = r(46937),
         c = r(61657),
@@ -4894,7 +4876,7 @@
             if ("object" == typeof Reflect && "function" == typeof Reflect.metadata) return Reflect.metadata(e, t);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonLegacyLeelooCommandHandler = void 0);
-      const o = r(53576),
+      const o = r(32626),
         s = r(64827),
         i = r(46937),
         c = r(61657),
@@ -4933,7 +4915,7 @@
             if ("object" == typeof Reflect && "function" == typeof Reflect.metadata) return Reflect.metadata(e, t);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonGetStateQueryHandler = void 0);
-      const o = r(53576),
+      const o = r(32626),
         s = r(64827),
         i = r(61475),
         c = r(18948),
@@ -4972,7 +4954,7 @@
             if ("object" == typeof Reflect && "function" == typeof Reflect.metadata) return Reflect.metadata(e, t);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonStateListQueryHandler = void 0);
-      const o = r(53576),
+      const o = r(32626),
         s = r(64827),
         i = r(61475),
         c = r(18948),
@@ -5007,7 +4989,7 @@
             if ("object" == typeof Reflect && "function" == typeof Reflect.metadata) return Reflect.metadata(e, t);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.DeleteGrapheneUserDataCommandHandler = void 0);
-      const o = r(53576),
+      const o = r(32626),
         s = r(64827),
         i = r(61475),
         c = r(61657);
@@ -5127,7 +5109,7 @@
     },
     78955: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getLogin = t.defaultTestAccountOptions = void 0);
-      const n = r(28354),
+      const n = r(35088),
         a = r(55995);
       (t.defaultTestAccountOptions = {
         abTests: {},
@@ -5288,11 +5270,11 @@
           t.getCredentials =
           t.saveCredential =
             void 0);
-      const n = r(28354),
-        a = r(53576),
+      const n = r(35088),
+        a = r(32626),
         o = r(46298),
         s = r(77074),
-        i = r(31197),
+        i = r(75714),
         c = r(72579),
         u = r(76506),
         d = r(70420);
@@ -5404,14 +5386,7 @@
             for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.DashlaneAPISchemesNames =
-          t.HttpErrorCode =
-          t.init =
-          t.ApplicationBuildType =
-          t.CarbonStorage =
-          t.decipherDatabaseRules =
-          t.interfaces =
-            void 0),
+        (t.DashlaneAPISchemesNames = t.HttpErrorCode = t.init = t.CarbonStorage = t.decipherDatabaseRules = t.interfaces = void 0),
         (t.interfaces = r(92231));
       var o = r(5851);
       Object.defineProperty(t, "decipherDatabaseRules", {
@@ -5428,47 +5403,38 @@
           return s.CarbonLocalStorage;
         }
       });
-      var i = r(59600);
-      Object.defineProperty(t, "ApplicationBuildType", {
-        enumerable: !0,
-        get: function () {
-          return i.ApplicationBuildType;
-        }
-      });
-      var c = r(9265);
+      var i = r(9265);
       Object.defineProperty(t, "init", {
         enumerable: !0,
         get: function () {
-          return c.init;
+          return i.init;
         }
       });
-      var u = r(14656);
+      var c = r(14656);
       Object.defineProperty(t, "HttpErrorCode", {
         enumerable: !0,
         get: function () {
-          return u.HttpErrorCode;
+          return c.HttpErrorCode;
         }
       });
-      var d = r(48749);
+      var u = r(48749);
       Object.defineProperty(t, "DashlaneAPISchemesNames", {
         enumerable: !0,
         get: function () {
-          return d.DashlaneAPISchemesNames;
+          return u.DashlaneAPISchemesNames;
         }
       }),
         a(r(71439), t);
     },
     9265: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.init = void 0);
-      const n = r(48749),
-        a = r(95623),
-        o = r(17338),
-        s = r(74318);
+      const n = r(95623),
+        a = r(17338),
+        o = r(74318);
       t.init = async function (e) {
-        e.config && (0, n.setConfig)(e.config);
-        const t = await (0, s.initCarbon)(e),
-          r = (0, o.getCoreServices)(t);
-        return (0, a.logInfo)({ message: "init carbon done" }), r;
+        const t = await (0, o.initCarbon)(e),
+          r = (0, a.getCoreServices)(t);
+        return (0, n.logInfo)({ message: "init carbon done" }), r;
       };
     },
     95343: (e, t, r) => {
@@ -5484,7 +5450,7 @@
           t.makeSpaceData =
           t.makePremiumStatusSpace =
             void 0);
-      const n = r(53576);
+      const n = r(32626);
       function a(e) {
         return {
           associatedEmail: "kw_test_a13e5r4er357er@mailinator.com",
@@ -5505,7 +5471,7 @@
           teamAdmins: [{ login: "kw_test_a13e5r4er357er@mailinator.com" }],
           teamId: "123456",
           teamName: "KWTEAM",
-          tier: n.SpaceTier.Legacy,
+          tier: n.SpaceTiers.Legacy,
           shouldDelete: !1,
           ...e
         };
@@ -5532,7 +5498,7 @@
             teamAdmins: [{ login: "kw_test_a13e5r4er357er@mailinator.com" }],
             teamId: "123456",
             teamName: "KWTEAM",
-            tier: n.SpaceTier.Legacy,
+            tier: n.SpaceTiers.Legacy,
             shouldDelete: !1
           },
           ...e

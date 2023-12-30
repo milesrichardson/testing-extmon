@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplikacije"
+  },
+  "EndOfSupportHeader": {
+    "message": "Prestanak podrške za proširenje za Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Počev od 15. januara 2024. Microsoft više neće podržavati ovo proširenje."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Za više informacija posetite stranicu podrške za ovo proširenje."
+  },
+  "Support": {
+    "message": "Podrška"
   }
 }

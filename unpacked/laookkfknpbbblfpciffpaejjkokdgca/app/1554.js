@@ -82,7 +82,7 @@
       var i = D(94234),
         T = D(13990),
         u = D(61250);
-      const z = () => D.e(6878).then(D.bind(D, 76878)),
+      const z = () => D.e(7490).then(D.bind(D, 97490)),
         y = new (e.Z.extend({
           mixins: [i.FZ, i.cl, i.TF, i.Ox, i.mX, (0, u.Z)(() => ({ is_paid_event: !0 }))],
           unreactive() {

@@ -1,6 +1,6 @@
 #
 #    AdGuard Scriptlets (Redirects Source)
-#    Version 1.9.83
+#    Version 1.9.101
 #
 - title: 1x1-transparent.gif
   added: v1.0.4
@@ -124,6 +124,8 @@
     ```adblock
     ||example.org/geo/location$xmlhttprequest,redirect=noopjson
     ```
+  aliases:
+    - noop.json
   file: noopjson.json
   contentType: application/json
   content: "{}"
@@ -2498,6 +2500,7 @@
                 setCookieOptions: noopThis,
                 setForceSafeFrame: noopThis,
                 setLocation: noopThis,
+                setPrivacySettings: noopThis,
                 setPublisherProvidedId: noopThis,
                 setRequestNonPersonalizedAds: noopThis,
                 setSafeFrameConfig: noopThis,

@@ -232,9 +232,6 @@
   "editContact": {
     "message": "Uredi kontakt"
   },
-  "ensNotFoundOnCurrentNetwork": {
-    "message": "Naziv ENS nije pronađen na trenutačnoj mreži. Pokušajte prebaciti na glavnu mrežu Ethereum."
-  },
   "ensRegistrationError": {
     "message": "Greška u registraciji naziva ENS"
   },
@@ -772,12 +769,6 @@
   },
   "unknown": {
     "message": "Nepoznato"
-  },
-  "unknownCameraError": {
-    "message": "Došlo je do greške prilikom pokušaja pristupanja vašoj kameri. Pokušajte ponovno..."
-  },
-  "unknownCameraErrorTitle": {
-    "message": "Ups! Nešto je pošlo po zlu..."
   },
   "unknownNetwork": {
     "message": "Nepoznata privatna mreža"

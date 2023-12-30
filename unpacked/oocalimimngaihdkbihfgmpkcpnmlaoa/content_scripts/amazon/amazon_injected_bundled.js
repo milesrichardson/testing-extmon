@@ -39,11 +39,7 @@
         //So I've decided to use the returnedTitleRendition.asin as a fallback since it works perfectly for the purposes of a videoID.
         //My recommendation is that we use the returnedTitleRendition.asin as it is unique to each episoe and will take us to the right destination 10/10 times
         //const titlePath = elementRoot[key].return.return.stateNode.context.stores.adPlayback.player.ui.xrayController.controller.metricsFeature.mediaEventController.acquisitionMediaEventController.titleId
-        const titlePath =
-          elementRoot[key].return.return.stateNode.context.stores.adPlayback.player.ui.xrayController.controller.metricsFeature
-            .mediaEventController.acquisitionMediaEventController.mpPlayer.primaryContentMpPlayer.contentSource.mediaRepresentation
-            .dashMediaRepresentationContext.sourceUrlStore.activePlaybackConsumptionIdTracker.titleView.currentItem.catalogMetadata.catalog
-            .id;
+        const titlePath = elementRoot[key].return.return.stateNode.context.stores.pin.currentTitleId;
         if (key == null || typeof elementRoot[key] === "undefined" || typeof titlePath === "undefined") {
           return null;
         }

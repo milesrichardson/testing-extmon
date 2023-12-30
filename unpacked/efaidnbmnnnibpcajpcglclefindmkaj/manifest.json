@@ -6,7 +6,7 @@
     "managed_schema": "schema.json"
   },
   "description": "__MSG_web2pdfExtnDescriptionChrome__",
-  "version": "23.11.1.0",
+  "version": "23.12.1.0",
   "options_page": "browser/js/options.html",
   "default_locale": "en",
   "permissions": [
@@ -53,6 +53,11 @@
     {
       "matches": ["file://*/*", "http://*/*", "https://*/*"],
       "js": ["content_scripts/ch-content-script-dend.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://drive.google.com/*"],
+      "js": ["content_scripts/gsuite-content-script.js"],
       "run_at": "document_end"
     }
   ],

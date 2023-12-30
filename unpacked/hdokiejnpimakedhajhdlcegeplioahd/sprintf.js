@@ -1,6 +1,5 @@
-var lp_global_sprintf;
-!(function (e) {
-  var g = {
+(function (window) {
+  var re = {
     not_string: /[^s]/,
     number: /[dief]/,
     text: /^[^\x25]+/,
@@ -11,109 +10,195 @@ var lp_global_sprintf;
     index_access: /^\[(\d+)\]/,
     sign: /^[\+\-]/
   };
-  function x() {
-    var e = arguments[0],
-      n = x.cache;
-    return (n[e] && n.hasOwnProperty(e)) || (n[e] = x.parse(e)), x.format.call(null, n[e], arguments);
+
+  function sprintf() {
+    var key = arguments[0],
+      cache = sprintf.cache;
+    if (!(cache[key] && cache.hasOwnProperty(key))) {
+      cache[key] = sprintf.parse(key);
+    }
+    return sprintf.format.call(null, cache[key], arguments);
   }
-  (x.format = function (e, n) {
-    for (var t = 1, r = e.length, i = "", o, s = [], a, f, l, p, c, p, u = !0, d = "", a = 0; a < r; a++)
-      if ("string" === (i = _(e[a]))) s[s.length] = e[a];
-      else if ("array" === i) {
-        if ((l = e[a])[2])
-          for (o = n[t], f = 0; f < l[2].length; f++) {
-            if (!o.hasOwnProperty(l[2][f])) throw new Error(x("[sprintf] property '%s' does not exist", l[2][f]));
-            o = o[l[2][f]];
+
+  sprintf.format = function (parse_tree, argv) {
+    var cursor = 1,
+      tree_length = parse_tree.length,
+      node_type = "",
+      arg,
+      output = [],
+      i,
+      k,
+      match,
+      pad,
+      pad_character,
+      pad_length,
+      is_positive = true,
+      sign = "";
+    for (i = 0; i < tree_length; i++) {
+      node_type = get_type(parse_tree[i]);
+      if (node_type === "string") {
+        output[output.length] = parse_tree[i];
+      } else if (node_type === "array") {
+        match = parse_tree[i]; // convenience purposes only
+        if (match[2]) {
+          // keyword argument
+          arg = argv[cursor];
+          for (k = 0; k < match[2].length; k++) {
+            if (!arg.hasOwnProperty(match[2][k])) {
+              throw new Error(sprintf("[sprintf] property '%s' does not exist", match[2][k]));
+            }
+            arg = arg[match[2][k]];
           }
-        else o = l[1] ? n[l[1]] : n[t++];
-        if (("function" == _(o) && (o = o()), g.not_string.test(l[8]) && "number" != _(o) && isNaN(o)))
-          throw new TypeError(x("[sprintf] expecting number but found %s", _(o)));
-        switch ((g.number.test(l[8]) && (u = 0 <= o), l[8])) {
+        } else if (match[1]) {
+          // positional argument (explicit)
+          arg = argv[match[1]];
+        } else {
+          // positional argument (implicit)
+          arg = argv[cursor++];
+        }
+
+        if (get_type(arg) == "function") {
+          arg = arg();
+        }
+
+        if (re.not_string.test(match[8]) && get_type(arg) != "number" && isNaN(arg)) {
+          throw new TypeError(sprintf("[sprintf] expecting number but found %s", get_type(arg)));
+        }
+
+        if (re.number.test(match[8])) {
+          is_positive = arg >= 0;
+        }
+
+        switch (match[8]) {
           case "b":
-            o = o.toString(2);
+            arg = arg.toString(2);
             break;
           case "c":
-            o = String.fromCharCode(o);
+            arg = String.fromCharCode(arg);
             break;
           case "d":
           case "i":
-            o = parseInt(o, 10);
+            arg = parseInt(arg, 10);
             break;
           case "e":
-            o = l[7] ? o.toExponential(l[7]) : o.toExponential();
+            arg = match[7] ? arg.toExponential(match[7]) : arg.toExponential();
             break;
           case "f":
-            o = l[7] ? parseFloat(o).toFixed(l[7]) : parseFloat(o);
+            arg = match[7] ? parseFloat(arg).toFixed(match[7]) : parseFloat(arg);
             break;
           case "o":
-            o = o.toString(8);
+            arg = arg.toString(8);
             break;
           case "s":
-            o = (o = String(o)) && l[7] ? o.substring(0, l[7]) : o;
+            arg = (arg = String(arg)) && match[7] ? arg.substring(0, match[7]) : arg;
             break;
           case "u":
-            o >>>= 0;
+            arg = arg >>> 0;
             break;
           case "x":
-            o = o.toString(16);
+            arg = arg.toString(16);
             break;
           case "X":
-            o = o.toString(16).toUpperCase();
+            arg = arg.toString(16).toUpperCase();
+            break;
         }
-        !g.number.test(l[8]) || (u && !l[3]) ? (d = "") : ((d = u ? "+" : "-"), (o = o.toString().replace(g.sign, ""))),
-          (c = l[4] ? ("0" === l[4] ? "0" : l[4].charAt(1)) : " "),
-          (p = l[6] - (d + o).length),
-          (p = l[6] && 0 < p ? h(c, p) : ""),
-          (s[s.length] = l[5] ? d + o + p : "0" === c ? d + p + o : p + d + o);
-      }
-    return s.join("");
-  }),
-    (x.cache = {}),
-    (x.parse = function (e) {
-      for (var n = e, t = [], r = [], i = 0; n; ) {
-        if (null !== (t = g.text.exec(n))) r[r.length] = t[0];
-        else if (null !== (t = g.modulo.exec(n))) r[r.length] = "%";
-        else {
-          if (null === (t = g.placeholder.exec(n))) throw new SyntaxError("[sprintf] unexpected placeholder");
-          if (t[2]) {
-            i |= 1;
-            var o = [],
-              s = t[2],
-              a = [];
-            if (null === (a = g.key.exec(s))) throw new SyntaxError("[sprintf] failed to parse named argument key");
-            for (o[o.length] = a[1]; "" !== (s = s.substring(a[0].length)); ) {
-              if (null === (a = g.key_access.exec(s)) && null === (a = g.index_access.exec(s)))
-                throw new SyntaxError("[sprintf] failed to parse named argument key");
-              o[o.length] = a[1];
-            }
-            t[2] = o;
-          } else i |= 2;
-          if (3 === i) throw new Error("[sprintf] mixing positional and named placeholders is not (yet) supported");
-          r[r.length] = t;
+        if (re.number.test(match[8]) && (!is_positive || match[3])) {
+          sign = is_positive ? "+" : "-";
+          arg = arg.toString().replace(re.sign, "");
+        } else {
+          sign = "";
         }
-        n = n.substring(t[0].length);
+        pad_character = match[4] ? (match[4] === "0" ? "0" : match[4].charAt(1)) : " ";
+        pad_length = match[6] - (sign + arg).length;
+        pad = match[6] ? (pad_length > 0 ? str_repeat(pad_character, pad_length) : "") : "";
+        output[output.length] = match[5] ? sign + arg + pad : pad_character === "0" ? sign + pad + arg : pad + sign + arg;
       }
-      return r;
-    });
-  var n = function (e, n, t) {
-    return (t = (n || []).slice(0)).splice(0, 0, e), x.apply(null, t);
+    }
+    return output.join("");
   };
-  function _(e) {
-    return Object.prototype.toString.call(e).slice(8, -1).toLowerCase();
+
+  sprintf.cache = {};
+
+  sprintf.parse = function (fmt) {
+    var _fmt = fmt,
+      match = [],
+      parse_tree = [],
+      arg_names = 0;
+    while (_fmt) {
+      if ((match = re.text.exec(_fmt)) !== null) {
+        parse_tree[parse_tree.length] = match[0];
+      } else if ((match = re.modulo.exec(_fmt)) !== null) {
+        parse_tree[parse_tree.length] = "%";
+      } else if ((match = re.placeholder.exec(_fmt)) !== null) {
+        if (match[2]) {
+          arg_names |= 1;
+          var field_list = [],
+            replacement_field = match[2],
+            field_match = [];
+          if ((field_match = re.key.exec(replacement_field)) !== null) {
+            field_list[field_list.length] = field_match[1];
+            while ((replacement_field = replacement_field.substring(field_match[0].length)) !== "") {
+              if ((field_match = re.key_access.exec(replacement_field)) !== null) {
+                field_list[field_list.length] = field_match[1];
+              } else if ((field_match = re.index_access.exec(replacement_field)) !== null) {
+                field_list[field_list.length] = field_match[1];
+              } else {
+                throw new SyntaxError("[sprintf] failed to parse named argument key");
+              }
+            }
+          } else {
+            throw new SyntaxError("[sprintf] failed to parse named argument key");
+          }
+          match[2] = field_list;
+        } else {
+          arg_names |= 2;
+        }
+        if (arg_names === 3) {
+          throw new Error("[sprintf] mixing positional and named placeholders is not (yet) supported");
+        }
+        parse_tree[parse_tree.length] = match;
+      } else {
+        throw new SyntaxError("[sprintf] unexpected placeholder");
+      }
+      _fmt = _fmt.substring(match[0].length);
+    }
+    return parse_tree;
+  };
+
+  var vsprintf = function (fmt, argv, _argv) {
+    _argv = (argv || []).slice(0);
+    _argv.splice(0, 0, fmt);
+    return sprintf.apply(null, _argv);
+  };
+
+  /**
+   * helpers
+   */
+  function get_type(variable) {
+    return Object.prototype.toString.call(variable).slice(8, -1).toLowerCase();
   }
-  function h(e, n) {
-    return Array(n + 1).join(e);
+
+  function str_repeat(input, multiplier) {
+    return Array(multiplier + 1).join(input);
   }
-  "undefined" != typeof g_isie && g_isie
-    ? (init_LPfn(), "undefined" != typeof LPfn && ((LPfn.sprintf = x), (LPfn.vsprintf = n)))
-    : ((e.sprintf = x),
-      (e.vsprintf = n),
-      "function" == typeof define &&
-        define.amd &&
-        define(function () {
-          return { sprintf: x, vsprintf: n };
-        })),
-    ("undefined" != typeof LP || ("undefined" != typeof is_firefox_webext && is_firefox_webext())) && (lp_global_sprintf = x),
-    "undefined" != typeof g_isie && g_isie && (lp_global_sprintf = x);
-})("undefined" == typeof window ? this : window),
-  "undefined" != typeof is_firefox_webext && is_firefox_webext() && (sprintf = lp_global_sprintf);
+
+  /**
+   * export to either browser or node.js
+   */
+  if (typeof exports !== "undefined") {
+    exports.sprintf = sprintf;
+    exports.vsprintf = vsprintf;
+  } else {
+    window.sprintf = sprintf;
+    window.vsprintf = vsprintf;
+
+    if (typeof define === "function" && define.amd) {
+      define(function () {
+        return {
+          sprintf: sprintf,
+          vsprintf: vsprintf
+        };
+      });
+    }
+  }
+})(typeof window === "undefined" ? this : window);

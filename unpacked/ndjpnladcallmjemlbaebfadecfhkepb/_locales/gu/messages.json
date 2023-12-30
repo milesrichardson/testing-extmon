@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "એપ્લિકેશન્સ"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 એક્સ્ટેંશન સમર્થનની સમાપ્તિ"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "જાન્યુઆરી 15, 2024થી, આ એક્સ્ટેંશન હવે Microsoft દ્વારા સમર્થિત રહેશે નહીં."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "વધુ માહિતી માટે, કૃપયા આ એક્સ્ટેંશન માટેના સમર્થન પેજની મુલાકાત લો."
+  },
+  "Support": {
+    "message": "સમર્થન"
   }
 }

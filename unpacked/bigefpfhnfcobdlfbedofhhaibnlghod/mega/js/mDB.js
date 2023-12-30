@@ -1340,7 +1340,7 @@ FMDB.prototype.getbykey = async function fmdb_getbykey(table, index, anyof, wher
     index = t.schema.primKey.keyPath;
   }
 
-  if (table === "f" && index === "h" && fminitialized && mega.infinity) {
+  if (table === "f" && index === "h" && mega.infinity) {
     p = [];
 
     if (anyof && (anyof[0] === "p" || anyof[0] === "h")) {
@@ -2047,6 +2047,16 @@ FMDB.prototype.invalidate = promisify(function (resolve, reject, readop) {
   // prevent further reads or writes
   this.crashed = readop ? 2 : 1;
 
+  // timeout invalidation process if it does not complete in a timely manner...
+  let timer;
+  (timer = tSleep(9))
+    .then(() => {
+      this.logger.error("FMDB invalidation timed out, moving on...");
+      tryCatch(() => this.inval_cb())();
+      return tSleep(2).then(resolve);
+    })
+    .catch(dump);
+
   // set completion callback
   this.inval_cb = function () {
     // XXX: Just invalidating the DB may causes a timeout trying to open it on the next page load, since we
@@ -2064,6 +2074,11 @@ FMDB.prototype.invalidate = promisify(function (resolve, reject, readop) {
 
     if (d) {
       console.groupEnd();
+    }
+
+    if (timer) {
+      timer.abort();
+      timer = null;
     }
   };
 });

@@ -5,10 +5,10 @@
     99437: (e, t, n) => {
       n.d(t, { Z: () => k });
       var a = n(20144),
-        i = n(88026),
-        l = n(51726),
-        o = n.n(l),
-        d = n(34952),
+        o = n(88026),
+        i = n(51726),
+        l = n.n(i),
+        d = n(55482),
         s = n(7838),
         c = n(35174);
       let u = {};
@@ -31,12 +31,12 @@
             delete e.dataset.justBoundMobileClickHandler);
         }
       };
-      var b = n(28692),
+      var b = n(63420),
         p = n(64398),
         v = n(77197);
-      a.ZP.use(i.Z, { name: "unreactive" }),
-        a.ZP.use(o()),
-        a.ZP.use(d.InlineSvgPlugin),
+      a.ZP.use(o.Z, { name: "unreactive" }),
+        a.ZP.use(l()),
+        a.ZP.use(d.qK),
         a.ZP.use(b.og),
         a.ZP.use(v.Z),
         (a.ZP.prototype.$xhr = c.Z),
@@ -66,44 +66,45 @@
     37734: (e, t, n) => {
       n.r(t);
       var a = n(99437),
-        i = n(4239);
-      const l = () =>
+        o = n(4239);
+      const i = () =>
         Promise.all([
           n.e(8725),
           n.e(5757),
           n.e(3246),
           n.e(3064),
-          n.e(3370),
+          n.e(1886),
           n.e(7651),
-          n.e(2622),
-          n.e(7769),
-          n.e(3554),
-          n.e(2363),
-          n.e(6285),
-          n.e(5065)
-        ]).then(n.bind(n, 29523));
+          n.e(3608),
+          n.e(5852),
+          n.e(9965),
+          n.e(7695),
+          n.e(9150),
+          n.e(7119)
+        ]).then(n.bind(n, 810));
       localStorage.getItem("dev-panel:open") ? s() : m.once("globalEvent:ctrlShiftBacktick", s);
-      const o = localStorage.getObject("devPanel:pinnedStep");
-      o &&
+      const l = localStorage.getObject("devPanel:pinnedStep");
+      l &&
         m.utils
           .loadModuleDefault(() => Promise.all([n.e(3064), n.e(7651), n.e(5774)]).then(n.bind(n, 55774)))
           .then((e) => {
-            e.setPinnedStepActiveOnDashLoad(o);
+            e.setPinnedStepActiveOnDashLoad(l);
           });
-      const d = localStorage.getObject(i.Z);
+      const d = localStorage.getObject(o.Z);
       function s() {
-        m.utils.loadModuleDefault(l).then((e) => {
-          let t = document.createElement("div");
-          t.setAttribute("id", "dev-panel"), document.body.prepend(t), new a.Z({ render: (t) => t(e) }).$mount("#dev-panel");
+        m.utils.loadModuleDefault(i).then((e) => {
+          const t = "dev-panel";
+          let n = document.createElement("div");
+          n.setAttribute("id", t), document.body.prepend(n), new a.Z({ render: (t) => t(e) }).$mount("#" + t);
         });
       }
       d &&
-        Promise.all([n.e(8725), n.e(5757), n.e(3370), n.e(2622), n.e(5508)])
+        Promise.all([n.e(8725), n.e(5757), n.e(1886), n.e(3608), n.e(5508)])
           .then(n.bind(n, 30158))
           .then((e) => {
             const t = e.useDevAppsStore(),
-              { appId: n, viewId: a, itemId: i } = d;
-            t.openView(n, a, i);
+              { appId: n, viewId: a, itemId: o } = d;
+            t.openView(n, a, o);
           });
     },
     4239: (e, t, n) => {

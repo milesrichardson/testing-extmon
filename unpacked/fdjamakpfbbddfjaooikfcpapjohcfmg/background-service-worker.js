@@ -10,9 +10,8 @@ importScripts(
   "background-f04f9f25.js",
   "background-605be8c8.js",
   "background-ec3394f2.js",
-  "background-45815746.js",
-  "background-5d3f7ed2.js",
-  "background-4df8b5fc.js",
+  "background-9a8b795a.js",
+  "background-43dd7041.js",
   "background-182f79bf.js",
   "background-e475f0a7.js"
 );

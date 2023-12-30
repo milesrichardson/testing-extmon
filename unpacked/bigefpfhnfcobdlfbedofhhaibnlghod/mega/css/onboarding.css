@@ -205,6 +205,7 @@
   position: absolute;
   right: 15px;
   top: 15px;
+  z-index: 2;
 }
 .rtl .onboarding-control-panel .mega-button.close {
   left: 15px;

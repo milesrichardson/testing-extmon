@@ -102,7 +102,7 @@ var l = {
 };
 l = {
   v: ["BC", "AD"],
-  u: ["before Christ", "Anno Domini"],
+  u: ["Before Christ", "Anno Domini"],
   N: "JFMAMJJASOND".split(""),
   aa: "JFMAMJJASOND".split(""),
   H: "January February March April May June July August September October November December".split(" "),

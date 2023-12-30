@@ -146,7 +146,7 @@ h = {
   Z: ["1. \u010det.", "2. \u010det.", "3. \u010det.", "4. \u010det."],
   W: ["1. \u010detrtletje", "2. \u010detrtletje", "3. \u010detrtletje", "4. \u010detrtletje"],
   g: ["dop.", "pop."],
-  l: ["EEEE, d. MMMM y", "d. MMMM y", "d. MMM y", "d. MM. yy"],
+  l: ["EEEE, d. MMMM y", "d. MMMM y", "d. MMM y", "d. M. yy"],
   ha: ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
   m: ["{1} 'ob' {0}", "{1} 'ob' {0}", "{1}, {0}", "{1}, {0}"],
   D: 0,

@@ -103,13 +103,13 @@
             unselect: (e, i) => t(E.P.Capabilities.select.unselect((0, a.MZ)(e), i))
           };
         }
-        function I() {
+        function F() {
           return {
             removeAlertFromItem: (e, i) =>
               t((t) => (t.id === s.D1.SuccessReport.ID ? t : E.P.Capabilities.removeAlert.removeAlertFromItem(e, i)(t)))
           };
         }
-        function F() {
+        function I() {
           return { remove: (e, i) => t(E.P.Capabilities.remove.remove(e, i)) };
         }
         function H() {
@@ -133,10 +133,10 @@
           }),
           (e.changePositionStrategyQueries = { useReferenceHeightOnRemove: t(a.jv) }),
           (e.select = Z),
-          (e.removeAlert = I),
-          (e.remove = F),
+          (e.removeAlert = F),
+          (e.remove = I),
           (e.updateWithAlert = H),
-          (e.releaseAlert = () => m.v.Capabilities.getAlertReleaser({ ...I(), ...e.disposable })),
+          (e.releaseAlert = () => m.v.Capabilities.getAlertReleaser({ ...F(), ...e.disposable })),
           (e.unselectable = () => m.v.Capabilities.getUnselectable(p.In.getActiveItem, { ...Z(), isScheduledToDispose: a.jv })),
           (e.selectableByAlert = () =>
             m.v.Capabilities.getSelectableByAlert(p.In.getActiveItem, {
@@ -147,7 +147,7 @@
             })),
           (e.selectableById = () => m.v.Capabilities.getSelectableById(p.In.getActiveItem, { ...Z(), isScheduledToDispose: a.jv })),
           (e.updateMeta = () => ({ updateMeta: m.v.Capabilities.getMetaUpdatable().updateMeta })),
-          (e.animatableFeed = (e) => m.v.Capabilities.getAnimatable(e, { ...I(), ...A(), ...m.v.Capabilities.getHasChecksFeed() })),
+          (e.animatableFeed = (e) => m.v.Capabilities.getAnimatable(e, { ...F(), ...A(), ...m.v.Capabilities.getHasChecksFeed() })),
           (e.hasPriorityToggle = () => m.v.WithPriority.getHasPriorityToggle({ ...A(), ...e.hasAlertsQueries, ...e.disposable })),
           (e.alignable = { isValidToAlign: t((t) => !e.disposable.isScheduledToDispose(t)) }),
           (e.alertIterator = S),
@@ -172,8 +172,8 @@
             ...k(),
             ...A(),
             ...Z(),
-            ...F(),
             ...I(),
+            ...F(),
             ...H(),
             ...e.hasAlertsQueries,
             ...e.changePositionStrategyQueries,
@@ -501,8 +501,8 @@
             )
           )
         ),
-        I = { fontSize: "12px", color: "#6D758D" },
-        F = { fontWeight: "700", fontSize: "14px" };
+        F = { fontSize: "12px", color: "#6D758D" },
+        I = { fontWeight: "700", fontSize: "14px" };
       function H({ switchToDefaultFeed: e }) {
         return l.createElement(
           "div",
@@ -511,7 +511,7 @@
             "div",
             { style: { textAlign: "center" } },
             Z,
-            l.createElement("p", { style: F }, "No plagiarism detected"),
+            l.createElement("p", { style: I }, "No plagiarism detected"),
             l.createElement(A.zx.Tertiary, { onClick: e, style: { color: "blue" } }, "View more suggestions")
           )
         );
@@ -755,10 +755,14 @@
         return l.createElement(
           "div",
           { style: { textAlign: "center", marginTop: "3rem" } },
-          x,
-          l.createElement("p", { style: F }, "Please wait"),
-          l.createElement("div", { style: I }, "We`re checking your text against billions of"),
-          l.createElement("div", { style: I }, "web pages. It`ll just take a moment"),
+          l.createElement(
+            "span",
+            { "data-grammarly-part": "plagiarism-loading" },
+            x,
+            l.createElement("p", { style: I }, "Please wait"),
+            l.createElement("div", { style: F }, "We`re checking your text against billions of"),
+            l.createElement("div", { style: F }, "web pages. It`ll just take a moment")
+          ),
           l.createElement(W, null)
         );
       }
@@ -850,7 +854,7 @@
               })(u, {
                 onEmptyState: (0, S.of)(l.createElement(H, { switchToDefaultFeed: m })),
                 onLoadingState: (0, S.of)(l.createElement(me, null)),
-                onLoadedState: (0, S.of)(r.UI.mount(L, o()))
+                onLoadedState: (0, S.of)(l.createElement(a.F.div, { "data-grammarly-part": "plagiarism-page" }, r.UI.mount(L, o())))
               });
             return l.createElement(
               c.d,

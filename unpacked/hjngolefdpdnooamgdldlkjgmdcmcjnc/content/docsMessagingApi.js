@@ -98,9 +98,8 @@
         drawings: c.GoogleDrawings,
         spreadsheets: c.GoogleSheets
       },
-      a = () => {
-        const e = window.location,
-          o = e.host,
+      a = (e = window.location) => {
+        const o = e.hostname,
           t = e.pathname;
         if ("docs.google.com" === o)
           return (
@@ -113,7 +112,7 @@
           );
       },
       n = (e = window.location) => {
-        const o = e.host,
+        const o = e.hostname,
           t = e.pathname;
         if ("docs.google.com" === o) {
           let e;

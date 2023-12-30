@@ -1,7 +1,7 @@
 (self["webpackChunkbrowser_extension"] = self["webpackChunkbrowser_extension"] || []).push([
   [893],
   {
-    /***/ 53679: /***/ function (module, exports) {
+    /***/ 3679: /***/ function (module, exports) {
       var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
       (function (global, factory) {
         if (true) {
@@ -1291,9 +1291,9 @@
       /***/
     },
 
-    /***/ 35970: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    /***/ 5970: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
@@ -1329,7 +1329,7 @@
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ var __webpack_exports__ = __webpack_exec__(35970);
+    /******/ var __webpack_exports__ = __webpack_exec__(5970);
     /******/
   }
 ]);

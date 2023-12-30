@@ -2,63 +2,70 @@
 (self.webpackChunkwebClient = self.webpackChunkwebClient || []).push([
   [7716],
   {
-    67716: function (e, a, t) {
-      t.r(a),
-        t.d(a, {
+    67716: function (e, a, n) {
+      n.r(a),
+        n.d(a, {
           SiteComponent: function () {
-            return v;
+            return x;
           }
         });
-      var n = t(91640),
-        s = t(23381),
-        c = t(57989);
-      var i = t.p + "static/media/facebook_icon.ee3862eb63ce0e086137d9c5d04a840e.svg";
-      var o = t.p + "static/media/gmail_icon.deb05ff3bc0b21015399c958b36a9a2c.svg";
-      var d = t.p + "static/media/linkedin_icon.5560af31203358d092dd8b2f205ed35d.svg";
-      var r = t.p + "static/media/netflix_icon.7b737f0a729680ec532a264f15a1a409.svg";
-      var b = t.p + "static/media/paypal_icon.4dd33b1b6d66a55a6d0399f84ccf3925.svg";
-      var m = t.p + "static/media/dropbox_icon.899d73b2969ab0d4d6276fdb60d50ee6.svg",
-        p = t(15878),
-        u = t(46177),
-        l = t(27403);
-      var f = (0, n.Z)("img", { target: "e1hcss760" })({ name: "qhxz92", styles: "max-width:100%" }),
-        v = function (e) {
+      var t = n(91640),
+        s = n(23381),
+        c = n(57989);
+      var i = n.p + "static/media/facebook_icon.ee3862eb63ce0e086137d9c5d04a840e.svg";
+      var o = n.p + "static/media/gmail_icon.deb05ff3bc0b21015399c958b36a9a2c.svg";
+      var r = n.p + "static/media/linkedin_icon.5560af31203358d092dd8b2f205ed35d.svg";
+      var d = n.p + "static/media/netflix_icon.7b737f0a729680ec532a264f15a1a409.svg";
+      var u = n.p + "static/media/paypal_icon.4dd33b1b6d66a55a6d0399f84ccf3925.svg";
+      var b = n.p + "static/media/dropbox_icon.899d73b2969ab0d4d6276fdb60d50ee6.svg",
+        m = n(15878),
+        f = n(46177),
+        l = n(52384),
+        p = n(27403);
+      var v = (0, t.Z)("img", { target: "e1hcss760" })({ name: "qhxz92", styles: "max-width:100%" }),
+        x = function (e) {
           var a = e.site,
-            t = (0, c.J)(),
-            n = (0, p.Fe)(),
-            v = (0, s.useMemo)(function () {
-              return n === u.t.SPA && !!(top || window).document.documentElement.getAttribute("data-extension-enabled");
-            }, []);
-          return (0, l.jsx)(
+            n = (0, c.J)(),
+            t = (0, m.Fe)(),
+            x = (0, l.v9)(function (e) {
+              return e.settings.features.enable_mv3_background;
+            }),
+            g = (0, s.useMemo)(
+              function () {
+                return t === f.t.SPA && !!(top || window).document.documentElement.getAttribute("data-extension-enabled") && x;
+              },
+              [x]
+            );
+          return (0, p.jsx)(
             "div",
             {
               "data-component": "SiteComponent",
               className: "site ".concat(a.displayName.toLowerCase()),
               onClick: function () {
-                v ? t.sendInContextOnboardingMessage(a) : t.openIcob(a);
+                g ? n.sendInContextOnboardingMessage(a) : n.openIcob(a);
               }
             },
-            (0, l.jsx)(
+            (0, p.jsx)(
               "div",
               { className: "icon-container" },
               (function (e) {
                 switch (e) {
                   case "facebook":
-                    return (0, l.jsx)(f, { src: i });
+                    return (0, p.jsx)(v, { src: i });
                   case "google":
-                    return (0, l.jsx)(f, { src: o });
+                    return (0, p.jsx)(v, { src: o });
                   case "linkedin":
-                    return (0, l.jsx)(f, { src: d });
+                    return (0, p.jsx)(v, { src: r });
                   case "netflix":
-                    return (0, l.jsx)(f, { src: r });
+                    return (0, p.jsx)(v, { src: d });
                   case "paypal":
-                    return (0, l.jsx)(f, { src: b });
+                    return (0, p.jsx)(v, { src: u });
                   case "dropbox":
-                    return (0, l.jsx)(f, { src: m });
+                    return (0, p.jsx)(v, { src: b });
                 }
               })(a.displayName.toLowerCase())
             ),
-            (0, l.jsx)("div", { className: "site-name" }, a.displayName)
+            (0, p.jsx)("div", { className: "site-name" }, a.displayName)
           );
         };
     }

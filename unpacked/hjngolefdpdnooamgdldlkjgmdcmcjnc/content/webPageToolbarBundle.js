@@ -146,7 +146,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, r) {
@@ -204,7 +205,7 @@
     }
     (e.exports = r), (e.exports.__esModule = !0), (e.exports.default = e.exports);
   },
-  4: function (T, e, t) {
+  4: function (M, e, t) {
     "use strict";
     t.d(e, "F", function () {
       return s;
@@ -221,7 +222,7 @@
       t.d(e, "w", function () {
         return p;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return h;
       }),
       t.d(e, "a", function () {
@@ -245,10 +246,10 @@
       t.d(e, "x", function () {
         return w;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return S;
       }),
-      t.d(e, "Y", function () {
+      t.d(e, "Z", function () {
         return x;
       }),
       t.d(e, "u", function () {
@@ -263,58 +264,58 @@
       t.d(e, "p", function () {
         return P;
       }),
-      t.d(e, "W", function () {
-        return F;
-      }),
-      t.d(e, "fb", function () {
+      t.d(e, "X", function () {
         return G;
       }),
-      t.d(e, "ab", function () {
+      t.d(e, "gb", function () {
+        return F;
+      }),
+      t.d(e, "bb", function () {
         return L;
       }),
-      t.d(e, "cb", function () {
+      t.d(e, "db", function () {
         return D;
       }),
-      t.d(e, "db", function () {
+      t.d(e, "eb", function () {
+        return A;
+      }),
+      t.d(e, "S", function () {
         return C;
       }),
-      t.d(e, "R", function () {
-        return k;
-      }),
       t.d(e, "Q", function () {
-        return M;
+        return R;
       }),
       t.d(e, "b", function () {
-        return R;
+        return k;
       }),
       t.d(e, "P", function () {
         return q;
       }),
-      t.d(e, "hb", function () {
-        return I;
+      t.d(e, "ib", function () {
+        return T;
       }),
       t.d(e, "g", function () {
-        return A;
+        return I;
       }),
       t.d(e, "M", function () {
         return U;
       }),
       t.d(e, "B", function () {
-        return H;
+        return N;
       }),
       t.d(e, "G", function () {
-        return N;
+        return H;
       }),
       t.d(e, "D", function () {
         return Q;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return B;
       }),
       t.d(e, "r", function () {
         return W;
       }),
-      t.d(e, "V", function () {
+      t.d(e, "W", function () {
         return Y;
       }),
       t.d(e, "f", function () {
@@ -335,7 +336,7 @@
       t.d(e, "s", function () {
         return Z;
       }),
-      t.d(e, "bb", function () {
+      t.d(e, "cb", function () {
         return $;
       }),
       t.d(e, "J", function () {
@@ -347,13 +348,13 @@
       t.d(e, "K", function () {
         return re;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return ne;
       }),
       t.d(e, "n", function () {
         return oe;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ie;
       }),
       t.d(e, "m", function () {
@@ -365,7 +366,7 @@
       t.d(e, "A", function () {
         return ce;
       }),
-      t.d(e, "S", function () {
+      t.d(e, "T", function () {
         return se;
       }),
       t.d(e, "k", function () {
@@ -383,8 +384,11 @@
       t.d(e, "l", function () {
         return he;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return me;
+      }),
+      t.d(e, "R", function () {
+        return _e;
       });
     var e = t(3),
       r = t.n(e),
@@ -493,38 +497,38 @@
         }),
       E = () => c(i.a.DisconnectCompanionDoc),
       P = () => c(i.a.GetHandwritingCount),
-      F = (e) =>
+      G = (e) =>
         c(i.a.SetHandwritingCount, {
           count: e
         }),
-      G = (e) =>
+      F = (e) =>
         c(i.a.UpdateGoogleSheetEquations, {
           spreadsheetId: e
         }),
       L = () => c(i.a.ShowHandwritingExceededReminder),
       D = () => c(i.a.ShowPredictionReminder),
-      C = () => c(i.a.ShowReviewReminder),
-      k = (e) =>
+      A = () => c(i.a.ShowReviewReminder),
+      C = (e) =>
         c(i.a.SendAnalyticsScreen, {
           screenName: e
         }),
-      M = (e, t = 0, r) =>
+      R = (e, t = 0, r) =>
         c(i.a.SendAnalyticsEvent, {
           category: e,
           value: t,
           customParams: r
         }),
-      R = () => c(i.a.CaptureScreenshot),
+      k = () => c(i.a.CaptureScreenshot),
       q = (e) =>
         c(i.a.ScanMathpixOcr, {
           base64: e
         }),
-      I = (e, t) =>
+      T = (e, t) =>
         c(i.a.UploadImageToProxy, {
           url: e,
           base64: t
         }),
-      A = () => c(i.a.DismissReviewReminder),
+      I = () => c(i.a.DismissReviewReminder),
       U = (function () {
         var t = r()(
           o.a.mark(function e(t) {
@@ -562,8 +566,8 @@
           return t.apply(this, arguments);
         };
       })(),
-      H = () => c(i.a.InjectWebPageToolbar),
-      N = (e) =>
+      N = () => c(i.a.InjectWebPageToolbar),
+      H = (e) =>
         c(i.a.MathDiscovered, {
           value: e
         }),
@@ -691,7 +695,20 @@
         c(i.a.GenerateMathQuestions, {
           options: e
         }),
-      me = () => c(i.a.ShowFormsGeneratorUi);
+      me = () => c(i.a.ShowFormsGeneratorUi),
+      _e = (e, t, r, n) => {
+        let o = "";
+        return (
+          window && window.location && (o = window.location.href),
+          c(i.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: r,
+            eventProps: n,
+            url: o
+          })
+        );
+      };
   },
   402: function (e, t, r) {
     "use strict";
@@ -702,16 +719,19 @@
     const i = () => {
       const e = document.querySelector(".equatio-toolbar-wrapper");
       e
-        ? ((e.style.display = "block" === e.style.display ? "none" : "block"), "block" === e.style.display && Object(o.a)())
+        ? ((e.style.display = "block" === e.style.display ? "none" : "block"),
+          "block" === e.style.display
+            ? (Object(n.R)("ApplicationOpened", "Application", "NA"), Object(o.a)())
+            : Object(n.R)("ApplicationClosed", "Application", "NA"))
         : Object(n.z)();
     };
     i();
   },
   46: function (E, e, t) {
     var P = t(23).default;
-    function F() {
+    function G() {
       "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-      (E.exports = F =
+      (E.exports = G =
         function () {
           return a;
         }),
@@ -1089,7 +1109,7 @@
         a
       );
     }
-    (E.exports = F), (E.exports.__esModule = !0), (E.exports.default = E.exports);
+    (E.exports = G), (E.exports.__esModule = !0), (E.exports.default = E.exports);
   },
   47: function (e, t, r) {
     var n = r(23).default,

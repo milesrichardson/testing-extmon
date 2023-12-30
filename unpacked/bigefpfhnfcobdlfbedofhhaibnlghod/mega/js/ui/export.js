@@ -1705,7 +1705,7 @@ function logExportEvt(type, target) {
         }
       }
 
-      $(".datepicker", ".datepickers-container").remove();
+      $(".datepicker.share-link-expiry-calendar", ".datepickers-container").remove();
 
       return true;
     }

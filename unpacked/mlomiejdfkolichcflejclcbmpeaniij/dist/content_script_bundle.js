@@ -1,7 +1,757 @@
 typeof browser < "u" && (chrome = browser),
   (() => {
     var de = {
-        78747: (x) => {
+        3803: (x, n) => {
+          "use strict";
+          /*!
+           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
+           *
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */ Object.defineProperty(n, "__esModule", { value: !0 }),
+            (n.injectScript = n.autoRemoveScript = n.DOMMonitor = n.extractFeaturesFromDOM = void 0);
+          const d = "cliqz-adblocker-script",
+            w = new Set(["br", "head", "link", "meta", "script", "style", "s"]);
+          function g(u) {
+            return u.nodeType === 1;
+          }
+          function m(u) {
+            const r = [];
+            for (const c of u)
+              if (c.type === "attributes") g(c.target) && r.push(c.target);
+              else if (c.type === "childList") for (const A of c.addedNodes) g(A) && A.id !== d && r.push(A);
+            return r;
+          }
+          function s(u) {
+            const r = new Set(["br", "head", "link", "meta", "script", "style", "s"]),
+              c = new Set(),
+              A = new Set(),
+              _ = new Set();
+            for (const S of u)
+              for (const T of [
+                S,
+                ...S.querySelectorAll("[id]:not(html):not(body),[class]:not(html):not(body),[href]:not(html):not(body)")
+              ]) {
+                if (r.has(T.nodeName.toLowerCase())) continue;
+                const I = T.id;
+                I && _.add(I);
+                const k = T.classList;
+                if (k) for (const D of k) c.add(D);
+                const L = T.getAttribute("href");
+                typeof L == "string" && A.add(L);
+              }
+            return { classes: Array.from(c), hrefs: Array.from(A), ids: Array.from(_) };
+          }
+          n.extractFeaturesFromDOM = s;
+          class C {
+            constructor(r) {
+              (this.cb = r),
+                (this.knownIds = new Set()),
+                (this.knownHrefs = new Set()),
+                (this.knownClasses = new Set()),
+                (this.observer = null);
+            }
+            queryAll(r) {
+              this.cb({ type: "elements", elements: [r.document.documentElement] }), this.handleUpdatedNodes([r.document.documentElement]);
+            }
+            start(r) {
+              this.observer === null &&
+                r.MutationObserver !== void 0 &&
+                ((this.observer = new r.MutationObserver((c) => {
+                  this.handleUpdatedNodes(m(c));
+                })),
+                this.observer.observe(r.document.documentElement, {
+                  attributes: !0,
+                  attributeFilter: ["class", "id", "href"],
+                  childList: !0,
+                  subtree: !0
+                }));
+            }
+            stop() {
+              this.observer !== null && (this.observer.disconnect(), (this.observer = null));
+            }
+            handleNewFeatures({ hrefs: r, ids: c, classes: A }) {
+              const _ = [],
+                S = [],
+                T = [];
+              for (const I of c) this.knownIds.has(I) === !1 && (_.push(I), this.knownIds.add(I));
+              for (const I of A) this.knownClasses.has(I) === !1 && (S.push(I), this.knownClasses.add(I));
+              for (const I of r) this.knownHrefs.has(I) === !1 && (T.push(I), this.knownHrefs.add(I));
+              return _.length !== 0 || S.length !== 0 || T.length !== 0
+                ? (this.cb({ type: "features", classes: S, hrefs: T, ids: _ }), !0)
+                : !1;
+            }
+            handleUpdatedNodes(r) {
+              return r.length !== 0
+                ? (this.cb({ type: "elements", elements: r.filter((c) => w.has(c.nodeName.toLowerCase()) === !1) }),
+                  this.handleNewFeatures(s(r)))
+                : !1;
+            }
+          }
+          n.DOMMonitor = C;
+          function f(u) {
+            return `try{${u}}catch(c){}!function(){var c=document.currentScript,e=c&&c.parentNode;e&&e.removeChild(c)}();`;
+          }
+          n.autoRemoveScript = f;
+          function p(u, r) {
+            const c = r.createElement("script");
+            (c.type = "text/javascript"), (c.id = d), (c.async = !1), c.appendChild(r.createTextNode(f(u)));
+            const A = r.head || r.documentElement || r;
+            A !== null && A.appendChild(c);
+          }
+          n.injectScript = p;
+        },
+        32261: function (x, n, d) {
+          "use strict";
+          /*!
+           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
+           *
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */ var w =
+              (this && this.__createBinding) ||
+              (Object.create
+                ? function (f, p, u, r) {
+                    r === void 0 && (r = u);
+                    var c = Object.getOwnPropertyDescriptor(p, u);
+                    (!c || ("get" in c ? !p.__esModule : c.writable || c.configurable)) &&
+                      (c = {
+                        enumerable: !0,
+                        get: function () {
+                          return p[u];
+                        }
+                      }),
+                      Object.defineProperty(f, r, c);
+                  }
+                : function (f, p, u, r) {
+                    r === void 0 && (r = u), (f[r] = p[u]);
+                  }),
+            g =
+              (this && this.__exportStar) ||
+              function (f, p) {
+                for (var u in f) u !== "default" && !Object.prototype.hasOwnProperty.call(p, u) && w(p, f, u);
+              };
+          Object.defineProperty(n, "__esModule", { value: !0 }),
+            (n.classifySelector =
+              n.SelectorType =
+              n.PSEUDO_ELEMENTS =
+              n.PSEUDO_CLASSES =
+              n.EXTENDED_PSEUDO_CLASSES =
+              n.matches =
+              n.querySelectorAll =
+              n.tokenize =
+              n.parse =
+                void 0);
+          var m = d(45277);
+          Object.defineProperty(n, "parse", {
+            enumerable: !0,
+            get: function () {
+              return m.parse;
+            }
+          }),
+            Object.defineProperty(n, "tokenize", {
+              enumerable: !0,
+              get: function () {
+                return m.tokenize;
+              }
+            });
+          var s = d(50315);
+          Object.defineProperty(n, "querySelectorAll", {
+            enumerable: !0,
+            get: function () {
+              return s.querySelectorAll;
+            }
+          }),
+            Object.defineProperty(n, "matches", {
+              enumerable: !0,
+              get: function () {
+                return s.matches;
+              }
+            }),
+            g(d(83236), n);
+          var C = d(16107);
+          Object.defineProperty(n, "EXTENDED_PSEUDO_CLASSES", {
+            enumerable: !0,
+            get: function () {
+              return C.EXTENDED_PSEUDO_CLASSES;
+            }
+          }),
+            Object.defineProperty(n, "PSEUDO_CLASSES", {
+              enumerable: !0,
+              get: function () {
+                return C.PSEUDO_CLASSES;
+              }
+            }),
+            Object.defineProperty(n, "PSEUDO_ELEMENTS", {
+              enumerable: !0,
+              get: function () {
+                return C.PSEUDO_ELEMENTS;
+              }
+            }),
+            Object.defineProperty(n, "SelectorType", {
+              enumerable: !0,
+              get: function () {
+                return C.SelectorType;
+              }
+            }),
+            Object.defineProperty(n, "classifySelector", {
+              enumerable: !0,
+              get: function () {
+                return C.classifySelector;
+              }
+            });
+        },
+        50315: (x, n) => {
+          "use strict";
+          /*!
+           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
+           *
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */ Object.defineProperty(n, "__esModule", { value: !0 }), (n.querySelectorAll = n.matches = n.matchPattern = void 0);
+          function d(m, s) {
+            if (m.startsWith("/") && (m.endsWith("/") || m.endsWith("/i"))) {
+              let C = !0;
+              return (
+                (m = m.slice(1)),
+                m.endsWith("/") ? (m = m.slice(0, -1)) : ((m = m.slice(0, -2)), (C = !1)),
+                new RegExp(m, C === !1 ? "i" : void 0).test(s)
+              );
+            }
+            return s.includes(m);
+          }
+          n.matchPattern = d;
+          function w(m, s) {
+            if (s.type === "id" || s.type === "class" || s.type === "type" || s.type === "attribute") return m.matches(s.content);
+            if (s.type === "list") return s.list.some((C) => w(m, C));
+            if (s.type === "compound") return s.compound.every((C) => w(m, C));
+            if (s.type === "pseudo-class") {
+              if (s.name === "has" || s.name === "if") return s.subtree !== void 0 && g(m, s.subtree).length !== 0;
+              if (s.name === "not") return s.subtree !== void 0 && w(m, s.subtree) === !1;
+              if (s.name === "has-text") {
+                const { argument: C } = s;
+                if (C === void 0) return !1;
+                const f = m.textContent;
+                return f === null ? !1 : d(C, f);
+              } else if (s.name === "min-text-length") {
+                const C = Number(s.argument);
+                if (Number.isNaN(C) || C < 0) return !1;
+                const f = m.textContent;
+                return f === null ? !1 : f.length >= C;
+              }
+            }
+            return !1;
+          }
+          n.matches = w;
+          function g(m, s) {
+            const C = [];
+            if (s.type === "id" || s.type === "class" || s.type === "type" || s.type === "attribute")
+              C.push(...m.querySelectorAll(s.content));
+            else if (s.type === "list") for (const f of s.list) C.push(...g(m, f));
+            else if (s.type === "compound")
+              s.compound.length !== 0 && C.push(...g(m, s.compound[0]).filter((f) => s.compound.slice(1).every((p) => w(f, p))));
+            else if (s.type === "complex") {
+              const f = s.left === void 0 ? [m] : g(m, s.left);
+              if (s.combinator === " ") for (const p of f) C.push(...g(p, s.right));
+              else if (s.combinator === ">") for (const p of f) for (const u of p.children) w(u, s.right) === !0 && C.push(u);
+              else if (s.combinator === "~")
+                for (const p of f) {
+                  let u = p;
+                  for (; (u = u.nextElementSibling) !== null; ) w(u, s.right) === !0 && C.push(u);
+                }
+              else if (s.combinator === "+")
+                for (const p of f) {
+                  const u = p.nextElementSibling;
+                  u !== null && w(u, s.right) === !0 && C.push(u);
+                }
+            } else if (s.type === "pseudo-class") for (const f of m.querySelectorAll("*")) w(f, s) === !0 && C.push(f);
+            return C;
+          }
+          n.querySelectorAll = g;
+        },
+        16107: (x, n, d) => {
+          "use strict";
+          /*!
+           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
+           *
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */ Object.defineProperty(n, "__esModule", { value: !0 }),
+            (n.classifySelector = n.SelectorType = n.PSEUDO_ELEMENTS = n.PSEUDO_CLASSES = n.EXTENDED_PSEUDO_CLASSES = void 0);
+          const w = d(45277);
+          (n.EXTENDED_PSEUDO_CLASSES = new Set(["has", "has-text", "if"])),
+            (n.PSEUDO_CLASSES = new Set([
+              "active",
+              "any",
+              "any-link",
+              "blank",
+              "checked",
+              "default",
+              "defined",
+              "dir",
+              "disabled",
+              "empty",
+              "enabled",
+              "first",
+              "first-child",
+              "first-of-type",
+              "focus",
+              "focus-visible",
+              "focus-within",
+              "fullscreen",
+              "host",
+              "host-context",
+              "hover",
+              "in-range",
+              "indeterminate",
+              "invalid",
+              "is",
+              "lang",
+              "last-child",
+              "last-of-type",
+              "left",
+              "link",
+              "matches",
+              "not",
+              "nth-child",
+              "nth-last-child",
+              "nth-last-of-type",
+              "nth-of-type",
+              "only-child",
+              "only-of-type",
+              "optional",
+              "out-of-range",
+              "placeholder-shown",
+              "read-only",
+              "read-write",
+              "required",
+              "right",
+              "root",
+              "scope",
+              "target",
+              "valid",
+              "visited",
+              "where"
+            ])),
+            (n.PSEUDO_ELEMENTS = new Set(["after", "before", "first-letter", "first-line"]));
+          var g;
+          (function (s) {
+            (s[(s.Normal = 0)] = "Normal"), (s[(s.Extended = 1)] = "Extended"), (s[(s.Invalid = 2)] = "Invalid");
+          })(g || (n.SelectorType = g = {}));
+          function m(s) {
+            if (s.indexOf(":") === -1) return g.Normal;
+            const C = (0, w.tokenize)(s);
+            let f = !1;
+            for (const p of C)
+              if (p.type === "pseudo-class") {
+                const { name: u } = p;
+                if (n.EXTENDED_PSEUDO_CLASSES.has(u) === !0) f = !0;
+                else if (n.PSEUDO_CLASSES.has(u) === !1 && n.PSEUDO_ELEMENTS.has(u) === !1) return g.Invalid;
+                if (f === !1 && p.argument !== void 0 && w.RECURSIVE_PSEUDO_CLASSES.has(u) === !0) {
+                  const r = m(p.argument);
+                  if (r === g.Invalid) return r;
+                  r === g.Extended && (f = !0);
+                }
+              }
+            return f === !0 ? g.Extended : g.Normal;
+          }
+          n.classifySelector = m;
+        },
+        45277: (x, n, d) => {
+          "use strict";
+          /*!
+           * Based on parsel. Extended by Rémi Berson for Ghostery (2021).
+           * https://github.com/LeaVerou/parsel
+           *
+           * MIT License
+           *
+           * Copyright (c) 2020 Lea Verou
+           *
+           * Permission is hereby granted, free of charge, to any person obtaining a copy
+           * of this software and associated documentation files (the "Software"), to deal
+           * in the Software without restriction, including without limitation the rights
+           * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+           * copies of the Software, and to permit persons to whom the Software is
+           * furnished to do so, subject to the following conditions:
+           *
+           * The above copyright notice and this permission notice shall be included in all
+           * copies or substantial portions of the Software.
+           *
+           * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+           * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+           * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+           * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+           * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+           * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+           * SOFTWARE.
+           */ Object.defineProperty(n, "__esModule", { value: !0 }),
+            (n.parse = n.tokenize = n.replace = n.gobbleParens = n.gobbleQuotes = n.isEscaped = n.RECURSIVE_PSEUDO_CLASSES = void 0);
+          const w = d(83236);
+          n.RECURSIVE_PSEUDO_CLASSES = new Set(["any", "dir", "has", "host-context", "if", "if-not", "is", "matches", "not", "where"]);
+          const g = {
+              attribute: new RegExp(
+                "\\[\\s*(?:(?<namespace>\\*|[-\\w]*)\\|)?(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)\\s*(?:(?<operator>\\W?=)\\s*(?<value>.+?)\\s*(?<caseSensitive>[iIsS])?\\s*)?\\]",
+                "gu"
+              ),
+              id: new RegExp("#(?<name>(?:[-\\w\\u{0080}-\\u{FFFF}]|\\\\.)+)", "gu"),
+              class: new RegExp("\\.(?<name>(?:[-\\w\\u{0080}-\\u{FFFF}]|\\\\.)+)", "gu"),
+              comma: /\s*,\s*/g,
+              combinator: /\s*[\s>+~]\s*/g,
+              "pseudo-element": new RegExp("::(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)(?:\\((?:\xB6*)\\))?", "gu"),
+              "pseudo-class": new RegExp(":(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)(?:\\((?<argument>\xB6*)\\))?", "gu"),
+              type: new RegExp("(?:(?<namespace>\\*|[-\\w]*)\\|)?(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)|\\*", "gu")
+            },
+            m = new Set(["pseudo-class", "pseudo-element"]),
+            s = new Set([...m, "attribute"]),
+            C = new Set(["combinator", "comma"]),
+            f = Object.assign({}, g);
+          (f["pseudo-element"] = RegExp(g["pseudo-element"].source.replace("(?<argument>\xB6*)", "(?<argument>.*?)"), "gu")),
+            (f["pseudo-class"] = RegExp(g["pseudo-class"].source.replace("(?<argument>\xB6*)", "(?<argument>.*)"), "gu"));
+          function p(a, h) {
+            a.lastIndex = 0;
+            const y = a.exec(h);
+            if (y === null) return;
+            const E = y.index - 1,
+              P = y[0],
+              o = h.slice(0, E + 1),
+              v = h.slice(E + P.length + 1);
+            return [o, [P, y.groups || {}], v];
+          }
+          const u = [
+            (a) => {
+              const h = p(g.attribute, a);
+              if (h === void 0) return;
+              const [y, [E, { name: P, operator: o, value: v, namespace: R, caseSensitive: N }], B] = h;
+              if (P !== void 0)
+                return [
+                  y,
+                  {
+                    type: "attribute",
+                    content: E,
+                    length: E.length,
+                    namespace: R,
+                    caseSensitive: N,
+                    pos: [],
+                    name: P,
+                    operator: o,
+                    value: v
+                  },
+                  B
+                ];
+            },
+            (a) => {
+              const h = p(g.id, a);
+              if (h === void 0) return;
+              const [y, [E, { name: P }], o] = h;
+              if (P !== void 0) return [y, { type: "id", content: E, length: E.length, pos: [], name: P }, o];
+            },
+            (a) => {
+              const h = p(g.class, a);
+              if (h === void 0) return;
+              const [y, [E, { name: P }], o] = h;
+              if (P !== void 0) return [y, { type: "class", content: E, length: E.length, pos: [], name: P }, o];
+            },
+            (a) => {
+              const h = p(g.comma, a);
+              if (h === void 0) return;
+              const [y, [E], P] = h;
+              return [y, { type: "comma", content: E, length: E.length, pos: [] }, P];
+            },
+            (a) => {
+              const h = p(g.combinator, a);
+              if (h === void 0) return;
+              const [y, [E], P] = h;
+              return [y, { type: "combinator", content: E, length: E.length, pos: [] }, P];
+            },
+            (a) => {
+              const h = p(g["pseudo-element"], a);
+              if (h === void 0) return;
+              const [y, [E, { name: P }], o] = h;
+              if (P !== void 0) return [y, { type: "pseudo-element", content: E, length: E.length, pos: [], name: P }, o];
+            },
+            (a) => {
+              const h = p(g["pseudo-class"], a);
+              if (h === void 0) return;
+              const [y, [E, { name: P, argument: o }], v] = h;
+              if (P !== void 0)
+                return [y, { type: "pseudo-class", content: E, length: E.length, pos: [], name: P, argument: o, subtree: void 0 }, v];
+            },
+            (a) => {
+              const h = p(g.type, a);
+              if (h === void 0) return;
+              const [y, [E, { name: P, namespace: o }], v] = h;
+              return [y, { type: "type", content: E, length: E.length, namespace: o, pos: [], name: P }, v];
+            }
+          ];
+          function r(a) {
+            if (!a) return [];
+            const h = [a];
+            for (const E of u)
+              for (let P = 0; P < h.length; P++) {
+                const o = h[P];
+                if (typeof o == "string") {
+                  const v = E(o);
+                  v !== void 0 && h.splice(P, 1, ...v.filter((R) => R.length !== 0));
+                }
+              }
+            let y = 0;
+            for (const E of h)
+              typeof E != "string" && ((E.pos = [y, y + E.length]), C.has(E.type) && (E.content = E.content.trim() || " ")),
+                (y += E.length);
+            return (0, w.isAtoms)(h) ? h : [];
+          }
+          function c(a, h, y, E) {
+            for (const P of h)
+              for (const o of a)
+                if (E.has(o.type) && o.pos[0] < P.start && P.start < o.pos[1]) {
+                  const v = o.content;
+                  if (((o.content = o.content.replace(y, P.str)), o.content !== v)) {
+                    f[o.type].lastIndex = 0;
+                    const R = f[o.type].exec(o.content);
+                    R !== null && Object.assign(o, R.groups);
+                  }
+                }
+          }
+          function A(a, h) {
+            let y = 0;
+            for (h -= 1; h >= 0 && a[h] === "\\"; ) (y += 1), (h -= 1);
+            return y % 2 !== 0;
+          }
+          n.isEscaped = A;
+          function _(a, h, y) {
+            let E = y + 1;
+            for (; (E = a.indexOf(h, E)) !== -1 && A(a, E) === !0; ) E += 1;
+            if (E !== -1) return a.slice(y, E + 1);
+          }
+          n.gobbleQuotes = _;
+          function S(a, h) {
+            let y = 0;
+            for (let E = h; E < a.length; E++) {
+              const P = a[E];
+              if (P === "(") y += 1;
+              else if (P === ")")
+                if (y > 0) y -= 1;
+                else return;
+              if (y === 0) return a.slice(h, E + 1);
+            }
+          }
+          n.gobbleParens = S;
+          function T(a, h, y, E) {
+            const P = [];
+            let o = 0;
+            for (; (o = a.indexOf(y, o)) !== -1; ) {
+              const v = E(a, o);
+              if (v === void 0) break;
+              P.push({ str: v, start: o }),
+                (a = `${a.slice(0, o + 1)}${h.repeat(v.length - 2)}${a.slice(o + v.length - 1)}`),
+                (o += v.length);
+            }
+            return [P, a];
+          }
+          n.replace = T;
+          function I(a) {
+            if (typeof a != "string") return [];
+            if (((a = a.trim()), a.length === 0)) return [];
+            const [h, y] = T(a, "\xA7", '"', (N, B) => _(N, '"', B)),
+              [E, P] = T(y, "\xA7", "'", (N, B) => _(N, "'", B)),
+              [o, v] = T(P, "\xB6", "(", S),
+              R = r(v);
+            return c(R, o, /\(¶*\)/, m), c(R, h, /"§*"/, s), c(R, E, /'§*'/, s), R;
+          }
+          n.tokenize = I;
+          function k(a, { list: h = !0 } = {}) {
+            if (h === !0 && a.some((y) => y.type === "comma")) {
+              const y = [],
+                E = [];
+              for (let P = 0; P < a.length; P += 1) {
+                const o = a[P];
+                if (o.type === "comma") {
+                  if (E.length === 0) throw new Error("Incorrect comma at " + P);
+                  const v = k(E, { list: !1 });
+                  v !== void 0 && y.push(v), (E.length = 0);
+                } else E.push(o);
+              }
+              if (E.length === 0) throw new Error("Trailing comma");
+              {
+                const P = k(E, { list: !1 });
+                P !== void 0 && y.push(P);
+              }
+              return { type: "list", list: y };
+            }
+            for (let y = a.length - 1; y >= 0; y--) {
+              const E = a[y];
+              if (E.type === "combinator") {
+                const P = k(a.slice(0, y)),
+                  o = k(a.slice(y + 1));
+                return o === void 0 || (E.content !== " " && E.content !== "~" && E.content !== "+" && E.content !== ">")
+                  ? void 0
+                  : { type: "complex", combinator: E.content, left: P, right: o };
+              }
+            }
+            if (a.length !== 0 && (0, w.isAST)(a)) return a.length === 1 ? a[0] : { type: "compound", compound: [...a] };
+          }
+          function L(a, h, y, E) {
+            if (a !== void 0) {
+              if (a.type === "complex") L(a.left, h, y, a), L(a.right, h, y, a);
+              else if (a.type === "compound") for (const P of a.compound) L(P, h, y, a);
+              else
+                a.type === "pseudo-class" &&
+                  a.subtree !== void 0 &&
+                  y !== void 0 &&
+                  y.type === "pseudo-class" &&
+                  y.subtree !== void 0 &&
+                  L(a.subtree, h, y, a);
+              h(a, E);
+            }
+          }
+          function D(a, { recursive: h = !0, list: y = !0 } = {}) {
+            const E = I(a);
+            if (E.length === 0) return;
+            const P = k(E, { list: y });
+            return (
+              h === !0 &&
+                L(P, (o) => {
+                  o.type === "pseudo-class" &&
+                    o.argument &&
+                    o.name !== void 0 &&
+                    n.RECURSIVE_PSEUDO_CLASSES.has(o.name) &&
+                    (o.subtree = D(o.argument, { recursive: !0, list: !0 }));
+                }),
+              P
+            );
+          }
+          n.parse = D;
+        },
+        83236: (x, n) => {
+          "use strict";
+          /*!
+           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
+           *
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */ Object.defineProperty(n, "__esModule", { value: !0 }), (n.isAST = n.isAtoms = void 0);
+          const d = null;
+          function w(m) {
+            return m.every((s) => typeof s != "string");
+          }
+          n.isAtoms = w;
+          function g(m) {
+            return m.every((s) => s.type !== "comma" && s.type !== "combinator");
+          }
+          n.isAST = g;
+        },
+        40542: (x, n, d) => {
+          "use strict";
+          /*!
+           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
+           *
+           * This Source Code Form is subject to the terms of the Mozilla Public
+           * License, v. 2.0. If a copy of the MPL was not distributed with this
+           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+           */ Object.defineProperty(n, "__esModule", { value: !0 }), (n.injectCosmetics = void 0);
+          const w = d(32261),
+            g = d(3803);
+          let m = !0,
+            s = null,
+            C = null;
+          const f = new Set(),
+            p = [],
+            u = new Map();
+          function r() {
+            s !== null && (s.stop(), (s = null));
+          }
+          function c(k) {
+            return new Promise((L) => {
+              chrome.runtime.sendMessage(Object.assign({ action: "getCosmeticsFilters" }, k), (D) => {
+                D !== void 0 && L(D);
+              });
+            });
+          }
+          function A(k, L, D) {
+            var a;
+            const h = (a = D.get(k)) === null || a === void 0 ? void 0 : a.get(L);
+            if (h !== void 0) return h;
+            const y = new Set((0, w.querySelectorAll)(k, L.ast));
+            if (L.attribute !== void 0) {
+              let E = D.get(k);
+              E === void 0 && ((E = new Map()), D.set(k, E));
+              let P = E.get(L);
+              P === void 0 && ((P = new Set()), E.set(L, P));
+              for (const o of y) P.add(o);
+            }
+            return y;
+          }
+          function _() {
+            if (f.size === 0 || p.length === 0) return;
+            const k = new Map(),
+              L = new Map(),
+              D = [...f].filter((a) => a.isConnected === !0);
+            f.clear();
+            for (const a of D)
+              for (const h of p)
+                for (const y of A(a, h, k))
+                  h.remove === !0
+                    ? ((y.textContent = ""), y.remove())
+                    : h.attribute !== void 0 && u.has(y) === !1 && L.set(y, { selector: h, root: a });
+            for (const [a, { selector: h, root: y }] of L.entries())
+              h.attribute !== void 0 && (a.setAttribute(h.attribute, ""), u.set(a, { selector: h, root: y }));
+            for (const [a, { selector: h, root: y }] of [...u.entries()])
+              h.attribute !== void 0 &&
+                (y.isConnected === !1 || a.isConnected === !1 || A(y, h, k).has(a) === !1) &&
+                (u.delete(a), a.removeAttribute(h.attribute));
+          }
+          function S(k) {
+            if (p.length !== 0 && !f.has(window.document.documentElement)) {
+              for (const L of k) {
+                if (L === window.document.documentElement) {
+                  f.clear(), f.add(L);
+                  break;
+                }
+                f.add(L);
+              }
+              C === null &&
+                (C = setTimeout(() => {
+                  (C = null), _();
+                }, 1e3));
+            }
+          }
+          function T(k, { active: L, scripts: D, extended: a }) {
+            if (L === !1) {
+              (m = !1), r();
+              return;
+            } else m = !0;
+            if (D)
+              for (const h of D)
+                try {
+                  (0, g.injectScript)(h, k.document);
+                } catch {}
+            a && a.length > 0 && (p.push(...a), S([k.document.documentElement]));
+          }
+          function I(k, L = !0, D = c) {
+            D({ lifecycle: "start", ids: [], classes: [], hrefs: [] }).then((a) => T(k, a)),
+              k.addEventListener(
+                "DOMContentLoaded",
+                () => {
+                  (s = new g.DOMMonitor((a) => {
+                    a.type === "elements"
+                      ? a.elements.length !== 0 && S(a.elements)
+                      : D(Object.assign(Object.assign({}, a), { lifecycle: "dom-update" })).then((h) => T(k, h));
+                  })),
+                    s.queryAll(k),
+                    m && L && s.start(k);
+                },
+                { once: !0, passive: !0 }
+              ),
+              k.addEventListener("pagehide", r, { once: !0, passive: !0 });
+          }
+          n.injectCosmetics = I;
+        },
+        58665: (x) => {
           var n = Object.defineProperty,
             d = Object.getOwnPropertyDescriptor,
             w = Object.getOwnPropertyNames,
@@ -392,6 +1142,7 @@ typeof browser < "u" && (chrome = browser),
             EVAL_ONETRUST_1: () => window.OnetrustActiveGroups.split(",").filter((e) => e.length > 0).length <= 1,
             EVAL_TRUSTARC_TOP: () => window && window.truste && window.truste.eu.bindMap.prefCookie === "0",
             EVAL_ADROLL_0: () => !document.cookie.includes("__adroll_fpc"),
+            EVAL_ALMACMP_0: () => document.cookie.includes('"name":"Google","consent":false'),
             EVAL_AFFINITY_SERIF_COM_0: () =>
               document.cookie.includes("serif_manage_cookies_viewed") && !document.cookie.includes("serif_allow_analytics"),
             EVAL_AXEPTIO_0: () => document.cookie.includes("axeptio_authorized_vendors=%2C%2C"),
@@ -1559,756 +2310,6 @@ typeof browser < "u" && (chrome = browser),
             }
           };
         },
-        3803: (x, n) => {
-          "use strict";
-          /*!
-           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
-           *
-           * This Source Code Form is subject to the terms of the Mozilla Public
-           * License, v. 2.0. If a copy of the MPL was not distributed with this
-           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-           */ Object.defineProperty(n, "__esModule", { value: !0 }),
-            (n.injectScript = n.autoRemoveScript = n.DOMMonitor = n.extractFeaturesFromDOM = void 0);
-          const d = "cliqz-adblocker-script",
-            w = new Set(["br", "head", "link", "meta", "script", "style", "s"]);
-          function g(u) {
-            return u.nodeType === 1;
-          }
-          function m(u) {
-            const r = [];
-            for (const c of u)
-              if (c.type === "attributes") g(c.target) && r.push(c.target);
-              else if (c.type === "childList") for (const A of c.addedNodes) g(A) && A.id !== d && r.push(A);
-            return r;
-          }
-          function s(u) {
-            const r = new Set(["br", "head", "link", "meta", "script", "style", "s"]),
-              c = new Set(),
-              A = new Set(),
-              _ = new Set();
-            for (const S of u)
-              for (const T of [
-                S,
-                ...S.querySelectorAll("[id]:not(html):not(body),[class]:not(html):not(body),[href]:not(html):not(body)")
-              ]) {
-                if (r.has(T.nodeName.toLowerCase())) continue;
-                const I = T.id;
-                I && _.add(I);
-                const k = T.classList;
-                if (k) for (const D of k) c.add(D);
-                const L = T.getAttribute("href");
-                typeof L == "string" && A.add(L);
-              }
-            return { classes: Array.from(c), hrefs: Array.from(A), ids: Array.from(_) };
-          }
-          n.extractFeaturesFromDOM = s;
-          class C {
-            constructor(r) {
-              (this.cb = r),
-                (this.knownIds = new Set()),
-                (this.knownHrefs = new Set()),
-                (this.knownClasses = new Set()),
-                (this.observer = null);
-            }
-            queryAll(r) {
-              this.cb({ type: "elements", elements: [r.document.documentElement] }), this.handleUpdatedNodes([r.document.documentElement]);
-            }
-            start(r) {
-              this.observer === null &&
-                r.MutationObserver !== void 0 &&
-                ((this.observer = new r.MutationObserver((c) => {
-                  this.handleUpdatedNodes(m(c));
-                })),
-                this.observer.observe(r.document.documentElement, {
-                  attributes: !0,
-                  attributeFilter: ["class", "id", "href"],
-                  childList: !0,
-                  subtree: !0
-                }));
-            }
-            stop() {
-              this.observer !== null && (this.observer.disconnect(), (this.observer = null));
-            }
-            handleNewFeatures({ hrefs: r, ids: c, classes: A }) {
-              const _ = [],
-                S = [],
-                T = [];
-              for (const I of c) this.knownIds.has(I) === !1 && (_.push(I), this.knownIds.add(I));
-              for (const I of A) this.knownClasses.has(I) === !1 && (S.push(I), this.knownClasses.add(I));
-              for (const I of r) this.knownHrefs.has(I) === !1 && (T.push(I), this.knownHrefs.add(I));
-              return _.length !== 0 || S.length !== 0 || T.length !== 0
-                ? (this.cb({ type: "features", classes: S, hrefs: T, ids: _ }), !0)
-                : !1;
-            }
-            handleUpdatedNodes(r) {
-              return r.length !== 0
-                ? (this.cb({ type: "elements", elements: r.filter((c) => w.has(c.nodeName.toLowerCase()) === !1) }),
-                  this.handleNewFeatures(s(r)))
-                : !1;
-            }
-          }
-          n.DOMMonitor = C;
-          function f(u) {
-            return `try{${u}}catch(c){}!function(){var c=document.currentScript,e=c&&c.parentNode;e&&e.removeChild(c)}();`;
-          }
-          n.autoRemoveScript = f;
-          function p(u, r) {
-            const c = r.createElement("script");
-            (c.type = "text/javascript"), (c.id = d), (c.async = !1), c.appendChild(r.createTextNode(f(u)));
-            const A = r.head || r.documentElement || r;
-            A !== null && A.appendChild(c);
-          }
-          n.injectScript = p;
-        },
-        32261: function (x, n, d) {
-          "use strict";
-          /*!
-           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
-           *
-           * This Source Code Form is subject to the terms of the Mozilla Public
-           * License, v. 2.0. If a copy of the MPL was not distributed with this
-           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-           */ var w =
-              (this && this.__createBinding) ||
-              (Object.create
-                ? function (f, p, u, r) {
-                    r === void 0 && (r = u);
-                    var c = Object.getOwnPropertyDescriptor(p, u);
-                    (!c || ("get" in c ? !p.__esModule : c.writable || c.configurable)) &&
-                      (c = {
-                        enumerable: !0,
-                        get: function () {
-                          return p[u];
-                        }
-                      }),
-                      Object.defineProperty(f, r, c);
-                  }
-                : function (f, p, u, r) {
-                    r === void 0 && (r = u), (f[r] = p[u]);
-                  }),
-            g =
-              (this && this.__exportStar) ||
-              function (f, p) {
-                for (var u in f) u !== "default" && !Object.prototype.hasOwnProperty.call(p, u) && w(p, f, u);
-              };
-          Object.defineProperty(n, "__esModule", { value: !0 }),
-            (n.classifySelector =
-              n.SelectorType =
-              n.PSEUDO_ELEMENTS =
-              n.PSEUDO_CLASSES =
-              n.EXTENDED_PSEUDO_CLASSES =
-              n.matches =
-              n.querySelectorAll =
-              n.tokenize =
-              n.parse =
-                void 0);
-          var m = d(45277);
-          Object.defineProperty(n, "parse", {
-            enumerable: !0,
-            get: function () {
-              return m.parse;
-            }
-          }),
-            Object.defineProperty(n, "tokenize", {
-              enumerable: !0,
-              get: function () {
-                return m.tokenize;
-              }
-            });
-          var s = d(50315);
-          Object.defineProperty(n, "querySelectorAll", {
-            enumerable: !0,
-            get: function () {
-              return s.querySelectorAll;
-            }
-          }),
-            Object.defineProperty(n, "matches", {
-              enumerable: !0,
-              get: function () {
-                return s.matches;
-              }
-            }),
-            g(d(83236), n);
-          var C = d(16107);
-          Object.defineProperty(n, "EXTENDED_PSEUDO_CLASSES", {
-            enumerable: !0,
-            get: function () {
-              return C.EXTENDED_PSEUDO_CLASSES;
-            }
-          }),
-            Object.defineProperty(n, "PSEUDO_CLASSES", {
-              enumerable: !0,
-              get: function () {
-                return C.PSEUDO_CLASSES;
-              }
-            }),
-            Object.defineProperty(n, "PSEUDO_ELEMENTS", {
-              enumerable: !0,
-              get: function () {
-                return C.PSEUDO_ELEMENTS;
-              }
-            }),
-            Object.defineProperty(n, "SelectorType", {
-              enumerable: !0,
-              get: function () {
-                return C.SelectorType;
-              }
-            }),
-            Object.defineProperty(n, "classifySelector", {
-              enumerable: !0,
-              get: function () {
-                return C.classifySelector;
-              }
-            });
-        },
-        50315: (x, n) => {
-          "use strict";
-          /*!
-           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
-           *
-           * This Source Code Form is subject to the terms of the Mozilla Public
-           * License, v. 2.0. If a copy of the MPL was not distributed with this
-           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-           */ Object.defineProperty(n, "__esModule", { value: !0 }), (n.querySelectorAll = n.matches = n.matchPattern = void 0);
-          function d(m, s) {
-            if (m.startsWith("/") && (m.endsWith("/") || m.endsWith("/i"))) {
-              let C = !0;
-              return (
-                (m = m.slice(1)),
-                m.endsWith("/") ? (m = m.slice(0, -1)) : ((m = m.slice(0, -2)), (C = !1)),
-                new RegExp(m, C === !1 ? "i" : void 0).test(s)
-              );
-            }
-            return s.includes(m);
-          }
-          n.matchPattern = d;
-          function w(m, s) {
-            if (s.type === "id" || s.type === "class" || s.type === "type" || s.type === "attribute") return m.matches(s.content);
-            if (s.type === "list") return s.list.some((C) => w(m, C));
-            if (s.type === "compound") return s.compound.every((C) => w(m, C));
-            if (s.type === "pseudo-class") {
-              if (s.name === "has" || s.name === "if") return s.subtree !== void 0 && g(m, s.subtree).length !== 0;
-              if (s.name === "not") return s.subtree !== void 0 && w(m, s.subtree) === !1;
-              if (s.name === "has-text") {
-                const { argument: C } = s;
-                if (C === void 0) return !1;
-                const f = m.textContent;
-                return f === null ? !1 : d(C, f);
-              } else if (s.name === "min-text-length") {
-                const C = Number(s.argument);
-                if (Number.isNaN(C) || C < 0) return !1;
-                const f = m.textContent;
-                return f === null ? !1 : f.length >= C;
-              }
-            }
-            return !1;
-          }
-          n.matches = w;
-          function g(m, s) {
-            const C = [];
-            if (s.type === "id" || s.type === "class" || s.type === "type" || s.type === "attribute")
-              C.push(...m.querySelectorAll(s.content));
-            else if (s.type === "list") for (const f of s.list) C.push(...g(m, f));
-            else if (s.type === "compound")
-              s.compound.length !== 0 && C.push(...g(m, s.compound[0]).filter((f) => s.compound.slice(1).every((p) => w(f, p))));
-            else if (s.type === "complex") {
-              const f = s.left === void 0 ? [m] : g(m, s.left);
-              if (s.combinator === " ") for (const p of f) C.push(...g(p, s.right));
-              else if (s.combinator === ">") for (const p of f) for (const u of p.children) w(u, s.right) === !0 && C.push(u);
-              else if (s.combinator === "~")
-                for (const p of f) {
-                  let u = p;
-                  for (; (u = u.nextElementSibling) !== null; ) w(u, s.right) === !0 && C.push(u);
-                }
-              else if (s.combinator === "+")
-                for (const p of f) {
-                  const u = p.nextElementSibling;
-                  u !== null && w(u, s.right) === !0 && C.push(u);
-                }
-            } else if (s.type === "pseudo-class") for (const f of m.querySelectorAll("*")) w(f, s) === !0 && C.push(f);
-            return C;
-          }
-          n.querySelectorAll = g;
-        },
-        16107: (x, n, d) => {
-          "use strict";
-          /*!
-           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
-           *
-           * This Source Code Form is subject to the terms of the Mozilla Public
-           * License, v. 2.0. If a copy of the MPL was not distributed with this
-           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-           */ Object.defineProperty(n, "__esModule", { value: !0 }),
-            (n.classifySelector = n.SelectorType = n.PSEUDO_ELEMENTS = n.PSEUDO_CLASSES = n.EXTENDED_PSEUDO_CLASSES = void 0);
-          const w = d(45277);
-          (n.EXTENDED_PSEUDO_CLASSES = new Set(["has", "has-text", "if"])),
-            (n.PSEUDO_CLASSES = new Set([
-              "active",
-              "any",
-              "any-link",
-              "blank",
-              "checked",
-              "default",
-              "defined",
-              "dir",
-              "disabled",
-              "empty",
-              "enabled",
-              "first",
-              "first-child",
-              "first-of-type",
-              "focus",
-              "focus-visible",
-              "focus-within",
-              "fullscreen",
-              "host",
-              "host-context",
-              "hover",
-              "in-range",
-              "indeterminate",
-              "invalid",
-              "is",
-              "lang",
-              "last-child",
-              "last-of-type",
-              "left",
-              "link",
-              "matches",
-              "not",
-              "nth-child",
-              "nth-last-child",
-              "nth-last-of-type",
-              "nth-of-type",
-              "only-child",
-              "only-of-type",
-              "optional",
-              "out-of-range",
-              "placeholder-shown",
-              "read-only",
-              "read-write",
-              "required",
-              "right",
-              "root",
-              "scope",
-              "target",
-              "valid",
-              "visited",
-              "where"
-            ])),
-            (n.PSEUDO_ELEMENTS = new Set(["after", "before", "first-letter", "first-line"]));
-          var g;
-          (function (s) {
-            (s[(s.Normal = 0)] = "Normal"), (s[(s.Extended = 1)] = "Extended"), (s[(s.Invalid = 2)] = "Invalid");
-          })(g || (n.SelectorType = g = {}));
-          function m(s) {
-            if (s.indexOf(":") === -1) return g.Normal;
-            const C = (0, w.tokenize)(s);
-            let f = !1;
-            for (const p of C)
-              if (p.type === "pseudo-class") {
-                const { name: u } = p;
-                if (n.EXTENDED_PSEUDO_CLASSES.has(u) === !0) f = !0;
-                else if (n.PSEUDO_CLASSES.has(u) === !1 && n.PSEUDO_ELEMENTS.has(u) === !1) return g.Invalid;
-                if (f === !1 && p.argument !== void 0 && w.RECURSIVE_PSEUDO_CLASSES.has(u) === !0) {
-                  const r = m(p.argument);
-                  if (r === g.Invalid) return r;
-                  r === g.Extended && (f = !0);
-                }
-              }
-            return f === !0 ? g.Extended : g.Normal;
-          }
-          n.classifySelector = m;
-        },
-        45277: (x, n, d) => {
-          "use strict";
-          /*!
-           * Based on parsel. Extended by Rémi Berson for Ghostery (2021).
-           * https://github.com/LeaVerou/parsel
-           *
-           * MIT License
-           *
-           * Copyright (c) 2020 Lea Verou
-           *
-           * Permission is hereby granted, free of charge, to any person obtaining a copy
-           * of this software and associated documentation files (the "Software"), to deal
-           * in the Software without restriction, including without limitation the rights
-           * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-           * copies of the Software, and to permit persons to whom the Software is
-           * furnished to do so, subject to the following conditions:
-           *
-           * The above copyright notice and this permission notice shall be included in all
-           * copies or substantial portions of the Software.
-           *
-           * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-           * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-           * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-           * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-           * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-           * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-           * SOFTWARE.
-           */ Object.defineProperty(n, "__esModule", { value: !0 }),
-            (n.parse = n.tokenize = n.replace = n.gobbleParens = n.gobbleQuotes = n.isEscaped = n.RECURSIVE_PSEUDO_CLASSES = void 0);
-          const w = d(83236);
-          n.RECURSIVE_PSEUDO_CLASSES = new Set(["any", "dir", "has", "host-context", "if", "if-not", "is", "matches", "not", "where"]);
-          const g = {
-              attribute: new RegExp(
-                "\\[\\s*(?:(?<namespace>\\*|[-\\w]*)\\|)?(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)\\s*(?:(?<operator>\\W?=)\\s*(?<value>.+?)\\s*(?<caseSensitive>[iIsS])?\\s*)?\\]",
-                "gu"
-              ),
-              id: new RegExp("#(?<name>(?:[-\\w\\u{0080}-\\u{FFFF}]|\\\\.)+)", "gu"),
-              class: new RegExp("\\.(?<name>(?:[-\\w\\u{0080}-\\u{FFFF}]|\\\\.)+)", "gu"),
-              comma: /\s*,\s*/g,
-              combinator: /\s*[\s>+~]\s*/g,
-              "pseudo-element": new RegExp("::(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)(?:\\((?:\xB6*)\\))?", "gu"),
-              "pseudo-class": new RegExp(":(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)(?:\\((?<argument>\xB6*)\\))?", "gu"),
-              type: new RegExp("(?:(?<namespace>\\*|[-\\w]*)\\|)?(?<name>[-\\w\\u{0080}-\\u{FFFF}]+)|\\*", "gu")
-            },
-            m = new Set(["pseudo-class", "pseudo-element"]),
-            s = new Set([...m, "attribute"]),
-            C = new Set(["combinator", "comma"]),
-            f = Object.assign({}, g);
-          (f["pseudo-element"] = RegExp(g["pseudo-element"].source.replace("(?<argument>\xB6*)", "(?<argument>.*?)"), "gu")),
-            (f["pseudo-class"] = RegExp(g["pseudo-class"].source.replace("(?<argument>\xB6*)", "(?<argument>.*)"), "gu"));
-          function p(a, h) {
-            a.lastIndex = 0;
-            const y = a.exec(h);
-            if (y === null) return;
-            const E = y.index - 1,
-              P = y[0],
-              o = h.slice(0, E + 1),
-              v = h.slice(E + P.length + 1);
-            return [o, [P, y.groups || {}], v];
-          }
-          const u = [
-            (a) => {
-              const h = p(g.attribute, a);
-              if (h === void 0) return;
-              const [y, [E, { name: P, operator: o, value: v, namespace: R, caseSensitive: N }], B] = h;
-              if (P !== void 0)
-                return [
-                  y,
-                  {
-                    type: "attribute",
-                    content: E,
-                    length: E.length,
-                    namespace: R,
-                    caseSensitive: N,
-                    pos: [],
-                    name: P,
-                    operator: o,
-                    value: v
-                  },
-                  B
-                ];
-            },
-            (a) => {
-              const h = p(g.id, a);
-              if (h === void 0) return;
-              const [y, [E, { name: P }], o] = h;
-              if (P !== void 0) return [y, { type: "id", content: E, length: E.length, pos: [], name: P }, o];
-            },
-            (a) => {
-              const h = p(g.class, a);
-              if (h === void 0) return;
-              const [y, [E, { name: P }], o] = h;
-              if (P !== void 0) return [y, { type: "class", content: E, length: E.length, pos: [], name: P }, o];
-            },
-            (a) => {
-              const h = p(g.comma, a);
-              if (h === void 0) return;
-              const [y, [E], P] = h;
-              return [y, { type: "comma", content: E, length: E.length, pos: [] }, P];
-            },
-            (a) => {
-              const h = p(g.combinator, a);
-              if (h === void 0) return;
-              const [y, [E], P] = h;
-              return [y, { type: "combinator", content: E, length: E.length, pos: [] }, P];
-            },
-            (a) => {
-              const h = p(g["pseudo-element"], a);
-              if (h === void 0) return;
-              const [y, [E, { name: P }], o] = h;
-              if (P !== void 0) return [y, { type: "pseudo-element", content: E, length: E.length, pos: [], name: P }, o];
-            },
-            (a) => {
-              const h = p(g["pseudo-class"], a);
-              if (h === void 0) return;
-              const [y, [E, { name: P, argument: o }], v] = h;
-              if (P !== void 0)
-                return [y, { type: "pseudo-class", content: E, length: E.length, pos: [], name: P, argument: o, subtree: void 0 }, v];
-            },
-            (a) => {
-              const h = p(g.type, a);
-              if (h === void 0) return;
-              const [y, [E, { name: P, namespace: o }], v] = h;
-              return [y, { type: "type", content: E, length: E.length, namespace: o, pos: [], name: P }, v];
-            }
-          ];
-          function r(a) {
-            if (!a) return [];
-            const h = [a];
-            for (const E of u)
-              for (let P = 0; P < h.length; P++) {
-                const o = h[P];
-                if (typeof o == "string") {
-                  const v = E(o);
-                  v !== void 0 && h.splice(P, 1, ...v.filter((R) => R.length !== 0));
-                }
-              }
-            let y = 0;
-            for (const E of h)
-              typeof E != "string" && ((E.pos = [y, y + E.length]), C.has(E.type) && (E.content = E.content.trim() || " ")),
-                (y += E.length);
-            return (0, w.isAtoms)(h) ? h : [];
-          }
-          function c(a, h, y, E) {
-            for (const P of h)
-              for (const o of a)
-                if (E.has(o.type) && o.pos[0] < P.start && P.start < o.pos[1]) {
-                  const v = o.content;
-                  if (((o.content = o.content.replace(y, P.str)), o.content !== v)) {
-                    f[o.type].lastIndex = 0;
-                    const R = f[o.type].exec(o.content);
-                    R !== null && Object.assign(o, R.groups);
-                  }
-                }
-          }
-          function A(a, h) {
-            let y = 0;
-            for (h -= 1; h >= 0 && a[h] === "\\"; ) (y += 1), (h -= 1);
-            return y % 2 !== 0;
-          }
-          n.isEscaped = A;
-          function _(a, h, y) {
-            let E = y + 1;
-            for (; (E = a.indexOf(h, E)) !== -1 && A(a, E) === !0; ) E += 1;
-            if (E !== -1) return a.slice(y, E + 1);
-          }
-          n.gobbleQuotes = _;
-          function S(a, h) {
-            let y = 0;
-            for (let E = h; E < a.length; E++) {
-              const P = a[E];
-              if (P === "(") y += 1;
-              else if (P === ")")
-                if (y > 0) y -= 1;
-                else return;
-              if (y === 0) return a.slice(h, E + 1);
-            }
-          }
-          n.gobbleParens = S;
-          function T(a, h, y, E) {
-            const P = [];
-            let o = 0;
-            for (; (o = a.indexOf(y, o)) !== -1; ) {
-              const v = E(a, o);
-              if (v === void 0) break;
-              P.push({ str: v, start: o }),
-                (a = `${a.slice(0, o + 1)}${h.repeat(v.length - 2)}${a.slice(o + v.length - 1)}`),
-                (o += v.length);
-            }
-            return [P, a];
-          }
-          n.replace = T;
-          function I(a) {
-            if (typeof a != "string") return [];
-            if (((a = a.trim()), a.length === 0)) return [];
-            const [h, y] = T(a, "\xA7", '"', (N, B) => _(N, '"', B)),
-              [E, P] = T(y, "\xA7", "'", (N, B) => _(N, "'", B)),
-              [o, v] = T(P, "\xB6", "(", S),
-              R = r(v);
-            return c(R, o, /\(¶*\)/, m), c(R, h, /"§*"/, s), c(R, E, /'§*'/, s), R;
-          }
-          n.tokenize = I;
-          function k(a, { list: h = !0 } = {}) {
-            if (h === !0 && a.some((y) => y.type === "comma")) {
-              const y = [],
-                E = [];
-              for (let P = 0; P < a.length; P += 1) {
-                const o = a[P];
-                if (o.type === "comma") {
-                  if (E.length === 0) throw new Error("Incorrect comma at " + P);
-                  const v = k(E, { list: !1 });
-                  v !== void 0 && y.push(v), (E.length = 0);
-                } else E.push(o);
-              }
-              if (E.length === 0) throw new Error("Trailing comma");
-              {
-                const P = k(E, { list: !1 });
-                P !== void 0 && y.push(P);
-              }
-              return { type: "list", list: y };
-            }
-            for (let y = a.length - 1; y >= 0; y--) {
-              const E = a[y];
-              if (E.type === "combinator") {
-                const P = k(a.slice(0, y)),
-                  o = k(a.slice(y + 1));
-                return o === void 0 || (E.content !== " " && E.content !== "~" && E.content !== "+" && E.content !== ">")
-                  ? void 0
-                  : { type: "complex", combinator: E.content, left: P, right: o };
-              }
-            }
-            if (a.length !== 0 && (0, w.isAST)(a)) return a.length === 1 ? a[0] : { type: "compound", compound: [...a] };
-          }
-          function L(a, h, y, E) {
-            if (a !== void 0) {
-              if (a.type === "complex") L(a.left, h, y, a), L(a.right, h, y, a);
-              else if (a.type === "compound") for (const P of a.compound) L(P, h, y, a);
-              else
-                a.type === "pseudo-class" &&
-                  a.subtree !== void 0 &&
-                  y !== void 0 &&
-                  y.type === "pseudo-class" &&
-                  y.subtree !== void 0 &&
-                  L(a.subtree, h, y, a);
-              h(a, E);
-            }
-          }
-          function D(a, { recursive: h = !0, list: y = !0 } = {}) {
-            const E = I(a);
-            if (E.length === 0) return;
-            const P = k(E, { list: y });
-            return (
-              h === !0 &&
-                L(P, (o) => {
-                  o.type === "pseudo-class" &&
-                    o.argument &&
-                    o.name !== void 0 &&
-                    n.RECURSIVE_PSEUDO_CLASSES.has(o.name) &&
-                    (o.subtree = D(o.argument, { recursive: !0, list: !0 }));
-                }),
-              P
-            );
-          }
-          n.parse = D;
-        },
-        83236: (x, n) => {
-          "use strict";
-          /*!
-           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
-           *
-           * This Source Code Form is subject to the terms of the Mozilla Public
-           * License, v. 2.0. If a copy of the MPL was not distributed with this
-           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-           */ Object.defineProperty(n, "__esModule", { value: !0 }), (n.isAST = n.isAtoms = void 0);
-          const d = null;
-          function w(m) {
-            return m.every((s) => typeof s != "string");
-          }
-          n.isAtoms = w;
-          function g(m) {
-            return m.every((s) => s.type !== "comma" && s.type !== "combinator");
-          }
-          n.isAST = g;
-        },
-        40542: (x, n, d) => {
-          "use strict";
-          /*!
-           * Copyright (c) 2017-present Cliqz GmbH. All rights reserved.
-           *
-           * This Source Code Form is subject to the terms of the Mozilla Public
-           * License, v. 2.0. If a copy of the MPL was not distributed with this
-           * file, You can obtain one at https://mozilla.org/MPL/2.0/.
-           */ Object.defineProperty(n, "__esModule", { value: !0 }), (n.injectCosmetics = void 0);
-          const w = d(32261),
-            g = d(3803);
-          let m = !0,
-            s = null,
-            C = null;
-          const f = new Set(),
-            p = [],
-            u = new Map();
-          function r() {
-            s !== null && (s.stop(), (s = null));
-          }
-          function c(k) {
-            return new Promise((L) => {
-              chrome.runtime.sendMessage(Object.assign({ action: "getCosmeticsFilters" }, k), (D) => {
-                D !== void 0 && L(D);
-              });
-            });
-          }
-          function A(k, L, D) {
-            var a;
-            const h = (a = D.get(k)) === null || a === void 0 ? void 0 : a.get(L);
-            if (h !== void 0) return h;
-            const y = new Set((0, w.querySelectorAll)(k, L.ast));
-            if (L.attribute !== void 0) {
-              let E = D.get(k);
-              E === void 0 && ((E = new Map()), D.set(k, E));
-              let P = E.get(L);
-              P === void 0 && ((P = new Set()), E.set(L, P));
-              for (const o of y) P.add(o);
-            }
-            return y;
-          }
-          function _() {
-            if (f.size === 0 || p.length === 0) return;
-            const k = new Map(),
-              L = new Map(),
-              D = [...f].filter((a) => a.isConnected === !0);
-            f.clear();
-            for (const a of D)
-              for (const h of p)
-                for (const y of A(a, h, k))
-                  h.remove === !0
-                    ? ((y.textContent = ""), y.remove())
-                    : h.attribute !== void 0 && u.has(y) === !1 && L.set(y, { selector: h, root: a });
-            for (const [a, { selector: h, root: y }] of L.entries())
-              h.attribute !== void 0 && (a.setAttribute(h.attribute, ""), u.set(a, { selector: h, root: y }));
-            for (const [a, { selector: h, root: y }] of [...u.entries()])
-              h.attribute !== void 0 &&
-                (y.isConnected === !1 || a.isConnected === !1 || A(y, h, k).has(a) === !1) &&
-                (u.delete(a), a.removeAttribute(h.attribute));
-          }
-          function S(k) {
-            if (p.length !== 0 && !f.has(window.document.documentElement)) {
-              for (const L of k) {
-                if (L === window.document.documentElement) {
-                  f.clear(), f.add(L);
-                  break;
-                }
-                f.add(L);
-              }
-              C === null &&
-                (C = setTimeout(() => {
-                  (C = null), _();
-                }, 1e3));
-            }
-          }
-          function T(k, { active: L, scripts: D, extended: a }) {
-            if (L === !1) {
-              (m = !1), r();
-              return;
-            } else m = !0;
-            if (D)
-              for (const h of D)
-                try {
-                  (0, g.injectScript)(h, k.document);
-                } catch {}
-            a && a.length > 0 && (p.push(...a), S([k.document.documentElement]));
-          }
-          function I(k, L = !0, D = c) {
-            D({ lifecycle: "start", ids: [], classes: [], hrefs: [] }).then((a) => T(k, a)),
-              k.addEventListener(
-                "DOMContentLoaded",
-                () => {
-                  (s = new g.DOMMonitor((a) => {
-                    a.type === "elements"
-                      ? a.elements.length !== 0 && S(a.elements)
-                      : D(Object.assign(Object.assign({}, a), { lifecycle: "dom-update" })).then((h) => T(k, h));
-                  })),
-                    s.queryAll(k),
-                    m && L && s.start(k);
-                },
-                { once: !0, passive: !0 }
-              ),
-              k.addEventListener("pagehide", r, { once: !0, passive: !0 });
-          }
-          n.injectCosmetics = I;
-        },
         23418: (x, n, d) => {
           "use strict";
           var w = m(d(77084)),
@@ -2468,8 +2469,8 @@ typeof browser < "u" && (chrome = browser),
             ],
             environment: "development",
             isBeta: !1,
-            EXTENSION_VERSION: "1.3.12",
-            VERSION: "1.3.12"
+            EXTENSION_VERSION: "1.3.13",
+            VERSION: "1.3.13"
           };
           n.default = d;
         },
@@ -3670,9 +3671,10 @@ typeof browser < "u" && (chrome = browser),
     (() => {
       "use strict";
       var x = Y(33102),
-        n = Y(78747),
+        n = Y(58665),
         d = Y.n(n);
       function w(s, C = "440px") {
+        if (document.querySelector("ghostery-iframe-wrapper")) return;
         const f = document.createElement("ghostery-iframe-wrapper"),
           p = f.attachShadow({ mode: "closed" }),
           u = document.createElement("template");
@@ -3740,10 +3742,10 @@ typeof browser < "u" && (chrome = browser),
               }
               case "ghostery-close-iframe":
                 c.data.clear && chrome.runtime.sendMessage({ action: "clearIframe", url: s }),
-                  c.data.reload ? window.location.reload() : setTimeout(() => f.parentElement.removeChild(f), 0);
+                  c.data.reload ? window.location.reload() : f.parentElement && setTimeout(() => f.parentElement.removeChild(f), 0);
                 break;
               case "ghostery-clear-iframe":
-                r.src === c.data.url && setTimeout(() => f.parentElement.removeChild(f), 0);
+                r.src === c.data.url && f.parentElement && setTimeout(() => f.parentElement.removeChild(f), 0);
                 break;
               default:
                 break;

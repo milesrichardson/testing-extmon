@@ -12,19 +12,19 @@
     "message": "Inactif"
   },
   "toggle_current_site": {
-    "message": "Activer/Désactiver sur le site actuel"
+    "message": "Activer/Désactiver sur ce site"
   },
   "setup_hotkey_toggle_site": {
-    "message": "Configurer le raccourci clavier\npour activer/désactiver sur le site actuel"
+    "message": "Configurer le raccourci clavier\npour activer/désactiver sur ce site"
   },
   "toggle_extension": {
     "message": "Activer/Désactiver l'extension"
   },
   "setup_hotkey_toggle_extension": {
-    "message": "Configurer l'extension\nRaccourci clavier pour activer/désactiver"
+    "message": "Configurer le raccourci clavier\npour activer/désactiver l'extension"
   },
   "automation": {
-    "message": "Réglage automatique"
+    "message": "Automatisation"
   },
   "set_active_hours": {
     "message": "Définir les heures d’activité"
@@ -42,7 +42,7 @@
     "message": "Cette page est protégée\npar le navigateur"
   },
   "local_files_forbidden": {
-    "message": "Accès interdit\nfichiers locaux"
+    "message": "Accès interdit aux\nfichiers locaux"
   },
   "page_in_dark_list": {
     "message": "Ce site est dans la\nliste noire de l'extension"
@@ -51,7 +51,7 @@
     "message": "Utiliser les couleurs du système"
   },
   "system_dark_mode_description": {
-    "message": "Actif lorsque le mode sombre du système est actif"
+    "message": "Activer lorsque le mode sombre du système est actif"
   },
   "system_dark_mode_chromium_warning": {
     "message": "Cette option pourrait ne pas fonctionner\nà cause d'un bug dans votre navigateur"
@@ -75,7 +75,7 @@
     "message": "Contraste"
   },
   "grayscale": {
-    "message": "N/B"
+    "message": "Niveaux de gris"
   },
   "sepia": {
     "message": "Sépia"
@@ -84,16 +84,16 @@
     "message": "Uniquement"
   },
   "only_for_description": {
-    "message": "Appliquer les paramètres au site actuel uniquement"
+    "message": "Appliquer les paramètres sur ce site uniquement"
   },
   "site_list": {
     "message": "Liste des sites"
   },
   "invert_listed_only": {
-    "message": "Inversé seul"
+    "message": "Inverser uniquement"
   },
   "not_invert_listed": {
-    "message": "Non-inversé"
+    "message": "Ne pas inverser"
   },
   "add_site_to_list": {
     "message": "Ajouter un site à la liste"
@@ -108,7 +108,7 @@
     "message": "Choisir une police"
   },
   "text_stroke": {
-    "message": "Trait du texte"
+    "message": "Épaisseur du texte"
   },
   "try_experimental_theme_engines": {
     "message": "Essayez les moteurs de thème **expérimentaux**:\n**Filtre+** préserve la satur. des couleurs, utilise le GPU\n**Thème statique** génère un thème simple et rapide\n**Dynamique** analyse les couleurs et les images"
@@ -129,7 +129,7 @@
     "message": "Mode de génération de thème"
   },
   "custom_browser_theme_on": {
-    "message": "Custom."
+    "message": "Custom"
   },
   "custom_browser_theme_off": {
     "message": "Défaut"
@@ -138,7 +138,7 @@
     "message": "Modifier le thème du navigateur"
   },
   "privacy": {
-    "message": "Confid."
+    "message": "Confidentialité"
   },
   "help": {
     "message": "Aide"
@@ -153,7 +153,7 @@
     "message": "Lire la suite"
   },
   "open_dev_tools": {
-    "message": "Dévelop."
+    "message": "Outils de développement"
   },
   "configure_automation": {
     "message": "Configurer l'automatisation"
@@ -183,36 +183,36 @@
     "message": "Raccourci clavier d'activation/désactivation de l'extension"
   },
   "configure_site_toggle": {
-    "message": "Configurer le basculement de site Web"
+    "message": "Configurer l'activation des sites"
   },
   "site_toggle": {
-    "message": "Basculement de site"
+    "message": "Activation des sites"
   },
   "enabled_by_default": {
     "message": "Activé par défaut"
   },
   "enable_for_all_sites_by_default": {
-    "message": "Activé pour tous les sites Web par défaut"
+    "message": "Activé pour tous les sites par défaut"
   },
   "detect_dark_theme": {
     "message": "Détecter le thème sombre"
   },
   "detect_website_dark_theme": {
-    "message": "Détecter le thème sombre du site Web"
+    "message": "Détecter le thème sombre du site"
   },
   "dark_theme_detected": {
     "message": "Thème sombre détecté"
   },
   "website_toggle_shortcut": {
-    "message": "Raccourci clavier pour basculer vers le site Web"
+    "message": "Raccourci clavier pour activer/désactiver sur le site"
   },
   "support_out_work": {
     "message": "Soutenez notre travail"
   },
   "mobile_link": {
-    "message": "Mobile Dark Reader est disponible. Apprendre encore plus"
+    "message": "Dark Reader pour mobile est disponible. En savoir plus"
   },
   "store_listing": {
-    "message": "Cette extension de navigateur implémente un thème sombre global en créant à la volée des thèmes sombres pour chaque site Web que vous visitez. Dark Reader augmente le contraste des couleurs vives pour les rendre plus agréables à la vue la nuit.\n\nVous pouvez également ajuster la luminosité, le contraste, le filtre sépia, le thème sombre, la police du texte ainsi que la liste des sites ignorés par l'extension.\n\nNous pouvons vous demander de soutenir le développement de l'application par un don. Vous pouvez voir des informations sur Dark Reader dans la fenêtre contextuelle des paramètres. Il existe des outils de développement pour les utilisateurs expérimentés.\n\nDark Reader n'intègre pas de publicités et ne partage vos données avec personne d'autre. Il est entièrement open-source. https://github.com/darkreader/darkreader\n\nIl est nécessaire de désactiver toute extension similaire à Dark Reader pour que celle-ci fonctionne correctement. Profitez-en et prenez soin de vos yeux!"
+    "message": "Cette extension de navigateur implémente un thème sombre global en créant à la volée des thèmes sombres pour chaque site que vous visitez. Dark Reader augmente le contraste des couleurs vives pour les rendre plus agréables à la vue la nuit.\n\nVous pouvez également ajuster la luminosité, le contraste, le filtre sépia, le thème sombre, la police du texte ainsi que la liste des sites ignorés par l'extension.\n\nNous pouvons vous demander de soutenir le développement de l'application par un don. Vous pouvez voir des informations sur Dark Reader dans la fenêtre contextuelle des paramètres. Il existe des outils de développement pour les utilisateurs expérimentés.\n\nDark Reader n'intègre pas de publicités et ne partage vos données avec personne d'autre. Il est entièrement open-source. https://github.com/darkreader/darkreader\n\nIl est nécessaire de désactiver toute extension similaire à Dark Reader pour que celle-ci fonctionne correctement. Profitez-en et prenez soin de vos yeux!"
   }
 }

@@ -141,7 +141,8 @@
               login: { baseUrl: "https://dummy.com" },
               vaultData: { passwords: { recordType: a.w.Password, username: "test@test.com", record: {} } },
               user: { type: d.F.PREMIUM_TRIAL },
-              secondaryOnboarding: { allSkillsModalOpened: !0 }
+              secondaryOnboarding: { allSkillsModalOpened: !0 },
+              settings: { features: {} }
             }),
             t = (0, o.mount)((0, u.jsx)(s.zt, { store: e }, (0, u.jsx)(i.default, { skill: c, expanded: !0, fromAllSkillsDialog: !1 })));
           expect(t).toHaveLength(1), t.unmount();
@@ -155,7 +156,8 @@
               login: { baseUrl: "https://dummy.com" },
               vaultData: { passwords: { recordType: a.w.Password, username: "test@test.com", record: {} } },
               user: { type: d.F.PREMIUM_TRIAL },
-              secondaryOnboarding: { allSkillsModalOpened: !0 }
+              secondaryOnboarding: { allSkillsModalOpened: !0 },
+              settings: { features: {} }
             }),
             p = (0, o.mount)((0, u.jsx)(s.zt, { store: r }, (0, u.jsx)(i.default, { skill: c, expanded: !0, fromAllSkillsDialog: !1 })));
           expect(p.find(".site-name")).toHaveLength(6), p.unmount(), top && (top.bg = n);
@@ -168,7 +170,8 @@
               login: { baseUrl: "https://dummy.com" },
               vaultData: { passwords: t },
               user: { type: d.F.PREMIUM_TRIAL },
-              secondaryOnboarding: { allSkillsModalOpened: !0 }
+              secondaryOnboarding: { allSkillsModalOpened: !0 },
+              settings: { features: {} }
             }),
             r = (0, o.mount)((0, u.jsx)(s.zt, { store: n }, (0, u.jsx)(i.default, { skill: c, expanded: !0, fromAllSkillsDialog: !1 })));
           r.find(".add-item-button").at(1).simulate("click"),
@@ -185,7 +188,8 @@
               login: { baseUrl: "https://dummy.com" },
               vaultData: { passwords: t },
               user: { type: d.F.ENTERPRISE_TRIAL },
-              secondaryOnboarding: { allSkillsModalOpened: !0 }
+              secondaryOnboarding: { allSkillsModalOpened: !0 },
+              settings: { features: {} }
             }),
             r = (0, o.mount)((0, u.jsx)(s.zt, { store: n }, (0, u.jsx)(i.default, { skill: c, expanded: !0, fromAllSkillsDialog: !1 })));
           r.find(".add-item-button").at(1).simulate("click"),
@@ -199,7 +203,7 @@
       n.r(t),
         n.d(t, {
           default: function () {
-            return K;
+            return $;
           }
         });
       var o,
@@ -219,8 +223,8 @@
         v = n(57989),
         b = n(14346),
         x = n(30732),
-        y = n(98223),
-        k = n(67716),
+        k = n(98223),
+        y = n(67716),
         w = n(74665),
         L = n(82190),
         C = n(43972),
@@ -352,8 +356,8 @@
         );
       }
       var V,
-        R,
         A,
+        R,
         S,
         M,
         P,
@@ -423,16 +427,16 @@
               d: "M25.0353 23.7321C27.6234 25.2233 30.8275 25.2356 33.4327 23.7831L35.0967 25.2573V27.5751H37.4185L38.1925 28.3863V30.6655H40.2311L41.875 32.2108H45.1581V28.9333L36.7158 20.5057C38.5268 17.2716 38.0609 13.1072 35.3072 10.3583C33.3661 8.42058 30.7223 7.61398 28.1945 7.93847",
               fill: "white"
             })),
-          R ||
-            (R = g.createElement("path", {
+          A ||
+            (A = g.createElement("path", {
               d: "M25.0353 23.7321C27.6234 25.2233 30.8275 25.2356 33.4327 23.7831L35.0967 25.2573V27.5751H37.4185L38.1925 28.3863V30.6655H40.2311L41.875 32.2108H45.1581V28.9333L36.7158 20.5057C38.5268 17.2716 38.0609 13.1072 35.3072 10.3583C33.3661 8.42058 30.7223 7.61398 28.1945 7.93847",
               stroke: "#D7DBE0",
               strokeWidth: 1.25,
               strokeLinecap: "round",
               strokeDasharray: "109.7 4.54"
             })),
-          A ||
-            (A = g.createElement("path", {
+          R ||
+            (R = g.createElement("path", {
               fillRule: "evenodd",
               clipRule: "evenodd",
               d: "M30.8772 14.6355C30.8772 10.0012 27.0983 6.24561 22.4386 6.24561C17.779 6.24561 14 10.0012 14 14.6355C14 18.475 16.5976 21.7044 20.1372 22.7005V24.5509L18.6029 26.0748L20.1372 27.6017V29.1272L18.6029 30.6526L20.1372 32.1781V34.4662L22.4386 36.7544L24.7401 34.4662V22.7005C28.2797 21.7044 30.8772 18.475 30.8772 14.6355Z",
@@ -487,13 +491,16 @@
         );
       }
       var G = g.forwardRef(z),
-        W = (n.p, n(27403));
-      var Y = (0, m.Z)("div", { target: "e19u5f480" })({
+        W = (n.p, n(15878)),
+        _ = n(46177),
+        Y = n(52384),
+        J = n(27403);
+      var q = (0, m.Z)("div", { target: "e19u5f480" })({
           name: "ccd0eo",
           styles:
             "max-width:350px;margin:0 auto;display:flex;flex-direction:column;height:100%;h2{font-weight:600;size:18px;line-height:24px;letter-spacing:0.24px;color:#1d3049;margin-bottom:15px;}b{margin-top:12px;display:block;font-weight:600;}p{font-size:12px;line-height:24px;color:#1d3049;margin-bottom:15px;}.bold{font-weight:600;}.sites{background:#ffffff;border-radius:4px;border:1px solid #dcdfe4;&{.site{display:flex;flex-direction:row;flex-wrap:wrap;column-count:2;cursor:pointer;padding:6px 12px;background:transparent;transition:225ms ease-out;&:first-of-type{padding:12px;}&:last-of-type{padding:6px 12px 12px;}&{:hover{background:#edf2fb;transition:ease-out 225ms;}.icon-container{width:36px;height:36px;background-repeat:no-repeat;background-position:center;background-size:cover;}.site-name{width:calc(100% - 36px);line-height:36px;padding-left:24px;font-weight:600;font-size:14px;color:#000000;}}}}}"
         }),
-        _ = [
+        K = [
           { displayName: "Google", domains: ["google.com"], loginURL: L.G.Google },
           { displayName: "Facebook", domains: ["facebook.com"], loginURL: L.G.Facebook },
           { displayName: "LinkedIn", domains: ["linkedin.com"], loginURL: L.G.LinkedIn },
@@ -501,25 +508,25 @@
           { displayName: "Dropbox", domains: ["dropbox.com"], loginURL: L.G.Dropbox },
           { displayName: "Netflix", domains: ["netflix.com"], loginURL: L.G.Netflix }
         ],
-        J = function (e) {
+        Q = function (e) {
           var t = e.onButtonClick;
-          return (0, W.jsx)(
-            Y,
+          return (0, J.jsx)(
+            q,
             { "data-automation-id": "so-add-first-password", className: "add-first-password no-extension" },
-            (0, W.jsx)(
+            (0, J.jsx)(
               "p",
               null,
-              (0, W.jsx)(h.Trans, { id: "Add passwords to your vault. LastPass will fill them when you need them. Automagically." })
+              (0, J.jsx)(h.Trans, { id: "Add passwords to your vault. LastPass will fill them when you need them. Automagically." })
             ),
-            (0, W.jsx)(
+            (0, J.jsx)(
               "div",
               null,
-              (0, W.jsx)("p", { className: "bold" }, (0, W.jsx)(h.Trans, { id: "Click this button to add your first password." })),
-              (0, W.jsx)(C.a, { clickFunction: t })
+              (0, J.jsx)("p", { className: "bold" }, (0, J.jsx)(h.Trans, { id: "Click this button to add your first password." })),
+              (0, J.jsx)(C.a, { clickFunction: t })
             )
           );
         },
-        q = function (e) {
+        X = function (e) {
           var t,
             n = e.sitesList,
             o = e.hasExtension,
@@ -532,40 +539,44 @@
               r.openAddItemDialog(), r.hideSkillDetailsDialog(), l && r.closeShowAllSkills();
             };
           return i
-            ? (0, W.jsx)(J, { onButtonClick: a })
+            ? (0, J.jsx)(Q, { onButtonClick: a })
             : o && void 0 !== (null === (t = top) || void 0 === t ? void 0 : t.bg)
-            ? (0, W.jsx)(
-                Y,
+            ? (0, J.jsx)(
+                q,
                 { "data-automation-id": "so-add-first-password", className: "add-first-password" },
-                (0, W.jsx)("p", null, (0, W.jsx)(h.Trans, { id: "We'll help you save your first password." })),
-                (0, W.jsx)(
+                (0, J.jsx)("p", null, (0, J.jsx)(h.Trans, { id: "We'll help you save your first password." })),
+                (0, J.jsx)(
                   "div",
                   { className: "sites" },
                   n.map(function (e, t) {
-                    return (0, W.jsx)(k.SiteComponent, { site: e, key: t });
+                    return (0, J.jsx)(y.SiteComponent, { site: e, key: t });
                   })
                 )
               )
-            : (0, W.jsx)(J, { onButtonClick: a });
+            : (0, J.jsx)(Q, { onButtonClick: a });
         },
-        K = function (e) {
+        $ = function (e) {
           var t = e.skill,
             n = e.expanded,
             o = e.fromAllSkillsDialog,
-            r = w.R.extensionInstalled();
-          return (0, W.jsx)(y.j, {
+            r = w.R.extensionInstalled(),
+            i = (0, W.Fe)() === _.t.SPA,
+            l = (0, Y.v9)(function (e) {
+              return e.settings.features.enable_mv3_background;
+            });
+          return (0, J.jsx)(k.j, {
             "data-component": "AddYourFirstPassword",
             skill: t,
-            icon: (t.completed && (0, W.jsx)(G, null)) || (0, W.jsx)(Z, null),
-            title: (0, W.jsx)(h.Trans, { id: "Add your first password" }),
-            description: (0, W.jsx)(h.Trans, { id: "Let LastPass remember it for you" }),
+            icon: (t.completed && (0, J.jsx)(G, null)) || (0, J.jsx)(Z, null),
+            title: (0, J.jsx)(h.Trans, { id: "Add your first password" }),
+            description: (0, J.jsx)(h.Trans, { id: "Let LastPass remember it for you" }),
             expanded: n,
             fromAllSkillsDialog: o,
             bodyTitle: r
-              ? (0, W.jsx)(h.Trans, { id: "Choose a website you use" })
-              : (0, W.jsx)(h.Trans, { id: "Save precious time when logging in to websites" }),
+              ? (0, J.jsx)(h.Trans, { id: "Choose a website you use" })
+              : (0, J.jsx)(h.Trans, { id: "Save precious time when logging in to websites" }),
             automationId: "so-first-password",
-            bodyContent: (0, W.jsx)(q, { sitesList: _, hasExtension: r, fromAllSkillsDialog: o })
+            bodyContent: (0, J.jsx)(X, { sitesList: K, hasExtension: i ? r && l : r, fromAllSkillsDialog: o })
           });
         };
     },

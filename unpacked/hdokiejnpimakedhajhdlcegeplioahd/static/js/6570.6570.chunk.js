@@ -8,41 +8,41 @@
         i = o(82325),
         r = o(52384),
         c = o(67716),
-        u = (o(23381), o(27403)),
-        s = { openIcob: jest.fn() };
+        s = (o(23381), o(27403)),
+        u = { openIcob: jest.fn() };
       jest.mock("../../hooks/use-secondary-onboarding-actions", function () {
         return {
           useSecondaryOnboardingActions: function () {
-            return s;
+            return u;
           }
         };
       }),
         it("should shallow render the AddTenPassword component without crashing", function () {
           var t = (0, e.Z)([])({ login: { baseUrl: "https://dummy.com" } }),
             n = (0, i.shallow)(
-              (0, u.jsx)(
+              (0, s.jsx)(
                 r.zt,
                 { store: t },
-                (0, u.jsx)(c.SiteComponent, { site: { displayName: "Dummy", domains: ["dummy.com"], loginURL: "https://dummy.com" } })
+                (0, s.jsx)(c.SiteComponent, { site: { displayName: "Dummy", domains: ["dummy.com"], loginURL: "https://dummy.com" } })
               )
             );
           expect(n).toHaveLength(1);
         }),
         it("should mount render the AddTenPassword component without crashing and click one site", function () {
-          var t = (0, e.Z)([])({ login: { baseUrl: "https://dummy.com" } }),
+          var t = (0, e.Z)([])({ login: { baseUrl: "https://dummy.com" }, settings: { features: {} } }),
             n = (0, i.mount)(
-              (0, u.jsx)(
+              (0, s.jsx)(
                 r.zt,
                 { store: t },
-                (0, u.jsx)(c.SiteComponent, { site: { displayName: "Dummy", domains: ["dummy.com"], loginURL: "https://dummy.com" } })
+                (0, s.jsx)(c.SiteComponent, { site: { displayName: "Dummy", domains: ["dummy.com"], loginURL: "https://dummy.com" } })
               )
             );
-          console.log(n.html()), n.find(".site").simulate("click"), expect(s.openIcob).toHaveBeenCalled(), n.unmount();
+          console.log(n.html()), n.find(".site").simulate("click"), expect(u.openIcob).toHaveBeenCalled(), n.unmount();
         }),
         it("should mount render the AddTenPassword component without crashing and render 6 sites", function () {
-          var t = (0, e.Z)([])({ login: { baseUrl: "https://dummy.com" } }),
+          var t = (0, e.Z)([])({ login: { baseUrl: "https://dummy.com" }, settings: { features: {} } }),
             n = (0, i.mount)(
-              (0, u.jsx)(
+              (0, s.jsx)(
                 r.zt,
                 { store: t },
                 [
@@ -53,7 +53,7 @@
                   { displayName: "Dropbox", domains: ["dropbox.com"], loginURL: "https://dummy.com" },
                   { displayName: "Netflix", domains: ["netflix.com"], loginURL: "https://dummy.com" }
                 ].map(function (t, n) {
-                  return (0, u.jsx)(c.SiteComponent, { site: t, key: n });
+                  return (0, s.jsx)(c.SiteComponent, { site: t, key: n });
                 })
               )
             );
@@ -67,8 +67,8 @@
         i = Object.prototype,
         r = e.toString,
         c = i.hasOwnProperty,
-        u = r.call(Object),
-        s = i.toString,
+        s = r.call(Object),
+        u = i.toString,
         a =
           ((n = Object.getPrototypeOf),
           (o = Object),
@@ -80,7 +80,7 @@
           !(function (t) {
             return !!t && "object" == typeof t;
           })(t) ||
-          "[object Object]" != s.call(t) ||
+          "[object Object]" != u.call(t) ||
           (function (t) {
             var n = !1;
             if (null != t && "function" != typeof t.toString)
@@ -94,7 +94,7 @@
         var n = a(t);
         if (null === n) return !0;
         var o = c.call(n, "constructor") && n.constructor;
-        return "function" == typeof o && o instanceof o && r.call(o) == u;
+        return "function" == typeof o && o instanceof o && r.call(o) == s;
       };
     },
     82160: function (t, n, o) {
@@ -117,7 +117,7 @@
               o = [];
             return {
               getState: function () {
-                return u(n) ? n(t) : n;
+                return s(n) ? n(t) : n;
               },
               getActions: function () {
                 return t;
@@ -137,7 +137,7 @@
               },
               subscribe: function (t) {
                 return (
-                  u(t) && o.push(t),
+                  s(t) && o.push(t),
                   function () {
                     var n = o.indexOf(t);
                     n < 0 || o.splice(n, 1);
@@ -145,7 +145,7 @@
                 );
               },
               replaceReducer: function (t) {
-                if (!u(t)) throw new Error("Expected the nextReducer to be a function.");
+                if (!s(t)) throw new Error("Expected the nextReducer to be a function.");
               }
             };
           })();
@@ -155,7 +155,7 @@
         i = o(43754),
         r = o(55804),
         c = (e = r) && e.__esModule ? e : { default: e };
-      var u = function (t) {
+      var s = function (t) {
         return "function" === typeof t;
       };
     },

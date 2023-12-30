@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "التطبيقات"
+  },
+  "EndOfSupportHeader": {
+    "message": "نهاية الدعم لملحق Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "بدءا من 15 يناير 2024، لن تعد Microsoft تدعم هذا الملحق."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "لمزيد من المعلومات، يرجى زيارة صفحة الدعم لهذا الملحق."
+  },
+  "Support": {
+    "message": "الدعم"
   }
 }

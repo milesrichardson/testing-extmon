@@ -158,9 +158,10 @@
 .data-block-view .file-status-icon.icon-versions-previous,
 .data-block-view.linked .icon-link {
   --icon-size: 16px;
+  -webkit-margin-end: 4px;
   background-image: none;
   margin-bottom: 4px;
-  margin-right: 4px;
+  margin-inline-end: 4px;
   margin-top: 4px;
 }
 .data-block-view .file-status-icon.icon-favourite-filled,
@@ -287,9 +288,13 @@
   font: var(--text-body2);
   left: 4px;
   position: absolute;
-  text-align: left;
+  text-align: start;
   top: 4px;
   z-index: 2;
+}
+.rtl .video-thumb-details {
+  left: auto;
+  right: 4px;
 }
 .data-block-bg.video .video-thumb-details {
   display: block;

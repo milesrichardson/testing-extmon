@@ -71,3 +71,19 @@
   transition: 0.3s;
   vertical-align: middle;
 }
+.checkboxMinimize:before {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  content: "";
+  display: block;
+  height: var(--icon-size, 16px);
+  width: var(--icon-size, 16px);
+}
+.theme-light-forced .checkboxMinimize:before,
+.theme-light .checkboxMinimize:before {
+  background-image: url(../../images/sprites/fm-theme@light.svg#icon-checkbox-minimize);
+}
+.theme-dark-forced .checkboxMinimize:before,
+.theme-dark .checkboxMinimize:before {
+  background-image: url(../../images/sprites/fm-theme@dark.svg#icon-checkbox-minimize);
+}

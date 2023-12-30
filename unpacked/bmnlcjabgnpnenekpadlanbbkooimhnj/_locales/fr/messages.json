@@ -65,9 +65,6 @@
   "Activate_rewards_too": {
     "message": "Activer aussi les récompenses"
   },
-  "Activate_Team_Deals_and_earn": {
-    "message": "Activez les offres d'équipe et obtenez {SOLOREWARDGOLDVALUE} lorsque vous faites vos achats plus {SOLOREWARDGOLDVALUE} lorsqu'un de vos coéquipiers fait également un achat. Soit {TEAMREWARDGOLDVALUE} ({FORMATTEDTEAMREWARDGOLDVALUE} points) au total !"
-  },
   "Activated": {
     "message": "Activé"
   },
@@ -130,9 +127,6 @@
   },
   "Add_your_Honey_email_to_your_PayPal_account": {
     "message": "Ajouter votre adresse email Honey à votre compte PayPal"
-  },
-  "Add_your_name": {
-    "message": "Ajouter votre nom"
   },
   "Added_to_Droplist": {
     "message": "Ajouté à la Droplist"
@@ -317,9 +311,6 @@
   "buy_now": {
     "message": "acheter"
   },
-  "Buy_now_to_score_MINGOLD_Gold_and_if_your_teammate_does_the_same_you_each_get_MAXGOLD_Gold_Thats_GOLDCURRENCYVALUE_in_cash_back_or_rewards": {
-    "message": "Achetez maintenant pour gagner {MINGOLD} Gold. Si votre coéquipier fait de même, vous recevrez chacun {MAXGOLD} Gold. Soit {GOLDCURRENCYVALUE} de cashback ou de récompenses."
-  },
   "Buy_this_item_with_Pay_in_4": {
     "message": "Achetez cet item avec Pay in 4 !"
   },
@@ -410,12 +401,6 @@
   "Checkout": {
     "message": "Paiement"
   },
-  "Checkout_now_for_your_Team_Deal_bonus": {
-    "message": "Payez dès maintenant pour profiter de votre offre d'équipe"
-  },
-  "Checkout_now_to_get_extra_Gold": {
-    "message": "Payez dès maintenant pour obtenir plus de Gold"
-  },
   "Checkout_with_confidence_knowing_we_looked": {
     "message": "Notre recherche est terminée, payez donc en toute confiance."
   },
@@ -430,9 +415,6 @@
   },
   "Choose_a_gift_for_your_order": {
     "message": "Choisissez un cadeau pour votre commande"
-  },
-  "Choose_an_invite_method_to_complete_activation": {
-    "message": "Choisissez le type d'invitation pour terminer l'activation."
   },
   "Choose_an_offer_and_well_automatically_apply_the_code_to_your_cart": {
     "message": "Choisissez une offre et nous appliquerons automatiquement le code à votre panier."
@@ -589,9 +571,6 @@
   },
   "Copy": {
     "message": "Copier"
-  },
-  "Copy_Link": {
-    "message": "Copier le lien"
   },
   "COUNTDOWN_left": {
     "message": "Il reste {COUNTDOWN}"
@@ -767,9 +746,6 @@
   "Double_Cash_Back_Offer_Activated_SEEDETAILS": {
     "message": "Offre pour doubler votre cashback activée. {SEEDETAILS}."
   },
-  "Double_Gold_Bonus": {
-    "message": "Double bonus Gold"
-  },
   "Double_Gold_Offer_Activated_E": {
     "message": "Offre pour doubler vos Gold activée !"
   },
@@ -818,9 +794,6 @@
   "Earn_extra_Honey_Gold_with_these_Exclusive_Offers": {
     "message": "Obtenez des Honey Gold supplémentaires grâce à ces offres exclusives"
   },
-  "Earn_Gold_just_for_shopping": {
-    "message": "Obtenez des Gold simplement en faisant des achats"
-  },
   "Earn_Gold_towards_gift_cards": {
     "message": "Obtenez des Gold pour avoir des cartes cadeaux"
   },
@@ -854,9 +827,6 @@
   "Earn_Honey_Gold_on_your_eligible_items_at_STORENAME": {
     "message": "Obtenez des Honey Gold sur vos items éligibles sur {STORENAME}"
   },
-  "Earn_more_when_you_buy_together": {
-    "message": "Obtenez plus en achetant ensemble."
-  },
   "Earn_OFFERVALUE_in_Honey_Gold": {
     "message": "Obtenez {OFFERVALUE} en Honey Gold"
   },
@@ -874,15 +844,6 @@
   },
   "Earn_Rewards": {
     "message": "Gagner des récompenses"
-  },
-  "Earn_SOLOGOLD_Gold_if_you_buy_before_time_runs_out_and_TEAMGOLDBONUS_more_if_your_teammate_does_the_same": {
-    "message": "Obtenez {SOLOGOLD} Gold si vous achetez avant la fin du temps imparti et {TEAMGOLDBONUS} de plus si votre coéquipier fait de même."
-  },
-  "Earn_up_to_GOLDCURRENCYVALUE_Cash_Back": {
-    "message": "Obtenez jusqu'à {GOLDCURRENCYVALUE} de cashback"
-  },
-  "Earn_up_to_GOLDVALUE_Gold": {
-    "message": "Obtenez jusqu'à {GOLDVALUE} Gold"
   },
   "Earn_VALUE_GOLD_points_with_your_purchase": {
     "message": "Obtenez {VALUE} ({GOLD} points) avec votre achat."
@@ -992,9 +953,6 @@
   "Finishing_up": {
     "message": "Finalisation…"
   },
-  "First_Name": {
-    "message": "Prénom"
-  },
   "Follow": {
     "message": "Suivre"
   },
@@ -1021,9 +979,6 @@
   },
   "For_a_demo_of_how_Honey_works_on_supported_sites_CLICKHERE": {
     "message": "Pour voir une démo sur le fonctionnement de Honey sur les sites pris en charge, {CLICKHERE}."
-  },
-  "For_each": {
-    "message": "chacun"
   },
   "For_items_with_many_sizes_andor_colors_youll_need_to_first_choose_a_specific_version_of_this_item_so_we_can_show_you_the_right_price_info": {
     "message": "Si votre item est disponible en plusieurs tailles et/ou couleurs, choisissez celles qui vous intéressent pour que nous puissions vous indiquer le bon prix."
@@ -1259,23 +1214,11 @@
   "GOLDRANGE_points_back": {
     "message": "{GOLDRANGE} points récupérés"
   },
-  "GOLDRANGE_points_TERMS_apply": {
-    "message": "{GOLDRANGE} points • Des {TERMS} s'appliquent"
-  },
   "GOLDRANGE_rewards_activated": {
     "message": "Récompenses de {GOLDRANGE} activées !"
   },
-  "GOLDREDEEMLINK": {
-    "message": "https://www.joinhoney.com/fr/honeygold/redeem"
-  },
   "GOLDTEXT_could_be_yours_on_this_purchase_Rewards_rule": {
     "message": "Vous pourriez bénéficier de {GOLDTEXT} sur cet achat. Rien de mieux que des récompenses."
-  },
-  "GOLDTRANSACTIONLINK": {
-    "message": "https://www.joinhoney.com/fr/honeygold/activity"
-  },
-  "GOLDVALUE_Earned": {
-    "message": "{GOLDVALUE} gagnés"
   },
   "GOLDVALUE_Gold": {
     "message": "{GOLDVALUE} Gold"
@@ -1349,9 +1292,6 @@
   "Help_Center": {
     "message": "Aide"
   },
-  "Help_your_team_get_even_more_Cash_Back_by_sharing_the_deal": {
-    "message": "Aidez votre équipe à obtenir encore plus de cashback en partageant l'offre."
-  },
   "here": {
     "message": "ici"
   },
@@ -1409,9 +1349,6 @@
   "Honey_depends_on_users_like_you": {
     "message": "Honey compte sur des utilisateurs comme vous."
   },
-  "Honey_does_not_store_your_contacts_or_contact_them_without_your_permission": {
-    "message": "Honey ne conserve pas vos contacts ni ne communique avec eux sans votre permission.​"
-  },
   "Honey_exclusive": {
     "message": "Exclusivité Honey !"
   },
@@ -1445,12 +1382,6 @@
   "Honey_Gold_CB": {
     "message": "Honey Gold"
   },
-  "Honey_Gold_is_now_PayPal_Rewards": {
-    "message": "Honey Gold s'appelle désormais PayPal Rewards !"
-  },
-  "Honey_Gold_is_our_rewards_program_where_members_can_earn_Honey_Gold_or_Gold_for_short_at_some_of_their_favorite_stores": {
-    "message": "Notre programme de récompenses Honey Gold permet à nos membres de gagner des Honey Gold (ou Gold en bref) sur certaines de leurs boutiques préférées."
-  },
   "Honey_Gold_Rewards": {
     "message": "Récompenses Honey Gold"
   },
@@ -1468,9 +1399,6 @@
   },
   "Honey_Gold_terms_lc": {
     "message": "Conditions Honey Gold"
-  },
-  "Honey_Gold_Transactions": {
-    "message": "Transactions Honey Gold"
   },
   "Honey_has_been_updated_to_version_EXTVERSION": {
     "message": "Honey a été mis à jour vers la version {EXTVERSION}."
@@ -1522,12 +1450,6 @@
   },
   "How_It_Works": {
     "message": "Fonctionnement"
-  },
-  "How_Team_Deals_Work": {
-    "message": "Fonctionnement des offres d'équipe"
-  },
-  "I_just_made_a_Team_Deal_with_Honey_If_we_both_buy_we_both_get_GOLD_Gold_We_can_redeem_GOLD_Gold_for_OFFERVALUE_in_cash_back_or_gift_cards": {
-    "message": "Je viens de démarrer une offre d'équipe avec Honey. Si nous achetons tous les deux, nous obtenons {GOLD} Gold chacun. Nous pouvons échanger {GOLD} Gold contre {OFFERVALUE} de cashback ou de cartes cadeaux. Il reste moins de 24 heures. À nous les Gold !"
   },
   "I_linked_my_account_already": {
     "message": "J'ai déjà lié mon compte"
@@ -1585,30 +1507,6 @@
   },
   "International_issues": {
     "message": "Problèmes internationaux"
-  },
-  "Invite_by_email_address": {
-    "message": "Inviter par email"
-  },
-  "Invite_Confirmation": {
-    "message": "Confirmation d'invitation"
-  },
-  "Invite_Friends": {
-    "message": "Inviter des amis"
-  },
-  "Invite_Friends_and_Earn_Rewards": {
-    "message": "Invitez vos amis et obtenez des récompenses"
-  },
-  "Invite_friends_to_join_your_Team_Deal": {
-    "message": "Invitez vos amis à rejoindre votre offre d'équipe pour gagner plus de cashback."
-  },
-  "Invite_friends_to_join_your_Team_Deal_All_you_need_is_one_extra_teammate": {
-    "message": "Invitez vos amis à rejoindre votre offre d'équipe. Vous avez seulement besoin d'un autre coéquipier."
-  },
-  "Invite_more_friends": {
-    "message": "Inviter d'autres amis"
-  },
-  "Invite_sent": {
-    "message": "Invitation envoyée !"
   },
   "It_is_people_like_you_that_help_everyone_save": {
     "message": "C'est grâce à des gens comme vous que tout le monde peut faire des économies."
@@ -1706,9 +1604,6 @@
   "Know_someone_who_wants_to_save_money_on_Amazon": {
     "message": "Vous connaissez quelqu'un qui souhaite économiser de l'argent sur Amazon ?"
   },
-  "Last_Name": {
-    "message": "Nom"
-  },
   "Last_Successful_Coupon": {
     "message": "Dernier bon de réduction appliqué"
   },
@@ -1744,12 +1639,6 @@
   },
   "Like_Honey": {
     "message": "Vous aimez Honey ?"
-  },
-  "Link_copied": {
-    "message": "Lien copié"
-  },
-  "Link_copied_to_clipboard": {
-    "message": "Lien copié dans le presse-papiers"
   },
   "Link_my_PayPal_account": {
     "message": "Lier mon compte PayPal"
@@ -1789,9 +1678,6 @@
   },
   "Log_in_with_PayPal": {
     "message": "Connexion avec PayPal"
-  },
-  "Logging_Out": {
-    "message": "Déconnexion..."
   },
   "Login": {
     "message": "Connexion"
@@ -1841,9 +1727,6 @@
   "Making_you_a_savings_mixtape": {
     "message": "Compilation en cours pour faire des économies…"
   },
-  "Max_of_MAXMEMBERS_members_per_team": {
-    "message": "{MAXMEMBERS} membres maximum par équipe"
-  },
   "May_exclude_tax_shipping_and_any_fees": {
     "message": "Peut exclure les taxes, la livraison et autres frais."
   },
@@ -1873,9 +1756,6 @@
   },
   "Mobile_Extension": {
     "message": "Extension mobile"
-  },
-  "More_cash_back_with_Team_Deals": {
-    "message": "Plus de cashback avec les offres d'équipe"
   },
   "More_Store_Coupons": {
     "message": "Plus de bons de réduction"
@@ -2008,12 +1888,6 @@
   },
   "Not_every_store_has_working_coupons_but_you_can_still_earn_Honey_Gold_towards_gift_cards_at_your_favorite_stores": {
     "message": "Les codes de réduction ne sont pas valables dans toutes les boutiques, mais vous pouvez toujours gagner des Honey Gold et les échanger contre des cartes cadeaux à utiliser sur vos boutiques préférées."
-  },
-  "Now_checkout_before_time_expires_to_get_all_that_extra_cash_back": {
-    "message": "Payez dès maintenant avant l'expiration du délai pour obtenir tout ce cashback supplémentaire."
-  },
-  "Now_just_buy_with_a_teammate_before_time_runs_out_to_get_up_to_MAXGOLD_Gold_Thats_a_GOLDCURRENCYVALUE_value": {
-    "message": "Maintenant, achetez avec un coéquipier avant la fin du temps imparti pour obtenir jusqu'à {MAXGOLD} Gold. Soit une valeur de {GOLDCURRENCYVALUE}."
   },
   "Now_set_your_1Click_address": {
     "message": "Définissez maintenant votre adresse 1-Click."
@@ -2234,9 +2108,6 @@
   "PayPal_Rewards_Terms_apply": {
     "message": "Les conditions PayPal Rewards s'appliquent"
   },
-  "PayPal_Rewards_Transactions": {
-    "message": "Transactions PayPal Rewards"
-  },
   "PayPal_Shopping_Credit_Terms_and_Conditions": {
     "message": "Conditions générales de PayPal Shopping Credit"
   },
@@ -2411,9 +2282,6 @@
   "Product_Name": {
     "message": "Nom du produit"
   },
-  "PROFILESETTINGSLINK": {
-    "message": "https://www.joinhoney.com/fr/settings"
-  },
   "Psst_Weve_just_sent_you_an_email_which_gives_you_a_link_to_access_this_gift_card": {
     "message": "Psitt ! Nous venons de vous envoyer un email contenant un lien pour accéder à cette carte cadeau."
   },
@@ -2489,9 +2357,6 @@
   "Redeem_for_a_GOLDCURRENCYVALUE_gift_card_when_you_reach_GOLDVALUE_E": {
     "message": "Lorsque vous atteindrez {GOLDVALUE}, échangez-les contre une carte cadeau de {GOLDCURRENCYVALUE} !"
   },
-  "Redeem_FORMATTEDTEAMREWARDGOLD_points_for_TEAMREWARDGOLDVALUE_in_cash_back": {
-    "message": "Échangez {FORMATTEDTEAMREWARDGOLD} points contre {TEAMREWARDGOLDVALUE} de cashback"
-  },
   "Redeem_Honey_Gold": {
     "message": "Utiliser les Honey Gold"
   },
@@ -2510,9 +2375,6 @@
   "Redeem_POINTS_points_for_AMOUNT_at_checkout": {
     "message": "Échangez {POINTS} points contre {AMOUNT} au moment du paiement."
   },
-  "Redeem_Rewards": {
-    "message": "Utiliser les récompenses"
-  },
   "Redeem_your_GOLDAMOUNT_Gold_points_for_a_GOLDCURRENCYVALUE_PayPal_shopping_credit_towards_this_purchase": {
     "message": "Échangez vos {GOLDAMOUNT} points Gold contre un PayPal Shopping Credit de {GOLDCURRENCYVALUE} pour cet achat."
   },
@@ -2524,9 +2386,6 @@
   },
   "Redeem_your_points_to_save": {
     "message": "Utilisez vos points pour économiser"
-  },
-  "Referrals": {
-    "message": "Parrainages"
   },
   "Remember_to_add_the_item_to_your_cart_before_completing_checkout_in_order_to_receive_your_bonus": {
     "message": "N'oubliez pas d'ajouter l'item à votre panier avant de terminer le paiement pour recevoir votre bonus."
@@ -2608,12 +2467,6 @@
   },
   "Rewards_Terms": {
     "message": "Conditions PayPal Rewards"
-  },
-  "REWARDVALUE_points_Earned": {
-    "message": "{REWARDVALUE} points gagnés"
-  },
-  "REWARDVALUE_points_Pending": {
-    "message": "{REWARDVALUE} points en attente"
   },
   "Save": {
     "message": "Enregistrer"
@@ -2834,9 +2687,6 @@
   "Send": {
     "message": "Envoyer"
   },
-  "Send_Invite": {
-    "message": "Envoyer l'invitation"
-  },
   "Sent": {
     "message": "Envoyé"
   },
@@ -2870,23 +2720,11 @@
   "Share_it_with_the_Honey_community": {
     "message": "Partagez-le avec la communauté Honey"
   },
-  "Share_the_deals_reward_yourself": {
-    "message": "Partagez les offres, obtenez des récompenses"
-  },
   "Share_the_love": {
     "message": "Partager votre enthousiasme ?"
   },
   "Share_your_link_here": {
     "message": "Partagez votre lien ici :"
-  },
-  "Share_your_link_on_social_media_deal_forums_and_anywhere_else_you_think_you_can_find_teammates": {
-    "message": "Partagez votre lien sur les réseaux sociaux, sur les forums d'offres et partout où vous pensez pouvoir trouver des coéquipiers.​"
-  },
-  "Share_your_link_with_your_friends_For_each_friend_who_creates_an_account_with_your_link_and_earns_points_on_a_purchase_youll_qualify_for_POINTS": {
-    "message": "Partagez votre lien avec vos amis. Lorsqu'un de vos amis ouvre un compte avec votre lien et gagne des points sur un achat, vous gagnerez {POINTS}."
-  },
-  "Share_your_link_with_your_friends_Once_they_create_an_account_and_earn_Gold_on_a_purchase_you_get_Gold": {
-    "message": "Partagez votre lien avec vos amis. Une fois qu'ils ont ouvert un compte et gagné des Gold sur un achat, vous gagnerez des Gold."
   },
   "Shipping_Tax": {
     "message": "Frais de livraison et taxe"
@@ -3086,21 +2924,6 @@
   "Tax_shipping_and_fees_may_be_extra": {
     "message": "Les taxes, la livraison et des frais supplémentaires peuvent s'appliquer."
   },
-  "Team_Deal_is_on": {
-    "message": "Offre Team Deal activée !"
-  },
-  "Team_Deals": {
-    "message": "Offres d'équipe"
-  },
-  "Team_Deals_expire_24_hours_after_activation": {
-    "message": "Les offres d'équipe expirent 24 heures après leur activation."
-  },
-  "Teaming_up_for_rewards_pays": {
-    "message": "Faire équipe pour gagner des récompenses, ça marche !"
-  },
-  "Teammate_Buys": {
-    "message": "Le coéquipier achète"
-  },
   "Temporarily_out_of_stock": {
     "message": "Temporairement en rupture de stock"
   },
@@ -3128,9 +2951,6 @@
   "terms_lc": {
     "message": "conditions"
   },
-  "TERMSAPPLY_Max_amount_of_Gold_you_can_earn_under_this_offer_is_MAXREDEEMABLEAMT": {
-    "message": "{TERMSAPPLY} Le nombre maximal de Gold que vous pouvez gagner dans le cadre de cette offre est de {MAXREDEEMABLEAMT}."
-  },
   "TERMSLINK": {
     "message": "https://www.joinhoney.com/fr/terms"
   },
@@ -3140,17 +2960,11 @@
   "TERMSLINK_apply": {
     "message": "Des {TERMSLINK} s'appliquent."
   },
-  "TERMSLINK_apply_Limits_apply_on_max_amount_of_referral_bonuses_you_can_receive": {
-    "message": "Les {TERMSLINK} s'appliquent. Des limites s'appliquent au nombre maximum de bonus de parrainage que vous pouvez recevoir."
-  },
   "TERMSLINK_HONEYGOLD": {
     "message": "https://www.joinhoney.com/fr/terms#honey-gold"
   },
   "TERMSLINK_PAYPAL": {
     "message": "https://www.paypal.com/us/webapps/mpp/ua/pp-rewards-program-tnc"
-  },
-  "TERMSLINK_TEAMDEALS": {
-    "message": "https://www.joinhoney.com/fr/terms/team-deals"
   },
   "Testing_1_coupon_code": {
     "message": "Test d'1 code de réduction"
@@ -3190,9 +3004,6 @@
   },
   "Thanks_well_pass_it_on_E": {
     "message": "Merci, nous transmettrons vos commentaires !"
-  },
-  "That_means_even_more_ways_to_earn_and_redeem": {
-    "message": "Cela signifie encore plus de moyens de gagner et d'utiliser des points, comme au moment du paiement. De plus, tous les points que vous avez gagnés constituent des points PayPal Rewards."
   },
   "That_way_youll_have_the_latest_details_saved": {
     "message": "Vous pourrez ainsi enregistrer les dernières informations."
@@ -3400,9 +3211,6 @@
   },
   "Turn_on_Deal_Insights": {
     "message": "Activer les informations sur les offres"
-  },
-  "Turn_on_Team_Deals": {
-    "message": "Activer les offres d'équipe"
   },
   "Turn_on_the_Smart_Droplist_option_to_automatically_save_frequently_viewed_items_Get_notified_as_soon_as_theres_a_price_drop": {
     "message": "Activez l'option de Smart Droplist pour ajouter automatiquement les items les plus fréquemment consultés sur certains sites. Une fois un item ajouté, nous vous informerons si nous détectons une baisse de prix dans cette boutique ou dans une autre boutique si nous pensons qu'elle vend le même item à un prix inférieur."
@@ -3653,9 +3461,6 @@
   "Well_automatically_apply_your_shopping_credit_to_this_purchase": {
     "message": "Nous appliquerons automatiquement votre crédit à cet achat."
   },
-  "Well_confirm_your_Gold_within_7_days_redeem_it_for_OFFERVALUE_in_cash_back_or_rewards": {
-    "message": "Nous confirmerons vos Gold sous 7 jours. Vous pourrez les échanger contre un cashback de {OFFERVALUE} ou des récompenses."
-  },
   "Well_create_a_gift_card_for_your_order_total": {
     "message": "Nous créerons une carte cadeau pour le total de votre commande."
   },
@@ -3749,9 +3554,6 @@
   "Whats_Honey_Gold": {
     "message": "Qu'est-ce que Honey Gold ?"
   },
-  "Whats_PayPal_Rewards": {
-    "message": "Qu'est-ce que PayPal Rewards ?"
-  },
   "When_coupon_success_rates_are_high_theres_a_good_chance_youll_save_money_when_you_apply_codes_at_checkout": {
     "message": "Lorsque les taux de réussite des bons de réduction sont élevés, vous avez de grandes chances d'économiser de l'argent en appliquant des codes au moment du paiement."
   },
@@ -3760,9 +3562,6 @@
   },
   "When_we_can_find_savings_on_Amazon_youll_see_a_badge_next_to_the_price_like_this": {
     "message": "Lorsque nous pouvons trouver des réductions sur Amazon, vous verrez un badge à côté du prix, comme ceci :"
-  },
-  "When_you_shop_at_any_of_our_5500_participating_sites_youll_earn_a_percentage_back_in_PayPal_Rewards_points_Redeem_1000_points_for_10_USD": {
-    "message": "Lorsque vous faites des achats sur l'un des plus de 5 500 sites participants, vous gagnerez un pourcentage en points PayPal Rewards. Échangez 1 000 points contre 10 USD."
   },
   "When_youre_on_a_supported_store_Honey_will_pop_up_and_apply_the_best_working_coupon_to_your_cart_You_dont_have_to_do_a_thing": {
     "message": "Lorsque vous vous trouvez sur une boutique prise en charge, Honey apparaîtra et appliquera le meilleur bon de réduction à votre panier. Vous n'avez rien à faire."
@@ -3821,9 +3620,6 @@
   "You_can_turn_this_feature_off_anytime_by_clicking_here": {
     "message": "Vous pouvez désactiver cette fonction à tout moment en cliquant ici."
   },
-  "You_could_also_get": {
-    "message": "Vous pouvez également obtenir :"
-  },
   "You_could_save_SAVINGSAMOUNT_towards_this_order": {
     "message": "Vous pouvez économiser {SAVINGSAMOUNT} sur cette commande"
   },
@@ -3859,9 +3655,6 @@
   },
   "You_havent_followed_any_stores_yet": {
     "message": "Vous n'avez pas encore suivi de boutique."
-  },
-  "You_only_need_one_more_teammate": {
-    "message": "Vous avez seulement besoin d'un autre coéquipier."
   },
   "You_saved_AMOUNT": {
     "message": "Vous avez économisé {AMOUNT}"
@@ -3934,12 +3727,6 @@
   },
   "Your_Savings": {
     "message": "Vos économies"
-  },
-  "Your_Team_Deal_is_activated": {
-    "message": "Votre offre d'équipe est activée"
-  },
-  "Your_team_has_24_hours_to_buy_once_the_Team_Deal_is_activated": {
-    "message": "Votre équipe a 24 heures pour acheter une fois l'offre d'équipe activée."
   },
   "Youre_a_rewards_magnet_Apply_coupons_then_check_out_to_earn": {
     "message": "Vous adorez les récompenses ! Appliquez des bons de réduction, puis payez pour en gagner."

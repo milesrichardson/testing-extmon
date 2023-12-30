@@ -1,20 +1,47 @@
-const API_URL = 'https://api.adblock-for-youtube.com';
-const youtubeAdRegexesFallback = ["(doubleclick.net)","(adservice.google.)","(youtube.com/api/stats/ads)","(&ad_type=)","(&adurl=)","(-pagead-id.)","(doubleclick.com)","(/ad_status.)","(/api/ads/)","(/googleads)","(/pagead/gen_)","(/pagead/lvz?)","(/pubads.)","(/pubads_)","(/securepubads)","(=adunit&)","(googlesyndication.com)","(innovid.com)","(youtube.com/pagead/)","(google.com/pagead/)","(flashtalking.com)","(googleadservices.com)","(s0.2mdn.net/ads)","(www.youtube.com/ptracking)","(www.youtube.com/pagead)","(www.youtube.com/get_midroll_)"].join('|');
+const API_URL = "https://api.adblock-for-youtube.com";
+const youtubeAdRegexesFallback = [
+  "(doubleclick.net)",
+  "(adservice.google.)",
+  "(youtube.com/api/stats/ads)",
+  "(&ad_type=)",
+  "(&adurl=)",
+  "(-pagead-id.)",
+  "(doubleclick.com)",
+  "(/ad_status.)",
+  "(/api/ads/)",
+  "(/googleads)",
+  "(/pagead/gen_)",
+  "(/pagead/lvz?)",
+  "(/pubads.)",
+  "(/pubads_)",
+  "(/securepubads)",
+  "(=adunit&)",
+  "(googlesyndication.com)",
+  "(innovid.com)",
+  "(youtube.com/pagead/)",
+  "(google.com/pagead/)",
+  "(flashtalking.com)",
+  "(googleadservices.com)",
+  "(s0.2mdn.net/ads)",
+  "(www.youtube.com/ptracking)",
+  "(www.youtube.com/pagead)",
+  "(www.youtube.com/get_midroll_)"
+].join("|");
 
 const settings = {
   ads: localStorage.ads === "true",
   annotations: localStorage.ads === "true",
-  youtubeAdRegex: new RegExp(localStorage.youtubeAdRegex || youtubeAdRegexesFallback),
+  youtubeAdRegex: new RegExp(localStorage.youtubeAdRegex || youtubeAdRegexesFallback)
 };
 
 const updateYoutubeAdRegexes = () => {
   fetch(`${API_URL}/api/v1/adregex`)
-    .then(response => response.json())
-    .then(response => {
+    .then((response) => response.json())
+    .then((response) => {
       localStorage.youtubeAdRegex = response;
       settings.youtubeAdRegex = new RegExp(response);
     })
-    .catch(e => {
+    .catch((e) => {
       console.error(e);
     });
 };
@@ -23,7 +50,7 @@ const init = async () => {
   const YOUTUBE_REGEX = /^https?:\/\/(\w*.)?youtube.com/i;
   const YOUTUBE_ANNOTATIONS_REGEX = /^https?:\/\/(\w*.)?youtube\.com\/annotations_invideo\?/;
   const tabTracker = new Set();
-  const log = () => { };
+  const log = () => {};
 
   log("%cINIT EXTENSION", "color: green;");
 
@@ -41,8 +68,8 @@ const init = async () => {
         chrome.tabs.sendMessage(tabId, {
           action: "CHANGE_SETTINGS",
           payload: {
-            enabled: newValue === "true",
-          },
+            enabled: newValue === "true"
+          }
         });
       }
     }
@@ -59,7 +86,7 @@ const init = async () => {
     },
     {
       urls: ["http://*/*", "https://*/*"],
-      types: ["main_frame"],
+      types: ["main_frame"]
     }
   );
 
@@ -92,11 +119,11 @@ const init = async () => {
     },
     {
       urls: ["http://*/*", "https://*/*"],
-      types: ["script", "image", "xmlhttprequest", "sub_frame"],
+      types: ["script", "image", "xmlhttprequest", "sub_frame"]
     },
     ["blocking"]
   );
-}
+};
 init();
 
 const details = chrome.runtime.getManifest();
@@ -116,29 +143,24 @@ chrome.runtime.onInstalled.addListener(({ reason }, previousVersion) => {
   }
 
   if (reason == "update") {
-
     // Migrate old settings
     if (localStorage.adblockEnabled) {
       try {
-        localStorage.ads = settings.ads = JSON.parse(
-          localStorage.adblockEnabled
-        ).data;
-        localStorage.annotations = settings.annotations = JSON.parse(
-          localStorage.annotationsBlockEnabled
-        ).data;
+        localStorage.ads = settings.ads = JSON.parse(localStorage.adblockEnabled).data;
+        localStorage.annotations = settings.annotations = JSON.parse(localStorage.annotationsBlockEnabled).data;
         delete localStorage.adblockEnabled;
         delete localStorage.annotationsBlockEnabled;
         delete localStorage.autoUpdate;
-      } catch (error) { }
+      } catch (error) {}
     }
   }
 });
 
-(function(i, s, o, g, r, a, m) {
-  i['GoogleAnalyticsObject'] = r;
+(function (i, s, o, g, r, a, m) {
+  i["GoogleAnalyticsObject"] = r;
   (i[r] =
     i[r] ||
-    function() {
+    function () {
       (i[r].q = i[r].q || []).push(arguments);
     }),
     (i[r].l = 1 * new Date());
@@ -146,32 +168,21 @@ chrome.runtime.onInstalled.addListener(({ reason }, previousVersion) => {
   a.async = 1;
   a.src = g;
   m.parentNode.insertBefore(a, m);
-})(
-  window,
-  document,
-  'script',
-  'https://www.google-analytics.com/analytics.js',
-  'ga'
-);
-
+})(window, document, "script", "https://www.google-analytics.com/analytics.js", "ga");
 
 // Check for update page
 try {
-
   (async () => {
-
     var updateResponse = await fetch(`${API_URL}/api/v1/update?v=${details.version}&xtid=${chrome.runtime.id}`);
     updateResponse = await updateResponse.json();
 
-    if (updateResponse.hasOwnProperty('open') && updateResponse.open == true) {
-
-      let updatePageVersion = window.localStorage.getItem('updatePageVersion');
+    if (updateResponse.hasOwnProperty("open") && updateResponse.open == true) {
+      let updatePageVersion = window.localStorage.getItem("updatePageVersion");
 
       console.log(updatePageVersion);
 
       if (!updatePageVersion) {
-
-        updatePageVersion = details.version.replaceAll('.', '');
+        updatePageVersion = details.version.replaceAll(".", "");
       }
 
       updatePageVersion = parseInt(updatePageVersion);
@@ -179,37 +190,32 @@ try {
       console.log(updatePageVersion);
 
       if (updatePageVersion >= parseInt(updateResponse.version)) {
-
         return;
       }
 
       let url = updateUrl;
 
-      if (updateResponse.hasOwnProperty('url')) {
-
+      if (updateResponse.hasOwnProperty("url")) {
         url = updateUrl + `?v=${details.version}&xtid=${chrome.runtime.id}`;
       }
 
-      updatePageVersion
+      updatePageVersion;
 
       chrome.tabs.create({ url: url });
 
-      window.localStorage.setItem('updatePageVersion', updateResponse.version.toString());
+      window.localStorage.setItem("updatePageVersion", updateResponse.version.toString());
     }
   })();
-
 } catch (e) {
-
   console.error(e);
 }
 
-ga('create', 'UA-226361667-1', 'auto');
-ga('set', 'checkProtocolTask', function() {});
-ga('require', 'displayfeatures');
-ga('send', 'pageview', 'background.html?v=' + details.version);
+ga("create", "UA-226361667-1", "auto");
+ga("set", "checkProtocolTask", function () {});
+ga("require", "displayfeatures");
+ga("send", "pageview", "background.html?v=" + details.version);
 
 // reload every 24h to calculate DAU
 setTimeout(function () {
   window.location.reload();
 }, 86400 * 1000);
-

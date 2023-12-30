@@ -13,10 +13,10 @@ typeof browser < "u" && (chrome = browser),
             "./tracker-wheel.js": 62254
           };
           function g(x) {
-            var h = E(x);
+            var h = T(x);
             return r(h);
           }
-          function E(x) {
+          function T(x) {
             if (!r.o(e, x)) {
               var h = new Error("Cannot find module '" + x + "'");
               throw ((h.code = "MODULE_NOT_FOUND"), h);
@@ -26,7 +26,7 @@ typeof browser < "u" && (chrome = browser),
           (g.keys = function () {
             return Object.keys(e);
           }),
-            (g.resolve = E),
+            (g.resolve = T),
             (Z.exports = g),
             (g.id = 23998);
         },
@@ -43,10 +43,10 @@ typeof browser < "u" && (chrome = browser),
             "./components/switch.js": 10689
           };
           function g(x) {
-            var h = E(x);
+            var h = T(x);
             return r(h);
           }
-          function E(x) {
+          function T(x) {
             if (!r.o(e, x)) {
               var h = new Error("Cannot find module '" + x + "'");
               throw ((h.code = "MODULE_NOT_FOUND"), h);
@@ -56,7 +56,7 @@ typeof browser < "u" && (chrome = browser),
           (g.keys = function () {
             return Object.keys(e);
           }),
-            (g.resolve = E),
+            (g.resolve = T),
             (Z.exports = g),
             (g.id = 28090);
         },
@@ -103,7 +103,7 @@ typeof browser < "u" && (chrome = browser),
             type: "primary",
             size: "",
             disabled: !1,
-            render: ({ size: E }) => e.dy`<slot></slot>`.css`
+            render: () => e.dy`<slot></slot>`.css`
       :host {
         box-sizing: border-box;
         display: grid;
@@ -112,7 +112,7 @@ typeof browser < "u" && (chrome = browser),
         border-radius: 24px;
         white-space: nowrap;
         transition: opacity 0.2s, color 0.2s, background-color 0.2s, border-color 0.2s;
-        font: var(--ui-font-button-${E === "small" ? "s" : "m"});
+        font: var(--ui-font-button-m);
         text-transform: uppercase;
       }
 
@@ -153,7 +153,7 @@ typeof browser < "u" && (chrome = browser),
         --ui-button-hover-background: var(--ui-color-white);
       }
 
-      @media (hover: hover) and (pointer: fine) { 
+      @media (hover: hover) and (pointer: fine) {
         :host(:hover), :host(:focus-within) {
           color: var(--ui-button-hover-color);
           border-color: var(--ui-button-hover-border);
@@ -167,6 +167,7 @@ typeof browser < "u" && (chrome = browser),
 
       :host([size="small"]) {
         height: 40px;
+        font: var(--ui-font-button-s);
       }
 
       :host([disabled]) {
@@ -220,7 +221,7 @@ typeof browser < "u" && (chrome = browser),
               name: "",
               color: "",
               render: ({ name: x, color: h }) => e.dy`
-    <template layout="block">${E[x] || ""}</template>
+    <template layout="block">${T[x] || ""}</template>
   `.css`
     :host {
       ${h ? `color: var(--ui-color-${h});` : ""}
@@ -233,7 +234,7 @@ typeof browser < "u" && (chrome = browser),
     }
    `
             },
-            E = {
+            T = {
               "arrow-right": e.dy`
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -624,11 +625,11 @@ typeof browser < "u" && (chrome = browser),
           var e = r(72020);
           const g = {
             color: "gray-200",
-            render: ({ color: E }) => e.dy`
+            render: ({ color: T }) => e.dy`
     <template layout="block height:1px shrink:0"></template>
   `.css`
     :host {
-      background: var(--ui-color-${E});
+      background: var(--ui-color-${T});
     }
   `
           };
@@ -640,13 +641,13 @@ typeof browser < "u" && (chrome = browser),
           const g = {
             disabled: !1,
             href: "",
-            render: ({ disabled: E, href: x }) => e.dy`
+            render: ({ disabled: T, href: x }) => e.dy`
     <template
       layout="column content:center relative"
       layout[disabled]="height::120px"
     >
       ${
-        E &&
+        T &&
         e.dy`
         <section
           id="disabled"
@@ -707,10 +708,10 @@ typeof browser < "u" && (chrome = browser),
             color: "",
             ellipsis: !1,
             underline: !1,
-            render: ({ type: E, mobileType: x, color: h }) => e.dy`<slot></slot>`.css`
+            render: ({ type: T, mobileType: x, color: h }) => e.dy`<slot></slot>`.css`
     :host {
       display: block;
-      font: var(--ui-font-${x || E});
+      font: var(--ui-font-${x || T});
       color: var(--ui-text-color, inherit);
     }
 
@@ -718,7 +719,7 @@ typeof browser < "u" && (chrome = browser),
       x
         ? `
           @media screen and (min-width: 768px) {
-            :host { font: var(--ui-font-${E}); }
+            :host { font: var(--ui-font-${T}); }
           }
         `
         : ""
@@ -778,7 +779,7 @@ typeof browser < "u" && (chrome = browser),
           r.r(m), r.d(m, { default: () => x });
           var e = r(72020);
           const g = new WeakMap();
-          let E = null;
+          let T = null;
           const x = {
             autohide: 2,
             wrap: !1,
@@ -789,9 +790,9 @@ typeof browser < "u" && (chrome = browser),
               observe: (h, k) => {
                 const s = h.render().querySelector("#tooltip");
                 if (((s.hidden = !k), (s.style.transform = ""), k)) {
-                  E && E !== h && (E.show = !1), (E = h);
-                  const { left: w, width: T } = s.getBoundingClientRect(),
-                    M = w + T + 8 - window.innerWidth,
+                  T && T !== h && (T.show = !1), (T = h);
+                  const { left: w, width: E } = s.getBoundingClientRect(),
+                    M = w + E + 8 - window.innerWidth,
                     N = w - 8;
                   M > 0
                     ? (s.style.transform = `translateX(calc(-50% - ${M}px)`)
@@ -857,16 +858,16 @@ typeof browser < "u" && (chrome = browser),
           r.r(m), r.d(m, { default: () => k });
           var e = r(72020),
             g = r(4182),
-            E = r(56570);
+            T = r(56570);
           function x(s, w) {
-            const { clientX: T, clientY: M } = w,
+            const { clientX: E, clientY: M } = w,
               { left: N, top: P } = s.getBoundingClientRect(),
-              q = T - N,
+              q = E - N,
               S = M - P;
             (s.tooltip.style.left = `${q}px`), (s.tooltip.style.top = `${S}px`);
           }
           function h(s) {
-            return (w, T) => (T === s ? w + 1 : w);
+            return (w, E) => (E === s ? w + 1 : w);
           }
           const k = {
             categories: void 0,
@@ -876,36 +877,36 @@ typeof browser < "u" && (chrome = browser),
                 const j = S.get(I) || 0;
                 return S.set(I, j + 1), S;
               }, new Map());
-              let T = s.length;
+              let E = s.length;
               const M = 4,
                 N = [];
               w.forEach((S, I) => {
-                S / T <= M / 100 && N.push(I);
+                S / E <= M / 100 && N.push(I);
               });
-              const P = T / (100 / M - N.length);
+              const P = E / (100 / M - N.length);
               N.forEach((S) => {
                 const I = w.get(S);
-                w.set(S, P), (T += P - I);
+                w.set(S, P), (E += P - I);
               });
               let q = 0;
               return (
                 w.forEach((S, I) => {
-                  (S = Math.max((S / T) * 100 - M, 0)), w.set(I, { value: S, offset: q }), (q += ((S + M) * 360) / 100);
+                  (S = Math.max((S / E) * 100 - M, 0)), w.set(I, { value: S, offset: q }), (q += ((S + M) * 360) / 100);
                 }),
                 [...w.entries()]
               );
             },
             current: "",
             tooltip: ({ render: s }) => s().querySelector("ui-tooltip"),
-            render: ({ categories: s, data: w, current: T }) => e.dy`
+            render: ({ categories: s, data: w, current: E }) => e.dy`
     <template layout="grid relative">
       <ui-tooltip
         layout="block absolute top left padding:top:0.5"
-        show="${T}"
+        show="${E}"
       >
         <span slot="content"
-          >${E.b[(0, g.EQ)(T)]}:
-          ${s.reduce(h(T), 0)}</span
+          >${T.b[(0, g.EQ)(E)]}:
+          ${s.reduce(h(E), 0)}</span
         >
       </ui-tooltip>
       <svg viewBox="0 0 36 36" onmousemove="${x}">
@@ -1036,7 +1037,7 @@ typeof browser < "u" && (chrome = browser),
           r.r(m), r.d(m, { default: () => x });
           var e = r(72020),
             g = r(4182),
-            E = r(56570);
+            T = r(56570);
           const x = {
             name: "",
             count: 0,
@@ -1046,7 +1047,7 @@ typeof browser < "u" && (chrome = browser),
       <div id="pill" layout="size:12px:6px"></div>
       <div id="label" layout="row gap items:center grow padding:0.5:0">
         <ui-text type="body-s" color="gray-600" layout="grow">
-          ${E.b[(0, g.EQ)(h)]}
+          ${T.b[(0, g.EQ)(h)]}
         </ui-text>
         <ui-text type="label-s" id="count">${k}</ui-text>
       </div>
@@ -1108,7 +1109,7 @@ typeof browser < "u" && (chrome = browser),
           r.r(m), r.d(m, { default: () => x });
           var e = r(72020),
             g = r(4182),
-            E = r(56570);
+            T = r(56570);
           const x = {
             name: "",
             closed: !1,
@@ -1125,7 +1126,7 @@ typeof browser < "u" && (chrome = browser),
           <div id="icon" layout="block relative size:3 padding:0.5">
             <ui-icon name="category-${h}"></ui-icon>
           </div>
-          <ui-text type="label-m">${E.b[h]}</ui-text>
+          <ui-text type="label-m">${T.b[h]}</ui-text>
           <slot name="header"></slot>
           <div layout="grow"></div>
           <ui-icon
@@ -1210,13 +1211,13 @@ typeof browser < "u" && (chrome = browser),
           r.r(m), r.d(m, { default: () => z1 });
           var e = r(77540),
             g = r(72020),
-            E = r(67132),
+            T = r(67132),
             x = r(96806),
             h = r(90384);
           const k = Symbol("router.connect"),
             s = new WeakMap(),
             w = new WeakMap(),
-            T = new WeakMap(),
+            E = new WeakMap(),
             M = new WeakMap();
           let N = null;
           const P = new Set();
@@ -1591,7 +1592,7 @@ typeof browser < "u" && (chrome = browser),
             });
           }
           function H1(i, C, l) {
-            let f = T.get(i);
+            let f = E.get(i);
             const L = [];
             for (const [O, A] of C.entries()) (O === 0 || C[O - 1].id !== A.id || g1(A.id).multiple) && L.push(A);
             const v = f.length - L.length;
@@ -1606,7 +1607,7 @@ typeof browser < "u" && (chrome = browser),
               } else W = z.create();
               return W;
             })),
-              T.set(i, f);
+              E.set(i, f);
             const D = f[0],
               _ = w.get(D);
             for (const [O, A] of Object.entries(C[0].params)) O in D && (D[O] = A);
@@ -1671,7 +1672,7 @@ typeof browser < "u" && (chrome = browser),
           }
           function S1(i, C, l) {
             function f() {
-              const $ = T.get(i),
+              const $ = E.get(i),
                 z = H1(i, globalThis.history.state, l);
               l.transition && j1(z, $), C();
               const W = z[0];
@@ -1701,7 +1702,7 @@ typeof browser < "u" && (chrome = browser),
                 U = Q1($);
               if (U > -1) L(U, $, w1);
               else {
-                let t1 = T.get(i);
+                let t1 = E.get(i);
                 p(t1[0]), (globalThis.history.scrollRestoration = "manual"), globalThis.history.pushState([$, ...z], "", w1), f();
               }
             }
@@ -1718,7 +1719,7 @@ typeof browser < "u" && (chrome = browser),
             const O = globalThis.history.state,
               A = new URL(globalThis.location.href);
             if (O) {
-              const $ = T.get(i);
+              const $ = E.get(i);
               let z;
               for (z = O.length - 1; z >= 0; z -= 1) {
                 let W = O[z];
@@ -1786,13 +1787,13 @@ typeof browser < "u" && (chrome = browser),
             C = { url: globalThis.location.href.replace(/#.*$/, ""), params: [], ...C, views: i };
             const l = {
               get: (f) => {
-                const L = T.get(f) || [];
+                const L = E.get(f) || [];
                 return L.slice(0, L.findIndex((v) => !s.get(v).dialog) + 1).reverse();
               },
               connect: (f, L, v) => {
                 for (const D of C.params)
                   if (!(D in f)) throw Error(`Property '${D}' for global parameters is not defined in <${f.tagName.toLowerCase()}>`);
-                return T.has(f) || T.set(f, []), s.has(f) ? Z1(f, v, C) : S1(f, v, C);
+                return E.has(f) || E.set(f, []), s.has(f) ? Z1(f, v, C) : S1(f, v, C);
               },
               observe:
                 q &&
@@ -1842,7 +1843,7 @@ typeof browser < "u" && (chrome = browser),
     <template layout="column gap:0.5">
       <div layout="row items:center gap height::4.5">
         <div layout="row gap grow">
-          <ui-text type="label-m">${D || E.WI`Trackers detected`}</ui-text>
+          <ui-text type="label-m">${D || T.WI`Trackers detected`}</ui-text>
           <ui-tooltip wrap autohide="10" position="bottom">
             <span slot="content" layout="block width:200px">
               Mind that not all listed entities are trackers, that is not all of
@@ -2023,17 +2024,17 @@ typeof browser < "u" && (chrome = browser),
           "use strict";
           r.r(m), r.d(m, { default: () => k });
           var e = r(90384);
-          function g(s, w, T, M = [], N = s) {
+          function g(s, w, E, M = [], N = s) {
             for (const P of Array.from(s.children)) {
               const q = e.A.get(P.constructor);
-              q && w(q, N) ? (M.push(P), T.deep && T.nested && g(P, w, T, M, N)) : T.deep && g(P, w, T, M, N);
+              q && w(q, N) ? (M.push(P), E.deep && E.nested && g(P, w, E, M, N)) : E.deep && g(P, w, E, M, N);
             }
             return M;
           }
-          function E(s, w = { deep: !1, nested: !1 }) {
-            const T = typeof s == "function" ? s : (M) => M === s;
+          function T(s, w = { deep: !1, nested: !1 }) {
+            const E = typeof s == "function" ? s : (M) => M === s;
             return {
-              get: (M) => g(M, T, w),
+              get: (M) => g(M, E, w),
               connect(M, N, P) {
                 const q = new globalThis.MutationObserver(P);
                 return (
@@ -2050,9 +2051,9 @@ typeof browser < "u" && (chrome = browser),
           const k = {
             height: {
               value: void 0,
-              observe(s, w, T) {
-                T &&
-                  ((s.style.height = `${T}px`),
+              observe(s, w, E) {
+                E &&
+                  ((s.style.height = `${E}px`),
                   requestAnimationFrame(() => {
                     (s.style.height = `${w}px`),
                       s.addEventListener(
@@ -2065,7 +2066,7 @@ typeof browser < "u" && (chrome = browser),
                   }));
               }
             },
-            items: E(h.default),
+            items: T(h.default),
             active: {
               get: ({ items: s }) => s.find((w) => w.active),
               observe(s) {
@@ -2111,7 +2112,7 @@ typeof browser < "u" && (chrome = browser),
               other: "#D5DBE5"
             },
             g = { ...e, site_analytics: "#87D7EF", unidentified: "#DBDFE7" },
-            E = [
+            T = [
               "advertising",
               "site_analytics",
               "consent",
@@ -2139,20 +2140,20 @@ typeof browser < "u" && (chrome = browser),
           function k(w) {
             return g[x(w)];
           }
-          function s(w = (T) => T) {
-            return (T, M) => {
-              const N = x(w(T)),
+          function s(w = (E) => E) {
+            return (E, M) => {
+              const N = x(w(E)),
                 P = x(w(M));
-              return E.indexOf(N) - E.indexOf(P);
+              return T.indexOf(N) - T.indexOf(P);
             };
           }
         },
         56570: (Z, m, r) => {
           "use strict";
-          r.d(m, { b: () => E });
+          r.d(m, { b: () => T });
           var e = r(67132),
             g = r(9664);
-          const E = {
+          const T = {
             advertising: e.WI`Advertising | Tracker category name`,
             site_analytics: e.WI`Site Analytics | Tracker category name`,
             consent: e.WI`Consent Management | Tracker category name - includes trackers used for cookie consent management, allowing websites different levels of tracking user activity`,
@@ -2174,20 +2175,20 @@ typeof browser < "u" && (chrome = browser),
         },
         96806: (Z, m, r) => {
           "use strict";
-          r.d(m, { N7: () => M, NE: () => I, U2: () => w, t8: () => T, z6: () => S });
+          r.d(m, { N7: () => M, NE: () => I, U2: () => w, t8: () => E, z6: () => S });
           var e = r(17337);
           const g = new WeakMap(),
-            E = new Set();
+            T = new Set();
           function x(j) {
-            const p = new Set(),
-              u = p.values();
+            const p = [];
+            let u = 0;
             for (; j; ) {
               if (((j.resolved = !1), j.deps)) {
                 for (const c of j.deps) c.contexts.delete(j);
                 j.deps.clear();
               }
-              if (j.contexts) for (const c of j.contexts) E.has(c) || (p.add(c), j.contexts.delete(c));
-              j.observe && e.I(j.observe), (j = u.next().value);
+              if (j.contexts) for (const c of j.contexts) T.has(c) || (p.includes(c) || p.push(c), j.contexts.delete(c));
+              j.observe && e.I(j.observe), (j = p[u++]);
             }
           }
           function h(j, p) {
@@ -2223,14 +2224,14 @@ typeof browser < "u" && (chrome = browser),
               return c.value;
             const d = s;
             try {
-              if (E.has(c)) throw Error(`Circular get invocation is forbidden: '${p}'`);
-              (s = c), E.add(c), (c.value = u(j, c.value)), (c.resolved = !0), (s = d), E.delete(c);
+              if (T.has(c)) throw Error(`Circular get invocation is forbidden: '${p}'`);
+              (s = c), T.add(c), (c.value = u(j, c.value)), (c.resolved = !0), (s = d), T.delete(c);
             } catch (V) {
-              throw ((s = d), E.delete(c), s && (s.deps.delete(c), c.contexts.delete(s)), V);
+              throw ((s = d), T.delete(c), s && (s.deps.delete(c), c.contexts.delete(s)), V);
             }
             return c.value;
           }
-          function T(j, p, u, c) {
+          function E(j, p, u, c) {
             const d = h(j, p),
               V = u(j, c, d.value);
             V !== d.value && ((d.value = V), x(d));
@@ -2280,7 +2281,7 @@ typeof browser < "u" && (chrome = browser),
           r.d(m, { A: () => k, Z: () => q });
           var e = r(96806),
             g = r(17337),
-            E = r(77540),
+            T = r(77540),
             x = r(43945),
             h = r(13436);
           const k = new WeakMap(),
@@ -2328,7 +2329,7 @@ typeof browser < "u" && (chrome = browser),
                   throw TypeError(
                     `Invalid property descriptor for '${c}' property - it must not have 'value' and 'set' properties at the same time.`
                   );
-                const B = (0, E.Dk)(c),
+                const B = (0, T.Dk)(c),
                   Y = d.get || ((J, i1) => i1);
                 d.get = (J, i1) => (i1 === void 0 && (i1 = d.set(J, J.getAttribute(B) || i1)), Y(J, i1));
               }
@@ -2357,26 +2358,26 @@ typeof browser < "u" && (chrome = browser),
             }
             return (I.connects = j), (I.observers = p), (I.settable = u), I;
           }
-          const T = new Map();
+          const E = new Map();
           function M(S) {
-            T.size ||
-              E.gX.then(() => {
-                (0, E.N7)(globalThis.document.body, (I) => {
-                  if (T.has(I.constructor)) {
-                    const j = T.get(I.constructor),
+            E.size ||
+              T.gX.then(() => {
+                (0, T.N7)(globalThis.document.body, (I) => {
+                  if (E.has(I.constructor)) {
+                    const j = E.get(I.constructor),
                       p = k.get(I.constructor);
                     I.disconnectedCallback();
                     for (const u of Object.keys(p)) {
                       const c = typeof p[u],
                         d = c !== "object" && c !== "function" && p[u] !== j[u];
-                      d && I.removeAttribute((0, E.Dk)(u)), e.z6(I, u, { clearValue: d });
+                      d && I.removeAttribute((0, T.Dk)(u)), e.z6(I, u, { clearValue: d });
                     }
                     I.connectedCallback();
                   }
                 }),
-                  T.clear();
+                  E.clear();
               }),
-              T.set(S, k.get(S));
+              E.set(S, k.get(S));
           }
           function N(S) {
             if (!S.tag) throw TypeError("Error while defining hybrids: 'tag' property with dashed tag name is required");
@@ -2391,7 +2392,7 @@ typeof browser < "u" && (chrome = browser),
             for (const p of Object.keys(S)) {
               const u = S[p];
               if (!u.tag) {
-                const c = (0, E.Dk)(
+                const c = (0, T.Dk)(
                   []
                     .concat(I)
                     .reduce((d, V) => d.replace(V, ""), p)
@@ -2409,10 +2410,10 @@ typeof browser < "u" && (chrome = browser),
         },
         17337: (Z, m, r) => {
           "use strict";
-          r.d(m, { I: () => E, Z: () => x });
+          r.d(m, { I: () => T, Z: () => x });
           var e = r(77540);
           const g = new Set();
-          function E(k) {
+          function T(k) {
             g.size || e.gX.then(h), g.add(k);
           }
           function x(k) {
@@ -2433,7 +2434,7 @@ typeof browser < "u" && (chrome = browser),
           r.d(m, { NC: () => q, U2: () => N, WI: () => j, eL: () => w });
           var e = r(58768),
             g = r(77540),
-            E = r(72020);
+            T = r(72020);
           const x = new Map(),
             h = new Map();
           let k = null;
@@ -2452,7 +2453,7 @@ typeof browser < "u" && (chrome = browser),
           function w() {
             return k !== null || x.size;
           }
-          function T() {
+          function E() {
             s.delete("default"), x.clear(), h.clear(), (k = null);
           }
           const M = new Map();
@@ -2524,7 +2525,7 @@ typeof browser < "u" && (chrome = browser),
           }
           (j.html = function (u, ...c) {
             const d = S(u, c);
-            return (0, E.MY)(
+            return (0, T.MY)(
               d.replace(I, (V, B) => (0, e.ph)(B)),
               c,
               !1,
@@ -2533,7 +2534,7 @@ typeof browser < "u" && (chrome = browser),
           }),
             (j.svg = function (u, ...c) {
               const d = S(u, c);
-              return (0, E.MY)(
+              return (0, T.MY)(
                 d.replace(I, (V, B) => (0, e.ph)(B)),
                 c,
                 !0,
@@ -2544,9 +2545,9 @@ typeof browser < "u" && (chrome = browser),
         43945: (Z, m, r) => {
           "use strict";
           r.d(m, { Z: () => e });
-          function e(g, E) {
+          function e(g, T) {
             return {
-              get: E
+              get: T
                 ? (x) => {
                     const h = g(x),
                       k = x.shadowRoot || x.attachShadow({ mode: "open", delegatesFocus: g.delegatesFocus || !1 });
@@ -2569,7 +2570,7 @@ typeof browser < "u" && (chrome = browser),
           r.r(e), r.d(e, { resolve: () => f, set: () => _, transition: () => A });
           var g = {};
           r.r(g), r.d(g, { css: () => W, key: () => $, style: () => z, use: () => c1 });
-          var E = r(77540),
+          var T = r(77540),
             x = r(67132);
           const h = !!(globalThis.document && globalThis.document.adoptedStyleSheets),
             k = /^\d+$/,
@@ -2651,7 +2652,7 @@ typeof browser < "u" && (chrome = browser),
               view: (o, t) => ({ "view-transition-name": t })
             },
             w = { min: "min-content", max: "max-content", fit: "fit-content", full: "100%" },
-            T = { portrait: "orientation: portrait", landscape: "orientation: landscape" };
+            E = { portrait: "orientation: portrait", landscape: "orientation: landscape" };
           function M(o) {
             return (o = w[o] || o), /^-?\d+(\.\d+)*$/.test(String(o)) ? `${o * 8}px` : o || "";
           }
@@ -2700,7 +2701,7 @@ typeof browser < "u" && (chrome = browser),
                     return Object.assign(F, typeof Q == "function" ? Q(F, ...y1.map((G) => (G.match(/--.*/) ? `var(${G})` : G))) : Q);
                   }, {})
               ).reduce((F, [R, r1]) => (r1 !== void 0 && r1 !== "" ? F + `${R}: ${r1};` : F), ""),
-              p1 = K.split(":").reduce((F, R) => (R === "" ? F : F + ` and (${T[R] || `min-width: ${R}`})`), "@media screen");
+              p1 = K.split(":").reduce((F, R) => (R === "" ? F : F + ` and (${E[R] || `min-width: ${R}`})`), "@media screen");
             if (a) {
               const F = `:host(:where(.${b}-s${H}))`,
                 R = `:where(.${b}-c${H})`;
@@ -2829,11 +2830,11 @@ typeof browser < "u" && (chrome = browser),
           }
           const N1 = new WeakMap();
           function U1(o, t, n) {
-            if (n === null || typeof n != "object") throw TypeError(`Style value must be an object in ${(0, E.r4)(t)}:`, n);
+            if (n === null || typeof n != "object") throw TypeError(`Style value must be an object in ${(0, T.r4)(t)}:`, n);
             const a = N1.get(t) || new Map(),
               b = new Map();
             for (const y of Object.keys(n)) {
-              const H = (0, E.Dk)(y),
+              const H = (0, T.Dk)(y),
                 K = n[y];
               !K && K !== 0 ? t.style.removeProperty(H) : t.style.setProperty(H, K), b.set(H, K), a.delete(H);
             }
@@ -3047,7 +3048,7 @@ typeof browser < "u" && (chrome = browser),
                   (!r1 &&
                     (Q.getAttribute("translate") === "no" || Q.tagName.toLowerCase() === "script" || Q.tagName.toLowerCase() === "style") &&
                     (r1 = Q),
-                  E.$H)
+                  T.$H)
                 ) {
                   const G = Q.tagName.toLowerCase();
                   G.match(/.+-.+/) && !globalThis.customElements.get(G) && !F.includes(G) && F.push(G);
@@ -3091,7 +3092,7 @@ typeof browser < "u" && (chrome = browser),
               }
               R += 1;
             }
-            E.$H &&
+            T.$H &&
               F.length &&
               console.warn(`Not defined ${F.map((Q) => `<${Q}>`).join(", ")} element${F.length > 1 ? "s" : ""} found in the template:
 ${j1(H, -1)}`);
@@ -3140,7 +3141,7 @@ ${j1(H, -1)}`);
                     o1.fn(G, o1.node, a1, h1, a);
                   } catch (E1) {
                     throw (
-                      (console.error(`Error while updating template expression in ${(0, E.r4)(G)}:
+                      (console.error(`Error while updating template expression in ${(0, T.r4)(G)}:
 ${j1(H, o1.index)}`),
                       E1)
                     );
@@ -3190,7 +3191,7 @@ ${j1(H, o1.index)}`),
             if (!o) throw Error(`The first argument must be a property name or an object instance: ${o}`);
             if (typeof o == "object") {
               if (t === void 0) throw Error("For model instance property the second argument must be defined");
-              const a = E.Qz.get(o);
+              const a = T.Qz.get(o);
               if (!a) throw Error("Provided object must be a model instance of the store");
               return t === null
                 ? () => {
@@ -3225,7 +3226,7 @@ ${j1(H, o1.index)}`),
               function (t) {
                 return function n(a, b) {
                   if (O) {
-                    console.warn(`${(0, E.r4)(a)}: view transition already started in ${(0, E.r4)(O)}`), t(a, b);
+                    console.warn(`${(0, T.r4)(a)}: view transition already started in ${(0, T.r4)(O)}`), t(a, b);
                     return;
                   }
                   (t.useLayout = n.useLayout),
@@ -3233,7 +3234,7 @@ ${j1(H, o1.index)}`),
                     globalThis.document.startViewTransition(
                       () => (
                         t(a, b),
-                        E.gX.then(() => {
+                        T.gX.then(() => {
                           O = void 0;
                         })
                       )
@@ -3288,13 +3289,13 @@ ${j1(H, o1.index)}`),
         },
         58768: (Z, m, r) => {
           "use strict";
-          r.d(m, { CK: () => x, cc: () => E, ph: () => k, xZ: () => g });
+          r.d(m, { CK: () => x, cc: () => T, ph: () => k, xZ: () => g });
           const e = new WeakMap();
           function g(s) {
             let w = e.get(s);
             return w || (e.set(s, (w = {})), w);
           }
-          function E(s) {
+          function T(s) {
             let w;
             for (; s && (w = g(s)) && w.endNode; ) s = w.endNode;
             return s;
@@ -3303,9 +3304,9 @@ ${j1(H, o1.index)}`),
             if (s.nodeType === globalThis.Node.TEXT_NODE) {
               const w = e.get(s);
               if (w && w.startNode) {
-                const T = E(w.endNode);
+                const E = T(w.endNode);
                 let M = w.startNode;
-                const N = T.nextSibling;
+                const N = E.nextSibling;
                 for (; M; ) {
                   const P = M.nextSibling;
                   M.parentNode.removeChild(M), (M = P !== N && P);
@@ -3323,21 +3324,21 @@ ${j1(H, o1.index)}`),
         },
         77540: (Z, m, r) => {
           "use strict";
-          r.d(m, { $H: () => w, Dk: () => g, N7: () => h, Qz: () => s, WI: () => E, gX: () => k, r4: () => x });
+          r.d(m, { $H: () => w, Dk: () => g, N7: () => h, Qz: () => s, WI: () => T, gX: () => k, r4: () => x });
           const e = new Map();
-          function g(T) {
-            let M = e.get(T);
-            return M === void 0 && ((M = T.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()), e.set(T, M)), M;
+          function g(E) {
+            let M = e.get(E);
+            return M === void 0 && ((M = E.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()), e.set(E, M)), M;
           }
-          function E(T, M, N = {}) {
-            return T.dispatchEvent(new globalThis.CustomEvent(M, { bubbles: !1, ...N }));
+          function T(E, M, N = {}) {
+            return E.dispatchEvent(new globalThis.CustomEvent(M, { bubbles: !1, ...N }));
           }
-          function x(T) {
-            return `<${String(T.tagName).toLowerCase()}>`;
+          function x(E) {
+            return `<${String(E.tagName).toLowerCase()}>`;
           }
-          function h(T, M) {
-            T.nodeType === globalThis.Node.ELEMENT_NODE && (M(T), T.shadowRoot && h(T.shadowRoot, M));
-            const N = globalThis.document.createTreeWalker(T, globalThis.NodeFilter.SHOW_ELEMENT, null, !1);
+          function h(E, M) {
+            E.nodeType === globalThis.Node.ELEMENT_NODE && (M(E), E.shadowRoot && h(E.shadowRoot, M));
+            const N = globalThis.document.createTreeWalker(E, globalThis.NodeFilter.SHOW_ELEMENT, null, !1);
             for (; N.nextNode(); ) {
               const P = N.currentNode;
               M(P), P.shadowRoot && h(P.shadowRoot, M);
@@ -3366,11 +3367,11 @@ ${j1(H, o1.index)}`),
               },
               undefined: (h, k, s) => {
                 const w = typeof k,
-                  T = w !== "undefined" && g[w];
-                return T ? T(h, k, s) : (h.hasAttribute(s) && h.removeAttribute(s), k);
+                  E = w !== "undefined" && g[w];
+                return E ? E(h, k, s) : (h.hasAttribute(s) && h.removeAttribute(s), k);
               }
             },
-            E = {
+            T = {
               string: (h, k) => h.getAttribute(k),
               number: (h, k) => Number(h.getAttribute(k)) || 0,
               boolean: (h, k) => h.hasAttribute(k),
@@ -3379,11 +3380,11 @@ ${j1(H, o1.index)}`),
           function x(h, k) {
             const s = typeof k.value,
               w = g[s],
-              T = E[s];
+              E = T[s];
             if (!w) throw TypeError(`Invalid default value for '${h}' property - it must be a string, number, boolean or undefined: ${s}`);
             const M = (0, e.Dk)(h);
             return {
-              get: (N, P) => (P === void 0 ? T(N, M) || k.value : P),
+              get: (N, P) => (P === void 0 ? E(N, M) || k.value : P),
               set: (N, P) => w(N, P, M),
               connect:
                 s !== "undefined"
@@ -3417,7 +3418,7 @@ ${j1(H, o1.index)}`),
         r = f1(77540),
         e = f1(67132),
         g = f1(4182);
-      const E =
+      const T =
         "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYxIiBoZWlnaHQ9IjE2MCIgdmlld0JveD0iMCAwIDE2MSAxNjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC41KSIgZmlsbD0id2hpdGUiIC8+Cgk8Y2lyY2xlIGN4PSI4MC41IiBjeT0iODAiIHI9IjcwIiBmaWxsPSIjREZFM0VCIiAvPgoJPHBhdGggZD0iTTEyMSA4MEMxMjEgODUuMjUyOSAxMTkuOTY1IDkwLjQ1NDMgMTE3Ljk1NSA5NS4zMDczQzExNS45NDUgMTAwLjE2IDExMi45OTkgMTA0LjU3IDEwOS4yODQgMTA4LjI4NEMxMDUuNTcgMTExLjk5OSAxMDEuMTYgMTE0Ljk0NSA5Ni4zMDczIDExNi45NTVDOTEuNDU0MyAxMTguOTY1IDg2LjI1MjkgMTIwIDgxIDEyMEM3NS43NDcxIDEyMCA3MC41NDU3IDExOC45NjUgNjUuNjkyNyAxMTYuOTU1QzYwLjgzOTYgMTE0Ljk0NSA1Ni40MzAxIDExMS45OTkgNTIuNzE1NyAxMDguMjg0QzQ5LjAwMTQgMTA0LjU3IDQ2LjA1NSAxMDAuMTYgNDQuMDQ0OCA5NS4zMDczQzQyLjAzNDYgOTAuNDU0MyA0MSA4NS4yNTI5IDQxIDgwQzQxIDc0Ljc0NzEgNDIuMDM0NiA2OS41NDU3IDQ0LjA0NDggNjQuNjkyN0M0Ni4wNTUgNTkuODM5NiA0OS4wMDE0IDU1LjQzMDEgNTIuNzE1NyA1MS43MTU3QzU2LjQzMDEgNDguMDAxNCA2MC44Mzk2IDQ1LjA1NSA2NS42OTI3IDQzLjA0NDhDNzAuNTQ1NyA0MS4wMzQ2IDc1Ljc0NzEgNDAgODEgNDBDODYuMjUyOSA0MCA5MS40NTQzIDQxLjAzNDYgOTYuMzA3MyA0My4wNDQ4QzEwMS4xNiA0NS4wNTUgMTA1LjU3IDQ4LjAwMTQgMTA5LjI4NCA1MS43MTU3QzExMi45OTkgNTUuNDMwMSAxMTUuOTQ1IDU5LjgzOTYgMTE3Ljk1NSA2NC42OTI3QzExOS45NjUgNjkuNTQ1NyAxMjEgNzQuNzQ3MSAxMjEgODBMMTIxIDgwWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgoJPHBhdGggZD0iTTgxIDQwQzczLjk3ODUgNDAgNjcuMDgwOCA0MS44NDgzIDYxIDQ1LjM1OUM1NC45MTkyIDQ4Ljg2OTcgNDkuODY5NyA1My45MTkyIDQ2LjM1OSA2MCIgc3Ryb2tlPSIjQzNDQUQ5IiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgLz4KCTxwYXRoIGQ9Ik00Mi4zNjMgNjkuNjQ3MkM0MC41NDU3IDc2LjQyOTUgNDAuNTQ1NyA4My41NzA1IDQyLjM2MyA5MC4zNTI4IiBzdHJva2U9IiNFRjY3MUUiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiAvPgoJPHBhdGggZD0iTTQ2LjM1OSAxMDBDNDguMTA2OCAxMDMuMDI3IDUwLjI0MzkgMTA1LjgxMiA1Mi43MTU3IDEwOC4yODQiIHN0cm9rZT0iIzg0NTlBNSIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+Cgk8cGF0aCBkPSJNNjEgMTE0LjY0MUM2NS41NDkxIDExNy4yNjcgNzAuNTcxIDExOC45NzIgNzUuNzc5IDExOS42NThDODAuOTg2OSAxMjAuMzQzIDg2LjI3ODkgMTE5Ljk5NyA5MS4zNTI4IDExOC42MzciIHN0cm9rZT0iI0ZDOTczNCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+Cgk8cGF0aCBkPSJNMTAxIDExNC42NDFDMTA3LjA4MSAxMTEuMTMgMTEyLjEzIDEwNi4wODEgMTE1LjY0MSAxMDAiIHN0cm9rZT0iIzU1NkZDRCIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+Cgk8cGF0aCBkPSJNMTE5LjYzNyA5MC4zNTI4QzEyMC45OTcgODUuMjc4OSAxMjEuMzQzIDc5Ljk4NjkgMTIwLjY1OCA3NC43NzlDMTE5Ljk3MiA2OS41NzEgMTE4LjI2NyA2NC41NDkxIDExNS42NDEgNjAiIHN0cm9rZT0iIzg3RDdFRiIgc3Ryb2tlLXdpZHRoPSI4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIC8+Cgk8cGF0aCBkPSJNMTA5LjI4NCA1MS43MTU3QzEwNC4zMTkgNDYuNzUwOCA5OC4xMzUgNDMuMTgwMyA5MS4zNTI4IDQxLjM2MyIgc3Ryb2tlPSIjQ0I1NUNEIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgLz4KCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOTMuNSA3Ny41QzkzLjUgODQuNDAzNSA4Ny45MDM1IDkwIDgxIDkwQzc0LjA5NjUgOTAgNjguNSA4NC40MDM1IDY4LjUgNzcuNUM2OC41IDcwLjU5NjUgNzQuMDk2NSA2NSA4MSA2NUM4Ny45MDM1IDY1IDkzLjUgNzAuNTk2NSA5My41IDc3LjVaIiBmaWxsPSJ3aGl0ZSIgLz4KCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOTcuNTEwNCA5My4yMTdDOTUuODUxNiA4OS40MDI1IDk1LjU2NTkgODYuMTcwNCA5NS41MjE0IDg0LjkwMDVWNzQuNDUyQzk1LjUyMTQgNjYuNDcwMSA4OS4wMTg2IDYwIDgwLjk5NzUgNjBDNzIuOTc1NSA2MCA2Ni40NzI0IDY2LjQ3MDEgNjYuNDcyNCA3NC40NTJWODUuMDUxNkM2Ni40MTA1IDg2LjQxNzggNjYuMDg0NSA4OS41NTEgNjQuNDg5NyA5My4yMTdDNjIuMzQ2MSA5OC4xNDMgNjQuMTIwMSA5Ny41NTU5IDY1LjcwOTIgOTcuMTUwN0M2Ny4yOTc5IDk2Ljc0NyA3MC44NDYyIDk1LjE2NDggNzEuOTU0NyA5Ny4xMTM5QzczLjA2MjcgOTkuMDYyIDczLjk4NzEgMTAwLjc1NCA3Ni41NzM4IDk5LjY1MDdDNzkuMTYwOCA5OC41NDggODAuMzc5OCA5OC4xODA1IDgwLjc0OTEgOTguMTgwNUg4MS4yNTE2QzgxLjYyMDUgOTguMTgwNSA4Mi44Mzk5IDk4LjU0OCA4NS40MjY3IDk5LjY1MDdDODguMDEzNCAxMDAuNzU0IDg4LjkzNzQgOTkuMDYyIDkwLjA0NjEgOTcuMTEzOUM5MS4xNTQxIDk1LjE2NDggOTQuNzAyMSA5Ni43NDcgOTYuMjkxNCA5Ny4xNTA3Qzk3Ljg4MDQgOTcuNTU1OSA5OS42NTM1IDk4LjE0MyA5Ny41MTA0IDkzLjIxN1pNNzYuNTE0MyA2Ny44ODAzQzc4LjA3ODcgNjcuODgwMyA3OS4zNDY5IDY5Ljg3NzEgNzkuMzQ2OSA3Mi4zNDFDNzkuMzQ2OSA3NC44MDQ3IDc4LjA3ODcgNzYuODAyMSA3Ni41MTQzIDc2LjgwMjFDNzQuOTQ5OSA3Ni44MDIxIDczLjY4MTUgNzQuODA0NyA3My42ODE1IDcyLjM0MUM3My42ODE1IDY5Ljg3NzEgNzQuOTQ5OSA2Ny44ODAzIDc2LjUxNDMgNjcuODgwM1pNODAuOTk3NSA4NS43MDk4Qzc3LjU1MDEgODUuNzA5OCA3NC42NDgxIDgyLjMzMzkgNzMuNzczNyA3OC41Nzc2Qzc1LjQ2MjcgODAuODg4IDc4LjA2OTYgODIuMzcyOCA4MC45OTc1IDgyLjM3MjhDODMuOTI1MSA4Mi4zNzI4IDg2LjUzMTggODAuODg4IDg4LjIyMSA3OC41Nzc2Qzg3LjM0NjYgODIuMzMzOSA4NC40NDQyIDg1LjcwOTggODAuOTk3NSA4NS43MDk4Wk04NS40ODA2IDc2LjgwMjFDODMuOTE1MSA3Ni44MDIxIDgyLjY0NzMgNzQuODA0NyA4Mi42NDczIDcyLjM0MUM4Mi42NDczIDY5Ljg3NzEgODMuOTE1MSA2Ny44ODAzIDg1LjQ4MDYgNjcuODgwM0M4Ny4wNDU5IDY3Ljg4MDMgODguMzEzMiA2OS44NzcxIDg4LjMxMzIgNzIuMzQxQzg4LjMxMzIgNzQuODA0NyA4Ny4wNDU5IDc2LjgwMjEgODUuNDgwNiA3Ni44MDIxWiIgZmlsbD0iIzAwQUVGMCIgLz4KCTxjaXJjbGUgY3g9IjgxIiBjeT0iODAiIHI9IjU2IiBzdHJva2U9IiMyMDJDNDQiIHN0cm9rZS13aWR0aD0iNCIgLz4KCTxwYXRoIGQ9Ik00MSA0MEwxMjEgMTIwIiBzdHJva2U9IiMyMDJDNDQiIHN0cm9rZS13aWR0aD0iNCIgLz4KPC9zdmc+Cg==";
       var x = f1(9664);
       Z.Z.from(
@@ -3483,7 +3484,7 @@ ${j1(H, o1.index)}`),
           ? m.dy`
             <main layout="column gap:2 padding:3:5:3">
               <img
-                src="${E}"
+                src="${T}"
                 alt="Disable Preview Trackers"
                 layout="self:center"
               />
@@ -3582,12 +3583,12 @@ ${j1(H, o1.index)}`),
         });
       var s = f1(96806);
       const w = new WeakMap(),
-        T = new WeakMap();
+        E = new WeakMap();
       function M(p, u) {
-        const c = T.get(p);
+        const c = E.get(p);
         if (c === u) return;
         const d = Z.Z.compile(u);
-        T.set(p, u),
+        E.set(p, u),
           w.has(p) && w.get(p)(),
           w.set(p, () => {
             d.prototype.disconnectedCallback.call(p);

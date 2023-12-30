@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Sovellukset"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 -laajennuksen tuen päättyminen"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "15. tammikuuta 2024 alkaen Microsoft ei enää tue tätä laajennusta."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Lisätietoja on tämän laajennuksen tukisivulla."
+  },
+  "Support": {
+    "message": "Tue"
   }
 }

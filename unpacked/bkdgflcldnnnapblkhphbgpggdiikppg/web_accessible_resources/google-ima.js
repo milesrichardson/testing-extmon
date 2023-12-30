@@ -227,6 +227,7 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
     constructor() {
       super();
       this.volume = 1;
+      this._enablePreloading = false;
     }
     collapse() {}
     configureAdsManager() {}
@@ -252,7 +253,11 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
     getVolume() {
       return this.volume;
     }
-    init(/* w, h, m, e */) {}
+    init(/* w, h, m, e */) {
+      if (this._enablePreloading) {
+        this._dispatch(new ima.AdEvent(AdEvent.Type.LOADED));
+      }
+    }
     isCustomClickTrackingUsed() {
       return false;
     }
@@ -272,13 +277,14 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
         for (const type of [
           AdEvent.Type.LOADED,
           AdEvent.Type.STARTED,
-          AdEvent.Type.CONTENT_RESUME_REQUESTED,
+          AdEvent.Type.CONTENT_PAUSE_REQUESTED,
           AdEvent.Type.AD_BUFFERING,
           AdEvent.Type.FIRST_QUARTILE,
           AdEvent.Type.MIDPOINT,
           AdEvent.Type.THIRD_QUARTILE,
           AdEvent.Type.COMPLETE,
-          AdEvent.Type.ALL_ADS_COMPLETED
+          AdEvent.Type.ALL_ADS_COMPLETED,
+          AdEvent.Type.CONTENT_RESUME_REQUESTED
         ]) {
           try {
             this._dispatch(new ima.AdEvent(type));
@@ -295,6 +301,9 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
   class AdsRenderingSettings {}
 
   class AdsRequest {
+    constructor() {
+      this.omidAccessModeRules = {};
+    }
     setAdWillAutoPlay() {}
     setAdWillPlayMuted() {}
     setContinuousPlayback() {}
@@ -321,6 +330,7 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
     }
   }
 
+  // eslint-disable-next-line no-unused-vars
   class Ad {
     constructor() {
       this._pi = new AdPodInfo();
@@ -473,26 +483,9 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
   AdError.ErrorCode = {};
   AdError.Type = {};
 
-  const isEngadget = () => {
-    try {
-      for (const ctx of Object.values(window.vidible._getContexts())) {
-        const player = ctx.getPlayer();
-        if (!player) {
-          continue;
-        }
-        const div = player.div;
-        if (!div) {
-          continue;
-        }
-        if (div.innerHTML.includes("www.engadget.com")) {
-          return true;
-        }
-      }
-    } catch (_) {}
-    return false;
-  };
-
-  const currentAd = isEngadget() ? undefined : new Ad();
+  // TODO: Consider setting this to `new Ad()` when AdEvent.Type.LOADED fires
+  //       and clearing it again after AdEvent.Type.ALL_ADS_COMPLETED fires.
+  const currentAd = null;
 
   class AdEvent {
     constructor(type) {
@@ -562,7 +555,10 @@ if (!window.google || !window.google.ima || !window.google.ima.VERSION) {
     constructor(type) {
       this.type = type;
     }
-    getAdsManager() {
+    getAdsManager(c, settings) {
+      if (settings && settings.enablePreloading) {
+        manager._enablePreloading = true;
+      }
       return manager;
     }
     getUserRequestContext() {

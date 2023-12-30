@@ -7,6 +7,7 @@
     import {getExclusionService} from "@/domain/exclusion-service";
     import {EXCLUSION_ADS, EXCLUSION_SCAMS} from "@/domain/types/exclusion";
     import {EXCLUSION_MALWARE} from "@/app/scripts/app-consts";
+    import { translateText } from "@/utils/locales";
 
     export let currentHost: string | undefined = undefined;
     export let isProtectionActive = false;
@@ -32,15 +33,17 @@
     <div class="flex flex-col gap-4 items-center mb-6">
         {#if isProtectionActive}
             <ProtectionStatusIcon isPaused={false} />
-            <span class="text-sm text-textSecondary font-normal">
-                Protection is active
+            <span class="text-sm text-textSecondary dark:text-white font-normal">
+                {translateText("safariProtectionStatusMsg", "active")}
+                <!-- Protection is active -->
             </span>
         {:else}
             <ProtectionStatusIcon isPaused={true} />
             <span
                 class="text-sm text-textSecondary dark:text-white dark:text-opacity-80 font-normal"
             >
-                Protection is paused
+                {translateText("safariProtectionStatusMsg", "paused")}
+                <!-- Protection is paused -->
             </span>
         {/if}
     </div>
@@ -49,27 +52,37 @@
         {#if isProtectionActive}
             <span
                 class="text-textPrimary dark:text-white dark:text-opacity-80 font-normal text-sm"
-                >Add this website to your Allow List</span
-            >
+                >
+                {translateText("safariCurrentWebsiteAllowStatusAdd")}
+                <!-- Add this website to your Allow List -->
+                </span>
             <PrimaryButton
                 outlined
                 class="gap-2"
                 on:click={addToAllowListClicked}
             >
                 <AddIconPrimary />
-                <span>Add to Allow List</span>
+                <span>
+                    {translateText("safariCurrentWebsiteAddToAllowList")}
+                    <!-- Add to Allow List -->
+                </span>
             </PrimaryButton>
         {:else if !isKillswitchActive}
             <span
                 class="text-textPrimary dark:text-white dark:text-opacity-80 font-normal text-sm"
-                >This website is already in your Allow List</span
-            >
+                >
+                {translateText("safariCurrentWebsiteAllowStatusExists")}
+                <!-- This website is already in your Allow List -->
+            </span>
             <PrimaryButton
                 outlined
                 class="gap-2"
                 on:click={onRemoveFromAllowListClicked}
             >
-                <span>Remove from Allow List</span>
+                <span>
+                    {translateText("safariCurrentWebsiteRemoveFromAllowList")}
+                    <!-- Remove from Allow List -->
+                </span>
             </PrimaryButton>
         {/if}
     </div>

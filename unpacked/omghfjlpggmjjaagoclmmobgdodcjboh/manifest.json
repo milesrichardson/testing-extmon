@@ -42,7 +42,7 @@
   ],
   "content_security_policy": "default-src 'none'; script-src 'self' https://*.clarity.ms https://*.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google.com https://*.gstatic.com chrome: https://*.clarity.ms; font-src 'self'; object-src 'none'; connect-src 'self' https: http://detectportal.firefox.com http://*/api/test http://*/api/test?* http://connectivitycheck.android.com http://example.com http://www.root-servers.org",
   "manifest_version": 2,
-  "version": "3.80.6",
+  "version": "3.80.10",
   "optional_permissions": ["chrome://favicon/", "management", "privacy", "tabs"],
   "minimum_chrome_version": "56.0",
   "background": {

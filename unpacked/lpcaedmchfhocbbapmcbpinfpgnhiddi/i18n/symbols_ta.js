@@ -173,7 +173,7 @@ h = {
     "\u0bae\u0bc2\u0ba9\u0bcd\u0bb1\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1",
     "\u0ba8\u0bbe\u0ba9\u0bcd\u0b95\u0bbe\u0bae\u0bcd \u0b95\u0bbe\u0bb2\u0bbe\u0ba3\u0bcd\u0b9f\u0bc1"
   ],
-  g: ["\u0bae\u0bc1\u0bb1\u0bcd\u0baa\u0b95\u0bb2\u0bcd", "\u0baa\u0bbf\u0bb1\u0bcd\u0baa\u0b95\u0bb2\u0bcd"],
+  g: ["AM", "PM"],
   l: ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
   ha: ["a h:mm:ss zzzz", "a h:mm:ss z", "a h:mm:ss", "a h:mm"],
   m: ["{1} \u0b85\u0ba9\u0bcd\u0bb1\u0bc1 {0}", "{1} \u0b85\u0ba9\u0bcd\u0bb1\u0bc1 {0}", "{1}, {0}", "{1}, {0}"],

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Apps"
+  },
+  "EndOfSupportHeader": {
+    "message": "Einde van ondersteuning voor Microsoft 365-extensie"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Vanaf 15 januari 2024 wordt deze extensie niet meer ondersteund door Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Ga voor meer informatie naar de ondersteuningspagina voor deze extensie."
+  },
+  "Support": {
+    "message": "Ondersteuning"
   }
 }

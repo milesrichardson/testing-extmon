@@ -570,8 +570,8 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-avatar-text: var(--bttv-rs-gray-0);
   --bttv-rs-badge-bg: var(--bttv-rs-color-red);
   --bttv-rs-badge-text: var(--bttv-rs-gray-0);
+  --bttv-rs-close-button-hover-color: var(--bttv-rs-color-red);
   --bttv-rs-tag-bg: var(--bttv-rs-gray-50);
-  --bttv-rs-tag-close: var(--bttv-rs-color-red);
   --bttv-rs-carousel-bg: var(--bttv-rs-gray-600);
   --bttv-rs-carousel-indicator: rgb(from var(--bttv-rs-gray-0) r g b/40%);
   --bttv-rs-carousel-indicator-hover: var(--bttv-rs-gray-0);
@@ -606,29 +606,6 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-calendar-date-selected-text: #fff;
   --bttv-rs-calendar-cell-selected-hover-bg: var(--bttv-rs-primary-700);
   --bttv-rs-popover-shadow: 0 1px 8px rgba(0, 0, 0, 0.12);
-}
-@supports not (color: rgb(from white r g b)) {
-  .bttv-rs-theme-light,
-  :root {
-    --bttv-rs-bg-backdrop: rgba(39, 44, 54, 0.3);
-    --bttv-rs-color-focus-ring: rgba(145, 70, 255, 0.25);
-    --bttv-rs-state-focus-shadow: 0 0 0 3px rgba(145, 70, 255, 0.25);
-    --bttv-rs-state-focus-outline: 3px solid rgba(145, 70, 255, 0.25);
-    --bttv-rs-loader-ring: rgba(247, 247, 250, 0.8);
-    --bttv-rs-loader-backdrop: hsla(0, 0%, 100%, 0.9);
-    --bttv-rs-loader-ring-inverse: rgba(247, 247, 250, 0.3);
-    --bttv-rs-loader-backdrop-inverse: rgba(39, 44, 54, 0.83);
-    --bttv-rs-dropdown-item-bg-hover: rgba(226, 212, 255, 0.5);
-    --bttv-rs-menuitem-active-bg: rgba(226, 212, 255, 0.5);
-    --bttv-rs-listbox-option-hover-bg: rgba(226, 212, 255, 0.5);
-    --bttv-rs-toggle-loader-ring: rgba(247, 247, 250, 0.3);
-    --bttv-rs-slider-thumb-hover-shadow: 0 0 0 8px rgba(145, 70, 255, 0.25);
-    --bttv-rs-uploader-overlay-bg: hsla(0, 0%, 100%, 0.8);
-    --bttv-rs-carousel-indicator: hsla(0, 0%, 100%, 0.4);
-    --bttv-rs-list-placeholder-bg: rgba(246, 242, 255, 0.5);
-    --bttv-rs-table-scrollbar-vertical-track: rgba(229, 229, 234, 0.4);
-    --bttv-rs-calendar-range-bg: rgba(226, 212, 255, 0.5);
-  }
 }
 .bttv-rs-theme-dark {
   --bttv-rs-gray-0: #fff;
@@ -819,7 +796,7 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-progress-bar-success: var(--bttv-rs-color-green);
   --bttv-rs-progress-bar-fail: var(--bttv-rs-color-red);
   --bttv-rs-placeholder: var(--bttv-rs-gray-600);
-  --bttv-rs-placeholder-active: hsl(from var(--bttv-rs-gray-600) h s calc(l + l * 0.2));
+  --bttv-rs-placeholder-active: var(--bttv-rs-gray-500);
   --bttv-rs-breadcrumb-item-active-text: #fff;
   --bttv-rs-dropdown-divider: var(--bttv-rs-gray-600);
   --bttv-rs-dropdown-item-bg-hover: var(--bttv-rs-gray-600);
@@ -928,8 +905,8 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-avatar-text: var(--bttv-rs-gray-0);
   --bttv-rs-badge-bg: var(--bttv-rs-color-red);
   --bttv-rs-badge-text: var(--bttv-rs-gray-0);
+  --bttv-rs-close-button-hover-color: var(--bttv-rs-color-red);
   --bttv-rs-tag-bg: var(--bttv-rs-gray-600);
-  --bttv-rs-tag-close: var(--bttv-rs-color-red);
   --bttv-rs-carousel-bg: var(--bttv-rs-gray-600);
   --bttv-rs-carousel-indicator: rgb(from var(--bttv-rs-gray-0) r g b/40%);
   --bttv-rs-carousel-indicator-hover: var(--bttv-rs-gray-0);
@@ -964,26 +941,6 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-calendar-date-selected-text: #fff;
   --bttv-rs-calendar-cell-selected-hover-bg: var(--bttv-rs-primary-700);
   --bttv-rs-popover-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-@supports not (color: rgb(from white r g b)) {
-  .bttv-rs-theme-dark {
-    --bttv-rs-bg-backdrop: rgba(15, 19, 26, 0.8);
-    --bttv-rs-color-focus-ring: 0 0 0 3px rgba(145, 70, 255, 0.25);
-    --bttv-rs-state-focus-shadow: 0 0 0 3px rgba(145, 70, 255, 0.25);
-    --bttv-rs-state-focus-outline: 3px solid rgba(145, 70, 255, 0.25);
-    --bttv-rs-loader-ring: rgba(233, 235, 240, 0.3);
-    --bttv-rs-loader-backdrop: rgba(15, 19, 26, 0.83);
-    --bttv-rs-loader-ring-inverse: rgba(233, 235, 240, 0.8);
-    --bttv-rs-loader-backdrop-inverse: hsla(0, 0%, 100%, 0.9);
-    --bttv-rs-dropdown-item-bg-active: rgba(71, 0, 153, 0.2);
-    --bttv-rs-listbox-option-selected-bg: rgba(71, 0, 153, 0.2);
-    --bttv-rs-slider-thumb-hover-shadow: 0 0 0 8px rgba(145, 70, 255, 0.25);
-    --bttv-rs-uploader-overlay-bg: rgba(60, 63, 67, 0.8);
-    --bttv-rs-carousel-indicator: hsla(0, 0%, 100%, 0.4);
-    --bttv-rs-list-placeholder-bg: rgba(71, 0, 153, 0.2);
-    --bttv-rs-calendar-range-bg: rgba(71, 0, 153, 0.5);
-    --bttv-rs-placeholder-active: #484c50;
-  }
 }
 .bttv-rs-theme-high-contrast {
   --bttv-rs-gray-0: #fff;
@@ -1181,7 +1138,7 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-progress-bar-success: var(--bttv-rs-color-green);
   --bttv-rs-progress-bar-fail: var(--bttv-rs-color-red);
   --bttv-rs-placeholder: var(--bttv-rs-gray-600);
-  --bttv-rs-placeholder-active: hsl(from var(--bttv-rs-gray-600) h s calc(l + l * 0.2));
+  --bttv-rs-placeholder-active: var(--bttv-rs-gray-500);
   --bttv-rs-breadcrumb-item-active-text: #fff;
   --bttv-rs-dropdown-divider: var(--bttv-rs-gray-600);
   --bttv-rs-dropdown-item-bg-hover: var(--bttv-rs-gray-600);
@@ -1293,8 +1250,8 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-avatar-text: var(--bttv-rs-gray-0);
   --bttv-rs-badge-bg: var(--bttv-rs-red-500);
   --bttv-rs-badge-text: var(--bttv-rs-gray-0);
+  --bttv-rs-close-button-hover-color: var(--bttv-rs-color-red);
   --bttv-rs-tag-bg: var(--bttv-rs-gray-600);
-  --bttv-rs-tag-close: var(--bttv-rs-color-red);
   --bttv-rs-carousel-bg: var(--bttv-rs-gray-600);
   --bttv-rs-carousel-indicator: rgb(from var(--bttv-rs-gray-0) r g b/40%);
   --bttv-rs-carousel-indicator-hover: var(--bttv-rs-gray-0);
@@ -1333,23 +1290,6 @@ yt-live-chat-text-message-renderer .bttv-chat-badge-container {
   --bttv-rs-calendar-date-selected-text: var(--bttv-rs-gray-900);
   --bttv-rs-calendar-cell-selected-hover-bg: var(--bttv-rs-gray-50);
   --bttv-rs-popover-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-@supports not (color: rgb(from white r g b)) {
-  .bttv-rs-theme-high-contrast {
-    --bttv-rs-bg-backdrop: rgba(15, 19, 26, 0.8);
-    --bttv-rs-state-focus-outline: 3px solid rgba(255, 255, 0, 0.25);
-    --bttv-rs-loader-ring: rgba(233, 235, 240, 0.3);
-    --bttv-rs-loader-backdrop: rgba(15, 19, 26, 0.83);
-    --bttv-rs-loader-ring-inverse: rgba(233, 235, 240, 0.8);
-    --bttv-rs-loader-backdrop-inverse: hsla(0, 0%, 100%, 0.9);
-    --bttv-rs-dropdown-item-bg-active: rgba(143, 153, 0, 0.2);
-    --bttv-rs-slider-thumb-hover-shadow: 0 0 0 8px rgba(255, 255, 0, 0.25);
-    --bttv-rs-uploader-overlay-bg: rgba(60, 63, 67, 0.8);
-    --bttv-rs-carousel-indicator: hsla(0, 0%, 100%, 0.4);
-    --bttv-rs-list-placeholder-bg: rgba(143, 153, 0, 0.2);
-    --bttv-rs-calendar-range-bg: rgba(143, 153, 0, 0.5);
-    --bttv-rs-placeholder-active: #484c50;
-  }
 }
 @keyframes slideInLeft {
   0% {
@@ -4106,6 +4046,15 @@ label:hover .bttv-rs-checkbox-wrapper .bttv-rs-checkbox-inner:before {
 .bttv-rs-picker-menu .bttv-rs-calendar-table {
   width: unset;
 }
+.bttv-rs-picker-menu .bttv-rs-calendar-month-dropdown-cell:focus-visible .bttv-rs-calendar-month-dropdown-cell-content {
+  outline: 3px solid var(--bttv-rs-color-focus-ring);
+}
+.bttv-rs-picker-menu .bttv-rs-calendar-table-cell:focus-visible {
+  outline: none;
+}
+.bttv-rs-picker-menu .bttv-rs-calendar-table-cell:focus-visible .bttv-rs-calendar-table-cell-content {
+  outline: 3px solid var(--bttv-rs-color-focus-ring);
+}
 .bttv-rs-picker-menu .bttv-rs-calendar .bttv-rs-calendar-month-dropdown-cell-content,
 .bttv-rs-picker-menu .bttv-rs-calendar .bttv-rs-calendar-table-cell-content {
   height: 30px;
@@ -4345,16 +4294,14 @@ label:hover .bttv-rs-checkbox-wrapper .bttv-rs-checkbox-inner:before {
   height: 290px;
 }
 .bttv-rs-drawer-full.bttv-rs-drawer-bottom,
-.bttv-rs-drawer-full.bttv-rs-drawer-top {
-  height: calc(100% - 60px);
-}
 .bttv-rs-drawer-full.bttv-rs-drawer-bottom .bttv-rs-drawer-content,
+.bttv-rs-drawer-full.bttv-rs-drawer-top,
 .bttv-rs-drawer-full.bttv-rs-drawer-top .bttv-rs-drawer-content {
   height: 100%;
 }
 .bttv-rs-drawer-full.bttv-rs-drawer-left,
 .bttv-rs-drawer-full.bttv-rs-drawer-right {
-  width: calc(100% - 60px);
+  width: 100%;
 }
 .bttv-rs-drawer-right {
   right: 0;
@@ -8451,6 +8398,13 @@ textarea.bttv-rs-picker-search-input {
 .bttv-rs-message-success .bttv-rs-message-body {
   color: var(--bttv-rs-message-success-text);
 }
+.bttv-rs-message-success .bttv-rs-btn-close {
+  font-size: 12px;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 .bttv-rs-message-success .bttv-rs-btn-close,
 .bttv-rs-message-success .bttv-rs-message-icon-wrapper > .bttv-rs-icon {
   color: var(--bttv-rs-message-success-icon);
@@ -8466,6 +8420,13 @@ textarea.bttv-rs-picker-search-input {
 }
 .bttv-rs-message-info .bttv-rs-message-body {
   color: var(--bttv-rs-message-info-text);
+}
+.bttv-rs-message-info .bttv-rs-btn-close {
+  font-size: 12px;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .bttv-rs-message-info .bttv-rs-btn-close,
 .bttv-rs-message-info .bttv-rs-message-icon-wrapper > .bttv-rs-icon {
@@ -8483,6 +8444,13 @@ textarea.bttv-rs-picker-search-input {
 .bttv-rs-message-warning .bttv-rs-message-body {
   color: var(--bttv-rs-message-warning-text);
 }
+.bttv-rs-message-warning .bttv-rs-btn-close {
+  font-size: 12px;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 .bttv-rs-message-warning .bttv-rs-btn-close,
 .bttv-rs-message-warning .bttv-rs-message-icon-wrapper > .bttv-rs-icon {
   color: var(--bttv-rs-message-warning-icon);
@@ -8498,6 +8466,13 @@ textarea.bttv-rs-picker-search-input {
 }
 .bttv-rs-message-error .bttv-rs-message-body {
   color: var(--bttv-rs-message-error-text);
+}
+.bttv-rs-message-error .bttv-rs-btn-close {
+  font-size: 12px;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .bttv-rs-message-error .bttv-rs-btn-close,
 .bttv-rs-message-error .bttv-rs-message-icon-wrapper > .bttv-rs-icon {
@@ -8560,8 +8535,26 @@ textarea.bttv-rs-picker-search-input {
   width: 400px;
 }
 .bttv-rs-modal-full {
-  max-width: calc(100% - 10px);
-  width: calc(100% - 120px);
+  height: 100%;
+  margin: 0;
+}
+.bttv-rs-modal-full .bttv-rs-modal-content {
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.bttv-rs-modal-full .bttv-rs-modal-content .bttv-rs-modal-header {
+  flex: 0 0 auto;
+}
+.bttv-rs-modal-full .bttv-rs-modal-content .bttv-rs-modal-body {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+.bttv-rs-modal-full .bttv-rs-modal-content .bttv-rs-modal-footer {
+  flex: 0 0 auto;
 }
 .bttv-rs-modal-shake .bttv-rs-modal-dialog {
   animation: shakeHead 0.3s linear;
@@ -9164,6 +9157,13 @@ textarea.bttv-rs-picker-search-input {
 .bttv-rs-notification.bttv-rs-notification-hiding ~ .bttv-rs-notification {
   margin-top: 0;
 }
+.bttv-rs-notification .bttv-rs-btn-close {
+  font-size: 12px;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 .bttv-rs-notification-success .bttv-rs-notification-content .bttv-rs-notification-title + .bttv-rs-notification-description {
   margin-left: 34px;
 }
@@ -9695,9 +9695,6 @@ textarea.bttv-rs-picker-search-input {
   display: inline-block;
   max-width: 100%;
   vertical-align: middle;
-}
-.bttv-rs-picker-toggle {
-  min-width: 75px;
 }
 .bttv-rs-picker-toggle.bttv-rs-btn .bttv-rs-ripple-pond {
   display: none !important;
@@ -10482,13 +10479,6 @@ textarea.bttv-rs-picker-search-input {
 }
 .bttv-rs-picker-toggle-clean.bttv-rs-btn-close {
   padding: 4px 0;
-}
-.bttv-rs-picker-toggle-clean:hover {
-  color: var(--bttv-rs-state-error);
-}
-.bttv-rs-picker-toggle-clean:hover svg path {
-  stroke: var(--bttv-rs-state-error);
-  stroke-width: 1;
 }
 .bttv-rs-picker-date .bttv-rs-picker-toggle-clean,
 .bttv-rs-picker-daterange .bttv-rs-picker-toggle-clean {
@@ -13031,11 +13021,9 @@ textarea.bttv-rs-picker-menu .bttv-rs-picker-search-bar .bttv-rs-picker-search-b
   position: relative;
 }
 .bttv-rs-tag-icon-close {
-  font-size: 12px;
   position: absolute;
-}
-.bttv-rs-tag-default .bttv-rs-tag-icon-close:hover {
-  color: var(--bttv-rs-tag-close);
+  right: 0;
+  top: 0;
 }
 .bttv-rs-tag-group {
   margin: -10px 0 0 -10px;
@@ -14145,7 +14133,7 @@ textarea.bttv-rs-picker-menu .bttv-rs-picker-search-bar .bttv-rs-picker-search-b
 .bttv-rs-uploader-text .bttv-rs-uploader-file-item-btn-remove {
   color: var(--bttv-rs-text-secondary);
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
   position: absolute;
   right: 12px;
@@ -14840,16 +14828,20 @@ textarea.bttv-rs-picker-menu .bttv-rs-picker-search-bar .bttv-rs-picker-search-b
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 12px;
   line-height: 1;
   outline: none !important;
-  padding: 8px 8px 0;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 .bttv-rs-btn-close .bttv-rs-icon {
   vertical-align: bottom;
+}
+.bttv-rs-btn-close:focus,
+.bttv-rs-btn-close:hover {
+  color: var(--bttv-rs-close-button-hover-color);
+}
+.bttv-rs-btn-close:focus svg path,
+.bttv-rs-btn-close:hover svg path {
+  stroke: var(--bttv-rs-close-button-hover-color);
+  stroke-width: 1;
 }
 .bttv-rs-stack {
   display: flex;
@@ -16049,7 +16041,6 @@ html[dark] .bttv-youtube .bttv-Sidebar-module__active-iyL3L {
   overflow: hidden;
   padding: 0 8px;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 .bttv-Tip-module__textButton-PIkM_ {
   padding: 0;
@@ -16068,7 +16059,8 @@ html[dark] .bttv-youtube .bttv-Sidebar-module__active-iyL3L {
   display: flex;
 }
 .bttv-EmoteMenuPopover-module__withTip-WTZe5 {
-  height: 430px;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 @media only screen and (max-width: 400px) {
   .bttv-EmoteMenuPopover-module__popover-P1Nc2 {
@@ -16324,6 +16316,10 @@ html[dark] .bttv-youtube .bttv-rs-btn-link:hover {
 .bttv-table-module__header-_3lzm div {
   margin-left: 4px;
 }
+.bttv-fun-module__barrelRoll-azOY8 {
+  transform: rotate(1turn);
+  transition: transform 2s;
+}
 .bttv-YoutubeEphemeralMessage-module__message-NoNpN {
   align-items: center;
   display: flex;
@@ -16332,8 +16328,4 @@ html[dark] .bttv-youtube .bttv-rs-btn-link:hover {
 .bttv-YoutubeEphemeralMessage-module__message-NoNpN .bttv-YoutubeEphemeralMessage-module__mascot-QmXNF {
   margin-right: 16px;
   width: 24px;
-}
-.bttv-fun-module__barrelRoll-azOY8 {
-  transform: rotate(1turn);
-  transition: transform 2s;
 }

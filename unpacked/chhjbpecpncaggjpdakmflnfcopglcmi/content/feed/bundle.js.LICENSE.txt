@@ -1,5 +1,5 @@
 /*!
- * Rakuten Cash Back Button v5.35.0
+ * Rakuten Cash Back Button v5.36.1
  * Copyrights 2023 Ebates Inc. dba Rakuten
  */
 

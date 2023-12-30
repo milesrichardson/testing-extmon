@@ -95,7 +95,7 @@
             if (!n || "function" != typeof n.canPlayType) return e;
             var t = n.canPlayType("audio/mpeg;").replace(/^no$/, ""),
               o = e._navigator ? e._navigator.userAgent : "",
-              a = o.match(/OPR\/([0-6].)/g),
+              a = o.match(/OPR\/(\d+)/g),
               i = a && parseInt(a[0].split("/")[1], 10) < 33,
               u = -1 !== o.indexOf("Safari") && -1 === o.indexOf("Chrome"),
               d = o.match(/Version\/(.*?) /),
@@ -534,12 +534,15 @@
               o = this,
               a = arguments;
             if (0 === a.length) return o._volume;
-            if (1 === a.length || (2 === a.length && void 0 === a[1])) {
-              var i = o._getSoundIds(),
-                u = i.indexOf(a[0]);
-              u >= 0 ? (n = parseInt(a[0], 10)) : (e = parseFloat(a[0]));
-            } else a.length >= 2 && ((e = parseFloat(a[0])), (n = parseInt(a[1], 10)));
-            if (!(void 0 !== e && e >= 0 && e <= 1)) return (t = n ? o._soundById(n) : o._sounds[0]) ? t._volume : 0;
+            if (
+              (1 === a.length || (2 === a.length && void 0 === a[1])
+                ? o._getSoundIds().indexOf(a[0]) >= 0
+                  ? (n = parseInt(a[0], 10))
+                  : (e = parseFloat(a[0]))
+                : a.length >= 2 && ((e = parseFloat(a[0])), (n = parseInt(a[1], 10))),
+              !(void 0 !== e && e >= 0 && e <= 1))
+            )
+              return (t = n ? o._soundById(n) : o._sounds[0]) ? t._volume : 0;
             if ("loaded" !== o._state || o._playLock)
               return (
                 o._queue.push({
@@ -551,10 +554,10 @@
                 o
               );
             void 0 === n && (o._volume = e), (n = o._getSoundIds(n));
-            for (var d = 0; d < n.length; d++)
-              (t = o._soundById(n[d])) &&
+            for (var i = 0; i < n.length; i++)
+              (t = o._soundById(n[i])) &&
                 ((t._volume = e),
-                a[2] || o._stopFade(n[d]),
+                a[2] || o._stopFade(n[i]),
                 o._webAudio && t._node && !t._muted
                   ? t._node.gain.setValueAtTime(e, r.ctx.currentTime)
                   : t._node && !t._muted && (t._node.volume = e * r.volume()),
@@ -655,13 +658,17 @@
               t,
               o = this,
               a = arguments;
-            if (0 === a.length) n = o._sounds[0]._id;
-            else if (1 === a.length) {
-              var i = o._getSoundIds(),
-                u = i.indexOf(a[0]);
-              u >= 0 ? (n = parseInt(a[0], 10)) : (e = parseFloat(a[0]));
-            } else 2 === a.length && ((e = parseFloat(a[0])), (n = parseInt(a[1], 10)));
-            if ("number" != typeof e) return (t = o._soundById(n)) ? t._rate : o._rate;
+            if (
+              (0 === a.length
+                ? (n = o._sounds[0]._id)
+                : 1 === a.length
+                ? o._getSoundIds().indexOf(a[0]) >= 0
+                  ? (n = parseInt(a[0], 10))
+                  : (e = parseFloat(a[0]))
+                : 2 === a.length && ((e = parseFloat(a[0])), (n = parseInt(a[1], 10))),
+              "number" != typeof e)
+            )
+              return (t = o._soundById(n)) ? t._rate : o._rate;
             if ("loaded" !== o._state || o._playLock)
               return (
                 o._queue.push({
@@ -673,17 +680,16 @@
                 o
               );
             void 0 === n && (o._rate = e), (n = o._getSoundIds(n));
-            for (var d = 0; d < n.length; d++)
-              if ((t = o._soundById(n[d]))) {
-                o.playing(n[d]) && ((t._rateSeek = o.seek(n[d])), (t._playStart = o._webAudio ? r.ctx.currentTime : t._playStart)),
+            for (var i = 0; i < n.length; i++)
+              if ((t = o._soundById(n[i]))) {
+                o.playing(n[i]) && ((t._rateSeek = o.seek(n[i])), (t._playStart = o._webAudio ? r.ctx.currentTime : t._playStart)),
                   (t._rate = e),
                   o._webAudio && t._node && t._node.bufferSource
                     ? t._node.bufferSource.playbackRate.setValueAtTime(e, r.ctx.currentTime)
                     : t._node && (t._node.playbackRate = e);
-                var s = o.seek(n[d]),
-                  _ = (o._sprite[t._sprite][0] + o._sprite[t._sprite][1]) / 1e3 - s,
-                  l = (1e3 * _) / Math.abs(t._rate);
-                (!o._endTimers[n[d]] && t._paused) || (o._clearTimer(n[d]), (o._endTimers[n[d]] = setTimeout(o._ended.bind(o, t), l))),
+                var u = o.seek(n[i]),
+                  d = (1e3 * ((o._sprite[t._sprite][0] + o._sprite[t._sprite][1]) / 1e3 - u)) / Math.abs(t._rate);
+                (!o._endTimers[n[i]] && t._paused) || (o._clearTimer(n[i]), (o._endTimers[n[i]] = setTimeout(o._ended.bind(o, t), d))),
                   o._emit("rate", t._id);
               }
             return o;
@@ -693,13 +699,17 @@
               n,
               t = this,
               o = arguments;
-            if (0 === o.length) t._sounds.length && (n = t._sounds[0]._id);
-            else if (1 === o.length) {
-              var a = t._getSoundIds(),
-                i = a.indexOf(o[0]);
-              i >= 0 ? (n = parseInt(o[0], 10)) : t._sounds.length && ((n = t._sounds[0]._id), (e = parseFloat(o[0])));
-            } else 2 === o.length && ((e = parseFloat(o[0])), (n = parseInt(o[1], 10)));
-            if (void 0 === n) return 0;
+            if (
+              (0 === o.length
+                ? t._sounds.length && (n = t._sounds[0]._id)
+                : 1 === o.length
+                ? t._getSoundIds().indexOf(o[0]) >= 0
+                  ? (n = parseInt(o[0], 10))
+                  : t._sounds.length && ((n = t._sounds[0]._id), (e = parseFloat(o[0])))
+                : 2 === o.length && ((e = parseFloat(o[0])), (n = parseInt(o[1], 10))),
+              void 0 === n)
+            )
+              return 0;
             if ("number" == typeof e && ("loaded" !== t._state || t._playLock))
               return (
                 t._queue.push({
@@ -710,31 +720,31 @@
                 }),
                 t
               );
-            var u = t._soundById(n);
-            if (u) {
+            var a = t._soundById(n);
+            if (a) {
               if (!("number" == typeof e && e >= 0)) {
                 if (t._webAudio) {
-                  var d = t.playing(n) ? r.ctx.currentTime - u._playStart : 0,
-                    s = u._rateSeek ? u._rateSeek - u._seek : 0;
-                  return u._seek + (s + d * Math.abs(u._rate));
+                  var i = t.playing(n) ? r.ctx.currentTime - a._playStart : 0,
+                    u = a._rateSeek ? a._rateSeek - a._seek : 0;
+                  return a._seek + (u + i * Math.abs(a._rate));
                 }
-                return u._node.currentTime;
+                return a._node.currentTime;
               }
-              var _ = t.playing(n);
-              _ && t.pause(n, !0),
-                (u._seek = e),
-                (u._ended = !1),
+              var d = t.playing(n);
+              d && t.pause(n, !0),
+                (a._seek = e),
+                (a._ended = !1),
                 t._clearTimer(n),
-                t._webAudio || !u._node || isNaN(u._node.duration) || (u._node.currentTime = e);
-              var l = function () {
-                _ && t.play(n, !0), t._emit("seek", n);
+                t._webAudio || !a._node || isNaN(a._node.duration) || (a._node.currentTime = e);
+              var s = function () {
+                d && t.play(n, !0), t._emit("seek", n);
               };
-              if (_ && !t._webAudio) {
-                var c = function () {
-                  t._playLock ? setTimeout(c, 0) : l();
+              if (d && !t._webAudio) {
+                var _ = function () {
+                  t._playLock ? setTimeout(_, 0) : s();
                 };
-                setTimeout(c, 0);
-              } else l();
+                setTimeout(_, 0);
+              } else s();
             }
             return t;
           },
@@ -903,6 +913,7 @@
           },
           _cleanBuffer: function (e) {
             var n = r._navigator && r._navigator.vendor.indexOf("Apple") >= 0;
+            if (!e.bufferSource) return this;
             if (r._scratchBuffer && e.bufferSource && ((e.bufferSource.onended = null), e.bufferSource.disconnect(0), n))
               try {
                 e.bufferSource.buffer = r._scratchBuffer;
@@ -1318,16 +1329,15 @@
                     panningModel: void 0 !== e.panningModel ? e.panningModel : d.panningModel
                   };
                   var s = o._panner;
-                  s
-                    ? ((s.coneInnerAngle = d.coneInnerAngle),
-                      (s.coneOuterAngle = d.coneOuterAngle),
-                      (s.coneOuterGain = d.coneOuterGain),
-                      (s.distanceModel = d.distanceModel),
-                      (s.maxDistance = d.maxDistance),
-                      (s.refDistance = d.refDistance),
-                      (s.rolloffFactor = d.rolloffFactor),
-                      (s.panningModel = d.panningModel))
-                    : (o._pos || (o._pos = r._pos || [0, 0, -0.5]), n(o, "spatial"));
+                  s || (o._pos || (o._pos = r._pos || [0, 0, -0.5]), n(o, "spatial"), (s = o._panner)),
+                    (s.coneInnerAngle = d.coneInnerAngle),
+                    (s.coneOuterAngle = d.coneOuterAngle),
+                    (s.coneOuterGain = d.coneOuterGain),
+                    (s.distanceModel = d.distanceModel),
+                    (s.maxDistance = d.maxDistance),
+                    (s.refDistance = d.refDistance),
+                    (s.rolloffFactor = d.rolloffFactor),
+                    (s.panningModel = d.panningModel);
                 }
               return r;
             }),

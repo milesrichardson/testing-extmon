@@ -242,7 +242,14 @@ function topMenuDataUpdate(data) {
 
   $(".loader", $storageBlock).removeClass("loading");
   $(".storage-txt", $storageBlock).safeHTML(storageHtml);
-  $(".storage span", $storageBlock).outerWidth(perc + "%");
+  const $storageBar = $(".storage", $storageBlock);
+
+  if (u_attr && !u_attr.pf) {
+    $("span", $storageBar).outerWidth(perc + "%");
+    $storageBar.removeClass("hidden");
+  } else {
+    $storageBar.addClass("hidden");
+  }
 }
 
 function topMenuScroll($scrollBlock) {
@@ -400,7 +407,7 @@ function init_page() {
   document.body.classList.remove("business", "bottom-pages", "old", "pro", "mega-lite-mode");
 
   // Add mega-lite-mode class to hide/show various elements in MEGA Lite mode
-  if (mega.lite) {
+  if (mega.lite.inLiteMode) {
     document.body.classList.add("mega-lite-mode");
   }
 
@@ -1049,10 +1056,11 @@ function init_page() {
     login_txt = l[1298];
     return loadSubPage("login");
   } else if (page === "keybackup") {
-    parsepage(pages.keybackup);
     if (is_mobile) {
-      mobile.settings.backup.init();
+      loadSubPage("fm/account/security/backup-key", "override");
+      return false;
     } else {
+      parsepage(pages.keybackup);
       init_backup();
     }
   } else if (page.substr(0, 6) === "cancel" && page.length > 24) {
@@ -1065,7 +1073,7 @@ function init_page() {
         .done(function () {
           if (is_mobile) {
             parsepage(pages.mobile);
-            mobile.settings.account.cancel.init();
+            mobile.settings.account.verifyDelete.init();
           } else {
             ac.handleFeedback();
           }
@@ -1086,7 +1094,7 @@ function init_page() {
       if (is_mobile) {
         parsepage(pages.mobile);
         login_next = page;
-        msgDialog("warninga", l[6186], l[5841], false, function () {
+        msgDialog("warninga", l[5841], l.account_login_to_continue, false, () => {
           loadSubPage("login");
         });
       } else {
@@ -1773,7 +1781,7 @@ function topbarUI(holderId) {
   }
 
   // Initialise the Back to MEGA button (only shown if in MEGA Lite mode)
-  if (mega.lite) {
+  if (mega.lite.inLiteMode) {
     mega.lite.initBackToMegaButton();
   }
 
@@ -2119,6 +2127,14 @@ function topmenuUI() {
 
     if (is_fm()) {
       $menuRefreshItem.removeClass("hidden");
+
+      if (self.d && !String(location.host).includes("mega.")) {
+        $(".top-menu-item.infinity-item span", $topMenu)
+          .text(`${mega.infinity ? l.leave : l[5906]} Infinity \u{1F343}`)
+          .parent()
+          .rebind("click", () => M.reload(-0x7e080f))
+          .removeClass("hidden");
+      }
     }
 
     if (pfcol) {
@@ -2447,69 +2463,91 @@ function topmenuUI() {
         var subPages = [
           "about",
           "account",
-          "keybackup",
+          "achievements",
+          "affiliate",
+          "bug-bounty",
+          "business",
+          "chatandmeetings",
           "cmd",
+          "collaboration",
           "contact",
+          "cookie",
           "copyright",
           "corporate",
           "credits",
           "desktop",
+          "developers",
+          "dispute",
           "doc",
           "extensions",
+          "keybackup",
           "login",
+          "media",
           "mega",
-          "nzippmember",
-          "nziphotographer",
-          "privacy",
-          "mobileapp",
+          "megabackup",
           "mobile",
+          "mobileapp",
+          "nas",
+          "nziphotographer",
+          "nzippmember",
+          "objectstorage",
+          "privacy",
+          "pro",
           "register",
+          "reliability",
+          "resellers",
           "sdk",
+          "securechat",
+          "security",
+          "share",
           "sitemap",
           "sourcecode",
+          "special",
+          "start",
+          "storage",
           "support",
+          "syncing",
           "takedown",
           "terms",
-          "start",
-          "security",
-          "affiliate",
-          "nas",
-          "pro",
-          "cookie",
-          "securechat",
-          "collaboration",
-          "storage",
-          "special",
-          "achievements",
-          "objectstorage",
-          "megabackup"
+          "transparency"
         ];
         const ioPages = [
           "about",
+          "achievements",
+          "affiliate",
+          "bug-bounty",
+          "business",
+          "chatandmeetings",
           "cmd",
+          "collaboration",
           "contact",
+          "cookie",
           "copyright",
           "corporate",
           "desktop",
+          "developers",
+          "dispute",
           "doc",
           "extensions",
-          "privacy",
-          "mobileapp",
+          "media",
+          "megabackup",
           "mobile",
+          "mobileapp",
+          "nas",
+          "objectstorage",
+          "privacy",
+          "reliability",
+          "resellers",
           "sdk",
+          "securechat",
+          "security",
+          "share",
           "sourcecode",
+          "storage",
+          "syncing",
           "takedown",
           "terms",
-          "security",
-          "affiliate",
-          "nas",
-          "cookie",
-          "securechat",
-          "collaboration",
-          "storage",
-          "achievements",
-          "objectstorage",
-          "megabackup"
+          "transparency"
         ];
         var moveTo = {
           account: "fm/account",
@@ -2556,14 +2594,12 @@ function topmenuUI() {
           langDialog.show();
         } else if (className.indexOf("logout") > -1) {
           mLogout();
-        } else if (className.indexOf("transparency") > -1) {
-          window.open("https://transparency.mega.io", "_blank", "noopener,noreferrer");
         } else if (className.includes("help")) {
-          window.open(l.mega_help_host, "_blank", "noopener,noreferrer");
+          window.open(l.mega_help_host, "_blank", "noopener");
         } else if (className.includes("blog")) {
-          window.open("https://blog.mega.io");
-        } else if (className.includes("resellers")) {
-          window.open("https://mega.io/resellers", "_blank", "noopener,noreferrer");
+          window.open("https://blog.mega.io", "_blank", "noopener");
+        } else if (className.includes("jobs") || className.includes("careers")) {
+          window.open("https://careers.mega.nz", "_blank", "noopener");
         }
       }
       return false;
@@ -2905,8 +2941,9 @@ function loadSubPage(tpage, event) {
     page = "";
   }
 
+  let hold;
   if (page) {
-    var tmp = [];
+    const tmp = [];
 
     for (var p in subpages) {
       if (page.substr(0, p.length) === p) {
@@ -2941,6 +2978,7 @@ function loadSubPage(tpage, event) {
       }
 
       jsl = tmp;
+      hold = true;
     }
   }
 
@@ -2960,7 +2998,7 @@ function loadSubPage(tpage, event) {
     return false;
   }
 
-  if (jsl.length > 0) {
+  if (hold) {
     loadingDialog.show("jsl-loader");
     jsl_start();
   } else {

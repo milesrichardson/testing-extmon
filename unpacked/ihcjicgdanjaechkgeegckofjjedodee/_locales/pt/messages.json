@@ -420,8 +420,16 @@
     }
   },
   "learnMoreText": {
-    "message": "Saiba ainda mais",
+    "message": "Learn more",
     "description": "Text for link to learn more pages on Malwarebytes blog"
+  },
+  "nextText": {
+    "message": "Next",
+    "description": "Back text."
+  },
+  "doneText": {
+    "message": "Done",
+    "description": "Done text."
   },
   "currentWebsiteNavItem": {
     "message": "Website atual",
@@ -443,6 +451,10 @@
     "message": "Suporte",
     "description": "'Support' Navigation Item"
   },
+  "viewTutorialNavItem": {
+    "message": "View tutorial",
+    "description": "'View tutorial' Navigation Item"
+  },
   "upsellNavItem": {
     "message": "Proteção completa",
     "description": "Upsell tab title."
@@ -462,6 +474,66 @@
   "exportNavItem": {
     "message": "Importar e Exportar",
     "description": "'Import & Export' Navigation Item"
+  },
+  "obfSlide1Title": {
+    "message": "Your Protection Dashboard 🥳",
+    "description": "Onboarding flow first slide title."
+  },
+  "obfSlide1Desc": {
+    "message": "This is where annoying and malicious content meet their end. Here, you can track blocked items and manage protections for the current website you're visiting.",
+    "description": "Onboarding flow first slide description."
+  },
+  "obfSlide2Title": {
+    "message": "Complete your Allow List 👌",
+    "description": "Onboarding flow second slide title."
+  },
+  "obfSlide2Desc": {
+    "message": "Take control of your browser with Browser Guard's Allow List. Customize your trusted websites and choose the protections you want to disable. Your browser, your rules.",
+    "description": "Onboarding flow second slide description."
+  },
+  "obfSlide3Title": {
+    "message": "Explore your Statistics 🧐",
+    "description": "Onboarding flow third slide title."
+  },
+  "obfSlide3Desc": {
+    "message": "Dive into your statistics to stay informed. Discover how many ads/trackers, malware, and scams we've blocked each day or per selected timeframe. Browse with confidence and stay in control of your online security.",
+    "description": "Onboarding flow third slide description."
+  },
+  "obfSlide4Title": {
+    "message": "Premium Features 🤩",
+    "description": "Onboarding flow fourth slide title."
+  },
+  "obfSlide4SubtitlePart1": {
+    "message": "Upgrade to ",
+    "description": "Onboarding flow fourth slide first part description."
+  },
+  "obfSlide4SubtitlePart2": {
+    "message": "to unlock more features.",
+    "description": "Onboarding flow fourth slide second part description."
+  },
+  "obfSlide4Subtitle1": {
+    "message": "Content Control",
+    "description": "Onboarding flow, fourth slide first subtitle."
+  },
+  "obfSlide4Desc1": {
+    "message": "Block access to any website - for any reason.",
+    "description": "Onboarding flow, fourth slide first description."
+  },
+  "obfSlide4Subtitle2": {
+    "message": "Detection History",
+    "description": "Onboarding flow, fourth slide second subtitle."
+  },
+  "obfSlide4Desc2": {
+    "message": "View potential malicious activity you were safeguarded from.",
+    "description": "Onboarding flow, fourth slide second description."
+  },
+  "obfSlide4Subtitle3": {
+    "message": "Import & Export",
+    "description": "Onboarding flow, fourth slide third subtitle."
+  },
+  "obfSlide4Desc3": {
+    "message": "Take your settings to any browser with our import & export feature.",
+    "description": "Onboarding flow, fourth slide third description."
   },
   "allowListSummary": {
     "message": "Para personalizar a proteção para um website, introduza o respetivo URL ou endereço IP e, depois, selecione a proteção (ou proteções) que gostaria de desativar.",
@@ -1636,5 +1708,31 @@
   "ImportSupportBtn": {
     "message": "Contact Support",
     "description": "Contact support text."
+  },
+  "safariProtectionStatusMsg": {
+    "message": "Protection is $status$",
+    "description": "Protection status message",
+    "placeholders": {
+      "status": {
+        "content": "$1",
+        "example": "active"
+      }
+    }
+  },
+  "safariCurrentWebsiteAllowStatusAdd": {
+    "message": "Add this website to your Allow List",
+    "description": "Allow status message - shows up if the website is not in the allow list"
+  },
+  "safariCurrentWebsiteAllowStatusExists": {
+    "message": "This website is already in your Allow List",
+    "description": "Allow status message - shows up if the website is alredy in the allow list"
+  },
+  "safariCurrentWebsiteAddToAllowList": {
+    "message": "Add to Allow List",
+    "description": "Add to Allow List button text  on the current website tab"
+  },
+  "safariCurrentWebsiteRemoveFromAllowList": {
+    "message": "Remove from Allow List",
+    "description": "Remove from Allow List button text on the current website tab"
   }
 }

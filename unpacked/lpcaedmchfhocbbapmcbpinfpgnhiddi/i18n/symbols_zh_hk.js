@@ -12,7 +12,7 @@ var a = this || self,
       f.length || void 0 === k ? (e = e[g] && e[g] !== Object.prototype[g] ? e[g] : (e[g] = {})) : (e[g] = k);
   };
 var c = {
-  i: {
+  h: {
     1e3: { other: "0K" },
     1e4: { other: "00K" },
     1e5: { other: "000K" },
@@ -26,7 +26,7 @@ var c = {
     1e13: { other: "00T" },
     1e14: { other: "000T" }
   },
-  h: {
+  oa: {
     1e3: { other: "0 thousand" },
     1e4: { other: "00 thousand" },
     1e5: { other: "000 thousand" },
@@ -42,7 +42,7 @@ var c = {
   }
 };
 c = {
-  i: {
+  h: {
     1e3: { other: "0K" },
     1e4: { other: "00K" },
     1e5: { other: "000K" },
@@ -55,189 +55,175 @@ c = {
     1e12: { other: "0T" },
     1e13: { other: "00T" },
     1e14: { other: "000T" }
-  },
-  h: {
-    1e3: { other: "0" },
-    1e4: { other: "0\u842c" },
-    1e5: { other: "00\u842c" },
-    1e6: { other: "000\u842c" },
-    1e7: { other: "0000\u842c" },
-    1e8: { other: "0\u5104" },
-    1e9: { other: "00\u5104" },
-    1e10: { other: "000\u5104" },
-    1e11: { other: "0000\u5104" },
-    1e12: { other: "0\u5146" },
-    1e13: { other: "00\u5146" },
-    1e14: { other: "000\u5146" }
   }
 };
 var d = {
-  la: "y",
+  ka: "y",
   sa: "y G",
-  ma: "MMM y",
-  na: "MMMM y",
+  la: "MMM y",
+  ma: "MMMM y",
   ta: "MM/y",
-  K: "MMM d",
-  L: "MMMM dd",
-  N: "M/d",
-  M: "MMMM d",
+  J: "MMM d",
+  K: "MMMM dd",
+  M: "M/d",
+  L: "MMMM d",
   qa: "MMM d, y",
-  ja: "EEE, MMM d",
+  ia: "EEE, MMM d",
   ra: "EEE, MMM d, y",
-  o: "d",
+  m: "d",
   pa: "MMM d, h:mm\u202fa zzzz"
 };
 d = {
-  la: "y\u5e74",
+  ka: "y\u5e74",
   sa: "Gy\u5e74",
+  la: "y\u5e74M\u6708",
   ma: "y\u5e74M\u6708",
-  na: "y\u5e74M\u6708",
   ta: "MM/y",
-  K: "M\u6708d\u65e5",
-  L: "M\u6708dd\u65e5",
-  N: "d/M",
-  M: "M\u6708d\u65e5",
+  J: "M\u6708d\u65e5",
+  K: "M\u6708dd\u65e5",
+  M: "d/M",
+  L: "M\u6708d\u65e5",
   qa: "y\u5e74M\u6708d\u65e5",
-  ja: "M\u6708d\u65e5EEE",
+  ia: "M\u6708d\u65e5EEE",
   ra: "y\u5e74M\u6708d\u65e5EEE",
-  o: "d\u65e5",
+  m: "d\u65e5",
   pa: "M\u6708d\u65e5 ah:mm [zzzz]"
 };
 var h = {
-  B: ["BC", "AD"],
-  A: ["Before Christ", "Anno Domini"],
-  P: "JFMAMJJASOND".split(""),
-  ca: "JFMAMJJASOND".split(""),
-  J: "January February March April May June July August September October November December".split(" "),
-  ba: "January February March April May June July August September October November December".split(" "),
-  Y: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
-  ea: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
-  ia: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
-  ga: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
-  aa: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
-  fa: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
-  R: "SMTWTFS".split(""),
-  da: "SMTWTFS".split(""),
-  Z: ["Q1", "Q2", "Q3", "Q4"],
-  W: ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
+  A: ["BC", "AD"],
+  v: ["Before Christ", "Anno Domini"],
+  O: "JFMAMJJASOND".split(""),
+  ba: "JFMAMJJASOND".split(""),
+  I: "January February March April May June July August September October November December".split(" "),
+  aa: "January February March April May June July August September October November December".split(" "),
+  X: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
+  da: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
+  ha: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
+  fa: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
+  Z: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
+  ea: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
+  P: "SMTWTFS".split(""),
+  ca: "SMTWTFS".split(""),
+  Y: ["Q1", "Q2", "Q3", "Q4"],
+  V: ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
   g: ["AM", "PM"],
-  l: ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
-  ha: ["h:mm:ss\u202fa zzzz", "h:mm:ss\u202fa z", "h:mm:ss\u202fa", "h:mm\u202fa"],
-  m: ["{1} 'at' {0}", "{1} 'at' {0}", "{1}, {0}", "{1}, {0}"],
-  D: 6,
-  ka: [5, 6],
-  F: 5
+  j: ["EEEE, MMMM d, y", "MMMM d, y", "MMM d, y", "M/d/yy"],
+  ga: ["h:mm:ss\u202fa zzzz", "h:mm:ss\u202fa z", "h:mm:ss\u202fa", "h:mm\u202fa"],
+  l: ["{1} 'at' {0}", "{1} 'at' {0}", "{1}, {0}", "{1}, {0}"],
+  C: 6,
+  ja: [5, 6],
+  D: 5
 };
 h = {
-  B: ["\u516c\u5143\u524d", "\u516c\u5143"],
   A: ["\u516c\u5143\u524d", "\u516c\u5143"],
-  P: "1 2 3 4 5 6 7 8 9 10 11 12".split(" "),
-  ca: "1 2 3 4 5 6 7 8 9 10 11 12".split(" "),
-  J: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
-  ba: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
-  Y: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
-  ea: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
-  ia: "\u661f\u671f\u65e5 \u661f\u671f\u4e00 \u661f\u671f\u4e8c \u661f\u671f\u4e09 \u661f\u671f\u56db \u661f\u671f\u4e94 \u661f\u671f\u516d".split(
+  v: ["\u516c\u5143\u524d", "\u516c\u5143"],
+  O: "1 2 3 4 5 6 7 8 9 10 11 12".split(" "),
+  ba: "1 2 3 4 5 6 7 8 9 10 11 12".split(" "),
+  I: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
+  aa: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
+  X: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
+  da: "1\u6708 2\u6708 3\u6708 4\u6708 5\u6708 6\u6708 7\u6708 8\u6708 9\u6708 10\u6708 11\u6708 12\u6708".split(" "),
+  ha: "\u661f\u671f\u65e5 \u661f\u671f\u4e00 \u661f\u671f\u4e8c \u661f\u671f\u4e09 \u661f\u671f\u56db \u661f\u671f\u4e94 \u661f\u671f\u516d".split(
     " "
   ),
-  ga: "\u661f\u671f\u65e5 \u661f\u671f\u4e00 \u661f\u671f\u4e8c \u661f\u671f\u4e09 \u661f\u671f\u56db \u661f\u671f\u4e94 \u661f\u671f\u516d".split(
+  fa: "\u661f\u671f\u65e5 \u661f\u671f\u4e00 \u661f\u671f\u4e8c \u661f\u671f\u4e09 \u661f\u671f\u56db \u661f\u671f\u4e94 \u661f\u671f\u516d".split(
     " "
   ),
-  aa: "\u9031\u65e5 \u9031\u4e00 \u9031\u4e8c \u9031\u4e09 \u9031\u56db \u9031\u4e94 \u9031\u516d".split(" "),
-  fa: "\u9031\u65e5 \u9031\u4e00 \u9031\u4e8c \u9031\u4e09 \u9031\u56db \u9031\u4e94 \u9031\u516d".split(" "),
-  R: "\u65e5\u4e00\u4e8c\u4e09\u56db\u4e94\u516d".split(""),
-  da: "\u65e5\u4e00\u4e8c\u4e09\u56db\u4e94\u516d".split(""),
-  Z: ["Q1", "Q2", "Q3", "Q4"],
-  W: ["\u7b2c1\u5b63", "\u7b2c2\u5b63", "\u7b2c3\u5b63", "\u7b2c4\u5b63"],
+  Z: "\u9031\u65e5 \u9031\u4e00 \u9031\u4e8c \u9031\u4e09 \u9031\u56db \u9031\u4e94 \u9031\u516d".split(" "),
+  ea: "\u9031\u65e5 \u9031\u4e00 \u9031\u4e8c \u9031\u4e09 \u9031\u56db \u9031\u4e94 \u9031\u516d".split(" "),
+  P: "\u65e5\u4e00\u4e8c\u4e09\u56db\u4e94\u516d".split(""),
+  ca: "\u65e5\u4e00\u4e8c\u4e09\u56db\u4e94\u516d".split(""),
+  Y: ["Q1", "Q2", "Q3", "Q4"],
+  V: ["\u7b2c1\u5b63", "\u7b2c2\u5b63", "\u7b2c3\u5b63", "\u7b2c4\u5b63"],
   g: ["\u4e0a\u5348", "\u4e0b\u5348"],
-  l: ["y\u5e74M\u6708d\u65e5EEEE", "y\u5e74M\u6708d\u65e5", "y\u5e74M\u6708d\u65e5", "d/M/y"],
-  ha: ["ah:mm:ss [zzzz]", "ah:mm:ss [z]", "ah:mm:ss", "ah:mm"],
-  m: ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"],
-  D: 6,
-  ka: [5, 6],
-  F: 5
+  j: ["y\u5e74M\u6708d\u65e5EEEE", "y\u5e74M\u6708d\u65e5", "y\u5e74M\u6708d\u65e5", "d/M/y"],
+  ga: ["ah:mm:ss [zzzz]", "ah:mm:ss [z]", "ah:mm:ss", "ah:mm"],
+  l: ["{1} {0}", "{1} {0}", "{1} {0}", "{1} {0}"],
+  C: 6,
+  ja: [5, 6],
+  D: 5
 };
 var l = {
-  u: ".",
-  G: ",",
-  S: "%",
-  oa: "0",
-  V: "+",
-  I: "-",
-  C: "E",
-  U: "\u2030",
-  H: "\u221e",
-  O: "NaN",
-  s: "#,##0.###",
-  X: "#E0",
-  T: "#,##0%",
-  j: "\u00a4#,##0.00",
-  v: "USD"
+  s: ".",
+  F: ",",
+  R: "%",
+  na: "0",
+  U: "+",
+  H: "-",
+  B: "E",
+  T: "\u2030",
+  G: "\u221e",
+  N: "NaN",
+  o: "#,##0.###",
+  W: "#E0",
+  S: "#,##0%",
+  i: "\u00a4#,##0.00",
+  u: "USD"
 };
 l = {
-  u: ".",
-  G: ",",
-  S: "%",
-  oa: "0",
-  V: "+",
-  I: "-",
-  C: "E",
-  U: "\u2030",
-  H: "\u221e",
-  O: "\u975e\u6578\u503c",
-  s: "#,##0.###",
-  X: "#E0",
-  T: "#,##0%",
-  j: "\u00a4#,##0.00",
-  v: "HKD"
+  s: ".",
+  F: ",",
+  R: "%",
+  na: "0",
+  U: "+",
+  H: "-",
+  B: "E",
+  T: "\u2030",
+  G: "\u221e",
+  N: "\u975e\u6578\u503c",
+  o: "#,##0.###",
+  W: "#E0",
+  S: "#,##0%",
+  i: "\u00a4#,##0.00",
+  u: "HKD"
 };
-b("I18N_DATETIMESYMBOLS_ERAS", h.B);
-b("I18N_DATETIMESYMBOLS_ERANAMES", h.A);
-b("I18N_DATETIMESYMBOLS_NARROWMONTHS", h.P);
-b("I18N_DATETIMESYMBOLS_STANDALONENARROWMONTHS", h.ca);
-b("I18N_DATETIMESYMBOLS_MONTHS", h.J);
-b("I18N_DATETIMESYMBOLS_STANDALONEMONTHS", h.ba);
-b("I18N_DATETIMESYMBOLS_SHORTMONTHS", h.Y);
-b("I18N_DATETIMESYMBOLS_STANDALONESHORTMONTHS", h.ea);
-b("I18N_DATETIMESYMBOLS_WEEKDAYS", h.ia);
-b("I18N_DATETIMESYMBOLS_STANDALONEWEEKDAYS", h.ga);
-b("I18N_DATETIMESYMBOLS_SHORTWEEKDAYS", h.aa);
-b("I18N_DATETIMESYMBOLS_STANDALONESHORTWEEKDAYS", h.fa);
-b("I18N_DATETIMESYMBOLS_NARROWWEEKDAYS", h.R);
-b("I18N_DATETIMESYMBOLS_STANDALONENARROWWEEKDAYS", h.da);
-b("I18N_DATETIMESYMBOLS_SHORTQUARTERS", h.Z);
-b("I18N_DATETIMESYMBOLS_QUARTERS", h.W);
+b("I18N_DATETIMESYMBOLS_ERAS", h.A);
+b("I18N_DATETIMESYMBOLS_ERANAMES", h.v);
+b("I18N_DATETIMESYMBOLS_NARROWMONTHS", h.O);
+b("I18N_DATETIMESYMBOLS_STANDALONENARROWMONTHS", h.ba);
+b("I18N_DATETIMESYMBOLS_MONTHS", h.I);
+b("I18N_DATETIMESYMBOLS_STANDALONEMONTHS", h.aa);
+b("I18N_DATETIMESYMBOLS_SHORTMONTHS", h.X);
+b("I18N_DATETIMESYMBOLS_STANDALONESHORTMONTHS", h.da);
+b("I18N_DATETIMESYMBOLS_WEEKDAYS", h.ha);
+b("I18N_DATETIMESYMBOLS_STANDALONEWEEKDAYS", h.fa);
+b("I18N_DATETIMESYMBOLS_SHORTWEEKDAYS", h.Z);
+b("I18N_DATETIMESYMBOLS_STANDALONESHORTWEEKDAYS", h.ea);
+b("I18N_DATETIMESYMBOLS_NARROWWEEKDAYS", h.P);
+b("I18N_DATETIMESYMBOLS_STANDALONENARROWWEEKDAYS", h.ca);
+b("I18N_DATETIMESYMBOLS_SHORTQUARTERS", h.Y);
+b("I18N_DATETIMESYMBOLS_QUARTERS", h.V);
 b("I18N_DATETIMESYMBOLS_AMPMS", h.g);
-b("I18N_DATETIMESYMBOLS_DATEFORMATS", h.l);
-b("I18N_DATETIMESYMBOLS_TIMEFORMATS", h.ha);
-b("I18N_DATETIMESYMBOLS_DATETIMEFORMATS", h.m);
-b("I18N_DATETIMESYMBOLS_FIRSTDAYOFWEEK", h.D);
-b("I18N_DATETIMESYMBOLS_WEEKENDRANGE", h.ka);
-b("I18N_DATETIMESYMBOLS_FIRSTWEEKCUTOFFDAY", h.F);
-b("I18N_DATETIMEPATTERNS_YEAR_FULL", d.la);
-b("I18N_DATETIMEPATTERNS_YEAR_MONTH_ABBR", d.ma);
-b("I18N_DATETIMEPATTERNS_YEAR_MONTH_FULL", d.na);
-b("I18N_DATETIMEPATTERNS_MONTH_DAY_ABBR", d.K);
-b("I18N_DATETIMEPATTERNS_MONTH_DAY_FULL", d.L);
-b("I18N_DATETIMEPATTERNS_MONTH_DAY_SHORT", d.N);
-b("I18N_DATETIMEPATTERNS_MONTH_DAY_MEDIUM", d.M);
-b("I18N_DATETIMEPATTERNS_WEEKDAY_MONTH_DAY_MEDIUM", d.ja);
-b("I18N_DATETIMEPATTERNS_DAY_ABBR", d.o);
+b("I18N_DATETIMESYMBOLS_DATEFORMATS", h.j);
+b("I18N_DATETIMESYMBOLS_TIMEFORMATS", h.ga);
+b("I18N_DATETIMESYMBOLS_DATETIMEFORMATS", h.l);
+b("I18N_DATETIMESYMBOLS_FIRSTDAYOFWEEK", h.C);
+b("I18N_DATETIMESYMBOLS_WEEKENDRANGE", h.ja);
+b("I18N_DATETIMESYMBOLS_FIRSTWEEKCUTOFFDAY", h.D);
+b("I18N_DATETIMEPATTERNS_YEAR_FULL", d.ka);
+b("I18N_DATETIMEPATTERNS_YEAR_MONTH_ABBR", d.la);
+b("I18N_DATETIMEPATTERNS_YEAR_MONTH_FULL", d.ma);
+b("I18N_DATETIMEPATTERNS_MONTH_DAY_ABBR", d.J);
+b("I18N_DATETIMEPATTERNS_MONTH_DAY_FULL", d.K);
+b("I18N_DATETIMEPATTERNS_MONTH_DAY_SHORT", d.M);
+b("I18N_DATETIMEPATTERNS_MONTH_DAY_MEDIUM", d.L);
+b("I18N_DATETIMEPATTERNS_WEEKDAY_MONTH_DAY_MEDIUM", d.ia);
+b("I18N_DATETIMEPATTERNS_DAY_ABBR", d.m);
 void 0 !== h.ua && b("I18N_DATETIMESYMBOLS_ZERODIGIT", h.ua);
-b("I18N_NUMBERFORMATSYMBOLS_DECIMAL_SEP", l.u);
-b("I18N_NUMBERFORMATSYMBOLS_GROUP_SEP", l.G);
-b("I18N_NUMBERFORMATSYMBOLS_PERCENT", l.S);
-b("I18N_NUMBERFORMATSYMBOLS_ZERO_DIGIT", l.oa);
-b("I18N_NUMBERFORMATSYMBOLS_PLUS_SIGN", l.V);
-b("I18N_NUMBERFORMATSYMBOLS_MINUS_SIGN", l.I);
-b("I18N_NUMBERFORMATSYMBOLS_EXP_SYMBOL", l.C);
-b("I18N_NUMBERFORMATSYMBOLS_PERMILL", l.U);
-b("I18N_NUMBERFORMATSYMBOLS_INFINITY", l.H);
-b("I18N_NUMBERFORMATSYMBOLS_NAN", l.O);
-b("I18N_NUMBERFORMATSYMBOLS_DECIMAL_PATTERN", l.s);
-b("I18N_NUMBERFORMATSYMBOLS_SCIENTIFIC_PATTERN", l.X);
-b("I18N_NUMBERFORMATSYMBOLS_PERCENT_PATTERN", l.T);
-b("I18N_NUMBERFORMATSYMBOLS_CURRENCY_PATTERN", l.j);
-b("I18N_NUMBERFORMATSYMBOLS_DEF_CURRENCY_CODE", l.v);
-b("I18N_COMPACT_DECIMAL_SHORT_PATTERN", c.i);
-b("I18N_COMPACT_DECIMAL_LONG_PATTERN", c.h);
+b("I18N_NUMBERFORMATSYMBOLS_DECIMAL_SEP", l.s);
+b("I18N_NUMBERFORMATSYMBOLS_GROUP_SEP", l.F);
+b("I18N_NUMBERFORMATSYMBOLS_PERCENT", l.R);
+b("I18N_NUMBERFORMATSYMBOLS_ZERO_DIGIT", l.na);
+b("I18N_NUMBERFORMATSYMBOLS_PLUS_SIGN", l.U);
+b("I18N_NUMBERFORMATSYMBOLS_MINUS_SIGN", l.H);
+b("I18N_NUMBERFORMATSYMBOLS_EXP_SYMBOL", l.B);
+b("I18N_NUMBERFORMATSYMBOLS_PERMILL", l.T);
+b("I18N_NUMBERFORMATSYMBOLS_INFINITY", l.G);
+b("I18N_NUMBERFORMATSYMBOLS_NAN", l.N);
+b("I18N_NUMBERFORMATSYMBOLS_DECIMAL_PATTERN", l.o);
+b("I18N_NUMBERFORMATSYMBOLS_SCIENTIFIC_PATTERN", l.W);
+b("I18N_NUMBERFORMATSYMBOLS_PERCENT_PATTERN", l.S);
+b("I18N_NUMBERFORMATSYMBOLS_CURRENCY_PATTERN", l.i);
+b("I18N_NUMBERFORMATSYMBOLS_DEF_CURRENCY_CODE", l.u);
+b("I18N_COMPACT_DECIMAL_SHORT_PATTERN", c.h);
+b("I18N_COMPACT_DECIMAL_LONG_PATTERN", c.oa);

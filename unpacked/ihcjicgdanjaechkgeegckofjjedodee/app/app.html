@@ -12,6 +12,92 @@
       href="styles.css"
     /><link rel="stylesheet" href="styles-dark.css" media="(prefers-color-scheme: dark)" />
     <div class="header-container ui attached">
+      <div class="ui modal onboarding-flow">
+        <img src="./assets/close-modal-icon.svg" alt="close icon" class="close-icon" />
+        <div class="carousel-container">
+          <div class="carousel-wrapper">
+            <div class="carousel-item" style="display: flex; flex-direction: column">
+              <h2 class="title" id="obf-slide-1-title"></h2>
+              <div class="carousel-main-content">
+                <span class="slide-description" id="obf-slide-1-desc"></span>
+                <div style="min-width: 24px"></div>
+                <img id="obf-img-illustration-1" alt="onboarding illustration" />
+              </div>
+            </div>
+            <div class="carousel-item" style="display: flex; flex-direction: column">
+              <h2 class="title" id="obf-slide-2-title"></h2>
+              <div class="carousel-main-content">
+                <span class="slide-description" id="obf-slide-2-desc"></span>
+                <div style="min-width: 24px"></div>
+                <img id="obf-img-illustration-2" alt="onboarding illustration" />
+              </div>
+            </div>
+            <div class="carousel-item" style="display: flex; flex-direction: column">
+              <h2 class="title" id="obf-slide-3-title"></h2>
+              <div class="carousel-main-content">
+                <span class="slide-description" id="obf-slide-3-desc"></span>
+                <div style="min-width: 24px"></div>
+                <img id="obf-img-illustration-3" alt="onboarding illustration" />
+              </div>
+            </div>
+            <div class="carousel-item" style="display: flex; flex-direction: column">
+              <div class="premium-features-title">
+                <h2 id="obf-slide-4-title"></h2>
+                <span
+                  ><span id="obf-slide-4-subtitle-p1"></span> <strong>Malwarebytes Premium</strong>
+                  <span id="obf-slide-4-subtitle-p2"></span
+                ></span>
+              </div>
+              <div class="carousel-main-content">
+                <ul>
+                  <li>
+                    <div><img class="checkmark-icon" /> <span id="obf-slide-4-subtitle-1"></span></div>
+                    <span class="description" id="obf-slide-4-desc-1"></span>
+                  </li>
+                  <li>
+                    <div><img class="checkmark-icon" /> <span id="obf-slide-4-subtitle-2"></span></div>
+                    <span class="description" id="obf-slide-4-desc-2"></span>
+                  </li>
+                  <li>
+                    <div><img class="checkmark-icon" /> <span id="obf-slide-4-subtitle-3"></span></div>
+                    <span class="description" id="obf-slide-4-desc-3"></span>
+                  </li>
+                  <li>
+                    <span class="description"
+                      ><a
+                        id="obf-slide-4-learn-more"
+                        href="https://malwarebytes.com/premium?guard=1&utm_source=BGreco&utm_medium=onboarding"
+                        target="_blank"
+                      ></a
+                    ></span>
+                  </li>
+                </ul>
+                <div style="min-width: 24px"></div>
+                <img id="obf-img-illustration-4" alt="onboarding illustration" />
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <div class="carousel-control" id="prev-slide-btn" style="visibility: hidden">
+              <img class="blue-filter" src="./assets/arrow-left.svg" /><span id="obf-back-btn"></span>
+            </div>
+            <div class="carousel-control">
+              <div class="carousel-indicator">
+                <div id="dot-1" data-index="0" class="dot active"></div>
+                <div id="dot-2" data-index="1" class="dot"></div>
+                <div id="dot-3" data-index="2" class="dot"></div>
+                <div id="dot-4" data-index="3" class="dot"></div>
+              </div>
+            </div>
+            <div class="carousel-control" id="next-slide-btn">
+              <span id="obf-next-btn"></span><img class="blue-filter" src="./assets/arrow-right.svg" />
+            </div>
+          </div>
+          <button class="carousel-control ui basic button accept done-btn" id="done-btn" style="display: none">
+            <span id="obf-done-btn"></span>
+          </button>
+        </div>
+      </div>
       <div class="header-container-product">
         <picture
           ><source srcset="assets/welcome-header-dark.svg" class="mb_logo_type" media="(prefers-color-scheme: dark)" />
@@ -34,6 +120,7 @@
               <a class="item setting-option new" data-tab="contentControl" id="content-control-nav-item"></a>
               <a class="item setting-option new" data-tab="export" id="export-nav-item"></a>
               <a class="item setting-option" data-tab="support" id="support-nav-item"></a>
+              <a class="item setting-option" id="view-tutorial-nav-item"></a>
             </div>
           </div>
         </div>
@@ -56,8 +143,8 @@
         </div>
         <div class="back-span container">
           <a class="item" data-tab="website"
-            ><div class="back-span" data-tab="website"><i class="arrow left icon"></i><span id="back-btn">Back</span></div></a
-          >
+            ><div class="back-span" data-tab="website"><i class="arrow left icon"></i><span id="back-btn"></span></div
+          ></a>
         </div>
       </div>
     </div>

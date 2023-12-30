@@ -1,6 +1,6 @@
 {
   "web2pdfExtnName": {
-    "message": "Adobe Acrobat: Werkzeuge zum Bearbeiten, Konvertieren und Signieren von PDF-Dateien"
+    "message": "Adobe Acrobat: Tools zum Bearbeiten, Konvertieren und Signieren von PDF-Dateien"
   },
   "web2pdfExtnNameBeta": {
     "message": "Adobe Acrobat Beta"
@@ -30,7 +30,7 @@
     "message": "PDF-Datei in Acrobat Reader öffnen"
   },
   "web2pdfConvertButtonToolTipERPReader": {
-    "message": "Die Acrobat Reader-Erweiterung ist momentan deaktiviert. Wenden Sie sich an Ihren IT-Admin."
+    "message": "Die Acrobat Reader-Erweiterung ist momentan deaktiviert. Wende dich an deinen IT-Admin."
   },
   "web2pdfOpenButtonText": {
     "message": "In Acrobat öffnen"
@@ -111,7 +111,7 @@
     "message": "Konvertierungsfehler"
   },
   "web2pdfUnsupportedAcrobatVersion": {
-    "message": "Es konnte keine unterstützte Acrobat-Version gefunden werden. Installieren Sie eine <a target='_blank' href='https://acrobat.adobe.com/de/de/free-trial-download.html?trackingid=29NMCS7T&mv=other'>kostenlose 7-tägige Testversion</a>."
+    "message": "Es konnte keine unterstützte Acrobat-Version gefunden werden. Installiere eine <a target='_blank' href='https://acrobat.adobe.com/de/de/free-trial-download.html?trackingid=29NMCS7T&mv=other'>kostenlose 7-tägige Testversion</a>."
   },
   "web2pdfStatusUnknownFailure": {
     "message": "Unbekannter Fehler"

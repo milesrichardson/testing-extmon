@@ -98,28 +98,30 @@
     const a = () => {
         chrome.runtime.sendMessage({ name: "xl_call_function", method: "startThunder", launchApp: "Thunder" });
       },
-      s = (E, C) => {
+      s = (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
+      l = (E) => {
+        return Math.floor(E / 60) + "." + Math.floor(E % 60);
+      },
+      c = (E, C) => {
         const B = C.exec(E);
         if (B && B[1]) {
           return decodeURIComponent(B[1]);
         }
         return "";
       };
-    const l = (E) =>
+    const d = () => window.self !== window.top,
+      m = (E) =>
         new Promise((C) => {
           chrome.storage.local.get((B) => {
             C(E ? B[E] : B);
           });
         }),
-      c = new RegExp(
+      u = new RegExp(
         '((((http|https)://[^":<>#?&=\\s\\r\\n]+\\.torrent\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|(((http|https)://[^":<>#?&=\\s\\r\\n]+\\.(m3u8|mov|mp4|mpv|m4v|g3p|g32|avi|asf|wmv|avs|flv|mkv|mpg|mpeg|dat|ogm|vob|rm|ts|tp|ifo|nsv|m2ts|3gp|f4v|rmvb|rar|xlsx|xls|doc|docx|epub|pptx|ppt|zip|7z|iso|pdf|exe|dmg|ipa|apk)\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|((?<=[">\\s\\r\\n])((magnet:[^"<>\\s\\r\\n]*xt(\\.[0-9]+)*=urn:((sha1)|(md5)|(btih)|(tree:tiger)|(bitprint)|(ed2k)|(aich)|(kzhash)|(crc32)):[0-9a-zA-Z]{10,}[^"<>\\s\\r\\n]*)|(ed2k://((\\|)|(%7[cC]))file((\\|)|(%7[cC]))[^"<>\\s\\r\\n]+((\\|)|(%7[cC]))[0-9]+((\\|)|(%7[cC]))[0-9a-zA-Z]+((\\|)|(%7[cC]))[^"<>\\s\\r\\n)]*/)|(ftp://[^"<>\\s\\r\\n]+)|((([Tt]hunder)|(qqdl)|([Ff]lashget))://([a-zA-Z0-9\\+/])+={0,2}))(?=["<\\r\\n])))|(((thunder|Thunder):\\/\\/[^\\s\\r\\n"]+?)(?="|\'))',
         "gi"
       );
+    const f = /(macintosh|macintel)/i.test(navigator.userAgent);
     E.exports = {
-      isMac: () => {
-        const E = navigator.userAgent.toLocaleLowerCase();
-        return !!/macintosh|mac os x/i.test(E);
-      },
       ajax: r,
       getSrcFromVideoTag: (E) => {
         let C = void 0;
@@ -133,9 +135,13 @@
           return C;
         }
       },
-      getAllVideo: () => {
-        return document.getElementsByTagName("video");
-      },
+      getAllVideo: async () =>
+        new Promise((E) => {
+          window.onload = () => {
+            const C = document.getElementsByTagName("video");
+            E(C);
+          };
+        }),
       isMouseInElement: (E, C) => {
         let B = !1;
         if (!C) return B;
@@ -156,10 +162,8 @@
       setExtStorage: (E, C) => {
         chrome.storage.local.set({ [E]: C });
       },
-      getFileUrlSuffix: (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
-      convertSecondsToMinutes: (E) => {
-        return Math.floor(E / 60) + "." + Math.floor(E % 60);
-      },
+      getFileUrlSuffix: s,
+      convertSecondsToMinutes: l,
       getXLChromeExtConfigs: () =>
         new Promise((E, C) => {
           r({
@@ -174,7 +178,7 @@
           });
         }),
       hasClassName: (E, C) => E.classList.value.includes(C),
-      getMatchFileName: s,
+      getMatchFileName: c,
       getUrlInfo: function (E) {
         let C = "",
           B = !1;
@@ -184,12 +188,12 @@
             e = D.pathname ? D.pathname.substring(D.pathname.lastIndexOf(".")).toLocaleLowerCase() : "unknown";
           switch (A) {
             case "magnet:":
-              C = s(E, /dn=([^&]+)/i);
+              C = c(E, /dn=([^&]+)/i);
               break;
             case "thunder:":
               break;
             case "ed2k:":
-              C = s(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
+              C = c(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
               break;
             case "ftp:":
               C = E.replace(/\?.*$/, "").replace(/.*\//, "");
@@ -199,10 +203,10 @@
               F.includes(e) && (B = !0),
                 (C = ".m3u8" === e && document.title ? document.title + e : E.replace(/\?.*$/, "").replace(/.*\//, ""));
           }
-          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e };
+          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e, isInIframe: d() };
         } catch (E) {}
       },
-      isInIframe: () => window.self !== window.top,
+      isInIframe: d,
       isValidProtocol: (E) => {
         if (!E) return !1;
         const C = new URL(E).protocol.toLocaleLowerCase();
@@ -212,7 +216,7 @@
         return "thunderx://" + btoa(unescape(encodeURIComponent(JSON.stringify(E))));
       },
       generateDialogRootId: (E) => "ncennffkjdiamlpmcbajkmaiiiddgioo-prompt" + E,
-      getChromeStorageValue: l,
+      getChromeStorageValue: m,
       createDownloadTask: (E, C) => {
         chrome.downloads.download({ url: E, filename: C }, (E) => {
           chrome.runtime.lastError;
@@ -223,7 +227,7 @@
         E.parentElement.appendChild(E);
       },
       checkNotificationTime: async () => {
-        const E = (await l("lastNotificationTime")) || "",
+        const E = (await m("lastNotificationTime")) || "",
           C = new Date().toLocaleDateString();
         return E !== C && (chrome.storage.local.set({ lastNotificationTime: C }), !0);
       },
@@ -272,7 +276,7 @@
       getOptionsSettings: async function () {
         const E = { enable: !1, size: 2 };
         (this.limitSizeInfo = E), (this.isShortcutEnable = !0), (this.monitorVideo = !0);
-        const C = await l();
+        const C = await m();
         if (!C) return;
         void 0 !== C.video_monitor && (this.monitorVideo = C.video_monitor),
           void 0 !== C.multi_select_shortcut_enable && (this.isShortcutEnable = C.multi_select_shortcut_enable);
@@ -288,12 +292,71 @@
       },
       isForbiddenFileUrlProtocol: (E) => {
         const { protocol: C } = new URL(E);
-        return !!C && !i.includes(C);
+        return !!C && i.includes(C);
       },
-      resourceUrlReg: c,
+      statVideoInfo: (E) => {
+        try {
+          for (let C of E) {
+            let E = "",
+              B = "";
+            const D = C.src,
+              F = s(C.src);
+            (B = o.includes(F) ? "direct" : "other"),
+              C.addEventListener("loadedmetadata", () => {
+                E = l(C.duration);
+              }),
+              C.addEventListener("playing", () => {
+                chrome.runtime.sendMessage({
+                  name: "xl_sniff_video_info",
+                  videoType: B,
+                  fileUrlSuffix: F,
+                  videoDuration: E,
+                  videoSrc: D,
+                  stat: "browser_plugin_webpage_video_play"
+                });
+              });
+          }
+        } catch (E) {}
+      },
+      resourceUrlReg: u,
+      trackEvent: (...E) => {
+        chrome.runtime.sendMessage({ name: "xl_call_function", method: "trackEvent", args: E });
+      },
+      xlSendNativeMessage: async (E, C) => {
+        return await chrome.runtime.sendNativeMessage(E, { ua: navigator.userAgent, ...C });
+      },
+      getAllCookies: (E) =>
+        new Promise((C) => {
+          chrome.cookies.getAll(E, (E) => {
+            let B = "";
+            if (E) {
+              for (const C in E) B = B.concat(E[C].name, "=", E[C].value, "; ");
+              C(B);
+            } else C(B);
+          });
+        }),
+      getDispositionFileName: (E) => {
+        var C = new RegExp("filename[^;=\n]*=((['\"]).*?|[^;\n]*)", "g"),
+          B = C.exec(E);
+        if (null === B) return "";
+        var D = C.exec(E),
+          F = null;
+        return (
+          (F = (F = (F = (F = null === D ? B[1] : -1 === D[1].toLowerCase().indexOf("utf-8") ? B[1] : D[1]).replace(
+            /"([^"]*)"/g,
+            "$1"
+          )).replace("UTF-8''", "")).replace("utf-8''", "")),
+          decodeURIComponent(F.replace(/\+/g, ""))
+        );
+      },
+      getNameFromTitle: (E, C, B) => {
+        const D = B || document.title;
+        return D ? D + E : C.replace(/\?.*$/, "").replace(/.*\//, "");
+      },
       urlRegexp: /^(ftp|http[s]?):\/\/([^\/]*)[\/]?/,
       domainRegexp: /(.*?\.)?(.*?\..*)/,
-      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" }
+      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" },
+      isMacDevice: f
     };
   },
   function (E, C) {
@@ -347,12 +410,19 @@
   },
   function (E, C) {
     E.exports = {
-      onMessageName: { xl_call_function: "xl_call_function", CheckEnabled: "CheckEnabled", xl_download: "xl_download" },
+      onMessageName: {
+        xl_call_function: "xl_call_function",
+        CheckEnabled: "CheckEnabled",
+        xl_download: "xl_download",
+        xl_video_show: "xl_video_show",
+        xl_sniff_video_info: "xl_sniff_video_info"
+      },
       onMessageMethod: {
         startThunder: "startThunder",
         addBlackListWebsite: "addBlackListWebsite",
         removeBlackListWebsite: "removeBlackListWebsite",
-        getWebsiteDomains: "getWebsiteDomains"
+        getWebsiteDomains: "getWebsiteDomains",
+        trackEvent: "trackEvent"
       },
       recallCarouselInfo: [
         {
@@ -400,7 +470,23 @@
       },
       recallChannelUrl: "https://down.sandai.net/thunder11/XunLeiWebSetup_extrecall.exe",
       defaultFluentPlayConfig: { switch: !1, ban_type: [], ban_protocol: [] },
-      defaultDownloadSniffConfig: { switch: !1, ban_type: [".m3u8"], ban_protocol: [] }
+      defaultDownloadSniffConfig: { switch: !1, ban_type: [".m3u8"], ban_protocol: [] },
+      popupPageTypeConfig: {
+        NOT_OPEN_SITE: "not_open_site",
+        OPEN_NOT_CONTROL_SITE: "open_not_control_site",
+        OPEN_CONTROL_SITE: "open_control_site",
+        STOP_ALL_CONTROL: "stop_all_control"
+      },
+      popupClickTypeConfig: {
+        MORE_CHOICE_DOWNLOAD: "more_choice_download",
+        OPEN_XUNLEI: "open_xunlei",
+        ADVANCED_SETTING: "advanced_setting",
+        STOP_ALL_CONTROL: "stop_all_control",
+        START_ALL_CONTROL: "start_all_control",
+        CANCEL_CONTROL_CURRENT_SITE: "cancel_control_current_site",
+        OPEN_CONTROL_CURRENT_SITE: "open_control_current_site",
+        DOWNLOAD_PICTURE_ENTRANCE_CLICK: "download_picture_entrance_click"
+      }
     };
   },
   function (E, C, B) {
@@ -409,63 +495,64 @@
   function (E, C, B) {
     var { XLMultiDownload: D } = B(5);
     !(function () {
-      const { isMac: E } = B(0),
-        { macContentMain: C } = B(13);
-      if (E()) return void C();
-      const { recallCarouselInfo: F } = B(2),
-        { SUPPORT_MEDIA_EXT_ARRAY: A } = B(1),
+      const { isMacDevice: E, getAllVideo: C } = B(0),
+        { macContentMain: F } = B(13);
+      if (E) return void F();
+      const { recallCarouselInfo: A } = B(2),
+        { SUPPORT_MEDIA_EXT_ARRAY: e } = B(1),
         {
-          getFileUrlSuffix: e,
-          queryTabs: t,
-          convertSecondsToMinutes: n,
-          updateElementToLast: o,
-          resourceUrlReg: i,
-          getUrlFileName: r,
-          getUrlInfo: a,
-          isInIframe: s,
-          generateDialogRootId: l,
-          checkNotificationTime: c,
-          checkResourceInConfig: d,
-          getFileNameExt: m
+          getFileUrlSuffix: t,
+          queryTabs: n,
+          convertSecondsToMinutes: o,
+          updateElementToLast: i,
+          resourceUrlReg: r,
+          getUrlFileName: a,
+          getUrlInfo: s,
+          isInIframe: l,
+          generateDialogRootId: c,
+          checkNotificationTime: d,
+          checkResourceInConfig: m,
+          getFileNameExt: u,
+          statVideoInfo: f
         } = B(0);
-      var u,
-        f,
-        v,
+      var v,
         p,
         h,
-        x,
         _,
+        x,
         g,
-        b = !1,
-        w = !1,
+        b,
+        w,
         y = !1,
         k = !1,
         L = !1,
-        T = !0,
-        S = !0,
-        M = !1,
-        R = void 0,
-        I = null,
-        N = [],
-        P = null,
-        O = void 0,
-        j = "xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}";
-      let U = !1,
-        q = "";
-      const z = new Set();
-      let V = [],
-        W = !1;
-      var X = ["http.+\\?.*url=.+", "http.+\\?.*uri=.+"],
-        Y = "ED2K://",
-        H = "MAGNET:?",
-        $ = "FTP://THUNDER://MMS://MMST://RTSP://RTSPU://XLAPP://";
-      let Q = !1,
-        G = null,
-        Z = null;
-      function K(E, C) {
+        T = !1,
+        S = !1,
+        M = !0,
+        R = !0,
+        I = !1,
+        N = void 0,
+        O = null,
+        P = [],
+        U = null,
+        j = void 0,
+        q = "xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}";
+      let z = !1,
+        V = "";
+      const W = new Set();
+      let X = [],
+        Y = !1;
+      var $ = ["http.+\\?.*url=.+", "http.+\\?.*uri=.+"],
+        H = "ED2K://",
+        G = "MAGNET:?",
+        Q = "FTP://THUNDER://MMS://MMST://RTSP://RTSPU://XLAPP://";
+      let K = !1,
+        Z = null,
+        J = null;
+      function EE(E, C) {
         return (
           0 != E.length &&
-          0 != k &&
+          0 != T &&
           0 !=
             (function (E) {
               if (0 == E.length) return !1;
@@ -476,12 +563,12 @@
               if ("" == D) return !1;
               var F = !0;
               return (
-                -1 != Y.indexOf(D)
-                  ? 0 == b && (F = !1)
-                  : -1 != H.indexOf(D)
-                  ? 0 == w && (F = !1)
-                  : -1 != $.indexOf(D)
+                -1 != H.indexOf(D)
                   ? 0 == y && (F = !1)
+                  : -1 != G.indexOf(D)
+                  ? 0 == k && (F = !1)
+                  : -1 != Q.indexOf(D)
+                  ? 0 == L && (F = !1)
                   : (F = !1),
                 F
               );
@@ -490,7 +577,7 @@
             (function (E) {
               if (0 == E.length) return !0;
               var C = new Array(),
-                B = x.split("||");
+                B = g.split("||");
               for (var D in B) {
                 var F = B[D].slice(2).trimRight("|");
                 C.push(F);
@@ -506,9 +593,9 @@
             })(C) &&
           !(function (E) {
             if (0 == E.length) return !1;
-            if (0 == _.length) return !1;
+            if (0 == b.length) return !1;
             var C = new Array(),
-              B = _.split("||");
+              B = b.split("||");
             for (var D in B) {
               var F = B[D].slice(2).toLowerCase().trimRight("|");
               C.push(F);
@@ -534,11 +621,11 @@
                 F,
                 A = !1,
                 e = ((D = B.replace(/(\\+)/g, "#").split("#")), (F = D[D.length - 1].split("."))[F.length - 1]);
-              return e.length > 0 && ((e += ";"), -1 != g.indexOf(e) && (A = !0)), A;
+              return e.length > 0 && ((e += ";"), -1 != w.indexOf(e) && (A = !0)), A;
             })(E)
         );
       }
-      function J(E) {
+      function CE(E) {
         return (
           (C = E),
           document.cookie,
@@ -547,67 +634,40 @@
             var C = E.toLowerCase(),
               B = !0;
             return (-1 != C.indexOf("?") && -1 == C.indexOf("magnet:?")) || (B = !1), B;
-          })(C) && K(C, B)
+          })(C) && EE(C, B)
         );
         var C, B;
       }
-      function EE(E) {
+      function BE(E) {
         chrome.runtime.sendMessage({ name: "CheckVideoInWhiteList", url: E }, async function (E) {
-          (v = E.exception),
-            (M = E.videoInWhiteList),
-            (f = E.bPlugin),
-            (T = E.bMonitorVideo),
-            (p = E.bWebsite),
-            (W = E.isLess12Version),
-            (G = E.fluentPlayConfig),
-            (Z = E.downloadSniffConfig),
-            M &&
-              T &&
-              p &&
-              (bE(),
+          (h = E.exception),
+            (I = E.videoInWhiteList),
+            (p = E.bPlugin),
+            (M = E.bMonitorVideo),
+            (_ = E.bWebsite),
+            (Y = E.isLess12Version),
+            (Z = E.fluentPlayConfig),
+            (J = E.downloadSniffConfig),
+            I &&
+              M &&
+              _ &&
+              (yE(),
               chrome.runtime.sendMessage({ name: "xl_screen", type: "init", data: { params: { playForm: document.referrer } } }, (E) => {
-                (U = E.isM3U8Video), (q = E.M3U8VideoUrl);
+                (z = E.isM3U8Video), (V = E.M3U8VideoUrl);
               }),
-              (G.switch || Z.switch) && wE(),
-              !f && Q && (await c()) && chrome.runtime.sendMessage({ name: "xl_show_notifications" }),
-              (window.onload = function () {
-                const E = document.getElementsByTagName("video"),
-                  C = window.location.href;
-                try {
-                  for (let B of E) {
-                    let E = "",
-                      D = "";
-                    const F = B.src,
-                      t = e(B.src);
-                    (D = A.includes(t) ? "direct" : "other"),
-                      B.addEventListener("loadedmetadata", () => {
-                        E = n(B.duration);
-                      }),
-                      B.addEventListener("playing", () => {
-                        chrome.runtime.sendMessage({
-                          name: "xl_sniff_video_info",
-                          tabUrl: C,
-                          videoType: D,
-                          fileUrlSuffix: t,
-                          videoDuration: E,
-                          videoSrc: F,
-                          stat: "browser_plugin_webpage_video_play"
-                        });
-                      });
-                  }
-                } catch (E) {}
-              }));
+              (Z.switch || J.switch) && kE(),
+              !p && K && (await d()) && chrome.runtime.sendMessage({ name: "xl_show_notifications" }));
         });
       }
-      function CE(E) {
+      function DE(E) {
         var C;
-        if (!E.ctrlKey)
-          if (f && p && h) {
+        if (!E.ctrlKey && E.isTrusted)
+          if (p && _ && x) {
             var B = this.href;
             if (
               ((checkResult = (function (E) {
-                for (var C in X) {
-                  var B = new RegExp(X[C], "i").exec(E);
+                for (var C in $) {
+                  var B = new RegExp($[C], "i").exec(E);
                   if (null != B) return B;
                 }
                 return null;
@@ -615,24 +675,24 @@
               null != checkResult)
             )
               return;
-            if (((checkResult = J(B)), checkResult))
+            if (((checkResult = CE(B)), checkResult))
               return (
                 chrome.runtime.sendMessage({ name: "xl_download", link: B, cookie: document.cookie, referurl: document.location.href }),
                 E.stopPropagation(),
                 void E.preventDefault()
               );
-          } else if (v) {
+          } else if (h) {
             B = this.href;
             ((C = (C = B).toLowerCase()).startsWith("thunder://") ||
               C.startsWith("ed2k://") ||
               C.startsWith("magnet:?") ||
               C.includes(".torrent")) &&
               chrome.runtime.sendMessage({ name: "xl_prompt_enable" }, function (E) {
-                E && E.enable && vE();
+                E && E.enable && hE();
               });
           }
       }
-      function BE() {
+      function FE() {
         let E = document.querySelector(".xl-chrome-ext-hover-popover");
         if (E) return;
         (E = document.createElement("div")).classList.add("xl-chrome-ext-hover-popover"),
@@ -643,21 +703,21 @@
             E.style.display = "none";
           }),
           E.querySelector("a").addEventListener("click", () => {
-            xE("hover"), _E();
+            gE("hover"), bE();
           });
       }
-      function DE(E, C) {
+      function AE(E, C) {
         const B = document.querySelector(".xl-chrome-ext-hover-popover");
-        B || BE(), chrome.runtime.sendMessage({ name: "xl_show_recall_entry", source: "hover" }), (B.style.display = "flex");
+        B || FE(), chrome.runtime.sendMessage({ name: "xl_show_recall_entry", source: "hover" }), (B.style.display = "flex");
         const D = B.getBoundingClientRect(),
           F = C.getBoundingClientRect();
-        (B.style.left = E.pageX - D.width / 4 + window.scrollX + "px"), (B.style.top = F.y - D.height + window.scrollY + "px"), o(B);
+        (B.style.left = E.pageX - D.width / 4 + window.scrollX + "px"), (B.style.top = F.y - D.height + window.scrollY + "px"), i(B);
       }
-      function FE() {
+      function eE() {
         const E = document.querySelector(".xl-chrome-ext-hover-popover");
         E && (E.style.display = "none");
       }
-      function AE(E, C) {
+      function tE(E, C) {
         var B = !1;
         do {
           if (!C) break;
@@ -667,51 +727,52 @@
         } while (0);
         return B;
       }
-      function eE() {
+      function nE() {
         do {
-          var E = document.getElementById(j);
+          var E = document.getElementById(q);
           if (!E) break;
           E.style.display = "none";
         } while (0);
       }
-      async function tE(E) {
+      async function oE(E) {
         do {
-          var C = document.getElementById(j);
+          var C = document.getElementById(q);
           if (!C) {
-            if (R) break;
-            if (!(C = uE())) break;
+            if (N) break;
+            if (!(C = vE())) break;
           }
-          const D = a(q || O);
+          const D = s(V || j);
           C.style.display = "block";
           const F = C.querySelector(".xl-chrome-ext-tips.cloud-add"),
             A = C.querySelector(".xl-chrome-ext-tips.download"),
-            e = d(G, D.suffix, D.protocol),
-            t = d(Z, D.suffix, D.protocol);
+            e = m(Z, D.suffix, D.protocol),
+            t = m(J, D.suffix, D.protocol);
           F && !e && (F.style.display = "none"), A && !t && (A.style.display = "none");
           var B = E.getBoundingClientRect();
           let n = "position: fixed !important; z-index: 10000000000 !important; height: 30px;";
           n += `left: ${B.x + 4}px; top: ${B.y + 4}px;`;
-          let i = document.querySelector(".xl-chrome-ext-bar-toast");
-          "flex" !== i.style.display && (i.style = `left: 50%; top: ${B.y + 16}px; transform:translateX(-50%);display: none`),
+          let o = document.querySelector(".xl-chrome-ext-bar-toast");
+          "flex" !== o.style.display && (o.style = `left: 50%; top: ${B.y + 16}px; transform:translateX(-50%);display: none`),
             (C.style = n),
-            L ||
-              ((L = !0),
+            S ||
+              ((S = !0),
               chrome.runtime.sendMessage(
-                { name: "VideoShow", referurl: document.location.href, hasDownload: !U && t, videoSrc: E.src },
+                { name: "VideoShow", referurl: document.location.href, hasDownload: t, videoSrc: E.src },
                 function () {}
               )),
-            o(C);
+            i(C);
         } while (0);
       }
-      function nE() {
+      function iE() {
         document.addEventListener("keydown", function (E) {
-          E.ctrlKey && chrome.runtime.sendMessage({ name: "EnabledCapture", capture: !1 }, function () {}),
-            window.top !== window.self && chrome.runtime.sendMessage({ name: "xl_chrome_iframe_keydown", keyCode: E.keyCode });
+          E.isTrusted &&
+            (E.ctrlKey && chrome.runtime.sendMessage({ name: "EnabledCapture", capture: !1 }, function () {}),
+            window.top !== window.self && chrome.runtime.sendMessage({ name: "xl_chrome_iframe_keydown", keyCode: E.keyCode }));
         }),
           document.addEventListener(
             "keyup",
             function (E) {
-              if ((E.ctrlKey && chrome.runtime.sendMessage({ name: "EnabledCapture", capture: !0 }, function () {}), S))
+              if (E.isTrusted && (E.ctrlKey && chrome.runtime.sendMessage({ name: "EnabledCapture", capture: !0 }, function () {}), R))
                 switch (E.keyCode) {
                   case 68:
                     E.shiftKey &&
@@ -733,7 +794,7 @@
                         } while (0);
                         return E;
                       })() ||
-                        (f &&
+                        (p &&
                           (window.top === window.self
                             ? D.enter()
                             : chrome.runtime.sendMessage({ name: "xl_chrome_iframe_multi_hotkey" }))));
@@ -742,33 +803,33 @@
             !0
           );
       }
-      function oE() {
+      function rE() {
         chrome.runtime.onMessage.addListener(function (E, C, B) {
-          if ("UpdatePluginEnabled" == E.name) (v = E.exception), (f = E.enable) || D.quit();
-          else if ("UpdateMoniterVideoTags" == E.name) T = E.enable;
-          else if ("UpdateMultiSelectShortcutEnable" == E.name) S = E.enable;
-          else if ("UpdateWebsiteEnabled" == E.name) p = E.enable;
-          else if ("UpdatePageEnabled" == E.name) h = E.enable;
+          if ("UpdatePluginEnabled" == E.name) (h = E.exception), (p = E.enable) || D.quit();
+          else if ("UpdateMoniterVideoTags" == E.name) M = E.enable;
+          else if ("UpdateMultiSelectShortcutEnable" == E.name) R = E.enable;
+          else if ("UpdateWebsiteEnabled" == E.name) _ = E.enable;
+          else if ("UpdatePageEnabled" == E.name) x = E.enable;
           else if ("OnActivated" == E.name)
-            u &&
+            v &&
               ((F = document.location.href),
               (A = E.tabId),
               (e = window.top === window.self),
               chrome.runtime.sendMessage({ name: "CheckEnabled", url: F, tabId: A, topFrame: e }, function (E) {
-                (f = E.bPlugin),
-                  (T = E.bMonitorVideo),
-                  (p = E.bWebsite),
-                  (h = E.bPage),
-                  (S = E.bShortcutEnable),
-                  (Q = E.isShowRecallInfo),
-                  T ? bE() : dE();
+                (p = E.bPlugin),
+                  (M = E.bMonitorVideo),
+                  (_ = E.bWebsite),
+                  (x = E.bPage),
+                  (R = E.bShortcutEnable),
+                  (K = E.isShowRecallInfo),
+                  M ? yE() : uE();
               }));
-          else if ("UpdateMonitorDomains" == E.name) x = E.monitorDomains;
+          else if ("UpdateMonitorDomains" == E.name) g = E.monitorDomains;
           else {
             if ("GetCookie" == E.name) return B({ cookie: document.cookie }), !0;
-            if ("ThunderSupportReminder" === E.name) window.self === window.top && vE(E.text);
+            if ("ThunderSupportReminder" === E.name) window.self === window.top && hE(E.text);
             else if ("EnterMultiSelect" === E.name) {
-              if (s()) return;
+              if (l()) return;
               D.enter();
             } else if ("xl_chrome_iframe_keydown" === E.name) {
               if (window.top === window.self)
@@ -789,20 +850,20 @@
                 return B(E), !0;
               }
             } else if ("xl_recall_entry_click" === E.name) {
-              if (s()) return;
-              xE(E.source), _E();
+              if (l()) return;
+              gE(E.source), bE();
             }
           }
           var F, A, e;
         });
       }
-      function iE(E) {
+      function aE(E) {
         var C = void 0;
         do {
           if (!E) break;
           if ("VIDEO" !== E.tagName.toUpperCase()) break;
           if (E.src) {
-            if (0 === E.src.toLowerCase().indexOf("blob:") && !U) break;
+            if (0 === E.src.toLowerCase().indexOf("blob:") && !z) break;
             C = E.src;
             break;
           }
@@ -817,7 +878,7 @@
         } while (0);
         return C;
       }
-      function rE(E) {
+      function sE(E) {
         let C = void 0;
         for (var B = 0; B < E.children.length; B++) {
           let F = E.children[B];
@@ -829,98 +890,102 @@
         }
         return C ? `.${C}` : "";
       }
-      function aE(E) {
+      function lE(E) {
         var C = document.elementFromPoint(E.x, E.y);
         do {
           if (!C) break;
           if ((C.tagName.toUpperCase(), "VIDEO" === C.tagName.toUpperCase())) {
-            var B = C.src || iE(C);
+            var B = C.src || aE(C);
             if (!B) break;
-            if (0 === B.toLowerCase().indexOf("blob:") && !U) break;
-            if (C === P) break;
-            (P = C), (O = B), tE(C);
+            if (0 === B.toLowerCase().indexOf("blob:") && !z) break;
+            if (C === U) break;
+            (U = C), (j = B), oE(C);
             break;
           }
-          if (P) {
-            if (!AE(E, P)) {
-              (P = null), (O = void 0), eE();
+          if (U) {
+            if (!tE(E, U)) {
+              (U = null), (j = void 0), nE();
               break;
             }
           } else {
-            if (0 === N.length) break;
-            for (var D = null, F = 0; F < N.length; F++) {
-              var A = N[F];
+            if (0 === P.length) break;
+            for (var D = null, F = 0; F < P.length; F++) {
+              var A = P[F];
               if ("none" !== window.getComputedStyle(A).display)
-                if (AE(E, A))
+                if (tE(E, A))
                   if (D) (Number(window.getComputedStyle(A).zIndex) || 0) > (Number(window.getComputedStyle(D).zIndex) || 0) && (D = A);
                   else D = A;
                 else if (D) break;
             }
             if (D) {
-              var e = D.src || iE(D);
-              ((e && 0 !== e.toLowerCase().indexOf("blob:")) || U) && ((P = D), (O = e), tE(D));
+              var e = D.src || aE(D);
+              ((e && 0 !== e.toLowerCase().indexOf("blob:")) || z) && ((U = D), (j = e), oE(D));
               break;
             }
           }
         } while (0);
       }
-      function sE(E) {
-        P && ((P = null), (O = void 0), eE());
-      }
-      function lE(E) {
-        aE(E);
-      }
       function cE(E) {
-        P && tE(P);
+        U && ((U = null), (j = void 0), nE());
       }
-      function dE() {
-        var E = document.getElementById(j);
-        E &&
-          (document.body.removeChild(E),
-          document.body.removeEventListener("mousemove", aE, !0),
-          window.self !== window.top && document.body.removeEventListener("mouseout", sE),
-          document.body.removeEventListener("wheel", lE),
-          document.removeEventListener("scroll", cE),
-          (P = null),
-          (O = void 0),
-          (N = [])),
-          I && (I.disconnect(), (I = null));
+      function dE(E) {
+        lE(E);
       }
-      function mE() {
-        do {
-          if (!P) break;
-          var E = P;
-          if (!O) break;
-          var C = "";
-          if (document.title) {
-            var B = document.title.replace(/[*?/:|<>"]/g, "");
-            if (B) {
-              var D = m(r(O));
-              D || (D = rE(E)), (C = `${B}${D}`);
-            }
-          }
-          chrome.runtime.sendMessage({
-            name: "xl_download",
-            link: O,
-            cookie: document.cookie,
-            referurl: document.location.href,
-            fileName: C,
-            stat: "chrome_download_video",
-            from: "video_hover"
-          });
-        } while (0);
+      function mE(E) {
+        U && oE(U);
       }
       function uE() {
+        var E = document.getElementById(q);
+        E &&
+          (document.body.removeChild(E),
+          document.body.removeEventListener("mousemove", lE, !0),
+          window.self !== window.top && document.body.removeEventListener("mouseout", cE),
+          document.body.removeEventListener("wheel", dE),
+          document.removeEventListener("scroll", mE),
+          (U = null),
+          (j = void 0),
+          (P = [])),
+          O && (O.disconnect(), (O = null));
+      }
+      function fE() {
+        do {
+          if (!U) break;
+          var E = U;
+          if (!j) break;
+          var C = "";
+          let D = "";
+          if (document.title) {
+            var B = document.title.replace(/[*?/:|<>"]/g, "");
+            B && ((D = u(a(j))) || (D = sE(E)), (C = `${B}${D}`));
+          }
+          chrome.runtime.sendMessage(
+            {
+              name: "xl_download",
+              link: V || j,
+              cookie: document.cookie,
+              referurl: document.location.href,
+              fileName: C,
+              stat: "chrome_download_video",
+              from: "video_hover",
+              isInIframe: l(),
+              isM3U8Video: !!V
+            },
+            (E) => {
+              E && "version" === E.errType && xE(E.text);
+            }
+          );
+        } while (0);
+      }
+      function vE() {
         var E = document.createElement("div");
         (E.className = "xl-chrome-ext-bar"),
-          (E.id = j),
+          (E.id = q),
           (E.innerHTML =
             '\n    <a id="xl_chrome_ext_bar_close" href="javascript:;"></a>\n    <div class="xl-chrome-ext-bar__logo"></div>\n    '),
-          G.switch &&
+          Z.switch &&
             (E.innerHTML +=
               '\n        <div class="xl-chrome-ext-tips cloud-add">\n          <a id="xl_chrome_ext_bar_cloudAdd" class="xl-chrome-ext-bar__option" href="javascript:;"></a>\n          <div class="xl-chrome-ext-title">流畅播</div>\n        </div>'),
-          !U &&
-            Z.switch &&
+          J.switch &&
             (E.innerHTML +=
               '\n        <div class="xl-chrome-ext-tips download">\n          <a id="xl_chrome_ext_bar_download" class="xl-chrome-ext-bar__option" href="javascript:;"></a>\n          <div class="xl-chrome-ext-title">下载视频</div>\n        </div>\n    '),
           (E.innerHTML +=
@@ -943,17 +1008,27 @@
                 if (!E.currentTarget) break;
                 switch (E.currentTarget.id) {
                   case "xl_chrome_ext_bar_download":
-                    if (v) return void pE("下载", "download");
-                    E.preventDefault(), mE();
+                    if (h)
+                      return (
+                        _E("下载", "download"),
+                        void chrome.runtime.sendMessage({
+                          name: "xl_download_stat",
+                          link: V || j,
+                          stat: "chrome_download_video",
+                          from: "video_hover",
+                          status: "fail"
+                        })
+                      );
+                    E.preventDefault(), fE();
                     break;
                   case "xl_chrome_ext_bar_close":
                     E.preventDefault(),
-                      dE(),
-                      (R = !0),
+                      uE(),
+                      (N = !0),
                       chrome.runtime.sendMessage({ name: "xl_screen", type: "close", stat: "browser_plugin_close_click" });
                     break;
                   case "xl_chrome_ext_bar_screen":
-                    if (v) return void pE("投屏", "projection");
+                    if (h) return void _E("投屏", "projection");
                     E.preventDefault(),
                       chrome.runtime.sendMessage(
                         {
@@ -962,7 +1037,7 @@
                           data: {
                             opt: "web:play",
                             params: {
-                              url: O,
+                              url: j,
                               name: document.title,
                               playForm: document.referrer,
                               dlnaPlay: !0,
@@ -971,25 +1046,25 @@
                           }
                         },
                         (E) => {
-                          E && "version" === E.errType && hE("投屏");
+                          E && "version" === E.errType && xE("投屏");
                         }
                       );
                     break;
                   case "xl_chrome_ext_bar_cloudAdd":
                     E.preventDefault();
-                    const D = a(q || O),
+                    const D = s(V || j),
                       F = {
                         from: "video_hover",
                         data: { opt: "web:cloudadd", params: { url: D.url, name: D.fileName, ext: D.suffix, isVideo: D.isVideoURL } }
                       };
                     if (
-                      (s
+                      (l()
                         ? (F.name = "xl_cloudadd_in_iframe")
                         : ((F.name = "xl_cloudadd"), (F.cookie = document.cookie), (F.webTitle = document.title)),
-                      v)
+                      h)
                     )
                       return (
-                        pE("流畅播", "fluent_play"),
+                        _E("流畅播", "fluent_play"),
                         void chrome.runtime.sendMessage({ name: "xl_cloudadd_stat", from: "video_hover", isSuccess: !1, data: D })
                       );
                     const { isAccept: A } = await chrome.runtime.sendMessage({ name: "xl_check_blacklist" });
@@ -999,11 +1074,11 @@
                         void chrome.runtime.sendMessage({ name: "xl_cloudadd_stat", from: "video_hover", isSuccess: !1, data: D })
                       );
                     chrome.runtime.sendMessage(F, (E) => {
-                      E && "version" === E.errType && hE(E.text);
+                      E && "version" === E.errType && xE(E.text);
                     });
                     break;
                   case "xl_chrome_ext_bar_copy":
-                    chrome.runtime.sendMessage({ name: "xl_copy", text: q || O }, (E) => {
+                    chrome.runtime.sendMessage({ name: "xl_copy", text: V || j }, (E) => {
                       E.status &&
                         ((B.style.display = "flex"),
                         C && clearTimeout(C),
@@ -1019,14 +1094,14 @@
         }
         return E;
       }
-      function fE(E, C, B, D) {
+      function pE(E, C, B, D) {
         if (!E.target || !C) return;
         const F = E.target.getAttribute("action");
         F && (E.preventDefault(), chrome.runtime.sendMessage({ name: "xl_prompt_click", action: F, stat: B, source: D })),
           document.body.removeChild(C);
       }
-      function vE() {
-        let E = l("resource");
+      function hE() {
+        let E = c("resource");
         if (!document.getElementById(E)) {
           chrome.runtime.sendMessage({ name: "xl_prompt_show" });
           var C = document.createElement("div");
@@ -1037,13 +1112,13 @@
             document.body.appendChild(C),
             C.querySelectorAll("a, button").forEach((E) => {
               E.addEventListener("click", (E) => {
-                fE(E, C, "xl_reminder_install");
+                pE(E, C, "xl_reminder_install");
               });
             });
         }
       }
-      function pE(E, C) {
-        const B = l("action");
+      function _E(E, C) {
+        const B = c("action");
         let D = document.getElementById(B);
         D && document.body.removeChild(D),
           chrome.runtime.sendMessage({ name: "xl_show_action_error_dialog", source: C }),
@@ -1053,12 +1128,12 @@
           document.body.appendChild(D),
           D.querySelectorAll("a, button").forEach((E) => {
             E.addEventListener("click", (E) => {
-              fE(E, D, "xl_action_error", C);
+              pE(E, D, "xl_action_error", C);
             });
           });
       }
-      function hE(E) {
-        const C = l("version");
+      function xE(E) {
+        const C = c("version");
         if (!document.getElementById(C)) {
           var B = document.createElement("div");
           (B.className = "xly-dialog-prompt"),
@@ -1067,18 +1142,18 @@
             document.body.appendChild(B),
             B.querySelectorAll("a, button").forEach((E) => {
               E.addEventListener("click", (E) => {
-                fE(E, B);
+                pE(E, B);
               });
             });
         }
       }
-      function xE(E) {
+      function gE(E) {
         chrome.runtime.sendMessage({ name: "xl_recall_entry_click", source: E });
       }
-      function _E() {
+      function bE() {
         let E = document.querySelector(".xl-chrome-ext-recall-dialog");
         if (E) return;
-        const C = F;
+        const C = A;
         (E = document.createElement("div")).classList.add("xl-chrome-ext-recall-dialog"),
           (E.innerHTML =
             '\n    <h2>领取超级会员卡</h2>\n    <a action="close" href="javascript:;" class="xl-chrome-ext-recall-dialog__close" title="关闭"></a>\n    <div class="xl-chrome-ext-recall-dialog__carousel"></div>\n    ');
@@ -1099,11 +1174,11 @@
             B.appendChild(C);
         });
         const D = B.querySelectorAll(".xl-chrome-ext-recall-dialog__carouselItem"),
-          A = B.querySelector("p.error"),
+          F = B.querySelector("p.error"),
           e = E.querySelectorAll("a, button");
         let t = 1;
         function n(E) {
-          chrome.runtime.sendMessage({ name: "xl_show_recall_dialog", curIndex: E }), (A.style.opacity = 0);
+          chrome.runtime.sendMessage({ name: "xl_show_recall_dialog", curIndex: E }), (F.style.opacity = 0);
           for (const C of D) Number(C.getAttribute("data-index")) === E ? (C.style.display = "flex") : (C.style.display = "none");
         }
         n(t),
@@ -1119,7 +1194,7 @@
                   break;
                 case "receive":
                   chrome.runtime.sendMessage({ name: "xl_receive_vip" }, (E) => {
-                    E && E.exception ? (A.style.opacity = 1) : n((t = t >= 3 ? 3 : t + 1));
+                    E && E.exception ? (F.style.opacity = 1) : n((t = t >= 3 ? 3 : t + 1));
                   });
                   break;
                 case "install":
@@ -1132,60 +1207,60 @@
           }),
           document.body.appendChild(E);
       }
-      function gE() {
+      async function wE() {
         do {
-          if (I) break;
+          if (O) break;
           var E = null;
           try {
             E = window.top.document.getElementsByTagName("title")[0];
           } catch (E) {}
           E &&
-            (I = new MutationObserver(function (E) {
+            (O = new MutationObserver(function (E) {
               var C = document.getElementsByTagName("video");
-              N = C;
-            })).observe(E, { childList: !0 });
-          var C = document.getElementsByTagName("video");
-          N = C;
+              P = C;
+            })).observe(E, { childList: !0 }),
+            (P = await C()),
+            f(P);
         } while (0);
       }
-      function bE() {
+      function yE() {
         do {
-          if (!T) break;
           if (!M) break;
-          if (R) break;
-          dE(),
-            gE(),
-            document.body.addEventListener("mousemove", aE, !0),
-            window.self !== window.top && document.body.addEventListener("mouseout", sE),
-            document.body.addEventListener("wheel", lE),
-            document.addEventListener("scroll", cE);
+          if (!I) break;
+          if (N) break;
+          uE(),
+            wE(),
+            document.body.addEventListener("mousemove", lE, !0),
+            window.self !== window.top && document.body.addEventListener("mouseout", cE),
+            document.body.addEventListener("wheel", dE),
+            document.addEventListener("scroll", mE);
         } while (0);
       }
-      const wE = async () => {
+      const kE = async () => {
         (() => {
           const E = document.getElementsByTagName("body");
           if (0 !== E.length)
             for (const C of E) {
-              const E = C.innerHTML.match(i);
+              const E = C.innerHTML.match(r);
               E &&
                 E.forEach((E) => {
-                  z.add(E);
+                  W.add(E);
                 });
             }
         })(),
           0 !==
-            (V = await (async function () {
+            (X = await (async function () {
               return new Promise((E) => {
                 const C = { downloadList: [], playList: { M3U8List: [], normalVideoList: [], length: 0 }, saveList: [], length: 0 };
-                for (let B of z) {
-                  const D = a(B),
+                for (let B of W) {
+                  const D = s(B),
                     { suffix: F, isVideoURL: A, protocol: e } = D,
-                    t = d(G, F, e),
-                    n = d(Z, F, e);
+                    t = m(Z, F, e),
+                    n = m(J, F, e);
                   let o = !1;
                   if (
                     ("unknown" !== F || e) &&
-                    (n && ".m3u8" !== F && (C.downloadList.push(D), (o = !0)),
+                    (n && (C.downloadList.push(D), (o = !0)),
                     t &&
                       (A && (C.playList[".m3u8" === F ? "M3U8List" : "normalVideoList"].push(D), (C.playList.length += 1)),
                       C.saveList.push(D),
@@ -1196,51 +1271,57 @@
                     return void E(C);
                 }
                 setTimeout(() => {
-                  if (q) {
-                    const E = a(q);
-                    if (!d(G, E.suffix, E.protocol)) return;
-                    C.playList.M3U8List.unshift(E), C.saveList.unshift(E), (C.playList.length += 1), (C.length += 1);
+                  if (V) {
+                    const B = C.downloadList.some((E) => E.url === V);
+                    if (B) return void E(C);
+                    const D = s(V);
+                    if (!m(Z, D.suffix, D.protocol) || !m(J, D.suffix, D.protocol)) return;
+                    C.downloadList.unshift(D),
+                      C.playList.M3U8List.unshift(D),
+                      C.saveList.unshift(D),
+                      (C.playList.length += 1),
+                      (C.length += 1);
                   }
                   E(C);
                 }, 1500);
               });
             })()).length &&
             (function (E) {
-              chrome.runtime.sendMessage({ name: "xl_append_footer", resourceList: E, isLess12Version: W });
-            })(V);
+              chrome.runtime.sendMessage({ name: "xl_append_footer", resourceList: E, isLess12Version: Y });
+            })(X);
       };
-      var yE;
-      (u = !0),
-        oE(),
-        (yE = document.location.href),
-        chrome.runtime.sendMessage({ name: "CheckActivated", url: yE }),
+      var LE;
+      (v = !0),
+        rE(),
+        (LE = document.location.href),
+        chrome.runtime.sendMessage({ name: "CheckActivated", url: LE }),
         document.addEventListener("DOMContentLoaded", function () {
           !(function () {
-            if (Q) {
-              BE();
+            if (K) {
+              FE();
               for (const E of document.links)
-                E.addEventListener("click", CE, !1),
-                  null !== E.outerHTML.match(i) &&
+                E.addEventListener("click", DE, !1),
+                  null !== E.outerHTML.match(r) &&
                     (E.addEventListener("mouseenter", (C) => {
-                      DE(C, E);
+                      AE(C, E);
                     }),
                     E.addEventListener("mouseleave", (E) => {
-                      "xl-chrome-ext-hover-popover" !== E.toElement.className && FE();
+                      "xl-chrome-ext-hover-popover" !== E.toElement.className && eE();
                     }));
-            } else for (const E of document.links) E.addEventListener("click", CE, !1);
+            } else for (const E of document.links) E.addEventListener("click", DE, !1);
           })(),
-            EE(document.location.href);
+            BE(document.location.href);
         }),
-        nE(),
+        iE(),
         chrome.runtime.sendMessage({ name: "GetConfig" }, function (E) {
           E &&
-            ((b = E.bMonitorEmule),
-            (w = E.bMonitorMagnet),
-            (y = E.bMonitorTradition),
-            (k = E.bMonitorIE),
-            (x = E.monitorDomains),
-            (_ = E.filterDomains),
-            (g = E.monitorFileExts));
+            ((y = E.bMonitorEmule),
+            (k = E.bMonitorMagnet),
+            (L = E.bMonitorTradition),
+            (T = E.bMonitorIE),
+            (g = E.monitorDomains),
+            (b = E.filterDomains),
+            (w = E.monitorFileExts));
         });
     })();
   },
@@ -1306,17 +1387,19 @@
               }
             },
             keydown: function (C) {
-              switch (C.keyCode) {
-                case 13:
-                  E.sm.fireEvent("req_download");
-                  break;
-                case 27:
-                  E.sm.fireEvent("req_exit");
-                  break;
-                default:
-                  return;
+              if (C.isTrusted) {
+                switch (C.keyCode) {
+                  case 13:
+                    E.sm.fireEvent("req_download");
+                    break;
+                  case 27:
+                    E.sm.fireEvent("req_exit");
+                    break;
+                  default:
+                    return;
+                }
+                n(C);
               }
-              n(C);
             },
             resize:
               ((e = null),
@@ -2203,114 +2286,125 @@
     };
   },
   function (E, C, B) {
-    const { getSrcFromVideoTag: D, getAllVideo: F, isMouseInElement: A, domainRegexp: e } = B(0),
-      { onMessageName: t, onMessageMethod: n } = B(2);
+    const { getSrcFromVideoTag: D, getAllVideo: F, isMouseInElement: A, domainRegexp: e, statVideoInfo: t } = B(0),
+      { onMessageName: n, onMessageMethod: o } = B(2);
     E.exports = {
       macContentMain: () => {
         let E = null,
           C = void 0;
         const B = "xl_chrome_ext_{4DB361DE-01F7-4376-B494-639E489D19ED}";
-        let o = [],
-          i = void 0;
-        const r = () => {
+        let i = [],
+          r = void 0,
+          a = !1,
+          s = !1,
+          l = !1;
+        const c = () => {
             const E = document.getElementById(B);
             E && (E.style.display = "none");
           },
-          a = () => {
+          d = () => {
             const D = document.getElementById(B);
             D &&
               (D.remove(),
-              document.body.removeEventListener("mousemove", d, !0),
-              window.self !== window.top && document.body.removeEventListener("mouseout", l),
-              document.body.removeEventListener("scroll", c),
+              document.body.removeEventListener("mousemove", v, !0),
+              window.self !== window.top && document.body.removeEventListener("mouseout", u),
+              document.body.removeEventListener("scroll", f),
               (E = null),
               (C = void 0),
-              (o = []));
+              (i = []));
           },
-          s = (E) => {
+          m = (E) => {
             const C = document.getElementById(B);
             if (!C) return;
             C.style.display = "block";
             const D = E.getBoundingClientRect(),
               F = `position:fixed;left: ${D.x + 4}px; top: ${D.y + 4}px; height: 30px; z-index: 10000000000 !important`;
-            C.style = F;
+            (C.style = F),
+              a || ((a = !0), chrome.runtime.sendMessage({ name: n.xl_video_show, referurl: document.location.href, videoSrc: E.src }));
           },
-          l = (B) => {
-            E && ((E = null), (C = void 0), r());
+          u = (B) => {
+            E && ((E = null), (C = void 0), c());
           },
-          c = (C) => {
-            E && s(E);
+          f = (C) => {
+            E && m(E);
           },
-          d = (B) => {
+          v = (B) => {
             const F = document.elementFromPoint(B.x, B.y);
             if (F) {
               if ("video" === F.tagName.toLocaleLowerCase()) {
                 const B = F.src || D(F);
                 if (!B || 0 === B.toLocaleLowerCase().indexOf("blob:")) return;
                 if (F === E) return;
-                return (E = F), (C = B), void s(F);
+                return (E = F), (C = B), void m(F);
               }
               if (E) {
-                if (!A(B, E)) return (E = null), (C = void 0), void r();
+                if (!A(B, E)) return (E = null), (C = void 0), void c();
               } else {
                 let F = null;
-                for (let t of o)
+                for (let t of i)
                   "none" !== window.getComputedStyle(t).display &&
                     (A(B, t)
                       ? F
                         ? (Number(window.getComputedStyle(t).zIndex) || 0) > (Number(window.getComputedStyle(F).zIndex) || 0) && (F = t)
                         : (F = t)
-                      : F && (e = F.src || D(F)) && 0 !== e.toLowerCase().indexOf("blob:") && ((E = F), (C = e), s(F)));
+                      : F && (e = F.src || D(F)) && 0 !== e.toLowerCase().indexOf("blob:") && ((E = F), (C = e), m(F)));
                 var e;
-                F && (e = F.src || D(F)) && 0 !== e.toLowerCase().indexOf("blob:") && ((E = F), (C = e), s(F));
+                F && (e = F.src || D(F)) && 0 !== e.toLowerCase().indexOf("blob:") && ((E = F), (C = e), m(F));
               }
             }
-          },
-          m = () => {
-            chrome.runtime.sendMessage({ name: t.xl_call_function, method: n.getWebsiteDomains }, async (D) => {
-              i = new Set(await D.websiteDomains);
-              const A = e.exec(document.location.host)[2];
-              i.has(A) ||
-                ((o = F()).length &&
-                  (() => {
-                    const D = document.createElement("div");
-                    (D.className = "xl-chrome-ext-bar"),
-                      (D.style.display = "none"),
-                      (D.id = B),
-                      (D.innerHTML =
-                        '\n    <div class="xl-chrome-ext-bar__logo-wrapper">\n      <div class="xl-chrome-ext-bar__logo"></div>\n     </div>\n  \n    <a id="xl_chrome_ext_download" class="xl-chrome-ext-bar__option" title="下载视频" href="javascript:;">\n      <div class="xl-download img"></div>\n    </a>\n\n    <a id="xl_chrome_ext_close" class="xl-chrome-ext-bar__option" title="本次关闭" href="javascript:;">\n      <div class="xl-close img"></div>\n    </a>\n    '),
-                      document.body.appendChild(D);
-                    const F = D.getElementsByTagName("a");
-                    for (const B of F)
-                      B.addEventListener(
-                        "click",
-                        (B) => {
-                          if (B && B.currentTarget)
-                            switch (B.currentTarget.id) {
-                              case "xl_chrome_ext_download":
-                                B.preventDefault(),
-                                  E &&
-                                    chrome.runtime.sendMessage({
-                                      name: t.xl_download,
-                                      linkUrl: C,
-                                      refererUrl: document.location.href,
-                                      cookie: document.cookie
-                                    });
-                                break;
-                              case "xl_chrome_ext_close":
-                                B.preventDefault(), a();
-                            }
-                        },
-                        !1
-                      );
-                    document.body.addEventListener("mousemove", d, !0),
-                      window.self !== window.top && document.body.addEventListener("mouseout", l),
-                      document.addEventListener("scroll", c);
-                  })());
-            });
           };
-        document.addEventListener("DOMContentLoaded", () => {
-          m();
+        document.addEventListener("DOMContentLoaded", async () => {
+          await (async () => {
+            const E = await chrome.runtime.sendMessage({ name: n.CheckEnabled });
+            E && (s = E.isInstallThunder);
+          })(),
+            await (async () => {
+              chrome.runtime.sendMessage({ name: n.xl_call_function, method: o.getWebsiteDomains }, async (E) => {
+                r = new Set(await E.websiteDomains);
+                const C = e.exec(document.location.host)[2];
+                l = r.has(C);
+              });
+            })(),
+            s &&
+              !l &&
+              (() => {
+                const D = document.createElement("div");
+                (D.className = "xl-chrome-ext-bar"),
+                  (D.style.display = "none"),
+                  (D.id = B),
+                  (D.innerHTML =
+                    '\n    <div class="xl-chrome-ext-bar__logo-wrapper">\n      <div class="xl-chrome-ext-bar__logo"></div>\n     </div>\n  \n    <a id="xl_chrome_ext_download" class="xl-chrome-ext-bar__option" title="下载视频" href="javascript:;">\n      <div class="xl-download img"></div>\n    </a>\n\n    <a id="xl_chrome_ext_close" class="xl-chrome-ext-bar__option" title="本次关闭" href="javascript:;">\n      <div class="xl-close img"></div>\n    </a>\n    '),
+                  document.body.appendChild(D);
+                const F = D.getElementsByTagName("a");
+                for (const B of F)
+                  B.addEventListener(
+                    "click",
+                    (B) => {
+                      if (B && B.currentTarget)
+                        switch (B.currentTarget.id) {
+                          case "xl_chrome_ext_download":
+                            B.preventDefault(),
+                              E &&
+                                C &&
+                                chrome.runtime.sendMessage({
+                                  name: n.xl_download,
+                                  linkUrl: C,
+                                  refererUrl: document.location.href,
+                                  stat: "chrome_download_video",
+                                  from: "video_hover"
+                                });
+                            break;
+                          case "xl_chrome_ext_close":
+                            B.preventDefault(), d();
+                        }
+                    },
+                    !1
+                  );
+                document.body.addEventListener("mousemove", v, !0),
+                  window.self !== window.top && document.body.addEventListener("mouseout", u),
+                  document.addEventListener("scroll", f);
+              })(),
+            (i = await F()).length && t(i);
         });
       }
     };

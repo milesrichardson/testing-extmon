@@ -1821,7 +1821,10 @@
           $tooltip.hide();
         }
         closeDialog();
-        M.safeMoveNodes($.mcselected).catch(dump);
+        mLoadingSpinner.show("safeMoveNodes");
+        M.safeMoveNodes($.mcselected)
+          .catch(dump)
+          .finally(() => mLoadingSpinner.hide("safeMoveNodes"));
         return false;
       }
 
@@ -1924,7 +1927,14 @@
             .catch(tell);
         } else if ($.albumImport) {
           // This is a set to be imported
-          mega.sets.copyNodesAndSet(selectedNodes, $.mcselected).catch(tell);
+          mega.sets.copyNodesAndSet(selectedNodes, $.mcselected).catch((ex) => {
+            if (ex === EBLOCKED) {
+              // Album link import failed (quota, ...)
+              eventlog(99955);
+            } else {
+              tell(ex);
+            }
+          });
         } else {
           M.copyNodes(selectedNodes, $.mcselected).catch((ex) => ex !== EBLOCKED && tell(ex));
         }

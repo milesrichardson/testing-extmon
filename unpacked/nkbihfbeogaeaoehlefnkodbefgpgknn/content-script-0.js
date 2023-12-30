@@ -1,7 +1,7 @@
 LavaPack.loadBundle(
   [
     [
-      206,
+      199,
       {},
       function () {
         with (this.scopeTerminator)
@@ -25,6 +25,6 @@ LavaPack.loadBundle(
       { package: "$root$", file: "app/vendor/trezor/content-script.js" }
     ]
   ],
-  [206],
+  [199],
   {}
 );

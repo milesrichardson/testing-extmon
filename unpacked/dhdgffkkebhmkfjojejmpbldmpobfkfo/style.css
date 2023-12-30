@@ -392,6 +392,9 @@ body > div.ask.status {
   display: block;
   padding: 0.5em 3em;
 }
+.global_hint > span button:first-of-type {
+  margin-left: 1em;
+}
 .global_hint_notice {
   background-color: rgba(211, 211, 211, 0.86);
 }
@@ -711,6 +714,9 @@ tr.entry .shortcut {
 }
 .mobile .script_sel {
   width: 2em;
+}
+.scripttable .script_update span + i {
+  margin-left: 0.5em;
 }
 .externals {
   table-layout: fixed;
@@ -1612,14 +1618,21 @@ body.show_script_type .script_type {
   position: absolute;
   bottom: -0.2em;
   right: 0;
-  padding: 0 20px 0 20px;
   max-height: 2.15em;
+  max-width: 100%;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+.tv_tabs_table::-webkit-scrollbar {
+  display: none;
 }
 .tv_tabs_align {
+  display: flex;
   white-space: nowrap;
   padding-left: 1px;
   position: relative;
   max-height: 2.15em;
+  margin: 0 20px 0 20px;
 }
 .tv_tab {
   user-select: none;
@@ -1635,6 +1648,7 @@ body.show_script_type .script_type {
   padding: 0.2em 1em 0.3em 1em;
   float: left;
   background-color: #555;
+  white-space: nowrap;
 }
 .tv_tab,
 .tv_tab:before,

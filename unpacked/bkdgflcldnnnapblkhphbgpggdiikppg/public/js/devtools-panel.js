@@ -5,6 +5,7 @@
   var Reflect2 = globalThis.Reflect;
   var customElementsGet = globalThis.customElements?.get.bind(globalThis.customElements);
   var customElementsDefine = globalThis.customElements?.define.bind(globalThis.customElements);
+  var URL2 = globalThis.URL;
 
   // node_modules/@duckduckgo/content-scope-scripts/src/utils.js
   var globalObj = typeof window === "undefined" ? globalThis : window;

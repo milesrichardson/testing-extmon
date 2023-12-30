@@ -4,20 +4,20 @@ var source;
 (self.webpackChunksource = self.webpackChunksource || []).push([
   [643],
   {
-    1860: (t, e, r) => {
+    86430: (t, e, r) => {
       r.r(e);
-      var i = r(1271),
+      var i = r(81271),
         s = r.n(i),
-        a = r(4615),
-        o = r(5526),
-        n = r(8051),
-        c = r(636),
-        l = r(6402),
-        d = r(8812),
-        u = r(4730),
-        p = r(909),
+        a = r(14615),
+        o = r(45526),
+        n = r(98051),
+        c = r(40636),
+        l = r(26402),
+        d = r(28812),
+        u = r(64730),
+        p = r(90909),
         h = r(9442),
-        m = r(3564),
+        m = r(83564),
         g = r.n(m);
       var f = function () {
         var t = this,
@@ -37,12 +37,12 @@ var source;
           : t._e();
       };
       f._withStripped = !0;
-      var v = r(1953),
+      var v = r(61953),
         y = r.n(v),
-        _ = r(3650),
-        b = r(1218),
-        C = r(507),
-        k = r(1939),
+        _ = r(23650),
+        b = r(91218),
+        C = r(50507),
+        k = r(41939),
         w = function () {
           var t = this,
             e = t._self._c;
@@ -190,15 +190,15 @@ var source;
         };
       w._withStripped = !0;
       var S = r(9649),
-        x = r(4927),
-        $ = r(1183),
-        B = r(7325),
-        P = r(2737),
-        M = r(7659),
-        I = r(7040),
-        T = r(6846),
-        A = r(3669),
-        E = r(7027),
+        x = r(54927),
+        $ = r(61183),
+        B = r(77325),
+        P = r(92737),
+        M = r(17659),
+        I = r(35597),
+        T = r(56846),
+        E = r(43669),
+        A = r(77027),
         N = function () {
           var t = this,
             e = t._self._c;
@@ -214,14 +214,14 @@ var source;
         };
       N._withStripped = !0;
       const Z = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      var L = r(2264);
+      var L = r(62264);
       const D = (0, L.Z)(Z, N, [], !1, null, null, null).exports,
         R = y().extend({
           components: {
@@ -231,8 +231,8 @@ var source;
             RakutenIcon: M.Z,
             RCashback: I.Z,
             RButton: T.Z,
-            RIconButton: A.Z,
-            RTagFloating: E.Z,
+            RIconButton: E.Z,
+            RTagFloating: A.Z,
             ShoppingFilledIcon: D
           },
           props: {
@@ -500,7 +500,7 @@ var source;
         );
       };
       H._withStripped = !0;
-      var G = r(6439),
+      var G = r(26439),
         U = function () {
           var t = this,
             e = t._self._c;
@@ -541,7 +541,7 @@ var source;
           ]);
         };
       U._withStripped = !0;
-      var W = r(4473),
+      var W = r(74473),
         Y = function () {
           var t = this,
             e = t._self._c;
@@ -748,11 +748,11 @@ var source;
         );
       };
       K._withStripped = !0;
-      var J = r(9525),
-        Q = r(1145),
-        X = r(8316);
+      var J = r(69525),
+        Q = r(31145),
+        X = r(26097);
       const tt = {
-        components: { RButton: T.Z, RTagFloating: E.Z, RDivider: Q.Z, ChevronDownIcon: X.Z, RakutenIcon: M.Z },
+        components: { RButton: T.Z, RTagFloating: A.Z, RDivider: Q.Z, ChevronDownIcon: X.Z, RakutenIcon: M.Z },
         props: {
           product: { type: Object, required: !0 },
           message: { type: String, default: "" },
@@ -1024,9 +1024,9 @@ var source;
         );
       };
       ct._withStripped = !0;
-      var lt = r(2803),
-        dt = r(2977),
-        ut = r(2228);
+      var lt = r(72803),
+        dt = r(62977),
+        ut = r(32228);
       const pt = {
         components: { RPopover: lt.Z, RCloseButton: dt.Z },
         mixins: [ut.Z],
@@ -1327,7 +1327,7 @@ var source;
           : t._e();
       };
       $t._withStripped = !0;
-      var Bt = r(2459),
+      var Bt = r(42459),
         Pt = function () {
           var t = this,
             e = t._self._c;
@@ -1384,9 +1384,9 @@ var source;
         return t("div", { staticClass: "r-tag-inline-badge" }, [t("r-tag-inline-base", [this._t("default")], 2)], 1);
       };
       Mt._withStripped = !0;
-      const It = { components: { RTagInlineBase: r(369).Z } };
+      const It = { components: { RTagInlineBase: r(30369).Z } };
       const Tt = (0, L.Z)(It, Mt, [], !1, null, null, null).exports,
-        At = y().extend({
+        Et = y().extend({
           components: { RBadge: Tt, RCloseButton: dt.Z, RButton: T.Z, RakutenIcon: M.Z },
           props: { product: { type: Object, required: !0 } },
           data: () => ({ merchantLogo: "" }),
@@ -1427,9 +1427,9 @@ var source;
             this.merchantLogo = await (0, C.b)(this.product.merchant.images.largeLogo.url);
           }
         });
-      const Et = (0, L.Z)(At, Pt, [], !1, null, null, null).exports,
+      const At = (0, L.Z)(Et, Pt, [], !1, null, null, null).exports,
         Nt = y().extend({
-          components: { EducationPopover: ht, ButtonHollow: Bt.Z, PriceMagicSerpDetails: Et, RPopover: lt.Z },
+          components: { EducationPopover: ht, ButtonHollow: Bt.Z, PriceMagicSerpDetails: At, RPopover: lt.Z },
           mixins: [W.Z],
           props: {
             product: { type: Object, default: null, required: !0 },
@@ -1552,7 +1552,9 @@ var source;
               asin: t.asin,
               upcs: t.upcs,
               category_name: t.categoryName,
-              category_id: t.categoryId
+              category_id: t.categoryId,
+              listing_type: t.thirdPartyMerchantTag,
+              title: t.title
             }),
             async onClick(t) {
               let { productData: e, source: r, entity_name: i, eeid: s = "37604" } = t;
@@ -1576,7 +1578,7 @@ var source;
                     product: c,
                     instantStartCAA: "A" === u.Z.get("BTN140"),
                     source: d,
-                    event_attributes: { ...this.listingAttributes(e), referring_domain: (0, _.g)(location.href) }
+                    event_attributes: { ...this.listingAttributes(e), referring_domain: (0, _.g)(location.href), requestId: this.requestId }
                   },
                   xfasParams: { itemId: c.listingId, itemPrice: c.salePrice, itemGenre: c.categoryId, prev_page_type: "Button Price Magic" }
                 };
@@ -1772,10 +1774,11 @@ var source;
                             i.abandonedReminderActive && Jt();
                           }
                         }
-                        e(null);
+                        e();
                       }),
                         r.on("product-not-found", () => {
-                          s()(".ebates-hover.ebates-hover-product", (0, c.Ay)() || document).remove(), Yt && Jt(), e(null);
+                          const t = document.documentElement;
+                          s()(".rr-product", (0, c.Ay)(t) || document).remove(), Yt && Jt(), e();
                         }),
                         r.observe(document);
                     });
@@ -1857,7 +1860,7 @@ var source;
           if (t.salePrice && t.title) {
             const e = Gt.requestThreshold ?? 0;
             if (t.salePrice < e) throw new Error("salePrice below requestThreshold");
-            const r = !this.config.enabled && "A" === (await u.Z.activate(this.config.test)),
+            const r = !this.config.enabled && this.config.test && "A" === (await u.Z.activate(this.config.test)),
               i = this.config.enabled || (!this.config.enabled && r);
             if (
               ((this.query = t),
@@ -1885,7 +1888,7 @@ var source;
         };
         async viewFactory(t) {
           let { product: e, config: r } = t;
-          if (r.enabled || 18397 === e.merchant.storeId || "A" === (await u.Z.activate(r.test)))
+          if (r.enabled || 18397 === e.merchant?.storeId || (r.test && "A" === (await u.Z.activate(r.test))))
             return (
               (e.originalUrl = location.href),
               (e.originalStoreName = r.storeName),
@@ -1922,10 +1925,10 @@ var source;
           return t;
         }
         requestMultipleProducts = async (t) => {
-          const e = !this.config.enabled && "A" === (await u.Z.activate(this.config.test));
+          const e = !this.config.enabled && this.config.test && "A" === (await u.Z.activate(this.config.test));
           if (!(this.config.enabled || (!this.config.enabled && e))) return [];
           const r = { canonical_url: te(), domainName: this.config.domainName, storeName: this.config.storeName, products: t };
-          return (this.responseData = await (0, n.Z)("getSimilarMultipleProducts", r)), this.responseData?.products || [];
+          return (this.responseData = await (0, n.Z)("getSimilarMultipleProducts", r)), this.responseData?.products ?? [];
         };
       }
       function te() {
@@ -1937,7 +1940,7 @@ var source;
         r === p.UW.PRICE_MAGIC && Kt({ merchant: i, config: s, abandonedReminderActive: a });
       });
     },
-    7325: (t, e, r) => {
+    77325: (t, e, r) => {
       r.d(e, { Z: () => a });
       var i = function () {
         var t = this,
@@ -1957,19 +1960,19 @@ var source;
       };
       i._withStripped = !0;
       const s = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const a = (0, r(2264).Z)(s, i, [], !1, null, null, null).exports;
+      const a = (0, r(62264).Z)(s, i, [], !1, null, null, null).exports;
     }
   },
   (t) => {
     t.O(0, [998], () => {
-      return (e = 1860), t((t.s = e));
+      return (e = 86430), t((t.s = e));
       var e;
     });
     var e = t.O();

@@ -4,8 +4,9 @@
   "name": "__MSG_ExtensionName__",
   "description": "__MSG_ExtensionDescription__",
   "author": "Evernote",
-  "version": "7.33.1",
+  "version": "7.34.0",
   "manifest_version": 3,
+  "minimum_chrome_version": "88",
   "default_locale": "en",
   "background": {
     "service_worker": "ServiceWorkerExtension.js"

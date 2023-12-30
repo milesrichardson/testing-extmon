@@ -4,8 +4,8 @@
   "name": "LastPass: Free Password Manager",
   "short_name": "LastPass: Free Password Manager",
   "author": "LastPass",
-  "version": "4.123.0.2",
-  "version_name": "4.123.0",
+  "version": "4.125.0.4",
+  "version_name": "4.125.0",
   "minimum_chrome_version": "18.0",
   "description": "__MSG_app_Desc__",
   "icons": {
@@ -84,7 +84,7 @@
       "run_at": "document_start"
     },
     {
-      "matches": ["https://lastpass.com/*ac=1*"],
+      "matches": ["https://lastpass.com/*", "https://backoffice.lastpass.com/*"],
       "js": ["web-federated-login-document-start.js"],
       "run_at": "document_start"
     },
@@ -102,6 +102,7 @@
         "https://lastpass.com/vault/*",
         "https://lastpass.com/enterprise_users.php*",
         "https://lastpass.com/misc_login.php*",
+        "https://lastpass.com/index.php*",
         "https://lastpass.eu/acctsiframe.php*",
         "https://lastpass.eu/update_phone.php*",
         "https://lastpass.eu/misc_challenge.php*",
@@ -114,6 +115,7 @@
         "https://lastpass.eu/vault/*",
         "https://lastpass.eu/enterprise_users.php*",
         "https://lastpass.eu/misc_login.php*",
+        "https://lastpass.eu/index.php*",
         "https://backoffice.lastpass.com/acctsiframe.php*",
         "https://backoffice.lastpass.com/update_phone.php*",
         "https://backoffice.lastpass.com/misc_challenge.php*",
@@ -125,7 +127,8 @@
         "https://backoffice.lastpass.com/?ac=1*",
         "https://backoffice.lastpass.com/vault/*",
         "https://backoffice.lastpass.com/enterprise_users.php*",
-        "https://backoffice.lastpass.com/misc_login.php*"
+        "https://backoffice.lastpass.com/misc_login.php*",
+        "https://backoffice.lastpass.com/index.php*"
       ],
       "js": ["fedlogin-content-script.js"],
       "all_frames": true,

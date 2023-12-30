@@ -19,6 +19,7 @@ setTimeout(() => {
       "./common-4.js",
       "./common-5.js",
       "./common-6.js",
+      "./common-7.js",
       "./ui-0.js",
       "./ui-1.js",
       "./ui-2.js",
@@ -30,8 +31,7 @@ setTimeout(() => {
       "./ui-8.js",
       "./ui-9.js",
       "./ui-10.js",
-      "./ui-11.js",
-      "./ui-12.js"
+      "./ui-11.js"
     ]
   ];
 

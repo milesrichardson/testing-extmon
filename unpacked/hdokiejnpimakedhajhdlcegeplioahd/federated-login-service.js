@@ -132,7 +132,7 @@ var FederatedLoginService = (function () {
             data: JSON.stringify({ company_id: e.companyId, id_token: e.idToken }),
             success: function (e) {
               e && e.k2
-                ? o(l(d(atob(r), atob(e.k2))), void 0, e.fragment_id, l(atob(r)))
+                ? o(l(d(atob(r), atob(e.k2))), void 0, e.fragment_id, l(atob(r)), atob(r))
                 : u._handleError(t, new Error("Could not retrieve K2 from ALP"));
             },
             error: c(t)
@@ -230,7 +230,7 @@ var FederatedLoginService = (function () {
                 type: "POST",
                 dataType: "json",
                 contentType: "application/json",
-                url: "lmiapi/federatedPublicKey/savePublicKey",
+                url: "lmiapi/federated/key",
                 data: { email: o, publickey: i(r).publicKey },
                 success: function () {
                   u._keypairSaved(r, t), n(r);

@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "name": "MEGA",
   "description": "Secure Cloud Storage and Chat",
-  "version": "5.6.1",
+  "version": "5.8.3",
   "content_security_policy": "default-src 'self' blob: https://*.mega.co.nz https://*.mega.nz https://*.megapay.nz; script-src 'self' blob:; style-src 'self' 'unsafe-inline' data: blob:; img-src 'self' data: blob: https://*.mega.co.nz https://*.mega.nz; connect-src 'self' wss://*.karere.mega.nz wss://*.sfu.mega.co.nz https://*.mega.co.nz https://*.mega.nz http://*.userstorage.mega.co.nz http://*.userstorage.mega.co.nz:8080 http://127.0.0.1:6341; object-src 'none'",
   "nacl_modules": [
     {

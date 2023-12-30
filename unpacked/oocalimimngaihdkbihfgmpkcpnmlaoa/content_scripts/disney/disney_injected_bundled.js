@@ -44,7 +44,7 @@
       }
     }
   };
-  console.log("setup");
+  console.log("Disney+ script loaded");
   window.addEventListener("message", seekInteraction, false);
 
   /******/

@@ -1105,7 +1105,7 @@
   flex-direction: row;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 16px 16px 16px calc(8px - 0.4em);
+  padding: 4px 4px 4px calc(8px - 0.4em);
   overflow: hidden;
   width: 100%;
   font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -1150,17 +1150,6 @@
   -ms-flex-align: center;
   align-items: center;
 }
-.itemTitleText--HRDziQk1X4 {
-  line-height: 20px;
-  -ms-flex-negative: 1000;
-  flex-shrink: 1000;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #000000;
-  font-size: 16px;
-  font-weight: 600;
-}
 .itemTitleLogo--MUbQl3Ih4d {
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -1168,16 +1157,6 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-}
-.itemDescription--nrKFY4AAr2 {
-  color: #615b57;
-  font-size: 12px;
-  line-height: 16px;
-}
-.detailedItemInfoAction--I7HroQdXSZ {
-  color: #615b57;
-  font-size: 16px;
-  white-space: nowrap;
 }
 
 /*
@@ -2710,4 +2689,65 @@
 
 .error--Nerq7bqFMd .hint--VHQBrqQeO9 {
   color: #e00635;
+}
+
+/*
+ * Custom @font-face rules are injected as a style element by
+ * <AppThemeProvider /> and rely on the @dashlane/fonts dependency.
+ */
+:root {
+  /* Font family variables */
+
+  /* Password Specific Styles */
+
+  /* Font size variables */
+
+  /* Font weight variables */
+
+  /* Line heights variables */
+}
+/*
+* Refer to z-index variables & values used in ui-components before updating this file.
+*/
+:root {
+  /* 1. Base z-index, to be used for most content elements that require a z-index. */
+  /* 2. "Below" z-index, to be used when placing an element "below" another within the stacking context. */
+
+  /* 3. Various previous "Content Overlap" z-index values, can be merged with caution. */
+
+  /* 4. Panel z-index. */
+
+  /* 5. "Above Panel" z-index. */
+
+  /*
+  * All variables from here refer to previously hardcoded z-index values.
+  */
+
+  /* Base z-index, see 1, keep sorted to reduce merge conflicts */
+
+  /* "Content Overlap" z-index, see 3. */
+
+  /* Looks unused ? */
+
+  /* Panel z-index, see 4. */
+
+  /* "Above Panel" z-index, see 5. */
+}
+.footer--HHTLUO3zmy {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+.footerWrapper--YPDFGxxJA2 {
+  padding: 3em;
+  background-color: #ebe9e7;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+}
+.copyright--SGUYmaypKv {
+  font-weight: bold;
+  margin-bottom: 1.5em;
+}
+.description--sI6lcTdiPv {
+  margin-bottom: 0.5em;
 }

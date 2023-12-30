@@ -687,6 +687,9 @@ body {
 body {
   font-size: 14px;
 }
+.has-okta-personal-banner body {
+  height: 570px;
+}
 .header {
   padding: 11.9999999px;
   background: #f5f5f6;
@@ -1412,187 +1415,6 @@ body {
 .generate-pwd-container .generate-pwd-main .generate-pwd-options .okta-change-password-range {
   margin-top: 8px;
 }
-.user-settings-page {
-  display: none;
-  position: absolute;
-  top: 49.9999998px;
-  left: 1px;
-  height: 360.0000002px;
-  width: 100%;
-  padding-left: 2px;
-  background-color: #fff;
-  border-top: 1px solid #8c8c96;
-  border-top-color: #d7d7dc;
-  border-radius: 0 0 4px 4px;
-  z-index: 1;
-  overflow-y: auto;
-}
-.user-settings-page .user-settings-close {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  float: right;
-  margin-top: 23.9999998px;
-  margin-right: 23.9999998px;
-  cursor: pointer;
-}
-.user-settings-page .user-settings-close img {
-  width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0.7;
-}
-.user-settings-page .user-settings-close img:hover {
-  opacity: 1;
-}
-.user-settings-page .user-settings-main {
-  padding: 23.9999998px 11.9999999px 5.99999995px 11.9999999px;
-}
-.user-settings-page .user-settings-main .user-setting-group {
-  width: 100%;
-  margin-bottom: 11.9999999px;
-}
-.user-settings-page .user-settings-main .user-setting-group .setting-group-title {
-  color: #212126;
-  font-weight: 600;
-  margin-bottom: 11.9999999px;
-}
-.user-settings-page .user-settings-main .user-setting-group .setting-group-caret {
-  display: inline-block;
-  background: url(/shared/popover/images/icon-caret-new@2x.png) no-repeat 0 center;
-  background-size: 14px 14px;
-  width: 13px;
-  height: 13px;
-  margin-left: 5.99999995px;
-  position: relative;
-  top: 2px;
-}
-.user-settings-page .user-settings-main .user-setting-group .setting-group-caret-expanded {
-  transform: rotate(90deg);
-}
-.user-settings-page .user-settings-main .user-setting-group .advanced-settings-content {
-  display: none;
-  margin-bottom: 11.9999999px;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting {
-  display: flex;
-  padding-bottom: 11.9999999px;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .read-only {
-  opacity: 0.7;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-text-container {
-  display: inline-block;
-  flex: 1 1 auto;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-text-container .user-setting-new {
-  background-color: #00b478;
-  color: #fff;
-  margin-left: 2px;
-  padding-left: 6px;
-  padding-right: 6px;
-  padding-bottom: 1px;
-  font-size: 10px;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-text-container .hidden {
-  position: absolute !important;
-  top: -9999px !important;
-  left: -9999px !important;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-text-container .user-setting-title {
-  color: #212126;
-  font-weight: 600;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-text-container .user-setting-description,
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-text-container .user-setting-button-description {
-  color: #6e6e78;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-checkbox-container {
-  display: inline-block;
-  vertical-align: top;
-  height: 16px;
-  margin-right: 11.9999999px;
-  margin-top: 4.9999999px;
-  flex: 0 0 auto;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-checkbox-container .user-setting-checkbox {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-checkbox-container .user-setting-checkbox img {
-  width: 100%;
-  height: auto;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-saved-container {
-  flex: 0 0 auto;
-  max-width: 45%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting .user-setting-saved-container .user-setting-saved {
-  transition: opacity 300ms;
-  opacity: 0;
-  color: #00b478;
-}
-.user-settings-page
-  .user-settings-main
-  .user-setting-group
-  .user-setting
-  .user-setting-saved-container
-  .user-setting-saved.user-setting-saved-active {
-  opacity: 1;
-}
-.user-settings-page
-  .user-settings-main
-  .user-setting-group
-  .user-setting
-  .user-setting-saved-container
-  .user-setting-saved
-  .user-setting-saved-icon {
-  float: left;
-  background: url(/shared/popover/images/success.png) no-repeat 0 center;
-  background-size: 14px 14px;
-  width: 14px;
-  height: 14px;
-  margin-right: 2px;
-  position: relative;
-  top: 4px;
-}
-.user-settings-page .user-settings-main .user-setting-group .user-setting-button {
-  cursor: pointer;
-}
-.user-settings-page .user-settings-main .user-setting-group .setting-warning {
-  margin-bottom: 11.9999999px;
-}
-.user-settings-page .user-settings-main .user-setting-group-advanced #advanced-setting-group-title {
-  cursor: pointer;
-}
-.user-settings-page .copyright-privacy-main {
-  padding: 0 11.9999999px 11.9999999px 11.9999999px;
-  color: #212126;
-}
-.user-settings-page .copyright-privacy-main a {
-  color: inherit;
-  text-decoration: none;
-}
-.user-settings-page .copyright-privacy-main a:hover {
-  text-decoration: underline;
-}
-.user-settings-page .copyright-privacy-main .privacy-link,
-.user-settings-page .copyright-privacy-main .store-link {
-  margin-left: 9px;
-  padding-left: 14px;
-  border-left: 1px solid #212126;
-}
-.user-settings-page .copyright-privacy-main .link-hide {
-  display: none;
-}
-.user-settings-page .version-info {
-  padding: 0 11.9999999px 11.9999999px 11.9999999px;
-  color: #6e6e78;
-}
 .sign-in,
 .keybd-shortcut-new,
 .plugin-error-page,
@@ -2037,6 +1859,95 @@ body {
   height: 12px;
   width: 12px;
 }
+.okta-personal-for-workforce-banner {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 160px;
+  border-top: solid 4px #f9dc77;
+  padding: 11.9999999px;
+}
+.okta-personal-for-workforce-banner .okta-personal-for-workforce-banner-content {
+  display: flex;
+  flex-direction: column;
+}
+.okta-personal-for-workforce-banner .okta-personal-for-workforce-banner-content .okta-personal-for-workforce-banner--close {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 11.9999999px;
+  cursor: pointer;
+}
+.okta-personal-for-workforce-banner .okta-personal-for-workforce-banner-content .okta-personal-for-workforce-banner--info {
+  display: flex;
+  max-height: 80px;
+}
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--info
+  .okta-personal-for-workforce-info--icon {
+  height: 80px;
+  width: 80px;
+  background: #f7f8fd;
+  flex-shrink: 0;
+}
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--info
+  .okta-personal-for-workforce-info--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-left: 11.9999999px;
+}
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--info
+  .okta-personal-for-workforce-info--container
+  .okta-personal-for-workforce-info--header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--info
+  .okta-personal-for-workforce-info--container
+  .okta-personal-for-workforce-info--header
+  .okta-personal-for-workforce-info--title,
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--info
+  .okta-personal-for-workforce-info--container
+  .okta-personal-for-workforce-info--header
+  .okta-personal-for-workforce-info--badge {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--info
+  .okta-personal-for-workforce-info--container
+  .okta-personal-for-workforce-info--header
+  .okta-personal-for-workforce-info--badge {
+  font-size: 0.85rem;
+  margin-left: 11.9999999px;
+  padding: 1px 11.9999999px;
+  border-radius: 33px;
+  background-color: #dbe0fa;
+  color: #00297a;
+}
+.okta-personal-for-workforce-banner .okta-personal-for-workforce-banner-content .okta-personal-for-workforce-banner--button-container {
+  padding-top: 11.9999999px;
+}
+.okta-personal-for-workforce-banner
+  .okta-personal-for-workforce-banner-content
+  .okta-personal-for-workforce-banner--button-container
+  .okta-personal-for-workforce-banner--button {
+  width: 100%;
+  cursor: pointer;
+}
 .personal-html-container {
   width: 550px;
   max-width: 550px;
@@ -2255,6 +2166,17 @@ body {
   outline: 2px #2146ff solid;
   opacity: 1;
 }
+.personal-html-container
+  .data-list-sidebar-left
+  .data-list-content-wrap
+  .data-list-table
+  .appLink
+  td
+  .app-row-icon-container
+  .app-row-copy-icon-container
+  .app-row-copy-icon:focus.disabled {
+  opacity: 0.4;
+}
 .personal-html-container .data-list-sidebar-left .data-list-content-wrap .data-list-table .appLink td:hover {
   box-shadow: 0 4px 18px rgba(33, 33, 38, 0.2);
 }
@@ -2271,6 +2193,17 @@ body {
   .app-row-copy-icon-container
   .app-row-copy-icon {
   opacity: 1;
+}
+.personal-html-container
+  .data-list-sidebar-left
+  .data-list-content-wrap
+  .data-list-table
+  .appLink
+  td:hover
+  .app-row-icon-container
+  .app-row-copy-icon-container
+  .app-row-copy-icon.disabled {
+  opacity: 0.4;
 }
 .personal-html-container .data-list-sidebar-left .data-list-content-wrap .data-list-table .appLink td:hover .dropdown-menu-icon {
   background-color: #f7f8fd;
@@ -2642,9 +2575,14 @@ body {
   width: 14px;
   margin-left: 5.99999995px;
 }
-.personal-html-container .dropdown-menu-container .dropdown-menu-select .dropdown-menu-option:hover {
+.personal-html-container .dropdown-menu-container .dropdown-menu-select .dropdown-menu-option:hover:not(.disabled) {
   background: #f2f5ff;
   color: #00297a;
+}
+.personal-html-container .dropdown-menu-container .dropdown-menu-select .dropdown-menu-option.disabled {
+  opacity: 0.6;
+  color: #00297a;
+  cursor: default;
 }
 .personal-html-container .dropdown-menu-container .dropdown-menu-select .expand-settings-dropdown-menu-remove-account {
   color: #da372c;

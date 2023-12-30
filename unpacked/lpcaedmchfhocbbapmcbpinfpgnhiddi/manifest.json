@@ -20,7 +20,7 @@
   "offline_enabled": true,
   "permissions": ["activeTab", "identity", "identity.email", "contextMenus", "storage", "tabs", "unlimitedStorage", "scripting"],
   "short_name": "__MSG_shortName__",
-  "version": "4.23452.600.1",
+  "version": "4.23502.600.1",
   "web_accessible_resources": [{ "matches": ["<all_urls>"], "resources": ["keep_ba-prod*", "index.html", "i18n/symbols_*.js"] }],
   "update_url": "https://clients2.google.com/service/update2/crx",
   "author": { "email": "keep-eng@google.com" }

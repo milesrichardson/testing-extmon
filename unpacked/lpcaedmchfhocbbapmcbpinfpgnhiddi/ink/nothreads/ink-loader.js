@@ -1543,21 +1543,19 @@ var inkLoadWasmModule = (function () {
           window.inkHostRegistry[b].onPendingTexturesChanged(!!a);
         },
         304064: function (a, b, c) {
-          if (h.canvas) {
-            var d = h.canvas.getContext("webgl");
-            if (d) {
-              var e = d.getExtension("WEBGL_debug_renderer_info");
-              e && (ea(d.getParameter(e.UNMASKED_RENDERER_WEBGL), K, a, c), ea(d.getParameter(e.UNMASKED_VENDOR_WEBGL), K, b, c));
-            }
+          var d = self.WorkerGlobalScope ? new OffscreenCanvas(128, 128) : document.createElement("canvas");
+          if ((d = d.getContext("webgl"))) {
+            var e = d.getExtension("WEBGL_debug_renderer_info");
+            e && (ea(d.getParameter(e.UNMASKED_RENDERER_WEBGL), K, a, c), ea(d.getParameter(e.UNMASKED_VENDOR_WEBGL), K, b, c));
           }
         },
-        304350: function () {
+        304426: function () {
           return !!h.ctx;
         },
-        304372: function () {
+        304448: function () {
           debugger;
         },
-        304385: function () {
+        304461: function () {
           return "undefined" !== typeof wasmOffsetConverter;
         }
       },
@@ -5957,52 +5955,52 @@ var inkLoadWasmModule = (function () {
     var xp = new Int32Array(288);
     for (ca = 0; 288 > ca; ++ca) Xa[ca] = xp.subarray(0, ca + 1);
     var $c = {
-        B: ba,
+        D: ba,
         Ya: ia,
         Uc: te,
-        N: ue,
+        A: ue,
         Sa: ve,
         sb: xe,
-        e: Ge,
-        g: He,
+        f: Ge,
+        h: He,
         c: Ie,
         d: Je,
         Pa: Le,
         i: Ne,
         b: Oe,
-        L: Qe,
+        M: Qe,
         u: Re,
-        q: Te,
-        j: Ue,
-        H: Ve,
+        r: Te,
+        l: Ue,
+        I: Ve,
         z: bf,
         nd: cf,
-        P: df,
-        O: ef,
-        s: ff,
+        O: df,
+        B: ef,
+        p: ff,
         Db: gf,
         $a: hf,
         Va: jf,
         o: kf,
-        E: lf,
-        w: nf,
-        f: Jb,
-        A: of,
-        x: qf,
-        l: rf,
-        n: sf,
-        Qe: tf,
+        P: lf,
+        v: nf,
+        e: Jb,
+        C: of,
+        w: qf,
+        m: rf,
+        k: sf,
+        Ge: tf,
         ve: vf,
-        m: wf,
-        k: xf,
-        p: yf,
+        n: wf,
+        j: xf,
+        q: yf,
         Ra: hd,
         a: zf,
-        D: Df,
+        F: Df,
         Da: Hf,
         Ca: If,
-        G: Jf,
-        F: Kf,
+        H: Jf,
+        G: Kf,
         Fa: Lf,
         Ha: Mf,
         y: Nf,
@@ -6012,13 +6010,13 @@ var inkLoadWasmModule = (function () {
         Ja: Rf,
         Ka: Sf,
         Ba: W,
-        v: Tf,
-        h: Uf,
+        x: Tf,
+        g: Uf,
         Oa: Vf,
-        M: Wf,
-        C: Xf,
+        N: Wf,
+        E: Xf,
         Ta: Yf,
-        r: Mb,
+        s: Mb,
         ca: Zf,
         ba: ag,
         Sc: cg,
@@ -6125,27 +6123,27 @@ var inkLoadWasmModule = (function () {
         ia: lj,
         Ve: mj,
         Re: oj,
-        Pe: qj,
+        Qe: qj,
         Ub: sj,
         Vb: uj,
         Xb: wj,
-        Oe: yj,
-        Ne: Aj,
-        Me: Cj,
+        Pe: yj,
+        Oe: Aj,
+        Ne: Cj,
         Ib: Ej,
-        Le: Gj,
-        Ke: Ij,
-        Je: Kj,
+        Me: Gj,
+        Le: Ij,
+        Ke: Kj,
         lc: Mj,
-        Ie: Oj,
+        Je: Oj,
         Jb: Qj,
         Lb: Sj,
         Ac: Uj,
-        He: Wj,
+        Ie: Wj,
         hb: Yj,
         ob: ak,
         Fe: ck,
-        Ge: ek,
+        He: ek,
         ma: fk,
         oa: gk,
         la: ik,
@@ -6301,10 +6299,10 @@ var inkLoadWasmModule = (function () {
         Id: lp,
         Za: mp,
         _a: np,
-        K: op,
-        I: pp,
+        L: op,
+        J: pp,
         Qa: me,
-        J: rp,
+        K: rp,
         Aa: tp,
         Na: oe,
         Ma: pe,
@@ -6566,8 +6564,8 @@ var inkLoadWasmModule = (function () {
     h.dynCall_iiiiiijj = function (a, b, c, d, e, f, g, l, n, v) {
       return (h.dynCall_iiiiiijj = z.kh)(a, b, c, d, e, f, g, l, n, v);
     };
-    h.___start_em_js = 328504;
-    h.___stop_em_js = 329027;
+    h.___start_em_js = 328576;
+    h.___stop_em_js = 329099;
     h.ENV = rb;
     var jb;
     Ha = function b() {

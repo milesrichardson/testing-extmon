@@ -32,11 +32,11 @@
 }
 #innerPreloaderContainer.dark {
   background-color: #1a1a1a;
-  color: white;
+  color: #fff;
   border-color: #333;
 }
 #innerPreloaderContainer.light {
-  background-color: white;
+  background-color: #fff;
   color: #333;
   border-color: #e4e4e4;
 }

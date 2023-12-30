@@ -45,86 +45,86 @@
       return Object.prototype.hasOwnProperty.call(n, i);
     }),
     (__webpack_require__.p = ""),
-    __webpack_require__((__webpack_require__.s = 274));
+    __webpack_require__((__webpack_require__.s = 272));
 })([
   function (n, i, a) {
     "use strict";
-    a.d(i, "g", function () {
+    a.d(i, "h", function () {
       return o;
     }),
-      a.d(i, "n", function () {
+      a.d(i, "o", function () {
         return s;
       }),
-      a.d(i, "s", function () {
+      a.d(i, "t", function () {
         return y;
       }),
-      a.d(i, "l", function () {
+      a.d(i, "m", function () {
         return E;
       }),
       a.d(i, "d", function () {
         return w;
       }),
-      a.d(i, "h", function () {
+      a.d(i, "i", function () {
         return $;
       }),
-      a.d(i, "F", function () {
+      a.d(i, "G", function () {
         return ie;
       }),
-      a.d(i, "q", function () {
+      a.d(i, "r", function () {
         return oe;
       }),
-      a.d(i, "E", function () {
+      a.d(i, "F", function () {
         return se;
       }),
-      a.d(i, "r", function () {
+      a.d(i, "s", function () {
         return pe;
       }),
       a.d(i, "e", function () {
         return ge;
       }),
-      a.d(i, "J", function () {
+      a.d(i, "K", function () {
         return ve;
       }),
-      a.d(i, "w", function () {
+      a.d(i, "x", function () {
         return Se;
       }),
-      a.d(i, "I", function () {
+      a.d(i, "J", function () {
         return Oe;
       }),
-      a.d(i, "p", function () {
+      a.d(i, "q", function () {
         return we;
       }),
-      a.d(i, "y", function () {
+      a.d(i, "z", function () {
         return je;
       }),
-      a.d(i, "x", function () {
+      a.d(i, "y", function () {
         return Ue;
       }),
-      a.d(i, "o", function () {
+      a.d(i, "p", function () {
         return We;
       }),
-      a.d(i, "v", function () {
+      a.d(i, "w", function () {
         return $e;
       }),
-      a.d(i, "k", function () {
+      a.d(i, "l", function () {
         return Ye;
       }),
-      a.d(i, "t", function () {
+      a.d(i, "u", function () {
         return Xe;
       }),
-      a.d(i, "m", function () {
+      a.d(i, "n", function () {
         return et;
       }),
-      a.d(i, "j", function () {
+      a.d(i, "k", function () {
         return tt;
       }),
-      a.d(i, "C", function () {
+      a.d(i, "D", function () {
         return nt;
       }),
-      a.d(i, "B", function () {
+      a.d(i, "C", function () {
         return rt;
       }),
-      a.d(i, "u", function () {
+      a.d(i, "v", function () {
         return it;
       }),
       a.d(i, "c", function () {
@@ -133,44 +133,47 @@
       a.d(i, "b", function () {
         return ot;
       }),
-      a.d(i, "A", function () {
+      a.d(i, "B", function () {
         return st;
       }),
-      a.d(i, "i", function () {
+      a.d(i, "j", function () {
         return lt;
       }),
       a.d(i, "a", function () {
         return ct;
       }),
-      a.d(i, "H", function () {
+      a.d(i, "I", function () {
         return ut;
       }),
-      a.d(i, "K", function () {
+      a.d(i, "L", function () {
         return ht;
       }),
-      a.d(i, "N", function () {
+      a.d(i, "O", function () {
         return pt;
       }),
-      a.d(i, "M", function () {
+      a.d(i, "N", function () {
         return ft;
       }),
-      a.d(i, "L", function () {
+      a.d(i, "M", function () {
         return dt;
       }),
-      a.d(i, "O", function () {
+      a.d(i, "P", function () {
         return mt;
       }),
-      a.d(i, "D", function () {
+      a.d(i, "E", function () {
         return gt;
       }),
       a.d(i, "f", function () {
         return yt;
       }),
-      a.d(i, "z", function () {
+      a.d(i, "A", function () {
         return Et;
       }),
-      a.d(i, "G", function () {
+      a.d(i, "H", function () {
         return vt;
+      }),
+      a.d(i, "g", function () {
+        return bt;
       });
     const o = {
         PAUSED: "paused",
@@ -212,7 +215,9 @@
         INSTALL_SOURCE: "installSource",
         REFRESH_MODAL: "refreshModal",
         BADGE_STATES: "badgeStates",
-        INSTALL_EVENT_SENT: "installEventSent"
+        INSTALL_EVENT_SENT: "installEventSent",
+        HIDE_TRACKER_HOOK: "hideTrackerHook",
+        TRACKER_HOOK_LAST_TIME_CLOSED: "trackerHookLastTimeClosed"
       },
       s = {
         CATEGORIES: {
@@ -310,7 +315,11 @@
         ON_EXTENSION_INFO_UPDATED: "on-extension-info-updated",
         OPEN_EXTENSION_CHECKOUT_MODAL: "open-extension-checkout-modal",
         CLOSE_EXTENSION_CHECKOUT_MODAL: "close-extension-checkout-modal",
-        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click"
+        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click",
+        UPDATE_PREMIUM_SETTING_TOGGLE_VALUE: "update-premium-setting-toggle-value",
+        CLOSE_TRACKER_HOOK: "close-tracker-hook",
+        HIDE_TRACKER_HOOK: "hide-tracker-hook",
+        TMP_HIDE_TRACKER_HOOK: "tmp-hide-tracker-hook"
       },
       E = {
         POPUPS: "popups",
@@ -358,7 +367,8 @@
         COOKIE_PROMO_ROOT: "pb-cookie-promo-root",
         MESSAGE_NOTIFICATION_ROOT: "pb-message-notification-root",
         ADS_HOOK_ROOT: "pb-ads-hook-root",
-        CHECKOUT_MODAL: "pb-checkout-modal"
+        CHECKOUT_MODAL: "pb-checkout-modal",
+        TRACKER_BLOCKER_HOOK_ROOT: "pb-tracker-blocker-root"
       },
       oe = {
         CHROME_EXTENTION_MANAGER: "chrome://extensions",
@@ -539,10 +549,16 @@
           PANEL_EULA_DIALOG_CLOSE: "PANEL_EULA_DIALOG_CLOSE",
           PANEL_EULA_DIALOG_AGREE_CLICK: "PANEL_EULA_DIALOG_AGREE_CLICK",
           PANEL_EULA_DIALOG_DISAGREE_CLICK: "PANEL_EULA_DIALOG_DISAGREE_CLICK",
-          PANEL_OVERLAY_BANNER_BLUE_VIEW: "PANEL_OVERLAY_BANNER_BLUE_VIEW",
-          PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK",
           PANEL_OVERLAY_BANNER_RED_VIEW: "PANEL_OVERLAY_BANNER_RED_VIEW",
-          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK"
+          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST"
         },
         PAGE: { PANEL: "PANEL", PANEL_SETTINGS_TAB: "PANEL_SETTINGS_TAB" },
         FEATURE: {
@@ -639,57 +655,66 @@
         }
       },
       Et = { PAYMENT_PENDING: 0, PAYMENT_RECIEVED: 1, FREE_TRIAL: 2, PAYMENT_DEFERED: 3, CANCELED: 4, REFUNDED: 5, PAUSED: 6 },
-      vt = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" };
+      vt = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" },
+      bt = {
+        IFRAME_SOCIAL_HOOK: "IFRAME_SOCIAL_HOOK",
+        IFRAME_COOKIE_HOOK: "IFRAME_COOKIE_HOOK",
+        IFRAME_ADS_HOOK_PREFIX: "IFRAME_ADS_HOOK_",
+        IFRAME_TRACKER_HOOK: "IFRAME_TRACKER_HOOK",
+        EXTENSION_PANEL_SETTINGS_PREFIX: "EXTENSION_PANEL_SETTINGS_",
+        EXTENSION_PANEL_GO_PRO: "EXTENSION_PANEL_GO_PRO",
+        EXTENSION_PANEL_STATS_GO_PRO: "EXTENSION_PANEL_STATS_GO_PRO"
+      };
   },
   function (n, i, a) {
     "use strict";
-    n.exports = a(73);
+    n.exports = a(66);
   },
   function (n, i, a) {
     "use strict";
-    a.d(i, "e", function () {
+    a.d(i, "f", function () {
       return o;
     }),
-      a.d(i, "j", function () {
+      a.d(i, "k", function () {
         return s;
       }),
-      a.d(i, "n", function () {
+      a.d(i, "o", function () {
         return y;
       }),
-      a.d(i, "i", function () {
+      a.d(i, "j", function () {
         return E;
       }),
       a.d(i, "c", function () {
         return w;
       }),
-      a.d(i, "q", function () {
+      a.d(i, "r", function () {
         return $;
       }),
-      a.d(i, "m", function () {
+      a.d(i, "n", function () {
         return ie;
       }),
-      a.d(i, "p", function () {
+      a.d(i, "q", function () {
         return le;
       }),
       a.d(i, "d", function () {
         return he;
       }),
-      a.d(i, "t", function () {
+      a.d(i, "v", function () {
         return pe;
       }),
-      a.d(i, "o", function () {
+      a.d(i, "p", function () {
         return ge;
       }),
-      a.d(i, "l", function () {
+      a.d(i, "m", function () {
         return ve;
       }),
-      a.d(i, "h", function () {
+      a.d(i, "i", function () {
         return Se;
       }),
-      a.d(i, "r", function () {
+      a.d(i, "s", function () {
         return Oe;
       }),
-      a.d(i, "k", function () {
+      a.d(i, "l", function () {
         return we;
       }),
       a.d(i, "a", function () {
@@ -698,14 +723,20 @@
       a.d(i, "b", function () {
         return Ue;
       }),
-      a.d(i, "g", function () {
+      a.d(i, "h", function () {
         return We;
       }),
-      a.d(i, "f", function () {
+      a.d(i, "u", function () {
         return $e;
       }),
-      a.d(i, "s", function () {
+      a.d(i, "g", function () {
         return Ye;
+      }),
+      a.d(i, "t", function () {
+        return Xe;
+      }),
+      a.d(i, "e", function () {
+        return et;
       });
     const o = {
         PAUSED: "paused",
@@ -747,7 +778,9 @@
         INSTALL_SOURCE: "installSource",
         REFRESH_MODAL: "refreshModal",
         BADGE_STATES: "badgeStates",
-        INSTALL_EVENT_SENT: "installEventSent"
+        INSTALL_EVENT_SENT: "installEventSent",
+        HIDE_TRACKER_HOOK: "hideTrackerHook",
+        TRACKER_HOOK_LAST_TIME_CLOSED: "trackerHookLastTimeClosed"
       },
       s = {
         CATEGORIES: {
@@ -845,7 +878,11 @@
         ON_EXTENSION_INFO_UPDATED: "on-extension-info-updated",
         OPEN_EXTENSION_CHECKOUT_MODAL: "open-extension-checkout-modal",
         CLOSE_EXTENSION_CHECKOUT_MODAL: "close-extension-checkout-modal",
-        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click"
+        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click",
+        UPDATE_PREMIUM_SETTING_TOGGLE_VALUE: "update-premium-setting-toggle-value",
+        CLOSE_TRACKER_HOOK: "close-tracker-hook",
+        HIDE_TRACKER_HOOK: "hide-tracker-hook",
+        TMP_HIDE_TRACKER_HOOK: "tmp-hide-tracker-hook"
       },
       E = {
         POPUPS: "popups",
@@ -871,7 +908,8 @@
         COOKIE_PROMO_ROOT: "pb-cookie-promo-root",
         MESSAGE_NOTIFICATION_ROOT: "pb-message-notification-root",
         ADS_HOOK_ROOT: "pb-ads-hook-root",
-        CHECKOUT_MODAL: "pb-checkout-modal"
+        CHECKOUT_MODAL: "pb-checkout-modal",
+        TRACKER_BLOCKER_HOOK_ROOT: "pb-tracker-blocker-root"
       },
       ie = {
         CHROME_EXTENTION_MANAGER: "chrome://extensions",
@@ -1051,10 +1089,16 @@
           PANEL_EULA_DIALOG_CLOSE: "PANEL_EULA_DIALOG_CLOSE",
           PANEL_EULA_DIALOG_AGREE_CLICK: "PANEL_EULA_DIALOG_AGREE_CLICK",
           PANEL_EULA_DIALOG_DISAGREE_CLICK: "PANEL_EULA_DIALOG_DISAGREE_CLICK",
-          PANEL_OVERLAY_BANNER_BLUE_VIEW: "PANEL_OVERLAY_BANNER_BLUE_VIEW",
-          PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK",
           PANEL_OVERLAY_BANNER_RED_VIEW: "PANEL_OVERLAY_BANNER_RED_VIEW",
-          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK"
+          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST"
         },
         PAGE: { PANEL: "PANEL", PANEL_SETTINGS_TAB: "PANEL_SETTINGS_TAB" },
         FEATURE: {
@@ -1116,8 +1160,18 @@
         VISIBILITY: "visibility",
         OPACITY: "opacity"
       },
-      $e = { KEY_COOKIE_CLASSES: "cookieClasses" },
-      Ye = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" };
+      $e = { KEY_CONFIG_STORAGE: "trackersBlockerConfig" },
+      Ye = { KEY_COOKIE_CLASSES: "cookieClasses" },
+      Xe = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" },
+      et = {
+        IFRAME_SOCIAL_HOOK: "IFRAME_SOCIAL_HOOK",
+        IFRAME_COOKIE_HOOK: "IFRAME_COOKIE_HOOK",
+        IFRAME_ADS_HOOK_PREFIX: "IFRAME_ADS_HOOK_",
+        IFRAME_TRACKER_HOOK: "IFRAME_TRACKER_HOOK",
+        EXTENSION_PANEL_SETTINGS_PREFIX: "EXTENSION_PANEL_SETTINGS_",
+        EXTENSION_PANEL_GO_PRO: "EXTENSION_PANEL_GO_PRO",
+        EXTENSION_PANEL_STATS_GO_PRO: "EXTENSION_PANEL_STATS_GO_PRO"
+      };
   },
   function (n, i, a) {
     "use strict";
@@ -1307,15 +1361,15 @@
     var o = a(0),
       s = a(21),
       y = a(9),
-      E = a(6),
-      w = a(11),
+      E = a(8),
+      w = a(12),
       $ = a(20),
-      ie = a(8),
-      oe = a(17),
-      se = a(25),
-      le = a(12),
-      he = a(15),
-      pe = a(24);
+      ie = a(7),
+      oe = a(18),
+      se = a(26),
+      le = a(13),
+      he = a(17),
+      pe = a(23);
     const getBrowser = () => (/firefox/i.test(navigator.userAgent) ? "FF" : "CH"),
       getI18N = (n, i) => chrome.i18n.getMessage(n) || chrome.i18n.getMessage(i || n) || n,
       getI18NWithParams = (n, ...i) => i.reduce((n, i) => n.replace("%s", i), getI18N(n)),
@@ -1329,7 +1383,7 @@
       },
       sendGAEvent = (n, i, a, s) =>
         new Promise((y) => {
-          chrome.runtime.sendMessage({ name: o.s.GA_EVENT, category: n, action: i, label: a, isCount: s }, () => y());
+          chrome.runtime.sendMessage({ name: o.t.GA_EVENT, category: n, action: i, label: a, isCount: s }, () => y());
         }),
       sendMessageToWorker = (n) =>
         new Promise((i) => {
@@ -1375,7 +1429,7 @@
       },
       getCurrentTab = async () =>
         new Promise((n) => {
-          sendMessageToWorker({ name: o.s.REQUEST_CURRENT_TAB }).then((i) => {
+          sendMessageToWorker({ name: o.t.REQUEST_CURRENT_TAB }).then((i) => {
             n(i);
           });
         }),
@@ -1418,50 +1472,50 @@
           i = await fetch(o.e.SOCIALBLOCKER_CONFIG, { method: "GET", headers: { "Content-Type": "application/json", version: n } });
         if (200 === i.status) {
           const n = { config: await i.json(), updateTime: Date.now() };
-          chrome.storage.local.set({ [o.g.DEFAULT_FACEBOOK_CONFIG]: n });
+          chrome.storage.local.set({ [o.h.DEFAULT_FACEBOOK_CONFIG]: n });
         }
       },
       updateSocialBlockerConfig = async () => {
-        chrome.storage.local.get(o.g.DEFAULT_FACEBOOK_CONFIG, async (n) => {
-          const i = n[o.g.DEFAULT_FACEBOOK_CONFIG];
-          Date.now() - i.updateTime >= 4 * o.p && (await getDefaultSocialBlockerConfig());
+        chrome.storage.local.get(o.h.DEFAULT_FACEBOOK_CONFIG, async (n) => {
+          const i = n[o.h.DEFAULT_FACEBOOK_CONFIG];
+          Date.now() - i.updateTime >= 4 * o.q && (await getDefaultSocialBlockerConfig());
         });
       },
       updateSegmentData = async () => {
-        chrome.storage.local.get([o.g.DEFAULT_SEGMENT_CONFIG], async (n) => {
+        chrome.storage.local.get([o.h.DEFAULT_SEGMENT_CONFIG], async (n) => {
           var i;
-          const a = n[o.g.DEFAULT_SEGMENT_CONFIG],
+          const a = n[o.h.DEFAULT_SEGMENT_CONFIG],
             y = await Object(s.b)();
           if (null == y ? void 0 : y.uuid) {
             const n = await fetch(o.e.GET_USER_SEGMENT, { headers: { id: y.uuid } });
             if (200 === n.status) {
               const s = await n.json(),
-                y = null != (i = null == a ? void 0 : a.lastDisplayTime) ? i : Date.now() - 31 * o.w,
+                y = null != (i = null == a ? void 0 : a.lastDisplayTime) ? i : Date.now() - 31 * o.x,
                 E = { config: s, updateTime: Date.now(), lastDisplayTime: y, lastUpdateTime: Date.now() };
-              chrome.storage.local.set({ [o.g.DEFAULT_SEGMENT_CONFIG]: E });
+              chrome.storage.local.set({ [o.h.DEFAULT_SEGMENT_CONFIG]: E });
             }
           }
         });
       },
       updateLocalSettings = async (n) => {
-        const i = await y.c.get(o.g.SETTINGS),
+        const i = await y.c.get(o.h.SETTINGS),
           a = n.features,
           s = await pe.a.isOptIn();
         for (const n in a) i[n] = a[n] || !1;
         n.features.overlays && !s && (await pe.a.optIn()),
           (i.detectOverlays = a.overlays),
           await oe.a.updateSettings(i),
-          n.whitelist && (await y.c.set(o.g.WHITELIST, n.whitelist)),
-          n.socialContentKeyWords && (await y.c.set(o.g.SOCIAL_CONTENT_KEYWORDS, n.socialContentKeyWords)),
-          n.blockedElements && (await y.c.set(o.g.BLOCKED_ELEMENTS, n.blockedElements));
+          n.whitelist && (await y.c.set(o.h.WHITELIST, n.whitelist)),
+          n.socialContentKeyWords && (await y.c.set(o.h.SOCIAL_CONTENT_KEYWORDS, n.socialContentKeyWords)),
+          n.blockedElements && (await y.c.set(o.h.BLOCKED_ELEMENTS, n.blockedElements));
       },
       updateRemoteSettingsData = async () => {
-        chrome.storage.local.get([o.g.BLOCKED_ELEMENTS, o.g.SETTINGS, o.g.WHITELIST, o.g.USER], async (n) => {
-          const i = n[o.g.WHITELIST],
-            a = n[o.g.SOCIAL_CONTENT_KEYWORDS],
-            y = n[o.g.BLOCKED_ELEMENTS],
-            $ = n[o.g.USER],
-            ie = n[o.g.SETTINGS],
+        chrome.storage.local.get([o.h.BLOCKED_ELEMENTS, o.h.SETTINGS, o.h.WHITELIST, o.h.USER], async (n) => {
+          const i = n[o.h.WHITELIST],
+            a = n[o.h.SOCIAL_CONTENT_KEYWORDS],
+            y = n[o.h.BLOCKED_ELEMENTS],
+            $ = n[o.h.USER],
+            ie = n[o.h.SETTINGS],
             oe = null == $ ? void 0 : $.isPremium,
             { version: se } = getManifest(),
             he = {
@@ -1491,12 +1545,12 @@
         });
       },
       fetchRemoteSettingsData = async () => {
-        chrome.storage.local.get([o.g.BLOCKED_ELEMENTS, o.g.SETTINGS, o.g.WHITELIST], async (n) => {
+        chrome.storage.local.get([o.h.BLOCKED_ELEMENTS, o.h.SETTINGS, o.h.WHITELIST], async (n) => {
           try {
-            let i = n[o.g.WHITELIST],
-              a = n[o.g.SOCIAL_CONTENT_KEYWORDS],
-              y = n[o.g.BLOCKED_ELEMENTS];
-            const w = n[o.g.SETTINGS],
+            let i = n[o.h.WHITELIST],
+              a = n[o.h.SOCIAL_CONTENT_KEYWORDS],
+              y = n[o.h.BLOCKED_ELEMENTS];
+            const w = n[o.h.SETTINGS],
               ie = await Object(s.b)(),
               oe = await Object($.a)(o.e.SETTINGS, { headers: { id: ie.uuid } }, 200);
             if (oe.ok) {
@@ -1515,10 +1569,10 @@
                 (y = n.blockedElements || {}),
                 n.features.overlays && (w.detectOverlays = !0),
                 chrome.storage.local.set({
-                  [o.g.SETTINGS]: w,
-                  [o.g.WHITELIST]: i,
-                  [o.g.SOCIAL_CONTENT_KEYWORDS]: a,
-                  [o.g.BLOCKED_ELEMENTS]: y
+                  [o.h.SETTINGS]: w,
+                  [o.h.WHITELIST]: i,
+                  [o.h.SOCIAL_CONTENT_KEYWORDS]: a,
+                  [o.h.BLOCKED_ELEMENTS]: y
                 });
             }
           } catch (n) {}
@@ -1532,8 +1586,8 @@
           y = await w.a.getDefault(le.a.onTrialEnded).loadAndUpdate(),
           ie = await Object($.c)();
         return new Promise((w) => {
-          chrome.storage.local.get([o.g.SETTINGS], ($) => {
-            const oe = $[o.g.SETTINGS],
+          chrome.storage.local.get([o.h.SETTINGS], ($) => {
+            const oe = $[o.h.SETTINGS],
               se = !!ie && ie.isPremium,
               le = {
                 popups: { isSelected: oe.popups },
@@ -1618,7 +1672,7 @@
           oe.a.updateSettings(i);
       },
       onStartCookieTrial = () => {
-        sendMessageToWorker({ name: o.s.INSERT_COOKIE_FILTERS }), sendToActiveTab(o.s.HIDE_COOKIE_CRUMBLER_PROMO);
+        sendMessageToWorker({ name: o.t.INSERT_COOKIE_FILTERS }), sendToActiveTab(o.t.HIDE_COOKIE_CRUMBLER_PROMO);
       },
       roundTime2Digit = (n) => n.toString().padStart(2, "0"),
       timeToString = (n) => `${roundTime2Digit(n.hours)}h:${roundTime2Digit(n.minutes)}m:${roundTime2Digit(n.seconds)}s`,
@@ -1629,10 +1683,10 @@
         seconds: Math.floor((n % 6e4) / 1e3)
       }),
       isPremium = async () => {
-        const n = await y.c.get(o.g.USER);
+        const n = await y.c.get(o.h.USER);
         return !!(null == n ? void 0 : n.isPremium);
       },
-      msToDays = (n) => n / o.w,
+      msToDays = (n) => n / o.x,
       isKeysExists = (n, i) => n.every((n) => n in i),
       getDaysPassed = (n) => {
         const i = n,
@@ -1648,14 +1702,14 @@
       checkIsPinned = async () => ({ isPinned: (await ie.BrowserAPI.action.getUserSettings()).isOnToolbar }),
       updateBlockedCounter = (n, i = {}) => {
         backgroundSafeExec(
-          () => sendToActiveTab(o.s.UPDATE_BLOCK_COUNT, { type: n }),
-          () => sendMessageToWorker({ name: o.s.UPDATE_BLOCK_COUNT, type: n })
+          () => sendToActiveTab(o.t.UPDATE_BLOCK_COUNT, { type: n }),
+          () => sendMessageToWorker({ name: o.t.UPDATE_BLOCK_COUNT, type: n })
         );
       },
       updateUnBlockedCounter = (n) => {
         backgroundSafeExec(
-          () => sendToActiveTab(o.s.UPDATE_UNBLOCK_COUNT, { type: n }),
-          () => sendMessageToWorker({ name: o.s.UPDATE_UNBLOCK_COUNT, type: n })
+          () => sendToActiveTab(o.t.UPDATE_UNBLOCK_COUNT, { type: n }),
+          () => sendMessageToWorker({ name: o.t.UPDATE_UNBLOCK_COUNT, type: n })
         );
       };
     function cleanDomain(n) {
@@ -1669,15 +1723,15 @@
         return i;
       }
     }
-    const openPlansPage = () => {
-        const n = o.q.WEB_APP + "/settings?checkout=1";
+    const openPlansPage = (n = "") => {
+        const i = `${o.r.WEB_APP}/settings?checkout=1&source=${n}`;
         backgroundSafeExec(
-          () => chrome.tabs.create({ url: n }),
-          () => window.postMessage({ type: o.s.OPEN_EXTENSION_CHECKOUT_MODAL }, "*")
+          () => chrome.tabs.create({ url: i }),
+          () => window.postMessage({ type: o.t.OPEN_EXTENSION_CHECKOUT_MODAL, source: n }, "*")
         );
       },
       isAllowedIncognitoAccess = async () => await ie.BrowserAPI.extension.isAllowedIncognitoAccess(),
-      getSocialContentKeywords = async () => await y.c.get(o.g.SOCIAL_CONTENT_KEYWORDS),
+      getSocialContentKeywords = async () => await y.c.get(o.h.SOCIAL_CONTENT_KEYWORDS),
       getUserStatus = (n) => {
         let i = se.a.Anonymous;
         return (null == n ? void 0 : n.id) && ((i = se.a.Free), (null == n ? void 0 : n.isPremium) && (i = se.a.Premium)), i;
@@ -1687,9 +1741,9 @@
       generateAnalyticsEventAndSendToWorker = (n, i, a, s) => {
         let y = void 0;
         s && (y = { payload: JSON.stringify(s) }),
-          sendMessageToWorker({ name: o.s.SEND_ANALYTICS_EVENT, eventType: generateAnalyticsEventName(n, i, a), eventPayload: y });
+          sendMessageToWorker({ name: o.t.SEND_ANALYTICS_EVENT, eventType: generateAnalyticsEventName(n, i, a), eventPayload: y });
       },
-      isExtensionEnabled = async () => !!!(await y.c.get(o.g.PAUSED)),
+      isExtensionEnabled = async () => !!!(await y.c.get(o.h.PAUSED)),
       onPostLogout = async (n) => {
         n && (await le.a.clearTrials()),
           await (async () => {
@@ -1708,17 +1762,17 @@
         return i.top >= 0 && i.left >= 0 && i.bottom <= o && i.right <= a;
       },
       isProductionEnv = () => !0,
-      getInstallSource = async () => await y.c.get(o.g.INSTALL_SOURCE),
+      getInstallSource = async () => await y.c.get(o.h.INSTALL_SOURCE),
       sendGoogleForm = async (n, i, a, s, y, E, w) => {
         try {
           await fetch(
-            `${o.q.RATE_US_FORM}?entry.492049526=${w}&entry.1525226020=${n}&entry.375126611=${i}&entry.1913270847=${a}&entry.911859707=${s}&entry.1339946149=${y}&entry.1635427313=${E}`,
+            `${o.r.RATE_US_FORM}?entry.492049526=${w}&entry.1525226020=${n}&entry.375126611=${i}&entry.1913270847=${a}&entry.911859707=${s}&entry.1339946149=${y}&entry.1635427313=${E}`,
             { method: "POST", cache: "no-cache", headers: { "Content-Type": "application/json" } }
           );
         } catch (n) {}
       },
       openSettingPage = async () => {
-        await sendMessageToWorker({ name: o.s.OPEN_URL, url: o.q.WEB_APP + "/settings" });
+        await sendMessageToWorker({ name: o.t.OPEN_URL, url: o.r.WEB_APP + "/settings" });
       },
       replaceAll = (n, i, a) => {
         const o = new RegExp(`\\b${i}\\b`, "gi");
@@ -1728,19 +1782,19 @@
         let n = "";
         switch (Object(he.b)()) {
           case he.a.CHROME:
-            n = o.q.REVIEW_CH;
+            n = o.r.REVIEW_CH;
             break;
           case he.a.EDGE:
-            n = o.q.REVIEW_EDGE;
+            n = o.r.REVIEW_EDGE;
             break;
           case he.a.FIREFOX:
-            n = o.q.REVIEW_FF;
+            n = o.r.REVIEW_FF;
         }
-        n && sendMessageToWorker({ name: o.s.OPEN_URL, url: n });
+        n && sendMessageToWorker({ name: o.t.OPEN_URL, url: n });
       },
       openSettingsFromPanel = async (n) => {
-        const i = `${o.q.WEB_APP}/settings${n ? "" + n : ""}`;
-        await sendMessageToWorker({ name: o.s.OPEN_URL, url: i }), window.close();
+        const i = `${o.r.WEB_APP}/settings${n ? "" + n : ""}`;
+        await sendMessageToWorker({ name: o.t.OPEN_URL, url: i }), window.close();
       },
       throttle = (n, i) => {
         let a;
@@ -1771,7 +1825,7 @@
                 } catch (n) {}
               });
             });
-        })(o.s.POST_MESSAGE, a);
+        })(o.t.POST_MESSAGE, a);
       };
   },
   function (n, i, a) {
@@ -1783,15 +1837,15 @@
         a.d(i, "b", function () {
           return Ce;
         });
-      var o = a(46),
+      var o = a(39),
         s = a(1),
         y = a.n(s),
-        E = a(58),
+        E = a(47),
         w = a.n(E),
-        $ = a(59),
-        ie = a(60),
-        oe = a(47),
-        se = a(40),
+        $ = a(48),
+        ie = a(49),
+        oe = a(40),
+        se = a(36),
         le = a.n(se);
       function v() {
         return (v =
@@ -2795,38 +2849,93 @@
           });
       })();
       i.c = He;
-    }).call(this, a(79));
+    }).call(this, a(72));
   },
   function (n, i, a) {
     "use strict";
-    a.d(i, "d", function () {
+    var o = a(11);
+    const s = new (class Storage {
+      constructor(n) {
+        this.storageAreaName = n;
+      }
+      get(n) {
+        return new Promise((i, a) => {
+          this.getAll(n)
+            .then((a) => {
+              n || i(a), i(a && n in a ? a[n] : null);
+            })
+            .catch(a);
+        });
+      }
+      getAll(...n) {
+        return new Promise((i, a) => {
+          o.BrowserAPI.storage[this.storageAreaName].get(n, (n) => {
+            var s;
+            if (n) i(n);
+            else {
+              const n = null == (s = o.BrowserAPI.runtime) ? void 0 : s.lastError;
+              n ? a(n) : i(null);
+            }
+          });
+        });
+      }
+      set(n, i) {
+        return new Promise((a, s) => {
+          o.BrowserAPI.storage[this.storageAreaName].set({ [n]: i }, () => {
+            var n;
+            const i = null == (n = o.BrowserAPI.runtime) ? void 0 : n.lastError;
+            i ? s(i) : a();
+          });
+        });
+      }
+      remove(n) {
+        return new Promise((i, a) => {
+          let s = 0;
+          n.forEach((y) => {
+            o.BrowserAPI.storage[this.storageAreaName].remove(y, () => {
+              var y;
+              const E = null == (y = o.BrowserAPI.runtime) ? void 0 : y.lastError;
+              E ? a(E) : ++s == n.length && i();
+            });
+          });
+        });
+      }
+    })("local");
+    i.a = s;
+  },
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "f", function () {
       return getI18N;
     }),
-      a.d(i, "k", function () {
+      a.d(i, "l", function () {
         return sendGAEvent;
       }),
-      a.d(i, "l", function () {
+      a.d(i, "m", function () {
         return sendMessageToWorker;
       }),
-      a.d(i, "n", function () {
+      a.d(i, "o", function () {
         return sendToWorker;
       }),
-      a.d(i, "e", function () {
+      a.d(i, "g", function () {
         return getManifest;
       }),
-      a.d(i, "m", function () {
+      a.d(i, "n", function () {
         return sendToActiveTab;
       }),
-      a.d(i, "p", function () {
+      a.d(i, "c", function () {
+        return getActiveTab;
+      }),
+      a.d(i, "q", function () {
         return updateRemoteSettingsData;
       }),
-      a.d(i, "f", function () {
+      a.d(i, "h", function () {
         return isPremium;
       }),
-      a.d(i, "h", function () {
+      a.d(i, "i", function () {
         return msToDays;
       }),
-      a.d(i, "c", function () {
+      a.d(i, "d", function () {
         return getDaysPassed;
       }),
       a.d(i, "a", function () {
@@ -2835,38 +2944,138 @@
       a.d(i, "b", function () {
         return checkIsPinned;
       }),
-      a.d(i, "i", function () {
+      a.d(i, "j", function () {
         return openPlansPage;
       }),
-      a.d(i, "g", function () {
-        return isProductionEnv;
+      a.d(i, "e", function () {
+        return getFeatureFlag;
       }),
-      a.d(i, "j", function () {
+      a.d(i, "k", function () {
         return replaceAll;
       }),
-      a.d(i, "o", function () {
+      a.d(i, "p", function () {
         return throttle;
       });
     var o = a(2),
-      s = a(38),
-      y = a(7),
-      E = a(16),
-      w = a(18),
-      $ = (a(32), a(13)),
-      ie = (a(29), a(26));
-    a(23), a(35);
+      s = a(63),
+      y = (a(34), a(5));
+    const fetchWithTokenRefreshIfNeeded = async (n, i, a) => {
+        const s = await fetch(n, i);
+        if (s.status === a) return s;
+        if (401 === s.status) {
+          if (204 === (await fetch(o.d.REFRESH, { method: "POST", headers: { "Content-Type": "application/json" } })).status) {
+            const o = await fetch(n, i);
+            if (o.status === a) return o;
+          }
+          return { status: s.status, message: s.statusText };
+        }
+      },
+      updateUserInfo = async () => {
+        if (!(await y.a.get(o.f.USER))) return;
+        const n = await y.a.get(o.f.LAST_USER_UPDATE_DATE);
+        (!n || Date.now() - n >= o.v) &&
+          (await (async () => {
+            try {
+              const n = await fetchWithTokenRefreshIfNeeded(o.d.GET_USER, {}, 200);
+              if (200 === n.status) {
+                const i = await n.json();
+                return await y.a.set(o.f.USER, i.user), await y.a.set(o.f.LAST_USER_UPDATE_DATE, Date.now()), i.user || null;
+              }
+              await y.a.remove([o.f.LAST_USER_UPDATE_DATE]);
+            } catch (n) {
+              await y.a.remove([o.f.LAST_USER_UPDATE_DATE]);
+            }
+          })());
+      };
+    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
+    a(31);
+    var E = ((n) => (
+      (n.CHROME = "chrome"),
+      (n.FIREFOX = "firefox"),
+      (n.OPERA = "opera"),
+      (n.EDGE = "edge"),
+      (n.SAFARI = "safari"),
+      (n.UNKNOWN = "unknown"),
+      n
+    ))(E || {});
+    const getBrowserName = () => {
+      try {
+        const n = navigator.userAgent;
+        if (n.match(/opera|opr\//i)) return "opera";
+        if (n.match(/firefox|fxios/i)) return "firefox";
+        if (n.match(/edg/i)) return "edge";
+        if (n.match(/safari/i) && !n.match(/chrome|chromium|crios/i)) return "safari";
+        if (n.match(/chrome|chromium|crios/i)) return "chrome";
+      } catch (n) {}
+      return "unknown";
+    };
+    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
+    const getAnalyticsInfoFromLocalStorage = async () =>
+      new Promise((n) => {
+        chrome.storage.local.get(o.b.ANALYTICS_INFO_KEY, (i) => {
+          n(i[o.b.ANALYTICS_INFO_KEY]);
+        });
+      });
+    function getLocale() {
+      const n = chrome.i18n.getUILanguage().replace("_", "-");
+      return n.length < 7 ? n : "en-US";
+    }
+    const getOrInitAnalyticsInfoFromLocalStorage = async () => {
+      if (!(await getAnalyticsInfoFromLocalStorage())) {
+        const n = (() => {
+            switch (getBrowserName()) {
+              case E.CHROME:
+                return "Chrome";
+              case E.FIREFOX:
+                return "Firefox";
+              case E.EDGE:
+                return "Microsoft Edge";
+              case E.OPERA:
+                return "Opera";
+              case E.SAFARI:
+                return "Safari";
+              case E.UNKNOWN:
+                return "Unknown";
+            }
+            return "Unknown";
+          })(),
+          i = await (async () => {
+            let n, i;
+            try {
+              const a = await fetch(o.d.ANALYTIC_INFO);
+              200 === a.status && (n = await a.json()),
+                (i = (n && n.uuid) || Object(s.a)()),
+                await fetch(o.d.ANALYTIC_INFO, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ uuid: i })
+                });
+            } catch (n) {}
+            return i;
+          })();
+        await updateUserInfo(),
+          chrome.storage.local.set({
+            [o.b.ANALYTICS_INFO_KEY]: { uuid: i, country: getLocale(), resource: o.b.ANALYTICS_RESOURCE_TYPES.ORGANIC, user_agent: n }
+          });
+      }
+      return await getAnalyticsInfoFromLocalStorage();
+    };
+    var w = a(14),
+      $ = a(15),
+      ie = a(11),
+      oe = (a(25), a(24));
     const getI18N = (n, i) => chrome.i18n.getMessage(n) || chrome.i18n.getMessage(i || n) || n,
       sendGAEvent = (n, i, a, s) =>
         new Promise((y) => {
-          chrome.runtime.sendMessage({ name: o.n.GA_EVENT, category: n, action: i, label: a, isCount: s }, () => y());
+          chrome.runtime.sendMessage({ name: o.o.GA_EVENT, category: n, action: i, label: a, isCount: s }, () => y());
         }),
       sendMessageToWorker = (n) =>
         new Promise((i) => {
-          $.BrowserAPI.runtime.sendMessage(n, (n) => i(n));
+          ie.BrowserAPI.runtime.sendMessage(n, (n) => i(n));
         }),
       sendToWorker = (n) =>
         new Promise((i) => {
-          $.BrowserAPI.runtime.sendMessage(n, (n) => i(n));
+          ie.BrowserAPI.runtime.sendMessage(n, (n) => i(n));
         }),
       getManifest = () => chrome.runtime.getManifest(),
       sendToActiveTab = (n, i) => {
@@ -2876,63 +3085,72 @@
             o && chrome.tabs.sendMessage(o, { name: n, data: i || "" });
           });
       },
+      getActiveTab = () =>
+        new Promise((n) => {
+          chrome.tabs.query({ active: !0, lastFocusedWindow: !0 }, (i) => {
+            n(i[0]);
+          });
+        }),
       updateRemoteSettingsData = async () => {
-        chrome.storage.local.get([o.e.BLOCKED_ELEMENTS, o.e.SETTINGS, o.e.WHITELIST, o.e.USER], async (n) => {
-          const i = n[o.e.WHITELIST],
-            a = n[o.e.SOCIAL_CONTENT_KEYWORDS],
-            y = n[o.e.BLOCKED_ELEMENTS],
-            $ = n[o.e.USER],
-            oe = n[o.e.SETTINGS],
-            se = null == $ ? void 0 : $.isPremium,
-            { version: le } = getManifest(),
-            he = {
-              extensionVersion: le,
+        chrome.storage.local.get([o.f.BLOCKED_ELEMENTS, o.f.SETTINGS, o.f.WHITELIST, o.f.USER], async (n) => {
+          const i = n[o.f.WHITELIST],
+            a = n[o.f.SOCIAL_CONTENT_KEYWORDS],
+            s = n[o.f.BLOCKED_ELEMENTS],
+            y = n[o.f.USER],
+            E = n[o.f.SETTINGS],
+            ie = null == y ? void 0 : y.isPremium,
+            { version: se } = getManifest(),
+            le = {
+              extensionVersion: se,
               features: {
-                popups: void 0 === oe.popups || oe.popups,
-                overlays: oe.detectOverlays,
-                hideElements: void 0 === oe.hideElements || oe.hideElements,
-                pushNotification: !!oe.pushNotification && oe.pushNotification,
-                socialContentBlocker: oe.socialContentBlocker
+                popups: void 0 === E.popups || E.popups,
+                overlays: E.detectOverlays,
+                hideElements: void 0 === E.hideElements || E.hideElements,
+                pushNotification: !!E.pushNotification && E.pushNotification,
+                socialContentBlocker: E.socialContentBlocker
               },
               whitelist: i || [],
               socialContentKeyWords: a || [],
-              blockedElements: y || {}
+              blockedElements: s || {}
             };
-          Object(E.c)().forEach(async (n) => {
+          Object(w.c)().forEach(async (n) => {
             const i = n.SettingsKey,
-              a = await w.a.getDefault(ie.a.onTrialEnded).loadAndUpdate();
-            he.features[n.SettingsKey] = oe[i] && (se || a.isTrialActive());
+              a = await $.a.getDefault(oe.a.onTrialEnded).loadAndUpdate();
+            le.features[n.SettingsKey] = E[i] && (ie || a.isTrialActive());
           });
-          const pe = await Object(s.a)();
+          const he = await getOrInitAnalyticsInfoFromLocalStorage();
           await fetch(o.d.SETTINGS, {
             method: "POST",
-            headers: { "Content-Type": "application/json", id: pe.uuid },
-            body: JSON.stringify(he)
+            headers: { "Content-Type": "application/json", id: he.uuid },
+            body: JSON.stringify(le)
           });
         });
       },
       isPremium = async () => {
-        const n = await y.a.get(o.e.USER);
+        const n = await y.a.get(o.f.USER);
         return !!(null == n ? void 0 : n.isPremium);
       },
-      msToDays = (n) => n / o.o,
+      msToDays = (n) => n / o.p,
       getDaysPassed = (n) => {
         const i = n,
           a = Date.now() - i;
         return Math.floor(msToDays(a));
       },
       backgroundSafeExec = (n, i) => {
-        void 0 !== $.BrowserAPI.tabs ? n() : i();
+        void 0 !== ie.BrowserAPI.tabs ? n() : i();
       },
-      checkIsPinned = async () => ({ isPinned: (await $.BrowserAPI.action.getUserSettings()).isOnToolbar });
-    const openPlansPage = () => {
-        const n = o.m.WEB_APP + "/settings?checkout=1";
+      checkIsPinned = async () => ({ isPinned: (await ie.BrowserAPI.action.getUserSettings()).isOnToolbar });
+    const openPlansPage = (n = "") => {
+        const i = `${o.n.WEB_APP}/settings?checkout=1&source=${n}`;
         backgroundSafeExec(
-          () => chrome.tabs.create({ url: n }),
-          () => window.postMessage({ type: o.n.OPEN_EXTENSION_CHECKOUT_MODAL }, "*")
+          () => chrome.tabs.create({ url: i }),
+          () => window.postMessage({ type: o.o.OPEN_EXTENSION_CHECKOUT_MODAL, source: n }, "*")
         );
       },
-      isProductionEnv = () => !0,
+      getFeatureFlag = async (n, i) => {
+        const a = await sendToWorker({ name: o.o.GET_ALL_FEATURES_FLAGS });
+        return n in a ? a[n] : i;
+      },
       replaceAll = (n, i, a) => {
         const o = new RegExp(`\\b${i}\\b`, "gi");
         return n.replace(o, a);
@@ -2946,6 +3164,21 @@
             }, i));
         };
       };
+  },
+  function (n, i) {
+    const a = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
+      o = ["Firefox", "Safari", "MSIE"];
+    n.exports.BrowserAPI = (() => {
+      for (const n of a) if (navigator.userAgent.indexOf(n) > -1) return !0;
+      return !1;
+    })()
+      ? chrome
+      : (() => {
+          for (const n of o) if (navigator.userAgent.indexOf(n) > -1) return !0;
+          return !1;
+        })()
+      ? browser
+      : { runtime: { sendMessage: () => {} } };
   },
   function (n, i, a) {
     "use strict";
@@ -2970,7 +3203,7 @@
         SocialBlocker: {
           Name: "SocialBlocker",
           SettingsKey: "facebookAdds",
-          QuickSettings: { QuickSettingsId: o.l.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
+          QuickSettings: { QuickSettingsId: o.m.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
           HasTrial: !0,
           Style: { "margin-top": "43px" },
           ImgURL: "images/facebook-cta.svg",
@@ -2990,7 +3223,7 @@
         CookieCrumbler: {
           Name: "CookieCrumbler",
           SettingsKey: "cookieCrumbler",
-          QuickSettings: { QuickSettingsId: o.l.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
+          QuickSettings: { QuickSettingsId: o.m.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
           HasTrial: !0,
           Style: { "margin-top": "23px" },
           ImgURL: "images/cookie-blocked.svg",
@@ -3067,80 +3300,13 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(13);
-    const s = new (class Storage {
-      constructor(n) {
-        this.storageAreaName = n;
-      }
-      get(n) {
-        return new Promise((i, a) => {
-          this.getAll(n)
-            .then((a) => {
-              n || i(a), i(a && n in a ? a[n] : null);
-            })
-            .catch(a);
-        });
-      }
-      getAll(...n) {
-        return new Promise((i, a) => {
-          o.BrowserAPI.storage[this.storageAreaName].get(n, (n) => {
-            var s;
-            if (n) i(n);
-            else {
-              const n = null == (s = o.BrowserAPI.runtime) ? void 0 : s.lastError;
-              n ? a(n) : i(null);
-            }
-          });
-        });
-      }
-      set(n, i) {
-        return new Promise((a, s) => {
-          o.BrowserAPI.storage[this.storageAreaName].set({ [n]: i }, () => {
-            var n;
-            const i = null == (n = o.BrowserAPI.runtime) ? void 0 : n.lastError;
-            i ? s(i) : a();
-          });
-        });
-      }
-      remove(n) {
-        return new Promise((i, a) => {
-          let s = 0;
-          n.forEach((y) => {
-            o.BrowserAPI.storage[this.storageAreaName].remove(y, () => {
-              var y;
-              const E = null == (y = o.BrowserAPI.runtime) ? void 0 : y.lastError;
-              E ? a(E) : ++s == n.length && i();
-            });
-          });
-        });
-      }
-    })("local");
-    i.a = s;
-  },
-  function (n, i) {
-    const a = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
-      o = ["Firefox", "Safari", "MSIE"];
-    n.exports.BrowserAPI = (() => {
-      for (const n of a) if (navigator.userAgent.indexOf(n) > -1) return !0;
-      return !1;
-    })()
-      ? chrome
-      : (() => {
-          for (const n of o) if (navigator.userAgent.indexOf(n) > -1) return !0;
-          return !1;
-        })()
-      ? browser
-      : { runtime: { sendMessage: () => {} } };
-  },
-  function (n, i, a) {
-    "use strict";
     a.d(i, "a", function () {
       return s;
     }),
       a.d(i, "b", function () {
         return Storage;
       });
-    var o = a(8),
+    var o = a(7),
       s = ((n) => ((n.Local = "local"), (n.Sync = "sync"), n))(s || {});
     class Storage {
       constructor(n) {
@@ -3193,12 +3359,27 @@
     i.c = y;
   },
   ,
+  function (n, i) {
+    const a = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
+      o = ["Firefox", "Safari", "MSIE"];
+    n.exports.BrowserAPI = (() => {
+      for (const n of a) if (navigator.userAgent.indexOf(n) > -1) return !0;
+      return !1;
+    })()
+      ? chrome
+      : (() => {
+          for (const n of o) if (navigator.userAgent.indexOf(n) > -1) return !0;
+          return !1;
+        })()
+      ? browser
+      : { runtime: { sendMessage: () => {} } };
+  },
   function (n, i, a) {
     "use strict";
     a.d(i, "a", function () {
       return $;
     });
-    var o = a(6),
+    var o = a(8),
       s = a(19),
       y = a(3),
       E = a(0);
@@ -3211,13 +3392,13 @@
           (this.lastDisplayed = -1),
           (this.doNotShowAgain = !1),
           (this.lastDisplayedPromo = -1),
-          (this.daysLeft = E.k);
+          (this.daysLeft = E.l);
       }
       async loadAndUpdate() {
         return await super.load(), await this.updateState(), this;
       }
       getDaysLeft() {
-        return E.k - Object(y.o)(this.startTime);
+        return E.l - Object(y.o)(this.startTime);
       }
       daysSinceDisplayedHook() {
         const n = Date.now(),
@@ -3251,7 +3432,7 @@
         this.isTrialActive() ? (this.state = 1) : this.isTrialEnded() && (this.state = 2);
         const n = this.daysLeft,
           i = Object(y.o)(this.startTime);
-        this.daysLeft = E.k - i;
+        this.daysLeft = E.l - i;
         let a = !1;
         n !== this.daysLeft && (a = !0), this.daysLeft <= 0 && (this.endTrial(), (a = !0)), a && this.save();
       }
@@ -3294,7 +3475,7 @@
         if (0 === n) {
           const n = this;
           if ("active" in n) {
-            const i = Object(y.o)(this.startTime) >= E.k;
+            const i = Object(y.o)(this.startTime) >= E.l;
             this.state = i ? 2 : n.active ? 1 : 0;
           }
         }
@@ -3307,9 +3488,9 @@
     "use strict";
     var o = a(0),
       s = a(3),
-      y = a(6),
-      E = a(11),
-      w = a(17),
+      y = a(8),
+      E = a(12),
+      w = a(18),
       $ = Object.defineProperty,
       ie = Object.getOwnPropertySymbols,
       oe = Object.prototype.hasOwnProperty,
@@ -3321,8 +3502,8 @@
         return n;
       };
     i.a = new (class PremiumManager {
-      async startPremiumFeature() {
-        return (await Object(s.F)()) || Object(s.M)(), !1;
+      async startPremiumFeature(n = "") {
+        return (await Object(s.F)()) || Object(s.M)(n), !1;
       }
       async shouldShowDailyPromo(n) {
         const i = await E.a.getDefault(this.onTrialEnded).loadAndUpdate();
@@ -3330,7 +3511,7 @@
       }
       async shouldShowEndPromo(n) {
         const i = await E.a.getDefault(this.onTrialEnded).loadAndUpdate(),
-          a = i.startTime + o.k * o.w,
+          a = i.startTime + o.l * o.x,
           s = i.lastDisplayedPromo > a;
         return i.isTrialEnded() && !s;
       }
@@ -3352,9 +3533,9 @@
           (a || y) &&
             Object(s.a)(
               () => {
-                Object(s.Y)(o.s.SHOW_TRIAL_PROMO, { feature: n, extras: E }), this.updatePromoDisplayTime(n);
+                Object(s.Y)(o.t.SHOW_TRIAL_PROMO, { feature: n, extras: E }), this.updatePromoDisplayTime(n);
               },
-              () => Object(s.Z)({ name: o.s.SHOW_TRIAL_PROMO, data: { feature: n, extras: E } })
+              () => Object(s.Z)({ name: o.t.SHOW_TRIAL_PROMO, data: { feature: n, extras: E } })
             );
       }
       async getFeaturesTrialState() {
@@ -3380,20 +3561,233 @@
       }
     })();
   },
-  function (n, i) {
-    const a = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
-      o = ["Firefox", "Safari", "MSIE"];
-    n.exports.BrowserAPI = (() => {
-      for (const n of a) if (navigator.userAgent.indexOf(n) > -1) return !0;
-      return !1;
-    })()
-      ? chrome
-      : (() => {
-          for (const n of o) if (navigator.userAgent.indexOf(n) > -1) return !0;
-          return !1;
-        })()
-      ? browser
-      : { runtime: { sendMessage: () => {} } };
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "b", function () {
+      return s;
+    }),
+      a.d(i, "a", function () {
+        return y;
+      }),
+      a.d(i, "c", function () {
+        return getPremiumFeaturesList;
+      }),
+      a.d(i, "d", function () {
+        return isPremiumFeature;
+      });
+    var o = a(2);
+    const s = "tState",
+      y = {
+        SocialBlocker: {
+          Name: "SocialBlocker",
+          SettingsKey: "facebookAdds",
+          QuickSettings: { QuickSettingsId: o.j.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
+          HasTrial: !0,
+          Style: { "margin-top": "43px" },
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: o.c.FACEBOOK_END,
+          TotalBlocksKeys: ["fbAd", "linkedinAd", "twitterAd", "instagramAd"],
+          ShowDailyPromo: !1,
+          Analytics: {
+            EndTrialEvent: o.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_OVER_PROMOTION_VIEW,
+            PromoView: o.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_INTRIAL_PROMOTION_VIEW,
+            PromoNotificationClick: o.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
+            PromoDiscountClick: o.b.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_PROMOTION_DISCOUNT
+          }
+        },
+        CookieCrumbler: {
+          Name: "CookieCrumbler",
+          SettingsKey: "cookieCrumbler",
+          QuickSettings: { QuickSettingsId: o.j.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
+          HasTrial: !0,
+          Style: { "margin-top": "23px" },
+          ImgURL: "images/cookie-blocked.svg",
+          TitleStrId: "cookiesBlocked",
+          StartTrialBtnStrId: "startTrialcookiesBtn",
+          EndTrialBtnStrId: "removeCookieForAllGood",
+          EndTrialLottieFile: o.c.COOKIE,
+          TotalBlocksKeys: ["cookie"],
+          ShowDailyPromo: !1,
+          Analytics: {
+            EndTrialEvent: o.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_END_OF_TRIAL,
+            PromoView: o.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_IN_TRIAL,
+            PromoNotificationClick: o.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
+            PromoDiscountClick: o.b.ANALYTICS_EVENT_TYPES.CLICK_COOKIE_PROMOTION_DISCOUNT
+          }
+        },
+        AdsBlocker: {
+          Name: "AdsBlocker",
+          SettingsKey: "adsBlocker",
+          QuickSettings: { QuickSettingsId: "adsBlocker", QuickSettingsTitleId: "settingsAdsBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["ad"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: o.c.FACEBOOK_END,
+          ShowDailyPromo: !1,
+          Analytics: {
+            HookShow: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW,
+            HookShowPostTrial: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW_POSTTRIAL,
+            HookClick: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK,
+            HookClickPostTrial: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK_POSTTRIAL,
+            HookDismiss: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS,
+            HookDismissPostTrial: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS_POSTTRIAL
+          }
+        },
+        YoutubeBlocker: {
+          Name: "YoutubeBlocker",
+          SettingsKey: "youtubeBlocker",
+          QuickSettings: { QuickSettingsId: "youtubeBlocker", QuickSettingsTitleId: "settingsYoutubeAdsBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["youtubeAd"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: o.c.FACEBOOK_END,
+          ShowDailyPromo: !1,
+          Analytics: {
+            HookShow: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW,
+            HookShowPostTrial: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW_POSTTRIAL,
+            HookClick: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK,
+            HookClickPostTrial: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK_POSTTRIAL,
+            HookDismiss: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS,
+            HookDismissPostTrial: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS_POSTTRIAL
+          }
+        },
+        TrackersBlocker: {
+          Name: "TrackersBlocker",
+          SettingsKey: "trackersBlocker",
+          QuickSettings: { QuickSettingsId: "trackersBlocker", QuickSettingsTitleId: "settingsTrackersBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["tracker"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "trackersBlockerSettingsTitle",
+          EndTrialLottieFile: o.c.FACEBOOK_END,
+          Analytics: {}
+        }
+      },
+      getPremiumFeaturesList = () => Object.keys(y).map((n) => y[n]),
+      isPremiumFeature = (n) =>
+        getPremiumFeaturesList().some((i) => {
+          return (a = n), i.Name === a.Name;
+          var a;
+        });
+  },
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "a", function () {
+      return $;
+    });
+    var o = a(14),
+      s = a(37),
+      y = a(6),
+      E = a(2);
+    const w = class extends s.a {
+      constructor(n) {
+        super(),
+          (this.onTrialEnded = n),
+          (this.state = 0),
+          (this.startTime = -1),
+          (this.lastDisplayed = -1),
+          (this.doNotShowAgain = !1),
+          (this.lastDisplayedPromo = -1),
+          (this.daysLeft = E.i);
+      }
+      async loadAndUpdate() {
+        return await super.load(), await this.updateState(), this;
+      }
+      getDaysLeft() {
+        return E.i - Object(y.d)(this.startTime);
+      }
+      daysSinceDisplayedHook() {
+        const n = Date.now(),
+          i = this.lastDisplayed < 0 ? n : this.lastDisplayed;
+        return Object(y.i)(n - i);
+      }
+      daysSinceDisplayedPromo() {
+        const n = Date.now(),
+          i = this.lastDisplayedPromo < 0 ? n : this.lastDisplayedPromo;
+        return Object(y.i)(n - i);
+      }
+      daysSinceStarted() {
+        const n = Date.now(),
+          i = this.startTime < 0 ? n : this.startTime;
+        return Object(y.i)(n - i);
+      }
+      isTrialActive() {
+        return 1 === this.state;
+      }
+      isTrialEnded() {
+        return 2 === this.state;
+      }
+      isTrialStarted() {
+        return this.isTrialActive() && !this.isTrialEnded();
+      }
+      isTrialPending() {
+        return 0 === this.state;
+      }
+      async updateState() {
+        if (!this.isTrialActive() || this.daysLeft <= 0) return;
+        this.isTrialActive() ? (this.state = 1) : this.isTrialEnded() && (this.state = 2);
+        const n = this.daysLeft,
+          i = Object(y.d)(this.startTime);
+        this.daysLeft = E.i - i;
+        let a = !1;
+        n !== this.daysLeft && (a = !0), this.daysLeft <= 0 && (this.endTrial(), (a = !0)), a && this.save();
+      }
+      async enable() {
+        return (
+          this.isTrialActive() ||
+            this.isTrialEnded() ||
+            ((this.startTime = Date.now()), (this.state = 1), (this.lastDisplayed = 0), await this.save()),
+          this
+        );
+      }
+      async endTrial() {
+        return (
+          this.isTrialEnded() ||
+            !this.isTrialActive() ||
+            ((this.daysLeft = 0), (this.state = 2), (this.doNotShowAgain = !1), await this.save(), this.onTrialEnded()),
+          this
+        );
+      }
+      toDTO() {
+        return {
+          startTime: this.startTime,
+          daysLeft: this.daysLeft,
+          lastDisplayed: this.lastDisplayed,
+          state: this.state,
+          doNotShowAgain: this.doNotShowAgain,
+          lastDisplayedPromo: this.lastDisplayedPromo
+        };
+      }
+      getKey() {
+        return o.b;
+      }
+      getLegacyKeys() {
+        return [];
+      }
+      getVersion() {
+        return 2;
+      }
+      async migrate(n) {
+        if (0 === n) {
+          const n = this;
+          if ("active" in n) {
+            const i = Object(y.d)(this.startTime) >= E.i;
+            this.state = i ? 2 : n.active ? 1 : 0;
+          }
+        }
+      }
+    };
+    let $ = w;
+    $.getDefault = (n) => new w(n);
   },
   function (n, i, a) {
     "use strict";
@@ -3730,128 +4124,10 @@
   },
   function (n, i, a) {
     "use strict";
-    a.d(i, "b", function () {
-      return s;
-    }),
-      a.d(i, "a", function () {
-        return y;
-      }),
-      a.d(i, "c", function () {
-        return getPremiumFeaturesList;
-      }),
-      a.d(i, "d", function () {
-        return isPremiumFeature;
-      });
-    var o = a(2);
-    const s = "tState",
-      y = {
-        SocialBlocker: {
-          Name: "SocialBlocker",
-          SettingsKey: "facebookAdds",
-          QuickSettings: { QuickSettingsId: o.i.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
-          HasTrial: !0,
-          Style: { "margin-top": "43px" },
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: o.c.FACEBOOK_END,
-          TotalBlocksKeys: ["fbAd", "linkedinAd", "twitterAd", "instagramAd"],
-          ShowDailyPromo: !1,
-          Analytics: {
-            EndTrialEvent: o.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_OVER_PROMOTION_VIEW,
-            PromoView: o.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_INTRIAL_PROMOTION_VIEW,
-            PromoNotificationClick: o.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
-            PromoDiscountClick: o.b.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_PROMOTION_DISCOUNT
-          }
-        },
-        CookieCrumbler: {
-          Name: "CookieCrumbler",
-          SettingsKey: "cookieCrumbler",
-          QuickSettings: { QuickSettingsId: o.i.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
-          HasTrial: !0,
-          Style: { "margin-top": "23px" },
-          ImgURL: "images/cookie-blocked.svg",
-          TitleStrId: "cookiesBlocked",
-          StartTrialBtnStrId: "startTrialcookiesBtn",
-          EndTrialBtnStrId: "removeCookieForAllGood",
-          EndTrialLottieFile: o.c.COOKIE,
-          TotalBlocksKeys: ["cookie"],
-          ShowDailyPromo: !1,
-          Analytics: {
-            EndTrialEvent: o.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_END_OF_TRIAL,
-            PromoView: o.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_IN_TRIAL,
-            PromoNotificationClick: o.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
-            PromoDiscountClick: o.b.ANALYTICS_EVENT_TYPES.CLICK_COOKIE_PROMOTION_DISCOUNT
-          }
-        },
-        AdsBlocker: {
-          Name: "AdsBlocker",
-          SettingsKey: "adsBlocker",
-          QuickSettings: { QuickSettingsId: "adsBlocker", QuickSettingsTitleId: "settingsAdsBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["ad"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: o.c.FACEBOOK_END,
-          ShowDailyPromo: !1,
-          Analytics: {
-            HookShow: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW,
-            HookShowPostTrial: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW_POSTTRIAL,
-            HookClick: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK,
-            HookClickPostTrial: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK_POSTTRIAL,
-            HookDismiss: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS,
-            HookDismissPostTrial: o.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS_POSTTRIAL
-          }
-        },
-        YoutubeBlocker: {
-          Name: "YoutubeBlocker",
-          SettingsKey: "youtubeBlocker",
-          QuickSettings: { QuickSettingsId: "youtubeBlocker", QuickSettingsTitleId: "settingsYoutubeAdsBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["youtubeAd"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: o.c.FACEBOOK_END,
-          ShowDailyPromo: !1,
-          Analytics: {
-            HookShow: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW,
-            HookShowPostTrial: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW_POSTTRIAL,
-            HookClick: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK,
-            HookClickPostTrial: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK_POSTTRIAL,
-            HookDismiss: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS,
-            HookDismissPostTrial: o.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS_POSTTRIAL
-          }
-        },
-        TrackersBlocker: {
-          Name: "TrackersBlocker",
-          SettingsKey: "trackersBlocker",
-          QuickSettings: { QuickSettingsId: "trackersBlocker", QuickSettingsTitleId: "settingsTrackersBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["tracker"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "trackersBlockerSettingsTitle",
-          EndTrialLottieFile: o.c.FACEBOOK_END,
-          Analytics: {}
-        }
-      },
-      getPremiumFeaturesList = () => Object.keys(y).map((n) => y[n]),
-      isPremiumFeature = (n) =>
-        getPremiumFeaturesList().some((i) => {
-          return (a = n), i.Name === a.Name;
-          var a;
-        });
-  },
-  function (n, i, a) {
-    "use strict";
-    var o = a(6),
+    var o = a(8),
       s = a(0),
       y = a(9),
-      E = a(12),
+      E = a(13),
       w = a(3),
       $ = Object.defineProperty,
       ie = Object.getOwnPropertySymbols,
@@ -3874,7 +4150,7 @@
           const $ = {};
           return (
             ($[n.SettingsKey] = y),
-            a && (await this.updateSettings($), Object(w.Z)({ name: s.s.SETTINGS_CHANGED, data: { feature: n, value: i } })),
+            a && (await this.updateSettings($), Object(w.Z)({ name: s.t.SETTINGS_CHANGED, data: { feature: n, value: i } })),
             $
           );
         }),
@@ -3882,132 +4158,22 @@
             let a = {};
             for (const o of n) {
               const n = await this.setFeatureEnabled(o, i, !1);
-              (a = __spreadValues(__spreadValues({}, a), n)), Object(w.Z)({ name: s.s.SETTINGS_CHANGED, data: { feature: o, value: i } });
+              (a = __spreadValues(__spreadValues({}, a), n)), Object(w.Z)({ name: s.t.SETTINGS_CHANGED, data: { feature: o, value: i } });
             }
             await this.updateSettings(a);
           }),
           (this.isFeatureEnabled = async (n) => {
-            const i = await y.c.get(s.g.SETTINGS);
+            const i = await y.c.get(s.h.SETTINGS);
             return !(!i || !(n.SettingsKey in i)) && i[n.SettingsKey];
           }),
           (this.updateSettings = async (n) => {
-            const i = await y.c.get(s.g.SETTINGS),
+            const i = await y.c.get(s.h.SETTINGS),
               a = __spreadValues(__spreadValues({}, i), n);
-            await y.c.set(s.g.SETTINGS, a), Object(w.Z)({ name: s.s.SETTINGS_CHANGED });
+            await y.c.set(s.h.SETTINGS, a), Object(w.Z)({ name: s.t.SETTINGS_CHANGED });
           }),
-          (this.getSettings = async () => y.c.get(s.g.SETTINGS));
+          (this.getSettings = async () => y.c.get(s.h.SETTINGS));
       }
     })();
-  },
-  function (n, i, a) {
-    "use strict";
-    a.d(i, "a", function () {
-      return $;
-    });
-    var o = a(16),
-      s = a(44),
-      y = a(5),
-      E = a(2);
-    const w = class extends s.a {
-      constructor(n) {
-        super(),
-          (this.onTrialEnded = n),
-          (this.state = 0),
-          (this.startTime = -1),
-          (this.lastDisplayed = -1),
-          (this.doNotShowAgain = !1),
-          (this.lastDisplayedPromo = -1),
-          (this.daysLeft = E.h);
-      }
-      async loadAndUpdate() {
-        return await super.load(), await this.updateState(), this;
-      }
-      getDaysLeft() {
-        return E.h - Object(y.c)(this.startTime);
-      }
-      daysSinceDisplayedHook() {
-        const n = Date.now(),
-          i = this.lastDisplayed < 0 ? n : this.lastDisplayed;
-        return Object(y.h)(n - i);
-      }
-      daysSinceDisplayedPromo() {
-        const n = Date.now(),
-          i = this.lastDisplayedPromo < 0 ? n : this.lastDisplayedPromo;
-        return Object(y.h)(n - i);
-      }
-      daysSinceStarted() {
-        const n = Date.now(),
-          i = this.startTime < 0 ? n : this.startTime;
-        return Object(y.h)(n - i);
-      }
-      isTrialActive() {
-        return 1 === this.state;
-      }
-      isTrialEnded() {
-        return 2 === this.state;
-      }
-      isTrialStarted() {
-        return this.isTrialActive() && !this.isTrialEnded();
-      }
-      isTrialPending() {
-        return 0 === this.state;
-      }
-      async updateState() {
-        if (!this.isTrialActive() || this.daysLeft <= 0) return;
-        this.isTrialActive() ? (this.state = 1) : this.isTrialEnded() && (this.state = 2);
-        const n = this.daysLeft,
-          i = Object(y.c)(this.startTime);
-        this.daysLeft = E.h - i;
-        let a = !1;
-        n !== this.daysLeft && (a = !0), this.daysLeft <= 0 && (this.endTrial(), (a = !0)), a && this.save();
-      }
-      async enable() {
-        return (
-          this.isTrialActive() ||
-            this.isTrialEnded() ||
-            ((this.startTime = Date.now()), (this.state = 1), (this.lastDisplayed = 0), await this.save()),
-          this
-        );
-      }
-      async endTrial() {
-        return (
-          this.isTrialEnded() ||
-            !this.isTrialActive() ||
-            ((this.daysLeft = 0), (this.state = 2), (this.doNotShowAgain = !1), await this.save(), this.onTrialEnded()),
-          this
-        );
-      }
-      toDTO() {
-        return {
-          startTime: this.startTime,
-          daysLeft: this.daysLeft,
-          lastDisplayed: this.lastDisplayed,
-          state: this.state,
-          doNotShowAgain: this.doNotShowAgain,
-          lastDisplayedPromo: this.lastDisplayedPromo
-        };
-      }
-      getKey() {
-        return o.b;
-      }
-      getLegacyKeys() {
-        return [];
-      }
-      getVersion() {
-        return 2;
-      }
-      async migrate(n) {
-        if (0 === n) {
-          const n = this;
-          if ("active" in n) {
-            const i = Object(y.c)(this.startTime) >= E.h;
-            this.state = i ? 2 : n.active ? 1 : 0;
-          }
-        }
-      }
-    };
-    let $ = w;
-    $.getDefault = (n) => new w(n);
   },
   function (n, i, a) {
     "use strict";
@@ -4060,7 +4226,7 @@
         return getUserInfo;
       });
     var o = a(0),
-      s = a(7);
+      s = a(5);
     const fetchWithTokenRefreshIfNeeded = async (n, i, a) => {
         const s = await fetch(n, i);
         if (s.status === a) return s;
@@ -4077,19 +4243,20 @@
           const n = await fetchWithTokenRefreshIfNeeded(o.e.GET_USER, {}, 200);
           if (200 === n.status) {
             const i = await n.json();
-            return await s.a.set(o.g.USER, i.user), await s.a.set(o.g.LAST_USER_UPDATE_DATE, Date.now()), i.user || null;
+            return await s.a.set(o.h.USER, i.user), await s.a.set(o.h.LAST_USER_UPDATE_DATE, Date.now()), i.user || null;
           }
-          await s.a.remove([o.g.LAST_USER_UPDATE_DATE]);
+          await s.a.remove([o.h.LAST_USER_UPDATE_DATE]);
         } catch (n) {
-          await s.a.remove([o.g.LAST_USER_UPDATE_DATE]);
+          await s.a.remove([o.h.LAST_USER_UPDATE_DATE]);
         }
       },
       updateUserInfo = async () => {
-        const n = await s.a.get(o.g.LAST_USER_UPDATE_DATE);
-        (!n || Date.now() - n >= o.J) && (await getUser());
+        if (!(await s.a.get(o.h.USER))) return;
+        const n = await s.a.get(o.h.LAST_USER_UPDATE_DATE);
+        (!n || Date.now() - n >= o.K) && (await getUser());
       },
-      logout = async () => 200 === (await fetch(o.e.LOGOUT)).status && (await s.a.remove([o.g.USER, o.g.LAST_USER_UPDATE_DATE]), !0),
-      getUserInfo = () => s.a.get(o.g.USER);
+      logout = async () => 200 === (await fetch(o.e.LOGOUT)).status && (await s.a.remove([o.h.USER, o.h.LAST_USER_UPDATE_DATE]), !0),
+      getUserInfo = () => s.a.get(o.h.USER);
   },
   function (n, i, a) {
     "use strict";
@@ -4105,14 +4272,14 @@
       a.d(i, "d", function () {
         return sendAnalyticsEvent;
       });
-    var o = a(71),
+    var o = a(63),
       s = a(0),
-      y = a(36),
+      y = a(34),
       E = a(3),
       w = a(20),
-      $ = a(39),
-      ie = a(24),
-      oe = a(15),
+      $ = a(38),
+      ie = a(23),
+      oe = a(17),
       se = Object.defineProperty,
       le = Object.getOwnPropertySymbols,
       he = Object.prototype.hasOwnProperty,
@@ -4223,15 +4390,16 @@
         var se;
       },
       sendAliveAnalyticsEvent = async () => {
-        chrome.storage.local.get([s.g.LAST_ALIVE_EVENT_SENT_AT, s.g.SETTINGS], async (n) => {
-          const i = n[s.g.LAST_ALIVE_EVENT_SENT_AT] || 0,
+        chrome.storage.local.get([s.h.LAST_ALIVE_EVENT_SENT_AT, s.h.SETTINGS], async (n) => {
+          const i = n[s.h.LAST_ALIVE_EVENT_SENT_AT] || 0,
             a = Date.now(),
-            o = a - i >= s.w,
+            o = a - i >= s.x,
             y = await ie.a.isOptIn(),
-            $ = (await Object(E.b)()).isPinned;
+            $ = (await Object(E.b)()).isPinned,
+            oe = await Object(E.F)();
           if (o) {
-            await sendAnalyticsEvent(s.c.ANALYTICS_EVENT_TYPES.ALIVE, { payload: JSON.stringify({ optin: y, pinned: $ }) }),
-              chrome.storage.local.set({ [s.g.LAST_ALIVE_EVENT_SENT_AT]: a });
+            await sendAnalyticsEvent(s.c.ANALYTICS_EVENT_TYPES.ALIVE, { payload: JSON.stringify({ optin: y, pinned: $, isPremium: oe }) }),
+              chrome.storage.local.set({ [s.h.LAST_ALIVE_EVENT_SENT_AT]: a });
             if (await Object(w.c)())
               try {
                 await fetch(s.e.ALIVE, { method: "POST", headers: [["x-opt", "" + (y ? 1 : 0)]] });
@@ -4271,7 +4439,7 @@
       migrate(n) {
         if (!(n > 0))
           return new Promise((n) => {
-            y.c.get(o.g.SETTINGS).then((i) => {
+            y.c.get(o.h.SETTINGS).then((i) => {
               i && void 0 !== i.isOptIn ? (this.state = i.isOptIn ? 1 : 0) : (this.state = -1), n();
             });
           });
@@ -4280,35 +4448,6 @@
         return await new OptEntity().load();
       }
     }
-  },
-  function (n, i, a) {
-    "use strict";
-    a.d(i, "a", function () {
-      return o;
-    }),
-      a.d(i, "b", function () {
-        return getBrowserName;
-      });
-    var o = ((n) => (
-      (n.CHROME = "chrome"),
-      (n.FIREFOX = "firefox"),
-      (n.OPERA = "opera"),
-      (n.EDGE = "edge"),
-      (n.SAFARI = "safari"),
-      (n.UNKNOWN = "unknown"),
-      n
-    ))(o || {});
-    const getBrowserName = () => {
-      try {
-        const n = navigator.userAgent;
-        if (n.match(/opera|opr\//i)) return "opera";
-        if (n.match(/firefox|fxios/i)) return "firefox";
-        if (n.match(/edg/i)) return "edge";
-        if (n.match(/safari/i) && !n.match(/chrome|chromium|crios/i)) return "safari";
-        if (n.match(/chrome|chromium|crios/i)) return "chrome";
-      } catch (n) {}
-      return "unknown";
-    };
   },
   function (n, i, a) {
     "use strict";
@@ -4341,18 +4480,11 @@
   },
   function (n, i, a) {
     "use strict";
-    a.d(i, "a", function () {
-      return o;
-    });
-    var o = ((n) => ((n.Anonymous = "anonymous"), (n.Free = "free"), (n.Premium = "premium"), n))(o || {});
-  },
-  function (n, i, a) {
-    "use strict";
     var o = a(2),
-      s = a(5),
-      y = a(16),
-      E = a(18),
-      w = a(29),
+      s = a(6),
+      y = a(14),
+      E = a(15),
+      w = a(25),
       $ = Object.defineProperty,
       ie = Object.getOwnPropertySymbols,
       oe = Object.prototype.hasOwnProperty,
@@ -4364,8 +4496,8 @@
         return n;
       };
     i.a = new (class PremiumManager {
-      async startPremiumFeature() {
-        return (await Object(s.f)()) || Object(s.i)(), !1;
+      async startPremiumFeature(n = "") {
+        return (await Object(s.h)()) || Object(s.j)(n), !1;
       }
       async shouldShowDailyPromo(n) {
         const i = await E.a.getDefault(this.onTrialEnded).loadAndUpdate();
@@ -4373,7 +4505,7 @@
       }
       async shouldShowEndPromo(n) {
         const i = await E.a.getDefault(this.onTrialEnded).loadAndUpdate(),
-          a = i.startTime + o.h * o.o,
+          a = i.startTime + o.i * o.p,
           s = i.lastDisplayedPromo > a;
         return i.isTrialEnded() && !s;
       }
@@ -4386,7 +4518,7 @@
         (i.lastDisplayedPromo = Date.now()), await i.save();
       }
       async showTrialPromoIfNeeded(n, i) {
-        if (await Object(s.f)()) return;
+        if (await Object(s.h)()) return;
         const a = (await this.shouldShowDailyPromo(n)) && n.ShowDailyPromo,
           y = await this.shouldShowEndPromo(n),
           E = i || {};
@@ -4395,9 +4527,9 @@
           (a || y) &&
             Object(s.a)(
               () => {
-                Object(s.m)(o.n.SHOW_TRIAL_PROMO, { feature: n, extras: E }), this.updatePromoDisplayTime(n);
+                Object(s.n)(o.o.SHOW_TRIAL_PROMO, { feature: n, extras: E }), this.updatePromoDisplayTime(n);
               },
-              () => Object(s.n)({ name: o.n.SHOW_TRIAL_PROMO, data: { feature: n, extras: E } })
+              () => Object(s.o)({ name: o.o.SHOW_TRIAL_PROMO, data: { feature: n, extras: E } })
             );
       }
       async getFeaturesTrialState() {
@@ -4410,18 +4542,78 @@
       }
       async isPremiumFeatureAvailable(n) {
         const i = await E.a.getDefault(this.onTrialEnded).load();
-        return (await Object(s.f)()) || (n.HasTrial && i.isTrialActive());
+        return (await Object(s.h)()) || (n.HasTrial && i.isTrialActive());
       }
       async clearTrials() {
         await E.a.getDefault(this.onTrialEnded).save();
       }
       async onTrialEnded() {
-        if (!(await Object(s.f)())) for (const n of Object(y.c)()) await w.a.setFeatureEnabled(n, !1);
+        if (!(await Object(s.h)())) for (const n of Object(y.c)()) await w.a.setFeatureEnabled(n, !1);
       }
       async getTrialEntity() {
         return await E.a.getDefault(this.onTrialEnded).loadAndUpdate();
       }
     })();
+  },
+  function (n, i, a) {
+    "use strict";
+    var o = a(14),
+      s = a(2),
+      y = a(5),
+      E = a(24),
+      w = a(6),
+      $ = Object.defineProperty,
+      ie = Object.getOwnPropertySymbols,
+      oe = Object.prototype.hasOwnProperty,
+      se = Object.prototype.propertyIsEnumerable,
+      __defNormalProp = (n, i, a) => (i in n ? $(n, i, { enumerable: !0, configurable: !0, writable: !0, value: a }) : (n[i] = a)),
+      __spreadValues = (n, i) => {
+        for (var a in i || (i = {})) oe.call(i, a) && __defNormalProp(n, a, i[a]);
+        if (ie) for (var a of ie(i)) se.call(i, a) && __defNormalProp(n, a, i[a]);
+        return n;
+      };
+    i.a = new (class SettingsHelper {
+      constructor() {
+        (this.setFeatureEnabled = async (n, i, a = !0) => {
+          let y = i;
+          if (y && Object(o.d)(n)) {
+            const i = await E.a.isPremiumFeatureAvailable(n);
+            y = y && i;
+          }
+          const $ = {};
+          return (
+            ($[n.SettingsKey] = y),
+            a && (await this.updateSettings($), Object(w.o)({ name: s.o.SETTINGS_CHANGED, data: { feature: n, value: i } })),
+            $
+          );
+        }),
+          (this.setFeaturesEnabled = async (n, i) => {
+            let a = {};
+            for (const o of n) {
+              const n = await this.setFeatureEnabled(o, i, !1);
+              (a = __spreadValues(__spreadValues({}, a), n)), Object(w.o)({ name: s.o.SETTINGS_CHANGED, data: { feature: o, value: i } });
+            }
+            await this.updateSettings(a);
+          }),
+          (this.isFeatureEnabled = async (n) => {
+            const i = await y.a.get(s.f.SETTINGS);
+            return !(!i || !(n.SettingsKey in i)) && i[n.SettingsKey];
+          }),
+          (this.updateSettings = async (n) => {
+            const i = await y.a.get(s.f.SETTINGS),
+              a = __spreadValues(__spreadValues({}, i), n);
+            await y.a.set(s.f.SETTINGS, a), Object(w.o)({ name: s.o.SETTINGS_CHANGED });
+          }),
+          (this.getSettings = async () => y.a.get(s.f.SETTINGS));
+      }
+    })();
+  },
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "a", function () {
+      return o;
+    });
+    var o = ((n) => ((n.Anonymous = "anonymous"), (n.Free = "free"), (n.Premium = "premium"), n))(o || {});
   },
   function (n, i, a) {
     "use strict";
@@ -4435,7 +4627,7 @@
         }
       }
     })(),
-      (n.exports = a(74));
+      (n.exports = a(67));
   },
   function (n, i, a) {
     "use strict";
@@ -4481,7 +4673,7 @@
       a.d(i, "h", function () {
         return getParentByLevel;
       });
-    var o = a(37),
+    var o = a(35),
       s = a(0);
     function getPrivacyPolicy(n = null) {
       const i = o.a["privacy_policy_" + getBrowser()];
@@ -4508,8 +4700,8 @@
     }
     const getRandId = async () =>
       new Promise((n) => {
-        chrome.storage.local.get(s.g.RDID, (i) => {
-          n(i[s.g.RDID]);
+        chrome.storage.local.get(s.h.RDID, (i) => {
+          n(i[s.h.RDID]);
         });
       });
     async function randId() {
@@ -4518,7 +4710,7 @@
           return ((65536 * (1 + Math.random(Date.now() + 14))) | 0).toString(28).substring(1);
         };
         const n = rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr();
-        chrome.storage.local.set({ [s.g.RDID]: n });
+        chrome.storage.local.set({ [s.h.RDID]: n });
       }
       return await getRandId();
     }
@@ -4582,59 +4774,6 @@
         }
         return a;
       };
-  },
-  function (n, i, a) {
-    "use strict";
-    var o = a(16),
-      s = a(2),
-      y = a(7),
-      E = a(26),
-      w = a(5),
-      $ = Object.defineProperty,
-      ie = Object.getOwnPropertySymbols,
-      oe = Object.prototype.hasOwnProperty,
-      se = Object.prototype.propertyIsEnumerable,
-      __defNormalProp = (n, i, a) => (i in n ? $(n, i, { enumerable: !0, configurable: !0, writable: !0, value: a }) : (n[i] = a)),
-      __spreadValues = (n, i) => {
-        for (var a in i || (i = {})) oe.call(i, a) && __defNormalProp(n, a, i[a]);
-        if (ie) for (var a of ie(i)) se.call(i, a) && __defNormalProp(n, a, i[a]);
-        return n;
-      };
-    i.a = new (class SettingsHelper {
-      constructor() {
-        (this.setFeatureEnabled = async (n, i, a = !0) => {
-          let y = i;
-          if (y && Object(o.d)(n)) {
-            const i = await E.a.isPremiumFeatureAvailable(n);
-            y = y && i;
-          }
-          const $ = {};
-          return (
-            ($[n.SettingsKey] = y),
-            a && (await this.updateSettings($), Object(w.n)({ name: s.n.SETTINGS_CHANGED, data: { feature: n, value: i } })),
-            $
-          );
-        }),
-          (this.setFeaturesEnabled = async (n, i) => {
-            let a = {};
-            for (const o of n) {
-              const n = await this.setFeatureEnabled(o, i, !1);
-              (a = __spreadValues(__spreadValues({}, a), n)), Object(w.n)({ name: s.n.SETTINGS_CHANGED, data: { feature: o, value: i } });
-            }
-            await this.updateSettings(a);
-          }),
-          (this.isFeatureEnabled = async (n) => {
-            const i = await y.a.get(s.e.SETTINGS);
-            return !(!i || !(n.SettingsKey in i)) && i[n.SettingsKey];
-          }),
-          (this.updateSettings = async (n) => {
-            const i = await y.a.get(s.e.SETTINGS),
-              a = __spreadValues(__spreadValues({}, i), n);
-            await y.a.set(s.e.SETTINGS, a), Object(w.n)({ name: s.n.SETTINGS_CHANGED });
-          }),
-          (this.getSettings = async () => y.a.get(s.e.SETTINGS));
-      }
-    })();
   },
   function (n, i, a) {
     "use strict";
@@ -4970,45 +5109,63 @@
   },
   function (n, i, a) {
     "use strict";
-    a.d(i, "a", function () {
-      return fetchWithTokenRefreshIfNeeded;
-    }),
-      a.d(i, "c", function () {
-        return updateUserInfo;
-      }),
-      a.d(i, "b", function () {
-        return getUserInfo;
-      });
     var o = a(2),
-      s = a(7);
-    const fetchWithTokenRefreshIfNeeded = async (n, i, a) => {
-        const s = await fetch(n, i);
-        if (s.status === a) return s;
-        if (401 === s.status) {
-          if (204 === (await fetch(o.d.REFRESH, { method: "POST", headers: { "Content-Type": "application/json" } })).status) {
-            const o = await fetch(n, i);
-            if (o.status === a) return o;
-          }
-          return { status: s.status, message: s.statusText };
-        }
-      },
-      updateUserInfo = async () => {
-        const n = await s.a.get(o.e.LAST_USER_UPDATE_DATE);
-        (!n || Date.now() - n >= o.t) &&
-          (await (async () => {
-            try {
-              const n = await fetchWithTokenRefreshIfNeeded(o.d.GET_USER, {}, 200);
-              if (200 === n.status) {
-                const i = await n.json();
-                return await s.a.set(o.e.USER, i.user), await s.a.set(o.e.LAST_USER_UPDATE_DATE, Date.now()), i.user || null;
-              }
-              await s.a.remove([o.e.LAST_USER_UPDATE_DATE]);
-            } catch (n) {
-              await s.a.remove([o.e.LAST_USER_UPDATE_DATE]);
-            }
-          })());
-      },
-      getUserInfo = () => s.a.get(o.e.USER);
+      s = a(37),
+      y = a(5),
+      E = ((n) => ((n[(n.UNKNOWN = -1)] = "UNKNOWN"), (n[(n.OUT = 0)] = "OUT"), (n[(n.IN = 1)] = "IN"), n))(E || {});
+    class opt_entity_OptEntity extends s.a {
+      constructor() {
+        super(...arguments), (this.state = -1);
+      }
+      getKey() {
+        return "opt";
+      }
+      getLegacyKeys() {
+        return [];
+      }
+      toDTO() {
+        return { state: this.state };
+      }
+      getVersion() {
+        return 1;
+      }
+      migrate(n) {
+        if (!(n > 0))
+          return new Promise((n) => {
+            y.a.get(o.f.SETTINGS).then((i) => {
+              i && void 0 !== i.isOptIn ? (this.state = i.isOptIn ? 1 : 0) : (this.state = -1), n();
+            });
+          });
+      }
+      static async getOrCreate() {
+        return await new opt_entity_OptEntity().load();
+      }
+    }
+    i.a = new (class opt_manager_OptManager {
+      async optIn() {
+        const n = await opt_entity_OptEntity.getOrCreate();
+        return (n.state = E.IN), n.save().then(() => this.onOptStateChanged(n.state));
+      }
+      async optOut() {
+        const n = await opt_entity_OptEntity.getOrCreate();
+        return (n.state = E.OUT), n.save().then(() => this.onOptStateChanged(n.state));
+      }
+      async isOptIn() {
+        return (await opt_entity_OptEntity.getOrCreate()).state == E.IN;
+      }
+      async getOptInCurrentState() {
+        return (await opt_entity_OptEntity.getOrCreate()).state;
+      }
+      async isOptInStatusUnknown() {
+        return (await opt_entity_OptEntity.getOrCreate()).state == E.UNKNOWN;
+      }
+      setOptStateChangedListener(n) {
+        this.onOptStateChangedListener = n;
+      }
+      onOptStateChanged(n) {
+        this.onOptStateChangedListener && this.onOptStateChangedListener(n);
+      }
+    })();
   },
   function (n, i, a) {
     var o;
@@ -5313,8 +5470,8 @@
           _t = /HTML$/i,
           St = /^(?:input|select|textarea|button)$/i,
           Tt = /^h\d$/i,
-          Ct = /^[^{]+\{\s*\[native \w/,
-          Ot = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
+          Ot = /^[^{]+\{\s*\[native \w/,
+          Ct = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
           It = /[+~]/,
           At = new RegExp("\\\\[\\da-fA-F]{1,6}" + ct + "?|\\\\([^\\r\\n\\f])", "g"),
           funescape = function (n, i) {
@@ -5360,7 +5517,7 @@
             Ue = i ? i.nodeType : 9;
           if (((o = o || []), "string" != typeof n || !n || (1 !== Ue && 9 !== Ue && 11 !== Ue))) return o;
           if (!s && (le(i), (i = i || he), ge)) {
-            if (11 !== Ue && (se = Ot.exec(n)))
+            if (11 !== Ue && (se = Ct.exec(n)))
               if ((y = se[1])) {
                 if (9 === Ue) {
                   if (!(ie = i.getElementById(y))) return o;
@@ -5499,7 +5656,7 @@
                 (a.getElementsByTagName = assert(function (n) {
                   return n.appendChild(he.createComment("")), !n.getElementsByTagName("*").length;
                 })),
-                (a.getElementsByClassName = Ct.test(he.getElementsByClassName)),
+                (a.getElementsByClassName = Ot.test(he.getElementsByClassName)),
                 (a.getById = assert(function (n) {
                   return (pe.appendChild(n).id = je), !he.getElementsByName || !he.getElementsByName(je).length;
                 })),
@@ -5559,7 +5716,7 @@
                   }),
                 (Se = []),
                 (ve = []),
-                (a.qsa = Ct.test(he.querySelectorAll)) &&
+                (a.qsa = Ot.test(he.querySelectorAll)) &&
                   (assert(function (n) {
                     var i;
                     (pe.appendChild(n).innerHTML =
@@ -5587,7 +5744,7 @@
                       n.querySelectorAll("*,:x"),
                       ve.push(",.*:");
                   })),
-                (a.matchesSelector = Ct.test(
+                (a.matchesSelector = Ot.test(
                   (Oe = pe.matches || pe.webkitMatchesSelector || pe.mozMatchesSelector || pe.oMatchesSelector || pe.msMatchesSelector)
                 )) &&
                   assert(function (n) {
@@ -5596,9 +5753,9 @@
                 a.cssHas || ve.push(":has"),
                 (ve = ve.length && new RegExp(ve.join("|"))),
                 (Se = Se.length && new RegExp(Se.join("|"))),
-                (i = Ct.test(pe.compareDocumentPosition)),
+                (i = Ot.test(pe.compareDocumentPosition)),
                 (we =
-                  i || Ct.test(pe.contains)
+                  i || Ot.test(pe.contains)
                     ? function (n, i) {
                         var a = (9 === n.nodeType && n.documentElement) || n,
                           o = i && i.parentNode;
@@ -7092,7 +7249,7 @@
             for (oe = 0; (y = E[oe++]); ) _t.test(y.type || "") && a.push(y);
         return se;
       }
-      var Ct = /^([^.]*)(?:\.(.+)|)/;
+      var Ot = /^([^.]*)(?:\.(.+)|)/;
       function returnTrue() {
         return !0;
       }
@@ -7193,7 +7350,7 @@
               ie--;
 
             )
-              (he = ge = (w = Ct.exec(i[ie]) || [])[1]),
+              (he = ge = (w = Ot.exec(i[ie]) || [])[1]),
                 (pe = (w[2] || "").split(".").sort()),
                 he &&
                   ((se = jQuery.event.special[he] || {}),
@@ -7234,7 +7391,7 @@
             ve = st.hasData(n) && st.get(n);
           if (ve && ($ = ve.events)) {
             for (ie = (i = (i || "").match(nt) || [""]).length; ie--; )
-              if (((he = ge = (w = Ct.exec(i[ie]) || [])[1]), (pe = (w[2] || "").split(".").sort()), he)) {
+              if (((he = ge = (w = Ot.exec(i[ie]) || [])[1]), (pe = (w[2] || "").split(".").sort()), he)) {
                 for (
                   se = jQuery.event.special[he] || {},
                     le = $[(he = (o ? se.delegateType : se.bindType) || he)] || [],
@@ -7479,7 +7636,7 @@
             );
           }
         });
-      var Ot = /<script|<style|<link/i,
+      var Ct = /<script|<style|<link/i,
         It = /checked\s*(?:[^=]|=\s*.checked.)/i,
         At = /^\s*<!\[CDATA\[|\]\]>\s*$/g;
       function manipulationTarget(n, i) {
@@ -7642,7 +7799,7 @@
                   a = 0,
                   o = this.length;
                 if (void 0 === n && 1 === i.nodeType) return i.innerHTML;
-                if ("string" == typeof n && !Ot.test(n) && !St[(bt.exec(n) || ["", ""])[1].toLowerCase()]) {
+                if ("string" == typeof n && !Ct.test(n) && !St[(bt.exec(n) || ["", ""])[1].toLowerCase()]) {
                   n = jQuery.htmlPrefilter(n);
                   try {
                     for (; a < o; a++) 1 === (i = this[a] || {}).nodeType && (jQuery.cleanData(getAll(i, !1)), (i.innerHTML = n));
@@ -8066,7 +8223,7 @@
       var Bt,
         jt,
         Ut = /^(?:toggle|show|hide)$/,
-        Vt = /queueHooks$/;
+        Kt = /queueHooks$/;
       function schedule() {
         jt &&
           (!1 === we.hidden && a.requestAnimationFrame ? a.requestAnimationFrame(schedule) : a.setTimeout(schedule, jQuery.fx.interval),
@@ -8295,7 +8452,7 @@
                   s = jQuery.timers,
                   y = st.get(this);
                 if (o) y[o] && y[o].stop && stopQueue(y[o]);
-                else for (o in y) y[o] && y[o].stop && Vt.test(o) && stopQueue(y[o]);
+                else for (o in y) y[o] && y[o].stop && Kt.test(o) && stopQueue(y[o]);
                 for (o = s.length; o--; )
                   s[o].elem !== this || (null != n && s[o].queue !== n) || (s[o].anim.stop(a), (i = !1), s.splice(o, 1));
                 (!i && a) || jQuery.dequeue(this, n);
@@ -8382,8 +8539,8 @@
             (n.type = "radio"),
             (ve.radioValue = "t" === n.value);
         })();
-      var zt,
-        Kt = jQuery.expr.attrHandle;
+      var Vt,
+        zt = jQuery.expr.attrHandle;
       jQuery.fn.extend({
         attr: function (n, i) {
           return access(this, jQuery.attr, n, i, arguments.length > 1);
@@ -8403,7 +8560,7 @@
               return void 0 === n.getAttribute
                 ? jQuery.prop(n, i, a)
                 : ((1 === y && jQuery.isXMLDoc(n)) ||
-                    (s = jQuery.attrHooks[i.toLowerCase()] || (jQuery.expr.match.bool.test(i) ? zt : void 0)),
+                    (s = jQuery.attrHooks[i.toLowerCase()] || (jQuery.expr.match.bool.test(i) ? Vt : void 0)),
                   void 0 !== a
                     ? null === a
                       ? void jQuery.removeAttr(n, i)
@@ -8433,18 +8590,18 @@
             if (s && 1 === n.nodeType) for (; (a = s[o++]); ) n.removeAttribute(a);
           }
         }),
-        (zt = {
+        (Vt = {
           set: function (n, i, a) {
             return !1 === i ? jQuery.removeAttr(n, a) : n.setAttribute(a, a), a;
           }
         }),
         jQuery.each(jQuery.expr.match.bool.source.match(/\w+/g), function (n, i) {
-          var a = Kt[i] || jQuery.find.attr;
-          Kt[i] = function (n, i, o) {
+          var a = zt[i] || jQuery.find.attr;
+          zt[i] = function (n, i, o) {
             var s,
               y,
               E = i.toLowerCase();
-            return o || ((y = Kt[E]), (Kt[E] = s), (s = null != a(n, i, o) ? E : null), (Kt[E] = y)), s;
+            return o || ((y = zt[E]), (zt[E] = s), (s = null != a(n, i, o) ? E : null), (zt[E] = y)), s;
           };
         });
       var Ht = /^(?:input|select|textarea|button)$/i,
@@ -9626,7 +9783,7 @@
       a.d(i, "c", function () {
         return getParentByLevel;
       });
-    a(69);
+    a(75);
     var o = a(2);
     function getTabUrl() {
       return new Promise((n) => {
@@ -9646,8 +9803,8 @@
     }
     const getRandId = async () =>
       new Promise((n) => {
-        chrome.storage.local.get(o.e.RDID, (i) => {
-          n(i[o.e.RDID]);
+        chrome.storage.local.get(o.f.RDID, (i) => {
+          n(i[o.f.RDID]);
         });
       });
     async function randId() {
@@ -9656,7 +9813,7 @@
           return ((65536 * (1 + Math.random(Date.now() + 14))) | 0).toString(28).substring(1);
         };
         const n = rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr();
-        chrome.storage.local.set({ [o.e.RDID]: n });
+        chrome.storage.local.set({ [o.f.RDID]: n });
       }
       return await getRandId();
     }
@@ -9702,70 +9859,10 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(2),
-      s = a(44),
-      y = a(7),
-      E = ((n) => ((n[(n.UNKNOWN = -1)] = "UNKNOWN"), (n[(n.OUT = 0)] = "OUT"), (n[(n.IN = 1)] = "IN"), n))(E || {});
-    class opt_entity_OptEntity extends s.a {
-      constructor() {
-        super(...arguments), (this.state = -1);
-      }
-      getKey() {
-        return "opt";
-      }
-      getLegacyKeys() {
-        return [];
-      }
-      toDTO() {
-        return { state: this.state };
-      }
-      getVersion() {
-        return 1;
-      }
-      migrate(n) {
-        if (!(n > 0))
-          return new Promise((n) => {
-            y.a.get(o.e.SETTINGS).then((i) => {
-              i && void 0 !== i.isOptIn ? (this.state = i.isOptIn ? 1 : 0) : (this.state = -1), n();
-            });
-          });
-      }
-      static async getOrCreate() {
-        return await new opt_entity_OptEntity().load();
-      }
-    }
-    i.a = new (class opt_manager_OptManager {
-      async optIn() {
-        const n = await opt_entity_OptEntity.getOrCreate();
-        return (n.state = E.IN), n.save().then(() => this.onOptStateChanged(n.state));
-      }
-      async optOut() {
-        const n = await opt_entity_OptEntity.getOrCreate();
-        return (n.state = E.OUT), n.save().then(() => this.onOptStateChanged(n.state));
-      }
-      async isOptIn() {
-        return (await opt_entity_OptEntity.getOrCreate()).state == E.IN;
-      }
-      async getOptInCurrentState() {
-        return (await opt_entity_OptEntity.getOrCreate()).state;
-      }
-      async isOptInStatusUnknown() {
-        return (await opt_entity_OptEntity.getOrCreate()).state == E.UNKNOWN;
-      }
-      setOptStateChangedListener(n) {
-        this.onOptStateChangedListener = n;
-      }
-      onOptStateChanged(n) {
-        this.onOptStateChangedListener && this.onOptStateChangedListener(n);
-      }
-    })();
-  },
-  function (n, i, a) {
-    "use strict";
     (function (n) {
-      var o = a(65),
-        s = a(66),
-        y = a(67);
+      var o = a(59),
+        s = a(60),
+        y = a(61);
       function kMaxLength() {
         return Buffer.TYPED_ARRAY_SUPPORT ? 2147483647 : 1073741823;
       }
@@ -10680,7 +10777,7 @@
         for (var s = 0; s < o && !(s + a >= i.length || s >= n.length); ++s) i[s + a] = n[s];
         return s;
       }
-    }).call(this, a(64));
+    }).call(this, a(58));
   },
   function (n, i, a) {
     "use strict";
@@ -11067,66 +11164,86 @@
   },
   function (n, i, a) {
     "use strict";
-    a.d(i, "a", function () {
-      return getOrInitAnalyticsInfoFromLocalStorage;
-    });
-    var o = a(71),
-      s = a(2),
-      y = (a(36), a(5), a(32));
-    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
-    a(35);
-    var E = a(23);
-    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
-    const getAnalyticsInfoFromLocalStorage = async () =>
-      new Promise((n) => {
-        chrome.storage.local.get(s.b.ANALYTICS_INFO_KEY, (i) => {
-          n(i[s.b.ANALYTICS_INFO_KEY]);
-        });
-      });
-    function getLocale() {
-      const n = chrome.i18n.getUILanguage().replace("_", "-");
-      return n.length < 7 ? n : "en-US";
+    var o = a(70),
+      s = {
+        childContextTypes: !0,
+        contextType: !0,
+        contextTypes: !0,
+        defaultProps: !0,
+        displayName: !0,
+        getDefaultProps: !0,
+        getDerivedStateFromError: !0,
+        getDerivedStateFromProps: !0,
+        mixins: !0,
+        propTypes: !0,
+        type: !0
+      },
+      y = { name: !0, length: !0, prototype: !0, caller: !0, callee: !0, arguments: !0, arity: !0 },
+      E = { $$typeof: !0, compare: !0, defaultProps: !0, displayName: !0, propTypes: !0, type: !0 },
+      w = {};
+    function getStatics(n) {
+      return o.isMemo(n) ? E : w[n.$$typeof] || s;
     }
-    const getOrInitAnalyticsInfoFromLocalStorage = async () => {
-      if (!(await getAnalyticsInfoFromLocalStorage())) {
-        const n = (() => {
-            switch (Object(E.b)()) {
-              case E.a.CHROME:
-                return "Chrome";
-              case E.a.FIREFOX:
-                return "Firefox";
-              case E.a.EDGE:
-                return "Microsoft Edge";
-              case E.a.OPERA:
-                return "Opera";
-              case E.a.SAFARI:
-                return "Safari";
-              case E.a.UNKNOWN:
-                return "Unknown";
-            }
-            return "Unknown";
-          })(),
-          i = await (async () => {
-            let n, i;
+    (w[o.ForwardRef] = { $$typeof: !0, render: !0, defaultProps: !0, displayName: !0, propTypes: !0 }), (w[o.Memo] = E);
+    var $ = Object.defineProperty,
+      ie = Object.getOwnPropertyNames,
+      oe = Object.getOwnPropertySymbols,
+      se = Object.getOwnPropertyDescriptor,
+      le = Object.getPrototypeOf,
+      he = Object.prototype;
+    n.exports = function hoistNonReactStatics(n, i, a) {
+      if ("string" != typeof i) {
+        if (he) {
+          var o = le(i);
+          o && o !== he && hoistNonReactStatics(n, o, a);
+        }
+        var s = ie(i);
+        oe && (s = s.concat(oe(i)));
+        for (var E = getStatics(n), w = getStatics(i), pe = 0; pe < s.length; ++pe) {
+          var ge = s[pe];
+          if (!(y[ge] || (a && a[ge]) || (w && w[ge]) || (E && E[ge]))) {
+            var ve = se(i, ge);
             try {
-              const a = await fetch(s.d.ANALYTIC_INFO);
-              200 === a.status && (n = await a.json()),
-                (i = (n && n.uuid) || Object(o.a)()),
-                await fetch(s.d.ANALYTIC_INFO, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ uuid: i })
-                });
+              $(n, ge, ve);
             } catch (n) {}
-            return i;
-          })();
-        await Object(y.c)(),
-          chrome.storage.local.set({
-            [s.b.ANALYTICS_INFO_KEY]: { uuid: i, country: getLocale(), resource: s.b.ANALYTICS_RESOURCE_TYPES.ORGANIC, user_agent: n }
-          });
+          }
+        }
       }
-      return await getAnalyticsInfoFromLocalStorage();
+      return n;
     };
+  },
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "a", function () {
+      return Entity;
+    });
+    var o = a(5);
+    class Entity {
+      async load() {
+        const n = [...this.getLegacyKeys(), this.getKey()].filter((n) => void 0 !== n);
+        if (!n) return this;
+        const i = await o.a.getAll(...n);
+        return i
+          ? (this.getLegacyKeys()
+              .filter((n) => n in i)
+              .forEach((n) => {
+                this.mergeObject(i[n]);
+              }),
+            this.getKey() in i && this.mergeObject(i[this.getKey()]),
+            (!this.v || this.v < this.getVersion()) && (await this.migrate(this.v ? this.v : 0), await this.save()),
+            this)
+          : this;
+      }
+      async save() {
+        const n = Object.assign({}, this.toDTO(), { v: this.getVersion() });
+        return o.a.set(this.getKey(), n);
+      }
+      mergeObject(n) {
+        Object.keys(n).forEach((i) => {
+          this[i] = n[i];
+        });
+      }
+    }
   },
   function (n, i, a) {
     "use strict";
@@ -11176,53 +11293,24 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(77),
-      s = {
-        childContextTypes: !0,
-        contextType: !0,
-        contextTypes: !0,
-        defaultProps: !0,
-        displayName: !0,
-        getDefaultProps: !0,
-        getDerivedStateFromError: !0,
-        getDerivedStateFromProps: !0,
-        mixins: !0,
-        propTypes: !0,
-        type: !0
-      },
-      y = { name: !0, length: !0, prototype: !0, caller: !0, callee: !0, arguments: !0, arity: !0 },
-      E = { $$typeof: !0, compare: !0, defaultProps: !0, displayName: !0, propTypes: !0, type: !0 },
-      w = {};
-    function getStatics(n) {
-      return o.isMemo(n) ? E : w[n.$$typeof] || s;
+    n.exports = a(73);
+  },
+  function (n, i, a) {
+    "use strict";
+    function memoize(n) {
+      var i = Object.create(null);
+      return function (a) {
+        return void 0 === i[a] && (i[a] = n(a)), i[a];
+      };
     }
-    (w[o.ForwardRef] = { $$typeof: !0, render: !0, defaultProps: !0, displayName: !0, propTypes: !0 }), (w[o.Memo] = E);
-    var $ = Object.defineProperty,
-      ie = Object.getOwnPropertyNames,
-      oe = Object.getOwnPropertySymbols,
-      se = Object.getOwnPropertyDescriptor,
-      le = Object.getPrototypeOf,
-      he = Object.prototype;
-    n.exports = function hoistNonReactStatics(n, i, a) {
-      if ("string" != typeof i) {
-        if (he) {
-          var o = le(i);
-          o && o !== he && hoistNonReactStatics(n, o, a);
-        }
-        var s = ie(i);
-        oe && (s = s.concat(oe(i)));
-        for (var E = getStatics(n), w = getStatics(i), pe = 0; pe < s.length; ++pe) {
-          var ge = s[pe];
-          if (!(y[ge] || (a && a[ge]) || (w && w[ge]) || (E && E[ge]))) {
-            var ve = se(i, ge);
-            try {
-              $(n, ge, ve);
-            } catch (n) {}
-          }
-        }
-      }
-      return n;
-    };
+    a.d(i, "a", function () {
+      return s;
+    });
+    var o =
+        /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|enterKeyHint|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/,
+      s = memoize(function (n) {
+        return o.test(n) || (111 === n.charCodeAt(0) && 110 === n.charCodeAt(1) && n.charCodeAt(2) < 91);
+      });
   },
   function (n, i, a) {
     "use strict";
@@ -11393,7 +11481,7 @@
   function (n, i, a) {
     "use strict";
     var o = a(0),
-      s = a(37),
+      s = a(35),
       y = a(19);
     class BlockedItemsCounter extends y.a {
       constructor() {
@@ -11414,7 +11502,7 @@
           (this.keywords = 0);
       }
       getKey() {
-        return o.g.TOTAL_BLOCKS_BY_TYPE;
+        return o.h.TOTAL_BLOCKS_BY_TYPE;
       }
       getLegacyKeys() {
         return [];
@@ -11444,7 +11532,7 @@
     }
     class BlockedItemsPerTab extends y.a {
       getKey() {
-        return o.g.TOTAL_BLOCKS_BY_TAB_ID;
+        return o.h.TOTAL_BLOCKS_BY_TAB_ID;
       }
       getLegacyKeys() {
         return [];
@@ -11536,7 +11624,7 @@
       a.d(i, "a", function () {
         return destroyAnimation;
       });
-    var o = a(48),
+    var o = a(45),
       s = a.n(o);
     const loadSvgAnimationWithParams = (n, i, a = "", o = !1, y = !0) => {
         return (
@@ -11549,61 +11637,7 @@
         s.a.destroy(n);
       };
   },
-  function (n, i, a) {
-    "use strict";
-    a.d(i, "a", function () {
-      return Entity;
-    });
-    var o = a(7);
-    class Entity {
-      async load() {
-        const n = [...this.getLegacyKeys(), this.getKey()].filter((n) => void 0 !== n);
-        if (!n) return this;
-        const i = await o.a.getAll(...n);
-        return i
-          ? (this.getLegacyKeys()
-              .filter((n) => n in i)
-              .forEach((n) => {
-                this.mergeObject(i[n]);
-              }),
-            this.getKey() in i && this.mergeObject(i[this.getKey()]),
-            (!this.v || this.v < this.getVersion()) && (await this.migrate(this.v ? this.v : 0), await this.save()),
-            this)
-          : this;
-      }
-      async save() {
-        const n = Object.assign({}, this.toDTO(), { v: this.getVersion() });
-        return o.a.set(this.getKey(), n);
-      }
-      mergeObject(n) {
-        Object.keys(n).forEach((i) => {
-          this[i] = n[i];
-        });
-      }
-    }
-  },
   ,
-  function (n, i, a) {
-    "use strict";
-    n.exports = a(80);
-  },
-  function (n, i, a) {
-    "use strict";
-    function memoize(n) {
-      var i = Object.create(null);
-      return function (a) {
-        return void 0 === i[a] && (i[a] = n(a)), i[a];
-      };
-    }
-    a.d(i, "a", function () {
-      return s;
-    });
-    var o =
-        /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|abbr|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|enterKeyHint|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|translate|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|incremental|fallback|inert|itemProp|itemScope|itemType|itemID|itemRef|on|option|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/,
-      s = memoize(function (n) {
-        return o.test(n) || (111 === n.charCodeAt(0) && 110 === n.charCodeAt(1) && n.charCodeAt(2) < 91);
-      });
-  },
   function (module, exports, __webpack_require__) {
     "undefined" != typeof navigator &&
       (function (n, i) {
@@ -14819,7 +14853,7 @@
         }
         var readyStateCheckInterval = setInterval(checkReady, 100);
         try {
-          ("object" === _typeof$3(exports) && void 0 !== module) || __webpack_require__(93) || (window.bodymovin = lottie);
+          ("object" === _typeof$3(exports) && void 0 !== module) || __webpack_require__(91) || (window.bodymovin = lottie);
         } catch (n) {}
         var ShapeModifiers = (function () {
           var n = {},
@@ -18292,8 +18326,8 @@
                 _t,
                 St,
                 Tt = -1,
-                Ct = w,
-                Ot = le,
+                Ot = w,
+                Ct = le,
                 It = se,
                 At = -1,
                 wt = "",
@@ -18324,10 +18358,10 @@
                   (a = 0),
                     (o += n.yOffset),
                     (o += ut ? 1 : 0),
-                    (w = Ct),
+                    (w = Ot),
                     (ut = !1),
                     this._hasMaskedPath &&
-                      ((se = It), (he = (pe = ge[(le = Ot)].points)[se - 1]), (ve = ($ = pe[se]).partialLength), (ie = 0)),
+                      ((se = It), (he = (pe = ge[(le = Ct)].points)[se - 1]), (ve = ($ = pe[se]).partialLength), (ie = 0)),
                     (wt = ""),
                     (_t = ""),
                     (vt = ""),
@@ -23390,34 +23424,6 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(1),
-      s = a.n(o),
-      y = a(14);
-    i.a = (n) => {
-      const i = chrome.runtime.getURL("images/chevron_right.svg"),
-        a = n.iconWidth || 40;
-      return s.a.createElement(
-        y.c,
-        { onClick: n.onClick, style: n.style },
-        s.a.createElement(
-          y.d,
-          null,
-          n.icon && s.a.createElement("div", null, s.a.createElement("img", { alt: "try-it-free", src: n.icon, width: a }), " "),
-          n.message
-        ),
-        s.a.createElement("div", null, s.a.createElement("img", { alt: "chevron-right", src: i, width: 18 }))
-      );
-    };
-  },
-  ,
-  ,
-  ,
-  ,
-  ,
-  ,
-  ,
-  function (n, i, a) {
-    "use strict";
     var o = Object.getOwnPropertySymbols,
       s = Object.prototype.hasOwnProperty,
       y = Object.prototype.propertyIsEnumerable;
@@ -24053,221 +24059,32 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(4),
-      s = a(1),
-      y = a.n(s),
-      E = a(14);
-    const w = o.c.div`
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px 0;
-  direction: ltr;
-`;
+    var o = a(1),
+      s = a.n(o),
+      y = a(16);
     i.a = (n) => {
-      const i = chrome.runtime.getURL("images/poper-blocker-logo.svg"),
-        a = chrome.runtime.getURL("images/close.svg"),
-        o = chrome.runtime.getURL("images/visibility-off.svg");
-      return y.a.createElement(
-        w,
-        { style: n.style },
-        y.a.createElement("div", null, y.a.createElement("img", { src: i, alt: "pb-icon", width: "110px", height: "20px" })),
-        y.a.createElement(
-          E.f,
+      const i = chrome.runtime.getURL("images/chevron_right.svg"),
+        a = n.iconWidth || 40;
+      return s.a.createElement(
+        y.c,
+        { onClick: n.onClick, style: n.style },
+        s.a.createElement(
+          y.d,
           null,
-          n.onVisibleOff &&
-            y.a.createElement(E.n, { onClick: n.onVisibleOff }, y.a.createElement("img", { src: o, alt: "visibility-off-icon" })),
-          y.a.createElement(E.n, { onClick: n.onClose }, y.a.createElement("img", { src: a, alt: "close-icon" }))
-        )
+          n.icon && s.a.createElement("div", null, s.a.createElement("img", { alt: "try-it-free", src: n.icon, width: a }), " "),
+          n.message
+        ),
+        s.a.createElement("div", null, s.a.createElement("img", { alt: "chevron-right", src: i, width: 18 }))
       );
     };
   },
-  function (n, i, a) {
-    "use strict";
-    a.d(i, "b", function () {
-      return insertCookieFilters;
-    });
-    var o = a(7);
-    var s = a(2);
-    class cookie_crumbler_CookieCrumblerConfigManager extends class config_manager_LocalAndRemoteConfigManager {
-      constructor(n, i) {
-        (this.remoteUrl = n), (this.storageKey = i);
-      }
-      async get() {
-        return o.a.get(this.storageKey);
-      }
-      async update() {
-        const n = await this.get(),
-          i = await this.fetchRemoteAndStore();
-        return !!(await this.updateConfigIfNeeded(n, i));
-      }
-      async clear() {
-        await o.a.remove([this.storageKey]);
-      }
-      async fetchRemoteAndStore() {
-        const n = await fetch(this.remoteUrl, { method: "GET" });
-        return await n.json();
-      }
-      async updateConfigIfNeeded(n, i) {
-        let a = 0;
-        return n && (a = n.version), !!(i && i.version > a) && (await o.a.set(this.storageKey, i), !0);
-      }
-    } {
-      constructor() {
-        super(s.d.COOKIE_CRUMBLER, s.f.KEY_COOKIE_CLASSES);
-      }
-      segmentSelectors(n, i) {
-        if (!i || i <= 0) throw new Error("Error in segment size");
-        const a = [];
-        for (let o = 0; o < n.length; o += i) a.push(n.slice(o, o + i));
-        return a;
-      }
-      async getAndParse() {
-        const n = await super.get(),
-          i = this.segmentSelectors(n.cookieClasses, n.segmentSize),
-          a = [];
-        return (
-          i.forEach((n) => {
-            a.push(n.join(","));
-          }),
-          a
-        );
-      }
-    }
-    i.a = new cookie_crumbler_CookieCrumblerConfigManager();
-    const insertCookieFilters = async () => {
-      const [n] = await chrome.tabs.query({ active: !0, currentWindow: !0 });
-      (null == n ? void 0 : n.id) &&
-        (await (async (n) => {
-          (await new cookie_crumbler_CookieCrumblerConfigManager().getAndParse()).forEach((i) => {
-            chrome.scripting
-              .insertCSS({
-                target: { tabId: n },
-                css:
-                  i +
-                  " { display: none !important; height: 0 !important; z-index: -99999 !important;visibility: hidden !important; width: 0 !important; overflow: hidden !important; }"
-              })
-              .catch(console.error);
-          });
-        })(n.id));
-    };
-  },
-  function (n, i, a) {
-    "use strict";
-    a.d(i, "f", function () {
-      return E;
-    }),
-      a.d(i, "b", function () {
-        return w;
-      }),
-      a.d(i, "d", function () {
-        return $;
-      }),
-      a.d(i, "e", function () {
-        return ie;
-      }),
-      a.d(i, "a", function () {
-        return oe;
-      }),
-      a.d(i, "c", function () {
-        return se;
-      });
-    var o = a(4),
-      s = a(30);
-    Object(o.c)(s.g)`
-  height: 310px;
-  width: 291px;
-`;
-    const y = o.c.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-`,
-      E = o.c.div`
-  display: flex;
-  flex-direction: column;
-  width: 252px;
-  height: 247px;
-  background: ${(n) => n.theme.palette.greyScale.white};
-  box-shadow: ${(n) => n.theme.boxShadow.waitingListModalModal};
-  border-radius: 10px;
-`,
-      w =
-        (o.c.div`
-  display: flex;
-  justify-content: end;
-  padding: 10px;
-`,
-        Object(o.c)(y)`
-  flex-direction: column;
-  flex-grow: 1;
-`),
-      $ =
-        (o.c.img`
-  width: 54px;
-  height: 54px;
-  margin-top: 20px;
-`,
-        o.c.div`
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.bold};
-  font-size: ${(n) => n.theme.fontSizes.headerFontSize};
-  line-height: ${(n) => n.theme.lineHeight.mediumPlus};
-  color: ${(n) => n.theme.palette.greyScale.ultraDark};
-  overflow: hidden;
-  text-align: center;
-  white-space: pre;
-`),
-      ie = o.c.div`
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.liteBold};
-  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
-  line-height: ${(n) => n.theme.lineHeight.medium};
-  color: ${(n) => n.theme.palette.greyScale.dark};
-  overflow: hidden;
-  text-align: center;
-  white-space: pre-wrap;
-`,
-      oe =
-        (o.c.span`
-  color: ${(n) => n.theme.palette.pro.heavyDark};
-`,
-        o.c.div`
-  margin-top: 16px;
-  display: flex;
-`,
-        o.c.img`
-  width: 16px;
-  height: 16px;
-  margin-left: 4px;
-  cursor: pointer;
-`,
-        o.c.div`
-  flex-grow: 1;
-`,
-        Object(o.c)(y)`
-  min-width: 139px;
-  height: 32px;
-  max-height: 32px;
-  gap: 8px;
-  background: ${(n) => n.theme.palette.pro.ultraDark};
-  box-shadow: ${(n) => n.theme.boxShadow.waitingListModalModal};
-  border-radius: 10px;
-  margin: 18px 0;
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.strong};
-  font-size: ${(n) => n.theme.fontSizes.titleFontSize};
-  line-height: ${(n) => n.theme.lineHeight.medium};
-  color: ${(n) => n.theme.palette.greyScale.white};
-  cursor: pointer;
-`),
-      se = o.c.div`
-  margin-bottom: 4px;
-`;
-  },
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
+  ,
   function (n, i) {
     var a;
     a = (function () {
@@ -24404,391 +24221,39 @@
         return "[object Array]" == a.call(n);
       };
   },
-  ,
   function (n, i, a) {
     "use strict";
-    i.a = {
-      thank_you_page_CH: "https://poperblocker.com/welcome",
-      thank_you_page_FF: "https://poperblocker.com/welcome-firefox",
-      privacy_policy_CH: "https://poperblocker.com/privacy/",
-      privacy_policy_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/privacy/",
-      uninstall_page_CH: "https://poperblocker.com/uninstall/?",
-      uninstall_page_FF: "https://poperblocker.com/uninstall-firefox/?",
-      feedback_page: "https://poperblocker.com/feedback.html?from=ext",
-      contact_page: "https://poperblocker.com/contact-form.html",
-      appStore_CH: "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche",
-      appStore_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/",
-      extension_review_page_CH:
-        "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche/reviews",
-      extension_review_page_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/reviews/add",
-      twitter_share_link:
-        "https://twitter.com/intent/tweet?hashtags=popups&original_referer=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share&related=socialmediahats&text=I'm%20using%20poper%20blocker%20to%20enjoy%20a%20popup%20free%20browsing%20experience%20pic.twitter.com%2FniqVgqfmAw&url=https%3A%2F%2Fgoo.gl%2FryoaEn&via=poper_blocker",
-      facebook_share_link:
-        "https://www.facebook.com/dialog/share?app_id=1911035589168170&display=popup&href=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share%3Fhl%3Den&hashtag=%23For_No_More_Popups_Click_Below",
-      facebook_base_url: "www.facebook.com",
-      overlay_check_API: "https://api2.poperblocker.com/view/update",
-      overlay_blocking_context_item_contexts: ["page", "frame", "selection", "link", "editable", "image", "video", "audio"],
-      googleSheetID: "1dRQsmt6DYMXGo3YeTQ442kV-xxG1LJfG41wEUpnWefM",
-      dataSettings: { strKeys: ["ga_allEvent_rate", "ni"], arrKeys: ["blacklist", "whitelist"] },
-      blockCountsToShowRate: 5,
-      blockCountsToShowRateAgain: 100,
-      totalBlockingFeatures: 2,
-      blockedTypes: {
-        win: "win",
-        tab: "tab",
-        overlay: "overlay",
-        ad: "ad",
-        cookie: "cookie",
-        fbAd: "fbAd",
-        linkedinAd: "linkedinAd",
-        twitterAd: "twitterAd",
-        tracker: "tracker",
-        instagramAd: "instagramAd",
-        youtubeAd: "youtubeAd"
-      },
-      defaultBlackList: [
-        "adrunnr",
-        "successforyu.clickfunnels.com",
-        "fmovies.se",
-        "in-365-tagen.info",
-        "5000-settimanale.com",
-        "shop.mazzugioielli.com",
-        "maxigossip.com",
-        "lp.yazizim.com",
-        "beyourxfriend.com",
-        "99tab.com",
-        "zzqrt.com",
-        "canuck-method.net",
-        "bewomenly.com",
-        "playnow.guru",
-        "datingforyou-48e1.kxcdn.com",
-        "trafficnetworkads24.com",
-        "sistemadedinerogratis.com",
-        "canuckmethodprofit.co",
-        "consumerresearchnetwork.com",
-        "securemacfix.com",
-        "zz3d3.ru",
-        "zd1.quebec-bin.com",
-        "hot-games4you.xyz",
-        "om.elvenar.com",
-        "superpccleanup.com",
-        "gomediaz.com",
-        "judithi.xyz",
-        "free.atozmanuals.com",
-        "yoursuccess.ravpage.co.il",
-        "123hop.ir",
-        "quizcliente.pw",
-        "aussiemethod.biz",
-        "hlpnowp-c.com",
-        "picbumper.com",
-        "shaneless.com",
-        "anacondamonster.com",
-        "altrk1.com",
-        "health.todaydiets.com",
-        "download.weatherblink.com",
-        "happyluketh.com",
-        "go.ameinfo.com",
-        "50kaweek.net",
-        "thepornsurvey.com",
-        "ofsiite.ru",
-        "fulltab.com",
-        "1000spins.com",
-        "time2play-online.net",
-        "vintacars.com",
-        "welcome.pussysaga.com",
-        "free-desktop-games.com",
-        "download.televisionfanatic.com",
-        "theprofitsmaker.net",
-        "sgad.info",
-        "algocashmaster.net",
-        "sunmaker.com",
-        "topvipdreams.com",
-        "watchmygirlfriend.gfpornvideos.com",
-        "filesharefanatic.com",
-        "safedownloadhub.com",
-        "7awlalalam.blogspot.com",
-        "tvplusnewtab.com",
-        "trendingpatrol.com",
-        "moneymorning.com",
-        "ifileyou.com",
-        "classifiedcanada.ca",
-        "firefan.com",
-        "methode-binaire.com",
-        "letmetell.com",
-        "kenduktur.com",
-        "getafuk.com",
-        "yotraleplahnte.ru",
-        "jackpot.88beto.com",
-        "pwwysydh.com",
-        "search.queryrouter.com",
-        "v.lvztxy.com",
-        "pussysaga.com",
-        "saffamethod.com",
-        "prezzonline.com",
-        "searchprivacy.website",
-        "3d2819216eb4e1035879-7c248de0c99745406e9b749fc86ec3e4.ssl.cf1.rackcdn.com",
-        "only2date.com",
-        "mysagagame.com",
-        "themillionaireinpjs.net",
-        "wlt.kd2244.com",
-        "quickprivacycheck.com",
-        "hotchatdate.com",
-        "autotraderbot.com",
-        "z1.zedo.com",
-        "youlucky2014.com",
-        "traffic.getmyads.com",
-        "appcloudprotected.com",
-        "safensecure.com-allsites3.xyz",
-        "newpoptab.com",
-        "static.williamhill.com",
-        "myhealthyblog.co",
-        "greatestmobideals.com",
-        "sweetclarity.com",
-        "mgid.com",
-        "securepccure.com",
-        "autopengebygger.com",
-        "am15.net",
-        "es.reimageplus.com",
-        "o2.promos-info.com",
-        "it.reimageplus.com",
-        "westsluts.com",
-        "spinandwin.com-ser.pw",
-        "reimageplus.com",
-        "vodafone.promos-info.com",
-        "vinnmatpengar.se",
-        "movie.ienjoyapps.com",
-        "love4single.com",
-        "origin.getprice.com.au",
-        "ohmydating.com",
-        "lp.want-to-win.com",
-        "yabuletchrome.ru",
-        "bamdad.net",
-        "gotositenow.com",
-        "vcrypt.pw",
-        "newtabtv.com",
-        "mon.setsu.xyz",
-        "youforgottorenewyourhosting.com",
-        "zone-telechargement.ws",
-        "land.pckeeper.software",
-        "ad.adpop-1.com",
-        "advancedpctools.com",
-        "videos.randolphcountyheraldtribune.com",
-        "web-start.org",
-        "softreadynow.installupgradenowfreshandforyou.website",
-        "uplod.ws",
-        "pornhubcasino.com",
-        "maxbet.ro",
-        "2016prizefeed.com",
-        "thevideo.me",
-        "wantubad.com",
-        "tavanero.com",
-        "xcusmy.club",
-        "daclips.in",
-        "gaymenofporn.online",
-        "jackpotcitycasino.com",
-        "italian-method.com",
-        "getsearchincognito.com",
-        "youjustwonprize.com",
-        "finanz-nachrichten.me",
-        "quizcliente.site",
-        "da.reimageplus.com",
-        "jkanime.net",
-        "britmoneymethod.com",
-        "uae.souq.com",
-        "ka.azzer.net",
-        "safensecure.xyz",
-        "8t.hootingrhejkz.online",
-        "www6.blinkx.com",
-        "wizzcaster.com",
-        "comparaison-prix.com",
-        "vodlocker.lol",
-        "fr.reimageplus.com",
-        "free.fromdoctopdf.com",
-        "userscloud.com",
-        "myprivatesearch.com",
-        "fanli90.cn",
-        "tutticodicisconto.it",
-        "mediadec.com",
-        "gogamego.thewhizproducts.com",
-        "download.weatherblink.com",
-        "free.videodownloadconverter.com",
-        "we-are-gamers.com",
-        "sesso.communityadult.net",
-        "lp.blpmovies.com",
-        "search.queryrouter.com",
-        "bbb-johannesburg.localspecific.com",
-        "lp.blpmovies.com",
-        "go.ppixelm.com",
-        "r0.ru",
-        "sesso.communityadult.net",
-        "bbb-johannesburg.localspecific.com",
-        "ppixelm.com",
-        "cyberguardianspe.info",
-        "we-are-gamers.com",
-        "loginfaster.com/new",
-        "www.alfacart.com",
-        "www.foresee.com",
-        "mobile-win.com",
-        "www.plusnetwork.com",
-        "www.amicafarmacia.com",
-        "www.ienjoyapps.com",
-        "cheapcheap.io",
-        "screenaddict.thewhizproducts.com",
-        "nova.rambler.ru",
-        "free.gamingwonderland.com",
-        "p9328ujeiw1.ru",
-        "mobilecasinoclub.co.uk",
-        "pfhsystem.com",
-        "regtuneup.com",
-        "theprofitsmaker.net",
-        "bodogpromotions.eu",
-        "heroesreplay.org",
-        "financialsecrets.info",
-        "mymoneymakingapp.com",
-        "sunmaker.com",
-        "888casino-promotions.com",
-        "vogliosesso.com",
-        "scienceremix.com",
-        "allinonedocs.com",
-        "arabia.starzplay.com",
-        "allirishcasino.com",
-        "advancepctools.info",
-        "movie.ienjoyapps.com",
-        "surveyform001.s3-website-us-east-1.amazonaws.com",
-        "mgs188.com",
-        "pfhsystem.com",
-        "lpeva.com",
-        "ddsh8.com",
-        "theprofitsmaker.net",
-        "b2.ijquery11.com",
-        "sporthero.thewhizmarketing.com",
-        "securefastmac.tech",
-        "seen-on-screen.thewhizmarketing.com",
-        "1000spins.com",
-        "search.queryrouter.com",
-        "pfhsystem.com",
-        "reimageplus.com",
-        "offer.alibaba.com",
-        "searchlistings.org",
-        "search.queryrouter.com",
-        "search.queryrouter.com",
-        "mybinaryoptionsrobot.com",
-        "duplicashapp.com",
-        "search.queryrouter.com",
-        "bestgame.directory",
-        "droidclub.net",
-        ".rivalo.com",
-        "yoursuperprize.com",
-        "mediaexplained.com",
-        "om.elvenar.com",
-        "shinar.club",
-        "revitoleczemacream.com",
-        "freelotto.com",
-        "screenaddict.thewhizproducts.com",
-        "download.bringmesports.com/",
-        "allinonedocs.com",
-        "driver-fixer.com",
-        "arabydeal.com",
-        "cleanyourcomputertoday.com",
-        "arabydeal.com",
-        "music.mixplugin.com",
-        "1se.info",
-        "survey12.com",
-        "freesoftwaredlul.com",
-        "pldist01.com",
-        "ad.adpop-1.com",
-        "searchanonymous.net",
-        "abrst.pro",
-        "muzikfury.thewhizmarketing.com",
-        "lp.mbtrx.com",
-        "th1.forfun.maxisize-pro.com",
-        "watchmygirlfriend.gfpornbox.com",
-        "new.freelotto.com",
-        "desktoptrack.com",
-        "search.queryrouter.com",
-        "offer.alibaba.com",
-        "1000spins.com",
-        "promotions.coral.co.uk",
-        "search.queryrouter.com",
-        "tbsia.com",
-        "tbsia.com",
-        "multtaepyo.com",
-        "search.queryrouter.com",
-        "czechmethod.com",
-        "consumerview.co",
-        "wayretail.com",
-        "72onbase.com",
-        "funsafetab.com",
-        "search.queryrouter.com",
-        "speedyfiledownload.com",
-        "driver-fixer.com",
-        "arabydeal.com",
-        "cleanyourcomputertoday.com",
-        "arabydeal.com",
-        "music.mixplugin.com",
-        "1se.info",
-        "survey12.com",
-        "freesoftwaredlul.com",
-        "pldist01.com",
-        "ad.adpop-1.com",
-        "searchanonymous.net",
-        "abrst.pro",
-        "muzikfury.thewhizmarketing.com",
-        "lp.mbtrx.com",
-        "th1.forfun.maxisize-pro.com",
-        "watchmygirlfriend.gfpornbox.com",
-        "new.freelotto.com",
-        "desktoptrack.com",
-        "search.queryrouter.com",
-        "offer.alibaba.com",
-        "1000spins.com",
-        "promotions.coral.co.uk",
-        "search.queryrouter.com",
-        "tbsia.com",
-        "tbsia.com",
-        "surveyform001.s3-website-us-east-1.amazonaws.com",
-        "mgs188.com",
-        "pfhsystem.com",
-        "lpeva.com",
-        "ddsh8.com",
-        "theprofitsmaker.net",
-        "quantomcoding.com",
-        "sporthero.thewhizmarketing.com",
-        "popads.net",
-        "onclkds.com",
-        "consumerview.co",
-        "12kotov.ru",
-        "ruhotpair2.fingta.com",
-        "easytelevisionaccessnow.com",
-        "ahwrd.com",
-        "lpeva.com",
-        "ppgzf.com",
-        "zjstx.com",
-        "kituure.xyz",
-        "join.pro-gaming-world.com",
-        "mackeeperapp.mackeeper.com",
-        "tracknotify.com",
-        "2075.cdn.beyondhosting.net",
-        "idollash.com",
-        "ds.moviegoat.com",
-        "fulltab.com",
-        "rackcdn.com",
-        "prestoris.com",
-        "adsterra.com",
-        "swampssovuuhusp.top",
-        "streesusa.info",
-        "freesoftwaredlul.com",
-        "adreactor.com",
-        "a-static.com",
-        "codeonclick.com",
-        "heheme.com",
-        "adf.ly",
-        "seen-on-screen.thewhizmarketing.com",
-        "openload.co"
-      ]
+    var o = a(4),
+      s = a(1),
+      y = a.n(s),
+      E = a(16);
+    const w = o.c.div`
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 0;
+  direction: ltr;
+`;
+    i.a = (n) => {
+      const i = chrome.runtime.getURL("images/poper-blocker-logo.svg"),
+        a = chrome.runtime.getURL("images/close.svg"),
+        o = chrome.runtime.getURL("images/visibility-off.svg");
+      return y.a.createElement(
+        w,
+        { style: n.style },
+        y.a.createElement("div", null, y.a.createElement("img", { src: i, alt: "pb-icon", width: "110px", height: "20px" })),
+        y.a.createElement(
+          E.f,
+          null,
+          n.onVisibleOff &&
+            y.a.createElement(E.n, { onClick: n.onVisibleOff }, y.a.createElement("img", { src: o, alt: "visibility-off-icon" })),
+          y.a.createElement(E.n, { onClick: n.onClose }, y.a.createElement("img", { src: a, alt: "close-icon" }))
+        )
+      );
     };
   },
-  ,
   function (n, i, a) {
     "use strict";
     var o,
@@ -24851,10 +24316,170 @@
       return ie(o);
     };
   },
-  ,
   function (n, i, a) {
     "use strict";
-    var o = a(57),
+    a.d(i, "b", function () {
+      return insertCookieFilters;
+    });
+    var o = a(78),
+      s = a(2);
+    class cookie_crumbler_CookieCrumblerConfigManager extends o.a {
+      constructor() {
+        super(s.d.COOKIE_CRUMBLER, s.g.KEY_COOKIE_CLASSES);
+      }
+      segmentSelectors(n, i) {
+        if (!i || i <= 0) throw new Error("Error in segment size");
+        const a = [];
+        for (let o = 0; o < n.length; o += i) a.push(n.slice(o, o + i));
+        return a;
+      }
+      async getAndParse() {
+        const n = await super.get(),
+          i = this.segmentSelectors(n.cookieClasses, n.segmentSize),
+          a = [];
+        return (
+          i.forEach((n) => {
+            a.push(n.join(","));
+          }),
+          a
+        );
+      }
+    }
+    i.a = new cookie_crumbler_CookieCrumblerConfigManager();
+    const insertCookieFilters = async () => {
+      const [n] = await chrome.tabs.query({ active: !0, currentWindow: !0 });
+      (null == n ? void 0 : n.id) &&
+        (await (async (n) => {
+          (await new cookie_crumbler_CookieCrumblerConfigManager().getAndParse()).forEach((i) => {
+            chrome.scripting
+              .insertCSS({
+                target: { tabId: n },
+                css:
+                  i +
+                  " { display: none !important; height: 0 !important; z-index: -99999 !important;visibility: hidden !important; width: 0 !important; overflow: hidden !important; }"
+              })
+              .catch(console.error);
+          });
+        })(n.id));
+    };
+  },
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "f", function () {
+      return E;
+    }),
+      a.d(i, "b", function () {
+        return w;
+      }),
+      a.d(i, "d", function () {
+        return $;
+      }),
+      a.d(i, "e", function () {
+        return ie;
+      }),
+      a.d(i, "a", function () {
+        return oe;
+      }),
+      a.d(i, "c", function () {
+        return se;
+      });
+    var o = a(4),
+      s = a(29);
+    Object(o.c)(s.g)`
+  height: 310px;
+  width: 291px;
+`;
+    const y = o.c.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+`,
+      E = o.c.div`
+  display: flex;
+  flex-direction: column;
+  width: 252px;
+  height: 247px;
+  background: ${(n) => n.theme.palette.greyScale.white};
+  box-shadow: ${(n) => n.theme.boxShadow.waitingListModalModal};
+  border-radius: 10px;
+`,
+      w =
+        (o.c.div`
+  display: flex;
+  justify-content: end;
+  padding: 10px;
+`,
+        Object(o.c)(y)`
+  flex-direction: column;
+  flex-grow: 1;
+`),
+      $ =
+        (o.c.img`
+  width: 54px;
+  height: 54px;
+  margin-top: 20px;
+`,
+        o.c.div`
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.bold};
+  font-size: ${(n) => n.theme.fontSizes.headerFontSize};
+  line-height: ${(n) => n.theme.lineHeight.mediumPlus};
+  color: ${(n) => n.theme.palette.greyScale.ultraDark};
+  overflow: hidden;
+  text-align: center;
+  white-space: pre;
+`),
+      ie = o.c.div`
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.liteBold};
+  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
+  line-height: ${(n) => n.theme.lineHeight.medium};
+  color: ${(n) => n.theme.palette.greyScale.dark};
+  overflow: hidden;
+  text-align: center;
+  white-space: pre-wrap;
+`,
+      oe =
+        (o.c.span`
+  color: ${(n) => n.theme.palette.pro.heavyDark};
+`,
+        o.c.div`
+  margin-top: 16px;
+  display: flex;
+`,
+        o.c.img`
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  cursor: pointer;
+`,
+        o.c.div`
+  flex-grow: 1;
+`,
+        Object(o.c)(y)`
+  min-width: 139px;
+  height: 32px;
+  max-height: 32px;
+  gap: 8px;
+  background: ${(n) => n.theme.palette.pro.ultraDark};
+  box-shadow: ${(n) => n.theme.boxShadow.waitingListModalModal};
+  border-radius: 10px;
+  margin: 18px 0;
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.strong};
+  font-size: ${(n) => n.theme.fontSizes.titleFontSize};
+  line-height: ${(n) => n.theme.lineHeight.medium};
+  color: ${(n) => n.theme.palette.greyScale.white};
+  cursor: pointer;
+`),
+      se = o.c.div`
+  margin-bottom: 4px;
+`;
+  },
+  function (n, i, a) {
+    "use strict";
+    var o = a(46),
       s = "function" == typeof Symbol && Symbol.for,
       y = s ? Symbol.for("react.element") : 60103,
       E = s ? Symbol.for("react.portal") : 60106,
@@ -25154,8 +24779,8 @@
   function (n, i, a) {
     "use strict";
     var o = a(1),
-      s = a(57),
-      y = a(75);
+      s = a(46),
+      y = a(68);
     function u(n) {
       for (var i = "https://reactjs.org/docs/error-decoder.html?invariant=" + n, a = 1; a < arguments.length; a++)
         i += "&args[]=" + encodeURIComponent(arguments[a]);
@@ -25436,9 +25061,9 @@
       _t = ct ? Symbol.for("react.memo") : 60115,
       St = ct ? Symbol.for("react.lazy") : 60116,
       Tt = ct ? Symbol.for("react.block") : 60121,
-      Ct = "function" == typeof Symbol && Symbol.iterator;
+      Ot = "function" == typeof Symbol && Symbol.iterator;
     function nb(n) {
-      return null === n || "object" != typeof n ? null : "function" == typeof (n = (Ct && n[Ct]) || n["@@iterator"]) ? n : null;
+      return null === n || "object" != typeof n ? null : "function" == typeof (n = (Ot && n[Ot]) || n["@@iterator"]) ? n : null;
     }
     function pb(n) {
       if (null == n) return null;
@@ -25664,7 +25289,7 @@
       var i = n.textContent;
       i === n._wrapperState.initialValue && "" !== i && null !== i && (n.value = i);
     }
-    var Ot = "http://www.w3.org/1999/xhtml",
+    var Ct = "http://www.w3.org/1999/xhtml",
       It = "http://www.w3.org/2000/svg";
     function Nb(n) {
       switch (n) {
@@ -25956,9 +25581,9 @@
       }
     }
     var Ut,
+      Kt,
       Vt,
-      zt,
-      Kt = !1,
+      zt = !1,
       Ht = [],
       Gt = null,
       Wt = null,
@@ -25999,7 +25624,7 @@
     }
     function Mc(n, i, a, o, s, y) {
       return null === n || n.nativeEvent !== y
-        ? ((n = Kc(i, a, o, s, y)), null !== i && null !== (i = Nc(i)) && Vt(i), n)
+        ? ((n = Kc(i, a, o, s, y)), null !== i && null !== (i = Nc(i)) && Kt(i), n)
         : ((n.eventSystemFlags |= o), n);
     }
     function Pc(n) {
@@ -26012,7 +25637,7 @@
               return (
                 (n.blockedOn = i),
                 void y.unstable_runWithPriority(n.priority, function () {
-                  zt(a);
+                  Vt(a);
                 })
               );
           } else if (3 === i && a.stateNode.hydrate) return void (n.blockedOn = 3 === a.tag ? a.stateNode.containerInfo : null);
@@ -26024,7 +25649,7 @@
       var i = Rc(n.topLevelType, n.eventSystemFlags, n.container, n.nativeEvent);
       if (null !== i) {
         var a = Nc(i);
-        return null !== a && Vt(a), (n.blockedOn = i), !1;
+        return null !== a && Kt(a), (n.blockedOn = i), !1;
       }
       return !0;
     }
@@ -26032,7 +25657,7 @@
       Qc(n) && a.delete(i);
     }
     function Tc() {
-      for (Kt = !1; 0 < Ht.length; ) {
+      for (zt = !1; 0 < Ht.length; ) {
         var n = Ht[0];
         if (null !== n.blockedOn) {
           null !== (n = Nc(n.blockedOn)) && Ut(n);
@@ -26048,7 +25673,7 @@
         qt.forEach(Sc);
     }
     function Uc(n, i) {
-      n.blockedOn === i && ((n.blockedOn = null), Kt || ((Kt = !0), y.unstable_scheduleCallback(y.unstable_NormalPriority, Tc)));
+      n.blockedOn === i && ((n.blockedOn = null), zt || ((zt = !0), y.unstable_scheduleCallback(y.unstable_NormalPriority, Tc)));
     }
     function Vc(n) {
       function b(i) {
@@ -26356,7 +25981,7 @@
           return !0;
       }
     }
-    var fn = Ot;
+    var fn = Ct;
     function rd(n, i) {
       var a = cc((n = 9 === n.nodeType || 11 === n.nodeType ? n : n.ownerDocument));
       i = we[i];
@@ -26551,9 +26176,9 @@
     }
     var Sn = null,
       Tn = null,
-      Cn = null;
+      On = null;
     function ae() {
-      if (Cn) return Cn;
+      if (On) return On;
       var n,
         i,
         a = Tn,
@@ -26563,7 +26188,7 @@
       for (n = 0; n < o && a[n] === s[n]; n++);
       var E = o - n;
       for (i = 1; i <= E && a[o - i] === s[y - i]; i++);
-      return (Cn = s.slice(n, 1 < i ? 1 - i : void 0));
+      return (On = s.slice(n, 1 < i ? 1 - i : void 0));
     }
     function be() {
       return !0;
@@ -26655,7 +26280,7 @@
         );
       }),
       de(G);
-    var On = G.extend({ data: null }),
+    var Cn = G.extend({ data: null }),
       In = G.extend({ data: null }),
       An = [9, 13, 27, 32],
       wn = je && "CompositionEvent" in window,
@@ -26728,7 +26353,7 @@
                   (Rn || y !== Ln.compositionStart
                     ? y === Ln.compositionEnd && Rn && (s = ae())
                     : ((Tn = "value" in (Sn = o) ? Sn.value : Sn.textContent), (Rn = !0))),
-                (y = On.getPooled(y, i, a, o)),
+                (y = Cn.getPooled(y, i, a, o)),
                 s ? (y.data = s) : null !== (s = re(a)) && (y.data = s),
                 Xd(y),
                 (s = y))
@@ -26747,7 +26372,7 @@
                   }
                 })(n, a)
               : (function ue(n, i) {
-                  if (Rn) return "compositionend" === n || (!wn && qe(n, i)) ? ((n = ae()), (Cn = Tn = Sn = null), (Rn = !1), n) : null;
+                  if (Rn) return "compositionend" === n || (!wn && qe(n, i)) ? ((n = ae()), (On = Tn = Sn = null), (Rn = !1), n) : null;
                   switch (n) {
                     case "paste":
                       return null;
@@ -26810,7 +26435,7 @@
     function Ee(n, i) {
       if ("change" === n) return i;
     }
-    var Vn = !1;
+    var Kn = !1;
     function Ge() {
       jn && (jn.detachEvent("onpropertychange", He), (Un = jn = null));
     }
@@ -26838,16 +26463,16 @@
     function Le(n, i) {
       if ("input" === n || "change" === n) return De(i);
     }
-    je && (Vn = oc("input") && (!document.documentMode || 9 < document.documentMode));
-    var zn = {
+    je && (Kn = oc("input") && (!document.documentMode || 9 < document.documentMode));
+    var Vn = {
         eventTypes: Bn,
-        _isInputEventSupported: Vn,
+        _isInputEventSupported: Kn,
         extractEvents: function (n, i, a, o) {
           var s = i ? Pd(i) : window,
             y = s.nodeName && s.nodeName.toLowerCase();
           if ("select" === y || ("input" === y && "file" === s.type)) var E = Ee;
           else if (xe(s))
-            if (Vn) E = Le;
+            if (Kn) E = Le;
             else {
               E = Je;
               var w = Ie;
@@ -26857,7 +26482,7 @@
           w && w(n, s, i), "blur" === n && (n = s._wrapperState) && n.controlled && "number" === s.type && Db(s, "number", s.value);
         }
       },
-      Kn = G.extend({ view: null, detail: null }),
+      zn = G.extend({ view: null, detail: null }),
       Hn = { Alt: "altKey", Control: "ctrlKey", Meta: "metaKey", Shift: "shiftKey" };
     function Pe(n) {
       var i = this.nativeEvent;
@@ -26870,7 +26495,7 @@
       Wn = 0,
       $n = !1,
       Yn = !1,
-      qn = Kn.extend({
+      qn = zn.extend({
         screenX: null,
         screenY: null,
         clientX: null,
@@ -27052,7 +26677,7 @@
           return "clipboardData" in n ? n.clipboardData : window.clipboardData;
         }
       }),
-      hr = Kn.extend({ relatedTarget: null });
+      hr = zn.extend({ relatedTarget: null });
     function of(n) {
       var i = n.keyCode;
       return "charCode" in n ? 0 === (n = n.charCode) && 13 === i && (n = 13) : (n = i), 10 === n && (n = 13), 32 <= n || 13 === n ? n : 0;
@@ -27109,7 +26734,7 @@
         145: "ScrollLock",
         224: "Meta"
       },
-      dr = Kn.extend({
+      dr = zn.extend({
         key: function (n) {
           if (n.key) {
             var i = pr[n.key] || n.key;
@@ -27142,7 +26767,7 @@
         }
       }),
       mr = qn.extend({ dataTransfer: null }),
-      gr = Kn.extend({
+      gr = zn.extend({
         touches: null,
         targetTouches: null,
         changedTouches: null,
@@ -27216,7 +26841,7 @@
               n = yr;
               break;
             case "scroll":
-              n = Kn;
+              n = zn;
               break;
             case "wheel":
               n = Er;
@@ -27250,7 +26875,7 @@
       (se = Qd),
       (le = Nc),
       (he = Pd),
-      xa({ SimpleEventPlugin: vr, EnterLeaveEventPlugin: Zn, ChangeEventPlugin: zn, SelectEventPlugin: lr, BeforeInputEventPlugin: Fn });
+      xa({ SimpleEventPlugin: vr, EnterLeaveEventPlugin: Zn, ChangeEventPlugin: Vn, SelectEventPlugin: lr, BeforeInputEventPlugin: Fn });
     var br = [],
       _r = -1;
     function H(n) {
@@ -27261,8 +26886,8 @@
     }
     var Sr = {},
       Tr = { current: Sr },
-      Cr = { current: !1 },
-      Or = Sr;
+      Or = { current: !1 },
+      Cr = Sr;
     function Cf(n, i) {
       var a = n.type.contextTypes;
       if (!a) return Sr;
@@ -27279,11 +26904,11 @@
       return null != (n = n.childContextTypes);
     }
     function Df() {
-      H(Cr), H(Tr);
+      H(Or), H(Tr);
     }
     function Ef(n, i, a) {
       if (Tr.current !== Sr) throw Error(u(168));
-      I(Tr, i), I(Cr, a);
+      I(Tr, i), I(Or, a);
     }
     function Ff(n, i, a) {
       var o = n.stateNode;
@@ -27293,13 +26918,13 @@
     }
     function Gf(n) {
       return (
-        (n = ((n = n.stateNode) && n.__reactInternalMemoizedMergedChildContext) || Sr), (Or = Tr.current), I(Tr, n), I(Cr, Cr.current), !0
+        (n = ((n = n.stateNode) && n.__reactInternalMemoizedMergedChildContext) || Sr), (Cr = Tr.current), I(Tr, n), I(Or, Or.current), !0
       );
     }
     function Hf(n, i, a) {
       var o = n.stateNode;
       if (!o) throw Error(u(169));
-      a ? ((n = Ff(n, i, Or)), (o.__reactInternalMemoizedMergedChildContext = n), H(Cr), H(Tr), I(Tr, n)) : H(Cr), I(Cr, a);
+      a ? ((n = Ff(n, i, Cr)), (o.__reactInternalMemoizedMergedChildContext = n), H(Or), H(Tr), I(Tr, n)) : H(Or), I(Or, a);
     }
     var Ir = y.unstable_runWithPriority,
       Ar = y.unstable_scheduleCallback,
@@ -27316,14 +26941,14 @@
       Br = y.unstable_shouldYield,
       jr = void 0 !== xr ? xr : function () {},
       Ur = null,
-      Vr = null,
-      zr = !1,
-      Kr = Pr(),
+      Kr = null,
+      Vr = !1,
+      zr = Pr(),
       Hr =
-        1e4 > Kr
+        1e4 > zr
           ? Pr
           : function () {
-              return Pr() - Kr;
+              return Pr() - zr;
             };
     function ag() {
       switch (kr()) {
@@ -27364,18 +26989,18 @@
       return (n = bg(n)), Ar(n, i, a);
     }
     function eg(n) {
-      return null === Ur ? ((Ur = [n]), (Vr = Ar(Nr, fg))) : Ur.push(n), Mr;
+      return null === Ur ? ((Ur = [n]), (Kr = Ar(Nr, fg))) : Ur.push(n), Mr;
     }
     function gg() {
-      if (null !== Vr) {
-        var n = Vr;
-        (Vr = null), wr(n);
+      if (null !== Kr) {
+        var n = Kr;
+        (Kr = null), wr(n);
       }
       fg();
     }
     function fg() {
-      if (!zr && null !== Ur) {
-        zr = !0;
+      if (!Vr && null !== Ur) {
+        Vr = !0;
         var n = 0;
         try {
           var i = Ur;
@@ -27391,7 +27016,7 @@
         } catch (i) {
           throw (null !== Ur && (Ur = Ur.slice(n + 1)), Ar(Nr, gg), i);
         } finally {
-          zr = !1;
+          Vr = !1;
         }
       }
     }
@@ -27595,7 +27220,7 @@
       return (
         "object" == typeof y && null !== y
           ? (y = sg(y))
-          : ((s = L(i) ? Or : Tr.current), (y = (o = null != (o = i.contextTypes)) ? Cf(n, s) : Sr)),
+          : ((s = L(i) ? Cr : Tr.current), (y = (o = null != (o = i.contextTypes)) ? Cf(n, s) : Sr)),
         (i = new i(a, y)),
         (n.memoizedState = null !== i.state && void 0 !== i.state ? i.state : null),
         (i.updater = Zr),
@@ -27615,7 +27240,7 @@
       var s = n.stateNode;
       (s.props = a), (s.state = n.memoizedState), (s.refs = Qr), ug(n);
       var y = i.contextType;
-      "object" == typeof y && null !== y ? (s.context = sg(y)) : ((y = L(i) ? Or : Tr.current), (s.context = Cf(n, y))),
+      "object" == typeof y && null !== y ? (s.context = sg(y)) : ((y = L(i) ? Cr : Tr.current), (s.context = Cf(n, y))),
         zg(n, a, s, o),
         (s.state = n.memoizedState),
         "function" == typeof (y = i.getDerivedStateFromProps) && (Fg(n, i, y, a), (s.state = n.memoizedState)),
@@ -28447,7 +28072,7 @@
       ((null === n && null !== a) || (null !== n && n.ref !== a)) && (i.effectTag |= 128);
     }
     function di(n, i, a, o, s) {
-      var y = L(a) ? Or : Tr.current;
+      var y = L(a) ? Cr : Tr.current;
       return (
         (y = Cf(i, y)),
         qg(i, s),
@@ -28470,7 +28095,7 @@
         E.props = w;
         var $ = E.context,
           ie = a.contextType;
-        "object" == typeof ie && null !== ie ? (ie = sg(ie)) : (ie = Cf(i, (ie = L(a) ? Or : Tr.current)));
+        "object" == typeof ie && null !== ie ? (ie = sg(ie)) : (ie = Cf(i, (ie = L(a) ? Cr : Tr.current)));
         var oe = a.getDerivedStateFromProps,
           se = "function" == typeof oe || "function" == typeof E.getSnapshotBeforeUpdate;
         se ||
@@ -28481,7 +28106,7 @@
         (E.state = le),
           zg(i, o, E, s),
           ($ = i.memoizedState),
-          w !== o || le !== $ || Cr.current || qr
+          w !== o || le !== $ || Or.current || qr
             ? ("function" == typeof oe && (Fg(i, a, oe, o), ($ = i.memoizedState)),
               (w = qr || Kg(i, a, w, o, le, $, ie))
                 ? (se ||
@@ -28501,7 +28126,7 @@
           (w = i.memoizedProps),
           (E.props = i.type === i.elementType ? w : ig(i.type, w)),
           ($ = E.context),
-          "object" == typeof (ie = a.contextType) && null !== ie ? (ie = sg(ie)) : (ie = Cf(i, (ie = L(a) ? Or : Tr.current))),
+          "object" == typeof (ie = a.contextType) && null !== ie ? (ie = sg(ie)) : (ie = Cf(i, (ie = L(a) ? Cr : Tr.current))),
           (se = "function" == typeof (oe = a.getDerivedStateFromProps) || "function" == typeof E.getSnapshotBeforeUpdate) ||
             ("function" != typeof E.UNSAFE_componentWillReceiveProps && "function" != typeof E.componentWillReceiveProps) ||
             ((w !== o || $ !== ie) && Mg(i, E, o, ie)),
@@ -28510,7 +28135,7 @@
           (E.state = $),
           zg(i, o, E, s),
           (le = i.memoizedState),
-          w !== o || $ !== le || Cr.current || qr
+          w !== o || $ !== le || Or.current || qr
             ? ("function" == typeof oe && (Fg(i, a, oe, o), (le = i.memoizedState)),
               (oe = qr || Kg(i, a, w, o, $, le, ie))
                 ? (se ||
@@ -28724,7 +28349,7 @@
         case 3:
           return (
             eh(),
-            H(Cr),
+            H(Or),
             H(Tr),
             (a = i.stateNode).pendingContext && ((a.context = a.pendingContext), (a.pendingContext = null)),
             (null !== n && null !== n.child) || !Wh(i) || (i.effectTag |= 4),
@@ -28929,7 +28554,7 @@
                   0 != (2 & i.mode) &&
                   ((null === n && !0 !== i.memoizedProps.unstable_avoidThisFallback) || 0 != (1 & vi.current)
                     ? Wa === wa && (Wa = Pa)
-                    : ((Wa !== wa && Wa !== Pa) || (Wa = Na), 0 !== Za && null !== Ua && (xi(Ua, Ka), yi(Ua, Za)))),
+                    : ((Wa !== wa && Wa !== Pa) || (Wa = Na), 0 !== Za && null !== Ua && (xi(Ua, za), yi(Ua, Za)))),
                 (a || o) && (i.effectTag |= 4),
                 null)
           );
@@ -29026,7 +28651,7 @@
           var i = n.effectTag;
           return 4096 & i ? ((n.effectTag = (-4097 & i) | 64), n) : null;
         case 3:
-          if ((eh(), H(Cr), H(Tr), 0 != (64 & (i = n.effectTag)))) throw Error(u(285));
+          if ((eh(), H(Or), H(Tr), 0 != (64 & (i = n.effectTag)))) throw Error(u(285));
           return (n.effectTag = (-4097 & i) | 64), n;
         case 5:
           return gh(n), null;
@@ -29549,8 +29174,8 @@
       Na = 4,
       Ba = 0,
       Ua = null,
-      za = null,
-      Ka = 0,
+      Ka = null,
+      za = 0,
       Wa = wa,
       $a = null,
       Ya = 1073741823,
@@ -29577,7 +29202,7 @@
       if (0 == (2 & (i = i.mode))) return 1073741823;
       var o = ag();
       if (0 == (4 & i)) return 99 === o ? 1073741823 : 1073741822;
-      if (0 != (16 & Ba)) return Ka;
+      if (0 != (16 & Ba)) return za;
       if (null !== a) n = hg(n, 0 | a.timeoutMs || 5e3, 250);
       else
         switch (o) {
@@ -29597,7 +29222,7 @@
           default:
             throw Error(u(326));
         }
-      return null !== Ua && n === Ka && --n, n;
+      return null !== Ua && n === za && --n, n;
     }
     function Ig(n, i) {
       if (50 < co) throw ((co = 0), (uo = null), Error(u(185)));
@@ -29629,7 +29254,7 @@
           }
           o = o.return;
         }
-      return null !== s && (Ua === s && (Bg(i), Wa === Na && xi(s, Ka)), yi(s, i)), s;
+      return null !== s && (Ua === s && (Bg(i), Wa === Na && xi(s, za)), yi(s, i)), s;
     }
     function zj(n) {
       var i = n.lastExpiredTime;
@@ -29671,7 +29296,7 @@
       var a = zj(n);
       if (0 !== a) {
         if (((i = n.callbackNode), 0 != (48 & Ba))) throw Error(u(327));
-        if ((Dj(), (n === Ua && a === Ka) || Ej(n, a), null !== za)) {
+        if ((Dj(), (n === Ua && a === za) || Ej(n, a), null !== Ka)) {
           var o = Ba;
           Ba |= 16;
           for (var s = Fj(); ; )
@@ -29682,7 +29307,7 @@
               Hj(n, i);
             }
           if ((ng(), (Ba = o), (Ia.current = s), 1 === Wa)) throw ((i = $a), Ej(n, a), xi(n, a), Z(n), i);
-          if (null === za)
+          if (null === Ka)
             switch (((s = n.finishedWork = n.current.alternate), (n.finishedExpirationTime = a), (o = Wa), (Ua = null), o)) {
               case wa:
               case 1:
@@ -29784,7 +29409,7 @@
     function yj(n) {
       var i = n.lastExpiredTime;
       if (((i = 0 !== i ? i : 1073741823), 0 != (48 & Ba))) throw Error(u(327));
-      if ((Dj(), (n === Ua && i === Ka) || Ej(n, i), null !== za)) {
+      if ((Dj(), (n === Ua && i === za) || Ej(n, i), null !== Ka)) {
         var a = Ba;
         Ba |= 16;
         for (var o = Fj(); ; )
@@ -29795,7 +29420,7 @@
             Hj(n, i);
           }
         if ((ng(), (Ba = a), (Ia.current = o), 1 === Wa)) throw ((a = $a), Ej(n, i), xi(n, i), Z(n), a);
-        if (null !== za) throw Error(u(261));
+        if (null !== Ka) throw Error(u(261));
         (n.finishedWork = n.current.alternate), (n.finishedExpirationTime = i), (Ua = null), Jj(n), Z(n);
       }
       return null;
@@ -29821,15 +29446,15 @@
     function Ej(n, i) {
       (n.finishedWork = null), (n.finishedExpirationTime = 0);
       var a = n.timeoutHandle;
-      if ((-1 !== a && ((n.timeoutHandle = -1), yn(a)), null !== za))
-        for (a = za.return; null !== a; ) {
+      if ((-1 !== a && ((n.timeoutHandle = -1), yn(a)), null !== Ka))
+        for (a = Ka.return; null !== a; ) {
           var o = a;
           switch (o.tag) {
             case 1:
               null != (o = o.type.childContextTypes) && Df();
               break;
             case 3:
-              eh(), H(Cr), H(Tr);
+              eh(), H(Or), H(Tr);
               break;
             case 5:
               gh(o);
@@ -29846,7 +29471,7 @@
           }
           a = a.return;
         }
-      (Ua = n), (za = Sg(n.current, null)), (Ka = i), (Wa = wa), ($a = null), (qa = Ya = 1073741823), (Qa = null), (Za = 0), (Ja = !1);
+      (Ua = n), (Ka = Sg(n.current, null)), (za = i), (Wa = wa), ($a = null), (qa = Ya = 1073741823), (Qa = null), (Za = 0), (Ja = !1);
     }
     function Hj(n, i) {
       for (;;) {
@@ -29856,14 +29481,14 @@
               var o = a.queue;
               null !== o && (o.pending = null), (a = a.next);
             }
-          if (((wi = 0), (Wi = Bi = Li = null), (Yi = !1), null === za || null === za.return)) return (Wa = 1), ($a = i), (za = null);
+          if (((wi = 0), (Wi = Bi = Li = null), (Yi = !1), null === Ka || null === Ka.return)) return (Wa = 1), ($a = i), (Ka = null);
           e: {
             var s = n,
-              y = za.return,
-              E = za,
+              y = Ka.return,
+              E = Ka,
               w = i;
             if (
-              ((i = Ka),
+              ((i = za),
               (E.effectTag |= 2048),
               (E.firstEffect = E.lastEffect = null),
               null !== w && "object" == typeof w && "function" == typeof w.then)
@@ -29948,7 +29573,7 @@
               se = se.return;
             } while (null !== se);
           }
-          za = Pj(za);
+          Ka = Pj(Ka);
         } catch (n) {
           i = n;
           continue;
@@ -29967,41 +29592,41 @@
       n > Za && (Za = n);
     }
     function Kj() {
-      for (; null !== za; ) za = Qj(za);
+      for (; null !== Ka; ) Ka = Qj(Ka);
     }
     function Gj() {
-      for (; null !== za && !Br(); ) za = Qj(za);
+      for (; null !== Ka && !Br(); ) Ka = Qj(Ka);
     }
     function Qj(n) {
-      var i = _a(n.alternate, n, Ka);
+      var i = _a(n.alternate, n, za);
       return (n.memoizedProps = n.pendingProps), null === i && (i = Pj(n)), (Aa.current = null), i;
     }
     function Pj(n) {
-      za = n;
+      Ka = n;
       do {
-        var i = za.alternate;
-        if (((n = za.return), 0 == (2048 & za.effectTag))) {
-          if (((i = si(i, za, Ka)), 1 === Ka || 1 !== za.childExpirationTime)) {
-            for (var a = 0, o = za.child; null !== o; ) {
+        var i = Ka.alternate;
+        if (((n = Ka.return), 0 == (2048 & Ka.effectTag))) {
+          if (((i = si(i, Ka, za)), 1 === za || 1 !== Ka.childExpirationTime)) {
+            for (var a = 0, o = Ka.child; null !== o; ) {
               var s = o.expirationTime,
                 y = o.childExpirationTime;
               s > a && (a = s), y > a && (a = y), (o = o.sibling);
             }
-            za.childExpirationTime = a;
+            Ka.childExpirationTime = a;
           }
           if (null !== i) return i;
           null !== n &&
             0 == (2048 & n.effectTag) &&
-            (null === n.firstEffect && (n.firstEffect = za.firstEffect),
-            null !== za.lastEffect && (null !== n.lastEffect && (n.lastEffect.nextEffect = za.firstEffect), (n.lastEffect = za.lastEffect)),
-            1 < za.effectTag && (null !== n.lastEffect ? (n.lastEffect.nextEffect = za) : (n.firstEffect = za), (n.lastEffect = za)));
+            (null === n.firstEffect && (n.firstEffect = Ka.firstEffect),
+            null !== Ka.lastEffect && (null !== n.lastEffect && (n.lastEffect.nextEffect = Ka.firstEffect), (n.lastEffect = Ka.lastEffect)),
+            1 < Ka.effectTag && (null !== n.lastEffect ? (n.lastEffect.nextEffect = Ka) : (n.firstEffect = Ka), (n.lastEffect = Ka)));
         } else {
-          if (null !== (i = zi(za))) return (i.effectTag &= 2047), i;
+          if (null !== (i = zi(Ka))) return (i.effectTag &= 2047), i;
           null !== n && ((n.firstEffect = n.lastEffect = null), (n.effectTag |= 2048));
         }
-        if (null !== (i = za.sibling)) return i;
-        za = n;
-      } while (null !== za);
+        if (null !== (i = Ka.sibling)) return i;
+        Ka = n;
+      } while (null !== Ka);
       return Wa === wa && (Wa = 5), null;
     }
     function Ij(n) {
@@ -30030,7 +29655,7 @@
           : o <= n.firstSuspendedTime && (n.firstSuspendedTime = o - 1),
         o <= n.lastPingedTime && (n.lastPingedTime = 0),
         o <= n.lastExpiredTime && (n.lastExpiredTime = 0),
-        n === Ua && ((za = Ua = null), (Ka = 0)),
+        n === Ua && ((Ka = Ua = null), (za = 0)),
         1 < a.effectTag ? (null !== a.lastEffect ? ((a.lastEffect.nextEffect = a), (s = a.firstEffect)) : (s = a)) : (s = a.firstEffect),
         null !== s)
       ) {
@@ -30290,9 +29915,9 @@
     function Oj(n, i, a) {
       var o = n.pingCache;
       null !== o && o.delete(i),
-        Ua === n && Ka === a
+        Ua === n && za === a
           ? Wa === Na || (Wa === Pa && 1073741823 === Ya && Hr() - eo < 500)
-            ? Ej(n, Ka)
+            ? Ej(n, za)
             : (Ja = !0)
           : Aj(n, a) && ((0 !== (i = n.lastPingedTime) && i < a) || ((n.lastPingedTime = a), Z(n)));
     }
@@ -30304,7 +29929,7 @@
       var o = i.expirationTime;
       if (null !== n) {
         var s = i.pendingProps;
-        if (n.memoizedProps !== s || Cr.current) pa = !0;
+        if (n.memoizedProps !== s || Or.current) pa = !0;
         else {
           if (o < a) {
             switch (((pa = !1), i.tag)) {
@@ -30484,7 +30109,7 @@
                 ((w = E.value),
                 0 === (y = Jn(w, y) ? 0 : 0 | ("function" == typeof o._calculateChangedBits ? o._calculateChangedBits(w, y) : 1073741823)))
               ) {
-                if (E.children === s.children && !Cr.current) {
+                if (E.children === s.children && !Or.current) {
                   i = $h(n, i, a);
                   break e;
                 }
@@ -30855,10 +30480,10 @@
           Ig(n, i), ek(n, i);
         }
       }),
-      (Vt = function (n) {
+      (Kt = function (n) {
         13 === n.tag && (Ig(n, 3), ek(n, 3));
       }),
-      (zt = function (n) {
+      (Vt = function (n) {
         if (13 === n.tag) {
           var i = Gg();
           Ig(n, (i = Hg(i, n, null))), ek(n, i);
@@ -31035,7 +30660,7 @@
   },
   function (n, i, a) {
     "use strict";
-    n.exports = a(76);
+    n.exports = a(69);
   },
   function (n, i, a) {
     "use strict";
@@ -31334,7 +30959,7 @@
   },
   function (n, i, a) {
     "use strict";
-    n.exports = a(78);
+    n.exports = a(71);
   },
   function (n, i, a) {
     "use strict";
@@ -31701,301 +31326,424 @@
       (i.typeOf = v);
   },
   ,
-  ,
+  function (n, i, a) {
+    "use strict";
+    i.a = {
+      thank_you_page_CH: "https://poperblocker.com/welcome",
+      thank_you_page_FF: "https://poperblocker.com/welcome-firefox",
+      privacy_policy_CH: "https://poperblocker.com/privacy/",
+      privacy_policy_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/privacy/",
+      uninstall_page_CH: "https://poperblocker.com/uninstall/?",
+      uninstall_page_FF: "https://poperblocker.com/uninstall-firefox/?",
+      feedback_page: "https://poperblocker.com/feedback.html?from=ext",
+      contact_page: "https://poperblocker.com/contact-form.html",
+      appStore_CH: "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche",
+      appStore_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/",
+      extension_review_page_CH:
+        "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche/reviews",
+      extension_review_page_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/reviews/add",
+      twitter_share_link:
+        "https://twitter.com/intent/tweet?hashtags=popups&original_referer=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share&related=socialmediahats&text=I'm%20using%20poper%20blocker%20to%20enjoy%20a%20popup%20free%20browsing%20experience%20pic.twitter.com%2FniqVgqfmAw&url=https%3A%2F%2Fgoo.gl%2FryoaEn&via=poper_blocker",
+      facebook_share_link:
+        "https://www.facebook.com/dialog/share?app_id=1911035589168170&display=popup&href=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share%3Fhl%3Den&hashtag=%23For_No_More_Popups_Click_Below",
+      facebook_base_url: "www.facebook.com",
+      overlay_check_API: "https://api2.poperblocker.com/view/update",
+      overlay_blocking_context_item_contexts: ["page", "frame", "selection", "link", "editable", "image", "video", "audio"],
+      googleSheetID: "1dRQsmt6DYMXGo3YeTQ442kV-xxG1LJfG41wEUpnWefM",
+      dataSettings: { strKeys: ["ga_allEvent_rate", "ni"], arrKeys: ["blacklist", "whitelist"] },
+      blockCountsToShowRate: 5,
+      blockCountsToShowRateAgain: 100,
+      totalBlockingFeatures: 2,
+      blockedTypes: {
+        win: "win",
+        tab: "tab",
+        overlay: "overlay",
+        ad: "ad",
+        cookie: "cookie",
+        fbAd: "fbAd",
+        linkedinAd: "linkedinAd",
+        twitterAd: "twitterAd",
+        tracker: "tracker",
+        instagramAd: "instagramAd",
+        youtubeAd: "youtubeAd"
+      },
+      defaultBlackList: [
+        "adrunnr",
+        "successforyu.clickfunnels.com",
+        "fmovies.se",
+        "in-365-tagen.info",
+        "5000-settimanale.com",
+        "shop.mazzugioielli.com",
+        "maxigossip.com",
+        "lp.yazizim.com",
+        "beyourxfriend.com",
+        "99tab.com",
+        "zzqrt.com",
+        "canuck-method.net",
+        "bewomenly.com",
+        "playnow.guru",
+        "datingforyou-48e1.kxcdn.com",
+        "trafficnetworkads24.com",
+        "sistemadedinerogratis.com",
+        "canuckmethodprofit.co",
+        "consumerresearchnetwork.com",
+        "securemacfix.com",
+        "zz3d3.ru",
+        "zd1.quebec-bin.com",
+        "hot-games4you.xyz",
+        "om.elvenar.com",
+        "superpccleanup.com",
+        "gomediaz.com",
+        "judithi.xyz",
+        "free.atozmanuals.com",
+        "yoursuccess.ravpage.co.il",
+        "123hop.ir",
+        "quizcliente.pw",
+        "aussiemethod.biz",
+        "hlpnowp-c.com",
+        "picbumper.com",
+        "shaneless.com",
+        "anacondamonster.com",
+        "altrk1.com",
+        "health.todaydiets.com",
+        "download.weatherblink.com",
+        "happyluketh.com",
+        "go.ameinfo.com",
+        "50kaweek.net",
+        "thepornsurvey.com",
+        "ofsiite.ru",
+        "fulltab.com",
+        "1000spins.com",
+        "time2play-online.net",
+        "vintacars.com",
+        "welcome.pussysaga.com",
+        "free-desktop-games.com",
+        "download.televisionfanatic.com",
+        "theprofitsmaker.net",
+        "sgad.info",
+        "algocashmaster.net",
+        "sunmaker.com",
+        "topvipdreams.com",
+        "watchmygirlfriend.gfpornvideos.com",
+        "filesharefanatic.com",
+        "safedownloadhub.com",
+        "7awlalalam.blogspot.com",
+        "tvplusnewtab.com",
+        "trendingpatrol.com",
+        "moneymorning.com",
+        "ifileyou.com",
+        "classifiedcanada.ca",
+        "firefan.com",
+        "methode-binaire.com",
+        "letmetell.com",
+        "kenduktur.com",
+        "getafuk.com",
+        "yotraleplahnte.ru",
+        "jackpot.88beto.com",
+        "pwwysydh.com",
+        "search.queryrouter.com",
+        "v.lvztxy.com",
+        "pussysaga.com",
+        "saffamethod.com",
+        "prezzonline.com",
+        "searchprivacy.website",
+        "3d2819216eb4e1035879-7c248de0c99745406e9b749fc86ec3e4.ssl.cf1.rackcdn.com",
+        "only2date.com",
+        "mysagagame.com",
+        "themillionaireinpjs.net",
+        "wlt.kd2244.com",
+        "quickprivacycheck.com",
+        "hotchatdate.com",
+        "autotraderbot.com",
+        "z1.zedo.com",
+        "youlucky2014.com",
+        "traffic.getmyads.com",
+        "appcloudprotected.com",
+        "safensecure.com-allsites3.xyz",
+        "newpoptab.com",
+        "static.williamhill.com",
+        "myhealthyblog.co",
+        "greatestmobideals.com",
+        "sweetclarity.com",
+        "mgid.com",
+        "securepccure.com",
+        "autopengebygger.com",
+        "am15.net",
+        "es.reimageplus.com",
+        "o2.promos-info.com",
+        "it.reimageplus.com",
+        "westsluts.com",
+        "spinandwin.com-ser.pw",
+        "reimageplus.com",
+        "vodafone.promos-info.com",
+        "vinnmatpengar.se",
+        "movie.ienjoyapps.com",
+        "love4single.com",
+        "origin.getprice.com.au",
+        "ohmydating.com",
+        "lp.want-to-win.com",
+        "yabuletchrome.ru",
+        "bamdad.net",
+        "gotositenow.com",
+        "vcrypt.pw",
+        "newtabtv.com",
+        "mon.setsu.xyz",
+        "youforgottorenewyourhosting.com",
+        "zone-telechargement.ws",
+        "land.pckeeper.software",
+        "ad.adpop-1.com",
+        "advancedpctools.com",
+        "videos.randolphcountyheraldtribune.com",
+        "web-start.org",
+        "softreadynow.installupgradenowfreshandforyou.website",
+        "uplod.ws",
+        "pornhubcasino.com",
+        "maxbet.ro",
+        "2016prizefeed.com",
+        "thevideo.me",
+        "wantubad.com",
+        "tavanero.com",
+        "xcusmy.club",
+        "daclips.in",
+        "gaymenofporn.online",
+        "jackpotcitycasino.com",
+        "italian-method.com",
+        "getsearchincognito.com",
+        "youjustwonprize.com",
+        "finanz-nachrichten.me",
+        "quizcliente.site",
+        "da.reimageplus.com",
+        "jkanime.net",
+        "britmoneymethod.com",
+        "uae.souq.com",
+        "ka.azzer.net",
+        "safensecure.xyz",
+        "8t.hootingrhejkz.online",
+        "www6.blinkx.com",
+        "wizzcaster.com",
+        "comparaison-prix.com",
+        "vodlocker.lol",
+        "fr.reimageplus.com",
+        "free.fromdoctopdf.com",
+        "userscloud.com",
+        "myprivatesearch.com",
+        "fanli90.cn",
+        "tutticodicisconto.it",
+        "mediadec.com",
+        "gogamego.thewhizproducts.com",
+        "download.weatherblink.com",
+        "free.videodownloadconverter.com",
+        "we-are-gamers.com",
+        "sesso.communityadult.net",
+        "lp.blpmovies.com",
+        "search.queryrouter.com",
+        "bbb-johannesburg.localspecific.com",
+        "lp.blpmovies.com",
+        "go.ppixelm.com",
+        "r0.ru",
+        "sesso.communityadult.net",
+        "bbb-johannesburg.localspecific.com",
+        "ppixelm.com",
+        "cyberguardianspe.info",
+        "we-are-gamers.com",
+        "loginfaster.com/new",
+        "www.alfacart.com",
+        "www.foresee.com",
+        "mobile-win.com",
+        "www.plusnetwork.com",
+        "www.amicafarmacia.com",
+        "www.ienjoyapps.com",
+        "cheapcheap.io",
+        "screenaddict.thewhizproducts.com",
+        "nova.rambler.ru",
+        "free.gamingwonderland.com",
+        "p9328ujeiw1.ru",
+        "mobilecasinoclub.co.uk",
+        "pfhsystem.com",
+        "regtuneup.com",
+        "theprofitsmaker.net",
+        "bodogpromotions.eu",
+        "heroesreplay.org",
+        "financialsecrets.info",
+        "mymoneymakingapp.com",
+        "sunmaker.com",
+        "888casino-promotions.com",
+        "vogliosesso.com",
+        "scienceremix.com",
+        "allinonedocs.com",
+        "arabia.starzplay.com",
+        "allirishcasino.com",
+        "advancepctools.info",
+        "movie.ienjoyapps.com",
+        "surveyform001.s3-website-us-east-1.amazonaws.com",
+        "mgs188.com",
+        "pfhsystem.com",
+        "lpeva.com",
+        "ddsh8.com",
+        "theprofitsmaker.net",
+        "b2.ijquery11.com",
+        "sporthero.thewhizmarketing.com",
+        "securefastmac.tech",
+        "seen-on-screen.thewhizmarketing.com",
+        "1000spins.com",
+        "search.queryrouter.com",
+        "pfhsystem.com",
+        "reimageplus.com",
+        "offer.alibaba.com",
+        "searchlistings.org",
+        "search.queryrouter.com",
+        "search.queryrouter.com",
+        "mybinaryoptionsrobot.com",
+        "duplicashapp.com",
+        "search.queryrouter.com",
+        "bestgame.directory",
+        "droidclub.net",
+        ".rivalo.com",
+        "yoursuperprize.com",
+        "mediaexplained.com",
+        "om.elvenar.com",
+        "shinar.club",
+        "revitoleczemacream.com",
+        "freelotto.com",
+        "screenaddict.thewhizproducts.com",
+        "download.bringmesports.com/",
+        "allinonedocs.com",
+        "driver-fixer.com",
+        "arabydeal.com",
+        "cleanyourcomputertoday.com",
+        "arabydeal.com",
+        "music.mixplugin.com",
+        "1se.info",
+        "survey12.com",
+        "freesoftwaredlul.com",
+        "pldist01.com",
+        "ad.adpop-1.com",
+        "searchanonymous.net",
+        "abrst.pro",
+        "muzikfury.thewhizmarketing.com",
+        "lp.mbtrx.com",
+        "th1.forfun.maxisize-pro.com",
+        "watchmygirlfriend.gfpornbox.com",
+        "new.freelotto.com",
+        "desktoptrack.com",
+        "search.queryrouter.com",
+        "offer.alibaba.com",
+        "1000spins.com",
+        "promotions.coral.co.uk",
+        "search.queryrouter.com",
+        "tbsia.com",
+        "tbsia.com",
+        "multtaepyo.com",
+        "search.queryrouter.com",
+        "czechmethod.com",
+        "consumerview.co",
+        "wayretail.com",
+        "72onbase.com",
+        "funsafetab.com",
+        "search.queryrouter.com",
+        "speedyfiledownload.com",
+        "driver-fixer.com",
+        "arabydeal.com",
+        "cleanyourcomputertoday.com",
+        "arabydeal.com",
+        "music.mixplugin.com",
+        "1se.info",
+        "survey12.com",
+        "freesoftwaredlul.com",
+        "pldist01.com",
+        "ad.adpop-1.com",
+        "searchanonymous.net",
+        "abrst.pro",
+        "muzikfury.thewhizmarketing.com",
+        "lp.mbtrx.com",
+        "th1.forfun.maxisize-pro.com",
+        "watchmygirlfriend.gfpornbox.com",
+        "new.freelotto.com",
+        "desktoptrack.com",
+        "search.queryrouter.com",
+        "offer.alibaba.com",
+        "1000spins.com",
+        "promotions.coral.co.uk",
+        "search.queryrouter.com",
+        "tbsia.com",
+        "tbsia.com",
+        "surveyform001.s3-website-us-east-1.amazonaws.com",
+        "mgs188.com",
+        "pfhsystem.com",
+        "lpeva.com",
+        "ddsh8.com",
+        "theprofitsmaker.net",
+        "quantomcoding.com",
+        "sporthero.thewhizmarketing.com",
+        "popads.net",
+        "onclkds.com",
+        "consumerview.co",
+        "12kotov.ru",
+        "ruhotpair2.fingta.com",
+        "easytelevisionaccessnow.com",
+        "ahwrd.com",
+        "lpeva.com",
+        "ppgzf.com",
+        "zjstx.com",
+        "kituure.xyz",
+        "join.pro-gaming-world.com",
+        "mackeeperapp.mackeeper.com",
+        "tracknotify.com",
+        "2075.cdn.beyondhosting.net",
+        "idollash.com",
+        "ds.moviegoat.com",
+        "fulltab.com",
+        "rackcdn.com",
+        "prestoris.com",
+        "adsterra.com",
+        "swampssovuuhusp.top",
+        "streesusa.info",
+        "freesoftwaredlul.com",
+        "adreactor.com",
+        "a-static.com",
+        "codeonclick.com",
+        "heheme.com",
+        "adf.ly",
+        "seen-on-screen.thewhizmarketing.com",
+        "openload.co"
+      ]
+    };
+  },
   ,
   ,
   function (n, i, a) {
     "use strict";
     a.d(i, "a", function () {
-      return E;
+      return LocalAndRemoteConfigManager;
     });
-    var o = a(19),
-      s = a(0);
-    const y = class extends o.a {
-      constructor() {
-        super(...arguments), (this.isDisplayed = !1), (this.installTime = -1);
+    var o = a(5);
+    class LocalAndRemoteConfigManager {
+      constructor(n, i) {
+        (this.remoteUrl = n), (this.storageKey = i);
       }
-      getKey() {
-        return s.g.PIN_TASKBAR_DATA;
+      async get() {
+        return o.a.get(this.storageKey);
       }
-      getLegacyKeys() {
-        return [];
+      async update() {
+        const n = await this.get(),
+          i = await this.fetchRemoteAndStore();
+        return !!(await this.updateConfigIfNeeded(n, i));
       }
-      toDTO() {
-        return { isDisplayed: this.isDisplayed, installTime: this.installTime };
+      async clear() {
+        await o.a.remove([this.storageKey]);
       }
-      getVersion() {
-        return 1;
+      async fetchRemoteAndStore() {
+        const n = await fetch(this.remoteUrl, { method: "GET" });
+        return await n.json();
       }
-      migrate(n) {}
-      async setDisplayed(n) {
-        return (this.isDisplayed = n), await this.save(), this;
+      async updateConfigIfNeeded(n, i) {
+        let a = 0;
+        return n && (a = n.version), !!(i && i.version > a) && (await o.a.set(this.storageKey, i), !0);
       }
-      isTimeToDisplayPromo() {
-        return !this.isDisplayed;
-      }
-      async init() {
-        return (this.installTime = Date.now()), (this.isDisplayed = !1), await this.save(), this;
-      }
-    };
-    let E = y;
-    E.getDefault = () => new y();
+    }
   },
   ,
   ,
-  ,
-  ,
-  function (n, i, a) {
-    "use strict";
-    a.d(i, "c", function () {
-      return tryDisplayCookieMessage;
-    }),
-      a.d(i, "a", function () {
-        return countCookieMessages;
-      }),
-      a.d(i, "b", function () {
-        return removePromoBanner;
-      });
-    var o = a(1),
-      s = a.n(o),
-      y = a(27),
-      E = a.n(y),
-      w = a(62),
-      $ = a(5),
-      ie = a(2),
-      oe = a(43),
-      se = a(91),
-      le = a(99),
-      he = a(4);
-    const pe = he.c.div`
-  display: flex;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  flex-direction: column;
-  align-items: center;
-  position: 'fixed';
-  height: 164px;
-  width: 234px;
-  border-radius: 14px;
-  padding: 0px 4px 10px 4px;
-  background: ${(n) => n.theme.palette.greyScale.white};
-  box-shadow: ${(n) => n.theme.boxShadow.facebookNotification};
-
-`,
-      ge = he.c.div`
-  width: 40px;
-  height: 40px;
-  display: flex;
-  margin-top: -10px;
-`,
-      ve = he.c.div`
-  color: ${(n) => n.theme.palette.greyScale.ultraDark};
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.bold};
-  font-size: ${(n) => n.theme.fontSizes.headerFontSize};
-  line-height: 18px;
-  text-align: center;
-  white-space: pre-wrap;
-  flex-grow: 1;
-  margin-top: -3px;
-`,
-      Se = he.c.div`
-  color: ${(n) => n.theme.palette.greyScale.ultraDark};
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.bold};
-  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
-  line-height: ${(n) => n.theme.lineHeight.medium};
-  text-align: center;
-  margin-top: -3px;
-`,
-      Oe = he.c.div`
- color: ${(n) => n.theme.palette.greyScale.dark};
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.liteBold};
-  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
-  line-height: ${(n) => n.theme.lineHeight.medium};
-  text-align: center;
-  flex-grow: 1;
-`,
-      we = he.c.button`
-  background: ${(n) => n.theme.palette.pro.ultraDark};
-  color: ${(n) => n.theme.palette.greyScale.white};
-  font-family: ${(n) => n.theme.fonts.mulish};
-  font-weight: ${(n) => n.theme.fontWeight.strong};
-  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
-  line-height: ${(n) => n.theme.lineHeight.small};
-  text-align: center;
-  border-radius: 8px;
-  border-color: transparent;
-  height: 30px;
-  width: 170px;
-  box-sizing: border-box;
-  margin-bottom: 5px;
-  cursor: pointer;
-  &:hover {
-    background: ${(n) => n.theme.palette.pro.ultraDark};
-  }
-`;
-    var je = a(37),
-      Ue = a(11),
-      We = a(6),
-      $e = a(12),
-      Ye = a(29),
-      Xe = a(95);
-    const et = We.a.CookieCrumbler;
-    function isInViewport(n) {
-      const i = n.getBoundingClientRect();
-      return (
-        i.top >= 0 &&
-        i.left >= 0 &&
-        i.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        i.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-        i.width > 0 &&
-        i.height > 0
-      );
-    }
-    function findFirstVisibleElement(n) {
-      for (let i of n)
-        if (i && isInViewport(i)) {
-          const n = i.getBoundingClientRect();
-          return { element: i, elemPosition: n };
-        }
-      return { element: null, elemPosition: null };
-    }
-    const tryDisplayCookieMessage = () =>
-        getCookieElements()
-          .then((n) => n.length > 0 && (showCookiePromoButton(n), !0))
-          .catch((n) => (console.error("err", n), !1)),
-      countCookieMessages = (n) => {
-        getCookieElements().then((i) => {
-          if (i.length > 0) {
-            let { element: a } = findFirstVisibleElement(i);
-            a && Object($.l)({ name: n, type: je.a.blockedTypes.cookie });
-          }
-        });
-      },
-      getCookieElements = () =>
-        w.a
-          .getAndParse()
-          .then((n) => {
-            if (document) {
-              const i = document.querySelectorAll(n);
-              return Array.from(i);
-            }
-          })
-          .catch((n) => (console.error("err", n), [])),
-      removePromoBanner = () => {
-        const n = document.getElementById(ie.q.COOKIE_PROMO_ROOT);
-        document.body.removeChild(n);
-      };
-    function CookiePromoBanner(n) {
-      const [i, a] = Object(o.useState)(!1),
-        [y, E] = Object(o.useState)(!1),
-        [w, he] = Object(o.useState)(!1),
-        We = window.innerHeight,
-        tt = { position: "fixed", left: n.messagePosition.left + n.messagePosition.width / 2 - 117 + "px", zIndex: ie.k };
-      n.messagePosition.top > We - (n.messagePosition.top + n.messagePosition.height)
-        ? (tt.bottom = We - n.messagePosition.top)
-        : (tt.top = n.messagePosition.top + n.messagePosition.height);
-      const handleDontShowAgain = async () => {
-        (await Xe.a.create().load()).doNotDisplay(),
-          removePromoBanner(),
-          Object($.l)({ name: ie.n.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_HIDE_FOREVER });
-      };
-      Object(o.useEffect)(() => {
-        Object($.l)({ name: ie.n.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_USE_CASE_VIEW }),
-          Ue.a
-            .getDefault($e.a.onTrialEnded)
-            .loadAndUpdate()
-            .then((n) => {
-              a(n.isTrialActive()), he(n.isTrialEnded());
-            }),
-          Ye.a.isFeatureEnabled(et).then((n) => {
-            E(n);
-          });
-      }, []),
-        Object(o.useEffect)(() => {
-          Xe.a
-            .create()
-            .load()
-            .then((n) => {
-              n.updateHookDisplayed();
-            });
-          const n = i && y ? "cookie-trail-animation.json" : "cookie-animation.json";
-          Object(oe.a)("cookie-animation"), Object(oe.b)("cookieAnimation", "images/" + n, "cookie-animation", 3);
-        }, [i, y]);
-      const nt =
-        (i &&
-          !w &&
-          y &&
-          s.a.createElement(
-            s.a.Fragment,
-            null,
-            s.a.createElement(Se, null, Object($.d)("startTrialTitle")),
-            s.a.createElement(Oe, null, Object($.d)("cookiePromoBannerTrailMessageEnjoy"))
-          )) ||
-        (w && s.a.createElement(ve, null, Object($.d)("cookieTrailOverMessage"))) ||
-        s.a.createElement(ve, null, Object($.d)("cookiePromoBannerMessage"));
-      return s.a.createElement(
-        se.a,
-        null,
-        s.a.createElement(
-          pe,
-          { style: tt },
-          s.a.createElement(le.a, { onClose: handleDontShowAgain, style: { padding: "4px", paddingBottom: "12px", paddingTop: "6px" } }),
-          s.a.createElement(ge, { id: "cookieAnimation" }),
-          nt,
-          s.a.createElement(
-            we,
-            {
-              onClick: async () => {
-                if (w) Object($.l)({ name: ie.n.OPEN_URL, url: ie.m.WEB_APP + "/plans" }), removePromoBanner();
-                else {
-                  let n = !1;
-                  if (
-                    (i ? (Ye.a.setFeatureEnabled(et, !0), (n = !0)) : (n = await $e.a.startPremiumFeature()),
-                    Object($.l)({ name: ie.n.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_USE_CASE_CLICK }),
-                    !n)
-                  )
-                    return;
-                  E(!0),
-                    a(!0),
-                    setTimeout(() => {
-                      Object($.l)({ name: ie.n.UPDATE_BLOCK_COUNT, type: je.a.blockedTypes.cookie }),
-                        Object($.l)({ name: ie.n.INSERT_COOKIE_FILTERS }),
-                        Object($.l)({ name: ie.n.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_START }),
-                        removePromoBanner();
-                    }, 3e3);
-                }
-              }
-            },
-            ((i || w) && Object($.d)("hideThemForGood")) || Object($.d)("hideThemNow")
-          )
-        )
-      );
-    }
-    const showCookiePromoButton = (n) => {
-      if (!document.getElementById(ie.q.COOKIE_PROMO_ROOT)) {
-        let { element: i, elemPosition: a } = findFirstVisibleElement(n);
-        if (i) {
-          const n = document.createElement("div");
-          (n.className = ie.q.COOKIE_PROMO_ROOT),
-            (n.id = ie.q.COOKIE_PROMO_ROOT),
-            i.addEventListener("click", (n) => {
-              var i;
-              let a = ie.r / 3;
-              "BUTTON" !== (null == (i = n.target) ? void 0 : i.nodeName) && (a = ie.r),
-                setTimeout(() => {
-                  removePromoBanner();
-                }, a);
-            }),
-            document.body.insertBefore(n, window.document.body.firstChild);
-          const o = s.a.createElement(CookiePromoBanner, { messagePosition: a });
-          E.a.render(o, n);
-        }
-      }
-    };
-  },
   function (n, i, a) {
     "use strict";
     var o = a(1),
@@ -32074,6 +31822,300 @@
     i.a = ({ children: n }) => s.a.createElement(y.a, { theme: E }, n);
   },
   ,
+  ,
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "a", function () {
+      return E;
+    });
+    var o = a(19),
+      s = a(0);
+    const y = class extends o.a {
+      constructor() {
+        super(...arguments), (this.isDisplayed = !1), (this.installTime = -1);
+      }
+      getKey() {
+        return s.h.PIN_TASKBAR_DATA;
+      }
+      getLegacyKeys() {
+        return [];
+      }
+      toDTO() {
+        return { isDisplayed: this.isDisplayed, installTime: this.installTime };
+      }
+      getVersion() {
+        return 1;
+      }
+      migrate(n) {}
+      async setDisplayed(n) {
+        return (this.isDisplayed = n), await this.save(), this;
+      }
+      isTimeToDisplayPromo() {
+        return !this.isDisplayed;
+      }
+      async init() {
+        return (this.installTime = Date.now()), (this.isDisplayed = !1), await this.save(), this;
+      }
+    };
+    let E = y;
+    E.getDefault = () => new y();
+  },
+  ,
+  ,
+  ,
+  ,
+  function (n, i, a) {
+    "use strict";
+    a.d(i, "c", function () {
+      return tryDisplayCookieMessage;
+    }),
+      a.d(i, "a", function () {
+        return countCookieMessages;
+      }),
+      a.d(i, "b", function () {
+        return removePromoBanner;
+      });
+    var o = a(1),
+      s = a.n(o),
+      y = a(27),
+      E = a.n(y),
+      w = a(64),
+      $ = a(6),
+      ie = a(2),
+      oe = a(43),
+      se = a(81),
+      le = a(97),
+      he = a(4);
+    const pe = he.c.div`
+  display: flex;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  flex-direction: column;
+  align-items: center;
+  position: 'fixed';
+  height: 164px;
+  width: 234px;
+  border-radius: 14px;
+  padding: 0px 4px 10px 4px;
+  background: ${(n) => n.theme.palette.greyScale.white};
+  box-shadow: ${(n) => n.theme.boxShadow.facebookNotification};
+
+`,
+      ge = he.c.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  margin-top: -10px;
+`,
+      ve = he.c.div`
+  color: ${(n) => n.theme.palette.greyScale.ultraDark};
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.bold};
+  font-size: ${(n) => n.theme.fontSizes.headerFontSize};
+  line-height: 18px;
+  text-align: center;
+  white-space: pre-wrap;
+  flex-grow: 1;
+  margin-top: -3px;
+`,
+      Se = he.c.div`
+  color: ${(n) => n.theme.palette.greyScale.ultraDark};
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.bold};
+  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
+  line-height: ${(n) => n.theme.lineHeight.medium};
+  text-align: center;
+  margin-top: -3px;
+`,
+      Oe = he.c.div`
+ color: ${(n) => n.theme.palette.greyScale.dark};
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.liteBold};
+  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
+  line-height: ${(n) => n.theme.lineHeight.medium};
+  text-align: center;
+  flex-grow: 1;
+`,
+      we = he.c.button`
+  background: ${(n) => n.theme.palette.pro.ultraDark};
+  color: ${(n) => n.theme.palette.greyScale.white};
+  font-family: ${(n) => n.theme.fonts.mulish};
+  font-weight: ${(n) => n.theme.fontWeight.strong};
+  font-size: ${(n) => n.theme.fontSizes.subtitleFontSize};
+  line-height: ${(n) => n.theme.lineHeight.small};
+  text-align: center;
+  border-radius: 8px;
+  border-color: transparent;
+  height: 30px;
+  width: 170px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  cursor: pointer;
+  &:hover {
+    background: ${(n) => n.theme.palette.pro.ultraDark};
+  }
+`;
+    var je = a(35),
+      Ue = a(12),
+      We = a(8),
+      $e = a(13),
+      Ye = a(25),
+      Xe = a(93);
+    const et = We.a.CookieCrumbler;
+    function isInViewport(n) {
+      const i = n.getBoundingClientRect();
+      return (
+        i.top >= 0 &&
+        i.left >= 0 &&
+        i.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        i.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+        i.width > 0 &&
+        i.height > 0
+      );
+    }
+    function findFirstVisibleElement(n) {
+      for (let i of n)
+        if (i && isInViewport(i)) {
+          const n = i.getBoundingClientRect();
+          return { element: i, elemPosition: n };
+        }
+      return { element: null, elemPosition: null };
+    }
+    const tryDisplayCookieMessage = () =>
+        getCookieElements()
+          .then((n) => n.length > 0 && (showCookiePromoButton(n), !0))
+          .catch((n) => (console.error("err", n), !1)),
+      countCookieMessages = (n) => {
+        getCookieElements().then((i) => {
+          if (i.length > 0) {
+            let { element: a } = findFirstVisibleElement(i);
+            a && Object($.m)({ name: n, type: je.a.blockedTypes.cookie });
+          }
+        });
+      },
+      getCookieElements = () =>
+        w.a
+          .getAndParse()
+          .then((n) => {
+            if (document) {
+              const i = document.querySelectorAll(n);
+              return Array.from(i);
+            }
+          })
+          .catch((n) => (console.error("err", n), [])),
+      removePromoBanner = () => {
+        const n = document.getElementById(ie.r.COOKIE_PROMO_ROOT);
+        document.body.removeChild(n);
+      };
+    function CookiePromoBanner(n) {
+      const [i, a] = Object(o.useState)(!1),
+        [y, E] = Object(o.useState)(!1),
+        [w, he] = Object(o.useState)(!1),
+        We = window.innerHeight,
+        tt = { position: "fixed", left: n.messagePosition.left + n.messagePosition.width / 2 - 117 + "px", zIndex: ie.l };
+      n.messagePosition.top > We - (n.messagePosition.top + n.messagePosition.height)
+        ? (tt.bottom = We - n.messagePosition.top)
+        : (tt.top = n.messagePosition.top + n.messagePosition.height);
+      const handleDontShowAgain = async () => {
+        (await Xe.a.create().load()).doNotDisplay(),
+          removePromoBanner(),
+          Object($.m)({ name: ie.o.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_HIDE_FOREVER });
+      };
+      Object(o.useEffect)(() => {
+        Object($.m)({ name: ie.o.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_USE_CASE_VIEW }),
+          Ue.a
+            .getDefault($e.a.onTrialEnded)
+            .loadAndUpdate()
+            .then((n) => {
+              a(n.isTrialActive()), he(n.isTrialEnded());
+            }),
+          Ye.a.isFeatureEnabled(et).then((n) => {
+            E(n);
+          });
+      }, []),
+        Object(o.useEffect)(() => {
+          Xe.a
+            .create()
+            .load()
+            .then((n) => {
+              n.updateHookDisplayed();
+            });
+          const n = i && y ? "cookie-trail-animation.json" : "cookie-animation.json";
+          Object(oe.a)("cookie-animation"), Object(oe.b)("cookieAnimation", "images/" + n, "cookie-animation", 3);
+        }, [i, y]);
+      const nt =
+        (i &&
+          !w &&
+          y &&
+          s.a.createElement(
+            s.a.Fragment,
+            null,
+            s.a.createElement(Se, null, Object($.f)("startTrialTitle")),
+            s.a.createElement(Oe, null, Object($.f)("cookiePromoBannerTrailMessageEnjoy"))
+          )) ||
+        (w && s.a.createElement(ve, null, Object($.f)("cookieTrailOverMessage"))) ||
+        s.a.createElement(ve, null, Object($.f)("cookiePromoBannerMessage"));
+      return s.a.createElement(
+        se.a,
+        null,
+        s.a.createElement(
+          pe,
+          { style: tt },
+          s.a.createElement(le.a, { onClose: handleDontShowAgain, style: { padding: "4px", paddingBottom: "12px", paddingTop: "6px" } }),
+          s.a.createElement(ge, { id: "cookieAnimation" }),
+          nt,
+          s.a.createElement(
+            we,
+            {
+              onClick: async () => {
+                if (w) Object($.m)({ name: ie.o.OPEN_URL, url: ie.n.WEB_APP + "/plans" }), removePromoBanner();
+                else {
+                  let n = !1;
+                  if (
+                    (i ? (Ye.a.setFeatureEnabled(et, !0), (n = !0)) : (n = await $e.a.startPremiumFeature(ie.e.IFRAME_COOKIE_HOOK)),
+                    Object($.m)({ name: ie.o.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_USE_CASE_CLICK }),
+                    !n)
+                  )
+                    return;
+                  E(!0),
+                    a(!0),
+                    setTimeout(() => {
+                      Object($.m)({ name: ie.o.UPDATE_BLOCK_COUNT, type: je.a.blockedTypes.cookie }),
+                        Object($.m)({ name: ie.o.INSERT_COOKIE_FILTERS }),
+                        Object($.m)({ name: ie.o.SEND_ANALYTICS_EVENT, eventType: ie.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_START }),
+                        removePromoBanner();
+                    }, 3e3);
+                }
+              }
+            },
+            ((i || w) && Object($.f)("hideThemForGood")) || Object($.f)("hideThemNow")
+          )
+        )
+      );
+    }
+    const showCookiePromoButton = (n) => {
+      if (!document.getElementById(ie.r.COOKIE_PROMO_ROOT)) {
+        let { element: i, elemPosition: a } = findFirstVisibleElement(n);
+        if (i) {
+          const n = document.createElement("div");
+          (n.className = ie.r.COOKIE_PROMO_ROOT),
+            (n.id = ie.r.COOKIE_PROMO_ROOT),
+            i.addEventListener("click", (n) => {
+              var i;
+              let a = ie.s / 3;
+              "BUTTON" !== (null == (i = n.target) ? void 0 : i.nodeName) && (a = ie.s),
+                setTimeout(() => {
+                  removePromoBanner();
+                }, a);
+            }),
+            document.body.insertBefore(n, window.document.body.firstChild);
+          const o = s.a.createElement(CookiePromoBanner, { messagePosition: a });
+          E.a.render(o, n);
+        }
+      }
+    };
+  },
+  ,
   function (n, i) {
     (function (i) {
       n.exports = i;
@@ -32102,7 +32144,7 @@
       shouldDisplay() {
         const n = this.getDaysSinceDisplayed(),
           i = this.lastDisplayed <= 0;
-        return !this.isDoNotDisplay && (i || n >= 1);
+        return !this.isDoNotDisplay && (i || n > 0);
       }
       async updateHookDisplayed() {
         return (this.lastDisplayed = Date.now()), await this.save(), this;
@@ -32339,7 +32381,7 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(262),
+    var o = a(260),
       s = o.default,
       y = o.DraggableCore;
     (n.exports = s), (n.exports.default = s), (n.exports.DraggableCore = y);
@@ -32349,7 +32391,7 @@
     var o = a(4),
       s = a(1),
       y = a.n(s),
-      E = a(30);
+      E = a(29);
     const w = o.c.div`
   box-sizing: border-box;
   display: flex;
@@ -32382,7 +32424,7 @@
     a.d(i, "a", function () {
       return loadSvgAnimationWithParams;
     });
-    var o = a(48),
+    var o = a(45),
       s = a.n(o);
     const loadSvgAnimationWithParams = (n, i, a = "", o = !1, y = !0) => {
       return (
@@ -32404,16 +32446,16 @@
         return unblockAllElements;
       });
     var o = a(27),
-      s = a(97),
+      s = a(95),
       y = a(1),
       E = a.n(y),
       w = a(43),
-      $ = a(31),
-      ie = a(61),
+      $ = a(30),
+      ie = a(62),
       oe = a(3),
-      se = a(14),
+      se = a(16),
       le = a(0),
-      he = a(98),
+      he = a(96),
       pe = a.n(he),
       ge = a(41);
     const createOrGetStyleElement = () => {
@@ -32441,7 +32483,7 @@
           }, []),
           tt = Object(y.useCallback)((n) => {
             n && et(n), removeEventListeners(), document.body.style.removeProperty("cursor");
-            const i = document.getElementById(le.F.BLOCKER_ELEMENT_ID);
+            const i = document.getElementById(le.G.BLOCKER_ELEMENT_ID);
             i && i.parentNode && i.parentNode.removeChild(i);
           }, []),
           nt = Object(y.useCallback)(() => {
@@ -32469,7 +32511,7 @@
               o = window.location.href;
             if (a) {
               Object(oe.W)({
-                name: le.s.SEND_ANALYTICS_EVENT,
+                name: le.t.SEND_ANALYTICS_EVENT,
                 eventType: le.c.ANALYTICS_EVENT_TYPES.ELEMENT_BLOCKED_UNDO,
                 eventPayload: { payload: JSON.stringify({ url: o, element: i }) }
               }),
@@ -32480,19 +32522,19 @@
           at = Object(y.useCallback)((n) => {
             et(n),
               removeEventListeners(),
-              Object(oe.U)(le.n.CATEGORIES.CTA, le.n.ACTIONS.CLICK, "Finished blocking elements"),
-              chrome.storage.local.get([le.g.BLOCKED_ELEMENTS], (n) => {
+              Object(oe.U)(le.o.CATEGORIES.CTA, le.o.ACTIONS.CLICK, "Finished blocking elements"),
+              chrome.storage.local.get([le.h.BLOCKED_ELEMENTS], (n) => {
                 const i = window.location.href,
-                  a = n[le.g.BLOCKED_ELEMENTS] || {};
-                $e.length > 0 && ((a[i] = a[i] || []), a[i].push(...$e), chrome.storage.local.set({ [le.g.BLOCKED_ELEMENTS]: a })),
+                  a = n[le.h.BLOCKED_ELEMENTS] || {};
+                $e.length > 0 && ((a[i] = a[i] || []), a[i].push(...$e), chrome.storage.local.set({ [le.h.BLOCKED_ELEMENTS]: a })),
                   Object(oe.W)({
-                    name: le.s.SEND_ANALYTICS_EVENT,
+                    name: le.t.SEND_ANALYTICS_EVENT,
                     eventType: le.c.ANALYTICS_EVENT_TYPES.ELEMENT_BLOCKED_SAVE,
                     eventPayload: { payload: JSON.stringify({ url: i }) }
                   }),
                   je($e.length),
                   We(!0),
-                  Object(oe.W)({ name: le.s.UPDATE_REMOTE_SETTINGS });
+                  Object(oe.W)({ name: le.t.UPDATE_REMOTE_SETTINGS });
               });
           }, []),
           ot = Object(y.useCallback)((n) => {
@@ -32501,13 +32543,13 @@
             if (!i) return;
             removeHighlight();
             const a = window.location.hostname;
-            Object(oe.U)(le.n.CATEGORIES.BLOCK_ELEMENT, le.n.ACTIONS.BLOCKED_ELEMENT_SITE, "" + a),
-              Object(oe.U)(le.n.CATEGORIES.BLOCK_ELEMENT, le.n.ACTIONS.CLICK, "Element blocked successfully");
+            Object(oe.U)(le.o.CATEGORIES.BLOCK_ELEMENT, le.o.ACTIONS.BLOCKED_ELEMENT_SITE, "" + a),
+              Object(oe.U)(le.o.CATEGORIES.BLOCK_ELEMENT, le.o.ACTIONS.CLICK, "Element blocked successfully");
             const o = Object(s.a)(i);
             return (
-              Object(oe.U)(le.n.CATEGORIES.BLOCK_ELEMENT, le.n.ACTIONS.CLICK, "Blocked selector - " + o),
+              Object(oe.U)(le.o.CATEGORIES.BLOCK_ELEMENT, le.o.ACTIONS.CLICK, "Blocked selector - " + o),
               Object(oe.W)({
-                name: le.s.SEND_ANALYTICS_EVENT,
+                name: le.t.SEND_ANALYTICS_EVENT,
                 eventType: le.c.ANALYTICS_EVENT_TYPES.ELEMENT_BLOCKED,
                 eventPayload: { payload: JSON.stringify({ url: a, element: o }) }
               }),
@@ -32515,7 +32557,7 @@
               ((n) => {
                 const i = document.createElement("style");
                 i.setAttribute("pb-block-element-selector", encodeURIComponent(n)),
-                  (i.textContent += `${n} ${le.i.HIDDEN_PROPERTY}`),
+                  (i.textContent += `${n} ${le.j.HIDDEN_PROPERTY}`),
                   document.body.appendChild(i);
               })(o),
               $e.length < 1 ? Oe(!0) : Oe(!1),
@@ -32624,31 +32666,31 @@
       selectStyleElement = (n) => document.querySelector(`[pb-block-element-selector='${encodeURIComponent(n)}']`),
       startBlockElement = () =>
         (() => {
-          let n = document.getElementById(le.F.BLOCKER_ELEMENT_ID);
-          n || ((n = document.createElement("div")), (n.id = le.F.BLOCKER_ELEMENT_ID), document.body.appendChild(n)),
+          let n = document.getElementById(le.G.BLOCKER_ELEMENT_ID);
+          n || ((n = document.createElement("div")), (n.id = le.G.BLOCKER_ELEMENT_ID), document.body.appendChild(n)),
             Object(o.render)(E.a.createElement(BlockElement, null), n);
         })(),
       loadBlockedElements = () => {
-        chrome.storage.local.get(le.g.BLOCKED_ELEMENTS, (n) => {
+        chrome.storage.local.get(le.h.BLOCKED_ELEMENTS, (n) => {
           const i = window.location.href,
-            a = n[le.g.BLOCKED_ELEMENTS];
+            a = n[le.h.BLOCKED_ELEMENTS];
           a && a[i]
-            ? (Object(oe.W)({ name: le.s.ADD_UNBLOCK_ALL_ELEMENTS_MENU }),
+            ? (Object(oe.W)({ name: le.t.ADD_UNBLOCK_ALL_ELEMENTS_MENU }),
               ((n) => {
                 const i = createOrGetStyleElement();
                 n.forEach((n) => {
-                  i.textContent += `${n} ${le.i.HIDDEN_PROPERTY}`;
+                  i.textContent += `${n} ${le.j.HIDDEN_PROPERTY}`;
                 });
               })(a[i]))
-            : window === top && Object(oe.W)({ name: le.s.REMOVE_UNBLOCK_ALL_ELEMENTS_MENU });
+            : window === top && Object(oe.W)({ name: le.t.REMOVE_UNBLOCK_ALL_ELEMENTS_MENU });
         });
       },
       unblockAllElements = () => {
-        chrome.storage.local.get([le.g.BLOCKED_ELEMENTS], (n) => {
+        chrome.storage.local.get([le.h.BLOCKED_ELEMENTS], (n) => {
           const i = window.location.href,
-            a = n[le.g.BLOCKED_ELEMENTS];
+            a = n[le.h.BLOCKED_ELEMENTS];
           Object(oe.W)({
-            name: le.s.SEND_ANALYTICS_EVENT,
+            name: le.t.SEND_ANALYTICS_EVENT,
             eventType: le.c.ANALYTICS_EVENT_TYPES.BLOCK_ELEMENT_UNBLOCK_ELEMENTS,
             eventPayload: { payload: JSON.stringify({ url: i }) }
           }),
@@ -32659,13 +32701,13 @@
                 });
             })(a, i),
             delete a[i],
-            chrome.storage.local.set({ [le.g.BLOCKED_ELEMENTS]: a }),
-            Object(oe.W)({ name: le.s.REMOVE_UNBLOCK_ALL_ELEMENTS_MENU });
+            chrome.storage.local.set({ [le.h.BLOCKED_ELEMENTS]: a }),
+            Object(oe.W)({ name: le.t.REMOVE_UNBLOCK_ALL_ELEMENTS_MENU });
         });
       };
   },
   function (n, i, a) {
-    n.exports = a(263)();
+    n.exports = a(261)();
   },
   function (n, i, a) {
     "use strict";
@@ -32773,7 +32815,7 @@
           }
         } catch (n) {}
       });
-    var o = a(96),
+    var o = a(94),
       s = (function _interopRequireWildcard(n, i) {
         if (!i && n && n.__esModule) return n;
         if (null === n || ("object" !== _typeof(n) && "function" != typeof n)) return { default: n };
@@ -32788,7 +32830,7 @@
           }
         (o.default = n), a && a.set(n, o);
         return o;
-      })(a(266));
+      })(a(264));
     function _getRequireWildcardCache(n) {
       if ("function" != typeof WeakMap) return null;
       var i = new WeakMap(),
@@ -32906,7 +32948,7 @@
     function markAndHideElement(n, i, a) {
       for (var s = n.getElementsByTagName(a), y = 0; y < s.length; y++) {
         var E = s[y];
-        if (isElementByUrl(E, i) && !hasAttribute(E, o.p))
+        if (isElementByUrl(E, i) && !hasAttribute(E, o.q))
           return hideElement(E), E.parentNode && "A" == E.parentNode.tagName && hideElement(E.parentNode), !0;
       }
       return !1;
@@ -32914,8 +32956,8 @@
     function markElement(n, i, a) {
       for (var s = n.getElementsByTagName(a), y = 0; y < s.length; y++) {
         var E = s[y];
-        if (isElementByUrl(E, i) && !hasAttribute(E, o.p))
-          return setAttribute(E, o.p), E.parentNode && "A" == E.parentNode.tagName && setAttribute(E.parentNode), !0;
+        if (isElementByUrl(E, i) && !hasAttribute(E, o.q))
+          return setAttribute(E, o.q), E.parentNode && "A" == E.parentNode.tagName && setAttribute(E.parentNode), !0;
       }
       return !1;
     }
@@ -32933,7 +32975,7 @@
       }
     }
     function hideElement(n) {
-      setAttribute(n, "style", "visibility: hidden !important;" + getAttribute(n, "style") || ""), setAttribute(n, o.p);
+      setAttribute(n, "style", "visibility: hidden !important;" + getAttribute(n, "style") || ""), setAttribute(n, o.q);
     }
     function stripProtocolFromUrl(n) {
       return 0 == n.indexOf("http:") ? n.substring("http:".length) : 0 == n.indexOf("https:") ? n.substring("https:".length) : n;
@@ -33176,8 +33218,8 @@
           s = Math.round(a / n[1]) * n[1];
         return [o, s];
       });
-    var o = a(96),
-      s = a(103);
+    var o = a(94),
+      s = a(101);
     function findDOMNode(n) {
       var i = n.findDOMNode();
       if (!i) throw new Error("<DraggableCore>: Unmounted during event!");
@@ -33196,89 +33238,89 @@
     "use strict";
     (function (n) {
       var o = a(0),
-        s = a(8),
-        y = a(245),
-        E = a(33),
+        s = a(7),
+        y = a(243),
+        E = a(32),
         w = a.n(E),
-        $ = (a(240), a(246)),
-        ie = a(255),
-        oe = a(247),
-        se = a(248),
-        le = a(101),
+        $ = (a(238), a(244)),
+        ie = a(253),
+        oe = a(245),
+        se = a(246),
+        le = a(99),
         he = a(28),
         pe = a(3),
-        ge = a(249),
-        ve = a(90),
-        Se = a(104),
-        Oe = a(253),
-        we = a(69),
-        je = a(254),
-        Ue = a(256),
-        We = a(252),
-        $e = a(250),
-        Ye = a(257),
-        Xe = a(85),
+        ge = a(247),
+        ve = a(89),
+        Se = a(102),
+        Oe = a(251),
+        we = a(75),
+        je = a(252),
+        Ue = a(254),
+        We = a(250),
+        $e = a(248),
+        Ye = a(255),
+        Xe = a(84),
         et = a(42),
-        tt = a(12),
-        nt = a(6),
-        rt = a(251),
-        it = a(258);
+        tt = a(13),
+        nt = a(8),
+        rt = a(249),
+        it = a(256);
       i.a = class ContentManager {
         constructor(n, i, a, E) {
           (this.initNotifiaction = () =>
             new $.a({
               onHideClick() {
                 this.ntfShowManager.updateDontShow({ domain: this.tabUrl.domain }),
-                  Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Hide notifications");
+                  Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Hide notifications");
               },
               onResizeClick() {
-                Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Minimize notification bar");
+                Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Minimize notification bar");
               },
               onDisplay({ source: n }) {
                 switch (n) {
                   case "popup-blocked":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "A popup has been blocked");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "A popup has been blocked");
                     break;
                   case "recipe-blocked":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "An overlay has been removed with recipe");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "An overlay has been removed with recipe");
                     break;
                   case "removed-overlay":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "An overlay has been removed"),
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "An overlay has been removed"),
                       Object(pe.W)({
-                        name: o.s.SEND_ANALYTICS_EVENT,
+                        name: o.t.SEND_ANALYTICS_EVENT,
                         eventType: o.c.ANALYTICS_EVENT_TYPES.OVERLAY_BLOCKED,
                         eventPayload: { payload: JSON.stringify({ url: this.tabUrl.domain }) }
                       });
                     break;
                   case "overlay-blacklist":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "An overlay has been removed");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "An overlay has been removed");
                     break;
                   case "overlay-not-found":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "Overlay was not found");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "Overlay was not found");
                     break;
                   case "rating":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "Rate us notification has been shown");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "Rate us notification has been shown");
                     break;
                   case "quick-tip":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "Tip notification");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "Tip notification");
                     break;
                   case "overlay-not-supported":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.VIEWED, "Overlay not supported at " + this.tabUrl.domain);
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.VIEWED, "Overlay not supported at " + this.tabUrl.domain);
                 }
               },
               onCloseClick({ source: n }) {
                 switch (n) {
                   case "rating":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Close rate us notification");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Close rate us notification");
                     break;
                   case "share":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Close share notification");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Close share notification");
                     break;
                   case "quick-tip":
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Close tip notification");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Close tip notification");
                     break;
                   default:
-                    Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Close notification");
+                    Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Close notification");
                 }
               },
               onButtonClick({ source: n, id: i }) {
@@ -33286,46 +33328,46 @@
                   case "popup-blocked":
                     switch (i) {
                       case "allowOnce":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Allow popup once");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Allow popup once");
                         break;
                       case "allowAlways":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Whitelist this site");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Whitelist this site");
                     }
                     break;
                   case "recipe-blocked":
                     switch (i) {
                       case "NTF_allowOverlayOnce":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Allow overlay once");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Allow overlay once");
                     }
                     break;
                   case "removed-overlay":
                     switch (i) {
                       case "undoLabel":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Undo overlay once");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Undo overlay once");
                         break;
                       case "removeAlwaysLabel":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Remove overlay always");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Remove overlay always");
                     }
                     break;
                   case "overlay-blacklist":
                     switch (i) {
                       case "NTF_allowOverlayOnce":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Allow overlay once");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Allow overlay once");
                         break;
                       case "NTF_whitelistOverlay":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Allow overlay always");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Allow overlay always");
                     }
                     break;
                   case "overlay-not-found":
                     switch (i) {
                       case "TS_Report":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Report overlay not found");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Report overlay not found");
                     }
                     break;
                   case "overlay-not-supported":
                     switch (i) {
                       case "NTF_OVERLAY_AGREE":
-                        Object(pe.U)(o.n.CATEGORIES.NOTIFICATION, o.n.ACTIONS.CLICK, "Permission");
+                        Object(pe.U)(o.o.CATEGORIES.NOTIFICATION, o.o.ACTIONS.CLICK, "Permission");
                     }
                 }
               }
@@ -33343,7 +33385,7 @@
                     this.overlayKiller.restore(),
                       (this.ntfShowManager.isActive.overlay = !0),
                       Object(pe.W)({
-                        name: o.s.SEND_ANALYTICS_EVENT,
+                        name: o.t.SEND_ANALYTICS_EVENT,
                         eventType: o.c.ANALYTICS_EVENT_TYPES.UNDO_OVERLAY_REMOVAL,
                         eventPayload: { payload: JSON.stringify({ url: this.tabUrl.domain, click: null }) }
                       });
@@ -33351,30 +33393,30 @@
                   removeAlwaysLabel: () => {
                     this.overlayKiller.addToLocalBlacklist({ domain: this.tabUrl.domain, url: this.tabUrl.href }),
                       Object(pe.W)({
-                        name: o.s.SEND_ANALYTICS_EVENT,
+                        name: o.t.SEND_ANALYTICS_EVENT,
                         eventType: o.c.ANALYTICS_EVENT_TYPES.REMOVE_OVERLAY_FOREVER,
                         eventPayload: { payload: JSON.stringify({ url: this.tabUrl.domain, click: null }) }
                       });
                   }
                 },
                 onDisplay: () => chrome.runtime.sendMessage({ name: "update-rating", action: "display" }),
-                onButtonClick: () => chrome.runtime.sendMessage({ name: "update-rating", action: o.n.ACTIONS.CLICK })
+                onButtonClick: () => chrome.runtime.sendMessage({ name: "update-rating", action: o.o.ACTIONS.CLICK })
               });
             }),
             (this.startMessageListener = () => {
               window.addEventListener(
                 "message",
                 (n) => {
-                  n.data.type !== o.s.OPEN_EXTENSION_CHECKOUT_MODAL
-                    ? o.q.VALID_MESSAGE_DOMAINS.some((i) => n.origin.includes(i)) && s.BrowserAPI.runtime.sendMessage(n.data)
-                    : Object(it.a)();
+                  n.data.type !== o.t.OPEN_EXTENSION_CHECKOUT_MODAL
+                    ? o.r.VALID_MESSAGE_DOMAINS.some((i) => n.origin.includes(i)) && s.BrowserAPI.runtime.sendMessage(n.data)
+                    : Object(it.a)(n.data.source);
                 },
                 !1
               );
             }),
             (this.startInjectFonts = () => {
               chrome.runtime.sendMessage(
-                { name: o.s.INJECT_FONTS, currDocument: JSON.stringify(document) },
+                { name: o.t.INJECT_FONTS, currDocument: JSON.stringify(document) },
                 ((n) => {
                   const i = document.createElement("style");
                   (i.innerHTML = n.fonts), document.querySelector("head").appendChild(i);
@@ -33390,14 +33432,14 @@
                   (i.rel = n.rel), (i.href = n.href), (i.crossOrigin = n.crossorigin), document.head.appendChild(i);
                 }),
                 Object(le.a)(),
-                chrome.storage.local.get([o.g.SETTINGS, o.g.USER, o.g.WHITELIST, o.g.PAUSED, o.g.PROMO_COUPON], (n) => {
-                  const i = n[o.g.USER],
-                    a = n[o.g.SETTINGS],
-                    s = (n[o.g.PROMO_COUPON], i && i.isPremium);
+                chrome.storage.local.get([o.h.SETTINGS, o.h.USER, o.h.WHITELIST, o.h.PAUSED, o.h.PROMO_COUPON], (n) => {
+                  const i = n[o.h.USER],
+                    a = n[o.h.SETTINGS],
+                    s = (n[o.h.PROMO_COUPON], i && i.isPremium);
                   n.paused ||
-                    (Object(pe.z)(this.tabUrl.domain, n[o.g.WHITELIST]) ||
+                    (Object(pe.z)(this.tabUrl.domain, n[o.h.WHITELIST]) ||
                       (s || window !== top
-                        ? s && a.cookieCrumbler && (Object(ve.a)(o.s.UPDATE_BLOCK_COUNT), Object(pe.W)({ name: o.s.INSERT_COOKIE_FILTERS }))
+                        ? s && a.cookieCrumbler && (Object(ve.a)(o.t.UPDATE_BLOCK_COUNT), Object(pe.W)({ name: o.t.INSERT_COOKIE_FILTERS }))
                         : (this.isPopularSitesForBlockElement(),
                           Object(he.m)(this.tabUrl.domain) ||
                             setTimeout(() => {
@@ -33409,9 +33451,9 @@
               ) {
                 const n = await Xe.a.getDefault().load(),
                   i = n.isTimeToDisplayPromo(),
-                  a = Object(pe.z)(this.tabUrl.domain, o.q.VALID_MESSAGE_DOMAINS);
+                  a = Object(pe.z)(this.tabUrl.domain, o.r.VALID_MESSAGE_DOMAINS);
                 if (i && !a) {
-                  (await Object(pe.Z)({ name: o.s.EXTENSION_IS_PINNED })).isPinned || Object(Ye.a)(), n.setDisplayed(!0);
+                  (await Object(pe.Z)({ name: o.t.EXTENSION_IS_PINNED })).isPinned || Object(Ye.a)(), n.setDisplayed(!0);
                 }
               }
             }),
@@ -33436,43 +33478,43 @@
                       Object(he.c)(`window.pbExternalCommand && window.pbExternalCommand(1, "${this.pbMessage}");`))
                     : Object(he.c)(`window.pbExternalCommand && window.pbExternalCommand(0, "${this.pbMessage}");`);
                   break;
-                case o.s.START_BLOCKED_ELEMENTS:
+                case o.t.START_BLOCKED_ELEMENTS:
                   Object(le.b)();
                   break;
-                case o.s.UNBLOCK_ALL_ELEMENTS:
+                case o.t.UNBLOCK_ALL_ELEMENTS:
                   Object(le.c)();
                   break;
-                case o.s.HIDE_COOKIE_CRUMBLER_PROMO:
+                case o.t.HIDE_COOKIE_CRUMBLER_PROMO:
                   Object(ve.b)();
                   break;
-                case o.s.HIDE_AD_ELEMENT:
+                case o.t.HIDE_AD_ELEMENT:
                   Object(Se.b)(document, n.data.url, n.data.tag), this.updateBlockCounts({ block: we.a.blockedTypes.ad }, 1);
                   break;
-                case o.s.COUNT_AD_ELEMENT:
+                case o.t.COUNT_AD_ELEMENT:
                   Object(Se.a)(document, n.data.url, n.data.tag) && this.updateUnBlockCounts({ block: we.a.blockedTypes.ad }, 1);
                   break;
-                case o.s.UPDATE_BLOCK_COUNT:
+                case o.t.UPDATE_BLOCK_COUNT:
                   this.updateBlockCounts({ block: n.data.type }, 1);
                   break;
-                case o.s.UPDATE_UNBLOCK_COUNT:
+                case o.t.UPDATE_UNBLOCK_COUNT:
                   this.updateUnBlockCounts({ block: n.data.type }, 1);
                   break;
-                case o.s.COUNT_COOKIE_MESSAGES:
-                  Object(ve.a)(o.s.UPDATE_BLOCK_COUNT);
+                case o.t.COUNT_COOKIE_MESSAGES:
+                  Object(ve.a)(o.t.UPDATE_BLOCK_COUNT);
                   break;
-                case o.s.SHOW_COUPON_MESSAGE:
+                case o.t.SHOW_COUPON_MESSAGE:
                   Object(Ue.a)(n.data);
                   break;
-                case o.s.SHOW_TRIAL_PROMO:
+                case o.t.SHOW_TRIAL_PROMO:
                   if (n && n.data) {
                     const i = n.data;
                     Object(We.a)(i.feature, i.extras);
                   }
                   break;
-                case o.s.REQUEST_EXTENSION_ID:
-                  window.postMessage({ name: o.s.UPDATE_EXTENSION_ID, id: n.data.id, version: n.data.version });
+                case o.t.REQUEST_EXTENSION_ID:
+                  window.postMessage({ name: o.t.UPDATE_EXTENSION_ID, id: n.data.id, version: n.data.version });
                   break;
-                case o.s.POST_MESSAGE:
+                case o.t.POST_MESSAGE:
                   window.postMessage(n.data);
               }
             }),
@@ -33507,10 +33549,10 @@
           });
         }
         async isPopularSitesForBlockElement() {
-          await Object(pe.W)({ name: o.s.GET_POPULAR_SITES_FOR_BLOCK_ELEMENTS }),
-            chrome.storage.local.get([o.g.POPULAR_SITES_FOR_BLOCK_ELEMENTS], (n) => {
+          await Object(pe.W)({ name: o.t.GET_POPULAR_SITES_FOR_BLOCK_ELEMENTS }),
+            chrome.storage.local.get([o.h.POPULAR_SITES_FOR_BLOCK_ELEMENTS], (n) => {
               if (n.paused) return;
-              const i = n[o.g.POPULAR_SITES_FOR_BLOCK_ELEMENTS],
+              const i = n[o.h.POPULAR_SITES_FOR_BLOCK_ELEMENTS],
                 a = i && i[this.tabUrl.domain];
               a && Object(ge.a)(a["Total Events"]);
             });
@@ -33519,7 +33561,7 @@
           const n = await et.a.getTotalBlocksPerTab(),
             i = n[this.activeTab.id] ? n[this.activeTab.id].totalCount : 0,
             a = i > 0 ? i.toString() : "";
-          Object(pe.W)({ name: o.s.ADD_BADGE_STATE, state: rt.a.DISTRACTION, badgeText: a });
+          Object(pe.W)({ name: o.t.ADD_BADGE_STATE, state: rt.a.DISTRACTION, badgeText: a });
         }
         async updateBlockCounts(n, i = 1) {
           const a = await this.blockCountManager.updateCounts({ blockInfo: n, counts: i, activeTabId: this.activeTab.id });
@@ -33535,11 +33577,11 @@
         }
         updatePromoCouponCounts(n) {
           "pop" == n.block &&
-            chrome.storage.local.get(o.g.PROMO_COUPON, ({ promoCoupon: n }) => {
+            chrome.storage.local.get(o.h.PROMO_COUPON, ({ promoCoupon: n }) => {
               if (n) n.count++, chrome.storage.local.set({ promoCoupon: n });
               else {
                 const n = Date.now();
-                chrome.storage.local.set({ [o.g.PROMO_COUPON]: { lastUpdateTime: n, count: 1, cycle: 0 } });
+                chrome.storage.local.set({ [o.h.PROMO_COUPON]: { lastUpdateTime: n, count: 1, cycle: 0 } });
               }
             });
         }
@@ -33559,7 +33601,7 @@
               }
             },
             onDisplay: () => chrome.runtime.sendMessage({ name: "update-rating", action: "display" }),
-            onButtonClick: () => chrome.runtime.sendMessage({ name: "update-rating", action: o.n.ACTIONS.CLICK })
+            onButtonClick: () => chrome.runtime.sendMessage({ name: "update-rating", action: o.o.ACTIONS.CLICK })
           });
         }
         showNotSupportedPopup(n) {
@@ -33578,7 +33620,7 @@
                 chrome.storage.local.get("settings", ({ settings: n }) => {
                   (n.isOptIn = !0), (n.detectOverlays = !0), (n.enableSiteExperience = !0), chrome.storage.local.set({ settings: n });
                 }),
-                  Object(pe.W)({ name: o.s.OPT_IN_AGREE }),
+                  Object(pe.W)({ name: o.t.OPT_IN_AGREE }),
                   this.overlayKiller.remove(n.source);
               }
             }
@@ -33608,23 +33650,23 @@
                   }
                   const n = JSON.parse(i.args),
                     a = await this.updateBlockCounts({ block: "pop" });
-                  a.totalBlocksPerDay > 0 && Object(pe.U)(o.n.CATEGORIES.REPORTS, o.n.ACTIONS.DAILY_BLOCKS, a.totalBlocksPerDay),
+                  a.totalBlocksPerDay > 0 && Object(pe.U)(o.o.CATEGORIES.REPORTS, o.o.ACTIONS.DAILY_BLOCKS, a.totalBlocksPerDay),
                     await this.ntfShowManager.isShow({ domain: this.tabUrl.domain }),
                     this.showPopupBlockedNotification(n, { domain: this.tabUrl.domain }),
                     this.ntfShowManager.isActive && this.setPendingNotificationParams(n),
-                    Object(pe.U)("General", o.n.ACTIONS.BLOCKED_POPUP, this.tabUrl.domain);
+                    Object(pe.U)("General", o.o.ACTIONS.BLOCKED_POPUP, this.tabUrl.domain);
                 }
               },
               !1
             );
         }
         async initBlockFunctions() {
-          await Object(pe.W)({ name: o.s.GET_DEFAULT_WHITELIST }),
-            chrome.storage.local.get([o.g.SETTINGS, o.g.PAUSED, o.g.WHITELIST, o.g.DEFAULT_WHITELIST], (n) => {
-              const i = !1 === n[o.g.SETTINGS].popups;
+          await Object(pe.W)({ name: o.t.GET_DEFAULT_WHITELIST }),
+            chrome.storage.local.get([o.h.SETTINGS, o.h.PAUSED, o.h.WHITELIST, o.h.DEFAULT_WHITELIST], (n) => {
+              const i = !1 === n[o.h.SETTINGS].popups;
               if (n.paused || i) return;
-              const a = n[o.g.DEFAULT_WHITELIST],
-                s = n[o.g.WHITELIST];
+              const a = n[o.h.DEFAULT_WHITELIST],
+                s = n[o.h.WHITELIST];
               if (!Object(pe.z)(this.tabUrl.domain, s) && !Object(pe.z)(this.tabUrl.domain, a)) {
                 const n = document.createElement("script");
                 (n.src = chrome.runtime.getURL("/injectScript.js")),
@@ -33727,7 +33769,7 @@
             showResize: !0,
             buttons: { undoLabel: () => this.overlayKiller.restore() },
             onDisplay: () => chrome.runtime.sendMessage({ name: "update-rating", action: "display" }),
-            onButtonClick: () => chrome.runtime.sendMessage({ name: "update-rating", action: o.n.ACTIONS.CLICK })
+            onButtonClick: () => chrome.runtime.sendMessage({ name: "update-rating", action: o.o.ACTIONS.CLICK })
           });
         }
         isOverlayish(n) {
@@ -33744,12 +33786,12 @@
         }
         initListeners() {
           window === top &&
-            (s.BrowserAPI.runtime.sendMessage({ name: o.s.UPDATE_USER_INFO }),
-            s.BrowserAPI.runtime.sendMessage({ name: o.s.SEND_ALIVE_EVENT })),
+            (s.BrowserAPI.runtime.sendMessage({ name: o.t.UPDATE_USER_INFO }),
+            s.BrowserAPI.runtime.sendMessage({ name: o.t.SEND_ALIVE_EVENT })),
             window == top && s.BrowserAPI.runtime.onMessage.addListener(this.handleMessages);
         }
       };
-    }).call(this, a(36).Buffer);
+    }).call(this, a(34).Buffer);
   },
   function (n, i, a) {
     "use strict";
@@ -33764,7 +33806,7 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(33),
+    var o = a(32),
       s = a.n(o),
       y = a(28);
     i.a = class Notification {
@@ -33987,7 +34029,7 @@
             E.numOfBlocks++, (E.totalBlocksByType = s.a.updateBlockedItemCount(E.totalBlocksByType, i, a));
             let w = location.host,
               $ = E.counterBlockedSites || {};
-            const { data: ie, totalCountPerDay: oe } = this.incrementTotalCountPerDay($, w, o.g.BLOCKED_SITES_COUNTER, a);
+            const { data: ie, totalCountPerDay: oe } = this.incrementTotalCountPerDay($, w, o.h.BLOCKED_SITES_COUNTER, a);
             (E.counterBlockedSites = ($[w] = ie) && $),
               s.a.updateTotalBlocksByTabId(y, w, i, a),
               chrome.storage.local.set(E),
@@ -34002,7 +34044,7 @@
             y.numOfUnBlocks++, (y.totalUnBlocksByType = s.a.updateBlockedItemCount(y.totalUnBlocksByType, i, a));
             let E = location.host,
               w = y.counterUnBlockedSites || {};
-            const { data: $, totalCountPerDay: ie } = this.incrementTotalCountPerDay(w, E, o.g.UNBLOCKED_SITES_COUNTER, a);
+            const { data: $, totalCountPerDay: ie } = this.incrementTotalCountPerDay(w, E, o.h.UNBLOCKED_SITES_COUNTER, a);
             (y.counterUnBlockedSites = (w[E] = $) && w),
               chrome.storage.local.set(y),
               n({ numOfUnBlocks: y.numOfUnBlocks, todayCount: $.todayCount, totalUnBlocksPerDay: ie });
@@ -34053,13 +34095,13 @@
     var o = a(1),
       s = a.n(o),
       y = a(27),
-      E = a(31),
+      E = a(30),
       w = a(3),
       $ = a(0),
-      ie = a(14),
+      ie = a(16),
       oe = a(41),
-      se = a(61),
-      le = a(49);
+      se = a(62),
+      le = a(50);
     const MostPopularSitesForBlockElementsPromo = (n) => {
         const i = chrome.runtime.getURL("images/block-element-cta-icon.svg"),
           a = chrome.runtime.getURL("images/block-element-context-menu.png"),
@@ -34068,23 +34110,23 @@
           [ge, ve] = Object(o.useState)(""),
           Se = n.NumOfUsers;
         Object(o.useEffect)(() => {
-          chrome.storage.local.get([$.g.BLOCKED_ELEMENTS_PROMO], (n) => {
-            const i = n[$.g.BLOCKED_ELEMENTS_PROMO] || {};
+          chrome.storage.local.get([$.h.BLOCKED_ELEMENTS_PROMO], (n) => {
+            const i = n[$.h.BLOCKED_ELEMENTS_PROMO] || {};
             (i.lastDisplayed = Date.now()),
               ve(window.location.href),
-              chrome.storage.local.set({ [$.g.BLOCKED_ELEMENTS_PROMO]: i }),
-              Object(w.U)($.n.CATEGORIES.BLOCK_ELEMENT, $.n.ACTIONS.VIEWED, "Promotion notification");
+              chrome.storage.local.set({ [$.h.BLOCKED_ELEMENTS_PROMO]: i }),
+              Object(w.U)($.o.CATEGORIES.BLOCK_ELEMENT, $.o.ACTIONS.VIEWED, "Promotion notification");
           });
         }, []);
         const closeMostPopularSitesForBlockElementsPromo = () => {
-          Object(w.U)($.n.CATEGORIES.BLOCK_ELEMENT, $.n.ACTIONS.CLICK, "Close notification"),
+          Object(w.U)($.o.CATEGORIES.BLOCK_ELEMENT, $.o.ACTIONS.CLICK, "Close notification"),
             Object(w.W)({
-              name: $.s.SEND_ANALYTICS_EVENT,
+              name: $.t.SEND_ANALYTICS_EVENT,
               eventType: $.c.ANALYTICS_EVENT_TYPES.BLOCK_ELEMENT_PROMOTION_NOTIFICATION_VIEW,
               eventPayload: { payload: JSON.stringify({ url: ge, click: "Close" }) }
             }),
             (() => {
-              const n = document.getElementById($.F.PROMO_ROOT);
+              const n = document.getElementById($.G.PROMO_ROOT);
               n && n.parentNode && n.parentNode.removeChild(n);
             })();
         };
@@ -34111,9 +34153,9 @@
                   null,
                   s.a.createElement(le.a, {
                     onClick: () => {
-                      Object(w.U)($.n.CATEGORIES.BLOCK_ELEMENT, $.n.ACTIONS.CLICK, "Try it for free "),
+                      Object(w.U)($.o.CATEGORIES.BLOCK_ELEMENT, $.o.ACTIONS.CLICK, "Try it for free "),
                         Object(w.W)({
-                          name: $.s.SEND_ANALYTICS_EVENT,
+                          name: $.t.SEND_ANALYTICS_EVENT,
                           eventType: $.c.ANALYTICS_EVENT_TYPES.BLOCK_ELEMENT_PROMOTION_NOTIFICATION_VIEW,
                           eventPayload: { payload: JSON.stringify({ url: ge, click: "Try it" }) }
                         }),
@@ -34127,17 +34169,17 @@
                     {
                       id: "do-not-show-btn",
                       onClick: () => {
-                        Object(w.U)($.n.CATEGORIES.BLOCK_ELEMENT, $.n.ACTIONS.CLICK, "Don't show this again"),
+                        Object(w.U)($.o.CATEGORIES.BLOCK_ELEMENT, $.o.ACTIONS.CLICK, "Don't show this again"),
                           Object(w.W)({
-                            name: $.s.SEND_ANALYTICS_EVENT,
+                            name: $.t.SEND_ANALYTICS_EVENT,
                             eventType: $.c.ANALYTICS_EVENT_TYPES.BLOCK_ELEMENT_PROMOTION_NOTIFICATION_VIEW,
                             eventPayload: { payload: JSON.stringify({ url: ge, click: "Dont show again" }) }
                           }),
-                          chrome.storage.local.get($.g.BLOCKED_ELEMENTS_PROMO, (n) => {
-                            const i = n[$.g.BLOCKED_ELEMENTS_PROMO] || {};
+                          chrome.storage.local.get($.h.BLOCKED_ELEMENTS_PROMO, (n) => {
+                            const i = n[$.h.BLOCKED_ELEMENTS_PROMO] || {};
                             (i.doNotShowAgain = !0),
-                              chrome.storage.local.set({ [$.g.BLOCKED_ELEMENTS_PROMO]: i }, () => {
-                                const n = document.getElementById($.F.PROMO_ROOT);
+                              chrome.storage.local.set({ [$.h.BLOCKED_ELEMENTS_PROMO]: i }, () => {
+                                const n = document.getElementById($.G.PROMO_ROOT);
                                 n && n.parentNode && n.parentNode.removeChild(n);
                               });
                           });
@@ -34159,14 +34201,14 @@
                   s.a.createElement("div", null, s.a.createElement("img", { src: a, alt: "hide-element-usage", width: "162" })),
                   s.a.createElement(le.a, {
                     onClick: () => {
-                      Object(w.U)($.n.CATEGORIES.BLOCK_ELEMENT, $.n.ACTIONS.CLICK, "Start hiding now"),
+                      Object(w.U)($.o.CATEGORIES.BLOCK_ELEMENT, $.o.ACTIONS.CLICK, "Start hiding now"),
                         Object(w.W)({
-                          name: $.s.SEND_ANALYTICS_EVENT,
+                          name: $.t.SEND_ANALYTICS_EVENT,
                           eventType: $.c.ANALYTICS_EVENT_TYPES.BLOCK_ELEMENT_PROMOTION_NOTIFICATION_VIEW,
                           eventPayload: { payload: JSON.stringify({ url: ge, click: "Start hiding now" }) }
                         }),
                         closeMostPopularSitesForBlockElementsPromo(),
-                        Object(w.W)({ name: $.s.START_BLOCKED_ELEMENTS });
+                        Object(w.W)({ name: $.t.START_BLOCKED_ELEMENTS });
                     },
                     icon: i,
                     message: Object(w.r)("BlockedElementsStartHidingNow")
@@ -34177,13 +34219,13 @@
         );
       },
       showMostPopularSitesForBlockElementsPromo = (n) => {
-        chrome.storage.local.get($.g.BLOCKED_ELEMENTS_PROMO, (i) => {
-          const a = i[$.g.BLOCKED_ELEMENTS_PROMO] || { lastDisplayed: 0 };
+        chrome.storage.local.get($.h.BLOCKED_ELEMENTS_PROMO, (i) => {
+          const a = i[$.h.BLOCKED_ELEMENTS_PROMO] || { lastDisplayed: 0 };
           a.doNotShowAgain ||
             (0 === a.lastDisplayed &&
               ((n) => {
-                let i = document.getElementById($.F.PROMO_ROOT);
-                i || ((i = document.createElement("div")), (i.id = $.F.PROMO_ROOT), document.body.appendChild(i)),
+                let i = document.getElementById($.G.PROMO_ROOT);
+                i || ((i = document.createElement("div")), (i.id = $.G.PROMO_ROOT), document.body.appendChild(i)),
                   Object(y.render)(s.a.createElement(MostPopularSitesForBlockElementsPromo, { NumOfUsers: n }), i);
               })(n));
         });
@@ -34194,14 +34236,14 @@
     a.d(i, "a", function () {
       return tryStartCookieCrumbler;
     });
-    var o = a(6),
-      s = a(11),
+    var o = a(8),
+      s = a(12),
       y = a(0),
       E = a(3),
-      w = a(12),
-      $ = a(17),
-      ie = a(90),
-      oe = a(95);
+      w = a(13),
+      $ = a(18),
+      ie = a(89),
+      oe = a(93);
     const se = o.a.CookieCrumbler,
       tryStartCookieCrumbler = async () => {
         const n = await $.a.isFeatureEnabled(se),
@@ -34220,11 +34262,11 @@
               }, 1e3);
           })();
         w.a.showTrialPromoIfNeeded(se);
-        let a = y.s.UPDATE_UNBLOCK_COUNT,
+        let a = y.t.UPDATE_UNBLOCK_COUNT,
           o = !1;
-        n && (i.isTrialActive() || (await Object(E.F)())) && ((a = y.s.UPDATE_BLOCK_COUNT), (o = !0)),
+        n && (i.isTrialActive() || (await Object(E.F)())) && ((a = y.t.UPDATE_BLOCK_COUNT), (o = !0)),
           Object(ie.a)(a),
-          o && Object(E.W)({ name: y.s.INSERT_COOKIE_FILTERS });
+          o && Object(E.W)({ name: y.t.INSERT_COOKIE_FILTERS });
       };
   },
   function (n, i, a) {
@@ -34242,14 +34284,14 @@
     var o = a(1),
       s = a.n(o),
       y = a(27),
-      E = a(31),
-      w = a(61),
-      $ = a(49),
+      E = a(30),
+      w = a(62),
+      $ = a(50),
       ie = a(3),
       oe = a(0),
-      se = a(14),
+      se = a(16),
       le = a(4),
-      he = a(30);
+      he = a(29);
     le.c.div`
   display: flex;
   flex-direction: column;
@@ -34633,7 +34675,7 @@
   z-index: 2147483647;
 `;
     var ft = a(43),
-      dt = a(34);
+      dt = a(33);
     var trial_notification_DiscountBanner = (n) => {
       const i = chrome.runtime.getURL(n.isTrial ? "images/backgroundBanner.svg" : "images/backgroundBannerEndTrial.svg"),
         a = chrome.runtime.getURL("images/goProNow.svg");
@@ -34645,16 +34687,16 @@
         {
           onClick: () => {
             Object(ie.W)({
-              name: oe.s.SEND_ANALYTICS_EVENT,
+              name: oe.t.SEND_ANALYTICS_EVENT,
               eventType: n.feature.Analytics.PromoDiscountClick,
-              eventPayload: { payload: JSON.stringify({ discount: n.isTrial ? oe.j.poper20 : oe.j.poper30, extras: n.extras }) }
+              eventPayload: { payload: JSON.stringify({ discount: n.isTrial ? oe.k.poper20 : oe.k.poper30, extras: n.extras }) }
             }),
               Object(ie.W)({
-                name: oe.s.OPEN_URL,
-                url: `${oe.q.WEB_APP}/checkout?selectedPlan=Yearly&discount=${n.isTrial ? oe.j.poper20 : oe.j.poper30}`
+                name: oe.t.OPEN_URL,
+                url: `${oe.r.WEB_APP}/checkout?selectedPlan=Yearly&discount=${n.isTrial ? oe.k.poper20 : oe.k.poper30}`
               }),
               (() => {
-                const n = document.getElementById(oe.F.PROMO_ROOT);
+                const n = document.getElementById(oe.G.PROMO_ROOT);
                 (null == n ? void 0 : n.parentNode) && n.parentNode.removeChild(n);
               })();
           }
@@ -34695,8 +34737,8 @@
           s.a.createElement(pt, null, `${Object(ie.r)("timeLbl")} ${Object(ie.bb)(E)}`)
         );
       },
-      mt = a(11),
-      gt = a(12);
+      mt = a(12),
+      gt = a(13);
     var trial_notification_TimeBar = (n) => {
         const [i, a] = Object(o.useState)(0),
           [y, E] = Object(o.useState)(1),
@@ -34709,7 +34751,7 @@
               .getDefault(gt.a.onTrialEnded)
               .loadAndUpdate()
               .then((n) => {
-                const i = oe.w * oe.k - (Date.now() - n.startTime),
+                const i = oe.x * oe.l - (Date.now() - n.startTime),
                   o = Object(ie.Q)(i),
                   s = n.daysLeft > 0 ? 24 * (n.daysLeft - 1) : 0;
                 a(n.daysLeft - 1), E(o.hours + s), $(o.minutes), le(o.seconds), pe(!0);
@@ -34741,13 +34783,13 @@
               yt.a
                 .getTotalBlockForKeys(...i)
                 .then((n) => {
-                  a(n >= oe.u ? n : oe.u);
+                  a(n >= oe.v ? n : oe.v);
                 })
-                .catch(() => a(oe.u));
+                .catch(() => a(oe.v));
           })(),
-            Object(ie.W)({ name: oe.s.SEND_ANALYTICS_EVENT, eventPayload: { payload: JSON.stringify({ extras: n.extras }) } }),
+            Object(ie.W)({ name: oe.t.SEND_ANALYTICS_EVENT, eventPayload: { payload: JSON.stringify({ extras: n.extras }) } }),
             n.feature.EndTrialLottieFile && Object(ft.b)("end-trial-animation", n.feature.EndTrialLottieFile, "end-trial", 3),
-            Object(ie.W)({ name: oe.s.UPDATE_REMOTE_SETTINGS });
+            Object(ie.W)({ name: oe.t.UPDATE_REMOTE_SETTINGS });
         }, []),
         s.a.createElement(
           E.a,
@@ -34780,9 +34822,9 @@
               yt.a
                 .getTotalBlockForKeys(...i)
                 .then((n) => {
-                  pe(n >= oe.u ? n : oe.u);
+                  pe(n >= oe.v ? n : oe.v);
                 })
-                .catch(() => pe(oe.u));
+                .catch(() => pe(oe.v));
           })(),
             mt.a
               .getDefault(gt.a.onTrialEnded)
@@ -34792,7 +34834,7 @@
                   ve(n.extras.isShowDailyPromo),
                   Oe(n.extras.isShowEndPromo),
                   Object(ie.W)({
-                    name: oe.s.SEND_ANALYTICS_EVENT,
+                    name: oe.t.SEND_ANALYTICS_EVENT,
                     eventType: n.feature.Analytics.PromoView,
                     eventPayload: { payload: JSON.stringify({ dayintrial: y, extras: n.extras }) }
                   }),
@@ -34802,7 +34844,7 @@
               });
         }, [y]);
         const removeRoot = () => {
-            const n = document.getElementById(oe.F.PROMO_ROOT);
+            const n = document.getElementById(oe.G.PROMO_ROOT);
             (null == n ? void 0 : n.parentNode) &&
               (We(!0),
               setTimeout(() => {
@@ -34811,9 +34853,9 @@
           },
           handleCTAClick = () => {
             removeRoot(),
-              Object(ie.W)({ name: oe.s.OPEN_URL, url: `${oe.q.CHECKOUT_YEARLY_PLAN}&discount=${ge ? oe.j.poper20 : oe.j.poper30}` }),
+              Object(ie.W)({ name: oe.t.OPEN_URL, url: `${oe.r.CHECKOUT_YEARLY_PLAN}&discount=${ge ? oe.k.poper20 : oe.k.poper30}` }),
               Object(ie.W)({
-                name: oe.s.SEND_ANALYTICS_EVENT,
+                name: oe.t.SEND_ANALYTICS_EVENT,
                 eventType: n.feature.Analytics.PromoNotificationClick,
                 eventPayload: { payload: JSON.stringify({ extras: n.extras }) }
               });
@@ -34868,8 +34910,8 @@
         setTimeout(
           () =>
             (async (n, i) => {
-              let a = document.getElementById(oe.F.PROMO_ROOT);
-              a || ((a = document.createElement("div")), (a.id = oe.F.PROMO_ROOT), document.body.appendChild(a)),
+              let a = document.getElementById(oe.G.PROMO_ROOT);
+              a || ((a = document.createElement("div")), (a.id = oe.G.PROMO_ROOT), document.body.appendChild(a)),
                 Object(y.render)(s.a.createElement(TrialPeriodNotification, { feature: n, extras: i }), a);
             })(n, i),
           1e3
@@ -34883,12 +34925,12 @@
     var o = a(1),
       s = a.n(o),
       y = a(27),
-      E = a(31),
-      w = a(61),
-      $ = a(49),
+      E = a(30),
+      w = a(62),
+      $ = a(50),
       ie = a(3),
       oe = a(0),
-      se = a(14);
+      se = a(16);
     var ClosedNotificationButton = (n) => {
         const i = n.icon || chrome.runtime.getURL("images/cookie-blocked.svg"),
           a = chrome.runtime.getURL("images/expand-more.svg");
@@ -35052,8 +35094,8 @@
   flex-direction: column;
   justify-content: space-between;
 `);
-    var We = a(34),
-      $e = a(30);
+    var We = a(33),
+      $e = a(29);
     const Ye = Object(le.c)($e.g)`
   padding: 12px, 0px, 0px, 14px;
   display: flex;
@@ -35192,7 +35234,7 @@
     var components_FirstPopupBanner = (n) => {
       const i = chrome.runtime.getURL("images/takeLook.svg");
       Object(o.useEffect)(() => {
-        Object(ie.W)({ name: oe.s.SEND_ANALYTICS_EVENT, eventType: oe.c.ANALYTICS_EVENT_TYPES.FIRST_POPUP_BLOCKED_NOTIFICATION_VIEW }),
+        Object(ie.W)({ name: oe.t.SEND_ANALYTICS_EVENT, eventType: oe.c.ANALYTICS_EVENT_TYPES.FIRST_POPUP_BLOCKED_NOTIFICATION_VIEW }),
           Object(ot.b)("Animation", "images/firstPopupBannerAnimation.json", "first-popup-animation", 1);
       }, []);
       return s.a.createElement(
@@ -35201,10 +35243,10 @@
           isOpen: n.open,
           onClick: () => {
             Object(ie.W)({
-              name: oe.s.SEND_ANALYTICS_EVENT,
+              name: oe.t.SEND_ANALYTICS_EVENT,
               eventType: oe.c.ANALYTICS_EVENT_TYPES.FIRST_POPUP_BLOCKED_NOTIFICATION_CLICKED
             }),
-              Object(ie.W)({ name: oe.s.OPEN_URL, url: oe.q.WEB_APP + "/manageActivity" });
+              Object(ie.W)({ name: oe.t.OPEN_URL, url: oe.r.WEB_APP + "/manageActivity" });
           }
         },
         s.a.createElement(
@@ -35240,13 +35282,13 @@
           [le, he] = Object(o.useState)(!0),
           [ge, Oe] = Object(o.useState)(!1);
         Object(o.useEffect)(() => {
-          chrome.storage.local.get([oe.g.FIRST_POPUP_BLOCK], async (n) => {
-            Oe(n.isFirstBlockAdds), n.isFirstBlockAdds && chrome.storage.local.set({ [oe.g.FIRST_POPUP_BLOCK]: !1 });
+          chrome.storage.local.get([oe.h.FIRST_POPUP_BLOCK], async (n) => {
+            Oe(n.isFirstBlockAdds), n.isFirstBlockAdds && chrome.storage.local.set({ [oe.h.FIRST_POPUP_BLOCK]: !1 });
           });
         }, []);
         const closeNotification = () => {
           (() => {
-            const n = document.getElementById(oe.F.PROMO_ROOT);
+            const n = document.getElementById(oe.G.PROMO_ROOT);
             (null == n ? void 0 : n.parentNode) && n.parentNode.removeChild(n);
           })();
         };
@@ -35291,7 +35333,7 @@
                       onClick: () => {
                         Object(We.e)("allowOnce", n.args),
                           Object(ie.W)({
-                            name: oe.s.SEND_ANALYTICS_EVENT,
+                            name: oe.t.SEND_ANALYTICS_EVENT,
                             eventType: oe.c.ANALYTICS_EVENT_TYPES.POPUP_BLOCKED,
                             eventPayload: { payload: JSON.stringify({ url: n.properies.domain, click: "allow once" }) }
                           });
@@ -35310,7 +35352,7 @@
                         chrome.runtime.sendMessage({ name: "allowAlways", domain: a.domain, type: "popup" }),
                           Object(We.a)(`window.pbExternalCommand && window.pbExternalCommand(0, "${i}");`),
                           Object(ie.W)({
-                            name: oe.s.SEND_ANALYTICS_EVENT,
+                            name: oe.t.SEND_ANALYTICS_EVENT,
                             eventType: oe.c.ANALYTICS_EVENT_TYPES.POPUP_BLOCKED,
                             eventPayload: { payload: JSON.stringify({ url: n.properies.domain, click: "white list" }) }
                           }),
@@ -35328,8 +35370,8 @@
       },
       showPopupBlockNotification = (n, i = {}) =>
         ((n, i = {}) => {
-          let a = document.getElementById(oe.F.PROMO_ROOT);
-          a || ((a = document.createElement("div")), (a.id = oe.F.PROMO_ROOT), document.body.appendChild(a)),
+          let a = document.getElementById(oe.G.PROMO_ROOT);
+          a || ((a = document.createElement("div")), (a.id = oe.G.PROMO_ROOT), document.body.appendChild(a)),
             Object(y.render)(s.a.createElement(PopupBlockNotification, { args: n, properies: i }), a);
         })(n, i);
   },
@@ -35341,12 +35383,12 @@
     var o = a(1),
       s = a.n(o),
       y = a(27),
-      E = a(31),
-      w = a(61),
-      $ = a(49),
+      E = a(30),
+      w = a(62),
+      $ = a(50),
       ie = a(3),
       oe = a(0),
-      se = a(14),
+      se = a(16),
       le = a(4);
     const he = le.c.div`
   display: flex;
@@ -35389,14 +35431,14 @@
       we = Object(le.c)(se.t)`
   width: 296px;
 `;
-    var je = a(97),
-      Ue = a(100),
-      We = a(91),
-      $e = a(99),
-      Ye = a(5),
-      Xe = a(30),
+    var je = a(95),
+      Ue = a(98),
+      We = a(81),
+      $e = a(97),
+      Ye = a(6),
+      Xe = a(29),
       et = a(2),
-      tt = a(98),
+      tt = a(96),
       nt = a.n(tt);
     const rt = le.c.div`
   color: ${(n) => n.theme.palette.greyScale.ultraDark};
@@ -35553,7 +35595,7 @@
           }, []),
           Oe = Object(o.useCallback)((n) => {
             n && Se(n), removeEventListeners(), document.body.style.removeProperty("cursor");
-            const i = document.getElementById(et.q.BLOCKER_ELEMENT_ID);
+            const i = document.getElementById(et.r.BLOCKER_ELEMENT_ID);
             i && i.parentNode && i.parentNode.removeChild(i);
           }, []),
           we = Object(o.useCallback)(() => {
@@ -35567,7 +35609,7 @@
           },
           getElementFromXY = (n) => document.elementsFromPoint(n.clientX, n.clientY)[1] || null,
           tt = Object(o.useCallback)(
-            Object(Ye.o)((n) => {
+            Object(Ye.p)((n) => {
               removeHighlight();
               const i = getElementFromXY(n);
               i != ge && ((ge = i), we());
@@ -35580,8 +35622,8 @@
               a = document.querySelector(i),
               o = window.location.href;
             if (a) {
-              Object(Ye.l)({
-                name: et.n.SEND_ANALYTICS_EVENT,
+              Object(Ye.m)({
+                name: et.o.SEND_ANALYTICS_EVENT,
                 eventType: et.b.ANALYTICS_EVENT_TYPES.ELEMENT_BLOCKED_UNDO,
                 eventPayload: { payload: JSON.stringify({ url: o, element: i }) }
               }),
@@ -35592,19 +35634,19 @@
           ft = Object(o.useCallback)((n) => {
             Se(n),
               removeEventListeners(),
-              Object(Ye.k)(et.j.CATEGORIES.CTA, et.j.ACTIONS.CLICK, "Finished blocking elements"),
-              chrome.storage.local.get([et.e.BLOCKED_ELEMENTS], (n) => {
+              Object(Ye.l)(et.k.CATEGORIES.CTA, et.k.ACTIONS.CLICK, "Finished blocking elements"),
+              chrome.storage.local.get([et.f.BLOCKED_ELEMENTS], (n) => {
                 const i = window.location.href,
-                  a = n[et.e.BLOCKED_ELEMENTS] || {};
-                pe.length > 0 && ((a[i] = a[i] || []), a[i].push(...pe), chrome.storage.local.set({ [et.e.BLOCKED_ELEMENTS]: a })),
-                  Object(Ye.l)({
-                    name: et.n.SEND_ANALYTICS_EVENT,
+                  a = n[et.f.BLOCKED_ELEMENTS] || {};
+                pe.length > 0 && ((a[i] = a[i] || []), a[i].push(...pe), chrome.storage.local.set({ [et.f.BLOCKED_ELEMENTS]: a })),
+                  Object(Ye.m)({
+                    name: et.o.SEND_ANALYTICS_EVENT,
                     eventType: et.b.ANALYTICS_EVENT_TYPES.ELEMENT_BLOCKED_SAVE,
                     eventPayload: { payload: JSON.stringify({ url: i }) }
                   }),
                   se(pe.length),
                   he(!0),
-                  Object(Ye.l)({ name: et.n.UPDATE_REMOTE_SETTINGS });
+                  Object(Ye.m)({ name: et.o.UPDATE_REMOTE_SETTINGS });
               });
           }, []),
           dt = Object(o.useCallback)((n) => {
@@ -35613,13 +35655,13 @@
             if (!i) return;
             removeHighlight();
             const a = window.location.hostname;
-            Object(Ye.k)(et.j.CATEGORIES.BLOCK_ELEMENT, et.j.ACTIONS.BLOCKED_ELEMENT_SITE, "" + a),
-              Object(Ye.k)(et.j.CATEGORIES.BLOCK_ELEMENT, et.j.ACTIONS.CLICK, "Element blocked successfully");
+            Object(Ye.l)(et.k.CATEGORIES.BLOCK_ELEMENT, et.k.ACTIONS.BLOCKED_ELEMENT_SITE, "" + a),
+              Object(Ye.l)(et.k.CATEGORIES.BLOCK_ELEMENT, et.k.ACTIONS.CLICK, "Element blocked successfully");
             const o = Object(je.a)(i);
             return (
-              Object(Ye.k)(et.j.CATEGORIES.BLOCK_ELEMENT, et.j.ACTIONS.CLICK, "Blocked selector - " + o),
-              Object(Ye.l)({
-                name: et.n.SEND_ANALYTICS_EVENT,
+              Object(Ye.l)(et.k.CATEGORIES.BLOCK_ELEMENT, et.k.ACTIONS.CLICK, "Blocked selector - " + o),
+              Object(Ye.m)({
+                name: et.o.SEND_ANALYTICS_EVENT,
                 eventType: et.b.ANALYTICS_EVENT_TYPES.ELEMENT_BLOCKED,
                 eventPayload: { payload: JSON.stringify({ url: a, element: o }) }
               }),
@@ -35627,7 +35669,7 @@
               ((n) => {
                 const i = document.createElement("style");
                 i.setAttribute("pb-block-element-selector", encodeURIComponent(n)),
-                  (i.textContent += `${n} ${et.g.HIDDEN_PROPERTY}`),
+                  (i.textContent += `${n} ${et.h.HIDDEN_PROPERTY}`),
                   document.body.appendChild(i);
               })(o),
               pe.length < 1 ? ie(!0) : ie(!1),
@@ -35673,8 +35715,8 @@
                       s.a.createElement(
                         ot,
                         null,
-                        s.a.createElement(it, null, `${oe} ${oe > 1 ? Object(Ye.d)("elementsIs") : Object(Ye.d)("elementIs")}`),
-                        s.a.createElement(rt, null, Object(Ye.d)("successfullyHidenElements"))
+                        s.a.createElement(it, null, `${oe} ${oe > 1 ? Object(Ye.f)("elementsIs") : Object(Ye.f)("elementIs")}`),
+                        s.a.createElement(rt, null, Object(Ye.f)("successfullyHidenElements"))
                       ),
                       s.a.createElement(ut, { id: "blockElement" }),
                       s.a.createElement(
@@ -35688,7 +35730,7 @@
                             }
                           },
                           s.a.createElement(ht, { alt: "refresh", width: "18", src: w }),
-                          Object(Ye.d)("restoreAllElements")
+                          Object(Ye.f)("restoreAllElements")
                         )
                       )
                     )
@@ -35699,8 +35741,8 @@
                       s.a.createElement(
                         ot,
                         null,
-                        s.a.createElement(it, null, Object(Ye.d)("BlockedElementsUISubtitle")),
-                        s.a.createElement(rt, null, Object(Ye.d)("BlockedElementsUITitle"))
+                        s.a.createElement(it, null, Object(Ye.f)("BlockedElementsUISubtitle")),
+                        s.a.createElement(rt, null, Object(Ye.f)("BlockedElementsUITitle"))
                       ),
                       s.a.createElement("div", null, s.a.createElement("img", { src: E, alt: "hide-element-img", width: "50" })),
                       s.a.createElement(
@@ -35713,7 +35755,7 @@
                             "span",
                             null,
                             s.a.createElement("img", { alt: "undo", width: "18", src: a || i }),
-                            Object(Ye.d)("BlockedElementsUndoBtn")
+                            Object(Ye.f)("BlockedElementsUndoBtn")
                           )
                         ),
                         s.a.createElement(
@@ -35723,7 +35765,7 @@
                             "span",
                             null,
                             s.a.createElement("img", { alt: "check", width: "18", src: n }),
-                            Object(Ye.d)("BlockedElementsFinishBtn")
+                            Object(Ye.f)("BlockedElementsFinishBtn")
                           )
                         )
                       )
@@ -35736,16 +35778,16 @@
       selectStyleElement = (n) => document.querySelector(`[pb-block-element-selector='${encodeURIComponent(n)}']`),
       startBlockElement = () =>
         (() => {
-          let n = document.getElementById(et.q.BLOCKER_ELEMENT_ID);
-          n || ((n = document.createElement("div")), (n.id = et.q.BLOCKER_ELEMENT_ID), document.body.appendChild(n)),
+          let n = document.getElementById(et.r.BLOCKER_ELEMENT_ID);
+          n || ((n = document.createElement("div")), (n.id = et.r.BLOCKER_ELEMENT_ID), document.body.appendChild(n)),
             Object(y.render)(s.a.createElement(BlockElement, null), n);
         })(),
       unblockAllElements = () => {
-        chrome.storage.local.get([et.e.BLOCKED_ELEMENTS], (n) => {
+        chrome.storage.local.get([et.f.BLOCKED_ELEMENTS], (n) => {
           const i = window.location.href,
-            a = n[et.e.BLOCKED_ELEMENTS];
-          Object(Ye.l)({
-            name: et.n.SEND_ANALYTICS_EVENT,
+            a = n[et.f.BLOCKED_ELEMENTS];
+          Object(Ye.m)({
+            name: et.o.SEND_ANALYTICS_EVENT,
             eventType: et.b.ANALYTICS_EVENT_TYPES.BLOCK_ELEMENT_UNBLOCK_ELEMENTS,
             eventPayload: { payload: JSON.stringify({ url: i }) }
           }),
@@ -35756,8 +35798,8 @@
                 });
             })(a, i),
             delete a[i],
-            chrome.storage.local.set({ [et.e.BLOCKED_ELEMENTS]: a }),
-            Object(Ye.l)({ name: et.n.REMOVE_UNBLOCK_ALL_ELEMENTS_MENU });
+            chrome.storage.local.set({ [et.f.BLOCKED_ELEMENTS]: a }),
+            Object(Ye.m)({ name: et.o.REMOVE_UNBLOCK_ALL_ELEMENTS_MENU });
         });
       },
       OverlayBlockNotification = () => {
@@ -35771,7 +35813,7 @@
             s.a.createElement(w.a, {
               onClose: () => {
                 (() => {
-                  const n = document.getElementById(oe.F.PROMO_ROOT);
+                  const n = document.getElementById(oe.G.PROMO_ROOT);
                   (null == n ? void 0 : n.parentNode) && n.parentNode.removeChild(n);
                 })();
               }
@@ -35800,14 +35842,14 @@
       },
       showOverlayBlockNotification = () =>
         (() => {
-          let n = document.getElementById(oe.F.PROMO_ROOT);
-          n || ((n = document.createElement("div")), (n.id = oe.F.PROMO_ROOT), document.body.appendChild(n)),
+          let n = document.getElementById(oe.G.PROMO_ROOT);
+          n || ((n = document.createElement("div")), (n.id = oe.G.PROMO_ROOT), document.body.appendChild(n)),
             Object(y.render)(s.a.createElement(OverlayBlockNotification, null), n);
         })();
   },
   function (n, i, a) {
     "use strict";
-    var o = a(33),
+    var o = a(32),
       s = a.n(o);
     const y = 100,
       E = 100,
@@ -35955,7 +35997,7 @@
       },
       Se = a(0),
       Oe = a(3),
-      we = a(13);
+      we = a(11);
     i.a = class overlayKiller_OverlayKiller extends ve {
       constructor(n = {}) {
         super(),
@@ -35975,7 +36017,7 @@
       }
       sendOverlayDetected(n) {
         Object(Oe.W)({
-          name: Se.s.SEND_ANALYTICS_EVENT,
+          name: Se.t.SEND_ANALYTICS_EVENT,
           eventType: Se.c.ANALYTICS_EVENT_TYPES.OVERLAY_DETECTED,
           eventPayload: { payload: JSON.stringify({ url: document.URL, css: n }) }
         });
@@ -36094,11 +36136,11 @@
     var o = a(1),
       s = a.n(o),
       y = a(27),
-      E = a(31),
+      E = a(30),
       w = a(3),
       $ = a(0),
       ie = a(4),
-      oe = a(14);
+      oe = a(16);
     const se = Object(ie.c)(oe.t)`
   height: 310px;
   width: 291px;
@@ -36188,7 +36230,7 @@
       $e = ie.c.div`
   margin-bottom: 4px;
 `;
-    var Ye = a(61);
+    var Ye = a(62);
     var common_NotificationPopup = (n) => {
         const i = chrome.runtime.getURL("images/content-copy.svg"),
           a = n.iconLink || "images/contentRemoverIcon.svg",
@@ -36196,7 +36238,7 @@
         Object(o.useEffect)(() => {
           var i;
           Object(w.W)({
-            name: $.s.SEND_ANALYTICS_EVENT,
+            name: $.t.SEND_ANALYTICS_EVENT,
             eventType: (null == (i = n.analyticsData) ? void 0 : i.view) || $.c.ANALYTICS_EVENT_TYPES.MONETIZATION_NOIFICATION_VIEW
           });
         }, []);
@@ -36224,7 +36266,7 @@
                     onClick: () => {
                       var i;
                       Object(w.W)({
-                        name: $.s.SEND_ANALYTICS_EVENT,
+                        name: $.t.SEND_ANALYTICS_EVENT,
                         eventType:
                           (null == (i = n.analyticsData) ? void 0 : i.copy) ||
                           $.c.ANALYTICS_EVENT_TYPES.MONETIZATION_NOIFICATION_COPY_CODE_CLICK
@@ -36240,11 +36282,11 @@
                   onClick: () => {
                     var i;
                     Object(w.W)({
-                      name: $.s.SEND_ANALYTICS_EVENT,
+                      name: $.t.SEND_ANALYTICS_EVENT,
                       eventType:
                         (null == (i = n.analyticsData) ? void 0 : i.click) || $.c.ANALYTICS_EVENT_TYPES.MONETIZATION_NOIFICATION_CTA_CLICK
                     }),
-                      n.actionLink && Object(w.W)({ name: $.s.OPEN_URL, url: "" + n.actionLink });
+                      n.actionLink && Object(w.W)({ name: $.t.OPEN_URL, url: "" + n.actionLink });
                   }
                 },
                 n.actionText
@@ -36283,15 +36325,15 @@
             analyticsData: oe,
             onClose: () => {
               (() => {
-                const n = document.getElementById($.F.MESSAGE_NOTIFICATION_ROOT);
+                const n = document.getElementById($.G.MESSAGE_NOTIFICATION_ROOT);
                 (null == n ? void 0 : n.parentNode) && n.parentNode.removeChild(n);
               })();
             }
           })
         ),
       appendRoot = (n) => {
-        let i = document.getElementById($.F.MESSAGE_NOTIFICATION_ROOT);
-        i || ((i = document.createElement("div")), (i.id = $.F.MESSAGE_NOTIFICATION_ROOT), document.body.appendChild(i)),
+        let i = document.getElementById($.G.MESSAGE_NOTIFICATION_ROOT);
+        i || ((i = document.createElement("div")), (i.id = $.G.MESSAGE_NOTIFICATION_ROOT), document.body.appendChild(i)),
           Object(y.render)(
             s.a.createElement(
               MessageNotification,
@@ -36314,7 +36356,7 @@
         descriptionEnd: Object(w.r)("couponPromoDescriptionEnd"),
         actionText: Object(w.r)("couponPromoButtonText"),
         copyText: n.couponCode,
-        actionLink: $.q.WEB_APP + "/plans",
+        actionLink: $.r.WEB_APP + "/plans",
         analyticsData: {
           view: $.c.ANALYTICS_EVENT_TYPES.MONETIZATION_NOIFICATION_VIEW,
           click: $.c.ANALYTICS_EVENT_TYPES.MONETIZATION_NOIFICATION_CTA_CLICK,
@@ -36329,8 +36371,8 @@
       s = a(1),
       y = a.n(s),
       E = a(27),
-      w = a(91),
-      $ = a(30),
+      w = a(81),
+      $ = a(29),
       ie = a(4);
     const oe = Object(ie.c)($.g)`
   width: 320px;
@@ -36358,15 +36400,15 @@
   border: none;
   cursor: pointer;
 `;
-    var pe = a(63),
-      ge = a(34),
-      ve = a(8),
+    var pe = a(65),
+      ge = a(33),
+      ve = a(7),
       Se = a(3),
-      Oe = a(100);
+      Oe = a(98);
     const PinToTaskbarNotification = () => {
       const n = ve.BrowserAPI.runtime.getURL("images/poper-blocker-logo-bright.svg");
       Object(s.useEffect)(() => {
-        Object(Se.W)({ name: o.s.SEND_ANALYTICS_EVENT, eventType: o.c.ANALYTICS_EVENT_TYPES.PIN_TASKBAR_POPUP_VIEW }),
+        Object(Se.W)({ name: o.t.SEND_ANALYTICS_EVENT, eventType: o.c.ANALYTICS_EVENT_TYPES.PIN_TASKBAR_POPUP_VIEW }),
           Object(Oe.a)("pin-taskbar-animation", o.d.PIN, "pin-taskbar-animation", !0);
       }, []);
       return y.a.createElement(
@@ -36382,9 +36424,9 @@
             he,
             {
               onClick: () => {
-                Object(Se.W)({ name: o.s.SEND_ANALYTICS_EVENT, eventType: o.c.ANALYTICS_EVENT_TYPES.PIN_TASKBAR_POPUP_DISMISS_CLICK }),
+                Object(Se.W)({ name: o.t.SEND_ANALYTICS_EVENT, eventType: o.c.ANALYTICS_EVENT_TYPES.PIN_TASKBAR_POPUP_DISMISS_CLICK }),
                   (() => {
-                    const n = document.getElementById(o.F.PROMO_ROOT);
+                    const n = document.getElementById(o.G.PROMO_ROOT);
                     (null == n ? void 0 : n.parentNode) && n.parentNode.removeChild(n);
                   })();
               }
@@ -36396,8 +36438,8 @@
     };
     i.a = () =>
       (async () => {
-        let n = document.getElementById(o.F.PROMO_ROOT);
-        n || ((n = document.createElement("div")), (n.id = o.F.PROMO_ROOT), document.body.appendChild(n)),
+        let n = document.getElementById(o.G.PROMO_ROOT);
+        n || ((n = document.createElement("div")), (n.id = o.G.PROMO_ROOT), document.body.appendChild(n)),
           Object(E.render)(y.a.createElement(PinToTaskbarNotification, null), n);
       })();
   },
@@ -36432,27 +36474,31 @@
   border: none;
   height: 100%
 `,
-      CheckoutModal = () => (
+      CheckoutModal = (n) => (
         Object(s.useEffect)(() => {}, []),
         y.a.createElement(
           $,
           { id: "poper-checkout-iframe-overlay" },
-          y.a.createElement(ie, { id: "poper-checkout-iframe" }, y.a.createElement(oe, { src: o.q.CHECKOUT_IFRAME_URL }))
+          y.a.createElement(
+            ie,
+            { id: "poper-checkout-iframe" },
+            y.a.createElement(oe, { src: `${o.r.CHECKOUT_IFRAME_URL}?source=${n.source}` })
+          )
         )
       ),
-      openCheckoutModal = () => {
-        let n = document.getElementById(o.F.CHECKOUT_MODAL);
-        n || ((n = document.createElement("div")), (n.id = o.F.CHECKOUT_MODAL), document.body.appendChild(n)),
-          Object(E.render)(y.a.createElement(CheckoutModal, null), n);
-        const close = (i) => {
-          i.data.type === o.s.CLOSE_EXTENSION_CHECKOUT_MODAL && (window.removeEventListener("message", close), n && n.remove());
+      openCheckoutModal = (n) => {
+        let i = document.getElementById(o.G.CHECKOUT_MODAL);
+        i || ((i = document.createElement("div")), (i.id = o.G.CHECKOUT_MODAL), document.body.appendChild(i)),
+          Object(E.render)(y.a.createElement(CheckoutModal, { source: n }), i);
+        const close = (n) => {
+          n.data.type === o.t.CLOSE_EXTENSION_CHECKOUT_MODAL && (window.removeEventListener("message", close), i && i.remove());
         };
         window.addEventListener("message", close);
-        const closeAndGoToSettings = (i) => {
-          i.data.type === o.s.PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK &&
-            (window.open(o.q.WEB_APP + "/settings", "_blank"),
+        const closeAndGoToSettings = (n) => {
+          n.data.type === o.t.PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK &&
+            (window.open(o.r.WEB_APP + "/settings", "_blank"),
             window.removeEventListener("message", closeAndGoToSettings),
-            n && n.remove());
+            i && i.remove());
         };
         window.addEventListener("message", closeAndGoToSettings);
       };
@@ -36495,14 +36541,14 @@
         (o.default = n), a && a.set(n, o);
         return o;
       })(a(1)),
-      s = _interopRequireDefault(a(102)),
+      s = _interopRequireDefault(a(100)),
       y = _interopRequireDefault(a(27)),
-      E = _interopRequireDefault(a(265)),
-      w = a(103),
-      $ = a(241),
-      ie = a(96),
-      oe = _interopRequireDefault(a(267)),
-      se = _interopRequireDefault(a(242)),
+      E = _interopRequireDefault(a(263)),
+      w = a(101),
+      $ = a(239),
+      ie = a(94),
+      oe = _interopRequireDefault(a(265)),
+      se = _interopRequireDefault(a(240)),
       le = [
         "axis",
         "bounds",
@@ -36894,7 +36940,7 @@
   },
   function (n, i, a) {
     "use strict";
-    var o = a(264);
+    var o = a(262);
     function emptyFunction() {}
     function emptyFunctionWithReset() {}
     (emptyFunctionWithReset.resetWarningCache = emptyFunction),
@@ -37026,12 +37072,12 @@
         (o.default = n), a && a.set(n, o);
         return o;
       })(a(1)),
-      s = _interopRequireDefault(a(102)),
+      s = _interopRequireDefault(a(100)),
       y = _interopRequireDefault(a(27)),
-      E = a(103),
-      w = a(241),
-      $ = a(96),
-      ie = _interopRequireDefault(a(242));
+      E = a(101),
+      w = a(239),
+      $ = a(94),
+      ie = _interopRequireDefault(a(240));
     function _interopRequireDefault(n) {
       return n && n.__esModule ? n : { default: n };
     }
@@ -37364,11 +37410,24 @@
   function (n, i, a) {
     "use strict";
     a.r(i);
-    a(240);
+    a(238);
     var o = a(28),
       s = a(3),
-      y = a(244);
+      y = a(242),
+      E = a(11);
+    const initTrackerBlockerCounterListener = () => {
+      window === top &&
+        (sessionStorage.removeItem("trackerCount"),
+        E.BrowserAPI.runtime.onMessage.addListener((n) => {
+          "incrementTrackerBlockerCount" === n.name &&
+            (() => {
+              let n = +sessionStorage.getItem("trackerCount") || 0;
+              n++, sessionStorage.setItem("trackerCount", n.toString());
+            })();
+        }));
+    };
     !(async function () {
+      initTrackerBlockerCounterListener();
       const n = await Object(o.k)(),
         i = await Object(s.n)(),
         a = await Object(o.n)(),

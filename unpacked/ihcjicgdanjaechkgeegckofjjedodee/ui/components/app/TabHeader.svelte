@@ -1,10 +1,11 @@
 <script lang="ts">
     import {link, location} from "svelte-spa-router";
     import ArrowLeftIcon from "@/ui/svgs/ArrowLeftIcon.svelte";
+    import { translateText } from "@/utils/locales";
 
     let routeHeaders = {
-        "/support": "Support",
-        "/settings": "Settings",
+        "/support": translateText("supportNavItem"),
+        "/settings": translateText("settingsNavItem"),
     };
 </script>
 
@@ -20,6 +21,6 @@
         class="absolute left-0 z-50 flex w-fit items-center justify-start gap-2"
     >
         <ArrowLeftIcon class="w-5 h-5" />
-        <span class="font-semibold text-mbPrimary dark:text-mbPrimaryDark text-sm">Back</span>
+        <span class="font-semibold text-mbPrimary dark:text-mbPrimaryDark text-sm">{translateText("backText")}</span>
     </a>
 </div>

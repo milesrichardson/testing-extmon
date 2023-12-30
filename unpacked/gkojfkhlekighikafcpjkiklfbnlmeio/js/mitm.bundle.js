@@ -137,7 +137,10 @@
       if (document.currentScript) scriptUrl = document.currentScript.src;
       if (!scriptUrl) {
         var scripts = document.getElementsByTagName("script");
-        if (scripts.length) scriptUrl = scripts[scripts.length - 1].src;
+        if (scripts.length) {
+          var i = scripts.length - 1;
+          while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
+        }
       }
     }
     if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
@@ -176,7 +179,7 @@
               }
             };
             __webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
-          } else installedChunks[chunkId] = 0;
+          }
         }
       }
     };
@@ -234,4 +237,4 @@
     init();
   })();
 })();
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/mitm.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/mitm.bundle.js.map?build=nopeer_v2

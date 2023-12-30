@@ -31,7 +31,7 @@
   (function (D) {
     var t = [],
       o,
-      s,
+      a,
       i =
         ((D.setDragItems = function (e) {
           t = e;
@@ -182,8 +182,8 @@
                 o = (i && (o += " subMenuOption"), D.createElement("li", { class: o, vaultaction: c, tabindex: "-1" })),
                 i,
                 r,
-                s,
                 a,
+                s,
                 T,
                 E,
                 l;
@@ -196,23 +196,23 @@
                     (i = D.createElement("ul", "subMenu")),
                     o.appendChild(i),
                     (r = $(o)),
-                    (s = $(i)),
-                    (a = null),
+                    (a = $(i)),
+                    (s = null),
                     (T = !1),
                     (E = function () {
-                      T && (s.hide("fast"), D.addKeyBoardNavigation(e.children), Topics.get(Topics.LEFT_ARROW).unsubscribe(E));
+                      T && (a.hide("fast"), D.addKeyBoardNavigation(e.children), Topics.get(Topics.LEFT_ARROW).unsubscribe(E));
                     }),
                     (l = function (e) {
                       (T = !0), n(e), Topics.get(Topics.LEFT_ARROW).subscribe(E);
                     }),
                     r.bind("click", l),
                     r.bind("mouseenter", function (e) {
-                      a = setTimeout(function () {
+                      s = setTimeout(function () {
                         l(e);
                       }, 200);
                     }),
                     r.bind("mouseleave", function () {
-                      a && clearTimeout(a), E();
+                      s && clearTimeout(s), E();
                     }))
                   : LPPlatform.addEventListener(o, "click", t);
             });
@@ -221,8 +221,8 @@
           for (var n = e.firstElementChild; n; ) {
             var o = n.getAttribute("user");
             if (null !== o) {
-              for (var i = o.split("|"), r = !0, s = 0, a = i.length; s < a; ++s)
-                if (t === i[s]) {
+              for (var i = o.split("|"), r = !0, a = 0, s = i.length; a < s; ++a)
+                if (t === i[a]) {
                   r = !1;
                   break;
                 }
@@ -292,7 +292,7 @@
             }
         }),
         (D.createElement =
-          ((s = function (e, t, n) {
+          ((a = function (e, t, n) {
             n instanceof Array ? e.setAttribute(t, n.join(" ")) : e.setAttribute(t, n);
           }),
           function (e, t, n) {
@@ -303,7 +303,11 @@
             )
               for (var i in t) {
                 var r = t[i];
-                null != r && s(o, i, r);
+                null !=
+                  (r =
+                    "src" === i && "function" == typeof LPPlatform.isSPA && LPPlatform.isSPA() && !r.match(/^data:/)
+                      ? LPPlatform.getResourcePath(r)
+                      : r) && a(o, i, r);
               }
             return void 0 !== n && (o.textContent = n), o;
           })),
@@ -318,8 +322,8 @@
         }),
         !(function () {
           var r = null,
-            s = -1,
-            a = "hover",
+            a = -1,
+            s = "hover",
             T = "navindex",
             o = "[" + T + "]",
             E = null,
@@ -335,16 +339,16 @@
             },
             n = function (e, t) {
               var n;
-              s !== e && (d(s), N) && (n = N[s]) && "function" == typeof n.navigateFrom && N[s].navigateFrom(),
-                (currentTarget = C((s = e))) &&
-                  (currentTarget.addClass(a), currentTarget.focus(), t) &&
+              a !== e && (d(a), N) && (n = N[a]) && "function" == typeof n.navigateFrom && N[a].navigateFrom(),
+                (currentTarget = C((a = e))) &&
+                  (currentTarget.addClass(s), currentTarget.focus(), t) &&
                   _ &&
                   _.focusHandler &&
                   _.focusHandler(currentTarget);
             },
             d = function (e) {
               var e = C(e);
-              e && (e.removeClass(a), e.blur());
+              e && (e.removeClass(s), e.blur());
             },
             t = function (e) {
               var e = e.closest(o),
@@ -377,11 +381,11 @@
             },
             g = function (e) {
               var t = null;
-              s === r.length - 1 ? f(r[(t = 0)]) : S(r[(t = s + 1)]), n(t, !0), D.disableMouse(), e.preventDefault(), e.stopPropagation();
+              a === r.length - 1 ? f(r[(t = 0)]) : S(r[(t = a + 1)]), n(t, !0), D.disableMouse(), e.preventDefault(), e.stopPropagation();
             },
             h = function (e) {
               var t = null;
-              (s < 1 ? ((t = r.length - 1), S) : R((t = s - 1)) ? S : f)(r[t]),
+              (a < 1 ? ((t = r.length - 1), S) : R((t = a - 1)) ? S : f)(r[t]),
                 n(t, !0),
                 D.disableMouse(),
                 e.preventDefault(),
@@ -405,27 +409,27 @@
             },
             e = function (e) {
               var t;
-              if ((t = m(N, s, e))) for (var n = i.length - 1; 0 <= n && t; --n) var o = i[n], t = m(o.options.displayItems, o.navIndex, e);
+              if ((t = m(N, a, e))) for (var n = i.length - 1; 0 <= n && t; --n) var o = i[n], t = m(o.options.displayItems, o.navIndex, e);
               return t;
             },
             v = e.bind(this, "left"),
             M = e.bind(this, "right"),
             b = function () {
               if (N) {
-                var e = N[s];
+                var e = N[a];
                 if (e && "function" == typeof e.keyboardEnterOverride) return e.keyboardEnterOverride();
               }
               return !0;
             },
             L = function () {
               var e, t;
-              return M() && c && (e = C(s)) && (l && (t = e.find(l)).length && (e = t), P(e), D.disableMouse()), !c;
+              return M() && c && (e = C(a)) && (l && (t = e.find(l)).length && (e = t), P(e), D.disableMouse()), !c;
             },
             U = function () {
               return v();
             },
             y = function () {
-              return b() && P(C(s)), !1;
+              return b() && P(C(a)), !1;
             };
           (D.setNavIndex = function (e) {
             n(e);
@@ -433,13 +437,13 @@
             e && e.get(0).scrollIntoView();
           }),
             (D.getNavIndex = function () {
-              return s;
+              return a;
             }),
             (D.addKeyBoardNavigation = function (e, t) {
               if (0 < e.length) {
                 (u = { elements: e, options: t }),
                   (r = []),
-                  (s = -1),
+                  (a = -1),
                   null === O && (O = !0),
                   (E = D.getOption(t, "mouseEvent", "click")),
                   (l = D.getOption(t, "rightArrowSelector", null)),
@@ -453,7 +457,7 @@
                     i.bind("mouseenter", p),
                     i.unbind("mouseleave", I),
                     i.bind("mouseleave", I),
-                    i.hasClass(a) && (s = n),
+                    i.hasClass(s) && (a = n),
                     r.push(i);
                 }
                 Topics.get(Topics.DOWN_ARROW).subscribe(g),
@@ -473,7 +477,7 @@
                 Topics.get(Topics.ENTER).unsubscribe(y);
             }),
             (D.pushKeyBoardNavigation = function (e, t) {
-              u && u.elements !== e && ((u.navIndex = s), i.push(u)), D.removeKeyBoardNavigation(), D.addKeyBoardNavigation(e, t);
+              u && u.elements !== e && ((u.navIndex = a), i.push(u)), D.removeKeyBoardNavigation(), D.addKeyBoardNavigation(e, t);
             }),
             (D.popKeyBoardNavigation = function () {
               var e = i.pop();
@@ -676,7 +680,7 @@
     })
   ),
   (function (E) {
-    var o, n, i, r, e, s, l, c, O, a;
+    var o, n, i, r, e, a, l, c, O, s;
     E.fn.extend({
       LP_show: function () {
         return this.removeClass("displaynone"), this;
@@ -702,7 +706,7 @@
               0 < e.length ? n.addClass("populated") : n.removeClass("populated");
             }),
           r,
-          s = function (e) {
+          a = function (e) {
             clearTimeout(r),
               (r = setTimeout(function () {
                 try {
@@ -713,20 +717,20 @@
                 n.removeClass("loading");
               }, 150));
           },
-          a;
+          s;
         return (
-          (a = this),
+          (s = this),
           e.bind("click", function (e) {
-            a.val(""), e.stopPropagation(), e.preventDefault();
+            s.val(""), e.stopPropagation(), e.preventDefault();
           }),
           this.LP_input("search", function (e) {
-            n.addClass("loading"), i(e), s(e);
+            n.addClass("loading"), i(e), a(e);
           }),
           this
         );
       },
       LP_createToggle:
-        ((a = function (e) {
+        ((s = function (e) {
           var t;
           "INPUT" === e.nodeName &&
             "checkbox" === e.getAttribute("type") &&
@@ -735,11 +739,11 @@
             e.nextElementSibling.appendChild(t));
         }),
         function () {
-          for (var e = 0, t = this.length; e < t; ++e) a(this.get(e));
+          for (var e = 0, t = this.length; e < t; ++e) s(this.get(e));
           return this;
         }),
       LP_addPasswordEye:
-        ((s = function (e, t, n) {
+        ((a = function (e, t, n) {
           (e.passwordShown = !0),
             e.attr("type", "text"),
             t.attr("title", Strings.Vault.HIDE_PASSWORD),
@@ -756,7 +760,7 @@
         (c = function (e, t, n) {
           switch (e.attr("type")) {
             case "password":
-              s(e, t, n);
+              a(e, t, n);
               break;
             case "text":
               l(e, t, n);
@@ -778,8 +782,8 @@
             o,
             i,
             r,
-            s,
-            a;
+            a,
+            s;
           function T() {
             0 === o.val().length ? n.addClass("displaynone") : n.removeClass("displaynone");
           }
@@ -788,7 +792,7 @@
             (o = this),
             (i = LPTools.getOption(e, "checkPermissionHandler", null)),
             (r = LPTools.getOption(e, "copyVaultItemPasswordHandler", null)),
-            (s = LPTools.getOption(e, "textual", !1))
+            (a = LPTools.getOption(e, "textual", !1))
               ? (n.addClass("textual"),
                 n.text(Strings.Vault.SHOW),
                 o.one("focus", function () {
@@ -798,13 +802,13 @@
             n.bind("click", function () {
               "password" === o.attr("type") && i
                 ? i(function () {
-                    c(o, n, s);
+                    c(o, n, a);
                   })
-                : c(o, n, s);
+                : c(o, n, a);
             }),
             o.bind("copy", r),
             (o.hidePassword = function () {
-              l(o, n, s);
+              l(o, n, a);
             }),
             LPTools.getOption(e, "includeGenerateButton", !1) &&
               (o.LP_input("passwordGenerate", function (e) {
@@ -917,15 +921,15 @@
             function () {
               n.unbind("keypress" + e, o), n.unbind("keyup" + e, i), n.unbind("input" + e, r);
             }),
-          s;
+          a;
         n.bind("input" + e, r),
           n.bind("input" + e, function () {
             t(n.val());
           }),
           (n.val =
-            ((s = this.val),
+            ((a = this.val),
             function () {
-              return 1 === arguments.length && t(arguments[0]), s.apply(n, arguments);
+              return 1 === arguments.length && t(arguments[0]), a.apply(n, arguments);
             }));
       }
     });

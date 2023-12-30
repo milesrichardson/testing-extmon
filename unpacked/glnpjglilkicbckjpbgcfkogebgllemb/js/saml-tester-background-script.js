@@ -3,247 +3,37 @@
   var t = {
       682: function (t, e, n) {
         var r =
-            (this && this.__awaiter) ||
-            function (t, e, n, r) {
-              return new (n || (n = Promise))(function (s, o) {
-                function i(t) {
-                  try {
-                    u(r.next(t));
-                  } catch (t) {
-                    o(t);
-                  }
-                }
-                function a(t) {
-                  try {
-                    u(r.throw(t));
-                  } catch (t) {
-                    o(t);
-                  }
-                }
-                function u(t) {
-                  var e;
-                  t.done
-                    ? s(t.value)
-                    : ((e = t.value),
-                      e instanceof n
-                        ? e
-                        : new n(function (t) {
-                            t(e);
-                          })).then(i, a);
-                }
-                u((r = r.apply(t, e || [])).next());
-              });
-            },
-          s =
-            (this && this.__generator) ||
-            function (t, e) {
-              var n,
-                r,
-                s,
-                o,
-                i = {
-                  label: 0,
-                  sent: function () {
-                    if (1 & s[0]) throw s[1];
-                    return s[1];
-                  },
-                  trys: [],
-                  ops: []
-                };
-              return (
-                (o = { next: a(0), throw: a(1), return: a(2) }),
-                "function" == typeof Symbol &&
-                  (o[Symbol.iterator] = function () {
-                    return this;
-                  }),
-                o
-              );
-              function a(a) {
-                return function (u) {
-                  return (function (a) {
-                    if (n) throw new TypeError("Generator is already executing.");
-                    for (; o && ((o = 0), a[0] && (i = 0)), i; )
-                      try {
-                        if (
-                          ((n = 1),
-                          r &&
-                            (s = 2 & a[0] ? r.return : a[0] ? r.throw || ((s = r.return) && s.call(r), 0) : r.next) &&
-                            !(s = s.call(r, a[1])).done)
-                        )
-                          return s;
-                        switch (((r = 0), s && (a = [2 & a[0], s.value]), a[0])) {
-                          case 0:
-                          case 1:
-                            s = a;
-                            break;
-                          case 4:
-                            return i.label++, { value: a[1], done: !1 };
-                          case 5:
-                            i.label++, (r = a[1]), (a = [0]);
-                            continue;
-                          case 7:
-                            (a = i.ops.pop()), i.trys.pop();
-                            continue;
-                          default:
-                            if (!((s = (s = i.trys).length > 0 && s[s.length - 1]) || (6 !== a[0] && 2 !== a[0]))) {
-                              i = 0;
-                              continue;
-                            }
-                            if (3 === a[0] && (!s || (a[1] > s[0] && a[1] < s[3]))) {
-                              i.label = a[1];
-                              break;
-                            }
-                            if (6 === a[0] && i.label < s[1]) {
-                              (i.label = s[1]), (s = a);
-                              break;
-                            }
-                            if (s && i.label < s[2]) {
-                              (i.label = s[2]), i.ops.push(a);
-                              break;
-                            }
-                            s[2] && i.ops.pop(), i.trys.pop();
-                            continue;
-                        }
-                        a = e.call(t, i);
-                      } catch (t) {
-                        (a = [6, t]), (r = 0);
-                      } finally {
-                        n = s = 0;
-                      }
-                    if (5 & a[0]) throw a[1];
-                    return { value: a[0] ? a[1] : void 0, done: !0 };
-                  })([a, u]);
-                };
-              }
-            },
-          o =
-            (this && this.__importDefault) ||
-            function (t) {
-              return t && t.__esModule ? t : { default: t };
-            };
+          (this && this.__importDefault) ||
+          function (t) {
+            return t && t.__esModule ? t : { default: t };
+          };
         Object.defineProperty(e, "__esModule", { value: !0 });
-        var i = n(654),
-          a = n(41),
-          u = o(n(546)),
-          c = (function () {
+        var s = r(n(546)),
+          o = (function () {
             function t(t) {
-              (this.requestHandler = this.handleTestRequest.bind(this)), (this.ctx = t);
+              (this.requestHandler = this.handleTestRequest.bind(this)), (this.ctx = t), (this.handlers = new Map());
             }
             return (
+              (t.prototype.registerHandler = function (t) {
+                this.handlers.set(t.supportedAction, t);
+              }),
               (t.prototype.handleTestRequest = function (t, e, n) {
                 var r = this,
-                  s = Okta.Constants.SamlTesterEvents.ACTIONS,
-                  o = new u.default(this.ctx.storage);
-                if ([s.GET_TEST_RESULTS, s.CLEAR_TEST_RESULTS, s.RUN_TEST_CASE].includes(t.action))
+                  o = new s.default(this.ctx.storage);
+                if (t.action && this.handlers.has(t.action))
                   return (
-                    o.fetchStore().then(function (e) {
-                      return r.processAction(t, e, n);
+                    Log.info("Handling action '".concat(t.action, "' ...")),
+                    o.fetchStore().then(function (s) {
+                      return r.handlers.get(t.action).handleAction(t, e, n, s);
                     }),
                     !0
                   );
                 Log.warn("Action '".concat(t.action, "' not recognized, ignoring."));
               }),
-              (t.prototype.processAction = function (t, e, n) {
-                var r = Okta.Constants.SamlTesterEvents.ACTIONS;
-                switch (t.action) {
-                  case r.GET_TEST_RESULTS:
-                    return this.returnTestResults(t, n, e);
-                  case r.CLEAR_TEST_RESULTS:
-                    return this.clearTestResults(t, n, e);
-                  case r.RUN_TEST_CASE:
-                    return this.runTestCase(t, n, e);
-                }
-              }),
-              (t.prototype.clearTestResults = function (t, e, n) {
-                return r(this, void 0, void 0, function () {
-                  var r;
-                  return s(this, function (s) {
-                    switch (s.label) {
-                      case 0:
-                        return (
-                          Log.info("Test clear results requested"),
-                          n
-                            ? n.isTestRunInProgress()
-                              ? (Log.warn("Test already running, ignoring."), [2, e(!1)])
-                              : ((r = t.data),
-                                n.clearTestResults(r.appId, r.appInstanceId),
-                                [4, this.ctx.storage.setOinTestResultsStore(n.toSerializable())])
-                            : (Log.warn("No test results, ignoring."), [2, e(!1)])
-                        );
-                      case 1:
-                        return s.sent(), e(!0), [2];
-                    }
-                  });
-                });
-              }),
-              (t.prototype.returnTestResults = function (t, e, n) {
-                if (!n) return e();
-                Log.info("Test results requested");
-                var r = t.data;
-                return e(n.getTestResults(r.appId, r.appInstanceId));
-              }),
-              (t.prototype.runTestCase = function (t, e, n) {
-                return r(this, void 0, void 0, function () {
-                  var r, o, u, c;
-                  return s(this, function (s) {
-                    switch (s.label) {
-                      case 0:
-                        if (
-                          (Log.info("Run test case requested"),
-                          (r = Okta.Constants.SamlTester.APP_EMBED_LINK_REGEX),
-                          !(
-                            (o = t.data) &&
-                            o.params &&
-                            o.type &&
-                            ["idp", "sp", "jitIdp", "jitSp"].includes(o.type) &&
-                            Okta.fn.url.isOktaHref(o.params.appEmbedLink) &&
-                            new RegExp(r, "g").test(o.params.appEmbedLink)
-                          ))
-                        )
-                          return Log.warn("Test request invalid"), [2, e(!1)];
-                        if ((n || (n = new a.SimpleTestResultsStore()), n.isTestRunInProgress()))
-                          return Log.warn("Test already running, ignoring"), [2, e(!1)];
-                        s.label = 1;
-                      case 1:
-                        switch ((s.trys.push([1, 11, , 12]), o.type)) {
-                          case "idp":
-                            return [3, 2];
-                          case "sp":
-                            return [3, 4];
-                          case "jitIdp":
-                            return [3, 6];
-                        }
-                        return [3, 8];
-                      case 2:
-                        return [4, (0, i.runIdpFlow)(o.params, this.ctx, n)];
-                      case 3:
-                        return (u = s.sent()), [3, 10];
-                      case 4:
-                        return [4, (0, i.runSpFlow)(o.params, this.ctx, n)];
-                      case 5:
-                        return (u = s.sent()), [3, 10];
-                      case 6:
-                        return [4, (0, i.runJitIdpFlow)(o.params, this.ctx, n)];
-                      case 7:
-                        return (u = s.sent()), [3, 10];
-                      case 8:
-                        return [4, (0, i.runJitSpFlow)(o.params, this.ctx, n)];
-                      case 9:
-                        (u = s.sent()), (s.label = 10);
-                      case 10:
-                        return Log.info("Test Result: ".concat(u.result)), [3, 12];
-                      case 11:
-                        return (c = s.sent()), Log.warn("Test failed: ".concat(c)), [3, 12];
-                      case 12:
-                        return e(!0), [2];
-                    }
-                  });
-                });
-              }),
               t
             );
           })();
-        e.default = c;
+        e.default = o;
       },
       994: function (t, e, n) {
         var r =
@@ -378,6 +168,537 @@
             };
           });
       },
+      643: function (t, e, n) {
+        var r =
+            (this && this.__awaiter) ||
+            function (t, e, n, r) {
+              return new (n || (n = Promise))(function (s, o) {
+                function i(t) {
+                  try {
+                    u(r.next(t));
+                  } catch (t) {
+                    o(t);
+                  }
+                }
+                function a(t) {
+                  try {
+                    u(r.throw(t));
+                  } catch (t) {
+                    o(t);
+                  }
+                }
+                function u(t) {
+                  var e;
+                  t.done
+                    ? s(t.value)
+                    : ((e = t.value),
+                      e instanceof n
+                        ? e
+                        : new n(function (t) {
+                            t(e);
+                          })).then(i, a);
+                }
+                u((r = r.apply(t, e || [])).next());
+              });
+            },
+          s =
+            (this && this.__generator) ||
+            function (t, e) {
+              var n,
+                r,
+                s,
+                o,
+                i = {
+                  label: 0,
+                  sent: function () {
+                    if (1 & s[0]) throw s[1];
+                    return s[1];
+                  },
+                  trys: [],
+                  ops: []
+                };
+              return (
+                (o = { next: a(0), throw: a(1), return: a(2) }),
+                "function" == typeof Symbol &&
+                  (o[Symbol.iterator] = function () {
+                    return this;
+                  }),
+                o
+              );
+              function a(a) {
+                return function (u) {
+                  return (function (a) {
+                    if (n) throw new TypeError("Generator is already executing.");
+                    for (; o && ((o = 0), a[0] && (i = 0)), i; )
+                      try {
+                        if (
+                          ((n = 1),
+                          r &&
+                            (s = 2 & a[0] ? r.return : a[0] ? r.throw || ((s = r.return) && s.call(r), 0) : r.next) &&
+                            !(s = s.call(r, a[1])).done)
+                        )
+                          return s;
+                        switch (((r = 0), s && (a = [2 & a[0], s.value]), a[0])) {
+                          case 0:
+                          case 1:
+                            s = a;
+                            break;
+                          case 4:
+                            return i.label++, { value: a[1], done: !1 };
+                          case 5:
+                            i.label++, (r = a[1]), (a = [0]);
+                            continue;
+                          case 7:
+                            (a = i.ops.pop()), i.trys.pop();
+                            continue;
+                          default:
+                            if (!((s = (s = i.trys).length > 0 && s[s.length - 1]) || (6 !== a[0] && 2 !== a[0]))) {
+                              i = 0;
+                              continue;
+                            }
+                            if (3 === a[0] && (!s || (a[1] > s[0] && a[1] < s[3]))) {
+                              i.label = a[1];
+                              break;
+                            }
+                            if (6 === a[0] && i.label < s[1]) {
+                              (i.label = s[1]), (s = a);
+                              break;
+                            }
+                            if (s && i.label < s[2]) {
+                              (i.label = s[2]), i.ops.push(a);
+                              break;
+                            }
+                            s[2] && i.ops.pop(), i.trys.pop();
+                            continue;
+                        }
+                        a = e.call(t, i);
+                      } catch (t) {
+                        (a = [6, t]), (r = 0);
+                      } finally {
+                        n = s = 0;
+                      }
+                    if (5 & a[0]) throw a[1];
+                    return { value: a[0] ? a[1] : void 0, done: !0 };
+                  })([a, u]);
+                };
+              }
+            },
+          o =
+            (this && this.__importDefault) ||
+            function (t) {
+              return t && t.__esModule ? t : { default: t };
+            };
+        Object.defineProperty(e, "__esModule", { value: !0 });
+        var i = o(n(546)),
+          a = (function () {
+            function t(t) {
+              (this.supportedAction = Okta.Constants.SamlTesterEvents.ACTIONS.CLEAR_TEST_RESULTS), (this.ctx = t);
+            }
+            return (
+              (t.prototype.handleAction = function (t, e, n, o) {
+                return r(this, void 0, void 0, function () {
+                  var e, r;
+                  return s(this, function (s) {
+                    switch (s.label) {
+                      case 0:
+                        return (
+                          Log.info("Test clear results requested"),
+                          (e = new i.default(this.ctx.storage)),
+                          o
+                            ? o.isTestRunInProgress()
+                              ? (Log.warn("Test already running, ignoring."), [2, n(!1)])
+                              : ((r = t.data), o.clearTestResults(r.appId, r.appInstanceId), [4, e.saveStore(o)])
+                            : (Log.warn("No test results, ignoring."), [2, n(!1)])
+                        );
+                      case 1:
+                        return s.sent(), n(!0), [2];
+                    }
+                  });
+                });
+              }),
+              t
+            );
+          })();
+        e.default = a;
+      },
+      207: function (t, e) {
+        var n =
+            (this && this.__awaiter) ||
+            function (t, e, n, r) {
+              return new (n || (n = Promise))(function (s, o) {
+                function i(t) {
+                  try {
+                    u(r.next(t));
+                  } catch (t) {
+                    o(t);
+                  }
+                }
+                function a(t) {
+                  try {
+                    u(r.throw(t));
+                  } catch (t) {
+                    o(t);
+                  }
+                }
+                function u(t) {
+                  var e;
+                  t.done
+                    ? s(t.value)
+                    : ((e = t.value),
+                      e instanceof n
+                        ? e
+                        : new n(function (t) {
+                            t(e);
+                          })).then(i, a);
+                }
+                u((r = r.apply(t, e || [])).next());
+              });
+            },
+          r =
+            (this && this.__generator) ||
+            function (t, e) {
+              var n,
+                r,
+                s,
+                o,
+                i = {
+                  label: 0,
+                  sent: function () {
+                    if (1 & s[0]) throw s[1];
+                    return s[1];
+                  },
+                  trys: [],
+                  ops: []
+                };
+              return (
+                (o = { next: a(0), throw: a(1), return: a(2) }),
+                "function" == typeof Symbol &&
+                  (o[Symbol.iterator] = function () {
+                    return this;
+                  }),
+                o
+              );
+              function a(a) {
+                return function (u) {
+                  return (function (a) {
+                    if (n) throw new TypeError("Generator is already executing.");
+                    for (; o && ((o = 0), a[0] && (i = 0)), i; )
+                      try {
+                        if (
+                          ((n = 1),
+                          r &&
+                            (s = 2 & a[0] ? r.return : a[0] ? r.throw || ((s = r.return) && s.call(r), 0) : r.next) &&
+                            !(s = s.call(r, a[1])).done)
+                        )
+                          return s;
+                        switch (((r = 0), s && (a = [2 & a[0], s.value]), a[0])) {
+                          case 0:
+                          case 1:
+                            s = a;
+                            break;
+                          case 4:
+                            return i.label++, { value: a[1], done: !1 };
+                          case 5:
+                            i.label++, (r = a[1]), (a = [0]);
+                            continue;
+                          case 7:
+                            (a = i.ops.pop()), i.trys.pop();
+                            continue;
+                          default:
+                            if (!((s = (s = i.trys).length > 0 && s[s.length - 1]) || (6 !== a[0] && 2 !== a[0]))) {
+                              i = 0;
+                              continue;
+                            }
+                            if (3 === a[0] && (!s || (a[1] > s[0] && a[1] < s[3]))) {
+                              i.label = a[1];
+                              break;
+                            }
+                            if (6 === a[0] && i.label < s[1]) {
+                              (i.label = s[1]), (s = a);
+                              break;
+                            }
+                            if (s && i.label < s[2]) {
+                              (i.label = s[2]), i.ops.push(a);
+                              break;
+                            }
+                            s[2] && i.ops.pop(), i.trys.pop();
+                            continue;
+                        }
+                        a = e.call(t, i);
+                      } catch (t) {
+                        (a = [6, t]), (r = 0);
+                      } finally {
+                        n = s = 0;
+                      }
+                    if (5 & a[0]) throw a[1];
+                    return { value: a[0] ? a[1] : void 0, done: !0 };
+                  })([a, u]);
+                };
+              }
+            };
+        Object.defineProperty(e, "__esModule", { value: !0 });
+        var s = (function () {
+          function t() {
+            this.supportedAction = Okta.Constants.SamlTesterEvents.ACTIONS.GET_ALLOWED_INCOGNITO_ACCESS;
+          }
+          return (
+            (t.prototype.handleAction = function (t, e, s) {
+              return n(this, void 0, void 0, function () {
+                return r(this, function (t) {
+                  return Log.info("Get IsAllowedIncognitoAccess requested"), chrome.extension.isAllowedIncognitoAccess().then(s), [2];
+                });
+              });
+            }),
+            t
+          );
+        })();
+        e.default = s;
+      },
+      49: (t, e) => {
+        Object.defineProperty(e, "__esModule", { value: !0 });
+        var n = (function () {
+          function t() {
+            this.supportedAction = Okta.Constants.SamlTesterEvents.ACTIONS.GET_TEST_RESULTS;
+          }
+          return (
+            (t.prototype.handleAction = function (t, e, n, r) {
+              if (!r) return n(), Promise.resolve();
+              Log.info("Test results requested");
+              var s = t.data;
+              return n(r.getTestResults(s.appId, s.appInstanceId)), Promise.resolve();
+            }),
+            t
+          );
+        })();
+        e.default = n;
+      },
+      21: function (t, e, n) {
+        var r =
+            (this && this.__awaiter) ||
+            function (t, e, n, r) {
+              return new (n || (n = Promise))(function (s, o) {
+                function i(t) {
+                  try {
+                    u(r.next(t));
+                  } catch (t) {
+                    o(t);
+                  }
+                }
+                function a(t) {
+                  try {
+                    u(r.throw(t));
+                  } catch (t) {
+                    o(t);
+                  }
+                }
+                function u(t) {
+                  var e;
+                  t.done
+                    ? s(t.value)
+                    : ((e = t.value),
+                      e instanceof n
+                        ? e
+                        : new n(function (t) {
+                            t(e);
+                          })).then(i, a);
+                }
+                u((r = r.apply(t, e || [])).next());
+              });
+            },
+          s =
+            (this && this.__generator) ||
+            function (t, e) {
+              var n,
+                r,
+                s,
+                o,
+                i = {
+                  label: 0,
+                  sent: function () {
+                    if (1 & s[0]) throw s[1];
+                    return s[1];
+                  },
+                  trys: [],
+                  ops: []
+                };
+              return (
+                (o = { next: a(0), throw: a(1), return: a(2) }),
+                "function" == typeof Symbol &&
+                  (o[Symbol.iterator] = function () {
+                    return this;
+                  }),
+                o
+              );
+              function a(a) {
+                return function (u) {
+                  return (function (a) {
+                    if (n) throw new TypeError("Generator is already executing.");
+                    for (; o && ((o = 0), a[0] && (i = 0)), i; )
+                      try {
+                        if (
+                          ((n = 1),
+                          r &&
+                            (s = 2 & a[0] ? r.return : a[0] ? r.throw || ((s = r.return) && s.call(r), 0) : r.next) &&
+                            !(s = s.call(r, a[1])).done)
+                        )
+                          return s;
+                        switch (((r = 0), s && (a = [2 & a[0], s.value]), a[0])) {
+                          case 0:
+                          case 1:
+                            s = a;
+                            break;
+                          case 4:
+                            return i.label++, { value: a[1], done: !1 };
+                          case 5:
+                            i.label++, (r = a[1]), (a = [0]);
+                            continue;
+                          case 7:
+                            (a = i.ops.pop()), i.trys.pop();
+                            continue;
+                          default:
+                            if (!((s = (s = i.trys).length > 0 && s[s.length - 1]) || (6 !== a[0] && 2 !== a[0]))) {
+                              i = 0;
+                              continue;
+                            }
+                            if (3 === a[0] && (!s || (a[1] > s[0] && a[1] < s[3]))) {
+                              i.label = a[1];
+                              break;
+                            }
+                            if (6 === a[0] && i.label < s[1]) {
+                              (i.label = s[1]), (s = a);
+                              break;
+                            }
+                            if (s && i.label < s[2]) {
+                              (i.label = s[2]), i.ops.push(a);
+                              break;
+                            }
+                            s[2] && i.ops.pop(), i.trys.pop();
+                            continue;
+                        }
+                        a = e.call(t, i);
+                      } catch (t) {
+                        (a = [6, t]), (r = 0);
+                      } finally {
+                        n = s = 0;
+                      }
+                    if (5 & a[0]) throw a[1];
+                    return { value: a[0] ? a[1] : void 0, done: !0 };
+                  })([a, u]);
+                };
+              }
+            };
+        Object.defineProperty(e, "__esModule", { value: !0 });
+        var o = n(41),
+          i = n(654),
+          a = (function () {
+            function t(t) {
+              (this.supportedAction = Okta.Constants.SamlTesterEvents.ACTIONS.RUN_TEST_CASE), (this.ctx = t);
+            }
+            return (
+              (t.prototype.handleAction = function (t, e, n, i) {
+                return r(this, void 0, void 0, function () {
+                  var e, r, a;
+                  return s(this, function (s) {
+                    switch (s.label) {
+                      case 0:
+                        if ((Log.info("Run test case requested"), (e = t.data), this.isRequestValid(e)))
+                          return Log.warn("Test request invalid"), n(!1), [2, Promise.resolve()];
+                        if ((i || (i = new o.SimpleTestResultsStore()), i.isTestRunInProgress()))
+                          return Log.warn("Test already running, ignoring"), n(!1), [2, Promise.resolve()];
+                        s.label = 1;
+                      case 1:
+                        return s.trys.push([1, 3, , 4]), [4, this.runTest(e, i)];
+                      case 2:
+                        return (r = s.sent()), Log.info("Test Result: ".concat(r.result)), [3, 4];
+                      case 3:
+                        return (a = s.sent()), Log.warn("Test failed: ".concat(a)), [3, 4];
+                      case 4:
+                        return n(!0), [2, Promise.resolve()];
+                    }
+                  });
+                });
+              }),
+              (t.prototype.isRequestValid = function (t) {
+                var e = Okta.Constants.SamlTester.APP_EMBED_LINK_REGEX;
+                return !(
+                  t &&
+                  t.params &&
+                  t.type &&
+                  ["idp", "sp", "jitIdp", "jitSp"].includes(t.type) &&
+                  Okta.fn.url.isOktaHref(t.params.appEmbedLink) &&
+                  new RegExp(e, "g").test(t.params.appEmbedLink)
+                );
+              }),
+              (t.prototype.runTest = function (t, e) {
+                return r(this, void 0, void 0, function () {
+                  return s(this, function (n) {
+                    switch (n.label) {
+                      case 0:
+                        switch (t.type) {
+                          case "idp":
+                            return [3, 1];
+                          case "sp":
+                            return [3, 3];
+                          case "jitIdp":
+                            return [3, 5];
+                        }
+                        return [3, 7];
+                      case 1:
+                        return [4, (0, i.runIdpFlow)(t.params, this.ctx, e)];
+                      case 2:
+                      case 4:
+                      case 6:
+                      case 8:
+                        return [2, n.sent()];
+                      case 3:
+                        return [4, (0, i.runSpFlow)(t.params, this.ctx, e)];
+                      case 5:
+                        return [4, (0, i.runJitIdpFlow)(t.params, this.ctx, e)];
+                      case 7:
+                        return [4, (0, i.runJitSpFlow)(t.params, this.ctx, e)];
+                    }
+                  });
+                });
+              }),
+              t
+            );
+          })();
+        e.default = a;
+      },
+      903: function (t, e, n) {
+        var r =
+          (this && this.__importDefault) ||
+          function (t) {
+            return t && t.__esModule ? t : { default: t };
+          };
+        Object.defineProperty(e, "__esModule", { value: !0 });
+        var s = n(41),
+          o = r(n(546)),
+          i = (function () {
+            function t(t) {
+              (this.supportedAction = Okta.Constants.SamlTesterEvents.ACTIONS.UPDATE_TEST_RESULTS_SUBSCRIPTION), (this.ctx = t);
+            }
+            return (
+              (t.prototype.handleAction = function (t, e, n, r) {
+                var i = new o.default(this.ctx.storage);
+                r || (r = new s.SimpleTestResultsStore());
+                var a = t.data;
+                return (
+                  a.activate
+                    ? (Log.info("Test results activate subscription requested"),
+                      r.listenForTestResultsUpdates(a.appId, a.appInstanceId, e.tab.id))
+                    : (Log.info("Test results deactivate subscription requested"),
+                      r.removeTestResultsUpdatesListener(a.appId, a.appInstanceId, e.tab.id)),
+                  i.saveStore(r),
+                  n(),
+                  Promise.resolve()
+                );
+              }),
+              t
+            );
+          })();
+        e.default = i;
+      },
       157: function (t, e, n) {
         var r =
           (this && this.__importDefault) ||
@@ -386,20 +707,36 @@
           };
         Object.defineProperty(e, "__esModule", { value: !0 });
         var s = r(n(682)),
-          o = function (t) {
+          o = r(n(643)),
+          i = r(n(207)),
+          a = r(n(21)),
+          u = r(n(49)),
+          c = r(n(903)),
+          l = function (t) {
             var e = Okta.Constants.SamlTesterEvents,
-              n = new s.default(t);
+              n = p(t);
             Okta.Q.all([t.storage.getPluginSettings(), t.storage.getDBGPluginSettings()]).spread(function (r, s) {
               if (!s.samlTesterEnabled || !(r && r.orgSettings && r.orgSettings.pluginSamlTesterEnabled))
                 return Log.info("Removing SAML Tester listener"), void t.runtimeMessage.remove(n.requestHandler);
               Log.info("Initializing SAML Tester listener"), t.runtimeMessage.init(e.SAML_TESTER_MODULE, n.requestHandler);
             });
+          },
+          p = function (t) {
+            var e = new s.default(t);
+            return (
+              e.registerHandler(new o.default(t)),
+              e.registerHandler(new i.default()),
+              e.registerHandler(new a.default(t)),
+              e.registerHandler(new u.default()),
+              e.registerHandler(new c.default(t)),
+              e
+            );
           };
         e.default = function (t) {
           chrome.storage.onChanged.addListener(function (e, n) {
-            "local" === n && (e.DBG_PLUGIN_SETTINGS || e.PLUGIN_SETTINGS) && o(t);
+            "local" === n && (e.DBG_PLUGIN_SETTINGS || e.PLUGIN_SETTINGS) && l(t);
           }),
-            o(t);
+            l(t);
         };
       },
       58: function (t, e, n) {
@@ -859,12 +1196,12 @@
           c = n(351),
           l = n(40),
           p = o(n(295)),
-          d = o(n(783)),
-          f = o(n(546)),
+          f = o(n(783)),
+          d = o(n(546)),
           h = Okta.Q,
           g = 3e3,
           w = 5e3;
-        function _(t, e, n, o) {
+        function v(t, e, n, o) {
           return r(this, void 0, void 0, function () {
             return s(this, function (r) {
               switch (r.label) {
@@ -883,28 +1220,26 @@
                 case 6:
                   return r.sent(), [4, e.stopCapture()];
                 case 7:
-                  return r.sent(), [4, n.logMoveToStep("log_network", e.capture)];
+                  return r.sent(), [4, n.logMoveToStep("confirm_user", e.capture)];
                 case 8:
-                  return r.sent(), [4, n.logMoveToStep("confirm_user")];
-                case 9:
                   return r.sent(), [4, t.waitUntilUserConfirmsCorrectSignIn()];
-                case 10:
+                case 9:
                   return r.sent(), [4, n.logMoveToStep("okta_sign_out")];
-                case 11:
+                case 10:
                   return r.sent(), [4, t.setUrl(o.signOutUrl)];
-                case 12:
+                case 11:
                   return r.sent(), [4, h.delay(g)];
-                case 13:
+                case 12:
                   return r.sent(), [4, n.logMoveToStep("close_test_window")];
-                case 14:
+                case 13:
                   return r.sent(), [4, t.closeTestWindow()];
-                case 15:
+                case 14:
                   return r.sent(), [2];
               }
             });
           });
         }
-        function S(t, n) {
+        function y(t, n) {
           return (
             (function (t) {
               return void 0 !== (null == t ? void 0 : t.testFailure) && "boolean" == typeof t.testFailure;
@@ -917,7 +1252,7 @@
         (e.TEST_CASE_NAMES = { idp: "IdP flow", sp: "SP flow", jitIdp: "JIT IdP flow", jitSp: "JIT SP flow" }),
           (e.runIdpFlow = function (t, n, o) {
             return r(this, void 0, void 0, function () {
-              var r, l, p, d, g, m;
+              var r, l, p, f, g, _;
               return s(this, function (s) {
                 switch (s.label) {
                   case 0:
@@ -925,8 +1260,8 @@
                       (r = new i.TestRunner()),
                       (l = new a.default()),
                       (p = u.default.startTestCase("idp")),
-                      (d = new c.IdpFlowParams(t.appEmbedLink)),
-                      [4, (g = new f.default(n.storage)).appendTestResults(o, d.appId, d.appInstanceId, p)]
+                      (f = new c.IdpFlowParams(t.appEmbedLink)),
+                      [4, (g = new d.default(n.storage)).appendTestResults(o, f.appId, f.appInstanceId, p)]
                     );
                   case 1:
                     s.sent(), (s.label = 2);
@@ -935,19 +1270,19 @@
                   case 3:
                     return s.sent(), [4, p.logStartStep("open_test_window")];
                   case 4:
-                    return s.sent(), [4, r.openWindow(d.signOutUrl, "awaiting_user_sign_in")];
+                    return s.sent(), [4, r.openWindow(f.signOutUrl, "awaiting_user_sign_in")];
                   case 5:
                     return s.sent(), [4, p.logMoveToStep("okta_sign_in")];
                   case 6:
                     return s.sent(), [4, h.delay(w)];
                   case 7:
-                    return s.sent(), [4, _(r, l, p, d)];
+                    return s.sent(), [4, v(r, l, p, f)];
                   case 8:
                     return (
                       s.sent(), Log.info("".concat(e.TEST_CASE_NAMES[p.testCase], " completed")), p.logFinishStep("pass"), [2, p.close()]
                     );
                   case 9:
-                    return (m = s.sent()), [2, S(p, m)];
+                    return (_ = s.sent()), [2, y(p, _)];
                   case 10:
                     return l.stopCapture(), r.tearDown(), [4, g.saveStore(o)];
                   case 11:
@@ -960,7 +1295,7 @@
           }),
           (e.runSpFlow = function (t, n, o) {
             return r(this, void 0, void 0, function () {
-              var r, l, p, d, _, m;
+              var r, l, p, f, v, _;
               return s(this, function (s) {
                 switch (s.label) {
                   case 0:
@@ -968,23 +1303,23 @@
                       (r = new i.TestRunner()),
                       (l = new a.default()),
                       (p = u.default.startTestCase("sp")),
-                      (d = new c.SpFlowParams(t.appEmbedLink, t.spInitiateUrl)),
-                      [4, (_ = new f.default(n.storage)).appendTestResults(o, d.appId, d.appInstanceId, p)]
+                      (f = new c.SpFlowParams(t.appEmbedLink, t.spInitiateUrl)),
+                      [4, (v = new d.default(n.storage)).appendTestResults(o, f.appId, f.appInstanceId, p)]
                     );
                   case 1:
                     s.sent(), (s.label = 2);
                   case 2:
-                    return s.trys.push([2, 22, 23, 25]), Log.info("".concat(e.TEST_CASE_NAMES[p.testCase], " starting...")), [4, r.setUp()];
+                    return s.trys.push([2, 21, 22, 24]), Log.info("".concat(e.TEST_CASE_NAMES[p.testCase], " starting...")), [4, r.setUp()];
                   case 3:
                     return s.sent(), [4, p.logStartStep("open_test_window")];
                   case 4:
-                    return s.sent(), [4, r.openWindow(d.signOutUrl, "running")];
+                    return s.sent(), [4, r.openWindow(f.signOutUrl, "running")];
                   case 5:
                     return s.sent(), [4, h.delay(1e3)];
                   case 6:
                     return s.sent(), [4, p.logMoveToStep("sp_sign_in")];
                   case 7:
-                    return s.sent(), [4, r.setUrl(d.spInitiateUrl, "awaiting_user_sign_in")];
+                    return s.sent(), [4, r.setUrl(f.spInitiateUrl, "awaiting_user_sign_in")];
                   case 8:
                     return s.sent(), [4, l.startCapture(r.getTestTabId())];
                   case 9:
@@ -996,32 +1331,30 @@
                   case 12:
                     return s.sent(), [4, l.stopCapture()];
                   case 13:
-                    return s.sent(), [4, p.logMoveToStep("log_network", l.capture)];
+                    return s.sent(), [4, p.logMoveToStep("confirm_user", l.capture)];
                   case 14:
-                    return s.sent(), [4, p.logMoveToStep("confirm_user")];
-                  case 15:
                     return s.sent(), [4, r.waitUntilUserConfirmsCorrectSignIn()];
-                  case 16:
+                  case 15:
                     return s.sent(), [4, p.logMoveToStep("okta_sign_out")];
+                  case 16:
+                    return s.sent(), [4, r.setUrl(f.signOutUrl)];
                   case 17:
-                    return s.sent(), [4, r.setUrl(d.signOutUrl)];
-                  case 18:
                     return s.sent(), [4, h.delay(g)];
-                  case 19:
+                  case 18:
                     return s.sent(), [4, p.logMoveToStep("close_test_window")];
-                  case 20:
+                  case 19:
                     return s.sent(), [4, r.closeTestWindow()];
-                  case 21:
+                  case 20:
                     return (
                       s.sent(), Log.info("".concat(e.TEST_CASE_NAMES[p.testCase], " completed")), p.logFinishStep("pass"), [2, p.close()]
                     );
+                  case 21:
+                    return (_ = s.sent()), [2, y(p, _)];
                   case 22:
-                    return (m = s.sent()), [2, S(p, m)];
+                    return l.stopCapture(), r.tearDown(), [4, v.saveStore(o)];
                   case 23:
-                    return l.stopCapture(), r.tearDown(), [4, _.saveStore(o)];
-                  case 24:
                     return s.sent(), [7];
-                  case 25:
+                  case 24:
                     return [2];
                 }
               });
@@ -1029,7 +1362,7 @@
           }),
           (e.runJitIdpFlow = function (t, n, o) {
             return r(this, void 0, void 0, function () {
-              var r, h, g, w, m, v, y, T, b, E;
+              var r, h, g, w, _, m, S, T, b, E;
               return s(this, function (s) {
                 switch (s.label) {
                   case 0:
@@ -1038,13 +1371,13 @@
                       (h = new a.default()),
                       (g = u.default.startTestCase("jitIdp")),
                       (w = new c.IdpFlowParams(t.appEmbedLink)),
-                      [4, (m = new f.default(n.storage)).appendTestResults(o, w.appId, w.appInstanceId, g)]
+                      [4, (_ = new d.default(n.storage)).appendTestResults(o, w.appId, w.appInstanceId, g)]
                     );
                   case 1:
                     s.sent(),
                       Log.info("".concat(e.TEST_CASE_NAMES[g.testCase], " starting...")),
-                      (v = new d.default(w.adminBaseUrl, n.api)),
-                      (y = new p.default(v)),
+                      (m = new f.default(w.adminBaseUrl, n.api)),
+                      (S = new p.default(m)),
                       (T = (0, l.generateRandomUser)(n.passwordGenerator)),
                       (b = ""),
                       (s.label = 2);
@@ -1053,7 +1386,7 @@
                   case 3:
                     return s.sent(), [4, g.logStartStep("setup_test_user")];
                   case 4:
-                    return s.sent(), [4, y.createUserAndAssign(T, w.appInstanceId)];
+                    return s.sent(), [4, S.createUserAndAssign(T, w.appInstanceId)];
                   case 5:
                     return (b = s.sent()), [4, g.logMoveToStep("open_test_window")];
                   case 6:
@@ -1069,15 +1402,15 @@
                   case 11:
                     return s.sent(), [4, r.setSecurityAnswer("Test user's answer")];
                   case 12:
-                    return s.sent(), [4, _(r, h, g, w)];
+                    return s.sent(), [4, v(r, h, g, w)];
                   case 13:
                     return (
                       s.sent(), Log.info("".concat(e.TEST_CASE_NAMES[g.testCase], " completed")), g.logFinishStep("pass"), [2, g.close()]
                     );
                   case 14:
-                    return (E = s.sent()), [2, S(g, E)];
+                    return (E = s.sent()), [2, y(g, E)];
                   case 15:
-                    return h.stopCapture(), r.tearDown(), "" !== b && y.deleteUser(b), [4, m.saveStore(o)];
+                    return h.stopCapture(), r.tearDown(), "" !== b && S.deleteUser(b), [4, _.saveStore(o)];
                   case 16:
                     return s.sent(), [7];
                   case 17:
@@ -1088,43 +1421,43 @@
           }),
           (e.runJitSpFlow = function (t, n, o) {
             return r(this, void 0, void 0, function () {
-              var r, _, m, v, y, T, b, E, R, P;
+              var r, v, _, m, S, T, b, E, R, P;
               return s(this, function (s) {
                 switch (s.label) {
                   case 0:
                     return (
                       (r = new i.TestRunner()),
-                      (_ = new a.default()),
-                      (m = u.default.startTestCase("jitSp")),
-                      (v = new c.SpFlowParams(t.appEmbedLink, t.spInitiateUrl)),
-                      [4, (y = new f.default(n.storage)).appendTestResults(o, v.appId, v.appInstanceId, m)]
+                      (v = new a.default()),
+                      (_ = u.default.startTestCase("jitSp")),
+                      (m = new c.SpFlowParams(t.appEmbedLink, t.spInitiateUrl)),
+                      [4, (S = new d.default(n.storage)).appendTestResults(o, m.appId, m.appInstanceId, _)]
                     );
                   case 1:
                     s.sent(),
-                      Log.info("".concat(e.TEST_CASE_NAMES[m.testCase], " starting...")),
-                      (T = new d.default(v.adminBaseUrl, n.api)),
+                      Log.info("".concat(e.TEST_CASE_NAMES[_.testCase], " starting...")),
+                      (T = new f.default(m.adminBaseUrl, n.api)),
                       (b = new p.default(T)),
                       (E = (0, l.generateRandomUser)(n.passwordGenerator)),
                       (R = ""),
                       (s.label = 2);
                   case 2:
-                    return s.trys.push([2, 28, 29, 31]), [4, r.setUp()];
+                    return s.trys.push([2, 27, 28, 30]), [4, r.setUp()];
                   case 3:
-                    return s.sent(), [4, m.logStartStep("setup_test_user")];
+                    return s.sent(), [4, _.logStartStep("setup_test_user")];
                   case 4:
-                    return s.sent(), [4, b.createUserAndAssign(E, v.appInstanceId)];
+                    return s.sent(), [4, b.createUserAndAssign(E, m.appInstanceId)];
                   case 5:
-                    return (R = s.sent()), [4, m.logMoveToStep("open_test_window")];
+                    return (R = s.sent()), [4, _.logMoveToStep("open_test_window")];
                   case 6:
-                    return s.sent(), [4, r.openWindow(v.signOutUrl, "running")];
+                    return s.sent(), [4, r.openWindow(m.signOutUrl, "running")];
                   case 7:
                     return s.sent(), [4, h.delay(1e3)];
                   case 8:
-                    return s.sent(), [4, m.logMoveToStep("sp_sign_in")];
+                    return s.sent(), [4, _.logMoveToStep("sp_sign_in")];
                   case 9:
-                    return s.sent(), [4, r.setUrl(v.spInitiateUrl, "initiating_sp_sign_in", { email: E.profile.email })];
+                    return s.sent(), [4, r.setUrl(m.spInitiateUrl, "initiating_sp_sign_in", { email: E.profile.email })];
                   case 10:
-                    return s.sent(), [4, _.startCapture(r.getTestTabId())];
+                    return s.sent(), [4, v.startCapture(r.getTestTabId())];
                   case 11:
                     return s.sent(), [4, h.delay(w)];
                   case 12:
@@ -1136,38 +1469,36 @@
                   case 15:
                     return s.sent(), [4, r.setSecurityAnswer("Test user's answer")];
                   case 16:
-                    return s.sent(), [4, r.waitForSamlResponse(_)];
+                    return s.sent(), [4, r.waitForSamlResponse(v)];
                   case 17:
                     return s.sent(), r.setStatus("awaiting_user_sign_in_confirmation"), [4, h.delay(w)];
                   case 18:
-                    return s.sent(), [4, _.stopCapture()];
+                    return s.sent(), [4, v.stopCapture()];
                   case 19:
-                    return s.sent(), [4, m.logMoveToStep("log_network", _.capture)];
+                    return s.sent(), [4, _.logMoveToStep("confirm_user", v.capture)];
                   case 20:
-                    return s.sent(), [4, m.logMoveToStep("confirm_user")];
-                  case 21:
                     return s.sent(), [4, r.waitUntilUserConfirmsCorrectSignIn()];
+                  case 21:
+                    return s.sent(), [4, _.logMoveToStep("okta_sign_out")];
                   case 22:
-                    return s.sent(), [4, m.logMoveToStep("okta_sign_out")];
+                    return s.sent(), [4, r.setUrl(m.signOutUrl)];
                   case 23:
-                    return s.sent(), [4, r.setUrl(v.signOutUrl)];
-                  case 24:
                     return s.sent(), [4, h.delay(g)];
+                  case 24:
+                    return s.sent(), [4, _.logMoveToStep("close_test_window")];
                   case 25:
-                    return s.sent(), [4, m.logMoveToStep("close_test_window")];
-                  case 26:
                     return s.sent(), [4, r.closeTestWindow()];
-                  case 27:
+                  case 26:
                     return (
-                      s.sent(), Log.info("".concat(e.TEST_CASE_NAMES[m.testCase], " completed")), m.logFinishStep("pass"), [2, m.close()]
+                      s.sent(), Log.info("".concat(e.TEST_CASE_NAMES[_.testCase], " completed")), _.logFinishStep("pass"), [2, _.close()]
                     );
+                  case 27:
+                    return (P = s.sent()), [2, y(_, P)];
                   case 28:
-                    return (P = s.sent()), [2, S(m, P)];
+                    return v.stopCapture(), r.tearDown(), "" !== R && b.deleteUser(R), [4, S.saveStore(o)];
                   case 29:
-                    return _.stopCapture(), r.tearDown(), "" !== R && b.deleteUser(R), [4, y.saveStore(o)];
-                  case 30:
                     return s.sent(), [7];
-                  case 31:
+                  case 30:
                     return [2];
                 }
               });
@@ -1327,35 +1658,18 @@
       492: (t, e) => {
         Object.defineProperty(e, "__esModule", { value: !0 });
         var n = {
-            idp: [
-              "open_test_window",
-              "okta_sign_in",
-              "run_app_chiclet",
-              "log_network",
-              "confirm_user",
-              "okta_sign_out",
-              "close_test_window"
-            ],
-            sp: ["open_test_window", "sp_sign_in", "log_network", "confirm_user", "okta_sign_out", "close_test_window"],
+            idp: ["open_test_window", "okta_sign_in", "run_app_chiclet", "confirm_user", "okta_sign_out", "close_test_window"],
+            sp: ["open_test_window", "sp_sign_in", "confirm_user", "okta_sign_out", "close_test_window"],
             jitIdp: [
               "setup_test_user",
               "open_test_window",
               "okta_sign_in",
-              "log_network",
               "run_app_chiclet",
               "confirm_user",
               "okta_sign_out",
               "close_test_window"
             ],
-            jitSp: [
-              "setup_test_user",
-              "open_test_window",
-              "sp_sign_in",
-              "log_network",
-              "confirm_user",
-              "okta_sign_out",
-              "close_test_window"
-            ]
+            jitSp: ["setup_test_user", "open_test_window", "sp_sign_in", "confirm_user", "okta_sign_out", "close_test_window"]
           },
           r = (function () {
             function t(t, e) {
@@ -1365,13 +1679,17 @@
               (t.startTestCase = function (e) {
                 return new t(e, "running");
               }),
+              (t.prototype.setUpdateListener = function (t) {
+                this.listener = t;
+              }),
+              (t.prototype.markUpdate = function () {
+                (this.updatedAt = Date.now()), this.listener && this.listener.updated();
+              }),
               (t.prototype.logFinishStep = function (t) {
-                this.steps.length > 0 &&
-                  "running" === this.steps.at(-1).result &&
-                  ((this.steps.at(-1).result = t), (this.updatedAt = Date.now()));
+                this.steps.length > 0 && "running" === this.steps.at(-1).result && ((this.steps.at(-1).result = t), this.markUpdate());
               }),
               (t.prototype.logStartStep = function (t) {
-                this.stepsPlanned.includes(t) && (this.steps.push({ step: t, result: "running" }), (this.updatedAt = Date.now()));
+                this.stepsPlanned.includes(t) && (this.steps.push({ step: t, result: "running" }), this.markUpdate());
               }),
               (t.prototype.logMoveToStep = function (t, e) {
                 if (this.stepsPlanned.includes(t) && this.steps.length > 0) {
@@ -1392,7 +1710,7 @@
                     throw new Error("Step failed.");
                 }
                 var r;
-                this.steps.push({ step: t, result: "running" }), (this.updatedAt = Date.now());
+                this.steps.push({ step: t, result: "running" }), this.markUpdate();
               }),
               (t.prototype.serialize = function (t) {
                 return Array.from(t.entries());
@@ -1415,7 +1733,7 @@
                     this.steps.some(function (t) {
                       return "fail" === t.result;
                     }) && !n;
-                return (this.result = e ? "pass" : r ? "fail" : "error"), (this.updatedAt = Date.now()), this;
+                return (this.result = e ? "pass" : r ? "fail" : "error"), this.markUpdate(), this;
               }),
               t
             );
@@ -1478,24 +1796,52 @@
         Object.defineProperty(e, "__esModule", { value: !0 }), (e.SimpleTestResultsStore = void 0);
         var n = (function () {
           function t() {
-            this.testCaseResults = new Map();
+            (this.testCaseResults = new Map()), (this.testResultsChangeListeners = new Map());
           }
           return (
             (t.fromSerializable = function (e) {
               var n = new t();
               return (
-                e && e.testCaseResults && Array.isArray(e.testCaseResults)
-                  ? (n.testCaseResults = new Map(e.testCaseResults))
-                  : (n.testCaseResults = new Map()),
+                e && Array.isArray(e.testCaseResults) && (n.testCaseResults = new Map(e.testCaseResults)),
+                e && Array.isArray(e.testResultsChangeListeners) && (n.testResultsChangeListeners = new Map(e.testResultsChangeListeners)),
                 n
               );
             }),
             (t.prototype.toSerializable = function () {
-              return { testCaseResults: Array.from(this.testCaseResults.entries()) };
+              return {
+                testCaseResults: Array.from(this.testCaseResults.entries()),
+                testResultsChangeListeners: Array.from(this.testResultsChangeListeners.entries())
+              };
             }),
             (t.prototype.getTestResults = function (t, e) {
-              var n = "".concat(t, "/").concat(e);
+              var n = this.buildKey(t, e);
               return this.testCaseResults.has(n) || this.testCaseResults.set(n, []), this.testCaseResults.get(n);
+            }),
+            (t.prototype.buildKey = function (t, e) {
+              return "".concat(t, "/").concat(e);
+            }),
+            (t.prototype.getTestResultsChangeListeners = function (t, e) {
+              var n = this.buildKey(t, e);
+              return (
+                this.testResultsChangeListeners.has(n) || this.testResultsChangeListeners.set(n, []), this.testResultsChangeListeners.get(n)
+              );
+            }),
+            (t.prototype.removeTestResults = function (t, e, n) {
+              var r = "".concat(t, "/").concat(e);
+              if (
+                this.testCaseResults.has(r) &&
+                this.testCaseResults.get(r).some(function (t) {
+                  return t.testCase === n;
+                })
+              ) {
+                var s = this.testCaseResults.get(r);
+                s.splice(
+                  s.findIndex(function (t) {
+                    return t.testCase === n;
+                  }),
+                  1
+                );
+              }
             }),
             (t.prototype.clearTestResults = function (t, e) {
               var n = "".concat(t, "/").concat(e);
@@ -1512,6 +1858,31 @@
                 }),
                 t
               );
+            }),
+            (t.prototype.listenForTestResultsUpdates = function (t, e, n) {
+              var r = this.getTestResultsChangeListeners(t, e);
+              r.includes(n) || r.push(n), this.notifyListener(n, t, e);
+            }),
+            (t.prototype.removeTestResultsUpdatesListener = function (t, e, n) {
+              var r = this.getTestResultsChangeListeners(t, e);
+              r.includes(n) && r.splice(r.indexOf(n), 1);
+            }),
+            (t.prototype.testResultsUpdated = function (t, e) {
+              var n = this,
+                r = this.buildKey(t, e);
+              this.testResultsChangeListeners.has(r) &&
+                this.testResultsChangeListeners.get(r).forEach(function (r) {
+                  return n.notifyListener(r, t, e);
+                });
+            }),
+            (t.prototype.notifyListener = function (t, e, n) {
+              var r = this.buildKey(e, n),
+                s = this.testCaseResults.has(r) ? this.testCaseResults.get(r) : [];
+              chrome.tabs.sendMessage(t, {
+                module: Okta.Constants.SamlTesterEvents.SAML_TESTER_MODULE,
+                action: Okta.Constants.SamlTesterEvents.ACTIONS.TEST_RESULTS_UPDATED,
+                data: { appId: e, appInstanceId: n, results: s }
+              });
             }),
             t
           );
@@ -1645,7 +2016,27 @@
                   return s(this, function (r) {
                     switch (r.label) {
                       case 0:
-                        return t.getTestResults(e, n).push(o), [4, this.saveStore(t)];
+                        if (
+                          t
+                            .getTestResults(e, n)
+                            .filter(function (t) {
+                              return t.testCase === o.testCase;
+                            })
+                            .some(function (t) {
+                              return "running" === t.result;
+                            })
+                        )
+                          throw Error("Cannot add new results while there is an existing running test.");
+                        return (
+                          t.removeTestResults(e, n, o.testCase),
+                          o.setUpdateListener({
+                            updated: function () {
+                              return t.testResultsUpdated(e, n);
+                            }
+                          }),
+                          t.getTestResults(e, n).push(o),
+                          [4, this.saveStore(t)]
+                        );
                       case 1:
                         return r.sent(), [2];
                     }
@@ -1854,7 +2245,7 @@
           );
         })();
         e.CloseWindow = p;
-        var d = (function () {
+        var f = (function () {
             function t(t, e, n) {
               (this.url = t), (this.status = e), (this.statusParams = n);
             }
@@ -1873,7 +2264,7 @@
               t
             );
           })(),
-          f = (function () {
+          d = (function () {
             function t(t, e) {
               (this.condition = t), (this.intervalPeriod = e);
             }
@@ -1924,7 +2315,7 @@
               }),
               e
             );
-          })(f),
+          })(d),
           g = (function (t) {
             function e(e, n) {
               var r = {
@@ -1936,7 +2327,7 @@
               return t.call(this, r, n) || this;
             }
             return s(e, t), e;
-          })(f),
+          })(d),
           w = (function (t) {
             function e(e) {
               return void 0 === e && (e = 500), t.call(this, c, e) || this;
@@ -1949,7 +2340,7 @@
               e
             );
           })(g),
-          _ = (function (t) {
+          v = (function (t) {
             function e(e, n) {
               return (
                 void 0 === n && (n = 500),
@@ -1973,7 +2364,7 @@
               e
             );
           })(g),
-          S = (function () {
+          y = (function () {
             function t() {
               (this.ctx = new a.TestContext()),
                 (this.statusListener = this.answerTestStatus.bind(this)),
@@ -2026,10 +2417,10 @@
                 return new w(this.intervalPeriod).execute(this.ctx);
               }),
               (t.prototype.waitForSignInPage = function () {
-                return new _("/login/login.htm", this.intervalPeriod).execute(this.ctx);
+                return new v("/login/login.htm", this.intervalPeriod).execute(this.ctx);
               }),
               (t.prototype.waitForSecurityAnswerPage = function () {
-                return new _("/user/welcome", this.intervalPeriod).execute(this.ctx);
+                return new v("/user/welcome", this.intervalPeriod).execute(this.ctx);
               }),
               (t.prototype.waitForSamlResponse = function (t) {
                 return new h(t, this.intervalPeriod).execute(this.ctx);
@@ -2038,7 +2429,7 @@
                 return (this.ctx.lastUserInput = void 0), (this.ctx.testStatus = "awaiting_user_sign_in_confirmation"), this.setUrl(t);
               }),
               (t.prototype.setUrl = function (t, e, n) {
-                return new d(t, e, n).execute(this.ctx);
+                return new f(t, e, n).execute(this.ctx);
               }),
               (t.prototype.answerTestStatus = function (t, e, n) {
                 var r,
@@ -2080,7 +2471,7 @@
                           (this.ctx.testStatus = "awaiting_user_sign_in_confirmation"),
                           [
                             4,
-                            m(function () {
+                            _(function () {
                               var e;
                               if (null === (e = t.ctx.lastUserInput) || void 0 === e ? void 0 : e.confirmed)
                                 return (t.ctx.testStatus = "running"), (t.ctx.lastUserInput = void 0), !0;
@@ -2132,8 +2523,8 @@
               t
             );
           })();
-        e.TestRunner = S;
-        var m = function (t, e) {
+        e.TestRunner = y;
+        var _ = function (t, e) {
           void 0 === e && (e = 500);
           try {
             return t()
@@ -2321,7 +2712,7 @@
           const e = l(t ? /^<\?(xml)\s*/ : /^<\?([\w-:.]+)\s*/);
           if (!e) return;
           const n = { name: e[1], type: "ProcessingInstruction", attributes: {} };
-          for (; !p() && !d("?>"); ) {
+          for (; !p() && !f("?>"); ) {
             const t = c();
             if (!t) return;
             n.attributes[t.name] = t.value;
@@ -2333,7 +2724,7 @@
           if (!e) return;
           const o = { type: "Element", name: e[1], attributes: {}, children: [] },
             i = !t && !1 === r.options.filter(o);
-          for (; !(p() || d(">") || d("?>") || d("/>")); ) {
+          for (; !(p() || f(">") || f("?>") || f("/>")); ) {
             const t = c();
             if (!t) return;
             o.attributes[t.name] = t.value;
@@ -2368,10 +2759,10 @@
         function p() {
           return 0 === r.xml.length;
         }
-        function d(t) {
+        function f(t) {
           return 0 === r.xml.indexOf(t);
         }
-        function f(t, e = {}) {
+        function d(t, e = {}) {
           t = t.trim();
           const s = e.filter || (() => !0);
           return (
@@ -2394,7 +2785,7 @@
             })()
           );
         }
-        (e.ParsingError = n), (t.exports = f), (e.default = f);
+        (e.ParsingError = n), (t.exports = d), (e.default = d);
       }
     },
     e = {};

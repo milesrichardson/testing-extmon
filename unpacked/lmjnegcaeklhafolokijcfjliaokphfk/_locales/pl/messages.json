@@ -35,7 +35,7 @@
     "message": "pl"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Informacje"

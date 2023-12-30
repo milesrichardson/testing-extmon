@@ -1,74 +1,23 @@
 (() => {
-  var e = {
-      8: (e) => {
-        e.exports = {
-          buildDate: "Thu Aug 24 2023 16:27:56 GMT+0200 (Central European Summer Time)",
-          buildOptions: { browser: "chrome", noyt: "true" },
-          prod: !0
-        };
-      }
-    },
-    t = {};
-  function a(n) {
-    var i = t[n];
-    if (void 0 !== i) return i.exports;
-    var r = (t[n] = { exports: {} });
-    return e[n](r, r.exports, a), r.exports;
-  }
-  (() => {
-    "use strict";
-    var e = (function () {
-      function e(e, t) {
-        for (var a = 0; a < t.length; a++) {
-          var n = t[a];
-          (n.enumerable = n.enumerable || !1), (n.configurable = !0), "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n);
-        }
-      }
-      return function (t, a, n) {
-        return a && e(t.prototype, a), n && e(t, n), t;
-      };
-    })();
-    function t(e, t) {
-      if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
-    }
-    function n(e, t) {
-      if (!e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-      return !t || ("object" != typeof t && "function" != typeof t) ? e : t;
-    }
-    function i(e, t) {
-      if ("function" != typeof t && null !== t) throw new TypeError("Super expression must either be null or a function, not " + typeof t);
-      (e.prototype = Object.create(t && t.prototype, { constructor: { value: e, enumerable: !1, writable: !0, configurable: !0 } })),
-        t && (Object.setPrototypeOf ? Object.setPrototypeOf(e, t) : (e.__proto__ = t));
-    }
-    var r = new RegExp("(\\d+)x(\\d+)"),
-      o = new Set();
-    window.addEventListener("unload", function () {
-      var e = !0,
-        t = !1,
-        a = void 0;
-      try {
-        for (var n, i = o[Symbol.iterator](); !(e = (n = i.next()).done); e = !0) {
-          var r = n.value;
-          weh.rpc.call("galleryUnhighlight", r);
-        }
-      } catch (e) {
-        (t = !0), (a = e);
-      } finally {
-        try {
-          !e && i.return && i.return();
-        } finally {
-          if (t) throw a;
-        }
-      }
+  var N = (m, g) => () => (g || m((g = { exports: {} }).exports, g), g.exports);
+  var y = N((S, C) => {
+    C.exports = {
+      prod: !0,
+      beta: !1,
+      buildDate: "mer. 20 d\xE9c. 2023 16:32:19 UTC",
+      buildOptions: { linuxlic: !1, noyt: !0, browser: "chrome" }
+    };
+  });
+  weh.is_safe.then(() => {
+    let m = new RegExp("(\\d+)x(\\d+)"),
+      g = new RegExp("([\\d\\.]+)\\s*(\\S+)"),
+      v = new Set();
+    window.addEventListener("unload", () => {
+      for (let e of v) weh.rpc.call("galleryUnhighlight", e);
     });
-    var s = a(8).buildOptions || {};
-    "firefox" != s.browser && (document.querySelector("html").style.width = "500px");
-    var c = createStore(function () {
-      var e =
-          arguments.length > 0 && void 0 !== arguments[0]
-            ? arguments[0]
-            : { hits: {}, progress: {}, actionHit: null, actions: {}, logs: [], embed: null, maxHeight: void 0 },
-        t = arguments[1];
+    let f = y().buildOptions || {};
+    f.browser != "firefox" && (document.querySelector("html").style.width = "500px");
+    function _(e = { hits: {}, progress: {}, actionHit: null, actions: {}, logs: [], embed: null, maxHeight: void 0 }, t) {
       switch (t.type) {
         case "setActionHit":
           e = Object.assign({}, e, { actionHit: t.payload });
@@ -84,788 +33,657 @@
           break;
         case "setMaxHeight":
           e = Object.assign({}, e, { maxHeight: t.payload });
+          break;
       }
       return e;
-    });
+    }
+    let p = createStore(_);
     weh.rpc.listen({
-      hits: function (e) {
-        c.dispatch({ type: "updateData", payload: { hits: e } });
+      hits: (e) => {
+        p.dispatch({ type: "updateData", payload: { hits: e } });
       },
-      progress: function (e) {
-        c.dispatch({ type: "updateData", payload: { progress: e } });
+      progress: (e) => {
+        p.dispatch({ type: "updateData", payload: { progress: e } });
       },
-      logs: function (e) {
-        c.dispatch({ type: "updateData", payload: { logs: e } });
+      logs: (e) => {
+        p.dispatch({ type: "updateData", payload: { logs: e } });
       },
-      copyToClipboard: function (e) {
+      copyToClipboard: (e) => {
         var t = document.createElement("input");
         document.body.appendChild(t), (t.value = e), t.select(), document.execCommand("Copy"), document.body.removeChild(t);
       },
-      embed: function (e) {
-        c.dispatch({ type: "embed", payload: e });
+      embed: (e) => {
+        p.dispatch({ type: "embed", payload: e });
       }
     }),
-      weh.prefs.on("popupHeightLeftOver", function (e, t) {
-        var a;
-        switch (s.browser) {
-          case "chrome":
-            a = 590;
-            break;
-          case "edge":
-            a = 500;
-            break;
-          default:
-            a = 600;
-        }
-        browser.windows.getLastFocused().then(function (e) {
-          c.dispatch({ type: "setMaxHeight", payload: Math.min(a, e.height - t) + "px" });
-        });
-      }),
-      weh.rpc.call("getMainData").then(function (e) {
-        c.dispatch({ type: "updateData", payload: e });
-      });
-    var l = connect(
-        function (e, t) {
-          return {
-            hits: e.hits || {},
-            progress: e.progress || {},
-            actionHit: e.actionHit || null,
-            actions: e.actions || {},
-            logs: e.logs || [],
-            embed: e.embed || null,
-            maxHeight: e.maxHeight || void 0
-          };
-        },
-        function (e) {
-          return bindActionCreators({}, e);
-        }
-      )(
-        (function (a) {
-          function o(e) {
-            t(this, o);
-            var a = n(this, (o.__proto__ || Object.getPrototypeOf(o)).call(this, e));
-            return (
-              (a.state = { section: "active", hitGroups: [], hits: {}, counters: a.zeroCounters(), actionHit: null }),
-              (a.call = a.call.bind(a)),
-              a
-            );
+      weh.prefs.then((e) => {
+        let t = (i) => {
+          let s;
+          switch (f.browser) {
+            case "chrome":
+              s = 590;
+              break;
+            case "edge":
+              s = 500;
+              break;
+            default:
+              s = 600;
           }
-          return (
-            i(o, React.Component),
-            e(o, [
-              {
-                key: "componentWillReceiveProps",
-                value: function (e) {
-                  this.buildGroups(e.hits), this.setState({ actionHit: e.actionHit });
-                }
-              },
-              {
-                key: "call",
-                value: function () {
-                  for (var e = arguments.length, t = Array(e), a = 0; a < e; a++) t[a] = arguments[a];
-                  return function () {
-                    var e;
-                    (e = weh.rpc).call.apply(e, t);
-                  };
-                }
-              },
-              {
-                key: "local",
-                value: function (e) {
-                  for (var t, a = arguments.length, n = Array(a > 1 ? a - 1 : 0), i = 1; i < a; i++) n[i - 1] = arguments[i];
-                  return (t = this[e]).bind.apply(t, [this].concat(n));
-                }
-              },
-              {
-                key: "canClear",
-                value: function () {
-                  for (var e = Object.keys(this.state.hits), t = 0; t < e.length; t++) {
-                    var a = this.state.hits[e[t]];
-                    if ("active" == a.status || "inactive" == a.status || "orphan" == a.status) return !0;
-                  }
-                }
-              },
-              {
-                key: "zeroCounters",
-                value: function () {
-                  return { all: 0, active: 0, inactive: 0, orphan: 0, pinned: 0, running: 0 };
-                }
-              },
-              {
-                key: "buildGroups",
-                value: function (e, t) {
-                  t = t || this.state.section;
-                  var a = [
-                      "description",
-                      "descrPrefix",
-                      "adp",
-                      "size",
-                      "duration",
-                      "quality",
-                      "bitrate",
-                      "length",
-                      "mediaDomain",
-                      "type",
-                      "extension",
-                      "originalExt"
-                    ],
-                    n = { counters: this.zeroCounters() };
-                  if (!e) return (n.hitGroups = []), void this.setState(n);
-                  var i = [],
-                    o = {};
-                  for (var s in e) {
-                    var c = e[s];
-                    c.status == t && (c.group ? (o[c.group] ? o[c.group].push(c) : (o[c.group] = [c])) : ((c.primary = !0), i.push([c]))),
-                      n.counters.all++,
-                      n.counters[c.status]++;
-                  }
-                  for (var l in o) {
-                    var u = o[l];
-                    u.sort(function (e, t) {
-                      if (e.bitrate && t.bitrate && e.bitrate != t.bitrate) return t.bitrate - e.bitrate;
-                      var a = r.exec(e.size);
-                      if (a) {
-                        var n = r.exec(t.size);
-                        if (n && (a[1] != n[1] || a[2] != n[2])) return parseInt(n[1]) * parseInt(n[2]) - parseInt(a[1]) * parseInt(a[2]);
-                      }
-                      return 0;
-                    }),
-                      u.forEach(function (e, t) {
-                        e.primary = 0 === t;
-                      });
-                    var h = u[0];
-                    a.forEach(function (e) {
-                      if (void 0 !== h[e]) {
-                        for (var t = !0, a = 1; a < u.length; a++) {
-                          if (u[a][e] !== h[e]) {
-                            t = !1;
-                            break;
-                          }
-                        }
-                        if (t) for (a = 1; a < u.length; a++) delete u[a][e];
-                      }
-                    }),
-                      i.push(u);
-                  }
-                  (n.hitGroups = i), (n.hits = e), this.setState(n);
-                }
-              },
-              {
-                key: "logDetails",
-                value: function (e) {
-                  return function () {
-                    weh.rpc.call("logDetails", e);
-                  };
-                }
-              },
-              {
-                key: "command",
-                value: function (e) {
-                  var t = this;
-                  return function (a) {
-                    a.stopPropagation();
-                    var n = a.shiftKey,
-                      i = t.state.actionHit;
-                    i &&
-                      weh.rpc.call("actionCommand", e, i.id).then(function (e) {
-                        n || e || window.close();
-                      }),
-                      t.asDefaultInput &&
-                        t.asDefaultInput.checked &&
-                        (weh.prefs["default-action-" + (t.props.actions[e].catPriority || 0)] = e);
-                  };
-                }
-              },
-              {
-                key: "renderActions",
-                value: function () {
-                  var e = this;
-                  if (!this.state.actionHit || this.props.embed) return null;
-                  var t = this,
-                    a = (this.state.actionHit.actions || []).map(function (a) {
-                      return React.createElement(
-                        "div",
-                        { key: a, className: "vdh-container click action" },
-                        React.createElement(
-                          "div",
-                          { onClick: e.command(a) },
-                          React.createElement(
-                            "div",
-                            { className: "action-thumbnail" },
-                            React.createElement("img", { src: t.props.actions[a].icon })
-                          ),
-                          React.createElement(
-                            "div",
-                            { className: "action-details" },
-                            React.createElement("div", { className: "action-title" }, t.props.actions[a].title),
-                            React.createElement("div", { className: "action-descr" }, t.props.actions[a].description)
-                          )
-                        )
-                      );
-                    });
-                  return React.createElement(
-                    "div",
-                    { className: "actions" },
-                    a,
-                    React.createElement(
-                      "div",
-                      { className: "default-check" },
-                      React.createElement("input", {
-                        id: "checkbox1",
-                        type: "checkbox",
-                        ref: function (t) {
-                          return (e.asDefaultInput = t);
-                        }
-                      }),
-                      React.createElement("label", { htmlFor: "checkbox1" }, weh._("action_as_default"))
-                    )
-                  );
-                }
-              },
-              {
-                key: "renderEmbed",
-                value: function () {
-                  return this.props.embed ? React.createElement(Embedded, { className: "embed", src: this.props.embed }) : null;
-                }
-              },
-              {
-                key: "renderLog",
-                value: function () {
-                  var e = this,
-                    t = this.props.logs.map(function (t) {
-                      return React.createElement(
-                        "div",
-                        { key: t.key, className: "vdh-log vdh-log-" + t.type },
-                        t.videoTitle && React.createElement("div", { className: "log-video-title" }, t.videoTitle),
-                        t.message,
-                        t.details && React.createElement("a", { onClick: e.logDetails(t.key), href: "#" }, weh._("details_parenthesis"))
-                      );
-                    });
-                  return React.createElement("div", { className: "logs" }, t);
-                }
-              },
-              {
-                key: "renderNoHit",
-                value: function () {
-                  return "active" == this.state.section
-                    ? React.createElement(
-                        "div",
-                        { className: "no-media" },
-                        React.createElement("h2", null, weh._("no_media_current_tab")),
-                        React.createElement("p", null, weh._("no_media_to_process_descr"))
-                      )
-                    : React.createElement("div", { className: "no-media" }, React.createElement("h2", null, weh._("no_media_to_process")));
-                }
-              },
-              {
-                key: "renderHits",
-                value: function () {
-                  if ("log" == this.state.section) return this.renderLog();
-                  if (0 == this.state.hitGroups.length) return this.renderNoHit();
-                  var e = this,
-                    t = [];
-                  return (
-                    Object.keys(this.state.hitGroups).forEach(function (a) {
-                      e.state.hitGroups[a].forEach(function (a) {
-                        var n = e.props.actions[a.actions[0]];
-                        t.push(React.createElement(u, { key: a.id, hit: a, progress: e.props.progress[a.id] || 0, defaultAction: n }));
-                      });
-                    }),
-                    React.createElement("div", { className: "has-media" }, t)
-                  );
-                }
-              },
-              {
-                key: "renderFooterButtons",
-                value: function () {
-                  return React.createElement(
-                    "div",
-                    { className: "buttons" },
-                    React.createElement(
-                      "div",
-                      { className: "buttons-container" },
-                      React.createElement(
-                        "div",
-                        { className: "buttons-opener" },
-                        React.createElement("img", { src: "images/icon-3dots-64.png" })
-                      ),
-                      React.createElement(
-                        "button",
-                        { onClick: this.call("openAbout"), title: weh._("about") },
-                        React.createElement("img", { src: "images/icon-about-64.png" })
-                      ),
-                      "chrome" != s.browser &&
-                        React.createElement(
-                          "button",
-                          { onClick: this.call("openSites"), title: weh._("supported_sites") },
-                          React.createElement("img", { src: "images/icon-sites-list-64.png" })
-                        ),
-                      React.createElement(
-                        "button",
-                        { onClick: this.call("analyzePage"), title: weh._("analyze_page") },
-                        React.createElement("img", { src: "images/icon-photo-64.png" })
-                      ),
-                      React.createElement(
-                        "button",
-                        { onClick: this.call("convertLocal"), title: weh._("convert_local_files") },
-                        React.createElement("img", { src: "images/icon-action-convert-b-64.png" })
-                      ),
-                      React.createElement(
-                        "button",
-                        { onClick: this.call("mergeLocal"), title: weh._("merge_local_files") },
-                        React.createElement("img", { src: "images/icon-merger-64.png" })
-                      ),
-                      React.createElement("div", { className: "separator" }),
-                      React.createElement("div", { className: "separator" }, " "),
-                      this.canClear() &&
-                        React.createElement(
-                          "button",
-                          { onClick: this.call("clearHits", "all"), title: weh._("clear_hits") },
-                          React.createElement("img", { src: "images/icon-action-delete-64.png" })
-                        )
-                    )
-                  );
-                }
-              },
-              {
-                key: "setSection",
-                value: function (e) {
-                  var t = this;
-                  return function () {
-                    t.buildGroups(t.state.hits, e), t.setState({ section: e });
-                  };
-                }
-              },
-              {
-                key: "clearLogs",
-                value: function () {
-                  var e = this;
-                  return function () {
-                    weh.rpc.call("clearLogs").then(e.setSection("active"));
-                  };
-                }
-              },
-              {
-                key: "shouldDisplayGroupText",
-                value: function (e) {
-                  if (this.state.section == e) return !1;
-                  if ("log" == e && 0 == this.props.logs.length) return !1;
-                  for (var t = Object.keys(this.state.counters), a = 0; a < t.length; a++) {
-                    var n = t[a],
-                      i = this.state.counters[n];
-                    if (n == e && 0 == i) return !1;
-                    if ("all" != n && n != e && n != this.state.section && i > 0) return !1;
-                  }
-                  return !("log" != e && this.props.logs.length > 0);
-                }
-              },
-              {
-                key: "showGroupBadge",
-                value: function (e, t) {
-                  var a = "",
-                    n = 0,
-                    i = e;
-                  if (this.state.section == e) return null;
-                  if ("log" == e) {
-                    if (0 == (n = this.props.logs.length)) return null;
-                    var r = this.props.logs.filter(function (e) {
-                      return "error" == e.type;
-                    });
-                    r.length > 0 ? ((a = weh._("errors")), (n = r.length), (e = "error")) : (a = weh._("logs"));
-                  } else {
-                    if (0 == this.state.counters[e]) return;
-                    (a = weh._(t)), (n = this.state.counters[e]);
-                  }
-                  return React.createElement(
-                    "div",
-                    { className: "click group group-" + e, onClick: this.setSection(i), title: a },
-                    React.createElement("div", null, React.createElement("div", null, n))
-                  );
-                }
-              },
-              {
-                key: "showGroupText",
-                value: function (e, t) {
-                  if (this.shouldDisplayGroupText(e)) {
-                    var a = this.props.logs.filter(function (e) {
-                      return "error" == e.type;
-                    }).length;
-                    return (
-                      "log" == e && a > 0 && (t = "errors"),
-                      React.createElement("div", { className: "click group-text", onClick: this.setSection(e) }, weh._(t))
-                    );
-                  }
-                  return null;
-                }
-              },
-              {
-                key: "renderFooterGroups",
-                value: function () {
-                  return React.createElement(
-                    "div",
-                    { className: "groups" },
-                    this.showGroupBadge("active", "in_current_tab"),
-                    this.showGroupText("active", "in_current_tab"),
-                    this.showGroupBadge("inactive", "in_other_tab"),
-                    this.showGroupText("inactive", "in_other_tab"),
-                    this.showGroupBadge("orphan", "orphan"),
-                    this.showGroupText("orphan", "orphan"),
-                    this.showGroupBadge("pinned", "pinned"),
-                    this.showGroupText("pinned", "pinned"),
-                    this.showGroupBadge("running", "running"),
-                    this.showGroupText("running", "running"),
-                    this.showGroupBadge("log", "logs"),
-                    this.showGroupText("log", "logs")
-                  );
-                }
-              },
-              {
-                key: "renderFooter",
-                value: function () {
-                  return React.createElement(
-                    "footer",
-                    null,
-                    React.createElement(
-                      "div",
-                      { className: "right-side" },
-                      React.createElement("div", { className: "separator" }, " "),
-                      React.createElement(
-                        "button",
-                        { onClick: this.call("openSettings"), title: weh._("settings") },
-                        React.createElement("img", { src: "images/icon-settings-64.png" })
-                      )
-                    ),
-                    this.renderFooterButtons(),
-                    this.renderFooterGroups()
-                  );
-                }
-              },
-              {
-                key: "clearActionHit",
-                value: function () {
-                  return function () {
-                    c.dispatch({ type: "clearActionHit" });
-                  };
-                }
-              },
-              {
-                key: "render",
-                value: function () {
-                  return React.createElement(
-                    "div",
-                    { className: "main-panel " + (this.state.actionHit || this.props.embed ? "actions-open " : " ") },
-                    this.renderActions(),
-                    this.renderEmbed(),
-                    React.createElement(
-                      "div",
-                      { className: "main-content section-" + this.state.section, style: { maxHeight: this.props.maxHeight } },
-                      React.createElement("img", {
-                        className: "click back-active",
-                        onClick: this.setSection("active"),
-                        src: "images/icon-chevron-left-64.png"
-                      }),
-                      "log" == this.state.section &&
-                        React.createElement("img", {
-                          className: "click clear-logs",
-                          onClick: this.clearLogs(),
-                          src: "images/icon-action-delete-64.png",
-                          title: weh._("clear_logs")
-                        }),
-                      React.createElement("div", { className: "click back-margin", onClick: this.setSection("active") }),
-                      React.createElement(
-                        "main",
-                        { className: "content-hits" },
-                        this.renderHits(),
-                        React.createElement("div", { className: "main-content-mask", onClick: this.clearActionHit() })
-                      ),
-                      this.renderFooter()
-                    )
-                  );
-                }
-              }
-            ]),
-            o
-          );
-        })()
-      ),
-      u = (function (a) {
-        function r(e) {
-          t(this, r);
-          var a = n(this, (r.__proto__ || Object.getPrototypeOf(r)).call(this, e));
-          return (a.action = a.action.bind(a)), (a.state = {}), a;
+          browser.windows.getLastFocused().then((r) => {
+            p.dispatch({ type: "setMaxHeight", payload: "" + Math.min(s, r.height - i) + "px" });
+          });
+        };
+        e.on("popupHeightLeftOver", (i, s) => t(s)), t(e.popupHeightLeftOver);
+      }),
+      weh.rpc.call("getMainData").then((e) => {
+        p.dispatch({ type: "updateData", payload: e });
+      });
+    var k = connect(
+      (e, t) => ({
+        hits: e.hits || {},
+        progress: e.progress || {},
+        actionHit: e.actionHit || null,
+        actions: e.actions || {},
+        logs: e.logs || [],
+        embed: e.embed || null,
+        maxHeight: e.maxHeight || void 0
+      }),
+      (e) => bindActionCreators({}, e)
+    )(
+      class extends React.Component {
+        constructor(e) {
+          super(e),
+            (this.state = { section: "active", hitGroups: [], hits: {}, counters: this.zeroCounters(), actionHit: null }),
+            (this.call = this.call.bind(this));
         }
-        return (
-          i(r, React.Component),
-          e(r, [
-            {
-              key: "componentWillReceiveProps",
-              value: function (e) {
-                this.orphanTimer || this.updateOrphanTimer(e);
+        componentWillReceiveProps(e) {
+          this.buildGroups(e.hits), this.setState({ actionHit: e.actionHit });
+        }
+        call(...e) {
+          return () => {
+            weh.rpc.call(...e);
+          };
+        }
+        local(e, ...t) {
+          return this[e].bind(this, ...t);
+        }
+        canClear() {
+          for (var e = Object.keys(this.state.hits), t = 0; t < e.length; t++) {
+            var i = this.state.hits[e[t]];
+            if (i.status == "active" || i.status == "inactive" || i.status == "orphan") return !0;
+          }
+        }
+        zeroCounters() {
+          return { all: 0, active: 0, inactive: 0, orphan: 0, pinned: 0, running: 0 };
+        }
+        buildGroups(e, t) {
+          t = t || this.state.section;
+          let i = [
+            "description",
+            "descrPrefix",
+            "adp",
+            "size",
+            "duration",
+            "quality",
+            "bitrate",
+            "length",
+            "mediaDomain",
+            "type",
+            "extension",
+            "originalExt"
+          ];
+          var s = { counters: this.zeroCounters() };
+          if (!e) {
+            (s.hitGroups = []), this.setState(s);
+            return;
+          }
+          var r = [],
+            n = {};
+          for (var a in e) {
+            var h = e[a];
+            h.status == t && (h.group ? (n[h.group] ? n[h.group].push(h) : (n[h.group] = [h])) : ((h.primary = !0), r.push([h]))),
+              s.counters.all++,
+              s.counters[h.status]++;
+          }
+          for (var b in n) {
+            var l = n[b];
+            l.sort((c, d) => {
+              if (c.bitrate && d.bitrate && c.bitrate != d.bitrate) return d.bitrate - c.bitrate;
+              var o = m.exec(c.size);
+              if (o) {
+                var u = m.exec(d.size);
+                if (u && (o[1] != u[1] || o[2] != u[2])) return parseInt(u[1]) * parseInt(u[2]) - parseInt(o[1]) * parseInt(o[2]);
               }
-            },
-            {
-              key: "componentDidMount",
-              value: function () {
-                this.orphanTimer || this.updateOrphanTimer();
-              }
-            },
-            {
-              key: "componentWillUnmount",
-              value: function () {
-                this.orphanTimer && (clearTimeout(this.orphanTimer), (this.orphanTimer = null));
-              }
-            },
-            {
-              key: "updateOrphanTimer",
-              value: function (e) {
-                if (((e = e || this.props), (this.orphanTimer = null), "orphan" == this.props.hit.status)) {
-                  var t = Date.now(),
-                    a = this.props.hit.orphanT0,
-                    n = this.props.hit.orphanT;
-                  this.setState({ orphanTimer: Math.max(0, Math.min(100, (100 * (n - t)) / (n - a))) }),
-                    (this.orphanTimer = setTimeout(this.updateOrphanTimer.bind(this), 1e3));
-                }
-              }
-            },
-            { key: "action", value: function (e) {} },
-            {
-              key: "getClass",
-              value: function () {
-                return "";
-              }
-            },
-            {
-              key: "durationString",
-              value: function (e) {
-                var t = Math.floor(e / 3600),
-                  a = Math.floor((e % 3600) / 60),
-                  n = e % 60;
-                return t > 0 ? t + ":" + ("00" + a).substr(-2) + ":" + ("00" + n).substr(-2) : a + ":" + ("00" + n).substr(-2);
-              }
-            },
-            {
-              key: "description",
-              value: function () {
-                var e = this.props.hit;
-                if (e.description) return e.description;
-                var t = [];
-                if (
-                  (e.descrPrefix && t.push(e.descrPrefix),
-                  e.adp && t.push("ADP"),
-                  e.size && t.push(e.size),
-                  e.duration && t.push(this.durationString(e.duration)),
-                  e.quality)
-                ) {
-                  var a = weh._("quality_" + e.quality);
-                  "" == a && (a = e.quality.toUpperCase()), t.push(a);
-                }
-                if (e.bitrate) {
-                  var n = e.bitrate,
-                    i = "bps";
-                  e.bitrate > 1e7
-                    ? ((i = "Mbps"), (n = Math.round(e.bitrate / 1e6)))
-                    : e.bitrate > 1e6
-                    ? ((i = "Mbps"), (n = Math.round(e.bitrate / 1e5) / 10))
-                    : e.bitrate > 1e4
-                    ? ((i = "Kbps"), (n = Math.round(e.bitrate / 1e3)))
-                    : e.bitrate > 1e3 && ((i = "Kbps"), (n = Math.round(e.bitrate / 100) / 10)),
-                    t.push(n + i);
-                }
-                var r = this.lengthString();
-                if (
-                  (r && t.push(r),
-                  e.mediaDomain && t.push(weh._("from_domain", [e.mediaDomain])),
-                  "audio" == e.type && t.push(weh._("audio_only")),
-                  e.extension &&
-                    (e.originalExt && e.originalExt != e.extension && t.push(e.originalExt.toUpperCase() + ">" + e.extension.toUpperCase()),
-                    t.push(e.extension.toUpperCase())),
-                  "downloading" === e.operation ||
-                    "aggregating" === e.operation ||
-                    "converting" === e.operation ||
-                    "collecting" === e.operation ||
-                    (this.props.progress && !e.operation))
-                ) {
-                  var o = this.props.progress;
-                  if (e.opStartDate && "undefined" !== o && (t.push(o + "%"), o > 0)) {
-                    var s = ((Date.now() - e.opStartDate) / o) * (100 - o);
-                    (s = Math.max(0, Math.floor(s / 1e3))), t.push(this.durationString(s));
+              return 0;
+            }),
+              l.forEach((c, d) => {
+                c.primary = d === 0;
+              });
+            var w = l[0],
+              T = {};
+            i.forEach(function (c) {
+              if (!(typeof w[c] > "u")) {
+                for (var d = !0, o = 1; o < l.length; o++) {
+                  var u = l[o];
+                  if (u[c] !== w[c]) {
+                    d = !1;
+                    break;
                   }
                 }
-                return t.join(" - ");
+                if (d) for (var o = 1; o < l.length; o++) delete l[o][c];
               }
-            },
-            {
-              key: "lengthString",
-              value: function () {
-                var e = this.props.hit;
-                return e.length
-                  ? e.length > 1048576
-                    ? weh._("MB", [Math.round((10 * e.length) / 1048576) / 10])
-                    : e.length > 1024
-                    ? weh._("KB", [Math.round((10 * e.length) / 1024) / 10])
-                    : weh._("Bytes", [e.length])
-                  : null;
-              }
-            },
-            {
-              key: "titleClass",
-              value: function () {
-                var e = ["hit-title-text"];
-                return e.push("hit-title-text-" + weh.prefs.titleMode), e.join(" ");
-              }
-            },
-            {
-              key: "progress",
-              value: function () {
-                return { width: (this.props.progress || 0) + "%" };
-              }
-            },
-            {
-              key: "orphanTimerStyle",
-              value: function () {
-                return { width: (this.state.orphanTimer || 100) + "%" };
-              }
-            },
-            {
-              key: "moreActions",
-              value: function () {
-                var e = this;
-                return function (t) {
-                  t.stopPropagation(), c.dispatch({ type: "setActionHit", payload: e.props.hit });
-                };
-              }
-            },
-            {
-              key: "call",
-              value: function () {
-                for (var e = arguments.length, t = Array(e), a = 0; a < e; a++) t[a] = arguments[a];
-                return function () {
-                  var e;
-                  (e = weh.rpc).call.apply(e, t);
-                };
-              }
-            },
-            {
-              key: "callDefault",
-              value: function () {
-                var e = this;
-                return function (t) {
-                  t.stopPropagation();
-                  var a = t.shiftKey;
-                  weh.rpc.call("actionCommand", e.props.hit.actions[0], e.props.hit.id).then(function (e) {
-                    a || e || window.close();
-                  });
-                };
-              }
-            },
-            {
-              key: "onMouseEnter",
-              value: function () {
-                var e = this;
-                return function () {
-                  o.add(e.props.hit.selectorAttr), weh.rpc.call("galleryHighlight", e.props.hit.selectorAttr);
-                };
-              }
-            },
-            {
-              key: "onMouseLeave",
-              value: function () {
-                var e = this;
-                return function () {
-                  o.delete(e.props.hit.selectorAttr), weh.rpc.call("galleryUnhighlight", e.props.hit.selectorAttr);
-                };
-              }
-            },
-            {
-              key: "render",
-              value: function () {
-                var e = this.props.hit;
-                return React.createElement(
+            }),
+              r.push(l);
+          }
+          (s.hitGroups = r), (s.hits = e), this.setState(s);
+        }
+        sortGroups(e, t) {
+          let i = e[0],
+            s = t[0];
+          return i.extension === "mp4" && s.extension != "mp4"
+            ? -1
+            : i.running && s.running && i.actionStartDate && s.actionStartDate
+            ? i.actionStartDate - s.actionStartDate
+            : i.chunked && !s.chunked
+            ? -1
+            : !i.chunked && s.chunked
+            ? 1
+            : i.adp && !s.adp
+            ? -1
+            : !i.adp && s.adp
+            ? 1
+            : i.chunked && e.length != t.length
+            ? t.length - e.length
+            : (s.created || 0) - (i.created || 0);
+        }
+        logDetails(e) {
+          return () => {
+            weh.rpc.call("logDetails", e);
+          };
+        }
+        command(e) {
+          var t = this;
+          return (i) => {
+            i.stopPropagation();
+            var s = i.shiftKey,
+              r = t.state.actionHit;
+            r &&
+              weh.rpc.call("actionCommand", e, r.id).then((n) => {
+                !s && !n && window.close();
+              }),
+              t.asDefaultInput &&
+                t.asDefaultInput.checked &&
+                (weh.unsafe_prefs["default-action-" + (t.props.actions[e].catPriority || 0)] = e);
+          };
+        }
+        renderActions() {
+          if (!this.state.actionHit || this.props.embed) return null;
+          var e = this,
+            t = (this.state.actionHit.actions || []).map((i) =>
+              React.createElement(
+                "div",
+                { key: i, className: "vdh-container click action" },
+                React.createElement(
                   "div",
-                  {
-                    className: "click hit " + this.getClass(),
-                    onMouseEnter: e.mouseTrack && this.onMouseEnter(),
-                    onMouseLeave: e.mouseTrack && this.onMouseLeave(),
-                    onClick: this.callDefault()
-                  },
+                  { onClick: this.command(i) },
                   React.createElement(
                     "div",
-                    { className: "vdh-container" },
+                    { className: "action-thumbnail" },
+                    React.createElement("img", { src: e.props.actions[i].icon })
+                  ),
+                  React.createElement(
+                    "div",
+                    { className: "action-details" },
+                    React.createElement("div", { className: "action-title" }, e.props.actions[i].title),
+                    React.createElement("div", { className: "action-descr" }, e.props.actions[i].description)
+                  )
+                )
+              )
+            );
+          return React.createElement(
+            "div",
+            { className: "actions" },
+            t,
+            React.createElement(
+              "div",
+              { className: "default-check" },
+              React.createElement("input", { id: "checkbox1", type: "checkbox", ref: (i) => (this.asDefaultInput = i) }),
+              React.createElement("label", { htmlFor: "checkbox1" }, weh._("action_as_default"))
+            )
+          );
+        }
+        renderEmbed() {
+          return this.props.embed ? React.createElement(Embedded, { className: "embed", src: this.props.embed }) : null;
+        }
+        renderLog() {
+          var e = this,
+            t = this.props.logs.map((i) =>
+              React.createElement(
+                "div",
+                { key: i.key, className: "vdh-log vdh-log-" + i.type },
+                i.videoTitle && React.createElement("div", { className: "log-video-title" }, i.videoTitle),
+                i.message,
+                i.details && React.createElement("a", { onClick: e.logDetails(i.key), href: "#" }, weh._("details_parenthesis"))
+              )
+            );
+          return React.createElement("div", { className: "logs" }, t);
+        }
+        renderNoHit() {
+          return this.state.section == "active"
+            ? React.createElement(
+                "div",
+                { className: "no-media" },
+                React.createElement("h2", null, weh._("no_media_current_tab")),
+                React.createElement("p", null, weh._("no_media_to_process_descr"))
+              )
+            : React.createElement("div", { className: "no-media" }, React.createElement("h2", null, weh._("no_media_to_process")));
+        }
+        renderHits() {
+          if (this.state.section == "log") return this.renderLog();
+          if (this.state.hitGroups.length == 0) return this.renderNoHit();
+          var e = this,
+            t = [];
+          Object.keys(this.state.hitGroups).forEach((s) => {
+            var r = e.state.hitGroups[s];
+            t.push(r);
+          }),
+            t.sort(e.sortGroups);
+          var i = [];
+          return (
+            t.forEach((s) => {
+              s.forEach((r) => {
+                var n = e.props.actions[r.actions[0]];
+                i.push(React.createElement(x, { key: r.id, hit: r, progress: e.props.progress[r.id] || -1, defaultAction: n }));
+              });
+            }),
+            React.createElement("div", { className: "has-media" }, i)
+          );
+        }
+        renderFooterButtons() {
+          return React.createElement(
+            "div",
+            { className: "buttons" },
+            React.createElement(
+              "div",
+              { className: "buttons-container" },
+              React.createElement("div", { className: "buttons-opener" }, React.createElement("img", { src: "images/icon-3dots-64.png" })),
+              React.createElement(
+                "button",
+                { onClick: this.call("openAbout"), title: weh._("about") },
+                React.createElement("img", { src: "images/icon-about-64.png" })
+              ),
+              f.browser == "firefox" &&
+                React.createElement(
+                  "button",
+                  { onClick: this.call("openSites"), title: weh._("supported_sites") },
+                  React.createElement("img", { src: "images/icon-sites-list-64.png" })
+                ),
+              React.createElement(
+                "button",
+                { onClick: this.call("analyzePage"), title: weh._("analyze_page") },
+                React.createElement("img", { src: "images/icon-photo-64.png" })
+              ),
+              React.createElement(
+                "button",
+                { onClick: this.call("convertLocal"), title: weh._("convert_local_files") },
+                React.createElement("img", { src: "images/icon-action-convert-b-64.png" })
+              ),
+              React.createElement(
+                "button",
+                { onClick: this.call("mergeLocal"), title: weh._("merge_local_files") },
+                React.createElement("img", { src: "images/icon-merger-64.png" })
+              ),
+              React.createElement("div", { className: "separator" }),
+              React.createElement("div", { className: "separator" }, "\xA0"),
+              this.canClear() &&
+                React.createElement(
+                  "button",
+                  { onClick: this.call("clearHits", "all"), title: weh._("clear_hits") },
+                  React.createElement("img", { src: "images/icon-action-delete-64.png" })
+                )
+            )
+          );
+        }
+        setSection(e) {
+          var t = this;
+          return () => {
+            t.buildGroups(t.state.hits, e), t.setState({ section: e });
+          };
+        }
+        clearLogs() {
+          var e = this;
+          return () => {
+            weh.rpc.call("clearLogs").then(e.setSection("active"));
+          };
+        }
+        shouldDisplayGroupText(e) {
+          if (this.state.section == e || (e == "log" && this.props.logs.length == 0)) return !1;
+          for (var t = Object.keys(this.state.counters), i = 0; i < t.length; i++) {
+            var s = t[i],
+              r = this.state.counters[s];
+            if ((s == e && r == 0) || (s != "all" && s != e && s != this.state.section && r > 0)) return !1;
+          }
+          return !(e != "log" && this.props.logs.length > 0);
+        }
+        showGroupBadge(e, t) {
+          var i = "",
+            s = 0,
+            r = e;
+          if (this.state.section == e) return null;
+          if (e == "log") {
+            if (((s = this.props.logs.length), s == 0)) return null;
+            var n = this.props.logs.filter((a) => a.type == "error");
+            n.length > 0 ? ((i = weh._("errors")), (s = n.length), (e = "error")) : (i = weh._("logs"));
+          } else {
+            if (this.state.counters[e] == 0) return;
+            (i = weh._(t)), (s = this.state.counters[e]);
+          }
+          return React.createElement(
+            "div",
+            { className: "click group group-" + e, onClick: this.setSection(r), title: i },
+            React.createElement("div", null, React.createElement("div", null, s))
+          );
+        }
+        showGroupText(e, t) {
+          if (this.shouldDisplayGroupText(e)) {
+            var i = this.props.logs.filter((s) => s.type == "error").length;
+            return (
+              e == "log" && i > 0 && (t = "errors"),
+              React.createElement("div", { className: "click group-text", onClick: this.setSection(e) }, weh._(t))
+            );
+          } else return null;
+        }
+        renderFooterGroups() {
+          return React.createElement(
+            "div",
+            { className: "groups" },
+            this.showGroupBadge("active", "in_current_tab"),
+            this.showGroupText("active", "in_current_tab"),
+            this.showGroupBadge("inactive", "in_other_tab"),
+            this.showGroupText("inactive", "in_other_tab"),
+            this.showGroupBadge("orphan", "orphan"),
+            this.showGroupText("orphan", "orphan"),
+            this.showGroupBadge("pinned", "pinned"),
+            this.showGroupText("pinned", "pinned"),
+            this.showGroupBadge("running", "running"),
+            this.showGroupText("running", "running"),
+            this.showGroupBadge("log", "logs"),
+            this.showGroupText("log", "logs")
+          );
+        }
+        renderFooter() {
+          return React.createElement(
+            "footer",
+            null,
+            React.createElement(
+              "div",
+              { className: "right-side" },
+              React.createElement("div", { className: "separator" }, "\xA0"),
+              React.createElement(
+                "button",
+                { onClick: this.call("openSettings"), title: weh._("settings") },
+                React.createElement("img", { src: "images/icon-settings-64.png" })
+              )
+            ),
+            this.renderFooterButtons(),
+            this.renderFooterGroups()
+          );
+        }
+        clearActionHit() {
+          return () => {
+            p.dispatch({ type: "clearActionHit" });
+          };
+        }
+        render() {
+          return React.createElement(
+            "div",
+            { className: "main-panel " + (((this.state.actionHit || this.props.embed) && "actions-open ") || " ") },
+            this.renderActions(),
+            this.renderEmbed(),
+            React.createElement(
+              "div",
+              { className: "main-content section-" + this.state.section, style: { maxHeight: this.props.maxHeight } },
+              React.createElement("img", {
+                className: "click back-active",
+                onClick: this.setSection("active"),
+                src: "images/icon-chevron-left-64.png"
+              }),
+              this.state.section == "log" &&
+                React.createElement("img", {
+                  className: "click clear-logs",
+                  onClick: this.clearLogs(),
+                  src: "images/icon-action-delete-64.png",
+                  title: weh._("clear_logs")
+                }),
+              React.createElement("div", { className: "click back-margin", onClick: this.setSection("active") }),
+              React.createElement(
+                "main",
+                { className: "content-hits" },
+                this.renderHits(),
+                React.createElement("div", { className: "main-content-mask", onClick: this.clearActionHit() })
+              ),
+              this.renderFooter()
+            )
+          );
+        }
+      }
+    );
+    class x extends React.Component {
+      constructor(t) {
+        super(t), (this.action = this.action.bind(this)), (this.state = {});
+      }
+      componentWillReceiveProps(t) {
+        this.orphanTimer || this.updateOrphanTimer(t);
+      }
+      componentDidMount() {
+        this.orphanTimer || this.updateOrphanTimer();
+      }
+      componentWillUnmount() {
+        this.orphanTimer && (clearTimeout(this.orphanTimer), (this.orphanTimer = null));
+      }
+      updateOrphanTimer(t) {
+        if (((t = t || this.props), (this.orphanTimer = null), this.props.hit.status == "orphan")) {
+          var i = Date.now(),
+            s = this.props.hit.orphanT0,
+            r = this.props.hit.orphanT;
+          this.setState({ orphanTimer: Math.max(0, Math.min(100, (100 * (r - i)) / (r - s))) }),
+            (this.orphanTimer = setTimeout(this.updateOrphanTimer.bind(this), 1e3));
+        }
+      }
+      action(t) {}
+      getClass() {
+        return "";
+      }
+      durationString(t) {
+        var i = Math.floor(t / 3600),
+          s = Math.floor((t % 3600) / 60),
+          r = t % 60;
+        return i > 0 ? i + ":" + ("00" + s).substr(-2) + ":" + ("00" + r).substr(-2) : s + ":" + ("00" + r).substr(-2);
+      }
+      description() {
+        var t = this.props.hit;
+        if (t.description) return t.description;
+        var i = [];
+        if (t.operation === "downloading" && t.dlbitrate) {
+          let a = g.exec(t.dlbitrate);
+          a && i.push(a[1] + " " + a[2]);
+        }
+        if (
+          (t.descrPrefix && i.push(t.descrPrefix),
+          t.adp && i.push("ADP"),
+          t.size && i.push(t.size),
+          t.duration && i.push(this.durationString(t.duration)),
+          t.quality)
+        ) {
+          let a = weh._("quality_" + t.quality);
+          a == "" && (a = t.quality.toUpperCase()), i.push(a);
+        }
+        if (t.bitrate) {
+          var s = t.bitrate,
+            r = "bps";
+          t.bitrate > 1e7
+            ? ((r = "Mbps"), (s = Math.round(t.bitrate / 1e6)))
+            : t.bitrate > 1e6
+            ? ((r = "Mbps"), (s = Math.round(t.bitrate / 1e5) / 10))
+            : t.bitrate > 1e4
+            ? ((r = "Kbps"), (s = Math.round(t.bitrate / 1e3)))
+            : t.bitrate > 1e3 && ((r = "Kbps"), (s = Math.round(t.bitrate / 100) / 10)),
+            i.push(s + r);
+        }
+        var n = this.lengthString();
+        if (
+          (n && i.push(n),
+          t.mediaDomain && i.push(weh._("from_domain", [t.mediaDomain])),
+          t.type == "audio" && i.push(weh._("audio_only")),
+          t.extension &&
+            (t.originalExt && t.originalExt != t.extension && i.push(t.originalExt.toUpperCase() + ">" + t.extension.toUpperCase()),
+            i.push(t.extension.toUpperCase())),
+          t.operation === "downloading" ||
+            t.operation === "aggregating" ||
+            t.operation === "converting" ||
+            t.operation === "collecting" ||
+            (this.props.progress && !t.operation))
+        ) {
+          let a = this.props.progress;
+          if (t.opStartDate && a !== "undefined" && a >= 0 && (i.push(a + "%"), a > 0)) {
+            let l = ((Date.now() - t.opStartDate) / a) * (100 - a);
+            (l = Math.max(0, Math.floor(l / 1e3))), i.push(this.durationString(l));
+          }
+        }
+        return i.join(" - ");
+      }
+      lengthString() {
+        var t = this.props.hit;
+        return t.length
+          ? t.length > 1024 * 1024
+            ? weh._("MB", [Math.round((t.length * 10) / (1024 * 1024)) / 10])
+            : t.length > 1024
+            ? weh._("KB", [Math.round((t.length * 10) / 1024) / 10])
+            : weh._("Bytes", [t.length])
+          : null;
+      }
+      titleClass() {
+        var t = ["hit-title-text"];
+        return t.push("hit-title-text-" + weh.unsafe_prefs.titleMode), t.join(" ");
+      }
+      progress() {
+        let t = parseInt(this.props.progress);
+        return (isNaN(t) || t < 0) && (t = 0), { width: t + "%" };
+      }
+      orphanTimerStyle() {
+        return { width: (this.state.orphanTimer || 100) + "%" };
+      }
+      moreActions() {
+        var t = this;
+        return (i) => {
+          i.stopPropagation(), p.dispatch({ type: "setActionHit", payload: t.props.hit });
+        };
+      }
+      call(...t) {
+        return () => {
+          weh.rpc.call(...t);
+        };
+      }
+      callDefault() {
+        var t = this;
+        return (i) => {
+          i.stopPropagation();
+          var s = i.shiftKey;
+          weh.rpc.call("actionCommand", t.props.hit.actions[0], t.props.hit.id).then((r) => {
+            !s && !r && window.close();
+          });
+        };
+      }
+      onMouseEnter() {
+        var t = this;
+        return () => {
+          v.add(t.props.hit.selectorAttr), weh.rpc.call("galleryHighlight", t.props.hit.selectorAttr);
+        };
+      }
+      onMouseLeave() {
+        var t = this;
+        return () => {
+          v.delete(t.props.hit.selectorAttr), weh.rpc.call("galleryUnhighlight", t.props.hit.selectorAttr);
+        };
+      }
+      render() {
+        var t = this.props.hit;
+        return React.createElement(
+          "div",
+          {
+            className: "click hit " + this.getClass(),
+            onMouseEnter: t.mouseTrack && this.onMouseEnter(),
+            onMouseLeave: t.mouseTrack && this.onMouseLeave(),
+            onClick: this.callDefault()
+          },
+          React.createElement(
+            "div",
+            { className: "vdh-container" },
+            React.createElement(
+              "div",
+              null,
+              (t.thumbnail || t.thumbnailUrl) &&
+                t.primary &&
+                React.createElement(
+                  "div",
+                  { className: "hit-thumbnail" },
+                  React.createElement("img", { src: t.thumbnailUrl || t.thumbnail })
+                ),
+              React.createElement(
+                "div",
+                { className: "vdh-fullwidth hit-descr" },
+                t.primary &&
+                  React.createElement(
+                    "div",
+                    { className: "hit-title" },
+                    React.createElement("div", { className: this.titleClass() }, t.title)
+                  ),
+                React.createElement(
+                  "div",
+                  { className: "hit-summary" },
+                  this.props.defaultAction &&
                     React.createElement(
                       "div",
-                      null,
-                      (e.thumbnail || e.thumbnailUrl) &&
-                        e.primary &&
-                        React.createElement(
-                          "div",
-                          { className: "hit-thumbnail" },
-                          React.createElement("img", { src: e.thumbnailUrl || e.thumbnail })
-                        ),
+                      { className: "hit-summary-action", title: this.props.defaultAction.description },
                       React.createElement(
                         "div",
-                        { className: "vdh-fullwidth hit-descr" },
-                        e.primary &&
-                          React.createElement(
-                            "div",
-                            { className: "hit-title" },
-                            React.createElement("div", { className: this.titleClass() }, e.title)
-                          ),
-                        React.createElement(
-                          "div",
-                          { className: "hit-summary" },
-                          React.createElement(
-                            "div",
-                            { className: "hit-summary-action", title: this.props.defaultAction.description },
-                            React.createElement(
-                              "div",
-                              null,
-                              React.createElement("img", { className: "default-action", src: this.props.defaultAction.icon })
-                            )
-                          ),
-                          e.primary &&
-                            weh.prefs.hitsGotoTab &&
-                            e.topUrl &&
-                            "inactive" == e.status &&
-                            React.createElement("img", {
-                              className: "hit-descr-button",
-                              src: "images/icon-gototab-64.png",
-                              title: weh._("hit_go_to_tab"),
-                              onClick: this.call("gotoTab", e.topUrl)
-                            }),
-                          e._signature &&
-                            e._signature &&
-                            e._signature.length > 0 &&
-                            React.createElement("img", { src: "images/icon-lock-64.png" }),
-                          e.operation && React.createElement("span", { className: "hit-operation" }, weh._(e.operation) + " - "),
-                          this.description()
-                        ),
-                        "running" == e.status &&
-                          React.createElement("div", { className: "hit-progress" }, React.createElement("div", { style: this.progress() })),
-                        "orphan" == e.status &&
-                          React.createElement(
-                            "div",
-                            { className: "hit-progress hit-orphan" },
-                            React.createElement("div", { style: this.orphanTimerStyle() })
-                          )
-                      ),
-                      React.createElement(
-                        "div",
-                        { className: "click hit-actions", onClick: this.moreActions() },
-                        React.createElement(
-                          "div",
-                          null,
-                          React.createElement("img", { className: "more-actions", src: "images/icon-3dots-64.png" })
-                        )
+                        null,
+                        React.createElement("img", { className: "default-action", src: this.props.defaultAction.icon })
                       )
-                    )
+                    ),
+                  t.primary &&
+                    weh.unsafe_prefs.hitsGotoTab &&
+                    t.topUrl &&
+                    t.status == "inactive" &&
+                    React.createElement("img", {
+                      className: "hit-descr-button",
+                      src: "images/icon-gototab-64.png",
+                      title: weh._("hit_go_to_tab"),
+                      onClick: this.call("gotoTab", t.topUrl)
+                    }),
+                  t._signature && t._signature && t._signature.length > 0 && React.createElement("img", { src: "images/icon-lock-64.png" }),
+                  t.operation && React.createElement("span", { className: "hit-operation" }, weh._(t.operation) + " - "),
+                  this.description()
+                ),
+                t.status == "running" &&
+                  React.createElement("div", { className: "hit-progress" }, React.createElement("div", { style: this.progress() })),
+                t.status == "orphan" &&
+                  React.createElement(
+                    "div",
+                    { className: "hit-progress hit-orphan" },
+                    React.createElement("div", { style: this.orphanTimerStyle() })
                   )
-                );
-              }
-            }
-          ]),
-          r
+              ),
+              React.createElement(
+                "div",
+                { className: "click hit-actions", onClick: this.moreActions() },
+                React.createElement("div", null, React.createElement("img", { className: "more-actions", src: "images/icon-3dots-64.png" }))
+              )
+            )
+          )
         );
-      })();
-    render(React.createElement(Provider, { store: c }, React.createElement(l, null)), document.getElementById("root"));
-  })();
+      }
+    }
+    render(React.createElement(Provider, { store: p }, React.createElement(k, null)), document.getElementById("root"));
+  });
 })();

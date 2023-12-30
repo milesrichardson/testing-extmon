@@ -1,7 +1,7 @@
 (self["webpackChunkbrowser_extension"] = self["webpackChunkbrowser_extension"] || []).push([
   [136],
   {
-    /***/ 73800: /***/ (module) => {
+    /***/ 3800: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       /**
        * This file is part of Adguard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
        *
@@ -18,6 +18,7 @@
        * You should have received a copy of the GNU Lesser General Public License
        * along with Adguard Browser Extension.  If not, see <http://www.gnu.org/licenses/>.
        */
+      const { isContentTypeSupported, getContentTypeError, PREFERRED_CONTENT_TYPE } = __webpack_require__(1735);
 
       /**
        * As it is not possible to use one library in node and browser environments,
@@ -43,15 +44,14 @@
          * fetch doesn't allow to download urls with file:// scheme
          *
          * @param url Url
-         * @param contentType Content type
          * @returns {Promise}
          */
-        const executeRequestAsyncFetch = async (url, contentType) => {
+        const executeRequestAsyncFetch = async (url) => {
           const response = await fetch(url, {
             cache: "no-cache",
             headers: {
               Pragma: "no-cache",
-              "Content-Type": contentType
+              "Content-Type": PREFERRED_CONTENT_TYPE
             }
           });
 
@@ -60,11 +60,11 @@
           }
 
           // Don't check response headers if url is local,
-          // because edge extension doesn't provide headers for such url
+          // because the edge extension doesn't provide headers for such url
           if (!isLocal(response.url)) {
             const responseContentType = response.headers.get("Content-Type");
-            if (!responseContentType || !responseContentType.includes(contentType)) {
-              throw new Error(`Response content type should be: "${contentType}"`);
+            if (!isContentTypeSupported(responseContentType)) {
+              throw getContentTypeError();
             }
           }
 
@@ -78,10 +78,9 @@
          * XMLHttpRequest is undefined in the service worker
          *
          * @param {string} url Url
-         * @param {string} contentType Content type
          * @returns {Promise}
          */
-        const executeRequestAsyncXhr = (url, contentType) =>
+        const executeRequestAsyncXhr = (url) =>
           new Promise((resolve, reject) => {
             const onRequestLoad = (response) => {
               if (response.status !== 200 && response.status !== 0) {
@@ -91,11 +90,11 @@
               const responseText = response.responseText ? response.responseText : response.data;
 
               // Don't check response headers if url is local,
-              // because edge extension doesn't provide headers for such url
+              // because the edge extension doesn't provide headers for such url
               if (!isLocal(response.responseURL)) {
                 const responseContentType = response.getResponseHeader("Content-Type");
-                if (!responseContentType || !responseContentType.includes(contentType)) {
-                  reject(new Error(`Response content type should be: "${contentType}"`));
+                if (!isContentTypeSupported(responseContentType)) {
+                  reject(getContentTypeError());
                 }
               }
               const lines = responseText.trim().split(/[\r\n]+/);
@@ -108,7 +107,7 @@
             try {
               request.open("GET", url);
               request.setRequestHeader("Pragma", "no-cache");
-              request.overrideMimeType(contentType);
+              request.overrideMimeType(PREFERRED_CONTENT_TYPE);
               request.mozBackgroundRequest = true;
               // eslint-disable-next-line func-names
               request.onload = function () {
@@ -130,7 +129,7 @@
          * @param {string} url Filter file absolute URL or relative path
          * @returns {Promise} A promise that returns {string} with rules when if resolved and {Error} if rejected.
          */
-        const getExternalFile = (url) => executeRequestAsyncFetch(url, "text/plain");
+        const getExternalFile = (url) => executeRequestAsyncFetch(url);
 
         /**
          * Get filter rules from local path
@@ -140,10 +139,10 @@
          */
         const getLocalFile = (url) => {
           if (typeof XMLHttpRequest !== "undefined") {
-            return executeRequestAsyncXhr(url, "text/plain");
+            return executeRequestAsyncXhr(url);
           }
           if (typeof fetch !== "undefined") {
-            return executeRequestAsyncFetch(url, "text/plain");
+            return executeRequestAsyncFetch(url);
           }
           // eslint-disable-next-line max-len
           throw new Error("XMLHttpRequest or fetch are undefined, getting local files inside service worker is not working");
@@ -158,7 +157,45 @@
       /***/
     },
 
-    /***/ 70652: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1735: /***/ (module) => {
+      const PREFERRED_CONTENT_TYPE = "text/plain";
+
+      /**
+       * Supported content types.
+       * @type {(string|string)[]}
+       */
+      const SUPPORTED_CONTENT_TYPES = [
+        PREFERRED_CONTENT_TYPE,
+        // https://github.com/AdguardTeam/AdguardBrowserExtension/issues/1723
+        "text/html"
+      ];
+
+      /**
+       * Returns content type error.
+       * @returns {Error}
+       */
+      const getContentTypeError = () => {
+        return new Error(`Response content type should be one of: "${SUPPORTED_CONTENT_TYPES.join(", ")}"`);
+      };
+
+      /**
+       * Checks if the content type is supported.
+       * @param contentTypeHeader content type header
+       * @returns {boolean} true if is supported
+       */
+      const isContentTypeSupported = (contentTypeHeader) => {
+        if (!contentTypeHeader) {
+          return false;
+        }
+        return SUPPORTED_CONTENT_TYPES.some((ct) => contentTypeHeader.includes(ct));
+      };
+
+      module.exports = { getContentTypeError, isContentTypeSupported, PREFERRED_CONTENT_TYPE };
+
+      /***/
+    },
+
+    /***/ 652: /***/ (module) => {
       /**
        * This file is part of Adguard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
        *
@@ -239,20 +276,20 @@
         };
 
         /**
-         * Parse url
+         * Parses url and returns its origin.
          *
-         * @param {string} url
-         * @returns {object}  parsed url data
+         * @param {string} url URL to parse.
+         *
+         * @returns {string} URL origin if url can be parsed.
+         * @throws {Error} If url cannot be parsed.
          */
-        const parseURL = (url) => {
-          // eslint-disable-next-line no-use-before-define
-          if (typeof URL !== "undefined") {
-            // eslint-disable-next-line no-use-before-define
-            return new URL(url);
+        const getUrlOrigin = (url) => {
+          try {
+            const { origin } = new URL(url);
+            return origin;
+          } catch (e) {
+            throw new Error(`Invalid url: '${url}'`);
           }
-          // eslint-disable-next-line global-require
-          const { URL } = __webpack_require__(83548);
-          return new URL(url);
         };
 
         /**
@@ -468,8 +505,8 @@
           if (filterUrlOrigin) {
             if (REGEXP_ABSOLUTE_URL.test(url)) {
               // Include url is absolute
-              const urlOrigin = parseURL(url).origin;
-              const filterOrigin = parseURL(filterUrlOrigin).origin;
+              const urlOrigin = getUrlOrigin(url);
+              const filterOrigin = getUrlOrigin(filterUrlOrigin);
               if (urlOrigin !== filterOrigin) {
                 throw new Error(`Include url is rejected with origin: ${urlOrigin}`);
               }
@@ -663,12 +700,12 @@
       /***/
     },
 
-    /***/ 39317: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9317: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       // This file replaces `index.js` in bundlers like webpack or Rollup,
       // according to `browser` config in `package.json`.
 
-      const filtersDownloaderCreator = __webpack_require__(70652);
-      const FileDownloadWrapper = __webpack_require__(73800);
+      const filtersDownloaderCreator = __webpack_require__(652);
+      const FileDownloadWrapper = __webpack_require__(3800);
 
       const FiltersDownloader = filtersDownloaderCreator(FileDownloadWrapper);
 
@@ -677,7 +714,7 @@
       /***/
     },
 
-    /***/ 58396: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8396: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Iu: () => /* binding */ translate
@@ -2333,11 +2370,11 @@
       /***/
     },
 
-    /***/ 38146: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8146: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isCallable = __webpack_require__(92163);
-      var tryToString = __webpack_require__(40368);
+      var isCallable = __webpack_require__(2163);
+      var tryToString = __webpack_require__(368);
 
       var $TypeError = TypeError;
 
@@ -2350,10 +2387,10 @@
       /***/
     },
 
-    /***/ 81402: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1402: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isCallable = __webpack_require__(92163);
+      var isCallable = __webpack_require__(2163);
 
       var $String = String;
       var $TypeError = TypeError;
@@ -2366,12 +2403,12 @@
       /***/
     },
 
-    /***/ 78875: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8875: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var wellKnownSymbol = __webpack_require__(4259);
-      var create = __webpack_require__(28603);
-      var defineProperty = __webpack_require__(16572).f;
+      var create = __webpack_require__(8603);
+      var defineProperty = __webpack_require__(6572).f;
 
       var UNSCOPABLES = wellKnownSymbol("unscopables");
       var ArrayPrototype = Array.prototype;
@@ -2393,10 +2430,10 @@
       /***/
     },
 
-    /***/ 98514: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8514: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isObject = __webpack_require__(23041);
+      var isObject = __webpack_require__(3041);
 
       var $String = String;
       var $TypeError = TypeError;
@@ -2410,12 +2447,12 @@
       /***/
     },
 
-    /***/ 64465: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4465: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var toIndexedObject = __webpack_require__(19130);
-      var toAbsoluteIndex = __webpack_require__(63828);
-      var lengthOfArrayLike = __webpack_require__(25474);
+      var toIndexedObject = __webpack_require__(9130);
+      var toAbsoluteIndex = __webpack_require__(3828);
+      var lengthOfArrayLike = __webpack_require__(5474);
 
       // `Array.prototype.{ indexOf, includes }` methods implementation
       var createMethod = function (IS_INCLUDES) {
@@ -2453,11 +2490,11 @@
       /***/
     },
 
-    /***/ 99314: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9314: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var isArray = __webpack_require__(74778);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var isArray = __webpack_require__(4778);
 
       var $TypeError = TypeError;
       // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
@@ -2491,10 +2528,10 @@
       /***/
     },
 
-    /***/ 74021: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4021: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
+      var uncurryThis = __webpack_require__(3074);
 
       var toString = uncurryThis({}.toString);
       var stringSlice = uncurryThis("".slice);
@@ -2506,12 +2543,12 @@
       /***/
     },
 
-    /***/ 47298: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7298: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var TO_STRING_TAG_SUPPORT = __webpack_require__(98216);
-      var isCallable = __webpack_require__(92163);
-      var classofRaw = __webpack_require__(74021);
+      var TO_STRING_TAG_SUPPORT = __webpack_require__(8216);
+      var isCallable = __webpack_require__(2163);
+      var classofRaw = __webpack_require__(4021);
       var wellKnownSymbol = __webpack_require__(4259);
 
       var TO_STRING_TAG = wellKnownSymbol("toStringTag");
@@ -2558,13 +2595,13 @@
       /***/
     },
 
-    /***/ 61401: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1401: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var hasOwn = __webpack_require__(21325);
-      var ownKeys = __webpack_require__(20810);
-      var getOwnPropertyDescriptorModule = __webpack_require__(99206);
-      var definePropertyModule = __webpack_require__(16572);
+      var hasOwn = __webpack_require__(1325);
+      var ownKeys = __webpack_require__(810);
+      var getOwnPropertyDescriptorModule = __webpack_require__(9206);
+      var definePropertyModule = __webpack_require__(6572);
 
       module.exports = function (target, source, exceptions) {
         var keys = ownKeys(source);
@@ -2581,12 +2618,12 @@
       /***/
     },
 
-    /***/ 27767: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7767: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var definePropertyModule = __webpack_require__(16572);
-      var createPropertyDescriptor = __webpack_require__(48602);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var definePropertyModule = __webpack_require__(6572);
+      var createPropertyDescriptor = __webpack_require__(8602);
 
       module.exports = DESCRIPTORS
         ? function (object, key, value) {
@@ -2600,7 +2637,7 @@
       /***/
     },
 
-    /***/ 48602: /***/ (module) => {
+    /***/ 8602: /***/ (module) => {
       "use strict";
 
       module.exports = function (bitmap, value) {
@@ -2615,11 +2652,11 @@
       /***/
     },
 
-    /***/ 18245: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8245: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var makeBuiltIn = __webpack_require__(85954);
-      var defineProperty = __webpack_require__(16572);
+      var makeBuiltIn = __webpack_require__(5954);
+      var defineProperty = __webpack_require__(6572);
 
       module.exports = function (target, name, descriptor) {
         if (descriptor.get) makeBuiltIn(descriptor.get, name, { getter: true });
@@ -2630,13 +2667,13 @@
       /***/
     },
 
-    /***/ 14039: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4039: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isCallable = __webpack_require__(92163);
-      var definePropertyModule = __webpack_require__(16572);
-      var makeBuiltIn = __webpack_require__(85954);
-      var defineGlobalProperty = __webpack_require__(95861);
+      var isCallable = __webpack_require__(2163);
+      var definePropertyModule = __webpack_require__(6572);
+      var makeBuiltIn = __webpack_require__(5954);
+      var defineGlobalProperty = __webpack_require__(5861);
 
       module.exports = function (O, key, value, options) {
         if (!options) options = {};
@@ -2668,10 +2705,10 @@
       /***/
     },
 
-    /***/ 95861: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5861: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
+      var global = __webpack_require__(3406);
 
       // eslint-disable-next-line es/no-object-defineproperty -- safe
       var defineProperty = Object.defineProperty;
@@ -2688,7 +2725,7 @@
       /***/
     },
 
-    /***/ 46372: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 6372: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var fails = __webpack_require__(7931);
@@ -2708,7 +2745,7 @@
       /***/
     },
 
-    /***/ 45337: /***/ (module) => {
+    /***/ 5337: /***/ (module) => {
       "use strict";
 
       var documentAll = typeof document == "object" && document.all;
@@ -2725,11 +2762,11 @@
       /***/
     },
 
-    /***/ 94193: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4193: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var isObject = __webpack_require__(23041);
+      var global = __webpack_require__(3406);
+      var isObject = __webpack_require__(3041);
 
       var document = global.document;
       // typeof document.createElement is 'object' in old IE
@@ -2742,7 +2779,7 @@
       /***/
     },
 
-    /***/ 76299: /***/ (module) => {
+    /***/ 6299: /***/ (module) => {
       "use strict";
 
       var $TypeError = TypeError;
@@ -2756,7 +2793,7 @@
       /***/
     },
 
-    /***/ 20283: /***/ (module) => {
+    /***/ 283: /***/ (module) => {
       "use strict";
 
       module.exports = (typeof navigator != "undefined" && String(navigator.userAgent)) || "";
@@ -2764,11 +2801,11 @@
       /***/
     },
 
-    /***/ 55111: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5111: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var userAgent = __webpack_require__(20283);
+      var global = __webpack_require__(3406);
+      var userAgent = __webpack_require__(283);
 
       var process = global.process;
       var Deno = global.Deno;
@@ -2798,7 +2835,7 @@
       /***/
     },
 
-    /***/ 46606: /***/ (module) => {
+    /***/ 6606: /***/ (module) => {
       "use strict";
 
       // IE8- don't enum bug keys
@@ -2807,10 +2844,10 @@
       /***/
     },
 
-    /***/ 98167: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8167: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
+      var uncurryThis = __webpack_require__(3074);
 
       var $Error = Error;
       var replace = uncurryThis("".replace);
@@ -2832,12 +2869,12 @@
       /***/
     },
 
-    /***/ 58202: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8202: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var createNonEnumerableProperty = __webpack_require__(27767);
-      var clearErrorStack = __webpack_require__(98167);
-      var ERROR_STACK_INSTALLABLE = __webpack_require__(37513);
+      var createNonEnumerableProperty = __webpack_require__(7767);
+      var clearErrorStack = __webpack_require__(8167);
+      var ERROR_STACK_INSTALLABLE = __webpack_require__(7513);
 
       // non-standard V8
       var captureStackTrace = Error.captureStackTrace;
@@ -2852,11 +2889,11 @@
       /***/
     },
 
-    /***/ 37513: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7513: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var fails = __webpack_require__(7931);
-      var createPropertyDescriptor = __webpack_require__(48602);
+      var createPropertyDescriptor = __webpack_require__(8602);
 
       module.exports = !fails(function () {
         var error = Error("a");
@@ -2869,16 +2906,16 @@
       /***/
     },
 
-    /***/ 65942: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5942: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var getOwnPropertyDescriptor = __webpack_require__(99206).f;
-      var createNonEnumerableProperty = __webpack_require__(27767);
-      var defineBuiltIn = __webpack_require__(14039);
-      var defineGlobalProperty = __webpack_require__(95861);
-      var copyConstructorProperties = __webpack_require__(61401);
-      var isForced = __webpack_require__(21637);
+      var global = __webpack_require__(3406);
+      var getOwnPropertyDescriptor = __webpack_require__(9206).f;
+      var createNonEnumerableProperty = __webpack_require__(7767);
+      var defineBuiltIn = __webpack_require__(4039);
+      var defineGlobalProperty = __webpack_require__(5861);
+      var copyConstructorProperties = __webpack_require__(1401);
+      var isForced = __webpack_require__(1637);
 
       /*
   options.target         - name of the target object
@@ -2945,10 +2982,10 @@
       /***/
     },
 
-    /***/ 25448: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5448: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var NATIVE_BIND = __webpack_require__(62637);
+      var NATIVE_BIND = __webpack_require__(2637);
 
       var FunctionPrototype = Function.prototype;
       var apply = FunctionPrototype.apply;
@@ -2966,7 +3003,7 @@
       /***/
     },
 
-    /***/ 62637: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2637: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var fails = __webpack_require__(7931);
@@ -2983,10 +3020,10 @@
       /***/
     },
 
-    /***/ 48624: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8624: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var NATIVE_BIND = __webpack_require__(62637);
+      var NATIVE_BIND = __webpack_require__(2637);
 
       var call = Function.prototype.call;
 
@@ -2999,11 +3036,11 @@
       /***/
     },
 
-    /***/ 30233: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 233: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var hasOwn = __webpack_require__(21325);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var hasOwn = __webpack_require__(1325);
 
       var FunctionPrototype = Function.prototype;
       // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
@@ -3027,11 +3064,11 @@
       /***/
     },
 
-    /***/ 43173: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3173: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
-      var aCallable = __webpack_require__(38146);
+      var uncurryThis = __webpack_require__(3074);
+      var aCallable = __webpack_require__(8146);
 
       module.exports = function (object, key, method) {
         try {
@@ -3045,10 +3082,10 @@
       /***/
     },
 
-    /***/ 73074: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3074: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var NATIVE_BIND = __webpack_require__(62637);
+      var NATIVE_BIND = __webpack_require__(2637);
 
       var FunctionPrototype = Function.prototype;
       var call = FunctionPrototype.call;
@@ -3065,11 +3102,11 @@
       /***/
     },
 
-    /***/ 39997: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9997: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var isCallable = __webpack_require__(92163);
+      var global = __webpack_require__(3406);
+      var isCallable = __webpack_require__(2163);
 
       var aFunction = function (argument) {
         return isCallable(argument) ? argument : undefined;
@@ -3082,11 +3119,11 @@
       /***/
     },
 
-    /***/ 54462: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4462: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var aCallable = __webpack_require__(38146);
-      var isNullOrUndefined = __webpack_require__(57900);
+      var aCallable = __webpack_require__(8146);
+      var isNullOrUndefined = __webpack_require__(7900);
 
       // `GetMethod` abstract operation
       // https://tc39.es/ecma262/#sec-getmethod
@@ -3098,11 +3135,11 @@
       /***/
     },
 
-    /***/ 24053: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4053: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
-      var toObject = __webpack_require__(77410);
+      var uncurryThis = __webpack_require__(3074);
+      var toObject = __webpack_require__(7410);
 
       var floor = Math.floor;
       var charAt = uncurryThis("".charAt);
@@ -3154,7 +3191,7 @@
       /***/
     },
 
-    /***/ 63406: /***/ function (module, __unused_webpack_exports, __webpack_require__) {
+    /***/ 3406: /***/ function (module, __unused_webpack_exports, __webpack_require__) {
       "use strict";
 
       var check = function (it) {
@@ -3179,11 +3216,11 @@
       /***/
     },
 
-    /***/ 21325: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1325: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
-      var toObject = __webpack_require__(77410);
+      var uncurryThis = __webpack_require__(3074);
+      var toObject = __webpack_require__(7410);
 
       var hasOwnProperty = uncurryThis({}.hasOwnProperty);
 
@@ -3199,7 +3236,7 @@
       /***/
     },
 
-    /***/ 43730: /***/ (module) => {
+    /***/ 3730: /***/ (module) => {
       "use strict";
 
       module.exports = {};
@@ -3207,22 +3244,22 @@
       /***/
     },
 
-    /***/ 79150: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9150: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var getBuiltIn = __webpack_require__(39997);
+      var getBuiltIn = __webpack_require__(9997);
 
       module.exports = getBuiltIn("document", "documentElement");
 
       /***/
     },
 
-    /***/ 53202: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3202: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
+      var DESCRIPTORS = __webpack_require__(6372);
       var fails = __webpack_require__(7931);
-      var createElement = __webpack_require__(94193);
+      var createElement = __webpack_require__(4193);
 
       // Thanks to IE8 for its funny defineProperty
       module.exports =
@@ -3241,12 +3278,12 @@
       /***/
     },
 
-    /***/ 52170: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2170: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
+      var uncurryThis = __webpack_require__(3074);
       var fails = __webpack_require__(7931);
-      var classof = __webpack_require__(74021);
+      var classof = __webpack_require__(4021);
 
       var $Object = Object;
       var split = uncurryThis("".split);
@@ -3265,12 +3302,12 @@
       /***/
     },
 
-    /***/ 31521: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1521: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isCallable = __webpack_require__(92163);
-      var isObject = __webpack_require__(23041);
-      var setPrototypeOf = __webpack_require__(50744);
+      var isCallable = __webpack_require__(2163);
+      var isObject = __webpack_require__(3041);
+      var setPrototypeOf = __webpack_require__(744);
 
       // makes subclassing work correct for wrapped built-ins
       module.exports = function ($this, dummy, Wrapper) {
@@ -3291,12 +3328,12 @@
       /***/
     },
 
-    /***/ 22089: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2089: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
-      var isCallable = __webpack_require__(92163);
-      var store = __webpack_require__(12846);
+      var uncurryThis = __webpack_require__(3074);
+      var isCallable = __webpack_require__(2163);
+      var store = __webpack_require__(2846);
 
       var functionToString = uncurryThis(Function.toString);
 
@@ -3315,8 +3352,8 @@
     /***/ 813: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isObject = __webpack_require__(23041);
-      var createNonEnumerableProperty = __webpack_require__(27767);
+      var isObject = __webpack_require__(3041);
+      var createNonEnumerableProperty = __webpack_require__(7767);
 
       // `InstallErrorCause` abstract operation
       // https://tc39.es/proposal-error-cause/#sec-errorobjects-install-error-cause
@@ -3332,14 +3369,14 @@
     /***/ 3987: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var NATIVE_WEAK_MAP = __webpack_require__(24617);
-      var global = __webpack_require__(63406);
-      var isObject = __webpack_require__(23041);
-      var createNonEnumerableProperty = __webpack_require__(27767);
-      var hasOwn = __webpack_require__(21325);
-      var shared = __webpack_require__(12846);
+      var NATIVE_WEAK_MAP = __webpack_require__(4617);
+      var global = __webpack_require__(3406);
+      var isObject = __webpack_require__(3041);
+      var createNonEnumerableProperty = __webpack_require__(7767);
+      var hasOwn = __webpack_require__(1325);
+      var shared = __webpack_require__(2846);
       var sharedKey = __webpack_require__(1320);
-      var hiddenKeys = __webpack_require__(43730);
+      var hiddenKeys = __webpack_require__(3730);
 
       var OBJECT_ALREADY_INITIALIZED = "Object already initialized";
       var TypeError = global.TypeError;
@@ -3407,10 +3444,10 @@
       /***/
     },
 
-    /***/ 74778: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4778: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var classof = __webpack_require__(74021);
+      var classof = __webpack_require__(4021);
 
       // `IsArray` abstract operation
       // https://tc39.es/ecma262/#sec-isarray
@@ -3424,10 +3461,10 @@
       /***/
     },
 
-    /***/ 92163: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2163: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $documentAll = __webpack_require__(45337);
+      var $documentAll = __webpack_require__(5337);
 
       var documentAll = $documentAll.all;
 
@@ -3444,11 +3481,11 @@
       /***/
     },
 
-    /***/ 21637: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1637: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var fails = __webpack_require__(7931);
-      var isCallable = __webpack_require__(92163);
+      var isCallable = __webpack_require__(2163);
 
       var replacement = /#|\.prototype\./;
 
@@ -3470,7 +3507,7 @@
       /***/
     },
 
-    /***/ 57900: /***/ (module) => {
+    /***/ 7900: /***/ (module) => {
       "use strict";
 
       // we can't use just `it == null` since of `document.all` special case
@@ -3482,11 +3519,11 @@
       /***/
     },
 
-    /***/ 23041: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3041: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isCallable = __webpack_require__(92163);
-      var $documentAll = __webpack_require__(45337);
+      var isCallable = __webpack_require__(2163);
+      var $documentAll = __webpack_require__(5337);
 
       var documentAll = $documentAll.all;
 
@@ -3509,11 +3546,11 @@
       /***/
     },
 
-    /***/ 33948: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3948: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isObject = __webpack_require__(23041);
-      var classof = __webpack_require__(74021);
+      var isObject = __webpack_require__(3041);
+      var classof = __webpack_require__(4021);
       var wellKnownSymbol = __webpack_require__(4259);
 
       var MATCH = wellKnownSymbol("match");
@@ -3528,13 +3565,13 @@
       /***/
     },
 
-    /***/ 85666: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5666: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var getBuiltIn = __webpack_require__(39997);
-      var isCallable = __webpack_require__(92163);
+      var getBuiltIn = __webpack_require__(9997);
+      var isCallable = __webpack_require__(2163);
       var isPrototypeOf = __webpack_require__(3071);
-      var USE_SYMBOL_AS_UID = __webpack_require__(99525);
+      var USE_SYMBOL_AS_UID = __webpack_require__(9525);
 
       var $Object = Object;
 
@@ -3550,7 +3587,7 @@
       /***/
     },
 
-    /***/ 25474: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5474: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var toLength = __webpack_require__(1403);
@@ -3564,16 +3601,16 @@
       /***/
     },
 
-    /***/ 85954: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5954: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
+      var uncurryThis = __webpack_require__(3074);
       var fails = __webpack_require__(7931);
-      var isCallable = __webpack_require__(92163);
-      var hasOwn = __webpack_require__(21325);
-      var DESCRIPTORS = __webpack_require__(46372);
-      var CONFIGURABLE_FUNCTION_NAME = __webpack_require__(30233).CONFIGURABLE;
-      var inspectSource = __webpack_require__(22089);
+      var isCallable = __webpack_require__(2163);
+      var hasOwn = __webpack_require__(1325);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var CONFIGURABLE_FUNCTION_NAME = __webpack_require__(233).CONFIGURABLE;
+      var inspectSource = __webpack_require__(2089);
       var InternalStateModule = __webpack_require__(3987);
 
       var enforceInternalState = InternalStateModule.enforce;
@@ -3657,10 +3694,10 @@
       /***/
     },
 
-    /***/ 38305: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8305: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var toString = __webpack_require__(24473);
+      var toString = __webpack_require__(4473);
 
       module.exports = function (argument, $default) {
         return argument === undefined ? (arguments.length < 2 ? "" : $default) : toString(argument);
@@ -3669,16 +3706,16 @@
       /***/
     },
 
-    /***/ 28603: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8603: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       /* global ActiveXObject -- old IE, WSH */
-      var anObject = __webpack_require__(98514);
-      var definePropertiesModule = __webpack_require__(98857);
-      var enumBugKeys = __webpack_require__(46606);
-      var hiddenKeys = __webpack_require__(43730);
-      var html = __webpack_require__(79150);
-      var documentCreateElement = __webpack_require__(94193);
+      var anObject = __webpack_require__(8514);
+      var definePropertiesModule = __webpack_require__(8857);
+      var enumBugKeys = __webpack_require__(6606);
+      var hiddenKeys = __webpack_require__(3730);
+      var html = __webpack_require__(9150);
+      var documentCreateElement = __webpack_require__(4193);
       var sharedKey = __webpack_require__(1320);
 
       var GT = ">";
@@ -3766,14 +3803,14 @@
       /***/
     },
 
-    /***/ 98857: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
+    /***/ 8857: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var V8_PROTOTYPE_DEFINE_BUG = __webpack_require__(58814);
-      var definePropertyModule = __webpack_require__(16572);
-      var anObject = __webpack_require__(98514);
-      var toIndexedObject = __webpack_require__(19130);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var V8_PROTOTYPE_DEFINE_BUG = __webpack_require__(8814);
+      var definePropertyModule = __webpack_require__(6572);
+      var anObject = __webpack_require__(8514);
+      var toIndexedObject = __webpack_require__(9130);
       var objectKeys = __webpack_require__(5390);
 
       // `Object.defineProperties` method
@@ -3796,14 +3833,14 @@
       /***/
     },
 
-    /***/ 16572: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
+    /***/ 6572: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var IE8_DOM_DEFINE = __webpack_require__(53202);
-      var V8_PROTOTYPE_DEFINE_BUG = __webpack_require__(58814);
-      var anObject = __webpack_require__(98514);
-      var toPropertyKey = __webpack_require__(41973);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var IE8_DOM_DEFINE = __webpack_require__(3202);
+      var V8_PROTOTYPE_DEFINE_BUG = __webpack_require__(8814);
+      var anObject = __webpack_require__(8514);
+      var toPropertyKey = __webpack_require__(1973);
 
       var $TypeError = TypeError;
       // eslint-disable-next-line es/no-object-defineproperty -- safe
@@ -3860,17 +3897,17 @@
       /***/
     },
 
-    /***/ 99206: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
+    /***/ 9206: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var call = __webpack_require__(48624);
-      var propertyIsEnumerableModule = __webpack_require__(42251);
-      var createPropertyDescriptor = __webpack_require__(48602);
-      var toIndexedObject = __webpack_require__(19130);
-      var toPropertyKey = __webpack_require__(41973);
-      var hasOwn = __webpack_require__(21325);
-      var IE8_DOM_DEFINE = __webpack_require__(53202);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var call = __webpack_require__(8624);
+      var propertyIsEnumerableModule = __webpack_require__(2251);
+      var createPropertyDescriptor = __webpack_require__(8602);
+      var toIndexedObject = __webpack_require__(9130);
+      var toPropertyKey = __webpack_require__(1973);
+      var hasOwn = __webpack_require__(1325);
+      var IE8_DOM_DEFINE = __webpack_require__(3202);
 
       // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
       var $getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
@@ -3894,11 +3931,11 @@
       /***/
     },
 
-    /***/ 83311: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
+    /***/ 3311: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
       "use strict";
 
-      var internalObjectKeys = __webpack_require__(51429);
-      var enumBugKeys = __webpack_require__(46606);
+      var internalObjectKeys = __webpack_require__(1429);
+      var enumBugKeys = __webpack_require__(6606);
 
       var hiddenKeys = enumBugKeys.concat("length", "prototype");
 
@@ -3914,7 +3951,7 @@
       /***/
     },
 
-    /***/ 50395: /***/ (__unused_webpack_module, exports) => {
+    /***/ 395: /***/ (__unused_webpack_module, exports) => {
       "use strict";
 
       // eslint-disable-next-line es/no-object-getownpropertysymbols -- safe
@@ -3926,21 +3963,21 @@
     /***/ 3071: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
+      var uncurryThis = __webpack_require__(3074);
 
       module.exports = uncurryThis({}.isPrototypeOf);
 
       /***/
     },
 
-    /***/ 51429: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1429: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
-      var hasOwn = __webpack_require__(21325);
-      var toIndexedObject = __webpack_require__(19130);
-      var indexOf = __webpack_require__(64465).indexOf;
-      var hiddenKeys = __webpack_require__(43730);
+      var uncurryThis = __webpack_require__(3074);
+      var hasOwn = __webpack_require__(1325);
+      var toIndexedObject = __webpack_require__(9130);
+      var indexOf = __webpack_require__(4465).indexOf;
+      var hiddenKeys = __webpack_require__(3730);
 
       var push = uncurryThis([].push);
 
@@ -3964,8 +4001,8 @@
     /***/ 5390: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var internalObjectKeys = __webpack_require__(51429);
-      var enumBugKeys = __webpack_require__(46606);
+      var internalObjectKeys = __webpack_require__(1429);
+      var enumBugKeys = __webpack_require__(6606);
 
       // `Object.keys` method
       // https://tc39.es/ecma262/#sec-object.keys
@@ -3979,7 +4016,7 @@
       /***/
     },
 
-    /***/ 42251: /***/ (__unused_webpack_module, exports) => {
+    /***/ 2251: /***/ (__unused_webpack_module, exports) => {
       "use strict";
 
       var $propertyIsEnumerable = {}.propertyIsEnumerable;
@@ -4001,13 +4038,13 @@
       /***/
     },
 
-    /***/ 50744: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 744: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       /* eslint-disable no-proto -- safe */
-      var uncurryThisAccessor = __webpack_require__(43173);
-      var anObject = __webpack_require__(98514);
-      var aPossiblePrototype = __webpack_require__(81402);
+      var uncurryThisAccessor = __webpack_require__(3173);
+      var anObject = __webpack_require__(8514);
+      var aPossiblePrototype = __webpack_require__(1402);
 
       // `Object.setPrototypeOf` method
       // https://tc39.es/ecma262/#sec-object.setprototypeof
@@ -4040,12 +4077,12 @@
       /***/
     },
 
-    /***/ 29207: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9207: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var call = __webpack_require__(48624);
-      var isCallable = __webpack_require__(92163);
-      var isObject = __webpack_require__(23041);
+      var call = __webpack_require__(8624);
+      var isCallable = __webpack_require__(2163);
+      var isObject = __webpack_require__(3041);
 
       var $TypeError = TypeError;
 
@@ -4062,14 +4099,14 @@
       /***/
     },
 
-    /***/ 20810: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 810: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var getBuiltIn = __webpack_require__(39997);
-      var uncurryThis = __webpack_require__(73074);
-      var getOwnPropertyNamesModule = __webpack_require__(83311);
-      var getOwnPropertySymbolsModule = __webpack_require__(50395);
-      var anObject = __webpack_require__(98514);
+      var getBuiltIn = __webpack_require__(9997);
+      var uncurryThis = __webpack_require__(3074);
+      var getOwnPropertyNamesModule = __webpack_require__(3311);
+      var getOwnPropertySymbolsModule = __webpack_require__(395);
+      var anObject = __webpack_require__(8514);
 
       var concat = uncurryThis([].concat);
 
@@ -4085,10 +4122,10 @@
       /***/
     },
 
-    /***/ 47906: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7906: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var defineProperty = __webpack_require__(16572).f;
+      var defineProperty = __webpack_require__(6572).f;
 
       module.exports = function (Target, Source, key) {
         key in Target ||
@@ -4106,10 +4143,10 @@
       /***/
     },
 
-    /***/ 36061: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 6061: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var anObject = __webpack_require__(98514);
+      var anObject = __webpack_require__(8514);
 
       // `RegExp.prototype.flags` getter implementation
       // https://tc39.es/ecma262/#sec-get-regexp.prototype.flags
@@ -4130,13 +4167,13 @@
       /***/
     },
 
-    /***/ 21029: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1029: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var call = __webpack_require__(48624);
-      var hasOwn = __webpack_require__(21325);
+      var call = __webpack_require__(8624);
+      var hasOwn = __webpack_require__(1325);
       var isPrototypeOf = __webpack_require__(3071);
-      var regExpFlags = __webpack_require__(36061);
+      var regExpFlags = __webpack_require__(6061);
 
       var RegExpPrototype = RegExp.prototype;
 
@@ -4150,10 +4187,10 @@
       /***/
     },
 
-    /***/ 65727: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 5727: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var isNullOrUndefined = __webpack_require__(57900);
+      var isNullOrUndefined = __webpack_require__(7900);
 
       var $TypeError = TypeError;
 
@@ -4170,8 +4207,8 @@
     /***/ 1320: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var shared = __webpack_require__(78519);
-      var uid = __webpack_require__(76004);
+      var shared = __webpack_require__(8519);
+      var uid = __webpack_require__(6004);
 
       var keys = shared("keys");
 
@@ -4182,11 +4219,11 @@
       /***/
     },
 
-    /***/ 12846: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2846: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var defineGlobalProperty = __webpack_require__(95861);
+      var global = __webpack_require__(3406);
+      var defineGlobalProperty = __webpack_require__(5861);
 
       var SHARED = "__core-js_shared__";
       var store = global[SHARED] || defineGlobalProperty(SHARED, {});
@@ -4196,11 +4233,11 @@
       /***/
     },
 
-    /***/ 78519: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8519: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var IS_PURE = __webpack_require__(2884);
-      var store = __webpack_require__(12846);
+      var store = __webpack_require__(2846);
 
       (module.exports = function (key, value) {
         return store[key] || (store[key] = value !== undefined ? value : {});
@@ -4215,13 +4252,13 @@
       /***/
     },
 
-    /***/ 73874: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3874: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       /* eslint-disable es/no-symbol -- required for testing */
-      var V8_VERSION = __webpack_require__(55111);
+      var V8_VERSION = __webpack_require__(5111);
       var fails = __webpack_require__(7931);
-      var global = __webpack_require__(63406);
+      var global = __webpack_require__(3406);
 
       var $String = global.String;
 
@@ -4245,10 +4282,10 @@
       /***/
     },
 
-    /***/ 63828: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 3828: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var toIntegerOrInfinity = __webpack_require__(70400);
+      var toIntegerOrInfinity = __webpack_require__(400);
 
       var max = Math.max;
       var min = Math.min;
@@ -4264,12 +4301,12 @@
       /***/
     },
 
-    /***/ 19130: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9130: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       // toObject with fallback for non-array-like ES3 strings
-      var IndexedObject = __webpack_require__(52170);
-      var requireObjectCoercible = __webpack_require__(65727);
+      var IndexedObject = __webpack_require__(2170);
+      var requireObjectCoercible = __webpack_require__(5727);
 
       module.exports = function (it) {
         return IndexedObject(requireObjectCoercible(it));
@@ -4278,7 +4315,7 @@
       /***/
     },
 
-    /***/ 70400: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 400: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var trunc = __webpack_require__(855);
@@ -4297,7 +4334,7 @@
     /***/ 1403: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var toIntegerOrInfinity = __webpack_require__(70400);
+      var toIntegerOrInfinity = __webpack_require__(400);
 
       var min = Math.min;
 
@@ -4310,10 +4347,10 @@
       /***/
     },
 
-    /***/ 77410: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7410: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var requireObjectCoercible = __webpack_require__(65727);
+      var requireObjectCoercible = __webpack_require__(5727);
 
       var $Object = Object;
 
@@ -4326,14 +4363,14 @@
       /***/
     },
 
-    /***/ 18732: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8732: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var call = __webpack_require__(48624);
-      var isObject = __webpack_require__(23041);
-      var isSymbol = __webpack_require__(85666);
-      var getMethod = __webpack_require__(54462);
-      var ordinaryToPrimitive = __webpack_require__(29207);
+      var call = __webpack_require__(8624);
+      var isObject = __webpack_require__(3041);
+      var isSymbol = __webpack_require__(5666);
+      var getMethod = __webpack_require__(4462);
+      var ordinaryToPrimitive = __webpack_require__(9207);
       var wellKnownSymbol = __webpack_require__(4259);
 
       var $TypeError = TypeError;
@@ -4358,11 +4395,11 @@
       /***/
     },
 
-    /***/ 41973: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 1973: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var toPrimitive = __webpack_require__(18732);
-      var isSymbol = __webpack_require__(85666);
+      var toPrimitive = __webpack_require__(8732);
+      var isSymbol = __webpack_require__(5666);
 
       // `ToPropertyKey` abstract operation
       // https://tc39.es/ecma262/#sec-topropertykey
@@ -4374,7 +4411,7 @@
       /***/
     },
 
-    /***/ 98216: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8216: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       var wellKnownSymbol = __webpack_require__(4259);
@@ -4389,10 +4426,10 @@
       /***/
     },
 
-    /***/ 24473: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4473: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var classof = __webpack_require__(47298);
+      var classof = __webpack_require__(7298);
 
       var $String = String;
 
@@ -4404,7 +4441,7 @@
       /***/
     },
 
-    /***/ 40368: /***/ (module) => {
+    /***/ 368: /***/ (module) => {
       "use strict";
 
       var $String = String;
@@ -4420,10 +4457,10 @@
       /***/
     },
 
-    /***/ 76004: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 6004: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var uncurryThis = __webpack_require__(73074);
+      var uncurryThis = __webpack_require__(3074);
 
       var id = 0;
       var postfix = Math.random();
@@ -4436,21 +4473,21 @@
       /***/
     },
 
-    /***/ 99525: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9525: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       /* eslint-disable es/no-symbol -- required for testing */
-      var NATIVE_SYMBOL = __webpack_require__(73874);
+      var NATIVE_SYMBOL = __webpack_require__(3874);
 
       module.exports = NATIVE_SYMBOL && !Symbol.sham && typeof Symbol.iterator == "symbol";
 
       /***/
     },
 
-    /***/ 58814: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8814: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
+      var DESCRIPTORS = __webpack_require__(6372);
       var fails = __webpack_require__(7931);
 
       // V8 ~ Chrome 36-
@@ -4476,7 +4513,7 @@
       /***/
     },
 
-    /***/ 65349: /***/ (module) => {
+    /***/ 5349: /***/ (module) => {
       "use strict";
 
       var $TypeError = TypeError;
@@ -4489,11 +4526,11 @@
       /***/
     },
 
-    /***/ 24617: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4617: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var isCallable = __webpack_require__(92163);
+      var global = __webpack_require__(3406);
+      var isCallable = __webpack_require__(2163);
 
       var WeakMap = global.WeakMap;
 
@@ -4505,12 +4542,12 @@
     /***/ 4259: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var global = __webpack_require__(63406);
-      var shared = __webpack_require__(78519);
-      var hasOwn = __webpack_require__(21325);
-      var uid = __webpack_require__(76004);
-      var NATIVE_SYMBOL = __webpack_require__(73874);
-      var USE_SYMBOL_AS_UID = __webpack_require__(99525);
+      var global = __webpack_require__(3406);
+      var shared = __webpack_require__(8519);
+      var hasOwn = __webpack_require__(1325);
+      var uid = __webpack_require__(6004);
+      var NATIVE_SYMBOL = __webpack_require__(3874);
+      var USE_SYMBOL_AS_UID = __webpack_require__(9525);
 
       var Symbol = global.Symbol;
       var WellKnownSymbolsStore = shared("wks");
@@ -4526,21 +4563,21 @@
       /***/
     },
 
-    /***/ 42038: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2038: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var getBuiltIn = __webpack_require__(39997);
-      var hasOwn = __webpack_require__(21325);
-      var createNonEnumerableProperty = __webpack_require__(27767);
+      var getBuiltIn = __webpack_require__(9997);
+      var hasOwn = __webpack_require__(1325);
+      var createNonEnumerableProperty = __webpack_require__(7767);
       var isPrototypeOf = __webpack_require__(3071);
-      var setPrototypeOf = __webpack_require__(50744);
-      var copyConstructorProperties = __webpack_require__(61401);
-      var proxyAccessor = __webpack_require__(47906);
-      var inheritIfRequired = __webpack_require__(31521);
-      var normalizeStringArgument = __webpack_require__(38305);
+      var setPrototypeOf = __webpack_require__(744);
+      var copyConstructorProperties = __webpack_require__(1401);
+      var proxyAccessor = __webpack_require__(7906);
+      var inheritIfRequired = __webpack_require__(1521);
+      var normalizeStringArgument = __webpack_require__(8305);
       var installErrorCause = __webpack_require__(813);
-      var installErrorStack = __webpack_require__(58202);
-      var DESCRIPTORS = __webpack_require__(46372);
+      var installErrorStack = __webpack_require__(8202);
+      var DESCRIPTORS = __webpack_require__(6372);
       var IS_PURE = __webpack_require__(2884);
 
       module.exports = function (FULL_NAME, wrapper, FORCED, IS_AGGREGATE_ERROR) {
@@ -4600,14 +4637,14 @@
       /***/
     },
 
-    /***/ 42474: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2474: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $ = __webpack_require__(65942);
-      var toObject = __webpack_require__(77410);
-      var lengthOfArrayLike = __webpack_require__(25474);
-      var toIntegerOrInfinity = __webpack_require__(70400);
-      var addToUnscopables = __webpack_require__(78875);
+      var $ = __webpack_require__(5942);
+      var toObject = __webpack_require__(7410);
+      var lengthOfArrayLike = __webpack_require__(5474);
+      var toIntegerOrInfinity = __webpack_require__(400);
+      var addToUnscopables = __webpack_require__(8875);
 
       // `Array.prototype.at` method
       // https://tc39.es/ecma262/#sec-array.prototype.at
@@ -4629,13 +4666,13 @@
       /***/
     },
 
-    /***/ 90943: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 943: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $ = __webpack_require__(65942);
-      var $includes = __webpack_require__(64465).includes;
+      var $ = __webpack_require__(5942);
+      var $includes = __webpack_require__(4465).includes;
       var fails = __webpack_require__(7931);
-      var addToUnscopables = __webpack_require__(78875);
+      var addToUnscopables = __webpack_require__(8875);
 
       // FF99+ bug
       var BROKEN_ON_SPARSE = fails(function () {
@@ -4660,14 +4697,14 @@
       /***/
     },
 
-    /***/ 24252: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4252: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $ = __webpack_require__(65942);
-      var toObject = __webpack_require__(77410);
-      var lengthOfArrayLike = __webpack_require__(25474);
-      var setArrayLength = __webpack_require__(99314);
-      var doesNotExceedSafeInteger = __webpack_require__(76299);
+      var $ = __webpack_require__(5942);
+      var toObject = __webpack_require__(7410);
+      var lengthOfArrayLike = __webpack_require__(5474);
+      var setArrayLength = __webpack_require__(9314);
+      var doesNotExceedSafeInteger = __webpack_require__(6299);
       var fails = __webpack_require__(7931);
 
       var INCORRECT_TO_LENGTH = fails(function () {
@@ -4711,14 +4748,14 @@
       /***/
     },
 
-    /***/ 68705: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8705: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
       /* eslint-disable no-unused-vars -- required for functions `.length` */
-      var $ = __webpack_require__(65942);
-      var global = __webpack_require__(63406);
-      var apply = __webpack_require__(25448);
-      var wrapErrorConstructorWithCause = __webpack_require__(42038);
+      var $ = __webpack_require__(5942);
+      var global = __webpack_require__(3406);
+      var apply = __webpack_require__(5448);
+      var wrapErrorConstructorWithCause = __webpack_require__(2038);
 
       var WEB_ASSEMBLY = "WebAssembly";
       var WebAssembly = global[WEB_ASSEMBLY];
@@ -4794,14 +4831,14 @@
       /***/
     },
 
-    /***/ 82896: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 2896: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $ = __webpack_require__(65942);
-      var uncurryThis = __webpack_require__(73074);
-      var requireObjectCoercible = __webpack_require__(65727);
-      var toIntegerOrInfinity = __webpack_require__(70400);
-      var toString = __webpack_require__(24473);
+      var $ = __webpack_require__(5942);
+      var uncurryThis = __webpack_require__(3074);
+      var requireObjectCoercible = __webpack_require__(5727);
+      var toIntegerOrInfinity = __webpack_require__(400);
+      var toString = __webpack_require__(4473);
       var fails = __webpack_require__(7931);
 
       var charAt = uncurryThis("".charAt);
@@ -4829,20 +4866,20 @@
       /***/
     },
 
-    /***/ 88932: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8932: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $ = __webpack_require__(65942);
-      var call = __webpack_require__(48624);
-      var uncurryThis = __webpack_require__(73074);
-      var requireObjectCoercible = __webpack_require__(65727);
-      var isCallable = __webpack_require__(92163);
-      var isNullOrUndefined = __webpack_require__(57900);
-      var isRegExp = __webpack_require__(33948);
-      var toString = __webpack_require__(24473);
-      var getMethod = __webpack_require__(54462);
-      var getRegExpFlags = __webpack_require__(21029);
-      var getSubstitution = __webpack_require__(24053);
+      var $ = __webpack_require__(5942);
+      var call = __webpack_require__(8624);
+      var uncurryThis = __webpack_require__(3074);
+      var requireObjectCoercible = __webpack_require__(5727);
+      var isCallable = __webpack_require__(2163);
+      var isNullOrUndefined = __webpack_require__(7900);
+      var isRegExp = __webpack_require__(3948);
+      var toString = __webpack_require__(4473);
+      var getMethod = __webpack_require__(4462);
+      var getRegExpFlags = __webpack_require__(1029);
+      var getSubstitution = __webpack_require__(4053);
       var wellKnownSymbol = __webpack_require__(4259);
       var IS_PURE = __webpack_require__(2884);
 
@@ -4912,10 +4949,10 @@
     /***/ 582: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var defineBuiltIn = __webpack_require__(14039);
-      var uncurryThis = __webpack_require__(73074);
-      var toString = __webpack_require__(24473);
-      var validateArgumentsLength = __webpack_require__(65349);
+      var defineBuiltIn = __webpack_require__(4039);
+      var uncurryThis = __webpack_require__(3074);
+      var toString = __webpack_require__(4473);
+      var validateArgumentsLength = __webpack_require__(5349);
 
       var $URLSearchParams = URLSearchParams;
       var URLSearchParamsPrototype = $URLSearchParams.prototype;
@@ -4970,13 +5007,13 @@
       /***/
     },
 
-    /***/ 37899: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7899: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var defineBuiltIn = __webpack_require__(14039);
-      var uncurryThis = __webpack_require__(73074);
-      var toString = __webpack_require__(24473);
-      var validateArgumentsLength = __webpack_require__(65349);
+      var defineBuiltIn = __webpack_require__(4039);
+      var uncurryThis = __webpack_require__(3074);
+      var toString = __webpack_require__(4473);
+      var validateArgumentsLength = __webpack_require__(5349);
 
       var $URLSearchParams = URLSearchParams;
       var URLSearchParamsPrototype = $URLSearchParams.prototype;
@@ -5010,12 +5047,12 @@
       /***/
     },
 
-    /***/ 26124: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 6124: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var uncurryThis = __webpack_require__(73074);
-      var defineBuiltInAccessor = __webpack_require__(18245);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var uncurryThis = __webpack_require__(3074);
+      var defineBuiltInAccessor = __webpack_require__(8245);
 
       var URLSearchParamsPrototype = URLSearchParams.prototype;
       var forEach = uncurryThis(URLSearchParamsPrototype.forEach);
@@ -5085,7 +5122,7 @@
             // Native crypto import via require (NodeJS)
             if (!crypto && "function" === "function") {
               try {
-                crypto = __webpack_require__(42480);
+                crypto = __webpack_require__(2480);
               } catch (err) {}
             }
 
@@ -5841,7 +5878,7 @@
       /***/
     },
 
-    /***/ 66172: /***/ function (module, exports, __webpack_require__) {
+    /***/ 6172: /***/ function (module, exports, __webpack_require__) {
       (function (root, factory) {
         if (true) {
           // CommonJS
@@ -6094,7 +6131,7 @@
       /***/
     },
 
-    /***/ 28975: /***/ function (module, exports, __webpack_require__) {
+    /***/ 8975: /***/ function (module, exports, __webpack_require__) {
       (function (root, factory) {
         if (true) {
           // CommonJS
@@ -6284,7 +6321,7 @@
       /***/
     },
 
-    /***/ 98769: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8769: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ addLeadingZeros
@@ -6304,13 +6341,13 @@
       /***/
     },
 
-    /***/ 46499: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6499: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(97970);
+      /* harmony import */ var _locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7970);
 
       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
         _locale_en_US_index_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z;
@@ -6342,13 +6379,13 @@
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _lib_getUTCDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(74210);
-      /* harmony import */ var _lib_getUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(19645);
-      /* harmony import */ var _lib_getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30338);
-      /* harmony import */ var _lib_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13638);
-      /* harmony import */ var _lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35855);
-      /* harmony import */ var _addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(98769);
-      /* harmony import */ var _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(81774);
+      /* harmony import */ var _lib_getUTCDayOfYear_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(4210);
+      /* harmony import */ var _lib_getUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9645);
+      /* harmony import */ var _lib_getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(338);
+      /* harmony import */ var _lib_getUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(3638);
+      /* harmony import */ var _lib_getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5855);
+      /* harmony import */ var _addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8769);
+      /* harmony import */ var _lightFormatters_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1774);
 
       var dayPeriodEnum = {
         am: "am",
@@ -7217,13 +7254,13 @@
       /***/
     },
 
-    /***/ 81774: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 1774: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98769);
+      /* harmony import */ var _addLeadingZeros_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8769);
 
       /*
        * |     | Unit                           |     | Unit                           |
@@ -7320,7 +7357,7 @@
       /***/
     },
 
-    /***/ 80500: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 500: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
@@ -7428,7 +7465,7 @@
       /***/
     },
 
-    /***/ 53117: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3117: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ getTimezoneOffsetInMilliseconds
@@ -7464,14 +7501,14 @@
       /***/
     },
 
-    /***/ 74210: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 4210: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ getUTCDayOfYear
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       var MILLISECONDS_IN_DAY = 86400000;
       function getUTCDayOfYear(dirtyDate) {
@@ -7488,16 +7525,16 @@
       /***/
     },
 
-    /***/ 19645: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9645: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ getUTCISOWeek
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(28966);
-      /* harmony import */ var _startOfUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(96863);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8966);
+      /* harmony import */ var _startOfUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6863);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       var MILLISECONDS_IN_WEEK = 604800000;
       function getUTCISOWeek(dirtyDate) {
@@ -7515,15 +7552,15 @@
       /***/
     },
 
-    /***/ 30338: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 338: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ getUTCISOWeekYear
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
-      /* harmony import */ var _startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(28966);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+      /* harmony import */ var _startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8966);
 
       function getUTCISOWeekYear(dirtyDate) {
         (0, _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(1, arguments);
@@ -7550,16 +7587,16 @@
       /***/
     },
 
-    /***/ 13638: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3638: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ getUTCWeek
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(40212);
-      /* harmony import */ var _startOfUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(45530);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(212);
+      /* harmony import */ var _startOfUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5530);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       var MILLISECONDS_IN_WEEK = 604800000;
       function getUTCWeek(dirtyDate, options) {
@@ -7577,16 +7614,16 @@
       /***/
     },
 
-    /***/ 35855: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5855: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ getUTCWeekYear
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
-      /* harmony import */ var _startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(40212);
-      /* harmony import */ var _toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(97198);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+      /* harmony import */ var _startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(212);
+      /* harmony import */ var _toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7198);
       /* harmony import */ var _defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9251);
 
       function getUTCWeekYear(dirtyDate, options) {
@@ -7654,7 +7691,7 @@
       /***/
     },
 
-    /***/ 59196: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9196: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Do: () => /* binding */ isProtectedWeekYearToken,
@@ -7701,7 +7738,7 @@
       /***/
     },
 
-    /***/ 80008: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ requiredArgs
@@ -7716,14 +7753,14 @@
       /***/
     },
 
-    /***/ 28966: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8966: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ startOfUTCISOWeek
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       function startOfUTCISOWeek(dirtyDate) {
         (0, _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(1, arguments);
@@ -7739,15 +7776,15 @@
       /***/
     },
 
-    /***/ 96863: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6863: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ startOfUTCISOWeekYear
         /* harmony export */
       });
-      /* harmony import */ var _getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(30338);
-      /* harmony import */ var _startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(28966);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _getUTCISOWeekYear_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(338);
+      /* harmony import */ var _startOfUTCISOWeek_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8966);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       function startOfUTCISOWeekYear(dirtyDate) {
         (0, _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(1, arguments);
@@ -7762,15 +7799,15 @@
       /***/
     },
 
-    /***/ 40212: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 212: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ startOfUTCWeek
         /* harmony export */
       });
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26995);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
-      /* harmony import */ var _toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(97198);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6995);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+      /* harmony import */ var _toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7198);
       /* harmony import */ var _defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9251);
 
       function startOfUTCWeek(dirtyDate, options) {
@@ -7826,16 +7863,16 @@
       /***/
     },
 
-    /***/ 45530: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5530: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ startOfUTCWeekYear
         /* harmony export */
       });
-      /* harmony import */ var _getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(35855);
-      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
-      /* harmony import */ var _startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(40212);
-      /* harmony import */ var _toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(97198);
+      /* harmony import */ var _getUTCWeekYear_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5855);
+      /* harmony import */ var _requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+      /* harmony import */ var _startOfUTCWeek_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(212);
+      /* harmony import */ var _toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7198);
       /* harmony import */ var _defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9251);
 
       function startOfUTCWeekYear(dirtyDate, options) {
@@ -7886,7 +7923,7 @@
       /***/
     },
 
-    /***/ 97198: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7198: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ toInteger
@@ -7909,15 +7946,15 @@
       /***/
     },
 
-    /***/ 89623: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9623: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ addMilliseconds
         /* harmony export */
       });
-      /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(97198);
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26995);
-      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7198);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6995);
+      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       /**
        * @name addMilliseconds
@@ -7948,23 +7985,23 @@
       /***/
     },
 
-    /***/ 93620: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3620: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ format
         /* harmony export */
       });
-      /* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(99662);
-      /* harmony import */ var _subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(34057);
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(26995);
+      /* harmony import */ var _isValid_index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9662);
+      /* harmony import */ var _subMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(4057);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(6995);
       /* harmony import */ var _lib_format_formatters_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5076);
-      /* harmony import */ var _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(80500);
-      /* harmony import */ var _lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(53117);
-      /* harmony import */ var _lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(59196);
-      /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(97198);
-      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _lib_format_longFormatters_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(500);
+      /* harmony import */ var _lib_getTimezoneOffsetInMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(3117);
+      /* harmony import */ var _lib_protectedTokens_index_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(9196);
+      /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7198);
+      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
       /* harmony import */ var _lib_defaultOptions_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9251);
-      /* harmony import */ var _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(46499);
+      /* harmony import */ var _lib_defaultLocale_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6499);
 
       // This RegExp consists of three parts separated by `|`:
       // - [yYQqMLwIdDecihHKkms]o matches any available ordinal number token
@@ -8476,7 +8513,7 @@
         /* harmony export */ Z: () => /* binding */ isDate
         /* harmony export */
       });
-      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
       function _typeof(obj) {
         "@babel/helpers - typeof";
         if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -8532,15 +8569,15 @@
       /***/
     },
 
-    /***/ 99662: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9662: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ isValid
         /* harmony export */
       });
       /* harmony import */ var _isDate_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9895);
-      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26995);
-      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _toDate_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6995);
+      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
 
       /**
        * @name isValid
@@ -8588,7 +8625,7 @@
       /***/
     },
 
-    /***/ 25810: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5810: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ buildFormatLongFn
@@ -8607,7 +8644,7 @@
       /***/
     },
 
-    /***/ 36063: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6063: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ buildLocalizeFn
@@ -8639,7 +8676,7 @@
       /***/
     },
 
-    /***/ 87826: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7826: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ buildMatchFn
@@ -8699,7 +8736,7 @@
       /***/
     },
 
-    /***/ 15068: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5068: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ buildMatchPatternFn
@@ -8726,7 +8763,7 @@
       /***/
     },
 
-    /***/ 51965: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 1965: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
@@ -8824,13 +8861,13 @@
       /***/
     },
 
-    /***/ 61907: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 1907: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(25810);
+      /* harmony import */ var _lib_buildFormatLongFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5810);
 
       var dateFormats = {
         full: "EEEE, MMMM do, y",
@@ -8869,7 +8906,7 @@
       /***/
     },
 
-    /***/ 20683: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 683: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
@@ -8893,13 +8930,13 @@
       /***/
     },
 
-    /***/ 16915: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6915: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(36063);
+      /* harmony import */ var _lib_buildLocalizeFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6063);
 
       var eraValues = {
         narrow: ["B", "A"],
@@ -9050,14 +9087,14 @@
       /***/
     },
 
-    /***/ 85242: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5242: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(87826);
-      /* harmony import */ var _lib_buildMatchPatternFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15068);
+      /* harmony import */ var _lib_buildMatchFn_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7826);
+      /* harmony import */ var _lib_buildMatchPatternFn_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5068);
 
       var matchOrdinalNumberPattern = /^(\d+)(th|st|nd|rd)?/i;
       var parseOrdinalNumberPattern = /\d+/i;
@@ -9159,17 +9196,17 @@
       /***/
     },
 
-    /***/ 97970: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7970: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
-      /* harmony import */ var _lib_formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51965);
-      /* harmony import */ var _lib_formatLong_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(61907);
-      /* harmony import */ var _lib_formatRelative_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20683);
-      /* harmony import */ var _lib_localize_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(16915);
-      /* harmony import */ var _lib_match_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(85242);
+      /* harmony import */ var _lib_formatDistance_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1965);
+      /* harmony import */ var _lib_formatLong_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1907);
+      /* harmony import */ var _lib_formatRelative_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(683);
+      /* harmony import */ var _lib_localize_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6915);
+      /* harmony import */ var _lib_match_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5242);
 
       /**
        * @type {Locale}
@@ -9198,15 +9235,15 @@
       /***/
     },
 
-    /***/ 34057: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 4057: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ subMilliseconds
         /* harmony export */
       });
-      /* harmony import */ var _addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(89623);
-      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
-      /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(97198);
+      /* harmony import */ var _addMilliseconds_index_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9623);
+      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
+      /* harmony import */ var _lib_toInteger_index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7198);
 
       /**
        * @name subMilliseconds
@@ -9236,13 +9273,13 @@
       /***/
     },
 
-    /***/ 26995: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6995: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ toDate
         /* harmony export */
       });
-      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(80008);
+      /* harmony import */ var _lib_requiredArgs_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8);
       function _typeof(obj) {
         "@babel/helpers - typeof";
         if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -9756,173 +9793,7 @@
       /***/
     },
 
-    /***/ 9182: /***/ (module) => {
-      "use strict";
-      // Copyright Joyent, Inc. and other Node contributors.
-      //
-      // Permission is hereby granted, free of charge, to any person obtaining a
-      // copy of this software and associated documentation files (the
-      // "Software"), to deal in the Software without restriction, including
-      // without limitation the rights to use, copy, modify, merge, publish,
-      // distribute, sublicense, and/or sell copies of the Software, and to permit
-      // persons to whom the Software is furnished to do so, subject to the
-      // following conditions:
-      //
-      // The above copyright notice and this permission notice shall be included
-      // in all copies or substantial portions of the Software.
-      //
-      // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-      // OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-      // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-      // NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-      // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-      // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-      // USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-      // If obj.hasOwnProperty has been overridden, then calling
-      // obj.hasOwnProperty(prop) will break.
-      // See: https://github.com/joyent/node/issues/1707
-      function hasOwnProperty(obj, prop) {
-        return Object.prototype.hasOwnProperty.call(obj, prop);
-      }
-
-      module.exports = function (qs, sep, eq, options) {
-        sep = sep || "&";
-        eq = eq || "=";
-        var obj = {};
-
-        if (typeof qs !== "string" || qs.length === 0) {
-          return obj;
-        }
-
-        var regexp = /\+/g;
-        qs = qs.split(sep);
-
-        var maxKeys = 1000;
-        if (options && typeof options.maxKeys === "number") {
-          maxKeys = options.maxKeys;
-        }
-
-        var len = qs.length;
-        // maxKeys <= 0 means that we should not limit keys count
-        if (maxKeys > 0 && len > maxKeys) {
-          len = maxKeys;
-        }
-
-        for (var i = 0; i < len; ++i) {
-          var x = qs[i].replace(regexp, "%20"),
-            idx = x.indexOf(eq),
-            kstr,
-            vstr,
-            k,
-            v;
-
-          if (idx >= 0) {
-            kstr = x.substr(0, idx);
-            vstr = x.substr(idx + 1);
-          } else {
-            kstr = x;
-            vstr = "";
-          }
-
-          k = decodeURIComponent(kstr);
-          v = decodeURIComponent(vstr);
-
-          if (!hasOwnProperty(obj, k)) {
-            obj[k] = v;
-          } else if (Array.isArray(obj[k])) {
-            obj[k].push(v);
-          } else {
-            obj[k] = [obj[k], v];
-          }
-        }
-
-        return obj;
-      };
-
-      /***/
-    },
-
-    /***/ 99265: /***/ (module) => {
-      "use strict";
-      // Copyright Joyent, Inc. and other Node contributors.
-      //
-      // Permission is hereby granted, free of charge, to any person obtaining a
-      // copy of this software and associated documentation files (the
-      // "Software"), to deal in the Software without restriction, including
-      // without limitation the rights to use, copy, modify, merge, publish,
-      // distribute, sublicense, and/or sell copies of the Software, and to permit
-      // persons to whom the Software is furnished to do so, subject to the
-      // following conditions:
-      //
-      // The above copyright notice and this permission notice shall be included
-      // in all copies or substantial portions of the Software.
-      //
-      // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-      // OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-      // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-      // NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-      // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-      // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-      // USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-      var stringifyPrimitive = function (v) {
-        switch (typeof v) {
-          case "string":
-            return v;
-
-          case "boolean":
-            return v ? "true" : "false";
-
-          case "number":
-            return isFinite(v) ? v : "";
-
-          default:
-            return "";
-        }
-      };
-
-      module.exports = function (obj, sep, eq, name) {
-        sep = sep || "&";
-        eq = eq || "=";
-        if (obj === null) {
-          obj = undefined;
-        }
-
-        if (typeof obj === "object") {
-          return Object.keys(obj)
-            .map(function (k) {
-              var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
-              if (Array.isArray(obj[k])) {
-                return obj[k]
-                  .map(function (v) {
-                    return ks + encodeURIComponent(stringifyPrimitive(v));
-                  })
-                  .join(sep);
-              } else {
-                return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
-              }
-            })
-            .join(sep);
-        }
-
-        if (!name) return "";
-        return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
-      };
-
-      /***/
-    },
-
-    /***/ 58528: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
-      "use strict";
-
-      exports.decode = exports.parse = __webpack_require__(9182);
-      exports.encode = exports.stringify = __webpack_require__(99265);
-
-      /***/
-    },
-
-    /***/ 58171: /***/ function (module, exports, __webpack_require__) {
+    /***/ 8171: /***/ function (module, exports, __webpack_require__) {
       var __WEBPACK_AMD_DEFINE_RESULT__; /////////////////////////////////////////////////////////////////////////////////
       /* UAParser.js v1.0.36
    Copyright © 2012-2021 Faisal Salman <f@faisalman.com>
@@ -11150,1253 +11021,34 @@
       /***/
     },
 
-    /***/ 29473: /***/ function (module, exports, __webpack_require__) {
-      /* module decorator */ module = __webpack_require__.nmd(module);
-      var __WEBPACK_AMD_DEFINE_RESULT__; /*! https://mths.be/punycode v1.3.2 by @mathias */
-      (function (root) {
-        /** Detect free variables */
-        var freeExports = true && exports && !exports.nodeType && exports;
-        var freeModule = true && module && !module.nodeType && module;
-        var freeGlobal = typeof __webpack_require__.g == "object" && __webpack_require__.g;
-        if (freeGlobal.global === freeGlobal || freeGlobal.window === freeGlobal || freeGlobal.self === freeGlobal) {
-          root = freeGlobal;
-        }
-
-        /**
-         * The `punycode` object.
-         * @name punycode
-         * @type Object
-         */
-        var punycode,
-          /** Highest positive signed 32-bit float value */
-          maxInt = 2147483647, // aka. 0x7FFFFFFF or 2^31-1
-          /** Bootstring parameters */
-          base = 36,
-          tMin = 1,
-          tMax = 26,
-          skew = 38,
-          damp = 700,
-          initialBias = 72,
-          initialN = 128, // 0x80
-          delimiter = "-", // '\x2D'
-          /** Regular expressions */
-          regexPunycode = /^xn--/,
-          regexNonASCII = /[^\x20-\x7E]/, // unprintable ASCII chars + non-ASCII chars
-          regexSeparators = /[\x2E\u3002\uFF0E\uFF61]/g, // RFC 3490 separators
-          /** Error messages */
-          errors = {
-            overflow: "Overflow: input needs wider integers to process",
-            "not-basic": "Illegal input >= 0x80 (not a basic code point)",
-            "invalid-input": "Invalid input"
-          },
-          /** Convenience shortcuts */
-          baseMinusTMin = base - tMin,
-          floor = Math.floor,
-          stringFromCharCode = String.fromCharCode,
-          /** Temporary variable */
-          key;
-
-        /*--------------------------------------------------------------------------*/
-
-        /**
-         * A generic error utility function.
-         * @private
-         * @param {String} type The error type.
-         * @returns {Error} Throws a `RangeError` with the applicable error message.
-         */
-        function error(type) {
-          throw RangeError(errors[type]);
-        }
-
-        /**
-         * A generic `Array#map` utility function.
-         * @private
-         * @param {Array} array The array to iterate over.
-         * @param {Function} callback The function that gets called for every array
-         * item.
-         * @returns {Array} A new array of values returned by the callback function.
-         */
-        function map(array, fn) {
-          var length = array.length;
-          var result = [];
-          while (length--) {
-            result[length] = fn(array[length]);
-          }
-          return result;
-        }
-
-        /**
-         * A simple `Array#map`-like wrapper to work with domain name strings or email
-         * addresses.
-         * @private
-         * @param {String} domain The domain name or email address.
-         * @param {Function} callback The function that gets called for every
-         * character.
-         * @returns {Array} A new string of characters returned by the callback
-         * function.
-         */
-        function mapDomain(string, fn) {
-          var parts = string.split("@");
-          var result = "";
-          if (parts.length > 1) {
-            // In email addresses, only the domain name should be punycoded. Leave
-            // the local part (i.e. everything up to `@`) intact.
-            result = parts[0] + "@";
-            string = parts[1];
-          }
-          // Avoid `split(regex)` for IE8 compatibility. See #17.
-          string = string.replace(regexSeparators, "\x2E");
-          var labels = string.split(".");
-          var encoded = map(labels, fn).join(".");
-          return result + encoded;
-        }
-
-        /**
-         * Creates an array containing the numeric code points of each Unicode
-         * character in the string. While JavaScript uses UCS-2 internally,
-         * this function will convert a pair of surrogate halves (each of which
-         * UCS-2 exposes as separate characters) into a single code point,
-         * matching UTF-16.
-         * @see `punycode.ucs2.encode`
-         * @see <https://mathiasbynens.be/notes/javascript-encoding>
-         * @memberOf punycode.ucs2
-         * @name decode
-         * @param {String} string The Unicode input string (UCS-2).
-         * @returns {Array} The new array of code points.
-         */
-        function ucs2decode(string) {
-          var output = [],
-            counter = 0,
-            length = string.length,
-            value,
-            extra;
-          while (counter < length) {
-            value = string.charCodeAt(counter++);
-            if (value >= 0xd800 && value <= 0xdbff && counter < length) {
-              // high surrogate, and there is a next character
-              extra = string.charCodeAt(counter++);
-              if ((extra & 0xfc00) == 0xdc00) {
-                // low surrogate
-                output.push(((value & 0x3ff) << 10) + (extra & 0x3ff) + 0x10000);
-              } else {
-                // unmatched surrogate; only append this code unit, in case the next
-                // code unit is the high surrogate of a surrogate pair
-                output.push(value);
-                counter--;
-              }
-            } else {
-              output.push(value);
-            }
-          }
-          return output;
-        }
-
-        /**
-         * Creates a string based on an array of numeric code points.
-         * @see `punycode.ucs2.decode`
-         * @memberOf punycode.ucs2
-         * @name encode
-         * @param {Array} codePoints The array of numeric code points.
-         * @returns {String} The new Unicode string (UCS-2).
-         */
-        function ucs2encode(array) {
-          return map(array, function (value) {
-            var output = "";
-            if (value > 0xffff) {
-              value -= 0x10000;
-              output += stringFromCharCode(((value >>> 10) & 0x3ff) | 0xd800);
-              value = 0xdc00 | (value & 0x3ff);
-            }
-            output += stringFromCharCode(value);
-            return output;
-          }).join("");
-        }
-
-        /**
-         * Converts a basic code point into a digit/integer.
-         * @see `digitToBasic()`
-         * @private
-         * @param {Number} codePoint The basic numeric code point value.
-         * @returns {Number} The numeric value of a basic code point (for use in
-         * representing integers) in the range `0` to `base - 1`, or `base` if
-         * the code point does not represent a value.
-         */
-        function basicToDigit(codePoint) {
-          if (codePoint - 48 < 10) {
-            return codePoint - 22;
-          }
-          if (codePoint - 65 < 26) {
-            return codePoint - 65;
-          }
-          if (codePoint - 97 < 26) {
-            return codePoint - 97;
-          }
-          return base;
-        }
-
-        /**
-         * Converts a digit/integer into a basic code point.
-         * @see `basicToDigit()`
-         * @private
-         * @param {Number} digit The numeric value of a basic code point.
-         * @returns {Number} The basic code point whose value (when used for
-         * representing integers) is `digit`, which needs to be in the range
-         * `0` to `base - 1`. If `flag` is non-zero, the uppercase form is
-         * used; else, the lowercase form is used. The behavior is undefined
-         * if `flag` is non-zero and `digit` has no uppercase form.
-         */
-        function digitToBasic(digit, flag) {
-          //  0..25 map to ASCII a..z or A..Z
-          // 26..35 map to ASCII 0..9
-          return digit + 22 + 75 * (digit < 26) - ((flag != 0) << 5);
-        }
-
-        /**
-         * Bias adaptation function as per section 3.4 of RFC 3492.
-         * http://tools.ietf.org/html/rfc3492#section-3.4
-         * @private
-         */
-        function adapt(delta, numPoints, firstTime) {
-          var k = 0;
-          delta = firstTime ? floor(delta / damp) : delta >> 1;
-          delta += floor(delta / numPoints);
-          for (; /* no initialization */ delta > (baseMinusTMin * tMax) >> 1; k += base) {
-            delta = floor(delta / baseMinusTMin);
-          }
-          return floor(k + ((baseMinusTMin + 1) * delta) / (delta + skew));
-        }
-
-        /**
-         * Converts a Punycode string of ASCII-only symbols to a string of Unicode
-         * symbols.
-         * @memberOf punycode
-         * @param {String} input The Punycode string of ASCII-only symbols.
-         * @returns {String} The resulting string of Unicode symbols.
-         */
-        function decode(input) {
-          // Don't use UCS-2
-          var output = [],
-            inputLength = input.length,
-            out,
-            i = 0,
-            n = initialN,
-            bias = initialBias,
-            basic,
-            j,
-            index,
-            oldi,
-            w,
-            k,
-            digit,
-            t,
-            /** Cached calculation results */
-            baseMinusT;
-
-          // Handle the basic code points: let `basic` be the number of input code
-          // points before the last delimiter, or `0` if there is none, then copy
-          // the first basic code points to the output.
-
-          basic = input.lastIndexOf(delimiter);
-          if (basic < 0) {
-            basic = 0;
-          }
-
-          for (j = 0; j < basic; ++j) {
-            // if it's not a basic code point
-            if (input.charCodeAt(j) >= 0x80) {
-              error("not-basic");
-            }
-            output.push(input.charCodeAt(j));
-          }
-
-          // Main decoding loop: start just after the last delimiter if any basic code
-          // points were copied; start at the beginning otherwise.
-
-          for (index = basic > 0 ? basic + 1 : 0; index < inputLength /* no final expression */; ) {
-            // `index` is the index of the next character to be consumed.
-            // Decode a generalized variable-length integer into `delta`,
-            // which gets added to `i`. The overflow checking is easier
-            // if we increase `i` as we go, then subtract off its starting
-            // value at the end to obtain `delta`.
-            for (oldi = i, w = 1, k = base /* no condition */; ; k += base) {
-              if (index >= inputLength) {
-                error("invalid-input");
-              }
-
-              digit = basicToDigit(input.charCodeAt(index++));
-
-              if (digit >= base || digit > floor((maxInt - i) / w)) {
-                error("overflow");
-              }
-
-              i += digit * w;
-              t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
-
-              if (digit < t) {
-                break;
-              }
-
-              baseMinusT = base - t;
-              if (w > floor(maxInt / baseMinusT)) {
-                error("overflow");
-              }
-
-              w *= baseMinusT;
-            }
-
-            out = output.length + 1;
-            bias = adapt(i - oldi, out, oldi == 0);
-
-            // `i` was supposed to wrap around from `out` to `0`,
-            // incrementing `n` each time, so we'll fix that now:
-            if (floor(i / out) > maxInt - n) {
-              error("overflow");
-            }
-
-            n += floor(i / out);
-            i %= out;
-
-            // Insert `n` at position `i` of the output
-            output.splice(i++, 0, n);
-          }
-
-          return ucs2encode(output);
-        }
-
-        /**
-         * Converts a string of Unicode symbols (e.g. a domain name label) to a
-         * Punycode string of ASCII-only symbols.
-         * @memberOf punycode
-         * @param {String} input The string of Unicode symbols.
-         * @returns {String} The resulting Punycode string of ASCII-only symbols.
-         */
-        function encode(input) {
-          var n,
-            delta,
-            handledCPCount,
-            basicLength,
-            bias,
-            j,
-            m,
-            q,
-            k,
-            t,
-            currentValue,
-            output = [],
-            /** `inputLength` will hold the number of code points in `input`. */
-            inputLength,
-            /** Cached calculation results */
-            handledCPCountPlusOne,
-            baseMinusT,
-            qMinusT;
-
-          // Convert the input in UCS-2 to Unicode
-          input = ucs2decode(input);
-
-          // Cache the length
-          inputLength = input.length;
-
-          // Initialize the state
-          n = initialN;
-          delta = 0;
-          bias = initialBias;
-
-          // Handle the basic code points
-          for (j = 0; j < inputLength; ++j) {
-            currentValue = input[j];
-            if (currentValue < 0x80) {
-              output.push(stringFromCharCode(currentValue));
-            }
-          }
-
-          handledCPCount = basicLength = output.length;
-
-          // `handledCPCount` is the number of code points that have been handled;
-          // `basicLength` is the number of basic code points.
-
-          // Finish the basic string - if it is not empty - with a delimiter
-          if (basicLength) {
-            output.push(delimiter);
-          }
-
-          // Main encoding loop:
-          while (handledCPCount < inputLength) {
-            // All non-basic code points < n have been handled already. Find the next
-            // larger one:
-            for (m = maxInt, j = 0; j < inputLength; ++j) {
-              currentValue = input[j];
-              if (currentValue >= n && currentValue < m) {
-                m = currentValue;
-              }
-            }
-
-            // Increase `delta` enough to advance the decoder's <n,i> state to <m,0>,
-            // but guard against overflow
-            handledCPCountPlusOne = handledCPCount + 1;
-            if (m - n > floor((maxInt - delta) / handledCPCountPlusOne)) {
-              error("overflow");
-            }
-
-            delta += (m - n) * handledCPCountPlusOne;
-            n = m;
-
-            for (j = 0; j < inputLength; ++j) {
-              currentValue = input[j];
-
-              if (currentValue < n && ++delta > maxInt) {
-                error("overflow");
-              }
-
-              if (currentValue == n) {
-                // Represent delta as a generalized variable-length integer
-                for (q = delta, k = base /* no condition */; ; k += base) {
-                  t = k <= bias ? tMin : k >= bias + tMax ? tMax : k - bias;
-                  if (q < t) {
-                    break;
-                  }
-                  qMinusT = q - t;
-                  baseMinusT = base - t;
-                  output.push(stringFromCharCode(digitToBasic(t + (qMinusT % baseMinusT), 0)));
-                  q = floor(qMinusT / baseMinusT);
-                }
-
-                output.push(stringFromCharCode(digitToBasic(q, 0)));
-                bias = adapt(delta, handledCPCountPlusOne, handledCPCount == basicLength);
-                delta = 0;
-                ++handledCPCount;
-              }
-            }
-
-            ++delta;
-            ++n;
-          }
-          return output.join("");
-        }
-
-        /**
-         * Converts a Punycode string representing a domain name or an email address
-         * to Unicode. Only the Punycoded parts of the input will be converted, i.e.
-         * it doesn't matter if you call it on a string that has already been
-         * converted to Unicode.
-         * @memberOf punycode
-         * @param {String} input The Punycoded domain name or email address to
-         * convert to Unicode.
-         * @returns {String} The Unicode representation of the given Punycode
-         * string.
-         */
-        function toUnicode(input) {
-          return mapDomain(input, function (string) {
-            return regexPunycode.test(string) ? decode(string.slice(4).toLowerCase()) : string;
-          });
-        }
-
-        /**
-         * Converts a Unicode string representing a domain name or an email address to
-         * Punycode. Only the non-ASCII parts of the domain name will be converted,
-         * i.e. it doesn't matter if you call it with a domain that's already in
-         * ASCII.
-         * @memberOf punycode
-         * @param {String} input The domain name or email address to convert, as a
-         * Unicode string.
-         * @returns {String} The Punycode representation of the given domain name or
-         * email address.
-         */
-        function toASCII(input) {
-          return mapDomain(input, function (string) {
-            return regexNonASCII.test(string) ? "xn--" + encode(string) : string;
-          });
-        }
-
-        /*--------------------------------------------------------------------------*/
-
-        /** Define the public API */
-        punycode = {
-          /**
-           * A string representing the current Punycode.js version number.
-           * @memberOf punycode
-           * @type String
-           */
-          version: "1.3.2",
-          /**
-           * An object of methods to convert from JavaScript's internal character
-           * representation (UCS-2) to Unicode code points, and back.
-           * @see <https://mathiasbynens.be/notes/javascript-encoding>
-           * @memberOf punycode
-           * @type Object
-           */
-          ucs2: {
-            decode: ucs2decode,
-            encode: ucs2encode
-          },
-          decode: decode,
-          encode: encode,
-          toASCII: toASCII,
-          toUnicode: toUnicode
-        };
-
-        /** Expose `punycode` */
-        // Some AMD build optimizers, like r.js, check for specific condition patterns
-        // like the following:
-        if (true) {
-          !((__WEBPACK_AMD_DEFINE_RESULT__ = function () {
-            return punycode;
-          }.call(exports, __webpack_require__, exports, module)),
-          __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-        } else {
-        }
-      })(this);
-
-      /***/
-    },
-
-    /***/ 83548: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
-      "use strict";
-      // Copyright Joyent, Inc. and other Node contributors.
-      //
-      // Permission is hereby granted, free of charge, to any person obtaining a
-      // copy of this software and associated documentation files (the
-      // "Software"), to deal in the Software without restriction, including
-      // without limitation the rights to use, copy, modify, merge, publish,
-      // distribute, sublicense, and/or sell copies of the Software, and to permit
-      // persons to whom the Software is furnished to do so, subject to the
-      // following conditions:
-      //
-      // The above copyright notice and this permission notice shall be included
-      // in all copies or substantial portions of the Software.
-      //
-      // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-      // OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-      // MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-      // NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-      // DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-      // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-      // USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-      var punycode = __webpack_require__(29473);
-      var util = __webpack_require__(46729);
-
-      exports.parse = urlParse;
-      exports.resolve = urlResolve;
-      exports.resolveObject = urlResolveObject;
-      exports.format = urlFormat;
-
-      exports.Url = Url;
-
-      function Url() {
-        this.protocol = null;
-        this.slashes = null;
-        this.auth = null;
-        this.host = null;
-        this.port = null;
-        this.hostname = null;
-        this.hash = null;
-        this.search = null;
-        this.query = null;
-        this.pathname = null;
-        this.path = null;
-        this.href = null;
-      }
-
-      // Reference: RFC 3986, RFC 1808, RFC 2396
-
-      // define these here so at least they only have to be
-      // compiled once on the first module load.
-      var protocolPattern = /^([a-z0-9.+-]+:)/i,
-        portPattern = /:[0-9]*$/,
-        // Special case for a simple path URL
-        simplePathPattern = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
-        // RFC 2396: characters reserved for delimiting URLs.
-        // We actually just auto-escape these.
-        delims = ["<", ">", '"', "`", " ", "\r", "\n", "\t"],
-        // RFC 2396: characters not allowed for various reasons.
-        unwise = ["{", "}", "|", "\\", "^", "`"].concat(delims),
-        // Allowed by RFCs, but cause of XSS attacks.  Always escape these.
-        autoEscape = ["'"].concat(unwise),
-        // Characters that are never ever allowed in a hostname.
-        // Note that any invalid chars are also handled, but these
-        // are the ones that are *expected* to be seen, so we fast-path
-        // them.
-        nonHostChars = ["%", "/", "?", ";", "#"].concat(autoEscape),
-        hostEndingChars = ["/", "?", "#"],
-        hostnameMaxLen = 255,
-        hostnamePartPattern = /^[+a-z0-9A-Z_-]{0,63}$/,
-        hostnamePartStart = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
-        // protocols that can allow "unsafe" and "unwise" chars.
-        unsafeProtocol = {
-          javascript: true,
-          "javascript:": true
-        },
-        // protocols that never have a hostname.
-        hostlessProtocol = {
-          javascript: true,
-          "javascript:": true
-        },
-        // protocols that always contain a // bit.
-        slashedProtocol = {
-          http: true,
-          https: true,
-          ftp: true,
-          gopher: true,
-          file: true,
-          "http:": true,
-          "https:": true,
-          "ftp:": true,
-          "gopher:": true,
-          "file:": true
-        },
-        querystring = __webpack_require__(58528);
-
-      function urlParse(url, parseQueryString, slashesDenoteHost) {
-        if (url && util.isObject(url) && url instanceof Url) return url;
-
-        var u = new Url();
-        u.parse(url, parseQueryString, slashesDenoteHost);
-        return u;
-      }
-
-      Url.prototype.parse = function (url, parseQueryString, slashesDenoteHost) {
-        if (!util.isString(url)) {
-          throw new TypeError("Parameter 'url' must be a string, not " + typeof url);
-        }
-
-        // Copy chrome, IE, opera backslash-handling behavior.
-        // Back slashes before the query string get converted to forward slashes
-        // See: https://code.google.com/p/chromium/issues/detail?id=25916
-        var queryIndex = url.indexOf("?"),
-          splitter = queryIndex !== -1 && queryIndex < url.indexOf("#") ? "?" : "#",
-          uSplit = url.split(splitter),
-          slashRegex = /\\/g;
-        uSplit[0] = uSplit[0].replace(slashRegex, "/");
-        url = uSplit.join(splitter);
-
-        var rest = url;
-
-        // trim before proceeding.
-        // This is to support parse stuff like "  http://foo.com  \n"
-        rest = rest.trim();
-
-        if (!slashesDenoteHost && url.split("#").length === 1) {
-          // Try fast path regexp
-          var simplePath = simplePathPattern.exec(rest);
-          if (simplePath) {
-            this.path = rest;
-            this.href = rest;
-            this.pathname = simplePath[1];
-            if (simplePath[2]) {
-              this.search = simplePath[2];
-              if (parseQueryString) {
-                this.query = querystring.parse(this.search.substr(1));
-              } else {
-                this.query = this.search.substr(1);
-              }
-            } else if (parseQueryString) {
-              this.search = "";
-              this.query = {};
-            }
-            return this;
-          }
-        }
-
-        var proto = protocolPattern.exec(rest);
-        if (proto) {
-          proto = proto[0];
-          var lowerProto = proto.toLowerCase();
-          this.protocol = lowerProto;
-          rest = rest.substr(proto.length);
-        }
-
-        // figure out if it's got a host
-        // user@server is *always* interpreted as a hostname, and url
-        // resolution will treat //foo/bar as host=foo,path=bar because that's
-        // how the browser resolves relative URLs.
-        if (slashesDenoteHost || proto || rest.match(/^\/\/[^@\/]+@[^@\/]+/)) {
-          var slashes = rest.substr(0, 2) === "//";
-          if (slashes && !(proto && hostlessProtocol[proto])) {
-            rest = rest.substr(2);
-            this.slashes = true;
-          }
-        }
-
-        if (!hostlessProtocol[proto] && (slashes || (proto && !slashedProtocol[proto]))) {
-          // there's a hostname.
-          // the first instance of /, ?, ;, or # ends the host.
-          //
-          // If there is an @ in the hostname, then non-host chars *are* allowed
-          // to the left of the last @ sign, unless some host-ending character
-          // comes *before* the @-sign.
-          // URLs are obnoxious.
-          //
-          // ex:
-          // http://a@b@c/ => user:a@b host:c
-          // http://a@b?@c => user:a host:c path:/?@c
-
-          // v0.12 TODO(isaacs): This is not quite how Chrome does things.
-          // Review our test case against browsers more comprehensively.
-
-          // find the first instance of any hostEndingChars
-          var hostEnd = -1;
-          for (var i = 0; i < hostEndingChars.length; i++) {
-            var hec = rest.indexOf(hostEndingChars[i]);
-            if (hec !== -1 && (hostEnd === -1 || hec < hostEnd)) hostEnd = hec;
-          }
-
-          // at this point, either we have an explicit point where the
-          // auth portion cannot go past, or the last @ char is the decider.
-          var auth, atSign;
-          if (hostEnd === -1) {
-            // atSign can be anywhere.
-            atSign = rest.lastIndexOf("@");
-          } else {
-            // atSign must be in auth portion.
-            // http://a@b/c@d => host:b auth:a path:/c@d
-            atSign = rest.lastIndexOf("@", hostEnd);
-          }
-
-          // Now we have a portion which is definitely the auth.
-          // Pull that off.
-          if (atSign !== -1) {
-            auth = rest.slice(0, atSign);
-            rest = rest.slice(atSign + 1);
-            this.auth = decodeURIComponent(auth);
-          }
-
-          // the host is the remaining to the left of the first non-host char
-          hostEnd = -1;
-          for (var i = 0; i < nonHostChars.length; i++) {
-            var hec = rest.indexOf(nonHostChars[i]);
-            if (hec !== -1 && (hostEnd === -1 || hec < hostEnd)) hostEnd = hec;
-          }
-          // if we still have not hit it, then the entire thing is a host.
-          if (hostEnd === -1) hostEnd = rest.length;
-
-          this.host = rest.slice(0, hostEnd);
-          rest = rest.slice(hostEnd);
-
-          // pull out port.
-          this.parseHost();
-
-          // we've indicated that there is a hostname,
-          // so even if it's empty, it has to be present.
-          this.hostname = this.hostname || "";
-
-          // if hostname begins with [ and ends with ]
-          // assume that it's an IPv6 address.
-          var ipv6Hostname = this.hostname[0] === "[" && this.hostname[this.hostname.length - 1] === "]";
-
-          // validate a little.
-          if (!ipv6Hostname) {
-            var hostparts = this.hostname.split(/\./);
-            for (var i = 0, l = hostparts.length; i < l; i++) {
-              var part = hostparts[i];
-              if (!part) continue;
-              if (!part.match(hostnamePartPattern)) {
-                var newpart = "";
-                for (var j = 0, k = part.length; j < k; j++) {
-                  if (part.charCodeAt(j) > 127) {
-                    // we replace non-ASCII char with a temporary placeholder
-                    // we need this to make sure size of hostname is not
-                    // broken by replacing non-ASCII by nothing
-                    newpart += "x";
-                  } else {
-                    newpart += part[j];
-                  }
-                }
-                // we test again with ASCII char only
-                if (!newpart.match(hostnamePartPattern)) {
-                  var validParts = hostparts.slice(0, i);
-                  var notHost = hostparts.slice(i + 1);
-                  var bit = part.match(hostnamePartStart);
-                  if (bit) {
-                    validParts.push(bit[1]);
-                    notHost.unshift(bit[2]);
-                  }
-                  if (notHost.length) {
-                    rest = "/" + notHost.join(".") + rest;
-                  }
-                  this.hostname = validParts.join(".");
-                  break;
-                }
-              }
-            }
-          }
-
-          if (this.hostname.length > hostnameMaxLen) {
-            this.hostname = "";
-          } else {
-            // hostnames are always lower case.
-            this.hostname = this.hostname.toLowerCase();
-          }
-
-          if (!ipv6Hostname) {
-            // IDNA Support: Returns a punycoded representation of "domain".
-            // It only converts parts of the domain name that
-            // have non-ASCII characters, i.e. it doesn't matter if
-            // you call it with a domain that already is ASCII-only.
-            this.hostname = punycode.toASCII(this.hostname);
-          }
-
-          var p = this.port ? ":" + this.port : "";
-          var h = this.hostname || "";
-          this.host = h + p;
-          this.href += this.host;
-
-          // strip [ and ] from the hostname
-          // the host field still retains them, though
-          if (ipv6Hostname) {
-            this.hostname = this.hostname.substr(1, this.hostname.length - 2);
-            if (rest[0] !== "/") {
-              rest = "/" + rest;
-            }
-          }
-        }
-
-        // now rest is set to the post-host stuff.
-        // chop off any delim chars.
-        if (!unsafeProtocol[lowerProto]) {
-          // First, make 100% sure that any "autoEscape" chars get
-          // escaped, even if encodeURIComponent doesn't think they
-          // need to be.
-          for (var i = 0, l = autoEscape.length; i < l; i++) {
-            var ae = autoEscape[i];
-            if (rest.indexOf(ae) === -1) continue;
-            var esc = encodeURIComponent(ae);
-            if (esc === ae) {
-              esc = escape(ae);
-            }
-            rest = rest.split(ae).join(esc);
-          }
-        }
-
-        // chop off from the tail first.
-        var hash = rest.indexOf("#");
-        if (hash !== -1) {
-          // got a fragment string.
-          this.hash = rest.substr(hash);
-          rest = rest.slice(0, hash);
-        }
-        var qm = rest.indexOf("?");
-        if (qm !== -1) {
-          this.search = rest.substr(qm);
-          this.query = rest.substr(qm + 1);
-          if (parseQueryString) {
-            this.query = querystring.parse(this.query);
-          }
-          rest = rest.slice(0, qm);
-        } else if (parseQueryString) {
-          // no query string, but parseQueryString still requested
-          this.search = "";
-          this.query = {};
-        }
-        if (rest) this.pathname = rest;
-        if (slashedProtocol[lowerProto] && this.hostname && !this.pathname) {
-          this.pathname = "/";
-        }
-
-        //to support http.request
-        if (this.pathname || this.search) {
-          var p = this.pathname || "";
-          var s = this.search || "";
-          this.path = p + s;
-        }
-
-        // finally, reconstruct the href based on what has been validated.
-        this.href = this.format();
-        return this;
-      };
-
-      // format a parsed object into a url string
-      function urlFormat(obj) {
-        // ensure it's an object, and not a string url.
-        // If it's an obj, this is a no-op.
-        // this way, you can call url_format() on strings
-        // to clean up potentially wonky urls.
-        if (util.isString(obj)) obj = urlParse(obj);
-        if (!(obj instanceof Url)) return Url.prototype.format.call(obj);
-        return obj.format();
-      }
-
-      Url.prototype.format = function () {
-        var auth = this.auth || "";
-        if (auth) {
-          auth = encodeURIComponent(auth);
-          auth = auth.replace(/%3A/i, ":");
-          auth += "@";
-        }
-
-        var protocol = this.protocol || "",
-          pathname = this.pathname || "",
-          hash = this.hash || "",
-          host = false,
-          query = "";
-
-        if (this.host) {
-          host = auth + this.host;
-        } else if (this.hostname) {
-          host = auth + (this.hostname.indexOf(":") === -1 ? this.hostname : "[" + this.hostname + "]");
-          if (this.port) {
-            host += ":" + this.port;
-          }
-        }
-
-        if (this.query && util.isObject(this.query) && Object.keys(this.query).length) {
-          query = querystring.stringify(this.query);
-        }
-
-        var search = this.search || (query && "?" + query) || "";
-
-        if (protocol && protocol.substr(-1) !== ":") protocol += ":";
-
-        // only the slashedProtocols get the //.  Not mailto:, xmpp:, etc.
-        // unless they had them to begin with.
-        if (this.slashes || ((!protocol || slashedProtocol[protocol]) && host !== false)) {
-          host = "//" + (host || "");
-          if (pathname && pathname.charAt(0) !== "/") pathname = "/" + pathname;
-        } else if (!host) {
-          host = "";
-        }
-
-        if (hash && hash.charAt(0) !== "#") hash = "#" + hash;
-        if (search && search.charAt(0) !== "?") search = "?" + search;
-
-        pathname = pathname.replace(/[?#]/g, function (match) {
-          return encodeURIComponent(match);
-        });
-        search = search.replace("#", "%23");
-
-        return protocol + host + pathname + search + hash;
-      };
-
-      function urlResolve(source, relative) {
-        return urlParse(source, false, true).resolve(relative);
-      }
-
-      Url.prototype.resolve = function (relative) {
-        return this.resolveObject(urlParse(relative, false, true)).format();
-      };
-
-      function urlResolveObject(source, relative) {
-        if (!source) return relative;
-        return urlParse(source, false, true).resolveObject(relative);
-      }
-
-      Url.prototype.resolveObject = function (relative) {
-        if (util.isString(relative)) {
-          var rel = new Url();
-          rel.parse(relative, false, true);
-          relative = rel;
-        }
-
-        var result = new Url();
-        var tkeys = Object.keys(this);
-        for (var tk = 0; tk < tkeys.length; tk++) {
-          var tkey = tkeys[tk];
-          result[tkey] = this[tkey];
-        }
-
-        // hash is always overridden, no matter what.
-        // even href="" will remove it.
-        result.hash = relative.hash;
-
-        // if the relative url is empty, then there's nothing left to do here.
-        if (relative.href === "") {
-          result.href = result.format();
-          return result;
-        }
-
-        // hrefs like //foo/bar always cut to the protocol.
-        if (relative.slashes && !relative.protocol) {
-          // take everything except the protocol from relative
-          var rkeys = Object.keys(relative);
-          for (var rk = 0; rk < rkeys.length; rk++) {
-            var rkey = rkeys[rk];
-            if (rkey !== "protocol") result[rkey] = relative[rkey];
-          }
-
-          //urlParse appends trailing / to urls like http://www.example.com
-          if (slashedProtocol[result.protocol] && result.hostname && !result.pathname) {
-            result.path = result.pathname = "/";
-          }
-
-          result.href = result.format();
-          return result;
-        }
-
-        if (relative.protocol && relative.protocol !== result.protocol) {
-          // if it's a known url protocol, then changing
-          // the protocol does weird things
-          // first, if it's not file:, then we MUST have a host,
-          // and if there was a path
-          // to begin with, then we MUST have a path.
-          // if it is file:, then the host is dropped,
-          // because that's known to be hostless.
-          // anything else is assumed to be absolute.
-          if (!slashedProtocol[relative.protocol]) {
-            var keys = Object.keys(relative);
-            for (var v = 0; v < keys.length; v++) {
-              var k = keys[v];
-              result[k] = relative[k];
-            }
-            result.href = result.format();
-            return result;
-          }
-
-          result.protocol = relative.protocol;
-          if (!relative.host && !hostlessProtocol[relative.protocol]) {
-            var relPath = (relative.pathname || "").split("/");
-            while (relPath.length && !(relative.host = relPath.shift()));
-            if (!relative.host) relative.host = "";
-            if (!relative.hostname) relative.hostname = "";
-            if (relPath[0] !== "") relPath.unshift("");
-            if (relPath.length < 2) relPath.unshift("");
-            result.pathname = relPath.join("/");
-          } else {
-            result.pathname = relative.pathname;
-          }
-          result.search = relative.search;
-          result.query = relative.query;
-          result.host = relative.host || "";
-          result.auth = relative.auth;
-          result.hostname = relative.hostname || relative.host;
-          result.port = relative.port;
-          // to support http.request
-          if (result.pathname || result.search) {
-            var p = result.pathname || "";
-            var s = result.search || "";
-            result.path = p + s;
-          }
-          result.slashes = result.slashes || relative.slashes;
-          result.href = result.format();
-          return result;
-        }
-
-        var isSourceAbs = result.pathname && result.pathname.charAt(0) === "/",
-          isRelAbs = relative.host || (relative.pathname && relative.pathname.charAt(0) === "/"),
-          mustEndAbs = isRelAbs || isSourceAbs || (result.host && relative.pathname),
-          removeAllDots = mustEndAbs,
-          srcPath = (result.pathname && result.pathname.split("/")) || [],
-          relPath = (relative.pathname && relative.pathname.split("/")) || [],
-          psychotic = result.protocol && !slashedProtocol[result.protocol];
-
-        // if the url is a non-slashed url, then relative
-        // links like ../.. should be able
-        // to crawl up to the hostname, as well.  This is strange.
-        // result.protocol has already been set by now.
-        // Later on, put the first path part into the host field.
-        if (psychotic) {
-          result.hostname = "";
-          result.port = null;
-          if (result.host) {
-            if (srcPath[0] === "") srcPath[0] = result.host;
-            else srcPath.unshift(result.host);
-          }
-          result.host = "";
-          if (relative.protocol) {
-            relative.hostname = null;
-            relative.port = null;
-            if (relative.host) {
-              if (relPath[0] === "") relPath[0] = relative.host;
-              else relPath.unshift(relative.host);
-            }
-            relative.host = null;
-          }
-          mustEndAbs = mustEndAbs && (relPath[0] === "" || srcPath[0] === "");
-        }
-
-        if (isRelAbs) {
-          // it's absolute.
-          result.host = relative.host || relative.host === "" ? relative.host : result.host;
-          result.hostname = relative.hostname || relative.hostname === "" ? relative.hostname : result.hostname;
-          result.search = relative.search;
-          result.query = relative.query;
-          srcPath = relPath;
-          // fall through to the dot-handling below.
-        } else if (relPath.length) {
-          // it's relative
-          // throw away the existing file, and take the new path instead.
-          if (!srcPath) srcPath = [];
-          srcPath.pop();
-          srcPath = srcPath.concat(relPath);
-          result.search = relative.search;
-          result.query = relative.query;
-        } else if (!util.isNullOrUndefined(relative.search)) {
-          // just pull out the search.
-          // like href='?foo'.
-          // Put this after the other two cases because it simplifies the booleans
-          if (psychotic) {
-            result.hostname = result.host = srcPath.shift();
-            //occationaly the auth can get stuck only in host
-            //this especially happens in cases like
-            //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
-            var authInHost = result.host && result.host.indexOf("@") > 0 ? result.host.split("@") : false;
-            if (authInHost) {
-              result.auth = authInHost.shift();
-              result.host = result.hostname = authInHost.shift();
-            }
-          }
-          result.search = relative.search;
-          result.query = relative.query;
-          //to support http.request
-          if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
-            result.path = (result.pathname ? result.pathname : "") + (result.search ? result.search : "");
-          }
-          result.href = result.format();
-          return result;
-        }
-
-        if (!srcPath.length) {
-          // no path at all.  easy.
-          // we've already handled the other stuff above.
-          result.pathname = null;
-          //to support http.request
-          if (result.search) {
-            result.path = "/" + result.search;
-          } else {
-            result.path = null;
-          }
-          result.href = result.format();
-          return result;
-        }
-
-        // if a url ENDs in . or .., then it must get a trailing slash.
-        // however, if it ends in anything else non-slashy,
-        // then it must NOT get a trailing slash.
-        var last = srcPath.slice(-1)[0];
-        var hasTrailingSlash = ((result.host || relative.host || srcPath.length > 1) && (last === "." || last === "..")) || last === "";
-
-        // strip single dots, resolve double dots to parent dir
-        // if the path tries to go above the root, `up` ends up > 0
-        var up = 0;
-        for (var i = srcPath.length; i >= 0; i--) {
-          last = srcPath[i];
-          if (last === ".") {
-            srcPath.splice(i, 1);
-          } else if (last === "..") {
-            srcPath.splice(i, 1);
-            up++;
-          } else if (up) {
-            srcPath.splice(i, 1);
-            up--;
-          }
-        }
-
-        // if the path is allowed to go above the root, restore leading ..s
-        if (!mustEndAbs && !removeAllDots) {
-          for (; up--; up) {
-            srcPath.unshift("..");
-          }
-        }
-
-        if (mustEndAbs && srcPath[0] !== "" && (!srcPath[0] || srcPath[0].charAt(0) !== "/")) {
-          srcPath.unshift("");
-        }
-
-        if (hasTrailingSlash && srcPath.join("/").substr(-1) !== "/") {
-          srcPath.push("");
-        }
-
-        var isAbsolute = srcPath[0] === "" || (srcPath[0] && srcPath[0].charAt(0) === "/");
-
-        // put the host back
-        if (psychotic) {
-          result.hostname = result.host = isAbsolute ? "" : srcPath.length ? srcPath.shift() : "";
-          //occationaly the auth can get stuck only in host
-          //this especially happens in cases like
-          //url.resolveObject('mailto:local1@domain1', 'local2@domain2')
-          var authInHost = result.host && result.host.indexOf("@") > 0 ? result.host.split("@") : false;
-          if (authInHost) {
-            result.auth = authInHost.shift();
-            result.host = result.hostname = authInHost.shift();
-          }
-        }
-
-        mustEndAbs = mustEndAbs || (result.host && srcPath.length);
-
-        if (mustEndAbs && !isAbsolute) {
-          srcPath.unshift("");
-        }
-
-        if (!srcPath.length) {
-          result.pathname = null;
-          result.path = null;
-        } else {
-          result.pathname = srcPath.join("/");
-        }
-
-        //to support request.http
-        if (!util.isNull(result.pathname) || !util.isNull(result.search)) {
-          result.path = (result.pathname ? result.pathname : "") + (result.search ? result.search : "");
-        }
-        result.auth = relative.auth || result.auth;
-        result.slashes = result.slashes || relative.slashes;
-        result.href = result.format();
-        return result;
-      };
-
-      Url.prototype.parseHost = function () {
-        var host = this.host;
-        var port = portPattern.exec(host);
-        if (port) {
-          port = port[0];
-          if (port !== ":") {
-            this.port = port.substr(1);
-          }
-          host = host.substr(0, host.length - port.length);
-        }
-        if (host) this.hostname = host;
-      };
-
-      /***/
-    },
-
-    /***/ 46729: /***/ (module) => {
-      "use strict";
-
-      module.exports = {
-        isString: function (arg) {
-          return typeof arg === "string";
-        },
-        isObject: function (arg) {
-          return typeof arg === "object" && arg !== null;
-        },
-        isNull: function (arg) {
-          return arg === null;
-        },
-        isNullOrUndefined: function (arg) {
-          return arg == null;
-        }
-      };
-
-      /***/
-    },
-
-    /***/ 76654: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    /***/ 3017: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXTERNAL MODULE: ./node_modules/webextension-polyfill/dist/browser-polyfill.js
-      var browser_polyfill = __webpack_require__(53679);
+      var browser_polyfill = __webpack_require__(3679);
       var browser_polyfill_default = /*#__PURE__*/ __webpack_require__.n(browser_polyfill);
       // EXTERNAL MODULE: ./node_modules/zod/lib/index.mjs
       var lib = __webpack_require__(1604);
       // EXTERNAL MODULE: ./Extension/src/common/messages/index.ts
-      var messages = __webpack_require__(88427);
+      var messages = __webpack_require__(8427);
       // EXTERNAL MODULE: ./Extension/src/common/log.ts
-      var log = __webpack_require__(75019);
+      var log = __webpack_require__(5019);
       // EXTERNAL MODULE: ./Extension/src/common/forward.ts
-      var forward = __webpack_require__(89269);
+      var forward = __webpack_require__(9269);
       // EXTERNAL MODULE: ./Extension/src/common/constants.ts
-      var constants = __webpack_require__(91008);
+      var constants = __webpack_require__(1008);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.push.js
-      var es_array_push = __webpack_require__(24252);
+      var es_array_push = __webpack_require__(4252);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/es.error.cause.js
-      var es_error_cause = __webpack_require__(68705);
+      var es_error_cause = __webpack_require__(8705);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.includes.js
-      var es_array_includes = __webpack_require__(90943);
+      var es_array_includes = __webpack_require__(943);
       // EXTERNAL MODULE: ./node_modules/tldts/dist/es6/index.js + 12 modules
-      var es6 = __webpack_require__(15507);
-      // EXTERNAL MODULE: ./node_modules/@adguard/tswebextension/dist/index.js + 14 modules
-      var dist = __webpack_require__(57190);
+      var es6 = __webpack_require__(5507);
+      // EXTERNAL MODULE: ./node_modules/@adguard/tswebextension/dist/index.js + 42 modules
+      var dist = __webpack_require__(9060);
       // EXTERNAL MODULE: ./Extension/src/common/user-agent.ts
-      var user_agent = __webpack_require__(65759); // CONCATENATED MODULE: ./constants.js
+      var user_agent = __webpack_require__(5759); // CONCATENATED MODULE: ./constants.js
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -12432,7 +11084,6 @@
       const REACT_VENDOR_OUTPUT = "vendors/react";
       const MOBX_VENDOR_OUTPUT = "vendors/mobx";
       const XSTATE_VENDOR_OUTPUT = "vendors/xstate";
-      const LODASH_VENDOR_OUTPUT = "vendors/lodash";
       const TSURLFILTER_VENDOR_OUTPUT = "vendors/tsurlfilter";
       const TSWEBEXTENSION_VENDOR_OUTPUT = "vendors/tswebextension";
       // Placed here to use in the node environment and in the browser
@@ -12450,9 +11101,13 @@
       // EXTERNAL MODULE: ./node_modules/core-js/modules/web.url-search-params.delete.js
       var web_url_search_params_delete = __webpack_require__(582);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/web.url-search-params.has.js
-      var web_url_search_params_has = __webpack_require__(37899);
+      var web_url_search_params_has = __webpack_require__(7899);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/web.url-search-params.size.js
-      var web_url_search_params_size = __webpack_require__(26124); // CONCATENATED MODULE: ./Extension/src/background/prefs.ts
+      var web_url_search_params_size = __webpack_require__(6124);
+      // EXTERNAL MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/index.js + 7 modules
+      var es = __webpack_require__(3451);
+      // EXTERNAL MODULE: ./node_modules/@adguard/scriptlets/dist/umd/scriptlets.umd.js
+      var scriptlets_umd = __webpack_require__(8782); // CONCATENATED MODULE: ./Extension/src/background/prefs.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -12489,7 +11144,13 @@
       _define_property(Prefs, "id", browser_polyfill_default().runtime.id);
       _define_property(Prefs, "baseUrl", browser_polyfill_default().runtime.getURL(""));
       _define_property(Prefs, "version", browser_polyfill_default().runtime.getManifest().version);
-      _define_property(Prefs, "language", browser_polyfill_default().i18n.getUILanguage()); // CONCATENATED MODULE: ./Extension/src/background/api/extension/tabs.ts
+      _define_property(Prefs, "language", browser_polyfill_default().i18n.getUILanguage());
+      _define_property(Prefs, "libVersions", {
+        tswebextension: dist /* TSWEBEXTENSION_VERSION */.OT,
+        tsurlfilter: es /* TSURLFILTER_VERSION */.I4,
+        scriptlets: scriptlets_umd.SCRIPTLETS_VERSION,
+        extendedCss: dist /* EXTENDED_CSS_VERSION */.Al
+      }); // CONCATENATED MODULE: ./Extension/src/common/api/extension/tabs.ts
 
       /**
        * @file
@@ -12781,8 +11442,8 @@
         edge: ["microsoftedge.microsoft.com"]
       });
 
-      // EXTERNAL MODULE: ./node_modules/lodash/lodash.js
-      var lodash = __webpack_require__(33868); // CONCATENATED MODULE: ./Extension/src/background/notifier.ts
+      // EXTERNAL MODULE: ./node_modules/lodash-es/debounce.js + 1 modules
+      var debounce = __webpack_require__(9239); // CONCATENATED MODULE: ./Extension/src/background/notifier.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -12965,7 +11626,7 @@
       const appContext = new AppContext();
 
       // EXTERNAL MODULE: ./Extension/src/background/schema/index.ts + 42 modules
-      var schema = __webpack_require__(19457); // CONCATENATED MODULE: ./Extension/src/background/utils/string-storage.ts
+      var schema = __webpack_require__(9457); // CONCATENATED MODULE: ./Extension/src/background/utils/string-storage.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -13241,7 +11902,7 @@
            */ settings_define_property(
             this,
             "save",
-            (0, lodash.debounce)(() => {
+            (0, debounce /* default */.Z)(() => {
               storage.set(constants /* ADGUARD_SETTINGS_KEY */.sg, this.settings);
             }, SettingsStorage.saveTimeoutMs)
           );
@@ -14002,30 +12663,22 @@
        */
       class I18n {
         /**
-         * Returns matched locale from locales list or dictionary.
+         * Returns matched `locale` from `locales` list.
          *
-         * @param locales List or dictionary of i18n locales.
+         * @param locales Array of locale codes represented as strings.
          * @param locale Target locale.
-         * @returns Matched locale or null, if locale is not found.
+         * @returns Normalized locale code if found, otherwise null.
          */ static find(locales, locale) {
+          const normalizedLocales = locales.map((l) => I18n.normalizeLanguageCode(l));
           const lang = this.normalizeLanguageCode(locale);
-          if (I18n.isIncludesLocale(locales, locale)) {
+          if (normalizedLocales.includes(lang)) {
             return lang;
           }
           const [localePart] = lang.split("_");
-          if (localePart && I18n.isIncludesLocale(locales, localePart)) {
+          if (localePart && normalizedLocales.includes(localePart)) {
             return localePart;
           }
           return null;
-        }
-        /**
-         * Checks if {@link locales} includes {@link locale}.
-         *
-         * @param locales Locales array or record.
-         * @param locale Target locale.
-         * @returns True if {@link locales} includes {@link locale}, else returns false.
-         */ static isIncludesLocale(locales, locale) {
-          return Array.isArray(locales) ? locales.includes(locale) : locale in locales;
         }
         /**
          * Normalizes language code.
@@ -14156,9 +12809,10 @@
           const filtersI18n = i18nMetadata.filters;
           const groupsI18n = i18nMetadata.groups;
           const { tags, groups, filters } = metadata;
-          tags.forEach((tag) => MetadataStorage.applyFilterTagLocalization(tag, tagsI18n));
-          filters.forEach((filter) => MetadataStorage.applyFilterLocalization(filter, filtersI18n));
-          groups.forEach((group) => MetadataStorage.applyGroupLocalization(group, groupsI18n));
+          const uiLanguage = browser_polyfill_default().i18n.getUILanguage();
+          tags.forEach((tag) => MetadataStorage.applyFilterTagLocalization(tag, tagsI18n, uiLanguage));
+          filters.forEach((filter) => MetadataStorage.applyFilterLocalization(filter, filtersI18n, uiLanguage));
+          groups.forEach((group) => MetadataStorage.applyGroupLocalization(group, groupsI18n, uiLanguage));
           return metadata;
         }
         /**
@@ -14166,19 +12820,22 @@
          *
          * @param tag Tag metadata.
          * @param tagsI18n Tag i18n metadata.
-         */ static applyFilterTagLocalization(tag, tagsI18n) {
+         * @param uiLanguage UI language.
+         */ static applyFilterTagLocalization(tag, tagsI18n, uiLanguage) {
           const { tagId } = tag;
-          const localizations = tagsI18n[tagId];
-          if (localizations) {
-            const locale = I18n.find(localizations, browser_polyfill_default().i18n.getUILanguage());
-            if (!locale) {
-              return;
-            }
-            const localization = localizations[locale];
-            if (localization) {
-              tag.name = localization.name;
-              tag.description = localization.description;
-            }
+          const rawLocalizations = tagsI18n[tagId];
+          if (!rawLocalizations) {
+            return;
+          }
+          const localizations = MetadataStorage.normalizeLocalization(rawLocalizations);
+          const locale = I18n.find(Object.keys(localizations), uiLanguage);
+          if (!locale) {
+            return;
+          }
+          const localization = localizations[locale];
+          if (localization) {
+            tag.name = localization.name;
+            tag.description = localization.description;
           }
         }
         /**
@@ -14186,19 +12843,22 @@
          *
          * @param filter Regular filter metadata.
          * @param filtersI18n Regular filter i18n metadata.
-         */ static applyFilterLocalization(filter, filtersI18n) {
+         * @param uiLanguage UI language.
+         */ static applyFilterLocalization(filter, filtersI18n, uiLanguage) {
           const { filterId } = filter;
-          const localizations = filtersI18n[filterId];
-          if (localizations) {
-            const locale = I18n.find(localizations, browser_polyfill_default().i18n.getUILanguage());
-            if (!locale) {
-              return;
-            }
-            const localization = localizations[locale];
-            if (localization) {
-              filter.name = localization.name;
-              filter.description = localization.description;
-            }
+          const rawLocalizations = filtersI18n[filterId];
+          if (!rawLocalizations) {
+            return;
+          }
+          const localizations = MetadataStorage.normalizeLocalization(rawLocalizations);
+          const locale = I18n.find(Object.keys(localizations), uiLanguage);
+          if (!locale) {
+            return;
+          }
+          const localization = localizations[locale];
+          if (localization) {
+            filter.name = localization.name;
+            filter.description = localization.description;
           }
         }
         /**
@@ -14206,19 +12866,34 @@
          *
          * @param group Group metadata.
          * @param groupsI18n Group i18n metadata.
-         */ static applyGroupLocalization(group, groupsI18n) {
+         * @param uiLanguage UI language.
+         */ static applyGroupLocalization(group, groupsI18n, uiLanguage) {
           const { groupId } = group;
-          const localizations = groupsI18n[groupId];
-          if (localizations) {
-            const locale = I18n.find(localizations, browser_polyfill_default().i18n.getUILanguage());
-            if (!locale) {
-              return;
-            }
-            const localization = localizations[locale];
-            if (localization) {
-              group.groupName = localization.name;
-            }
+          const rawLocalizations = groupsI18n[groupId];
+          if (!rawLocalizations) {
+            return;
           }
+          const localizations = MetadataStorage.normalizeLocalization(rawLocalizations);
+          const locale = I18n.find(Object.keys(localizations), uiLanguage);
+          if (!locale) {
+            return;
+          }
+          const localization = localizations[locale];
+          if (localization) {
+            group.groupName = localization.name;
+          }
+        }
+        /**
+         * Normalizes localization object.
+         *
+         * @param localization Input localization object.
+         * @returns Normalized localization object.
+         */ static normalizeLocalization(localization) {
+          const normalizedLocalization = {};
+          Object.entries(localization).forEach(([key, value]) => {
+            normalizedLocalization[I18n.normalizeLanguageCode(key)] = value;
+          });
+          return normalizedLocalization;
         }
         /**
          * Helper function to create a basic {@link Error} with a custom message.
@@ -14255,7 +12930,7 @@
        */ const ruleConversionStorage = new Map();
 
       // EXTERNAL MODULE: ./node_modules/lru_map/dist/lru.js
-      var lru = __webpack_require__(87553); // CONCATENATED MODULE: ./Extension/src/background/storages/safebrowsing.ts
+      var lru = __webpack_require__(7553); // CONCATENATED MODULE: ./Extension/src/background/storages/safebrowsing.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14367,9 +13042,9 @@
       const sbRequestCache = new lru.LRUMap(1000);
 
       // EXTERNAL MODULE: ./node_modules/date-fns/esm/toDate/index.js
-      var toDate = __webpack_require__(26995);
+      var toDate = __webpack_require__(6995);
       // EXTERNAL MODULE: ./node_modules/date-fns/esm/_lib/requiredArgs/index.js
-      var requiredArgs = __webpack_require__(80008); // CONCATENATED MODULE: ./node_modules/date-fns/esm/startOfHour/index.js
+      var requiredArgs = __webpack_require__(8); // CONCATENATED MODULE: ./node_modules/date-fns/esm/startOfHour/index.js
       /**
        * @name startOfHour
        * @category Hour Helpers
@@ -14737,7 +13412,7 @@
         return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
       }
       // EXTERNAL MODULE: ./node_modules/date-fns/esm/_lib/getTimezoneOffsetInMilliseconds/index.js
-      var getTimezoneOffsetInMilliseconds = __webpack_require__(53117); // CONCATENATED MODULE: ./node_modules/date-fns/esm/differenceInCalendarDays/index.js
+      var getTimezoneOffsetInMilliseconds = __webpack_require__(3117); // CONCATENATED MODULE: ./node_modules/date-fns/esm/differenceInCalendarDays/index.js
       var MILLISECONDS_IN_DAY = 86400000;
       /**
        * @name differenceInCalendarDays
@@ -15334,206 +14009,218 @@
        *
        * You should have received a copy of the GNU General Public License
        * along with AdGuard Browser Extension. If not, see <http://www.gnu.org/licenses/>.
-       */
+       */ var _currentLocale;
 
-      const HALLOWEEN_23_ID = "halloween23";
-      const halloween23Notification = {
-        id: HALLOWEEN_23_ID,
+      const RU_LOCALE = "ru";
+      const CHRISTMAS_23_ID = "christmas23";
+      const christmas23Notification = {
+        id: CHRISTMAS_23_ID,
         locales: {
           en: {
-            title: "Fact or fiction?",
-            btn: "Investigate"
+            title: "Christmas at AdGuard",
+            btn: "Unwrap"
           },
           ru: {
-            title: "Верю не верю",
-            btn: "Давайте проверим"
-          },
-          es: {
-            title: "\xbfRealidad o ficci\xf3n?",
-            btn: "\xa1Adivinar!"
-          },
-          de: {
-            title: "Falsch oder wahr?",
-            btn: "Kommen Sie klar"
-          },
-          fr: {
-            title: "Fait ou fiction ?",
-            btn: "Examinons"
-          },
-          it: {
-            title: "Fatto o finzione?",
-            btn: "Esaminiamo"
-          },
-          ko: {
-            title: "사실일까, 괴담일까?",
-            btn: "퀴즈 시작"
+            title: "Новый год в AdGuard",
+            btn: "Что под ёлкой?"
           },
           ja: {
-            title: "事実か怪談か？",
-            btn: "クイズに挑戦する"
+            title: "AdGuard Christmas キャンペーン",
+            btn: "プレゼントはこちら"
+          },
+          ko: {
+            title: "AdGuard 크리스마스 프로모션",
+            btn: "선물 찾기"
           },
           zh_cn: {
-            title: "万圣节答题小游戏",
-            btn: "开始玩儿"
+            title: "AdGuard Christmas",
+            btn: "有什么惊喜？"
           },
           zh_tw: {
-            title: "萬聖節答題小遊戲",
-            btn: "開始玩"
+            title: "AdGuard Christmas",
+            btn: "有什麼驚喜？"
           },
-          uk: {
-            title: "Факт чи вигадка?",
-            btn: "Вгадай!"
+          fr: {
+            title: "No\xebl chez AdGuard",
+            btn: "Venez voir"
+          },
+          it: {
+            title: "Natale ad AdGuard",
+            btn: "Vieni a vedere"
+          },
+          de: {
+            title: "Weihnachten bei AdGuard",
+            btn: "\xd6ffnen"
+          },
+          es: {
+            title: "Navidad en AdGuard",
+            btn: "Abrir"
           },
           pt_br: {
-            title: "Realidade ou fic\xe7\xe3o?",
-            btn: "Adivinhar"
+            title: "\xc9 Natal no AdGuard",
+            btn: "Abrir"
           },
           pt_pt: {
-            title: "Realidade ou fic\xe7\xe3o?",
-            btn: "Adivinhar"
+            title: "\xc9 Natal no AdGuard",
+            btn: "Abrir"
+          },
+          uk: {
+            title: "Новий рік в AdGuard",
+            btn: "Що під ялинкою?"
           },
           ar: {
-            title: "حقيقة أم خيال؟",
-            btn: "!يخمن"
+            title: "تخفيضات العام الجديد",
+            btn: "يفتح"
           },
           be: {
-            title: "Факт ці выдумка?",
-            btn: "Адгадайце!"
+            title: "Новы год у AdGuard",
+            btn: "Што пад ёлкай?"
           },
           bg: {
-            title: "Факт или измислица?",
-            btn: "Познайте!"
+            title: "Нова година в AdGuard",
+            btn: "Отворете"
           },
           ca: {
-            title: "Realitat o ficci\xf3?",
-            btn: "Endevina!"
+            title: "Nadal a AdGuard",
+            btn: "Obert"
           },
           cs: {
-            title: "Pravda nebo fikce?",
-            btn: "Tipni si!"
+            title: "V\xe1noce v AdGuardu",
+            btn: "Otevřen\xe1"
           },
           da: {
-            title: "Fakta eller fiktion?",
-            btn: "G\xe6tte!"
+            title: "Jul p\xe5 AdGuard",
+            btn: "\xc5ben"
           },
           el: {
-            title: "Σωστό ή λάθος?",
-            btn: "Εικασία!"
+            title: "Πρωτοχρονιά στο AdGuard",
+            btn: "Ανοιξε"
           },
           es_419: {
-            title: "\xbfRealidad o ficci\xf3n?",
-            btn: "\xa1Adivinar!"
+            title: "Navidad en AdGuard",
+            btn: "Abre"
           },
           fa: {
-            title: "واقعیت یا تخیل؟",
-            btn: "!حدس بزن"
+            title: "AdGuard سال نو در",
+            btn: "باز کن"
           },
           fi: {
-            title: "Totta vai tarua?",
-            btn: "Arvaus!"
+            title: "Joulu AdGuardissa",
+            btn: "Avaa"
           },
           he: {
-            title: "?עובדה או בדיה",
-            btn: "!לְנַחֵשׁ"
+            title: "קידום לשנה החדשה",
+            btn: "לִפְתוֹחַ"
           },
           hr: {
-            title: "Činjenica ili fikcija?",
-            btn: "Pogodite!"
+            title: "Božić u AdGuardu",
+            btn: "Otvoren"
           },
           hu: {
-            title: "T\xe9ny vagy fikci\xf3?",
-            btn: "Tal\xe1ld ki!"
+            title: "\xdaj \xe9v az AdGuardban",
+            btn: "Nyisd ki"
           },
           hy: {
-            title: "Փաստ, թե հորինված.",
-            btn: "Գուշակիր"
+            title: "Ամանորը AdGuard-ում",
+            btn: "Բացել"
           },
           id: {
-            title: "Fakta atau Fiksi?",
-            btn: "Tebakan!"
+            title: "Tahun Baru di AdGuard",
+            btn: "Membuka"
           },
           lt: {
-            title: "Faktas ar fikcija?",
-            btn: "Atspėk!"
+            title: "Kalėdos AdGuard",
+            btn: "Atviras"
           },
           ms: {
-            title: "Fakta atau fiksyen?",
-            btn: "Teka!"
+            title: "Tahun Baru dalam AdGuard",
+            btn: "Buka"
           },
           nb: {
-            title: "Fakta eller fiksjon?",
-            btn: "Gjett!"
+            title: "Nytt\xe5r i AdGuard",
+            btn: "\xc5pen"
           },
           nl: {
-            title: "Feit of Fictie?",
-            btn: "Gok!"
+            title: "Kerstmis in AdGuard",
+            btn: "Open"
           },
           pl: {
-            title: "Fakt czy fikcja?",
-            btn: "Zgadywać!"
+            title: "Nowy Rok w AdGuard",
+            btn: "Otwarty"
           },
           ro: {
-            title: "Realitate sau fictiune?",
-            btn: "Ghici!"
+            title: "Crăciun \xeen AdGuard",
+            btn: "Deschis"
           },
           sk: {
-            title: "Skutočnosť alebo fikcia?",
-            btn: "H\xe1daj!"
+            title: "Vianoce v AdGuarde",
+            btn: "Otvoren\xfd"
           },
           sl: {
-            title: "Dejstvo ali fikcija?",
-            btn: "Ugani!"
+            title: "Božič v AdGuardu",
+            btn: "Odprt"
           },
           "sr-Latn": {
-            title: "Tačno ili netačno?",
-            btn: "Izgleda!"
+            title: "Božić u AdGuardu",
+            btn: "Otvorite"
           },
           sv: {
-            title: "Fakta eller p\xe5hitt?",
-            btn: "Gissa!"
+            title: "Jul i AdGuard",
+            btn: "\xd6ppen"
           },
           tr: {
-            title: "Ger\xe7ek mi kurgu mu?",
-            btn: "Tahmin etmek!"
+            title: "AdGuard'da Yeni Yıl",
+            btn: "A\xe7ık"
           },
           vi: {
-            title: "Sự thật hay hư cấu?",
-            btn: "Đo\xe1n!"
+            title: "Năm mới trong AdGuard",
+            btn: "Mở"
           },
           hi: {
-            title: "तथ्य या कल्पना?",
-            btn: "अनुमान लगाना!"
+            title: "एडगार्ड में नया साल",
+            btn: "खुला"
           },
           et: {
-            title: "Fakt v\xf5i v\xe4ljam\xf5eldis?",
-            btn: "Arva \xe4ra!"
+            title: "J\xf5ulud AdGuardis",
+            btn: "Avatud"
           },
           th: {
-            title: "เรื่องจริงหรือนิยาย?",
-            btn: "เดา!"
+            title: "ปีใหม่ใน AdGuard",
+            btn: "เปิด"
           }
         },
         text: "",
         url: forward /* Forward.get */.OU.get({
-          action: forward /* ForwardAction.Halloween */.xD.Halloween
+          action: forward /* ForwardAction.Christmas23 */.xD.Christmas23
         }),
-        from: "25 October 2023 12:00:00",
-        to: "1 November 2023 23:59:00",
+        from: "22 December 2023 12:00:00",
+        to: "1 January 2024 23:59:00",
         type: "animated",
         icons: {
           ICON_GREEN: {
-            19: browser_polyfill_default().runtime.getURL("assets/icons/halloween23-on-19.png"),
-            38: browser_polyfill_default().runtime.getURL("assets/icons/halloween23-on-38.png")
+            19: browser_polyfill_default().runtime.getURL("assets/icons/christmas23-on-19.png"),
+            38: browser_polyfill_default().runtime.getURL("assets/icons/christmas23-on-38.png")
           },
           ICON_GRAY: {
-            19: browser_polyfill_default().runtime.getURL("assets/icons/halloween23-off-19.png"),
-            38: browser_polyfill_default().runtime.getURL("assets/icons/halloween23-off-38.png")
+            19: browser_polyfill_default().runtime.getURL("assets/icons/christmas23-off-19.png"),
+            38: browser_polyfill_default().runtime.getURL("assets/icons/christmas23-off-38.png")
           }
         }
       };
+      const normalizeLanguage = (locale) => {
+        if (!locale) {
+          return null;
+        }
+        return locale.toLowerCase().replace("-", "_");
+      };
+      const currentLocale = normalizeLanguage(browser_polyfill_default().i18n.getUILanguage());
+      // possible values of Prefs.language: 'ru', or 'ru-RU' which is 'ru_ru' after normalization
+      if ((_currentLocale = currentLocale) === null || _currentLocale === void 0 ? void 0 : _currentLocale.startsWith(RU_LOCALE)) {
+        christmas23Notification.to = "8 January 2024 23:59:00";
+      }
       /**
        * In-memory notifications mapping.
-       */ const notificationStorage = new Map([[HALLOWEEN_23_ID, halloween23Notification]]); // CONCATENATED MODULE: ./Extension/src/background/storages/trusted-domains.ts
+       */ const notificationStorage = new Map([[CHRISTMAS_23_ID, christmas23Notification]]); // CONCATENATED MODULE: ./Extension/src/background/storages/trusted-domains.ts
 
       /**
        * @file
@@ -15642,11 +14329,11 @@
       // `storages` contains app data storage models based on `schema` layer
 
       // EXTERNAL MODULE: ./Extension/src/common/translators/translator.ts
-      var translator = __webpack_require__(85672);
+      var translator = __webpack_require__(5672);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace-all.js
-      var es_string_replace_all = __webpack_require__(88932);
+      var es_string_replace_all = __webpack_require__(8932);
       // EXTERNAL MODULE: ./node_modules/@adguard/filters-downloader/src/index.browser.js
-      var index_browser = __webpack_require__(39317);
+      var index_browser = __webpack_require__(9317);
       var index_browser_default = /*#__PURE__*/ __webpack_require__.n(index_browser); // CONCATENATED MODULE: ./Extension/src/background/utils/version.ts
       /**
        * @file
@@ -16333,6 +15020,7 @@
         }
       }
       const network = new Network(); // CONCATENATED MODULE: ./Extension/src/background/api/network/index.ts
+      // CONCATENATED MODULE: ./Extension/src/background/api/filters/userrules.ts
 
       /**
        * @file
@@ -16352,8 +15040,6 @@
        * along with AdGuard Browser Extension. If not, see <http://www.gnu.org/licenses/>.
        */
 
-      // EXTERNAL MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/index.js + 7 modules
-      var es = __webpack_require__(3451); // CONCATENATED MODULE: ./Extension/src/background/api/filters/userrules.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -16513,8 +15199,10 @@
          */ static getSourceRule(rule) {
           return ruleConversionStorage.get(rule);
         }
-      } // CONCATENATED MODULE: ./Extension/src/background/api/extension/iconsCache.ts
+      }
 
+      // EXTERNAL MODULE: ./Extension/src/common/api/extension/windows.ts
+      var windows = __webpack_require__(2650); // CONCATENATED MODULE: ./Extension/src/common/api/extension/iconsCache.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -16589,7 +15277,7 @@
         const imageDataEntriesPromises = Object.entries(path).map(([size, url]) => getImageData(size, url));
         const imageDataEntries = await Promise.all(imageDataEntriesPromises);
         return Object.fromEntries(imageDataEntries);
-      } // CONCATENATED MODULE: ./Extension/src/background/api/extension/index.ts
+      } // CONCATENATED MODULE: ./Extension/src/common/api/extension/index.ts
       // CONCATENATED MODULE: ./Extension/src/background/api/filters/allowlist.ts
 
       /**
@@ -16724,7 +15412,7 @@
           if (!tabContext) {
             return;
           }
-          const { mainFrameRule, frames } = tabContext;
+          const { mainFrameRule } = tabContext;
           if (!mainFrameRule) {
             return;
           }
@@ -16734,12 +15422,11 @@
             await AllowlistApi.removeAllowlistRuleFromUserList(ruleText, tabId, tabRefresh);
             return;
           }
-          if (filterId === constants /* AntiBannerFiltersId.AllowlistFilterId */.m6.AllowlistFilterId) {
-            const mainFrame = frames.get(dist /* MAIN_FRAME_ID */.ad);
-            if (!mainFrame) {
-              return;
-            }
-            await AllowlistApi.enableTabUrlFiltering(mainFrame.url, tabId, tabRefresh);
+          const {
+            info: { url }
+          } = tabContext;
+          if (url && filterId === constants /* AntiBannerFiltersId.AllowlistFilterId */.m6.AllowlistFilterId) {
+            await AllowlistApi.enableTabUrlFiltering(url, tabId, tabRefresh);
           }
         }
         /**
@@ -16747,12 +15434,17 @@
          *
          * @param tabId Tab id.
          */ static async disableTabFiltering(tabId) {
-          const mainFrame = dist /* tabsApi.getTabMainFrame */.nZ
-            .getTabMainFrame(tabId);
-          if (!mainFrame) {
+          const tabContext = dist /* tabsApi.getTabContext */.nZ
+            .getTabContext(tabId);
+          if (!tabContext) {
             return;
           }
-          await AllowlistApi.disableTabUrlFiltering(mainFrame.url, tabId);
+          const {
+            info: { url }
+          } = tabContext;
+          if (url) {
+            await AllowlistApi.disableTabUrlFiltering(url, tabId);
+          }
         }
         /**
          * Enable filtering for specified tab by changing the allowlist.
@@ -16893,7 +15585,7 @@
       }
 
       // EXTERNAL MODULE: ./node_modules/crypto-js/md5.js
-      var md5 = __webpack_require__(66172);
+      var md5 = __webpack_require__(6172);
       var md5_default = /*#__PURE__*/ __webpack_require__.n(md5); // CONCATENATED MODULE: ./Extension/src/background/api/filters/custom/parser.ts
       /**
        * @file
@@ -17609,7 +16301,7 @@
       }
 
       // EXTERNAL MODULE: ./Extension/src/common/settings.ts
-      var common_settings = __webpack_require__(80239); // CONCATENATED MODULE: ./Extension/src/background/api/filters/update.ts
+      var common_settings = __webpack_require__(239); // CONCATENATED MODULE: ./Extension/src/background/api/filters/update.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -18284,7 +16976,8 @@
           return (
             filterId < constants /* CUSTOM_FILTERS_START_ID */.ih &&
             filterId !== constants /* AntiBannerFiltersId.UserFilterId */.m6.UserFilterId &&
-            filterId !== constants /* AntiBannerFiltersId.AllowlistFilterId */.m6.AllowlistFilterId
+            filterId !== constants /* AntiBannerFiltersId.AllowlistFilterId */.m6.AllowlistFilterId &&
+            filterId !== constants /* AntiBannerFiltersId.StealthModeFilterId */.m6.StealthModeFilterId
           );
         }
       }
@@ -18295,7 +16988,7 @@
        */ hit_stats_define_property(
         HitStatsApi,
         "debounceSaveAndSaveHitStats",
-        (0, lodash.debounce)(() => {
+        (0, debounce /* default */.Z)(() => {
           HitStatsApi.saveAndSaveHitStats();
         }, HitStatsApi.saveTimeoutMs)
       ); // CONCATENATED MODULE: ./Extension/src/background/api/filters/main.ts
@@ -18526,6 +17219,21 @@
           }
         }
         /**
+         * Updates `metadata` with `i18nMetadata`, handles custom group name as well,
+         * and saves it.
+         *
+         * @param metadata Filters, groups and tags metadata.
+         * @param i18nMetadata Filters, groups and tags i18n metadata.
+         */ static updateMetadataWithI18nMetadata(metadata, i18nMetadata) {
+          const localizedMetadata = MetadataStorage.applyI18nMetadata(metadata, i18nMetadata);
+          localizedMetadata.groups.push({
+            groupId: constants /* AntibannerGroupsId.CustomFilterGroupId */.r_.CustomFilterGroupId,
+            displayNumber: constants /* CUSTOM_FILTERS_GROUP_DISPLAY_NUMBER */.VC,
+            groupName: translator /* translator.getMessage */.O.getMessage("options_antibanner_custom_group")
+          });
+          metadataStorage.setData(localizedMetadata);
+        }
+        /**
          * Load i18n metadata from remote source and save it.
          *
          * @param remote If true, download data from backend, else load it from local files.
@@ -18540,13 +17248,8 @@
          * @param remote If true, download data from backend, else load it from local files.
          */ static async loadMetadataFromFromBackend(remote) {
           const metadata = remote ? await network.downloadMetadataFromBackend() : await network.getLocalFiltersMetadata();
-          const localizedMetadata = MetadataStorage.applyI18nMetadata(metadata, i18nMetadataStorage.getData());
-          localizedMetadata.groups.push({
-            groupId: constants /* AntibannerGroupsId.CustomFilterGroupId */.r_.CustomFilterGroupId,
-            displayNumber: constants /* CUSTOM_FILTERS_GROUP_DISPLAY_NUMBER */.VC,
-            groupName: translator /* translator.getMessage */.O.getMessage("options_antibanner_custom_group")
-          });
-          metadataStorage.setData(localizedMetadata);
+          const i18nMetadata = i18nMetadataStorage.getData();
+          FiltersApi.updateMetadataWithI18nMetadata(metadata, i18nMetadata);
         }
         /**
          * Read stringified i18n metadata from settings storage.
@@ -18802,6 +17505,11 @@
          */ onOpenFilteringLogPage() {
           this.openedFilteringLogsPages += 1;
           try {
+            Engine.api.setDebugScriptlets(true);
+          } catch (e) {
+            log /* Log.error */.Zb.error("Failed to enable `verbose scriptlets logging` option", e);
+          }
+          try {
             Engine.api.setCollectHitStats(true);
           } catch (e) {
             log /* Log.error */.Zb.error("Failed to enable `collect hit stats` option", e);
@@ -18816,6 +17524,11 @@
             this.tabsInfoMap.forEach((tabInfo) => {
               tabInfo.filteringEvents = [];
             });
+            try {
+              Engine.api.setDebugScriptlets(false);
+            } catch (e) {
+              log /* Log.error */.Zb.error("Failed to disable `verbose scriptlets logging` option", e);
+            }
             if (settingsStorage.get(schema /* SettingOption.DisableCollectHits */.qY.DisableCollectHits)) {
               try {
                 Engine.api.setCollectHitStats(false);
@@ -18949,7 +17662,7 @@
          * @param data {@link FilteringLogEvent} Event data.
          */ addEventData(tabId, data) {
           const tabInfo = this.getFilteringInfoByTabId(tabId);
-          if (!tabInfo || !this.isOpen) {
+          if (!tabInfo || !this.isOpen()) {
             return;
           }
           tabInfo.filteringEvents.push(data);
@@ -18967,7 +17680,7 @@
          * @param data Event data.
          */ updateEventData(tabId, eventId, data) {
           const tabInfo = this.getFilteringInfoByTabId(tabId);
-          if (!tabInfo || !this.isOpen) {
+          if (!tabInfo || !this.isOpen()) {
             return;
           }
           const { filteringEvents } = tabInfo;
@@ -19258,7 +17971,7 @@
        */
 
       // EXTERNAL MODULE: ./Extension/src/common/unknown.ts
-      var unknown = __webpack_require__(66681); // CONCATENATED MODULE: ./Extension/src/background/api/settings/migrations.ts
+      var unknown = __webpack_require__(6681); // CONCATENATED MODULE: ./Extension/src/background/api/settings/migrations.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -19514,6 +18227,7 @@
             documentBlockingPageUrl: `${Prefs.baseUrl}${DOCUMENT_BLOCK_OUTPUT}.html`,
             collectStats:
               !settingsStorage.get(schema /* SettingOption.DisableCollectHits */.qY.DisableCollectHits) || filteringLogApi.isOpen(),
+            debugScriptlets: filteringLogApi.isOpen(),
             allowlistInverted: !settingsStorage.get(schema /* SettingOption.DefaultAllowlistMode */.qY.DefaultAllowlistMode),
             allowlistEnabled: settingsStorage.get(schema /* SettingOption.AllowlistEnabled */.qY.AllowlistEnabled),
             stealthModeEnabled: !settingsStorage.get(schema /* SettingOption.DisableStealthMode */.qY.DisableStealthMode),
@@ -19953,8 +18667,10 @@
        * along with AdGuard Browser Extension. If not, see <http://www.gnu.org/licenses/>.
        */
 
+      // EXTERNAL MODULE: ./node_modules/lodash-es/throttle.js
+      var throttle = __webpack_require__(5899);
       // EXTERNAL MODULE: ./node_modules/nanoid/index.browser.js
-      var nanoid_index_browser = __webpack_require__(32380); // CONCATENATED MODULE: ./Extension/src/background/api/ui/context-menu.ts
+      var nanoid_index_browser = __webpack_require__(2380); // CONCATENATED MODULE: ./Extension/src/background/api/ui/context-menu.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -19986,6 +18702,22 @@
       }
 
       /**
+       * Wrapper around context menus create method.
+       * It helps to handle errors thrown by contextMenus.
+       *
+       * @param props Options for creating menu.
+       */ const createMenu = (props) => {
+        return new Promise((resolve, reject) => {
+          browser_polyfill_default().contextMenus.create(props, () => {
+            if (browser_polyfill_default().runtime.lastError) {
+              reject(browser_polyfill_default().runtime.lastError);
+              return;
+            }
+            resolve();
+          });
+        });
+      };
+      /**
        * API for creating and updating browser context menus.
        */ class ContextMenuApi {
         /**
@@ -20008,13 +18740,16 @@
          * @param frameData.documentAllowlisted Is website allowlisted.
          * @param frameData.userAllowlisted Is current website allowlisted by user rule.
          * @param frameData.canAddRemoveRule Is user rules was applied on current website.
+         * @param frameData.url Current tab url.
          */ static async updateMenu({
           applicationFilteringDisabled,
           urlFilteringDisabled,
           documentAllowlisted,
           userAllowlisted,
-          canAddRemoveRule
+          canAddRemoveRule,
+          url
         }) {
+          var _url;
           // TODO add better handling for AdGuard for Firefox
           // There is nothing to do if context menu is not supported
           if (!browser_polyfill_default().contextMenus) {
@@ -20026,11 +18761,16 @@
           if (SettingsApi.getSetting(schema /* SettingOption.DisableShowContextMenu */.qY.DisableShowContextMenu)) {
             return;
           }
+          // Used no to show settings menu item on the options page
+          // https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2258
+          const isOptionsPage = !!((_url = url) === null || _url === void 0
+            ? void 0
+            : _url.startsWith(browser_polyfill_default().runtime.getURL(constants /* OPTIONS_PAGE */.ar)));
           try {
             if (applicationFilteringDisabled) {
-              await ContextMenuApi.addFilteringDisabledMenuItems();
+              await ContextMenuApi.addFilteringDisabledMenuItems(isOptionsPage);
             } else if (urlFilteringDisabled) {
-              await ContextMenuApi.addUrlFilteringDisabledContextMenuAction();
+              await ContextMenuApi.addUrlFilteringDisabledContextMenuAction(isOptionsPage);
             } else {
               if (documentAllowlisted && !userAllowlisted) {
                 await ContextMenuApi.addMenuItem(ContextMenuAction.SiteException);
@@ -20050,7 +18790,9 @@
               await ContextMenuApi.addSeparator();
               await ContextMenuApi.addMenuItem(ContextMenuAction.UpdateFilters);
               await ContextMenuApi.addSeparator();
-              await ContextMenuApi.addMenuItem(ContextMenuAction.OpenSettings);
+              if (!isOptionsPage) {
+                await ContextMenuApi.addMenuItem(ContextMenuAction.OpenSettings);
+              }
               await ContextMenuApi.addMenuItem(ContextMenuAction.OpenLog);
               await ContextMenuApi.addMenuItem(ContextMenuAction.DisableProtection);
             }
@@ -20066,21 +18808,29 @@
           await browser_polyfill_default().contextMenus.removeAll();
         }
         /**
-         * Creates menu items for context menu, displayed, when app filtering disabled globally.
-         */ static async addFilteringDisabledMenuItems() {
+         * Creates menu items for the context menu, displayed, when app filtering disabled globally.
+         *
+         * @param isOptionsPage Is current page options page.
+         */ static async addFilteringDisabledMenuItems(isOptionsPage) {
           await ContextMenuApi.addMenuItem(ContextMenuAction.SiteProtectionDisabled);
           await ContextMenuApi.addSeparator();
           await ContextMenuApi.addMenuItem(ContextMenuAction.OpenLog);
-          await ContextMenuApi.addMenuItem(ContextMenuAction.OpenSettings);
+          if (!isOptionsPage) {
+            await ContextMenuApi.addMenuItem(ContextMenuAction.OpenSettings);
+          }
           await ContextMenuApi.addMenuItem(ContextMenuAction.EnableProtection);
         }
         /**
-         * Creates menu items for context menu, displayed, when app filtering disabled for current tab.
-         */ static async addUrlFilteringDisabledContextMenuAction() {
+         * Creates menu items for the context menu, displayed, when app filtering disabled for current tab.
+         *
+         * @param isOptionsPage Is current page options page.
+         */ static async addUrlFilteringDisabledContextMenuAction(isOptionsPage) {
           await ContextMenuApi.addMenuItem(ContextMenuAction.SiteFilteringDisabled);
           await ContextMenuApi.addSeparator();
           await ContextMenuApi.addMenuItem(ContextMenuAction.OpenLog);
-          await ContextMenuApi.addMenuItem(ContextMenuAction.OpenSettings);
+          if (!isOptionsPage) {
+            await ContextMenuApi.addMenuItem(ContextMenuAction.OpenSettings);
+          }
           await ContextMenuApi.addMenuItem(ContextMenuAction.UpdateFilters);
         }
         /**
@@ -20090,7 +18840,7 @@
          * @param options {@link browser.contextMenus.create} Options.
          */ static async addMenuItem(action, options = {}) {
           const { messageArgs, ...rest } = options;
-          await browser_polyfill_default().contextMenus.create({
+          await createMenu({
             id: action,
             contexts: ["all"],
             title: translator /* translator.getMessage */.O.getMessage(action, messageArgs),
@@ -20100,7 +18850,7 @@
         /**
          * Creates menu separator.
          */ static async addSeparator() {
-          await browser_polyfill_default().contextMenus.create({
+          await createMenu({
             id: (0, nanoid_index_browser /* nanoid */.x0)(),
             type: "separator",
             contexts: ["all"]
@@ -20121,7 +18871,11 @@
        * Throttled updateMenu.
        * Used in because updateMenu can be called multiple times from various event listeners, but
        * context menu doesn't require fast update.
-       */ ui_context_menu_define_property(ContextMenuApi, "throttledUpdateMenu", (0, lodash.throttle)(ContextMenuApi.updateMenu, 100)); // CONCATENATED MODULE: ./Extension/src/background/api/ui/frames.ts
+       */ ui_context_menu_define_property(
+        ContextMenuApi,
+        "throttledUpdateMenu",
+        (0, throttle /* default */.Z)(ContextMenuApi.updateMenu, 100)
+      ); // CONCATENATED MODULE: ./Extension/src/background/api/ui/frames.ts
 
       /**
        * @file
@@ -20841,12 +19595,14 @@
        */ ui_main_define_property(
         UiApi,
         "debouncedUpdate",
-        (0, lodash.debounce)((tabId, frameData) => {
+        (0, debounce /* default */.Z)((tabId, frameData) => {
           IconsApi.updateTabIcon(tabId, frameData);
           UiApi.broadcastTotalBlockedMessage(frameData);
         }, UiApi.UPDATE_THROTTLE_MS)
-      ); // CONCATENATED MODULE: ./Extension/src/background/api/ui/pages.ts
+      );
 
+      // EXTERNAL MODULE: ./Extension/src/common/error.ts
+      var error = __webpack_require__(8642); // CONCATENATED MODULE: ./Extension/src/background/api/ui/pages.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -20911,7 +19667,7 @@
           }
           // Open a new tab without type to get it as a new tab in a new window
           // with the ability to move and attach it to the current browser window.
-          await browser_polyfill_default().windows.create({
+          await windows /* WindowsApi.create */.L.create({
             url,
             focused: true,
             ...PagesApi.defaultPopupWindowState
@@ -20939,16 +19695,17 @@
           const windowStateString = await storage.get(constants /* FILTERING_LOG_WINDOW_STATE */.wi);
           try {
             const options = typeof windowStateString === "string" ? JSON.parse(windowStateString) : PagesApi.defaultPopupWindowState;
-            await browser_polyfill_default().windows.create({
+            await windows /* WindowsApi.create */.L.create({
               url,
               type: "popup",
               ...options
             });
           } catch (e) {
-            // Reopen tab with default pos if it was closed too far beyond the screen
-            // https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2100
-            if (e.message.includes("Invalid value for bounds.")) {
-              await browser_polyfill_default().windows.create({
+            const message = (0, error /* getErrorMessage */.e)(e);
+            if (message.includes("Invalid value for bounds.")) {
+              // Reopen tab with default pos if it was closed too far beyond the screen
+              // https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2100
+              await windows /* WindowsApi.create */.L.create({
                 url,
                 type: "popup",
                 ...PagesApi.defaultPopupWindowState
@@ -21636,6 +20393,7 @@
           await storage.set(constants /* ADGUARD_SETTINGS_KEY */.sg, common_settings /* defaultSettings */.he);
         }
       } // CONCATENATED MODULE: ./Extension/src/background/api/install/index.ts
+      // CONCATENATED MODULE: ./Extension/src/background/utils/indexed-db.ts
 
       /**
        * @file
@@ -21655,8 +20413,6 @@
        * along with AdGuard Browser Extension. If not, see <http://www.gnu.org/licenses/>.
        */
 
-      // EXTERNAL MODULE: ./Extension/src/common/error.ts
-      var error = __webpack_require__(28642); // CONCATENATED MODULE: ./Extension/src/background/utils/indexed-db.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -22135,7 +20891,7 @@
        */
 
       // EXTERNAL MODULE: ./node_modules/crypto-js/sha256.js
-      var sha256 = __webpack_require__(28975);
+      var sha256 = __webpack_require__(8975);
       var sha256_default = /*#__PURE__*/ __webpack_require__.n(sha256); // CONCATENATED MODULE: ./Extension/src/background/api/safebrowsing.ts
       /**
        * @file
@@ -22654,13 +21410,13 @@
           };
         }
       }
-      engine_define_property(Engine, "api", new dist /* TsWebExtension */.Ql(WEB_ACCESSIBLE_RESOURCES_OUTPUT));
+      engine_define_property(Engine, "api", (0, dist /* createTsWebExtension */.I)(WEB_ACCESSIBLE_RESOURCES_OUTPUT));
       engine_define_property(Engine, "UPDATE_TIMEOUT_MS", 1000);
       engine_define_property(Engine, "messageHandlerName", dist /* MESSAGE_HANDLER_NAME */.Au);
       engine_define_property(
         Engine,
         "debounceUpdate",
-        (0, lodash.debounce)(() => {
+        (0, debounce /* default */.Z)(() => {
           Engine.update();
         }, Engine.UPDATE_TIMEOUT_MS)
       );
@@ -22887,8 +21643,12 @@
          * @param ruleEvent.data Data for this event.
          */ static onApplyCspRule({ data }) {
           const { tabId, rule, ...eventData } = data;
+          var _getDomain;
           filteringLogApi.addEventData(tabId, {
             ...eventData,
+            // TODO refactor log event scheme to use requestDomain as string | null
+            requestDomain:
+              (_getDomain = (0, dist /* getDomain */.ge)(eventData.requestUrl)) !== null && _getDomain !== void 0 ? _getDomain : undefined,
             requestRule: FilteringLogApi.createNetworkRuleEventData(rule)
           });
           if (!SettingsApi.getSetting(schema /* SettingOption.DisableCollectHits */.qY.DisableCollectHits)) {
@@ -22902,8 +21662,11 @@
          * @param ruleEvent.data Data for this event.
          */ static onRemoveParam({ data }) {
           const { tabId, rule, ...eventData } = data;
+          var _getDomain;
           filteringLogApi.addEventData(tabId, {
             ...eventData,
+            requestDomain:
+              (_getDomain = (0, dist /* getDomain */.ge)(eventData.requestUrl)) !== null && _getDomain !== void 0 ? _getDomain : undefined,
             requestRule: FilteringLogApi.createNetworkRuleEventData(rule)
           });
           if (!SettingsApi.getSetting(schema /* SettingOption.DisableCollectHits */.qY.DisableCollectHits)) {
@@ -22917,8 +21680,11 @@
          * @param ruleEvent.data Data for this event.
          */ static onRemoveheader({ data }) {
           const { tabId, rule, ...eventData } = data;
+          var _getDomain;
           filteringLogApi.addEventData(tabId, {
             ...eventData,
+            requestDomain:
+              (_getDomain = (0, dist /* getDomain */.ge)(eventData.requestUrl)) !== null && _getDomain !== void 0 ? _getDomain : undefined,
             requestRule: FilteringLogApi.createNetworkRuleEventData(rule)
           });
           if (!SettingsApi.getSetting(schema /* SettingOption.DisableCollectHits */.qY.DisableCollectHits)) {
@@ -23263,6 +22029,7 @@
           return {
             settings: SettingsApi.getData(),
             appVersion: Prefs.version,
+            libVersions: Prefs.libVersions,
             environmentOptions: {
               isChrome: user_agent /* UserAgent.isChrome */.Z.isChrome
             },
@@ -24205,7 +22972,7 @@
        */
 
       // EXTERNAL MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/request-type.js
-      var request_type = __webpack_require__(68261); // CONCATENATED MODULE: ./Extension/src/background/services/safebrowsing.ts
+      var request_type = __webpack_require__(8261); // CONCATENATED MODULE: ./Extension/src/background/services/safebrowsing.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -24498,9 +23265,9 @@
       }
 
       // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.at-alternative.js
-      var es_string_at_alternative = __webpack_require__(82896);
+      var es_string_at_alternative = __webpack_require__(2896);
       // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.at.js
-      var es_array_at = __webpack_require__(42474); // CONCATENATED MODULE: ./Extension/src/background/services/locale-detect.ts
+      var es_array_at = __webpack_require__(2474); // CONCATENATED MODULE: ./Extension/src/background/services/locale-detect.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -24928,7 +23695,7 @@
        */
 
       // EXTERNAL MODULE: ./Extension/src/pages/services/messenger.js
-      var messenger = __webpack_require__(34798); // CONCATENATED MODULE: ./Extension/src/background/keep-alive.ts
+      var messenger = __webpack_require__(4798); // CONCATENATED MODULE: ./Extension/src/background/keep-alive.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -25206,6 +23973,8 @@
           // This is a temporary solution to keep event pages alive in Firefox.
           // We will remove it once engine initialization becomes faster.
           KeepAlive.init();
+          // Reads persisted data from session storage.
+          await Engine.api.initStorage();
           // removes listeners on re-initialization, because new ones will be registered during process
           App.removeListeners();
           // Initializes connection and message handler as soon as possible
@@ -25418,7 +24187,7 @@
       /***/
     },
 
-    /***/ 19457: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9457: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -25453,7 +24222,7 @@
       // EXTERNAL MODULE: ./node_modules/zod/lib/index.mjs
       var lib = __webpack_require__(1604);
       // EXTERNAL MODULE: ./Extension/src/common/constants.ts
-      var constants = __webpack_require__(91008); // CONCATENATED MODULE: ./Extension/src/background/schema/configuration/general-settings.ts
+      var constants = __webpack_require__(1008); // CONCATENATED MODULE: ./Extension/src/background/schema/configuration/general-settings.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -26417,7 +25186,7 @@
       });
       const regularFilterI18nMetadataValidator = lib /* default.record */.ZP.record(
         /**
-         * Two-letter language code.
+         * Locale code.
          */ lib /* default.string */.ZP.string(),
         filterInfoValidator
       ); // CONCATENATED MODULE: ./Extension/src/background/schema/i18n-metadata/tag.ts
@@ -26449,7 +25218,7 @@
       });
       const tagI18nMetadataValidator = lib /* default.record */.ZP.record(
         /**
-         * Two-letter language code.
+         * Locale code.
          */ lib /* default.string */.ZP.string(),
         tagInfoValidator
       ); // CONCATENATED MODULE: ./Extension/src/background/schema/i18n-metadata/group.ts
@@ -26478,7 +25247,7 @@
       });
       const groupI18nMetadataValidator = lib /* default.record */.ZP.record(
         /**
-         * Two-letter language code.
+         * Locale code.
          */ lib /* default.string */.ZP.string(),
         groupName
       ); // CONCATENATED MODULE: ./Extension/src/background/schema/i18n-metadata/i18n-metadata.ts
@@ -27164,7 +25933,71 @@
       /***/
     },
 
-    /***/ 91008: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 2650: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ L: () => /* binding */ WindowsApi
+        /* harmony export */
+      });
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
+        webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
+      );
+      /**
+       * @file
+       * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
+       *
+       * AdGuard Browser Extension is free software: you can redistribute it and/or modify
+       * it under the terms of the GNU General Public License as published by
+       * the Free Software Foundation, either version 3 of the License, or
+       * (at your option) any later version.
+       *
+       * AdGuard Browser Extension is distributed in the hope that it will be useful,
+       * but WITHOUT ANY WARRANTY; without even the implied warranty of
+       * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+       * See the GNU General Public License for more details.
+       *
+       * You should have received a copy of the GNU General Public License
+       * along with AdGuard Browser Extension. If not, see <http://www.gnu.org/licenses/>.
+       */
+      /**
+       * Helper class for browser.windows API.
+       */ class WindowsApi {
+        /**
+         * Calls browser.windows.create with fallback to browser.tabs.create.
+         * In case of fallback, compatible data will be reused.
+         *
+         * This covers cases like Firefox for Android, where browser.windows API is not available.
+         * https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2536
+         *
+         * @param createData Browser.windows.create argument.
+         * @returns Created window, tab or null, if no calls were made.
+         */ static async create(createData) {
+          if (webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().windows) {
+            return webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().windows.create(createData);
+          }
+          const createProperties = createData || {};
+          const { url, cookieStoreId } = createProperties;
+          if (typeof url === "string") {
+            return webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().tabs.create({
+              url,
+              cookieStoreId
+            });
+          }
+          if (Array.isArray(url)) {
+            return webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default().tabs.create({
+              url: url[0],
+              cookieStoreId
+            });
+          }
+          return null;
+        }
+      }
+
+      /***/
+    },
+
+    /***/ 1008: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ CY: () => /* binding */ KEEP_ALIVE_PORT_NAME,
@@ -27177,6 +26010,7 @@
         /* harmony export */ XR: () => /* binding */ TRUSTED_TAG,
         /* harmony export */ XS: () => /* binding */ WASTE_CHARACTERS,
         /* harmony export */ Z1: () => /* binding */ VIEWED_NOTIFICATIONS_KEY,
+        /* harmony export */ ar: () => /* binding */ OPTIONS_PAGE,
         /* harmony export */ du: () => /* binding */ FILTERING_LOG,
         /* harmony export */ ih: () => /* binding */ CUSTOM_FILTERS_START_ID,
         /* harmony export */ jF: () => /* binding */ SCHEMA_VERSION_KEY,
@@ -27311,17 +26145,18 @@
       })(FiltersUpdateTime || (FiltersUpdateTime = {}));
       const NEWLINE_CHAR_UNIX = "\n";
       const NEWLINE_CHAR_REGEX = /\r?\n/;
+      const OPTIONS_PAGE = "pages/options.html";
 
       /***/
     },
 
-    /***/ 28642: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8642: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ e: () => /* binding */ getErrorMessage
         /* harmony export */
       });
-      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68705);
+      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8705);
       /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__
       );
@@ -27378,7 +26213,7 @@
       /***/
     },
 
-    /***/ 89269: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9269: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ OU: () => /* binding */ Forward,
@@ -27447,7 +26282,7 @@
         ForwardAction["Android"] = "android_about";
         ForwardAction["GithubVersion"] = "github_version_popup";
         ForwardAction["LearnAboutAdGuard"] = "learn_about_adguard";
-        ForwardAction["Halloween"] = "halloween_23";
+        ForwardAction["Christmas23"] = "christmas_23";
       })(ForwardAction || (ForwardAction = {}));
       var ForwardFrom;
       (function (ForwardFrom) {
@@ -27485,7 +26320,7 @@
       /***/
     },
 
-    /***/ 75019: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5019: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ LK: () => /* binding */ LogLevelString,
@@ -27493,12 +26328,12 @@
         /* harmony export */
       });
       /* unused harmony exports LogLevel, LogMethod */
-      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68705);
+      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8705);
       /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(93620);
-      /* harmony import */ var _error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28642);
+      /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3620);
+      /* harmony import */ var _error__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8642);
       /**
        * @file
        *
@@ -27667,7 +26502,7 @@
       /***/
     },
 
-    /***/ 90637: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 637: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ C: () => /* binding */ MessageType,
@@ -27772,7 +26607,7 @@
       /***/
     },
 
-    /***/ 88427: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8427: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Cs: () => /* reexport safe */ _constants__WEBPACK_IMPORTED_MODULE_0__.C,
@@ -27782,9 +26617,9 @@
         /* harmony export */ pF: () => /* reexport safe */ _message_handler__WEBPACK_IMPORTED_MODULE_2__.p
         /* harmony export */
       });
-      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(90637);
-      /* harmony import */ var _send_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(38039);
-      /* harmony import */ var _message_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(93175);
+      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(637);
+      /* harmony import */ var _send_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8039);
+      /* harmony import */ var _message_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3175);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -27806,17 +26641,17 @@
       /***/
     },
 
-    /***/ 93175: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3175: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ p: () => /* binding */ MessageHandler
         /* harmony export */
       });
-      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68705);
+      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8705);
       /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_1__
       );
@@ -27893,18 +26728,18 @@
       /***/
     },
 
-    /***/ 38039: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8039: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ D: () => /* binding */ sendTabMessage,
         /* harmony export */ b: () => /* binding */ sendMessage
         /* harmony export */
       });
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(90637);
+      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(637);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -27958,7 +26793,7 @@
       /***/
     },
 
-    /***/ 80239: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 239: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ YK: () => /* binding */ DEFAULT_FILTERS_UPDATE_PERIOD,
@@ -27969,8 +26804,8 @@
         /* harmony export */
       });
       /* unused harmony exports DEFAULT_ALLOWLIST, DEFAULT_INVERTED_ALLOWLIST */
-      /* harmony import */ var _background_schema__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19457);
-      /* harmony import */ var _user_agent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(65759);
+      /* harmony import */ var _background_schema__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9457);
+      /* harmony import */ var _user_agent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5759);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -28047,13 +26882,13 @@
       /***/
     },
 
-    /***/ 97817: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7817: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ a: () => /* binding */ i18n
         /* harmony export */
       });
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
@@ -28085,14 +26920,14 @@
       /***/
     },
 
-    /***/ 85672: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5672: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ O: () => /* binding */ translator
         /* harmony export */
       });
-      /* harmony import */ var _adguard_translate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58396);
-      /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(97817);
+      /* harmony import */ var _adguard_translate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8396);
+      /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7817);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -28120,15 +26955,13 @@
       /***/
     },
 
-    /***/ 66681: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6681: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ O: () => /* binding */ Unknown
         /* harmony export */
       });
-      /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(33868);
-      /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default =
-        /*#__PURE__*/ __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
+      /* harmony import */ var lodash_es__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7228);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -28145,23 +26978,21 @@
        *
        * You should have received a copy of the GNU General Public License
        * along with AdGuard Browser Extension. If not, see <http://www.gnu.org/licenses/>.
-       */ function _define_property(obj, key, value) {
-        if (key in obj) {
-          Object.defineProperty(obj, key, {
-            value: value,
-            enumerable: true,
-            configurable: true,
-            writable: true
-          });
-        } else {
-          obj[key] = value;
-        }
-        return obj;
-      }
-
+       */
       /**
        * Helper util used for work with unknown type.
        */ class Unknown {
+        /**
+         * Returns key from object with `unknown` type.
+         *
+         * @param obj Object with type `unknown`.
+         * @param key Key for search and return its value from object.
+         *
+         * @returns Undefined if key doesn't exist in the object
+         * or value of key in this object.
+         */ static get(obj, key) {
+          return (0, lodash_es__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(obj, key);
+        }
         /**
          * Checks if property exists in the object, and narrows the type of the object.
          *
@@ -28172,28 +27003,17 @@
           return key != null && obj != null && typeof obj === "object" && key in obj;
         }
       }
-      /**
-       * Returns key from object with `unknown` type.
-       *
-       * @param obj Object with type `unknown`.
-       * @param key Key for search and return its value from object.
-       *
-       * @returns Undefined if key doesn't exist in the object
-       * or value of key in this object.
-       */ _define_property(Unknown, "get", (obj, key) => {
-        return lodash__WEBPACK_IMPORTED_MODULE_0___default().get(obj, key);
-      });
 
       /***/
     },
 
-    /***/ 65759: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5759: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ UserAgent
         /* harmony export */
       });
-      /* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58171);
+      /* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8171);
       /* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         ua_parser_js__WEBPACK_IMPORTED_MODULE_0__
       );
@@ -28237,7 +27057,7 @@
          *
          * @returns user agent browser name.
          */ static getBrowserName() {
-          return UserAgent.parser.getBrowser().name;
+          return UserAgent.isFirefoxMobile ? "Firefox Mobile" : UserAgent.parser.getBrowser().name;
         }
         /**
          * Returns current OS name.
@@ -28355,6 +27175,9 @@
          */ static isTargetEngine(engineName) {
           return UserAgent.parser.getEngine().name === engineName;
         }
+        static isTargetDeviceType(deviceType) {
+          return UserAgent.parser.getDevice().type === deviceType;
+        }
         /**
          * Returns a major browser version.
          *
@@ -28384,12 +27207,15 @@
       _define_property(UserAgent, "isWindows", UserAgent.isTargetPlatform("Windows"));
       _define_property(UserAgent, "isAndroid", UserAgent.isTargetPlatform("Android"));
       _define_property(UserAgent, "isChromium", UserAgent.isTargetEngine("Blink"));
+      _define_property(UserAgent, "isMobileDevice", UserAgent.isTargetDeviceType("mobile"));
+      _define_property(UserAgent, "isFirefoxMobile", UserAgent.isFirefox && UserAgent.isMobileDevice);
       _define_property(
         UserAgent,
         "isSupportedBrowser",
         (UserAgent.isChrome && Number(UserAgent.version) >= 79) ||
           (UserAgent.isEdgeChromium && Number(UserAgent.version) >= 79) ||
           (UserAgent.isFirefox && Number(UserAgent.version) >= 78) ||
+          (UserAgent.isFirefoxMobile && Number(UserAgent.version) >= 113) ||
           (UserAgent.isOpera && Number(UserAgent.version) >= 66)
       );
       _define_property(UserAgent, "browserName", UserAgent.getBrowserName());
@@ -28397,19 +27223,19 @@
       /***/
     },
 
-    /***/ 34798: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 4798: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ d: () => /* binding */ messenger
         /* harmony export */
       });
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32380);
-      /* harmony import */ var _common_log__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(75019);
-      /* harmony import */ var _common_messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(88427);
+      /* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2380);
+      /* harmony import */ var _common_log__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5019);
+      /* harmony import */ var _common_messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8427);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -28853,12 +27679,134 @@
       /***/
     },
 
-    /***/ 42480: /***/ () => {
+    /***/ 2480: /***/ () => {
       /* (ignored) */
       /***/
     },
 
-    /***/ 32380: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+    /***/ 7228: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _baseGet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8087);
+
+      /**
+       * Gets the value at `path` of `object`. If the resolved value is
+       * `undefined`, the `defaultValue` is returned in its place.
+       *
+       * @static
+       * @memberOf _
+       * @since 3.7.0
+       * @category Object
+       * @param {Object} object The object to query.
+       * @param {Array|string} path The path of the property to get.
+       * @param {*} [defaultValue] The value returned for `undefined` resolved values.
+       * @returns {*} Returns the resolved value.
+       * @example
+       *
+       * var object = { 'a': [{ 'b': { 'c': 3 } }] };
+       *
+       * _.get(object, 'a[0].b.c');
+       * // => 3
+       *
+       * _.get(object, ['a', '0', 'b', 'c']);
+       * // => 3
+       *
+       * _.get(object, 'a.b.c', 'default');
+       * // => 'default'
+       */
+      function get(object, path, defaultValue) {
+        var result = object == null ? undefined : (0, _baseGet_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(object, path);
+        return result === undefined ? defaultValue : result;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = get;
+
+      /***/
+    },
+
+    /***/ 5899: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _debounce_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9239);
+      /* harmony import */ var _isObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6185);
+
+      /** Error message constants. */
+      var FUNC_ERROR_TEXT = "Expected a function";
+
+      /**
+       * Creates a throttled function that only invokes `func` at most once per
+       * every `wait` milliseconds. The throttled function comes with a `cancel`
+       * method to cancel delayed `func` invocations and a `flush` method to
+       * immediately invoke them. Provide `options` to indicate whether `func`
+       * should be invoked on the leading and/or trailing edge of the `wait`
+       * timeout. The `func` is invoked with the last arguments provided to the
+       * throttled function. Subsequent calls to the throttled function return the
+       * result of the last `func` invocation.
+       *
+       * **Note:** If `leading` and `trailing` options are `true`, `func` is
+       * invoked on the trailing edge of the timeout only if the throttled function
+       * is invoked more than once during the `wait` timeout.
+       *
+       * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+       * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+       *
+       * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+       * for details over the differences between `_.throttle` and `_.debounce`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Function
+       * @param {Function} func The function to throttle.
+       * @param {number} [wait=0] The number of milliseconds to throttle invocations to.
+       * @param {Object} [options={}] The options object.
+       * @param {boolean} [options.leading=true]
+       *  Specify invoking on the leading edge of the timeout.
+       * @param {boolean} [options.trailing=true]
+       *  Specify invoking on the trailing edge of the timeout.
+       * @returns {Function} Returns the new throttled function.
+       * @example
+       *
+       * // Avoid excessively updating the position while scrolling.
+       * jQuery(window).on('scroll', _.throttle(updatePosition, 100));
+       *
+       * // Invoke `renewToken` when the click event is fired, but not more than once every 5 minutes.
+       * var throttled = _.throttle(renewToken, 300000, { 'trailing': false });
+       * jQuery(element).on('click', throttled);
+       *
+       * // Cancel the trailing throttled invocation.
+       * jQuery(window).on('popstate', throttled.cancel);
+       */
+      function throttle(func, wait, options) {
+        var leading = true,
+          trailing = true;
+
+        if (typeof func != "function") {
+          throw new TypeError(FUNC_ERROR_TEXT);
+        }
+        if ((0, _isObject_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(options)) {
+          leading = "leading" in options ? !!options.leading : leading;
+          trailing = "trailing" in options ? !!options.trailing : trailing;
+        }
+        return (0, _debounce_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(func, wait, {
+          leading: leading,
+          maxWait: wait,
+          trailing: trailing
+        });
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = throttle;
+
+      /***/
+    },
+
+    /***/ 2380: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ x0: () => /* binding */ nanoid
@@ -28904,7 +27852,7 @@
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ __webpack_require__.O(0, [407, 645, 776], () => __webpack_exec__(76654));
+    /******/ __webpack_require__.O(0, [645, 776], () => __webpack_exec__(3017));
     /******/ var __webpack_exports__ = __webpack_require__.O();
     /******/
   }

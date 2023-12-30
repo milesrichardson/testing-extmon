@@ -1,5 +1,5 @@
 var fn_addin = function (s, e, t) {
-  var i = i || {};
+  var i = {};
   return (
     (i.styles = i.styles || {}),
     (i.commands = i.commands || {}),
@@ -45,9 +45,8 @@ var fn_addin = function (s, e, t) {
         );
       },
       addOrReplaceIfOverride: function (e, t, s) {
-        var i = s || { id: t.id },
-          n = _.findWhere(e, i);
-        return !!n && (t.override && (e.splice(e.indexOf(n), 1), e.push(t)), !0);
+        (s = s || { id: t.id }), (s = _.findWhere(e, s));
+        return !!s && (t.override && (e.splice(e.indexOf(s), 1), e.push(t)), !0);
       },
       registerNavItems: function (e) {
         var t = this,
@@ -65,7 +64,8 @@ var fn_addin = function (s, e, t) {
             _.each(e.panels, function (e) {
               t.registerPanel(e);
             }),
-          s && this.trigger("navItemsChanged"));
+          s) &&
+          this.trigger("navItemsChanged");
       },
       getNavItems: function () {
         return (
@@ -77,9 +77,8 @@ var fn_addin = function (s, e, t) {
         );
       },
       getNavItem: function (e) {
-        var t = this.getNavItems(),
-          s = _.findWhere(t.navItems, { id: e });
-        return (s = s || _.findWhere(t.secondaryNavItems, { id: e }));
+        var t = this.getNavItems();
+        return _.findWhere(t.navItems, { id: e }) || _.findWhere(t.secondaryNavItems, { id: e });
       },
       getPanelItems: function () {
         return this.panelItems;
@@ -89,14 +88,15 @@ var fn_addin = function (s, e, t) {
           this.registerPanel({ id: "clickup", section: "todo", cmd: "settings.panels.clickup.config" });
       },
       populateStockNavItems: function () {
-        if (!this.stockNavItems) {
-          var e = [
+        var e, t;
+        this.stockNavItems ||
+          ((e = [
             { id: "general", title: "General", cmd: "settings.panels.general", position: 10 },
             { id: "todo", title: "Todo", cmd: "settings.panels.todo", position: 20 },
             { id: "mantra-settings", title: "Mantras", cmd: "settings.panels.mantras", position: 30 },
             { id: "background-settings", title: "Photos", cmd: "settings.panels.backgrounds", position: 40 },
             { id: "quote-settings", title: "Quotes", cmd: "settings.panels.quotes", position: 50 }
-          ];
+          ]),
           s.utils.isTouchDevice() ||
             e.push({
               id: "bookmark-settings",
@@ -104,12 +104,12 @@ var fn_addin = function (s, e, t) {
               cmd: "settings.panels.bookmarks",
               position: 70
             }),
-            e.push({ id: "balance", title: "Balance", cmd: "settings.panels.balance", position: 80 });
-          var t = [
+          e.push({ id: "balance", title: "Balance", cmd: "settings.panels.balance", position: 80 }),
+          (t = [
             { id: "help", title: "Help", cmd: "settings.panels.help", position: 20 },
             { id: "release-notes", title: "Release Notes", cmd: "settings.panels.releaseNotes", position: 21 },
             { id: "about", title: "About", cmd: "settings.panels.about", position: 30 }
-          ];
+          ]),
           s.conditionalFeatures.featureEnabled("plus") ||
             s.conditionalFeatures.featureEnabled("team") ||
             t.push({
@@ -120,16 +120,15 @@ var fn_addin = function (s, e, t) {
               options: { source: "nav-upgrade-plus" },
               position: 40
             }),
-            s.conditionalFeatures.featureEnabled("team") ||
-              s.utils.isTouchDevice() ||
-              t.push({ id: "take-a-tour", title: "Take a Tour", cmd: "settings.takeATour", cmdOnly: !0, position: 10 }),
-            t.push({ id: "join-workshop", title: "Join a Live Workshop", cmd: "settings.joinWorkshop", cmdOnly: !0, position: 11 }),
-            (this.stockNavItems = { navItems: e, secondaryNavItems: t });
-        }
+          s.conditionalFeatures.featureEnabled("team") ||
+            s.utils.isTouchDevice() ||
+            t.push({ id: "take-a-tour", title: "Take a Tour", cmd: "settings.takeATour", cmdOnly: !0, position: 10 }),
+          t.push({ id: "join-workshop", title: "Join a Live Workshop", cmd: "settings.joinWorkshop", cmdOnly: !0, position: 11 }),
+          (this.stockNavItems = { navItems: e, secondaryNavItems: t }));
       },
       infinispin: function () {
         var e = localStorage.getItem("infinispin");
-        return (e = !!e && JSON.parse(e));
+        return !!e && JSON.parse(e);
       },
       toggleInfinispin: function () {
         var e = !this.infinispin();

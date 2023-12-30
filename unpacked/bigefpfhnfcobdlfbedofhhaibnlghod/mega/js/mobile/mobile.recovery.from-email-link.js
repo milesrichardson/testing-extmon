@@ -77,8 +77,6 @@ mobile.recovery.fromEmailLink = {
             // Otherwise if they don't have the key and will park their account
             else if (result[0] === 10) {
               if (u_type || u_type === 0) {
-                debugger;
-
                 msgDialog("warninga", "", l[22818], "", function () {
                   loadSubPage("fm");
                 });

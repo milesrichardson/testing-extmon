@@ -146,7 +146,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, r) {
@@ -183,9 +184,8 @@
         drawings: n.GoogleDrawings,
         spreadsheets: n.GoogleSheets
       },
-      i = () => {
-        const e = window.location,
-          t = e.host,
+      i = (e = window.location) => {
+        const t = e.hostname,
           r = e.pathname;
         if ("docs.google.com" === t)
           return (
@@ -198,7 +198,7 @@
           );
       },
       a = (e = window.location) => {
-        const t = e.host,
+        const t = e.hostname,
           r = e.pathname;
         if ("docs.google.com" === t) {
           let e;
@@ -264,7 +264,7 @@
     }
     (e.exports = r), (e.exports.__esModule = !0), (e.exports.default = e.exports);
   },
-  4: function (C, e, t) {
+  4: function (T, e, t) {
     "use strict";
     t.d(e, "F", function () {
       return s;
@@ -281,7 +281,7 @@
       t.d(e, "w", function () {
         return p;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return h;
       }),
       t.d(e, "a", function () {
@@ -305,10 +305,10 @@
       t.d(e, "x", function () {
         return w;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return x;
       }),
-      t.d(e, "Y", function () {
+      t.d(e, "Z", function () {
         return S;
       }),
       t.d(e, "u", function () {
@@ -323,34 +323,34 @@
       t.d(e, "p", function () {
         return E;
       }),
-      t.d(e, "W", function () {
+      t.d(e, "X", function () {
         return F;
       }),
-      t.d(e, "fb", function () {
+      t.d(e, "gb", function () {
         return P;
       }),
-      t.d(e, "ab", function () {
+      t.d(e, "bb", function () {
         return D;
       }),
-      t.d(e, "cb", function () {
-        return L;
-      }),
       t.d(e, "db", function () {
-        return M;
-      }),
-      t.d(e, "R", function () {
-        return T;
-      }),
-      t.d(e, "Q", function () {
-        return k;
-      }),
-      t.d(e, "b", function () {
         return A;
       }),
-      t.d(e, "P", function () {
+      t.d(e, "eb", function () {
+        return L;
+      }),
+      t.d(e, "S", function () {
+        return M;
+      }),
+      t.d(e, "Q", function () {
         return R;
       }),
-      t.d(e, "hb", function () {
+      t.d(e, "b", function () {
+        return C;
+      }),
+      t.d(e, "P", function () {
+        return k;
+      }),
+      t.d(e, "ib", function () {
         return q;
       }),
       t.d(e, "g", function () {
@@ -368,17 +368,17 @@
       t.d(e, "D", function () {
         return W;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return B;
       }),
       t.d(e, "r", function () {
         return Q;
       }),
-      t.d(e, "V", function () {
-        return Y;
+      t.d(e, "W", function () {
+        return z;
       }),
       t.d(e, "f", function () {
-        return z;
+        return Y;
       }),
       t.d(e, "y", function () {
         return X;
@@ -387,16 +387,16 @@
         return $;
       }),
       t.d(e, "E", function () {
-        return J;
+        return Z;
       }),
       t.d(e, "C", function () {
-        return K;
+        return J;
       }),
       t.d(e, "s", function () {
-        return V;
+        return K;
       }),
-      t.d(e, "bb", function () {
-        return Z;
+      t.d(e, "cb", function () {
+        return V;
       }),
       t.d(e, "J", function () {
         return ee;
@@ -407,13 +407,13 @@
       t.d(e, "K", function () {
         return re;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return ne;
       }),
       t.d(e, "n", function () {
         return oe;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ie;
       }),
       t.d(e, "m", function () {
@@ -425,7 +425,7 @@
       t.d(e, "A", function () {
         return ce;
       }),
-      t.d(e, "S", function () {
+      t.d(e, "T", function () {
         return se;
       }),
       t.d(e, "k", function () {
@@ -443,8 +443,11 @@
       t.d(e, "l", function () {
         return he;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return me;
+      }),
+      t.d(e, "R", function () {
+        return ge;
       });
     var e = t(3),
       r = t.n(e),
@@ -562,20 +565,20 @@
           spreadsheetId: e
         }),
       D = () => c(i.a.ShowHandwritingExceededReminder),
-      L = () => c(i.a.ShowPredictionReminder),
-      M = () => c(i.a.ShowReviewReminder),
-      T = (e) =>
+      A = () => c(i.a.ShowPredictionReminder),
+      L = () => c(i.a.ShowReviewReminder),
+      M = (e) =>
         c(i.a.SendAnalyticsScreen, {
           screenName: e
         }),
-      k = (e, t = 0, r) =>
+      R = (e, t = 0, r) =>
         c(i.a.SendAnalyticsEvent, {
           category: e,
           value: t,
           customParams: r
         }),
-      A = () => c(i.a.CaptureScreenshot),
-      R = (e) =>
+      C = () => c(i.a.CaptureScreenshot),
+      k = (e) =>
         c(i.a.ScanMathpixOcr, {
           base64: e
         }),
@@ -633,26 +636,26 @@
           value: e
         }),
       Q = () => c(i.a.GetMathDiscoverability),
-      Y = (e) =>
+      z = (e) =>
         c(i.a.DiscoverabilitySessionDisable, {
           disabled: e
         }),
-      z = (e) =>
+      Y = (e) =>
         c(i.a.DismissGSuiteMathDiscover, {
           options: e
         }),
       X = () => c(i.a.HasGSuiteDiscoverOverlayShown),
       $ = () => c(i.a.GetPlatformOs),
-      J = () => c(i.a.IsLockedForms),
-      K = (e, t, r, n) =>
+      Z = () => c(i.a.IsLockedForms),
+      J = (e, t, r, n) =>
         c(i.a.InsertImageGoogleApi, {
           url: e,
           width: t,
           height: r,
           additionalOptions: n
         }),
-      V = () => c(i.a.GetMolecularFilter),
-      Z = (e = null, t = {}) =>
+      K = () => c(i.a.GetMolecularFilter),
+      V = (e = null, t = {}) =>
         c(i.a.ShowInfoPopup, {
           popupType: e,
           options: t
@@ -751,7 +754,20 @@
         c(i.a.GenerateMathQuestions, {
           options: e
         }),
-      me = () => c(i.a.ShowFormsGeneratorUi);
+      me = () => c(i.a.ShowFormsGeneratorUi),
+      ge = (e, t, r, n) => {
+        let o = "";
+        return (
+          window && window.location && (o = window.location.href),
+          c(i.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: r,
+            eventProps: n,
+            url: o
+          })
+        );
+      };
   },
   412: function (e, t, r) {
     "use strict";
@@ -760,7 +776,7 @@
       t = r.n(t),
       n = r(1),
       o = r.n(n),
-      n = r(85),
+      n = r(86),
       i = r.n(n),
       a = r(4),
       u = r(10),
@@ -776,14 +792,18 @@
     window.equatioCoreChunkLoading = "chrome";
     let d = !(window.equatioCoreBaseUrl = "chrome-extension://hjngolefdpdnooamgdldlkjgmdcmcjnc/");
     const f = () => {
-        Object(u.b)() && Object(u.c)() === u.a.GoogleSheets && Object(a.fb)(s());
+        Object(u.b)() && Object(u.c)() === u.a.GoogleSheets && Object(a.gb)(s());
       },
       p = () => {
         if (document.querySelector(".equatio-onboarding-step-2"))
           window.postMessage("EQUATIO_ONBOARDING_NEXT_STEP", window.location.origin);
         else if (d) {
           const e = document.querySelector(".equatio-toolbar-wrapper");
-          e && ((e.style.display = "block" === e.style.display ? "none" : "block"), "block" === e.style.display) && (Object(l.a)(), f());
+          e &&
+            ((e.style.display = "block" === e.style.display ? "none" : "block"),
+            "block" === e.style.display
+              ? (Object(a.R)("ApplicationOpened", "Application", "NA"), Object(l.a)(), f())
+              : Object(a.R)("ApplicationClosed", "Application", "NA"));
         } else (d = !0), i()(`chrome-extension://${chrome.runtime.id}/content/docsMessagingApi.js`), Object(a.z)(), f();
       };
     chrome.runtime.onMessage.addListener(({ action: e }) => {
@@ -800,7 +820,7 @@
                   break;
 
                 case 3:
-                  if (e.sent) return (window.location.hash = "equatio-onboarding"), p(), (e.next = 9), Object(a.Y)(!1);
+                  if (e.sent) return (window.location.hash = "equatio-onboarding"), p(), (e.next = 9), Object(a.Z)(!1);
                   e.next = 9;
                   break;
 
@@ -1316,7 +1336,7 @@
     }
     (e.exports = o), (e.exports.__esModule = !0), (e.exports.default = e.exports);
   },
-  85: function (e, t) {
+  86: function (e, t) {
     function o(e, t, r) {
       t(new URIError(r.target.src + " could not be loaded"), r);
     }

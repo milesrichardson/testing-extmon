@@ -453,9 +453,18 @@
               : n.params.subtype
             : n.params.type);
       document.addEventListener("DOMContentLoaded", function () {
-        window.addEventListener("resize", () => {
-          $("#mbbgb-inf").popup({ inline: !0, hoverable: !0, lastResort: "bottom center" });
+        new Promise((r, s) => {
+          e.chrome.runtime.sendMessage({ type: "MSG_IS_PREMIUM" }, function (e) {
+            !e || e.error
+              ? (console.error("Failed to check if premium: " + e.error), s(e.error))
+              : (console.debug("Is premium: " + e.success), r(e.success));
+          });
+        }).then((e) => {
+          e || (document.getElementById("upgrade-protection").style.display = "inherit");
         }),
+          window.addEventListener("resize", () => {
+            $("#mbbgb-inf").popup({ inline: !0, hoverable: !0, lastResort: "bottom center" });
+          }),
           (function () {
             $("#mbbgb-inf").popup({ inline: !0, hoverable: !0, lastResort: "bottom center" }),
               r([

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "应用"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 扩展终止支持"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "自 2024 年 1 月 15 日起，Microsoft 将不再支持此扩展。"
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "有关详细信息，请访问此扩展的支持页面。"
+  },
+  "Support": {
+    "message": "支持"
   }
 }

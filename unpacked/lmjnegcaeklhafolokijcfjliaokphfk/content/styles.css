@@ -1,14 +1,4 @@
-/*
- * weh - WebExtensions Helper
- *
- * @summary workflow and base code for developing WebExtensions browser add-ons
- * @author Michel Gutierrez
- * @link https://github.com/mi-g/weh
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
+@import "content-libs.css";
 button:focus,
 a:focus,
 a:active,
@@ -114,9 +104,12 @@ select:-moz-focusring {
   padding-left: 64px;
   padding-top: 6px;
   height: 40px;
+  display: flex;
+  align-items: center;
 }
 .main-panel .main-content footer .groups > * {
   display: inline-block;
+  padding-bottom: 8px;
 }
 .main-panel .main-content footer .group {
   margin-right: 12px;
@@ -583,33 +576,27 @@ div.details {
 .embeddable main > div .explain p {
   font-style: italic;
 }
-
 .embeddable main > div.dlconv {
   min-height: 150px;
 }
-
 .embeddable main > div.blacklist .domains {
   width: 80%;
 }
-
 .embeddable main > div.blacklist .domains > div {
   display: flex;
   flex-direction: row;
 }
-
 .embeddable main > div.blacklist input[type="checkbox"] {
   margin-right: 1em;
   flex: 0 0 auto;
   margin-top: 5px;
 }
-
 .embeddable main > div.blacklist label {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   flex: 1 1 auto;
 }
-
 .embeddable footer {
   padding-bottom: 0.5em;
   background-color: #fff;
@@ -635,13 +622,11 @@ div.details {
 .convconfs .toprow > * {
   margin: 0 0.5em;
 }
-
 .convconfs .notice {
   text-align: center;
   font-style: italic;
   color: #aaa;
 }
-
 .convconfs .params {
   margin: 0.5em 1.5em;
 }
@@ -696,7 +681,8 @@ div.details {
 }
 
 .collapsible-section {
-  margin-bottom: 1em;
+  padding-top: 1em;
+  clear: both;
 }
 .collapsible-section .section-header {
   border: 1px solid #ddd;
@@ -736,16 +722,13 @@ div.details {
   flex: 1 1 auto;
   padding-left: 0.25em;
 }
-
 .lic-info-panel .license-details td:first-of-type {
   padding-right: 2em;
 }
-
 .lic-info-panel .license-details td:not(:first-of-type) {
   padding-left: 0.25em;
   font-weight: 800;
 }
-
 .lic-info-panel .lnk-group {
   padding-top: 0.5em;
 }
@@ -785,7 +768,6 @@ div.details {
 .alert-dialog .alert-dialog-content .centered {
   text-align: center;
 }
-
 .alert-dialog .not-again {
   padding: 0.3em 0.5em;
 }
@@ -881,7 +863,6 @@ div.details {
   flex-direction: column;
   overflow-y: hidden;
 }
-
 .file-prompt .current-directory {
   flex: 0 0 auto;
   font-size: 11pt;
@@ -893,7 +874,6 @@ div.details {
   font-style: italic;
   color: #888;
 }
-
 .file-prompt .top-line {
   flex: 0 0 auto;
   display: flex;
@@ -921,7 +901,6 @@ div.details {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .file-prompt .files-list {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -931,7 +910,6 @@ div.details {
   background-color: #f8f8f8;
   overflow-x: hidden;
 }
-
 .file-prompt .tablecontainer {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -940,19 +918,16 @@ div.details {
   margin: 0 0.4em;
   border-radius: 4px;
 }
-
 .file-prompt .tablecontainer table {
   border-spacing: 0;
   width: 100%;
   font-size: 11pt;
 }
-
 .file-prompt .tablecontainer td,
 .file-prompt th {
   border-bottom: 1px solid #eee;
   padding: 4px;
 }
-
 .file-prompt .tablecontainer th {
   height: 0px;
   padding-top: 0;
@@ -962,7 +937,6 @@ div.details {
   white-space: nowrap;
   min-width: 50px;
 }
-
 .file-prompt .tablecontainer th div {
   visibility: visible;
   position: absolute;
@@ -977,34 +951,27 @@ div.details {
   width: auto;
   margin-left: 1em;
 }
-
 .file-prompt th:first-child div {
   border: none;
 }
-
 .file-prompt td {
   white-space: nowrap;
 }
-
 .file-prompt td:nth-child(2) > div {
   text-overflow: ellipsis;
   overflow: hidden;
   max-width: 480px;
 }
-
 .file-prompt tr.dir-entry {
   cursor: pointer;
 }
-
 .file-prompt tr.file-entry td:nth-child(2) {
   cursor: pointer;
 }
-
 .file-prompt tr.file-entry[selectedfile="true"] td {
   background-color: #1f80e0;
   color: #fff;
 }
-
 .file-prompt .bottom-component {
   background-color: #f8f8f8;
   min-height: 4em;
@@ -1091,7 +1058,6 @@ main > .blacklist .list > div:hover .delete:hover {
 .convrules .list > div {
   cursor: pointer;
 }
-
 .smartname main > div.edit-rule,
 .convrules main > div.edit-rule {
   padding: 0.8em;
@@ -1107,7 +1073,6 @@ main > .blacklist .list > div:hover .delete:hover {
   height: 1.2em;
   margin-top: 0.4em;
 }
-
 .smartname main > div.all-rules,
 .convrules main > div.all-rules {
   display: flex;
@@ -1177,7 +1142,6 @@ main > .blacklist .list > div:hover .delete:hover {
 .convrules main > div.all-rules .list > li:hover .delete:hover {
   background-color: #444;
 }
-
 .smartname .refresh,
 .convrules .refresh {
   font-size: 2em;
@@ -1204,11 +1168,9 @@ main > .blacklist .list > div:hover .delete:hover {
   xborder: 1px solid #888;
   background-color: #eee;
 }
-
 .convrules main > div.all-rules > div {
   max-width: 300px;
 }
-
 .convrules main > div.all-rules > div.list-column {
   background-color: #fff;
   max-width: 500px;
@@ -1218,7 +1180,6 @@ main > .blacklist .list > div:hover .delete:hover {
 .smartname-definer main {
   padding: 1em;
 }
-
 .smartname-definer footer .btn-toolbar {
   justify-content: space-between;
 }
@@ -1231,7 +1192,6 @@ main > .blacklist .list > div:hover .delete:hover {
   position: relative;
   top: 4px;
 }
-
 .smartname-definer input.error,
 .smartname-definer textarea.error {
   background-color: #fcc;

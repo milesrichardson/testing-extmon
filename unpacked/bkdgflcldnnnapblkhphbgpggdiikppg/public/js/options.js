@@ -8041,6 +8041,7 @@
                 poniatowa: _3,
                 swidnik: _3,
                 co: _3,
+                torun: _3,
                 simplesite: _3,
                 art: _3,
                 gliwice: _3,
@@ -9668,7 +9669,6 @@
             kia: _2,
             kids: _2,
             kim: _2,
-            kinder: _2,
             kindle: _2,
             kitchen: _2,
             kiwi: _2,
@@ -9932,7 +9932,6 @@
             ril: _2,
             rio: _2,
             rip: [1, { clan: _3 }],
-            rocher: _2,
             rocks: [1, { myddns: _3, "lima-city": _3, webspace: _3 }],
             rodeo: _2,
             rogers: _2,
@@ -17252,7 +17251,7 @@
         } else {
           browserName = "-" + browserName + (isMV3() ? "mv3" : "");
         }
-        return `${trackerBlockingEndpointBase}/config/v2/extension${browserName}-config.json`;
+        return `${trackerBlockingEndpointBase}/config/v4/extension${browserName}-config.json`;
       }
       function getTDSEndpoint(version) {
         const thisPlatform = `extension${isMV3() ? "-mv3" : ""}`;
@@ -17412,7 +17411,7 @@
     "shared/data/bundled/extension-config.json"(exports2, module2) {
       module2.exports = {
         readme: "https://github.com/duckduckgo/privacy-configuration",
-        version: 1698923578016,
+        version: 1701873376184,
         features: {
           adClickAttribution: {
             readme:
@@ -17476,52 +17475,43 @@
           ampLinks: {
             exceptions: [
               {
-                domain: "freecodecamp.org",
-                reason: "Clicking 'get started' reloads the page and does not progress to the login page."
+                domain: "freecodecamp.org"
               },
               {
-                domain: "www.audiosciencereview.com",
-                reason: "Pages on the site end up in redirect loops in Firefox."
+                domain: "www.audiosciencereview.com"
               },
               {
-                domain: "golf.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/812"
+                domain: "golf.com"
               },
               {
-                domain: "thehustle.co",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1460"
+                domain: "thehustle.co"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -17534,7 +17524,7 @@
               keywords: ["=amp", "&amp", "amp&", "/amp", "amp/", ".amp", "amp.", "%amp", "amp%", "_amp", "amp_", "?amp"]
             },
             state: "enabled",
-            hash: "b959d12873174557656a507ab82a0941"
+            hash: "e32a761ca9287a276d43a5cc431d9f57"
           },
           androidBrowserConfig: {
             exceptions: [],
@@ -17544,1032 +17534,802 @@
           autoconsent: {
             exceptions: [
               {
-                domain: "allocine.fr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1241"
+                domain: "allocine.fr"
               },
               {
-                domain: "bild.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "bild.de"
               },
               {
-                domain: "derstandard.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "derstandard.de"
               },
               {
-                domain: "duden.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "duden.de"
               },
               {
-                domain: "ksta.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "ksta.de"
               },
               {
-                domain: "motherdenim.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "motherdenim.com"
               },
               {
-                domain: "nationalgrid.co.uk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "nationalgrid.co.uk"
               },
               {
-                domain: "t-online.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "t-online.de"
               },
               {
-                domain: "tomsguide.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "tomsguide.com"
               },
               {
-                domain: "welt.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "welt.de"
               },
               {
-                domain: "zeitraum-moebel.de",
-                reason:
-                  "After the cookie popup is managed and disappears, a semi-transparent overlay remains on the page which prevents further interaction with the site."
+                domain: "zeitraum-moebel.de"
               },
               {
-                domain: "mathebibel.de",
-                reason: "Page renders but one cannot scroll (and no CMP is shown) for a few seconds."
+                domain: "mathebibel.de"
               },
               {
-                domain: "focus.de",
-                reason: "Page renders but one cannot scroll (and no CMP is shown) for a few seconds."
+                domain: "focus.de"
               },
               {
-                domain: "computerbild.de",
-                reason: "Page renders but one cannot scroll (and no CMP is shown) for a few seconds."
+                domain: "computerbild.de"
               },
               {
-                domain: "techtarget.com",
-                reason: "Page renders but one cannot scroll (and no CMP is shown) for a few seconds."
+                domain: "techtarget.com"
               },
               {
-                domain: "n-tv.de",
-                reason: "Page renders but one cannot scroll (and no CMP is shown) for a few seconds."
+                domain: "n-tv.de"
               },
               {
-                domain: "spiegel.de",
-                reason: "CMP gets incorrectly handled, gets stuck in preferences dialogue."
+                domain: "spiegel.de"
               },
               {
-                domain: "derstandard.at",
-                reason: "CMP gets incorrectly handled / detected."
+                domain: "derstandard.at"
               },
               {
-                domain: "concursolutions.com",
-                reason: "Page renders blank for several seconds before cookie management can complete."
+                domain: "concursolutions.com"
               },
               {
-                domain: "asus.com",
-                reason: "Opt out is broken on the US version of the site"
+                domain: "asus.com"
               },
               {
-                domain: "swm.de",
-                reason: "infinite reload"
+                domain: "swm.de"
               },
               {
-                domain: "heise.de",
-                reason: "infinite reload"
+                domain: "heise.de"
               },
               {
-                domain: "voici.fr",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/66"
+                domain: "voici.fr"
               },
               {
-                domain: "tfl.gov.uk",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/68"
+                domain: "tfl.gov.uk"
               },
               {
-                domain: "corporatefinanceinstitute.com",
-                reason: "CMP gets incorrectly handled / repeatedly opens tabs"
+                domain: "corporatefinanceinstitute.com"
               },
               {
-                domain: "kicker.de",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/66"
+                domain: "kicker.de"
               },
               {
-                domain: "epojisteni.cz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "epojisteni.cz"
               },
               {
-                domain: "nhm.ac.uk",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/113"
+                domain: "nhm.ac.uk"
               },
               {
-                domain: "virginmoney.com",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/127"
+                domain: "virginmoney.com"
               },
               {
-                domain: "shellenergy.co.uk",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/127"
+                domain: "shellenergy.co.uk"
               },
               {
-                domain: "castorama.pl",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/128"
+                domain: "castorama.pl"
               },
               {
-                domain: "bugatti-fashion.com",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/129"
+                domain: "bugatti-fashion.com"
               },
               {
-                domain: "hl.co.uk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/326"
+                domain: "hl.co.uk"
               },
               {
-                domain: "jesus.de",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/130"
+                domain: "jesus.de"
               },
               {
-                domain: "linux-praxis.de",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/130"
+                domain: "linux-praxis.de"
               },
               {
-                domain: "gfds.de",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/130"
+                domain: "gfds.de"
               },
               {
-                domain: "motorsport.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1250"
+                domain: "motorsport.com"
               },
               {
-                domain: "paypal.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1303"
+                domain: "paypal.com"
               },
               {
-                domain: "elmundotoday.com",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/254"
+                domain: "elmundotoday.com"
               },
               {
-                domain: "yum.com",
-                reason: "https://github.com/duckduckgo/autoconsent/issues/259"
+                domain: "yum.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "capital.fr"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "metro.co.uk"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "earth.google.com"
+              },
+              {
+                domain: "iscorp.com"
+              },
+              {
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
               disabledCMPs: ["generic-cosmetic"]
             },
             state: "disabled",
-            hash: "ff6408758ab8456356eba7b98eb671fd"
+            hash: "ea5120d5f805be49ae1f13e59ed84b59"
           },
           autofill: {
             exceptions: [
               {
-                domain: "containerstore.com",
-                reason: "Generally poor UX - no username saved on signup, prompts for Duck address on 'forgot password'."
-              },
-              {
-                domain: "roll20.net",
-                reason: "Performance issue for too many fields."
+                domain: "roll20.net"
               }
             ],
             state: "enabled",
-            hash: "59c4bd9b8cee343c81da98bfe5d77928"
+            hash: "b1ae580a636957bcbe90d16aa92c40bd"
           },
           clickToLoad: {
             exceptions: [
               {
-                domain: "beatsense.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/950"
+                domain: "beatsense.com"
               },
               {
-                domain: "discogs.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/950"
+                domain: "discogs.com"
               },
               {
-                domain: "duckduckgo.com",
-                reason: "Warnings are already displayed before embedded YouTube videos are loaded."
+                domain: "duckduckgo.com"
               },
               {
-                domain: "khanacademy.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/945"
+                domain: "khanacademy.org"
               },
               {
-                domain: "last.fm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/950"
+                domain: "last.fm"
               },
               {
-                domain: "turntable.fm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/950"
+                domain: "turntable.fm"
               },
               {
-                domain: "www.google.ad",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ad"
               },
               {
-                domain: "www.google.ae",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ae"
               },
               {
-                domain: "www.google.al",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.al"
               },
               {
-                domain: "www.google.am",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.am"
               },
               {
-                domain: "www.google.as",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.as"
               },
               {
-                domain: "www.google.at",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.at"
               },
               {
-                domain: "www.google.az",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.az"
               },
               {
-                domain: "www.google.ba",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ba"
               },
               {
-                domain: "www.google.be",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.be"
               },
               {
-                domain: "www.google.bf",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.bf"
               },
               {
-                domain: "www.google.bg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.bg"
               },
               {
-                domain: "www.google.bi",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.bi"
               },
               {
-                domain: "www.google.bj",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.bj"
               },
               {
-                domain: "www.google.bs",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.bs"
               },
               {
-                domain: "www.google.bt",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.bt"
               },
               {
-                domain: "www.google.by",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.by"
               },
               {
-                domain: "www.google.ca",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ca"
               },
               {
-                domain: "www.google.cat",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cat"
               },
               {
-                domain: "www.google.cd",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cd"
               },
               {
-                domain: "www.google.cf",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cf"
               },
               {
-                domain: "www.google.cg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cg"
               },
               {
-                domain: "www.google.ch",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ch"
               },
               {
-                domain: "www.google.ci",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ci"
               },
               {
-                domain: "www.google.cl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cl"
               },
               {
-                domain: "www.google.cm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cm"
               },
               {
-                domain: "www.google.cn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cn"
               },
               {
-                domain: "www.google.co.ao",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ao"
               },
               {
-                domain: "www.google.co.bw",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.bw"
               },
               {
-                domain: "www.google.co.ck",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ck"
               },
               {
-                domain: "www.google.co.cr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.cr"
               },
               {
-                domain: "www.google.co.id",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.id"
               },
               {
-                domain: "www.google.co.il",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.il"
               },
               {
-                domain: "www.google.co.in",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.in"
               },
               {
-                domain: "www.google.co.jp",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.jp"
               },
               {
-                domain: "www.google.co.ke",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ke"
               },
               {
-                domain: "www.google.co.kr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.kr"
               },
               {
-                domain: "www.google.co.ls",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ls"
               },
               {
-                domain: "www.google.co.ma",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ma"
               },
               {
-                domain: "www.google.co.mz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.mz"
               },
               {
-                domain: "www.google.co.nz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.nz"
               },
               {
-                domain: "www.google.co.th",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.th"
               },
               {
-                domain: "www.google.co.tz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.tz"
               },
               {
-                domain: "www.google.co.ug",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ug"
               },
               {
-                domain: "www.google.co.uk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.uk"
               },
               {
-                domain: "www.google.co.uz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.uz"
               },
               {
-                domain: "www.google.co.ve",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.ve"
               },
               {
-                domain: "www.google.co.vi",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.vi"
               },
               {
-                domain: "www.google.co.za",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.za"
               },
               {
-                domain: "www.google.co.zm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.zm"
               },
               {
-                domain: "www.google.co.zw",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.co.zw"
               },
               {
-                domain: "www.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com"
               },
               {
-                domain: "www.google.com.af",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.af"
               },
               {
-                domain: "www.google.com.ag",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ag"
               },
               {
-                domain: "www.google.com.ai",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ai"
               },
               {
-                domain: "www.google.com.ar",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ar"
               },
               {
-                domain: "www.google.com.au",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.au"
               },
               {
-                domain: "www.google.com.bd",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.bd"
               },
               {
-                domain: "www.google.com.bh",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.bh"
               },
               {
-                domain: "www.google.com.bn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.bn"
               },
               {
-                domain: "www.google.com.bo",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.bo"
               },
               {
-                domain: "www.google.com.br",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.br"
               },
               {
-                domain: "www.google.com.bz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.bz"
               },
               {
-                domain: "www.google.com.co",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.co"
               },
               {
-                domain: "www.google.com.cu",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.cu"
               },
               {
-                domain: "www.google.com.cy",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.cy"
               },
               {
-                domain: "www.google.com.do",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.do"
               },
               {
-                domain: "www.google.com.ec",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ec"
               },
               {
-                domain: "www.google.com.eg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.eg"
               },
               {
-                domain: "www.google.com.et",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.et"
               },
               {
-                domain: "www.google.com.fj",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.fj"
               },
               {
-                domain: "www.google.com.gh",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.gh"
               },
               {
-                domain: "www.google.com.gi",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.gi"
               },
               {
-                domain: "www.google.com.gt",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.gt"
               },
               {
-                domain: "www.google.com.hk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.hk"
               },
               {
-                domain: "www.google.com.jm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.jm"
               },
               {
-                domain: "www.google.com.kh",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.kh"
               },
               {
-                domain: "www.google.com.kw",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.kw"
               },
               {
-                domain: "www.google.com.lb",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.lb"
               },
               {
-                domain: "www.google.com.ly",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ly"
               },
               {
-                domain: "www.google.com.mm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.mm"
               },
               {
-                domain: "www.google.com.mt",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.mt"
               },
               {
-                domain: "www.google.com.mx",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.mx"
               },
               {
-                domain: "www.google.com.my",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.my"
               },
               {
-                domain: "www.google.com.na",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.na"
               },
               {
-                domain: "www.google.com.ng",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ng"
               },
               {
-                domain: "www.google.com.ni",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ni"
               },
               {
-                domain: "www.google.com.np",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.np"
               },
               {
-                domain: "www.google.com.om",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.om"
               },
               {
-                domain: "www.google.com.pa",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.pa"
               },
               {
-                domain: "www.google.com.pe",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.pe"
               },
               {
-                domain: "www.google.com.pg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.pg"
               },
               {
-                domain: "www.google.com.ph",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ph"
               },
               {
-                domain: "www.google.com.pk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.pk"
               },
               {
-                domain: "www.google.com.pr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.pr"
               },
               {
-                domain: "www.google.com.py",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.py"
               },
               {
-                domain: "www.google.com.qa",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.qa"
               },
               {
-                domain: "www.google.com.sa",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.sa"
               },
               {
-                domain: "www.google.com.sb",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.sb"
               },
               {
-                domain: "www.google.com.sg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.sg"
               },
               {
-                domain: "www.google.com.sl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.sl"
               },
               {
-                domain: "www.google.com.sv",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.sv"
               },
               {
-                domain: "www.google.com.tj",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.tj"
               },
               {
-                domain: "www.google.com.tr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.tr"
               },
               {
-                domain: "www.google.com.tw",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.tw"
               },
               {
-                domain: "www.google.com.ua",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.ua"
               },
               {
-                domain: "www.google.com.uy",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.uy"
               },
               {
-                domain: "www.google.com.vc",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.vc"
               },
               {
-                domain: "www.google.com.vn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.com.vn"
               },
               {
-                domain: "www.google.cv",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cv"
               },
               {
-                domain: "www.google.cz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.cz"
               },
               {
-                domain: "www.google.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.de"
               },
               {
-                domain: "www.google.dj",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.dj"
               },
               {
-                domain: "www.google.dk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.dk"
               },
               {
-                domain: "www.google.dm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.dm"
               },
               {
-                domain: "www.google.dz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.dz"
               },
               {
-                domain: "www.google.ee",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ee"
               },
               {
-                domain: "www.google.es",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.es"
               },
               {
-                domain: "www.google.fi",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.fi"
               },
               {
-                domain: "www.google.fm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.fm"
               },
               {
-                domain: "www.google.fr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.fr"
               },
               {
-                domain: "www.google.ga",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ga"
               },
               {
-                domain: "www.google.ge",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ge"
               },
               {
-                domain: "www.google.gg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.gg"
               },
               {
-                domain: "www.google.gl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.gl"
               },
               {
-                domain: "www.google.gm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.gm"
               },
               {
-                domain: "www.google.gr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.gr"
               },
               {
-                domain: "www.google.gy",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.gy"
               },
               {
-                domain: "www.google.hn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.hn"
               },
               {
-                domain: "www.google.hr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.hr"
               },
               {
-                domain: "www.google.ht",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ht"
               },
               {
-                domain: "www.google.hu",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.hu"
               },
               {
-                domain: "www.google.ie",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ie"
               },
               {
-                domain: "www.google.im",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.im"
               },
               {
-                domain: "www.google.iq",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.iq"
               },
               {
-                domain: "www.google.is",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.is"
               },
               {
-                domain: "www.google.it",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.it"
               },
               {
-                domain: "www.google.je",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.je"
               },
               {
-                domain: "www.google.jo",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.jo"
               },
               {
-                domain: "www.google.kg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.kg"
               },
               {
-                domain: "www.google.ki",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ki"
               },
               {
-                domain: "www.google.kz",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.kz"
               },
               {
-                domain: "www.google.la",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.la"
               },
               {
-                domain: "www.google.li",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.li"
               },
               {
-                domain: "www.google.lk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.lk"
               },
               {
-                domain: "www.google.lt",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.lt"
               },
               {
-                domain: "www.google.lu",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.lu"
               },
               {
-                domain: "www.google.lv",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.lv"
               },
               {
-                domain: "www.google.md",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.md"
               },
               {
-                domain: "www.google.me",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.me"
               },
               {
-                domain: "www.google.mg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.mg"
               },
               {
-                domain: "www.google.mk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.mk"
               },
               {
-                domain: "www.google.ml",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ml"
               },
               {
-                domain: "www.google.mn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.mn"
               },
               {
-                domain: "www.google.ms",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ms"
               },
               {
-                domain: "www.google.mu",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.mu"
               },
               {
-                domain: "www.google.mv",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.mv"
               },
               {
-                domain: "www.google.mw",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.mw"
               },
               {
-                domain: "www.google.ne",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ne"
               },
               {
-                domain: "www.google.nl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.nl"
               },
               {
-                domain: "www.google.no",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.no"
               },
               {
-                domain: "www.google.nr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.nr"
               },
               {
-                domain: "www.google.nu",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.nu"
               },
               {
-                domain: "www.google.pl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.pl"
               },
               {
-                domain: "www.google.pn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.pn"
               },
               {
-                domain: "www.google.ps",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ps"
               },
               {
-                domain: "www.google.pt",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.pt"
               },
               {
-                domain: "www.google.ro",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ro"
               },
               {
-                domain: "www.google.rs",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.rs"
               },
               {
-                domain: "www.google.ru",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ru"
               },
               {
-                domain: "www.google.rw",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.rw"
               },
               {
-                domain: "www.google.sc",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.sc"
               },
               {
-                domain: "www.google.se",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.se"
               },
               {
-                domain: "www.google.sh",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.sh"
               },
               {
-                domain: "www.google.si",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.si"
               },
               {
-                domain: "www.google.sk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.sk"
               },
               {
-                domain: "www.google.sm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.sm"
               },
               {
-                domain: "www.google.sn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.sn"
               },
               {
-                domain: "www.google.so",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.so"
               },
               {
-                domain: "www.google.sr",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.sr"
               },
               {
-                domain: "www.google.st",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.st"
               },
               {
-                domain: "www.google.td",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.td"
               },
               {
-                domain: "www.google.tg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.tg"
               },
               {
-                domain: "www.google.tl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.tl"
               },
               {
-                domain: "www.google.tm",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.tm"
               },
               {
-                domain: "www.google.tn",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.tn"
               },
               {
-                domain: "www.google.to",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.to"
               },
               {
-                domain: "www.google.tt",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.tt"
               },
               {
-                domain: "www.google.vg",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.vg"
               },
               {
-                domain: "www.google.vu",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.vu"
               },
               {
-                domain: "www.google.ws",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/911"
+                domain: "www.google.ws"
               },
               {
-                domain: "freenom.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1109"
+                domain: "freenom.com"
               },
               {
-                domain: "isra.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1245"
+                domain: "isra.org"
               },
               {
-                domain: "iamexpat.nl",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1247"
+                domain: "iamexpat.nl"
               },
               {
-                domain: "pocketbook.digital",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1368"
+                domain: "pocketbook.digital"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -18584,41 +18344,36 @@
             },
             state: "enabled",
             minSupportedVersion: "2023.7.7.2",
-            hash: "972bcf17f5659a81fff32b7273142ddb"
+            hash: "ba049926f6e0d796bffefac055b9950a"
           },
           clickToPlay: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -18629,50 +18384,55 @@
               }
             },
             state: "enabled",
-            hash: "be4dc72226013d09bb2aa8897538df6d"
+            hash: "0636b3fc8f8086febe75124d532f80ce"
           },
           contentBlocking: {
             state: "enabled",
             exceptions: [
               {
-                domain: "strava.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/748"
+                domain: "strava.com"
               },
               {
-                domain: "welt.de",
-                reason:
-                  "Video pauses at about 13-15 seconds in. Playing the video again results in a single frame rendering without progressing to the next frame."
+                domain: "welt.de"
               },
               {
-                domain: "optout.aboutads.info",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1377"
+                domain: "optout.aboutads.info"
               },
               {
-                domain: "optout.networkadvertising.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1377"
+                domain: "optout.networkadvertising.org"
               },
               {
-                domain: "ads.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1401"
+                domain: "ads.google.com"
               },
               {
-                domain: "sundancecatalog.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1420"
+                domain: "earth.google.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "iscorp.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "marvel.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
-            hash: "f7cc238fd4b1655cfcfb8d4a72a88d03"
+            hash: "87175a35f0c4873e8047f4465fbce805"
           },
           cookie: {
             settings: {
@@ -18706,136 +18466,159 @@
             },
             exceptions: [
               {
-                domain: "nespresso.com",
-                reason: "Clicking 'Continue' after filling out details for account creation yields an error."
+                domain: "nespresso.com"
               },
               {
-                domain: "optout.aboutads.info",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1377"
+                domain: "optout.aboutads.info"
               },
               {
-                domain: "optout.networkadvertising.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1377"
+                domain: "optout.networkadvertising.org"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "soundcloud.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1440"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "soundcloud.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
             minSupportedVersion: "2022.6.1",
-            hash: "fc5ea4c069976a92f8694dfebb79248b"
+            hash: "65899b03b4571ca0dd6de154794ad32a"
           },
           customUserAgent: {
             settings: {
               omitApplicationSites: [
                 {
-                  domain: "thingiverse.com",
-                  reason: "Site loads blank and does not proceed."
+                  domain: "thingiverse.com"
                 },
                 {
-                  domain: "qubushotel.com",
-                  reason: "Homepage UI elements appear squashed together, preventing interaction with the site."
+                  domain: "qubushotel.com"
                 },
                 {
-                  domain: "digid.nl",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/602"
+                  domain: "digid.nl"
                 },
                 {
-                  domain: "intymna.pl",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/667"
+                  domain: "intymna.pl"
                 },
                 {
-                  domain: "sme.sk",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/667"
+                  domain: "sme.sk"
                 },
                 {
-                  domain: "tiktok.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/667"
+                  domain: "tiktok.com"
                 },
                 {
-                  domain: "wykop.pl",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/667"
+                  domain: "wykop.pl"
                 },
                 {
-                  domain: "nypost.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/667"
+                  domain: "nypost.com"
                 },
                 {
-                  domain: "crunchynihongo.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1201"
+                  domain: "crunchynihongo.com"
                 },
                 {
-                  domain: "vsp.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1292"
+                  domain: "vsp.com"
                 },
                 {
-                  domain: "earth.google.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                  domain: "earth.google.com"
                 },
                 {
-                  domain: "iscorp.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                  domain: "iscorp.com"
                 },
                 {
-                  domain: "marvel.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                  domain: "marvel.com"
+                },
+                {
+                  domain: "sundancecatalog.com"
+                },
+                {
+                  domain: "localhost"
+                },
+                {
+                  domain: "127.0.0.1"
+                },
+                {
+                  domain: "::1"
+                },
+                {
+                  domain: "livenation.com"
+                },
+                {
+                  domain: "ticketmaster.com"
                 }
               ],
               omitVersionSites: [
                 {
-                  domain: "crunchynihongo.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1201"
+                  domain: "crunchynihongo.com"
                 },
                 {
-                  domain: "earth.google.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                  domain: "earth.google.com"
                 },
                 {
-                  domain: "iscorp.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                  domain: "iscorp.com"
                 },
                 {
-                  domain: "marvel.com",
-                  reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                  domain: "marvel.com"
+                },
+                {
+                  domain: "sundancecatalog.com"
+                },
+                {
+                  domain: "localhost"
+                },
+                {
+                  domain: "127.0.0.1"
+                },
+                {
+                  domain: "::1"
+                },
+                {
+                  domain: "livenation.com"
+                },
+                {
+                  domain: "ticketmaster.com"
                 }
               ]
             },
             exceptions: [],
             state: "disabled",
-            hash: "f374daca7927e17f12b17d4584265ed9"
+            hash: "4bc6e2c1c3a844da2a462eac6b020d0c"
+          },
+          dbp: {
+            state: "disabled",
+            features: {
+              waitlist: {
+                state: "disabled"
+              },
+              waitlistBetaActive: {
+                state: "disabled"
+              }
+            },
+            exceptions: [],
+            hash: "ba52a36920a4a76343fc3c44d98936f9"
           },
           duckPlayer: {
             exceptions: [],
@@ -18902,112 +18685,34 @@
           elementHiding: {
             exceptions: [
               {
-                domain: "duckduckgo.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1236"
+                domain: "duckduckgo.com"
               },
               {
-                domain: "bild.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/589"
+                domain: "earth.google.com"
               },
               {
-                domain: "derstandard.at",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1101"
+                domain: "iscorp.com"
               },
               {
-                domain: "foxnews.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/965"
+                domain: "marvel.com"
               },
               {
-                domain: "kbb.com",
-                reason: "Adblocker wall"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "wiwo.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
+                domain: "localhost"
               },
               {
-                domain: "metro.co.uk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
+                domain: "127.0.0.1"
               },
               {
-                domain: "blick.ch",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
+                domain: "::1"
               },
               {
-                domain: "thechive.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
+                domain: "livenation.com"
               },
               {
-                domain: "bizjournals.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "slate.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "dailycaller.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "dailymail.co.uk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "eltiempo.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "dailyherald.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "publico.es",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "rawstory.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "allgemeine-zeitung.de",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "thehindu.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/592"
-              },
-              {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
-              },
-              {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
-              },
-              {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
-              },
-              {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
-              },
-              {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
-              },
-              {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
-              },
-              {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
-              },
-              {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -19218,6 +18923,10 @@
                   type: "closest-empty"
                 },
                 {
+                  selector: ".ad-container--leaderboard",
+                  type: "hide-empty"
+                },
+                {
                   selector: ".ads_container",
                   type: "hide-empty"
                 },
@@ -19270,6 +18979,14 @@
                   type: "closest-empty"
                 },
                 {
+                  selector: "#ad-top",
+                  type: "hide-empty"
+                },
+                {
+                  selector: "#ad-wrap",
+                  type: "hide-empty"
+                },
+                {
                   selector: ".ad-wrap",
                   type: "closest-empty"
                 },
@@ -19287,10 +19004,6 @@
                 },
                 {
                   selector: "[class*='container--ads']",
-                  type: "hide-empty"
-                },
-                {
-                  selector: "[class*='l-ad']",
                   type: "hide-empty"
                 },
                 {
@@ -19362,6 +19075,10 @@
                   type: "hide-empty"
                 },
                 {
+                  selector: ".instream_ad",
+                  type: "hide-empty"
+                },
+                {
                   selector: ".adthrive",
                   type: "hide-empty"
                 },
@@ -19420,10 +19137,6 @@
                 {
                   selector: "#ez-content-blocker-container",
                   type: "hide"
-                },
-                {
-                  selector: "#notify-adblock",
-                  type: "hide"
                 }
               ],
               styleTagExceptions: [
@@ -19455,6 +19168,7 @@
                 "advertisementhide ad",
                 "advertisement - scroll to continue",
                 "advertisement \xB7 scroll to continue",
+                "advertisement - story continues below",
                 "advertising",
                 "advertising\nskip ad",
                 "advertising\nskip ad\nskip ad\nskip ad",
@@ -19482,6 +19196,22 @@
               ],
               domains: [
                 {
+                  domain: "3bmeteo.com",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: "#admasthead",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "#ads_container",
+                      type: "hide-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "abc.es",
                   rules: [
                     {
@@ -19500,6 +19230,35 @@
                     {
                       selector: "[class*='td-block']",
                       type: "hide-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "allgemeine-zeitung.de",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: ".adSlot",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".adBorder",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".nativeAd",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "androidpolice.com",
+                  rules: [
+                    {
+                      selector: "[class*='ad-zone']",
+                      type: "hide"
                     }
                   ]
                 },
@@ -19544,6 +19303,31 @@
                   ]
                 },
                 {
+                  domain: "bild.de",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: "[id^='mrec']",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "#superbanner",
+                      type: "hide-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "bizjournals.com",
+                  rules: [
+                    {
+                      selector: ".adwrap",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "bleacherreport.com",
                   rules: [
                     {
@@ -19558,6 +19342,15 @@
                     {
                       selector: "[class*='ad_unit']",
                       type: "override"
+                    }
+                  ]
+                },
+                {
+                  domain: "blick.ch",
+                  rules: [
+                    {
+                      selector: "[id*='appnexus-placement-']",
+                      type: "hide-empty"
                     }
                   ]
                 },
@@ -19663,6 +19456,31 @@
                   ]
                 },
                 {
+                  domain: "dailyherald.com",
+                  rules: [
+                    {
+                      selector: ".instoryAdBlock",
+                      type: "hide"
+                    }
+                  ]
+                },
+                {
+                  domain: "dailymail.co.uk",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: "[class*='dmg-ads']",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".mol-ads-label-container",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "dallasnews.com",
                   rules: [
                     {
@@ -19688,6 +19506,15 @@
                   rules: [
                     {
                       selector: "[data-targeting]",
+                      type: "override"
+                    }
+                  ]
+                },
+                {
+                  domain: "dpreview.com",
+                  rules: [
+                    {
+                      selector: ".ad-wrapper",
                       type: "override"
                     }
                   ]
@@ -19828,6 +19655,27 @@
                   ]
                 },
                 {
+                  domain: "foodnetwork.co.uk",
+                  rules: [
+                    {
+                      selector: ".bg-bodyBg",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".module--ad-module-primary",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "#mtf-1",
+                      type: "closest-empty"
+                    },
+                    {
+                      selector: "#btf-1",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "football365.com",
                   rules: [
                     {
@@ -19866,8 +19714,45 @@
                   domain: "foxnews.com",
                   rules: [
                     {
+                      type: "disable-default"
+                    },
+                    {
                       selector: ".vendor-unit",
                       type: "hide-empty"
+                    },
+                    {
+                      selector: ".pre-content",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "[class*='rr-ad-']",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".ad-h-250",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".sticky-pre-header",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".adhesion-ad",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".sticky-pre-header-inner",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".site-header",
+                      type: "modify-style",
+                      values: [
+                        {
+                          property: "min-height",
+                          value: "50px"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -19983,6 +19868,23 @@
                   ]
                 },
                 {
+                  domain: "healthline.com",
+                  rules: [
+                    {
+                      selector: "[data-testid='header-leaderboard']",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "[data-testid='sticky-inline-ad']",
+                      type: "closest-empty"
+                    },
+                    {
+                      selector: "[data-ad='true']",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "hindustantimes.com",
                   rules: [
                     {
@@ -20074,6 +19976,15 @@
                   ]
                 },
                 {
+                  domain: "insider.com",
+                  rules: [
+                    {
+                      selector: ".in-post-sticky",
+                      type: "hide-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "investing.com",
                   rules: [
                     {
@@ -20100,6 +20011,22 @@
                     {
                       selector: "#contentFor_kbbAdsSimplifiedNativeAd",
                       type: "hide"
+                    }
+                  ]
+                },
+                {
+                  domain: "kentonline.co.uk",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: "[id*='p_mpu']",
+                      type: "closest-empty"
+                    },
+                    {
+                      selector: "[id*='p_dmp']",
+                      type: "closest-empty"
                     }
                   ]
                 },
@@ -20170,6 +20097,18 @@
                     {
                       selector: ".j-ad",
                       type: "closest-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "metro.co.uk",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: ".ad-slot-container",
+                      type: "hide-empty"
                     }
                   ]
                 },
@@ -20388,6 +20327,28 @@
                   ]
                 },
                 {
+                  domain: "paypal.com",
+                  rules: [
+                    {
+                      selector: "#gslFrame",
+                      type: "hide"
+                    }
+                  ]
+                },
+                {
+                  domain: "petapixel.com",
+                  rules: [
+                    {
+                      selector: ".banners",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "#ppvideoadvertisement",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "peterboroughtoday.co.uk",
                   rules: [
                     {
@@ -20440,11 +20401,53 @@
                   ]
                 },
                 {
+                  domain: "publico.es",
+                  rules: [
+                    {
+                      selector: ".pb-ads",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "#sc_intxt_container",
+                      type: "hide"
+                    }
+                  ]
+                },
+                {
                   domain: "qz.com",
                   rules: [
                     {
                       selector: "#marquee-ad",
                       type: "closest-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "rawstory.com",
+                  rules: [
+                    {
+                      selector: ".container_proper-ad-unit",
+                      type: "hide"
+                    },
+                    {
+                      selector: ".controlled_via_ad_manager",
+                      type: "hide"
+                    },
+                    {
+                      selector: ".mgid_3x2",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: ".proper-ad-unit",
+                      type: "hide"
+                    },
+                    {
+                      selector: "[id^='rc-widget-']",
+                      type: "hide-empty"
+                    },
+                    {
+                      selector: "#story-top-ad",
+                      type: "hide"
                     }
                   ]
                 },
@@ -20575,6 +20578,10 @@
                     {
                       selector: ".slate-ad",
                       type: "hide-empty"
+                    },
+                    {
+                      selector: ".top-ad",
+                      type: "hide"
                     }
                   ]
                 },
@@ -20614,6 +20621,36 @@
                   ]
                 },
                 {
+                  domain: "sportbible.com",
+                  rules: [
+                    {
+                      selector: "[class*='Advert']",
+                      type: "hide"
+                    }
+                  ]
+                },
+                {
+                  domain: "startpagina.nl",
+                  rules: [
+                    {
+                      type: "disable-default"
+                    },
+                    {
+                      selector: ".ad-widget",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "takealot.com",
+                  rules: [
+                    {
+                      selector: "[class*='ad-slot_']",
+                      type: "override"
+                    }
+                  ]
+                },
+                {
                   domain: "target.com",
                   rules: [
                     {
@@ -20632,10 +20669,28 @@
                   ]
                 },
                 {
+                  domain: "thegatewaypundit.com",
+                  rules: [
+                    {
+                      selector: ".code-block",
+                      type: "hide"
+                    }
+                  ]
+                },
+                {
                   domain: "thehour.com",
                   rules: [
                     {
                       selector: ".belowMastheadWrapper",
+                      type: "hide-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "thehindu.com",
+                  rules: [
+                    {
+                      selector: "#articledivrec",
                       type: "hide-empty"
                     }
                   ]
@@ -20658,10 +20713,28 @@
                   ]
                 },
                 {
+                  domain: "thewordfinder.com",
+                  rules: [
+                    {
+                      selector: "[id*='adngin']",
+                      type: "closest-empty"
+                    }
+                  ]
+                },
+                {
                   domain: "thingiverse.com",
                   rules: [
                     {
                       selector: "[class*='AdCard__leaderboard']",
+                      type: "hide-empty"
+                    }
+                  ]
+                },
+                {
+                  domain: "tinybeans.com",
+                  rules: [
+                    {
+                      selector: ".tb-ad",
                       type: "hide-empty"
                     }
                   ]
@@ -20775,6 +20848,10 @@
                     {
                       selector: "[class^='Ad__Container-']",
                       type: "hide"
+                    },
+                    {
+                      selector: "#ac-lre-player",
+                      type: "hide-empty"
                     }
                   ]
                 },
@@ -20801,6 +20878,15 @@
                     {
                       selector: ".fixed-slot",
                       type: "hide"
+                    }
+                  ]
+                },
+                {
+                  domain: "westernjournal.com",
+                  rules: [
+                    {
+                      selector: ".sponsor",
+                      type: "hide-empty"
                     }
                   ]
                 },
@@ -20836,6 +20922,14 @@
                     {
                       selector: ".article-ad",
                       type: "hide"
+                    }
+                  ]
+                },
+                {
+                  domain: "wiwo.de",
+                  rules: [
+                    {
+                      type: "disable-default"
                     }
                   ]
                 },
@@ -20879,10 +20973,6 @@
                     },
                     {
                       selector: "[data-content='Advertisement']",
-                      type: "hide-empty"
-                    },
-                    {
-                      selector: "[id*='default']",
                       type: "hide-empty"
                     }
                   ]
@@ -21001,129 +21091,112 @@
               ]
             },
             state: "enabled",
-            hash: "82de72c1b3a1d9884f487287a0265df3"
+            hash: "dbcdfcea415b7c71b57275a3c6e63187"
           },
           exceptionHandler: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "a996f89cff87ddbd74dfc19a49336ae3"
+            hash: "c888aea9f4999dde3009dedc690da963"
           },
           fingerprintingAudio: {
             state: "disabled",
             exceptions: [
               {
-                domain: "litebluesso.usps.gov",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1424"
+                domain: "litebluesso.usps.gov"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
-            hash: "23756fe86fb9a72f6b802afb392ce94d"
+            hash: "d57e472e3617639adb6c08c56610e323"
           },
           fingerprintingBattery: {
             exceptions: [
               {
-                domain: "litebluesso.usps.gov",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1424"
+                domain: "litebluesso.usps.gov"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "b537d39845388c866f5a098623fe9166"
+            hash: "7807aa35da34caf0a439cba895cf731a"
           },
           fingerprintingCanvas: {
             settings: {
@@ -21131,159 +21204,119 @@
             },
             exceptions: [
               {
-                domain: "adidas.com",
-                reason:
-                  "When adding an item to the cart, there is an error 'An unexpected problem occurred' and the item is not added to the cart."
+                domain: "adidas.com"
               },
               {
-                domain: "adidas.co.uk",
-                reason:
-                  "When adding an item to the cart, there is an error 'An unexpected problem occurred' and the item is not added to the cart."
+                domain: "adidas.co.uk"
               },
               {
-                domain: "amtrak.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/499"
+                domain: "amtrak.com"
               },
               {
-                domain: "att.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "att.com"
               },
               {
-                domain: "bloomingdales.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/379"
+                domain: "bloomingdales.com"
               },
               {
-                domain: "capitalone.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "capitalone.com"
               },
               {
-                domain: "chase.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/499"
+                domain: "chase.com"
               },
               {
-                domain: "citi.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/499"
+                domain: "citi.com"
               },
               {
-                domain: "emirates.com",
-                reason:
-                  "After filling out flight information and clicking 'Search flights', a blank page is shown for several seconds before the page redirects."
+                domain: "emirates.com"
               },
               {
-                domain: "fedex.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/927"
+                domain: "fedex.com"
               },
               {
-                domain: "finishline.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1015"
+                domain: "finishline.com"
               },
               {
-                domain: "gynzykids.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/908"
+                domain: "gynzykids.com"
               },
               {
-                domain: "hm.com",
-                reason:
-                  "When adding an item to cart, there is an error 'something went wrong', and the item does not get added to the cart."
+                domain: "hm.com"
               },
               {
-                domain: "ikea.com",
-                reason:
-                  "When creating an account, after filling out details and going to e-mail confirmation, there is an error 'Something went wrong', and the e-mail may not be received. Clicking 'Send new code' appears successful, but after entering the code there is often another account creation error."
+                domain: "ikea.com"
               },
               {
-                domain: "litebluesso.usps.gov",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1424"
+                domain: "litebluesso.usps.gov"
               },
               {
-                domain: "manulife.ca",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/499"
+                domain: "manulife.ca"
               },
               {
-                domain: "navyfederal.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "navyfederal.org"
               },
               {
-                domain: "northernrailway.co.uk",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/350"
+                domain: "northernrailway.co.uk"
               },
               {
-                domain: "online-calculator.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/875"
+                domain: "online-calculator.com"
               },
               {
-                domain: "online-stopwatch.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/875"
+                domain: "online-stopwatch.com"
               },
               {
-                domain: "spirit.com",
-                reason:
-                  "When attempting to sign in, a semi-transparent overlay appears over the page which prevents further interaction with the site."
+                domain: "spirit.com"
               },
               {
-                domain: "suncoastcreditunion.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "suncoastcreditunion.com"
               },
               {
-                domain: "thetrainline.com",
-                reason:
-                  "After filling out travel info and clicking 'Get times & tickets', there is an error warning that 'Something went wrong', which prevents further interaction."
+                domain: "thetrainline.com"
               },
               {
-                domain: "usps.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "usps.com"
               },
               {
-                domain: "walgreens.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/499"
+                domain: "walgreens.com"
               },
               {
-                domain: "wellsfargo.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "wellsfargo.com"
               },
               {
-                domain: "xfinity.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/788"
+                domain: "xfinity.com"
               },
               {
-                domain: "godaddy.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/499"
+                domain: "godaddy.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "disabled",
-            hash: "c9c7083acad51e60f11237fca6e58131"
+            hash: "74b50434d92a4647e118f0a896744e7e"
           },
           fingerprintingHardware: {
             settings: {
@@ -21301,72 +21334,59 @@
             },
             exceptions: [
               {
-                domain: "www.ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/575"
+                domain: "www.ticketmaster.com"
               },
               {
-                domain: "gamestop.com",
-                reason: "Clicking 'add to cart' causes a spinner to load briefly, and the item doesn't get added to the cart."
+                domain: "gamestop.com"
               },
               {
-                domain: "godaddy.com",
-                reason: "After entering login details and clicking to log in, the site shows an adwall and prevents login."
+                domain: "godaddy.com"
               },
               {
-                domain: "fedex.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/927"
+                domain: "fedex.com"
               },
               {
-                domain: "litebluesso.usps.gov",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1424"
+                domain: "litebluesso.usps.gov"
               },
               {
-                domain: "realestate.com.au",
-                reason: "Site loads blank and does not proceed."
+                domain: "realestate.com.au"
               },
               {
-                domain: "secureserver.net",
-                reason: "After entering login details and clicking to log in, the site shows an adwall and prevents login."
+                domain: "secureserver.net"
               },
               {
-                domain: "hyatt.com",
-                reason: "Site loads blank and does not proceed."
+                domain: "hyatt.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "5f2e5eccbf1cd3965effabd1505ddef6"
+            hash: "fbed3cabbe0ae2c0b2dec681c09ae64c"
           },
           fingerprintingScreenSize: {
             settings: {
@@ -21389,196 +21409,182 @@
             },
             exceptions: [
               {
-                domain: "fedex.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/927"
+                domain: "fedex.com"
               },
               {
-                domain: "gamestop.com",
-                reason: "Clicking 'add to cart' causes a spinner to load briefly, and the item doesn't get added to the cart."
+                domain: "gamestop.com"
               },
               {
-                domain: "godaddy.com",
-                reason: "After entering login details and clicking to log in, the site shows an adwall and prevents login."
+                domain: "godaddy.com"
               },
               {
-                domain: "hyatt.com",
-                reason: "Site loads blank and does not proceed."
+                domain: "hyatt.com"
               },
               {
-                domain: "litebluesso.usps.gov",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1424"
+                domain: "litebluesso.usps.gov"
               },
               {
-                domain: "secureserver.net",
-                reason: "After entering login details and clicking to log in, the site shows an adwall and prevents login."
+                domain: "secureserver.net"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "c8ffac6bcf0da4a660c3186cacfa9c2e"
+            hash: "8e3b2400317a827a4a2abf90ea599487"
           },
           fingerprintingTemporaryStorage: {
             exceptions: [
               {
-                domain: "fedex.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/927"
+                domain: "fedex.com"
               },
               {
-                domain: "litebluesso.usps.gov",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1424"
+                domain: "litebluesso.usps.gov"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "b9340ae03cfdddec9b274c2ade35949b"
+            hash: "b28d9b996faf37d8086eacf76114fe7a"
           },
           googleRejected: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "a996f89cff87ddbd74dfc19a49336ae3"
+            hash: "c888aea9f4999dde3009dedc690da963"
           },
           gpc: {
             state: "enabled",
             exceptions: [
               {
-                domain: "allegiantair.com",
-                reason:
-                  "Example URL: https://www.allegiantair.com/seating-checking-boarding; Clicking the 'show details' button in the FAQ sections does nothing."
+                domain: "allegiantair.com"
               },
               {
-                domain: "boston.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/700"
+                domain: "boston.com"
               },
               {
-                domain: "costco.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/644"
+                domain: "costco.com"
               },
               {
-                domain: "crunchyroll.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1422"
+                domain: "crunchyroll.com"
               },
               {
-                domain: "eventbrite.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/700"
+                domain: "eventbrite.com"
               },
               {
-                domain: "duluthtrading.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/700"
+                domain: "duluthtrading.com"
               },
               {
-                domain: "web.whatsapp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/620"
+                domain: "web.whatsapp.com"
               },
               {
-                domain: "verizon.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1282"
+                domain: "verizon.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "chime.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "earth.google.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "iscorp.com"
+              },
+              {
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -21590,7 +21596,7 @@
                 "privacy-test-pages.site"
               ]
             },
-            hash: "f3b1e7807c9b00ee721177ff8b9f1cd5"
+            hash: "400b8187a85a25199cddf1f67eeaa111"
           },
           harmfulApis: {
             settings: {
@@ -21670,50 +21676,77 @@
             },
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "disabled",
-            hash: "bbc5332342823cf86f7f29b5760e80ce"
+            hash: "c8e60da301ddebe387cf05cf84f79bec"
           },
           https: {
             state: "enabled",
             exceptions: [
               {
-                domain: "act.alz.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1392"
+                domain: "act.alz.org"
               },
               {
-                domain: "amica.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1392"
+                domain: "amica.com"
               },
               {
-                domain: "jp.square-enix.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1392"
+                domain: "jp.square-enix.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
-            hash: "a4ed93a164b497b850ee1b4b337edcf3"
+            hash: "e940590357742e105c70d398c2ef71b9"
           },
           incontextSignup: {
             exceptions: [],
@@ -21728,45 +21761,47 @@
             state: "disabled",
             features: {
               rollout: {
-                state: "disabled"
+                state: "enabled",
+                rollout: {
+                  steps: [
+                    {
+                      percent: 0.5
+                    }
+                  ]
+                }
               }
             },
             exceptions: [],
-            hash: "c1293c7b2687c8a2f7c5433a4d7a330d"
+            hash: "429cea8d27316dc62af04159ec7c42b5"
           },
           navigatorInterface: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -21777,7 +21812,7 @@
               ]
             },
             state: "enabled",
-            hash: "9219eedc56fec860331eef640d2e7f91"
+            hash: "533819f9b914fb46e43497a154e3dc95"
           },
           networkProtection: {
             state: "disabled",
@@ -21803,170 +21838,202 @@
             },
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "disabled",
-            hash: "6e117549e8a40b811250fdb77f754e0c"
+            hash: "59853660774b501f095e537f5c59bd69"
           },
           privacyDashboard: {
             exceptions: [],
             features: {
               highlightedProtectionsToggle: {
-                state: "disabled"
+                state: "disabled",
+                rollout: {
+                  steps: []
+                }
               }
             },
             state: "disabled",
-            hash: "3e002160446aaede7c1239c5f5b3a53c"
+            hash: "dede7e70939822f5ecb9eb5fae577fa3"
           },
           referrer: {
             exceptions: [
               {
-                domain: "atlassian.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1092"
+                domain: "atlassian.com"
               },
               {
-                domain: "learning.edx.org",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/934"
+                domain: "learning.edx.org"
               },
               {
-                domain: "login-seconnecter.ca",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1097"
+                domain: "login-seconnecter.ca"
               },
               {
-                domain: "canadapost-postescanada.ca",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/647"
+                domain: "canadapost-postescanada.ca"
               },
               {
-                domain: "player.vimeo.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/931"
+                domain: "player.vimeo.com"
               },
               {
-                domain: "xcelenergy.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/941"
+                domain: "xcelenergy.com"
               },
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "f0db7cfe83efac773a6ef3b41f78cc37"
+            hash: "bc8f3db8d5dbd956472869ea3884861e"
           },
           requestFilterer: {
             state: "disabled",
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
               windowInMs: 0
             },
-            hash: "ba2e7ce6c57f20ab022180ff29e013c4"
+            hash: "777e86de6c97f1ed9542b46c1eed73c0"
           },
           runtimeChecks: {
             state: "disabled",
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {},
-            hash: "fa49d2d969e1924b894c4b411a7c7430"
+            hash: "2e06efb9937cc1343de9da9afe5341e1"
           },
           serviceworkerInitiatedRequests: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "a996f89cff87ddbd74dfc19a49336ae3"
+            hash: "c888aea9f4999dde3009dedc690da963"
           },
           trackerAllowlist: {
             state: "enabled",
@@ -21976,8 +22043,7 @@
                   rules: [
                     {
                       rule: "tlx.3lift.com/header/auction",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -21985,8 +22051,7 @@
                   rules: [
                     {
                       rule: "mp.4dex.io/prebid",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -21994,8 +22059,7 @@
                   rules: [
                     {
                       rule: "prebid.a-mo.net/a/c",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -22003,8 +22067,7 @@
                   rules: [
                     {
                       rule: "acsbapp.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/629"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22012,18 +22075,23 @@
                   rules: [
                     {
                       rule: "s7.addthis.com/js/300/addthis_widget.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/427"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "s7.addthis.com/l10n/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/427"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "s7.addthis.com/static/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/427"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "addtoany.com": {
+                  rules: [
+                    {
+                      rule: "static.addtoany.com/menu/page.js",
+                      domains: ["frankspeech.com", "x22report.com"]
                     }
                   ]
                 },
@@ -22031,13 +22099,11 @@
                   rules: [
                     {
                       rule: "adx.adform.net/adx/openrtb",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     },
                     {
                       rule: "c1.adform.net/serving/cookie/match",
-                      domains: ["dhl.de"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/340"
+                      domains: ["dhl.de"]
                     }
                   ]
                 },
@@ -22045,8 +22111,7 @@
                   rules: [
                     {
                       rule: "static.ads-twitter.com/uwt.js",
-                      domains: ["hentaihaven.xxx"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/452"
+                      domains: ["hentaihaven.xxx"]
                     }
                   ]
                 },
@@ -22054,19 +22119,15 @@
                   rules: [
                     {
                       rule: "static.adsafeprotected.com/favicon.ico",
-                      domains: ["tf1info.fr"],
-                      reason: "Adwall displays over video and prevents video from being played."
+                      domains: ["tf1info.fr"]
                     },
                     {
                       rule: "static.adsafeprotected.com/iasPET.1.js",
-                      domains: ["corriere.it"],
-                      reason:
-                        "Example URL: https://www.corriere.it/video-articoli/2022/07/13/missione-wwf-liberare-mare-plastica/9abb64de-029d-11ed-a0cc-ad3c68cacbae.shtml;,Clicking on the video to play causes a still frame to show and the video does not continue."
+                      domains: ["corriere.it"]
                     },
                     {
                       rule: "static.adsafeprotected.com/vans-adapter-google-ima.js",
-                      domains: ["nhl.com"],
-                      reason: "Videos show a spinner and never load."
+                      domains: ["nhl.com"]
                     }
                   ]
                 },
@@ -22074,8 +22135,11 @@
                   rules: [
                     {
                       rule: "synchrobox.adswizz.com",
-                      domains: ["tunein.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1438"
+                      domains: ["tunein.com"]
+                    },
+                    {
+                      rule: "adswizz.com/adswizz/js/SynchroClient2.js",
+                      domains: ["tunein.com"]
                     }
                   ]
                 },
@@ -22083,8 +22147,15 @@
                   rules: [
                     {
                       rule: "adthrive.com",
-                      domains: ["adamtheautomator.com", "gardeningknowhow.com", "packhacker.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1122"
+                      domains: ["adamtheautomator.com", "gardeningknowhow.com", "packhacker.com"]
+                    }
+                  ]
+                },
+                "advertising.com": {
+                  rules: [
+                    {
+                      rule: "adserver.adtech.advertising.com/pubapi/3.0/1/54669.7/0/0/ADTECH;v=2;cmd=bid;cors=yes",
+                      domains: ["collider.com"]
                     }
                   ]
                 },
@@ -22092,8 +22163,15 @@
                   rules: [
                     {
                       rule: "ahacdn.me",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/447"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "aimbase.com": {
+                  rules: [
+                    {
+                      rule: "ws.aimbase.com/Scripts/awa.js",
+                      domains: ["chriscraft.com", "regulatormarine.com"]
                     }
                   ]
                 },
@@ -22101,8 +22179,7 @@
                   rules: [
                     {
                       rule: "login.fidelity.com.febsec-fidelity.com.akadns.net",
-                      domains: ["fidelity.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/677"
+                      domains: ["fidelity.com"]
                     }
                   ]
                 },
@@ -22110,8 +22187,7 @@
                   rules: [
                     {
                       rule: "assets.aldi-digital.co.uk/assets/050b4966c22c430e5c9308903ebb87e1/dist/scripts/main.js",
-                      domains: ["aldi.co.uk"],
-                      reason: "Product lists don't render."
+                      domains: ["aldi.co.uk"]
                     }
                   ]
                 },
@@ -22119,8 +22195,7 @@
                   rules: [
                     {
                       rule: "alicdn.com",
-                      domains: ["aliexpress.us"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/460"
+                      domains: ["aliexpress.us"]
                     }
                   ]
                 },
@@ -22129,15 +22204,39 @@
                     {
                       rule: "c.amazon-adsystem.com/aax2/apstag.js",
                       domains: [
+                        "4029tv.com",
                         "cnn.com",
                         "corriere.it",
                         "eurogamer.net",
+                        "foxweather.com",
+                        "kcci.com",
+                        "kcra.com",
+                        "ketv.com",
+                        "kmbc.com",
+                        "koat.com",
+                        "koco.com",
+                        "ksbw.com",
+                        "mynbc5.com",
                         "seattletimes.com",
+                        "thesurfersview.com",
+                        "wapt.com",
+                        "wbaltv.com",
                         "wcvb.com",
-                        "wildrivers.lostcoastoutpost.com"
-                      ],
-                      reason:
-                        "corriere.it - ,Example URL: https://www.corriere.it/video-articoli/2022/07/13/missione-wwf-liberare-mare-plastica/9abb64de-029d-11ed-a0cc-ad3c68cacbae.shtml;,Clicking on the video to play causes a still frame to show and the video does not continue.,eurogamer.net, seattletimes.com - An unskippable adwall appears which prevents interaction with the page.,cnn.com - https://github.com/duckduckgo/privacy-configuration/issues/1220,wcvb.com - https://github.com/duckduckgo/privacy-configuration/issues/1088,wildrivers.lostcoastoutpost.com - https://github.com/duckduckgo/privacy-configuration/issues/1252"
+                        "wdsu.com",
+                        "wesh.com",
+                        "wgal.com",
+                        "wildrivers.lostcoastoutpost.com",
+                        "wisn.com",
+                        "wlky.com",
+                        "wlwt.com",
+                        "wmtw.com",
+                        "wmur.com",
+                        "wpbf.com",
+                        "wtae.com",
+                        "wvtm13.com",
+                        "wxii12.com",
+                        "wyff4.com"
+                      ]
                     }
                   ]
                 },
@@ -22145,8 +22244,7 @@
                   rules: [
                     {
                       rule: "prime.amazon.dev",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/943"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22154,8 +22252,7 @@
                   rules: [
                     {
                       rule: "elb.amazonaws.com/public/digital-experience/js/common.js",
-                      domains: ["cigna.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/820"
+                      domains: ["cigna.com"]
                     }
                   ]
                 },
@@ -22163,8 +22260,7 @@
                   rules: [
                     {
                       rule: "analytics.analytics-egain.com/onetag/",
-                      domains: ["support.norton.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1156"
+                      domains: ["support.norton.com"]
                     }
                   ]
                 },
@@ -22172,8 +22268,7 @@
                   rules: [
                     {
                       rule: "tag.aticdn.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/919"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22181,8 +22276,7 @@
                   rules: [
                     {
                       rule: "att.com/scripts/att_common.js",
-                      domains: ["directv.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["directv.com"]
                     }
                   ]
                 },
@@ -22190,8 +22284,7 @@
                   rules: [
                     {
                       rule: "aweber.com/form/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22199,8 +22292,7 @@
                   rules: [
                     {
                       rule: "amp.azure.net/libs/amp/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/504"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22208,8 +22300,7 @@
                   rules: [
                     {
                       rule: "orderweb-cdn-endpoint-centralus.azureedge.net/js/chunk-vendors.js",
-                      domains: ["chipotle.com"],
-                      reason: "Site loads blank and cannot be interacted with."
+                      domains: ["chipotle.com"]
                     }
                   ]
                 },
@@ -22217,9 +22308,7 @@
                   rules: [
                     {
                       rule: "marvel-b1-cdn.bc0a.com/f00000000269380/www.beretta.com/assets/",
-                      domains: ["beretta.com"],
-                      reason:
-                        "Example URL1: https://www.beretta.com/en-us/womens-clothing/caps-and-hats/;,Example URL2: https://www.beretta.com/en-us/mens-clothing/caps-and-hats/lp-trucker-hat/;,Various product and product-related images do not render - e.g., main product images on product pages, product images in product listings, etc."
+                      domains: ["beretta.com"]
                     }
                   ]
                 },
@@ -22227,43 +22316,31 @@
                   rules: [
                     {
                       rule: "r.bing.com/rp/",
-                      domains: ["<all>"],
-                      reason:
-                        "See https://github.com/duckduckgo/privacy-configuration/issues/321.,These requests are associated with map/location functionality on websites."
+                      domains: ["<all>"]
                     },
                     {
                       rule: "bing.com/th",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/765"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.bing.com/api/maps/mapcontrol",
-                      domains: ["<all>"],
-                      reason:
-                        "See https://github.com/duckduckgo/privacy-configuration/issues/321.,This request is associated with map/location functionality on websites."
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.bing.com/api/v6/Places/AutoSuggest",
-                      domains: ["<all>"],
-                      reason:
-                        "See https://github.com/duckduckgo/privacy-configuration/issues/321.,This request is associated with map/location auto-suggest functionality on websites."
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.bing.com/maps/sdk/mapcontrol",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/321"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.bing.com/maps/sdkrelease/mapcontrol",
-                      domains: ["<all>"],
-                      reason:
-                        "See https://github.com/duckduckgo/privacy-configuration/issues/321.,This request is associated with map/location functionality on websites."
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.bing.com/rp/",
-                      domains: ["<all>"],
-                      reason:
-                        "See https://github.com/duckduckgo/privacy-configuration/issues/321.,These requests are associated with map/location functionality on websites."
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22271,8 +22348,7 @@
                   rules: [
                     {
                       rule: "option.boldapps.net/js/options.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1222"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22280,8 +22356,7 @@
                   rules: [
                     {
                       rule: "captcha-delivery.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/501"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22289,17 +22364,7 @@
                   rules: [
                     {
                       rule: "htlb.casalemedia.com/cygnus",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
-                    }
-                  ]
-                },
-                "cdn.trackjs.com": {
-                  rules: [
-                    {
-                      rule: "cdn.trackjs.com/agent/v3/latest/t.js",
-                      domains: ["delta.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1445"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -22307,8 +22372,7 @@
                   rules: [
                     {
                       rule: "edge1.certona.net/cd/dd7aa8af/www.asics.com/scripts/resonance.js",
-                      domains: ["asics.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1038"
+                      domains: ["asics.com"]
                     }
                   ]
                 },
@@ -22316,8 +22380,7 @@
                   rules: [
                     {
                       rule: "civiccomputing\\.com\\/9\\/cookieControl-9\\.x\\.min\\.js",
-                      domains: ["collisionconf.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/979"
+                      domains: ["collisionconf.com"]
                     }
                   ]
                 },
@@ -22325,48 +22388,39 @@
                   rules: [
                     {
                       rule: "cdnjs.cloudflare.com/cdn-cgi/scripts/.*/cloudflare-static/rocket-loader.min.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/leaflet/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/three.js/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/vue/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/video.js/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/headjs/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/hola_player/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.6/fingerprint2.min.js",
-                      domains: ["winnipegfreepress.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1066"
+                      domains: ["winnipegfreepress.com"]
                     },
                     {
                       rule: "challenges.cloudflare.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/641"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22374,23 +22428,23 @@
                   rules: [
                     {
                       rule: "d3oxtup47gylpj.cloudfront.net/theme/onlyfans/spa/chunk-vendors.js",
-                      domains: ["onlyfans.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/440"
+                      domains: ["onlyfans.com"]
                     },
                     {
                       rule: "d3nn82uaxijpm6.cloudfront.net/",
-                      domains: ["strava.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/748"
+                      domains: ["strava.com"]
                     },
                     {
                       rule: "d9k0w0y3delq8.cloudfront.net",
-                      domains: ["hoyolab.com", "hoyoverse.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/754"
+                      domains: ["hoyolab.com", "hoyoverse.com"]
                     },
                     {
                       rule: "d2s6j0ghajv79z.cloudfront.net",
-                      domains: ["sigalert.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/774"
+                      domains: ["sigalert.com"]
+                    },
+                    {
+                      rule: "dbukjj6eu5tsf.cloudfront.net/assets.sidearmsports.com/common/js/20170825/video.js",
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22398,8 +22452,7 @@
                   rules: [
                     {
                       rule: "cmpv2.computerworld.com/",
-                      domains: ["computerworld.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/344"
+                      domains: ["computerworld.com"]
                     }
                   ]
                 },
@@ -22407,38 +22460,31 @@
                   rules: [
                     {
                       rule: "cd.connatix.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cds.connatix.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdn.connatix.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "capi.connatix.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "vid.connatix.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "img.connatix.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "connatix.com",
-                      domains: ["accuweather.com", "dailymail.co.uk"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/768"
+                      domains: ["accuweather.com", "dailymail.co.uk"]
                     }
                   ]
                 },
@@ -22446,8 +22492,7 @@
                   rules: [
                     {
                       rule: "cookielaw.org",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/914"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22455,8 +22500,7 @@
                   rules: [
                     {
                       rule: "cookie-cdn.cookiepro.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/466"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22464,18 +22508,15 @@
                   rules: [
                     {
                       rule: "cdn.cquotient.com/js/v2/gretel.min.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/486"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "e.cquotient.com/recs/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/486"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "p.cquotient.com/pebble",
-                      domains: ["scheels.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/486"
+                      domains: ["scheels.com"]
                     }
                   ]
                 },
@@ -22483,8 +22524,7 @@
                   rules: [
                     {
                       rule: "crisp.chat",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22492,8 +22532,7 @@
                   rules: [
                     {
                       rule: "bidder.criteo.com/cdb",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -22501,13 +22540,11 @@
                   rules: [
                     {
                       rule: "static.criteo.net/js/ld/publishertag.js",
-                      domains: ["wp.pl"],
-                      reason: "Adwall appears which reappears when dismissed. The adwall prevents interaction with the page."
+                      domains: ["wp.pl"]
                     },
                     {
                       rule: "static.criteo.net/js/ld/publishertag.prebid.js",
-                      domains: ["wp.pl"],
-                      reason: "Adwall appears which reappears when dismissed. The adwall prevents interaction with the page."
+                      domains: ["wp.pl"]
                     }
                   ]
                 },
@@ -22515,8 +22552,7 @@
                   rules: [
                     {
                       rule: "cudasvc.com/url",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22524,18 +22560,23 @@
                   rules: [
                     {
                       rule: "cxense.com/public/widget",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1143"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cxense.com/cx.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1143"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cxense.com/cx.cce.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1143"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "datadoghq-browser-agent.com": {
+                  rules: [
+                    {
+                      rule: "www.datadoghq-browser-agent.com/datadog-logs-v4.js",
+                      domains: ["shapermint.com"]
                     }
                   ]
                 },
@@ -22543,8 +22584,7 @@
                   rules: [
                     {
                       rule: "datadome.co",
-                      domains: ["thetrainline.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/817"
+                      domains: ["thetrainline.com"]
                     }
                   ]
                 },
@@ -22552,8 +22592,7 @@
                   rules: [
                     {
                       rule: "daumcdn.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/444"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22561,8 +22600,7 @@
                   rules: [
                     {
                       rule: "dpm.demdex.net/id",
-                      domains: ["dhl.de", "homedepot.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/393"
+                      domains: ["dhl.de", "homedepot.com"]
                     }
                   ]
                 },
@@ -22570,8 +22608,7 @@
                   rules: [
                     {
                       rule: "spcmp.r53.derstandard.de/",
-                      domains: ["derstandard.de"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/344"
+                      domains: ["derstandard.de"]
                     }
                   ]
                 },
@@ -22579,49 +22616,39 @@
                   rules: [
                     {
                       rule: "doubleclick.net/ondemand/hls/content/",
-                      domains: ["history.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1185"
+                      domains: ["history.com"]
                     },
                     {
                       rule: "securepubads.g.doubleclick.net/gampad/ads",
-                      domains: ["ah.nl", "rocketnews24.com"],
-                      reason:
-                        "ah.nl - 'Bonus offer' elements do not render and are not clickable.,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["ah.nl", "rocketnews24.com"]
                     },
                     {
                       rule: "pubads.g.doubleclick.net/gampad/ads",
-                      domains: ["crunchyroll.com", "fifa.com", "nhl.com", "rocketnews24.com", "viki.com"],
-                      reason:
-                        "https://github.com/duckduckgo/privacy-configuration/issues/1185,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846,crunchyroll.com - https://github.com/duckduckgo/privacy-configuration/issues/1140"
+                      domains: ["crunchyroll.com", "nhl.com", "rocketnews24.com", "viki.com"]
                     },
                     {
                       rule: "pubads.g.doubleclick.net/ssai/event/",
-                      domains: ["cbssports.com", "rocketnews24.com"],
-                      reason:
-                        "cbssports.com - Live videos do not load or render.,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["cbssports.com", "rocketnews24.com"]
+                    },
+                    {
+                      rule: "pubads.g.doubleclick.net/ssai/pods/",
+                      domains: ["foxweather.com"]
                     },
                     {
                       rule: "securepubads.g.doubleclick.net/tag/js/gpt.js",
-                      domains: ["ah.nl", "nytimes.com", "rocketnews24.com", "wunderground.com", "youmath.it"],
-                      reason:
-                        "ah.nl - 'Bonus offer' elements do not render and are not clickable.,nytimes.com - https://github.com/duckduckgo/privacy-configuration/issues/1045,wunderground.com - Video element does not display.,youmath.it - Adwall displays which prevents page interaction and resets the page view when clicked.,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["ah.nl", "nytimes.com", "rocketnews24.com", "wunderground.com", "youmath.it"]
                     },
                     {
                       rule: "securepubads.g.doubleclick.net/gpt/pubads_impl_",
-                      domains: ["ah.nl", "rocketnews24.com", "wunderground.com"],
-                      reason:
-                        "ah.nl - 'Bonus offer' elements do not render and are not clickable.,wunderground.com - Video element does not display.,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["ah.nl", "rocketnews24.com", "wunderground.com"]
                     },
                     {
                       rule: "securepubads.g.doubleclick.net/pagead/ppub_config",
-                      domains: ["rocketnews24.com", "weather.com", "wunderground.com"],
-                      reason:
-                        "https://github.com/duckduckgo/privacy-configuration/issues/415,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846,wunderground.com - https://github.com/duckduckgo/privacy-configuration/issues/956"
+                      domains: ["rocketnews24.com", "weather.com", "wunderground.com"]
                     },
                     {
                       rule: "doubleclick.net",
-                      domains: ["rocketnews24.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["rocketnews24.com"]
                     }
                   ]
                 },
@@ -22629,8 +22656,7 @@
                   rules: [
                     {
                       rule: "driftt.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22638,8 +22664,7 @@
                   rules: [
                     {
                       rule: "cdn.dynamicyield.com/api/",
-                      domains: ["asics.com", "brooklinen.com", "carters.com", "seatosummit.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/535"
+                      domains: ["asics.com", "brooklinen.com", "carters.com", "seatosummit.com"]
                     }
                   ]
                 },
@@ -22647,8 +22672,7 @@
                   rules: [
                     {
                       rule: "eccmp.com/sts/scripts/conversen-SDK.js",
-                      domains: ["pch.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1344"
+                      domains: ["pch.com"]
                     }
                   ]
                 },
@@ -22656,18 +22680,15 @@
                   rules: [
                     {
                       rule: "scene7.com.edgekey.net/s7viewersdk",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "nintendo.com.edgekey.net/account/js/common.js",
-                      domains: ["nintendo.com"],
-                      reason: "CNAME version of nintendo.com exception"
+                      domains: ["nintendo.com"]
                     },
                     {
                       rule: "cdn.agoda.net.edgekey.net/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/771"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22675,13 +22696,11 @@
                   rules: [
                     {
                       rule: "sky.com.edgesuite.net/assets/sky_common.js",
-                      domains: ["sky.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/342"
+                      domains: ["sky.com"]
                     },
                     {
                       rule: "a.espncdn.com.stls.edgesuite.net/",
-                      domains: ["espn.co.uk", "espn.com", "espn.com.au", "espn.com.br", "espn.com.mx", "espn.in", "espnfc.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/750"
+                      domains: ["espn.co.uk", "espn.com", "espn.com.au", "espn.com.br", "espn.com.mx", "espn.in", "espnfc.com"]
                     }
                   ]
                 },
@@ -22689,8 +22708,7 @@
                   rules: [
                     {
                       rule: "ensighten.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22698,8 +22716,7 @@
                   rules: [
                     {
                       rule: "ezodn.com/cmp",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/468"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22707,13 +22724,11 @@
                   rules: [
                     {
                       rule: "videosvc.ezoic.com/play",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/468"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "video-streaming.ezoic.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/468"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22721,8 +22736,7 @@
                   rules: [
                     {
                       rule: "g.ezoic.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/468"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22730,8 +22744,7 @@
                   rules: [
                     {
                       rule: "sf.ezoiccdn.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/468"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22739,14 +22752,15 @@
                   rules: [
                     {
                       rule: "connect.facebook.net/en_US/sdk.js",
-                      domains: ["bandsintown.com", "nextdoor.co.uk", "nextdoor.com"],
-                      reason:
-                        "bandsintown.com - Ticket page renders blank. With this exception the page redirects to ticketspice.com.,nextdoor.co.uk, nextdoor.com - Facebook login option appears greyed out and cannot be clicked."
+                      domains: ["bandsintown.com", "nextdoor.co.uk", "nextdoor.com"]
+                    },
+                    {
+                      rule: "connect.facebook.net/en_US/all.js",
+                      domains: ["nordicwellness.se"]
                     },
                     {
                       rule: "connect.facebook.net/en_US/fbevents.js",
-                      domains: ["wp.pl"],
-                      reason: "Adwall appears which reappears when dismissed. The adwall prevents interaction with the page."
+                      domains: ["wp.pl"]
                     }
                   ]
                 },
@@ -22754,18 +22768,15 @@
                   rules: [
                     {
                       rule: "mslc-prod-herokuapp-com.global.ssl.fastly.net/main.8736233213226195.js",
-                      domains: ["masslottery.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/332"
+                      domains: ["masslottery.com"]
                     },
                     {
                       rule: "ticketmaster4.map.fastly.net/eps-d",
-                      domains: ["ticketmaster.ca", "ticketmaster.com", "ticketmaster.com.au", "ticketmaster.com.mx"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/575"
+                      domains: ["ticketmaster.ca", "ticketmaster.com", "ticketmaster.com.au", "ticketmaster.com.mx"]
                     },
                     {
                       rule: "target-opus.map.fastly.net/",
-                      domains: ["target.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/635"
+                      domains: ["target.com"]
                     }
                   ]
                 },
@@ -22773,8 +22784,7 @@
                   rules: [
                     {
                       rule: "app.five9.com",
-                      domains: ["machiassavings.bank"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1111"
+                      domains: ["gmsdnv.com", "machiassavings.bank"]
                     }
                   ]
                 },
@@ -22782,8 +22792,7 @@
                   rules: [
                     {
                       rule: "flowplayer.org",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22820,8 +22829,7 @@
                         "tubi.tv",
                         "tubi.video",
                         "tubitv.com"
-                      ],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/460"
+                      ]
                     }
                   ]
                 },
@@ -22829,8 +22837,7 @@
                   rules: [
                     {
                       rule: "2a7e9.v.fwmrm.net/ad/g/1",
-                      domains: ["channel4.com"],
-                      reason: "Unskippable adblock warning when trying to play a video."
+                      domains: ["channel4.com"]
                     }
                   ]
                 },
@@ -22838,13 +22845,11 @@
                   rules: [
                     {
                       rule: "api.geetest.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/462"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "static.geetest.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/462"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22852,18 +22857,15 @@
                   rules: [
                     {
                       rule: "gapl.hit.gemius.pl/gplayer.js",
-                      domains: ["tvp.pl"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/376"
+                      domains: ["tvp.pl"]
                     },
                     {
                       rule: "pro.hit.gemius.pl/gstream.js",
-                      domains: ["tvp.pl"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/376"
+                      domains: ["tvp.pl"]
                     },
                     {
                       rule: "wp.hit.gemius.pl/xgemius.js",
-                      domains: ["wp.pl"],
-                      reason: "Adwall appears which reappears when dismissed. The adwall prevents interaction with the page."
+                      domains: ["wp.pl"]
                     }
                   ]
                 },
@@ -22871,8 +22873,7 @@
                   rules: [
                     {
                       rule: "geoip-js.com/js/apis/geoip2/v2.1/geoip2.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1288"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22880,13 +22881,11 @@
                   rules: [
                     {
                       rule: "cdn.getshogun.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/450"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "lib.getshogun.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/450"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22894,19 +22893,15 @@
                   rules: [
                     {
                       rule: "google-analytics.com/analytics.js",
-                      domains: ["doterra.com", "easyjet.com", "worlddutyfree.com"],
-                      reason:
-                        "doterra.com - For doterra.com/login/loading, the page shows a loading indicator and never redirects.,easyjet.com - Clicking 'Show Worldwide flights' after entering parameters for a worldwide flight in the flight viewing form does nothing.,worlddutyfree.com - https://github.com/duckduckgo/privacy-configuration/issues/1380"
+                      domains: ["doterra.com", "easyjet.com", "worlddutyfree.com"]
                     },
                     {
                       rule: "www.google-analytics.com/plugins/ua/ecommerce.js",
-                      domains: ["doterra.com"],
-                      reason: "For doterra.com/login/loading, the page shows a loading indicator and never redirects."
+                      domains: ["doterra.com"]
                     },
                     {
                       rule: "www.google-analytics.com/collect",
-                      domains: ["youmath.it"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1147"
+                      domains: ["youmath.it"]
                     }
                   ]
                 },
@@ -22914,8 +22909,7 @@
                   rules: [
                     {
                       rule: "maps.google.co.uk/maps",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/472"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -22923,48 +22917,51 @@
                   rules: [
                     {
                       rule: "accounts.google.com/o/oauth2/iframerpc",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/489"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "accounts.google.com/o/oauth2/iframe",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/489"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "apis.google.com/js/platform.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/489"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "apis.google.com/_/scs/abc-static/_/js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/489"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cse.google.com/cse.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/475"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cse.google.com/cse/element/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/475"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "google.com/cse/cse.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/475"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.google.com/cse/static/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/475"
+                      domains: ["<all>"]
+                    },
+                    {
+                      rule: "www.google.com/url",
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.google.com/maps/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/472"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "googleapis.com": {
+                  rules: [
+                    {
+                      rule: "imasdk.googleapis.com/js/sdkloader/ima3.js",
+                      domains: ["gamak.tv", "metro.co.uk", "paper-io.com", "rawstory.com"]
                     }
                   ]
                 },
@@ -22972,8 +22969,7 @@
                   rules: [
                     {
                       rule: "googleoptimize.com/optimize.js",
-                      domains: ["motherdenim.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1117"
+                      domains: ["motherdenim.com"]
                     }
                   ]
                 },
@@ -22981,21 +22977,19 @@
                   rules: [
                     {
                       rule: "pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-                      domains: ["duden.de", "magicgameworld.com", "rocketnews24.com", "youmath.it", "zefoy.com"],
-                      reason:
-                        "https://github.com/duckduckgo/privacy-configuration/issues/388,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["drakescans.com", "duden.de", "magicgameworld.com", "rocketnews24.com", "youmath.it", "zefoy.com"]
+                    },
+                    {
+                      rule: "pagead2.googlesyndication.com/pagead/show_ads.js",
+                      domains: ["luckylandslots.com", "rocketnews24.com", "zefoy.com"]
                     },
                     {
                       rule: "tpc.googlesyndication.com/pagead/js/loader21.html",
-                      domains: ["laprensa.hn", "rocketnews24.com", "rumble.com", "zefoy.com"],
-                      reason:
-                        "https://github.com/duckduckgo/privacy-configuration/issues/388,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["laprensa.hn", "rocketnews24.com", "rumble.com", "zefoy.com"]
                     },
                     {
                       rule: "googlesyndication.com",
-                      domains: ["rocketnews24.com", "zefoy.com"],
-                      reason:
-                        "https://github.com/duckduckgo/privacy-configuration/issues/388,rocketnews24.com - https://github.com/duckduckgo/privacy-configuration/issues/846"
+                      domains: ["rocketnews24.com", "zefoy.com"]
                     }
                   ]
                 },
@@ -23003,8 +22997,7 @@
                   rules: [
                     {
                       rule: "googletagmanager.com/gtag/js",
-                      domains: ["abril.com.br"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/929"
+                      domains: ["abril.com.br", "cosmicbook.news"]
                     }
                   ]
                 },
@@ -23128,6 +23121,7 @@
                         "thecw38.com",
                         "thecw46.com",
                         "thecwtc.com",
+                        "thenationaldesk.com",
                         "turnto10.com",
                         "univisionseattle.com",
                         "upnorthlive.com",
@@ -23155,8 +23149,19 @@
                         "wutv29.com",
                         "wvah.com",
                         "wwmt.com"
-                      ],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1173"
+                      ]
+                    }
+                  ]
+                },
+                "gorgias.chat": {
+                  rules: [
+                    {
+                      rule: "config.gorgias.chat",
+                      domains: ["help.athleticbrewing.com"]
+                    },
+                    {
+                      rule: "assets.gorgias.chat",
+                      domains: ["help.athleticbrewing.com"]
                     }
                   ]
                 },
@@ -23164,13 +23169,11 @@
                   rules: [
                     {
                       rule: "tags.asics.com.greylabeldelivery.com",
-                      domains: ["asics.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/379"
+                      domains: ["asics.com"]
                     },
                     {
                       rule: "tags.focus.de.greylabeldelivery.com/focus-web/prod/utag.js",
-                      domains: ["focus.de"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1043"
+                      domains: ["focus.de"]
                     }
                   ]
                 },
@@ -23178,8 +23181,7 @@
                   rules: [
                     {
                       rule: "widget.cluster.groovehq.com/_next/static/chunks/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1416"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23187,13 +23189,11 @@
                   rules: [
                     {
                       rule: "maps.gstatic.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/472"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "www.gstatic.com/_/mss/boq-identity/_/js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/489"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23201,8 +23201,7 @@
                   rules: [
                     {
                       rule: "cdn.heapanalytics.com",
-                      domains: ["mejuri.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1081"
+                      domains: ["mejuri.com"]
                     }
                   ]
                 },
@@ -23210,8 +23209,19 @@
                   rules: [
                     {
                       rule: "htlbid.com/v3/dangerousminds.net/htlbid.js",
-                      domains: ["dangerousminds.net"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1270"
+                      domains: ["dangerousminds.net"]
+                    }
+                  ]
+                },
+                "hubspot.com": {
+                  rules: [
+                    {
+                      rule: "api.hubspot.com/livechat-public/v1/message/public",
+                      domains: ["pippintitle.com"]
+                    },
+                    {
+                      rule: "no-cache.hubspot.com/cta/default/",
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23219,8 +23229,7 @@
                   rules: [
                     {
                       rule: "mpsnare.iesnare.com/snare.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/669"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23228,8 +23237,7 @@
                   rules: [
                     {
                       rule: "iheart.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/760"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23237,8 +23245,7 @@
                   rules: [
                     {
                       rule: "e9pkvlf.impervadns.net",
-                      domains: ["cox.com", "cox.net"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/948"
+                      domains: ["cox.com", "cox.net"]
                     }
                   ]
                 },
@@ -23246,28 +23253,23 @@
                   rules: [
                     {
                       rule: "inq.com/chatrouter",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/479"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "inq.com/chatskins",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/479"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "inq.com/tagserver/init",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/479"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "inq.com/tagserver/launch",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/479"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "inq.com/tagserver/postToServer",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/479"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23275,13 +23277,11 @@
                   rules: [
                     {
                       rule: "platform.instagram.com/en_US/embeds.js",
-                      domains: ["livejournal.com"],
-                      reason: "Instagram embeds as main article content render as grey boxes."
+                      domains: ["livejournal.com"]
                     },
                     {
                       rule: "www.instagram.com/embed.js",
-                      domains: ["buzzfeed.com", "livejournal.com"],
-                      reason: "Instagram embeds as main article content render as grey boxes."
+                      domains: ["buzzfeed.com", "livejournal.com"]
                     }
                   ]
                 },
@@ -23289,8 +23289,7 @@
                   rules: [
                     {
                       rule: "api.ipify.org/",
-                      domains: ["mass.gov"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1239"
+                      domains: ["mass.gov"]
                     }
                   ]
                 },
@@ -23298,17 +23297,27 @@
                   rules: [
                     {
                       rule: "assets.jimstatic.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/496"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "jsdelivr.net": {
+                  rules: [
+                    {
+                      rule: "cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.js",
+                      domains: ["sbermarket.ru"]
                     }
                   ]
                 },
                 "kampyle.com": {
                   rules: [
                     {
+                      rule: "nebula-cdn.kampyle.com/wu/392339/onsite/embed.js",
+                      domains: ["lowes.com"]
+                    },
+                    {
                       rule: "kampyle.com",
-                      domains: ["basspro.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/783"
+                      domains: ["basspro.com"]
                     }
                   ]
                 },
@@ -23316,18 +23325,15 @@
                   rules: [
                     {
                       rule: "na-library.klarnaservices.com/lib.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1266"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "eu-library.klarnaservices.com/lib.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1266"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "osm.library.klarnaservices.com/lib.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1266"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23335,18 +23341,19 @@
                   rules: [
                     {
                       rule: "www.klaviyo.com/media/js/public/klaviyo_subscribe.js",
-                      domains: ["fearofgod.com", "shopyalehome.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/362"
+                      domains: ["fearofgod.com", "shopyalehome.com"]
                     },
                     {
                       rule: "static.klaviyo.com/onsite/js/klaviyo.js",
-                      domains: ["kidsguide.com", "urbanebikes.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1277"
+                      domains: ["essentialpraxis.com", "kidsguide.com", "urbanebikes.com"]
+                    },
+                    {
+                      rule: "a.klaviyo.com/media/js/onsite/onsite.js",
+                      domains: ["tanglefree.com"]
                     },
                     {
                       rule: "klaviyo.com/",
-                      domains: ["andieswim.com", "footweartruth.com", "kmail-lists.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/362"
+                      domains: ["andieswim.com", "footweartruth.com", "kmail-lists.com"]
                     }
                   ]
                 },
@@ -23354,13 +23361,11 @@
                   rules: [
                     {
                       rule: "www.lightboxcdn.com/vendor/c605dbd7-cbfb-4e9b-801e-387b0656384c/user.js",
-                      domains: ["andieswim.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1285"
+                      domains: ["andieswim.com"]
                     },
                     {
                       rule: "lightboxcdn.com/vendor/.*/user.js",
-                      domains: ["nascar.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1373"
+                      domains: ["nascar.com"]
                     }
                   ]
                 },
@@ -23368,8 +23373,7 @@
                   rules: [
                     {
                       rule: "cdn.listrakbi.com/scripts/script.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/457"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23377,8 +23381,7 @@
                   rules: [
                     {
                       rule: "livechatinc.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/412"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23386,8 +23389,7 @@
                   rules: [
                     {
                       rule: "liveperson.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/900"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23395,8 +23397,7 @@
                   rules: [
                     {
                       rule: "cloudfront.loggly.com/js/loggly.tracker-2.1.min.js",
-                      domains: ["rte.ie"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/681"
+                      domains: ["rte.ie"]
                     }
                   ]
                 },
@@ -23404,8 +23405,7 @@
                   rules: [
                     {
                       rule: "lpsnmedia.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/900"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23413,9 +23413,7 @@
                   rules: [
                     {
                       rule: "sheinsz.ltwebstatic.com/she_dist/libs/geetest/fullpage.1.1.9.js",
-                      domains: ["shein.co.uk", "shein.com"],
-                      reason:
-                        "When attempting to create an account (after filling out registration form and clicking 'Register'), there is an 'access timed out' warning, and account creation does not proceed."
+                      domains: ["shein.co.uk", "shein.com"]
                     }
                   ]
                 },
@@ -23423,8 +23421,7 @@
                   rules: [
                     {
                       rule: "service.maxymiser.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1030"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23432,13 +23429,19 @@
                   rules: [
                     {
                       rule: "cdn.medallia.com/react-surveys/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/884"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "survey.medallia.com/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/884"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "mediavine.com": {
+                  rules: [
+                    {
+                      rule: "scripts.mediavine.com/tags/cosmic-book-news.js",
+                      domains: ["cosmicbook.news"]
                     }
                   ]
                 },
@@ -23446,9 +23449,7 @@
                   rules: [
                     {
                       rule: "frontend.medicare.gov/static/js/2.6c6651b4.chunk.js",
-                      domains: ["medicare.gov"],
-                      reason:
-                        "Navigation bar at top of site does not display, preventing easy access to e.g., site login.,Note that this CNAMEs to iservprod.medicare.gov.edgekey.net at time of mitiagtion."
+                      domains: ["medicare.gov"]
                     }
                   ]
                 },
@@ -23456,8 +23457,15 @@
                   rules: [
                     {
                       rule: "memberful.com/embed.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "myfonts.net": {
+                  rules: [
+                    {
+                      rule: "hello.myfonts.net/count/3f4e3a",
+                      domains: ["ottolenghi.co.uk"]
                     }
                   ]
                 },
@@ -23465,8 +23473,7 @@
                   rules: [
                     {
                       rule: "nc0.co/vaa/Bootstrap.js",
-                      domains: ["virginatlantic.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/826"
+                      domains: ["virginatlantic.com"]
                     }
                   ]
                 },
@@ -23474,8 +23481,7 @@
                   rules: [
                     {
                       rule: "nextdoor.com",
-                      domains: ["nextdoor.co.uk"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/460"
+                      domains: ["nextdoor.co.uk"]
                     }
                   ]
                 },
@@ -23483,9 +23489,15 @@
                   rules: [
                     {
                       rule: "cdn.accounts.nintendo.com/account/js/common.js",
-                      domains: ["nintendo.com"],
-                      reason:
-                        "Accounts page renders blank. Download buttons show loading stars and never finish loading. Pricing information doesn't load. Note that cdn.accounts.nintendo.com CNAMEs to star.accounts.nintendo.com.edgekey.net at the time of mitigation."
+                      domains: ["nintendo.com"]
+                    }
+                  ]
+                },
+                "nosto.com": {
+                  rules: [
+                    {
+                      rule: "connect.nosto.com/script/shopify/nosto.js",
+                      domains: ["oneill.com"]
                     }
                   ]
                 },
@@ -23493,8 +23505,7 @@
                   rules: [
                     {
                       rule: "nuance.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/479"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23502,8 +23513,7 @@
                   rules: [
                     {
                       rule: "omappapi.com",
-                      domains: ["dogfoodadvisor.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1113"
+                      domains: ["dogfoodadvisor.com"]
                     }
                   ]
                 },
@@ -23511,8 +23521,7 @@
                   rules: [
                     {
                       rule: "hb-api.omnitagjs.com/hb-api/prebid/v1",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -23520,18 +23529,23 @@
                   rules: [
                     {
                       rule: "bankofamerica.tt.omtrdc.net/m2/bankofamerica/mbox/json",
-                      domains: ["bankofamerica.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/798"
+                      domains: ["bankofamerica.com"]
                     },
                     {
                       rule: "cigna.sc.omtrdc.net/public/digital-experience/js/common.js",
-                      domains: ["cigna.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/820"
+                      domains: ["cigna.com"]
                     },
                     {
                       rule: "omtrdc.net",
-                      domains: ["pizzahut.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/805"
+                      domains: ["pizzahut.com"]
+                    }
+                  ]
+                },
+                "onesignal.com": {
+                  rules: [
+                    {
+                      rule: "cdn.onesignal.com/sdks/OneSignalSDK.js",
+                      domains: ["cosmicbook.news"]
                     }
                   ]
                 },
@@ -23539,8 +23553,7 @@
                   rules: [
                     {
                       rule: "static.onlyfans.com",
-                      domains: ["onlyfans.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/440"
+                      domains: ["onlyfans.com"]
                     }
                   ]
                 },
@@ -23548,8 +23561,7 @@
                   rules: [
                     {
                       rule: "venatusmedia-d.openx.net/w/1.0/arj",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -23557,9 +23569,7 @@
                   rules: [
                     {
                       rule: "secure.widget.cloud.opta.net/v3/v3.opta-widgets.js",
-                      domains: ["abc.net.au", "emol.com"],
-                      reason:
-                        "abc.net.au - Error message displays in place of scoreboard (scoreboard does not show).,emol.com - Scoreboard does not render."
+                      domains: ["abc.net.au", "emol.com", "oufc.co.uk"]
                     }
                   ]
                 },
@@ -23567,8 +23577,7 @@
                   rules: [
                     {
                       rule: "optimizely.com/datafiles/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/916"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23576,13 +23585,11 @@
                   rules: [
                     {
                       rule: "dsar.api.osano.com/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/529"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp.osano.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1398"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23590,13 +23597,11 @@
                   rules: [
                     {
                       rule: "go.pardot.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1180"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "storage.pardot.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1180"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23604,8 +23609,7 @@
                   rules: [
                     {
                       rule: "patreon.com/becomePatronButton.bundle.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23613,8 +23617,7 @@
                   rules: [
                     {
                       rule: "edge.permutive.app",
-                      domains: ["globaltv.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1418"
+                      domains: ["globaltv.com"]
                     }
                   ]
                 },
@@ -23622,8 +23625,7 @@
                   rules: [
                     {
                       rule: "plotrabbit.com",
-                      domains: ["cbssports.com"],
-                      reason: "Live videos do not load or render."
+                      domains: ["cbssports.com"]
                     }
                   ]
                 },
@@ -23631,15 +23633,19 @@
                   rules: [
                     {
                       rule: "images.primaryarms.com/f00000000191638/www.primaryarms.com/SSP%20Applications/NetSuite%20Inc.%20-%20SCA%20Mont%20Blanc/Development/img/",
-                      domains: ["primaryarms.com"],
-                      reason:
-                        "Product images on the main page don't render.,Note that this CNAMEs to marvel-b4-cdn.bc0a.com at time of mitigation."
+                      domains: ["primaryarms.com"]
                     },
                     {
                       rule: "images.primaryarms.com/f00000000191638/www.primaryarms.com/core/media/media.nl",
-                      domains: ["primaryarms.com"],
-                      reason:
-                        "Images in the large scrolling image banner on main page do not render.,Note that this CNAMEs to marvel-b4-cdn.bc0a.com at time of mitigation."
+                      domains: ["primaryarms.com"]
+                    }
+                  ]
+                },
+                "primis.tech": {
+                  rules: [
+                    {
+                      rule: "live.primis.tech/live/liveView.php",
+                      domains: ["belfastlive.co.uk", "cornwalllive.com"]
                     }
                   ]
                 },
@@ -23647,8 +23653,7 @@
                   rules: [
                     {
                       rule: "sdk.privacy-center.org",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/339"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23656,8 +23661,7 @@
                   rules: [
                     {
                       rule: "privacy-mgmt.com/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/344"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23665,78 +23669,63 @@
                   rules: [
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/605.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/650.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/847.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/assets/icons/.*.svg",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/defaultTheme.css",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/index.html",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/main.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/polyfills.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/runtime.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cmp-consent-tool.privacymanager.io/latest/vendor.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "gdpr.privacymanager.io/1/gdpr.bundle.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "gdpr.privacymanager.io/latest/gdpr.bundle.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "gdpr-wrapper.privacymanager.io/gdpr/.*/gdpr-liveramp.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "gdpr-wrapper.privacymanager.io/gdpr/.*/manager-logo.png",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "vendors.privacymanager.io/vendor-list.json",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/334"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23744,8 +23733,7 @@
                   rules: [
                     {
                       rule: "proofpoint.com/v2/url",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23753,13 +23741,11 @@
                   rules: [
                     {
                       rule: "ads.pubmatic.com/AdServer/",
-                      domains: ["hindustantimes.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/388"
+                      domains: ["hindustantimes.com"]
                     },
                     {
                       rule: "hbopenbid.pubmatic.com/translator",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -23767,8 +23753,7 @@
                   rules: [
                     {
                       rule: "qualtrics.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1196"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23776,8 +23761,7 @@
                   rules: [
                     {
                       rule: "cmp.quantcast.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1125"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23785,8 +23769,7 @@
                   rules: [
                     {
                       rule: "secure.quantserve.com/quant.js",
-                      domains: ["aternos.org"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/328"
+                      domains: ["aternos.org"]
                     }
                   ]
                 },
@@ -23794,13 +23777,11 @@
                   rules: [
                     {
                       rule: "embed.reddit.com/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/369"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "gql.reddit.com/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/369"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23808,8 +23789,7 @@
                   rules: [
                     {
                       rule: "redditstatic.com/shreddit/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/369"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23817,8 +23797,7 @@
                   rules: [
                     {
                       rule: "rncdn7.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/436"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23826,8 +23805,15 @@
                   rules: [
                     {
                       rule: "rokt.com/wsdk/integrations/snippet.js",
-                      domains: ["pch.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1344"
+                      domains: ["pch.com"]
+                    }
+                  ]
+                },
+                "route.com": {
+                  rules: [
+                    {
+                      rule: "protection-widget.route.com/protect.core.js",
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23835,8 +23821,7 @@
                   rules: [
                     {
                       rule: "rumble.com/j/p/ui.r2.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/631"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23844,8 +23829,7 @@
                   rules: [
                     {
                       rule: "ak.sail-horizon.com/spm/spm.v1.min.js",
-                      domains: ["financialpost.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/785"
+                      domains: ["financialpost.com"]
                     }
                   ]
                 },
@@ -23853,13 +23837,11 @@
                   rules: [
                     {
                       rule: "scene7.com/is/image/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/356"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "scene7.com/s7viewersdk",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/356"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23867,8 +23849,7 @@
                   rules: [
                     {
                       rule: "searchspring.io",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/435"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23876,8 +23857,7 @@
                   rules: [
                     {
                       rule: "cdn.segment.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/484"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23885,8 +23865,7 @@
                   rules: [
                     {
                       rule: "shop.app/pay/session",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23894,8 +23873,7 @@
                   rules: [
                     {
                       rule: "deo.shopeemobile.com/shopee",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/442"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23903,13 +23881,11 @@
                   rules: [
                     {
                       rule: "shopifyapps.com/locale_bar/script.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "shopifyapps.com/selectors/script.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23917,8 +23893,15 @@
                   rules: [
                     {
                       rule: "cdn.shortpixel.ai/assets/js/bundles/spai-lib-bg",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/712"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "slickstream.com": {
+                  rules: [
+                    {
+                      rule: "app.slickstream.com",
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23926,8 +23909,7 @@
                   rules: [
                     {
                       rule: "snapkit.com/js/v1/create.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23935,8 +23917,7 @@
                   rules: [
                     {
                       rule: "cdn.speedcurve.com/js/lux.js",
-                      domains: ["inquirer.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/869"
+                      domains: ["inquirer.com"]
                     }
                   ]
                 },
@@ -23944,8 +23925,7 @@
                   rules: [
                     {
                       rule: "sp-spiegel-de.spiegel.de/",
-                      domains: ["spiegel.de"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/344"
+                      domains: ["spiegel.de"]
                     }
                   ]
                 },
@@ -23953,8 +23933,7 @@
                   rules: [
                     {
                       rule: "spot.im/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/622"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23962,8 +23941,7 @@
                   rules: [
                     {
                       rule: "strpst.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/438"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23971,8 +23949,15 @@
                   rules: [
                     {
                       rule: "succeedscene.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1396"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "taboola.com": {
+                  rules: [
+                    {
+                      rule: "cdn.taboola.com/libtrc/tipranks-tipranks/loader.js",
+                      domains: ["tipranks.com"]
                     }
                   ]
                 },
@@ -23980,8 +23965,7 @@
                   rules: [
                     {
                       rule: "visitor-service-us-east-1.tealiumiq.com/asics/main/",
-                      domains: ["asics.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/379"
+                      domains: ["asics.com"]
                     }
                   ]
                 },
@@ -23989,8 +23973,15 @@
                   rules: [
                     {
                       rule: "techlab-cdn.com/collect",
-                      domains: ["jcrew.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1094"
+                      domains: ["jcrew.com"]
+                    }
+                  ]
+                },
+                "tfaforms.net": {
+                  rules: [
+                    {
+                      rule: "tfaforms.net",
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -23998,8 +23989,7 @@
                   rules: [
                     {
                       rule: "theplatform.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24007,8 +23997,7 @@
                   rules: [
                     {
                       rule: "tidiochat.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24016,8 +24005,7 @@
                   rules: [
                     {
                       rule: "www.tiktok.com/embed",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1412"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24025,13 +24013,19 @@
                   rules: [
                     {
                       rule: "tags.tiqcdn.com/utag/.*/utag.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/379"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "tags.tiqcdn.com/utag/.*/utag..*.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/379"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "trackjs.com": {
+                  rules: [
+                    {
+                      rule: "cdn.trackjs.com/agent/v3/latest/t.js",
+                      domains: ["delta.com"]
                     }
                   ]
                 },
@@ -24039,8 +24033,11 @@
                   rules: [
                     {
                       rule: "widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js",
-                      domains: ["domesticandgeneral.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/466"
+                      domains: ["azurestandard.com", "domesticandgeneral.com", "www.hotpoint.co.uk"]
+                    },
+                    {
+                      rule: "widget.trustpilot.com/bootstrap/v5/tp.widget.sync.bootstrap.min.js",
+                      domains: ["www.hotpoint.co.uk"]
                     }
                   ]
                 },
@@ -24048,13 +24045,11 @@
                   rules: [
                     {
                       rule: "platform.twitter.com/embed/embed",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/717"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "platform.twitter.com/widgets/tweet_button",
-                      domains: ["winnipegfreepress.com"],
-                      reason: "Tweet button does not render."
+                      domains: ["winnipegfreepress.com"]
                     }
                   ]
                 },
@@ -24062,13 +24057,11 @@
                   rules: [
                     {
                       rule: "api.usabilla.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/482"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "w.usabilla.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/482"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24076,43 +24069,35 @@
                   rules: [
                     {
                       rule: "api.usercentrics.eu/settings",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "api.usercentrics.eu/tcf",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "api.usercentrics.eu/translations",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "app.usercentrics.eu/browser",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "app.usercentrics.eu/session/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "graphql.usercentrics.eu/graphql",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "privacy-proxy.usercentrics.eu/latest/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "aggregator.service.usercentrics.eu/aggregate",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/477"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24120,8 +24105,7 @@
                   rules: [
                     {
                       rule: "cdn.viafoura.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/763"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24129,8 +24113,7 @@
                   rules: [
                     {
                       rule: "cdn.viglink.com/api/vglnk.js",
-                      domains: ["9to5mac.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1204"
+                      domains: ["9to5mac.com"]
                     }
                   ]
                 },
@@ -24138,8 +24121,15 @@
                   rules: [
                     {
                       rule: "voxmedia.com/sso/unison_request",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
+                    }
+                  ]
+                },
+                "wovn.io": {
+                  rules: [
+                    {
+                      rule: "j.wovn.io/1",
+                      domains: ["tamashiiweb.com"]
                     }
                   ]
                 },
@@ -24147,8 +24137,7 @@
                   rules: [
                     {
                       rule: "js.wpadmngr.com/static/adManager.js",
-                      domains: ["luscious.net"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/958"
+                      domains: ["luscious.net"]
                     }
                   ]
                 },
@@ -24156,23 +24145,19 @@
                   rules: [
                     {
                       rule: "frontend.vh.yandex.ru/player/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/366"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "strm.yandex.ru/get/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/366"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "strm.yandex.ru/vh-special-converted/vod-content/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/366"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "yandex.ru/map-widget/",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1384"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24180,8 +24165,7 @@
                   rules: [
                     {
                       rule: "yotpo.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/348"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24189,18 +24173,19 @@
                   rules: [
                     {
                       rule: "cdn.yottaa.com/rapid.min.",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/492"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "cdn.yottaa.com/rapid.security.min.",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/830"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "rapid-cdn.yottaa.com/rapid/lib/ows8CdAyrC5lTw.js",
-                      domains: ["scheels.com"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/492"
+                      domains: ["scheels.com"]
+                    },
+                    {
+                      rule: "rapid-cdn.yottaa.com/rapid/lib/3ZzYwky2C-3YQw.js",
+                      domains: ["fashionnova.com"]
                     }
                   ]
                 },
@@ -24208,8 +24193,7 @@
                   rules: [
                     {
                       rule: "vjs.zencdn.net",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24217,8 +24201,7 @@
                   rules: [
                     {
                       rule: "seattle-times.zeustechnology.com/main.js",
-                      domains: ["seattletimes.com"],
-                      reason: "An unskippable adwall appears which prevents interaction with the page."
+                      domains: ["seattletimes.com"]
                     }
                   ]
                 },
@@ -24226,8 +24209,7 @@
                   rules: [
                     {
                       rule: "zip.co/v1/quadpay.js",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1107"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24235,8 +24217,7 @@
                   rules: [
                     {
                       rule: "zopim.com",
-                      domains: ["<all>"],
-                      reason: "https://github.com/duckduckgo/privacy-configuration/issues/1360"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24244,8 +24225,7 @@
                   rules: [
                     {
                       rule: "lp-03.chat.online.citi.com",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: liveperson.net"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24253,8 +24233,7 @@
                   rules: [
                     {
                       rule: "lp-07.customermessaging.bupa.com.au",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: liveperson.net"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24262,13 +24241,11 @@
                   rules: [
                     {
                       rule: "lp-07.messaging.optus.com.au",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: liveperson.net"
+                      domains: ["<all>"]
                     },
                     {
                       rule: "lptag.messaging.optus.com.au",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: liveperson.net"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24276,8 +24253,7 @@
                   rules: [
                     {
                       rule: "evaluation.canadapost-postescanada.ca",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: qualtrics.com"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24285,8 +24261,7 @@
                   rules: [
                     {
                       rule: "feedback.goto.com",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: qualtrics.com"
+                      domains: ["<all>"]
                     }
                   ]
                 },
@@ -24294,8 +24269,7 @@
                   rules: [
                     {
                       rule: "mc.yandex.tm/map-widget/",
-                      domains: ["<all>"],
-                      reason: "CNAME ENTRY GENERATED FROM: yandex.ru"
+                      domains: ["<all>"]
                     }
                   ]
                 }
@@ -24303,39 +24277,34 @@
             },
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
-            hash: "2d16fa1bec0c81e0285cdca400f8f731"
+            hash: "b3ee534a1ad20f0eeeb62c7e015ccff5"
           },
           trackingCookies1p: {
             settings: {
@@ -24346,40 +24315,35 @@
             },
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "760b428d44baa7a2be3e2c25f99c678e"
+            hash: "dd4e0fabd96da8feac161f65941b20cb"
           },
           trackingCookies3p: {
             settings: {
@@ -24387,74 +24351,64 @@
             },
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "enabled",
-            hash: "a4fa94fbb12853bf2fbf62fa3d328243"
+            hash: "0a13af083145072bc11e43d20ec9dbc8"
           },
           trackingParameters: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
               },
               {
-                domain: "localhost",
-                reason: "Protections are disabled on localhost pages"
+                domain: "sundancecatalog.com"
               },
               {
-                domain: "127.0.0.1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "localhost"
               },
               {
-                domain: "::1",
-                reason: "Protections are disabled on localhost pages"
+                domain: "127.0.0.1"
               },
               {
-                domain: "livenation.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1053"
+                domain: "::1"
               },
               {
-                domain: "ticketmaster.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             settings: {
@@ -24488,7 +24442,7 @@
             },
             state: "enabled",
             minSupportedVersion: "2023.5.23",
-            hash: "1989781e2627e547eac259eb2c69c62c"
+            hash: "eb32b7513f28186cb3e208edcfcba954"
           },
           userAgentRotation: {
             settings: {
@@ -24496,20 +24450,35 @@
             },
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "disabled",
-            hash: "158b0b3e010b8606819c6bc60c435805"
+            hash: "08c23312ab5ce02ed4a4e56e2f176517"
           },
           voiceSearch: {
             exceptions: [],
@@ -24519,25 +24488,73 @@
           webCompat: {
             exceptions: [
               {
-                domain: "earth.google.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1099"
+                domain: "earth.google.com"
               },
               {
-                domain: "iscorp.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/794"
+                domain: "iscorp.com"
               },
               {
-                domain: "marvel.com",
-                reason: "https://github.com/duckduckgo/privacy-configuration/issues/1194"
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
               }
             ],
             state: "disabled",
-            hash: "4cf9d85cdd66d5b30776fb9a38f8e143"
+            hash: "f38902347ef4b5046416b093e79dca6a"
           },
           windowsPermissionUsage: {
             exceptions: [],
             state: "disabled",
             hash: "728493ef7a1488e4781656d3f9db84aa"
+          },
+          windowsStartupBoost: {
+            exceptions: [
+              {
+                domain: "earth.google.com"
+              },
+              {
+                domain: "iscorp.com"
+              },
+              {
+                domain: "marvel.com"
+              },
+              {
+                domain: "sundancecatalog.com"
+              },
+              {
+                domain: "localhost"
+              },
+              {
+                domain: "127.0.0.1"
+              },
+              {
+                domain: "::1"
+              },
+              {
+                domain: "livenation.com"
+              },
+              {
+                domain: "ticketmaster.com"
+              }
+            ],
+            state: "disabled",
+            hash: "f38902347ef4b5046416b093e79dca6a"
           },
           windowsWaitlist: {
             exceptions: [],
@@ -24559,7 +24576,7 @@
   var require_etags = __commonJS({
     "shared/data/etags.json"(exports2, module2) {
       module2.exports = {
-        "config-etag": 'W/"041f8fbb4b0f172454c7678ac28d5ef3"',
+        "config-etag": 'W/"033fb476c3ece609a8e9bf534c116328"',
         "current-mv3-tds-etag": "3c222272c0e8376cded30b095e62ea51",
         "fallback-mv3-tds-etag": "da18c835eadd0a76dbe9b09b7c4e8608"
       };

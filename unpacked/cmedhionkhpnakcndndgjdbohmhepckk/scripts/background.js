@@ -19,7 +19,7 @@ const youtubeAdRegexesFallback = [
   "(google.com/pagead/)",
   "(youtube.com/pagead/)",
   "(googlesyndication.com)",
-  "(www.youtube.com/get_midroll_)",
+  "(www.youtube.com/get_midroll_)"
 ].join("|");
 
 const adBlockingSelectorsFallback = [
@@ -64,13 +64,10 @@ const adBlockingSelectorsFallback = [
   "#watch-channel-brand-div",
   "#watch7-sidebar-ads",
 
-  '[target-id="engagement-panel-ads"]',
+  '[target-id="engagement-panel-ads"]'
 ].join(",");
 
-const dailymotionAdBlockingSelectorsFallback = [
-  'div[class^="NewWatchingDiscovery__adSection"]',
-  'div[class^="DisplayAd"]',
-].join(",");
+const dailymotionAdBlockingSelectorsFallback = ['div[class^="NewWatchingDiscovery__adSection"]', 'div[class^="DisplayAd"]'].join(",");
 
 const dailymotionAdRegexFallback = [].join("|");
 
@@ -88,25 +85,18 @@ const defaultPopupsConfig = {
   configurablePopup: {
     type: "mobile",
     isEnabled: false,
-    doNotShowAgainMinutes: 120,
-  },
+    doNotShowAgainMinutes: 120
+  }
 };
 
 const settings = {
   ads: localStorage.ads === "true",
   annotations: localStorage.ads === "true",
-  youtubeAdRegex: new RegExp(
-    localStorage.youtubeAdRegex || youtubeAdRegexesFallback
-  ),
-  adBlockingSelectors:
-    localStorage.adBlockingSelectors || adBlockingSelectorsFallback,
-  dailymotionAdRegex: new RegExp(
-    localStorage.dailymotionAdRegex || dailymotionAdRegexFallback
-  ),
-  dailymotionAdBlockingSelectors:
-    localStorage.dailymotionAdBlockingSelectors ||
-    dailymotionAdBlockingSelectorsFallback,
-  popupConfig: defaultPopupsConfig,
+  youtubeAdRegex: new RegExp(localStorage.youtubeAdRegex || youtubeAdRegexesFallback),
+  adBlockingSelectors: localStorage.adBlockingSelectors || adBlockingSelectorsFallback,
+  dailymotionAdRegex: new RegExp(localStorage.dailymotionAdRegex || dailymotionAdRegexFallback),
+  dailymotionAdBlockingSelectors: localStorage.dailymotionAdBlockingSelectors || dailymotionAdBlockingSelectorsFallback,
+  popupConfig: defaultPopupsConfig
 };
 
 const initializeSettings = () => {
@@ -130,18 +120,10 @@ const setResponseFields = (fieldName, value) => {
 };
 
 const updateYoutubeAdRegexes = () => {
-  fetch(
-    `${API_URL}/api/v1/adregex?version=${chrome.runtime.getManifest().version}`
-  )
+  fetch(`${API_URL}/api/v1/adregex?version=${chrome.runtime.getManifest().version}`)
     .then((response) => response.json())
     .then((response) => {
-      const {
-        regexRules,
-        adBlockingSelectors,
-        popupConfig,
-        dailymotionAdRegex,
-        dailymotionAdBlockingSelectors,
-      } = response;
+      const { regexRules, adBlockingSelectors, popupConfig, dailymotionAdRegex, dailymotionAdBlockingSelectors } = response;
 
       const formattedRegex = regexRules.join("|");
       const formattedAdBlockingSelectors = adBlockingSelectors.join(",");
@@ -153,19 +135,13 @@ const updateYoutubeAdRegexes = () => {
 
       setResponseFields("adBlockingSelectors", formattedAdBlockingSelectors);
 
-      const dailymotionFormattedRegex =
-        dailymotionAdRegex?.join("|") || dailymotionAdRegexFallback;
+      const dailymotionFormattedRegex = dailymotionAdRegex?.join("|") || dailymotionAdRegexFallback;
 
-      const formattedDailymotionAdBlockingSelectors =
-        dailymotionAdBlockingSelectors?.join(",") ||
-        dailymotionAdBlockingSelectorsFallback;
+      const formattedDailymotionAdBlockingSelectors = dailymotionAdBlockingSelectors?.join(",") || dailymotionAdBlockingSelectorsFallback;
 
       localStorage.dailymotionAdRegex = dailymotionFormattedRegex;
       settings.dailymotionAdRegex = new RegExp(dailymotionFormattedRegex);
-      setResponseFields(
-        "dailymotionAdBlockingSelectors",
-        formattedDailymotionAdBlockingSelectors
-      );
+      setResponseFields("dailymotionAdBlockingSelectors", formattedDailymotionAdBlockingSelectors);
     })
     .catch((e) => {
       console.error(e);
@@ -194,8 +170,7 @@ const setInstalledAtKey = () => {
 const init = async () => {
   const YOUTUBE_REGEX = /^https?:\/\/(\w*.)?youtube.com/i;
   const DAILY_MOTION_REGEX = /^https?:\/\/(\w*.)?dailymotion.com/i;
-  const YOUTUBE_ANNOTATIONS_REGEX =
-    /^https?:\/\/(\w*.)?youtube\.com\/annotations_invideo\?/;
+  const YOUTUBE_ANNOTATIONS_REGEX = /^https?:\/\/(\w*.)?youtube\.com\/annotations_invideo\?/;
   const tabTracker = new Set();
   const dailyMotionTabTracker = new Set();
 
@@ -225,10 +200,7 @@ const init = async () => {
     ({ tabId, url }) => {
       if (YOUTUBE_REGEX.test(url)) {
         tabTracker.add(tabId);
-      } else if (
-        DAILY_MOTION_REGEX.test(url) &&
-        settings.isAdditionalBlockingEnabled
-      ) {
+      } else if (DAILY_MOTION_REGEX.test(url) && settings.isAdditionalBlockingEnabled) {
         dailyMotionTabTracker.add(tabId);
       } else {
         tabTracker.delete(tabId);
@@ -236,37 +208,31 @@ const init = async () => {
     },
     {
       urls: ["http://*/*", "https://*/*"],
-      types: ["main_frame"],
+      types: ["main_frame"]
     }
   );
 
-  chrome.runtime.onMessage.addListener(
-    ({ action, href, message }, { tab }, sendResponse) => {
-      if (action === "PAGE_READY") {
-        const response = {
-          yt: tabTracker.has(tab.id),
-          isDailymotionTab: dailyMotionTabTracker.has(tab.id),
-          enabled: settings.ads,
-          adBlockSelectors: settings.adBlockingSelectors,
-          dailymotionAdBlockingSelectors:
-            settings.dailymotionAdBlockingSelectors,
-          popupConfig: settings.popupConfig,
-        };
-        sendResponse(response);
-      } else if (action === "ENABLE_ADDITIONAL_BLOCKING") {
-        settings.isAdditionalBlockingEnabled = true;
-        chrome.storage.local.set(
-          { [IS_ADDITIONAL_BLOCKING_ENABLED]: true },
-          () => {
-            if (chrome.runtime.lastError) {
-              console.log(chrome.runtime.lastError);
-            }
-          }
-        );
-        sendResponse(true);
-      }
+  chrome.runtime.onMessage.addListener(({ action, href, message }, { tab }, sendResponse) => {
+    if (action === "PAGE_READY") {
+      const response = {
+        yt: tabTracker.has(tab.id),
+        isDailymotionTab: dailyMotionTabTracker.has(tab.id),
+        enabled: settings.ads,
+        adBlockSelectors: settings.adBlockingSelectors,
+        dailymotionAdBlockingSelectors: settings.dailymotionAdBlockingSelectors,
+        popupConfig: settings.popupConfig
+      };
+      sendResponse(response);
+    } else if (action === "ENABLE_ADDITIONAL_BLOCKING") {
+      settings.isAdditionalBlockingEnabled = true;
+      chrome.storage.local.set({ [IS_ADDITIONAL_BLOCKING_ENABLED]: true }, () => {
+        if (chrome.runtime.lastError) {
+          console.log(chrome.runtime.lastError);
+        }
+      });
+      sendResponse(true);
     }
-  );
+  });
 
   // Block ad/annotation request inside youtube tabs
   chrome.webRequest.onBeforeRequest.addListener(
@@ -282,10 +248,7 @@ const init = async () => {
         }
       }
 
-      if (
-        dailyMotionTabTracker.has(tabId) &&
-        settings.dailymotionAdRegex.toString() !== "/(?:)/"
-      ) {
+      if (dailyMotionTabTracker.has(tabId) && settings.dailymotionAdRegex.toString() !== "/(?:)/") {
         if (settings.ads && settings.dailymotionAdRegex.test(url)) {
           return { cancel: true };
         }
@@ -293,7 +256,7 @@ const init = async () => {
     },
     {
       urls: ["http://*/*", "https://*/*"],
-      types: ["script", "image", "xmlhttprequest", "sub_frame"],
+      types: ["script", "image", "xmlhttprequest", "sub_frame"]
     },
     ["blocking"]
   );
@@ -325,12 +288,8 @@ chrome.runtime.onInstalled.addListener(({ reason }, previousVersion) => {
     // Migrate old settings
     if (localStorage.adblockEnabled) {
       try {
-        localStorage.ads = settings.ads = JSON.parse(
-          localStorage.adblockEnabled
-        ).data;
-        localStorage.annotations = settings.annotations = JSON.parse(
-          localStorage.annotationsBlockEnabled
-        ).data;
+        localStorage.ads = settings.ads = JSON.parse(localStorage.adblockEnabled).data;
+        localStorage.annotations = settings.annotations = JSON.parse(localStorage.annotationsBlockEnabled).data;
         delete localStorage.adblockEnabled;
         delete localStorage.annotationsBlockEnabled;
         delete localStorage.autoUpdate;

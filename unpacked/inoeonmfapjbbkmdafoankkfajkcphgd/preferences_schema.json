@@ -8,6 +8,12 @@
       "enum": ["Google", "MicrosoftLive", "MicrosoftSharepoint", "Microsoft"],
       "default": "Google"
     },
+    "market": {
+      "title": "market",
+      "type": "string",
+      "enum": ["education", "workplace"],
+      "default": "education"
+    },
     "settings": {
       "type": "object",
       "default": {},

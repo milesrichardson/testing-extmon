@@ -18,60 +18,62 @@
         p = __webpack_require__(189),
         q = Object.assign,
         w = p.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
-        x = [],
-        y = null;
+        x = Symbol.for("react.memo_cache_sentinel"),
+        y = [],
+        z = null;
 
-      function z() {
-        if (null === y) {
+      function A() {
+        if (null === z) {
           var a = new Map();
 
           try {
-            A.useContext({
+            B.useContext({
               _currentValue: null
             }),
-              A.useState(null),
-              A.useReducer(function (c) {
+              B.useState(null),
+              B.useReducer(function (c) {
                 return c;
               }, null),
-              A.useRef(null),
-              "function" === typeof A.useCacheRefresh && A.useCacheRefresh(),
-              A.useLayoutEffect(function () {}),
-              A.useInsertionEffect(function () {}),
-              A.useEffect(function () {}),
-              A.useImperativeHandle(void 0, function () {
+              B.useRef(null),
+              "function" === typeof B.useCacheRefresh && B.useCacheRefresh(),
+              B.useLayoutEffect(function () {}),
+              B.useInsertionEffect(function () {}),
+              B.useEffect(function () {}),
+              B.useImperativeHandle(void 0, function () {
                 return null;
               }),
-              A.useDebugValue(null),
-              A.useCallback(function () {}),
-              A.useMemo(function () {
+              B.useDebugValue(null),
+              B.useCallback(function () {}),
+              B.useMemo(function () {
                 return null;
               }),
-              "function" === typeof A.useMemoCache && A.useMemoCache(0);
+              "function" === typeof B.useMemoCache && B.useMemoCache(0);
           } finally {
-            var b = x;
-            x = [];
+            var b = y;
+            y = [];
           }
 
-          for (var e = 0; e < b.length; e++) {
-            var g = b[e];
-            a.set(g.primitive, k.parse(g.stackError));
+          for (var d = 0; d < b.length; d++) {
+            var f = b[d];
+            a.set(f.primitive, k.parse(f.stackError));
           }
 
-          y = a;
+          z = a;
         }
 
-        return y;
+        return z;
       }
 
-      var B = null;
+      var C = null,
+        D = null;
 
-      function C() {
-        var a = B;
-        null !== a && (B = a.next);
+      function E() {
+        var a = D;
+        null !== a && (D = a.next);
         return a;
       }
 
-      var A = {
+      var B = {
           use: function () {
             throw Error("Support for `use` not yet implemented in react-debug-tools.");
           },
@@ -79,8 +81,8 @@
             return a._currentValue;
           },
           useCacheRefresh: function () {
-            var a = C();
-            x.push({
+            var a = E();
+            y.push({
               primitive: "CacheRefresh",
               stackError: Error(),
               value: null !== a ? a.memoizedState : function () {}
@@ -88,8 +90,8 @@
             return function () {};
           },
           useCallback: function (a) {
-            var b = C();
-            x.push({
+            var b = E();
+            y.push({
               primitive: "Callback",
               stackError: Error(),
               value: null !== b ? b.memoizedState[0] : a
@@ -97,7 +99,7 @@
             return a;
           },
           useContext: function (a) {
-            x.push({
+            y.push({
               primitive: "Context",
               stackError: Error(),
               value: a._currentValue
@@ -105,63 +107,77 @@
             return a._currentValue;
           },
           useEffect: function (a) {
-            C();
-            x.push({
+            E();
+            y.push({
               primitive: "Effect",
               stackError: Error(),
               value: a
             });
           },
           useImperativeHandle: function (a) {
-            C();
+            E();
             var b = void 0;
             null !== a && "object" === typeof a && (b = a.current);
-            x.push({
+            y.push({
               primitive: "ImperativeHandle",
               stackError: Error(),
               value: b
             });
           },
           useDebugValue: function (a, b) {
-            x.push({
+            y.push({
               primitive: "DebugValue",
               stackError: Error(),
               value: "function" === typeof b ? b(a) : a
             });
           },
           useLayoutEffect: function (a) {
-            C();
-            x.push({
+            E();
+            y.push({
               primitive: "LayoutEffect",
               stackError: Error(),
               value: a
             });
           },
           useInsertionEffect: function (a) {
-            C();
-            x.push({
+            E();
+            y.push({
               primitive: "InsertionEffect",
               stackError: Error(),
               value: a
             });
           },
           useMemo: function (a) {
-            var b = C();
+            var b = E();
             a = null !== b ? b.memoizedState[0] : a();
-            x.push({
+            y.push({
               primitive: "Memo",
               stackError: Error(),
               value: a
             });
             return a;
           },
-          useMemoCache: function () {
-            return [];
+          useMemoCache: function (a) {
+            var b = C;
+            if (null == b) return [];
+            var d;
+            b = null == (d = b.updateQueue) ? void 0 : d.memoCache;
+            if (null == b) return [];
+            d = b.data[b.index];
+
+            if (void 0 === d) {
+              d = b.data[b.index] = Array(a);
+
+              for (var f = 0; f < a; f++) d[f] = x;
+            }
+
+            b.index++;
+            return d;
           },
-          useReducer: function (a, b, e) {
-            a = C();
-            b = null !== a ? a.memoizedState : void 0 !== e ? e(b) : b;
-            x.push({
+          useReducer: function (a, b, d) {
+            a = E();
+            b = null !== a ? a.memoizedState : void 0 !== d ? d(b) : b;
+            y.push({
               primitive: "Reducer",
               stackError: Error(),
               value: b
@@ -169,14 +185,14 @@
             return [b, function () {}];
           },
           useRef: function (a) {
-            var b = C();
+            var b = E();
             a =
               null !== b
                 ? b.memoizedState
                 : {
                     current: a
                   };
-            x.push({
+            y.push({
               primitive: "Ref",
               stackError: Error(),
               value: a.current
@@ -184,9 +200,9 @@
             return a;
           },
           useState: function (a) {
-            var b = C();
+            var b = E();
             a = null !== b ? b.memoizedState : "function" === typeof a ? a() : a;
-            x.push({
+            y.push({
               primitive: "State",
               stackError: Error(),
               value: a
@@ -194,9 +210,9 @@
             return [a, function () {}];
           },
           useTransition: function () {
-            C();
-            C();
-            x.push({
+            E();
+            E();
+            y.push({
               primitive: "Transition",
               stackError: Error(),
               value: void 0
@@ -204,10 +220,10 @@
             return [!1, function () {}];
           },
           useSyncExternalStore: function (a, b) {
-            C();
-            C();
+            E();
+            E();
             a = b();
-            x.push({
+            y.push({
               primitive: "SyncExternalStore",
               stackError: Error(),
               value: a
@@ -215,8 +231,8 @@
             return a;
           },
           useDeferredValue: function (a) {
-            var b = C();
-            x.push({
+            var b = E();
+            y.push({
               primitive: "DeferredValue",
               stackError: Error(),
               value: null !== b ? b.memoizedState : a
@@ -224,9 +240,9 @@
             return a;
           },
           useId: function () {
-            var a = C();
+            var a = E();
             a = null !== a ? a.memoizedState : "";
-            x.push({
+            y.push({
               primitive: "Id",
               stackError: Error(),
               value: a
@@ -234,7 +250,7 @@
             return a;
           }
         },
-        D = {
+        F = {
           get: function (a, b) {
             if (a.hasOwnProperty(b)) return a[b];
             a = Error("Missing method in Dispatcher: " + b);
@@ -242,16 +258,16 @@
             throw a;
           }
         },
-        E = "undefined" === typeof Proxy ? A : new Proxy(A, D),
-        F = 0;
+        G = "undefined" === typeof Proxy ? B : new Proxy(B, F),
+        H = 0;
 
-      function G(a, b, e) {
-        var g = b[e].source,
+      function I(a, b, d) {
+        var f = b[d].source,
           c = 0;
 
         a: for (; c < a.length; c++)
-          if (a[c].source === g) {
-            for (var h = e + 1, r = c + 1; h < b.length && r < a.length; h++, r++) if (a[r].source !== b[h].source) continue a;
+          if (a[c].source === f) {
+            for (var h = d + 1, r = c + 1; h < b.length && r < a.length; h++, r++) if (a[r].source !== b[h].source) continue a;
 
             return c;
           }
@@ -259,73 +275,73 @@
         return -1;
       }
 
-      function H(a, b) {
+      function J(a, b) {
         if (!a) return !1;
         b = "use" + b;
         return a.length < b.length ? !1 : a.lastIndexOf(b) === a.length - b.length;
       }
 
-      function I(a, b, e) {
-        for (var g = [], c = null, h = g, r = 0, t = [], v = 0; v < b.length; v++) {
+      function K(a, b, d) {
+        for (var f = [], c = null, h = f, r = 0, t = [], v = 0; v < b.length; v++) {
           var u = b[v];
-          var d = a;
+          var e = a;
           var l = k.parse(u.stackError);
 
           b: {
             var m = l,
-              n = G(m, d, F);
-            if (-1 !== n) d = n;
+              n = I(m, e, H);
+            if (-1 !== n) e = n;
             else {
-              for (var f = 0; f < d.length && 5 > f; f++)
-                if (((n = G(m, d, f)), -1 !== n)) {
-                  F = f;
-                  d = n;
+              for (var g = 0; g < e.length && 5 > g; g++)
+                if (((n = I(m, e, g)), -1 !== n)) {
+                  H = g;
+                  e = n;
                   break b;
                 }
 
-              d = -1;
+              e = -1;
             }
           }
 
           b: {
             m = l;
-            n = z().get(u.primitive);
+            n = A().get(u.primitive);
             if (void 0 !== n)
-              for (f = 0; f < n.length && f < m.length; f++)
-                if (n[f].source !== m[f].source) {
-                  f < m.length - 1 && H(m[f].functionName, u.primitive) && f++;
-                  f < m.length - 1 && H(m[f].functionName, u.primitive) && f++;
-                  m = f;
+              for (g = 0; g < n.length && g < m.length; g++)
+                if (n[g].source !== m[g].source) {
+                  g < m.length - 1 && J(m[g].functionName, u.primitive) && g++;
+                  g < m.length - 1 && J(m[g].functionName, u.primitive) && g++;
+                  m = g;
                   break b;
                 }
             m = -1;
           }
 
-          l = -1 === d || -1 === m || 2 > d - m ? null : l.slice(m, d - 1);
+          l = -1 === e || -1 === m || 2 > e - m ? null : l.slice(m, e - 1);
 
           if (null !== l) {
-            d = 0;
+            e = 0;
 
             if (null !== c) {
-              for (; d < l.length && d < c.length && l[l.length - d - 1].source === c[c.length - d - 1].source; ) d++;
+              for (; e < l.length && e < c.length && l[l.length - e - 1].source === c[c.length - e - 1].source; ) e++;
 
-              for (c = c.length - 1; c > d; c--) h = t.pop();
+              for (c = c.length - 1; c > e; c--) h = t.pop();
             }
 
-            for (c = l.length - d - 1; 1 <= c; c--)
-              (d = []),
+            for (c = l.length - e - 1; 1 <= c; c--)
+              (e = []),
                 (m = l[c]),
                 (n = l[c - 1].functionName)
-                  ? ((f = n.lastIndexOf(".")), -1 === f && (f = 0), "use" === n.slice(f, f + 3) && (f += 3), (n = n.slice(f)))
+                  ? ((g = n.lastIndexOf(".")), -1 === g && (g = 0), "use" === n.slice(g, g + 3) && (g += 3), (n = n.slice(g)))
                   : (n = ""),
                 (n = {
                   id: null,
                   isStateEditable: !1,
                   name: n,
                   value: void 0,
-                  subHooks: d
+                  subHooks: e
                 }),
-                e &&
+                d &&
                   (n.hookSource = {
                     lineNumber: m.lineNumber,
                     columnNumber: m.columnNumber,
@@ -334,21 +350,21 @@
                   }),
                 h.push(n),
                 t.push(h),
-                (h = d);
+                (h = e);
 
             c = l;
           }
 
-          d = u.primitive;
+          e = u.primitive;
           u = {
-            id: "Context" === d || "DebugValue" === d ? null : r++,
-            isStateEditable: "Reducer" === d || "State" === d,
-            name: d,
+            id: "Context" === e || "DebugValue" === e ? null : r++,
+            isStateEditable: "Reducer" === e || "State" === e,
+            name: e,
             value: u.value,
             subHooks: []
           };
-          e &&
-            ((d = {
+          d &&
+            ((e = {
               lineNumber: null,
               functionName: null,
               fileName: null,
@@ -357,34 +373,34 @@
             l &&
               1 <= l.length &&
               ((l = l[0]),
-              (d.lineNumber = l.lineNumber),
-              (d.functionName = l.functionName),
-              (d.fileName = l.fileName),
-              (d.columnNumber = l.columnNumber)),
-            (u.hookSource = d));
+              (e.lineNumber = l.lineNumber),
+              (e.functionName = l.functionName),
+              (e.fileName = l.fileName),
+              (e.columnNumber = l.columnNumber)),
+            (u.hookSource = e));
           h.push(u);
         }
 
-        J(g, null);
-        return g;
+        L(f, null);
+        return f;
       }
 
-      function J(a, b) {
-        for (var e = [], g = 0; g < a.length; g++) {
-          var c = a[g];
-          "DebugValue" === c.name && 0 === c.subHooks.length ? (a.splice(g, 1), g--, e.push(c)) : J(c.subHooks, c);
+      function L(a, b) {
+        for (var d = [], f = 0; f < a.length; f++) {
+          var c = a[f];
+          "DebugValue" === c.name && 0 === c.subHooks.length ? (a.splice(f, 1), f--, d.push(c)) : L(c.subHooks, c);
         }
 
         null !== b &&
-          (1 === e.length
-            ? (b.value = e[0].value)
-            : 1 < e.length &&
-              (b.value = e.map(function (h) {
+          (1 === d.length
+            ? (b.value = d[0].value)
+            : 1 < d.length &&
+              (b.value = d.map(function (h) {
                 return h.value;
               })));
       }
 
-      function K(a) {
+      function M(a) {
         if (a instanceof Error && "ReactDebugToolsUnsupportedHookError" === a.name) throw a;
         var b = Error("Error rendering inspected component", {
           cause: a
@@ -394,51 +410,52 @@
         throw b;
       }
 
-      function L(a, b, e) {
-        var g = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : !1;
-        null == e && (e = w.ReactCurrentDispatcher);
-        var c = e.current;
-        e.current = E;
+      function N(a, b, d) {
+        var f = 3 < arguments.length && void 0 !== arguments[3] ? arguments[3] : !1;
+        null == d && (d = w.ReactCurrentDispatcher);
+        var c = d.current;
+        d.current = G;
 
         try {
           var h = Error();
           a(b);
         } catch (t) {
-          K(t);
+          M(t);
         } finally {
-          var r = x;
-          x = [];
-          e.current = c;
+          var r = y;
+          y = [];
+          d.current = c;
         }
 
         c = k.parse(h);
-        return I(c, r, g);
+        return K(c, r, f);
       }
 
-      function M(a) {
-        a.forEach(function (b, e) {
-          return (e._currentValue = b);
+      function O(a) {
+        a.forEach(function (b, d) {
+          return (d._currentValue = b);
         });
       }
 
-      __webpack_unused_export__ = L;
+      __webpack_unused_export__ = N;
 
       exports.inspectHooksOfFiber = function (a, b) {
-        var e = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : !1;
+        var d = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : !1;
         null == b && (b = w.ReactCurrentDispatcher);
         if (0 !== a.tag && 15 !== a.tag && 11 !== a.tag) throw Error("Unknown Fiber. Needs to be a function component to inspect hooks.");
-        z();
-        var g = a.type,
+        A();
+        D = a.memoizedState;
+        C = a;
+        var f = a.type,
           c = a.memoizedProps;
 
-        if (g !== a.elementType && g && g.defaultProps) {
+        if (f !== a.elementType && f && f.defaultProps) {
           c = q({}, c);
-          var h = g.defaultProps;
+          var h = f.defaultProps;
 
           for (r in h) void 0 === c[r] && (c[r] = h[r]);
         }
 
-        B = a.memoizedState;
         var r = new Map();
 
         try {
@@ -452,31 +469,31 @@
           }
 
           if (11 === a.tag) {
-            var v = g.render;
-            g = c;
+            var v = f.render;
+            f = c;
             var u = a.ref;
             t = b;
-            var d = t.current;
-            t.current = E;
+            var e = t.current;
+            t.current = G;
 
             try {
               var l = Error();
-              v(g, u);
-            } catch (f) {
-              K(f);
+              v(f, u);
+            } catch (g) {
+              M(g);
             } finally {
-              var m = x;
-              x = [];
-              t.current = d;
+              var m = y;
+              y = [];
+              t.current = e;
             }
 
             var n = k.parse(l);
-            return I(n, m, e);
+            return K(n, m, d);
           }
 
-          return L(g, c, b, e);
+          return N(f, c, b, d);
         } finally {
-          (B = null), M(r);
+          (D = C = null), O(r);
         }
       };
 
@@ -497,15 +514,15 @@
     /***/ 9: /***/ (__unused_webpack_module, exports) => {
       "use strict";
       var __webpack_unused_export__;
-      /**
-       * @license React
-       * react-is.production.min.js
-       *
-       * Copyright (c) Meta Platforms, Inc. and affiliates.
-       *
-       * This source code is licensed under the MIT license found in the
-       * LICENSE file in the root directory of this source tree.
-       */
+      /*
+ React
+ react-is.production.min.js
+
+ Copyright (c) Meta Platforms, Inc. and affiliates.
+
+ This source code is licensed under the MIT license found in the
+ LICENSE file in the root directory of this source tree.
+*/
 
       var b = Symbol.for("react.element"),
         c = Symbol.for("react.portal"),
@@ -559,17 +576,17 @@
         }
       }
 
-      exports.ContextConsumer = h;
-      exports.ContextProvider = g;
+      exports.AI = h;
+      exports.HQ = g;
       __webpack_unused_export__ = b;
-      exports.ForwardRef = l;
-      exports.Fragment = d;
-      exports.Lazy = q;
-      exports.Memo = p;
-      exports.Portal = c;
-      exports.Profiler = f;
-      exports.StrictMode = e;
-      exports.Suspense = m;
+      exports.A4 = l;
+      exports.HY = d;
+      exports.oM = q;
+      exports._Y = p;
+      exports.h_ = c;
+      exports.Q1 = f;
+      exports.nF = e;
+      exports.n4 = m;
       __webpack_unused_export__ = n;
 
       __webpack_unused_export__ = function () {
@@ -588,7 +605,7 @@
         return w(a) === g;
       };
 
-      exports.isElement = function (a) {
+      exports.kK = function (a) {
         return "object" === typeof a && null !== a && a.$$typeof === b;
       };
 
@@ -651,33 +668,22 @@
           : !1;
       };
 
-      exports.typeOf = w;
-
-      /***/
-    },
-
-    /***/ 550: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      "use strict";
-
-      if (true) {
-        module.exports = __webpack_require__(9);
-      } else {
-      }
+      exports.kM = w;
 
       /***/
     },
 
     /***/ 978: /***/ (__unused_webpack_module, exports) => {
       "use strict";
-      /**
-       * @license React
-       * react.production.min.js
-       *
-       * Copyright (c) Meta Platforms, Inc. and affiliates.
-       *
-       * This source code is licensed under the MIT license found in the
-       * LICENSE file in the root directory of this source tree.
-       */
+      /*
+ React
+ react.production.min.js
+
+ Copyright (c) Meta Platforms, Inc. and affiliates.
+
+ This source code is licensed under the MIT license found in the
+ LICENSE file in the root directory of this source tree.
+*/
 
       var l = Symbol.for("react.element"),
         n = Symbol.for("react.portal"),
@@ -1160,9 +1166,9 @@
         }
       };
 
+      exports.unstable_Activity = ba;
       exports.unstable_Cache = ca;
       exports.unstable_DebugTracingMode = aa;
-      exports.unstable_Offscreen = ba;
       exports.unstable_SuspenseList = y;
 
       exports.unstable_act = function () {
@@ -1261,7 +1267,7 @@
         return W.current.useTransition();
       };
 
-      exports.version = "18.3.0-experimental-51ffd3564-20231025";
+      exports.version = "18.3.0-experimental-c29ca23af-20231205";
 
       /***/
     },
@@ -4271,834 +4277,6 @@
       };
 
       return result;
-    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/utils.js
-    /**
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     *
-     *
-     */
-    // Get the window object for the document that a node belongs to,
-    // or return null if it cannot be found (node not attached to DOM,
-    // etc).
-    function getOwnerWindow(node) {
-      if (!node.ownerDocument) {
-        return null;
-      }
-
-      return node.ownerDocument.defaultView;
-    } // Get the iframe containing a node, or return null if it cannot
-    // be found (node not within iframe, etc).
-
-    function getOwnerIframe(node) {
-      const nodeWindow = getOwnerWindow(node);
-
-      if (nodeWindow) {
-        return nodeWindow.frameElement;
-      }
-
-      return null;
-    } // Get a bounding client rect for a node, with an
-    // offset added to compensate for its border.
-
-    function getBoundingClientRectWithBorderOffset(node) {
-      const dimensions = getElementDimensions(node);
-      return mergeRectOffsets([
-        node.getBoundingClientRect(),
-        {
-          top: dimensions.borderTop,
-          left: dimensions.borderLeft,
-          bottom: dimensions.borderBottom,
-          right: dimensions.borderRight,
-          // This width and height won't get used by mergeRectOffsets (since this
-          // is not the first rect in the array), but we set them so that this
-          // object type checks as a ClientRect.
-          width: 0,
-          height: 0
-        }
-      ]);
-    } // Add together the top, left, bottom, and right properties of
-    // each ClientRect, but keep the width and height of the first one.
-
-    function mergeRectOffsets(rects) {
-      return rects.reduce((previousRect, rect) => {
-        if (previousRect == null) {
-          return rect;
-        }
-
-        return {
-          top: previousRect.top + rect.top,
-          left: previousRect.left + rect.left,
-          width: previousRect.width,
-          height: previousRect.height,
-          bottom: previousRect.bottom + rect.bottom,
-          right: previousRect.right + rect.right
-        };
-      });
-    } // Calculate a boundingClientRect for a node relative to boundaryWindow,
-    // taking into account any offsets caused by intermediate iframes.
-
-    function getNestedBoundingClientRect(node, boundaryWindow) {
-      const ownerIframe = getOwnerIframe(node);
-
-      if (ownerIframe && ownerIframe !== boundaryWindow) {
-        const rects = [node.getBoundingClientRect()];
-        let currentIframe = ownerIframe;
-        let onlyOneMore = false;
-
-        while (currentIframe) {
-          const rect = getBoundingClientRectWithBorderOffset(currentIframe);
-          rects.push(rect);
-          currentIframe = getOwnerIframe(currentIframe);
-
-          if (onlyOneMore) {
-            break;
-          } // We don't want to calculate iframe offsets upwards beyond
-          // the iframe containing the boundaryWindow, but we
-          // need to calculate the offset relative to the boundaryWindow.
-
-          if (currentIframe && getOwnerWindow(currentIframe) === boundaryWindow) {
-            onlyOneMore = true;
-          }
-        }
-
-        return mergeRectOffsets(rects);
-      } else {
-        return node.getBoundingClientRect();
-      }
-    }
-    function getElementDimensions(domElement) {
-      const calculatedStyle = window.getComputedStyle(domElement);
-      return {
-        borderLeft: parseInt(calculatedStyle.borderLeftWidth, 10),
-        borderRight: parseInt(calculatedStyle.borderRightWidth, 10),
-        borderTop: parseInt(calculatedStyle.borderTopWidth, 10),
-        borderBottom: parseInt(calculatedStyle.borderBottomWidth, 10),
-        marginLeft: parseInt(calculatedStyle.marginLeft, 10),
-        marginRight: parseInt(calculatedStyle.marginRight, 10),
-        marginTop: parseInt(calculatedStyle.marginTop, 10),
-        marginBottom: parseInt(calculatedStyle.marginBottom, 10),
-        paddingLeft: parseInt(calculatedStyle.paddingLeft, 10),
-        paddingRight: parseInt(calculatedStyle.paddingRight, 10),
-        paddingTop: parseInt(calculatedStyle.paddingTop, 10),
-        paddingBottom: parseInt(calculatedStyle.paddingBottom, 10)
-      };
-    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/Highlighter/Overlay.js
-    /**
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     *
-     *
-     */
-
-    const Overlay_assign = Object.assign; // Note that the Overlay components are not affected by the active Theme,
-    // because they highlight elements in the main Chrome window (outside of devtools).
-    // The colors below were chosen to roughly match those used by Chrome devtools.
-
-    class OverlayRect {
-      constructor(doc, container) {
-        this.node = doc.createElement("div");
-        this.border = doc.createElement("div");
-        this.padding = doc.createElement("div");
-        this.content = doc.createElement("div");
-        this.border.style.borderColor = overlayStyles.border;
-        this.padding.style.borderColor = overlayStyles.padding;
-        this.content.style.backgroundColor = overlayStyles.background;
-        Overlay_assign(this.node.style, {
-          borderColor: overlayStyles.margin,
-          pointerEvents: "none",
-          position: "fixed"
-        });
-        this.node.style.zIndex = "10000000";
-        this.node.appendChild(this.border);
-        this.border.appendChild(this.padding);
-        this.padding.appendChild(this.content);
-        container.appendChild(this.node);
-      }
-
-      remove() {
-        if (this.node.parentNode) {
-          this.node.parentNode.removeChild(this.node);
-        }
-      }
-
-      update(box, dims) {
-        boxWrap(dims, "margin", this.node);
-        boxWrap(dims, "border", this.border);
-        boxWrap(dims, "padding", this.padding);
-        Overlay_assign(this.content.style, {
-          height: box.height - dims.borderTop - dims.borderBottom - dims.paddingTop - dims.paddingBottom + "px",
-          width: box.width - dims.borderLeft - dims.borderRight - dims.paddingLeft - dims.paddingRight + "px"
-        });
-        Overlay_assign(this.node.style, {
-          top: box.top - dims.marginTop + "px",
-          left: box.left - dims.marginLeft + "px"
-        });
-      }
-    }
-
-    class OverlayTip {
-      constructor(doc, container) {
-        this.tip = doc.createElement("div");
-        Overlay_assign(this.tip.style, {
-          display: "flex",
-          flexFlow: "row nowrap",
-          backgroundColor: "#333740",
-          borderRadius: "2px",
-          fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
-          fontWeight: "bold",
-          padding: "3px 5px",
-          pointerEvents: "none",
-          position: "fixed",
-          fontSize: "12px",
-          whiteSpace: "nowrap"
-        });
-        this.nameSpan = doc.createElement("span");
-        this.tip.appendChild(this.nameSpan);
-        Overlay_assign(this.nameSpan.style, {
-          color: "#ee78e6",
-          borderRight: "1px solid #aaaaaa",
-          paddingRight: "0.5rem",
-          marginRight: "0.5rem"
-        });
-        this.dimSpan = doc.createElement("span");
-        this.tip.appendChild(this.dimSpan);
-        Overlay_assign(this.dimSpan.style, {
-          color: "#d7d7d7"
-        });
-        this.tip.style.zIndex = "10000000";
-        container.appendChild(this.tip);
-      }
-
-      remove() {
-        if (this.tip.parentNode) {
-          this.tip.parentNode.removeChild(this.tip);
-        }
-      }
-
-      updateText(name, width, height) {
-        this.nameSpan.textContent = name;
-        this.dimSpan.textContent = Math.round(width) + "px × " + Math.round(height) + "px";
-      }
-
-      updatePosition(dims, bounds) {
-        const tipRect = this.tip.getBoundingClientRect();
-        const tipPos = findTipPos(dims, bounds, {
-          width: tipRect.width,
-          height: tipRect.height
-        });
-        Overlay_assign(this.tip.style, tipPos.style);
-      }
-    }
-
-    class Overlay {
-      constructor(agent) {
-        // Find the root window, because overlays are positioned relative to it.
-        const currentWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
-        this.window = currentWindow; // When opened in shells/dev, the tooltip should be bound by the app iframe, not by the topmost window.
-
-        const tipBoundsWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
-        this.tipBoundsWindow = tipBoundsWindow;
-        const doc = currentWindow.document;
-        this.container = doc.createElement("div");
-        this.container.style.zIndex = "10000000";
-        this.tip = new OverlayTip(doc, this.container);
-        this.rects = [];
-        this.agent = agent;
-        doc.body.appendChild(this.container);
-      }
-
-      remove() {
-        this.tip.remove();
-        this.rects.forEach((rect) => {
-          rect.remove();
-        });
-        this.rects.length = 0;
-
-        if (this.container.parentNode) {
-          this.container.parentNode.removeChild(this.container);
-        }
-      }
-
-      inspect(nodes, name) {
-        // We can't get the size of text nodes or comment nodes. React as of v15
-        // heavily uses comment nodes to delimit text.
-        const elements = nodes.filter((node) => node.nodeType === Node.ELEMENT_NODE);
-
-        while (this.rects.length > elements.length) {
-          const rect = this.rects.pop();
-          rect.remove();
-        }
-
-        if (elements.length === 0) {
-          return;
-        }
-
-        while (this.rects.length < elements.length) {
-          this.rects.push(new OverlayRect(this.window.document, this.container));
-        }
-
-        const outerBox = {
-          top: Number.POSITIVE_INFINITY,
-          right: Number.NEGATIVE_INFINITY,
-          bottom: Number.NEGATIVE_INFINITY,
-          left: Number.POSITIVE_INFINITY
-        };
-        elements.forEach((element, index) => {
-          const box = getNestedBoundingClientRect(element, this.window);
-          const dims = getElementDimensions(element);
-          outerBox.top = Math.min(outerBox.top, box.top - dims.marginTop);
-          outerBox.right = Math.max(outerBox.right, box.left + box.width + dims.marginRight);
-          outerBox.bottom = Math.max(outerBox.bottom, box.top + box.height + dims.marginBottom);
-          outerBox.left = Math.min(outerBox.left, box.left - dims.marginLeft);
-          const rect = this.rects[index];
-          rect.update(box, dims);
-        });
-
-        if (!name) {
-          name = elements[0].nodeName.toLowerCase();
-          const node = elements[0];
-          const rendererInterface = this.agent.getBestMatchingRendererInterface(node);
-
-          if (rendererInterface) {
-            const id = rendererInterface.getFiberIDForNative(node, true);
-
-            if (id) {
-              const ownerName = rendererInterface.getDisplayNameForFiberID(id, true);
-
-              if (ownerName) {
-                name += " (in " + ownerName + ")";
-              }
-            }
-          }
-        }
-
-        this.tip.updateText(name, outerBox.right - outerBox.left, outerBox.bottom - outerBox.top);
-        const tipBounds = getNestedBoundingClientRect(this.tipBoundsWindow.document.documentElement, this.window);
-        this.tip.updatePosition(
-          {
-            top: outerBox.top,
-            left: outerBox.left,
-            height: outerBox.bottom - outerBox.top,
-            width: outerBox.right - outerBox.left
-          },
-          {
-            top: tipBounds.top + this.tipBoundsWindow.scrollY,
-            left: tipBounds.left + this.tipBoundsWindow.scrollX,
-            height: this.tipBoundsWindow.innerHeight,
-            width: this.tipBoundsWindow.innerWidth
-          }
-        );
-      }
-    }
-
-    function findTipPos(dims, bounds, tipSize) {
-      const tipHeight = Math.max(tipSize.height, 20);
-      const tipWidth = Math.max(tipSize.width, 60);
-      const margin = 5;
-      let top;
-
-      if (dims.top + dims.height + tipHeight <= bounds.top + bounds.height) {
-        if (dims.top + dims.height < bounds.top + 0) {
-          top = bounds.top + margin;
-        } else {
-          top = dims.top + dims.height + margin;
-        }
-      } else if (dims.top - tipHeight <= bounds.top + bounds.height) {
-        if (dims.top - tipHeight - margin < bounds.top + margin) {
-          top = bounds.top + margin;
-        } else {
-          top = dims.top - tipHeight - margin;
-        }
-      } else {
-        top = bounds.top + bounds.height - tipHeight - margin;
-      }
-
-      let left = dims.left + margin;
-
-      if (dims.left < bounds.left) {
-        left = bounds.left + margin;
-      }
-
-      if (dims.left + tipWidth > bounds.left + bounds.width) {
-        left = bounds.left + bounds.width - tipWidth - margin;
-      }
-
-      top += "px";
-      left += "px";
-      return {
-        style: {
-          top,
-          left
-        }
-      };
-    }
-
-    function boxWrap(dims, what, node) {
-      Overlay_assign(node.style, {
-        borderTopWidth: dims[what + "Top"] + "px",
-        borderLeftWidth: dims[what + "Left"] + "px",
-        borderRightWidth: dims[what + "Right"] + "px",
-        borderBottomWidth: dims[what + "Bottom"] + "px",
-        borderStyle: "solid"
-      });
-    }
-
-    const overlayStyles = {
-      background: "rgba(120, 170, 210, 0.7)",
-      padding: "rgba(77, 200, 0, 0.3)",
-      margin: "rgba(255, 155, 0, 0.3)",
-      border: "rgba(255, 200, 50, 0.3)"
-    }; // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/Highlighter/Highlighter.js
-    /**
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     *
-     *
-     */
-
-    const SHOW_DURATION = 2000;
-    let timeoutID = null;
-    let overlay = null;
-    function hideOverlay(agent) {
-      if (window.document == null) {
-        agent.emit("hideNativeHighlight");
-        return;
-      }
-
-      timeoutID = null;
-
-      if (overlay !== null) {
-        overlay.remove();
-        overlay = null;
-      }
-    }
-    function showOverlay(elements, componentName, agent, hideAfterTimeout) {
-      if (window.document == null) {
-        if (elements != null && elements[0] != null) {
-          agent.emit("showNativeHighlight", elements[0]);
-        }
-
-        return;
-      }
-
-      if (timeoutID !== null) {
-        clearTimeout(timeoutID);
-      }
-
-      if (elements == null) {
-        return;
-      }
-
-      if (overlay === null) {
-        overlay = new Overlay(agent);
-      }
-
-      overlay.inspect(elements, componentName);
-
-      if (hideAfterTimeout) {
-        timeoutID = setTimeout(() => hideOverlay(agent), SHOW_DURATION);
-      }
-    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/Highlighter/index.js
-    /**
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     *
-     *
-     */
-
-    // This plug-in provides in-page highlighting of the selected element.
-    // It is used by the browser extension and the standalone DevTools shell (when connected to a browser).
-    // It is not currently the mechanism used to highlight React Native views.
-    // That is done by the React Native Inspector component.
-    let iframesListeningTo = new Set();
-    function setupHighlighter(bridge, agent) {
-      bridge.addListener("clearNativeElementHighlight", clearNativeElementHighlight);
-      bridge.addListener("highlightNativeElement", highlightNativeElement);
-      bridge.addListener("shutdown", stopInspectingNative);
-      bridge.addListener("startInspectingNative", startInspectingNative);
-      bridge.addListener("stopInspectingNative", stopInspectingNative);
-
-      function startInspectingNative() {
-        registerListenersOnWindow(window);
-      }
-
-      function registerListenersOnWindow(window) {
-        // This plug-in may run in non-DOM environments (e.g. React Native).
-        if (window && typeof window.addEventListener === "function") {
-          window.addEventListener("click", onClick, true);
-          window.addEventListener("mousedown", onMouseEvent, true);
-          window.addEventListener("mouseover", onMouseEvent, true);
-          window.addEventListener("mouseup", onMouseEvent, true);
-          window.addEventListener("pointerdown", onPointerDown, true);
-          window.addEventListener("pointermove", onPointerMove, true);
-          window.addEventListener("pointerup", onPointerUp, true);
-        } else {
-          agent.emit("startInspectingNative");
-        }
-      }
-
-      function stopInspectingNative() {
-        hideOverlay(agent);
-        removeListenersOnWindow(window);
-        iframesListeningTo.forEach(function (frame) {
-          try {
-            removeListenersOnWindow(frame.contentWindow);
-          } catch (error) {
-            // This can error when the iframe is on a cross-origin.
-          }
-        });
-        iframesListeningTo = new Set();
-      }
-
-      function removeListenersOnWindow(window) {
-        // This plug-in may run in non-DOM environments (e.g. React Native).
-        if (window && typeof window.removeEventListener === "function") {
-          window.removeEventListener("click", onClick, true);
-          window.removeEventListener("mousedown", onMouseEvent, true);
-          window.removeEventListener("mouseover", onMouseEvent, true);
-          window.removeEventListener("mouseup", onMouseEvent, true);
-          window.removeEventListener("pointerdown", onPointerDown, true);
-          window.removeEventListener("pointermove", onPointerMove, true);
-          window.removeEventListener("pointerup", onPointerUp, true);
-        } else {
-          agent.emit("stopInspectingNative");
-        }
-      }
-
-      function clearNativeElementHighlight() {
-        hideOverlay(agent);
-      }
-
-      function highlightNativeElement({ displayName, hideAfterTimeout, id, openNativeElementsPanel, rendererID, scrollIntoView }) {
-        const renderer = agent.rendererInterfaces[rendererID];
-
-        if (renderer == null) {
-          console.warn(`Invalid renderer id "${rendererID}" for element "${id}"`);
-          hideOverlay(agent);
-          return;
-        } // In some cases fiber may already be unmounted
-
-        if (!renderer.hasFiberWithId(id)) {
-          hideOverlay(agent);
-          return;
-        }
-
-        const nodes = renderer.findNativeNodesForFiberID(id);
-
-        if (nodes != null && nodes[0] != null) {
-          const node = nodes[0]; // $FlowFixMe[method-unbinding]
-
-          if (scrollIntoView && typeof node.scrollIntoView === "function") {
-            // If the node isn't visible show it before highlighting it.
-            // We may want to reconsider this; it might be a little disruptive.
-            node.scrollIntoView({
-              block: "nearest",
-              inline: "nearest"
-            });
-          }
-
-          showOverlay(nodes, displayName, agent, hideAfterTimeout);
-
-          if (openNativeElementsPanel) {
-            window.__REACT_DEVTOOLS_GLOBAL_HOOK__.$0 = node;
-            bridge.send("syncSelectionToNativeElementsPanel");
-          }
-        } else {
-          hideOverlay(agent);
-        }
-      }
-
-      function onClick(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        stopInspectingNative();
-        bridge.send("stopInspectingNative", true);
-      }
-
-      function onMouseEvent(event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-
-      function onPointerDown(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        selectFiberForNode(getEventTarget(event));
-      }
-
-      let lastHoveredNode = null;
-
-      function onPointerMove(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        const target = getEventTarget(event);
-        if (lastHoveredNode === target) return;
-        lastHoveredNode = target;
-
-        if (target.tagName === "IFRAME") {
-          const iframe = target;
-
-          try {
-            if (!iframesListeningTo.has(iframe)) {
-              const window = iframe.contentWindow;
-              registerListenersOnWindow(window);
-              iframesListeningTo.add(iframe);
-            }
-          } catch (error) {
-            // This can error when the iframe is on a cross-origin.
-          }
-        } // Don't pass the name explicitly.
-        // It will be inferred from DOM tag and Fiber owner.
-
-        showOverlay([target], null, agent, false);
-        selectFiberForNode(target);
-      }
-
-      function onPointerUp(event) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-
-      const selectFiberForNode = lodash_throttle_default()(
-        esm((node) => {
-          const id = agent.getIDForNode(node);
-
-          if (id !== null) {
-            bridge.send("selectFiber", id);
-          }
-        }),
-        200, // Don't change the selection in the very first 200ms
-        // because those are usually unintentional as you lift the cursor.
-        {
-          leading: false
-        }
-      );
-
-      function getEventTarget(event) {
-        if (event.composed) {
-          return event.composedPath()[0];
-        }
-
-        return event.target;
-      }
-    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/TraceUpdates/canvas.js
-    /**
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     *
-     *
-     */
-    const OUTLINE_COLOR = "#f0f0f0"; // Note these colors are in sync with DevTools Profiler chart colors.
-
-    const COLORS = ["#37afa9", "#63b19e", "#80b393", "#97b488", "#abb67d", "#beb771", "#cfb965", "#dfba57", "#efbb49", "#febc38"];
-    let canvas = null;
-    function draw(nodeToData, agent) {
-      if (window.document == null) {
-        const nodesToDraw = [];
-        iterateNodes(nodeToData, (_, color, node) => {
-          nodesToDraw.push({
-            node,
-            color
-          });
-        });
-        agent.emit("drawTraceUpdates", nodesToDraw);
-        return;
-      }
-
-      if (canvas === null) {
-        initialize();
-      }
-
-      const canvasFlow = canvas;
-      canvasFlow.width = window.innerWidth;
-      canvasFlow.height = window.innerHeight;
-      const context = canvasFlow.getContext("2d");
-      context.clearRect(0, 0, canvasFlow.width, canvasFlow.height);
-      iterateNodes(nodeToData, (rect, color) => {
-        if (rect !== null) {
-          drawBorder(context, rect, color);
-        }
-      });
-    }
-
-    function iterateNodes(nodeToData, execute) {
-      nodeToData.forEach(({ count, rect }, node) => {
-        const colorIndex = Math.min(COLORS.length - 1, count - 1);
-        const color = COLORS[colorIndex];
-        execute(rect, color, node);
-      });
-    }
-
-    function drawBorder(context, rect, color) {
-      const { height, left, top, width } = rect; // outline
-
-      context.lineWidth = 1;
-      context.strokeStyle = OUTLINE_COLOR;
-      context.strokeRect(left - 1, top - 1, width + 2, height + 2); // inset
-
-      context.lineWidth = 1;
-      context.strokeStyle = OUTLINE_COLOR;
-      context.strokeRect(left + 1, top + 1, width - 1, height - 1);
-      context.strokeStyle = color;
-      context.setLineDash([0]); // border
-
-      context.lineWidth = 1;
-      context.strokeRect(left, top, width - 1, height - 1);
-      context.setLineDash([0]);
-    }
-
-    function destroy(agent) {
-      if (window.document == null) {
-        agent.emit("disableTraceUpdates");
-        return;
-      }
-
-      if (canvas !== null) {
-        if (canvas.parentNode != null) {
-          canvas.parentNode.removeChild(canvas);
-        }
-
-        canvas = null;
-      }
-    }
-
-    function initialize() {
-      canvas = window.document.createElement("canvas");
-      canvas.style.cssText = `
-    xx-background-color: red;
-    xx-opacity: 0.5;
-    bottom: 0;
-    left: 0;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1000000000;
-  `;
-      const root = window.document.documentElement;
-      root.insertBefore(canvas, root.firstChild);
-    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/TraceUpdates/index.js
-    /**
-     * Copyright (c) Meta Platforms, Inc. and affiliates.
-     *
-     * This source code is licensed under the MIT license found in the
-     * LICENSE file in the root directory of this source tree.
-     *
-     *
-     */
-
-    // How long the rect should be shown for?
-    const DISPLAY_DURATION = 250; // What's the longest we are willing to show the overlay for?
-    // This can be important if we're getting a flurry of events (e.g. scroll update).
-
-    const MAX_DISPLAY_DURATION = 3000; // How long should a rect be considered valid for?
-
-    const REMEASUREMENT_AFTER_DURATION = 250; // Some environments (e.g. React Native / Hermes) don't support the performance API yet.
-
-    const getCurrentTime = // $FlowFixMe[method-unbinding]
-      typeof performance === "object" && typeof performance.now === "function" ? () => performance.now() : () => Date.now();
-    const nodeToData = new Map();
-    let agent = null;
-    let drawAnimationFrameID = null;
-    let isEnabled = false;
-    let redrawTimeoutID = null;
-    function TraceUpdates_initialize(injectedAgent) {
-      agent = injectedAgent;
-      agent.addListener("traceUpdates", traceUpdates);
-    }
-    function toggleEnabled(value) {
-      isEnabled = value;
-
-      if (!isEnabled) {
-        nodeToData.clear();
-
-        if (drawAnimationFrameID !== null) {
-          cancelAnimationFrame(drawAnimationFrameID);
-          drawAnimationFrameID = null;
-        }
-
-        if (redrawTimeoutID !== null) {
-          clearTimeout(redrawTimeoutID);
-          redrawTimeoutID = null;
-        }
-
-        destroy(agent);
-      }
-    }
-
-    function traceUpdates(nodes) {
-      if (!isEnabled) {
-        return;
-      }
-
-      nodes.forEach((node) => {
-        const data = nodeToData.get(node);
-        const now = getCurrentTime();
-        let lastMeasuredAt = data != null ? data.lastMeasuredAt : 0;
-        let rect = data != null ? data.rect : null;
-
-        if (rect === null || lastMeasuredAt + REMEASUREMENT_AFTER_DURATION < now) {
-          lastMeasuredAt = now;
-          rect = measureNode(node);
-        }
-
-        nodeToData.set(node, {
-          count: data != null ? data.count + 1 : 1,
-          expirationTime:
-            data != null ? Math.min(now + MAX_DISPLAY_DURATION, data.expirationTime + DISPLAY_DURATION) : now + DISPLAY_DURATION,
-          lastMeasuredAt,
-          rect
-        });
-      });
-
-      if (redrawTimeoutID !== null) {
-        clearTimeout(redrawTimeoutID);
-        redrawTimeoutID = null;
-      }
-
-      if (drawAnimationFrameID === null) {
-        drawAnimationFrameID = requestAnimationFrame(prepareToDraw);
-      }
-    }
-
-    function prepareToDraw() {
-      drawAnimationFrameID = null;
-      redrawTimeoutID = null;
-      const now = getCurrentTime();
-      let earliestExpiration = Number.MAX_VALUE; // Remove any items that have already expired.
-
-      nodeToData.forEach((data, node) => {
-        if (data.expirationTime < now) {
-          nodeToData.delete(node);
-        } else {
-          earliestExpiration = Math.min(earliestExpiration, data.expirationTime);
-        }
-      });
-      draw(nodeToData, agent);
-
-      if (earliestExpiration !== Number.MAX_VALUE) {
-        redrawTimeoutID = setTimeout(prepareToDraw, earliestExpiration - now);
-      }
-    }
-
-    function measureNode(node) {
-      if (!node || typeof node.getBoundingClientRect !== "function") {
-        return null;
-      }
-
-      const currentWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
-      return getNestedBoundingClientRect(node, currentWindow);
     } // CONCATENATED MODULE: ../../node_modules/compare-versions/lib/esm/index.js
     /**
      * Compare [semver](https://semver.org/) version strings to find greater, equal or lesser.
@@ -5273,8 +4451,8 @@
     // EXTERNAL MODULE: ../../node_modules/lru-cache/index.js
     var lru_cache = __webpack_require__(730);
     var lru_cache_default = /*#__PURE__*/ __webpack_require__.n(lru_cache);
-    // EXTERNAL MODULE: ../../build/oss-experimental/react-is/index.js
-    var react_is = __webpack_require__(550); // CONCATENATED MODULE: ../shared/ReactSymbols.js
+    // EXTERNAL MODULE: ../../build/oss-experimental/react-is/cjs/react-is.production.min.js
+    var react_is_production_min = __webpack_require__(9); // CONCATENATED MODULE: ../shared/ReactSymbols.js
     /**
      * Copyright (c) Meta Platforms, Inc. and affiliates.
      *
@@ -5432,7 +4610,7 @@
     } // Mirror https://github.com/facebook/react/blob/7c21bf72ace77094fd1910cc350a548287ef8350/packages/shared/getComponentName.js#L27-L37
 
     function getWrappedDisplayName(outerType, innerType, wrapperName, fallbackName) {
-      const displayName = outerType.displayName;
+      const displayName = outerType?.displayName;
       return displayName || `${wrapperName}(${getDisplayName(innerType, fallbackName)})`;
     }
     function getDisplayName(type, fallbackName = "Anonymous") {
@@ -5459,16 +4637,11 @@
     function getUID() {
       return ++uidCounter;
     }
-    function utfDecodeString(array) {
-      // Avoid spreading the array (e.g. String.fromCodePoint(...array))
-      // Functions arguments are first placed on the stack before the function is called
-      // which throws a RangeError for large arrays.
-      // See github.com/facebook/react/issues/22293
+    function utfDecodeStringWithRanges(array, left, right) {
       let string = "";
 
-      for (let i = 0; i < array.length; i++) {
-        const char = array[i];
-        string += String.fromCodePoint(char);
+      for (let i = left; i <= right; i++) {
+        string += String.fromCodePoint(array[i]);
       }
 
       return string;
@@ -5520,7 +4693,7 @@
 
       while (i < stringTableEnd) {
         const nextLength = operations[i++];
-        const nextString = utfDecodeString(operations.slice(i, i + nextLength));
+        const nextString = utfDecodeStringWithRanges(operations, i, i + nextLength - 1);
         stringTable.push(nextString);
         i += nextLength;
       }
@@ -5692,9 +4865,23 @@
 
       return getDefaultOpenInEditorURL();
     }
-    function separateDisplayNameAndHOCs(displayName, type) {
+    function parseElementDisplayNameFromBackend(displayName, type) {
       if (displayName === null) {
-        return [null, null];
+        return {
+          formattedDisplayName: null,
+          hocDisplayNames: null,
+          compiledWithForget: false
+        };
+      }
+
+      if (displayName.startsWith("Forget(")) {
+        const displayNameWithoutForgetWrapper = displayName.slice(7, displayName.length - 1);
+        const { formattedDisplayName, hocDisplayNames } = parseElementDisplayNameFromBackend(displayNameWithoutForgetWrapper, type);
+        return {
+          formattedDisplayName,
+          hocDisplayNames,
+          compiledWithForget: true
+        };
       }
 
       let hocDisplayNames = null;
@@ -5719,7 +4906,11 @@
           break;
       }
 
-      return [displayName, hocDisplayNames];
+      return {
+        formattedDisplayName: displayName,
+        hocDisplayNames,
+        compiledWithForget: false
+      };
     } // Pulled from react-compat
     // https://github.com/developit/preact-compat/blob/7c5de00e7c85e2ffd011bf3af02899b63f699d3a/src/index.js#L349
 
@@ -5817,7 +5008,7 @@
         return "undefined";
       }
 
-      if ((0, react_is.isElement)(data)) {
+      if ((0, react_is_production_min /* isElement */.kK)(data)) {
         return "react_element";
       }
 
@@ -5906,37 +5097,37 @@
       }
     }
     function getDisplayNameForReactElement(element) {
-      const elementType = (0, react_is.typeOf)(element);
+      const elementType = (0, react_is_production_min /* typeOf */.kM)(element);
 
       switch (elementType) {
-        case react_is.ContextConsumer:
+        case react_is_production_min /* ContextConsumer */.AI:
           return "ContextConsumer";
 
-        case react_is.ContextProvider:
+        case react_is_production_min /* ContextProvider */.HQ:
           return "ContextProvider";
 
-        case react_is.ForwardRef:
+        case react_is_production_min /* ForwardRef */.A4:
           return "ForwardRef";
 
-        case react_is.Fragment:
+        case react_is_production_min /* Fragment */.HY:
           return "Fragment";
 
-        case react_is.Lazy:
+        case react_is_production_min /* Lazy */.oM:
           return "Lazy";
 
-        case react_is.Memo:
+        case react_is_production_min /* Memo */._Y:
           return "Memo";
 
-        case react_is.Portal:
+        case react_is_production_min /* Portal */.h_:
           return "Portal";
 
-        case react_is.Profiler:
+        case react_is_production_min /* Profiler */.Q1:
           return "Profiler";
 
-        case react_is.StrictMode:
+        case react_is_production_min /* StrictMode */.nF:
           return "StrictMode";
 
-        case react_is.Suspense:
+        case react_is_production_min /* Suspense */.n4:
           return "Suspense";
 
         case REACT_SUSPENSE_LIST_TYPE:
@@ -6170,7 +5361,14 @@
       if (!objectPrototype) return true;
       const objectParentPrototype = Object.getPrototypeOf(objectPrototype);
       return !objectParentPrototype;
-    }; // CONCATENATED MODULE: ../react-devtools-shared/src/hydration.js
+    };
+    function backendToFrontendSerializedElementMapper(element) {
+      const { formattedDisplayName, hocDisplayNames, compiledWithForget } = parseElementDisplayNameFromBackend(
+        element.displayName,
+        element.type
+      );
+      return { ...element, displayName: formattedDisplayName, hocDisplayNames, compiledWithForget };
+    } // CONCATENATED MODULE: ../react-devtools-shared/src/hydration.js
     /**
      * Copyright (c) Meta Platforms, Inc. and affiliates.
      *
@@ -6866,6 +6064,850 @@
     function gte(a = "", b = "") {
       return compareVersions(a, b) > -1;
     }
+    const isReactNativeEnvironment = () => {
+      // We've been relying on this for such a long time
+      // We should probably define the client for DevTools on the backend side and share it with the frontend
+      return window.document == null;
+    }; // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/utils.js
+    /**
+     * Copyright (c) Meta Platforms, Inc. and affiliates.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE file in the root directory of this source tree.
+     *
+     *
+     */
+    // Get the window object for the document that a node belongs to,
+    // or return null if it cannot be found (node not attached to DOM,
+    // etc).
+    function getOwnerWindow(node) {
+      if (!node.ownerDocument) {
+        return null;
+      }
+
+      return node.ownerDocument.defaultView;
+    } // Get the iframe containing a node, or return null if it cannot
+    // be found (node not within iframe, etc).
+
+    function getOwnerIframe(node) {
+      const nodeWindow = getOwnerWindow(node);
+
+      if (nodeWindow) {
+        return nodeWindow.frameElement;
+      }
+
+      return null;
+    } // Get a bounding client rect for a node, with an
+    // offset added to compensate for its border.
+
+    function getBoundingClientRectWithBorderOffset(node) {
+      const dimensions = getElementDimensions(node);
+      return mergeRectOffsets([
+        node.getBoundingClientRect(),
+        {
+          top: dimensions.borderTop,
+          left: dimensions.borderLeft,
+          bottom: dimensions.borderBottom,
+          right: dimensions.borderRight,
+          // This width and height won't get used by mergeRectOffsets (since this
+          // is not the first rect in the array), but we set them so that this
+          // object type checks as a ClientRect.
+          width: 0,
+          height: 0
+        }
+      ]);
+    } // Add together the top, left, bottom, and right properties of
+    // each ClientRect, but keep the width and height of the first one.
+
+    function mergeRectOffsets(rects) {
+      return rects.reduce((previousRect, rect) => {
+        if (previousRect == null) {
+          return rect;
+        }
+
+        return {
+          top: previousRect.top + rect.top,
+          left: previousRect.left + rect.left,
+          width: previousRect.width,
+          height: previousRect.height,
+          bottom: previousRect.bottom + rect.bottom,
+          right: previousRect.right + rect.right
+        };
+      });
+    } // Calculate a boundingClientRect for a node relative to boundaryWindow,
+    // taking into account any offsets caused by intermediate iframes.
+
+    function getNestedBoundingClientRect(node, boundaryWindow) {
+      const ownerIframe = getOwnerIframe(node);
+
+      if (ownerIframe && ownerIframe !== boundaryWindow) {
+        const rects = [node.getBoundingClientRect()];
+        let currentIframe = ownerIframe;
+        let onlyOneMore = false;
+
+        while (currentIframe) {
+          const rect = getBoundingClientRectWithBorderOffset(currentIframe);
+          rects.push(rect);
+          currentIframe = getOwnerIframe(currentIframe);
+
+          if (onlyOneMore) {
+            break;
+          } // We don't want to calculate iframe offsets upwards beyond
+          // the iframe containing the boundaryWindow, but we
+          // need to calculate the offset relative to the boundaryWindow.
+
+          if (currentIframe && getOwnerWindow(currentIframe) === boundaryWindow) {
+            onlyOneMore = true;
+          }
+        }
+
+        return mergeRectOffsets(rects);
+      } else {
+        return node.getBoundingClientRect();
+      }
+    }
+    function getElementDimensions(domElement) {
+      const calculatedStyle = window.getComputedStyle(domElement);
+      return {
+        borderLeft: parseInt(calculatedStyle.borderLeftWidth, 10),
+        borderRight: parseInt(calculatedStyle.borderRightWidth, 10),
+        borderTop: parseInt(calculatedStyle.borderTopWidth, 10),
+        borderBottom: parseInt(calculatedStyle.borderBottomWidth, 10),
+        marginLeft: parseInt(calculatedStyle.marginLeft, 10),
+        marginRight: parseInt(calculatedStyle.marginRight, 10),
+        marginTop: parseInt(calculatedStyle.marginTop, 10),
+        marginBottom: parseInt(calculatedStyle.marginBottom, 10),
+        paddingLeft: parseInt(calculatedStyle.paddingLeft, 10),
+        paddingRight: parseInt(calculatedStyle.paddingRight, 10),
+        paddingTop: parseInt(calculatedStyle.paddingTop, 10),
+        paddingBottom: parseInt(calculatedStyle.paddingBottom, 10)
+      };
+    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/Highlighter/Overlay.js
+    /**
+     * Copyright (c) Meta Platforms, Inc. and affiliates.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE file in the root directory of this source tree.
+     *
+     *
+     */
+
+    const Overlay_assign = Object.assign; // Note that the Overlay components are not affected by the active Theme,
+    // because they highlight elements in the main Chrome window (outside of devtools).
+    // The colors below were chosen to roughly match those used by Chrome devtools.
+
+    class OverlayRect {
+      constructor(doc, container) {
+        this.node = doc.createElement("div");
+        this.border = doc.createElement("div");
+        this.padding = doc.createElement("div");
+        this.content = doc.createElement("div");
+        this.border.style.borderColor = overlayStyles.border;
+        this.padding.style.borderColor = overlayStyles.padding;
+        this.content.style.backgroundColor = overlayStyles.background;
+        Overlay_assign(this.node.style, {
+          borderColor: overlayStyles.margin,
+          pointerEvents: "none",
+          position: "fixed"
+        });
+        this.node.style.zIndex = "10000000";
+        this.node.appendChild(this.border);
+        this.border.appendChild(this.padding);
+        this.padding.appendChild(this.content);
+        container.appendChild(this.node);
+      }
+
+      remove() {
+        if (this.node.parentNode) {
+          this.node.parentNode.removeChild(this.node);
+        }
+      }
+
+      update(box, dims) {
+        boxWrap(dims, "margin", this.node);
+        boxWrap(dims, "border", this.border);
+        boxWrap(dims, "padding", this.padding);
+        Overlay_assign(this.content.style, {
+          height: box.height - dims.borderTop - dims.borderBottom - dims.paddingTop - dims.paddingBottom + "px",
+          width: box.width - dims.borderLeft - dims.borderRight - dims.paddingLeft - dims.paddingRight + "px"
+        });
+        Overlay_assign(this.node.style, {
+          top: box.top - dims.marginTop + "px",
+          left: box.left - dims.marginLeft + "px"
+        });
+      }
+    }
+
+    class OverlayTip {
+      constructor(doc, container) {
+        this.tip = doc.createElement("div");
+        Overlay_assign(this.tip.style, {
+          display: "flex",
+          flexFlow: "row nowrap",
+          backgroundColor: "#333740",
+          borderRadius: "2px",
+          fontFamily: '"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace',
+          fontWeight: "bold",
+          padding: "3px 5px",
+          pointerEvents: "none",
+          position: "fixed",
+          fontSize: "12px",
+          whiteSpace: "nowrap"
+        });
+        this.nameSpan = doc.createElement("span");
+        this.tip.appendChild(this.nameSpan);
+        Overlay_assign(this.nameSpan.style, {
+          color: "#ee78e6",
+          borderRight: "1px solid #aaaaaa",
+          paddingRight: "0.5rem",
+          marginRight: "0.5rem"
+        });
+        this.dimSpan = doc.createElement("span");
+        this.tip.appendChild(this.dimSpan);
+        Overlay_assign(this.dimSpan.style, {
+          color: "#d7d7d7"
+        });
+        this.tip.style.zIndex = "10000000";
+        container.appendChild(this.tip);
+      }
+
+      remove() {
+        if (this.tip.parentNode) {
+          this.tip.parentNode.removeChild(this.tip);
+        }
+      }
+
+      updateText(name, width, height) {
+        this.nameSpan.textContent = name;
+        this.dimSpan.textContent = Math.round(width) + "px × " + Math.round(height) + "px";
+      }
+
+      updatePosition(dims, bounds) {
+        const tipRect = this.tip.getBoundingClientRect();
+        const tipPos = findTipPos(dims, bounds, {
+          width: tipRect.width,
+          height: tipRect.height
+        });
+        Overlay_assign(this.tip.style, tipPos.style);
+      }
+    }
+
+    class Overlay {
+      constructor(agent) {
+        // Find the root window, because overlays are positioned relative to it.
+        const currentWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
+        this.window = currentWindow; // When opened in shells/dev, the tooltip should be bound by the app iframe, not by the topmost window.
+
+        const tipBoundsWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
+        this.tipBoundsWindow = tipBoundsWindow;
+        const doc = currentWindow.document;
+        this.container = doc.createElement("div");
+        this.container.style.zIndex = "10000000";
+        this.tip = new OverlayTip(doc, this.container);
+        this.rects = [];
+        this.agent = agent;
+        doc.body.appendChild(this.container);
+      }
+
+      remove() {
+        this.tip.remove();
+        this.rects.forEach((rect) => {
+          rect.remove();
+        });
+        this.rects.length = 0;
+
+        if (this.container.parentNode) {
+          this.container.parentNode.removeChild(this.container);
+        }
+      }
+
+      inspect(nodes, name) {
+        // We can't get the size of text nodes or comment nodes. React as of v15
+        // heavily uses comment nodes to delimit text.
+        const elements = nodes.filter((node) => node.nodeType === Node.ELEMENT_NODE);
+
+        while (this.rects.length > elements.length) {
+          const rect = this.rects.pop();
+          rect.remove();
+        }
+
+        if (elements.length === 0) {
+          return;
+        }
+
+        while (this.rects.length < elements.length) {
+          this.rects.push(new OverlayRect(this.window.document, this.container));
+        }
+
+        const outerBox = {
+          top: Number.POSITIVE_INFINITY,
+          right: Number.NEGATIVE_INFINITY,
+          bottom: Number.NEGATIVE_INFINITY,
+          left: Number.POSITIVE_INFINITY
+        };
+        elements.forEach((element, index) => {
+          const box = getNestedBoundingClientRect(element, this.window);
+          const dims = getElementDimensions(element);
+          outerBox.top = Math.min(outerBox.top, box.top - dims.marginTop);
+          outerBox.right = Math.max(outerBox.right, box.left + box.width + dims.marginRight);
+          outerBox.bottom = Math.max(outerBox.bottom, box.top + box.height + dims.marginBottom);
+          outerBox.left = Math.min(outerBox.left, box.left - dims.marginLeft);
+          const rect = this.rects[index];
+          rect.update(box, dims);
+        });
+
+        if (!name) {
+          name = elements[0].nodeName.toLowerCase();
+          const node = elements[0];
+          const rendererInterface = this.agent.getBestMatchingRendererInterface(node);
+
+          if (rendererInterface) {
+            const id = rendererInterface.getFiberIDForNative(node, true);
+
+            if (id) {
+              const ownerName = rendererInterface.getDisplayNameForFiberID(id, true);
+
+              if (ownerName) {
+                name += " (in " + ownerName + ")";
+              }
+            }
+          }
+        }
+
+        this.tip.updateText(name, outerBox.right - outerBox.left, outerBox.bottom - outerBox.top);
+        const tipBounds = getNestedBoundingClientRect(this.tipBoundsWindow.document.documentElement, this.window);
+        this.tip.updatePosition(
+          {
+            top: outerBox.top,
+            left: outerBox.left,
+            height: outerBox.bottom - outerBox.top,
+            width: outerBox.right - outerBox.left
+          },
+          {
+            top: tipBounds.top + this.tipBoundsWindow.scrollY,
+            left: tipBounds.left + this.tipBoundsWindow.scrollX,
+            height: this.tipBoundsWindow.innerHeight,
+            width: this.tipBoundsWindow.innerWidth
+          }
+        );
+      }
+    }
+
+    function findTipPos(dims, bounds, tipSize) {
+      const tipHeight = Math.max(tipSize.height, 20);
+      const tipWidth = Math.max(tipSize.width, 60);
+      const margin = 5;
+      let top;
+
+      if (dims.top + dims.height + tipHeight <= bounds.top + bounds.height) {
+        if (dims.top + dims.height < bounds.top + 0) {
+          top = bounds.top + margin;
+        } else {
+          top = dims.top + dims.height + margin;
+        }
+      } else if (dims.top - tipHeight <= bounds.top + bounds.height) {
+        if (dims.top - tipHeight - margin < bounds.top + margin) {
+          top = bounds.top + margin;
+        } else {
+          top = dims.top - tipHeight - margin;
+        }
+      } else {
+        top = bounds.top + bounds.height - tipHeight - margin;
+      }
+
+      let left = dims.left + margin;
+
+      if (dims.left < bounds.left) {
+        left = bounds.left + margin;
+      }
+
+      if (dims.left + tipWidth > bounds.left + bounds.width) {
+        left = bounds.left + bounds.width - tipWidth - margin;
+      }
+
+      top += "px";
+      left += "px";
+      return {
+        style: {
+          top,
+          left
+        }
+      };
+    }
+
+    function boxWrap(dims, what, node) {
+      Overlay_assign(node.style, {
+        borderTopWidth: dims[what + "Top"] + "px",
+        borderLeftWidth: dims[what + "Left"] + "px",
+        borderRightWidth: dims[what + "Right"] + "px",
+        borderBottomWidth: dims[what + "Bottom"] + "px",
+        borderStyle: "solid"
+      });
+    }
+
+    const overlayStyles = {
+      background: "rgba(120, 170, 210, 0.7)",
+      padding: "rgba(77, 200, 0, 0.3)",
+      margin: "rgba(255, 155, 0, 0.3)",
+      border: "rgba(255, 200, 50, 0.3)"
+    }; // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/Highlighter/Highlighter.js
+    /**
+     * Copyright (c) Meta Platforms, Inc. and affiliates.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE file in the root directory of this source tree.
+     *
+     *
+     */
+
+    const SHOW_DURATION = 2000;
+    let timeoutID = null;
+    let overlay = null;
+
+    function hideOverlayNative(agent) {
+      agent.emit("hideNativeHighlight");
+    }
+
+    function hideOverlayWeb() {
+      timeoutID = null;
+
+      if (overlay !== null) {
+        overlay.remove();
+        overlay = null;
+      }
+    }
+
+    function hideOverlay(agent) {
+      return isReactNativeEnvironment() ? hideOverlayNative(agent) : hideOverlayWeb();
+    }
+
+    function showOverlayNative(elements, agent) {
+      agent.emit("showNativeHighlight", elements);
+    }
+
+    function showOverlayWeb(elements, componentName, agent, hideAfterTimeout) {
+      if (timeoutID !== null) {
+        clearTimeout(timeoutID);
+      }
+
+      if (overlay === null) {
+        overlay = new Overlay(agent);
+      }
+
+      overlay.inspect(elements, componentName);
+
+      if (hideAfterTimeout) {
+        timeoutID = setTimeout(() => hideOverlay(agent), SHOW_DURATION);
+      }
+    }
+
+    function showOverlay(elements, componentName, agent, hideAfterTimeout) {
+      return isReactNativeEnvironment()
+        ? showOverlayNative(elements, agent)
+        : showOverlayWeb(elements, componentName, agent, hideAfterTimeout);
+    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/Highlighter/index.js
+    /**
+     * Copyright (c) Meta Platforms, Inc. and affiliates.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE file in the root directory of this source tree.
+     *
+     *
+     */
+
+    // This plug-in provides in-page highlighting of the selected element.
+    // It is used by the browser extension and the standalone DevTools shell (when connected to a browser).
+    // It is not currently the mechanism used to highlight React Native views.
+    // That is done by the React Native Inspector component.
+    let iframesListeningTo = new Set();
+    function setupHighlighter(bridge, agent) {
+      bridge.addListener("clearNativeElementHighlight", clearNativeElementHighlight);
+      bridge.addListener("highlightNativeElement", highlightNativeElement);
+      bridge.addListener("shutdown", stopInspectingNative);
+      bridge.addListener("startInspectingNative", startInspectingNative);
+      bridge.addListener("stopInspectingNative", stopInspectingNative);
+
+      function startInspectingNative() {
+        registerListenersOnWindow(window);
+      }
+
+      function registerListenersOnWindow(window) {
+        // This plug-in may run in non-DOM environments (e.g. React Native).
+        if (window && typeof window.addEventListener === "function") {
+          window.addEventListener("click", onClick, true);
+          window.addEventListener("mousedown", onMouseEvent, true);
+          window.addEventListener("mouseover", onMouseEvent, true);
+          window.addEventListener("mouseup", onMouseEvent, true);
+          window.addEventListener("pointerdown", onPointerDown, true);
+          window.addEventListener("pointermove", onPointerMove, true);
+          window.addEventListener("pointerup", onPointerUp, true);
+        } else {
+          agent.emit("startInspectingNative");
+        }
+      }
+
+      function stopInspectingNative() {
+        hideOverlay(agent);
+        removeListenersOnWindow(window);
+        iframesListeningTo.forEach(function (frame) {
+          try {
+            removeListenersOnWindow(frame.contentWindow);
+          } catch (error) {
+            // This can error when the iframe is on a cross-origin.
+          }
+        });
+        iframesListeningTo = new Set();
+      }
+
+      function removeListenersOnWindow(window) {
+        // This plug-in may run in non-DOM environments (e.g. React Native).
+        if (window && typeof window.removeEventListener === "function") {
+          window.removeEventListener("click", onClick, true);
+          window.removeEventListener("mousedown", onMouseEvent, true);
+          window.removeEventListener("mouseover", onMouseEvent, true);
+          window.removeEventListener("mouseup", onMouseEvent, true);
+          window.removeEventListener("pointerdown", onPointerDown, true);
+          window.removeEventListener("pointermove", onPointerMove, true);
+          window.removeEventListener("pointerup", onPointerUp, true);
+        } else {
+          agent.emit("stopInspectingNative");
+        }
+      }
+
+      function clearNativeElementHighlight() {
+        hideOverlay(agent);
+      }
+
+      function highlightNativeElement({ displayName, hideAfterTimeout, id, openNativeElementsPanel, rendererID, scrollIntoView }) {
+        const renderer = agent.rendererInterfaces[rendererID];
+
+        if (renderer == null) {
+          console.warn(`Invalid renderer id "${rendererID}" for element "${id}"`);
+          hideOverlay(agent);
+          return;
+        } // In some cases fiber may already be unmounted
+
+        if (!renderer.hasFiberWithId(id)) {
+          hideOverlay(agent);
+          return;
+        }
+
+        const nodes = renderer.findNativeNodesForFiberID(id);
+
+        if (nodes != null && nodes[0] != null) {
+          const node = nodes[0]; // $FlowFixMe[method-unbinding]
+
+          if (scrollIntoView && typeof node.scrollIntoView === "function") {
+            // If the node isn't visible show it before highlighting it.
+            // We may want to reconsider this; it might be a little disruptive.
+            node.scrollIntoView({
+              block: "nearest",
+              inline: "nearest"
+            });
+          }
+
+          showOverlay(nodes, displayName, agent, hideAfterTimeout);
+
+          if (openNativeElementsPanel) {
+            window.__REACT_DEVTOOLS_GLOBAL_HOOK__.$0 = node;
+            bridge.send("syncSelectionToNativeElementsPanel");
+          }
+        } else {
+          hideOverlay(agent);
+        }
+      }
+
+      function onClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        stopInspectingNative();
+        bridge.send("stopInspectingNative", true);
+      }
+
+      function onMouseEvent(event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      function onPointerDown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        selectFiberForNode(getEventTarget(event));
+      }
+
+      let lastHoveredNode = null;
+
+      function onPointerMove(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const target = getEventTarget(event);
+        if (lastHoveredNode === target) return;
+        lastHoveredNode = target;
+
+        if (target.tagName === "IFRAME") {
+          const iframe = target;
+
+          try {
+            if (!iframesListeningTo.has(iframe)) {
+              const window = iframe.contentWindow;
+              registerListenersOnWindow(window);
+              iframesListeningTo.add(iframe);
+            }
+          } catch (error) {
+            // This can error when the iframe is on a cross-origin.
+          }
+        } // Don't pass the name explicitly.
+        // It will be inferred from DOM tag and Fiber owner.
+
+        showOverlay([target], null, agent, false);
+        selectFiberForNode(target);
+      }
+
+      function onPointerUp(event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      const selectFiberForNode = lodash_throttle_default()(
+        esm((node) => {
+          const id = agent.getIDForNode(node);
+
+          if (id !== null) {
+            bridge.send("selectFiber", id);
+          }
+        }),
+        200, // Don't change the selection in the very first 200ms
+        // because those are usually unintentional as you lift the cursor.
+        {
+          leading: false
+        }
+      );
+
+      function getEventTarget(event) {
+        if (event.composed) {
+          return event.composedPath()[0];
+        }
+
+        return event.target;
+      }
+    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/TraceUpdates/canvas.js
+    /**
+     * Copyright (c) Meta Platforms, Inc. and affiliates.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE file in the root directory of this source tree.
+     *
+     *
+     */
+
+    const OUTLINE_COLOR = "#f0f0f0"; // Note these colors are in sync with DevTools Profiler chart colors.
+
+    const COLORS = ["#37afa9", "#63b19e", "#80b393", "#97b488", "#abb67d", "#beb771", "#cfb965", "#dfba57", "#efbb49", "#febc38"];
+    let canvas = null;
+
+    function drawNative(nodeToData, agent) {
+      const nodesToDraw = [];
+      iterateNodes(nodeToData, (_, color, node) => {
+        nodesToDraw.push({
+          node,
+          color
+        });
+      });
+      agent.emit("drawTraceUpdates", nodesToDraw);
+    }
+
+    function drawWeb(nodeToData) {
+      if (canvas === null) {
+        initialize();
+      }
+
+      const canvasFlow = canvas;
+      canvasFlow.width = window.innerWidth;
+      canvasFlow.height = window.innerHeight;
+      const context = canvasFlow.getContext("2d");
+      context.clearRect(0, 0, canvasFlow.width, canvasFlow.height);
+      iterateNodes(nodeToData, (rect, color) => {
+        if (rect !== null) {
+          drawBorder(context, rect, color);
+        }
+      });
+    }
+
+    function draw(nodeToData, agent) {
+      return isReactNativeEnvironment() ? drawNative(nodeToData, agent) : drawWeb(nodeToData);
+    }
+
+    function iterateNodes(nodeToData, execute) {
+      nodeToData.forEach(({ count, rect }, node) => {
+        const colorIndex = Math.min(COLORS.length - 1, count - 1);
+        const color = COLORS[colorIndex];
+        execute(rect, color, node);
+      });
+    }
+
+    function drawBorder(context, rect, color) {
+      const { height, left, top, width } = rect; // outline
+
+      context.lineWidth = 1;
+      context.strokeStyle = OUTLINE_COLOR;
+      context.strokeRect(left - 1, top - 1, width + 2, height + 2); // inset
+
+      context.lineWidth = 1;
+      context.strokeStyle = OUTLINE_COLOR;
+      context.strokeRect(left + 1, top + 1, width - 1, height - 1);
+      context.strokeStyle = color;
+      context.setLineDash([0]); // border
+
+      context.lineWidth = 1;
+      context.strokeRect(left, top, width - 1, height - 1);
+      context.setLineDash([0]);
+    }
+
+    function destroyNative(agent) {
+      agent.emit("disableTraceUpdates");
+    }
+
+    function destroyWeb() {
+      if (canvas !== null) {
+        if (canvas.parentNode != null) {
+          canvas.parentNode.removeChild(canvas);
+        }
+
+        canvas = null;
+      }
+    }
+
+    function destroy(agent) {
+      return isReactNativeEnvironment() ? destroyNative(agent) : destroyWeb();
+    }
+
+    function initialize() {
+      canvas = window.document.createElement("canvas");
+      canvas.style.cssText = `
+    xx-background-color: red;
+    xx-opacity: 0.5;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000000000;
+  `;
+      const root = window.document.documentElement;
+      root.insertBefore(canvas, root.firstChild);
+    } // CONCATENATED MODULE: ../react-devtools-shared/src/backend/views/TraceUpdates/index.js
+    /**
+     * Copyright (c) Meta Platforms, Inc. and affiliates.
+     *
+     * This source code is licensed under the MIT license found in the
+     * LICENSE file in the root directory of this source tree.
+     *
+     *
+     */
+
+    // How long the rect should be shown for?
+    const DISPLAY_DURATION = 250; // What's the longest we are willing to show the overlay for?
+    // This can be important if we're getting a flurry of events (e.g. scroll update).
+
+    const MAX_DISPLAY_DURATION = 3000; // How long should a rect be considered valid for?
+
+    const REMEASUREMENT_AFTER_DURATION = 250; // Some environments (e.g. React Native / Hermes) don't support the performance API yet.
+
+    const getCurrentTime = // $FlowFixMe[method-unbinding]
+      typeof performance === "object" && typeof performance.now === "function" ? () => performance.now() : () => Date.now();
+    const nodeToData = new Map();
+    let agent = null;
+    let drawAnimationFrameID = null;
+    let isEnabled = false;
+    let redrawTimeoutID = null;
+    function TraceUpdates_initialize(injectedAgent) {
+      agent = injectedAgent;
+      agent.addListener("traceUpdates", traceUpdates);
+    }
+    function toggleEnabled(value) {
+      isEnabled = value;
+
+      if (!isEnabled) {
+        nodeToData.clear();
+
+        if (drawAnimationFrameID !== null) {
+          cancelAnimationFrame(drawAnimationFrameID);
+          drawAnimationFrameID = null;
+        }
+
+        if (redrawTimeoutID !== null) {
+          clearTimeout(redrawTimeoutID);
+          redrawTimeoutID = null;
+        }
+
+        destroy(agent);
+      }
+    }
+
+    function traceUpdates(nodes) {
+      if (!isEnabled) {
+        return;
+      }
+
+      nodes.forEach((node) => {
+        const data = nodeToData.get(node);
+        const now = getCurrentTime();
+        let lastMeasuredAt = data != null ? data.lastMeasuredAt : 0;
+        let rect = data != null ? data.rect : null;
+
+        if (rect === null || lastMeasuredAt + REMEASUREMENT_AFTER_DURATION < now) {
+          lastMeasuredAt = now;
+          rect = measureNode(node);
+        }
+
+        nodeToData.set(node, {
+          count: data != null ? data.count + 1 : 1,
+          expirationTime:
+            data != null ? Math.min(now + MAX_DISPLAY_DURATION, data.expirationTime + DISPLAY_DURATION) : now + DISPLAY_DURATION,
+          lastMeasuredAt,
+          rect
+        });
+      });
+
+      if (redrawTimeoutID !== null) {
+        clearTimeout(redrawTimeoutID);
+        redrawTimeoutID = null;
+      }
+
+      if (drawAnimationFrameID === null) {
+        drawAnimationFrameID = requestAnimationFrame(prepareToDraw);
+      }
+    }
+
+    function prepareToDraw() {
+      drawAnimationFrameID = null;
+      redrawTimeoutID = null;
+      const now = getCurrentTime();
+      let earliestExpiration = Number.MAX_VALUE; // Remove any items that have already expired.
+
+      nodeToData.forEach((data, node) => {
+        if (data.expirationTime < now) {
+          nodeToData.delete(node);
+        } else {
+          earliestExpiration = Math.min(earliestExpiration, data.expirationTime);
+        }
+      });
+      draw(nodeToData, agent);
+
+      if (earliestExpiration !== Number.MAX_VALUE) {
+        redrawTimeoutID = setTimeout(prepareToDraw, earliestExpiration - now);
+      }
+    }
+
+    function measureNode(node) {
+      if (!node || typeof node.getBoundingClientRect !== "function") {
+        return null;
+      }
+
+      const currentWindow = window.__REACT_DEVTOOLS_TARGET_WINDOW__ || window;
+      return getNestedBoundingClientRect(node, currentWindow);
+    }
     // EXTERNAL MODULE: ../../build/oss-experimental/react-debug-tools/index.js
     var react_debug_tools = __webpack_require__(987); // CONCATENATED MODULE: ../react-devtools-shared/src/backend/ReactSymbols.js
     /**
@@ -7148,6 +7190,7 @@
         "--color-error-border": "hsl(0, 100%, 92%)",
         "--color-error-text": "#ff0000",
         "--color-expand-collapse-toggle": "#777d88",
+        "--color-forget-badge": "#2683E2",
         "--color-link": "#0000ff",
         "--color-modal-background": "rgba(255, 255, 255, 0.75)",
         "--color-bridge-version-npm-background": "#eff0f1",
@@ -7291,6 +7334,7 @@
         "--color-error-border": "#900",
         "--color-error-text": "#f55",
         "--color-expand-collapse-toggle": "#8f949d",
+        "--color-forget-badge": "#2683E2",
         "--color-link": "#61dafb",
         "--color-modal-background": "rgba(0, 0, 0, 0.75)",
         "--color-bridge-version-npm-background": "rgba(0, 0, 0, 0.25)",
@@ -8984,7 +9028,7 @@
         }
       } // NOTICE Keep in sync with shouldFilterFiber() and other get*ForFiber methods
 
-      function getDisplayNameForFiber(fiber) {
+      function getDisplayNameForFiber(fiber, shouldSkipForgetCheck = false) {
         const { elementType, type, tag } = fiber;
         let resolvedType = type;
 
@@ -8992,7 +9036,17 @@
           resolvedType = resolveFiberType(type);
         }
 
-        let resolvedContext = null;
+        let resolvedContext = null; // $FlowFixMe[incompatible-type] fiber.updateQueue is mixed
+
+        if (!shouldSkipForgetCheck && fiber.updateQueue?.memoCache != null) {
+          const displayNameWithoutForgetWrapper = getDisplayNameForFiber(fiber, true);
+
+          if (displayNameWithoutForgetWrapper == null) {
+            return null;
+          }
+
+          return `Forget(${displayNameWithoutForgetWrapper})`;
+        }
 
         switch (tag) {
           case CacheComponent:
@@ -9000,8 +9054,6 @@
 
           case ClassComponent:
           case IncompleteClassComponent:
-            return getDisplayName(resolvedType);
-
           case FunctionComponent:
           case IndeterminateComponent:
             return getDisplayName(resolvedType);
@@ -13359,7 +13411,7 @@
         });
 
         agent_defineProperty(this, "getBackendVersion", () => {
-          const version = "4.28.5-ef8a840bd";
+          const version = "5.0.0-993c4d003";
 
           if (version) {
             this._bridge.send("backendVersion", version);
@@ -13796,7 +13848,7 @@
         } // Send the Bridge protocol and backend versions, after initialization, in case the frontend has already requested it.
         // The Store may be instantiated beore the agent.
 
-        const _version = "4.28.5-ef8a840bd";
+        const _version = "5.0.0-993c4d003";
 
         if (_version) {
           this._bridge.send("backendVersion", _version);

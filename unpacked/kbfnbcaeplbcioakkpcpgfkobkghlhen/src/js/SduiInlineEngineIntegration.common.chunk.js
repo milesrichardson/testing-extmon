@@ -83,8 +83,8 @@
         E = n(19751),
         P = n(23063),
         x = n(69627),
-        M = n(31528),
-        k = n(26328),
+        k = n(31528),
+        M = n(26328),
         F = n(66268);
       class z {
         constructor(e, t, n, s, o) {
@@ -107,7 +107,7 @@
                 (0, p.zG)(
                   z.getSduiFeedActions(e.actions),
                   a.map((t) =>
-                    this.integrationModel.openAssistant({ type: M.WT.sdui, action: { ...e, actions: t, type: F.lY.Type.sduiCardAction } })
+                    this.integrationModel.openAssistant({ type: k.WT.sdui, action: { ...e, actions: t, type: F.lY.Type.sduiCardAction } })
                   )
                 );
             }),
@@ -159,6 +159,7 @@
                 case "selectAlternative":
                 case "highlightAlert":
                 case "openPerformanceScore":
+                case "nativeOpenUserSatisfactionFeedback":
                 case "enablePlagiarismCheck":
                 case "disablePlagiarismCheck":
                 case "showHighlights":
@@ -249,14 +250,14 @@
       }
       (z.getSduiFeedActions = (0, p.ls)(
         l.hX((e) => "popAssistantFeed" === e.type || "pushAssistantFeed" === e.type || "focusAssistantCard" === e.type),
-        k.nI
+        M.nI
       )),
         (function (e) {
           e.eq = u.MW({ cardAction: s.t.eq });
         })(g || (g = {}));
     },
     17232: (e, t, n) => {
-      n.r(t), n.d(t, { createSduiInlineEngine: () => k, default: () => F });
+      n.r(t), n.d(t, { createSduiInlineEngine: () => M, default: () => F });
       var i = n(5114),
         r = n(21038),
         s = n(24055),
@@ -417,8 +418,8 @@
         E = n(33194),
         P = n(86782),
         x = n(12989),
-        M = n(517);
-      const k = (e, t, n, c, d, l, u, h = !1) => {
+        k = n(517);
+      const M = (e, t, n, c, d, l, u, h = !1) => {
           const v = new p.w.Keeper(),
             m = (0, g.ls)(
               (e) => e.toString(),
@@ -439,13 +440,13 @@
               S.h(s.e.isSduiEvent),
               f.U(o.al.fromSource(o.i5.CAPI))
             ),
-            b = h ? new x.G() : new M.z(),
+            b = h ? new x.G() : new k.z(),
             w = new a.G(A, m, b),
             y = new I(w.state),
             _ = new C.Q({ sendUserAction: c }),
-            k = new P.U(w, _, d, l, u);
+            M = new P.U(w, _, d, l, u);
           return (
-            b.setPopoverActionsHandler(k),
+            b.setPopoverActionsHandler(M),
             v.push(
               t.subscribe((e) => w.notifyAlertsChanged()),
               e.capiEvents
@@ -462,21 +463,21 @@
                 .subscribe((e) => w.onFirstCheckingFinished()),
               w,
               y,
-              k
+              M
             ),
             {
               sduiBufferService: e,
               sduiManager: w,
               sduiInlineManager: y,
               sduiFeedbackService: _,
-              inlineCardViewModel: k,
+              inlineCardViewModel: M,
               dispose: () => {
                 v.dispose();
               }
             }
           );
         },
-        F = { createSduiInlineEngine: k };
+        F = { createSduiInlineEngine: M };
     },
     57757: (e, t, n) => {
       n.d(t, { v: () => s });

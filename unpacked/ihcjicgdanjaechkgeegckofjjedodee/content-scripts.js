@@ -7,26 +7,26 @@
       1267: (e, a, t) => {
         "use strict";
         t.d(a, {
-          $b: () => r,
-          Ab: () => i,
-          Bb: () => m,
-          R: () => D,
-          V: () => b,
-          W: () => l,
-          X: () => c,
-          Z: () => u,
-          Zb: () => d,
-          cc: () => s,
-          eb: () => h,
-          fb: () => p,
+          Db: () => m,
+          Eb: () => u,
+          U: () => D,
+          Y: () => c,
+          Z: () => b,
+          _: () => h,
+          ab: () => M,
+          ac: () => T,
+          cc: () => r,
+          fc: () => s,
+          hb: () => A,
           i: () => n,
-          l: () => T,
-          nb: () => g,
-          ob: () => y,
-          qb: () => M,
-          rb: () => S,
-          v: () => A,
-          wb: () => o
+          k: () => o,
+          m: () => d,
+          qb: () => p,
+          rb: () => i,
+          tb: () => S,
+          ub: () => l,
+          w: () => g,
+          zb: () => y
         }),
           Object.freeze({
             LicenseStateUnknown: 0,
@@ -40,30 +40,30 @@
           Object.freeze([2, 4, 6]);
         const s = "enableSkimmerProtection",
           r = "enableMonthlyNotification",
-          d = "enableMaliciousNotification",
-          T = "enableSuspiciousTitleDetection",
+          T = "enableMaliciousNotification",
+          d = "enableSuspiciousTitleDetection",
           n = "enableBlockEasylistAds",
-          o = "MSG_SETTINGS_GET",
-          y = "MSG_RECORDS_GET",
-          i = "MSG_TAB_ID_GET",
-          m = "MSG_TAB_INFO_GET",
-          u = "MSG_IS_AD_PROTECTION_ACTIVE",
-          M = "MSG_RECORD_CONTENT_AD",
-          S = "MSG_RECORD_EASYLIST_AD",
-          l = "MSG_INFO_BLOCKED_CONTENT",
-          b = "MSG_INFO_BLOCKED_CONTENT_DISPLAYED",
-          c = "MSG_INFO_MONTHLY_NOTIFICATION",
-          h = "MSG_IS_WHITELISTED_SCAM",
-          A = "MSG_COLOR_SCHEME_CHANGED",
-          g = "MSG_QUERY_FEATURE_FLAG",
-          p = "MSG_LOAD_INLINE_SCRIPT",
+          o = "enableBlockYoutubeCustomAds",
+          y = "MSG_SETTINGS_GET",
+          i = "MSG_RECORDS_GET",
+          m = "MSG_TAB_ID_GET",
+          u = "MSG_TAB_INFO_GET",
+          M = "MSG_IS_AD_PROTECTION_ACTIVE",
+          S = "MSG_RECORD_CONTENT_AD",
+          l = "MSG_RECORD_EASYLIST_AD",
+          b = "MSG_INFO_BLOCKED_CONTENT",
+          c = "MSG_INFO_BLOCKED_CONTENT_DISPLAYED",
+          h = "MSG_INFO_MONTHLY_NOTIFICATION",
+          A = "MSG_IS_WHITELISTED_SCAM",
+          g = "MSG_COLOR_SCHEME_CHANGED",
+          p = "MSG_QUERY_FEATURE_FLAG",
           D = "MSG_GET_EASYLIST_SELECTORS";
       },
-      8791: (e, a, t) => {
+      808: (e, a, t) => {
         "use strict";
         var s = t(4846),
           r = t(1267);
-        const d = {
+        const T = {
             en: { isSponsored: (e) => e.endsWith("ponsored"), isSuggested: (e) => e.endsWith("uggested for you") },
             es: { isSponsored: (e) => e.endsWith("ublicidad"), isSuggested: (e) => e.endsWith("ugerencia para ti") },
             pt: {
@@ -80,15 +80,15 @@
             pl: { isSponsored: (e) => e.endsWith("ponsorowane"), isSuggested: (e) => e.endsWith("roponowana dla ciebie") },
             ru: { isSponsored: (e) => e.endsWith("еклама"), isSuggested: (e) => e.endsWith("екомендация для вас") }
           },
-          T = (e) => {
+          d = (e) => {
             try {
-              s.chrome.runtime.sendMessage({ type: r.qb, tabId: e.id, tabUrl: e.url });
+              s.chrome.runtime.sendMessage({ type: r.tb, tabId: e.id, tabUrl: e.url });
             } catch (e) {
               console.error("RBAD: Error occurred while recording blocked ad. " + e);
             }
           };
         function n(e, a, t) {
-          let s = Array.from(e.querySelectorAll("div[aria-labelledby"));
+          let s = Array.from(e.querySelectorAll("div[aria-labelledby]"));
           !(function (e, a, t) {
             e.forEach((e) => {
               let s = e.querySelector("div > span > span > span > span > a > span > span use");
@@ -97,10 +97,10 @@
               if (!r) return;
               const n = document.getElementById(r.slice(1)),
                 o = n.parentElement;
-              if (n && d[a] && d[a].isSponsored(n.textContent)) {
+              if (n && T[a] && T[a].isSponsored(n.textContent)) {
                 window.useLogging && console.log("Found sponsored: " + n.textContent);
                 try {
-                  (e.style.display = "none"), (o.parentNode.style.display = "none"), T(t);
+                  (e.style.display = "none"), (o.parentNode.style.display = "none"), d(t);
                 } catch (e) {
                   window.useLogging && console.error(e);
                 }
@@ -110,10 +110,10 @@
             (function (e, a, t) {
               e.forEach((e) => {
                 let s = e.querySelector("div > div > div > span");
-                if (s && s.innerText && d[a] && d[a].isSuggested(s.innerText)) {
+                if (s && s.innerText && T[a] && T[a].isSuggested(s.innerText)) {
                   window.useLogging && console.log("Found suggested: " + s.innerText);
                   try {
-                    (e.style.display = "none"), T(t);
+                    (e.style.display = "none"), d(t);
                   } catch (e) {
                     window.useLogging && console.error(e);
                   }
@@ -124,143 +124,87 @@
         function o(e, a) {
           try {
             document.querySelectorAll("div[role='complementary'] * span > div > div > div").forEach((t) => {
-              d[a].isSponsored(t.innerText) && "none" !== t.parentElement.style.display && ((t.parentElement.style.display = "none"), T(e));
+              T[a].isSponsored(t.innerText) && "none" !== t.parentElement.style.display && ((t.parentElement.style.display = "none"), d(e));
             });
           } catch (e) {
             window.useLogging && console.error(e);
           }
         }
-        const y = () => {
-            const e = [
-                "[].playerResponse.adPlacements",
-                "[].playerResponse.playerAds",
-                "playerResponse.adPlacements",
-                "playerResponse.playerAds",
-                "adPlacements",
-                "playerAds",
-                "ytInitialPlayerResponse.adPlacements",
-                "ytInitialPlayerResponse.playerAds",
-                "adPlacementRenderer",
-                "adPlacementConfig",
-                "instreamVideoAdRenderer",
-                "instreamAdPlayerOverlayRenderer",
-                "linearAdSequenceRenderer"
-              ],
-              a = function (e, t) {
-                for (;;) {
-                  if ("object" != typeof e || null === e) return !1;
-                  const s = t.indexOf(".");
-                  if (-1 === s) {
-                    if ("*" === t)
-                      for (const a in e)
-                        !1 !== e.hasOwnProperty(a) && (window.useLogging && console.log("Deleting key", a, e[a]), delete e[a]);
-                    else e.hasOwnProperty(t) && (window.useLogging && console.log("Deleting element", t, e[t]), delete e[t]);
-                    return !0;
-                  }
-                  const r = t.slice(0, s);
-                  if (("[]" === r && Array.isArray(e)) || ("*" === r && e instanceof Object)) {
-                    const r = t.slice(s + 1);
-                    let d = !1;
-                    for (const t of Object.keys(e)) if (((d = a(e[t], r)), d)) break;
-                    return d;
-                  }
-                  if (!1 === e.hasOwnProperty(r)) return !1;
-                  (e = e[r]), (t = t.slice(s + 1));
-                }
-              },
-              t = function (t) {
-                for (const s of e) a(t, s);
-                return t;
-              };
-            (JSON.parse = new Proxy(JSON.parse, {
-              apply: function () {
-                return t(Reflect.apply(...arguments));
-              }
-            })),
-              (Response.prototype.json = new Proxy(Response.prototype.json, {
-                apply: function () {
-                  return Reflect.apply(...arguments).then((e) => t(e));
-                }
-              })),
-              window.useLogging && console.log("Trimmer initialized");
-          },
-          i = () => {
-            let e = document.querySelectorAll("button.ytp-ad-skip-button");
-            e.length > 0 && (e[0].click(), window.useLogging && console.log("Clicked button"));
-            let a = document.getElementsByClassName("ytp-ad-overlay-close-container");
-            a.length > 0 && (a[0].click(), window.useLogging && console.log("Clicked button"));
-            const t = document.querySelectorAll(".ad-showing")[0],
-              s = document.querySelector(".ytp-ad-text.ytp-ad-preview-text"),
-              r = document.querySelector("video");
-            null != t && null != r && null != s && (r.currentTime = r.duration);
-          };
-        function m(e, a) {
-          if (null !== document.getElementById(a)) return;
-          const t = document.createElement("script");
-          (t.type = "text/javascript"),
-            (t.defer = !0),
-            (t.id = a),
-            t.appendChild(document.createTextNode(decodeURIComponent(`(${e})();`))),
-            (document.head || document.documentElement).appendChild(t);
+        function y() {
+          const e = document.querySelectorAll("#player-ads,.ytd-ad-slot-renderer");
+          if (e.length > 0) for (const a of e) a.remove();
         }
-        var u = t(7456);
-        const M = `${window.location.protocol}//${window.location.hostname}`,
-          S = "Safari" === (0, u.f)(),
-          l = () =>
+        var i = t(7456);
+        const m = `${window.location.protocol}//${window.location.hostname}`,
+          u = () =>
             new Promise((e, a) => {
-              s.chrome.runtime.sendMessage({ type: r.Bb }, (t) => {
+              s.chrome.runtime.sendMessage({ type: r.Eb }, (t) => {
                 t ? e(t) : a(new Error("Error obtaining tab info."));
               });
             });
-        function b() {
-          return new Promise((e, a) => {
-            s.chrome.runtime.sendMessage({ type: r.Ab }, (t) => {
-              t ? e(t) : a(new Error("Error getting tab info"));
+        const M = (e) => {
+            try {
+              s.chrome.runtime.sendMessage({ type: r.tb, tabId: e.id, tabUrl: e.url });
+            } catch (e) {
+              console.error("RBAD: Error occurred while recording blocked ad. " + e);
+            }
+          },
+          S = (e) => {
+            try {
+              s.chrome.runtime.sendMessage({ type: r.ub, tabId: e.id, tabUrl: e.url });
+            } catch (e) {
+              console.error("RBAD: Error occurred while recording blocked ad. " + e);
+            }
+          },
+          l = (e) => e && e.style && e.style.display && "none" == e.style.display.trim();
+        function b(e) {
+          return new Promise((a, t) => {
+            s.chrome.runtime.sendMessage({ type: r.ab, tabId: e, domain: m }, (e) => {
+              e ? a(e.isActive) : t(new Error("Error getting protection info"));
             });
           });
         }
-        const c = (e) => {
-            try {
-              s.chrome.runtime.sendMessage({ type: r.qb, tabId: e.id, tabUrl: e.url });
-            } catch (e) {
-              console.error("RBAD: Error occurred while recording blocked ad. " + e);
-            }
-          },
-          h = (e) => {
-            try {
-              s.chrome.runtime.sendMessage({ type: r.rb, tabId: e.id, tabUrl: e.url });
-            } catch (e) {
-              console.error("RBAD: Error occurred while recording blocked ad. " + e);
-            }
-          },
-          A = (e) => e && e.style && e.style.display && "none" == e.style.display.trim(),
-          g = (e) =>
-            new Promise((a) => {
-              s.chrome.runtime.sendMessage({ type: r.Z, tabId: e, domain: M }, (e) => {
-                e && a(e.isActive);
-              });
-            });
         document.addEventListener("DOMContentLoaded", function () {
-          l()
+          u()
             .then(async (e) => {
-              (await g(e.tabId)) &&
-                (e.tabId,
-                new Promise((e) => {
-                  s.chrome.runtime.sendMessage({ type: r.nb, payload: { feature: r.i } }, (a) => e(a));
+              (await b(e.tabId)) &&
+                (await new Promise((e, a) => {
+                  s.chrome.runtime.sendMessage({ type: r.qb, payload: { feature: r.i } }, (t) => {
+                    t ? e(t.isEnabled) : a(new Error("Error getting Easylist info"));
+                  });
                 })) &&
                 s.chrome.runtime.sendMessage(
-                  { type: r.R, parameters: { type: "hide", domain: window.location.hostname, url: window.location.href, tabId: e.tabId } },
+                  { type: r.U, parameters: { type: "hide", domain: window.location.hostname, url: window.location.href, tabId: e.tabId } },
                   (a) => {
                     a &&
-                      (function (e, a, t, s, r) {
+                      (function (e, a, t, s, r, T) {
                         document.querySelectorAll("*").forEach(function (r) {
-                          ((r && r.id && a.has("#" + r.id)) || (r.tagName && s.has(r.tagName))) && ((r.display = "none"), r.remove(), h(e));
-                          for (const a of r.classList) a && t.has("." + a) && ((r.display = "none"), r.remove(), h(e));
+                          if (r && r.id && r.id.length > 0 && a.has("#" + r.id)) {
+                            if (T.has("#" + r.id)) return void (window.useLogging && console.log("Skipping item on id match: " + r.id));
+                            window.useLogging && console.log("Removing items on id match: " + r.id), r.remove(), S(e);
+                          }
+                          if (r.tagName && s.has(r.tagName)) {
+                            if (T.has(r.tagName))
+                              return void (window.useLogging && console.log("Skipping item on tag match: " + r.tagName));
+                            window.useLogging && console.log("Removing items on tag match: " + r.tagName), r.remove(), S(e);
+                          }
+                          for (const a of r.classList)
+                            if (a && t.has("." + a)) {
+                              if (T.has("." + a)) return void (window.useLogging && console.log("Skipping item on class match: " + a));
+                              r.remove(), window.useLogging && console.log("Removing items on class match: " + a), S(e);
+                            }
                         }),
                           document.querySelectorAll(r.join(",")).forEach(function (a) {
-                            a.remove(), h(e);
+                            a.remove(), S(e);
                           });
-                      })(e, new Set(a.ids), new Set(a.classes), new Set(a.tags), a.selectors);
+                      })(
+                        e,
+                        new Set(a.ids.concat(Array.from(a.specific_hide).filter((e) => e.startsWith("#")))),
+                        new Set(a.classes.concat(a.specific_hide.filter((e) => e.startsWith(".")))),
+                        new Set(a.tags.concat(a.specific_hide.filter((e) => !e.startsWith(".") && !e.startsWith("#")))),
+                        a.selectors,
+                        new Set(a.exception_rules)
+                      );
                   }
                 );
             })
@@ -268,10 +212,10 @@
               console.debug(e);
             });
         });
-        const p = new URL(window.location.href).host;
-        if (["www.facebook.com", "facebook.com"].includes(p)) {
-          let D = "en";
-          const C = {
+        const c = new URL(window.location.href).host;
+        if (["www.facebook.com", "facebook.com"].includes(c)) {
+          let h = "en";
+          const A = {
               en: { isSponsored: (e) => e.endsWith("ponsored"), isSuggested: (e) => e.endsWith("uggested for you") },
               es: { isSponsored: (e) => e.endsWith("ublicidad"), isSuggested: (e) => e.endsWith("ugerencia para ti") },
               pt: {
@@ -288,9 +232,9 @@
               pl: { isSponsored: (e) => e.endsWith("ponsorowane"), isSuggested: (e) => e.endsWith("roponowana dla ciebie") },
               ru: { isSponsored: (e) => e.endsWith("еклама"), isSuggested: (e) => e.endsWith("екомендация для вас") }
             },
-            f = () => {
+            g = () => {
               const e = document.documentElement.lang,
-                a = Object.keys(C);
+                a = Object.keys(A);
               if (e && a.includes(e)) return e;
               const t = document.querySelector("input[type='search']");
               switch ((t && t.placeholder) || "") {
@@ -317,17 +261,17 @@
               }
               return "en";
             },
-            _ = async () => {
+            p = async () => {
               let e;
               try {
-                e = await l();
+                e = await u();
               } catch (e) {
                 return void console.debug(`FBA: No valid tab found. ${e}`);
               }
-              !1 !== (await g(e.id)) &&
-                ((D = f()),
+              !1 !== (await b(e.id)) &&
+                ((h = g()),
                 setTimeout(() => {
-                  l().then((e) => {
+                  u().then((e) => {
                     ((e, a) => {
                       new MutationObserver((t) => {
                         for (let s of t)
@@ -345,172 +289,97 @@
                             });
                       }).observe(document.body, { childList: !0, subtree: !0 }),
                         o(a, e),
-                        document.querySelectorAll("div[aria-labelledby").forEach((t) => {
+                        document.querySelectorAll("div[aria-labelledby]").forEach((t) => {
                           n(t, e, a);
                         });
-                    })(D, e);
+                    })(h, e);
                   });
                 }, 400));
             };
           "loading" !== document.readyState
-            ? _()
+            ? p()
             : document.addEventListener("DOMContentLoaded", () => {
-                _();
+                p();
               });
         }
-        if (["x.com", "twitter.com"].some((e) => p === e || p.endsWith(`.${e}`))) {
-          const E = (e) => {
+        if (["x.com", "twitter.com"].some((e) => c === e || c.endsWith(`.${e}`))) {
+          const D = (e) => {
             document.querySelectorAll('main div[data-testid="cellInnerDiv"]').forEach((a) => {
               const t = a.querySelectorAll('div[dir="ltr"] span');
               Array.from(t).some((t) => {
                 if (t.querySelector && !t.querySelector("span") && "Ad" === t.innerText)
-                  return A(a) || ((a.style.display = "none"), c(e)), !0;
+                  return l(a) || ((a.style.display = "none"), M(e)), !0;
               });
             });
           };
-          l()
-            .then(async (e) => ({ shouldBlockAds: await g(e.id), tab: e }))
+          u()
+            .then(async (e) => ({ shouldBlockAds: await b(e.id), tab: e }))
             .then((e) => {
               const { shouldBlockAds: a, tab: t } = e;
-              !1 !== a && (E(t), setInterval(() => E(t), 2e3));
+              !1 !== a && (D(t), setInterval(() => D(t), 2e3));
             })
             .catch((e) => {
               console.debug("XA: Error occurred while hiding X ads. ", e);
             });
         }
-        if (p.endsWith("youtube.com")) {
-          const I = [
-              ".badge-style-type-ad",
-              ".companion-ad-container",
-              ".GoogleActiveViewElement",
-              '.list-view[style="margin: 7px 0pt;"]',
-              ".promoted-sparkles-text-search-root-container",
-              ".promoted-videos",
-              ".sparkles-light-cta",
-              ".statement-banner-foreground-content",
-              ".ytd-action-companion-ad-renderer",
-              ".ytd-ad-inline-playback-meta-block",
-              ".ytd-ad-slot-renderer",
-              ".ytd-carousel-ad-renderer",
-              ".ytd-compact-promoted-video-renderer",
-              ".ytd-companion-slot-renderer",
-              ".ytd-display-ad-renderer",
-              ".ytd-in-feed-ad-layout-renderer",
-              ".ytd-merch-shelf-renderer",
-              ".ytd-player-legacy-desktop-watch-ads-renderer",
-              ".ytd-promoted-sparkles-text-search-renderer",
-              ".ytd-promoted-sparkles-web-renderer",
-              ".ytd-promoted-video-renderer",
-              ".ytd-rich-item-renderer > ytd-ad-slot-renderer",
-              ".ytd-search-pyv-renderer",
-              ".ytd-video-masthead-ad-primary-video-overlay-renderer",
-              ".ytd-video-masthead-ad-v3-renderer",
-              ".ytp-ad-action-interstitial-background-container",
-              ".ytp-ad-action-interstitial-slot",
-              ".ytp-ad-button",
-              ".ytp-ad-overlay-container",
-              ".ytp-ad-player-overlay-flyout-cta",
-              ".ytp-ad-progress-list",
-              ".ytp-ad-progress",
-              ".ytp-ad-module",
-              "#player-ads > ytd-player-legacy-desktop-watch-ads-renderer",
-              "#rendering-content > ytd-video-masthead-ad-v3-renderer",
-              "#invideo-overlay\\:0 > div > div.ytp-ad-image-overlay",
-              "#player-overlay\\:0 > div.ytp-ad-player-overlay-flyout-cta.ytp-ad-player-overlay-flyout-cta-rounded",
-              "#action-companion-click-target",
-              '[class^="ytd-display-ad-"]',
-              '[layout*="display-ad-"]',
-              "#feed-pyv-container",
-              "#masthead-ad",
-              "#merch-shelf",
-              "#pla-shelf",
-              "#player-ads",
-              "#show-ad",
-              "#video-masthead",
-              "#YtKevlarVisibilityIdentifier",
-              "#YtSparklesVisibilityIdentifier",
-              'a[href^="https://www.googleadservices.com/pagead/aclk?"]',
-              "ytd-ad-slot-renderer",
-              "ytd-banner-promo-renderer",
-              "ytd-compact-promoted-video-renderer",
-              "ytd-companion-slot-renderer",
-              "ytd-popup-container * ytd-enforcement-message-view-model",
-              "ytd-display-ad-renderer",
-              "ytd-promoted-sparkles-text-search-renderer",
-              "ytd-promoted-sparkles-web-renderer",
-              "ytd-single-option-survey-renderer",
-              "ytd-video-masthead-ad-advertiser-info-renderer",
-              "ytd-video-masthead-ad-v3-renderer",
-              "ytm-companion-slot",
-              "ytm-promoted-sparkles-text-search-renderer",
-              "ytm-promoted-sparkles-web-renderer",
-              "YTM-PROMOTED-VIDEO-RENDERER"
-            ],
-            H = (e) => {
-              const a = document.querySelectorAll(I.join(","));
-              for (const t of a) A(t) || (t.remove(), c(e));
-            },
-            v = (e) => {
-              const a = document.getElementsByClassName("ytp-ad-skip-button ytp-button");
-              if (a && a[0]) return a[0].click(), void c(e);
-              const t = document.getElementsByClassName("ytp-ad-duration-remaining");
-              if (t && t[0]) {
-                const a = document.querySelectorAll("video");
-                if (a) {
-                  for (const e of a) NaN !== e.duration && (e.currentTime = e.duration - 0.5);
-                  c(e);
-                }
-              }
-            };
-          function N() {
-            l()
+        if (c.endsWith("youtube.com")) {
+          function C() {
+            u()
               .then(async (e) => {
-                if (!1 !== (await g(e.id)))
-                  if (S) v(e), H(e), setInterval(() => H(e), 2e3), setInterval(() => v(e), 1500);
-                  else {
-                    H(e), setInterval(() => H(e), 2e3);
-                    let a = `const t = ${y.toString()};`;
-                    (a += ` const p = ${i.toString()};`), (a += ` const a = ${m.toString()};`);
-                    let t = `(() => {${a}\n                    t();\n                    p();\n                    setInterval(p, 250);\n                    console.log("hede");\n                    a(t.toString(), 'mwb-adb');\n                })();`;
-                    await (function (e) {
-                      return new Promise((a) => {
-                        b()
-                          .then(({ tabId: t }) => {
-                            s.chrome.runtime.sendMessage({ type: r.fb, tabId: t, source: e }, (e) => {
-                              e && a(e);
-                            });
-                          })
-                          .catch((e) => {
-                            console.error(e);
-                          });
+                !1 !==
+                  ((await b(e.id)) &&
+                    (await new Promise((e, a) => {
+                      s.chrome.runtime.sendMessage({ type: r.qb, payload: { feature: r.k } }, (t) => {
+                        t ? e(t.isEnabled) : a(new Error("Error getting custom Youtube blocking info"));
                       });
-                    })(t);
-                  }
-                else document.getElementById("mwb-adb") && document.getElementById("mwb-adb").remove();
+                    }))) &&
+                  (setInterval(() => {
+                    (() => {
+                      let e = document.querySelector(".ytp-ad-skip-button, .ytp-ad-skip-button-modern");
+                      e && (e.click(), window.useLogging && console.log("Clicked skip button"));
+                      let a = document.getElementsByClassName("ytp-ad-overlay-close-container");
+                      a.length > 0 && (a[0].click(), window.useLogging && console.log("Clicked close button"));
+                    })(),
+                      (function () {
+                        const e =
+                            document.querySelectorAll(".ad-showing")[0] ||
+                            document.querySelector(".ytp-ad-text.ytp-ad-preview-text") ||
+                            document.querySelector("ytp-ad-preview-container"),
+                          a = document.querySelector("video");
+                        null != e &&
+                          null != a &&
+                          (window.useLogging && console.log("Skipping to the end of the video", e),
+                          (a.muted = !0),
+                          (a.currentTime = a.duration - 0.5),
+                          (a.playbackRate = 10));
+                      })();
+                  }, 500),
+                  y(),
+                  setInterval(() => y(), 1e3));
               })
               .catch((e) => {
                 console.debug(e);
               });
           }
-          "loading" === document.readyState ? document.addEventListener("DOMContentLoaded", N) : N();
+          "loading" === document.readyState ? document.addEventListener("DOMContentLoaded", C) : C();
         }
-        if (p.endsWith("reddit.com")) {
-          const k = (e) => {
+        if (c.endsWith("reddit.com")) {
+          const _ = (e) => {
             const a = document.getElementsByClassName("promotedlink");
-            for (let t = 0; t < a.length; t++) a[t] && !A(a[t]) && ((a[t].style.display = "none"), c(e));
+            for (let t = 0; t < a.length; t++) a[t] && !l(a[t]) && ((a[t].style.display = "none"), M(e));
           };
-          l()
+          u()
             .then(async (e) => {
-              !1 !== (await g(e.id)) && (k(e), setInterval(() => k(e), 2e3));
+              !1 !== (await b(e.id)) && (_(e), setInterval(() => _(e), 2e3));
             })
             .catch((e) => {
               console.debug("RDA: Error occurred while hiding Reddit ads. ", e);
             });
         }
-        if (p.endsWith("linkedin.com")) {
-          let w,
-            F = "en";
-          const P = {
+        if (c.endsWith("linkedin.com")) {
+          let f,
+            E = "en";
+          const I = {
               en: { isPromoted: (e) => "promoted" == e },
               es: { isPromoted: (e) => "promocionado" == e },
               pt: { isPromoted: (e) => "patrocinado" == e },
@@ -520,13 +389,13 @@
               pl: { isPromoted: (e) => "treść promowana" == e },
               ru: { isPromoted: (e) => "продвигается" == e }
             },
-            j = (e) => {
+            H = (e) => {
               const a = e.querySelectorAll('div[data-control-name="actor"] span.t-12.t-black--light'),
                 t = a[a.length - 1],
                 s = ((t && t.innerText) || "").trim().toLowerCase();
-              return P[F].isPromoted(s);
+              return I[E].isPromoted(s);
             },
-            B = (e) => {
+            v = (e) => {
               let a = e;
               for (; a; ) {
                 const e = a.getAttribute("data-id") || "";
@@ -535,44 +404,44 @@
               }
               return null;
             },
-            W = (e) => {
-              if ("HTMLDivElement" === e.constructor.name && j(e)) {
-                const a = B(e);
-                a && a.style && !A(a) && ((a.style.display = "none"), c(w));
+            N = (e) => {
+              if ("HTMLDivElement" === e.constructor.name && H(e)) {
+                const a = v(e);
+                a && a.style && !l(a) && ((a.style.display = "none"), M(f));
               }
             },
-            x = () => {
+            k = () => {
               new MutationObserver((e) => {
                 e.forEach((e) => {
                   "childList" === e.type &&
                     e.addedNodes.forEach((e) => {
-                      W(e);
+                      N(e);
                     });
                 });
               }).observe(document.body, { childList: !0, subtree: !0 });
             },
-            J = () => {
+            w = () => {
               const e = document.querySelectorAll("#main > div:nth-child(3) > div > div");
-              for (let a of e) W(a);
+              for (let a of e) N(a);
             },
-            O = () => {
+            F = () => {
               const e = document.body.querySelectorAll(".ad-banner-container");
-              for (let a of e) A(a) || ((a.style.display = "none"), c(w));
+              for (let a of e) l(a) || ((a.style.display = "none"), M(f));
             };
           document.addEventListener("DOMContentLoaded", async () => {
             let e;
             try {
-              e = await l();
+              e = await u();
             } catch (e) {
               return void console.debug("LIA: No valid tab found. ", e);
             }
-            !1 !== (await g(e.id)) &&
-              ((F = document.documentElement.lang || "en"),
-              Object.keys(P).includes(F) || (F = "en"),
-              J(),
-              x(),
-              O(),
-              setInterval(() => O(), 2e3));
+            !1 !== (await b(e.id)) &&
+              ((E = document.documentElement.lang || "en"),
+              Object.keys(I).includes(E) || (E = "en"),
+              w(),
+              k(),
+              F(),
+              setInterval(() => F(), 2e3));
           });
         }
         if (
@@ -604,16 +473,16 @@
             "cafemom.com",
             "streetchopperweb.com",
             "seattlepi.com"
-          ].some((e) => p.endsWith(e))
+          ].some((e) => c.endsWith(e))
         ) {
-          const K = (e) => {
+          const P = (e) => {
               const a = { isWhitelisted: !1, property: e };
               window.postMessage(
                 { type: "isInstartWhitelistedResponse", parameters: JSON.stringify(a) },
                 `${window.location.protocol}//${window.location.host}`
               );
             },
-            Z = (e, a) => {
+            j = (e, a) => {
               s.chrome.runtime.sendMessage(
                 s.chrome.runtime.id,
                 { type: "isInstartWhitelisted", parameters: { href: window.location.href, prop: a } },
@@ -622,7 +491,7 @@
                     ? console.debug("INS: " + a + " is whitelisted for " + window.location.href)
                     : (s.chrome.runtime.lastError &&
                         console.error("INS: Failed with is-whitelisted request for " + a + ": " + s.chrome.runtime.lastError.message),
-                      K(a));
+                      P(a));
                 }
               );
             };
@@ -630,16 +499,20 @@
             const a = new URL(e.origin).host;
             if ("isInstartWhitelisted" === e.data.type && a === window.location.host) {
               const a = JSON.parse(e.data.parameters);
-              Z(a.href, a.prop);
+              j(a.href, a.prop);
             }
           });
-          const R = s.chrome.runtime.id;
-          (0, u.v)("injection-instart.js", { extId: R });
+          const B = s.chrome.runtime.id;
+          (0, i.v)("injection-instart.js", { extId: B });
         }
-        b()
+        new Promise((e, a) => {
+          s.chrome.runtime.sendMessage({ type: r.Db }, (t) => {
+            t ? e(t) : a(new Error("Error getting tab info"));
+          });
+        })
           .then(async (e) => {
             const a = e.tabId;
-            !1 !== (await g(a)) && (0, u.u)("if (!!document.browsingTopics) { delete Document.prototype.browsingTopics; }");
+            !1 !== (await b(a)) && (0, i.u)("if (!!document.browsingTopics) { delete Document.prototype.browsingTopics; }");
           })
           .catch((e) => {
             console.debug("TAPI: Error occurred while hiding Topics API ads. ", e);
@@ -649,10 +522,10 @@
         "use strict";
         var s = t(4846),
           r = t(1267),
-          d = t(3032);
-        const T = (e) =>
+          T = t(6381);
+        const d = (e) =>
             new Promise((a, t) => {
-              s.chrome.runtime.sendMessage({ type: r.wb, payload: e }, function (e) {
+              s.chrome.runtime.sendMessage({ type: r.zb, payload: e }, function (e) {
                 !e || e.error
                   ? (console.debug("SETTINGS GET ASYNC: ERROR CALLING settingsGet"),
                     t(`Error calling settingsGet: ${e ? e.error : "No response received"}`))
@@ -676,94 +549,99 @@
               : "video" == e.mediaType && (t = document.querySelector(`video[src$="${a}"]`)),
               t && (t.style.display = "none");
           }
-          if (e.type === r.W) {
-            if (await T(r.Zb)) {
+          if (e.type === r.Z) {
+            if (await d(r.ac)) {
               const a = n(e.src),
                 t = e.malware,
                 s = e.tabId;
-              return void (0, d.a)(a, t, s);
+              return void (0, T.a)(a, t, s);
             }
             console.debug("INS: Malicious notifications are disabled");
           }
-          if (e.type === r.X) {
-            if (await T(r.$b)) return void (0, d.b)();
+          if (e.type === r._) {
+            if (await d(r.cc)) return void (0, T.b)();
             console.debug("INS: Monthly notifications are disabled");
           }
           return !0;
         });
       },
-      3032: (e, a, t) => {
+      6381: (e, a, t) => {
         "use strict";
         t.d(a, { a: () => n, b: () => o, c: () => y }), t(5722);
         var s = t(4846),
-          r = t(1267),
-          d = t(961);
-        const T = (e, a, t, r = 2e4) => {
-          if (document.getElementById("malwarebytes-root")) return void console.log("Already displaying a notification");
-          let d = null;
-          !(function () {
-            (d = document.createElement("div")),
-              (d.tabIndex = -1),
-              (d.style.position = "fixed"),
-              (d.style.bottom = "auto"),
-              (d.style.right = "0"),
-              (d.style.top = "0"),
-              (d.style.left = "0"),
-              (d.style.zIndex = "2147483647"),
-              (d.style.width = "100%"),
-              (d.id = "malwarebytes-root");
-            const T = d.attachShadow({ mode: "closed" });
-            document.body.insertBefore(d, document.body.firstChild),
-              fetch(s.chrome.runtime.getURL(e))
-                .then((e) => e.text())
-                .then((e) => {
-                  try {
-                    for (const e of a) {
-                      let a = document.createElement(e.type);
-                      a.setAttribute("rel", "stylesheet"),
-                        a.setAttribute("href", e.ref),
-                        e.media && a.setAttribute("media", e.media),
-                        T.appendChild(a);
+          r = t(1267);
+        s.chrome.i18n.getUILanguage().split("-")[0];
+        const T = (e, a = document) =>
+            e.forEach(({ id: e, msg: t, sub: r = null }) => {
+              const T = a.getElementById(e);
+              T && (T.textContent = s.chrome.i18n.getMessage(t, r));
+            }),
+          d = (e, a, t, r = 2e4) => {
+            if (document.getElementById("malwarebytes-root")) return void console.log("Already displaying a notification");
+            let T = null;
+            !(function () {
+              (T = document.createElement("div")),
+                (T.tabIndex = -1),
+                (T.style.position = "fixed"),
+                (T.style.bottom = "auto"),
+                (T.style.right = "0"),
+                (T.style.top = "0"),
+                (T.style.left = "0"),
+                (T.style.zIndex = "2147483647"),
+                (T.style.width = "100%"),
+                (T.id = "malwarebytes-root");
+              const d = T.attachShadow({ mode: "closed" });
+              document.body.insertBefore(T, document.body.firstChild),
+                fetch(s.chrome.runtime.getURL(e))
+                  .then((e) => e.text())
+                  .then((e) => {
+                    try {
+                      for (const e of a) {
+                        let a = document.createElement(e.type);
+                        a.setAttribute("rel", "stylesheet"),
+                          a.setAttribute("href", e.ref),
+                          e.media && a.setAttribute("media", e.media),
+                          d.appendChild(a);
+                      }
+                    } catch (e) {
+                      console.error("Error while injecting links", e);
                     }
-                  } catch (e) {
-                    console.error("Error while injecting links", e);
-                  }
-                  const s = new DOMParser().parseFromString(e, "text/html");
-                  let r = document.createElement("div");
-                  T.appendChild(r),
-                    (r.className = "top-container"),
-                    (r.style.display = "flex"),
-                    (r.style.padding = "10px"),
-                    (r.style.right = "0"),
-                    (r.style.position = "absolute");
-                  let n = document.createElement("div");
-                  (n.className = "row-container"), (n.style.width = "100%"), (n.style.display = "flex"), (n.style.margin = "5 5 5 5");
-                  let o = document.createElement("div"),
-                    y = document.createElement("div");
-                  r.appendChild(n),
-                    n.appendChild(o),
-                    n.appendChild(y),
-                    (o.style.flex = "1"),
-                    (y.style.flex = "0 0 auto"),
-                    y.appendChild(s.body);
-                  const i = T.querySelector("#mb-close");
-                  i &&
-                    i.addEventListener("click", () => {
-                      for (console.log("closing notification"); document.getElementById("malwarebytes-root"); )
-                        document.getElementById("malwarebytes-root").remove();
-                      d = null;
-                    }),
-                    t(T);
-                })
-                .catch((e) => {
-                  console.error("Error while fetching notification page", e);
-                });
-            let n = setTimeout(function () {
-              let e = document.getElementById("malwarebytes-root");
-              e && e.remove(), clearTimeout(n), (d = null);
-            }, r);
-          })();
-        };
+                    const s = new DOMParser().parseFromString(e, "text/html");
+                    let r = document.createElement("div");
+                    d.appendChild(r),
+                      (r.className = "top-container"),
+                      (r.style.display = "flex"),
+                      (r.style.padding = "10px"),
+                      (r.style.right = "0"),
+                      (r.style.position = "absolute");
+                    let n = document.createElement("div");
+                    (n.className = "row-container"), (n.style.width = "100%"), (n.style.display = "flex"), (n.style.margin = "5 5 5 5");
+                    let o = document.createElement("div"),
+                      y = document.createElement("div");
+                    r.appendChild(n),
+                      n.appendChild(o),
+                      n.appendChild(y),
+                      (o.style.flex = "1"),
+                      (y.style.flex = "0 0 auto"),
+                      y.appendChild(s.body);
+                    const i = d.querySelector("#mb-close");
+                    i &&
+                      i.addEventListener("click", () => {
+                        for (console.log("closing notification"); document.getElementById("malwarebytes-root"); )
+                          document.getElementById("malwarebytes-root").remove();
+                        T = null;
+                      }),
+                      t(d);
+                  })
+                  .catch((e) => {
+                    console.error("Error while fetching notification page", e);
+                  });
+              let n = setTimeout(function () {
+                let e = document.getElementById("malwarebytes-root");
+                e && e.remove(), clearTimeout(n), (T = null);
+              }, r);
+            })();
+          };
         function n(e, a, t) {
           const n = [
             { type: "link", ref: s.chrome.runtime.getURL("app/eventpages/block-notification.css"), media: "" },
@@ -774,13 +652,13 @@
             },
             { type: "link", ref: "https://fonts.googleapis.com/css?family=Roboto&display=swap", media: "" }
           ];
-          T(
+          d(
             "app/eventpages/block-notification.html",
             n,
             (t) => {
               (t.querySelector("#site-url").innerText = " " + e),
                 (t.querySelector("#malware-url").innerText = " " + a),
-                (0, d.a)(
+                T(
                   [
                     { id: "block-notification-title", msg: "blockNotificationTitle" },
                     { id: "block-notification-message", msg: "blockNotificationMessage" },
@@ -793,12 +671,12 @@
             2e4
           ),
             setTimeout(() => {
-              const a = { type: r.V };
+              const a = { type: r.Y };
               (a.payload = { host: e, tabId: t }), s.chrome.runtime.sendMessage(a);
             }, 1e3);
         }
         function o() {
-          let e = { type: r.ob };
+          let e = { type: r.rb };
           (e.payload = { min: Date.today().addDays(-30).toString("MMM d yyyy"), max: Date.today().toString("MMM d yyyy") }),
             s.chrome.runtime.sendMessage(e, function (e) {
               if (!e || e.error)
@@ -808,7 +686,7 @@
                 const a = Object.entries(e.success.records);
                 let t = a.reduce((e, a) => e + a[1].ads, 0),
                   r = a.reduce((e, a) => e + a[1].malwares, 0),
-                  d = a.reduce((e, a) => e + a[1].scams, 0),
+                  T = a.reduce((e, a) => e + a[1].scams, 0),
                   n = a.reduce((e, a) => e + (a[1].content || 0), 0);
                 const o = [
                   { type: "link", ref: s.chrome.runtime.getURL("app/eventpages/monthly-notification.css"), media: "" },
@@ -819,16 +697,16 @@
                   },
                   { type: "link", ref: "https://fonts.googleapis.com/css?family=Roboto&display=swap", media: "" }
                 ];
-                T(
+                d(
                   "app/eventpages/monthly-notification.html",
                   o,
                   (e) => {
                     [
                       { key: "ads", total: t },
                       { key: "malware", total: r },
-                      { key: "scams", total: d },
+                      { key: "scams", total: T },
                       { key: "content", total: n }
-                    ].map((a) => {
+                    ].forEach((a) => {
                       (e.querySelector(`#${a.key}`).innerText = a.total.toLocaleString()),
                         0 === a.total && e.querySelector(`#${a.key}`).classList.add("disabled");
                     });
@@ -848,11 +726,11 @@
             },
             { type: "link", ref: "https://fonts.googleapis.com/css?family=Roboto&display=swap", media: "" }
           ];
-          T(
+          d(
             "app/eventpages/clipboard-notification.html",
             a,
             (a) => {
-              (0, d.a)(
+              T(
                 [
                   { id: "mb-shell-injection-header", msg: "shellInjectionWarningHeader" },
                   { id: "mb-shell-injection-message", msg: "shellInjectionWarningMessage" },
@@ -862,19 +740,19 @@
               ),
                 e(a);
             },
-            864e5
+            2e4
           );
         }
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-          s.chrome.runtime.sendMessage({ type: r.v });
+          s.chrome.runtime.sendMessage({ type: r.w });
         });
       },
       4190: (e, a, t) => {
         "use strict";
         var s = t(7456),
           r = t(4846),
-          d = t(1267);
-        const T = [
+          T = t(1267);
+        const d = [
             "0nedr1ve",
             "0nedrive",
             "0nedrlve",
@@ -1220,8 +1098,8 @@
             "eBay",
             "Ethereum support | ethereum.org",
             "Etsy",
-            "Facebook - Log In or Sign Up",
             "Facebook - log in or sign up",
+            "Facebook - Log In or Sign Up",
             "Facebook - Log in or signup",
             "Facebook - Log på eller tilmeld dig",
             "Facebook - Login or Sign Up",
@@ -1231,8 +1109,8 @@
             "Facebook | Masuk atau Daftar",
             "Facebook log in or sign up",
             "facebook security",
-            "Facebook",
             "facebook",
+            "Facebook",
             "FedEx Info | FedEx",
             "FedEx International Shipping Assist",
             "FedEx",
@@ -1249,6 +1127,7 @@
             "Gmail",
             "Google Play",
             "Home - Halifax Bank",
+            "Home | Business | Lloyds Bank",
             "Home | PancakeSwap",
             "Homepage - Reddit",
             "HOT Video 2023",
@@ -1291,8 +1170,8 @@
             "McAfee Total Protection | Beyond Antivirus",
             "McAfee Total Protection",
             "Message",
-            "Meta For Business",
             "Meta for Business",
+            "Meta For Business",
             "MetaMask - A crypto wallet &amp; gateway to blockchain apps",
             "MÈTÂMÂSK Login : Met𝖆mask Login",
             "MetáMaśk Logiń | Ǧuidelines For The Users 𝗢𝐅𝐅𝐈𝗖𝐈𝗔𝐋 𝙒𝗘𝗕𝗦𝐈𝐓 on Strikingly",
@@ -1316,8 +1195,8 @@
             "Netflix Brasil - assistir a séries online, assistir a filmes online",
             "Netflix By Saiful",
             "Netflix Clone Coding",
-            "Netflix Clone",
             "Netflix clone",
+            "Netflix Clone",
             "Netflix Help Center",
             "Netflix India - Watch TV Shows Online, Watch Movies Online",
             "Netflix Landing Page Clone",
@@ -1393,6 +1272,7 @@
             "Sign On to View Your Personal Accounts | Wells Fargo",
             "Sign Up | LinkedIn",
             "Signin Outlook WebApp Settings",
+            "Steam Community",
             "Stream Free Movies & TV Shows",
             "Suspected phishing site | Cloudflare",
             "TD Canada Trust - Personal, Small Business Banking & Investing",
@@ -1409,8 +1289,8 @@
             "Track a parcel - MyHermes",
             "Trezor $ Wallet - --us",
             "Trėzør®.io $tart* - Start | US",
-            "TRUSTWALLET",
             "trustwallet",
+            "TRUSTWALLET",
             "Under Armour France sortie | Under Armour chaussures",
             "Under Armour(cor)-kertym",
             "Uniswap Interface",
@@ -1428,8 +1308,8 @@
             "Webmail :: Welcome to Webmail",
             "Webmail Login Portal -",
             "Webmail Login!!!",
-            "Webmail Login",
             "Webmail login",
+            "Webmail Login",
             "Webmail Portal Access",
             "Webmail Portal Login",
             "Weight Loss Pill That Naturally Burns Fat Gets Biggest Deal In Shark Tank History",
@@ -1464,7 +1344,13 @@
               r = (0, s.j)(null, window.location.href, e, a, null, null, t);
             window.location.replace(r);
           },
-          S = () => {
+          S = (e) =>
+            new Promise((a) => {
+              setTimeout(() => {
+                a();
+              }, e);
+            }),
+          l = () => {
             let e;
             if (
               (((e = "") => (e.endsWith(".") ? e.slice(0, -1) : e).toLowerCase())(window.location.pathname).endsWith("login.php") &&
@@ -1475,7 +1361,7 @@
             ) {
               const a = window.location.href && window.location.href.toLowerCase();
               a &&
-                T.some((e) => a.includes(e)) &&
+                d.some((e) => a.includes(e)) &&
                 ((e = e || (document.body.innerText && document.body.innerText.toLowerCase())),
                 e &&
                   y.some((a) => e.includes(a)) &&
@@ -1487,10 +1373,10 @@
                 y.some((a) => e.includes(a)) &&
                 (console.debug("PHISH: Caught a Phishing page"),
                 r.chrome.runtime.sendMessage({ type: "telemetryPhishingTunnel", parameters: { url: window.location.href } }, (e) => {}))),
-              r.chrome.runtime.sendMessage({ type: d.eb, payload: { domain: window.location.origin } }, (e) => {
+              r.chrome.runtime.sendMessage({ type: T.hb, payload: { domain: window.location.origin } }, (e) => {
                 e ||
-                  (r.chrome.runtime.sendMessage({ type: d.nb, payload: { feature: d.l } }, (e) => {
-                    if (!e) return;
+                  (r.chrome.runtime.sendMessage({ type: T.qb, payload: { feature: T.m } }, (e) => {
+                    if (!e.isEnabled) return;
                     let a = "";
                     return Array.from(document.getElementsByTagName("meta"))
                       .filter((e) => "description" === e.name)
@@ -1520,37 +1406,46 @@
             }).then((e) => {
               r.chrome.runtime.sendMessage(
                 { type: "isExcluded", parameters: { type: "scam", domain: window.location.hostname, tabId: e } },
-                (e) => e && !e.excluded && S()
+                function (e) {
+                  e &&
+                    !e.excluded &&
+                    S(400).then(() => {
+                      l();
+                    });
+                }
               );
             })
-          : r.chrome.runtime.sendMessage(
-              { type: "isExcluded", parameters: { type: "scam", url: window.location.href } },
-              (e) => e && !e.excluded && S()
-            );
+          : r.chrome.runtime.sendMessage({ type: "isExcluded", parameters: { type: "scam", url: window.location.href } }, function (e) {
+              e &&
+                !e.excluded &&
+                S(400).then(() => {
+                  l();
+                });
+            });
       },
       3108: (e, a, t) => {
         "use strict";
         var s = t(4846),
           r = t(7456),
-          d = t(3032);
-        const T = {};
+          T = t(6381);
+        const d = {};
         let n = !0;
-        (T.allowScamsOnThisSite = () =>
+        (d.allowScamsOnThisSite = () =>
           new Promise((e, a) => {
             s.chrome.runtime.sendMessage({ type: "MSG_ADD_ALLOW", payload: { host: (0, r.M)(window.location.href) } }, function (t) {
               !t || t.error ? a(t ? t.error : null) : e(t.success);
             });
           })),
-          (T.attachEvents = (e) => {
+          (d.attachEvents = (e) => {
             e.getElementById("mb-disable-shell-warning").addEventListener("click", async () => {
               try {
-                await T.allowScamsOnThisSite(), (n = !1), document.getElementById("malwarebytes-root").remove();
+                await d.allowScamsOnThisSite(), (n = !1), document.getElementById("malwarebytes-root").remove();
               } catch (e) {
                 console.error("CONTENT_SHELL: allowScamsOnThisSite failure", e);
               }
             });
           }),
-          (T.isExcluded = () =>
+          (d.isExcluded = () =>
             new Promise((e) => {
               s.chrome.runtime.sendMessage({ type: "isExcluded", parameters: { type: "scam", url: window.location.href } }, (a) => {
                 a && !a.excluded ? e(!1) : e(!0);
@@ -1564,27 +1459,27 @@
           /^.+\$\(\w+.*\)$/gm,
           /^(.*\s+)*curl|ls|rm|cp|mv|touch|cd|wget(\s+.*)*$/gm
         ];
-        (T.injectHtml = () => {
-          (0, d.c)(T.attachEvents);
+        (d.injectHtml = () => {
+          (0, T.c)(d.attachEvents);
         }),
-          (T.init = async () => {
-            (await T.isExcluded())
+          (d.init = async () => {
+            (await d.isExcluded())
               ? console.debug("CONTENT_SHELL: Page allowed. Skipping shell injection blocks")
-              : document.addEventListener("copy", async (e) => {
+              : document.addEventListener("copy", (e) => {
                   const a = e.clipboardData.getData("text/plain");
                   var t;
                   (t = a),
-                    o.some((e) => e.test(t)) && n && (console.debug("CONTENT_SHELL: Malicious Copy Event detected", e, a), T.injectHtml());
+                    o.some((e) => e.test(t)) && n && (console.debug("CONTENT_SHELL: Malicious Copy Event detected", e, a), d.injectHtml());
                 });
           }),
-          T.init();
+          d.init();
       },
       9300: (e, a, t) => {
         "use strict";
         var s = t(7456),
           r = t(4846),
-          d = t(5417),
-          T = t(8035),
+          T = t(5417),
+          d = t(8035),
           n = t(1267);
         const o = /trojan *spyware *alert *- *error *code: *#.*/i,
           y = ["cc-name", "cc-number", "cc-csc", "cc-exp-month", "cc-exp-year", "cc-exp", "cc-type"];
@@ -1639,7 +1534,7 @@
           }),
           (m.getTabId = () =>
             new Promise((e, a) => {
-              r.chrome.runtime.sendMessage({ type: n.Ab }, (t) => {
+              r.chrome.runtime.sendMessage({ type: n.Db }, (t) => {
                 t && t.tabId ? e(t.tabId) : a(new Error("Error getting tab info"));
               });
             })),
@@ -1726,9 +1621,9 @@
                 }
               })() && (console.debug("TSS: Caught unsafe checkout"), m.onDetection("scam", "suspiciousPage"));
             const e = () =>
-              T.i.test(document.head.outerHTML)
+              d.i.test(document.head.outerHTML)
                 ? (console.debug("TSS: Page blocked due to malicious patterns in the head content."), m.onSuspiciousPage())
-                : T.h.some((e) => document.body.outerHTML.includes(e))
+                : d.h.some((e) => document.body.outerHTML.includes(e))
                 ? m.onSuspiciousPage()
                 : void 0;
             "loading" !== document.readyState
@@ -1740,7 +1635,7 @@
                 m.isSuspiciousPage() && m.onSuspiciousPage();
               }, 1e3);
           }),
-          Object.keys(d.m).some((e) => window.location.host && window.location.host.endsWith("." + e)) &&
+          Object.keys(T.m).some((e) => window.location.host && window.location.host.endsWith("." + e)) &&
             (console.debug("TSS: Risky TLD, aggressive protection"),
             m.initScriptListener(),
             (0, s.u)(
@@ -1761,8 +1656,8 @@
             .catch((e) => {
               console.debug("TSS: Error occurred while getting tab id. " + e);
             }),
-          T.a.test(window.location) &&
-            r.chrome.runtime.sendMessage({ type: n.wb, payload: n.cc }, (e) => {
+          d.a.test(window.location) &&
+            r.chrome.runtime.sendMessage({ type: n.zb, payload: n.fc }, (e) => {
               if (!e || e.error) return console.debug("TSS: skimmer error ", e);
               e &&
                 e.success &&
@@ -1774,7 +1669,7 @@
       },
       5417: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => r, i: () => d, m: () => s });
+        t.d(a, { a: () => r, i: () => T, m: () => s });
         const s = {
             agency: 2,
             army: 1,
@@ -1943,31 +1838,20 @@
               "dmg",
               "iso"
             ]),
-          d = [".bat.txt", ".ps1.txt", ".sh.txt", ".py.txt"],
-          T = new Map();
-        T.set([...r, ...d], "/wp-.*/"), T.set(["exe"], "/wp-(content|admin|includes)/");
-      },
-      961: (e, a, t) => {
-        "use strict";
-        t.d(a, { a: () => r });
-        var s = t(4846);
-        s.chrome.i18n.getUILanguage().split("-")[0];
-        const r = (e, a = document) =>
-          e.forEach(({ id: e, msg: t, sub: r = null }) => {
-            const d = a.getElementById(e);
-            d && (d.textContent = s.chrome.i18n.getMessage(t, r));
-          });
+          T = [".bat.txt", ".ps1.txt", ".sh.txt", ".py.txt"],
+          d = new Map();
+        d.set([...r, ...T], "/wp-.*/"), d.set(["exe"], "/wp-(content|admin|includes)/");
       },
       8035: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => d, g: () => r, h: () => n, i: () => T });
+        t.d(a, { a: () => T, g: () => r, h: () => n, i: () => d });
         var s = t(5417);
         new RegExp(`/\\d{10}\\w{6}\\.(${s.a.join("|")}|${s.i.map((e) => e.split(".").slice(1).join("\\.")).join("|")})`, "i");
         const r = /^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/,
-          d = new RegExp(
+          T = new RegExp(
             "onepage|checkout|onestep|firecheckout|onestepcheckout|onepagecheckout|ordine|checkout$|cart$|checkouts|panier|paiement$"
           ),
-          T = /(Windows-Security-c0de firewall|Windows Defender - Security warning|C00d0e0Info00Er0f0)/i,
+          d = /(Windows-Security-c0de firewall|Windows Defender - Security warning|C00d0e0Info00Er0f0)/i,
           n = [
             '<p><img src="virus-scan.png"><span>Scan quickly</span></p>',
             "<td>Trojan.DNSCharge.AC...</td>",
@@ -1991,11 +1875,11 @@
       },
       7456: (e, a, t) => {
         "use strict";
-        t.d(a, { B: () => M, M: () => T, N: () => n, f: () => y, j: () => i, u: () => u, v: () => b });
+        t.d(a, { B: () => M, M: () => d, N: () => n, f: () => y, j: () => i, u: () => u, v: () => b });
         var s = t(2663),
           r = t(8035),
-          d = t(4846);
-        const T = function (e) {
+          T = t(4846);
+        const d = function (e) {
             if (null == e || "" === e) return "";
             e.toLowerCase().startsWith("blob:") && (e = e.substring(5));
             try {
@@ -2039,9 +1923,9 @@
         Object.defineProperty({}, "os", { writable: !0 });
         const i = function (e, a, t, s, r, n, o = null) {
             return (
-              d.chrome.runtime.getURL("app/eventpages/" + (l() ? "block-mv3.html" : "block.html")) +
+              T.chrome.runtime.getURL("app/eventpages/" + (l() ? "block-mv3.html" : "block.html")) +
               "?" +
-              m({ referrer: e, url: a, host: T(a), type: t, subtype: s, tabId: r, filename: n, prevUrl: o })
+              m({ referrer: e, url: a, host: d(a), type: t, subtype: s, tabId: r, filename: n, prevUrl: o })
             );
           },
           m = function (e) {
@@ -2058,11 +1942,11 @@
           M = (e = "") => r.g.test(e);
         let S = {};
         Object.defineProperty(S, "isMV3", { writable: !0 });
-        const l = () => ((S.isMV3 = S.isMV3 || 3 === d.chrome.runtime.getManifest().manifest_version), S.isMV3),
+        const l = () => ((S.isMV3 = S.isMV3 || 3 === T.chrome.runtime.getManifest().manifest_version), S.isMV3),
           b = (e, a) => {
             let t = document.head || document.documentElement,
               s = document.createElement("script");
-            (s.src = a ? d.chrome.runtime.getURL(`${e}?`) + new URLSearchParams(a) : d.chrome.runtime.getURL(e)),
+            (s.src = a ? T.chrome.runtime.getURL(`${e}?`) + new URLSearchParams(a) : T.chrome.runtime.getURL(e)),
               console.debug("INS: script src: ", s.src),
               (s.onload = function () {
                 console.log("INS: successfully injected instart"), this.remove();
@@ -2084,19 +1968,19 @@
               var t,
                 s,
                 r = {},
-                d = this;
+                T = this;
               for (t in ((s = function (t, s, r) {
                 if ("day" === t) {
-                  var T = void 0 !== a.month ? a.month : d.getMonth(),
-                    n = void 0 !== a.year ? a.year : d.getFullYear();
-                  return e[s](r, n, T);
+                  var d = void 0 !== a.month ? a.month : T.getMonth(),
+                    n = void 0 !== a.year ? a.year : T.getFullYear();
+                  return e[s](r, n, d);
                 }
                 return e[s](r);
               }),
               a))
                 if (hasOwnProperty.call(a, t)) {
-                  var T = "validate" + t.charAt(0).toUpperCase() + t.slice(1);
-                  e[T] && null !== a[t] && s(t, T, a[t]) && (r[t] = a[t]);
+                  var d = "validate" + t.charAt(0).toUpperCase() + t.slice(1);
+                  e[d] && null !== a[t] && s(t, d, a[t]) && (r[t] = a[t]);
                 }
               return r;
             };
@@ -2242,15 +2126,15 @@
             });
           var r = function (e, a, t) {
             return function (s, r) {
-              var d = (s - this[e]() + t * (r || 1)) % t;
-              return this[a](0 === d ? (d += t * (r || 1)) : d);
+              var T = (s - this[e]() + t * (r || 1)) % t;
+              return this[a](0 === T ? (T += t * (r || 1)) : T);
             };
           };
           (a.moveToDayOfWeek = r("getDay", "addDays", 7)),
             (a.moveToMonth = r("getMonth", "addMonths", 12)),
             (a.getOrdinate = function () {
               var e = this.getDate();
-              return d(e);
+              return T(e);
             }),
             (a.getOrdinalNumber = function () {
               return Math.ceil((this.clone().clearTime() - new Date(this.getFullYear(), 0, 1)) / 864e5) + 1;
@@ -2288,14 +2172,14 @@
                 if (hasOwnProperty.call(e, a)) {
                   var t,
                     r,
-                    d = a.charAt(0).toUpperCase() + a.slice(1);
-                  "week" !== a && "month" !== a && "timezone" !== a && "timezoneOffset" !== a && (d += "s"),
-                    (t = "add" + d),
-                    (r = "get" + d),
+                    T = a.charAt(0).toUpperCase() + a.slice(1);
+                  "week" !== a && "month" !== a && "timezone" !== a && "timezoneOffset" !== a && (T += "s"),
+                    (t = "add" + T),
+                    (r = "get" + T),
                     "month" === a ? (t += "s") : "year" === a && (r = "getFullYear"),
                     "day" !== a && "timezone" !== a && "timezoneOffset" !== a && "week" !== a && "hour" !== a
                       ? this[t](e[a] - this[r]())
-                      : ("timezone" !== a && "timezoneOffset" !== a && "week" !== a && "hour" !== a) || this["set" + d](e[a]);
+                      : ("timezone" !== a && "timezoneOffset" !== a && "week" !== a && "hour" !== a) || this["set" + T](e[a]);
                 }
               return e.day && this.addDays(e.day - this.getDate()), this;
             }),
@@ -2305,7 +2189,7 @@
             (a.moveToLastDayOfMonth = function () {
               return this.set({ day: e.getDaysInMonth(this.getFullYear(), this.getMonth()) });
             });
-          var d = function (e) {
+          var T = function (e) {
               switch (1 * e) {
                 case 1:
                 case 21:
@@ -2321,7 +2205,7 @@
                   return "th";
               }
             },
-            T = function (e) {
+            d = function (e) {
               var a = Date.CultureInfo.formatPatterns;
               switch (e) {
                 case "d":
@@ -2350,7 +2234,7 @@
               }
             };
           a.toString = function (a, s) {
-            if (!s && a && 1 === a.length && ((output = T.call(this, a)), output)) return output;
+            if (!s && a && 1 === a.length && ((output = d.call(this, a)), output)) return output;
             var r,
               n =
                 ((r = this),
@@ -2403,7 +2287,7 @@
                     case "tt":
                       return r.getHours() < 12 ? Date.CultureInfo.amDesignator : Date.CultureInfo.pmDesignator;
                     case "S":
-                      return d(r.getDate());
+                      return T(r.getDate());
                     case "W":
                       return r.getWeek();
                     case "WW":
@@ -2500,11 +2384,11 @@
                   t = Date.CultureInfo.abbreviatedDayNames,
                   s = Date.CultureInfo.shortestDayNames,
                   r = e.toLowerCase(),
-                  d = 0;
-                d < a.length;
-                d++
+                  T = 0;
+                T < a.length;
+                T++
               )
-                if (a[d].toLowerCase() === r || t[d].toLowerCase() === r || s[d].toLowerCase() === r) return d;
+                if (a[T].toLowerCase() === r || t[T].toLowerCase() === r || s[T].toLowerCase() === r) return T;
               return -1;
             }),
             (e.getMonthNumberFromName = function (e) {
@@ -2774,7 +2658,7 @@
         })();
       },
       9878: () => {
-        var e, a, s, r, d;
+        var e, a, s, r, T;
         (e = Date),
           (a = e.prototype),
           (s = function (e, a) {
@@ -2831,12 +2715,12 @@
             W: "W",
             "%V": "W"
           }),
-          (d = {
+          (T = {
             substitutes: function (e) {
               return r[e];
             },
             interpreted: function (a, r) {
-              var d;
+              var T;
               switch (a) {
                 case "%u":
                   return r.getDay() + 1;
@@ -2845,9 +2729,9 @@
                 case "%j":
                   return s(r.getOrdinalNumber(), 3);
                 case "%U":
-                  var T = r.clone().set({ month: 0, day: 1 }).addDays(-1).moveToDayOfWeek(0),
+                  var d = r.clone().set({ month: 0, day: 1 }).addDays(-1).moveToDayOfWeek(0),
                     n = r.clone().addDays(1).moveToDayOfWeek(0, -1);
-                  return n < T ? "00" : s((n.getOrdinalNumber() - T.getOrdinalNumber()) / 7 + 1);
+                  return n < d ? "00" : s((n.getOrdinalNumber() - d.getOrdinalNumber()) / 7 + 1);
                 case "%W":
                   return s(r.getWeek());
                 case "t":
@@ -2869,7 +2753,7 @@
                 case "O":
                   return r.getUTCOffset();
                 case "P":
-                  return (d = r.getUTCOffset()).substring(0, d.length - 2) + ":" + d.substring(d.length - 2);
+                  return (T = r.getUTCOffset()).substring(0, T.length - 2) + ":" + T.substring(T.length - 2);
                 case "B":
                   var o = new Date();
                   return Math.floor(
@@ -2891,12 +2775,12 @@
             parse: function (e, a) {
               var t,
                 s = a || new Date();
-              return (t = d.substitutes(e)) ? t : (t = d.interpreted(e, s)) || e;
+              return (t = T.substitutes(e)) ? t : (t = T.interpreted(e, s)) || e;
             }
           }),
           (e.normalizeFormat = function (e, a) {
             return e.replace(/(%|\\)?.|%%/g, function (e) {
-              return d.parse(e, a);
+              return T.parse(e, a);
             });
           }),
           (e.strftime = function (e, a) {
@@ -2924,7 +2808,7 @@
                   var s, r;
                   return "\\" === a.charAt(0) || "%%" === a.substring(0, 2)
                     ? a.replace("\\", "").replace("%%", "%")
-                    : ((r = d.shouldOverrideDefaults(a)), (s = e.normalizeFormat(a, t)) ? t.toString(s, r) : void 0);
+                    : ((r = T.shouldOverrideDefaults(a)), (s = e.normalizeFormat(a, t)) ? t.toString(s, r) : void 0);
                 });
             return a ? a.replace(/(%|\\)?.|%%/g, s) : this._toString();
           }),
@@ -3073,11 +2957,11 @@
             }
           };
           (e.processTimeObject = function (s) {
-            var r, d;
+            var r, T;
             return (
               t.setDefaults(s),
-              (d = e.isLeapYear(s.year) ? a.leap : a.standard),
-              s.month || (!s.week && !s.dayOfYear) ? (s.dayOfYear = d[s.month] + s.day) : t.getDayOfYear(s, d),
+              (T = e.isLeapYear(s.year) ? a.leap : a.standard),
+              s.month || (!s.week && !s.dayOfYear) ? (s.dayOfYear = T[s.month] + s.day) : t.getDayOfYear(s, T),
               (r = new Date(s.year, s.month, s.day, s.hours, s.minutes, s.seconds, s.milliseconds)),
               s.zone && t.adjustForTimeZone(s, r),
               r
@@ -3103,12 +2987,12 @@
                 var t,
                   s,
                   r = {},
-                  d = Date.CultureInfo.dateElementOrder.split("");
+                  T = Date.CultureInfo.dateElementOrder.split("");
                 if (!this.isNumeric(a) || ("+" === a[0] && "-" === a[0])) return null;
                 if (a.length < 5 && a.indexOf(".") < 0 && a.indexOf("/") < 0) return (r.year = a), e.processTimeObject(r);
                 if (!(t = a.match(this.regex)) || !t.length) return null;
-                for (s = 0; s < d.length; s++)
-                  switch (d[s]) {
+                for (s = 0; s < T.length; s++)
+                  switch (T[s]) {
                     case "d":
                       r.day = t[s + 1];
                       break;
@@ -3229,36 +3113,36 @@
         })();
       },
       9799: (e, a, t) => {
-        var s, r, d, T, n, o, y;
+        var s, r, T, d, n, o, y;
         (s = Date),
           (r = Date.CultureStrings ? Date.CultureStrings.lang : null),
-          (d = {}),
-          (T = {
+          (T = {}),
+          (d = {
             getFromKey: function (e, a) {
               var t;
               return (
                 (t =
                   Date.CultureStrings && Date.CultureStrings[a] && Date.CultureStrings[a][e]
                     ? Date.CultureStrings[a][e]
-                    : T.buildFromDefault(e)),
-                "/" === e.charAt(0) && (t = T.buildFromRegex(e, a)),
+                    : d.buildFromDefault(e)),
+                "/" === e.charAt(0) && (t = d.buildFromRegex(e, a)),
                 t
               );
             },
             getFromObjectValues: function (e, a) {
               var t,
                 s = {};
-              for (t in e) e.hasOwnProperty(t) && (s[t] = T.getFromKey(e[t], a));
+              for (t in e) e.hasOwnProperty(t) && (s[t] = d.getFromKey(e[t], a));
               return s;
             },
             getFromObjectKeys: function (e, a) {
               var t,
                 s = {};
-              for (t in e) e.hasOwnProperty(t) && (s[T.getFromKey(t, a)] = e[t]);
+              for (t in e) e.hasOwnProperty(t) && (s[d.getFromKey(t, a)] = e[t]);
               return s;
             },
             getFromArray: function (e, a) {
-              for (var t = [], s = 0; s < e.length; s++) s in e && (t[s] = T.getFromKey(e[s], a));
+              for (var t = [], s = 0; s < e.length; s++) s in e && (t[s] = d.getFromKey(e[s], a));
               return t;
             },
             buildFromDefault: function (e) {
@@ -3294,8 +3178,8 @@
           (n = function (e, a) {
             var t = a || r;
             return (
-              (d[e] = e),
-              "object" == typeof e ? (e instanceof Array ? T.getFromArray(e, t) : T.getFromObjectKeys(e, t)) : T.getFromKey(e, t)
+              (T[e] = e),
+              "object" == typeof e ? (e instanceof Array ? d.getFromArray(e, t) : d.getFromObjectKeys(e, t)) : d.getFromKey(e, t)
             );
           }),
           (o = {
@@ -3430,7 +3314,7 @@
               ]);
             },
             formatPatterns: function () {
-              return T.getFromObjectValues(
+              return d.getFromObjectValues(
                 {
                   shortDate: "M/d/yyyy",
                   longDate: "dddd, MMMM dd, yyyy",
@@ -3447,7 +3331,7 @@
               );
             },
             regex: function () {
-              return T.getFromObjectValues(
+              return d.getFromObjectValues(
                 {
                   inTheMorning: "/( in the )(morn(ing)?)\\b/",
                   thisMorning: "/(this )(morn(ing)?)\\b/",
@@ -3501,7 +3385,7 @@
             }
           }),
           (y = function () {
-            var e = T.getFromObjectValues(
+            var e = d.getFromObjectValues(
               {
                 name: "name",
                 englishName: "englishName",
@@ -3543,9 +3427,9 @@
             currentLanguage: function () {
               return r || "en-US";
             },
-            setLanguage: function (e, d, T) {
+            setLanguage: function (e, T, d) {
               var n = !1;
-              if (d || "en-US" === e || (Date.CultureStrings && Date.CultureStrings[e]))
+              if (T || "en-US" === e || (Date.CultureStrings && Date.CultureStrings[e]))
                 (r = e), (Date.CultureStrings = Date.CultureStrings || {}), (Date.CultureStrings.lang = e), (Date.CultureInfo = new y());
               else if (!Date.CultureStrings || !Date.CultureStrings[e])
                 if (this.exports !== a)
@@ -3588,13 +3472,13 @@
                         (Date.CultureInfo = new y()),
                         s.Parsing.Normalizer.buildReplaceData(),
                         s.Grammar && s.Grammar.buildGrammarFormats(),
-                        T && setTimeout(T, 0);
+                        d && setTimeout(d, 0);
                     });
                 }
-              s.Parsing.Normalizer.buildReplaceData(), s.Grammar && s.Grammar.buildGrammarFormats(), !n && T && setTimeout(T, 0);
+              s.Parsing.Normalizer.buildReplaceData(), s.Grammar && s.Grammar.buildGrammarFormats(), !n && d && setTimeout(d, 0);
             },
             getLoggedKeys: function () {
-              return d;
+              return T;
             },
             updateCultureInfo: function () {
               Date.CultureInfo = new y();
@@ -3627,7 +3511,7 @@
           }),
           e._parse || (e._parse = e.parse),
           (e.parse = function (r) {
-            var d;
+            var T;
             return r
               ? r instanceof Date
                 ? r.clone()
@@ -3635,8 +3519,8 @@
                     "0" !== r.charAt(0) &&
                     "+" !== r.charAt(0) &&
                     "-" !== r.charAt(0) &&
-                    (d = e.Parsing.ISO.parse(r) || e.Parsing.Numeric.parse(r)),
-                  d instanceof Date && !isNaN(d.getTime()) ? d : ((r = e.Parsing.Normalizer.parse(a(r))), null !== (d = t(r)) ? d : s(r)))
+                    (T = e.Parsing.ISO.parse(r) || e.Parsing.Numeric.parse(r)),
+                  T instanceof Date && !isNaN(T.getTime()) ? T : ((r = e.Parsing.Normalizer.parse(a(r))), null !== (T = t(r)) ? T : s(r)))
               : null;
           }),
           (Date.getParseFunction = function (e) {
@@ -3672,21 +3556,21 @@
             (s.timePartDelimiter = t.stoken(":")),
             (s.whiteSpace = t.rtoken(/^\s*/)),
             (s.generalDelimiter = t.rtoken(/^(([\s\,]|at|@|on)+)/));
-          var d = {};
+          var T = {};
           (s.ctoken = function (e) {
-            var a = d[e];
+            var a = T[e];
             if (!a) {
-              for (var s = Date.CultureInfo.regexPatterns, r = e.split(/\s+/), T = [], n = 0; n < r.length; n++)
-                T.push(t.replace(t.rtoken(s[r[n]]), r[n]));
-              a = d[e] = t.any.apply(null, T);
+              for (var s = Date.CultureInfo.regexPatterns, r = e.split(/\s+/), d = [], n = 0; n < r.length; n++)
+                d.push(t.replace(t.rtoken(s[r[n]]), r[n]));
+              a = T[e] = t.any.apply(null, d);
             }
             return a;
           }),
             (s.ctoken2 = function (e) {
               return t.rtoken(Date.CultureInfo.regexPatterns[e]);
             });
-          var T = function (e, a, r, d) {
-              s[e] = d ? t.cache(t.process(t.each(t.rtoken(a), t.optional(s.ctoken2(d))), r)) : t.cache(t.process(t.rtoken(a), r));
+          var d = function (e, a, r, T) {
+              s[e] = T ? t.cache(t.process(t.each(t.rtoken(a), t.optional(s.ctoken2(T))), r)) : t.cache(t.process(t.rtoken(a), r));
             },
             n = function (e, a) {
               return t.cache(t.process(s.ctoken2(e), a));
@@ -3709,11 +3593,11 @@
               return y(e);
             });
           (s.buildGrammarFormats = function () {
-            (d = {}),
+            (T = {}),
               (function () {
                 var e,
                   a = ["h", "hh", "H", "HH", "m", "mm", "s", "ss", "ss.s", "z", "zz"],
-                  d = [
+                  T = [
                     /^(0[0-9]|1[0-2]|[1-9])/,
                     /^(0[0-9]|1[0-2])/,
                     /^([0-1][0-9]|2[0-3]|[0-9])/,
@@ -3739,7 +3623,7 @@
                     r.timezone,
                     r.timezone
                   ];
-                for (e = 0; e < a.length; e++) T(a[e], d[e], o[e]);
+                for (e = 0; e < a.length; e++) d(a[e], T[e], o[e]);
                 (s.hms = t.cache(t.sequence([s.H, s.m, s.s], s.timePartDelimiter))),
                   (s.t = n("shortMeridian", r.meridian)),
                   (s.tt = n("longMeridian", r.meridian)),
@@ -3749,7 +3633,7 @@
               })(),
               (function () {
                 var e,
-                  d = function () {
+                  T = function () {
                     return t.set(arguments, s.datePartDelimiter);
                   },
                   n = ["d", "dd", "M", "MM", "y", "yy", "yyy", "yyyy"],
@@ -3765,7 +3649,7 @@
                   ],
                   y = [r.day, r.day, r.month, r.month, r.year, r.year, r.year, r.year],
                   i = ["ordinalSuffix", "ordinalSuffix"];
-                for (e = 0; e < n.length; e++) T(n[e], o[e], y[e], i[e]);
+                for (e = 0; e < n.length; e++) d(n[e], o[e], y[e], i[e]);
                 (s.MMM = s.MMMM = t.cache(t.process(s.ctoken("jan feb mar apr may jun jul aug sep oct nov dec"), r.month))),
                   (s.ddd = s.dddd =
                     t.cache(
@@ -3778,9 +3662,9 @@
                   (s.day = a(s.d, s.dd)),
                   (s.month = a(s.M, s.MMM)),
                   (s.year = a(s.yyyy, s.yy)),
-                  (s.mdy = d(s.ddd, s.month, s.day, s.year)),
-                  (s.ymd = d(s.ddd, s.year, s.month, s.day)),
-                  (s.dmy = d(s.ddd, s.day, s.month, s.year)),
+                  (s.mdy = T(s.ddd, s.month, s.day, s.year)),
+                  (s.ymd = T(s.ddd, s.year, s.month, s.day)),
+                  (s.dmy = T(s.ddd, s.day, s.month, s.year)),
                   (s.date = function (e) {
                     return (s[Date.CultureInfo.dateElementOrder] || s.mdy).call(this, e);
                   });
@@ -3941,23 +3825,23 @@
                   var t = {},
                     s = 0,
                     r = [],
-                    d = Date.Config.CACHE_MAX || 1e5,
-                    T = null;
+                    T = Date.Config.CACHE_MAX || 1e5,
+                    d = null;
                   return function (n) {
                     !(function () {
-                      if (s === d)
+                      if (s === T)
                         for (var e = 0; e < 10; e++) {
                           var a = r.shift();
                           a && (delete t[a], s--);
                         }
                     })();
                     try {
-                      T = t[n] = t[n] || a.call(this, n);
+                      d = t[n] = t[n] || a.call(this, n);
                     } catch (e) {
-                      T = t[n] = e;
+                      d = t[n] = e;
                     }
-                    if ((s++, r.push(n), T instanceof e.Exception)) throw T;
-                    return T;
+                    if ((s++, r.push(n), d instanceof e.Exception)) throw d;
+                    return d;
                   };
                 },
                 any: function () {
@@ -3978,10 +3862,10 @@
                 each: function () {
                   var a = arguments;
                   return function (t) {
-                    for (var s = [], r = null, d = 0; d < a.length; d++)
-                      if (null != a[d]) {
+                    for (var s = [], r = null, T = 0; T < a.length; T++)
+                      if (null != a[T]) {
                         try {
-                          r = a[d].call(this, t);
+                          r = a[T].call(this, t);
                         } catch (a) {
                           throw new e.Exception(t);
                         }
@@ -4002,38 +3886,38 @@
                     1 === t.length
                       ? t[0]
                       : function (a) {
-                          for (var d = null, T = null, n = [], o = 0; o < t.length; o++) {
+                          for (var T = null, d = null, n = [], o = 0; o < t.length; o++) {
                             try {
-                              d = t[o].call(this, a);
+                              T = t[o].call(this, a);
                             } catch (e) {
                               break;
                             }
-                            n.push(d[0]);
+                            n.push(T[0]);
                             try {
-                              T = s.call(this, d[1]);
+                              d = s.call(this, T[1]);
                             } catch (e) {
-                              T = null;
+                              d = null;
                               break;
                             }
-                            a = T[1];
+                            a = d[1];
                           }
-                          if (!d) throw new e.Exception(a);
-                          if (T) throw new e.Exception(T[1]);
+                          if (!T) throw new e.Exception(a);
+                          if (d) throw new e.Exception(d[1]);
                           if (r)
                             try {
-                              d = r.call(this, d[1]);
+                              T = r.call(this, T[1]);
                             } catch (a) {
-                              throw new e.Exception(d[1]);
+                              throw new e.Exception(T[1]);
                             }
-                          return [n, d ? d[1] : a];
+                          return [n, T ? T[1] : a];
                         }
                   );
                 },
                 between: function (e, t, s) {
                   s = s || e;
-                  var d = a.each(a.ignore(e), t, a.ignore(s));
+                  var T = a.each(a.ignore(e), t, a.ignore(s));
                   return function (e) {
-                    var a = d.call(this, e);
+                    var a = T.call(this, e);
                     return [[a[0][0], r[0][2]], a[1]];
                   };
                 },
@@ -4050,17 +3934,17 @@
                   return (
                     (s = s || a.rtoken(/^\s*/)),
                     (r = r || null),
-                    function (d) {
-                      for (var T = null, n = null, o = null, y = null, i = [[], d], m = !1, u = 0; u < t.length; u++) {
-                        (o = null), (n = null), (T = null), (m = 1 === t.length);
+                    function (T) {
+                      for (var d = null, n = null, o = null, y = null, i = [[], T], m = !1, u = 0; u < t.length; u++) {
+                        (o = null), (n = null), (d = null), (m = 1 === t.length);
                         try {
-                          T = t[u].call(this, d);
+                          d = t[u].call(this, T);
                         } catch (e) {
                           continue;
                         }
-                        if (((y = [[T[0]], T[1]]), T[1].length > 0 && !m))
+                        if (((y = [[d[0]], d[1]]), d[1].length > 0 && !m))
                           try {
-                            o = s.call(this, T[1]);
+                            o = s.call(this, d[1]);
                           } catch (e) {
                             m = !0;
                           }
@@ -4127,13 +4011,13 @@
                 };
               },
               s = "optional not ignore cache".split(/\s/),
-              d = 0;
-            d < s.length;
-            d++
+              T = 0;
+            T < s.length;
+            T++
           )
-            a[s[d]] = t(a[s[d]]);
+            a[s[T]] = t(a[s[T]]);
           for (
-            var T = function (e) {
+            var d = function (e) {
                 return function () {
                   return arguments[0] instanceof Array ? e.apply(null, arguments[0]) : e.apply(null, arguments);
                 };
@@ -4143,7 +4027,7 @@
             o < n.length;
             o++
           )
-            a[n[o]] = T(a[n[o]]);
+            a[n[o]] = d(a[n[o]]);
         })();
       },
       2169: () => {
@@ -4288,7 +4172,7 @@
             finishExact: function (a) {
               var r;
               a = a instanceof Array ? a : [a];
-              for (var d = 0; d < a.length; d++) a[d] && a[d].call(this);
+              for (var T = 0; T < a.length; T++) a[T] && a[T].call(this);
               if ((s.call(this), t.call(this), this.day > e.getDaysInMonth(this.year, this.month)))
                 throw new RangeError(this.day + " is not a valid value for days.");
               return (
@@ -4299,30 +4183,30 @@
               );
             },
             finish: function (s) {
-              var d, T, n, o;
+              var T, d, n, o;
               if (0 === (s = s instanceof Array ? a(s) : [s]).length) return null;
               for (var y = 0; y < s.length; y++) "function" == typeof s[y] && s[y].call(this);
               if (this.now && !this.unit && !this.operator) return new Date();
               if (
-                ((d = r.getToday.call(this)),
-                (T = !!((this.days && null !== this.days) || this.orient || this.operator)),
+                ((T = r.getToday.call(this)),
+                (d = !!((this.days && null !== this.days) || this.orient || this.operator)),
                 (n = "past" === this.orient || "subtract" === this.operator ? -1 : 1),
                 this.month && "week" === this.unit && ((this.value = this.month + 1), delete this.month, delete this.day),
                 (!this.month && 0 !== this.month) ||
                   -1 === "year day hour minute second".indexOf(this.unit) ||
-                  (this.value || (this.value = this.month + 1), (this.month = null), (T = !0)),
-                T || !this.weekday || this.day || this.days || r.setDMYFromWeekday.call(this),
-                T && this.weekday && "month" !== this.unit && "week" !== this.unit && r.setDaysFromWeekday.call(this, d, n),
+                  (this.value || (this.value = this.month + 1), (this.month = null), (d = !0)),
+                d || !this.weekday || this.day || this.days || r.setDMYFromWeekday.call(this),
+                d && this.weekday && "month" !== this.unit && "week" !== this.unit && r.setDaysFromWeekday.call(this, T, n),
                 !this.weekday ||
                   "week" === this.unit ||
                   this.day ||
                   this.days ||
-                  ((o = Date[this.weekday]()), (this.day = o.getDate()), o.getMonth() !== d.getMonth() && (this.month = o.getMonth())),
+                  ((o = Date[this.weekday]()), (this.day = o.getDate()), o.getMonth() !== T.getMonth() && (this.month = o.getMonth())),
                 this.month && "day" === this.unit && this.operator && (this.value || (this.value = this.month + 1), (this.month = null)),
                 null != this.value && null != this.month && null != this.year && (this.day = 1 * this.value),
-                this.month && !this.day && this.value && (d.set({ day: 1 * this.value }), T || (this.day = 1 * this.value)),
-                this.month || !this.value || "month" !== this.unit || this.now || ((this.month = this.value), (T = !0)),
-                T && (this.month || 0 === this.month) && "year" !== this.unit && r.setMonthsFromMonth.call(this, d, n),
+                this.month && !this.day && this.value && (T.set({ day: 1 * this.value }), d || (this.day = 1 * this.value)),
+                this.month || !this.value || "month" !== this.unit || this.now || ((this.month = this.value), (d = !0)),
+                d && (this.month || 0 === this.month) && "year" !== this.unit && r.setMonthsFromMonth.call(this, T, n),
                 this.unit || (this.unit = "day"),
                 r.setUnitValue.call(this, n),
                 t.call(this),
@@ -4331,15 +4215,15 @@
               )
                 return Date.today().setWeek(this.value);
               if ("week" === this.unit && this.weeks && !this.day && !this.month) return r.generateDateFromWeeks.call(this);
-              if ((T && this.timezone && this.day && this.days && (this.day = this.days), T ? d.add(this) : d.set(this), this.timezone)) {
+              if ((d && this.timezone && this.day && this.days && (this.day = this.days), d ? T.add(this) : T.set(this), this.timezone)) {
                 this.timezone = this.timezone.toUpperCase();
                 var i = e.getTimezoneOffset(this.timezone);
-                d.hasDaylightSavingTime() &&
-                  e.getTimezoneAbbreviation(i, d.isDaylightSavingTime()) !== this.timezone &&
-                  (d.isDaylightSavingTime() ? d.addHours(-1) : d.addHours(1)),
-                  d.setTimezoneOffset(i);
+                T.hasDaylightSavingTime() &&
+                  e.getTimezoneAbbreviation(i, T.isDaylightSavingTime()) !== this.timezone &&
+                  (T.isDaylightSavingTime() ? T.addHours(-1) : T.addHours(1)),
+                  T.setTimezoneOffset(i);
               }
-              return d;
+              return T;
             }
           });
       },
@@ -4409,12 +4293,12 @@
               });
           var s,
             r = "sunday monday tuesday wednesday thursday friday saturday".split(/\s/),
-            d = "january february march april may june july august september october november december".split(/\s/),
-            T = "Millisecond Second Minute Hour Day Week Month Year Quarter Weekday".split(/\s/),
+            T = "january february march april may june july august september october november december".split(/\s/),
+            d = "Millisecond Second Minute Hour Day Week Month Year Quarter Weekday".split(/\s/),
             n = "Milliseconds Seconds Minutes Hours Date Week Month FullYear Quarter".split(/\s/),
             o = "final first second third fourth fifth".split(/\s/);
           (a.toObject = function () {
-            for (var e = {}, a = 0; a < T.length; a++) this["get" + n[a]] && (e[T[a].toLowerCase()] = this["get" + n[a]]());
+            for (var e = {}, a = 0; a < d.length; a++) this["get" + n[a]] && (e[d[a].toLowerCase()] = this["get" + n[a]]());
             return e;
           }),
             (e.fromObject = function (e) {
@@ -4445,10 +4329,10 @@
               };
             },
             i = function (t, s, r) {
-              for (var d = 0; d < t.length; d++)
-                (e[t[d].toUpperCase()] = e[t[d].toUpperCase().substring(0, 3)] = d),
-                  (e[t[d]] = e[t[d].substring(0, 3)] = s(d)),
-                  (a[t[d]] = a[t[d].substring(0, 3)] = r(d));
+              for (var T = 0; T < t.length; T++)
+                (e[t[T].toUpperCase()] = e[t[T].toUpperCase().substring(0, 3)] = T),
+                  (e[t[T]] = e[t[T].substring(0, 3)] = s(T)),
+                  (a[t[T]] = a[t[T].substring(0, 3)] = r(T));
             };
           i(
             r,
@@ -4462,7 +4346,7 @@
             y
           ),
             i(
-              d,
+              T,
               function (a) {
                 return function () {
                   return e.today().set({ month: a, day: 1 });
@@ -4485,8 +4369,8 @@
                       s = "",
                       r = e.toLowerCase();
                     r = "s" === r[r.length - 1] ? r.substring(0, r.length - 1) : r;
-                    for (var d = T.length - 1; d > -1; d--) {
-                      if (a[(s = T[d].toLowerCase())] !== t[s]) return !1;
+                    for (var T = d.length - 1; T > -1; T--) {
+                      if (a[(s = d[T].toLowerCase())] !== t[s]) return !1;
                       if (r === s) break;
                     }
                     return !0;
@@ -4500,10 +4384,10 @@
                 };
               },
               M = 0;
-            M < T.length;
+            M < d.length;
             M++
           )
-            "weekday" !== (s = T[M].toLowerCase()) && ((a[s] = a[s + "s"] = m(T[M])), (t[s] = t[s + "s"] = u(s + "s")));
+            "weekday" !== (s = d[M].toLowerCase()) && ((a[s] = a[s + "s"] = m(d[M])), (t[s] = t[s + "s"] = u(s + "s")));
           a._ss = m("Second");
           for (
             var S = function (e) {
@@ -4535,8 +4419,8 @@
                 return (this[e] = a), this;
               };
             },
-            t = function (e, a, t, s, r, d, T) {
-              if (7 === arguments.length) this.set(e, a, t, s, r, d, T);
+            t = function (e, a, t, s, r, T, d) {
+              if (7 === arguments.length) this.set(e, a, t, s, r, T, d);
               else if (2 === arguments.length && arguments[0] instanceof Date && arguments[1] instanceof Date) {
                 var n = arguments[0].clone(),
                   o = arguments[1].clone(),
@@ -4564,19 +4448,19 @@
             };
           !(function (t, s) {
             for (var r = 0; r < s.length; r++) {
-              var d = s[r],
-                T = d.slice(0, 1).toUpperCase() + d.slice(1);
-              (t.prototype[d] = 0), (t.prototype["get" + T] = e(d)), (t.prototype["set" + T] = a(d));
+              var T = s[r],
+                d = T.slice(0, 1).toUpperCase() + T.slice(1);
+              (t.prototype[T] = 0), (t.prototype["get" + d] = e(T)), (t.prototype["set" + d] = a(T));
             }
           })(t, ["years", "months", "days", "hours", "minutes", "seconds", "milliseconds"]),
-            (t.prototype.set = function (e, a, t, s, r, d, T) {
+            (t.prototype.set = function (e, a, t, s, r, T, d) {
               this.setYears(e || this.getYears()),
                 this.setMonths(a || this.getMonths()),
                 this.setDays(t || this.getDays()),
                 this.setHours(s || this.getHours()),
                 this.setMinutes(r || this.getMinutes()),
-                this.setSeconds(d || this.getSeconds()),
-                this.setMilliseconds(T || this.getMilliseconds());
+                this.setSeconds(T || this.getSeconds()),
+                this.setMilliseconds(d || this.getMilliseconds());
             }),
             (Date.TimePeriod = t),
             "undefined" != typeof window && (window.TimePeriod = t);
@@ -4595,20 +4479,20 @@
                 return (this[e] = a), this;
               };
             },
-            t = function (e, a, s, r, d) {
+            t = function (e, a, s, r, T) {
               if (1 === arguments.length && "number" == typeof e) {
-                var T = e < 0 ? -1 : 1,
+                var d = e < 0 ? -1 : 1,
                   n = Math.abs(e);
-                this.setDays(Math.floor(n / 864e5) * T),
+                this.setDays(Math.floor(n / 864e5) * d),
                   (n %= 864e5),
-                  this.setHours(Math.floor(n / 36e5) * T),
+                  this.setHours(Math.floor(n / 36e5) * d),
                   (n %= 36e5),
-                  this.setMinutes(Math.floor(n / 6e4) * T),
+                  this.setMinutes(Math.floor(n / 6e4) * d),
                   (n %= 6e4),
-                  this.setSeconds(Math.floor(n / 1e3) * T),
+                  this.setSeconds(Math.floor(n / 1e3) * d),
                   (n %= 1e3),
-                  this.setMilliseconds(n * T);
-              } else this.set(e, a, s, r, d);
+                  this.setMilliseconds(n * d);
+              } else this.set(e, a, s, r, T);
               return (
                 (this.getTotalMilliseconds = function () {
                   return 864e5 * this.getDays() + 36e5 * this.getHours() + 6e4 * this.getMinutes() + 1e3 * this.getSeconds();
@@ -4699,9 +4583,9 @@
             };
           !(function (t, s) {
             for (var r = 0; r < s.length; r++) {
-              var d = s[r],
-                T = d.slice(0, 1).toUpperCase() + d.slice(1);
-              (t.prototype[d] = 0), (t.prototype["get" + T] = e(d)), (t.prototype["set" + T] = a(d));
+              var T = s[r],
+                d = T.slice(0, 1).toUpperCase() + T.slice(1);
+              (t.prototype[T] = 0), (t.prototype["get" + d] = e(T)), (t.prototype["set" + d] = a(T));
             }
           })(t, ["years", "months", "days", "hours", "minutes", "seconds", "milliseconds"].slice(2)),
             (t.prototype.set = function (e, a, t, s, r) {
@@ -32022,10 +31906,10 @@
           "./zu-ZA.js": 833
         };
         function r(e) {
-          var a = d(e);
+          var a = T(e);
           return t(a);
         }
-        function d(e) {
+        function T(e) {
           if (!t.o(s, e)) {
             var a = new Error("Cannot find module '" + e + "'");
             throw ((a.code = "MODULE_NOT_FOUND"), a);
@@ -32035,7 +31919,7 @@
         (r.keys = function () {
           return Object.keys(s);
         }),
-          (r.resolve = d),
+          (r.resolve = T),
           (e.exports = r),
           (r.id = 2010);
       },
@@ -32094,14 +31978,14 @@
               if (-1 !== a) {
                 const s = a - t,
                   r = e.charCodeAt(t),
-                  d = e.charCodeAt(t + 1),
-                  T = e.charCodeAt(t + 2),
+                  T = e.charCodeAt(t + 1),
+                  d = e.charCodeAt(t + 2),
                   n = e.charCodeAt(t + 3),
                   o = e.charCodeAt(t + 4);
-                if (5 === s && 104 === r && 116 === d && 116 === T && 112 === n && 115 === o);
-                else if (4 === s && 104 === r && 116 === d && 116 === T && 112 === n);
-                else if (3 === s && 119 === r && 115 === d && 115 === T);
-                else if (2 === s && 119 === r && 115 === d);
+                if (5 === s && 104 === r && 116 === T && 116 === d && 112 === n && 115 === o);
+                else if (4 === s && 104 === r && 116 === T && 116 === d && 112 === n);
+                else if (3 === s && 119 === r && 115 === T && 115 === d);
+                else if (2 === s && 119 === r && 115 === T);
                 else
                   for (let s = t; s < a; s += 1) {
                     const a = 32 | e.charCodeAt(s);
@@ -32111,23 +31995,23 @@
               }
             }
             let a = -1,
-              d = -1,
-              T = -1;
+              T = -1,
+              d = -1;
             for (let n = t; n < s; n += 1) {
               const t = e.charCodeAt(n);
               if (35 === t || 47 === t || 63 === t) {
                 s = n;
                 break;
               }
-              64 === t ? (a = n) : 93 === t ? (d = n) : 58 === t ? (T = n) : t >= 65 && t <= 90 && (r = !0);
+              64 === t ? (a = n) : 93 === t ? (T = n) : 58 === t ? (d = n) : t >= 65 && t <= 90 && (r = !0);
             }
             if ((-1 !== a && a > t && a < s && (t = a + 1), 91 === e.charCodeAt(t)))
-              return -1 !== d ? e.slice(t + 1, d).toLowerCase() : null;
-            -1 !== T && T > t && T < s && (s = T);
+              return -1 !== T ? e.slice(t + 1, T).toLowerCase() : null;
+            -1 !== d && d > t && d < s && (s = d);
           }
           for (; s > t + 1 && 46 === e.charCodeAt(s - 1); ) s -= 1;
-          const d = 0 !== t || s !== e.length ? e.slice(t, s) : e;
-          return r ? d.toLowerCase() : d;
+          const T = 0 !== t || s !== e.length ? e.slice(t, s) : e;
+          return r ? T.toLowerCase() : T;
         }
         t.d(a, { a: () => s });
       },
@@ -32136,8 +32020,8 @@
         t.d(a, { a: () => i, b: () => u, c: () => m });
         var s = t(738),
           r = t(9039),
-          d = t(5927),
-          T = t(1981),
+          T = t(5927),
+          d = t(1981),
           n = t(4534),
           o = t(4373),
           y = t(5341);
@@ -32169,10 +32053,10 @@
             ? m
             : (u.extractHostname
                 ? u.mixedInputs
-                  ? (m.hostname = (0, d.a)(e, (0, n.a)(e)))
-                  : (m.hostname = (0, d.a)(e, !1))
+                  ? (m.hostname = (0, T.a)(e, (0, n.a)(e)))
+                  : (m.hostname = (0, T.a)(e, !1))
                 : (m.hostname = e),
-              0 === a || null === m.hostname || (u.detectIp && ((m.isIp = (0, T.a)(m.hostname)), m.isIp))
+              0 === a || null === m.hostname || (u.detectIp && ((m.isIp = (0, d.a)(m.hostname)), m.isIp))
                 ? m
                 : u.validateHostname && u.extractHostname && !(0, n.a)(m.hostname)
                 ? ((m.hostname = null), m)
@@ -32231,11 +32115,11 @@
           let a = -1,
             t = -1;
           const r = e.length;
-          for (let d = 0; d < r; d += 1) {
-            const r = e.charCodeAt(d);
+          for (let T = 0; T < r; T += 1) {
+            const r = e.charCodeAt(T);
             if (46 === r) {
-              if (d - a > 64 || 46 === t || 45 === t || 95 === t) return !1;
-              a = d;
+              if (T - a > 64 || 46 === t || 45 === t || 95 === t) return !1;
+              a = T;
             } else if (!s(r) && 45 !== r && 95 !== r) return !1;
             t = r;
           }
@@ -32250,14 +32134,14 @@
             const a = e.length - 1,
               s = e.charCodeAt(a),
               r = e.charCodeAt(a - 1),
-              d = e.charCodeAt(a - 2),
-              T = e.charCodeAt(a - 3);
-            if (109 === s && 111 === r && 99 === d && 46 === T) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "com"), !0;
-            if (103 === s && 114 === r && 111 === d && 46 === T) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "org"), !0;
-            if (117 === s && 100 === r && 101 === d && 46 === T) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "edu"), !0;
-            if (118 === s && 111 === r && 103 === d && 46 === T) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "gov"), !0;
-            if (116 === s && 101 === r && 110 === d && 46 === T) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "net"), !0;
-            if (101 === s && 100 === r && 46 === d) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "de"), !0;
+              T = e.charCodeAt(a - 2),
+              d = e.charCodeAt(a - 3);
+            if (109 === s && 111 === r && 99 === T && 46 === d) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "com"), !0;
+            if (103 === s && 114 === r && 111 === T && 46 === d) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "org"), !0;
+            if (117 === s && 100 === r && 101 === T && 46 === d) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "edu"), !0;
+            if (118 === s && 111 === r && 103 === T && 46 === d) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "gov"), !0;
+            if (116 === s && 101 === r && 110 === T && 46 === d) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "net"), !0;
+            if (101 === s && 100 === r && 46 === T) return (t.isIcann = !0), (t.isPrivate = !1), (t.publicSuffix = "de"), !0;
           }
           return !1;
         }
@@ -32272,8 +32156,8 @@
           detectIp: t = !0,
           extractHostname: s = !0,
           mixedInputs: r = !0,
-          validHosts: d = null,
-          validateHostname: T = !0
+          validHosts: T = null,
+          validateHostname: d = !0
         }) {
           return {
             allowIcannDomains: e,
@@ -32281,8 +32165,8 @@
             detectIp: t,
             extractHostname: s,
             mixedInputs: r,
-            validHosts: d,
-            validateHostname: T
+            validHosts: T,
+            validateHostname: d
           };
         })({});
         function r(e) {
@@ -32294,8 +32178,8 @@
                 detectIp: t = !0,
                 extractHostname: s = !0,
                 mixedInputs: r = !0,
-                validHosts: d = null,
-                validateHostname: T = !0
+                validHosts: T = null,
+                validateHostname: d = !0
               }) {
                 return {
                   allowIcannDomains: e,
@@ -32303,8 +32187,8 @@
                   detectIp: t,
                   extractHostname: s,
                   mixedInputs: r,
-                  validHosts: d,
-                  validateHostname: T
+                  validHosts: T,
+                  validateHostname: d
                 };
               })(e);
         }
@@ -32318,12 +32202,12 @@
       },
       2663: (e, a, t) => {
         "use strict";
-        t.d(a, { c: () => T });
+        t.d(a, { c: () => d });
         var s = t(6376),
           r = t(779);
-        const d = (0, s.b)();
-        function T(e, a = {}) {
-          return (0, s.d)(d), (0, s.c)(e, 2, r.a, a, d).publicSuffix;
+        const T = (0, s.b)();
+        function d(e, a = {}) {
+          return (0, s.d)(T), (0, s.c)(e, 2, r.a, a, T).publicSuffix;
         }
       },
       6709: (e, a, t) => {
@@ -32343,8 +32227,8 @@
               t = [1, { gov: e, com: e, org: e, net: e, edu: e }],
               s = [0, { "*": a }],
               r = [1, { blogspot: a }],
-              d = [1, { gov: e }],
-              T = [0, { "*": e }],
+              T = [1, { gov: e }],
+              d = [0, { "*": e }],
               n = [0, { cloud: a }],
               o = [1, { co: a }],
               y = [2, { nodes: a }],
@@ -32362,8 +32246,8 @@
               p = [0, { app: a }],
               D = [2, { eu: a }],
               C = [0, { site: a }],
-              f = [0, { pages: a }],
-              _ = [1, { com: e, edu: e, net: e, org: e }],
+              _ = [0, { pages: a }],
+              f = [1, { com: e, edu: e, net: e, org: e }],
               E = [0, { j: a }],
               I = [0, { jelastic: a }],
               H = [0, { user: a }],
@@ -32378,8 +32262,8 @@
               W = [0, { forgot: a }],
               x = [1, { gs: e }],
               J = [0, { nes: e }],
-              O = [1, { k12: e, cc: e, lib: e }],
-              K = [1, { cc: e, lib: e }];
+              K = [1, { k12: e, cc: e, lib: e }],
+              O = [1, { cc: e, lib: e }];
             return [
               0,
               {
@@ -32504,7 +32388,7 @@
                   }
                 ],
                 arpa: [1, { e164: e, "in-addr": e, ip6: e, iris: e, uri: e, urn: e }],
-                as: d,
+                as: T,
                 asia: [1, { cloudns: a }],
                 at: [
                   1,
@@ -32557,7 +32441,7 @@
                 az: [1, { com: e, net: e, int: e, gov: e, org: e, edu: e, info: e, pp: e, mil: e, name: e, pro: e, biz: e }],
                 ba: [1, { com: e, edu: e, gov: e, mil: e, net: e, org: e, rs: a, blogspot: a }],
                 bb: [1, { biz: e, co: e, com: e, edu: e, gov: e, info: e, net: e, org: e, store: e, tv: e }],
-                bd: T,
+                bd: d,
                 be: [
                   1,
                   {
@@ -32571,7 +32455,7 @@
                     transurl: s
                   }
                 ],
-                bf: d,
+                bf: T,
                 bg: [
                   1,
                   {
@@ -32867,7 +32751,7 @@
                     natal: e,
                     net: e,
                     niteroi: e,
-                    nom: T,
+                    nom: d,
                     not: e,
                     ntr: e,
                     odo: e,
@@ -32966,7 +32850,7 @@
                     spawn: [0, { instances: a }]
                   }
                 ],
-                cd: d,
+                cd: T,
                 cf: r,
                 cg: e,
                 ch: [
@@ -33010,7 +32894,7 @@
                     nl: a
                   }
                 ],
-                ck: T,
+                ck: d,
                 cl: [1, { co: e, gob: e, gov: e, mil: e, blogspot: a }],
                 cm: [1, { co: e, com: e, gov: e, net: e }],
                 cn: [
@@ -33576,7 +33460,7 @@
                     "reserve-online": a,
                     hotelwithflight: a,
                     remotewd: a,
-                    wiardweb: f,
+                    wiardweb: _,
                     messwithdns: a,
                     "woltlab-demo": a,
                     wpenginepowered: [2, { js: a }],
@@ -33589,7 +33473,7 @@
                 cr: [1, { ac: e, co: e, ed: e, fi: e, go: e, or: e, sa: e }],
                 cu: [1, { com: e, edu: e, org: e, net: e, gov: e, inf: e }],
                 cv: [1, { com: e, edu: e, int: e, nome: e, org: e, blogspot: a }],
-                cw: _,
+                cw: f,
                 cx: [1, { gov: e, ath: a, info: a }],
                 cy: [
                   1,
@@ -33649,7 +33533,7 @@
                     günstigbestellen: a,
                     "xn--gnstigliefern-wob": a,
                     günstigliefern: a,
-                    "hs-heilbronn": [0, { it: f }],
+                    "hs-heilbronn": [0, { it: _ }],
                     "dyn-berlin": a,
                     "in-berlin": a,
                     "in-brb": a,
@@ -33709,7 +33593,7 @@
                 edu: [1, { rit: [0, { "git-pages": a }] }],
                 ee: [1, { edu: e, gov: e, riik: e, lib: e, med: e, com: r, pri: e, aip: e, org: e, fie: e }],
                 eg: [1, { com: r, edu: e, eun: e, gov: e, mil: e, name: e, net: e, org: e, sci: e }],
-                er: T,
+                er: d,
                 es: [1, { com: r, nom: e, org: e, gob: e, edu: e, "123miweb": a, myspreadshop: a }],
                 et: [1, { com: e, gov: e, org: e, edu: e, biz: e, name: e, info: e, net: e }],
                 eu: [
@@ -33733,7 +33617,7 @@
                   }
                 ],
                 fj: [1, { ac: e, biz: e, com: e, gov: e, info: e, mil: e, name: e, net: e, org: e, pro: e }],
-                fk: T,
+                fk: d,
                 fm: [1, { com: e, edu: e, net: e, org: e, radio: a, user: s }],
                 fo: e,
                 fr: [
@@ -34542,7 +34426,7 @@
                   }
                 ],
                 je: [1, { co: e, net: e, org: e, of: a }],
-                jm: T,
+                jm: d,
                 jo: [1, { com: e, org: e, net: e, edu: e, sch: e, gov: e, mil: e, name: e }],
                 jobs: e,
                 jp: [
@@ -36562,13 +36446,13 @@
                     鳥取: e,
                     "xn--d5qv7z876c": e,
                     鹿児島: e,
-                    kawasaki: T,
-                    kitakyushu: T,
-                    kobe: T,
-                    nagoya: T,
-                    sapporo: T,
-                    sendai: T,
-                    yokohama: T,
+                    kawasaki: d,
+                    kitakyushu: d,
+                    kobe: d,
+                    nagoya: d,
+                    sapporo: d,
+                    sendai: d,
+                    yokohama: d,
                     buyshop: a,
                     fashionstore: a,
                     handcrafted: a,
@@ -36712,7 +36596,7 @@
                 ],
                 ke: [1, { ac: e, co: r, go: e, info: e, me: e, mobi: e, ne: e, or: e, sc: e }],
                 kg: [1, { org: e, net: e, com: e, edu: e, gov: e, mil: e, blog: a, io: a, jp: a, tv: a, uk: a, us: a }],
-                kh: T,
+                kh: d,
                 ki: F,
                 km: [
                   1,
@@ -36774,7 +36658,7 @@
                   }
                 ],
                 kw: [1, { com: e, edu: e, emb: e, gov: e, ind: e, net: e, org: e }],
-                ky: _,
+                ky: f,
                 kz: [1, { org: e, edu: e, net: e, gov: e, mil: e, com: e, jcloud: a, kazteleport: [0, { upaas: a }] }],
                 la: [1, { int: e, net: e, info: e, edu: e, gov: e, per: e, com: e, org: e, bnr: a, c: a }],
                 lb: t,
@@ -36862,7 +36746,7 @@
                 mil: e,
                 mk: [1, { com: e, org: e, net: e, edu: e, gov: e, inf: e, name: e, blogspot: a }],
                 ml: [1, { com: e, edu: e, gouv: e, gov: e, net: e, org: e, presse: e }],
-                mm: T,
+                mm: d,
                 mn: [1, { gov: e, edu: e, org: e, nyc: a }],
                 mo: t,
                 mobi: [1, { barsy: a, dscloud: a }],
@@ -38015,7 +37899,7 @@
                     myspreadshop: a
                   }
                 ],
-                np: T,
+                np: d,
                 nr: F,
                 nu: [1, { merseine: a, mine: a, shacknet: a, enterprisecloud: a }],
                 nz: [
@@ -38224,7 +38108,7 @@
                 pa: [1, { ac: e, gob: e, com: e, org: e, sld: e, edu: e, net: e, ing: e, abo: e, med: e, nom: e }],
                 pe: [1, { edu: e, gob: e, nom: e, mil: e, org: e, com: e, net: e, blogspot: a }],
                 pf: [1, { com: e, org: e, edu: e }],
-                pg: T,
+                pg: d,
                 ph: [1, { com: e, net: e, org: e, gov: e, edu: e, ngo: e, mil: e, i: e }],
                 pk: [
                   1,
@@ -38727,7 +38611,7 @@
                   }
                 ],
                 sv: [1, { com: e, edu: e, gob: e, org: e, red: e }],
-                sx: d,
+                sx: T,
                 sy: w,
                 sz: [1, { co: e, ac: e, org: e }],
                 tc: [1, { ch: a, me: a, we: a }],
@@ -38741,7 +38625,7 @@
                   { ac: e, biz: e, co: e, com: e, edu: e, go: e, gov: e, int: e, mil: e, name: e, net: e, nic: e, org: e, test: e, web: e }
                 ],
                 tk: e,
-                tl: d,
+                tl: T,
                 tm: [1, { com: e, co: e, org: e, net: e, nom: e, gov: e, mil: e, edu: e }],
                 tn: [
                   1,
@@ -38790,7 +38674,7 @@
                     tsk: e,
                     tv: e,
                     web: e,
-                    nc: d
+                    nc: T
                   }
                 ],
                 tt: [
@@ -38962,7 +38846,7 @@
                     org: [1, { glug: a, lug: a, lugs: a, affinitylottery: a, raffleentry: a, weeklylottery: a }],
                     plc: e,
                     police: e,
-                    sch: T,
+                    sch: d,
                     conn: a,
                     copro: a,
                     hosp: a,
@@ -38985,61 +38869,61 @@
                     isa: e,
                     kids: e,
                     nsn: e,
-                    ak: O,
-                    al: O,
-                    ar: O,
-                    as: O,
-                    az: O,
-                    ca: O,
-                    co: O,
-                    ct: O,
-                    dc: O,
+                    ak: K,
+                    al: K,
+                    ar: K,
+                    as: K,
+                    az: K,
+                    ca: K,
+                    co: K,
+                    ct: K,
+                    dc: K,
                     de: [1, { cc: e, lib: a }],
-                    fl: O,
-                    ga: O,
-                    gu: O,
-                    hi: K,
-                    ia: O,
-                    id: O,
-                    il: O,
-                    in: O,
-                    ks: O,
-                    ky: O,
-                    la: O,
+                    fl: K,
+                    ga: K,
+                    gu: K,
+                    hi: O,
+                    ia: K,
+                    id: K,
+                    il: K,
+                    in: K,
+                    ks: K,
+                    ky: K,
+                    la: K,
                     ma: [1, { k12: [1, { pvt: e, chtr: e, paroch: e }], cc: e, lib: e }],
-                    md: O,
-                    me: O,
+                    md: K,
+                    me: K,
                     mi: [1, { k12: e, cc: e, lib: e, "ann-arbor": e, cog: e, dst: e, eaton: e, gen: e, mus: e, tec: e, washtenaw: e }],
-                    mn: O,
-                    mo: O,
-                    ms: O,
-                    mt: O,
-                    nc: O,
-                    nd: K,
-                    ne: O,
-                    nh: O,
-                    nj: O,
-                    nm: O,
-                    nv: O,
-                    ny: O,
-                    oh: O,
-                    ok: O,
-                    or: O,
-                    pa: O,
-                    pr: O,
-                    ri: K,
-                    sc: O,
-                    sd: K,
-                    tn: O,
-                    tx: O,
-                    ut: O,
-                    vi: O,
-                    vt: O,
-                    va: O,
-                    wa: O,
-                    wi: O,
+                    mn: K,
+                    mo: K,
+                    ms: K,
+                    mt: K,
+                    nc: K,
+                    nd: O,
+                    ne: K,
+                    nh: K,
+                    nj: K,
+                    nm: K,
+                    nv: K,
+                    ny: K,
+                    oh: K,
+                    ok: K,
+                    or: K,
+                    pa: K,
+                    pr: K,
+                    ri: O,
+                    sc: K,
+                    sd: O,
+                    tn: K,
+                    tx: K,
+                    ut: K,
+                    vi: K,
+                    vt: K,
+                    va: K,
+                    wa: K,
+                    wi: K,
                     wv: [1, { cc: e }],
-                    wy: O,
+                    wy: K,
                     graphox: a,
                     cloudns: a,
                     drud: a,
@@ -40751,29 +40635,29 @@
       },
       779: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => T });
+        t.d(a, { a: () => d });
         var s = t(6376),
           r = t(6709);
-        function d(e, a, t, s) {
+        function T(e, a, t, s) {
           let r = null,
-            d = a;
-          for (; void 0 !== d && (0 != (d[0] & s) && (r = { index: t + 1, isIcann: 1 === d[0], isPrivate: 2 === d[0] }), -1 !== t); ) {
-            const a = d[1];
-            (d = Object.prototype.hasOwnProperty.call(a, e[t]) ? a[e[t]] : a["*"]), (t -= 1);
+            T = a;
+          for (; void 0 !== T && (0 != (T[0] & s) && (r = { index: t + 1, isIcann: 1 === T[0], isPrivate: 2 === T[0] }), -1 !== t); ) {
+            const a = T[1];
+            (T = Object.prototype.hasOwnProperty.call(a, e[t]) ? a[e[t]] : a["*"]), (t -= 1);
           }
           return r;
         }
-        function T(e, a, t) {
-          var T;
+        function d(e, a, t) {
+          var d;
           if ((0, s.a)(e, a, t)) return;
           const n = e.split("."),
             o = (a.allowPrivateDomains ? 2 : 0) | (a.allowIcannDomains ? 1 : 0),
-            y = d(n, r.a, n.length - 1, o);
+            y = T(n, r.a, n.length - 1, o);
           if (null !== y)
             return (t.isIcann = y.isIcann), (t.isPrivate = y.isPrivate), void (t.publicSuffix = n.slice(y.index + 1).join("."));
-          const i = d(n, r.b, n.length - 1, o);
+          const i = T(n, r.b, n.length - 1, o);
           if (null !== i) return (t.isIcann = i.isIcann), (t.isPrivate = i.isPrivate), void (t.publicSuffix = n.slice(i.index).join("."));
-          (t.isIcann = !1), (t.isPrivate = !1), (t.publicSuffix = null !== (T = n[n.length - 1]) && void 0 !== T ? T : null);
+          (t.isIcann = !1), (t.isPrivate = !1), (t.publicSuffix = null !== (d = n[n.length - 1]) && void 0 !== d ? d : null);
         }
       }
     },
@@ -40781,8 +40665,8 @@
   function s(t) {
     var r = a[t];
     if (void 0 !== r) return r.exports;
-    var d = (a[t] = { exports: {} });
-    return e[t](d, d.exports, s), d.exports;
+    var T = (a[t] = { exports: {} });
+    return e[t](T, T.exports, s), T.exports;
   }
   (s.n = (e) => {
     var a = e && e.__esModule ? () => e.default : () => e;
@@ -40794,10 +40678,10 @@
     (s.o = (e, a) => Object.prototype.hasOwnProperty.call(e, a)),
     (s.p = "/"),
     s(4965),
-    s(8791),
+    s(808),
     s(9300),
     s(4190),
     s(3108),
     s(2948),
-    s(3032);
+    s(6381);
 })();

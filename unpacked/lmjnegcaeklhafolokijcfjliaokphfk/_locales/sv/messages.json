@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ byte",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "sv"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Om"
@@ -154,7 +154,7 @@
   "adaptative": {
     "message": "Adaptiva $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +207,13 @@
   "browser_info": {
     "message": "Webbläsare $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +221,7 @@
   "browser_locale": {
     "message": "Webbläsarplats: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +229,7 @@
   "build_options": {
     "message": "Versionens valmöjligheter: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +237,7 @@
   "built_on": {
     "message": "Baserat på $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +248,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ video",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +316,7 @@
   "chrome_premium_hls": {
     "message": "Utan premiumstatus kan en ny HLS-nerladdning endast utföras $ARG1$ minuter efter den tidigare",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,7 +339,7 @@
   "chrome_premium_source": {
     "message": "Du är premiumanvändare via $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -389,7 +389,7 @@
   "coapp_latest_version": {
     "message": "Den senaste tillgängliga versionen är $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +406,10 @@
   "coapp_outofdate_text": {
     "message": "Du använder ett companion program version $ARG1$men den här funktionen kräver version $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -585,7 +585,7 @@
   "convrule_format": {
     "message": "Till format $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -593,7 +593,7 @@
   "convrule_from_domain": {
     "message": "Från domän $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,7 +610,7 @@
   "convrule_with_ext": {
     "message": "med förlängning $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -627,7 +627,7 @@
   "copy_of": {
     "message": "Kopia av $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -635,10 +635,10 @@
   "corrupted_media_file": {
     "message": "Kan inte få information från media '$ARG1$' från fil '$ARG2$'. Filen kan vara skadad",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -667,7 +667,7 @@
   "directory_not_exist_body": {
     "message": "Mappen '$ARG1$' existerar inte, OK för att skapa mappen",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -717,7 +717,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' existerar men är inte en katalog",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -740,7 +740,7 @@
   "failed_aggregating": {
     "message": "Misslyckades att samla \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -748,7 +748,7 @@
   "failed_converting": {
     "message": "Misslyckades med att konvertera \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -756,7 +756,7 @@
   "failed_getting_info": {
     "message": "Misslyckades att hämta info från \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -779,7 +779,7 @@
   "file_generated": {
     "message": "Filen \"$ARG1$\" har genererats.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -787,7 +787,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" är nu redo",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -798,7 +798,7 @@
   "from_domain": {
     "message": "Från $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -809,7 +809,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ filer",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -817,7 +817,7 @@
   "gallery_from_domain": {
     "message": "Galleri från $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -825,7 +825,7 @@
   "gallery_links_from_domain": {
     "message": "Länkar från $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -866,7 +866,7 @@
   "lic_mismatch1": {
     "message": "Licensen gäller för $ARG1$ men tilläggets webbläsarversion specificerades inte",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -874,10 +874,10 @@
   "lic_mismatch2": {
     "message": "Licensen gäller för $ARG1$ men tilläggets version är för $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -945,7 +945,7 @@
   "network_error_status": {
     "message": "Nätverksfel - status $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -962,7 +962,7 @@
   "no_audio_in_file": {
     "message": "Ingen ljudström i fil $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -991,7 +991,7 @@
   "no_video_in_file": {
     "message": "Ingen videoström i fil $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1005,10 +1005,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1025,7 +1025,7 @@
   "overwrite_file": {
     "message": "Skriva över filen '$ARG1$'?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1045,10 +1045,10 @@
   "platform_info": {
     "message": "Plattform $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1098,10 +1098,10 @@
   "req_locale": {
     "message": "Eller kanske hjälp till att översätta tillägget till '$ARG1$' (det fattas $ARG2$-strängar) ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1241,7 +1241,7 @@
   "version": {
     "message": "Version $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1732,7 +1732,7 @@
   "you_downloaded_n_videos": {
     "message": "Du har precis laddat ned $ARG1$ filer med Video DownloadHelper.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

@@ -49,6 +49,8 @@ function safeSelf() {
   const safe = {
     Array_from: Array.from,
     Error: self.Error,
+    Function_toStringFn: self.Function.prototype.toString,
+    Function_toString: (thisArg) => safe.Function_toStringFn.call(thisArg),
     Math_floor: Math.floor,
     Math_random: Math.random,
     Object_defineProperty: Object.defineProperty.bind(Object),
@@ -116,7 +118,7 @@ function safeSelf() {
         return new RegExp(verbatim ? `^${reStr}$` : reStr, flags);
       }
       try {
-        return new RegExp(match[1], match[2] || flags);
+        return new RegExp(match[1], match[2] || undefined);
       } catch (ex) {}
       return /^/;
     },
@@ -435,9 +437,9 @@ function setConstantCore(trusted = false, chain = "", cValue = "") {
       cValue = null;
     } else if (cValue === "''" || cValue === "") {
       cValue = "";
-    } else if (cValue === "[]") {
+    } else if (cValue === "[]" || cValue === "emptyArr") {
       cValue = [];
-    } else if (cValue === "{}") {
+    } else if (cValue === "{}" || cValue === "emptyObj") {
       cValue = {};
     } else if (cValue === "noopFunc") {
       cValue = cloakFunc(function () {});
@@ -469,14 +471,15 @@ function setConstantCore(trusted = false, chain = "", cValue = "") {
       return;
     }
     if (extraArgs.as !== undefined) {
+      const value = cValue;
       if (extraArgs.as === "function") {
-        cValue = () => cValue;
+        cValue = () => value;
       } else if (extraArgs.as === "callback") {
-        cValue = () => () => cValue;
+        cValue = () => () => value;
       } else if (extraArgs.as === "resolved") {
-        cValue = Promise.resolve(cValue);
+        cValue = Promise.resolve(value);
       } else if (extraArgs.as === "rejected") {
-        cValue = Promise.reject(cValue);
+        cValue = Promise.reject(value);
       }
     }
     let aborted = false;
@@ -593,7 +596,7 @@ function replaceNodeTextFn(nodeName = "", pattern = "", replacement = "") {
   const rePattern = safe.patternToRegex(pattern, "gms");
   const extraArgs = safe.getExtraArgs(Array.from(arguments), 3);
   const shouldLog = (scriptletGlobals.has("canDebug") && extraArgs.log) || 0;
-  const reCondition = safe.patternToRegex(extraArgs.condition || "", "gms");
+  const reCondition = safe.patternToRegex(extraArgs.condition || "", "ms");
   const stop = (takeRecord = true) => {
     if (takeRecord) {
       handleMutations(observer.takeRecords());
@@ -606,12 +609,15 @@ function replaceNodeTextFn(nodeName = "", pattern = "", replacement = "") {
   let sedCount = extraArgs.sedCount || 0;
   const handleNode = (node) => {
     const before = node.textContent;
-    if (safe.RegExp_test.call(rePattern, before) === false) {
-      return true;
-    }
+    reCondition.lastIndex = 0;
     if (safe.RegExp_test.call(reCondition, before) === false) {
       return true;
     }
+    rePattern.lastIndex = 0;
+    if (safe.RegExp_test.call(rePattern, before) === false) {
+      return true;
+    }
+    rePattern.lastIndex = 0;
     const after = pattern !== "" ? before.replace(rePattern, replacement) : replacement;
     node.textContent = after;
     if (shouldLog !== 0) {
@@ -863,6 +869,13 @@ function setLocalStorageItemFn(which = "local", trusted = false, key = "", value
     return;
   }
 
+  // For increased compatibility with AdGuard
+  if (value === "emptyArr") {
+    value = "[]";
+  } else if (value === "emptyObj") {
+    value = "{}";
+  }
+
   const trustedValues = ["", "undefined", "null", "false", "true", "on", "off", "yes", "no", "{}", "[]", '""', "$remove$"];
 
   if (trusted) {
@@ -874,12 +887,15 @@ function setLocalStorageItemFn(which = "local", trusted = false, key = "", value
       value = new Date().toISOString();
     }
   } else {
-    if (trustedValues.includes(value.toLowerCase()) === false) {
-      if (/^\d+$/.test(value) === false) {
+    const normalized = value.toLowerCase();
+    const match = /^("?)(.+)\1$/.exec(normalized);
+    const unquoted = (match && match[2]) || normalized;
+    if (trustedValues.includes(unquoted) === false) {
+      if (/^\d+$/.test(unquoted) === false) {
         return;
       }
-      value = parseInt(value, 10);
-      if (value > 32767) {
+      const n = parseInt(unquoted, 10);
+      if (n > 32767) {
         return;
       }
     }
@@ -1431,7 +1447,7 @@ function addEventListenerDefuser(type = "", pattern = "") {
         let type, handler;
         try {
           type = String(args[0]);
-          handler = String(args[1]);
+          handler = args[1] instanceof Function ? String(safe.Function_toString(args[1])) : String(args[1]);
         } catch (ex) {}
         const matchesType = safe.RegExp_test.call(reType, type);
         const matchesHandler = safe.RegExp_test.call(rePattern, handler);
@@ -1998,7 +2014,7 @@ function noRequestAnimationFrameIf(needle = "") {
   const reNeedle = safe.patternToRegex(needle);
   window.requestAnimationFrame = new Proxy(window.requestAnimationFrame, {
     apply: function (target, thisArg, args) {
-      const a = String(args[0]);
+      const a = args[0] instanceof Function ? String(safe.Function_toString(args[0])) : String(args[0]);
       let defuse = false;
       if (log !== undefined) {
         log('uBO: requestAnimationFrame("%s")', a);
@@ -2057,7 +2073,7 @@ function noSetIntervalIf(needle = "", delay = "") {
   const reNeedle = safe.patternToRegex(needle);
   self.setInterval = new Proxy(self.setInterval, {
     apply: function (target, thisArg, args) {
-      const a = String(args[0]);
+      const a = args[0] instanceof Function ? String(safe.Function_toString(args[0])) : String(args[0]);
       const b = args[1];
       if (log !== undefined) {
         log('uBO: setInterval("%s", %s)', a, b);
@@ -2116,7 +2132,7 @@ function noSetTimeoutIf(needle = "", delay = "") {
   const reNeedle = safe.patternToRegex(needle);
   self.setTimeout = new Proxy(self.setTimeout, {
     apply: function (target, thisArg, args) {
-      const a = String(args[0]);
+      const a = args[0] instanceof Function ? String(safe.Function_toString(args[0])) : String(args[0]);
       const b = args[1];
       if (log !== undefined) {
         log('uBO: setTimeout("%s", %s)', a, b);
@@ -2651,8 +2667,8 @@ function disableNewtabLinks() {
 /******************************************************************************/
 
 builtinScriptlets.push({
-  name: "cookie-remover.js",
-  aliases: ["remove-cookie.js"],
+  name: "remove-cookie.js",
+  aliases: ["cookie-remover.js"],
   fn: cookieRemover,
   world: "ISOLATED",
   dependencies: ["safe-self.fn"]
@@ -2664,21 +2680,31 @@ function cookieRemover(needle = "") {
   }
   const safe = safeSelf();
   const reName = safe.patternToRegex(needle);
-  const removeCookie = function () {
+  const extraArgs = safe.getExtraArgs(Array.from(arguments), 1);
+  const throttle = (fn, ms = 500) => {
+    if (throttle.timer !== undefined) {
+      return;
+    }
+    throttle.timer = setTimeout(() => {
+      throttle.timer = undefined;
+      fn();
+    }, ms);
+  };
+  const removeCookie = () => {
     document.cookie.split(";").forEach((cookieStr) => {
-      let pos = cookieStr.indexOf("=");
+      const pos = cookieStr.indexOf("=");
       if (pos === -1) {
         return;
       }
-      let cookieName = cookieStr.slice(0, pos).trim();
-      if (!reName.test(cookieName)) {
+      const cookieName = cookieStr.slice(0, pos).trim();
+      if (reName.test(cookieName) === false) {
         return;
       }
-      let part1 = cookieName + "=";
-      let part2a = "; domain=" + document.location.hostname;
-      let part2b = "; domain=." + document.location.hostname;
+      const part1 = cookieName + "=";
+      const part2a = "; domain=" + document.location.hostname;
+      const part2b = "; domain=." + document.location.hostname;
       let part2c, part2d;
-      let domain = document.domain;
+      const domain = document.domain;
       if (domain) {
         if (domain !== document.location.hostname) {
           part2c = "; domain=." + domain;
@@ -2687,8 +2713,8 @@ function cookieRemover(needle = "") {
           part2d = "; domain=" + domain.replace("www", "");
         }
       }
-      let part3 = "; path=/";
-      let part4 = "; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      const part3 = "; path=/";
+      const part4 = "; Max-Age=-1000; expires=Thu, 01 Jan 1970 00:00:00 GMT";
       document.cookie = part1 + part4;
       document.cookie = part1 + part2a + part4;
       document.cookie = part1 + part2b + part4;
@@ -2705,6 +2731,23 @@ function cookieRemover(needle = "") {
   };
   removeCookie();
   window.addEventListener("beforeunload", removeCookie);
+  if (typeof extraArgs.when !== "string") {
+    return;
+  }
+  const supportedEventTypes = ["scroll", "keydown"];
+  const eventTypes = extraArgs.when.split(/\s/);
+  for (const type of eventTypes) {
+    if (supportedEventTypes.includes(type) === false) {
+      continue;
+    }
+    document.addEventListener(
+      type,
+      () => {
+        throttle(removeCookie);
+      },
+      { passive: true }
+    );
+  }
 }
 
 /******************************************************************************/
@@ -3430,14 +3473,21 @@ function setCookie(name = "", value = "", path = "") {
     "on",
     "off",
     "true",
+    "t",
     "false",
-    "y",
-    "n",
+    "f",
     "yes",
-    "no"
+    "y",
+    "no",
+    "n",
+    "necessary",
+    "required"
   ];
-  if (validValues.includes(value.toLowerCase()) === false) {
-    if (/^\d+$/.test(value) === false) {
+  const normalized = value.toLowerCase();
+  const match = /^("?)(.+)\1$/.exec(normalized);
+  const unquoted = (match && match[2]) || normalized;
+  if (validValues.includes(unquoted) === false) {
+    if (/^\d+$/.test(unquoted) === false) {
       return;
     }
     const n = parseInt(value, 10);
@@ -3445,7 +3495,6 @@ function setCookie(name = "", value = "", path = "") {
       return;
     }
   }
-  value = encodeURIComponent(value);
 
   setCookieFn(false, name, value, "", path, safeSelf().getExtraArgs(Array.from(arguments), 3));
 }
@@ -3750,9 +3799,9 @@ function multiup() {
  **/
 
 builtinScriptlets.push({
-  name: "replace-node-text.js",
+  name: "trusted-replace-node-text.js",
   requiresTrust: true,
-  aliases: ["rpnt.js"],
+  aliases: ["trusted-rpnt.js", "replace-node-text.js", "rpnt.js"],
   fn: replaceNodeText,
   world: "ISOLATED",
   dependencies: ["replace-node-text.fn"]
@@ -3862,6 +3911,17 @@ builtinScriptlets.push({
 });
 function trustedSetLocalStorageItem(key = "", value = "") {
   setLocalStorageItemFn("local", true, key, value);
+}
+
+builtinScriptlets.push({
+  name: "trusted-set-session-storage-item.js",
+  requiresTrust: true,
+  fn: trustedSetSessionStorageItem,
+  world: "ISOLATED",
+  dependencies: ["set-local-storage-item.fn"]
+});
+function trustedSetSessionStorageItem(key = "", value = "") {
+  setLocalStorageItemFn("session", true, key, value);
 }
 
 /*******************************************************************************
@@ -4146,6 +4206,7 @@ function trustedPruneInboundObject(entryPoint = "", argPos = "", rawPrunePaths =
   if (rawNeedlePaths !== "") {
     needlePaths.push(...rawNeedlePaths.split(/ +/));
   }
+  const stackNeedle = safe.initPattern(extraArgs.stackToMatch || "", { canNegate: true });
   const mustProcess = (root) => {
     for (const needlePath of needlePaths) {
       if (objectFindOwnerFn(root, needlePath) === false) {
@@ -4167,7 +4228,7 @@ function trustedPruneInboundObject(entryPoint = "", argPos = "", rawPrunePaths =
           }
         }
         if (objBefore !== undefined) {
-          const objAfter = objectPruneFn(objBefore, rawPrunePaths, rawNeedlePaths, { matchAll: true }, extraArgs);
+          const objAfter = objectPruneFn(objBefore, rawPrunePaths, rawNeedlePaths, stackNeedle, extraArgs);
           args[argIndex - 1] = objAfter || objBefore;
         }
       }

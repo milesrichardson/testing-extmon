@@ -441,7 +441,7 @@
     for (var i = low; i < high; i++) {
       var id = this.items[i];
       if (!this._currentlyRendered[id]) {
-        this._currentlyRendered[id] = this.options.itemRenderFunction(id);
+        this._currentlyRendered[id] = this.options.itemRenderFunction(id, i);
         this._currentlyRendered[id].classList.add("MegaDynamicListItem");
         var afterTarget;
         if (this._currentlyRendered[this.items[i - 1]]) {
@@ -539,7 +539,7 @@
   MegaDynamicList.prototype.throttledOnScroll = function (e) {
     var self = this;
     delay(
-      "megalist:scroll:" + this.listId,
+      "megadynamiclist:scroll:" + this.listId,
       function () {
         if (self._isUserScroll === true && self.listContainer === e.target) {
           if (self.options.enableUserScrollEvent) {
@@ -608,6 +608,10 @@
       position = 0;
     } else {
       position = this.items.indexOf(after) + 1;
+    }
+
+    if (Array.isArray(id) === false) {
+      id = [id];
     }
 
     [].splice.apply(this.items, [position, 0].concat(id));

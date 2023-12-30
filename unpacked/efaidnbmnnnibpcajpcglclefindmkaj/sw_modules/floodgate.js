@@ -19,8 +19,8 @@ import { common as e } from "./common.js";
 import { Proxy as t } from "./proxy.js";
 import { CACHE_PURGE_SCHEME as s, ADOBE_INTERNAL as r } from "./constant.js";
 import { dcLocalStorage as a } from "../common/local-storage.js";
-import { util as i } from "./util.js";
-var n = null;
+import { util as n } from "./util.js";
+var i = null;
 class o {
   proxy(...e) {
     return t.proxy.bind(this)(...e);
@@ -31,6 +31,7 @@ class o {
       (this.env = e.getEnv()),
       (this.accessToken = null),
       (this.useAnonymousUUID = !0),
+      (this.anonUserUUID = null),
       (this.featureGroups = null),
       (this.featuresMeta = {}),
       (this.lastCallTime = 0),
@@ -111,9 +112,10 @@ class o {
       t = "true" === a.getItem("betaOptOut"),
       s = "true" === a.getItem("adobeInternal"),
       r = a.getItem("pdfViewer");
-    let n;
-    n = r ? ("true" === r ? "enabled" : "disabled") : "neverEnabled";
-    const o = {
+    let i,
+      o = a.getItem("lastUserGuid");
+    (o && "" !== o) || (o = this.anonUserUUID), (i = r ? ("true" === r ? "enabled" : "disabled") : "neverEnabled");
+    const l = {
       clientId: this.clientId,
       meta: !0,
       extVersion: chrome.runtime.getManifest().version,
@@ -121,11 +123,12 @@ class o {
       installType: a.getItem("installType"),
       installVersion: a.getItem("installVersion"),
       adbInt: !t && s,
-      extbrowser: i.isEdge() ? "edge" : "chrome",
-      viewerStatus: n
+      extbrowser: n.isEdge() ? "edge" : "chrome",
+      viewerStatus: i,
+      anonId: o
     };
     if (
-      (Object.entries(o).forEach(([t, s]) => {
+      (Object.entries(l).forEach(([t, s]) => {
         e.searchParams.append(t, s);
       }),
       !this.floodgateUri || !this.clientId)
@@ -134,7 +137,7 @@ class o {
     return e.href;
   }
   createAnonUserUUID() {
-    const e = `${this.env}_${this.clientId}_${i.uuid()}`;
+    const e = `${this.env}_${this.clientId}_${n.uuid()}`;
     try {
       a.setItem("anonUserUUID", e);
     } catch (e) {}
@@ -145,9 +148,10 @@ class o {
       t = { "x-api-key": this.clientId };
     if (this.useAnonymousUUID) {
       try {
-        t["x-adobe-uuid"] = a.getItem("anonUserUUID");
+        this.anonUserUUID = a.getItem("anonUserUUID");
       } catch (e) {}
-      t["x-adobe-uuid"] || (e ? (t.Authorization = e) : (t["x-adobe-uuid"] = this.createAnonUserUUID()));
+      this.anonUserUUID ||
+        (e ? (t.Authorization = e) : ((this.anonUserUUID = this.createAnonUserUUID()), (t["x-adobe-uuid"] = this.anonUserUUID)));
     } else e && (t.Authorization = e);
     return fetch(this.getApiUrl(), { method: "GET", headers: t })
       .then((e) => {
@@ -163,5 +167,5 @@ class o {
       });
   }
 }
-n || (n = new o()).init();
-export const floodgate = n;
+i || (i = new o()).init();
+export const floodgate = i;

@@ -678,10 +678,10 @@
           ])
           .factory("httpInterceptor", ["$q", "$log", "$timeout", "$injector", l]);
         E.name;
-        var I = r(7929),
-          g = r(5420),
-          v = r(132),
-          m = r(2530);
+        var g = r(7929),
+          I = r(5420),
+          m = r(132),
+          v = r(2530);
         i()
           .module("app.user", [])
           .config([
@@ -904,16 +904,16 @@
                 f = "e28ff72c-58a5-49ba-8125-42ec264d7cd0",
                 p = (() => {
                   var e = new URL(l);
-                  return (e.search = I({ prompt: "select_account" })), e.toString();
+                  return (e.search = g({ prompt: "select_account" })), e.toString();
                 })();
               function E() {
                 return i || (i = t.get("userService")), i;
               }
-              function I(e) {
+              function g(e) {
                 const t = { client_id: f, response_type: "id_token token", redirect_uri: u, scope: o, response_mode: "fragment" };
                 return new URLSearchParams(Object.assign({}, t, e)).toString();
               }
-              async function g() {
+              async function I() {
                 var e = { method: "GET", url: a, headers: { "X-UserType": n } },
                   t = {};
                 try {
@@ -926,7 +926,7 @@
                 }
                 return t;
               }
-              async function v() {
+              async function m() {
                 var t = { method: "GET", url: c.O365CONFIG.ONEDRIVE_URL, headers: { "X-UserType": n } };
                 try {
                   var i = await E().httpRequest(t);
@@ -939,7 +939,7 @@
                   );
                 }
               }
-              async function m() {
+              async function v() {
                 var t = { method: "GET", url: "https://graph.microsoft.com/v1.0/me/drive", headers: { "X-UserType": n } };
                 try {
                   var r = await E().httpRequest(t),
@@ -981,13 +981,13 @@
                   }
                 },
                 lookupUserInfo: async function (e) {
-                  const t = [g(), v(), m()];
+                  const t = [I(), m(), v()];
                   return (await Promise.all(t)).reduce((e, t) => Object.assign(e, t));
                 },
                 requestAccessToken: async function (t, r) {
                   var i = { scope: t, response_type: "token" };
                   r && r.email && (i.login_hint = r.email);
-                  var o = I(i),
+                  var o = g(i),
                     a = new URL(l);
                   a.search = o.toString();
                   var s = await E().navigateToAuthEndpoint(a.href, n, !0);
@@ -1012,7 +1012,7 @@
             function (e, t, r, n, i, s, u, l, f) {
               async function p(e, r, n) {
                 var i = {};
-                if (!(i = await C(e))) return t.error("userService.acquireToken - Invalid type"), Promise.reject("Invalid userType");
+                if (!(i = await L(e))) return t.error("userService.acquireToken - Invalid type"), Promise.reject("Invalid userType");
                 !n && i.getResourceForEndpoint && (n = i.getResourceForEndpoint(r));
                 var o = {};
                 try {
@@ -1038,7 +1038,7 @@
                           };
                           return (i = await E(a)), i;
                         })(e, r, n);
-                      const i = await S();
+                      const i = await N();
                       var o = await k(i);
                       if (e.requestAccessToken) var a = await e.requestAccessToken(r, o);
                       return a;
@@ -1070,7 +1070,7 @@
               async function O(e) {
                 const r = e.type;
                 var n = void 0,
-                  o = await C(r),
+                  o = await L(r),
                   a = !1;
                 if (o) {
                   if (e.code) {
@@ -1098,7 +1098,7 @@
                     }
                   } else
                     e.id_token &&
-                      N(
+                      S(
                         (n = await h(e.id_token)),
                         await (async function (e) {
                           var r = "";
@@ -1128,12 +1128,12 @@
                           return { userId: r, tenantId: n };
                         })(e.id_token)
                       ),
-                      e.access_token && (await D(o, o.getConfig().userInfoUrl, e), n || (n = await S()), await B(o, e.id_token)),
+                      e.access_token && (await D(o, o.getConfig().userInfoUrl, e), n || (n = await N()), await B(o, e.id_token)),
                       (a = n !== c.USER_TYPE.NONE);
                   return (
                     e.error &&
                       ("interaction_required" === e.error
-                        ? R(await S(), !1)
+                        ? R(await N(), !1)
                         : t.error(
                             `userService.authenticate - authentication returned error: ${e.error} description: ${
                               e.error_description
@@ -1154,13 +1154,13 @@
                   i.remove("identity")
                 ]);
               }
-              async function N(e, t, r) {
-                const i = new I.Y();
+              async function S(e, t, r) {
+                const i = new g.Y();
                 await i.detectOs();
-                const o = { endpointUrl: "EU" === t.dataBoundary && "aad" === e ? g.x.EUDB : g.x.PUBLIC, plugins: [i] },
+                const o = { endpointUrl: "EU" === t.dataBoundary && "aad" === e ? I.x.EUDB : I.x.PUBLIC, plugins: [i] },
                   a = [
-                    ...m.gV.getFields({ name: "M365Extension", platform: "Web" }),
-                    ...m.n5.getFields({
+                    ...v.gV.getFields({ name: "M365Extension", platform: "Web" }),
+                    ...v.n5.getFields({
                       primaryIdentitySpace: "aad" === e ? "OrgIdPUID" : "MSAPUID",
                       primaryIdentityHash: r.userId,
                       isAnonymous: !1,
@@ -1169,10 +1169,10 @@
                     }),
                     d.dt("DeviceType", window.sessionStorage.getItem("deviceType"))
                   ],
-                  s = new v.a(a, o);
+                  s = new m.a(a, o);
                 (n.otelLogger.telemetrySinks = []), n.otelLogger.addSink(s), n.otelLogger.flushQueue();
               }
-              async function S() {
+              async function N() {
                 return (await i.get("userType")).userType || c.USER_TYPE.NONE;
               }
               async function h(e) {
@@ -1209,12 +1209,12 @@
                 }
                 return t !== c.USER_TYPE.NONE && (await i.set({ userType: t })), t;
               }
-              function U(e) {
+              function _(e) {
                 e.state && (e.state = decodeURIComponent(e.state));
                 var [t, r, n] = e.state.split("|");
                 return r && (e.type = r), e;
               }
-              async function _(e, r, n) {
+              async function U(e, r, n) {
                 return new Promise(async (i, s) => {
                   if (o.default.isBackgroundContext()) {
                     const E = (e = new URL(e)).searchParams;
@@ -1224,40 +1224,40 @@
                     }
                     var d = void 0,
                       l = void 0;
-                    function I() {
-                      if ((a.default.runtime.onMessage.removeListener(m), d)) {
+                    function g() {
+                      if ((a.default.runtime.onMessage.removeListener(v), d)) {
                         var e = document.getElementById(d);
                         e && e.parentNode.removeChild(e);
                       }
                     }
-                    const g = E.get("state"),
-                      v = E.get("scope");
+                    const I = E.get("state"),
+                      m = E.get("scope");
                     t.info(`loading auth url:${e.href} ${n ? "in iframe" : ""}`);
                     var f = await k();
-                    function m(r, n, o) {
+                    function v(r, n, o) {
                       if (n.id === a.default.runtime.id) {
                         if (r.activity === c.ACTIVITY.AUTHORIZATION.NAME) {
-                          var u = U(r);
+                          var u = _(r);
                           u || (t.error(`userService.listener - auth url:${e} returned null response `), s(u)),
-                            u.state !== g && t.warn(`userService.listener - auth url:${e} mismatched state:${u.state}`),
+                            u.state !== I && t.warn(`userService.listener - auth url:${e} mismatched state:${u.state}`),
                             t[u.error ? "error" : "debug"](
                               `userService.listener - auth response:${JSON.stringify(u)} received from url:${e}`
                             ),
                             l && clearTimeout(l),
                             delete u.activity,
-                            I(),
+                            g(),
                             i(u);
                         }
                       } else t.debug(`auth listener rejected invalid id: ${n.id}`);
                     }
                     if (
-                      (f && f.email && !E.has("login_hint") && E.set("login_hint", f.email), a.default.runtime.onMessage.addListener(m), n)
+                      (f && f.email && !E.has("login_hint") && E.set("login_hint", f.email), a.default.runtime.onMessage.addListener(v), n)
                     ) {
-                      E.set("prompt", "none"), (d = "authFrame!" + v);
+                      E.set("prompt", "none"), (d = "authFrame!" + m);
                       const T = 6e4;
                       l = setTimeout(() => {
                         t.warn(`userService.authInFrame timed out waiting for ${e.toString()} after ${T} ms`),
-                          I(),
+                          g(),
                           s("Timed out waiting for response from iFrame");
                       }, T);
                       var p = document.getElementById(d);
@@ -1279,15 +1279,15 @@
               }
               async function R(e, r = !0) {
                 !0 === r && T();
-                var n = await C(e);
+                var n = await L(e);
                 if (n.handleLogin) return n.handleLogin();
                 var i = n.getConfig().loginUrl;
-                if (i) return _(i, n.type);
+                if (i) return U(i, n.type);
                 t.error("userService.login - Invalid type");
               }
               async function w() {
-                const e = await S();
-                var r = await C(e);
+                const e = await N();
+                var r = await L(e);
                 if ((T(), r.handleLogout)) await r.handleLogout();
                 else {
                   var n = r.getConfig().logoutUrl;
@@ -1297,8 +1297,8 @@
                 }
                 t.debug(`userService.logout - ${e}`);
               }
-              async function A(e) {
-                return void 0 !== e && i.set({ authNext: { override: e } }), L({ noLogout: !0 });
+              async function y(e) {
+                return void 0 !== e && i.set({ authNext: { override: e } }), C({ noLogout: !0 });
               }
               o.default.isBackgroundContext() &&
                 a.default.runtime.onMessage.addListener(function (e, t, r) {
@@ -1320,14 +1320,14 @@
                     case c.ACTIVITY.AUTHORIZATION.NAME:
                       return (
                         t.id === a.default.runtime.id && e.close && (t.tab && t.tab.id && a.default.tabs.remove(t.tab.id), delete e.close),
-                        O(U(e)).then(() => {
+                        O(_(e)).then(() => {
                           r();
                         }),
                         !0
                       );
                     case c.ACTIVITY.REQUEST_TOKEN.NAME:
                       return (
-                        _(e.data.url, e.data.type, e.data.inIFrame).then((e) => {
+                        U(e.data.url, e.data.type, e.data.inIFrame).then((e) => {
                           r(e);
                         }),
                         !0
@@ -1336,10 +1336,10 @@
                       return;
                   }
                 }),
-                (window.useAuthNext = A),
-                (window.checkTransitionAuth = L);
-              const y = 864e5;
-              async function L(e) {
+                (window.useAuthNext = y),
+                (window.checkTransitionAuth = C);
+              const A = 864e5;
+              async function C(e) {
                 var r = new Date();
                 const n = r.toUTCString();
                 var a = await i.get("authNext");
@@ -1349,7 +1349,7 @@
                   a.authNext &&
                   a.authNext.lastCheck &&
                   o.default.isNotUndefinedOrNull(a.authNext.flighted) &&
-                  ((s = r - a.authNext.lastCheck), (!e || !0 !== e.force) && s < y && a.authNext.flighted)
+                  ((s = r - a.authNext.lastCheck), (!e || !0 !== e.force) && s < A && a.authNext.flighted)
                 )
                   return a.authNext.flighted;
                 t.info(`checkTransitionAuth time:${n}`);
@@ -1391,14 +1391,14 @@
                   (t.trackEvent("Request.AuthNext", { Elapsed: s, AuthNext: u, serviceType: d, EventCategory: "Request" }),
                   e && !e.noLogout && (await w()));
               }
-              async function C(e) {
+              async function L(e) {
                 var r = null;
                 return (
                   Object.values(c.USER_SERVICE_TYPE).includes(e) ||
                     (e = await (async function (e) {
                       var t = await $("service", e);
                       if (t) return t;
-                      if (((t = c.USER_SERVICE_TYPE.NONE), await A())) return c.USER_SERVICE_TYPE.MSID;
+                      if (((t = c.USER_SERVICE_TYPE.NONE), await y())) return c.USER_SERVICE_TYPE.MSID;
                       switch (e) {
                         case c.USER_TYPE.MSA:
                           t = c.USER_SERVICE_TYPE.MSA;
@@ -1442,7 +1442,7 @@
               }
               async function D(e, r, n) {
                 if ((n.expires_in && !n.expires_on && (n.expires_on = o.default.getCurrentTime() + Number(n.expires_in)), r)) {
-                  var a = await S();
+                  var a = await N();
                   if ((a === c.USER_TYPE.NONE && (a = await h(n)), a !== c.USER_TYPE.NONE)) {
                     var s = decodeURIComponent(n.scope).toLowerCase().split(/[ +]/);
                     for (const e of s) {
@@ -1496,7 +1496,7 @@
                 return $("userInfo", e);
               }
               async function $(e, t) {
-                t || (t = await S());
+                t || (t = await N());
                 var r = await P();
                 return r[t] && r[t][e] ? r[t][e] : null;
               }
@@ -1510,7 +1510,7 @@
                 return !(e && e > t + 120);
               }
               async function B(e, t) {
-                var r = await S(),
+                var r = await N(),
                   n = await e.lookupUserInfo(t);
                 a.default.runtime.sendMessage({ activity: c.ACTIVITY.USERINFO_AVAILABLE.NAME, data: n }),
                   !n.email && n.userPrincipalName && (n.email = n.userPrincipalName),
@@ -1528,7 +1528,7 @@
               }
               async function j(e) {
                 const r = e.type,
-                  n = await S();
+                  n = await N();
                 var i = e.getConfig().photoUrl;
                 if (i) {
                   var o = { method: "GET", url: i, responseType: "blob", headers: { "X-UserType": r } };
@@ -1552,7 +1552,7 @@
               return (
                 o.default.isBackgroundContext() &&
                   (async function () {
-                    t.debug("initCheckTransition"), await L(), setInterval(L, y);
+                    t.debug("initCheckTransition"), await C(), setInterval(C, A);
                   })(),
                 {
                   acquireToken: p,
@@ -1562,15 +1562,15 @@
                     return e.identity && e.userType && e.userType !== c.USER_TYPE.NONE;
                   },
                   getEndpointUrlForCurrentUser: async function (e) {
-                    const t = await S();
+                    const t = await N();
                     if (!t || t === c.USER_TYPE.NONE) return null;
-                    var r = await C(t);
+                    var r = await L(t);
                     return r ? r.getConfig()[e] : null;
                   },
-                  getUserType: S,
+                  getUserType: N,
                   getUserInfo: k,
                   getUserPhoto: async function () {
-                    var e = await S();
+                    var e = await N();
                     if (e === c.USER_TYPE.NONE)
                       return t.warn("UserService.getUserPhoto: no signed-in user"), Promise.reject(c.RECENTS.ERROR.UNSUPPORTED_USER_TYPE);
                     var r = await k(e);
@@ -1587,7 +1587,7 @@
                     return { userId: e.userId, tenantId: t.tenantId };
                   },
                   httpRequest: E,
-                  navigateToAuthEndpoint: _,
+                  navigateToAuthEndpoint: U,
                   saveUserInfo: Y,
                   waitForUserInfo: async function (e) {
                     return new Promise(async (r) => {
@@ -1610,14 +1610,14 @@
                     var e = await k();
                     return ["driveQuota", "licenses"].reduce((t, r) => (e[r] && (t[r] = e[r]), t), {});
                   },
-                  useAuthNext: A,
+                  useAuthNext: y,
                   authorize: O,
                   getAccessToken: M,
                   getPhotoFromServer: j,
                   login: R,
                   logout: w,
                   lookupUserInfo: B,
-                  createOtelSink: N
+                  createOtelSink: S
                 }
               );
             }
@@ -1719,7 +1719,7 @@
                       )
                     ) {
                       for (var t = {}, r = 0; r < e.responseHeaders.length; ++r) t[e.responseHeaders[r].name] = e.responseHeaders[r].value;
-                      if (!v(t, "Cache-Control") && !v(t, "Pragma"))
+                      if (!m(t, "Cache-Control") && !m(t, "Pragma"))
                         return t["Content-Type"]
                           ? c.FILE.OFFICE_MIME_TYPES[t["Content-Type"].toLowerCase()]
                             ? (n.trackEvent("OpenDocument_BrowserWebDocument"),
@@ -1762,7 +1762,7 @@
                       var t = e.tabId;
                       return (
                         d.upload(e.url, c.FILE.ORIGIN.LOCAL_PATH, function (e) {
-                          o.default.isUndefinedOrNull(e) || g(e, t);
+                          o.default.isUndefinedOrNull(e) || I(e, t);
                         }),
                         { redirectUrl: c.LINKS.PROGRESSPAGE_URL }
                       );
@@ -1821,12 +1821,10 @@
                       a.default.runtime.getPlatformInfo((e) => {
                         "cros" === e.os && i.show(c.NOTIFICATION.SETDEFAULT);
                       });
-                    var u = c.LINKS.SUPPORT_URL;
                     try {
                       const e = await s.get(["deviceId", "LastSession"]);
                       if (Object.keys(e).length) return;
                     } catch (e) {}
-                    g(u, null);
                   } else
                     "update" === e.reason &&
                       (n.trackEvent("Feature.AppUpdated", { AppVersion: r, PreviousVersion: e.previousVersion, EventCategory: "Feature" }),
@@ -1879,17 +1877,17 @@
                             ((e.body.sender = t.origin),
                             0 == "GetSupportedUrls".localeCompare(e.body.method, void 0, { sensitivity: "base" }))
                           )
-                            return T(N(), r), !0;
+                            return v(T(), r), !0;
                           a.default.runtime.sendNativeMessage(c.SSO.MESSAGE_CHANNEL, e.body, function (e) {
                             var t = {};
                             n.debug(`BrowserCore response: ${JSON.stringify(e)}`),
                               e
                                 ? e.status === c.SSO.RESPONSE_STATUS_FAIL
-                                  ? T(e, r)
+                                  ? v(e, r)
                                   : ((t = Object.assign({ status: c.SSO.RESPONSE_STATUS_SUCCESS, result: e })),
                                     n.trackEvent("Diagnostic.SsoSuccess", { EventCategory: "Diagnostic" }),
                                     r(t))
-                                : T(
+                                : v(
                                     {
                                       status: c.SSO.RESPONSE_STATUS_FAIL,
                                       code: c.SSO.RESPONSE_CODE_NO_SUPPORT,
@@ -1899,13 +1897,13 @@
                                   );
                           });
                         } catch (e) {
-                          T({ status: c.SSO.RESPONSE_STATUS_FAIL, code: c.SSO.RESPONSE_CODE_NO_SUPPORT, description: e.toString() }, r);
+                          v({ status: c.SSO.RESPONSE_STATUS_FAIL, code: c.SSO.RESPONSE_CODE_NO_SUPPORT, description: e.toString() }, r);
                         }
                         return !0;
                       case c.ACTIVITY.TELEMETRY.NAME:
                         switch (e.command) {
                           case c.TELEMETRY.COMMAND.SET_DISABLED:
-                            n.setEnabledSetting(e.enabled), m(e.enabled);
+                            n.setEnabledSetting(e.enabled);
                             break;
                           case c.TELEMETRY.COMMAND.TRACK_EVENT:
                             n.trackEvent(e.eventName, e.properties, e.measurements);
@@ -1979,14 +1977,14 @@
                           });
                       });
                   }));
-              function I(e, t) {
+              function g(e, t) {
                 o.default.isUndefinedOrNull(e)
                   ? t(null)
                   : d.upload(e, c.FILE.ORIGIN.HTML5, function (e) {
                       t(e);
                     });
               }
-              function g(e, t) {
+              function I(e, t) {
                 var i = r.defer();
                 i.resolve(
                   o.default.isNotUndefinedOrNull(t)
@@ -2008,30 +2006,20 @@
                       : a.default.tabs.update(t, { url: e });
                   });
               }
-              function v(e, t) {
+              function m(e, t) {
                 return e[t] && -1 !== e[t].toLowerCase().indexOf("private");
               }
-              function m(e) {
-                if ((o.default.isNotUndefinedOrNull(e) || (e = !0), o.default.isNotUndefinedOrNull(a.default.runtime.setUninstallURL))) {
-                  var t = o.default.getManifest(),
-                    r = t ? t.version : -1,
-                    n = o.default.isExtensionInDevelopmentMode() ? c.LINKS.OFFICE_HOME_DEV_URL : c.LINKS.OFFICE_HOME_URL;
-                  e &&
-                    ((n = c.LINKS.UNINSTALL + "?version=" + r), (n = o.default.isExtensionInDevelopmentMode() ? n + "&isDebug=true" : n)),
-                    a.default.runtime.setUninstallURL(n);
-                }
-              }
-              function T(e, t) {
+              function v(e, t) {
                 if (
                   (function (e) {
                     return e.ext && e.ext.error === c.SSO.RESPONSE_CODE_INVALID;
                   })(e)
                 ) {
-                  const e = N();
+                  const e = T();
                   n.trackEvent("Diagnostic.SsoFail", e, { EventCategory: "Diagnostic" }), t(e);
                 } else n.trackEvent("Diagnostic.SsoFail", e, { EventCategory: "Diagnostic" }), t(e);
               }
-              function N() {
+              function T() {
                 return {
                   status: "Fail",
                   code: "OSError",
@@ -2049,12 +2037,12 @@
                           else
                             for (var r = 0; r < e.length; ++r)
                               e[r].file(function (e) {
-                                I(e, function (e) {
+                                g(e, function (e) {
                                   t(e);
                                 });
                               });
                         })(t.entries, function (e) {
-                          o.default.isUndefinedOrNull(e) || g(e, null);
+                          o.default.isUndefinedOrNull(e) || I(e, null);
                         });
                       });
                   });
@@ -2064,8 +2052,8 @@
                   function (e) {
                     0 === a.default.runtime.getURL("").search(new RegExp(e.origin, "i"))
                       ? "[object File]" === Object.prototype.toString.call(e.data)
-                        ? I(e.data, function (e) {
-                            o.default.isUndefinedOrNull(e) || g(e, null);
+                        ? g(e.data, function (e) {
+                            o.default.isUndefinedOrNull(e) || I(e, null);
                           })
                         : n.error(
                             `BackgroundController.receiveMessage: Error processing message with event.data type ${Object.prototype.toString.call(
@@ -2076,18 +2064,16 @@
                   },
                   !1
                 ),
-                n.getEnabledSetting().then(function (e) {
-                  m(e);
-                });
+                n.getEnabledSetting().then(function (e) {});
             }
           ]);
         var T = r(6966),
-          N = r(459);
+          S = r(459);
         i()
           .module("app.copypaste", [])
           .factory("copyPasteService", ["$log", "imageReader", "$window", (e, t, r) => new s.s(e, t, r)])
           .factory("fileReader", () => new T.H())
-          .factory("imageReader", ["$log", "fileReader", (e, t) => new N.T(e, t)]).name;
+          .factory("imageReader", ["$log", "fileReader", (e, t) => new S.T(e, t)]).name;
         i()
           .module("app.file", [])
           .factory("fileService", [

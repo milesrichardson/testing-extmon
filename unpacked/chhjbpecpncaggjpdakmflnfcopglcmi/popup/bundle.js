@@ -3,10 +3,10 @@ var source;
 (self.webpackChunksource = self.webpackChunksource || []).push([
   [42],
   {
-    5526: (t, e, r) => {
+    45526: (t, e, r) => {
       "use strict";
-      r.d(e, { Hx: () => T, ec: () => h, rg: () => k, MT: () => w, X_: () => C });
-      var s = r(4835);
+      r.d(e, { Hx: () => E, ec: () => h, rg: () => k, MT: () => w, X_: () => C });
+      var s = r(14835);
       function n(t) {
         const e = t.availability;
         return !e || (e.indexOf("/OutOfStock") < 0 && e.indexOf("/SoldOutfStock") < 0);
@@ -69,7 +69,8 @@ var source;
             currency: t.priceCurrency || r.priceCurrency,
             price: t.price || r.price || r.priceSpecification?.price || r.lowPrice,
             category: t.category,
-            gtin: t.gtin14 || t.gtin13 || t.gtin12 || t.gtin8 || t.gtin
+            gtin: t.gtin14 || t.gtin13 || t.gtin12 || t.gtin8 || t.gtin,
+            condition: r.itemCondition || t.itemCondition
           }),
             (0, s.isString)(t.brand) ? (o.brand = t.brand) : (0, s.isObject)(t.brand) && (o.brand = t.brand.name);
         }
@@ -126,7 +127,8 @@ var source;
         breadcrumb: [{ selector: "[itemprop=breadcrumb]" }],
         description: [{ selector: "[itemprop=description]" }, { selector: ".product-info" }, { selector: ".itemDesc" }],
         price: [{ selector: "[itemprop=price]" }, { selector: ".product-price" }, { selector: ".price" }],
-        url: [{ selector: "[rel=canonical]", attribute: "href" }]
+        url: [{ selector: "[rel=canonical]", attribute: "href" }],
+        condition: { selector: "[itemprop=itemCondition]" }
       };
       class p {
         constructor() {
@@ -212,7 +214,8 @@ var source;
               mpn: l(o.querySelector("[itemprop=mpn],[itemprop=MPN], [property=mpn],[property=MPN]")),
               currency: l(o.querySelector("[itemprop=priceCurrency], [property=priceCurrency]")),
               url: l(o.querySelector("[itemprop=url], [property=url]")),
-              brand: l(o.querySelector("[itemprop=brand],[itemprop=manufacturer], [property=brand],[property=manufacturer]"))
+              brand: l(o.querySelector("[itemprop=brand],[itemprop=manufacturer], [property=brand],[property=manufacturer]")),
+              condition: l(o.querySelector("[itemprop=itemCondition], [property=itemCondition]"))
             });
           const a = t.querySelector(
             '[itemscope][itemtype*="://schema.org/BreadcrumbList"], [vocab*="://schema.org"][typeof="BreadcrumbList"]'
@@ -238,7 +241,8 @@ var source;
                 currency: `${e}"product:price:currency"],${e}"price:currency"]`,
                 brand: `${e}"og:brand"],${e}"product:brand"],${e}"product:brand:name"]`,
                 upc: `${e}"og:upc"]`,
-                url: `${e}"og:url"]`
+                url: `${e}"og:url"]`,
+                condition: `${e}"product:condition"]`
               },
               s = new p({
                 title: l(t.querySelector(r.title)),
@@ -246,7 +250,8 @@ var source;
                 price: l(t.querySelector(r.price)),
                 currency: l(t.querySelector(r.currency)),
                 brand: l(t.querySelector(r.brand)),
-                upc: l(t.querySelector(r.upc))
+                upc: l(t.querySelector(r.upc)),
+                condition: l(t.querySelector(r.condition))
               }),
               n = l(t.querySelector(r.url));
             return n && /^(http|\/)/.test(n) && (s.url = n), s;
@@ -273,7 +278,8 @@ var source;
               for (const s of t) if (((r = a({ container: e, config: s, isArray: !0 })), r)) break;
               return (0, s.isString)(r) ? r.split(/\s?-\s?/) : (0, s.isArray)(r) && 1 === r.length ? r[0].split(/\s?-\s?/) : r;
             })(t.breadcrumb),
-            url: r(t.url) ?? location.href
+            url: r(t.url) ?? location.href,
+            condition: a({ container: e, config: t.condition, isArray: !1 })
           });
         }
         getPrice() {
@@ -424,9 +430,9 @@ var source;
       }
       var m = r(5939),
         f = r.n(m),
-        g = r(1271),
+        g = r(81271),
         v = r.n(g),
-        b = r(3564),
+        b = r(83564),
         y = r.n(b);
       function _(t) {
         if (!t || 0 === t.length) return "";
@@ -485,7 +491,8 @@ var source;
         });
       }
       const S = "product-not-found";
-      function x(t) {
+      var x;
+      function T(t) {
         function e(t) {
           if ("string" == typeof t && t.startsWith("%")) return !0;
           if (Array.isArray(t)) for (const r of t) if (e(r)) return !0;
@@ -497,7 +504,10 @@ var source;
         }
         return !1;
       }
-      const T = class extends f() {
+      !(function (t) {
+        (t.Used = "used"), (t.New = "new"), (t.LikeNew = "like new");
+      })(x || (x = {}));
+      const E = class extends f() {
         urlChangeTimeout = null;
         parsedData = {};
         constructor(t) {
@@ -568,7 +578,19 @@ var source;
           );
         }
         normalizeParameters(t) {
-          return t.salePrice && (t.salePrice = y().unformat(t.salePrice)), t;
+          var e;
+          return (
+            t.salePrice && (t.salePrice = y().unformat(t.salePrice)),
+            this.config.searchProducts.condition &&
+              (t.condition =
+                ((e = t.condition ?? ""),
+                /\b(renewed|restored|refurbished|RefurbishedCondition)\b/i.test(e)
+                  ? x.LikeNew
+                  : /\b(used|UsedCondition)\b/i.test(e)
+                  ? x.Used
+                  : x.New)),
+            t
+          );
         }
         async parse() {
           const t = (t) =>
@@ -580,7 +602,7 @@ var source;
             r = this.config.container ? Array.prototype.slice.call(document.querySelectorAll(this.config.container), 0) : [document];
           for (const s of r) {
             let r = {};
-            (this.config.searchProducts && !x(this.config.searchProducts)) || (r = this.parseCommonParameters(s));
+            (this.config.searchProducts && !T(this.config.searchProducts)) || (r = this.parseCommonParameters(s));
             let n = this.parseCustomParameters(r, s);
             if (0 === Object.keys(n).length) return void this.emit(S, { config: this.config, container: s });
             n = await t(n);
@@ -591,7 +613,7 @@ var source;
         }
       };
     },
-    2001: (t, e, r) => {
+    62001: (t, e, r) => {
       "use strict";
       function s(t) {
         let { attribute: e = "data-focus-visible-added", className: r = "focus-visible" } =
@@ -702,11 +724,11 @@ var source;
       }
       r.d(e, { Z: () => s });
     },
-    4011: (t, e, r) => {
+    84011: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
-      var s = r(2887),
-        n = r(1939);
+      var s = r(22887),
+        n = r(41939);
       const i = {
         methods: {
           clickHtml(t) {
@@ -734,7 +756,7 @@ var source;
         }
       };
     },
-    951: (t, e, r) => {
+    70951: (t, e, r) => {
       "use strict";
       r.r(e);
       var s = ("undefined" != typeof window ? window : void 0 !== r.g ? r.g : {}).__VUE_DEVTOOLS_GLOBAL_HOOK__;
@@ -1361,13 +1383,13 @@ var source;
       }
       function N() {
         var t = new Date();
-        return " @ " + P(t.getHours(), 2) + ":" + P(t.getMinutes(), 2) + ":" + P(t.getSeconds(), 2) + "." + P(t.getMilliseconds(), 3);
+        return " @ " + A(t.getHours(), 2) + ":" + A(t.getMinutes(), 2) + ":" + A(t.getSeconds(), 2) + "." + A(t.getMilliseconds(), 3);
       }
-      function P(t, e) {
+      function A(t, e) {
         return (r = "0"), (s = e - t.toString().length), new Array(s + 1).join(r) + t;
         var r, s;
       }
-      const A = {
+      const P = {
         Store: p,
         install: _,
         version: "3.6.2",
@@ -1445,11 +1467,11 @@ var source;
           );
         }
       };
-      var R = r(4615),
-        M = r(2506),
-        $ = r(2001),
-        L = r(8051),
-        O = r(4730);
+      var R = r(14615),
+        M = r(52506),
+        $ = r(62001),
+        L = r(98051),
+        O = r(64730);
       const B = (() => {
           let t;
           return () => t || ((t = (0, L.Z)("updateRewards")), t);
@@ -1579,10 +1601,10 @@ var source;
         );
       };
       V._withStripped = !0;
-      var F = r(1953),
+      var F = r(61953),
         H = r.n(F),
-        j = r(2568),
-        U = r.n(j),
+        U = r(32568),
+        j = r.n(U),
         z = function () {
           var t = this,
             e = t._self._c;
@@ -1654,8 +1676,8 @@ var source;
         };
       z._withStripped = !0;
       var W = r(9442),
-        G = r(4835);
-      function q(t, e, r) {
+        q = r(14835);
+      function G(t, e, r) {
         return "string" == typeof t && t.startsWith("/") && ((r && r.search(/pattern/i) < 0) || !r)
           ? e
             ? Y(e + t)
@@ -1664,7 +1686,7 @@ var source;
             : Y(M.ZP.BASE + t)
           : "object" == typeof t && null !== t
           ? (function (t, e) {
-              return (0, G.isArray)(t) ? (0, G.map)(t, (t, r) => q(t, e, r)) : (0, G.mapObject)(t, (t, r) => q(t, e, r));
+              return (0, q.isArray)(t) ? (0, q.map)(t, (t, r) => G(t, e, r)) : (0, q.mapObject)(t, (t, r) => G(t, e, r));
             })(t, e)
           : t;
       }
@@ -1672,29 +1694,26 @@ var source;
         const e = window.popup.$store.state.settings,
           r = window.popup.$store.state.member,
           s = e.ebToken || "";
-        return q(t)
+        return G(t)
           .replace(/%domain%?/g, M.ZP.domain)
-          .replace(/%api%?/g, M.ZP.api)
+          .replace(/%apituner_domain%?/g, M.ZP.apituner_domain)
           .replace(/%member_api%?/g, M.ZP.member_api)
           .replace(/%CDN%?/g, M.ZP.CDN)
           .replace(/%version%?/g, R.Z.extension.version)
           .replace(/%browser%?/g, R.Z.browser.name.toLowerCase())
-          .replace(/%userid%?/g, e.toolbarId)
           .replace(/%toolbarId%?/g, e.toolbarId)
           .replace(/%targetSet%?/g, r.targetSet || "")
           .replace(/%uid%?/g, r.id || "")
-          .replace(/%ebtoken%?/g, s)
-          .replace(/AutoLoginID=%autologinid%?/g, `ebtoken=${s}`)
-          .replace(/%autologinid%?/g, "");
+          .replace(/%ebtoken%?/g, s);
       }
-      var K = r(1939);
+      var K = r(41939);
       function X() {
         let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0;
         setTimeout(window.close, t);
       }
-      var J = r(1183),
-        Q = r(6846),
-        tt = r(696);
+      var J = r(61183),
+        Q = r(56846),
+        tt = r(50696);
       const et = {
         name: "EeamodeView",
         components: { RForm: J.Z, RButton: Q.Z, RLink: tt.Z },
@@ -1711,7 +1730,7 @@ var source;
           }
         }
       };
-      var rt = r(2264);
+      var rt = r(62264);
       const st = (0, rt.Z)(et, z, [], !1, null, null, null).exports;
       var nt = function () {
           var t = this;
@@ -1727,7 +1746,7 @@ var source;
               "div",
               { staticClass: "rr-flex rr-flex-col rr-items-center rr-justify-center rr-text-center rr-h-full rr-bg-default" },
               [
-                e("img", { attrs: { src: r(798), alt: "" } }),
+                e("img", { attrs: { src: r(50798), alt: "" } }),
                 e("div", { staticClass: "rr-t-desktop-banner-s rr-mt-24" }, [
                   t._v(" We are experiencing some technical difficulties - please check back in a bit! ")
                 ])
@@ -1770,7 +1789,7 @@ var source;
         );
       };
       lt._withStripped = !0;
-      var ut = r(9525);
+      var ut = r(69525);
       const dt = H().extend({
         components: { RForm: J.Z, RButton: Q.Z },
         props: { pendingDeletionTemplate: { type: String, default: "" } },
@@ -1873,7 +1892,7 @@ var source;
         );
       };
       ht._withStripped = !0;
-      var mt = r(6439),
+      var mt = r(26439),
         ft = function () {
           var t = this,
             e = t._self._c;
@@ -2011,9 +2030,9 @@ var source;
         );
       };
       _t._withStripped = !0;
-      var wt = r(4927);
+      var wt = r(54927);
       const kt = {
-        components: { RCashback: r(7040).Z },
+        components: { RCashback: r(35597).Z },
         props: { store: { type: Object, default: null } },
         data: () => ({ eeid: 41831, category: "Recent Stores", action: "ShopNowRecent", activationSource: "Recently Visited Stores" }),
         computed: {
@@ -2250,14 +2269,14 @@ var source;
         });
       };
       Nt._withStripped = !0;
-      const Pt = {
+      const At = {
         methods: {
           onInput(t) {
             this.$emit("input", t.target.value);
           }
         }
       };
-      const At = (0, rt.Z)(Pt, Nt, [], !1, null, null, null).exports;
+      const Pt = (0, rt.Z)(At, Nt, [], !1, null, null, null).exports;
       var Rt = function () {
         var t = this,
           e = t._self._c;
@@ -2272,7 +2291,7 @@ var source;
         ]);
       };
       Rt._withStripped = !0;
-      var Mt = r(1694);
+      var Mt = r(11694);
       const $t = {
         components: { SvgIcon: Mt.Z },
         props: {
@@ -2282,7 +2301,7 @@ var source;
         }
       };
       const Lt = {
-        components: { RInput: At, SearchIcon: (0, rt.Z)($t, Rt, [], !1, null, null, null).exports },
+        components: { RInput: Pt, SearchIcon: (0, rt.Z)($t, Rt, [], !1, null, null, null).exports },
         props: {
           disabled: Boolean,
           id: { type: String, default: "search" },
@@ -2349,7 +2368,7 @@ var source;
                     (e.scrollTop = t.offsetTop + t.offsetHeight - e.offsetHeight)
                 : (e.scrollTop = 0);
             },
-            search: (0, G.debounce)(function (t) {
+            search: (0, q.debounce)(function (t) {
               t &&
                 (this.isTest && this.track("Header Search Insert Text", { event_action: "Header Search Insert Text", page_type: null }),
                 this.find(t));
@@ -2485,9 +2504,9 @@ var source;
         );
       };
       Vt._withStripped = !0;
-      var Ft = r(8316),
-        Ht = r(9491);
-      const jt = {
+      var Ft = r(26097),
+        Ht = r(79491);
+      const Ut = {
         components: { RButton: Q.Z, ChevronDown: Ft.Z, SectionHeader: yt },
         props: { tiers: { type: Array, required: !0 } },
         data: () => ({ expand: !1 }),
@@ -2500,7 +2519,7 @@ var source;
           }
         }
       };
-      const Ut = (0, rt.Z)(jt, Vt, [], !1, null, null, null).exports;
+      const jt = (0, rt.Z)(Ut, Vt, [], !1, null, null, null).exports;
       var zt = function () {
         var t = this,
           e = t._self._c;
@@ -2610,7 +2629,7 @@ var source;
         );
       };
       Wt._withStripped = !0;
-      var Gt = function () {
+      var qt = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -2648,8 +2667,8 @@ var source;
           ]
         );
       };
-      Gt._withStripped = !0;
-      var qt = function () {
+      qt._withStripped = !0;
+      var Gt = function () {
         var t = this,
           e = t._self._c;
         return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
@@ -2665,7 +2684,7 @@ var source;
           })
         ]);
       };
-      qt._withStripped = !0;
+      Gt._withStripped = !0;
       const Yt = {
         components: { SvgIcon: Mt.Z },
         props: {
@@ -2674,9 +2693,9 @@ var source;
           rotate: { type: Number, default: 0 }
         }
       };
-      const Kt = (0, rt.Z)(Yt, qt, [], !1, null, null, null).exports;
-      var Xt = r(2838),
-        Jt = r(3931);
+      const Kt = (0, rt.Z)(Yt, Gt, [], !1, null, null, null).exports;
+      var Xt = r(22838),
+        Jt = r(53931);
       const Qt = {
         components: { CutIcon: Kt, CheckIcon: Xt.Z },
         props: { code: { type: String, default: "" }, disabled: { type: Boolean, default: !1 } },
@@ -2687,7 +2706,7 @@ var source;
           }
         }
       };
-      const te = (0, rt.Z)(Qt, Gt, [], !1, null, null, null).exports,
+      const te = (0, rt.Z)(Qt, qt, [], !1, null, null, null).exports,
         ee = H().extend({
           name: "DealView",
           components: { RCoupon: te, RButton: Q.Z },
@@ -2810,7 +2829,7 @@ var source;
         );
       };
       ie._withStripped = !0;
-      var oe = r(7586),
+      var oe = r(87586),
         ae = function () {
           var t = this,
             e = t._self._c;
@@ -2869,8 +2888,8 @@ var source;
           ]);
         };
       ae._withStripped = !0;
-      var ce = r(8812),
-        le = r(7027);
+      var ce = r(28812),
+        le = r(77027);
       const ue = re.extend({
         components: { RCoupon: te, RButton: Q.Z, RTagFloating: le.Z },
         props: { deal: { type: Object, required: !0 } },
@@ -2905,7 +2924,7 @@ var source;
         }
       });
       const de = (0, rt.Z)(ue, ae, [], !1, null, null, null).exports;
-      var pe = r(9597);
+      var pe = r(89597);
       const he = {
           components: { StoreDeal: de, SectionHeader: yt, RLoader: pe.Z },
           props: {
@@ -3019,7 +3038,7 @@ var source;
         ]);
       };
       _e._withStripped = !0;
-      var we = r(1165);
+      var we = r(81165);
       const ke = {
         name: "NotificationMessage",
         components: { AlertIcon: we.Z },
@@ -3187,11 +3206,11 @@ var source;
           rotate: { type: Number, default: 0 }
         }
       };
-      const Pe = (0, rt.Z)(Ne, Ie, [], !1, null, null, null).exports;
-      var Ae = r(2977);
+      const Ae = (0, rt.Z)(Ne, Ie, [], !1, null, null, null).exports;
+      var Pe = r(62977);
       const Re = {
         name: "MessageCashback",
-        components: { RLink: tt.Z, RTagFloating: le.Z, IconDollar: Pe, RCloseButton: Ae.Z },
+        components: { RLink: tt.Z, RTagFloating: le.Z, IconDollar: Ae, RCloseButton: Pe.Z },
         props: { message: { type: Object, default: () => ({}) } },
         data: () => ({ entity_name: "Cash Back Added card", module_type: "My Messages", show: !0 }),
         computed: {
@@ -3305,13 +3324,13 @@ var source;
           }
         };
       const Ve = (0, rt.Z)(De, Oe, [], !1, null, null, null).exports;
-      var Fe = r(909);
+      var Fe = r(90909);
       const He = {
         name: "MainTab",
         components: {
           PopupSearch: Dt,
           RecentStores: St,
-          NotificationTiers: Ut,
+          NotificationTiers: jt,
           StoreCard: ne,
           StoreDeals: fe,
           TopDeals: ye,
@@ -3378,8 +3397,8 @@ var source;
           }
         }
       };
-      const je = (0, rt.Z)(He, ft, [], !1, null, null, null).exports;
-      var Ue = function () {
+      const Ue = (0, rt.Z)(He, ft, [], !1, null, null, null).exports;
+      var je = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -3404,7 +3423,7 @@ var source;
           1
         );
       };
-      Ue._withStripped = !0;
+      je._withStripped = !0;
       var ze = function () {
         var t = this,
           e = t._self._c;
@@ -3438,8 +3457,8 @@ var source;
           }
         }
       };
-      const Ge = (0, rt.Z)(We, ze, [], !1, null, null, null).exports;
-      var qe = function () {
+      const qe = (0, rt.Z)(We, ze, [], !1, null, null, null).exports;
+      var Ge = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -3484,8 +3503,8 @@ var source;
           2
         );
       };
-      qe._withStripped = !0;
-      var Ye = r(3650);
+      Ge._withStripped = !0;
+      var Ye = r(23650);
       const Ke = {
         components: { ProductTile: r(8068).Z },
         props: { active: { type: Boolean, default: !1 }, products: { type: Array, required: !1, default: null } },
@@ -3535,7 +3554,7 @@ var source;
           components: {
             AbandonedProducts: (0, rt.Z)(
               Ke,
-              qe,
+              Ge,
               [
                 function () {
                   var t = this._self._c;
@@ -3561,7 +3580,7 @@ var source;
               null,
               null
             ).exports,
-            MyItemsOverlay: Ge,
+            MyItemsOverlay: qe,
             RLoader: pe.Z
           },
           props: { active: { type: Boolean, default: !1 } },
@@ -3582,7 +3601,7 @@ var source;
           }
         },
         Je = Xe;
-      const Qe = (0, rt.Z)(Je, Ue, [], !1, null, null, null).exports;
+      const Qe = (0, rt.Z)(Je, je, [], !1, null, null, null).exports;
       var tr = function () {
         var t = this,
           e = t._self._c;
@@ -3786,9 +3805,9 @@ var source;
         }
       };
       const nr = (0, rt.Z)(sr, rr, [], !1, null, null, null).exports;
-      var ir = r(9809),
-        or = r(154),
-        ar = r(4994);
+      var ir = r(39809),
+        or = r(50154),
+        ar = r(84994);
       const cr = {
         components: {
           ClipboardIcon: nr,
@@ -3923,7 +3942,7 @@ var source;
       };
       fr._withStripped = !0;
       const gr = {
-        components: { RCloseButton: Ae.Z, AlertIcon: we.Z },
+        components: { RCloseButton: Pe.Z, AlertIcon: we.Z },
         props: { tcpp: { type: Object, default: () => ({}) } },
         data: () => ({ show: !1 }),
         mounted() {
@@ -4038,7 +4057,7 @@ var source;
       window.devicePixelRatio;
       const Tr = {
           name: "TabsView",
-          components: { MainTab: je, AbandonedProductsTab: Qe, ReferFriendView: pr, PromptsView: Sr },
+          components: { MainTab: Ue, AbandonedProductsTab: Qe, ReferFriendView: pr, PromptsView: Sr },
           props: { enable: { type: Boolean, default: !1 } },
           data: () => ({
             markerOffset: 0,
@@ -4194,9 +4213,9 @@ var source;
         );
       };
       Ir._withStripped = !0;
-      var Nr = r(3564),
-        Pr = r.n(Nr),
-        Ar = function () {
+      var Nr = r(83564),
+        Ar = r.n(Nr),
+        Pr = function () {
           var t = this,
             e = t._self._c;
           t._self._setupProxy;
@@ -4223,7 +4242,7 @@ var source;
                     }
                   }
                 },
-                [e("img", { attrs: { src: r(8701), alt: "Rakuten logo" } })]
+                [e("img", { attrs: { src: r(38701), alt: "Rakuten logo" } })]
               ),
               t.member.accessLevel
                 ? [
@@ -4271,7 +4290,7 @@ var source;
             2
           );
         };
-      Ar._withStripped = !0;
+      Pr._withStripped = !0;
       const Rr = H().extend({
         components: { RButton: Q.Z },
         props: {
@@ -4294,7 +4313,7 @@ var source;
           }
         }
       });
-      const Mr = (0, rt.Z)(Rr, Ar, [], !1, null, null, null).exports;
+      const Mr = (0, rt.Z)(Rr, Pr, [], !1, null, null, null).exports;
       var $r = function () {
         var t = this,
           e = t._self._c;
@@ -4395,7 +4414,7 @@ var source;
               return !1 !== this.settings?.isOffline;
             },
             memberInfo() {
-              return { accessLevel: this.member?.accessLevel, pendingAmount: Pr().formatMoney(this.member?.accountSummary?.pendingAmount) };
+              return { accessLevel: this.member?.accessLevel, pendingAmount: Ar().formatMoney(this.member?.accountSummary?.pendingAmount) };
             },
             promo() {
               return this.settings?.promos?.find((t) => t.active && t.popup);
@@ -4460,7 +4479,7 @@ var source;
         ]);
       };
       Vr._withStripped = !0;
-      var Fr = r(7325),
+      var Fr = r(77325),
         Hr = function () {
           var t = this,
             e = t._self._c;
@@ -4475,7 +4494,7 @@ var source;
           ]);
         };
       Hr._withStripped = !0;
-      const jr = {
+      const Ur = {
         components: { SvgIcon: Mt.Z },
         props: {
           color: { type: String, default: "currentColor" },
@@ -4483,10 +4502,10 @@ var source;
           rotate: { type: Number, default: 0 }
         }
       };
-      const Ur = (0, rt.Z)(jr, Hr, [], !1, null, null, null).exports,
-        zr = { components: { IconSettings: Fr.Z, IconHelp: Ur } };
+      const jr = (0, rt.Z)(Ur, Hr, [], !1, null, null, null).exports,
+        zr = { components: { IconSettings: Fr.Z, IconHelp: jr } };
       const Wr = (0, rt.Z)(zr, Vr, [], !1, null, null, null).exports;
-      var Gr = function () {
+      var qr = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -4500,8 +4519,8 @@ var source;
           1
         );
       };
-      Gr._withStripped = !0;
-      var qr = function () {
+      qr._withStripped = !0;
+      var Gr = function () {
         var t = this,
           e = t._self._c;
         return e("div", { staticClass: "overlay-backdrop" }, [
@@ -4546,7 +4565,7 @@ var source;
           )
         ]);
       };
-      qr._withStripped = !0;
+      Gr._withStripped = !0;
       const Yr = {
         name: "GDPROverlayView",
         components: { RButton: Q.Z },
@@ -4569,7 +4588,7 @@ var source;
           }
         }
       };
-      const Kr = (0, rt.Z)(Yr, qr, [], !1, null, null, null).exports;
+      const Kr = (0, rt.Z)(Yr, Gr, [], !1, null, null, null).exports;
       var Xr = function () {
         var t = this,
           e = t._self._c;
@@ -4613,7 +4632,7 @@ var source;
       ts._withStripped = !0;
       const es = {
         name: "CustomOverlayView",
-        mixins: [r(4011).Z],
+        mixins: [r(84011).Z],
         props: { overlay: { type: Object, default: null } },
         data() {
           return { module_type: "Overlay", entity_name: this.overlay.id };
@@ -4659,8 +4678,8 @@ var source;
           }
         }
       };
-      const ss = (0, rt.Z)(rs, Gr, [], !1, null, null, null).exports;
-      H().use(A), H().use(U());
+      const ss = (0, rt.Z)(rs, qr, [], !1, null, null, null).exports;
+      H().use(P), H().use(j());
       const ns = H().extend({
           name: "PopupView",
           components: { "eemode-view": st, ErrorView: ct, PendingDeletion: pt, PopupHeader: Dr, PopupFooter: Wr, vOverlay: ss, RTabs: Zr },
@@ -4732,20 +4751,20 @@ var source;
         }),
         is = ns;
       const os = (0, rt.Z)(is, V, [], !1, null, null, null).exports;
-      (window.popup = new os({ store: new A.Store(D) }).$mount("#app")),
+      (window.popup = new os({ store: new P.Store(D) }).$mount("#app")),
         window.addEventListener("error", (t) => {
           R.Z.extension.fireEvent("datadogTrack", {
             data: { type: "error", name: t.message, data: { colno: t.colno, error: t.error, filename: t.filename, lineno: t.lineno } }
           });
         }),
-        R.Z.extension.getItem(["domain", "api", "member_api"], function (t) {
-          let { domain: e, api: r, member_api: s } = t;
-          e && (M.ZP.domain = e), r && (M.ZP.api = r), s && (M.ZP.member_api = s);
+        R.Z.extension.getItem(["domain", "apituner_domain", "member_api"], function (t) {
+          let { domain: e, apituner_domain: r, member_api: s } = t;
+          e && (M.ZP.domain = e), r && (M.ZP.apituner_domain = r), s && (M.ZP.member_api = s);
         }),
         R.Z.browser.isSafari && (0, $.Z)(document);
     },
     6252: () => {},
-    909: (t, e, r) => {
+    90909: (t, e, r) => {
       "use strict";
       r.d(e, {
         BF: () => n,
@@ -4782,27 +4801,30 @@ var source;
         d = "Coupons and Cash Back Available Notification - combo CTA",
         p = "Coupon Magic Results with CB CTA";
     },
-    2506: (t, e, r) => {
+    52506: (t, e, r) => {
       "use strict";
-      r.d(e, { Jb: () => n, ZP: () => s });
-      const s = {
+      r.d(e, { Jb: () => i, ZP: () => n });
+      var s = r(82530);
+      const n = {
           CDN: "https://static.rakuten.com",
           member_api: "www.rakuten.com",
           domain: "www.rakuten.com",
-          api: "apituner.ecbsn.com",
+          apituner_domain: s.env.apituner_domain ?? "apituner.ecbsn.com",
+          api_domain: s.env.api_domain ?? "api.rakuten.com",
           search_api: "search.ecbsn.com",
           BASE: "https://%domain%",
-          STORES: "https://%api%/apituner/button/domain/entity/list",
-          STORE_REWARDS: "https://%api%/apituner/v1/store/reward/list?channel={channel}",
-          STORE_DEALS_COUNT: "https://%api%/apituner/button/store/deal/count",
-          DEALS: "https://%api%/apituner/button/store/deal/list",
-          STORE_DEALS: "https://%api%/apituner/button/store/deal/list?storeId={storeId}",
-          STORE_COUPONS: "https://api.rakuten.com/button-acs/stores/{storeId}/coupons",
-          STORE_CONTENT: "https://%api%/apituner/button/store/content?id={storeId}",
-          CAMPAIGNS: "https://%api%/apituner/button/campaign/list",
-          EDS: "https://%api%/apituner/eds/member/profile",
+          STORES: "https://%apituner_domain%/apituner/button/domain/entity/list",
+          STORE_REWARDS: "https://%apituner_domain%/apituner/v1/store/reward/list?channel={channel}",
+          STORE_DEALS_COUNT: "https://%apituner_domain%/apituner/button/store/deal/count",
+          DEALS: "https://%apituner_domain%/apituner/button/store/deal/list",
+          STORE_DEALS: "https://%apituner_domain%/apituner/button/store/deal/list?storeId=%storeId%",
+          STORE_CONTENT: "https://%apituner_domain%/apituner/button/store/content?id=%storeId%",
+          CAMPAIGNS: "https://%apituner_domain%/apituner/button/campaign/list",
+          EDS: "https://%apituner_domain%/apituner/eds/member/profile",
           GIFT_CARD: "https://%domain%/api/gift-cards/catalog/product/%giftCardProductCode",
           ABANDONED_PRODUCTS: "https://cas.rrcbsn.com/cart_abandonment/v1/members/%uid%/products",
+          STORE_COUPONS: "https://%api_domain%/button-acs/stores/%storeId%/coupons",
+          PRODUCT_METADATA: "https://%api_domain%/product-metadata-extractor/v1/regions/USA/stores/%storeId%/products",
           MEMBER_DETAILS: "https://%member_api%/api/v3/button/member",
           MEMBER_ACTIVITY: "https://%member_api%/api/v3/button/member/activity",
           MEMBER_GEOGATING: "https://%member_api%/geogating/v1/checkStatus.do",
@@ -4820,7 +4842,7 @@ var source;
           MEMBER_TAF: "https://%member_api%/api/v3/button/member/referral/program",
           PRICE_MAGIC: "https://search.ecbsn.com/search/price-magic/v1/similar-products?partnerId=1&sourceName=Toolbar",
           PRICE_MAGIC_BULK: "https://search.ecbsn.com/search/price-magic/v1/bulk-products?sourceName=Toolbar",
-          SIMILAR_STORES: "https://%api%/apituner/similar-stores/v1_0",
+          SIMILAR_STORES: "https://%apituner_domain%/apituner/similar-stores/v1_0",
           CAPTURE_ORDER: "https://capture.ecbsn.com/api/1.0/commercecapture",
           URL_SHORTENER: "https://%domain%/urlshortener/v1/urls",
           SETTINGS: "https://%member_api%/toolbar/config/settings.json",
@@ -4830,10 +4852,10 @@ var source;
           SETTINGS_MERCHANTS: "https://button.rrcbsn.com/settings/merchants.json",
           SETTINGS_SERP: "https://button.rrcbsn.com/settings/serp.json",
           SETTINGS_PROMOS: "https://button.rrcbsn.com/settings/promos.json",
-          WEB_INSTALL: "https://%domain%/button/%browser/install/success?sourceName=toolbar&eeid=45426&toolbarId=%userid",
+          WEB_INSTALL: "https://%domain%/button/%browser/install/success?sourceName=toolbar&eeid=45426&toolbarId=%toolbarId",
           WEB_LOGON_FORM: "https://%domain%/auth/getLogonForm.do?tb=yes&eeid=26118",
           WEB_LOGIN: "https://%domain%/button/user-auth.htm?tb=yes&auth_type=su&sourceName=toolbar",
-          WEB_UNINSTALL: "https://%domain%/button/uninstall.htm?tb=yes&toolbarId=%userid&v=%version",
+          WEB_UNINSTALL: "https://%domain%/button/uninstall.htm?tb=yes&toolbarId=%toolbarId&v=%version",
           WEB_MOBILE_EXTENSION: "rakuten://us/beo?url=https://%domain%/button/mobile/enable&autologin=true",
           WEB_SEARCH: "https://%domain%/search?term={terms}&tb=yes&ebtoken=%ebtoken",
           WEB_REWARDS: "https://%domain%/pending-cash-back.htm?tb=yes&ebtoken=%ebtoken&eeid=26117",
@@ -4850,12 +4872,12 @@ var source;
           WEBSTORE_SAFARI: "https://itunes.apple.com/app/apple-store/id1451893560?pt=117880184&mt=12&ls=1",
           WEBSTORE_FIREFOX: "https://addons.mozilla.org/en-US/firefox/addon/ebates/reviews/add",
           WEBSTORE_EDGE: "https://microsoftedge.microsoft.com/addons/detail/gmmlpenookphoknnpfilofakghemolmg",
-          WEBSTORE_CHROME: "https://chrome.google.com/webstore/detail/ebates-cash-back/chhjbpecpncaggjpdakmflnfcopglcmi/reviews",
+          WEBSTORE_CHROME: "https://chromewebstore.google.com/detail/rakuten-get-cash-back-for/chhjbpecpncaggjpdakmflnfcopglcmi/reviews",
           POPUP_SEARCH: "https://%search_api%/store/list/suggest?q={terms}&rows=25&start=0"
         },
-        n = "https://api.engager.ecbsn.com";
+        i = "https://api.engager.ecbsn.com";
     },
-    3931: (t, e, r) => {
+    53931: (t, e, r) => {
       "use strict";
       function s(t) {
         const e = document.createElement("input");
@@ -4869,10 +4891,10 @@ var source;
       }
       r.d(e, { v: () => s });
     },
-    4927: (t, e, r) => {
+    54927: (t, e, r) => {
       "use strict";
       r.d(e, { l: () => i });
-      var s = r(3564),
+      var s = r(83564),
         n = r.n(s);
       function i(t) {
         const e = (t) => t.toString().replace(/\.0+$/, "");
@@ -4890,19 +4912,19 @@ var source;
         return "";
       }
     },
-    8007: (t, e, r) => {
+    68007: (t, e, r) => {
       "use strict";
       r.d(e, { p: () => i });
-      var s = r(7322),
+      var s = r(87322),
         n = r.n(s);
       function i(t, e) {
         return n()(e).format(t);
       }
     },
-    1218: (t, e, r) => {
+    91218: (t, e, r) => {
       "use strict";
       r.d(e, { b: () => o, l: () => i });
-      var s = r(3564),
+      var s = r(83564),
         n = r.n(s);
       function i(t, e) {
         return n().formatMoney(t, e).replace(/\.0+$/, "");
@@ -4911,7 +4933,7 @@ var source;
         return n().unformat(t);
       }
     },
-    7586: (t, e, r) => {
+    87586: (t, e, r) => {
       "use strict";
       function s(t) {
         const e = t.storeContent.averageReportingHours || 0;
@@ -4952,7 +4974,7 @@ var source;
       }
       r.d(e, { Z: () => s });
     },
-    6439: (t, e, r) => {
+    26439: (t, e, r) => {
       "use strict";
       function s(t) {
         if (!t) return {};
@@ -4970,7 +4992,7 @@ var source;
       }
       r.d(e, { L: () => s });
     },
-    3650: (t, e, r) => {
+    23650: (t, e, r) => {
       "use strict";
       function s(t) {
         if (t && !t.startsWith("data:")) {
@@ -4982,10 +5004,10 @@ var source;
       }
       r.d(e, { g: () => s });
     },
-    9491: (t, e, r) => {
+    79491: (t, e, r) => {
       "use strict";
       r.d(e, { F: () => n });
-      var s = r(4927);
+      var s = r(54927);
       function n(t) {
         const e = [];
         return (
@@ -5015,13 +5037,13 @@ var source;
         );
       }
     },
-    8812: (t, e, r) => {
+    28812: (t, e, r) => {
       "use strict";
       r.d(e, { Cp: () => p, HI: () => f, Oi: () => d, dR: () => u, gw: () => g, h1: () => l, lz: () => a, s$: () => h, wz: () => m });
-      var s = r(7322),
+      var s = r(87322),
         n = r.n(s),
-        i = r(8007),
-        o = r(6439);
+        i = r(68007),
+        o = r(26439);
       function a() {
         let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
           e =
@@ -5117,10 +5139,10 @@ var source;
         });
       }
     },
-    9525: (t, e, r) => {
+    69525: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
-      var s = r(2324),
+      var s = r(92324),
         n = r.n(s);
       function i(t) {
         return n()(t, {
@@ -5172,10 +5194,10 @@ var source;
         });
       }
     },
-    4730: (t, e, r) => {
+    64730: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => n });
-      var s = r(8051);
+      var s = r(98051);
       const n = new (class {
         async load() {
           this.tests = await (0, s.Z)("tests");
@@ -5191,10 +5213,10 @@ var source;
         }
       })();
     },
-    6402: (t, e, r) => {
+    26402: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
-      var s = r(4615);
+      var s = r(14615);
       const n = 3e3;
       function i() {
         let { node: t = document.head, name: e = [] } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -5233,19 +5255,19 @@ var source;
         );
       }
     },
-    507: (t, e, r) => {
+    50507: (t, e, r) => {
       "use strict";
       r.d(e, { b: () => n });
-      var s = r(8051);
+      var s = r(98051);
       async function n(t) {
         let e = "";
         return t && t.startsWith("http") && (e = await (0, s.Z)("encodeImageURI", t)), e;
       }
     },
-    8051: (t, e, r) => {
+    98051: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => n });
-      var s = r(4615);
+      var s = r(14615);
       function n(t, e, r) {
         return s.Z.extension.fireEvent(t, { data: e }, r);
       }
@@ -5253,21 +5275,21 @@ var source;
     9649: (t, e, r) => {
       "use strict";
       r.d(e, { $: () => n });
-      var s = r(4615);
+      var s = r(14615);
       function n(t) {
         return s.Z.extension.getURL(s.Z.browser.isSafariApp ? `extension/${t}` : t);
       }
     },
-    636: (t, e, r) => {
+    40636: (t, e, r) => {
       "use strict";
       r.d(e, { TN: () => x, By: () => C, PI: () => E, ej: () => w, Ay: () => S, O8: () => T, rO: () => Z, CO: () => I, IA: () => k });
-      var s = r(1271),
+      var s = r(81271),
         n = r.n(s),
-        i = r(4835),
-        o = r(4615),
-        a = r(6402),
-        c = r(2001),
-        l = r(3650);
+        i = r(14835),
+        o = r(14615),
+        a = r(26402),
+        c = r(62001),
+        l = r(23650);
       const u = "react-root",
         d = "[data-emotion]";
       function p(t) {
@@ -5284,7 +5306,7 @@ var source;
         );
       };
       h._withStripped = !0;
-      var m = r(1953);
+      var m = r(61953);
       const f = r
         .n(m)()
         .extend({
@@ -5304,8 +5326,8 @@ var source;
             }
           }
         });
-      const g = (0, r(2264).Z)(f, h, [], !1, null, null, null).exports;
-      r(5526);
+      const g = (0, r(62264).Z)(f, h, [], !1, null, null, null).exports;
+      r(45526);
       const v = new Map();
       let b = 10;
       const y = "function" == typeof HTMLElement.prototype.attachShadow;
@@ -5428,10 +5450,10 @@ var source;
         return -1 !== location.pathname.search(/[\\/]popup[\\/]popup.html/);
       }
     },
-    1939: (t, e, r) => {
+    41939: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => n });
-      var s = r(4615);
+      var s = r(14615);
       function n(t, e) {
         return s.Z.browser.navigate(t, e);
       }
@@ -5439,8 +5461,8 @@ var source;
     9442: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
-      var s = r(8051),
-        n = r(636);
+      var s = r(98051),
+        n = r(40636);
       const i = {
         getAnonymousId: () => (0, s.Z)("segment.anonymousId"),
         track(t) {
@@ -5450,7 +5472,7 @@ var source;
         }
       };
     },
-    2887: (t, e, r) => {
+    22887: (t, e, r) => {
       "use strict";
       function s(t) {
         return "string" == typeof t
@@ -5463,7 +5485,7 @@ var source;
       }
       r.d(e, { Z: () => s });
     },
-    8355: (t, e) => {
+    18355: (t, e) => {
       "use strict";
       e.Nm = e.Rq = void 0;
       var r = /^([^\w]*)(javascript|data|vbscript)/im,
@@ -5496,7 +5518,7 @@ var source;
           return r.test(d) ? e.Rq : l;
         });
     },
-    2264: (t, e, r) => {
+    62264: (t, e, r) => {
       "use strict";
       function s(t, e, r, s, n, i, o, a) {
         var c,
@@ -5537,7 +5559,7 @@ var source;
       }
       r.d(e, { Z: () => s });
     },
-    6846: (t, e, r) => {
+    56846: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5592,9 +5614,9 @@ var source;
           isCssColor: (t) => t && t.match(/^(#|var\(--|(rgb|hsl)a?\()/)
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    2977: (t, e, r) => {
+    62977: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => a });
       var s = function () {
@@ -5617,8 +5639,8 @@ var source;
         );
       };
       s._withStripped = !0;
-      var n = r(2737),
-        i = r(3669);
+      var n = r(92737),
+        i = r(43669);
       const o = {
         components: { ExitIcon: n.Z, RIconButton: i.Z },
         props: {
@@ -5639,9 +5661,9 @@ var source;
         },
         methods: { isCssColor: (t) => t && t.match(/^(#|var\(--|(rgb|hsl)a?\()/) }
       };
-      const a = (0, r(2264).Z)(o, s, [], !1, null, null, null).exports;
+      const a = (0, r(62264).Z)(o, s, [], !1, null, null, null).exports;
     },
-    1183: (t, e, r) => {
+    61183: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => a });
       var s = function () {
@@ -5695,8 +5717,8 @@ var source;
         );
       };
       s._withStripped = !0;
-      var n = r(2977),
-        i = r(7138);
+      var n = r(62977),
+        i = r(91694);
       const o = {
         components: { RCloseButton: n.Z, RHeadingLogo: i.Z },
         props: {
@@ -5750,9 +5772,9 @@ var source;
           }
         }
       };
-      const a = (0, r(2264).Z)(o, s, [], !1, null, null, null).exports;
+      const a = (0, r(62264).Z)(o, s, [], !1, null, null, null).exports;
     },
-    3669: (t, e, r) => {
+    43669: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5795,9 +5817,9 @@ var source;
           }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    1165: (t, e, r) => {
+    81165: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5815,16 +5837,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    2838: (t, e, r) => {
+    22838: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5842,16 +5864,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    8316: (t, e, r) => {
+    26097: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5869,16 +5891,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    4994: (t, e, r) => {
+    84994: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5894,16 +5916,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    2737: (t, e, r) => {
+    92737: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5916,16 +5938,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    4738: (t, e, r) => {
+    84738: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5943,16 +5965,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    9809: (t, e, r) => {
+    39809: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5968,16 +5990,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    7325: (t, e, r) => {
+    77325: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -5998,16 +6020,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    1694: (t, e, r) => {
+    11694: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -6045,9 +6067,9 @@ var source;
           }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    154: (t, e, r) => {
+    50154: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -6063,16 +6085,16 @@ var source;
       };
       s._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    696: (t, e, r) => {
+    50696: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => o });
       var s = function () {
@@ -6099,7 +6121,7 @@ var source;
         );
       };
       s._withStripped = !0;
-      var n = r(8355);
+      var n = r(18355);
       const i = {
         props: { href: { type: String, default: null } },
         emits: ["click"],
@@ -6110,9 +6132,9 @@ var source;
           sanitizeUrl: (t) => (0, n.Nm)(t)
         }
       };
-      const o = (0, r(2264).Z)(i, s, [], !1, null, null, null).exports;
+      const o = (0, r(62264).Z)(i, s, [], !1, null, null, null).exports;
     },
-    9597: (t, e, r) => {
+    89597: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => c });
       var s = function () {
@@ -6139,21 +6161,21 @@ var source;
       };
       n._withStripped = !0;
       const i = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      var o = r(2264);
+      var o = r(62264);
       const a = {
         components: { LoaderIcon: (0, o.Z)(i, n, [], !1, null, null, null).exports },
         props: { color: { type: String, default: "#8529cd" }, size: { type: String, default: "28px" } }
       };
       const c = (0, o.Z)(a, s, [], !1, null, null, null).exports;
     },
-    7138: (t, e, r) => {
+    91694: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -6167,10 +6189,10 @@ var source;
         );
       };
       s._withStripped = !0;
-      const n = { components: { RLogo: r(7573).Z } };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const n = { components: { RLogo: r(65900).Z } };
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    7573: (t, e, r) => {
+    65900: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => o });
       var s = function () {
@@ -6198,7 +6220,7 @@ var source;
               ? "icon" === this.variant || "icon-white" === this.variant
                 ? { height: "24px", width: "24px" }
                 : { height: "18px", width: "60px" }
-              : "icon" === this.variant
+              : "icon" === this.variant || "icon-white" === this.variant
               ? { height: "40px", width: "40px" }
               : { height: "24px", width: "80px" };
           },
@@ -6213,9 +6235,9 @@ var source;
           }
         }
       };
-      const o = (0, r(2264).Z)(i, s, [], !1, null, null, null).exports;
+      const o = (0, r(62264).Z)(i, s, [], !1, null, null, null).exports;
     },
-    7027: (t, e, r) => {
+    77027: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -6236,9 +6258,9 @@ var source;
           }
         }
       };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    369: (t, e, r) => {
+    30369: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => i });
       var s = function () {
@@ -6253,9 +6275,9 @@ var source;
       };
       s._withStripped = !0;
       const n = { props: { icon: { type: Boolean, default: !1 } } };
-      const i = (0, r(2264).Z)(n, s, [], !1, null, null, null).exports;
+      const i = (0, r(62264).Z)(n, s, [], !1, null, null, null).exports;
     },
-    7040: (t, e, r) => {
+    35597: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => u });
       var s = function () {
@@ -6278,7 +6300,7 @@ var source;
             ])
           },
           [
-            e("span", [t._v(t._s(t.label))]),
+            e("span", [t._v(t._s(t.label)), t._t("default")], 2),
             t.previousRewardLabel
               ? e("span", { staticClass: "rr-t-body rr-text-tertiary rr-ml-4" }, [t._v(t._s(t.previousRewardLabel))])
               : t._e()
@@ -6286,8 +6308,8 @@ var source;
         );
       };
       s._withStripped = !0;
-      var n = r(8812),
-        i = r(4927),
+      var n = r(28812),
+        i = r(54927),
         o = function () {
           var t = this,
             e = t._self._c;
@@ -6303,16 +6325,16 @@ var source;
         };
       o._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      var c = r(2264);
+      var c = r(62264);
       const l = {
-        components: { CashBackInverseIcon: (0, c.Z)(a, o, [], !1, null, null, null).exports, RTagInlineBase: r(369).Z },
+        components: { CashBackInverseIcon: (0, c.Z)(a, o, [], !1, null, null, null).exports, RTagInlineBase: r(30369).Z },
         props: {
           reward: { type: Object, required: !0 },
           previousReward: { type: Object, default: null },
@@ -6450,11 +6472,11 @@ var source;
         );
       };
       s._withStripped = !0;
-      var n = r(507),
-        i = r(1218),
-        o = r(7027),
-        a = r(7040),
-        c = r(4738);
+      var n = r(50507),
+        i = r(91218),
+        o = r(77027),
+        a = r(35597),
+        c = r(84738);
       const l = "Extra cashback",
         u = {
           components: { RCashback: a.Z, RTagFloating: o.Z, ExternalLink: c.Z },
@@ -6487,20 +6509,20 @@ var source;
             formatPrice: (t) => (0, i.l)(t)
           }
         };
-      const d = (0, r(2264).Z)(u, s, [], !1, null, null, null).exports;
+      const d = (0, r(62264).Z)(u, s, [], !1, null, null, null).exports;
     },
-    798: (t, e, r) => {
+    50798: (t, e, r) => {
       "use strict";
       t.exports = r.p + "../img/error.svg";
     },
-    8701: (t, e, r) => {
+    38701: (t, e, r) => {
       "use strict";
       t.exports = r.p + "../img/rakuten/logo-rakuten-white.svg";
     }
   },
   (t) => {
     var e,
-      r = ((e = 951), t((t.s = e)));
+      r = ((e = 70951), t((t.s = e)));
     source = r;
   }
 ]);

@@ -429,6 +429,8 @@
       var _svc_account_pub_membership_js__WEBPACK_IMPORTED_MODULE_15___default = __webpack_require__.n(
         _svc_account_pub_membership_js__WEBPACK_IMPORTED_MODULE_15__
       );
+      var _util_storage_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(8915);
+      var _util_storage_js__WEBPACK_IMPORTED_MODULE_16___default = __webpack_require__.n(_util_storage_js__WEBPACK_IMPORTED_MODULE_16__);
       // LICENSE_CODE ZON
       const _excluded = ["children"],
         _excluded2 = ["message"];
@@ -646,7 +648,8 @@
             style,
             href,
             onClick: click,
-            target: new_tab ? "_blank" : undefined
+            target: new_tab ? "_blank" : undefined,
+            rel: new_tab ? "noreferrer" : undefined
           },
           children
         );
@@ -1051,7 +1054,7 @@
                 react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
                   Link_button,
                   { on_click: this.logout_sessions },
-                  "Logout all sessions except me"
+                  "Log out all sessions except me"
                 )
               ),
               this.render_alerts(["logout", "password"]),
@@ -1415,6 +1418,27 @@
             )
         );
       };
+      const Design = () => {
+        const on_change = (value) => {
+          perr("settings_set_rebranding", { val: value });
+          _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_11__.Z.force_rebranding(value);
+        };
+        const cheched = !!_util_storage_js__WEBPACK_IMPORTED_MODULE_16___default().get_int("force_rebranding");
+        return react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+          _bext_vpn_ui_page_lib_js__WEBPACK_IMPORTED_MODULE_12__.$0,
+          { title: T("Design") },
+          react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+            "ul",
+            null,
+            react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
+              "li",
+              { className: "settings-item" },
+              react__WEBPACK_IMPORTED_MODULE_2___default().createElement(T, null, "Try the new Hola design"),
+              react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Switch, { checked: cheched, on_change })
+            )
+          )
+        );
+      };
       class Legal extends react__WEBPACK_IMPORTED_MODULE_2___default().Component {
         constructor(...args) {
           super(...args);
@@ -1495,6 +1519,10 @@
           _useState12 = _slicedToArray(_useState11, 2),
           country = _useState12[0],
           set_country = _useState12[1];
+        const suggest_rebranding = _bext_vpn_ui_ui_lib_js__WEBPACK_IMPORTED_MODULE_10__.Z.use_etask(
+          () => _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_11__.Z.get_trial_conf("suggest_rebranding"),
+          false
+        );
         useEffect(() => {
           perr("settings_show");
           const update_user = () => set_user_info(get_user_info());
@@ -1517,6 +1545,7 @@
           !_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_9___default().full_browser_mode() &&
             react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Unblock, { country, is_plus: user_info.is_plus }),
           react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Privacy, _extends({}, user_info, { svc_version })),
+          suggest_rebranding && react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Design, null),
           !!conf__WEBPACK_IMPORTED_MODULE_4__.check_agree_ts && react__WEBPACK_IMPORTED_MODULE_2___default().createElement(Legal, null),
           react__WEBPACK_IMPORTED_MODULE_2___default().createElement(
             _bext_vpn_ui_page_lib_js__WEBPACK_IMPORTED_MODULE_12__.St,
@@ -1538,4 +1567,4 @@
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/805.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/805.bundle.js.map?build=nopeer_v2

@@ -28,16 +28,17 @@ import { userDetailsAcrobat as d } from "./acrobatUserDetails.js";
 import { LOCAL_FTE_WINDOW as E } from "../common/constant.js";
 import { CACHE_PURGE_SCHEME as u } from "./constant.js";
 import { versionChecks as I } from "./handleVersionChecks.js";
-var p,
-  f,
-  _ = new Promise(function (e) {
-    f = e;
+import { isNewUser as p } from "../common/util.js";
+var f,
+  _,
+  h = new Promise(function (e) {
+    _ = e;
   }),
-  h = {},
-  g = () => e.getModule("acro-web2pdf"),
-  T = () => e.getModule("acro-gstate"),
-  N = ["http://*/*", "https://*/*"];
-async function L({ locale: e } = {}) {
+  g = {},
+  T = () => e.getModule("acro-web2pdf"),
+  N = () => e.getModule("acro-gstate"),
+  L = ["http://*/*", "https://*/*"];
+function A({ locale: e } = {}) {
   const n = r.getItem("appLocale"),
     o = r.getItem("installSource");
   if (["development", "normal", "sideload"].includes(o)) {
@@ -50,10 +51,11 @@ async function L({ locale: e } = {}) {
     }
     o.searchParams.append("theme", r.getItem("theme") || "auto"),
       o.searchParams.append("callingApp", chrome.runtime.id),
+      o.searchParams.append("nu", p()),
       chrome.runtime.setUninstallURL(o.href);
   }
 }
-async function A(e) {
+async function S(e) {
   try {
     e &&
       (e.reason === chrome.runtime.OnInstalledReason.UPDATE && e.previousVersion !== chrome.runtime.getManifest().version
@@ -86,12 +88,12 @@ async function A(e) {
             const e = `https://chrome.google.com/webstore/detail/*/${chrome.runtime.id}*`,
               t = `https://microsoftedge.microsoft.com/addons/detail/*/${chrome.runtime.id}*`;
             chrome.tabs.query({ url: [e, t] }, (e) => {
-              if (chrome.runtime.lastError) p = null;
+              if (chrome.runtime.lastError) f = null;
               else
                 for (let t in e) {
                   const n = new URLSearchParams(new URL(e[t].url).search);
                   if (n.has("mv")) {
-                    p = encodeURIComponent(n.get("mv"));
+                    f = encodeURIComponent(n.get("mv"));
                     break;
                   }
                 }
@@ -100,10 +102,10 @@ async function A(e) {
           r.setItem("installVersion", chrome.runtime.getManifest().version),
           r.setItem("installType", e.reason)),
       r.getItem("offlineSupportDisable") || r.setItem("offlineSupportDisable", !0)),
-      _.then(({ env: o, msg: s }) => {
+      h.then(({ env: o, msg: s }) => {
         if (
           (r.setItem("installSource", o.installType),
-          L(),
+          A(),
           e.reason === chrome.runtime.OnInstalledReason.UPDATE && e.previousVersion !== chrome.runtime.getManifest().version)
         )
           n.event(n.e.EXTENSION_UPDATE);
@@ -124,7 +126,7 @@ async function A(e) {
                 else {
                   n.event(n.e.EXTENSION_INSTALLED_DIRECT);
                   let e = "store_direct";
-                  p && (e = decodeURIComponent(p)), n.event(n.e.EXTENSION_INSTALLED_SOURCE, { SOURCE: e });
+                  f && (e = decodeURIComponent(f)), n.event(n.e.EXTENSION_INSTALLED_SOURCE, { SOURCE: e });
                 }
               });
               break;
@@ -204,7 +206,7 @@ async function A(e) {
                             "complete" === a.status &&
                             (n.event(n.e.WELCOME_PDF_LOADED), chrome.tabs.onUpdated.removeListener(o));
                         }
-                        (h = { ...e, timestamp: t }), chrome.tabs.onUpdated.addListener(o);
+                        (g = { ...e, timestamp: t }), chrome.tabs.onUpdated.addListener(o);
                       })
                     );
                 });
@@ -214,7 +216,7 @@ async function A(e) {
       });
   } catch (e) {}
 }
-function S() {
+function w() {
   try {
     if (navigator.onLine || !1 === r.getItem("offlineSupportDisable")) {
       const e = r.getItem("pdfViewer"),
@@ -249,15 +251,15 @@ function S() {
     n.event(n.e.VIEWER_KILL_SWITCH_OFF_FAILED);
   }
 }
-function w(e) {
+function O(e) {
   return (
     t && t.isChromeOnlyMessage(e) && t.isEdge() && (e += "Edge"), t && t.getTranslation ? t.getTranslation(e) : chrome.i18n.getMessage(e)
   );
 }
-function O(e) {
-  return (e.title || w("web2pdfUntitledFileName")).replace(/[<>?:|\*"\/\\'&\.]/g, "");
+function D(e) {
+  return (e.title || O("web2pdfUntitledFileName")).replace(/[<>?:|\*"\/\\'&\.]/g, "");
 }
-function D(e, n) {
+function v(e, n) {
   if (!e && !n) return !1;
   try {
     const t = e.pageUrl || n.url,
@@ -268,75 +270,75 @@ function D(e, n) {
   }
   return !1;
 }
-function v(e, t) {
+function C(e, t) {
   "convertPageContextMenu" === e.menuItemId
     ? (function (e, t) {
-        D(e, t) &&
+        v(e, t) &&
           (n.event(n.e.CONTEXT_MENU_CONVERT_PAGE),
-          g().handleConversionRequest({
+          T().handleConversionRequest({
             tabId: t.id,
-            caller: T().web2pdfCaller.MENU,
-            action: T().web2pdfAction.CONVERT,
-            context: T().web2pdfContext.PAGE,
+            caller: N().web2pdfCaller.MENU,
+            action: N().web2pdfAction.CONVERT,
+            context: N().web2pdfContext.PAGE,
             url: e.pageUrl || t.url,
-            domtitle: O(t)
+            domtitle: D(t)
           }));
       })(e, t)
     : "appendPageContextMenu" === e.menuItemId
     ? (function (e, t) {
-        D(e, t) &&
+        v(e, t) &&
           (n.event(n.e.CONTEXT_MENU_APPEND_PAGE),
-          g().handleConversionRequest({
+          T().handleConversionRequest({
             tabId: t.id,
-            caller: T().web2pdfCaller.MENU,
-            action: T().web2pdfAction.APPEND,
-            context: T().web2pdfContext.PAGE,
+            caller: N().web2pdfCaller.MENU,
+            action: N().web2pdfAction.APPEND,
+            context: N().web2pdfContext.PAGE,
             url: e.pageUrl || t.url,
-            domtitle: O(t)
+            domtitle: D(t)
           }));
       })(e, t)
     : "convertLinkTargetToPDFContextMenu" === e.menuItemId
     ? (function (e, t) {
-        D(e, t) &&
+        v(e, t) &&
           (n.event(n.e.CONTEXT_MENU_CONVERT_LINK),
-          g().handleConversionRequest({
+          T().handleConversionRequest({
             tabId: t.id,
-            caller: T().web2pdfCaller.MENU,
-            action: T().web2pdfAction.CONVERT,
-            context: T().web2pdfContext.LINK,
+            caller: N().web2pdfCaller.MENU,
+            action: N().web2pdfAction.CONVERT,
+            context: N().web2pdfContext.LINK,
             url: e.linkUrl,
-            domtitle: O(t)
+            domtitle: D(t)
           }));
       })(e, t)
     : "appendLinkTargetToExistingPDFContextMenu" === e.menuItemId &&
       (function (e, t) {
-        D(e, t) &&
+        v(e, t) &&
           (n.event(n.e.CONTEXT_MENU_APPEND_LINK),
-          g().handleConversionRequest({
+          T().handleConversionRequest({
             tabId: t.id,
-            caller: T().web2pdfCaller.MENU,
-            action: T().web2pdfAction.APPEND,
-            context: T().web2pdfContext.LINK,
+            caller: N().web2pdfCaller.MENU,
+            action: N().web2pdfAction.APPEND,
+            context: N().web2pdfContext.LINK,
             url: e.linkUrl,
-            domtitle: O(t)
+            domtitle: D(t)
           }));
       })(e, t);
 }
-function C() {
+function R() {
   const e = "true" === r.getItem("pdfViewer") ? "enabled" : "disabled";
   l.setViewerState(e);
 }
-function R(e) {
+function M(e) {
   const t = e.UsageMeasurement,
     n = t && "false" === t.newValue ? "false" : "true";
   r.setItem("ANALYTICS_OPT_IN_ADMIN", n);
 }
-function M() {
+function b() {
   const e = r.getItem("pdfViewer");
   let t = "neverTaken";
   "true" === e ? (t = "enabled") : "false" === e && (t = "disabled"), n.event(n.e.DEFAULT_OWNERSHIP_VIEWER_STATUS, { STATUS: t });
 }
-async function b(l) {
+async function P(l) {
   (async () => {
     const e = await i.hasFlag("dc-cv-locale-option-page", u.NO_CALL);
     e &&
@@ -363,7 +365,7 @@ async function b(l) {
         t.consoleError(e);
       }
     })(),
-    setTimeout(C, 1e4),
+    setTimeout(R, 1e4),
     (function () {
       try {
         t.isEdge() && r.setItem("IsRunningInEdge", "true");
@@ -392,9 +394,9 @@ async function b(l) {
       } catch (e) {}
       s.getItem("startupComplete") || ("mac" === e.os ? n.event(n.e.OS_MAC_OP) : "win" === e.os && n.event(n.e.OS_WIN_OP));
     })(),
-    f({ env: l, msg: c }),
+    _({ env: l, msg: c }),
     s.getItem("startupComplete") ||
-      (S(),
+      (w(),
       (function (t) {
         const n = 0 == t || (1 == t && !1 === e.NMHConnStatus) || t == a.READER_VER || t == a.ERP_READER_VER;
         chrome.contextMenus.removeAll(function () {
@@ -402,27 +404,27 @@ async function b(l) {
             n ||
             (chrome.contextMenus.create({
               id: "convertPageContextMenu",
-              title: w("web2pdfConvertPageContextMenu"),
+              title: O("web2pdfConvertPageContextMenu"),
               contexts: ["page"],
-              documentUrlPatterns: N
+              documentUrlPatterns: L
             }),
             chrome.contextMenus.create({
               id: "appendPageContextMenu",
-              title: w("web2pdfAppendPageContextMenu"),
+              title: O("web2pdfAppendPageContextMenu"),
               contexts: ["page"],
-              documentUrlPatterns: N
+              documentUrlPatterns: L
             }),
             chrome.contextMenus.create({
               id: "convertLinkTargetToPDFContextMenu",
-              title: w("web2pdfConvertLinkContextMenu"),
+              title: O("web2pdfConvertLinkContextMenu"),
               contexts: ["link"],
-              documentUrlPatterns: N
+              documentUrlPatterns: L
             }),
             chrome.contextMenus.create({
               id: "appendLinkTargetToExistingPDFContextMenu",
-              title: w("web2pdfAppendLinkContextMenu"),
+              title: O("web2pdfAppendLinkContextMenu"),
               contexts: ["link"],
-              documentUrlPatterns: N
+              documentUrlPatterns: L
             }));
         });
       })(c.ver),
@@ -431,11 +433,11 @@ async function b(l) {
         ("true" !== m && !0 !== m) ||
         (n.event(n.e.ENABLED_AFTER_READER_REPROMPT), r.setItem("repromptAnalyticsLogged", !0)),
       n.event(n.e.EXTENSION_STARTUP),
-      setTimeout(M, 1e4),
+      setTimeout(b, 1e4),
       s.setItem("startupComplete", !0));
 }
-function P(e) {
-  const { id: t, timestamp: o } = h,
+function U(e) {
+  const { id: t, timestamp: o } = g,
     a = new Date().getTime();
   e === t && a - o <= 15e3 && n.event(n.e.WELCOME_PDF_TAB_CLOSED);
   const s = r.getItem("signInExperimentShown");
@@ -448,18 +450,18 @@ function P(e) {
       r.removeItem("signInExperimentSuppressed");
   }
 }
-const U = (e) => {
+const x = (e) => {
     const { height: t, width: n } = E;
     return { height: t, width: n, top: Math.round(0.5 * (e.height - t) + e.top), left: Math.round(0.5 * (e.width - n) + e.left) };
   },
-  x = async ({ windowId: e }) => {
+  F = async ({ windowId: e }) => {
     const t = await chrome.windows.get(e);
     if ("fullscreen" === t?.state || "locked-fullscreen" === t?.state) return;
     const { tabId: n, url: o } = r.getItem("localFileFteData"),
       [a] = await chrome.tabs.query({ currentWindow: !0, active: !0 }),
       s = r.getItem("localFteWindow");
     if (a && a.id === n && a.url === o) {
-      const { height: e, width: n, top: o, left: a } = U(t);
+      const { height: e, width: n, top: o, left: a } = x(t);
       await chrome.windows.update(s?.id, { height: e, width: n, left: a, top: o, focused: !0 });
     }
   },
@@ -478,7 +480,7 @@ const U = (e) => {
         return !(e || l || o.length || i || a || s >= 20);
       })();
     if (a && n.url.toLowerCase().startsWith("file://") && n.url.toLowerCase().endsWith(".pdf") && s) {
-      const { height: t, width: a, top: s, left: i } = U(o);
+      const { height: t, width: a, top: s, left: i } = x(o);
       r.setItem("localFileFteData", { tabId: n.id, url: n.url });
       const l = await chrome.windows.create({
         height: t,
@@ -492,21 +494,21 @@ const U = (e) => {
       r.setItem("localFteWindow", l), e.registerHandlers({ closeLocalFte: () => chrome.windows.remove(l.id) });
     }
   },
-  F = async (e) => {
+  V = async (e) => {
     const { tabId: t } = r.getItem("localFileFteData");
     if (t === e) {
       const e = r.getItem("localFteWindow");
       chrome.windows.remove(e?.id);
     }
   };
-e.registerHandlers({ themeChange: L, localeChange: (e) => L({ locale: e.locale }) });
+e.registerHandlers({ themeChange: A, reRegisterUninstallUrl: A, localeChange: (e) => A({ locale: e.locale }) });
 export {
-  b as startup,
-  A as registerActions,
-  P as onWelcomeTabRemoved,
-  v as contextMenuOnClickHandler,
-  R as updateAnalyticsOptInAdmin,
-  x as refocusLocalFteWindow,
+  P as startup,
+  S as registerActions,
+  U as onWelcomeTabRemoved,
+  C as contextMenuOnClickHandler,
+  M as updateAnalyticsOptInAdmin,
+  F as refocusLocalFteWindow,
   y as openLocalFteWindow,
-  F as onLocalFileClosed
+  V as onLocalFileClosed
 };

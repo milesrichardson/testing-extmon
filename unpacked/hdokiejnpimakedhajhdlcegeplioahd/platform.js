@@ -86,9 +86,9 @@
               l = t.isObject,
               u = t.isErrorEvent,
               n = t.isUndefined,
-              d = t.isFunction,
+              f = t.isFunction,
               c = t.isString,
-              f = t.isArray,
+              d = t.isArray,
               p = t.isEmptyObject,
               g = t.each,
               h = t.objectMerge,
@@ -113,7 +113,7 @@
               F = C.document,
               R = C.navigator;
             function A(t, n) {
-              return d(n)
+              return f(n)
                 ? function (e) {
                     return n(e, t);
                   }
@@ -232,13 +232,13 @@
                   this._resetBackoff();
               },
               context: function (e, t, n) {
-                return d(e) && ((n = t || []), (t = e), (e = void 0)), this.wrap(e, t).apply(this, n);
+                return f(e) && ((n = t || []), (t = e), (e = void 0)), this.wrap(e, t).apply(this, n);
               },
               wrap: function (r, o, a) {
                 var i = this,
                   e;
-                if (n(o) && !d(r)) return r;
-                if ((d(r) && ((o = r), (r = void 0)), !d(o))) return o;
+                if (n(o) && !f(r)) return r;
+                if ((f(r) && ((o = r), (r = void 0)), !f(o))) return o;
                 try {
                   if (o.__raven__) return o;
                   if (o.__raven_wrapper__) return o.__raven_wrapper__;
@@ -249,7 +249,7 @@
                   var e = [],
                     t = arguments.length,
                     n = !r || !1 !== r.deep;
-                  for (a && d(a) && a.apply(this, arguments); t--; ) e[t] = n ? i.wrap(r, arguments[t]) : arguments[t];
+                  for (a && f(a) && a.apply(this, arguments); t--; ) e[t] = n ? i.wrap(r, arguments[t]) : arguments[t];
                   try {
                     return o.apply(this, e);
                   } catch (e) {
@@ -294,7 +294,7 @@
                   }
                   r.name = null;
                   var r = i.computeStackTrace(r),
-                    o = f(r.stack) && r.stack[1],
+                    o = d(r.stack) && r.stack[1],
                     o = (o && o.url) || "",
                     o;
                   if (!this._globalOptions.ignoreUrls.test || !this._globalOptions.ignoreUrls.test(o))
@@ -311,7 +311,7 @@
               },
               captureBreadcrumb: function (e) {
                 var e = h({ timestamp: L() / 1e3 }, e);
-                if (d(this._globalOptions.breadcrumbCallback)) {
+                if (f(this._globalOptions.breadcrumbCallback)) {
                   var t = this._globalOptions.breadcrumbCallback(e);
                   if (l(t) && !p(t)) e = t;
                   else if (!1 === t) return this;
@@ -483,7 +483,7 @@
                   return function (e, t) {
                     for (var n = new Array(arguments.length), r = 0; r < n.length; ++r) n[r] = arguments[r];
                     var o = n[0];
-                    return d(o) && (n[0] = u.wrap(o)), a.apply ? a.apply(this, n) : a(n[0], n[1]);
+                    return f(o) && (n[0] = u.wrap(o)), a.apply ? a.apply(this, n) : a(n[0], n[1]);
                   };
                 }
                 var c = this._globalOptions.autoBreadcrumbs;
@@ -596,7 +596,7 @@
                   n;
                 function i(e, t) {
                   e in t &&
-                    d(t[e]) &&
+                    f(t[e]) &&
                     k(t, e, function (e) {
                       return u.wrap(e);
                     });
@@ -633,7 +633,7 @@
                         }
                         for (var r = ["onload", "onerror", "onprogress"], o = 0; o < r.length; o++) i(r[o], t);
                         return (
-                          "onreadystatechange" in t && d(t.onreadystatechange)
+                          "onreadystatechange" in t && f(t.onreadystatechange)
                             ? k(t, "onreadystatechange", function (e) {
                                 return u.wrap(e, void 0, n);
                               })
@@ -870,9 +870,9 @@
                   t.environment && (e.environment = t.environment),
                   t.release && (e.release = t.release),
                   t.serverName && (e.server_name = t.serverName),
-                  !(e = d(t.dataCallback) ? t.dataCallback(e) || e : e) ||
+                  !(e = f(t.dataCallback) ? t.dataCallback(e) || e : e) ||
                     p(e) ||
-                    (d(t.shouldSendCallback) && !t.shouldSendCallback(e)) ||
+                    (f(t.shouldSendCallback) && !t.shouldSendCallback(e)) ||
                     (this._shouldBackoff()
                       ? this._logDebug("warn", "Raven dropped error due to backoff: ", e)
                       : ("number" != typeof t.sampleRate || Math.random() < t.sampleRate) && this._sendProcessedPayload(e));
@@ -1028,14 +1028,14 @@
                 return !1;
               }
             }
-            function d(n) {
+            function f(n) {
               function e(e, t) {
                 var e = n(e) || e;
                 return (t && t(e)) || e;
               }
               return e;
             }
-            function f(e, t) {
+            function d(e, t) {
               var n, r;
               if (a(e.length)) for (n in e) m(e, n) && t.call(null, n, e[n]);
               else if ((r = e.length)) for (n = 0; n < r; n++) t.call(null, n, e[n]);
@@ -1043,7 +1043,7 @@
             function p(n, e) {
               return (
                 e &&
-                  f(e, function (e, t) {
+                  d(e, function (e, t) {
                     n[e] = t;
                   }),
                 n
@@ -1066,7 +1066,7 @@
             function _(e) {
               var n = [];
               return (
-                f(e, function (e, t) {
+                d(e, function (e, t) {
                   n.push(encodeURIComponent(e) + "=" + encodeURIComponent(t));
                 }),
                 n.join("&")
@@ -1168,8 +1168,8 @@
               isArray: s,
               isEmptyObject: u,
               supportsErrorEvent: c,
-              wrappedCallback: d,
-              each: f,
+              wrappedCallback: f,
+              each: d,
               objectMerge: p,
               truncate: h,
               objectFrozen: g,
@@ -1208,7 +1208,7 @@
                 a = null,
                 i = null,
                 c = null,
-                d,
+                f,
                 t;
               function n(e) {
                 u(), o.push(e);
@@ -1219,7 +1219,7 @@
               function s() {
                 p(), (o = []);
               }
-              function f(e, t) {
+              function d(e, t) {
                 var n = null;
                 if (!t || v.collectWindowErrors) {
                   for (var r in o)
@@ -1243,25 +1243,25 @@
                   c
                     ? (v.computeStackTrace.augmentStackTraceWithInitialElement(c, t, n, e), g())
                     : o && m.isError(o)
-                    ? f((a = v.computeStackTrace(o)), !0)
+                    ? d((a = v.computeStackTrace(o)), !0)
                     : ((i = { url: t, line: n, column: r }),
                       (s = void 0),
                       "[object String]" === {}.toString.call((l = e)) && (u = e.match(w)) && ((s = u[1]), (l = u[2])),
                       (i.func = y),
-                      f((a = { name: s, message: l, url: x(), stack: [i] }), !0)),
-                  !!d && d.apply(this, arguments)
+                      d((a = { name: s, message: l, url: x(), stack: [i] }), !0)),
+                  !!f && f.apply(this, arguments)
                 );
               }
               function u() {
-                t || ((d = _.onerror), (_.onerror = l), (t = !0));
+                t || ((f = _.onerror), (_.onerror = l), (t = !0));
               }
               function p() {
-                t && ((_.onerror = d), (t = !1), (d = void 0));
+                t && ((_.onerror = f), (t = !1), (f = void 0));
               }
               function g() {
                 var e = c,
                   t = a;
-                (i = c = a = null), f.apply(null, [e, !1].concat(t));
+                (i = c = a = null), d.apply(null, [e, !1].concat(t));
               }
               function h(e, t) {
                 var n = b.call(arguments, 1);
@@ -1302,14 +1302,14 @@
                         l,
                         u,
                         c,
-                        d = /^(.*) is undefined$/.exec(e.message),
-                        f = 0,
+                        f = /^(.*) is undefined$/.exec(e.message),
+                        d = 0,
                         p = i.length,
                         g;
-                      f < p;
-                      ++f
+                      d < p;
+                      ++d
                     ) {
-                      if ((u = t.exec(i[f]))) {
+                      if ((u = t.exec(i[d]))) {
                         var c = u[2] && 0 === u[2].indexOf("native"),
                           g;
                         (g = u[2] && 0 === u[2].indexOf("eval")) && (l = a.exec(u[2])) && ((u[2] = l[1]), (u[3] = l[2]), (u[4] = l[3])),
@@ -1320,12 +1320,12 @@
                             line: u[3] ? +u[3] : null,
                             column: u[4] ? +u[4] : null
                           });
-                      } else if ((u = r.exec(i[f]))) c = { url: u[2], func: u[1] || y, args: [], line: +u[3], column: u[4] ? +u[4] : null };
+                      } else if ((u = r.exec(i[d]))) c = { url: u[2], func: u[1] || y, args: [], line: +u[3], column: u[4] ? +u[4] : null };
                       else {
-                        if (!(u = n.exec(i[f]))) continue;
+                        if (!(u = n.exec(i[d]))) continue;
                         (g = u[3] && -1 < u[3].indexOf(" > eval")) && (l = o.exec(u[3]))
                           ? ((u[3] = l[1]), (u[4] = l[2]), (u[5] = null))
-                          : 0 !== f || u[5] || void 0 === e.columnNumber || (s[0].column = e.columnNumber + 1),
+                          : 0 !== d || u[5] || void 0 === e.columnNumber || (s[0].column = e.columnNumber + 1),
                           (c = {
                             url: u[3],
                             func: u[1] || y,
@@ -1350,7 +1350,7 @@
                   }
                   return !(e.incomplete = !0);
                 }
-                function d(e, t) {
+                function f(e, t) {
                   for (
                     var n = /function\s+([_$a-zA-Z\xA0-\uFFFF][_$a-zA-Z0-9\xA0-\uFFFF]*)?\s*\(/i,
                       r = [],
@@ -1359,11 +1359,11 @@
                       i,
                       s,
                       l,
-                      u = d.caller;
+                      u = f.caller;
                     u && !a;
                     u = u.caller
                   )
-                    if (u !== f && u !== v.report) {
+                    if (u !== d && u !== v.report) {
                       if (
                         ((s = { url: null, func: y, line: null, column: null }),
                         u.name ? (s.func = u.name) : (i = n.exec(u.toString())) && (s.func = i[1]),
@@ -1378,7 +1378,7 @@
                   var t = { name: e.name, message: e.message, url: x(), stack: r };
                   return c(t, e.sourceURL || e.fileName, e.line || e.lineNumber, e.message || e.description), t;
                 }
-                function f(e, t) {
+                function d(e, t) {
                   var n = null;
                   t = null == t ? 0 : +t;
                   try {
@@ -1387,13 +1387,13 @@
                     if (v.debug) throw e;
                   }
                   try {
-                    if ((n = d(e, t + 1))) return n;
+                    if ((n = f(e, t + 1))) return n;
                   } catch (e) {
                     if (v.debug) throw e;
                   }
                   return { name: e.name, message: e.message, url: x() };
                 }
-                return (f.augmentStackTraceWithInitialElement = c), (f.computeStackTraceFromStackProp = r), f;
+                return (d.augmentStackTraceWithInitialElement = c), (d.computeStackTraceFromStackProp = r), d;
               })()),
               (n.exports = v);
           }.call(
@@ -1585,7 +1585,7 @@
       openAcctsIframe: function (e, t) {
         var n = -1 !== document.location.href.indexOf("vault.php"),
           r = ((e.webvault = n ? "1" : "0"), LPTools.createElement("iframe", "acctsiframe"));
-        (r.src = n ? "iframe.php" : "iframe.html"),
+        (r.src = n ? "iframe.php" : LPPlatform.getResourcePath("iframe.html")),
           LPPlatform.addEventListener(r, "load", function () {
             r.contentWindow.goTo(LPProxy.getBaseURL() + "acctsiframe.php?" + $.param(e), t), LPTools.addClass(r, "loaded");
           }),
@@ -1781,7 +1781,7 @@
       logError: function (e) {
         e = "Page: " + window.location.href + " Error: " + e;
         try {
-          console.error(e), bg.lpReportError("VAULT_4_0: " + e);
+          console.error(e), logger.info("VAULT_4_0: " + e, { vault: "VAULT_4_0", message: e });
         } catch (e) {}
       },
       addEventListener: function (e) {

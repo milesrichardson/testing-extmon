@@ -93,7 +93,7 @@ mobile.signin = {
     var $signInButton = this.$screen.find(".signin-button");
 
     // Add keyup event to the email and password fields
-    $bothFields.rebind("keyup change paste", (event) => {
+    $bothFields.rebind("keyup change", (event) => {
       // Change the button to red to enable it if they have entered something in the two fields
       if ($emailField.val().length > 0 && $passwordField.val().length > 0) {
         $signInButton.addClass("active");
@@ -106,6 +106,10 @@ mobile.signin = {
         // Grey it out if they have not completed one of the fields
         $signInButton.removeClass("active");
       }
+    });
+
+    $bothFields.rebind("paste", function () {
+      onIdle(() => $(this).trigger("change"));
     });
   },
 

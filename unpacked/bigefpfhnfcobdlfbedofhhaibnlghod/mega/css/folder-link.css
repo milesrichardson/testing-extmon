@@ -35,7 +35,7 @@
 .active-folder-link.nw-tree-panel-header + .nw-tree-panel-filter-tag.hidden + .fm-tree-panel {
   height: calc(100% - 12px);
 }
-.active-folder-link .fm-import-donwload-buttons {
+.active-folder-link .fm-import-download-buttons {
   -webkit-padding-end: 12px;
   display: block;
   padding-inline-end: 12px;

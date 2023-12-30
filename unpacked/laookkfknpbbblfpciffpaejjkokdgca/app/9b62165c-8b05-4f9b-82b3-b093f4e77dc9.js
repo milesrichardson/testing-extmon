@@ -1,29 +1,30 @@
-var fn_addin = function (g, m, e) {
-  var t = t || {};
-  (t.styles = t.styles || {}),
-    (t.commands = t.commands || {}),
-    (t.dependencies = e || t.dependencies || {}),
-    (t.styles.style = function () {}),
-    (t.views = t.views || {}),
-    (t.collect = t.collect || {}),
-    (t.models = t.models || {}),
-    (t.templates = t.templates || {}),
-    (t.info = {
-      addin: "9b62165c-8b05-4f9b-82b3-b093f4e77dc9",
-      dependencies: ["settings"],
-      commands: ["settings.panels.general"],
-      id: "settings_general"
-    }),
-    g.console.log(g.elapsed() + ": " + t.info.id + " started"),
-    (t.templates = t.templates || {}),
-    (t.templates.general = Handlebars.template({
-      compiler: [8, ">= 4.3.0"],
-      main: function (e, t, s, i, n) {
-        return '<header class="settings-header">\n\t<h3 data-test="general-header">General</h3>\n\t<p class="description">Customize your dashboard</p>\n</header>\n\n\n<h4 class="first">Show</h4>\n<ul id="apps-list" class="settings-list options-list"></ul>\n\n<h4>Labs</h4>\n<ul id="labs-list" class="settings-list options-list"></ul>\n\n<h4>Appearance</h4>\n<ul id="customize-list" class="settings-list options-list"></ul>\n\n\n<section class="u--touch-hide">\n\t<h5>Tip</h5>\n\t<p class="tip">Many items in Momentum can be edited by double-clicking on them, including <strong>your name</strong> and your <strong>to-dos</strong>.\n</section>\n';
-      },
-      useData: !0
-    }));
-  var n = t.dependencies.settings;
+var fn_addin = function (c, u, e) {
+  var t = {},
+    n =
+      ((t.styles = t.styles || {}),
+      (t.commands = t.commands || {}),
+      (t.dependencies = e || t.dependencies || {}),
+      (t.styles.style = function () {}),
+      (t.views = t.views || {}),
+      (t.collect = t.collect || {}),
+      (t.models = t.models || {}),
+      (t.templates = t.templates || {}),
+      (t.info = {
+        addin: "9b62165c-8b05-4f9b-82b3-b093f4e77dc9",
+        dependencies: ["settings"],
+        commands: ["settings.panels.general"],
+        id: "settings_general"
+      }),
+      c.console.log(c.elapsed() + ": " + t.info.id + " started"),
+      (t.templates = t.templates || {}),
+      (t.templates.general = Handlebars.template({
+        compiler: [8, ">= 4.3.0"],
+        main: function (e, t, s, i, n) {
+          return '<header class="settings-header">\n\t<h3 data-test="general-header">General</h3>\n\t<p class="description">Customize your dashboard</p>\n</header>\n\n\n<h4 class="first">Show</h4>\n<ul id="apps-list" class="settings-list options-list"></ul>\n\n<h4>Labs</h4>\n<ul id="labs-list" class="settings-list options-list"></ul>\n\n<h4>Appearance</h4>\n<ul id="customize-list" class="settings-list options-list"></ul>\n\n\n<section class="u--touch-hide">\n\t<h5>Tip</h5>\n\t<p class="tip">Many items in Momentum can be edited by double-clicking on them, including <strong>your name</strong> and your <strong>to-dos</strong>.\n</section>\n';
+        },
+        useData: !0
+      })),
+      t.dependencies.settings);
   return (
     (t.views.General = n.views.SettingsPanel.extend({
       attributes: { id: "settings-general", class: "settings-view settings-general", "data-test": "settings-general" },
@@ -39,17 +40,14 @@ var fn_addin = function (g, m, e) {
         webkitAnimationEnd: "onAnimationEnd"
       },
       initialize: function () {
-        (this.model = g.models.customization),
+        (this.model = c.models.customization),
           this.initializeCustomizeItems(),
           this.listenTo(this.model, "change", this.customizationModelChanged),
-          g.Analytics.capture("settings panel show", { feature: "settings", name: "general" });
+          c.Analytics.capture("settings panel show", { feature: "settings", name: "general" });
       },
       initializeCustomizeItems: function () {
-        var e = g.models.themeManager.getAvailableFonts(),
-          i = this;
-        function t() {
-          return g.models.bookmarksSettings.get("defaultMostVisited") && i.model.get("bookmarksVisible");
-        }
+        var e = c.models.themeManager.getAvailableFonts(),
+          s = this;
         this.customizeItems = [
           {
             name: "Theme",
@@ -86,27 +84,48 @@ var fn_addin = function (g, m, e) {
           {
             name: "Bookmarks Bar",
             dataId: "settings-general-bookmarks-bar",
-            field: "bookmarksVisible",
+            field: {
+              name: "bookmarksVisible",
+              get: function () {
+                return c.models.customization.get("bookmarksVisible");
+              },
+              set: function (e) {
+                function t(e) {
+                  e || (c.models.bookmarksSettings.set("defaultMostVisited", !1), c.models.bookmarksSettings.optionsChanged()),
+                    s.model.save({ bookmarksVisible: e });
+                }
+                if (!e) return t(!1);
+                (e = c.models.bookmarksSettings), (e = { permissions: e.permissions.permissions, origins: e.permissions.origins });
+                s.ensurePermissions(e, t, "Momentum", "To display your bookmarks");
+              }
+            },
             section: "widgets",
-            unsupported: g.utils.bookmarksNotSupported() || g.utils.isTouchDevice()
+            unsupported: c.utils.bookmarksNotSupported() || c.utils.isTouchDevice()
           },
           {
             name: "Top Sites",
             dataId: "settings-general-most-visited",
             field: {
               name: "mostVisited",
-              set: function (e, t) {
-                var s = g.models.bookmarksSettings;
-                e && !i.model.get("bookmarksVisible") && i.enableBookmarks(t), s.set("defaultMostVisited", e), s.optionsChanged();
+              get: function () {
+                return c.models.bookmarksSettings.get("defaultMostVisited");
               },
-              get: t
+              set: function (e) {
+                function t(e) {
+                  e && s.model.save({ bookmarksVisible: !0 }),
+                    c.models.bookmarksSettings.set("defaultMostVisited", e),
+                    c.models.bookmarksSettings.optionsChanged(),
+                    c.Analytics.capture("start in top sites toggle", { feature: "bookmarks", new_value: e, location: "settings general" });
+                }
+                if (!e) return t(!1);
+                (e = c.models.bookmarksSettings), (e = { permissions: e.permissions.permissions, origins: e.permissions.origins });
+                s.ensurePermissions(e, t, "Momentum", "To display your bookmarks");
+              }
             },
-            customEvent: function () {
-              g.Analytics.capture("start in top sites toggle", { feature: "bookmarks", new_value: t(), location: "settings general" });
-            },
+            skipAnalyticsOnChange: !0,
             section: "widgets",
             message: "Show most visited websites by default in Bookmarks Bar",
-            unsupported: g.utils.bookmarksNotSupported() || g.utils.isTouchDevice()
+            unsupported: c.utils.bookmarksNotSupported() || c.utils.isTouchDevice()
           },
           {
             name: "Search",
@@ -114,11 +133,11 @@ var fn_addin = function (g, m, e) {
             field: {
               name: "searchVisible",
               get: function () {
-                return i.model.get("searchVisible");
+                return s.model.get("searchVisible");
               },
               set: function (e) {
                 var t = { searchVisible: e };
-                e && i.model.get("centerBelowNavVisible") && (t.focusVisible = !1), e || (t.launchpadVisible = !1), i.model.save(t);
+                e && s.model.get("centerBelowNavVisible") && (t.focusVisible = !1), e || (t.launchpadVisible = !1), s.model.save(t);
               }
             },
             section: "widgets"
@@ -131,11 +150,11 @@ var fn_addin = function (g, m, e) {
             field: {
               name: "greetingVisible",
               get: function () {
-                return i.model.get("greetingVisible");
+                return s.model.get("greetingVisible");
               },
               set: function (e) {
                 var t = { greetingVisible: e };
-                !e && i.model.get("mantraVisible") && (t.mantraVisible = !1), i.model.set(t);
+                !e && s.model.get("mantraVisible") && (t.mantraVisible = !1), s.model.set(t);
               }
             },
             section: "widgets"
@@ -146,11 +165,11 @@ var fn_addin = function (g, m, e) {
             field: {
               name: "mantraVisible",
               get: function () {
-                return g.models.customization.get("mantraVisible");
+                return c.models.customization.get("mantraVisible");
               },
               set: function (e) {
                 var t = { mantraVisible: e };
-                e && !g.models.customization.get("greetingVisible") && (t.greetingVisible = !0), g.models.customization.set(t);
+                e && !c.models.customization.get("greetingVisible") && (t.greetingVisible = !0), c.models.customization.set(t);
               }
             },
             message: "Simple phrases to build positive mental habits",
@@ -163,11 +182,11 @@ var fn_addin = function (g, m, e) {
             field: {
               name: "focusVisible",
               get: function () {
-                return i.model.get("focusVisible");
+                return s.model.get("focusVisible");
               },
               set: function (e) {
                 var t = { focusVisible: e };
-                e && i.model.get("centerBelowNavVisible") && (t.searchVisible = !1), i.model.save(t);
+                e && s.model.get("centerBelowNavVisible") && (t.searchVisible = !1), s.model.save(t);
               }
             },
             section: "widgets"
@@ -216,7 +235,7 @@ var fn_addin = function (g, m, e) {
             dataId: "settings-general-tabs",
             field: "tabsVisible",
             plusOnly: !0,
-            unsupported: g.utils.isSafari() || g.utils.isTouchDevice(),
+            unsupported: c.utils.isSafari() || c.utils.isTouchDevice(),
             requiredFeature: "tab-stash",
             message: "Stash open tabs for later so you can focus",
             section: "widgets"
@@ -226,7 +245,7 @@ var fn_addin = function (g, m, e) {
             dataId: "settings-general-soundscapes",
             field: "soundscapesVisible",
             plusOnly: !0,
-            unsupported: g.utils.isTouchDevice(),
+            unsupported: c.utils.isTouchDevice(),
             requiredFeature: "plus",
             message: "Sounds to help you focus and relax",
             section: "widgets"
@@ -237,11 +256,11 @@ var fn_addin = function (g, m, e) {
             field: {
               name: "centerBelowNavVisible",
               get: function () {
-                return g.models.customization.get("centerBelowNavVisible");
+                return c.models.customization.get("centerBelowNavVisible");
               },
               set: function (e) {
                 var t = { centerBelowNavVisible: e, focusVisible: !e };
-                e && (t.searchVisible = !0), e || (t.launchpadVisible = !1), i.model.save(t);
+                e && (t.searchVisible = !0), e || (t.launchpadVisible = !1), s.model.save(t);
               }
             },
             section: "labs",
@@ -253,25 +272,25 @@ var fn_addin = function (g, m, e) {
             field: {
               name: "launchpadVisible",
               get: function () {
-                return g.models.customization.get("launchpadVisible");
+                return c.models.customization.get("launchpadVisible");
               },
-              set: function (s) {
-                function e(e) {
+              set: function (e) {
+                function t(e) {
                   var t = {};
-                  s && e
+                  e
                     ? ((t.centerBelowNavVisible = !0), (t.launchpadVisible = !0), (t.searchVisible = !0), (t.focusVisible = !1))
                     : (t.launchpadVisible = !1),
-                    i.model.save(t);
+                    s.model.save(t);
                 }
-                if (!s) return e(!1);
-                var t = { permissions: ["topSites"] };
-                g.utils.isChrome() && (t.origins = ["chrome://favicon/"]),
-                  i.ensurePermissions(t, e, "Launchpad", "To display your top sites");
+                if (!e) return t(!1);
+                e = { permissions: ["topSites"] };
+                c.utils.isChrome() && (e.origins = ["chrome://favicon/"]),
+                  s.ensurePermissions(e, t, "Launchpad", "To display your top sites");
               }
             },
             section: "labs",
             message: "Show your top sites under the clock",
-            unsupported: g.utils.bookmarksNotSupported() || g.utils.isTouchDevice()
+            unsupported: c.utils.bookmarksNotSupported() || c.utils.isTouchDevice()
           },
           {
             name: "Ask AI",
@@ -285,18 +304,21 @@ var fn_addin = function (g, m, e) {
         ];
       },
       render: function () {
-        var e = g.isLoggedIn();
-        this.$el.html(this.template({ loggedIn: e })), (this.$popBody = this.$(".pop-body"));
-        var s = {
-          customize: this.$el.find("#customize-list"),
-          widgets: this.$el.find("#apps-list"),
-          misc: this.$el.find("#misc-list"),
-          labs: this.$el.find("#labs-list")
-        };
-        _.each(s, function (e) {
-          e.empty();
-        });
-        var i = this;
+        var e = c.isLoggedIn(),
+          s =
+            (this.$el.html(this.template({ loggedIn: e })),
+            (this.$popBody = this.$(".pop-body")),
+            {
+              customize: this.$el.find("#customize-list"),
+              widgets: this.$el.find("#apps-list"),
+              misc: this.$el.find("#misc-list"),
+              labs: this.$el.find("#labs-list")
+            }),
+          i =
+            (_.each(s, function (e) {
+              e.empty();
+            }),
+            this);
         return (
           _.each(this.customizeItems, function (e) {
             var t = Object.assign({}, e);
@@ -306,84 +328,74 @@ var fn_addin = function (g, m, e) {
                 : s[t.section].append(n.templates["general-toggle-slider"](t));
           }),
           this.updateControlStates(_.pluck(this.customizeItems, "field")),
-          g.commandManager.execute("settings.color.picker", this.$el[0]),
+          c.commandManager.execute("settings.color.picker", this.$el[0]),
           this
         );
       },
       onAnimationEnd: function (e) {
-        g.utils.removePulseClass(e);
+        c.utils.removePulseClass(e);
       },
       customizationModelChanged: function (e) {
-        if (e) {
-          var t = e.changedAttributes(),
-            s = _.keys(t);
-          this.updateControlStates(s);
-        }
+        e && ((e = e.changedAttributes()), (e = _.keys(e)), this.updateControlStates(e));
       },
       fieldHasOwnControl: function (e) {
         return !("object" != typeof e || null === e || !e.get || !e.set);
       },
       updateControlStates: function (e) {
-        var r = this;
+        var a = this;
         _.each(e, function (e) {
-          var t = r.findMatchingItem(e);
-          if (t) {
-            var s = r.fieldHasOwnControl(e),
-              i = s ? e.get() : r.model.get(e),
-              n = r.getFieldName(e);
-            if (t.options) {
-              t.plusOnly && !r.featureAvailable(t.requiredFeature) && (i = t.default),
-                r.$el.find("." + n).removeClass("active"),
-                r.$el
-                  .find("." + n + "[data-option-value='" + i + "']")
+          var t,
+            s,
+            i,
+            n = a.findMatchingItem(e);
+          n &&
+            ((s = (t = a.fieldHasOwnControl(e)) ? e.get() : a.model.get(e)),
+            (i = a.getFieldName(e)),
+            n.options
+              ? (n.plusOnly && !a.featureAvailable(n.requiredFeature) && (s = n.default),
+                a.$el.find("." + i).removeClass("active"),
+                a.$el
+                  .find("." + i + "[data-option-value='" + s + "']")
                   .first()
-                  .addClass("active");
-            } else {
-              var a = s ? i : r.model.getComputedSetting(e);
-              i = !(t.plusOnly && !r.featureAvailable(t.requiredFeature)) && !!i;
-              var o = r.$el.find("[data-related-widget='" + n + "']");
-              if (o && 1 === o.length) {
-                var l = o.first();
-                if ((l.toggleClass("on", i), i !== a)) {
-                  var d = r.model.overrides[e];
-                  d === r.model.settingOverriders.TEAM
-                    ? (l.toggleClass("on", a),
-                      l.append('<span class="option-message"> &nbsp; &nbsp;Currently managed by team</span>'),
-                      l.addClass("balanced"))
-                    : d === r.model.settingOverriders.BALANCE &&
-                      (l.append(
+                  .addClass("active"))
+              : ((t = t ? s : a.model.getComputedSetting(e)),
+                (s = !((n.plusOnly && !a.featureAvailable(n.requiredFeature)) || !s)),
+                (n = a.$el.find("[data-related-widget='" + i + "']")) &&
+                  1 === n.length &&
+                  ((i = n.first()).toggleClass("on", s), s !== t) &&
+                  ((n = a.model.overrides[e]) === a.model.settingOverriders.TEAM
+                    ? (i.toggleClass("on", t),
+                      i.append('<span class="option-message"> &nbsp; &nbsp;Currently managed by team</span>'),
+                      i.addClass("balanced"))
+                    : n === a.model.settingOverriders.BALANCE &&
+                      (i.append(
                         '<span class="option-message balanced-message"> &nbsp; &nbsp;Currently hidden by Balance mode (Customize here)</span>'
                       ),
-                      l.addClass("balanced"));
-                }
-              }
-            }
-          }
+                      i.addClass("balanced")))));
         });
       },
       setOption: function (e) {
-        var t = e.attr("data-related-widget"),
-          s = e.attr("data-option-value"),
-          i = this.findMatchingItem(t);
-        if (!i) return null;
-        var n = _.findWhere(i.options, { value: s });
-        if (!((i.plusOnly && !this.featureAvailable(i.requiredFeature)) || (n && n.plusOnly && !this.isPlus()))) {
-          g.models.activeBackground.isCustom() && n && "photo" === n.value && n.plusOnly && this.isPlus(),
-            this.$el.find("." + t).removeClass("active"),
-            e.addClass("active");
-          var a = {};
-          return (
-            i.boolean ? (a[i.field] = JSON.parse(s)) : (a[i.field] = s),
-            this.model.save(a),
-            g.Analytics.capture(i.name.toLowerCase() + " select", {
-              feature: "themes",
-              is_paid_event: i.plusOnly || (n && n.plusOnly) || !1,
-              new_value: s
-            }),
-            i
-          );
-        }
-        g.cmd("modal.open", "UPSELL_THEMES", { eventSource: "settings" });
+        var t,
+          s = e.attr("data-related-widget"),
+          i = e.attr("data-option-value"),
+          n = this.findMatchingItem(s);
+        return n
+          ? ((t = _.findWhere(n.options, { value: i })),
+            (n.plusOnly && !this.featureAvailable(n.requiredFeature)) || (t && t.plusOnly && !this.isPlus())
+              ? void c.cmd("modal.open", "UPSELL_THEMES", { eventSource: "settings" })
+              : (c.models.activeBackground.isCustom() && t && "photo" === t.value && t.plusOnly && this.isPlus(),
+                this.$el.find("." + s).removeClass("active"),
+                e.addClass("active"),
+                (s = {}),
+                n.boolean ? (s[n.field] = JSON.parse(i)) : (s[n.field] = i),
+                this.model.save(s),
+                c.Analytics.capture(n.name.toLowerCase() + " select", {
+                  feature: "themes",
+                  is_paid_event: n.plusOnly || (t && t.plusOnly) || !1,
+                  new_value: i
+                }),
+                n))
+          : null;
       },
       findMatchingItem: function (t) {
         var s = this;
@@ -398,145 +410,133 @@ var fn_addin = function (g, m, e) {
         return this.fieldHasOwnControl(e) ? e.name : e;
       },
       toggleOption: function (e) {
-        var t = m(e.delegatedTarget),
+        var t = u(e.delegatedTarget),
           s = t.attr("data-option-value"),
-          i = this.setOption(t);
-        if (!0 !== i) {
-          if (i) {
-            var n = _.findWhere(i.options, { value: s });
-            if (n && n.view && n.view.handleClick) {
-              if (0 < m(e.target).closest(".sub-view").length && n.view.ignoreClickEvent && n.view.ignoreClickEvent(e.target)) return;
-              if ((n.view.handleClick(e, !0), n.view.scrollIntoViewElement)) {
-                var a = n.view.scrollIntoViewElement();
-                a && this.scrollIntoView(a);
-              }
+          t = this.setOption(t);
+        if (!0 === t) e.stopImmediatePropagation();
+        else {
+          if (t) {
+            t = _.findWhere(t.options, { value: s });
+            if (t && t.view && t.view.handleClick) {
+              var s = u(e.target).closest(".sub-view");
+              if (0 < s.length && t.view.ignoreClickEvent && t.view.ignoreClickEvent(e.target)) return;
+              t.view.handleClick(e, !0), t.view.scrollIntoViewElement && (s = t.view.scrollIntoViewElement()) && this.scrollIntoView(s);
             }
           }
-          g.trigger("globalEvent:settingsclick", e);
-        } else e.stopImmediatePropagation();
+          c.trigger("globalEvent:settingsclick", e);
+        }
       },
       scrollIntoView: function (e) {
-        var t = m(e),
-          s = t.closest(".settings-view-container"),
-          i = t.offset().top,
-          n = s.offset().top;
-        i - n - 12 < 0 && s.animate({ scrollTop: s[0].scrollTop + i - n - 12 });
+        var e = u(e),
+          t = e.closest(".settings-view-container"),
+          e = e.offset().top,
+          s = t.offset().top;
+        e - s - 12 < 0 && t.animate({ scrollTop: t[0].scrollTop + e - s - 12 });
       },
       configWidget: function (e) {
         e.stopImmediatePropagation();
-        var t = m(e.delegatedTarget).closest(".slide-toggle").attr("data-related-widget");
-        if (t) {
-          var s = this.findMatchingItem(t);
-          g.commandManager.execute(s.configCommand, null, s.configOptions);
-        }
+        var e = u(e.delegatedTarget).closest(".slide-toggle").attr("data-related-widget");
+        e && ((e = this.findMatchingItem(e)), c.commandManager.execute(e.configCommand, null, e.configOptions));
       },
       featureAvailable: function (e) {
-        return g.conditionalFeatures.featureEnabled(e) || g.conditionalFeatures.featureEnabled(e + "-degraded");
+        return c.conditionalFeatures.featureEnabled(e) || c.conditionalFeatures.featureEnabled(e + "-degraded");
       },
       toggleSlider: function (e) {
         if (!this.eatClicks) {
           this.eatClicks = !0;
-          var t,
-            s = this;
-          setTimeout(function () {
-            s.eatClicks = !1;
-          }, 250);
-          var i = m(".verte");
+          var t = this,
+            s =
+              (setTimeout(function () {
+                t.eatClicks = !1;
+              }, 250),
+              u(".verte"));
           if (
             !(
-              m(e.target).closest("[data-option-value]").length ||
-              (0 < i.length && m.contains(i[0], e.target)) ||
-              m(e.delegatedTarget).hasClass("balanced")
+              u(e.target).closest("[data-option-value]").length ||
+              (0 < s.length && u.contains(s[0], e.target)) ||
+              u(e.delegatedTarget).hasClass("balanced")
             )
           ) {
-            var n = m(e.delegatedTarget).attr("data-related-widget"),
-              a = this.findMatchingItem(n);
-            if (!a.plusOnly || this.featureAvailable(a.requiredFeature)) {
-              if (!a.unsupported)
-                if ("bookmarksVisible" !== n) {
-                  if (this.fieldHasOwnControl(a.field)) {
-                    c = !a.field.get();
-                    return a.field.set(c, e), m(e.delegatedTarget).toggleClass("on", c), void u(a);
-                  }
-                  if (n) {
-                    var o = this.model.get(a.field);
-                    if (a.options) {
-                      var l;
-                      for (
-                        l = g.conditionalFeatures.featureEnabled("plus")
-                          ? a.options
-                          : a.options.filter(function (e) {
+            var s = u(e.delegatedTarget).attr("data-related-widget"),
+              i = this.findMatchingItem(s);
+            if (i.plusOnly && !this.featureAvailable(i.requiredFeature))
+              "Ask AI" === i.name
+                ? c.cmd("modal.open", "UPSELL_AI_CHAT", { eventSource: "settings" })
+                : "Countdowns" === i.name
+                ? c.cmd("modal.open", "UPSELL_COUNTDOWNS", { eventSource: "settings" })
+                : "Metrics" === i.name
+                ? c.cmd("modal.open", "UPSELL_METRICS", { eventSource: "settings" })
+                : "Notes" === i.name
+                ? c.cmd("modal.open", "UPSELL_NOTES", { eventSource: "settings" })
+                : "World Clocks" === i.name
+                ? c.cmd("modal.open", "UPSELL_WORLD_CLOCKS", { eventSource: "settings" })
+                : "Soundscapes" === i.name
+                ? c.cmd("modal.open", "UPSELL_SOUNDSCAPES", { eventSource: "settings" })
+                : "Tab Stash" === i.name
+                ? c.cmd("modal.open", "UPSELL_TAB_STASH", { eventSource: "settings" })
+                : c.cmd("modal.open", "PLUS_GATE", { eventSource: "settings" });
+            else if (!i.unsupported)
+              if (this.fieldHasOwnControl(i.field))
+                (n = !i.field.get()), i.field.set(n, e), u(e.delegatedTarget).toggleClass("on", n), r(i);
+              else {
+                if (s) {
+                  var n,
+                    a = this.model.get(i.field);
+                  if (i.options) {
+                    for (
+                      var o = c.conditionalFeatures.featureEnabled("plus")
+                          ? i.options
+                          : i.options.filter(function (e) {
                               return !e.plusOnly;
                             }),
-                          t = 0;
-                        t < l.length;
-                        t++
-                      )
-                        if (l[t].value === o) {
-                          t === l.length - 1 && (t = -1), (c = l[t + 1].value);
-                          break;
-                        }
-                      var d = m(e.delegatedTarget)
-                        .find("." + n + "[data-option-value='" + c + "']")
-                        .first();
-                      this.setOption(d) && e.stopPropagation();
-                    } else {
-                      if ("mantraVisible" === n && !g.models.mantraSettings.get("firstMantraActivated"))
-                        return g.commandManager.executeAsync("settings.display", null, { section: "mantra-settings" }), void u(a);
-                      c = !this.model.get(n);
-                      var r = {};
-                      (r[n] = c), this.model.save(r), u(a);
-                    }
+                        l = 0;
+                      l < o.length;
+                      l++
+                    )
+                      if (o[l].value === a) {
+                        l === o.length - 1 && (l = -1), (n = o[l + 1].value);
+                        break;
+                      }
+                    var d = u(e.delegatedTarget)
+                      .find("." + s + "[data-option-value='" + n + "']")
+                      .first();
+                    this.setOption(d) && e.stopPropagation();
+                  } else {
+                    if ("mantraVisible" === s && !c.models.mantraSettings.get("firstMantraActivated"))
+                      return c.commandManager.executeAsync("settings.display", null, { section: "mantra-settings" }), void r(i);
+                    n = !this.model.get(s);
+                    d = {};
+                    (d[s] = n), this.model.save(d), r(i);
                   }
-                  g.trigger("globalEvent:settingsclick", e);
-                } else {
-                  this.enableBookmarks(e);
-                  var c = g.models.customization.get("bookmarksVisible");
-                  u(a);
                 }
-            } else
-              "Ask AI" === a.name
-                ? g.cmd("modal.open", "UPSELL_AI_CHAT", { eventSource: "settings" })
-                : "Countdowns" === a.name
-                ? g.cmd("modal.open", "UPSELL_COUNTDOWNS", { eventSource: "settings" })
-                : "Metrics" === a.name
-                ? g.cmd("modal.open", "UPSELL_METRICS", { eventSource: "settings" })
-                : "Notes" === a.name
-                ? g.cmd("modal.open", "UPSELL_NOTES", { eventSource: "settings" })
-                : "World Clocks" === a.name
-                ? g.cmd("modal.open", "UPSELL_WORLD_CLOCKS", { eventSource: "settings" })
-                : "Soundscapes" === a.name
-                ? g.cmd("modal.open", "UPSELL_SOUNDSCAPES", { eventSource: "settings" })
-                : "Tab Stash" === a.name
-                ? g.cmd("modal.open", "UPSELL_TAB_STASH", { eventSource: "settings" })
-                : g.cmd("modal.open", "PLUS_GATE", { eventSource: "settings" });
+                c.trigger("globalEvent:settingsclick", e);
+              }
           }
         }
-        function u(e) {
-          e.customEvent
-            ? e.customEvent()
-            : g.Analytics.capture("feature " + (c ? "enable" : "disable"), {
-                is_paid_event: !!e.plusOnly,
-                feature: e.eventFeatureName || e.name.toLowerCase(),
-                location: "settings general"
-              });
+        function r(e) {
+          e.skipAnalyticsOnChange ||
+            c.Analytics.capture("feature " + (n ? "enable" : "disable"), {
+              is_paid_event: !!e.plusOnly,
+              feature: e.eventFeatureName || e.name.toLowerCase(),
+              location: "settings general"
+            });
         }
       },
       loginClicked: function (e) {
-        e.preventDefault(), e.stopPropagation(), g.commandManager.execute("settings.hide"), g.commandManager.execute("account.login");
+        e.preventDefault(), e.stopPropagation(), c.commandManager.execute("settings.hide"), c.commandManager.execute("account.login");
       },
       logoutClicked: function (e) {
         e.preventDefault(),
           e.stopPropagation(),
-          m(".action-logout").addClass("action-logout-disabled").text("Logging out..."),
-          g.commandManager.execute("logout");
+          u(".action-logout").addClass("action-logout-disabled").text("Logging out..."),
+          c.commandManager.execute("logout");
       },
       accountClicked: function (e) {
         e.preventDefault(),
           e.stopPropagation(),
-          m(e.delegatedTarget).html("Launching..."),
-          m
-            .ajax({ type: "POST", data: JSON.stringify({ medium: "account" }), url: g.globals.urlRootApi + "login/onetime" })
+          u(e.delegatedTarget).html("Launching..."),
+          u
+            .ajax({ type: "POST", data: JSON.stringify({ medium: "account" }), url: c.globals.urlRootApi + "login/onetime" })
             .done(function (e) {
               e &&
                 e.otp &&
@@ -547,30 +547,30 @@ var fn_addin = function (g, m, e) {
       },
       switchToBalanceSettings: function (e) {
         e && (e.stopPropagation(), e.preventDefault()),
-          g.commandManager.execute("settings.display", null, { section: "balance", showAdvanced: !0 });
+          c.commandManager.execute("settings.display", null, { section: "balance", showAdvanced: !0 });
       },
       enableBookmarks: function (s) {
         var i = this;
         s && (s.stopPropagation(), s.preventDefault()),
-          g.commandManager.executeAsync("settings.enableBookmarks", {
+          c.commandManager.executeAsync("settings.enableBookmarks", {
             callback: function () {
-              var e = g.models.customization.get("bookmarksVisible"),
-                t = g.models.bookmarksSettings.get("defaultMostVisited");
-              m(s ? s.delegatedTarget : '[data-related-widget="bookmarksVisible"]').toggleClass("on", e),
+              var e = c.models.customization.get("bookmarksVisible"),
+                t = c.models.bookmarksSettings.get("defaultMostVisited");
+              u(s ? s.delegatedTarget : '[data-related-widget="bookmarksVisible"]').toggleClass("on", e),
                 i.$('[data-related-widget="mostVisited"]').toggleClass("on", t && e);
             }
           });
       },
       isPlus: function () {
-        return g.conditionalFeatures.featureEnabled("plus");
+        return c.conditionalFeatures.featureEnabled("plus");
       },
       ensurePermissions: function (t, s, i, n) {
-        g.promisifiedChrome.permissions.contains(t).then(function (e) {
-          e ? s(!0) : g.cmd("modal.open", "PERMISSION_REQUEST", { resolve: s, permissions: t, widgetName: i, permissionExplanation: n });
+        c.promisifiedChrome.permissions.contains(t).then(function (e) {
+          e ? s(!0) : c.cmd("modal.open", "PERMISSION_REQUEST", { resolve: s, permissions: t, widgetName: i, permissionExplanation: n });
         });
       }
     })),
-    (t.commands.SettingsPanelGeneral = g.models.Command.extend({
+    (t.commands.SettingsPanelGeneral = c.models.Command.extend({
       defaults: { id: "settings.panels.general" },
       execute: function () {
         return t.styleLoaded || ((t.styleLoaded = !0), t.styles.style()), new t.views.General();

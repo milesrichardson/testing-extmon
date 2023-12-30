@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   var t = {
-      4179: (t, e) => {
+      49332: (t, e) => {
         Object.defineProperty(e, "__esModule", { value: !0 }),
           (e.interceptWebkitAnimations = void 0),
           (e.interceptWebkitAnimations = () => {
@@ -25,7 +25,7 @@
             EventTarget.prototype.addEventListener = new Proxy(EventTarget.prototype.addEventListener, t);
           });
       },
-      11234: function (t, e, T) {
+      35369: function (t, e, T) {
         var n =
           (this && this.__importDefault) ||
           function (t) {
@@ -33,7 +33,7 @@
           };
         Object.defineProperty(e, "__esModule", { value: !0 }),
           (e.interceptAttachShadow = e.TRIX_EDITOR_PARENT_TYPES = e.TRIX_GLOBAL_WINDOW_PROPERTY = void 0);
-        const o = n(T(84958));
+        const o = n(T(29986));
         (e.TRIX_GLOBAL_WINDOW_PROPERTY = "Trix"), (e.TRIX_EDITOR_PARENT_TYPES = ["trix-editor", "figure"]);
         const E = e.TRIX_EDITOR_PARENT_TYPES.join(",");
         e.interceptAttachShadow = function () {
@@ -64,7 +64,7 @@
           });
         };
       },
-      84958: (t, e) => {
+      29986: (t, e) => {
         var T;
         Object.defineProperty(e, "__esModule", { value: !0 }),
           (e.StringConstants = e.InputFieldTypology = void 0),
@@ -131,7 +131,7 @@
     return t[n].call(E.exports, E, E.exports, T), E.exports;
   }
   (() => {
-    const t = T(4179);
-    (0, T(11234).interceptAttachShadow)(), (0, t.interceptWebkitAnimations)();
+    const t = T(49332);
+    (0, T(35369).interceptAttachShadow)(), (0, t.interceptWebkitAnimations)();
   })();
 })();

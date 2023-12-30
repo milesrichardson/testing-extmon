@@ -605,20 +605,21 @@
   width: 100%;
 }
 .Itw3v.yeB8V .EniYQ .ePlM8 h3 {
-  font-family: Inter;
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  text-align: left;
 }
+.Itw3v.yeB8V .EniYQ .ePlM8 h3,
 .Itw3v.yeB8V .EniYQ .ZYNxU p {
   font-family: Inter;
   font-style: normal;
+  text-align: left;
+  color: #000;
+}
+.Itw3v.yeB8V .EniYQ .ZYNxU p {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  text-align: left;
 }
 .Itw3v.yeB8V .EniYQ .ZYNxU a {
   display: inline;

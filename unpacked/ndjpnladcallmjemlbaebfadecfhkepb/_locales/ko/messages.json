@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "앱"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 확장 지원 종료일"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "2024년 1월 15일부터 이 확장은 Microsoft에서 더 이상 지원되지 않습니다."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "자세한 내용은 이 확장에 대한 지원 페이지를 참조하세요."
+  },
+  "Support": {
+    "message": "지원"
   }
 }

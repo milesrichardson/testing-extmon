@@ -242,7 +242,6 @@
     launchApp: new s(n),
     loggedOut: new s(n),
     loglogin: new s(n),
-    lpReportError: new s(n),
     make_lp_hash_iterations: new s(n),
     make_lp_key_hash: new s(n),
     make_lp_key_iterations: new s(n),
@@ -950,7 +949,8 @@
         MPWNoNag: new s(n),
         addDomainToMPWNever: new s(n),
         sendLpEvent: new s(n),
-        get_method: new s(n)
+        get_method: new s(n),
+        mv3_extension_used_to_get_key: new s(r, { includes: ["vault"], sync: !0 })
       };
     Interfaces.extend(e, a);
   })(Interfaces.BackgroundInterface);

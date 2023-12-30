@@ -1677,43 +1677,43 @@ var inkLoadWasmModule = (function () {
     var Ka = "ink.wasm";
     Ka.startsWith("data:application/octet-stream;base64,") || (Ka = U(Ka));
     var Sb = {
-        302104: function (a, b, c, d) {
+        302040: function (a, b, c, d) {
           return setTimeout(function () {
             return window.inkWasmRegistry[d].dynCall_vi(b, c);
           }, a);
         },
-        302185: function (a) {
+        302121: function (a) {
           clearTimeout(a);
         },
-        302207: function (a, b) {
+        302143: function (a, b) {
           window.inkHostRegistry[b].setTargetFPS(a);
         },
-        302256: function (a) {
+        302192: function (a) {
           window.inkHostRegistry[a].bindScreen();
         },
-        302301: function (a, b) {
+        302237: function (a, b) {
           window.inkHostRegistry[b].requestImage(S(a));
         },
-        302364: function (a, b, c, d) {
+        302300: function (a, b, c, d) {
           window.inkHostRegistry[d].setCursor(a, b, c);
         },
-        302418: function (a, b, c) {
+        302354: function (a, b, c) {
           window.inkHostRegistry[c].navigateToUri(S(a, b));
         },
-        302486: function (a, b) {
+        302422: function (a, b) {
           window.inkHostRegistry[b].setKeyboardMode(a);
         },
-        302538: function (a) {
+        302474: function (a) {
           return window.inkHostRegistry[a].shouldPreloadShaders();
         },
-        302600: function (a) {
+        302536: function (a) {
           return window.inkHostRegistry[a].shouldRegisterDocument();
         },
-        302664: function (a, b, c, d, e, f) {
+        302600: function (a, b, c, d, e, f) {
           a = window.inkHostRegistry[f].renderText(A().subarray(a, a + b), c, d);
           w().set(a, e);
         },
-        302778: function (a, b, c, d, e, f) {
+        302714: function (a, b, c, d, e, f) {
           window.inkHostRegistry[a]
             .getFontData(S(b, c))
             .then(function (g) {
@@ -1737,90 +1737,88 @@ var inkLoadWasmModule = (function () {
               Atomics.notify(n(), f >> 2);
             });
         },
-        303571: function (a) {
+        303507: function (a) {
           Atomics.wait(n(), a >> 2, 0);
         },
-        303611: function (a, b, c, d, e, f) {
+        303547: function (a, b, c, d, e, f) {
           return (a = window.inkHostRegistry[a].selectMatchingFont(S(b, c), d, !!e, f))
             ? ((b = Ca(a) + 1), (c = pa(b)), da(a, c, b), c)
             : 0;
         },
-        303867: function (a, b, c) {
+        303803: function (a, b, c) {
           window.inkHostRegistry[c].onSceneChange(new Uint8Array(A().subarray(a, a + b)));
         },
-        303960: function (a, b, c, d, e, f, g, l, p) {
+        303896: function (a, b, c, d, e, f, g, l, p) {
           window.inkHostRegistry[p].onImageExported(a, b, c, new Uint8ClampedArray(A().subarray(d, d + e)), f, g, S(l));
         },
-        304100: function (a, b, c) {
+        304036: function (a, b, c) {
           window.inkHostRegistry[c].onToolEvent(new Uint8Array(A().subarray(a, a + b)));
         },
-        304191: function (a, b) {
+        304127: function (a, b) {
           window.inkHostRegistry[b].onSequencePointReached(a);
         },
-        304250: function (a, b, c) {
+        304186: function (a, b, c) {
           window.inkHostRegistry[c].onFlagChanged(a, !!b);
         },
-        304306: function (a) {
+        304242: function (a) {
           window.inkHostRegistry[a].onCameraChanged();
         },
-        304356: function (a, b) {
+        304292: function (a, b) {
           window.inkHostRegistry[b].onCameraMovementStateChanged(!!a);
         },
-        304423: function (a, b) {
+        304359: function (a, b) {
           window.inkHostRegistry[b].onBlockingStateChanged(!!a);
         },
-        304484: function (a) {
+        304420: function (a) {
           window.inkHostRegistry[a].onInvisibleLayerActionPrevented();
         },
-        304550: function (a, b, c) {
+        304486: function (a, b, c) {
           window.inkHostRegistry[c].onPdfLoadSuccess(new Uint8Array(A().subarray(a, a + b)));
         },
-        304646: function (a) {
+        304582: function (a) {
           window.inkHostRegistry[a].onPdfLoadPasswordRequired();
         },
-        304706: function (a, b, c) {
+        304642: function (a, b, c) {
           window.inkHostRegistry[c].onPdfLoadFailure(S(a, b));
         },
-        304777: function (a, b, c, d) {
+        304713: function (a, b, c, d) {
           window.inkHostRegistry[d].onPdfSaveSuccess(a, new Uint8Array(A().subarray(b, b + c)));
         },
-        304877: function (a, b, c, d) {
+        304813: function (a, b, c, d) {
           window.inkHostRegistry[d].onPdfSaveFailure(a, S(b, c));
         },
-        304952: function (a, b) {
+        304888: function (a, b) {
           window.inkHostRegistry[a].onPdfUnsupportedFeature(b);
         },
-        305012: function (a) {
+        304948: function (a) {
           window.inkHostRegistry[a].onPdfFormChanged();
         },
-        305063: function (a, b, c, d, e, f, g, l) {
+        304999: function (a, b, c, d, e, f, g, l) {
           window.inkHostRegistry[a].onPdfFormFieldFocused(b, new Uint8Array(A().subarray(c, c + d)), e, !!f, S(g, l));
         },
-        305200: function (a, b, c) {
+        305136: function (a, b, c) {
           window.inkHostRegistry[c].onPdfFormTextFieldFocusChanged(!0, S(a, b));
         },
-        305292: function (a) {
+        305228: function (a) {
           window.inkHostRegistry[a].onPdfFormTextFieldFocusChanged(!1);
         },
-        305362: function (a, b) {
+        305298: function (a, b) {
           window.inkHostRegistry[b].onPendingTexturesChanged(!!a);
         },
-        305425: function (a, b, c) {
-          if (h.canvas) {
-            var d = h.canvas.getContext("webgl");
-            if (d) {
-              var e = d.getExtension("WEBGL_debug_renderer_info");
-              e && (da(d.getParameter(e.UNMASKED_RENDERER_WEBGL), a, c), da(d.getParameter(e.UNMASKED_VENDOR_WEBGL), b, c));
-            }
+        305361: function (a, b, c) {
+          var d = self.WorkerGlobalScope ? new OffscreenCanvas(128, 128) : document.createElement("canvas");
+          if ((d = d.getContext("webgl"))) {
+            var e = d.getExtension("WEBGL_debug_renderer_info");
+            e && (da(d.getParameter(e.UNMASKED_RENDERER_WEBGL), a, c), da(d.getParameter(e.UNMASKED_VENDOR_WEBGL), b, c));
           }
         },
-        305711: function () {
+        305723: function () {
           return !!h.ctx;
         },
-        305733: function () {
+        305745: function () {
           debugger;
         },
-        305746: function () {
+        305758: function () {
           return "undefined" !== typeof wasmOffsetConverter;
         }
       },
@@ -6355,32 +6353,32 @@ var inkLoadWasmModule = (function () {
     for (ea = 0; 288 > ea; ++ea) Za[ea] = uq.subarray(0, ea + 1);
     var vg = [Fb, vc, wc, yc, le, Ec, Fc, Gc, Hc, Ic, Jc, Kc, Lc, Mc, Nc, Oc, Pc, Qc, Rc, Sd, Td, Wc, Xc, Yc, Zc],
       ae = {
-        C: ce,
+        E: ce,
         db: Bf,
-        J: Cf,
+        K: Cf,
         ab: xc,
         ib: yc,
         cd: Ef,
-        Q: Ff,
+        B: Ff,
         Va: Gf,
         sb: If,
-        f: Rf,
+        g: Rf,
         i: Sf,
         d: Tf,
         e: Uf,
         Sa: Wf,
         j: Yf,
         c: Zf,
-        K: ag,
-        w: bg,
-        s: dg,
-        k: eg,
-        I: fg,
+        L: ag,
+        v: bg,
+        t: dg,
+        m: eg,
+        J: fg,
         A: mg,
         xd: ng,
-        S: og,
-        R: pg,
-        t: qg,
+        R: og,
+        C: pg,
+        r: qg,
         Db: rg,
         lb: sg,
         _a: tg,
@@ -6389,25 +6387,25 @@ var inkLoadWasmModule = (function () {
         fb: xg,
         Za: yg,
         q: zg,
-        F: Ag,
-        x: Cg,
-        g: ac,
-        B: Dg,
-        y: Fg,
-        m: Gg,
-        o: Hg,
-        _e: Ig,
+        S: Ag,
+        w: Cg,
+        f: ac,
+        D: Dg,
+        x: Fg,
+        n: Gg,
+        l: Hg,
+        Qe: Ig,
         Fe: Kg,
-        n: Lg,
-        l: Mg,
-        r: Ng,
+        o: Lg,
+        k: Mg,
+        s: Ng,
         Ua: Ec,
         b: Og,
-        E: Fc,
+        G: Fc,
         Ha: Gc,
         Ga: Hc,
-        H: Ic,
-        G: Jc,
+        I: Ic,
+        H: Jc,
         Ja: Kc,
         La: Lc,
         z: Mc,
@@ -6417,11 +6415,11 @@ var inkLoadWasmModule = (function () {
         Na: Qc,
         Oa: Rc,
         Fa: be,
-        v: Ug,
+        y: Ug,
         h: Vg,
-        L: Wg,
-        P: Xg,
-        D: Yg,
+        M: Wg,
+        Q: Xg,
+        F: Yg,
         eb: Zg,
         Wa: $g,
         p: fc,
@@ -6535,23 +6533,23 @@ var inkLoadWasmModule = (function () {
         dc: vk,
         ec: xk,
         gc: zk,
-        Ze: Bk,
-        Ye: Dk,
-        Xe: Fk,
+        _e: Bk,
+        Ze: Dk,
+        Ye: Fk,
         Tb: Hk,
-        We: Jk,
-        Ve: Lk,
-        Ue: Nk,
+        Xe: Jk,
+        We: Lk,
+        Ve: Nk,
         wc: Pk,
-        Te: Rk,
+        Ue: Rk,
         Ub: Tk,
         Wb: Vk,
         Lc: Xk,
-        Se: Zk,
+        Te: Zk,
         tb: al,
         Ab: cl,
-        Qe: el,
-        Re: gl,
+        Re: el,
+        Se: gl,
         qa: hl,
         sa: il,
         pa: kl,
@@ -6708,10 +6706,10 @@ var inkLoadWasmModule = (function () {
         jb: Sd,
         kb: Td,
         $a: Gb,
-        O: Wc,
-        M: Xc,
+        P: Wc,
+        N: Xc,
         Ta: Yc,
-        N: Zc,
+        O: Zc,
         Ea: pq,
         Ra: tf,
         Qa: uf,
@@ -7004,8 +7002,8 @@ var inkLoadWasmModule = (function () {
     h.dynCall_iiiiiijj = function (a, b, c, d, e, f, g, l, p, u) {
       return (h.dynCall_iiiiiijj = B.Dh)(a, b, c, d, e, f, g, l, p, u);
     };
-    h.___start_em_js = 329864;
-    h.___stop_em_js = 330387;
+    h.___start_em_js = 329872;
+    h.___stop_em_js = 330395;
     h.wasmMemory = Z;
     h.ENV = xb;
     h.keepRuntimeAlive = cb;

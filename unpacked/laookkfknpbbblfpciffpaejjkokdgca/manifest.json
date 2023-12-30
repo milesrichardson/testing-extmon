@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "name": "Momentum",
   "short_name": "Momentum",
-  "version": "2.12.9",
+  "version": "2.12.11",
   "description": "Replace new tab page with a personal dashboard to help you get focused, stay organized, and keep motivated to achieve your goals.",
   "icons": {
     "16": "img/app/icon-16.png",

@@ -19,12 +19,12 @@ setTimeout(() => {
       "./common-4.js",
       "./common-5.js",
       "./common-6.js",
+      "./common-7.js",
       "./background-0.js",
       "./background-1.js",
       "./background-2.js",
       "./background-3.js",
-      "./background-4.js",
-      "./background-5.js"
+      "./background-4.js"
     ]
   ];
 

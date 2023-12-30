@@ -10,7 +10,8 @@ try {
   }
   "function" == typeof importScripts &&
     "https:" == location.protocol &&
-    (importScripts("/js/prng4.js"),
+    (importScripts("/newvault/logger.js"),
+    importScripts("/js/prng4.js"),
     importScripts("/js/rng.js"),
     importScripts("/js/jsbn.js"),
     importScripts("/js/jsbn2.js"),

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Εφαρμογές"
+  },
+  "EndOfSupportHeader": {
+    "message": "Λήξη υποστήριξης επέκτασης Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Από τις 15 Ιανουαρίου 2024, αυτή η επέκταση δεν θα υποστηρίζεται πλέον από τη Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα υποστήριξης για αυτή την επέκταση."
+  },
+  "Support": {
+    "message": "Υποστήριξη"
   }
 }

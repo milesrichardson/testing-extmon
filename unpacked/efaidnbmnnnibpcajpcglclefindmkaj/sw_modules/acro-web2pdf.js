@@ -266,7 +266,7 @@ c ||
               });
               const s = r.getItem("shimFullVersion") || void 0;
               e.event(e.e.ADOBE_YOLO_USER_DETAILS_TIMED_OUT, { VERSION: s }), (S = []), (this.adobeYoloUserInfoInProgress = !1);
-            }, 7e3)));
+            }, 1e4)));
       }),
       (this.launchJumpUrl = function (e, t) {
         _.push(t),

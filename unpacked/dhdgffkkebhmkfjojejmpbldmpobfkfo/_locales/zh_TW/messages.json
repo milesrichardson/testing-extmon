@@ -22,6 +22,7 @@
     "message": "$name$ $version$ 可供更新。\n\n請重新啟動瀏覽器來進行更新！",
     "placeholders": { "name": { "content": "$1" }, "version": { "content": "$2" } }
   },
+  "0name0_Your_service_bot": { "message": "$name$ - 您的服務機器人", "placeholders": { "name": { "content": "$1" } } },
   "15_Seconds": { "message": "15 秒" },
   "1_Hour": { "message": "1 小時" },
   "1_Minute": { "message": "1 分鐘" },
@@ -32,16 +33,62 @@
   },
   "A_reload_is_required": { "message": "需要重新載入：\n所有尚未儲存的變更都會遺失！" },
   "A_request_to_a_cross_origin_resource_is_nothing_unusual__You_just_have_to_check_whether_this_script_has_a_good_reason_to_access_this_domain__For_example_there_are_only_a_very_few_reasons_for_a_userscript_to_contact_your_bank__Please_note_that_userscript_authors_can_avoid_this_dialog_by_adding_@connect_tags_to_their_scripts__You_can_change_your_opinion_at_any_time_at_the_scripts_settings_tab_": {
-    "message": "跨網域資源請求並不代表異常行為。\n您只需確認此腳本是否具有充分理由存取此網域即可。\n例如，使用者腳本很少有會需要存取您的銀行帳號。\n\n請注意，使用者腳本作者可透過在腳本增加[url=$connect$]@connect標籤[/url]來避免此對話框。\n\n無論如何，您可以隨時在腳本[url=$settings$]設定欄[/url]變更您的設定。",
+    "message": "跨網域資源請求並不代表異常行為。\n您只需確認此腳本是否具有充分理由存取此網域即可。\n例如，使用者腳本很少會需要存取您的銀行帳號。\n\n請注意，使用者腳本作者可透過在腳本增加[url=$connect$]@connect標籤[/url]來避免此對話框。\n\n無論如何，您可以隨時在腳本[url=$settings$]設定欄[/url]變更您的設定。",
     "placeholders": { "connect": { "content": "$1" }, "settings": { "content": "$2" } }
   },
   "A_userscript_wants_to_access_a_cross_origin_resource_": { "message": "使用者腳本需要取得跨網域資源。" },
+  "There_are_no_active_scripts__Do_you_want_to_search_for_userscripts_": {
+    "description": "服務機器人詢問的問題",
+    "message": "沒有使用中的腳本。您要搜尋使用者腳本嗎？"
+  },
+  "Do_you_need_help_working_with_Tampermonkey_": { "description": "服務機器人詢問的問題", "message": "您需要關於使用竄改猴的協助嗎？" },
+  "Do_you_need_help_installing_new_scripts_to_Tampermonkey_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您需要關於在竄改猴安裝新腳本的協助嗎？"
+  },
+  "Would_you_like_to_know_how_to_overwrite_or_extend_a_script_s_includes_and_or_excludes_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您想了解如何覆寫或擴充腳本的 ncludes 或 excludes 嗎？"
+  },
+  "Do_you_need_help_syncing_all_your_installed_scripts_to_another_browser_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您需要關於同步已安裝腳本到其他瀏覽器的協助嗎？"
+  },
+  "Would_you_like_to_learn_how_to_export_and_import_your_scripts_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您想了解如何匯出和匯入您的腳本嗎？"
+  },
+  "Do_you_want_to_know_how_to_allow_Tampermonkey_access_to_local_file_URIs_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您想了解如何允許竄改猴存取本機檔案路徑嗎？"
+  },
+  "One_of_your_scripts_is_blacklisted__Would_you_like_to_know_why_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您的其中一個腳本被列入黑名單了。您想知道為什麼嗎？"
+  },
+  "Do_you_need_help_viewing_and_editing_values_stored_by_a_userscript_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您需要關於檢視或編輯由腳本儲存的數值的協助嗎？"
+  },
+  "Do_you_want_to_use_an_external_editor_to_edit_your_scripts__nWould_you_like_to_know_how_to_set_this_up_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您是否想使用外部編輯器來編輯您的腳本？\n您想了解如何設定嗎？"
+  },
+  "Are_you_unsure_about_what__sandbox_value_to_use_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您是否不確定要使用哪個 @sandbox 數值？"
+  },
+  "Do_you_need_help_finding_Tampermonkey_s_console_output_": {
+    "description": "服務機器人詢問的問題",
+    "message": "您需要關於尋找竄改猴的終端機輸出的協助嗎？"
+  },
   "Aborted_by_user": { "message": "遭使用者中止" },
   "Action": { "message": "動作" },
   "Action_Menu": { "message": "動作選單" },
   "Action_failed": { "message": "動作失敗" },
   "Actions": { "message": "動作" },
   "Add": { "message": "新增" },
+  "Add_GM_functions_to_this_or_window": { "message": "將 GM 函數新增至此或視窗" },
   "Add_Selection_Above": { "message": "在上方新增選取項目" },
   "Add_Selection_Below": { "message": "在下方新增選取項目" },
   "Add_TM_to_CSP": { "message": "將篡改猴加入到網站的內容安全策略（CSP）（如果有的話）" },
@@ -50,6 +97,7 @@
   "Add_new_script___": { "message": "新增腳本..." },
   "Add_to_icon_badge_text": { "message": "新增製圖示標記文字" },
   "Advanced": { "message": "進階" },
+  "All": { "message": "全部" },
   "All_local_files": { "message": "所有本機檔案" },
   "All_modifications_are_only_kept_until_this_incognito_session_is_closed_": { "message": "所有修改將只在此無痕模式工作階段關閉後留存！" },
   "All_script_settings_will_be_reset_": { "message": "全部的腳本設定都將會重設！" },
@@ -146,7 +194,14 @@
   "Columns": { "message": "欄數" },
   "Comment": { "message": "註解" },
   "Config_Mode": { "message": "設定模式" },
+  "Configures_which_sandbox_values_are_valid": { "message": "設定有效的 @sandbox 數值" },
+  "Content_Script": { "message": "內容腳本" },
+  "Content_Script_API": { "message": "內容腳本 API" },
   "Context_Menu": { "message": "右鍵選單" },
+  "Controls_how_deleted_scripts_are_handled__0enabled0_moves_scripts_to_a_virtual_trash__0disabled0_permanently_deletes_scripts__0cleanAfterSession0_automatically_deletes_all_on_session_end_": {
+    "message": "控制已刪除腳本的處理方式。'$enabled$' 將腳本移至虛擬垃圾桶以便可能恢復。'$disabled$' 在確認後永久刪除腳本。'$cleanAfterSession$' 在瀏覽器會話結束後自動清空垃圾桶。",
+    "placeholders": { "enabled": { "content": "$1" }, "disabled": { "content": "$2" }, "cleanAfterSession": { "content": "$3" } }
+  },
   "Convert_CDATA_sections_into_a_chrome_compatible_format": { "message": "轉換 CDATA sections 為 Chrome 相容的格式" },
   "Copy": { "message": "複製" },
   "Cross_Origin_Request_Permission": { "message": "跨來源要求權限" },
@@ -208,6 +263,10 @@
   "Enable_easySave": { "message": "儲存時不顯示確認對話框" },
   "Enable_this_option_to_automatically_check_the_code_on_typing_": { "message": "啟用此選項以在輸入時自動檢查程式碼。" },
   "Enabled": { "message": "已啟用" },
+  "Enabling_this_makes_it_easy_for_scripts_to_leak_it_s_granted_powers_to_the_page_Therefore__off__is_the_safest_option_": {
+    "message": "啟用此功能會使使用者腳本很容易將其授予的權限洩露給網頁。因此，\"$off$\" 是最安全的選項，但可能會導致相容性問題。",
+    "placeholders": { "off": { "content": "$1" } }
+  },
   "Enforce": { "message": "強制" },
   "Enter_the_new_rule": { "message": "輸入新規則" },
   "Error": { "message": "錯誤" },
@@ -221,6 +280,18 @@
   "Exclude_s__": { "message": "排除 URL(s)" },
   "Experimental": { "message": "實驗室" },
   "Export": { "message": "匯出" },
+  "Export_script_0name0_0uuid0": {
+    "message": "匯出腳本 \"$name$\" ($uuid$)",
+    "placeholders": { "name": { "content": "$1" }, "uuid": { "content": "$2" } }
+  },
+  "Export_script_meta_data_of_0name0": {
+    "message": "匯出 \"$name$\" ($uuid$) 的腳本中繼資料",
+    "placeholders": { "name": { "content": "$1" }, "uuid": { "content": "$2" } }
+  },
+  "Export_script_source_of_0name0": {
+    "message": "匯出 \"$name$\" ($uuid$) 的腳本來源",
+    "placeholders": { "name": { "content": "$1" }, "uuid": { "content": "$2" } }
+  },
   "Externals": { "message": "外部" },
   "Factory_Reset": { "message": "重設成出廠設定" },
   "Fast": { "message": "快" },
@@ -241,6 +312,9 @@
   "Folding": { "message": "正在摺疊" },
   "Font_Size": { "message": "字型大小" },
   "Forbid_once": { "message": "禁止一次" },
+  "Force_DOM": { "message": "強制使用 DOM" },
+  "Force_JavaScript": { "message": "強制使用 JavaScript" },
+  "Force_Raw": { "message": "強制使用 Raw" },
   "Found_0count0_available_scripts": { "message": "找到 $count$ 個可用的腳本", "placeholders": { "count": { "content": "$1" } } },
   "Full_reset": { "message": "重設到出廠設定" },
   "GM_compat_options_": { "message": "GM/FF 相容選項" },
@@ -268,13 +342,14 @@
   "Import": { "message": "匯入" },
   "Import_from_URL": { "message": "自 URL 安裝" },
   "Import_from_file": { "message": "匯入" },
+  "Import_remote_script_0uuid0": { "message": "匯入遠端腳本 ($uuid$)", "placeholders": { "uuid": { "content": "$1" } } },
   "Imported": { "message": "已匯入" },
   "In_order_to_search_for_userscripts__0on_action_menu0__and__0icon_badge_number0__automatically_transfer_the_tab_s_url_to_the_search_website__0on_click0_opens_the_search_page_on_click_Please_click_at_this_icon_to_open_the_privacy_policy_": {
-    "message": "在 \"$icon_badge_number$\" 模式下，分頁的網址將自動\n傳送到搜尋頁面並搜尋。\n\n在 \"$on_action_menu$\"  模式下，只有開啟動作選單\n才會使用網址搜尋。\n\n\"$on_click$\" 只會在點擊動作選單的項目後才開啟搜尋頁面。\n\n點擊這裡以閱讀搜尋網站的隱私政策。",
+    "message": "在 \"$icon_badge_number$\" 模式下，分頁的網址將自動\n傳送到搜尋頁面並搜尋。\n\n在 \"$on_action_menu$\" 模式下，只有開啟動作選單\n才會使用網址搜尋。\n\n\"$on_click$\" 只會在點擊動作選單的項目後才開啟搜尋頁面。\n\n點擊這裡以閱讀搜尋網站的隱私政策。",
     "placeholders": { "icon_badge_number": { "content": "$1" }, "on_action_menu": { "content": "$2" }, "on_click": { "content": "$3" } }
   },
   "Include_TM_settings": { "message": "包含篡改猴設定" },
-  "Include_s__": { "message": "收錄 URL(s)" },
+  "Include_s__": { "message": "收錄網址" },
   "Include_script_externals": { "message": "包含外部腳本資源" },
   "Include_script_storage": { "message": "包含腳本儲存空間" },
   "Includes_Excludes": { "message": "包含/排除" },
@@ -297,6 +372,7 @@
   "Instant": { "message": "立即" },
   "Invalid_UserScript__Sry_": { "message": "無效的使用者腳本！" },
   "Invalid_UserScript_name__Sry_": { "message": "無效的使用者腳本名稱。抱歉！" },
+  "JavaScript_and_DOM": { "message": "JavaScript+DOM" },
   "Join_Lines": { "message": "連接行" },
   "Jump_to_line": { "message": "跳到行數" },
   "Just_another_service_provided_by_your_friendly_script_updater_": { "message": "只是另一個友好的腳本更新者提供的服務" },
@@ -316,6 +392,8 @@
   "Loading": { "message": "載入中..." },
   "LogLevel": { "message": "紀錄等級" },
   "Login": { "message": "登入" },
+  "Lookup_remote_script_0uuid0": { "message": "Lookup remote script ($uuid$)", "placeholders": { "uuid": { "content": "$1" } } },
+  "Lookup_remote_script_list": { "message": "Lookup remote script list" },
   "Lower_Case": { "message": "小寫" },
   "MIME_Type": { "message": "MIME 類型" },
   "Malicious_scripts_can_violate_your_privacy_": {
@@ -373,12 +451,19 @@
     "placeholders": { "editor": { "content": "$1" } }
   },
   "Please_consider_a_contribution": { "message": "歡迎贊助" },
+  "Please_enable_anonymous_statistics_and_help_to_improve_this_extension_": {
+    "message": "請啟用匿名統計並幫助優化此擴充功能。只收集技術和擴充功能互動數據。點擊這裡瞭解有關數據的更多資訊。"
+  },
   "Please_select_a_file": { "message": "請選取一個檔案" },
   "Please_wait___": { "message": "請稍候..." },
   "Position_": { "message": "順位" },
   "Press_ctrl_to_toggle_all_checkboxes": { "message": "按下 Ctrl/Cmd 以勾選所有核取方塊" },
   "Prev_Bookmark": { "message": "上一個書籤" },
-  "Process_with_Chrome": { "message": "用 Chrome 執行" },
+  "Process_with_Chrome": { "message": "用瀏覽器執行" },
+  "Raw_and_JavaScript": { "message": "Raw 和 JavaScript" },
+  "DOM_mode_is_unsecure__Scripts_can_install_new_scripts_": {
+    "message": "\"DOM\" 沙盒模式不安全。執行中的腳本幾乎擁有所有擴充功能權限，甚至可以修改或安裝新腳本。"
+  },
   "Really_delete_0name0__": { "message": "您確定要刪除 '$name$'？", "placeholders": { "name": { "content": "$1" } } },
   "Really_delete_all_userscripts_": { "message": "您確定要永久刪除所有使用者腳本嗎？" },
   "Really_delete_the_selected_items_": { "message": "您確定要移除所選的項目嗎？" },
@@ -386,6 +471,7 @@
   "Really_factory_reset_this_script_": { "message": "您確定要將此腳本重設回出廠設定嗎？" },
   "Really_reset_all_changes_": { "message": "確定要重設所有變更嗎？" },
   "Really_restore_all_userscripts_": { "message": "您確定要復原所有使用者腳本嗎？" },
+  "Recent_Sync_Log": { "message": "近期同步記錄" },
   "Redo": { "message": "重做" },
   "Reindent_on_typing": { "message": "輸入時重新縮排" },
   "Reinstall": { "message": "重新安裝" },
@@ -393,6 +479,14 @@
   "Remind_me_later": { "message": "稍後提醒" },
   "Remove": { "message": "移除" },
   "Remove__possibly_unsecure_": { "message": "徹底移除 (可能不安全)" },
+  "Remove_local_script_0name0_0uuid0": {
+    "message": "移除本機腳本 \"$name$\" ($uuid$)",
+    "placeholders": { "name": { "content": "$1" }, "uuid": { "content": "$2" } }
+  },
+  "Remove_remote_script_0name0_0uuid0": {
+    "message": "移除遠端腳本 \"$name$\" ($uuid$)",
+    "placeholders": { "name": { "content": "$1" }, "uuid": { "content": "$2" } }
+  },
   "Replace": { "message": "取代" },
   "Replace_": { "message": "取代？" },
   "Replace_All": { "message": "取代全部" },
@@ -411,6 +505,7 @@
   "Run_at": { "message": "執行於：" },
   "Run_syntax_check": { "message": "執行語法檢查" },
   "Running_scripts": { "message": "執行中的腳本" },
+  "Sandbox_Mode": { "message": "沙盒模式" },
   "Save": { "message": "儲存" },
   "Save_to_disk": { "message": "儲存到磁碟" },
   "Script_0name0_is_slowing_down_some_page_loads_": {
@@ -418,6 +513,7 @@
     "placeholders": { "name": { "content": "$1" } }
   },
   "Script_Blacklist_Source": { "message": "腳本黑名單來源" },
+  "Script_Include_Mode": { "message": "腳本 @include 模式" },
   "Script_Sync": { "message": "腳本同步" },
   "Script_URL_detection": { "message": "腳本 URL 偵測" },
   "Script_Update": { "message": "腳本更新" },
@@ -480,7 +576,8 @@
   "Tab_URL": { "message": "Tab URL" },
   "Tab_types": { "message": "Tab 類型" },
   "Tabs": { "message": "Tab" },
-  "Tampermonkey_and_script_version": { "message": "篡改猴+ 腳本版本" },
+  "Tam": { "message": "Tam", "description": "服務機器人的名字" },
+  "Tampermonkey_and_script_version": { "message": "篡改猴 + 腳本版本" },
   "Tampermonkey_has_no_access_to_this_page": { "message": "篡改猴沒有存取此頁面的權限" },
   "Tampermonkey_has_no_file_access_permission_": { "message": "篡改猴沒有存取本地檔案的權限！" },
   "Tampermonkey_might_not_be_able_to_provide_access_to_the_unsafe_context_when_this_is_disabled": {
@@ -503,8 +600,10 @@
   "The_origin_of_this_script_cant_be_determined_": {
     "message": "警告：無法判斷此腳本的來源。\n可能有惡意第三方安裝此腳本以竊取您的隱私資料，或是某些基本瀏覽器設定、您的作業系統或硬體已變更！\n\n請開啟、檢查並儲存腳本來啟用它。"
   },
+  "The_script_was_successfully_deleted_": { "message": "已成功刪除腳本。" },
+  "The_script_was_successfully_moved_to_the_trash_": { "message": "已成功將腳本移至垃圾桶。" },
   "The_update_url_has_changed_from_0oldurl0_to__0newurl0": {
-    "message": "更新的 url 已經從：\n    '$oldurl$'\n    變更為：\n    '$newurl$'\n",
+    "message": "更新的網址已經從：\n    '$oldurl$'\n    變更為：\n    '$newurl$'\n",
     "placeholders": { "oldurl": { "content": "$1" }, "newurl": { "content": "$2" } }
   },
   "Theme": { "message": "主題" },
@@ -553,6 +652,7 @@
   "Transpose": { "message": "重新排列" },
   "Trash": { "message": "🗑" },
   "Trash_Mode": { "message": "回收模式" },
+  "Treat_like__match": { "message": "視為 @match" },
   "Trigger_Update": { "message": "更新" },
   "Trim_trailing_whitespace_from_modified_lines": { "message": "去除修改過的程式碼中多餘的空白" },
   "Try_to_install_as_script": { "message": "嘗試以腳本安裝" },
@@ -567,14 +667,20 @@
   "Unfold_All": { "message": "全部展開" },
   "Unique_running_scripts": { "message": "單獨執行中的腳本" },
   "Unknown_method_0name0": { "message": "未知方法：$name$", "placeholders": { "name": { "content": "$1" } } },
+  "Unsafe": { "message": "不安全" },
   "Update": { "message": "更新" },
   "Update_Notification": { "message": "顯示篡改猴更新提示" },
   "Update_URL_": { "message": "更新網址" },
   "Update_check_is_disabled": { "message": "腳本更新檢查已停用或不可用" },
   "Update_interval": { "message": "更新週期" },
+  "Update_local_script_0name0_0uuid0": {
+    "message": "更新本機腳本 \"$name$\" ($uuid$)",
+    "placeholders": { "name": { "content": "$1" }, "uuid": { "content": "$2" } }
+  },
   "Updated_to__0version0": { "message": "已更新到：$version$", "placeholders": { "version": { "content": "$1" } } },
   "Updates": { "message": "更新" },
   "Upper_Case": { "message": "大寫" },
+  "UserScripts_API": { "message": "使用者腳本 API" },
   "User_domain_blacklist": { "message": "自訂網域黑名單" },
   "User_domain_whitelist": { "message": "自訂網域白名單" },
   "User_excludes": { "message": "自訂 excludes" },
@@ -584,6 +690,16 @@
   "Userscript_Search": { "message": "搜尋使用者腳本" },
   "Userscript_search_integration_mode": { "message": "整合使用者腳本搜尋" },
   "Userscripts": { "message": "使用者腳本" },
+  "Using__include_is_potentially_unsafe_and_may_be_obsolete_soon___0off0_disables__include_completely__0match0__is_safe__but_may_not_compatible_the_script_developers_intention__0unsafe0__mostly_keeps_the_legacy_behavior_0default0__means__0used_default0": {
+    "message": "使用 @include 有潛在風險，且在 2023 年初的 Manifest v3 中可能已經過時。此設置允許您設定對 @include 的解譯方式。'$off$' 將完全禁用 @include，'$match$' 是安全的，但可能與腳本開發者的意圖不相容。'$unsafe$' 主要保留了舊版行為，而 '$default$' 目前表示 '$used_default$'。",
+    "placeholders": {
+      "off": { "content": "$1" },
+      "match": { "content": "$2" },
+      "unsafe": { "content": "$3" },
+      "default": { "content": "$4" },
+      "used_default": { "content": "$5" }
+    }
+  },
   "Utilities": { "message": "匯入匯出工具" },
   "Validate_if_given": { "message": "驗證是否給出" },
   "Validate_if_supported": { "message": "驗證是否可能" },

@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ Byte",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "tr"
   },
   "__missingI18nTags": {
-    "message": "[\"appDesc\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_label_hlsEndTimeout\"]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Hakkında"
@@ -154,7 +154,7 @@
   "adaptative": {
     "message": "Uyarlamalı $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +207,13 @@
   "browser_info": {
     "message": "Tarayıcı $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +221,7 @@
   "browser_locale": {
     "message": "Tarayıcı Dili: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +229,7 @@
   "build_options": {
     "message": "Derleme ayarları: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +237,7 @@
   "built_on": {
     "message": "$ARG1$ üzerine derlenmiştir.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +248,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ videolar",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +316,7 @@
   "chrome_premium_hls": {
     "message": "Premium olmadan, HLS indirmesi $ARG1$ dakika aralıklarla yapılabilir",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,7 +339,7 @@
   "chrome_premium_source": {
     "message": "$ARG1$ ile Premium kullanıcısın",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -389,7 +389,7 @@
   "coapp_latest_version": {
     "message": "Mecvut olan son sürüm $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +406,10 @@
   "coapp_outofdate_text": {
     "message": "Kullandığınız Yardımcı Uygulama sürümü: $ARG1$ fakat bu özellik $ARG2$ sürümünü gerektirmektedir",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -600,7 +600,7 @@
   "convrule_with_ext": {
     "message": "'$ARG1$' uzantısı ile",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -617,7 +617,7 @@
   "copy_of": {
     "message": "$ARG1$'nin kopyası",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -625,10 +625,10 @@
   "corrupted_media_file": {
     "message": "'$ARG2$' dosyasındaki '$ARG1$' medyasından bilgi alınamadı. Dosya bozuk olabilir",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -657,7 +657,7 @@
   "directory_not_exist_body": {
     "message": "'$ARG1$' klasörü yok. Oluşturulsun mu?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -707,7 +707,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' var ama klasör değil",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -730,7 +730,7 @@
   "failed_aggregating": {
     "message": "\"$ARG1$\"nin kümelenmesi başarısız",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -738,7 +738,7 @@
   "failed_converting": {
     "message": "\"$ARG1$\" dönüştürmesi başarısız",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -746,7 +746,7 @@
   "failed_getting_info": {
     "message": "\"$ARG1$\"den bilgi toplanması başarısız",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -769,7 +769,7 @@
   "file_generated": {
     "message": "\"$ARG1$\" dosyası üretildi.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -777,7 +777,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" şimdi hazır",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -788,7 +788,7 @@
   "from_domain": {
     "message": "$ARG1$'den",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -799,7 +799,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ dosya",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -807,7 +807,7 @@
   "gallery_from_domain": {
     "message": "$ARG1$ adresindeki galeri",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -815,7 +815,7 @@
   "gallery_links_from_domain": {
     "message": "$ARG1$ adresindeki bağlantılar",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -856,7 +856,7 @@
   "lic_mismatch1": {
     "message": "Lisans $ARG1$ için ancak eklentiye ait tarayıcı sürümü belirtilmemiş",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -864,10 +864,10 @@
   "lic_mismatch2": {
     "message": "Lisans $ARG1$ için ancak belirtilen tarayıcı sürümü: $ARG2$ ",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -935,7 +935,7 @@
   "network_error_status": {
     "message": "Ağ hatası - Durum $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -952,7 +952,7 @@
   "no_audio_in_file": {
     "message": "$ARG1$ dosyasında ses akışı yok",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -981,7 +981,7 @@
   "no_video_in_file": {
     "message": "$ARG1$ dosyasında görüntü akışı yok",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -995,10 +995,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1015,7 +1015,7 @@
   "overwrite_file": {
     "message": "'$ARG1$' Dosyasının üzerine yazılsın mı ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1035,10 +1035,10 @@
   "platform_info": {
     "message": "PlaPlatform $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1223,7 +1223,7 @@
   "version": {
     "message": "Sürüm $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1708,7 +1708,7 @@
   "you_downloaded_n_videos": {
     "message": "Şu anda $ARG1$ adedinci dosyayı Video DownloadHelper ile başarıyla indirdin.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

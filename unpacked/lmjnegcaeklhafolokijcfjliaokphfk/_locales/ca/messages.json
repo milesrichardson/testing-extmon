@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ Bytes",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "ca"
   },
   "__missingI18nTags": {
-    "message": "[\"appDesc\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_label_hlsEndTimeout\"]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Quant a"
@@ -154,7 +154,7 @@
   "adaptative": {
     "message": "$ARG1$ adaptatives",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +207,13 @@
   "browser_info": {
     "message": "Navegador $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +221,7 @@
   "browser_locale": {
     "message": "Locale del navegador: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +229,7 @@
   "build_options": {
     "message": "Opcions de compilació: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +237,7 @@
   "built_on": {
     "message": "Compilat sobre $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +248,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ vídeos",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +316,7 @@
   "chrome_premium_hls": {
     "message": "Sense l'estat Premium, una baixada HLS només es pot efectuar $ARG1$ minuts després de l'anterior",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,7 +339,7 @@
   "chrome_premium_source": {
     "message": "Ets un usuari Premium a través de $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -389,7 +389,7 @@
   "coapp_latest_version": {
     "message": "La darrera versió disponible és la $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +406,10 @@
   "coapp_outofdate_text": {
     "message": "Estàs executant l'Aplicació Addicional amb versió $ARG1$, però aquesta característica requereix la versió $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -585,7 +585,7 @@
   "convrule_format": {
     "message": "a format $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -593,7 +593,7 @@
   "convrule_from_domain": {
     "message": "des del domini $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,7 +610,7 @@
   "convrule_with_ext": {
     "message": "amb l'extensió '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -627,7 +627,7 @@
   "copy_of": {
     "message": "Còpia de $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -635,10 +635,10 @@
   "corrupted_media_file": {
     "message": "No s'ha pogut obtenir la informació del mitjà '$ARG1$' a partir del fitxer '$ARG2$'. Pots ser que el fitxer estigui corrupte.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -667,7 +667,7 @@
   "directory_not_exist_body": {
     "message": "La carpeta '$ARG1$' no existeix, estàs d'acord amb crear-la?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -717,7 +717,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' existeix però no és un directori",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -740,7 +740,7 @@
   "failed_aggregating": {
     "message": "L'agregació de \"$ARG1$\" ha fallat",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -748,7 +748,7 @@
   "failed_converting": {
     "message": "La conversió de \"$ARG1$\" ha fallat",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -756,7 +756,7 @@
   "failed_getting_info": {
     "message": "L'obtenció d'informació de \"$ARG1$\" ha fallat",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -779,7 +779,7 @@
   "file_generated": {
     "message": "S'ha generat el fitxer \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -787,7 +787,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" està a punt",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -798,7 +798,7 @@
   "from_domain": {
     "message": "De $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -809,7 +809,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ fitxers",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -817,7 +817,7 @@
   "gallery_from_domain": {
     "message": "Galeria de $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -825,7 +825,7 @@
   "gallery_links_from_domain": {
     "message": "Enllaços de $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -866,7 +866,7 @@
   "lic_mismatch1": {
     "message": "La llicència és per $ARG1$, però el muntatge de la extensió del navegador no ha estat especificada",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -874,10 +874,10 @@
   "lic_mismatch2": {
     "message": "La llicència és per $ARG1$, però el muntatge de la extensió és per $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -945,7 +945,7 @@
   "network_error_status": {
     "message": "Error de xarxa - estat $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -962,7 +962,7 @@
   "no_audio_in_file": {
     "message": "Sense flux d'audio en el fitxer $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -991,7 +991,7 @@
   "no_video_in_file": {
     "message": "Sense flux de video en el fitxer $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1005,10 +1005,10 @@
   "number_type": {
     "message": " $ARG2$ $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1025,7 +1025,7 @@
   "overwrite_file": {
     "message": "Vols sobreescriure el fitxer '$ARG1$'?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1045,10 +1045,10 @@
   "platform_info": {
     "message": "Plataforma $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1098,10 +1098,10 @@
   "req_locale": {
     "message": "O potser vols ajudar a traduir el connector a '$ARG1$' (hi ha $ARG2$ textos que falten) ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1241,7 +1241,7 @@
   "version": {
     "message": "Versió $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1726,7 +1726,7 @@
   "you_downloaded_n_videos": {
     "message": "Has baixat el teu $ARG1$è fitxer amb Video DownloadHelper ",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

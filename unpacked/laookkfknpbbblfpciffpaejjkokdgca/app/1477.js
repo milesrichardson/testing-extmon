@@ -1,11 +1,11 @@
 (globalThis.webpackChunkmomentum = globalThis.webpackChunkmomentum || []).push([
   [1477],
   {
-    11477: (t, e, n) => {
+    11477: (t, e, i) => {
       "use strict";
-      n.r(e);
-      var s = n(24749);
-      const l = Backbone.Model.extend({
+      i.r(e);
+      var n = i(24749);
+      const s = Backbone.Model.extend({
           idAttribute: "csid",
           defaults: function () {
             return { url: "", local: !1, order: 0, type: 0, deleted: !1, draft: !1, summaryText: "" };
@@ -60,11 +60,11 @@
           },
           comparator: "order"
         }),
-        o = m.collect.SyncedCollection.extend({
-          LinkType: s.Un,
+        l = m.collect.SyncedCollection.extend({
+          LinkType: n.Un,
           initialize: function (t, e) {
             ((e = e || {}).name = e.name || "quicklinks"),
-              (e.model = e.model || l),
+              (e.model = e.model || s),
               (e.localProps = ["unsyncable", "order"]),
               (e.transientProps = ["draftDeleted"]),
               (e.apiUrl = m.globals.urlRoot + "links"),
@@ -175,11 +175,11 @@
               });
           }
         });
-      var a = n(31410),
-        r = n.n(a);
-      const d = Backbone.View.extend({
+      var o = i(31410),
+        a = i.n(o);
+      const r = Backbone.View.extend({
         tagName: "li",
-        template: r(),
+        template: a(),
         analytics: new m.Analytics({ feature: "links" }),
         events: {
           "keypress .todo-input": "updateOnEnter",
@@ -298,7 +298,7 @@
         getSummaryText: function () {
           let t = this.model.sublinks,
             e = this.model.get("type");
-          return e === s.Un.LinkGroup && t
+          return e === n.Un.LinkGroup && t
             ? 1 === t.length
               ? t[0].get("url")
               : t
@@ -314,7 +314,7 @@
                     return t;
                   })
                   .join(", ")
-            : e === s.Un.LINK
+            : e === n.Un.LINK
             ? this.model.get("url")
             : "";
         },
@@ -416,13 +416,13 @@
         },
         getModelType: (t) => (t.sublinks && t.sublinks.length > 1 ? "tab group" : "link")
       });
-      var p = n(22579),
-        c = n.n(p),
-        h = n(56730),
-        u = n.n(h),
-        g = n(66254),
-        f = n.n(g);
-      const k = Backbone.View.extend({
+      var d = i(22579),
+        p = i.n(d),
+        c = i(56730),
+        h = i.n(c),
+        u = i(66254),
+        g = i.n(u);
+      const f = Backbone.View.extend({
           attributes: { id: "quicklinks", class: "app-container" },
           offline: !0,
           initialFetchStarted: !1,
@@ -451,7 +451,7 @@
             dragend: "dragend",
             drop: "drop"
           },
-          LinkType: s.Un,
+          LinkType: n.Un,
           initialize: function () {
             this.DropdownTitles = { EMPTY_STATE: "Add Link", NO_PINNED: "Links", HAS_PINNED: "Links" };
             const t = this;
@@ -464,7 +464,7 @@
               (this.metadata = this.options.metadata),
               (this.linksOpenKey = this.name + "Open"),
               (this.team = this.options.team),
-              (this.template = this.team ? u() : c()),
+              (this.template = this.team ? h() : p()),
               (this.attributes.id = this.options.id),
               (this.isOpen = !this.team),
               this.$el.addClass(this.options.class),
@@ -591,7 +591,7 @@
           },
           render: function () {
             let t = this.getLinkDropdownText(),
-              e = { isPlus: this.isPlusUser, isChrome: m.utils.isChrome(), moreDropdownText: t, addGroup: f() };
+              e = { isPlus: this.isPlusUser, isChrome: m.utils.isChrome(), moreDropdownText: t, addGroup: g() };
             return (
               this.$el.hasClass("app") && ((this.$el[0].style.width = ""), (this.$el = this.$el.closest(".links"))),
               (this.$app = this.$el.find(".app")),
@@ -664,7 +664,7 @@
               }, 300));
           },
           addUrl: function (t) {
-            let e = new d({ model: t, parent: this, noIcon: !0, draft: !0 });
+            let e = new r({ model: t, parent: this, noIcon: !0, draft: !0 });
             this.$el.find(".urls").append(e.render().$el);
           },
           handleBack: function (t) {
@@ -712,7 +712,7 @@
                   !this.moreIsSet &&
                   (this.$moreLinksButton.addClass("active"),
                   this.$moreLinksButton.css("top", 30 + this.$el.height() - this.$moreLinksButton.height() / 2 + "px")));
-            let i = new d({ model: t, parent: this, noIcon: e === this.$baseLinks });
+            let i = new r({ model: t, parent: this, noIcon: e === this.$baseLinks });
             this.subViews.push(i), e.append(i.render().$el);
           },
           addAll: function () {
@@ -1044,18 +1044,18 @@
           validateAndEnsureUrlScheme: (t) => !t || m.utils.isValidUrl(m.utils.ensureUrlScheme(t)),
           getModelType: (t) => (t.sublinks && t.sublinks.length > 1 ? "tab group" : "link")
         }),
-        v = JSON.parse(
+        k = JSON.parse(
           '{"widget":true,"webpack":true,"id":"quicklinks","feature":"links","class":"links","label":"Links","appClass":"links-app calculates-own-max-height","region":"top-left","order":"prepend","width":260,"openState":"LinksOpen","keepOpenSetting":"linksKeepOpen","placeholderType":"pane","requiredFeature":"legacy","addin":"ad54d482-248b-4abf-b5b0-a8eaf3e89132","storedHeight":"links-height","toggleEvent":"globalEvent:key:L","closeOnEsc":"true","visibleSetting":"linksVisible"}'
         );
-      n(91743),
+      i(91743),
         m.widgetManager.handover("quicklinks", null, {
           region: "top-left",
           order: "prepend",
           bootstrap: function (t, e) {
-            function n(i) {
+            function i(i) {
               m.models.customization.get("linksVisible") &&
                 (e(
-                  new k({
+                  new f({
                     collection: i,
                     region: "top-left",
                     order: "prepend",
@@ -1063,7 +1063,7 @@
                     team: !1,
                     id: "quicklinks",
                     el: t,
-                    metadata: v
+                    metadata: k
                   })
                 ),
                 m.stopListening(m.models.customization, "change:linksVisible"));
@@ -1073,7 +1073,7 @@
               "linksVisible",
               "momentum-quicklinks",
               function () {
-                n(new o(null, { model: l }));
+                i(new l(null, { model: s }));
               },
               function () {
                 !(function () {
@@ -1081,16 +1081,18 @@
                   if (!t) return;
                   localStorage.setItem("quicklinks", t);
                   let e = Object.keys(localStorage);
-                  for (i = 0; i < e.length; i++)
-                    if (((key = e[i]), 0 === key.indexOf("momentum-quicklinks") && key.length > 20)) {
-                      let t = JSON.parse(localStorage.getItem(key));
+                  for (let t = 0; t < e.length; t++) {
+                    const i = e[t];
+                    if (0 === i.indexOf("momentum-quicklinks") && i.length > 20) {
+                      let t = JSON.parse(localStorage.getItem(i));
                       t.csid || ((t.csid = t.id), delete t.id),
                         localStorage.setItem("quicklinks-" + t.csid, JSON.stringify(t)),
-                        localStorage.removeItem(key);
+                        localStorage.removeItem(i);
                     }
+                  }
                   localStorage.removeItem("momentum-quicklinks");
                 })(),
-                  n(new o(null, { model: l, offlineOnly: !0 }));
+                  i(new l(null, { model: s, offlineOnly: !0 }));
               },
               function (t) {
                 m.listenTo(m.models.customization, "change:linksVisible", t);

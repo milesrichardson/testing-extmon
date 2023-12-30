@@ -17076,6 +17076,7 @@
             const C = 3 === x ? B.allowReserved || "never" : !1;
             var I = B.ecmaFeatures || {};
             I = "commonjs" === B.sourceType || !!I.globalReturn;
+            const H = void 0 !== B.allowAwaitOutsideFunction ? !!B.allowAwaitOutsideFunction : null;
             if ("module" === A && 6 > x)
               throw Error(
                 "sourceType 'module' is not supported when ecmaVersion < 2015. Consider adding `{ ecmaVersion: 2015 }` to the parser options."
@@ -17086,6 +17087,7 @@
               ranges: G,
               locations: E,
               allowReserved: C,
+              allowAwaitOutsideFunction: H,
               allowReturnOutsideFunction: I
             });
           }
@@ -17219,6 +17221,7 @@
                     locations: A.locations,
                     allowReserved: A.allowReserved,
                     allowReturnOutsideFunction: A.allowReturnOutsideFunction,
+                    allowAwaitOutsideFunction: A.allowAwaitOutsideFunction,
                     onToken: (J) => {
                       if (I) I.onToken(J, H);
                       J.type !== x.eof && (H.lastToken = J);

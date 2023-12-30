@@ -3045,7 +3045,7 @@ body.loading .light-overlay {
   display: none;
   flex-shrink: 0;
   font: var(--text-body1);
-  margin: 2px 24px;
+  margin: 8px 24px;
   overflow: hidden;
   padding: 4px 8px;
   position: relative;
@@ -4147,327 +4147,21 @@ body.loading .light-overlay {
   height: calc(100% - 48px);
   position: relative;
 }
-.fm-right-header {
-  -webkit-padding-end: 8px;
-  padding-inline-end: 8px;
-}
-.rtl .fm-right-header {
-  direction: rtl;
-}
-.fm-transfers-header {
-  -webkit-padding-end: 16px;
-  margin-bottom: 4px;
-  padding-inline-end: 16px;
-}
-.fm-right-header,
-.fm-transfers-header,
-.new-notification-top {
-  background-color: var(--stroke-main);
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  flex-shrink: 0;
-  height: 48px;
-  overflow: hidden;
-  position: relative;
-  white-space: nowrap;
-}
-.fm-right-header .mega-button,
-.fm-transfers-header .mega-button {
-  -webkit-margin-end: 8px;
-  margin-inline-end: 8px;
-}
-.fm-transfers-header .mega-button {
-  margin-top: 5px;
-}
-.fm-transfers-header .mega-button i {
-  --mask-color: var(--icon-rest);
-}
-.fm-transfers-header .mega-button.transfer-clear-all-icon i {
-  --mask-color: var(--secondary-red);
-}
-.fm-right-header .mega-button.fm-new-shared-folder {
-  overflow: visible;
-}
-.fm-header-buttons {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row-reverse;
-  float: right;
-  font-size: 0;
-  height: 48px;
-  padding-right: 9px;
-  white-space: nowrap;
-}
-.rtl .fm-header-buttons {
-  float: left;
-  width: 100%;
-}
-.fm-breadcrumbs-block {
-  box-sizing: border-box;
-  font-size: 0;
-  height: 36px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.properties-breadcrumb .fm-breadcrumbs-block.info {
-  height: 24px;
-}
-.properties-breadcrumb .fm-breadcrumbs-wrapper.info {
-  -webkit-padding-start: 8px;
-  margin-top: unset;
-  padding-inline-start: 8px;
-}
-.fm-breadcrumbs-wrapper {
-  -webkit-padding-start: 20px;
-  align-items: center;
-  display: flex;
-  margin-top: 6px;
-  padding-inline-start: 20px;
-}
-.fm-breadcrumbs-block:not(.hidden) {
-  -webkit-padding-end: 24px;
-  align-items: center;
-  display: flex;
-  padding-inline-end: 24px;
-  width: 100%;
-}
-.fm-breadcrumbs {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  height: 24px;
-  min-width: 0;
-  position: relative;
-  text-decoration: none;
-}
-.fm-breadcrumbs.root {
-  flex-shrink: 0;
-}
-.properties-breadcrumb .fm-breadcrumbs:last-of-type {
-  flex-shrink: 0;
-  max-width: 70%;
-}
-.properties-breadcrumb .fm-breadcrumbs-wrapper a {
-  min-width: 44px;
-}
-.fm-breadcrumbs:last-of-type {
-  flex-shrink: 0;
-  max-width: 70%;
-}
-.fm-breadcrumbs:only-child {
-  max-width: 100%;
-}
-.fm-breadcrumbs .sprite-fm-mono {
-  --mask-color: var(--icon-rest);
-}
-.fm-breadcrumbs span.sprite-fm-mono {
-  margin-left: 10px;
-}
-.fm-breadcrumbs .next-arrow {
-  --mask-color: var(--icon-rest);
-  display: block;
-  right: -4px;
-  top: 3px;
-}
-.rtl .fm-breadcrumbs .next-arrow {
-  transform: rotate(180deg);
-}
-.crumb-overflow-link {
-  align-items: center;
-  background-color: var(--stroke-main);
-  display: flex;
-  padding: 0 4px;
-}
-.properties-breadcrumb .crumb-overflow-link {
-  background-color: unset;
-}
-.crumb-overflow-link .breadcrumb-dropdown-link {
-  border-radius: 12px;
-  height: 24px;
-}
-.crumb-overflow-link .breadcrumb-dropdown-link:hover {
-  background: var(--surface-grey-2);
-}
-.search-bottom-wrapper .crumb-overflow-link {
-  background: var(--surface-grey-2);
-  height: 64px;
-}
-.search-bottom-wrapper .crumb-overflow-link .breadcrumb-dropdown-link {
-  border-radius: 12px;
-  height: 24px;
-}
-.search-bottom-wrapper .crumb-overflow-link .breadcrumb-dropdown-link:hover {
-  background: var(--surface-grey-1);
-}
-.crumb-overflow-link i {
-  --mask-color: var(--icon-rest);
-  flex-shrink: 0;
-}
-.rtl .crumb-overflow-link i {
-  transform: rotate(180deg);
-}
-.crumb-overflow-link i.menu-icon {
-  margin: 0 8px;
-}
-.fm-breadcrumbs:first-child .sprite-fm-mono.icon-arrow-right {
-  --icon-size: 16px;
-}
-.fm-breadcrumbs .right-arrow-bg {
-  display: block;
-  font: var(--text-body1);
-  overflow: hidden;
-  padding: 0 8px;
-  position: relative;
-  text-align: center;
-  text-overflow: ellipsis;
-  user-select: text;
-}
-.fm-breadcrumbs.public-links i.small-icon.get-link {
-  left: 12px;
-  margin: 0;
-  opacity: 0.75;
-  position: absolute;
-  top: 8px;
-}
-.fm-account-top .right-arrow-bg {
-  color: var(--text-color-high);
-  display: block;
-  font-size: var(--text-body1);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 100%;
-}
-.breadcrumb-dropdown {
-  display: none;
-  position: relative;
-}
-.breadcrumb-dropdown.active {
-  background-color: var(--context-menu-background);
-  border-radius: 12px;
-  box-shadow: var(--dropdown-shadow);
-  display: flex;
-  flex-direction: column;
-  left: 24px;
-  min-width: 200px;
-  padding: 10px;
-  position: absolute;
-  top: 32px;
-  width: max-content;
-  z-index: 999;
-}
-.fm-breadcrumbs-wrapper .breadcrumb-dropdown.active {
-  max-height: 85vh;
-  z-index: 300;
-}
-.rtl .breadcrumb-dropdown.active {
-  left: auto;
-  right: 24px;
-}
-.search-bottom-wrapper .breadcrumb-dropdown {
-  bottom: 52px;
-  position: absolute;
-  top: auto;
-  z-index: 200;
-}
-.breadcrumb-dropdown a {
-  align-items: center;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: var(--stroke-main-inverted);
-  display: flex;
-  font: var(--text-body1);
-  height: 32px;
-  margin-right: 0;
-  opacity: 0.7;
-  padding: 6px;
-  position: relative;
-}
-.breadcrumb-dropdown a:hover {
-  background-color: var(--stroke-grey-4);
-  opacity: 1;
-}
-.breadcrumb-dropdown a i {
-  --mask-color: var(--icon-rest);
-  display: block;
-}
-.breadcrumb-dropdown a span {
-  margin-left: 8px;
-  max-width: 300px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .deleted .avatar-wrapper,
 .deleted .fm-chat-user-info,
 .ignored .avatar-wrapper,
 .ignored .fm-chat-user-info {
   opacity: 0.5;
 }
-.fm-breadcrumbs.contacts .right-arrow-bg span {
-  display: none;
-}
-.fm-picker-breadcrumbs .fm-breadcrumbs.contacts .right-arrow-bg span {
-  display: inline-block;
-}
-.fm-files-view-icon {
-  cursor: pointer;
-  display: block;
-  float: right;
-  height: 24px;
-  transition: opacity 0.2s ease-in-out;
-  width: 24px;
-}
-.fm-files-view-icon .small-icon {
-  background-image: none;
-}
-.fm-files-view-icon i {
-  --mask-color: var(--stroke-mid-grey);
-  --icon-size: 24px;
-}
-.fm-files-view-icon .listing-view-icon {
-  background-position: -4px -1333px;
-  height: 22px;
-  padding: 3px;
-  width: 22px;
-}
-.fm-files-view-icon.listing-view {
-  background-image: none;
-}
-.fm-files-view-icon.block-view,
-.fm-files-view-icon.listing-view {
-  background-image: none;
-  margin: 0;
-}
-.fm-files-view-icon.block-view.active,
-.fm-files-view-icon.listing-view.active,
-.fm-files-view-icon.media-view.active {
-  border-bottom: 2px solid var(--secondary-blue);
-}
-.fm-files-view-icon.block-view.active i,
-.fm-files-view-icon.listing-view.active i,
-.fm-files-view-icon.media-view.active i {
-  --mask-color: var(--icon-active);
-}
-.fm-files-view-icon.block-view.inactive,
-.fm-files-view-icon.listing-view.inactive {
-  cursor: default;
-}
 .fm-files-search input::-webkit-input-placeholder {
   opacity: 0.3;
 }
 .context-menu,
-.dialog-sorting-menu,
-.fm-sorting-menu {
+.dialog-sorting-menu {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   background-color: #333;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
   border-radius: 8px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-width: 160px;
   padding: 8px 0;
@@ -4481,8 +4175,7 @@ body.loading .light-overlay {
   right: -155px;
   top: 33px;
 }
-.dropdown.body.dialog-sorting-menu,
-.fm-sorting-menu {
+.dropdown.body.dialog-sorting-menu {
   left: 590px;
   min-width: 198px;
   top: 103px;
@@ -5487,14 +5180,6 @@ span.orange {
 }
 .read-only .context-menu-icon {
   background-position: -75px -238px;
-}
-.fm-account-top-title {
-  color: #333;
-  font-size: 17px;
-  line-height: 48px;
-  padding: 0 0 0 20px;
-  position: absolute;
-  text-align: left;
 }
 .fm-account-main {
   height: 100%;
@@ -13726,17 +13411,6 @@ body.megaChatDisabled .nw-fm-left-icon.conversations {
 }
 .pro-login-dialog.sign .login-checkbox {
   margin: 8px 11px 0 0;
-}
-.fm-search-count {
-  -webkit-padding-start: 28px;
-  align-items: center;
-  display: flex;
-  float: left;
-  height: 48px;
-  padding-inline-start: 28px;
-}
-.fm-right-header {
-  overflow: visible;
 }
 .corner-messages {
   bottom: 0;

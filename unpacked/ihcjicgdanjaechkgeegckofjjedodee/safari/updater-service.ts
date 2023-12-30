@@ -34,6 +34,10 @@ export class SafariUpdaterService implements UpdaterService {
             this.progressHooks?.onSuccess();
             clearInterval(interval);
             res(null);
+          } else if (message == "update_error") {
+            this.progressHooks?.onUpdateError();
+            clearInterval(interval);
+            res(null);
           }
         }
       }, 300);
@@ -47,22 +51,20 @@ export class SafariUpdaterService implements UpdaterService {
     // sendUpdateFeatureFlagsMessage(); // no need to wait for this
     const response = await this.sendUpdateMessage();
     this.updateMessageQueue.push("update_start");
-    // this.progressHooks?.onUpdateStart();
     if (response) {
       let port = chrome.runtime.connectNative("");
       port.onMessage.addListener((message) => {
         if (message.name === "SAFARI_DATABASE_UPDATE_ERROR") {
-          this.progressHooks?.onUpdateError();
+          this.updateMessageQueue.push("update_error");
           port.disconnect();
         } else if (message.name === "SAFARI_DATABASE_UPDATE") {
           console.debug(`CUBL: Update message received: `, { message });
           const state = message.userInfo.state;
           if (state === "searchingUpdates") {
             this.updateMessageQueue.push("update_start");
-            // this.progressHooks?.onUpdateStart();
           } else if (state === "updateFailed") {
             console.debug(`CUBL: Update failed`, { message });
-            this.progressHooks?.onUpdateError();
+            this.updateMessageQueue.push("update_error");
           } else if (state === "downloadComplete") {
             console.debug(`CUBL: Download cb file for`, {
               message
@@ -72,12 +74,10 @@ export class SafariUpdaterService implements UpdaterService {
             this.updateMessageQueue.push("update_progress");
           } else if (state === "updateComplete") {
             console.debug(`CUBL: Update complete`, { message });
-            // this.progressHooks?.onSuccess();
             this.updateMessageQueue.push("update_success");
             port.disconnect();
           } else if (state === "allDownloadsComplete") {
             console.debug(`CUBL: allDownloadsComplete`, { message });
-            // this.progressHooks?.onSuccess();
             this.updateMessageQueue.push("update_success");
             port.disconnect();
           }

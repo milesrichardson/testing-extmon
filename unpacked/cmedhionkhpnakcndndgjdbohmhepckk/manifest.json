@@ -12,9 +12,7 @@
   },
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
   "background": {
-    "scripts": [
-      "scripts/background.js"
-    ]
+    "scripts": ["scripts/background.js"]
   },
   "content_scripts": [
     {
@@ -33,11 +31,5 @@
     "default_popup": "pages/popup.html"
   },
   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/WmzFe8hcRH9QeTBEDo8cH/4IYaw4DpiYlK6lUlXUPmEX8kkFfugsFMjlqVqHJN44Vhhz0gEWpyxWDYMfMPaJo1lXVGp/PBkf22QjvSvfAeWTGzhCo9020ysg3FeEEztm7yK50qkSNCgqsdRSdZKgy8dqF6YSouJRcYB6y5CZhwIDAQAB",
-  "permissions": [
-    "storage",
-    "unlimitedStorage",
-    "webRequest",
-    "webRequestBlocking",
-    "<all_urls>"
-  ]
+  "permissions": ["storage", "unlimitedStorage", "webRequest", "webRequestBlocking", "<all_urls>"]
 }

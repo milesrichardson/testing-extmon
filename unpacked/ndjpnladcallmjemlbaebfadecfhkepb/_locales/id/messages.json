@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplikasi"
+  },
+  "EndOfSupportHeader": {
+    "message": "Akhir Dukungan Ekstensi Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Mulai 15 Januari 2024, ekstensi ini tidak akan didukung lagi oleh Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Untuk informasi selengkapnya, kunjungi halaman Dukungan untuk ekstensi ini."
+  },
+  "Support": {
+    "message": "Dukungan"
   }
 }

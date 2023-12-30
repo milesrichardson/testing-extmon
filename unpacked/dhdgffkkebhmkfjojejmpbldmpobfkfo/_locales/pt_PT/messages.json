@@ -239,6 +239,9 @@
     "placeholders": { "editor": { "content": "$1" } }
   },
   "Please_consider_a_contribution": { "message": "Por favor, considere um donativo" },
+  "Please_enable_anonymous_statistics_and_help_to_improve_this_extension_": {
+    "message": "Por favor, ative estatísticas anónimas e ajude a otimizar esta extensão. Apenas são recolhidos dados técnicos e de interação com a extensão. Clique aqui para mais informações sobre os dados."
+  },
   "Please_wait___": { "message": "Por favor, espere..." },
   "Position_": { "message": "Posição" },
   "Process_with_Chrome": { "message": "Processar com o Chrome" },

@@ -108282,7 +108282,7 @@
         this.processRewordifyResult(e, r, N.options);
       }
       showTextNotFoundToast() {
-        iN.show("We could not find any text to simplify", { closeOnClick: !0 }, 5e3);
+        iN.show("We could not find any text to rewordify", { closeOnClick: !0 }, 5e3);
       }
       processRewordifyResult(N, e, i) {
         var a;

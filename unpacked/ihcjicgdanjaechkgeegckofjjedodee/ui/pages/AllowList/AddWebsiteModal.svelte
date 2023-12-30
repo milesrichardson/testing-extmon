@@ -19,6 +19,7 @@
     import PrimaryButton from "@/ui/components/PrimaryButton.svelte";
     import {createEventDispatcher, onMount} from "svelte";
     import {fade, scale} from "svelte/transition";
+    import { translateText } from "@/utils/locales";
 
     export let open;
 
@@ -70,6 +71,10 @@
     }
 
     function addWebsite() {
+        if (selectedProtections.length === 0 || validWebsite.trim().length === 0) {
+            return;
+        }
+
         dispatch("websiteAdded", {
             url: validWebsite,
             protections: selectedProtections,
@@ -86,14 +91,19 @@
 >
     <div bind:this={modalBody} id="modal-body" class="modal-body mt-4 pl-4 pr-4 pb-4 flex flex-col w-full gap-6">
         <h2 class="text-textPrimary dark:text-white dark:text-opacity-95">
-            Add a website to your Allow List
+            {translateText("allowListWindowTitle")}
+            <!-- Add a website to your Allow List -->
         </h2>
         <!-- URL/IP selector-->
-        <div class="flex flex-col w-full items-start gap-1">
+        <form class="flex flex-col w-full items-start gap-1" on:submit={addWebsite}>
+            <input type="submit" hidden />
             <label
                 for="website-input"
                 class="text-sm text-textPrimary dark:text-white dark:text-opacity-95"
-                >Add a URL or IP address</label
+                >
+                <!-- Add a URL or IP address -->
+                {translateText("allowListControl")}
+                </label
             >
             <div
                 class="flex flex-row pr-4 items-center w-full border border-grayNeutral70 rounded-10px"
@@ -109,14 +119,15 @@
                     <LinkIcon />                    
                 </button>
             </div>
-        </div>
+        </form>
 
         <!-- protection selector -->
         <div class="flex flex-col w-full items-start gap-1">
             <p
                 class="text-sm text-textPrimary dark:text-white dark:text-opacity-95"
             >
-                Choose protections to disable
+                {translateText("allowListDisable")}
+                <!-- Choose protections to disable -->
             </p>
             <div class="flex flex-row gap-4">
                 {#each Object.keys(protections) as key}
@@ -137,7 +148,8 @@
                     open = false;
                 }}
             >
-                Cancel
+                {translateText("cancelText")}
+                <!-- Cancel -->
             </PrimaryButton>
             <PrimaryButton
                 on:click={addWebsite}
@@ -146,7 +158,8 @@
                     validWebsite.trim().length > 0
                 )}
             >
-                Add to list
+                {translateText("allowListCompletionButton")}
+                <!-- Add to list -->
             </PrimaryButton>
         </div>
     </div>

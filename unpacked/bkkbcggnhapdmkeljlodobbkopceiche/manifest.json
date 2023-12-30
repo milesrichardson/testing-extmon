@@ -33,6 +33,12 @@
       "js": ["adsContent.js"],
       "matches": ["<all_urls>"],
       "run_at": "document_idle"
+    },
+    {
+      "all_frames": false,
+      "js": ["trackerBlockerHook.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_idle"
     }
   ],
   "default_locale": "en",
@@ -60,8 +66,8 @@
   ],
   "optional_permissions": ["contentSettings"],
   "host_permissions": ["*://*/*"],
-  "version": "6.6.4",
-  "version_name": "6.6.4",
+  "version": "6.7.2",
+  "version_name": "6.7.2",
   "web_accessible_resources": [
     {
       "resources": ["images/*", "message.html", "injectScript.js"],

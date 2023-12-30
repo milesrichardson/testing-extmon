@@ -485,11 +485,12 @@
                 void 0 === t && (t = !1),
                 function () {
                   var r = arguments,
-                    i = function () {
+                    i = t && !n;
+                  window.cancelAnimationFrame(n),
+                    (n = window.requestAnimationFrame(function () {
                       (n = null), t || e.apply(void 0, r);
-                    },
-                    a = t && !n;
-                  window.cancelAnimationFrame(n), (n = window.requestAnimationFrame(i)), a && e.apply(void 0, arguments);
+                    })),
+                    i && e.apply(void 0, arguments);
                 })),
                 (this.multiple = this.values.length > 1),
                 (this.values = this.handlesValue),

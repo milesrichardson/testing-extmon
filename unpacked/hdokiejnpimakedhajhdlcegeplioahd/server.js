@@ -8,6 +8,9 @@ var g_iterpw = null,
   g_2fa_inprocess = !1,
   autoLogin_inProgress = !1,
   loginCheckFinished = !1;
+function getIconCallback() {
+  "function" == typeof LPPlatform.isSPA && LPPlatform.isSPA() && checkBigIconsVersion && checkBigIconsVersion();
+}
 function lplogincheck2(n, i, l, g) {
   console_log("server.js : lplogincheck fromwebsite=" + n + " sessionid=" + i),
     yubikey_cleardata(),
@@ -890,7 +893,17 @@ function lpLoginResponse_win(i, l, g) {
               null,
               null,
               null,
-              !1
+              !1,
+              void 0,
+              void 0,
+              void 0,
+              void 0,
+              void 0,
+              void 0,
+              void 0,
+              void 0,
+              void 0,
+              getIconCallback
             ),
             0 === Object.keys(g_prefoverrides).length && r && (g_prefoverrides = reduxApp.getSPAPrefOverrides(g_username)),
             s))
@@ -991,6 +1004,10 @@ function lpLoginResponse_win(i, l, g) {
           u[0].getAttribute("password_strength_hardening") &&
             reduxApp.setFeatures &&
             reduxApp.setFeatures({ password_strength_hardening: "1" === u[0].getAttribute("password_strength_hardening") }),
+          u[0].getAttribute("is_mfa_enrollment_completed") &&
+            reduxApp &&
+            reduxApp.setMfaEnrollmentCompleted &&
+            reduxApp.setMfaEnrollmentCompleted("1" === u[0].getAttribute("is_mfa_enrollment_completed")),
           !u[0].getAttribute("iterations") ||
             (localStorage_getItem(g_username_hash + "_key_iter") && !g) ||
             ((s = parseInt(u[0].getAttribute("iterations"))),
@@ -1007,15 +1024,7 @@ function lpLoginResponse_win(i, l, g) {
       } else {
         if ((console_log(i.responseText), 0 < (r = e.getElementsByTagName("error")).length)) {
           if (
-            (lpdbg("login", "got login error"),
-            "1" === r[0].getAttribute("extension_registration_ab_test") &&
-              reduxApp.setFeatures({
-                extension_registration_ab_test: !0,
-                web_client_fill: !0,
-                web_client_save: !0,
-                web_client_toolbar: !0
-              }),
-            "deactivated" == r[0].getAttribute("cause") || "deleteduser" == r[0].getAttribute("cause"))
+            (lpdbg("login", "got login error"), "deactivated" == r[0].getAttribute("cause") || "deleteduser" == r[0].getAttribute("cause"))
           )
             return (
               clearCache(!0, !0, !0),
@@ -1541,7 +1550,9 @@ function lpAcctsResponse(e) {
         g_pending_shares,
         g_reminders,
         null,
-        null
+        null,
+        null,
+        getIconCallback
       ))
     : write_history({
         cmd: "get_accts_fail",
@@ -1689,7 +1700,12 @@ function postacctsload(e, t, a, r, s, o, n, i, l, g, u, d, c, _, p, M, f, m, h, 
         var i = dec(u);
         if ("" != u && null != u && "null" != u && g_username != i)
           return (
-            lpReportError("Encrypted username check failed: " + g_username + " vs " + i + " for " + u + " local " + g, null),
+            logger.error("Encrypted username check failed: " + g_username + " vs " + i + " for " + u + " local " + g, {
+              username: g_username,
+              decrypted_username: i,
+              encrypted_username: u,
+              local: g
+            }),
             lpshowError("A consistency check failed while loading your sites. Please relogin."),
             clearSavedPassword(g_username),
             clearAllData(),
@@ -1734,10 +1750,10 @@ function postacctsload(e, t, a, r, s, o, n, i, l, g, u, d, c, _, p, M, f, m, h, 
           (v[e[w].aid] = e[w]);
       }
       for (var L = {}, w = 0; w < t.length; w++) (t[w].url = AES.hex2url(t[w].url)), (L[t[w].aid] = t[w]);
-      for (var E = {}, w = 0; w < h.length; w++) (h[w].appname = AES.hex2url(h[w].appname)), (E[h[w].appaid] = h[w]);
+      for (var P = {}, w = 0; w < h.length; w++) (h[w].appname = AES.hex2url(h[w].appname)), (P[h[w].appaid] = h[w]);
       (g_sites = v),
         (g_securenotes = L),
-        (g_applications = E),
+        (g_applications = P),
         (g_prompts = a),
         (g_formfills = r),
         (g_identities = s),
@@ -1769,13 +1785,13 @@ function postacctsload(e, t, a, r, s, o, n, i, l, g, u, d, c, _, p, M, f, m, h, 
         return e.decprofilename.toLowerCase() < t.decprofilename.toLowerCase() ? -1 : 1;
       }),
         ("undefined" != typeof g_identity && null != g_identity) || (g_identity = "");
-      for (var P = !1, w = 0; w < g_identities.length; w++)
-        (g_identities[w].deciname = dec(g_identities[w].iname)), g_identities[w].iid == g_identity && (P = !0);
+      for (var E = !1, w = 0; w < g_identities.length; w++)
+        (g_identities[w].deciname = dec(g_identities[w].iname)), g_identities[w].iid == g_identity && (E = !0);
       if (
         (g_identities.sort(function (e, t) {
           return e.deciname.toLowerCase() < t.deciname.toLowerCase() ? -1 : 1;
         }),
-        !P && "" != g_identity)
+        !E && "" != g_identity)
       )
         return (
           (identityFilter = ""),
@@ -1888,7 +1904,7 @@ function postacctsload(e, t, a, r, s, o, n, i, l, g, u, d, c, _, p, M, f, m, h, 
             set_share_folder_group(""), set_share_folder_id(""), renameGroup(j, m[w].decsharename);
             break;
           }
-      "undefined" != typeof reduxApp && reduxApp.syncVault && (reduxApp.syncVault(l), proxyLegacyGlobals());
+      "undefined" != typeof reduxApp && reduxApp.syncVault && (reduxApp.syncVault(l, g), proxyLegacyGlobals());
     } else
       console_log("server.js : ERROR: Could not parse accts data!!!"),
         gPulledInvalidAccts
@@ -2801,14 +2817,15 @@ function lpSaveSiteResponse(e, t, a) {
           (newattach[n[0].getAttribute("att_" + inc)].storagekey = n[0].getAttribute("attstorekey_" + inc)),
           (newattach[n[0].getAttribute("att_" + inc)].size = n[0].getAttribute("attsize_" + inc)),
           inc++;
-      var g = is_application(r) ? "0" === r.appaid : "0" === r.aid,
-        u;
-      if (g) {
-        var d = n[0].getAttribute("aid"),
+      var g = AES.hex2url(n[0].getAttribute("url")),
+        u = ("!" === g[0] && (r.encryptedUrl = g), is_application(r) ? "0" === r.appaid : "0" === r.aid),
+        d;
+      if (u) {
+        var g = n[0].getAttribute("aid"),
           c = n[0].getAttribute("urid"),
           _;
-        if (((r.aid = r.fiid = d), (r.urid = c), r.fields))
-          for (var d = get_ff_translation("ff_captcha_regexp"), p, p = "" != d ? new RegExp(d, "i") : null, _ = 0; _ < r.fields.length; _++)
+        if (((r.aid = r.fiid = g), (r.urid = c), r.fields))
+          for (var g = get_ff_translation("ff_captcha_regexp"), p, p = "" != g ? new RegExp(g, "i") : null, _ = 0; _ < r.fields.length; _++)
             r.fields[_].otherfield || "1" == r.fields[_].otherlogin || (r.fields[_].urid = c),
               p &&
                 (void 0 === r.captcha_id || "" == r.captcha_id) &&
@@ -2853,10 +2870,10 @@ function lpSaveSiteResponse(e, t, a) {
         for (var _ in r.attacharraychanges.add) {
           r.attacharraychanges.add.hasOwnProperty(_) &&
             ((r.attachpresent = "1"),
-            (u = r.attacharraychanges.add[_]),
-            g && ((u.parent = r.aid), (u.id = r.aid + "-" + u.id)),
-            (u.size = newattach[u.id].size),
-            (u.storagekey = newattach[u.id].storagekey));
+            (d = r.attacharraychanges.add[_]),
+            u && ((d.parent = r.aid), (d.id = r.aid + "-" + d.id)),
+            (d.size = newattach[d.id].size),
+            (d.storagekey = newattach[d.id].storagekey));
         }
         reduxApp.updateAttachments({ add: r.attacharraychanges.add, remove: r.attacharraychanges.remove });
       } else l && "" != l && void 0 !== r.attacharraychanges && rollbackattacharrayadds(r.attacharraychanges);
@@ -3249,7 +3266,7 @@ function poll_server() {
   }
 }
 function poll_server_response(e) {
-  var t, a, r, s, o, n, o, r, i, a;
+  var t, a, r, s, o, n, o, r, i;
   4 === e.readyState &&
     (200 === e.status && null != e.responseXML && null != e.responseXML.documentElement
       ? 0 < (a = e.responseXML.documentElement.getElementsByTagName("ok")).length &&
@@ -3284,10 +3301,10 @@ function poll_server_response(e) {
             openURL(i);
           }
         }))
-      : ((a = "Problem in poll_server_response. status=" + e.status), lpReportError(a, null)));
+      : logger.error("Problem in poll_server_response. status=" + e.status, { "req.status": e.status }));
 }
 function upgrade_response(e) {
-  var t, a, a;
+  var t, a;
   4 == e.readyState &&
     (200 == e.status && null != e.responseXML && null != e.responseXML.documentElement
       ? ((a = e.responseXML.documentElement.getElementsByTagName("updatecheck")),
@@ -3297,7 +3314,7 @@ function upgrade_response(e) {
           ((g_notification_type = "upgrade"),
           (g_notification_data = { upgrade: upgrade, upgradeurl: upgradeurl }),
           sendTS({ cmd: "notification", type: "upgrade" })))
-      : ((a = "Problem in upgrade_response. status=" + e.status), lpReportError(a, null)));
+      : logger.error("Problem in upgrade_response. status=" + e.status, { "req.status": e.status }));
 }
 function changePassword(e, t, a, r, s) {
   debug && console_log("changePassword called");

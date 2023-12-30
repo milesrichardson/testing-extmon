@@ -84,7 +84,7 @@
               },
               t = "http://sn" !== this.url && "http://group" !== this.url,
               a = "undefined" != typeof reduxApp && reduxApp.getState().settings.features.url_encryption,
-              s = "undefined" != typeof g_sites && g_sites[String(this.aid)] && g_sites[String(this.aid)].isUrlEncrypted;
+              s = "undefined" != typeof g_sites && g_sites[this.aid] && g_sites[this.aid].encryptedUrl;
             return t && (a || s) && (r.url = n(this.url, e)), r;
           })),
         (d = function (e, r, t, a) {

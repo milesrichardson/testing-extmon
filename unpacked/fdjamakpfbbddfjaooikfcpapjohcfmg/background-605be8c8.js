@@ -98,7 +98,7 @@
       const o = r(20938),
         n = r(10984),
         i = r(17825),
-        a = r(53576),
+        a = r(32626),
         s = (e, t) =>
           t.type === o.ONE_DEVICE_LIMIT_REACHED
             ? (0, n.atOneDeviceLimitReachedStage)({
@@ -204,7 +204,7 @@
     },
     36172: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.abortDeviceLimitFlow = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(20698),
         i = r(70252);
       t.abortDeviceLimitFlow = async function (e) {
@@ -220,7 +220,7 @@
     31859: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getPairingGroupDevices = t.findMyPairingGroup = t.isDevicePartOfPairingGroup = t.isDesktopPlatform = void 0);
-      const o = r(53576);
+      const o = r(32626);
       t.isDesktopPlatform = (e) =>
         e === o.Platform.DesktopLegacyWindows || e === o.Platform.DesktopLegacyMacOS || e === o.Platform.DesktopUWP;
       t.isDevicePartOfPairingGroup = (e, t) => t.devices.includes(e.deviceId);
@@ -231,7 +231,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeDeviceInfoService = void 0);
       const o = r(16516),
         n = r(46298),
-        i = r(53576),
+        i = r(32626),
         a = {
           [i.Platform.Android]: "server_android",
           [i.Platform.CarbonTests]: "server_carbon_tests",
@@ -271,7 +271,7 @@
     },
     89961: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.toPlatformView = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = {
           [o.Platform.Android]: o.PlatformView.Android,
           [o.Platform.CarbonTests]: o.PlatformView.Other,
@@ -312,7 +312,7 @@
     },
     27331: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getDeviceLimitFlowEventsManager = t.DeviceLimitFlowEventsManager = void 0);
-      const o = r(28354),
+      const o = r(35088),
         n = r(63093),
         i = r(3343);
       class a {
@@ -349,7 +349,7 @@
           t.atMultipleDevicesLimitReachedStage =
           t.atOneDeviceLimitReachedStage =
             void 0);
-      const o = r(53576);
+      const o = r(32626);
       t.atOneDeviceLimitReachedStage = (e) => ({ ...e, name: o.LoginDeviceLimitFlowStage.OneDeviceLimitReached });
       t.atMultipleDevicesLimitReachedStage = (e) => ({ ...e, name: o.LoginDeviceLimitFlowStage.MultipleDevicesLimitReached });
       t.atUnlinkingAndOpeningSessionStage = (e) => ({ ...e, name: o.LoginDeviceLimitFlowStage.UnlinkingAndOpeningSession });
@@ -394,7 +394,7 @@
     46802: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.toLoginDeviceLimitFlowView = t.toMultipleDevicesLimitErrorStageView = t.toMultipleDevicesLimitReachedStageView = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(35520),
         i = r(88068),
         a = r(17825);
@@ -545,7 +545,7 @@
     },
     20698: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.augmentDeviceLimitError = t.notifyDeviceLimitError = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(16373),
         i = (e) => "object" == typeof e && e instanceof Error,
         a = (e) => (i(e) ? e.message : "No valid error reported");
@@ -596,7 +596,7 @@
     },
     88068: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.toDeviceToDeactivateInfoView = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(89961);
       t.toDeviceToDeactivateInfoView = (e) => ({
         ...e,
@@ -640,7 +640,7 @@
     },
     35520: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.toPreviousDeviceInfo = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(89961);
       t.toPreviousDeviceInfo = ({ deviceName: e, devicePlatform: t, lastActivityDate: r }) => ({
         name: e ?? "",
@@ -652,7 +652,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.setupDeviceLimitEventBus = void 0);
       const o = r(75903),
         n = r(20938),
-        i = r(53576),
+        i = r(32626),
         a = {
           deviceLimitCapabilityUpdated: {
             handler: (e) => {
@@ -674,7 +674,7 @@
     },
     15876: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.unlinkMultipleDevices = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(16593),
         i = r(46298),
         a = r(22589),
@@ -746,7 +746,7 @@
         n = r(20938),
         i = r(20698),
         a = r(70252),
-        s = r(53576);
+        s = r(32626);
       t.unlinkPreviousDevice = async function (e) {
         const { storeService: t } = e;
         try {
@@ -771,9 +771,9 @@
           t.updateSessionUponLoginAction =
           t.makeLoginController =
             void 0);
-      const o = r(60765),
-        n = r(53576),
-        i = r(53576),
+      const o = r(93039),
+        n = r(32626),
+        i = r(32626),
         a = r(58639),
         s = r(70414),
         c = r(28287),
@@ -1253,8 +1253,8 @@
     },
     9639: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.loginViaSSO = void 0);
-      const o = r(81719),
-        n = r(53576),
+      const o = r(78536),
+        n = r(32626),
         i = r(751),
         a = r(56915),
         s = r(50058),
@@ -1442,7 +1442,7 @@
           t.formatAPIError =
           t.isSupportedTransitionFlow =
             void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(46298),
         i = r(81228),
         a = r(38981);
@@ -1496,7 +1496,7 @@
           t.sendAskBiometricAuthenticationEventLog =
           t.sendAskAuthenticationEventLog =
             void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = r(66102),
         i = r(86797);
       var a;
@@ -1667,7 +1667,7 @@
       const o = r(58639),
         n = r(1965),
         i = r(90622),
-        a = r(48990),
+        a = r(9344),
         s = r(31937),
         c = r(18216);
       t.setupSubscriptions = function (e, t) {
@@ -1685,7 +1685,7 @@
     },
     15606: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.DashlaneAuthenticatorErrorCode = t.TokenOrOTPErrorCode = void 0);
-      const o = r(53576);
+      const o = r(32626);
       (t.TokenOrOTPErrorCode = [
         o.AuthenticationCode.TOKEN_EXPIRED,
         o.AuthenticationCode.TOKEN_NOT_VALID,
@@ -2210,10 +2210,11 @@
           t.platformStringToAppPlatform =
           t.createLogger =
             void 0);
-      const o = r(60765),
-        n = r(72609),
-        i = r(48749),
-        a = r(59600);
+      const o = r(93039),
+        n = r(32626),
+        i = r(72609),
+        a = r(48749),
+        s = r(17825);
       t.createLogger = (e) => {
         const { eventLoggerService: t } = e,
           r = t.getRepository();
@@ -2229,19 +2230,20 @@
           case "server_leeloo":
           case "server_tac":
             return o.Platform.Web;
-          case "desktop_win":
-            throw new Error(
+          default:
+            (0, s.assertUnreachable)(
+              e,
               `Hermes Web SDK: Unsupported platform "${e}" detected. This platform is not supported by the Hermes Web SDK or Styx API.`
             );
         }
       };
       t.applicationBuildTypeToHermesBuildType = (e) => {
         switch (e) {
-          case a.ApplicationBuildType.DEV:
+          case n.ApplicationBuildType.DEV:
             return o.BuildType.Dev;
-          case a.ApplicationBuildType.QA:
+          case n.ApplicationBuildType.QA:
             return o.BuildType.Qa;
-          case a.ApplicationBuildType.NIGHTLY:
+          case n.ApplicationBuildType.NIGHTLY:
             return o.BuildType.Nightly;
           default:
             return o.BuildType.Production;
@@ -2249,18 +2251,18 @@
       };
       t.getAppContext = (e) => {
         const r = e.getPlatformInfo(),
-          o = e.getState().device.application.settings.buildType;
+          { buildType: o } = r;
         return {
           platform: (0, t.platformStringToAppPlatform)(r.platformName),
-          version: ((n = r.appVersion), (a = i.config.MANIFEST_VERSION), a ? n + "-mv" + a : n),
+          version: ((n = r.appVersion), (i = a.config.MANIFEST_VERSION), i ? n + "-mv" + i : n),
           build_type: (0, t.applicationBuildTypeToHermesBuildType)(o)
         };
-        var n, a;
+        var n, i;
       };
       t.getBrowserContext = () => ({
-        name: n.browser.getBrowserName(),
-        version: n.browser.getBrowserVersion(),
-        user_agent: n.navigator.getNavigator().userAgent
+        name: i.browser.getBrowserName(),
+        version: i.browser.getBrowserVersion(),
+        user_agent: i.navigator.getNavigator().userAgent
       });
       t.getOsType = (e) => {
         let t = o.OsType.Other;
@@ -2287,7 +2289,7 @@
     },
     74412: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeEventLoggerService = t.bootstrap = void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = r(48749),
         i = r(26415),
         a = r(2246),
@@ -2345,34 +2347,33 @@
     4296: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.immediatelySendEvents = t.queueEvents = t.queueLogRepositoryEvents = void 0);
-      const o = r(53576),
-        n = r(59600),
-        i = r(30913),
-        a = r(87564),
-        s = r(10460);
-      async function c(e, t) {
+      const o = r(32626),
+        n = r(87564),
+        i = r(10460);
+      async function a(e, t) {
         const r = t.logStorage.containsPriorityEvent();
         try {
-          if ((await (0, s.storeEventsInQueue)(e, t), r)) {
-            return await (0, a.sendEventQueueToStyx)(e);
+          if ((await (0, i.storeEventsInQueue)(e, t), r)) {
+            return await (0, n.sendEventQueueToStyx)(e);
           }
           return { success: !0, result: o.StyxApiResult.NoBatchesSent };
         } catch (e) {
           return { success: !1, result: o.StyxApiResult.NoBatchesSent };
         }
       }
-      async function d(e, t) {
+      async function s(e, t) {
         try {
-          return await (0, a.immediatelySendEventsToStyx)(e, t);
+          return await (0, n.immediatelySendEventsToStyx)(e, t);
         } catch (e) {
           return { success: !1, result: o.StyxApiResult.NoBatchesSent };
         }
       }
       (t.queueLogRepositoryEvents = async function (e, t) {
-        return (0, i.applicationBuildTypeSelector)(e.storeService.getState()) === n.ApplicationBuildType.QA ? d(e, t) : c(e, t);
+        const { buildType: r } = e.storeService.getPlatformInfo();
+        return r === o.ApplicationBuildType.QA ? s(e, t) : a(e, t);
       }),
-        (t.queueEvents = c),
-        (t.immediatelySendEvents = d);
+        (t.queueEvents = a),
+        (t.immediatelySendEvents = s);
     },
     19764: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.eventLoggerReducer = void 0);
@@ -2394,7 +2395,7 @@
     },
     87564: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.immediatelySendEventsToStyx = t.sendEventQueueToStyx = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(2246),
         i = r(45956),
         a = r(76330),
@@ -2460,8 +2461,8 @@
     66102: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.flushQueue = t.logToggleAnalyticsEvent = t.logPageView = t.logEvent = void 0);
-      const o = r(60765),
-        n = r(53576),
+      const o = r(93039),
+        n = r(32626),
         i = r(78671),
         a = r(26415),
         s = r(4296),
@@ -2603,8 +2604,8 @@
     },
     12126: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.anonymousSessionId = void 0);
-      const o = r(28354),
-        n = r(53576),
+      const o = r(35088),
+        n = r(32626),
         i = r(86056),
         a = r(92263),
         s = r(48749);
@@ -2702,7 +2703,7 @@
     },
     88393: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.config = void 0);
-      const o = r(24375),
+      const o = r(24300),
         n = r(55111),
         i = r(90235),
         a = r(26972),
@@ -2734,7 +2735,7 @@
         }
       });
     },
-    24375: (e, t, r) => {
+    24300: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.markNotificationAsInteracted = void 0);
       const o = r(34287),
         n = r(56857);
@@ -2814,7 +2815,7 @@
     },
     45709: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.savePasswordGenerationSettingsHandler = void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = r(95623),
         i = r(70252),
         a = r(44908),
@@ -3047,7 +3048,7 @@
     },
     28903: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.unlockProtectedItems = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(28287);
       t.unlockProtectedItems = async function (e, t) {
         const { storeService: r, masterPasswordEncryptorService: i } = e;
@@ -3065,7 +3066,7 @@
     },
     84547: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.disableCredentialProtectionHandler = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(18344);
       t.disableCredentialProtectionHandler = async function (e, { credentialId: t }) {
         const { storeService: r, sessionService: i, eventLoggerService: a, applicationModulesAccess: s } = e;
@@ -3287,7 +3288,7 @@
           t.registerDeviceForRecovery =
           t.startAccountRecovery =
             void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(70252),
         i = r(70414),
         a = r(25576),
@@ -3524,7 +3525,7 @@
           t.getRecoveryKey =
           t.getSetupRequisitesData =
             void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(90622),
         i = r(56668),
         a = r(72365),
@@ -3758,7 +3759,7 @@
     97810: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.isRecoveryRequestPending = t.deactivateAccountRecovery = t.setupAccountRecoveryForDevice = t.activateAccountRecovery = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(56668),
         i = r(47820),
         a = r(5464),
@@ -3866,7 +3867,7 @@
     },
     97890: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.downloadRemoteFileHandler = t.fetchFile = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(46298),
         i = r(64272),
         a = r(10174),
@@ -3877,7 +3878,7 @@
         u = r(16593),
         S = r(55539),
         p = r(23201),
-        m = r(60765),
+        m = r(93039),
         g = r(76905);
       async function E(e) {
         try {
@@ -4043,7 +4044,7 @@
         s = r(36513),
         c = r(1110),
         d = r(19601),
-        l = r(60765),
+        l = r(93039),
         u = r(93513),
         S = "https://static.dashlane.com/runtime-resources/ci/";
       async function p(e, t) {
@@ -4104,7 +4105,7 @@
     },
     23201: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.logReceiveRemoteFileError = t.logReceiveRemoteFileSuccess = void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = (e, t, r = undefined) => {
           e.logEvent(
             new o.UserReceiveRemoteFileUpdateEvent({ flowStep: t, remoteFileUpdateError: r, packageSource: o.PackageSource.Carbon })
@@ -4128,7 +4129,7 @@
         n = r(96405),
         i = r(1110),
         a = r(19601),
-        s = r(60765),
+        s = r(93039),
         c = r(76905),
         d = (e) => {
           if (!e) throw new a.RemoteFileError(s.RemoteFileUpdateError.LocalStorageError, "LocalStorageService is not initalized");
@@ -4359,98 +4360,131 @@
     },
     74318: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.fetchCurrentLocation = t.initCarbon = t.setPlatform = void 0);
-      const o = r(53576),
-        n = r(71796),
-        i = r(4798),
-        a = r(75391),
-        s = r(44242),
-        c = r(20849),
-        d = r(44273),
-        l = r(30855),
-        u = r(87855),
-        S = r(86056),
-        p = r(95623),
-        m = r(17338),
-        g = r(61384),
-        E = r(12995),
-        A = r(70252),
-        I = r(4673),
-        y = r(47975),
-        v = r(73011),
-        T = r(96637),
-        _ = r(25661),
-        f = r(2646),
-        C = r(18539),
-        O = r(18216),
-        h = r(28486),
-        D = r(88322),
-        R = r(45800);
+      const o = r(16516),
+        n = r(32626),
+        i = r(71796),
+        a = r(4798),
+        s = r(75391),
+        c = r(44242),
+        d = r(20849),
+        l = r(44273),
+        u = r(30855),
+        S = r(87855),
+        p = r(86056),
+        m = r(95623),
+        g = r(17338),
+        E = r(61384),
+        A = r(12995),
+        I = r(70252),
+        y = r(4673),
+        v = r(47975),
+        T = r(73011),
+        _ = r(96637),
+        f = r(25661),
+        C = r(2646),
+        O = r(18539),
+        h = r(18216),
+        D = r(28486),
+        R = r(88322),
+        N = r(48749),
+        P = r(59301);
       (t.setPlatform = (e, t, r) => {
-        if (r === O.InitMode.FirstInit) {
-          e.getInstance(m.CarbonServicesTypeEnum.StoreService)
+        if (r === h.InitMode.FirstInit) {
+          e.getInstance(g.CarbonServicesTypeEnum.StoreService)
             .getStore()
-            .dispatch((0, E.savePlatformInfo)(t));
+            .dispatch((0, A.savePlatformInfo)(t));
         }
-        (0, S.setPlatformInfo)(t);
+        (0, p.setPlatformInfo)(t);
       }),
         (t.initCarbon = async function (e) {
-          if (((0, f.setPublicPath)(e.publicPath), !e.storageLayer))
+          const r = Object.values(N.DashlaneAPISchemesNames);
+          if (((0, N.setConfig)((0, o.omit)(r, e?.config ?? {})), (0, C.setPublicPath)(e.publicPath), !e.storageLayer))
             throw new Error("Missing Storage layer prevents Carbon initialization");
-          e.keys.cloudflareAccess &&
-            e.keys.cloudflareSecret &&
-            (0, R.setCloudflareHeaders)(e.keys.cloudflareAccess, e.keys.cloudflareSecret);
-          const r = (0, m.carbonServices)({
-              storageLayer: new C.CarbonLocalStorage(e.storageLayer),
+          const p = (0, g.carbonServices)({
+              storageLayer: new O.CarbonLocalStorage(e.storageLayer),
               sessionStorage: e.sessionStorage,
               createClients: e.createClients
             }),
-            { storeService: S, storageService: E } = (0, m.getCoreServices)(r);
-          await S.completeRehydration(), (0, D.loadAnonymousApplicationId)(E, S);
-          const A = (function (e) {
+            { storeService: A, storageService: I, applicationModulesAccess: L } = (0, g.getCoreServices)(p);
+          await (0, P.initWebServicesConfig)(e, L), await A.completeRehydration(), (0, R.loadAnonymousApplicationId)(I, A);
+          const U = (function (e) {
             const t = e.getState(),
-              r = (0, h.appSessionIdSelector)(t) ? O.InitMode.Resume : O.InitMode.FirstInit;
-            return (0, p.logVerbose)({ message: `Inferred init mode : ${r}` }), r;
-          })(S);
-          (0, t.setPlatform)(r, e.platformInfo, A);
-          const N = await (0, v.setupEventBus)(r);
-          await N.coreServicesReady({ initMode: A }),
-            (0, y.loadFrequencyLists)(),
-            e.workers && (0, g.setWorkersPath)(e.workers),
-            e.plugins && (0, I.setPlugins)(e.plugins);
+              r = (0, D.appSessionIdSelector)(t) ? h.InitMode.Resume : h.InitMode.FirstInit;
+            return (0, m.logVerbose)({ message: `Inferred init mode : ${r}` }), r;
+          })(A);
+          (0, t.setPlatform)(p, e.platformInfo, U);
+          const M = await (0, T.setupEventBus)(p);
+          await M.coreServicesReady({ initMode: U }),
+            (0, v.loadFrequencyLists)(),
+            e.workers && (0, E.setWorkersPath)(e.workers),
+            e.plugins && (0, y.setPlugins)(e.plugins);
           try {
-            await (0, u.initAuthenticatedCarbonApplication)(e, r, A);
+            await (0, S.initAuthenticatedCarbonApplication)(e, p, U);
           } catch (e) {
-            throw (p.Debugger.error(e, "error while initializing SDK"), e);
+            throw (m.Debugger.error(e, "error while initializing SDK"), e);
           }
-          const { debug: P, e2e: L } = e.connectors;
-          let { leeloo: U, maverick: M, extension: B, diagnostic: G, api: w } = e.connectors;
-          (U = U || (0, n.createEventBus)({ events: o.CarbonLeelooConnector })),
-            (M = M || (0, n.createEventBus)({ events: o.CarbonMaverickConnector })),
-            (B = B || (0, n.createEventBus)({ events: o.ExtensionCarbonConnector })),
-            (G = G || (0, n.createEventBus)({ events: o.CarbonDiagnosticConnector })),
-            (w = w || (0, n.createEventBus)({ events: o.CarbonApiConnector })),
-            P && (0, c.subscribeToDebugEvents)(P),
-            L && (0, l.subscribeToE2EEvents)(L, r),
-            (0, i.subscribeToExtensionEvents)(B, r),
-            (0, a.subscribeToLeelooEvents)(U, r),
-            (0, s.subscribeToMaverickEvents)(M, r),
-            (0, d.subscribeToDiagnosticEvents)(G);
-          const b = new T.TsEventBusCommandQueryBus(r, o.CarbonApiConnector, w);
+          const { debug: B, e2e: G } = e.connectors;
+          let { leeloo: w, maverick: b, extension: k, diagnostic: F, api: K } = e.connectors;
+          (w = w || (0, i.createEventBus)({ events: n.CarbonLeelooConnector })),
+            (b = b || (0, i.createEventBus)({ events: n.CarbonMaverickConnector })),
+            (k = k || (0, i.createEventBus)({ events: n.ExtensionCarbonConnector })),
+            (F = F || (0, i.createEventBus)({ events: n.CarbonDiagnosticConnector })),
+            (K = K || (0, i.createEventBus)({ events: n.CarbonApiConnector })),
+            B && (0, d.subscribeToDebugEvents)(B),
+            G && (0, u.subscribeToE2EEvents)(G, p),
+            (0, a.subscribeToExtensionEvents)(k, p),
+            (0, s.subscribeToLeelooEvents)(w, p),
+            (0, c.subscribeToMaverickEvents)(b, p),
+            (0, l.subscribeToDiagnosticEvents)(F);
+          const V = new _.TsEventBusCommandQueryBus(p, n.CarbonApiConnector, K);
           return (
-            (0, _.bootstrap)(r, b, e?.infrastructure), N.appInitialized({ initMode: A, abTestForcedVersion: e.abTestForcedVersion }), r
+            (0, f.bootstrap)(p, V, e?.infrastructure), M.appInitialized({ initMode: U, abTestForcedVersion: e.abTestForcedVersion }), p
           );
         }),
         (t.fetchCurrentLocation = function (e, t) {
           return e.country
             .getCurrentCountry()
             .then((e) => {
-              t.dispatch((0, E.saveCurrentLocation)(e));
+              t.dispatch((0, A.saveCurrentLocation)(e));
             })
             .catch((e) => {
               const t = new Error(`[Sdk/Default] - fetchCurrentLocation: ${e}`);
-              (0, A.sendExceptionLog)({ error: t, code: o.ExceptionCriticality.WARNING });
+              (0, I.sendExceptionLog)({ error: t, code: n.ExceptionCriticality.WARNING });
             });
         });
+    },
+    59301: (e, t, r) => {
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.initWebServicesConfig = void 0);
+      const o = r(18948),
+        n = r(61475),
+        i = r(45800),
+        a = r(48749),
+        s = "https://api--(.*).staging.dashlane.com";
+      function c(e) {
+        const t = new RegExp(s, "g"),
+          r = e.matchAll(t).next();
+        if (!r.done) return `https://ws1--${r.value[1]}.staging.dashlane.com`;
+      }
+      t.initWebServicesConfig = async function (e, t) {
+        const r = await (0, o.firstValueFrom)(
+            t
+              .createClients()
+              .webServices.queries.settingsForStaging()
+              .pipe((0, o.timeout)(1e3)),
+            { defaultValue: (0, n.failure)(void 0) }
+          ),
+          s = (0, n.isSuccess)(r) && (0, n.getSuccess)(r).api;
+        s?.override
+          ? ((0, i.setCloudflareHeaders)(s.cloudflareAccessKeyOverride, s.cloudflareSecretKeyOverride),
+            (0, a.setConfig)({ DASHLANE_API_HOST_WITH_SCHEME: s.baseUrlOverride, DASHLANE_WS_HOST_WITH_SCHEME: c(s.baseUrlOverride) }))
+          : (e.keys.cloudflareAccess &&
+              e.keys.cloudflareSecret &&
+              (0, i.setCloudflareHeaders)(e.keys.cloudflareAccess, e.keys.cloudflareSecret),
+            (0, a.setConfig)({
+              DASHLANE_API_HOST_WITH_SCHEME: e.config.DASHLANE_API_HOST_WITH_SCHEME,
+              DASHLANE_WS_HOST_WITH_SCHEME: e.config.DASHLANE_WS_HOST_WITH_SCHEME ?? c(e.config.DASHLANE_API_HOST_WITH_SCHEME ?? "")
+            }));
+      };
     },
     73011: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.setupEventBus = void 0);
@@ -4736,7 +4770,7 @@
     },
     75199: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.refreshCredentialsDedupView = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(81200),
         i = r(47521),
         a = r(46298),
@@ -4774,9 +4808,16 @@
     },
     89160: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.getUsersSSOInfo = t.loadLocalData = t.completeLogin = t.checkLogin = void 0);
-      const o = r(53576),
-        n = r(81719),
+        (t.getUsersSSOInfo =
+          t.loadLocalData =
+          t.completeLogin =
+          t.handleGetAuthenticationMethodsForLoginError =
+          t.handleDeletedProfiles =
+          t.getLocalProfiles =
+          t.checkLogin =
+            void 0);
+      const o = r(32626),
+        n = r(78536),
         i = r(2246),
         a = r(25576),
         s = r(59489),
@@ -4791,59 +4832,59 @@
         E = r(92263),
         A = r(1965),
         I = r(16593);
+      async function y(e, t) {
+        return (await (0, S.getLocalAccounts)(e, t))
+          .map((e) => e.login)
+          .map((t) => ({ login: t, deviceAccessKey: (0, u.getDeviceAccessKeySelector)(e.getState(), t) }));
+      }
+      async function v(e, t, r) {
+        const { profilesToDelete: o } = r;
+        if ((o || []).length > 0) return;
+        const n = o.map((e) => e.login);
+        await (0, A.wipeOutLocalAccounts)(e, t, n);
+      }
+      async function T(e, t, r, n) {
+        if (!(0, p.isApiErrorOfType)(p.BusinessError, r)) throw new Error(`Failed to getAuthenticationMethodsForLogin (${r.code})`);
+        const i = r.code;
+        switch (i) {
+          case p.DeviceDeactivated:
+            throw (
+              (await (0, A.wipeOutLocalAccounts)(e, t, [n]), new Error(o.AuthenticationCode[o.AuthenticationCode.DEVICE_NOT_REGISTERED]))
+            );
+          case p.ClientVersionDoesNotSupportSSOMigration:
+            throw new Error(o.AuthenticationCode[o.AuthenticationCode.CLIENT_VERSION_DOES_NOT_SUPPORT_SSO_MIGRATION]);
+          case p.TeamGenericError:
+            throw new Error(o.AuthenticationCode[o.AuthenticationCode.TEAM_GENERIC_ERROR]);
+          default:
+            (0, m.assertUnreachable)(i);
+        }
+      }
       (t.checkLogin = async function (e, r, n) {
         const l = e.getState(),
-          y = (0, I.userLoginSelector)(l);
-        let v, T, _;
+          S = (0, I.userLoginSelector)(l);
+        let m, A, _;
         try {
-          const t = await (async function (e, t) {
-              const r = await (0, S.getLocalAccounts)(e, t);
-              return r.map((e) => e.login).map((t) => ({ login: t, deviceAccessKey: (0, u.getDeviceAccessKeySelector)(e.getState(), t) }));
-            })(e, r),
-            i = (0, u.getDeviceAccessKeySelector)(l, y),
-            s = await (0, p.getAuthenticationMethodsForLogin)(e, {
-              login: y,
-              deviceAccessKey: i,
+          const t = await y(e, r),
+            o = (0, u.getDeviceAccessKeySelector)(l, S),
+            i = await (0, p.getAuthenticationMethodsForLogin)(e, {
+              login: S,
+              deviceAccessKey: o,
               methods: a.localSupportedAuthenticationMethod,
               profiles: t
             });
-          if ((0, p.isApiError)(s))
-            return (async function (e, t, r, n) {
-              if (!(0, p.isApiErrorOfType)(p.BusinessError, r)) throw new Error(`Failed to getAuthenticationMethodsForLogin (${r.code})`);
-              const i = r.code;
-              switch (i) {
-                case p.DeviceDeactivated:
-                  throw (
-                    (await (0, A.wipeOutLocalAccounts)(e, t, [n]),
-                    new Error(o.AuthenticationCode[o.AuthenticationCode.DEVICE_NOT_REGISTERED]))
-                  );
-                case p.ClientVersionDoesNotSupportSSOMigration:
-                  throw new Error(o.AuthenticationCode[o.AuthenticationCode.CLIENT_VERSION_DOES_NOT_SUPPORT_SSO_MIGRATION]);
-                case p.TeamGenericError:
-                  throw new Error(o.AuthenticationCode[o.AuthenticationCode.TEAM_GENERIC_ERROR]);
-                default:
-                  (0, m.assertUnreachable)(i);
-              }
-            })(r, n, s, y);
-          !(async function (e, t, r) {
-            const { profilesToDelete: o } = r;
-            if ((o || []).length > 0) return;
-            const n = o.map((e) => e.login);
-            await (0, A.wipeOutLocalAccounts)(e, t, n);
-          })(r, n, s),
-            (v = s.verifications),
-            (T = s.accountType);
+          if ((0, p.isApiError)(i)) return T(r, n, i, S);
+          v(r, n, i), (m = i.verifications), (A = i.accountType);
         } catch (e) {
           if (!(0, E.isCarbonError)(e, g.HttpError)) throw e;
-          v = (function (e) {
+          m = (function (e) {
             const t = (function (e) {
               const t = (0, i.getUserPublicSetting)(e, "otp2");
               return t ? c.OtpType.OTP_LOGIN : null;
             })(e);
             return t === c.OtpType.OTP_LOGIN ? [{ type: "totp" }] : [];
-          })(y);
+          })(S);
         }
-        const f = v.find((e) => "sso" === e.type);
+        const f = m.find((e) => "sso" === e.type);
         return (
           (_ =
             f?.ssoInfo.serviceProviderUrl && "mp_user_to_sso_member" !== f?.ssoInfo.migration
@@ -4864,7 +4905,7 @@
                   )
                     return o.AuthenticationCode.ASK_OTP;
                   return o.AuthenticationCode.ASK_MASTER_PASSWORD;
-                })(y, v)),
+                })(S, m)),
           (function (e, r, n, i) {
             switch (e) {
               case o.AuthenticationCode.SSO_LOGIN_BYPASS:
@@ -4878,10 +4919,13 @@
             e !== o.AuthenticationCode.SSO_LOGIN_BYPASS &&
               r.dispatch((0, d.storeSSOSettings)({ ssoUser: !1, ...(0, t.getUsersSSOInfo)(n) }));
             r.dispatch((0, s.storeAccountAuthenticationType)(i));
-          })(_, e, f ? f.ssoInfo : void 0, T),
+          })(_, e, f ? f.ssoInfo : void 0, A),
           _
         );
       }),
+        (t.getLocalProfiles = y),
+        (t.handleDeletedProfiles = v),
+        (t.handleGetAuthenticationMethodsForLoginError = T),
         (t.completeLogin = async function (e, t, r, n, i) {
           const a = e.getUserLogin(),
             s = { login: a, deviceAccessKey: (0, u.getDeviceAccessKeySelector)(e.getState(), a), authTicket: n },
@@ -4975,7 +5019,7 @@
     },
     57789: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.isOnboardingNotificationShowing = void 0);
-      const o = r(53576);
+      const o = r(32626);
       t.isOnboardingNotificationShowing = (e) => {
         const { completedSteps: t, flowLoginCredentialOnWeb: r, leelooStep: n, popoverStep: i } = e,
           {
@@ -5032,7 +5076,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.transformNodePremiumStatus = t.getFreshPremiumStatus = t.refreshSubscriptionInformation = t.refreshPremiumStatus = void 0);
       const o = r(16516),
-        n = r(53576),
+        n = r(32626),
         i = r(95623),
         a = r(70252),
         s = r(48313),
@@ -5040,11 +5084,13 @@
         d = r(25576),
         l = r(25011),
         u = r(31375),
-        S = r(76089);
-      async function p(e, t) {
+        S = r(76089),
+        p = r(46298);
+      async function m(e, t) {
         const r = e.getLocalSettings().subscriptionInformation;
         try {
           const r = await (0, u.getSubscriptionInformation)(e, t);
+          if ((0, p.isApiError)(r)) throw new Error(`${r.message} (code: ${r.code})`);
           return e.dispatch((0, S.localSettingsSubscriptionInformationStatusUpdated)(r)), r;
         } catch (e) {
           const t = new Error(`[PremiumController] - refreshUserSubscriptionStatus: ${e}`);
@@ -5058,9 +5104,16 @@
           u = !d?.currentTimestampUnix || Date.now() - d.currentTimestampUnix > 1e4;
         if (d && !u) return n;
         try {
-          const [n, i] = await Promise.all([E(t, r, o), (0, l.getPremiumStatus)(e, r), p(e, r)]),
+          const [n, i] = await Promise.all([
+              A(t, r, o),
+              (0, l.getPremiumStatus)(e, r).then((e) => {
+                if ((0, p.isApiError)(e)) throw new Error(`${e.message} (code: ${e.code})`);
+                return e;
+              }),
+              m(e, r)
+            ]),
             a = n?.spaces || [],
-            d = v(i),
+            d = f(i),
             u = { ...n, planName: n?.planName?.toLowerCase() ?? null };
           return (
             e.dispatch((0, s.premiumStatusUpdated)(u)),
@@ -5074,16 +5127,16 @@
           throw e;
         }
       }),
-        (t.refreshSubscriptionInformation = p);
-      const m = (e) => {
+        (t.refreshSubscriptionInformation = m);
+      const g = (e) => {
           if (!e.capabilities || !e.capabilities.length) return;
           return e.capabilities.reduce((e, t) => {
             const { capability: r, ...o } = t;
             return (e[r] = o), e;
           }, {});
         },
-        g = (e) => (e.familyMembership ? e.familyMembership[0] : void 0);
-      function E(e, t, r) {
+        E = (e) => (e.familyMembership ? e.familyMembership[0] : void 0);
+      function A(e, t, r) {
         return e.premium
           .status({
             login: t,
@@ -5113,18 +5166,18 @@
               ],
               e
             );
-            return (t.capabilities = m(e)), e.hasOwnProperty("familyMembership") && (t.familyMembership = g(e)), t;
+            return (t.capabilities = g(e)), e.hasOwnProperty("familyMembership") && (t.familyMembership = E(e)), t;
           });
       }
-      t.getFreshPremiumStatus = E;
-      const A = (e) => {
+      t.getFreshPremiumStatus = A;
+      const I = (e) => {
           if (e.capabilities?.length)
             return e.capabilities.reduce((e, t) => {
               const { capability: r, ...o } = t;
               return (e[r] = o), e;
             }, {});
         },
-        I = (e) => {
+        y = (e) => {
           switch (e.b2cStatus.statusCode) {
             case d.B2CStatusCode.Subscribed:
               return e.b2cStatus.planName.includes("grace")
@@ -5141,15 +5194,18 @@
               return n.PremiumStatusCode.NO_PREMIUM;
           }
         };
-      function y(e) {
+      function v(e) {
+        return e.map((e) => ({ login: e }));
+      }
+      function T(e) {
         const t = [];
         return (
           e.currentTeam &&
             t.push({
               associatedEmail: e.currentTeam.associatedEmail,
-              billingAdmins: e.currentTeam.teamMembership.billingAdmins,
+              billingAdmins: v(e.currentTeam.teamMembership.billingAdmins),
               color: e.currentTeam.teamInfo.color,
-              companyName: e.currentTeam.teamInfo.teamName,
+              companyName: e.currentTeam.teamInfo.name,
               info: { ...e.currentTeam.teamInfo },
               invitationDate: e.currentTeam.invitationDateUnix,
               isBillingAdmin: e.currentTeam.teamMembership.isBillingAdmin,
@@ -5163,7 +5219,7 @@
               revokeDate: null,
               shouldDelete: !1,
               status: n.SpaceStatus.Accepted,
-              teamAdmins: { ...e.currentTeam.teamMembership.teamAdmins },
+              teamAdmins: v(e.currentTeam.teamMembership.teamAdmins),
               teamId: e.currentTeam.teamId.toString(),
               teamName: e.currentTeam.teamName,
               tier: e.currentTeam.planFeature
@@ -5172,10 +5228,10 @@
             e.pastTeams.forEach((e) => {
               t.push({
                 associatedEmail: e.associatedEmail,
-                billingAdmins: e.teamMembership.billingAdmins,
+                billingAdmins: v(e.teamMembership.billingAdmins),
                 color: e.teamInfo.color,
                 companyName: e.teamName,
-                info: { ...e.info },
+                info: { ...e.teamInfo },
                 invitationDate: e.invitationDateUnix,
                 isBillingAdmin: e.teamMembership.isBillingAdmin,
                 isSSOUser: e.teamMembership.isSSOUser,
@@ -5188,7 +5244,7 @@
                 revokeDate: e.revokeDateUnix,
                 shouldDelete: e.shouldDelete,
                 status: e.status,
-                teamAdmins: { ...e.teamMembership.teamAdmins },
+                teamAdmins: v(e.teamMembership.teamAdmins),
                 teamId: e.teamId.toString(),
                 teamName: e.teamName,
                 tier: e.planFeature
@@ -5197,19 +5253,45 @@
           t
         );
       }
-      function v(e) {
+      function _(e) {
+        return {
+          ...e,
+          teamMembership: {
+            ...e.teamMembership,
+            billingAdmins: v(e.teamMembership.billingAdmins),
+            teamAdmins: v(e.teamMembership.teamAdmins)
+          }
+        };
+      }
+      function f(e) {
+        const t = e.b2bStatus?.currentTeam
+          ? {
+              currentTeam:
+                ((r = e.b2bStatus.currentTeam),
+                {
+                  ...r,
+                  teamMembership: {
+                    ...r.teamMembership,
+                    billingAdmins: r.teamMembership.billingAdmins.map((e) => ({ login: e })),
+                    teamAdmins: r.teamMembership.teamAdmins.map((e) => ({ login: e }))
+                  }
+                })
+            }
+          : {};
+        var r;
+        const o = e.b2bStatus?.pastTeams ? { pastTeams: e.b2bStatus.pastTeams.map(_) } : {};
         return {
           ...e.b2cStatus,
           planName: e.b2cStatus?.planName?.toLowerCase() ?? null,
           currentTimestampUnix: Date.now(),
           isTrial: e.b2cStatus.isTrial,
-          statusCode: I(e),
-          spaces: e.b2bStatus ? y(e.b2bStatus) : [],
-          b2bStatus: { ...e.b2bStatus },
-          capabilities: A(e)
+          statusCode: y(e),
+          spaces: e.b2bStatus ? T(e.b2bStatus) : [],
+          b2bStatus: { statusCode: e.b2bStatus?.statusCode, hasPaid: e.b2bStatus?.hasPaid, ...t, ...o },
+          capabilities: I(e)
         };
       }
-      t.transformNodePremiumStatus = v;
+      t.transformNodePremiumStatus = f;
     },
     70414: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -5225,10 +5307,10 @@
           t.requestDeviceRegistration =
           t.SendTokenStatus =
             void 0);
-      const o = r(28354),
+      const o = r(35088),
         n = r(16516),
-        i = r(53576),
-        a = r(81719),
+        i = r(32626),
+        a = r(78536),
         s = r(25576),
         c = r(72636),
         d = r(95623),
@@ -5613,8 +5695,8 @@
           t.AuthenticationCode =
             void 0);
       const o = r(16516),
-        n = r(53576),
-        i = r(53576);
+        n = r(32626),
+        i = r(32626);
       Object.defineProperty(t, "AuthenticationCode", {
         enumerable: !0,
         get: function () {
@@ -5642,21 +5724,22 @@
         I = r(91892),
         y = r(41717),
         v = r(38981),
-        T = r(27885);
-      function _(e) {
+        T = r(27885),
+        _ = r(71498);
+      function f(e) {
         d.default.log(`Session status updated for ${e.login}`);
         const t = (0, a.default)();
         t && t.loginStatusChanged(e);
         const r = (0, s.default)();
         r && r.loginStatusChanged(e);
       }
-      function f(e) {
+      function C(e) {
         if (s.default) {
           const t = (0, s.default)();
           t && t.serverSidePairingStatusChanged(e);
         }
       }
-      function C(e) {
+      function O(e) {
         let t =
           e && e.message && void 0 !== i.AuthenticationCode[e.message]
             ? i.AuthenticationCode[e.message]
@@ -5668,7 +5751,7 @@
           t
         );
       }
-      function O(e) {
+      function h(e) {
         switch (e) {
           case i.AuthenticationCode.INVALID_LOGIN:
           case i.AuthenticationCode.EMPTY_LOGIN:
@@ -5686,7 +5769,7 @@
             return i.ExceptionCriticality.ERROR;
         }
       }
-      function h(e) {
+      function D(e) {
         return Promise.resolve({ localAccounts: e }).then((e) => {
           d.default.log("send localAccountsListUpdated to leeloo");
           const t = (0, a.default)();
@@ -5695,7 +5778,7 @@
           r && r.localAccountsListUpdated(e);
         });
       }
-      function D(e) {
+      function R(e) {
         const t = e.getPersonalData(),
           r = e.getSpaceData(),
           n = e.getSharingData(),
@@ -5705,13 +5788,14 @@
           c = ["changesToUpload", "changeHistories"],
           d = (0, o.omit)(c, { ...t, credentials: s }),
           S = (0, l.handleLimitedSharedCredentialsPassword)(s, n, i),
-          p = (0, u.handleLimitedSharedNotes)(t.notes, n, i);
-        return { personalDataToSend: d, obfuscatedPersonalDataToSend: (0, o.omit)(c, { ...t, credentials: S, notes: p }) };
+          p = (0, u.handleLimitedSharedNotes)(t.notes, n, i),
+          m = (0, _.handleLimitedSharedSecrets)(t.secrets, n, i);
+        return { personalDataToSend: d, obfuscatedPersonalDataToSend: (0, o.omit)(c, { ...t, credentials: S, notes: p, secrets: m }) };
       }
-      function R(e) {
+      function N(e) {
         const t = e.getState(),
           r = e.getSpaceData(),
-          { obfuscatedPersonalDataToSend: o } = D(e),
+          { obfuscatedPersonalDataToSend: o } = R(e),
           n = (0, a.default)(),
           i = (0, s.default)();
         if ((n && n.dataModelUpdated(o), i && i.spaceDataUpdated(r), n)) {
@@ -5722,13 +5806,13 @@
           n.dataModelUpdated(a);
         }
       }
-      function N(e, t) {
+      function P(e, t) {
         const r = (0, a.default)();
         r && r.accountInfoChanged({ accountInfo: e, spaceData: t });
         const o = (0, s.default)();
         o && o.accountInfoChanged({ accountInfo: e, spaceData: t });
       }
-      function P(e) {
+      function L(e) {
         const t = (0, a.default)();
         t && t.webOnboardingModeUpdated(e);
         const r = (0, s.default)();
@@ -5786,15 +5870,15 @@
           const t = (0, s.default)();
           t && t.openSessionMasterPasswordLess();
         }),
-        (t.triggerLoginStatusChanged = _),
-        (t.triggerServerSidePairingStatusChanged = f),
-        (t.getAuthenticationCodeFromError = C),
+        (t.triggerLoginStatusChanged = f),
+        (t.triggerServerSidePairingStatusChanged = C),
+        (t.getAuthenticationCodeFromError = O),
         (t.triggerOpenSessionFailed = function (e) {
           d.default.log("Failed to open Session"), d.default.log(`error: ${e}`);
-          const t = C(e),
+          const t = O(e),
             r = t === i.AuthenticationCode.UNKNOWN_ERROR ? (e && e.message && "string" == typeof e.message ? e.message : "89645128") : "",
             o = new Error(`[SessionCommunication] - triggerOpenSessionFailed: ${e}`);
-          (o.stack = e.stack), d.default.error(o), (0, c.sendExceptionLog)({ error: o, code: O(t) });
+          (o.stack = e.stack), d.default.error(o), (0, c.sendExceptionLog)({ error: o, code: h(t) });
           const n = { errorCode: i.AuthenticationCode[t], additionalErrorInfo: r, displayErrorCode: !0 },
             l = (0, a.default)();
           l && l.openSessionFailed(n);
@@ -5804,16 +5888,16 @@
         (t.triggerSessionOpened = function (e, t, r, o) {
           const i = void 0 !== (0, v.ssoMigrationInfoSelector)(e.getState()).migration;
           if (
-            (_({ loggedIn: !0, login: e.getAccountInfo().login, needsSSOMigration: i }),
-            N(r, (0, T.getNodePremiumStatusSpaceData)(e)),
-            R(e),
-            P(e.getLocalSettings().webOnboardingMode),
+            (f({ loggedIn: !0, login: e.getAccountInfo().login, needsSSOMigration: i }),
+            P(r, (0, T.getNodePremiumStatusSpaceData)(e)),
+            N(e),
+            L(e.getLocalSettings().webOnboardingMode),
             (0, m.getLocalAccounts)(e, t).then((e) => {
-              h(e);
+              D(e);
             }),
             void 0 !== o)
           ) {
-            f({ serverSidePairingStatus: o ? n.ServerSidePairingStatus.PAIRED : n.ServerSidePairingStatus.UNPAIRED });
+            C({ serverSidePairingStatus: o ? n.ServerSidePairingStatus.PAIRED : n.ServerSidePairingStatus.UNPAIRED });
           }
         }),
         (t.triggerSessionSyncStatus = function (e) {
@@ -5822,13 +5906,13 @@
           const r = (0, s.default)();
           r && r.sessionSyncStatus(e);
         }),
-        (t.sendLocalAccounts = h),
+        (t.sendLocalAccounts = D),
         (t.sendLocationInfo = function (e) {
           const t = (0, s.default)();
           t && t.currentLocationUpdated(e);
         }),
-        (t.getDataUpdates = D),
-        (t.reportDataUpdate = R),
+        (t.getDataUpdates = R),
+        (t.reportDataUpdate = N),
         (t.updatePaymentCardTokenResult = function (e) {
           const t = (0, s.default)();
           t && t.updatePaymentCardTokenResult(e);
@@ -5845,12 +5929,12 @@
           const r = (0, s.default)();
           r && r.changeDeviceNameResult(e);
         }),
-        (t.sendAccountInfo = N),
+        (t.sendAccountInfo = P),
         (t.sendTeamAdminDataUpdate = function (e) {
           const t = (0, s.default)();
           t && t.teamAdminDataUpdated(e);
         }),
-        (t.sendWebOnboardingModeUpdate = P),
+        (t.sendWebOnboardingModeUpdate = L),
         (t.sendFeatures = function (e) {
           const t = (0, a.default)();
           t && t.accountFeaturesChanged(e);
@@ -5880,7 +5964,7 @@
           t.getAndTriggerRefreshAccountInfo =
           t.makeSessionController =
             void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = r(50415),
         i = r(95623),
         a = r(58639),
@@ -6729,7 +6813,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getEmptyLocalSettings = t.getEmptyOnboardingMode = t.getEmptyLoginStepInfo = void 0);
       const o = r(16516),
-        n = r(53576),
+        n = r(32626),
         i = r(35924),
         a = r(76089),
         s = r(65210),
@@ -6866,7 +6950,7 @@
     },
     98496: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getEmptyNotificationsState = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(34287),
         i = {
           paymentFailureChurned: o.NotificationStatus.Unseen,
@@ -7112,7 +7196,7 @@
           t.getEmptyPersonalDataState =
             void 0);
       const o = r(16516),
-        n = r(53576),
+        n = r(32626),
         i = r(84977),
         a = r(53628),
         s = r(45291),
@@ -7366,7 +7450,7 @@
     30641: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 });
       const o = r(16516),
-        n = r(53576),
+        n = r(32626),
         i = r(49901);
       t.default = function (e) {
         const t = (0, o.isNil)(e.LocaleFormat) ? n.Country.UNIVERSAL : e.LocaleFormat,
@@ -7526,7 +7610,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.fixPersistedPersonalData = t.fixPersonalDataItemFromExternalSource = void 0);
       const o = r(16516),
-        n = r(53576),
+        n = r(32626),
         i = r(63985),
         a = r(30641),
         s = r(86715),
@@ -7743,41 +7827,43 @@
     },
     9149: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getEmptyPlatform = t.defaultPlatformInfo = void 0);
-      const o = r(12995);
-      t.default = (e = i(), r) => {
+      const o = r(32626),
+        n = r(12995);
+      t.default = (e = a(), r) => {
         switch (r.type) {
-          case o.SAVE_PLATFORM_INFO:
+          case n.SAVE_PLATFORM_INFO:
             return {
               ...e,
               info:
-                ((n = r.info),
-                (a = t.defaultPlatformInfo),
+                ((i = r.info),
+                (s = t.defaultPlatformInfo),
                 {
-                  anonymousApplicationId: n.anonymousApplicationId || a.anonymousApplicationId,
-                  platformName: n.platformName || a.platformName,
-                  appVersion: n.appVersion || a.appVersion,
-                  browser: n.browser || a.browser,
-                  browserVersion: n.browserVersion || a.browserVersion,
-                  country: n.country || a.country,
-                  os: n.os || a.os,
-                  osCountry: n.osCountry || a.osCountry,
-                  osVersion: n.osVersion || a.osVersion,
-                  lang: n.lang || a.lang,
-                  manifestVersion: n.manifestVersion || a.manifestVersion
+                  anonymousApplicationId: i.anonymousApplicationId || s.anonymousApplicationId,
+                  platformName: i.platformName || s.platformName,
+                  appVersion: i.appVersion || s.appVersion,
+                  browser: i.browser || s.browser,
+                  browserVersion: i.browserVersion || s.browserVersion,
+                  country: i.country || s.country,
+                  os: i.os || s.os,
+                  osCountry: i.osCountry || s.osCountry,
+                  osVersion: i.osVersion || s.osVersion,
+                  lang: i.lang || s.lang,
+                  manifestVersion: i.manifestVersion || s.manifestVersion,
+                  buildType: i.buildType ?? o.ApplicationBuildType.PRODUCTION
                 })
             };
-          case o.SAVE_CURRENT_LOCATION:
+          case n.SAVE_CURRENT_LOCATION:
             return { ...e, location: r.location };
-          case o.LOAD_ANONYMOUS_APPLICATION_ID:
+          case n.LOAD_ANONYMOUS_APPLICATION_ID:
             return { ...e, info: { ...e.info, anonymousApplicationId: r.anonymousApplicationId } };
           default:
             return e;
         }
-        var n, a;
+        var i, s;
       };
-      const n = { country: null, isEu: !0 };
-      function i() {
-        return { info: t.defaultPlatformInfo, location: n };
+      const i = { country: null, isEu: !0 };
+      function a() {
+        return { info: t.defaultPlatformInfo, location: i };
       }
       (t.defaultPlatformInfo = {
         anonymousApplicationId: "unknown_anonymous_application_id",
@@ -7789,9 +7875,10 @@
         os: "os_carbon_unknown",
         osCountry: "os_country_carbon_unknown",
         osVersion: "unknown_os_version",
-        lang: "lang_carbon_unknown"
+        lang: "lang_carbon_unknown",
+        buildType: o.ApplicationBuildType.PRODUCTION
       }),
-        (t.getEmptyPlatform = i);
+        (t.getEmptyPlatform = a);
     },
     95363: (e, t) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -8094,7 +8181,7 @@
     },
     13042: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getEmptySecureFileStorageState = t.SecureFileStorageReducer = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(20810),
         i = r(76556),
         a = (e, t, r) => ({ ...e, downloads: { ...{ [t]: { ...r } } } }),
@@ -8517,7 +8604,7 @@
     },
     4551: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getEmptySyncState = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(82262);
       function i() {
         return { isUploadEnabled: !1, syncIntervalTimeMs: 3e5, status: o.SyncStatuses.READY };
@@ -8660,7 +8747,7 @@
     },
     10447: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.forceSyncHandler = void 0);
-      const o = r(60765);
+      const o = r(93039);
       t.forceSyncHandler = async function ({ sessionService: e }) {
         await e.getInstance().user.attemptSync(o.Trigger.Manual);
       };
@@ -8783,7 +8870,7 @@
           t.handlePerformValidationError =
           t.SendTokenStatus =
             void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(46298);
       var i = r(72636);
       Object.defineProperty(t, "SendTokenStatus", {
@@ -8912,6 +8999,7 @@
           t.didOpenSelector =
           t.publicUserIdSelector =
           t.analyticsIdsSelector =
+          t.applicationBuildTypeSelector =
           t.platformNameSelector =
           t.appVersionSelector =
           t.isAuthenticatedSelector =
@@ -8948,13 +9036,11 @@
           t.syncSelector =
             void 0);
       const o = r(32034),
-        n = r(53576),
+        n = r(32626),
         i = r(57789),
         a = r(56915),
         s = r(2246),
-        c = r(59600),
-        d = r(30913),
-        l = r(41265);
+        c = r(41265);
       t.syncSelector = (e) => e.userSession.sync;
       t.syncIsInProgressSelector = (e) => e.userSession.sync.status === n.SyncStatuses.IN_PROGRESS;
       t.premiumStatusSelector = (e) => e.userSession.localSettings.premiumStatus;
@@ -9014,6 +9100,7 @@
       t.isAuthenticatedSelector = (e) => e.userSession.account.isAuthenticated;
       t.appVersionSelector = (e) => (0, a.platformInfoSelector)(e).appVersion;
       t.platformNameSelector = (e) => (0, a.platformInfoSelector)(e).platformName;
+      t.applicationBuildTypeSelector = (e) => (0, a.platformInfoSelector)(e).buildType;
       t.analyticsIdsSelector = (e) => e.userSession.session.analyticsIds;
       t.publicUserIdSelector = (e) => e.userSession.session.publicUserId;
       t.didOpenSelector = (e) => e.userSession.session.didOpen;
@@ -9026,10 +9113,10 @@
       t.analyticsInstallationIdSelector = (0, o.createSelector)(
         t.userLoginSelector,
         t.isAuthenticatedSelector,
-        d.applicationBuildTypeSelector,
+        t.applicationBuildTypeSelector,
         (e, t, r) => {
-          const o = e && (0, l.isInternalTestUser)(e) && t;
-          return r === c.ApplicationBuildType.DEV || r === c.ApplicationBuildType.QA || o
+          const o = e && (0, c.isInternalTestUser)(e) && t;
+          return r === n.ApplicationBuildType.DEV || r === n.ApplicationBuildType.QA || o
             ? (0, s.getCommonAppSetting)("installationId")
             : null;
         }
@@ -9067,7 +9154,7 @@
           t.serviceProviderUrlSelector =
           t.ssoSettingsSelector =
             void 0);
-      const o = r(81719),
+      const o = r(78536),
         n = r(32034),
         i = r(16593);
       t.ssoSettingsSelector = (e) => e.userSession.ssoSettings;
@@ -9097,7 +9184,7 @@
         s = r(75004),
         c = r(54642),
         d = r(65210),
-        l = r(53576),
+        l = r(32626),
         u = r(35924),
         S = r(18216);
       t.setupSubscriptions = function (e, t) {
@@ -9212,7 +9299,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.CommandQueryBus = void 0);
       const o = r(18948),
         n = r(3343),
-        i = r(28354),
+        i = r(35088),
         a = r(17338),
         s = r(25566),
         c = r(77686);
@@ -9343,7 +9430,7 @@
     33968: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.EventStore = void 0);
       const o = r(18948),
-        n = r(28354),
+        n = r(35088),
         i = r(3343),
         a = r(17825),
         s = r(47746);
@@ -9526,16 +9613,8 @@
         commands: { convertItemToDashlaneXml: { handler: u.convertItemToDashlaneXml }, shareItem: { handler: l.shareItem } },
         queries: {
           getAllSharedItemIds: { selector: n.sortedSharedItemIdsSelector },
-          getGroupRecipients: { selector: o.groupRecipientsSelector },
-          getHasNotifications: { selector: o.hasNotificationsSelector },
-          getIsShared: { selector: o.isSharedSelector },
-          getItemItemGroup: { selector: o.itemItemGroupSelector },
           getMyAcceptedUserGroups: { selector: o.myAcceptedUserGroupsSelector },
           getMyAcceptedItemGroupUserMembers: { selector: o.myAcceptedItemGroupUserMembersSelector },
-          getPendingItemGroups: { selector: o.pendingItemGroupsSelector },
-          getPendingUserGroups: { selector: o.pendingUserGroupsSelector },
-          getRecipientsCount: { selector: o.recipientsCountSelector },
-          getUserRecipients: { selector: o.userRecipientsSelector },
           getSharingCapacity: { selector: i.sharingCapacitySelector },
           isAllowedToShare: { selector: a.isAllowedToShareSelector },
           ...c.config.queries,
@@ -9543,15 +9622,8 @@
         },
         liveQueries: {
           liveAllSharedItemIds: { operator: s.allSharedItemIds$ },
-          liveGroupRecipients: { operator: s.groupRecipients$ },
-          liveHasNotifications: { operator: s.hasNotifications$ },
-          liveIsShared: { operator: s.isShared$ },
           liveMyAcceptedItemGroupUserMembers: { operator: s.myAcceptedItemGroupUserMembers$ },
           liveMyAcceptedUserGroups: { operator: s.myAcceptedUserGroups$ },
-          livePendingItemGroups: { operator: s.pendingItemGroups$ },
-          livePendingUserGroups: { operator: s.pendingUserGroups$ },
-          liveRecipientsCount: { operator: s.recipientsCount$ },
-          liveUserRecipients: { operator: s.userRecipients$ },
           liveSharingCapacity: { operator: s.sharingCapacity$ },
           ...c.config.liveQueries,
           ...d.config.liveQueries
@@ -9780,45 +9852,53 @@
     10294: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.makeItemService = t.SHARING_VERSION = t.UPDATE_ITEM = t.ADD_ITEMS = t.REMOVE_ITEMS = void 0);
-      const o = r(53576),
-        n = r(36513);
-      async function i(e, t, r) {
+      const o = r(36513);
+      async function n(e, t, r) {
         return { itemId: e, itemKey: t, content: r };
       }
-      function a(e) {
-        const t = (0, o.isCredential)(e) ? "password" : "note";
+      function i(e) {
+        const t = (function (e) {
+          switch (e.kwType) {
+            case "KWAuthentifiant":
+              return "password";
+            case "KWSecureNote":
+              return "note";
+            default:
+              return "secret";
+          }
+        })(e);
         return { type: t, name: e.Title || `Untitled ${t}` };
       }
-      async function s(e, r, o) {
+      async function a(e, r, o) {
         return { type: t.ADD_ITEMS, sharingVersion: t.SHARING_VERSION, revision: r, groupId: e, items: o };
       }
-      async function c(e, r, o) {
-        if (!o) throw new Error("Missing payload. See method documentation.");
-        const { item: i, itemId: a, itemContent: s } = o;
+      async function s(e, r, n) {
+        if (!n) throw new Error("Missing payload. See method documentation.");
+        const { item: i, itemId: a, itemContent: s } = n;
         if (!(i || (a && s))) throw new Error("insufficient arguments: item or (itemId and content) must be provided.");
         if (i && (a || s)) throw new Error("item and (itemId | content) cannot both be provided");
-        const c = (0, n.makeSymmetricEncryption)(),
+        const c = (0, o.makeSymmetricEncryption)(),
           d = s ?? (await c.encryptSharingItem(r, i));
         return { type: t.UPDATE_ITEM, sharingVersion: t.SHARING_VERSION, itemId: a ?? i?.Id, content: d, timestamp: e };
       }
       (t.REMOVE_ITEMS = "removeItems"), (t.ADD_ITEMS = "addItems"), (t.UPDATE_ITEM = "updateItem"), (t.SHARING_VERSION = 4);
-      const d = (e, t, r, o) => e.itemGroup.updateItem(t, r, o);
-      function l(e, t, r, o) {
+      const c = (e, t, r, o) => e.itemGroup.updateItem(t, r, o);
+      function d(e, t, r, o) {
         return e.itemGroup.addItems(t, r, o);
       }
-      const u = (e, r, o) =>
+      const l = (e, r, o) =>
           Promise.resolve({ type: t.REMOVE_ITEMS, sharingVersion: t.SHARING_VERSION, groupId: e, revision: r, items: [...o] }),
-        S = (e, t, r, o) => e.itemGroup.removeItems(t, r, o);
+        u = (e, t, r, o) => e.itemGroup.removeItems(t, r, o);
       t.makeItemService = function () {
         return {
-          makeItemUpload: i,
-          makeAddItemsEvent: s,
-          makeItemForEmailing: a,
-          addItems: l,
-          makeUpdateItemEvent: c,
-          updateItem: d,
-          makeRemoveItemsEvent: u,
-          removeItems: S
+          makeItemUpload: n,
+          makeAddItemsEvent: a,
+          makeItemForEmailing: i,
+          addItems: d,
+          makeUpdateItemEvent: s,
+          updateItem: c,
+          makeRemoveItemsEvent: l,
+          removeItems: u
         };
       };
     },
@@ -9880,17 +9960,18 @@
         l = r(70252),
         u = r(16593),
         S = r(95458),
-        p = r(93513),
-        m = (e) => ["accepted", "pending"].includes(e.status);
-      function g(e, t) {
+        p = r(64202),
+        m = r(93513),
+        g = (e) => ["accepted", "pending"].includes(e.status);
+      function E(e, t) {
         const { users: r } = e;
         return (r || []).find((e) => e.userId === t);
       }
-      function E(e, t, r) {
+      function A(e, t, r) {
         const o = (t || []).filter((e) => (e.users || []).map((e) => e.userId).includes(r)).map((e) => e.groupId);
         return (e.groups || []).filter((e) => "accepted" === e.status).find((e) => o.includes(e.groupId));
       }
-      function A(e, t, r, o) {
+      function I(e, t, r, o) {
         if (!o) return null;
         try {
           const n = (e) =>
@@ -9913,7 +9994,7 @@
           return (0, l.sendExceptionLog)({ error: t }), null;
         }
       }
-      function I(e, t, r) {
+      function y(e, t, r) {
         if (!r) return null;
         try {
           const o = (e) => (e.users || []).map((e) => e.login).includes(t),
@@ -9924,108 +10005,108 @@
           return (0, l.sendExceptionLog)({ error: t }), null;
         }
       }
-      async function y(e, t) {
+      async function v(e, t) {
         try {
-          return await C(e.groupKey, t);
-        } catch {
-          return null;
-        }
-      }
-      async function v(e, t, r, o) {
-        const n = (t || []).find((t) => t.groupId === e.groupId);
-        if (!n) return null;
-        try {
-          const t = await O(n, r, o);
-          return await C(e.groupKey, t);
+          return await O(e.groupKey, t);
         } catch {
           return null;
         }
       }
       async function T(e, t, r, o) {
+        const n = (t || []).find((t) => t.groupId === e.groupId);
+        if (!n) return null;
+        try {
+          const t = await h(n, r, o);
+          return await O(e.groupKey, t);
+        } catch {
+          return null;
+        }
+      }
+      async function _(e, t, r, o) {
         if (!o) return null;
         try {
           const n = o.find((t) => t.uuid === e.uuid);
           if (!n) return null;
-          const i = await D(n, t, r);
-          return await C(e.itemGroupKey, i);
+          const i = await R(n, t, r);
+          return await O(e.itemGroupKey, i);
         } catch (e) {
           const t = new Error(`[SharingSync] - decrypt collection member item group key failed: ${e}`);
           return (0, l.sendExceptionLog)({ error: t }), null;
         }
       }
-      async function _(e, t, r, o) {
-        const n = await O(t, r, o);
-        return await h(e, n, t.groupId);
+      async function f(e, t, r, o) {
+        const n = await h(t, r, o);
+        return await D(e, n, t.groupId);
       }
-      async function f(e, t, r, o, n) {
+      async function C(e, t, r, o, n) {
         if (!n) return null;
         try {
           const i = n.find((t) => t.uuid === e.uuid);
           if (!i) return null;
-          const a = await _(i, t, r, o);
-          return await C(e.itemGroupKey, a);
+          const a = await f(i, t, r, o);
+          return await O(e.itemGroupKey, a);
         } catch (e) {
           const t = new Error(`[SharingSync] - decrypt collection member item group key failed: ${e}`);
           return (0, l.sendExceptionLog)({ error: t }), null;
         }
       }
-      async function C(e, t) {
+      async function O(e, t) {
         return (0, i.makeCryptoService)().asymmetricEncryption.decrypt(t, e);
       }
-      async function O(e, t, r) {
-        const o = e.users.find((e) => e.userId === r).groupKey,
-          n = await C(o, t);
-        return R(e.privateKey, n);
-      }
       async function h(e, t, r) {
-        const o = e.userGroups.find((e) => e.uuid === r).collectionKey,
-          n = await C(o, t);
-        return R(e.privateKey, n);
+        const o = e.users.find((e) => e.userId === r).groupKey,
+          n = await O(o, t);
+        return N(e.privateKey, n);
       }
       async function D(e, t, r) {
-        const o = e.users.find((e) => e.login === r).collectionKey,
-          n = await C(o, t);
-        return R(e.privateKey, n);
+        const o = e.userGroups.find((e) => e.uuid === r).collectionKey,
+          n = await O(o, t);
+        return N(e.privateKey, n);
       }
-      async function R(e, t) {
+      async function R(e, t, r) {
+        const o = e.users.find((e) => e.login === r).collectionKey,
+          n = await O(o, t);
+        return N(e.privateKey, n);
+      }
+      async function N(e, t) {
         return (0, i.makeCryptoService)().symmetricEncryption.decryptAES256(t, e);
       }
-      async function N(e, t, r, o) {
-        const a = p.encode(`${e}-accepted-${r}`);
+      async function P(e, t, r, o) {
+        const a = m.encode(`${e}-accepted-${r}`);
         return (0, n.isAcceptSignatureValid)((0, i.makeCryptoService)(), t, o, a);
       }
-      async function P(e, t) {
+      async function L(e, t) {
         let r = "";
         "userId" in e ? (r = e.userId) : "login" in e && (r = e.login);
         try {
-          return await (0, i.makeCryptoService)().symmetricEncryption.verifyHmacSHA256(t, e.proposeSignature, p.encode(r));
-        } catch {
-          return !1;
-        }
-      }
-      async function L(e, t) {
-        try {
-          return await (0, i.makeCryptoService)().symmetricEncryption.verifyHmacSHA256(t, e.proposeSignature, p.encode(e.uuid));
+          return await (0, i.makeCryptoService)().symmetricEncryption.verifyHmacSHA256(t, e.proposeSignature, m.encode(r));
         } catch {
           return !1;
         }
       }
       async function U(e, t) {
-        return (0, i.makeCryptoService)().symmetricEncryption.decryptAES256(t, e);
+        try {
+          return await (0, i.makeCryptoService)().symmetricEncryption.verifyHmacSHA256(t, e.proposeSignature, m.encode(e.uuid));
+        } catch {
+          return !1;
+        }
       }
-      function M(e, t) {
-        const { itemGroups: r } = e,
-          o = r.find((e) => (e.items || []).some((e) => e.itemId === t));
-        return o ? (o.groups || []).filter((e) => !["revoked", "refused"].includes(e.status)) : [];
+      async function M(e, t) {
+        return (0, i.makeCryptoService)().symmetricEncryption.decryptAES256(t, e);
       }
       function B(e, t) {
         const { itemGroups: r } = e,
           o = r.find((e) => (e.items || []).some((e) => e.itemId === t));
+        return o ? (o.groups || []).filter((e) => !["revoked", "refused"].includes(e.status)) : [];
+      }
+      function G(e, t) {
+        const { itemGroups: r } = e,
+          o = r.find((e) => (e.items || []).some((e) => e.itemId === t));
         return o ? (o.users || []).filter((e) => !["revoked", "refused"].includes(e.status)) : [];
       }
-      function G(e, t, r) {
+      function w(e, t, r) {
         const o = t.items?.some((o) => {
-          const n = (0, s.credentialSelector)(e, o.itemId) ?? (0, c.noteSelector)(e, o.itemId);
+          const n = (0, s.credentialSelector)(e, o.itemId) ?? (0, c.noteSelector)(e, o.itemId) ?? (0, p.secretSelector)(e, o.itemId);
           return void 0 === n
             ? ((function (e, t, r, o) {
                 try {
@@ -10063,76 +10144,76 @@
           const o = e.collections;
           if (o && o.length > 0) return !1;
           const { users: n, groups: i } = e,
-            a = !i || 0 === i.filter(m).length,
-            s = n && 1 === n.filter(m).length && n[0].userId === r && (0, t.userMemberIsAdmin)(n[0]);
+            a = !i || 0 === i.filter(g).length,
+            s = n && 1 === n.filter(g).length && n[0].userId === r && (0, t.userMemberIsAdmin)(n[0]);
           return a && s;
         }),
         (t.getItemGroupActiveUserGroupMembers = function (e) {
-          return (e.groups || []).filter(m);
+          return (e.groups || []).filter(g);
         }),
-        (t.findMyItemGroupUser = g),
-        (t.findMyItemGroupUserGroupMember = E),
-        (t.findMyItemGroupCollectionMemberViaUserGroup = A),
-        (t.findMyItemGroupCollectionMemberAsUser = I),
+        (t.findMyItemGroupUser = E),
+        (t.findMyItemGroupUserGroupMember = A),
+        (t.findMyItemGroupCollectionMemberViaUserGroup = I),
+        (t.findMyItemGroupCollectionMemberAsUser = y),
         (t.getItemGroupKey = async function (e, t, r, o, n) {
-          const i = g(e, o),
-            a = E(e, t, o),
-            s = I(e, o, n),
-            c = A(e, t, o, n);
+          const i = E(e, o),
+            a = A(e, t, o),
+            s = y(e, o, n),
+            c = I(e, t, o, n);
           if (!(i || a || s || c)) return null;
-          if (i) return await y(i, r);
-          if (a) return await v(a, t, r, o);
+          if (i) return await v(i, r);
+          if (a) return await T(a, t, r, o);
           if (s) {
-            return await T(s, r, o, n);
+            return await _(s, r, o, n);
           }
           if (c) {
-            return await f(c.member, c.userGroup, r, o, n);
+            return await C(c.member, c.userGroup, r, o, n);
           }
           return null;
         }),
-        (t.getDecryptedItemGroupKeyFromUser = y),
-        (t.getDecryptedItemGroupKeyFromUserGroupMember = v),
-        (t.getDecryptedItemGroupKeyFromCollectionMemberAsUser = T),
-        (t.getDecryptedPrivateCollectionKeyFromUserGroup = _),
-        (t.getDecryptedItemGroupKeyFromCollectionMemberViaUserGroup = f),
-        (t.decryptGroupKey = C),
-        (t.getUserGroupPrivateKey = O),
-        (t.getCollectionPrivateKeyForUserGroup = h),
-        (t.getCollectionPrivateKeyForUser = D),
-        (t.decryptUserGroupPrivateKey = R),
-        (t.isGroupSignatureValid = N),
+        (t.getDecryptedItemGroupKeyFromUser = v),
+        (t.getDecryptedItemGroupKeyFromUserGroupMember = T),
+        (t.getDecryptedItemGroupKeyFromCollectionMemberAsUser = _),
+        (t.getDecryptedPrivateCollectionKeyFromUserGroup = f),
+        (t.getDecryptedItemGroupKeyFromCollectionMemberViaUserGroup = C),
+        (t.decryptGroupKey = O),
+        (t.getUserGroupPrivateKey = h),
+        (t.getCollectionPrivateKeyForUserGroup = D),
+        (t.getCollectionPrivateKeyForUser = R),
+        (t.decryptUserGroupPrivateKey = N),
+        (t.isGroupSignatureValid = P),
         (t.isUserGroupPersonalSignatureValid = async function (e, t, r, o) {
           try {
-            return await N(e, t, r, o);
+            return await P(e, t, r, o);
           } catch {
             return !1;
           }
         }),
         (t.getDecryptedUserGroupKey = async function (e, t) {
           try {
-            return await C(e, t);
+            return await O(e, t);
           } catch {
             return null;
           }
         }),
         (t.areUserGroupUsersProposeSignaturesValid = async function (e, t) {
-          const r = (e || []).filter(({ status: e }) => ["pending", "accepted"].includes(e)).map((e) => P(e, t));
+          const r = (e || []).filter(({ status: e }) => ["pending", "accepted"].includes(e)).map((e) => L(e, t));
           return (await Promise.all(r)).every(Boolean);
         }),
         (t.areCollectionUsersProposeSignaturesValid = async function (e, t) {
           const { userGroups: r, users: o } = e,
-            n = (o || []).filter(({ status: e }) => ["pending", "accepted"].includes(e)).map((e) => P(e, t)),
-            i = (r || []).filter(({ status: e }) => ["pending", "accepted"].includes(e)).map((e) => L(e, t)),
+            n = (o || []).filter(({ status: e }) => ["pending", "accepted"].includes(e)).map((e) => L(e, t)),
+            i = (r || []).filter(({ status: e }) => ["pending", "accepted"].includes(e)).map((e) => U(e, t)),
             a = await Promise.all(n),
             s = await Promise.all(i);
           return a.every(Boolean) && s.every(Boolean);
         }),
-        (t.isUserGroupUserProposeSignatureValid = P),
-        (t.isCollectionUserGroupProposeSignatureValid = L),
+        (t.isUserGroupUserProposeSignatureValid = L),
+        (t.isCollectionUserGroupProposeSignatureValid = U),
         (t.findItem = function (e, t) {
-          const { credentials: r, notes: o } = e.getPersonalData(),
-            n = [...r, ...o];
-          return (0, a.findDataModelObject)(t, n);
+          const { credentials: r, notes: o, secrets: n } = e.getPersonalData(),
+            i = [...r, ...o, ...n];
+          return (0, a.findDataModelObject)(t, i);
         }),
         (t.getMyItemGroups = function (e, t) {
           const r = e.userGroups.filter((e) => e.users.some((e) => e.userId === t && "accepted" === e.status)),
@@ -10144,12 +10225,12 @@
           });
         }),
         (t.getUserGroupPermission = function (e, t) {
-          return (e.groups || []).find((e) => e.groupId === t)?.permission;
+          return (e?.groups || []).find((e) => e?.groupId === t)?.permission;
         }),
         (t.getSharingUserPermission = function (e, t) {
           return (e.users || []).find((e) => e.userId === t)?.permission;
         }),
-        (t.decryptItemKey = U),
+        (t.decryptItemKey = M),
         (t.getItemGroupPendingUserMember = function (e, t) {
           return (e.users || []).find((e) => e.userId === t && "pending" === e.status);
         }),
@@ -10190,9 +10271,9 @@
           return !(0, d.findItemItemGroup)(e, t);
         }),
         (t.getDecipheredItemKey = async function (e, t, r) {
-          const o = await C(e, r);
+          const o = await O(e, r);
           try {
-            return await U(t, o);
+            return await M(t, o);
           } catch (e) {
             return;
           }
@@ -10215,10 +10296,10 @@
           const o = t.filter(({ users: e }) => (e || []).some((e) => e.userId === r && "accepted" === e.status)).map(({ groupId: e }) => e);
           return (e.groups || []).some(({ groupId: e, status: t }) => o.includes(e) && "accepted" === t);
         }),
-        (t.getGroupRecipients = M),
-        (t.getUserRecipients = B),
+        (t.getGroupRecipients = B),
+        (t.getUserRecipients = G),
         (t.getRecipientsCount = function (e, t) {
-          return B(e, t).length + M(e, t).length;
+          return G(e, t).length + B(e, t).length;
         }),
         (t.findMyAcceptedItemGroupUserMembers = function (e, t) {
           const r = e.map((e) => e.users || []),
@@ -10234,10 +10315,10 @@
         (t.findUserGroupItemGroups = function (e, t) {
           return t.filter((t) => (t.groups || []).some((t) => t.groupId === e && "accepted" === t.status));
         }),
-        (t.doesItemGroupExistInSpace = G);
+        (t.doesItemGroupExistInSpace = w);
       t.getSharingUsersFromItemGroups = (e, t, r, o) => {
         const n = r.reduce((r, n) => {
-          if (null !== o && !G(e, n, o)) return r;
+          if (null !== o && !w(e, n, o)) return r;
           return (
             (0, d.getItemGroupActiveUsers)(n).forEach((e) => {
               if (e.userId !== t)
@@ -10254,7 +10335,7 @@
     },
     78096: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.prepareOperations = t.revokeRemoteControlledSharedItems = void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = r(17825),
         i = r(70252),
         a = r(90622),
@@ -10362,7 +10443,7 @@
                         case "revoke_my_itemgroup_membership": {
                           await C(t, r, o, a);
                           const { itemsToDuplicate: n } = a;
-                          for (const t of n) await (0, u.duplicateNoteOrCredential)(e, t);
+                          for (const t of n) await (0, u.duplicateSharedElements)(e, t);
                           return;
                         }
                         case "revoke_all_itemgroup_members":
@@ -10405,9 +10486,9 @@
             void 0);
       const o = r(16516),
         n = r(18948),
-        i = r(53576),
+        i = r(32626),
         a = r(61475),
-        s = r(59360),
+        s = r(78924),
         c = r(36513),
         d = r(48313),
         l = r(95623),
@@ -10420,21 +10501,22 @@
         A = r(89016),
         I = r(70252),
         y = r(88542),
-        v = r(72079),
-        T = r(57779),
-        _ = r(76496),
-        f = r(50141),
-        C = r(58107),
-        O = r(49551),
-        h = r(39373),
-        D = r(56915),
-        R = r(12362),
-        N = r(86691),
-        P = r(73566),
-        L = r(56915),
-        U = r(85225),
-        M = r(82366);
-      function B(e, t, r) {
+        v = r(96850),
+        T = r(72079),
+        _ = r(57779),
+        f = r(76496),
+        C = r(50141),
+        O = r(58107),
+        h = r(49551),
+        D = r(39373),
+        R = r(56915),
+        N = r(12362),
+        P = r(86691),
+        L = r(73566),
+        U = r(56915),
+        M = r(85225),
+        B = r(82366);
+      function G(e, t, r) {
         const n = (0, o.pick)(e, r);
         return (0, o.mergeRight)(t, n);
       }
@@ -10450,32 +10532,37 @@
       }),
         (t.createOrUpdateItemEffect = async function (e, t, r) {
           let o = null;
-          const n = (0, R.getInstance)(),
-            a = (0, N.getInstance)();
+          const n = (0, N.getInstance)(),
+            a = (0, P.getInstance)();
           try {
             const s = await (0, c.makeCryptoService)().symmetricEncryption.decryptSharingItem(r, t.content),
               { Id: l } = s,
               u = e.getPersonalData(),
-              S = (0, L.platformInfoSelector)(e.getState());
+              S = (0, U.platformInfoSelector)(e.getState());
             if ((0, i.isCredential)(s)) {
               o = a.lockTopic("iconsUpdates");
-              const t = l ? (0, O.findDataModelObject)(l, u.credentials || []) : null,
-                r = t ? B(y.sharedFields, t, s) : s,
+              const t = l ? (0, h.findDataModelObject)(l, u.credentials || []) : null,
+                r = t ? G(y.sharedFields, t, s) : s,
                 c = { credentialIds: [r.Id], type: "credentialUpdates" };
               await n.add("iconsUpdates", c);
-              const p = (0, P.getUpdatedItemChangeHistory)({
+              const p = (0, L.getUpdatedItemChangeHistory)({
                   deviceName: e.getLocalSettings().deviceName,
                   personalData: u,
-                  change: (0, U.makeUpdateChange)(r),
+                  change: (0, M.makeUpdateChange)(r),
                   userLogin: e.getUserLogin(),
                   platformInfo: S
                 }),
                 m = (0, d.savePersonalDataItem)(r, i.DataModelType.KWAuthentifiant, p);
               e.dispatch(m), a.releaseTopic("iconsUpdates", o);
             } else if ((0, i.isNote)(s)) {
-              const t = l ? (0, O.findDataModelObject)(l, u.notes || []) : null,
-                r = t ? B(v.sharedFields, t, s) : s,
+              const t = l ? (0, h.findDataModelObject)(l, u.notes || []) : null,
+                r = t ? G(T.sharedFields, t, s) : s,
                 o = (0, d.savePersonalDataItem)(r, i.DataModelType.KWSecureNote);
+              e.dispatch(o);
+            } else if ((0, i.isSecret)(s)) {
+              const t = l ? (0, h.findDataModelObject)(l, u.secrets || []) : null,
+                r = t ? G(v.sharedFields, t, s) : s,
+                o = (0, d.savePersonalDataItem)(r, i.DataModelType.KWSecret);
               e.dispatch(o);
             }
             return !0;
@@ -10490,10 +10577,11 @@
             s = await r.decryptSharingItem(t, e.content);
           } else s = a[e.itemId];
           const d = (0, i.isCredential)(s),
-            l = (0, i.isNote)(s);
-          if (!d && !l) throw new Error("item is neither credential nor note");
-          let u = s;
-          return d && (u = (0, h.fixCredentialWithMissingTitle)(s)), { itemGroupId: r, items: [u], permission: n, referrer: o, seen: !1 };
+            l = (0, i.isNote)(s),
+            u = (0, i.isSecret)(s);
+          if (!d && !l && !u) throw new Error("item is neither credential, secret nor note");
+          let S = s;
+          return d && (S = (0, D.fixCredentialWithMissingTitle)(s)), { itemGroupId: r, items: [S], permission: n, referrer: o, seen: !1 };
         }),
         (t.updateSharingData = function (e, t) {
           const r = (0, m.sharingDataUpdated)(t);
@@ -10503,12 +10591,12 @@
           const o = "[SharingEffectsService] - resendPublicKeyInvite";
           try {
             const n = e.getUserLogin(),
-              i = (0, D.ukiSelector)(e.getState()),
+              i = (0, R.ukiSelector)(e.getState()),
               { groupId: a, revision: s } = r,
               { privateKey: d } = e.getUserSession().keyPair,
               l = (0, c.makeCryptoService)(),
               u = (0, A.makeWSService)(),
-              { findUsersByAliases: S } = (0, f.makeWSUserAlias)(),
+              { findUsersByAliases: S } = (0, C.makeWSUserAlias)(),
               { makeUserUpdate: p, makeUpdateItemGroupMembers: m } = (0, g.makeItemGroupService)(u, l),
               { updateItemGroupMembers: y } = (0, E.makeItemGroupWS)(),
               v = JSON.stringify([t.userId]),
@@ -10522,15 +10610,15 @@
               const e = `${o}: couldn't find myself in "itemGroup.users", aborting.`;
               return void (0, I.sendExceptionLog)({ message: e });
             }
-            const C = await l.asymmetricEncryption.decrypt(d, _.groupKey),
+            const f = await l.asymmetricEncryption.decrypt(d, _.groupKey),
               { publicKey: O } = T,
-              { permission: h, userId: R } = t,
-              N = await p(R, h, { rawItemGroupKey: C, userPublicKey: O }),
+              { permission: h, userId: D } = t,
+              N = await p(D, h, { rawItemGroupKey: f, userPublicKey: O }),
               P = m(a, s, [N], null),
               L = await y(n, i, P);
             if (L && L.itemGroups && 1 === L.itemGroups.length) {
               const { userGroups: t } = e.getSharingData();
-              await (0, M.validateItemGroupResponse)("[SharingSyncJobsService] - resendPublicKeyInvite", l, L, O, d, C, n, [N], t, !0);
+              await (0, B.validateItemGroupResponse)("[SharingSyncJobsService] - resendPublicKeyInvite", l, L, O, d, f, n, [N], t, !0);
             }
           } catch (e) {
             const t = new Error(`${o}: ${e}`);
@@ -10542,7 +10630,7 @@
           d
         ) {
           const { login: l } = e.getAccountInfo(),
-            u = (0, D.ukiSelector)(e.getState()),
+            u = (0, R.ukiSelector)(e.getState()),
             {
               keyPair: { privateKey: S }
             } = e.getUserSession(),
@@ -10550,34 +10638,34 @@
             E = "[SharingEffectsService] - deleteSingleUserItemGroup",
             A = (0, c.makeCryptoService)(),
             { deleteItemGroup: y, makeDeleteItemGroupEvent: v } = (0, g.makeItemGroupService)(t, A);
-          if (!(0, C.isLastActiveUserInItemGroupAndAdmin)(d, l)) {
+          if (!(0, O.isLastActiveUserInItemGroupAndAdmin)(d, l)) {
             throw new Error(`${E}: ${"I'm not alone in the group, aborting."}`);
           }
           if (!d.items || 0 === d.items.length) return !0;
-          const f = (d.items || []).map(({ itemId: e }) => e),
-            O = {};
-          for (const t of f) {
-            const r = await (0, T.duplicateNoteOrCredential)(e, t);
-            O[t] = r;
+          const T = (d.items || []).map(({ itemId: e }) => e),
+            C = {};
+          for (const t of T) {
+            const r = await (0, _.duplicateSharedElements)(e, t);
+            C[t] = r;
           }
           try {
             const c = { login: l, uki: u, privateKey: S },
               d = await v(p, m);
             if (
               (await y(c, d),
-              Object.keys(O)
-                .filter((e) => O[e])
+              Object.keys(C)
+                .filter((e) => C[e])
                 .forEach((o) => {
-                  (0, _.deletePersonalDataItem)({ storeService: e, wsService: t, eventLoggerService: r }, o, { ignoreSharing: !0 });
+                  (0, f.deletePersonalDataItem)({ storeService: e, wsService: t, eventLoggerService: r }, o, { ignoreSharing: !0 });
                 }),
               o)
             ) {
               const { commands: e, queries: t } = o.createClients().vaultOrganization,
                 r = await (0, n.firstValueFrom)(t.queryCollections({}));
               if ((0, a.isSuccess)(r) && r.data.collections?.length > 0) {
-                const t = Object.keys(O).filter((e) => O[e]),
-                  o = Object.keys(O)
-                    .map((e) => O[e])
+                const t = Object.keys(C).filter((e) => C[e]),
+                  o = Object.keys(C)
+                    .map((e) => C[e])
                     .filter(Boolean),
                   n = r.data.collections.filter((e) => e.vaultItems.some((e) => t.includes(e.id))),
                   a = { vaultItems: t.map((e) => ({ id: e, type: i.DataModelType.KWAuthentifiant })) },
@@ -10592,10 +10680,10 @@
             const n = new Error(`${E}: ${o}`);
             return (
               (0, I.sendExceptionLog)({ error: n }),
-              Object.keys(O)
-                .map((e) => O[e])
+              Object.keys(C)
+                .map((e) => C[e])
                 .filter(Boolean)
-                .forEach((o) => (0, _.deletePersonalDataItem)({ storeService: e, wsService: t, eventLoggerService: r }, o)),
+                .forEach((o) => (0, f.deletePersonalDataItem)({ storeService: e, wsService: t, eventLoggerService: r }, o)),
               !1
             );
           }
@@ -10628,9 +10716,9 @@
             void 0);
       const o = r(16516),
         n = r(18948),
-        i = r(53576),
+        i = r(32626),
         a = r(61475),
-        s = r(60765),
+        s = r(93039),
         c = r(84827),
         d = r(47683),
         l = r(58107),
@@ -10727,21 +10815,13 @@
               const i = (r || []).find((t) => (t.items || []).map((e) => e.itemId).includes(e.id));
               if (!i) return e;
               const a = (0, l.isItemGroupAccepted)(i, o, t, n),
-                s = { ...R(i, o, t), itemGroupId: i.groupId },
-                c = a ? e : { ...e, userConfirmationRequired: !0, confirmationItemGroup: s };
-              return c;
+                s = a ? e : { ...e, userConfirmationRequired: !0 };
+              return s;
             })(e, t, u, S, p)
           );
         return { ...e, operations: { ...e.operations, items: m } };
       }
-      function R(e, t, r) {
-        const o = (0, l.findMyItemGroupUser)(e, r),
-          n = (0, l.findMyItemGroupUserGroupMember)(e, t, r);
-        if (!o && !n) return { referrer: null, permission: null };
-        const { referrer: i, permission: a } = o || n;
-        return { referrer: i, permission: a };
-      }
-      async function N(e) {
+      async function R(e) {
         const t = (t) => e.operations[t].filter((e) => [_.Create, _.Update].includes(e.type)).map((e) => e.id);
         return {
           ...e,
@@ -10753,7 +10833,7 @@
           }
         };
       }
-      async function P(e, t, r, o) {
+      async function N(e, t, r, o) {
         const n = Object.assign({}, e.getSharingParams, { type: "getSharing", sharingVersion: 4 });
         if (!(n.collectionIds.length || n.itemIds.length || n.itemGroupIds.length || n.userGroupIds.length)) return e;
         const {
@@ -10778,7 +10858,7 @@
           }
         };
       }
-      async function L(e, t, r, o, n) {
+      async function P(e, t, r, o, n) {
         const {
             sharingData: { collections: i, userGroups: a },
             loadedElements: { collections: s, itemGroups: c, userGroups: l },
@@ -10796,7 +10876,7 @@
             validItemGroups: C,
             itemKeys: O,
             invalidItemGroups: h
-          } = await U(c, (e) =>
+          } = await L(c, (e) =>
             (0, d.validateItemGroup)(
               e,
               I,
@@ -10820,7 +10900,7 @@
           { ...e, itemKeys: O, operations: { ...e.operations, collections: T, userGroups: E, itemGroups: R }, invalidItemGroups: h }
         );
       }
-      async function U(e, t) {
+      async function L(e, t) {
         const r = await Promise.all(e.map(t));
         return {
           validItemGroups: e.filter((e, t) => r[t].isValid),
@@ -10828,13 +10908,13 @@
           invalidItemGroups: r.flatMap((t, r) => (!1 === t.isValid ? [{ itemGroupId: e[r].groupId, error: t.error }] : []))
         };
       }
-      async function M(e, t) {
+      async function U(e, t) {
         const r = (await (0, y.makeFeatureFlipsSelectors)(e).featureFlipsSelector()).sharing_web_invalidSignatureAutoRevoke_prod,
           o = t === s.Trigger.InitialLogin || t === s.Trigger.Login;
         return r && o;
       }
-      async function B(e, t, r, o, n, i, a, c) {
-        if (!(await M(t, c))) return o;
+      async function M(e, t, r, o, n, i, a, c) {
+        if (!(await U(t, c))) return o;
         const {
             sharingData: { userGroups: l },
             loadedElements: { itemGroups: u, userGroups: S },
@@ -10873,7 +10953,7 @@
           );
         return { ...o, autoRevokedUsers: T };
       }
-      async function G(e, t, r) {
+      async function B(e, t, r) {
         const {
             loadedElements: o,
             sharingData: { collections: n, itemGroups: i, userGroups: a },
@@ -10902,7 +10982,7 @@
           A = d.reduce((e, t, r) => (E[r] ? { ...e, [t]: E[r] } : e), {});
         return { ...e, itemKeys: { ...s, ...A } };
       }
-      async function w(e, { storeService: t, wsService: r, eventLoggerService: n, applicationModulesAccess: a }) {
+      async function G(e, { storeService: t, wsService: r, eventLoggerService: n, applicationModulesAccess: a }) {
         const s = await (async function (e, t, r) {
             const {
                 itemKeys: o,
@@ -11000,16 +11080,16 @@
           })({ storeService: t, wsService: r, eventLoggerService: n, applicationModulesAccess: a }, e);
         return { ...e, operations: { ...e.operations, items: s, itemGroups: c } };
       }
-      async function b(e) {
+      async function w(e) {
         const {
             sharingData: { items: t, itemGroups: r, userGroups: o, collections: n },
             loadedElements: { items: i, itemGroups: a, userGroups: s, collections: c },
             operations: { items: d, itemGroups: l, userGroups: u, collections: S }
           } = e,
-          p = k(i, t, d),
-          m = k(a, r, l),
-          g = k(s, o, u),
-          E = k(c, n, S),
+          p = b(i, t, d),
+          m = b(a, r, l),
+          g = b(s, o, u),
+          E = b(c, n, S),
           A = l
             .filter(({ deleteSharingDataItems: e }) => e)
             .reduce((e, { id: t }) => {
@@ -11021,25 +11101,25 @@
           I = p.filter((e) => !A.includes(e.itemId));
         return { ...e, sharingData: { items: I, itemGroups: m, userGroups: g, collections: E } };
       }
-      function k(e, t, r) {
+      function b(e, t, r) {
         return r.reduce(
           (t, r) =>
             (function (e, t, r) {
               switch (r.type) {
                 case _.Delete:
                   return (function (e, { id: t }) {
-                    return e.filter((e) => F(e) !== t);
+                    return e.filter((e) => k(e) !== t);
                   })(t, r);
                 case _.Create:
                   return (function (e, t, { id: r }) {
-                    const o = e.find((e) => F(e) === r);
+                    const o = e.find((e) => k(e) === r);
                     return o ? t.concat(o) : t;
                   })(e, t, r);
                 case _.Update:
                   return (function (e, t, { id: r }) {
-                    const o = e.find((e) => F(e) === r);
+                    const o = e.find((e) => k(e) === r);
                     if (!o) return t;
-                    return t.map((e) => (F(e) === r ? o : e));
+                    return t.map((e) => (k(e) === r ? o : e));
                   })(e, t, r);
               }
               return (0, g.assertUnreachable)(r.type);
@@ -11047,7 +11127,7 @@
           t
         );
       }
-      function F(e) {
+      function k(e) {
         if ("itemId" in e) return e.itemId;
         if (
           (function (e) {
@@ -11062,7 +11142,7 @@
         )
           return e.uuid;
       }
-      async function K(e, t, r) {
+      async function F(e, t, r) {
         try {
           if (r) {
             const {
@@ -11086,15 +11166,15 @@
         }
         return e;
       }
-      async function V(e, t) {
+      async function K(e, t) {
         const { sharingData: r } = e;
         return (0, S.updateSharingData)(t, r), e;
       }
-      async function z(e, t, r) {
+      async function V(e, t, r) {
         const { sharingSync: o } = t.getState().userSession;
         return r.getInstance().storeSharingSync(o), e;
       }
-      async function H(e, t, r) {
+      async function z(e, t, r) {
         const o = r.getInstance(),
           n = await o.doesSharingSyncExist();
         let i = null;
@@ -11111,10 +11191,10 @@
           l = (0, c.setAllPendingAction)(s, d);
         return t.dispatch(l), e;
       }
-      function j() {
+      function H() {
         return { collections: [], items: [], itemGroups: [], userGroups: [] };
       }
-      function W() {
+      function j() {
         return { collections: [], items: [], itemGroups: [], userGroups: [] };
       }
       (t.syncSharing = async function (
@@ -11127,36 +11207,37 @@
           const p = (0, E.ukiSelector)(e.getState()),
             I = e.getUserLogin(),
             { privateKey: y, publicKey: v } = e.getUserSession().keyPair,
-            { credentials: _, notes: h } = e.getPersonalData(),
-            R = e.getSharingData(),
-            { queries: U } = d.createClients().sharingCollections,
-            M = await (0, n.firstValueFrom)(U.getSharedCollections({}));
-          R.collections = (0, a.isSuccess)(M) && Array.isArray(M.data) ? M.data : [];
-          const k = C(_, "PersonalData.credentials", i.isCredential),
-            F = C(h, "PersonalData.notes", i.isNote),
-            j = [...k, ...F],
-            W = j.map((e) => e.Id),
-            x = j.reduce((e, t) => ((e[t.Id] = t), e), {}),
-            Y = {
+            { credentials: _, notes: h, secrets: L } = e.getPersonalData(),
+            U = e.getSharingData(),
+            { queries: b } = d.createClients().sharingCollections,
+            k = await (0, n.firstValueFrom)(b.getSharedCollections({}));
+          U.collections = (0, a.isSuccess)(k) && Array.isArray(k.data) ? k.data : [];
+          const H = C(_, "PersonalData.credentials", i.isCredential),
+            j = C(h, "PersonalData.notes", i.isNote),
+            W = C(L, "PersonalData.secrets", i.isSecret),
+            x = [...H, ...j, ...W],
+            Y = x.map((e) => e.Id),
+            $ = x.reduce((e, t) => ((e[t.Id] = t), e), {}),
+            q = {
               itemKeys: {},
               loadedElements: { collections: [], items: [], itemGroups: [], userGroups: [] },
               sharing2Summary: u,
-              sharingData: R,
+              sharingData: U,
               operations: { collections: [], items: [], itemGroups: [], userGroups: [] },
-              personalDataItemIds: W,
+              personalDataItemIds: Y,
               pendingUserGroups: [],
               pendingItemGroups: [],
               invalidItemGroups: [],
               autoRevokedUsers: []
             },
-            $ = await Promise.resolve(Y)
+            Q = await Promise.resolve(q)
               .then(T("sanitizeData", f))
               .then(T("setOperations", O))
-              .then(T("setGetSharingParams", N))
-              .then(T("getSharing", (e) => P(e, t, I, p)))
-              .then(T("filterOutInvalidOperations", (e) => L(e, y, v, I, g)))
-              .then(T("revokeUsersFromInvalidItemGroups", (r) => B(e, d, t, r, y, v, I, A)))
-              .then(T("setMissingItemKeys", (e) => G(e, y, I)))
+              .then(T("setGetSharingParams", R))
+              .then(T("getSharing", (e) => N(e, t, I, p)))
+              .then(T("filterOutInvalidOperations", (e) => P(e, y, v, I, g)))
+              .then(T("revokeUsersFromInvalidItemGroups", (r) => M(e, d, t, r, y, v, I, A)))
+              .then(T("setMissingItemKeys", (e) => B(e, y, I)))
               .then(T("tagConfirmableItemOperation", (e) => D(e, I)))
               .then(
                 T("setPendingItemGroupsList", (e) =>
@@ -11191,15 +11272,15 @@
                       }, []),
                       g = (0, o.flatten)(await Promise.all(m));
                     return { ...e, pendingItemGroups: g };
-                  })(e, I, y, x)
+                  })(e, I, y, $)
                 )
               )
               .then(
                 T("runOperationsEffects", (r) =>
-                  w(r, { storeService: e, wsService: t, eventLoggerService: s, applicationModulesAccess: d })
+                  G(r, { storeService: e, wsService: t, eventLoggerService: s, applicationModulesAccess: d })
                 )
               )
-              .then(T("applyOperationsToSharingData", b))
+              .then(T("applyOperationsToSharingData", w))
               .then(
                 T("setPendingUserGroupsList", (t) =>
                   (async function (e, t, r) {
@@ -11240,7 +11321,7 @@
                   })(e, d)
                 )
               )
-              .then(T("initSharingSyncFromStorage", (t) => H(t, e, r)))
+              .then(T("initSharingSyncFromStorage", (t) => z(t, e, r)))
               .then(
                 T("updateStoreSharingSync", (t) =>
                   (async function (e, t) {
@@ -11250,10 +11331,10 @@
                   })(t, e)
                 )
               )
-              .then(T("putSharingSyncBackInStorage", (t) => z(t, e, r)))
-              .then(T("updateSharingDataFromSync", (t) => V(t, e)))
-              .then(T("updateSharedCollectionsInModule", (e) => K(e, I, d)));
-          return $.sharingData;
+              .then(T("putSharingSyncBackInStorage", (t) => V(t, e, r)))
+              .then(T("updateSharingDataFromSync", (t) => K(t, e)))
+              .then(T("updateSharedCollectionsInModule", (e) => F(e, I, d)));
+          return Q.sharingData;
         } catch (t) {
           const r = new Error(`[SharingSync] - syncSharing failed: ${t}`);
           return v && p.default.error(r), (0, m.sendExceptionLog)({ error: r }), e.getSharingData();
@@ -11265,24 +11346,24 @@
         (t.sanitizeData = f),
         (t.setOperations = O),
         (t.tagConfirmableOperations = D),
-        (t.setGetSharingParams = N),
-        (t.getSharing = P),
-        (t.filterOutInvalidOperations = L),
-        (t.asyncFilterItemGroups = U),
-        (t.shouldRunAutoRevoke = M),
-        (t.revokeUsersFromInvalidItemGroups = B),
-        (t.setMissingItemKeys = G),
-        (t.runOperationsEffects = w),
-        (t.applyOperationsToSharingData = b),
-        (t.updateSharedCollectionsInModule = K),
-        (t.updateSharingDataFromSync = V),
-        (t.putSharingSyncBackInStorage = z),
-        (t.initSharingSyncFromStorage = H),
-        (t.getEmptyOperations = j),
+        (t.setGetSharingParams = R),
+        (t.getSharing = N),
+        (t.filterOutInvalidOperations = P),
+        (t.asyncFilterItemGroups = L),
+        (t.shouldRunAutoRevoke = U),
+        (t.revokeUsersFromInvalidItemGroups = M),
+        (t.setMissingItemKeys = B),
+        (t.runOperationsEffects = G),
+        (t.applyOperationsToSharingData = w),
+        (t.updateSharedCollectionsInModule = F),
+        (t.updateSharingDataFromSync = K),
+        (t.putSharingSyncBackInStorage = V),
+        (t.initSharingSyncFromStorage = z),
+        (t.getEmptyOperations = H),
         (t.getEmptyGetSharingParams = function () {
           return { collectionIds: [], itemIds: [], itemGroupIds: [], userGroupIds: [] };
         }),
-        (t.getEmptySharingData = W),
+        (t.getEmptySharingData = j),
         (t.getEmptySharing2Summary = function () {
           return { collections: [], items: [], itemGroups: [], userGroups: [] };
         });
@@ -11299,7 +11380,7 @@
           t.shareAlreadySharedItem =
             void 0);
       const o = r(16516),
-        n = r(53576),
+        n = r(32626),
         i = r(36884),
         a = r(70206),
         s = r(10294),
@@ -11334,34 +11415,34 @@
             { collections: I, userGroups: v } = t.getSharingData(),
             T = v.filter(Boolean),
             { groupId: _, revision: f } = o,
-            { credentials: C, notes: h } = t.getPersonalData(),
-            D = [...C, ...h],
-            R = await (0, S.makeCryptoService)(),
-            { makeInviteItemGroupMembers: N, makeUserGroupInvite: P, makeUserUpload: L } = (0, i.makeItemGroupService)(r, R),
-            { findUsersByAliases: U } = (0, l.makeWSUserAlias)(),
-            { makeItemForEmailing: M } = (0, s.makeItemService)(),
-            { inviteItemGroupMembers: B } = (0, c.makeItemGroupWS)(),
-            G = await (0, E.getItemGroupKey)(o, T, g, u, I);
-          if (!G) {
+            { credentials: C, notes: h, secrets: D } = t.getPersonalData(),
+            R = [...C, ...h, ...D],
+            N = await (0, S.makeCryptoService)(),
+            { makeInviteItemGroupMembers: P, makeUserGroupInvite: L, makeUserUpload: U } = (0, i.makeItemGroupService)(r, N),
+            { findUsersByAliases: M } = (0, l.makeWSUserAlias)(),
+            { makeItemForEmailing: B } = (0, s.makeItemService)(),
+            { inviteItemGroupMembers: G } = (0, c.makeItemGroupWS)(),
+            w = await (0, E.getItemGroupKey)(o, T, g, u, I);
+          if (!w) {
             throw new Error("Couldn't get itemGroupKey, aborting.");
           }
-          const w = d.filter(n.isUserRecipient).map(({ alias: e }) => O(e)),
-            b = JSON.stringify(w),
-            k = await U({ login: u, uki: m, aliases: b }),
-            F = w.map((e) => L(e, k[e], _, a, G)),
-            K = await Promise.all(F),
-            V = (o.items || []).map(({ itemId: e }) => e),
-            z = D.filter((e) => V.includes(e.Id)),
-            H = z.map(M),
-            j = d.filter(n.isGroupRecipient).map((e) => e.groupId),
-            W = T.filter(({ groupId: e }) => j.includes(e)).map((e) => P(e, a, G, g, u, _)),
-            x = await Promise.all(W),
-            Y = await (0, A.createAuditLogDetails)(e, p, z[0]),
-            $ = N(_, f, K, x, H, Y),
-            q = await B(u, m, $, Y);
-          if (q && q.itemGroups && 1 === q.itemGroups.length) {
+          const b = d.filter(n.isUserRecipient).map(({ alias: e }) => O(e)),
+            k = JSON.stringify(b),
+            F = await M({ login: u, uki: m, aliases: k }),
+            K = b.map((e) => U(e, F[e], _, a, w)),
+            V = await Promise.all(K),
+            z = (o.items || []).map(({ itemId: e }) => e),
+            H = R.filter((e) => z.includes(e.Id)),
+            j = H.map(B),
+            W = d.filter(n.isGroupRecipient).map((e) => e.groupId),
+            x = T.filter(({ groupId: e }) => W.includes(e)).map((e) => L(e, a, w, g, u, _)),
+            Y = await Promise.all(x),
+            $ = await (0, A.createAuditLogDetails)(e, p, H[0]),
+            q = P(_, f, V, Y, j, $),
+            Q = await G(u, m, q, $);
+          if (Q && Q.itemGroups && 1 === Q.itemGroups.length) {
             const { publicKey: e } = t.getUserSession().keyPair;
-            await (0, A.validateItemGroupResponse)("[SharingUserActionsService] - shareAlreadySharedItem", R, q, e, g, G, u, K, T);
+            await (0, A.validateItemGroupResponse)("[SharingUserActionsService] - shareAlreadySharedItem", N, Q, e, g, w, u, V, T);
           }
         } catch (e) {
           throw ((e.message = `[SharingUserActionsService] - shareAlreadySharedItem: ${e.message}`), e);
@@ -11423,12 +11504,12 @@
             { makeRevokeItemGroupMembers: m } = (0, i.makeItemGroupService)(r, s),
             g = "user" === n.type ? [n.alias] : [],
             E = "userGroup" === n.type ? [n.groupId] : [],
-            { credentials: I, notes: T } = (0, v.personalDataSelector)(l),
-            _ = [...I, ...T],
-            f = (o.items || []).map(({ itemId: e }) => e),
-            C = _.filter((e) => f.includes(e.Id)),
-            O = m(c, d, g, E, await (0, A.createAuditLogDetails)(e, l, C[0]), a);
-          await r.itemGroup.revokeItemGroupMembers(p, u, O);
+            { credentials: I, notes: T, secrets: _ } = (0, v.personalDataSelector)(l),
+            f = [...I, ...T, ..._],
+            C = (o.items || []).map(({ itemId: e }) => e),
+            O = f.filter((e) => C.includes(e.Id)),
+            h = m(c, d, g, E, await (0, A.createAuditLogDetails)(e, l, O[0]), a);
+          await r.itemGroup.revokeItemGroupMembers(p, u, h);
         }),
         (t.updateSharingPermission = async function (e, t, r, o, n) {
           const a = e.getUserLogin(),
@@ -11555,7 +11636,7 @@
           t.getDecryptedItemGroupKey =
           t.validateItemGroup =
             void 0);
-      const o = r(60765),
+      const o = r(93039),
         n = r(36513),
         i = r(95623),
         a = r(58107),
@@ -12208,53 +12289,14 @@
     },
     78987: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.sharingCapacity$ =
-          t.myAcceptedItemGroupUserMembers$ =
-          t.myAcceptedUserGroups$ =
-          t.hasNotifications$ =
-          t.pendingUserGroups$ =
-          t.pendingItemGroups$ =
-          t.allSharedItemIds$ =
-          t.userRecipients$ =
-          t.groupRecipients$ =
-          t.recipientsCount$ =
-          t.isShared$ =
-            void 0);
+        (t.sharingCapacity$ = t.myAcceptedItemGroupUserMembers$ = t.myAcceptedUserGroups$ = t.allSharedItemIds$ = void 0);
       const o = r(18948),
         n = r(3343),
         i = r(84511),
         a = r(80993),
         s = r(90021);
-      t.isShared$ = (e) => {
-        const t = (0, i.getIsSharedSelector)(e);
-        return (0, o.pipe)((0, n.map)(t), (0, n.distinctUntilChanged)());
-      };
-      t.recipientsCount$ = (e) => {
-        const t = (0, i.getRecipientsCountSelector)(e);
-        return (0, o.pipe)((0, n.map)(t), (0, n.distinctUntilChanged)());
-      };
-      t.groupRecipients$ = (e) => {
-        const t = (0, i.getGroupRecipientsSelector)(e);
-        return (0, o.pipe)((0, n.map)(t), (0, n.distinctUntilChanged)());
-      };
-      t.userRecipients$ = (e) => {
-        const t = (0, i.getUserRecipientsSelector)(e);
-        return (0, o.pipe)((0, n.map)(t), (0, n.distinctUntilChanged)());
-      };
       t.allSharedItemIds$ = () => {
         const e = a.sortedSharedItemIdsSelector;
-        return (0, o.pipe)((0, n.map)(e), (0, n.distinctUntilChanged)());
-      };
-      t.pendingItemGroups$ = () => {
-        const e = i.pendingItemGroupsSelector;
-        return (0, o.pipe)((0, n.map)(e), (0, n.distinctUntilChanged)());
-      };
-      t.pendingUserGroups$ = () => {
-        const e = i.pendingUserGroupsSelector;
-        return (0, o.pipe)((0, n.map)(e), (0, n.distinctUntilChanged)());
-      };
-      t.hasNotifications$ = () => {
-        const e = i.hasNotificationsSelector;
         return (0, o.pipe)((0, n.map)(e), (0, n.distinctUntilChanged)());
       };
       t.myAcceptedUserGroups$ = () => {
@@ -12276,66 +12318,45 @@
           t.getGroupRecipientsSelector =
           t.getRecipientsCountSelector =
           t.getIsSharedSelector =
-          t.hasNotificationsSelector =
           t.myAcceptedItemGroupUserMembersSelector =
           t.myAcceptedUserGroupsSelector =
-          t.pendingUserGroupsSelector =
           t.pendingItemGroupsSharedItemContentsSelector =
           t.pendingItemGroupsSelector =
           t.itemItemGroupSelector =
-          t.userRecipientsSelector =
-          t.groupRecipientsSelector =
-          t.recipientsCountSelector =
           t.isSharedSelector =
             void 0);
       const o = r(32034),
         n = r(58107),
-        i = r(71646),
-        a = r(6e3),
-        s = r(52102);
+        i = r(6e3),
+        a = r(52102),
+        s = r(71646);
       t.isSharedSelector = (e, t) => {
-        const { items: r } = (0, s.sharingDataSelector)(e);
+        const { items: r } = (0, a.sharingDataSelector)(e);
         return r.some((e) => e.itemId === t);
       };
-      t.recipientsCountSelector = (e, t) => {
-        const r = (0, s.sharingDataSelector)(e);
-        return (0, n.getRecipientsCount)(r, t);
-      };
-      t.groupRecipientsSelector = (e, t) => {
-        const r = (0, s.sharingDataSelector)(e);
-        return (0, n.getGroupRecipients)(r, t);
-      };
-      t.userRecipientsSelector = (e, t) => {
-        const r = (0, s.sharingDataSelector)(e);
-        return (0, n.getUserRecipients)(r, t);
-      };
       t.itemItemGroupSelector = (e, t) => {
-        const { itemGroups: r } = (0, s.sharingDataSelector)(e);
-        return (0, i.findItemItemGroup)(t, r);
+        const { itemGroups: r } = (0, a.sharingDataSelector)(e);
+        return (0, s.findItemItemGroup)(t, r);
       };
       t.pendingItemGroupsSelector = (e) => e.userSession.sharingSync.pendingItemGroups || [];
-      t.pendingItemGroupsSharedItemContentsSelector = (e) =>
+      (t.pendingItemGroupsSharedItemContentsSelector = (e) =>
         e.userSession.sharingSync.pendingItemGroups
           ? e.userSession.sharingSync.pendingItemGroups.reduce((e, t) => e.concat(t.items), [])
-          : [];
-      (t.pendingUserGroupsSelector = (e) => e.userSession.sharingSync.pendingUserGroups || []),
+          : []),
         (t.myAcceptedUserGroupsSelector = (0, o.createSelector)(
-          a.loginStatusSelector,
-          s.sharingDataSelector,
+          i.loginStatusSelector,
+          a.sharingDataSelector,
           ({ login: e }, { userGroups: t }) => (0, n.findMyAcceptedUserGroups)(t, e)
         )),
         (t.myAcceptedItemGroupUserMembersSelector = (0, o.createSelector)(
-          a.loginStatusSelector,
-          s.sharingDataSelector,
+          i.loginStatusSelector,
+          a.sharingDataSelector,
           ({ login: e }, { itemGroups: t }) => (0, n.findMyAcceptedItemGroupUserMembers)(t, e)
-        )),
-        (t.hasNotificationsSelector = (0, o.createSelector)(t.pendingItemGroupsSelector, t.pendingUserGroupsSelector, (e, t) =>
-          [...e, ...t].some((e) => !e.seen)
         ));
-      t.getIsSharedSelector = (e) => (0, o.createSelector)(s.sharingDataSelector, ({ items: t }) => t.some((t) => t.itemId === e));
-      t.getRecipientsCountSelector = (e) => (0, o.createSelector)(s.sharingDataSelector, (t) => (0, n.getRecipientsCount)(t, e));
-      t.getGroupRecipientsSelector = (e) => (0, o.createSelector)(s.sharingDataSelector, (t) => (0, n.getGroupRecipients)(t, e));
-      t.getUserRecipientsSelector = (e) => (0, o.createSelector)(s.sharingDataSelector, (t) => (0, n.getUserRecipients)(t, e));
+      t.getIsSharedSelector = (e) => (0, o.createSelector)(a.sharingDataSelector, ({ items: t }) => t.some((t) => t.itemId === e));
+      t.getRecipientsCountSelector = (e) => (0, o.createSelector)(a.sharingDataSelector, (t) => (0, n.getRecipientsCount)(t, e));
+      t.getGroupRecipientsSelector = (e) => (0, o.createSelector)(a.sharingDataSelector, (t) => (0, n.getGroupRecipients)(t, e));
+      t.getUserRecipientsSelector = (e) => (0, o.createSelector)(a.sharingDataSelector, (t) => (0, n.getUserRecipients)(t, e));
     },
     89698: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.acceptedItemGroupsSelector = void 0);
@@ -12450,7 +12471,7 @@
           t.generateAcceptSignature =
             void 0);
       const o = r(93513),
-        n = r(53576),
+        n = r(32626),
         i = r(21178),
         a = r(70252),
         s = r(35587),
@@ -12551,12 +12572,19 @@
             s = (!!r?.SpaceId && o?.info?.collectSensitiveDataAuditLogsEnabled) ?? !1;
           if (!a || !s) return;
           const c = (0, n.isCredential)(r) && r?.Url ? new i.ParsedURL(r?.Url).getHostname() : "",
-            d = c || "";
-          return {
-            captureLog: s,
-            domain: (0, n.isCredential)(r) ? d : void 0,
-            type: (0, n.isCredential)(r) ? "AUTHENTIFIANT" : "SECURENOTE"
-          };
+            d = c || "",
+            l = (0, n.isCredential)(r) ? d : void 0,
+            p = (function (e) {
+              switch (e.kwType) {
+                case "KWAuthentifiant":
+                  return "AUTHENTIFIANT";
+                case "KWSecureNote":
+                  return "SECURENOTE";
+                default:
+                  return "SECRET";
+              }
+            })(r);
+          return { captureLog: s, domain: l, type: p };
         });
     },
     83687: (e, t, r) => {
@@ -12613,8 +12641,8 @@
           t.getOutdatedSharingParams =
             void 0);
       const o = r(16516),
-        n = r(53576),
-        i = r(60765),
+        n = r(32626),
+        i = r(93039),
         a = r(84827),
         s = r(70252),
         c = r(95623),
@@ -12845,14 +12873,15 @@
           const T = S.getPersonalData(),
             _ = (0, u.findDataModelObject)(r, T.credentials),
             f = T.notes.find((e) => e.Id === r),
-            C = _ || f;
-          if (!C) return { success: !1, reason: A };
-          const O = S.getSharingData().itemGroups.find((e) => e && e.items && !!e.items.find((e) => e.itemId === r)),
-            D = S.getState();
-          if (!(0, g.isAllowedToShareSelector)(D)) return { success: !1, reason: I };
-          if (C.Attachments && C.Attachments.length > 0) return { success: !1, reason: y };
+            C = T.secrets.find((e) => e.Id === r),
+            O = _ || f || C;
+          if (!O) return { success: !1, reason: A };
+          const D = S.getSharingData().itemGroups.find((e) => e && e.items && !!e.items.find((e) => e.itemId === r)),
+            R = S.getState();
+          if (!(0, g.isAllowedToShareSelector)(R)) return { success: !1, reason: I };
+          if (O.Attachments && O.Attachments.length > 0) return { success: !1, reason: y };
           try {
-            O ? await (0, l.shareAlreadySharedItem)(p, S, E, O, o, a) : await (0, l.shareUnsharedItem)(p, S, E, C, o, a);
+            D ? await (0, l.shareAlreadySharedItem)(p, S, E, D, o, a) : await (0, l.shareUnsharedItem)(p, S, E, O, o, a);
           } catch (n) {
             if (!d || !h(n)) {
               const e = new Error(`[SharingController] - handleShareItemRequest: ${n}`);
@@ -13310,7 +13339,7 @@
     },
     82912: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.banks = void 0);
-      const o = r(53576);
+      const o = r(32626);
       t.banks = {
         [o.Country.AR]: [
           { localizedString: "Banco Credicoop", code: "BANCOCREDICOOP" },
@@ -14139,7 +14168,7 @@
     },
     43651: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 });
-      const o = r(53576);
+      const o = r(32626);
       t.default = {
         [o.Country.AD]: 376,
         [o.Country.AE]: 971,
@@ -14386,7 +14415,7 @@
     },
     39003: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getAllCallingCodes = t.processQuery = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(43651);
       (t.processQuery = function () {
         return { type: o.StaticDataQueryType.CALLING_CODES, collection: n.default };
@@ -14397,7 +14426,7 @@
     },
     80814: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.GeographicStatesLevel1 = t.GeographicStatesLevel0 = void 0);
-      const o = r(53576);
+      const o = r(32626);
       (t.GeographicStatesLevel0 = {
         [o.Country.FR]: {
           "FR-0-42": { code: "42", name: "Alsace" },
@@ -15377,7 +15406,7 @@
     },
     89690: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.processQuery = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(38495);
       t.processQuery = function (e) {
         return { type: o.StaticDataQueryType.GEOGRAPHIC_STATES, collection: (0, n.getStatesForLocaleFormats)(e.level, e.localeFormats) };
@@ -15386,7 +15415,7 @@
     38495: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.findStateCode = t.findStateLevel2Name = t.findStateName = t.getStatesForLocaleFormats = t.isStateValid = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(80814);
       (t.isStateValid = function (e, t) {
         return (
@@ -15540,7 +15569,7 @@
     },
     33332: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeStaticDataController = void 0);
-      const o = r(53576),
+      const o = r(32626),
         n = r(39003),
         i = r(89690);
       t.makeStaticDataController = () => ({ query: s });
@@ -15652,7 +15681,7 @@
     },
     80722: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeStoreService = void 0);
-      const o = r(44602),
+      const o = r(90599),
         n = r(18948),
         i = r(84762);
       t.makeStoreService = (e) => {
@@ -15706,8 +15735,8 @@
     },
     68525: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getGlobalPersistenceReducer = void 0);
-      const o = r(44602),
-        n = r(84801),
+      const o = r(90599),
+        n = r(33642),
         i = (e) => (t, r) => ({
           ...t,
           ...Object.keys(e).reduce(

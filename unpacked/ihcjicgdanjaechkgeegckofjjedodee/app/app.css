@@ -117,7 +117,9 @@ h6,
 .ui.menu {
   font-family: "Roboto", sans-serif;
 }
-
+strong {
+  font-family: "Roboto Medium", sans-serif;
+}
 /* ALL HEADER STYLES */
 
 .header-container {
@@ -568,7 +570,7 @@ span.todo {
 }
 
 .blue-filter {
-  filter: invert(17%) sepia(70%) saturate(4050%) hue-rotate(225deg) brightness(89%) contrast(103%);
+  filter: invert(10%) sepia(70%) saturate(4050%) hue-rotate(225deg) brightness(89%) contrast(103%);
 }
 
 .ui.blue.button,
@@ -1271,7 +1273,10 @@ h4.web-tab-rail-title {
   right: 21px;
 }
 
-.ui.modal.allow-control-row,
+.ui.modal.allow-control-row {
+  min-height: 344px;
+  min-width: 552px;
+}
 .ui.modal.content-control-row {
   height: 344px;
   width: 552px;
@@ -3121,3 +3126,173 @@ h4.web-tab-rail-title {
 .ui.popup::after {
   display: none;
 }
+
+/* Onboarding flow */
+#obf-img-illustration-1 {
+  content: url("./assets/obf-illustration-1.svg");
+}
+
+#obf-img-illustration-2 {
+  content: url("./assets/obf-illustration-2.svg");
+}
+
+#obf-img-illustration-3 {
+  content: url("./assets/obf-illustration-3.svg");
+}
+
+#obf-img-illustration-4 {
+  content: url("./assets/obf-illustration-4.svg");
+}
+.ui.modal.onboarding-flow {
+  padding: 32px 24px;
+  width: 552px;
+  height: 480px;
+}
+.ui.modal.onboarding-flow .close-icon {
+  position: absolute;
+  top: 13.5px;
+  right: 13.5px;
+}
+.ui.modal.onboarding-flow .carousel-container .done-btn {
+  min-width: 110px;
+  margin-right: 0;
+  position: absolute;
+  right: 24px;
+  bottom: 32px;
+}
+.ui.modal.onboarding-flow .carousel-container h2 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+}
+.carousel-container a {
+  color: #0d3ecc;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  height: 352px;
+  margin-bottom: 24px;
+}
+.carousel-item .premium-features-title {
+  display: flex;
+  min-height: 60px;
+  gap: 8px;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.carousel-item .premium-features-title h2 {
+  margin-bottom: 0;
+}
+.carousel-item .premium-features-title span {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+}
+.carousel-item .title {
+  min-height: 56px;
+  margin-bottom: 16px;
+}
+.carousel-main-content {
+  display: flex;
+  flex-direction: row;
+}
+.carousel-main-content ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.carousel-main-content ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.carousel-main-content ul li div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.carousel-main-content ul li div span {
+  font-family: "Roboto Medium", sans-serif;
+  font-weight: 500 !important;
+  letter-spacing: 0.1px !important;
+}
+.carousel-main-content ul li div img.checkmark-icon {
+  width: 16px;
+  height: 16px;
+  content: url("./assets/check.svg");
+}
+.carousel-main-content ul li .description {
+  padding-left: 20px;
+  display: inline-block;
+}
+.carousel-main-content .slide-description {
+  width: 240px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px !important;
+  font-style: normal !important;
+  line-height: 24px !important;
+  letter-spacing: 0.15px !important;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding: 10px 0;
+}
+
+.carousel-control {
+  display: flex;
+  vertical-align: middle;
+  gap: 8px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 142.857% */
+  letter-spacing: 0.1px;
+}
+.carousel-control span {
+  color: #0d3ecc !important;
+}
+.carousel-control.done-btn span {
+  color: white !important;
+}
+.carousel-control .carousel-indicator {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.carousel-control .carousel-indicator .dot {
+  background-color: #dcdde0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.carousel-control .carousel-indicator .dot.active {
+  background-color: #0d3ecc;
+}
+
+/* Onboarding flow */

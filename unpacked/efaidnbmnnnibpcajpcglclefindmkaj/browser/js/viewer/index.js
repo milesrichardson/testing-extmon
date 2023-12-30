@@ -23,15 +23,14 @@ import { privateApi as i } from "../content-privateApi.js";
 import { OptionPageActions as s } from "../../../common/constant.js";
 import { indexedDBScript as o } from "../../../common/indexDB.js";
 import { loggingApi as c } from "../../../common/loggingApi.js";
-import l from "./ResponseHeaders.js";
-import d from "./BookmarkUtils.js";
+import { updateExtUserState as l, isNewUser as d } from "../../../common/util.js";
+import m from "./ResponseHeaders.js";
+import u from "./BookmarkUtils.js";
 await e.init(), await t.init();
-const m = e.getItem("appLocale");
-let u = !1;
+const g = e.getItem("appLocale");
+let p = !1;
 !(function () {
-  let g,
-    f,
-    p,
+  let f,
     h,
     w,
     I,
@@ -46,79 +45,82 @@ let u = !1;
     D,
     R,
     U,
-    T,
     C,
-    B,
+    T,
+    k,
     x,
-    k = "";
-  const F = chrome.runtime.getURL("viewer.html"),
-    A = chrome.runtime.getURL("signInHandler.html"),
-    V = "file:",
-    M = ["https:", "http:", V],
-    O = (e) => {
+    B,
+    F,
+    A = "";
+  const V = chrome.runtime.getURL("viewer.html"),
+    M = chrome.runtime.getURL("signInHandler.html"),
+    O = "file:",
+    N = ["https:", "http:", O],
+    $ = (e) => {
       if (!e) return !1;
       try {
         const t = new URL(e),
           a = t.protocol;
-        let n = -1 !== M.indexOf(a);
-        return (n = a === V ? t.pathname.toLowerCase().endsWith(".pdf") : n), n;
+        let n = -1 !== N.indexOf(a);
+        return (n = a === O ? t.pathname.toLowerCase().endsWith(".pdf") : n), n;
       } catch (e) {
         return !1;
       }
     };
-  function N(e) {
+  function H(e) {
     const t = a.getItem("search");
     return new URLSearchParams(t).get(e);
   }
-  function H(e, t) {
-    return P ? ((D = D || 1), (e.tabId = D), (e.mimeHandled = !0), chrome.runtime.sendMessage(e, t)) : chrome.runtime.sendMessage(e, t);
-  }
   function z(e, t) {
+    return R ? ((U = U || 1), (e.tabId = U), (e.mimeHandled = !0), chrome.runtime.sendMessage(e, t)) : chrome.runtime.sendMessage(e, t);
+  }
+  function W(e, t) {
     return new URLSearchParams(e).get(t) || "";
   }
-  function $() {
-    if (((h = z(document.location.search, "pdfurl")), !O(h))) return void (w = !1);
+  function j() {
+    if (((I = W(document.location.search, "pdfurl")), !$(I))) return void (b = !1);
     !(function () {
       const e = new URLSearchParams(document.location.search),
-        a = t.getItem("rtParams");
-      if (a) {
-        const n =
-          a
+        n = t.getItem("rtParams");
+      if (n) {
+        const a =
+          n
             .split(",")
             .map((t) => (e.has(t) ? `&${t}=${e.get(t)}` : null))
             .join("") || "";
-        t.setItem("payPalUrl", n), t.removeItem("rtParams");
+        t.setItem("payPalUrl", a), t.removeItem("rtParams");
       }
+      e.has("dialog!dropin") && "inapp-checkout" === e.get("dialog!dropin") && a.setItem("dialog!dropin", "inapp-checkout");
     })();
     const e = a.getItem("search");
-    (!e || z(e, "pdfurl") !== h || e.length < document.location.search) && a.setItem("search", document.location.search),
-      (p = z(document.location.search, "pdffilename") || z(e, "pdffilename") || oe(h)),
-      (document.title = p);
-    const n = "/" + h + location.hash;
-    history.replaceState({}, p, n);
+    (!e || W(e, "pdfurl") !== I || e.length < document.location.search) && a.setItem("search", document.location.search),
+      (w = W(document.location.search, "pdffilename") || W(e, "pdffilename") || le(I)),
+      (document.title = w);
+    const n = "/" + I + location.hash;
+    history.replaceState({}, w, n);
   }
-  function W(t = !1) {
-    if (P)
+  function q(t = !1) {
+    if (R)
       try {
-        t || H({ main_op: "viewer-type", viewer: "mime-native" }),
+        t || z({ main_op: "viewer-type", viewer: "mime-native" }),
           setTimeout(() => {
-            i.reloadWithNativeViewer({ contentLength: parseInt(g) || 0 });
+            i.reloadWithNativeViewer({ contentLength: parseInt(f) || 0 });
           }, 100);
       } catch (e) {
-        j("DCBrowserExt:Viewer:FallbackToNative:Failed");
+        J("DCBrowserExt:Viewer:FallbackToNative:Failed");
       }
     else
       try {
         setTimeout(() => {
           chrome.tabs.getCurrent(function (t) {
-            e.setItem(`reloadurl-${t.id}`, h), (window.location.href = h);
+            e.setItem(`reloadurl-${t.id}`, I), (window.location.href = I);
           });
         }, 500);
       } catch (e) {
-        j("DCBrowserExt:Viewer:FallbackToNative:Failed");
+        J("DCBrowserExt:Viewer:FallbackToNative:Failed");
       }
   }
-  const q = (t) => {
+  const G = (t) => {
     try {
       const a = new URL(e.getItem("cdnUrl")),
         n = [/^https:\/\/([a-zA-Z\d-]+\.){0,}(adobe|acrobat)\.com(:[0-9]*)?$/];
@@ -127,18 +129,18 @@ let u = !1;
       return !1;
     }
   };
-  function j(e) {
+  function J(e) {
     const t = { main_op: "analytics" };
-    (t.analytics = [[e]]), H(t);
+    (t.analytics = [[e]]), z(t);
   }
-  function G() {
+  function Y() {
     let e,
-      t = F;
+      t = V;
     return (
-      P ? ((e = "?mimePdfUrl=" + encodeURIComponent(h)), (t = A)) : ((e = a.getItem("search")), e || (e = "?pdfurl=" + h)), new URL(t + e)
+      R ? ((e = "?mimePdfUrl=" + encodeURIComponent(I)), (t = M)) : ((e = a.getItem("search")), e || (e = "?pdfurl=" + I)), new URL(t + e)
     );
   }
-  const J = [
+  const K = [
     "AdobeID",
     "openid",
     "DCAPI",
@@ -156,14 +158,26 @@ let u = !1;
     "widget_read",
     "widget_write",
     "workflow_read",
-    "workflow_write"
+    "workflow_write",
+    "tk_platform",
+    "tk_platform_sync"
   ];
-  function Y(t = {}) {
+  function X(t = {}) {
+    if (e.getItem("nsi"))
+      return void (function (t = {}) {
+        const a = Y(),
+          n = e.getItem("cdnUrl"),
+          r = t.sign_up ? 1 : 0,
+          i = JSON.stringify({ touchp: t.touchpoint || "", signIn: !0, newSignIn: 1 }),
+          s = e.getItem("theme") || "auto",
+          o = `${n}?la=true&locale=${g || e.getItem("locale")}&theme=${s}&ru=${a.href}&rp=${i}&su=${r}#/susi`;
+        chrome.tabs.update({ url: o, active: !0 });
+      })(t);
     const r = e.getItem("imsURL"),
       i = e.getItem("viewerImsClientId"),
       s = e.getItem("imsContextId"),
       o = new URL(r + "/ims/authorize/v1?"),
-      c = G(),
+      c = Y(),
       l = n.uuid(),
       d = { csrf: l };
     t.sign_up
@@ -174,33 +188,33 @@ let u = !1;
       o.searchParams.append("client_id", i),
       t.touchpoint && (c.hash = c.hash + `;touchp=${t.touchpoint};`),
       o.searchParams.append("redirect_uri", c),
-      o.searchParams.append("scope", J.join(",")),
+      o.searchParams.append("scope", K.join(",")),
       o.searchParams.append("dctx_id", s),
-      o.searchParams.append("locale", m || e.getItem("locale")),
+      o.searchParams.append("locale", g || e.getItem("locale")),
       o.searchParams.append("state", JSON.stringify(d)),
       chrome.tabs.update({ url: o.href, active: !0 });
   }
-  function K() {
+  function Z() {
     let e;
-    (e = P ? G().href : window.location.href), r.sign_out(e);
+    (e = R ? Y().href : window.location.href), r.sign_out(e);
   }
-  function X(e) {
-    let t = new URL(A);
+  function Q(e) {
+    let t = new URL(M);
     return (
       t.searchParams.append("socialSignIn", "true"),
-      t.searchParams.append("mimePdfUrl", encodeURIComponent(h)),
+      t.searchParams.append("mimePdfUrl", encodeURIComponent(I)),
       a.setItem("idp_token", e),
       t.href
     );
   }
-  function Z(e) {
-    P ? chrome.tabs.update({ url: X(e), active: !0 }) : r.socialSignIn(e, G());
+  function ee(e) {
+    R ? chrome.tabs.update({ url: Q(e), active: !0 }) : r.socialSignIn(e, Y());
   }
-  function Q(t = "google") {
+  function te(t = "google") {
     const r = e.getItem("viewerImsClientIdSocial"),
       i = e.getItem("imsURL"),
       s = n.uuid(),
-      o = G();
+      o = Y();
     o.hash = o.hash + "signIn=true";
     const c = new URL(i + "/ims/authorize/v1"),
       l = { ac: n.isEdge() ? "adobe.com_acrobatextension_edge_login" : "adobe.com_acrobatextension_chrome_login", csrf: s };
@@ -210,21 +224,21 @@ let u = !1;
       c.searchParams.append("client_id", r),
       c.searchParams.append("provider_id", t),
       c.searchParams.append("redirect_uri", o),
-      c.searchParams.append("scope", J.join(",")),
-      c.searchParams.append("locale", m || e.getItem("locale")),
+      c.searchParams.append("scope", K.join(",")),
+      c.searchParams.append("locale", g || e.getItem("locale")),
       c.searchParams.append("state", JSON.stringify(l)),
       c.searchParams.append("xApiClientId", r),
       c.searchParams.append("xApiClientLocation ", t),
       chrome.tabs.update({ url: c.href, active: !0 });
   }
-  const ee = {
+  const ae = {
     isSharePointURL: !1,
     isSharePointFeatureEnabled: !1,
     isFrictionlessEnabled: !0,
     featureFlags: [],
     isFillAndSignRegisteryEnabled: !1
   };
-  class te {
+  class ne {
     constructor(e) {
       (this.iframeElement = void 0), (this.parentDiv = e);
     }
@@ -245,17 +259,17 @@ let u = !1;
     };
     _sendMessage = (e, t) => {
       this.iframeElement &&
-        q(t) &&
+        G(t) &&
         (function (e) {
           let t = Date.now();
           return new Promise(function a(n, r) {
-            I && (w || P) ? n(w || P) : e && Date.now() - t >= e ? r(new Error("timeout")) : setTimeout(a.bind(this, n, r), 30);
+            y && (b || R) ? n(b || R) : e && Date.now() - t >= e ? r(new Error("timeout")) : setTimeout(a.bind(this, n, r), 30);
           });
         })(1e6).then((a) => a && this.iframeElement.contentWindow.postMessage(e, t));
     };
     sendStartupConfigs = (e, a) => {
       this._sendMessage(
-        { type: "nativeConfigs", nativeConfigs: ee, extUrl: encodeURI(e), returnParamsUrl: t.getItem("payPalUrl"), isInstallTypeUpsell: u },
+        { type: "nativeConfigs", nativeConfigs: ae, extUrl: encodeURI(e), returnParamsUrl: t.getItem("payPalUrl"), isInstallTypeUpsell: p },
         a
       );
     };
@@ -268,9 +282,9 @@ let u = !1;
           acceptRanges: n,
           handShakeTime: t,
           type: e,
-          isFrictionlessEnabled: ee.isFrictionlessEnabled,
+          isFrictionlessEnabled: ae.isFrictionlessEnabled,
           isReloadOrBackForward: o,
-          isMimeHandled: P
+          isMimeHandled: R
         },
         s
       );
@@ -301,23 +315,26 @@ let u = !1;
     postLog = (e, t, a, n, r) => {
       this._sendMessage({ type: e, reqId: t, message: a, error: n }, r);
     };
+    sendCertificateValidationResponse = (e, t) => {
+      this._sendMessage({ type: "certificateValidationResponse", response: e }, t);
+    };
   }
-  function ae(t, a) {
+  function re(t, a) {
     try {
-      (S = void 0 !== S ? S : "false" !== e.getItem("logAnalytics") && "false" !== e.getItem("ANALYTICS_OPT_IN_ADMIN")),
-        S &&
-          (v && f
-            ? v.postLog("log", _, t, a, f.origin)
+      (E = void 0 !== E ? E : "false" !== e.getItem("logAnalytics") && "false" !== e.getItem("ANALYTICS_OPT_IN_ADMIN")),
+        E &&
+          (S && h
+            ? S.postLog("log", L, t, a, h.origin)
             : setTimeout(() => {
-                v && f && v.postLog("log", _, t, a, f.origin);
+                S && h && S.postLog("log", L, t, a, h.origin);
               }, 500));
     } catch (e) {}
   }
-  function ne() {
+  function ie() {
     let e;
-    return (e = P ? h : window.location.href), e;
+    return (e = R ? I : window.location.href), e;
   }
-  function re(t, a, n, r, i) {
+  function se(t, a, n, r, i) {
     i &&
       t.forEach((e) => {
         n.has(e) && a.searchParams.append(e, n.get(e));
@@ -327,7 +344,7 @@ let u = !1;
           "" !== e.getItem(t) && a.searchParams.append(t, e.getItem(t));
         });
   }
-  const ie = (a, n, r = "localStorage") => {
+  const oe = (a, n, r = "localStorage") => {
       if (n) {
         const i = "localStorage" === r ? e.getItem(a) : t.getItem(a);
         let s;
@@ -335,61 +352,64 @@ let u = !1;
           "localStorage" === r ? e.setItem(a, { tabsInfo: s }) : t.setItem(a, { tabsInfo: s });
       }
     },
-    se = () => {
+    ce = () => {
       try {
         !(function () {
-          const e = ne();
+          const e = ie();
+          if (e.indexOf("newSignIn=1") > -1) return;
           if (e.indexOf("access_token") > -1 && a.getItem("signInSource")) {
             const t = a.getItem("csrf"),
               n = r.parseCSRF(new URL(e));
-            a.removeItem("csrf"), (!t || !n || n !== t) && (j("DCBrowserExt:Viewer:User:Error:NonMatchingCsrfToken:FailedToLogin"), K());
+            a.removeItem("csrf"), (!t || !n || n !== t) && (J("DCBrowserExt:Viewer:User:Error:NonMatchingCsrfToken:FailedToLogin"), Z());
           }
         })(),
           (function () {
             try {
-              let e = ne();
-              e &&
-                e.indexOf("#") > -1 &&
-                (r.signInAnalyticsLogging(e),
-                r.checkSignInFromEditVerbPaywall(e),
-                (e = e.split("#")[0]),
-                P ? (h = e) : (window.location.href = e));
+              let e = ie();
+              e.indexOf("newSignIn=1") > -1 && r.saveAccessToken(e),
+                e &&
+                  e.indexOf("#") > -1 &&
+                  (r.signInAnalyticsLogging(e),
+                  r.checkSignInFromEditVerbPaywall(e),
+                  (e = e.split("#")[0]),
+                  R ? (I = e) : ((window.location.hash = e), history.replaceState(null, document.title, e)));
             } catch (e) {}
           })();
         const n = window.document.getElementById("Adobe-dc-view");
-        P || (g = N("clen") || -1), (v = new te(n));
+        R || (f = H("clen") || -1), (S = new ne(n));
         const s = (() => {
           try {
             const n = e.getItem("cdnUrl"),
               r = new URL(n);
-            if (!q(r.origin)) return ae("Invalid CDN URL detected", "Invalid Origin"), void W();
-            f || (f = r);
+            if (!G(r.origin)) return re("Invalid CDN URL detected", "Invalid Origin"), void q();
+            h || (h = r);
             let i = e.getItem("viewer-locale");
             i || (i = e.getItem("locale"));
             const s = "false" !== e.getItem("logAnalytics"),
               o = "false" !== e.getItem("ANALYTICS_OPT_IN_ADMIN"),
               c = s && o ? "true" : o ? "optinOff" : "gpoOff",
               l = "true" === e.getItem("betaOptOut");
-            r.searchParams.append("locale", m || i),
+            r.searchParams.append("locale", g || i),
               r.searchParams.append("logAnalytics", c),
               r.searchParams.append("callingApp", chrome.runtime.id),
               r.searchParams.append("betaOptOut", l),
-              r.searchParams.append("enableCaretMode", T),
+              r.searchParams.append("enableCaretMode", k),
               t.getItem("signInTp") && r.searchParams.append("touchp", t.getItem("signInTp")),
               r.searchParams.append("rvu", e.getItem("userState")?.rvu ?? null);
-            const d = e.getItem("installType") || "update",
+            const m = e.getItem("installType") || "update",
               u = e.getItem("installSource");
-            r.searchParams.append("version", `${chrome.runtime.getManifest().version}:${d}`),
+            r.searchParams.append("version", `${chrome.runtime.getManifest().version}:${m}`),
               r.searchParams.append("installSource", u),
               r.searchParams.append("storage", JSON.stringify(e.getItem("viewerStorage") || {})),
               "false" === e.getItem("staticFteCoachmarkShown") && r.searchParams.append("showFTECoachmark", "true"),
-              ("true" !== N("googlePrint") && !0 !== R) ||
+              ("true" !== H("googlePrint") && !0 !== C) ||
                 "false" === a.getItem("googleAppsPrint") ||
                 r.searchParams.append("googleAppsPrint", "true"),
               r.searchParams.append("sdp", e.getItem("sdp") ? "1" : "0"),
-              r.searchParams.append("sds", e.getItem("sds") ? "1" : "0");
-            const g = ["dropin!", "provider!", "app!"],
-              p = ["analytics", "logToConsole", "enableLogging", "frictionless", "sessionId", "linearization", "ev", "ao"],
+              r.searchParams.append("sds", e.getItem("sds") ? "1" : "0"),
+              r.searchParams.append("nu", d());
+            const p = ["dropin!", "provider!", "app!"],
+              f = ["analytics", "logToConsole", "enableLogging", "frictionless", "sessionId", "linearization", "ev", "ao"],
               w = [
                 "isReadAloudEnable",
                 "isDeskTop",
@@ -403,54 +423,57 @@ let u = !1;
                 "fsm",
                 "ao",
                 "allownft",
-                "ip"
+                "ip",
+                "rate",
+                "genAI"
               ];
-            let I;
+            let b;
             e.getItem("env"),
-              (I = P ? new URLSearchParams(new URL(h).search) : new URLSearchParams(window.location.search)),
-              re(p, r, I, !1, !0),
-              re(w, r, I, !0, !1);
-            let b = r.href;
-            return (
-              g.forEach((e) => {
-                I.forEach((t, a) => {
-                  a.startsWith(e) && (b = b + "&" + a + "=" + t);
-                });
-              }),
-              b
-            );
+              (b = R ? new URLSearchParams(new URL(I).search) : new URLSearchParams(window.location.search)),
+              se(f, r, b, !1, !0),
+              se(w, r, b, !0, !1);
+            let y = r.href;
+            p.forEach((e) => {
+              b.forEach((t, a) => {
+                a.startsWith(e) && (y = y + "&" + a + "=" + t);
+              });
+            }),
+              a.getItem("dialog!dropin") && (y = y + "&dialog!dropin=inapp-checkout" + t.getItem("payPalUrl"));
+            const v = a.getItem("access_token");
+            return a.removeItem("access_token"), `${y}${v ? `/#${v}` : ""}`;
           } catch (e) {
-            j("DCBrowserExt:Viewer:Iframe:Creation:Failed"), W();
+            J("DCBrowserExt:Viewer:Iframe:Creation:Failed"), q();
           }
         })();
-        v.createIframe(s),
+        S.createIframe(s),
+          l(),
           window.addEventListener("message", (a) => {
             !a.data ||
-              !q(a.origin) ||
-              b ||
+              !G(a.origin) ||
+              v ||
               ("hsready" !== a.data.type && "ready" !== a.data.type) ||
-              ((b = !0),
-              (y = new Date().getTime()),
-              (_ = a.data.requestId),
+              ((v = !0),
+              (_ = new Date().getTime()),
+              (L = a.data.requestId),
               "on" === a.data.killSwitch
-                ? (j("DCBrowserExt:Viewer:KillSwitch:Turned:On"),
+                ? (J("DCBrowserExt:Viewer:KillSwitch:Turned:On"),
                   e.setItem("pdfViewer", "false"),
                   i.setViewerState("disabled"),
                   e.setItem("killSwitch", "on"),
-                  P
-                    ? W(!0)
+                  R
+                    ? q(!0)
                     : setTimeout(() => {
-                        window.location.href = h;
+                        window.location.href = I;
                       }, 200))
-                : e.getItem("killSwitch") && (j("DCBrowserExt:Viewer:KillSwitch:Turned:Off"), e.removeItem("killSwitch")),
+                : e.getItem("killSwitch") && (J("DCBrowserExt:Viewer:KillSwitch:Turned:Off"), e.removeItem("killSwitch")),
               t.getItem("signInTp") && t.removeItem("signInTp"));
           });
       } catch (e) {
-        ae("Error create Iframe", e);
+        re("Error create Iframe", e);
       }
     };
-  function oe(e) {
-    if (p) return p;
+  function le(e) {
+    if (w) return w;
     let t = e;
     try {
       const a = e
@@ -462,11 +485,11 @@ let u = !1;
       const r = n.length - 4;
       (n.length < 4 || n.toLowerCase().indexOf(".pdf") !== r) && (t += ".pdf");
     } catch (e) {
-      ae("Error in getFileNameFromURL", e);
+      re("Error in getFileNameFromURL", e);
     }
     return t;
   }
-  function ce(e, t) {
+  function de(e, t) {
     return new Promise((a, n) => {
       const r = new Date().getTime(),
         i = new XMLHttpRequest();
@@ -476,10 +499,10 @@ let u = !1;
         (i.onload = () => {
           if (4 === i.readyState && 206 === i.status) a({ buffer: i.response, startTime: r, endTime: new Date().getTime() });
           else if (200 === i.status) {
-            const e = { status: i.status, statusText: i.statusText, fileSize: g, rangeBufferSize: i.response.byteLength, range: t };
+            const e = { status: i.status, statusText: i.statusText, fileSize: f, rangeBufferSize: i.response.byteLength, range: t };
             n({ message: "Unexpected response to get file buffer range", error: e });
           } else {
-            const e = { status: i.status, statusText: i.statusText, fileSize: g, range: t };
+            const e = { status: i.status, statusText: i.statusText, fileSize: f, range: t };
             n({ message: "Invalid response to get file buffer ranger", error: e });
           }
         }),
@@ -492,7 +515,7 @@ let u = !1;
         i.send();
     });
   }
-  function le(e, t) {
+  function me(e, t) {
     "PDF" ===
       (function (e) {
         if (e)
@@ -503,7 +526,7 @@ let u = !1;
             return "";
           }
         return "";
-      })(e) && (w = !0);
+      })(e) && (b = !0);
     const a = new XMLHttpRequest();
     a.open("GET", e),
       (a.responseType = "arraybuffer"),
@@ -513,20 +536,20 @@ let u = !1;
       }),
       a.send(null);
   }
-  async function de() {
+  async function ue() {
     try {
       const e = a.getItem("bufferTabId");
       if (e) {
         const t = await o.getDataFromIndexedDB(e);
-        if (t && t.fileBuffer) return (w = !0), { buffer: t.fileBuffer };
+        if (t && t.fileBuffer) return (b = !0), { buffer: t.fileBuffer };
       }
     } catch (e) {}
     return {};
   }
-  function me(e, t, a) {
+  function ge(e, t, a) {
     return new Promise((n, r) => {
-      const i = h;
-      if (i.startsWith("file://")) return void le(i, n);
+      const i = I;
+      if (i.startsWith("file://")) return void me(i, n);
       const s = new XMLHttpRequest();
       var o;
       s.open("GET", i),
@@ -549,13 +572,13 @@ let u = !1;
                   return !1;
                 })(o)
               )
-                return ae("Fall back to native - not pdf from headers"), W();
-              w = !0;
+                return re("Fall back to native - not pdf from headers"), q();
+              b = !0;
             }
           })),
         (s.onprogress = (function (e, t) {
           return function (a) {
-            a.lengthComputable && ((g = a.total), e.sendProgress("progress", a.total, a.loaded, t));
+            a.lengthComputable && ((f = a.total), e.sendProgress("progress", a.total, a.loaded, t));
           };
         })(e, a)),
         (s.onload = () => {
@@ -575,28 +598,28 @@ let u = !1;
         s.send();
     });
   }
-  function ue(e, t) {
-    j(`DCBrowserExt:Viewer:SignIn:AdobeYolo:${e}:clicked`),
+  function pe(e, t) {
+    J(`DCBrowserExt:Viewer:SignIn:AdobeYolo:${e}:clicked`),
       chrome.tabs.query({ active: !0, currentWindow: !0 }, function (e) {
         var t = e[0] && e[0].id;
-        ie("adobeYoloTabsInfo", t, "sessionStorage");
+        oe("adobeYoloTabsInfo", t, "sessionStorage");
       }),
-      H({ main_op: "launchJumpUrl", details: { source: e, userGuid: t } }, (t) => {
-        v._sendMessage({ type: "adobeYoloJumpResponse", response: t, source: e }, f.origin);
+      z({ main_op: "launchJumpUrl", details: { source: e, userGuid: t } }, (t) => {
+        S._sendMessage({ type: "adobeYoloJumpResponse", response: t, source: e }, h.origin);
       });
   }
-  function ge(e, t, ...a) {
-    P
-      ? o.storeBufferAndCall(e, t, D, ...a)
+  function fe(e, t, ...a) {
+    R
+      ? o.storeBufferAndCall(e, t, U, ...a)
       : chrome.tabs.getCurrent(function (n) {
           o.storeBufferAndCall(e, t, n.id, ...a);
         });
   }
-  function fe(e) {
-    v._sendMessage({ type: "redirectToAcrobatWeb", response: e }, f.origin);
+  function he(e) {
+    S._sendMessage({ type: "redirectToAcrobatWeb", response: e }, h.origin);
   }
-  function pe(t, a, n = !1) {
-    if (P) {
+  function we(t, a, n = !1) {
+    if (R) {
       const r = e.getItem("recentFilesData");
       if (r && r.isSyncedWithHistory) {
         const e = r.recentFilesPath ? [...r.recentFilesPath] : [],
@@ -622,8 +645,8 @@ let u = !1;
         t.sendRecentUrl(!0, i, a, n);
       });
   }
-  function he(r, i) {
-    switch (i.data.main_op) {
+  function Ie(r, c) {
+    switch (c.data.main_op) {
       case "open_in_acrobat":
       case "fillsign":
         !(async function (t, a) {
@@ -639,71 +662,71 @@ let u = !1;
             r.dataURL = URL.createObjectURL(e);
           }
           if (
-            ((U = function (e) {
+            ((T = function (e) {
               "fillsign" === a.data.main_op
                 ? t.openInAcrobatResponse("FILLSIGN_IN_DESKTOP_APP", e, a.origin)
                 : t.openInAcrobatResponse("OPEN_IN_DESKTOP_APP", e, a.origin),
-                ae(`Open In Acrobat - (${a.data.main_op}) response- ${e}`);
+                re(`Open In Acrobat - (${a.data.main_op}) response- ${e}`);
             }),
             e.getItem("isSharepointFeatureEnabled"))
           )
-            if (ee.isSharePointURL) (r.workflow_name = "SharePoint"), (r.isSharePointURL = !0), H(r, U);
+            if (ae.isSharePointURL) (r.workflow_name = "SharePoint"), (r.isSharePointURL = !0), z(r, T);
             else {
               const e = await n.checkForSharePointURL(r.url);
-              (r.isSharePointURL = e), e && (r.workflow_name = "SharePoint"), H(r, U);
+              (r.isSharePointURL = e), e && (r.workflow_name = "SharePoint"), z(r, T);
             }
-          else H(r, U);
-        })(r, i);
+          else z(r, T);
+        })(r, c);
         break;
       case "complete_conversion":
-        j("DCBrowserExt:Viewer:Verbs:Conversion:Redirection"),
+        J("DCBrowserExt:Viewer:Verbs:Conversion:Redirection"),
           (function (e) {
             const t = {};
-            (t.main_op = e.data.main_op), (t.conversion_url = decodeURIComponent(e.data.conversion_url)), (t.timeStamp = Date.now()), H(t);
-          })(i);
+            (t.main_op = e.data.main_op), (t.conversion_url = decodeURIComponent(e.data.conversion_url)), (t.timeStamp = Date.now()), z(t);
+          })(c);
         break;
       case "updateLocale":
-        j("DCBrowserExt:Viewer:User:Locale:Updated"),
-          e.setItem("viewer-locale", i.data.locale),
-          H({ main_op: "localeChange", locale: i.data.locale }),
+        J("DCBrowserExt:Viewer:User:Locale:Updated"),
+          e.setItem("viewer-locale", c.data.locale),
+          z({ main_op: "localeChange", locale: c.data.locale }),
           chrome.tabs.reload();
         break;
       case "setInitialLocale":
-        let c = !1;
-        e.getItem("viewer-locale") || ((c = !0), e.setItem("viewer-locale", i.data.locale), j("DCBrowserExt:Viewer:User:Locale:Initial")),
-          i.data.reloadReq && c && chrome.tabs.reload();
+        let l = !1;
+        e.getItem("viewer-locale") || ((l = !0), e.setItem("viewer-locale", c.data.locale), J("DCBrowserExt:Viewer:User:Locale:Initial")),
+          c.data.reloadReq && l && chrome.tabs.reload();
         break;
       case "error-sign-in":
         !(function (e) {
           const t = n.uuid();
           a.setItem("csrf", t);
           const r = new URL(e),
-            i = G();
+            i = Y();
           (i.hash = i.hash + `state=${t}&signInError=true`),
             r.searchParams.set("redirect_uri", i),
             chrome.tabs.update({ url: r.href, active: !0 });
-        })(i.data.url);
+        })(c.data.url);
         break;
       case "deleteViewerLocale":
         e.getItem("viewer-locale") && (e.removeItem("viewer-locale"), chrome.tabs.reload());
         break;
       case "signin":
-        j("DCBrowserExt:Viewer:Ims:Sign:In"),
-          a.setItem("signInSource", i.data.source),
-          j(`DCBrowserExt:Viewer:Ims:Sign:In:${i.data.source}`),
-          ge(i.data.fileBuffer, Y, { touchpoint: i.data.tp });
+        J("DCBrowserExt:Viewer:Ims:Sign:In"),
+          a.setItem("signInSource", c.data.source),
+          J(`DCBrowserExt:Viewer:Ims:Sign:In:${c.data.source}`),
+          fe(c.data.fileBuffer, X, { touchpoint: c.data.tp });
         break;
       case "googleSignIn":
-        j("DCBrowserExt:Viewer:Ims:Sign:In"),
-          j(`DCBrowserExt:Viewer:Ims:Sign:In:${i.data.source}`),
-          a.setItem("signInSource", i.data.source),
-          ge(i.data.fileBuffer, Q, i.data.application);
+        J("DCBrowserExt:Viewer:Ims:Sign:In"),
+          J(`DCBrowserExt:Viewer:Ims:Sign:In:${c.data.source}`),
+          a.setItem("signInSource", c.data.source),
+          fe(c.data.fileBuffer, te, c.data.application);
         break;
       case "signup":
-        j("DCBrowserExt:Viewer:Ims:Sign:Up"),
-          a.setItem("signUpSource", i.data.source),
-          j(`DCBrowserExt:Viewer:Ims:Sign:Up:${i.data.source}`),
-          ge(i.data.fileBuffer, Y, { sign_up: !0 });
+        J("DCBrowserExt:Viewer:Ims:Sign:Up"),
+          a.setItem("signUpSource", c.data.source),
+          J(`DCBrowserExt:Viewer:Ims:Sign:Up:${c.data.source}`),
+          fe(c.data.fileBuffer, X, { sign_up: !0 });
         break;
       case "reload_viewer":
         chrome.tabs.reload();
@@ -715,89 +738,89 @@ let u = !1;
             e.returnUrlParams && t.setItem("rtParams", e.returnUrlParams.toString()),
               "_blank" === e.target ? chrome.tabs.create({ url: a.href, active: !0 }) : chrome.tabs.update({ url: a.href, active: !0 });
           }
-        })(i.data);
+        })(c.data);
         break;
       case "upsell_remove_urlParams":
-        t.removeItem("rtParams"), t.removeItem("payPalUrl");
+        t.removeItem("rtParams"), t.removeItem("payPalUrl"), a.removeItem("dialog!dropin");
         break;
       case "fetchLocalRecents":
-        const l = new URL(e.getItem("cdnUrl")).origin;
+        const d = new URL(e.getItem("cdnUrl")).origin;
         chrome.permissions.contains({ permissions: ["history"], origins: ["https://www.google.com/"] }, (e) => {
-          if (i.data.fetchRecents) {
-            const t = i.data.showOverlay;
-            e || P
-              ? pe(v, l, t)
-              : (j("DCBrowserExt:Permissions:History:DialogTriggered"),
+          if (c.data.fetchRecents) {
+            const t = c.data.showOverlay;
+            e || R
+              ? we(S, d, t)
+              : (J("DCBrowserExt:Permissions:History:DialogTriggered"),
                 chrome.permissions.request({ permissions: ["history"], origins: ["https://www.google.com/"] }, (e) => {
                   e
-                    ? (j("DCBrowserExt:Permissions:History:Granted"), pe(v, l, t))
-                    : (j("DCBrowserExt:Permissions:History:Denied"), v.sendRecentUrl(!1, null, l));
+                    ? (J("DCBrowserExt:Permissions:History:Granted"), we(S, d, t))
+                    : (J("DCBrowserExt:Permissions:History:Denied"), S.sendRecentUrl(!1, null, d));
                 }));
-          } else e || P ? v.sendRecentUrl(!0, null, l) : v.sendRecentUrl(!1, null, l);
+          } else e || R ? S.sendRecentUrl(!0, null, d) : S.sendRecentUrl(!1, null, d);
         });
         break;
       case "socialSignIn":
-        j("DCBrowserExt:Viewer:Ims:Sign:In"),
-          j(`DCBrowserExt:Viewer:Ims:Sign:In:${i.data.source}`),
-          a.setItem("signInSource", i.data.source),
-          ge(i.data.fileBuffer, Z, i.data.idp_token);
+        J("DCBrowserExt:Viewer:Ims:Sign:In"),
+          J(`DCBrowserExt:Viewer:Ims:Sign:In:${c.data.source}`),
+          a.setItem("signInSource", c.data.source),
+          fe(c.data.fileBuffer, ee, c.data.idp_token);
         break;
       case "openRecentFileLink":
         const m = {};
-        (m.main_op = i.data.main_op), (m.recent_file_url = decodeURIComponent(i.data.recent_file_url)), H(m);
+        (m.main_op = c.data.main_op), (m.recent_file_url = decodeURIComponent(c.data.recent_file_url)), z(m);
         break;
       case "userSubscriptionData":
-        if (P) {
+        if (R) {
           const e = {};
-          (e.eventType = i.data.main_op),
-            (e.userSubscriptionData = i.data.userSubscriptionData),
-            (e.data = i.data),
-            (e.main_op = i.data.main_op);
-          H(e, function (e) {
-            e && "showUninstallPopUp" === e.main_op && v._sendMessage({ type: "showUninstallPopUp" }, f.origin);
+          (e.eventType = c.data.main_op),
+            (e.userSubscriptionData = c.data.userSubscriptionData),
+            (e.data = c.data),
+            (e.main_op = c.data.main_op);
+          z(e, function (e) {
+            e && "showUninstallPopUp" === e.main_op && S._sendMessage({ type: "showUninstallPopUp" }, h.origin);
           });
         }
         break;
       case "uninstall":
-        P && H({ main_op: "uninstall", defaultUrl: h });
+        R && z({ main_op: "uninstall", defaultUrl: I });
         break;
       case "submit_form":
-        fetch(i.data.resource, i.data.options)
+        fetch(c.data.resource, c.data.options)
           .then((e) => {
-            v.sendSubmitFormResponse(e.ok, i.origin);
+            S.sendSubmitFormResponse(e.ok, c.origin);
           })
           .catch(() => {
-            v.sendSubmitFormResponse(!1, i.origin);
+            S.sendSubmitFormResponse(!1, c.origin);
           });
         break;
       case "ownerShipExperimentShown":
         e.removeItem("defaultOwnerShipExperiment");
         break;
       case "openAcrobatOptions":
-        chrome.runtime.openOptionsPage(), j(`DCBrowserExt:Viewer:ManagePref:clicked:${i.data.source}`);
+        chrome.runtime.openOptionsPage(), J(`DCBrowserExt:Viewer:ManagePref:clicked:${c.data.source}`);
         break;
       case "encryptedWriteFile":
-        ({ secureString: k } = i.data), ye(document.title);
+        ({ secureString: A } = c.data), _e(document.title);
         break;
       case "launchJump":
-        ge(i.data.fileBuffer, ue, i.data.source, i.data.userGuid);
+        fe(c.data.fileBuffer, pe, c.data.source, c.data.userGuid);
         break;
       case "saveAsEvent":
         !(async function (e) {
           try {
-            if ((j("DCBrowserExt:Viewer:SaveToMyComputer:" + (B ? "fileHandlerExist" : "fileHandlerNotExist")), B)) x = !1;
+            if ((J("DCBrowserExt:Viewer:SaveToMyComputer:" + (B ? "fileHandlerExist" : "fileHandlerNotExist")), B)) F = !1;
             else {
               const t = {
                 suggestedName: `${e.fileName}.pdf`,
                 types: [{ description: "PDF file", accept: { "application/pdf": [".pdf"] } }]
               };
-              (B = await window.showSaveFilePicker(t)), (x = !0), ye(B?.name);
+              (B = await window.showSaveFilePicker(t)), (F = !0), _e(B?.name);
             }
-            v._sendMessage({ type: "newSaveToLocalResponse", newAsset: x, updatedFileName: B?.name }, f.origin);
+            S._sendMessage({ type: "newSaveToLocalResponse", newAsset: F, updatedFileName: B?.name }, h.origin);
           } catch (e) {
-            (B = null), ae("Save As Handler Error", e), v._sendMessage({ type: "newSaveToLocalResponse", error: e }, f.origin);
+            (B = null), re("Save As Handler Error", e), S._sendMessage({ type: "newSaveToLocalResponse", error: e }, h.origin);
           }
-        })(i.data);
+        })(c.data);
         break;
       case "downloadFile":
         !(async function (e) {
@@ -806,9 +829,9 @@ let u = !1;
               a = URL.createObjectURL(t);
             await chrome.downloads.download({ url: a, filename: `${e.fileName}.pdf`, conflictAction: "uniquify", saveAs: !0 });
           } catch (e) {
-            ae("downloadFile error", e), v._sendMessage({ type: "downloadFileError" }, f.origin);
+            re("downloadFile error", e), S._sendMessage({ type: "downloadFileError" }, h.origin);
           }
-        })(i.data);
+        })(c.data);
         break;
       case "rememberSaveLocationPreference":
         !(function (t) {
@@ -816,29 +839,29 @@ let u = !1;
           t.cloudStorage && !e.getItem("selectedSaveLocationPreference")
             ? (a = "PreferenceMigrationSuccess")
             : t.cloudStorage || (a = "SaveDialogRememberMe");
-          a && j(`DCBrowserExt:Viewer:ChangeSaveLocationPreference:${a}`);
+          a && J(`DCBrowserExt:Viewer:ChangeSaveLocationPreference:${a}`);
           (!t.cloudStorage || (t.cloudStorage && !e.getItem("selectedSaveLocationPreference"))) &&
             (e.setItem("saveLocation", t.saveLocation),
             e.setItem("selectedSaveLocationPreference", !0),
-            H({
+            z({
               panel_op: "options_page",
               requestType: s.OPTIONS_UPDATE_TOGGLE,
               toggleId: "saveLocationPreferenceTitle",
               toggleVal: t.saveLocation
             }));
-        })(i.data);
+        })(c.data);
         break;
       case "appRenderingDone":
-        Ce();
+        xe();
         break;
       case "saveFileBuffer":
-        ge(i.data.fileBuffer);
+        fe(c.data.fileBuffer);
         break;
       case "deleteFileBuffer":
-        const u = a.getItem("bufferTabId");
-        u && o.deleteDataFromIndexedDB(u), a.removeItem("bufferTabId");
+        const g = a.getItem("bufferTabId");
+        g && o.deleteDataFromIndexedDB(g), a.removeItem("bufferTabId");
       case "appRenderingDone":
-        Ce();
+        xe();
         break;
       case "writeToLocalSavedFile":
         !(async function (e) {
@@ -846,54 +869,57 @@ let u = !1;
             const t = await B.createWritable();
             await t.write(e.fileBuffer),
               await t.close(),
-              v._sendMessage({ type: "newSaveToLocalResponse", newAsset: x, updatedFileName: B?.name, isFileWriteStage: !0 }, f.origin);
+              S._sendMessage({ type: "newSaveToLocalResponse", newAsset: F, updatedFileName: B?.name, isFileWriteStage: !0 }, h.origin);
           } catch (e) {
             (B = null),
-              ae("Write to Local File Error", e),
-              v._sendMessage({ type: "newSaveToLocalResponse", error: e, isFileWriteStage: !0 }, f.origin);
+              re("Write to Local File Error", e),
+              S._sendMessage({ type: "newSaveToLocalResponse", error: e, isFileWriteStage: !0 }, h.origin);
           }
-        })(i.data);
+        })(c.data);
         break;
       case "bookmarkWeb":
-        d(i.data.url, fe, j);
+        u(c.data.url, he, J);
+        break;
+      case "validateEdgeCertificateForDigitalSignature":
+        i.validateCertificate(c.data).then((e) => S.sendCertificateValidationResponse(e, c.origin));
     }
   }
-  function we(e) {
+  function be(e) {
     try {
       const t = new TextDecoder("utf-8").decode(e.buffer);
       let a = !1;
       -1 != t.indexOf("Linearized 1")
-        ? ((a = !0), j("DCBrowserExt:Viewer:Linearization:Linearized:Version:1"))
+        ? ((a = !0), J("DCBrowserExt:Viewer:Linearization:Linearized:Version:1"))
         : -1 != t.indexOf("Linearized")
-        ? j("DCBrowserExt:Viewer:Linearization:Linearized:Version:Other")
-        : j("DCBrowserExt:Viewer:Linearization:Linearized:False"),
-        v._sendMessage({ type: "Linearization", linearized: a }, f.origin);
+        ? J("DCBrowserExt:Viewer:Linearization:Linearized:Version:Other")
+        : J("DCBrowserExt:Viewer:Linearization:Linearized:False"),
+        S._sendMessage({ type: "Linearization", linearized: a }, h.origin);
     } catch (e) {
-      j("DCBrowserExt:Viewer:Linearization:Linearized:Detection:Failed"), ae("Linearization Detection failed", e);
+      J("DCBrowserExt:Viewer:Linearization:Linearized:Detection:Failed"), re("Linearization Detection failed", e);
     }
   }
-  function Ie(t, a, n, r) {
+  function ye(t, a, n, r) {
     n.then((n) => {
       const i = n.downLoadEndTime,
         s = n.buffer;
       n.buffer.byteLength;
-      t.preview("preview", s, g, p, r, i, a.origin),
-        v._sendMessage(
+      t.preview("preview", s, f, w, r, i, a.origin),
+        S._sendMessage(
           {
             type: "NavigationStartTime",
             time: window.performance && window.performance.timing && window.performance.timing.navigationStart
           },
-          f.origin
+          h.origin
         ),
         !0 === e.getItem("isSaveLocationPrefEnabled") &&
-          v._sendMessage({ type: "changeSaveLocationPreference", saveLocation: e.getItem("saveLocation"), onLoad: !0 }, f.origin);
+          S._sendMessage({ type: "changeSaveLocationPreference", saveLocation: e.getItem("saveLocation"), onLoad: !0 }, h.origin);
     })
-      .catch((e) => (j("DCBrowserExt:Viewer:Error:FallbackToNative:FileDownload:Failed"), W()))
+      .catch((e) => (J("DCBrowserExt:Viewer:Error:FallbackToNative:FileDownload:Failed"), q()))
       .finally(() => {
         e.removeItem("sessionStarted");
       });
   }
-  class be {
+  class ve {
     constructor() {
       this.request = { main_op: "analytics" };
     }
@@ -901,29 +927,29 @@ let u = !1;
       this.request.analytics || (this.request.analytics = []), this.request.analytics.push([e]);
     };
     sendAnalytics = () => {
-      H(this.request);
+      z(this.request);
     };
   }
-  function ye(e) {
-    e && (document.title = e + k);
+  function _e(e) {
+    e && (document.title = e + A);
   }
-  const ve = (t, a, n) => {
+  const Se = (t, a, n) => {
       const r = n ? "viewerStorage" : "viewerStorageAsync",
         i = e.getItem(r) || {};
       (i[t] = a), e.setItem(r, i);
     },
-    _e = (t) => {
+    Le = (t) => {
       const a = e.getItem("viewerStorage") || {},
         n = e.getItem("viewerStorageAsync") || {};
       delete a[t], delete n[t], e.setItem("viewerStorage", a), e.setItem("viewerStorageAsync", n);
     };
-  function Se(t, n, r, i) {
+  function Ee(t, n, r, i) {
     return (s) => {
       try {
         if (
           s.data &&
           s.origin &&
-          q(s.origin) &&
+          G(s.origin) &&
           ((e) => {
             try {
               return e && e.source && e.source.top.location.origin === "chrome-extension://" + chrome.runtime.id;
@@ -932,25 +958,25 @@ let u = !1;
             }
           })(s)
         ) {
-          if (s.data.main_op) return he(t, s);
+          if (s.data.main_op) return Ie(t, s);
           switch (s.data.type) {
             case "ready":
               if (
-                (P
+                (R
                   ? (async function (t, n, r, i) {
-                      let s = new be();
-                      I = !0;
-                      const o = h;
-                      document.title = p;
-                      const c = C.getHeaderValue("accept-ranges"),
+                      let s = new ve();
+                      y = !0;
+                      const o = I;
+                      document.title = w;
+                      const c = x.getHeaderValue("accept-ranges"),
                         l = !a.getItem("bufferTabId") && c && "bytes" === c.toLowerCase() ? "true" : "false";
-                      t.sendFileMetaData("metadata", y, g, l, o, p, n.origin, !1),
-                        Pe(),
+                      t.sendFileMetaData("metadata", _, f, l, o, w, n.origin, !1),
+                        Re(),
                         r
                           ? (s.analytics("DCBrowserExt:Viewer:Linearization:Range:Supported"),
                             r
                               .then((e) => {
-                                t.sendInitialBuffer("initialBuffer", e.startTime, e.endTime, e.buffer, n.origin), we(e);
+                                t.sendInitialBuffer("initialBuffer", e.startTime, e.endTime, e.buffer, n.origin), be(e);
                               })
                               .catch((e) => {
                                 t.sendInitialBuffer("initialBuffer", 0, 0, -1, n.origin),
@@ -960,9 +986,9 @@ let u = !1;
                         e.removeItem("isReload"),
                         e.removeItem("isBackForward");
                       const d = window.performance && window.performance.timing && window.performance.timing.navigationStart,
-                        m = de();
+                        m = ue();
                       (await m).buffer
-                        ? Ie(t, n, m, d)
+                        ? ye(t, n, m, d)
                         : (fetch(i.streamUrl)
                             .then((e) => {
                               let a = 0;
@@ -975,7 +1001,7 @@ let u = !1;
                                         .then(({ done: i, value: s }) => {
                                           i
                                             ? r.close()
-                                            : ((a += s.byteLength), t.sendProgress("progress", g, a, n.origin), r.enqueue(s), e());
+                                            : ((a += s.byteLength), t.sendProgress("progress", f, a, n.origin), r.enqueue(s), e());
                                         })
                                         .catch((e) => {
                                           r.error(e);
@@ -987,9 +1013,9 @@ let u = !1;
                             })
                             .then((e) => e.arrayBuffer())
                             .then((a) => {
-                              (g = a.byteLength),
-                                t.preview("preview", a, a.byteLength, p, d, new Date().getTime(), n.origin),
-                                v._sendMessage(
+                              (f = a.byteLength),
+                                t.preview("preview", a, a.byteLength, w, d, new Date().getTime(), n.origin),
+                                S._sendMessage(
                                   {
                                     type: "NavigationStartTime",
                                     time: window.performance && window.performance.timing && window.performance.timing.navigationStart
@@ -997,19 +1023,19 @@ let u = !1;
                                   n.origin
                                 ),
                                 !0 === e.getItem("isSaveLocationPrefEnabled") &&
-                                  v._sendMessage(
+                                  S._sendMessage(
                                     { type: "changeSaveLocationPreference", saveLocation: e.getItem("saveLocation"), onLoad: !0 },
                                     n.origin
                                   );
                             })
-                            .catch((e) => (s.analytics("DCBrowserExt:Viewer:Error:FallbackToNative:FileDownload:Failed"), W())),
+                            .catch((e) => (s.analytics("DCBrowserExt:Viewer:Error:FallbackToNative:FileDownload:Failed"), q())),
                           s.sendAnalytics()),
-                        ae("Viewer loaded");
+                        re("Viewer loaded");
                     })(t, s, r, n)
                   : (function (e, t, n, r, i) {
-                      I = !0;
-                      const s = h,
-                        o = (!a.getItem("bufferTabId") && N("chunk")) || "false",
+                      y = !0;
+                      const s = I,
+                        o = (!a.getItem("bufferTabId") && H("chunk")) || "false",
                         c = window.performance
                           .getEntriesByType("navigation")
                           .map((e) => e.type)
@@ -1018,62 +1044,65 @@ let u = !1;
                           .getEntriesByType("navigation")
                           .map((e) => e.type)
                           .includes("back_forward");
-                      e.sendFileMetaData("metadata", y, g, o, encodeURI(s), p, t.origin, c || l),
-                        Pe(),
+                      e.sendFileMetaData("metadata", _, f, o, encodeURI(s), w, t.origin, c || l),
+                        Re(),
                         n
-                          ? (j("DCBrowserExt:Viewer:Linearization:Range:Supported"),
+                          ? (J("DCBrowserExt:Viewer:Linearization:Range:Supported"),
                             n
                               .then((a) => {
-                                e.sendInitialBuffer("initialBuffer", a.startTime, a.endTime, a.buffer, t.origin), we(a);
+                                e.sendInitialBuffer("initialBuffer", a.startTime, a.endTime, a.buffer, t.origin), be(a);
                               })
                               .catch((a) => {
                                 e.sendInitialBuffer("initialBuffer", 0, 0, -1, t.origin),
-                                  j("DCBrowserExt:Viewer:Error:Linearization:InitialBuffer:Failed");
+                                  J("DCBrowserExt:Viewer:Error:Linearization:InitialBuffer:Failed");
                               }))
-                          : (j("DCBrowserExt:Viewer:Linearization:Range:Not:Supported"),
+                          : (J("DCBrowserExt:Viewer:Linearization:Range:Not:Supported"),
                             e.sendInitialBuffer("initialBuffer", 0, 0, -1, t.origin)),
-                        Ie(e, t, r, i),
-                        ae("Viewer loaded");
+                        ye(e, t, r, i),
+                        re("Viewer loaded");
                     })(t, s, r, n, i),
-                H({ main_op: "getUserInfoFromAcrobat" }, (e) => {
-                  v._sendMessage({ type: "adobeYoloUserData", ...e }, f.origin);
+                z({ main_op: "getUserInfoFromAcrobat" }, (e) => {
+                  S._sendMessage({ type: "adobeYoloUserData", ...e }, h.origin);
                 }),
                 s.data.visitorID)
               ) {
                 const t = e.getItem("viewerVisitorID");
                 e.setItem("viewerVisitorID", s.data.visitorID),
-                  t && t !== s.data.visitorID && j("DCBrowserExt:Analytics:viewerVisitorID:MCMID:Changed");
+                  t && t !== s.data.visitorID && J("DCBrowserExt:Analytics:viewerVisitorID:MCMID:Changed");
               }
               break;
             case "getFileBufferRange":
               !(function (e, t) {
-                ce({ url: h }, e.data.range)
+                de({ url: I }, e.data.range)
                   .then((a) => {
-                    E || (j("DCBrowserExt:Viewer:Linearization:Range:Called"), (E = !0)),
+                    D || (J("DCBrowserExt:Viewer:Linearization:Range:Called"), (D = !0)),
                       t.sendBufferRanges("bufferRanges", `${e.data.range.start}-${e.data.range.end}`, a.buffer, e.origin);
                   })
                   .catch((a) => {
-                    j("DCBrowserExt:Viewer:Error:Linearization:Range:Failed"),
+                    J("DCBrowserExt:Viewer:Error:Linearization:Range:Failed"),
                       t.sendBufferRanges("bufferRanges", `${e.data.range.start}-${e.data.range.end}`, -1, e.origin);
                   });
               })(s, t);
               break;
             case "previewFailed":
-              L || (j("DCBrowserExt:Viewer:Error:FallbackToNative:Preview:Failed"), (L = !0), W());
+              P || (J("DCBrowserExt:Viewer:Error:FallbackToNative:Preview:Failed"), (P = !0), q());
+              break;
+            case "lastUserGuid":
+              e.setItem("lastUserGuid", s.data.value);
               break;
             case "signin":
-              j("DCBrowserExt:Viewer:Ims:Sign:In"), Y();
+              J("DCBrowserExt:Viewer:Ims:Sign:In"), X();
               break;
             case "signout":
-              j("DCBrowserExt:Viewer:Ims:Sign:Out"),
+              J("DCBrowserExt:Viewer:Ims:Sign:Out"),
                 e.removeItem("viewer-locale"),
                 e.removeItem("userDetailsFetchedTimeStamp"),
                 e.removeItem("discoveryExpiryTime"),
                 e.removeItem("viewer-locale"),
-                ge(s.data.fileBuffer, K);
+                fe(s.data.fileBuffer, Z);
               break;
             case "googleAppsPrintShown":
-              a.setItem("googleAppsPrint", "false"), j("DCBrowserExt:Viewer:GoogleApps:Print:Shown");
+              a.setItem("googleAppsPrint", "false"), J("DCBrowserExt:Viewer:GoogleApps:Print:Shown");
               break;
             case "signInExperimentShown":
               chrome.tabs.query({ active: !0, currentWindow: !0 }, function (t) {
@@ -1096,101 +1125,101 @@ let u = !1;
               e.setItem("betaOptOut", "true"), chrome.tabs.reload();
               break;
             case "updateTitle":
-              ye(s.data.title);
+              _e(s.data.title);
               break;
             case "viewer_set_item":
-              ve(s.data.key, s.data.value, s.data.startup);
+              Se(s.data.key, s.data.value, s.data.startup);
               break;
             case "viewer_remove_item":
-              _e(s.data.key);
+              Le(s.data.key);
           }
         }
       } catch (e) {
-        j("DCBrowserExt:Viewer:Error:MessageHandler:Unknown");
+        J("DCBrowserExt:Viewer:Error:MessageHandler:Unknown");
       }
     };
   }
-  function Le() {
-    if (!b) return j("DCBrowserExt:Viewer:Error:Handshake:TimedOut"), W(), !1;
+  function Pe() {
+    if (!v) return J("DCBrowserExt:Viewer:Error:Handshake:TimedOut"), q(), !1;
   }
-  const Ee = (t) => {
+  const De = (t) => {
     try {
-      const n = C.getHeaderValue("content-length");
-      g = n;
-      const r = C.getHeaderValue("accept-ranges"),
+      const n = x.getHeaderValue("content-length");
+      f = n;
+      const r = x.getHeaderValue("accept-ranges"),
         i = r && "bytes" === r.toLowerCase();
-      (h = t.originalUrl),
-        se(),
-        (p = (function () {
+      (I = t.originalUrl),
+        ce(),
+        (w = (function () {
           let e;
-          const t = C.getHeaderValue("content-disposition");
+          const t = x.getHeaderValue("content-disposition");
           if (t && /\.pdf(["']|$)/i.test(t)) {
             const a = /filename[^;=\n\*]?=((['"]).*?\2|[^;\n]*)/.exec(t);
             null != a && a.length > 1 && (e = a[1].replace(/['"]/g, ""));
           }
-          return e || (e = oe(h)), decodeURIComponent(e);
+          return e || (e = le(I)), decodeURIComponent(e);
         })());
-      const s = { url: h },
+      const s = { url: I },
         o = new URL(e.getItem("cdnUrl"));
-      f || (f = o);
+      h || (h = o);
       let c = null;
-      const l = "false" !== N("linearization") && !a.getItem("bufferTabId");
-      l && i && n > 0 && (c = ce(s, { start: 0, end: 1024 })), window.addEventListener("message", Se(v, t, c)), De(), setTimeout(Le, 25e3);
+      const l = "false" !== H("linearization") && !a.getItem("bufferTabId");
+      l && i && n > 0 && (c = de(s, { start: 0, end: 1024 })), window.addEventListener("message", Ee(S, t, c)), Ue(), setTimeout(Pe, 25e3);
     } catch (e) {
-      ae("InitMimeHandlerScript failed", e), W();
+      re("InitMimeHandlerScript failed", e), q();
     }
   };
-  function Pe() {
+  function Re() {
     if (a.getItem("signInAction")) {
       const e = a.getItem("signInAction");
-      v._sendMessage(
+      S._sendMessage(
         { type: "signInInformation", action: e, source: "signIn" === e ? a.getItem("signInSource") : a.getItem("signUpSource") },
-        f.origin
+        h.origin
       ),
         a.removeItem("signInSource"),
         a.removeItem("signUpSource"),
         a.removeItem("signInAction");
     }
   }
-  async function De() {
+  async function Ue() {
     chrome.storage.onChanged.addListener((t, a) => {
       "local" === a &&
         Object.entries(t).forEach(([t, { newValue: a }]) => {
-          if (("theme" === t && v._sendMessage({ type: "themeChange", theme: a }, f.origin), "ANALYTICS_OPT_IN_ADMIN" === t)) {
+          if (("theme" === t && S._sendMessage({ type: "themeChange", theme: a }, h.origin), "ANALYTICS_OPT_IN_ADMIN" === t)) {
             const t = "false" !== e.getItem("logAnalytics"),
               n = "false" !== a;
-            v._sendMessage({ type: "analyticsTrackingChange", value: t && n }, f.origin);
+            S._sendMessage({ type: "analyticsTrackingChange", value: t && n }, h.origin);
           }
-          "saveLocation" === t && v._sendMessage({ type: "changeSaveLocationPreference", saveLocation: a }, f.origin);
+          "saveLocation" === t && S._sendMessage({ type: "changeSaveLocationPreference", saveLocation: a }, h.origin);
         });
     }),
       await (async function () {
-        return (u = await i.isInstalledViaUpsell()), u;
+        return (p = await i.isInstalledViaUpsell()), p;
       })(),
-      v._sendMessage({ type: "setAsyncStorage", storage: e.getItem("viewerStorageAsync") }, f.origin),
-      H({ main_op: "viewer-startup", url: h, startup_time: Date.now(), viewer: !0 }, (e) => {
-        (ee.isSharePointURL = !!e.isSharePointURL),
-          (ee.isSharePointFeatureEnabled = !!e.isSharePointEnabled),
-          (ee.isFrictionlessEnabled = !!e.isFrictionlessEnabled),
-          (ee.featureFlags = e.featureFlags),
-          (ee.isFillAndSignRegisteryEnabled = e.isFillnSignEnabled);
-        const t = G().href;
-        v.sendStartupConfigs(t, f.origin);
+      S._sendMessage({ type: "setAsyncStorage", storage: e.getItem("viewerStorageAsync") }, h.origin),
+      z({ main_op: "viewer-startup", url: I, startup_time: Date.now(), viewer: !0 }, (e) => {
+        (ae.isSharePointURL = !!e.isSharePointURL),
+          (ae.isSharePointFeatureEnabled = !!e.isSharePointEnabled),
+          (ae.isFrictionlessEnabled = !!e.isFrictionlessEnabled),
+          (ae.featureFlags = e.featureFlags),
+          (ae.isFillAndSignRegisteryEnabled = e.isFillnSignEnabled);
+        const t = Y().href;
+        S.sendStartupConfigs(t, h.origin);
       }),
-      H({ main_op: "get-features&groups", cachePurge: "LAZY" }, (e) => {
-        v._sendMessage(
+      z({ main_op: "get-features&groups", cachePurge: "LAZY" }, (e) => {
+        S._sendMessage(
           { type: "featureGroups", featureGroups: e.featureGroups, featureFlags: e.featureFlags, ffResponse: e.ffResponse },
-          f.origin
+          h.origin
         );
       }),
-      P &&
-        (setTimeout(() => ie("loadedTabsInfo", D), 2e3),
+      R &&
+        (setTimeout(() => oe("loadedTabsInfo", U), 2e3),
         (function () {
           const t = e.getItem("recentFilesData");
           if (t && t.isSyncedWithHistory) {
             const a = t.recentFilesPath ? [...t.recentFilesPath] : [];
             1e3 === a.length && a.shift(),
-              a.push({ url: h, filename: p, lastVisited: Date.now() }),
+              a.push({ url: I, filename: w, lastVisited: Date.now() }),
               (t.recentFilesPath = a),
               e.setItem("recentFilesData", t);
           } else
@@ -1203,20 +1232,20 @@ let u = !1;
                     const { url: t, title: r, lastVisitTime: i } = a[e];
                     let s = t;
                     const o = t.split("viewer.html");
-                    o[1] && ((s = z(o[1], "pdfurl")), n.push({ url: s, filename: r, lastVisited: i }));
+                    o[1] && ((s = W(o[1], "pdfurl")), n.push({ url: s, filename: r, lastVisited: i }));
                   }
-                  n.push({ url: h, filename: p, lastVisited: Date.now() }),
+                  n.push({ url: I, filename: w, lastVisited: Date.now() }),
                     e.setItem("recentFilesData", { recentFilesPath: n, isSyncedWithHistory: !0 });
                 });
               else {
                 const t = [];
-                t.push({ url: h, filename: p, lastVisited: Date.now() }),
+                t.push({ url: I, filename: w, lastVisited: Date.now() }),
                   e.setItem("recentFilesData", { recentFilesPath: t, isSyncedWithHistory: !0 });
               }
             });
         })());
   }
-  function Re(e) {
+  function Ce(e) {
     const t = document.getElementById("__acrobatDialog__");
     t && 0 !== t.length
       ? t && "none" === t.style.display && "visible" === e.frame_visibility
@@ -1227,7 +1256,7 @@ let u = !1;
           delete e.base64PDF;
           const a = `message=${encodeURIComponent(JSON.stringify(e))}`;
           e.base64PDF = t;
-          const n = !m && null === e.locale;
+          const n = !g && null === e.locale;
           let r = e.version > 13 || n ? "210px" : "130px",
             i = "block";
           "hidden" === e.frame_visibility && (i = "none");
@@ -1246,27 +1275,27 @@ let u = !1;
             document.getElementById("trefoil_m").appendChild(s);
         })(e);
   }
-  function Ue(e) {
-    H({ main_op: "caret_mode_toggle_handler", toggleCaretModeValue: e });
-  }
   function Te(e) {
+    z({ main_op: "caret_mode_toggle_handler", toggleCaretModeValue: e });
+  }
+  function ke(e) {
     if (
       (e.panel_op &&
         (1 == e.trefoilClick
-          ? (delete e.trefoilUI, delete e.newUI, Re(e))
+          ? (delete e.trefoilUI, delete e.newUI, Ce(e))
           : !0 === e.reload_in_native && (delete e.is_viewer, chrome.tabs.reload(e.tabId))),
       "relay_to_content" !== e.main_op || "dismiss" !== e.content_op)
     )
       return (
         "relay_to_content" === e.main_op && "caret_mode_toggle_handler" === e.content_op
-          ? v._sendMessage({ type: "toggleCaretMode", toggleCaretModeValue: e.status }, f.origin)
+          ? S._sendMessage({ type: "toggleCaretMode", toggleCaretModeValue: e.status }, h.origin)
           : "reset" === e.main_op
-          ? v._sendMessage({ type: "toggleAnalytics", logAnalytics: e.analytics_on }, f.origin)
+          ? S._sendMessage({ type: "toggleAnalytics", logAnalytics: e.analytics_on }, h.origin)
           : "showUninstallPopUp" === e.main_op
-          ? v._sendMessage({ type: "showUninstallPopUp" }, f.origin)
+          ? S._sendMessage({ type: "showUninstallPopUp" }, h.origin)
           : "jumpUrlSuccess" === e.main_op &&
-            (!P || (e.tabInfo && e.tabInfo.includes(D))) &&
-            v._sendMessage({ type: "adobeYoloJumpUrlSuccess" }, f.origin),
+            (!R || (e.tabInfo && e.tabInfo.includes(U))) &&
+            S._sendMessage({ type: "adobeYoloJumpUrlSuccess" }, h.origin),
         !1
       );
     {
@@ -1275,7 +1304,7 @@ let u = !1;
       t && (t.remove(), (t = null));
     }
   }
-  function Ce() {
+  function xe() {
     const t = e.getItem("userState");
     let a = !1;
     if ((void 0 !== t?.rvu && (a = !0), !0 !== t.rvu)) {
@@ -1302,39 +1331,39 @@ let u = !1;
   ),
     void 0 !== chrome.runtime &&
       i.isMimeHandlerAvailable().then(async function (t) {
-        if ((chrome.runtime.onMessage.addListener(Te), t)) {
-          if (((P = !0), !window.navigator.onLine && e.getItem("offlineSupportDisable"))) return void W();
+        if ((chrome.runtime.onMessage.addListener(ke), t)) {
+          if (((R = !0), !window.navigator.onLine && e.getItem("offlineSupportDisable"))) return void q();
           e.getItem("sessionStarted") || (e.setItem("sessionId", n.uuid()), e.setItem("sessionStarted", !0));
           const t = (await i.getStreamInfo()) || {};
-          (C = new l(t.responseHeaders)), (D = t.tabId);
-          let a = await H({ main_op: "check-is-google-print" });
-          (R = a && a.isGooglePrint),
-            (T = await i.caretModeStatus()),
-            i.addCaretModeListener(Ue),
-            H({ main_op: "viewer-preview", startup_time: Date.now(), viewer: !0 }, () => Ee(t));
+          (x = new m(t.responseHeaders)), (U = t.tabId);
+          let a = await z({ main_op: "check-is-google-print" });
+          (C = a && a.isGooglePrint),
+            (k = await i.caretModeStatus()),
+            i.addCaretModeListener(Te),
+            z({ main_op: "viewer-preview", startup_time: Date.now(), viewer: !0 }, () => De(t));
         } else
-          $(),
+          j(),
             (async () => {
               try {
-                if (!O(h)) return void (w = !1);
-                se();
-                const t = N("clen") || -1,
-                  n = N("chunk") || !1,
-                  r = "false" !== N("linearization") && !a.getItem("bufferTabId"),
-                  i = { url: h },
+                if (!$(I)) return void (b = !1);
+                ce();
+                const t = H("clen") || -1,
+                  n = H("chunk") || !1,
+                  r = "false" !== H("linearization") && !a.getItem("bufferTabId"),
+                  i = { url: I },
                   s = new Date().getTime(),
                   o = new URL(e.getItem("cdnUrl"));
-                (p = N("pdffilename") || oe(h)), (document.title = decodeURIComponent(p)), f || (f = o);
+                (w = H("pdffilename") || le(I)), (document.title = decodeURIComponent(w)), h || (h = o);
                 let c = null;
                 const l = r && n && t > 0;
-                l && (c = ce(i, { start: 0, end: 1024 }));
-                const d = de(),
-                  m = (await d).buffer ? d : me(v, l, o.origin);
-                window.addEventListener("message", Se(v, m, c, s)), setTimeout(Le, 25e3);
+                l && (c = de(i, { start: 0, end: 1024 }));
+                const d = ue(),
+                  m = (await d).buffer ? d : ge(S, l, o.origin);
+                window.addEventListener("message", Ee(S, m, c, s)), setTimeout(Pe, 25e3);
               } catch (e) {
-                ae("InitScript failed", e), W();
+                re("InitScript failed", e), q();
               }
             })(),
-            De();
+            Ue();
       });
 })();

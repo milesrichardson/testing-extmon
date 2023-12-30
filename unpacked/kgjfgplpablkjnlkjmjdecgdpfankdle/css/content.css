@@ -132,8 +132,29 @@ a {
   border-radius: 6px;
 }
 #zoom-setting {
+  border-radius: 12px;
+  flex-shrink: 0;
+  max-width: 860px;
+  min-width: 720px;
   overflow: hidden;
   user-select: none;
+}
+#zm-setting-dialog-container #zoom-setting {
+  width: 850px;
+}
+#zm-setting-dialog-container,
+#zm-track-dialog-container {
+  height: 100% !important;
+  left: 0;
+  position: fixed !important;
+  top: 0;
+  width: 100% !important;
+}
+#zm-setting-dialog-container .simplemodal-wrap,
+#zm-track-dialog-container .simplemodal-wrap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .zoom-dialog {
   background-color: #fff;
@@ -162,7 +183,8 @@ a {
 }
 .zoom-dialog .modal-header {
   border-bottom: 1px solid #e5e5e5;
-  min-height: 16.43px;
+  box-sizing: border-box;
+  height: 56px;
   padding: 15px;
 }
 .zoom-dialog .modal-title {
@@ -176,22 +198,21 @@ a {
   font-size: 18px;
   font-weight: 500;
 }
-.zoom-dialog .modal-header .close {
-  margin-top: -2px;
-}
 #zoom-del-toast .close,
-.zoom-dialog button.close {
+.zoom-dialog button.close,
+.zoom-info-tip-pop.zoom-guide .close-btn {
   background-color: transparent;
   border: 0;
   cursor: pointer;
   padding: 0;
 }
 #zoom-del-toast .close,
-.zoom-dialog .close {
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.376 10.74a.625.625 0 0 0 .884.884L8 8.884l2.74 2.74a.625.625 0 0 0 .884-.884L8.884 8l2.74-2.74a.625.625 0 1 0-.884-.884L8 7.116l-2.74-2.74a.625.625 0 1 0-.884.884L7.116 8l-2.74 2.74Z' fill='%23040413'/%3E%3C/svg%3E");
+.zoom-dialog .close,
+.zoom-info-tip-pop.zoom-guide .close-btn {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='a' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='2' y='2' width='12' height='12'%3E%3Cpath d='M3.707 2.293a1 1 0 0 0-1.414 1.414L6.586 8l-4.293 4.293a1 1 0 1 0 1.414 1.414L8 9.414l4.293 4.293a1 1 0 0 0 1.414-1.414L9.414 8l4.293-4.293a1 1 0 0 0-1.414-1.414L8 6.586 3.707 2.293Z' fill='%23000001'/%3E%3C/mask%3E%3Cg mask='url(%23a)'%3E%3Cpath fill='%23131619' d='M0 0h16v16H0z'/%3E%3C/g%3E%3C/svg%3E");
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 16px;
   height: 18px;
   opacity: 0.56;
   position: absolute;
@@ -206,11 +227,13 @@ a {
   width: 22px;
 }
 #zoom-del-toast .close:hover,
-.zoom-dialog .close:hover {
+.zoom-dialog .close:hover,
+.zoom-info-tip-pop.zoom-guide .close-btn:hover {
   opacity: 1;
 }
 #zoom-del-toast .close:active,
-.zoom-dialog .close:active {
+.zoom-dialog .close:active,
+.zoom-info-tip-pop.zoom-guide .close-btn:active {
   opacity: 0.56;
 }
 .zoom-dialog .form-control {
@@ -232,6 +255,8 @@ a {
 }
 .zoom-dialog .modal-footer {
   border-top: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  height: 64px;
   padding: 15px 15px 15px 40px;
   text-align: left;
 }
@@ -249,21 +274,25 @@ a {
   border: 0;
   border-radius: 6px;
   margin: 0 auto;
-  min-width: 720px;
   padding: 0;
   position: relative;
 }
 .zoom-dialog .modal-body {
-  max-height: 400px;
+  max-height: 500px;
   min-height: 150px;
   overflow: auto;
   padding: 15px 25px 15px 40px;
   position: relative;
 }
+#zm-track-dialog-container .zoom-dialog .modal-body {
+  max-height: 360px;
+}
+#zm-setting-dialog-container .zoom-dialog .modal-body {
+  height: calc(80vh - 120px);
+}
 .zoom-dialog .modal-content {
   background-clip: padding-box;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   position: relative;
@@ -1069,8 +1098,7 @@ div.quick-schedule:hover {
 }
 #zoom-setting .jbh .prior-start-cont,
 #zoom-setting .jbh.show-prior .default-text,
-#zoom-setting .pmi .jbh .prior-start-cont,
-#zoom-setting .pmi .meetingchat {
+#zoom-setting .pmi .jbh .prior-start-cont {
   display: none;
 }
 #zoom-setting .jbh label {
@@ -1517,6 +1545,8 @@ div.quick-schedule:hover {
 }
 #zoom-setting .audio.on-e2e-state .radio-inline,
 #zoom-setting .jbh.on-e2e-state,
+#zoom-setting .on-e2e-state .meetingQuery,
+#zoom-setting .on-e2e-state .meetingSummary,
 #zoom-setting .on-e2e-state .qa,
 #zoom-setting .recording.on-e2e-state .recording-radio .radio-inline.cloud,
 #zoom-setting .recording.on-e2e-state.e2e-hide {
@@ -1572,7 +1602,9 @@ div.quick-schedule:hover {
   vertical-align: top;
   width: 126px;
 }
-#zoom-setting .zoom-info-tip-pop {
+#zoom-setting .zoom-info-tip-pop,
+.zoom-info-tip-pop.zoom-bubble-pop-up,
+.zoom-info-tip-pop.zoom-guide {
   word-wrap: break-word;
   background: #fff;
   border-radius: 8px;
@@ -1594,29 +1626,39 @@ div.quick-schedule:hover {
   user-select: none;
   z-index: 100001;
 }
-#zoom-setting .zoom-info-tip-pop.show {
+#zoom-setting .zoom-info-tip-pop.show,
+.zoom-info-tip-pop.zoom-bubble-pop-up.show,
+.zoom-info-tip-pop.zoom-guide.show {
   opacity: 1;
 }
-#zoom-setting .zoom-info-tip-pop .pop-arrow {
+#zoom-setting .zoom-info-tip-pop .pop-arrow,
+.zoom-info-tip-pop.zoom-bubble-pop-up .pop-arrow,
+.zoom-info-tip-pop.zoom-guide .pop-arrow {
   left: 50%;
   position: absolute;
   top: 100%;
 }
 #zoom-setting .zoom-info-tip-pop .pop-arrow:after,
-#zoom-setting .zoom-info-tip-pop .pop-arrow:before {
+#zoom-setting .zoom-info-tip-pop .pop-arrow:before,
+.zoom-info-tip-pop.zoom-bubble-pop-up .pop-arrow:after,
+.zoom-info-tip-pop.zoom-bubble-pop-up .pop-arrow:before,
+.zoom-info-tip-pop.zoom-guide .pop-arrow:after,
+.zoom-info-tip-pop.zoom-guide .pop-arrow:before {
   border: 8px solid transparent;
   border-top-color: #fff;
   content: " ";
   height: 0;
   left: -2px;
   position: absolute;
-  top: 0;
+  top: -1px;
   width: 0;
   z-index: 100;
 }
-#zoom-setting .zoom-info-tip-pop .pop-arrow:after {
+#zoom-setting .zoom-info-tip-pop .pop-arrow:after,
+.zoom-info-tip-pop.zoom-bubble-pop-up .pop-arrow:after,
+.zoom-info-tip-pop.zoom-guide .pop-arrow:after {
   border-top: 8px solid #ddd;
-  top: 1px;
+  top: 0;
   z-index: 99;
 }
 #zoom-setting .requirepwd .checkbox-inline {
@@ -1822,7 +1864,8 @@ div.quick-schedule:hover {
 #zoom-setting .meetingchat.enable-requirereg,
 #zoom-setting .meetingchat.hideme,
 #zoom-setting .on-e2e-state .meetingchat,
-#zoom-setting .pmi .interpretation {
+#zoom-setting .pmi .interpretation,
+#zoom-setting .pmi .meetingchat {
   display: none;
 }
 #zoom-setting .interpretation.beencheck > div {
@@ -1947,4 +1990,20 @@ div.quick-schedule:hover {
 }
 #zoom-setting .meetingchat.beencheck .addExternalUser {
   display: block;
+}
+.zoom-quick-schedule-cont {
+  display: inline-block;
+  position: relative;
+}
+.zoom-quick-schedule-cont .zoom-setting-cont {
+  padding-left: 0;
+}
+.zoom-info-tip-pop.zoom-guide {
+  box-shadow: 0 6px 18px 1px rgba(0, 0, 0, 0.176);
+  box-sizing: border-box;
+  padding: 16px;
+  text-align: left;
+}
+.zoom-info-tip-pop.zoom-bubble-pop-up .pop-arrow {
+  transform: translateX(-7px);
 }

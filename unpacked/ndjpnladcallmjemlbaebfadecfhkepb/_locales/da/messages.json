@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Apps"
+  },
+  "EndOfSupportHeader": {
+    "message": "Slutdato for support for Microsoft 365-udvidelse"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Fra og med den 15. januar 2024 understøttes denne udvidelse ikke længere af Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Besøg supportsiden for denne udvidelse for at få flere oplysninger."
+  },
+  "Support": {
+    "message": "Support"
   }
 }

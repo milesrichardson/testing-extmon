@@ -19,6 +19,7 @@ function FileManager() {
   this.columnsWidth.cloud.playtime = { max: 180, min: 130, curr: 130, viewed: false };
   this.columnsWidth.cloud.extras = { max: 140, min: 93, curr: 93, viewed: true };
   this.columnsWidth.cloud.accessCtrl = { max: 180, min: 130, curr: 130, viewed: true };
+  this.columnsWidth.cloud.fileLoc = { max: 180, min: 130, curr: 130, viewed: false };
 
   this.columnsWidth.makeNameColumnStatic = function () {
     const header = document.querySelector('.files-grid-view.fm .grid-table thead th[megatype="fname"]');
@@ -171,6 +172,19 @@ FileManager.prototype.initFileManager = async function () {
         // We're (re)loading over a s4-page, hold it up.
         await s4load;
       }
+    }
+
+    if (mega.rewindEnabled) {
+      Promise.resolve(M.require("rewind"))
+        .then(() => {
+          if (d) {
+            console.info("REWIND Initialized.", [mega.rewind]);
+          }
+        })
+        .catch((ex) => {
+          reportError(ex);
+          delete mega.rewind;
+        });
     }
   }
 
@@ -747,6 +761,10 @@ FileManager.prototype.initFileManagerUI = function () {
       M.openFolder(M.currentdirid, true).then(reselect.bind(null, 1));
     }
 
+    if (viewValue === 2 && mega.ui.mNodeFilter) {
+      mega.ui.mNodeFilter.resetFilterSelections();
+    }
+
     return false;
   });
 
@@ -782,7 +800,7 @@ FileManager.prototype.initFileManagerUI = function () {
         $(".breadcrumb-dropdown").removeClass("active");
       }
     }
-
+    $(".dropdown-search").addClass("hidden");
     $(".nw-sorting-menu").addClass("hidden");
     $(".colour-sorting-menu").addClass("hidden");
     $(".nw-tree-panel-arrows").removeClass("active");
@@ -847,8 +865,7 @@ FileManager.prototype.initFileManagerUI = function () {
       return;
     }
     var $target = $(e.target);
-    var exclude =
-      ".upgradelink, .campaign-logo, .resellerbuy, .linkified, " + "a.red, a.mailto, a.top-social-button, .notif-help, .vpn-link";
+    var exclude = ".upgradelink, .campaign-logo, .resellerbuy, .linkified, " + "a.red, a.mailto, a.top-social-button, .notif-help";
 
     if ($target.attr("type") !== "file" && !$target.is(exclude) && !$target.parent().is(exclude)) {
       return false;
@@ -1424,7 +1441,7 @@ FileManager.prototype.initContextUI = function () {
 
     // If MEGA Lite mode and the selection contains a folder, hide the regular download option (only zip allowed),
     // otherwise this throws an error about downloading an empty folder then downloads as a zip anyway.
-    if (mega.lite && mega.lite.containsFolderInSelection($.selected)) {
+    if (mega.lite.inLiteMode && mega.lite.containsFolderInSelection($.selected)) {
       $(c + ".download-standart-item").addClass("hidden");
       return false;
     }
@@ -1436,7 +1453,10 @@ FileManager.prototype.initContextUI = function () {
   var safeMoveNodes = function () {
     if (!$(this).hasClass("disabled")) {
       $.hideContextMenu();
-      M.safeMoveNodes(String($(this).attr("id")).replace("fi_", "")).catch(dump);
+      mLoadingSpinner.show("safeMoveNodes");
+      M.safeMoveNodes(String($(this).attr("id")).replace("fi_", ""))
+        .catch(dump)
+        .finally(() => mLoadingSpinner.hide("safeMoveNodes"));
     }
     return false;
   };
@@ -1451,7 +1471,7 @@ FileManager.prototype.initContextUI = function () {
     var c = this.className;
 
     // If MEGA Lite mode and attempting to download a folder(s) by clicking on the Download item, disable the click
-    if (mega.lite && mega.lite.containsFolderInSelection($.selected)) {
+    if (mega.lite.inLiteMode && mega.lite.containsFolderInSelection($.selected)) {
       return false;
     }
 
@@ -2813,7 +2833,13 @@ FileManager.prototype.initUIKeyEvents = function () {
         $.warningCallback(false);
         $.warningCallback = null;
       }
-    } else if (e.keyCode === 13 && ($.msgDialog === "confirmation" || $.msgDialog === "remove")) {
+    } else if (
+      e.keyCode === 13 &&
+      ($.msgDialog === "confirmation" ||
+        $.msgDialog === "remove" ||
+        (($.msgDialog === "warninga" || $.msgDialog === "warningb" || $.msgDialog === "info" || $.msgDialog === "error") &&
+          $("#msgDialog .mega-button").length === 1))
+    ) {
       closeMsg();
       if ($.warningCallback) {
         $.warningCallback(true);
@@ -3385,9 +3411,42 @@ FileManager.prototype.addGridUI = function (refresh) {
       var storedColumnsPreferences = mega.config.get("fmColPrefs");
       if (storedColumnsPreferences !== undefined) {
         var prefs = getFMColPrefs(storedColumnsPreferences);
+        const cgMenu = new Set(["fav", "fname", "size", "type", "timeAd", "extras", "accessCtrl", "playtime"]);
         for (var colPref in prefs) {
           if (Object.prototype.hasOwnProperty.call(prefs, colPref)) {
             M.columnsWidth.cloud[colPref].viewed = prefs[colPref] > 0;
+          }
+          if (cgMenu.has(colPref)) {
+            M.columnsWidth.cloud[colPref].disabled = false;
+          }
+        }
+      } else {
+        // restore default columns (to show/hide columns)
+        const defaultColumnShow = new Set(["fav", "fname", "size", "type", "timeAd", "extras", "accessCtrl"]);
+        const defaultColumnHidden = new Set(["label", "timeMd", "versions", "playtime", "fileLoc"]);
+        for (const col in M.columnsWidth.cloud) {
+          if (defaultColumnShow.has(col)) {
+            M.columnsWidth.cloud[col].viewed = true;
+            M.columnsWidth.cloud[col].disabled = false;
+          } else if (defaultColumnHidden.has(col)) {
+            M.columnsWidth.cloud[col].viewed = false;
+            if (col === "playtime") {
+              M.columnsWidth.cloud[col].disabled = false;
+            }
+          }
+        }
+      }
+
+      if (String(M.currentdirid).startsWith("search")) {
+        // modified column to show for /search (Added link location dir)
+        const searchCol = new Set(["fav", "fname", "size", "timeMd", "fileLoc", "extras"]);
+        for (const col in M.columnsWidth.cloud) {
+          if (searchCol.has(col)) {
+            M.columnsWidth.cloud[col].viewed = true;
+            M.columnsWidth.cloud[col].disabled = false;
+          } else {
+            M.columnsWidth.cloud[col].viewed = false;
+            M.columnsWidth.cloud[col].disabled = true;
           }
         }
       }
@@ -3626,6 +3685,17 @@ FileManager.prototype.addGridUI = function (refresh) {
         }
       }
     }
+  });
+
+  $(".grid-table .grid-file-location").rebind("click.fileLocation", (e) => {
+    const h = $(e.target).closest("tr").attr("id");
+    const node = M.getNodeByHandle(h);
+
+    // Incoming Shares section if shared folder doesn't have parent
+    const target = node.su && (!node.p || !M.d[node.p]) ? "shares" : node.p;
+    M.openFolder(target).then(() => {
+      selectionManager.add_to_selection(node.h, true);
+    });
   });
 
   if (this.currentdirid === "shares") {
@@ -4076,7 +4146,7 @@ FileManager.prototype.onSectionUIOpen = function (id) {
 
   this.currentTreeType = M.treePanelType();
 
-  $(".fm.fm-right-header, .fm-import-donwload-buttons, .gallery-tabs-bl", $fmholder).addClass("hidden");
+  $(".fm.fm-right-header, .fm-import-download-buttons, .gallery-tabs-bl", $fmholder).addClass("hidden");
   $(".fm-import-to-cloudrive, .fm-download-as-zip", $fmholder).off("click");
 
   $fmholder.removeClass("affiliate-program");
@@ -4111,7 +4181,7 @@ FileManager.prototype.onSectionUIOpen = function (id) {
 
       // Remove import and download buttons from the search result.
       if (!String(M.currentdirid).startsWith("search")) {
-        const $btnWrap = $(".fm-import-donwload-buttons", $fmholder).removeClass("hidden");
+        const $btnWrap = $(".fm-import-download-buttons", $fmholder).removeClass("hidden");
 
         megasync.isInstalled((err, is) => {
           if (!err || is) {
@@ -4127,7 +4197,7 @@ FileManager.prototype.onSectionUIOpen = function (id) {
         });
 
         $(".fm-download-as-zip", $btnWrap).rebind("click", () => {
-          eventlog(99766);
+          eventlog(pfcol ? 99954 : 99766);
           // Download the current folder, could be the root or sub folder
           M.addDownload([M.RootID], true);
         });
@@ -4203,7 +4273,7 @@ FileManager.prototype.onSectionUIOpen = function (id) {
     $(".out-shared-grid-view").addClass("hidden");
   }
 
-  if (id !== "shared-with-me" && id !== "out-shares") {
+  if ((id !== "shared-with-me" && id !== "out-shares") || M.search) {
     $(".shares-tabs-bl").addClass("hidden");
   }
 

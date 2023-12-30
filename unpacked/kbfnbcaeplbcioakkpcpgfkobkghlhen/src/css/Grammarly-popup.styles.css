@@ -957,20 +957,21 @@
   width: 100%;
 }
 .diNpB.wmSgc ._OFkc .VF3Bz h3 {
-  font-family: Inter;
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  text-align: left;
 }
-.diNpB.wmSgc ._OFkc .mR_zr p {
+.diNpB.wmSgc ._OFkc .mR_zr p,
+.diNpB.wmSgc ._OFkc .VF3Bz h3 {
   font-family: Inter;
   font-style: normal;
+  text-align: left;
+  color: #000;
+}
+.diNpB.wmSgc ._OFkc .mR_zr p {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  text-align: left;
 }
 .diNpB.wmSgc ._OFkc .mR_zr a {
   display: inline;
@@ -1381,7 +1382,7 @@
 .Coe_1 {
   height: 46px;
   padding-top: 20px;
-  padding-left: 32px;
+  padding-left: 24px;
   color: #15c39a;
   line-height: 19px;
   padding-bottom: 35px;
@@ -1611,7 +1612,7 @@
   background-image: url(chrome-extension://__MSG_@@extension_id__/src/images/61f68838e65679b5/premium.svg);
   background-repeat: no-repeat;
   position: absolute;
-  right: 32px;
+  right: 24px;
   top: 20px;
   margin-top: 0;
 }
@@ -1905,14 +1906,14 @@
 }
 .OeKpx {
   padding-top: 18px;
-  padding-left: 32px;
+  padding-left: 24px;
   -ms-flex-positive: 1;
   flex-grow: 1;
   overflow-y: auto;
   overflow-x: hidden;
 }
 .OeKpx .AwQr3 {
-  width: 284px;
+  width: 300px;
 }
 .OeKpx.JRZMC {
   background: #f9faff;
@@ -1923,7 +1924,8 @@
 }
 .dDIsV {
   color: #4d536e;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 18px;
 }
 .WwKRI {
   width: 100%;
@@ -1931,28 +1933,31 @@
   flex-direction: row;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  margin-top: 10px;
 }
 .WwKRI,
 .WwKRI .aMCQq {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-  align-items: center;
 }
 .WwKRI .aMCQq {
   font-size: 14px;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 7px;
-  margin: 16px 0;
+  line-height: 32px;
+  height: 34px;
 }
 .WwKRI .hfCbo {
   padding-right: 0;
+  height: 34px;
 }
 .wae8U {
   white-space: nowrap;
 }
 .IJam9 {
   padding: 12px 0;
-  max-width: 284px;
+  max-width: 300px;
   margin: auto;
   text-align: center;
   -webkit-user-select: none;
@@ -2130,6 +2135,9 @@
   background: #ffdf80;
   color: #8c5404;
 }
+.Xv6nu.FfbwC.FyfT4 path {
+  stroke: #8c5404;
+}
 .Xv6nu.FfbwC.FyfT4:hover {
   background: #ffc940;
 }
@@ -2156,8 +2164,9 @@
 }
 .GgI7h {
   height: 56px;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 24px;
 }
 .GgI7h,
 .yBxv8 {

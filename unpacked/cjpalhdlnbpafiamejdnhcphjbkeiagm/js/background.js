@@ -27,6 +27,7 @@
 
 import logger from "./logger.js";
 import { FilteringContext } from "./filtering-context.js";
+import { ubologSet } from "./console.js";
 
 import { domainFromHostname, hostnameFromURI, originFromURI } from "./uri-utils.js";
 
@@ -44,9 +45,9 @@ const hiddenSettingsDefault = {
   allowGenericProceduralFilters: false,
   assetFetchTimeout: 30,
   autoCommentFilterTemplate: "{{date}} {{origin}}",
-  autoUpdateAssetFetchPeriod: 60,
+  autoUpdateAssetFetchPeriod: 15,
   autoUpdateDelayAfterLaunch: 105,
-  autoUpdatePeriod: 2,
+  autoUpdatePeriod: 1,
   benchmarkDatasetURL: "unset",
   blockingProfiles: "11111/#F00 11010/#C0F 11001/#00F 00001",
   cacheStorageAPI: "unset",
@@ -64,6 +65,7 @@ const hiddenSettingsDefault = {
   debugAssetsJson: false,
   debugScriptlets: false,
   debugScriptletInjector: false,
+  differentialUpdate: true,
   disableWebAssembly: false,
   extensionUpdateForceReload: false,
   filterAuthorMode: false,
@@ -88,6 +90,7 @@ const hiddenSettingsDefault = {
 if (vAPI.webextFlavor.soup.has("devbuild")) {
   hiddenSettingsDefault.consoleLogLevel = "info";
   hiddenSettingsDefault.trustedListPrefixes += " user-";
+  ubologSet(true);
 }
 
 const userSettingsDefault = {
@@ -176,8 +179,8 @@ const µBlock = {
 
   // Read-only
   systemSettings: {
-    compiledMagic: 56, // Increase when compiled format changes
-    selfieMagic: 56 // Increase when selfie format changes
+    compiledMagic: 57, // Increase when compiled format changes
+    selfieMagic: 57 // Increase when selfie format changes
   },
 
   // https://github.com/uBlockOrigin/uBlock-issues/issues/759#issuecomment-546654501

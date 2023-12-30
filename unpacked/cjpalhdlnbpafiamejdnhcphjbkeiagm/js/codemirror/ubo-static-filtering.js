@@ -548,7 +548,7 @@ function initHints() {
     if (/^(redirect(-rule)?|rewrite)=/.test(matchLeft[0])) {
       return getNetRedirectHints(cursor, matchLeft[0].slice(assignPos + 1), matchRight[0]);
     }
-    if (matchLeft[0].startsWith("domain=")) {
+    if (/^(domain|from)=/.test(matchLeft[0])) {
       return getOriginHints(cursor, line);
     }
   };

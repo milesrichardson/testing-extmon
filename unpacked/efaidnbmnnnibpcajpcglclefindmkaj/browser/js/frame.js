@@ -20,15 +20,16 @@ import { dcLocalStorage as t } from "../../common/local-storage.js";
 import { util as o } from "./content-util.js";
 import { privateApi as n } from "./content-privateApi.js";
 import { OptionPageActions as a, OptionsPageToggles as s } from "../../common/constant.js";
+import { updateExtUserState as i } from "../../common/util.js";
 await t.init();
-const i = t.getItem("appLocale");
-var r,
-  l,
+const r = t.getItem("appLocale");
+var l,
   d,
   _,
-  c = !1,
-  p = !1;
-function E(e, t, n) {
+  c,
+  p = !1,
+  E = !1;
+function f(e, t, n) {
   delete e.trefoilClick,
     delete e.dataURL,
     delete e.click_context,
@@ -39,140 +40,140 @@ function E(e, t, n) {
     delete e.analytics,
     delete e.is_viewer,
     delete e.reload_in_native,
-    l && (clearTimeout(l), (l = null)),
-    t || "dismiss" === e.content_op || "resize_window" === e.content_op || I();
+    d && (clearTimeout(d), (d = null)),
+    t || "dismiss" === e.content_op || "resize_window" === e.content_op || C();
 }
-function f() {
-  l && (clearTimeout(l), (l = null)),
+function T() {
+  d && (clearTimeout(d), (d = null)),
     SETTINGS.IS_ERP_READER ? $(".acrobatMainDiv").stop().css("display", "none") : $(".acrobatMainDiv").stop().css("opacity", 1);
 }
-function T(e) {
+function m(e) {
   return (
     !!SETTINGS.TEST_MODE ||
     !(!e || !e.show_frictionless || (0 != e.version && (1 != e.version || 0 != e.NMHConnStatus) && e.version != SETTINGS.READER_VER))
   );
 }
-function m() {
-  delete r.current_status,
-    delete r.file_path,
-    delete r.domtitle,
-    delete r.timing,
-    delete r.panel_op,
-    delete r.is_pdf,
-    delete r.trefoilUI,
-    delete r.newUI;
+function u() {
+  delete l.current_status,
+    delete l.file_path,
+    delete l.domtitle,
+    delete l.timing,
+    delete l.panel_op,
+    delete l.is_pdf,
+    delete l.trefoilUI,
+    delete l.newUI;
 }
-function u(e, t) {
+function I(e, t) {
   const n = { main_op: "analytics", analytics: [[e, t]] };
   o.messageToMain(n);
 }
-function I() {
-  m(),
-    (r.content_op = "dismiss"),
-    (r.main_op = "relay_to_content"),
-    (r.trefoilUI = !0),
-    "search" === r.frictionless_workflow && 1 == r.show_frictionless && (r.suppress_frictionless = !0),
-    delete r.newUI,
-    E(r);
+function C() {
+  u(),
+    (l.content_op = "dismiss"),
+    (l.main_op = "relay_to_content"),
+    (l.trefoilUI = !0),
+    "search" === l.frictionless_workflow && 1 == l.show_frictionless && (l.suppress_frictionless = !0),
+    delete l.newUI,
+    f(l);
 }
-function C(t) {
-  (r.version > 1 || SETTINGS.IS_ERP_READER || SETTINGS.IS_READER) &&
+function S(t) {
+  (l.version > 1 || SETTINGS.IS_ERP_READER || SETTINGS.IS_READER) &&
     (0 == t
-      ? ((r.content_op = "dismiss"),
-        (r.main_op = "relay_to_content"),
-        (r.newUI = !0),
-        (r.persist = !1),
-        o.analytics(r, e.PERSIST_PDF_MENU_CLOSED),
-        E(r),
-        delete r.content_op,
-        delete r.main_op)
+      ? ((l.content_op = "dismiss"),
+        (l.main_op = "relay_to_content"),
+        (l.newUI = !0),
+        (l.persist = !1),
+        o.analytics(l, e.PERSIST_PDF_MENU_CLOSED),
+        f(l),
+        delete l.content_op,
+        delete l.main_op)
       : 1 == t &&
-        ((r.panel_op = "pdf_menu"),
-        (r.main_op = "relay_to_content"),
-        (r.persist = !0),
-        o.analytics(r, e.PERSIST_PDF_MENU_SHOWN),
-        delete r.content_op,
-        (r.newUI = !0),
-        E(r, !0),
-        delete r.persist,
-        delete r.panel_op,
-        delete r.main_op));
-}
-function S() {
-  (l = null), $(".acrobatMainDiv").animate({ opacity: 0 }, 1500, "swing", I);
+        ((l.panel_op = "pdf_menu"),
+        (l.main_op = "relay_to_content"),
+        (l.persist = !0),
+        o.analytics(l, e.PERSIST_PDF_MENU_SHOWN),
+        delete l.content_op,
+        (l.newUI = !0),
+        f(l, !0),
+        delete l.persist,
+        delete l.panel_op,
+        delete l.main_op));
 }
 function h() {
-  (SETTINGS.TEST_MODE || SETTINGS.DEBUG_MODE) && (l = 1),
-    l ||
-      c ||
-      (l = setTimeout(
+  (d = null), $(".acrobatMainDiv").animate({ opacity: 0 }, 1500, "swing", C);
+}
+function v() {
+  (SETTINGS.TEST_MODE || SETTINGS.DEBUG_MODE) && (d = 1),
+    d ||
+      p ||
+      (d = setTimeout(
         function () {
-          setTimeout(S);
+          setTimeout(h);
         },
-        r.is_pdf ? 3e3 : 1500
+        l.is_pdf ? 3e3 : 1500
       ));
 }
-async function v() {
-  (r.main_op = "open_in_acrobat"), (r.trefoilUI = !0), void 0 !== r.paramName && delete r.paramName;
-  E(await o.handlePDFURL(r, !0), !0);
+async function O() {
+  (l.main_op = "open_in_acrobat"), (l.trefoilUI = !0), void 0 !== l.paramName && delete l.paramName;
+  f(await o.handlePDFURL(l, !0), !0);
 }
-async function O(e) {
-  (r.main_op = "open_in_acrobat"), (r.trefoilUI = !1), (r.paramName = e), delete r.content_op;
-  E(await o.handlePDFURL(r, !0), !0);
+async function w(e) {
+  (l.main_op = "open_in_acrobat"), (l.trefoilUI = !1), (l.paramName = e), delete l.content_op;
+  f(await o.handlePDFURL(l, !0), !0);
 }
 function R(t) {
-  (r.pdf_action = t),
-    (r.main_op = "get-frictionless-url"),
-    (r.frame_visibility = "visible"),
-    (r.frictionless_workflow = "trefoil"),
-    (r.startup_time = Date.now()),
-    "resize_window" == r.content_op && (r.content_op = null),
+  (l.pdf_action = t),
+    (l.main_op = "get-frictionless-url"),
+    (l.frame_visibility = "visible"),
+    (l.frictionless_workflow = "trefoil"),
+    (l.startup_time = Date.now()),
+    "resize_window" == l.content_op && (l.content_op = null),
     "createpdf" == t
-      ? o.analytics(r, e.FRICTIONLESS_TOOL_SELECTED, { TOOL: "CREATE_PDF" })
-      : "compress-pdf" == t && o.analytics(r, e.FRICTIONLESS_TOOL_SELECTED, { TOOL: "COMPRESS_PDF" }),
-    E(r, !0);
+      ? o.analytics(l, e.FRICTIONLESS_TOOL_SELECTED, { TOOL: "CREATE_PDF" })
+      : "compress-pdf" == t && o.analytics(l, e.FRICTIONLESS_TOOL_SELECTED, { TOOL: "COMPRESS_PDF" }),
+    f(l, !0);
 }
-function w(n, a) {
+function L(n, a) {
   n &&
     (function (e) {
-      (d = e), t.setItem("ViewResultsPref", d ? "true" : "false"), $(".do_set_open_pref").toggleClass("open-pdf-in-acrobat");
+      (_ = e), t.setItem("ViewResultsPref", _ ? "true" : "false"), $(".do_set_open_pref").toggleClass("open-pdf-in-acrobat");
     })(a),
-    (r.main_op = "convertToPDFPopupMenu"),
-    n && (r.outputPath = n),
-    E(r, !0),
+    (l.main_op = "convertToPDFPopupMenu"),
+    n && (l.outputPath = n),
+    f(l, !0),
     n ||
-      (o.analytics(r, e.TREFOIL_HTML_CONVERT_NEW),
+      (o.analytics(l, e.TREFOIL_HTML_CONVERT_NEW),
       t.getItem("ViewResultsPref")
-        ? d
-          ? o.analytics(r, e.TREFOIL_HTML_CONVERT_OPEN_CHANGED)
-          : o.analytics(r, e.TREFOIL_HTML_CONVERT_NO_OPEN)
-        : o.analytics(r, e.TREFOIL_HTML_CONVERT_OPEN_DEFAULT));
+        ? _
+          ? o.analytics(l, e.TREFOIL_HTML_CONVERT_OPEN_CHANGED)
+          : o.analytics(l, e.TREFOIL_HTML_CONVERT_NO_OPEN)
+        : o.analytics(l, e.TREFOIL_HTML_CONVERT_OPEN_DEFAULT));
 }
-function L(n) {
-  (r.main_op = "appendToExistingPDFPopupMenu"),
-    n && (r.outputPath = n),
-    E(r, !0),
+function g(n) {
+  (l.main_op = "appendToExistingPDFPopupMenu"),
+    n && (l.outputPath = n),
+    f(l, !0),
     n ||
-      (o.analytics(r, e.TREFOIL_HTML_CONVERT_APPEND),
+      (o.analytics(l, e.TREFOIL_HTML_CONVERT_APPEND),
       t.getItem("ViewResultsPref")
-        ? d
-          ? o.analytics(r, e.TREFOIL_HTML_CONVERT_OPEN_CHANGED)
-          : o.analytics(r, e.TREFOIL_HTML_CONVERT_NO_OPEN)
-        : o.analytics(r, e.TREFOIL_HTML_CONVERT_OPEN_DEFAULT));
+        ? _
+          ? o.analytics(l, e.TREFOIL_HTML_CONVERT_OPEN_CHANGED)
+          : o.analytics(l, e.TREFOIL_HTML_CONVERT_NO_OPEN)
+        : o.analytics(l, e.TREFOIL_HTML_CONVERT_OPEN_DEFAULT));
 }
-function g(e) {
+function N(e) {
   try {
-    let t = new URL(r.frictionless_uri);
-    e.origin === t.origin && ((r.main_op = "external_msg"), (r.data = e.data), (r.timeStamp = Date.now()), o.messageToMain(r));
+    let t = new URL(l.frictionless_uri);
+    e.origin === t.origin && ((l.main_op = "external_msg"), (l.data = e.data), (l.timeStamp = Date.now()), o.messageToMain(l));
   } catch (e) {}
 }
-function N() {
-  u(e.TREFOIL_SETTINGS_ICON_CLICKED),
+function D() {
+  I(e.TREFOIL_SETTINGS_ICON_CLICKED),
     chrome.runtime.openOptionsPage((t) => {
-      chrome.runtime.lastError && u(e.TREFOIL_SETTINGS_FAILED_TO_OPEN);
+      chrome.runtime.lastError && I(e.TREFOIL_SETTINGS_FAILED_TO_OPEN);
     });
 }
-function D(n, a) {
+function b(n, a) {
   "true" === a && t.setItem("viewer-enabled-source", "ownership-consent"),
     t.getWithTTL("ownership-upgrade") &&
       "false" === a &&
@@ -184,33 +185,33 @@ function D(n, a) {
       t.removeItem("ownership-upgrade"),
       t.removeItem("defaultOwnerShipExperiment"));
 }
-function b() {
-  if (!p) {
-    (p = !0),
-      window.addEventListener("message", g, !1),
+function A() {
+  if (!E) {
+    (E = !0),
+      window.addEventListener("message", N, !1),
       $(".do_acrobat").click(function (e) {
         let t = $(e.currentTarget);
-        f(), t.hasClass("do_acrobat_FS") ? O("FillnSign") : t.hasClass("do_acrobat") && v();
+        T(), t.hasClass("do_acrobat_FS") ? w("FillnSign") : t.hasClass("do_acrobat") && O();
       }),
       $(
         ".do_frictionless_create, .do_frictionless_compress, .do_frictionless_pdf_to_word, .do_frictionless_pdf_to_jpg, .do_frictionless_pdf_to_excel, .do_frictionless_pdf_to_ppt"
       ).click(function (t) {
         let n = $(t.currentTarget);
-        f(),
+        T(),
           o.isEdge()
-            ? ((r.main_op = "go_to_aonline"),
+            ? ((l.main_op = "go_to_aonline"),
               n.hasClass("do_frictionless_create")
-                ? ((r.verb = "convert_pdf"), u(e.FRICTIONLESS_TOOL_SELECTED_CONVERT_PDF))
+                ? ((l.verb = "convert_pdf"), I(e.FRICTIONLESS_TOOL_SELECTED_CONVERT_PDF))
                 : n.hasClass("do_frictionless_compress")
-                ? ((r.verb = "compress_pdf"), u(e.FRICTIONLESS_TOOL_SELECTED_COMPRESS_PDF))
+                ? ((l.verb = "compress_pdf"), I(e.FRICTIONLESS_TOOL_SELECTED_COMPRESS_PDF))
                 : n.hasClass("do_frictionless_pdf_to_word")
-                ? ((r.verb = "pdf_to_word"), u(e.FRICTIONLESS_TOOL_SELECTED_PDFTOWORD))
+                ? ((l.verb = "pdf_to_word"), I(e.FRICTIONLESS_TOOL_SELECTED_PDFTOWORD))
                 : n.hasClass("do_frictionless_pdf_to_jpg")
-                ? ((r.verb = "pdf_to_jpg"), u(e.FRICTIONLESS_TOOL_SELECTED_PDFTOJPG))
+                ? ((l.verb = "pdf_to_jpg"), I(e.FRICTIONLESS_TOOL_SELECTED_PDFTOJPG))
                 : n.hasClass("do_frictionless_pdf_to_excel")
-                ? ((r.verb = "pdf_to_excel"), u(e.FRICTIONLESS_TOOL_SELECTED_PDFTOEXCEL))
-                : n.hasClass("do_frictionless_pdf_to_ppt") && ((r.verb = "pdf_to_ppt"), u(e.FRICTIONLESS_TOOL_SELECTED_PDFTOPPT)),
-              E(r))
+                ? ((l.verb = "pdf_to_excel"), I(e.FRICTIONLESS_TOOL_SELECTED_PDFTOEXCEL))
+                : n.hasClass("do_frictionless_pdf_to_ppt") && ((l.verb = "pdf_to_ppt"), I(e.FRICTIONLESS_TOOL_SELECTED_PDFTOPPT)),
+              f(l))
             : n.hasClass("do_frictionless_create")
             ? R("createpdf")
             : n.hasClass("do_frictionless_compress")
@@ -227,18 +228,18 @@ function b() {
         ".do_frictionless_edit , .do_frictionless_edit_rotate, .do_frictionless_edit_delete, .do_frictionless_edit_reorder, .do_frictionless_sign_fillandsign, .do_frictionless_sign_requestsignatures"
       ).click(function (t) {
         let o = $(t.currentTarget);
-        (r.main_op = "go_to_aonline"),
+        (l.main_op = "go_to_aonline"),
           o.hasClass("do_frictionless_edit_rotate")
-            ? ((r.verb = "edit_rotate"), u(e.FRICTIONLESS_TOOL_SELECTED_EDIT_ROTATE))
+            ? ((l.verb = "edit_rotate"), I(e.FRICTIONLESS_TOOL_SELECTED_EDIT_ROTATE))
             : o.hasClass("do_frictionless_edit_delete")
-            ? ((r.verb = "edit_delete"), u(e.FRICTIONLESS_TOOL_SELECTED_EDIT_DELETE))
+            ? ((l.verb = "edit_delete"), I(e.FRICTIONLESS_TOOL_SELECTED_EDIT_DELETE))
             : o.hasClass("do_frictionless_edit_reorder")
-            ? ((r.verb = "edit_reorder"), u(e.FRICTIONLESS_TOOL_SELECTED_EDIT_REORDER))
+            ? ((l.verb = "edit_reorder"), I(e.FRICTIONLESS_TOOL_SELECTED_EDIT_REORDER))
             : o.hasClass("do_frictionless_sign_fillandsign")
-            ? ((r.verb = "fillandsign"), u(e.FRICTIONLESS_TOOL_SELECTED_FILL_SIGN))
+            ? ((l.verb = "fillandsign"), I(e.FRICTIONLESS_TOOL_SELECTED_FILL_SIGN))
             : o.hasClass("do_frictionless_sign_requestsignatures") &&
-              ((r.verb = "request_signatures"), u(e.FRICTIONLESS_TOOL_SELECTED_REQUEST_SIGNATURES)),
-          E(r);
+              ((l.verb = "request_signatures"), I(e.FRICTIONLESS_TOOL_SELECTED_REQUEST_SIGNATURES)),
+          f(l);
       }),
       $(".accordiontoggle").click(function (e) {
         e.preventDefault();
@@ -260,78 +261,78 @@ function b() {
       }),
       $(".do_visit_acom, .do_html_to_pdf, .go_to_aonline").click(function (t) {
         let n = $(t.currentTarget);
-        f(),
+        T(),
           n.hasClass("do_visit_acom") &&
-            (r.is_pdf ? o.analytics(r, e.TREFOIL_PDF_VISIT_AIC) : o.analytics(r, e.TREFOIL_HTML_VISIT_AIC),
-            (r.handleResult = "acom"),
-            (r.main_op = "goto_acom"),
-            E(r)),
-          n.hasClass("do_html_to_pdf") && w(),
-          n.hasClass("go_to_aonline") && ((r.main_op = "go_to_aonline"), (r.verb = "default"), E(r), u(e.ACROBAT_ONLINE_CLICKED));
+            (l.is_pdf ? o.analytics(l, e.TREFOIL_PDF_VISIT_AIC) : o.analytics(l, e.TREFOIL_HTML_VISIT_AIC),
+            (l.handleResult = "acom"),
+            (l.main_op = "goto_acom"),
+            f(l)),
+          n.hasClass("do_html_to_pdf") && L(),
+          n.hasClass("go_to_aonline") && ((l.main_op = "go_to_aonline"), (l.verb = "default"), f(l), I(e.ACROBAT_ONLINE_CLICKED));
       }),
       $(".close-dialog").click(function () {
         $(".acrobatMainDiv").length > 0 &&
           $(".acrobatMainDiv").hasClass("widget-screen-main-div") &&
-          o.analytics(r, e.FRICTIONLESS_WIDGET_CROSS_CLICKED),
-          I();
+          o.analytics(l, e.FRICTIONLESS_WIDGET_CROSS_CLICKED),
+          C();
       }),
-      $(".settings-dialog").click(N),
+      $(".settings-dialog").click(D),
       $(".action-available-click").click(function (t) {
         let n = $(t.currentTarget);
-        f(), o.consoleLog(n), (r.main_op = "go_to_aonline"), (r.verb = "acrobat_label"), u(e.TREFOIL_ACROBAT_LABEL_CLICKED), E(r);
+        T(), o.consoleLog(n), (l.main_op = "go_to_aonline"), (l.verb = "acrobat_label"), I(e.TREFOIL_ACROBAT_LABEL_CLICKED), f(l);
       }),
-      $(".acrobatMainDiv").hover(f, h),
+      $(".acrobatMainDiv").hover(T, v),
       $(".sign-out").click(function () {
-        o.analytics(r, e.SIGN_OUT_CLICKED), (r.main_op = "sign-out"), E(r);
+        o.analytics(l, e.SIGN_OUT_CLICKED), (l.main_op = "sign-out"), f(l);
       }),
       $("#special").click(function () {
-        o.analytics(r, e.FLICKR_OFFER_CLICKED), (r.main_op = "flickr"), E(r);
+        o.analytics(l, e.FLICKR_OFFER_CLICKED), (l.main_op = "flickr"), f(l);
       }),
       $(".do_html_add_to_pdf").click(function () {
-        L();
+        g();
       }),
       $(".do_set_open_pref").click(function () {
-        (d = !(d = $(".do_set_open_pref").hasClass("open-pdf-in-acrobat"))),
-          t.setItem("ViewResultsPref", d ? "true" : "false"),
+        (_ = !(_ = $(".do_set_open_pref").hasClass("open-pdf-in-acrobat"))),
+          t.setItem("ViewResultsPref", _ ? "true" : "false"),
           $(".do_set_open_pref").toggleClass("open-pdf-in-acrobat"),
-          d ? o.analytics(r, e.TREFOIL_HTML_OPENPDF_PREF_OFF) : o.analytics(r, e.TREFOIL_HTML_OPENPDF_PREF_ON),
-          (r.main_op = "send-analytics"),
-          E(r, !0);
+          _ ? o.analytics(l, e.TREFOIL_HTML_OPENPDF_PREF_OFF) : o.analytics(l, e.TREFOIL_HTML_OPENPDF_PREF_ON),
+          (l.main_op = "send-analytics"),
+          f(l, !0);
       }),
       $(".do_set_pdf_viewer").click(async function () {
-        (_ = $(".do_set_pdf_viewer").hasClass("open_in_pdf_viewer")),
-          D(r, (_ = !_)),
-          t.setItem("pdfViewer", _.toString()),
-          await n.setViewerState(_ ? "enabled" : "disabled");
+        (c = $(".do_set_pdf_viewer").hasClass("open_in_pdf_viewer")),
+          b(l, (c = !c)),
+          t.setItem("pdfViewer", c.toString()),
+          await n.setViewerState(c ? "enabled" : "disabled");
         try {
           t.removeItem("netAccAdT"), t.removeItem("netAcc"), t.removeItem("netAccCN");
         } catch (e) {}
         $(".do_set_pdf_viewer").toggleClass("open_in_pdf_viewer"),
-          _
+          c
             ? o.isEdge()
-              ? o.analytics(r, e.USE_ACROBAT_IN_EDGE_ENABLED)
-              : o.isChrome() && o.analytics(r, e.USE_ACROBAT_IN_CHROME_ENABLED)
+              ? o.analytics(l, e.USE_ACROBAT_IN_EDGE_ENABLED)
+              : o.isChrome() && o.analytics(l, e.USE_ACROBAT_IN_CHROME_ENABLED)
             : o.isEdge()
-            ? o.analytics(r, e.USE_ACROBAT_IN_EDGE_DISABLED)
-            : o.isChrome() && o.analytics(r, e.USE_ACROBAT_IN_CHROME_DISABLED),
+            ? o.analytics(l, e.USE_ACROBAT_IN_EDGE_DISABLED)
+            : o.isChrome() && o.analytics(l, e.USE_ACROBAT_IN_CHROME_DISABLED),
           setTimeout(() => {
-            r.is_viewer ? E({ panel_op: "viewer_menu", reload_in_native: !0, tabId: r.tabId }, !0) : r.is_pdf && chrome.tabs.reload(),
-              (r.main_op = "send-analytics"),
-              E(r, !0);
+            l.is_viewer ? f({ panel_op: "viewer_menu", reload_in_native: !0, tabId: l.tabId }, !0) : l.is_pdf && chrome.tabs.reload(),
+              (l.main_op = "send-analytics"),
+              f(l, !0);
           }, 20);
       }),
       $(".do-acro-prefs").click(function () {
-        o.analytics(r, e.TREFOIL_HTML_PREFERENCES_CLICK), (r.main_op = "showConversionSettingsDialog"), E(r);
+        o.analytics(l, e.TREFOIL_HTML_PREFERENCES_CLICK), (l.main_op = "showConversionSettingsDialog"), f(l);
       }),
       $(".convert").click(function () {
-        $(".convert").hasClass("convert-button") && ((r.main_op = "open_converted_file"), E(r));
+        $(".convert").hasClass("convert-button") && ((l.main_op = "open_converted_file"), f(l));
       }),
       $(".always-show").prop("checked", "false" !== t.getItem("always-show-pdf-menu")),
       $(".api-option-container-inner").click(function () {
         let e = $(".always-show").prop("checked") ? "false" : "true";
         t.setItem("always-show-pdf-menu", e),
           $(".always-show").prop("checked", "true" === e),
-          "false" === e ? C(!1) : "true" === e && C(!0);
+          "false" === e ? S(!1) : "true" === e && S(!0);
       }),
       $(".always-show-pdftools").prop("checked", "false" !== t.getItem("always-show-pdftools"));
     const i = "true" === t.getItem("pdfViewer");
@@ -342,27 +343,27 @@ function b() {
         let o = $(".always-show-pdftools").prop("checked") ? "false" : "true";
         t.setItem("always-show-pdftools", o),
           $(".always-show-pdftools").prop("checked", "true" === o),
-          u("false" === o ? e.FRICTIONLESS_AUTO_SUGGESTION_DISABLED : e.FRICTIONLESS_AUTO_SUGGESTION_ENABLED);
+          I("false" === o ? e.FRICTIONLESS_AUTO_SUGGESTION_DISABLED : e.FRICTIONLESS_AUTO_SUGGESTION_ENABLED);
       }),
       $(".api-option-container-inner-pdfvieweroption").click(async function () {
         $(".desktop-app-reader .api-option-container input[type=checkbox] ~ .checkbox-toggle").removeClass("toggle-inactive-blue-circle");
         let i = $(".always-show-pdfvieweroption").prop("checked") ? "false" : "true";
-        const l = "true" === i ? "enabled" : "disabled";
-        D(r, i), t.setItem("pdfViewer", i), await n.setViewerState(l);
+        const r = "true" === i ? "enabled" : "disabled";
+        b(l, i), t.setItem("pdfViewer", i), await n.setViewerState(r);
         try {
           t.removeItem("netAccAdT"), t.removeItem("netAcc"), t.removeItem("netAccCN");
         } catch (e) {}
         $(".always-show-pdfvieweroption").prop("checked", "true" === i),
           "false" === i
             ? o.isEdge()
-              ? o.analytics(r, e.USE_ACROBAT_IN_EDGE_DISABLED)
-              : o.isChrome() && o.analytics(r, e.USE_ACROBAT_IN_CHROME_DISABLED)
+              ? o.analytics(l, e.USE_ACROBAT_IN_EDGE_DISABLED)
+              : o.isChrome() && o.analytics(l, e.USE_ACROBAT_IN_CHROME_DISABLED)
             : o.isEdge()
-            ? o.analytics(r, e.USE_ACROBAT_IN_EDGE_ENABLED)
-            : o.isChrome() && o.analytics(r, e.USE_ACROBAT_IN_CHROME_ENABLED),
+            ? o.analytics(l, e.USE_ACROBAT_IN_EDGE_ENABLED)
+            : o.isChrome() && o.analytics(l, e.USE_ACROBAT_IN_CHROME_ENABLED),
           setTimeout(() => {
-            r.is_viewer ? E({ panel_op: "viewer_menu", reload_in_native: !0, tabId: r.tabId }, !0) : r.is_pdf && chrome.tabs.reload(),
-              E(
+            l.is_viewer ? f({ panel_op: "viewer_menu", reload_in_native: !0, tabId: l.tabId }, !0) : l.is_pdf && chrome.tabs.reload(),
+              f(
                 {
                   panel_op: "options_page",
                   requestType: a.OPTIONS_UPDATE_TOGGLE,
@@ -371,50 +372,50 @@ function b() {
                 },
                 !0
               ),
-              (r.main_op = "send-analytics"),
-              E(r, !0),
-              o.isEdge() && E({ main_op: "pdfViewerChanged", value: i });
+              (l.main_op = "send-analytics"),
+              f(l, !0),
+              o.isEdge() && f({ main_op: "pdfViewerChanged", value: i });
           }, 20);
       });
   }
 }
-function A(n) {
+function F(n) {
   let a,
     s,
-    l,
-    d = !0,
+    d,
     _ = !0,
-    p = !1,
-    m = "web2pdfStatusFailure",
-    I = "web2pdfStatusComplete";
-  if (r && n && r.tabId && n.tabId && n.tabId != r.tabId) return;
+    c = !0,
+    E = !1,
+    u = "web2pdfStatusFailure",
+    C = "web2pdfStatusComplete";
+  if (l && n && l.tabId && n.tabId && n.tabId != l.tabId) return;
   if (!n.main_op || !["analytics", "save-preferences", "fetch-preferences", "userSubscriptionData"].includes(n.main_op)) {
     if (n.test_extension)
       return (function (e) {
         switch ((o.consoleLog("TESTING"), o.consoleLogDir(JSON.stringify(e)), e.test_extension)) {
           case "to_html":
-            w(e.outputPath, e.openPDF);
+            L(e.outputPath, e.openPDF);
             break;
           case "doAcrobat":
-            v();
+            O();
             break;
           case "doAcrobat_FS":
-            O("FillnSign");
+            w("FillnSign");
             break;
           case "to_append":
-            L(e.outputPath);
+            g(e.outputPath);
         }
       })(n);
     switch (
       (n.version === SETTINGS.ERP_READER_VER && (SETTINGS.IS_ERP_READER = !0),
-      b(),
-      delete (r = { ...n, tabId: r.tabId }).analytics,
-      f(),
-      (c = !1),
+      A(),
+      delete (l = { ...n, tabId: l.tabId }).analytics,
+      T(),
+      (p = !1),
       o.translateElements(".translate"),
-      1 === r.version && $("#web2pdfOpenButtonText").val(o.getTranslation("web2pdfOpenButtonTextOlder")),
-      (1 !== r.version && 0 !== r.version) || $("#web2pdfShowPersistentOpen").text(o.getTranslation("web2pdfAlwaysShow")),
-      r.version === SETTINGS.READER_VER && $("#web2pdfOpenButtonText").val(o.getTranslation("web2pdfOpenButtonText")),
+      1 === l.version && $("#web2pdfOpenButtonText").val(o.getTranslation("web2pdfOpenButtonTextOlder")),
+      (1 !== l.version && 0 !== l.version) || $("#web2pdfShowPersistentOpen").text(o.getTranslation("web2pdfAlwaysShow")),
+      l.version === SETTINGS.READER_VER && $("#web2pdfOpenButtonText").val(o.getTranslation("web2pdfOpenButtonText")),
       $(".ui-element").addClass("hidden"),
       $("#action_message").text(""),
       (function (e, t) {
@@ -424,18 +425,18 @@ function A(n) {
           for (n in e) e.hasOwnProperty(n) && a.push("  " + n + ": " + e[n]);
           o.consoleLog(a.join("\n"));
         }
-      })(r, "Receive frame message:"),
-      (s = r.panel_op),
-      delete r.panel_op,
+      })(l, "Receive frame message:"),
+      (s = l.panel_op),
+      delete l.panel_op,
       s)
     ) {
       case "pdf_menu":
-        (c = !0),
+        (p = !0),
           !0 === SETTINGS.FILL_N_SIGN_ENABLED &&
             ($("#web2pdfFillSignAcrobatButtonText").removeClass("hidden"), $(".acro-option.pdf").removeClass("hidden")),
-          (1 == r.version && 0 == r.NMHConnStatus) || 0 == r.version
-            ? ($(".go_to_aonline").removeClass("hidden"), r.show_frictionless || $(".do_visit_acom").addClass("hidden"))
-            : r.version === SETTINGS.READER_VER
+          (1 == l.version && 0 == l.NMHConnStatus) || 0 == l.version
+            ? ($(".go_to_aonline").removeClass("hidden"), l.show_frictionless || $(".do_visit_acom").addClass("hidden"))
+            : l.version === SETTINGS.READER_VER
             ? ($(".acro-option.pdf").removeClass("hidden"),
               $(".acro-option.pdf.horizontal-rule").addClass("hidden"),
               $(".acrobatMainDiv").removeClass("home-screen"),
@@ -443,8 +444,8 @@ function A(n) {
               $(".reader-option.pdf.horizontal-rule.pref-divider").removeClass("hidden"))
             : ($(".acro-option.pdf").removeClass("hidden"), $(".acro-option.pdf.horizontal-rule").removeClass("hidden")),
           (function () {
-            if (SETTINGS.VIEWER_ENABLED && !r.incognito) {
-              let e = !(0 == r.version || 1 == r.version || r.version === SETTINGS.READER_VER || r.version === SETTINGS.ERP_READER_VER);
+            if (SETTINGS.VIEWER_ENABLED && !l.incognito) {
+              let e = !(0 == l.version || 1 == l.version || l.version === SETTINGS.READER_VER || l.version === SETTINGS.ERP_READER_VER);
               $(".acro-option-reader-pdf").removeClass("hidden"),
                 $(".acro-option-reader-conditional").addClass("hidden"),
                 !SETTINGS.VIEWER_ENABLED_FOR_ACROBAT &&
@@ -452,11 +453,11 @@ function A(n) {
                   ($(".acro-option-reader-pdf").addClass("hidden"),
                   $(".acro-option-reader-conditional").removeClass("hidden"),
                   $(".acro-option.pdf.horizontal-rule").addClass("hidden")),
-                r.version < 2 ||
-                  r.version === SETTINGS.READER_VER ||
+                l.version < 2 ||
+                  l.version === SETTINGS.READER_VER ||
                   ($(".acro-option-reader-pdf").addClass("viewer-api-option-container"),
                   $(".acro-option-reader-conditional").addClass("viewer-api-option-container")),
-                r.version > 1 &&
+                l.version > 1 &&
                   SETTINGS.VIEWER_SHOW_OPEN_IN_ACRO &&
                   (10 === parseInt(t.getItem("fteDenied")) || "false" === t.getItem("pdfViewer")) &&
                   $(".acro-option-reader-conditional").removeClass("hidden");
@@ -464,19 +465,19 @@ function A(n) {
           })();
         break;
       case "viewer_menu":
-        (c = !0),
+        (p = !0),
           SETTINGS.VIEWER_ENABLED &&
-            !r.incognito &&
+            !l.incognito &&
             ($(".acro-option-reader-pdf").removeClass("hidden"),
             $(".acrobatMainDiv").css("width", "-webkit-fill-available"),
             $(".status-dialog").css("width", "-webkit-fill-available"),
-            (r.version < 2 || r.version === SETTINGS.READER_VER) &&
+            (l.version < 2 || l.version === SETTINGS.READER_VER) &&
               $(".api-option-container-inner-pdfvieweroption").css("padding-left", "6px"));
         break;
       case "error":
         $(".error")
           .removeClass("hidden")
-          .text("Unexpected Error:" + r.error.name + "\nReference: " + r.error.errnum + "\n" + r.error.details);
+          .text("Unexpected Error:" + l.error.name + "\nReference: " + l.error.errnum + "\n" + l.error.details);
         break;
       case "flickr":
         $(".action-available").removeClass("hidden"),
@@ -486,108 +487,109 @@ function A(n) {
         break;
       case "status":
         $(".progress-area").removeClass("hidden"),
-          $(".convert").text(r.domtitle),
+          $(".convert").text(l.domtitle),
           $(".convert-status, .convert-title").addClass("hidden"),
           $(".convert").removeClass("convert-button hidden"),
-          "waiting" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_WAITING), (a = o.getTranslation("web2pdfStatusWaiting")), (d = !1))
-            : "downloading" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_DOWNLOADING), (a = o.getTranslation("web2pdfStatusDownloading")), (d = !1))
-            : "in_progress" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_IN_PROGRESS), (a = o.getTranslation("web2pdfStatusInProgress")), (d = !1))
-            : "filelocked" === r.current_status
+          "waiting" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_WAITING), (a = o.getTranslation("web2pdfStatusWaiting")), (_ = !1))
+            : "downloading" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_DOWNLOADING), (a = o.getTranslation("web2pdfStatusDownloading")), (_ = !1))
+            : "in_progress" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_IN_PROGRESS), (a = o.getTranslation("web2pdfStatusInProgress")), (_ = !1))
+            : "filelocked" === l.current_status
             ? (a = o.getTranslation("web2pdfFileLockedError"))
-            : "cancelled" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_CANCELLED), (a = o.getTranslation("web2pdfStatusCancelled")), (p = !0))
-            : "complete" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_COMPLETE),
-              r.file_path
+            : "cancelled" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_CANCELLED), (a = o.getTranslation("web2pdfStatusCancelled")), (E = !0))
+            : "complete" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_COMPLETE),
+              l.file_path
                 ? ($(".convert").text(o.getTranslation("web2pdfOpenInDCButtonText")), $(".convert").addClass("convert-button"))
                 : ($(".convert").empty(), $(".convert").addClass("hidden")))
-            : "failure" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_FAILED), r.message && ((a = r.message), (a = $("<div/>").text(a).html())), (_ = !1))
-            : "noacrobat" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_HTML_CONVERT_NO_ACROBAT), (a = o.getTranslation("web2pdfUnsupportedAcrobatVersion")), (_ = !1))
-            : "unknown" === r.current_status
-            ? ((a = o.getTranslation("web2pdfStatusUnknownFailure")), (_ = !1))
-            : "pdf_downloading" === r.current_status
-            ? ((a = o.getTranslation("web2pdfStatusDownloadingPDF")), (d = !1))
-            : "pdf_failure" === r.current_status
-            ? (o.analytics(r, e.TREFOIL_PDF_DOWNLOAD_FAILED), (m = "web2pdfStatusUnknownFailure"), (_ = !1))
-            : "pdf_downloaded" === r.current_status
-            ? ((a = o.getTranslation("web2pdfPDFOpening")), (d = !1))
-            : "pdf_opened" === r.current_status
-            ? ((_ = !0), (I = "web2pdfPDFOpened"))
-            : "pdf_open_failed" === r.current_status && ((_ = !1), (d = !0), (m = "web2pdfPDFOpenFailed")),
+            : "failure" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_FAILED), l.message && ((a = l.message), (a = $("<div/>").text(a).html())), (c = !1))
+            : "noacrobat" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_HTML_CONVERT_NO_ACROBAT), (a = o.getTranslation("web2pdfUnsupportedAcrobatVersion")), (c = !1))
+            : "unknown" === l.current_status
+            ? ((a = o.getTranslation("web2pdfStatusUnknownFailure")), (c = !1))
+            : "pdf_downloading" === l.current_status
+            ? ((a = o.getTranslation("web2pdfStatusDownloadingPDF")), (_ = !1))
+            : "pdf_failure" === l.current_status
+            ? (o.analytics(l, e.TREFOIL_PDF_DOWNLOAD_FAILED), (u = "web2pdfStatusUnknownFailure"), (c = !1))
+            : "pdf_downloaded" === l.current_status
+            ? ((a = o.getTranslation("web2pdfPDFOpening")), (_ = !1))
+            : "pdf_opened" === l.current_status
+            ? ((c = !0), (C = "web2pdfPDFOpened"))
+            : "pdf_open_failed" === l.current_status && ((c = !1), (_ = !0), (u = "web2pdfPDFOpenFailed")),
           a && ($(".convert-title").removeClass("hidden"), $(".convert-title").html(a)),
-          d
-            ? (delete r.panel_op,
-              (l = r.is_pdf ? ".acro-option.pdf" : ".acro-option.html"),
-              $(l).removeClass("hidden"),
+          _
+            ? (delete l.panel_op,
+              (d = l.is_pdf ? ".acro-option.pdf" : ".acro-option.html"),
+              $(d).removeClass("hidden"),
               $(".actions").removeClass("hidden"),
               $(".acro-option-conditional.html").addClass("hidden"),
               SETTINGS.VIEWER_ENABLED &&
-                !r.incognito &&
+                !l.incognito &&
                 (!SETTINGS.VIEWER_ENABLED_FOR_ACROBAT &&
-                  r.version > 1 &&
+                  l.version > 1 &&
                   !SETTINGS.IS_ERP_READER &&
                   !SETTINGS.IS_READER &&
                   ($(".acro-option-conditional.html").addClass("hidden"), $(".acro-option.pdf.horizontal-rule").addClass("hidden")),
                 $(".status-dialog").css("width", "-webkit-fill-available")),
               $(".convert").removeClass("convert-busy"),
               $(".convert-status").removeClass("hidden"),
-              _
-                ? r.is_pdf
+              c
+                ? l.is_pdf
                   ? ($(".progress-area").addClass("hidden"),
                     $(".convert").removeClass("convert-busy"),
                     $(".convert-status").addClass("hidden"))
-                  : ($(".convert-status-icon").addClass("icon-success"), $(".convert-status-title").text(o.getTranslation(I)))
-                : ((c = !0),
+                  : ($(".convert-status-icon").addClass("icon-success"), $(".convert-status-title").text(o.getTranslation(C)))
+                : ((p = !0),
                   $(".convert-status-icon").removeClass("icon-success"),
                   $(".convert-status-icon").addClass("icon-error"),
-                  $(".convert-status-title").text(o.getTranslation(m)),
+                  $(".convert-status-title").text(o.getTranslation(u)),
                   $(".convert").addClass("hidden")),
-              p && ($(".convert-status").addClass("hidden"), $(".convert").addClass("hidden")))
-            : ((c = !0), $(".actions").addClass("hidden"), $(".convert").addClass("convert-busy"));
+              E && ($(".convert-status").addClass("hidden"), $(".convert").addClass("hidden")))
+            : ((p = !0), $(".actions").addClass("hidden"), $(".convert").addClass("convert-busy"));
         break;
       case "html_menu":
-        (c = !0),
-          T(r)
+        (p = !0),
+          m(l)
             ? ($(".reader-option.html").removeClass("hidden"),
               o.isEdge() && $(".chrome-only").addClass("hidden"),
               SETTINGS.VIEWER_ENABLED || $(".acro-option-reader-pdf").addClass("hidden"),
-              (c = !0))
+              (p = !0))
             : ($(".acro-option.html").removeClass("hidden"),
               $(".acro-option-conditional.html").addClass("hidden"),
               SETTINGS.VIEWER_ENABLED &&
-                !r.incognito &&
+                !l.incognito &&
                 ($(".acro-option-conditional.html").removeClass("hidden"),
                 !SETTINGS.VIEWER_ENABLED_FOR_ACROBAT &&
-                  r.version > 1 &&
+                  l.version > 1 &&
                   !SETTINGS.IS_ERP_READER &&
                   !SETTINGS.IS_READER &&
                   $(".acro-option-conditional.html").addClass("hidden"),
                 $(".status-dialog").css("width", "-webkit-fill-available")));
         break;
       case "load-frictionless":
-        if (((c = !0), "resize_window" === r.content_op));
-        else if (1 == r.hide_spinner)
-          delete r.hide_spinner, $(".frictionless-container").removeClass("hidden"), $(".frictionless-loader").addClass("hidden");
+        if (((p = !0), "resize_window" === l.content_op));
+        else if (1 == l.hide_spinner)
+          delete l.hide_spinner, $(".frictionless-container").removeClass("hidden"), $(".frictionless-loader").addClass("hidden");
         else if (0 == $(".frictionless-container").children().length) {
           $(".acrobatMainDiv").removeClass("home-screen"),
             $(".acrobatMainDiv").addClass("widget-screen-main-div"),
             $(".actions").addClass("hidden"),
-            "trefoil" === r.frictionless_workflow &&
+            "trefoil" === l.frictionless_workflow &&
               ($(".frictionless-loader").removeClass("hidden"),
               $(".frictionless-loader").attr("data-loading-title", o.getTranslation("web2pdfLoaderTitle") || "Loading..."),
-              $(".frictionless-container").addClass("hidden"));
+              $(".frictionless-container").addClass("hidden")),
+            "search" === l.frictionless_workflow && i();
           let n = (function (o, n) {
             let a = document.createElement("iframe");
             a.setAttribute("referrerpolicy", "no-referrer"), a.classList.add("frictionless-iframe");
             let s = new URL(o);
             if (
               (n &&
-                (i ? (n.locale = i) : r.locale ? (n.locale = r.locale) : (n.locale = chrome.i18n.getMessage("@@ui_locale")),
+                (r ? (n.locale = r) : l.locale ? (n.locale = l.locale) : (n.locale = chrome.i18n.getMessage("@@ui_locale")),
                 Object.keys(n).forEach((e) => {
                   s.searchParams.append(e, n[e]);
                 })),
@@ -601,7 +603,7 @@ function A(n) {
                 s = "";
               }
             }
-            if ("test" === r.env || "stage" === r.env) {
+            if ("test" === l.env || "stage" === l.env) {
               let e = s.toString();
               e = e.concat("&app!versions=latest");
               try {
@@ -612,85 +614,85 @@ function A(n) {
             }
             return (
               (a.onerror = function (t) {
-                u(e.FRICTIONLESS_WIDGET_LOADING_FAILED);
+                I(e.FRICTIONLESS_WIDGET_LOADING_FAILED);
               }),
               (a.onload = function (e) {
-                E({ iframe_onload_time: Date.now(), main_op: "timing_info", timing_op: "startup_to_iframe_load" }, !0),
+                f({ iframe_onload_time: Date.now(), main_op: "timing_info", timing_op: "startup_to_iframe_load" }, !0),
                   "trefoil" === n.workflow && a.contentWindow.postMessage({ valid: !0 }, s.origin);
               }),
-              E({ iframe_call_time: Date.now(), main_op: "timing_info" }, !0),
+              f({ iframe_call_time: Date.now(), main_op: "timing_info" }, !0),
               a.setAttribute("src", s),
               a
             );
-          })(r.frictionless_uri, { verb: r.pdf_action, workflow: r.frictionless_workflow, dropzone2: "true" });
-          $(".frictionless-container").append(n), $(".frictionless-host").removeClass("hidden"), F();
+          })(l.frictionless_uri, { verb: l.pdf_action, workflow: l.frictionless_workflow, dropzone2: "true" });
+          $(".frictionless-container").append(n), $(".frictionless-host").removeClass("hidden"), y();
         }
         break;
       case "show-frictionless-error":
-        if (r.error_title && r.error_description) {
-          let e = r.error_title,
-            t = r.error_description;
-          delete r.error_title,
-            delete r.error_description,
+        if (l.error_title && l.error_description) {
+          let e = l.error_title,
+            t = l.error_description;
+          delete l.error_title,
+            delete l.error_description,
             (function (e, t) {
               const o = $(".frictionless-error"),
                 n = $(".error-title");
-              $(".error-details").text(t), n.text(e), o.removeClass("hidden"), F();
+              $(".error-details").text(t), n.text(e), o.removeClass("hidden"), y();
             })(e, t);
         }
         break;
       case "clear-frictionless-error":
-        $(".frictionless-error").addClass("hidden"), F();
+        $(".frictionless-error").addClass("hidden"), y();
         break;
       case "send-external-msg":
         try {
-          let e = new URL(r.frictionless_uri),
+          let e = new URL(l.frictionless_uri),
             t = $(".frictionless-iframe");
           if (1 == t.length) {
-            t[0].contentWindow.postMessage(r.data, e.origin), delete r.data;
+            t[0].contentWindow.postMessage(l.data, e.origin), delete l.data;
           }
         } catch (e) {}
-        c = !0;
+        p = !0;
     }
-    h();
+    v();
   }
 }
-function F() {
-  m(),
-    (r.content_op = "resize_window"),
-    (r.panel_op = "load-frictionless"),
-    (r.main_op = "relay_to_content"),
-    delete r.newUI,
-    delete r.trefoilUI,
-    E(r),
-    (r.content_op = null),
-    (r.panel_op = null);
+function y() {
+  u(),
+    (l.content_op = "resize_window"),
+    (l.panel_op = "load-frictionless"),
+    (l.main_op = "relay_to_content"),
+    delete l.newUI,
+    delete l.trefoilUI,
+    f(l),
+    (l.content_op = null),
+    (l.panel_op = null);
 }
 o.isChrome() &&
   $(function () {
-    b();
+    A();
   }),
-  o.addMainListener(A),
+  o.addMainListener(F),
   $(function () {
     if (window.location.search) {
       if (
-        ((r = JSON.parse(decodeURIComponent(window.location.search.split("=")[1]))),
+        ((l = JSON.parse(decodeURIComponent(window.location.search.split("=")[1]))),
         SETTINGS.TEST_MODE &&
           window.addEventListener(
             "message",
             function (e) {
-              A(e.data);
+              F(e.data);
             },
             !1
           ),
-        T(r))
+        m(l))
       ) {
         let t;
         switch (
           ($(".do_visit_acom").addClass("hidden"),
           $("body").addClass("desktop-app-reader"),
-          "html_menu" == r.panel_op && ($(".acrobatMainDiv").addClass("home-screen"), u(e.FRICTIONLESS_HOME_SCREEN_SHOWN)),
-          i || r.locale)
+          "html_menu" == l.panel_op && ($(".acrobatMainDiv").addClass("home-screen"), I(e.FRICTIONLESS_HOME_SCREEN_SHOWN)),
+          r || l.locale)
         ) {
           case "ja-JP":
             t = { kitId: "vaq7mqd", scriptTimeout: 3e3, async: !0 };
@@ -707,8 +709,8 @@ o.isChrome() &&
         void 0 !== (t = e) && void 0 !== t.paramName && delete t.paramName,
           (SETTINGS.FILL_N_SIGN_ENABLED = e.isFillnSignEnabled),
           (SETTINGS.SHAREPOINT_ENABLED = e.isSharePointEnabled),
-          A(e);
-      })(r),
-        "false" === t.getItem("ViewResultsPref") ? (d = !1) : ($(".do_set_open_pref").addClass("open-pdf-in-acrobat"), (d = !0));
+          F(e);
+      })(l),
+        "false" === t.getItem("ViewResultsPref") ? (_ = !1) : ($(".do_set_open_pref").addClass("open-pdf-in-acrobat"), (_ = !0));
     }
   });

@@ -141,7 +141,8 @@
               login: { baseUrl: "https://dummy.com" },
               vaultData: { passwords: { recordType: s.w.Password, username: "test@test.com", record: {} } },
               secondaryOnboarding: { allSkillsModalOpened: !0 },
-              user: { type: d.F.ENTERPRISE_TRIAL }
+              user: { type: d.F.ENTERPRISE_TRIAL },
+              settings: { features: {} }
             }),
             t = (0, r.mount)((0, c.jsx)(l.zt, { store: e }, (0, c.jsx)(i.default, { skill: u, expanded: !0, fromAllSkillsDialog: !1 })));
           expect(p.openAllItemsView).toHaveBeenCalled(), expect(t).toHaveLength(1), t.unmount();
@@ -155,7 +156,8 @@
               login: { baseUrl: "https://dummy.com" },
               vaultData: { passwords: { recordType: s.w.Password, username: "test@test.com", record: {} } },
               secondaryOnboarding: { allSkillsModalOpened: !0 },
-              user: { type: d.F.ENTERPRISE_TRIAL }
+              user: { type: d.F.ENTERPRISE_TRIAL },
+              settings: { features: {} }
             }),
             p = (0, r.mount)((0, c.jsx)(l.zt, { store: o }, (0, c.jsx)(i.default, { skill: u, expanded: !0, fromAllSkillsDialog: !1 })));
           console.log(p.html()), expect(p.find(".site-name")).toHaveLength(6), p.unmount(), top && (top.bg = n);

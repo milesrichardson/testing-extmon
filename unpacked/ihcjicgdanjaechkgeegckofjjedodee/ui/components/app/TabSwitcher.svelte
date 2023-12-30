@@ -3,12 +3,13 @@
     import AllowListTabIcon from "@/ui/svgs/AllowListTabIcon.svelte";
 
     import {link, location} from "svelte-spa-router";
+    import { translateText } from "@/utils/locales";
 
     console.debug($location);
     // export let activeTab = "current_website";
     let tabs = [
-        {key: "current_website", name: "Current Website"},
-        {key: "allow_list", name: "Allow List"},
+        {key: "current_website", name: translateText("currentWebsiteNavItem")},
+        {key: "allow_list", name: translateText("allowListNavItem")},
     ];
 </script>
 
@@ -27,7 +28,7 @@
         {:else}
             <CurrentWebsiteTabIcon isActive={false} class="w-[16px] h-[16px]" />
         {/if}
-        <span class="font-semibold">Current website</span>
+        <span class="font-semibold">{translateText("currentWebsiteNavItem")}</span>
     </a>
     <a
         use:link
@@ -42,6 +43,6 @@
         {:else}
             <AllowListTabIcon isActive={false} />
         {/if}
-        <span class="font-semibold">Allow list</span>
+        <span class="font-semibold">{translateText("allowListNavItem")}</span>
     </a>
 </div>

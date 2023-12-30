@@ -864,3 +864,47 @@ h4.web-tab-rail-title {
   background-color: #f6f7f7;
   color: black;
 }
+
+/* Onboarding flow */
+
+.carousel-container a {
+  color: #7a95e3;
+}
+
+#obf-img-illustration-1 {
+  content: url("./assets/obf-illustration-1-dark.svg");
+}
+
+#obf-img-illustration-2 {
+  content: url("./assets/obf-illustration-2-dark.svg");
+}
+
+#obf-img-illustration-3 {
+  content: url("./assets/obf-illustration-3-dark.svg");
+}
+
+#obf-img-illustration-4 {
+  content: url("./assets/obf-illustration-4-dark.svg");
+}
+.carousel-main-content ul li div img.checkmark-icon {
+  content: url("./assets/check-white.svg");
+}
+.carousel-control span {
+  color: #7a95e3 !important;
+}
+.carousel-control.done-btn span {
+  color: black !important;
+}
+.carousel-control .carousel-indicator {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+.carousel-control .carousel-indicator .dot {
+  background-color: #595a61;
+}
+.carousel-control .carousel-indicator .dot.active {
+  background-color: #7a95e3;
+}
+/* Onboarding flow */

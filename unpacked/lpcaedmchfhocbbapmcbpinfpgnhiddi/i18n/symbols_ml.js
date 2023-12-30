@@ -97,7 +97,7 @@ d = {
   L: "MMMM dd",
   N: "d/M",
   M: "MMMM d",
-  qa: "y MMM d",
+  qa: "y, MMM d",
   ja: "MMM d, EEE",
   ra: "y MMM d, EEE",
   o: "d",

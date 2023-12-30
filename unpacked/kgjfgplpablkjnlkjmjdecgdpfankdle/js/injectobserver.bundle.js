@@ -8,8 +8,15 @@
         r = document.querySelector("#zoom-quick2adv-number");
       r && null !== r && (o = r.textContent);
       let i = "",
-        a = "";
-      function l(e, t) {
+        l = document.querySelector("#zoom-whiteboard-record");
+      if (l && null !== l)
+        try {
+          i = JSON.parse(l.textContent);
+        } catch (e) {}
+      let a = "",
+        s = "",
+        c = "https://calendar.google.com";
+      function d(e, t) {
         var n = (function (e) {
           for (var t = {}, n = e.split("&"), o = 0; o < n.length; o++) {
             var r = n[o].split("=");
@@ -19,14 +26,14 @@
         })(e);
         return void 0 !== n[t] ? n[t] : null;
       }
-      function s(e) {
+      function u(e) {
         var t = null;
         try {
           (e = (e = e.replace(/\n/g, " ")).substring(e.indexOf("'") + 1, e.length)), (t = JSON.parse(e));
         } catch (e) {}
         return t;
       }
-      function c(e) {
+      function f(e) {
         let t = null,
           n = null,
           o = "";
@@ -34,12 +41,12 @@
           let r = e;
           o = r[5];
           let i = r[35][1][0],
-            a = r[36][1][0],
-            l = JSON.parse(document.querySelector("#timezonedata").innerText)[0];
+            l = r[36][1][0],
+            a = JSON.parse(document.querySelector("#timezonedata").innerText)[0];
           (n = r[35][2]), n || (n = document.querySelector("#xTimezone").innerText);
           let s = 0;
-          for (let e = 0, t = l.length; e < t; e++) {
-            let t = l[e];
+          for (let e = 0, t = a.length; e < t; e++) {
+            let t = a[e];
             if (t[0] === n) {
               s = 36e5 * parseInt(t[1].slice(4, 7));
               let e = 6e4 * parseInt(t[1].slice(8, 10));
@@ -48,56 +55,56 @@
             }
           }
           (i = new Date(i + s).toJSON().split(".000Z")[0].replace(/-/g, "").replace(/:/g, "")),
-            (a = new Date(a + s).toJSON().split(".000Z")[0].replace(/-/g, "").replace(/:/g, "")),
-            (t = i + "/" + a);
+            (l = new Date(l + s).toJSON().split(".000Z")[0].replace(/-/g, "").replace(/:/g, "")),
+            (t = i + "/" + l);
         } catch (e) {
           console.log("Dates conversion failed: " + e);
         }
         return { dates: t, timezone: n, topic: o };
       }
-      function u() {
+      function m() {
         let e = document.querySelector("#zoom_repeat_edit_flag"),
           t = null;
         return e && ((t = e.textContent), (e.textContent = "0")), t;
       }
-      function d(e) {
+      function p(e) {
         let t = (function () {
           let e = document.querySelector("#zoom_recurring_edit_flag")?.textContent;
-          return e || a ? (e !== a ? e || a : e) : "";
+          return e || s ? (e !== s ? e || s : e) : "";
         })();
         if ("ALL" === t || "TAIL" === t) {
           if (e.indexOf("_R") > -1)
             try {
-              let { sourceId: t, date: n } = y(i),
-                { sourceId: o, date: r } = y(e);
+              let { sourceId: t, date: n } = v(a),
+                { sourceId: o, date: r } = v(e);
               if (t && n && r && t === o && n >= r) return !0;
             } catch (e) {}
-        } else if (i === e) return !0;
+        } else if (a === e) return !0;
         return !1;
       }
-      function f() {
+      function y() {
         let e = (function () {
           let e,
             t = document.querySelector("#zoom_recurring_edit_flag");
           return t && ((e = t.textContent), (t.textContent = "")), e;
         })();
-        return !m(i) || "ALL" === e || "TAIL" === e || "ALL" === a || "TAIL" === a || void 0;
+        return !g(a) || "ALL" === e || "TAIL" === e || "ALL" === s || "TAIL" === s || void 0;
       }
-      function m(e) {
+      function g(e) {
         return !!e && new RegExp("^\\w{10,}(_[A-Za-z]?\\d{8}[A-Za-z]\\d{6}[A-Za-z]?)$", "").test(e);
       }
-      function p(e) {
+      function h(e) {
         return e ? e.replace(/_[A-Za-z]?\d{8}[A-Za-z]\d{6}[A-Za-z]?/g, "") : "";
       }
-      function y(e) {
+      function v(e) {
         if (e) {
           let t = new RegExp("^(\\w{10,})_[A-Za-z]?(\\d{8})[A-Za-z]\\d{6}[A-Za-z]?$", "").exec(e);
           if (t && t.length) return { sourceId: t[1], date: t[2] };
         }
         return { sourceId: "", date: "" };
       }
-      var g = n.open;
-      function h(e) {
+      var x = n.open;
+      function w(e) {
         if (Array.isArray(e)) {
           let t = e[0];
           if (Array.isArray(t) && t.length)
@@ -105,7 +112,7 @@
               let n = t[e];
               if (Array.isArray(n)) {
                 let e = n[0];
-                if (e && e.length > 10) return (i = e), (a = Array.isArray(n[2]) ? "TAIL" : 1 === n[1] ? "ALL" : ""), !0;
+                if (e && e.length > 10) return (a = e), (s = Array.isArray(n[2]) ? "TAIL" : 1 === n[1] ? "ALL" : ""), !0;
               }
             }
         }
@@ -118,221 +125,238 @@
             "readystatechange",
             function () {
               if (4 === this.readyState) {
-                var e = l(t, "action");
+                var e = d(t, "action");
                 if ("event" === n && "CREATE" === e) {
-                  var r = s(this.responseText),
-                    a = "";
+                  var r = u(this.responseText),
+                    l = "";
                   if (
-                    ((g = document.querySelector("#zoom-quick2adv-number")) && null !== g && (a = g.textContent),
-                    r && void 0 !== r[0] && void 0 !== r[0][1] && "" !== a)
+                    ((v = document.querySelector("#zoom-quick2adv-number")) && null !== v && (l = v.textContent),
+                    r && void 0 !== r[0] && void 0 !== r[0][1] && "" !== l)
                   ) {
                     let e = r[7][1];
-                    "string" == typeof e && e.length > 20 && window.postMessage({ calendarId: e, action: "event", number: a }, "*"),
+                    "string" == typeof e && e.length > 20 && window.postMessage({ calendarId: e, action: "event", number: l }, c),
                       (document.querySelector("#zoom-quick2adv-number").textContent = "");
                   }
                 } else if ("deleteevent" === n) {
-                  var y = l(t, "eid");
-                  y && y.length < 128 && window.postMessage({ calendarId: y, action: "deleteevent" }, "*");
+                  var s = d(t, "eid");
+                  s && s.length < 128 && window.postMessage({ calendarId: s, action: "deleteevent" }, c);
                 } else if ("event" === n && "EDIT" === e) {
-                  var g;
-                  (g = document.querySelector("#zoom-quick2adv-number")) && g.textContent && (g.textContent = "");
-                  let e = l(t, "eid"),
-                    n = l(t, "dates"),
+                  var v;
+                  (v = document.querySelector("#zoom-quick2adv-number")) && v.textContent && (v.textContent = "");
+                  let e = d(t, "eid"),
+                    n = d(t, "dates"),
                     o = document.querySelector("#zoom_edit_event_flag").textContent;
                   if (((document.querySelector("#zoom_edit_event_flag").textContent = "0"), "0" === o && e && n)) {
                     let t = null;
                     try {
-                      let e = s(this.responseText);
+                      let e = u(this.responseText);
                       t = JSON.parse(e[0][1])[22][3][0];
                     } catch (e) {}
-                    window.postMessage({ calendarId: e, action: "updatetimeandtimezone", dates: n, timezone: t }, "*");
+                    window.postMessage({ calendarId: e, action: "updatetimeandtimezone", dates: n, timezone: t }, c);
                   }
                 } else {
                   if ("sync.sync" !== n) return;
                   {
                     let e = null;
                     try {
-                      e = JSON.parse(l(t, "f.req"));
+                      e = JSON.parse(d(t, "f.req"));
                     } catch (e) {}
-                    let n = s(this.responseText),
+                    let n = u(this.responseText),
                       r = null,
-                      a = null,
-                      y = null,
-                      g = null,
+                      l = null,
+                      s = null,
                       v = null,
-                      x = null,
-                      A = null,
-                      z = null;
+                      w = null,
+                      z = null,
+                      q = null,
+                      A = null;
                     try {
-                      A = n[0][2][3];
+                      q = n[0][2][3];
                     } catch (e) {}
                     try {
-                      (a = n[0][2][11][2]), (z = atob(a));
+                      (l = n[0][2][11][2]), (A = atob(l));
                     } catch (e) {}
-                    if (Array.isArray(A) && (z || i)) {
+                    if (Array.isArray(q) && (A || a)) {
                       let e,
-                        t = m(i),
-                        n = (t && p(i)) || "";
-                      for (let o = A.length - 1; o > -1; o--) {
-                        let r = A[o];
+                        t = g(a),
+                        n = (t && h(a)) || "";
+                      for (let o = q.length - 1; o > -1; o--) {
+                        let r = q[o];
                         if (Array.isArray(r)) {
                           let o = r[1];
                           if (Array.isArray(o) && o.length) {
                             for (let r = o.length - 1; r > -1; r--) {
-                              let a = o[r];
-                              if (Array.isArray(a)) {
-                                let o = a[3];
+                              let i = o[r];
+                              if (Array.isArray(i)) {
+                                let o = i[3];
                                 if (Array.isArray(o) && o[0]) {
                                   let r = o[0];
                                   if (t) {
-                                    if (d(r)) {
-                                      v = o;
+                                    if (p(r)) {
+                                      w = o;
                                       break;
                                     }
                                     r === n && (e = o);
-                                  } else if ((z && z.indexOf(r) > -1) || (!z && r === i)) {
-                                    v = o;
+                                  } else if ((A && A.indexOf(r) > -1) || (!A && r === a)) {
+                                    w = o;
                                     break;
                                   }
                                 }
                               }
                             }
-                            !v && e && (v = e);
+                            !w && e && (w = e);
                           }
                         }
-                        if (v) {
-                          x = r[0];
+                        if (w) {
+                          z = r[0];
                           break;
                         }
                       }
                     }
-                    if ((Array.isArray(v) && ((r = v[2]), (y = v[1]), (g = v[0])), r)) {
+                    if ((Array.isArray(w) && ((r = w[2]), (s = w[1]), (v = w[0])), r)) {
                       let e = r.split("eid=")[1],
                         t = !1,
                         n = null,
-                        a = null,
-                        l = [];
-                      if (g) {
-                        let e = v[20];
+                        l = null,
+                        s = null,
+                        d = [];
+                      if (v) {
+                        let e = w[20];
                         if (Array.isArray(e)) {
-                          a = [];
-                          for (var h = 0; h < e.length; h++)
+                          s = [];
+                          for (var x = 0; x < e.length; x++)
                             try {
-                              let t = e[h][0],
-                                n = e[h][1];
-                              t && a.push(t), n && l.push(n);
+                              let t = e[x][0],
+                                n = e[x][1];
+                              t && s.push(t), n && d.push(n);
                             } catch (e) {}
                         }
                       }
-                      if (z && g) {
+                      if (A && v) {
                         let r = "";
                         try {
-                          r = z.split(g)[1];
+                          r = A.split(v)[1];
                         } catch (e) {
                           console.log("Markup field format changes!");
                         }
                         if (r.length < 6) {
                           let t = "",
                             r = document.querySelector("#zoom-quick2adv-number");
-                          if (
-                            (o ? (t = o) : r && (t = r.textContent),
-                            e &&
-                              t &&
-                              ("string" == typeof e &&
-                                e.length > 20 &&
-                                (window.postMessage({ calendarId: e, action: "event", number: t, event_baseid: g }, "*"), (n = t)),
-                              r && o == r.textContent && (r.textContent = ""),
-                              "1" === u() || l.length))
-                          ) {
-                            let { dates: e, timezone: n, topic: o } = c(v);
-                            e &&
-                              window.postMessage(
-                                {
-                                  event_baseid: g,
-                                  action: "updatetimeandtimezone",
-                                  dates: e,
-                                  timezone: n,
-                                  topic: o,
-                                  number: t,
-                                  zoomrooms: l.join(",")
-                                },
-                                "*"
-                              );
+                          o ? (t = o) : r && (t = r.textContent);
+                          let s = "",
+                            u = document.querySelector("#zoom-whiteboard-record");
+                          if (i) s = i;
+                          else if (u)
+                            try {
+                              s = JSON.parse(u.textContent);
+                            } catch (e) {}
+                          if (e && (t || s)) {
+                            if ("string" == typeof e && e.length > 20) {
+                              let o = { calendarId: e, action: "event", number: t || "", event_baseid: v };
+                              s?.docId &&
+                                ((o.scheduleTime = s.scheduleTime || ""), (o.wb_doc_id = s.docId), (o.wb_permission = s.permission)),
+                                window.postMessage(o, c),
+                                t && (n = t),
+                                s && (l = s);
+                            }
+                            if ((r && o == r.textContent && (r.textContent = ""), u && i))
+                              try {
+                                let e = JSON.parse(u.textContent);
+                                i.docId == e.docId && i.permission == e.permission && (u.textContent = "");
+                              } catch (e) {}
+                            if ("1" === m() || d.length) {
+                              let { dates: e, timezone: n, topic: o } = f(w);
+                              e &&
+                                window.postMessage(
+                                  {
+                                    event_baseid: v,
+                                    action: "updatetimeandtimezone",
+                                    dates: e,
+                                    timezone: n,
+                                    topic: o,
+                                    number: t,
+                                    zoomrooms: d.join(",")
+                                  },
+                                  c
+                                );
+                            }
                           }
-                          i
-                            ? (i != g &&
+                          a
+                            ? (a != v &&
                                 (console.log("The create request occurs, but sendBaseid is not equal to nid!"),
                                 window.postMessage(
                                   {
-                                    event_baseid: g,
+                                    event_baseid: v,
                                     action: "recordZmlog",
                                     msgType: 7,
                                     msg: {
                                       msg: "The create request occurs, but sendBaseid is not equal to nid!",
-                                      nid: g,
-                                      sendBaseid: i,
+                                      nid: v,
+                                      sendBaseid: a,
                                       filename: "zm-observer.js"
                                     },
                                     operaType: 3
                                   },
-                                  "*"
+                                  c
                                 )),
-                              (i = ""))
+                              (a = ""))
                             : (console.log("The create request occurs, but sendBaseid has no value!"),
                               window.postMessage(
                                 {
-                                  event_baseid: g,
+                                  event_baseid: v,
                                   action: "recordZmlog",
                                   msgType: 7,
                                   msg: {
                                     msg: "The create request occurs, but sendBaseid has no value!",
-                                    nid: g,
+                                    nid: v,
                                     filename: "zm-observer.js"
                                   },
                                   operaType: 3
                                 },
-                                "*"
+                                c
                               ));
                         } else {
                           let n = document.querySelector("#zoom-quick2adv-number");
                           n && n.textContent && (n.textContent = "");
-                          let r = document.querySelector("#zoom_edit_event_flag"),
-                            i = null;
-                          r && ((i = r.textContent), (r.textContent = "0"));
-                          let a = "1" === u();
-                          if (("0" === i || a || l.length) && e) {
-                            let { dates: e, timezone: n, topic: r } = c(v);
+                          let r = document.querySelector("#zoom-whiteboard-record");
+                          r && r.textContent && (r.textContent = "");
+                          let i = document.querySelector("#zoom_edit_event_flag"),
+                            l = null;
+                          i && ((l = i.textContent), (i.textContent = "0"));
+                          let a = "1" === m();
+                          if (("0" === l || a || d.length) && e) {
+                            let { dates: e, timezone: n, topic: r } = f(w);
                             e &&
                               (window.postMessage(
                                 {
-                                  event_baseid: g,
+                                  event_baseid: v,
                                   action: "updatetimeandtimezone",
                                   dates: e,
                                   timezone: n,
                                   topic: r,
                                   number: a ? o : "",
-                                  zoomrooms: l.join(",")
+                                  zoomrooms: d.join(",")
                                 },
-                                "*"
+                                c
                               ),
-                              "0" === i && (t = !0));
+                              "0" === l && (t = !0));
                           }
                         }
-                      } else if (g) {
-                        if ("1" === u() || l.length) {
-                          let { dates: e, timezone: t, topic: n } = c(v);
+                      } else if (v) {
+                        if ("1" === m() || d.length) {
+                          let { dates: e, timezone: t, topic: n } = f(w);
                           e &&
                             window.postMessage(
                               {
-                                event_baseid: g,
+                                event_baseid: v,
                                 action: "updatetimeandtimezone",
                                 dates: e,
                                 timezone: t,
                                 topic: n,
                                 number: o,
-                                zoomrooms: l.join(",")
+                                zoomrooms: d.join(",")
                               },
-                              "*"
+                              c
                             );
                         }
                         let e = document.querySelector("#zoom-quick2adv-number");
@@ -340,28 +364,39 @@
                         let t = document.querySelector("#zoom_edit_event_flag");
                         t && (t.textContent = "0");
                       }
-                      if (g && !t && Array.isArray(a) && f()) {
-                        let e = g;
-                        if (("string" == typeof g && g.indexOf("_") > -1 && (e = p(g)), n))
-                          a.length &&
-                            window.postMessage({ meetingNumber: n, event_baseid: e, action: "saveInvitee", invitee: a, reFilter: !1 }, "*");
+                      if (v && !t && Array.isArray(s) && y()) {
+                        let e = v;
+                        if (("string" == typeof v && v.indexOf("_") > -1 && (e = h(v)), n || l))
+                          s.length &&
+                            window.postMessage(
+                              {
+                                meetingNumber: n,
+                                wb_doc_id: l?.docId,
+                                wb_permission: l?.permission,
+                                event_baseid: e,
+                                action: "saveInvitee",
+                                invitee: s,
+                                reFilter: !1
+                              },
+                              c
+                            );
                         else {
                           let t,
-                            n = v[7];
+                            n = w[7];
                           try {
-                            t = v[64][1];
+                            t = w[64][1];
                           } catch (e) {}
                           (n || t) &&
                             window.postMessage(
-                              { event_baseid: e, action: "saveInvitee", invitee: a, reFilter: !0, joinUrl: n, descText: t },
-                              "*"
+                              { event_baseid: e, action: "saveInvitee", invitee: s, reFilter: !0, joinUrl: n, descText: t },
+                              c
                             );
                         }
                       }
-                    } else if (2 === y) {
+                    } else if (2 === s) {
                       let e = !1;
                       try {
-                        z.indexOf(x) > -1 && (e = !0);
+                        A.indexOf(z) > -1 && (e = !0);
                       } catch (e) {}
                       if (!e) return;
                       try {
@@ -376,7 +411,7 @@
                       try {
                         void 0 === n[0][2][4][0] && (e = !1);
                       } catch (e) {}
-                      e && window.postMessage({ event_baseid: g, action: "deleteevent" }, "*");
+                      e && window.postMessage({ event_baseid: v, action: "deleteevent" }, c);
                     }
                   }
                 }
@@ -384,10 +419,10 @@
             },
             !0
           ),
-          g.apply(this, arguments)
+          x.apply(this, arguments)
         );
       };
-      var v = n.send;
+      var z = n.send;
       return (
         (n.send = function (e) {
           var n = document.querySelector("#zoom-quick-desc"),
@@ -406,21 +441,21 @@
             }
             if (Array.isArray(i)) {
               let t = !1,
-                a = -2;
+                l = -2;
               try {
                 let e = i[0]?.[4];
                 if (Array.isArray(e) && e.length)
                   for (var r = e.length - 1; r > -1; r--) {
                     let t = e[r]?.[2];
-                    if (h(t)) {
-                      a = r;
+                    if (w(t)) {
+                      l = r;
                       break;
                     }
                   }
               } catch (e) {}
               if (n && "" !== n.textContent) {
                 try {
-                  a > -1 && ((i[0][4][a][2][0][2][3][1][2][1] = decodeURIComponent(n.textContent)), (t = !0), (n.textContent = ""));
+                  l > -1 && ((i[0][4][l][2][0][2][3][1][2][1] = decodeURIComponent(n.textContent)), (t = !0), (n.textContent = ""));
                 } catch (e) {}
                 t ||
                   (function (e) {
@@ -435,13 +470,13 @@
                         },
                         operaType: 3
                       },
-                      "*"
+                      c
                     );
                   })(i);
               }
               if (o && "" !== o.textContent)
                 try {
-                  a > -1 && ((i[0][4][a][2][0][2][3][3][11] = [null, null, [[[null, o.textContent]]]]), (t = !0), (o.textContent = ""));
+                  l > -1 && ((i[0][4][l][2][0][2][3][3][11] = [null, null, [[[null, o.textContent]]]]), (t = !0), (o.textContent = ""));
                 } catch (e) {}
               t && (e = e.replace(/f\.req\=[\w\W]*?(?=&)/, "f.req=" + encodeURIComponent(JSON.stringify(i))));
             }
@@ -449,7 +484,7 @@
             "event" === this._path &&
               (n && "" !== n.textContent && (e = e.replace(/&details&/g, "&details=" + n.textContent + "&")),
               o && "" !== o.textContent && (e = e.replace(/&location&/g, "&location=" + o.textContent + "&")));
-          return (t = e), v.apply(this, [].slice.call(arguments));
+          return (t = e), z.apply(this, [].slice.call(arguments));
         }),
         n
       );

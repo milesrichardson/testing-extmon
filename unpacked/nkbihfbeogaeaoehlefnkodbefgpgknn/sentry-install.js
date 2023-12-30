@@ -291,15 +291,7 @@
                   },
                   CachedBalancesController: { cachedBalances: !1 },
                   CronjobController: { jobs: !1 },
-                  CurrencyController: {
-                    conversionDate: !0,
-                    conversionRate: !0,
-                    currentCurrency: !0,
-                    nativeCurrency: !0,
-                    pendingCurrentCurrency: !0,
-                    pendingNativeCurrency: !0,
-                    usdConversionRate: !0
-                  },
+                  CurrencyController: { currentCurrency: !0, currencyRates: !0 },
                   DecryptMessageController: { unapprovedDecryptMsgs: !1, unapprovedDecryptMsgCount: !0 },
                   EncryptionPublicKeyController: { unapprovedEncryptionPublicKeyMsgs: !1, unapprovedEncryptionPublicKeyMsgCount: !0 },
                   EnsController: { ensResolutionsByAddress: !1 },
@@ -324,7 +316,7 @@
                   NftController: { allNftContracts: !1, allNfts: !1, ignoredNfts: !1 },
                   NotificationController: { notifications: !1 },
                   OnboardingController: { completedOnboarding: !0, firstTimeFlowType: !0, onboardingTabs: !1, seedPhraseBackedUp: !0 },
-                  PPOMController: { chainStatus: !0, securityAlertsEnabled: !1, storageMetadata: [], versionInfo: [] },
+                  PPOMController: { chainStatus: !0, securityAlertsEnabled: !1, storageMetadata: [], versionFileETag: !1, versionInfo: [] },
                   PermissionController: { subjects: !1 },
                   PermissionLogController: { permissionActivityLog: !1, permissionHistory: !1 },
                   PhishingController: {},
@@ -362,7 +354,8 @@
                     useNftDetection: !0,
                     useNonceField: !0,
                     usePhishDetect: !0,
-                    useTokenDetection: !0
+                    useTokenDetection: !0,
+                    useRequestQueue: !0
                   },
                   SelectedNetworkController: { domains: !0, perDomainNetwork: !1 },
                   SignatureController: {
@@ -378,10 +371,11 @@
                       fees: { approvalTxFees: !0, tradeTxFees: !0 },
                       liveness: !0,
                       smartTransactions: !1,
-                      userOptIn: !0
+                      userOptIn: !0,
+                      userOptInV2: !0
                     }
                   },
-                  SnapController: { snapStates: !1, snaps: !1 },
+                  SnapController: { unencryptedSnapStates: !1, snapStates: !1, snaps: !1 },
                   SnapsRegistry: { database: !1, lastUpdated: !1 },
                   SubjectMetadataController: { subjectMetadata: !1 },
                   SwapsController: {
@@ -423,7 +417,7 @@
                     ignoredTokens: !1,
                     tokens: !1
                   },
-                  TransactionController: { transactions: !1, lastFetchedBlockNumbers: !1 },
+                  TransactionController: { transactions: !1, lastFetchedBlockNumbers: !1, methodData: !1 },
                   TxController: { transactions: !1 }
                 }),
                 g = Object.values(m).reduce((e, t) => ({ ...e, ...t }), {});
@@ -584,7 +578,7 @@
                     r = (n = e("./lib/setupSentry")) && n.__esModule ? n : { default: n };
                   (t.stateHooks = {}),
                     (t.sentry = (0, r.default)({
-                      release: "11.5.0",
+                      release: "11.7.2",
                       getState: () => {
                         var e, n;
                         return (

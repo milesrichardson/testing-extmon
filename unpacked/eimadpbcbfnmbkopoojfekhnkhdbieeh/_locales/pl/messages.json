@@ -1,6 +1,6 @@
 {
   "extension_description": {
-    "message": "Tryb ciemny dla wszystkich stron internetowych. Zadbaj o swoje oczy, używaj ciemnego motywu przeglądając w dzień i w nocy."
+    "message": "Tryb ciemny dla wszystkich stron internetowych. Zadbaj o swój wzrok, używając ciemnego motywu do przeglądania w dzień i w nocy."
   },
   "loading_please_wait": {
     "message": "Ładowanie, proszę czekać"
@@ -12,7 +12,7 @@
     "message": "Wyłącz."
   },
   "toggle_current_site": {
-    "message": "Przełącz dla obecnej strony"
+    "message": "Przełącz dla bieżącej strony"
   },
   "setup_hotkey_toggle_site": {
     "message": "Ustaw obecną stronę\nprzełącz przycisk"
@@ -42,7 +42,7 @@
     "message": "Ta strona jest chroniona\nprzez przeglądarkę"
   },
   "local_files_forbidden": {
-    "message": "Brak zezwolenia na dostęp\npliki lokalne"
+    "message": "Brak dostępu do\nplików lokalnych"
   },
   "page_in_dark_list": {
     "message": "Ta strona jest w globalnej\nczarnej liście"
@@ -210,7 +210,7 @@
     "message": "Wesprzyj naszą pracę"
   },
   "mobile_link": {
-    "message": "Dostępny jest mobilny Dark Reader. Ucz się więcej"
+    "message": "Mobilny Dark Reader jest dostępny. Dowiedz się więcej"
   },
   "store_listing": {
     "message": "To rozszerzenie dbające o zdrowie oczu aktywuje tryb nocny tworząc dynamiczne ciemne motywy dla stron internetowych. Dark Reader odwraca jasność kolorów, nadając im wysokiego kontrastu i ułatwiając czytanie w nocy.\n\nMożesz dopasować jasność, kontrast, filtr sepii, tryb ciemny, ustawienia czcionki i listę ignorowanych stron.\n\nMożemy poprosić Cię o wsparcie rozwoju aplikacji darowizną. Możesz zobaczyć wiadomości o Dark Reader w wyskakującym okienku ustawień. Istnieją narzędzia programistyczne dla doświadczonych użytkowników.\n\nDark reader nie wyświetla reklam ani nie wysyła nigdzie danych użytkowników. Jest oprogramowaniem o w pełni otwartym kodzie źródłowym https://github.com/darkreader/darkreader\n\nPrzed instalacją usuń podobne rozszerzenia. Miłego oglądania!"

@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ 字节",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "zh_CN"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "关于"
@@ -154,7 +154,7 @@
   "adaptative": {
     "message": "自动 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +207,13 @@
   "browser_info": {
     "message": "浏览器 $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +221,7 @@
   "browser_locale": {
     "message": "浏览器语言: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +229,7 @@
   "build_options": {
     "message": "构建选项: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +237,7 @@
   "built_on": {
     "message": "构建于 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +248,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ 个视频",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +316,7 @@
   "chrome_premium_hls": {
     "message": "如果没有高级版，一个HLS下载只能在前次下载$ARG1$分钟后进行",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,7 +339,7 @@
   "chrome_premium_source": {
     "message": "您是通过$ARG1$的高级版用户",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -389,7 +389,7 @@
   "coapp_latest_version": {
     "message": "最新可用版本是 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +406,10 @@
   "coapp_outofdate_text": {
     "message": "你正在应用合作应用版本 $ARG1$ 但是本功能需要版本 $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -585,7 +585,7 @@
   "convrule_format": {
     "message": "为格式 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -593,7 +593,7 @@
   "convrule_from_domain": {
     "message": "来自域名 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,7 +610,7 @@
   "convrule_with_ext": {
     "message": "带扩展名 '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -627,7 +627,7 @@
   "copy_of": {
     "message": "$ARG1$ 的副本",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -635,10 +635,10 @@
   "corrupted_media_file": {
     "message": "不能从文件 ‘$ARG2$’ 中的媒体 '$ARG1$' 获取信息。文件可能损坏。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -667,7 +667,7 @@
   "directory_not_exist_body": {
     "message": "文件夹 ‘$ARG1$’ 不存在，确定要创建它吗?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -717,7 +717,7 @@
   "error_not_directory": {
     "message": "‘$ARG1$’ 已存在但不是一个目录",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -740,7 +740,7 @@
   "failed_aggregating": {
     "message": "汇总“$ARG1$”失败",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -748,7 +748,7 @@
   "failed_converting": {
     "message": "转换“$ARG1$”失败",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -756,7 +756,7 @@
   "failed_getting_info": {
     "message": "从“$ARG1$”获取信息失败",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -779,7 +779,7 @@
   "file_generated": {
     "message": "文件“$ARG1$”已被生成。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -787,7 +787,7 @@
   "file_ready": {
     "message": "“$ARG1$”现已就绪",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -798,7 +798,7 @@
   "from_domain": {
     "message": "来自 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -809,7 +809,7 @@
   "gallery_files_types": {
     "message": "$ARG1$文件",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -817,7 +817,7 @@
   "gallery_from_domain": {
     "message": "来自 $ARG1$ 的图库",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -825,7 +825,7 @@
   "gallery_links_from_domain": {
     "message": "来自 $ARG1$ 的链接",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -866,7 +866,7 @@
   "lic_mismatch1": {
     "message": "许可证适用于$ARG1$，不适用于当前浏览器",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -874,10 +874,10 @@
   "lic_mismatch2": {
     "message": "许可证适用于$ARG1$，但本扩展版本适用于$ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -945,7 +945,7 @@
   "network_error_status": {
     "message": "网络错误 - 状态 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -962,7 +962,7 @@
   "no_audio_in_file": {
     "message": "在文件 $ARG1$ 中没有音频流",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -991,7 +991,7 @@
   "no_video_in_file": {
     "message": "在文件 $ARG1$ 中没有视频流",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1005,10 +1005,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1025,7 +1025,7 @@
   "overwrite_file": {
     "message": "覆盖文件 '$ARG1$' ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1045,10 +1045,10 @@
   "platform_info": {
     "message": "平台 $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1098,10 +1098,10 @@
   "req_locale": {
     "message": "或者可以帮助翻译附加组件为 '$ARG1$' (缺少 $ARG2$ 个字符串)?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1241,7 +1241,7 @@
   "version": {
     "message": "版本 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1732,7 +1732,7 @@
   "you_downloaded_n_videos": {
     "message": "您刚刚成功用 Video DownloadHelper 下载您的第 $ARG1$ 个文件。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

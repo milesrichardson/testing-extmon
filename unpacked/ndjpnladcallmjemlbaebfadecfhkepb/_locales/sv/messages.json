@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Appar"
+  },
+  "EndOfSupportHeader": {
+    "message": "Supporten upphör för Microsoft 365-tillägget"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Från och med 15 januari 2024 stöds inte längre det här tillägget av Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Mer information finns på supportsidan för det här tillägget."
+  },
+  "Support": {
+    "message": "Support"
   }
 }

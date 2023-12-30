@@ -19447,7 +19447,7 @@
                   c = r(58489),
                   u = r(32374);
               },
-              75018: function (e, t, r) {
+              8216: function (e, t, r) {
                 "use strict";
                 var n =
                   (this && this.__importDefault) ||
@@ -19455,7 +19455,7 @@
                     return e && e.__esModule ? e : { default: e };
                   };
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.AhoCorasickBackgroundWrapper = void 0);
-                const i = n(r(74424));
+                const i = n(r(30758));
                 class o {
                   constructor() {
                     (this.kDISABLE = !1),
@@ -19530,10 +19530,10 @@
                 }
                 (t.default = o), (t.AhoCorasickBackgroundWrapper = o);
               },
-              15749: (e, t, r) => {
+              6840: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.DevtoolManager = void 0);
-                const n = r(53576),
+                const n = r(32626),
                   i = r(81323);
                 class o {
                   constructor(e, t) {
@@ -19605,7 +19605,7 @@
                 }
                 (t.default = o), (t.DevtoolManager = o);
               },
-              8696: (e, t) => {
+              40213: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -19625,13 +19625,13 @@
                     }
                   });
               },
-              96656: (e, t, r) => {
+              49764: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.FileManager = void 0);
                 const n = r(54316),
-                  i = r(8696),
-                  o = r(77034),
-                  s = r(91736);
+                  i = r(40213),
+                  o = r(64920),
+                  s = r(52507);
                 t.FileManager = class {
                   constructor(e, t) {
                     var r;
@@ -19687,7 +19687,7 @@
                   }
                 };
               },
-              77034: function (e, t, r) {
+              64920: function (e, t, r) {
                 "use strict";
                 var n =
                   (this && this.__importDefault) ||
@@ -19696,10 +19696,10 @@
                   };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.FieldsModelFileInstance = t.FormsModelFileInstance = t.ModelFileInstance = void 0);
-                const i = r(91232),
-                  o = n(r(94381)),
-                  s = n(r(60071)),
-                  a = r(8696);
+                const i = r(80377),
+                  o = n(r(35259)),
+                  s = n(r(22800)),
+                  a = r(40213);
                 class c extends a.FileInstance {
                   constructor(e, t, r) {
                     super(e), (this._localFileFetcher = t), (this._classifierClassRef = r);
@@ -19736,11 +19736,11 @@
                 }
                 (t.FieldsModelFileInstance = l), (l.NAME = "fields_model.min.bson");
               },
-              91736: (e, t, r) => {
+              52507: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.OverridesFileInstance = void 0);
-                const n = r(28311),
-                  i = r(8696);
+                const n = r(12747),
+                  i = r(40213);
                 class o extends i.FileInstance {
                   constructor(e) {
                     super(o.NAME), (this._localFetcher = e);
@@ -19765,10 +19765,10 @@
                 }
                 (t.OverridesFileInstance = o), (o.NAME = "overrides.json");
               },
-              13850: (e, t, r) => {
+              33484: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.FrameIdCollector = void 0);
-                const n = r(53576),
+                const n = r(32626),
                   i = r(81323);
                 t.FrameIdCollector = class {
                   constructor(e) {
@@ -19825,12 +19825,12 @@
                   }
                 };
               },
-              12773: (e, t, r) => {
+              41674: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.ChromeLocalFetcher = void 0);
                 const n = r(81323),
-                  i = r(17541),
-                  o = r(91232);
+                  i = r(98525),
+                  o = r(80377);
                 class s extends i.LocalFetcher {
                   constructor() {
                     super();
@@ -19859,10 +19859,10 @@
                 }
                 t.ChromeLocalFetcher = s;
               },
-              17541: (e, t, r) => {
+              98525: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.LocalFetcher = void 0);
-                const n = r(91232),
+                const n = r(80377),
                   i = r(26029);
                 t.LocalFetcher = class {
                   loadFileContent(e, t) {
@@ -19877,34 +19877,34 @@
                   }
                 };
               },
-              24677: (e, t, r) => {
+              35376: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.LocalFetcherFactory = void 0);
-                const n = r(12773);
+                const n = r(41674);
                 t.LocalFetcherFactory = class {
                   static build() {
                     return new n.ChromeLocalFetcher();
                   }
                 };
               },
-              28311: (e, t, r) => {
+              12747: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.FileType = t.LocalFetcherFactory = t.LocalFetcher = void 0);
-                var n = r(17541);
+                var n = r(98525);
                 Object.defineProperty(t, "LocalFetcher", {
                   enumerable: !0,
                   get: function () {
                     return n.LocalFetcher;
                   }
                 });
-                var i = r(24677);
+                var i = r(35376);
                 Object.defineProperty(t, "LocalFetcherFactory", {
                   enumerable: !0,
                   get: function () {
                     return i.LocalFetcherFactory;
                   }
                 });
-                var o = r(91232);
+                var o = r(80377);
                 Object.defineProperty(t, "FileType", {
                   enumerable: !0,
                   get: function () {
@@ -19912,7 +19912,7 @@
                   }
                 });
               },
-              91232: (e, t) => {
+              80377: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -19920,7 +19920,7 @@
                   ((r = t.FileType || (t.FileType = {})).Json = "JSON"),
                   (r.Bson = "BSON");
               },
-              81052: (e, t) => {
+              44226: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.PandoraManager = void 0);
                 class r {
@@ -19968,7 +19968,7 @@
                 }
                 (t.default = r), (t.PandoraManager = r);
               },
-              33892: function (e, t, r) {
+              47702: function (e, t, r) {
                 "use strict";
                 var n =
                   (this && this.__importDefault) ||
@@ -19976,23 +19976,23 @@
                     return e && e.__esModule ? e : { default: e };
                   };
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.TiresiasBackground = void 0);
-                const i = r(53576),
+                const i = r(32626),
                   o = r(81323),
-                  s = r(39252),
-                  a = r(37291),
-                  c = r(31528),
-                  u = r(63729),
-                  l = r(20803),
-                  d = r(98759),
-                  f = n(r(75018)),
-                  h = n(r(15749)),
-                  p = r(96656),
-                  m = r(77034),
-                  b = r(91736),
-                  g = r(13850),
-                  v = r(28311),
-                  y = n(r(81052)),
-                  _ = r(19171),
+                  s = r(69087),
+                  a = r(30151),
+                  c = r(11325),
+                  u = r(86367),
+                  l = r(22903),
+                  d = r(25174),
+                  f = n(r(8216)),
+                  h = n(r(6840)),
+                  p = r(49764),
+                  m = r(64920),
+                  b = r(52507),
+                  g = r(33484),
+                  v = r(12747),
+                  y = n(r(44226)),
+                  _ = r(85814),
                   S = ["https", "http"];
                 t.TiresiasBackground = class {
                   constructor(e) {
@@ -20232,16 +20232,16 @@
                   }
                 };
               },
-              19171: (e, t, r) => {
+              85814: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.getTiresiasConfigurationOptions = t.storeTiresiasConfigurationOptions = void 0);
-                const n = r(1848),
+                const n = r(50054),
                   i = "tiresiasConfigOption";
                 (t.storeTiresiasConfigurationOptions = (e) => (0, n.setValueInLocalStorage)({ [i]: e })),
                   (t.getTiresiasConfigurationOptions = () => (0, n.readLocalStorage)(i));
               },
-              1848: (e, t, r) => {
+              50054: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.setValueInLocalStorage = t.readLocalStorage = t.READ_STORAGE_ERROR = void 0);
@@ -20254,7 +20254,7 @@
                   }),
                   (t.setValueInLocalStorage = (e) => (0, n.storageLocalSet)(e));
               },
-              74424: (e, t) => {
+              30758: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.AhoCorasick = void 0);
                 class r {
@@ -20358,10 +20358,10 @@
                 }
                 (t.default = n), (t.AhoCorasick = n);
               },
-              39252: (e, t, r) => {
+              69087: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.MessageHandler = void 0);
-                const n = r(53576),
+                const n = r(32626),
                   i = r(81323);
                 t.MessageHandler = class {
                   constructor(e) {
@@ -20406,7 +20406,7 @@
                   }
                 };
               },
-              37291: (e, t) => {
+              30151: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.ResourcesStorage = void 0),
@@ -20428,7 +20428,7 @@
                     }
                   });
               },
-              31528: (e, t) => {
+              11325: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.ContentToContentMessage = void 0);
                 class r {
@@ -20438,7 +20438,7 @@
                 }
                 (t.ContentToContentMessage = r), (r.MSG = "ContentToContentMessage");
               },
-              63729: (e, t) => {
+              86367: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.ReclassifyIframeMessage =
@@ -20513,7 +20513,7 @@
                 }
                 (t.ReclassifyIframeMessage = d), (d.MSG = "reclassifyIframeMessage");
               },
-              20803: (e, t) => {
+              22903: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.SetConfigurationMessage =
@@ -20609,11 +20609,11 @@
                 }
                 (t.SetConfigurationMessage = p), (p.MSG = "setConfigurationMessage");
               },
-              98759: (e, t, r) => {
+              25174: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.forwardContentScriptExceptionLog = t.makeContentScriptExceptionLogger = t.makeBackgroundExceptionLogger = void 0);
-                const n = r(20803),
+                const n = r(22903),
                   i = (e, t, r, n) => {
                     var i;
                     if (n.rateLimit && n.rateLimit >= 0 && n.rateLimit < Math.random()) return;
@@ -21412,21 +21412,21 @@
                   };
                 };
               },
-              13094: (e, t) => {
+              53006: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              75689: (e, t, r) => {
+              27571: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.abTestsLiveQueriesSlots = t.abTestsQueriesSlots = t.abTestsCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.abTestsCommandsSlots = { participateToUserABTest: (0, n.slot)() }),
                   (t.abTestsQueriesSlots = { getUserABTestVariant: (0, n.slot)() }),
                   (t.abTestsLiveQueriesSlots = { liveUserABTestVariant: (0, i.liveSlot)() });
               },
-              82607: function (e, t, r) {
+              28249: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21451,9 +21451,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(13094), t), i(r(75689), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(53006), t), i(r(27571), t);
               },
-              58209: function (e, t, r) {
+              29004: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21478,19 +21478,19 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(61831), t), i(r(24190), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(19240), t), i(r(69021), t);
               },
-              61831: (e, t, r) => {
+              19240: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.contactInfoLiveQueriesSlots = t.contactInfoQueriesSlots = t.contactInfoCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.contactInfoCommandsSlots = { editContactInfo: (0, n.slot)() }),
                   (t.contactInfoQueriesSlots = { getContactInfo: (0, n.slot)() }),
                   (t.contactInfoLiveQueriesSlots = { liveContactInfo: (0, i.liveSlot)() });
               },
-              24190: (e, t) => {
+              69021: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -21499,7 +21499,7 @@
                   (r[(r.INVALID_EMAIL = 1)] = "INVALID_EMAIL"),
                   (r[(r.UNKNOWN_ERROR = 2)] = "UNKNOWN_ERROR");
               },
-              59539: function (e, t, r) {
+              90041: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21524,18 +21524,18 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(55315), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(83559), t);
               },
-              55315: (e, t, r) => {
+              83559: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.subscriptionCodeLiveQueriesSlots = t.subscriptionCodeQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.subscriptionCodeQueriesSlots = { getSubscriptionCode: (0, n.slot)() }),
                   (t.subscriptionCodeLiveQueriesSlots = { liveSubscriptionCode: (0, i.liveSlot)() });
               },
-              88875: (e, t) => {
+              53042: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -21549,13 +21549,13 @@
                   (r[(r.USER_NITRO_SSO_PROVISIONED = 6)] = "USER_NITRO_SSO_PROVISIONED"),
                   (r[(r.USER_NOT_PROPOSED = 7)] = "USER_NOT_PROPOSED");
               },
-              21225: (e, t, r) => {
+              12972: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.accountCreationLiveQueriesSlots = void 0);
-                const n = r(55195);
+                const n = r(72345);
                 t.accountCreationLiveQueriesSlots = { liveAccountCreated: (0, n.liveSlot)() };
               },
-              94705: function (e, t, r) {
+              33773: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21580,15 +21580,15 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(88875), t), i(r(21225), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(53042), t), i(r(12972), t);
               },
-              31336: (e, t, r) => {
+              16307: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.antiPhishingLiveQueriesSlots = void 0);
-                const n = r(55195);
+                const n = r(72345);
                 t.antiPhishingLiveQueriesSlots = { livePhishingURLList: (0, n.liveSlot)() };
               },
-              88806: function (e, t, r) {
+              65722: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21613,9 +21613,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(31336), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(16307), t);
               },
-              19051: function (e, t, r) {
+              22786: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21640,9 +21640,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(64837), t), i(r(54373), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(14529), t), i(r(54876), t);
               },
-              64837: (e, t, r) => {
+              14529: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.twoFactorAuthenticationLiveQueriesSlots =
@@ -21650,7 +21650,7 @@
                     t.twoFactorAuthenticationCommandsSlots =
                       void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.twoFactorAuthenticationCommandsSlots = {
                   refreshU2FDevicesList: (0, n.slot)(),
                   removeU2FAuthenticator: (0, n.slot)(),
@@ -21675,7 +21675,7 @@
                     liveTwoFactorAuthenticationDisableStage: (0, i.liveSlot)()
                   });
               },
-              54373: (e, t) => {
+              54876: (e, t) => {
                 "use strict";
                 var r, n, i, o, s;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -21714,7 +21714,7 @@
                   (r.TOTP_TYPE_IS_NOT_SET_TO_EMAIL_TOKEN = "totp_type_is_not_set_to_email_token"),
                   (r.PHONE_VALIDATION_FAILED = "phone_validation_failed");
               },
-              32420: function (e, t, r) {
+              30156: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21739,9 +21739,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(58185), t), i(r(39110), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(47817), t), i(r(1195), t);
               },
-              39110: (e, t) => {
+              1195: (e, t) => {
                 "use strict";
                 var r, n, i, o, s, a, c, u;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -21793,7 +21793,7 @@
                   (r.CANNOT_REFRESH_WEBAUTHN_AUTHENTICATORS = "CANNOT_REFRESH_WEBAUTHN_AUTHENTICATORS"),
                   (r.CANNOT_FETCH_WEBAUTHN_CHALLENGE = "CANNOT_FETCH_WEBAUTHN_CHALLENGE");
               },
-              58185: (e, t, r) => {
+              47817: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.webAuthnAuthenticationLiveQueriesSlots =
@@ -21801,7 +21801,7 @@
                     t.webAuthnAuthenticationCommandsSlots =
                       void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.webAuthnAuthenticationCommandsSlots = {
                   enableWebAuthnAuthentication: (0, n.slot)(),
                   initEnableWebAuthnAuthentication: (0, n.slot)(),
@@ -21824,14 +21824,14 @@
                     liveWebAuthnAuthenticationOptedIn: (0, i.liveSlot)()
                   });
               },
-              84634: (e, t, r) => {
+              29814: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.authenticationLiveQueriesSlots = t.authenticationQueriesSlots = t.authenticationCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195),
-                  o = r(19051),
-                  s = r(32420);
+                  i = r(72345),
+                  o = r(22786),
+                  s = r(30156);
                 (t.authenticationCommandsSlots = (0, n.combineEvents)(
                   {
                     registerDevice: (0, n.slot)(),
@@ -21859,7 +21859,7 @@
                     o.twoFactorAuthenticationLiveQueriesSlots
                   ));
               },
-              39888: function (e, t, r) {
+              25098: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -21884,27 +21884,26 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(84634), t), i(r(68190), t), i(r(19051), t), i(r(32420), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(29814), t), i(r(52632), t), i(r(22786), t), i(r(30156), t);
               },
-              68190: (e, t) => {
+              52632: (e, t) => {
                 "use strict";
-                var r, n, i, o, s;
+                var r, n, i, o;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.AuthenticationCode =
                     t.OtpType =
-                    t.UserVerificationMethod =
+                    t.UserVerificationMethods =
                     t.PersistData =
                     t.ReactivationStatus =
                     t.EmailTokenApiError =
                       void 0),
                   (t.EmailTokenApiError = "SEND_TOKEN_FAILED"),
-                  ((s = t.ReactivationStatus || (t.ReactivationStatus = {})).DISABLED = "DISABLED"),
-                  (s.CLASSIC = "CLASSIC"),
-                  (s.WEBAUTHN = "WEBAUTHN"),
-                  ((o = t.PersistData || (t.PersistData = {}))[(o.PERSIST_DATA_YES = 0)] = "PERSIST_DATA_YES"),
-                  (o[(o.PERSIST_DATA_NO = 1)] = "PERSIST_DATA_NO"),
-                  ((i = t.UserVerificationMethod || (t.UserVerificationMethod = {})).MasterPassword = "masterPassword"),
-                  (i.Webauthn = "webauthn"),
+                  ((o = t.ReactivationStatus || (t.ReactivationStatus = {})).DISABLED = "DISABLED"),
+                  (o.CLASSIC = "CLASSIC"),
+                  (o.WEBAUTHN = "WEBAUTHN"),
+                  ((i = t.PersistData || (t.PersistData = {}))[(i.PERSIST_DATA_YES = 0)] = "PERSIST_DATA_YES"),
+                  (i[(i.PERSIST_DATA_NO = 1)] = "PERSIST_DATA_NO"),
+                  (t.UserVerificationMethods = Object.freeze({ MasterPassword: "masterPassword", Webauthn: "webauthn" })),
                   ((n = t.OtpType || (t.OtpType = {}))[(n.NO_OTP = 0)] = "NO_OTP"),
                   (n[(n.OTP_NEW_DEVICE = 1)] = "OTP_NEW_DEVICE"),
                   (n[(n.OTP_LOGIN = 2)] = "OTP_LOGIN"),
@@ -21975,7 +21974,7 @@
                   (r[(r.CLIENT_VERSION_DOES_NOT_SUPPORT_SSO_MIGRATION = 63)] = "CLIENT_VERSION_DOES_NOT_SUPPORT_SSO_MIGRATION"),
                   (r[(r.USER_DOESNT_EXIST_SSO = 64)] = "USER_DOESNT_EXIST_SSO");
               },
-              60233: (e, t, r) => {
+              1295: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.autofillDataQueriesSlots = void 0);
                 const n = r(71796);
@@ -22016,7 +22015,7 @@
                   getAutofillSettingOnUrlForAutofill: (0, n.slot)()
                 };
               },
-              45861: function (e, t, r) {
+              94372: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22041,13 +22040,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(60233), t), i(r(13577), t), i(r(79450), t), i(r(8698), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(1295), t), i(r(37905), t), i(r(60188), t), i(r(42362), t);
               },
-              79450: (e, t) => {
+              60188: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              13577: (e, t) => {
+              37905: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -22055,11 +22054,11 @@
                   ((r = t.AutofillOptions || (t.AutofillOptions = {})).ANALYSIS_ENABLED_ON_ALL_FORMS = "ANALYSIS_ENABLED_ON_ALL_FORMS"),
                   (r.ANALYSIS_ENABLED_ONLY_ON_LOGINS_AND_PASSWORDS = "ANALYSIS_ENABLED_ONLY_ON_LOGINS_AND_PASSWORDS");
               },
-              8698: (e, t, r) => {
+              42362: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.vaultSourceTypeToDataModelTypeMap = void 0);
                 const n = r(60896),
-                  i = r(6937);
+                  i = r(44225);
                 t.vaultSourceTypeToDataModelTypeMap = {
                   [n.VaultSourceType.Address]: i.DataModelType.KWAddress,
                   [n.VaultSourceType.BankAccount]: i.DataModelType.KWBankStatement,
@@ -22082,46 +22081,47 @@
                   [n.VaultSourceType.SocialSecurityId]: i.DataModelType.KWSocialSecurityStatement
                 };
               },
-              53314: (e, t, r) => {
+              39229: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonApiConnector = void 0);
                 const n = r(71796),
-                  i = r(48884),
-                  o = r(82270),
-                  s = r(85431);
+                  i = r(52240),
+                  o = r(78178),
+                  s = r(90397);
                 t.CarbonApiConnector = (0, n.combineEvents)(i.carbonCommandsSlots, o.carbonQueriesSlots, s.carbonLiveQueriesSlots);
               },
-              48884: (e, t, r) => {
+              52240: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.carbonCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(82607),
-                  o = r(58209),
-                  s = r(39888),
-                  a = r(67120),
-                  c = r(80078),
-                  u = r(60754),
-                  l = r(54707),
-                  d = r(80953),
-                  f = r(1738),
-                  h = r(42553),
-                  p = r(61812),
-                  m = r(20170),
-                  b = r(51126),
-                  g = r(36210),
-                  v = r(29358),
-                  y = r(63919),
-                  _ = r(17341),
-                  S = r(74477),
-                  E = r(87894),
-                  w = r(83263),
-                  O = r(97981),
-                  A = r(23448),
-                  M = r(57422),
-                  I = r(80553),
-                  T = r(67195),
-                  N = r(73572),
-                  R = r(7970);
+                  i = r(28249),
+                  o = r(29004),
+                  s = r(25098),
+                  a = r(15874),
+                  c = r(50459),
+                  u = r(14811),
+                  l = r(30897),
+                  d = r(65005),
+                  f = r(29450),
+                  h = r(96035),
+                  p = r(6666),
+                  m = r(15925),
+                  b = r(68183),
+                  g = r(6768),
+                  v = r(58290),
+                  y = r(78779),
+                  _ = r(37174),
+                  S = r(60687),
+                  E = r(77277),
+                  w = r(49106),
+                  O = r(68440),
+                  A = r(34852),
+                  M = r(31525),
+                  I = r(9987),
+                  T = r(57369),
+                  N = r(22162),
+                  R = r(31955),
+                  C = r(88219);
                 t.carbonCommandsSlots = (0, n.combineEvents)(
                   i.abTestsCommandsSlots,
                   s.authenticationCommandsSlots,
@@ -22149,34 +22149,35 @@
                   I.teamCommandsSlots,
                   T.teamAdminCommandsSlots,
                   N.userMessagesCommandsSlots,
-                  R.vpnCommandsSlots
+                  R.vpnCommandsSlots,
+                  C.deviceCommandsSlots
                 );
               },
-              85431: (e, t, r) => {
+              90397: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.carbonLiveQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(82607),
-                  o = r(58209),
-                  s = r(59539),
-                  a = r(94705),
-                  c = r(88806),
-                  u = r(39888),
-                  l = r(54707),
-                  d = r(67120),
-                  f = r(80078),
-                  h = r(1738),
-                  p = r(7890),
-                  m = r(29358),
-                  b = r(63919),
-                  g = r(17341),
-                  v = r(74477),
-                  y = r(97981),
-                  _ = r(23448),
-                  S = r(57422),
-                  E = r(67195),
-                  w = r(73572),
-                  O = r(7970);
+                  i = r(28249),
+                  o = r(29004),
+                  s = r(90041),
+                  a = r(33773),
+                  c = r(65722),
+                  u = r(25098),
+                  l = r(30897),
+                  d = r(15874),
+                  f = r(50459),
+                  h = r(29450),
+                  p = r(24875),
+                  m = r(58290),
+                  b = r(78779),
+                  g = r(37174),
+                  v = r(60687),
+                  y = r(68440),
+                  _ = r(34852),
+                  S = r(31525),
+                  E = r(57369),
+                  w = r(22162),
+                  O = r(31955);
                 t.carbonLiveQueriesSlots = (0, n.combineEvents)(
                   i.abTestsLiveQueriesSlots,
                   a.accountCreationLiveQueriesSlots,
@@ -22201,35 +22202,35 @@
                   O.vpnLiveQueriesSlots
                 );
               },
-              82270: (e, t, r) => {
+              78178: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.carbonQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(82607),
-                  o = r(58209),
-                  s = r(59539),
-                  a = r(39888),
-                  c = r(45861),
-                  u = r(54707),
-                  l = r(80078),
-                  d = r(46359),
-                  f = r(71559),
-                  h = r(1738),
-                  p = r(7890),
-                  m = r(29358),
-                  b = r(63919),
-                  g = r(17341),
-                  v = r(74477),
-                  y = r(87894),
-                  _ = r(83263),
-                  S = r(97981),
-                  E = r(23448),
-                  w = r(31072),
-                  O = r(57422),
-                  A = r(80553),
-                  M = r(67195),
-                  I = r(73572),
-                  T = r(7970);
+                  i = r(28249),
+                  o = r(29004),
+                  s = r(90041),
+                  a = r(25098),
+                  c = r(94372),
+                  u = r(30897),
+                  l = r(50459),
+                  d = r(88219),
+                  f = r(80898),
+                  h = r(29450),
+                  p = r(24875),
+                  m = r(58290),
+                  b = r(78779),
+                  g = r(37174),
+                  v = r(60687),
+                  y = r(77277),
+                  _ = r(49106),
+                  S = r(68440),
+                  E = r(34852),
+                  w = r(98655),
+                  O = r(31525),
+                  A = r(9987),
+                  M = r(57369),
+                  I = r(22162),
+                  T = r(31955);
                 t.carbonQueriesSlots = (0, n.combineEvents)(
                   i.abTestsQueriesSlots,
                   a.authenticationQueriesSlots,
@@ -22258,7 +22259,7 @@
                   T.vpnQueriesSlots
                 );
               },
-              45040: function (e, t, r) {
+              8438: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22283,9 +22284,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(48884), t), i(r(85431), t), i(r(82270), t), i(r(53314), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(52240), t), i(r(90397), t), i(r(78178), t), i(r(39229), t);
               },
-              55195: function (e, t, r) {
+              72345: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22310,34 +22311,34 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(16771), t), i(r(92798), t), i(r(45040), t), i(r(92022), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(60283), t), i(r(910), t), i(r(8438), t), i(r(53143), t);
               },
-              92798: (e, t) => {
+              910: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              16771: (e, t, r) => {
+              60283: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.liveSlot = void 0);
                 const n = r(71796),
                   i = { noBuffer: !0 };
                 t.liveSlot = () => (0, n.slot)(i);
               },
-              92022: (e, t) => {
+              53143: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              50130: (e, t, r) => {
+              35715: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonDebugConnector = void 0);
                 const n = r(71796);
                 t.CarbonDebugConnector = { log: (0, n.slot)(), info: (0, n.slot)(), warning: (0, n.slot)(), error: (0, n.slot)() };
               },
-              99308: (e, t) => {
+              11873: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              79158: function (e, t, r) {
+              80112: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22362,19 +22363,19 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(50130), t), i(r(99308), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(35715), t), i(r(11873), t);
               },
-              12497: (e, t, r) => {
+              79702: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonDiagnosticConnector = void 0);
                 const n = r(71796);
                 t.CarbonDiagnosticConnector = { decipheringDiagnosticLogEvent: (0, n.slot)() };
               },
-              74546: (e, t) => {
+              31427: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              14874: function (e, t, r) {
+              55334: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22399,18 +22400,18 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(12497), t), i(r(74546), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(79702), t), i(r(31427), t);
               },
-              44459: (e, t, r) => {
+              80213: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.changeMasterPasswordLiveQueriesSlots = t.changeMasterPasswordCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.changeMasterPasswordCommandsSlots = { changeMasterPassword: (0, n.slot)() }),
                   (t.changeMasterPasswordLiveQueriesSlots = { liveChangeMasterPasswordStatus: (0, i.liveSlot)() });
               },
-              67120: function (e, t, r) {
+              15874: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22435,9 +22436,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(44459), t), i(r(42113), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(80213), t), i(r(14776), t);
               },
-              42113: (e, t) => {
+              14776: (e, t) => {
                 "use strict";
                 var r, n, i;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -22466,17 +22467,17 @@
                   (r.DONE = "done"),
                   (r.ERROR = "error");
               },
-              40438: (e, t, r) => {
+              23411: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.cryptoMigrationLiveQueriesSlots = t.cryptoMigrationQueriesSlots = t.cryptoMigrationCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.cryptoMigrationCommandsSlots = { changeUserCrypto: (0, n.slot)() }),
                   (t.cryptoMigrationQueriesSlots = { getCanUserChangeCrypto: (0, n.slot)(), getUserDerivationMethod: (0, n.slot)() }),
                   (t.cryptoMigrationLiveQueriesSlots = { liveUserDerivationMethod: (0, i.liveSlot)() });
               },
-              80078: function (e, t, r) {
+              50459: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22501,9 +22502,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(40438), t), i(r(64032), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(23411), t), i(r(92490), t);
               },
-              64032: (e, t) => {
+              92490: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -22514,7 +22515,7 @@
                   (r.PBKDF2 = "pbkdf2"),
                   (r.KWC3 = "kwc3");
               },
-              8523: (e, t, r) => {
+              10130: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.darkWebInsightsCommandsSlots = void 0);
                 const n = r(71796);
@@ -22523,7 +22524,7 @@
                   getDarkWebInsightsSummary: (0, n.slot)()
                 };
               },
-              60754: function (e, t, r) {
+              14811: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -22548,9 +22549,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(8523), t), i(r(40455), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(10130), t), i(r(76128), t);
               },
-              40455: (e, t) => {
+              76128: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -22570,7 +22571,7 @@
                   (r.PersonalInfo = "personalinfo"),
                   (t.EmailIncidentViewStatuses = Object.freeze({ New: "new", Viewed: "viewed" }));
               },
-              9632: (e, t) => {
+              47495: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isAddress = void 0),
@@ -22578,7 +22579,7 @@
                     return Boolean(e) && "KWAddress" === e.kwType;
                   });
               },
-              26430: (e, t) => {
+              76647: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isBankAccount = void 0),
@@ -22586,7 +22587,7 @@
                     return Boolean(e) && "KWBankStatement" === e.kwType;
                   });
               },
-              85341: (e, t) => {
+              15381: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -22598,7 +22599,7 @@
                     return Boolean(e) && "KWSecurityBreach" === e.kwType;
                   });
               },
-              37790: (e, t) => {
+              39093: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isCollection = void 0),
@@ -22606,7 +22607,7 @@
                     return Boolean(e) && "KWCollection" === e.kwType;
                   });
               },
-              1471: (e, t, r) => {
+              270: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isObjectLocalized =
@@ -23008,7 +23009,7 @@
                     KWSocialSecurityStatement: t.TransactionType.SOCIALSECURITYSTATEMENT,
                     KWWebSite: t.TransactionType.WEBSITE
                   }),
-                  (t.TRANSACTION_TYPE_TO_DATAMODEL_TYPE = Object.keys(t.DATAMODEL_TYPE_TO_TRANSACTION_TYPE).reduce(
+                  (t.TRANSACTION_TYPE_TO_DATAMODEL_TYPE = Object.values(t.DataModelType).reduce(
                     (e, r) => ((e[t.DATAMODEL_TYPE_TO_TRANSACTION_TYPE[r]] = r), e),
                     {}
                   )),
@@ -23025,10 +23026,13 @@
                   (t.dataModelTypes = n.Enum.keys(t.DataModelType)),
                   (t.isDataModelObject = (e) => !!e.LocaleFormat && "string" == typeof e.AnonId && "string" == typeof e.SpaceId),
                   (t.isObjectLocalized = function (e) {
-                    return Boolean(e) && ("KWPhone" === e.kwType || "KWIdentity" === e.kwType || "KWAddress" === e.kwType);
+                    return (
+                      Boolean(e) &&
+                      ("KWPhone" === e.kwType || "KWIdentity" === e.kwType || "KWAddress" === e.kwType || "KWBankStatement" === e.kwType)
+                    );
                   });
               },
-              2615: (e, t) => {
+              59761: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isCompany = void 0),
@@ -23036,7 +23040,7 @@
                     return Boolean(e) && "KWCompany" === e.kwType;
                   });
               },
-              29103: (e, t) => {
+              77467: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isCredential = t.isCredentialCategory = void 0),
@@ -23047,7 +23051,7 @@
                     return Boolean(e) && "KWAuthentifiant" === e.kwType;
                   });
               },
-              40866: (e, t) => {
+              79840: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isDriverLicense = void 0),
@@ -23055,7 +23059,7 @@
                     return Boolean(e) && "KWDriverLicence" === e.kwType;
                   });
               },
-              72317: (e, t) => {
+              21563: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isEmail = void 0),
@@ -23063,11 +23067,11 @@
                     return Boolean(e) && "KWEmail" === e.kwType;
                   });
               },
-              76323: (e, t) => {
+              19200: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              2258: (e, t) => {
+              71148: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isFiscalId = void 0),
@@ -23075,7 +23079,7 @@
                     return Boolean(e) && "KWFiscalStatement" === e.kwType;
                   });
               },
-              97092: (e, t) => {
+              34314: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isGeneratedPassword = void 0),
@@ -23083,11 +23087,11 @@
                     return Boolean(e) && "KWGeneratedPassword" === e.kwType;
                   });
               },
-              93343: (e, t) => {
+              33092: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              51407: (e, t) => {
+              45633: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isIdCard = void 0),
@@ -23095,7 +23099,7 @@
                     return Boolean(e) && "KWIDCard" === e.kwType;
                   });
               },
-              27682: (e, t) => {
+              36070: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isIdentity = void 0),
@@ -23103,7 +23107,7 @@
                     return Boolean(e) && "KWIdentity" === e.kwType;
                   });
               },
-              43393: (e, t) => {
+              15578: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -23111,7 +23115,7 @@
                   ((r = t.LinkedWebsiteSource || (t.LinkedWebsiteSource = {})).Manual = "manual"),
                   (r.Remember = "remember");
               },
-              19878: (e, t) => {
+              25353: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isNote = t.isNoteCategory = t.NoteTypes = void 0),
@@ -23123,7 +23127,7 @@
                     return Boolean(e) && "KWSecureNote" === e.kwType;
                   });
               },
-              24928: (e, t) => {
+              9455: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isPasskey = void 0),
@@ -23131,7 +23135,7 @@
                     return Boolean(e) && "KWPasskey" === e.kwType;
                   });
               },
-              77610: (e, t) => {
+              38275: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isPassport = void 0),
@@ -23139,7 +23143,7 @@
                     return Boolean(e) && "KWPassport" === e.kwType;
                   });
               },
-              14082: (e, t, r) => {
+              12728: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.isPaymentCard = t.PaymentCardColor = t.PaymentCardType = void 0);
                 const n = r(50415);
@@ -23167,7 +23171,7 @@
                     return Boolean(e) && "KWPaymentMean_creditCard" === e.kwType;
                   });
               },
-              47633: (e, t) => {
+              76756: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isPaypalAccount = void 0),
@@ -23175,7 +23179,7 @@
                     return Boolean(e) && "KWPaymentMean_paypal" === e.kwType;
                   });
               },
-              57066: (e, t) => {
+              95701: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isPersonalSettings = void 0),
@@ -23183,7 +23187,7 @@
                     return Boolean(e) && "KWSettingsManagerApp" === e.kwType;
                   });
               },
-              58994: (e, t) => {
+              41667: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isPersonalWebsite = void 0),
@@ -23191,7 +23195,7 @@
                     return Boolean(e) && "KWPersonalWebsite" === e.kwType;
                   });
               },
-              68711: (e, t, r) => {
+              91760: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.isPhone = t.PhoneType = void 0);
                 const n = r(50415);
@@ -23208,7 +23212,7 @@
                     return Boolean(e) && "KWPhone" === e.kwType;
                   });
               },
-              56058: (e, t) => {
+              98661: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isSecret = void 0),
@@ -23216,7 +23220,7 @@
                     return Boolean(e) && "KWSecret" === e.kwType;
                   });
               },
-              90018: (e, t) => {
+              33952: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isSecureFileInfo = void 0),
@@ -23224,7 +23228,7 @@
                     return Boolean(e) && "KWSecureFileInfo" === e.kwType;
                   });
               },
-              72679: (e, t) => {
+              96949: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.isSocialSecurityId = void 0),
@@ -23232,7 +23236,7 @@
                     return Boolean(e) && "KWSocialSecurityStatement" === e.kwType;
                   });
               },
-              9056: function (e, t, r) {
+              47357: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23258,43 +23262,43 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(9632), t),
-                  i(r(26430), t),
-                  i(r(85341), t),
-                  i(r(37790), t),
-                  i(r(1471), t),
-                  i(r(2615), t),
-                  i(r(29103), t),
-                  i(r(40866), t),
-                  i(r(72317), t),
-                  i(r(76323), t),
-                  i(r(2258), t),
-                  i(r(97092), t),
-                  i(r(93343), t),
-                  i(r(51407), t),
-                  i(r(27682), t),
-                  i(r(43393), t),
-                  i(r(19878), t),
-                  i(r(24928), t),
-                  i(r(77610), t),
-                  i(r(14082), t),
-                  i(r(47633), t),
-                  i(r(57066), t),
-                  i(r(58994), t),
-                  i(r(68711), t),
-                  i(r(56058), t),
-                  i(r(90018), t),
-                  i(r(72679), t);
+                  i(r(47495), t),
+                  i(r(76647), t),
+                  i(r(15381), t),
+                  i(r(39093), t),
+                  i(r(270), t),
+                  i(r(59761), t),
+                  i(r(77467), t),
+                  i(r(79840), t),
+                  i(r(21563), t),
+                  i(r(19200), t),
+                  i(r(71148), t),
+                  i(r(34314), t),
+                  i(r(33092), t),
+                  i(r(45633), t),
+                  i(r(36070), t),
+                  i(r(15578), t),
+                  i(r(25353), t),
+                  i(r(9455), t),
+                  i(r(38275), t),
+                  i(r(12728), t),
+                  i(r(76756), t),
+                  i(r(95701), t),
+                  i(r(41667), t),
+                  i(r(91760), t),
+                  i(r(98661), t),
+                  i(r(33952), t),
+                  i(r(96949), t);
               },
-              31626: (e, t) => {
+              24635: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              54692: (e, t) => {
+              39191: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              6937: function (e, t, r) {
+              44225: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23319,15 +23323,16 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(9056), t), i(r(31626), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(47357), t), i(r(24635), t);
               },
-              43230: (e, t, r) => {
+              55623: (e, t, r) => {
                 "use strict";
-                Object.defineProperty(t, "__esModule", { value: !0 }), (t.deviceQueriesSlots = void 0);
+                Object.defineProperty(t, "__esModule", { value: !0 }), (t.deviceCommandsSlots = t.deviceQueriesSlots = void 0);
                 const n = r(71796);
-                t.deviceQueriesSlots = { getAnonymousComputerId: (0, n.slot)(), getPlatformInfo: (0, n.slot)() };
+                (t.deviceQueriesSlots = { getAnonymousComputerId: (0, n.slot)(), getPlatformInfo: (0, n.slot)() }),
+                  (t.deviceCommandsSlots = { cleanRemotelyRemovedProfiles: (0, n.slot)() });
               },
-              46359: function (e, t, r) {
+              88219: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23352,15 +23357,15 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(43230), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(55623), t);
               },
-              91642: (e, t, r) => {
+              98792: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.DeviceLimitCapabilityConnector = void 0);
                 const n = r(71796);
                 t.DeviceLimitCapabilityConnector = { deviceLimitCapabilityUpdated: (0, n.slot)() };
               },
-              73254: function (e, t, r) {
+              43245: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23385,13 +23390,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(91642), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(98792), t);
               },
-              10989: (e, t) => {
+              99103: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              49039: (e, t, r) => {
+              70242: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.ExtensionCarbonConnector = void 0);
                 const n = r(71796);
@@ -23441,7 +23446,7 @@
                   updateWebOnboardingMode: (0, n.slot)({ noBuffer: !0 })
                 };
               },
-              93148: (e, t, r) => {
+              15763: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.ExtensionCarbonEventType = void 0);
                 const n = r(50415);
@@ -23493,7 +23498,7 @@
                   "INSTALLER_LOG"
                 );
               },
-              58616: function (e, t, r) {
+              28413: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23518,9 +23523,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(49039), t), i(r(93148), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(70242), t), i(r(15763), t);
               },
-              13178: (e, t, r) => {
+              56376: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.ExtensionDebugConnector = void 0);
                 const n = r(71796);
@@ -23533,7 +23538,7 @@
                   signalDatabasesSent: (0, n.slot)()
                 };
               },
-              52739: (e, t, r) => {
+              13981: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.ExtensionDebugEventType = void 0);
                 const n = r(50415);
@@ -23546,7 +23551,7 @@
                   "SWITCH_TO_STANDALONE"
                 );
               },
-              58300: function (e, t, r) {
+              91609: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23571,9 +23576,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(13178), t), i(r(52739), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(56376), t), i(r(13981), t);
               },
-              64496: (e, t, r) => {
+              21818: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.familyCommandsSlots = void 0);
                 const n = r(71796);
@@ -23585,7 +23590,7 @@
                   resetFamilyJoinToken: (0, n.slot)()
                 };
               },
-              80953: function (e, t, r) {
+              65005: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23610,9 +23615,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(64496), t), i(r(51224), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(21818), t), i(r(50647), t);
               },
-              51224: (e, t) => {
+              50647: (e, t) => {
                 "use strict";
                 var r, n, i, o;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -23630,13 +23635,13 @@
                   (r.MAC_STORE = "mac"),
                   (r.PLAY_STORE = "playstore");
               },
-              11580: (e, t, r) => {
+              33824: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.featureQueriesSlots = void 0);
                 const n = r(71796);
                 t.featureQueriesSlots = { getHasFeature: (0, n.slot)(), getFeatures: (0, n.slot)() };
               },
-              71559: function (e, t, r) {
+              80898: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23661,23 +23666,23 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(22363), t), i(r(11580), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(78674), t), i(r(33824), t);
               },
-              22363: (e, t) => {
+              78674: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              95470: (e, t, r) => {
+              4126: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.remoteFilesLiveQueriesSlots = t.remoteFilesQueriesSlots = t.remoteFileCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.remoteFileCommandsSlots = { decipherRemoteFile: (0, n.slot)() }),
                   (t.remoteFilesQueriesSlots = { getFileContent: (0, n.slot)() }),
                   (t.remoteFilesLiveQueriesSlots = { liveFileMeta: (0, i.liveSlot)() });
               },
-              1738: function (e, t, r) {
+              29450: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23702,9 +23707,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(95470), t), i(r(356), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(4126), t), i(r(46046), t);
               },
-              356: (e, t) => {
+              46046: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.FileNamesList =
@@ -23723,7 +23728,7 @@
                   (t.SERVER_ERROR_HTTP_STATUS = "error_server"),
                   (t.FileNamesList = ["overrides.json", "phishing_urls_test.json"]);
               },
-              829: (e, t, r) => {
+              44605: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.globalExtensionSettingsCommandsSlots = void 0);
                 const n = r(71796);
@@ -23732,7 +23737,7 @@
                   getGlobalExtensionSettings: (0, n.slot)()
                 };
               },
-              42553: function (e, t, r) {
+              96035: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23757,19 +23762,19 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(829), t), i(r(9767), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(44605), t), i(r(73054), t);
               },
-              9767: (e, t) => {
+              73054: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              2223: (e, t, r) => {
+              15044: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.healthCommandsSlots = void 0);
                 const n = r(71796);
                 t.healthCommandsSlots = { evaluatePassword: (0, n.slot)() };
               },
-              61812: function (e, t, r) {
+              6666: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23794,13 +23799,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(2223), t), i(r(72115), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(15044), t), i(r(14836), t);
               },
-              72115: (e, t) => {
+              14836: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              7890: function (e, t, r) {
+              24875: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23825,13 +23830,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(76875), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(38561), t);
               },
-              76875: (e, t, r) => {
+              38561: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.killswitchLiveQueriesSlots = t.killswitchQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.killswitchQueriesSlots = {
                   getIsBrazeContentDisabled: (0, n.slot)(),
                   getIsLoginFlowMigrationDisabled: (0, n.slot)(),
@@ -23843,7 +23848,7 @@
                     liveIsAutoSSOLoginDisabled: (0, i.liveSlot)()
                   });
               },
-              36605: (e, t, r) => {
+              28730: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonLeelooConnector = void 0);
                 const n = r(71796);
@@ -23938,7 +23943,7 @@
                   exceptionLog: (0, n.slot)()
                 };
               },
-              75640: function (e, t, r) {
+              17317: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -23963,9 +23968,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(36605), t), i(r(11340), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(28730), t), i(r(31291), t);
               },
-              11340: (e, t) => {
+              31291: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -23979,13 +23984,13 @@
                   (r[(r.NOT_FOUND = 4)] = "NOT_FOUND"),
                   (r[(r.INTERNAL_ERROR = 5)] = "INTERNAL_ERROR");
               },
-              1278: (e, t, r) => {
+              29182: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.eventLoggerCommandsSlots = void 0);
                 const n = r(71796);
                 t.eventLoggerCommandsSlots = { logEvent: (0, n.slot)(), logPageView: (0, n.slot)(), flushQueue: (0, n.slot)() };
               },
-              20170: function (e, t, r) {
+              15925: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24010,9 +24015,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(1278), t), i(r(4168), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(29182), t), i(r(40035), t);
               },
-              4168: (e, t) => {
+              40035: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24021,13 +24026,13 @@
                   (r[(r.SomeBatchesSent = 1)] = "SomeBatchesSent"),
                   (r[(r.NoBatchesSent = 2)] = "NoBatchesSent");
               },
-              63894: (e, t, r) => {
+              63054: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.exceptionCommandsSlots = void 0);
                 const n = r(71796);
                 t.exceptionCommandsSlots = { logException: (0, n.slot)() };
               },
-              51126: function (e, t, r) {
+              68183: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24052,9 +24057,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(63894), t), i(r(96929), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(63054), t), i(r(96103), t);
               },
-              96929: (e, t) => {
+              96103: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24063,13 +24068,20 @@
                   (r[(r.WARNING = 1)] = "WARNING"),
                   (r[(r.ERROR = 2)] = "ERROR");
               },
-              17124: (e, t, r) => {
+              87940: (e, t, r) => {
                 "use strict";
-                Object.defineProperty(t, "__esModule", { value: !0 }), (t.LoggingEventType = void 0);
+                Object.defineProperty(t, "__esModule", { value: !0 }), (t.ApplicationBuildType = t.LoggingEventType = void 0);
                 const n = r(50415);
                 t.LoggingEventType = (0, n.Enum)("EXCEPTION_LOG");
+                var i = r(90693);
+                Object.defineProperty(t, "ApplicationBuildType", {
+                  enumerable: !0,
+                  get: function () {
+                    return i.ApplicationBuildType;
+                  }
+                });
               },
-              36210: function (e, t, r) {
+              6768: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24094,9 +24106,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(14160), t), i(r(98786), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(65063), t), i(r(24309), t);
               },
-              14160: (e, t, r) => {
+              65063: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.loginCommandsSlots = void 0);
                 const n = r(71796);
@@ -24107,7 +24119,7 @@
                   unlinkMultipleDevices: (0, n.slot)()
                 };
               },
-              98786: (e, t) => {
+              24309: (e, t) => {
                 "use strict";
                 var r, n, i;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24135,7 +24147,7 @@
                   (r.UNSUPPORTED_TRANSITION = "UNSUPPORTED_TRANSITION"),
                   (r.WRONG_PASSWORD = "WRONG_PASSWORD");
               },
-              29358: function (e, t, r) {
+              58290: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24160,14 +24172,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(46863), t), i(r(20512), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(23903), t), i(r(53168), t);
               },
-              20512: (e, t, r) => {
+              53168: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.loginNotificationsLiveQueriesSlots = t.loginNotificationsQueriesSlots = t.loginNotificationsCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.loginNotificationsCommandsSlots = {
                   addLoginNotification: (0, n.slot)(),
                   clearAllStoredLoginNotification: (0, n.slot)()
@@ -24175,7 +24187,7 @@
                   (t.loginNotificationsQueriesSlots = { getLoginNotifications: (0, n.slot)() }),
                   (t.loginNotificationsLiveQueriesSlots = { liveLoginNotifications: (0, i.liveSlot)() });
               },
-              46863: (e, t) => {
+              23903: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24187,7 +24199,7 @@
                   (r.TEAM_ACCEPTANCE_SUCCESS = "TEAM_ACCEPTANCE_SUCCESS"),
                   (r.TEAM_ACCEPTANCE_ERROR = "TEAM_ACCEPTANCE_ERROR");
               },
-              63919: function (e, t, r) {
+              78779: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24212,19 +24224,19 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(11228), t), i(r(25741), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(12249), t), i(r(3455), t);
               },
-              11228: (e, t, r) => {
+              12249: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.loginStepInfoLiveQueriesSlots = t.loginStepInfoQueriesSlots = t.loginStepInfoCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.loginStepInfoCommandsSlots = { updateLoginStepInfo: (0, n.slot)(), resetLoginStepInfo: (0, n.slot)() }),
                   (t.loginStepInfoQueriesSlots = { getLoginStepInfo: (0, n.slot)() }),
                   (t.loginStepInfoLiveQueriesSlots = { liveLoginStepInfo: (0, i.liveSlot)() });
               },
-              25741: (e, t) => {
+              3455: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24245,15 +24257,15 @@
                   (r.DashlaneAuthenticator = "dashlaneAuthenticator"),
                   (r.PasswordLess = "passwordLess");
               },
-              66913: (e, t) => {
+              66478: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              86038: (e, t) => {
+              48905: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              32700: (e, t, r) => {
+              25460: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonMaverickConnector = void 0);
                 const n = r(71796);
@@ -24263,7 +24275,7 @@
                   updateWebOnboardingMode: (0, n.slot)()
                 };
               },
-              54503: function (e, t, r) {
+              98521: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24288,13 +24300,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(32700), t), i(r(24490), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(25460), t), i(r(58962), t);
               },
-              24490: (e, t) => {
+              58962: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              70480: (e, t, r) => {
+              39687: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.MaverickDebugConnector = void 0);
                 const n = r(71796);
@@ -24318,7 +24330,7 @@
                   signalDatabasesInitialized: (0, n.slot)()
                 };
               },
-              45728: (e, t, r) => {
+              42739: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.MaverickDebugEventType = void 0);
                 const n = r(50415);
@@ -24337,7 +24349,7 @@
                   "LOG"
                 );
               },
-              83025: function (e, t, r) {
+              11733: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24362,15 +24374,15 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(70480), t), i(r(45728), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(39687), t), i(r(42739), t);
               },
-              7674: (e, t, r) => {
+              93645: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.MaverickWrapperConnector = void 0);
                 const n = r(71796);
                 t.MaverickWrapperConnector = { analyseDom: (0, n.slot)(), pageInfoComputed: (0, n.slot)(), signalError: (0, n.slot)() };
               },
-              9344: (e, t, r) => {
+              27707: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.ClickableElementTypes = t.LoginStatus = t.MaverickWrapperEventType = void 0);
@@ -24379,7 +24391,7 @@
                   (t.LoginStatus = (0, n.Enum)("LOGGED_IN", "LOGGED_OUT", "UNKNOWN")),
                   (t.ClickableElementTypes = (0, n.Enum)("goToLoginPage", "goToChangePasswordPage", "goToResetPasswordPage"));
               },
-              63979: function (e, t, r) {
+              11889: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24404,9 +24416,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(7674), t), i(r(9344), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(93645), t), i(r(27707), t);
               },
-              17341: function (e, t, r) {
+              37174: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24431,14 +24443,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(50424), t), i(r(9199), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(5264), t), i(r(28155), t);
               },
-              9199: (e, t, r) => {
+              28155: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.notificationsLiveQueriesSlots = t.notificationsQueriesSlots = t.notificationsCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.notificationsCommandsSlots = {
                   markNotificationAsInteracted: (0, n.slot)(),
                   markNotificationAsSeen: (0, n.slot)(),
@@ -24447,7 +24459,7 @@
                   (t.notificationsQueriesSlots = { getNotificationStatus: (0, n.slot)() }),
                   (t.notificationsLiveQueriesSlots = { liveNotificationStatus: (0, i.liveSlot)() });
               },
-              50424: (e, t) => {
+              5264: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24479,7 +24491,7 @@
                   (r.Seen = "seen"),
                   (r.Unseen = "unseen");
               },
-              78690: function (e, t, r) {
+              36632: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24504,9 +24516,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(30022), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(58355), t);
               },
-              30022: (e, t, r) => {
+              58355: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.WebOnboardingPopoverStep = t.WebOnboardingLeelooStep = void 0);
                 const n = r(50415);
@@ -24520,7 +24532,7 @@
                 )),
                   (t.WebOnboardingPopoverStep = (0, n.Enum)("SHOW_LOGIN_NOTIFICATION"));
               },
-              12902: (e, t) => {
+              24281: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24539,7 +24551,7 @@
                   (r[(r.WebApp = 11)] = "WebApp"),
                   (r[(r.WebAppDev = 12)] = "WebAppDev");
               },
-              8627: (e, t) => {
+              68557: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24555,7 +24567,7 @@
                   (r.TeamAdminConsole = "tac"),
                   (r.WebApp = "webapp");
               },
-              99257: (e, t) => {
+              54982: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24568,17 +24580,17 @@
                   (r.OpeningSessionAfterDeviceLimitRemoval = "OpeningSessionAfterDeviceLimitRemoval"),
                   (r.DeviceLimitDone = "DeviceLimitDone");
               },
-              5155: (e, t) => {
+              38340: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              98098: (e, t) => {
+              43556: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.AbortDeviceLimitFlowError = void 0),
                   ((t.AbortDeviceLimitFlowError || (t.AbortDeviceLimitFlowError = {})).UnexpectedError = "UNEXPECTED_ERROR");
               },
-              32233: function (e, t, r) {
+              96197: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24604,46 +24616,46 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(98098), t),
-                  i(r(5131), t),
-                  i(r(60969), t),
-                  i(r(99257), t),
-                  i(r(5155), t),
-                  i(r(8627), t),
-                  i(r(28950), t),
-                  i(r(952), t),
-                  i(r(12902), t);
+                  i(r(43556), t),
+                  i(r(93522), t),
+                  i(r(44270), t),
+                  i(r(54982), t),
+                  i(r(38340), t),
+                  i(r(68557), t),
+                  i(r(61445), t),
+                  i(r(53240), t),
+                  i(r(24281), t);
               },
-              5131: (e, t) => {
+              93522: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.UNEXPECTED_ERROR = t.USER_STILL_OVERFLOWING = void 0),
                   (t.USER_STILL_OVERFLOWING = "USER_STILL_OVERFLOWING"),
                   (t.UNEXPECTED_ERROR = "UNEXPECTED_ERROR");
               },
-              952: (e, t) => {
+              53240: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              60969: (e, t) => {
+              44270: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.UnlinkPreviousDeviceError = void 0),
                   ((t.UnlinkPreviousDeviceError || (t.UnlinkPreviousDeviceError = {})).UnexpectedError = "UNEXPECTED_ERROR");
               },
-              28950: (e, t) => {
+              61445: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              7168: (e, t, r) => {
+              84369: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.deviceLimitLiveSlots = t.deviceLimitSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.deviceLimitSlots = { getLoginDeviceLimitFlow: (0, n.slot)() }),
                   (t.deviceLimitLiveSlots = { liveLoginDeviceLimitFlow: (0, i.liveSlot)() });
               },
-              17725: function (e, t, r) {
+              76758: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24668,17 +24680,17 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(4001), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(26749), t);
               },
-              88056: (e, t, r) => {
+              89391: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.twoFactorStatusLiveSlots = t.twoFactorStatusSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.twoFactorStatusSlots = { getTwoFactorAuthenticationInfo: (0, n.slot)() }),
                   (t.twoFactorStatusLiveSlots = { liveTwoFactorAuthenticationInfo: (0, i.liveSlot)() });
               },
-              4001: (e, t) => {
+              26749: (e, t) => {
                 "use strict";
                 var r, n, i;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24700,7 +24712,7 @@
                   })(r || (r = {})),
                   (t.ENFORCE_TWO_FACTOR_AUTHENTICATION_ENABLED_VALUES = [r.LOGIN, r.NEW_DEVICE]);
               },
-              74477: function (e, t, r) {
+              60687: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24725,69 +24737,61 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(93016), t), i(r(3985), t), i(r(32233), t), i(r(17725), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(89884), t), i(r(22574), t), i(r(96197), t), i(r(76758), t);
               },
-              3985: (e, t, r) => {
+              22574: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.openSessionCommandsSlots = t.openSessionLiveQueriesSlots = t.openSessionQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195),
-                  o = r(7168),
-                  s = r(88056);
-                (t.openSessionQueriesSlots = Object.assign(
-                  Object.assign(
-                    {
-                      getLoginStatus: (0, n.slot)(),
-                      getLocalAccounts: (0, n.slot)(),
-                      getIsSSOUser: (0, n.slot)(),
-                      getSSOMigrationInfo: (0, n.slot)(),
-                      getSessionInfo: (0, n.slot)(),
-                      getMasterPasswordAndServerKey: (0, n.slot)(),
-                      getUserCryptoSettings: (0, n.slot)(),
-                      getSyncInfo: (0, n.slot)(),
-                      getIsSyncInProgress: (0, n.slot)(),
-                      getPremiumStatus: (0, n.slot)(),
-                      getNodePremiumStatus: (0, n.slot)(),
-                      getSubscriptionInformation: (0, n.slot)(),
-                      getActiveSpaces: (0, n.slot)(),
-                      getIsAuthenticated: (0, n.slot)(),
-                      getSSOProviderInfo: (0, n.slot)(),
-                      getUserLogin: (0, n.slot)(),
-                      getPublicUserId: (0, n.slot)(),
-                      getAnalyticsInstallationId: (0, n.slot)(),
-                      getUserLoginStatus: (0, n.slot)(),
-                      getWebOnboardingMode: (0, n.slot)(),
-                      getPremiumChurningDismissDate: (0, n.slot)(),
-                      getIsPaymentFailureChurningDismissed: (0, n.slot)(),
-                      getCredentialSearchOrder: (0, n.slot)(),
-                      getDidOpen: (0, n.slot)(),
-                      getPlatformName: (0, n.slot)(),
-                      getAccountAuthenticationType: (0, n.slot)()
-                    },
-                    o.deviceLimitSlots
-                  ),
-                  s.twoFactorStatusSlots
-                )),
-                  (t.openSessionLiveQueriesSlots = Object.assign(
-                    Object.assign(
-                      {
-                        liveLoginStatus: (0, i.liveSlot)(),
-                        liveDidOpen: (0, i.liveSlot)(),
-                        liveIsSSOUser: (0, i.liveSlot)(),
-                        liveSSOMigrationInfo: (0, i.liveSlot)(),
-                        liveSessionInfo: (0, i.liveSlot)(),
-                        liveSyncInfo: (0, i.liveSlot)(),
-                        liveIsSyncInProgress: (0, i.liveSlot)(),
-                        livePremiumStatus: (0, i.liveSlot)(),
-                        liveServiceProviderUrl: (0, i.liveSlot)(),
-                        liveWebOnboardingMode: (0, i.liveSlot)(),
-                        liveSubscriptionInformation: (0, i.liveSlot)()
-                      },
-                      o.deviceLimitLiveSlots
-                    ),
-                    s.twoFactorStatusLiveSlots
-                  )),
+                  i = r(72345),
+                  o = r(84369),
+                  s = r(89391);
+                (t.openSessionQueriesSlots = {
+                  getLoginStatus: (0, n.slot)(),
+                  getLocalAccounts: (0, n.slot)(),
+                  getIsSSOUser: (0, n.slot)(),
+                  getSSOMigrationInfo: (0, n.slot)(),
+                  getSessionInfo: (0, n.slot)(),
+                  getMasterPasswordAndServerKey: (0, n.slot)(),
+                  getUserCryptoSettings: (0, n.slot)(),
+                  getSyncInfo: (0, n.slot)(),
+                  getIsSyncInProgress: (0, n.slot)(),
+                  getPremiumStatus: (0, n.slot)(),
+                  getNodePremiumStatus: (0, n.slot)(),
+                  getSubscriptionInformation: (0, n.slot)(),
+                  getActiveSpaces: (0, n.slot)(),
+                  getIsAuthenticated: (0, n.slot)(),
+                  getSSOProviderInfo: (0, n.slot)(),
+                  getUserLogin: (0, n.slot)(),
+                  getPublicUserId: (0, n.slot)(),
+                  getAnalyticsInstallationId: (0, n.slot)(),
+                  getUserLoginStatus: (0, n.slot)(),
+                  getWebOnboardingMode: (0, n.slot)(),
+                  getPremiumChurningDismissDate: (0, n.slot)(),
+                  getIsPaymentFailureChurningDismissed: (0, n.slot)(),
+                  getCredentialSearchOrder: (0, n.slot)(),
+                  getDidOpen: (0, n.slot)(),
+                  getPlatformName: (0, n.slot)(),
+                  getAccountAuthenticationType: (0, n.slot)(),
+                  ...o.deviceLimitSlots,
+                  ...s.twoFactorStatusSlots
+                }),
+                  (t.openSessionLiveQueriesSlots = {
+                    liveLoginStatus: (0, i.liveSlot)(),
+                    liveDidOpen: (0, i.liveSlot)(),
+                    liveIsSSOUser: (0, i.liveSlot)(),
+                    liveSSOMigrationInfo: (0, i.liveSlot)(),
+                    liveSessionInfo: (0, i.liveSlot)(),
+                    liveSyncInfo: (0, i.liveSlot)(),
+                    liveIsSyncInProgress: (0, i.liveSlot)(),
+                    livePremiumStatus: (0, i.liveSlot)(),
+                    liveServiceProviderUrl: (0, i.liveSlot)(),
+                    liveWebOnboardingMode: (0, i.liveSlot)(),
+                    liveSubscriptionInformation: (0, i.liveSlot)(),
+                    ...o.deviceLimitLiveSlots,
+                    ...s.twoFactorStatusLiveSlots
+                  }),
                   (t.openSessionCommandsSlots = {
                     validateToken: (0, n.slot)(),
                     validateMasterPassword: (0, n.slot)(),
@@ -24799,29 +24803,30 @@
                     updateAccountRecoveryKeyPersonalSettings: (0, n.slot)()
                   });
               },
-              93016: (e, t) => {
+              89884: (e, t) => {
                 "use strict";
-                var r, n, i, o, s, a, c, u, l, d;
+                var r, n, i, o, s, a, c;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CredentialSearchOrder =
                     t.SSOMigrationType =
                     t.SpaceStatus =
-                    t.SpaceTier =
-                    t.B2CPlanFeature =
+                    t.SpaceTiers =
+                    t.B2CPlanFeatures =
                     t.SyncStatuses =
                     t.ServerSidePairingStatus =
                     t.possibleAdminPermissions =
                     t.groupPermissions =
-                    t.PlanType =
+                    t.PlanTypes =
+                    t.PremiumLogTypes =
                     t.CapabilityKeys =
                     t.PremiumStatusCode =
                       void 0),
-                  ((d = t.PremiumStatusCode || (t.PremiumStatusCode = {}))[(d.NO_PREMIUM = 0)] = "NO_PREMIUM"),
-                  (d[(d.PREMIUM = 1)] = "PREMIUM"),
-                  (d[(d.PREMIUM_CANCELLED = 2)] = "PREMIUM_CANCELLED"),
-                  (d[(d.OLD_ACCOUNT = 3)] = "OLD_ACCOUNT"),
-                  (d[(d.NEW_USER = 4)] = "NEW_USER"),
-                  (d[(d.GRACE_PERIOD = 5)] = "GRACE_PERIOD"),
+                  ((c = t.PremiumStatusCode || (t.PremiumStatusCode = {}))[(c.NO_PREMIUM = 0)] = "NO_PREMIUM"),
+                  (c[(c.PREMIUM = 1)] = "PREMIUM"),
+                  (c[(c.PREMIUM_CANCELLED = 2)] = "PREMIUM_CANCELLED"),
+                  (c[(c.OLD_ACCOUNT = 3)] = "OLD_ACCOUNT"),
+                  (c[(c.NEW_USER = 4)] = "NEW_USER"),
+                  (c[(c.GRACE_PERIOD = 5)] = "GRACE_PERIOD"),
                   (t.CapabilityKeys = [
                     "autofillWithPhishingPrevention",
                     "creditMonitoring",
@@ -24843,41 +24848,58 @@
                     "sso",
                     "collectionSharing"
                   ]),
-                  ((l = t.PlanType || (t.PlanType = {})).Amazon = "amazon"),
-                  (l.FreeTrial = "free_trial"),
-                  (l.Invoice = "invoice"),
-                  (l.IOS = "ios"),
-                  (l.IOSRenewable = "ios_renewable"),
-                  (l.Mac = "mac"),
-                  (l.MacRenewable = "mac_renewable"),
-                  (l.Offer = "offer"),
-                  (l.Partner = "partner"),
-                  (l.Paypal = "paypal"),
-                  (l.PaypalRenewable = "paypal_renewable"),
-                  (l.Playstore = "playstore"),
-                  (l.PlaystoreRenewable = "playstore_renewable"),
-                  (l.Stripe = "stripe"),
+                  (t.PremiumLogTypes = Object.freeze({
+                    freeTrialGranted: "free_trial_granted",
+                    premiumGranted: "premium_granted",
+                    renewed: "renewed",
+                    subscribed: "subscribed",
+                    crosssellPurchased: "crosssell_purchased",
+                    setAsLegacy: "set_as_legacy",
+                    familyCreated: "family_created",
+                    familyRenewed: "family_renewed"
+                  })),
+                  (t.PlanTypes = Object.freeze({
+                    Amazon: "amazon",
+                    FreeTrial: "free_trial",
+                    Invoice: "invoice",
+                    IOS: "ios",
+                    IOSRenewable: "ios_renewable",
+                    Legacy: "legacy",
+                    Mac: "mac",
+                    MacRenewable: "mac_renewable",
+                    Offer: "offer",
+                    Partner: "partner",
+                    Paypal: "paypal",
+                    PaypalRenewable: "paypal_renewable",
+                    Playstore: "playstore",
+                    PlaystoreRenewable: "playstore_renewable",
+                    Stripe: "stripe"
+                  })),
                   (t.groupPermissions = ["GROUP_CREATE", "GROUP_DELETE", "GROUP_EDIT", "GROUP_READ"]),
                   (t.possibleAdminPermissions = ["FULL", "BILLING", ...t.groupPermissions]),
-                  ((u = t.ServerSidePairingStatus || (t.ServerSidePairingStatus = {}))[(u.UNPAIRED = 0)] = "UNPAIRED"),
-                  (u[(u.PAIRED = 1)] = "PAIRED"),
-                  ((c = t.SyncStatuses || (t.SyncStatuses = {})).READY = "ready"),
-                  (c.IN_PROGRESS = "in_progress"),
-                  (c.SUCCESS = "success"),
-                  (c.FAILURE = "failure"),
+                  ((a = t.ServerSidePairingStatus || (t.ServerSidePairingStatus = {}))[(a.UNPAIRED = 0)] = "UNPAIRED"),
+                  (a[(a.PAIRED = 1)] = "PAIRED"),
+                  ((s = t.SyncStatuses || (t.SyncStatuses = {})).READY = "ready"),
+                  (s.IN_PROGRESS = "in_progress"),
+                  (s.SUCCESS = "success"),
+                  (s.FAILURE = "failure"),
                   (function (e) {
                     (e.not_in_team = "not_in_team"), (e.proposed = "proposed"), (e.in_team = "in_team");
                   })(r || (r = {})),
-                  ((a = t.B2CPlanFeature || (t.B2CPlanFeature = {})).Premium = "premium"),
-                  (a.Essentials = "essentials"),
-                  (a.Premiumplus = "premiumplus"),
-                  (a.BackupForAll = "backup"),
-                  ((s = t.SpaceTier || (t.SpaceTier = {})).Team = "team"),
-                  (s.Business = "business"),
-                  (s.Legacy = "legacy"),
-                  (s.Entreprise = "entreprise"),
-                  (s.Free = "free"),
-                  (s.Starter = "starter"),
+                  (t.B2CPlanFeatures = Object.freeze({
+                    Premium: "premium",
+                    Essentials: "essentials",
+                    Premiumplus: "premiumplus",
+                    BackupForAll: "backup-for-all"
+                  })),
+                  (t.SpaceTiers = Object.freeze({
+                    Team: "team",
+                    Business: "business",
+                    Legacy: "legacy",
+                    Entreprise: "entreprise",
+                    Free: "free",
+                    Starter: "starter"
+                  })),
                   ((o = t.SpaceStatus || (t.SpaceStatus = {})).Accepted = "accepted"),
                   (o.Pending = "pending"),
                   (o.Proposed = "proposed"),
@@ -24891,7 +24913,7 @@
                   ((n = t.CredentialSearchOrder || (t.CredentialSearchOrder = {})).NAME = "name"),
                   (n.DATE = "date");
               },
-              87894: function (e, t, r) {
+              77277: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24916,9 +24938,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(24231), t), i(r(23533), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(20188), t), i(r(59417), t);
               },
-              24231: (e, t, r) => {
+              20188: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.passwordGeneratorQueriesSlots = t.passwordGeneratorCommandsSlots = void 0);
@@ -24930,11 +24952,11 @@
                 }),
                   (t.passwordGeneratorQueriesSlots = { getPasswordGenerationSettings: (0, n.slot)() });
               },
-              23533: (e, t) => {
+              59417: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              83263: function (e, t, r) {
+              49106: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -24959,9 +24981,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(85154), t), i(r(65869), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(54841), t), i(r(77492), t);
               },
-              85154: (e, t, r) => {
+              54841: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.paymentsQueriesSlots = t.paymentsCommandsSlots = void 0);
                 const n = r(71796);
@@ -24977,7 +24999,7 @@
                     getInvoiceListYears: (0, n.slot)()
                   });
               },
-              65869: (e, t) => {
+              77492: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -24985,7 +25007,7 @@
                   ((r = t.OrderDir || (t.OrderDir = {})).ascending = "ascending"),
                   (r.descending = "descending");
               },
-              97981: function (e, t, r) {
+              68440: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25010,9 +25032,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(56331), t), i(r(21230), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(53379), t), i(r(84493), t);
               },
-              56331: (e, t, r) => {
+              53379: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.protectedItemsUnlockerLiveQueriesSlots =
@@ -25020,7 +25042,7 @@
                     t.protectedItemsUnlockerCommandsSlots =
                       void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.protectedItemsUnlockerCommandsSlots = {
                   disableCredentialProtection: (0, n.slot)(),
                   unlockProtectedItems: (0, n.slot)()
@@ -25028,7 +25050,7 @@
                   (t.protectedItemsUnlockerQueriesSlots = { areProtectedItemsUnlocked: (0, n.slot)() }),
                   (t.protectedItemsUnlockerLiveQueriesSlots = { liveAreProtectedItemsUnlocked: (0, i.liveSlot)() });
               },
-              21230: (e, t) => {
+              84493: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25039,7 +25061,7 @@
                   ((r = t.DisableCredentialProtectionStatus || (t.DisableCredentialProtectionStatus = {})).SUCCESS = "success"),
                   (r.ERROR = "error");
               },
-              23448: function (e, t, r) {
+              34852: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25064,14 +25086,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(69239), t), i(r(24298), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(36569), t), i(r(6461), t);
               },
-              69239: (e, t, r) => {
+              36569: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.recoveryLiveQueriesSlots = t.recoveryQueriesSlots = t.recoveryCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.recoveryCommandsSlots = {
                   activateAccountRecovery: (0, n.slot)(),
                   setupMasterPasswordForRecovery: (0, n.slot)(),
@@ -25092,7 +25114,7 @@
                   }),
                   (t.recoveryLiveQueriesSlots = { liveAccountRecoveryRequestCount: (0, i.liveSlot)() });
               },
-              24298: (e, t) => {
+              6461: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25116,7 +25138,7 @@
                   (r.OVERRIDDEN = "OVERRIDDEN"),
                   (r.CANCELED = "CANCELED");
               },
-              96014: (e, t) => {
+              54205: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25157,7 +25179,7 @@
                     return Boolean(e) && "KWPersonalWebsite" === e.kwType;
                   });
               },
-              45169: function (e, t, r) {
+              19635: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25182,13 +25204,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(96014), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(54205), t);
               },
-              82725: (e, t) => {
+              12891: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              76480: (e, t) => {
+              99714: (e, t) => {
                 "use strict";
                 var r, n, i, o;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25219,15 +25241,15 @@
                   (r[(r.NOT_FOUND = 1)] = "NOT_FOUND"),
                   (r[(r.UPDATE_FAILED = 2)] = "UPDATE_FAILED");
               },
-              80245: (e, t) => {
+              18497: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              36145: (e, t) => {
+              59296: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              96687: function (e, t, r) {
+              82130: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25252,9 +25274,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(36145), t), i(r(80245), t), i(r(76480), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(59296), t), i(r(18497), t), i(r(99714), t);
               },
-              57422: function (e, t, r) {
+              31525: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25279,26 +25301,18 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(96687), t), i(r(65252), t), i(r(42866), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(82130), t), i(r(57926), t), i(r(75841), t);
               },
-              65252: (e, t, r) => {
+              57926: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.sharingCommandsSlots = t.sharingLiveQueriesSlots = t.sharingQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.sharingQueriesSlots = {
                   getAllSharedItemIds: (0, n.slot)(),
-                  getGroupRecipients: (0, n.slot)(),
-                  getHasNotifications: (0, n.slot)(),
-                  getIsShared: (0, n.slot)(),
-                  getItemItemGroup: (0, n.slot)(),
                   getMyAcceptedItemGroupUserMembers: (0, n.slot)(),
                   getMyAcceptedUserGroups: (0, n.slot)(),
-                  getPendingUserGroups: (0, n.slot)(),
-                  getPendingItemGroups: (0, n.slot)(),
-                  getRecipientsCount: (0, n.slot)(),
-                  getUserRecipients: (0, n.slot)(),
                   getSharingCapacity: (0, n.slot)(),
                   isAllowedToShare: (0, n.slot)(),
                   getUserGroups: (0, n.slot)(),
@@ -25310,15 +25324,8 @@
                 }),
                   (t.sharingLiveQueriesSlots = {
                     liveAllSharedItemIds: (0, i.liveSlot)(),
-                    liveGroupRecipients: (0, i.liveSlot)(),
-                    liveHasNotifications: (0, i.liveSlot)(),
-                    liveIsShared: (0, i.liveSlot)(),
                     liveMyAcceptedItemGroupUserMembers: (0, i.liveSlot)(),
                     liveMyAcceptedUserGroups: (0, i.liveSlot)(),
-                    livePendingItemGroups: (0, i.liveSlot)(),
-                    livePendingUserGroups: (0, i.liveSlot)(),
-                    liveRecipientsCount: (0, i.liveSlot)(),
-                    liveUserRecipients: (0, i.liveSlot)(),
                     liveSharingCapacity: (0, i.liveSlot)(),
                     liveUserGroups: (0, i.liveSlot)(),
                     liveUserGroupPermissionLevel: (0, i.liveSlot)(),
@@ -25327,23 +25334,23 @@
                   }),
                   (t.sharingCommandsSlots = { convertItemToDashlaneXml: (0, n.slot)(), shareItem: (0, n.slot)() });
               },
-              42866: (e, t) => {
+              75841: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              80793: (e, t) => {
+              58575: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              41804: (e, t) => {
+              84470: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              72563: (e, t) => {
+              74226: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              85187: (e, t) => {
+              60292: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25351,7 +25358,7 @@
                   ((r = t.StaticDataQueryType || (t.StaticDataQueryType = {}))[(r.CALLING_CODES = 0)] = "CALLING_CODES"),
                   (r[(r.GEOGRAPHIC_STATES = 1)] = "GEOGRAPHIC_STATES");
               },
-              54332: (e, t) => {
+              58462: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25359,7 +25366,7 @@
                   ((r = t.GeographicStateLevel || (t.GeographicStateLevel = {}))[(r.LEVEL_0 = 0)] = "LEVEL_0"),
                   (r[(r.LEVEL_1 = 1)] = "LEVEL_1");
               },
-              31072: function (e, t, r) {
+              98655: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25385,19 +25392,19 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.StaticDataQueryType = void 0);
-                var o = r(85187);
+                var o = r(60292);
                 Object.defineProperty(t, "StaticDataQueryType", {
                   enumerable: !0,
                   get: function () {
                     return o.StaticDataQueryType;
                   }
                 }),
-                  i(r(72563), t),
-                  i(r(54332), t),
-                  i(r(68554), t),
-                  i(r(16193), t);
+                  i(r(74226), t),
+                  i(r(58462), t),
+                  i(r(35324), t),
+                  i(r(78017), t);
               },
-              16193: (e, t, r) => {
+              78017: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.staticDataQueriesSlots = void 0);
                 const n = r(71796);
@@ -25408,15 +25415,15 @@
                   getSecureDocumentsExtensionsList: (0, n.slot)()
                 };
               },
-              68554: (e, t) => {
+              35324: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              86648: (e, t) => {
+              1659: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              80553: function (e, t, r) {
+              9987: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25441,16 +25448,15 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(30494), t), i(r(72170), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(84797), t), i(r(77030), t);
               },
-              30494: (e, t, r) => {
+              84797: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.teamCommandsSlots = t.teamQueriesSlots = void 0);
                 const n = r(71796);
                 (t.teamQueriesSlots = { getIsRecoveryEnabled: (0, n.slot)() }),
                   (t.teamCommandsSlots = {
                     getTeamInfo: (0, n.slot)(),
-                    getTeamOffers: (0, n.slot)(),
                     getMidCycleTierUpgradePrice: (0, n.slot)(),
                     getExpectedTaxInformation: (0, n.slot)(),
                     changeTierMidCycle: (0, n.slot)(),
@@ -25458,21 +25464,16 @@
                     addSeats: (0, n.slot)()
                   });
               },
-              72170: (e, t) => {
+              77030: (e, t) => {
                 "use strict";
-                var r, n, i, o;
+                var r, n, i;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.AddSeatsErrorType =
                     t.ComputePlanPricingErrorType =
                     t.ChangeTierMidCycleErrorType =
                     t.GetExpectedTaxInformationErrorType =
                     t.GetMidCycleTierUpgradePriceErrorType =
-                    t.B2BPlanTiers =
-                    t.GetTeamOffersErrorType =
                       void 0),
-                  ((o = t.GetTeamOffersErrorType || (t.GetTeamOffersErrorType = {})).GetTeamOffersFailed = "GET_TEAM_OFFERS_FAILED"),
-                  (o.GetTeamOffersSummaryFailed = "GET_TEAM_OFFERS_SUMMARY_FAILED"),
-                  (t.B2BPlanTiers = ["legacy", "team", "business", "entreprise"]),
                   ((
                     t.GetMidCycleTierUpgradePriceErrorType || (t.GetMidCycleTierUpgradePriceErrorType = {})
                   ).GetMidCycleTierUpgradePriceFailed = "GET_MID_CYCLE_TIER_UPGRADE_PRICE_FAILED"),
@@ -25500,7 +25501,7 @@
                   (r.NotBillingAdmin = "NOT_BILLING_ADMIN"),
                   (r.PaymentFailed = "PAYMENT_FAILED");
               },
-              41197: (e, t) => {
+              83891: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25514,7 +25515,7 @@
                   (r.Failed = "FAILED"),
                   (r.Cancelled = "CANCELLED");
               },
-              43129: (e, t) => {
+              76198: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25523,11 +25524,11 @@
                   (r.ENCRYPTION_SERVICE = "encryption_service"),
                   (r.NITRO = "nitro_encryption_service");
               },
-              82567: (e, t) => {
+              56254: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              96649: (e, t) => {
+              31197: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25537,7 +25538,7 @@
                   })((r = t.DomainStatusResponse || (t.DomainStatusResponse = {}))),
                   (t.DomainStatus = r);
               },
-              61182: (e, t) => {
+              62236: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25547,7 +25548,7 @@
                   (r.ES_CONFIG_RELOAD_FAILURE = "ES_CONFIG_RELOAD_FAILURE"),
                   (r.ES_INTERNAL_NETWORK_ERROR = "ES_INTERNAL_NETWORK_ERROR");
               },
-              59815: (e, t) => {
+              59226: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.DomainNotValidForTeam =
@@ -25584,7 +25585,7 @@
                   (t.DomainContainsNonTeamUsers = "DOMAIN_CONTAINS_EXISTING_NONTEAM_USERS"),
                   (t.DomainNotValidForTeam = "DOMAIN_NOT_VALID_FOR_TEAM");
               },
-              67195: function (e, t, r) {
+              57369: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25611,7 +25612,7 @@
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.UnknownTeamAdminError = t.TeamDeviceEncryptedConfigNotFound = void 0);
-                var o = r(59815);
+                var o = r(59226);
                 Object.defineProperty(t, "TeamDeviceEncryptedConfigNotFound", {
                   enumerable: !0,
                   get: function () {
@@ -25624,20 +25625,20 @@
                       return o.UnknownTeamAdminError;
                     }
                   }),
-                  i(r(12027), t),
-                  i(r(41197), t),
-                  i(r(43129), t),
-                  i(r(82567), t),
-                  i(r(96649), t),
-                  i(r(61182), t),
-                  i(r(90294), t),
-                  i(r(20049), t),
-                  i(r(23187), t),
-                  i(r(85787), t),
-                  i(r(29560), t),
-                  i(r(67202), t);
+                  i(r(9825), t),
+                  i(r(83891), t),
+                  i(r(76198), t),
+                  i(r(56254), t),
+                  i(r(31197), t),
+                  i(r(62236), t),
+                  i(r(36471), t),
+                  i(r(34059), t),
+                  i(r(17023), t),
+                  i(r(21310), t),
+                  i(r(15770), t),
+                  i(r(10434), t);
               },
-              90294: (e, t) => {
+              36471: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25647,7 +25648,7 @@
                   (r.InviteLinkNotFound = "TEAM_INVITE_LINK_NOT_FOUND"),
                   (r.UserInviteLinkNotFound = "USER_TEAM_INVITE_TOKEN_NOT_FOUND");
               },
-              20049: (e, t) => {
+              34059: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25657,7 +25658,7 @@
                   (r.InternalError = "internal_error"),
                   (r.UnknownError = "UNKNOWN_ERROR");
               },
-              23187: (e, t) => {
+              17023: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25673,16 +25674,16 @@
                   (r.CERTIFICATE_DECODE_FAILED = "certificate_decode_failed"),
                   (r.INVALID_ENTRYPOINT = "invalid_entrypoint");
               },
-              85787: (e, t) => {
+              21310: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              67202: (e, t, r) => {
+              10434: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.teamAdminCommandsSlots = t.teamAdminLiveQueriesSlots = t.teamAdminQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.teamAdminQueriesSlots = {
                   getAdministrableUserGroup: (0, n.slot)(),
                   getAdministrableUserGroups: (0, n.slot)(),
@@ -25729,11 +25730,11 @@
                     getSpecialUserGroupRevision: (0, n.slot)()
                   });
               },
-              29560: (e, t) => {
+              15770: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              12027: (e, t) => {
+              9825: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25742,7 +25743,7 @@
                   (r.PendingActivation = "pending_activation"),
                   (r.PendingDeactivation = "pending_deactivation");
               },
-              73572: function (e, t, r) {
+              22162: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25767,9 +25768,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(29647), t), i(r(70195), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(62485), t), i(r(86174), t);
               },
-              29647: (e, t) => {
+              62485: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25781,17 +25782,17 @@
                   (r.SHARING_CENTER_FAMILY = "sharing_center_family"),
                   (r.SHARING_CENTER_WORK = "sharing_center_work");
               },
-              70195: (e, t, r) => {
+              86174: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.userMessagesCommandsSlots = t.userMessagesLiveQueriesSlots = t.userMessagesQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.userMessagesQueriesSlots = { getVisibleUserMessages: (0, n.slot)(), getUserMessages: (0, n.slot)() }),
                   (t.userMessagesLiveQueriesSlots = { liveUserMessages: (0, i.liveSlot)(), liveVisibleUserMessages: (0, i.liveSlot)() }),
                   (t.userMessagesCommandsSlots = { dismissUserMessages: (0, n.slot)(), addUserMessage: (0, n.slot)() });
               },
-              7970: function (e, t, r) {
+              31955: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25816,9 +25817,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(74012), t), i(r(63468), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(73955), t), i(r(25625), t);
               },
-              74012: (e, t) => {
+              73955: (e, t) => {
                 "use strict";
                 var r, n, i;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -25835,12 +25836,12 @@
                   (r.NoPayment = "NoPayment"),
                   (r.Other = "Other");
               },
-              63468: (e, t, r) => {
+              25625: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.vpnCommandsSlots = t.vpnLiveQueriesSlots = t.vpnQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.vpnQueriesSlots = { getVpnAccount: (0, n.slot)(), getVpnCapabilitySetting: (0, n.slot)() }),
                   (t.vpnLiveQueriesSlots = { liveVpnAccount: (0, i.liveSlot)() }),
                   (t.vpnCommandsSlots = {
@@ -25849,16 +25850,16 @@
                     completeVpnAccountActivation: (0, n.slot)()
                   });
               },
-              88522: (e, t, r) => {
+              13006: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
                 const n = r(90693),
                   i = r(96110),
                   o = r(12341),
-                  s = r(60700),
-                  a = r(2136),
-                  c = r(36520),
-                  u = r(43361),
+                  s = r(31123),
+                  a = r(40397),
+                  c = r(65741),
+                  u = r(96222),
                   l = r(57567),
                   d = r(64213);
                 n.taskTrackingApi,
@@ -25874,15 +25875,16 @@
                   s.sharingCollectionsApi,
                   s.sharingInvitesApi,
                   o.vaultOrganizationApi,
-                  n.featureFlipsApi;
+                  n.featureFlipsApi,
+                  n.webServicesApi;
               },
-              36520: (e, t, r) => {
+              65741: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.carbonLegacyApi = void 0);
                 const n = r(90693),
-                  i = r(6530),
-                  o = r(8652),
-                  s = r(92299);
+                  i = r(99765),
+                  o = r(70314),
+                  s = r(78515);
                 t.carbonLegacyApi = (0, n.defineModuleApi)({
                   name: "carbon-legacy",
                   commands: i.commands,
@@ -25890,15 +25892,15 @@
                   events: o.events
                 });
               },
-              56402: (e, t, r) => {
+              49420: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.CarbonLegacyClient = void 0);
                 const n = r(90693),
-                  i = r(36520);
+                  i = r(65741);
                 class o extends (0, n.defineModuleClient)(i.carbonLegacyApi) {}
                 (t.CarbonLegacyClient = o), (0, n.registerModuleClient)(i.carbonLegacyApi, o);
               },
-              6530: (e, t, r) => {
+              99765: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.commands =
@@ -25908,8 +25910,8 @@
                     t.CarbonCommand =
                       void 0);
                 const n = r(90693),
-                  i = r(55195),
-                  o = r(41155);
+                  i = r(72345),
+                  o = r(16229);
                 class s extends (0, n.defineCarbonCommand)({ scope: n.UseCaseScope.Device }) {}
                 t.CarbonCommand = s;
                 class a extends (0, n.defineCarbonCommand)({ scope: n.UseCaseScope.Device }) {}
@@ -25917,13 +25919,14 @@
                 class c extends (0, n.defineCommand)({ scope: n.UseCaseScope.Device }) {}
                 (t.MitigationDeleteGrapheneUserDataCommand = c),
                   (t.commandsFromCarbonAPI = (0, o.createCommandContractsFromConnector)(i.carbonCommandsSlots)),
-                  (t.commands = Object.assign(Object.assign({}, t.commandsFromCarbonAPI), {
+                  (t.commands = {
+                    ...t.commandsFromCarbonAPI,
                     CarbonCommand: s,
                     CarbonLegacyLeelooCommand: a,
                     MitigationDeleteGrapheneUserDataCommand: c
-                  }));
+                  });
               },
-              8652: (e, t, r) => {
+              70314: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.events = t.CarbonLegacyDeviceRemotelyDeleted = t.CarbonLegacyEvent = t.CarbonCommandResultEvent = void 0);
@@ -25936,21 +25939,21 @@
                 (t.CarbonLegacyDeviceRemotelyDeleted = s),
                   (t.events = { CarbonCommandResultEvent: i, CarbonLegacyEvent: o, CarbonLegacyDeviceRemotelyDeleted: s });
               },
-              92299: (e, t, r) => {
+              78515: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.queries = t.queriesFromCarbonAPI = t.CarbonStateListQuery = t.CarbonStateQuery = void 0);
                 const n = r(90693),
-                  i = r(55195),
-                  o = r(41155);
+                  i = r(72345),
+                  o = r(16229);
                 class s extends (0, n.defineQuery)({ scope: n.UseCaseScope.Device }) {}
                 t.CarbonStateQuery = s;
                 class a extends (0, n.defineQuery)({ scope: n.UseCaseScope.Device }) {}
                 (t.CarbonStateListQuery = a),
                   (t.queriesFromCarbonAPI = (0, o.createQueryContractsFromConnectors)(i.carbonQueriesSlots, i.carbonLiveQueriesSlots)),
-                  (t.queries = Object.assign(Object.assign({}, t.queriesFromCarbonAPI), { CarbonStateQuery: s, CarbonStateListQuery: a }));
+                  (t.queries = { ...t.queriesFromCarbonAPI, CarbonStateQuery: s, CarbonStateListQuery: a });
               },
-              47453: function (e, t, r) {
+              83496: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -25976,40 +25979,38 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(92299), t),
-                  i(r(8652), t),
-                  i(r(6530), t),
-                  i(r(35278), t),
-                  i(r(36520), t),
-                  i(r(56402), t);
+                  i(r(78515), t),
+                  i(r(70314), t),
+                  i(r(99765), t),
+                  i(r(76931), t),
+                  i(r(65741), t),
+                  i(r(49420), t);
               },
-              41155: (e, t, r) => {
+              16229: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.createQueryContractsFromConnectors = t.createCommandContractsFromConnector = void 0);
                 const n = r(90693);
                 (t.createCommandContractsFromConnector = function (e) {
                   return Object.keys(e).reduce(
-                    (e, t) =>
-                      Object.assign(Object.assign({}, e), {
-                        [`${t[0].toUpperCase().concat(t.substring(1))}Command`]: (0, n.defineCarbonCommand)({
-                          scope: n.UseCaseScope.Device
-                        })
-                      }),
+                    (e, t) => ({
+                      ...e,
+                      [`${t[0].toUpperCase().concat(t.substring(1))}Command`]: (0, n.defineCarbonCommand)({ scope: n.UseCaseScope.Device })
+                    }),
                     {}
                   );
                 }),
                   (t.createQueryContractsFromConnectors = function (e, t) {
                     return [...Object.keys(e), ...Object.keys(t)].reduce(
-                      (e, t) =>
-                        Object.assign(Object.assign({}, e), {
-                          [`${t[0].toUpperCase().concat(t.substring(1))}Query`]: (0, n.defineQuery)({ scope: n.UseCaseScope.Device })
-                        }),
+                      (e, t) => ({
+                        ...e,
+                        [`${t[0].toUpperCase().concat(t.substring(1))}Query`]: (0, n.defineQuery)({ scope: n.UseCaseScope.Device })
+                      }),
                       {}
                     );
                   });
               },
-              35278: (e, t) => {
+              76931: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.LEGACY_CARBON_LEELOO_USED_COMMANDS = void 0),
@@ -26027,15 +26028,16 @@
                     "openSessionResendToken",
                     "removePersonalDataItem",
                     "savePersonalDataItem",
-                    "sessionForceSync"
+                    "sessionForceSync",
+                    "getLocalAccountsList"
                   ]);
               },
-              76075: (e, t, r) => {
+              37988: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.bankAccountCommandsSlots = t.bankAccountLiveQueriesSlots = t.bankAccountQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.bankAccountQueriesSlots = { getBankAccount: (0, n.slot)(), getBankAccounts: (0, n.slot)() }),
                   (t.bankAccountLiveQueriesSlots = { liveBankAccount: (0, i.liveSlot)(), liveBankAccounts: (0, i.liveSlot)() }),
                   (t.bankAccountCommandsSlots = {
@@ -26044,7 +26046,7 @@
                     deleteBankAccount: (0, n.slot)()
                   });
               },
-              52458: function (e, t, r) {
+              23446: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26069,9 +26071,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(76075), t), i(r(32101), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(37988), t), i(r(5865), t);
               },
-              32101: (e, t) => {
+              5865: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26083,12 +26085,12 @@
                   ((t.UpdateBankAccountResultErrorCode || (t.UpdateBankAccountResultErrorCode = {})).EMPTY_BIC_AND_IBAN =
                     "EMPTY_BIC_AND_IBAN");
               },
-              41153: (e, t, r) => {
+              85530: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.breachesCommandsSlots = t.breachesLiveQueriesSlots = t.breachesQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.breachesQueriesSlots = {
                   getBreach: (0, n.slot)(),
                   getBreaches: (0, n.slot)(),
@@ -26104,7 +26106,7 @@
                   }),
                   (t.breachesCommandsSlots = { updateBreachStatus: (0, n.slot)() });
               },
-              90079: function (e, t, r) {
+              59870: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26129,9 +26131,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(41153), t), i(r(93949), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(85530), t), i(r(56476), t);
               },
-              93949: (e, t) => {
+              56476: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26154,7 +26156,7 @@
                   (r.UPDATED = "updated"),
                   (r.ERROR = "error");
               },
-              33513: (e, t, r) => {
+              21528: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.collectionsCommandsSlots = void 0);
                 const n = r(71796);
@@ -26165,7 +26167,7 @@
                   updateCollection: (0, n.slot)()
                 };
               },
-              5813: function (e, t, r) {
+              23328: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26190,13 +26192,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(33513), t), i(r(16238), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(21528), t), i(r(2868), t);
               },
-              16238: (e, t) => {
+              2868: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              78979: function (e, t, r) {
+              40466: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26221,14 +26223,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(11060), t), i(r(41827), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(95331), t), i(r(347), t);
               },
-              11060: (e, t, r) => {
+              95331: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.credentialsLiveQueriesSlots = t.credentialsQueriesSlots = t.credentialsCommandsSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.credentialsCommandsSlots = {
                   addCredential: (0, n.slot)(),
                   deleteCredential: (0, n.slot)(),
@@ -26259,7 +26261,7 @@
                     liveCredentialLimitStatus: (0, i.liveSlot)()
                   });
               },
-              41827: (e, t) => {
+              347: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26269,14 +26271,14 @@
                   (r.NearLimit = "nearLimit"),
                   (r.AtOrAboveLimit = "atOrAboveLimit");
               },
-              58806: (e, t, r) => {
+              55552: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.exportCommandsSlots = t.exportQueriesSlots = void 0);
                 const n = r(71796);
                 (t.exportQueriesSlots = { getIsForcedDomainsEnabled: (0, n.slot)() }),
                   (t.exportCommandsSlots = { getPersonalDataExport: (0, n.slot)() });
               },
-              88887: function (e, t, r) {
+              10362: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26301,9 +26303,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(58806), t), i(r(54615), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(55552), t), i(r(82), t);
               },
-              54615: (e, t) => {
+              82: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26312,12 +26314,12 @@
                     "Unsupported Data Export Type"),
                   (r.UNDEFINED_PASSWORD_ERROR = "Undefined Password");
               },
-              60575: (e, t, r) => {
+              86575: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.generatedPasswordsCommandsSlots = t.generatedPasswordsLiveQueriesSlots = t.generatedPasswordsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.generatedPasswordsQueriesSlots = {
                   getGeneratedPassword: (0, n.slot)(),
                   getGeneratedPasswordsCount: (0, n.slot)(),
@@ -26331,7 +26333,7 @@
                   }),
                   (t.generatedPasswordsCommandsSlots = { saveGeneratedPassword: (0, n.slot)() });
               },
-              24842: function (e, t, r) {
+              20703: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26356,18 +26358,18 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(60575), t), i(r(39282), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(86575), t), i(r(99308), t);
               },
-              39282: (e, t) => {
+              99308: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              88359: (e, t, r) => {
+              25632: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.driverLicensesCommandsSlots = t.driverLicensesLiveQueriesSlots = t.driverLicensesQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.driverLicensesQueriesSlots = { getDriverLicense: (0, n.slot)(), getDriverLicenses: (0, n.slot)() }),
                   (t.driverLicensesLiveQueriesSlots = { liveDriverLicense: (0, i.liveSlot)(), liveDriverLicenses: (0, i.liveSlot)() }),
                   (t.driverLicensesCommandsSlots = {
@@ -26376,7 +26378,7 @@
                     deleteDriverLicense: (0, n.slot)()
                   });
               },
-              59032: function (e, t, r) {
+              57155: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26401,23 +26403,23 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(88359), t), i(r(36896), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(25632), t), i(r(48749), t);
               },
-              36896: (e, t) => {
+              48749: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              5260: (e, t, r) => {
+              65671: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.fiscalsIdCommandsSlots = t.fiscalIdsLiveQueriesSlots = t.fiscalIdsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.fiscalIdsQueriesSlots = { getFiscalId: (0, n.slot)(), getFiscalIds: (0, n.slot)() }),
                   (t.fiscalIdsLiveQueriesSlots = { liveFiscalId: (0, i.liveSlot)(), liveFiscalIds: (0, i.liveSlot)() }),
                   (t.fiscalsIdCommandsSlots = { addFiscalId: (0, n.slot)(), editFiscalId: (0, n.slot)(), deleteFiscalId: (0, n.slot)() });
               },
-              99524: function (e, t, r) {
+              49258: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26442,23 +26444,23 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(5260), t), i(r(27659), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(65671), t), i(r(83059), t);
               },
-              27659: (e, t) => {
+              83059: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              58014: (e, t, r) => {
+              90232: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.idCardsCommandsSlots = t.idCardsLiveQueriesSlots = t.idCardsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.idCardsQueriesSlots = { getIdCard: (0, n.slot)(), getIdCards: (0, n.slot)() }),
                   (t.idCardsLiveQueriesSlots = { liveIdCard: (0, i.liveSlot)(), liveIdCards: (0, i.liveSlot)() }),
                   (t.idCardsCommandsSlots = { addIdCard: (0, n.slot)(), editIdCard: (0, n.slot)(), deleteIdCard: (0, n.slot)() });
               },
-              11609: function (e, t, r) {
+              13538: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26483,13 +26485,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(58014), t), i(r(61255), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(90232), t), i(r(26328), t);
               },
-              61255: (e, t) => {
+              26328: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              61835: function (e, t, r) {
+              61470: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26515,15 +26517,15 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(66128), t),
-                  i(r(59032), t),
-                  i(r(99524), t),
-                  i(r(11609), t),
-                  i(r(16118), t),
-                  i(r(30310), t),
-                  i(r(37217), t);
+                  i(r(16281), t),
+                  i(r(57155), t),
+                  i(r(49258), t),
+                  i(r(13538), t),
+                  i(r(73758), t),
+                  i(r(74847), t),
+                  i(r(68955), t);
               },
-              16118: function (e, t, r) {
+              73758: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26548,32 +26550,32 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(1063), t), i(r(8876), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(4922), t), i(r(86924), t);
               },
-              1063: (e, t, r) => {
+              4922: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.passportsCommandsSlots = t.passportsLiveQueriesSlots = t.passportsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.passportsQueriesSlots = { getPassport: (0, n.slot)(), getPassports: (0, n.slot)() }),
                   (t.passportsLiveQueriesSlots = { livePassport: (0, i.liveSlot)(), livePassports: (0, i.liveSlot)() }),
                   (t.passportsCommandsSlots = { addPassport: (0, n.slot)(), editPassport: (0, n.slot)(), deletePassport: (0, n.slot)() });
               },
-              8876: (e, t) => {
+              86924: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              66128: (e, t, r) => {
+              16281: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.idsCommandsSlots = t.idsLiveQueriesSlots = t.idsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(59032),
-                  o = r(5260),
-                  s = r(11609),
-                  a = r(16118),
-                  c = r(30310);
+                  i = r(57155),
+                  o = r(65671),
+                  s = r(13538),
+                  a = r(73758),
+                  c = r(74847);
                 (t.idsQueriesSlots = (0, n.combineEvents)(
                   i.driverLicensesQueriesSlots,
                   o.fiscalIdsQueriesSlots,
@@ -26596,7 +26598,7 @@
                     c.socialSecurityIdsCommandsSlots
                   ));
               },
-              30310: function (e, t, r) {
+              74847: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26621,14 +26623,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(25078), t), i(r(79003), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(44771), t), i(r(41022), t);
               },
-              25078: (e, t, r) => {
+              44771: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.socialSecurityIdsCommandsSlots = t.socialSecurityIdsLiveQueriesSlots = t.socialSecurityIdsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.socialSecurityIdsQueriesSlots = { getSocialSecurityId: (0, n.slot)(), getSocialSecurityIds: (0, n.slot)() }),
                   (t.socialSecurityIdsLiveQueriesSlots = {
                     liveSocialSecurityId: (0, i.liveSlot)(),
@@ -26640,11 +26642,11 @@
                     deleteSocialSecurityId: (0, n.slot)()
                   });
               },
-              79003: (e, t) => {
+              41022: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              37217: (e, t) => {
+              68955: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26655,12 +26657,12 @@
                   ((t.AddIdResultErrorCode || (t.AddIdResultErrorCode = {})).MISSING_ID_NUMBER = "MISSING_ID_NUMBER"),
                   ((t.UpdateIdResultErrorCode || (t.UpdateIdResultErrorCode = {})).MISSING_ID_NUMBER = "MISSING_ID_NUMBER");
               },
-              93088: (e, t, r) => {
+              60655: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.importCommandsSlots = t.importLiveQueriesSlots = t.importQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.importQueriesSlots = { getImportPersonalDataStatus: (0, n.slot)() }),
                   (t.importLiveQueriesSlots = { liveImportPersonalDataStatus: (0, i.liveSlot)() }),
                   (t.importCommandsSlots = {
@@ -26669,7 +26671,7 @@
                     dismissPersonalDataImportNotifications: (0, n.slot)()
                   });
               },
-              31186: function (e, t, r) {
+              7716: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26694,9 +26696,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(93088), t), i(r(73606), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(60655), t), i(r(42393), t);
               },
-              73606: (e, t) => {
+              42393: (e, t) => {
                 "use strict";
                 var r, n, i, o, s, a;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26736,7 +26738,7 @@
                   (r.InvalidFormat = "invalid"),
                   (r.Unknown = "unknown");
               },
-              54707: function (e, t, r) {
+              30897: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26762,30 +26764,30 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(60460), t),
-                  i(r(53664), t),
-                  i(r(60154), t),
-                  i(r(52458), t),
-                  i(r(90079), t),
-                  i(r(5813), t),
-                  i(r(78979), t),
-                  i(r(88887), t),
-                  i(r(61835), t),
-                  i(r(31186), t),
-                  i(r(97722), t),
-                  i(r(30610), t),
-                  i(r(74483), t),
-                  i(r(71101), t),
-                  i(r(41176), t),
-                  i(r(77959), t),
-                  i(r(31655), t),
-                  i(r(32617), t),
-                  i(r(7767), t),
-                  i(r(51809), t),
-                  i(r(24842), t),
-                  i(r(67028), t);
+                  i(r(57882), t),
+                  i(r(88295), t),
+                  i(r(63571), t),
+                  i(r(23446), t),
+                  i(r(59870), t),
+                  i(r(23328), t),
+                  i(r(40466), t),
+                  i(r(10362), t),
+                  i(r(61470), t),
+                  i(r(7716), t),
+                  i(r(76354), t),
+                  i(r(13995), t),
+                  i(r(42366), t),
+                  i(r(27958), t),
+                  i(r(91480), t),
+                  i(r(44015), t),
+                  i(r(32487), t),
+                  i(r(62061), t),
+                  i(r(35643), t),
+                  i(r(48934), t),
+                  i(r(20703), t),
+                  i(r(34237), t);
               },
-              97722: function (e, t, r) {
+              76354: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26810,15 +26812,15 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(15264), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(9092), t);
               },
-              15264: (e, t) => {
+              9092: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.UpdateLinkedWebsitesError = void 0),
                   ((t.UpdateLinkedWebsitesError || (t.UpdateLinkedWebsitesError = {})).CredentialUpdateError = "credentialUpdateError");
               },
-              32617: function (e, t, r) {
+              62061: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26843,19 +26845,19 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(30827), t), i(r(43187), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(91583), t), i(r(1172), t);
               },
-              30827: (e, t, r) => {
+              91583: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.passkeyCommandsSlots = t.passkeyLiveQueriesSlots = t.passkeyQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.passkeyQueriesSlots = { getPasskey: (0, n.slot)(), getPasskeys: (0, n.slot)(), getPasskeysForDomain: (0, n.slot)() }),
                   (t.passkeyLiveQueriesSlots = { livePasskey: (0, i.liveSlot)(), livePasskeys: (0, i.liveSlot)() }),
                   (t.passkeyCommandsSlots = { addPasskey: (0, n.slot)(), updatePasskey: (0, n.slot)(), deletePasskey: (0, n.slot)() });
               },
-              43187: (e, t) => {
+              1172: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26864,7 +26866,7 @@
                   (r[(r.NOT_FOUND = 1)] = "NOT_FOUND"),
                   (r[(r.INTERNAL_ERROR = 2)] = "INTERNAL_ERROR");
               },
-              7767: function (e, t, r) {
+              35643: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26889,14 +26891,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(60771), t), i(r(45417), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(29477), t), i(r(38161), t);
               },
-              60771: (e, t, r) => {
+              29477: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.passwordHistoryLiveQueriesSlots = t.passwordHistoryQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.passwordHistoryQueriesSlots = {
                   getPasswordHistory: (0, n.slot)(),
                   getHasPasswordHistory: (0, n.slot)(),
@@ -26908,7 +26910,7 @@
                     livePasswordHistoryBatch: (0, i.liveSlot)()
                   });
               },
-              45417: (e, t) => {
+              38161: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26916,7 +26918,7 @@
                   ((r = t.PasswordHistoryItemType || (t.PasswordHistoryItemType = {})).Credential = "credential"),
                   (r.Generated = "generated");
               },
-              51809: function (e, t, r) {
+              48934: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -26941,14 +26943,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(95549), t), i(r(19691), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(75161), t), i(r(40672), t);
               },
-              95549: (e, t, r) => {
+              75161: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.paymentCardCommandsSlots = t.paymentCardLiveQueriesSlots = t.paymentCardQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.paymentCardQueriesSlots = { getPaymentCard: (0, n.slot)(), getPaymentCards: (0, n.slot)() }),
                   (t.paymentCardLiveQueriesSlots = { livePaymentCard: (0, i.liveSlot)(), livePaymentCards: (0, i.liveSlot)() }),
                   (t.paymentCardCommandsSlots = {
@@ -26957,7 +26959,7 @@
                     deletePaymentCard: (0, n.slot)()
                   });
               },
-              19691: (e, t) => {
+              40672: (e, t) => {
                 "use strict";
                 var r, n;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -26969,15 +26971,15 @@
                   (r.NOT_FOUND = "NOT_FOUND"),
                   (r.INTERNAL_ERROR = "INTERNAL_ERROR");
               },
-              38504: (e, t, r) => {
+              30557: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.addressLiveQueriesSlots = t.addressQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.addressQueriesSlots = { getAddresses: (0, n.slot)(), getAddress: (0, n.slot)() }),
                   (t.addressLiveQueriesSlots = { liveAddress: (0, i.liveSlot)(), liveAddresses: (0, i.liveSlot)() });
               },
-              83287: function (e, t, r) {
+              46329: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27002,21 +27004,21 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(38504), t), i(r(73207), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(30557), t), i(r(1721), t);
               },
-              73207: (e, t) => {
+              1721: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              32826: (e, t, r) => {
+              97301: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.companyLiveQueriesSlots = t.companyQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.companyQueriesSlots = { getCompanies: (0, n.slot)(), getCompany: (0, n.slot)() }),
                   (t.companyLiveQueriesSlots = { liveCompanies: (0, i.liveSlot)(), liveCompany: (0, i.liveSlot)() });
               },
-              4898: function (e, t, r) {
+              5746: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27041,21 +27043,21 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(32826), t), i(r(97595), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(97301), t), i(r(4249), t);
               },
-              97595: (e, t) => {
+              4249: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              84951: (e, t, r) => {
+              24375: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.emailLiveQueriesSlots = t.emailQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.emailQueriesSlots = { getEmail: (0, n.slot)(), getEmails: (0, n.slot)() }),
                   (t.emailLiveQueriesSlots = { liveEmail: (0, i.liveSlot)(), liveEmails: (0, i.liveSlot)() });
               },
-              1182: function (e, t, r) {
+              47413: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27080,17 +27082,17 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(84951), t), i(r(61269), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(24375), t), i(r(836), t);
               },
-              61269: (e, t) => {
+              836: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              69422: (e, t, r) => {
+              83530: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.identityLiveQueriesSlots = t.identityQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.identityQueriesSlots = { getIdentities: (0, n.slot)(), getIdentitiesCount: (0, n.slot)(), getIdentity: (0, n.slot)() }),
                   (t.identityLiveQueriesSlots = {
                     liveIdentities: (0, i.liveSlot)(),
@@ -27098,7 +27100,7 @@
                     liveIdentity: (0, i.liveSlot)()
                   });
               },
-              55170: function (e, t, r) {
+              8400: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27123,13 +27125,13 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(69422), t), i(r(58761), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(83530), t), i(r(67369), t);
               },
-              58761: (e, t) => {
+              67369: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              60154: function (e, t, r) {
+              63571: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27155,15 +27157,15 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(83287), t),
-                  i(r(4898), t),
-                  i(r(1182), t),
-                  i(r(55170), t),
-                  i(r(24306), t),
-                  i(r(31250), t),
-                  i(r(34100), t);
+                  i(r(46329), t),
+                  i(r(5746), t),
+                  i(r(47413), t),
+                  i(r(8400), t),
+                  i(r(87893), t),
+                  i(r(60776), t),
+                  i(r(64682), t);
               },
-              31250: function (e, t, r) {
+              60776: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27188,31 +27190,31 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(84148), t), i(r(51277), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(68813), t), i(r(392), t);
               },
-              51277: (e, t, r) => {
+              392: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.phoneLiveQueriesSlots = t.phoneQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.phoneQueriesSlots = { getPhone: (0, n.slot)(), getPhones: (0, n.slot)() }),
                   (t.phoneLiveQueriesSlots = { livePhone: (0, i.liveSlot)(), livePhones: (0, i.liveSlot)() });
               },
-              84148: (e, t) => {
+              68813: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              34100: (e, t, r) => {
+              64682: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.personalInfoLiveQueriesSlots = t.personalInfoQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(83287),
-                  o = r(4898),
-                  s = r(1182),
-                  a = r(55170),
-                  c = r(31250),
-                  u = r(24306);
+                  i = r(46329),
+                  o = r(5746),
+                  s = r(47413),
+                  a = r(8400),
+                  c = r(60776),
+                  u = r(87893);
                 (t.personalInfoQueriesSlots = (0, n.combineEvents)(
                   i.addressQueriesSlots,
                   o.companyQueriesSlots,
@@ -27230,7 +27232,7 @@
                     u.websiteLiveQueriesSlots
                   ));
               },
-              24306: function (e, t, r) {
+              87893: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27255,21 +27257,21 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(56346), t), i(r(29434), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(63142), t), i(r(8598), t);
               },
-              56346: (e, t) => {
+              63142: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              29434: (e, t, r) => {
+              8598: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.websiteLiveQueriesSlots = t.websiteQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.websiteQueriesSlots = { getPersonalWebsite: (0, n.slot)(), getPersonalWebsites: (0, n.slot)() }),
                   (t.websiteLiveQueriesSlots = { livePersonalWebsite: (0, i.liveSlot)(), livePersonalWebsites: (0, i.liveSlot)() });
               },
-              30610: function (e, t, r) {
+              13995: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27294,14 +27296,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(67667), t), i(r(55003), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(56894), t), i(r(17013), t);
               },
-              67667: (e, t, r) => {
+              56894: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.secretCommandsSlots = t.secretLiveQueriesSlots = t.secretQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.secretQueriesSlots = {
                   getSecret: (0, n.slot)(),
                   getSecrets: (0, n.slot)(),
@@ -27317,7 +27319,7 @@
                   }),
                   (t.secretCommandsSlots = { addSecret: (0, n.slot)(), updateSecret: (0, n.slot)(), deleteSecret: (0, n.slot)() });
               },
-              55003: (e, t) => {
+              17013: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -27329,7 +27331,7 @@
                   (r.LEAVE_SHARING_FORBIDDEN_LAST_ADMIN = "LEAVE_SHARING_FORBIDDEN_LAST_ADMIN"),
                   (r.LEAVE_SHARING_FORBIDDEN_GROUP_ITEM = "LEAVE_SHARING_FORBIDDEN_GROUP_ITEM");
               },
-              74483: function (e, t, r) {
+              42366: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27354,14 +27356,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(57606), t), i(r(85252), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(70954), t), i(r(1376), t);
               },
-              57606: (e, t, r) => {
+              70954: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.secureFilesCommandsSlots = t.secureFilesLiveQueriesSlots = t.secureFilesQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.secureFilesQueriesSlots = {
                   getSecureFilesQuota: (0, n.slot)(),
                   getSecureFilesInfoList: (0, n.slot)(),
@@ -27384,7 +27386,7 @@
                     clearSecureFileState: (0, n.slot)()
                   });
               },
-              85252: (e, t) => {
+              1376: (e, t) => {
                 "use strict";
                 var r, n, i;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -27410,7 +27412,7 @@
                   (r.Done = "Done"),
                   (r.Error = "Error");
               },
-              71101: function (e, t, r) {
+              27958: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27435,19 +27437,19 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(84240), t), i(r(50766), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(32376), t), i(r(20397), t);
               },
-              84240: (e, t, r) => {
+              32376: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.secureNoteCategoryCommandsSlots = void 0);
                 const n = r(71796);
                 t.secureNoteCategoryCommandsSlots = { setupDefaultNoteCategories: (0, n.slot)() };
               },
-              50766: (e, t) => {
+              20397: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              41176: function (e, t, r) {
+              91480: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27472,14 +27474,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(41670), t), i(r(11379), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(47110), t), i(r(5721), t);
               },
-              41670: (e, t, r) => {
+              47110: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.noteCommandsSlots = t.noteLiveQueriesSlots = t.noteQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.noteQueriesSlots = {
                   getNote: (0, n.slot)(),
                   getNoteCategories: (0, n.slot)(),
@@ -27500,7 +27502,7 @@
                     deleteSecureNote: (0, n.slot)()
                   });
               },
-              11379: (e, t) => {
+              5721: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -27512,7 +27514,7 @@
                   (r.LEAVE_SHARING_FORBIDDEN_LAST_ADMIN = "LEAVE_SHARING_FORBIDDEN_LAST_ADMIN"),
                   (r.LEAVE_SHARING_FORBIDDEN_GROUP_ITEM = "LEAVE_SHARING_FORBIDDEN_GROUP_ITEM");
               },
-              77959: function (e, t, r) {
+              44015: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27537,14 +27539,14 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(17515), t), i(r(94628), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(12451), t), i(r(76646), t);
               },
-              17515: (e, t, r) => {
+              12451: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.settingsCommandsSlots = t.settingsLiveQueriesSlots = t.settingsQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(55195);
+                  i = r(72345);
                 (t.settingsQueriesSlots = {
                   getAnonymousUserId: (0, n.slot)(),
                   getIsUrlBanished: (0, n.slot)(),
@@ -27557,34 +27559,34 @@
                     updateAutofillSettings: (0, n.slot)()
                   });
               },
-              94628: (e, t) => {
+              76646: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              60460: (e, t, r) => {
+              57882: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.dataManagementCommandsSlots = t.dataManagementLiveQueriesSlots = t.dataManagementQueriesSlots = void 0);
                 const n = r(71796),
-                  i = r(52458),
-                  o = r(90079),
-                  s = r(5813),
-                  a = r(78979),
-                  c = r(88887),
-                  u = r(24842),
-                  l = r(61835),
-                  d = r(31186),
-                  f = r(32617),
-                  h = r(7767),
-                  p = r(51809),
-                  m = r(60154),
-                  b = r(74483),
-                  g = r(71101),
-                  v = r(41176),
-                  y = r(77959),
-                  _ = r(31655),
-                  S = r(67028),
-                  E = r(30610);
+                  i = r(23446),
+                  o = r(59870),
+                  s = r(23328),
+                  a = r(40466),
+                  c = r(10362),
+                  u = r(20703),
+                  l = r(61470),
+                  d = r(7716),
+                  f = r(62061),
+                  h = r(35643),
+                  p = r(48934),
+                  m = r(63571),
+                  b = r(42366),
+                  g = r(27958),
+                  v = r(91480),
+                  y = r(44015),
+                  _ = r(32487),
+                  S = r(34237),
+                  E = r(13995);
                 (t.dataManagementQueriesSlots = (0, n.combineEvents)(
                   i.bankAccountQueriesSlots,
                   o.breachesQueriesSlots,
@@ -27639,7 +27641,7 @@
                     S.vaultCommandsSlots
                   ));
               },
-              31655: function (e, t, r) {
+              32487: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27664,23 +27666,23 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(10711), t), i(r(61131), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(3316), t), i(r(81774), t);
               },
-              10711: (e, t, r) => {
+              3316: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.spacesQueriesSlots = void 0);
                 const n = r(71796);
                 t.spacesQueriesSlots = { getSpace: (0, n.slot)(), getSpaces: (0, n.slot)() };
               },
-              61131: (e, t) => {
+              81774: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              53664: (e, t) => {
+              88295: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
               },
-              67028: function (e, t, r) {
+              34237: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27705,9 +27707,9 @@
                     function (e, t) {
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
-                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(99092), t), i(r(28937), t);
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(52810), t), i(r(76417), t);
               },
-              99092: (e, t) => {
+              52810: (e, t) => {
                 "use strict";
                 var r;
                 Object.defineProperty(t, "__esModule", { value: !0 }),
@@ -27717,14 +27719,14 @@
                   (r[(r.DisableSpecificVaultItem = 1)] = "DisableSpecificVaultItem"),
                   (r[(r.DisableGeneralSetting = 2)] = "DisableGeneralSetting");
               },
-              28937: (e, t, r) => {
+              76417: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.vaultCommandsSlots = t.vaultQueriesSlots = void 0);
                 const n = r(71796);
                 (t.vaultQueriesSlots = { getAutofillProtectionContext: (0, n.slot)() }),
                   (t.vaultCommandsSlots = { disableVaultItemProtection: (0, n.slot)() });
               },
-              53576: function (e, t, r) {
+              32626: function (e, t, r) {
                 "use strict";
                 var n =
                     (this && this.__createBinding) ||
@@ -27750,77 +27752,83 @@
                       for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
                     };
                 Object.defineProperty(t, "__esModule", { value: !0 }),
-                  i(r(55195), t),
-                  i(r(58616), t),
-                  i(r(75640), t),
-                  i(r(54503), t),
-                  i(r(83025), t),
-                  i(r(79158), t),
-                  i(r(14874), t),
-                  i(r(58300), t),
-                  i(r(63979), t),
-                  i(r(10989), t),
-                  i(r(58209), t),
-                  i(r(59539), t),
-                  i(r(88806), t),
-                  i(r(39888), t),
-                  i(r(45861), t),
-                  i(r(67120), t),
-                  i(r(80078), t),
-                  i(r(60754), t),
-                  i(r(54707), t),
-                  i(r(46359), t),
-                  i(r(73254), t),
-                  i(r(80953), t),
-                  i(r(71559), t),
-                  i(r(1738), t),
-                  i(r(42553), t),
-                  i(r(61812), t),
-                  i(r(7890), t),
-                  i(r(17124), t),
-                  i(r(20170), t),
-                  i(r(51126), t),
-                  i(r(36210), t),
-                  i(r(29358), t),
-                  i(r(63919), t),
-                  i(r(54692), t),
-                  i(r(17341), t),
-                  i(r(74477), t),
-                  i(r(78690), t),
-                  i(r(87894), t),
-                  i(r(83263), t),
-                  i(r(97981), t),
-                  i(r(23448), t),
-                  i(r(57422), t),
-                  i(r(82607), t),
-                  i(r(94705), t),
-                  i(r(41804), t),
-                  i(r(80793), t),
-                  i(r(80553), t),
-                  i(r(67195), t),
-                  i(r(86648), t),
-                  i(r(86038), t),
-                  i(r(66913), t),
-                  i(r(82725), t),
-                  i(r(31072), t),
-                  i(r(6937), t),
-                  i(r(45169), t),
-                  i(r(73572), t),
-                  i(r(7970), t),
-                  i(r(47453), t),
-                  i(r(88522), t);
+                  i(r(72345), t),
+                  i(r(28413), t),
+                  i(r(17317), t),
+                  i(r(98521), t),
+                  i(r(11733), t),
+                  i(r(80112), t),
+                  i(r(55334), t),
+                  i(r(91609), t),
+                  i(r(11889), t),
+                  i(r(99103), t),
+                  i(r(29004), t),
+                  i(r(90041), t),
+                  i(r(65722), t),
+                  i(r(25098), t),
+                  i(r(94372), t),
+                  i(r(15874), t),
+                  i(r(50459), t),
+                  i(r(14811), t),
+                  i(r(30897), t),
+                  i(r(88219), t),
+                  i(r(43245), t),
+                  i(r(65005), t),
+                  i(r(80898), t),
+                  i(r(29450), t),
+                  i(r(96035), t),
+                  i(r(6666), t),
+                  i(r(24875), t),
+                  i(r(87940), t),
+                  i(r(15925), t),
+                  i(r(68183), t),
+                  i(r(6768), t),
+                  i(r(58290), t),
+                  i(r(78779), t),
+                  i(r(39191), t),
+                  i(r(37174), t),
+                  i(r(60687), t),
+                  i(r(36632), t),
+                  i(r(77277), t),
+                  i(r(49106), t),
+                  i(r(68440), t),
+                  i(r(34852), t),
+                  i(r(31525), t),
+                  i(r(28249), t),
+                  i(r(33773), t),
+                  i(r(84470), t),
+                  i(r(58575), t),
+                  i(r(9987), t),
+                  i(r(57369), t),
+                  i(r(1659), t),
+                  i(r(48905), t),
+                  i(r(66478), t),
+                  i(r(12891), t),
+                  i(r(98655), t),
+                  i(r(44225), t),
+                  i(r(19635), t),
+                  i(r(22162), t),
+                  i(r(31955), t),
+                  i(r(83496), t),
+                  i(r(13006), t);
               },
-              43361: (e, t, r) => {
+              96222: (e, t, r) => {
                 "use strict";
                 r.r(t),
                   r.d(t, {
                     AuthenticationFlowContracts: () => n,
+                    CleanRemotelyRemovedProfilesCommand: () => ve,
+                    DeviceRegistrationClient: () => Oe,
                     DeviceTransferContracts: () => o,
                     IdentityVerificationFlowContracts: () => i,
-                    Request2FaCodesByPhoneCommand: () => be,
-                    Request2FaCodesByPhoneErrorCodes: () => ve,
-                    ValidateWebauthnAssertionCommand: () => me,
-                    userVerificationApi: () => ge
+                    LocalAccountsQuery: () => Ee,
+                    RegisterDeviceCommand: () => Se,
+                    Request2FaCodesByPhoneCommand: () => me,
+                    Request2FaCodesByPhoneErrorCodes: () => ge,
+                    ValidateWebauthnAssertionCommand: () => pe,
+                    deviceRegistrationApi: () => we,
+                    registrationSchema: () => _e,
+                    userVerificationApi: () => be
                   });
                 var n = {};
                 r.r(n),
@@ -27885,7 +27893,6 @@
                     RejectDeviceTransferRequestCommand: () => ce,
                     ReturnToDeviceSetupCommand: () => le,
                     SubmitPassphraseChallengeCommand: () => ue,
-                    TrustedDeviceFlowError: () => pe,
                     TrustedDeviceFlowErrors: () => fe,
                     TrustedDeviceFlowStatusQuery: () => ie,
                     TrustedDeviceFlowStep: () => he,
@@ -27954,7 +27961,9 @@
                   (function (e) {
                     (e.WaitingForTransferRequest = "WaitingForTransferRequest"),
                       (e.DisplayInstructions = "DisplayInstructions"),
+                      (e.LoadingPassphrase = "LoadingPassphrase"),
                       (e.DisplayPassphrase = "DisplayPassphrase"),
+                      (e.LoadingAccount = "LoadingAccount"),
                       (e.Error = "Error"),
                       (e.DeviceRegistered = "DeviceRegistered");
                   })(x || (x = {})),
@@ -28031,33 +28040,60 @@
                 });
                 var fe, he;
                 !(function (e) {
-                  (e.GENERIC_ERROR = "GENERIC_ERROR"), (e.INVALID_PASSPHRASE = "INVALID_PASSPHRASE"), (e.TIMEOUT = "TIMEOUT");
-                })(fe || (fe = {}));
-                class pe extends Error {
-                  constructor(e, t) {
-                    super(e), (this.code = void 0), (this.code = t);
-                  }
-                }
-                !(function (e) {
-                  (e[(e.WaitingForNewDeviceRequest = 0)] = "WaitingForNewDeviceRequest"),
-                    (e[(e.NewDeviceRequestAvailable = 1)] = "NewDeviceRequestAvailable"),
-                    (e[(e.DisplayPassphraseChallenge = 2)] = "DisplayPassphraseChallenge"),
-                    (e[(e.DeviceTransferComplete = 3)] = "DeviceTransferComplete"),
-                    (e[(e.DeviceTransferRejected = 4)] = "DeviceTransferRejected"),
-                    (e[(e.Error = 5)] = "Error");
-                })(he || (he = {}));
-                class me extends (0, f.g)({ scope: c.F.User }) {}
-                class be extends (0, f.g)({ scope: c.F.Device }) {}
-                const ge = (0, s.Q)({
+                  (e.GENERIC_ERROR = "GENERIC_ERROR"),
+                    (e.INVALID_PASSPHRASE = "INVALID_PASSPHRASE"),
+                    (e.TIMEOUT = "TIMEOUT"),
+                    (e.PASSPHRASE_ATTEMPTS_LIMIT = "PASSPHRASE_ATTEMPTS_LIMIT");
+                })(fe || (fe = {})),
+                  (function (e) {
+                    (e[(e.WaitingForNewDeviceRequest = 0)] = "WaitingForNewDeviceRequest"),
+                      (e[(e.NewDeviceRequestAvailable = 1)] = "NewDeviceRequestAvailable"),
+                      (e[(e.DisplayPassphraseChallenge = 2)] = "DisplayPassphraseChallenge"),
+                      (e[(e.DeviceTransferComplete = 3)] = "DeviceTransferComplete"),
+                      (e[(e.LoadingChallenge = 4)] = "LoadingChallenge"),
+                      (e[(e.DeviceTransferRejected = 5)] = "DeviceTransferRejected"),
+                      (e[(e.Error = 6)] = "Error");
+                  })(he || (he = {}));
+                class pe extends (0, f.g)({ scope: c.F.User }) {}
+                class me extends (0, f.g)({ scope: c.F.Device }) {}
+                const be = (0, s.Q)({
                   name: "userVerification",
-                  commands: { validateWebauthnAssertion: me, request2FaCodesByPhone: be },
+                  commands: { validateWebauthnAssertion: pe, request2FaCodesByPhone: me },
                   queries: {},
                   events: {}
                 });
-                var ve;
+                var ge;
                 !(function (e) {
                   (e.AccountNotEligible = "AccountNotEligible"), (e.NetworkError = "NetworkError");
-                })(ve || (ve = {}));
+                })(ge || (ge = {}));
+                class ve extends (0, f.g)({ scope: c.F.Device }) {}
+                var ye = r(7165);
+                const _e = ye.z.discriminatedUnion("with", [
+                  ye.z.object({
+                    with: ye.z.literal("token"),
+                    login: ye.z.string(),
+                    token: ye.z.string(),
+                    deviceName: ye.z.optional(ye.z.string()),
+                    ignoreAlreadyRegisteredError: ye.z.optional(ye.z.boolean())
+                  }),
+                  ye.z.object({
+                    with: ye.z.literal("authTicket"),
+                    login: ye.z.string(),
+                    authTicket: ye.z.string(),
+                    deviceName: ye.z.optional(ye.z.string()),
+                    ignoreAlreadyRegisteredError: ye.z.optional(ye.z.boolean())
+                  })
+                ]);
+                class Se extends (0, f.g)({ scope: c.F.Device }) {}
+                class Ee extends (0, a.k)({ scope: c.F.Device }) {}
+                const we = (0, s.Q)({
+                  name: "deviceRegistration",
+                  commands: { cleanRemotelyRemovedProfiles: ve, registerDevice: Se },
+                  events: {},
+                  queries: { localAccounts: Ee }
+                });
+                class Oe extends (0, F.E)(we) {}
+                (0, F.K)(we, Oe);
               },
               60896: (e, t, r) => {
                 "use strict";
@@ -28552,18 +28588,18 @@
                   queries: { isMasterPasswordLeaked: d, isMasterPasswordWeak: f, isMasterPasswordNotificationDismissed: h }
                 });
               },
-              2136: (e, t, r) => {
+              40397: (e, t, r) => {
                 "use strict";
                 r.r(t),
                   r.d(t, {
-                    AddAutoRedirectedDomainCommand: () => J,
+                    AddAutoRedirectedDomainCommand: () => ee,
                     BreachLeakedDataType: () => U,
                     BreachQuery: () => C,
                     BreachState: () => L,
                     CompromisedCredentialsIdsForBreachQuery: () => H,
                     CompromisedCredentialsQuery: () => K,
-                    CorruptionDataSeverity: () => Z,
-                    CorruptionDataStrength: () => Y,
+                    CorruptionDataSeverity: () => $,
+                    CorruptionDataStrength: () => Z,
                     CredentialHealthDataQuery: () => F,
                     DarkWebOnboardingState: () => I,
                     DataLeaksEmailStatus: () => S,
@@ -28571,8 +28607,8 @@
                     DismissOnboardingNotificationCommand: () => s,
                     EmailsListQuery: () => O,
                     FilterCredentialsQuery: () => G,
-                    HealthFilter: () => z,
-                    IsAutoRedirectedDomainQuery: () => X,
+                    HealthFilter: () => Y,
+                    IsAutoRedirectedDomainQuery: () => J,
                     MarkBreachAsSeenCommand: () => R,
                     OnboardingNotificationStateQuery: () => A,
                     OptinAlreadySubscribedError: () => d,
@@ -28588,25 +28624,26 @@
                     OptoutGenericError: () => y,
                     OptoutInvalidEmailError: () => g,
                     OptoutNoSubscriptionError: () => v,
-                    OtpCodeForSecretOrUrlGenerationError: () => ne,
-                    OtpCodeForSecretOrUrlQuery: () => ie,
-                    OtpCodeGenerationError: () => te,
-                    OtpCodeQuery: () => re,
+                    OtpCodeForSecretOrUrlGenerationError: () => ie,
+                    OtpCodeForSecretOrUrlQuery: () => oe,
+                    OtpCodeGenerationError: () => re,
+                    OtpCodeQuery: () => ne,
                     PasswordHealthComputationFinishedEvent: () => j,
                     PasswordHealthReportQuery: () => V,
                     RecalculatePasswordHealthCommand: () => k,
-                    RiskType: () => Q,
+                    RiskType: () => z,
+                    ScoreForPasswordQuery: () => q,
                     ScoreQuery: () => W,
                     UnreadBreachesCountQuery: () => P,
                     UpdateIsCredentialExcludedCommand: () => x,
-                    antiphishingApi: () => ee,
+                    antiphishingApi: () => te,
                     breachesApi: () => D,
                     emailMonitoringApi: () => M,
                     isDarkWebOnboardingState: () => T,
                     isDataLeaksEmailStatus: () => w,
-                    otpApi: () => oe,
-                    passwordHealthApi: () => q,
-                    vaultReportApi: () => $
+                    otpApi: () => se,
+                    passwordHealthApi: () => Q,
+                    vaultReportApi: () => X
                   });
                 var n = r(86952),
                   i = r(74354),
@@ -28697,7 +28734,8 @@
                 class K extends (0, E.k)({ scope: o.F.User }) {}
                 class H extends (0, E.k)({ scope: o.F.User }) {}
                 class V extends (0, E.k)({ scope: o.F.User }) {}
-                const q = (0, n.Q)({
+                class q extends (0, E.k)({ scope: o.F.User }) {}
+                const Q = (0, n.Q)({
                   name: "passwordHealth",
                   commands: { updateIsCredentialExcluded: x, recalculatePasswordHealth: k },
                   events: { passwordHealthComputationFinished: j },
@@ -28707,36 +28745,37 @@
                     score: W,
                     compromisedCredentials: K,
                     compromisedCredentialsIdsForBreach: H,
-                    passwordHealthReport: V
+                    passwordHealthReport: V,
+                    scoreForPassword: q
                   }
                 });
-                var Q, z, Y, Z;
+                var z, Y, Z, $;
                 !(function (e) {
                   (e.Weak = "weak"), (e.Reused = "reused"), (e.Compromised = "compromised"), (e.Excluded = "excluded");
-                })(Q || (Q = {})),
+                })(z || (z = {})),
                   (function (e) {
                     (e.All = "all"), (e.Weak = "weak"), (e.Reused = "reused"), (e.Compromised = "compromised"), (e.Excluded = "excluded");
-                  })(z || (z = {})),
-                  (function (e) {
-                    (e.WEAK = "weak"), (e.EXTREMELY_WEAK = "extremely_weak");
                   })(Y || (Y = {})),
                   (function (e) {
+                    (e.WEAK = "weak"), (e.EXTREMELY_WEAK = "extremely_weak");
+                  })(Z || (Z = {})),
+                  (function (e) {
                     (e.COMMON = "common"), (e.STRONG = "strong");
-                  })(Z || (Z = {}));
-                const $ = (0, n.Q)({ name: "vaultReport", commands: {}, events: {}, queries: {} });
-                class X extends (0, E.k)() {}
-                class J extends (0, i.g)({ scope: o.F.User }) {}
-                const ee = (0, n.Q)({
+                  })($ || ($ = {}));
+                const X = (0, n.Q)({ name: "vaultReport", commands: {}, events: {}, queries: {} });
+                class J extends (0, E.k)() {}
+                class ee extends (0, i.g)({ scope: o.F.User }) {}
+                const te = (0, n.Q)({
                   name: "antiphishing",
-                  commands: { addAutoRedirectedDomain: J },
+                  commands: { addAutoRedirectedDomain: ee },
                   events: {},
-                  queries: { isAutoRedirectedDomain: X }
+                  queries: { isAutoRedirectedDomain: J }
                 });
-                class te extends (0, a.Hu)("Cannot generate OTP code due to no OtpSecret or OtpUrl found for credential", "") {}
-                class re extends (0, E.k)({ scope: o.F.User }) {}
-                class ne extends (0, a.Hu)("Cannot generate OTP code for secret or url", "") {}
-                class ie extends (0, E.k)({ scope: o.F.User }) {}
-                const oe = (0, n.Q)({ name: "otp", commands: {}, events: {}, queries: { otpCode: re, otpCodeForSecretOrUrl: ie } });
+                class re extends (0, a.Hu)("Cannot generate OTP code due to no OtpSecret or OtpUrl found for credential", "") {}
+                class ne extends (0, E.k)({ scope: o.F.User }) {}
+                class ie extends (0, a.Hu)("Cannot generate OTP code for secret or url", "") {}
+                class oe extends (0, E.k)({ scope: o.F.User }) {}
+                const se = (0, n.Q)({ name: "otp", commands: {}, events: {}, queries: { otpCode: ne, otpCodeForSecretOrUrl: oe } });
               },
               96110: (e, t, r) => {
                 "use strict";
@@ -28832,6 +28871,23 @@
                     (e.UserRejectedSharingInviteSecureNote = "user_rejected_sharing_invite_secure_note"),
                     (e.UserAcceptedSharingInviteCredential = "user_accepted_sharing_invite_credential"),
                     (e.UserRejectedSharingInviteCredential = "user_rejected_sharing_invite_credential"),
+                    (e.UserAddedCredentialToCollection = "user_added_credential_to_collection"),
+                    (e.UserCreatedCollection = "user_created_collection"),
+                    (e.UserDeletedCollection = "user_deleted_collection"),
+                    (e.UserImportedCollection = "user_imported_collection"),
+                    (e.UserRemovedCredentialFromCollection = "user_removed_credential_from_collection"),
+                    (e.UserRenamedCollection = "user_renamed_collection"),
+                    (e.UserSharedCollectionWithUser = "user_shared_collection_with_user"),
+                    (e.UserSharedCollectionWithGroup = "user_shared_collection_with_usergroup"),
+                    (e.UserAcceptedCollection = "user_accepted_collection_invite"),
+                    (e.UserRejectedCollection = "user_rejected_collection_invite"),
+                    (e.UserAddedItemToCollection = "user_added_credential_to_shared_collection"),
+                    (e.UserRemovedItemFromCollection = "user_removed_credential_from_shared_collection"),
+                    (e.UserUpdatedGroupRoleInCollection = "user_updated_collection_usergroup"),
+                    (e.UserUpdatedUserRoleInCollection = "user_updated_collection_user"),
+                    (e.UserRenamedSharedCollection = "user_renamed_shared_collection"),
+                    (e.UserRevokedGroupFromCollection = "user_revoked_collection_usergroup"),
+                    (e.UserRevokedUserFromCollection = "user_revoked_collection_user"),
                     (e.UserCreatedCredential = "user_created_credential"),
                     (e.UserModifiedCredential = "user_modified_credential"),
                     (e.UserDeletedCredential = "user_deleted_credential"),
@@ -29020,85 +29076,92 @@
                 class $ extends (0, i.k)({ scope: o.F.User }) {}
                 const X = (0, n.Q)({ name: "vaultAccess", commands: {}, events: {}, queries: { isAllowed: Z, deviceLimit: $ } });
               },
-              60700: (e, t, r) => {
+              31123: (e, t, r) => {
                 "use strict";
                 r.r(t),
                   r.d(t, {
-                    AcceptCollectionInviteCommand: () => y,
-                    AcceptCollectionInviteFailedError: () => v,
-                    AcceptCollectionInviteResultErrorCode: () => f,
-                    AddItemToCollectionsCommand: () => ye,
-                    AddItemsToCollectionCommand: () => ve,
-                    CreateSharedCollectionCommand: () => _e,
-                    DeleteSharedCollectionCommand: () => Se,
-                    GetCollectionPermissionsQuery: () => he,
-                    GetInvitesQuery: () => V,
+                    AcceptCollectionInviteCommand: () => E,
+                    AcceptCollectionInviteFailedError: () => S,
+                    AcceptCollectionInviteResultErrorCode: () => m,
+                    AddItemToCollectionsCommand: () => ve,
+                    AddItemsToCollectionCommand: () => ge,
+                    CreateSharedCollectionCommand: () => ye,
+                    DeleteSharedCollectionCommand: () => _e,
+                    GetCollectionPermissionsForUserQuery: () => le,
+                    GetCollectionRoleForGroupQuery: () => de,
+                    GetCollectionsForUserOrGroupQuery: () => ae,
+                    GetInvitesQuery: () => z,
+                    GetIsLastAdminForItemQuery: () => d,
                     GetItemGroupForItemQuery: () => c,
-                    GetItemIdsInSharedCollectionsQuery: () => de,
-                    GetItemIdsInSharedCollectionsSchema: () => se,
-                    GetPendingCollectionsQuery: () => q,
+                    GetItemIdsInSharedCollectionsQuery: () => ce,
+                    GetItemIdsInSharedCollectionsSchema: () => Le,
+                    GetPendingCollectionsQuery: () => Y,
                     GetPermissionForItemQuery: () => l,
-                    GetSharedCollectionsQuery: () => fe,
+                    GetSharedCollectionsCountQuery: () => fe,
+                    GetSharedCollectionsQuery: () => ue,
                     GetSharingStatusForItemQuery: () => u,
                     GetSharingTeamLoginsQuery: () => s,
-                    HasInvitesQuery: () => Q,
-                    InviteCollectionMembersCommand: () => Ee,
-                    PendingCollectionSchema: () => ce,
-                    PendingItemGroupSchema: () => ue,
-                    PendingUserGroupSchema: () => le,
-                    Permission: () => Y,
-                    PermissionSchema: () => J,
-                    RefuseCollectionInviteCommand: () => S,
-                    RefuseCollectionInviteFailedError: () => _,
-                    RefuseCollectionInviteResultErrorCode: () => h,
-                    RefuseItemGroupInviteAuthorHasInvalidStatusError: () => w,
-                    RefuseItemGroupInviteCommand: () => C,
-                    RefuseItemGroupInviteGroupHasInvalidStatusError: () => O,
-                    RefuseItemGroupInviteInvalidItemGroupRevisionError: () => I,
-                    RefuseItemGroupInviteNotEnoughAdminsError: () => T,
-                    RefuseItemGroupInviteNotFoundError: () => E,
-                    RefuseItemGroupInviteResultErrorCode: () => p,
-                    RefuseItemGroupInviteUserGroupIsNotInItemGroupError: () => M,
-                    RefuseItemGroupInviteUserIsNotInItemGroupError: () => A,
-                    RefuseItemGroupInviteUserIsNotInPendingStatusError: () => N,
-                    RefuseUserGroupInviteAuthorHasInvalidStatusError: () => G,
-                    RefuseUserGroupInviteCommand: () => K,
-                    RefuseUserGroupInviteGroupHasInvalidStatusError: () => F,
-                    RefuseUserGroupInviteInsufficientPrivilegesError: () => k,
-                    RefuseUserGroupInviteInvalidItemGroupRevisionError: () => U,
-                    RefuseUserGroupInviteInvalidTeamIdError: () => D,
-                    RefuseUserGroupInviteNotFoundError: () => P,
-                    RefuseUserGroupInviteResultErrorCode: () => m,
-                    RefuseUserGroupInviteUserGroupIsNotFoundError: () => L,
-                    RefuseUserGroupInviteUserGroupUpdateConflictError: () => x,
-                    RefuseUserGroupInviteUserIsNotInPendingStatusError: () => j,
-                    RefuseUserGroupInviteUserIsNotInUserGroupError: () => B,
-                    RemoveItemFromCollectionsCommand: () => Oe,
-                    RenameCollectionCommand: () => Ae,
-                    RevokeCollectionMembersCommand: () => Me,
-                    RsaStatusSchema: () => ee,
-                    ShareableCollectionSchema: () => me,
-                    ShareableCollectionVaultItemSchema: () => pe,
-                    SharedCollectionRole: () => ae,
-                    SharedCollectionSchema: () => ie,
-                    SharedCollectionUserGroupSchema: () => re,
-                    SharedCollectionUserOrGroupViewSchema: () => ne,
-                    SharedCollectionUserSchema: () => te,
-                    SharedCollectionsWithItemsQuery: () => be,
-                    SharingCollectionsClient: () => Re,
+                    HasInvitesQuery: () => Z,
+                    InviteCollectionMembersCommand: () => Se,
+                    PendingCollectionSchema: () => ie,
+                    PendingItemGroupSchema: () => oe,
+                    PendingUserGroupSchema: () => se,
+                    Permission: () => X,
+                    PermissionSchema: () => re,
+                    RecipientTypes: () => f,
+                    RefuseCollectionInviteCommand: () => O,
+                    RefuseCollectionInviteFailedError: () => w,
+                    RefuseCollectionInviteResultErrorCode: () => b,
+                    RefuseItemGroupInviteAuthorHasInvalidStatusError: () => M,
+                    RefuseItemGroupInviteCommand: () => L,
+                    RefuseItemGroupInviteGroupHasInvalidStatusError: () => I,
+                    RefuseItemGroupInviteInvalidItemGroupRevisionError: () => R,
+                    RefuseItemGroupInviteNotEnoughAdminsError: () => C,
+                    RefuseItemGroupInviteNotFoundError: () => A,
+                    RefuseItemGroupInviteResultErrorCode: () => g,
+                    RefuseItemGroupInviteUserGroupIsNotInItemGroupError: () => N,
+                    RefuseItemGroupInviteUserIsNotInItemGroupError: () => T,
+                    RefuseItemGroupInviteUserIsNotInPendingStatusError: () => P,
+                    RefuseUserGroupInviteAuthorHasInvalidStatusError: () => H,
+                    RefuseUserGroupInviteCommand: () => q,
+                    RefuseUserGroupInviteGroupHasInvalidStatusError: () => K,
+                    RefuseUserGroupInviteInsufficientPrivilegesError: () => F,
+                    RefuseUserGroupInviteInvalidItemGroupRevisionError: () => B,
+                    RefuseUserGroupInviteInvalidTeamIdError: () => x,
+                    RefuseUserGroupInviteNotFoundError: () => U,
+                    RefuseUserGroupInviteResultErrorCode: () => v,
+                    RefuseUserGroupInviteUserGroupIsNotFoundError: () => k,
+                    RefuseUserGroupInviteUserGroupUpdateConflictError: () => j,
+                    RefuseUserGroupInviteUserIsNotInPendingStatusError: () => W,
+                    RefuseUserGroupInviteUserIsNotInUserGroupError: () => G,
+                    RemoveItemFromCollectionsCommand: () => we,
+                    RenameCollectionCommand: () => Oe,
+                    RevokeCollectionMembersCommand: () => Ae,
+                    RsaStatusSchema: () => ne,
+                    ShareableCollectionSchema: () => pe,
+                    ShareableCollectionVaultItemSchema: () => he,
+                    SharedAccessForItemQuery: () => h,
+                    SharedCollectionRole: () => Ue,
+                    SharedCollectionSchema: () => Pe,
+                    SharedCollectionUserGroupSchema: () => Re,
+                    SharedCollectionUserOrGroupViewSchema: () => Ce,
+                    SharedCollectionUserSchema: () => Ne,
+                    SharedCollectionsWithItemsQuery: () => me,
+                    SharingCollectionsClient: () => ke,
                     SharingEnabledQuery: () => a,
-                    Status: () => Z,
-                    StatusSchema: () => X,
-                    UpdateCollectionMembersCommand: () => we,
-                    UpdatePendingCollectionsCommand: () => H,
-                    UpdateSharedCollectionsCommand: () => Ie,
-                    UsersAndGroupsInCollectionQuery: () => ge,
-                    UsersAndGroupsInCollectionSchema: () => oe,
-                    getRefuseItemGroupInviteFunctionalError: () => R,
-                    getRefuseUserGroupInviteFunctionalError: () => W,
+                    Status: () => J,
+                    StatusSchema: () => te,
+                    UpdateCollectionMembersCommand: () => Ee,
+                    UpdatePendingCollectionsCommand: () => Q,
+                    UpdatePermissionForCollectionItemCommand: () => Ie,
+                    UpdateSharedCollectionsCommand: () => Me,
+                    UsersAndGroupsInCollectionQuery: () => be,
+                    UsersAndGroupsInCollectionSchema: () => De,
+                    getRefuseItemGroupInviteFunctionalError: () => D,
+                    getRefuseUserGroupInviteFunctionalError: () => V,
                     sharingCollectionsApi: () => Te,
-                    sharingInvitesApi: () => z,
-                    sharingItemsApi: () => d
+                    sharingInvitesApi: () => $,
+                    sharingItemsApi: () => p
                   });
                 var n = r(86952),
                   i = r(99059),
@@ -29108,7 +29171,10 @@
                 class c extends (0, i.k)({ scope: o.F.User }) {}
                 class u extends (0, i.k)({ scope: o.F.User }) {}
                 class l extends (0, i.k)({ scope: o.F.User }) {}
-                const d = (0, n.Q)({
+                class d extends (0, i.k)({ scope: o.F.User }) {}
+                const f = Object.freeze({ Group: "group", Collection: "collection", User: "user" });
+                class h extends (0, i.k)({ scope: o.F.User }) {}
+                const p = (0, n.Q)({
                   name: "sharingItems",
                   commands: {},
                   events: {},
@@ -29117,25 +29183,27 @@
                     sharingEnabled: a,
                     getItemGroupForItem: c,
                     getSharingStatusForItem: u,
-                    getPermissionForItem: l
+                    getPermissionForItem: l,
+                    getIsLastAdminForItem: d,
+                    sharedAccessForItem: h
                   }
                 });
-                var f,
-                  h,
-                  p,
-                  m,
-                  b = r(74354),
-                  g = r(96168);
+                var m,
+                  b,
+                  g,
+                  v,
+                  y = r(74354),
+                  _ = r(96168);
                 !(function (e) {
                   e.AcceptFailed = "AcceptFailed";
-                })(f || (f = {}));
-                class v extends (0, g.Hu)(f.AcceptFailed, "Failed to accept collection") {}
-                class y extends (0, b.g)({ scope: o.F.User }) {}
+                })(m || (m = {}));
+                class S extends (0, _.Hu)(m.AcceptFailed, "Failed to accept collection") {}
+                class E extends (0, y.g)({ scope: o.F.User }) {}
                 !(function (e) {
                   e.RefuseFailed = "RefuseFailed";
-                })(h || (h = {}));
-                class _ extends (0, g.Hu)(h.RefuseFailed, "Failed to refuse collection") {}
-                class S extends (0, b.g)({ scope: o.F.User }) {}
+                })(b || (b = {}));
+                class w extends (0, _.Hu)(b.RefuseFailed, "Failed to refuse collection") {}
+                class O extends (0, y.g)({ scope: o.F.User }) {}
                 !(function (e) {
                   (e.ItemGroupNotFound = "ItemGroupNotFound"),
                     (e.AuthorHasInvalidStatus = "AuthorHasInvalidStatus"),
@@ -29145,42 +29213,42 @@
                     (e.InvalidItemGroupRevision = "InvalidItemGroupRevision"),
                     (e.NotEnoughAdmins = "NotEnoughAdmins"),
                     (e.UserIsNotInPendingStatus = "UserIsNotInPendingStatus");
-                })(p || (p = {}));
-                class E extends (0, g.Hu)(p.ItemGroupNotFound, "Item Group not found") {}
-                class w extends (0, g.Hu)(
-                  p.AuthorHasInvalidStatus,
+                })(g || (g = {}));
+                class A extends (0, _.Hu)(g.ItemGroupNotFound, "Item Group not found") {}
+                class M extends (0, _.Hu)(
+                  g.AuthorHasInvalidStatus,
                   "User is not in accepted/pending status (already refused or revoked)"
                 ) {}
-                class O extends (0, g.Hu)(
-                  p.GroupHasInvalidStatus,
+                class I extends (0, _.Hu)(
+                  g.GroupHasInvalidStatus,
                   "UserGroup is not in accepted/pending status (already refused or revoked)"
                 ) {}
-                class A extends (0, g.Hu)(p.UserIsNotInItemGroup, "User is not part of item group") {}
-                class M extends (0, g.Hu)(p.UserGroupIsNotInItemGroup, "User group is not part of item group") {}
-                class I extends (0, g.Hu)(p.InvalidItemGroupRevision, "Item group revision is not valid") {}
-                class T extends (0, g.Hu)(p.NotEnoughAdmins, "The operation would let the item group with no admin") {}
-                class N extends (0, g.Hu)(p.UserIsNotInPendingStatus, 'User is not in "pending" status or not part of a group') {}
-                function R(e) {
+                class T extends (0, _.Hu)(g.UserIsNotInItemGroup, "User is not part of item group") {}
+                class N extends (0, _.Hu)(g.UserGroupIsNotInItemGroup, "User group is not part of item group") {}
+                class R extends (0, _.Hu)(g.InvalidItemGroupRevision, "Item group revision is not valid") {}
+                class C extends (0, _.Hu)(g.NotEnoughAdmins, "The operation would let the item group with no admin") {}
+                class P extends (0, _.Hu)(g.UserIsNotInPendingStatus, 'User is not in "pending" status or not part of a group') {}
+                function D(e) {
                   switch (e) {
                     case "AUTHOR_HAS_INVALID_STATUS":
-                      return new w();
-                    case "GROUP_HAS_INVALID_STATUS":
-                      return new O();
-                    case "USER_IS_NOT_IN_ITEM_GROUP":
-                      return new A();
-                    case "USER_GROUP_IS_NOT_IN_ITEM_GROUP":
                       return new M();
-                    case "INVALID_ITEM_GROUP_REVISION":
+                    case "GROUP_HAS_INVALID_STATUS":
                       return new I();
-                    case "NOT_ENOUGH_ADMINS":
+                    case "USER_IS_NOT_IN_ITEM_GROUP":
                       return new T();
-                    case "USER_IS_NOT_IN_PENDING_STATUS":
+                    case "USER_GROUP_IS_NOT_IN_ITEM_GROUP":
                       return new N();
+                    case "INVALID_ITEM_GROUP_REVISION":
+                      return new R();
+                    case "NOT_ENOUGH_ADMINS":
+                      return new C();
+                    case "USER_IS_NOT_IN_PENDING_STATUS":
+                      return new P();
                     default:
                       throw new Error("Unknown server error");
                   }
                 }
-                class C extends (0, b.g)({ scope: o.F.User }) {}
+                class L extends (0, y.g)({ scope: o.F.User }) {}
                 !(function (e) {
                   (e.UserGroupNotFound = "UserGroupNotFound"),
                     (e.InvalidTeamId = "InvalidTeamId"),
@@ -29192,185 +29260,194 @@
                     (e.UserIsNotInPendingStatus = "UserIsNotInPendingStatus"),
                     (e.GroupHasInvalidStatus = "GroupHasInvalidStatus"),
                     (e.AuthorHasInvalidStatus = "AuthorHasInvalidStatus");
-                })(m || (m = {}));
-                class P extends (0, g.Hu)(m.UserGroupNotFound, "User Group not found") {}
-                class D extends (0, g.Hu)(m.InvalidTeamId, "Provided Team ID is not a number") {}
-                class L extends (0, g.Hu)(m.UserGroupIsNotFound, "User group for provided ID does not exist") {}
-                class U extends (0, g.Hu)(m.InvalidItemGroupRevision, "User group revision is not valid") {}
-                class x extends (0, g.Hu)(m.UserGroupUpdateConflict, "Conflict between users attempting to update the same user group") {}
-                class k extends (0, g.Hu)(
-                  m.InsufficientPrivileges,
+                })(v || (v = {}));
+                class U extends (0, _.Hu)(v.UserGroupNotFound, "User Group not found") {}
+                class x extends (0, _.Hu)(v.InvalidTeamId, "Provided Team ID is not a number") {}
+                class k extends (0, _.Hu)(v.UserGroupIsNotFound, "User group for provided ID does not exist") {}
+                class B extends (0, _.Hu)(v.InvalidItemGroupRevision, "User group revision is not valid") {}
+                class j extends (0, _.Hu)(v.UserGroupUpdateConflict, "Conflict between users attempting to update the same user group") {}
+                class F extends (0, _.Hu)(
+                  v.InsufficientPrivileges,
                   "The user does not have User Group permission to refuse the invitation"
                 ) {}
-                class B extends (0, g.Hu)(m.UserIsNotInUserGroup, "User is not part of a group") {}
-                class j extends (0, g.Hu)(m.UserIsNotInPendingStatus, 'User is not in "pending" status or not part of a group') {}
-                class F extends (0, g.Hu)(
-                  m.GroupHasInvalidStatus,
+                class G extends (0, _.Hu)(v.UserIsNotInUserGroup, "User is not part of a group") {}
+                class W extends (0, _.Hu)(v.UserIsNotInPendingStatus, 'User is not in "pending" status or not part of a group') {}
+                class K extends (0, _.Hu)(
+                  v.GroupHasInvalidStatus,
                   'UserGroup is not in "accepted" or "pending" status (already refused or revoked)'
                 ) {}
-                class G extends (0, g.Hu)(
-                  m.AuthorHasInvalidStatus,
+                class H extends (0, _.Hu)(
+                  v.AuthorHasInvalidStatus,
                   "User is not in accepted/pending status (already refused or revoked)"
                 ) {}
-                function W(e) {
+                function V(e) {
                   switch (e) {
                     case "INVALID_TEAM_ID":
-                      return new D();
-                    case "USER_GROUP_IS_NOT_FOUND":
-                      return new L();
-                    case "INVALID_USER_GROUP_REVISION":
-                      return new U();
-                    case "USER_GROUP_UPDATE_CONFLICT":
                       return new x();
-                    case "INSUFFICIENT_PRIVILEGES":
+                    case "USER_GROUP_IS_NOT_FOUND":
                       return new k();
-                    case "USER_IS_NOT_IN_USER_GROUP":
+                    case "INVALID_USER_GROUP_REVISION":
                       return new B();
-                    case "USER_IS_NOT_IN_PENDING_STATUS":
+                    case "USER_GROUP_UPDATE_CONFLICT":
                       return new j();
-                    case "GROUP_HAS_INVALID_STATUS":
+                    case "INSUFFICIENT_PRIVILEGES":
                       return new F();
-                    case "AUTHOR_HAS_INVALID_STATUS":
+                    case "USER_IS_NOT_IN_USER_GROUP":
                       return new G();
+                    case "USER_IS_NOT_IN_PENDING_STATUS":
+                      return new W();
+                    case "GROUP_HAS_INVALID_STATUS":
+                      return new K();
+                    case "AUTHOR_HAS_INVALID_STATUS":
+                      return new H();
                     default:
                       throw new Error("Unknown server error");
                   }
                 }
-                class K extends (0, b.g)({ scope: o.F.User }) {}
-                class H extends (0, b.g)({ scope: o.F.User }) {}
-                class V extends (0, i.k)({ scope: o.F.User }) {}
-                class q extends (0, i.k)({ scope: o.F.User }) {}
-                class Q extends (0, i.k)({ scope: o.F.User }) {}
-                const z = (0, n.Q)({
+                class q extends (0, y.g)({ scope: o.F.User }) {}
+                class Q extends (0, y.g)({ scope: o.F.User }) {}
+                class z extends (0, i.k)({ scope: o.F.User }) {}
+                class Y extends (0, i.k)({ scope: o.F.User }) {}
+                class Z extends (0, i.k)({ scope: o.F.User }) {}
+                const $ = (0, n.Q)({
                   name: "sharingInvites",
                   commands: {
-                    AcceptCollectionInviteCommand: y,
-                    RefuseCollectionInviteCommand: S,
-                    RefuseItemGroupInviteCommand: C,
-                    RefuseUserGroupInviteCommand: K,
-                    UpdatePendingCollectionsCommand: H
+                    AcceptCollectionInviteCommand: E,
+                    RefuseCollectionInviteCommand: O,
+                    RefuseItemGroupInviteCommand: L,
+                    RefuseUserGroupInviteCommand: q,
+                    UpdatePendingCollectionsCommand: Q
                   },
                   events: {},
-                  queries: { GetInvitesQuery: V, GetPendingCollectionsQuery: q, HasInvitesQuery: Q }
+                  queries: { GetInvitesQuery: z, GetPendingCollectionsQuery: Y, HasInvitesQuery: Z }
                 });
-                var Y,
-                  Z,
-                  $ = r(7165);
+                var X,
+                  J,
+                  ee = r(7165);
                 !(function (e) {
                   (e.Admin = "admin"), (e.Limited = "limited");
-                })(Y || (Y = {})),
+                })(X || (X = {})),
                   (function (e) {
                     (e.Pending = "pending"), (e.Accepted = "accepted"), (e.Refused = "refused"), (e.Revoked = "revoked");
-                  })(Z || (Z = {}));
-                const X = $.z.nativeEnum(Z),
-                  J = $.z.nativeEnum(Y),
-                  ee = $.z.union([$.z.literal("noKey"), $.z.literal("publicKey"), $.z.literal("sharingKeys")]),
-                  te = $.z.object({
-                    acceptSignature: $.z.optional($.z.nullable($.z.string())),
-                    collectionKey: $.z.optional($.z.nullable($.z.string())),
-                    login: $.z.string(),
-                    permission: J,
-                    proposeSignature: $.z.optional($.z.string()),
-                    proposeSignatureUsingAlias: $.z.optional($.z.boolean()),
-                    referrer: $.z.string(),
-                    rsaStatus: $.z.optional(ee),
-                    status: X
+                  })(J || (J = {}));
+                const te = ee.z.nativeEnum(J),
+                  re = ee.z.nativeEnum(X),
+                  ne = ee.z.union([ee.z.literal("noKey"), ee.z.literal("publicKey"), ee.z.literal("sharingKeys")]),
+                  ie = ee.z.object({
+                    uuid: ee.z.string(),
+                    name: ee.z.string(),
+                    referrer: ee.z.string(),
+                    permission: ee.z.nativeEnum(X),
+                    seen: ee.z.boolean()
                   }),
-                  re = $.z.object({
-                    acceptSignature: $.z.optional($.z.nullable($.z.string())),
-                    collectionKey: $.z.optional($.z.nullable($.z.string())),
-                    name: $.z.string(),
-                    permission: J,
-                    proposeSignature: $.z.optional($.z.string()),
-                    referrer: $.z.optional($.z.string()),
-                    status: X,
-                    uuid: $.z.string()
+                  oe = ee.z.object({
+                    itemGroupId: ee.z.string(),
+                    referrer: ee.z.string(),
+                    permission: ee.z.enum(["admin", "limited"]),
+                    seen: ee.z.boolean()
                   }),
-                  ne = $.z.object({ label: $.z.string(), status: X, permission: J, id: $.z.string() }),
-                  ie = $.z.object({
-                    name: $.z.string(),
-                    privateKey: $.z.string(),
-                    publicKey: $.z.string(),
-                    revision: $.z.number(),
-                    userGroups: $.z.optional($.z.array(re)),
-                    users: $.z.optional($.z.array(te)),
-                    uuid: $.z.string()
-                  }),
-                  oe = $.z.object({ userGroups: $.z.optional($.z.array(ne)), users: $.z.optional($.z.array(ne)) }),
-                  se = $.z.array($.z.string());
-                var ae;
-                !(function (e) {
-                  (e.Editor = "editor"), (e.Manager = "manager");
-                })(ae || (ae = {}));
-                const ce = $.z.object({
-                    uuid: $.z.string(),
-                    name: $.z.string(),
-                    referrer: $.z.string(),
-                    permission: $.z.nativeEnum(Y),
-                    seen: $.z.boolean()
-                  }),
-                  ue = $.z.object({
-                    itemGroupId: $.z.string(),
-                    referrer: $.z.string(),
-                    permission: $.z.enum(["admin", "limited"]),
-                    seen: $.z.boolean()
-                  }),
-                  le = $.z.object({
-                    groupId: $.z.string(),
-                    name: $.z.string(),
-                    referrer: $.z.string(),
-                    permission: $.z.enum(["admin", "limited"]),
-                    seen: $.z.boolean()
+                  se = ee.z.object({
+                    groupId: ee.z.string(),
+                    name: ee.z.string(),
+                    referrer: ee.z.string(),
+                    permission: ee.z.enum(["admin", "limited"]),
+                    seen: ee.z.boolean()
                   });
+                class ae extends (0, i.k)({ scope: o.F.User }) {}
+                class ce extends (0, i.k)({ scope: o.F.User }) {}
+                class ue extends (0, i.k)({ scope: o.F.User }) {}
+                class le extends (0, i.k)({ scope: o.F.User }) {}
                 class de extends (0, i.k)({ scope: o.F.User }) {}
                 class fe extends (0, i.k)({ scope: o.F.User }) {}
-                class he extends (0, i.k)({ scope: o.F.User }) {}
-                const pe = $.z.object({ id: $.z.string(), type: $.z.string() }),
-                  me = $.z.object({
-                    id: $.z.string(),
-                    name: $.z.string(),
-                    spaceId: $.z.string(),
-                    vaultItems: $.z.array(pe),
-                    isShared: $.z.optional($.z.boolean())
+                const he = ee.z.object({ id: ee.z.string(), type: ee.z.string() }),
+                  pe = ee.z.object({
+                    id: ee.z.string(),
+                    name: ee.z.string(),
+                    spaceId: ee.z.string(),
+                    vaultItems: ee.z.array(he),
+                    isShared: ee.z.optional(ee.z.boolean())
                   });
+                class me extends (0, i.k)({ scope: o.F.User }) {}
                 class be extends (0, i.k)({ scope: o.F.User }) {}
-                class ge extends (0, i.k)({ scope: o.F.User }) {}
-                class ve extends (0, b.g)({ scope: o.F.User }) {}
-                class ye extends (0, b.g)({ scope: o.F.User }) {}
-                class _e extends (0, b.g)({ scope: o.F.User }) {}
-                class Se extends (0, b.g)({ scope: o.F.User }) {}
-                class Ee extends (0, b.g)({ scope: o.F.User }) {}
-                class we extends (0, b.g)({ scope: o.F.User }) {}
-                class Oe extends (0, b.g)({ scope: o.F.User }) {}
-                class Ae extends (0, b.g)({ scope: o.F.User }) {}
-                class Me extends (0, b.g)({ scope: o.F.User }) {}
-                class Ie extends (0, b.g)({ scope: o.F.User }) {}
+                class ge extends (0, y.g)({ scope: o.F.User }) {}
+                class ve extends (0, y.g)({ scope: o.F.User }) {}
+                class ye extends (0, y.g)({ scope: o.F.User }) {}
+                class _e extends (0, y.g)({ scope: o.F.User }) {}
+                class Se extends (0, y.g)({ scope: o.F.User }) {}
+                class Ee extends (0, y.g)({ scope: o.F.User }) {}
+                class we extends (0, y.g)({ scope: o.F.User }) {}
+                class Oe extends (0, y.g)({ scope: o.F.User }) {}
+                class Ae extends (0, y.g)({ scope: o.F.User }) {}
+                class Me extends (0, y.g)({ scope: o.F.User }) {}
+                class Ie extends (0, y.g)({ scope: o.F.User }) {}
                 const Te = (0, n.Q)({
-                  name: "sharingCollections",
-                  commands: {
-                    addItemsToCollection: ve,
-                    addItemToCollections: ye,
-                    createSharedCollection: _e,
-                    deleteSharedCollection: Se,
-                    inviteCollectionMembers: Ee,
-                    updateCollectionMembers: we,
-                    removeItemFromCollections: Oe,
-                    renameCollection: Ae,
-                    revokeCollectionMembers: Me,
-                    updateSharedCollections: Ie
-                  },
-                  events: {},
-                  queries: {
-                    getItemIdsInSharedCollections: de,
-                    getSharedCollections: fe,
-                    getCollectionPermissions: he,
-                    sharedCollectionsWithItems: be,
-                    usersAndGroupsInCollection: ge
-                  }
-                });
-                var Ne = r(67837);
-                class Re extends (0, Ne.E)(Te) {}
-                (0, Ne.K)(Te, Re);
+                    name: "sharingCollections",
+                    commands: {
+                      addItemsToCollection: ge,
+                      addItemToCollections: ve,
+                      createSharedCollection: ye,
+                      deleteSharedCollection: _e,
+                      inviteCollectionMembers: Se,
+                      updateCollectionMembers: Ee,
+                      removeItemFromCollections: we,
+                      renameCollection: Oe,
+                      revokeCollectionMembers: Ae,
+                      updateSharedCollections: Me,
+                      updatePermissionForCollectionItem: Ie
+                    },
+                    events: {},
+                    queries: {
+                      getCollectionsForUserOrGroup: ae,
+                      getItemIdsInSharedCollections: ce,
+                      getSharedCollections: ue,
+                      getCollectionPermissionsForUser: le,
+                      getCollectionRoleForGroup: de,
+                      getSharedCollectionsCount: fe,
+                      sharedCollectionsWithItems: me,
+                      usersAndGroupsInCollection: be
+                    }
+                  }),
+                  Ne = ee.z.object({
+                    acceptSignature: ee.z.optional(ee.z.nullable(ee.z.string())),
+                    collectionKey: ee.z.optional(ee.z.nullable(ee.z.string())),
+                    login: ee.z.string(),
+                    permission: re,
+                    proposeSignature: ee.z.optional(ee.z.string()),
+                    proposeSignatureUsingAlias: ee.z.optional(ee.z.boolean()),
+                    referrer: ee.z.string(),
+                    rsaStatus: ee.z.optional(ne),
+                    status: te
+                  }),
+                  Re = ee.z.object({
+                    acceptSignature: ee.z.optional(ee.z.nullable(ee.z.string())),
+                    collectionKey: ee.z.optional(ee.z.nullable(ee.z.string())),
+                    name: ee.z.string(),
+                    permission: re,
+                    proposeSignature: ee.z.optional(ee.z.string()),
+                    referrer: ee.z.optional(ee.z.string()),
+                    status: te,
+                    uuid: ee.z.string()
+                  }),
+                  Ce = ee.z.object({ label: ee.z.string(), status: te, permission: re, id: ee.z.string() }),
+                  Pe = ee.z.object({
+                    name: ee.z.string(),
+                    privateKey: ee.z.string(),
+                    publicKey: ee.z.string(),
+                    revision: ee.z.number(),
+                    userGroups: ee.z.optional(ee.z.array(Re)),
+                    users: ee.z.optional(ee.z.array(Ne)),
+                    uuid: ee.z.string(),
+                    authorLogin: ee.z.optional(ee.z.string())
+                  }),
+                  De = ee.z.object({ userGroups: ee.z.optional(ee.z.array(Ce)), users: ee.z.optional(ee.z.array(Ce)) }),
+                  Le = ee.z.array(ee.z.string());
+                var Ue;
+                !(function (e) {
+                  (e.Editor = "editor"), (e.Manager = "manager");
+                })(Ue || (Ue = {}));
+                var xe = r(67837);
+                class ke extends (0, xe.E)(Te) {}
+                (0, xe.K)(Te, ke);
               },
               12341: (e, t, r) => {
                 "use strict";
@@ -29964,7 +30041,7 @@
                     return t;
                   });
               },
-              74833: (e, t, r) => {
+              67202: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.appClientMockBuilder = void 0);
                 var n = r(82142);
@@ -30181,7 +30258,9 @@
                   i(r(35079), t),
                   i(r(85888), t),
                   i(r(49631), t),
-                  i(r(74833), t);
+                  i(r(67202), t),
+                  i(r(22396), t),
+                  i(r(28601), t);
               },
               35079: function (e, t, r) {
                 "use strict";
@@ -30435,6 +30514,118 @@
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.NullModuleApi = void 0),
                   (t.NullModuleApi = { name: "api", commands: {}, events: {}, queries: {} });
+              },
+              48304: (e, t, r) => {
+                "use strict";
+                Object.defineProperty(t, "__esModule", { value: !0 }), (t.platformInfoApi = t.PlatformInfoQuery = void 0);
+                const n = r(70986),
+                  i = r(85888);
+                class o extends (0, n.defineQuery)({ scope: n.UseCaseScope.Device }) {}
+                (t.PlatformInfoQuery = o),
+                  (t.platformInfoApi = (0, i.defineModuleApi)({
+                    name: "platformInfo",
+                    commands: {},
+                    events: {},
+                    queries: { PlatformInfoQuery: o }
+                  }));
+              },
+              24199: (e, t, r) => {
+                "use strict";
+                Object.defineProperty(t, "__esModule", { value: !0 }), (t.PlatformInfoClient = void 0);
+                const n = r(85888),
+                  i = r(48304);
+                class o extends (0, n.defineModuleClient)(i.platformInfoApi) {}
+                (t.PlatformInfoClient = o), (0, n.registerModuleClient)(i.platformInfoApi, o);
+              },
+              22396: function (e, t, r) {
+                "use strict";
+                var n =
+                    (this && this.__createBinding) ||
+                    (Object.create
+                      ? function (e, t, r, n) {
+                          void 0 === n && (n = r);
+                          var i = Object.getOwnPropertyDescriptor(t, r);
+                          (i && !("get" in i ? !t.__esModule : i.writable || i.configurable)) ||
+                            (i = {
+                              enumerable: !0,
+                              get: function () {
+                                return t[r];
+                              }
+                            }),
+                            Object.defineProperty(e, n, i);
+                        }
+                      : function (e, t, r, n) {
+                          void 0 === n && (n = r), (e[n] = t[r]);
+                        }),
+                  i =
+                    (this && this.__exportStar) ||
+                    function (e, t) {
+                      for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
+                    };
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(48304), t), i(r(24199), t), i(r(84289), t);
+              },
+              84289: (e, t) => {
+                "use strict";
+                var r;
+                Object.defineProperty(t, "__esModule", { value: !0 }),
+                  (t.ApplicationBuildType = void 0),
+                  ((r = t.ApplicationBuildType || (t.ApplicationBuildType = {})).DEV = "DEV"),
+                  (r.QA = "QA"),
+                  (r.NIGHTLY = "NIGHTLY"),
+                  (r.BETA = "BETA"),
+                  (r.PRODUCTION = "PRODUCTION");
+              },
+              38783: (e, t, r) => {
+                "use strict";
+                Object.defineProperty(t, "__esModule", { value: !0 }),
+                  (t.webServicesApi = t.EditSettingsForStagingCommand = t.SettingsForStagingQuery = void 0);
+                const n = r(70986),
+                  i = r(85888);
+                class o extends (0, n.defineQuery)({ scope: n.UseCaseScope.Device }) {}
+                t.SettingsForStagingQuery = o;
+                class s extends (0, n.defineCommand)({ scope: n.UseCaseScope.Device }) {}
+                (t.EditSettingsForStagingCommand = s),
+                  (t.webServicesApi = (0, i.defineModuleApi)({
+                    commands: { EditSettingsForStagingCommand: s },
+                    events: {},
+                    name: "webServices",
+                    queries: { SettingsForStagingQuery: o }
+                  }));
+              },
+              56651: (e, t, r) => {
+                "use strict";
+                Object.defineProperty(t, "__esModule", { value: !0 }), (t.WebServicesClient = void 0);
+                const n = r(85888),
+                  i = r(38783);
+                class o extends (0, n.defineModuleClient)(i.webServicesApi) {}
+                (t.WebServicesClient = o), (0, n.registerModuleClient)(i.webServicesApi, o);
+              },
+              28601: function (e, t, r) {
+                "use strict";
+                var n =
+                    (this && this.__createBinding) ||
+                    (Object.create
+                      ? function (e, t, r, n) {
+                          void 0 === n && (n = r);
+                          var i = Object.getOwnPropertyDescriptor(t, r);
+                          (i && !("get" in i ? !t.__esModule : i.writable || i.configurable)) ||
+                            (i = {
+                              enumerable: !0,
+                              get: function () {
+                                return t[r];
+                              }
+                            }),
+                            Object.defineProperty(e, n, i);
+                        }
+                      : function (e, t, r, n) {
+                          void 0 === n && (n = r), (e[n] = t[r]);
+                        }),
+                  i =
+                    (this && this.__exportStar) ||
+                    function (e, t) {
+                      for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
+                    };
+                Object.defineProperty(t, "__esModule", { value: !0 }), i(r(38783), t), i(r(56651), t);
               },
               25029: (e, t, r) => {
                 "use strict";
@@ -32672,7 +32863,7 @@
               86585: () => {},
               1973: () => {},
               43350: () => {},
-              94381: function (e, t, r) {
+              35259: function (e, t, r) {
                 "use strict";
                 var n =
                   (this && this.__importDefault) ||
@@ -32680,44 +32871,44 @@
                     return e && e.__esModule ? e : { default: e };
                   };
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.FieldsTester = void 0);
-                const i = n(r(35951)),
-                  o = n(r(72524)),
-                  s = r(65859),
-                  a = r(60073),
-                  c = r(85475),
-                  u = r(68536);
+                const i = n(r(29452)),
+                  o = n(r(49534)),
+                  s = r(64225),
+                  a = r(73693),
+                  c = r(18051),
+                  u = r(33128);
                 class l extends o.default {}
                 t.FieldsTester = l;
                 class d extends i.default {
                   constructor() {
                     super(...arguments),
                       (this.preprocessingMapper = {
-                        "field.locale": (e, t) => a.oneHotEncoding(e, u.getLocale(t.locale, s.LOCALES)),
-                        "field.type": (e, t) => a.oneHotEncoding(e, t.type),
-                        "field.humanReadable": (e, t) => a.countBinaryTokens(e, t.humanReadable || ""),
-                        "field.attributes": (e, t) => a.countBinaryTokens(e, t.attributes || ""),
-                        "form.classification": (e, t) => a.multiLabelEncoding(e, t.form.classification.split(",")),
-                        "form.humanReadable": (e, t) => a.countBinaryTokens(e, t.form.humanReadable || ""),
-                        "form.buttonVerbatim": (e, t) => a.countBinaryTokens(e, t.form.buttonVerbatim || "")
+                        "field.locale": (e, t) => (0, a.oneHotEncoding)(e, (0, u.getLocale)(t.locale, s.LOCALES)),
+                        "field.type": (e, t) => (0, a.oneHotEncoding)(e, t.type),
+                        "field.humanReadable": (e, t) => (0, a.countBinaryTokens)(e, t.humanReadable || ""),
+                        "field.attributes": (e, t) => (0, a.countBinaryTokens)(e, t.attributes || ""),
+                        "form.classification": (e, t) => (0, a.multiLabelEncoding)(e, t.form.classification.split(",")),
+                        "form.humanReadable": (e, t) => (0, a.countBinaryTokens)(e, t.form.humanReadable || ""),
+                        "form.buttonVerbatim": (e, t) => (0, a.countBinaryTokens)(e, t.form.buttonVerbatim || "")
                       });
                   }
                   _smartPredict(e, t, r) {
                     if (super._smartPredict(e, t, r)) return e;
-                    const n = c.getNode(t, "password", null);
-                    if (r.every(({ main: e, data: t }) => "password" === e || t < n)) return c.getSubtree(e, "password");
-                    const i = c.getNode(t, "otp", null);
-                    if (r.every(({ main: e, data: t }) => "otp" === e || t < i)) return c.getSubtree(e, "otp");
-                    if (c.hasNode(t, "address", "birth")) {
-                      const n = c.getNode(t, "address", "birth");
+                    const n = (0, c.getNode)(t, "password", null);
+                    if (r.every(({ main: e, data: t }) => "password" === e || t < n)) return (0, c.getSubtree)(e, "password");
+                    const i = (0, c.getNode)(t, "otp", null);
+                    if (r.every(({ main: e, data: t }) => "otp" === e || t < i)) return (0, c.getSubtree)(e, "otp");
+                    if ((0, c.hasNode)(t, "address", "birth")) {
+                      const n = (0, c.getNode)(t, "address", "birth");
                       if (r.every(({ main: e, extra: t, data: r }) => ("address" === e && "birth" === t) || r < n))
-                        return c.getSubtree(e, "address");
+                        return (0, c.getSubtree)(e, "address");
                     }
                     return null;
                   }
                 }
                 t.default = d;
               },
-              60071: function (e, t, r) {
+              22800: function (e, t, r) {
                 "use strict";
                 var n =
                   (this && this.__importDefault) ||
@@ -32725,38 +32916,38 @@
                     return e && e.__esModule ? e : { default: e };
                   };
                 Object.defineProperty(t, "__esModule", { value: !0 }), (t.FormsTester = void 0);
-                const i = n(r(72524)),
-                  o = n(r(35951)),
-                  s = r(65859),
-                  a = r(68536),
-                  c = r(60073),
-                  u = r(85475);
+                const i = n(r(49534)),
+                  o = n(r(29452)),
+                  s = r(64225),
+                  a = r(33128),
+                  c = r(73693),
+                  u = r(18051);
                 class l extends i.default {}
                 t.FormsTester = l;
                 class d extends o.default {
                   constructor() {
                     super(...arguments),
                       (this.preprocessingFieldTypes = (e, t) => {
-                        const r = a.wordFrequencyCountBinary(t.fieldTypes || "");
+                        const r = (0, a.wordFrequencyCountBinary)(t.fieldTypes || "");
                         for (const e of r) {
                           const t = e.slice(0, e.lastIndexOf("_"));
                           r.has(t) || r.add(t);
                         }
-                        return a.buildVectorFromMap(r, e);
+                        return (0, a.buildVectorFromMap)(r, e);
                       }),
                       (this.preprocessingMapper = {
-                        "form.locale": (e, t) => c.oneHotEncoding(e, a.getLocale(t.locale, s.LOCALES)),
-                        "form.fieldTypes": (e, t) => c.countBinaryTokens(e, t.fieldTypes || ""),
-                        "form.humanReadable": (e, t) => c.countBinaryTokens(e, t.humanReadable || ""),
-                        "form.attributes": (e, t) => c.countBinaryTokens(e, t.attributes || ""),
-                        "form.buttonVerbatim": (e, t) => c.countBinaryTokens(e, t.buttonVerbatim || ""),
+                        "form.locale": (e, t) => (0, c.oneHotEncoding)(e, (0, a.getLocale)(t.locale, s.LOCALES)),
+                        "form.fieldTypes": (e, t) => (0, c.countBinaryTokens)(e, t.fieldTypes || ""),
+                        "form.humanReadable": (e, t) => (0, c.countBinaryTokens)(e, t.humanReadable || ""),
+                        "form.attributes": (e, t) => (0, c.countBinaryTokens)(e, t.attributes || ""),
+                        "form.buttonVerbatim": (e, t) => (0, c.countBinaryTokens)(e, t.buttonVerbatim || ""),
                         "form.fieldHumanReadables": (e, t) => {
                           const r = t.fields.map((e) => e.humanReadable).join(" ");
-                          return c.countBinaryTokens(e, r || "");
+                          return (0, c.countBinaryTokens)(e, r || "");
                         },
                         "form.fieldAttributes": (e, t) => {
                           const r = t.fields.map((e) => e.attributes).join(" ");
-                          return c.countBinaryTokens(e, r || "");
+                          return (0, c.countBinaryTokens)(e, r || "");
                         }
                       });
                   }
@@ -32765,14 +32956,14 @@
                     const n = Math.max(...Object.values(t).map((e) => e.data));
                     if (n > 0) {
                       const r = Object.keys(t).find((e) => t[e].data === n);
-                      if (r) return u.getSubtree(e, r);
+                      if (r) return (0, u.getSubtree)(e, r);
                     }
                     return null;
                   }
                 }
                 t.default = d;
               },
-              99704: (e, t) => {
+              71808: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.LinearExplainer = void 0),
@@ -32794,7 +32985,7 @@
                     }
                   });
               },
-              8587: (e, t) => {
+              96588: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.LogisticRegression = void 0),
@@ -32821,12 +33012,12 @@
                     }
                   });
               },
-              35951: (e, t, r) => {
+              29452: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
-                const n = r(8587),
-                  i = r(99704),
-                  o = r(85475);
+                const n = r(96588),
+                  i = r(71808),
+                  o = r(18051);
                 t.default = class {
                   constructor(e) {
                     (this.exporter = e.exporter),
@@ -32840,8 +33031,8 @@
                       for (const r in e.model[t].children) this.hierarchy[t][r] = {};
                     }
                     this.tree = {};
-                    for (const [t, r] of o.iterHierarchy(this.hierarchy)) {
-                      const s = o.getNode(e.model, t, r),
+                    for (const [t, r] of (0, o.iterHierarchy)(this.hierarchy)) {
+                      const s = (0, o.getNode)(e.model, t, r),
                         a = {},
                         c = [],
                         u = [];
@@ -32851,7 +33042,7 @@
                       }
                       const l = [];
                       if (null !== s.shap) for (const e of Object.values(s.shap.means)) l.push(...Object.values(e));
-                      o.setNode(this.tree, t, r, {
+                      (0, o.setNode)(this.tree, t, r, {
                         thesaurus: a,
                         features: c,
                         expectedValue: s.shap ? s.shap.expected_value : null,
@@ -32862,22 +33053,22 @@
                   }
                   transform(e) {
                     const t = {};
-                    for (const [r, n] of o.iterHierarchy(this.hierarchy)) {
-                      const i = { x: [], features: o.getNode(this.tree, r, n).features },
-                        s = o.getNode(this.tree, r, n).thesaurus;
+                    for (const [r, n] of (0, o.iterHierarchy)(this.hierarchy)) {
+                      const i = { x: [], features: (0, o.getNode)(this.tree, r, n).features },
+                        s = (0, o.getNode)(this.tree, r, n).thesaurus;
                       for (const [t, r] of Object.entries(s)) i.x.push(...this.preprocessingMapper[t](r, e));
-                      o.setNode(t, r, n, i);
+                      (0, o.setNode)(t, r, n, i);
                     }
                     return t;
                   }
                   predict(e) {
                     const t = {},
                       r = this.transform(e);
-                    for (const [e, n] of o.iterHierarchy(this.hierarchy)) {
-                      const i = o.getNode(r, e, n);
-                      if ((null === n ? e : n) === n && 0 === o.getNode(t, e, null)) continue;
-                      const s = o.getNode(this.tree, e, n).logisticRegression;
-                      o.setNode(t, e, n, s.predict(i.x));
+                    for (const [e, n] of (0, o.iterHierarchy)(this.hierarchy)) {
+                      const i = (0, o.getNode)(r, e, n);
+                      if ((null === n ? e : n) === n && 0 === (0, o.getNode)(t, e, null)) continue;
+                      const s = (0, o.getNode)(this.tree, e, n).logisticRegression;
+                      (0, o.setNode)(t, e, n, s.predict(i.x));
                     }
                     return t;
                   }
@@ -32886,40 +33077,42 @@
                       r = {},
                       n = {},
                       i = this.transform(e);
-                    for (const [e, s] of o.iterHierarchy(this.hierarchy)) {
-                      const a = o.getNode(i, e, s);
-                      if ((null === s ? e : s) === s && 0 === o.getNode(t, e, null)) continue;
-                      const c = o.getNode(this.tree, e, s).logisticRegression,
+                    for (const [e, s] of (0, o.iterHierarchy)(this.hierarchy)) {
+                      const a = (0, o.getNode)(i, e, s);
+                      if ((null === s ? e : s) === s && 0 === (0, o.getNode)(t, e, null)) continue;
+                      const c = (0, o.getNode)(this.tree, e, s).logisticRegression,
                         u = c.predictMargin(a.x),
                         l = c.predictProbability(a.x),
                         d = u >= 0 ? 1 : 0;
-                      o.setNode(r, e, s, u), o.setNode(n, e, s, l), o.setNode(t, e, s, d);
+                      (0, o.setNode)(r, e, s, u), (0, o.setNode)(n, e, s, l), (0, o.setNode)(t, e, s, d);
                     }
                     return [t, r, n];
                   }
                   _smartPredict(e, t, r) {
-                    const n = o.getNode(t, "other", null);
-                    return r.every(({ data: e }) => e < n) ? o.initTree({ other: {} }, () => 1) : (o.setNode(e, "other", null, 0), null);
+                    const n = (0, o.getNode)(t, "other", null);
+                    return r.every(({ data: e }) => e < n)
+                      ? (0, o.initTree)({ other: {} }, () => 1)
+                      : ((0, o.setNode)(e, "other", null, 0), null);
                   }
                   smartPredict(e) {
                     const [t, r] = this.predictMargins(e),
-                      n = Array.from(o.iterTree(r));
+                      n = Array.from((0, o.iterTree)(r));
                     return this._smartPredict(t, r, n) || t;
                   }
                   explain(e) {
                     const t = {},
                       r = this.transform(e);
-                    for (const { main: e, extra: n, data: i } of o.iterTree(this.tree)) {
-                      const { x: s } = o.getNode(r, e, n),
+                    for (const { main: e, extra: n, data: i } of (0, o.iterTree)(this.tree)) {
+                      const { x: s } = (0, o.getNode)(r, e, n),
                         a = [];
                       for (const [e, t] of Object.entries(i.thesaurus)) a.push(...t.map((t) => `${e}_${t}`));
                       const c = i.linearExplainer,
                         u = c.shapValues(s),
                         l = [];
                       for (let e = 0; e < s.length; e++) l.push({ value: s[e], effect: u[e] });
-                      const d = o.getNode(this.tree, e, n).logisticRegression.t,
-                        f = o.getNode(this.tree, e, n).logisticRegression.s;
-                      o.setNode(t, e, n, {
+                      const d = (0, o.getNode)(this.tree, e, n).logisticRegression.t,
+                        f = (0, o.getNode)(this.tree, e, n).logisticRegression.s;
+                      (0, o.setNode)(t, e, n, {
                         baseValue: c.expectedValue,
                         link: "identity",
                         outNames: [null === n ? e : n],
@@ -32932,7 +33125,7 @@
                   }
                   flatPrediction(e) {
                     const t = {};
-                    for (const { main: r, extra: n, data: i } of o.iterTree(e)) {
+                    for (const { main: r, extra: n, data: i } of (0, o.iterTree)(e)) {
                       const e = null === n ? r : n;
                       void 0 === t[e] ? (t[e] = i) : (t[e] = 1 === t[e] ? 1 : i);
                     }
@@ -32946,11 +33139,11 @@
                   }
                 };
               },
-              72524: (e, t, r) => {
+              49534: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 });
-                const n = r(85475),
-                  i = r(65859);
+                const n = r(18051),
+                  i = r(64225);
                 t.default = class {
                   constructor(e) {
                     this.classifier = e;
@@ -32959,11 +33152,11 @@
                     this.checkPreprocessing(e, t), this.checkPrediction(e, t), this.checkExplanation(e, t);
                   }
                   checkPreprocessing(e, t) {
-                    const r = n.iterTree(e.tree),
+                    const r = (0, n.iterTree)(e.tree),
                       i = this.classifier.transform(t);
                     for (const { main: o, extra: s, data: a } of r) {
                       const r = a.x,
-                        { x: c, features: u } = n.getNode(i, o, s);
+                        { x: c, features: u } = (0, n.getNode)(i, o, s);
                       try {
                         if (c.length !== r.length)
                           throw new Error(`Wrong shape (number of features)! xPred: ${c.length}, xTrue: ${r.length}`);
@@ -33004,11 +33197,11 @@
                   }
                   checkExplanation(e, t) {
                     const r = this.classifier.explain(t),
-                      i = n.iterTree(e.tree);
+                      i = (0, n.iterTree)(e.tree);
                     for (const { main: e, extra: t, data: o } of i) {
                       const i = null === t ? e : t,
                         { expected_value: s, values: a } = o.shap,
-                        c = n.getNode(r, e, t),
+                        c = (0, n.getNode)(r, e, t),
                         u = c.baseValue,
                         l = Object.keys(c.features).map((e) => c.features[parseInt(e, 10)].effect);
                       if (s !== u)
@@ -33025,7 +33218,7 @@
                   }
                 };
               },
-              65859: (e, t) => {
+              64225: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.EXTRA_VALUES = t.LOCALES = void 0),
@@ -33271,19 +33464,19 @@
                     "gender"
                   ]);
               },
-              60073: (e, t, r) => {
+              73693: (e, t, r) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.countBinaryTokens = t.multiLabelEncoding = t.oneHotEncoding = void 0);
-                const n = r(68536);
+                const n = r(33128);
                 (t.oneHotEncoding = (e, t) => e.map((e) => (t === e ? 1 : 0))),
                   (t.multiLabelEncoding = (e, t) => e.map((e) => (t.includes(e) ? 1 : 0))),
                   (t.countBinaryTokens = (e, t) => {
-                    const r = n.wordFrequencyCountBinary(t);
-                    return n.buildVectorFromMap(r, e);
+                    const r = (0, n.wordFrequencyCountBinary)(t);
+                    return (0, n.buildVectorFromMap)(r, e);
                   });
               },
-              85475: (e, t) => {
+              18051: (e, t) => {
                 "use strict";
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.getSubtree = t.iterTree = t.iterHierarchy = t.initTree = t.delNode = t.setNode = t.getNode = t.hasNode = void 0),
@@ -33303,7 +33496,7 @@
                   }),
                   (t.initTree = (e, r) => {
                     const n = {};
-                    for (const [i, o] of t.iterHierarchy(e)) t.setNode(n, i, o, { data: r(), children: {} });
+                    for (const [i, o] of (0, t.iterHierarchy)(e)) (0, t.setNode)(n, i, o, { data: r(), children: {} });
                     return n;
                   }),
                   (t.iterHierarchy = function* (e) {
@@ -33320,7 +33513,7 @@
                   }),
                   (t.getSubtree = (e, t) => ({ [t]: e[t] }));
               },
-              68536: (e, t) => {
+              33128: (e, t) => {
                 "use strict";
                 function r(e) {
                   return null === e ? "" : e;
@@ -35221,14 +35414,14 @@
             "use strict";
             var e = i;
             Object.defineProperty(e, "__esModule", { value: !0 }), (e.FileType = e.TiresiasBackground = void 0);
-            var t = n(33892);
+            var t = n(47702);
             Object.defineProperty(e, "TiresiasBackground", {
               enumerable: !0,
               get: function () {
                 return t.TiresiasBackground;
               }
             });
-            var r = n(91232);
+            var r = n(80377);
             Object.defineProperty(e, "FileType", {
               enumerable: !0,
               get: function () {
@@ -35337,6 +35530,6 @@
         r = (self.webpackChunk_dashlane_amphora = self.webpackChunk_dashlane_amphora || []);
       r.forEach(t.bind(null, 0)), (r.push = t.bind(null, r.push.bind(r)));
     })();
-  var s = o.O(void 0, [642, 633, 877, 495, 373, 139, 786, 280, 691, 264, 10, 681, 433, 458, 782], () => o(63891));
+  var s = o.O(void 0, [642, 633, 877, 495, 373, 139, 786, 280, 691, 264, 10, 394, 431, 782], () => o(18607));
   s = o.O(s);
 })();

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "應用程式"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 延伸模組終止支援"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "從 2024 年 1 月 15 日起，Microsoft 將不再支援此擴充功能。"
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "如需詳細資訊，請流覽此擴充功能的支援頁面。"
+  },
+  "Support": {
+    "message": "支援"
   }
 }

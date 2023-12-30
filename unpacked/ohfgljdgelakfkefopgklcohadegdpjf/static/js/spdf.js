@@ -9293,15 +9293,15 @@
       }
       function Be() {
         return Me(this, void 0, void 0, function* () {
-          const e = yield Qt([Wt.ACCESS_TOKEN, Wt.REFRESH_TOKEN]);
+          const e = yield Zn([Bn.ACCESS_TOKEN, Bn.REFRESH_TOKEN]);
           return e
-            ? { accessToken: e[Wt.ACCESS_TOKEN] || null, refreshToken: e[Wt.REFRESH_TOKEN] || null }
+            ? { accessToken: e[Bn.ACCESS_TOKEN] || null, refreshToken: e[Bn.REFRESH_TOKEN] || null }
             : { accessToken: null, refreshToken: null };
         });
       }
       function Ge(e, t) {
         return Me(this, void 0, void 0, function* () {
-          return Jt({ [Wt.ACCESS_TOKEN]: e, [Wt.REFRESH_TOKEN]: t });
+          return Wn({ [Bn.ACCESS_TOKEN]: e, [Bn.REFRESH_TOKEN]: t });
         });
       }
       function Ye() {
@@ -9327,9 +9327,9 @@
       function qe() {
         return Me(this, void 0, void 0, function* () {
           const e = Date.now() - je,
-            t = (yield Qt(Wt.FAILED_LOGIN_ATTEMPTS, [])).filter((t) => t.ts > e);
+            t = (yield Zn(Bn.FAILED_LOGIN_ATTEMPTS, [])).filter((t) => t.ts > e);
           if (t.length >= 10) throw Fe({ name: "ERROR_LOGIN_ATTEMPTS_RATE_EXCEEDED", message: "Too many login attempts" });
-          return Jt({ [Wt.FAILED_LOGIN_ATTEMPTS]: t });
+          return Wn({ [Bn.FAILED_LOGIN_ATTEMPTS]: t });
         });
       }
       var Xe = function (e, t, n, r) {
@@ -9372,15 +9372,15 @@
               o = !!(null === (t = null === (e = null == r ? void 0 : r.data) || void 0 === e ? void 0 : e.app_metadata) || void 0 === t
                 ? void 0
                 : t.signedUp);
-            return yield Jt({ [Wt.USER_ACTIVE_PRO]: o }), yield Jt({ [Wt.PROFILE]: null == r ? void 0 : r.data }), r.data;
+            return yield Wn({ [Bn.USER_ACTIVE_PRO]: o }), yield Wn({ [Bn.PROFILE]: null == r ? void 0 : r.data }), r.data;
           } catch (e) {
-            return Yt(e), yield Je(), null;
+            return Vn(e), yield Je(), null;
           }
         });
       }
       function Je() {
         return Xe(this, void 0, void 0, function* () {
-          yield Jt({ [Wt.USER_ACTIVE_PRO]: !1 }), yield Jt({ [Wt.PROFILE]: null });
+          yield Wn({ [Bn.USER_ACTIVE_PRO]: !1 }), yield Wn({ [Bn.PROFILE]: null });
         });
       }
       for (
@@ -9494,8 +9494,8 @@
               a.ok ||
                 (yield (function () {
                   return Me(this, void 0, void 0, function* () {
-                    const e = yield Qt(Wt.FAILED_LOGIN_ATTEMPTS, []);
-                    e.push({ ts: Date.now() }), yield Jt({ [Wt.FAILED_LOGIN_ATTEMPTS]: e });
+                    const e = yield Zn(Bn.FAILED_LOGIN_ATTEMPTS, []);
+                    e.push({ ts: Date.now() }), yield Wn({ [Bn.FAILED_LOGIN_ATTEMPTS]: e });
                   });
                 })());
               const l = yield Ue(a);
@@ -9528,7 +9528,7 @@
             a.searchParams.set("code_challenge_method", "S256"),
             a.searchParams.set("prompt", "select_account"),
             a.searchParams.set("redirect_uri", n),
-            yield Jt({ [Wt.AUTH_CODE_VERIFIER]: o, [Wt.AUTH_STATE_CODE]: r, [Wt.AUTH_PROVIDER]: e });
+            yield Wn({ [Bn.AUTH_CODE_VERIFIER]: o, [Bn.AUTH_STATE_CODE]: r, [Bn.AUTH_PROVIDER]: e });
           if (!(yield chrome.tabs.create({ active: !0, url: a.toString() })))
             throw new Error("Unable to create popup for OpenIDConnect flow");
         });
@@ -9543,12 +9543,12 @@
           try {
             yield fetch(n.toString(), { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: r });
           } catch (e) {
-            Yt(e);
+            Vn(e);
           }
           yield Je(),
             yield (function () {
               return Me(this, void 0, void 0, function* () {
-                yield en([Wt.ACCESS_TOKEN, Wt.REFRESH_TOKEN]);
+                yield qn([Bn.ACCESS_TOKEN, Bn.REFRESH_TOKEN]);
               });
             })();
         });
@@ -9669,8 +9669,8 @@
       var St;
       function At() {
         return wt(this, void 0, void 0, function* () {
-          const e = yield Qt([Wt.SYSTEM_OS, Wt.SYSTEM_LOCALE]);
-          return { os: e[Wt.SYSTEM_OS], locale: e[Wt.SYSTEM_LOCALE] };
+          const e = yield Zn([Bn.SYSTEM_OS, Bn.SYSTEM_LOCALE]);
+          return { os: e[Bn.SYSTEM_OS], locale: e[Bn.SYSTEM_LOCALE] };
         });
       }
       function kt() {
@@ -9810,18 +9810,18 @@
       };
       const Ot = () =>
         Rt(void 0, void 0, void 0, function* () {
-          const e = yield Qt([Wt.LOCAL_TOKEN, Wt.USER_COUNTRY_GEO_IP, Wt.USER_PROFILE, Wt.USER_ACTIVE_PRO, Wt.USER_RT]);
+          const e = yield Zn([Bn.LOCAL_TOKEN, Bn.USER_COUNTRY_GEO_IP, Bn.USER_PROFILE, Bn.USER_ACTIVE_PRO, Bn.USER_RT]);
           return {
-            countryGeoIP: e[Wt.USER_COUNTRY_GEO_IP],
-            localToken: e[Wt.LOCAL_TOKEN],
-            profile: e[Wt.USER_PROFILE],
-            activePro: e[Wt.USER_ACTIVE_PRO],
-            rt: e[Wt.USER_RT]
+            countryGeoIP: e[Bn.USER_COUNTRY_GEO_IP],
+            localToken: e[Bn.LOCAL_TOKEN],
+            profile: e[Bn.USER_PROFILE],
+            activePro: e[Bn.USER_ACTIVE_PRO],
+            rt: e[Bn.USER_RT]
           };
         });
       function Nt() {
         return Rt(this, void 0, void 0, function* () {
-          return Qt(Wt.USER_ACTIVE_PRO, !1);
+          return Zn(Bn.USER_ACTIVE_PRO, !1);
         });
       }
       var Dt = function (e, t, n, r) {
@@ -9873,15 +9873,15 @@
               string3: e.customString3
             };
           })(e);
-          Zt(`%cTrack event: ${e.event}`, "background: #0033E7; color: #E2E2E2", t);
-          const n = yield Qt([Wt.USER_DATA_SYNCED]);
-          navigator.onLine && n[Wt.USER_DATA_SYNCED]
+          Hn(`%cTrack event: ${e.event}`, "background: #0033E7; color: #E2E2E2", t);
+          const n = yield Zn([Bn.USER_DATA_SYNCED]);
+          navigator.onLine && n[Bn.USER_DATA_SYNCED]
             ? yield (function (e) {
                 return Dt(this, void 0, void 0, function* () {
                   const t = yield Ot(),
                     n = yield At(),
                     r = It(e, t, n);
-                  Zt(`Send event ${r.event}`, r);
+                  Hn(`Send event ${r.event}`, r);
                   const o = yield fetch("https://analytics.smallpdf.com/v2/events", { method: "POST", body: JSON.stringify([r]) });
                   if (!o.ok) throw new Error(`Pluto response status: ${o.status}`);
                   {
@@ -9894,14 +9894,14 @@
                 return Dt(this, void 0, void 0, function* () {
                   return navigator.locks.request("LOCK_QUEUE_EVENT", () =>
                     Dt(this, void 0, void 0, function* () {
-                      const t = yield Qt(Wt.TRACKING_EVENTS, []);
+                      const t = yield Zn(Bn.TRACKING_EVENTS, []);
                       t.push(e);
                       try {
-                        yield Jt({ [Wt.TRACKING_EVENTS]: t });
+                        yield Wn({ [Bn.TRACKING_EVENTS]: t });
                       } catch (e) {
                         e instanceof Error &&
                           (e.name.includes("QUOTA_BYTES") || e.message.includes("QUOTA_BYTES")) &&
-                          (yield Jt({ [Wt.TRACKING_EVENTS]: [] }));
+                          (yield Wn({ [Bn.TRACKING_EVENTS]: [] }));
                       }
                     })
                   );
@@ -9911,9 +9911,9 @@
       }
       function Mt() {
         return Dt(this, void 0, void 0, function* () {
-          const e = yield Qt([Wt.TRACKING_EVENTS, Wt.USER_DATA_SYNCED]);
-          if (!e || !e[Wt.USER_DATA_SYNCED]) return;
-          const t = e[Wt.TRACKING_EVENTS] || [];
+          const e = yield Zn([Bn.TRACKING_EVENTS, Bn.USER_DATA_SYNCED]);
+          if (!e || !e[Bn.USER_DATA_SYNCED]) return;
+          const t = e[Bn.TRACKING_EVENTS] || [];
           if (0 !== t.length && navigator.onLine) {
             try {
               const e = t.splice(0, 100);
@@ -9922,7 +9922,7 @@
                   const t = yield Ot(),
                     n = yield At(),
                     r = e.map((e) => It(e, t, n));
-                  Zt("Send events", r);
+                  Hn("Send events", r);
                   const o = yield fetch("https://analytics.smallpdf.com/v2/events", { method: "POST", body: JSON.stringify(r) });
                   if (!o.ok) throw new Error(`Pluto response status: ${o.status}`);
                   {
@@ -9932,12 +9932,12 @@
                 });
               })(e);
             } catch (e) {
-              return void Zt("Failed to submit events", e);
+              return void Hn("Failed to submit events", e);
             }
             try {
-              yield Jt({ [Wt.TRACKING_EVENTS]: t });
+              yield Wn({ [Bn.TRACKING_EVENTS]: t });
             } catch (e) {
-              yield en(Wt.TRACKING_EVENTS), Zt("Failed to update event queue", e);
+              yield qn(Bn.TRACKING_EVENTS), Hn("Failed to update event queue", e);
             }
           }
         });
@@ -9972,3561 +9972,16 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      var jt = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      function zt(e) {
-        return jt(this, void 0, void 0, function* () {
-          let t = "https://files.smallpdf.com/upload-url";
-          (yield Nt()) && (t = `${t}-fast`), (t = `${t}/${e}`);
-          const n = yield (function (e, t) {
-            return fetch(e, t).then((e) => e.json());
-          })(t);
-          return n.url;
-        });
-      }
-      var Ut;
-      !(function (e) {
-        (e.ID_JOB_RESULT = "jobResult"), (e.ID_RESULT = "result");
-      })(Ut || (Ut = {}));
-      chrome.runtime.getURL("images/smallpdf_48.png");
-      const Vt = "send-analytics-event",
-        Kt = "dev-logger";
-      var Ht = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      let Bt;
-      function Gt() {
-        return Ht(this, void 0, void 0, function* () {
-          if ("boolean" == typeof Bt) return Bt;
-          return yield Qt([Wt.SERVICE_WORKER_LOGS])
-            .then((e) => e[Wt.SERVICE_WORKER_LOGS])
-            .then((e) => "boolean" == typeof e && ((Bt = e), e));
-        });
-      }
-      function Yt(...e) {
-        return Ht(this, void 0, void 0, function* () {
-          (yield Gt()) && console.log.apply(null, e);
-        });
-      }
-      function Zt(...e) {
-        return Ht(this, void 0, void 0, function* () {
-          (yield Gt()) && console.log.apply(null, e);
-        });
-      }
-      var Wt,
-        qt,
-        Xt = function (e, t, n, r) {
-          return new (n || (n = Promise))(function (o, i) {
-            function a(e) {
-              try {
-                s(r.next(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function l(e) {
-              try {
-                s(r.throw(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function s(e) {
-              e.done
-                ? o(e.value)
-                : (function (e) {
-                    return e instanceof n
-                      ? e
-                      : new n(function (t) {
-                          t(e);
-                        });
-                  })(e.value).then(a, l);
-            }
-            s((r = r.apply(e, t || [])).next());
-          });
-        };
-      function Qt(e, t) {
-        return Xt(this, void 0, void 0, function* () {
-          try {
-            const n = yield chrome.storage.local.get(e);
-            return "string" == typeof e ? n[e] || t : n;
-          } catch (n) {
-            return Yt(chrome.runtime.lastError, n), Array.isArray(e) ? {} : t;
-          }
-        });
-      }
-      function Jt(e) {
-        return Xt(this, void 0, void 0, function* () {
-          try {
-            yield chrome.storage.local.set(e);
-          } catch (e) {
-            throw (Yt(chrome.runtime.lastError), e);
-          }
-        });
-      }
-      function en(e) {
-        return Xt(this, void 0, void 0, function* () {
-          try {
-            yield chrome.storage.local.remove(e);
-          } catch (e) {
-            throw (Yt(chrome.runtime.lastError), e);
-          }
-        });
-      }
-      function tn(e, t) {
-        return Xt(this, void 0, void 0, function* () {
-          try {
-            const n = yield chrome.storage.sync.get(e);
-            if (Array.isArray(e)) return n;
-            const r = n[e];
-            return void 0 === r ? t : r;
-          } catch (n) {
-            return Yt(chrome.runtime.lastError, n), Array.isArray(e) ? {} : t;
-          }
-        });
-      }
-      function nn(e) {
-        return Xt(this, void 0, void 0, function* () {
-          try {
-            yield chrome.storage.sync.set(e);
-          } catch (e) {
-            throw (Yt(chrome.runtime.lastError), e);
-          }
-        });
-      }
-      !(function (e) {
-        (e.IS_PDIUM_OPEN_ON_LOAD = "smallpdf.pdfium.isOpen"),
-          (e.MIGRATIONS_SCHEMA_VERSION = "smallpdf.msv"),
-          (e.JOB_RESULT_TAB = "smallpdf.jobResult.tab"),
-          (e.USER_FAVORITES = "smallpdf.user.favorites"),
-          (e.LOCAL_TOKEN = "smallpdf.user.localToken"),
-          (e.USER_COUNTRY_GEO_IP = "smallpdf.user.countryGeoIP"),
-          (e.USER_PROFILE = "smallpdf.user.profile"),
-          (e.USER_ACTIVE_PRO = "smallpdf.user.ap"),
-          (e.USER_RT = "smallpdf.user.rt"),
-          (e.ACCESS_TOKEN = "KEY_AUTH_AT"),
-          (e.REFRESH_TOKEN = "KEY_AUTH_RT"),
-          (e.TRACKING_EVENTS = "STORAGE_KEY_TRACKING_EVENTS_QUEUE"),
-          (e.USER_DATA_SYNCED = "STORAGE_KEY_USER_DATA_SYNCED"),
-          (e.USER_DATA_LAST_SYNC = "smallpdf.dls"),
-          (e.FILE_HANDLE = "STORAGE_KEY_FILE_HANDLE"),
-          (e.FILE_HANDLE_RESULT = "STORAGE_KEY_FILE_HANDLE_RESULT"),
-          (e.TASK = "STORAGE_KEY_TASK"),
-          (e.SYSTEM_OS = "STORAGE_KEY_SYSTEM_OS"),
-          (e.SYSTEM_LOCALE = "STORAGE_KEY_SYSTEM_LOCALE"),
-          (e.INSTALLATION_DATE = "STORAGE_KEY_INSTALLATION_DATE"),
-          (e.PROFILE = "STORAGE_KEY_PROFILE"),
-          (e.AUTH_CODE_VERIFIER = "STORAGE_KEY_AUTH_CODE_VERIFIER"),
-          (e.AUTH_STATE_CODE = "STORAGE_KEY_AUTH_STATE_CODE"),
-          (e.AUTH_PROVIDER = "STORAGE_KEY_AUTH_PROVIDER"),
-          (e.FAILED_LOGIN_ATTEMPTS = "smallpdf.fla"),
-          (e.THANKS_PAGE_LOGGED_ONCE = "smallpdf.thanks_event"),
-          (e.SERVICE_WORKER_LOGS = "smallpdf.service_worker_logs");
-      })(Wt || (Wt = {})),
-        (function (e) {
-          (e.PreferenceGoogleSERPEnabled = "smallpdf.options.googleSerpEnabled"),
-            (e.PreferenceAutoDownloadEnabled = "STORAGE_KEY_OPTIONS_AUTO_DOWNLOAD"),
-            (e.Experiments = "STORAGE_KEY_EXPERIMENTS"),
-            (e.TasksCount = "STORAGE_KEY_TASKS_COUNT"),
-            (e.LastTaskTime = "STORAGE_KEY_LAST_TASK_TIME"),
-            (e.FreeTasksResetTime = "smallpdf.ftrt"),
-            (e.MIGRATIONS_SCHEMA_VERSION = "smallpdf.msv");
-        })(qt || (qt = {}));
-      var rn = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      const on = "files";
-      var an, ln, sn, cn;
-      function un() {
-        return rn(this, void 0, void 0, function* () {
-          return Qt(Wt.FILE_HANDLE);
-        });
-      }
-      function dn() {
-        return rn(this, void 0, void 0, function* () {
-          return Qt(Wt.FILE_HANDLE_RESULT);
-        });
-      }
-      !(function (e) {
-        (e.DROP_AREA = "droparea"), (e.DRAG_AND_DROP = "drag-and-drop"), (e.RETRY = "retry");
-      })(an || (an = {})),
-        (function (e) {
-          (e.FILE_HANDLE_IDLE = "fileHandleIdle"),
-            (e.FILE_HANDLE_PROGRESS = "fileHandleProgress"),
-            (e.FILE_HANDLE_FAILURE = "fileHandleFailure");
-        })(ln || (ln = {})),
-        (function (e) {
-          (e.FORCE = "force"), (e.AUTO = "auto"), (e.CUSTOM = "custom"), (e.OFF = "off");
-        })(sn || (sn = {})),
-        (function (e) {
-          (e.HIGH = "COMPRESS_OPTION_HIGH"), (e.BALANCED = "COMPRESS_OPTION_BALANCED"), (e.CUSTOM = "COMPRESS_OPTION_CUSTOM");
-        })(cn || (cn = {}));
-      var fn = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      var pn, hn;
-      function mn() {
-        return fn(this, void 0, void 0, function* () {
-          return Qt(Wt.TASK);
-        });
-      }
-      function gn() {
-        return fn(this, void 0, void 0, function* () {
-          return tn(qt.TasksCount, 0);
-        });
-      }
-      function vn() {
-        return fn(this, void 0, void 0, function* () {
-          yield nn({ [qt.TasksCount]: 0 });
-        });
-      }
-      !(function (e) {
-        (e.CREATED = "Created"), (e.REQUEST = "Request"), (e.PENDING = "Pending"), (e.SUCCESS = "Success"), (e.FAILURE = "Failure");
-      })(pn || (pn = {})),
-        (function (e) {
-          (e.AUTO = "auto"), (e.NOTIFICATION = "notification"), (e.RESULT_SCREEN = "result"), (e.UNKNOWN = "unknown");
-        })(hn || (hn = {}));
-      class yn {
-        constructor(e, t, n, r) {
-          (this.r = e), (this.g = t), (this.b = n), (this.a = r);
-        }
-        toString() {
-          return this.value || (this.value = `rgba(${this.r},${this.g},${this.b},${this.a})`), this.value;
-        }
-      }
-      function wn(e, t) {
-        const n = parseInt(e, 16);
-        return Number.isNaN(n) ? t : n;
-      }
-      function bn(e, t, n, r = 1) {
-        return new yn(e, t, n, r);
-      }
-      function En(e) {
-        const t = wn(e.substr(1, 2), 255),
-          n = wn(e.substr(3, 2), 255),
-          r = wn(e.substr(5, 2), 255),
-          o = wn(e.substr(7, 2), 1);
-        return new yn(t, n, r, o);
-      }
-      const Ln = En("#0055FF"),
-        _n = En("#0048D9"),
-        xn = En("#003CB2"),
-        Sn = (En("#003399"), En("#00194C"), En("#F2F6FF"), En("#E5EEFF")),
-        An = En("#CCDDFF"),
-        kn = En("#B3CCFF"),
-        Cn = En("#1A1A1A"),
-        Pn = (En("#FAFAFA"), En("#F4F4F4")),
-        Tn = En("#E8E8E8"),
-        In = En("#DDDDDD"),
-        Rn = En("#BABABA"),
-        On = En("#A3A3A3"),
-        Nn = En("#757575"),
-        Dn = (En("#5E5E5E"), En("#3C3C3C")),
-        Fn = En("#FFFFFF"),
-        Mn = En("#000000"),
-        $n = En("#F23030"),
-        jn = En("#D92B2B"),
-        zn = En("#BF2626"),
-        Un = En("#911D1D"),
-        Vn = (En("#FEEBEB"), En("#FCD6D6")),
-        Kn = En("#FAACAC"),
-        Hn = (En("#FF8000"), En("#E57300"), En("#CC6600"), En("#FFF3E6")),
-        Bn = En("#FFCC99"),
-        Gn = En("#FFB700"),
-        Yn = (En("#E5A500"), En("#CC9200"), En("#996E00")),
-        Zn = (En("#FFF8E6"), En("#FFF1CC")),
-        Wn = (En("#FFE299"), En("#00CC44"), En("#00B23B"), En("#009933"), En("#007A29")),
-        qn = (En("#E6FAED"), En("#CCF5DA")),
-        Xn = En("#99EBB4"),
-        Qn = (En("#0FC0C5"), En("#0DA7AB"), En("#0B8E91"), En("#097376")),
-        Jn = (En("#E7F9FA"), En("#CFF2F3")),
-        er = (En("#9FE6E8"), En("#3D99F5"), En("#3789DB"), En("#3079C2"), En("#255C93")),
-        tr = (En("#ECF5FE"), En("#D8EBFD")),
-        nr = (En("#B1D6FB"), En("#7961F2"), En("#6C57D9"), En("#604DBF"), En("#493A91")),
-        rr = (En("#F2F0FE"), En("#E4DFFC")),
-        or =
-          (En("#C9C0FA"),
-          En("#E667E6"),
-          En("#CC5BCC"),
-          En("#B250B2"),
-          En("#8A3E8A"),
-          En("#FDF0FD"),
-          En("#F5C2F5"),
-          En("#FF5975"),
-          En("#E55069"),
-          En("#CC475E"),
-          En("#993546"),
-          En("#FFEFF2"),
-          En("#FFBDC8"),
-          En("#E32B24"),
-          En("#C92620"),
-          En("#B0211C"),
-          En("#0055FF"),
-          En("#0048D9"),
-          En("#003CB2"),
-          En("#FFB700"),
-          En("#E5A500"),
-          En("#CC9200"),
-          En("#996E00"),
-          En("#00D958"));
-      En("#00BF4D"),
-        En("#00A643"),
-        En("#008034"),
-        En("#0061FF"),
-        En("#1977F3"),
-        En("#4885ED"),
-        En("#DB3236"),
-        En("#C32AA3"),
-        En("#0077B5"),
-        En("#1ED760"),
-        En("#1DA1F2"),
-        En("#25D366"),
-        En("#D9252A"),
-        bn(26, 26, 26, 0.8),
-        bn(26, 26, 26, 0.5),
-        bn(26, 26, 26, 0.3),
-        bn(26, 26, 26, 0.1);
-      const ir = [
-          { key: "sm", min: 0 },
-          { key: "md", min: 640 },
-          { key: "lg", min: 1024 }
-        ],
-        ar = (() => {
-          const e = {};
-          return (
-            ir.forEach((t, n) => {
-              const r = ir[n + 1],
-                o = t.min;
-              let i = null;
-              r && (i = r.min - 1), (e[t.key] = { min: o, max: i });
-            }),
-            e
-          );
-        })();
-      function lr(e) {
-        return ar[e].min;
-      }
-      function sr(...e) {
-        const t = e.slice(0);
-        t.sort((e, t) => lr(e) - lr(t));
-        let n = "";
-        const r = (e, t) => ` (${e}: ${t}px)`;
-        let o = !1;
-        return (
-          t.forEach((e, i) => {
-            const a = t[i + 1],
-              l = lr(e),
-              s = (function (e) {
-                return ar[e].max;
-              })(e),
-              c = a ? lr(a) : Number.POSITIVE_INFINITY;
-            let u = "",
-              d = !1;
-            o || (u += r("min-width", l)),
-              null !== s && ((d = s + 1 === c), d || (u && (u += " and"), (u += r("max-width", s)))),
-              u && (n && (n += o ? " and" : ","), (n += u)),
-              (o = d);
-          }),
-          `@media${n}`
-        );
-      }
-      const cr = ge`
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  font-stretch: 400;
-`,
-        ur =
-          (ge`
-  ${cr}
-
-  font-weight: 700;
-
-  ${sr("sm")} {
-    font-size: 48px;
-    line-height: 56px;
-  }
-
-  ${sr("md")} {
-    font-size: 64px;
-    line-height: 80px;
-  }
-
-  ${sr("lg")} {
-    font-size: 96px;
-    line-height: 112px;
-  }
-`,
-          ge`
-  ${cr}
-
-  font-weight: 700;
-
-  ${sr("sm")} {
-    font-size: 42px;
-    line-height: 52px;
-  }
-
-  ${sr("md")} {
-    font-size: 48px;
-    line-height: 56px;
-  }
-
-  ${sr("lg")} {
-    font-size: 64px;
-    line-height: 80px;
-  }
-`,
-          ge`
-  ${cr}
-
-  font-weight: 700;
-
-  ${sr("sm")} {
-    font-size: 32px;
-    line-height: 40px;
-  }
-
-  ${sr("md")} {
-    font-size: 36px;
-    line-height: 48px;
-  }
-
-  ${sr("lg")} {
-    font-size: 42px;
-    line-height: 56px;
-  }
-`,
-          ge`
-  ${cr}
-
-  font-weight: 700;
-
-  ${sr("sm")} {
-    font-size: 24px;
-    line-height: 32px;
-  }
-
-  ${sr("md")} {
-    font-size: 26px;
-    line-height: 36px;
-  }
-
-  ${sr("lg")} {
-    font-size: 32px;
-    line-height: 40px;
-  }
-`,
-          ge`
-  ${cr}
-
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 32px;
-`),
-        dr = ge`
-  ${cr}
-
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
-`,
-        fr =
-          (ge`
-  ${cr}
-
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 32px;
-`,
-          ge`
-  ${cr}
-
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-`,
-          ge`
-  ${cr}
-
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-`),
-        pr = ge`
-  ${cr}
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-`,
-        hr = ge`
-  ${cr}
-
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-`,
-        mr =
-          (ge`
-  ${cr}
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-
-  text-transform: uppercase;
-`,
-          Re.div`
-  overflow: hidden;
-
-  ${({ size: e }) => ge`
-    & > svg {
-      display: block;
-      width: ${e}px;
-      height: ${e}px;
-    }
-  `}
-`);
-      function gr({ className: t, size: n, content: r, onClick: o, padding: i, transform: a }) {
-        return e.createElement(mr, {
-          className: t,
-          dangerouslySetInnerHTML: { __html: r },
-          style: { width: n, height: n, padding: i, transform: a },
-          onClick: o,
-          size: n
-        });
-      }
-      const vr = Re.button`
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  border: 0;
-
-  overflow: visible;
-  background-color: red;
-  user-select: none;
-  background-color: transparent;
-  text-decoration: inherit;
-  color: inherit;
-
-  /* Firefox */
-  &::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-  }
-`;
-      function yr(e) {
-        if ("undefined" == typeof window) return !1;
-        return new RegExp(`^https://${window.location.host}`).test(e);
-      }
-      const wr = Re.a`
-  text-decoration: inherit;
-  color: inherit;
-
-  margin: 0;
-`,
-        br = e.forwardRef(
-          ({ children: t, className: n, behavior: r, href: o, download: i, title: a, withNoFollow: l = !1, onClick: s }, c) => {
-            const u = (function (e) {
-                return { isSameDomain: "/" === e[0] || "#" === e[0] || yr(e), isMailTo: /^mailto:/.test(e) };
-              })(o),
-              d = (() => {
-                switch (r) {
-                  case "blank":
-                    return "_blank";
-                  case "default":
-                    return;
-                  case "auto":
-                    return u.isMailTo || !u.isSameDomain ? "_blank" : void 0;
-                  default:
-                    return unreachable(r);
-                }
-              })(),
-              f = (() => {
-                const e = [];
-                if (("_blank" !== d || u.isSameDomain || e.push("noopener", "noreferrer"), l && e.push("nofollow"), 0 !== e.length))
-                  return e.join(" ");
-              })();
-            return e.createElement(wr, { className: n, ref: c, target: d, rel: f, href: o, download: i, title: a, onClick: s }, t);
-          }
-        );
-      var Er = n(9395);
-      const Lr = Re.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Must go above parent border */
-  position: absolute;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  top: -1px;
-  left: -1px;
-
-  border-radius: inherit;
-  background: ${String(In)};
-  color: ${String(Ln)};
-
-  ${({ layout: e }) =>
-    "tertiary" === e &&
-    ge`
-      background: transparent;
-    `}
-`;
-      function _r({ layout: t, className: n, ariaLabel: r }) {
-        return e.createElement(
-          Lr,
-          { layout: t, className: n, role: "status", "aria-label": r },
-          e.createElement(gr, { size: 24, content: Er })
-        );
-      }
-      var xr = n(1332);
-      const Sr = Re.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* Must go above parent border */
-  position: absolute;
-  width: calc(100% + 2px);
-  height: calc(100% + 2px);
-  top: -1px;
-  left: -1px;
-
-  border-radius: inherit;
-  color: ${String(Fn)};
-  background: ${String(or)};
-
-  ${({ layout: e }) =>
-    "tertiary" === e &&
-    ge`
-      background: transparent;
-      color: ${String(or)};
-    `}
-`;
-      function Ar({ layout: t, className: n, ariaLabel: r }) {
-        return e.createElement(
-          Sr,
-          { layout: t, className: n, role: "status", "aria-label": r },
-          e.createElement(gr, { size: 24, content: xr })
-        );
-      }
-      var kr = n(6011);
-      ge`
-  box-shadow: 0px 0px 2px rgba(26, 26, 26, 0.2);
-`,
-        ge`
-  box-shadow: 0px 0px 4px rgba(26, 26, 26, 0.2);
-`,
-        ge`
-  box-shadow: 0px 0px 12px rgba(26, 26, 26, 0.2);
-`,
-        ge`
-  box-shadow: 0px 0px 24px rgba(26, 26, 26, 0.2);
-`;
-      const Cr = ge`
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-`,
-        Pr =
-          (ge`
-  filter: grayscale(1);
-
-  &::after{
-    width: 100%;
-    height: 100%;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: ${String(Fn)};
-    opacity: 0.5;
-    cursor: not-allowed;
-    border-radius: inherit;
-  }
-`,
-          ge`
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-`),
-        Tr = Re.div``,
-        Ir = Re.div`
-  display: flex;
-  align-items: center;
-`,
-        Rr = Re.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  padding: ${({ layout: e, withIconOnly: t }) => ("tertiary" === e ? "0 4px" : t ? "0 8px" : "0 16px")};
-  opacity: ${({ isHidden: e }) => (e ? 0 : 1)};
-
-  &:focus {
-    outline: none;
-  }
-
-  & > :not(:first-child) {
-    padding-left: 4px;
-  }
-`,
-        Or = Re.span`
-  ${Pr}
-  text-transform: capitalize;
-`;
-      function Nr({ layout: t, label: n, leftIcon: r, rightIcon: o, withDropdownIcon: i = !1, isHidden: a = !1 }) {
-        return e.createElement(
-          Rr,
-          { layout: t, isHidden: a, "aria-hidden": a, tabIndex: -1, withIconOnly: !n },
-          void 0 !== r && e.createElement(Tr, null, e.createElement(gr, { size: 24, content: r })),
-          n && e.createElement(Or, null, n),
-          void 0 !== o && e.createElement(Tr, null, e.createElement(gr, { size: 24, content: o })),
-          i && e.createElement(Ir, null, e.createElement(gr, { size: 16, content: kr }))
-        );
-      }
-      const Dr = ({ layout: e, isSelected: t, isDisabled: n }) => ge`
-  position: relative;
-  display: inline-flex;
-
-  flex-direction: row;
-  align-items: center;
-  user-select: none;
-  text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 0;
-
-  cursor: ${n ? "not-allowed" : "pointer"};
-
-  &:focus {
-    outline: none;
-
-    &::after {
-      content: "";
-      position: absolute;
-      height: calc(100% + 2px);
-      width: calc(100% + 2px);
-      top: -5px;
-      left: -5px;
-      border: 4px solid ${String(An)};
-      border-radius: 8px;
-    }
-  }
-
-  ${(() => {
-    switch (e) {
-      case "primary":
-        return ge`
-          ${pr}
-
-          height: 40px;
-          background: ${String(Ln)};
-          color: ${String(Fn)};
-
-          ${
-            n
-              ? ge`
-                background: ${String(In)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(_n)};
-                }
-                &:active {
-                  background: ${String(xn)};
-                }
-              `
-          }
-        `;
-      case "secondary":
-        return ge`
-          ${pr}
-
-          height: 40px;
-          background: transparent;
-          color: ${String(Ln)};
-          border-color: ${String(Ln)};
-
-          ${
-            n
-              ? ge`
-                background: ${String(In)};
-                border-color: ${String(In)};
-                color: ${String(Fn)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(_n)};
-                  border-color: ${String(_n)};
-                  color: ${String(Fn)};
-                }
-                &:active {
-                  background: ${String(xn)};
-                  border-color: ${String(xn)};
-                  color: ${String(Fn)};
-                }
-              `
-          }
-        `;
-      case "tertiary":
-        return ge`
-          ${fr}
-
-          height: 24px;
-          background: transparent;
-          color: ${String(Ln)};
-          text-decoration: underline;
-
-          ${
-            n
-              ? ge`
-                color: ${String(Rn)};
-              `
-              : ge`
-                &:hover {
-                  color: ${String(_n)};
-                }
-                &:active {
-                  color: ${String(xn)};
-                }
-              `
-          }
-        `;
-      case "solid":
-        return ge`
-          ${fr}
-
-          height: 40px;
-          background: ${String(t ? Sn : Pn)};
-          color: ${String(Cn)};
-
-          ${
-            n
-              ? ge`
-                color: ${String(Rn)};
-                background: ${String(Pn)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(t ? An : Tn)};
-                }
-                &:active {
-                  background: ${String(t ? kn : In)};
-                }
-              `
-          }
-        `;
-      case "outline":
-        return ge`
-          ${fr}
-
-          height: 40px;
-          background: ${String(t ? Sn : "transparent")};
-          color: ${String(Cn)};
-          border-color: ${String(t ? Sn : Tn)};
-
-          ${
-            n
-              ? ge`
-                background: transparent;
-                border-color: ${String(Tn)};
-                color: ${String(Rn)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(t ? An : Tn)};
-                  border-color: ${String(t ? An : Tn)};
-                }
-                &:active {
-                  background: ${String(t ? kn : In)};
-                  border-color: ${String(t ? kn : In)};
-                }
-              `
-          }
-        `;
-      case "ghost":
-        return ge`
-          ${fr}
-
-          height: 40px;
-          background: ${String(t ? Sn : "transparent")};
-          color: ${String(Cn)};
-
-          ${
-            n
-              ? ge`
-                background: transparent;
-                color: ${String(Rn)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(t ? An : Tn)};
-                }
-                &:active {
-                  background: ${String(t ? kn : In)};
-                }
-              `
-          }
-        `;
-      case "danger":
-        return ge`
-          ${pr}
-
-          height: 40px;
-          background: ${String($n)};
-          color: ${String(Fn)};
-
-          ${
-            n
-              ? ge`
-                background: ${String(In)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(jn)};
-                }
-                &:active {
-                  background: ${String(zn)};
-                }
-              `
-          }
-        `;
-      case "inverted":
-        return ge`
-          ${pr}
-
-          height: 40px;
-          background: ${String(Fn)};
-          color: ${String(Cn)};
-
-          ${
-            n
-              ? ge`
-                color: ${String(Rn)};
-              `
-              : ge`
-                &:hover {
-                  background: ${String(Pn)};
-                }
-                &:active {
-                  background: ${String(Tn)};
-                }
-              `
-          }
-        `;
-      default:
-        throw new Error(`Button: unexpected Button layout ${e}`);
-    }
-  })()}
-`,
-        Fr = Re(vr)(Dr),
-        Mr = Re(br)(Dr),
-        $r = Re.div(Dr),
-        jr = e.forwardRef((t, n) => {
-          switch (t.renderAs) {
-            case "link": {
-              const {
-                layout: r,
-                className: o,
-                label: i,
-                leftIcon: a,
-                rightIcon: l,
-                withDropdownIcon: s,
-                isSelected: c = !1,
-                withNoFollow: u = !1,
-                href: d,
-                behavior: f,
-                download: p,
-                onClick: h
-              } = t;
-              return e.createElement(
-                Mr,
-                {
-                  ref: n,
-                  className: o,
-                  layout: r,
-                  isSelected: c,
-                  isDisabled: !1,
-                  href: d,
-                  behavior: f,
-                  download: p,
-                  onClick: h,
-                  withNoFollow: u
-                },
-                e.createElement(Nr, { layout: r, leftIcon: a, rightIcon: l, withDropdownIcon: s, label: i })
-              );
-            }
-            case "button": {
-              const {
-                  layout: r,
-                  className: o,
-                  label: i,
-                  leftIcon: a,
-                  rightIcon: l,
-                  withDropdownIcon: s,
-                  isSelected: c = !1,
-                  status: u = "default",
-                  isDisabled: d = !1,
-                  onClick: f,
-                  type: p = "submit"
-                } = t,
-                h = d || "default" !== u;
-              return e.createElement(
-                Fr,
-                { ref: n, className: o, layout: r, isSelected: c, onClick: f, isDisabled: h, disabled: h, type: p },
-                e.createElement(Nr, { layout: r, leftIcon: a, rightIcon: l, withDropdownIcon: s, label: i, isHidden: "default" !== u }),
-                (() => {
-                  if ("button" !== t.renderAs) return null;
-                  const { status: n, layout: r } = t;
-                  switch (n) {
-                    case "success":
-                      return e.createElement(Ar, { layout: r });
-                    case "process":
-                      return e.createElement(_r, { layout: r });
-                    case "default":
-                    case void 0:
-                      return null;
-                    default:
-                      return unreachable(n);
-                  }
-                })()
-              );
-            }
-            case "div": {
-              const {
-                layout: r,
-                className: o,
-                label: i,
-                leftIcon: a,
-                rightIcon: l,
-                withDropdownIcon: s,
-                isSelected: c = !1,
-                isDisabled: u = !1
-              } = t;
-              return e.createElement(
-                $r,
-                { ref: n, className: o, layout: r, isSelected: c, isDisabled: u },
-                e.createElement(Nr, { layout: r, leftIcon: a, rightIcon: l, withDropdownIcon: s, label: i })
-              );
-            }
-            default:
-              return unreachable(t);
-          }
-        }),
-        zr = Re.input`
-  ${hr}
-  color: ${String(Cn)};
-  display: block;
-
-  width: 100%;
-  height: 40px;
-
-  box-sizing: border-box;
-  padding: 6px;
-
-  border: 0;
-  border-radius: 0;
-  outline: none;
-  background: transparent;
-  box-shadow: none; /* Firefox */
-
-  &[type=number]::-webkit-outer-spin-button,
-  &[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  &[type=number] {
-    -moz-appearance:textfield; /* Firefox */
-  }
-
-  /* Fix zoom on IOS devices when you press the input */
-  @supports (-webkit-touch-callout: none) {
-    &[type="text"], &[type="password"],
-    &[type="datetime"], &[type="datetime-local"],
-    &[type="date"], &[type="month"], &[type="time"],
-    &[type="week"], &[type="number"], &[type="email"],
-    &[type="url"]{ font-size: 16px; }
-  }
-`,
-        Ur = Re.div`
-  border: 1px solid ${String(In)};
-  border-radius: 4px;
-`;
-      function Vr({
-        name: t,
-        value: n,
-        type: r,
-        defaultValue: o,
-        placeholder: i,
-        tabIndex: a,
-        disabled: l,
-        required: s,
-        autoFocus: c,
-        withoutAutocomplete: u = !1,
-        onChange: d,
-        onKeyPress: f,
-        onFocus: p,
-        onBlur: h
-      }) {
-        return e.createElement(
-          Ur,
-          null,
-          e.createElement(zr, {
-            required: s,
-            name: t,
-            type: r,
-            value: n,
-            defaultValue: o,
-            placeholder: i,
-            tabIndex: a,
-            disabled: l,
-            autoFocus: c,
-            autoComplete: u ? "off" : "on",
-            onChange: d,
-            onKeyPress: f,
-            onFocus: p,
-            onBlur: h
-          })
-        );
-      }
-      n(1375);
-      Re.img`
-  display: block;
-  width: 100%;
-  height: 100%;
-`,
-        Re.div`
-  ${({ size: e }) => ge`
-    width: ${e}px;
-    height: ${e}px;
-  `}
-`;
-      const Kr = Re.div`
-  display: flex;
-  height: 30px;
-`,
-        Hr = Re.button`
-  position: relative;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  padding: 0 8px;
-  margin-right: -1px;
-
-  font-size: 14px;
-  text-align: center;
-  color: #212121;
-
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  outline: 0;
-
-  cursor: pointer;
-  user-select: none;
-
-  transition: background 0.2s, border 0.2s, color 0.2s;
-
-  &:first-child {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
-  &:last-child {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-
-  ${({ selected: e, disabled: t }) =>
-    !e &&
-    !t &&
-    ge`
-      &:hover,
-      &:focus {
-        background: rgba(0, 0, 0, 0.05);
-      }
-      &:active {
-        background: rgba(0, 0, 0, 0.1);
-      }
-    `};
-
-  ${({ selected: e }) =>
-    e &&
-    ge`
-      background: #215fff;
-      border-color: #215fff;
-      color: #ffffff;
-      z-index: 1;
-    `}
-
-  ${({ disabled: e, selected: t }) =>
-    e &&
-    ge`
-      cursor: default;
-      background: #efefef;
-
-      ${() =>
-        t &&
-        ge`
-          background: #ababab;
-          border-color: #ababab;
-        `}
-    `};
-`;
-      function Br({ options: t, value: n, disabled: r, onChange: o }) {
-        return e.createElement(
-          Kr,
-          null,
-          t.map((t) =>
-            e.createElement(
-              Hr,
-              {
-                key: t.key,
-                selected: n === t.key,
-                disabled: r,
-                onClick: () => {
-                  return (e = t.key), void (r || e === n || o(e));
-                  var e;
-                }
-              },
-              t.label
-            )
-          )
-        );
-      }
-      const Gr = Re.button`
-  position: relative;
-  width: 48px;
-
-  border: 0;
-  border-radius: 0;
-  background: none;
-  outline: 0;
-
-  cursor: pointer;
-  user-select: none;
-
-  ${({ disabled: e }) =>
-    e &&
-    ge`
-      cursor: default;
-    `}
-`,
-        Yr = Re.div`
-  position: relative;
-  height: 21px;
-`,
-        Zr = Re.div`
-  position: absolute;
-
-  width: 32px;
-  height: 13px;
-
-  left: 0;
-  top: 4px;
-
-  background-color: #bdbdbd;
-  border-radius: 12px;
-
-  transition: background 0.2s;
-
-  ${Gr}:focus & {
-    background: #9c9c9c;
-  }
-
-  ${({ checked: e }) =>
-    e &&
-    ge`
-      background-color: #7098fb;
-
-      ${Gr}:focus & {
-        background-color: #648ef3;
-      }
-    `}
-
-  ${({ disabled: e }) =>
-    e &&
-    ge`
-      background: #dedede;
-    `};
-`,
-        Wr = Re.div`
-  position: absolute;
-
-  width: 21px;
-  height: 21px;
-
-  left: 0;
-  top: 0;
-
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
-  border-radius: 50%;
-
-  transform: translateX(-8px) translateZ(0);
-  transition: background 0.2s, transform 0.2s;
-
-  ${Gr}:focus & {
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-  }
-
-  ${({ checked: e }) =>
-    e &&
-    ge`
-      background-color: #215fff;
-      border-color: #215fff;
-      transform: translateX(19px);
-    `}
-
-  ${({ disabled: e }) =>
-    e &&
-    ge`
-      background: #efefef;
-    `};
-
-  ${({ disabled: e, checked: t }) =>
-    e &&
-    t &&
-    ge`
-      background: #ababab;
-    `};
-`;
-      function qr({ checked: t, disabled: n = !1, onChange: r }) {
-        const o = e.useCallback(() => {
-          n || r(!t);
-        }, [n, t, r]);
-        return e.createElement(
-          Gr,
-          { disabled: n, onClick: o },
-          e.createElement(Yr, null, e.createElement(Zr, { checked: t, disabled: n }), e.createElement(Wr, { checked: t, disabled: n }))
-        );
-      }
-      const Xr = Re.div`
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-
-  margin: 0;
-  padding: 0 8px;
-  height: 20px;
-
-  border-radius: 20px;
-
-  user-select: none;
-
-  ${cr}
-  font-size: 12px;
-  line-height: 12px;
-  white-space: nowrap;
-
-  ${({ layout: e }) => {
-    switch (e) {
-      case "new":
-        return ge`
-          background: ${String(Cn)};
-          color: ${String(Fn)};
-          font-weight: 700;
-        `;
-      case "pro-feature":
-        return ge`
-          background: ${String(Gn)};
-          color: ${String(Cn)};
-          font-weight: 700;
-          text-transform: uppercase;
-        `;
-      default:
-        throw new Error(`Cannot render Pill: unexpected layout ${e}`);
-    }
-  }}
-`,
-        Qr = Re.div`
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-
-  margin: 0;
-  padding: 0 8px;
-  height: 20px;
-
-  border-radius: 20px;
-
-  user-select: none;
-
-  ${cr}
-  font-size: 12px;
-  line-height: 12px;
-  white-space: nowrap;
-
-  ${({ variant: e }) => ge`
-    height: 24px;
-    font-weight: 700;
-    ${((e) => {
-      switch (e) {
-        case "green":
-          return ge`
-        background: ${String([qn])};
-        color: ${String(Wn)};
-      `;
-        case "azure":
-          return ge`
-        background: ${String(tr)};
-        color: ${String(er)};
-      `;
-        case "yellow":
-          return ge`
-        background: ${String(Zn)};
-        color: ${String(Yn)};
-      `;
-        case "red":
-          return ge`
-        background: ${String(Vn)};
-        color: ${String(Un)};
-      `;
-        case "purple":
-          return ge`
-        background: ${String(rr)};
-        color: ${String(nr)};
-      `;
-        case "turquoise":
-          return ge`
-        background: ${String(Jn)};
-        color: ${String(Qn)};
-      `;
-        case "gray":
-          return ge`
-        background: ${String(In)};
-        color: ${String(Dn)};
-      `;
-        default:
-          throw new Error(`Variant unexpected: ${e}`);
-      }
-    })(e)};
-  `}
-`,
-        Jr = Re.div`
-  margin-right: 4px;
-`;
-      e.forwardRef((t, n) => {
-        if ("generic" === t.layout) {
-          const { variant: r, leftIcon: o, label: i } = t;
-          return e.createElement(
-            Qr,
-            { ref: n, variant: r || "gray" },
-            void 0 !== o && e.createElement(Jr, null, e.createElement(gr, { size: 16, content: o })),
-            i
-          );
-        }
-        const { label: r, layout: o } = t;
-        return e.createElement(Xr, { ref: n, layout: o }, r);
-      }),
-        Re.div`
-  display: flex;
-  padding: 2px;
-
-  /* Since z-index: -1 is used for the focus outline down below, it is better to promote this component to a new layer to avoid issues */
-  z-index: 0;
-`,
-        Re.div`
-  height: 20px;
-  width: 20px;
-  min-width: 20px;
-  position: relative;
-  cursor: ${({ isDisabled: e }) => (e ? "not-allowed" : "pointer")};
-  border: 1px solid;
-  border-radius: 50%;
-  border-color: ${({ isOn: e }) => String(e ? Ln : On)};
-
-  /* Middle blue circle */
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: ${({ isOn: e }) => String(e ? Ln : "transparent")};
-    height: 14px;
-    width: 14px;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-  }
-
-  /* Custom focus outline */
-  &::before {
-    content: "";
-    z-index: -1;
-    display: ${({ isInputFocused: e }) => (e ? "block" : "none")};
-    position: absolute;
-    height: 24px;
-    width: 24px;
-    top: -3px;
-    left: -3px;
-    border-radius: 50%;
-    background-color: ${String(kn)};
-  }
-
-  &:hover {
-    ${({ isDisabled: e, isOn: t }) =>
-      !e &&
-      !t &&
-      ge`
-        border-color: ${String(Cn)};
-
-        &::after {
-          background-color: "transparent";
-        }
-      `}
-  }
-
-  &:active {
-    ${({ isDisabled: e, isOn: t }) =>
-      !e &&
-      !t &&
-      ge`
-        border-color: ${String(Cn)};
-        background-color: ${String(Tn)};
-
-        &::after {
-          background-color: "transparent";
-        }
-      `}
-  }
-
-  ${({ isDisabled: e, isOn: t }) =>
-    e &&
-    ge`
-      border-color: ${String(Tn)};
-
-      &::after {
-        background-color: ${String(t ? Tn : "transparent")};
-      }
-    `}
-
-  ${({ isInputFocused: e, isOn: t }) =>
-    e &&
-    ge`
-      border-color: ${String(Ln)};
-      background-color: ${String(t ? "transparent" : Fn)};
-    `}
-`,
-        Re.input`
-  ${Cr};
-`;
-      var eo = n(7295),
-        to = function (e, t, n, r) {
-          return new (n || (n = Promise))(function (o, i) {
-            function a(e) {
-              try {
-                s(r.next(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function l(e) {
-              try {
-                s(r.throw(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function s(e) {
-              e.done
-                ? o(e.value)
-                : (function (e) {
-                    return e instanceof n
-                      ? e
-                      : new n(function (t) {
-                          t(e);
-                        });
-                  })(e.value).then(a, l);
-            }
-            s((r = r.apply(e, t || [])).next());
-          });
-        };
-      function no(e) {
-        return to(this, void 0, void 0, function* () {
-          try {
-            yield Zt("trackFromSW:", e), yield chrome.runtime.sendMessage(chrome.runtime.id, { request: Vt, event: e });
-          } catch (t) {
-            yield Zt("trackFromSW error:", t, e),
-              yield (function (...e) {
-                return Ht(this, void 0, void 0, function* () {
-                  if (yield Gt())
-                    try {
-                      chrome.runtime.sendMessage(chrome.runtime.id, { request: Kt, event: e });
-                    } catch (e) {
-                      Zt("sendLogToServiceWorker failed to send message", e);
-                    }
-                });
-              })("trackFromSW error:", t, e);
-          }
-        });
-      }
-      const ro = Re.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${String(Pn)};
-  position: relative;
-  width: 280px;
-  min-height: 580px;
-  margin: auto;
-  border: 1px solid ${String(In)};
-`,
-        oo = Re.div`
-  display: flex;
-  justify-content: center;
-`,
-        io = Re.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 280px;
-  color: ${String(Cn)};
-`,
-        ao = Re.img`
-  width: auto;
-  min-height: 150px;
-`,
-        lo = Re.div`
-  ${ur}
-  padding: 6px 0;
-`,
-        so = Re.div`
-  ${fr}
-  text-align: center;
-`,
-        co = Re.div`
-  padding: 24px 0;
-`;
-      function uo() {
-        return (
-          e.useEffect(() => {
-            no({ event: "chrome.action.error_screen_seen" });
-          }, []),
-          e.createElement(
-            ro,
-            null,
-            e.createElement(
-              oo,
-              null,
-              e.createElement(
-                io,
-                null,
-                e.createElement(ao, { src: eo, alt: "Confused PDF character" }),
-                e.createElement(lo, null, chrome.i18n.getMessage("uh_something_wrong")),
-                e.createElement(so, null, "Something went wrong, Smallpdf has crashed. Please refresh the page to continue."),
-                e.createElement(
-                  co,
-                  null,
-                  e.createElement(jr, {
-                    renderAs: "button",
-                    layout: "secondary",
-                    onClick: () => {
-                      window.location.reload();
-                    },
-                    label: "Refresh page"
-                  })
-                ),
-                e.createElement(so, null, "Should this error persist, contact our support.")
-              )
-            )
-          )
-        );
-      }
-      function fo(e) {
-        try {
-          e instanceof Error && Ft({ event: "chrome.system.unhandled_error_seen", customString1: (t = e.toString()) });
-        } catch (t) {
-          Yt(t);
-        }
-        var t;
-      }
-      const po = { error: null };
-      class ho extends e.Component {
-        constructor() {
-          super(...arguments),
-            (this.state = po),
-            (this.resetErrorBoundary = (...e) => {
-              var t, n;
-              null === (n = (t = this.props).onReset) || void 0 === n || n.call(t, ...e), this.reset();
-            });
-        }
-        static getDerivedStateFromError(e) {
-          return { error: e };
-        }
-        componentDidUpdate(e, t) {
-          var n, r;
-          const { error: o } = this.state,
-            { resetKeys: i } = this.props;
-          null !== o &&
-            null !== t.error &&
-            ((e = [], t = []) => e.length !== t.length || e.some((e, n) => !Object.is(e, t[n])))(e.resetKeys, i) &&
-            (null === (r = (n = this.props).onResetKeysChange) || void 0 === r || r.call(n, e.resetKeys, i), this.reset());
-        }
-        componentDidCatch(e, t) {
-          var n, r;
-          fo(e), null === (r = (n = this.props).onError) || void 0 === r || r.call(n, e, t);
-        }
-        reset() {
-          this.setState(po);
-        }
-        render() {
-          const { error: t } = this.state,
-            { fallbackRender: n, FallbackComponent: r, fallback: o } = this.props;
-          if (null !== t) {
-            const i = { error: t, resetErrorBoundary: this.resetErrorBoundary };
-            if (e.isValidElement(o)) return o;
-            if ("function" == typeof n) return n(i);
-            if (r) return e.createElement(r, Object.assign({}, i));
-            throw new Error("ErrorBoundary requires either a fallback, fallbackRender, or FallbackComponent prop");
-          }
-          return this.props.children;
-        }
-      }
-      var mo = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      function go() {
-        return mo(this, void 0, void 0, function* () {
-          return !(yield We());
-        });
-      }
-      function vo() {
-        return mo(this, void 0, void 0, function* () {
-          return Qt(Wt.PROFILE, null);
-        });
-      }
-      var yo = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      const wo = e.createContext({
-        isLimitationReached: !1,
-        isPro: !1,
-        tasksCount: 0,
-        isLoggedIn: !1,
-        isLimitationVisible: !1,
-        isLogInVisible: !1,
-        isAccountVisible: !1,
-        profile: {},
-        showLimitation: lt,
-        hideLimitation: lt,
-        showAccount: lt,
-        hideAccount: lt,
-        showLogIn: lt,
-        hideLogIn: lt,
-        authenticate: (e, t, n) => {},
-        logOutUser: lt
-      });
-      function bo({ children: t }) {
-        const [n, r] = e.useState(!1),
-          [o, i] = e.useState(!1),
-          [a, l] = e.useState(0),
-          [s, c] = e.useState(!1),
-          [u, d] = e.useState(!1),
-          [f, p] = e.useState(!1),
-          [h, m] = e.useState(!1),
-          [g, v] = e.useState(null),
-          y = () =>
-            yo(this, void 0, void 0, function* () {
-              yield Qe(), i(!0);
-              (yield Nt()) && (yield vn());
-            }),
-          w = (e) =>
-            yo(this, void 0, void 0, function* () {
-              if (e[Wt.USER_ACTIVE_PRO]) {
-                const e = yield Nt();
-                r(e);
-              }
-              if (e[qt.TasksCount]) {
-                const e = yield gn();
-                l(e), c(e >= 2);
-              }
-              if (e[Wt.PROFILE]) {
-                const e = yield vo();
-                v(e);
-              }
-              if (e[Wt.ACCESS_TOKEN] || e[Wt.REFRESH_TOKEN]) {
-                (yield go()) && (yield y());
-              }
-            }),
-          b = () =>
-            yo(this, void 0, void 0, function* () {
-              const e = yield go();
-              i(e);
-              const t = yield Nt();
-              r(t);
-              const n = yield vo();
-              v(n);
-              const o = yield gn();
-              l(o), c(o >= 2);
-            }),
-          E = {
-            isLimitationReached: s,
-            isPro: n,
-            tasksCount: a,
-            isLoggedIn: o,
-            isLimitationVisible: u,
-            showLimitation: () => {
-              d(!0);
-            },
-            hideLimitation: () => {
-              d(!1);
-            },
-            isLogInVisible: f,
-            showAccount: () => {
-              m(!0);
-            },
-            hideAccount: () => {
-              m(!1);
-            },
-            isAccountVisible: h,
-            showLogIn: () => {
-              p(!0), d(!1);
-            },
-            hideLogIn: () => {
-              p(!1);
-            },
-            authenticate: (e, t, n) =>
-              yo(this, void 0, void 0, function* () {
-                try {
-                  e === $e.CREDENTIALS ? (yield ct(t, n), yield y()) : yield ut(e);
-                } catch (e) {
-                  throw (i(!1), e);
-                }
-              }),
-            logOutUser: () =>
-              yo(this, void 0, void 0, function* () {
-                yield dt(), m(!1), i(!1);
-              }),
-            profile: g
-          };
-        return (
-          e.useEffect(
-            () => (
-              b(),
-              chrome.storage.onChanged.addListener(w),
-              () => {
-                chrome.storage.onChanged.removeListener(w);
-              }
-            ),
-            []
-          ),
-          e.createElement(wo.Provider, { value: E }, t)
-        );
-      }
-      var Eo = n(3869);
-      const Lo = Ie`
-  1% {
-    transform: scale(1.25);
-  }
-
-  10% {
-    transform: scale(1);
-  }
-
-  15% {
-    transform: scale(1.25);
-  }
-
-  18% {
-    transform: scale(1);
-  }
-`,
-        _o = Re(gr).attrs({ size: 16, content: Eo })`
-  color: ${String($n)};
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 4px;
-
-  @media (prefers-reduced-motion: no-preference) {
-    animation: ${Lo} 2s infinite;
-  }
-`,
-        xo = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 32px;
-  background-color: ${String(Pn)};
-`,
-        So = Re.a`
-  color: ${String(Mn)};
-  text-decoration: none;
-`,
-        Ao = Re.div`
-  ${fr}
-  color: ${String(Cn)};
-  flex: 1 1 auto;
-`,
-        ko = Re.div`
-  ${fr}
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-`,
-        Co = Re.div`
-  ${fr}
-  color: ${String(Cn)};
-
-  &:hover {
-    color: ${String(Nn)};
-  }
-
-  margin: 0 20px;
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-`;
-      function Po() {
-        return e.createElement(
-          xo,
-          null,
-          e.createElement(
-            Ao,
-            null,
-            "©",
-            " ",
-            new Date().getFullYear(),
-            " ",
-            "Smallpdf AG",
-            " — ",
-            "Made with",
-            e.createElement(_o, null),
-            "for the people of the internet."
-          ),
-          e.createElement(
-            ko,
-            null,
-            e.createElement(
-              Co,
-              null,
-              e.createElement(So, { href: "https://smallpdf.com/privacy?utm_source=ce_generic" }, "Privacy & Terms")
-            ),
-            e.createElement(
-              Co,
-              null,
-              e.createElement(So, { href: "https://smallpdf.com/support?utm_source=ce_generic", target: "_blank" }, "Contact Us")
-            )
-          )
-        );
-      }
-      const To = "#F23030",
-        Io = "#FF9F19",
-        Ro = "#EBC50C",
-        Oo = "#74D941",
-        No = "#49C8F2",
-        Do = "#7961F2",
-        Fo = "#B366FF",
-        Mo = "#FF59AC",
-        $o = "#00CC44";
-      var jo = n(5973);
-      const zo = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 18px 12px;
-  background: white;
-  box-shadow: 0 0 2px 0 ${"rgba(0, 0, 0, 0.2)"};
-`,
-        Uo = Re.img`
-  height: 24px;
-  width: auto;
-`;
-      function Vo() {
-        return e.createElement(zo, null, e.createElement(Uo, { src: jo, alt: "Smallpdf" }));
-      }
-      const Ko = Re.div`
-  display: flex;
-  flex-direction: center;
-  justify-content: flex-start;
-  align-items: center;
-  border: 1px solid transparent;
-  border-bottom: none;
-  padding: 4px 8px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  cursor: pointer;
-
-  ${({ isSelected: e }) =>
-    e &&
-    ge`
-    border-color: ${String(On)};
-  `}
-`,
-        Ho = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  border-bottom: 1px solid ${String(On)};
-  width: 100%;
-`,
-        Bo = Re.div`
-  padding: 12px 0;
-`,
-        Go = Re.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-`,
-        Yo = Re.div`
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-  padding: 24px;
-
-  ${sr("lg")} {
-    width: 800px;
-  }
-`,
-        Zo = Re.div`
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-
-  ${sr("lg")} {
-    align-items: center;
-  }
-`,
-        Wo = Re.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  min-height: 100vh;
-`;
-      function qo({ tabs: t, initialTabIndex: n = 0 }) {
-        const [r, o] = e.useState(n),
-          i = [],
-          a = [];
-        Object.keys(t).forEach((e) => {
-          const n = t[e];
-          i.push(e), a.push(n);
-        });
-        const l = (e) => () => {
-          o(e);
-        };
-        return e.createElement(
-          Wo,
-          null,
-          e.createElement(Vo, null),
-          e.createElement(
-            Zo,
-            null,
-            e.createElement(
-              Yo,
-              null,
-              e.createElement(
-                Ho,
-                null,
-                i.map((t, n) => e.createElement(Ko, { key: t, isSelected: n === r, onClick: l(n) }, t))
-              ),
-              e.createElement(
-                Go,
-                null,
-                a.map((t, n) => (n === r ? e.createElement(Bo, { key: i[n] }, t) : null))
-              )
-            )
-          ),
-          e.createElement(Po, null)
-        );
-      }
-      const Xo = Re.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  margin-bottom: 8px;
-`,
-        Qo = Re.form`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  width: 100%;
-  max-width: 520px;
-`;
-      function Jo({ onSubmit: t }) {
-        const [n, r] = e.useState(""),
-          [o, i] = e.useState("");
-        return e.createElement(
-          Qo,
-          {
-            action: "",
-            onSubmit: (e) => {
-              e.preventDefault(), t(n, o);
-            }
-          },
-          e.createElement(
-            Xo,
-            null,
-            e.createElement(Vr, {
-              type: "email",
-              onChange: (e) => {
-                r(e.target.value);
-              },
-              placeholder: "email",
-              value: n,
-              name: "login[username]",
-              required: !0
-            })
-          ),
-          e.createElement(
-            Xo,
-            null,
-            e.createElement(Vr, {
-              type: "password",
-              onChange: (e) => {
-                i(e.target.value);
-              },
-              placeholder: "password",
-              value: o,
-              name: "login[password]",
-              required: !0
-            })
-          ),
-          e.createElement(Xo, null, e.createElement(jr, { renderAs: "button", layout: "primary", label: "Log In", type: "submit" }))
-        );
-      }
-      const ei = Re.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 48px;
-  height: 48px;
-  
-  div {
-    animation: cubeAnimation 1600ms ease 0ms infinite;
-  }
-
-  div:nth-child(7) {
-    animation-delay: 0ms; 
-  }
-  
-  div:nth-child(4) {
-    animation-delay: 100ms; 
-  }
-  div:nth-child(8) {
-    animation-delay: 100ms; 
-  }
-  
-  div:nth-child(1) {
-    animation-delay: 200ms; 
-  }
-  div:nth-child(5) {
-    animation-delay: 200ms; 
-  }
-  div:nth-child(9) {
-    animation-delay: 200ms; 
-  }
-  
-  div:nth-child(2) {
-    animation-delay: 300ms; 
-  }
-  div:nth-child(6) {
-    animation-delay: 300ms; 
-  }
-  
-  div:nth-child(3) {
-    animation-delay: 400ms; 
-  }
-
-  @keyframes cubeAnimation {
-    0% {
-      transform: scale(1);
-    }
-    75% {
-      transform: scale(0);
-    }  
-    100% {
-      transform: scale(1);
-    }
-  }
-`,
-        ti = Re.div`
-  width: 33%;
-  height: 33%;
-  background-color: ${({ color: e }) => e};
-`,
-        ni = [To, Io, Ro, No, $o, Oo, Do, Fo, Mo];
-      function ri() {
-        return e.createElement(
-          ei,
-          null,
-          ni.map((t) => e.createElement(ti, { key: t.toString(), color: t.toString() }))
-        );
-      }
-      const oi = Re.div`
-  border: 1px solid transparent;
-  padding: 4px 8px;
-  border-radius: 8px;
-  color: ${String(Cn)};
-
-  ${({ status: e }) => {
-    switch (e) {
-      case "valid":
-        return ge`
-          border-color: ${String(Xn)};
-          background-color: ${String(qn)};
-        `;
-      case "expired":
-        return ge`
-          border-color: ${String(Bn)};
-          background-color: ${String(Hn)};
-        `;
-      case "invalid":
-        return ge`
-          border-color: ${String(Kn)};
-          background-color: ${String(Vn)};
-        `;
-      default:
-        return null;
-    }
-  }}
-`,
-        ii = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
-`,
-        ai = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`,
-        li = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-`;
-      var si = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      const ci = Ie`
-  0% {
-    transform: translateY(0);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-`,
-        ui = Re.div`
-  position: absolute;
-  display: flex;
-
-  right: 0;
-  justify-content: center;
-  align-items: center;
-
-  top: 0;
-
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: #2bd982;
-
-  text-align: center;
-  font-size: 14px;
-  color: white;
-
-  transform: translateY(-30px);
-  opacity: 0;
-
-  pointer-events: none;
-
-  animation: ${ci} 1.5s ease-out;
-`,
-        di = Re.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`,
-        fi = Re.div`
-  width: 100%;
-  border-bottom: 1px solid ${String(On)};
-  padding-bottom: 12px;
-  margin-bottom: 12px;
-`,
-        pi = Re.div`
-  ${dr}
-  color: ${String(Cn)};
-  padding-bottom: 12px;
-  position: relative;
-`,
-        hi = Re.div`
-  ${hr}
-  font-weight: 700;
-`,
-        mi = Re.div``,
-        gi = Re.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-`;
-      function vi() {
-        var t, n, r, o, i, a, l, s, c, u, d, f, p, h;
-        const m = e.useRef(null),
-          g = e.useRef(null),
-          [v, y] = e.useState(!1),
-          [w, b] = e.useState(!1),
-          [E, L] = e.useState(it.IDLE),
-          [_, x] = e.useState(it.IDLE),
-          [S, A] = e.useState(!1),
-          k = () =>
-            si(this, void 0, void 0, function* () {
-              x(it.PENDING), (m.current = yield Be()), (g.current = yield Ye());
-              const e = yield Ze(),
-                t = yield We();
-              console.log("readableTokens.current", g.current), y(e), b(t), x(it.IDLE), yield Qe();
-            }),
-          C = (e) => () => {
-            navigator.clipboard.writeText(e), A(!0), setTimeout(() => A(!1), 1800);
-            const t = window.getSelection();
-            t && t.removeAllRanges();
-          },
-          P = (t) =>
-            t
-              ? t.expireAt -
-                  (function (e) {
-                    return 1e3 * e;
-                  })(160) <=
-                Date.now()
-                ? e.createElement(oi, { status: "expired" }, "Expired")
-                : e.createElement(oi, { status: "valid" }, "Valid")
-              : e.createElement(oi, { status: "invalid" }, "Invalid");
-        return (
-          e.useEffect(() => {
-            k();
-          }, []),
-          e.createElement(
-            gi,
-            null,
-            e.createElement(pi, null, e.createElement("span", null, "Tokens"), S && e.createElement(ui, null, "Copied!")),
-            e.createElement(
-              ii,
-              null,
-              e.createElement(
-                ai,
-                null,
-                e.createElement(hi, null, "Access Token expiration date:"),
-                e.createElement(oi, null, P(null === (t = g.current) || void 0 === t ? void 0 : t.accessToken)),
-                e.createElement(
-                  mi,
-                  null,
-                  new Date(
-                    null === (r = null === (n = g.current) || void 0 === n ? void 0 : n.accessToken) || void 0 === r ? void 0 : r.expireAt
-                  ).toUTCString()
-                )
-              ),
-              (null === (i = null === (o = g.current) || void 0 === o ? void 0 : o.accessToken) || void 0 === i ? void 0 : i.value) &&
-                e.createElement(
-                  li,
-                  null,
-                  e.createElement(jr, {
-                    renderAs: "button",
-                    layout: "outline",
-                    label: "Copy value",
-                    onClick: C(
-                      (null === (l = null === (a = g.current) || void 0 === a ? void 0 : a.accessToken) || void 0 === l
-                        ? void 0
-                        : l.value) || ""
-                    )
-                  })
-                )
-            ),
-            e.createElement(
-              ii,
-              null,
-              e.createElement(
-                ai,
-                null,
-                e.createElement(hi, null, "Refresh Token expiration date:"),
-                e.createElement(oi, null, P(null === (s = g.current) || void 0 === s ? void 0 : s.refreshToken)),
-                e.createElement(
-                  mi,
-                  null,
-                  new Date(
-                    null === (u = null === (c = g.current) || void 0 === c ? void 0 : c.refreshToken) || void 0 === u ? void 0 : u.expireAt
-                  ).toUTCString()
-                )
-              ),
-              (null === (f = null === (d = g.current) || void 0 === d ? void 0 : d.refreshToken) || void 0 === f ? void 0 : f.value) &&
-                e.createElement(
-                  li,
-                  null,
-                  e.createElement(jr, {
-                    renderAs: "button",
-                    layout: "outline",
-                    label: "Copy value",
-                    onClick: C(
-                      (null === (h = null === (p = g.current) || void 0 === p ? void 0 : p.refreshToken) || void 0 === h
-                        ? void 0
-                        : h.value) || ""
-                    )
-                  })
-                )
-            ),
-            e.createElement(fi, null),
-            e.createElement(pi, null, "Test Authentication"),
-            e.createElement(
-              ii,
-              null,
-              e.createElement(hi, null, "Test authenticated request (", E, "):"),
-              e.createElement(jr, {
-                renderAs: "button",
-                layout: "outline",
-                label: "Test auth request",
-                onClick: () =>
-                  si(this, void 0, void 0, function* () {
-                    L(it.PENDING);
-                    try {
-                      yield (() =>
-                        si(this, void 0, void 0, function* () {
-                          const e = yield yt("https://filestorage.smallpdf.com/v2/files", {
-                              headers: { Accept: "application/json", Pragma: "no-cache" }
-                            }),
-                            t = yield e.json();
-                          console.log("result", t);
-                        }))(),
-                        yield k(),
-                        L(it.COMPLETED);
-                    } catch (e) {
-                      console.log("error", e), L(it.FAILED);
-                    }
-                  })
-              })
-            ),
-            e.createElement(
-              ii,
-              null,
-              e.createElement(hi, null, "Test authenticated request (", E, "):"),
-              e.createElement(jr, {
-                renderAs: "button",
-                layout: "outline",
-                label: "Get pro account",
-                onClick: () =>
-                  si(this, void 0, void 0, function* () {
-                    L(it.PENDING);
-                    try {
-                      yield (() =>
-                        si(this, void 0, void 0, function* () {
-                          const e = yield yt(`${gt}/pro/account`, { headers: { Accept: "application/json" } }),
-                            t = yield e.json();
-                          console.log("result", t);
-                        }))(),
-                        yield k(),
-                        L(it.COMPLETED);
-                    } catch (e) {
-                      console.log("error", e), L(it.FAILED);
-                    }
-                  })
-              })
-            ),
-            e.createElement(
-              ii,
-              null,
-              e.createElement(hi, null, "Refresh access token:"),
-              e.createElement(jr, {
-                renderAs: "button",
-                isDisabled: w,
-                layout: "outline",
-                label: "refresh access token",
-                onClick: () =>
-                  si(this, void 0, void 0, function* () {
-                    try {
-                      x(it.PENDING), yield ft(), yield k(), x(it.IDLE);
-                    } catch (e) {
-                      console.log("error", e), x(it.FAILED);
-                    }
-                  })
-              })
-            ),
-            e.createElement(fi, null),
-            e.createElement(pi, null, "Login/Signup"),
-            _ === it.PENDING && e.createElement(ri, null),
-            _ !== it.PENDING &&
-              e.createElement(
-                e.Fragment,
-                null,
-                !w &&
-                  e.createElement(
-                    ii,
-                    null,
-                    e.createElement(hi, null, "Logout:"),
-                    e.createElement(jr, {
-                      renderAs: "button",
-                      layout: "outline",
-                      label: "Logout",
-                      onClick: () =>
-                        si(this, void 0, void 0, function* () {
-                          x(it.PENDING), yield dt(), yield k(), x(it.IDLE);
-                        })
-                    })
-                  ),
-                v &&
-                  e.createElement(
-                    "div",
-                    null,
-                    e.createElement(
-                      di,
-                      null,
-                      e.createElement(
-                        ii,
-                        null,
-                        e.createElement(jr, {
-                          renderAs: "button",
-                          layout: "outline",
-                          label: "log in with Google",
-                          onClick: () =>
-                            si(this, void 0, void 0, function* () {
-                              x(it.PENDING);
-                              try {
-                                yield ut($e.GOOGLE), yield k(), x(it.IDLE);
-                              } catch (e) {
-                                console.log(e), x(it.FAILED);
-                              }
-                            })
-                        })
-                      ),
-                      e.createElement(
-                        ii,
-                        null,
-                        e.createElement(jr, {
-                          renderAs: "button",
-                          layout: "outline",
-                          label: "log in with Facebook",
-                          onClick: () =>
-                            si(this, void 0, void 0, function* () {
-                              x(it.PENDING);
-                              try {
-                                yield ut($e.FACEBOOK), yield k(), x(it.IDLE);
-                              } catch (e) {
-                                console.log(e), x(it.FAILED);
-                              }
-                            })
-                        })
-                      )
-                    ),
-                    e.createElement(Jo, {
-                      onSubmit: (e, t) =>
-                        si(this, void 0, void 0, function* () {
-                          x(it.PENDING);
-                          try {
-                            yield ct(e, t), yield k(), x(it.IDLE);
-                          } catch (e) {
-                            console.log(e), x(it.FAILED);
-                          }
-                        })
-                    })
-                  ),
-                _ === it.FAILED && e.createElement("div", null, "Error")
-              )
-          )
-        );
-      }
-      var yi,
-        wi,
-        bi = function (e, t, n, r) {
-          return new (n || (n = Promise))(function (o, i) {
-            function a(e) {
-              try {
-                s(r.next(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function l(e) {
-              try {
-                s(r.throw(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function s(e) {
-              e.done
-                ? o(e.value)
-                : (function (e) {
-                    return e instanceof n
-                      ? e
-                      : new n(function (t) {
-                          t(e);
-                        });
-                  })(e.value).then(a, l);
-            }
-            s((r = r.apply(e, t || [])).next());
-          });
-        };
-      !(function (e) {
-        e.SERP_POPUP = "serp_popup";
-      })(yi || (yi = {})),
-        (function (e) {
-          (e.ORIGINAL = "original"),
-            (e.VARIANT = "variant"),
-            (e.VARIANT_1 = "variant_1"),
-            (e.VARIANT_2 = "variant_2"),
-            (e.VARIANT_3 = "variant_3"),
-            (e.VARIANT_4 = "variant_4");
-        })(wi || (wi = {}));
-      const Ei = [
-        {
-          key: yi.SERP_POPUP,
-          segments: { [wi.ORIGINAL]: 0.5, [wi.VARIANT]: 0.5 },
-          version: 1,
-          keepSegmented: !0,
-          isSegmentationEnabled: () =>
-            bi(void 0, void 0, void 0, function* () {
-              return !0;
-            }),
-          isActive: () =>
-            bi(void 0, void 0, void 0, function* () {
-              return !0;
-            })
-        }
-      ];
-      var Li = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      function _i(e) {
-        return Li(this, void 0, void 0, function* () {
-          return e.version > 1 ? `${e.key}_v${e.version}` : e.key;
-        });
-      }
-      function xi(e) {
-        return Ei.find((t) => t.key === e);
-      }
-      function Si(e) {
-        const t = Object.keys(e.segments),
-          n = Object.values(e.segments).map((e) => (null != e ? e : 0)),
-          r = n.reduce((e, t) => e + t, 0);
-        let o = 0;
-        const i = n.map((e) => ((o = e + o), o)),
-          a = Math.random() * r;
-        return t[i.findIndex((e) => e > a)];
-      }
-      function Ai(e) {
-        return Li(this, void 0, void 0, function* () {
-          if (!xi(e)) return !1;
-          const t = yield tn(qt.Experiments, {});
-          return !!Object.keys(t).find((t) => t === e);
-        });
-      }
-      function ki() {
-        return Li(this, void 0, void 0, function* () {
-          const e = yield tn(qt.Experiments, {});
-          return Object.keys(e)
-            .filter((e) =>
-              Li(this, void 0, void 0, function* () {
-                return (function (e) {
-                  return Li(this, void 0, void 0, function* () {
-                    const t = xi(e);
-                    return !!t && t.isActive();
-                  });
-                })(e);
-              })
-            )
-            .reduce((t, n) => Object.assign(Object.assign({}, t), { [n]: e[n] }), {});
-        });
-      }
-      function Ci(e) {
-        var t;
-        return Li(this, void 0, void 0, function* () {
-          if (!(yield xi(e))) return wi.ORIGINAL;
-          const n = yield tn(qt.Experiments, {});
-          return (null === (t = n[e]) || void 0 === t ? void 0 : t.segment) || wi.ORIGINAL;
-        });
-      }
-      function Pi(e) {
-        return Li(this, void 0, void 0, function* () {
-          return navigator.locks.request(Et, { ifAvailable: !0 }, (t) =>
-            Li(this, void 0, void 0, function* () {
-              if ((null == t ? void 0 : t.name) !== Et) return wi.ORIGINAL;
-              const n = xi(e);
-              if (!n) return Yt(`triggerAB: experiment ${e} undefined`), wi.ORIGINAL;
-              if (yield Ai(e)) {
-                const t = yield (function (e) {
-                  return Li(this, void 0, void 0, function* () {
-                    return (yield ki())[e];
-                  });
-                })(e);
-                if (t && n.version > t.version && n.keepSegmented) return Ci(e);
-                if (t && n.version === t.version) return Ci(e);
-              }
-              const r = yield n.isActive(),
-                o = yield n.isSegmentationEnabled();
-              if (!r || !o) return wi.ORIGINAL;
-              const i = Si(n),
-                a = yield tn(qt.Experiments, {}),
-                l = yield _i(n),
-                s = Object.assign(Object.assign({}, a), { [e]: { segment: i, version: n.version, name: l } });
-              var c, u;
-              return (
-                yield nn({ [qt.Experiments]: s }),
-                Yt(`triggerAB: ${l} -> ${i}`),
-                yield chrome.runtime.sendMessage(chrome.runtime.id, {
-                  request: Vt,
-                  event: ((c = l), (u = i), { event: "web.ab.sample", customString1: c, customString2: u })
-                }),
-                i
-              );
-            })
-          );
-        });
-      }
-      var Ti = n(8638),
-        Ii = function (e, t, n, r) {
-          return new (n || (n = Promise))(function (o, i) {
-            function a(e) {
-              try {
-                s(r.next(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function l(e) {
-              try {
-                s(r.throw(e));
-              } catch (e) {
-                i(e);
-              }
-            }
-            function s(e) {
-              e.done
-                ? o(e.value)
-                : (function (e) {
-                    return e instanceof n
-                      ? e
-                      : new n(function (t) {
-                          t(e);
-                        });
-                  })(e.value).then(a, l);
-            }
-            s((r = r.apply(e, t || [])).next());
-          });
-        };
-      const Ri = Re.div`
-  position: relative;
-  display: flex;
-
-  min-height: 42px;
-  box-sizing: border-box;
-  padding: 6px 12px;
-
-  background: white;
-  border-radius: 4px;
-
-  &:nth-child(odd) {
-    background: #f5f5f5;
-  }
-`,
-        Oi = Re.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  overflow: hidden;
-`,
-        Ni = Re.div`
-  display: flex;
-  align-items: center;
-  flex: 1 1 auto;
-`,
-        Di = Re.div`
-  padding: 2px 0;
-  font-size: 12px;
-  color: #9e9e9e;
-`,
-        Fi = Re.div`
-  margin-right: 4px;
-
-  font-size: 16px;
-  color: #212121;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  font-weight: 700;
-`,
-        Mi = Re.div`
-  margin-right: 4px;
-
-  font-size: 16px;
-  color: #212121;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-`,
-        $i = Ie`
-  0% {
-    transform: translateY(0);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-30px);
-    opacity: 0;
-  }
-`,
-        ji = Re.div`
-  position: absolute;
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  top: 0;
-  left: 30px;
-
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: #2BD982;
-
-  text-align: center;
-  font-size: 14px;
-  color: white;
-
-  transform: translateY(-30px);
-  opacity: 0;
-
-  pointer-events: none;
-
-  animation: ${$i} 1.5s ease-out;
-`,
-        zi = Re.div`
-  display: none;
-  margin: 0 4px;
-  cursor: pointer;
-  color: ${String(Cn)};
-
-  ${Ri}:hover & {
-    display: block;
-  }
-`,
-        Ui = Re.img.attrs(() => ({ src: Ti, alt: "Untrigger icon" }))`
-  display: block;
-  width: 8px;
-  height: 8px;
-`,
-        Vi = Re.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex: 0 0 auto;
-  margin-left: 12px;
-`,
-        Ki = Re.div`
-  margin: 0 4px;
-`,
-        Hi = Re.div`
-  margin: 0 4px;
-`;
-      function Bi({ test: t, isTriggered: n, isActive: r, activeSegment: o, onTrigger: i, onUntrigger: a, onSegmentChange: l }) {
-        const [s, c] = e.useState(!1),
-          u = (e) =>
-            Ii(this, void 0, void 0, function* () {
-              const t = yield _i(e);
-              navigator.clipboard.writeText(t), c(!0), setTimeout(() => c(!1), 1800);
-              const n = window.getSelection();
-              n && n.removeAllRanges();
-            });
-        return e.createElement(
-          Ri,
-          null,
-          e.createElement(
-            Oi,
-            null,
-            e.createElement(
-              Ni,
-              null,
-              e.createElement(Fi, { title: t.key, onDoubleClick: () => u(t) }, t.key),
-              t.version > 1 && e.createElement(Mi, null, `version: ${t.version || 1}`),
-              n && e.createElement(zi, { onClick: a }, e.createElement(Ui, { title: "Untrigger" }))
-            ),
-            !(() => {
-              const e = [];
-              return (
-                Object.values(t.segments).forEach((t) => {
-                  e.includes(t) || e.push(t);
-                }),
-                1 === e.length
-              );
-            })() &&
-              e.createElement(
-                Di,
-                null,
-                Object.entries(t.segments)
-                  .map(([e, t]) => `${e}: ${100 * t}%`)
-                  .join("; ")
-              )
-          ),
-          s && e.createElement(ji, null, "Copied!"),
-          e.createElement(
-            Vi,
-            null,
-            n
-              ? e.createElement(
-                  Ki,
-                  null,
-                  (() => {
-                    const e = Object.keys(t.segments);
-                    return 2 === e.length && e.includes(wi.ORIGINAL) && e.includes(wi.VARIANT);
-                  })()
-                    ? e.createElement(qr, { checked: o === wi.VARIANT, disabled: !r, onChange: (e) => l(e ? wi.VARIANT : wi.ORIGINAL) })
-                    : e.createElement(Br, {
-                        options: Object.keys(t.segments).map((e) => ({ key: e, label: e })),
-                        value: o || void 0,
-                        disabled: !r,
-                        onChange: (e) => l(e)
-                      })
-                )
-              : e.createElement(
-                  Hi,
-                  null,
-                  e.createElement(jr, { renderAs: "button", isDisabled: !r, onClick: i, layout: "outline", label: "Trigger" })
-                )
-          )
-        );
-      }
-      var Gi = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      const Yi = Re.div`
-  display: flex;
-  padding: 18px 0 12px 0;
-`,
-        Zi = Re.div`
-  flex: 1 1 auto;
-  font-size: 18px;
-  font-weight: bold;
-`,
-        Wi = Re.div`
-  font-size: 14px;
-`,
-        qi = Re.div`
-  padding: 6px 0;
-`,
-        Xi = Re.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-`;
-      function Qi() {
-        const [t, n] = e.useState([]),
-          [r, o] = e.useState([]),
-          i = () =>
-            Gi(this, void 0, void 0, function* () {
-              const e = [],
-                t = [];
-              yield Promise.all(
-                Ei.map((n) =>
-                  Gi(this, void 0, void 0, function* () {
-                    (yield Ai(n.key))
-                      ? e.push(Object.assign(Object.assign({}, n), { activeSegment: yield Ci(n.key), isActive: yield n.isActive() }))
-                      : t.push(Object.assign(Object.assign({}, n), { activeSegment: void 0, isActive: yield n.isActive() }));
-                  })
-                )
-              ),
-                n(e),
-                o(t);
-            }),
-          a = (e) =>
-            Gi(this, void 0, void 0, function* () {
-              const t = xi(e);
-              if (!t) return;
-              const n = Si(t),
-                r = yield tn(qt.Experiments, {}),
-                o = yield _i(t);
-              yield nn({ [qt.Experiments]: Object.assign(Object.assign({}, r), { [e]: { segment: n, version: t.version, name: o } }) }),
-                Yt(`triggerAB: ${o} -> ${n}`),
-                i();
-            }),
-          l = (e) =>
-            Gi(this, void 0, void 0, function* () {
-              if (!xi(e)) return;
-              const t = yield tn(qt.Experiments, {});
-              delete t[e], yield nn({ [qt.Experiments]: t }), i();
-            }),
-          s = (e, t) =>
-            Gi(this, void 0, void 0, function* () {
-              const n = xi(e);
-              if (!n) return;
-              const r = yield tn(qt.Experiments, {}),
-                o = yield _i(n);
-              yield nn({ [qt.Experiments]: Object.assign(Object.assign({}, r), { [e]: { segment: t, version: n.version, name: o } }) }),
-                i();
-            }),
-          c = (e, t) => {
-            "sync" === t && e[qt.Experiments] && i();
-          };
-        return (
-          e.useEffect(
-            () => (
-              i(),
-              chrome.storage.onChanged.addListener(c),
-              () => {
-                chrome.storage.onChanged.removeListener(c);
-              }
-            ),
-            []
-          ),
-          e.createElement(
-            Xi,
-            null,
-            e.createElement(
-              "div",
-              null,
-              t.length > 0 &&
-                e.createElement(
-                  e.Fragment,
-                  null,
-                  e.createElement(
-                    Yi,
-                    null,
-                    e.createElement(Zi, null, "Triggered Experiments"),
-                    e.createElement(
-                      Wi,
-                      null,
-                      e.createElement(jr, {
-                        onClick: () =>
-                          Gi(this, void 0, void 0, function* () {
-                            yield nn({ [qt.Experiments]: {} }), i();
-                          }),
-                        label: "Reset all",
-                        layout: "ghost",
-                        renderAs: "button"
-                      })
-                    )
-                  ),
-                  e.createElement(
-                    qi,
-                    null,
-                    t
-                      .reverse()
-                      .map((t) =>
-                        e.createElement(Bi, {
-                          key: t.key,
-                          test: t,
-                          activeSegment: t.activeSegment,
-                          isTriggered: !0,
-                          isActive: t.isActive,
-                          onTrigger: () => a(t.key),
-                          onUntrigger: () => l(t.key),
-                          onSegmentChange: (e) => s(t.key, e)
-                        })
-                      )
-                  )
-                ),
-              r.length > 0 &&
-                e.createElement(
-                  e.Fragment,
-                  null,
-                  e.createElement(Yi, null, e.createElement(Zi, null, "Inactive Experiments")),
-                  e.createElement(
-                    qi,
-                    null,
-                    r
-                      .reverse()
-                      .map((t) =>
-                        e.createElement(Bi, {
-                          key: t.key,
-                          activeSegment: t.activeSegment,
-                          isTriggered: !1,
-                          isActive: t.isActive,
-                          test: t,
-                          onTrigger: () => a(t.key),
-                          onUntrigger: () => l(t.key),
-                          onSegmentChange: (e) => s(t.key, e)
-                        })
-                      )
-                  )
-                )
-            )
-          )
-        );
-      }
-      var Ji = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      var ea = function (e, t, n, r) {
-        return new (n || (n = Promise))(function (o, i) {
-          function a(e) {
-            try {
-              s(r.next(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function l(e) {
-            try {
-              s(r.throw(e));
-            } catch (e) {
-              i(e);
-            }
-          }
-          function s(e) {
-            e.done
-              ? o(e.value)
-              : (function (e) {
-                  return e instanceof n
-                    ? e
-                    : new n(function (t) {
-                        t(e);
-                      });
-                })(e.value).then(a, l);
-          }
-          s((r = r.apply(e, t || [])).next());
-        });
-      };
-      const ta = Re.div`
-  ${dr}
-  color: ${String(Cn)};
-  padding-bottom: 12px;
-  position: relative;
-`,
-        na = Re.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-`,
-        ra = Re.div`
-  ${hr}
-  font-weight: 700;
-`;
-      function oa() {
-        const {
-          tasksCount: t,
-          isLimitationReached: n,
-          isPro: r
-        } = (function () {
-          const t = e.useContext(wo);
-          if (!t) throw new Error("useAccount: AccountProvider is missing.");
-          return t;
-        })();
-        return e.createElement(
-          na,
-          null,
-          e.createElement(ta, null, "Account"),
-          e.createElement(
-            ii,
-            null,
-            e.createElement(
-              ai,
-              null,
-              e.createElement(ra, null, "Pro status:"),
-              " ",
-              r ? e.createElement(oi, { status: "valid" }, "Pro user") : e.createElement(oi, { status: "expired" }, "Free user")
-            )
-          ),
-          e.createElement(
-            ii,
-            null,
-            e.createElement(
-              ai,
-              null,
-              e.createElement(ra, null, "Free daily tasks completed:", t),
-              " ",
-              n ? e.createElement(oi, { status: "invalid" }, "Blocked") : e.createElement(oi, { status: "valid" }, "OK")
-            ),
-            e.createElement(
-              li,
-              null,
-              e.createElement(jr, {
-                renderAs: "button",
-                layout: "outline",
-                label: "Reset",
-                onClick: () =>
-                  ea(this, void 0, void 0, function* () {
-                    yield vn();
-                  })
-              })
-            )
-          ),
-          e.createElement(
-            ii,
-            null,
-            e.createElement(ai, null, e.createElement(ra, null, "Initialize storage")),
-            e.createElement(
-              li,
-              null,
-              e.createElement(jr, {
-                renderAs: "button",
-                layout: "outline",
-                label: "Initialize storages",
-                onClick: () =>
-                  ea(this, void 0, void 0, function* () {
-                    !(function () {
-                      Ji(this, void 0, void 0, function* () {
-                        yield Jt({
-                          [Wt.MIGRATIONS_SCHEMA_VERSION]: Date.now(),
-                          [Wt.IS_PDIUM_OPEN_ON_LOAD]: null,
-                          [Wt.LOCAL_TOKEN]: null,
-                          [Wt.USER_COUNTRY_GEO_IP]: null,
-                          [Wt.USER_PROFILE]: null,
-                          [Wt.USER_ACTIVE_PRO]: !1,
-                          [Wt.USER_RT]: !1,
-                          [Wt.ACCESS_TOKEN]: null,
-                          [Wt.REFRESH_TOKEN]: null,
-                          [Wt.TRACKING_EVENTS]: [],
-                          [Wt.USER_DATA_SYNCED]: !1,
-                          [Wt.USER_DATA_LAST_SYNC]: null,
-                          [Wt.FILE_HANDLE]: null,
-                          [Wt.FILE_HANDLE_RESULT]: null,
-                          [Wt.TASK]: null,
-                          [Wt.SYSTEM_OS]: null,
-                          [Wt.SYSTEM_LOCALE]: "en",
-                          [Wt.INSTALLATION_DATE]: Date.now(),
-                          [Wt.PROFILE]: null,
-                          [Wt.AUTH_CODE_VERIFIER]: null,
-                          [Wt.AUTH_STATE_CODE]: null,
-                          [Wt.AUTH_PROVIDER]: null,
-                          [Wt.FAILED_LOGIN_ATTEMPTS]: []
-                        }),
-                          yield nn({
-                            [qt.PreferenceGoogleSERPEnabled]: !0,
-                            [qt.PreferenceAutoDownloadEnabled]: !1,
-                            [qt.Experiments]: {},
-                            [qt.TasksCount]: 0,
-                            [qt.FreeTasksResetTime]: null,
-                            [qt.MIGRATIONS_SCHEMA_VERSION]: Date.now()
-                          });
-                      });
-                    })();
-                  })
-              })
-            )
-          ),
-          e.createElement(
-            ii,
-            null,
-            e.createElement(ai, null, e.createElement(ra, null, "Print storages")),
-            e.createElement(
-              li,
-              null,
-              e.createElement(jr, {
-                renderAs: "button",
-                layout: "outline",
-                label: "Print storages",
-                onClick: () =>
-                  ea(this, void 0, void 0, function* () {
-                    !(function () {
-                      Xt(this, void 0, void 0, function* () {
-                        console.log("============= LOCAL =============");
-                        const e = Object.values(Wt),
-                          t = yield Qt(e);
-                        console.log(t), console.log("============= SYNC =============");
-                        const n = Object.values(qt),
-                          r = yield tn(n);
-                        console.log(r);
-                      });
-                    })();
-                  })
-              })
-            )
-          )
-        );
-      }
-      var ia;
+      const jt = "#F23030",
+        zt = "#FF9F19",
+        Ut = "#EBC50C",
+        Vt = "#74D941",
+        Kt = "#49C8F2",
+        Ht = "#7961F2",
+        Bt = "#B366FF",
+        Gt = "#FF59AC",
+        Yt = "#00CC44";
+      var Zt;
       !(function (e) {
         (e.APPLICATION_JSON = "application/json"),
           (e.APPLICATION_PDF = "application/pdf"),
@@ -13544,58 +9999,58 @@
           (e.IMAGE_TIFF = "image/tiff"),
           (e.IMAGE_SVG = "image/svg+xml"),
           (e.UNKNOWN = "application/octet-stream");
-      })(ia || (ia = {}));
-      ia.APPLICATION_JSON,
-        ia.APPLICATION_PDF,
-        ia.APPLICATION_ZIP,
-        ia.APPLICATION_DOC,
-        ia.APPLICATION_DOCX,
-        ia.APPLICATION_XLS,
-        ia.APPLICATION_XLSX,
-        ia.APPLICATION_PPT,
-        ia.APPLICATION_PPTX,
-        ia.IMAGE_JPEG,
-        ia.IMAGE_GIF,
-        ia.IMAGE_BMP,
-        ia.IMAGE_PNG,
-        ia.IMAGE_TIFF,
-        ia.IMAGE_SVG;
-      var aa = n(1899),
-        la = n(7861),
-        sa = n(5802),
-        ca = n(1215),
-        ua = n(1432),
-        da = n(471),
-        fa = n(9269),
-        pa = n(5519),
-        ha = n(5487),
-        ma = n(1593),
-        ga = n(8405),
-        va = n(3850),
-        ya = n(387),
-        wa = n(6232),
-        ba = n(4661),
-        Ea = n(6070),
-        La = n(7245),
-        _a = n(8786),
-        xa = n(6071),
-        Sa = n(1937),
-        Aa = n(3302),
-        ka = n(5971),
-        Ca = n(2536),
-        Pa = n(7430),
-        Ta = n(7071),
-        Ia = n(8345),
-        Ra = n(9619),
-        Oa = n(2732),
-        Na = n(7634),
-        Da = n(6628),
-        Fa = n(3810),
-        Ma = n(589),
-        $a = n(6653),
-        ja = n(7803),
-        za = n(215);
-      const Ua = {
+      })(Zt || (Zt = {}));
+      Zt.APPLICATION_JSON,
+        Zt.APPLICATION_PDF,
+        Zt.APPLICATION_ZIP,
+        Zt.APPLICATION_DOC,
+        Zt.APPLICATION_DOCX,
+        Zt.APPLICATION_XLS,
+        Zt.APPLICATION_XLSX,
+        Zt.APPLICATION_PPT,
+        Zt.APPLICATION_PPTX,
+        Zt.IMAGE_JPEG,
+        Zt.IMAGE_GIF,
+        Zt.IMAGE_BMP,
+        Zt.IMAGE_PNG,
+        Zt.IMAGE_TIFF,
+        Zt.IMAGE_SVG;
+      var Wt = n(1899),
+        qt = n(7861),
+        Xt = n(5802),
+        Qt = n(1215),
+        Jt = n(1432),
+        en = n(471),
+        tn = n(9269),
+        nn = n(5519),
+        rn = n(5487),
+        on = n(1593),
+        an = n(8405),
+        ln = n(3850),
+        sn = n(387),
+        cn = n(6232),
+        un = n(4661),
+        dn = n(6070),
+        fn = n(7245),
+        pn = n(8786),
+        hn = n(6071),
+        mn = n(1937),
+        gn = n(3302),
+        vn = n(5971),
+        yn = n(2536),
+        wn = n(7430),
+        bn = n(7071),
+        En = n(8345),
+        Ln = n(9619),
+        _n = n(2732),
+        xn = n(7634),
+        Sn = n(6628),
+        An = n(3810),
+        kn = n(589),
+        Cn = n(6653),
+        Pn = n(7803),
+        Tn = n(215);
+      const In = {
           compress: {
             pt: [
               "comprimir pdf",
@@ -15262,22 +11717,22 @@
             ]
           }
         },
-        Va = [
+        Rn = [
           {
             key: "compress",
             translationKey: "compress",
             pdfiumTranslationKey: "11wp3g5",
             actionTranslationKey: "compress",
             title: "Compress PDF",
-            iconLegacy: aa,
-            icon: xa,
-            color: To,
+            iconLegacy: Wt,
+            icon: hn,
+            color: jt,
             url: "https://smallpdf.com/compress-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["compress pdfs", "small", "reduce size", "reduce pdf size", "make smaller", "make pdf smaller", "email", "send"],
-            serpKeywords: Ua.compress,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.compress,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "converter2",
@@ -15285,23 +11740,23 @@
             pdfiumTranslationKey: "11wp3jn",
             actionTranslationKey: "converter",
             title: "Convert PDF",
-            iconLegacy: la,
-            icon: Sa,
+            iconLegacy: qt,
+            icon: mn,
             color: "#FF4c23",
             url: "https://smallpdf.com/pdf-converter",
             showInPDFViewerTools: !1,
             searchTags: ["convert", "convert pdfs", "pdf converter"],
-            serpKeywords: Ua.converter2,
+            serpKeywords: In.converter2,
             inputTypes: [
-              ia.APPLICATION_PDF,
-              ia.APPLICATION_DOC,
-              ia.APPLICATION_DOCX,
-              ia.APPLICATION_XLS,
-              ia.APPLICATION_XLSX,
-              ia.APPLICATION_PPT,
-              ia.APPLICATION_PPTX
+              Zt.APPLICATION_PDF,
+              Zt.APPLICATION_DOC,
+              Zt.APPLICATION_DOCX,
+              Zt.APPLICATION_XLS,
+              Zt.APPLICATION_XLSX,
+              Zt.APPLICATION_PPT,
+              Zt.APPLICATION_PPTX
             ],
-            outputTypes: [ia.APPLICATION_PDF, ia.APPLICATION_DOCX, ia.APPLICATION_XLSX, ia.APPLICATION_PPTX]
+            outputTypes: [Zt.APPLICATION_PDF, Zt.APPLICATION_DOCX, Zt.APPLICATION_XLSX, Zt.APPLICATION_PPTX]
           },
           {
             key: "pdf-to-ppt",
@@ -15309,15 +11764,15 @@
             pdfiumTranslationKey: "pdf_to_ppt",
             actionTranslationKey: "action_convert_to",
             title: "PDF to PPT",
-            iconLegacy: da,
-            icon: Ca,
+            iconLegacy: en,
+            icon: yn,
             color: "#FF7919",
             url: "https://smallpdf.com/pdf-to-ppt",
             showInPDFViewerTools: !0,
             searchTags: ["convert", "microsoft office", "pdf to ppt", "pdf to pptx", "pdf to powerpoint", "edit pdfs", "pdf editor"],
-            serpKeywords: Ua["pdf-to-ppt"],
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PPTX]
+            serpKeywords: In["pdf-to-ppt"],
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PPTX]
           },
           {
             key: "ppt",
@@ -15325,15 +11780,15 @@
             pdfiumTranslationKey: "ppt",
             actionTranslationKey: "action_convert_to",
             title: "PPT to PDF",
-            iconLegacy: ua,
-            icon: ka,
-            color: Io,
+            iconLegacy: Jt,
+            icon: vn,
+            color: zt,
             url: "https://smallpdf.com/ppt-to-pdf",
             showInPDFViewerTools: !1,
             searchTags: ["convert", "microsoft office", "ppt to pdfs", "pptx to pdfs", "powerpoint to pdfs"],
-            serpKeywords: Ua.ppt,
-            inputTypes: [ia.APPLICATION_PPT, ia.APPLICATION_PPTX],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.ppt,
+            inputTypes: [Zt.APPLICATION_PPT, Zt.APPLICATION_PPTX],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "jpg",
@@ -15341,15 +11796,15 @@
             pdfiumTranslationKey: "jpg",
             actionTranslationKey: "action_convert_to",
             title: "JPG to PDF",
-            iconLegacy: sa,
-            icon: sa,
-            color: Ro,
+            iconLegacy: Xt,
+            icon: Xt,
+            color: Ut,
             url: "https://smallpdf.com/jpg-to-pdf",
             showInPDFViewerTools: !1,
             searchTags: ["convert", "photo", "foto", "jpg to pdfs", "jpeg to pdfs", "image to pdfs"],
-            serpKeywords: Ua.jpg,
-            inputTypes: [ia.IMAGE_JPEG, ia.IMAGE_GIF, ia.IMAGE_BMP, ia.IMAGE_PNG, ia.IMAGE_TIFF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.jpg,
+            inputTypes: [Zt.IMAGE_JPEG, Zt.IMAGE_GIF, Zt.IMAGE_BMP, Zt.IMAGE_PNG, Zt.IMAGE_TIFF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "pdf-to-jpg",
@@ -15357,8 +11812,8 @@
             pdfiumTranslationKey: "extract",
             actionTranslationKey: "action_convert_to",
             title: "PDF to JPG",
-            iconLegacy: ca,
-            icon: Aa,
+            iconLegacy: Qt,
+            icon: gn,
             color: "#E6D739",
             url: "https://smallpdf.com/pdf-to-jpg",
             showInPDFViewerTools: !0,
@@ -15373,9 +11828,9 @@
               "extract jpg",
               "extract jpeg"
             ],
-            serpKeywords: Ua["pdf-to-jpg"],
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.IMAGE_JPEG]
+            serpKeywords: In["pdf-to-jpg"],
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.IMAGE_JPEG]
           },
           {
             key: "excel",
@@ -15383,15 +11838,15 @@
             pdfiumTranslationKey: "excel",
             actionTranslationKey: "action_convert_to",
             title: "Excel to PDF",
-            iconLegacy: fa,
-            icon: Pa,
-            color: Oo,
+            iconLegacy: tn,
+            icon: wn,
+            color: Vt,
             url: "https://smallpdf.com/excel-to-pdf",
             showInPDFViewerTools: !1,
             searchTags: ["convert", "microsoft office", "sheet", "xls to pdfs", "xlsx to pdfs", "excel to pdf", "table", "tables"],
-            serpKeywords: Ua.excel,
-            inputTypes: [ia.APPLICATION_XLS, ia.APPLICATION_XLSX],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.excel,
+            inputTypes: [Zt.APPLICATION_XLS, Zt.APPLICATION_XLSX],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "pdf-to-excel",
@@ -15399,9 +11854,9 @@
             pdfiumTranslationKey: "pdf_to_excel",
             actionTranslationKey: "action_convert_to",
             title: "PDF to Excel",
-            iconLegacy: pa,
-            icon: Ta,
-            color: $o,
+            iconLegacy: nn,
+            icon: bn,
+            color: Yt,
             url: "https://smallpdf.com/pdf-to-excel",
             showInPDFViewerTools: !0,
             searchTags: [
@@ -15416,9 +11871,9 @@
               "edit pdf",
               "pdf editor"
             ],
-            serpKeywords: Ua["pdf-to-excel"],
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_XLSX]
+            serpKeywords: In["pdf-to-excel"],
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_XLSX]
           },
           {
             key: "delete",
@@ -15426,15 +11881,15 @@
             pdfiumTranslationKey: "delete",
             actionTranslationKey: "delete",
             title: "Delete PDF Pages",
-            iconLegacy: va,
-            icon: Na,
+            iconLegacy: ln,
+            icon: xn,
             color: "#0FB2B8",
             url: "https://smallpdf.com/delete-pages-from-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["delete pages", "remove pages", "delete page from pdf", "delete pages from pdf", "remove pages from pdf"],
-            serpKeywords: Ua.delete,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.delete,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "edit",
@@ -15442,15 +11897,15 @@
             pdfiumTranslationKey: "11wp338",
             actionTranslationKey: "edit",
             title: "Edit PDF",
-            iconLegacy: ga,
-            icon: Oa,
+            iconLegacy: an,
+            icon: _n,
             color: "#0FC0C5",
             url: "https://smallpdf.com/edit-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["text", "add text", "add shape", "add image", "edit pdfs", "pdf editor", "draw"],
-            serpKeywords: Ua.edit,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.edit,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "word",
@@ -15458,15 +11913,15 @@
             pdfiumTranslationKey: "word",
             actionTranslationKey: "action_convert_to",
             title: "Word to PDF",
-            iconLegacy: ha,
-            icon: Ia,
-            color: No,
+            iconLegacy: rn,
+            icon: En,
+            color: Kt,
             url: "https://smallpdf.com/word-to-pdf",
             showInPDFViewerTools: !1,
             searchTags: ["convert", "microsoft office", "doc to pdfs", "docx to pdfs", "word to pdfs"],
-            serpKeywords: Ua.word,
-            inputTypes: [ia.APPLICATION_DOC, ia.APPLICATION_DOCX],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.word,
+            inputTypes: [Zt.APPLICATION_DOC, Zt.APPLICATION_DOCX],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "pdf-to-word",
@@ -15474,15 +11929,15 @@
             pdfiumTranslationKey: "11wp39c",
             actionTranslationKey: "action_convert_to",
             title: "PDF to Word",
-            iconLegacy: ma,
-            icon: Ra,
+            iconLegacy: on,
+            icon: Ln,
             color: "#3D99F5",
             url: "https://smallpdf.com/pdf-to-word",
             showInPDFViewerTools: !0,
             searchTags: ["convert", "microsoft office", "pdf to doc", "pdf to docx", "pdf to word", "edit pdfs", "pdf editor"],
-            serpKeywords: Ua["pdf-to-word"],
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_DOCX]
+            serpKeywords: In["pdf-to-word"],
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_DOCX]
           },
           {
             key: "merge",
@@ -15490,15 +11945,15 @@
             pdfiumTranslationKey: "11wp3j6",
             actionTranslationKey: "merge",
             title: "Merge PDF",
-            iconLegacy: ya,
-            icon: Da,
-            color: Do,
+            iconLegacy: sn,
+            icon: Sn,
+            color: Ht,
             url: "https://smallpdf.com/merge-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["merge pdfs", "merge documents", "combine pdfs", "combine documents", "join pdfs", "pdf joiner", "combiner"],
-            serpKeywords: Ua.merge,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.merge,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "split",
@@ -15506,15 +11961,15 @@
             pdfiumTranslationKey: "split",
             actionTranslationKey: "split",
             title: "Split PDF",
-            iconLegacy: wa,
-            icon: Fa,
+            iconLegacy: cn,
+            icon: An,
             color: "#9966FF",
             url: "https://smallpdf.com/split-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["split pdfs", "extract pages", "select pages"],
-            serpKeywords: Ua.split,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.split,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "rotate",
@@ -15522,15 +11977,15 @@
             pdfiumTranslationKey: "rotate",
             actionTranslationKey: "rotate",
             title: "Rotate PDF",
-            iconLegacy: ba,
-            icon: Ma,
-            color: Fo,
+            iconLegacy: un,
+            icon: kn,
+            color: Bt,
             url: "https://smallpdf.com/rotate-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["rotate pdfs", "rotate pages", "turn pages"],
-            serpKeywords: Ua.rotate,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.rotate,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "sign",
@@ -15538,15 +11993,15 @@
             pdfiumTranslationKey: "11wp3gn",
             actionTranslationKey: "sign",
             title: "Sign PDF",
-            iconLegacy: Ea,
-            icon: $a,
+            iconLegacy: dn,
+            icon: Cn,
             color: "#E667E6",
             url: "https://smallpdf.com/sign-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["sign pdfs", "signature", "add signature", "esign", "sign documents", "e sign", "e-sign"],
-            serpKeywords: Ua.sign,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.sign,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "unlock",
@@ -15554,15 +12009,15 @@
             pdfiumTranslationKey: "unlock",
             actionTranslationKey: "unlock",
             title: "Unlock PDF",
-            iconLegacy: La,
-            icon: ja,
-            color: Mo,
+            iconLegacy: fn,
+            icon: Pn,
+            color: Gt,
             url: "https://smallpdf.com/unlock-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["remove password", "unlock pdfs", "password remover", "hack pdfs", "security"],
-            serpKeywords: Ua.unlock,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.unlock,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "protect",
@@ -15570,15 +12025,15 @@
             pdfiumTranslationKey: "protect",
             actionTranslationKey: "protect",
             title: "Protect PDF",
-            iconLegacy: _a,
-            icon: za,
+            iconLegacy: pn,
+            icon: Tn,
             color: "#FF5975",
             url: "https://smallpdf.com/protect-pdf",
             showInPDFViewerTools: !0,
             searchTags: ["protect pdfs", "protect documents", "add passwords", "security", "secure"],
-            serpKeywords: Ua.protect,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            serpKeywords: In.protect,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "reader",
@@ -15586,15 +12041,15 @@
             pdfiumTranslationKey: "reader",
             actionTranslationKey: "reader",
             title: "PDF Reader",
-            iconLegacy: _a,
-            icon: za,
+            iconLegacy: pn,
+            icon: Tn,
             color: "#FF0000",
             url: "https://smallpdf.com/pdf-reader",
             showInPDFViewerTools: !1,
-            searchTags: Ua.reader.en,
-            serpKeywords: Ua.reader,
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            searchTags: In.reader.en,
+            serpKeywords: In.reader,
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           },
           {
             key: "number-pages",
@@ -15602,22 +12057,129 @@
             pdfiumTranslationKey: "number_pages",
             actionTranslationKey: "number_pages",
             title: "Number Pages",
-            iconLegacy: _a,
-            icon: za,
+            iconLegacy: pn,
+            icon: Tn,
             color: "#0FB2B8",
             url: "https://smallpdf.com/add-page-numbers-to-pdf",
             showInPDFViewerTools: !1,
-            searchTags: Ua["number-pages"].en,
-            serpKeywords: Ua["number-pages"],
-            inputTypes: [ia.APPLICATION_PDF],
-            outputTypes: [ia.APPLICATION_PDF]
+            searchTags: In["number-pages"].en,
+            serpKeywords: In["number-pages"],
+            inputTypes: [Zt.APPLICATION_PDF],
+            outputTypes: [Zt.APPLICATION_PDF]
           }
         ];
-      function Ka(e) {
-        return Va.find((t) => t.key === e);
+      function On(e) {
+        return Rn.find((t) => t.key === e);
       }
-      var Ha = n(627),
-        Ba = function (e, t, n, r) {
+      var Nn = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      function Dn(e) {
+        return Nn(this, void 0, void 0, function* () {
+          let t = "https://files.smallpdf.com/upload-url";
+          (yield Nt()) && (t = `${t}-fast`), (t = `${t}/${e}`);
+          const n = yield (function (e, t) {
+            return fetch(e, t).then((e) => e.json());
+          })(t);
+          return n.url;
+        });
+      }
+      var Fn;
+      !(function (e) {
+        (e.ID_JOB_RESULT = "jobResult"), (e.ID_RESULT = "result");
+      })(Fn || (Fn = {}));
+      chrome.runtime.getURL("images/smallpdf_48.png");
+      const Mn = "send-analytics-event",
+        $n = "dev-logger";
+      var jn = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      let zn;
+      function Un() {
+        return jn(this, void 0, void 0, function* () {
+          if ("boolean" == typeof zn) return zn;
+          return yield Zn([Bn.SERVICE_WORKER_LOGS])
+            .then((e) => e[Bn.SERVICE_WORKER_LOGS])
+            .then((e) => "boolean" == typeof e && ((zn = e), e));
+        });
+      }
+      function Vn(...e) {
+        return jn(this, void 0, void 0, function* () {
+          (yield Un()) && console.log.apply(null, e);
+        });
+      }
+      function Kn(...e) {
+        return jn(this, void 0, void 0, function* () {
+          if (yield Un())
+            try {
+              chrome.runtime.sendMessage(chrome.runtime.id, { request: $n, event: e });
+            } catch (e) {
+              Hn("sendLogToServiceWorker failed to send message", e);
+            }
+        });
+      }
+      function Hn(...e) {
+        return jn(this, void 0, void 0, function* () {
+          (yield Un()) && console.log.apply(null, e);
+        });
+      }
+      var Bn,
+        Gn,
+        Yn = function (e, t, n, r) {
           return new (n || (n = Promise))(function (o, i) {
             function a(e) {
               try {
@@ -15647,7 +12209,3445 @@
             s((r = r.apply(e, t || [])).next());
           });
         };
-      const Ga = Re.div`
+      function Zn(e, t) {
+        return Yn(this, void 0, void 0, function* () {
+          try {
+            const n = yield chrome.storage.local.get(e);
+            return "string" == typeof e ? n[e] || t : n;
+          } catch (n) {
+            return Vn(chrome.runtime.lastError, n), Array.isArray(e) ? {} : t;
+          }
+        });
+      }
+      function Wn(e) {
+        return Yn(this, void 0, void 0, function* () {
+          try {
+            yield chrome.storage.local.set(e);
+          } catch (e) {
+            throw (Vn(chrome.runtime.lastError), e);
+          }
+        });
+      }
+      function qn(e) {
+        return Yn(this, void 0, void 0, function* () {
+          try {
+            yield chrome.storage.local.remove(e);
+          } catch (e) {
+            throw (Vn(chrome.runtime.lastError), e);
+          }
+        });
+      }
+      function Xn(e, t) {
+        return Yn(this, void 0, void 0, function* () {
+          try {
+            const n = yield chrome.storage.sync.get(e);
+            if (Array.isArray(e)) return n;
+            const r = n[e];
+            return void 0 === r ? t : r;
+          } catch (n) {
+            return Vn(chrome.runtime.lastError, n), Array.isArray(e) ? {} : t;
+          }
+        });
+      }
+      function Qn(e) {
+        return Yn(this, void 0, void 0, function* () {
+          try {
+            yield chrome.storage.sync.set(e);
+          } catch (e) {
+            throw (Vn(chrome.runtime.lastError), e);
+          }
+        });
+      }
+      !(function (e) {
+        (e.IS_PDIUM_OPEN_ON_LOAD = "smallpdf.pdfium.isOpen"),
+          (e.MIGRATIONS_SCHEMA_VERSION = "smallpdf.msv"),
+          (e.JOB_RESULT_TAB = "smallpdf.jobResult.tab"),
+          (e.USER_FAVORITES = "smallpdf.user.favorites"),
+          (e.LOCAL_TOKEN = "smallpdf.user.localToken"),
+          (e.USER_COUNTRY_GEO_IP = "smallpdf.user.countryGeoIP"),
+          (e.USER_PROFILE = "smallpdf.user.profile"),
+          (e.USER_ACTIVE_PRO = "smallpdf.user.ap"),
+          (e.USER_RT = "smallpdf.user.rt"),
+          (e.ACCESS_TOKEN = "KEY_AUTH_AT"),
+          (e.REFRESH_TOKEN = "KEY_AUTH_RT"),
+          (e.TRACKING_EVENTS = "STORAGE_KEY_TRACKING_EVENTS_QUEUE"),
+          (e.USER_DATA_SYNCED = "STORAGE_KEY_USER_DATA_SYNCED"),
+          (e.USER_DATA_LAST_SYNC = "smallpdf.dls"),
+          (e.FILE_HANDLE = "STORAGE_KEY_FILE_HANDLE"),
+          (e.FILE_HANDLE_RESULT = "STORAGE_KEY_FILE_HANDLE_RESULT"),
+          (e.TASK = "STORAGE_KEY_TASK"),
+          (e.SYSTEM_OS = "STORAGE_KEY_SYSTEM_OS"),
+          (e.SYSTEM_LOCALE = "STORAGE_KEY_SYSTEM_LOCALE"),
+          (e.INSTALLATION_DATE = "STORAGE_KEY_INSTALLATION_DATE"),
+          (e.PROFILE = "STORAGE_KEY_PROFILE"),
+          (e.AUTH_CODE_VERIFIER = "STORAGE_KEY_AUTH_CODE_VERIFIER"),
+          (e.AUTH_STATE_CODE = "STORAGE_KEY_AUTH_STATE_CODE"),
+          (e.AUTH_PROVIDER = "STORAGE_KEY_AUTH_PROVIDER"),
+          (e.FAILED_LOGIN_ATTEMPTS = "smallpdf.fla"),
+          (e.THANKS_PAGE_LOGGED_ONCE = "smallpdf.thanks_event"),
+          (e.SERVICE_WORKER_LOGS = "smallpdf.service_worker_logs");
+      })(Bn || (Bn = {})),
+        (function (e) {
+          (e.PreferenceGoogleSERPEnabled = "smallpdf.options.googleSerpEnabled"),
+            (e.PreferenceAutoDownloadEnabled = "STORAGE_KEY_OPTIONS_AUTO_DOWNLOAD"),
+            (e.Experiments = "STORAGE_KEY_EXPERIMENTS"),
+            (e.TasksCount = "STORAGE_KEY_TASKS_COUNT"),
+            (e.LastTaskTime = "STORAGE_KEY_LAST_TASK_TIME"),
+            (e.FreeTasksResetTime = "smallpdf.ftrt"),
+            (e.MIGRATIONS_SCHEMA_VERSION = "smallpdf.msv");
+        })(Gn || (Gn = {}));
+      var Jn = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      const er = "files";
+      var tr, nr, rr, or;
+      function ir() {
+        return Jn(this, void 0, void 0, function* () {
+          return Zn(Bn.FILE_HANDLE);
+        });
+      }
+      function ar() {
+        return Jn(this, void 0, void 0, function* () {
+          return Zn(Bn.FILE_HANDLE_RESULT);
+        });
+      }
+      !(function (e) {
+        (e.DROP_AREA = "droparea"), (e.DRAG_AND_DROP = "drag-and-drop"), (e.RETRY = "retry");
+      })(tr || (tr = {})),
+        (function (e) {
+          (e.FILE_HANDLE_IDLE = "fileHandleIdle"),
+            (e.FILE_HANDLE_PROGRESS = "fileHandleProgress"),
+            (e.FILE_HANDLE_FAILURE = "fileHandleFailure");
+        })(nr || (nr = {})),
+        (function (e) {
+          (e.FORCE = "force"), (e.AUTO = "auto"), (e.CUSTOM = "custom"), (e.OFF = "off");
+        })(rr || (rr = {})),
+        (function (e) {
+          (e.HIGH = "COMPRESS_OPTION_HIGH"), (e.BALANCED = "COMPRESS_OPTION_BALANCED"), (e.CUSTOM = "COMPRESS_OPTION_CUSTOM");
+        })(or || (or = {}));
+      var lr = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      var sr, cr;
+      function ur() {
+        return lr(this, void 0, void 0, function* () {
+          return Zn(Bn.TASK);
+        });
+      }
+      function dr() {
+        return lr(this, void 0, void 0, function* () {
+          return Xn(Gn.TasksCount, 0);
+        });
+      }
+      function fr() {
+        return lr(this, void 0, void 0, function* () {
+          yield Qn({ [Gn.TasksCount]: 0 });
+        });
+      }
+      !(function (e) {
+        (e.CREATED = "Created"), (e.REQUEST = "Request"), (e.PENDING = "Pending"), (e.SUCCESS = "Success"), (e.FAILURE = "Failure");
+      })(sr || (sr = {})),
+        (function (e) {
+          (e.AUTO = "auto"), (e.NOTIFICATION = "notification"), (e.RESULT_SCREEN = "result"), (e.UNKNOWN = "unknown");
+        })(cr || (cr = {}));
+      class pr {
+        constructor(e, t, n, r) {
+          (this.r = e), (this.g = t), (this.b = n), (this.a = r);
+        }
+        toString() {
+          return this.value || (this.value = `rgba(${this.r},${this.g},${this.b},${this.a})`), this.value;
+        }
+      }
+      function hr(e, t) {
+        const n = parseInt(e, 16);
+        return Number.isNaN(n) ? t : n;
+      }
+      function mr(e, t, n, r = 1) {
+        return new pr(e, t, n, r);
+      }
+      function gr(e) {
+        const t = hr(e.substr(1, 2), 255),
+          n = hr(e.substr(3, 2), 255),
+          r = hr(e.substr(5, 2), 255),
+          o = hr(e.substr(7, 2), 1);
+        return new pr(t, n, r, o);
+      }
+      const vr = gr("#0055FF"),
+        yr = gr("#0048D9"),
+        wr = gr("#003CB2"),
+        br = (gr("#003399"), gr("#00194C"), gr("#F2F6FF"), gr("#E5EEFF")),
+        Er = gr("#CCDDFF"),
+        Lr = gr("#B3CCFF"),
+        _r = gr("#1A1A1A"),
+        xr = (gr("#FAFAFA"), gr("#F4F4F4")),
+        Sr = gr("#E8E8E8"),
+        Ar = gr("#DDDDDD"),
+        kr = gr("#BABABA"),
+        Cr = gr("#A3A3A3"),
+        Pr = gr("#757575"),
+        Tr = (gr("#5E5E5E"), gr("#3C3C3C")),
+        Ir = gr("#FFFFFF"),
+        Rr = gr("#000000"),
+        Or = gr("#F23030"),
+        Nr = gr("#D92B2B"),
+        Dr = gr("#BF2626"),
+        Fr = gr("#911D1D"),
+        Mr = (gr("#FEEBEB"), gr("#FCD6D6")),
+        $r = gr("#FAACAC"),
+        jr = (gr("#FF8000"), gr("#E57300"), gr("#CC6600"), gr("#FFF3E6")),
+        zr = gr("#FFCC99"),
+        Ur = gr("#FFB700"),
+        Vr = (gr("#E5A500"), gr("#CC9200"), gr("#996E00")),
+        Kr = (gr("#FFF8E6"), gr("#FFF1CC")),
+        Hr = (gr("#FFE299"), gr("#00CC44"), gr("#00B23B"), gr("#009933"), gr("#007A29")),
+        Br = (gr("#E6FAED"), gr("#CCF5DA")),
+        Gr = gr("#99EBB4"),
+        Yr = (gr("#0FC0C5"), gr("#0DA7AB"), gr("#0B8E91"), gr("#097376")),
+        Zr = (gr("#E7F9FA"), gr("#CFF2F3")),
+        Wr = (gr("#9FE6E8"), gr("#3D99F5"), gr("#3789DB"), gr("#3079C2"), gr("#255C93")),
+        qr = (gr("#ECF5FE"), gr("#D8EBFD")),
+        Xr = (gr("#B1D6FB"), gr("#7961F2"), gr("#6C57D9"), gr("#604DBF"), gr("#493A91")),
+        Qr = (gr("#F2F0FE"), gr("#E4DFFC")),
+        Jr =
+          (gr("#C9C0FA"),
+          gr("#E667E6"),
+          gr("#CC5BCC"),
+          gr("#B250B2"),
+          gr("#8A3E8A"),
+          gr("#FDF0FD"),
+          gr("#F5C2F5"),
+          gr("#FF5975"),
+          gr("#E55069"),
+          gr("#CC475E"),
+          gr("#993546"),
+          gr("#FFEFF2"),
+          gr("#FFBDC8"),
+          gr("#E32B24"),
+          gr("#C92620"),
+          gr("#B0211C"),
+          gr("#0055FF"),
+          gr("#0048D9"),
+          gr("#003CB2"),
+          gr("#FFB700"),
+          gr("#E5A500"),
+          gr("#CC9200"),
+          gr("#996E00"),
+          gr("#00D958"));
+      gr("#00BF4D"),
+        gr("#00A643"),
+        gr("#008034"),
+        gr("#0061FF"),
+        gr("#1977F3"),
+        gr("#4885ED"),
+        gr("#DB3236"),
+        gr("#C32AA3"),
+        gr("#0077B5"),
+        gr("#1ED760"),
+        gr("#1DA1F2"),
+        gr("#25D366"),
+        gr("#D9252A"),
+        mr(26, 26, 26, 0.8),
+        mr(26, 26, 26, 0.5),
+        mr(26, 26, 26, 0.3),
+        mr(26, 26, 26, 0.1);
+      const eo = [
+          { key: "sm", min: 0 },
+          { key: "md", min: 640 },
+          { key: "lg", min: 1024 }
+        ],
+        to = (() => {
+          const e = {};
+          return (
+            eo.forEach((t, n) => {
+              const r = eo[n + 1],
+                o = t.min;
+              let i = null;
+              r && (i = r.min - 1), (e[t.key] = { min: o, max: i });
+            }),
+            e
+          );
+        })();
+      function no(e) {
+        return to[e].min;
+      }
+      function ro(...e) {
+        const t = e.slice(0);
+        t.sort((e, t) => no(e) - no(t));
+        let n = "";
+        const r = (e, t) => ` (${e}: ${t}px)`;
+        let o = !1;
+        return (
+          t.forEach((e, i) => {
+            const a = t[i + 1],
+              l = no(e),
+              s = (function (e) {
+                return to[e].max;
+              })(e),
+              c = a ? no(a) : Number.POSITIVE_INFINITY;
+            let u = "",
+              d = !1;
+            o || (u += r("min-width", l)),
+              null !== s && ((d = s + 1 === c), d || (u && (u += " and"), (u += r("max-width", s)))),
+              u && (n && (n += o ? " and" : ","), (n += u)),
+              (o = d);
+          }),
+          `@media${n}`
+        );
+      }
+      const oo = ge`
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-stretch: 400;
+`,
+        io =
+          (ge`
+  ${oo}
+
+  font-weight: 700;
+
+  ${ro("sm")} {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  ${ro("md")} {
+    font-size: 64px;
+    line-height: 80px;
+  }
+
+  ${ro("lg")} {
+    font-size: 96px;
+    line-height: 112px;
+  }
+`,
+          ge`
+  ${oo}
+
+  font-weight: 700;
+
+  ${ro("sm")} {
+    font-size: 42px;
+    line-height: 52px;
+  }
+
+  ${ro("md")} {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  ${ro("lg")} {
+    font-size: 64px;
+    line-height: 80px;
+  }
+`,
+          ge`
+  ${oo}
+
+  font-weight: 700;
+
+  ${ro("sm")} {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  ${ro("md")} {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  ${ro("lg")} {
+    font-size: 42px;
+    line-height: 56px;
+  }
+`,
+          ge`
+  ${oo}
+
+  font-weight: 700;
+
+  ${ro("sm")} {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  ${ro("md")} {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  ${ro("lg")} {
+    font-size: 32px;
+    line-height: 40px;
+  }
+`,
+          ge`
+  ${oo}
+
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+`),
+        ao = ge`
+  ${oo}
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+`,
+        lo =
+          (ge`
+  ${oo}
+
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 32px;
+`,
+          ge`
+  ${oo}
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+`,
+          ge`
+  ${oo}
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+`),
+        so = ge`
+  ${oo}
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+`,
+        co = ge`
+  ${oo}
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+`,
+        uo =
+          (ge`
+  ${oo}
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  text-transform: uppercase;
+`,
+          Re.div`
+  overflow: hidden;
+
+  ${({ size: e }) => ge`
+    & > svg {
+      display: block;
+      width: ${e}px;
+      height: ${e}px;
+    }
+  `}
+`);
+      function fo({ className: t, size: n, content: r, onClick: o, padding: i, transform: a }) {
+        return e.createElement(uo, {
+          className: t,
+          dangerouslySetInnerHTML: { __html: r },
+          style: { width: n, height: n, padding: i, transform: a },
+          onClick: o,
+          size: n
+        });
+      }
+      const po = Re.button`
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+
+  overflow: visible;
+  background-color: red;
+  user-select: none;
+  background-color: transparent;
+  text-decoration: inherit;
+  color: inherit;
+
+  /* Firefox */
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+`;
+      function ho(e) {
+        if ("undefined" == typeof window) return !1;
+        return new RegExp(`^https://${window.location.host}`).test(e);
+      }
+      const mo = Re.a`
+  text-decoration: inherit;
+  color: inherit;
+
+  margin: 0;
+`,
+        go = e.forwardRef(
+          ({ children: t, className: n, behavior: r, href: o, download: i, title: a, withNoFollow: l = !1, onClick: s }, c) => {
+            const u = (function (e) {
+                return { isSameDomain: "/" === e[0] || "#" === e[0] || ho(e), isMailTo: /^mailto:/.test(e) };
+              })(o),
+              d = (() => {
+                switch (r) {
+                  case "blank":
+                    return "_blank";
+                  case "default":
+                    return;
+                  case "auto":
+                    return u.isMailTo || !u.isSameDomain ? "_blank" : void 0;
+                  default:
+                    return unreachable(r);
+                }
+              })(),
+              f = (() => {
+                const e = [];
+                if (("_blank" !== d || u.isSameDomain || e.push("noopener", "noreferrer"), l && e.push("nofollow"), 0 !== e.length))
+                  return e.join(" ");
+              })();
+            return e.createElement(mo, { className: n, ref: c, target: d, rel: f, href: o, download: i, title: a, onClick: s }, t);
+          }
+        );
+      var vo = n(9395);
+      const yo = Re.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Must go above parent border */
+  position: absolute;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  top: -1px;
+  left: -1px;
+
+  border-radius: inherit;
+  background: ${String(Ar)};
+  color: ${String(vr)};
+
+  ${({ layout: e }) =>
+    "tertiary" === e &&
+    ge`
+      background: transparent;
+    `}
+`;
+      function wo({ layout: t, className: n, ariaLabel: r }) {
+        return e.createElement(
+          yo,
+          { layout: t, className: n, role: "status", "aria-label": r },
+          e.createElement(fo, { size: 24, content: vo })
+        );
+      }
+      var bo = n(1332);
+      const Eo = Re.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Must go above parent border */
+  position: absolute;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  top: -1px;
+  left: -1px;
+
+  border-radius: inherit;
+  color: ${String(Ir)};
+  background: ${String(Jr)};
+
+  ${({ layout: e }) =>
+    "tertiary" === e &&
+    ge`
+      background: transparent;
+      color: ${String(Jr)};
+    `}
+`;
+      function Lo({ layout: t, className: n, ariaLabel: r }) {
+        return e.createElement(
+          Eo,
+          { layout: t, className: n, role: "status", "aria-label": r },
+          e.createElement(fo, { size: 24, content: bo })
+        );
+      }
+      var _o = n(6011);
+      ge`
+  box-shadow: 0px 0px 2px rgba(26, 26, 26, 0.2);
+`,
+        ge`
+  box-shadow: 0px 0px 4px rgba(26, 26, 26, 0.2);
+`,
+        ge`
+  box-shadow: 0px 0px 12px rgba(26, 26, 26, 0.2);
+`,
+        ge`
+  box-shadow: 0px 0px 24px rgba(26, 26, 26, 0.2);
+`;
+      const xo = ge`
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+`,
+        So =
+          (ge`
+  filter: grayscale(1);
+
+  &::after{
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: ${String(Ir)};
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-radius: inherit;
+  }
+`,
+          ge`
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`),
+        Ao = Re.div``,
+        ko = Re.div`
+  display: flex;
+  align-items: center;
+`,
+        Co = Re.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: ${({ layout: e, withIconOnly: t }) => ("tertiary" === e ? "0 4px" : t ? "0 8px" : "0 16px")};
+  opacity: ${({ isHidden: e }) => (e ? 0 : 1)};
+
+  &:focus {
+    outline: none;
+  }
+
+  & > :not(:first-child) {
+    padding-left: 4px;
+  }
+`,
+        Po = Re.span`
+  ${So}
+  text-transform: capitalize;
+`;
+      function To({ layout: t, label: n, leftIcon: r, rightIcon: o, withDropdownIcon: i = !1, isHidden: a = !1 }) {
+        return e.createElement(
+          Co,
+          { layout: t, isHidden: a, "aria-hidden": a, tabIndex: -1, withIconOnly: !n },
+          void 0 !== r && e.createElement(Ao, null, e.createElement(fo, { size: 24, content: r })),
+          n && e.createElement(Po, null, n),
+          void 0 !== o && e.createElement(Ao, null, e.createElement(fo, { size: 24, content: o })),
+          i && e.createElement(ko, null, e.createElement(fo, { size: 16, content: _o }))
+        );
+      }
+      const Io = ({ layout: e, isSelected: t, isDisabled: n }) => ge`
+  position: relative;
+  display: inline-flex;
+
+  flex-direction: row;
+  align-items: center;
+  user-select: none;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0;
+
+  cursor: ${n ? "not-allowed" : "pointer"};
+
+  &:focus {
+    outline: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: calc(100% + 2px);
+      width: calc(100% + 2px);
+      top: -5px;
+      left: -5px;
+      border: 4px solid ${String(Er)};
+      border-radius: 8px;
+    }
+  }
+
+  ${(() => {
+    switch (e) {
+      case "primary":
+        return ge`
+          ${so}
+
+          height: 40px;
+          background: ${String(vr)};
+          color: ${String(Ir)};
+
+          ${
+            n
+              ? ge`
+                background: ${String(Ar)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(yr)};
+                }
+                &:active {
+                  background: ${String(wr)};
+                }
+              `
+          }
+        `;
+      case "secondary":
+        return ge`
+          ${so}
+
+          height: 40px;
+          background: transparent;
+          color: ${String(vr)};
+          border-color: ${String(vr)};
+
+          ${
+            n
+              ? ge`
+                background: ${String(Ar)};
+                border-color: ${String(Ar)};
+                color: ${String(Ir)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(yr)};
+                  border-color: ${String(yr)};
+                  color: ${String(Ir)};
+                }
+                &:active {
+                  background: ${String(wr)};
+                  border-color: ${String(wr)};
+                  color: ${String(Ir)};
+                }
+              `
+          }
+        `;
+      case "tertiary":
+        return ge`
+          ${lo}
+
+          height: 24px;
+          background: transparent;
+          color: ${String(vr)};
+          text-decoration: underline;
+
+          ${
+            n
+              ? ge`
+                color: ${String(kr)};
+              `
+              : ge`
+                &:hover {
+                  color: ${String(yr)};
+                }
+                &:active {
+                  color: ${String(wr)};
+                }
+              `
+          }
+        `;
+      case "solid":
+        return ge`
+          ${lo}
+
+          height: 40px;
+          background: ${String(t ? br : xr)};
+          color: ${String(_r)};
+
+          ${
+            n
+              ? ge`
+                color: ${String(kr)};
+                background: ${String(xr)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(t ? Er : Sr)};
+                }
+                &:active {
+                  background: ${String(t ? Lr : Ar)};
+                }
+              `
+          }
+        `;
+      case "outline":
+        return ge`
+          ${lo}
+
+          height: 40px;
+          background: ${String(t ? br : "transparent")};
+          color: ${String(_r)};
+          border-color: ${String(t ? br : Sr)};
+
+          ${
+            n
+              ? ge`
+                background: transparent;
+                border-color: ${String(Sr)};
+                color: ${String(kr)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(t ? Er : Sr)};
+                  border-color: ${String(t ? Er : Sr)};
+                }
+                &:active {
+                  background: ${String(t ? Lr : Ar)};
+                  border-color: ${String(t ? Lr : Ar)};
+                }
+              `
+          }
+        `;
+      case "ghost":
+        return ge`
+          ${lo}
+
+          height: 40px;
+          background: ${String(t ? br : "transparent")};
+          color: ${String(_r)};
+
+          ${
+            n
+              ? ge`
+                background: transparent;
+                color: ${String(kr)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(t ? Er : Sr)};
+                }
+                &:active {
+                  background: ${String(t ? Lr : Ar)};
+                }
+              `
+          }
+        `;
+      case "danger":
+        return ge`
+          ${so}
+
+          height: 40px;
+          background: ${String(Or)};
+          color: ${String(Ir)};
+
+          ${
+            n
+              ? ge`
+                background: ${String(Ar)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(Nr)};
+                }
+                &:active {
+                  background: ${String(Dr)};
+                }
+              `
+          }
+        `;
+      case "inverted":
+        return ge`
+          ${so}
+
+          height: 40px;
+          background: ${String(Ir)};
+          color: ${String(_r)};
+
+          ${
+            n
+              ? ge`
+                color: ${String(kr)};
+              `
+              : ge`
+                &:hover {
+                  background: ${String(xr)};
+                }
+                &:active {
+                  background: ${String(Sr)};
+                }
+              `
+          }
+        `;
+      default:
+        throw new Error(`Button: unexpected Button layout ${e}`);
+    }
+  })()}
+`,
+        Ro = Re(po)(Io),
+        Oo = Re(go)(Io),
+        No = Re.div(Io),
+        Do = e.forwardRef((t, n) => {
+          switch (t.renderAs) {
+            case "link": {
+              const {
+                layout: r,
+                className: o,
+                label: i,
+                leftIcon: a,
+                rightIcon: l,
+                withDropdownIcon: s,
+                isSelected: c = !1,
+                withNoFollow: u = !1,
+                href: d,
+                behavior: f,
+                download: p,
+                onClick: h
+              } = t;
+              return e.createElement(
+                Oo,
+                {
+                  ref: n,
+                  className: o,
+                  layout: r,
+                  isSelected: c,
+                  isDisabled: !1,
+                  href: d,
+                  behavior: f,
+                  download: p,
+                  onClick: h,
+                  withNoFollow: u
+                },
+                e.createElement(To, { layout: r, leftIcon: a, rightIcon: l, withDropdownIcon: s, label: i })
+              );
+            }
+            case "button": {
+              const {
+                  layout: r,
+                  className: o,
+                  label: i,
+                  leftIcon: a,
+                  rightIcon: l,
+                  withDropdownIcon: s,
+                  isSelected: c = !1,
+                  status: u = "default",
+                  isDisabled: d = !1,
+                  onClick: f,
+                  type: p = "submit"
+                } = t,
+                h = d || "default" !== u;
+              return e.createElement(
+                Ro,
+                { ref: n, className: o, layout: r, isSelected: c, onClick: f, isDisabled: h, disabled: h, type: p },
+                e.createElement(To, { layout: r, leftIcon: a, rightIcon: l, withDropdownIcon: s, label: i, isHidden: "default" !== u }),
+                (() => {
+                  if ("button" !== t.renderAs) return null;
+                  const { status: n, layout: r } = t;
+                  switch (n) {
+                    case "success":
+                      return e.createElement(Lo, { layout: r });
+                    case "process":
+                      return e.createElement(wo, { layout: r });
+                    case "default":
+                    case void 0:
+                      return null;
+                    default:
+                      return unreachable(n);
+                  }
+                })()
+              );
+            }
+            case "div": {
+              const {
+                layout: r,
+                className: o,
+                label: i,
+                leftIcon: a,
+                rightIcon: l,
+                withDropdownIcon: s,
+                isSelected: c = !1,
+                isDisabled: u = !1
+              } = t;
+              return e.createElement(
+                No,
+                { ref: n, className: o, layout: r, isSelected: c, isDisabled: u },
+                e.createElement(To, { layout: r, leftIcon: a, rightIcon: l, withDropdownIcon: s, label: i })
+              );
+            }
+            default:
+              return unreachable(t);
+          }
+        }),
+        Fo = Re.input`
+  ${co}
+  color: ${String(_r)};
+  display: block;
+
+  width: 100%;
+  height: 40px;
+
+  box-sizing: border-box;
+  padding: 6px;
+
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: none; /* Firefox */
+
+  &[type=number]::-webkit-outer-spin-button,
+  &[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+  }
+
+  /* Fix zoom on IOS devices when you press the input */
+  @supports (-webkit-touch-callout: none) {
+    &[type="text"], &[type="password"],
+    &[type="datetime"], &[type="datetime-local"],
+    &[type="date"], &[type="month"], &[type="time"],
+    &[type="week"], &[type="number"], &[type="email"],
+    &[type="url"]{ font-size: 16px; }
+  }
+`,
+        Mo = Re.div`
+  border: 1px solid ${String(Ar)};
+  border-radius: 4px;
+`;
+      function $o({
+        name: t,
+        value: n,
+        type: r,
+        defaultValue: o,
+        placeholder: i,
+        tabIndex: a,
+        disabled: l,
+        required: s,
+        autoFocus: c,
+        withoutAutocomplete: u = !1,
+        onChange: d,
+        onKeyPress: f,
+        onFocus: p,
+        onBlur: h
+      }) {
+        return e.createElement(
+          Mo,
+          null,
+          e.createElement(Fo, {
+            required: s,
+            name: t,
+            type: r,
+            value: n,
+            defaultValue: o,
+            placeholder: i,
+            tabIndex: a,
+            disabled: l,
+            autoFocus: c,
+            autoComplete: u ? "off" : "on",
+            onChange: d,
+            onKeyPress: f,
+            onFocus: p,
+            onBlur: h
+          })
+        );
+      }
+      n(1375);
+      Re.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+`,
+        Re.div`
+  ${({ size: e }) => ge`
+    width: ${e}px;
+    height: ${e}px;
+  `}
+`;
+      const jo = Re.div`
+  display: flex;
+  height: 30px;
+`,
+        zo = Re.button`
+  position: relative;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 0 8px;
+  margin-right: -1px;
+
+  font-size: 14px;
+  text-align: center;
+  color: #212121;
+
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  outline: 0;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: background 0.2s, border 0.2s, color 0.2s;
+
+  &:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  &:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  ${({ selected: e, disabled: t }) =>
+    !e &&
+    !t &&
+    ge`
+      &:hover,
+      &:focus {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      &:active {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    `};
+
+  ${({ selected: e }) =>
+    e &&
+    ge`
+      background: #215fff;
+      border-color: #215fff;
+      color: #ffffff;
+      z-index: 1;
+    `}
+
+  ${({ disabled: e, selected: t }) =>
+    e &&
+    ge`
+      cursor: default;
+      background: #efefef;
+
+      ${() =>
+        t &&
+        ge`
+          background: #ababab;
+          border-color: #ababab;
+        `}
+    `};
+`;
+      function Uo({ options: t, value: n, disabled: r, onChange: o }) {
+        return e.createElement(
+          jo,
+          null,
+          t.map((t) =>
+            e.createElement(
+              zo,
+              {
+                key: t.key,
+                selected: n === t.key,
+                disabled: r,
+                onClick: () => {
+                  return (e = t.key), void (r || e === n || o(e));
+                  var e;
+                }
+              },
+              t.label
+            )
+          )
+        );
+      }
+      const Vo = Re.button`
+  position: relative;
+  width: 48px;
+
+  border: 0;
+  border-radius: 0;
+  background: none;
+  outline: 0;
+
+  cursor: pointer;
+  user-select: none;
+
+  ${({ disabled: e }) =>
+    e &&
+    ge`
+      cursor: default;
+    `}
+`,
+        Ko = Re.div`
+  position: relative;
+  height: 21px;
+`,
+        Ho = Re.div`
+  position: absolute;
+
+  width: 32px;
+  height: 13px;
+
+  left: 0;
+  top: 4px;
+
+  background-color: #bdbdbd;
+  border-radius: 12px;
+
+  transition: background 0.2s;
+
+  ${Vo}:focus & {
+    background: #9c9c9c;
+  }
+
+  ${({ checked: e }) =>
+    e &&
+    ge`
+      background-color: #7098fb;
+
+      ${Vo}:focus & {
+        background-color: #648ef3;
+      }
+    `}
+
+  ${({ disabled: e }) =>
+    e &&
+    ge`
+      background: #dedede;
+    `};
+`,
+        Bo = Re.div`
+  position: absolute;
+
+  width: 21px;
+  height: 21px;
+
+  left: 0;
+  top: 0;
+
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+  border-radius: 50%;
+
+  transform: translateX(-8px) translateZ(0);
+  transition: background 0.2s, transform 0.2s;
+
+  ${Vo}:focus & {
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  ${({ checked: e }) =>
+    e &&
+    ge`
+      background-color: #215fff;
+      border-color: #215fff;
+      transform: translateX(19px);
+    `}
+
+  ${({ disabled: e }) =>
+    e &&
+    ge`
+      background: #efefef;
+    `};
+
+  ${({ disabled: e, checked: t }) =>
+    e &&
+    t &&
+    ge`
+      background: #ababab;
+    `};
+`;
+      function Go({ checked: t, disabled: n = !1, onChange: r }) {
+        const o = e.useCallback(() => {
+          n || r(!t);
+        }, [n, t, r]);
+        return e.createElement(
+          Vo,
+          { disabled: n, onClick: o },
+          e.createElement(Ko, null, e.createElement(Ho, { checked: t, disabled: n }), e.createElement(Bo, { checked: t, disabled: n }))
+        );
+      }
+      const Yo = Re.div`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0;
+  padding: 0 8px;
+  height: 20px;
+
+  border-radius: 20px;
+
+  user-select: none;
+
+  ${oo}
+  font-size: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+
+  ${({ layout: e }) => {
+    switch (e) {
+      case "new":
+        return ge`
+          background: ${String(_r)};
+          color: ${String(Ir)};
+          font-weight: 700;
+        `;
+      case "pro-feature":
+        return ge`
+          background: ${String(Ur)};
+          color: ${String(_r)};
+          font-weight: 700;
+          text-transform: uppercase;
+        `;
+      default:
+        throw new Error(`Cannot render Pill: unexpected layout ${e}`);
+    }
+  }}
+`,
+        Zo = Re.div`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0;
+  padding: 0 8px;
+  height: 20px;
+
+  border-radius: 20px;
+
+  user-select: none;
+
+  ${oo}
+  font-size: 12px;
+  line-height: 12px;
+  white-space: nowrap;
+
+  ${({ variant: e }) => ge`
+    height: 24px;
+    font-weight: 700;
+    ${((e) => {
+      switch (e) {
+        case "green":
+          return ge`
+        background: ${String([Br])};
+        color: ${String(Hr)};
+      `;
+        case "azure":
+          return ge`
+        background: ${String(qr)};
+        color: ${String(Wr)};
+      `;
+        case "yellow":
+          return ge`
+        background: ${String(Kr)};
+        color: ${String(Vr)};
+      `;
+        case "red":
+          return ge`
+        background: ${String(Mr)};
+        color: ${String(Fr)};
+      `;
+        case "purple":
+          return ge`
+        background: ${String(Qr)};
+        color: ${String(Xr)};
+      `;
+        case "turquoise":
+          return ge`
+        background: ${String(Zr)};
+        color: ${String(Yr)};
+      `;
+        case "gray":
+          return ge`
+        background: ${String(Ar)};
+        color: ${String(Tr)};
+      `;
+        default:
+          throw new Error(`Variant unexpected: ${e}`);
+      }
+    })(e)};
+  `}
+`,
+        Wo = Re.div`
+  margin-right: 4px;
+`;
+      e.forwardRef((t, n) => {
+        if ("generic" === t.layout) {
+          const { variant: r, leftIcon: o, label: i } = t;
+          return e.createElement(
+            Zo,
+            { ref: n, variant: r || "gray" },
+            void 0 !== o && e.createElement(Wo, null, e.createElement(fo, { size: 16, content: o })),
+            i
+          );
+        }
+        const { label: r, layout: o } = t;
+        return e.createElement(Yo, { ref: n, layout: o }, r);
+      }),
+        Re.div`
+  display: flex;
+  padding: 2px;
+
+  /* Since z-index: -1 is used for the focus outline down below, it is better to promote this component to a new layer to avoid issues */
+  z-index: 0;
+`,
+        Re.div`
+  height: 20px;
+  width: 20px;
+  min-width: 20px;
+  position: relative;
+  cursor: ${({ isDisabled: e }) => (e ? "not-allowed" : "pointer")};
+  border: 1px solid;
+  border-radius: 50%;
+  border-color: ${({ isOn: e }) => String(e ? vr : Cr)};
+
+  /* Middle blue circle */
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: ${({ isOn: e }) => String(e ? vr : "transparent")};
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+  }
+
+  /* Custom focus outline */
+  &::before {
+    content: "";
+    z-index: -1;
+    display: ${({ isInputFocused: e }) => (e ? "block" : "none")};
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: -3px;
+    left: -3px;
+    border-radius: 50%;
+    background-color: ${String(Lr)};
+  }
+
+  &:hover {
+    ${({ isDisabled: e, isOn: t }) =>
+      !e &&
+      !t &&
+      ge`
+        border-color: ${String(_r)};
+
+        &::after {
+          background-color: "transparent";
+        }
+      `}
+  }
+
+  &:active {
+    ${({ isDisabled: e, isOn: t }) =>
+      !e &&
+      !t &&
+      ge`
+        border-color: ${String(_r)};
+        background-color: ${String(Sr)};
+
+        &::after {
+          background-color: "transparent";
+        }
+      `}
+  }
+
+  ${({ isDisabled: e, isOn: t }) =>
+    e &&
+    ge`
+      border-color: ${String(Sr)};
+
+      &::after {
+        background-color: ${String(t ? Sr : "transparent")};
+      }
+    `}
+
+  ${({ isInputFocused: e, isOn: t }) =>
+    e &&
+    ge`
+      border-color: ${String(vr)};
+      background-color: ${String(t ? "transparent" : Ir)};
+    `}
+`,
+        Re.input`
+  ${xo};
+`;
+      var qo = n(7295),
+        Xo = function (e, t, n, r) {
+          return new (n || (n = Promise))(function (o, i) {
+            function a(e) {
+              try {
+                s(r.next(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function l(e) {
+              try {
+                s(r.throw(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function s(e) {
+              e.done
+                ? o(e.value)
+                : (function (e) {
+                    return e instanceof n
+                      ? e
+                      : new n(function (t) {
+                          t(e);
+                        });
+                  })(e.value).then(a, l);
+            }
+            s((r = r.apply(e, t || [])).next());
+          });
+        };
+      function Qo(e) {
+        return Xo(this, void 0, void 0, function* () {
+          try {
+            yield Hn("trackFromSW:", e), yield chrome.runtime.sendMessage(chrome.runtime.id, { request: Mn, event: e });
+          } catch (t) {
+            yield Hn("trackFromSW error:", t, e), yield Kn("trackFromSW error:", t, e);
+          }
+        });
+      }
+      const Jo = Re.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${String(xr)};
+  position: relative;
+  width: 280px;
+  min-height: 580px;
+  margin: auto;
+  border: 1px solid ${String(Ar)};
+`,
+        ei = Re.div`
+  display: flex;
+  justify-content: center;
+`,
+        ti = Re.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  color: ${String(_r)};
+`,
+        ni = Re.img`
+  width: auto;
+  min-height: 150px;
+`,
+        ri = Re.div`
+  ${io}
+  padding: 6px 0;
+`,
+        oi = Re.div`
+  ${lo}
+  text-align: center;
+`,
+        ii = Re.div`
+  padding: 24px 0;
+`;
+      function ai() {
+        return (
+          e.useEffect(() => {
+            Qo({ event: "chrome.action.error_screen_seen" });
+          }, []),
+          e.createElement(
+            Jo,
+            null,
+            e.createElement(
+              ei,
+              null,
+              e.createElement(
+                ti,
+                null,
+                e.createElement(ni, { src: qo, alt: "Confused PDF character" }),
+                e.createElement(ri, null, chrome.i18n.getMessage("uh_something_wrong")),
+                e.createElement(oi, null, "Something went wrong, Smallpdf has crashed. Please refresh the page to continue."),
+                e.createElement(
+                  ii,
+                  null,
+                  e.createElement(Do, {
+                    renderAs: "button",
+                    layout: "secondary",
+                    onClick: () => {
+                      window.location.reload();
+                    },
+                    label: "Refresh page"
+                  })
+                ),
+                e.createElement(oi, null, "Should this error persist, contact our support.")
+              )
+            )
+          )
+        );
+      }
+      function li(e) {
+        try {
+          e instanceof Error && Ft({ event: "chrome.system.unhandled_error_seen", customString1: (t = e.toString()) });
+        } catch (t) {
+          Vn(t);
+        }
+        var t;
+      }
+      const si = { error: null };
+      class ci extends e.Component {
+        constructor() {
+          super(...arguments),
+            (this.state = si),
+            (this.resetErrorBoundary = (...e) => {
+              var t, n;
+              null === (n = (t = this.props).onReset) || void 0 === n || n.call(t, ...e), this.reset();
+            });
+        }
+        static getDerivedStateFromError(e) {
+          return { error: e };
+        }
+        componentDidUpdate(e, t) {
+          var n, r;
+          const { error: o } = this.state,
+            { resetKeys: i } = this.props;
+          null !== o &&
+            null !== t.error &&
+            ((e = [], t = []) => e.length !== t.length || e.some((e, n) => !Object.is(e, t[n])))(e.resetKeys, i) &&
+            (null === (r = (n = this.props).onResetKeysChange) || void 0 === r || r.call(n, e.resetKeys, i), this.reset());
+        }
+        componentDidCatch(e, t) {
+          var n, r;
+          li(e), null === (r = (n = this.props).onError) || void 0 === r || r.call(n, e, t);
+        }
+        reset() {
+          this.setState(si);
+        }
+        render() {
+          const { error: t } = this.state,
+            { fallbackRender: n, FallbackComponent: r, fallback: o } = this.props;
+          if (null !== t) {
+            const i = { error: t, resetErrorBoundary: this.resetErrorBoundary };
+            if (e.isValidElement(o)) return o;
+            if ("function" == typeof n) return n(i);
+            if (r) return e.createElement(r, Object.assign({}, i));
+            throw new Error("ErrorBoundary requires either a fallback, fallbackRender, or FallbackComponent prop");
+          }
+          return this.props.children;
+        }
+      }
+      var ui = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      function di() {
+        return ui(this, void 0, void 0, function* () {
+          return !(yield We());
+        });
+      }
+      function fi() {
+        return ui(this, void 0, void 0, function* () {
+          return Zn(Bn.PROFILE, null);
+        });
+      }
+      var pi = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      const hi = e.createContext({
+        isLimitationReached: !1,
+        isPro: !1,
+        tasksCount: 0,
+        isLoggedIn: !1,
+        isLimitationVisible: !1,
+        isLogInVisible: !1,
+        isAccountVisible: !1,
+        profile: {},
+        showLimitation: lt,
+        hideLimitation: lt,
+        showAccount: lt,
+        hideAccount: lt,
+        showLogIn: lt,
+        hideLogIn: lt,
+        authenticate: (e, t, n) => {},
+        logOutUser: lt
+      });
+      function mi({ children: t }) {
+        const [n, r] = e.useState(!1),
+          [o, i] = e.useState(!1),
+          [a, l] = e.useState(0),
+          [s, c] = e.useState(!1),
+          [u, d] = e.useState(!1),
+          [f, p] = e.useState(!1),
+          [h, m] = e.useState(!1),
+          [g, v] = e.useState(null),
+          y = () =>
+            pi(this, void 0, void 0, function* () {
+              yield Qe(), i(!0);
+              (yield Nt()) && (yield fr());
+            }),
+          w = (e) =>
+            pi(this, void 0, void 0, function* () {
+              if (e[Bn.USER_ACTIVE_PRO]) {
+                const e = yield Nt();
+                r(e);
+              }
+              if (e[Gn.TasksCount]) {
+                const e = yield dr();
+                l(e), c(e >= 2);
+              }
+              if (e[Bn.PROFILE]) {
+                const e = yield fi();
+                v(e);
+              }
+              if (e[Bn.ACCESS_TOKEN] || e[Bn.REFRESH_TOKEN]) {
+                (yield di()) && (yield y());
+              }
+            }),
+          b = () =>
+            pi(this, void 0, void 0, function* () {
+              const e = yield di();
+              i(e);
+              const t = yield Nt();
+              r(t);
+              const n = yield fi();
+              v(n);
+              const o = yield dr();
+              l(o), c(o >= 2);
+            }),
+          E = {
+            isLimitationReached: s,
+            isPro: n,
+            tasksCount: a,
+            isLoggedIn: o,
+            isLimitationVisible: u,
+            showLimitation: () => {
+              d(!0);
+            },
+            hideLimitation: () => {
+              d(!1);
+            },
+            isLogInVisible: f,
+            showAccount: () => {
+              m(!0);
+            },
+            hideAccount: () => {
+              m(!1);
+            },
+            isAccountVisible: h,
+            showLogIn: () => {
+              p(!0), d(!1);
+            },
+            hideLogIn: () => {
+              p(!1);
+            },
+            authenticate: (e, t, n) =>
+              pi(this, void 0, void 0, function* () {
+                try {
+                  e === $e.CREDENTIALS ? (yield ct(t, n), yield y()) : yield ut(e);
+                } catch (e) {
+                  throw (i(!1), e);
+                }
+              }),
+            logOutUser: () =>
+              pi(this, void 0, void 0, function* () {
+                yield dt(), m(!1), i(!1);
+              }),
+            profile: g
+          };
+        return (
+          e.useEffect(
+            () => (
+              b(),
+              chrome.storage.onChanged.addListener(w),
+              () => {
+                chrome.storage.onChanged.removeListener(w);
+              }
+            ),
+            []
+          ),
+          e.createElement(hi.Provider, { value: E }, t)
+        );
+      }
+      var gi = n(3869);
+      const vi = Ie`
+  1% {
+    transform: scale(1.25);
+  }
+
+  10% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.25);
+  }
+
+  18% {
+    transform: scale(1);
+  }
+`,
+        yi = Re(fo).attrs({ size: 16, content: gi })`
+  color: ${String(Or)};
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${vi} 2s infinite;
+  }
+`,
+        wi = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  background-color: ${String(xr)};
+`,
+        bi = Re.a`
+  color: ${String(Rr)};
+  text-decoration: none;
+`,
+        Ei = Re.div`
+  ${lo}
+  color: ${String(_r)};
+  flex: 1 1 auto;
+`,
+        Li = Re.div`
+  ${lo}
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+`,
+        _i = Re.div`
+  ${lo}
+  color: ${String(_r)};
+
+  &:hover {
+    color: ${String(Pr)};
+  }
+
+  margin: 0 20px;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+      function xi() {
+        return e.createElement(
+          wi,
+          null,
+          e.createElement(
+            Ei,
+            null,
+            "©",
+            " ",
+            new Date().getFullYear(),
+            " ",
+            "Smallpdf AG",
+            " — ",
+            "Made with",
+            e.createElement(yi, null),
+            "for the people of the internet."
+          ),
+          e.createElement(
+            Li,
+            null,
+            e.createElement(
+              _i,
+              null,
+              e.createElement(bi, { href: "https://smallpdf.com/privacy?utm_source=ce_generic" }, "Privacy & Terms")
+            ),
+            e.createElement(
+              _i,
+              null,
+              e.createElement(bi, { href: "https://smallpdf.com/support?utm_source=ce_generic", target: "_blank" }, "Contact Us")
+            )
+          )
+        );
+      }
+      var Si = n(5973);
+      const Ai = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 18px 12px;
+  background: white;
+  box-shadow: 0 0 2px 0 ${"rgba(0, 0, 0, 0.2)"};
+`,
+        ki = Re.img`
+  height: 24px;
+  width: auto;
+`;
+      function Ci() {
+        return e.createElement(Ai, null, e.createElement(ki, { src: Si, alt: "Smallpdf" }));
+      }
+      const Pi = Re.div`
+  display: flex;
+  flex-direction: center;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid transparent;
+  border-bottom: none;
+  padding: 4px 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+
+  ${({ isSelected: e }) =>
+    e &&
+    ge`
+    border-color: ${String(Cr)};
+  `}
+`,
+        Ti = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  border-bottom: 1px solid ${String(Cr)};
+  width: 100%;
+`,
+        Ii = Re.div`
+  padding: 12px 0;
+`,
+        Ri = Re.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+`,
+        Oi = Re.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  padding: 24px;
+
+  ${ro("lg")} {
+    width: 800px;
+  }
+`,
+        Ni = Re.div`
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+
+  ${ro("lg")} {
+    align-items: center;
+  }
+`,
+        Di = Re.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: 100vh;
+`;
+      function Fi({ tabs: t, initialTabIndex: n = 0 }) {
+        const [r, o] = e.useState(n),
+          i = [],
+          a = [];
+        Object.keys(t).forEach((e) => {
+          const n = t[e];
+          i.push(e), a.push(n);
+        });
+        const l = (e) => () => {
+          o(e);
+        };
+        return e.createElement(
+          Di,
+          null,
+          e.createElement(Ci, null),
+          e.createElement(
+            Ni,
+            null,
+            e.createElement(
+              Oi,
+              null,
+              e.createElement(
+                Ti,
+                null,
+                i.map((t, n) => e.createElement(Pi, { key: t, isSelected: n === r, onClick: l(n) }, t))
+              ),
+              e.createElement(
+                Ri,
+                null,
+                a.map((t, n) => (n === r ? e.createElement(Ii, { key: i[n] }, t) : null))
+              )
+            )
+          ),
+          e.createElement(xi, null)
+        );
+      }
+      const Mi = Re.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-bottom: 8px;
+`,
+        $i = Re.form`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  max-width: 520px;
+`;
+      function ji({ onSubmit: t }) {
+        const [n, r] = e.useState(""),
+          [o, i] = e.useState("");
+        return e.createElement(
+          $i,
+          {
+            action: "",
+            onSubmit: (e) => {
+              e.preventDefault(), t(n, o);
+            }
+          },
+          e.createElement(
+            Mi,
+            null,
+            e.createElement($o, {
+              type: "email",
+              onChange: (e) => {
+                r(e.target.value);
+              },
+              placeholder: "email",
+              value: n,
+              name: "login[username]",
+              required: !0
+            })
+          ),
+          e.createElement(
+            Mi,
+            null,
+            e.createElement($o, {
+              type: "password",
+              onChange: (e) => {
+                i(e.target.value);
+              },
+              placeholder: "password",
+              value: o,
+              name: "login[password]",
+              required: !0
+            })
+          ),
+          e.createElement(Mi, null, e.createElement(Do, { renderAs: "button", layout: "primary", label: "Log In", type: "submit" }))
+        );
+      }
+      const zi = Re.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 48px;
+  height: 48px;
+  
+  div {
+    animation: cubeAnimation 1600ms ease 0ms infinite;
+  }
+
+  div:nth-child(7) {
+    animation-delay: 0ms; 
+  }
+  
+  div:nth-child(4) {
+    animation-delay: 100ms; 
+  }
+  div:nth-child(8) {
+    animation-delay: 100ms; 
+  }
+  
+  div:nth-child(1) {
+    animation-delay: 200ms; 
+  }
+  div:nth-child(5) {
+    animation-delay: 200ms; 
+  }
+  div:nth-child(9) {
+    animation-delay: 200ms; 
+  }
+  
+  div:nth-child(2) {
+    animation-delay: 300ms; 
+  }
+  div:nth-child(6) {
+    animation-delay: 300ms; 
+  }
+  
+  div:nth-child(3) {
+    animation-delay: 400ms; 
+  }
+
+  @keyframes cubeAnimation {
+    0% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(0);
+    }  
+    100% {
+      transform: scale(1);
+    }
+  }
+`,
+        Ui = Re.div`
+  width: 33%;
+  height: 33%;
+  background-color: ${({ color: e }) => e};
+`,
+        Vi = [jt, zt, Ut, Kt, Yt, Vt, Ht, Bt, Gt];
+      function Ki() {
+        return e.createElement(
+          zi,
+          null,
+          Vi.map((t) => e.createElement(Ui, { key: t.toString(), color: t.toString() }))
+        );
+      }
+      const Hi = Re.div`
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: ${String(_r)};
+
+  ${({ status: e }) => {
+    switch (e) {
+      case "valid":
+        return ge`
+          border-color: ${String(Gr)};
+          background-color: ${String(Br)};
+        `;
+      case "expired":
+        return ge`
+          border-color: ${String(zr)};
+          background-color: ${String(jr)};
+        `;
+      case "invalid":
+        return ge`
+          border-color: ${String($r)};
+          background-color: ${String(Mr)};
+        `;
+      default:
+        return null;
+    }
+  }}
+`,
+        Bi = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+`,
+        Gi = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`,
+        Yi = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+`;
+      var Zi = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      const Wi = Ie`
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+`,
+        qi = Re.div`
+  position: absolute;
+  display: flex;
+
+  right: 0;
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #2bd982;
+
+  text-align: center;
+  font-size: 14px;
+  color: white;
+
+  transform: translateY(-30px);
+  opacity: 0;
+
+  pointer-events: none;
+
+  animation: ${Wi} 1.5s ease-out;
+`,
+        Xi = Re.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`,
+        Qi = Re.div`
+  width: 100%;
+  border-bottom: 1px solid ${String(Cr)};
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+`,
+        Ji = Re.div`
+  ${ao}
+  color: ${String(_r)};
+  padding-bottom: 12px;
+  position: relative;
+`,
+        ea = Re.div`
+  ${co}
+  font-weight: 700;
+`,
+        ta = Re.div``,
+        na = Re.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+`;
+      function ra() {
+        var t, n, r, o, i, a, l, s, c, u, d, f, p, h;
+        const m = e.useRef(null),
+          g = e.useRef(null),
+          [v, y] = e.useState(!1),
+          [w, b] = e.useState(!1),
+          [E, L] = e.useState(it.IDLE),
+          [_, x] = e.useState(it.IDLE),
+          [S, A] = e.useState(!1),
+          k = () =>
+            Zi(this, void 0, void 0, function* () {
+              x(it.PENDING), (m.current = yield Be()), (g.current = yield Ye());
+              const e = yield Ze(),
+                t = yield We();
+              console.log("readableTokens.current", g.current), y(e), b(t), x(it.IDLE), yield Qe();
+            }),
+          C = (e) => () => {
+            navigator.clipboard.writeText(e), A(!0), setTimeout(() => A(!1), 1800);
+            const t = window.getSelection();
+            t && t.removeAllRanges();
+          },
+          P = (t) =>
+            t
+              ? t.expireAt -
+                  (function (e) {
+                    return 1e3 * e;
+                  })(160) <=
+                Date.now()
+                ? e.createElement(Hi, { status: "expired" }, "Expired")
+                : e.createElement(Hi, { status: "valid" }, "Valid")
+              : e.createElement(Hi, { status: "invalid" }, "Invalid");
+        return (
+          e.useEffect(() => {
+            k();
+          }, []),
+          e.createElement(
+            na,
+            null,
+            e.createElement(Ji, null, e.createElement("span", null, "Tokens"), S && e.createElement(qi, null, "Copied!")),
+            e.createElement(
+              Bi,
+              null,
+              e.createElement(
+                Gi,
+                null,
+                e.createElement(ea, null, "Access Token expiration date:"),
+                e.createElement(Hi, null, P(null === (t = g.current) || void 0 === t ? void 0 : t.accessToken)),
+                e.createElement(
+                  ta,
+                  null,
+                  new Date(
+                    null === (r = null === (n = g.current) || void 0 === n ? void 0 : n.accessToken) || void 0 === r ? void 0 : r.expireAt
+                  ).toUTCString()
+                )
+              ),
+              (null === (i = null === (o = g.current) || void 0 === o ? void 0 : o.accessToken) || void 0 === i ? void 0 : i.value) &&
+                e.createElement(
+                  Yi,
+                  null,
+                  e.createElement(Do, {
+                    renderAs: "button",
+                    layout: "outline",
+                    label: "Copy value",
+                    onClick: C(
+                      (null === (l = null === (a = g.current) || void 0 === a ? void 0 : a.accessToken) || void 0 === l
+                        ? void 0
+                        : l.value) || ""
+                    )
+                  })
+                )
+            ),
+            e.createElement(
+              Bi,
+              null,
+              e.createElement(
+                Gi,
+                null,
+                e.createElement(ea, null, "Refresh Token expiration date:"),
+                e.createElement(Hi, null, P(null === (s = g.current) || void 0 === s ? void 0 : s.refreshToken)),
+                e.createElement(
+                  ta,
+                  null,
+                  new Date(
+                    null === (u = null === (c = g.current) || void 0 === c ? void 0 : c.refreshToken) || void 0 === u ? void 0 : u.expireAt
+                  ).toUTCString()
+                )
+              ),
+              (null === (f = null === (d = g.current) || void 0 === d ? void 0 : d.refreshToken) || void 0 === f ? void 0 : f.value) &&
+                e.createElement(
+                  Yi,
+                  null,
+                  e.createElement(Do, {
+                    renderAs: "button",
+                    layout: "outline",
+                    label: "Copy value",
+                    onClick: C(
+                      (null === (h = null === (p = g.current) || void 0 === p ? void 0 : p.refreshToken) || void 0 === h
+                        ? void 0
+                        : h.value) || ""
+                    )
+                  })
+                )
+            ),
+            e.createElement(Qi, null),
+            e.createElement(Ji, null, "Test Authentication"),
+            e.createElement(
+              Bi,
+              null,
+              e.createElement(ea, null, "Test authenticated request (", E, "):"),
+              e.createElement(Do, {
+                renderAs: "button",
+                layout: "outline",
+                label: "Test auth request",
+                onClick: () =>
+                  Zi(this, void 0, void 0, function* () {
+                    L(it.PENDING);
+                    try {
+                      yield (() =>
+                        Zi(this, void 0, void 0, function* () {
+                          const e = yield yt("https://filestorage.smallpdf.com/v2/files", {
+                              headers: { Accept: "application/json", Pragma: "no-cache" }
+                            }),
+                            t = yield e.json();
+                          console.log("result", t);
+                        }))(),
+                        yield k(),
+                        L(it.COMPLETED);
+                    } catch (e) {
+                      console.log("error", e), L(it.FAILED);
+                    }
+                  })
+              })
+            ),
+            e.createElement(
+              Bi,
+              null,
+              e.createElement(ea, null, "Test authenticated request (", E, "):"),
+              e.createElement(Do, {
+                renderAs: "button",
+                layout: "outline",
+                label: "Get pro account",
+                onClick: () =>
+                  Zi(this, void 0, void 0, function* () {
+                    L(it.PENDING);
+                    try {
+                      yield (() =>
+                        Zi(this, void 0, void 0, function* () {
+                          const e = yield yt(`${gt}/pro/account`, { headers: { Accept: "application/json" } }),
+                            t = yield e.json();
+                          console.log("result", t);
+                        }))(),
+                        yield k(),
+                        L(it.COMPLETED);
+                    } catch (e) {
+                      console.log("error", e), L(it.FAILED);
+                    }
+                  })
+              })
+            ),
+            e.createElement(
+              Bi,
+              null,
+              e.createElement(ea, null, "Refresh access token:"),
+              e.createElement(Do, {
+                renderAs: "button",
+                isDisabled: w,
+                layout: "outline",
+                label: "refresh access token",
+                onClick: () =>
+                  Zi(this, void 0, void 0, function* () {
+                    try {
+                      x(it.PENDING), yield ft(), yield k(), x(it.IDLE);
+                    } catch (e) {
+                      console.log("error", e), x(it.FAILED);
+                    }
+                  })
+              })
+            ),
+            e.createElement(Qi, null),
+            e.createElement(Ji, null, "Login/Signup"),
+            _ === it.PENDING && e.createElement(Ki, null),
+            _ !== it.PENDING &&
+              e.createElement(
+                e.Fragment,
+                null,
+                !w &&
+                  e.createElement(
+                    Bi,
+                    null,
+                    e.createElement(ea, null, "Logout:"),
+                    e.createElement(Do, {
+                      renderAs: "button",
+                      layout: "outline",
+                      label: "Logout",
+                      onClick: () =>
+                        Zi(this, void 0, void 0, function* () {
+                          x(it.PENDING), yield dt(), yield k(), x(it.IDLE);
+                        })
+                    })
+                  ),
+                v &&
+                  e.createElement(
+                    "div",
+                    null,
+                    e.createElement(
+                      Xi,
+                      null,
+                      e.createElement(
+                        Bi,
+                        null,
+                        e.createElement(Do, {
+                          renderAs: "button",
+                          layout: "outline",
+                          label: "log in with Google",
+                          onClick: () =>
+                            Zi(this, void 0, void 0, function* () {
+                              x(it.PENDING);
+                              try {
+                                yield ut($e.GOOGLE), yield k(), x(it.IDLE);
+                              } catch (e) {
+                                console.log(e), x(it.FAILED);
+                              }
+                            })
+                        })
+                      ),
+                      e.createElement(
+                        Bi,
+                        null,
+                        e.createElement(Do, {
+                          renderAs: "button",
+                          layout: "outline",
+                          label: "log in with Facebook",
+                          onClick: () =>
+                            Zi(this, void 0, void 0, function* () {
+                              x(it.PENDING);
+                              try {
+                                yield ut($e.FACEBOOK), yield k(), x(it.IDLE);
+                              } catch (e) {
+                                console.log(e), x(it.FAILED);
+                              }
+                            })
+                        })
+                      )
+                    ),
+                    e.createElement(ji, {
+                      onSubmit: (e, t) =>
+                        Zi(this, void 0, void 0, function* () {
+                          x(it.PENDING);
+                          try {
+                            yield ct(e, t), yield k(), x(it.IDLE);
+                          } catch (e) {
+                            console.log(e), x(it.FAILED);
+                          }
+                        })
+                    })
+                  ),
+                _ === it.FAILED && e.createElement("div", null, "Error")
+              )
+          )
+        );
+      }
+      var oa,
+        ia,
+        aa = function (e, t, n, r) {
+          return new (n || (n = Promise))(function (o, i) {
+            function a(e) {
+              try {
+                s(r.next(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function l(e) {
+              try {
+                s(r.throw(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function s(e) {
+              e.done
+                ? o(e.value)
+                : (function (e) {
+                    return e instanceof n
+                      ? e
+                      : new n(function (t) {
+                          t(e);
+                        });
+                  })(e.value).then(a, l);
+            }
+            s((r = r.apply(e, t || [])).next());
+          });
+        };
+      !(function (e) {
+        e.TOOL_PICKER = "ce_tool_picker";
+      })(oa || (oa = {})),
+        (function (e) {
+          (e.ORIGINAL = "original"),
+            (e.VARIANT = "variant"),
+            (e.VARIANT_1 = "variant_1"),
+            (e.VARIANT_2 = "variant_2"),
+            (e.VARIANT_3 = "variant_3"),
+            (e.VARIANT_4 = "variant_4");
+        })(ia || (ia = {}));
+      const la = [
+        {
+          key: oa.TOOL_PICKER,
+          segments: { [ia.ORIGINAL]: 0.5, [ia.VARIANT]: 0.5 },
+          version: 1,
+          keepSegmented: !0,
+          isSegmentationEnabled: () =>
+            aa(void 0, void 0, void 0, function* () {
+              return !0;
+            }),
+          isActive: () =>
+            aa(void 0, void 0, void 0, function* () {
+              return !0;
+            })
+        }
+      ];
+      var sa = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      function ca(e) {
+        return sa(this, void 0, void 0, function* () {
+          return e.version > 1 ? `${e.key}_v${e.version}` : e.key;
+        });
+      }
+      function ua(e) {
+        return la.find((t) => t.key === e);
+      }
+      function da(e) {
+        const t = Object.keys(e.segments),
+          n = Object.values(e.segments).map((e) => (null != e ? e : 0)),
+          r = n.reduce((e, t) => e + t, 0);
+        let o = 0;
+        const i = n.map((e) => ((o = e + o), o)),
+          a = Math.random() * r;
+        return t[i.findIndex((e) => e > a)];
+      }
+      function fa(e) {
+        return sa(this, void 0, void 0, function* () {
+          if (!ua(e)) return !1;
+          const t = yield Xn(Gn.Experiments, {});
+          return !!Object.keys(t).find((t) => t === e);
+        });
+      }
+      function pa() {
+        return sa(this, void 0, void 0, function* () {
+          const e = yield Xn(Gn.Experiments, {});
+          return Object.keys(e)
+            .filter((e) =>
+              sa(this, void 0, void 0, function* () {
+                return (function (e) {
+                  return sa(this, void 0, void 0, function* () {
+                    const t = ua(e);
+                    return !!t && t.isActive();
+                  });
+                })(e);
+              })
+            )
+            .reduce((t, n) => Object.assign(Object.assign({}, t), { [n]: e[n] }), {});
+        });
+      }
+      function ha(e) {
+        var t;
+        return sa(this, void 0, void 0, function* () {
+          if (!(yield ua(e))) return ia.ORIGINAL;
+          const n = yield Xn(Gn.Experiments, {});
+          return (null === (t = n[e]) || void 0 === t ? void 0 : t.segment) || ia.ORIGINAL;
+        });
+      }
+      function ma(e) {
+        return sa(this, void 0, void 0, function* () {
+          return navigator.locks.request(Et, { ifAvailable: !0 }, (t) =>
+            sa(this, void 0, void 0, function* () {
+              if ((null == t ? void 0 : t.name) !== Et) return ia.ORIGINAL;
+              const n = ua(e);
+              if (!n) return Kn(`triggerAB: experiment ${e} undefined`), ia.ORIGINAL;
+              if (yield fa(e)) {
+                const t = yield (function (e) {
+                  return sa(this, void 0, void 0, function* () {
+                    return (yield pa())[e];
+                  });
+                })(e);
+                if (t && n.version > t.version && n.keepSegmented) return ha(e);
+                if (t && n.version === t.version) return ha(e);
+              }
+              const r = yield n.isActive(),
+                o = yield n.isSegmentationEnabled();
+              if (!r || !o) return ia.ORIGINAL;
+              const i = da(n),
+                a = yield Xn(Gn.Experiments, {}),
+                l = yield ca(n),
+                s = Object.assign(Object.assign({}, a), { [e]: { segment: i, version: n.version, name: l } });
+              var c, u;
+              return (
+                yield Qn({ [Gn.Experiments]: s }),
+                Kn(`triggerAB: ${l} -> ${i}`),
+                yield chrome.runtime.sendMessage(chrome.runtime.id, {
+                  request: Mn,
+                  event: ((c = l), (u = i), { event: "web.ab.sample", customString1: c, customString2: u })
+                }),
+                i
+              );
+            })
+          );
+        });
+      }
+      var ga = n(8638),
+        va = function (e, t, n, r) {
+          return new (n || (n = Promise))(function (o, i) {
+            function a(e) {
+              try {
+                s(r.next(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function l(e) {
+              try {
+                s(r.throw(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function s(e) {
+              e.done
+                ? o(e.value)
+                : (function (e) {
+                    return e instanceof n
+                      ? e
+                      : new n(function (t) {
+                          t(e);
+                        });
+                  })(e.value).then(a, l);
+            }
+            s((r = r.apply(e, t || [])).next());
+          });
+        };
+      const ya = Re.div`
+  position: relative;
+  display: flex;
+
+  min-height: 42px;
+  box-sizing: border-box;
+  padding: 6px 12px;
+
+  background: white;
+  border-radius: 4px;
+
+  &:nth-child(odd) {
+    background: #f5f5f5;
+  }
+`,
+        wa = Re.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  overflow: hidden;
+`,
+        ba = Re.div`
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+`,
+        Ea = Re.div`
+  padding: 2px 0;
+  font-size: 12px;
+  color: #9e9e9e;
+`,
+        La = Re.div`
+  margin-right: 4px;
+
+  font-size: 16px;
+  color: #212121;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 700;
+`,
+        _a = Re.div`
+  margin-right: 4px;
+
+  font-size: 16px;
+  color: #212121;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`,
+        xa = Ie`
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+`,
+        Sa = Re.div`
+  position: absolute;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  top: 0;
+  left: 30px;
+
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: #2BD982;
+
+  text-align: center;
+  font-size: 14px;
+  color: white;
+
+  transform: translateY(-30px);
+  opacity: 0;
+
+  pointer-events: none;
+
+  animation: ${xa} 1.5s ease-out;
+`,
+        Aa = Re.div`
+  display: none;
+  margin: 0 4px;
+  cursor: pointer;
+  color: ${String(_r)};
+
+  ${ya}:hover & {
+    display: block;
+  }
+`,
+        ka = Re.img.attrs(() => ({ src: ga, alt: "Untrigger icon" }))`
+  display: block;
+  width: 8px;
+  height: 8px;
+`,
+        Ca = Re.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-left: 12px;
+`,
+        Pa = Re.div`
+  margin: 0 4px;
+`,
+        Ta = Re.div`
+  margin: 0 4px;
+`;
+      function Ia({ test: t, isTriggered: n, isActive: r, activeSegment: o, onTrigger: i, onUntrigger: a, onSegmentChange: l }) {
+        const [s, c] = e.useState(!1),
+          u = (e) =>
+            va(this, void 0, void 0, function* () {
+              const t = yield ca(e);
+              navigator.clipboard.writeText(t), c(!0), setTimeout(() => c(!1), 1800);
+              const n = window.getSelection();
+              n && n.removeAllRanges();
+            });
+        return e.createElement(
+          ya,
+          null,
+          e.createElement(
+            wa,
+            null,
+            e.createElement(
+              ba,
+              null,
+              e.createElement(La, { title: t.key, onDoubleClick: () => u(t) }, t.key),
+              t.version > 1 && e.createElement(_a, null, `version: ${t.version || 1}`),
+              n && e.createElement(Aa, { onClick: a }, e.createElement(ka, { title: "Untrigger" }))
+            ),
+            !(() => {
+              const e = [];
+              return (
+                Object.values(t.segments).forEach((t) => {
+                  e.includes(t) || e.push(t);
+                }),
+                1 === e.length
+              );
+            })() &&
+              e.createElement(
+                Ea,
+                null,
+                Object.entries(t.segments)
+                  .map(([e, t]) => `${e}: ${100 * t}%`)
+                  .join("; ")
+              )
+          ),
+          s && e.createElement(Sa, null, "Copied!"),
+          e.createElement(
+            Ca,
+            null,
+            n
+              ? e.createElement(
+                  Pa,
+                  null,
+                  (() => {
+                    const e = Object.keys(t.segments);
+                    return 2 === e.length && e.includes(ia.ORIGINAL) && e.includes(ia.VARIANT);
+                  })()
+                    ? e.createElement(Go, { checked: o === ia.VARIANT, disabled: !r, onChange: (e) => l(e ? ia.VARIANT : ia.ORIGINAL) })
+                    : e.createElement(Uo, {
+                        options: Object.keys(t.segments).map((e) => ({ key: e, label: e })),
+                        value: o || void 0,
+                        disabled: !r,
+                        onChange: (e) => l(e)
+                      })
+                )
+              : e.createElement(
+                  Ta,
+                  null,
+                  e.createElement(Do, { renderAs: "button", isDisabled: !r, onClick: i, layout: "outline", label: "Trigger" })
+                )
+          )
+        );
+      }
+      var Ra = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      const Oa = Re.div`
+  display: flex;
+  padding: 18px 0 12px 0;
+`,
+        Na = Re.div`
+  flex: 1 1 auto;
+  font-size: 18px;
+  font-weight: bold;
+`,
+        Da = Re.div`
+  font-size: 14px;
+`,
+        Fa = Re.div`
+  padding: 6px 0;
+`,
+        Ma = Re.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+`;
+      function $a() {
+        const [t, n] = e.useState([]),
+          [r, o] = e.useState([]),
+          i = () =>
+            Ra(this, void 0, void 0, function* () {
+              const e = [],
+                t = [];
+              yield Promise.all(
+                la.map((n) =>
+                  Ra(this, void 0, void 0, function* () {
+                    (yield fa(n.key))
+                      ? e.push(Object.assign(Object.assign({}, n), { activeSegment: yield ha(n.key), isActive: yield n.isActive() }))
+                      : t.push(Object.assign(Object.assign({}, n), { activeSegment: void 0, isActive: yield n.isActive() }));
+                  })
+                )
+              ),
+                n(e),
+                o(t);
+            }),
+          a = (e) =>
+            Ra(this, void 0, void 0, function* () {
+              const t = ua(e);
+              if (!t) return;
+              const n = da(t),
+                r = yield Xn(Gn.Experiments, {}),
+                o = yield ca(t);
+              yield Qn({ [Gn.Experiments]: Object.assign(Object.assign({}, r), { [e]: { segment: n, version: t.version, name: o } }) }),
+                Vn(`triggerAB: ${o} -> ${n}`),
+                i();
+            }),
+          l = (e) =>
+            Ra(this, void 0, void 0, function* () {
+              if (!ua(e)) return;
+              const t = yield Xn(Gn.Experiments, {});
+              delete t[e], yield Qn({ [Gn.Experiments]: t }), i();
+            }),
+          s = (e, t) =>
+            Ra(this, void 0, void 0, function* () {
+              const n = ua(e);
+              if (!n) return;
+              const r = yield Xn(Gn.Experiments, {}),
+                o = yield ca(n);
+              yield Qn({ [Gn.Experiments]: Object.assign(Object.assign({}, r), { [e]: { segment: t, version: n.version, name: o } }) }),
+                i();
+            }),
+          c = (e, t) => {
+            "sync" === t && e[Gn.Experiments] && i();
+          };
+        return (
+          e.useEffect(
+            () => (
+              i(),
+              chrome.storage.onChanged.addListener(c),
+              () => {
+                chrome.storage.onChanged.removeListener(c);
+              }
+            ),
+            []
+          ),
+          e.createElement(
+            Ma,
+            null,
+            e.createElement(
+              "div",
+              null,
+              t.length > 0 &&
+                e.createElement(
+                  e.Fragment,
+                  null,
+                  e.createElement(
+                    Oa,
+                    null,
+                    e.createElement(Na, null, "Triggered Experiments"),
+                    e.createElement(
+                      Da,
+                      null,
+                      e.createElement(Do, {
+                        onClick: () =>
+                          Ra(this, void 0, void 0, function* () {
+                            yield Qn({ [Gn.Experiments]: {} }), i();
+                          }),
+                        label: "Reset all",
+                        layout: "ghost",
+                        renderAs: "button"
+                      })
+                    )
+                  ),
+                  e.createElement(
+                    Fa,
+                    null,
+                    t
+                      .reverse()
+                      .map((t) =>
+                        e.createElement(Ia, {
+                          key: t.key,
+                          test: t,
+                          activeSegment: t.activeSegment,
+                          isTriggered: !0,
+                          isActive: t.isActive,
+                          onTrigger: () => a(t.key),
+                          onUntrigger: () => l(t.key),
+                          onSegmentChange: (e) => s(t.key, e)
+                        })
+                      )
+                  )
+                ),
+              r.length > 0 &&
+                e.createElement(
+                  e.Fragment,
+                  null,
+                  e.createElement(Oa, null, e.createElement(Na, null, "Inactive Experiments")),
+                  e.createElement(
+                    Fa,
+                    null,
+                    r
+                      .reverse()
+                      .map((t) =>
+                        e.createElement(Ia, {
+                          key: t.key,
+                          activeSegment: t.activeSegment,
+                          isTriggered: !1,
+                          isActive: t.isActive,
+                          test: t,
+                          onTrigger: () => a(t.key),
+                          onUntrigger: () => l(t.key),
+                          onSegmentChange: (e) => s(t.key, e)
+                        })
+                      )
+                  )
+                )
+            )
+          )
+        );
+      }
+      var ja = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      var za = function (e, t, n, r) {
+        return new (n || (n = Promise))(function (o, i) {
+          function a(e) {
+            try {
+              s(r.next(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function l(e) {
+            try {
+              s(r.throw(e));
+            } catch (e) {
+              i(e);
+            }
+          }
+          function s(e) {
+            e.done
+              ? o(e.value)
+              : (function (e) {
+                  return e instanceof n
+                    ? e
+                    : new n(function (t) {
+                        t(e);
+                      });
+                })(e.value).then(a, l);
+          }
+          s((r = r.apply(e, t || [])).next());
+        });
+      };
+      const Ua = Re.div`
+  ${ao}
+  color: ${String(_r)};
+  padding-bottom: 12px;
+  position: relative;
+`,
+        Va = Re.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+`,
+        Ka = Re.div`
+  ${co}
+  font-weight: 700;
+`;
+      function Ha() {
+        const {
+          tasksCount: t,
+          isLimitationReached: n,
+          isPro: r
+        } = (function () {
+          const t = e.useContext(hi);
+          if (!t) throw new Error("useAccount: AccountProvider is missing.");
+          return t;
+        })();
+        return e.createElement(
+          Va,
+          null,
+          e.createElement(Ua, null, "Account"),
+          e.createElement(
+            Bi,
+            null,
+            e.createElement(
+              Gi,
+              null,
+              e.createElement(Ka, null, "Pro status:"),
+              " ",
+              r ? e.createElement(Hi, { status: "valid" }, "Pro user") : e.createElement(Hi, { status: "expired" }, "Free user")
+            )
+          ),
+          e.createElement(
+            Bi,
+            null,
+            e.createElement(
+              Gi,
+              null,
+              e.createElement(Ka, null, "Free daily tasks completed:", t),
+              " ",
+              n ? e.createElement(Hi, { status: "invalid" }, "Blocked") : e.createElement(Hi, { status: "valid" }, "OK")
+            ),
+            e.createElement(
+              Yi,
+              null,
+              e.createElement(Do, {
+                renderAs: "button",
+                layout: "outline",
+                label: "Reset",
+                onClick: () =>
+                  za(this, void 0, void 0, function* () {
+                    yield fr();
+                  })
+              })
+            )
+          ),
+          e.createElement(
+            Bi,
+            null,
+            e.createElement(Gi, null, e.createElement(Ka, null, "Initialize storage")),
+            e.createElement(
+              Yi,
+              null,
+              e.createElement(Do, {
+                renderAs: "button",
+                layout: "outline",
+                label: "Initialize storages",
+                onClick: () =>
+                  za(this, void 0, void 0, function* () {
+                    !(function () {
+                      ja(this, void 0, void 0, function* () {
+                        yield Wn({
+                          [Bn.MIGRATIONS_SCHEMA_VERSION]: Date.now(),
+                          [Bn.IS_PDIUM_OPEN_ON_LOAD]: null,
+                          [Bn.LOCAL_TOKEN]: null,
+                          [Bn.USER_COUNTRY_GEO_IP]: null,
+                          [Bn.USER_PROFILE]: null,
+                          [Bn.USER_ACTIVE_PRO]: !1,
+                          [Bn.USER_RT]: !1,
+                          [Bn.ACCESS_TOKEN]: null,
+                          [Bn.REFRESH_TOKEN]: null,
+                          [Bn.TRACKING_EVENTS]: [],
+                          [Bn.USER_DATA_SYNCED]: !1,
+                          [Bn.USER_DATA_LAST_SYNC]: null,
+                          [Bn.FILE_HANDLE]: null,
+                          [Bn.FILE_HANDLE_RESULT]: null,
+                          [Bn.TASK]: null,
+                          [Bn.SYSTEM_OS]: null,
+                          [Bn.SYSTEM_LOCALE]: "en",
+                          [Bn.INSTALLATION_DATE]: Date.now(),
+                          [Bn.PROFILE]: null,
+                          [Bn.AUTH_CODE_VERIFIER]: null,
+                          [Bn.AUTH_STATE_CODE]: null,
+                          [Bn.AUTH_PROVIDER]: null,
+                          [Bn.FAILED_LOGIN_ATTEMPTS]: []
+                        }),
+                          yield Qn({
+                            [Gn.PreferenceGoogleSERPEnabled]: !0,
+                            [Gn.PreferenceAutoDownloadEnabled]: !1,
+                            [Gn.Experiments]: {},
+                            [Gn.TasksCount]: 0,
+                            [Gn.FreeTasksResetTime]: null,
+                            [Gn.MIGRATIONS_SCHEMA_VERSION]: Date.now()
+                          });
+                      });
+                    })();
+                  })
+              })
+            )
+          ),
+          e.createElement(
+            Bi,
+            null,
+            e.createElement(Gi, null, e.createElement(Ka, null, "Print storages")),
+            e.createElement(
+              Yi,
+              null,
+              e.createElement(Do, {
+                renderAs: "button",
+                layout: "outline",
+                label: "Print storages",
+                onClick: () =>
+                  za(this, void 0, void 0, function* () {
+                    !(function () {
+                      Yn(this, void 0, void 0, function* () {
+                        console.log("============= LOCAL =============");
+                        const e = Object.values(Bn),
+                          t = yield Zn(e);
+                        console.log(t), console.log("============= SYNC =============");
+                        const n = Object.values(Gn),
+                          r = yield Xn(n);
+                        console.log(r);
+                      });
+                    })();
+                  })
+              })
+            )
+          )
+        );
+      }
+      var Ba = n(627),
+        Ga = function (e, t, n, r) {
+          return new (n || (n = Promise))(function (o, i) {
+            function a(e) {
+              try {
+                s(r.next(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function l(e) {
+              try {
+                s(r.throw(e));
+              } catch (e) {
+                i(e);
+              }
+            }
+            function s(e) {
+              e.done
+                ? o(e.value)
+                : (function (e) {
+                    return e instanceof n
+                      ? e
+                      : new n(function (t) {
+                          t(e);
+                        });
+                  })(e.value).then(a, l);
+            }
+            s((r = r.apply(e, t || [])).next());
+          });
+        };
+      const Ya = Re.div`
   box-sizing: border-box;
   background-color: white;
   padding: 12px;
@@ -15658,10 +15658,10 @@
   font-size: 14px;
   line-height: 20px;
 `,
-        Ya = Re.div`
+        Za = Re.div`
   color: #757575;
 `,
-        Za = Re.button`
+        Wa = Re.button`
   color: #0055ff;
   display: flex;
   flex-direction: row;
@@ -15674,24 +15674,24 @@
   background-color: transparent;
   cursor: pointer;
 `,
-        Wa = Re.span`
+        qa = Re.span`
   position: relative;
   top: 1px;
   margin-left: 10px;
   width: 16px;
   height: 16px;
 `;
-      function qa() {
+      function Xa() {
         return e.createElement(
-          Ga,
+          Ya,
           null,
-          e.createElement(Ya, null, chrome.runtime.getManifest().version),
+          e.createElement(Za, null, chrome.runtime.getManifest().version),
           e.createElement(
-            Za,
+            Wa,
             {
               onClick: () =>
-                Ba(this, void 0, void 0, function* () {
-                  yield no({ event: "chrome.browser_action.smallpdf_apps_clicked" });
+                Ga(this, void 0, void 0, function* () {
+                  yield Qo({ event: "chrome.browser_action.smallpdf_apps_clicked" });
                   const e = document.createElement("a");
                   (e.target = "_blank"),
                     (e.href = `https://smallpdf.com/download?${bt}`),
@@ -15701,15 +15701,15 @@
                 })
             },
             e.createElement("span", null, "Smallpdf apps"),
-            e.createElement(Wa, null, e.createElement(gr, { size: 16, content: Ha }))
+            e.createElement(qa, null, e.createElement(fo, { size: 16, content: Ba }))
           )
         );
       }
-      const Xa = 280;
-      var Qa = n(9289);
-      function Ja() {
+      const Qa = 280;
+      var Ja = n(9289);
+      function el() {
         return (
-          (Ja =
+          (el =
             Object.assign ||
             function (e) {
               for (var t = 1; t < arguments.length; t++) {
@@ -15718,30 +15718,30 @@
               }
               return e;
             }),
-          Ja.apply(this, arguments)
+          el.apply(this, arguments)
         );
       }
-      function el(e, t) {
+      function tl(e, t) {
         return (
-          (el =
+          (tl =
             Object.setPrototypeOf ||
             function (e, t) {
               return (e.__proto__ = t), e;
             }),
-          el(e, t)
+          tl(e, t)
         );
       }
-      function tl(e) {
+      function nl(e) {
         return (
-          (tl = Object.setPrototypeOf
+          (nl = Object.setPrototypeOf
             ? Object.getPrototypeOf
             : function (e) {
                 return e.__proto__ || Object.getPrototypeOf(e);
               }),
-          tl(e)
+          nl(e)
         );
       }
-      function nl() {
+      function rl() {
         if ("undefined" == typeof Reflect || !Reflect.construct) return !1;
         if (Reflect.construct.sham) return !1;
         if ("function" == typeof Proxy) return !0;
@@ -15751,23 +15751,23 @@
           return !1;
         }
       }
-      function rl(e, t, n) {
+      function ol(e, t, n) {
         return (
-          (rl = nl()
+          (ol = rl()
             ? Reflect.construct
             : function (e, t, n) {
                 var r = [null];
                 r.push.apply(r, t);
                 var o = new (Function.bind.apply(e, r))();
-                return n && el(o, n.prototype), o;
+                return n && tl(o, n.prototype), o;
               }),
-          rl.apply(null, arguments)
+          ol.apply(null, arguments)
         );
       }
-      function ol(e) {
+      function il(e) {
         var t = "function" == typeof Map ? new Map() : void 0;
         return (
-          (ol = function (e) {
+          (il = function (e) {
             if (null === e || ((n = e), -1 === Function.toString.call(n).indexOf("[native code]"))) return e;
             var n;
             if ("function" != typeof e) throw new TypeError("Super expression must either be null or a function");
@@ -15776,17 +15776,17 @@
               t.set(e, r);
             }
             function r() {
-              return rl(e, arguments, tl(this).constructor);
+              return ol(e, arguments, nl(this).constructor);
             }
             return (
               (r.prototype = Object.create(e.prototype, { constructor: { value: r, enumerable: !1, writable: !0, configurable: !0 } })),
-              el(r, e)
+              tl(r, e)
             );
           }),
-          ol(e)
+          il(e)
         );
       }
-      var il = (function (e) {
+      var al = (function (e) {
         var t, n;
         function r(t) {
           return (function (e) {
@@ -15801,16 +15801,16 @@
             ) || this
           );
         }
-        return (n = e), ((t = r).prototype = Object.create(n.prototype)), (t.prototype.constructor = t), el(t, n), r;
-      })(ol(Error));
-      function al(e) {
+        return (n = e), ((t = r).prototype = Object.create(n.prototype)), (t.prototype.constructor = t), tl(t, n), r;
+      })(il(Error));
+      function ll(e) {
         return Math.round(255 * e);
       }
-      function ll(e, t, n) {
-        return al(e) + "," + al(t) + "," + al(n);
+      function sl(e, t, n) {
+        return ll(e) + "," + ll(t) + "," + ll(n);
       }
-      function sl(e, t, n, r) {
-        if ((void 0 === r && (r = ll), 0 === t)) return r(n, n, n);
+      function cl(e, t, n, r) {
+        if ((void 0 === r && (r = sl), 0 === t)) return r(n, n, n);
         var o = (((e % 360) + 360) % 360) / 60,
           i = (1 - Math.abs(2 * n - 1)) * t,
           a = i * (1 - Math.abs((o % 2) - 1)),
@@ -15831,7 +15831,7 @@
         var u = n - i / 2;
         return r(l + u, s + u, c + u);
       }
-      var cl = {
+      var ul = {
         aliceblue: "f0f8ff",
         antiquewhite: "faebd7",
         aqua: "00ffff",
@@ -15981,24 +15981,24 @@
         yellow: "ff0",
         yellowgreen: "9acd32"
       };
-      var ul = /^#[a-fA-F0-9]{6}$/,
-        dl = /^#[a-fA-F0-9]{8}$/,
-        fl = /^#[a-fA-F0-9]{3}$/,
-        pl = /^#[a-fA-F0-9]{4}$/,
-        hl = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/i,
-        ml = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i,
-        gl = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i,
-        vl = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i;
-      function yl(e) {
-        if ("string" != typeof e) throw new il(3);
+      var dl = /^#[a-fA-F0-9]{6}$/,
+        fl = /^#[a-fA-F0-9]{8}$/,
+        pl = /^#[a-fA-F0-9]{3}$/,
+        hl = /^#[a-fA-F0-9]{4}$/,
+        ml = /^rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/i,
+        gl = /^rgba\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i,
+        vl = /^hsl\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*\)$/i,
+        yl = /^hsla\(\s*(\d{0,3}[.]?[0-9]+)\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*(\d{1,3}[.]?[0-9]?)%\s*,\s*([-+]?[0-9]*[.]?[0-9]+)\s*\)$/i;
+      function wl(e) {
+        if ("string" != typeof e) throw new al(3);
         var t = (function (e) {
           if ("string" != typeof e) return e;
           var t = e.toLowerCase();
-          return cl[t] ? "#" + cl[t] : e;
+          return ul[t] ? "#" + ul[t] : e;
         })(e);
-        if (t.match(ul))
+        if (t.match(dl))
           return { red: parseInt("" + t[1] + t[2], 16), green: parseInt("" + t[3] + t[4], 16), blue: parseInt("" + t[5] + t[6], 16) };
-        if (t.match(dl)) {
+        if (t.match(fl)) {
           var n = parseFloat((parseInt("" + t[7] + t[8], 16) / 255).toFixed(2));
           return {
             red: parseInt("" + t[1] + t[2], 16),
@@ -16007,9 +16007,9 @@
             alpha: n
           };
         }
-        if (t.match(fl))
+        if (t.match(pl))
           return { red: parseInt("" + t[1] + t[1], 16), green: parseInt("" + t[2] + t[2], 16), blue: parseInt("" + t[3] + t[3], 16) };
-        if (t.match(pl)) {
+        if (t.match(hl)) {
           var r = parseFloat((parseInt("" + t[4] + t[4], 16) / 255).toFixed(2));
           return {
             red: parseInt("" + t[1] + t[1], 16),
@@ -16018,9 +16018,9 @@
             alpha: r
           };
         }
-        var o = hl.exec(t);
+        var o = ml.exec(t);
         if (o) return { red: parseInt("" + o[1], 10), green: parseInt("" + o[2], 10), blue: parseInt("" + o[3], 10) };
-        var i = ml.exec(t.substring(0, 50));
+        var i = gl.exec(t.substring(0, 50));
         if (i)
           return {
             red: parseInt("" + i[1], 10),
@@ -16028,18 +16028,18 @@
             blue: parseInt("" + i[3], 10),
             alpha: parseFloat("" + i[4])
           };
-        var a = gl.exec(t);
+        var a = vl.exec(t);
         if (a) {
-          var l = "rgb(" + sl(parseInt("" + a[1], 10), parseInt("" + a[2], 10) / 100, parseInt("" + a[3], 10) / 100) + ")",
-            s = hl.exec(l);
-          if (!s) throw new il(4, t, l);
+          var l = "rgb(" + cl(parseInt("" + a[1], 10), parseInt("" + a[2], 10) / 100, parseInt("" + a[3], 10) / 100) + ")",
+            s = ml.exec(l);
+          if (!s) throw new al(4, t, l);
           return { red: parseInt("" + s[1], 10), green: parseInt("" + s[2], 10), blue: parseInt("" + s[3], 10) };
         }
-        var c = vl.exec(t.substring(0, 50));
+        var c = yl.exec(t.substring(0, 50));
         if (c) {
-          var u = "rgb(" + sl(parseInt("" + c[1], 10), parseInt("" + c[2], 10) / 100, parseInt("" + c[3], 10) / 100) + ")",
-            d = hl.exec(u);
-          if (!d) throw new il(4, t, u);
+          var u = "rgb(" + cl(parseInt("" + c[1], 10), parseInt("" + c[2], 10) / 100, parseInt("" + c[3], 10) / 100) + ")",
+            d = ml.exec(u);
+          if (!d) throw new al(4, t, u);
           return {
             red: parseInt("" + d[1], 10),
             green: parseInt("" + d[2], 10),
@@ -16047,65 +16047,65 @@
             alpha: parseFloat("" + c[4])
           };
         }
-        throw new il(5);
+        throw new al(5);
       }
-      var wl = function (e) {
+      var bl = function (e) {
         return 7 === e.length && e[1] === e[2] && e[3] === e[4] && e[5] === e[6] ? "#" + e[1] + e[3] + e[5] : e;
       };
-      function bl(e) {
+      function El(e) {
         var t = e.toString(16);
         return 1 === t.length ? "0" + t : t;
       }
-      function El(e, t, n) {
-        if ("number" == typeof e && "number" == typeof t && "number" == typeof n) return wl("#" + bl(e) + bl(t) + bl(n));
-        if ("object" == typeof e && void 0 === t && void 0 === n) return wl("#" + bl(e.red) + bl(e.green) + bl(e.blue));
-        throw new il(6);
+      function Ll(e, t, n) {
+        if ("number" == typeof e && "number" == typeof t && "number" == typeof n) return bl("#" + El(e) + El(t) + El(n));
+        if ("object" == typeof e && void 0 === t && void 0 === n) return bl("#" + El(e.red) + El(e.green) + El(e.blue));
+        throw new al(6);
       }
-      function Ll(e, t, n, r) {
+      function _l(e, t, n, r) {
         if ("string" == typeof e && "number" == typeof t) {
-          var o = yl(e);
+          var o = wl(e);
           return "rgba(" + o.red + "," + o.green + "," + o.blue + "," + t + ")";
         }
         if ("number" == typeof e && "number" == typeof t && "number" == typeof n && "number" == typeof r)
-          return r >= 1 ? El(e, t, n) : "rgba(" + e + "," + t + "," + n + "," + r + ")";
+          return r >= 1 ? Ll(e, t, n) : "rgba(" + e + "," + t + "," + n + "," + r + ")";
         if ("object" == typeof e && void 0 === t && void 0 === n && void 0 === r)
-          return e.alpha >= 1 ? El(e.red, e.green, e.blue) : "rgba(" + e.red + "," + e.green + "," + e.blue + "," + e.alpha + ")";
-        throw new il(7);
+          return e.alpha >= 1 ? Ll(e.red, e.green, e.blue) : "rgba(" + e.red + "," + e.green + "," + e.blue + "," + e.alpha + ")";
+        throw new al(7);
       }
-      function _l(e, t, n) {
+      function xl(e, t, n) {
         return function () {
           var r = n.concat(Array.prototype.slice.call(arguments));
-          return r.length >= t ? e.apply(this, r) : _l(e, t, r);
+          return r.length >= t ? e.apply(this, r) : xl(e, t, r);
         };
       }
-      function xl(e) {
-        return _l(e, e.length, []);
+      function Sl(e) {
+        return xl(e, e.length, []);
       }
-      function Sl(e, t, n) {
+      function Al(e, t, n) {
         if ("transparent" === t) return n;
         if ("transparent" === n) return t;
         if (0 === e) return n;
-        var r = yl(t),
-          o = Ja({}, r, { alpha: "number" == typeof r.alpha ? r.alpha : 1 }),
-          i = yl(n),
-          a = Ja({}, i, { alpha: "number" == typeof i.alpha ? i.alpha : 1 }),
+        var r = wl(t),
+          o = el({}, r, { alpha: "number" == typeof r.alpha ? r.alpha : 1 }),
+          i = wl(n),
+          a = el({}, i, { alpha: "number" == typeof i.alpha ? i.alpha : 1 }),
           l = o.alpha - a.alpha,
           s = 2 * parseFloat(e) - 1,
           c = ((s * l == -1 ? s : s + l) / (1 + s * l) + 1) / 2,
           u = 1 - c;
-        return Ll({
+        return _l({
           red: Math.floor(o.red * c + a.red * u),
           green: Math.floor(o.green * c + a.green * u),
           blue: Math.floor(o.blue * c + a.blue * u),
           alpha: o.alpha * parseFloat(e) + a.alpha * (1 - parseFloat(e))
         });
       }
-      var Al = xl(Sl);
-      function kl(e, t) {
-        return "transparent" === t ? t : Al(parseFloat(e), "rgb(0, 0, 0)", t);
+      var kl = Sl(Al);
+      function Cl(e, t) {
+        return "transparent" === t ? t : kl(parseFloat(e), "rgb(0, 0, 0)", t);
       }
-      var Cl = xl(kl);
-      const Pl = Re.span`
+      var Pl = Sl(Cl);
+      const Tl = Re.span`
   display: inline-block;
   overflow: hidden;
   ${({ width: e }) =>
@@ -16145,9 +16145,9 @@
     `}
   }
 `,
-        Tl = ({ className: t, width: n, height: r, content: o, onClick: i }) =>
-          e.createElement(Pl, { width: n, height: r, className: t, dangerouslySetInnerHTML: { __html: o }, onClick: i });
-      var Il = function (e, t, n, r) {
+        Il = ({ className: t, width: n, height: r, content: o, onClick: i }) =>
+          e.createElement(Tl, { width: n, height: r, className: t, dangerouslySetInnerHTML: { __html: o }, onClick: i });
+      var Rl = function (e, t, n, r) {
         return new (n || (n = Promise))(function (o, i) {
           function a(e) {
             try {
@@ -16177,7 +16177,7 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      const Rl = Re.span`
+      const Ol = Re.span`
   position: absolute;
   right: ${18}px;
   top: 14px;
@@ -16186,7 +16186,7 @@
   height: 18px;
   padding: 6px;
 `,
-        Ol = Re.a`
+        Nl = Re.a`
   position: relative;
   background-color: ${(e) => e.toolLinkColor};
   color: white;
@@ -16200,28 +16200,28 @@
 
   &:focus,
   &:hover {
-    background-color: ${(e) => Cl(0.1, e.toolLinkColor)};
+    background-color: ${(e) => Pl(0.1, e.toolLinkColor)};
   }
 
-  ${Rl} {
+  ${Ol} {
     transition: opacity 100ms;
     opacity: 0;
   }
-  &:hover ${Rl}, &:focus ${Rl} {
+  &:hover ${Ol}, &:focus ${Ol} {
     opacity: 0.5;
   }
 `;
-      function Nl({ toolKey: t, url: n, color: r, visible: o, children: i }) {
+      function Dl({ toolKey: t, url: n, color: r, visible: o, children: i }) {
         return e.createElement(
-          Ol,
+          Nl,
           {
             toolLinkColor: r,
             onClick: (e) =>
-              Il(this, void 0, void 0, function* () {
+              Rl(this, void 0, void 0, function* () {
                 e.preventDefault(),
-                  yield no(((e) => ({ event: "chrome.browser_action.tool_clicked", customString1: e }))(t)),
+                  yield Qo(((e) => ({ event: "chrome.browser_action.tool_clicked", customString1: e }))(t)),
                   (function (e) {
-                    const t = Va.find((t) => t.key === e);
+                    const t = Rn.find((t) => t.key === e);
                     t &&
                       (window.chrome && window.chrome.tabs
                         ? window.chrome.tabs.create({ url: `${t.url}?${bt}` })
@@ -16233,16 +16233,16 @@
             tabIndex: o ? 0 : -1
           },
           i,
-          e.createElement(Rl, null, e.createElement(Tl, { content: Qa, width: 12, height: 18 }))
+          e.createElement(Ol, null, e.createElement(Il, { content: Ja, width: 12, height: 18 }))
         );
       }
-      var Dl = n(1238),
-        Fl = n(1564);
-      const Ml = Re.input`
+      var Fl = n(1238),
+        Ml = n(1564);
+      const $l = Re.input`
   position: absolute;
   top: ${12}px;
   right: 0;
-  left: ${Xa}px;
+  left: ${Qa}px;
   font-size: 15px;
   width: ${202}px;
   border: 1px solid #ccc;
@@ -16252,18 +16252,18 @@
     border: 1px solid #333;
   }
 `,
-        $l = Re.div`
+        jl = Re.div`
   position: absolute;
   overflow: hidden;
   height: ${56}px;
-  width: ${Xa}px;
+  width: ${Qa}px;
 `,
-        jl = Re.div`
+        zl = Re.div`
   position: relative;
   left: ${({ showSearch: e }) => (e ? -223 : 0)}px;
   transition: left ${300}ms ease-out;
 `,
-        zl = Re.img`
+        Ul = Re.img`
   position: absolute;
   cursor: pointer;
   opacity: ${({ showSearch: e }) => (e ? 0.9 : 0.3)};
@@ -16276,18 +16276,18 @@
     opacity: 0.9;
   }
 `,
-        Ul = Re.a`
+        Vl = Re.a`
   position: absolute;
   display: block;
   padding: ${18}px;
   top: 2px;
 `,
-        Vl = Re.div`
+        Kl = Re.div`
   height: ${56}px;
   position: relative;
   z-index: 1;
 `;
-      function Kl({ onSearch: t }) {
+      function Hl({ onSearch: t }) {
         const n = e.useRef(null),
           r = e.useRef(null),
           [o, i] = e.useState(!1),
@@ -16306,21 +16306,21 @@
             });
           };
         return e.createElement(
-          Vl,
+          Kl,
           null,
           e.createElement(
-            $l,
+            jl,
             { ref: r },
             e.createElement(
-              jl,
+              zl,
               { showSearch: o },
               e.createElement(
-                Ul,
+                Vl,
                 { href: "https://smallpdf.com?utm_source=ce_generic", target: "_SMALLPDF", tabIndex: -1 },
-                e.createElement("img", { src: Fl, width: "92", alt: "Smallpdf" })
+                e.createElement("img", { src: Ml, width: "92", alt: "Smallpdf" })
               ),
-              e.createElement(zl, { src: Dl, width: "20", showSearch: o, onClick: a }),
-              e.createElement(Ml, {
+              e.createElement(Ul, { src: Fl, width: "20", showSearch: o, onClick: a }),
+              e.createElement($l, {
                 ref: n,
                 placeholder: "Search...",
                 type: "text",
@@ -16333,56 +16333,56 @@
           )
         );
       }
-      const Hl = Re.span`
+      const Bl = Re.span`
   position: absolute;
   left: ${18}px;
   top: 16px;
 `,
-        Bl = Re.span`
+        Gl = Re.span`
   position: absolute;
   font-size: 15px;
   padding: ${18}px ${60}px;
 `,
-        Gl = Re.div`
+        Yl = Re.div`
   height: ${336}px;
   box-sizing: border-box;
   overflow-y: scroll;
 `,
-        Yl = Re.div`
-  width: ${Xa}px;
+        Zl = Re.div`
+  width: ${Qa}px;
   height: ${392}px;
   position: relative;
 `,
-        Zl = Re.div`
+        Wl = Re.div`
   display: block;
   border-top: 1px solid #e8e8e8;
 `;
-      function Wl(e, t) {
+      function ql(e, t) {
         return !![e.key, e.title, ...e.searchTags].find((e) => e.includes(t.toLowerCase().trim()));
       }
-      function ql({ favorites: t }) {
+      function Xl({ favorites: t }) {
         const n = e.useRef(),
           [r, o] = e.useState(""),
-          i = Va.filter((e) => t[e.key] > 0),
-          a = Va.filter((e) => !t[e.key]),
+          i = Rn.filter((e) => t[e.key] > 0),
+          a = Rn.filter((e) => !t[e.key]),
           l = i
             .concat(a)
             .map((t) =>
               e.createElement(
-                Nl,
-                { key: t.key, toolKey: t.key, color: t.color, url: `${t.url}?${bt}`, visible: Wl(t, r) },
-                e.createElement(Hl, null, e.createElement(gr, { content: t.iconLegacy, size: 24 })),
-                e.createElement(Bl, null, chrome.i18n.getMessage(t.translationKey))
+                Dl,
+                { key: t.key, toolKey: t.key, color: t.color, url: `${t.url}?${bt}`, visible: ql(t, r) },
+                e.createElement(Bl, null, e.createElement(fo, { content: t.iconLegacy, size: 24 })),
+                e.createElement(Gl, null, chrome.i18n.getMessage(t.translationKey))
               )
             );
         return (
           e.useEffect(() => {
-            no({ event: "chrome.browser_action.popup_seen" });
+            Qo({ event: "chrome.browser_action.popup_seen" });
           }, []),
           e.createElement(
-            Yl,
+            Zl,
             null,
-            e.createElement(Kl, {
+            e.createElement(Hl, {
               onSearch: (e) => {
                 o(e),
                   n.current && clearTimeout(n.current),
@@ -16391,16 +16391,16 @@
                       .replace(/[^\w'"%!=$,+\-?.:(){}[\]\/\\ ]+/g, "")
                       .toLowerCase()
                       .trim();
-                    e && no(((e) => ({ event: "chrome.browser_action.search_used", customString1: e }))(e));
+                    e && Qo(((e) => ({ event: "chrome.browser_action.search_used", customString1: e }))(e));
                   }, 750));
               }
             }),
-            e.createElement(Gl, null, l),
-            e.createElement(Zl, null, e.createElement(qa, null))
+            e.createElement(Yl, null, l),
+            e.createElement(Wl, null, e.createElement(Xa, null))
           )
         );
       }
-      function Xl() {
+      function Ql() {
         const e = chrome.i18n.getUILanguage();
         switch (e) {
           case "pt-BR":
@@ -16435,7 +16435,7 @@
             return "en";
         }
       }
-      var Ql = function (e, t, n, r) {
+      var Jl = function (e, t, n, r) {
         return new (n || (n = Promise))(function (o, i) {
           function a(e) {
             try {
@@ -16465,8 +16465,8 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      const Jl = "iframe_sync_data";
-      function es() {
+      const es = "iframe_sync_data";
+      function ts() {
         const t = () => {
           const e = new Promise((e, t) => {
               setTimeout(() => {
@@ -16474,28 +16474,28 @@
               }, 1e4);
             }),
             t = new Promise((e, t) => {
-              const n = window.document.getElementById(Jl);
+              const n = window.document.getElementById(es);
               n && n.remove();
               const r = window.document.createElement("iframe");
-              (r.id = Jl), (r.style.display = "none");
+              (r.id = es), (r.style.display = "none");
               const o = Ct();
               r.setAttribute("src", ht),
                 r.addEventListener("error", (e) => {
-                  Yt("[WebSync] Error: Request failed", e), t(new Error("[WebSync] Error: Request failed"));
+                  Vn("[WebSync] Error: Request failed", e), t(new Error("[WebSync] Error: Request failed"));
                 }),
                 r.addEventListener("load", () =>
-                  Ql(this, void 0, void 0, function* () {
+                  Jl(this, void 0, void 0, function* () {
                     var n;
                     const i = (n) => {
                       (n.data && n.data.id && n.data.id !== o) ||
-                        (Yt("[WebSync] Cross-document respond received"),
+                        (Vn("[WebSync] Cross-document respond received"),
                         window.removeEventListener("message", i),
                         r.remove(),
                         n.origin === mt
                           ? n.data
                             ? n.data.error
                               ? t(new Error(n.data.error))
-                              : (Yt("[WebSync] Cross-document data received", n.data), e(n.data))
+                              : (Vn("[WebSync] Cross-document data received", n.data), e(n.data))
                             : t(new Error("WebSyncError: No data received"))
                           : t(new Error("WebSyncError: Message received with invalid origin")));
                     };
@@ -16503,18 +16503,18 @@
                       null === (n = null == r ? void 0 : r.contentWindow) ||
                         void 0 === n ||
                         n.postMessage({ id: o, type: "GET_USER_DATA" }, mt),
-                      Yt("[WebSync] Cross-document data requested, waiting for response...");
+                      Vn("[WebSync] Cross-document data requested, waiting for response...");
                   })
                 ),
                 window.document.body.append(r),
-                Yt(`[WebSync] Iframe created, loading ${ht}...`);
+                Vn(`[WebSync] Iframe created, loading ${ht}...`);
             });
           return Promise.race([e, t]);
         };
         return e.useCallback(
           () =>
-            Ql(this, void 0, void 0, function* () {
-              if (yield Qt(Wt.USER_DATA_LAST_SYNC, null)) return;
+            Jl(this, void 0, void 0, function* () {
+              if (yield Zn(Bn.USER_DATA_LAST_SYNC, null)) return;
               const e = yield (function () {
                   return wt(this, void 0, void 0, function* () {
                     return new Promise((e, t) => {
@@ -16549,50 +16549,50 @@
                     });
                   });
                 })(),
-                n = Xl(),
+                n = Ql(),
                 r = yield Nt(),
-                o = yield vo();
+                o = yield fi();
               try {
-                yield no({ event: "chrome.system.user_data_sync_started" });
+                yield Qo({ event: "chrome.system.user_data_sync_started" });
                 const i = yield t();
                 let a = null == i ? void 0 : i.localToken;
                 a || (a = Ct()),
-                  yield Jt({
-                    [Wt.LOCAL_TOKEN]: a,
-                    [Wt.USER_COUNTRY_GEO_IP]: i.countryGeoIP,
-                    [Wt.USER_PROFILE]: o,
-                    [Wt.USER_ACTIVE_PRO]: r,
-                    [Wt.USER_RT]: i.rt,
-                    [Wt.SYSTEM_OS]: e,
-                    [Wt.SYSTEM_LOCALE]: n,
-                    [Wt.USER_DATA_SYNCED]: !0,
-                    [Wt.USER_DATA_LAST_SYNC]: Date.now()
+                  yield Wn({
+                    [Bn.LOCAL_TOKEN]: a,
+                    [Bn.USER_COUNTRY_GEO_IP]: i.countryGeoIP,
+                    [Bn.USER_PROFILE]: o,
+                    [Bn.USER_ACTIVE_PRO]: r,
+                    [Bn.USER_RT]: i.rt,
+                    [Bn.SYSTEM_OS]: e,
+                    [Bn.SYSTEM_LOCALE]: n,
+                    [Bn.USER_DATA_SYNCED]: !0,
+                    [Bn.USER_DATA_LAST_SYNC]: Date.now()
                   }),
-                  yield no({ event: "chrome.system.user_data_sync_completed" });
+                  yield Qo({ event: "chrome.system.user_data_sync_completed" });
               } catch (t) {
-                Yt("useSyncUserData: error, using fallback values", t);
+                Vn("useSyncUserData: error, using fallback values", t);
                 const i = yield (function () {
                     return wt(this, void 0, void 0, function* () {
-                      return Qt(Wt.USER_COUNTRY_GEO_IP, null);
+                      return Zn(Bn.USER_COUNTRY_GEO_IP, null);
                     });
                   })(),
                   a = Ct();
-                yield Jt({
-                  [Wt.LOCAL_TOKEN]: a,
-                  [Wt.USER_COUNTRY_GEO_IP]: i,
-                  [Wt.USER_PROFILE]: o,
-                  [Wt.USER_ACTIVE_PRO]: r,
-                  [Wt.USER_RT]: !1,
-                  [Wt.SYSTEM_OS]: e,
-                  [Wt.SYSTEM_LOCALE]: n,
-                  [Wt.USER_DATA_SYNCED]: !0,
-                  [Wt.USER_DATA_LAST_SYNC]: Date.now()
+                yield Wn({
+                  [Bn.LOCAL_TOKEN]: a,
+                  [Bn.USER_COUNTRY_GEO_IP]: i,
+                  [Bn.USER_PROFILE]: o,
+                  [Bn.USER_ACTIVE_PRO]: r,
+                  [Bn.USER_RT]: !1,
+                  [Bn.SYSTEM_OS]: e,
+                  [Bn.SYSTEM_LOCALE]: n,
+                  [Bn.USER_DATA_SYNCED]: !0,
+                  [Bn.USER_DATA_LAST_SYNC]: Date.now()
                 });
               }
               yield Mt(),
                 yield (function () {
                   return wt(this, void 0, void 0, function* () {
-                    const e = yield Qt(Wt.SYSTEM_LOCALE, null),
+                    const e = yield Zn(Bn.SYSTEM_LOCALE, null),
                       t = e
                         ? `https://smallpdf.com/${e}/page?utm_source=ce_generic#chrome-extension-feedback`
                         : "https://smallpdf.com/page?utm_source=ce_generic#chrome-extension-feedback";
@@ -16603,7 +16603,7 @@
           []
         );
       }
-      var ts = function (e, t, n, r) {
+      var ns = function (e, t, n, r) {
         return new (n || (n = Promise))(function (o, i) {
           function a(e) {
             try {
@@ -16633,30 +16633,30 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      function ns() {
-        const t = es(),
+      function rs() {
+        const t = ts(),
           [n, r] = e.useState({});
         return (
           e.useEffect(() => {
             (() => {
-              ts(this, void 0, void 0, function* () {
+              ns(this, void 0, void 0, function* () {
                 t();
                 const e = yield (function () {
                   return $t(this, void 0, void 0, function* () {
-                    return Qt(Wt.UserFavorites, {});
+                    return Zn(Bn.UserFavorites, {});
                   });
                 })();
                 r(e);
               });
             })();
           }, []),
-          e.createElement(ql, { favorites: n })
+          e.createElement(Xl, { favorites: n })
         );
       }
-      function rs() {
-        return e.createElement(ns, null);
+      function os() {
+        return e.createElement(rs, null);
       }
-      var os = function (e, t, n, r) {
+      var is = function (e, t, n, r) {
         return new (n || (n = Promise))(function (o, i) {
           function a(e) {
             try {
@@ -16686,38 +16686,38 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      const is = {
+      const as = {
           triggerAB: (e) =>
-            os(void 0, void 0, void 0, function* () {
-              return wi.ORIGINAL;
+            is(void 0, void 0, void 0, function* () {
+              return ia.ORIGINAL;
             }),
           isInABVariant: () => !1,
-          getSegment: (e) => wi.ORIGINAL,
+          getSegment: (e) => ia.ORIGINAL,
           waitForAB: (e) => !1
         },
-        as = e.createContext(is);
-      function ls({ children: t }) {
+        ls = e.createContext(as);
+      function ss({ children: t }) {
         const [n, r] = e.useState({}),
           o = (e) => n[e].segment,
           i = {
-            triggerAB: Pi,
+            triggerAB: ma,
             isInABVariant: (e) => {
               const t = o(e);
-              return !!t && t !== wi.ORIGINAL;
+              return !!t && t !== ia.ORIGINAL;
             },
             getSegment: o,
             waitForAB: (e) => !!n[e]
           },
           a = (e) =>
-            os(this, void 0, void 0, function* () {
-              e[qt.Experiments] && r(yield ki());
+            is(this, void 0, void 0, function* () {
+              e[Gn.Experiments] && r(yield pa());
             });
         return (
           e.useEffect(
             () => (
               (() => {
-                os(this, void 0, void 0, function* () {
-                  const e = yield ki();
+                is(this, void 0, void 0, function* () {
+                  const e = yield pa();
                   r(e);
                 });
               })(),
@@ -16728,47 +16728,47 @@
             ),
             []
           ),
-          e.createElement(as.Provider, { value: i }, t)
+          e.createElement(ls.Provider, { value: i }, t)
         );
       }
-      let ss, cs;
-      const us = new WeakMap(),
-        ds = new WeakMap(),
+      let cs, us;
+      const ds = new WeakMap(),
         fs = new WeakMap(),
         ps = new WeakMap(),
-        hs = new WeakMap();
-      let ms = {
+        hs = new WeakMap(),
+        ms = new WeakMap();
+      let gs = {
         get(e, t, n) {
           if (e instanceof IDBTransaction) {
-            if ("done" === t) return ds.get(e);
-            if ("objectStoreNames" === t) return e.objectStoreNames || fs.get(e);
+            if ("done" === t) return fs.get(e);
+            if ("objectStoreNames" === t) return e.objectStoreNames || ps.get(e);
             if ("store" === t) return n.objectStoreNames[1] ? void 0 : n.objectStore(n.objectStoreNames[0]);
           }
-          return ys(e[t]);
+          return ws(e[t]);
         },
         set: (e, t, n) => ((e[t] = n), !0),
         has: (e, t) => (e instanceof IDBTransaction && ("done" === t || "store" === t)) || t in e
       };
-      function gs(e) {
+      function vs(e) {
         return e !== IDBDatabase.prototype.transaction || "objectStoreNames" in IDBTransaction.prototype
-          ? (cs || (cs = [IDBCursor.prototype.advance, IDBCursor.prototype.continue, IDBCursor.prototype.continuePrimaryKey])).includes(e)
+          ? (us || (us = [IDBCursor.prototype.advance, IDBCursor.prototype.continue, IDBCursor.prototype.continuePrimaryKey])).includes(e)
             ? function (...t) {
-                return e.apply(ws(this), t), ys(us.get(this));
+                return e.apply(bs(this), t), ws(ds.get(this));
               }
             : function (...t) {
-                return ys(e.apply(ws(this), t));
+                return ws(e.apply(bs(this), t));
               }
           : function (t, ...n) {
-              const r = e.call(ws(this), t, ...n);
-              return fs.set(r, t.sort ? t.sort() : [t]), ys(r);
+              const r = e.call(bs(this), t, ...n);
+              return ps.set(r, t.sort ? t.sort() : [t]), ws(r);
             };
       }
-      function vs(e) {
+      function ys(e) {
         return "function" == typeof e
-          ? gs(e)
+          ? vs(e)
           : (e instanceof IDBTransaction &&
               (function (e) {
-                if (ds.has(e)) return;
+                if (fs.has(e)) return;
                 const t = new Promise((t, n) => {
                   const r = () => {
                       e.removeEventListener("complete", o), e.removeEventListener("error", i), e.removeEventListener("abort", i);
@@ -16781,15 +16781,15 @@
                     };
                   e.addEventListener("complete", o), e.addEventListener("error", i), e.addEventListener("abort", i);
                 });
-                ds.set(e, t);
+                fs.set(e, t);
               })(e),
             (t = e),
-            (ss || (ss = [IDBDatabase, IDBObjectStore, IDBIndex, IDBCursor, IDBTransaction])).some((e) => t instanceof e)
-              ? new Proxy(e, ms)
+            (cs || (cs = [IDBDatabase, IDBObjectStore, IDBIndex, IDBCursor, IDBTransaction])).some((e) => t instanceof e)
+              ? new Proxy(e, gs)
               : e);
         var t;
       }
-      function ys(e) {
+      function ws(e) {
         if (e instanceof IDBRequest)
           return (function (e) {
             const t = new Promise((t, n) => {
@@ -16797,7 +16797,7 @@
                   e.removeEventListener("success", o), e.removeEventListener("error", i);
                 },
                 o = () => {
-                  t(ys(e.result)), r();
+                  t(ws(e.result)), r();
                 },
                 i = () => {
                   n(e.error), r();
@@ -16807,37 +16807,37 @@
             return (
               t
                 .then((t) => {
-                  t instanceof IDBCursor && us.set(t, e);
+                  t instanceof IDBCursor && ds.set(t, e);
                 })
                 .catch(() => {}),
-              hs.set(t, e),
+              ms.set(t, e),
               t
             );
           })(e);
-        if (ps.has(e)) return ps.get(e);
-        const t = vs(e);
-        return t !== e && (ps.set(e, t), hs.set(t, e)), t;
+        if (hs.has(e)) return hs.get(e);
+        const t = ys(e);
+        return t !== e && (hs.set(e, t), ms.set(t, e)), t;
       }
-      const ws = (e) => hs.get(e);
-      const bs = ["get", "getKey", "getAll", "getAllKeys", "count"],
-        Es = ["put", "add", "delete", "clear"],
-        Ls = new Map();
-      function _s(e, t) {
+      const bs = (e) => ms.get(e);
+      const Es = ["get", "getKey", "getAll", "getAllKeys", "count"],
+        Ls = ["put", "add", "delete", "clear"],
+        _s = new Map();
+      function xs(e, t) {
         if (!(e instanceof IDBDatabase) || t in e || "string" != typeof t) return;
-        if (Ls.get(t)) return Ls.get(t);
+        if (_s.get(t)) return _s.get(t);
         const n = t.replace(/FromIndex$/, ""),
           r = t !== n,
-          o = Es.includes(n);
-        if (!(n in (r ? IDBIndex : IDBObjectStore).prototype) || (!o && !bs.includes(n))) return;
+          o = Ls.includes(n);
+        if (!(n in (r ? IDBIndex : IDBObjectStore).prototype) || (!o && !Es.includes(n))) return;
         const i = async function (e, ...t) {
           const i = this.transaction(e, o ? "readwrite" : "readonly");
           let a = i.store;
           return r && (a = a.index(t.shift())), (await Promise.all([a[n](...t), o && i.done]))[0];
         };
-        return Ls.set(t, i), i;
+        return _s.set(t, i), i;
       }
-      ms = ((e) => ({ ...e, get: (t, n, r) => _s(t, n) || e.get(t, n, r), has: (t, n) => !!_s(t, n) || e.has(t, n) }))(ms);
-      var xs = function (e, t, n, r) {
+      gs = ((e) => ({ ...e, get: (t, n, r) => xs(t, n) || e.get(t, n, r), has: (t, n) => !!xs(t, n) || e.has(t, n) }))(gs);
+      var Ss = function (e, t, n, r) {
         return new (n || (n = Promise))(function (o, i) {
           function a(e) {
             try {
@@ -16867,10 +16867,10 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      function Ss() {
+      function As() {
         return e.useCallback(
           (e) =>
-            xs(this, void 0, void 0, function* () {
+            Ss(this, void 0, void 0, function* () {
               var t, n;
               if (!e) return null;
               var r;
@@ -16878,14 +16878,14 @@
               let i = null,
                 a = null;
               try {
-                const t = yield zt(o),
+                const t = yield Dn(o),
                   n = yield (function (e, t, { blocked: n, upgrade: r, blocking: o, terminated: i } = {}) {
                     const a = indexedDB.open(e, t),
-                      l = ys(a);
+                      l = ws(a);
                     return (
                       r &&
                         a.addEventListener("upgradeneeded", (e) => {
-                          r(ys(a.result), e.oldVersion, e.newVersion, ys(a.transaction));
+                          r(ws(a.result), e.oldVersion, e.newVersion, ws(a.transaction));
                         }),
                       n && a.addEventListener("blocked", () => n()),
                       l
@@ -16897,19 +16897,19 @@
                     );
                   })("upload", 1, {
                     upgrade(e) {
-                      e.createObjectStore(on, { keyPath: "id", autoIncrement: !0 });
+                      e.createObjectStore(er, { keyPath: "id", autoIncrement: !0 });
                     }
                   });
-                yield n.clear(on), (a = yield n.add(on, { token: o, uploadURL: t, blob: e }));
+                yield n.clear(er), (a = yield n.add(er, { token: o, uploadURL: t, blob: e }));
               } catch (e) {
-                throw (Yt("useAddFile: error", e), Fe({ name: "ERROR_DB_INITIALIZATION", message: "Error while creating the IndexedDB" }));
+                throw (Vn("useAddFile: error", e), Fe({ name: "ERROR_DB_INITIALIZATION", message: "Error while creating the IndexedDB" }));
               }
               return (
                 a &&
                   ((i = yield (function (e, t, n, r) {
-                    return rn(this, void 0, void 0, function* () {
+                    return Jn(this, void 0, void 0, function* () {
                       const o = { name: e, token: n, size: t, expireAt: Date.now() + Ne(15), status: it.IDLE, progress: 0, fileID: r };
-                      return yield Jt({ [Wt.FILE_HANDLE]: o }), o;
+                      return yield Wn({ [Bn.FILE_HANDLE]: o }), o;
                     });
                   })(e.name, e.size, o, a)),
                   null ===
@@ -16925,13 +16925,13 @@
           []
         );
       }
-      function As(e, t) {
+      function ks(e, t) {
         t && chrome.action.setBadgeBackgroundColor({ color: String(t) }), chrome.action.setBadgeText({ text: e });
       }
-      function ks() {
-        As("");
+      function Cs() {
+        ks("");
       }
-      var Cs = function (e, t, n, r) {
+      var Ps = function (e, t, n, r) {
         return new (n || (n = Promise))(function (o, i) {
           function a(e) {
             try {
@@ -16961,10 +16961,10 @@
           s((r = r.apply(e, t || [])).next());
         });
       };
-      const Ps = e.createContext({
+      const Ts = e.createContext({
         task: null,
         reset: () =>
-          Cs(void 0, void 0, void 0, function* () {
+          Ps(void 0, void 0, void 0, function* () {
             return lt;
           }),
         fileHandle: null,
@@ -16975,8 +16975,8 @@
         startTask: () => lt,
         isDND: !1
       });
-      function Ts({ children: t }) {
-        const n = Ss(),
+      function Is({ children: t }) {
+        const n = As(),
           r = e.useRef(!1),
           [o, i] = e.useState(null),
           [a, l] = e.useState(null),
@@ -16984,30 +16984,30 @@
           [u, d] = e.useState(null),
           [f, p] = e.useState(!1),
           h = () =>
-            Cs(this, void 0, void 0, function* () {
+            Ps(this, void 0, void 0, function* () {
               (r.current = !0),
                 l(null),
                 c(null),
                 d(null),
                 i(null),
                 yield (function () {
-                  return rn(this, void 0, void 0, function* () {
-                    return Jt({ [Wt.TASK]: null, [Wt.FILE_HANDLE]: null, [Wt.FILE_HANDLE_RESULT]: null });
+                  return Jn(this, void 0, void 0, function* () {
+                    return Wn({ [Bn.TASK]: null, [Bn.FILE_HANDLE]: null, [Bn.FILE_HANDLE_RESULT]: null });
                   });
                 })(),
-                chrome.notifications.clear(Ut.ID_RESULT),
-                ks(),
+                chrome.notifications.clear(Fn.ID_RESULT),
+                Cs(),
                 (r.current = !1);
             }),
           m = (e) =>
-            Cs(this, void 0, void 0, function* () {
+            Ps(this, void 0, void 0, function* () {
               if (r.current) return;
-              if (e[Wt.TASK]) {
-                const e = yield mn();
+              if (e[Bn.TASK]) {
+                const e = yield ur();
                 l(e);
               }
-              e[Wt.FILE_HANDLE] && c(yield un());
-              e[Wt.FILE_HANDLE_RESULT] && d(yield dn());
+              e[Bn.FILE_HANDLE] && c(yield ir());
+              e[Bn.FILE_HANDLE_RESULT] && d(yield ar());
             }),
           g = {
             task: a,
@@ -17016,11 +17016,11 @@
             result: u,
             clearFileHandle: () => {
               !(function () {
-                rn(this, void 0, void 0, function* () {
-                  return en(Wt.FILE_HANDLE);
+                Jn(this, void 0, void 0, function* () {
+                  return qn(Bn.FILE_HANDLE);
                 });
               })(),
-                ks();
+                Cs();
             },
             tool: o,
             selectTool: (e) => {
@@ -17042,13 +17042,13 @@
           e.useEffect(
             () => (
               (() => {
-                Cs(this, void 0, void 0, function* () {
-                  const e = yield dn(),
-                    t = yield un(),
-                    n = yield mn();
+                Ps(this, void 0, void 0, function* () {
+                  const e = yield ar(),
+                    t = yield ir(),
+                    n = yield ur();
                   l(n),
-                    (null == t ? void 0 : t.expireAt) > Date.now() ? c(t) : (null == n ? void 0 : n.status) === pn.FAILURE && h(),
-                    i(Ka(null == n ? void 0 : n.toolKey)),
+                    (null == t ? void 0 : t.expireAt) > Date.now() ? c(t) : (null == n ? void 0 : n.status) === sr.FAILURE && h(),
+                    i(On(null == n ? void 0 : n.toolKey)),
                     e && ((null == e ? void 0 : e.expireAt) > Date.now() ? d(e) : h());
                 });
               })(),
@@ -17060,7 +17060,7 @@
             []
           ),
           e.createElement(
-            Ps.Provider,
+            Ts.Provider,
             { value: g },
             e.createElement(
               "div",
@@ -17069,7 +17069,7 @@
                   e.preventDefault(), f || ((e.dataTransfer.dropEffect = "copy"), p(!0));
                 },
                 onDrop: (e) => {
-                  no({ event: "chrome.action.files_added", customString1: an.DRAG_AND_DROP, customInt1: 1 });
+                  Qo({ event: "chrome.action.files_added", customString1: tr.DRAG_AND_DROP, customInt1: 1 });
                   const t = Array.from(e.dataTransfer.files);
                   p(!1);
                   const r = t[0];
@@ -17084,7 +17084,7 @@
           )
         );
       }
-      const Is = Re.div`
+      const Rs = Re.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17093,16 +17093,16 @@
   max-width: 322px;
   max-height: 580px;
   margin: auto;
-  border: 1px solid ${String(In)};
+  border: 1px solid ${String(Ar)};
 `;
-      function Rs() {
+      function Os() {
         return e.createElement(
-          Is,
+          Rs,
           null,
-          e.createElement(ls, null, e.createElement(bo, null, e.createElement(Ts, null, e.createElement(rs, null))))
+          e.createElement(ss, null, e.createElement(mi, null, e.createElement(Is, null, e.createElement(os, null))))
         );
       }
-      const Os = Re.div`
+      const Ns = Re.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17110,29 +17110,29 @@
   align-items: stretch;
   min-height: 100vh;
 `;
-      function Ns() {
+      function Ds() {
         return e.createElement(
-          Os,
+          Ns,
           null,
-          e.createElement(qo, {
+          e.createElement(Fi, {
             initialTabIndex: 2,
             tabs: {
-              Authentication: e.createElement(vi, null),
-              "A/B System": e.createElement(Qi, null),
-              Account: e.createElement(bo, null, e.createElement(oa, null)),
-              Playground: e.createElement(Rs, null)
+              Authentication: e.createElement(ra, null),
+              "A/B System": e.createElement($a, null),
+              Account: e.createElement(mi, null, e.createElement(Ha, null)),
+              Playground: e.createElement(Os, null)
             }
           })
         );
       }
-      function Ds() {
+      function Fs() {
         var n;
-        (n = e.createElement(Ns, null)),
-          t.render(e.createElement(ho, { FallbackComponent: uo, onError: fo }, n), document.getElementById("root"));
+        (n = e.createElement(Ds, null)),
+          t.render(e.createElement(ci, { FallbackComponent: ai, onError: li }, n), document.getElementById("root"));
       }
       xt.forEach((e) => {
         chrome.runtime.sendMessage(e, "ping", (e) => {
-          "success" === e && Ds();
+          "success" === e && Fs();
         });
       });
     })();

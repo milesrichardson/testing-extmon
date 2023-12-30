@@ -34225,18 +34225,14 @@ PERFORMANCE OF THIS SOFTWARE.
           d.scale ||
             d.translate ||
             d.opacity ||
-            flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .utilities.assign */.hC
+            flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .utilities */.hC
               .assign(d, { translate: !0, scale: !0, opacity: !0 });
-          var h =
-            (((t = {})[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants.DATA_FLIP_CONFIG */._G.DATA_FLIP_CONFIG] =
-              JSON.stringify(d)),
-            t);
+          var h = (((t = {})[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants */._G.DATA_FLIP_CONFIG] = JSON.stringify(d)), t);
           return (
             void 0 !== o
-              ? (h[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants.DATA_FLIP_ID */._G.DATA_FLIP_ID] = String(o))
-              : p &&
-                (h[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants.DATA_INVERSE_FLIP_ID */._G.DATA_INVERSE_FLIP_ID] = String(p)),
-            void 0 !== s && (h[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants.DATA_PORTAL_KEY */._G.DATA_PORTAL_KEY] = s),
+              ? (h[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants */._G.DATA_FLIP_ID] = String(o))
+              : p && (h[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants */._G.DATA_INVERSE_FLIP_ID] = String(p)),
+            void 0 !== s && (h[flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .constants */._G.DATA_PORTAL_KEY] = s),
             u ? f(h) : (0, react__WEBPACK_IMPORTED_MODULE_0__.cloneElement)(f, h)
           );
         },
@@ -34269,7 +34265,7 @@ PERFORMANCE OF THIS SOFTWARE.
               : react__WEBPACK_IMPORTED_MODULE_0___default().createElement(f.Consumer, null, function (t) {
                   return react__WEBPACK_IMPORTED_MODULE_0___default().createElement(d.Consumer, null, function (c) {
                     return (
-                      flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .utilities.isObject */.hC
+                      flip_toolkit__WEBPACK_IMPORTED_MODULE_2__ /* .utilities */.hC
                         .isObject(c) &&
                         n &&
                         (c[n] = {
@@ -36827,4 +36823,4 @@ PERFORMANCE OF THIS SOFTWARE.
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/vendors.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/vendors.bundle.js.map?build=nopeer_v2

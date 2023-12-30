@@ -47,7 +47,7 @@
     },
     {
       "all_frames": true,
-      "js": ["adblock-yt-cs.js"],
+      "js": ["adblock-yt-cs.js", "yt-wall-detection.preload.js"],
       "matches": ["*://*.youtube.com/*"],
       "run_at": "document_start"
     }
@@ -128,5 +128,5 @@
     "icons/adblock-icons.woff2",
     "purify.min.js"
   ],
-  "version": "5.14.0"
+  "version": "5.16.0"
 }

@@ -70,13 +70,13 @@
         n.useEffect(() => {
           x(Boolean(u));
         }, [u]);
-        const S = (t) => {
+        const E = (t) => {
             t.preventDefault(), t.stopPropagation(), x(!g), null == e || e(!g);
           },
-          { ref: E, onMount: F } = r.P.useElWatcher();
+          { ref: S, onMount: F } = r.P.useElWatcher();
         return (
           n.useEffect(() => {
-            const e = E.pipe(l.oA, c.b(v)).subscribe();
+            const e = S.pipe(l.oA, c.b(v)).subscribe();
             return () => e.unsubscribe();
           }, []),
           n.createElement(
@@ -91,20 +91,20 @@
                 tabIndex: p,
                 "aria-labelledby": t,
                 onKeyDown: (e) => {
-                  " " === e.key && S(e);
+                  " " === e.key && E(e);
                 },
-                onClick: f ? o.Q1 : S,
+                onClick: f ? o.Q1 : E,
                 ref: F
               },
               g ? n.createElement("div", { className: m.checkboxCheckmark }) : null
             ),
-            n.createElement("label", { id: t, onClick: S, className: d }, b)
+            n.createElement("label", { id: t, onClick: E, className: d }, b)
           )
         );
       };
     },
     8096: (e, t, a) => {
-      a.d(t, { z: () => m });
+      a.d(t, { z: () => u });
       var o = a(27378),
         n = a(31542);
       const r = ({ children: e, style: t, dataGrammarlyPart: a = "ui-kit-iframe", ...r }) => {
@@ -125,29 +125,45 @@
       };
       var l = a(29927),
         c = a(35111),
-        i = a.n(c);
-      const m = ({ placeholder: e, onChange: t, ariaLabel: a, iframeTitle: n, className: c }) => {
-        const [m, s] = o.useState("");
-        return (
-          o.useEffect(() => {
-            t(m);
-          }, [m]),
-          o.createElement(
-            r,
-            { dataGrammarlyPart: "ui-kit-textbox", className: c, style: { width: "100%", height: "100%" }, title: n },
-            o.createElement(l.b, null, i().__css),
-            o.createElement("div", {
-              role: "textbox",
-              className: i().textBox,
-              contentEditable: !0,
-              onInput: (e) => s(e.target.innerText),
-              "data-placeholder": e,
-              "aria-placeholder": e,
-              "aria-label": a
-            })
-          )
-        );
-      };
+        i = a.n(c),
+        m = a(19374),
+        s = a(9205);
+      const d = ({ placeholder: e, ariaLabel: t, onChange: a }) => {
+          const [n, r] = o.useState("");
+          return (
+            o.useEffect(() => {
+              a(n);
+            }, [n]),
+            o.createElement(
+              o.Fragment,
+              null,
+              o.createElement(l.b, null, i().__css),
+              o.createElement("div", {
+                role: "textbox",
+                className: i().textBox,
+                contentEditable: !0,
+                onInput: (e) => {
+                  r(e.target.innerText);
+                },
+                "data-placeholder": e,
+                "aria-placeholder": e,
+                "aria-label": t
+              })
+            )
+          );
+        },
+        u = ({ placeholder: e, onChange: t, ariaLabel: a, iframeTitle: n, className: l }) =>
+          (0, m.E)().experimentClient.isGateEnabled(s.K.CentralizeStopEventPropagation)
+            ? o.createElement(
+                "div",
+                { className: l, style: { width: "100%", height: "128px", maxHeight: "inherit" } },
+                o.createElement(d, { onChange: t, ariaLabel: a, placeholder: e })
+              )
+            : o.createElement(
+                r,
+                { dataGrammarlyPart: "ui-kit-textbox", className: l, style: { width: "100%", height: "100%" }, title: n },
+                o.createElement(d, { onChange: t, ariaLabel: a, placeholder: e })
+              );
     },
     60561: (e, t, a) => {
       a.d(t, { q: () => B });
@@ -309,8 +325,8 @@
               : o.createElement("span", null, "How do you like ", o.createElement("br", null), " Grammarly?");
           return o.createElement("h3", { ...(0, r.Sh)(c.feedbackFormTitle, e.isCompact && c.compact) }, a);
         };
-      var S = a(68610);
-      const E = (e) =>
+      var E = a(68610);
+      const S = (e) =>
           e.domain
             ? o.createElement(
                 o.Fragment,
@@ -322,7 +338,7 @@
                     "Help improve Grammarly by sharing the domain you’re on:"
                   ),
                 o.createElement(
-                  S.J,
+                  E.J,
                   { labelId: "feedback-form-share-domain-checkbox", onChange: e.onChange, className: c.feedbackFormShareDomainCheckbox },
                   "Include the domain ",
                   o.createElement("b", null, e.domain),
@@ -363,7 +379,7 @@
                 iframeTitle: "Feedback text field",
                 ...(0, r.Sh)(c.feedbackFormTextBox, e.compactDisplay && c.compact)
               }),
-              o.createElement(E, { domain: e.domain, withHelpText: !e.hideDomainHelpText, onChange: f })
+              o.createElement(S, { domain: e.domain, withHelpText: !e.hideDomainHelpText, onChange: f })
             ),
             o.createElement(
               i,
@@ -420,7 +436,7 @@
             [s, u] = o.useState(null),
             [b, p] = o.useState(""),
             [v, g] = o.useState(!1),
-            [x, E] = o.useState(!1);
+            [x, S] = o.useState(!1);
           let F;
           return (
             (F =
@@ -519,7 +535,7 @@
                                   "Help improve Grammarly by sharing the domain you’re on:"
                                 ),
                             o.createElement(
-                              S.J,
+                              E.J,
                               { labelId: "feedback-form-share-domain-checkbox", onChange: g, className: c.feedbackFormShareDomainCheckbox },
                               "Include the domain ",
                               o.createElement("b", null, n.domain),
@@ -539,10 +555,10 @@
                           var e, t;
                           n.withScore && s
                             ? (null === (e = n.onSubmit) || void 0 === e || e.call(n, { score: s, text: b, domain: v ? n.domain : void 0 }),
-                              E(!0))
+                              S(!0))
                             : !n.withScore &&
                               b &&
-                              (null === (t = n.onSubmit) || void 0 === t || t.call(n, { text: b, domain: v ? n.domain : void 0 }), E(!0));
+                              (null === (t = n.onSubmit) || void 0 === t || t.call(n, { text: b, domain: v ? n.domain : void 0 }), S(!0));
                         }
                       },
                       "Submit"

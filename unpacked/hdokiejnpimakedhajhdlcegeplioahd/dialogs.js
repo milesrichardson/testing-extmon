@@ -4,8 +4,11 @@
     n = {},
     l = ["newvaultGlobal", "dialog", "buttons"],
     r = ["dialog", "dialogFields"],
+    o = function () {
+      return "undefined" != typeof LPPlatform && LPPlatform.isElectron();
+    },
     f =
-      ("undefined" != typeof window && /http/.test(window.location.protocol) ? r.push("jsOTP.min.js") : r.push("jsOTP.js"),
+      (("undefined" != typeof window && /http/.test(window.location.protocol)) || o() ? r.push("jsOTP.min.js") : r.push("jsOTP.js"),
       function () {
         return "function" == typeof LPPlatform.isSPA && LPPlatform.isSPA();
       }),
@@ -21,7 +24,7 @@
     },
     s =
       ((d = null),
-      (o = function (o, e) {
+      (e = function (o, e) {
         for (var i = 0, t = o.length; i < t; ++i) {
           var a = o[i].getAttribute(e);
           a && (d[a] = !0);
@@ -66,7 +69,7 @@
             ((d = {}),
             "undefined" != typeof bundleSourceFiles &&
               Array.isArray(bundleSourceFiles) &&
-              o(
+              e(
                 bundleSourceFiles.map(function (o) {
                   return {
                     getAttribute: function () {
@@ -75,16 +78,16 @@
                   };
                 })
               ),
-            o(t.getElementsByTagName("link"), "href"),
-            o(t.getElementsByTagName("script"), "src"));
+            e(t.getElementsByTagName("link"), "href"),
+            e(t.getElementsByTagName("script"), "src"));
         }
       }),
     d,
-    o,
+    e,
     c = function () {
       (this.files = []), (this.addedFiles = {});
     },
-    e =
+    i =
       ((c.prototype.load = function (o) {
         var e = 0,
           i = this.files,
@@ -110,7 +113,7 @@
               t.body.appendChild(e);
           });
       }),
-    i = function (i) {
+    u = function (i) {
       i.indexOf(".css") !== i.length - 4 && (i += ".css"),
         (this.name = i),
         (this.load = function (o) {
@@ -126,9 +129,9 @@
       c.call(this);
       for (var e = 0, i = (o = o ? l.concat(o) : l).length; e < i; ++e) this.addFile(o[e]);
     },
-    w =
+    P =
       ((((T.prototype = Object.create(c.prototype)).constructor = T).prototype.addFile = function (o) {
-        o && c.prototype.addFile.call(this, new i(o));
+        o && c.prototype.addFile.call(this, new u(o));
       }),
       (T.prototype.load = function (o) {
         for (
@@ -148,15 +151,15 @@
         c.call(this);
         for (var e = 0, i = (o = o ? r.concat(o) : r).length; e < i; ++e) this.addFile(o[e]);
       }),
-    u =
-      ((((w.prototype = Object.create(c.prototype)).constructor = w).prototype.addFile = function (o) {
-        o && c.prototype.addFile.call(this, new e(o));
+    o =
+      ((((P.prototype = Object.create(c.prototype)).constructor = P).prototype.addFile = function (o) {
+        o && c.prototype.addFile.call(this, new i(o));
       }),
       function (l) {
         var t = this,
           i = !1,
           a = null,
-          e = new w(l.js),
+          e = new P(l.js),
           r = new T(l.css),
           n = null,
           g =
@@ -343,12 +346,12 @@
       });
   (LPRequire = {
     requireJS: function (o, e) {
-      new w(o).load(e);
+      new P(o).load(e);
     }
   }),
     (LPDialog = {
-      DialogLoader: u,
-      JSFileSet: w,
+      DialogLoader: o,
+      JSFileSet: P,
       CSSFileSet: T,
       getPendingCount: function () {
         return a.length;

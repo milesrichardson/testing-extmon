@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "ऐप्स"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 एक्सटेंशन के समर्थन की समाप्ति"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "15 जनवरी 2024 से, यह एक्सटेंशन अब Microsoft द्वारा समर्थित नहीं होगा."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "अधिक जानकारी के लिए, कृपया इस एक्सटेंशन के लिए सहायता पृष्ठ पर जाएँ."
+  },
+  "Support": {
+    "message": "समर्थन"
   }
 }

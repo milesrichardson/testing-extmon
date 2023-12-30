@@ -119,6 +119,16 @@
     "mv2_url": "https://easylist-downloads.adblockplus.org/easylistitaly+easylist.txt"
   },
   {
+    "id": "361001BD-8F57-4736-97B1-F332C3D79E5D",
+    "type": "ads",
+    "languages": ["ja"],
+    "title": "Japanese Filters+EasyList",
+    "homepage": "https://gitlab.com/eyeo/filterlists/japanesefilters",
+    "includes": ["8C13E995-8F06-4927-BEA7-6C845FB7EEBF", "7FCD16F0-6505-4A59-90CD-B49849481B0B"],
+    "url": "https://easylist-downloads.adblockplus.org/v3/full/japanese-filters+easylist.txt",
+    "mv2_url": "https://easylist-downloads.adblockplus.org/japanese-filters+easylist.txt"
+  },
+  {
     "id": "2708BCB7-2E45-41BC-B517-1730CF532F89",
     "type": "ads",
     "languages": ["ko"],
@@ -191,12 +201,22 @@
   {
     "id": "1B5F78CA-8B30-4BDF-B0A3-451CB2202984",
     "type": "ads",
-    "languages": ["ru", "uk"],
+    "languages": ["ru", "uk", "uz", "kk"],
     "title": "RU AdList+EasyList",
     "homepage": "https://forums.lanik.us/viewforum.php?f=102",
     "includes": ["8C13E995-8F06-4927-BEA7-6C845FB7EEBF", "879ECB9D-8935-4506-939E-5BBB7DD09402"],
     "url": "https://easylist-downloads.adblockplus.org/v3/full/ruadlist+easylist.txt",
     "mv2_url": "https://easylist-downloads.adblockplus.org/ruadlist+easylist.txt"
+  },
+  {
+    "id": "D99D3350-7F11-43E1-87CB-FDE0C78E8CD6",
+    "type": "ads",
+    "languages": ["tr"],
+    "title": "Turkish Filters+EasyList",
+    "homepage": "https://gitlab.com/eyeo/filterlists/turkishfilters",
+    "includes": ["8C13E995-8F06-4927-BEA7-6C845FB7EEBF", "C5238877-8B59-4CC5-AE7F-F8714A5452D1"],
+    "url": "https://easylist-downloads.adblockplus.org/v3/full/turkish-filters+easylist.txt",
+    "mv2_url": "https://easylist-downloads.adblockplus.org/turkish-filters+easylist.txt"
   },
   {
     "id": "1C571EC7-6E52-47CC-B04A-4B3008D0AEBE",
@@ -246,6 +266,13 @@
     ],
     "url": "https://easylist-downloads.adblockplus.org/v3/full/adblock_premium.txt",
     "mv2_url": "https://easylist-downloads.adblockplus.org/adblock_premium.txt"
+  },
+  {
+    "id": "588470E8-E163-4CD9-A909-521B2A3BE73F",
+    "type": "cookies-premium",
+    "title": "Premium - Block cookie consent pop-ups",
+    "url": "https://easylist-downloads.adblockplus.org/v3/full/cookie-filter-list.txt",
+    "mv2_url": "https://easylist-downloads.adblockplus.org/cookie-filter-list.txt"
   },
   {
     "id": "D4028CDD-3D39-4624-ACC7-8140F4EC3238",

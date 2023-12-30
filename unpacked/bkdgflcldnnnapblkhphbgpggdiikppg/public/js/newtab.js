@@ -90,7 +90,7 @@
         } else {
           browserName = "-" + browserName + (isMV3() ? "mv3" : "");
         }
-        return `${trackerBlockingEndpointBase}/config/v2/extension${browserName}-config.json`;
+        return `${trackerBlockingEndpointBase}/config/v4/extension${browserName}-config.json`;
       }
       function getTDSEndpoint(version) {
         const thisPlatform = `extension${isMV3() ? "-mv3" : ""}`;

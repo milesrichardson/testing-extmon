@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "መተግበሪያዎች"
+  },
+  "EndOfSupportHeader": {
+    "message": "የMicrosoft 365 ቅጥያ የድጋፍ መጨረሻ"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "ከጥር 15, 2024 ጀምሮ ይህ ማራዘሚያ በ Microsoft አይደገፍም."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "ለመለጠ መረጃ እባክዎ የዚህ ቅጥያን የድጋፍ ገጽ ይጎብኙ።"
+  },
+  "Support": {
+    "message": "ድጋፍ"
   }
 }

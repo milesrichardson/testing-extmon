@@ -1,9 +1,9 @@
-! Title: uBlock₀ filters – Unbreak
-! Last modified: Tue, 31 Oct 2023 08:26:49 +0000
+! Title: uBlock filters – Unbreak
 ! Expires: 5 days
-! Diff-Path: %diffpath%
+! Last modified: Tue, 21 Nov 2023 20:24:47 +0000
+! Diff-Path: %diffpath%#ublock-unbreak
 ! Diff-Name: ublock-unbreak
-! Diff-Expires: 6 hours
+! Diff-Expires: 5 hours
 ! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
 ! *** uAssets:filters/unbreak.txt ***
 ||2mdn.net/instream/video/client.js$script,redirect=noopjs,domain=video.foxnews.com
@@ -411,7 +411,7 @@ nypost.com,pagesix.com#@#.recirc
 @@||cdn.taplytics.com/taplytics.min.js$script,domain=es.wallapop.com
 ! breakage caused by Yavli-filters in EasyList
 @@||youtube.com/yts/jsbin/*$script,domain=breathecast.com|classicalite.com|crossmap.com|hallels.com|newseveryday.com|returnofkings.com
-@@||amazon.*/*uedata$image,1p
+@@||fls-na.amazon.*/1/batch/1/OP/$image,domain=amazon.*
 @@||4cdn.org^$script,domain=4chan.org
 @@||api.coinmarketcap.com/$xhr,domain=unblock.net
 @@||adsynth-ofx-quotewidget-prod.herokuapp.com/api/$xhr,domain=widget-yahoo.ofx.com
@@ -564,7 +564,6 @@ ebay.com#@#li.s-item:has(span:has-text(SPONSORED))
 @@||rcijeux.fr/game/20minutes/$frame,domain=20minutes.fr
 @@||opgg-static.akamaized.net/*/tracker.js$script,domain=op.gg
 twitter.com#@#article[role="article"]:has-text(Promoted)
-@@||ekstat.com/js/ek$script,domain=eksisozluk.com
 ! To counter the adswizz filter in Peter Lowe's list
 ||adswizz.com^$badfilter
 ||adswizz.com^$3p
@@ -1057,8 +1056,6 @@ humanbenchmark.com##+js(set, pubg.unload, noopFunc)
 @@||treg.hearstnp.com/treg.js$script,domain=sfchronicle.com|sfgate.com
 politico.com##+js(set, generateGalleryAd, noopFunc)
 ||googlevideo.com^$media,redirect=noopmp4-1s,domain=mlb.com
-@@||mlbstatic.com/*/VisitorAPI.js$script,domain=mlb.com
-@@||mlbstatic.com/mlb.com/*$script,domain=mlb.com
 ! CNAME science-et-vie .com broken by some "clever" regex in liste fr (imported by adguard fr)
 @@||science-et-vie.com^$cname
 @@||assets.adobedtm.com^*/mbox-contents-$script,domain=nsat.collegeboard.org
@@ -1078,6 +1075,9 @@ hubblespacetelescope.blogspot.com#@#.vertical-ads
 @@||track.rundschau-online.de/*/api/$xhr,1p
 officedepot.co.cr##+js(set, mediator, noopFunc)
 officedepot.co.cr##+js(set, Object.prototype.subscribe, noopFunc)
+||groupbycloud.com/gb-tracker-client-3.min.js$domain=officedepot.co.cr,important
+officedepot.co.cr##+js(set, gbTracker, {})
+officedepot.co.cr##+js(set, gbTracker.sendAutoSearchEvent, noopFunc)
 !#if env_firefox
 ||circularhub.com^$3p,badfilter
 !#endif
@@ -1182,10 +1182,12 @@ hero-magazine.com###header:style(position: inherit !important;)
 !#if env_firefox
 @@||googlesyndication.com/pagead/js/adsbygoogle.js$script,domain=caminogeek.com
 !#endif
-@@||ads.adthrive.com/sites/*/ads.min.js$script,domain=pimylifeup.com
-@@||ads.adthrive.com/builds/core/*/js/adthrive.min.js$script,domain=pimylifeup.com
+@@||ads.adthrive.com/sites/*/ads.min.js$script,domain=a-z-animals.com|pimylifeup.com
+@@||ads.adthrive.com/builds/core/*$script,domain=a-z-animals.com|pimylifeup.com
 pimylifeup.com##+js(no-fetch-if, marmalade)
 pimylifeup.com#@#.adthrive
+a-z-animals.com#@#.adthrive-video-player
+a-z-animals.com#@#.adthrive
 ! egy.best broken download buttons
 ||cdn-static.egybest.*/packed/$badfilter
 ||securepubads.g.doubleclick.net/tag/js/gpt.js$script,important,redirect=noop.js,domain=indy100.com
@@ -1577,7 +1579,6 @@ profit.ro##.zc_top_mobil:style(display: block !important;)
 profit.ro##.zc_rectangle
 profit.ro##.zc_top
 himovies.to#@#a[onclick]
-deezer.com##+js(set, smartLoaded, true)
 @@||streaming.adswizz.com^$3p,media,domain=deezer.com
 @@||load.sumo.com^$script,domain=gopractice.ru
 @@||sumo.com/api/$xhr,domain=gopractice.ru
@@ -2207,7 +2208,7 @@ javgg.net##.home_iframead > iframe:upward(1)
 @@||proton.me/*/google-ads-$image,1p
 tieba.baidu.com##+js(set, passFingerPrint, noopFunc)
 @@||analytics-*.clickdimensions.com/*/pages/$frame,domain=crm.digital.nhs.uk
-@@||h-microsoft.online-metrix.net^$xhr,domain=ave9858.github.io|massgrave.dev
+@@||h-microsoft.online-metrix.net^$xhr,domain=ave9858.github.io|massgrave.dev|docs.atlasos.net
 sofascore.com#@#[display^="block,none"]
 sofascore.com#@#[display^="none,none"]
 sofascore.com##.adUnitBox
@@ -2338,7 +2339,6 @@ szbz.de##+js(set, iom, {})
 /^https?:\/\/[www.0-9a-z]{7,}\.com\/.*\/invoke\.js$/$script,3p,badfilter
 api.dock.agacad.com##+js(rpnt, script, /window\.dataLayer.+?(location\.replace\(\S+?\)).*/, $1)
 ||tm.jsuol.com.br/uoltm.js$script,domain=uol.com.br,important
-uol.com.br##+js(set, YT, {})
 uol.com.br##+js(set, YT.ImaManager, noopFunc)
 uol.com.br##+js(set, UOLPD, {})
 uol.com.br##+js(set, UOLPD.dataLayer, {})
@@ -2356,9 +2356,11 @@ poweredbycovermore.com##+js(set, _satellite, {})
 poweredbycovermore.com##+js(set, _satellite.track, noopFunc)
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect=google-ima.js,domain=vrsicilia.it,important
 neurotray.com##+js(nano-stb, /EzoIvent|TDELAY/, 5000)
-@@||sf.ezoiccdn.com/ezoimgfmt/$image,domain=neurotray.com
-@@||sf.ezoiccdn.com/ezossp/$script,domain=neurotray.com
-||sf.ezoiccdn.com/ezossp/https/neurotray.com/?local_ga_js=$script,domain=neurotray.com,important
+@@||sf.ezoiccdn.com/ezoimgfmt/$image,3p,domain=neurotray.com
+@@||sf.ezoiccdn.com/ezossp/$script,3p,domain=neurotray.com
+||sf.ezoiccdn.com/ezossp/https/neurotray.com/?local_ga_js=$script,3p,domain=neurotray.com,important
+@@||go.ezodn.com^$css,image,3p,domain=neurotray.com
+@@||go.ezodn.com/tardisrocinante/$script,3p,domain=neurotray.com
 @@||receiita.xyz^$popup,domain=animexhd.com
 ||imasdk.googleapis.com/js/sdkloader/ima3.js$script,important,redirect=google-ima.js:5,domain=abczdrowie.pl|animezone.pl|antyradio.pl|chillizet.pl|claudia.pl|echirurgia.pl|elevensports.pl|elle.pl|elleman.pl|fm.tuba.pl|focusnauka.pl|games.cdn.famobi.com|glamour.pl|grydladzieci.pl|ipla.tv|ipla.tv|kobieta.pl|meloradio.pl|mojegotowanie.pl|mojpieknyogrod.pl|money.pl|national-geographic.pl|parenting.pl|partner.redefine.pl|player.pl|playpuls.pl|pluscdn.pl|polsatgo.pl|polsatnews.pl|polsatsport.pl|przyslijprzepis.pl|radioplus.pl|radiozet.pl|sadeczanin.info|tvokazje.pl|tvp.pl|twojapogoda.pl|video.onnetwork.tv|videotarget.pl|wp.pl|wtk.pl|interia.pl|www.polsatnews.pl|autocentrum.pl
 virginmediatelevision.ie##+js(set, google.ima.dai, {})
@@ -2409,8 +2411,7 @@ instapundit.com#@#.ad-space:not(.textads)
 @@||googletagmanager.com/gtm.js$script,domain=aarhustech.dk
 ||go.xlirdr.com^$xhr,removeparam
 @@||googletagmanager.com/gtag/js$script,redirect-rule=googletagmanager_gtm.js:5,domain=trovvve.com
-@@||sonar.viously.com^$script,domain=aufeminin.com|consoglobe.com|cuisineaz.com|deco.fr|demotivateur.fr|fourchette-et-bikini.fr|futura-sciences.com|passeportsante.net|rustica.fr|wamiz.com|turbo.fr
-@@||cmp.quantcast.com^$script,domain=formulatv.com
+||sonar.viously.com^$badfilter
 as.com##+js(set, DTM.trackAsyncPV, noopFunc)
 ||cdn.usefathom.com/script.js$domain=sharpen-free-design-generator.netlify.app,important
 sharpen-free-design-generator.netlify.app##+js(set, fathom, {})
@@ -2425,3 +2426,23 @@ help.cashctrl.com##+js(set, Origami.fastclick, noopFunc)
 @@||microsoft.com/*/aria-web-telemetry$script,1p
 ||hbb.afl.rakuten.co.jp^$badfilter
 ||hbb.afl.rakuten.co.jp^$3p
+! unbreak player
+*$script,3p,denyallow=cloudflare.com|googleapis.com,domain=javgg.club|javgg.net,badfilter
+*$script,3p,denyallow=cloudflare.com|fluidplayer.com|googleapis.com,domain=javgg.club|javgg.net
+||quantcast.com^$badfilter
+@@||wurfl.io/wurfl.js$script,domain=keukenatlas.nl
+*.gif$image,redirect=1x1.gif,domain=holybooks.com,important
+@@||src.litix.io/videojs/$script,domain=nasa.gov
+||imasdk.googleapis.com/js/sdkloader/ima3.js$script,redirect-rule=google-ima.js,domain=moviesandtv.myvi.in
+@@||moviesandtv.myvi.in/videojs/videojs-contrib-ads.min.js$script,domain=moviesandtv.myvi.in
+@@||cdn.lib.getjad.io^$script,domain=vidaextra.com
+@@||c.amazon-adsystem.com/aax2/apstag.js$script,domain=vidaextra.com
+@@||securepubads.g.doubleclick.net/tag/js/gpt.js$script,domain=vidaextra.com
+@@||securepubads.g.doubleclick.net/pagead/managed/js/gpt/*/pubads_impl.js$script,domain=vidaextra.com
+@@||securepubads.g.doubleclick.net/gampad/ads$xhr,domain=vidaextra.com
+www.reddit.com,new.reddit.com##.subredditvars-r-ublockorigin [role="dialog"]>div:style(width: auto !important)
+@@||static.knowledgehub.com/global/images/ping.gif?$xhr,1p
+lumens.com##+js(set, _satellite, {})
+lumens.com##+js(set, _satellite.track, noopFunc)
+||analytics.skroutz.gr/analytics.min.js^$script,1p,redirect-rule=noop.js
+@@||hdblog.it/new_files/ajax/bf_new.php$frame,1p

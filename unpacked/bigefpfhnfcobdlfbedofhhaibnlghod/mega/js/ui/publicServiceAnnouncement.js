@@ -69,10 +69,11 @@ var psa = {
     // Only show the announcement if they have not seen the current announcement.
     // The localStorage.alwaysShowPsa is a test variable to force show the PSA
     if (psa.lastSeenPsaId < psa.currentPsa.id || localStorage.alwaysShowPsa === "1") {
-      psa.prefillAnnouncementDetails();
-      psa.addCloseButtonHandler();
-      psa.addMoreInfoButtonHandler();
-      psa.showAnnouncement();
+      if (psa.prefillAnnouncementDetails()) {
+        psa.addCloseButtonHandler();
+        psa.addMoreInfoButtonHandler();
+        psa.showAnnouncement();
+      }
     } else {
       // If they viewed the site while not logged in, then logged in with
       // an account that had already seen this PSA then this hides it
@@ -82,6 +83,7 @@ var psa = {
 
   /**
    * Update the details of the announcement depending on the current one
+   * @returns {boolean} whether announcement integrity is ok or not
    */
   prefillAnnouncementDetails: function () {
     "use strict";
@@ -95,8 +97,16 @@ var psa = {
     var description = from8(base64urldecode(psa.currentPsa.d));
     var buttonLabel = from8(base64urldecode(psa.currentPsa.b));
 
-    // Populate the details
+    if (!title || !description || !buttonLabel) {
+      return false;
+    }
+
     var $psa = $(".public-service-anouncement");
+    if (!$psa.length) {
+      return false;
+    }
+
+    // Populate the details
     $psa.find(".title").text(title);
     $psa.find(".messageA").text(description);
     if (psa.currentPsa.l) {
@@ -111,6 +121,8 @@ var psa = {
         // on the default static path as they are added directly to the static servers now for each new PSA
         $(this).attr("src", psa.currentPsa.dsp + psa.currentPsa.img + retina + ".png");
       });
+
+    return true;
   },
 
   /**

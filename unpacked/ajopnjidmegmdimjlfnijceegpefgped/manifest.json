@@ -1,7 +1,7 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
 
-  "version": "7.5.10",
+  "version": "7.5.11",
   "manifest_version": 2,
   "name": "__MSG_EXTENSION_NAME__",
   "description": "__MSG_EXTENSION_DESCRIPTION__",

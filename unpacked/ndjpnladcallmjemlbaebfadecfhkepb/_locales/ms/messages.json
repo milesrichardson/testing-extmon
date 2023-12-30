@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplikasi"
+  },
+  "EndOfSupportHeader": {
+    "message": "Sokongan Tamat untuk Sambungan Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Mulai 15 Januari 2024, sambungan ini tidak lagi disokong oleh Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Untuk maklumat lanjut, sila lawati halaman Sokongan untuk sambungan ini."
+  },
+  "Support": {
+    "message": "Sokongan"
   }
 }

@@ -30,7 +30,7 @@ export const blockSponsoredAndSuggested = (e, o) => {
         });
   }).observe(document.body, { childList: !0, subtree: !0 }),
     removeSideSponsorship(o, e),
-    document.querySelectorAll("div[aria-labelledby").forEach((s) => {
+    document.querySelectorAll("div[aria-labelledby]").forEach((s) => {
       removeElements(s, e, o);
     });
 };
@@ -43,7 +43,7 @@ function removeVisualArtifacts() {
     });
 }
 function removeElements(e, o, s) {
-  let t = Array.from(e.querySelectorAll("div[aria-labelledby"));
+  let t = Array.from(e.querySelectorAll("div[aria-labelledby]"));
   removeSponsored(t, o, s), removeSuggested(t, o, s);
 }
 function removeSponsored(e, o, s) {

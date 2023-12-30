@@ -261,7 +261,7 @@
   },
   "467c00f2c32c16d590a00e6185cb880c": {
     "description": "Description of the search-helper feature as shown on the options page",
-    "message": "Verwandte Evernote-Inhalte zu meinen Online-Suchen anzeigen"
+    "message": "Relevante Treffer zu Online-Suchergebnissen anzeigen"
   },
   "479149aec98be53057f43b5947816255": {
     "description": "Title of the clip formats list",
@@ -385,7 +385,7 @@
   },
   "64d4f6e85ad482c5cb9ba338b9600042": {
     "description": "Label for search-helper feature toggle",
-    "message": "Verwandte Ergebnisse"
+    "message": "Relevante Treffer"
   },
   "6614acf7e2a66dd467bd9f92ad7bb11f": {
     "description": "Error message displayed instead of missing logs",

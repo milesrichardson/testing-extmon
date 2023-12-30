@@ -3,8 +3,8 @@
 
   "name": "Loom – Screen Recorder & Screen Capture",
   "description": "Record your screen and camera with one click. Share that content in an instant with a link.",
-  "version": "5.5.39",
-  "version_name": "5.5.39",
+  "version": "5.5.42",
+  "version_name": "5.5.42",
   "manifest_version": 3,
   "background": {
     "service_worker": "js/sw.js"

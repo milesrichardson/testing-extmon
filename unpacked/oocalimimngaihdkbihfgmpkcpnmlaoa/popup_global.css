@@ -39,11 +39,18 @@
   --popup-max-height: 600px;
   --000-to-base-white-filter: invert(100%) sepia(60%) saturate(0%) hue-rotate(78deg) brightness(109%) contrast(96%);
 }
+html {
+  max-width: var(--popup-width);
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--base-red) var(--base-black);
+}
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: Poppins, sans-serif;
   background-color: var(--base-black);
+  width: var(--popup-width);
 }
 a:link,
 a:visited {

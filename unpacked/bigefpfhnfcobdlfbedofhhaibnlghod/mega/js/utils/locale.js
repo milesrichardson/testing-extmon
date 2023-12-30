@@ -150,7 +150,7 @@ function localeImages(scope) {
  * 4:       Monday, 3 October 2022
  * 5:       Monday, 3 October 2022 at 10:30:00 NZDT
  * 6:       Oct 2022
- * 7:       3 October 2022
+ * 7:       Monday, 3 October 2022 at 10:30 NZDT
  * 8:       3 October 2022
  * 9:       3 October 2022
  * 10:      Mon
@@ -1805,10 +1805,41 @@ mBroadcaster.once("boot_done", function populate_l() {
   l.pricing_page_faq_answer_3 = escapeHTML(l.pricing_page_faq_answer_3)
     .replace("[A]", `<a href="${faqLink}" target="_blank" rel="noopener noreferrer">`)
     .replace("[/A]", "</a>");
+  const welcDialogURL = "/fm/account/plan/purchase-history";
+  l.welcome_dialog_active_check = escapeHTML(l.welcome_dialog_active_check)
+    .replace("[A]", `<a class="clickurl" href="${welcDialogURL}" target="_self" rel="noopener noreferrer">`)
+    .replace("[/A]", "</a>");
   const recoveryKeyLink = "https://help.mega.io/accounts/password-management/recovery-key";
   l.password_changed_more_info = escapeHTML(l.password_changed_more_info)
     .replace("[A]", `<a class="anchor-link" href="${recoveryKeyLink}" target="_blank" rel="noopener noreferrer">`)
     .replace("[/A]", "</a>");
+  l.s4_voucher_terms = escapeHTML(l.s4_voucher_terms)
+    .replace("[A]", '<a class="clickurl" href="https://mega.io/s4-terms" target="_blank">')
+    .replace("[/A]", "</a>");
+
+  const rewindHelpLink = "https://help.mega.io/files-folders/rewind/how-do-i-use-rewind";
+  const rewindLinkAttr = 'target="_blank" class="clickurl" rel="noopener noreferrer"';
+  l.rewind_upg_content_free = escapeHTML(l.rewind_upg_content_free)
+    .replace("[A]", `<a ${rewindLinkAttr} href="${rewindHelpLink}">`)
+    .replace("[/A]", "</a>")
+    .replace("[BR]", "<br />");
+  l.rewind_upg_content_pro_lite = escapeHTML(l.rewind_upg_content_pro_lite)
+    .replace("[A]", `<a ${rewindLinkAttr} href="${rewindHelpLink}">`)
+    .replace("[/A]", "</a>")
+    .replace("[BR]", "<br />");
+  l.rewind_upg_content_pro_flexi = escapeHTML(l.rewind_upg_content_pro_flexi)
+    .replace("[A]", `<a ${rewindLinkAttr} href="${rewindHelpLink}">`)
+    .replace("[/A]", "</a>")
+    .replace("[BR]", "<br />");
+
+  l.two_fa_download_app = escapeHTML(l.two_fa_download_app).replace("[A]", '<a href="">').replace("[/A]", "</a>");
+
+  l.recovery_key_blurb = escapeHTML(l.recovery_key_blurb)
+    .replace("[A]", `<a href="${recoveryKeyLink}" target="_blank">`)
+    .replace("[/A]", "</a>")
+    .replace("[S1]", "<span>")
+    .replace("[S2]", '<span class="hc-article-link">')
+    .replace(/\[\/S\d]/g, "</span>");
 
   const common = [
     15536,

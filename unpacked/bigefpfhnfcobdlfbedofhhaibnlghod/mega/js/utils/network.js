@@ -92,6 +92,10 @@ megaUtilsGFSFetch.getTicket = (aData) => {
   // If a ufs-node's handle provided
   if (String(aData).length === 8) {
     handle = aData;
+  } else if (aData.customRequest) {
+    payload.a = aData.customRequest;
+    handle = aData.dl_id;
+    n = aData;
   } else if (typeof aData === "object") {
     // if a download-instance provided.
     handle = aData.dl_id;

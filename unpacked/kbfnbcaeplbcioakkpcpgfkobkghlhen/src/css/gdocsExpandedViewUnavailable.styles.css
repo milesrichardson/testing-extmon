@@ -605,20 +605,21 @@
   width: 100%;
 }
 .diNpB.wmSgc ._OFkc .VF3Bz h3 {
-  font-family: Inter;
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  text-align: left;
 }
-.diNpB.wmSgc ._OFkc .mR_zr p {
+.diNpB.wmSgc ._OFkc .mR_zr p,
+.diNpB.wmSgc ._OFkc .VF3Bz h3 {
   font-family: Inter;
   font-style: normal;
+  text-align: left;
+  color: #000;
+}
+.diNpB.wmSgc ._OFkc .mR_zr p {
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
-  text-align: left;
 }
 .diNpB.wmSgc ._OFkc .mR_zr a {
   display: inline;

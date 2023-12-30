@@ -1,7 +1,7 @@
 /******/ (() => {
   // webpackBootstrap
   /******/ var __webpack_modules__ = {
-    /***/ 83494: /***/ () => {
+    /***/ 3494: /***/ () => {
       var assistant = { exports: {} };
 
       (function (module, exports) {
@@ -4660,7 +4660,7 @@
   // This entry need to be wrapped in an IIFE because it need to be in strict mode.
   (() => {
     "use strict";
-    /* harmony import */ var _adguard_tswebextension_assistant_inject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(83494);
+    /* harmony import */ var _adguard_tswebextension_assistant_inject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3494);
     /* harmony import */ var _adguard_tswebextension_assistant_inject__WEBPACK_IMPORTED_MODULE_0___default =
       /*#__PURE__*/ __webpack_require__.n(_adguard_tswebextension_assistant_inject__WEBPACK_IMPORTED_MODULE_0__);
     /**

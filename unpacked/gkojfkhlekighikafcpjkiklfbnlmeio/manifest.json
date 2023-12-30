@@ -45,9 +45,9 @@
   "description": "__MSG_appDescChrome__",
   "homepage_url": "https://hola.org",
   "icons": {
-    "16": "js/bext/vpn/ui/img/icon16.png",
-    "48": "js/bext/vpn/ui/img/icon48.png",
-    "128": "js/bext/vpn/ui/img/icon128.png"
+    "16": "js/bext/vpn/ui/img/icon16_new.png",
+    "48": "js/bext/vpn/ui/img/icon48_new.png",
+    "128": "js/bext/vpn/ui/img/icon128_new.png"
   },
   "incognito": "split",
   "manifest_version": 2,
@@ -56,7 +56,7 @@
   "optional_permissions": ["privacy"],
   "permissions": ["proxy", "webRequest", "storage", "tabs", "webNavigation", "cookies", "webRequestBlocking", "<all_urls>"],
   "short_name": "Hola VPN",
-  "version": "1.216.954",
+  "version": "1.218.811",
   "web_accessible_resources": [
     "/js/popup.html",
     "/js/animation_arrow.html",

@@ -172,7 +172,7 @@ class MegaMobileHeader extends MegaMobileComponent {
         }
 
         if (String(M.currentdirid).includes("two-factor-authentication")) {
-          return mobile.twofactor.settings.previousPage();
+          return mobile.settings.account.twofactorSettings.previousPage();
         }
 
         history.back();
@@ -792,18 +792,21 @@ lazy(MegaMobileHeader, "headings", () => {
     "fm/account/security/change-password": l[23262],
     "fm/account/security/change-email": l[7743],
     "fm/account/security/verify": l[7730],
+    "fm/account/delete": l[16115],
+    "fm/account/delete/verify": l[16115],
     "fm/account/qr-code": l[17754],
     "fm/account/qr-code-settings": l.settings_account_qr_code_set,
     "fm/account/delete": l[16115],
     "fm/account/plan": l[16166],
     "fm/account/notifications": l[862],
+    "fm/two-factor-confirmation": l[19194],
     "fm/refer": l[22682],
     "fm/refer/guide": l[22683],
     "fm/refer/history": l[22808],
     "fm/refer/distribution": l[22709],
     "fm/refer/redeem": l[23403],
     "fm/account/security": l.mobile_settings_privacy_security_title,
-    "fm/account/security/backup-key": l[8839],
+    "fm/account/security/backup-key": l[8859],
     "fm/account/security/two-factor-authentication": l[19194],
     "fm/account/security/session-history": l[429],
     "fm/account/settings": l[823],

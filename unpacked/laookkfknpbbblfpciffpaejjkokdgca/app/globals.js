@@ -16,4 +16,4 @@ m.globals.urlRootStats = "https://stats.momentumdash.com/";
 m.globals.urlRootIntegration = "https://integration.momentumdash.com/";
 m.globals.liveApi = true;
 
-m.globals.version = "2.12.9";
+m.globals.version = "2.12.11";

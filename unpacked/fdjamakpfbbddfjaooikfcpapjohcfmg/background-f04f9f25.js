@@ -160,7 +160,7 @@
     },
     42898: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.EventStoreConsumer = void 0);
-      const n = r(28354);
+      const n = r(35088);
       t.EventStoreConsumer = class {
         constructor(e, t) {
           (this.eventStore = e),
@@ -572,7 +572,7 @@
           t.parseTransactionContentXml =
           t.decryptTransactionContent =
             void 0);
-      const n = r(53576),
+      const n = r(32626),
         o = r(80469),
         a = r(89855),
         i = r(92263),
@@ -690,7 +690,7 @@
     },
     44317: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeDiagnosticReportMonitor = void 0);
-      const n = r(53576),
+      const n = r(32626),
         o = r(54034),
         a = r(92263),
         i = r(89855);
@@ -1613,7 +1613,7 @@
     37744: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 });
       const n = r(16516),
-        o = r(53576),
+        o = r(32626),
         a = r(95623),
         i = r(1347),
         s = r(70252),
@@ -1682,8 +1682,8 @@
     67805: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getSyncEventErrorName = t.getSyncEventExtent = t.createInitialSyncEvent = void 0);
-      const n = r(60765),
-        o = r(53576),
+      const n = r(93039),
+        o = r(32626),
         a = r(37898),
         i = r(17825),
         s = r(92263),
@@ -1751,7 +1751,7 @@
     37729: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeEventLoggerSyncMonitor = void 0);
       const n = r(75439),
-        o = r(60765);
+        o = r(93039);
       t.makeEventLoggerSyncMonitor = (e, t = { sendLogOnSyncComplete: !0 }) => {
         let r = (0, n.getEmptyState)();
         return {
@@ -1808,7 +1808,7 @@
     75439: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.reduceState = t.getEmptyState = void 0);
       const n = r(67805),
-        o = r(60765),
+        o = r(93039),
         a = (e, t) => ({ ...e, syncEvent: { ...e.syncEvent, ...t } }),
         i = (e, t) =>
           e > 0 && t > 0
@@ -1909,7 +1909,7 @@
           t.supportedDataTypesForUpload =
             void 0);
       const n = r(16516),
-        o = r(53576),
+        o = r(32626),
         a = r(83638),
         i = r(95623),
         s = r(70252),
@@ -1997,7 +1997,7 @@
           t.getDataModelTypeFromTransactionType =
           t.DATAMODEL_TYPE_TO_TRANSACTION_TYPE =
             void 0);
-      const n = r(53576);
+      const n = r(32626);
       Object.defineProperty(t, "DATAMODEL_TYPE_TO_TRANSACTION_TYPE", {
         enumerable: !0,
         get: function () {
@@ -2031,7 +2031,7 @@
     },
     58217: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getMissingIdentifiers = void 0);
-      const n = r(53576),
+      const n = r(32626),
         o = r(16516),
         a = r(84977),
         i = r(58582),
@@ -2349,9 +2349,9 @@
     },
     36081: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.buildFullBackupFileMap = t.buildLatestArgs = t.latest = void 0);
-      const n = r(28354),
+      const n = r(35088),
         o = r(16516),
-        a = r(53576),
+        a = r(32626),
         i = r(63713),
         s = r(95623),
         c = r(37898),
@@ -3389,7 +3389,7 @@
         (t.makeAsymmetricEncryption = t.makeSymmetricEncryption = t.makeCryptoService = void 0);
       const n = r(93347),
         o = r(56668),
-        a = r(53576),
+        a = r(32626),
         i = r(61797),
         s = r(69530),
         c = r(27993),
@@ -4529,11 +4529,10 @@
       };
     },
     55710: (e, t, r) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }), (t.createUser = t.MissingContactPhone = void 0);
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.createUser = void 0);
       const n = r(90338),
-        o = r(45956);
-      t.MissingContactPhone = "missing_contact_phone";
-      const a = {
+        o = r(45956),
+        a = {
           group: o.ApiEndpointGroups.account,
           version: o.ApiVersion.v1,
           method: o.ApiRequestMethod.POST,
@@ -4558,7 +4557,7 @@
         },
         i = (0, n.prepareApiEndpoint)(a);
       t.getPremiumStatus = function (e, t) {
-        return i(e, { login: t, payload: {} }).then((e) => e);
+        return i(e, { login: t, payload: {} });
       };
     },
     31375: (e, t, r) => {
@@ -4574,7 +4573,7 @@
         },
         i = (0, n.prepareApiEndpoint)(a);
       t.getSubscriptionInformation = function (e, t) {
-        return i(e, { login: t, payload: {} }).then((e) => e);
+        return i(e, { login: t, payload: {} });
       };
     },
     97421: (e, t, r) => {
@@ -5244,7 +5243,7 @@
         return i(e, { login: t, payload: {} });
       };
     },
-    31197: (e, t, r) => {
+    75714: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addPrivateBreach = void 0);
       const n = r(45956),
         o = r(90338),
@@ -6216,22 +6215,6 @@
         return await i(e, { login: t, payload: { numberOfSeats: n, newPlan: r } });
       };
     },
-    47115: (e, t, r) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }), (t.getTeamOffersRequest = void 0);
-      const n = r(45956),
-        o = r(90338),
-        a = {
-          group: n.ApiEndpointGroups.teams,
-          version: n.ApiVersion.v1,
-          method: n.ApiRequestMethod.POST,
-          authenticationType: n.ApiAuthType.UserDevice,
-          endpoint: "GetTeamOffers"
-        },
-        i = (0, o.prepareApiEndpoint)(a);
-      t.getTeamOffersRequest = async function (e, t, r) {
-        return await i(e, { login: t, payload: { couponCode: r, withStarterOffer: !0 } });
-      };
-    },
     93934: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.changeInviteLinkTeamKey = void 0);
       const n = r(90338),
@@ -6248,7 +6231,7 @@
     },
     5928: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getInviteLinkErrors = void 0);
-      const n = r(53576);
+      const n = r(32626);
       t.getInviteLinkErrors = [
         n.InviteLinkResponseErrorCode.NotAdmin,
         n.InviteLinkResponseErrorCode.InviteLinkNotFound,
@@ -7616,26 +7599,49 @@
       const n = r(95623),
         o = r(88610),
         a = r(70252),
-        i = r(48990),
+        i = r(9344),
         s = r(52968),
         c = r(35924),
-        p = r(78759);
+        p = r(78759),
+        u = r(56915),
+        d = r(46298),
+        l = r(92263),
+        y = r(14656),
+        g = r(17387),
+        m = r(59489),
+        h = r(89160);
       t.restoreLastAuthenticatedUser = async function (e, t) {
         try {
-          const { applicationModulesAccess: r } = e,
-            n = t.find((e) => e.isLastSuccessfulLogin);
-          if (!n || n.hasLoginOtp) return;
+          const { applicationModulesAccess: r, storageService: n, storeService: a } = e,
+            f = t.find((e) => e.isLastSuccessfulLogin);
+          if (!f || f.hasLoginOtp) return;
           if (e.storeService.getState().userSession.ssoSettings.ssoUser) return;
-          const a = n.login,
-            u = e.storeService.getState().authentication.localUsers;
-          if (void 0 !== u[a] && u[a].ssoActivatedUser) {
+          const S = f.login,
+            T = e.storeService.getState().authentication.localUsers;
+          if (void 0 !== T[S] && T[S].ssoActivatedUser) {
             return void (
               (0, p.disableAutoSSOLoginSelector)(e.storeService.getState()) ||
-              (e.storeService.dispatch((0, c.updateLoginStepInfoLogin)(a)),
-              "sso" === n.rememberMeType && r.createClients().authenticationFlow.commands.initiateAutologinWithSSO({ login: a ?? "" }))
+              (e.storeService.dispatch((0, c.updateLoginStepInfoLogin)(S)),
+              "sso" === f.rememberMeType && r.createClients().authenticationFlow.commands.initiateAutologinWithSSO({ login: S ?? "" }))
             );
           }
-          if ("webauthn" === n.rememberMeType)
+          let A;
+          try {
+            const e = a.getState(),
+              t = await (0, h.getLocalProfiles)(a, n),
+              o = (0, u.getDeviceAccessKeySelector)(e, S),
+              i = await (0, d.getAuthenticationMethodsForLogin)(a, {
+                login: S,
+                deviceAccessKey: o,
+                methods: g.localSupportedAuthenticationMethod,
+                profiles: t
+              });
+            if ((0, d.isApiError)(i)) return void (0, h.handleGetAuthenticationMethodsForLoginError)(n, r, i, S);
+            (0, h.handleDeletedProfiles)(n, r, i), (A = i.accountType);
+          } catch (e) {
+            if (!(0, l.isCarbonError)(e, y.HttpError)) throw e;
+          }
+          if ((a.dispatch((0, m.storeAccountAuthenticationType)(A)), "webauthn" === f.rememberMeType))
             return void (function ({ storeService: e }) {
               try {
                 document.featurePolicy.features().includes("publickey-credentials-get") &&
@@ -7644,13 +7650,13 @@
                 e.dispatch((0, i.reactivationStatusUpdated)(s.ReactivationStatus.CLASSIC));
               }
             })(e);
-          const d = await e.autoLoginService.shouldTrigger(a),
-            l = (0, o.makeLoginController)(e);
-          if (!d) return void l.openSession(a);
-          await e.autoLoginService.process(a);
-          const y = e.storeService.getUserSession().masterPassword;
-          if (!y) return;
-          await l.openSessionWithMasterPassword(a, y, { triggeredByRememberMeType: "autologin" });
+          const v = await e.autoLoginService.shouldTrigger(S),
+            E = (0, o.makeLoginController)(e);
+          if (!v) return void E.openSession(S);
+          await e.autoLoginService.process(S);
+          const _ = e.storeService.getUserSession().masterPassword;
+          if (!_) return;
+          await E.openSessionWithMasterPassword(S, _, { triggeredByRememberMeType: "autologin" });
         } catch (e) {
           const t = `[index] - restoreLastAuthenticatedUser: ${e}`,
             r = new Error(t);
@@ -7685,7 +7691,7 @@
           t.STORAGE_VERSION =
           t.StoredUserDataTypeEnum =
             void 0);
-      const n = r(53576),
+      const n = r(32626),
         o = r(95623),
         a = r(41265),
         i = r(16038),
@@ -8037,46 +8043,46 @@
         p = r(17825),
         u = r(45570),
         d = r(41265),
-        l = r(30913),
-        y = r(59600),
-        g = r(78577);
-      function m(e) {
+        l = r(78577),
+        y = r(32626);
+      function g(e) {
         return JSON.stringify({ platform: e.platformName, version: e.appVersion });
       }
       (t.getEventsPayload = function (e) {
         return e.map((e) => JSON.stringify(e)).join("\n");
       }),
         (t.getMakeStyxApiRequest = function (e, t, r) {
-          return async (h, f) => {
-            const S = { login: "", teamUuid: "", payload: "", ...(f || {}) },
-              T = (0, o.getMethodParams)(r, S.payload),
-              A = (0, o.getAuthParams)(t, { login: S.login, teamUuid: S.teamUuid }),
-              v = "POST" === T.method ? T.payload : "",
-              E = (0, n.dashlaneServerDeltaTimestampSelector)(h.getState()) || 0,
-              _ = Math.round((0, i.getUnixTimestamp)() - E),
-              b = (0, u.getStyxApiCredentials)(h.getState(), A),
-              C = (0, n.platformInfoSelector)(h.getState()),
-              D = { "Content-Type": "application/x-jsonlines", "X-TIMESTAMP": _.toString() },
-              P = { "dashlane-client-agent": m(C) },
-              O = (function (e) {
+          return async (m, h) => {
+            const f = { login: "", teamUuid: "", payload: "", ...(h || {}) },
+              S = (0, o.getMethodParams)(r, f.payload),
+              T = (0, o.getAuthParams)(t, { login: f.login, teamUuid: f.teamUuid }),
+              A = "POST" === S.method ? S.payload : "",
+              v = (0, n.dashlaneServerDeltaTimestampSelector)(m.getState()) || 0,
+              E = Math.round((0, i.getUnixTimestamp)() - v),
+              _ = (0, u.getStyxApiCredentials)(m.getState(), T),
+              b = (0, n.platformInfoSelector)(m.getState()),
+              C = { "Content-Type": "application/x-jsonlines", "X-TIMESTAMP": E.toString() },
+              D = { "dashlane-client-agent": g(b) },
+              P = (function (e) {
                 const t = e.getAccountInfo().login,
                   r = t && (0, d.isInternalTestUser)(t),
-                  n = (0, l.applicationBuildTypeSelector)(e.getState()),
-                  o = n === y.ApplicationBuildType.DEV || n === y.ApplicationBuildType.QA;
-                return r || o;
-              })(h);
-            O && (D["X-DL-TEST"] = "true");
-            const k = Object.keys(P),
-              w = await (async function (e, t, r, o, s, c) {
+                  n = e.getPlatformInfo(),
+                  { buildType: o } = n,
+                  a = o === y.ApplicationBuildType.DEV || o === y.ApplicationBuildType.QA;
+                return r || a;
+              })(m);
+            P && (C["X-DL-TEST"] = "true");
+            const O = Object.keys(D),
+              k = await (async function (e, t, r, o, s, c) {
                 if (r.type === a.ApiAuthType.None) return {};
                 const p = (0, n.dashlaneServerDeltaTimestampSelector)(e.getState()) || 0,
                   u = Math.round((0, i.getUnixTimestamp)() - p),
                   d = { pathname: t, method: "POST", rawBody: c, headers: o };
-                return { Authorization: await (0, g.signRequest)({ request: d, timestamp: u, credentials: r, headersToSign: s }) };
-              })(h, e, b, { ...P, ...D }, k, v),
-              M = { ...P, ...w, ...D },
-              R = `${s.config.DASHLANE_STYX_HOST_WITH_SCHEME}${e}`,
-              { data: L } = await (function (e, t, r) {
+                return { Authorization: await (0, l.signRequest)({ request: d, timestamp: u, credentials: r, headersToSign: s }) };
+              })(m, e, _, { ...D, ...C }, O, A),
+              w = { ...D, ...k, ...C },
+              M = `${s.config.DASHLANE_STYX_HOST_WITH_SCHEME}${e}`,
+              { data: R } = await (function (e, t, r) {
                 const n = { headers: r, validateStatus: o.validateStatus };
                 switch (e.method) {
                   case a.ApiRequestMethod.GET:
@@ -8086,11 +8092,11 @@
                   default:
                     (0, p.assertUnreachable)(e);
                 }
-              })(T, R, M);
-            return L;
+              })(S, M, w);
+            return R;
           };
         }),
-        (t.getApiClientAgentHeader = m);
+        (t.getApiClientAgentHeader = g);
     },
     72636: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.SendTokenStatus = t.makeWSAuthentication = void 0);
@@ -8695,7 +8701,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.findAllKWXMLElementsOfType = t.removeNamespace = t.getDashlaneXml = t.parseDashlaneXml = void 0);
       const n = r(16516),
-        o = r(44015),
+        o = r(50616),
         a = r(92263),
         i = r(81885),
         s = r(54218),

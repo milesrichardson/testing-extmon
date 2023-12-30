@@ -3588,7 +3588,6 @@ div.checkboxOn {
   padding-top: 2px;
   text-align: center;
 }
-.mobile.cancel-account-overlay,
 .mobile.generic-dialog-overlay {
   background-color: transparent;
   display: table;
@@ -3599,7 +3598,6 @@ div.checkboxOn {
   width: 100%;
   z-index: 1200;
 }
-.mobile.cancel-account-dialog .overlay-info,
 .mobile.generic-dialog-overlay .overlay-info {
   margin: 0;
   padding: 0;
@@ -3608,7 +3606,6 @@ div.checkboxOn {
   color: #eb4444;
   font-family: source_sans_prosemibold;
 }
-.mobile.cancel-account-dialog,
 .mobile.check-email-dialog {
   border-radius: 2px;
   height: auto;
@@ -3618,21 +3615,6 @@ div.checkboxOn {
   position: relative;
   width: 100%;
   width: calc(100% - 32px);
-}
-.mobile.cancel-account .confirm-close-account-button {
-  margin: 0 20px 20px;
-}
-.mobile.cancel-account .radio-button-form .radio-txt {
-  margin: 0;
-}
-.mobile.cancel-account .radio-option {
-  align-items: center;
-  display: flex !important;
-  margin: 24px 0;
-}
-.mobile.cancel-account .radio-option .radioOff,
-.mobile.cancel-account .radio-option .radioOn {
-  display: flex !important;
 }
 .mobile.header-icon {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -5047,22 +5029,14 @@ textarea.mobile.support-text-field {
 .mobile.my-account-change-email-page .email-change-step2 button {
   margin: 8px 24px;
 }
-.mobile.recovery-key-page,
 .two-factor-qr-block {
   background-color: #fff;
   padding: 32px 0 26px;
   position: relative;
 }
-.mobile.recovery-key-page.logout-export {
-  padding: 0;
-}
-.mobile.recovery-key-page.logout-export .recovery-key-heading {
-  padding-top: 32px;
-}
 .verify-login-page .two-factor-qr-block {
   border-bottom: 1px solid #eee;
 }
-.mobile.main-block.enter-recovery-key-page,
 .mobile.main-block.forgot-password-page,
 .mobile.main-block.recover-account-page {
   background-color: #fff;
@@ -5070,7 +5044,6 @@ textarea.mobile.support-text-field {
 .mobile.forgot-password-page .mobile.forgot-password-heading,
 .mobile.main-block.error-overlay .password-decryption-heading,
 .mobile.r-a-heading,
-.mobile.recovery-key-page .mobile.recovery-key-heading,
 .mobile.two-factor-page .two-factor-heading {
   color: #495057;
   font-family: LatoWebBold, source_sans_prosemibold;
@@ -5081,7 +5054,6 @@ textarea.mobile.support-text-field {
 .mobile.forgot-password-page .mobile.forgot-password-body-text,
 .mobile.main-block.error-overlay .password-decryption-body-text,
 .mobile.recover-account-page .mobile.recover-account-body-text,
-.mobile.recovery-key-page .mobile.recovery-key-body-text,
 .two-factor-body-text {
   color: #676d75;
   font-size: 14px;
@@ -5106,19 +5078,12 @@ textarea.mobile.support-text-field {
 .mobile.park-account.confirm-data-loss .checkdiv {
   margin-right: 5px;
 }
-.mobile.recovery-key-page .mobile.recovery-key-string-block,
 .mobile.two-factor-qr-code-wrapper,
 .mobile.two-factor-verify-seed-wrapper {
   margin: 16px 24px 4px;
 }
 .mobile.recover-account-page .mobile.recover-account-block {
   margin-top: 24px;
-}
-.mobile.recovery-key-page .mobile.recovery-key-body-text.form-info {
-  color: #00bfa5;
-  font-size: 13px;
-  line-height: 21px;
-  margin: 4px 24px 8px;
 }
 .mobile.signin-input.input-recovery-key,
 .mobile.signin-input.recover-account {
@@ -5161,8 +5126,6 @@ textarea.mobile.support-text-field {
   width: 20px;
 }
 .mobile.recover-account-page .mobile.recover-account-email-send-btn,
-.mobile.recovery-key-page .mobile.recovery-key-copy-btn,
-.mobile.recovery-key-page .mobile.recovery-key-download-btn,
 .mobile.upload-recovery-key,
 .mobile.verify-recovery-key-btn {
   background: #f44;
@@ -5187,12 +5150,7 @@ textarea.mobile.support-text-field {
 .mobile.upload-recovery-key {
   display: block;
 }
-.mobile.recovery-key-page .mobile.recovery-key-download-btn {
-  margin-top: 8px;
-}
 .mobile.recover-account-page .recover-account-email-send-btn.active,
-.mobile.recovery-key-page .recovery-key-copy-btn.active,
-.mobile.recovery-key-page .recovery-key-download-btn.active,
 .mobile.upload-recovery-key.active,
 .mobile.verify-recovery-key-btn.active {
   opacity: 1;
@@ -5917,10 +5875,12 @@ textarea.mobile.support-text-field {
 }
 .mobile.video .play-video-button {
   background-color: #f52929;
+  border: none;
   border-radius: 100%;
   cursor: pointer;
   height: 36px;
   left: calc(50% - 18px);
+  padding: 0;
   position: absolute;
   top: calc(50% - 18px);
   width: 36px;
@@ -9238,7 +9198,6 @@ body.bottom-pages.mobile .fmholder.no-scroll {
     margin: 18px auto 0;
     padding: 0 20px;
   }
-  .mobile.recovery-key-page .mobile.recovery-key-block,
   .two-factor-qr-block {
     margin: 26px 38px 0;
   }

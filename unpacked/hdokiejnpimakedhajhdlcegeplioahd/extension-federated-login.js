@@ -13,17 +13,17 @@ location.origin.match(/^moz-extension:\/\//) &&
 var FederatedLogin = (function () {
   var e;
   return new (function () {
-    var c = this,
-      p = {},
-      f = !1,
+    var f = this,
+      c = {},
+      m = !1,
       n =
-        (FederatedLoginService.call(c),
-        (c._ajax = function (e) {
+        (FederatedLoginService.call(f),
+        (f._ajax = function (e) {
           "undefined" != typeof base_url && 0 !== e.url.indexOf("http") && (e.url = base_url + e.url), LPServer.ajax(e);
         }),
-        (c.login = function (o, a) {
+        (f.login = function (o, a) {
           (o = fix_username(o)),
-            c.getPassword(
+            f.getPassword(
               o,
               function (e, r, t, n) {
                 setFragmentId(t, n), LP_do_login(o, e, a, void 0, void 0, void 0, void 0, void 0, void 0, r);
@@ -41,16 +41,16 @@ var FederatedLogin = (function () {
           } catch (e) {}
           return "";
         }),
-      m = function (e, r) {
+      p = function (e, r) {
         var r, t, r, t;
         e.keypair &&
           ((r = reduxApp.parseXml(atob(r), !0)),
           (t = n(r, "LastPassKeyPart")),
           (r = n(r, "LastPassKeyPartSignature")),
-          (t = c._decryptK1WithPrivateKey(atob(t), e.keypair.privateKey)),
+          (t = f._decryptK1WithPrivateKey(atob(t), e.keypair.privateKey)),
           (e.valid = !!t && o(t, r)),
           (e.submitted = !0),
-          e.valid || c._handleError(e.error, new Error(gs("K1 not valid!"))));
+          e.valid || f._handleError(e.error, new Error(gs("K1 not valid!"))));
       },
       t = function (e) {
         var r = forge.md.sha256.create();
@@ -87,25 +87,25 @@ var FederatedLogin = (function () {
         }
         return null;
       };
-    (c.getPasswordSaml = function (d, l, u) {
+    (f.getPasswordSaml = function (d, l, u) {
       (d = fix_username(d)),
         LPPlatform.getCurrentTabDetails(function (s) {
-          c._initiate(d, function (o, a) {
+          f._initiate(d, function (o, a) {
             var i = { valid: !1, idp: o, keypair: a, submitted: !1, error: u };
             LPPlatform.openTab({
               extension: !0,
               url: o.IdentityProviderURL + "/auth/saml2/" + o.IdentityProviderGUID,
               loadHandler: function (n) {
-                (p[n.tabDetails.tabID] = i).cleanup = LPPlatform.onBeforeNavigate(function (e, r) {
+                (c[n.tabDetails.tabID] = i).cleanup = LPPlatform.onBeforeNavigate(function (e, r) {
                   var t = /\/auth\/saml2\/success\/(.*)$/.exec(e);
                   if (t && 2 === t.length)
                     return (
                       i.valid || !a
-                        ? c._getAuthInfo(
+                        ? f._getAuthInfo(
                             d,
                             t[1],
                             function (r) {
-                              c._assemblePassword(
+                              f._assemblePassword(
                                 d,
                                 a,
                                 r,
@@ -117,7 +117,7 @@ var FederatedLogin = (function () {
                             },
                             u
                           )
-                        : c._handleError(u, new Error(gs("K1 not valid!"))),
+                        : f._handleError(u, new Error(gs("K1 not valid!"))),
                       (i.submitted = !0),
                       LPPlatform.closeTab(n.tabDetails),
                       LPPlatform.activateTab(s),
@@ -125,142 +125,144 @@ var FederatedLogin = (function () {
                     );
                   if (a && !i.valid && 0 === e.indexOf(o.IdentityProviderURL)) {
                     var t = g(r);
-                    if (t) return m(i, t), i.valid;
+                    if (t) return p(i, t), i.valid;
                   }
                 }, n.tabDetails);
               },
               closeHandler: function () {
-                i.submitted || c._handleError(u, new Error(gs("Federated login tab closed!")));
+                i.submitted || f._handleError(u, new Error(gs("Federated login tab closed!")));
               }
             });
           });
         });
     }),
-      (c.parseJwt = function (e) {
+      (f.parseJwt = function (e) {
         var r, t;
         return new Oidc.UserManager()._joseUtil.parseJwt(e).payload;
       }),
-      (c.getPassword = function (d, l, u) {
-        (d = fix_username(d)),
-          c.clearCache(),
+      (f.getPassword = function (l, u, c, e, p) {
+        (l = fix_username(l)),
+          f.clearCache(),
           LPPlatform.getCurrentTabDetails(function (e) {
-            c._initiate(d, function (e, r) {
-              var o = { valid: !1, idp: e, keypair: r, submitted: !1, error: u },
-                a,
-                i,
-                s;
-              o.idp.type <= 2
-                ? c.getPasswordSaml(d, l, u)
-                : (3 != o.idp.type && u(),
-                  (Oidc.Log.logger = console),
-                  (Oidc.Log.level = Oidc.Log.INFO),
-                  (a = {
+            f._initiate(l, function (e, r) {
+              var o = { valid: !1, idp: e, keypair: r, submitted: !1, error: c };
+              if (o.idp.type <= 2) f.getPasswordSaml(l, u, c);
+              else {
+                3 != o.idp.type && c(), (Oidc.Log.logger = console), (Oidc.Log.level = Oidc.Log.INFO);
+                const t = 0,
+                  n = "sfx_appstore",
+                  d = "?desktop=1";
+                var e = p === n && o.idp.PkceEnabled && o.idp.Provider === f.OIDC_PROVIDERS.Azure,
+                  a = {
                     authority: o.idp.OpenIDConnectAuthority,
                     client_id: o.idp.OpenIDConnectClientId,
-                    redirect_uri: "https://accounts.lastpass.com/federated/oidcredirect.html",
+                    redirect_uri: "https://accounts.lastpass.com/federated/oidcredirect.html" + (e ? d : ""),
                     response_type: o.idp.PkceEnabled ? "code" : "id_token token",
-                    response_mode: o.idp.PkceEnabled && o.idp.Provider !== c.OIDC_PROVIDERS.PingOne ? "fragment" : null,
-                    scope: c.getScopes(o.idp.Provider, !1),
+                    response_mode: o.idp.PkceEnabled && o.idp.Provider !== f.OIDC_PROVIDERS.PingOne ? "fragment" : null,
+                    scope: f.getScopes(o.idp.Provider, !1),
                     signingKeys: o.idp.OpenIDConnectKeys,
                     extraQueryParams: {}
-                  }),
-                  o.idp.IsEmailHintDisabled || (a.extraQueryParams.login_hint = d),
-                  o.idp.Provider === c.OIDC_PROVIDERS.OneLogin && (a.extraQueryParams.resource = "https://lastpass.com"),
-                  (i = c.getOIDCProviderName(o.idp.Provider)),
-                  (s = new Oidc.OidcClient(a)).createSigninRequest().then(function (e) {
-                    var r;
-                    f
-                      ? (f = !1)
-                      : ((f = !0),
-                        (r = o.idp.PkceEnabled && e.url.indexOf("&nonce=") < 0 ? "&nonce=" + rand_str(16) : ""),
-                        LPPlatform.openTab({
-                          extension: !0,
-                          url: e.url + r,
-                          closeHandler: function () {
-                            (f = !1), o.submitted || c._handleError(u, new Error(gs("Federated login tab closed!")));
-                          },
-                          loadHandler: function () {},
-                          onBeforeRequestCallback: function (e, r, n) {
-                            function t(e) {
-                              return [
-                                sprintf(gs("%s reported a problem during login."), i),
-                                sprintf(gs("Contact your %s administrator for assistance."), i),
-                                sprintf(gs("Here’s the message from %s:"), i),
-                                e
-                              ].join("<br/><br/>");
-                            }
-                            /https:\/\/accounts\.lastpass\.com\/federated\/oidcredirect\.html.*/.test(e) &&
-                              s
-                                .processSigninResponse(e)
-                                .then(function (e) {
-                                  var r, t, r, t, r, r, e;
-                                  return (
-                                    (o.submitted = !0),
-                                    LPPlatform.closeTab({ tabID: n }),
-                                    (f = !1),
-                                    e.error
-                                      ? (console.log(e.error), c._handleError(u, new Error(getErrorMessage(e.error))), !1)
-                                      : e.profile
-                                      ? ((r = e.profile.email ? e.profile.email.toLowerCase() : void 0),
-                                        (t = e.profile.preferred_username ? e.profile.preferred_username.toLowerCase() : void 0),
-                                        r != d.toLowerCase() && t != d.toLowerCase()
-                                          ? ((r = [
-                                              sprintf(gs("Use the same account to log in to both %s and LastPass."), i),
-                                              "<br/><br/>",
-                                              sprintf(gs("Current %s account:"), i) + " " + (r || t || gs("unknown")),
-                                              "<br/>",
-                                              gs("Attempted LastPass account:") + " " + d
-                                            ].join("")),
-                                            c._handleError(u, new Error(r)),
-                                            !1)
-                                          : ((r = t = null),
-                                            (o.idp.Provider != c.OIDC_PROVIDERS.Okta &&
-                                              o.idp.Provider != c.OIDC_PROVIDERS.OktaWithoutAuthorizationServer) ||
-                                              (o.idp.Provider == c.OIDC_PROVIDERS.Okta
-                                                ? (r = c.parseJwt(e.access_token)) && (t = r.LastPassK1)
-                                                : o.idp.Provider == c.OIDC_PROVIDERS.OktaWithoutAuthorizationServer &&
-                                                  (t = e.profile.LastPassK1),
-                                              t && 33 == t.length) ||
-                                              c._handleError(u, new Error(gs("LastPassK1 is missing or has invalid length."))),
-                                            (o.idp.Provider !== c.OIDC_PROVIDERS.PingOne && o.idp.Provider !== c.OIDC_PROVIDERS.OneLogin) ||
-                                              (t = (r = c.parseJwt(e.access_token)) ? r.LastPassK1 : t) ||
-                                              c._handleError(u, new Error(gs("LastPassK1 is missing or has invalid length."))),
-                                            (r = c.GRAPH_API_HOST.Com),
-                                            o.idp.Provider === c.OIDC_PROVIDERS.Azure &&
-                                              0 < a.authority.indexOf("microsoftonline.us") &&
-                                              (r = c.GRAPH_API_HOST.Us),
-                                            (e = {
-                                              idToken: e.id_token,
-                                              accessToken: e.access_token,
-                                              companyId: o.idp.CompanyId,
-                                              alpUrl: alp_url,
-                                              provider: o.idp.Provider,
-                                              k1: t,
-                                              graphApiHost: r
-                                            }),
-                                            c._assemblePasswordForOIDC(e, l, u),
-                                            !0))
-                                      : (c._handleError(u, new Error(gs("No profile information."))), !1)
-                                  );
-                                })
-                                .catch(function (e) {
-                                  console.log(e);
-                                  var e = decodeURIComponent(e.error_description.replace(/\+/g, "%20"));
-                                  c._handleError(u, new Error(t(e)));
-                                });
+                  },
+                  i =
+                    (o.idp.IsEmailHintDisabled || (a.extraQueryParams.login_hint = l),
+                    o.idp.Provider === f.OIDC_PROVIDERS.OneLogin && (a.extraQueryParams.resource = "https://lastpass.com"),
+                    f.getOIDCProviderName(o.idp.Provider)),
+                  s = new Oidc.OidcClient(a);
+                s.createSigninRequest().then(function (e) {
+                  var r;
+                  m
+                    ? (m = !1)
+                    : ((m = !0),
+                      (r = o.idp.PkceEnabled && e.url.indexOf("&nonce=") < 0 ? "&nonce=" + rand_str(16) : ""),
+                      LPPlatform.openTab({
+                        extension: !0,
+                        url: e.url + r,
+                        closeHandler: function () {
+                          (m = !1), o.submitted || f._handleError(c, new Error(gs("Federated login tab closed!")));
+                        },
+                        loadHandler: function () {},
+                        onBeforeRequestCallback: function (e, r, n) {
+                          function t(e) {
+                            return [
+                              sprintf(gs("%s reported a problem during login."), i),
+                              sprintf(gs("Contact your %s administrator for assistance."), i),
+                              sprintf(gs("Here’s the message from %s:"), i),
+                              e
+                            ].join("<br/><br/>");
                           }
-                        }));
-                  }));
+                          /https:\/\/accounts\.lastpass\.com\/federated\/oidcredirect\.html.*/.test(e) &&
+                            s
+                              .processSigninResponse(e)
+                              .then(function (e) {
+                                var r, t, r, t, r, r, e;
+                                return (
+                                  (o.submitted = !0),
+                                  LPPlatform.closeTab({ tabID: n }),
+                                  (m = !1),
+                                  e.error
+                                    ? (console.log(e.error), f._handleError(c, new Error(getErrorMessage(e.error))), !1)
+                                    : e.profile
+                                    ? ((r = e.profile.email ? e.profile.email.toLowerCase() : void 0),
+                                      (t = e.profile.preferred_username ? e.profile.preferred_username.toLowerCase() : void 0),
+                                      r != l.toLowerCase() && t != l.toLowerCase()
+                                        ? ((r = [
+                                            sprintf(gs("Use the same account to log in to both %s and LastPass."), i),
+                                            "<br/><br/>",
+                                            sprintf(gs("Current %s account:"), i) + " " + (r || t || gs("unknown")),
+                                            "<br/>",
+                                            gs("Attempted LastPass account:") + " " + l
+                                          ].join("")),
+                                          f._handleError(c, new Error(r)),
+                                          !1)
+                                        : ((r = t = null),
+                                          (o.idp.Provider != f.OIDC_PROVIDERS.Okta &&
+                                            o.idp.Provider != f.OIDC_PROVIDERS.OktaWithoutAuthorizationServer) ||
+                                            (o.idp.Provider == f.OIDC_PROVIDERS.Okta
+                                              ? (r = f.parseJwt(e.access_token)) && (t = r.LastPassK1)
+                                              : o.idp.Provider == f.OIDC_PROVIDERS.OktaWithoutAuthorizationServer &&
+                                                (t = e.profile.LastPassK1),
+                                            t && 33 == t.length) ||
+                                            f._handleError(c, new Error(gs("LastPassK1 is missing or has invalid length."))),
+                                          (o.idp.Provider !== f.OIDC_PROVIDERS.PingOne && o.idp.Provider !== f.OIDC_PROVIDERS.OneLogin) ||
+                                            (t = (r = f.parseJwt(e.access_token)) ? r.LastPassK1 : t) ||
+                                            f._handleError(c, new Error(gs("LastPassK1 is missing or has invalid length."))),
+                                          (r = f.GRAPH_API_HOST.Com),
+                                          o.idp.Provider === f.OIDC_PROVIDERS.Azure &&
+                                            0 < a.authority.indexOf("microsoftonline.us") &&
+                                            (r = f.GRAPH_API_HOST.Us),
+                                          (e = {
+                                            idToken: e.id_token,
+                                            accessToken: e.access_token,
+                                            companyId: o.idp.CompanyId,
+                                            alpUrl: alp_url,
+                                            provider: o.idp.Provider,
+                                            k1: t,
+                                            graphApiHost: r
+                                          }),
+                                          f._assemblePasswordForOIDC(e, u, c),
+                                          !0))
+                                    : (f._handleError(c, new Error(gs("No profile information."))), !1)
+                                );
+                              })
+                              .catch(function (e) {
+                                console.log(e);
+                                var e = decodeURIComponent(e.error_description.replace(/\+/g, "%20"));
+                                f._handleError(c, new Error(t(e)));
+                              });
+                        }
+                      }));
+                });
+              }
             });
           });
       }),
-      (c.validateK1Encryption = function (e, r, t) {
+      (f.validateK1Encryption = function (e, r, t) {
         var n = !0,
-          t = p[t.tabID];
-        t && t.keypair && (m(t, e), (n = t.valid)), r && r(n);
+          t = c[t.tabID];
+        t && t.keypair && (p(t, e), (n = t.valid)), r && r(n);
       }),
       LPPlatform.onTabClosed(function (e) {
-        p[e] && (p[e].cleanup(), delete p[e]);
+        c[e] && (c[e].cleanup(), delete c[e]);
       });
   })();
 })();

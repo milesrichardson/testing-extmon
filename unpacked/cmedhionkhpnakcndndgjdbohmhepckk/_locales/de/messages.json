@@ -27,7 +27,6 @@
     "message": "Anmerkungen blockieren"
   },
   "wba": {
-
     "message": "Teile und unterstütze die Developer für Feature Requests mit web browsing activity logging. Siehe <a target=\"_blank\" href=\"__URL__\">mehr</a>."
   },
   "rate_this_extension": {
@@ -77,5 +76,4 @@
   "recommend": {
     "message": "Weiterempfehlen"
   }
-
 }

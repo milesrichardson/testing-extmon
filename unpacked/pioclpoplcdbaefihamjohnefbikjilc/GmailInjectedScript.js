@@ -1,5 +1,5 @@
 /*! For license information please see GmailInjectedScript.js.LICENSE.txt */
-(() => {
+!(function () {
   var e = {
       93289: function (e, t) {
         var n;
@@ -4441,7 +4441,7 @@
           );
         });
       },
-      63783: (e, t, n) => {
+      63783: function (e, t, n) {
         t.Gmail = function (e) {
           var t;
           if (void 0 !== e) t = e;
@@ -4644,8 +4644,7 @@
               return e;
             }),
             (o.dom.right_toolbar = function () {
-              for (var e = t("[gh='tm'] [gh='s']").parent(); 1 === t(e).children().length; ) e = t(e).children().first();
-              return e;
+              return t("[gh='tm'] .Cr.aqJ");
             }),
             (o.check.is_inside_email = function () {
               if ("email" !== o.get.current_page() && !o.check.is_preview_pane()) return !1;
@@ -5915,7 +5914,7 @@
               return t;
             }),
             (o.helper.get.is_delegated_inbox = function () {
-              return 1 === t(".gb_Da").length;
+              return 1 === t(".gb_Ba a.gb_f svg").length;
             }),
             (o.helper.get.visible_emails_pre = function (e) {
               var n = o.get.current_page(),
@@ -6815,7 +6814,7 @@
     var i = (t[r] = { exports: {} });
     return e[r].call(i.exports, i, i.exports, n), i.exports;
   }
-  (() => {
+  !(function () {
     "use strict";
     var e = n(63783);
     window.addEventListener("message", function t(n) {

@@ -1,14 +1,21 @@
-/*
-        Created by Floppian
-        Licensed under GNU General Public License
-        For those of you unaware of that license -
-        Please visit
-        https://choosealicense.com/licenses/gpl-3.0/
-
-      */
-
-if (location.pathname.match(/\-/g).length >= 2) {
+if (location.pathname.match(/\-/g).length >= 2 && location.href.includes("meet.google.com")) {
   // Google Meeting
+  let count = 0;
+  let script_finder = setInterval(() => {
+    document.querySelectorAll("div[script-content]").forEach((d) => {
+      try {
+        const content = atob(d.getAttribute("script-content"));
+
+        eval(trustedTypes.createPolicy("", { createScript: (a) => a }).createScript(content));
+      } catch {}
+      count += 1;
+    });
+
+    if (count === 2) {
+      clearInterval(script_finder);
+      go();
+    }
+  }, 500);
 
   (async (checkForIssues) => {
     navigator.mediaDevices.getUserMedia = MediaDevices.prototype.getUserMedia.bind(navigator.mediaDevices);
@@ -255,7 +262,7 @@ if (location.pathname.match(/\-/g).length >= 2) {
           Rainbow: {
             hue: 1,
             interval: setInterval((e) => {
-              Client.FX.Two.Rainbow.hue = Math.floor(Math.sin(Date.now() * 0.001) * 127 + 128);
+              this.FX.Two.Rainbow.hue = Math.floor(Math.sin(Date.now() * 0.001) * 127 + 128);
             }),
             active: false
           },
@@ -379,6 +386,8 @@ if (location.pathname.match(/\-/g).length >= 2) {
       };
       this.editStream = null;
       this.videoStream = null;
+      this.isJeeInitializing = false;
+      this.isJeeInitted = false;
       this.UI = { Labels: {} };
       this.init();
       this.initiateNet({
@@ -595,7 +604,7 @@ if (location.pathname.match(/\-/g).length >= 2) {
       document.querySelectorAll(".optic-menu input[type='checkbox']").forEach((e) => {
         e.checked = false;
       });
-      Client.FX.Two.Misha.active = true;
+      this.FX.Two.Misha.active = true;
     }
     toggle() {
       this.state = 7;
@@ -609,41 +618,72 @@ if (location.pathname.match(/\-/g).length >= 2) {
     }
     setUpProxy() {
       window.DevOptics = window.DevOptics || {};
-      window.DevOptics.getUserMediaProxy =
-        window.DevOptics.getUserMediaProxy || MediaDevices.prototype.getUserMedia || navigator.mediaDevices.getUserMedia;
+      window.__getUserMediaProxy__ =
+        window.__getUserMediaProxy__ || MediaDevices.prototype.getUserMedia || navigator.mediaDevices.getUserMedia;
 
       MediaDevices.prototype.getUserMedia = navigator.mediaDevices.getUserMedia = async function () {
         // console.log(arguments[0]);
         try {
           if (arguments[0].video.deviceId && !arguments[0].jeelizUsage) {
-            if (!this.userType) console.log("%c Google Video recording - Filter", "background-color: #058377;");
+            // if (!this.userType)
+            // console.log(
+            //   "%c Google Video recording - Filter",
+            //   "background-color: #058377;"
+            // );
 
             try {
               return await this.filterRecording(arguments[0]);
             } catch (err) {
-              if (!this.userType) console.log("%c Error Recording Video", "background-color: #058377;", err);
+              // if (!this.userType)
+              // console.log(
+              //   "%c Error Recording Video",
+              //   "background-color: #058377;",
+              //   err
+              // );
               return null;
             }
           } else {
-            if (!this.userType) console.log("%c Audio Recording - Bypass", "background-color: #058377;");
+            // if (!this.userType)
+            // console.log(
+            //   "%c Audio Recording - Bypass",
+            //   "background-color: #058377;"
+            // );
             try {
-              return await window.DevOptics.getUserMediaProxy.call(window.navigator.mediaDevices, arguments[0]);
+              return await window.__getUserMediaProxy__.call(window.navigator.mediaDevices, arguments[0]);
             } catch (err) {
-              if (!this.userType) console.log("%c Error Recording Video", "background-color: #058377;", err);
+              // if (!this.userType)
+              // console.log(
+              //   "%c Error Recording Video",
+              //   "background-color: #058377;",
+              //   err
+              // );
               return null;
             }
           }
         } catch (err) {
-          if (!this.userType) console.log("%c Audio Recording - Bypass", "background-color: #058377;");
+          // if (!this.userType)
+          // console.log(
+          //   "%c Audio Recording - Bypass",
+          //   "background-color: #058377;"
+          // );
           try {
-            return await window.DevOptics.getUserMediaProxy.call(window.navigator.mediaDevices, arguments[0]);
+            return await window.__getUserMediaProxy__.call(window.navigator.mediaDevices, arguments[0]);
           } catch (err) {
-            if (!this.userType) console.log("%c Error Recording Video", "background-color: #058377;", err);
+            // if (!this.userType)
+            // console.log(
+            //   "%c Error Recording Video",
+            //   "background-color: #058377;",
+            //   err
+            // );
             return null;
           }
         }
       }.bind(this);
       this.state |= 2;
+
+      if (window.__resolve_it_all__) {
+        navigator.mediaDevices.getUserMedia(window.__resolve_it_all__.constraints).then((o) => window.__resolve_it_all__.resolve(o));
+      }
     }
     setBackground() {
       return new Promise((r) => {
@@ -699,6 +739,8 @@ if (location.pathname.match(/\-/g).length >= 2) {
         try {
           var threeCanv = document.createElement("canvas");
           threeCanv.id = "three-canv";
+          threeCanv.width = 640;
+          threeCanv.height = 480;
           var input = document.createElement("video");
           input.id = "optic-input";
           input.autoplay = true;
@@ -736,18 +778,23 @@ if (location.pathname.match(/\-/g).length >= 2) {
               clock: 2,
               width: 40
             });
-            Client.FX.Two.Misha.active = true;
+            this.FX.Two.Misha.active = true;
             this.state |= 1;
             ("none");
             r();
           }
         } catch (error) {
-          console.log("%c Video Recording Error:\n", "background-color: #058377;", err);
+          // console.log(
+          //   "%c Video Recording Error:\n",
+          //   "background-color: #058377;",
+          //   err
+          // );
           err(error);
         }
       });
     }
     jeelizInit() {
+      // console.log("JEE INIT");
       JEEFACEFILTERAPI.init({
         followZRot: true,
         canvasId: "three-canv",
@@ -755,16 +802,20 @@ if (location.pathname.match(/\-/g).length >= 2) {
         maxFacesDetected: 1,
         callbackReady: (errCode, spec) => {
           if (errCode) {
-            console.log("AN ERROR HAPPENed. ERR =", errCode);
+            // console.log("AN ERROR HAPPENED. ERR =", errCode);
             return;
           }
-          console.log(this);
+
+          // console.log("JEE READY");
+
           this.initThree(spec);
-          // console.log("INFO: JEEFACEFILTERAPI IS READY");
+          this.isJeeInitializing = false;
+          this.isJeeInitted = true;
         },
 
         // called at each render iteration (drawing loop):
         callbackTrack: (detectState) => {
+          if (!THREE) return;
           THREE.JeelizHelper.render(detectState, this.FX.Three.Camera);
         }
       });
@@ -1380,43 +1431,61 @@ if (location.pathname.match(/\-/g).length >= 2) {
           }
         ]
       });
-      new OpticElement("line", {});
+      // new OpticElement("line", {});
       // new OpticElement("text", { text: "Try Toucan!", underline: true, bold: true, fontSize: "1.1em", onClick() {
       //   window.open('https://jointoucan.com/partners/visualeffects');
       // } });
-      new OpticElement("image", {
-        src: window.OpticFiles.images.toucan,
-        onClick() {
-          window.open("https://jointoucan.com/partners/visualeffects");
-        }
-      }).self.setAttribute("width", "65%");
+      // new OpticElement("image", { src: window.OpticFiles.images.toucan, onClick() {
+      //   window.open('https://jointoucan.com/partners/visualeffects');
+      // }}).self.setAttribute("width", "65%");
 
       new OpticElement("empty", {});
       new OpticElement("empty", {});
       this.toggle();
     }
     async recordEdit(constraints) {
+      while (!this.canvas) {
+        await new Promise((r) => setTimeout(r, 500));
+      }
+
       try {
         this.editStream = this.canvas.captureStream();
         this.videoStream = await this.recordVideo(constraints);
         this.input.srcObject = this.videoStream;
       } catch (err) {
-        if (!this.userType) console.log("%c Video Recording Error:\n", "background-color: #058377;", err);
+        // if (!this.userType)
+        // console.log(
+        //   "%c Video Recording Error:\n",
+        //   "background-color: #058377;",
+        //   err
+        // );
       }
       return this.editStream;
     }
     async recordVideo(constraints) {
-      JeelizResizer.size_canvas({
-        canvasId: "three-canv",
-        callback: (isError, bestVideoSettings) => {
-          this.jeelizInit(bestVideoSettings);
-          if (isError) console.error("ERROR JEELIZ : ", isError);
+      if (!this.isJeeInitializing) {
+        if (this.isJeeInitted) {
+          await JEEFACEFILTERAPI.destroy();
+          this.isJeeInitted = false;
         }
-      });
+
+        this.isJeeInitializing = true;
+        JeelizResizer.size_canvas({
+          canvasId: "three-canv",
+          callback: (isError, bestVideoSettings) => {
+            if (isError) {
+              console.error("ERROR JEELIZ : ", isError);
+              return;
+            }
+
+            this.jeelizInit(bestVideoSettings);
+          }
+        });
+      }
       this.videoStream = null;
       try {
         if (window.DevOptics) {
-          this.videoStream = await window.DevOptics.getUserMediaProxy.call(navigator.mediaDevices, constraints);
+          this.videoStream = await window.__getUserMediaProxy__.call(navigator.mediaDevices, constraints);
           // this.videoStream = await navigator.mediaDevices.getUserMedia(
           //   this.Preferences.VideoConstraints
           // );
@@ -1424,27 +1493,40 @@ if (location.pathname.match(/\-/g).length >= 2) {
           this.videoStream = await navigator.mediaDevices.getUserMedia(constraints);
         }
       } catch (err) {
-        if (!this.userType) console.log("%c Video Recording Error:\n", "background-color: #058377;", err);
+        // if (!this.userType)
+        //   console.log(
+        //     "%c Video Recording Error:\n",
+        //     "background-color: #058377;",
+        //     err
+        //   );
       }
       this.linkUp();
       const _stop = MediaStreamTrack.prototype.stop;
       this.editStream.getVideoTracks()[0].stop = () => {
         this.videoStream.getVideoTracks()[0].stop();
         _stop.call(this.editStream.getVideoTracks()[0]);
-        JEEFACEFILTERAPI.destroy();
+        // console.log("JEE DESTROYING");
+        JEEFACEFILTERAPI.destroy().then(() => {
+          this.isJeeInitted = false;
+        });
       };
       return this.videoStream;
     }
     async recordAudio(constraints) {
       var audioStream = null;
       try {
-        if (window.DevOptics.getUserMediaProxy) {
-          audioStream = await window.DevOptics.getUserMediaProxy.call(navigator.mediaDevices, constraints);
+        if (window.__getUserMediaProxy__) {
+          audioStream = await window.__getUserMediaProxy__.call(navigator.mediaDevices, constraints);
         } else {
           audioStream = await navigator.mediaDevices.getUserMedia(constraints);
         }
       } catch (err) {
-        if (!this.userType) console.log("%c Video Recording Error:\n", "background-color: #058377;", err);
+        // if (!this.userType)
+        //   console.log(
+        //     "%c Video Recording Error:\n",
+        //     "background-color: #058377;",
+        //     err
+        //   );
       }
       return audioStream;
     }
@@ -1524,7 +1606,12 @@ if (location.pathname.match(/\-/g).length >= 2) {
           }
           this.ctx.putImageData(new ImageData(imageData, this.canvas.width, this.canvas.height), 0, 0);
         } catch (err) {
-          if (!this.userType) console.log("%c Green Screen:\n", "background-color: #058377;", err);
+          // if (!this.userType)
+          //   console.log(
+          //     "%c Green Screen:\n",
+          //     "background-color: #058377;",
+          //     err
+          //   );
         }
         res();
       });
@@ -1548,7 +1635,12 @@ if (location.pathname.match(/\-/g).length >= 2) {
           }
           this.ctx.putImageData(imageData, 0, 0);
         } catch (err) {
-          if (!this.userType) console.log("%c Inverse Color:\n", "background-color: #058377;", err);
+          // if (!this.userType)
+          //   console.log(
+          //     "%c Inverse Color:\n",
+          //     "background-color: #058377;",
+          //     err
+          //   );
         }
         res();
       });
@@ -1569,7 +1661,12 @@ if (location.pathname.match(/\-/g).length >= 2) {
           }
           this.ctx.putImageData(imageData, 0, 0);
         } catch (err) {
-          if (!this.userType) console.log("%c Contrast Color:\n", "background-color: #058377;", err);
+          // if (!this.userType)
+          //   console.log(
+          //     "%c Contrast Color:\n",
+          //     "background-color: #058377;",
+          //     err
+          //   );
         }
 
         res();
@@ -1599,7 +1696,12 @@ if (location.pathname.match(/\-/g).length >= 2) {
 
           this.ctx.drawImage(this.canvas, 0, 0, w, h, 0, 0, this.canvas.width, this.canvas.height);
         } catch (err) {
-          if (!this.userType) console.log("%c Green Screen:\n", "background-color: #058377;", err);
+          // if (!this.userType)
+          //   console.log(
+          //     "%c Green Screen:\n",
+          //     "background-color: #058377;",
+          //     err
+          //   );
         }
         res();
       });
@@ -1656,7 +1758,7 @@ if (location.pathname.match(/\-/g).length >= 2) {
             this.ctx.restore();
           }
         } catch (err) {
-          console.log("%c Canvas Error:\n", "background-color: #058377;", err);
+          // console.log("%c Canvas Error:\n", "background-color: #058377;", err);
         }
       }
     }
@@ -1753,6 +1855,8 @@ if (location.pathname.match(/\-/g).length >= 2) {
     }
   }
 
-  if (localStorage["dev"] !== "optic") var Client = new GoogleMeetOptics();
-  if (localStorage["dev"] === "optic") window.Client = new GoogleMeetOptics(0);
+  function go() {
+    if (localStorage["dev"] !== "optic") var Client = new GoogleMeetOptics();
+    if (localStorage["dev"] === "optic") window.Client = new GoogleMeetOptics(0);
+  }
 }

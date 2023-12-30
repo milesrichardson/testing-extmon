@@ -368,7 +368,7 @@ var webClient;
               case "hex":
                 return n >>> 1;
               case "base64":
-                return J(e).length;
+                return Z(e).length;
               default:
                 if (o) return r ? -1 : Q(e).length;
                 (t = ("" + t).toLowerCase()), (o = !0);
@@ -476,10 +476,10 @@ var webClient;
           return i;
         }
         function x(e, t, n, r) {
-          return Z(Q(t, e.length - n), e, n, r);
+          return J(Q(t, e.length - n), e, n, r);
         }
         function I(e, t, n, r) {
-          return Z(
+          return J(
             (function (e) {
               for (var t = [], n = 0; n < e.length; ++n) t.push(255 & e.charCodeAt(n));
               return t;
@@ -490,10 +490,10 @@ var webClient;
           );
         }
         function C(e, t, n, r) {
-          return Z(J(t), e, n, r);
+          return J(Z(t), e, n, r);
         }
         function N(e, t, n, r) {
-          return Z(
+          return J(
             (function (e, t) {
               for (var n, r, o, i = [], a = 0; a < e.length && !((t -= 2) < 0); ++a)
                 (r = (n = e.charCodeAt(a)) >> 8), (o = n % 256), i.push(o), i.push(r);
@@ -1303,7 +1303,7 @@ var webClient;
           }
           return i;
         }
-        function J(e) {
+        function Z(e) {
           return u.toByteArray(
             (function (e) {
               if ((e = (e = e.split("=")[0]).trim().replace(X, "")).length < 2) return "";
@@ -1312,7 +1312,7 @@ var webClient;
             })(e)
           );
         }
-        function Z(e, t, n, r) {
+        function J(e, t, n, r) {
           var o;
           for (o = 0; o < r && !(o + n >= t.length || o >= e.length); ++o) t[o + n] = e[o];
           return o;
@@ -2044,22 +2044,22 @@ var webClient;
         }
         X.hasOwnProperty("ReactCurrentDispatcher") || (X.ReactCurrentDispatcher = { current: null }),
           X.hasOwnProperty("ReactCurrentBatchConfig") || (X.ReactCurrentBatchConfig = { suspense: null });
-        var J = /^(.*)[\\\/]/,
-          Z = "function" === typeof Symbol && Symbol.for,
-          ee = Z ? Symbol.for("react.element") : 60103,
-          te = Z ? Symbol.for("react.portal") : 60106,
-          ne = Z ? Symbol.for("react.fragment") : 60107,
-          re = Z ? Symbol.for("react.strict_mode") : 60108,
-          oe = Z ? Symbol.for("react.profiler") : 60114,
-          ie = Z ? Symbol.for("react.provider") : 60109,
-          ae = Z ? Symbol.for("react.context") : 60110,
-          se = Z ? Symbol.for("react.concurrent_mode") : 60111,
-          ue = Z ? Symbol.for("react.forward_ref") : 60112,
-          le = Z ? Symbol.for("react.suspense") : 60113,
-          ce = Z ? Symbol.for("react.suspense_list") : 60120,
-          fe = Z ? Symbol.for("react.memo") : 60115,
-          de = Z ? Symbol.for("react.lazy") : 60116,
-          pe = Z ? Symbol.for("react.block") : 60121,
+        var Z = /^(.*)[\\\/]/,
+          J = "function" === typeof Symbol && Symbol.for,
+          ee = J ? Symbol.for("react.element") : 60103,
+          te = J ? Symbol.for("react.portal") : 60106,
+          ne = J ? Symbol.for("react.fragment") : 60107,
+          re = J ? Symbol.for("react.strict_mode") : 60108,
+          oe = J ? Symbol.for("react.profiler") : 60114,
+          ie = J ? Symbol.for("react.provider") : 60109,
+          ae = J ? Symbol.for("react.context") : 60110,
+          se = J ? Symbol.for("react.concurrent_mode") : 60111,
+          ue = J ? Symbol.for("react.forward_ref") : 60112,
+          le = J ? Symbol.for("react.suspense") : 60113,
+          ce = J ? Symbol.for("react.suspense_list") : 60120,
+          fe = J ? Symbol.for("react.memo") : 60115,
+          de = J ? Symbol.for("react.lazy") : 60116,
+          pe = J ? Symbol.for("react.block") : 60121,
           he = "function" === typeof Symbol && Symbol.iterator;
         function me(e) {
           return null === e || "object" !== typeof e ? null : "function" === typeof (e = (he && e[he]) || e["@@iterator"]) ? e : null;
@@ -2120,7 +2120,7 @@ var webClient;
                   r && (n = ve(r.type)),
                   (r = i),
                   (i = ""),
-                  o ? (i = " (at " + o.fileName.replace(J, "") + ":" + o.lineNumber + ")") : n && (i = " (created by " + n + ")"),
+                  o ? (i = " (at " + o.fileName.replace(Z, "") + ":" + o.lineNumber + ")") : n && (i = " (created by " + n + ")"),
                   (n = "\n    in " + (r || "Unknown") + i);
             }
             (t += n), (e = e.return);
@@ -2369,10 +2369,10 @@ var webClient;
             "abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange seeked seeking stalled suspend timeupdate volumechange waiting".split(
               " "
             ),
-          Je = new ("function" === typeof WeakMap ? WeakMap : Map)();
-        function Ze(e) {
-          var t = Je.get(e);
-          return void 0 === t && ((t = new Map()), Je.set(e, t)), t;
+          Ze = new ("function" === typeof WeakMap ? WeakMap : Map)();
+        function Je(e) {
+          var t = Ze.get(e);
+          return void 0 === t && ((t = new Map()), Ze.set(e, t)), t;
         }
         function et(e) {
           var t = e,
@@ -2647,7 +2647,7 @@ var webClient;
         }
         function kt(e) {
           if (null !== e.blockedOn) return !1;
-          var t = Zt(e.topLevelType, e.eventSystemFlags, e.container, e.nativeEvent);
+          var t = Jt(e.topLevelType, e.eventSystemFlags, e.container, e.nativeEvent);
           if (null !== t) {
             var n = Ln(t);
             return null !== n && yt(n), (e.blockedOn = t), !1;
@@ -2664,7 +2664,7 @@ var webClient;
               null !== (e = Ln(e.blockedOn)) && vt(e);
               break;
             }
-            var t = Zt(e.topLevelType, e.eventSystemFlags, e.container, e.nativeEvent);
+            var t = Jt(e.topLevelType, e.eventSystemFlags, e.container, e.nativeEvent);
             null !== t ? (e.blockedOn = t) : Et.shift();
           }
           null !== bt && kt(bt) && (bt = null),
@@ -2796,13 +2796,13 @@ var webClient;
               r = Qt.bind(null, t, 1, e);
               break;
             default:
-              r = Jt.bind(null, t, 1, e);
+              r = Zt.bind(null, t, 1, e);
           }
           n ? e.addEventListener(t, r, !0) : e.addEventListener(t, r, !1);
         }
         function Xt(e, t, n, r) {
           B || M();
-          var o = Jt,
+          var o = Zt,
             i = B;
           B = !0;
           try {
@@ -2812,13 +2812,13 @@ var webClient;
           }
         }
         function Qt(e, t, n, r) {
-          Yt(zt, Jt.bind(null, e, t, n, r));
+          Yt(zt, Zt.bind(null, e, t, n, r));
         }
-        function Jt(e, t, n, r) {
+        function Zt(e, t, n, r) {
           if (qt)
             if (0 < Et.length && -1 < It.indexOf(e)) (e = Nt(null, e, t, n, r)), Et.push(e);
             else {
-              var o = Zt(e, t, n, r);
+              var o = Jt(e, t, n, r);
               if (null === o) Ot(e, r);
               else if (-1 < It.indexOf(e)) (e = Nt(o, e, t, n, r)), Et.push(e);
               else if (
@@ -2848,7 +2848,7 @@ var webClient;
               }
             }
         }
-        function Zt(e, t, n, r) {
+        function Jt(e, t, n, r) {
           if (null !== (n = kn((n = lt(r))))) {
             var o = et(n);
             if (null === o) n = null;
@@ -2984,7 +2984,7 @@ var webClient;
         }
         var un = Le;
         function ln(e, t) {
-          var n = Ze((e = 9 === e.nodeType || 11 === e.nodeType ? e : e.ownerDocument));
+          var n = Je((e = 9 === e.nodeType || 11 === e.nodeType ? e : e.ownerDocument));
           t = T[t];
           for (var r = 0; r < t.length; r++) mt(t[r], e, n);
         }
@@ -3232,12 +3232,12 @@ var webClient;
           }
           return new this(e, t, n, r);
         }
-        function Jn(e) {
+        function Zn(e) {
           if (!(e instanceof this)) throw Error(a(279));
           e.destructor(), 10 > this.eventPool.length && this.eventPool.push(e);
         }
-        function Zn(e) {
-          (e.eventPool = []), (e.getPooled = Qn), (e.release = Jn);
+        function Jn(e) {
+          (e.eventPool = []), (e.getPooled = Qn), (e.release = Zn);
         }
         o(Xn.prototype, {
           preventDefault: function () {
@@ -3295,11 +3295,11 @@ var webClient;
               (n.prototype.constructor = n),
               (n.Interface = o({}, r.Interface, e)),
               (n.extend = r.extend),
-              Zn(n),
+              Jn(n),
               n
             );
           }),
-          Zn(Xn);
+          Jn(Xn);
         var er = Xn.extend({ data: null }),
           tr = Xn.extend({ data: null }),
           nr = [9, 13, 27, 32],
@@ -3637,7 +3637,7 @@ var webClient;
           $r = null,
           Xr = null,
           Qr = !1;
-        function Jr(e, t) {
+        function Zr(e, t) {
           var n = t.window === t ? t.document : 9 === t.nodeType ? t : t.ownerDocument;
           return Qr || null == Kr || Kr !== fn(n)
             ? null
@@ -3651,12 +3651,12 @@ var webClient;
                   }),
               Xr && zr(Xr, n) ? null : ((Xr = n), ((e = Xn.getPooled(qr.select, $r, e, t)).type = "select"), (e.target = Kr), Hn(e), e));
         }
-        var Zr = {
+        var Jr = {
             eventTypes: qr,
             extractEvents: function (e, t, n, r, o, i) {
               if (!(i = !(o = i || (r.window === r ? r.document : 9 === r.nodeType ? r : r.ownerDocument)))) {
                 e: {
-                  (o = Ze(o)), (i = T.onSelect);
+                  (o = Je(o)), (i = T.onSelect);
                   for (var a = 0; a < i.length; a++)
                     if (!o.has(i[a])) {
                       o = !1;
@@ -3680,12 +3680,12 @@ var webClient;
                 case "contextmenu":
                 case "mouseup":
                 case "dragend":
-                  return (Qr = !1), Jr(n, r);
+                  return (Qr = !1), Zr(n, r);
                 case "selectionchange":
                   if (Yr) break;
                 case "keydown":
                 case "keyup":
-                  return Jr(n, r);
+                  return Zr(n, r);
               }
               return null;
             }
@@ -3898,7 +3898,7 @@ var webClient;
           (h = Mn),
           (m = Ln),
           (v = Dn),
-          x({ SimpleEventPlugin: fo, EnterLeaveEventPlugin: Vr, ChangeEventPlugin: Or, SelectEventPlugin: Zr, BeforeInputEventPlugin: pr });
+          x({ SimpleEventPlugin: fo, EnterLeaveEventPlugin: Vr, ChangeEventPlugin: Or, SelectEventPlugin: Jr, BeforeInputEventPlugin: pr });
         var po = [],
           ho = -1;
         function mo(e) {
@@ -4016,16 +4016,16 @@ var webClient;
           return (e = Ko(e)), No(e, t, n);
         }
         function Qo(e) {
-          return null === Vo ? ((Vo = [e]), (Ho = No(Lo, Zo))) : Vo.push(e), Uo;
+          return null === Vo ? ((Vo = [e]), (Ho = No(Lo, Jo))) : Vo.push(e), Uo;
         }
-        function Jo() {
+        function Zo() {
           if (null !== Ho) {
             var e = Ho;
             (Ho = null), Oo(e);
           }
-          Zo();
+          Jo();
         }
-        function Zo() {
+        function Jo() {
           if (!Wo && null !== Vo) {
             Wo = !0;
             var e = 0;
@@ -4041,7 +4041,7 @@ var webClient;
               }),
                 (Vo = null);
             } catch (n) {
-              throw (null !== Vo && (Vo = Vo.slice(e + 1)), No(Lo, Jo), n);
+              throw (null !== Vo && (Vo = Vo.slice(e + 1)), No(Lo, Zo), n);
             } finally {
               Wo = !1;
             }
@@ -4602,10 +4602,10 @@ var webClient;
           $i = null,
           Xi = null,
           Qi = !1;
-        function Ji() {
+        function Zi() {
           throw Error(a(321));
         }
-        function Zi(e, t) {
+        function Ji(e, t) {
           if (null === t) return !1;
           for (var n = 0; n < t.length && n < e.length; n++) if (!Hr(e[n], t[n])) return !1;
           return !0;
@@ -4762,7 +4762,7 @@ var webClient;
           var i = void 0;
           if (null !== $i) {
             var a = $i.memoizedState;
-            if (((i = a.destroy), null !== r && Zi(r, a.deps))) return void sa(t, n, i, r);
+            if (((i = a.destroy), null !== r && Ji(r, a.deps))) return void sa(t, n, i, r);
           }
           (Ki.effectTag |= e), (o.memoizedState = sa(1 | t, n, i, r));
         }
@@ -4801,13 +4801,13 @@ var webClient;
           var n = na();
           t = void 0 === t ? null : t;
           var r = n.memoizedState;
-          return null !== r && null !== t && Zi(t, r[1]) ? r[0] : ((n.memoizedState = [e, t]), e);
+          return null !== r && null !== t && Ji(t, r[1]) ? r[0] : ((n.memoizedState = [e, t]), e);
         }
         function _a(e, t) {
           var n = na();
           t = void 0 === t ? null : t;
           var r = n.memoizedState;
-          return null !== r && null !== t && Zi(t, r[1]) ? r[0] : ((e = e()), (n.memoizedState = [e, t]), e);
+          return null !== r && null !== t && Ji(t, r[1]) ? r[0] : ((e = e()), (n.memoizedState = [e, t]), e);
         }
         function Ea(e, t, n) {
           var r = qo();
@@ -4848,19 +4848,19 @@ var webClient;
         }
         var Sa = {
             readContext: ci,
-            useCallback: Ji,
-            useContext: Ji,
-            useEffect: Ji,
-            useImperativeHandle: Ji,
-            useLayoutEffect: Ji,
-            useMemo: Ji,
-            useReducer: Ji,
-            useRef: Ji,
-            useState: Ji,
-            useDebugValue: Ji,
-            useResponder: Ji,
-            useDeferredValue: Ji,
-            useTransition: Ji
+            useCallback: Zi,
+            useContext: Zi,
+            useEffect: Zi,
+            useImperativeHandle: Zi,
+            useLayoutEffect: Zi,
+            useMemo: Zi,
+            useReducer: Zi,
+            useRef: Zi,
+            useState: Zi,
+            useDebugValue: Zi,
+            useResponder: Zi,
+            useDeferredValue: Zi,
+            useTransition: Zi
           },
           wa = {
             readContext: ci,
@@ -5273,12 +5273,12 @@ var webClient;
           }
           return (t.memoizedState = null), (t.child = Pi(t, e, i.children, n));
         }
-        function Ja(e, t) {
+        function Za(e, t) {
           e.expirationTime < t && (e.expirationTime = t);
           var n = e.alternate;
           null !== n && n.expirationTime < t && (n.expirationTime = t), ui(e.return, t);
         }
-        function Za(e, t, n, r, o, i) {
+        function Ja(e, t, n, r, o, i) {
           var a = e.memoizedState;
           null === a
             ? (e.memoizedState = {
@@ -5308,8 +5308,8 @@ var webClient;
           else {
             if (null !== e && 0 !== (64 & e.effectTag))
               e: for (e = t.child; null !== e; ) {
-                if (13 === e.tag) null !== e.memoizedState && Ja(e, n);
-                else if (19 === e.tag) Ja(e, n);
+                if (13 === e.tag) null !== e.memoizedState && Za(e, n);
+                else if (19 === e.tag) Za(e, n);
                 else if (null !== e.child) {
                   (e.child.return = e), (e = e.child);
                   continue;
@@ -5329,7 +5329,7 @@ var webClient;
               case "forwards":
                 for (n = t.child, o = null; null !== n; ) null !== (e = n.alternate) && null === Hi(e) && (o = n), (n = n.sibling);
                 null === (n = o) ? ((o = t.child), (t.child = null)) : ((o = n.sibling), (n.sibling = null)),
-                  Za(t, !1, o, n, i, t.lastEffect);
+                  Ja(t, !1, o, n, i, t.lastEffect);
                 break;
               case "backwards":
                 for (n = null, o = t.child, t.child = null; null !== o; ) {
@@ -5339,10 +5339,10 @@ var webClient;
                   }
                   (e = o.sibling), (o.sibling = n), (n = o), (o = e);
                 }
-                Za(t, !0, n, null, i, t.lastEffect);
+                Ja(t, !0, n, null, i, t.lastEffect);
                 break;
               case "together":
-                Za(t, !1, null, null, void 0, t.lastEffect);
+                Ja(t, !1, null, null, void 0, t.lastEffect);
                 break;
               default:
                 t.memoizedState = null;
@@ -6188,7 +6188,7 @@ var webClient;
           var r = t.value;
           return (
             (n.callback = function () {
-              Zs || ((Zs = !0), (eu = r)), ss(e, t);
+              Js || ((Js = !0), (eu = r)), ss(e, t);
             }),
             n
           );
@@ -6241,8 +6241,8 @@ var webClient;
           $s = !1,
           Xs = 0,
           Qs = 500,
-          Js = null,
-          Zs = !1,
+          Zs = null,
+          Js = !1,
           eu = null,
           tu = null,
           nu = !1,
@@ -6285,7 +6285,7 @@ var webClient;
           if (50 < au) throw ((au = 0), (su = null), Error(a(185)));
           if (null !== (e = du(e, t))) {
             var n = qo();
-            1073741823 === t ? ((Us & Os) !== Ns && (Us & (Ps | Rs)) === Ns ? vu(e) : (hu(e), Us === Ns && Jo())) : hu(e),
+            1073741823 === t ? ((Us & Os) !== Ns && (Us & (Ps | Rs)) === Ns ? vu(e) : (hu(e), Us === Ns && Zo())) : hu(e),
               (4 & Us) === Ns ||
                 (98 !== n && 99 !== n) ||
                 (null === iu ? (iu = new Map([[e, t]])) : (void 0 === (n = iu.get(e)) || n > t) && iu.set(e, t));
@@ -6349,7 +6349,7 @@ var webClient;
           }
         }
         function mu(e, t) {
-          if (((uu = 0), t)) return Ju(e, (t = lu())), hu(e), null;
+          if (((uu = 0), t)) return Zu(e, (t = lu())), hu(e), null;
           var n = pu(e);
           if (0 !== n) {
             if (((t = e.callbackNode), (Us & (Ps | Rs)) !== Ns)) throw Error(a(327));
@@ -6370,7 +6370,7 @@ var webClient;
                   case Ls:
                     throw Error(a(345));
                   case Ds:
-                    Ju(e, 2 < n ? 2 : n);
+                    Zu(e, 2 < n ? 2 : n);
                     break;
                   case Ms:
                     if (
@@ -6488,7 +6488,7 @@ var webClient;
           try {
             return e(t);
           } finally {
-            (Us = n) === Ns && Jo();
+            (Us = n) === Ns && Zo();
           }
         }
         function gu(e, t) {
@@ -6497,7 +6497,7 @@ var webClient;
           try {
             return e(t);
           } finally {
-            (Us = n) === Ns && Jo();
+            (Us = n) === Ns && Zo();
           }
         }
         function _u(e, t) {
@@ -6769,22 +6769,22 @@ var webClient;
                 }
               u = u || { start: 0, end: 0 };
             } else u = null;
-            (Sn = { activeElementDetached: null, focusedElem: s, selectionRange: u }), (qt = !1), (Js = o);
+            (Sn = { activeElementDetached: null, focusedElem: s, selectionRange: u }), (qt = !1), (Zs = o);
             do {
               try {
                 Pu();
               } catch (x) {
-                if (null === Js) throw Error(a(330));
-                Du(Js, x), (Js = Js.nextEffect);
+                if (null === Zs) throw Error(a(330));
+                Du(Zs, x), (Zs = Zs.nextEffect);
               }
-            } while (null !== Js);
-            Js = o;
+            } while (null !== Zs);
+            Zs = o;
             do {
               try {
-                for (s = e, u = t; null !== Js; ) {
-                  var E = Js.effectTag;
-                  if ((16 & E && Ge(Js.stateNode, ""), 128 & E)) {
-                    var b = Js.alternate;
+                for (s = e, u = t; null !== Zs; ) {
+                  var E = Zs.effectTag;
+                  if ((16 & E && Ge(Zs.stateNode, ""), 128 & E)) {
+                    var b = Zs.alternate;
                     if (null !== b) {
                       var S = b.ref;
                       null !== S && ("function" === typeof S ? S(null) : (S.current = null));
@@ -6792,30 +6792,30 @@ var webClient;
                   }
                   switch (1038 & E) {
                     case 2:
-                      vs(Js), (Js.effectTag &= -3);
+                      vs(Zs), (Zs.effectTag &= -3);
                       break;
                     case 6:
-                      vs(Js), (Js.effectTag &= -3), Es(Js.alternate, Js);
+                      vs(Zs), (Zs.effectTag &= -3), Es(Zs.alternate, Zs);
                       break;
                     case 1024:
-                      Js.effectTag &= -1025;
+                      Zs.effectTag &= -1025;
                       break;
                     case 1028:
-                      (Js.effectTag &= -1025), Es(Js.alternate, Js);
+                      (Zs.effectTag &= -1025), Es(Zs.alternate, Zs);
                       break;
                     case 4:
-                      Es(Js.alternate, Js);
+                      Es(Zs.alternate, Zs);
                       break;
                     case 8:
-                      _s(s, (c = Js), u), hs(c);
+                      _s(s, (c = Zs), u), hs(c);
                   }
-                  Js = Js.nextEffect;
+                  Zs = Zs.nextEffect;
                 }
               } catch (x) {
-                if (null === Js) throw Error(a(330));
-                Du(Js, x), (Js = Js.nextEffect);
+                if (null === Zs) throw Error(a(330));
+                Du(Zs, x), (Zs = Zs.nextEffect);
               }
-            } while (null !== Js);
+            } while (null !== Zs);
             if (
               ((S = Sn),
               (b = mn()),
@@ -6852,51 +6852,51 @@ var webClient;
               for ("function" === typeof E.focus && E.focus(), E = 0; E < b.length; E++)
                 ((S = b[E]).element.scrollLeft = S.left), (S.element.scrollTop = S.top);
             }
-            (qt = !!bn), (Sn = bn = null), (e.current = n), (Js = o);
+            (qt = !!bn), (Sn = bn = null), (e.current = n), (Zs = o);
             do {
               try {
-                for (E = e; null !== Js; ) {
-                  var w = Js.effectTag;
-                  if ((36 & w && ds(E, Js.alternate, Js), 128 & w)) {
+                for (E = e; null !== Zs; ) {
+                  var w = Zs.effectTag;
+                  if ((36 & w && ds(E, Zs.alternate, Zs), 128 & w)) {
                     b = void 0;
-                    var A = Js.ref;
+                    var A = Zs.ref;
                     if (null !== A) {
-                      var T = Js.stateNode;
-                      Js.tag, (b = T), "function" === typeof A ? A(b) : (A.current = b);
+                      var T = Zs.stateNode;
+                      Zs.tag, (b = T), "function" === typeof A ? A(b) : (A.current = b);
                     }
                   }
-                  Js = Js.nextEffect;
+                  Zs = Zs.nextEffect;
                 }
               } catch (x) {
-                if (null === Js) throw Error(a(330));
-                Du(Js, x), (Js = Js.nextEffect);
+                if (null === Zs) throw Error(a(330));
+                Du(Zs, x), (Zs = Zs.nextEffect);
               }
-            } while (null !== Js);
-            (Js = null), Go(), (Us = i);
+            } while (null !== Zs);
+            (Zs = null), Go(), (Us = i);
           } else e.current = n;
           if (nu) (nu = !1), (ru = e), (ou = t);
-          else for (Js = o; null !== Js; ) (t = Js.nextEffect), (Js.nextEffect = null), (Js = t);
+          else for (Zs = o; null !== Zs; ) (t = Zs.nextEffect), (Zs.nextEffect = null), (Zs = t);
           if (
             (0 === (t = e.firstPendingTime) && (tu = null),
             1073741823 === t ? (e === su ? au++ : ((au = 0), (su = e))) : (au = 0),
             "function" === typeof Bu && Bu(n.stateNode, r),
             hu(e),
-            Zs)
+            Js)
           )
-            throw ((Zs = !1), (e = eu), (eu = null), e);
-          return (Us & Os) !== Ns || Jo(), null;
+            throw ((Js = !1), (e = eu), (eu = null), e);
+          return (Us & Os) !== Ns || Zo(), null;
         }
         function Pu() {
-          for (; null !== Js; ) {
-            var e = Js.effectTag;
-            0 !== (256 & e) && ls(Js.alternate, Js),
+          for (; null !== Zs; ) {
+            var e = Zs.effectTag;
+            0 !== (256 & e) && ls(Zs.alternate, Zs),
               0 === (512 & e) ||
                 nu ||
                 ((nu = !0),
                 Xo(97, function () {
                   return Ru(), null;
                 })),
-              (Js = Js.nextEffect);
+              (Zs = Zs.nextEffect);
           }
         }
         function Ru() {
@@ -6927,7 +6927,7 @@ var webClient;
             }
             (n = e.nextEffect), (e.nextEffect = null), (e = n);
           }
-          return (Us = t), Jo(), !0;
+          return (Us = t), Zo(), !0;
         }
         function Lu(e, t, n) {
           mi(e, (t = ws(e, (t = is(n, t)), 1073741823))), null !== (e = du(e, 1073741823)) && hu(e);
@@ -7369,11 +7369,11 @@ var webClient;
               : t >= e.lastSuspendedTime && (e.lastSuspendedTime = t + 1),
             t > e.nextKnownPendingLevel && (e.nextKnownPendingLevel = t));
         }
-        function Ju(e, t) {
+        function Zu(e, t) {
           var n = e.lastExpiredTime;
           (0 === n || n > t) && (e.lastExpiredTime = t);
         }
-        function Zu(e, t, n, r) {
+        function Ju(e, t, n, r) {
           var o = t.current,
             i = lu(),
             s = _i.suspense;
@@ -7434,7 +7434,7 @@ var webClient;
             n &&
               0 !== t &&
               (function (e, t) {
-                var n = Ze(t);
+                var n = Je(t);
                 It.forEach(function (e) {
                   mt(e, t, n);
                 }),
@@ -7464,7 +7464,7 @@ var webClient;
                 s.call(e);
               };
             }
-            Zu(t, a, e, o);
+            Ju(t, a, e, o);
           } else {
             if (
               ((i = n._reactRootContainer =
@@ -7491,7 +7491,7 @@ var webClient;
               };
             }
             gu(function () {
-              Zu(t, a, e, o);
+              Ju(t, a, e, o);
             });
           }
           return el(a);
@@ -7505,12 +7505,12 @@ var webClient;
           })(e, t, null, n);
         }
         (rl.prototype.render = function (e) {
-          Zu(e, this._internalRoot, null, null);
+          Ju(e, this._internalRoot, null, null);
         }),
           (rl.prototype.unmount = function () {
             var e = this._internalRoot,
               t = e.containerInfo;
-            Zu(null, e, null, function () {
+            Ju(null, e, null, function () {
               t[Rn] = null;
             });
           }),
@@ -7558,7 +7558,7 @@ var webClient;
             try {
               return $o(98, e.bind(null, t, n, r, o));
             } finally {
-              (Us = i) === Ns && Jo();
+              (Us = i) === Ns && Zo();
             }
           }),
           (M = function () {
@@ -7568,9 +7568,9 @@ var webClient;
                   var e = iu;
                   (iu = null),
                     e.forEach(function (e, t) {
-                      Ju(t, e), hu(t);
+                      Zu(t, e), hu(t);
                     }),
-                    Jo();
+                    Zo();
                 }
               })(),
               Ru());
@@ -7581,7 +7581,7 @@ var webClient;
             try {
               return e(t);
             } finally {
-              (Us = n) === Ns && Jo();
+              (Us = n) === Ns && Zo();
             }
           });
         var sl = {
@@ -7597,7 +7597,7 @@ var webClient;
             },
             R,
             k,
-            Jt,
+            Zt,
             ut,
             Ru,
             { current: !1 }
@@ -7662,7 +7662,7 @@ var webClient;
             try {
               return $o(99, e.bind(null, t));
             } finally {
-              (Us = n), Jo();
+              (Us = n), Zo();
             }
           }),
           (t.hydrate = function (e, t, n) {
@@ -9482,10 +9482,10 @@ var webClient;
     n.r(e),
       n.d(e, {
         FunctionToString: function () {
-          return ka;
+          return Ua;
         },
         InboundFilters: function () {
-          return Vs;
+          return Ks;
         }
       });
     var t = {};
@@ -9548,19 +9548,19 @@ var webClient;
     n.r(t),
       n.d(t, {
         Breadcrumbs: function () {
-          return Gu;
+          return qu;
         },
         GlobalHandlers: function () {
-          return Bu;
+          return Wu;
         },
         LinkedErrors: function () {
-          return Vu;
+          return Ku;
         },
         TryCatch: function () {
-          return ju;
+          return Yu;
         },
         UserAgent: function () {
-          return Wu;
+          return Xu;
         }
       });
     var l = n(49);
@@ -10404,11 +10404,11 @@ var webClient;
     var Q = function () {
         return [null, 0];
       },
-      J =
+      Z =
         "undefined" !== typeof window && "undefined" !== typeof window.document && "undefined" !== typeof window.document.createElement
           ? C.useLayoutEffect
           : C.useEffect;
-    function Z(e, t) {
+    function J(e, t) {
       void 0 === t && (t = {});
       var n = t,
         r = n.getDisplayName,
@@ -10537,10 +10537,10 @@ var webClient;
               },
               [v, A, u]
             );
-          J(function () {
+          Z(function () {
             (I.current = u), (x.current = P), (O.current = !1), N.current && ((N.current = null), E());
           }),
-            J(
+            Z(
               function () {
                 if (c) {
                   var e = !1,
@@ -10920,7 +10920,7 @@ var webClient;
     !(function (e) {
       var t = void 0 === e ? {} : e,
         n = t.connectHOC,
-        r = void 0 === n ? Z : n,
+        r = void 0 === n ? J : n,
         o = t.mapStateToPropsFactories,
         i = void 0 === o ? ye : o,
         a = t.mapDispatchToPropsFactories,
@@ -11040,6 +11040,7 @@ var webClient;
           (e.PasswordReprompt = "password-reprompt"),
           (e.Login = "login"),
           (e.Edit = "edit"),
+          (e.FillConfirmation = "fill-confirmation"),
           e
         );
       })({}),
@@ -11139,21 +11140,22 @@ var webClient;
         s = function (t) {
           return function (s) {
             return function (u) {
-              var l = t.getState(),
-                c = !r || r(l);
-              if ((o && o(u.type)) || !c) return s(u);
+              var l = u.events,
+                c = u.metadata,
+                f = m(u, Ye),
+                d = t.getState(),
+                p = !r || r(d);
+              if (!p) return s(f);
+              if (o && o(f.type)) return s(u);
               if (
                 (function (e) {
                   return e.type === Ge;
-                })(u)
+                })(f)
               )
-                n ? s(u) : u.payload.isLegacy ? $e(i[qe.LEGACY_SEGMENT], u.payload) : $e(i[qe.SEGMENT], u.payload);
+                n ? s(f) : f.payload.isLegacy ? $e(i[qe.LEGACY_SEGMENT], f.payload) : $e(i[qe.SEGMENT], f.payload);
               else {
-                var f = u.events,
-                  d = u.metadata,
-                  p = m(u, Ye);
-                if (f && e) for (var h in f) e(c, f, h, l, d);
-                s(p),
+                if (l && e) for (var h in l) e(p, l, h, d, c);
+                s(f),
                   (a = a.filter(function (e) {
                     try {
                       return e(t.getState());
@@ -11174,11 +11176,11 @@ var webClient;
         s
       );
     }
-    function Je(e, t) {
+    function Ze(e, t) {
       return { event: e, properties: t };
     }
-    function Ze(e) {
-      return Je(e, arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0);
+    function Je(e) {
+      return Ze(e, arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0);
     }
     var et = new Uint8Array(16);
     function tt() {
@@ -11267,6 +11269,7 @@ var webClient;
           (e.Custom = "Custom"),
           (e.Application = "Application"),
           (e.CloudApp = "CloudApp"),
+          (e.Passkey = "Passkey"),
           e
         );
       })({});
@@ -11418,7 +11421,7 @@ var webClient;
               return e.id === t;
             });
           if (l && c && f && f.fill)
-            return Ze(
+            return Je(
               "LastPass Fill Modified",
               u(
                 u({}, mt(l, f.type === dt.SiteNewPassword ? "Generated Password" : ft(s), c)),
@@ -11430,7 +11433,7 @@ var webClient;
       };
     }
     function yt(e, t, n, r, o) {
-      return Ze(
+      return Je(
         "LastPass Fill Initiated",
         u(u({}, mt(e, t, n)), {}, { Language: r, "Is Launch": o === lt.Launch, "Is Auto Login": o === lt.AutoLogin })
       );
@@ -11440,7 +11443,7 @@ var webClient;
         .map(function (e) {
           return (
             !(!e.sessionId || !e.source) &&
-            Ze("LastPass Fill Submitted", {
+            Je("LastPass Fill Submitted", {
               "Fill Session Id": e.sessionId,
               "Item Type": e.fields.some(function (e) {
                 return e.type === dt.SiteNewPassword;
@@ -11458,7 +11461,7 @@ var webClient;
         });
     }
     function _t(e, t) {
-      return Ze("Save Prompt Viewed", {
+      return Je("Save Prompt Viewed", {
         Source: t,
         "Save Address": e.some(function (e) {
           return e.item.recordType === ct.Address;
@@ -11475,7 +11478,7 @@ var webClient;
       return function (t) {
         var n = t.tabPrompt[ht.SavePrompt];
         if (n)
-          return Ze("Save Prompt Clicked", {
+          return Je("Save Prompt Clicked", {
             Action: e,
             Source: n.manual ? "Infield Icon" : "Form Submission",
             "Save Address": n.entities.some(function (e) {
@@ -11523,6 +11526,7 @@ var webClient;
           (e.SECTION_FILLED = "[fill] section filled"),
           (e.SET_SECTIONS = "[fill] set sections"),
           (e.RESET_SECTION = "[fill] reset sections"),
+          (e.POLL_VAULT_VERSION = "[fill] poll vault version"),
           (e.MANUAL_SAVE = "[save] manual save"),
           (e.INITIATE_MANUAL_SAVE = "[save] initiate manual save"),
           (e.SAVE_ALL_ENTERED_DATA = "[save] save all entered data"),
@@ -11568,6 +11572,8 @@ var webClient;
           (e.SET_IN_CONTEXT_ONBOARDING = "[secondary onboarding] set in context onboarding"),
           (e.GET_AUTH_APP_TOTP = "[fill] get totp from lp authenticator"),
           (e.SET_EXT_REG_REDIRECT_STATE = "[fill] set extension registration ab test redirection state"),
+          (e.SHOW_FILL_CONFIRMATION_DIALOG = "[fill] show fill confirmation dialog"),
+          (e.FILL_CONFIRMATION_CONFIRMED = "[fill] user confirmed fill confirmation dialog"),
           e
         );
       })({}),
@@ -11640,8 +11646,8 @@ var webClient;
         manualAdd: function (e, t) {
           return Be(At.MANUAL_ADD, { page: t, type: e });
         },
-        manualFill: function (e, t, n, r, o) {
-          return Be(At.MANUAL_FILL, { page: e, vaultRecordId: t, source: n, sectionId: r, skipReprompt: o });
+        manualFill: function (e, t, n, r, o, i) {
+          return Be(At.MANUAL_FILL, { page: e, vaultRecordId: t, source: n, sectionId: r, skipReprompt: o, showFillConfirmation: i });
         },
         fillGeneratedPassword: function (e, t, n, r) {
           return Be(At.FILL_GENERATED_PASSWORD, { page: e, password: t, source: n, sectionId: r });
@@ -11684,6 +11690,9 @@ var webClient;
         resetLaunchedId: function () {
           return Ue(At.RESET_LAUNCHED_ID);
         },
+        pollVaultVersion: function () {
+          return Be(At.POLL_VAULT_VERSION);
+        },
         setLaunchedId: function (e, t) {
           return Be(At.SET_LAUNCHED_ID, { tabId: e, id: t });
         },
@@ -11701,7 +11710,8 @@ var webClient;
               recordId: r,
               resetUnfilled: a,
               source: i,
-              submissionType: u
+              submissionType: u,
+              fillItemType: o
             }),
             {
               segment: [
@@ -11710,8 +11720,8 @@ var webClient;
                   if (r && "Generated Password" !== o && i) {
                     var t = e.vaultData.passwords[r];
                     return t
-                      ? Ze("Logged in to Site", { Source: i, Autologin: u === lt.AutoLogin, "Copied Password": !1, "Share Type": wt(t) })
-                      : Ze("Used Form Fill", { Type: o, Source: i });
+                      ? Je("Logged in to Site", { Source: i, Autologin: u === lt.AutoLogin, "Copied Password": !1, "Share Type": wt(t) })
+                      : Je("Used Form Fill", { Type: o, Source: i });
                   }
                 }
               ]
@@ -11729,7 +11739,7 @@ var webClient;
           return Ke(Ue(At.USER_CHANGED_INPUT, { sectionId: e, id: t }), { segment: vt(e, t, n) });
         },
         manualPasswordEntry: function (e) {
-          return Ke(Be(At.MANUAL_PASSWORD_ENTRY, { type: e }), { segment: Ze("LastPass Fill Manually Entered", { "Entry Type": e }) });
+          return Ke(Be(At.MANUAL_PASSWORD_ENTRY, { type: e }), { segment: Je("LastPass Fill Manually Entered", { "Entry Type": e }) });
         },
         setSections: function (e, t, n) {
           return Ue(At.SET_SECTIONS, { sections: e, sectionValues: t, language: n });
@@ -11822,6 +11832,15 @@ var webClient;
         },
         setExtRegRedirectState: function (e) {
           return Be(At.SET_EXT_REG_REDIRECT_STATE, e);
+        },
+        showFillConfirmationDialog: function (e, t) {
+          return Be(At.SHOW_FILL_CONFIRMATION_DIALOG, { recordType: e, hostname: t });
+        },
+        confirmFillConfirmationDialog: function (e, t, n) {
+          var r = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3];
+          return Ke(Ue(At.FILL_CONFIRMATION_CONFIRMED, { isChecked: r, hostname: t }), {
+            segment: Je("Fill Confirmation Clicked", { Action: e, "Item Type": n, "Do Not Reprompt": r })
+          });
         }
       },
       xt = (function (e) {
@@ -11889,7 +11908,7 @@ var webClient;
         },
         disablePromptShowed: function (e) {
           return Ke(Be(xt.DISABLE_PROMPT_SHOWED), {
-            segment: Ze("Disable Browser Fill Prompt Shown", { "Prompt Type": e ? "Automatic" : "Manual" })
+            segment: Je("Disable Browser Fill Prompt Shown", { "Prompt Type": e ? "Automatic" : "Manual" })
           });
         },
         closeSuccessPrompt: function () {
@@ -11897,24 +11916,24 @@ var webClient;
         },
         dismissDisablePrompt: function (e) {
           return Ke(Ue(xt.DISMISS_DISABLE_PROMPT), {
-            segment: Ze("Disable Browser Fill Dismiss Clicked", { "Prompt Type": e ? "Automatic" : "Manual" })
+            segment: Je("Disable Browser Fill Dismiss Clicked", { "Prompt Type": e ? "Automatic" : "Manual" })
           });
         },
         disableBrowserPasswordSaving: function () {
-          return Ke(Ue(xt.DISABLE_BROWSER_PASSWORD_MANAGER), { segment: Ze("Disable Browser Fill Started") });
+          return Ke(Ue(xt.DISABLE_BROWSER_PASSWORD_MANAGER), { segment: Je("Disable Browser Fill Started") });
         },
         requestDisableBrowserPasswordSaving: function () {
-          return Ke(Ue(xt.REQUEST_DISABLE_BROWSER_PASSWORD_MANAGER), { segment: Ze("Disable Browser Fill Started") });
+          return Ke(Ue(xt.REQUEST_DISABLE_BROWSER_PASSWORD_MANAGER), { segment: Je("Disable Browser Fill Started") });
         },
         disableBrowserPasswordSavingSuccess: function () {
-          return Ke(Ue(xt.DISABLE_BROWSER_PASSWORD_MANAGER_SUCCESS), { segment: Ze("Disable Browser Fill Succeeded") });
+          return Ke(Ue(xt.DISABLE_BROWSER_PASSWORD_MANAGER_SUCCESS), { segment: Je("Disable Browser Fill Succeeded") });
         },
         disableBrowserPasswordSavingError: function () {
-          return Ke(Ue(xt.DISABLE_BROWSER_PASSWORD_MANAGER_ERROR), { segment: Ze("Disable Browser Fill Failed") });
+          return Ke(Ue(xt.DISABLE_BROWSER_PASSWORD_MANAGER_ERROR), { segment: Je("Disable Browser Fill Failed") });
         },
         dontShowAgain: function (e) {
           return Ke(Ue(xt.DONT_SHOW_AGAIN), {
-            segment: Ze("Disable Browser Fill Do Not Show Again Clicked", { "Prompt Type": e ? "Automatic" : "Manual" })
+            segment: Je("Disable Browser Fill Do Not Show Again Clicked", { "Prompt Type": e ? "Automatic" : "Manual" })
           });
         },
         browserFillDetected: function () {
@@ -11922,29 +11941,35 @@ var webClient;
         },
         showFeedbackPromptForUrl: function (e) {
           return Ke(Ue(xt.SHOW_FEEDBACK_PROMPT_FOR_URL, e), {
-            segment: Ze("Fill Feedback Prompt Shown", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
+            segment: Je("Fill Feedback Prompt Shown", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
           });
         },
         giveFeedbackClicked: function (e) {
           return Ke(Ue(xt.GIVE_FEEDBACK_CLICKED, e), {
-            segment: Ze("Fill Feedback Prompt Give Clicked", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
+            segment: Je("Fill Feedback Prompt Give Clicked", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
           });
         },
         dontShowFeedbackPromptAgain: function (e) {
           return Ke(Ue(xt.DONT_SHOW_FEEDBACK_PROMPT_AGAIN, e), {
-            segment: Ze("Fill Feedback Prompt Do Not Show Again Clicked", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
+            segment: Je("Fill Feedback Prompt Do Not Show Again Clicked", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
           });
         },
         dismissFeedbackPrompt: function (e) {
           return Ke(Ue(xt.DISMISS_FEEDBACK_PROMPT, e), {
-            segment: Ze("Fill Feedback Prompt Dismiss Clicked", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
+            segment: Je("Fill Feedback Prompt Dismiss Clicked", { "Feedback Type": e.feedbackType, "Form Type": ft(e.type) })
           });
         },
         setBrowserPasswordSaving: function (e) {
           return Be(xt.SET_BROWSER_PASSWORD_SAVING, { browserPasswordSavingEnabled: e });
         }
+      },
+      Ct = (function (e) {
+        return (e.COPY_STRING_TO_CLIPBOARD = "[clipboard] copy string to clipboard"), e;
+      })({}),
+      Nt = function (e) {
+        return Be(Ct.COPY_STRING_TO_CLIPBOARD, { value: e });
       };
-    function Ct() {
+    function Ot() {
       var e = xe();
       return (0, C.useMemo)(
         function () {
@@ -11953,13 +11978,13 @@ var webClient;
         [e]
       );
     }
-    function Nt() {
+    function Pt() {
       var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0;
       return new Promise(function (t) {
         return setTimeout(t, e);
       });
     }
-    function Ot(e) {
+    function Rt(e) {
       try {
         return e.matches(":autofill");
       } catch (t) {
@@ -11970,25 +11995,25 @@ var webClient;
         }
       }
     }
-    function Pt(e) {
-      return Rt.apply(this, arguments);
+    function kt(e) {
+      return Lt.apply(this, arguments);
     }
-    function Rt() {
-      return (Rt = A(
+    function Lt() {
+      return (Lt = A(
         S().mark(function e(t) {
           return S().wrap(function (e) {
             for (;;)
               switch ((e.prev = e.next)) {
                 case 0:
-                  if (!Ot(t)) {
+                  if (!Rt(t)) {
                     e.next = 2;
                     break;
                   }
                   return e.abrupt("return", !0);
                 case 2:
-                  return (e.next = 4), Nt();
+                  return (e.next = 4), Pt();
                 case 4:
-                  return e.abrupt("return", Ot(t));
+                  return e.abrupt("return", Rt(t));
                 case 5:
                 case "end":
                   return e.stop();
@@ -11997,10 +12022,10 @@ var webClient;
         })
       )).apply(this, arguments);
     }
-    var kt = function (e) {
+    var Dt = function (e) {
         return Oe(e);
       },
-      Lt = (function (e) {
+      Mt = (function (e) {
         return (
           (e.CANARY_TESTING = "canary_testing"),
           (e.BASIC_AUTH = "basic_auth"),
@@ -12104,7 +12129,6 @@ var webClient;
           (e.WEB_CLIENT_INFIELD = "web_client_infield"),
           (e.HIDE_PAYMENT_FLOWS = "hide_payment_flows"),
           (e.WEB_CLIENT_TOOLBAR_BLOG_POST = "web_client_toolbar_blog_post"),
-          (e.EXTENSION_REGISTRATION_AB_TEST = "extension_registration_ab_test"),
           (e.BOSS_ACCOUNT_CREATION_FOR_EXPIRED_BUSINESS = "boss_account_creation_for_expired_business"),
           (e.DO_SF_REPAIR = "do_sf_repair"),
           (e.PENDO_IAM = "pendo_iam"),
@@ -12186,13 +12210,15 @@ var webClient;
           (e.CLOUD_APPS_FILTER_IN_VAULT = "cloud_apps_filter_in_vault"),
           (e.CREDENTIAL_MONITORING_POLLING_DISABLED = "credential_monitoring_polling_disabled"),
           (e.PASSWORD_STRENGTH_HARDENING = "password_strength_hardening"),
+          (e.ENFORCE_SHORT_MP_RESET = "enforce_short_mp_reset"),
           (e.URL_ENCRYPTION = "url_encryption"),
           (e.REQUIRE_FILL_CONFIRMATION = "require_fill_confirmation"),
           (e.ENABLE_MV3_BACKGROUND = "enable_mv3_background"),
+          (e.MV3_BACKGROUND_LOADED = "mv3_background_loaded"),
           e
         );
       })({}),
-      Dt = (function (e) {
+      Ft = (function (e) {
         return (
           (e.SYNC_FIELD = "[cs local] [form value] sync field"),
           (e.REMOVE_FIELD = "[cs local] [form value] remove field"),
@@ -12200,31 +12226,31 @@ var webClient;
           e
         );
       })({}),
-      Mt = function (e) {
-        return Be(Dt.REMOVE_SECTION, { sectionId: e });
+      Bt = function (e) {
+        return Be(Ft.REMOVE_SECTION, { sectionId: e });
       },
-      Ft = function (e, t) {
-        return Be(Dt.REMOVE_FIELD, { sectionId: e, id: t });
+      Ut = function (e, t) {
+        return Be(Ft.REMOVE_FIELD, { sectionId: e, id: t });
       },
-      Bt = function (e, t) {
-        return Be(Dt.SYNC_FIELD, { sectionId: e, field: t });
+      jt = function (e, t) {
+        return Be(Ft.SYNC_FIELD, { sectionId: e, field: t });
       },
-      Ut = function (e) {
+      Gt = function (e) {
         (0, C.useEffect)(function () {
           return e;
         }, []);
       },
-      jt = function (e) {
+      Vt = function (e) {
         (0, C.useEffect)(e, []);
       };
-    function Gt(e, t) {
+    function Ht(e, t) {
       if (t)
         for (var n in t) {
           if (t[n] === e.value) return n;
         }
       return e.value;
     }
-    var Vt = function (e) {
+    var Wt = function (e) {
       var t = e.element,
         n = e.id,
         r = e.sectionId,
@@ -12233,8 +12259,8 @@ var webClient;
         a = e.fillSessionId,
         s = e.mapping,
         u = xe(),
-        l = kt(function (e) {
-          return e.settings.features[Lt.WEB_CLIENT_SAVE];
+        l = Dt(function (e) {
+          return e.settings.features[Mt.WEB_CLIENT_SAVE];
         });
       return (
         (0, C.useEffect)(
@@ -12250,7 +12276,7 @@ var webClient;
                             r.next = 5;
                             break;
                           }
-                          return (r.next = 3), Pt(o.target);
+                          return (r.next = 3), kt(o.target);
                         case 3:
                           r.sent ? t.removeEventListener("input", e) : o.isTrusted && (i(n), t.removeEventListener("input", e));
                         case 5:
@@ -12276,7 +12302,7 @@ var webClient;
         (0, C.useEffect)(
           function () {
             var e = function (e) {
-                e.isTrusted && e.target && o(n, Gt(e.target, s));
+                e.isTrusted && e.target && o(n, Ht(e.target, s));
               },
               r = l ? "input" : "change";
             return (
@@ -12288,16 +12314,16 @@ var webClient;
           },
           [n, t, o, s, l]
         ),
-        jt(function () {
-          t.value && Ot(t) && o(n, Gt(t, s), !0);
+        Vt(function () {
+          t.value && Rt(t) && o(n, Ht(t, s), !0);
         }),
-        Ut(function () {
-          u(Ft(r, n));
+        Gt(function () {
+          u(Ut(r, n));
         }),
         null
       );
     };
-    function Ht(e, t, n, r) {
+    function zt(e, t, n, r) {
       var o = document.activeElement;
       e.focus({ preventScroll: !0 }),
         "undefined" !== typeof ClipboardEvent && e.dispatchEvent(new ClipboardEvent("paste", { bubbles: !0 }));
@@ -12308,7 +12334,7 @@ var webClient;
         e.dispatchEvent(new Event("change", { bubbles: !0 })),
         o && o.focus();
     }
-    var Wt = function (e) {
+    var Yt = function (e) {
       var t = e.element,
         n = e.id,
         r = e.value,
@@ -12319,27 +12345,27 @@ var webClient;
         u = xe(),
         l = (0, C.useCallback)(
           function (e) {
-            u(Bt(s, { id: n, value: e, fill: !0 }));
+            u(jt(s, { id: n, value: e, fill: !0 }));
           },
           [u, n, s]
         );
       return (
         (0, C.useEffect)(
           function () {
-            Ht(t, r, a, l), o({ id: n, value: r });
+            zt(t, r, a, l), o({ id: n, value: r });
           },
           [t, n, r, o, a, l]
         ),
         (0, C.useEffect)(
           function () {
-            i && i > 0 && Ht(t, r, a, l);
+            i && i > 0 && zt(t, r, a, l);
           },
           [i, t, r, a, l]
         ),
         null
       );
     };
-    function zt(e) {
+    function qt(e) {
       return (
         "off" === (e.getAttribute("autocomplete") || "").toLocaleLowerCase() ||
         !!e.getAttribute("data-lpignore") ||
@@ -12347,19 +12373,19 @@ var webClient;
         !!e.getAttribute("lpignore")
       );
     }
-    function Yt(e, t, n) {
+    function Kt(e, t, n) {
       return e.filter(function (e) {
         if (e.fill) {
           var r = Fe(e.id);
           if (r)
             return !(function (e, t, n) {
-              return !(!t || !zt(e)) || !(!n || !e.value);
+              return !(!t || !qt(e)) || !(!n || !e.value);
             })(r, t, n);
         }
         return !1;
       });
     }
-    function qt(e, t) {
+    function $t(e, t) {
       var n = ("undefined" !== typeof Symbol && e[Symbol.iterator]) || e["@@iterator"];
       if (!n) {
         if (Array.isArray(e) || (n = d(e)) || (t && e && "number" === typeof e.length)) {
@@ -12404,19 +12430,19 @@ var webClient;
         }
       };
     }
-    var Kt = ["inline", "inline-block"];
-    function $t(e) {
+    var Xt = ["inline", "inline-block"];
+    function Qt(e) {
       return "innerText" in e ? e.innerText.trim() : "";
     }
-    function Xt(e, t) {
+    function Zt(e, t) {
       var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
       try {
         if (e && e !== t) {
-          var r = $t(e);
+          var r = Qt(e);
           if (r) {
             var o = getComputedStyle(e);
             if (o.opacity && parseFloat(o.opacity) < 0.1) return "";
-            if (n && !Kt.includes(o.display)) {
+            if (n && !Xt.includes(o.display)) {
               if ("static" === o.position) throw new Error("Not inline");
               return "";
             }
@@ -12424,9 +12450,9 @@ var webClient;
               e.children.length > 0 &&
                 Array.from(e.childNodes).forEach(function (e) {
                   if (e.nodeType === Node.ELEMENT_NODE) {
-                    var o = $t(e);
+                    var o = Qt(e);
                     if (r.includes(o) || r.includes(o.toUpperCase())) {
-                      var i = Xt(e, t, n);
+                      var i = Zt(e, t, n);
                       i && (n = !0), (r = r.replace(o, i));
                     }
                   }
@@ -12440,10 +12466,10 @@ var webClient;
       }
       return "";
     }
-    function Qt(e) {
-      return Xt(e) || ("value" in e ? e.value : "");
-    }
     function Jt(e) {
+      return Zt(e) || ("value" in e ? e.value : "");
+    }
+    function en(e) {
       return (
         "inline" !== e.display &&
         ("rgba(0, 0, 0, 0)" !== e.backgroundColor ||
@@ -12451,17 +12477,17 @@ var webClient;
           "none" !== e.boxShadow)
       );
     }
-    function Zt(e, t) {
-      if (Jt(getComputedStyle(e))) return !0;
-      if (Jt(getComputedStyle(e, ":before"))) return !0;
-      if (Jt(getComputedStyle(e, ":after"))) return !0;
+    function tn(e, t) {
+      if (en(getComputedStyle(e))) return !0;
+      if (en(getComputedStyle(e, ":before"))) return !0;
+      if (en(getComputedStyle(e, ":after"))) return !0;
       for (var n = 0, r = Array.from(e.children); n < r.length; n++) {
         var o = r[n];
-        if (o.nodeType === Node.ELEMENT_NODE) if (Qt(o) === t && Zt(o, t)) return !0;
+        if (o.nodeType === Node.ELEMENT_NODE) if (Jt(o) === t && tn(o, t)) return !0;
       }
       return !1;
     }
-    function en(e) {
+    function nn(e) {
       if (
         (function (e) {
           var t = (e.getAttribute("type") || "").toLocaleLowerCase();
@@ -12473,25 +12499,28 @@ var webClient;
           );
         })(e)
       ) {
-        var t = Qt(e);
+        var t = Jt(e);
         if (t) {
           var n = (e.getAttribute("type") || "").toLocaleLowerCase();
-          return (("INPUT" === e.tagName || "BUTTON" === e.tagName) && "submit" === n) || Zt(e, t);
+          return (("INPUT" === e.tagName || "BUTTON" === e.tagName) && "submit" === n) || tn(e, t);
         }
       }
       return !1;
     }
-    var tn = (function (e) {
+    var rn = (function (e) {
       return (e.EN = "en"), (e.DE = "de"), (e.ES = "es"), (e.FR = "fr"), (e.IT = "it"), (e.NL = "nl"), (e.PT = "pt"), e;
     })({});
-    function nn(e, t, n) {
+    function on(e, t, n) {
       var r = n.get(t);
       return !!r && e.match(r);
     }
-    function rn(e, t, n) {
-      return n && t.has(n) ? nn(e, n, t) : nn(e, tn.EN, t);
+    function an(e, t, n) {
+      return n && t.has(n) ? on(e, n, t) : on(e, rn.EN, t);
     }
-    var on = (function (e) {
+    var sn,
+      un,
+      ln,
+      cn = (function (e) {
         return (
           (e[(e.Login = 1)] = "Login"),
           (e[(e.CreateAccount = 2)] = "CreateAccount"),
@@ -12500,57 +12529,527 @@ var webClient;
           e
         );
       })({}),
-      an = new Map([
-        [tn.EN, /(?:log.?[io]n)|(?:sign.?[io]n)/i],
-        [tn.DE, /sign\s?[oi]n|login||zugriff|anmelden/i],
-        [tn.ES, /(?:iniciar.*sesion)/i],
-        [tn.FR, /(?:ouverture.*session)|(?:connexion)|connecter/i]
+      fn =
+        (a((sn = {}), rn.EN, [/((?:confirm)|(?:verify)|(?:repeat)|(?:re[-]?enter)|(?:re[-]?type)).?password/i, /password.?confirm/i]),
+        a(sn, rn.DE, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
+        a(sn, rn.ES, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
+        a(sn, rn.FR, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
+        a(sn, rn.IT, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
+        a(sn, rn.NL, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
+        a(sn, rn.PT, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
+        sn),
+      dn =
+        (a((un = {}), rn.EN, [/new.?password/i].concat(I(fn[rn.EN]))),
+        a(un, rn.DE, [/(?:neues passwort)/i].concat(I(fn[rn.DE]))),
+        a(un, rn.ES, [/(?:contrase[n\xf1]a nueva)/i].concat(I(fn[rn.ES]))),
+        a(un, rn.FR, [/(?:nouveau mots? de passe)/i].concat(I(fn[rn.FR]))),
+        a(un, rn.IT, [/(?:nuova password)/i].concat(I(fn[rn.IT]))),
+        a(un, rn.NL, [/(?:nieuw hoofdwachtwoord)/i].concat(I(fn[rn.NL]))),
+        a(un, rn.PT, [/(?:nova senha)/i].concat(I(fn[rn.PT]))),
+        un),
+      pn =
+        (a(
+          (ln = {}),
+          rn.EN,
+          new Map()
+            .set(dt.SiteOneTimeCode, [/(?:token)|(?:otp)|(?:otc)|(?:multi|two).*code|(?:one( |-)time)|(?:(6|six)( |-)digit)/i])
+            .set(dt.SiteUsername, [/(?:apple id)|(?:user[-. ]?name)/i])
+            .set(dt.SiteNewPassword, dn[rn.EN])
+            .set(dt.SitePassword, { match: [/(?:password)/i], exclude: dn[rn.EN] })
+            .set(dt.BankAccountAccountNumber, [/(?:account|acct).*num/i])
+            .set(dt.CardNameOnCard, [/(?:name.*on.*card)|(?:card.*holder)|(?:(?:card|cc).*name)|(?:embossed.*name)|(?:accountHolderName)/i])
+            .set(dt.CardNumber, [/(?:card|cc)(?!(?:.*ident|ess|ount)).*(?:num|no)|card.*account/i])
+            .set(dt.CardSecurityCode, [
+              /(?:cvv)|(?:csc)|(?:card.*(?:ver|code|cid))|(?:security.*code)|(?:cid$)|(?:cvc$)|(?:cvc2?$)|(?:ccvnc$)|(?:cv2)|(?:cvnum)|(?:cvn)|(?:card.*security.*number)|(?:credit.*card.*id)|(?:^verificationnumber2$)|(?:^verificationcode$)/i
+            ])
+            .set(dt.CardStartMonth, [/(?:start).*mon/i])
+            .set(dt.CardStartYear, [/(?:start).*(?:year|yr)/i])
+            .set(dt.CardExpirationMonth, [/(?:exp|card|cc).*(?:mon|mth)/i])
+            .set(dt.CardExpirationYear, [/(?:exp|card|cc).*(?:year|yr)/i])
+            .set(dt.CardType, [/(?:(?:card|cc|pay).*(?:type|method|brand|issuer))|(?:credit.?card(?:$|.[^e]))|(?:bill.*method)/i])
+            .set(dt.AddressEmailAddress, [/(?:e.?mail)|(?:confirm.*address)|^(?:receipt_address)/i])
+            .set(dt.AddressTitle, { match: [/title|prefix|salutation/i], exclude: [/job/i] })
+            .set(dt.AddressFirstName, { match: [/first.*name/i], exclude: [/last/i] })
+            .set(dt.AddressMiddleName, [/middle.*name/i])
+            .set(dt.AddressLastName, { match: [/(?:last.*name)|(?:surname)/i], exclude: [/first/i] })
+            .set(dt.AddressName, [/^(?:(?:full)|(?:first and last)) name/i, /(?:^your name$)|(?:^name$)/i])
+            .set(dt.AddressGender, [/gender|sex/i])
+            .set(dt.AddressBirthdayDay, [/(?:birth.*day)|(?:dob.*day)|(?:bday)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:birth.*mon)|(?:dob.*mon)|(?:bmon|^mob$)|(?:mon.*birth)/i])
+            .set(dt.AddressBirthdayYear, [/(?:birth.*(?:year|yr))|(?:dob.*(?:year|yr))|(?:byear|yob)|(?:year.*birth)/i])
+            .set(dt.AddressLine1, [/(?:first.*(?:street|addr))|(?:(?:street|addr).*1)|(?:cannot ship to PO boxes)/i])
+            .set(dt.AddressLine2, [/(?:second.*(?:street|addr))|(?:(?:street|addr).*2)|(?:suite)/i])
+            .set(dt.AddressLine3, [/(?:third.*(?:street|addr))|(?:(?:street|addr).*3)/i])
+            .set(dt.AddressCompany, { match: [/company|(?:business.*name)|organization/i], exclude: [/address/] })
+            .set(dt.AddressCity, [/city|town/i])
+            .set(dt.AddressCounty, [/county|(?:fourth.*(?:street|addr))|(?:(?:street|addr).*4)/i])
+            .set(dt.AddressCountryName, [/country/i])
+            .set(dt.AddressState, [/state|region|prov/i])
+            .set(dt.AddressPostalCode, [/(?:zip)|(?:post.*code)/i])
+            .set(dt.AddressTimezone, [/time.*zone/i])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/(?:name.*first)|(?:first.*name)|^first$/i])
+            .set(dt.CardAdditionalName, [/(?:name.*middle)|(?:middle.*name)|^middle$/i])
+            .set(dt.CardFamilyName, [/(?:name.*last)|surname|(?:last.*name)|^last$/i])
+            .set(dt.CardStartDate, [/(?:(?:card|cc).*start)|(?:start.*date)/i])
+            .set(dt.CardExpirationDate, [/(?:(?:card|cc).*exp|expiration|expires)|(?:exp.*date)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.BankAccountBranchAddress, [/bankaddress/i])
+            .set(dt.AddressStreetAddress, [/(?:address)|(?:street)/i])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/(?:birth.*date)|(?:date.*birth)|(?:birth|dob)/i])
+            .set(dt.AddressEveningTel, [/(?:evening.*tel)|(?:evening.*phone)|(?:evening.*voice)/i])
+            .set(dt.AddressMobileTel, [/(?:mobile)/i])
+            .set(dt.BankAccountBranchPhone, [/bankphone/i])
+            .set(dt.AddressFax, [/(?:fax)/i])
+            .set(dt.AddressTelLocal, [/(?:^tel|phone|voice).*(?:23|last7|xxxxxxx|ext)/i])
+            .set(dt.AddressTel, [/(?:^tel(?!l))|(?:phone)|(?:voice)/i])
+            .set(dt.BankAccountBankName, [/(?:issuing.*bank)|(?:bank.*name)|(?:institution)/i])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [/routing.*num|bic/i])
+            .set(dt.BankAccountSWIFTCode, [/swift/i])
+            .set(dt.BankAccountIBANNumber, [/iban/i])
+            .set(dt.BankAccountPIN, [])
+        ),
+        a(
+          ln,
+          rn.DE,
+          new Map()
+            .set(dt.SiteUsername, [/(?:benutzername)|(?:.*nick)|(?:.*loginname)|(?:pseudonym)/i])
+            .set(dt.SiteNewPassword, dn[rn.DE])
+            .set(dt.SitePassword, { match: [/(?:passwort)|(?:pswt)|(?:passwt)/i], exclude: dn[rn.DE] })
+            .set(dt.CardNameOnCard, [])
+            .set(dt.CardNumber, [])
+            .set(dt.CardSecurityCode, [])
+            .set(dt.CardStartMonth, [])
+            .set(dt.CardStartYear, [])
+            .set(dt.CardExpirationMonth, [])
+            .set(dt.CardExpirationYear, [])
+            .set(dt.CardType, [])
+            .set(dt.AddressTitle, [])
+            .set(dt.AddressFirstName, [/(?:name.*vor)|(?:vor.*name)|^vorname$/i])
+            .set(dt.AddressMiddleName, [/(?:mittel.*name)|zwischenname/i])
+            .set(dt.AddressLastName, [/(?:nach)/i])
+            .set(dt.AddressGender, [])
+            .set(dt.AddressBirthdayDay, [/(?:tag)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:monat)/i])
+            .set(dt.AddressBirthdayYear, [/(?:jahr)/i])
+            .set(dt.AddressCompany, [/(?:organization.*name)|(?:firma)/i])
+            .set(dt.AddressStreetAddress, [/(?:Stra\xdfe.*Hausnummer)|(?:Strasse.*Hausnummer)|(?:adresszusatz)|(?:adresse)/i])
+            .set(dt.AddressLine1, [/(?:Stra\xdfe)|(?:Strasse)/i])
+            .set(dt.AddressLine2, [/housenumber|(?:Hausnummer)|(?:hausnr)|(?:nummer)/i])
+            .set(dt.AddressLine3, [])
+            .set(dt.AddressCity, [/(?:wohnort)|(?:^ort)|(?:stadt)/i])
+            .set(dt.AddressCounty, [])
+            .set(dt.AddressState, [/(?:bundesland)|(?:staat)/i])
+            .set(dt.AddressPostalCode, [/(?:plz)|(?:vorwahl)/i])
+            .set(dt.AddressCountryName, [/Land/i])
+            .set(dt.AddressTimezone, [])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/(?:name.*vor)|(?:vor.*name)|^vorname$/i])
+            .set(dt.CardAdditionalName, [/(?:mittel.*name)|zwischenname/i])
+            .set(dt.CardFamilyName, [/(?:nach)/i])
+            .set(dt.CardStartDate, [])
+            .set(dt.CardExpirationDate, [])
+            .set(dt.AddressName, [/(?:Vollst\xe4ndiger Name)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/(?:geburtsdatum)/i])
+            .set(dt.AddressTel, [])
+            .set(dt.AddressTelLocal, [])
+            .set(dt.BankAccountBankName, [])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [])
+            .set(dt.BankAccountAccountNumber, [])
+            .set(dt.BankAccountSWIFTCode, [])
+            .set(dt.BankAccountIBANNumber, [])
+            .set(dt.BankAccountPIN, [])
+            .set(dt.BankAccountBranchAddress, [])
+            .set(dt.BankAccountBranchPhone, [])
+        ),
+        a(
+          ln,
+          rn.ES,
+          new Map()
+            .set(dt.SiteUsername, [/(?:nick)|(?:alias)|(?:usuario)/i])
+            .set(dt.SiteNewPassword, dn[rn.ES])
+            .set(dt.SitePassword, { match: [/(?:contrase[n\xf1]a)/i], exclude: dn[rn.ES] })
+            .set(dt.CardNameOnCard, [/(?:titular.*cuenta)/i])
+            .set(dt.CardNumber, [])
+            .set(dt.CardSecurityCode, [])
+            .set(dt.CardStartMonth, [])
+            .set(dt.CardStartYear, [])
+            .set(dt.CardExpirationMonth, [])
+            .set(dt.CardExpirationYear, [])
+            .set(dt.CardType, [])
+            .set(dt.AddressTitle, [/(?:titulo)|(?:t\xedtulo)/i])
+            .set(dt.AddressFirstName, [/(?:nombre)|(?:nom_usu)|(?:nom)/i])
+            .set(dt.AddressMiddleName, [])
+            .set(dt.AddressLastName, [/(?:apellido)|(?:ape*)|(?:paterno)/i])
+            .set(dt.AddressGender, [/(?:sexo)|(?:genero)|(?:g\xe9nero)/i])
+            .set(dt.AddressBirthdayDay, [/(?:dia)|(?:fechaDia)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:fechaMes)/i])
+            .set(dt.AddressBirthdayYear, [/(?:fechaAnno)|(?:agno)|(?:anyo)|(?:anio)/i])
+            .set(dt.AddressCompany, [/(?:empresa)/i])
+            .set(dt.AddressLine2, [/(?:numero)|(?:numdom)|(?:numvia)/i])
+            .set(dt.AddressLine1, [/(?:calle)|(?:domicilio)|(?:via)/i])
+            .set(dt.AddressLine3, [/(?:complemento)|(?:dpto)/i])
+            .set(dt.AddressCity, [/(?:ciudad)|(?:poblacion)|(?:localidad)|(?:Poblaci\xf3n)/i])
+            .set(dt.AddressCounty, [])
+            .set(dt.AddressState, [/(?:localizacion)|(?:provincia)|(?:comuna)/i])
+            .set(dt.AddressPostalCode, [/(?:cp)|(?:C\xf3digoPostal)|(?:CodigoPostal)|(?:escalera)|(?:ct*codPostal)|(?:postal$)/i])
+            .set(dt.AddressCountryName, [/pa\xeds|(?:pais)|(?:codpais)/i])
+            .set(dt.AddressTimezone, [])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/(?:nombre)|(?:nom_usu)|(?:nom)/i])
+            .set(dt.CardAdditionalName, [])
+            .set(dt.CardFamilyName, [/(?:apellido)|(?:ape*)|(?:paterno)/i])
+            .set(dt.CardStartDate, [])
+            .set(dt.CardExpirationDate, [])
+            .set(dt.AddressName, [/(?:nombre completo)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.AddressStreetAddress, [/(?:direccion)|(?:via)|(?:Direcci\xf3n)/i])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/(?:F.*Nacimiento)/i])
+            .set(dt.AddressTel, [/fono|(?:telefono)|(?:tel\xe9fono)/i])
+            .set(dt.AddressTelLocal, [])
+            .set(dt.BankAccountBankName, [])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [])
+            .set(dt.BankAccountAccountNumber, [])
+            .set(dt.BankAccountSWIFTCode, [])
+            .set(dt.BankAccountIBANNumber, [])
+            .set(dt.BankAccountPIN, [])
+            .set(dt.BankAccountBranchAddress, [])
+            .set(dt.BankAccountBranchPhone, [])
+        ),
+        a(
+          ln,
+          rn.FR,
+          new Map()
+            .set(dt.SiteUsername, [/(?:.*pseudo)|(?:.*nickname)|(?:.*Nom.*utilisateur)|(?:identifiant)|(?:.*Code.*utilisateur)/i])
+            .set(dt.SiteNewPassword, dn[rn.FR])
+            .set(dt.SitePassword, { match: [/(?:mot? de passe)/i], exclude: dn[rn.FR] })
+            .set(dt.CardNameOnCard, [/(?:titulaire.*carte)|(?:card.*alias)/i])
+            .set(dt.CardNumber, [/(?:Num?[\xe9e]ro.*carte)|(?:numcard)/i])
+            .set(dt.CardSecurityCode, [/(?:crypto)|(?:.*cvx)/i])
+            .set(dt.CardStartMonth, [])
+            .set(dt.CardStartYear, [])
+            .set(dt.CardExpirationMonth, [])
+            .set(dt.CardExpirationYear, [])
+            .set(dt.CardType, [])
+            .set(dt.AddressEmailAddress, [/(?:.*emailconfirm)|(?:.*adresse.*courriel)|(?:Adresse.*?[\xe9e]lectronique)/i])
+            .set(dt.AddressTitle, [/titre|pr\xe9fixe|salutation/i])
+            .set(dt.AddressCompany, [/(?:.*raisonsociale)|(?:Nom.*soci\xe9t\xe9)|(?:etablissement)/i])
+            .set(dt.AddressFirstName, [/(?:.*prenom)|(?:.*pr\xe9nom)|(?:.*fname)/i])
+            .set(dt.AddressMiddleName, [])
+            .set(dt.AddressLastName, [/nom/i])
+            .set(dt.AddressGender, [/sexe/i])
+            .set(dt.AddressBirthdayDay, [/(?:jour.*naissance)|(?:birthday.*day)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:mois.*naissance)/i])
+            .set(dt.AddressBirthdayYear, [/(?:annee.*naissance)/i])
+            .set(dt.AddressLine2, [/(?:.*cpl)|(?:.*Compl\xe9ment.*adresse)|(?:.*building)|(?:.*address.*complement)/i])
+            .set(dt.AddressLine1, [/(?:.*voie)|(?:.*rue.*voie)|(?:adresse)/i])
+            .set(dt.AddressLine3, [/(?:address3)/i])
+            .set(dt.AddressCity, [/Ville|(?:Localit\xe9)/i])
+            .set(dt.AddressCounty, [])
+            .set(dt.AddressState, [])
+            .set(dt.AddressPostalCode, [/(?:c.*postal)/i])
+            .set(dt.AddressCountryName, [/pays/i])
+            .set(dt.AddressTimezone, [])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/(?:.*prenom)|(?:.*pr\xe9nom)|(?:.*fname)/i])
+            .set(dt.CardAdditionalName, [])
+            .set(dt.CardFamilyName, [/nom(?!.*banque)/i])
+            .set(dt.CardStartDate, [])
+            .set(dt.CardExpirationDate, [])
+            .set(dt.AddressName, [/(?:nom complet)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.AddressStreetAddress, [/(?:adresse)/i])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/(?:date.*naissance)|(?:naissance)/i])
+            .set(dt.AddressTel, [/t\xe9l|(?:numtel)/i])
+            .set(dt.AddressTelLocal, [])
+            .set(dt.BankAccountBankName, [])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [])
+            .set(dt.BankAccountAccountNumber, [])
+            .set(dt.BankAccountSWIFTCode, [])
+            .set(dt.BankAccountIBANNumber, [])
+            .set(dt.BankAccountPIN, [])
+            .set(dt.BankAccountBranchAddress, [])
+            .set(dt.BankAccountBranchPhone, [])
+        ),
+        a(
+          ln,
+          rn.IT,
+          new Map()
+            .set(dt.SiteUsername, [/(?:nome.*utente)|(?:nick)/i])
+            .set(dt.SiteNewPassword, dn[rn.IT])
+            .set(dt.CardNameOnCard, [])
+            .set(dt.CardNumber, [])
+            .set(dt.CardSecurityCode, [])
+            .set(dt.CardStartMonth, [])
+            .set(dt.CardStartYear, [])
+            .set(dt.CardExpirationMonth, [])
+            .set(dt.CardExpirationYear, [])
+            .set(dt.CardType, [])
+            .set(dt.AddressTitle, [])
+            .set(dt.AddressLastName, [/(?:cognome)/i])
+            .set(dt.AddressFirstName, [/(?:nome)/i])
+            .set(dt.AddressMiddleName, [])
+            .set(dt.AddressGender, [/sesso/i])
+            .set(dt.AddressBirthdayDay, [/(?:giorno)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:mess?e)/i])
+            .set(dt.AddressBirthdayYear, [/(?:anno)/i])
+            .set(dt.AddressCompany, [])
+            .set(dt.AddressLine1, [])
+            .set(dt.AddressLine2, [/(?:Numero.*civico)/i])
+            .set(dt.AddressLine3, [/suite/i])
+            .set(dt.AddressCity, [/(?:Citt.*)/i])
+            .set(dt.AddressCounty, [])
+            .set(dt.AddressState, [/(?:provincia)|(?:comune)/i])
+            .set(dt.AddressPostalCode, [/(?:cap)/i])
+            .set(dt.AddressCountryName, [])
+            .set(dt.AddressTimezone, [])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/(?:nome)/i])
+            .set(dt.CardAdditionalName, [])
+            .set(dt.CardFamilyName, [/(?:cognome)/i])
+            .set(dt.CardStartDate, [])
+            .set(dt.CardExpirationDate, [])
+            .set(dt.AddressName, [/(?:nome completo)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.AddressStreetAddress, [/(?:indirizzo$)|(?:via)/i])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/(?:data.*nascita)/i])
+            .set(dt.AddressTel, [])
+            .set(dt.AddressTelLocal, [])
+            .set(dt.BankAccountBankName, [])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [])
+            .set(dt.BankAccountAccountNumber, [])
+            .set(dt.BankAccountSWIFTCode, [])
+            .set(dt.BankAccountIBANNumber, [])
+            .set(dt.BankAccountPIN, [])
+            .set(dt.BankAccountBranchAddress, [])
+            .set(dt.BankAccountBranchPhone, [])
+        ),
+        a(
+          ln,
+          rn.NL,
+          new Map()
+            .set(dt.SiteUsername, [/(?:gebruikersnaam)/i])
+            .set(dt.SiteNewPassword, dn[rn.NL])
+            .set(dt.SitePassword, { match: [/(?:wachtwoord)/i], exclude: dn[rn.NL] })
+            .set(dt.CardNameOnCard, [/(?:naam.*op.*kaart)/i])
+            .set(dt.CardNumber, [/(?:kaart)(?!(?:.*ident|ess|ount)).*(?:num|no)|(?:kaart).*account/i])
+            .set(dt.CardSecurityCode, [/(?:kaart.*(?:ver|code|cid))/i])
+            .set(dt.CardStartMonth, [])
+            .set(dt.CardStartYear, [])
+            .set(dt.CardExpirationMonth, [/(?:kaart).*mon/i])
+            .set(dt.CardExpirationYear, [/(?:kaart).*(?:year|yr)/i])
+            .set(dt.CardType, [/(?:kaart.*(?:type|method|brand|issuer))|(?:credit.?(?:kaart))/i])
+            .set(dt.AddressEmailAddress, [/(?:bevestigen.*adres)/i])
+            .set(dt.AddressTitle, [])
+            .set(dt.AddressFirstName, [/voornaam/i])
+            .set(dt.AddressMiddleName, [/tussenvoegsel/i])
+            .set(dt.AddressLastName, [/(?:achternaam)/i])
+            .set(dt.AddressGender, [/sexe|geslacht/i])
+            .set(dt.AddressBirthdayDay, [/(?:geboorte.*dag)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:geboorte.*maand)/i])
+            .set(dt.AddressBirthdayYear, [/(?:geboorte.*jaar)/i])
+            .set(dt.AddressCompany, [])
+            .set(dt.AddressLine1, [/straat|adres/i])
+            .set(dt.AddressLine2, [])
+            .set(dt.AddressLine3, [])
+            .set(dt.AddressCity, [/stad|gemeente|plaats/i])
+            .set(dt.AddressCounty, [/provincie/i])
+            .set(dt.AddressState, [/Staat|Regio|prov/i])
+            .set(dt.AddressPostalCode, [])
+            .set(dt.AddressCountryName, [/land/i])
+            .set(dt.AddressTimezone, [/tijd.*zone.*/i])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/voornaam/i])
+            .set(dt.CardAdditionalName, [/tussenvoegsel/i])
+            .set(dt.CardFamilyName, [])
+            .set(dt.CardStartDate, [/(?:kaart).*start/i])
+            .set(dt.CardExpirationDate, [/(?:kaart.*exp)/i])
+            .set(dt.AddressName, [/(?:Volledige naam)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.AddressStreetAddress, [/(?:straat)/i])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/geboorte/i])
+            .set(dt.AddressTel, [/Telefoon|stem/i])
+            .set(dt.AddressTelLocal, [])
+            .set(dt.BankAccountBankName, [])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [])
+            .set(dt.BankAccountAccountNumber, [])
+            .set(dt.BankAccountSWIFTCode, [])
+            .set(dt.BankAccountIBANNumber, [])
+            .set(dt.BankAccountPIN, [])
+            .set(dt.BankAccountBranchAddress, [])
+            .set(dt.BankAccountBranchPhone, [])
+        ),
+        a(
+          ln,
+          rn.PT,
+          new Map()
+            .set(dt.SiteUsername, [/(?:apelido)/i])
+            .set(dt.SiteNewPassword, dn[rn.PT])
+            .set(dt.SitePassword, { match: [/(?:senha)/i], exclude: dn[rn.PT] })
+            .set(dt.CardNameOnCard, [])
+            .set(dt.CardNumber, [])
+            .set(dt.CardSecurityCode, [])
+            .set(dt.CardStartMonth, [])
+            .set(dt.CardStartYear, [])
+            .set(dt.CardExpirationMonth, [])
+            .set(dt.CardExpirationYear, [])
+            .set(dt.CardType, [])
+            .set(dt.AddressTitle, [])
+            .set(dt.AddressLastName, [/(?:sobrenome)/i])
+            .set(dt.AddressFirstName, [/(?:nome)/i])
+            .set(dt.AddressMiddleName, [])
+            .set(dt.AddressGender, [/sexo/i])
+            .set(dt.AddressBirthdayDay, [/(?:nascimento.*dia)|(?:nasc.dia)/i])
+            .set(dt.AddressBirthdayMonth, [/(?:nascimento.*mes)|(?:nasc.mes)/i])
+            .set(dt.AddressBirthdayYear, [/(?:nascimento.*(?:ano))|(?:nasc.ano)/i])
+            .set(dt.AddressCompany, [])
+            .set(dt.AddressLine1, [])
+            .set(dt.AddressLine2, [])
+            .set(dt.AddressLine3, [])
+            .set(dt.AddressCity, [/(?:cidade)/i])
+            .set(dt.AddressCounty, [])
+            .set(dt.AddressState, [/(?:estado)/i])
+            .set(dt.AddressPostalCode, [/(?:cep)/i])
+            .set(dt.AddressCountryName, [/(?:pais)/i])
+            .set(dt.AddressTimezone, [])
+            .set(dt.AddressPhoneCountry, [])
+            .set(dt.AddressPhoneCountryCode, [])
+            .set(dt.AddressPhoneNational, [])
+            .set(dt.CardGivenName, [/(?:nome)/i])
+            .set(dt.CardAdditionalName, [])
+            .set(dt.CardFamilyName, [/(?:sobrenome)/i])
+            .set(dt.CardStartDate, [])
+            .set(dt.CardExpirationDate, [])
+            .set(dt.AddressName, [/(?:nome completo)/i])
+            .set(dt.AddressHonorificSuffix, [])
+            .set(dt.AddressNickname, [])
+            .set(dt.AddressStreetAddress, [/(?:endere.o)/i])
+            .set(dt.AddressLevel4, [])
+            .set(dt.AddressLevel3, [])
+            .set(dt.AddressLevel2, [])
+            .set(dt.AddressLevel1, [])
+            .set(dt.AddressCountryCode, [])
+            .set(dt.AddressBirthday, [/(?:nascimento)|(?:data ?di ?nascimento)/i])
+            .set(dt.AddressTel, [])
+            .set(dt.AddressTelLocal, [])
+            .set(dt.BankAccountBankName, [])
+            .set(dt.BankAccountAccountType, [])
+            .set(dt.BankAccountRoutingNumber, [])
+            .set(dt.BankAccountAccountNumber, [])
+            .set(dt.BankAccountSWIFTCode, [])
+            .set(dt.BankAccountIBANNumber, [])
+            .set(dt.BankAccountPIN, [])
+            .set(dt.BankAccountBranchAddress, [])
+            .set(dt.BankAccountBranchPhone, [])
+        ),
+        ln),
+      hn = new Map([
+        [rn.EN, /(?:log.?[io]n)|(?:sign.?[io]n)/i],
+        [rn.DE, /sign\s?[oi]n|login||zugriff|anmelden/i],
+        [rn.ES, /(?:iniciar.*sesion)/i],
+        [rn.FR, /(?:ouverture.*session)|(?:connexion)|connecter/i],
+        [rn.NL, /(?:inloggen)/i]
       ]),
-      sn = new Map([
-        [tn.EN, /(?:sign.?up)|(?:Join)|(?:Create)|(?:register)|(?:verification)/i],
-        [tn.DE, /(?:eintragen)/i]
+      mn = new Map([
+        [rn.EN, /(?:sign.?up)|(?:Join)|(?:Create)|(?:register)|(?:verification)/i],
+        [rn.DE, /(?:eintragen)/i]
       ]),
-      un = new Map([[tn.EN, /(?:next)/i]]),
-      ln = new Map([
-        [tn.EN, /((?:Save)|(?:Change)|(?:Update))\s?password/i],
-        [tn.DE, /(?:Speichern)|(?:\xe4ndern)|(?:Aktualisieren)/i],
-        [tn.ES, /(?:Guardar)|(?:cambio)|(?:Actualizar)/i],
-        [tn.FR, /(?:Enregistrer)|(?:Changer)|(?:Mettre \xe0 jour)/i],
-        [tn.IT, /(?:Salva)|(?:Modifica)|(?:Aggiorna)/i],
-        [tn.NL, /(?:Opslaan)|(?:wijzigen)|(?:Bijwerken)/i],
-        [tn.PT, /(?:Salvar)|(?:Alterar)|(?:Atualizar)/i]
+      vn = new Map([[rn.EN, /(?:next)/i]]),
+      yn = new Map([
+        [rn.EN, /((?:Save)|(?:Change)|(?:Update))\s?password/i],
+        [rn.DE, /(?:Speichern)|(?:\xe4ndern)|(?:Aktualisieren)/i],
+        [rn.ES, /(?:Guardar)|(?:cambio)|(?:Actualizar)/i],
+        [rn.FR, /(?:Enregistrer)|(?:Changer)|(?:Mettre \xe0 jour)/i],
+        [rn.IT, /(?:Salva)|(?:Modifica)|(?:Aggiorna)/i],
+        [rn.NL, /(?:Opslaan)|(?:wijzigen)|(?:Bijwerken)/i],
+        [rn.PT, /(?:Salvar)|(?:Alterar)|(?:Atualizar)/i]
       ]),
-      cn = new Map([[tn.EN, /(?:Remember)|(?:Keep me signed in)|(?:Keep me logged in)|(?:Stay signed in)/i]]);
-    function fn(e, t) {
-      return rn(e, sn, t)
-        ? on.CreateAccount
-        : rn(e, ln, t)
-        ? on.ChangePassword
-        : rn(e, an, t)
-        ? on.Login
-        : rn(e, un, t)
-        ? on.NextStep
+      gn = new Map([[rn.EN, /(?:Remember)|(?:Keep me signed in)|(?:Keep me logged in)|(?:Stay signed in)/i]]);
+    function _n(e, t) {
+      return an(e, mn, t)
+        ? cn.CreateAccount
+        : an(e, yn, t)
+        ? cn.ChangePassword
+        : an(e, hn, t)
+        ? cn.Login
+        : an(e, vn, t)
+        ? cn.NextStep
         : void 0;
     }
-    function dn(e, t) {
+    function En(e, t) {
       if (e) {
-        var n = fn(Qt(e), t);
-        return n !== on.NextStep && n ? n : fn(e.id, t) || n;
+        var n = _n(Jt(e), t);
+        return n !== cn.NextStep && n ? n : _n(e.id, t) || n;
       }
     }
-    function pn(e, t) {
+    function bn(e, t) {
       if (Object.values(e).includes(t)) return t;
     }
-    function hn(e, t) {
+    function Sn(e, t) {
       var n = e.getBoundingClientRect(),
         r = t.getBoundingClientRect();
       return n.top === r.top || n.left === r.left;
     }
-    function mn(e, t) {
-      var n = dn(e, t);
-      return !!n && pn(on, n);
+    function wn(e, t) {
+      var n = En(e, t);
+      return !!n && bn(cn, n);
     }
-    function vn(e, t, n) {
+    function An(e, t, n) {
       var r,
         o = (function (e) {
           var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document,
@@ -12563,20 +13062,20 @@ var webClient;
         })(e, n),
         i = [],
         a = [],
-        s = qt(o);
+        s = $t(o);
       try {
         for (s.s(); !(r = s.n()).done; ) {
           var u = r.value;
           if (0 === a.length && e.includes(u)) i.push(u);
-          else if (u.offsetParent && en(u)) {
-            if (t && !mn(u, t)) continue;
+          else if (u.offsetParent && nn(u)) {
+            if (t && !wn(u, t)) continue;
             var l = i[i.length - 1];
             if (
               l.offsetParent !== u.offsetParent ||
               u.offsetTop >= l.offsetTop + l.offsetHeight ||
               u.offsetLeft >= l.offsetLeft + l.offsetWidth
             ) {
-              if (0 !== a.length && !hn(u, a[0])) break;
+              if (0 !== a.length && !Sn(u, a[0])) break;
               a.push(u);
             }
           }
@@ -12588,10 +13087,10 @@ var webClient;
       }
       return { inputs: i, buttons: a };
     }
-    function yn(e, t) {
-      return vn([e], t).buttons;
+    function Tn(e, t) {
+      return An([e], t).buttons;
     }
-    function gn(e, t) {
+    function xn(e, t) {
       var n = e
         .filter(function (e) {
           return e.fill;
@@ -12600,17 +13099,19 @@ var webClient;
       if (n) {
         var r = Fe(n.id);
         if (r) {
-          var o = yn(r, t),
+          var o = Tn(r, t),
             i =
-              o.find(function (e) {
-                var n = dn(e, t);
-                return n === on.Login || n === on.NextStep;
-              }) ||
-              o[0] ||
               (function () {
-                if (r.form && 1 === r.form.querySelectorAll("input[type=submit]").length)
-                  return r.form.querySelectorAll("input[type=submit]")[0];
-              })();
+                if (r.form) {
+                  var e = r.form.querySelectorAll("input[type=submit],button[type=submit]");
+                  if (1 === e.length) return e[0];
+                }
+              })() ||
+              o.find(function (e) {
+                var n = En(e, t);
+                return n === cn.Login || n === cn.NextStep;
+              }) ||
+              o[0];
           i
             ? i.click()
             : r.form &&
@@ -12626,12 +13127,12 @@ var webClient;
         }
       }
     }
-    function _n(e) {
+    function In(e) {
       var t = e.trim().substring(0, 2).toLowerCase();
-      return pn(tn, t);
+      return bn(rn, t);
     }
-    function En() {
-      var e = kt(function (e) {
+    function Cn() {
+      var e = Dt(function (e) {
           return e.defaultLanguage;
         }),
         t = p(
@@ -12657,33 +13158,33 @@ var webClient;
             }
           );
         }, []),
-        n ? _n(n) : e || tn.EN
+        n ? In(n) : e || rn.EN
       );
     }
-    function bn(e) {
-      var t = kt(function (t) {
+    function Nn(e) {
+      var t = Dt(function (t) {
           return e ? t.sectionValues[e.id] : void 0;
         }),
-        n = kt(function (t) {
+        n = Dt(function (t) {
           return e ? t.fillSessions[e.id] : void 0;
         });
       if (e) return pt(e, { sectionValues: a({}, e.id, t), fillSessions: a({}, e.id, n) });
     }
-    var Sn = n(30),
-      wn = function (e) {
+    var On = n(30),
+      Pn = function (e) {
         var t = e.section,
-          n = Ct(),
-          r = kt(function (e) {
+          n = Ot(),
+          r = Dt(function (e) {
             return e.settings.extensionPreferences.dontfillautocompleteoff;
           }),
-          o = kt(function (e) {
+          o = Dt(function (e) {
             return e.settings.extensionPreferences.donotoverwritefilledfields;
           }),
           i = (function (e) {
-            var t = kt(function (e) {
+            var t = Dt(function (e) {
                 return e.autofillPassword;
               }),
-              n = kt(function (e) {
+              n = Dt(function (e) {
                 return e.autoLoggedIn;
               });
             return (
@@ -12695,17 +13196,17 @@ var webClient;
                 }))
             );
           })(t.fields),
-          a = En(),
-          s = kt(function (e) {
+          a = Cn(),
+          s = Dt(function (e) {
             return e.resumedCount;
           }),
-          l = bn(t),
-          c = kt(function (e) {
+          l = Nn(t),
+          c = Dt(function (e) {
             return e.authPushtotpData;
           }),
           f = (0, C.useMemo)(
             function () {
-              return Yt(l.fields, r, o);
+              return Kt(l.fields, r, o);
             },
             [r, o, l.fields]
           ),
@@ -12760,7 +13261,7 @@ var webClient;
             (y.current.add(l.sessionId),
             n.sectionFilled(l),
             i &&
-              (gn(l.fields, a),
+              (xn(l.fields, a),
               l.fields.some(function (e) {
                 return e.type === dt.SitePassword && e.fill;
               }) && n.resetLaunchedId()));
@@ -12799,26 +13300,26 @@ var webClient;
                 l.fields.some(function (e) {
                   return e.type === dt.SiteOneTimeCode && e.fill;
                 }) &&
-                (n.hideInfield(), gn(l.fields, a));
+                (n.hideInfield(), xn(l.fields, a));
             },
             [c, n, a, l.fields]
           );
         var b = f.map(function (e) {
           var n = Fe(e.id);
           return n
-            ? (0, Sn.jsx)(
-                Wt,
+            ? (0, On.jsx)(
+                Yt,
                 { mapping: e.mapping, id: e.id, element: n, value: e.value, onFill: v, sectionId: t.id, resumedCount: s },
                 e.id
               )
             : null;
         });
-        return (0, Sn.jsx)(Sn.Fragment, { children: b });
+        return (0, On.jsx)(On.Fragment, { children: b });
       };
-    function An(e, t) {
+    function Rn(e, t) {
       if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
     }
-    function Tn(e, t) {
+    function kn(e, t) {
       for (var n = 0; n < t.length; n++) {
         var r = t[n];
         (r.enumerable = r.enumerable || !1),
@@ -12827,26 +13328,26 @@ var webClient;
           Object.defineProperty(e, i(r.key), r);
       }
     }
-    function xn(e, t, n) {
-      return t && Tn(e.prototype, t), n && Tn(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
+    function Ln(e, t, n) {
+      return t && kn(e.prototype, t), n && kn(e, n), Object.defineProperty(e, "prototype", { writable: !1 }), e;
     }
-    function In(e, t) {
+    function Dn(e, t) {
       if ("function" !== typeof t && null !== t) throw new TypeError("Super expression must either be null or a function");
       (e.prototype = Object.create(t && t.prototype, { constructor: { value: e, writable: !0, configurable: !0 } })),
         Object.defineProperty(e, "prototype", { writable: !1 }),
         t && P(e, t);
     }
-    function Cn(e) {
+    function Mn(e) {
       return (
-        (Cn = Object.setPrototypeOf
+        (Mn = Object.setPrototypeOf
           ? Object.getPrototypeOf.bind()
           : function (e) {
               return e.__proto__ || Object.getPrototypeOf(e);
             }),
-        Cn(e)
+        Mn(e)
       );
     }
-    function Nn() {
+    function Fn() {
       if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
       if (Reflect.construct.sham) return !1;
       if ("function" === typeof Proxy) return !0;
@@ -12856,31 +13357,31 @@ var webClient;
         return !1;
       }
     }
-    function On(e, t) {
+    function Bn(e, t) {
       if (t && ("object" === o(t) || "function" === typeof t)) return t;
       if (void 0 !== t) throw new TypeError("Derived constructors may only return object or undefined");
       return O(e);
     }
-    function Pn(e) {
-      var t = Nn();
+    function Un(e) {
+      var t = Fn();
       return function () {
         var n,
-          r = Cn(e);
+          r = Mn(e);
         if (t) {
-          var o = Cn(this).constructor;
+          var o = Mn(this).constructor;
           n = Reflect.construct(r, arguments, o);
         } else n = r.apply(this, arguments);
-        return On(this, n);
+        return Bn(this, n);
       };
     }
-    var Rn = (function (e) {
-      In(n, e);
-      var t = Pn(n);
+    var jn = (function (e) {
+      Dn(n, e);
+      var t = Un(n);
       function n() {
-        return An(this, n), t.apply(this, arguments);
+        return Rn(this, n), t.apply(this, arguments);
       }
       return (
-        xn(n, [
+        Ln(n, [
           {
             key: "componentDidCatch",
             value: function (e) {
@@ -12897,8 +13398,8 @@ var webClient;
         n
       );
     })(C.Component);
-    Rn.contextType = L;
-    var kn = (function (e) {
+    jn.contextType = L;
+    var Gn = (function (e) {
         return (
           (e[(e.NeverShowAddSitePrompt = 0)] = "NeverShowAddSitePrompt"),
           (e[(e.NeverShowGeneratePasswordPrompt = 1)] = "NeverShowGeneratePasswordPrompt"),
@@ -12910,7 +13411,7 @@ var webClient;
           e
         );
       })({}),
-      Ln = function (e) {
+      Vn = function (e) {
         if (e) {
           var t = getComputedStyle(e).borderBottomWidth;
           if (t) {
@@ -12920,29 +13421,29 @@ var webClient;
         }
         return 0;
       };
-    function Dn(e) {
+    function Hn(e) {
       var t = e.getBoundingClientRect();
       return { width: t.width, height: t.height, top: t.top + window.scrollY, left: t.left + window.scrollX };
     }
-    var Mn = function (e) {
+    var Wn = function (e) {
       var t =
         window.top != window.self
           ? (function (e) {
               var t = e.getBoundingClientRect();
               return { width: t.width, height: t.height, top: t.top, left: t.left };
             })(e)
-          : Dn(e);
-      return u(u({}, t), {}, { top: t.top - Ln(e) });
+          : Hn(e);
+      return u(u({}, t), {}, { top: t.top - Vn(e) });
     };
-    function Fn(e) {
+    function zn(e) {
       for (var t = e.parent.frames, n = 0; n < t.length; ++n) if (t[n] === e) return n;
       throw new Error("Orphaned iframed");
     }
-    function Bn() {
-      for (var e = window, t = []; e !== top; ) t.unshift(Fn(e)), (e = e.parent);
+    function Yn() {
+      for (var e = window, t = []; e !== top; ) t.unshift(zn(e)), (e = e.parent);
       return t.join(":");
     }
-    function Un(e, t) {
+    function qn(e, t) {
       var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : window,
         r = arguments.length > 3 && void 0 !== arguments[3] && arguments[3],
         o = (0, C.useRef)(t);
@@ -12970,20 +13471,20 @@ var webClient;
           [e, n, r]
         );
     }
-    var jn,
-      Gn,
-      Vn,
-      Hn,
-      Wn,
-      zn = 0,
-      Yn = new WeakMap();
-    function qn(e) {
-      return Yn.has(e) ? Yn.get(e) : ((zn += 1), Yn.set(e, zn), zn);
+    var Kn,
+      $n,
+      Xn,
+      Qn,
+      Zn,
+      Jn = 0,
+      er = new WeakMap();
+    function tr(e) {
+      return er.has(e) ? er.get(e) : ((Jn += 1), er.set(e, Jn), Jn);
     }
-    var Kn = ["title", "titleId"];
-    function $n() {
+    var nr = ["title", "titleId"];
+    function rr() {
       return (
-        ($n = Object.assign
+        (rr = Object.assign
           ? Object.assign.bind()
           : function (e) {
               for (var t = 1; t < arguments.length; t++) {
@@ -12992,10 +13493,10 @@ var webClient;
               }
               return e;
             }),
-        $n.apply(this, arguments)
+        rr.apply(this, arguments)
       );
     }
-    function Xn(e, t) {
+    function or(e, t) {
       if (null == e) return {};
       var n,
         r,
@@ -13014,41 +13515,41 @@ var webClient;
       }
       return o;
     }
-    function Qn(e, t) {
+    function ir(e, t) {
       var n = e.title,
         r = e.titleId,
-        o = Xn(e, Kn);
+        o = or(e, nr);
       return C.createElement(
         "svg",
-        $n(
+        rr(
           { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ref: t, "aria-labelledby": r },
           o
         ),
         n ? C.createElement("title", { id: r }, n) : null,
-        jn || (jn = C.createElement("rect", { x: 0.680176, y: 0.763062, width: 22.6392, height: 22.4737, rx: 4, fill: "currentColor" })),
-        Gn ||
-          (Gn = C.createElement("path", {
+        Kn || (Kn = C.createElement("rect", { x: 0.680176, y: 0.763062, width: 22.6392, height: 22.4737, rx: 4, fill: "currentColor" })),
+        $n ||
+          ($n = C.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M19.7935 7.9516C19.7935 7.64414 20.0427 7.3949 20.3502 7.3949C20.6576 7.3949 20.9069 7.64414 20.9069 7.9516V16.0487C20.9069 16.3562 20.6576 16.6054 20.3502 16.6054C20.0427 16.6054 19.7935 16.3562 19.7935 16.0487V7.9516Z",
             fill: "white"
           })),
-        Vn ||
-          (Vn = C.createElement("path", {
+        Xn ||
+          (Xn = C.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M4.76288 13.6577C5.68525 13.6577 6.43298 12.9154 6.43298 11.9998C6.43298 11.0842 5.68525 10.3419 4.76288 10.3419C3.8405 10.3419 3.09277 11.0842 3.09277 11.9998C3.09277 12.9154 3.8405 13.6577 4.76288 13.6577Z",
             fill: "white"
           })),
-        Hn ||
-          (Hn = C.createElement("path", {
+        Qn ||
+          (Qn = C.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M10.3298 13.6577C11.2521 13.6577 11.9999 12.9154 11.9999 11.9998C11.9999 11.0842 11.2521 10.3419 10.3298 10.3419C9.4074 10.3419 8.65967 11.0842 8.65967 11.9998C8.65967 12.9154 9.4074 13.6577 10.3298 13.6577Z",
             fill: "white"
           })),
-        Wn ||
-          (Wn = C.createElement("path", {
+        Zn ||
+          (Zn = C.createElement("path", {
             fillRule: "evenodd",
             clipRule: "evenodd",
             d: "M15.8964 13.6577C16.8188 13.6577 17.5665 12.9154 17.5665 11.9998C17.5665 11.0842 16.8188 10.3419 15.8964 10.3419C14.974 10.3419 14.2263 11.0842 14.2263 11.9998C14.2263 12.9154 14.974 13.6577 15.8964 13.6577Z",
@@ -13056,20 +13557,20 @@ var webClient;
           }))
       );
     }
-    var Jn = C.forwardRef(Qn),
-      Zn =
+    var ar = C.forwardRef(ir),
+      sr =
         (n.p,
         (function (e) {
           return (e.FieldFocus = "Field Focus"), (e.InfieldIcon = "Infield Icon"), (e.UserInput = "User Input"), e;
         })({}));
-    function er() {
-      var e = kt(function (e) {
+    function ur() {
+      var e = Dt(function (e) {
           return e.isInfieldOpen;
         }),
-        t = kt(function (e) {
+        t = Dt(function (e) {
           return e.infieldSectionId;
         }),
-        n = kt(function (e) {
+        n = Dt(function (e) {
           return e.infieldElementId;
         });
       return function (r, o) {
@@ -13077,7 +13578,7 @@ var webClient;
       };
     }
     ut();
-    var tr = (function (e) {
+    var lr = (function (e) {
         return (
           (e.RESET = "[extension toolbar] reset"),
           (e.SET_SEARCH_RESULTS = "[extension toolbar] set search results"),
@@ -13107,84 +13608,84 @@ var webClient;
           (e.SET_EXPORT_RESULTS = "[extension toolbar] set export results"),
           (e.SET_SELECTED_FOLDER = "[extension toolbar] set selected folder"),
           (e.UPGRADE_BANNER_TRACK = "[extension toolbar] upgrade banner track"),
-          (e.EXTENSION_REGISTRATION_AB_TEST_TRACK = "[extension toolbar] extension registration ab test tracking"),
+          (e.EXTENSION_REGISTRATION_TRACK = "[extension toolbar] extension registration tracking"),
           (e.REDIRECT_TO_VAULT = "[extension toolbar] redirect to vault"),
           (e.OFFLINE_CONFIRM = "[extension toolbar] offline confirm"),
           (e.FEDERATED_EXPORT = "[extension toolbar] federated export"),
           e
         );
       })({}),
-      nr = function (e) {
-        return Be(tr.INITIATE_WEBAUTHN_LOGIN, { webauthnData: e });
+      cr = function (e) {
+        return Be(lr.INITIATE_WEBAUTHN_LOGIN, { webauthnData: e });
       },
-      rr = function () {
-        return Be(tr.OPEN_LOGIN);
+      fr = function () {
+        return Be(lr.OPEN_LOGIN);
       },
-      or = function () {
-        return Ue(tr.REDIRECT_TO_VAULT);
+      dr = function () {
+        return Ue(lr.REDIRECT_TO_VAULT);
       },
-      ir = function (e) {
+      pr = function (e) {
         var t = e.sectionId,
           n = e.position,
           r = e.element,
           o = e.infieldAutoshow,
           i = (0, C.useRef)(null),
-          a = Ct(),
+          a = Ot(),
           s = xe(),
-          l = qn(r),
+          l = tr(r),
           c = Oe(function (e) {
             return e.isLoggedIn;
           }),
-          f = er(),
-          d = kt(function (e) {
+          f = ur(),
+          d = Dt(function (e) {
             return e.isInfieldVisible;
           }),
-          p = kt(function (e) {
+          p = Dt(function (e) {
             return e.settings.extensionPreferences.showFillOptions;
           }),
           h = u(u({}, n.icon), {}, { top: n.offset.top + n.icon.top, left: n.offset.left + n.icon.left }),
           m = function (e) {
-            a.openInfield(t, l, Mn(r), Bn(), h, e);
+            a.openInfield(t, l, Wn(r), Yn(), h, e);
           };
         return (
           (0, C.useEffect)(
             function () {
-              p && o && m(Zn.FieldFocus);
+              p && o && m(sr.FieldFocus);
             },
             [o]
           ),
-          Un(
+          qn(
             "mousedown",
             function (e) {
-              e.isTrusted && p && !f(l, t) && m(Zn.FieldFocus);
+              e.isTrusted && p && !f(l, t) && m(sr.FieldFocus);
             },
             r
           ),
           (0, C.useEffect)(function () {
             r === document.activeElement && a.setIconPosition(h);
           }),
-          Un(
+          qn(
             "mousedown",
             function (e) {
               e.isTrusted && e.preventDefault();
             },
             i
           ),
-          Un(
+          qn(
             "input",
             function (e) {
-              e.isTrusted && p && !f(l, t) && m(Zn.UserInput);
+              e.isTrusted && p && !f(l, t) && m(sr.UserInput);
             },
             r
           ),
-          Un(
+          qn(
             "click",
             function (e) {
-              e.isTrusted && (c ? (d && f(l, t) ? a.hideInfield() : (r.focus(), m(Zn.InfieldIcon))) : s(rr()));
+              e.isTrusted && (c ? (d && f(l, t) ? a.hideInfield() : (r.focus(), m(sr.InfieldIcon))) : s(fr()));
             },
             i
           ),
-          (0, Sn.jsx)(Jn, {
+          (0, On.jsx)(ar, {
             "data-lastpass-icon": !0,
             ref: i,
             style: {
@@ -13202,27 +13703,27 @@ var webClient;
           })
         );
       },
-      ar = (function (e) {
+      hr = (function (e) {
         return (e.Password = "sites"), (e.GeneratePassword = "generate"), (e.FormFill = "formfills"), e;
       })({}),
-      sr = document.createElement("div");
-    function ur(e) {
+      mr = document.createElement("div");
+    function vr(e) {
       return e && e.endsWith("px") ? parseFloat(e.substring(0, e.length - 2)) : 0;
     }
-    sr.style.setProperty("position", "absolute", "important"),
-      sr.style.setProperty("top", "0px", "important"),
-      sr.style.setProperty("left", "0px", "important"),
-      sr.style.setProperty("height", "0px", "important"),
-      sr.style.setProperty("width", "0px", "important"),
-      sr.setAttribute("data-lastpass-root", "");
-    var lr = 5;
-    var cr;
-    function fr(e, t, n, r) {
+    mr.style.setProperty("position", "absolute", "important"),
+      mr.style.setProperty("top", "0px", "important"),
+      mr.style.setProperty("left", "0px", "important"),
+      mr.style.setProperty("height", "0px", "important"),
+      mr.style.setProperty("width", "0px", "important"),
+      mr.setAttribute("data-lastpass-root", "");
+    var yr = 5;
+    var gr;
+    function _r(e, t, n, r) {
       var o = p((0, C.useState)(), 2),
         i = o[0],
         a = o[1],
-        s = kt(function (e) {
-          return e.settings.features[Lt.WEB_CLIENT_SAVE];
+        s = Dt(function (e) {
+          return e.settings.features[Mt.WEB_CLIENT_SAVE];
         }),
         l = (0, C.useCallback)(
           function () {
@@ -13233,18 +13734,18 @@ var webClient;
                   a = e.getBoundingClientRect(),
                   s = t.getBoundingClientRect(),
                   l = window.getComputedStyle(e),
-                  c = ur(l.borderTopWidth),
-                  f = ur(l.borderBottomWidth),
-                  d = ur(l.paddingRight),
+                  c = vr(l.borderTopWidth),
+                  f = vr(l.borderBottomWidth),
+                  d = vr(l.paddingRight),
                   p = a.top - s.top,
                   h = a.left - s.left,
-                  m = { height: (i = o ? (a.height > 26 ? 22 : a.height - 4) : r === ar.Password && n > 0 ? 18 : 16), width: o ? 22 : 16 },
-                  v = { top: p + c + (a.height - c - f - m.height) / 2, left: h + a.width - d - m.width - lr };
+                  m = { height: (i = o ? (a.height > 26 ? 22 : a.height - 4) : r === hr.Password && n > 0 ? 18 : 16), width: o ? 22 : 16 },
+                  v = { top: p + c + (a.height - c - f - m.height) / 2, left: h + a.width - d - m.width - yr };
                 function y(e, n, r) {
                   var o = document.elementsFromPoint(n, r),
                     i = o.indexOf(e),
                     a = o[i - 1];
-                  if (a && a !== t.firstElementChild && !sr.contains(a)) return a;
+                  if (a && a !== t.firstElementChild && !mr.contains(a)) return a;
                 }
                 var g = (function () {
                   var t = s.left + v.left,
@@ -13257,7 +13758,7 @@ var webClient;
                 if (g) {
                   var _ = g.getBoundingClientRect(),
                     E = s.left + v.left + m.width;
-                  v.left = v.left - (E - _.left + lr);
+                  v.left = v.left - (E - _.left + yr);
                 }
                 return {
                   icon: u(u(u({}, m), v), {}, { zIndex: (l.zIndex && parseInt(l.zIndex)) || "auto" }),
@@ -13326,121 +13827,121 @@ var webClient;
         i
       );
     }
-    var dr =
-      (a((cr = {}), dt.SiteUsername, ct.Password),
-      a(cr, dt.SitePassword, ct.Password),
-      a(cr, dt.SiteNewPassword, ct.Password),
-      a(cr, dt.SiteOneTimeCode, ct.Password),
-      a(cr, dt.SiteCustom, ct.Password),
-      a(cr, dt.CardNameOnCard, ct.PaymentCard),
-      a(cr, dt.CardType, ct.PaymentCard),
-      a(cr, dt.CardNumber, ct.PaymentCard),
-      a(cr, dt.CardSecurityCode, ct.PaymentCard),
-      a(cr, dt.CardStartDate, ct.PaymentCard),
-      a(cr, dt.CardExpirationDate, ct.PaymentCard),
-      a(cr, dt.CardGivenName, ct.PaymentCard),
-      a(cr, dt.CardAdditionalName, ct.PaymentCard),
-      a(cr, dt.CardFamilyName, ct.PaymentCard),
-      a(cr, dt.CardStartMonth, ct.PaymentCard),
-      a(cr, dt.CardExpirationYear, ct.PaymentCard),
-      a(cr, dt.CardExpirationMonth, ct.PaymentCard),
-      a(cr, dt.CardGivenName, ct.PaymentCard),
-      a(cr, dt.CardAdditionalName, ct.PaymentCard),
-      a(cr, dt.CardFamilyName, ct.PaymentCard),
-      a(cr, dt.CardStartYear, ct.PaymentCard),
-      a(cr, dt.AddressTitle, ct.Address),
-      a(cr, dt.AddressFirstName, ct.Address),
-      a(cr, dt.AddressMiddleName, ct.Address),
-      a(cr, dt.AddressLastName, ct.Address),
-      a(cr, dt.AddressGender, ct.Address),
-      a(cr, dt.AddressBirthdayDay, ct.Address),
-      a(cr, dt.AddressBirthdayMonth, ct.Address),
-      a(cr, dt.AddressBirthdayYear, ct.Address),
-      a(cr, dt.AddressCompany, ct.Address),
-      a(cr, dt.AddressLine1, ct.Address),
-      a(cr, dt.AddressLine2, ct.Address),
-      a(cr, dt.AddressLine3, ct.Address),
-      a(cr, dt.AddressCity, ct.Address),
-      a(cr, dt.AddressCounty, ct.Address),
-      a(cr, dt.AddressState, ct.Address),
-      a(cr, dt.AddressPostalCode, ct.Address),
-      a(cr, dt.AddressCountryName, ct.Address),
-      a(cr, dt.AddressTimezone, ct.Address),
-      a(cr, dt.AddressPhoneCountry, ct.Address),
-      a(cr, dt.AddressPhoneCountryCode, ct.Address),
-      a(cr, dt.AddressPhoneNational, ct.Address),
-      a(cr, dt.AddressPhoneAreaCode, ct.Address),
-      a(cr, dt.AddressPhoneLocalPrefix, ct.Address),
-      a(cr, dt.AddressPhoneLocalSuffix, ct.Address),
-      a(cr, dt.AddressPhoneExtension, ct.Address),
-      a(cr, dt.AddressEveningPhoneCountry, ct.Address),
-      a(cr, dt.AddressEveningPhoneCountryCode, ct.Address),
-      a(cr, dt.AddressEveningPhoneNational, ct.Address),
-      a(cr, dt.AddressEveningPhoneAreaCode, ct.Address),
-      a(cr, dt.AddressEveningPhoneLocalPrefix, ct.Address),
-      a(cr, dt.AddressEveningPhoneLocalSuffix, ct.Address),
-      a(cr, dt.AddressEveningPhoneExtension, ct.Address),
-      a(cr, dt.AddressMobilePhoneCountry, ct.Address),
-      a(cr, dt.AddressMobilePhoneCountryCode, ct.Address),
-      a(cr, dt.AddressMobilePhoneNational, ct.Address),
-      a(cr, dt.AddressMobilePhoneAreaCode, ct.Address),
-      a(cr, dt.AddressMobilePhoneLocalPrefix, ct.Address),
-      a(cr, dt.AddressMobilePhoneLocalSuffix, ct.Address),
-      a(cr, dt.AddressMobilePhoneExtension, ct.Address),
-      a(cr, dt.AddressFaxCountry, ct.Address),
-      a(cr, dt.AddressFaxCountryCode, ct.Address),
-      a(cr, dt.AddressFaxNational, ct.Address),
-      a(cr, dt.AddressFaxAreaCode, ct.Address),
-      a(cr, dt.AddressFaxLocalPrefix, ct.Address),
-      a(cr, dt.AddressFaxLocalSuffix, ct.Address),
-      a(cr, dt.AddressFaxExtension, ct.Address),
-      a(cr, dt.AddressEmailAddress, ct.Address),
-      a(cr, dt.AddressUserName, ct.Address),
-      a(cr, dt.AddressName, ct.Address),
-      a(cr, dt.AddressHonorificSuffix, ct.Address),
-      a(cr, dt.AddressNickname, ct.Address),
-      a(cr, dt.AddressStreetAddress, ct.Address),
-      a(cr, dt.AddressLevel4, ct.Address),
-      a(cr, dt.AddressLevel3, ct.Address),
-      a(cr, dt.AddressLevel2, ct.Address),
-      a(cr, dt.AddressLevel1, ct.Address),
-      a(cr, dt.AddressCountryCode, ct.Address),
-      a(cr, dt.AddressBirthday, ct.Address),
-      a(cr, dt.AddressTel, ct.Address),
-      a(cr, dt.AddressEveningTel, ct.Address),
-      a(cr, dt.AddressMobileTel, ct.Address),
-      a(cr, dt.AddressFax, ct.Address),
-      a(cr, dt.AddressTelLocal, ct.Address),
-      a(cr, dt.AddressName, ct.Address),
-      a(cr, dt.AddressHonorificSuffix, ct.Address),
-      a(cr, dt.AddressNickname, ct.Address),
-      a(cr, dt.AddressStreetAddress, ct.Address),
-      a(cr, dt.AddressLevel4, ct.Address),
-      a(cr, dt.AddressLevel3, ct.Address),
-      a(cr, dt.AddressLevel2, ct.Address),
-      a(cr, dt.AddressLevel1, ct.Address),
-      a(cr, dt.AddressCountryCode, ct.Address),
-      a(cr, dt.AddressBirthday, ct.Address),
-      a(cr, dt.AddressTel, ct.Address),
-      a(cr, dt.AddressEveningTel, ct.Address),
-      a(cr, dt.AddressMobileTel, ct.Address),
-      a(cr, dt.AddressFax, ct.Address),
-      a(cr, dt.AddressTelLocal, ct.Address),
-      a(cr, dt.BankAccountBankName, ct.BankAccount),
-      a(cr, dt.BankAccountAccountType, ct.BankAccount),
-      a(cr, dt.BankAccountRoutingNumber, ct.BankAccount),
-      a(cr, dt.BankAccountAccountNumber, ct.BankAccount),
-      a(cr, dt.BankAccountSWIFTCode, ct.BankAccount),
-      a(cr, dt.BankAccountIBANNumber, ct.BankAccount),
-      a(cr, dt.BankAccountPIN, ct.BankAccount),
-      a(cr, dt.BankAccountBranchAddress, ct.BankAccount),
-      a(cr, dt.BankAccountBranchPhone, ct.BankAccount),
-      cr);
-    function pr(e) {
-      if (e) return dr[e];
+    var Er =
+      (a((gr = {}), dt.SiteUsername, ct.Password),
+      a(gr, dt.SitePassword, ct.Password),
+      a(gr, dt.SiteNewPassword, ct.Password),
+      a(gr, dt.SiteOneTimeCode, ct.Password),
+      a(gr, dt.SiteCustom, ct.Password),
+      a(gr, dt.CardNameOnCard, ct.PaymentCard),
+      a(gr, dt.CardType, ct.PaymentCard),
+      a(gr, dt.CardNumber, ct.PaymentCard),
+      a(gr, dt.CardSecurityCode, ct.PaymentCard),
+      a(gr, dt.CardStartDate, ct.PaymentCard),
+      a(gr, dt.CardExpirationDate, ct.PaymentCard),
+      a(gr, dt.CardGivenName, ct.PaymentCard),
+      a(gr, dt.CardAdditionalName, ct.PaymentCard),
+      a(gr, dt.CardFamilyName, ct.PaymentCard),
+      a(gr, dt.CardStartMonth, ct.PaymentCard),
+      a(gr, dt.CardExpirationYear, ct.PaymentCard),
+      a(gr, dt.CardExpirationMonth, ct.PaymentCard),
+      a(gr, dt.CardGivenName, ct.PaymentCard),
+      a(gr, dt.CardAdditionalName, ct.PaymentCard),
+      a(gr, dt.CardFamilyName, ct.PaymentCard),
+      a(gr, dt.CardStartYear, ct.PaymentCard),
+      a(gr, dt.AddressTitle, ct.Address),
+      a(gr, dt.AddressFirstName, ct.Address),
+      a(gr, dt.AddressMiddleName, ct.Address),
+      a(gr, dt.AddressLastName, ct.Address),
+      a(gr, dt.AddressGender, ct.Address),
+      a(gr, dt.AddressBirthdayDay, ct.Address),
+      a(gr, dt.AddressBirthdayMonth, ct.Address),
+      a(gr, dt.AddressBirthdayYear, ct.Address),
+      a(gr, dt.AddressCompany, ct.Address),
+      a(gr, dt.AddressLine1, ct.Address),
+      a(gr, dt.AddressLine2, ct.Address),
+      a(gr, dt.AddressLine3, ct.Address),
+      a(gr, dt.AddressCity, ct.Address),
+      a(gr, dt.AddressCounty, ct.Address),
+      a(gr, dt.AddressState, ct.Address),
+      a(gr, dt.AddressPostalCode, ct.Address),
+      a(gr, dt.AddressCountryName, ct.Address),
+      a(gr, dt.AddressTimezone, ct.Address),
+      a(gr, dt.AddressPhoneCountry, ct.Address),
+      a(gr, dt.AddressPhoneCountryCode, ct.Address),
+      a(gr, dt.AddressPhoneNational, ct.Address),
+      a(gr, dt.AddressPhoneAreaCode, ct.Address),
+      a(gr, dt.AddressPhoneLocalPrefix, ct.Address),
+      a(gr, dt.AddressPhoneLocalSuffix, ct.Address),
+      a(gr, dt.AddressPhoneExtension, ct.Address),
+      a(gr, dt.AddressEveningPhoneCountry, ct.Address),
+      a(gr, dt.AddressEveningPhoneCountryCode, ct.Address),
+      a(gr, dt.AddressEveningPhoneNational, ct.Address),
+      a(gr, dt.AddressEveningPhoneAreaCode, ct.Address),
+      a(gr, dt.AddressEveningPhoneLocalPrefix, ct.Address),
+      a(gr, dt.AddressEveningPhoneLocalSuffix, ct.Address),
+      a(gr, dt.AddressEveningPhoneExtension, ct.Address),
+      a(gr, dt.AddressMobilePhoneCountry, ct.Address),
+      a(gr, dt.AddressMobilePhoneCountryCode, ct.Address),
+      a(gr, dt.AddressMobilePhoneNational, ct.Address),
+      a(gr, dt.AddressMobilePhoneAreaCode, ct.Address),
+      a(gr, dt.AddressMobilePhoneLocalPrefix, ct.Address),
+      a(gr, dt.AddressMobilePhoneLocalSuffix, ct.Address),
+      a(gr, dt.AddressMobilePhoneExtension, ct.Address),
+      a(gr, dt.AddressFaxCountry, ct.Address),
+      a(gr, dt.AddressFaxCountryCode, ct.Address),
+      a(gr, dt.AddressFaxNational, ct.Address),
+      a(gr, dt.AddressFaxAreaCode, ct.Address),
+      a(gr, dt.AddressFaxLocalPrefix, ct.Address),
+      a(gr, dt.AddressFaxLocalSuffix, ct.Address),
+      a(gr, dt.AddressFaxExtension, ct.Address),
+      a(gr, dt.AddressEmailAddress, ct.Address),
+      a(gr, dt.AddressUserName, ct.Address),
+      a(gr, dt.AddressName, ct.Address),
+      a(gr, dt.AddressHonorificSuffix, ct.Address),
+      a(gr, dt.AddressNickname, ct.Address),
+      a(gr, dt.AddressStreetAddress, ct.Address),
+      a(gr, dt.AddressLevel4, ct.Address),
+      a(gr, dt.AddressLevel3, ct.Address),
+      a(gr, dt.AddressLevel2, ct.Address),
+      a(gr, dt.AddressLevel1, ct.Address),
+      a(gr, dt.AddressCountryCode, ct.Address),
+      a(gr, dt.AddressBirthday, ct.Address),
+      a(gr, dt.AddressTel, ct.Address),
+      a(gr, dt.AddressEveningTel, ct.Address),
+      a(gr, dt.AddressMobileTel, ct.Address),
+      a(gr, dt.AddressFax, ct.Address),
+      a(gr, dt.AddressTelLocal, ct.Address),
+      a(gr, dt.AddressName, ct.Address),
+      a(gr, dt.AddressHonorificSuffix, ct.Address),
+      a(gr, dt.AddressNickname, ct.Address),
+      a(gr, dt.AddressStreetAddress, ct.Address),
+      a(gr, dt.AddressLevel4, ct.Address),
+      a(gr, dt.AddressLevel3, ct.Address),
+      a(gr, dt.AddressLevel2, ct.Address),
+      a(gr, dt.AddressLevel1, ct.Address),
+      a(gr, dt.AddressCountryCode, ct.Address),
+      a(gr, dt.AddressBirthday, ct.Address),
+      a(gr, dt.AddressTel, ct.Address),
+      a(gr, dt.AddressEveningTel, ct.Address),
+      a(gr, dt.AddressMobileTel, ct.Address),
+      a(gr, dt.AddressFax, ct.Address),
+      a(gr, dt.AddressTelLocal, ct.Address),
+      a(gr, dt.BankAccountBankName, ct.BankAccount),
+      a(gr, dt.BankAccountAccountType, ct.BankAccount),
+      a(gr, dt.BankAccountRoutingNumber, ct.BankAccount),
+      a(gr, dt.BankAccountAccountNumber, ct.BankAccount),
+      a(gr, dt.BankAccountSWIFTCode, ct.BankAccount),
+      a(gr, dt.BankAccountIBANNumber, ct.BankAccount),
+      a(gr, dt.BankAccountPIN, ct.BankAccount),
+      a(gr, dt.BankAccountBranchAddress, ct.BankAccount),
+      a(gr, dt.BankAccountBranchPhone, ct.BankAccount),
+      gr);
+    function br(e) {
+      if (e) return Er[e];
     }
-    var hr = n(748);
-    function mr(e) {
+    var Sr = n(748);
+    function wr(e) {
       (0, C.useLayoutEffect)(function () {
         var t = e.current;
         if (t)
@@ -13450,7 +13951,7 @@ var webClient;
           }
       });
     }
-    function vr(e, t, n) {
+    function Ar(e, t, n) {
       (0, C.useLayoutEffect)(
         function () {
           t && t.parentElement !== e && (n ? e.insertBefore(t, n) : e.appendChild(t));
@@ -13458,24 +13959,24 @@ var webClient;
         [e, t, n]
       );
     }
-    var yr = function (e) {
+    var Tr = function (e) {
         var t = e.children,
           n = e.pageContainer;
-        return vr(n, e.reactRef.current), N.createPortal(t, n);
+        return Ar(n, e.reactRef.current), N.createPortal(t, n);
       },
-      gr = { position: "relative", height: 0, width: 0, float: "left" },
-      _r = function (e) {
+      xr = { position: "relative", height: 0, width: 0, float: "left" },
+      Ir = function (e) {
         var t = e.sectionId,
           n = e.element,
           r = e.count,
           o = e.fieldType,
           i = e.infieldAutoshow,
           a = (function (e) {
-            return e === dt.SiteNewPassword ? ar.GeneratePassword : pr(e) === ct.Password ? ar.Password : ar.FormFill;
+            return e === dt.SiteNewPassword ? hr.GeneratePassword : br(e) === ct.Password ? hr.Password : hr.FormFill;
           })(o),
           s = (0, C.useRef)(null),
-          u = fr(n, s, r, a),
-          l = kt(function (e) {
+          u = _r(n, s, r, a),
+          l = Dt(function (e) {
             return e.settings.extensionPreferences.dontfillautocompleteoff;
           });
         return (
@@ -13485,29 +13986,29 @@ var webClient;
             },
             [n]
           ),
-          mr(s),
-          l && zt(n)
+          wr(s),
+          l && qt(n)
             ? null
             : n.parentElement
-            ? (0, Sn.jsx)(yr, {
+            ? (0, On.jsx)(Tr, {
                 pageContainer: n.parentElement,
                 reactRef: s,
-                children: (0, Sn.jsx)("div", {
+                children: (0, On.jsx)("div", {
                   "data-lastpass-icon-root": !0,
                   ref: s,
-                  style: gr,
-                  children: (0, Sn.jsx)(hr.Z, {
-                    children: u && (0, Sn.jsx)(ir, { sectionId: t, element: n, position: u, infieldAutoshow: i })
+                  style: xr,
+                  children: (0, On.jsx)(Sr.Z, {
+                    children: u && (0, On.jsx)(pr, { sectionId: t, element: n, position: u, infieldAutoshow: i })
                   })
                 })
               })
             : null
         );
       };
-    function Er() {
+    function Cr() {
       return document.hasFocus() && !(document.activeElement && "IFRAME" === document.activeElement.nodeName);
     }
-    var br = function (e) {
+    var Nr = function (e) {
       var t = e.element,
         n = e.onFocus,
         r = e.onMousedown,
@@ -13516,42 +14017,42 @@ var webClient;
         a = e.onArrowDown,
         s = e.onInput;
       return (
-        Un(
+        qn(
           "mousedown",
           function (e) {
             e.isTrusted && r();
           },
           t
         ),
-        Un(
+        qn(
           "focus",
           function (e) {
             e.isTrusted && n();
           },
           t
         ),
-        Un(
+        qn(
           "blur",
           function (e) {
             e.isTrusted && o();
           },
           t
         ),
-        Un(
+        qn(
           "keydown",
           function (e) {
             e.isTrusted && "Escape" === e.key && i();
           },
           t
         ),
-        Un(
+        qn(
           "keydown",
           function (e) {
             e.isTrusted && "ArrowDown" === e.key && a();
           },
           t
         ),
-        Un(
+        qn(
           "input",
           function (e) {
             e.isTrusted && s();
@@ -13561,7 +14062,7 @@ var webClient;
         null
       );
     };
-    function Sr(e) {
+    function Or(e) {
       var t = Fe(e.id);
       if (t && "INPUT" === t.tagName) {
         var n = t.type.toLowerCase();
@@ -13569,14 +14070,14 @@ var webClient;
       }
       return !1;
     }
-    function wr(e, t) {
+    function Pr(e, t) {
       var n = e.findIndex(function (e) {
         return e.id === t;
       });
       return n >= 0 ? e.slice(n, n + 1) : [];
     }
-    var Ar,
-      Tr = function (e) {
+    var Rr,
+      kr = function (e) {
         var t,
           n = e.section,
           r = p(
@@ -13594,32 +14095,32 @@ var webClient;
           o = r[0],
           i = r[1],
           a = (0, C.useRef)(0),
-          s = er(),
+          s = ur(),
           u = xe(),
-          l = kt(function (e) {
+          l = Dt(function (e) {
             return e.authPushtotpData;
           }),
-          c = kt(function (e) {
+          c = Dt(function (e) {
             return (
-              e.settings.features[Lt.WEB_CLIENT_FILL] &&
+              e.settings.features[Mt.WEB_CLIENT_FILL] &&
               e.settings.extensionPreferences.usepopupfill &&
-              !e.neverUrls[kn.NeverShowInfieldIcons]
+              !e.neverUrls[Gn.NeverShowInfieldIcons]
             );
           }),
-          f = kt(function (e) {
+          f = Dt(function (e) {
             return e.numberManualFillPasswords;
           }),
-          d = kt(function (e) {
-            return e.settings.features[Lt.WEB_CLIENT_SAVE];
+          d = Dt(function (e) {
+            return e.settings.features[Mt.WEB_CLIENT_SAVE];
           }),
-          h = n.fields.filter(Sr);
-        kt(function (e) {
-          return e.neverUrls[kn.NeverShowGeneratePasswordPrompt];
+          h = n.fields.filter(Or);
+        Dt(function (e) {
+          return e.neverUrls[Gn.NeverShowGeneratePasswordPrompt];
         }) &&
           (h = h.filter(function (e) {
             return e.type !== dt.SiteNewPassword;
           }));
-        var m = kt(function (e) {
+        var m = Dt(function (e) {
             var t;
             if (
               null === (t = e.partialPaymentSectionGroup) || void 0 === t
@@ -13635,24 +14136,24 @@ var webClient;
               ? t
               : r
               ? r.iconSectionId === e.id
-                ? wr(t, r.iconFieldId)
+                ? Pr(t, r.iconFieldId)
                 : []
               : 0 === n
               ? t.slice(0, 1)
-              : wr(t, n);
+              : Pr(t, n);
           })(n, h, o, m),
           y = h.map(function (e) {
             var t = Fe(e.id);
             return t
-              ? (0, Sn.jsx)(
-                  br,
+              ? (0, On.jsx)(
+                  Nr,
                   {
                     element: t,
                     onFocus: function () {
                       m ? u(Tt.setPartialPaymentSectionFocus(n.id, e.id)) : i(e.id);
                     },
                     onMousedown: function () {
-                      s(e.id, n.id) && !Er() && u(Tt.movingFocus()), (a.current = e.id);
+                      s(e.id, n.id) && !Cr() && u(Tt.movingFocus()), (a.current = e.id);
                     },
                     onBlur: function () {
                       a.current === e.id && (a.current = 0), u(Tt.handleBlur(n.id, e.id));
@@ -13661,7 +14162,7 @@ var webClient;
                       u(Tt.hideInfield());
                     },
                     onArrowDown: function () {
-                      s(e.id, n.id) && Er() && u(Tt.setRecordInfieldFocus(!0));
+                      s(e.id, n.id) && Cr() && u(Tt.setRecordInfieldFocus(!0));
                     },
                     onInput: function () {
                       u(Tt.setActiveFiltering(!0));
@@ -13677,10 +14178,10 @@ var webClient;
               var t = Fe(e.id),
                 r = !!l && e.type === dt.SiteOneTimeCode && document.activeElement === t;
               return t
-                ? (0, Sn.jsx)(
-                    Rn,
+                ? (0, On.jsx)(
+                    jn,
                     {
-                      children: (0, Sn.jsx)(_r, {
+                      children: (0, On.jsx)(Ir, {
                         sectionId: n.id,
                         element: t,
                         fieldType: e.type,
@@ -13692,12 +14193,12 @@ var webClient;
                   )
                 : null;
             });
-        return (0, Sn.jsxs)(Sn.Fragment, { children: [g, d ? y : null] });
+        return (0, On.jsxs)(On.Fragment, { children: [g, d ? y : null] });
       },
-      xr = function (e) {
+      Lr = function (e) {
         var t = e.sectionId,
           n = xe(),
-          r = kt(function (e) {
+          r = Dt(function (e) {
             return e.localSectionValues[t] || {};
           }),
           o = (0, C.useRef)(!1);
@@ -13721,7 +14222,7 @@ var webClient;
                     o.current ||
                     i.forEach(function (e) {
                       var t = Fe(e.id);
-                      t && e.fill && "" === t.value && (Ht(t, e.value), (o.current = !0));
+                      t && e.fill && "" === t.value && (zt(t, e.value), (o.current = !0));
                     }),
                     r && i.length > 0 && n(Tt.resetSection(t));
                 }, 500);
@@ -13735,18 +14236,18 @@ var webClient;
           null
         );
       },
-      Ir = function (e) {
+      Dr = function (e) {
         var t = e.section,
-          n = Ct(),
-          r = En(),
+          n = Ot(),
+          r = Cn(),
           o = xe(),
-          i = kt(function (e) {
+          i = Dt(function (e) {
             return e.fillSessions[t.id];
           }),
           a = (0, C.useCallback)(
             function (e, r) {
               var i = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
-              o(Bt(t.id, { id: e, value: r, fill: !1 })), n.syncInputValue(t.id, e, r, i);
+              o(jt(t.id, { id: e, value: r, fill: !1 })), n.syncInputValue(t.id, e, r, i);
             },
             [n, t.id, o]
           ),
@@ -13756,14 +14257,14 @@ var webClient;
             },
             [n, r, t.id]
           );
-        Ut(function () {
-          o(Mt(t.id));
+        Gt(function () {
+          o(Bt(t.id));
         });
         var u = t.fields.map(function (e) {
           var n = Fe(e.id);
           return n
-            ? (0, Sn.jsx)(
-                Vt,
+            ? (0, On.jsx)(
+                Wt,
                 {
                   mapping: e.mapping,
                   id: e.id,
@@ -13777,24 +14278,24 @@ var webClient;
               )
             : null;
         });
-        return (0, Sn.jsxs)(Sn.Fragment, {
+        return (0, On.jsxs)(On.Fragment, {
           children: [
-            (0, Sn.jsx)(Rn, { children: (0, Sn.jsx)(Tr, { section: t }) }),
+            (0, On.jsx)(jn, { children: (0, On.jsx)(kr, { section: t }) }),
             u,
-            (0, Sn.jsx)(xr, { sectionId: t.id }),
-            (0, Sn.jsx)(wn, { section: t })
+            (0, On.jsx)(Lr, { sectionId: t.id }),
+            (0, On.jsx)(Pn, { section: t })
           ]
         });
       };
-    function Cr(e, t) {
+    function Mr(e, t) {
       return e.some(function (e) {
         return t[e] > 0;
       });
     }
-    var Nr =
-      (a((Ar = {}), ct.Address, function (e, t) {
+    var Fr =
+      (a((Rr = {}), ct.Address, function (e, t) {
         if (t.fields.length > 1)
-          return Cr(
+          return Mr(
             [
               dt.AddressPostalCode,
               dt.AddressStreetAddress,
@@ -13810,28 +14311,28 @@ var webClient;
           );
         if (1 === t.fields.length) {
           if (t.fields[0].type === dt.AddressPostalCode) return !0;
-          if (t.formType === on.Login || t.formType === on.CreateAccount)
-            return Cr([dt.AddressEmailAddress, dt.AddressUserName, dt.AddressTel], e);
+          if (t.formType === cn.Login || t.formType === cn.CreateAccount)
+            return Mr([dt.AddressEmailAddress, dt.AddressUserName, dt.AddressTel], e);
         }
         return !1;
       }),
-      a(Ar, ct.PaymentCard, function (e) {
+      a(Rr, ct.PaymentCard, function (e) {
         return e[dt.CardNumber] > 0;
       }),
-      a(Ar, ct.BankAccount, function (e) {
-        return Cr([dt.BankAccountAccountNumber, dt.BankAccountRoutingNumber], e);
+      a(Rr, ct.BankAccount, function (e) {
+        return Mr([dt.BankAccountAccountNumber, dt.BankAccountRoutingNumber], e);
       }),
-      Ar);
-    var Or = function (e) {
+      Rr);
+    var Br = function (e) {
         var t = e.section,
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return e.partialPaymentSectionGroup;
           }),
           r = (0, C.useMemo)(
             function () {
               return (
                 !!(function (e) {
-                  var t = Nr[e.type],
+                  var t = Fr[e.type],
                     n = (function (e) {
                       var t = {};
                       return (
@@ -13855,19 +14356,19 @@ var webClient;
             },
             [t, n]
           );
-        return r ? (0, Sn.jsx)(Ir, { section: t }) : null;
+        return r ? (0, On.jsx)(Dr, { section: t }) : null;
       },
-      Pr = function () {
-        var e = kt(function (e) {
+      Ur = function () {
+        var e = Dt(function (e) {
           return e.sections;
         });
-        return (0, Sn.jsx)(Rn, {
+        return (0, On.jsx)(jn, {
           children: e.map(function (e) {
-            return (0, Sn.jsx)(Or, { section: e }, e.id);
+            return (0, On.jsx)(Br, { section: e }, e.id);
           })
         });
       };
-    function Rr(e) {
+    function jr(e) {
       return e.fields.some(function (e) {
         var t = Fe(e.id);
         if (t) {
@@ -13877,18 +14378,18 @@ var webClient;
         return !1;
       });
     }
-    var kr = function () {
-        var e = Ct(),
-          t = kt(function (e) {
+    var Gr = function () {
+        var e = Ot(),
+          t = Dt(function (e) {
             return e.autofillPassword;
           }),
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return !e.isLoggedIn;
           }),
-          r = kt(function (e) {
+          r = Dt(function (e) {
             return e.sections;
           }),
-          o = En(),
+          o = Cn(),
           i = (0, C.useMemo)(
             function () {
               if (t) {
@@ -13896,8 +14397,8 @@ var webClient;
                   return I(e)
                     .sort(function (e, t) {
                       if (e.fields.length !== t.fields.length) return e.fields.length > t.fields.length ? -1 : 1;
-                      var n = Rr(e);
-                      return n !== Rr(t) ? (n ? -1 : 1) : 0;
+                      var n = jr(e);
+                      return n !== jr(t) ? (n ? -1 : 1) : 0;
                     })
                     .shift();
                 })(
@@ -13910,7 +14411,7 @@ var webClient;
             },
             [t, r]
           ),
-          a = bn(
+          a = Nn(
             r.find(function (e) {
               return e.id === i;
             })
@@ -13936,51 +14437,51 @@ var webClient;
           null
         );
       },
-      Lr =
+      Vr =
         "select,input" +
         ["button", "color", "file", "hidden", "image", "reset", "submit", "time", "url", "week"]
           .map(function (e) {
             return ':not([type="'.concat(e, '"])');
           })
           .join(""),
-      Dr = function (e) {
-        return Array.from(document.querySelectorAll(Lr))
+      Hr = function (e) {
+        return Array.from(document.querySelectorAll(Vr))
           .filter(function (t) {
             return !e.some(function (e) {
               return t.matches(e);
             });
           })
           .map(function (e) {
-            return { dom: e, id: qn(e) };
+            return { dom: e, id: tr(e) };
           });
       };
-    function Mr(e) {
+    function Wr(e) {
       return !!Array.from(e).find(function (e) {
         if (
           (function (e) {
             return "function" === typeof e.querySelector;
           })(e)
         )
-          return e.matches(Lr) || e.querySelector(Lr);
+          return e.matches(Vr) || e.querySelector(Vr);
       });
     }
-    function Fr() {
+    function zr() {
       var e = p((0, C.useState)(), 2),
         t = e[0],
         n = e[1],
-        r = kt(function (e) {
+        r = Dt(function (e) {
           return e.disabledFields;
         });
       return (
         (0, C.useEffect)(
           function () {
-            n(Dr(r));
+            n(Hr(r));
             var e = new MutationObserver(function (e) {
               (function (e) {
                 return !!e.find(function (e) {
-                  return Mr(e.addedNodes) || Mr(e.removedNodes);
+                  return Wr(e.addedNodes) || Wr(e.removedNodes);
                 });
-              })(e) && n(Dr(r));
+              })(e) && n(Hr(r));
             });
             return (
               e.observe(document, { childList: !0, subtree: !0 }),
@@ -13994,45 +14495,48 @@ var webClient;
         t
       );
     }
-    function Br(e) {
+    function Yr(e) {
       if ("true" === e.getAttribute("aria-hidden")) return !0;
       if (e.clientWidth < 5 || 0 === e.clientHeight) return !0;
       if (-1 === e.tabIndex) return !0;
       var t = window.getComputedStyle(e);
       return "0" === t.opacity || "none" === t.display || "hidden" === t.visibility;
     }
-    function Ur(e, t) {
-      return (e.getAttribute(t) || "").toLowerCase();
+    function qr(e, t) {
+      return e.getAttribute(t) || "";
     }
-    function jr(e) {
+    function Kr(e, t) {
+      return e.typeAttr && e.typeAttr.toLowerCase() === t;
+    }
+    function $r(e) {
       return {
-        idAttr: Ur(e, "id"),
-        classAttr: Ur(e, "class"),
-        nameAttr: Ur(e, "name"),
-        placeholderAttr: Ur(e, "placeholder"),
-        typeAttr: Ur(e, "type"),
-        titleAttr: Ur(e, "title"),
-        autocompleteAttr: Ur(e, "autocomplete")
+        idAttr: qr(e, "id"),
+        classAttr: qr(e, "class"),
+        nameAttr: qr(e, "name"),
+        placeholderAttr: qr(e, "placeholder"),
+        typeAttr: qr(e, "type"),
+        titleAttr: qr(e, "title"),
+        autocompleteAttr: qr(e, "autocomplete")
       };
     }
-    function Gr(e) {
+    function Xr(e) {
       if (e) {
         var t = e.textContent;
         if (t) return t.trim();
       }
       return "";
     }
-    function Vr(e) {
+    function Qr(e) {
       var t = e.getAttribute("aria-label"),
         n = e.getAttribute("aria-labelledby"),
         r = [];
       if ((t && r.push(t), n)) {
         var o,
-          i = qt(n.split(" "));
+          i = $t(n.split(" "));
         try {
           for (i.s(); !(o = i.n()).done; ) {
             var a = o.value,
-              s = Gr(document.getElementById(a));
+              s = Xr(document.getElementById(a));
             s && r.push(s);
           }
         } catch (u) {
@@ -14043,7 +14547,7 @@ var webClient;
       }
       return r.join(" ");
     }
-    var Hr = function (e) {
+    var Zr = function (e) {
       var t = e.id,
         n = e.element,
         r = e.updateInfo;
@@ -14059,14 +14563,14 @@ var webClient;
                     switch (t) {
                       case "aria-label":
                       case "aria-labelledby":
-                        return { ariaLabel: Vr(e) };
+                        return { ariaLabel: Qr(e) };
                       default:
-                        return jr(e);
+                        return $r(e);
                     }
                   })(n, e.attributeName)
                 );
               }),
-                (o.visible = !Br(n)),
+                (o.visible = !Yr(n)),
                 r(t, o);
             });
             return (
@@ -14081,7 +14585,7 @@ var webClient;
         (0, C.useEffect)(
           function () {
             var e = new ResizeObserver(function () {
-              r(t, { visible: !Br(n) });
+              r(t, { visible: !Yr(n) });
             });
             return (
               e.observe(n),
@@ -14110,7 +14614,7 @@ var webClient;
         null
       );
     };
-    function Wr(e, t) {
+    function Jr(e, t) {
       if (!e) return t;
       var n = t.map(function (n) {
         var r = (function (e, t) {
@@ -14166,20 +14670,21 @@ var webClient;
         return e;
       return n;
     }
-    function zr(e) {
-      var t = e.querySelectorAll(Lr);
+    function eo(e) {
+      var t = e.querySelectorAll(Vr);
       return (
         1 === t.length ||
         1 ===
           Array.from(t).filter(function (e) {
-            return !Br(e);
+            return !Yr(e);
           }).length
       );
     }
-    function Yr(e) {
-      var t = Gr(
+    function to(e) {
+      var t = Xr(
         e.closest("label") ||
           (function (e) {
+            if (!e) return null;
             try {
               return document.querySelector('label[for="'.concat(e, '"],label[htmlFor="').concat(e, '"]'));
             } catch (t) {
@@ -14190,36 +14695,36 @@ var webClient;
       return (
         t ||
         (function (e) {
-          for (var t, n = e.parentElement; n && zr(n); ) {
+          for (var t, n = e.parentElement; n && eo(n); ) {
             var r = Array.from(n.querySelectorAll("label"))
               .map(function (e) {
-                return Xt(e);
+                return Zt(e);
               })
               .filter(function (e) {
                 return e && e.length > 0;
               });
             if (1 === r.length) return r[0];
             if (r.length > 1) return "";
-            var o = Xt(n, t);
+            var o = Zt(n, t);
             if (o) return o;
             (t = n), (n = n.parentElement);
           }
           if (n) {
-            var i = Array.from(n.querySelectorAll(Lr + ",label")),
+            var i = Array.from(n.querySelectorAll(Vr + ",label")),
               a = i.filter(function (e) {
                 return "LABEL" === e.nodeName;
               });
             if (i.length / a.length === 2) {
               var s = "LABEL" === i[0].nodeName,
                 u = i.indexOf(e);
-              return Gr(s ? i[u - 1] : i[u + 1]);
+              return Xr(s ? i[u - 1] : i[u + 1]);
             }
           }
           return "";
         })(e)
       );
     }
-    function qr(e, t) {
+    function no(e, t) {
       var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0;
       return (0, C.useCallback)(
         (function (e) {
@@ -14236,11 +14741,11 @@ var webClient;
         t
       );
     }
-    var Kr = [dt.CardExpirationDate, dt.CardExpirationYear, dt.CardExpirationMonth, dt.AddressState];
-    function $r(e) {
-      return Kr.includes(e.finalIdentification) || e.visible;
+    var ro = [dt.CardExpirationDate, dt.CardExpirationYear, dt.CardExpirationMonth, dt.AddressState];
+    function oo(e) {
+      return ro.includes(e.finalIdentification) || e.visible;
     }
-    function Xr(e, t) {
+    function io(e, t) {
       for (
         var n = [],
           r = function () {
@@ -14248,7 +14753,7 @@ var webClient;
                 var n = e.map(function (e) {
                     return e.element;
                   }),
-                  r = vn(n, t, n[0].form || document);
+                  r = An(n, t, n[0].form || document);
                 return u(
                   u({}, r),
                   {},
@@ -14272,13 +14777,11 @@ var webClient;
         r();
       return n;
     }
-    function Qr(e) {
-      return "checkbox" !== e.typeAttr && "radio" !== e.typeAttr;
+    function ao(e) {
+      return !Kr(e, "checkbox") && !Kr(e, "radio");
     }
-    var Jr,
-      Zr,
-      eo,
-      to = (function (e) {
+    var so,
+      uo = (function (e) {
         return (
           (e[(e.Numeric = 0)] = "Numeric"),
           (e[(e.YYYY = 1)] = "YYYY"),
@@ -14289,512 +14792,42 @@ var webClient;
           e
         );
       })({}),
-      no = /MM\s?\/\s?YYYY/i,
-      ro = /MM\s?\/\s?YY/i,
-      oo = /MM/i,
-      io = /YY/i,
-      ao = /YYYY/i;
-    function so(e, t) {
+      lo = /MM\s?\/\s?YYYY/i,
+      co = /MM\s?\/\s?YY/i,
+      fo = /MM/i,
+      po = /YY/i,
+      ho = /YYYY/i;
+    function mo(e, t) {
       return !(!e.placeholderAttr || !e.placeholderAttr.match(t)) || !(!e.label || !e.label.match(t));
     }
-    function uo(e, t, n) {
+    function vo(e, t, n) {
       e.autocompleteIdentification || e.finalIdentification === t || (e.finalIdentification = t), (e.format = n);
     }
-    function lo(e) {
+    function yo(e) {
       e.forEach(function (e) {
         "SELECT" !== e.element.tagName &&
           ((e.finalIdentification !== dt.CardExpirationDate &&
             e.finalIdentification !== dt.CardExpirationMonth &&
             e.finalIdentification !== dt.CardExpirationYear) ||
             (function (e) {
-              so(e, no)
-                ? uo(e, dt.CardExpirationDate, to.MMYYYY)
-                : so(e, ro)
-                ? uo(e, dt.CardExpirationDate, to.MMYY)
-                : so(e, oo)
-                ? uo(e, dt.CardExpirationMonth, to.MM)
-                : so(e, ao)
-                ? uo(e, dt.CardExpirationYear, to.YYYY)
-                : so(e, io) && uo(e, dt.CardExpirationYear, to.YY);
+              mo(e, lo)
+                ? vo(e, dt.CardExpirationDate, uo.MMYYYY)
+                : mo(e, co)
+                ? vo(e, dt.CardExpirationDate, uo.MMYY)
+                : mo(e, fo)
+                ? vo(e, dt.CardExpirationMonth, uo.MM)
+                : mo(e, ho)
+                ? vo(e, dt.CardExpirationYear, uo.YYYY)
+                : mo(e, po) && vo(e, dt.CardExpirationYear, uo.YY);
             })(e));
       });
     }
-    var co,
-      fo =
-        (a((Jr = {}), tn.EN, [/((?:confirm)|(?:verify)|(?:repeat)|(?:re[-]?enter)|(?:re[-]?type)).?password/i, /password.?confirm/i]),
-        a(Jr, tn.DE, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
-        a(Jr, tn.ES, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
-        a(Jr, tn.FR, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
-        a(Jr, tn.IT, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
-        a(Jr, tn.NL, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
-        a(Jr, tn.PT, [/((?:confirm)|(?:verify)|(?:repeat)|(?:reenter)|(?:retype))\spassword/i]),
-        Jr),
-      po =
-        (a((Zr = {}), tn.EN, [/new.?password/i].concat(I(fo[tn.EN]))),
-        a(Zr, tn.DE, [/(?:neues passwort)/i].concat(I(fo[tn.DE]))),
-        a(Zr, tn.ES, [/(?:contrase[n\xf1]a nueva)/i].concat(I(fo[tn.ES]))),
-        a(Zr, tn.FR, [/(?:nouveau mots? de passe)/i].concat(I(fo[tn.FR]))),
-        a(Zr, tn.IT, [/(?:nuova password)/i].concat(I(fo[tn.IT]))),
-        a(Zr, tn.NL, [/(?:nieuw hoofdwachtwoord)/i].concat(I(fo[tn.NL]))),
-        a(Zr, tn.PT, [/(?:nova senha)/i].concat(I(fo[tn.PT]))),
-        Zr),
-      ho =
-        (a(
-          (eo = {}),
-          tn.EN,
-          new Map()
-            .set(dt.SiteOneTimeCode, [/(?:token)|(?:otp)|(?:otc)|(?:multi|two).*code|(?:one( |-)time)|(?:(6|six)( |-)digit)/i])
-            .set(dt.SiteUsername, [/(?:apple id)|(?:user[-. ]?name)/i])
-            .set(dt.SiteNewPassword, po[tn.EN])
-            .set(dt.SitePassword, { match: [/(?:password)/i], exclude: po[tn.EN] })
-            .set(dt.BankAccountAccountNumber, [/(?:account|acct).*num/i])
-            .set(dt.CardNameOnCard, [/(?:name.*on.*card)|(?:card.*holder)|(?:(?:card|cc).*name)|(?:embossed.*name)|(?:accountHolderName)/i])
-            .set(dt.CardNumber, [/(?:card|cc)(?!(?:.*ident|ess|ount)).*(?:num|no)|card.*account/i])
-            .set(dt.CardSecurityCode, [
-              /(?:cvv)|(?:csc)|(?:card.*(?:ver|code|cid))|(?:security.*code)|(?:cid$)|(?:cvc$)|(?:cvc2?$)|(?:ccvnc$)|(?:cv2)|(?:cvnum)|(?:cvn)|(?:card.*security.*number)|(?:credit.*card.*id)|(?:^verificationnumber2$)|(?:^verificationcode$)/i
-            ])
-            .set(dt.CardStartMonth, [/(?:start).*mon/i])
-            .set(dt.CardStartYear, [/(?:start).*(?:year|yr)/i])
-            .set(dt.CardExpirationMonth, [/(?:exp|card|cc).*(?:mon|mth)/i])
-            .set(dt.CardExpirationYear, [/(?:exp|card|cc).*(?:year|yr)/i])
-            .set(dt.CardType, [/(?:(?:card|cc|pay).*(?:type|method|brand|issuer))|(?:credit.?card(?:$|.[^e]))|(?:bill.*method)/i])
-            .set(dt.AddressEmailAddress, [/(?:e.?mail)|(?:confirm.*address)|^(?:receipt_address)/i])
-            .set(dt.AddressTitle, { match: [/title|prefix|salutation/i], exclude: [/job/i] })
-            .set(dt.AddressFirstName, { match: [/first.*name/i], exclude: [/last/i] })
-            .set(dt.AddressMiddleName, [/middle.*name/i])
-            .set(dt.AddressLastName, { match: [/(?:last.*name)|(?:surname)/i], exclude: [/first/i] })
-            .set(dt.AddressName, [/^(?:(?:full)|(?:first and last)) name/i, /(?:^your name$)|(?:^name$)/i])
-            .set(dt.AddressGender, [/gender|sex/i])
-            .set(dt.AddressBirthdayDay, [/(?:birth.*day)|(?:dob.*day)|(?:bday)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:birth.*mon)|(?:dob.*mon)|(?:bmon|^mob$)|(?:mon.*birth)/i])
-            .set(dt.AddressBirthdayYear, [/(?:birth.*(?:year|yr))|(?:dob.*(?:year|yr))|(?:byear|yob)|(?:year.*birth)/i])
-            .set(dt.AddressLine1, [/(?:first.*(?:street|addr))|(?:(?:street|addr).*1)|(?:cannot ship to PO boxes)/i])
-            .set(dt.AddressLine2, [/(?:second.*(?:street|addr))|(?:(?:street|addr).*2)|(?:suite)/i])
-            .set(dt.AddressLine3, [/(?:third.*(?:street|addr))|(?:(?:street|addr).*3)/i])
-            .set(dt.AddressCompany, { match: [/company|(?:business.*name)|organization/i], exclude: [/address/] })
-            .set(dt.AddressCity, [/city|town/i])
-            .set(dt.AddressCounty, [/county|(?:fourth.*(?:street|addr))|(?:(?:street|addr).*4)/i])
-            .set(dt.AddressCountryName, [/country/i])
-            .set(dt.AddressState, [/state|region|prov/i])
-            .set(dt.AddressPostalCode, [/(?:zip)|(?:post.*code)/i])
-            .set(dt.AddressTimezone, [/time.*zone/i])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/(?:name.*first)|(?:first.*name)|^first$/i])
-            .set(dt.CardAdditionalName, [/(?:name.*middle)|(?:middle.*name)|^middle$/i])
-            .set(dt.CardFamilyName, [/(?:name.*last)|surname|(?:last.*name)|^last$/i])
-            .set(dt.CardStartDate, [/(?:(?:card|cc).*start)|(?:start.*date)/i])
-            .set(dt.CardExpirationDate, [/(?:(?:card|cc).*exp|expiration|expires)|(?:exp.*date)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.BankAccountBranchAddress, [/bankaddress/i])
-            .set(dt.AddressStreetAddress, [/(?:address)|(?:street)/i])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/(?:birth.*date)|(?:date.*birth)|(?:birth|dob)/i])
-            .set(dt.AddressEveningTel, [/(?:evening.*tel)|(?:evening.*phone)|(?:evening.*voice)/i])
-            .set(dt.AddressMobileTel, [/(?:mobile)/i])
-            .set(dt.BankAccountBranchPhone, [/bankphone/i])
-            .set(dt.AddressFax, [/(?:fax)/i])
-            .set(dt.AddressTelLocal, [/(?:^tel|phone|voice).*(?:23|last7|xxxxxxx|ext)/i])
-            .set(dt.AddressTel, [/(?:^tel(?!l))|(?:phone)|(?:voice)/i])
-            .set(dt.BankAccountBankName, [/(?:issuing.*bank)|(?:bank.*name)|(?:institution)/i])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [/routing.*num|bic/i])
-            .set(dt.BankAccountSWIFTCode, [/swift/i])
-            .set(dt.BankAccountIBANNumber, [/iban/i])
-            .set(dt.BankAccountPIN, [])
-        ),
-        a(
-          eo,
-          tn.DE,
-          new Map()
-            .set(dt.SiteUsername, [/(?:benutzername)|(?:.*nick)|(?:.*loginname)|(?:pseudonym)/i])
-            .set(dt.SiteNewPassword, po[tn.DE])
-            .set(dt.SitePassword, { match: [/(?:passwort)|(?:pswt)|(?:passwt)/i], exclude: po[tn.DE] })
-            .set(dt.CardNameOnCard, [])
-            .set(dt.CardNumber, [])
-            .set(dt.CardSecurityCode, [])
-            .set(dt.CardStartMonth, [])
-            .set(dt.CardStartYear, [])
-            .set(dt.CardExpirationMonth, [])
-            .set(dt.CardExpirationYear, [])
-            .set(dt.CardType, [])
-            .set(dt.AddressTitle, [])
-            .set(dt.AddressFirstName, [/(?:name.*vor)|(?:vor.*name)|^vorname$/i])
-            .set(dt.AddressMiddleName, [/(?:mittel.*name)|zwischenname/i])
-            .set(dt.AddressLastName, [/(?:nach)/i])
-            .set(dt.AddressGender, [])
-            .set(dt.AddressBirthdayDay, [/(?:tag)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:monat)/i])
-            .set(dt.AddressBirthdayYear, [/(?:jahr)/i])
-            .set(dt.AddressCompany, [/(?:organization.*name)|(?:firma)/i])
-            .set(dt.AddressStreetAddress, [/(?:Stra\xdfe.*Hausnummer)|(?:Strasse.*Hausnummer)|(?:adresszusatz)|(?:adresse)/i])
-            .set(dt.AddressLine1, [/(?:Stra\xdfe)|(?:Strasse)/i])
-            .set(dt.AddressLine2, [/housenumber|(?:Hausnummer)|(?:hausnr)|(?:nummer)/i])
-            .set(dt.AddressLine3, [])
-            .set(dt.AddressCity, [/(?:wohnort)|(?:^ort)|(?:stadt)/i])
-            .set(dt.AddressCounty, [])
-            .set(dt.AddressState, [/(?:bundesland)|(?:staat)/i])
-            .set(dt.AddressPostalCode, [/(?:plz)|(?:vorwahl)/i])
-            .set(dt.AddressCountryName, [/Land/i])
-            .set(dt.AddressTimezone, [])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/(?:name.*vor)|(?:vor.*name)|^vorname$/i])
-            .set(dt.CardAdditionalName, [/(?:mittel.*name)|zwischenname/i])
-            .set(dt.CardFamilyName, [/(?:nach)/i])
-            .set(dt.CardStartDate, [])
-            .set(dt.CardExpirationDate, [])
-            .set(dt.AddressName, [/(?:Vollst\xe4ndiger Name)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/(?:geburtsdatum)/i])
-            .set(dt.AddressTel, [])
-            .set(dt.AddressTelLocal, [])
-            .set(dt.BankAccountBankName, [])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [])
-            .set(dt.BankAccountAccountNumber, [])
-            .set(dt.BankAccountSWIFTCode, [])
-            .set(dt.BankAccountIBANNumber, [])
-            .set(dt.BankAccountPIN, [])
-            .set(dt.BankAccountBranchAddress, [])
-            .set(dt.BankAccountBranchPhone, [])
-        ),
-        a(
-          eo,
-          tn.ES,
-          new Map()
-            .set(dt.SiteUsername, [/(?:nick)|(?:alias)|(?:usuario)/i])
-            .set(dt.SiteNewPassword, po[tn.ES])
-            .set(dt.SitePassword, { match: [/(?:contrase[n\xf1]a)/i], exclude: po[tn.ES] })
-            .set(dt.CardNameOnCard, [/(?:titular.*cuenta)/i])
-            .set(dt.CardNumber, [])
-            .set(dt.CardSecurityCode, [])
-            .set(dt.CardStartMonth, [])
-            .set(dt.CardStartYear, [])
-            .set(dt.CardExpirationMonth, [])
-            .set(dt.CardExpirationYear, [])
-            .set(dt.CardType, [])
-            .set(dt.AddressTitle, [/(?:titulo)|(?:t\xedtulo)/i])
-            .set(dt.AddressFirstName, [/(?:nombre)|(?:nom_usu)|(?:nom)/i])
-            .set(dt.AddressMiddleName, [])
-            .set(dt.AddressLastName, [/(?:apellido)|(?:ape*)|(?:paterno)/i])
-            .set(dt.AddressGender, [/(?:sexo)|(?:genero)|(?:g\xe9nero)/i])
-            .set(dt.AddressBirthdayDay, [/(?:dia)|(?:fechaDia)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:fechaMes)/i])
-            .set(dt.AddressBirthdayYear, [/(?:fechaAnno)|(?:agno)|(?:anyo)|(?:anio)/i])
-            .set(dt.AddressCompany, [/(?:empresa)/i])
-            .set(dt.AddressLine2, [/(?:numero)|(?:numdom)|(?:numvia)/i])
-            .set(dt.AddressLine1, [/(?:calle)|(?:domicilio)|(?:via)/i])
-            .set(dt.AddressLine3, [/(?:complemento)|(?:dpto)/i])
-            .set(dt.AddressCity, [/(?:ciudad)|(?:poblacion)|(?:localidad)|(?:Poblaci\xf3n)/i])
-            .set(dt.AddressCounty, [])
-            .set(dt.AddressState, [/(?:localizacion)|(?:provincia)|(?:comuna)/i])
-            .set(dt.AddressPostalCode, [/(?:cp)|(?:C\xf3digoPostal)|(?:CodigoPostal)|(?:escalera)|(?:ct*codPostal)|(?:postal$)/i])
-            .set(dt.AddressCountryName, [/pa\xeds|(?:pais)|(?:codpais)/i])
-            .set(dt.AddressTimezone, [])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/(?:nombre)|(?:nom_usu)|(?:nom)/i])
-            .set(dt.CardAdditionalName, [])
-            .set(dt.CardFamilyName, [/(?:apellido)|(?:ape*)|(?:paterno)/i])
-            .set(dt.CardStartDate, [])
-            .set(dt.CardExpirationDate, [])
-            .set(dt.AddressName, [/(?:nombre completo)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.AddressStreetAddress, [/(?:direccion)|(?:via)|(?:Direcci\xf3n)/i])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/(?:F.*Nacimiento)/i])
-            .set(dt.AddressTel, [/fono|(?:telefono)|(?:tel\xe9fono)/i])
-            .set(dt.AddressTelLocal, [])
-            .set(dt.BankAccountBankName, [])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [])
-            .set(dt.BankAccountAccountNumber, [])
-            .set(dt.BankAccountSWIFTCode, [])
-            .set(dt.BankAccountIBANNumber, [])
-            .set(dt.BankAccountPIN, [])
-            .set(dt.BankAccountBranchAddress, [])
-            .set(dt.BankAccountBranchPhone, [])
-        ),
-        a(
-          eo,
-          tn.FR,
-          new Map()
-            .set(dt.SiteUsername, [/(?:.*pseudo)|(?:.*nickname)|(?:.*Nom.*utilisateur)|(?:identifiant)|(?:.*Code.*utilisateur)/i])
-            .set(dt.SiteNewPassword, po[tn.FR])
-            .set(dt.SitePassword, { match: [/(?:mot? de passe)/i], exclude: po[tn.FR] })
-            .set(dt.CardNameOnCard, [/(?:titulaire.*carte)|(?:card.*alias)/i])
-            .set(dt.CardNumber, [/(?:Num?[\xe9e]ro.*carte)|(?:numcard)/i])
-            .set(dt.CardSecurityCode, [/(?:crypto)|(?:.*cvx)/i])
-            .set(dt.CardStartMonth, [])
-            .set(dt.CardStartYear, [])
-            .set(dt.CardExpirationMonth, [])
-            .set(dt.CardExpirationYear, [])
-            .set(dt.CardType, [])
-            .set(dt.AddressEmailAddress, [/(?:.*emailconfirm)|(?:.*adresse.*courriel)|(?:Adresse.*?[\xe9e]lectronique)/i])
-            .set(dt.AddressTitle, [/titre|pr\xe9fixe|salutation/i])
-            .set(dt.AddressCompany, [/(?:.*raisonsociale)|(?:Nom.*soci\xe9t\xe9)|(?:etablissement)/i])
-            .set(dt.AddressFirstName, [/(?:.*prenom)|(?:.*pr\xe9nom)|(?:.*fname)/i])
-            .set(dt.AddressMiddleName, [])
-            .set(dt.AddressLastName, [/nom/i])
-            .set(dt.AddressGender, [/sexe/i])
-            .set(dt.AddressBirthdayDay, [/(?:jour.*naissance)|(?:birthday.*day)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:mois.*naissance)/i])
-            .set(dt.AddressBirthdayYear, [/(?:annee.*naissance)/i])
-            .set(dt.AddressLine2, [/(?:.*cpl)|(?:.*Compl\xe9ment.*adresse)|(?:.*building)|(?:.*address.*complement)/i])
-            .set(dt.AddressLine1, [/(?:.*voie)|(?:.*rue.*voie)|(?:adresse)/i])
-            .set(dt.AddressLine3, [/(?:address3)/i])
-            .set(dt.AddressCity, [/Ville|(?:Localit\xe9)/i])
-            .set(dt.AddressCounty, [])
-            .set(dt.AddressState, [])
-            .set(dt.AddressPostalCode, [/(?:c.*postal)/i])
-            .set(dt.AddressCountryName, [/pays/i])
-            .set(dt.AddressTimezone, [])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/(?:.*prenom)|(?:.*pr\xe9nom)|(?:.*fname)/i])
-            .set(dt.CardAdditionalName, [])
-            .set(dt.CardFamilyName, [/nom(?!.*banque)/i])
-            .set(dt.CardStartDate, [])
-            .set(dt.CardExpirationDate, [])
-            .set(dt.AddressName, [/(?:nom complet)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.AddressStreetAddress, [/(?:adresse)/i])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/(?:date.*naissance)|(?:naissance)/i])
-            .set(dt.AddressTel, [/t\xe9l|(?:numtel)/i])
-            .set(dt.AddressTelLocal, [])
-            .set(dt.BankAccountBankName, [])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [])
-            .set(dt.BankAccountAccountNumber, [])
-            .set(dt.BankAccountSWIFTCode, [])
-            .set(dt.BankAccountIBANNumber, [])
-            .set(dt.BankAccountPIN, [])
-            .set(dt.BankAccountBranchAddress, [])
-            .set(dt.BankAccountBranchPhone, [])
-        ),
-        a(
-          eo,
-          tn.IT,
-          new Map()
-            .set(dt.SiteUsername, [/(?:nome.*utente)|(?:nick)/i])
-            .set(dt.SiteNewPassword, po[tn.IT])
-            .set(dt.CardNameOnCard, [])
-            .set(dt.CardNumber, [])
-            .set(dt.CardSecurityCode, [])
-            .set(dt.CardStartMonth, [])
-            .set(dt.CardStartYear, [])
-            .set(dt.CardExpirationMonth, [])
-            .set(dt.CardExpirationYear, [])
-            .set(dt.CardType, [])
-            .set(dt.AddressTitle, [])
-            .set(dt.AddressLastName, [/(?:cognome)/i])
-            .set(dt.AddressFirstName, [/(?:nome)/i])
-            .set(dt.AddressMiddleName, [])
-            .set(dt.AddressGender, [/sesso/i])
-            .set(dt.AddressBirthdayDay, [/(?:giorno)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:mess?e)/i])
-            .set(dt.AddressBirthdayYear, [/(?:anno)/i])
-            .set(dt.AddressCompany, [])
-            .set(dt.AddressLine1, [])
-            .set(dt.AddressLine2, [/(?:Numero.*civico)/i])
-            .set(dt.AddressLine3, [/suite/i])
-            .set(dt.AddressCity, [/(?:Citt.*)/i])
-            .set(dt.AddressCounty, [])
-            .set(dt.AddressState, [/(?:provincia)|(?:comune)/i])
-            .set(dt.AddressPostalCode, [/(?:cap)/i])
-            .set(dt.AddressCountryName, [])
-            .set(dt.AddressTimezone, [])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/(?:nome)/i])
-            .set(dt.CardAdditionalName, [])
-            .set(dt.CardFamilyName, [/(?:cognome)/i])
-            .set(dt.CardStartDate, [])
-            .set(dt.CardExpirationDate, [])
-            .set(dt.AddressName, [/(?:nome completo)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.AddressStreetAddress, [/(?:indirizzo$)|(?:via)/i])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/(?:data.*nascita)/i])
-            .set(dt.AddressTel, [])
-            .set(dt.AddressTelLocal, [])
-            .set(dt.BankAccountBankName, [])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [])
-            .set(dt.BankAccountAccountNumber, [])
-            .set(dt.BankAccountSWIFTCode, [])
-            .set(dt.BankAccountIBANNumber, [])
-            .set(dt.BankAccountPIN, [])
-            .set(dt.BankAccountBranchAddress, [])
-            .set(dt.BankAccountBranchPhone, [])
-        ),
-        a(
-          eo,
-          tn.NL,
-          new Map()
-            .set(dt.SiteUsername, [])
-            .set(dt.SiteNewPassword, po[tn.NL])
-            .set(dt.SitePassword, { match: [/(?:wachtwoord)/i], exclude: po[tn.NL] })
-            .set(dt.CardNameOnCard, [/(?:naam.*op.*kaart)/i])
-            .set(dt.CardNumber, [/(?:kaart)(?!(?:.*ident|ess|ount)).*(?:num|no)|(?:kaart).*account/i])
-            .set(dt.CardSecurityCode, [/(?:kaart.*(?:ver|code|cid))/i])
-            .set(dt.CardStartMonth, [])
-            .set(dt.CardStartYear, [])
-            .set(dt.CardExpirationMonth, [/(?:kaart).*mon/i])
-            .set(dt.CardExpirationYear, [/(?:kaart).*(?:year|yr)/i])
-            .set(dt.CardType, [/(?:kaart.*(?:type|method|brand|issuer))|(?:credit.?(?:kaart))/i])
-            .set(dt.AddressEmailAddress, [/(?:bevestigen.*adres)/i])
-            .set(dt.AddressTitle, [])
-            .set(dt.AddressFirstName, [/voornaam/i])
-            .set(dt.AddressMiddleName, [/tussenvoegsel/i])
-            .set(dt.AddressLastName, [/(?:achternaam)/i])
-            .set(dt.AddressGender, [/sexe|geslacht/i])
-            .set(dt.AddressBirthdayDay, [/(?:geboorte.*dag)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:geboorte.*maand)/i])
-            .set(dt.AddressBirthdayYear, [/(?:geboorte.*jaar)/i])
-            .set(dt.AddressCompany, [])
-            .set(dt.AddressLine1, [/straat|adres/i])
-            .set(dt.AddressLine2, [])
-            .set(dt.AddressLine3, [])
-            .set(dt.AddressCity, [/stad|gemeente|plaats/i])
-            .set(dt.AddressCounty, [/provincie/i])
-            .set(dt.AddressState, [/Staat|Regio|prov/i])
-            .set(dt.AddressPostalCode, [])
-            .set(dt.AddressCountryName, [/land/i])
-            .set(dt.AddressTimezone, [/tijd.*zone.*/i])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/voornaam/i])
-            .set(dt.CardAdditionalName, [/tussenvoegsel/i])
-            .set(dt.CardFamilyName, [])
-            .set(dt.CardStartDate, [/(?:kaart).*start/i])
-            .set(dt.CardExpirationDate, [/(?:kaart.*exp)/i])
-            .set(dt.AddressName, [/(?:Volledige naam)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.AddressStreetAddress, [/(?:straat)/i])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/geboorte/i])
-            .set(dt.AddressTel, [/Telefoon|stem/i])
-            .set(dt.AddressTelLocal, [])
-            .set(dt.BankAccountBankName, [])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [])
-            .set(dt.BankAccountAccountNumber, [])
-            .set(dt.BankAccountSWIFTCode, [])
-            .set(dt.BankAccountIBANNumber, [])
-            .set(dt.BankAccountPIN, [])
-            .set(dt.BankAccountBranchAddress, [])
-            .set(dt.BankAccountBranchPhone, [])
-        ),
-        a(
-          eo,
-          tn.PT,
-          new Map()
-            .set(dt.SiteUsername, [/(?:apelido)/i])
-            .set(dt.SiteNewPassword, po[tn.PT])
-            .set(dt.SitePassword, { match: [/(?:senha)/i], exclude: po[tn.PT] })
-            .set(dt.CardNameOnCard, [])
-            .set(dt.CardNumber, [])
-            .set(dt.CardSecurityCode, [])
-            .set(dt.CardStartMonth, [])
-            .set(dt.CardStartYear, [])
-            .set(dt.CardExpirationMonth, [])
-            .set(dt.CardExpirationYear, [])
-            .set(dt.CardType, [])
-            .set(dt.AddressTitle, [])
-            .set(dt.AddressLastName, [/(?:sobrenome)/i])
-            .set(dt.AddressFirstName, [/(?:nome)/i])
-            .set(dt.AddressMiddleName, [])
-            .set(dt.AddressGender, [/sexo/i])
-            .set(dt.AddressBirthdayDay, [/(?:nascimento.*dia)|(?:nasc.dia)/i])
-            .set(dt.AddressBirthdayMonth, [/(?:nascimento.*mes)|(?:nasc.mes)/i])
-            .set(dt.AddressBirthdayYear, [/(?:nascimento.*(?:ano))|(?:nasc.ano)/i])
-            .set(dt.AddressCompany, [])
-            .set(dt.AddressLine1, [])
-            .set(dt.AddressLine2, [])
-            .set(dt.AddressLine3, [])
-            .set(dt.AddressCity, [/(?:cidade)/i])
-            .set(dt.AddressCounty, [])
-            .set(dt.AddressState, [/(?:estado)/i])
-            .set(dt.AddressPostalCode, [/(?:cep)/i])
-            .set(dt.AddressCountryName, [/(?:pais)/i])
-            .set(dt.AddressTimezone, [])
-            .set(dt.AddressPhoneCountry, [])
-            .set(dt.AddressPhoneCountryCode, [])
-            .set(dt.AddressPhoneNational, [])
-            .set(dt.CardGivenName, [/(?:nome)/i])
-            .set(dt.CardAdditionalName, [])
-            .set(dt.CardFamilyName, [/(?:sobrenome)/i])
-            .set(dt.CardStartDate, [])
-            .set(dt.CardExpirationDate, [])
-            .set(dt.AddressName, [/(?:nome completo)/i])
-            .set(dt.AddressHonorificSuffix, [])
-            .set(dt.AddressNickname, [])
-            .set(dt.AddressStreetAddress, [/(?:endere.o)/i])
-            .set(dt.AddressLevel4, [])
-            .set(dt.AddressLevel3, [])
-            .set(dt.AddressLevel2, [])
-            .set(dt.AddressLevel1, [])
-            .set(dt.AddressCountryCode, [])
-            .set(dt.AddressBirthday, [/(?:nascimento)|(?:data ?di ?nascimento)/i])
-            .set(dt.AddressTel, [])
-            .set(dt.AddressTelLocal, [])
-            .set(dt.BankAccountBankName, [])
-            .set(dt.BankAccountAccountType, [])
-            .set(dt.BankAccountRoutingNumber, [])
-            .set(dt.BankAccountAccountNumber, [])
-            .set(dt.BankAccountSWIFTCode, [])
-            .set(dt.BankAccountIBANNumber, [])
-            .set(dt.BankAccountPIN, [])
-            .set(dt.BankAccountBranchAddress, [])
-            .set(dt.BankAccountBranchPhone, [])
-        ),
-        eo);
-    function mo(e, t) {
+    function go(e, t) {
       return ("match" in t ? t.match : t).some(function (t) {
         return t.test(e);
       });
     }
-    function vo(e, t) {
+    function _o(e, t) {
       return (
         "match" in t &&
         e.some(function (e) {
@@ -14804,21 +14837,21 @@ var webClient;
         })
       );
     }
-    function yo(e, t) {
+    function Eo(e, t) {
       var n,
         r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : new Set(),
         o = e.filter(function (e) {
           return !!e;
         }),
-        i = qt(o);
+        i = $t(o);
       try {
         for (i.s(); !(n = i.n()).done; )
           for (var a = n.value, s = 0, u = Array.from(t.entries()); s < u.length; s++) {
             var l = p(u[s], 2),
               c = l[0],
               f = l[1];
-            if (!r.has(c) && mo(a, f)) {
-              if (!vo(o, f)) return c;
+            if (!r.has(c) && go(a, f)) {
+              if (!_o(o, f)) return c;
               r.add(c);
             }
           }
@@ -14828,45 +14861,45 @@ var webClient;
         i.f();
       }
     }
-    function go(e, t) {
-      var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : ho;
-      if (Qr(e)) {
+    function bo(e, t) {
+      var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : pn;
+      if (ao(e)) {
         var r = new Set();
         if (t) {
-          var o = yo([e.label, e.placeholderAttr], n[t], r);
+          var o = Eo([e.label, e.placeholderAttr], n[t], r);
           if (o) return o;
-          var i = yo([e.titleAttr, e.ariaLabel], n[t], r);
+          var i = Eo([e.titleAttr, e.ariaLabel], n[t], r);
           if (i) return i;
         }
-        return yo([e.nameAttr, e.idAttr], n[tn.EN], r);
+        return Eo([e.nameAttr, e.idAttr], n[rn.EN], r);
       }
     }
-    var _o =
-      (a((co = {}), tn.EN, new Map().set(dt.SiteNewPassword, fo[tn.EN])),
-      a(co, tn.DE, new Map().set(dt.SiteNewPassword, fo[tn.DE])),
-      a(co, tn.ES, new Map().set(dt.SiteNewPassword, fo[tn.ES])),
-      a(co, tn.FR, new Map().set(dt.SiteNewPassword, fo[tn.FR])),
-      a(co, tn.IT, new Map().set(dt.SiteNewPassword, fo[tn.IT])),
-      a(co, tn.NL, new Map().set(dt.SiteNewPassword, fo[tn.NL])),
-      a(co, tn.PT, new Map().set(dt.SiteNewPassword, fo[tn.PT])),
-      co);
-    function Eo(e) {
+    var So =
+      (a((so = {}), rn.EN, new Map().set(dt.SiteNewPassword, fn[rn.EN])),
+      a(so, rn.DE, new Map().set(dt.SiteNewPassword, fn[rn.DE])),
+      a(so, rn.ES, new Map().set(dt.SiteNewPassword, fn[rn.ES])),
+      a(so, rn.FR, new Map().set(dt.SiteNewPassword, fn[rn.FR])),
+      a(so, rn.IT, new Map().set(dt.SiteNewPassword, fn[rn.IT])),
+      a(so, rn.NL, new Map().set(dt.SiteNewPassword, fn[rn.NL])),
+      a(so, rn.PT, new Map().set(dt.SiteNewPassword, fn[rn.PT])),
+      so);
+    function wo(e) {
       return e.finalIdentification === dt.SitePassword || e.finalIdentification === dt.SiteNewPassword;
     }
-    function bo(e) {
+    function Ao(e) {
       return e.filter(function (e) {
-        return Eo(e);
+        return wo(e);
       });
     }
-    var So = [dt.SiteUsername, dt.AddressEmailAddress, dt.AddressTel];
-    function wo(e) {
+    var To = [dt.SiteUsername, dt.AddressEmailAddress, dt.AddressTel];
+    function xo(e) {
       if (
         !e.some(function (e) {
           return e.finalIdentification === dt.SiteNewPassword;
         })
       ) {
         var t = e.filter(function (e) {
-          return "password" === e.typeAttr;
+          return Kr(e, "password");
         });
         1 === t.length &&
           t[0].finalIdentification !== dt.SiteOneTimeCode &&
@@ -14878,10 +14911,10 @@ var webClient;
         if (n) {
           var r = e[e.indexOf(n) - 1];
           r && (r.finalIdentification = dt.SiteUsername);
-        } else 1 === e.length && So.includes(e[0].finalIdentification) && (e[0].finalIdentification = dt.SiteUsername);
+        } else 1 === e.length && To.includes(e[0].finalIdentification) && (e[0].finalIdentification = dt.SiteUsername);
       }
     }
-    function Ao(e) {
+    function Io(e) {
       (function (e) {
         return e.some(function (e) {
           return e.finalIdentification === dt.SiteNewPassword;
@@ -14890,26 +14923,26 @@ var webClient;
         (function (e) {
           return 2 === e.length && e[0].finalIdentification === dt.SiteUsername && e[1].finalIdentification === dt.SitePassword;
         })(e) ||
-        (wo(e),
+        (xo(e),
         e.forEach(function (e) {
           ((e.finalIdentification === dt.SiteUsername && e.autocompleteIdentification !== dt.SiteUsername) ||
             (e.finalIdentification === dt.SitePassword && e.autocompleteIdentification !== dt.SitePassword)) &&
             (e.allowAutofill = !1);
         }));
     }
-    function To(e) {
+    function Co(e) {
       return /(?:sign.?[io]n)|(?:log.?[io]n)|(?:auth)/i.test(e);
     }
-    function xo(e) {
-      var t = Xt(e);
+    function No(e) {
+      var t = Zt(e);
       if (t)
         for (var n = 0, r = Array.from(e.querySelectorAll("a")); n < r.length; n++) {
-          var o = Xt(r[n]);
+          var o = Zt(r[n]);
           o && (t = t.replace(o, ""));
         }
       return t;
     }
-    function Io(e) {
+    function Oo(e) {
       switch (e.tagName) {
         case "H1":
           return 1;
@@ -14923,41 +14956,41 @@ var webClient;
           return e.ariaLevel ? parseInt(e.ariaLevel) : 5;
       }
     }
-    function Co(e, t, n) {
+    function Po(e, t, n) {
       var r = e.filter(function (e) {
           return e.finalIdentification;
         }),
         o = r.length > 0 ? r[r.length - 1] : e[e.length - 1],
-        i = yn(o.element, t).map(function (e) {
-          return dn(e, t);
+        i = Tn(o.element, t).map(function (e) {
+          return En(e, t);
         }),
         a = i.some(function (e) {
-          return e === on.NextStep;
+          return e === cn.NextStep;
         }),
         s = i.some(function (e) {
-          return e === on.CreateAccount && !a;
+          return e === cn.CreateAccount && !a;
         }),
         u = i.some(function (e) {
-          return e === on.Login && !a;
+          return e === cn.Login && !a;
         });
-      if (s && u && n) return on.Login;
-      if (s) return on.CreateAccount;
+      if (s && u && n) return cn.Login;
+      if (s) return cn.CreateAccount;
       if (
         i.some(function (e) {
-          return e === on.ChangePassword;
+          return e === cn.ChangePassword;
         })
       )
-        return on.ChangePassword;
-      if (u) return on.Login;
+        return cn.ChangePassword;
+      if (u) return cn.Login;
       if (o.finalIdentification) {
         var l = (function (e, t, n) {
           if (e) {
-            var r = rn(e, sn, t),
-              o = rn(e, an, t);
-            if (r && o && n) return on.Login;
-            if (r) return on.CreateAccount;
-            if (rn(e, ln, t)) return on.ChangePassword;
-            if (o) return on.Login;
+            var r = an(e, mn, t),
+              o = an(e, hn, t);
+            if (r && o && n) return cn.Login;
+            if (r) return cn.CreateAccount;
+            if (an(e, yn, t)) return cn.ChangePassword;
+            if (o) return cn.Login;
           }
         })(
           (function (e) {
@@ -14967,9 +15000,9 @@ var webClient;
                 for (
                   var r = function (e) {
                       var t = n.filter(function (t) {
-                        return Io(t) === e;
+                        return Oo(t) === e;
                       });
-                      return 1 === t.length ? { v: xo(t[0]) } : t.length > 1 ? { v: void 0 } : void 0;
+                      return 1 === t.length ? { v: No(t[0]) } : t.length > 1 ? { v: void 0 } : void 0;
                     },
                     o = 1;
                   o <= 5;
@@ -14989,56 +15022,62 @@ var webClient;
       var c = (function (e) {
         if (e) {
           var t = e.querySelector('input[type="checkbox"]');
-          if (t) return Yr(t);
+          if (t) return to(t);
         }
       })(o.element.form);
-      return c && rn(c, cn, t) ? on.Login : void 0;
+      return c && an(c, gn, t) ? cn.Login : void 0;
     }
-    function No(e) {
-      return (function (e) {
-        return /(newaccount|start|enroll|sign[-_]?up|join(?!e)|register|\/reg\/|registration|create|buy)/i.test(e);
-      })(e)
-        ? on.CreateAccount
-        : (function (e) {
-            return /(change|reset|setting|preferences|forgot|security)/i.test(e) && !To(e);
-          })(e)
-        ? on.ChangePassword
-        : To(e)
-        ? on.Login
-        : void 0;
+    function Ro(e) {
+      var t = (function (e) {
+          return /(newaccount|start|enroll|sign[-_]?up|join(?!e)|register|\/reg\/|registration|create|buy)/i.test(e);
+        })(e),
+        n = (function (e) {
+          return /(change|reset|setting|preferences|forgot|security)/i.test(e) && !Co(e);
+        })(e),
+        r = Co(e);
+      if (
+        1 ===
+        [t, n, r].filter(function (e) {
+          return !0 === e;
+        }).length
+      ) {
+        if (t) return cn.CreateAccount;
+        if (n) return cn.ChangePassword;
+        if (r) return cn.Login;
+      }
     }
-    function Oo(e, t) {
+    function ko(e, t) {
       switch (
         (t.forEach(function (t) {
           t.formType = e;
         }),
         e)
       ) {
-        case on.CreateAccount:
+        case cn.CreateAccount:
           !(function (e) {
-            var t = bo(e);
+            var t = Ao(e);
             t.length <= 2 &&
               t.forEach(function (e) {
                 e.finalIdentification = dt.SiteNewPassword;
               }),
               e.forEach(function (e) {
-                "email" === e.typeAttr
+                Kr(e, "email")
                   ? (e.finalIdentification = dt.AddressEmailAddress)
                   : e.finalIdentification === dt.SiteUsername && (e.finalIdentification = dt.AddressUserName);
               });
           })(t);
           break;
-        case on.Login:
-          wo(t);
+        case cn.Login:
+          xo(t);
           break;
-        case on.ChangePassword:
+        case cn.ChangePassword:
           !(function (e) {
-            var t = bo(e);
+            var t = Ao(e);
             1 === t.length && (t[0].finalIdentification = dt.SiteNewPassword);
           })(t);
       }
     }
-    var Po = new Set([
+    var Lo = new Set([
       dt.CardExpirationDate,
       dt.CardExpirationMonth,
       dt.CardExpirationYear,
@@ -15057,7 +15096,7 @@ var webClient;
       dt.AddressEveningPhoneCountry,
       dt.AddressEveningPhoneCountryCode
     ]);
-    var Ro = (function (e) {
+    var Do = (function (e) {
         return (
           (e.January = "01"),
           (e.February = "02"),
@@ -15074,29 +15113,29 @@ var webClient;
           e
         );
       })({}),
-      ko = new Map([
-        [Ro.December, /dec|(^12$)/i],
-        [Ro.November, /nov|(^11$)/i],
-        [Ro.October, /oct|(^10$)/i],
-        [Ro.September, /sept|(^0?9$)/i],
-        [Ro.August, /aug|(^0?8$)/i],
-        [Ro.July, /jul|(^0?7$)/i],
-        [Ro.June, /jun|(^0?6$)/i],
-        [Ro.May, /may|(^0?5$)/i],
-        [Ro.April, /apr|(^0?4$)/i],
-        [Ro.March, /mar|(^0?3$)/i],
-        [Ro.February, /feb|(^0?2$)/i],
-        [Ro.January, /jan|(^0?1$)/i]
-      ]);
-    var Lo = /^(\d{2}|\d{4})$/i;
-    var Do = (function (e) {
-        return (e[(e.Month = 1)] = "Month"), (e[(e.Year = 2)] = "Year"), e;
-      })(Do || {}),
       Mo = new Map([
+        [Do.December, /dec|(^12$)/i],
+        [Do.November, /nov|(^11$)/i],
+        [Do.October, /oct|(^10$)/i],
+        [Do.September, /sept|(^0?9$)/i],
+        [Do.August, /aug|(^0?8$)/i],
+        [Do.July, /jul|(^0?7$)/i],
+        [Do.June, /jun|(^0?6$)/i],
+        [Do.May, /may|(^0?5$)/i],
+        [Do.April, /apr|(^0?4$)/i],
+        [Do.March, /mar|(^0?3$)/i],
+        [Do.February, /feb|(^0?2$)/i],
+        [Do.January, /jan|(^0?1$)/i]
+      ]);
+    var Fo = /^(\d{2}|\d{4})$/i;
+    var Bo = (function (e) {
+        return (e[(e.Month = 1)] = "Month"), (e[(e.Year = 2)] = "Year"), e;
+      })(Bo || {}),
+      Uo = new Map([
         [
-          Do.Month,
+          Bo.Month,
           function (e) {
-            for (var t = 0, n = Array.from(ko); t < n.length; t++) {
+            for (var t = 0, n = Array.from(Mo); t < n.length; t++) {
               var r = p(n[t], 2),
                 o = r[0],
                 i = r[1];
@@ -15105,13 +15144,13 @@ var webClient;
           }
         ],
         [
-          Do.Year,
+          Bo.Year,
           function (e) {
-            if (e.match(Lo)) return e.slice(-2);
+            if (e.match(Fo)) return e.slice(-2);
           }
         ]
       ]);
-    function Fo(e) {
+    function jo(e) {
       e.forEach(function (e) {
         if (
           "SELECT" === e.element.tagName &&
@@ -15121,23 +15160,23 @@ var webClient;
         ) {
           var t = (function (e) {
             for (var t = 0, n = Array.from(e.querySelectorAll("option")); t < n.length; t++)
-              for (var r = n[t], o = 0, i = Array.from(Mo); o < i.length; o++) {
+              for (var r = n[t], o = 0, i = Array.from(Uo); o < i.length; o++) {
                 var a = p(i[o], 2),
                   s = a[0];
-                if ((0, a[1])(Gr(r))) return s;
+                if ((0, a[1])(Xr(r))) return s;
               }
           })(e.element);
           if (t) {
-            t === Do.Month && (e.finalIdentification = dt.CardExpirationMonth),
-              t === Do.Year && (e.finalIdentification = dt.CardExpirationYear);
-            var n = Mo.get(t);
+            t === Bo.Month && (e.finalIdentification = dt.CardExpirationMonth),
+              t === Bo.Year && (e.finalIdentification = dt.CardExpirationYear);
+            var n = Uo.get(t);
             n &&
               (e.mapping = (function (e, t) {
                 var n = Array.from(e.querySelectorAll("option")),
                   r = {};
                 return (
                   n.forEach(function (e) {
-                    var n = t(Gr(e));
+                    var n = t(Xr(e));
                     n && (r[n] = e.value);
                   }),
                   r
@@ -15147,8 +15186,8 @@ var webClient;
         }
       });
     }
-    function Bo(e, t, n, r, o, i, a) {
-      var s = e.filter(Qr),
+    function Go(e, t, n, r, o, i, a) {
+      var s = e.filter(ao),
         u = (function (e) {
           return (
             !!e.every(function (t, n) {
@@ -15161,40 +15200,40 @@ var webClient;
             })
           );
         })(s);
-      Xr(s, t).forEach(function (e) {
-        lo(e),
+      io(s, t).forEach(function (e) {
+        yo(e),
           (function (e, t) {
             var n = e.find(function (e) {
               return e.finalIdentification === dt.SiteNewPassword;
             });
-            if (n && go(n, t, _o)) {
+            if (n && bo(n, t, So)) {
               var r = e.indexOf(n),
                 o = e[r - 1];
-              o && "password" === o.typeAttr ? (o.finalIdentification = dt.SiteNewPassword) : (n.finalIdentification = dt.SitePassword);
+              o && Kr(o, "password") ? (o.finalIdentification = dt.SiteNewPassword) : (n.finalIdentification = dt.SitePassword);
             }
           })(e, t),
           (function (e) {
             e.forEach(function (e) {
-              e.finalIdentification && "SELECT" === e.element.nodeName && !Po.has(e.finalIdentification) && delete e.finalIdentification;
+              e.finalIdentification && "SELECT" === e.element.nodeName && !Lo.has(e.finalIdentification) && delete e.finalIdentification;
             });
           })(e),
           (function (e, t, n, r, o) {
-            var i = Co(e, t, r);
-            if (i) Oo(i, e);
+            var i = Po(e, t, r);
+            if (i) ko(i, e);
             else {
               if (o) {
-                var a = No(n);
-                if (a) return void Oo(a, e);
+                var a = Ro(n);
+                if (a) return void ko(a, e);
               }
-              Ao(e);
+              Io(e);
             }
           })(e, t, n, r, u),
           (function (e) {
             e.forEach(function (e) {
-              Eo(e) && "password" !== e.typeAttr && (e.finalIdentification = void 0);
+              wo(e) && !Kr(e, "password") && (e.finalIdentification = void 0);
             });
           })(e),
-          Fo(e),
+          jo(e),
           (function (e, t, n, r) {
             var o = e.filter(function (e) {
               return e.finalIdentification === dt.SiteOneTimeCode;
@@ -15224,13 +15263,13 @@ var webClient;
           })(e);
       });
     }
-    var Uo = [dt.SiteCustom, dt.SiteNewPassword],
-      jo = [dt.AddressEmailAddress, dt.AddressUserName, dt.AddressTel];
-    function Go(e) {
+    var Vo = [dt.SiteCustom, dt.SiteNewPassword],
+      Ho = [dt.AddressEmailAddress, dt.AddressUserName, dt.AddressTel];
+    function Wo(e) {
       var t = new Map();
       return (
         e.forEach(function (e) {
-          var n = pr(e.finalIdentification);
+          var n = br(e.finalIdentification);
           if (n) {
             var r = t.get(n);
             r || ((r = []), t.set(n, r)), r.push(e);
@@ -15239,8 +15278,8 @@ var webClient;
         Array.from(t.values())
       );
     }
-    function Vo(e) {
-      if (pr(e[0].finalIdentification) === ct.PaymentCard) return [e];
+    function zo(e) {
+      if (br(e[0].finalIdentification) === ct.PaymentCard) return [e];
       var t = [[]];
       return (
         e.forEach(function (e) {
@@ -15252,12 +15291,12 @@ var webClient;
                 !(
                   !e.element.form ||
                   t[t.length - 1].finalIdentification !== e.finalIdentification ||
-                  !jo.includes(e.finalIdentification)
+                  !Ho.includes(e.finalIdentification)
                 ) ||
                 !t.some(function (t) {
                   return t.finalIdentification === e.finalIdentification;
                 }) ||
-                Uo.includes(e.finalIdentification)
+                Vo.includes(e.finalIdentification)
               );
             })(e, n)
           )
@@ -15270,8 +15309,8 @@ var webClient;
         t
       );
     }
-    function Ho(e) {
-      var t = pr(e[0].finalIdentification);
+    function Yo(e) {
+      var t = br(e[0].finalIdentification);
       if (!t) throw new Error("Record type not identified");
       return {
         id: ut(),
@@ -15292,7 +15331,7 @@ var webClient;
         })
       };
     }
-    function Wo(e) {
+    function qo(e) {
       var t = [],
         n = [];
       e.forEach(function (e) {
@@ -15301,16 +15340,16 @@ var webClient;
       var r = [];
       return t.length > 0 && r.push(t), n.length > 0 && r.push(n), r;
     }
-    var zo = new Set([ct.Password, ct.Address, ct.PaymentCard]);
-    function Yo(e, t, n, r, o, i, a, s, u) {
+    var Ko = new Set([ct.Password, ct.Address, ct.PaymentCard]);
+    function $o(e, t, n, r, o, i, a, s, u) {
       e.forEach(function (e) {
-        Qr(e) &&
+        ao(e) &&
           (e.visible
             ? (e.finalIdentification = e.regexIdentification || e.autocompleteIdentification)
             : (e.finalIdentification = e.autocompleteIdentification || e.regexIdentification));
       });
-      var l = e.filter($r);
-      Bo(l, n, r, o, a, s, u),
+      var l = e.filter(oo);
+      Go(l, n, r, o, a, s, u),
         (function (e, t) {
           e.forEach(function (e) {
             if (e.finalIdentification !== dt.SiteNewPassword && e.finalIdentification !== dt.SiteOneTimeCode) {
@@ -15327,25 +15366,25 @@ var webClient;
           });
         })(l, t);
       var c = (function (e, t) {
-        return Xr(
+        return io(
           e.filter(function (e) {
             return !!e.finalIdentification;
           }),
           t
         )
-          .flatMap(Go)
-          .flatMap(Vo)
           .flatMap(Wo)
-          .map(Ho);
+          .flatMap(zo)
+          .flatMap(qo)
+          .map(Yo);
       })(l, n);
       return c.filter(function (e) {
         return (function (e, t) {
-          return zo.has(e) && !t.includes(e);
+          return Ko.has(e) && !t.includes(e);
         })(e.type, i);
       });
     }
-    var qo,
-      Ko = (function (e) {
+    var Xo,
+      Qo = (function (e) {
         return (
           (e.on = "on"),
           (e.off = "off"),
@@ -15406,7 +15445,7 @@ var webClient;
           e
         );
       })({}),
-      $o = (function (e) {
+      Zo = (function (e) {
         return (
           (e[(e.Off = 0)] = "Off"),
           (e[(e.Automatic = 1)] = "Automatic"),
@@ -15415,89 +15454,89 @@ var webClient;
           e
         );
       })({}),
-      Xo =
-        (a((qo = {}), Ko.on, { maxTokens: 1, category: $o.Automatic }),
-        a(qo, Ko.off, { maxTokens: 1, category: $o.Off }),
-        a(qo, Ko.name, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.honorificPrefix, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.givenName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.additionalName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.familyName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.honorificSuffix, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.nickname, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.username, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.newPassword, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.oneTimeCode, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.currentPassword, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.organizationTitle, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.organization, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.streetAddress, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLine1, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLine2, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLine3, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLevel4, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLevel3, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLevel2, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.addressLevel1, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.country, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.countryName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.postalCode, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccGivenName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccAdditionalName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccFamilyName, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccNumber, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccExp, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccExpMonth, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccExpYear, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccCsc, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.ccType, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.transactionCurrency, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.transactionAmount, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.language, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.bday, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.bdayDay, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.bdayMonth, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.bdayYear, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.sex, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.url, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.photo, { maxTokens: 3, category: $o.Normal }),
-        a(qo, Ko.tel, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telCountryCode, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telNational, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telAreaCode, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telLocal, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telLocalPrefix, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telLocalSuffix, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.telExtension, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.email, { maxTokens: 4, category: $o.Contact }),
-        a(qo, Ko.impp, { maxTokens: 4, category: $o.Contact }),
-        qo),
-      Qo = (function (e) {
+      Jo =
+        (a((Xo = {}), Qo.on, { maxTokens: 1, category: Zo.Automatic }),
+        a(Xo, Qo.off, { maxTokens: 1, category: Zo.Off }),
+        a(Xo, Qo.name, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.honorificPrefix, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.givenName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.additionalName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.familyName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.honorificSuffix, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.nickname, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.username, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.newPassword, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.oneTimeCode, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.currentPassword, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.organizationTitle, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.organization, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.streetAddress, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLine1, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLine2, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLine3, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLevel4, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLevel3, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLevel2, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.addressLevel1, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.country, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.countryName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.postalCode, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccGivenName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccAdditionalName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccFamilyName, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccNumber, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccExp, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccExpMonth, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccExpYear, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccCsc, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.ccType, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.transactionCurrency, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.transactionAmount, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.language, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.bday, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.bdayDay, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.bdayMonth, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.bdayYear, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.sex, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.url, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.photo, { maxTokens: 3, category: Zo.Normal }),
+        a(Xo, Qo.tel, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telCountryCode, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telNational, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telAreaCode, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telLocal, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telLocalPrefix, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telLocalSuffix, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.telExtension, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.email, { maxTokens: 4, category: Zo.Contact }),
+        a(Xo, Qo.impp, { maxTokens: 4, category: Zo.Contact }),
+        Xo),
+      ei = (function (e) {
         return (e.home = "home"), (e.work = "work"), (e.mobile = "mobile"), (e.fax = "fax"), (e.pager = "pager"), e;
       })({}),
-      Jo = (function (e) {
+      ti = (function (e) {
         return (e.shipping = "shipping"), (e.billing = "billing"), e;
       })({});
-    function Zo(e, t) {
+    function ni(e, t) {
       return Object.keys(e).some(function (e) {
         return e === t;
       });
     }
-    var ei,
-      ti = function () {
-        return { type: Ko.on, hintSet: [], scope: [], idlExposedValue: "" };
+    var ri,
+      oi = function () {
+        return { type: Qo.on, hintSet: [], scope: [], idlExposedValue: "" };
       };
-    function ni(e, t) {
+    function ii(e, t) {
       var n = e[t],
-        r = Xo[n].category;
-      if (r === $o.Off) return { type: Ko.off, hintSet: [], scope: [], idlExposedValue: "off" };
-      if (r === $o.Automatic) return { type: Ko.on, hintSet: [], scope: [], idlExposedValue: "on" };
+        r = Jo[n].category;
+      if (r === Zo.Off) return { type: Qo.off, hintSet: [], scope: [], idlExposedValue: "off" };
+      if (r === Zo.Automatic) return { type: Qo.on, hintSet: [], scope: [], idlExposedValue: "on" };
       var o = { type: n, hintSet: [], scope: [], idlExposedValue: n };
       return (
         e.length > 1 &&
           ((o = (function (e, t, n, r) {
-            if (t === $o.Contact && Zo(Qo, n[r])) {
+            if (t === Zo.Contact && ni(ei, n[r])) {
               var o = n[r];
               e.scope.unshift(o), e.hintSet.push(o), (e.idlExposedValue = "".concat(o, " ").concat(e.idlExposedValue));
             }
@@ -15505,7 +15544,7 @@ var webClient;
           })(o, r, e, --t)),
           0 !== t && t--,
           (o = (function (e, t, n) {
-            if (Zo(Jo, t[n])) {
+            if (ni(ti, t[n])) {
               var r = t[n];
               e.scope.unshift(r), e.hintSet.push(r), (e.idlExposedValue = "".concat(r, " ").concat(e.idlExposedValue));
             }
@@ -15522,99 +15561,99 @@ var webClient;
         o
       );
     }
-    function ri(e, t) {
+    function ai(e, t) {
       if (e) {
         var n = (function (e) {
           var t = e.toLowerCase().split(" ");
           if (t.length > 0) {
             var n = t.length - 1;
-            if (Xo[t[n]] && t.length <= Xo[t[n]].maxTokens) {
-              var r = ni(t, n);
+            if (Jo[t[n]] && t.length <= Jo[t[n]].maxTokens) {
+              var r = ii(t, n);
               if (r) return r;
             }
           }
         })(e);
         if (n) return n;
       }
-      return t && t.type === Ko.off ? { type: Ko.off, hintSet: [], scope: [], idlExposedValue: "" } : ti();
+      return t && t.type === Qo.off ? { type: Qo.off, hintSet: [], scope: [], idlExposedValue: "" } : oi();
     }
-    var oi =
-      (a((ei = {}), Ko.name, dt.AddressName),
-      a(ei, Ko.honorificPrefix, dt.AddressTitle),
-      a(ei, Ko.givenName, dt.AddressFirstName),
-      a(ei, Ko.additionalName, dt.AddressMiddleName),
-      a(ei, Ko.familyName, dt.AddressLastName),
-      a(ei, Ko.honorificSuffix, dt.AddressHonorificSuffix),
-      a(ei, Ko.nickname, dt.AddressNickname),
-      a(ei, Ko.username, dt.SiteUsername),
-      a(ei, Ko.newPassword, dt.SiteNewPassword),
-      a(ei, Ko.oneTimeCode, dt.SiteOneTimeCode),
-      a(ei, Ko.currentPassword, dt.SitePassword),
-      a(ei, Ko.streetAddress, dt.AddressStreetAddress),
-      a(ei, Ko.addressLine1, dt.AddressLine1),
-      a(ei, Ko.addressLine2, dt.AddressLine2),
-      a(ei, Ko.addressLine3, dt.AddressLine3),
-      a(ei, Ko.addressLevel4, dt.AddressLevel4),
-      a(ei, Ko.addressLevel3, dt.AddressLevel3),
-      a(ei, Ko.addressLevel2, dt.AddressLevel2),
-      a(ei, Ko.addressLevel1, dt.AddressLevel1),
-      a(ei, Ko.country, dt.AddressCountryCode),
-      a(ei, Ko.countryName, dt.AddressCountryName),
-      a(ei, Ko.postalCode, dt.AddressPostalCode),
-      a(ei, Ko.ccName, dt.CardNameOnCard),
-      a(ei, Ko.ccGivenName, dt.CardGivenName),
-      a(ei, Ko.ccAdditionalName, dt.CardAdditionalName),
-      a(ei, Ko.ccFamilyName, dt.CardFamilyName),
-      a(ei, Ko.ccNumber, dt.CardNumber),
-      a(ei, Ko.ccExp, dt.CardExpirationDate),
-      a(ei, Ko.ccExpMonth, dt.CardExpirationMonth),
-      a(ei, Ko.ccExpYear, dt.CardExpirationYear),
-      a(ei, Ko.ccCsc, dt.CardSecurityCode),
-      a(ei, Ko.ccType, dt.CardType),
-      a(ei, Ko.bday, dt.AddressBirthday),
-      a(ei, Ko.bdayDay, dt.AddressBirthdayDay),
-      a(ei, Ko.bdayMonth, dt.AddressBirthdayMonth),
-      a(ei, Ko.bdayYear, dt.AddressBirthdayYear),
-      a(ei, Ko.sex, dt.AddressGender),
-      a(ei, Ko.tel, dt.AddressTel),
-      a(ei, Ko.telCountryCode, dt.AddressPhoneCountryCode),
-      a(ei, Ko.telNational, dt.AddressPhoneNational),
-      a(ei, Ko.telAreaCode, dt.AddressPhoneAreaCode),
-      a(ei, Ko.telLocal, dt.AddressTelLocal),
-      a(ei, Ko.telLocalPrefix, dt.AddressPhoneLocalPrefix),
-      a(ei, Ko.telLocalSuffix, dt.AddressPhoneLocalSuffix),
-      a(ei, Ko.telExtension, dt.AddressPhoneExtension),
-      a(ei, Ko.email, dt.SiteUsername),
-      ei);
-    function ii(e, t) {
+    var si =
+      (a((ri = {}), Qo.name, dt.AddressName),
+      a(ri, Qo.honorificPrefix, dt.AddressTitle),
+      a(ri, Qo.givenName, dt.AddressFirstName),
+      a(ri, Qo.additionalName, dt.AddressMiddleName),
+      a(ri, Qo.familyName, dt.AddressLastName),
+      a(ri, Qo.honorificSuffix, dt.AddressHonorificSuffix),
+      a(ri, Qo.nickname, dt.AddressNickname),
+      a(ri, Qo.username, dt.SiteUsername),
+      a(ri, Qo.newPassword, dt.SiteNewPassword),
+      a(ri, Qo.oneTimeCode, dt.SiteOneTimeCode),
+      a(ri, Qo.currentPassword, dt.SitePassword),
+      a(ri, Qo.streetAddress, dt.AddressStreetAddress),
+      a(ri, Qo.addressLine1, dt.AddressLine1),
+      a(ri, Qo.addressLine2, dt.AddressLine2),
+      a(ri, Qo.addressLine3, dt.AddressLine3),
+      a(ri, Qo.addressLevel4, dt.AddressLevel4),
+      a(ri, Qo.addressLevel3, dt.AddressLevel3),
+      a(ri, Qo.addressLevel2, dt.AddressLevel2),
+      a(ri, Qo.addressLevel1, dt.AddressLevel1),
+      a(ri, Qo.country, dt.AddressCountryCode),
+      a(ri, Qo.countryName, dt.AddressCountryName),
+      a(ri, Qo.postalCode, dt.AddressPostalCode),
+      a(ri, Qo.ccName, dt.CardNameOnCard),
+      a(ri, Qo.ccGivenName, dt.CardGivenName),
+      a(ri, Qo.ccAdditionalName, dt.CardAdditionalName),
+      a(ri, Qo.ccFamilyName, dt.CardFamilyName),
+      a(ri, Qo.ccNumber, dt.CardNumber),
+      a(ri, Qo.ccExp, dt.CardExpirationDate),
+      a(ri, Qo.ccExpMonth, dt.CardExpirationMonth),
+      a(ri, Qo.ccExpYear, dt.CardExpirationYear),
+      a(ri, Qo.ccCsc, dt.CardSecurityCode),
+      a(ri, Qo.ccType, dt.CardType),
+      a(ri, Qo.bday, dt.AddressBirthday),
+      a(ri, Qo.bdayDay, dt.AddressBirthdayDay),
+      a(ri, Qo.bdayMonth, dt.AddressBirthdayMonth),
+      a(ri, Qo.bdayYear, dt.AddressBirthdayYear),
+      a(ri, Qo.sex, dt.AddressGender),
+      a(ri, Qo.tel, dt.AddressTel),
+      a(ri, Qo.telCountryCode, dt.AddressPhoneCountryCode),
+      a(ri, Qo.telNational, dt.AddressPhoneNational),
+      a(ri, Qo.telAreaCode, dt.AddressPhoneAreaCode),
+      a(ri, Qo.telLocal, dt.AddressTelLocal),
+      a(ri, Qo.telLocalPrefix, dt.AddressPhoneLocalPrefix),
+      a(ri, Qo.telLocalSuffix, dt.AddressPhoneLocalSuffix),
+      a(ri, Qo.telExtension, dt.AddressPhoneExtension),
+      a(ri, Qo.email, dt.SiteUsername),
+      ri);
+    function ui(e, t) {
       (e.autocompleteIdentification = (function (e) {
         if (e.autocompleteAttr) {
-          var t = ri(e.autocompleteAttr);
-          return oi[t.type];
+          var t = ai(e.autocompleteAttr);
+          return si[t.type];
         }
       })(e)),
-        (e.regexIdentification = go(e, t));
+        (e.regexIdentification = bo(e, t));
     }
-    var ai,
-      si = 0,
-      ui = new Set();
-    function li() {
-      si = 0;
+    var li,
+      ci = 0,
+      fi = new Set();
+    function di() {
+      ci = 0;
     }
-    function ci() {
-      ++si, clearTimeout(ai), (ai = setTimeout(li, 1e3));
+    function pi() {
+      ++ci, clearTimeout(li), (li = setTimeout(di, 1e3));
     }
-    function fi() {
-      --si,
-        ui.forEach(function (e) {
+    function hi() {
+      --ci,
+        fi.forEach(function (e) {
           return e();
         });
     }
-    function di() {
-      return pi.apply(this, arguments);
+    function mi() {
+      return vi.apply(this, arguments);
     }
-    function pi() {
-      return (pi = A(
+    function vi() {
+      return (vi = A(
         S().mark(function e() {
           var t, n;
           return S().wrap(function (e) {
@@ -15627,12 +15666,12 @@ var webClient;
                       "return",
                       new Promise(function (e) {
                         function r() {
-                          clearTimeout(n), 0 == si ? (++t > 5 ? (ui.delete(r), e()) : (n = setTimeout(r, 10))) : (t = 0);
+                          clearTimeout(n), 0 == ci ? (++t > 5 ? (fi.delete(r), e()) : (n = setTimeout(r, 10))) : (t = 0);
                         }
-                        ui.add(r),
+                        fi.add(r),
                           r(),
                           setTimeout(function () {
-                            clearTimeout(n), ui.delete(r), e();
+                            clearTimeout(n), fi.delete(r), e();
                           }, 1e3);
                       })
                     )
@@ -15645,14 +15684,14 @@ var webClient;
         })
       )).apply(this, arguments);
     }
-    function hi(e) {
+    function yi(e) {
       var t = {};
       return (
         e.forEach(function (e) {
           var n = {};
           e.fields.forEach(function (e) {
             var t = Fe(e.id);
-            if (t && Ot(t)) {
+            if (t && Rt(t)) {
               var r = t.value;
               r && (n[e.id] = { id: e.id, value: r });
             }
@@ -15662,44 +15701,44 @@ var webClient;
         t
       );
     }
-    function mi(e) {
+    function gi(e) {
       return e.map(function (e) {
-        var t = Rr(e);
+        var t = jr(e);
         return u(u({}, e), {}, { clickable: t });
       });
     }
-    document.addEventListener("transitionstart", ci, !0),
-      document.addEventListener("animationstart", ci, !0),
-      document.addEventListener("transitionend", fi, !0),
-      document.addEventListener("animationend", fi, !0),
-      document.addEventListener("transitioncancel", fi, !0),
-      document.addEventListener("animationcancel", fi, !0);
-    var vi = function (e) {
+    document.addEventListener("transitionstart", pi, !0),
+      document.addEventListener("animationstart", pi, !0),
+      document.addEventListener("transitionend", hi, !0),
+      document.addEventListener("animationend", hi, !0),
+      document.addEventListener("transitioncancel", hi, !0),
+      document.addEventListener("animationcancel", hi, !0);
+    var _i = function (e) {
         var t = e.pathname,
-          n = Ct(),
-          r = Fr(),
-          o = En(),
-          i = kt(function (e) {
+          n = Ot(),
+          r = zr(),
+          o = Cn(),
+          i = Dt(function (e) {
             return e.multiStepLogin;
           }),
-          a = kt(function (e) {
+          a = Dt(function (e) {
             return e.customLoginSelectors;
           }),
-          s = kt(function (e) {
+          s = Dt(function (e) {
             return e.hasMatchingPassword;
           }),
-          l = kt(function (e) {
+          l = Dt(function (e) {
             return e.disabledVaultRecordTypes;
           }),
           c = (0, C.useRef)(new Map()),
-          f = kt(function (e) {
+          f = Dt(function (e) {
             return e.hasTotpRecord;
           }),
-          d = kt(function (e) {
+          d = Dt(function (e) {
             return e.authPushtotpData;
           }),
           p = (0, C.useRef)(),
-          h = qr(
+          h = no(
             A(
               S().mark(function e() {
                 var h, m, v;
@@ -15707,7 +15746,7 @@ var webClient;
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
-                        return (e.next = 2), di();
+                        return (e.next = 2), mi();
                       case 2:
                         r &&
                           ((h = r.map(function (e) {
@@ -15715,8 +15754,8 @@ var webClient;
                             if (!t) throw new Error("Could not find identifiable element");
                             return u({}, t);
                           })),
-                          (m = Yo(h, a, o, t, s, l, i, f, d)),
-                          (v = Wr(p.current, m)) !== p.current && (n.setSections(mi(v), hi(v), o), (p.current = v)));
+                          (m = $o(h, a, o, t, s, l, i, f, d)),
+                          (v = Jr(p.current, m)) !== p.current && (n.setSections(gi(v), yi(v), o), (p.current = v)));
                       case 3:
                       case "end":
                         return e.stop();
@@ -15738,9 +15777,9 @@ var webClient;
                 (r.forEach(function (e) {
                   if (!c.current.has(e.id)) {
                     var t = (function (e, t) {
-                      return u({ id: e, element: t, visible: !Br(t), label: Yr(t), ariaLabel: Vr(t) }, jr(t));
+                      return u({ id: e, element: t, visible: !Yr(t), label: to(t), ariaLabel: Qr(t) }, $r(t));
                     })(e.id, e.dom);
-                    ii(t, o), c.current.set(e.id, t);
+                    ui(t, o), c.current.set(e.id, t);
                   }
                 }),
                 h());
@@ -15758,9 +15797,9 @@ var webClient;
                 });
               })(n, t)
             ) {
-              "password" === n.typeAttr && delete t.typeAttr;
+              Kr(n, "password") && delete t.typeAttr;
               var r = u(u({}, n), t);
-              ii(r, o), c.current.set(r.id, r), h();
+              ui(r, o), c.current.set(r.id, r), h();
             }
           },
           [o, h]
@@ -15771,7 +15810,7 @@ var webClient;
               if (r) {
                 var e = setInterval(function () {
                   c.current.forEach(function (e) {
-                    m(e.id, { visible: !Br(e.element) });
+                    m(e.id, { visible: !Yr(e.element) });
                   });
                 }, 1e3);
                 return function () {
@@ -15781,18 +15820,18 @@ var webClient;
             },
             [r, m]
           ),
-          (0, Sn.jsx)(Sn.Fragment, {
+          (0, On.jsx)(On.Fragment, {
             children:
               r &&
               r.map(function (e) {
-                return (0, Sn.jsx)(Hr, { id: e.id, element: e.dom, updateInfo: m }, e.id);
+                return (0, On.jsx)(Zr, { id: e.id, element: e.dom, updateInfo: m }, e.id);
               })
           })
         );
       },
-      yi = function () {
-        var e = Ct(),
-          t = kt(function (e) {
+      Ei = function () {
+        var e = Ot(),
+          t = Dt(function (e) {
             return e.crossDomainFillConfirmationMessage;
           });
         return (
@@ -15808,9 +15847,9 @@ var webClient;
           null
         );
       };
-    function gi(e) {
+    function bi(e) {
       if (e) {
-        var t = Bn();
+        var t = Yn();
         if (0 === e.indexOf(t)) {
           var n = (function (e, t) {
             var n = e.split(":");
@@ -15826,28 +15865,29 @@ var webClient;
       }
       var r;
     }
-    var _i = function () {
-        var e = gi(
-            kt(function (e) {
-              return e.infieldIframeCalculateOffset;
+    var Si = function () {
+        var e = bi(
+            Dt(function (e) {
+              var t;
+              return null === (t = e.infieldIframeCalculateOffset) || void 0 === t ? void 0 : t.split("-")[0];
             })
           ),
-          t = Ct();
+          t = Ot();
         return (
           (0, C.useEffect)(
             function () {
-              e && t.setParentFrameOffset(Dn(e), Bn());
+              e && t.setParentFrameOffset(Hn(e), Yn());
             },
             [e, t]
           ),
           null
         );
       },
-      Ei = function () {
+      wi = function () {
         var e = xe(),
-          t = Fr();
+          t = zr();
         return (
-          Un(
+          qn(
             "change",
             (function () {
               var t = A(
@@ -15860,7 +15900,7 @@ var webClient;
                             t.next = 5;
                             break;
                           }
-                          return (t.next = 3), Pt(n.target);
+                          return (t.next = 3), kt(n.target);
                         case 3:
                           if (!t.sent) {
                             t.next = 5;
@@ -15896,13 +15936,13 @@ var webClient;
                                 n.next = 21;
                                 break;
                               }
-                              (r = qt(t)), (n.prev = 2), r.s();
+                              (r = $t(t)), (n.prev = 2), r.s();
                             case 4:
                               if ((o = r.n()).done) {
                                 n.next = 13;
                                 break;
                               }
-                              return (i = o.value), (n.next = 8), Pt(i.dom);
+                              return (i = o.value), (n.next = 8), kt(i.dom);
                             case 8:
                               if (!n.sent) {
                                 n.next = 11;
@@ -15940,7 +15980,7 @@ var webClient;
           null
         );
       },
-      bi = function () {
+      Ai = function () {
         var e = xe();
         return (
           (0, C.useEffect)(
@@ -15964,11 +16004,11 @@ var webClient;
           null
         );
       },
-      Si = ["checkbox", "radio"],
-      wi = function () {
+      Ti = ["checkbox", "radio"],
+      xi = function () {
         var e = xe();
         return (
-          Un(
+          qn(
             "change",
             function (t) {
               if (t.isTrusted) {
@@ -15976,7 +16016,7 @@ var webClient;
                   r = n && (n.name || n.id),
                   o = n.type;
                 n &&
-                  !Si.includes(o) &&
+                  !Ti.includes(o) &&
                   e(
                     Tt.enteredUserData({
                       name: r,
@@ -15998,9 +16038,9 @@ var webClient;
           null
         );
       };
-    var Ai = function (e) {
+    var Ii = function (e) {
       var t = e.activeElementId,
-        n = kt(function (e) {
+        n = Dt(function (e) {
           return e.infieldContainer;
         }),
         r = Fe(t),
@@ -16011,14 +16051,14 @@ var webClient;
             window.scrollTo({ behavior: "smooth", top: n.position.top + n.height - window.innerHeight });
         };
       return (
-        Un(
+        qn(
           "keyup",
           function () {
             return o();
           },
           r
         ),
-        Un(
+        qn(
           "mouseup",
           function () {
             return o();
@@ -16028,15 +16068,15 @@ var webClient;
         null
       );
     };
-    var Ti = function () {
+    var Ci = function () {
       var e = (function () {
-          var e = kt(function (e) {
+          var e = Dt(function (e) {
               return e.sections;
             }),
-            t = kt(function (e) {
+            t = Dt(function (e) {
               return e.autofillPassword;
             }),
-            n = kt(function (e) {
+            n = Dt(function (e) {
               return e.numberManualFillPasswords;
             });
           if (!t && 1 === e.length) {
@@ -16056,23 +16096,23 @@ var webClient;
         null
       );
     };
-    var xi = function () {
-        var e = Ct(),
-          t = kt(function (e) {
+    var Ni = function () {
+        var e = Ot(),
+          t = Dt(function (e) {
             return e.onboardingField;
           }),
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return e.inContextOnboarding;
           });
         return (
-          jt(function () {}),
+          Vt(function () {}),
           (0, C.useEffect)(
             function () {
               if (n && t) {
                 var r = Fe(t.id);
                 if (r) {
-                  var o = qn(r);
-                  e.openInfield(t.sectionId, o, Mn(r), Bn(), { top: 0, left: 0, width: 0, height: 0 }, Zn.FieldFocus, !!n);
+                  var o = tr(r);
+                  e.openInfield(t.sectionId, o, Wn(r), Yn(), { top: 0, left: 0, width: 0, height: 0 }, sr.FieldFocus, !!n);
                 }
               }
             },
@@ -16081,7 +16121,7 @@ var webClient;
           null
         );
       },
-      Ii = (function (e) {
+      Oi = (function (e) {
         return (
           (e[(e.GeneratePassword = 0)] = "GeneratePassword"),
           (e[(e.FillNext = 1)] = "FillNext"),
@@ -16092,22 +16132,22 @@ var webClient;
           e
         );
       })({}),
-      Ci = 4294967296;
-    function Ni(e, t) {
+      Pi = 4294967296;
+    function Ri(e, t) {
       return (
         (e = Math.ceil(e)),
-        (t = Math.min(Math.floor(t), Ci)),
+        (t = Math.min(Math.floor(t), Pi)),
         Math.floor(
           (function () {
             var e = new Uint32Array(1);
-            return crypto.getRandomValues(e)[0] / (Ci + 1);
+            return crypto.getRandomValues(e)[0] / (Pi + 1);
           })() *
             (t - e + 1) +
             e
         )
       );
     }
-    var Oi = (function (e) {
+    var ki = (function (e) {
         return (
           (e.SET_CONFIGURATION = "[generate password] set configuration"),
           (e.SAVE_GENERATED_PASSWORD_HISTORY = "[generate password] save generated password history"),
@@ -16117,27 +16157,27 @@ var webClient;
           e
         );
       })({}),
-      Pi = {
+      Li = {
         setConfiguration: function (e, t) {
-          return Be(Oi.SET_CONFIGURATION, { configurationType: e, value: t });
+          return Be(ki.SET_CONFIGURATION, { configurationType: e, value: t });
         },
         saveGeneratedPasswordHistory: function (e) {
-          return Be(Oi.SAVE_GENERATED_PASSWORD_HISTORY, e);
+          return Be(ki.SAVE_GENERATED_PASSWORD_HISTORY, e);
         },
         resetPasswordHistory: function () {
-          return Be(Oi.RESET_GENERATED_PASSWORD_HISTORY);
+          return Be(ki.RESET_GENERATED_PASSWORD_HISTORY);
         },
         setShowSecurityTip: function (e) {
-          return Be(Oi.SET_SHOW_SECURITY_TIP, { show: e });
+          return Be(ki.SET_SHOW_SECURITY_TIP, { show: e });
         },
         trackEvent: function (e, t) {
-          return Ue(Oi.TRACK, { action: e, source: t });
+          return Ue(ki.TRACK, { action: e, source: t });
         }
       };
-    var Ri = function (e, t, n, r) {
+    var Di = function (e, t, n, r) {
         var o = arguments.length > 4 && void 0 !== arguments[4] ? arguments[4] : 1,
           i = xe(),
-          a = Pi,
+          a = Li,
           s = p((0, C.useState)(""), 2),
           u = s[0],
           l = s[1],
@@ -16160,7 +16200,7 @@ var webClient;
             return e.generatePassword.generatedPasswordHistory;
           }),
           y = Oe(function (e) {
-            return e.settings.features[Lt.PASSWORD_STRENGTH_HARDENING];
+            return e.settings.features[Mt.PASSWORD_STRENGTH_HARDENING];
           }),
           g = (0, C.useCallback)(
             function (e, t) {
@@ -16199,7 +16239,7 @@ var webClient;
                   if (o && l > 0) for (var h = 0; h < l; h++) c[c.length] = "S";
                   for (; c.length < e; ) c[c.length] = "A";
                   c.sort(function () {
-                    return 2 * Ni(0, 1) - 1;
+                    return 2 * Ri(0, 1) - 1;
                   });
                   var m = "",
                     v = "abcdefghjkmnpqrstuvwxyz";
@@ -16228,7 +16268,7 @@ var webClient;
                       case "A":
                         S = m;
                     }
-                    var w = Ni(0, S.length - 1);
+                    var w = Ri(0, S.length - 1);
                     E += S.charAt(w);
                   }
                   return E;
@@ -16253,10 +16293,8 @@ var webClient;
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
-                        return (t.next = 2), navigator.clipboard.writeText(n);
+                        i(Nt(n)), i(Li.trackEvent("Copy", e));
                       case 2:
-                        i(Pi.trackEvent("Copy", e));
-                      case 3:
                       case "end":
                         return t.stop();
                     }
@@ -16281,43 +16319,43 @@ var webClient;
           passwordHistory: v,
           saveGeneratedPasswordToHistory: g,
           fillGeneratedPassword: function () {
-            t && (i(Tt.fillGeneratedPassword(t, u, e, r)), i(Pi.trackEvent("Fill", e)));
+            t && (i(Tt.fillGeneratedPassword(t, u, e, r)), i(Li.trackEvent("Fill", e)));
           },
           passwordStrengthHardeningEnabled: y
         };
       },
-      ki = (function (e) {
+      Mi = (function (e) {
         return (e.COPIED = "COPIED"), (e.FILLED = "FILLED"), e;
       })({}),
-      Li = function () {
+      Fi = function () {
         var e = xe(),
-          t = kt(function (e) {
+          t = Dt(function (e) {
             return e.settings.extensionPreferences;
           }),
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return e.topPage;
           }),
-          r = kt(function (e) {
+          r = Dt(function (e) {
             return e.topPageUnproxiedUrl;
           }),
-          o = kt(function (e) {
+          o = Dt(function (e) {
             return e.minimumTabPasswordLength;
           }),
-          i = Ri("Hotkey", n, r, void 0, o),
+          i = Di("Hotkey", n, r, void 0, o),
           a = i.generatedPassword,
           s = i.refreshGeneratedPassword,
           u = i.saveGeneratedPasswordToHistory,
           l = i.copyGeneratedPasswordToClipboard,
           c = [
-            { action: Ii.GeneratePassword, keyCode: t.generateHkKeyCode, modifiers: t.generateHkMods.split(" ") },
-            { action: Ii.FillNext, keyCode: t.nextHkKeyCode, modifiers: t.nextHkMods.split(" ") },
-            { action: Ii.FillPrevious, keyCode: t.prevHkKeyCode, modifiers: t.prevHkMods.split(" ") },
-            { action: Ii.OpenVault, keyCode: t.homeHkKeyCode, modifiers: t.homeHkMods.split(" ") },
-            { action: Ii.SaveAllEnteredData, keyCode: t.saveallHkKeyCode, modifiers: t.saveallHkMods.split(" ") },
-            { action: Ii.Logout, keyCode: t.logoffHkKeyCode, modifiers: t.logoffHkMods.split(" ") }
+            { action: Oi.GeneratePassword, keyCode: t.generateHkKeyCode, modifiers: t.generateHkMods.split(" ") },
+            { action: Oi.FillNext, keyCode: t.nextHkKeyCode, modifiers: t.nextHkMods.split(" ") },
+            { action: Oi.FillPrevious, keyCode: t.prevHkKeyCode, modifiers: t.prevHkMods.split(" ") },
+            { action: Oi.OpenVault, keyCode: t.homeHkKeyCode, modifiers: t.homeHkMods.split(" ") },
+            { action: Oi.SaveAllEnteredData, keyCode: t.saveallHkKeyCode, modifiers: t.saveallHkMods.split(" ") },
+            { action: Oi.Logout, keyCode: t.logoffHkKeyCode, modifiers: t.logoffHkMods.split(" ") }
           ];
         return (
-          Un("keydown", function (t) {
+          qn("keydown", function (t) {
             if (!1 !== t.isTrusted) {
               var n = 0 != t.keyCode ? t.keyCode : t.charCode;
               if (!(n < 32)) {
@@ -16339,9 +16377,9 @@ var webClient;
                   });
                   o &&
                     (t.preventDefault(),
-                    o.action === Ii.GeneratePassword
-                      ? (l(a), u(a, ki.COPIED), s())
-                      : o.action === Ii.Logout
+                    o.action === Oi.GeneratePassword
+                      ? (l(a), u(a, Mi.COPIED), s())
+                      : o.action === Oi.Logout
                       ? e(Tt.initiateLogout())
                       : e(Tt.hotkeyAction(o.action)));
                 }
@@ -16351,7 +16389,7 @@ var webClient;
           null
         );
       };
-    var Di = function (e) {
+    var Bi = function (e) {
       var t = e.pageUrl,
         n = xe(),
         r = new URL(t),
@@ -16369,15 +16407,19 @@ var webClient;
       return (
         (0, C.useEffect)(
           function () {
-            s === u && "/create-account/success" === i && a && n(or());
+            s === u && "/create-account/success" === i && a && n(dr());
           },
           [n, s, u, i, a]
         ),
         null
       );
     };
-    var Mi = "/vault/vault.html",
-      Fi = (function (e) {
+    function Ui(e, t) {
+      var n = new URL(t);
+      return n.origin === e && n.searchParams.has("ac");
+    }
+    var ji = "/vault/vault.html",
+      Gi = (function (e) {
         return (
           (e.LEGACY_LOGIN = "[user] legacy login"),
           (e.LOGIN = "[user] login"),
@@ -16393,16 +16435,54 @@ var webClient;
           (e.SET_VALID_SESSION = "[user] set valid session"),
           (e.SET_DEBUG_MODE = "[user] set debug mode"),
           (e.SET_DISABLE_PASSWORD_ALERTS = "[user] set disable password alerts"),
+          (e.ENFORCE_MP_RESET = "[user] enforce MP reset"),
           e
         );
       })({}),
-      Bi = function (e) {
-        return Be(Fi.LOGIN, { user: e });
-      },
-      Ui = function (e) {
-        return Be(Fi.UPDATE_ACCOUNTS_VERSION, { version: e });
-      },
-      ji = (function (e) {
+      Vi = function (e) {
+        return Be(Gi.LOGIN, { user: e });
+      };
+    function Hi(e, t) {
+      var n = (0, C.useCallback)(
+        function (t) {
+          return window.postMessage(t, e);
+        },
+        [e]
+      );
+      return (
+        qn(
+          "message",
+          (function () {
+            var r = A(
+              S().mark(function r(o) {
+                var i;
+                return S().wrap(function (r) {
+                  for (;;)
+                    switch ((r.prev = r.next)) {
+                      case 0:
+                        if (o.origin !== e || !o.data) {
+                          r.next = 5;
+                          break;
+                        }
+                        return (r.next = 3), t(o.data);
+                      case 3:
+                        (i = r.sent) && n(i);
+                      case 5:
+                      case "end":
+                        return r.stop();
+                    }
+                }, r);
+              })
+            );
+            return function (e) {
+              return r.apply(this, arguments);
+            };
+          })()
+        ),
+        n
+      );
+    }
+    var Wi = (function (e) {
         return (
           (e.INITIALIZE = "[secondary onboarding] initialize"),
           (e.CLAIM_REWARD = "[secondary onboarding] claim reward"),
@@ -16453,10 +16533,10 @@ var webClient;
           e
         );
       })({}),
-      Gi = function (e) {
-        return Be(ji.OPEN_ICOB, { site: e });
+      zi = function (e) {
+        return Be(Wi.OPEN_ICOB, { site: e });
       },
-      Vi = (function (e) {
+      Yi = (function (e) {
         return (
           (e.LANGUAGE = "[settings] language"),
           (e.FEATURES = "[settings] features"),
@@ -16482,10 +16562,34 @@ var webClient;
           e
         );
       })({}),
-      Hi = function (e) {
-        return Be(Vi.SET_EXTENSION_PREFERENCES, { extensionPreferences: e });
+      qi = function (e) {
+        return Be(Yi.SET_EXTENSION_PREFERENCES, { extensionPreferences: e });
       },
-      Wi = (function (e) {
+      Ki = function (e) {
+        var t = e.user,
+          n = e.sendVaultMessage,
+          r = Dt(function (e) {
+            return e.vaultVersion;
+          });
+        return (
+          Vt(function () {
+            return (
+              n({ type: $i.LOGIN, payload: t }),
+              function () {
+                n({ type: $i.LOGOUT });
+              }
+            );
+          }),
+          (0, C.useEffect)(
+            function () {
+              n({ type: $i.VAULT_VERSION, payload: { version: r } });
+            },
+            [r]
+          ),
+          null
+        );
+      },
+      $i = (function (e) {
         return (
           (e.LOGIN = "[web-ext-api] login"),
           (e.LOGOUT = "[web-ext-api] logout"),
@@ -16496,81 +16600,88 @@ var webClient;
           (e.IDENTITY = "[web-ext-api] identity"),
           e
         );
-      })(Wi || {}),
-      zi = function () {
-        var e = kt(function (e) {
+      })({}),
+      Xi = function () {
+        var e = Dt(function (e) {
             return e.user;
           }),
-          t = kt(function (e) {
-            return e.vaultVersion;
-          }),
-          n = p((0, C.useState)(!1), 2),
-          r = n[0],
-          o = n[1],
-          i = xe(),
-          a = (0, C.useRef)(),
-          s = (0, C.useRef)();
+          t = p((0, C.useState)(!1), 2),
+          n = t[0],
+          r = t[1],
+          o = xe(),
+          i = Hi(
+            location.origin,
+            (function () {
+              var e = A(
+                S().mark(function e(t) {
+                  return S().wrap(function (e) {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          if ("extension" === t.origin) {
+                            e.next = 17;
+                            break;
+                          }
+                          (e.t0 = t.type),
+                            (e.next =
+                              e.t0 === $i.LOGIN
+                                ? 4
+                                : e.t0 === $i.LOGOUT
+                                ? 6
+                                : e.t0 === $i.VAULT_VERSION
+                                ? 8
+                                : e.t0 === $i.LAUNCH
+                                ? 10
+                                : e.t0 === $i.INITIALIZED
+                                ? 12
+                                : e.t0 === $i.OPEN_ICOB
+                                ? 14
+                                : e.t0 === $i.IDENTITY
+                                ? 16
+                                : 17);
+                          break;
+                        case 4:
+                          return o(Vi(t.payload)), e.abrupt("break", 17);
+                        case 6:
+                          return o(Tt.initiateLogout()), e.abrupt("break", 17);
+                        case 8:
+                          return o(Tt.pollVaultVersion()), e.abrupt("break", 17);
+                        case 10:
+                          return (
+                            t.payload.record
+                              ? o(Tt.offlineLaunch(t.payload.record, t.payload.version))
+                              : o(Tt.vaultStateSyncLaunch(t.payload.id)),
+                            e.abrupt("break", 17)
+                          );
+                        case 12:
+                          return n || (r(!0), a({ type: $i.INITIALIZED })), e.abrupt("break", 17);
+                        case 14:
+                          return o(zi(t.payload.site)), e.abrupt("break", 17);
+                        case 16:
+                          o(qi({ identity: t.payload.id }));
+                        case 17:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })()
+          ),
+          a = function (e) {
+            i(u(u({}, e), {}, { origin: "extension" }));
+          };
         return (
-          (0, C.useEffect)(
-            function () {
-              r &&
-                (e && e.key && e.username
-                  ? JSON.stringify(a.current) !== JSON.stringify(e) &&
-                    window.postMessage(
-                      {
-                        type: Wi.LOGIN,
-                        payload: { key: e.key, username: e.username, sessionId: e.session, iterations: e.iterations },
-                        origin: "extension"
-                      },
-                      location.origin
-                    )
-                  : a.current && window.postMessage({ type: Wi.LOGOUT, origin: "extension" }, location.origin),
-                (a.current = e));
-            },
-            [e, r]
-          ),
-          (0, C.useEffect)(
-            function () {
-              r &&
-                (s.current !== t &&
-                  window.postMessage({ type: Wi.VAULT_VERSION, payload: { version: t }, origin: "extension" }, location.origin),
-                (s.current = t));
-            },
-            [t, r]
-          ),
-          Un("message", function (e) {
-            var n = e.data;
-            if (e.origin === location.origin && "extension" !== n.origin)
-              switch (n.type) {
-                case Wi.LOGIN:
-                  (a.current = n.payload), i(Bi(n.payload));
-                  break;
-                case Wi.LOGOUT:
-                  (a.current = void 0), i(Tt.initiateLogout());
-                  break;
-                case Wi.VAULT_VERSION:
-                  (s.current = n.payload.version), n.payload.version > t && i(Ui(n.payload.version));
-                  break;
-                case Wi.LAUNCH:
-                  n.payload.record ? i(Tt.offlineLaunch(n.payload.record, n.payload.version)) : i(Tt.vaultStateSyncLaunch(n.payload.id));
-                  break;
-                case Wi.INITIALIZED:
-                  r || o(!0);
-                  break;
-                case Wi.OPEN_ICOB:
-                  i(Gi(n.payload.site));
-                  break;
-                case Wi.IDENTITY:
-                  i(Hi({ identity: n.payload.id }));
-              }
-          }),
           (0, C.useEffect)(function () {
-            window.postMessage({ type: Wi.INITIALIZED, origin: "extension" }, location.origin);
+            a({ type: $i.INITIALIZED });
           }, []),
-          null
+          e && n ? (0, On.jsx)(Ki, { user: e, sendVaultMessage: a }) : null
         );
       };
-    function Yi(e) {
+    function Qi(e) {
       return "undefined" !== typeof chrome
         ? new Promise(function (t, n) {
             chrome.runtime.sendMessage(e, function (e) {
@@ -16579,169 +16690,146 @@ var webClient;
           })
         : browser.runtime.sendMessage(e);
     }
-    var qi = (function (e) {
-      return (
-        (e.INITIALIZE = "initialize"),
-        (e.INITIALIZATION = "initialization"),
-        (e.BACKGROUND_REQUEST = "backgroundRequest"),
-        (e.BACKGROUND_RESPONSE = "backgroundResponse"),
-        (e.FEDERATED_MESSAGE = "federatedMessage"),
-        e
-      );
-    })({});
-    var Ki = function () {
-      var e,
-        t,
-        n = kt(function (e) {
-          return e.baseUrl;
-        }),
-        r = xe(),
-        o = kt(function (e) {
-          return e.webauthnData;
-        }),
-        i = kt(function (e) {
-          return e.isFederated;
-        });
-      return (
-        (e = n),
-        (t = (function () {
-          var e = A(
-            S().mark(function e(t) {
-              var n, r, o, a;
-              return S().wrap(function (e) {
-                for (;;)
-                  switch ((e.prev = e.next)) {
-                    case 0:
-                      (e.t0 = t.type), (e.next = e.t0 === qi.INITIALIZE ? 3 : e.t0 === qi.BACKGROUND_REQUEST ? 4 : 20);
-                      break;
-                    case 3:
-                      return e.abrupt("return", {
-                        data: {
-                          frameID: 1,
-                          request: { childFrameCount: t.data.childFrameCount, initializationID: t.data.initializationID, url: t.data.url },
-                          tabID: 2090005804,
-                          topFrameID: 14
-                        },
-                        frameID: 1,
-                        fromExtension: !0,
-                        type: qi.INITIALIZATION
-                      });
-                    case 4:
-                      if ("FederatedLogin" !== t.data.cmd[0]) {
-                        e.next = 20;
-                        break;
-                      }
-                      (n = t.data.cmd[1]), (e.t1 = n), (e.next = "getPassword" === e.t1 ? 9 : "isFederated" === e.t1 ? 19 : 20);
-                      break;
-                    case 9:
-                      return (e.next = 11), Yi({ username: t.data.args[0], type: qi.FEDERATED_MESSAGE });
-                    case 11:
-                      if (((r = e.sent), (o = r.success), (a = r.error), !o)) {
-                        e.next = 18;
-                        break;
-                      }
-                      return e.abrupt("return", {
-                        data: {
-                          args: [
-                            o.federatedPassword,
-                            o.federatedLoginDetails.authSessionId,
-                            o.federatedLoginDetails.fragmentIdFromAlp,
-                            o.federatedLoginDetails.calculatedFragmentId
-                          ],
-                          responseRequestID: t.data.requestID,
-                          callbackPath: ["1"]
-                        },
-                        frameID: 1,
-                        type: qi.BACKGROUND_RESPONSE,
-                        fromExtension: !0
-                      });
-                    case 18:
-                      return e.abrupt("return", {
-                        data: { args: [a], responseRequestID: t.data.requestID, callbackPath: ["2"] },
-                        frameID: 1,
-                        type: qi.BACKGROUND_RESPONSE,
-                        fromExtension: !0
-                      });
-                    case 19:
-                      return e.abrupt("return", {
-                        data: { args: [i], responseRequestID: t.data.requestID, callbackPath: ["1"] },
-                        frameID: 1,
-                        type: qi.BACKGROUND_RESPONSE,
-                        fromExtension: !0
-                      });
-                    case 20:
-                    case "end":
-                      return e.stop();
-                  }
-              }, e);
-            })
-          );
-          return function (t) {
-            return e.apply(this, arguments);
-          };
-        })()),
-        Un(
-          "message",
-          (function () {
-            var n = A(
-              S().mark(function n(r) {
-                var o;
-                return S().wrap(function (n) {
-                  for (;;)
-                    switch ((n.prev = n.next)) {
-                      case 0:
-                        if (r.origin !== e || !r.data) {
-                          n.next = 5;
-                          break;
-                        }
-                        return (n.next = 3), t(r.data);
-                      case 3:
-                        (o = n.sent) && window.postMessage(o, e);
-                      case 5:
-                      case "end":
-                        return n.stop();
-                    }
-                }, n);
-              })
-            );
-            return function (e) {
-              return n.apply(this, arguments);
-            };
-          })()
-        ),
-        (0, C.useEffect)(
-          function () {
-            o &&
-              (Nt(1e3).then(function () {
-                window.postMessage(o, n);
-              }),
-              r(nr(void 0)));
-          },
-          [n, o, r]
-        ),
-        Un("submit", function (e) {
-          var t = e.target;
-          if (t && t === document.getElementById("lpwebsiteeventform") && "login" === t.eventtype.value) {
-            var n = t.eventdata1.value,
-              o = t.eventdata2.value,
-              i = t.eventdata5.value;
-            r(Bi({ key: o, username: n, session: i, iterations: 0 }));
-          }
-        }),
-        null
-      );
-    };
-    var $i = function () {
-        var e = kt(function (e) {
+    var Zi = (function (e) {
+        return (
+          (e.INITIALIZE = "initialize"),
+          (e.INITIALIZATION = "initialization"),
+          (e.BACKGROUND_REQUEST = "backgroundRequest"),
+          (e.BACKGROUND_RESPONSE = "backgroundResponse"),
+          (e.FEDERATED_MESSAGE = "federatedMessage"),
+          e
+        );
+      })({}),
+      Ji = function (e) {
+        var t = e.origin,
+          n = Dt(function (e) {
             return e.baseUrl;
           }),
-          t = kt(function (e) {
-            return e.settings.features[Lt.VAULT_SINGLE_PAGE_APPLICATION];
+          r = xe(),
+          o = Dt(function (e) {
+            return e.webauthnData;
           }),
-          n = kt(function (e) {
+          i = Dt(function (e) {
+            return e.isFederated;
+          }),
+          a = Hi(
+            t || n,
+            (function () {
+              var e = A(
+                S().mark(function e(t) {
+                  var n, r, o, a;
+                  return S().wrap(function (e) {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          (e.t0 = t.type), (e.next = e.t0 === Zi.INITIALIZE ? 3 : e.t0 === Zi.BACKGROUND_REQUEST ? 4 : 20);
+                          break;
+                        case 3:
+                          return e.abrupt("return", {
+                            data: {
+                              frameID: 1,
+                              request: {
+                                childFrameCount: t.data.childFrameCount,
+                                initializationID: t.data.initializationID,
+                                url: t.data.url
+                              },
+                              tabID: 2090005804,
+                              topFrameID: 14
+                            },
+                            frameID: 1,
+                            fromExtension: !0,
+                            type: Zi.INITIALIZATION
+                          });
+                        case 4:
+                          if ("FederatedLogin" !== t.data.cmd[0]) {
+                            e.next = 20;
+                            break;
+                          }
+                          (n = t.data.cmd[1]), (e.t1 = n), (e.next = "getPassword" === e.t1 ? 9 : "isFederated" === e.t1 ? 19 : 20);
+                          break;
+                        case 9:
+                          return (e.next = 11), Qi({ username: t.data.args[0], type: Zi.FEDERATED_MESSAGE });
+                        case 11:
+                          if (((r = e.sent), (o = r.success), (a = r.error), !o)) {
+                            e.next = 18;
+                            break;
+                          }
+                          return e.abrupt("return", {
+                            data: {
+                              args: [
+                                o.federatedPassword,
+                                o.federatedLoginDetails.authSessionId,
+                                o.federatedLoginDetails.fragmentIdFromAlp,
+                                o.federatedLoginDetails.calculatedFragmentId
+                              ],
+                              responseRequestID: t.data.requestID,
+                              callbackPath: ["1"]
+                            },
+                            frameID: 1,
+                            type: Zi.BACKGROUND_RESPONSE,
+                            fromExtension: !0
+                          });
+                        case 18:
+                          return e.abrupt("return", {
+                            data: { args: [a], responseRequestID: t.data.requestID, callbackPath: ["2"] },
+                            frameID: 1,
+                            type: Zi.BACKGROUND_RESPONSE,
+                            fromExtension: !0
+                          });
+                        case 19:
+                          return e.abrupt("return", {
+                            data: { args: [i], responseRequestID: t.data.requestID, callbackPath: ["1"] },
+                            frameID: 1,
+                            type: Zi.BACKGROUND_RESPONSE,
+                            fromExtension: !0
+                          });
+                        case 20:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })()
+          );
+        return (
+          (0, C.useEffect)(
+            function () {
+              o &&
+                (Pt(1e3).then(function () {
+                  a(o);
+                }),
+                r(cr(void 0)));
+            },
+            [a, o, r]
+          ),
+          qn("submit", function (e) {
+            var t = e.target;
+            if (t && t === document.getElementById("lpwebsiteeventform") && "login" === t.eventtype.value) {
+              var n = t.eventdata1.value,
+                o = t.eventdata2.value,
+                i = t.eventdata5.value;
+              r(Vi({ key: o, username: n, session: i, iterations: 0 }));
+            }
+          }),
+          null
+        );
+      };
+    var ea = "https://backoffice.lastpass.com",
+      ta = function () {
+        var e = Dt(function (e) {
+            return e.baseUrl;
+          }),
+          t = Dt(function (e) {
+            return e.settings.features[Mt.VAULT_SINGLE_PAGE_APPLICATION];
+          }),
+          n = Dt(function (e) {
             return e.isLoggedIn;
           }),
-          r = kt(function (e) {
+          r = Dt(function (e) {
             return e.isFederated;
           });
         if (
@@ -16751,29 +16839,25 @@ var webClient;
           })(e, location.href) &&
           r
         )
-          return (0, Sn.jsx)(Ki, {});
-        if (
-          (function (e, t) {
-            var n = new URL(t);
-            return n.origin === e && n.searchParams.has("ac");
-          })(e, location.href)
-        ) {
-          if (!n) return (0, Sn.jsx)(Ki, {});
-          t && (location.href = "".concat(e).concat(Mi));
+          return (0, On.jsx)(Ji, {});
+        if (Ui(ea, location.href)) return (0, On.jsx)(Ji, { origin: ea });
+        if (Ui(e, location.href)) {
+          if (!n) return (0, On.jsx)(Ji, {});
+          t && (location.href = "".concat(e).concat(ji));
         }
         return (function (e, t) {
           var n = new URL(t);
-          return n.origin === e && n.pathname === Mi;
+          return n.origin === e && n.pathname === ji;
         })(e, location.href)
-          ? (0, Sn.jsx)(zi, {})
+          ? (0, On.jsxs)(On.Fragment, { children: [(0, On.jsx)(Xi, {}), r && (0, On.jsx)(Ji, {})] })
           : null;
       },
-      Xi = function (e) {
+      na = function (e) {
         var t = e.pathname,
           n = void 0 === t ? location.pathname : t,
           r = e.href,
           o = void 0 === r ? location.href : r,
-          i = Ct(),
+          i = Ot(),
           a = (function (e, t) {
             var n = new URL(e),
               r = n.origin,
@@ -16782,36 +16866,36 @@ var webClient;
             return r === new URL("https://lastpass.com/").origin && o === t && i ? i.substring(1) : null;
           })(o, "/extension-api/launch");
         a && i.externalLaunch(a);
-        var s = kt(function (e) {
+        var s = Dt(function (e) {
             return e.isInfieldOpen;
           }),
-          u = kt(function (e) {
+          u = Dt(function (e) {
             return e.infieldContainer && e.infieldContainer.state && e.infieldContainer.state.elementId;
           }),
-          l = kt(function (e) {
+          l = Dt(function (e) {
             return e.hasUserInteraction;
           }),
           c = function (e) {
             e.isTrusted && !l && i.userInteracted();
           },
-          f = kt(function (e) {
+          f = Dt(function (e) {
             return e.shouldDetectBrowserFill;
           }),
-          d = kt(function (e) {
-            return e.settings.features[Lt.WEB_CLIENT_SAVE];
+          d = Dt(function (e) {
+            return e.settings.features[Mt.WEB_CLIENT_SAVE];
           }),
-          p = kt(function (e) {
+          p = Dt(function (e) {
             return e.isRedirectedRegistrationFromExt;
           }),
-          h = kt(function (e) {
-            return e.settings.features[Lt.ENABLE_MV3_BACKGROUND];
+          h = Dt(function (e) {
+            return e.settings.features[Mt.ENABLE_MV3_BACKGROUND];
           }),
-          m = kt(function (e) {
+          m = Dt(function (e) {
             return e.baseUrl;
           }),
           v = location.href.startsWith(m);
         return (
-          Un(
+          qn(
             "click",
             function (e) {
               c(e);
@@ -16819,48 +16903,48 @@ var webClient;
             document,
             !0
           ),
-          Un("keydown", c, document, !0),
-          Un(
+          qn("keydown", c, document, !0),
+          qn(
             "scroll",
             function (e) {
               e.isTrusted && window.top != window.self && s && i.hideInfield();
             },
             window.self
           ),
-          (0, Sn.jsxs)(Sn.Fragment, {
+          (0, On.jsxs)(On.Fragment, {
             children: [
-              (0, Sn.jsx)(bi, {}),
-              (0, Sn.jsx)(Li, {}),
-              (0, Sn.jsx)(_i, {}),
-              !v && (0, Sn.jsx)(vi, { pathname: n }),
-              (0, Sn.jsx)(Pr, {}),
-              (0, Sn.jsx)(wi, {}),
-              (0, Sn.jsx)(kr, {}),
-              (0, Sn.jsx)(yi, {}),
-              (0, Sn.jsx)(Ti, {}),
-              f && (0, Sn.jsx)(Ei, {}),
-              d && u ? (0, Sn.jsx)(Ai, { activeElementId: u }) : null,
-              (0, Sn.jsx)(xi, { href: o }),
-              h ? (0, Sn.jsx)($i, {}) : null,
-              p && (0, Sn.jsx)(Di, { pageUrl: o })
+              (0, On.jsx)(Ai, {}),
+              (0, On.jsx)(Fi, {}),
+              (0, On.jsx)(Si, {}),
+              !v && (0, On.jsx)(_i, { pathname: n }),
+              (0, On.jsx)(Ur, {}),
+              (0, On.jsx)(xi, {}),
+              (0, On.jsx)(Gr, {}),
+              (0, On.jsx)(Ei, {}),
+              (0, On.jsx)(Ci, {}),
+              f && (0, On.jsx)(wi, {}),
+              d && u ? (0, On.jsx)(Ii, { activeElementId: u }) : null,
+              (0, On.jsx)(Ni, { href: o }),
+              h ? (0, On.jsx)(ta, {}) : null,
+              p && (0, On.jsx)(Bi, { pageUrl: o })
             ]
           })
         );
       };
-    var Qi = function (e) {
+    var ra = function (e) {
         return Oe(function (t) {
           var n;
           if (null === (n = t.tabPrompt) || void 0 === n || !n.savePrompt) throw new Error("TabPromptState required");
           return e(t.tabPrompt.savePrompt);
         });
       },
-      Ji = n(754).lW;
-    function Zi(e) {
-      return ea.apply(this, arguments);
+      oa = n(754).lW;
+    function ia(e) {
+      return aa.apply(this, arguments);
     }
-    function ea() {
+    function aa() {
       return (
-        (ea = A(
+        (aa = A(
           S().mark(function e(t) {
             var n, r;
             return S().wrap(
@@ -16892,7 +16976,7 @@ var webClient;
                                               }
                                               return (t.next = 3), n.arrayBuffer();
                                             case 3:
-                                              (r = t.sent), e(new Ji(r).toString("base64"));
+                                              (r = t.sent), e(new oa(r).toString("base64"));
                                             case 5:
                                               e("");
                                             case 6:
@@ -16926,10 +17010,10 @@ var webClient;
             );
           })
         )),
-        ea.apply(this, arguments)
+        aa.apply(this, arguments)
       );
     }
-    function ta(e) {
+    function sa(e) {
       return new Promise(function (t, n) {
         var r = document.createElement("img");
         r.addEventListener(
@@ -16941,7 +17025,7 @@ var webClient;
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
-                      return (e.next = 2), Zi(r);
+                      return (e.next = 2), ia(r);
                     case 2:
                       (o = e.sent), document.body.removeChild(r), o ? t(o) : n();
                     case 5:
@@ -16960,14 +17044,14 @@ var webClient;
           document.body.appendChild(r);
       });
     }
-    function na(e) {
+    function ua(e) {
       try {
         var t = new URL(e.loginUrl);
         if (t.origin !== document.location.origin) return document.location.origin + "/" + t.origin;
       } catch (n) {}
       return document.location.origin;
     }
-    var ra = (function () {
+    var la = (function () {
         var e = A(
           S().mark(function e(t) {
             var n, r, o, i, a, s, u, l, c, f, d, p, h, m;
@@ -16992,8 +17076,8 @@ var webClient;
                             .map(function (e) {
                               return e.href;
                             })
-                        )).push(na(t) + "/favicon.ico"),
-                        (d = qt(n)),
+                        )).push(ua(t) + "/favicon.ico"),
+                        (d = $t(n)),
                         (e.prev = 10),
                         d.s();
                     case 12:
@@ -17001,7 +17085,7 @@ var webClient;
                         e.next = 26;
                         break;
                       }
-                      return (h = p.value), (e.prev = 14), (e.next = 17), ta(h);
+                      return (h = p.value), (e.prev = 14), (e.next = 17), sa(h);
                     case 17:
                       if (!(m = e.sent)) {
                         e.next = 20;
@@ -17041,11 +17125,11 @@ var webClient;
           return e.apply(this, arguments);
         };
       })(),
-      oa = function () {
-        var e = Qi(function (e) {
+      ca = function () {
+        var e = ra(function (e) {
             return e.iconData;
           }),
-          t = Qi(function (e) {
+          t = ra(function (e) {
             return e.entities;
           }),
           n = (function () {
@@ -17065,7 +17149,7 @@ var webClient;
               });
               r &&
                 !e &&
-                ra(r.item).then(function (e) {
+                la(r.item).then(function (e) {
                   n.setIconData(e);
                 });
             },
@@ -17074,21 +17158,21 @@ var webClient;
           null
         );
       },
-      ia = {
+      fa = {
         getUrl: function (e) {
           return e;
         }
       },
-      aa = C.createContext(ia),
-      sa = aa.Provider,
-      ua = function () {
-        return (0, C.useContext)(aa);
+      da = C.createContext(fa),
+      pa = da.Provider,
+      ha = function () {
+        return (0, C.useContext)(da);
       },
-      la = function (e) {
+      ma = function (e) {
         var t = e.children;
-        return vr(document.body, sr), N.createPortal(t, sr);
+        return Ar(document.body, mr), N.createPortal(t, mr);
       };
-    var ca = (function (e) {
+    var va = (function (e) {
         return (
           (e[(e.Loading = 0)] = "Loading"),
           (e[(e.AlreadyLoggedIn = 1)] = "AlreadyLoggedIn"),
@@ -17098,13 +17182,13 @@ var webClient;
           e
         );
       })({}),
-      fa = { position: "fixed", width: "100%", height: "100%", zIndex: 999, backdropFilter: "blur(4px)" },
-      da = function () {
-        var e = ua(),
-          t = kt(function (e) {
+      ya = { position: "fixed", width: "100%", height: "100%", zIndex: 999, backdropFilter: "blur(4px)" },
+      ga = function () {
+        var e = ha(),
+          t = Dt(function (e) {
             return e.tabPrompt;
           }),
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return e.mobileScreen;
           }),
           r = (function () {
@@ -17112,7 +17196,7 @@ var webClient;
               t = e[0],
               n = e[1];
             return (
-              Un(
+              qn(
                 "resize",
                 function () {
                   "undefined" !== typeof visualViewport && n(visualViewport.height);
@@ -17122,13 +17206,13 @@ var webClient;
               t
             );
           })(),
-          o = kt(function (e) {
+          o = Dt(function (e) {
             return e.onboardingStep;
           }),
-          i = kt(function (e) {
+          i = Dt(function (e) {
             return e.inContextOnboarding;
           }),
-          a = i && i.show && (o === ca.SaveSite || o === ca.Finished),
+          a = i && i.show && (o === va.SaveSite || o === va.Finished),
           s = (0, C.useMemo)(
             function () {
               return n ? { height: r } : t ? { maxHeight: t.fullHeight ? "none" : t.height, maxWidth: t.width } : {};
@@ -17136,14 +17220,14 @@ var webClient;
             [t, n, r]
           );
         return t && t.savePrompt
-          ? (0, Sn.jsxs)(la, {
+          ? (0, On.jsxs)(ma, {
               children: [
-                (0, Sn.jsx)(oa, {}),
-                a && (0, Sn.jsx)("div", { style: fa }),
-                (0, Sn.jsx)("div", {
+                (0, On.jsx)(ca, {}),
+                a && (0, On.jsx)("div", { style: ya }),
+                (0, On.jsx)("div", {
                   "data-lastpass-save": !0,
-                  children: (0, Sn.jsx)(hr.Z, {
-                    children: (0, Sn.jsx)("iframe", {
+                  children: (0, On.jsx)(Sr.Z, {
+                    children: (0, On.jsx)("iframe", {
                       "data-lastpass-iframe": !0,
                       src: e.getUrl("webclient-tab-prompt.html"),
                       style: u(
@@ -17157,93 +17241,93 @@ var webClient;
             })
           : null;
       };
-    function pa(e) {
+    function _a(e) {
       var t = e.children,
         n = e.disableOnDisconnect,
         r = void 0 === n || n,
-        o = kt(function (e) {
-          return e.neverUrls[kn.NeverDoAnything];
+        o = Dt(function (e) {
+          return e.neverUrls[Gn.NeverDoAnything];
         }),
-        i = kt(function (e) {
+        i = Dt(function (e) {
           return e.settings.isRestricted;
         }),
-        a = kt(function (e) {
+        a = Dt(function (e) {
           return !e.messaging.connected;
         }),
-        s = kt(function (e) {
-          return e.settings.features[Lt.WEB_CLIENT_FILL];
+        s = Dt(function (e) {
+          return e.settings.features[Mt.WEB_CLIENT_FILL];
         }),
-        u = kt(function (e) {
-          return e.settings.features[Lt.WEB_CLIENT_SAVE];
+        u = Dt(function (e) {
+          return e.settings.features[Mt.WEB_CLIENT_SAVE];
         }),
-        l = kt(function (e) {
+        l = Dt(function (e) {
           return e.exportComplianceSanctioned;
         });
-      return o || i || (r && a) || (!s && !u) || l ? null : (0, Sn.jsx)(Sn.Fragment, { children: t });
+      return o || i || (r && a) || (!s && !u) || l ? null : (0, On.jsx)(On.Fragment, { children: t });
     }
-    var ha = (function (e) {
+    var Ea = (function (e) {
       return (e.ACTIVE = "active"), (e.PASSIVE = "passive"), (e.HIDDEN = "hidden"), (e.FROZEN = "frozen"), (e.TERMINATED = "terminated"), e;
     })({});
-    function ma() {
-      return "visible" !== document.visibilityState ? ha.HIDDEN : Er() ? ha.ACTIVE : ha.PASSIVE;
+    function ba() {
+      return "visible" !== document.visibilityState ? Ea.HIDDEN : Cr() ? Ea.ACTIVE : Ea.PASSIVE;
     }
-    var va = ma(),
-      ya = [];
-    function ga(e) {
-      ya.push(e);
+    var Sa = ba(),
+      wa = [];
+    function Aa(e) {
+      wa.push(e);
     }
-    function _a(e) {
-      ya.splice(ya.indexOf(e), 1);
+    function Ta(e) {
+      wa.splice(wa.indexOf(e), 1);
     }
-    function Ea(e) {
-      if (e !== va) {
-        var t = va;
-        (va = e),
-          ya.forEach(function (n) {
+    function xa(e) {
+      if (e !== Sa) {
+        var t = Sa;
+        (Sa = e),
+          wa.forEach(function (n) {
             return n(e, t);
           });
       }
     }
-    function ba(e) {
+    function Ia(e) {
       var t = (function (e) {
         switch (e.type) {
           case "pageshow":
           case "resume":
           case "visibilitychange":
-            return ma();
+            return ba();
           case "focus":
-            return ha.ACTIVE;
+            return Ea.ACTIVE;
           case "blur":
-            if (va === ha.ACTIVE) return ma();
+            if (Sa === Ea.ACTIVE) return ba();
             break;
           case "pagehide":
-            return e.persisted ? ha.FROZEN : ha.TERMINATED;
+            return e.persisted ? Ea.FROZEN : Ea.TERMINATED;
           case "freeze":
-            return ha.FROZEN;
+            return Ea.FROZEN;
         }
-        return va;
+        return Sa;
       })(e);
-      va === ha.FROZEN && t !== ha.TERMINATED
+      Sa === Ea.FROZEN && t !== Ea.TERMINATED
         ? setTimeout(function () {
-            Ea(t);
+            xa(t);
           })
-        : Ea(t);
+        : xa(t);
     }
-    function Sa(e) {
+    function Ca(e) {
       switch (e) {
-        case ha.ACTIVE:
-        case ha.PASSIVE:
+        case Ea.ACTIVE:
+        case Ea.PASSIVE:
           return !0;
         default:
           return !1;
       }
     }
     ["focus", "blur", "visibilitychange", "freeze", "resume", "pageshow", "pagehide"].forEach(function (e) {
-      return window.addEventListener(e, ba, !0);
+      return window.addEventListener(e, Ia, !0);
     });
-    var wa = { connected: !0 };
-    var Aa,
-      Ta = (function (e) {
+    var Na = { connected: !0 };
+    var Oa,
+      Pa = (function (e) {
         for (var t = Object.keys(e), n = {}, r = 0; r < t.length; r++) {
           var o = t[r];
           0, "function" === typeof e[o] && (n[o] = e[o]);
@@ -17278,7 +17362,7 @@ var webClient;
         };
       })({
         messaging: function () {
-          var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : wa,
+          var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : Na,
             t = arguments.length > 1 ? arguments[1] : void 0;
           return t.type === c ? u(u({}, e), {}, { connected: t.payload }) : e;
         },
@@ -17287,13 +17371,13 @@ var webClient;
             t = arguments.length > 1 ? arguments[1] : void 0,
             n = t.payload && t.payload.sectionId;
           switch (t.type) {
-            case Dt.SYNC_FIELD:
+            case Ft.SYNC_FIELD:
               var r = t.payload.field;
               return u(u({}, e), {}, a({}, n, u(u({}, e[n]), {}, a({}, r.id, r))));
-            case Dt.REMOVE_FIELD:
+            case Ft.REMOVE_FIELD:
               var o = e[n];
               return o ? u(u({}, e), {}, a({}, n, u(u({}, o), {}, a({}, t.payload.id, void 0)))) : e;
-            case Dt.REMOVE_SECTION:
+            case Ft.REMOVE_SECTION:
               var i = u({}, e);
               return delete i[n], i;
           }
@@ -17307,7 +17391,7 @@ var webClient;
         (e.RateLimit = "rate_limit"),
         (e.Invalid = "invalid"),
         (e.Failed = "failed");
-    })(Aa || (Aa = {})),
+    })(Oa || (Oa = {})),
       (function (e) {
         e.fromHttpCode = function (t) {
           return t >= 200 && t < 300
@@ -17320,10 +17404,10 @@ var webClient;
             ? e.Failed
             : e.Unknown;
         };
-      })(Aa || (Aa = {}));
-    var xa = function (e, t) {
+      })(Oa || (Oa = {}));
+    var Ra = function (e, t) {
       return (
-        (xa =
+        (Ra =
           Object.setPrototypeOf ||
           ({ __proto__: [] } instanceof Array &&
             function (e, t) {
@@ -17332,29 +17416,29 @@ var webClient;
           function (e, t) {
             for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
           }),
-        xa(e, t)
+        Ra(e, t)
       );
     };
-    function Ia(e, t) {
+    function ka(e, t) {
       function n() {
         this.constructor = e;
       }
-      xa(e, t), (e.prototype = null === t ? Object.create(t) : ((n.prototype = t.prototype), new n()));
+      Ra(e, t), (e.prototype = null === t ? Object.create(t) : ((n.prototype = t.prototype), new n()));
     }
-    var Ca,
-      Na = function () {
+    var La,
+      Da = function () {
         return (
-          (Na =
+          (Da =
             Object.assign ||
             function (e) {
               for (var t, n = 1, r = arguments.length; n < r; n++)
                 for (var o in (t = arguments[n])) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
               return e;
             }),
-          Na.apply(this, arguments)
+          Da.apply(this, arguments)
         );
       };
-    function Oa(e) {
+    function Ma(e) {
       var t = "function" === typeof Symbol && Symbol.iterator,
         n = t && e[t],
         r = 0;
@@ -17367,7 +17451,7 @@ var webClient;
         };
       throw new TypeError(t ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
-    function Pa(e, t) {
+    function Fa(e, t) {
       var n = "function" === typeof Symbol && e[Symbol.iterator];
       if (!n) return e;
       var r,
@@ -17387,40 +17471,40 @@ var webClient;
       }
       return a;
     }
-    function Ra() {
-      for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Pa(arguments[t]));
+    function Ba() {
+      for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Fa(arguments[t]));
       return e;
     }
-    var ka = (function () {
+    var Ua = (function () {
       function e() {
         this.name = e.id;
       }
       return (
         (e.prototype.setupOnce = function () {
-          (Ca = Function.prototype.toString),
+          (La = Function.prototype.toString),
             (Function.prototype.toString = function () {
               for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
               var n = this.__sentry_original__ || this;
-              return Ca.apply(n, e);
+              return La.apply(n, e);
             });
         }),
         (e.id = "FunctionToString"),
         e
       );
     })();
-    var La = function () {
+    var ja = function () {
       return (
-        (La =
+        (ja =
           Object.assign ||
           function (e) {
             for (var t, n = 1, r = arguments.length; n < r; n++)
               for (var o in (t = arguments[n])) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
             return e;
           }),
-        La.apply(this, arguments)
+        ja.apply(this, arguments)
       );
     };
-    function Da(e) {
+    function Ga(e) {
       var t = "function" === typeof Symbol && Symbol.iterator,
         n = t && e[t],
         r = 0;
@@ -17433,7 +17517,7 @@ var webClient;
         };
       throw new TypeError(t ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
-    function Ma(e, t) {
+    function Va(e, t) {
       var n = "function" === typeof Symbol && e[Symbol.iterator];
       if (!n) return e;
       var r,
@@ -17453,23 +17537,23 @@ var webClient;
       }
       return a;
     }
-    function Fa() {
-      for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Ma(arguments[t]));
+    function Ha() {
+      for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Va(arguments[t]));
       return e;
     }
-    var Ba = function () {
+    var Wa = function () {
       return (
-        (Ba =
+        (Wa =
           Object.assign ||
           function (e) {
             for (var t, n = 1, r = arguments.length; n < r; n++)
               for (var o in (t = arguments[n])) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
             return e;
           }),
-        Ba.apply(this, arguments)
+        Wa.apply(this, arguments)
       );
     };
-    function Ua(e, t) {
+    function za(e, t) {
       var n = "function" === typeof Symbol && e[Symbol.iterator];
       if (!n) return e;
       var r,
@@ -17489,81 +17573,81 @@ var webClient;
       }
       return a;
     }
-    function ja() {
-      for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Ua(arguments[t]));
+    function Ya() {
+      for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(za(arguments[t]));
       return e;
     }
-    function Ga(e) {
+    function qa(e) {
       switch (Object.prototype.toString.call(e)) {
         case "[object Error]":
         case "[object Exception]":
         case "[object DOMException]":
           return !0;
         default:
-          return Xa(e, Error);
+          return ns(e, Error);
       }
     }
-    function Va(e) {
+    function Ka(e) {
       return "[object ErrorEvent]" === Object.prototype.toString.call(e);
     }
-    function Ha(e) {
+    function $a(e) {
       return "[object DOMError]" === Object.prototype.toString.call(e);
     }
-    function Wa(e) {
+    function Xa(e) {
       return "[object String]" === Object.prototype.toString.call(e);
     }
-    function za(e) {
+    function Qa(e) {
       return null === e || ("object" !== typeof e && "function" !== typeof e);
     }
-    function Ya(e) {
+    function Za(e) {
       return "[object Object]" === Object.prototype.toString.call(e);
     }
-    function qa(e) {
-      return "undefined" !== typeof Event && Xa(e, Event);
+    function Ja(e) {
+      return "undefined" !== typeof Event && ns(e, Event);
     }
-    function Ka(e) {
-      return "undefined" !== typeof Element && Xa(e, Element);
+    function es(e) {
+      return "undefined" !== typeof Element && ns(e, Element);
     }
-    function $a(e) {
+    function ts(e) {
       return Boolean(e && e.then && "function" === typeof e.then);
     }
-    function Xa(e, t) {
+    function ns(e, t) {
       try {
         return e instanceof t;
       } catch (n) {
         return !1;
       }
     }
-    var Qa,
-      Ja = n(963);
+    var rs,
+      os = n(963);
     !(function (e) {
       (e.PENDING = "PENDING"), (e.RESOLVED = "RESOLVED"), (e.REJECTED = "REJECTED");
-    })(Qa || (Qa = {}));
-    var Za = (function () {
+    })(rs || (rs = {}));
+    var is = (function () {
         function e(e) {
           var t = this;
-          (this._state = Qa.PENDING),
+          (this._state = rs.PENDING),
             (this._handlers = []),
             (this._resolve = function (e) {
-              t._setResult(Qa.RESOLVED, e);
+              t._setResult(rs.RESOLVED, e);
             }),
             (this._reject = function (e) {
-              t._setResult(Qa.REJECTED, e);
+              t._setResult(rs.REJECTED, e);
             }),
             (this._setResult = function (e, n) {
-              t._state === Qa.PENDING && ($a(n) ? n.then(t._resolve, t._reject) : ((t._state = e), (t._value = n), t._executeHandlers()));
+              t._state === rs.PENDING && (ts(n) ? n.then(t._resolve, t._reject) : ((t._state = e), (t._value = n), t._executeHandlers()));
             }),
             (this._attachHandler = function (e) {
               (t._handlers = t._handlers.concat(e)), t._executeHandlers();
             }),
             (this._executeHandlers = function () {
-              if (t._state !== Qa.PENDING) {
+              if (t._state !== rs.PENDING) {
                 var e = t._handlers.slice();
                 (t._handlers = []),
                   e.forEach(function (e) {
                     e.done ||
-                      (t._state === Qa.RESOLVED && e.onfulfilled && e.onfulfilled(t._value),
-                      t._state === Qa.REJECTED && e.onrejected && e.onrejected(t._value),
+                      (t._state === rs.RESOLVED && e.onfulfilled && e.onfulfilled(t._value),
+                      t._state === rs.REJECTED && e.onrejected && e.onrejected(t._value),
                       (e.done = !0));
                   });
               }
@@ -17657,8 +17741,8 @@ var webClient;
           e
         );
       })(),
-      es = n(822),
-      ts = (function () {
+      as = n(822),
+      ss = (function () {
         function e() {
           (this._notifyingListeners = !1),
             (this._scopeListeners = []),
@@ -17674,17 +17758,17 @@ var webClient;
             var n = new e();
             return (
               t &&
-                ((n._breadcrumbs = ja(t._breadcrumbs)),
-                (n._tags = Ba({}, t._tags)),
-                (n._extra = Ba({}, t._extra)),
-                (n._contexts = Ba({}, t._contexts)),
+                ((n._breadcrumbs = Ya(t._breadcrumbs)),
+                (n._tags = Wa({}, t._tags)),
+                (n._extra = Wa({}, t._extra)),
+                (n._contexts = Wa({}, t._contexts)),
                 (n._user = t._user),
                 (n._level = t._level),
                 (n._span = t._span),
                 (n._session = t._session),
                 (n._transactionName = t._transactionName),
                 (n._fingerprint = t._fingerprint),
-                (n._eventProcessors = ja(t._eventProcessors))),
+                (n._eventProcessors = Ya(t._eventProcessors))),
               n
             );
           }),
@@ -17701,18 +17785,18 @@ var webClient;
             return this._user;
           }),
           (e.prototype.setTags = function (e) {
-            return (this._tags = Ba(Ba({}, this._tags), e)), this._notifyScopeListeners(), this;
+            return (this._tags = Wa(Wa({}, this._tags), e)), this._notifyScopeListeners(), this;
           }),
           (e.prototype.setTag = function (e, t) {
             var n;
-            return (this._tags = Ba(Ba({}, this._tags), (((n = {})[e] = t), n))), this._notifyScopeListeners(), this;
+            return (this._tags = Wa(Wa({}, this._tags), (((n = {})[e] = t), n))), this._notifyScopeListeners(), this;
           }),
           (e.prototype.setExtras = function (e) {
-            return (this._extra = Ba(Ba({}, this._extra), e)), this._notifyScopeListeners(), this;
+            return (this._extra = Wa(Wa({}, this._extra), e)), this._notifyScopeListeners(), this;
           }),
           (e.prototype.setExtra = function (e, t) {
             var n;
-            return (this._extra = Ba(Ba({}, this._extra), (((n = {})[e] = t), n))), this._notifyScopeListeners(), this;
+            return (this._extra = Wa(Wa({}, this._extra), (((n = {})[e] = t), n))), this._notifyScopeListeners(), this;
           }),
           (e.prototype.setFingerprint = function (e) {
             return (this._fingerprint = e), this._notifyScopeListeners(), this;
@@ -17729,7 +17813,7 @@ var webClient;
           (e.prototype.setContext = function (e, t) {
             var n;
             return (
-              null === t ? delete this._contexts[e] : (this._contexts = Ba(Ba({}, this._contexts), (((n = {})[e] = t), n))),
+              null === t ? delete this._contexts[e] : (this._contexts = Wa(Wa({}, this._contexts), (((n = {})[e] = t), n))),
               this._notifyScopeListeners(),
               this
             );
@@ -17768,16 +17852,16 @@ var webClient;
             }
             return (
               t instanceof e
-                ? ((this._tags = Ba(Ba({}, this._tags), t._tags)),
-                  (this._extra = Ba(Ba({}, this._extra), t._extra)),
-                  (this._contexts = Ba(Ba({}, this._contexts), t._contexts)),
+                ? ((this._tags = Wa(Wa({}, this._tags), t._tags)),
+                  (this._extra = Wa(Wa({}, this._extra), t._extra)),
+                  (this._contexts = Wa(Wa({}, this._contexts), t._contexts)),
                   t._user && Object.keys(t._user).length && (this._user = t._user),
                   t._level && (this._level = t._level),
                   t._fingerprint && (this._fingerprint = t._fingerprint))
-                : Ya(t) &&
-                  ((this._tags = Ba(Ba({}, this._tags), t.tags)),
-                  (this._extra = Ba(Ba({}, this._extra), t.extra)),
-                  (this._contexts = Ba(Ba({}, this._contexts), t.contexts)),
+                : Za(t) &&
+                  ((this._tags = Wa(Wa({}, this._tags), t.tags)),
+                  (this._extra = Wa(Wa({}, this._extra), t.extra)),
+                  (this._contexts = Wa(Wa({}, this._contexts), t.contexts)),
                   t.user && (this._user = t.user),
                   t.level && (this._level = t.level),
                   t.fingerprint && (this._fingerprint = t.fingerprint)),
@@ -17801,9 +17885,9 @@ var webClient;
             );
           }),
           (e.prototype.addBreadcrumb = function (e, t) {
-            var n = Ba({ timestamp: (0, Ja.yW)() }, e);
+            var n = Wa({ timestamp: (0, os.yW)() }, e);
             return (
-              (this._breadcrumbs = void 0 !== t && t >= 0 ? ja(this._breadcrumbs, [n]).slice(-t) : ja(this._breadcrumbs, [n])),
+              (this._breadcrumbs = void 0 !== t && t >= 0 ? Ya(this._breadcrumbs, [n]).slice(-t) : Ya(this._breadcrumbs, [n])),
               this._notifyScopeListeners(),
               this
             );
@@ -17814,35 +17898,35 @@ var webClient;
           (e.prototype.applyToEvent = function (e, t) {
             var n;
             if (
-              (this._extra && Object.keys(this._extra).length && (e.extra = Ba(Ba({}, this._extra), e.extra)),
-              this._tags && Object.keys(this._tags).length && (e.tags = Ba(Ba({}, this._tags), e.tags)),
-              this._user && Object.keys(this._user).length && (e.user = Ba(Ba({}, this._user), e.user)),
-              this._contexts && Object.keys(this._contexts).length && (e.contexts = Ba(Ba({}, this._contexts), e.contexts)),
+              (this._extra && Object.keys(this._extra).length && (e.extra = Wa(Wa({}, this._extra), e.extra)),
+              this._tags && Object.keys(this._tags).length && (e.tags = Wa(Wa({}, this._tags), e.tags)),
+              this._user && Object.keys(this._user).length && (e.user = Wa(Wa({}, this._user), e.user)),
+              this._contexts && Object.keys(this._contexts).length && (e.contexts = Wa(Wa({}, this._contexts), e.contexts)),
               this._level && (e.level = this._level),
               this._transactionName && (e.transaction = this._transactionName),
               this._span)
             ) {
-              e.contexts = Ba({ trace: this._span.getTraceContext() }, e.contexts);
+              e.contexts = Wa({ trace: this._span.getTraceContext() }, e.contexts);
               var r = null === (n = this._span.transaction) || void 0 === n ? void 0 : n.name;
-              r && (e.tags = Ba({ transaction: r }, e.tags));
+              r && (e.tags = Wa({ transaction: r }, e.tags));
             }
             return (
               this._applyFingerprint(e),
-              (e.breadcrumbs = ja(e.breadcrumbs || [], this._breadcrumbs)),
+              (e.breadcrumbs = Ya(e.breadcrumbs || [], this._breadcrumbs)),
               (e.breadcrumbs = e.breadcrumbs.length > 0 ? e.breadcrumbs : void 0),
-              this._notifyEventProcessors(ja(ns(), this._eventProcessors), e, t)
+              this._notifyEventProcessors(Ya(us(), this._eventProcessors), e, t)
             );
           }),
           (e.prototype._notifyEventProcessors = function (e, t, n, r) {
             var o = this;
             return (
               void 0 === r && (r = 0),
-              new Za(function (i, a) {
+              new is(function (i, a) {
                 var s = e[r];
                 if (null === t || "function" !== typeof s) i(t);
                 else {
-                  var u = s(Ba({}, t), n);
-                  $a(u)
+                  var u = s(Wa({}, t), n);
+                  ts(u)
                     ? u
                         .then(function (t) {
                           return o._notifyEventProcessors(e, t, n, r + 1).then(i);
@@ -17873,20 +17957,20 @@ var webClient;
           e
         );
       })();
-    function ns() {
-      var e = (0, es.Rf)();
+    function us() {
+      var e = (0, as.Rf)();
       return (
         (e.__SENTRY__ = e.__SENTRY__ || {}),
         (e.__SENTRY__.globalEventProcessors = e.__SENTRY__.globalEventProcessors || []),
         e.__SENTRY__.globalEventProcessors
       );
     }
-    function rs(e) {
-      ns().push(e);
+    function ls(e) {
+      us().push(e);
     }
-    var os = (0, es.Rf)(),
-      is = "Sentry Logger ",
-      as = (function () {
+    var cs = (0, as.Rf)(),
+      fs = "Sentry Logger ",
+      ds = (function () {
         function e() {
           this._enabled = !1;
         }
@@ -17900,37 +17984,37 @@ var webClient;
           (e.prototype.log = function () {
             for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
             this._enabled &&
-              (0, es.Cf)(function () {
-                os.console.log(is + "[Log]: " + e.join(" "));
+              (0, as.Cf)(function () {
+                cs.console.log(fs + "[Log]: " + e.join(" "));
               });
           }),
           (e.prototype.warn = function () {
             for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
             this._enabled &&
-              (0, es.Cf)(function () {
-                os.console.warn(is + "[Warn]: " + e.join(" "));
+              (0, as.Cf)(function () {
+                cs.console.warn(fs + "[Warn]: " + e.join(" "));
               });
           }),
           (e.prototype.error = function () {
             for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
             this._enabled &&
-              (0, es.Cf)(function () {
-                os.console.error(is + "[Error]: " + e.join(" "));
+              (0, as.Cf)(function () {
+                cs.console.error(fs + "[Error]: " + e.join(" "));
               });
           }),
           e
         );
       })();
-    os.__SENTRY__ = os.__SENTRY__ || {};
-    var ss,
-      us = os.__SENTRY__.logger || (os.__SENTRY__.logger = new as()),
-      ls = n(110);
+    cs.__SENTRY__ = cs.__SENTRY__ || {};
+    var ps,
+      hs = cs.__SENTRY__.logger || (cs.__SENTRY__.logger = new ds()),
+      ms = n(110);
     !(function (e) {
       (e.Ok = "ok"), (e.Exited = "exited"), (e.Crashed = "crashed"), (e.Abnormal = "abnormal");
-    })(ss || (ss = {}));
-    var cs = function (e, t) {
+    })(ps || (ps = {}));
+    var vs = function (e, t) {
       return (
-        (cs =
+        (vs =
           Object.setPrototypeOf ||
           ({ __proto__: [] } instanceof Array &&
             function (e, t) {
@@ -17939,22 +18023,22 @@ var webClient;
           function (e, t) {
             for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
           }),
-        cs(e, t)
+        vs(e, t)
       );
     };
-    var fs = function () {
+    var ys = function () {
       return (
-        (fs =
+        (ys =
           Object.assign ||
           function (e) {
             for (var t, n = 1, r = arguments.length; n < r; n++)
               for (var o in (t = arguments[n])) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
             return e;
           }),
-        fs.apply(this, arguments)
+        ys.apply(this, arguments)
       );
     };
-    function ds(e) {
+    function gs(e) {
       var t = "function" === typeof Symbol && Symbol.iterator,
         n = t && e[t],
         r = 0;
@@ -17967,7 +18051,7 @@ var webClient;
         };
       throw new TypeError(t ? "Object is not iterable." : "Symbol.iterator is not defined.");
     }
-    function ps(e, t) {
+    function _s(e, t) {
       var n = "function" === typeof Symbol && e[Symbol.iterator];
       if (!n) return e;
       var r,
@@ -17987,11 +18071,11 @@ var webClient;
       }
       return a;
     }
-    function hs(e) {
+    function Es(e) {
       try {
         for (
           var t = e, n = [], r = 0, o = 0, i = void 0;
-          t && r++ < 5 && !("html" === (i = ms(t)) || (r > 1 && o + 3 * n.length + i.length >= 80));
+          t && r++ < 5 && !("html" === (i = bs(t)) || (r > 1 && o + 3 * n.length + i.length >= 80));
 
         )
           n.push(i), (o += i.length), (t = t.parentNode);
@@ -18000,7 +18084,7 @@ var webClient;
         return "<unknown>";
       }
     }
-    function ms(e) {
+    function bs(e) {
       var t,
         n,
         r,
@@ -18009,13 +18093,13 @@ var webClient;
         a = e,
         s = [];
       if (!a || !a.tagName) return "";
-      if ((s.push(a.tagName.toLowerCase()), a.id && s.push("#" + a.id), (t = a.className) && Wa(t)))
+      if ((s.push(a.tagName.toLowerCase()), a.id && s.push("#" + a.id), (t = a.className) && Xa(t)))
         for (n = t.split(/\s+/), i = 0; i < n.length; i++) s.push("." + n[i]);
       var u = ["type", "name", "title", "alt"];
       for (i = 0; i < u.length; i++) (r = u[i]), (o = a.getAttribute(r)) && s.push("[" + r + '="' + o + '"]');
       return s.join("");
     }
-    var vs = (function () {
+    var Ss = (function () {
         function e() {
           (this._hasWeakSet = "function" === typeof WeakSet), (this._inner = this._hasWeakSet ? new WeakSet() : []);
         }
@@ -18039,18 +18123,18 @@ var webClient;
           e
         );
       })(),
-      ys = "<anonymous>";
-    function gs(e) {
+      ws = "<anonymous>";
+    function As(e) {
       try {
-        return (e && "function" === typeof e && e.name) || ys;
+        return (e && "function" === typeof e && e.name) || ws;
       } catch (t) {
-        return ys;
+        return ws;
       }
     }
-    function _s(e, t) {
+    function Ts(e, t) {
       return void 0 === t && (t = 0), "string" !== typeof e || 0 === t || e.length <= t ? e : e.substr(0, t) + "...";
     }
-    function Es(e, t) {
+    function xs(e, t) {
       if (!Array.isArray(e)) return "";
       for (var n = [], r = 0; r < e.length; r++) {
         var o = e[r];
@@ -18062,14 +18146,14 @@ var webClient;
       }
       return n.join(t);
     }
-    function bs(e, t) {
+    function Is(e, t) {
       return (
-        !!Wa(e) &&
+        !!Xa(e) &&
         ((n = t), "[object RegExp]" === Object.prototype.toString.call(n) ? t.test(e) : "string" === typeof t && -1 !== e.indexOf(t))
       );
       var n;
     }
-    function Ss(e, t, n) {
+    function Cs(e, t, n) {
       if (t in e) {
         var r = e[t],
           o = n(r);
@@ -18080,44 +18164,44 @@ var webClient;
         e[t] = o;
       }
     }
-    function ws(e) {
-      if (Ga(e)) {
+    function Ns(e) {
+      if (qa(e)) {
         var t = e,
           n = { message: t.message, name: t.name, stack: t.stack };
         for (var r in t) Object.prototype.hasOwnProperty.call(t, r) && (n[r] = t[r]);
         return n;
       }
-      if (qa(e)) {
+      if (Ja(e)) {
         var o = e,
           i = {};
         i.type = o.type;
         try {
-          i.target = Ka(o.target) ? hs(o.target) : Object.prototype.toString.call(o.target);
+          i.target = es(o.target) ? Es(o.target) : Object.prototype.toString.call(o.target);
         } catch (a) {
           i.target = "<unknown>";
         }
         try {
-          i.currentTarget = Ka(o.currentTarget) ? hs(o.currentTarget) : Object.prototype.toString.call(o.currentTarget);
+          i.currentTarget = es(o.currentTarget) ? Es(o.currentTarget) : Object.prototype.toString.call(o.currentTarget);
         } catch (a) {
           i.currentTarget = "<unknown>";
         }
-        for (var r in ("undefined" !== typeof CustomEvent && Xa(e, CustomEvent) && (i.detail = o.detail), o))
+        for (var r in ("undefined" !== typeof CustomEvent && ns(e, CustomEvent) && (i.detail = o.detail), o))
           Object.prototype.hasOwnProperty.call(o, r) && (i[r] = o);
         return i;
       }
       return e;
     }
-    function As(e) {
+    function Os(e) {
       return (function (e) {
         return ~-encodeURI(e).split(/%..|./).length;
       })(JSON.stringify(e));
     }
-    function Ts(e, t, n) {
+    function Ps(e, t, n) {
       void 0 === t && (t = 3), void 0 === n && (n = 102400);
-      var r = Cs(e, t);
-      return As(r) > n ? Ts(e, t - 1, n) : r;
+      var r = Ls(e, t);
+      return Os(r) > n ? Ps(e, t - 1, n) : r;
     }
-    function xs(e, t) {
+    function Rs(e, t) {
       return "domain" === t && e && "object" === typeof e && e._events
         ? "[Domain]"
         : "domainEmitter" === t
@@ -18128,14 +18212,14 @@ var webClient;
         ? "[Window]"
         : "undefined" !== typeof document && e === document
         ? "[Document]"
-        : Ya((r = e)) && "nativeEvent" in r && "preventDefault" in r && "stopPropagation" in r
+        : Za((r = e)) && "nativeEvent" in r && "preventDefault" in r && "stopPropagation" in r
         ? "[SyntheticEvent]"
         : "number" === typeof e && e !== e
         ? "[NaN]"
         : void 0 === e
         ? "[undefined]"
         : "function" === typeof e
-        ? "[Function: " + gs(e) + "]"
+        ? "[Function: " + As(e) + "]"
         : "symbol" === typeof e
         ? "[" + String(e) + "]"
         : "bigint" === typeof e
@@ -18143,56 +18227,56 @@ var webClient;
         : e;
       var r;
     }
-    function Is(e, t, n, r) {
-      if ((void 0 === n && (n = 1 / 0), void 0 === r && (r = new vs()), 0 === n))
+    function ks(e, t, n, r) {
+      if ((void 0 === n && (n = 1 / 0), void 0 === r && (r = new Ss()), 0 === n))
         return (function (e) {
           var t = Object.prototype.toString.call(e);
           if ("string" === typeof e) return e;
           if ("[object Object]" === t) return "[Object]";
           if ("[object Array]" === t) return "[Array]";
-          var n = xs(e);
-          return za(n) ? n : t;
+          var n = Rs(e);
+          return Qa(n) ? n : t;
         })(t);
       if (null !== t && void 0 !== t && "function" === typeof t.toJSON) return t.toJSON();
-      var o = xs(t, e);
-      if (za(o)) return o;
-      var i = ws(t),
+      var o = Rs(t, e);
+      if (Qa(o)) return o;
+      var i = Ns(t),
         a = Array.isArray(t) ? [] : {};
       if (r.memoize(t)) return "[Circular ~]";
-      for (var s in i) Object.prototype.hasOwnProperty.call(i, s) && (a[s] = Is(s, i[s], n - 1, r));
+      for (var s in i) Object.prototype.hasOwnProperty.call(i, s) && (a[s] = ks(s, i[s], n - 1, r));
       return r.unmemoize(t), a;
     }
-    function Cs(e, t) {
+    function Ls(e, t) {
       try {
         return JSON.parse(
           JSON.stringify(e, function (e, n) {
-            return Is(e, n, t);
+            return ks(e, n, t);
           })
         );
       } catch (n) {
         return "**non-serializable**";
       }
     }
-    function Ns(e, t) {
+    function Ds(e, t) {
       void 0 === t && (t = 40);
-      var n = Object.keys(ws(e));
+      var n = Object.keys(Ns(e));
       if ((n.sort(), !n.length)) return "[object has no keys]";
-      if (n[0].length >= t) return _s(n[0], t);
+      if (n[0].length >= t) return Ts(n[0], t);
       for (var r = n.length; r > 0; r--) {
         var o = n.slice(0, r).join(", ");
-        if (!(o.length > t)) return r === n.length ? o : _s(o, t);
+        if (!(o.length > t)) return r === n.length ? o : Ts(o, t);
       }
       return "";
     }
-    function Os(e) {
+    function Ms(e) {
       var t, n;
-      if (Ya(e)) {
+      if (Za(e)) {
         var r = e,
           o = {};
         try {
-          for (var i = ds(Object.keys(r)), a = i.next(); !a.done; a = i.next()) {
+          for (var i = gs(Object.keys(r)), a = i.next(); !a.done; a = i.next()) {
             var s = a.value;
-            "undefined" !== typeof r[s] && (o[s] = Os(r[s]));
+            "undefined" !== typeof r[s] && (o[s] = Ms(r[s]));
           }
         } catch (u) {
           t = { error: u };
@@ -18205,16 +18289,16 @@ var webClient;
         }
         return o;
       }
-      return Array.isArray(e) ? e.map(Os) : e;
+      return Array.isArray(e) ? e.map(Ms) : e;
     }
-    var Ps = (function () {
+    var Fs = (function () {
         function e(e) {
           (this.errors = 0),
-            (this.sid = (0, es.DM)()),
+            (this.sid = (0, as.DM)()),
             (this.timestamp = Date.now()),
             (this.started = Date.now()),
             (this.duration = 0),
-            (this.status = ss.Ok),
+            (this.status = ps.Ok),
             e && this.update(e);
         }
         return (
@@ -18224,7 +18308,7 @@ var webClient;
                 (e.user.ip_address && (this.ipAddress = e.user.ip_address),
                 e.did || (this.did = e.user.id || e.user.email || e.user.username)),
               (this.timestamp = e.timestamp || Date.now()),
-              e.sid && (this.sid = 32 === e.sid.length ? e.sid : (0, es.DM)()),
+              e.sid && (this.sid = 32 === e.sid.length ? e.sid : (0, as.DM)()),
               e.did && (this.did = "" + e.did),
               "number" === typeof e.started && (this.started = e.started),
               "number" === typeof e.duration ? (this.duration = e.duration) : (this.duration = this.timestamp - this.started),
@@ -18236,10 +18320,10 @@ var webClient;
               e.status && (this.status = e.status);
           }),
           (e.prototype.close = function (e) {
-            e ? this.update({ status: e }) : this.status === ss.Ok ? this.update({ status: ss.Exited }) : this.update();
+            e ? this.update({ status: e }) : this.status === ps.Ok ? this.update({ status: ps.Exited }) : this.update();
           }),
           (e.prototype.toJSON = function () {
-            return Os({
+            return Ms({
               sid: "" + this.sid,
               init: !0,
               started: new Date(this.started).toISOString(),
@@ -18248,17 +18332,17 @@ var webClient;
               errors: this.errors,
               did: "number" === typeof this.did || "string" === typeof this.did ? "" + this.did : void 0,
               duration: this.duration,
-              attrs: Os({ release: this.release, environment: this.environment, ip_address: this.ipAddress, user_agent: this.userAgent })
+              attrs: Ms({ release: this.release, environment: this.environment, ip_address: this.ipAddress, user_agent: this.userAgent })
             });
           }),
           e
         );
       })(),
-      Rs = 3,
-      ks = (function () {
+      Bs = 3,
+      Us = (function () {
         function e(e, t, n) {
-          void 0 === t && (t = new ts()),
-            void 0 === n && (n = Rs),
+          void 0 === t && (t = new ss()),
+            void 0 === n && (n = Bs),
             (this._version = n),
             (this._stack = [{}]),
             (this.getStackTop().scope = t),
@@ -18272,7 +18356,7 @@ var webClient;
             (this.getStackTop().client = e), e && e.setupIntegrations && e.setupIntegrations();
           }),
           (e.prototype.pushScope = function () {
-            var e = ts.clone(this.getScope());
+            var e = ss.clone(this.getScope());
             return this.getStack().push({ client: this.getClient(), scope: e }), e;
           }),
           (e.prototype.popScope = function () {
@@ -18299,7 +18383,7 @@ var webClient;
             return this._stack[this._stack.length - 1];
           }),
           (e.prototype.captureException = function (e, t) {
-            var n = (this._lastEventId = (0, es.DM)()),
+            var n = (this._lastEventId = (0, as.DM)()),
               r = t;
             if (!t) {
               var o = void 0;
@@ -18310,10 +18394,10 @@ var webClient;
               }
               r = { originalException: e, syntheticException: o };
             }
-            return this._invokeClient("captureException", e, Ba(Ba({}, r), { event_id: n })), n;
+            return this._invokeClient("captureException", e, Wa(Wa({}, r), { event_id: n })), n;
           }),
           (e.prototype.captureMessage = function (e, t, n) {
-            var r = (this._lastEventId = (0, es.DM)()),
+            var r = (this._lastEventId = (0, as.DM)()),
               o = n;
             if (!n) {
               var i = void 0;
@@ -18324,11 +18408,11 @@ var webClient;
               }
               o = { originalException: e, syntheticException: i };
             }
-            return this._invokeClient("captureMessage", e, t, Ba(Ba({}, o), { event_id: r })), r;
+            return this._invokeClient("captureMessage", e, t, Wa(Wa({}, o), { event_id: r })), r;
           }),
           (e.prototype.captureEvent = function (e, t) {
-            var n = (this._lastEventId = (0, es.DM)());
-            return this._invokeClient("captureEvent", e, Ba(Ba({}, t), { event_id: n })), n;
+            var n = (this._lastEventId = (0, as.DM)());
+            return this._invokeClient("captureEvent", e, Wa(Wa({}, t), { event_id: n })), n;
           }),
           (e.prototype.lastEventId = function () {
             return this._lastEventId;
@@ -18344,10 +18428,10 @@ var webClient;
                 u = i.maxBreadcrumbs,
                 l = void 0 === u ? 100 : u;
               if (!(l <= 0)) {
-                var c = (0, Ja.yW)(),
-                  f = Ba({ timestamp: c }, e),
+                var c = (0, os.yW)(),
+                  f = Wa({ timestamp: c }, e),
                   d = s
-                    ? (0, es.Cf)(function () {
+                    ? (0, as.Cf)(function () {
                         return s(f, t);
                       })
                     : f;
@@ -18386,11 +18470,11 @@ var webClient;
             n && r && e(n);
           }),
           (e.prototype.run = function (e) {
-            var t = Ds(this);
+            var t = Gs(this);
             try {
               e(this);
             } finally {
-              Ds(t);
+              Gs(t);
             }
           }),
           (e.prototype.getIntegration = function (e) {
@@ -18399,7 +18483,7 @@ var webClient;
             try {
               return t.getIntegration(e);
             } catch (n) {
-              return us.warn("Cannot retrieve integration " + e.id + " from the current Hub"), null;
+              return hs.warn("Cannot retrieve integration " + e.id + " from the current Hub"), null;
             }
           }),
           (e.prototype.startSpan = function (e) {
@@ -18419,7 +18503,7 @@ var webClient;
               o = (r && r.getOptions()) || {},
               i = o.release,
               a = o.environment,
-              s = new Ps(Ba(Ba({ release: i, environment: a }, n && { user: n.getUser() }), e));
+              s = new Fs(Wa(Wa({ release: i, environment: a }, n && { user: n.getUser() }), e));
             return n && n.setSession(s), s;
           }),
           (e.prototype.endSession = function () {
@@ -18436,71 +18520,71 @@ var webClient;
             var o = this.getStackTop(),
               i = o.scope,
               a = o.client;
-            a && a[e] && (t = a)[e].apply(t, ja(n, [i]));
+            a && a[e] && (t = a)[e].apply(t, Ya(n, [i]));
           }),
           (e.prototype._callExtensionMethod = function (e) {
             for (var t = [], n = 1; n < arguments.length; n++) t[n - 1] = arguments[n];
-            var r = Ls().__SENTRY__;
+            var r = js().__SENTRY__;
             if (r && r.extensions && "function" === typeof r.extensions[e]) return r.extensions[e].apply(this, t);
-            us.warn("Extension method " + e + " couldn't be found, doing nothing.");
+            hs.warn("Extension method " + e + " couldn't be found, doing nothing.");
           }),
           e
         );
       })();
-    function Ls() {
-      var e = (0, es.Rf)();
+    function js() {
+      var e = (0, as.Rf)();
       return (e.__SENTRY__ = e.__SENTRY__ || { extensions: {}, hub: void 0 }), e;
     }
-    function Ds(e) {
-      var t = Ls(),
-        n = Bs(t);
-      return Us(t, e), n;
+    function Gs(e) {
+      var t = js(),
+        n = Ws(t);
+      return zs(t, e), n;
     }
-    function Ms() {
-      var e = Ls();
+    function Vs() {
+      var e = js();
       return (
-        (Fs(e) && !Bs(e).isOlderThan(Rs)) || Us(e, new ks()),
-        (0, ls.KV)()
+        (Hs(e) && !Ws(e).isOlderThan(Bs)) || zs(e, new Us()),
+        (0, ms.KV)()
           ? (function (e) {
               try {
                 var t = (function () {
-                  var e = Ls().__SENTRY__;
+                  var e = js().__SENTRY__;
                   return e && e.extensions && e.extensions.domain && e.extensions.domain.active;
                 })();
-                if (!t) return Bs(e);
-                if (!Fs(t) || Bs(t).isOlderThan(Rs)) {
-                  var n = Bs(e).getStackTop();
-                  Us(t, new ks(n.client, ts.clone(n.scope)));
+                if (!t) return Ws(e);
+                if (!Hs(t) || Ws(t).isOlderThan(Bs)) {
+                  var n = Ws(e).getStackTop();
+                  zs(t, new Us(n.client, ss.clone(n.scope)));
                 }
-                return Bs(t);
+                return Ws(t);
               } catch (r) {
-                return Bs(e);
+                return Ws(e);
               }
             })(e)
-          : Bs(e)
+          : Ws(e)
       );
     }
-    function Fs(e) {
+    function Hs(e) {
       return !!(e && e.__SENTRY__ && e.__SENTRY__.hub);
     }
-    function Bs(e) {
+    function Ws(e) {
       return (
-        (e && e.__SENTRY__ && e.__SENTRY__.hub) || ((e.__SENTRY__ = e.__SENTRY__ || {}), (e.__SENTRY__.hub = new ks())), e.__SENTRY__.hub
+        (e && e.__SENTRY__ && e.__SENTRY__.hub) || ((e.__SENTRY__ = e.__SENTRY__ || {}), (e.__SENTRY__.hub = new Us())), e.__SENTRY__.hub
       );
     }
-    function Us(e, t) {
+    function zs(e, t) {
       return !!e && ((e.__SENTRY__ = e.__SENTRY__ || {}), (e.__SENTRY__.hub = t), !0);
     }
-    var js,
-      Gs = [/^Script error\.?$/, /^Javascript error: Script error\.? on line 0$/],
-      Vs = (function () {
+    var Ys,
+      qs = [/^Script error\.?$/, /^Javascript error: Script error\.? on line 0$/],
+      Ks = (function () {
         function e(t) {
           void 0 === t && (t = {}), (this._options = t), (this.name = e.id);
         }
         return (
           (e.prototype.setupOnce = function () {
-            rs(function (t) {
-              var n = Ms();
+            ls(function (t) {
+              var n = Vs();
               if (!n) return t;
               var r = n.getIntegration(e);
               if (r) {
@@ -18514,21 +18598,21 @@ var webClient;
           }),
           (e.prototype._shouldDropEvent = function (e, t) {
             return this._isSentryError(e, t)
-              ? (us.warn("Event dropped due to being internal Sentry Error.\nEvent: " + (0, es.jH)(e)), !0)
+              ? (hs.warn("Event dropped due to being internal Sentry Error.\nEvent: " + (0, as.jH)(e)), !0)
               : this._isIgnoredError(e, t)
-              ? (us.warn("Event dropped due to being matched by `ignoreErrors` option.\nEvent: " + (0, es.jH)(e)), !0)
+              ? (hs.warn("Event dropped due to being matched by `ignoreErrors` option.\nEvent: " + (0, as.jH)(e)), !0)
               : this._isDeniedUrl(e, t)
-              ? (us.warn(
+              ? (hs.warn(
                   "Event dropped due to being matched by `denyUrls` option.\nEvent: " +
-                    (0, es.jH)(e) +
+                    (0, as.jH)(e) +
                     ".\nUrl: " +
                     this._getEventFilterUrl(e)
                 ),
                 !0)
               : !this._isAllowedUrl(e, t) &&
-                (us.warn(
+                (hs.warn(
                   "Event dropped due to not being matched by `allowUrls` option.\nEvent: " +
-                    (0, es.jH)(e) +
+                    (0, as.jH)(e) +
                     ".\nUrl: " +
                     this._getEventFilterUrl(e)
                 ),
@@ -18549,7 +18633,7 @@ var webClient;
               !(!t.ignoreErrors || !t.ignoreErrors.length) &&
               this._getPossibleEventMessages(e).some(function (e) {
                 return t.ignoreErrors.some(function (t) {
-                  return bs(e, t);
+                  return Is(e, t);
                 });
               })
             );
@@ -18560,7 +18644,7 @@ var webClient;
             return (
               !!n &&
               t.denyUrls.some(function (e) {
-                return bs(n, e);
+                return Is(n, e);
               })
             );
           }),
@@ -18570,7 +18654,7 @@ var webClient;
             return (
               !n ||
               t.allowUrls.some(function (e) {
-                return bs(n, e);
+                return Is(n, e);
               })
             );
           }),
@@ -18578,9 +18662,9 @@ var webClient;
             return (
               void 0 === e && (e = {}),
               {
-                allowUrls: Fa(this._options.whitelistUrls || [], this._options.allowUrls || [], e.whitelistUrls || [], e.allowUrls || []),
-                denyUrls: Fa(this._options.blacklistUrls || [], this._options.denyUrls || [], e.blacklistUrls || [], e.denyUrls || []),
-                ignoreErrors: Fa(this._options.ignoreErrors || [], e.ignoreErrors || [], Gs),
+                allowUrls: Ha(this._options.whitelistUrls || [], this._options.allowUrls || [], e.whitelistUrls || [], e.allowUrls || []),
+                denyUrls: Ha(this._options.blacklistUrls || [], this._options.denyUrls || [], e.blacklistUrls || [], e.denyUrls || []),
+                ignoreErrors: Ha(this._options.ignoreErrors || [], e.ignoreErrors || [], qs),
                 ignoreInternal: "undefined" === typeof this._options.ignoreInternal || this._options.ignoreInternal
               }
             );
@@ -18596,7 +18680,7 @@ var webClient;
                   i = void 0 === o ? "" : o;
                 return ["" + i, r + ": " + i];
               } catch (a) {
-                return us.error("Cannot extract message for event " + (0, es.jH)(e)), [];
+                return hs.error("Cannot extract message for event " + (0, as.jH)(e)), [];
               }
             return [];
           }),
@@ -18612,26 +18696,26 @@ var webClient;
               }
               return null;
             } catch (r) {
-              return us.error("Cannot extract url for event " + (0, es.jH)(e)), null;
+              return hs.error("Cannot extract url for event " + (0, as.jH)(e)), null;
             }
           }),
           (e.id = "InboundFilters"),
           e
         );
       })();
-    function Hs() {
-      if (!("fetch" in (0, es.Rf)())) return !1;
+    function $s() {
+      if (!("fetch" in (0, as.Rf)())) return !1;
       try {
         return new Headers(), new Request(""), new Response(), !0;
       } catch (e) {
         return !1;
       }
     }
-    function Ws(e) {
+    function Xs(e) {
       return e && /^function fetch\(\)\s+\{\s+\[native code\]\s+\}$/.test(e.toString());
     }
-    function zs() {
-      if (!Hs()) return !1;
+    function Qs() {
+      if (!$s()) return !1;
       try {
         return new Request("_", { referrerPolicy: "origin" }), !0;
       } catch (e) {
@@ -18646,7 +18730,7 @@ var webClient;
         (e.Info = "info"),
         (e.Debug = "debug"),
         (e.Critical = "critical");
-    })(js || (js = {})),
+    })(Ys || (Ys = {})),
       (function (e) {
         e.fromString = function (t) {
           switch (t) {
@@ -18667,23 +18751,23 @@ var webClient;
               return e.Log;
           }
         };
-      })(js || (js = {}));
-    var Ys,
-      qs = (0, es.Rf)(),
-      Ks = {},
-      $s = {};
-    function Xs(e) {
-      if (!$s[e])
-        switch ((($s[e] = !0), e)) {
+      })(Ys || (Ys = {}));
+    var Zs,
+      Js = (0, as.Rf)(),
+      eu = {},
+      tu = {};
+    function nu(e) {
+      if (!tu[e])
+        switch (((tu[e] = !0), e)) {
           case "console":
             !(function () {
-              if (!("console" in qs)) return;
+              if (!("console" in Js)) return;
               ["debug", "info", "warn", "error", "log", "assert"].forEach(function (e) {
-                e in qs.console &&
-                  Ss(qs.console, e, function (t) {
+                e in Js.console &&
+                  Cs(Js.console, e, function (t) {
                     return function () {
                       for (var n = [], r = 0; r < arguments.length; r++) n[r] = arguments[r];
-                      Js("console", { args: n, level: e }), t && Function.prototype.apply.call(t, qs.console, n);
+                      ou("console", { args: n, level: e }), t && Function.prototype.apply.call(t, Js.console, n);
                     };
                   });
               });
@@ -18691,37 +18775,37 @@ var webClient;
             break;
           case "dom":
             !(function () {
-              if (!("document" in qs)) return;
-              qs.document.addEventListener("click", iu("click", Js.bind(null, "dom")), !1),
-                qs.document.addEventListener("keypress", au(Js.bind(null, "dom")), !1),
+              if (!("document" in Js)) return;
+              Js.document.addEventListener("click", fu("click", ou.bind(null, "dom")), !1),
+                Js.document.addEventListener("keypress", du(ou.bind(null, "dom")), !1),
                 ["EventTarget", "Node"].forEach(function (e) {
-                  var t = qs[e] && qs[e].prototype;
+                  var t = Js[e] && Js[e].prototype;
                   t &&
                     t.hasOwnProperty &&
                     t.hasOwnProperty("addEventListener") &&
-                    (Ss(t, "addEventListener", function (e) {
+                    (Cs(t, "addEventListener", function (e) {
                       return function (t, n, r) {
                         return (
                           n && n.handleEvent
                             ? ("click" === t &&
-                                Ss(n, "handleEvent", function (e) {
+                                Cs(n, "handleEvent", function (e) {
                                   return function (t) {
-                                    return iu("click", Js.bind(null, "dom"))(t), e.call(this, t);
+                                    return fu("click", ou.bind(null, "dom"))(t), e.call(this, t);
                                   };
                                 }),
                               "keypress" === t &&
-                                Ss(n, "handleEvent", function (e) {
+                                Cs(n, "handleEvent", function (e) {
                                   return function (t) {
-                                    return au(Js.bind(null, "dom"))(t), e.call(this, t);
+                                    return du(ou.bind(null, "dom"))(t), e.call(this, t);
                                   };
                                 }))
-                            : ("click" === t && iu("click", Js.bind(null, "dom"), !0)(this),
-                              "keypress" === t && au(Js.bind(null, "dom"))(this)),
+                            : ("click" === t && fu("click", ou.bind(null, "dom"), !0)(this),
+                              "keypress" === t && du(ou.bind(null, "dom"))(this)),
                           e.call(this, t, n, r)
                         );
                       };
                     }),
-                    Ss(t, "removeEventListener", function (e) {
+                    Cs(t, "removeEventListener", function (e) {
                       return function (t, n, r) {
                         try {
                           e.call(this, t, n.__sentry_wrapped__, r);
@@ -18734,17 +18818,17 @@ var webClient;
             break;
           case "xhr":
             !(function () {
-              if (!("XMLHttpRequest" in qs)) return;
+              if (!("XMLHttpRequest" in Js)) return;
               var e = [],
                 t = [],
                 n = XMLHttpRequest.prototype;
-              Ss(n, "open", function (n) {
+              Cs(n, "open", function (n) {
                 return function () {
                   for (var r = [], o = 0; o < arguments.length; o++) r[o] = arguments[o];
                   var i = this,
                     a = r[1];
-                  (i.__sentry_xhr__ = { method: Wa(r[0]) ? r[0].toUpperCase() : r[0], url: r[1] }),
-                    Wa(a) && "POST" === i.__sentry_xhr__.method && a.match(/sentry_key/) && (i.__sentry_own_request__ = !0);
+                  (i.__sentry_xhr__ = { method: Xa(r[0]) ? r[0].toUpperCase() : r[0], url: r[1] }),
+                    Xa(a) && "POST" === i.__sentry_xhr__.method && a.match(/sentry_key/) && (i.__sentry_own_request__ = !0);
                   var s = function () {
                     if (4 === i.readyState) {
                       try {
@@ -18758,12 +18842,12 @@ var webClient;
                           i.__sentry_xhr__ && void 0 !== o[0] && (i.__sentry_xhr__.body = o[0]);
                         }
                       } catch (a) {}
-                      Js("xhr", { args: r, endTimestamp: Date.now(), startTimestamp: Date.now(), xhr: i });
+                      ou("xhr", { args: r, endTimestamp: Date.now(), startTimestamp: Date.now(), xhr: i });
                     }
                   };
                   return (
                     "onreadystatechange" in i && "function" === typeof i.onreadystatechange
-                      ? Ss(i, "onreadystatechange", function (e) {
+                      ? Cs(i, "onreadystatechange", function (e) {
                           return function () {
                             for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
                             return s(), e.apply(i, t);
@@ -18774,10 +18858,10 @@ var webClient;
                   );
                 };
               }),
-                Ss(n, "send", function (n) {
+                Cs(n, "send", function (n) {
                   return function () {
                     for (var r = [], o = 0; o < arguments.length; o++) r[o] = arguments[o];
-                    return e.push(this), t.push(r), Js("xhr", { args: r, startTimestamp: Date.now(), xhr: this }), n.apply(this, r);
+                    return e.push(this), t.push(r), ou("xhr", { args: r, startTimestamp: Date.now(), xhr: this }), n.apply(this, r);
                   };
                 });
             })();
@@ -18786,9 +18870,9 @@ var webClient;
             !(function () {
               if (
                 !(function () {
-                  if (!Hs()) return !1;
-                  var e = (0, es.Rf)();
-                  if (Ws(e.fetch)) return !0;
+                  if (!$s()) return !1;
+                  var e = (0, as.Rf)();
+                  if (Xs(e.fetch)) return !0;
                   var t = !1,
                     n = e.document;
                   if (n && "function" === typeof n.createElement)
@@ -18796,27 +18880,27 @@ var webClient;
                       var r = n.createElement("iframe");
                       (r.hidden = !0),
                         n.head.appendChild(r),
-                        r.contentWindow && r.contentWindow.fetch && (t = Ws(r.contentWindow.fetch)),
+                        r.contentWindow && r.contentWindow.fetch && (t = Xs(r.contentWindow.fetch)),
                         n.head.removeChild(r);
                     } catch (o) {
-                      us.warn("Could not create sandbox iframe for pure fetch check, bailing to window.fetch: ", o);
+                      hs.warn("Could not create sandbox iframe for pure fetch check, bailing to window.fetch: ", o);
                     }
                   return t;
                 })()
               )
                 return;
-              Ss(qs, "fetch", function (e) {
+              Cs(Js, "fetch", function (e) {
                 return function () {
                   for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                  var r = { args: t, fetchData: { method: Zs(t), url: eu(t) }, startTimestamp: Date.now() };
+                  var r = { args: t, fetchData: { method: iu(t), url: au(t) }, startTimestamp: Date.now() };
                   return (
-                    Js("fetch", fs({}, r)),
-                    e.apply(qs, t).then(
+                    ou("fetch", ys({}, r)),
+                    e.apply(Js, t).then(
                       function (e) {
-                        return Js("fetch", fs(fs({}, r), { endTimestamp: Date.now(), response: e })), e;
+                        return ou("fetch", ys(ys({}, r), { endTimestamp: Date.now(), response: e })), e;
                       },
                       function (e) {
-                        throw (Js("fetch", fs(fs({}, r), { endTimestamp: Date.now(), error: e })), e);
+                        throw (ou("fetch", ys(ys({}, r), { endTimestamp: Date.now(), error: e })), e);
                       }
                     )
                   );
@@ -18828,7 +18912,7 @@ var webClient;
             !(function () {
               if (
                 !(function () {
-                  var e = (0, es.Rf)(),
+                  var e = (0, as.Rf)(),
                     t = e.chrome,
                     n = t && t.app && t.app.runtime,
                     r = "history" in e && !!e.history.pushState && !!e.history.replaceState;
@@ -18836,61 +18920,61 @@ var webClient;
                 })()
               )
                 return;
-              var e = qs.onpopstate;
+              var e = Js.onpopstate;
               function t(e) {
                 return function () {
                   for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
                   var r = t.length > 2 ? t[2] : void 0;
                   if (r) {
-                    var o = Ys,
+                    var o = Zs,
                       i = String(r);
-                    (Ys = i), Js("history", { from: o, to: i });
+                    (Zs = i), ou("history", { from: o, to: i });
                   }
                   return e.apply(this, t);
                 };
               }
-              (qs.onpopstate = function () {
+              (Js.onpopstate = function () {
                 for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                var r = qs.location.href,
-                  o = Ys;
-                if (((Ys = r), Js("history", { from: o, to: r }), e)) return e.apply(this, t);
+                var r = Js.location.href,
+                  o = Zs;
+                if (((Zs = r), ou("history", { from: o, to: r }), e)) return e.apply(this, t);
               }),
-                Ss(qs.history, "pushState", t),
-                Ss(qs.history, "replaceState", t);
+                Cs(Js.history, "pushState", t),
+                Cs(Js.history, "replaceState", t);
             })();
             break;
           case "error":
-            (su = qs.onerror),
-              (qs.onerror = function (e, t, n, r, o) {
-                return Js("error", { column: r, error: o, line: n, msg: e, url: t }), !!su && su.apply(this, arguments);
+            (pu = Js.onerror),
+              (Js.onerror = function (e, t, n, r, o) {
+                return ou("error", { column: r, error: o, line: n, msg: e, url: t }), !!pu && pu.apply(this, arguments);
               });
             break;
           case "unhandledrejection":
-            (uu = qs.onunhandledrejection),
-              (qs.onunhandledrejection = function (e) {
-                return Js("unhandledrejection", e), !uu || uu.apply(this, arguments);
+            (hu = Js.onunhandledrejection),
+              (Js.onunhandledrejection = function (e) {
+                return ou("unhandledrejection", e), !hu || hu.apply(this, arguments);
               });
             break;
           default:
-            us.warn("unknown instrumentation type:", e);
+            hs.warn("unknown instrumentation type:", e);
         }
     }
-    function Qs(e) {
+    function ru(e) {
       e &&
         "string" === typeof e.type &&
         "function" === typeof e.callback &&
-        ((Ks[e.type] = Ks[e.type] || []), Ks[e.type].push(e.callback), Xs(e.type));
+        ((eu[e.type] = eu[e.type] || []), eu[e.type].push(e.callback), nu(e.type));
     }
-    function Js(e, t) {
+    function ou(e, t) {
       var n, r;
-      if (e && Ks[e])
+      if (e && eu[e])
         try {
-          for (var o = ds(Ks[e] || []), i = o.next(); !i.done; i = o.next()) {
+          for (var o = gs(eu[e] || []), i = o.next(); !i.done; i = o.next()) {
             var a = i.value;
             try {
               a(t);
             } catch (s) {
-              us.error("Error while triggering instrumentation handler.\nType: " + e + "\nName: " + gs(a) + "\nError: " + s);
+              hs.error("Error while triggering instrumentation handler.\nType: " + e + "\nName: " + As(a) + "\nError: " + s);
             }
           }
         } catch (u) {
@@ -18903,41 +18987,41 @@ var webClient;
           }
         }
     }
-    function Zs(e) {
+    function iu(e) {
       return (
         void 0 === e && (e = []),
-        "Request" in qs && Xa(e[0], Request) && e[0].method
+        "Request" in Js && ns(e[0], Request) && e[0].method
           ? String(e[0].method).toUpperCase()
           : e[1] && e[1].method
           ? String(e[1].method).toUpperCase()
           : "GET"
       );
     }
-    function eu(e) {
-      return void 0 === e && (e = []), "string" === typeof e[0] ? e[0] : "Request" in qs && Xa(e[0], Request) ? e[0].url : String(e[0]);
+    function au(e) {
+      return void 0 === e && (e = []), "string" === typeof e[0] ? e[0] : "Request" in Js && ns(e[0], Request) ? e[0].url : String(e[0]);
     }
-    var tu,
-      nu,
-      ru = 1e3,
-      ou = 0;
-    function iu(e, t, n) {
+    var su,
+      uu,
+      lu = 1e3,
+      cu = 0;
+    function fu(e, t, n) {
       return (
         void 0 === n && (n = !1),
         function (r) {
-          (tu = void 0),
+          (su = void 0),
             r &&
-              nu !== r &&
-              ((nu = r),
-              ou && clearTimeout(ou),
+              uu !== r &&
+              ((uu = r),
+              cu && clearTimeout(cu),
               n
-                ? (ou = setTimeout(function () {
+                ? (cu = setTimeout(function () {
                     t({ event: r, name: e });
                   }))
                 : t({ event: r, name: e }));
         }
       );
     }
-    function au(e) {
+    function du(e) {
       return function (t) {
         var n;
         try {
@@ -18948,28 +19032,28 @@ var webClient;
         var r = n && n.tagName;
         r &&
           ("INPUT" === r || "TEXTAREA" === r || n.isContentEditable) &&
-          (tu || iu("input", e)(t),
-          clearTimeout(tu),
-          (tu = setTimeout(function () {
-            tu = void 0;
-          }, ru)));
+          (su || fu("input", e)(t),
+          clearTimeout(su),
+          (su = setTimeout(function () {
+            su = void 0;
+          }, lu)));
       };
     }
-    var su = null;
-    var uu = null;
-    var lu = "?",
-      cu =
+    var pu = null;
+    var hu = null;
+    var mu = "?",
+      vu =
         /^\s*at (?:(.*?) ?\()?((?:file|https?|blob|chrome-extension|address|native|eval|webpack|<anonymous>|[-a-z]+:|.*bundle|\/).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i,
-      fu =
+      yu =
         /^\s*(.*?)(?:\((.*?)\))?(?:^|@)?((?:file|https?|blob|chrome|webpack|resource|moz-extension|capacitor).*?:\/.*?|\[native code\]|[^@]*(?:bundle|\d+\.js)|\/[\w\-. /=]+)(?::(\d+))?(?::(\d+))?\s*$/i,
-      du = /^\s*at (?:((?:\[object object\])?.+) )?\(?((?:file|ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i,
-      pu = /(\S+) line (\d+)(?: > eval line \d+)* > eval/i,
-      hu = /\((\S*)(?::(\d+))(?::(\d+))\)/,
-      mu = /Minified React error #\d+;/i;
-    function vu(e) {
+      gu = /^\s*at (?:((?:\[object object\])?.+) )?\(?((?:file|ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i,
+      _u = /(\S+) line (\d+)(?: > eval line \d+)* > eval/i,
+      Eu = /\((\S*)(?::(\d+))(?::(\d+))\)/,
+      bu = /Minified React error #\d+;/i;
+    function Su(e) {
       var t = null,
         n = 0;
-      e && ("number" === typeof e.framesToPop ? (n = e.framesToPop) : mu.test(e.message) && (n = 1));
+      e && ("number" === typeof e.framesToPop ? (n = e.framesToPop) : bu.test(e.message) && (n = 1));
       try {
         if (
           ((t = (function (e) {
@@ -18990,78 +19074,78 @@ var webClient;
                 ? (u = { url: t[2], func: t[3], args: [], line: +t[1], column: null })
                 : (t = o.exec(i[s])) &&
                   (u = { url: t[6], func: t[3] || t[4], args: t[5] ? t[5].split(",") : [], line: +t[1], column: +t[2] }),
-                u && (!u.func && u.line && (u.func = lu), a.push(u));
+                u && (!u.func && u.line && (u.func = mu), a.push(u));
             }
             if (!a.length) return null;
-            return { message: gu(e), name: e.name, stack: a };
+            return { message: Au(e), name: e.name, stack: a };
           })(e)),
           t)
         )
-          return yu(t, n);
+          return wu(t, n);
       } catch (r) {}
       try {
         if (
           ((t = (function (e) {
             if (!e || !e.stack) return null;
             for (var t, n, r, o = [], i = e.stack.split("\n"), a = 0; a < i.length; ++a) {
-              if ((n = cu.exec(i[a]))) {
+              if ((n = vu.exec(i[a]))) {
                 var s = n[2] && 0 === n[2].indexOf("native");
-                n[2] && 0 === n[2].indexOf("eval") && (t = hu.exec(n[2])) && ((n[2] = t[1]), (n[3] = t[2]), (n[4] = t[3])),
+                n[2] && 0 === n[2].indexOf("eval") && (t = Eu.exec(n[2])) && ((n[2] = t[1]), (n[3] = t[2]), (n[4] = t[3])),
                   (r = {
                     url: n[2] && 0 === n[2].indexOf("address at ") ? n[2].substr(11) : n[2],
-                    func: n[1] || lu,
+                    func: n[1] || mu,
                     args: s ? [n[2]] : [],
                     line: n[3] ? +n[3] : null,
                     column: n[4] ? +n[4] : null
                   });
-              } else if ((n = du.exec(i[a]))) r = { url: n[2], func: n[1] || lu, args: [], line: +n[3], column: n[4] ? +n[4] : null };
+              } else if ((n = gu.exec(i[a]))) r = { url: n[2], func: n[1] || mu, args: [], line: +n[3], column: n[4] ? +n[4] : null };
               else {
-                if (!(n = fu.exec(i[a]))) continue;
-                n[3] && n[3].indexOf(" > eval") > -1 && (t = pu.exec(n[3]))
+                if (!(n = yu.exec(i[a]))) continue;
+                n[3] && n[3].indexOf(" > eval") > -1 && (t = _u.exec(n[3]))
                   ? ((n[1] = n[1] || "eval"), (n[3] = t[1]), (n[4] = t[2]), (n[5] = ""))
                   : 0 !== a || n[5] || void 0 === e.columnNumber || (o[0].column = e.columnNumber + 1),
                   (r = {
                     url: n[3],
-                    func: n[1] || lu,
+                    func: n[1] || mu,
                     args: n[2] ? n[2].split(",") : [],
                     line: n[4] ? +n[4] : null,
                     column: n[5] ? +n[5] : null
                   });
               }
-              !r.func && r.line && (r.func = lu), o.push(r);
+              !r.func && r.line && (r.func = mu), o.push(r);
             }
             if (!o.length) return null;
-            return { message: gu(e), name: e.name, stack: o };
+            return { message: Au(e), name: e.name, stack: o };
           })(e)),
           t)
         )
-          return yu(t, n);
+          return wu(t, n);
       } catch (r) {}
-      return { message: gu(e), name: e && e.name, stack: [], failed: !0 };
+      return { message: Au(e), name: e && e.name, stack: [], failed: !0 };
     }
-    function yu(e, t) {
+    function wu(e, t) {
       try {
-        return Na(Na({}, e), { stack: e.stack.slice(t) });
+        return Da(Da({}, e), { stack: e.stack.slice(t) });
       } catch (n) {
         return e;
       }
     }
-    function gu(e) {
+    function Au(e) {
       var t = e && e.message;
       return t ? (t.error && "string" === typeof t.error.message ? t.error.message : t) : "No error message";
     }
-    var _u = 50;
-    function Eu(e) {
-      var t = Su(e.stack),
+    var Tu = 50;
+    function xu(e) {
+      var t = Cu(e.stack),
         n = { type: e.name, value: e.message };
       return (
         t && t.length && (n.stacktrace = { frames: t }), void 0 === n.type && "" === n.value && (n.value = "Unrecoverable error caught"), n
       );
     }
-    function bu(e) {
-      return { exception: { values: [Eu(e)] } };
+    function Iu(e) {
+      return { exception: { values: [xu(e)] } };
     }
-    function Su(e) {
+    function Cu(e) {
       if (!e || !e.length) return [];
       var t = e,
         n = t[0].func || "",
@@ -19070,7 +19154,7 @@ var webClient;
         (-1 === n.indexOf("captureMessage") && -1 === n.indexOf("captureException")) || (t = t.slice(1)),
         -1 !== r.indexOf("sentryWrapped") && (t = t.slice(0, -1)),
         t
-          .slice(0, _u)
+          .slice(0, Tu)
           .map(function (e) {
             return {
               colno: null === e.column ? void 0 : e.column,
@@ -19083,50 +19167,50 @@ var webClient;
           .reverse()
       );
     }
-    function wu(e, t, n) {
+    function Nu(e, t, n) {
       var r, o;
-      if ((void 0 === n && (n = {}), Va(e) && e.error)) return (r = bu(vu((e = e.error))));
-      if (Ha(e) || ((o = e), "[object DOMException]" === Object.prototype.toString.call(o))) {
+      if ((void 0 === n && (n = {}), Ka(e) && e.error)) return (r = Iu(Su((e = e.error))));
+      if ($a(e) || ((o = e), "[object DOMException]" === Object.prototype.toString.call(o))) {
         var i = e,
-          a = i.name || (Ha(i) ? "DOMError" : "DOMException"),
+          a = i.name || ($a(i) ? "DOMError" : "DOMException"),
           s = i.message ? a + ": " + i.message : a;
-        return (r = Au(s, t, n)), (0, es.Db)(r, s), "code" in i && (r.tags = Na(Na({}, r.tags), { "DOMException.code": "" + i.code })), r;
+        return (r = Ou(s, t, n)), (0, as.Db)(r, s), "code" in i && (r.tags = Da(Da({}, r.tags), { "DOMException.code": "" + i.code })), r;
       }
-      return Ga(e)
-        ? (r = bu(vu(e)))
-        : Ya(e) || qa(e)
+      return qa(e)
+        ? (r = Iu(Su(e)))
+        : Za(e) || Ja(e)
         ? ((r = (function (e, t, n) {
             var r = {
               exception: {
                 values: [
                   {
-                    type: qa(e) ? e.constructor.name : n ? "UnhandledRejection" : "Error",
-                    value: "Non-Error " + (n ? "promise rejection" : "exception") + " captured with keys: " + Ns(e)
+                    type: Ja(e) ? e.constructor.name : n ? "UnhandledRejection" : "Error",
+                    value: "Non-Error " + (n ? "promise rejection" : "exception") + " captured with keys: " + Ds(e)
                   }
                 ]
               },
-              extra: { __serialized__: Ts(e) }
+              extra: { __serialized__: Ps(e) }
             };
             if (t) {
-              var o = Su(vu(t).stack);
+              var o = Cu(Su(t).stack);
               r.stacktrace = { frames: o };
             }
             return r;
           })(e, t, n.rejection)),
-          (0, es.EG)(r, { synthetic: !0 }),
+          (0, as.EG)(r, { synthetic: !0 }),
           r)
-        : ((r = Au(e, t, n)), (0, es.Db)(r, "" + e, void 0), (0, es.EG)(r, { synthetic: !0 }), r);
+        : ((r = Ou(e, t, n)), (0, as.Db)(r, "" + e, void 0), (0, as.EG)(r, { synthetic: !0 }), r);
     }
-    function Au(e, t, n) {
+    function Ou(e, t, n) {
       void 0 === n && (n = {});
       var r = { message: e };
       if (n.attachStacktrace && t) {
-        var o = Su(vu(t).stack);
+        var o = Cu(Su(t).stack);
         r.stacktrace = { frames: o };
       }
       return r;
     }
-    function Tu(e, t) {
+    function Pu(e, t) {
       var n = "function" === typeof Symbol && e[Symbol.iterator];
       if (!n) return e;
       var r,
@@ -19146,29 +19230,29 @@ var webClient;
       }
       return a;
     }
-    function xu(e) {
+    function Ru(e) {
       for (var t = [], n = 1; n < arguments.length; n++) t[n - 1] = arguments[n];
-      var r = Ms();
+      var r = Vs();
       if (r && r[e])
         return r[e].apply(
           r,
           (function () {
-            for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Tu(arguments[t]));
+            for (var e = [], t = 0; t < arguments.length; t++) e = e.concat(Pu(arguments[t]));
             return e;
           })(t)
         );
       throw new Error("No hub defined or " + e + " was not found on the hub, please open a bug report.");
     }
-    function Iu(e, t) {
+    function ku(e, t) {
       var n;
       try {
         throw new Error("Sentry syntheticException");
       } catch (e) {
         n = e;
       }
-      return xu("captureException", e, { captureContext: t, originalException: e, syntheticException: n });
+      return Ru("captureException", e, { captureContext: t, originalException: e, syntheticException: n });
     }
-    var Cu =
+    var Lu =
       Object.setPrototypeOf ||
       ({ __proto__: [] } instanceof Array
         ? function (e, t) {
@@ -19178,25 +19262,25 @@ var webClient;
             for (var n in t) e.hasOwnProperty(n) || (e[n] = t[n]);
             return e;
           });
-    var Nu = (function (e) {
+    var Du = (function (e) {
         function t(t) {
           var n = this.constructor,
             r = e.call(this, t) || this;
-          return (r.message = t), (r.name = n.prototype.constructor.name), Cu(r, n.prototype), r;
+          return (r.message = t), (r.name = n.prototype.constructor.name), Lu(r, n.prototype), r;
         }
         return (
           (function (e, t) {
             function n() {
               this.constructor = e;
             }
-            cs(e, t), (e.prototype = null === t ? Object.create(t) : ((n.prototype = t.prototype), new n()));
+            vs(e, t), (e.prototype = null === t ? Object.create(t) : ((n.prototype = t.prototype), new n()));
           })(t, e),
           t
         );
       })(Error),
-      Ou = /^(?:(\w+):)\/\/(?:(\w+)(?::(\w+))?@)([\w.-]+)(?::(\d+))?\/(.+)/,
-      Pu = "Invalid Dsn",
-      Ru = (function () {
+      Mu = /^(?:(\w+):)\/\/(?:(\w+)(?::(\w+))?@)([\w.-]+)(?::(\d+))?\/(.+)/,
+      Fu = "Invalid Dsn",
+      Bu = (function () {
         function e(e) {
           "string" === typeof e ? this._fromString(e) : this._fromComponents(e), this._validate();
         }
@@ -19212,9 +19296,9 @@ var webClient;
             return t.protocol + "://" + t.user + (e && o ? ":" + o : "") + "@" + n + (i ? ":" + i : "") + "/" + (r ? r + "/" : r) + a;
           }),
           (e.prototype._fromString = function (e) {
-            var t = Ou.exec(e);
-            if (!t) throw new Nu(Pu);
-            var n = ps(t.slice(1), 6),
+            var t = Mu.exec(e);
+            if (!t) throw new Du(Fu);
+            var n = _s(t.slice(1), 6),
               r = n[0],
               o = n[1],
               i = n[2],
@@ -19244,20 +19328,20 @@ var webClient;
             var e = this;
             if (
               (["protocol", "user", "host", "projectId"].forEach(function (t) {
-                if (!e[t]) throw new Nu(Pu + ": " + t + " missing");
+                if (!e[t]) throw new Du(Fu + ": " + t + " missing");
               }),
               !this.projectId.match(/^\d+$/))
             )
-              throw new Nu(Pu + ": Invalid projectId " + this.projectId);
-            if ("http" !== this.protocol && "https" !== this.protocol) throw new Nu(Pu + ": Invalid protocol " + this.protocol);
-            if (this.port && isNaN(parseInt(this.port, 10))) throw new Nu(Pu + ": Invalid port " + this.port);
+              throw new Du(Fu + ": Invalid projectId " + this.projectId);
+            if ("http" !== this.protocol && "https" !== this.protocol) throw new Du(Fu + ": Invalid protocol " + this.protocol);
+            if (this.port && isNaN(parseInt(this.port, 10))) throw new Du(Fu + ": Invalid port " + this.port);
           }),
           e
         );
       })(),
-      ku = (function () {
+      Uu = (function () {
         function e(e) {
-          (this.dsn = e), (this._dsnObject = new Ru(e));
+          (this.dsn = e), (this._dsnObject = new Bu(e));
         }
         return (
           (e.prototype.getDsn = function () {
@@ -19327,11 +19411,11 @@ var webClient;
           e
         );
       })(),
-      Lu = 0;
-    function Du() {
-      return Lu > 0;
+      ju = 0;
+    function Gu() {
+      return ju > 0;
     }
-    function Mu(e, t, n) {
+    function Vu(e, t, n) {
       if ((void 0 === t && (t = {}), "function" !== typeof e)) return e;
       try {
         if (e.__sentry__) return e;
@@ -19344,25 +19428,25 @@ var webClient;
         try {
           n && "function" === typeof n && n.apply(this, arguments);
           var o = r.map(function (e) {
-            return Mu(e, t);
+            return Vu(e, t);
           });
           return e.handleEvent ? e.handleEvent.apply(this, o) : e.apply(this, o);
         } catch (i) {
           throw (
-            ((Lu += 1),
+            ((ju += 1),
             setTimeout(function () {
-              Lu -= 1;
+              ju -= 1;
             }),
-            xu("withScope", function (e) {
+            Ru("withScope", function (e) {
               e.addEventProcessor(function (e) {
-                var n = Na({}, e);
+                var n = Da({}, e);
                 return (
-                  t.mechanism && ((0, es.Db)(n, void 0, void 0), (0, es.EG)(n, t.mechanism)),
-                  (n.extra = Na(Na({}, n.extra), { arguments: r })),
+                  t.mechanism && ((0, as.Db)(n, void 0, void 0), (0, as.EG)(n, t.mechanism)),
+                  (n.extra = Da(Da({}, n.extra), { arguments: r })),
                   n
                 );
               }),
-                Iu(i);
+                ku(i);
             }),
             i)
           );
@@ -19385,51 +19469,51 @@ var webClient;
       } catch (a) {}
       return r;
     }
-    function Fu(e) {
+    function Hu(e) {
       if ((void 0 === e && (e = {}), e.eventId))
         if (e.dsn) {
           var t = document.createElement("script");
           (t.async = !0),
-            (t.src = new ku(e.dsn).getReportDialogEndpoint(e)),
+            (t.src = new Uu(e.dsn).getReportDialogEndpoint(e)),
             e.onLoad && (t.onload = e.onLoad),
             (document.head || document.body).appendChild(t);
-        } else us.error("Missing dsn option in showReportDialog call");
-      else us.error("Missing eventId option in showReportDialog call");
+        } else hs.error("Missing dsn option in showReportDialog call");
+      else hs.error("Missing eventId option in showReportDialog call");
     }
-    var Bu = (function () {
+    var Wu = (function () {
         function e(t) {
           (this.name = e.id),
             (this._onErrorHandlerInstalled = !1),
             (this._onUnhandledRejectionHandlerInstalled = !1),
-            (this._options = Na({ onerror: !0, onunhandledrejection: !0 }, t));
+            (this._options = Da({ onerror: !0, onunhandledrejection: !0 }, t));
         }
         return (
           (e.prototype.setupOnce = function () {
             (Error.stackTraceLimit = 50),
-              this._options.onerror && (us.log("Global Handler attached: onerror"), this._installGlobalOnErrorHandler()),
+              this._options.onerror && (hs.log("Global Handler attached: onerror"), this._installGlobalOnErrorHandler()),
               this._options.onunhandledrejection &&
-                (us.log("Global Handler attached: onunhandledrejection"), this._installGlobalOnUnhandledRejectionHandler());
+                (hs.log("Global Handler attached: onunhandledrejection"), this._installGlobalOnUnhandledRejectionHandler());
           }),
           (e.prototype._installGlobalOnErrorHandler = function () {
             var t = this;
             this._onErrorHandlerInstalled ||
-              (Qs({
+              (ru({
                 callback: function (n) {
                   var r = n.error,
-                    o = Ms(),
+                    o = Vs(),
                     i = o.getIntegration(e),
                     a = r && !0 === r.__sentry_own_request__;
-                  if (i && !Du() && !a) {
+                  if (i && !Gu() && !a) {
                     var s = o.getClient(),
-                      u = za(r)
+                      u = Qa(r)
                         ? t._eventFromIncompleteOnError(n.msg, n.url, n.line, n.column)
                         : t._enhanceEventWithInitialFrame(
-                            wu(r, void 0, { attachStacktrace: s && s.getOptions().attachStacktrace, rejection: !1 }),
+                            Nu(r, void 0, { attachStacktrace: s && s.getOptions().attachStacktrace, rejection: !1 }),
                             n.url,
                             n.line,
                             n.column
                           );
-                    (0, es.EG)(u, { handled: !1, type: "onerror" }), o.captureEvent(u, { originalException: r });
+                    (0, as.EG)(u, { handled: !1, type: "onerror" }), o.captureEvent(u, { originalException: r });
                   }
                 },
                 type: "error"
@@ -19439,22 +19523,22 @@ var webClient;
           (e.prototype._installGlobalOnUnhandledRejectionHandler = function () {
             var t = this;
             this._onUnhandledRejectionHandlerInstalled ||
-              (Qs({
+              (ru({
                 callback: function (n) {
                   var r = n;
                   try {
                     "reason" in n ? (r = n.reason) : "detail" in n && "reason" in n.detail && (r = n.detail.reason);
                   } catch (l) {}
-                  var o = Ms(),
+                  var o = Vs(),
                     i = o.getIntegration(e),
                     a = r && !0 === r.__sentry_own_request__;
-                  if (!i || Du() || a) return !0;
+                  if (!i || Gu() || a) return !0;
                   var s = o.getClient(),
-                    u = za(r)
+                    u = Qa(r)
                       ? t._eventFromRejectionWithPrimitive(r)
-                      : wu(r, void 0, { attachStacktrace: s && s.getOptions().attachStacktrace, rejection: !0 });
-                  (u.level = js.Error),
-                    (0, es.EG)(u, { handled: !1, type: "onunhandledrejection" }),
+                      : Nu(r, void 0, { attachStacktrace: s && s.getOptions().attachStacktrace, rejection: !0 });
+                  (u.level = Ys.Error),
+                    (0, as.EG)(u, { handled: !1, type: "onunhandledrejection" }),
                     o.captureEvent(u, { originalException: r });
                 },
                 type: "unhandledrejection"
@@ -19463,8 +19547,8 @@ var webClient;
           }),
           (e.prototype._eventFromIncompleteOnError = function (e, t, n, r) {
             var o,
-              i = Va(e) ? e.message : e;
-            if (Wa(i)) {
+              i = Ka(e) ? e.message : e;
+            if (Xa(i)) {
               var a = i.match(/^(?:[Uu]ncaught (?:exception: )?)?(?:((?:Eval|Internal|Range|Reference|Syntax|Type|URI|)Error): )?(.*)$/i);
               a && ((o = a[1]), (i = a[2]));
             }
@@ -19486,7 +19570,7 @@ var webClient;
               (e.exception.values[0].stacktrace.frames = e.exception.values[0].stacktrace.frames || []);
             var o = isNaN(parseInt(r, 10)) ? void 0 : r,
               i = isNaN(parseInt(n, 10)) ? void 0 : n,
-              a = Wa(t) && t.length > 0 ? t : (0, es.l4)();
+              a = Xa(t) && t.length > 0 ? t : (0, as.l4)();
             return (
               0 === e.exception.values[0].stacktrace.frames.length &&
                 e.exception.values[0].stacktrace.frames.push({ colno: o, filename: a, function: "?", in_app: !0, lineno: i }),
@@ -19497,7 +19581,7 @@ var webClient;
           e
         );
       })(),
-      Uu = [
+      zu = [
         "EventTarget",
         "Window",
         "Node",
@@ -19528,61 +19612,61 @@ var webClient;
         "XMLHttpRequestEventTarget",
         "XMLHttpRequestUpload"
       ],
-      ju = (function () {
+      Yu = (function () {
         function e(t) {
           (this.name = e.id),
-            (this._options = Na({ XMLHttpRequest: !0, eventTarget: !0, requestAnimationFrame: !0, setInterval: !0, setTimeout: !0 }, t));
+            (this._options = Da({ XMLHttpRequest: !0, eventTarget: !0, requestAnimationFrame: !0, setInterval: !0, setTimeout: !0 }, t));
         }
         return (
           (e.prototype.setupOnce = function () {
-            var e = (0, es.Rf)();
-            (this._options.setTimeout && Ss(e, "setTimeout", this._wrapTimeFunction.bind(this)),
-            this._options.setInterval && Ss(e, "setInterval", this._wrapTimeFunction.bind(this)),
-            this._options.requestAnimationFrame && Ss(e, "requestAnimationFrame", this._wrapRAF.bind(this)),
-            this._options.XMLHttpRequest && "XMLHttpRequest" in e && Ss(XMLHttpRequest.prototype, "send", this._wrapXHR.bind(this)),
+            var e = (0, as.Rf)();
+            (this._options.setTimeout && Cs(e, "setTimeout", this._wrapTimeFunction.bind(this)),
+            this._options.setInterval && Cs(e, "setInterval", this._wrapTimeFunction.bind(this)),
+            this._options.requestAnimationFrame && Cs(e, "requestAnimationFrame", this._wrapRAF.bind(this)),
+            this._options.XMLHttpRequest && "XMLHttpRequest" in e && Cs(XMLHttpRequest.prototype, "send", this._wrapXHR.bind(this)),
             this._options.eventTarget) &&
-              (Array.isArray(this._options.eventTarget) ? this._options.eventTarget : Uu).forEach(this._wrapEventTarget.bind(this));
+              (Array.isArray(this._options.eventTarget) ? this._options.eventTarget : zu).forEach(this._wrapEventTarget.bind(this));
           }),
           (e.prototype._wrapTimeFunction = function (e) {
             return function () {
               for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
               var r = t[0];
-              return (t[0] = Mu(r, { mechanism: { data: { function: gs(e) }, handled: !0, type: "instrument" } })), e.apply(this, t);
+              return (t[0] = Vu(r, { mechanism: { data: { function: As(e) }, handled: !0, type: "instrument" } })), e.apply(this, t);
             };
           }),
           (e.prototype._wrapRAF = function (e) {
             return function (t) {
               return e.call(
                 this,
-                Mu(t, { mechanism: { data: { function: "requestAnimationFrame", handler: gs(e) }, handled: !0, type: "instrument" } })
+                Vu(t, { mechanism: { data: { function: "requestAnimationFrame", handler: As(e) }, handled: !0, type: "instrument" } })
               );
             };
           }),
           (e.prototype._wrapEventTarget = function (e) {
-            var t = (0, es.Rf)(),
+            var t = (0, as.Rf)(),
               n = t[e] && t[e].prototype;
             n &&
               n.hasOwnProperty &&
               n.hasOwnProperty("addEventListener") &&
-              (Ss(n, "addEventListener", function (t) {
+              (Cs(n, "addEventListener", function (t) {
                 return function (n, r, o) {
                   try {
                     "function" === typeof r.handleEvent &&
-                      (r.handleEvent = Mu(r.handleEvent.bind(r), {
-                        mechanism: { data: { function: "handleEvent", handler: gs(r), target: e }, handled: !0, type: "instrument" }
+                      (r.handleEvent = Vu(r.handleEvent.bind(r), {
+                        mechanism: { data: { function: "handleEvent", handler: As(r), target: e }, handled: !0, type: "instrument" }
                       }));
                   } catch (i) {}
                   return t.call(
                     this,
                     n,
-                    Mu(r, {
-                      mechanism: { data: { function: "addEventListener", handler: gs(r), target: e }, handled: !0, type: "instrument" }
+                    Vu(r, {
+                      mechanism: { data: { function: "addEventListener", handler: As(r), target: e }, handled: !0, type: "instrument" }
                     }),
                     o
                   );
                 };
               }),
-              Ss(n, "removeEventListener", function (e) {
+              Cs(n, "removeEventListener", function (e) {
                 return function (t, n, r) {
                   var o,
                     i = n;
@@ -19602,9 +19686,9 @@ var webClient;
                 ["onload", "onerror", "onprogress", "onreadystatechange"].forEach(function (e) {
                   e in r &&
                     "function" === typeof r[e] &&
-                    Ss(r, e, function (t) {
-                      var n = { mechanism: { data: { function: e, handler: gs(t) }, handled: !0, type: "instrument" } };
-                      return t.__sentry_original__ && (n.mechanism.data.handler = gs(t.__sentry_original__)), Mu(t, n);
+                    Cs(r, e, function (t) {
+                      var n = { mechanism: { data: { function: e, handler: As(t) }, handled: !0, type: "instrument" } };
+                      return t.__sentry_original__ && (n.mechanism.data.handler = As(t.__sentry_original__)), Vu(t, n);
                     });
                 }),
                 e.apply(this, t)
@@ -19615,19 +19699,19 @@ var webClient;
           e
         );
       })(),
-      Gu = (function () {
+      qu = (function () {
         function e(t) {
-          (this.name = e.id), (this._options = Na({ console: !0, dom: !0, fetch: !0, history: !0, sentry: !0, xhr: !0 }, t));
+          (this.name = e.id), (this._options = Da({ console: !0, dom: !0, fetch: !0, history: !0, sentry: !0, xhr: !0 }, t));
         }
         return (
           (e.prototype.addSentryBreadcrumb = function (e) {
             this._options.sentry &&
-              Ms().addBreadcrumb(
+              Vs().addBreadcrumb(
                 {
                   category: "sentry." + ("transaction" === e.type ? "transaction" : "event"),
                   event_id: e.event_id,
                   level: e.level,
-                  message: (0, es.jH)(e)
+                  message: (0, as.jH)(e)
                 },
                 { event: e }
               );
@@ -19635,42 +19719,42 @@ var webClient;
           (e.prototype.setupOnce = function () {
             var e = this;
             this._options.console &&
-              Qs({
+              ru({
                 callback: function () {
                   for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                  e._consoleBreadcrumb.apply(e, Ra(t));
+                  e._consoleBreadcrumb.apply(e, Ba(t));
                 },
                 type: "console"
               }),
               this._options.dom &&
-                Qs({
+                ru({
                   callback: function () {
                     for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                    e._domBreadcrumb.apply(e, Ra(t));
+                    e._domBreadcrumb.apply(e, Ba(t));
                   },
                   type: "dom"
                 }),
               this._options.xhr &&
-                Qs({
+                ru({
                   callback: function () {
                     for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                    e._xhrBreadcrumb.apply(e, Ra(t));
+                    e._xhrBreadcrumb.apply(e, Ba(t));
                   },
                   type: "xhr"
                 }),
               this._options.fetch &&
-                Qs({
+                ru({
                   callback: function () {
                     for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                    e._fetchBreadcrumb.apply(e, Ra(t));
+                    e._fetchBreadcrumb.apply(e, Ba(t));
                   },
                   type: "fetch"
                 }),
               this._options.history &&
-                Qs({
+                ru({
                   callback: function () {
                     for (var t = [], n = 0; n < arguments.length; n++) t[n] = arguments[n];
-                    e._historyBreadcrumb.apply(e, Ra(t));
+                    e._historyBreadcrumb.apply(e, Ba(t));
                   },
                   type: "history"
                 });
@@ -19679,23 +19763,23 @@ var webClient;
             var t = {
               category: "console",
               data: { arguments: e.args, logger: "console" },
-              level: js.fromString(e.level),
-              message: Es(e.args, " ")
+              level: Ys.fromString(e.level),
+              message: xs(e.args, " ")
             };
             if ("assert" === e.level) {
               if (!1 !== e.args[0]) return;
-              (t.message = "Assertion failed: " + (Es(e.args.slice(1), " ") || "console.assert")), (t.data.arguments = e.args.slice(1));
+              (t.message = "Assertion failed: " + (xs(e.args.slice(1), " ") || "console.assert")), (t.data.arguments = e.args.slice(1));
             }
-            Ms().addBreadcrumb(t, { input: e.args, level: e.level });
+            Vs().addBreadcrumb(t, { input: e.args, level: e.level });
           }),
           (e.prototype._domBreadcrumb = function (e) {
             var t;
             try {
-              t = e.event.target ? hs(e.event.target) : hs(e.event);
+              t = e.event.target ? Es(e.event.target) : Es(e.event);
             } catch (n) {
               t = "<unknown>";
             }
-            0 !== t.length && Ms().addBreadcrumb({ category: "ui." + e.name, message: t }, { event: e.event, name: e.name });
+            0 !== t.length && Vs().addBreadcrumb({ category: "ui." + e.name, message: t }, { event: e.event, name: e.name });
           }),
           (e.prototype._xhrBreadcrumb = function (e) {
             if (e.endTimestamp) {
@@ -19705,85 +19789,85 @@ var webClient;
                 r = t.url,
                 o = t.status_code,
                 i = t.body;
-              Ms().addBreadcrumb({ category: "xhr", data: { method: n, url: r, status_code: o }, type: "http" }, { xhr: e.xhr, input: i });
+              Vs().addBreadcrumb({ category: "xhr", data: { method: n, url: r, status_code: o }, type: "http" }, { xhr: e.xhr, input: i });
             } else;
           }),
           (e.prototype._fetchBreadcrumb = function (e) {
             e.endTimestamp &&
               ((e.fetchData.url.match(/sentry_key/) && "POST" === e.fetchData.method) ||
                 (e.error
-                  ? Ms().addBreadcrumb(
-                      { category: "fetch", data: e.fetchData, level: js.Error, type: "http" },
+                  ? Vs().addBreadcrumb(
+                      { category: "fetch", data: e.fetchData, level: Ys.Error, type: "http" },
                       { data: e.error, input: e.args }
                     )
-                  : Ms().addBreadcrumb(
-                      { category: "fetch", data: Na(Na({}, e.fetchData), { status_code: e.response.status }), type: "http" },
+                  : Vs().addBreadcrumb(
+                      { category: "fetch", data: Da(Da({}, e.fetchData), { status_code: e.response.status }), type: "http" },
                       { input: e.args, response: e.response }
                     )));
           }),
           (e.prototype._historyBreadcrumb = function (e) {
-            var t = (0, es.Rf)(),
+            var t = (0, as.Rf)(),
               n = e.from,
               r = e.to,
-              o = (0, es.en)(t.location.href),
-              i = (0, es.en)(n),
-              a = (0, es.en)(r);
+              o = (0, as.en)(t.location.href),
+              i = (0, as.en)(n),
+              a = (0, as.en)(r);
             i.path || (i = o),
               o.protocol === a.protocol && o.host === a.host && (r = a.relative),
               o.protocol === i.protocol && o.host === i.host && (n = i.relative),
-              Ms().addBreadcrumb({ category: "navigation", data: { from: n, to: r } });
+              Vs().addBreadcrumb({ category: "navigation", data: { from: n, to: r } });
           }),
           (e.id = "Breadcrumbs"),
           e
         );
       })(),
-      Vu = (function () {
+      Ku = (function () {
         function e(t) {
           void 0 === t && (t = {}), (this.name = e.id), (this._key = t.key || "cause"), (this._limit = t.limit || 5);
         }
         return (
           (e.prototype.setupOnce = function () {
-            rs(function (t, n) {
-              var r = Ms().getIntegration(e);
+            ls(function (t, n) {
+              var r = Vs().getIntegration(e);
               return r ? r._handler(t, n) : t;
             });
           }),
           (e.prototype._handler = function (e, t) {
-            if (!e.exception || !e.exception.values || !t || !Xa(t.originalException, Error)) return e;
+            if (!e.exception || !e.exception.values || !t || !ns(t.originalException, Error)) return e;
             var n = this._walkErrorTree(t.originalException, this._key);
-            return (e.exception.values = Ra(n, e.exception.values)), e;
+            return (e.exception.values = Ba(n, e.exception.values)), e;
           }),
           (e.prototype._walkErrorTree = function (e, t, n) {
-            if ((void 0 === n && (n = []), !Xa(e[t], Error) || n.length + 1 >= this._limit)) return n;
-            var r = Eu(vu(e[t]));
-            return this._walkErrorTree(e[t], t, Ra([r], n));
+            if ((void 0 === n && (n = []), !ns(e[t], Error) || n.length + 1 >= this._limit)) return n;
+            var r = xu(Su(e[t]));
+            return this._walkErrorTree(e[t], t, Ba([r], n));
           }),
           (e.id = "LinkedErrors"),
           e
         );
       })(),
-      Hu = (0, es.Rf)(),
-      Wu = (function () {
+      $u = (0, as.Rf)(),
+      Xu = (function () {
         function e() {
           this.name = e.id;
         }
         return (
           (e.prototype.setupOnce = function () {
-            rs(function (t) {
+            ls(function (t) {
               var n, r, o;
-              if (Ms().getIntegration(e)) {
-                if (!Hu.navigator && !Hu.location && !Hu.document) return t;
+              if (Vs().getIntegration(e)) {
+                if (!$u.navigator && !$u.location && !$u.document) return t;
                 var i =
                     (null === (n = t.request) || void 0 === n ? void 0 : n.url) ||
-                    (null === (r = Hu.location) || void 0 === r ? void 0 : r.href),
-                  a = (Hu.document || {}).referrer,
-                  s = (Hu.navigator || {}).userAgent,
-                  u = Na(
-                    Na(Na({}, null === (o = t.request) || void 0 === o ? void 0 : o.headers), a && { Referer: a }),
+                    (null === (r = $u.location) || void 0 === r ? void 0 : r.href),
+                  a = ($u.document || {}).referrer,
+                  s = ($u.navigator || {}).userAgent,
+                  u = Da(
+                    Da(Da({}, null === (o = t.request) || void 0 === o ? void 0 : o.headers), a && { Referer: a }),
                     s && { "User-Agent": s }
                   ),
-                  l = Na(Na({}, i && { url: i }), { headers: u });
-                return Na(Na({}, t), { request: l });
+                  l = Da(Da({}, i && { url: i }), { headers: u });
+                return Da(Da({}, t), { request: l });
               }
               return t;
             });
@@ -19792,16 +19876,16 @@ var webClient;
           e
         );
       })(),
-      zu = {},
-      Yu = (0, es.Rf)();
-    Yu.Sentry && Yu.Sentry.Integrations && (zu = Yu.Sentry.Integrations);
-    var qu = Na(Na(Na({}, zu), e), t);
-    var Ku = [];
-    function $u(e) {
+      Qu = {},
+      Zu = (0, as.Rf)();
+    Zu.Sentry && Zu.Sentry.Integrations && (Qu = Zu.Sentry.Integrations);
+    var Ju = Da(Da(Da({}, Qu), e), t);
+    var el = [];
+    function tl(e) {
       var t = {};
       return (
         (function (e) {
-          var t = (e.defaultIntegrations && Fa(e.defaultIntegrations)) || [],
+          var t = (e.defaultIntegrations && Ha(e.defaultIntegrations)) || [],
             n = e.integrations,
             r = [];
           if (Array.isArray(n)) {
@@ -19815,28 +19899,28 @@ var webClient;
               n.forEach(function (e) {
                 -1 === i.indexOf(e.name) && (r.push(e), i.push(e.name));
               });
-          } else "function" === typeof n ? ((r = n(t)), (r = Array.isArray(r) ? r : [r])) : (r = Fa(t));
+          } else "function" === typeof n ? ((r = n(t)), (r = Array.isArray(r) ? r : [r])) : (r = Ha(t));
           var a = r.map(function (e) {
               return e.name;
             }),
             s = "Debug";
-          return -1 !== a.indexOf(s) && r.push.apply(r, Fa(r.splice(a.indexOf(s), 1))), r;
+          return -1 !== a.indexOf(s) && r.push.apply(r, Ha(r.splice(a.indexOf(s), 1))), r;
         })(e).forEach(function (e) {
           (t[e.name] = e),
             (function (e) {
-              -1 === Ku.indexOf(e.name) && (e.setupOnce(rs, Ms), Ku.push(e.name), us.log("Integration installed: " + e.name));
+              -1 === el.indexOf(e.name) && (e.setupOnce(ls, Vs), el.push(e.name), hs.log("Integration installed: " + e.name));
             })(e);
         }),
         t
       );
     }
-    var Xu = (function () {
+    var nl = (function () {
         function e(e, t) {
           (this._integrations = {}),
             (this._processing = 0),
             (this._backend = new e(t)),
             (this._options = t),
-            t.dsn && (this._dsn = new Ru(t.dsn));
+            t.dsn && (this._dsn = new Bu(t.dsn));
         }
         return (
           (e.prototype.captureException = function (e, t, n) {
@@ -19859,7 +19943,7 @@ var webClient;
           (e.prototype.captureMessage = function (e, t, n, r) {
             var o = this,
               i = n && n.event_id,
-              a = za(e) ? this._getBackend().eventFromMessage(String(e), t, n) : this._getBackend().eventFromException(e, n);
+              a = Qa(e) ? this._getBackend().eventFromMessage(String(e), t, n) : this._getBackend().eventFromException(e, n);
             return (
               this._process(
                 a
@@ -19885,7 +19969,7 @@ var webClient;
             );
           }),
           (e.prototype.captureSession = function (e) {
-            e.release ? this._sendSession(e) : us.warn("Discarded session because of missing release");
+            e.release ? this._sendSession(e) : hs.warn("Discarded session because of missing release");
           }),
           (e.prototype.getDsn = function () {
             return this._dsn;
@@ -19912,13 +19996,13 @@ var webClient;
             });
           }),
           (e.prototype.setupIntegrations = function () {
-            this._isEnabled() && (this._integrations = $u(this._options));
+            this._isEnabled() && (this._integrations = tl(this._options));
           }),
           (e.prototype.getIntegration = function (e) {
             try {
               return this._integrations[e.id] || null;
             } catch (t) {
-              return us.warn("Cannot retrieve integration " + e.id + " from the current Client"), null;
+              return hs.warn("Cannot retrieve integration " + e.id + " from the current Client"), null;
             }
           }),
           (e.prototype._updateSessionFromEvent = function (e, t) {
@@ -19931,7 +20015,7 @@ var webClient;
             if (s) {
               a = !0;
               try {
-                for (var u = Da(s), l = u.next(); !l.done; l = u.next()) {
+                for (var u = Ga(s), l = u.next(); !l.done; l = u.next()) {
                   var c = l.value.mechanism;
                   if (c && !1 === c.handled) {
                     i = !0;
@@ -19957,14 +20041,14 @@ var webClient;
                   break;
                 }
             }
-            e.update(La(La({}, i && { status: ss.Crashed }), { user: f, userAgent: o, errors: e.errors + Number(a || i) }));
+            e.update(ja(ja({}, i && { status: ps.Crashed }), { user: f, userAgent: o, errors: e.errors + Number(a || i) }));
           }),
           (e.prototype._sendSession = function (e) {
             this._getBackend().sendSession(e);
           }),
           (e.prototype._isClientProcessing = function (e) {
             var t = this;
-            return new Za(function (n) {
+            return new is(function (n) {
               var r = 0,
                 o = setInterval(function () {
                   0 == t._processing ? (clearInterval(o), n(!0)) : ((r += 1), e && r >= e && (clearInterval(o), n(!1)));
@@ -19981,14 +20065,14 @@ var webClient;
             var r = this,
               o = this.getOptions().normalizeDepth,
               i = void 0 === o ? 3 : o,
-              a = La(La({}, e), {
-                event_id: e.event_id || (n && n.event_id ? n.event_id : (0, es.DM)()),
-                timestamp: e.timestamp || (0, Ja.yW)()
+              a = ja(ja({}, e), {
+                event_id: e.event_id || (n && n.event_id ? n.event_id : (0, as.DM)()),
+                timestamp: e.timestamp || (0, os.yW)()
               });
             this._applyClientOptions(a), this._applyIntegrationsMetadata(a);
             var s = t;
-            n && n.captureContext && (s = ts.clone(s).update(n.captureContext));
-            var u = Za.resolve(a);
+            n && n.captureContext && (s = ss.clone(s).update(n.captureContext));
+            var u = is.resolve(a);
             return (
               s && (u = s.applyToEvent(a, n)),
               u.then(function (e) {
@@ -19998,22 +20082,22 @@ var webClient;
           }),
           (e.prototype._normalizeEvent = function (e, t) {
             if (!e) return null;
-            var n = La(
-              La(
-                La(
-                  La(
-                    La({}, e),
+            var n = ja(
+              ja(
+                ja(
+                  ja(
+                    ja({}, e),
                     e.breadcrumbs && {
                       breadcrumbs: e.breadcrumbs.map(function (e) {
-                        return La(La({}, e), e.data && { data: Cs(e.data, t) });
+                        return ja(ja({}, e), e.data && { data: Ls(e.data, t) });
                       })
                     }
                   ),
-                  e.user && { user: Cs(e.user, t) }
+                  e.user && { user: Ls(e.user, t) }
                 ),
-                e.contexts && { contexts: Cs(e.contexts, t) }
+                e.contexts && { contexts: Ls(e.contexts, t) }
               ),
-              e.extra && { extra: Cs(e.extra, t) }
+              e.extra && { extra: Ls(e.extra, t) }
             );
             return e.contexts && e.contexts.trace && (n.contexts.trace = e.contexts.trace), n;
           }),
@@ -20027,11 +20111,11 @@ var webClient;
             "environment" in e || (e.environment = "environment" in t ? n : "production"),
               void 0 === e.release && void 0 !== r && (e.release = r),
               void 0 === e.dist && void 0 !== o && (e.dist = o),
-              e.message && (e.message = _s(e.message, a));
+              e.message && (e.message = Ts(e.message, a));
             var s = e.exception && e.exception.values && e.exception.values[0];
-            s && s.value && (s.value = _s(s.value, a));
+            s && s.value && (s.value = Ts(s.value, a));
             var u = e.request;
-            u && u.url && (u.url = _s(u.url, a));
+            u && u.url && (u.url = Ts(u.url, a));
           }),
           (e.prototype._applyIntegrationsMetadata = function (e) {
             var t = e.sdk,
@@ -20047,7 +20131,7 @@ var webClient;
                 return e.event_id;
               },
               function (e) {
-                us.error(e);
+                hs.error(e);
               }
             );
           }),
@@ -20056,37 +20140,37 @@ var webClient;
               o = this.getOptions(),
               i = o.beforeSend,
               a = o.sampleRate;
-            if (!this._isEnabled()) return Za.reject(new Nu("SDK not enabled, will not send event."));
+            if (!this._isEnabled()) return is.reject(new Du("SDK not enabled, will not send event."));
             var s = "transaction" === e.type;
             return !s && "number" === typeof a && Math.random() > a
-              ? Za.reject(new Nu("Discarding event because it's not included in the random sample (sampling rate = " + a + ")"))
+              ? is.reject(new Du("Discarding event because it's not included in the random sample (sampling rate = " + a + ")"))
               : this._prepareEvent(e, n, t)
                   .then(function (e) {
-                    if (null === e) throw new Nu("An event processor returned null, will not send event.");
+                    if (null === e) throw new Du("An event processor returned null, will not send event.");
                     if ((t && t.data && !0 === t.data.__sentry__) || s || !i) return e;
                     var n = i(e, t);
-                    if ("undefined" === typeof n) throw new Nu("`beforeSend` method has to return `null` or a valid event.");
-                    return $a(n)
+                    if ("undefined" === typeof n) throw new Du("`beforeSend` method has to return `null` or a valid event.");
+                    return ts(n)
                       ? n.then(
                           function (e) {
                             return e;
                           },
                           function (e) {
-                            throw new Nu("beforeSend rejected with " + e);
+                            throw new Du("beforeSend rejected with " + e);
                           }
                         )
                       : n;
                   })
                   .then(function (e) {
-                    if (null === e) throw new Nu("`beforeSend` returned `null`, will not send event.");
+                    if (null === e) throw new Du("`beforeSend` returned `null`, will not send event.");
                     var t = n && n.getSession && n.getSession();
                     return !s && t && r._updateSessionFromEvent(t, e), r._sendEvent(e), e;
                   })
                   .then(null, function (e) {
-                    if (e instanceof Nu) throw e;
+                    if (e instanceof Du) throw e;
                     throw (
                       (r.captureException(e, { data: { __sentry__: !0 }, originalException: e }),
-                      new Nu(
+                      new Du(
                         "Event processing pipeline threw an error, original event will not be sent. Details have been sent as a new event.\nReason: " +
                           e
                       ))
@@ -20108,60 +20192,60 @@ var webClient;
           e
         );
       })(),
-      Qu = (function () {
+      rl = (function () {
         function e() {}
         return (
           (e.prototype.sendEvent = function (e) {
-            return Za.resolve({ reason: "NoopTransport: Event has been skipped because no Dsn is configured.", status: Aa.Skipped });
+            return is.resolve({ reason: "NoopTransport: Event has been skipped because no Dsn is configured.", status: Oa.Skipped });
           }),
           (e.prototype.close = function (e) {
-            return Za.resolve(!0);
+            return is.resolve(!0);
           }),
           e
         );
       })(),
-      Ju = (function () {
+      ol = (function () {
         function e(e) {
           (this._options = e),
-            this._options.dsn || us.warn("No DSN provided, backend will not do anything."),
+            this._options.dsn || hs.warn("No DSN provided, backend will not do anything."),
             (this._transport = this._setupTransport());
         }
         return (
           (e.prototype.eventFromException = function (e, t) {
-            throw new Nu("Backend has to implement `eventFromException` method");
+            throw new Du("Backend has to implement `eventFromException` method");
           }),
           (e.prototype.eventFromMessage = function (e, t, n) {
-            throw new Nu("Backend has to implement `eventFromMessage` method");
+            throw new Du("Backend has to implement `eventFromMessage` method");
           }),
           (e.prototype.sendEvent = function (e) {
             this._transport.sendEvent(e).then(null, function (e) {
-              us.error("Error while sending event: " + e);
+              hs.error("Error while sending event: " + e);
             });
           }),
           (e.prototype.sendSession = function (e) {
             this._transport.sendSession
               ? this._transport.sendSession(e).then(null, function (e) {
-                  us.error("Error while sending session: " + e);
+                  hs.error("Error while sending session: " + e);
                 })
-              : us.warn("Dropping session because custom transport doesn't implement sendSession");
+              : hs.warn("Dropping session because custom transport doesn't implement sendSession");
           }),
           (e.prototype.getTransport = function () {
             return this._transport;
           }),
           (e.prototype._setupTransport = function () {
-            return new Qu();
+            return new rl();
           }),
           e
         );
       })();
-    function Zu(e, t) {
+    function il(e, t) {
       return {
         body: JSON.stringify({ sent_at: new Date().toISOString() }) + "\n" + JSON.stringify({ type: "session" }) + "\n" + JSON.stringify(e),
         type: "session",
         url: t.getEnvelopeEndpointWithUrlEncodedAuth()
       };
     }
-    function el(e, t) {
+    function al(e, t) {
       var n = e.tags || {},
         r = n.__sentry_samplingMethod,
         o = n.__sentry_sampleRate,
@@ -20193,7 +20277,7 @@ var webClient;
       }
       return s;
     }
-    var tl = (function () {
+    var sl = (function () {
         function e(e) {
           (this._limit = e), (this._buffer = []);
         }
@@ -20213,7 +20297,7 @@ var webClient;
                     return t.remove(e).then(null, function () {});
                   }),
                 e)
-              : Za.reject(new Nu("Not adding Promise due to buffer limit reached."));
+              : is.reject(new Du("Not adding Promise due to buffer limit reached."));
           }),
           (e.prototype.remove = function (e) {
             return this._buffer.splice(this._buffer.indexOf(e), 1)[0];
@@ -20223,11 +20307,11 @@ var webClient;
           }),
           (e.prototype.drain = function (e) {
             var t = this;
-            return new Za(function (n) {
+            return new is(function (n) {
               var r = setTimeout(function () {
                 e && e > 0 && n(!1);
               }, e);
-              Za.all(t._buffer)
+              is.all(t._buffer)
                 .then(function () {
                   clearTimeout(r), n(!0);
                 })
@@ -20239,17 +20323,17 @@ var webClient;
           e
         );
       })(),
-      nl = (function () {
+      ul = (function () {
         function e(e) {
           (this.options = e),
-            (this._buffer = new tl(30)),
+            (this._buffer = new sl(30)),
             (this._rateLimits = {}),
-            (this._api = new ku(this.options.dsn)),
+            (this._api = new Uu(this.options.dsn)),
             (this.url = this._api.getStoreEndpointWithUrlEncodedAuth());
         }
         return (
           (e.prototype.sendEvent = function (e) {
-            throw new Nu("Transport Class has to implement `sendEvent` method");
+            throw new Du("Transport Class has to implement `sendEvent` method");
           }),
           (e.prototype.close = function (e) {
             return this._buffer.drain(e);
@@ -20260,9 +20344,9 @@ var webClient;
               r = e.headers,
               o = e.resolve,
               i = e.reject,
-              a = Aa.fromHttpCode(n.status);
-            this._handleRateLimit(r) && us.warn("Too many requests, backing off until: " + this._disabledUntil(t)),
-              a !== Aa.Success ? i(n) : o({ status: a });
+              a = Oa.fromHttpCode(n.status);
+            this._handleRateLimit(r) && hs.warn("Too many requests, backing off until: " + this._disabledUntil(t)),
+              a !== Oa.Success ? i(n) : o({ status: a });
           }),
           (e.prototype._disabledUntil = function (e) {
             return this._rateLimits[e] || this._rateLimits.all;
@@ -20280,12 +20364,12 @@ var webClient;
               s = e["retry-after"];
             if (a) {
               try {
-                for (var u = Oa(a.trim().split(",")), l = u.next(); !l.done; l = u.next()) {
+                for (var u = Ma(a.trim().split(",")), l = u.next(); !l.done; l = u.next()) {
                   var c = l.value.split(":", 2),
                     f = parseInt(c[0], 10),
                     d = 1e3 * (isNaN(f) ? 60 : f);
                   try {
-                    for (var p = ((r = void 0), Oa(c[1].split(";"))), h = p.next(); !h.done; h = p.next()) {
+                    for (var p = ((r = void 0), Ma(c[1].split(";"))), h = p.next(); !h.done; h = p.next()) {
                       var m = h.value;
                       this._rateLimits[m || "all"] = new Date(i + d);
                     }
@@ -20310,23 +20394,23 @@ var webClient;
               }
               return !0;
             }
-            return !!s && ((this._rateLimits.all = new Date(i + (0, es.JY)(i, s))), !0);
+            return !!s && ((this._rateLimits.all = new Date(i + (0, as.JY)(i, s))), !0);
           }),
           e
         );
       })(),
-      rl = (0, es.Rf)(),
-      ol = (function (e) {
+      ll = (0, as.Rf)(),
+      cl = (function (e) {
         function t() {
           return (null !== e && e.apply(this, arguments)) || this;
         }
         return (
-          Ia(t, e),
+          ka(t, e),
           (t.prototype.sendEvent = function (e) {
-            return this._sendRequest(el(e, this._api), e);
+            return this._sendRequest(al(e, this._api), e);
           }),
           (t.prototype.sendSession = function (e) {
-            return this._sendRequest(Zu(e, this._api), e);
+            return this._sendRequest(il(e, this._api), e);
           }),
           (t.prototype._sendRequest = function (e, t) {
             var n = this;
@@ -20337,13 +20421,13 @@ var webClient;
                 reason: "Transport locked till " + this._disabledUntil(e.type) + " due to too many requests.",
                 status: 429
               });
-            var r = { body: e.body, method: "POST", referrerPolicy: zs() ? "origin" : "" };
+            var r = { body: e.body, method: "POST", referrerPolicy: Qs() ? "origin" : "" };
             return (
               void 0 !== this.options.fetchParameters && Object.assign(r, this.options.fetchParameters),
               void 0 !== this.options.headers && (r.headers = this.options.headers),
               this._buffer.add(
-                new Za(function (t, o) {
-                  rl.fetch(e.url, r)
+                new is(function (t, o) {
+                  ll.fetch(e.url, r)
                     .then(function (r) {
                       var i = {
                         "x-sentry-rate-limits": r.headers.get("X-Sentry-Rate-Limits"),
@@ -20358,18 +20442,18 @@ var webClient;
           }),
           t
         );
-      })(nl),
-      il = (function (e) {
+      })(ul),
+      fl = (function (e) {
         function t() {
           return (null !== e && e.apply(this, arguments)) || this;
         }
         return (
-          Ia(t, e),
+          ka(t, e),
           (t.prototype.sendEvent = function (e) {
-            return this._sendRequest(el(e, this._api), e);
+            return this._sendRequest(al(e, this._api), e);
           }),
           (t.prototype.sendSession = function (e) {
-            return this._sendRequest(Zu(e, this._api), e);
+            return this._sendRequest(il(e, this._api), e);
           }),
           (t.prototype._sendRequest = function (e, t) {
             var n = this;
@@ -20381,7 +20465,7 @@ var webClient;
                   status: 429
                 })
               : this._buffer.add(
-                  new Za(function (t, r) {
+                  new is(function (t, r) {
                     var o = new XMLHttpRequest();
                     for (var i in ((o.onreadystatechange = function () {
                       if (4 === o.readyState) {
@@ -20401,91 +20485,91 @@ var webClient;
           }),
           t
         );
-      })(nl),
-      al = (function (e) {
+      })(ul),
+      dl = (function (e) {
         function t() {
           return (null !== e && e.apply(this, arguments)) || this;
         }
         return (
-          Ia(t, e),
+          ka(t, e),
           (t.prototype.eventFromException = function (e, t) {
             return (function (e, t, n) {
-              var r = wu(t, (n && n.syntheticException) || void 0, { attachStacktrace: e.attachStacktrace });
+              var r = Nu(t, (n && n.syntheticException) || void 0, { attachStacktrace: e.attachStacktrace });
               return (
-                (0, es.EG)(r, { handled: !0, type: "generic" }),
-                (r.level = js.Error),
+                (0, as.EG)(r, { handled: !0, type: "generic" }),
+                (r.level = Ys.Error),
                 n && n.event_id && (r.event_id = n.event_id),
-                Za.resolve(r)
+                is.resolve(r)
               );
             })(this._options, e, t);
           }),
           (t.prototype.eventFromMessage = function (e, t, n) {
             return (
-              void 0 === t && (t = js.Info),
+              void 0 === t && (t = Ys.Info),
               (function (e, t, n, r) {
-                void 0 === n && (n = js.Info);
-                var o = Au(t, (r && r.syntheticException) || void 0, { attachStacktrace: e.attachStacktrace });
-                return (o.level = n), r && r.event_id && (o.event_id = r.event_id), Za.resolve(o);
+                void 0 === n && (n = Ys.Info);
+                var o = Ou(t, (r && r.syntheticException) || void 0, { attachStacktrace: e.attachStacktrace });
+                return (o.level = n), r && r.event_id && (o.event_id = r.event_id), is.resolve(o);
               })(this._options, e, t, n)
             );
           }),
           (t.prototype._setupTransport = function () {
             if (!this._options.dsn) return e.prototype._setupTransport.call(this);
-            var t = Na(Na({}, this._options.transportOptions), { dsn: this._options.dsn });
-            return this._options.transport ? new this._options.transport(t) : Hs() ? new ol(t) : new il(t);
+            var t = Da(Da({}, this._options.transportOptions), { dsn: this._options.dsn });
+            return this._options.transport ? new this._options.transport(t) : $s() ? new cl(t) : new fl(t);
           }),
           t
         );
-      })(Ju),
-      sl = "5.30.0",
-      ul = (function (e) {
+      })(ol),
+      pl = "5.30.0",
+      hl = (function (e) {
         function t(t) {
-          return void 0 === t && (t = {}), e.call(this, al, t) || this;
+          return void 0 === t && (t = {}), e.call(this, dl, t) || this;
         }
         return (
-          Ia(t, e),
+          ka(t, e),
           (t.prototype.showReportDialog = function (e) {
             void 0 === e && (e = {}),
-              (0, es.Rf)().document &&
+              (0, as.Rf)().document &&
                 (this._isEnabled()
-                  ? Fu(Na(Na({}, e), { dsn: e.dsn || this.getDsn() }))
-                  : us.error("Trying to call showReportDialog with Sentry Client disabled"));
+                  ? Hu(Da(Da({}, e), { dsn: e.dsn || this.getDsn() }))
+                  : hs.error("Trying to call showReportDialog with Sentry Client disabled"));
           }),
           (t.prototype._prepareEvent = function (t, n, r) {
             return (
               (t.platform = t.platform || "javascript"),
-              (t.sdk = Na(Na({}, t.sdk), {
+              (t.sdk = Da(Da({}, t.sdk), {
                 name: "sentry.javascript.browser",
-                packages: Ra((t.sdk && t.sdk.packages) || [], [{ name: "npm:@sentry/browser", version: sl }]),
-                version: sl
+                packages: Ba((t.sdk && t.sdk.packages) || [], [{ name: "npm:@sentry/browser", version: pl }]),
+                version: pl
               })),
               e.prototype._prepareEvent.call(this, t, n, r)
             );
           }),
           (t.prototype._sendEvent = function (t) {
-            var n = this.getIntegration(Gu);
+            var n = this.getIntegration(qu);
             n && n.addSentryBreadcrumb(t), e.prototype._sendEvent.call(this, t);
           }),
           t
         );
-      })(Xu),
-      ll = [new Vs(), new ka(), new ju(), new Gu(), new Bu(), new Vu(), new Wu()];
-    function cl(e) {
-      if ((void 0 === e && (e = {}), void 0 === e.defaultIntegrations && (e.defaultIntegrations = ll), void 0 === e.release)) {
-        var t = (0, es.Rf)();
+      })(nl),
+      ml = [new Ks(), new Ua(), new Yu(), new qu(), new Wu(), new Ku(), new Xu()];
+    function vl(e) {
+      if ((void 0 === e && (e = {}), void 0 === e.defaultIntegrations && (e.defaultIntegrations = ml), void 0 === e.release)) {
+        var t = (0, as.Rf)();
         t.SENTRY_RELEASE && t.SENTRY_RELEASE.id && (e.release = t.SENTRY_RELEASE.id);
       }
       void 0 === e.autoSessionTracking && (e.autoSessionTracking = !1),
         (function (e, t) {
-          !0 === t.debug && us.enable();
-          var n = Ms(),
+          !0 === t.debug && hs.enable();
+          var n = Vs(),
             r = new e(t);
           n.bindClient(r);
-        })(ul, e),
+        })(hl, e),
         e.autoSessionTracking &&
           (function () {
-            var e = (0, es.Rf)(),
-              t = Ms(),
+            var e = (0, as.Rf)(),
+              t = Vs(),
               n = "complete" === document.readyState,
               r = !1,
               o = function () {
@@ -20515,9 +20599,9 @@ var webClient;
             }
           })();
     }
-    function fl(e, t, n) {
+    function yl(e, t, n) {
       return (
-        (fl = Nn()
+        (yl = Fn()
           ? Reflect.construct.bind()
           : function (e, t, n) {
               var r = [null];
@@ -20525,13 +20609,13 @@ var webClient;
               var o = new (Function.bind.apply(e, r))();
               return n && P(o, n.prototype), o;
             }),
-        fl.apply(null, arguments)
+        yl.apply(null, arguments)
       );
     }
-    function dl(e) {
+    function gl(e) {
       var t = "function" === typeof Map ? new Map() : void 0;
       return (
-        (dl = function (e) {
+        (gl = function (e) {
           if (null === e || ((n = e), -1 === Function.toString.call(n).indexOf("[native code]"))) return e;
           var n;
           if ("function" !== typeof e) throw new TypeError("Super expression must either be null or a function");
@@ -20540,24 +20624,24 @@ var webClient;
             t.set(e, r);
           }
           function r() {
-            return fl(e, arguments, Cn(this).constructor);
+            return yl(e, arguments, Mn(this).constructor);
           }
           return (
             (r.prototype = Object.create(e.prototype, { constructor: { value: r, enumerable: !1, writable: !0, configurable: !0 } })),
             P(r, e)
           );
         }),
-        dl(e)
+        gl(e)
       );
     }
-    var pl = (function (e) {
-        In(n, e);
-        var t = Pn(n);
+    var _l = (function (e) {
+        Dn(n, e);
+        var t = Un(n);
         function n() {
-          return An(this, n), t.apply(this, arguments);
+          return Rn(this, n), t.apply(this, arguments);
         }
         return (
-          xn(n, [
+          Ln(n, [
             {
               key: "toString",
               value: function () {
@@ -20567,16 +20651,16 @@ var webClient;
           ]),
           n
         );
-      })(dl(Error)),
-      hl = (function (e) {
-        In(n, e);
-        var t = Pn(n);
+      })(gl(Error)),
+      El = (function (e) {
+        Dn(n, e);
+        var t = Un(n);
         function n(e) {
           var r;
-          return An(this, n), ((r = t.call(this, e.id)).messgeDesc = void 0), (r.messgeDesc = e), r;
+          return Rn(this, n), ((r = t.call(this, e.id)).messgeDesc = void 0), (r.messgeDesc = e), r;
         }
         return (
-          xn(n, [
+          Ln(n, [
             {
               key: "getMessageDescriptor",
               value: function () {
@@ -20586,37 +20670,37 @@ var webClient;
           ]),
           n
         );
-      })(dl(Error)),
-      ml = (function (e) {
-        In(n, e);
-        var t = Pn(n);
+      })(gl(Error)),
+      bl = (function (e) {
+        Dn(n, e);
+        var t = Un(n);
         function n() {
-          return An(this, n), On(t.call(this), new Error("401 Unauthorized"));
+          return Rn(this, n), Bn(t.call(this), new Error("401 Unauthorized"));
         }
-        return xn(n);
-      })(dl(Error)),
-      vl = (function (e) {
-        In(n, e);
-        var t = Pn(n);
+        return Ln(n);
+      })(gl(Error)),
+      Sl = (function (e) {
+        Dn(n, e);
+        var t = Un(n);
         function n() {
-          return An(this, n), On(t.call(this), new Error("403 Forbidden"));
+          return Rn(this, n), Bn(t.call(this), new Error("403 Forbidden"));
         }
-        return xn(n);
-      })(dl(Error)),
-      yl = (function (e) {
-        In(n, e);
-        var t = Pn(n);
+        return Ln(n);
+      })(gl(Error)),
+      wl = (function (e) {
+        Dn(n, e);
+        var t = Un(n);
         function n() {
-          return An(this, n), t.apply(this, arguments);
+          return Rn(this, n), t.apply(this, arguments);
         }
-        return xn(n);
-      })(dl(Error)),
-      gl = (function () {
+        return Ln(n);
+      })(gl(Error)),
+      Al = (function () {
         function e(t) {
-          An(this, e), (this.captureUrl = !1), (this.name = e.id), (this.captureUrl = t);
+          Rn(this, e), (this.captureUrl = !1), (this.name = e.id), (this.captureUrl = t);
         }
         return (
-          xn(e, [
+          Ln(e, [
             {
               key: "setupOnce",
               value: function (t, n) {
@@ -20634,19 +20718,19 @@ var webClient;
           e
         );
       })();
-    gl.id = "CaptureLocation";
-    var _l = "https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@dummy.com/1";
-    function El(e) {
+    Al.id = "CaptureLocation";
+    var Tl = "https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@dummy.com/1";
+    function xl(e) {
       return (function () {
         function t() {
-          An(this, t);
+          Rn(this, t);
         }
         return (
-          xn(t, [
+          Ln(t, [
             {
               key: "sendEvent",
               value: function (t) {
-                return e.dispatch(ze.reportErrorEvent(t)), Promise.resolve({ status: Aa.Success });
+                return e.dispatch(ze.reportErrorEvent(t)), Promise.resolve({ status: Oa.Success });
               }
             },
             {
@@ -20660,21 +20744,21 @@ var webClient;
         );
       })();
     }
-    function bl(e, t) {
-      var n = [new gl(t)];
-      return e && n.push(new qu.Breadcrumbs({ console: !1, history: !1, fetch: !1, xhr: !1, sentry: !1, dom: !0 })), n;
+    function Il(e, t) {
+      var n = [new Al(t)];
+      return e && n.push(new Ju.Breadcrumbs({ console: !1, history: !1, fetch: !1, xhr: !1, sentry: !1, dom: !0 })), n;
     }
-    function Sl(e) {
+    function Cl(e) {
       var t;
-      (t = e) instanceof pl || t instanceof yl || t instanceof hl || t instanceof ml || t instanceof vl || Iu(e);
+      (t = e) instanceof _l || t instanceof wl || t instanceof El || t instanceof bl || t instanceof Sl || ku(e);
     }
-    function wl(e, t, n, r) {
+    function Nl(e, t, n, r) {
       var o = function () {
         return !r || r(e.getState());
       };
       return {
         reportError: function (e) {
-          o() && Sl(e.payload);
+          o() && Cl(e.payload);
         },
         reportErrorEvent: (function (e) {
           function t(t) {
@@ -20688,18 +20772,18 @@ var webClient;
           );
         })(function (e) {
           if (n) return t(e);
-          o() && xu("captureEvent", e.payload);
+          o() && Ru("captureEvent", e.payload);
         }),
         handleAction: function (e) {
           try {
             return t(e);
           } catch (n) {
-            o() && Sl(n);
+            o() && Cl(n);
           }
         }
       };
     }
-    function Al(e) {
+    function Ol(e) {
       var t = e.dsn,
         n = e.debug,
         r = e.release,
@@ -20711,16 +20795,16 @@ var webClient;
       return function (e) {
         return function (i) {
           var s = !t;
-          cl({
-            dsn: s ? _l : t,
+          vl({
+            dsn: s ? Tl : t,
             debug: n,
             release: r,
             maxBreadcrumbs: 10,
-            transport: s ? El(e) : ol,
+            transport: s ? xl(e) : cl,
             defaultIntegrations: !1,
-            integrations: bl(a, u)
+            integrations: Il(a, u)
           });
-          var l = wl(e, i, s, o);
+          var l = Nl(e, i, s, o);
           return function (e) {
             switch (e.type) {
               case We.REPORT_ERROR:
@@ -20728,19 +20812,19 @@ var webClient;
               case We.REPORT_ERROR_EVENT:
                 return l.reportErrorEvent(e);
               default:
-                return xu("addBreadcrumb", { category: "redux", message: e.type }), l.handleAction(e);
+                return Ru("addBreadcrumb", { category: "redux", message: e.type }), l.handleAction(e);
             }
           };
         };
       };
     }
-    var Tl = { position: "absolute", height: "100vh", width: "100vw", zIndex: 2147483647, borderRadius: 4 },
-      xl = { position: "absolute", top: 0, left: 0 };
-    function Il(e, t) {
+    var Pl = { position: "absolute", height: "100vh", width: "100vw", zIndex: 2147483647, borderRadius: 4 },
+      Rl = { position: "absolute", top: 0, left: 0 };
+    function kl(e, t) {
       if (e.show && e && e.height > 0) {
         var n = e.icon.left + 8;
         return u(
-          u({}, Tl),
+          u({}, Pl),
           {},
           {
             background: t ? "radial-gradient(circle at ".concat(n, "px 0%, #fbebeb 1.47%, #f9fafb 20.77%)") : void 0,
@@ -20749,66 +20833,66 @@ var webClient;
           }
         );
       }
-      return Tl;
+      return Pl;
     }
-    function Cl(e) {
+    function Ll(e) {
       return e.show && e.height > 0 && e.icon.left > 0;
     }
-    function Nl(e) {
+    function Dl(e) {
       return e.icon.left + 20 > 280 ? Math.max(e.icon.left + 20, e.width) : Math.max(280, e.width);
     }
-    var Ol = function () {
-        var e = ua(),
-          t = kt(function (e) {
+    var Ml = function () {
+        var e = ha(),
+          t = Dt(function (e) {
             return e.infieldContainer;
           }),
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return e.isLoggedIn;
           }),
-          r = kt(function (e) {
+          r = Dt(function (e) {
             return e.hasSectionOnTab;
           }),
-          o = kt(function (e) {
+          o = Dt(function (e) {
             return e.authPushtotpData;
           }),
           i = (0, C.useRef)(null);
-        mr(i);
+        wr(i);
         var a = "webclient-infield.html",
           s = e.getUrl(a);
         return a === s
           ? null
           : r && t
-          ? (0, Sn.jsx)(la, {
-              children: (0, Sn.jsx)("div", {
+          ? (0, On.jsx)(ma, {
+              children: (0, On.jsx)("div", {
                 "data-lastpass-infield": !0,
                 ref: i,
-                style: xl,
-                children: (0, Sn.jsx)(hr.Z, {
-                  children: (0, Sn.jsxs)("div", {
+                style: Rl,
+                children: (0, On.jsx)(Sr.Z, {
+                  children: (0, On.jsxs)("div", {
                     style: u(
-                      u({}, Il(t, n)),
+                      u({}, kl(t, n)),
                       {},
                       {
                         top: t.position.top,
                         left: t.position.left,
                         maxHeight: t.show ? t.height : 0,
-                        maxWidth: Nl(t),
+                        maxWidth: Dl(t),
                         minWidth: o ? 315 : "auto",
                         marginTop: 10 - (t.position.height - t.icon.height) / 2
                       }
                     ),
                     children: [
-                      (0, Sn.jsx)("div", {
+                      (0, On.jsx)("div", {
                         style: {
                           left: t.icon.left - 1,
-                          display: Cl(t) ? "block" : "none",
+                          display: Ll(t) ? "block" : "none",
                           position: "absolute",
                           overflow: "hidden",
                           bottom: "100%",
                           width: 20,
                           height: 10
                         },
-                        children: (0, Sn.jsx)("div", {
+                        children: (0, On.jsx)("div", {
                           "data-lastpass-infield-caret": !0,
                           style: {
                             position: "absolute",
@@ -20826,7 +20910,7 @@ var webClient;
                           }
                         })
                       }),
-                      (0, Sn.jsx)("iframe", {
+                      (0, On.jsx)("iframe", {
                         "data-lastpass-iframe": !0,
                         allow: "clipboard-write",
                         src: s,
@@ -20839,47 +20923,47 @@ var webClient;
             })
           : null;
       },
-      Pl = 400,
-      Rl = { position: "absolute", height: "100vh", width: "100vw", zIndex: 2147483647, borderRadius: 4 },
-      kl = { position: "absolute", top: 0, left: 0 },
-      Ll = { position: "fixed", width: "100%", height: "100%", zIndex: 999, backdropFilter: "blur(4px)", opacity: 1 };
-    function Dl(e) {
-      return e === ca.AlreadyLoggedIn ? { position: "relative", height: "100vh", width: "100vw" } : kl;
+      Fl = 400,
+      Bl = { position: "absolute", height: "100vh", width: "100vw", zIndex: 2147483647, borderRadius: 4 },
+      Ul = { position: "absolute", top: 0, left: 0 },
+      jl = { position: "fixed", width: "100%", height: "100%", zIndex: 999, backdropFilter: "blur(4px)", opacity: 1 };
+    function Gl(e) {
+      return e === va.AlreadyLoggedIn ? { position: "relative", height: "100vh", width: "100vw" } : Ul;
     }
-    function Ml(e, t) {
-      return t === ca.AlreadyLoggedIn
-        ? u(u({}, Rl), {}, { maxWidth: Math.max(Pl, e.width), maxHeight: 200, top: 0, left: 0, right: 0, bottom: 0, margin: "auto" })
+    function Vl(e, t) {
+      return t === va.AlreadyLoggedIn
+        ? u(u({}, Bl), {}, { maxWidth: Math.max(Fl, e.width), maxHeight: 200, top: 0, left: 0, right: 0, bottom: 0, margin: "auto" })
         : u(
-            u({}, Rl),
+            u({}, Bl),
             {},
             {
               top: e.position.top + e.icon.top,
               left: e.position.left + e.position.width / 2 - 200,
               maxHeight: "fit-content",
-              maxWidth: Math.max(Pl, e.width)
+              maxWidth: Math.max(Fl, e.width)
             }
           );
     }
-    var Fl = function () {
-        var e = ua(),
+    var Hl = function () {
+        var e = ha(),
           t = (0, C.useRef)(null),
-          n = kt(function (e) {
+          n = Dt(function (e) {
             return e.infieldContainer;
           }),
-          r = kt(function (e) {
+          r = Dt(function (e) {
             return e.onboardingStep;
           }),
           o = (function () {
             var e = p((0, C.useState)(!1), 2),
               t = e[0],
               n = e[1],
-              r = kt(function (e) {
+              r = Dt(function (e) {
                 return e.onboardingStep;
               });
             return (
               (0, C.useEffect)(
                 function () {
-                  if (r !== ca.AlreadyLoggedIn) {
+                  if (r !== va.AlreadyLoggedIn) {
                     var e = setTimeout(function () {
                       n(!0);
                     }, 1500);
@@ -20894,20 +20978,20 @@ var webClient;
             );
           })();
         return (
-          mr(t),
-          (0, Sn.jsxs)(la, {
+          wr(t),
+          (0, On.jsxs)(ma, {
             children: [
-              (0, Sn.jsx)("div", {
-                style: u(u({}, Ll), !o && { transition: "visibility 0s 1.5s, opacity 1s linear", opacity: 0, visibility: "hidden" })
+              (0, On.jsx)("div", {
+                style: u(u({}, jl), !o && { transition: "visibility 0s 1.5s, opacity 1s linear", opacity: 0, visibility: "hidden" })
               }),
-              (0, Sn.jsx)("div", {
+              (0, On.jsx)("div", {
                 "data-lastpass-infield": !0,
                 ref: t,
-                style: Dl(r),
-                children: (0, Sn.jsx)(hr.Z, {
-                  children: (0, Sn.jsx)("div", {
-                    style: n ? Ml(n, r) : void 0,
-                    children: (0, Sn.jsx)("iframe", {
+                style: Gl(r),
+                children: (0, On.jsx)(Sr.Z, {
+                  children: (0, On.jsx)("div", {
+                    style: n ? Vl(n, r) : void 0,
+                    children: (0, On.jsx)("iframe", {
                       "data-lastpass-iframe": !0,
                       allow: "clipboard-write",
                       src: e.getUrl("webclient-infield.html"),
@@ -20920,37 +21004,37 @@ var webClient;
           })
         );
       },
-      Bl = function () {
-        var e = kt(function (e) {
+      Wl = function () {
+        var e = Dt(function (e) {
             return e.onboardingStep;
           }),
-          t = kt(function (e) {
+          t = Dt(function (e) {
             return e.inContextOnboarding;
           });
-        return t && t.show && (e === ca.AlreadyLoggedIn || e === ca.SiteLanding) ? (0, Sn.jsx)(Fl, {}) : (0, Sn.jsx)(Ol, {});
+        return t && t.show && (e === va.AlreadyLoggedIn || e === va.SiteLanding) ? (0, On.jsx)(Hl, {}) : (0, On.jsx)(Ml, {});
       },
-      Ul = ["allowSavePrompt", "disableOnDisconnect", "infieldContainer"];
-    function jl() {
-      return Gl.apply(this, arguments);
+      zl = ["allowSavePrompt", "disableOnDisconnect", "infieldContainer"];
+    function Yl() {
+      return ql.apply(this, arguments);
     }
-    function Gl() {
-      return (Gl = A(
+    function ql() {
+      return (ql = A(
         S().mark(function e() {
           return S().wrap(function (e) {
             for (;;)
               switch ((e.prev = e.next)) {
                 case 0:
-                  if (!Sa(va)) {
+                  if (!Ca(Sa)) {
                     e.next = 4;
                     break;
                   }
-                  return e.abrupt("return", Promise.resolve(va));
+                  return e.abrupt("return", Promise.resolve(Sa));
                 case 4:
                   return e.abrupt(
                     "return",
                     new Promise(function (e) {
-                      ga(function t(n) {
-                        Sa(n) && (e(n), _a(t));
+                      Aa(function t(n) {
+                        Ca(n) && (e(n), Ta(t));
                       });
                     })
                   );
@@ -20962,11 +21046,11 @@ var webClient;
         })
       )).apply(this, arguments);
     }
-    function Vl() {
-      return Hl.apply(this, arguments);
+    function Kl() {
+      return $l.apply(this, arguments);
     }
-    function Hl() {
-      return (Hl = A(
+    function $l() {
+      return ($l = A(
         S().mark(function e() {
           return S().wrap(function (e) {
             for (;;)
@@ -20992,20 +21076,20 @@ var webClient;
         })
       )).apply(this, arguments);
     }
-    function Wl() {
+    function Xl() {
       return !!document.querySelector("input") || (!!document.querySelector("iframe") && window.innerHeight > 0 && window.innerWidth > 0);
     }
-    function zl() {
-      return Yl.apply(this, arguments);
+    function Ql() {
+      return Zl.apply(this, arguments);
     }
-    function Yl() {
-      return (Yl = A(
+    function Zl() {
+      return (Zl = A(
         S().mark(function e() {
           return S().wrap(function (e) {
             for (;;)
               switch ((e.prev = e.next)) {
                 case 0:
-                  if (window !== top && !Wl()) {
+                  if (window !== top && !Xl()) {
                     e.next = 4;
                     break;
                   }
@@ -21015,7 +21099,7 @@ var webClient;
                     "return",
                     new Promise(function (e) {
                       var t = new MutationObserver(function () {
-                        Wl() && (e(), t.disconnect());
+                        Xl() && (e(), t.disconnect());
                       });
                       t.observe(document, { childList: !0, subtree: !0 });
                     })
@@ -21028,12 +21112,12 @@ var webClient;
         })
       )).apply(this, arguments);
     }
-    function ql(e, t) {
-      t !== ha.FROZEN && (window === top || t === ha.ACTIVE) && e.dispatch(Tt.stateChange(t));
+    function Jl(e, t) {
+      t !== Ea.FROZEN && (window === top || t === Ea.ACTIVE) && e.dispatch(Tt.stateChange(t));
     }
-    function Kl() {
+    function ec() {
       return (
-        (Kl = A(
+        (ec = A(
           S().mark(function e(t) {
             var n,
               r,
@@ -21058,24 +21142,24 @@ var webClient;
                   case 0:
                     if (
                       ((g = function () {
-                        return (0, Sn.jsx)(sa, {
+                        return (0, On.jsx)(pa, {
                           value: u.extensionApi.general,
-                          children: (0, Sn.jsx)(G, {
+                          children: (0, On.jsx)(G, {
                             store: v,
-                            children: (0, Sn.jsx)(Rn, {
-                              children: (0, Sn.jsxs)(pa, {
+                            children: (0, On.jsx)(jn, {
+                              children: (0, On.jsxs)(_a, {
                                 disableOnDisconnect: i,
-                                children: [(0, Sn.jsx)(Xi, { pathname: u.pathname, href: u.href }), (0, Sn.jsx)(y, {})]
+                                children: [(0, On.jsx)(na, { pathname: u.pathname, href: u.href }), (0, On.jsx)(y, {})]
                               })
                             })
                           })
                         });
                       }),
                       (y = function () {
-                        return kt(function (e) {
+                        return Dt(function (e) {
                           return e.messaging.connected;
                         })
-                          ? (0, Sn.jsxs)(Sn.Fragment, { children: [r && (0, Sn.jsx)(da, {}), s] })
+                          ? (0, On.jsxs)(On.Fragment, { children: [r && (0, On.jsx)(ga, {}), s] })
                           : null;
                       }),
                       (n = t.allowSavePrompt),
@@ -21083,8 +21167,8 @@ var webClient;
                       (o = t.disableOnDisconnect),
                       (i = void 0 === o || o),
                       (a = t.infieldContainer),
-                      (s = void 0 === a ? C.createElement(Bl) : a),
-                      (u = m(t, Ul)),
+                      (s = void 0 === a ? C.createElement(Wl) : a),
+                      (u = m(t, zl)),
                       (l = _.length > 1 && void 0 !== _[1] ? _[1] : []),
                       !window.initialized)
                     ) {
@@ -21093,25 +21177,25 @@ var webClient;
                     }
                     return e.abrupt("return");
                   case 6:
-                    return (window.initialized = !0), (e.next = 9), jl();
+                    return (window.initialized = !0), (e.next = 9), Yl();
                   case 9:
-                    return (c = e.sent), (e.next = 12), zl();
+                    return (c = e.sent), (e.next = 12), Ql();
                   case 12:
                     return (
                       (e.next = 14),
                       u.stateSync(function () {
                         return {
                           filterType: De.ContentScript,
-                          pageState: va,
-                          hierarchy: Bn(),
-                          pageLanguage: _n(document.documentElement.lang)
+                          pageState: Sa,
+                          hierarchy: Yn(),
+                          pageLanguage: In(document.documentElement.lang)
                         };
                       })
                     );
                   case 14:
                     return (
                       (f = e.sent),
-                      (d = Al({ release: "4.123.0", debug: !1 })),
+                      (d = Ol({ release: "4.125.0", debug: !1 })),
                       (p = Qe({
                         passThrough: !0,
                         enabledSelector: function (e) {
@@ -21119,22 +21203,22 @@ var webClient;
                         }
                       })),
                       (h = [d, p, Re(f.background.dispatch)].concat(I(l))),
-                      (v = ue(Le(f.background.initialState, Ta), de.apply(void 0, I(h)))),
+                      (v = ue(Le(f.background.initialState, Pa), de.apply(void 0, I(h)))),
                       f.initialize(v.dispatch, v.getState),
                       p.initialize({
                         segment: function (e, t) {
                           v.dispatch(Ve({ event: e, properties: t }));
                         }
                       }),
-                      (Sa(va) === Sa(c) && va !== ha.ACTIVE) || ql(v, va),
-                      ga(function (e, t) {
-                        (Sa(e) === Sa(t) && e !== ha.ACTIVE) || ql(v, e);
+                      (Ca(Sa) === Ca(c) && Sa !== Ea.ACTIVE) || Jl(v, Sa),
+                      Aa(function (e, t) {
+                        (Ca(e) === Ca(t) && e !== Ea.ACTIVE) || Jl(v, e);
                       }),
                       (e.next = 26),
-                      Vl()
+                      Kl()
                     );
                   case 26:
-                    return N.render((0, Sn.jsx)(g, {}), document.createElement("div")), e.abrupt("return", { store: v });
+                    return N.render((0, On.jsx)(g, {}), document.createElement("div")), e.abrupt("return", { store: v });
                   case 28:
                   case "end":
                     return e.stop();
@@ -21142,11 +21226,11 @@ var webClient;
             }, e);
           })
         )),
-        Kl.apply(this, arguments)
+        ec.apply(this, arguments)
       );
     }
     !(function (e) {
-      Kl.apply(this, arguments);
+      ec.apply(this, arguments);
     })({
       stateSync: function (e) {
         var t = (function (e) {

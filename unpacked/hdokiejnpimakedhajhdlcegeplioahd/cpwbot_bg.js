@@ -4108,7 +4108,7 @@ function CPWbot_bg_lib() {
           Le,
           _
         );
-      return L(r), lpReportError(r, null), !0;
+      return L(r), logger.info(r, {}), !0;
     }),
     (this.warning_phone_home = Bi),
     (this.site_html_url = ""),

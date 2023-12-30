@@ -25,10 +25,11 @@ import { privateApi as r } from "./private-api.js";
 import { viewerModuleUtils as o } from "./viewer-module-utils.js";
 import { SETTINGS as l } from "./settings.js";
 import { dcLocalStorage as d, dcSessionStorage as c } from "../common/local-storage.js";
-let p = null,
-  m = {},
-  h = {};
-class _ {
+import { updateExtUserState as p } from "../common/util.js";
+let m = null,
+  h = {},
+  _ = {};
+class u {
   constructor() {
     (this.tabs = {}), (this.version = -1), (this.NMHConnStatus = !0), (this.activeTab = void 0), (this.isAllowedLocalFileAccess = !1);
   }
@@ -42,13 +43,13 @@ class _ {
     this.isAllowedLocalFileAccess = e;
   }
   registerHandlers(t) {
-    h = e.extend(h, t);
+    _ = e.extend(_, t);
   }
   registerModule(e, t) {
-    m[e] = t;
+    h[e] = t;
   }
   getModule(e) {
-    return m[e];
+    return h[e];
   }
   getTabLastMessage(e) {
     return this.tabs[e];
@@ -279,7 +280,7 @@ class _ {
           this.cancelConversion(this.tabs[i.tab.id]);
           break;
         default:
-          return h[o]
+          return _[o]
             ? (s.setOp(
                 {
                   preview: "Copy",
@@ -291,7 +292,7 @@ class _ {
                   to_pdf: "ConvertToPdf"
                 }[t.handleResult]
               ),
-              h[o](t, i, n))
+              _[o](t, i, n))
             : void e.consoleLog("failed to find handler for: " + o);
       }
       return !0;
@@ -354,6 +355,7 @@ class _ {
     }
   }
   async echo(t) {
+    p();
     const i = d.getItem("appLocale");
     if ((s.event(s.e.TREFOIL_CLICKED), l.CHROME_VERSION < l.SUPPORTED_VERSION)) {
       this.getModule("session").newSession("browser/js/options.html", !0, {});
@@ -553,5 +555,5 @@ class _ {
     return !t.startsWith("http") && !i;
   }
 }
-p || ((p = new _()), p.registerHandlers({ "send-analytics": p.proxy(p.noop) }));
-export const communicate = p;
+m || ((m = new u()), m.registerHandlers({ "send-analytics": m.proxy(m.noop) }));
+export const communicate = m;

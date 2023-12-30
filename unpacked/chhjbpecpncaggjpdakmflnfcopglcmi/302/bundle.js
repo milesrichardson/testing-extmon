@@ -2,10 +2,10 @@
 (self.webpackChunksource = self.webpackChunksource || []).push([
   [302],
   {
-    4354: (e, t, r) => {
+    44354: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var n = r(9772);
+      var n = r(99772);
       var i = (function () {
         function e() {
           this.errorCount = 0;
@@ -31,7 +31,7 @@
       })();
       t.default = i;
     },
-    4621: function (e, t, r) {
+    74621: function (e, t, r) {
       "use strict";
       var n,
         i =
@@ -62,7 +62,7 @@
             return e && e.__esModule ? e : { default: e };
           };
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var a = r(3363),
+      var a = r(23363),
         s = (function (e) {
           function t() {
             return (null !== e && e.apply(this, arguments)) || this;
@@ -77,13 +77,13 @@
             }),
             t
           );
-        })(o(r(3718)).default);
+        })(o(r(43718)).default);
       t.default = s;
     },
-    3363: (e, t, r) => {
+    23363: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var n = r(9772),
+      var n = r(99772),
         i = r(3023).getLogger("DatafileManager");
       t.makeGetRequest = function (e, t) {
         var r = new XMLHttpRequest();
@@ -132,7 +132,7 @@
         };
       };
     },
-    9772: (e, t) => {
+    99772: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.DEFAULT_UPDATE_INTERVAL = 3e5),
@@ -142,7 +142,7 @@
         (t.BACKOFF_BASE_WAIT_SECONDS_BY_ERROR_COUNT = [0, 8, 16, 32, 64, 128, 256, 512]),
         (t.REQUEST_TIMEOUT_MS = 6e4);
     },
-    325: (e, t) => {
+    20325: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = (function () {
@@ -177,7 +177,7 @@
       })();
       t.default = r;
     },
-    3718: function (e, t, r) {
+    43718: function (e, t, r) {
       "use strict";
       var n =
           (this && this.__assign) ||
@@ -200,10 +200,10 @@
           };
       Object.defineProperty(t, "__esModule", { value: !0 });
       var o = r(3023),
-        a = r(2306),
-        s = i(r(325)),
-        u = r(9772),
-        l = i(r(4354)),
+        a = r(92306),
+        s = i(r(20325)),
+        u = r(99772),
+        l = i(r(44354)),
         c = o.getLogger("DatafileManager");
       function E(e) {
         return e >= 200 && e < 400;
@@ -385,17 +385,17 @@
         })();
       t.default = d;
     },
-    1816: (e, t, r) => {
+    81816: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var n = r(4621);
+      var n = r(74621);
       t.HttpPollingDatafileManager = n.default;
     },
     8164: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
     },
-    9651: (e, t, r) => {
+    49651: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.sendEventNotification =
@@ -405,9 +405,9 @@
           t.DEFAULT_BATCH_SIZE =
           t.DEFAULT_FLUSH_INTERVAL =
             void 0);
-      var n = r(4625),
+      var n = r(74625),
         i = r(3023),
-        o = r(2306);
+        o = r(92306);
       (t.DEFAULT_FLUSH_INTERVAL = 3e4), (t.DEFAULT_BATCH_SIZE = 10);
       var a = i.getLogger("EventProcessor");
       (t.validateAndGetFlushInterval = function (e) {
@@ -423,16 +423,16 @@
             (e = Math.max(1, e))
           );
         }),
-        (t.getQueue = function (e, t, r, i) {
+        (t.getQueue = function (e, t, r, i, o) {
           return e > 1
-            ? new n.DefaultEventQueue({ flushInterval: t, maxQueueSize: e, sink: r, batchComparator: i })
-            : new n.SingleEventQueue({ sink: r });
+            ? new n.DefaultEventQueue({ flushInterval: t, maxQueueSize: e, batchComparator: r, sink: i, closingSink: o })
+            : new n.SingleEventQueue({ sink: i });
         }),
         (t.sendEventNotification = function (e, t) {
           e && e.sendNotifications(o.NOTIFICATION_TYPES.LOG_EVENT, t);
         });
     },
-    4625: (e, t, r) => {
+    74625: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.DefaultEventQueue = t.SingleEventQueue = void 0);
       var n = r(3023).getLogger("EventProcessor"),
@@ -477,11 +477,13 @@
           var t = e.flushInterval,
             r = e.maxQueueSize,
             n = e.sink,
-            o = e.batchComparator;
+            o = e.closingSink,
+            a = e.batchComparator;
           (this.buffer = []),
             (this.maxQueueSize = Math.max(r, 1)),
             (this.sink = n),
-            (this.batchComparator = o),
+            (this.closingSink = o),
+            (this.batchComparator = a),
             (this.timer = new i({ callback: this.flush.bind(this), timeout: t })),
             (this.started = !1);
         }
@@ -491,7 +493,7 @@
           }),
           (e.prototype.stop = function () {
             this.started = !1;
-            var e = this.sink(this.buffer);
+            var e = this.closingSink ? this.closingSink(this.buffer) : this.sink(this.buffer);
             return (this.buffer = []), this.timer.stop(), e;
           }),
           (e.prototype.enqueue = function (e) {
@@ -511,7 +513,7 @@
       })();
       t.DefaultEventQueue = a;
     },
-    1622: (e, t) => {
+    61622: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.areEventContextsEqual = void 0),
@@ -529,7 +531,7 @@
           );
         });
     },
-    7753: function (e, t, r) {
+    73931: function (e, t, r) {
       "use strict";
       var n =
           (this && this.__createBinding) ||
@@ -552,19 +554,19 @@
             for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || n(t, e, r);
           };
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        i(r(1622), t),
-        i(r(9651), t),
+        i(r(61622), t),
+        i(r(49651), t),
         i(r(8164), t),
-        i(r(7530), t),
-        i(r(5381), t),
-        i(r(3440), t),
-        i(r(1542), t);
+        i(r(37530), t),
+        i(r(85381), t),
+        i(r(33440), t),
+        i(r(91542), t);
     },
-    7530: (e, t) => {
+    37530: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
     },
-    5381: function (e, t, r) {
+    85381: function (e, t, r) {
       "use strict";
       var n,
         i =
@@ -591,8 +593,8 @@
           });
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.LocalStoragePendingEventsDispatcher = t.PendingEventsDispatcher = void 0);
       var o = r(3023),
-        a = r(4668),
-        s = r(2306),
+        a = r(94668),
+        s = r(92306),
         u = o.getLogger("EventProcessor"),
         l = (function () {
           function e(e) {
@@ -636,10 +638,10 @@
       })(l);
       t.LocalStoragePendingEventsDispatcher = c;
     },
-    4668: (e, t, r) => {
+    94668: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.LocalStorageStore = void 0);
-      var n = r(2306),
+      var n = r(92306),
         i = r(3023).getLogger("EventProcessor"),
         o = (function () {
           function e(e) {
@@ -702,7 +704,7 @@
         })();
       t.LocalStorageStore = o;
     },
-    3382: (e, t) => {
+    43382: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = (function () {
@@ -734,7 +736,7 @@
       })();
       t.default = r;
     },
-    3440: function (e, t) {
+    33440: function (e, t) {
       "use strict";
       var r =
         (this && this.__assign) ||
@@ -855,7 +857,7 @@
           return { url: "https://logx.optimizely.com/v1/events", httpVerb: "POST", params: a(e) };
         });
     },
-    1542: function (e, t, r) {
+    91542: function (e, t, r) {
       "use strict";
       var n =
           (this && this.__awaiter) ||
@@ -978,39 +980,41 @@
           };
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.LogTierV1EventProcessor = void 0);
       var a = r(3023),
-        s = r(9651),
-        u = o(r(3382)),
-        l = r(1622),
-        c = r(3440),
+        s = r(49651),
+        u = o(r(43382)),
+        l = r(61622),
+        c = r(33440),
         E = a.getLogger("LogTierV1EventProcessor"),
         f = (function () {
           function e(e) {
             var t = e.dispatcher,
-              r = e.flushInterval,
-              n = void 0 === r ? s.DEFAULT_FLUSH_INTERVAL : r,
-              i = e.batchSize,
-              o = void 0 === i ? s.DEFAULT_BATCH_SIZE : i,
-              a = e.notificationCenter;
+              r = e.closingDispatcher,
+              n = e.flushInterval,
+              i = void 0 === n ? s.DEFAULT_FLUSH_INTERVAL : n,
+              o = e.batchSize,
+              a = void 0 === o ? s.DEFAULT_BATCH_SIZE : o,
+              c = e.notificationCenter;
             (this.dispatcher = t),
-              (this.notificationCenter = a),
+              (this.closingDispatcher = r),
+              (this.notificationCenter = c),
               (this.requestTracker = new u.default()),
-              (n = s.validateAndGetFlushInterval(n)),
-              (o = s.validateAndGetBatchSize(o)),
-              (this.queue = s.getQueue(o, n, this.drainQueue.bind(this), l.areEventContextsEqual));
+              (i = s.validateAndGetFlushInterval(i)),
+              (a = s.validateAndGetBatchSize(a)),
+              (this.queue = s.getQueue(a, i, l.areEventContextsEqual, this.drainQueue.bind(this, !1), this.drainQueue.bind(this, !0)));
           }
           return (
-            (e.prototype.drainQueue = function (e) {
-              var t = this,
-                r = new Promise(function (r) {
-                  if ((E.debug("draining queue with %s events", e.length), 0 !== e.length)) {
-                    var n = c.formatEvents(e);
-                    t.dispatcher.dispatchEvent(n, function () {
-                      r();
+            (e.prototype.drainQueue = function (e, t) {
+              var r = this,
+                n = new Promise(function (n) {
+                  if ((E.debug("draining queue with %s events", t.length), 0 !== t.length)) {
+                    var i = c.formatEvents(t);
+                    (e && r.closingDispatcher ? r.closingDispatcher : r.dispatcher).dispatchEvent(i, function () {
+                      n();
                     }),
-                      s.sendEventNotification(t.notificationCenter, n);
-                  } else r();
+                      s.sendEventNotification(r.notificationCenter, i);
+                  } else n();
                 });
-              return this.requestTracker.trackRequest(r), r;
+              return this.requestTracker.trackRequest(n), n;
             }),
             (e.prototype.process = function (e) {
               this.queue.enqueue(e);
@@ -1035,7 +1039,7 @@
         })();
       t.LogTierV1EventProcessor = f;
     },
-    9399: (e, t) => {
+    89399: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = (function () {
@@ -1059,9 +1063,9 @@
       function n(e) {
         for (var r in e) t.hasOwnProperty(r) || (t[r] = e[r]);
       }
-      Object.defineProperty(t, "__esModule", { value: !0 }), n(r(9399)), n(r(8536)), n(r(8400));
+      Object.defineProperty(t, "__esModule", { value: !0 }), n(r(89399)), n(r(18536)), n(r(98400));
     },
-    8400: function (e, t, r) {
+    98400: function (e, t, r) {
       "use strict";
       var n =
         (this && this.__spreadArrays) ||
@@ -1073,9 +1077,9 @@
           return n;
         };
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var i = r(9399),
-        o = r(2306),
-        a = r(8536),
+      var i = r(89399),
+        o = r(92306),
+        a = r(18536),
         s = { NOTSET: 0, DEBUG: 1, INFO: 2, WARNING: 3, ERROR: 4 };
       function u(e) {
         return "string" != typeof e ? e : ("WARN" === (e = e.toUpperCase()) && (e = "WARNING"), s[e] ? s[e] : e);
@@ -1202,7 +1206,7 @@
           (p = new l()), (E = a.LogLevel.NOTSET);
         });
     },
-    8536: (e, t) => {
+    18536: (e, t) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (function (e) {
@@ -1213,10 +1217,10 @@
             (e[(e.ERROR = 4)] = "ERROR");
         })(t.LogLevel || (t.LogLevel = {}));
     },
-    2306: (e, t, r) => {
+    92306: (e, t, r) => {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var n = r(1176);
+      var n = r(11176);
       function i(e) {
         return Object.keys(e).map(function (t) {
           return e[t];
@@ -1289,13 +1293,13 @@
             (e.TRACK = "TRACK:event_key, user_id, attributes, event_tags, event");
         })(t.NOTIFICATION_TYPES || (t.NOTIFICATION_TYPES = {}));
     },
-    1176: (e, t, r) => {
-      var n = r(7097),
-        i = r(8525),
+    11176: (e, t, r) => {
+      var n = r(47097),
+        i = r(58525),
         o = i;
       (o.v1 = n), (o.v4 = i), (e.exports = o);
     },
-    7369: (e) => {
+    27369: (e) => {
       for (var t = [], r = 0; r < 256; ++r) t[r] = (r + 256).toString(16).substr(1);
       e.exports = function (e, r) {
         var n = r || 0,
@@ -1324,7 +1328,7 @@
         ].join("");
       };
     },
-    8056: (e) => {
+    98056: (e) => {
       var t =
         ("undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto)) ||
         ("undefined" != typeof msCrypto && "function" == typeof window.msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto));
@@ -1341,11 +1345,11 @@
         };
       }
     },
-    7097: (e, t, r) => {
+    47097: (e, t, r) => {
       var n,
         i,
-        o = r(8056),
-        a = r(7369),
+        o = r(98056),
+        a = r(27369),
         s = 0,
         u = 0;
       e.exports = function (e, t, r) {
@@ -1376,9 +1380,9 @@
         return t || a(c);
       };
     },
-    8525: (e, t, r) => {
-      var n = r(8056),
-        i = r(7369);
+    58525: (e, t, r) => {
+      var n = r(98056),
+        i = r(27369);
       e.exports = function (e, t, r) {
         var o = (t && r) || 0;
         "string" == typeof e && ((t = "binary" === e ? new Array(16) : null), (e = null));
@@ -1387,16 +1391,16 @@
         return t || i(a);
       };
     },
-    5302: (e, t, r) => {
+    75302: (e, t, r) => {
       "use strict";
       function n(e) {
         return e && "object" == typeof e && "default" in e ? e.default : e;
       }
       var i = r(3023),
-        o = r(7753),
-        a = n(r(4952)),
-        s = n(r(8491)),
-        u = r(1816),
+        o = r(73931),
+        a = n(r(84952)),
+        s = n(r(68491)),
+        u = r(81816),
         l = function () {
           return (l =
             Object.assign ||
@@ -1691,8 +1695,8 @@
           REACT_CLIENT_ENGINE: "react-sdk",
           REACT_NATIVE_CLIENT_ENGINE: "react-native-sdk",
           REACT_NATIVE_JS_CLIENT_ENGINE: "react-native-js-sdk",
-          BROWSER_CLIENT_VERSION: "4.9.4",
-          NODE_CLIENT_VERSION: "4.9.4",
+          BROWSER_CLIENT_VERSION: "4.10.0",
+          NODE_CLIENT_VERSION: "4.10.0",
           DECISION_NOTIFICATION_TYPES: A,
           DECISION_SOURCES: m,
           AUDIENCE_EVALUATION_TYPES: L,
@@ -1704,8 +1708,8 @@
           }
         }),
         V = "CONFIG_VALIDATOR",
-        P = [D.V2, D.V3, D.V4],
-        b = { handleError: function () {} },
+        b = [D.V2, D.V3, D.V4],
+        P = { handleError: function () {} },
         F = {
           dispatchEvent: function (e, t) {
             var r,
@@ -1742,35 +1746,43 @@
                 r.send());
           }
         },
-        M = (function () {
+        M = {
+          dispatchEvent: function (e, t) {
+            var r = e.params,
+              n = e.url,
+              i = new Blob([JSON.stringify(r)], { type: "application/json" });
+            t({ statusCode: navigator.sendBeacon(n, i) ? 200 : 500 });
+          }
+        },
+        k = (function () {
           function e() {}
           return (e.prototype.log = function () {}), e;
         })();
-      function k(e) {
+      function x(e) {
         return new i.ConsoleLogHandler(e);
       }
-      var x,
-        B,
+      var B,
+        w,
         K = Object.freeze({
           __proto__: null,
-          NoOpLogger: M,
-          createLogger: k,
+          NoOpLogger: k,
+          createLogger: x,
           createNoOpLogger: function () {
-            return new M();
+            return new k();
           }
         });
-      function w(e, t, r) {
+      function G(e, t, r) {
         return { variationKey: null, enabled: !1, variables: {}, ruleKey: null, flagKey: e, userContext: t, reasons: r };
       }
       !(function (e) {
         (e.BOOLEAN = "boolean"), (e.DOUBLE = "double"), (e.INTEGER = "integer"), (e.STRING = "string"), (e.JSON = "json");
-      })(x || (x = {})),
-        ((B = t.N1 || (t.N1 = {})).DISABLE_DECISION_EVENT = "DISABLE_DECISION_EVENT"),
-        (B.ENABLED_FLAGS_ONLY = "ENABLED_FLAGS_ONLY"),
-        (B.IGNORE_USER_PROFILE_SERVICE = "IGNORE_USER_PROFILE_SERVICE"),
-        (B.INCLUDE_REASONS = "INCLUDE_REASONS"),
-        (B.EXCLUDE_VARIABLES = "EXCLUDE_VARIABLES");
-      var G = (function () {
+      })(B || (B = {})),
+        ((w = t.N1 || (t.N1 = {})).DISABLE_DECISION_EVENT = "DISABLE_DECISION_EVENT"),
+        (w.ENABLED_FLAGS_ONLY = "ENABLED_FLAGS_ONLY"),
+        (w.IGNORE_USER_PROFILE_SERVICE = "IGNORE_USER_PROFILE_SERVICE"),
+        (w.INCLUDE_REASONS = "INCLUDE_REASONS"),
+        (w.EXCLUDE_VARIABLES = "EXCLUDE_VARIABLES");
+      var j = (function () {
           function e(e) {
             var t,
               r = e.optimizely,
@@ -1848,18 +1860,18 @@
             e
           );
         })(),
-        j = ["and", "or", "not"];
-      function H(e, t) {
+        H = ["and", "or", "not"];
+      function Y(e, t) {
         if (Array.isArray(e)) {
           var r = e[0],
             n = e.slice(1);
-          switch (("string" == typeof r && -1 === j.indexOf(r) && ((r = "or"), (n = e)), r)) {
+          switch (("string" == typeof r && -1 === H.indexOf(r) && ((r = "or"), (n = e)), r)) {
             case "and":
               return (function (e, t) {
                 var r = !1;
                 if (Array.isArray(e)) {
                   for (var n = 0; n < e.length; n++) {
-                    var i = H(e[n], t);
+                    var i = Y(e[n], t);
                     if (!1 === i) return !1;
                     null === i && (r = !0);
                   }
@@ -1870,7 +1882,7 @@
             case "not":
               return (function (e, t) {
                 if (Array.isArray(e) && e.length > 0) {
-                  var r = H(e[0], t);
+                  var r = Y(e[0], t);
                   return null === r ? null : !r;
                 }
                 return null;
@@ -1880,7 +1892,7 @@
                 var r = !1;
                 if (Array.isArray(e)) {
                   for (var n = 0; n < e.length; n++) {
-                    var i = H(e[n], t);
+                    var i = Y(e[n], t);
                     if (!0 === i) return !0;
                     null === i && (r = !0);
                   }
@@ -1892,7 +1904,7 @@
         }
         return t(e);
       }
-      var Y = (function () {
+      var X = (function () {
           function e(t, r) {
             var n, i;
             (this.sdkKey = null !== (n = t.sdkKey) && void 0 !== n ? n : ""),
@@ -1934,7 +1946,7 @@
                 t.forEach(function (t) {
                   var o = "";
                   if (t instanceof Array) o = "(" + (o = e.getSerializedAudiences(t, r)) + ")";
-                  else if (j.indexOf(t) > -1) i = t.toUpperCase();
+                  else if (H.indexOf(t) > -1) i = t.toUpperCase();
                   else {
                     var a = r[t] ? r[t].name : t;
                     n || "NOT" === i
@@ -2047,8 +2059,8 @@
             e
           );
         })(),
-        X = "PROJECT_CONFIG",
-        z = function (e, t) {
+        z = "PROJECT_CONFIG",
+        q = function (e, t) {
           void 0 === t && (t = null);
           var r,
             n,
@@ -2155,12 +2167,12 @@
             a
           );
         },
-        q = function (e, t) {
+        J = function (e, t) {
           var r = e.experimentIdMap[t];
-          if (!r) throw new Error(h(N.INVALID_EXPERIMENT_ID, X, t));
+          if (!r) throw new Error(h(N.INVALID_EXPERIMENT_ID, z, t));
           return r.layerId;
         },
-        J = function (e, t, r) {
+        W = function (e, t, r) {
           var n = e.attributeKeyMap[t],
             i = 0 === t.indexOf("$opt_");
           return n
@@ -2174,57 +2186,57 @@
               n.id)
             : i
             ? t
-            : (r.log(O.DEBUG, N.UNRECOGNIZED_ATTRIBUTE, X, t), null);
+            : (r.log(O.DEBUG, N.UNRECOGNIZED_ATTRIBUTE, z, t), null);
         },
-        W = function (e, t) {
+        Z = function (e, t) {
           var r = e.eventKeyMap[t];
           return r ? r.id : null;
         },
-        Z = function (e, t) {
+        Q = function (e, t) {
           var r = e.experimentKeyMap[t];
-          if (!r) throw new Error(h(N.INVALID_EXPERIMENT_KEY, X, t));
+          if (!r) throw new Error(h(N.INVALID_EXPERIMENT_KEY, z, t));
           return r.status;
         },
-        Q = function (e, t) {
+        $ = function (e, t) {
           return e.variationIdMap.hasOwnProperty(t) ? e.variationIdMap[t].key : null;
         },
-        $ = function (e, t) {
+        ee = function (e, t) {
           if (e.experimentKeyMap.hasOwnProperty(t)) {
             var r = e.experimentKeyMap[t];
             if (r) return r;
           }
-          throw new Error(h(N.EXPERIMENT_KEY_NOT_IN_DATAFILE, X, t));
+          throw new Error(h(N.EXPERIMENT_KEY_NOT_IN_DATAFILE, z, t));
         },
-        ee = function (e, t) {
+        te = function (e, t) {
           var r = e.experimentIdMap[t];
-          if (!r) throw new Error(h(N.INVALID_EXPERIMENT_ID, X, t));
+          if (!r) throw new Error(h(N.INVALID_EXPERIMENT_ID, z, t));
           return r.trafficAllocation;
         },
-        te = function (e, t, r) {
+        re = function (e, t, r) {
           if (e.experimentIdMap.hasOwnProperty(t)) {
             var n = e.experimentIdMap[t];
             if (n) return n;
           }
-          return r.log(O.ERROR, N.INVALID_EXPERIMENT_ID, X, t), null;
+          return r.log(O.ERROR, N.INVALID_EXPERIMENT_ID, z, t), null;
         },
-        re = function (e, t, r) {
+        ne = function (e, t, r) {
           if (!e) return null;
           var n = I(e.flagVariationsMap[t], function (e) {
             return e.key === r;
           });
           return n || null;
         },
-        ne = function (e, t, r) {
+        ie = function (e, t, r) {
           if (e.featureKeyMap.hasOwnProperty(t)) {
             var n = e.featureKeyMap[t];
             if (n) return n;
           }
-          return r.log(O.ERROR, N.FEATURE_NOT_IN_DATAFILE, X, t), null;
-        },
-        ie = function (e) {
-          return e.__datafileStr;
+          return r.log(O.ERROR, N.FEATURE_NOT_IN_DATAFILE, z, t), null;
         },
         oe = function (e) {
+          return e.__datafileStr;
+        },
+        ae = function (e) {
           var t;
           try {
             t = (function (e) {
@@ -2235,7 +2247,7 @@
                 } catch (e) {
                   throw new Error(h(N.INVALID_DATAFILE_MALFORMED, V));
                 }
-              if ("object" == typeof e && !Array.isArray(e) && null !== e && -1 === P.indexOf(e.version))
+              if ("object" == typeof e && !Array.isArray(e) && null !== e && -1 === b.indexOf(e.version))
                 throw new Error(h(N.INVALID_DATAFILE_VERSION, V, e.version));
               return e;
             })(e.datafile);
@@ -2244,28 +2256,28 @@
           }
           if (e.jsonSchemaValidator)
             try {
-              e.jsonSchemaValidator.validate(t), e.logger.log(O.INFO, T.VALID_DATAFILE, X);
+              e.jsonSchemaValidator.validate(t), e.logger.log(O.INFO, T.VALID_DATAFILE, z);
             } catch (e) {
               return { configObj: null, error: e };
             }
-          else e.logger.log(O.INFO, T.SKIPPING_JSON_VALIDATION, X);
+          else e.logger.log(O.INFO, T.SKIPPING_JSON_VALIDATION, z);
           var r = [t];
-          return "string" == typeof e.datafile && r.push(e.datafile), { configObj: z.apply(void 0, r), error: null };
+          return "string" == typeof e.datafile && r.push(e.datafile), { configObj: q.apply(void 0, r), error: null };
         },
-        ae = function (e) {
+        se = function (e) {
           return !!e.sendFlagDecisions;
         },
-        se = i.getLogger();
-      function ue(e, t) {
+        ue = i.getLogger();
+      function le(e, t) {
         return e instanceof Error ? e.message : t || "Unknown error";
       }
-      var le = (function () {
+      var ce = (function () {
           function e(e) {
             (this.updateListeners = []), (this.configObj = null), (this.optimizelyConfigObj = null), (this.datafileManager = null);
             try {
               if (((this.jsonSchemaValidator = e.jsonSchemaValidator), !e.datafile && !e.sdkKey)) {
                 var t = new Error(h(N.DATAFILE_AND_SDK_KEY_MISSING, "PROJECT_CONFIG_MANAGER"));
-                return (this.readyPromise = Promise.resolve({ success: !1, reason: ue(t) })), void se.error(t);
+                return (this.readyPromise = Promise.resolve({ success: !1, reason: le(t) })), void ue.error(t);
               }
               var r = null;
               e.datafile && (r = this.handleNewDatafile(e.datafile)),
@@ -2278,30 +2290,30 @@
                     this.datafileManager.on("update", this.onDatafileManagerUpdate.bind(this)))
                   : this.configObj
                   ? (this.readyPromise = Promise.resolve({ success: !0 }))
-                  : (this.readyPromise = Promise.resolve({ success: !1, reason: ue(r, "Invalid datafile") }));
+                  : (this.readyPromise = Promise.resolve({ success: !1, reason: le(r, "Invalid datafile") }));
             } catch (e) {
-              se.error(e), (this.readyPromise = Promise.resolve({ success: !1, reason: ue(e, "Error in initialize") }));
+              ue.error(e), (this.readyPromise = Promise.resolve({ success: !1, reason: le(e, "Error in initialize") }));
             }
           }
           return (
             (e.prototype.onDatafileManagerReadyFulfill = function () {
               if (this.datafileManager) {
                 var e = this.handleNewDatafile(this.datafileManager.get());
-                return e ? { success: !1, reason: ue(e) } : { success: !0 };
+                return e ? { success: !1, reason: le(e) } : { success: !0 };
               }
-              return { success: !1, reason: ue(null, "Datafile manager is not provided") };
+              return { success: !1, reason: le(null, "Datafile manager is not provided") };
             }),
             (e.prototype.onDatafileManagerReadyReject = function (e) {
-              return { success: !1, reason: ue(e, "Failed to become ready") };
+              return { success: !1, reason: le(e, "Failed to become ready") };
             }),
             (e.prototype.onDatafileManagerUpdate = function () {
               this.datafileManager && this.handleNewDatafile(this.datafileManager.get());
             }),
             (e.prototype.handleNewDatafile = function (e) {
-              var t = oe({ datafile: e, jsonSchemaValidator: this.jsonSchemaValidator, logger: se }),
+              var t = ae({ datafile: e, jsonSchemaValidator: this.jsonSchemaValidator, logger: ue }),
                 r = t.configObj,
                 n = t.error;
-              if (n) se.error(n);
+              if (n) ue.error(n);
               else {
                 var i = this.configObj ? this.configObj.revision : "null";
                 r &&
@@ -2322,7 +2334,7 @@
               return (
                 !this.optimizelyConfigObj &&
                   this.configObj &&
-                  (this.optimizelyConfigObj = ((e = this.configObj), (t = ie(this.configObj)), new Y(e, t))),
+                  (this.optimizelyConfigObj = ((e = this.configObj), (t = oe(this.configObj)), new X(e, t))),
                 this.optimizelyConfigObj
               );
             }),
@@ -2345,15 +2357,15 @@
             e
           );
         })(),
-        ce = Math.pow(2, 32),
-        Ee = function (e) {
+        Ee = Math.pow(2, 32),
+        fe = function (e) {
           var t = [],
             r = e.experimentIdMap[e.experimentId].groupId;
           if (r) {
             var n = e.groupIdMap[r];
             if (!n) throw new Error(h(N.INVALID_GROUP_ID, "BUCKETER", r));
             if ("random" === n.policy) {
-              var i = fe(n, e.bucketingId, e.userId, e.logger);
+              var i = de(n, e.bucketingId, e.userId, e.logger);
               if (null === i)
                 return (
                   e.logger.log(O.INFO, T.USER_NOT_IN_ANY_EXPERIMENT, "BUCKETER", e.userId, r),
@@ -2371,49 +2383,49 @@
             }
           }
           var o = "" + e.bucketingId + e.experimentId,
-            a = pe(o);
+            a = ge(o);
           e.logger.log(O.DEBUG, T.USER_ASSIGNED_TO_EXPERIMENT_BUCKET, "BUCKETER", a, e.userId),
             t.push([T.USER_ASSIGNED_TO_EXPERIMENT_BUCKET, "BUCKETER", a, e.userId]);
-          var s = de(a, e.trafficAllocationConfig);
+          var s = pe(a, e.trafficAllocationConfig);
           return null === s || e.variationIdMap[s]
             ? { result: s, reasons: t }
             : (s && (e.logger.log(O.WARNING, T.INVALID_VARIATION_ID, "BUCKETER"), t.push([T.INVALID_VARIATION_ID, "BUCKETER"])),
               { result: null, reasons: t });
         },
-        fe = function (e, t, r, n) {
+        de = function (e, t, r, n) {
           var i = "" + t + e.id,
-            o = pe(i);
+            o = ge(i);
           n.log(O.DEBUG, T.USER_ASSIGNED_TO_EXPERIMENT_BUCKET, "BUCKETER", o, r);
           var a = e.trafficAllocation;
-          return de(o, a);
+          return pe(o, a);
         },
-        de = function (e, t) {
+        pe = function (e, t) {
           for (var r = 0; r < t.length; r++) if (e < t[r].endOfRange) return t[r].entityId;
           return null;
         },
-        pe = function (e) {
+        ge = function (e) {
           try {
-            var t = s.v3(e, 1) / ce;
+            var t = s.v3(e, 1) / Ee;
             return Math.floor(1e4 * t);
           } catch (t) {
             throw new Error(h(N.INVALID_BUCKETING_ID, "BUCKETER", e, t.message));
           }
         },
-        ge = i.getLogger();
-      function Ie(e) {
-        return /^\d+$/.test(e);
-      }
+        Ie = i.getLogger();
       function _e(e) {
-        var t = e.indexOf("-"),
-          r = e.indexOf("+");
-        return !(t < 0) && (r < 0 || t < r);
+        return /^\d+$/.test(e);
       }
       function he(e) {
         var t = e.indexOf("-"),
           r = e.indexOf("+");
-        return !(r < 0) && (t < 0 || r < t);
+        return !(t < 0) && (r < 0 || t < r);
       }
       function ve(e) {
+        var t = e.indexOf("-"),
+          r = e.indexOf("+");
+        return !(r < 0) && (t < 0 || r < t);
+      }
+      function Re(e) {
         var t = e,
           r = "";
         if (
@@ -2421,159 +2433,159 @@
             return /\s/.test(e);
           })(e)
         )
-          return ge.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
+          return Ie.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
         if (
-          (_e(e)
+          (he(e)
             ? ((t = e.substring(0, e.indexOf("-"))), (r = e.substring(e.indexOf("-") + 1)))
-            : he(e) && ((t = e.substring(0, e.indexOf("+"))), (r = e.substring(e.indexOf("+") + 1))),
+            : ve(e) && ((t = e.substring(0, e.indexOf("+"))), (r = e.substring(e.indexOf("+") + 1))),
           "string" != typeof t || "string" != typeof r)
         )
           return null;
         var n = t.split(".").length - 1;
-        if (n > 2) return ge.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
+        if (n > 2) return Ie.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
         var i = t.split(".");
-        if (i.length != n + 1) return ge.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
-        for (var o = 0, a = i; o < a.length; o++) if (!Ie(a[o])) return ge.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
+        if (i.length != n + 1) return Ie.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
+        for (var o = 0, a = i; o < a.length; o++) if (!_e(a[o])) return Ie.warn(T.UNKNOWN_MATCH_TYPE, "SEMANTIC VERSION", e), null;
         return r && i.push(r), i;
       }
-      var Re = "CUSTOM_ATTRIBUTE_CONDITION_EVALUATOR",
-        Oe = i.getLogger(),
-        Ne = ["exact", "exists", "gt", "ge", "lt", "le", "substring", "semver_eq", "semver_lt", "semver_le", "semver_gt", "semver_ge"],
-        Te = {};
-      function ye(e) {
+      var Oe = "CUSTOM_ATTRIBUTE_CONDITION_EVALUATOR",
+        Ne = i.getLogger(),
+        Te = ["exact", "exists", "gt", "ge", "lt", "le", "substring", "semver_eq", "semver_lt", "semver_le", "semver_gt", "semver_ge"],
+        ye = {};
+      function Ae(e) {
         return "string" == typeof e || "boolean" == typeof e || R.isNumber(e);
       }
-      function Ae(e, t) {
+      function me(e, t) {
         var r = e.value,
           n = typeof r,
           i = e.name,
           o = t[i],
           a = typeof o;
-        return !ye(r) || (R.isNumber(r) && !R.isSafeInteger(r))
-          ? (Oe.warn(T.UNEXPECTED_CONDITION_VALUE, Re, JSON.stringify(e)), null)
+        return !Ae(r) || (R.isNumber(r) && !R.isSafeInteger(r))
+          ? (Ne.warn(T.UNEXPECTED_CONDITION_VALUE, Oe, JSON.stringify(e)), null)
           : null === o
-          ? (Oe.debug(T.UNEXPECTED_TYPE_NULL, Re, JSON.stringify(e), i), null)
-          : ye(o) && n === a
+          ? (Ne.debug(T.UNEXPECTED_TYPE_NULL, Oe, JSON.stringify(e), i), null)
+          : Ae(o) && n === a
           ? R.isNumber(o) && !R.isSafeInteger(o)
-            ? (Oe.warn(T.OUT_OF_BOUNDS, Re, JSON.stringify(e), i), null)
+            ? (Ne.warn(T.OUT_OF_BOUNDS, Oe, JSON.stringify(e), i), null)
             : r === o
-          : (Oe.warn(T.UNEXPECTED_TYPE, Re, JSON.stringify(e), a, i), null);
-      }
-      function me(e, t) {
-        var r = e.name,
-          n = t[r],
-          i = typeof n,
-          o = e.value;
-        return null !== o && R.isSafeInteger(o)
-          ? null === n
-            ? (Oe.debug(T.UNEXPECTED_TYPE_NULL, Re, JSON.stringify(e), r), !1)
-            : R.isNumber(n)
-            ? !!R.isSafeInteger(n) || (Oe.warn(T.OUT_OF_BOUNDS, Re, JSON.stringify(e), r), !1)
-            : (Oe.warn(T.UNEXPECTED_TYPE, Re, JSON.stringify(e), i, r), !1)
-          : (Oe.warn(T.UNEXPECTED_CONDITION_VALUE, Re, JSON.stringify(e)), !1);
+          : (Ne.warn(T.UNEXPECTED_TYPE, Oe, JSON.stringify(e), a, i), null);
       }
       function Le(e, t) {
         var r = e.name,
           n = t[r],
           i = typeof n,
           o = e.value;
+        return null !== o && R.isSafeInteger(o)
+          ? null === n
+            ? (Ne.debug(T.UNEXPECTED_TYPE_NULL, Oe, JSON.stringify(e), r), !1)
+            : R.isNumber(n)
+            ? !!R.isSafeInteger(n) || (Ne.warn(T.OUT_OF_BOUNDS, Oe, JSON.stringify(e), r), !1)
+            : (Ne.warn(T.UNEXPECTED_TYPE, Oe, JSON.stringify(e), i, r), !1)
+          : (Ne.warn(T.UNEXPECTED_CONDITION_VALUE, Oe, JSON.stringify(e)), !1);
+      }
+      function Ue(e, t) {
+        var r = e.name,
+          n = t[r],
+          i = typeof n,
+          o = e.value;
         return "string" != typeof o
-          ? (Oe.warn(T.UNEXPECTED_CONDITION_VALUE, Re, JSON.stringify(e)), null)
+          ? (Ne.warn(T.UNEXPECTED_CONDITION_VALUE, Oe, JSON.stringify(e)), null)
           : null === n
-          ? (Oe.debug(T.UNEXPECTED_TYPE_NULL, Re, JSON.stringify(e), r), null)
+          ? (Ne.debug(T.UNEXPECTED_TYPE_NULL, Oe, JSON.stringify(e), r), null)
           : "string" != typeof n
-          ? (Oe.warn(T.UNEXPECTED_TYPE, Re, JSON.stringify(e), i, r), null)
+          ? (Ne.warn(T.UNEXPECTED_TYPE, Oe, JSON.stringify(e), i, r), null)
           : (function (e, t) {
-              var r = ve(t),
-                n = ve(e);
+              var r = Re(t),
+                n = Re(e);
               if (!r || !n) return null;
               for (var i = r.length, o = 0; o < n.length; o++) {
-                if (i <= o) return _e(e) || he(e) ? 1 : -1;
-                if (Ie(r[o])) {
+                if (i <= o) return he(e) || ve(e) ? 1 : -1;
+                if (_e(r[o])) {
                   var a = parseInt(r[o]),
                     s = parseInt(n[o]);
                   if (a > s) return 1;
                   if (a < s) return -1;
                 } else {
-                  if (r[o] < n[o]) return _e(e) && !_e(t) ? 1 : -1;
-                  if (r[o] > n[o]) return !_e(e) && _e(t) ? -1 : 1;
+                  if (r[o] < n[o]) return he(e) && !he(t) ? 1 : -1;
+                  if (r[o] > n[o]) return !he(e) && he(t) ? -1 : 1;
                 }
               }
-              return _e(t) && !_e(e) ? -1 : 0;
+              return he(t) && !he(e) ? -1 : 0;
             })(o, n);
       }
-      (Te.exact = Ae),
-        (Te.exists = function (e, t) {
+      (ye.exact = me),
+        (ye.exists = function (e, t) {
           return null != t[e.name];
         }),
-        (Te.gt = function (e, t) {
+        (ye.gt = function (e, t) {
           var r = t[e.name],
             n = e.value;
-          return me(e, t) && null !== n ? r > n : null;
+          return Le(e, t) && null !== n ? r > n : null;
         }),
-        (Te.ge = function (e, t) {
+        (ye.ge = function (e, t) {
           var r = t[e.name],
             n = e.value;
-          return me(e, t) && null !== n ? r >= n : null;
+          return Le(e, t) && null !== n ? r >= n : null;
         }),
-        (Te.lt = function (e, t) {
+        (ye.lt = function (e, t) {
           var r = t[e.name],
             n = e.value;
-          return me(e, t) && null !== n ? r < n : null;
+          return Le(e, t) && null !== n ? r < n : null;
         }),
-        (Te.le = function (e, t) {
+        (ye.le = function (e, t) {
           var r = t[e.name],
             n = e.value;
-          return me(e, t) && null !== n ? r <= n : null;
+          return Le(e, t) && null !== n ? r <= n : null;
         }),
-        (Te.substring = function (e, t) {
+        (ye.substring = function (e, t) {
           var r = e.name,
             n = t[e.name],
             i = typeof n,
             o = e.value;
           return "string" != typeof o
-            ? (Oe.warn(T.UNEXPECTED_CONDITION_VALUE, Re, JSON.stringify(e)), null)
+            ? (Ne.warn(T.UNEXPECTED_CONDITION_VALUE, Oe, JSON.stringify(e)), null)
             : null === n
-            ? (Oe.debug(T.UNEXPECTED_TYPE_NULL, Re, JSON.stringify(e), r), null)
+            ? (Ne.debug(T.UNEXPECTED_TYPE_NULL, Oe, JSON.stringify(e), r), null)
             : "string" != typeof n
-            ? (Oe.warn(T.UNEXPECTED_TYPE, Re, JSON.stringify(e), i, r), null)
+            ? (Ne.warn(T.UNEXPECTED_TYPE, Oe, JSON.stringify(e), i, r), null)
             : -1 !== n.indexOf(o);
         }),
-        (Te.semver_eq = function (e, t) {
-          var r = Le(e, t);
+        (ye.semver_eq = function (e, t) {
+          var r = Ue(e, t);
           return null === r ? null : 0 === r;
         }),
-        (Te.semver_gt = function (e, t) {
-          var r = Le(e, t);
+        (ye.semver_gt = function (e, t) {
+          var r = Ue(e, t);
           return null === r ? null : r > 0;
         }),
-        (Te.semver_ge = function (e, t) {
-          var r = Le(e, t);
+        (ye.semver_ge = function (e, t) {
+          var r = Ue(e, t);
           return null === r ? null : r >= 0;
         }),
-        (Te.semver_lt = function (e, t) {
-          var r = Le(e, t);
+        (ye.semver_lt = function (e, t) {
+          var r = Ue(e, t);
           return null === r ? null : r < 0;
         }),
-        (Te.semver_le = function (e, t) {
-          var r = Le(e, t);
+        (ye.semver_le = function (e, t) {
+          var r = Ue(e, t);
           return null === r ? null : r <= 0;
         });
-      var Ue = Object.freeze({
+      var De = Object.freeze({
           __proto__: null,
           evaluate: function (e, t) {
             var r = e.match;
-            if (void 0 !== r && -1 === Ne.indexOf(r)) return Oe.warn(T.UNKNOWN_MATCH_TYPE, Re, JSON.stringify(e)), null;
+            if (void 0 !== r && -1 === Te.indexOf(r)) return Ne.warn(T.UNKNOWN_MATCH_TYPE, Oe, JSON.stringify(e)), null;
             var n = e.name;
             return t.hasOwnProperty(n) || "exists" == r
-              ? ((r && Te[r]) || Ae)(e, t)
-              : (Oe.debug(T.MISSING_ATTRIBUTE_VALUE, Re, JSON.stringify(e), n), null);
+              ? ((r && ye[r]) || me)(e, t)
+              : (Ne.debug(T.MISSING_ATTRIBUTE_VALUE, Oe, JSON.stringify(e), n), null);
           }
         }),
-        De = i.getLogger(),
-        Se = (function () {
+        Se = i.getLogger(),
+        Ce = (function () {
           function e(e) {
-            this.typeToEvaluatorMap = R.assign({}, e, { custom_attribute: Ue });
+            this.typeToEvaluatorMap = R.assign({}, e, { custom_attribute: De });
           }
           return (
             (e.prototype.evaluate = function (e, t, r) {
@@ -2582,13 +2594,13 @@
                 void 0 === r && (r = {}),
                 !e ||
                   0 === e.length ||
-                  !!H(e, function (e) {
+                  !!Y(e, function (e) {
                     var i = t[e];
                     if (i) {
-                      De.log(O.DEBUG, T.EVALUATING_AUDIENCE, "AUDIENCE_EVALUATOR", e, JSON.stringify(i.conditions));
-                      var o = H(i.conditions, n.evaluateConditionWithUserAttributes.bind(n, r)),
+                      Se.log(O.DEBUG, T.EVALUATING_AUDIENCE, "AUDIENCE_EVALUATOR", e, JSON.stringify(i.conditions));
+                      var o = Y(i.conditions, n.evaluateConditionWithUserAttributes.bind(n, r)),
                         a = null === o ? "UNKNOWN" : o.toString().toUpperCase();
-                      return De.log(O.DEBUG, T.AUDIENCE_EVALUATION_RESULT, "AUDIENCE_EVALUATOR", e, a), o;
+                      return Se.log(O.DEBUG, T.AUDIENCE_EVALUATION_RESULT, "AUDIENCE_EVALUATOR", e, a), o;
                     }
                     return null;
                   })
@@ -2596,25 +2608,25 @@
             }),
             (e.prototype.evaluateConditionWithUserAttributes = function (e, t) {
               var r = this.typeToEvaluatorMap[t.type];
-              if (!r) return De.log(O.WARNING, T.UNKNOWN_CONDITION_TYPE, "AUDIENCE_EVALUATOR", JSON.stringify(t)), null;
+              if (!r) return Se.log(O.WARNING, T.UNKNOWN_CONDITION_TYPE, "AUDIENCE_EVALUATOR", JSON.stringify(t)), null;
               try {
                 return r.evaluate(t, e);
               } catch (e) {
-                De.log(O.ERROR, N.CONDITION_EVALUATOR_ERROR, "AUDIENCE_EVALUATOR", t.type, e.message);
+                Se.log(O.ERROR, N.CONDITION_EVALUATOR_ERROR, "AUDIENCE_EVALUATOR", t.type, e.message);
               }
               return null;
             }),
             e
           );
         })();
-      function Ce(e) {
+      function Ve(e) {
         return "string" == typeof e && "" !== e;
       }
-      var Ve = "DECISION_SERVICE",
+      var be = "DECISION_SERVICE",
         Pe = (function () {
           function e(e) {
             var t;
-            (this.audienceEvaluator = ((t = e.UNSTABLE_conditionEvaluators), new Se(t))),
+            (this.audienceEvaluator = ((t = e.UNSTABLE_conditionEvaluators), new Ce(t))),
               (this.forcedVariationMap = {}),
               (this.logger = e.logger),
               (this.userProfileService = e.userProfileService || null);
@@ -2629,8 +2641,8 @@
                 l = r.key;
               if (!this.checkIfExperimentIsActive(e, l))
                 return (
-                  this.logger.log(O.INFO, T.EXPERIMENT_NOT_RUNNING, Ve, l),
-                  u.push([T.EXPERIMENT_NOT_RUNNING, Ve, l]),
+                  this.logger.log(O.INFO, T.EXPERIMENT_NOT_RUNNING, be, l),
+                  u.push([T.EXPERIMENT_NOT_RUNNING, be, l]),
                   { result: null, reasons: u }
                 );
               var c = this.getForcedVariation(e, l, o);
@@ -2645,30 +2657,30 @@
                 g = this.resolveExperimentBucketMap(o, a);
               if (!p && (d = this.getStoredVariation(e, r, o, g)))
                 return (
-                  this.logger.log(O.INFO, T.RETURNING_STORED_VARIATION, Ve, d.key, l, o),
-                  u.push([T.RETURNING_STORED_VARIATION, Ve, d.key, l, o]),
+                  this.logger.log(O.INFO, T.RETURNING_STORED_VARIATION, be, d.key, l, o),
+                  u.push([T.RETURNING_STORED_VARIATION, be, d.key, l, o]),
                   { result: d.key, reasons: u }
                 );
               var I = this.checkIfUserIsInAudience(e, r, L.EXPERIMENT, a, "");
               if ((u.push.apply(u, I.reasons), !I.result))
                 return (
-                  this.logger.log(O.INFO, T.USER_NOT_IN_EXPERIMENT, Ve, o, l),
-                  u.push([T.USER_NOT_IN_EXPERIMENT, Ve, o, l]),
+                  this.logger.log(O.INFO, T.USER_NOT_IN_EXPERIMENT, be, o, l),
+                  u.push([T.USER_NOT_IN_EXPERIMENT, be, o, l]),
                   { result: null, reasons: u }
                 );
               var _ = this.buildBucketerParams(e, r, s, o),
-                h = Ee(_);
+                h = fe(_);
               u.push.apply(u, h.reasons);
               var v = h.result;
               return (
                 v && (d = e.variationIdMap[v]),
                 d
-                  ? (this.logger.log(O.INFO, T.USER_HAS_VARIATION, Ve, o, d.key, l),
-                    u.push([T.USER_HAS_VARIATION, Ve, o, d.key, l]),
+                  ? (this.logger.log(O.INFO, T.USER_HAS_VARIATION, be, o, d.key, l),
+                    u.push([T.USER_HAS_VARIATION, be, o, d.key, l]),
                     p || this.saveUserProfile(r, d, o, g),
                     { result: d.key, reasons: u })
-                  : (this.logger.log(O.DEBUG, T.USER_HAS_NO_VARIATION, Ve, o, l),
-                    u.push([T.USER_HAS_NO_VARIATION, Ve, o, l]),
+                  : (this.logger.log(O.DEBUG, T.USER_HAS_NO_VARIATION, be, o, l),
+                    u.push([T.USER_HAS_NO_VARIATION, be, o, l]),
                     { result: null, reasons: u })
               );
             }),
@@ -2680,7 +2692,7 @@
             }),
             (e.prototype.checkIfExperimentIsActive = function (e, t) {
               return (function (e, t) {
-                return "Running" === Z(e, t);
+                return "Running" === Q(e, t);
               })(e, t);
             }),
             (e.prototype.getWhitelistedVariation = function (e, t) {
@@ -2688,11 +2700,11 @@
               if (e.forcedVariations && e.forcedVariations.hasOwnProperty(t)) {
                 var n = e.forcedVariations[t];
                 return e.variationKeyMap.hasOwnProperty(n)
-                  ? (this.logger.log(O.INFO, T.USER_FORCED_IN_VARIATION, Ve, t, n),
-                    r.push([T.USER_FORCED_IN_VARIATION, Ve, t, n]),
+                  ? (this.logger.log(O.INFO, T.USER_FORCED_IN_VARIATION, be, t, n),
+                    r.push([T.USER_FORCED_IN_VARIATION, be, t, n]),
                     { result: e.variationKeyMap[n], reasons: r })
-                  : (this.logger.log(O.ERROR, T.FORCED_BUCKETING_FAILED, Ve, n, t),
-                    r.push([T.FORCED_BUCKETING_FAILED, Ve, n, t]),
+                  : (this.logger.log(O.ERROR, T.FORCED_BUCKETING_FAILED, be, n, t),
+                    r.push([T.FORCED_BUCKETING_FAILED, be, n, t]),
                     { result: null, reasons: r });
               }
               return { result: null, reasons: r };
@@ -2701,16 +2713,16 @@
               var o = [],
                 a = (function (e, t) {
                   var r = e.experimentIdMap[t];
-                  if (!r) throw new Error(h(N.INVALID_EXPERIMENT_ID, X, t));
+                  if (!r) throw new Error(h(N.INVALID_EXPERIMENT_ID, z, t));
                   return r.audienceConditions || r.audienceIds;
                 })(e, t.id),
                 s = e.audiencesById;
-              this.logger.log(O.DEBUG, T.EVALUATING_AUDIENCES_COMBINED, Ve, r, i || t.key, JSON.stringify(a)),
-                o.push([T.EVALUATING_AUDIENCES_COMBINED, Ve, r, i || t.key, JSON.stringify(a)]);
+              this.logger.log(O.DEBUG, T.EVALUATING_AUDIENCES_COMBINED, be, r, i || t.key, JSON.stringify(a)),
+                o.push([T.EVALUATING_AUDIENCES_COMBINED, be, r, i || t.key, JSON.stringify(a)]);
               var u = this.audienceEvaluator.evaluate(a, s, n);
               return (
-                this.logger.log(O.INFO, T.AUDIENCE_EVALUATION_RESULT_COMBINED, Ve, r, i || t.key, u.toString().toUpperCase()),
-                o.push([T.AUDIENCE_EVALUATION_RESULT_COMBINED, Ve, r, i || t.key, u.toString().toUpperCase()]),
+                this.logger.log(O.INFO, T.AUDIENCE_EVALUATION_RESULT_COMBINED, be, r, i || t.key, u.toString().toUpperCase()),
+                o.push([T.AUDIENCE_EVALUATION_RESULT_COMBINED, be, r, i || t.key, u.toString().toUpperCase()]),
                 { result: u, reasons: o }
               );
             }),
@@ -2723,7 +2735,7 @@
                 experimentKeyMap: e.experimentKeyMap,
                 groupIdMap: e.groupIdMap,
                 logger: this.logger,
-                trafficAllocationConfig: ee(e, t.id),
+                trafficAllocationConfig: te(e, t.id),
                 userId: n,
                 variationIdMap: e.variationIdMap
               };
@@ -2733,7 +2745,7 @@
                 var i = n[t.id],
                   o = i.variation_id;
                 if (e.variationIdMap.hasOwnProperty(o)) return e.variationIdMap[i.variation_id];
-                this.logger.log(O.INFO, T.SAVED_VARIATION_NOT_FOUND, Ve, r, o, t.key);
+                this.logger.log(O.INFO, T.SAVED_VARIATION_NOT_FOUND, be, r, o, t.key);
               }
               return null;
             }),
@@ -2743,7 +2755,7 @@
               try {
                 return this.userProfileService.lookup(e);
               } catch (t) {
-                this.logger.log(O.ERROR, N.USER_PROFILE_LOOKUP_ERROR, Ve, e, t.message);
+                this.logger.log(O.ERROR, N.USER_PROFILE_LOOKUP_ERROR, be, e, t.message);
               }
               return null;
             }),
@@ -2752,9 +2764,9 @@
                 try {
                   (n[e.id] = { variation_id: t.id }),
                     this.userProfileService.save({ user_id: r, experiment_bucket_map: n }),
-                    this.logger.log(O.INFO, T.SAVED_VARIATION, Ve, t.key, e.key, r);
+                    this.logger.log(O.INFO, T.SAVED_VARIATION, be, t.key, e.key, r);
                 } catch (e) {
-                  this.logger.log(O.ERROR, N.USER_PROFILE_SAVE_ERROR, Ve, r, e.message);
+                  this.logger.log(O.ERROR, N.USER_PROFILE_SAVE_ERROR, be, r, e.message);
                 }
             }),
             (e.prototype.getVariationForFeature = function (e, t, r, n) {
@@ -2769,11 +2781,11 @@
               var u = s.result,
                 l = r.getUserId();
               return u.variation
-                ? (this.logger.log(O.DEBUG, T.USER_IN_ROLLOUT, Ve, l, t.key),
-                  i.push([T.USER_IN_ROLLOUT, Ve, l, t.key]),
+                ? (this.logger.log(O.DEBUG, T.USER_IN_ROLLOUT, be, l, t.key),
+                  i.push([T.USER_IN_ROLLOUT, be, l, t.key]),
                   { result: u, reasons: i })
-                : (this.logger.log(O.DEBUG, T.USER_NOT_IN_ROLLOUT, Ve, l, t.key),
-                  i.push([T.USER_NOT_IN_ROLLOUT, Ve, l, t.key]),
+                : (this.logger.log(O.DEBUG, T.USER_NOT_IN_ROLLOUT, be, l, t.key),
+                  i.push([T.USER_NOT_IN_ROLLOUT, be, l, t.key]),
                   { result: u, reasons: i });
             }),
             (e.prototype.getVariationForFeatureExperiment = function (e, t, r, n) {
@@ -2784,31 +2796,31 @@
                 s = null;
               if (t.experimentIds.length > 0)
                 for (o = 0; o < t.experimentIds.length; o++) {
-                  var u = te(e, t.experimentIds[o], this.logger);
+                  var u = re(e, t.experimentIds[o], this.logger);
                   if (u && ((i = this.getVariationFromExperimentRule(e, t.key, u, r, n)), a.push.apply(a, i.reasons), (s = i.result))) {
                     var l = null;
                     return (
-                      (l = u.variationKeyMap[s]) || (l = re(e, t.key, s)),
+                      (l = u.variationKeyMap[s]) || (l = ne(e, t.key, s)),
                       { result: { experiment: u, variation: l, decisionSource: m.FEATURE_TEST }, reasons: a }
                     );
                   }
                 }
-              else this.logger.log(O.DEBUG, T.FEATURE_HAS_NO_EXPERIMENTS, Ve, t.key), a.push([T.FEATURE_HAS_NO_EXPERIMENTS, Ve, t.key]);
+              else this.logger.log(O.DEBUG, T.FEATURE_HAS_NO_EXPERIMENTS, be, t.key), a.push([T.FEATURE_HAS_NO_EXPERIMENTS, be, t.key]);
               return { result: { experiment: null, variation: null, decisionSource: m.FEATURE_TEST }, reasons: a };
             }),
             (e.prototype.getVariationForRollout = function (e, t, r) {
               var n = [];
               if (!t.rolloutId)
                 return (
-                  this.logger.log(O.DEBUG, T.NO_ROLLOUT_EXISTS, Ve, t.key),
-                  n.push([T.NO_ROLLOUT_EXISTS, Ve, t.key]),
+                  this.logger.log(O.DEBUG, T.NO_ROLLOUT_EXISTS, be, t.key),
+                  n.push([T.NO_ROLLOUT_EXISTS, be, t.key]),
                   { result: { experiment: null, variation: null, decisionSource: m.ROLLOUT }, reasons: n }
                 );
               var i = e.rolloutIdMap[t.rolloutId];
               if (!i)
                 return (
-                  this.logger.log(O.ERROR, N.INVALID_ROLLOUT_ID, Ve, t.rolloutId, t.key),
-                  n.push([N.INVALID_ROLLOUT_ID, Ve, t.rolloutId, t.key]),
+                  this.logger.log(O.ERROR, N.INVALID_ROLLOUT_ID, be, t.rolloutId, t.key),
+                  n.push([N.INVALID_ROLLOUT_ID, be, t.rolloutId, t.key]),
                   { result: { experiment: null, variation: null, decisionSource: m.ROLLOUT }, reasons: n }
                 );
               var o,
@@ -2817,8 +2829,8 @@
                 u = i.experiments;
               if (0 === u.length)
                 return (
-                  this.logger.log(O.ERROR, T.ROLLOUT_HAS_NO_EXPERIMENTS, Ve, t.rolloutId),
-                  n.push([T.ROLLOUT_HAS_NO_EXPERIMENTS, Ve, t.rolloutId]),
+                  this.logger.log(O.ERROR, T.ROLLOUT_HAS_NO_EXPERIMENTS, be, t.rolloutId),
+                  n.push([T.ROLLOUT_HAS_NO_EXPERIMENTS, be, t.rolloutId]),
                   { result: { experiment: null, variation: null, decisionSource: m.ROLLOUT }, reasons: n }
                 );
               for (var l = 0; l < u.length; ) {
@@ -2841,8 +2853,8 @@
                   "object" == typeof t &&
                   t.hasOwnProperty(y.BUCKETING_ID) &&
                   ("string" == typeof t[y.BUCKETING_ID]
-                    ? ((r = t[y.BUCKETING_ID]), this.logger.log(O.DEBUG, T.VALID_BUCKETING_ID, Ve, r))
-                    : this.logger.log(O.WARNING, T.BUCKETING_ID_NOT_STRING, Ve)),
+                    ? ((r = t[y.BUCKETING_ID]), this.logger.log(O.DEBUG, T.VALID_BUCKETING_ID, be, r))
+                    : this.logger.log(O.WARNING, T.BUCKETING_ID_NOT_STRING, be)),
                 r
               );
             }),
@@ -2856,7 +2868,7 @@
                 e &&
                   a &&
                   ((i = a.variationKey),
-                  (s = re(e, r, i))
+                  (s = ne(e, r, i))
                     ? n
                       ? (this.logger.log(O.INFO, T.USER_HAS_FORCED_DECISION_WITH_RULE_SPECIFIED, i, r, n, u),
                         o.push([T.USER_HAS_FORCED_DECISION_WITH_RULE_SPECIFIED, i, r, n, u]))
@@ -2871,26 +2883,26 @@
               );
             }),
             (e.prototype.removeForcedVariation = function (e, t, r) {
-              if (!e) throw new Error(h(N.INVALID_USER_ID, Ve));
-              if (!this.forcedVariationMap.hasOwnProperty(e)) throw new Error(h(N.USER_NOT_IN_FORCED_VARIATION, Ve, e));
-              delete this.forcedVariationMap[e][t], this.logger.log(O.DEBUG, T.VARIATION_REMOVED_FOR_USER, Ve, r, e);
+              if (!e) throw new Error(h(N.INVALID_USER_ID, be));
+              if (!this.forcedVariationMap.hasOwnProperty(e)) throw new Error(h(N.USER_NOT_IN_FORCED_VARIATION, be, e));
+              delete this.forcedVariationMap[e][t], this.logger.log(O.DEBUG, T.VARIATION_REMOVED_FOR_USER, be, r, e);
             }),
             (e.prototype.setInForcedVariationMap = function (e, t, r) {
               this.forcedVariationMap.hasOwnProperty(e) || (this.forcedVariationMap[e] = {}),
                 (this.forcedVariationMap[e][t] = r),
-                this.logger.log(O.DEBUG, T.USER_MAPPED_TO_FORCED_VARIATION, Ve, r, t, e);
+                this.logger.log(O.DEBUG, T.USER_MAPPED_TO_FORCED_VARIATION, be, r, t, e);
             }),
             (e.prototype.getForcedVariation = function (e, t, r) {
               var n,
                 i = [],
                 o = this.forcedVariationMap[r];
-              if (!o) return this.logger.log(O.DEBUG, T.USER_HAS_NO_FORCED_VARIATION, Ve, r), { result: null, reasons: i };
+              if (!o) return this.logger.log(O.DEBUG, T.USER_HAS_NO_FORCED_VARIATION, be, r), { result: null, reasons: i };
               try {
-                var a = $(e, t);
+                var a = ee(e, t);
                 if (!a.hasOwnProperty("id"))
                   return (
-                    this.logger.log(O.ERROR, N.IMPROPERLY_FORMATTED_EXPERIMENT, Ve, t),
-                    i.push([N.IMPROPERLY_FORMATTED_EXPERIMENT, Ve, t]),
+                    this.logger.log(O.ERROR, N.IMPROPERLY_FORMATTED_EXPERIMENT, be, t),
+                    i.push([N.IMPROPERLY_FORMATTED_EXPERIMENT, be, t]),
                     { result: null, reasons: i }
                   );
                 n = a.id;
@@ -2899,21 +2911,21 @@
               }
               var s = o[n];
               if (!s)
-                return this.logger.log(O.DEBUG, T.USER_HAS_NO_FORCED_VARIATION_FOR_EXPERIMENT, Ve, t, r), { result: null, reasons: i };
-              var u = Q(e, s);
+                return this.logger.log(O.DEBUG, T.USER_HAS_NO_FORCED_VARIATION_FOR_EXPERIMENT, be, t, r), { result: null, reasons: i };
+              var u = $(e, s);
               return (
                 u
-                  ? (this.logger.log(O.DEBUG, T.USER_HAS_FORCED_VARIATION, Ve, u, t, r), i.push([T.USER_HAS_FORCED_VARIATION, Ve, u, t, r]))
-                  : this.logger.log(O.DEBUG, T.USER_HAS_NO_FORCED_VARIATION_FOR_EXPERIMENT, Ve, t, r),
+                  ? (this.logger.log(O.DEBUG, T.USER_HAS_FORCED_VARIATION, be, u, t, r), i.push([T.USER_HAS_FORCED_VARIATION, be, u, t, r]))
+                  : this.logger.log(O.DEBUG, T.USER_HAS_NO_FORCED_VARIATION_FOR_EXPERIMENT, be, t, r),
                 { result: u, reasons: i }
               );
             }),
             (e.prototype.setForcedVariation = function (e, t, r, n) {
-              if (null != n && !Ce(n)) return this.logger.log(O.ERROR, N.INVALID_VARIATION_KEY, Ve), !1;
+              if (null != n && !Ve(n)) return this.logger.log(O.ERROR, N.INVALID_VARIATION_KEY, be), !1;
               var i;
               try {
-                var o = $(e, t);
-                if (!o.hasOwnProperty("id")) return this.logger.log(O.ERROR, N.IMPROPERLY_FORMATTED_EXPERIMENT, Ve, t), !1;
+                var o = ee(e, t);
+                if (!o.hasOwnProperty("id")) return this.logger.log(O.ERROR, N.IMPROPERLY_FORMATTED_EXPERIMENT, be, t), !1;
                 i = o.id;
               } catch (e) {
                 return this.logger.log(O.ERROR, e.message), !1;
@@ -2928,7 +2940,7 @@
                 var n = e.experimentKeyMap[t];
                 return n.variationKeyMap.hasOwnProperty(r) ? n.variationKeyMap[r].id : null;
               })(e, t, n);
-              if (!a) return this.logger.log(O.ERROR, N.NO_VARIATION_FOR_EXPERIMENT_KEY, Ve, n, t), !1;
+              if (!a) return this.logger.log(O.ERROR, N.NO_VARIATION_FOR_EXPERIMENT_KEY, be, n, t), !1;
               try {
                 return this.setInForcedVariationMap(r, i, a), !0;
               } catch (e) {
@@ -2968,28 +2980,28 @@
               return (
                 o.push.apply(o, N.reasons),
                 N.result
-                  ? (this.logger.log(O.DEBUG, T.USER_MEETS_CONDITIONS_FOR_TARGETING_RULE, Ve, g, v),
-                    o.push([T.USER_MEETS_CONDITIONS_FOR_TARGETING_RULE, Ve, g, v]),
+                  ? (this.logger.log(O.DEBUG, T.USER_MEETS_CONDITIONS_FOR_TARGETING_RULE, be, g, v),
+                    o.push([T.USER_MEETS_CONDITIONS_FOR_TARGETING_RULE, be, g, v]),
                     (E = this.buildBucketerParams(e, s, _, g)),
-                    (f = Ee(E)),
+                    (f = fe(E)),
                     o.push.apply(o, f.reasons),
                     (c = f.result) && ((p = c), (R = (d = e).variationIdMap.hasOwnProperty(p) ? d.variationIdMap[p] : null)),
                     R
-                      ? (this.logger.log(O.DEBUG, T.USER_BUCKETED_INTO_TARGETING_RULE, Ve, g, v),
-                        o.push([T.USER_BUCKETED_INTO_TARGETING_RULE, Ve, g, v]))
+                      ? (this.logger.log(O.DEBUG, T.USER_BUCKETED_INTO_TARGETING_RULE, be, g, v),
+                        o.push([T.USER_BUCKETED_INTO_TARGETING_RULE, be, g, v]))
                       : h ||
-                        (this.logger.log(O.DEBUG, T.USER_NOT_BUCKETED_INTO_TARGETING_RULE, Ve, g, v),
-                        o.push([T.USER_NOT_BUCKETED_INTO_TARGETING_RULE, Ve, g, v]),
+                        (this.logger.log(O.DEBUG, T.USER_NOT_BUCKETED_INTO_TARGETING_RULE, be, g, v),
+                        o.push([T.USER_NOT_BUCKETED_INTO_TARGETING_RULE, be, g, v]),
                         (a = !0)))
-                  : (this.logger.log(O.DEBUG, T.USER_DOESNT_MEET_CONDITIONS_FOR_TARGETING_RULE, Ve, g, v),
-                    o.push([T.USER_DOESNT_MEET_CONDITIONS_FOR_TARGETING_RULE, Ve, g, v])),
+                  : (this.logger.log(O.DEBUG, T.USER_DOESNT_MEET_CONDITIONS_FOR_TARGETING_RULE, be, g, v),
+                    o.push([T.USER_DOESNT_MEET_CONDITIONS_FOR_TARGETING_RULE, be, g, v])),
                 { result: R, reasons: o, skipToEveryoneElse: a }
               );
             }),
             e
           );
         })();
-      function be(e, t) {
+      function Fe(e, t) {
         if (e.hasOwnProperty("revenue")) {
           var r = e.revenue,
             n = void 0;
@@ -3004,7 +3016,7 @@
         }
         return null;
       }
-      function Fe(e, t) {
+      function Me(e, t) {
         if (e.hasOwnProperty("value")) {
           var r = e.value,
             n = void 0;
@@ -3019,11 +3031,11 @@
         }
         return null;
       }
-      function Me(e, t) {
+      function ke(e, t) {
         return "string" == typeof e && ("string" == typeof t || "boolean" == typeof t || (R.isNumber(t) && R.isSafeInteger(t)));
       }
-      var ke = "https://logx.optimizely.com/v1/events";
-      function xe(e) {
+      var xe = "https://logx.optimizely.com/v1/events";
+      function Be(e) {
         var t = e.attributes,
           r = e.userId,
           n = e.clientEngine,
@@ -3046,8 +3058,8 @@
         return (
           t &&
             Object.keys(t || {}).forEach(function (e) {
-              if (Me(e, t[e])) {
-                var r = J(o, e, a);
+              if (ke(e, t[e])) {
+                var r = W(o, e, a);
                 r && c.visitors[0].attributes.push({ entity_id: r, key: e, type: "custom", value: t[e] });
               }
             }),
@@ -3056,7 +3068,7 @@
           c
         );
       }
-      function Be(e) {
+      function we(e) {
         var t, r;
         return null !== (r = null === (t = e.experiment) || void 0 === t ? void 0 : t.key) && void 0 !== r ? r : "";
       }
@@ -3064,41 +3076,41 @@
         var t, r;
         return null !== (r = null === (t = e.variation) || void 0 === t ? void 0 : t.key) && void 0 !== r ? r : "";
       }
-      function we(e) {
+      function Ge(e) {
         var t, r;
         return null !== (r = null === (t = e.variation) || void 0 === t ? void 0 : t.featureEnabled) && void 0 !== r && r;
       }
-      function Ge(e) {
+      function je(e) {
         var t, r;
         return null !== (r = null === (t = e.experiment) || void 0 === t ? void 0 : t.id) && void 0 !== r ? r : null;
       }
-      function je(e) {
+      function He(e) {
         var t, r;
         return null !== (r = null === (t = e.variation) || void 0 === t ? void 0 : t.id) && void 0 !== r ? r : null;
       }
-      var He = i.getLogger("EVENT_BUILDER");
-      function Ye(e, t) {
+      var Ye = i.getLogger("EVENT_BUILDER");
+      function Xe(e, t) {
         var r = [];
         return (
           t &&
             Object.keys(t || {}).forEach(function (n) {
-              if (Me(n, t[n])) {
-                var i = J(e, n, He);
+              if (ke(n, t[n])) {
+                var i = W(e, n, Ye);
                 i && r.push({ entityId: i, key: n, value: t[n] });
               }
             }),
           r
         );
       }
-      var Xe = "USER_PROFILE_SERVICE_VALIDATOR",
-        ze = (function () {
+      var ze = "USER_PROFILE_SERVICE_VALIDATOR",
+        qe = (function () {
           function e(e) {
             var r,
               n = this,
               i = e.clientEngine;
             i || (e.logger.log(O.INFO, T.INVALID_CLIENT_ENGINE, "OPTIMIZELY", i), (i = "node-sdk")),
               (this.clientEngine = i),
-              (this.clientVersion = e.clientVersion || "4.9.4"),
+              (this.clientVersion = e.clientVersion || "4.10.0"),
               (this.errorHandler = e.errorHandler),
               (this.isOptimizelyConfigValid = e.isValidInstance),
               (this.logger = e.logger);
@@ -3110,7 +3122,7 @@
             }),
               (this.defaultDecideOptions = a),
               (this.projectConfigManager = (function (e) {
-                return new le(e);
+                return new ce(e);
               })({
                 datafile: e.datafile,
                 jsonSchemaValidator: e.jsonSchemaValidator,
@@ -3128,11 +3140,11 @@
               try {
                 (function (e) {
                   if ("object" == typeof e && null !== e) {
-                    if ("function" != typeof e.lookup) throw new Error(h(N.INVALID_USER_PROFILE_SERVICE, Xe, "Missing function 'lookup'"));
-                    if ("function" != typeof e.save) throw new Error(h(N.INVALID_USER_PROFILE_SERVICE, Xe, "Missing function 'save'"));
+                    if ("function" != typeof e.lookup) throw new Error(h(N.INVALID_USER_PROFILE_SERVICE, ze, "Missing function 'lookup'"));
+                    if ("function" != typeof e.save) throw new Error(h(N.INVALID_USER_PROFILE_SERVICE, ze, "Missing function 'save'"));
                     return !0;
                   }
-                  throw new Error(h(N.INVALID_USER_PROFILE_SERVICE, Xe));
+                  throw new Error(h(N.INVALID_USER_PROFILE_SERVICE, ze));
                 })(e.userProfileService) &&
                   ((l = e.userProfileService), this.logger.log(O.INFO, T.VALID_USER_PROFILE_SERVICE, "OPTIMIZELY"));
               } catch (e) {
@@ -3165,11 +3177,11 @@
                   if (null === i) return this.notActivatingExperiment(e, t);
                   if (
                     !(function (e, t) {
-                      return "Running" === Z(e, t);
+                      return "Running" === Q(e, t);
                     })(n, e)
                   )
                     return this.logger.log(O.DEBUG, T.SHOULD_NOT_DISPATCH_ACTIVATE, "OPTIMIZELY", e), i;
-                  var o = $(n, e),
+                  var o = ee(n, e),
                     a = { experiment: o, variation: o.variationKeyMap[i], decisionSource: m.EXPERIMENT };
                   return this.sendImpressionEvent(a, "", t, !0, r), i;
                 } catch (r) {
@@ -3197,16 +3209,16 @@
                     s = e.clientEngine,
                     u = e.clientVersion,
                     l = r.decisionSource,
-                    c = Be(r),
-                    E = Ge(r),
+                    c = we(r),
+                    E = je(r),
                     f = Ke(r),
-                    d = je(r),
-                    p = null !== E ? q(t, E) : null;
+                    d = He(r),
+                    p = null !== E ? J(t, E) : null;
                   return {
                     type: "impression",
                     timestamp: R.currentTimestamp(),
                     uuid: R.uuid(),
-                    user: { id: n, attributes: Ye(t, a) },
+                    user: { id: n, attributes: Xe(t, a) },
                     context: {
                       accountId: t.accountId,
                       projectId: t.projectId,
@@ -3242,10 +3254,10 @@
               if (o) {
                 var a,
                   s = e.decisionSource,
-                  u = Be(e),
-                  l = Ge(e),
+                  u = we(e),
+                  l = je(e),
                   c = Ke(e),
-                  E = je(e);
+                  E = He(e);
                 null !== l && "" !== c && (a = o.experimentIdMap[l]);
                 var f,
                   d = (function (e) {
@@ -3257,7 +3269,7 @@
                       a,
                       s,
                       u,
-                      l = xe(e),
+                      l = Be(e),
                       c =
                         ((t = e.configObj),
                         (r = e.experimentId),
@@ -3269,15 +3281,15 @@
                         {
                           decisions: [
                             {
-                              campaign_id: (u = r ? q(t, r) : null),
+                              campaign_id: (u = r ? J(t, r) : null),
                               experiment_id: r,
                               variation_id: n,
-                              metadata: { flag_key: a, rule_key: i, rule_type: o, variation_key: (n ? Q(t, n) : null) || "", enabled: s }
+                              metadata: { flag_key: a, rule_key: i, rule_type: o, variation_key: (n ? $(t, n) : null) || "", enabled: s }
                             }
                           ],
                           events: [{ entity_id: u, timestamp: R.currentTimestamp(), key: "campaign_activated", uuid: R.uuid() }]
                         });
-                    return l.visitors[0].snapshots.push(c), { httpVerb: "POST", url: ke, params: l };
+                    return l.visitors[0].snapshots.push(c), { httpVerb: "POST", url: xe, params: l };
                   })({
                     attributes: i,
                     clientEngine: this.clientEngine,
@@ -3325,14 +3337,14 @@
                     o = e.clientVersion,
                     a = e.eventKey,
                     s = e.eventTags,
-                    u = W(t, a),
-                    l = s ? be(s, He) : null,
-                    c = s ? Fe(s, He) : null;
+                    u = Z(t, a),
+                    l = s ? Fe(s, Ye) : null,
+                    c = s ? Me(s, Ye) : null;
                   return {
                     type: "conversion",
                     timestamp: R.currentTimestamp(),
                     uuid: R.uuid(),
-                    user: { id: r, attributes: Ye(t, n) },
+                    user: { id: r, attributes: Xe(t, n) },
                     context: {
                       accountId: t.accountId,
                       projectId: t.projectId,
@@ -3370,19 +3382,19 @@
                 var i = this.projectConfigManager.getConfig();
                 if (!i) return;
                 var o = (function (e) {
-                  var t = xe(e),
+                  var t = Be(e),
                     r = (function (e, t, r, n) {
                       var i = { events: [] },
-                        o = { entity_id: W(e, t), timestamp: R.currentTimestamp(), uuid: R.uuid(), key: t };
+                        o = { entity_id: Z(e, t), timestamp: R.currentTimestamp(), uuid: R.uuid(), key: t };
                       if (n) {
-                        var a = be(n, r);
+                        var a = Fe(n, r);
                         null !== a && (o.revenue = a);
-                        var s = Fe(n, r);
+                        var s = Me(n, r);
                         null !== s && (o.value = s), (o.tags = n);
                       }
                       return i.events.push(o), i;
                     })(e.configObj, e.eventKey, e.logger, e.eventTags);
-                  return (t.visitors[0].snapshots = [r]), { httpVerb: "POST", url: ke, params: t };
+                  return (t.visitors[0].snapshots = [r]), { httpVerb: "POST", url: xe, params: t };
                 })({
                   attributes: r,
                   clientEngine: this.clientEngine,
@@ -3456,7 +3468,7 @@
                 }
                 return (
                   Object.keys(e).forEach(function (t) {
-                    if (!Ce(e[t])) throw new Error(h(N.INVALID_INPUT_FORMAT, "OPTIMIZELY", t));
+                    if (!Ve(e[t])) throw new Error(h(N.INVALID_INPUT_FORMAT, "OPTIMIZELY", t));
                   }),
                   t &&
                     (function (e) {
@@ -3490,17 +3502,17 @@
                 if (!this.validateInputs({ feature_key: e, user_id: t }, r)) return !1;
                 var n = this.projectConfigManager.getConfig();
                 if (!n) return !1;
-                var i = ne(n, e, this.logger);
+                var i = ie(n, e, this.logger);
                 if (!i) return !1;
                 var o = {},
                   a = this.createUserContext(t, r),
                   s = this.decisionService.getVariationForFeature(n, i, a).result,
                   u = s.decisionSource,
-                  l = Be(s),
+                  l = we(s),
                   c = Ke(s),
-                  E = we(s);
+                  E = Ge(s);
                 u === m.FEATURE_TEST && (o = { experimentKey: l, variationKey: c }),
-                  (u === m.FEATURE_TEST || (u === m.ROLLOUT && ae(n))) && this.sendImpressionEvent(s, i.key, t, E, r),
+                  (u === m.FEATURE_TEST || (u === m.ROLLOUT && se(n))) && this.sendImpressionEvent(s, i.key, t, E, r),
                   !0 === E
                     ? this.logger.log(O.INFO, T.FEATURE_ENABLED_FOR_USER, "OPTIMIZELY", e, t)
                     : (this.logger.log(O.INFO, T.FEATURE_NOT_ENABLED_FOR_USER, "OPTIMIZELY", e, t), (E = !1));
@@ -3548,19 +3560,19 @@
               if (!this.validateInputs({ feature_key: e, variable_key: t, user_id: n }, i)) return null;
               var o = this.projectConfigManager.getConfig();
               if (!o) return null;
-              var a = ne(o, e, this.logger);
+              var a = ie(o, e, this.logger);
               if (!a) return null;
               var s = (function (e, t, r, n) {
                 var i = e.featureKeyMap[t];
                 return i
-                  ? i.variableKeyMap[r] || (n.log(O.ERROR, N.VARIABLE_KEY_NOT_IN_DATAFILE, X, r, t), null)
-                  : (n.log(O.ERROR, N.FEATURE_NOT_IN_DATAFILE, X, t), null);
+                  ? i.variableKeyMap[r] || (n.log(O.ERROR, N.VARIABLE_KEY_NOT_IN_DATAFILE, z, r, t), null)
+                  : (n.log(O.ERROR, N.FEATURE_NOT_IN_DATAFILE, z, t), null);
               })(o, e, t, this.logger);
               if (!s) return null;
               if (r && s.type !== r) return this.logger.log(O.WARNING, T.VARIABLE_REQUESTED_WITH_WRONG_TYPE, "OPTIMIZELY", r, s.type), null;
               var u = this.createUserContext(n, i),
                 l = this.decisionService.getVariationForFeature(o, a, u).result,
-                c = we(l),
+                c = Ge(l),
                 E = this.getFeatureVariableValueFromVariation(e, c, l.variation, s, n),
                 f = {};
               return (
@@ -3593,7 +3605,7 @@
                 var s = (function (e, t, r, n) {
                   if (!t || !r) return null;
                   if (!e.variationVariableUsageMap.hasOwnProperty(r.id))
-                    return n.log(O.ERROR, N.VARIATION_ID_NOT_IN_DATAFILE_NO_EXPERIMENT, X, r.id), null;
+                    return n.log(O.ERROR, N.VARIATION_ID_NOT_IN_DATAFILE_NO_EXPERIMENT, z, r.id), null;
                   var i = e.variationVariableUsageMap[r.id][t.id];
                   return i ? i.value : null;
                 })(o, n, r, this.logger);
@@ -3607,19 +3619,19 @@
                 var n;
                 switch (t) {
                   case U.BOOLEAN:
-                    "true" !== e && "false" !== e ? (r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, X, e, t), (n = null)) : (n = "true" === e);
+                    "true" !== e && "false" !== e ? (r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, z, e, t), (n = null)) : (n = "true" === e);
                     break;
                   case U.INTEGER:
-                    (n = parseInt(e, 10)), isNaN(n) && (r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, X, e, t), (n = null));
+                    (n = parseInt(e, 10)), isNaN(n) && (r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, z, e, t), (n = null));
                     break;
                   case U.DOUBLE:
-                    (n = parseFloat(e)), isNaN(n) && (r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, X, e, t), (n = null));
+                    (n = parseFloat(e)), isNaN(n) && (r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, z, e, t), (n = null));
                     break;
                   case U.JSON:
                     try {
                       n = JSON.parse(e);
                     } catch (i) {
-                      r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, X, e, t), (n = null);
+                      r.log(O.ERROR, N.UNABLE_TO_CAST_VALUE, z, e, t), (n = null);
                     }
                     break;
                   default:
@@ -3681,11 +3693,11 @@
                 if (!this.validateInputs({ feature_key: e, user_id: t }, r)) return null;
                 var i = this.projectConfigManager.getConfig();
                 if (!i) return null;
-                var o = ne(i, e, this.logger);
+                var o = ie(i, e, this.logger);
                 if (!o) return null;
                 var a = this.createUserContext(t, r),
                   s = this.decisionService.getVariationForFeature(i, o, a).result,
-                  u = we(s),
+                  u = Ge(s),
                   l = {};
                 o.variables.forEach(function (r) {
                   l[r.key] = n.getFeatureVariableValueFromVariation(e, u, s.variation, r, t);
@@ -3769,7 +3781,7 @@
               );
             }),
             (e.prototype.createUserContext = function (e, t) {
-              return this.validateInputs({ user_id: e }, t) ? new G({ optimizely: this, userId: e, attributes: t }) : null;
+              return this.validateInputs({ user_id: e }, t) ? new j({ optimizely: this, userId: e, attributes: t }) : null;
             }),
             (e.prototype.decide = function (e, r, n) {
               var i,
@@ -3784,9 +3796,9 @@
                 d = this.projectConfigManager.getConfig(),
                 p = [];
               if (!this.isValidInstance() || !d)
-                return this.logger.log(O.INFO, T.INVALID_OBJECT, "OPTIMIZELY", "decide"), w(r, e, [S.SDK_NOT_READY]);
+                return this.logger.log(O.INFO, T.INVALID_OBJECT, "OPTIMIZELY", "decide"), G(r, e, [S.SDK_NOT_READY]);
               var g = d.featureKeyMap[r];
-              if (!g) return this.logger.log(O.ERROR, N.FEATURE_NOT_IN_DATAFILE, "OPTIMIZELY", r), w(r, e, [h(S.FLAG_KEY_INVALID, r)]);
+              if (!g) return this.logger.log(O.ERROR, N.FEATURE_NOT_IN_DATAFILE, "OPTIMIZELY", r), G(r, e, [h(S.FLAG_KEY_INVALID, r)]);
               var I = this.getAllDecideOptions(n),
                 _ = this.decisionService.findValidatedForcedDecision(d, e, r);
               p.push.apply(p, _.reasons);
@@ -3799,28 +3811,28 @@
               var L = l.decisionSource,
                 U = null !== (o = null === (i = l.experiment) || void 0 === i ? void 0 : i.key) && void 0 !== o ? o : null,
                 D = null !== (s = null === (a = l.variation) || void 0 === a ? void 0 : a.key) && void 0 !== s ? s : null,
-                C = we(l);
+                C = Ge(l);
               !0 === C
                 ? this.logger.log(O.INFO, T.FEATURE_ENABLED_FOR_USER, "OPTIMIZELY", r, E)
                 : this.logger.log(O.INFO, T.FEATURE_NOT_ENABLED_FOR_USER, "OPTIMIZELY", r, E);
               var V = {},
-                P = !1;
+                b = !1;
               I[t.N1.EXCLUDE_VARIABLES] ||
                 g.variables.forEach(function (e) {
                   V[e.key] = u.getFeatureVariableValueFromVariation(r, C, l.variation, e, E);
                 }),
                 !I[t.N1.DISABLE_DECISION_EVENT] &&
-                  (L === m.FEATURE_TEST || (L === m.ROLLOUT && ae(d))) &&
-                  (this.sendImpressionEvent(l, r, E, C, f), (P = !0));
-              var b = [];
+                  (L === m.FEATURE_TEST || (L === m.ROLLOUT && se(d))) &&
+                  (this.sendImpressionEvent(l, r, E, C, f), (b = !0));
+              var P = [];
               I[t.N1.INCLUDE_REASONS] &&
-                (b = p.map(function (e) {
+                (P = p.map(function (e) {
                   return h.apply(void 0, c([e[0]], e.slice(1)));
                 }));
-              var F = { flagKey: r, enabled: C, variationKey: D, ruleKey: U, variables: V, reasons: b, decisionEventDispatched: P };
+              var F = { flagKey: r, enabled: C, variationKey: D, ruleKey: U, variables: V, reasons: P, decisionEventDispatched: b };
               return (
                 this.notificationCenter.sendNotifications(v.DECISION, { type: A.FLAG, userId: E, attributes: f, decisionInfo: F }),
-                { variationKey: D, enabled: C, variables: V, ruleKey: U, flagKey: r, userContext: e, reasons: b }
+                { variationKey: D, enabled: C, variables: V, ruleKey: U, flagKey: r, userContext: e, reasons: P }
               );
             }),
             (e.prototype.getAllDecideOptions = function (e) {
@@ -3860,7 +3872,7 @@
             e
           );
         })(),
-        qe = (function () {
+        Je = (function () {
           function e(e) {
             var t = this;
             (this.logger = e.logger),
@@ -3947,25 +3959,25 @@
             e
           );
         })(),
-        Je = function () {
+        We = function () {
           for (var e = [], t = 0; t < arguments.length; t++) e[t] = arguments[t];
           return new (o.LogTierV1EventProcessor.bind.apply(o.LogTierV1EventProcessor, c([void 0], e)))();
         };
       o.LocalStoragePendingEventsDispatcher;
-      function We(e, t, r, n) {
+      function Ze(e, t, r, n) {
         var i = { sdkKey: e };
         if (((void 0 === n || ("object" == typeof n && null !== n)) && R.assign(i, n), r)) {
-          var o = oe({ datafile: r, jsonSchemaValidator: void 0, logger: t }),
+          var o = ae({ datafile: r, jsonSchemaValidator: void 0, logger: t }),
             a = o.configObj,
             s = o.error;
-          s && t.error(s), a && (i.datafile = ie(a));
+          s && t.error(s), a && (i.datafile = oe(a));
         }
         return new u.HttpPollingDatafileManager(i);
       }
-      var Ze = i.getLogger();
-      i.setLogHandler(k()), i.setLogLevel(i.LogLevel.INFO);
-      var Qe = !1,
-        $e = function (e) {
+      var Qe = i.getLogger();
+      i.setLogHandler(x()), i.setLogLevel(i.LogLevel.INFO);
+      var $e = !1,
+        et = function (e) {
           try {
             var t = !1;
             e.errorHandler && i.setErrorHandler(e.errorHandler),
@@ -3987,64 +3999,74 @@
               })(e),
                 (t = !0);
             } catch (e) {
-              Ze.error(e);
+              Qe.error(e);
             }
             var r = void 0;
             null == e.eventDispatcher
-              ? ((r = new o.LocalStoragePendingEventsDispatcher({ eventDispatcher: F })), Qe || (r.sendPendingEvents(), (Qe = !0)))
+              ? ((r = new o.LocalStoragePendingEventsDispatcher({ eventDispatcher: F })), $e || (r.sendPendingEvents(), ($e = !0)))
               : (r = e.eventDispatcher);
-            var n = e.eventBatchSize,
-              a = e.eventFlushInterval;
+            var n = e.closingEventDispatcher;
+            !e.eventDispatcher && !n && window.navigator && "sendBeacon" in window.navigator && (n = M);
+            var a = e.eventBatchSize,
+              s = e.eventFlushInterval;
             (function (e) {
               return !("number" != typeof e || !R.isSafeInteger(e)) && e >= 1;
-            })(e.eventBatchSize) || (Ze.warn("Invalid eventBatchSize %s, defaulting to %s", e.eventBatchSize, 10), (n = 10)),
+            })(e.eventBatchSize) || (Qe.warn("Invalid eventBatchSize %s, defaulting to %s", e.eventBatchSize, 10), (a = 10)),
               (function (e) {
                 return !("number" != typeof e || !R.isSafeInteger(e)) && e > 0;
               })(e.eventFlushInterval) ||
-                (Ze.warn("Invalid eventFlushInterval %s, defaulting to %s", e.eventFlushInterval, 1e3), (a = 1e3));
-            var s = i.getErrorHandler(),
-              u = new qe({ logger: Ze, errorHandler: s }),
-              c = { dispatcher: r, flushInterval: a, batchSize: n, maxQueueSize: e.eventMaxQueueSize || 1e4, notificationCenter: u },
-              E = l(l({ clientEngine: "javascript-sdk" }, e), {
-                eventProcessor: Je(c),
-                logger: Ze,
-                errorHandler: s,
-                datafileManager: e.sdkKey ? We(e.sdkKey, Ze, e.datafile, e.datafileOptions) : void 0,
-                notificationCenter: u,
+                (Qe.warn("Invalid eventFlushInterval %s, defaulting to %s", e.eventFlushInterval, 1e3), (s = 1e3));
+            var u = i.getErrorHandler(),
+              c = new Je({ logger: Qe, errorHandler: u }),
+              E = {
+                dispatcher: r,
+                closingDispatcher: n,
+                flushInterval: s,
+                batchSize: a,
+                maxQueueSize: e.eventMaxQueueSize || 1e4,
+                notificationCenter: c
+              },
+              f = l(l({ clientEngine: "javascript-sdk" }, e), {
+                eventProcessor: We(E),
+                logger: Qe,
+                errorHandler: u,
+                datafileManager: e.sdkKey ? Ze(e.sdkKey, Qe, e.datafile, e.datafileOptions) : void 0,
+                notificationCenter: c,
                 isValidInstance: t
               }),
-              f = new ze(E);
+              d = new qe(f);
             try {
               if ("function" == typeof window.addEventListener) {
-                var d = "onpagehide" in window ? "pagehide" : "unload";
+                var p = "onpagehide" in window ? "pagehide" : "unload";
                 window.addEventListener(
-                  d,
+                  p,
                   function () {
-                    f.close();
+                    d.close();
                   },
                   !1
                 );
               }
             } catch (e) {
-              Ze.error(T.UNABLE_TO_ATTACH_UNLOAD, "INDEX_BROWSER", e.message);
+              Qe.error(T.UNABLE_TO_ATTACH_UNLOAD, "INDEX_BROWSER", e.message);
             }
-            return f;
+            return d;
           } catch (e) {
-            return Ze.error(e), null;
+            return Qe.error(e), null;
           }
         },
-        et = function () {
-          Qe = !1;
+        tt = function () {
+          $e = !1;
         },
-        tt = {
+        rt = {
           logging: K,
-          errorHandler: b,
+          errorHandler: P,
           eventDispatcher: F,
+          sendBeaconEventDispatcher: M,
           enums: C,
           setLogger: i.setLogHandler,
           setLogLevel: i.setLogLevel,
-          createInstance: $e,
-          __internalResetRetryState: et,
+          createInstance: et,
+          __internalResetRetryState: tt,
           OptimizelyDecideOption: t.N1
         };
       Object.defineProperty(t, "setLogger", {
@@ -4053,11 +4075,11 @@
           return i.setLogHandler;
         }
       }),
-        (t.createInstance = $e);
+        (t.createInstance = et);
     },
-    4952: (e, t, r) => {
-      var n = r(3979),
-        i = r(9767),
+    84952: (e, t, r) => {
+      var n = r(33979),
+        i = r(99767),
         o = i;
       (o.v1 = n), (o.v4 = i), (e.exports = o);
     },
@@ -4090,7 +4112,7 @@
         ].join("");
       };
     },
-    9490: (e) => {
+    89490: (e) => {
       var t =
         ("undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto)) ||
         ("undefined" != typeof msCrypto && "function" == typeof window.msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto));
@@ -4107,10 +4129,10 @@
         };
       }
     },
-    3979: (e, t, r) => {
+    33979: (e, t, r) => {
       var n,
         i,
-        o = r(9490),
+        o = r(89490),
         a = r(5450),
         s = 0,
         u = 0;
@@ -4142,8 +4164,8 @@
         return t || a(c);
       };
     },
-    9767: (e, t, r) => {
-      var n = r(9490),
+    99767: (e, t, r) => {
+      var n = r(89490),
         i = r(5450);
       e.exports = function (e, t, r) {
         var o = (t && r) || 0;
@@ -4153,7 +4175,7 @@
         return t || i(a);
       };
     },
-    8491: (e) => {
+    68491: (e) => {
       !(function () {
         function t(e, t) {
           var r, n, i, o, a, s, u, l;

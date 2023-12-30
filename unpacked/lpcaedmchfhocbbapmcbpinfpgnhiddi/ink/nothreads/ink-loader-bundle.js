@@ -419,22 +419,21 @@ var inkLoadWasmModule = (() => {
         window.inkHostRegistry[$1].onPendingTexturesChanged(!!$0);
       },
       304064: ($0, $1, $2) => {
-        if (Module.canvas) {
-          const gl = Module.canvas.getContext("webgl");
-          if (gl) {
-            const di = gl.getExtension("WEBGL_debug_renderer_info");
-            if (di) {
-              stringToUTF8(gl.getParameter(di.UNMASKED_RENDERER_WEBGL), $0, $2);
-              stringToUTF8(gl.getParameter(di.UNMASKED_VENDOR_WEBGL), $1, $2);
-            }
+        const canvas = self.WorkerGlobalScope ? new OffscreenCanvas(128, 128) : document.createElement("canvas");
+        const gl = canvas.getContext("webgl");
+        if (gl) {
+          const di = gl.getExtension("WEBGL_debug_renderer_info");
+          if (di) {
+            stringToUTF8(gl.getParameter(di.UNMASKED_RENDERER_WEBGL), $0, $2);
+            stringToUTF8(gl.getParameter(di.UNMASKED_VENDOR_WEBGL), $1, $2);
           }
         }
       },
-      304350: () => !!Module.ctx,
-      304372: () => {
+      304426: () => !!Module.ctx,
+      304448: () => {
         debugger;
       },
-      304385: () => typeof wasmOffsetConverter !== "undefined"
+      304461: () => typeof wasmOffsetConverter !== "undefined"
     };
     function em_severity_log(severity, severityName, message) {
       if (typeof globalThis === "object" && typeof globalThis["Module"] === "object" && typeof globalThis["Module"]["log"] === "function") {
@@ -6766,52 +6765,52 @@ var inkLoadWasmModule = (() => {
       miniTempWebGLIntBuffers[i] = miniTempWebGLIntBuffersStorage.subarray(0, i + 1);
     }
     var wasmImports = {
-      B: HaveOffsetConverter,
+      D: HaveOffsetConverter,
       Ya: ___syscall_openat,
       Uc: __embind_finalize_value_array,
-      N: __embind_finalize_value_object,
+      A: __embind_finalize_value_object,
       Sa: __embind_register_bigint,
       sb: __embind_register_bool,
-      e: __embind_register_class,
-      g: __embind_register_class_constructor,
+      f: __embind_register_class,
+      h: __embind_register_class_constructor,
       c: __embind_register_class_function,
       d: __embind_register_class_property,
       Pa: __embind_register_emval,
       i: __embind_register_enum,
       b: __embind_register_enum_value,
-      L: __embind_register_float,
+      M: __embind_register_float,
       u: __embind_register_function,
-      q: __embind_register_integer,
-      j: __embind_register_memory_view,
-      H: __embind_register_std_string,
+      r: __embind_register_integer,
+      l: __embind_register_memory_view,
+      I: __embind_register_std_string,
       z: __embind_register_std_wstring,
       nd: __embind_register_value_array,
-      P: __embind_register_value_array_element,
-      O: __embind_register_value_object,
-      s: __embind_register_value_object_field,
+      O: __embind_register_value_array_element,
+      B: __embind_register_value_object,
+      p: __embind_register_value_object_field,
       Db: __embind_register_void,
       $a: __emscripten_get_now_is_monotonic,
       Va: __emscripten_throw_longjmp,
       o: __emval_as,
-      E: __emval_call,
-      w: __emval_call_method,
-      f: __emval_decref,
-      A: __emval_get_global,
-      x: __emval_get_method_caller,
-      l: __emval_get_property,
-      n: __emval_incref,
-      Qe: __emval_instanceof,
+      P: __emval_call,
+      v: __emval_call_method,
+      e: __emval_decref,
+      C: __emval_get_global,
+      w: __emval_get_method_caller,
+      m: __emval_get_property,
+      k: __emval_incref,
+      Ge: __emval_instanceof,
       ve: __emval_new,
-      m: __emval_new_cstring,
-      k: __emval_run_destructors,
-      p: __emval_take_value,
+      n: __emval_new_cstring,
+      j: __emval_run_destructors,
+      q: __emval_take_value,
       Ra: __munmap_js,
       a: _abort,
-      D: _eglChooseConfig,
+      F: _eglChooseConfig,
       Da: _eglCreateContext,
       Ca: _eglCreateWindowSurface,
-      G: _eglDestroyContext,
-      F: _eglDestroySurface,
+      H: _eglDestroyContext,
+      G: _eglDestroySurface,
       Fa: _eglGetCurrentContext,
       Ha: _eglGetCurrentDisplay,
       y: _eglGetCurrentSurface,
@@ -6821,13 +6820,13 @@ var inkLoadWasmModule = (() => {
       Ja: _eglReleaseThread,
       Ka: _eglSwapBuffers,
       Ba: em_severity_log,
-      v: _emscripten_asm_const_int,
-      h: _emscripten_asm_const_int_sync_on_main_thread,
+      x: _emscripten_asm_const_int,
+      g: _emscripten_asm_const_int_sync_on_main_thread,
       Oa: _emscripten_async_call,
-      M: _emscripten_date_now,
-      C: _emscripten_errn,
+      N: _emscripten_date_now,
+      E: _emscripten_errn,
       Ta: _emscripten_get_heap_max,
-      r: _emscripten_get_now,
+      s: _emscripten_get_now,
       ca: _emscripten_glActiveTexture,
       ba: _emscripten_glAttachShader,
       Sc: _emscripten_glBeginQuery,
@@ -6934,27 +6933,27 @@ var inkLoadWasmModule = (() => {
       ia: _emscripten_glGenVertexArraysOES,
       Ve: _emscripten_glGenerateMipmap,
       Re: _emscripten_glGetActiveAttrib,
-      Pe: _emscripten_glGetActiveUniform,
+      Qe: _emscripten_glGetActiveUniform,
       Ub: _emscripten_glGetActiveUniformBlockName,
       Vb: _emscripten_glGetActiveUniformBlockiv,
       Xb: _emscripten_glGetActiveUniformsiv,
-      Oe: _emscripten_glGetAttachedShaders,
-      Ne: _emscripten_glGetAttribLocation,
-      Me: _emscripten_glGetBooleanv,
+      Pe: _emscripten_glGetAttachedShaders,
+      Oe: _emscripten_glGetAttribLocation,
+      Ne: _emscripten_glGetBooleanv,
       Ib: _emscripten_glGetBufferParameteri64v,
-      Le: _emscripten_glGetBufferParameteriv,
-      Ke: _emscripten_glGetError,
-      Je: _emscripten_glGetFloatv,
+      Me: _emscripten_glGetBufferParameteriv,
+      Le: _emscripten_glGetError,
+      Ke: _emscripten_glGetFloatv,
       lc: _emscripten_glGetFragDataLocation,
-      Ie: _emscripten_glGetFramebufferAttachmentParameteriv,
+      Je: _emscripten_glGetFramebufferAttachmentParameteriv,
       Jb: _emscripten_glGetInteger64i_v,
       Lb: _emscripten_glGetInteger64v,
       Ac: _emscripten_glGetIntegeri_v,
-      He: _emscripten_glGetIntegerv,
+      Ie: _emscripten_glGetIntegerv,
       hb: _emscripten_glGetInternalformativ,
       ob: _emscripten_glGetProgramBinary,
       Fe: _emscripten_glGetProgramInfoLog,
-      Ge: _emscripten_glGetProgramiv,
+      He: _emscripten_glGetProgramiv,
       ma: _emscripten_glGetQueryObjecti64vEXT,
       oa: _emscripten_glGetQueryObjectivEXT,
       la: _emscripten_glGetQueryObjectui64vEXT,
@@ -7110,10 +7109,10 @@ var inkLoadWasmModule = (() => {
       Id: _emscripten_webgl_make_context_current,
       Za: _environ_get,
       _a: _environ_sizes_get,
-      K: _fd_close,
-      I: _fd_read,
+      L: _fd_close,
+      J: _fd_read,
       Qa: _fd_seek,
-      J: _fd_write,
+      K: _fd_write,
       Aa: _getentropy,
       Na: invoke_ii,
       Ma: invoke_iii,
@@ -7266,8 +7265,8 @@ var inkLoadWasmModule = (() => {
       (dynCall_iiiiijj = Module["dynCall_iiiiijj"] = wasmExports["jh"])(a0, a1, a2, a3, a4, a5, a6, a7, a8));
     var dynCall_iiiiiijj = (Module["dynCall_iiiiiijj"] = (a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) =>
       (dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = wasmExports["kh"])(a0, a1, a2, a3, a4, a5, a6, a7, a8, a9));
-    var ___start_em_js = (Module["___start_em_js"] = 328504);
-    var ___stop_em_js = (Module["___stop_em_js"] = 329027);
+    var ___start_em_js = (Module["___start_em_js"] = 328576);
+    var ___stop_em_js = (Module["___stop_em_js"] = 329099);
     function invoke_vii(index, a1, a2) {
       var sp = stackSave();
       try {

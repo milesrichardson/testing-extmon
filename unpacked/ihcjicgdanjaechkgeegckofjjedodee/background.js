@@ -4,110 +4,112 @@
       1267: (e, a, t) => {
         "use strict";
         t.d(a, {
-          $: () => te,
-          $b: () => A,
-          A: () => W,
-          Ab: () => ee,
-          B: () => J,
-          Bb: () => ae,
-          C: () => Ve,
-          Cb: () => ue,
-          D: () => Ue,
-          Db: () => me,
-          E: () => Te,
-          Eb: () => ye,
-          F: () => ie,
-          Fb: () => se,
-          G: () => xe,
-          Gb: () => Ne,
-          H: () => je,
-          Hb: () => H,
-          I: () => Oe,
-          Ib: () => w,
-          J: () => Re,
-          Jb: () => k,
-          K: () => Q,
-          Kb: () => fe,
-          L: () => Le,
-          Lb: () => Ce,
-          M: () => I,
-          Mb: () => Ie,
-          Nb: () => Ee,
-          O: () => L,
-          Ob: () => _e,
-          P: () => R,
-          Pb: () => pe,
-          Q: () => oe,
-          Qb: () => De,
-          R: () => Xe,
-          Rb: () => le,
-          S: () => n,
-          T: () => r,
-          Tb: () => s,
-          U: () => Ge,
-          Ub: () => l,
-          V: () => ve,
-          Vb: () => b,
-          W: () => we,
-          Wb: () => D,
-          X: () => He,
-          Y: () => v,
-          Z: () => de,
-          Zb: () => p,
-          _: () => X,
-          _b: () => c,
+          $: () => v,
+          A: () => Fe,
+          Ab: () => P,
+          B: () => W,
+          Bb: () => Z,
+          C: () => J,
+          Cb: () => x,
+          D: () => Ye,
+          Db: () => ee,
+          E: () => Ve,
+          Eb: () => ae,
+          F: () => qe,
+          Fb: () => ue,
+          G: () => Ue,
+          Gb: () => me,
+          H: () => Te,
+          Hb: () => ye,
+          I: () => ie,
+          Ib: () => se,
+          J: () => xe,
+          Jb: () => Ne,
+          K: () => je,
+          Kb: () => H,
+          L: () => Oe,
+          Lb: () => w,
+          M: () => Re,
+          Mb: () => k,
+          N: () => Q,
+          Nb: () => fe,
+          O: () => Le,
+          Ob: () => Ce,
+          P: () => I,
+          Pb: () => Ie,
+          Qb: () => Ee,
+          R: () => L,
+          Rb: () => _e,
+          S: () => R,
+          Sb: () => pe,
+          T: () => oe,
+          Tb: () => De,
+          U: () => ea,
+          Ub: () => le,
+          V: () => n,
+          W: () => r,
+          Wb: () => s,
+          X: () => Ge,
+          Xb: () => l,
+          Y: () => ve,
+          Yb: () => b,
+          Z: () => we,
+          Zb: () => D,
+          _: () => He,
           a: () => C,
-          ab: () => We,
-          ac: () => M,
+          ab: () => de,
+          ac: () => p,
           b: () => i,
-          bb: () => N,
+          bb: () => X,
           bc: () => S,
           c: () => d,
-          cb: () => B,
-          cc: () => h,
+          cb: () => te,
+          cc: () => A,
           d: () => T,
-          db: () => j,
+          db: () => We,
+          dc: () => M,
           e: () => o,
-          eb: () => ze,
-          ec: () => g,
+          eb: () => N,
+          ec: () => c,
           f: () => y,
-          fb: () => $e,
-          fc: () => _,
+          fb: () => B,
+          fc: () => h,
           g: () => Ke,
-          gb: () => Je,
+          gb: () => j,
           h: () => Ze,
+          hb: () => ze,
+          hc: () => g,
+          ib: () => Qe,
+          ic: () => _,
           j: () => E,
-          k: () => f,
-          kb: () => Ae,
-          lb: () => ge,
-          m: () => Me,
-          mb: () => he,
-          n: () => u,
-          nb: () => Ye,
-          o: () => m,
-          ob: () => O,
-          p: () => z,
-          pb: () => ne,
-          q: () => G,
-          qb: () => Se,
-          r: () => K,
-          rb: () => be,
-          s: () => Y,
-          sb: () => U,
-          t: () => $,
-          tb: () => V,
-          u: () => re,
-          ub: () => q,
-          v: () => qe,
-          vb: () => ce,
-          w: () => Pe,
-          wb: () => F,
-          x: () => ke,
-          xb: () => P,
-          y: () => Be,
-          yb: () => Z,
-          z: () => Fe,
-          zb: () => x
+          jb: () => Je,
+          l: () => f,
+          n: () => Me,
+          nb: () => Ae,
+          o: () => u,
+          ob: () => ge,
+          p: () => m,
+          pb: () => he,
+          q: () => z,
+          qb: () => Xe,
+          r: () => G,
+          rb: () => O,
+          s: () => K,
+          sb: () => ne,
+          t: () => Y,
+          tb: () => ce,
+          u: () => $,
+          ub: () => be,
+          v: () => re,
+          vb: () => U,
+          w: () => $e,
+          wb: () => V,
+          x: () => Pe,
+          xb: () => q,
+          y: () => ke,
+          yb: () => Se,
+          z: () => Be,
+          zb: () => F
         });
         const s = "RELOAD_ON_CLOSE_PORT",
           r = "MSG_ICON_REFRESH",
@@ -129,14 +131,14 @@
           }),
           l = (Object.freeze([2, 4, 6]), "enableProtectionAds"),
           M = "enableNativeMessaging",
-          c = "enableProtectionMalware",
-          S = "enableProtectionScams",
+          S = "enableProtectionMalware",
+          c = "enableProtectionScams",
           b = "enableBlockCountDisplay",
           h = "enableSkimmerProtection",
           g = "enableVerboseLogging",
           A = "enableMonthlyNotification",
           p = "enableMaliciousNotification",
-          D = { enableProtection: 2, [l]: 4, [c]: 8, [S]: 16 },
+          D = { enableProtection: 2, [l]: 4, [S]: 8, [c]: 16 },
           C = [
             { value: 2, constantKey: i, humanReadable: "Ads / Trackers" },
             { value: 4, constantKey: d, humanReadable: "Malware" },
@@ -188,8 +190,8 @@
           ue = "MSG_TELEMETRY_EMAIL_FAILED",
           le = "PORT_FORCE_DATABASE_UPDATE",
           Me = "GROUP_A",
-          ce = "MSG_RESET",
-          Se = "MSG_RECORD_CONTENT_AD",
+          Se = "MSG_RESET",
+          ce = "MSG_RECORD_CONTENT_AD",
           be = "MSG_RECORD_EASYLIST_AD",
           he = "MSG_MV3_TOGGLE_PROTECTION",
           ge = "MSG_MV3_TOGGLE_INDIVIDUAL_PROTECTION",
@@ -221,15 +223,17 @@
           Ge = "MSG_IMPORT_SETTINGS",
           ze = "MSG_IS_WHITELISTED_SCAM",
           Ue = "MSG_DEBUG_TEST_CHANNEL",
-          Ve = "MSG_DEBUG_TEST_CHANNEL_RESPONSE",
-          qe = "MSG_COLOR_SCHEME_CHANGED",
-          Ye = "MSG_QUERY_FEATURE_FLAG",
-          $e = "MSG_LOAD_INLINE_SCRIPT",
-          Xe = "MSG_GET_EASYLIST_SELECTORS";
+          Ve = "MSG_DEBUG_STAGING_CHANNEL",
+          qe = "MSG_DEBUG_TEST_CHANNEL_RESPONSE",
+          Ye = "MSG_DEBUG_STAGING_CHANNEL_RESPONSE",
+          $e = "MSG_COLOR_SCHEME_CHANGED",
+          Xe = "MSG_QUERY_FEATURE_FLAG",
+          Qe = "MSG_LOAD_INLINE_SCRIPT",
+          ea = "MSG_GET_EASYLIST_SELECTORS";
       },
       8221: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => Se, b: () => w }), t(5722);
+        t.d(a, { a: () => ce, b: () => w }), t(5722);
         var s = t(2023),
           r = t(4846),
           n = t(8203),
@@ -242,8 +246,8 @@
           u = t(5417),
           l = t(6781),
           M = t(5990),
-          c = t(1267),
-          S = t(1884),
+          S = t(1267),
+          c = t(1884),
           b = t(6271),
           h = t(9450),
           g = t(4643),
@@ -262,7 +266,7 @@
           k = "CONTENT",
           F = "BG_HEU_",
           P = "BG_REG_",
-          B = [c.cc, c.$b, c.Zb, c.Ub, c._b, c.bc],
+          B = [S.fc, S.cc, S.ac, S.Xb, S.bc, S.ec],
           j = new Date().getTime(),
           x = `chrome-extension://${r.chrome.runtime.id}`,
           O = `moz-extension://${r.chrome.i18n.getMessage("@@extension_id")}`,
@@ -284,7 +288,9 @@
               enableNativeMessaging: null,
               enableVerboseLogging: !1,
               enableMonthlyNotification: !0,
-              enableMaliciousNotification: !0
+              enableMaliciousNotification: !0,
+              enableBlockCountDisplay: !0,
+              enableBlockYoutubeCustomAds: !0
             },
             writable: !0,
             configurable: !0
@@ -305,7 +311,7 @@
           Object.defineProperty(w, "ALL_TIME_STATS_LOADED", { value: !1, writable: !0, configurable: !1 }),
           Object.defineProperty(w, "SAFE_CACHE", { value: {}, writable: !0, configurable: !1 }),
           Object.defineProperty(w, "TABS", { value: {}, writable: !0, configurable: !0 }),
-          Object.defineProperty(w, "LICENSE", { value: c.n.LicenseStateFree, writable: !0 }),
+          Object.defineProperty(w, "LICENSE", { value: S.o.LicenseStateFree, writable: !0 }),
           Object.defineProperty(w, "RISKY_TLDS", {
             value: [
               "agency",
@@ -435,7 +441,7 @@
             writable: !1,
             configurable: !1
           }),
-          Object.defineProperty(w, "NEW_FEATURES", { value: [c.g, c.h], writable: !0, configurable: !1 }),
+          Object.defineProperty(w, "NEW_FEATURES", { value: [S.g, S.h], writable: !0, configurable: !1 }),
           Object.defineProperty(w, "LOGGED_URLS", { value: new Set(), writable: !0, configurable: !1 }),
           Object.defineProperty(w, "TAB_MALWARE_NOTIFIED", { value: new Set(), writable: !0, configurable: !1 });
         const G = (e) =>
@@ -466,7 +472,18 @@
             });
         async function Y(e, a = null) {
           const t = await le();
-          r.chrome.tabs.sendMessage(t, { type: c.C, text: e, id: a });
+          let s;
+          switch (a) {
+            case "end-test-channel-update":
+              s = S.F;
+              break;
+            case "end-staging-channel-update":
+              s = S.D;
+              break;
+            default:
+              return void console.debug("Unknown message id: ", a);
+          }
+          r.chrome.tabs.sendMessage(t, { type: s, text: e, id: a });
         }
         (w.init = async () => {
           await (async () => {
@@ -481,7 +498,11 @@
             A.a
               .getExclusions()
               .then((e) => w.settingsGet(null))
-              .then((e) => ((w.SETTINGS = { ...w.SETTINGS, ...e }), w.postNativeTogglesState(), Promise.resolve()))
+              .then(
+                (e) => (
+                  console.debug("ALL SETTINGS: ", e), (w.SETTINGS = { ...w.SETTINGS, ...e }), w.postNativeTogglesState(), Promise.resolve()
+                )
+              )
               .then(() => w.initDatabases())
               .then(() => ((w.READY_TO_ACCEPT_REQUESTS = !0), w.getOrCreateUUID()))
               .then(
@@ -541,21 +562,39 @@
             r.chrome.alarms.create("showMonthlyNotificationAlarm", { delayInMinutes: 1 }),
             w.createContextMenu();
         }),
-          (w.updateUsingTestChannel = async () => (
-            console.log("Update using test channel"),
-            await w.updateExtensionWithSpecificChannel("test"),
-            await Y("Update using test channel complete"),
-            await Y(
-              "Databases: " +
+          (w.updateUsingTestChannel = async () => {
+            try {
+              console.log("Update using test channel"),
+                await w.updateExtensionWithSpecificChannel("test"),
+                await Y("Update using test channel complete");
+              let e = () =>
+                "Databases: " +
                 Object.keys(w.DATABASES)
                   .map((e) => `(${w.DATABASES[e].name}:${w.DATABASES[e].version})`)
-                  .join(", "),
-              "end-test-channel-update"
-            ),
-            !0
-          )),
-          (w.updateExtensionWithSpecificChannel = async (e) =>
-            new Promise((a) => {
+                  .join(", ");
+              await Y(e(), "end-test-channel-update");
+            } catch (e) {
+              return e;
+            }
+          }),
+          (w.updateUsingStagingChannel = async () => {
+            try {
+              console.log("Clear existing database files..."),
+                console.log("Update using staging channel..."),
+                await w.updateExtensionWithSpecificChannel("release", !1),
+                await Y("Update using staging channel complete.");
+              let e = () =>
+                "Databases: " +
+                Object.keys(w.DATABASES)
+                  .map((e) => `(${w.DATABASES[e].name}:${w.DATABASES[e].version})`)
+                  .join(", ");
+              await Y(e(), "end-staging-channel-update");
+            } catch (e) {
+              return e;
+            }
+          }),
+          (w.updateExtensionWithSpecificChannel = async (e, a) =>
+            new Promise((t) => {
               w.updateDatabases(
                 {
                   onUpdateStart: async () => {
@@ -565,14 +604,15 @@
                     await Y("Download completed", "download-completed");
                   },
                   onUpdateComplete: async () => {
-                    await Y("Update completed", "update-completed"), a();
+                    await Y("Update completed", "update-completed"), t();
                   },
                   onUpdateError: async (e) => {
                     await Y("UPDATE_FAILED: " + JSON.stringify(e), "error-in-test-channel-update");
                   }
                 },
                 1,
-                e
+                e,
+                a
               );
             })),
           (w.resetExtension = () => (
@@ -638,7 +678,7 @@
                   );
                 if (void 0 === t) return console.error("SN: Failed to get current tab due to no tabs"), a(new Error("No tabs"));
                 const s = t.id;
-                return console.debug("SN: Sending message to tab ", s), r.chrome.tabs.sendMessage(s, { type: c.X }), e();
+                return console.debug("SN: Sending message to tab ", s), r.chrome.tabs.sendMessage(s, { type: S._ }), e();
               });
             })),
           (w.connectNative = async () => {
@@ -649,13 +689,13 @@
                 K.onDisconnect.addListener(async (e) => {
                   r.chrome.runtime.lastError && console.log("CN: Native App connection error ", r.chrome.runtime.lastError.message),
                     (K = null),
-                    r.chrome.storage.sync.set({ nativeHostStatus: !1 }),
+                    r.chrome.storage.local.set({ nativeHostStatus: !1 }),
                     await (0, o.c)({ licenseStatePremium: 0 }),
                     (w.LICENSE = 0),
                     console.log("CN: Native App Disconnected.");
                 }),
                 console.log("CN: Succesfully connected to Native App"),
-                r.chrome.storage.sync.set({ nativeHostStatus: !0 }),
+                r.chrome.storage.local.set({ nativeHostStatus: !0 }),
                 K.onMessage.addListener((e) => {
                   console.debug("CN: Native App Message: ", e),
                     e &&
@@ -689,7 +729,7 @@
                       });
                 });
             } catch (e) {
-              r.chrome.storage.sync.set({ nativeHostStatus: !1 }),
+              r.chrome.storage.local.set({ nativeHostStatus: !1 }),
                 console.log("CN: Failed to connect to local app: ", e),
                 console.log("CN: Will retry on browser restart"),
                 (K = null);
@@ -705,7 +745,7 @@
           }),
           (w.getNativeStatus = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.get("nativeHostStatus", function (t) {
+              r.chrome.storage.local.get("nativeHostStatus", function (t) {
                 r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError) : e(t.nativeHostStatus);
               });
             }));
@@ -745,7 +785,7 @@
                   );
                 })) && "blockPage" !== t
               ? e({ needsIt: !1, why: "MSG_SENT_ONCE" })
-              : !1 === (await w.settingsGet(c.ac))
+              : !1 === (await w.settingsGet(S.dc))
               ? e({ needsIt: !1, why: "USER_DENIED" })
               : ("blockPage" !== t &&
                   (await new Promise((e, a) => {
@@ -758,7 +798,7 @@
           (w.msgToggleNativeMsg = async (e, { payload: a } = {}) => {
             console.debug("MTNM: Toggling Native Messaging ", a);
             const t = a.on ? await (0, T.a)() : await (0, T.b)();
-            w.settingsSet({ [c.ac]: t }), e(r.chrome.runtime.lastError ? { error: r.chrome.runtime.lastError } : {});
+            w.settingsSet({ [S.dc]: t }), e(r.chrome.runtime.lastError ? { error: r.chrome.runtime.lastError } : {});
           }),
           (w.showWelcome = (e) => {
             let a = e + r.chrome.i18n.getMessage("@@extension_id") + "/app/eventpages/{PAGE}.html";
@@ -818,11 +858,11 @@
               .catch((e) => a({ error: e })),
             !0
           )),
-          (w.updateDatabases = async (e, a = 1, t = "release") => {
+          (w.updateDatabases = async (e, a = 1, t = "release", s = !0) => {
             console.debug("UPD: Update attempt:", a);
-            const s = new n.a(e, t);
+            const r = new n.a(e, t, s);
             try {
-              const a = await s.updateIncrementals(w.DATABASES);
+              const a = await r.updateIncrementals(w.DATABASES);
               console.debug("UPD: Updater part finished", { newDbs: a });
               let t = {};
               for (let e of a) t[e.name] = e.version;
@@ -839,7 +879,7 @@
               }
               e && e.hasOwnProperty("onUpdateComplete") && (await e.onUpdateComplete());
             } catch (t) {
-              if (a < c.fc) {
+              if (a < S.ic) {
                 console.log("UPD: Error when updating the database on attempt:", a);
                 const t = (0, i.q)(a, 2e3, 250);
                 console.log("UPD: Delay time for next attempt:", t),
@@ -847,7 +887,7 @@
                     w.updateDatabases(e, a + 1);
                   }, t);
               } else
-                console.log("UPD: Updates canceled due to max request limit reached", c.fc),
+                console.log("UPD: Updates canceled due to max request limit reached", S.ic),
                   console.error("UPD: error handing database read: ", t),
                   e && e.hasOwnProperty("onUpdateError") && (await e.onUpdateError(t)),
                   w.settingsSet({ last_fetch_failure: new Date().toLocaleString() });
@@ -918,7 +958,7 @@
           (w.initDatabases = async () => {
             if ((0, i.z)())
               try {
-                await (0, _.d)(c.Lb);
+                await (0, _.d)(S.Ob);
               } catch (e) {
                 w.SHOULD_SHOW_WELCOME = !1;
               }
@@ -949,7 +989,7 @@
             T && T.length > 0 && (console.debug("UPDATING OVERRIDES: INIT"), w.updateRulesetOverrides(T[0].data));
             let y = new d.a("mbgc.db.easylist.2"),
               m = await y.readBundled();
-            (w.DATABASES.easylist = m), w.setDatabases([...t, ...s, ...r]), w.updateDatabasesCache([...s, ...r]);
+            w.setDatabases([...t, ...s, ...r]), w.updateDatabasesCache([...s, ...r]), (w.DATABASES.easylist = m);
           }),
           (w.msgGetBlockedItems = async (e) => {
             const a = await D.b.getBlockedItems();
@@ -980,17 +1020,17 @@
           )),
           (w.debugNewUUID = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.remove("user_group", function () {
+              r.chrome.storage.local.remove("user_group", function () {
                 return r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(!0);
               });
             })
               .then((e) => {
-                r.chrome.storage.sync.remove("user_email", function () {
+                r.chrome.storage.local.remove("user_email", function () {
                   return r.chrome.runtime.lastError ? Promise.reject(r.chrome.runtime.lastError.message) : Promise.resolve(!0);
                 });
               })
               .then(() => {
-                r.chrome.storage.sync.set({ user_welcomed: !1 }, () =>
+                r.chrome.storage.local.set({ user_welcomed: !1 }, () =>
                   r.chrome.runtime.lastError ? Promise.reject(r.chrome.runtime.lastError.message) : Promise.resolve(!0)
                 );
               })
@@ -1019,17 +1059,17 @@
             return e + " histories dropped";
           }),
           (w.newUUIDSync = () => {
-            r.chrome.storage.sync.remove("user_group", function () {
+            r.chrome.storage.local.remove("user_group", function () {
               r.chrome.runtime.lastError
                 ? console.log("INI: Reset UG Failed: " + r.chrome.runtime.lastError)
                 : console.log("INI: Reset UG completed");
             }),
-              r.chrome.storage.sync.remove("user_email", function () {
+              r.chrome.storage.local.remove("user_email", function () {
                 r.chrome.runtime.lastError
                   ? console.log("INI: Reset UE Failed: " + r.chrome.runtime.lastError)
                   : console.log("INI: Reset UE completed");
               }),
-              r.chrome.storage.sync.set({ user_welcomed: !1 }, function () {
+              r.chrome.storage.local.set({ user_welcomed: !1 }, function () {
                 r.chrome.runtime.lastError
                   ? console.log("INI: Reset UW Failed: " + r.chrome.runtime.lastError)
                   : console.log("INI: Reset UW completed");
@@ -1052,17 +1092,17 @@
           }),
           (w.debugUserGroupA = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.set({ user_group: c.m }, function () {
+              r.chrome.storage.local.set({ user_group: S.n }, function () {
                 return r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(!0);
               });
             })
               .then((e) => {
-                r.chrome.storage.sync.remove("user_email", function () {
+                r.chrome.storage.local.remove("user_email", function () {
                   return r.chrome.runtime.lastError ? Promise.reject(r.chrome.runtime.lastError.message) : Promise.resolve(!0);
                 });
               })
               .then(() => {
-                r.chrome.storage.sync.set({ user_welcomed: !1 }, () =>
+                r.chrome.storage.local.set({ user_welcomed: !1 }, () =>
                   r.chrome.runtime.lastError ? Promise.reject(r.chrome.runtime.lastError.message) : Promise.resolve(!0)
                 );
               })
@@ -1078,10 +1118,10 @@
             const e = w.LICENSE;
             return (
               console.debug(`License state: ${e}`),
-              e === c.n.LicenseStateLicensed || e === c.n.LicenseStateTrial || e == c.n.LicenseStateLicenseGrace
+              e === S.o.LicenseStateLicensed || e === S.o.LicenseStateTrial || e == S.o.LicenseStateLicenseGrace
             );
           }),
-          (w.isTrial = () => w.LICENSE === c.o),
+          (w.isTrial = () => w.LICENSE === S.p),
           (w.insertDebugStatistics = () => {
             let e = Date.today().addWeeks(-5),
               a = Date.today();
@@ -1097,14 +1137,14 @@
           }),
           (w.insertOldDebugStatistics = () => {
             (w.ALL_TIME_STATS = { ads: 100, malwares: 100, scams: 100, content: 100 }),
-              r.chrome.storage.sync.set({ allTimeStats: w.ALL_TIME_STATS }, () => {
+              r.chrome.storage.local.set({ allTimeStats: w.ALL_TIME_STATS }, () => {
                 console.log("allTimeStats saved to the storage", w.ALL_TIME_STATS);
               }),
-              r.chrome.storage.sync.set({ installationDate: null }, () => console.log("set installation date to null"));
+              r.chrome.storage.local.set({ installationDate: null }, () => console.log("set installation date to null"));
           }),
           (w.alterAllTimeStats = () => {
             (w.ALL_TIME_STATS = { ads: 3710478760989116e68, malwares: null, scams: null, content: null }),
-              r.chrome.storage.sync.set({ allTimeStats: w.ALL_TIME_STATS }, () => {
+              r.chrome.storage.local.set({ allTimeStats: w.ALL_TIME_STATS }, () => {
                 console.debug("STATS: allTimeStats have been altered", w.ALL_TIME_STATS);
               });
           }),
@@ -1123,7 +1163,7 @@
                 r = { date: e, site: `www.${a}-${e}.com`, subtype: s[a][Math.floor(3 * Math.random())], type: a };
               n.push(r), (e += 18e5);
             }
-            r.chrome.storage.sync.set({ detectionHistory: n }), console.log("Detection History populated successfully:", n);
+            r.chrome.storage.local.set({ detectionHistory: n }), console.log("Detection History populated successfully:", n);
           }),
           (w.random = (e, a) => (a || (a = 1), Math.floor(Math.random() * e + a))),
           (w.today = () => Date.today().toString("MMM d")),
@@ -1132,13 +1172,13 @@
             switch (e) {
               case 2:
               case 3:
-                return c.b;
+                return S.b;
               case 4:
-                return c.c;
+                return S.c;
               case 6:
-                return c.e;
+                return S.e;
               case 7:
-                return c.d;
+                return S.d;
             }
             throw new Error(`${e} is not recognised`);
           }),
@@ -1163,14 +1203,14 @@
                   (a.forEach((e) => {
                     let a = w.exclusionIntToConstant(e);
                     switch (a) {
-                      case c.b:
+                      case S.b:
                         w.TABS[t].meta.isExcludedAds = s;
                         break;
-                      case c.e:
+                      case S.e:
                         w.TABS[t].meta.isExcludedScams = s;
                         break;
-                      case c.c:
-                      case c.d:
+                      case S.c:
+                      case S.d:
                         w.TABS[t].meta.isExcludedMalware = s;
                         break;
                       default:
@@ -1229,7 +1269,7 @@
           }),
           (w.persistDailyData = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.set({ records: w.RECORD }, () => {
+              r.chrome.storage.local.set({ records: w.RECORD }, () => {
                 r.chrome.runtime.lastError
                   ? (console.error(r.chrome.runtime.lastError.message), a(r.chrome.runtime.lastError.message))
                   : e(!0);
@@ -1237,7 +1277,7 @@
             })),
           (w.persistDailyStatsData = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.set({ allTimeStats: w.ALL_TIME_STATS }, () => {
+              r.chrome.storage.local.set({ allTimeStats: w.ALL_TIME_STATS }, () => {
                 r.chrome.runtime.lastError
                   ? (console.error(r.chrome.runtime.lastError.message), a(r.chrome.runtime.lastError.message))
                   : e(w.ALL_TIME_STATS);
@@ -1370,13 +1410,37 @@
           (w.loadAllDetectionRecords = () =>
             new Promise((e, a) => {
               r.chrome.storage.sync.get(["records"], function (t) {
-                r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(t.records);
+                if (r.chrome.runtime.lastError) return void a(r.chrome.runtime.lastError.message);
+                const s = t.records;
+                s
+                  ? r.chrome.storage.local.set({ records: s }, function () {
+                      r.chrome.runtime.lastError
+                        ? a(r.chrome.runtime.lastError.message)
+                        : r.chrome.storage.sync.remove(["records"], function () {
+                            r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(s);
+                          });
+                    })
+                  : r.chrome.storage.local.get(["records"], function (t) {
+                      r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(t.records);
+                    });
               });
             })),
           (w.loadAllStatsData = () =>
             new Promise((e, a) => {
               r.chrome.storage.sync.get(["allTimeStats"], function (t) {
-                r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(t.allTimeStats);
+                if (r.chrome.runtime.lastError) return void a(r.chrome.runtime.lastError.message);
+                const s = t.allTimeStats;
+                s
+                  ? r.chrome.storage.local.set({ allTimeStats: s }, function () {
+                      r.chrome.runtime.lastError
+                        ? a(r.chrome.runtime.lastError.message)
+                        : r.chrome.storage.sync.remove(["allTimeStats"], function () {
+                            r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(s);
+                          });
+                    })
+                  : r.chrome.storage.local.get(["allTimeStats"], function (t) {
+                      r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(t.allTimeStats);
+                    });
               });
             })),
           (w.syncDetectionData_mergeDetectionRecordsWithCache = (e) =>
@@ -1468,7 +1532,7 @@
           (w.settingsSet = function (e) {
             return new Promise(async (a, t) => {
               try {
-                e && e.hasOwnProperty(c.ac) && (e[c.ac] || w.disconnectNative()),
+                e && e.hasOwnProperty(S.dc) && (e[S.dc] || w.disconnectNative()),
                   r.chrome.storage.local.set(e, function () {
                     r.chrome.runtime.lastError
                       ? t(r.chrome.runtime.lastError)
@@ -1498,8 +1562,8 @@
           (w.computeTogglesState = () => {
             let e = 1;
             return (
-              Object.keys(c.Wb).forEach((a) => {
-                const t = 0 != w.SETTINGS[a] ? c.Wb[a] : 0;
+              Object.keys(S.Zb).forEach((a) => {
+                const t = 0 != w.SETTINGS[a] ? S.Zb[a] : 0;
                 e |= t;
               }),
               e
@@ -1512,26 +1576,26 @@
               .then((e) => w.isOverriddenForDomain(a.payload.const, a.payload.url))
               .then((t) => {
                 switch (a.payload.const) {
-                  case c.b:
+                  case S.b:
                     t
                       ? (console.debug("Returning overridden result for ads cb"),
-                        e({ success: !0 !== w.isExcludedForDomain(c.b, a.payload.url) }))
+                        e({ success: !0 !== w.isExcludedForDomain(S.b, a.payload.url) }))
                       : (console.debug("Returning result by querying settings for ads cb"),
-                        w.settingsGet(c.Ub).then((a) => {
+                        w.settingsGet(S.Xb).then((a) => {
                           e({ success: !1 !== a });
                         }));
                     break;
-                  case c.e:
+                  case S.e:
                     t
-                      ? e({ success: !0 !== w.isExcludedForDomain(c.e, a.payload.url) })
-                      : w.settingsGet(c.bc).then((a) => {
+                      ? e({ success: !0 !== w.isExcludedForDomain(S.e, a.payload.url) })
+                      : w.settingsGet(S.ec).then((a) => {
                           e({ success: !1 !== a });
                         });
                     break;
-                  case c.c:
+                  case S.c:
                     t
-                      ? e({ success: !0 !== w.isExcludedForDomain(c.c, a.payload.url) })
-                      : w.settingsGet(c._b).then((a) => {
+                      ? e({ success: !0 !== w.isExcludedForDomain(S.c, a.payload.url) })
+                      : w.settingsGet(S.bc).then((a) => {
                           e({ success: !1 !== a });
                         });
                     break;
@@ -1552,7 +1616,7 @@
               (s = s.toLowerCase()),
               w.EXCLUSION_INDIVIDUAL[n] && w.EXCLUSION_INDIVIDUAL[n].hasOwnProperty(s)
                 ? e({ value: w.EXCLUSION_INDIVIDUAL[n][s] })
-                : (r.chrome.storage.sync.get(
+                : (r.chrome.storage.local.get(
                     ["exclusionIndividual"],
                     ({ exclusionIndividual: a = {} }) => ((w.EXCLUSION_INDIVIDUAL = a), e({ value: a[n] && a[n][s] }))
                   ),
@@ -1566,7 +1630,7 @@
             s = s.toLowerCase();
             const o = { exclusionIndividual: { ...w.EXCLUSION_INDIVIDUAL, [d]: { ...w.EXCLUSION_INDIVIDUAL[d], [s]: n } } };
             return (
-              r.chrome.storage.sync.set(o, () => {
+              r.chrome.storage.local.set(o, () => {
                 (w.EXCLUSION_INDIVIDUAL[d] = o.exclusionIndividual[d]), te(), e({ value: n });
               }),
               !0
@@ -1601,6 +1665,14 @@
             const a = Date.today().addDays(-30).toString("MMM d yyyy"),
               t = Date.today().toString("MMM d yyyy");
             w.recallDetectionData(a, t).then((a) => {
+              if (!w.checkValidStatsObject(a))
+                return (
+                  (w.ALL_TIME_STATS_LOADED = !0),
+                  w.ALL_TIME_STATS.ads || (w.ALL_TIME_STATS.ads = 0),
+                  w.ALL_TIME_STATS.malwares || (w.ALL_TIME_STATS.malwares = 0),
+                  w.ALL_TIME_STATS.scams || (w.ALL_TIME_STATS.scams = 0),
+                  void (w.ALL_TIME_STATS.content || (w.ALL_TIME_STATS.content = 0))
+                );
               const t = Object.entries(a),
                 s = {
                   ads: t.reduce((e, a) => e + a[1].ads, 0),
@@ -1625,8 +1697,8 @@
                   console.debug("STATS: Rolling 30 days stats"), (w.ALL_TIME_STATS = s);
               }
               (w.ALL_TIME_STATS_LOADED = !0),
-                r.chrome.storage.sync.set({ savedOldUserStats: !0 }),
-                r.chrome.storage.sync.set({ allTimeStats: s });
+                r.chrome.storage.local.set({ savedOldUserStats: !0 }),
+                r.chrome.storage.local.set({ allTimeStats: s });
             });
           }),
           (w.msgAllStatsGet = (e) => (
@@ -1644,17 +1716,15 @@
           (w.msgTabDataGet = (e, a) => {
             try {
               let t = w.TABS[a.payload];
-              e(
-                t
-                  ? {
-                      success: {
-                        host: t.site.friendlyUrl || t.site.host,
-                        blocked: w.appendHeuristicAds(t.site.host, t.blocked) && w.appendEasylistAds(t.site.host, t.blocked),
-                        excluded: w.EXCLUSION_INDIVIDUAL[t.site.host] || {}
-                      }
+              t && t.site
+                ? e({
+                    success: {
+                      host: t.site.friendlyUrl || t.site.host,
+                      blocked: w.appendHeuristicAds(t.site.host, t.blocked) && w.appendEasylistAds(t.site.host, t.blocked),
+                      excluded: w.EXCLUSION_INDIVIDUAL[t.site.host] || {}
                     }
-                  : { error: "Background replied: No tab data defined for: " + a.payload + "!" }
-              );
+                  })
+                : e({ error: "Background replied: No tab data defined for: " + a.payload + "!" });
             } catch (a) {
               e({ error: "Data get failed. Background replied: " + a.message });
             }
@@ -1676,7 +1746,7 @@
           )),
           (w.getIsOldUser = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.get("savedOldUserStats", function (t) {
+              r.chrome.storage.local.get("savedOldUserStats", function (t) {
                 if (r.chrome.runtime.lastError) a(r.chrome.runtime.lastError);
                 else {
                   const a = t.savedOldUserStats || !1;
@@ -1696,7 +1766,7 @@
             !0
           )),
           (w.msgSettingsSet = (e, a, t) => (
-            a || t.payload.hasOwnProperty(c.ac)
+            a || t.payload.hasOwnProperty(S.dc)
               ? w.settingsSet(t.payload).then(
                   function (a) {
                     e({ success: a });
@@ -1729,7 +1799,7 @@
               ? t.host
                 ? ((w.EXCLUSION_TEMPORARY = { host: (0, i.M)(t.host), tab: t.initiator }),
                   console.log("Temporary exclusion set up for " + t.host + " (tab " + t.initiator + " initiated this)"),
-                  !1 !== w.SETTINGS.sendTelemetry && (0, y.c)(t.exclusion, c.f, t.host),
+                  !1 !== w.SETTINGS.sendTelemetry && (0, y.c)(t.exclusion, S.f, t.host),
                   te(),
                   e({ success: !0 }))
                 : e({ error: "No host supplied" })
@@ -1738,7 +1808,7 @@
           )),
           (w.msgAddAllow = (e, a, { payload: t }, s) => {
             let r = !1;
-            if (((0, i.M)(s.url) == t.host && ((t.allow = c.e), (r = !0)), a || r)) {
+            if (((0, i.M)(s.url) == t.host && ((t.allow = S.e), (r = !0)), a || r)) {
               const a = (0, i.M)(t.host);
               A.a
                 .exclude(a, t.allow)
@@ -1748,8 +1818,8 @@
                     s.error
                       ? (console.error("MAA: Rejecting AddAllow Message:", s.error), e({ error: s }))
                       : (e(s),
-                        t.allow !== c.b && w.postNativeExclusion(a, !0, !0),
-                        !1 === w.SETTINGS.sendTelemetry || t.fromAllowTab || (0, y.c)(t.allow, c.f, t.host));
+                        t.allow !== S.b && w.postNativeExclusion(a, !0, !0),
+                        !1 === w.SETTINGS.sendTelemetry || t.fromAllowTab || (0, y.c)(t.allow, S.f, t.host));
                 })
                 .catch((a) => {
                   console.error("Rejecting AddAllow Message: ", a), e({ error: a });
@@ -1928,7 +1998,7 @@
               console.log("MDL: Content Control Items: ", JSON.stringify(r));
             let T = "";
             try {
-              ce(),
+              Se(),
                 console.debug("MDL: Getting logs - log local db info"),
                 await w.logLocalDbInfo(),
                 a
@@ -2106,7 +2176,7 @@
             if (w.isOwnExtensionPage(e)) return console.debug("IDS: Skipped a scam scan for own event page"), !1;
             const s = (0, i.M)(a);
             if (s && (0, M.c)(s, L)) return console.logOnce(a, "IDS: Skipped a scam scan for ip literal ", a), !1;
-            if (w.isProtectionActive(c.e, e, a, t)) {
+            if (w.isProtectionActive(S.e, e, a, t)) {
               let a = w.isWhitelistedScams(e);
               return (
                 a
@@ -2144,12 +2214,12 @@
             if (w.isExcludedTemporarily(a, s)) return console.log("IPA: Determined false - temporary exclusion active"), !1;
             let r = w.isDomainValueOverriddenSync(e, a, A.a.EXCLUSIONS);
             switch (e) {
-              case c.b:
-                return w.isProtectionActive_determination(c.b, w.SETTINGS.enableProtectionAds, a, r);
-              case c.e:
-                return w.isProtectionActive_determination(c.e, w.SETTINGS.enableProtectionScams, a, r);
-              case c.c:
-                return w.isProtectionActive_determination(c.c, w.SETTINGS.enableProtectionMalware, a, r);
+              case S.b:
+                return w.isProtectionActive_determination(S.b, w.SETTINGS.enableProtectionAds, a, r);
+              case S.e:
+                return w.isProtectionActive_determination(S.e, w.SETTINGS.enableProtectionScams, a, r);
+              case S.c:
+                return w.isProtectionActive_determination(S.c, w.SETTINGS.enableProtectionMalware, a, r);
               default:
                 return console.error("Unhandled case '" + e + "' in isProtectionActive"), !0;
             }
@@ -2295,13 +2365,41 @@
                 );
           }),
           (w.isWhitelistedAds = (e) => w.isWhitelisted(e, w.DATABASES.whitelist_ads, "Ads")),
-          (w.queryFeatureFlag = (e) => w.FEATURE_FLAGS[e]),
-          (w.msgEasylistElementsToHide = (e, a, t) => ({
-            ids: w.DATABASES.easylist.ids,
-            classes: w.DATABASES.easylist.classes,
-            tags: w.DATABASES.easylist.tags,
-            selectors: w.DATABASES.easylist.selectors
-          })),
+          (w.queryFeatureFlag = (e) => ({ isEnabled: w.FEATURE_FLAGS[e] })),
+          (w.msgEasylistElementsToHide = (e, a, t) => {
+            if (((a = (0, i.h)(a)), w.DATABASES.whitelist_tracker)) {
+              const e = w.DATABASES.whitelist_tracker.data;
+              for (let t of e)
+                if (t.host === a && t.tracker.startsWith("easylist")) {
+                  if ("easylist" === t.tracker)
+                    return (
+                      console.debug("MEETH: Site is whitelisted by a 'whitelist_tracker' entry for " + a),
+                      { ids: [], classes: [], tags: [], selectors: [] }
+                    );
+                  {
+                    const e = t.tracker.split("|");
+                    if (2 == e.length) {
+                      console.debug(`MEETH: Site is whitelisted by a 'whitelist_tracker' entry for [${a}:${e[1]}]`);
+                      const t = e[1].split(",");
+                      return {
+                        ids: w.DATABASES.easylist.ids.filter((e) => !t.includes(e)),
+                        classes: w.DATABASES.easylist.classes.filter((e) => !t.includes(e)),
+                        tags: w.DATABASES.easylist.tags.filter((e) => !t.includes(e)),
+                        selectors: w.DATABASES.easylist.selectors.filter((e) => !t.includes(e))
+                      };
+                    }
+                  }
+                }
+            }
+            return {
+              ids: w.DATABASES.easylist.ids,
+              classes: w.DATABASES.easylist.classes,
+              tags: w.DATABASES.easylist.tags,
+              selectors: w.DATABASES.easylist.selectors,
+              exception_rules: w.DATABASES.easylist.exception_rules[a] || [],
+              specific_hide: w.DATABASES.easylist.specific_hide[a] || []
+            };
+          }),
           (w.tryNewTab = ({ tabId: e, url: a, sld: t, domains: s }) => {
             if (e && e > -1)
               if (w.TABS[e]) {
@@ -2353,9 +2451,9 @@
                     let t = !1;
                     !0 === (await w.settingsGet("enableProtection")) &&
                       (t =
-                        (await w.isProtectionActive(c.c, a.url, a.url, e)) ||
-                        (await w.isProtectionActive(c.e, a.url, a.url, e)) ||
-                        (await w.isProtectionActive(c.b, a.url, a.url, e))),
+                        (await w.isProtectionActive(S.c, a.url, a.url, e)) ||
+                        (await w.isProtectionActive(S.e, a.url, a.url, e)) ||
+                        (await w.isProtectionActive(S.b, a.url, a.url, e))),
                       w.setBGIcon(e, t);
                   }
                 })
@@ -2418,6 +2516,11 @@
                 console.debug("BTW: Monthly notification display triggered"),
                 { redirectUrl: r.chrome.runtime.getURL("app/eventpages/debugger.html?action=trigger-monthly-notification") }
               );
+            if ("trigger-shell-notification" === t)
+              return (
+                console.debug("BTW: Shell notification display triggered"),
+                { redirectUrl: r.chrome.runtime.getURL("app/eventpages/debugger.html?action=trigger-shell-notification") }
+              );
             if ("toggle-reputation" === t) {
               console.debug("BTW: Toggling Reputation DB state");
               const e = w.debugToggleRepuationDB() ? "on" : "off";
@@ -2439,6 +2542,11 @@
                 console.debug("BTW: Test Channel Update Page"),
                 { redirectUrl: r.chrome.runtime.getURL("app/eventpages/debugger.html?action=test-channel-update") }
               );
+            if ("staging-channel-update" === t)
+              return (
+                console.debug("BTW: Staging Channel Update Page"),
+                { redirectUrl: r.chrome.runtime.getURL("app/eventpages/debugger.html?action=staging-channel-update") }
+              );
             if ("old-stats" === t)
               return (
                 console.debug("BTW: Creating old stats to the detection history"),
@@ -2453,9 +2561,9 @@
               );
             if ("debug-add-allow" === t) {
               console.debug("BTW: Adding allow exclusions");
-              const e = [c.b, c.c, c.e, c.d];
+              const e = [S.b, S.c, S.e, S.d];
               return (
-                r.chrome.runtime.sendMessage({ type: c.r, payload: { host: "example.com", allow: e, fromAllowTab: !0 } }, function (e) {
+                r.chrome.runtime.sendMessage({ type: S.s, payload: { host: "example.com", allow: e, fromAllowTab: !0 } }, function (e) {
                   !e || e.error ? console.log("ERROR:", e.error) : console.log("Added");
                 }),
                 { redirectUrl: r.chrome.runtime.getURL("app/eventpages/debugger.html?action=debug-add-allow") }
@@ -2559,13 +2667,13 @@
                   if (
                     (A.a.getExclusions().then((e) => {
                       const a = !!e[y[1]] && e[y[1]].includes(6);
-                      if (!0 === w.FEATURE_FLAGS[c.j] && !(0, i.A)(d) && (0, i.A)(T)) {
+                      if (!0 === w.FEATURE_FLAGS[S.j] && !(0, i.A)(d) && (0, i.A)(T)) {
                         if (!a && !w.isWhitelistedScams(y[1]))
                           return console.log(`BTW: (NETWORK_BLOCK) ${d} is trying to reach local network at ${T}`), { cancel: !0 };
                         console.log("BTW: Port scanning disabled due to page is added to scam exclusions");
                       }
                     }),
-                    !0 === w.FEATURE_FLAGS[c.k] &&
+                    !0 === w.FEATURE_FLAGS[S.l] &&
                       !(
                         ("PUT" !== e.method && "POST" !== e.method) ||
                         (0, i.l)(d) === (0, i.l)(T) ||
@@ -2575,7 +2683,7 @@
                       ))
                   ) {
                     console.log(`BTW: ${e.url} is not in the white listed entries`);
-                    let a = w.TABS[e.tabId].site.url || "",
+                    let a = w.TABS[e.tabId].site ? w.TABS[e.tabId].site.url : "",
                       t = `phishing attempt found on ${d} for ${e.url}`,
                       s = new URL(e.url);
                     if (u.e.some((e) => s.hostname.endsWith(`.${e}`)))
@@ -2594,8 +2702,8 @@
                       );
                   }
                   const l = (0, i.L)(n),
-                    S = e.initiator || e.originUrl,
-                    b = (0, M.d)(e.url, l, S);
+                    c = e.initiator || e.originUrl,
+                    b = (0, M.d)(e.url, l, c);
                   let h,
                     g = [
                       { db: w.DATABASES.adware, name: "adware" },
@@ -2633,11 +2741,11 @@
                   let E,
                     _ = !e.isMainFrame && e.sld && w.TABS[e.tabId] && w.TABS[e.tabId].site && w.TABS[e.tabId].site.sld !== e.sld;
                   if (
-                    ((n = w.TABS[e.tabId].site.url),
+                    ((n = w.TABS[e.tabId].site ? w.TABS[e.tabId].site.url : ""),
                     (function (e, a, t, s, n) {
                       return (
                         (!e || !e.startsWith(`chrome-extension://${r.chrome.runtime.id}`)) &&
-                        !!w.isProtectionActive(c.b, e, a, s) &&
+                        !!w.isProtectionActive(S.b, e, a, s) &&
                         !w.isTrackerWhitelistedForDomain(s, a) &&
                         !w.isWhitelistedAds(a) &&
                         ((n && me(0, t, w.DATABASES.ads)) || m.s.some((e) => a.includes(e)))
@@ -2646,7 +2754,7 @@
                   )
                     return (function ({ tabId: e, url: a, domains: t, tabUrl: s, blockMessage: r }) {
                       const n = (0, i.M)(s);
-                      return w.isExcludedForDomain(c.b, n)
+                      return w.isExcludedForDomain(S.b, n)
                         ? {}
                         : w.EXCLUSION_INDIVIDUAL[n] && w.EXCLUSION_INDIVIDUAL[n][t[0]]
                         ? (console.log(`OA: Didn't block ${t[0]} because user excluded on this page`),
@@ -2662,7 +2770,7 @@
                     let a = e.url.replace("http://", "").replace("https://", "");
                     if (
                       (a.endsWith("/") && (a = a.substr(0, a.length - 1)),
-                      w.isProtectionActive(c.c, n, e.url, e.tabId) && !w.isWhitelistedMalware(e.url))
+                      w.isProtectionActive(S.c, n, e.url, e.tabId) && !w.isWhitelistedMalware(e.url))
                     )
                       if (w.DATABASES.malware_urls) {
                         if (
@@ -2673,7 +2781,7 @@
                         )
                           return ie({
                             tabId: e.tabId,
-                            tabURL: w.TABS[e.tabId] ? w.TABS[e.tabId].site.url : "",
+                            tabURL: w.TABS[e.tabId] && w.TABS[e.tabId].site ? w.TABS[e.tabId].site.url : "",
                             url: e.url,
                             type: "malware",
                             subtype: "full-url-malware",
@@ -2685,7 +2793,7 @@
                     console.warn("BTW: ERR checking mal-urls: ", e);
                   }
                   if (w.DATABASES.malware_partial_urls && (E = w.regexDbMatch(w.DATABASES.malware_partial_urls, e.url))) {
-                    if (w.isProtectionActive(c.e, n, n, e.tabId) && !w.isWhitelistedMalware(e.url)) {
+                    if (w.isProtectionActive(S.e, n, n, e.tabId) && !w.isWhitelistedMalware(e.url)) {
                       const a = Me("malware_partial_urls");
                       return (
                         (0, o.c)({ lastDBused: null }),
@@ -2710,7 +2818,7 @@
                       if ((E = w.regexDbMatch(w.DATABASES.malware_patterns, e.url)))
                         return Te({
                           tabId: e.tabId,
-                          tabURL: w.TABS[e.tabId] ? w.TABS[e.tabId].site.url : "",
+                          tabURL: w.TABS[e.tabId] && w.TABS[e.tabId].site ? w.TABS[e.tabId].site.url : "",
                           url: e.url,
                           type: "scam",
                           subtype: "malware-pattern",
@@ -2731,11 +2839,11 @@
                         isMainFrame: e.isMainFrame
                       });
                     console.debug(`BTW: NO scam (malware-reputation) match found for ${e.url} on ${n}`);
-                    const a = S && w.isWhitelistedScams(S),
-                      t = S && !w.isProtectionActive(c.e, S, S, e.tabId);
+                    const a = c && w.isWhitelistedScams(c),
+                      t = c && !w.isProtectionActive(S.e, c, c, e.tabId);
                     if (
                       (console.debug("BTW: Page file extension is safeFilePattern? ", b),
-                      w.SETTINGS.enableProtectionGtld && !b && w.RISKY_TLDS.includes((0, i.N)(e.url)) && !(0, M.a)(e.url, S, a || t))
+                      w.SETTINGS.enableProtectionGtld && !b && w.RISKY_TLDS.includes((0, i.N)(e.url)) && !(0, M.a)(e.url, c, a || t))
                     ) {
                       const a = `scam (risky-tld) match found for ${e.url} on ${n}`;
                       if (!w.isWhitelistedScams(e.url)) {
@@ -2749,7 +2857,7 @@
                               (w.TABS[e.tabId].lastScam = e.url),
                               (w.TABS[e.tabId].lastScamTime = new Date().getTime()),
                               console.log(`BTW: (PAGE_BLOCK) ${a}`),
-                              ce(),
+                              Se(),
                               ye(e.tabId, null, e.url, "scam", "suspiciousTLD", null)
                             );
                           (w.TABS[e.tabId].lastScam = e.url), (w.TABS[e.tabId].lastScamTime = new Date().getTime());
@@ -2786,7 +2894,7 @@
                     console.debug("BTW: NO high risk extension match found for " + n);
                   } else console.debug("BTW: Skipping scam scans");
                   e.sld && "youtube.com" !== e.sld.toLowerCase() && w.cacheSafeness(e.tabId, e.url && e.url.split("?")[0]),
-                    [e.url, S, n].forEach((e) => e && ae(e));
+                    [e.url, c, n].forEach((e) => e && ae(e));
                 } else console.log("BTW: Skipped scans. Settings is missing");
               }
             }
@@ -2795,7 +2903,7 @@
           }),
           (w.regexDbMatch = (e, a) => e && e.data && e.data.find((e) => e.test(a))),
           (w.isTrackerWhitelistedForDomain = (e, a) => {
-            let t = w.TABS[e].site.sld,
+            let t = w.TABS[e].site ? w.TABS[e].site.sld : "",
               s = (0, i.M)(a);
             return (
               s !== t && !!w.DATABASES.whitelist_tracker && w.DATABASES.whitelist_tracker.data.some((e) => e.host === t && e.tracker === s)
@@ -2835,7 +2943,7 @@
           }),
           (w.getUserGroup = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.get(["user_group"], function (t) {
+              r.chrome.storage.local.get(["user_group"], function (t) {
                 r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(t.user_group);
               });
             }).then((e) =>
@@ -2846,11 +2954,11 @@
             )),
           (w.determineUserGroup = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.set({ user_group: c.m }, () =>
-                r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(c.m)
+              r.chrome.storage.local.set({ user_group: S.n }, () =>
+                r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError.message) : e(S.n)
               );
             }).then((e) =>
-              e === c.m
+              e === S.n
                 ? w
                     .settingsGet("enableProtection")
                     .then((a) =>
@@ -2860,7 +2968,7 @@
             )),
           (w.getUserEmail = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.get(["user_email"], function (t) {
+              r.chrome.storage.local.get(["user_email"], function (t) {
                 r.chrome.runtime.lastError
                   ? a(r.chrome.runtime.lastError.message)
                   : t.user_email
@@ -2870,12 +2978,12 @@
             })),
           (w.userWelcomed = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.get(["user_welcomed"], (t) => {
+              r.chrome.storage.local.get(["user_welcomed"], (t) => {
                 if (r.chrome.runtime.lastError) return a(r.chrome.runtime.lastError.message);
                 t.user_welcomed
                   ? e(t.user_welcomed)
                   : void 0 === t.user_welcomed
-                  ? (r.chrome.storage.sync.set({ user_welcomed: !0 }, () => console.log("UW: Updated old user to having being welcomed")),
+                  ? (r.chrome.storage.local.set({ user_welcomed: !0 }, () => console.log("UW: Updated old user to having being welcomed")),
                     e(!0))
                   : a(new Error("No stored user_welcomed"));
               });
@@ -2886,10 +2994,10 @@
               .then(
                 (e) => (
                   console.debug("HFO: testing for user in group " + e),
-                  e === c.m
+                  e === S.n
                     ? w.userWelcomed().then(
-                        (e) => (console.debug("HFO: Yes - ", e), Promise.resolve({ result: !0, group: c.m })),
-                        (e) => (console.debug("HFO: No - ", e), Promise.resolve({ result: !1, group: c.m }))
+                        (e) => (console.debug("HFO: Yes - ", e), Promise.resolve({ result: !0, group: S.n })),
+                        (e) => (console.debug("HFO: No - ", e), Promise.resolve({ result: !1, group: S.n }))
                       )
                     : w.getUserEmail().then(
                         (e) => (console.debug("HFO: Yes - " + e), Promise.resolve(!0)),
@@ -2900,9 +3008,9 @@
               .catch((e) => (console.error("Failed to check hasFinishedOnboarding: ", e), Promise.reject(e)))),
           (w.migrate_excludeTypeConvert = (e) =>
             "malware/scams" === e
-              ? c.c + "," + c.e
+              ? S.c + "," + S.e
               : "ads/clickbait" === e
-              ? c.b
+              ? S.b
               : (console.error("Don't know how to convert '" + e + "' to consts"), null)),
           (w.migrate_exclude = (e) => w.exclude(e.data, w.migrate_excludeTypeConvert(e.category))),
           (w.migrate = () => {
@@ -2926,7 +3034,7 @@
               });
           }),
           r.chrome.runtime.onConnect.addListener((e) => {
-            e.name === c.Tb &&
+            e.name === S.Wb &&
               e.onDisconnect.addListener(function () {
                 r.chrome.tabs.query({ active: !0, currentWindow: !0 }, function (e) {
                   setTimeout(r.chrome.tabs.update, 500, e[0].id, { url: e[0].url || e[0].pendingUrl }), (w.SAFE_CACHE = {});
@@ -2939,13 +3047,13 @@
           }),
           (w.getInstallationDate = () =>
             new Promise((e, a) => {
-              r.chrome.storage.sync.get("installationDate", function (t) {
+              r.chrome.storage.local.get("installationDate", function (t) {
                 r.chrome.runtime.lastError ? a(r.chrome.runtime.lastError) : e(t.installationDate);
               });
             })),
           (w.setInstallationDate = (e) =>
             new Promise((a, t) => {
-              r.chrome.storage.sync.set({ installationDate: e }, () =>
+              r.chrome.storage.local.set({ installationDate: e }, () =>
                 r.chrome.runtime.lastError
                   ? console.error("Error saving the installation date", r.chrome.runtime.lastError.message)
                   : console.log("Installation date successfully saved: ", e)
@@ -2955,7 +3063,7 @@
             const e = { ads: 0, malwares: 0, scams: 0, content: 0 };
             return (
               (w.ALL_TIME_STATS = e),
-              r.chrome.storage.sync.set({ allTimeStats: e }, () =>
+              r.chrome.storage.local.set({ allTimeStats: e }, () =>
                 r.chrome.runtime.lastError
                   ? console.error("Error saving the installation date", r.chrome.runtime.lastError.message)
                   : console.log("All time stats info reseted!")
@@ -2969,8 +3077,8 @@
             ),
               w.newUUIDSync(),
               (w.SHOULD_SHOW_WELCOME = !0),
-              r.chrome.storage.sync.set({ user_welcomed: !1 }, () => console.debug("INI: Set user_welcomed to false")),
-              r.chrome.storage.sync.set({ user_group: c.m }, () =>
+              r.chrome.storage.local.set({ user_welcomed: !1 }, () => console.debug("INI: Set user_welcomed to false")),
+              r.chrome.storage.local.set({ user_group: S.n }, () =>
                 r.chrome.runtime.lastError
                   ? console.error("Error forcing Group_A", r.chrome.runtime.lastError.message)
                   : console.log("Upgraded account forced into Group_A")
@@ -2996,7 +3104,7 @@
             ),
               e.previousVersion <= "1.0.47" &&
                 (w.migrate(),
-                r.chrome.storage.sync.set({ user_group: c.m }, () =>
+                r.chrome.storage.local.set({ user_group: S.n }, () =>
                   r.chrome.runtime.lastError
                     ? console.error("Error forcing Group_A", r.chrome.runtime.lastError.message)
                     : console.log("Upgraded account forced into Group_A")
@@ -3062,7 +3170,9 @@
                 (t.onupgradeneeded = () => {
                   (s = t.result), (d = s.createObjectStore(R, { keyPath: "logs" }));
                 }),
-                  (t.onerror = a),
+                  (t.onerror = (e) => {
+                    console.error("LTI: error opening log IDB: ", e), a(null);
+                  }),
                   (t.onsuccess = async () => {
                     (s = t.result), (n = s.transaction(R, "readwrite")), (d = n.objectStore(R)), (s.onerror = a);
                     let r = await w.logGet(d);
@@ -3103,13 +3213,13 @@
               a(t, "INFO"), e.log(...t);
             },
             warn: (...t) => {
-              w.settingsGet(c.ec).then((e) => {
+              w.settingsGet(S.hc).then((e) => {
                 e && a(t, "WARN");
               }),
                 e.warn(...t);
             },
             debug: (...t) => {
-              w.settingsGet(c.ec).then((e) => {
+              w.settingsGet(S.hc).then((e) => {
                 e && a(t, "DEBUG");
               }),
                 e.debug(...t);
@@ -3125,7 +3235,7 @@
             w.LOGGED_URLS.has(e) ? console.debug(...a) : (console.log(...a), ae(e));
           }),
           r.chrome.runtime.onConnect.addListener((e) => {
-            e.name === c.Rb && w.handleForceDatabaseUpdate(e);
+            e.name === S.Ub && w.handleForceDatabaseUpdate(e);
           }),
           r.chrome.runtime.onMessage.addListener((e, a, t) => {
             let s =
@@ -3135,163 +3245,175 @@
               (void 0 !== typeof browser && a.tab.url.startsWith("moz-extension://" + r.chrome.i18n.getMessage("@@extension_id"))) ||
               (void 0 !== typeof browser && a.url.startsWith("moz-extension://" + r.chrome.i18n.getMessage("@@extension_id")));
             switch (e.type) {
-              case c.Eb:
+              case S.Hb:
                 return w.onEmailScreenShown(), !1;
-              case c.Db:
+              case S.Gb:
                 return w.onEmailSubmitSucceeds(), !1;
-              case c.Cb:
+              case S.Fb:
                 return w.onEmailSubmitFails(), !1;
-              case c.M:
+              case S.P:
                 return (
                   t({ success: !0 }), e.obj ? console.log("SF: " + e.payload, JSON.stringify(e.obj)) : console.log("SF: " + e.payload), !1
                 );
-              case c.S:
+              case S.V:
                 return w.iconRefreshAll(), t({ success: !0 }), !1;
-              case c.T:
+              case S.W:
                 return w.msgIconRefresh(t, a && a.tab ? a.tab.id : null);
-              case c.ob:
+              case S.rb:
                 return w.msgRecordsGet(t, e);
-              case c.P:
+              case S.S:
                 return w.msgAllStatsGet(t);
-              case c.Jb:
+              case S.Mb:
                 return w.msgWebsiteCheckboxGet(t, e);
-              case c.yb:
+              case S.Bb:
                 return w.msgSetAllowGranular(t, e);
-              case c.O:
+              case S.R:
                 return w.msgGetAllowGranular(t, e);
-              case c.zb:
+              case S.Cb:
                 return w.msgTabDataGet(t, e);
-              case c.Ab:
-                return t({ tabId: a.tab.id }), !0;
-              case c.Bb:
-                return (
-                  r.chrome.tabs.query({ active: !0, currentWindow: !0 }, (e) => {
-                    t({ id: e[0].id, url: e[0].url });
-                  }),
-                  !0
-                );
-              case c.$:
+              case S.Db:
+                return a && a.tab && t({ tabId: a.tab.id }), !0;
+              case S.Eb:
+                return a && a.tab && t({ id: a.tab.id, url: a.tab.url }), !0;
+              case S.cb:
                 return w.msgIsNeedingNativeMsg(t, e), !0;
-              case c.Fb:
+              case S.Ib:
                 return w.msgToggleNativeMsg(t, e), !0;
-              case c.cb:
+              case S.fb:
                 return w.msgIsPremium(t);
-              case c.db:
+              case S.gb:
                 return w.msgIsTrial(t);
-              case c.wb:
+              case S.zb:
                 return w.msgSettingsGet(t, e);
-              case c.xb:
+              case S.Ab:
                 return w.msgSettingsSet(t, s, e);
-              case c.A:
+              case S.B:
                 return w.msgDbgAddStats(t, s);
-              case c.B:
+              case S.C:
                 return w.msgDbgClearStats(t, s);
-              case c.ub:
+              case S.xb:
                 return w.msgRemAllowSingle(t, s, e);
-              case c.r:
+              case S.s:
                 return w.msgAddAllow(t, s, e, a);
-              case c.q:
+              case S.r:
                 return !!(0, i.z)() || w.msgAddAllowTemporary(t, s, e);
-              case c.p:
+              case S.q:
                 return w.msgAddAllowMetaOnly(t, s, e);
-              case c.s:
+              case S.t:
                 return w.msgAllowGetAll(t);
-              case c.t:
+              case S.u:
                 return w.msgAllowGetSingle(t, e);
-              case c.tb:
+              case S.wb:
                 return w.msgRemAllowDomain(t, s, e);
-              case c.sb:
+              case S.vb:
                 return w.msgRemAllowAll(t);
-              case c.x:
+              case S.y:
                 return w.msgContentControlGetAll(t);
-              case c.z:
+              case S.A:
                 return w.msgContentControlRemoveItem(t, e);
-              case c.w:
+              case S.x:
                 return w.msgContentControlAddItem(t, e);
-              case c.y:
+              case S.z:
                 return w.msgContentControlRemoveAll(t);
-              case c.H:
+              case S.K:
                 return w.msgDetectionHistoryGetAll(t);
-              case c.G:
+              case S.J:
                 return w.msgDetectionHistoryAddItem(t, e);
-              case c.I:
+              case S.L:
                 return w.msgDetectionHistoryRemoveAll(t);
-              case c.J:
+              case S.M:
                 return w.msgDetectionHistoryRemoveItem(t, e);
-              case c.bb:
+              case S.eb:
                 return w.msgIsOnboardingComplete(t);
-              case c.Hb:
+              case S.Kb:
                 return w.msgUserGroupGet(t);
-              case c.Ib:
+              case S.Lb:
                 return w.msgUuidGet(t);
-              case c.Y:
+              case S.$:
                 return w.msgIntVer(t);
-              case c._:
+              case S.bb:
                 return w.msgIsLayerActive(t, s, e, a && a.tab ? a.tab.id : null);
-              case c.K:
+              case S.N:
                 return w.msgDownloadLogs(t, e.fullLog), !0;
-              case c.u:
+              case S.v:
                 return w.updateBadgeCount(e.tabId), !0;
-              case c.pb:
+              case S.sb:
                 return (
                   console.debug(`FBADS: BLOCKING AD AT TABID: ${e.tabId} DOMAIN: "${e.domain}" tabUrl: ${e.domain}`),
                   w.recordAll(e.recordType, e.tabId, e.domain, e.domain, !0),
                   !0
                 );
-              case c.Z:
-                console.debug(`FBADS: CHECKING FOR ACTIVE PROTECTION AT TABID: ${e.tabId} DOMAIN: "${e.domain}" tabUrl: ${e.domain}`);
-                const n =
-                  w.isProtectionActive(c.b, e.domain, e.domain, e.tabId) &&
-                  !w.isHeuristicAdsIndividualExcluded((0, i.M)(e.domain)) &&
-                  !w.isEasyListAdsIndividualExcluded((0, i.M)(e.domain));
-                return t({ isActive: n }), !0;
-              case c.Q:
+              case S.ab:
+                return (
+                  console.debug(`FBADS: CHECKING FOR ACTIVE PROTECTION AT TABID: ${e.tabId} DOMAIN: "${e.domain}" tabUrl: ${e.domain}`),
+                  t({
+                    isActive:
+                      w.isProtectionActive(S.b, e.domain, e.domain, e.tabId) &&
+                      !w.isHeuristicAdsIndividualExcluded((0, i.M)(e.domain)) &&
+                      !w.isEasyListAdsIndividualExcluded((0, i.M)(e.domain))
+                  }),
+                  !0
+                );
+              case S.T:
                 return w.msgGetBlockedItems(t), !0;
-              case c.F:
+              case S.I:
                 return w.msgDeleteBlockedItem(e.url, t), !0;
-              case c.E:
+              case S.H:
                 return w.deleteAllBlockedItems(e, t), !0;
-              case c.vb:
+              case S.yb:
                 return w.resetExtension(), !0;
-              case c.qb:
+              case S.tb:
                 return w.recordContentAd(e), !0;
-              case c.rb:
+              case S.ub:
                 return w.recordEasylistAd(e), !0;
-              case c.mb:
+              case S.pb:
                 return w.msgToggleMV3Protection(e.enable, t), !0;
-              case c.lb:
+              case S.ob:
                 return w.msgToggleMV3IndividualProtection(e.enable, e.protection, t), !0;
-              case c.kb:
+              case S.nb:
                 return w.msgToggleMV3GTLDProtection(e.enable, t), !0;
-              case c.Gb:
+              case S.Jb:
                 return w.msgToggleVerboseLogging(e.enable, t), !0;
-              case c.ab:
+              case S.db:
                 return w.msgIsNewFeatureSeen(t);
-              case c.gb:
+              case S.jb:
                 return w.msgMarkNewFeatureSeen(e.feature, t);
-              case c.V:
+              case S.Y:
                 return (
                   (w.TAB_MALWARE_NOTIFIED[e.payload.tabId] = w.TAB_MALWARE_NOTIFIED[e.payload.tabId] || new Set()),
                   w.TAB_MALWARE_NOTIFIED[e.payload.tabId].add(e.payload.host),
                   !0
                 );
-              case c.L:
+              case S.O:
                 return w.msgExportSettings(e.config, t), !0;
-              case c.U:
+              case S.X:
                 return w.msgImportSettings(e.data, t), !0;
-              case c.eb:
+              case S.hb:
                 return t(w.isWhitelistedScams(e.payload.domain)), !0;
-              case c.D:
+              case S.G:
                 return t(w.updateUsingTestChannel()), !0;
-              case c.v:
+              case S.E:
+                return t(w.updateUsingStagingChannel()), !0;
+              case S.w:
                 return w.iconRefreshAll(), !0;
-              case c.nb:
+              case S.qb:
                 return t(w.queryFeatureFlag(e.payload.feature)), !0;
-              case c.fb:
+              case S.ib:
                 return r.chrome.tabs.executeScript(e.tabId, { code: e.source }), !0;
-              case c.R:
-                let d = w.msgEasylistElementsToHide(e.parameters.tabId, e.parameters.domain, e.parameters.url);
-                return t({ tabId: e.parameters.tabId, ids: d.ids, classes: d.classes, tags: d.tags, selectors: d.selectors }), !0;
+              case S.U:
+                let n = w.msgEasylistElementsToHide(e.parameters.tabId, e.parameters.domain, e.parameters.url);
+                return (
+                  t({
+                    tabId: e.parameters.tabId,
+                    ids: n.ids,
+                    classes: n.classes,
+                    tags: n.tags,
+                    selectors: n.selectors,
+                    exception_rules: n.exception_rules,
+                    specific_hide: n.specific_hide
+                  }),
+                  !0
+                );
               default:
                 "isExcluded" === e.type ||
                   "detection" === e.type ||
@@ -3367,10 +3489,10 @@
           if (!w || !w.READY_TO_ACCEPT_REQUESTS) return void console.log("REQ: Download request deferred - extension is being initialized");
           let a = re[e];
           if (!a) return;
-          let { url: t, finalUrl: n, mime: d, referrer: T, filename: y, blocked: S } = a;
+          let { url: t, finalUrl: n, mime: d, referrer: T, filename: y, blocked: c } = a;
           if ((0, i.K)(n || t).some((e) => w.ALWAYS_ALLOW[e]))
             return console.log("ODE: Skipped heuristics for always allowed site ", n || t);
-          if (S) return console.debug("ODE: Detected an already-blocked download: ", a);
+          if (c) return console.debug("ODE: Detected an already-blocked download: ", a);
           const b = await new Promise((e) => r.chrome.tabs.query({ currentWindow: !0, active: !0 }, (a) => e(a[0])));
           let h;
           T = T || (b && b.url);
@@ -3394,7 +3516,7 @@
             })
           )
             return console.log("ODE: Skipping download heuristics due to safe referral");
-          if ([T, t, n].some((e) => e && !w.isProtectionActive(c.e, e, e))) return console.log("ODE: protection is not active on page");
+          if ([T, t, n].some((e) => e && !w.isProtectionActive(S.e, e, e))) return console.log("ODE: protection is not active on page");
           const f = b && b.id;
           if ([T, t, n].some((e) => e && w.isExcludedTemporarily(e, f)))
             return console.log("ODE: Detected a temporarily excluded download: ", a);
@@ -3615,14 +3737,14 @@
               blockedHistory: r
             }),
               (w.TABS[e].meta.history = w.TABS[e].meta.history.filter((e) => Date.now() - 1e4 <= e.timestamp)),
-              w.TABS[e].meta.history.push({ url: w.TABS[e].site.url, timestamp: w.TABS[e].meta.timestamp });
+              w.TABS[e].meta.history.push({ url: w.TABS[e].site ? w.TABS[e].site.url : "", timestamp: w.TABS[e].meta.timestamp });
           } else console.debug("Error: tab " + e + " less than 0 (Not Adding)");
         }
         function ie({ tabId: e, tabURL: a, url: t, type: s, subtype: n, rule: d, blockMessage: o, isMainFrame: T }) {
           let y = w.TABS[e] ? w.TABS[e].meta.history.map((e) => e.url) : [a];
           const m = (0, i.M)(a),
             u = (0, i.M)(t);
-          if (w.isExcludedForDomain(c.c, m)) return {};
+          if (w.isExcludedForDomain(S.c, m)) return {};
           if (w.EXCLUSION_INDIVIDUAL[m] && w.EXCLUSION_INDIVIDUAL[m][u])
             return (
               console.logOnce(t, `OM: Didn't block ${u} because user excluded on this page`),
@@ -3632,21 +3754,21 @@
             );
           const l = Me(n);
           console.log(`OM: (PAGE_BLOCK) ${o}. ${l ? `Database: ${JSON.stringify(l)}` : ""}`),
-            ce(),
+            Se(),
             w.postNativeExclusion(t),
             w.recordAll(H, e, m, u, !0),
             w.updateBadgeCount(e);
           const M = { site: t, type: s, subtype: n, date: Date.now() };
           f.a.addItem(M), ne(s, n, t, a, y, d);
-          let S = (0, i.j)(null, t, s, n, e);
+          let c = (0, i.j)(null, t, s, n, e);
           return ["ws://", "wss://"].some((e) => t && t.startsWith(e)) || !T
             ? (console.log(`OM: (NETWORK_BLOCK) Malware (${s}) detection on ${t}. Cancelling Request.`),
               w.TAB_MALWARE_NOTIFIED[e] && w.TAB_MALWARE_NOTIFIED[e].has(m)
                 ? (console.log(`OM: (NETWORK_BLOCK) Malware (${u}) detection on ${t}. Already notified.`), { cancel: !0 })
-                : (r.chrome.tabs.sendMessage(e, { type: c.W, src: m, malware: u, tabId: e }), { cancel: !0 }))
+                : (r.chrome.tabs.sendMessage(e, { type: S.Z, src: m, malware: u, tabId: e }), { cancel: !0 }))
             : (console.log(`OM: Malware (${s}) detection on ${t}. Redirecting to block page.`),
-              e && "Edge" === (0, i.f)() && r.chrome.tabs.update(e, { url: S }),
-              { redirectUrl: S });
+              e && "Edge" === (0, i.f)() && r.chrome.tabs.update(e, { url: c }),
+              { redirectUrl: c });
         }
         function Te({ tabId: e, tabURL: a, referrer: t, url: s, type: r, subtype: n, filename: d, rule: o, blockMessage: T }) {
           let y,
@@ -3663,7 +3785,7 @@
           } catch (e) {
             m = s;
           }
-          if (w.isExcludedForDomain(c.e, y)) return {};
+          if (w.isExcludedForDomain(S.e, y)) return {};
           if (w.EXCLUSION_INDIVIDUAL[y] && w.EXCLUSION_INDIVIDUAL[y][m])
             return (
               console.logOnce(s, `OS: Didn't block ${m} because user excluded on this page`),
@@ -3671,7 +3793,7 @@
               w.updateBadgeCount(e),
               {}
             );
-          T && (console.log(`OS: (PAGE_BLOCK) ${T}`), ce()),
+          T && (console.log(`OS: (PAGE_BLOCK) ${T}`), Se()),
             w.postNativeExclusion(s),
             w.recordAll(N, e, a ? y : m, m, !0),
             w.updateBadgeCount(e);
@@ -3710,7 +3832,7 @@
               e.startsWith("moz-extension://" + r.chrome.i18n.getMessage("@@extension_id")))
           )
             return console.debug("IDM: Skipped a malware scan for own event page"), !1;
-          if (w.isProtectionActive(c.c, e, a, n)) {
+          if (w.isProtectionActive(S.c, e, a, n)) {
             if (me(0, t, s)) return !w.isWhitelistedMalware(a);
           } else console.log(`IDM: Determined no need to malware scan ${e} for ${a} (layer is inactive)`);
           return !1;
@@ -3736,10 +3858,10 @@
           const t = a.cleanName.charAt(0).toUpperCase() + a.cleanName.slice(1);
           return (0, o.c)({ lastDBused: `${t}: ${a.version}` }), { [a.cleanName]: a.version };
         }
-        function ce() {
+        function Se() {
           let e;
           w.DATABASES && (e = Object.keys(w.DATABASES).map((e) => ({ [e]: w.DATABASES[e].version })));
-          const a = { browser: (0, S.a)(), version: r.chrome.runtime.getManifest().version, build: w.INTERNAL_VERSION, databases: e };
+          const a = { browser: (0, c.a)(), version: r.chrome.runtime.getManifest().version, build: w.INTERNAL_VERSION, databases: e };
           console.log(`ENV: ${JSON.stringify(a)}`);
         }
         r.chrome.runtime.onMessage.addListener((e, a, t) => {
@@ -3800,10 +3922,10 @@
             const M = m ? "suspiciousContent" : "suspiciousDownload";
             (0, o.c)({ lastDBused: null }),
               Te({ tabId: e, tabURL: a, referrer: t, url: s, type: "scam", subtype: M, filename: n, rule: y || `${F}${M}` });
-            let c = (0, i.j)(t, s, "scam", M, e, n);
-            if ((T && (c += "&rules=specific"), l && (console.log(`OSD: ${u} ${l}`), ce()), d))
-              return console.debug("OSD: Redirecting download tab for scam"), { redirectUrl: c };
-            console.debug("OSD: Creating download block tab for scam"), r.chrome.tabs.create({ url: c, active: !0 });
+            let S = (0, i.j)(t, s, "scam", M, e, n);
+            if ((T && (S += "&rules=specific"), l && (console.log(`OSD: ${u} ${l}`), Se()), d))
+              return console.debug("OSD: Redirecting download tab for scam"), { redirectUrl: S };
+            console.debug("OSD: Creating download block tab for scam"), r.chrome.tabs.create({ url: S, active: !0 });
           }),
           r.chrome.downloads &&
             r.chrome.downloads.onCreated.addListener((e) => {
@@ -3846,10 +3968,11 @@
             }),
           (w.updateBadgeCount = (e) => {
             e &&
-              w.settingsGet(c.Vb).then((a) => {
+              w.TABS[e] &&
+              w.settingsGet(S.Yb).then((a) => {
                 if ((console.debug("UBC: Block Count Enabled: ", a), !1 === a)) return;
                 let t = 0;
-                const s = w.TABS[e].site.host,
+                const s = w.TABS[e].site ? w.TABS[e].site.host : "",
                   r = w.TABS[e].blocked.ads[s],
                   n = w.TABS[e].blocked.scams[s],
                   d = w.TABS[e].blocked.malware[s],
@@ -3918,12 +4041,12 @@
           (w.recordEasylistAd = async (e) => {
             e && (w.recordAll(v, e.tabId, (0, i.M)(e.tabUrl), "easylist-ad-block", !0), w.updateBadgeCount(e.tabId));
           });
-        const Se = w.init;
+        const ce = w.init;
       },
       5693: (e, a, t) => {
         "use strict";
         t.d(a, { a: () => s });
-        const s = 722;
+        const s = 757;
       },
       3932: (e, a, t) => {
         "use strict";
@@ -4051,7 +4174,7 @@
           }
           async _itemsFromStorage() {
             return new Promise((e, a) => {
-              (r.chrome.storage.sync || r.chrome.storage.local).get("contentControls", (t) => {
+              r.chrome.storage.local.get("contentControls", (t) => {
                 r.chrome.runtime.lastError
                   ? (console.error("Error getting content controls from storage", r.chrome.runtime.lastError),
                     a(r.chrome.runtime.lastError))
@@ -4061,7 +4184,7 @@
           }
           async _saveItemsToStorage(e) {
             return new Promise((a, t) => {
-              (r.chrome.storage.sync || r.chrome.storage.local).set({ contentControls: e }, () => {
+              r.chrome.storage.local.set({ contentControls: e }, () => {
                 r.chrome.runtime.lastError
                   ? (console.error("Error saving content controls to storage", r.chrome.runtime.lastError), t(r.chrome.runtime.lastError))
                   : a();
@@ -4119,7 +4242,7 @@
           async deleteItem(e, a) {
             const t = (await this.loadSavedItems()).filter((t) => t.site !== e && t.date !== a);
             return new Promise((e, a) => {
-              (r.chrome.storage.sync || r.chrome.storage.local).set({ detectionHistory: t }, () => {
+              r.chrome.storage.local.set({ detectionHistory: t }, () => {
                 r.chrome.runtime.lastError
                   ? (console.error("Error deleting the history to storage", r.chrome.runtime.lastError), a(r.chrome.runtime.lastError))
                   : e(!0);
@@ -4128,7 +4251,7 @@
           }
           async deleteAllItems() {
             return new Promise((e, a) => {
-              (r.chrome.storage.sync || r.chrome.storage.local).set({ detectionHistory: [] }, () => {
+              r.chrome.storage.local.set({ detectionHistory: [] }, () => {
                 r.chrome.runtime.lastError
                   ? (console.error("Error deleting the history to storage", r.chrome.runtime.lastError), a(r.chrome.runtime.lastError))
                   : e(!0);
@@ -4147,7 +4270,7 @@
           }
           async _itemsFromStorage() {
             return new Promise((e, a) => {
-              (r.chrome.storage.sync || r.chrome.storage.local).get("detectionHistory", (t) => {
+              r.chrome.storage.local.get("detectionHistory", (t) => {
                 r.chrome.runtime.lastError
                   ? (console.error("Error getting detection history from storage", r.chrome.runtime.lastError),
                     a(r.chrome.runtime.lastError))
@@ -4158,7 +4281,7 @@
           async _saveItemToStorage(e) {
             const a = (await this._itemsFromStorage()) || [];
             return new Promise((t, s) => {
-              (r.chrome.storage.sync || r.chrome.storage.local).set({ detectionHistory: [e, ...a] }, () => {
+              r.chrome.storage.local.set({ detectionHistory: [e, ...a] }, () => {
                 r.chrome.runtime.lastError
                   ? (console.error("Error saving detection history item to storage", r.chrome.runtime.lastError),
                     s(r.chrome.runtime.lastError))
@@ -4285,7 +4408,7 @@
           }
           getExclusions_getExclusionsByNames(e) {
             return new Promise((a, t) => {
-              s.chrome.storage.sync.get(e, function (e) {
+              s.chrome.storage.local.get(e, function (e) {
                 s.chrome.runtime.lastError ? t({ error: s.chrome.runtime.lastError.message }) : a(e);
               });
             });
@@ -4301,7 +4424,9 @@
               .then((t) => ((a = t), (e = e.toLowerCase()), console.debug("RMX: On GetExistingData"), this.getExclusionsForHost(e)))
               .then((t) => this.exclude_removeExclusions(e, t, a))
               .then((s) =>
-                t && !0 === t
+                null == s
+                  ? Promise.resolve(null)
+                  : t && !0 === t
                   ? (console.log("RMX: OnMergeExclusions for Add"), this.exclude_mergeExclusions(e, s, a, !1))
                   : Promise.resolve(s)
               )
@@ -4311,6 +4436,7 @@
               .then((e) => ((s = e), console.debug("EXC: On GetExclusionsNode"), this.exclude_getExclusionsNode()))
               .then((a) => (console.debug("EXC: On AddKeyToExclusionsIndex"), this.exclude_addKeyToExclusionsIndex(e, a)))
               .then((e) => (console.debug("EXC: On SetExclusionsNode"), this.exclude_setExclusionsNode(e, s)))
+              .then((a) => (!0 === a && delete this.EXCLUSIONS[e], Promise.resolve(a)))
               .catch((e) => Promise.reject(e));
           }
           removeExclusions(e) {
@@ -4346,7 +4472,7 @@
           }
           exclude_getExclusionsNode() {
             return new Promise((e, a) => {
-              s.chrome.storage.sync.get(["exclusions"], function (t) {
+              s.chrome.storage.local.get(["exclusions"], function (t) {
                 s.chrome.runtime.lastError
                   ? (console.debug("Rejecting GetExclusionsNode after datastore"), a({ error: s.chrome.runtime.lastError.message }))
                   : t && t.exclusions
@@ -4413,7 +4539,7 @@
           }
           exclude_setExclusionsNode(e, a) {
             return new Promise((t, r) => {
-              s.chrome.storage.sync.set({ exclusions: e }, function () {
+              s.chrome.storage.local.set({ exclusions: e }, function () {
                 s.chrome.runtime.lastError
                   ? (console.debug("Rejecting SetExclusionsNode"), r({ error: s.chrome.runtime.lastError.message }))
                   : t({ success: a || !0 });
@@ -4424,7 +4550,7 @@
             return new Promise((t, r) => {
               a
                 ? (console.debug("Updating the named node"),
-                  s.chrome.storage.sync.set({ [e]: a }, function () {
+                  s.chrome.storage.local.set({ [e]: a }, function () {
                     s.chrome.runtime.lastError
                       ? (console.debug("Rejecting SetNamedNode in datastore"), r({ error: s.chrome.runtime.lastError.message }))
                       : (console.debug("Resolving SetNamedNode in datastore"), t(a));
@@ -4447,7 +4573,7 @@
             return a
               ? (console.debug("Resolving GetExistingData from cache:"), console.debug(a), Promise.resolve(a))
               : new Promise((a, t) => {
-                  s.chrome.storage.sync.get([e], function (e) {
+                  s.chrome.storage.local.get([e], function (e) {
                     s.chrome.runtime.lastError
                       ? (console.debug("Rejecting GetExistingData after datastore"), t({ error: s.chrome.runtime.lastError.message }))
                       : a(e);
@@ -4456,7 +4582,7 @@
           }
           getIndividualExclusions() {
             return new Promise((e) => {
-              s.chrome.storage.sync.get(["exclusionIndividual"], ({ exclusionIndividual: a = {} }) => {
+              s.chrome.storage.local.get(["exclusionIndividual"], ({ exclusionIndividual: a = {} }) => {
                 (this.EXCLUSION_INDIVIDUAL = a), e();
               });
             });
@@ -4707,7 +4833,7 @@
           j: () => M,
           k: () => g,
           l: () => A,
-          m: () => S,
+          m: () => c,
           n: () => b
         });
         var s = t(4846),
@@ -4743,7 +4869,7 @@
             const a = await l();
             return console.debug("EXISTING_SESSION_RULES", a), a.length > 0 && (e = a.at(-1).id), e;
           },
-          c = (e, a) => {
+          S = (e, a) => {
             const t = [];
             return (
               "block" === e.type
@@ -4764,7 +4890,7 @@
               t
             );
           },
-          S = async (e, a) => {
+          c = async (e, a) => {
             if ((0, r.z)())
               if (e) {
                 let e = (await m()) + 1;
@@ -4805,7 +4931,7 @@
                   .map((e) => e.id);
                 d = [...d, ...a];
               }
-              const y = c(a, o + 1);
+              const y = S(a, o + 1);
               (n = [...n, ...y]), (o += y.length);
             }
             console.debug("UPDATE_OVERRIDES: newRules", { newAddRules: n, newRemoveRuleIds: d }),
@@ -4846,13 +4972,13 @@
       },
       321: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => m, b: () => S, c: () => c, d: () => T });
+        t.d(a, { a: () => m, b: () => c, c: () => S, d: () => T });
         var s = t(4846),
           r = t(1267),
           n = t(7456);
         const d = ["mbgc.mv3.ads_2", "mbgc.mv3.malware_1"],
           o = ["mbgc.mv3.whitelist_1", "mbgc.mv3.ads_1"],
-          i = { [r.Nb]: ["mbgc.mv3.malware_1"], [r.Kb]: ["mbgc.mv3.ads_2"], [r.Lb]: d },
+          i = { [r.Qb]: ["mbgc.mv3.malware_1"], [r.Nb]: ["mbgc.mv3.ads_2"], [r.Ob]: d },
           T = async (e) => {
             console.debug("INDB: INITMV3RULESETS WITH: ", e);
             const a = i[e] || d;
@@ -4901,7 +5027,7 @@
             for (const a of e) if (a.url.includes("/ruleset-error.html")) return !0;
             return !1;
           },
-          c = async (e, a) => {
+          S = async (e, a) => {
             const t = await s.chrome.declarativeNetRequest.getEnabledRulesets(),
               r = d.filter((e) => !t.includes(e)),
               n = b(e);
@@ -4927,7 +5053,7 @@
               throw e;
             }
           },
-          S = async (e) => {
+          c = async (e) => {
             const a = await s.chrome.declarativeNetRequest.getEnabledRulesets();
             console.debug("RULESET: Enabled rulesets: ", a);
             const t = d.filter((e) => !a.includes(e)),
@@ -4944,14 +5070,14 @@
           },
           b = (e) => {
             switch (e) {
-              case r.Pb:
+              case r.Sb:
               default:
                 return "ads";
-              case r.Qb:
+              case r.Tb:
                 return "malware";
-              case r.Mb:
+              case r.Pb:
                 return "malicious_notifications";
-              case r.Ob:
+              case r.Rb:
                 return "monthly_notifications";
             }
           };
@@ -5256,7 +5382,7 @@
       },
       9450: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => u, b: () => l, c: () => c, d: () => M, e: () => S });
+        t.d(a, { a: () => u, b: () => l, c: () => S, d: () => M, e: () => c });
         var s = t(6271),
           r = t(4171),
           n = t(3026),
@@ -5357,7 +5483,7 @@
             });
             return await (0, i.c)({ dbName: "cachedDb", storeName: "cachedDbStore", storeOptions: { keyPath: "dbName" }, values: a }), !0;
           },
-          c = async (e) => {
+          S = async (e) => {
             if (!(0, d.y)()) return console.warn("LISD: IndexedDB not available in this browser"), [];
             const a = m(e),
               t = [];
@@ -5396,7 +5522,7 @@
             }
             return console.log(`LBD: ${s.length} databases loaded from IdbStorage`), s;
           },
-          S = (e, a, t) => {
+          c = (e, a, t) => {
             if (!a) throw new Error("Version is required");
             return Promise.all([(0, T.b)(s.a, e), (0, T.c)(s.a, e, t), b(e, a), (0, o.c)({ idbStorageDatabases: !0 })]);
           },
@@ -5530,9 +5656,9 @@
           c: () => m,
           d: () => o,
           e: () => T,
-          f: () => c,
+          f: () => S,
           g: () => b,
-          h: () => S,
+          h: () => c,
           i: () => i,
           j: () => l,
           k: () => M,
@@ -5560,14 +5686,14 @@
           l = (e, a = "") => ("txt" === e ? s.i.some((e) => a.endsWith(e)) : s.a.some((a) => a === e)),
           M = (e, a, t, r) =>
             !!(0, n.B)((0, n.M)(e)) && (("txt" === t ? s.i.some((e) => r.endsWith(e)) : s.a.some((e) => t === e)) || y(a)),
-          c = (e, a) => {
+          S = (e, a) => {
             let t = "";
             try {
               t = new URL(e).pathname;
             } catch (e) {}
             return [t, a].some((e) => r.j.test(e));
           },
-          S = (e, a) => {
+          c = (e, a) => {
             for (let [t, r] of s.n) if (t.some((e) => a.endsWith(e)) && e.some((e) => e && e.match(r))) return !0;
             return !1;
           },
@@ -5634,12 +5760,12 @@
           f: () => u,
           g: () => l,
           h: () => y,
-          i: () => c,
+          i: () => S,
           j: () => m,
           k: () => s,
           l: () => r,
           m: () => i,
-          n: () => S
+          n: () => c
         });
         const s = [
             "doc",
@@ -5826,9 +5952,9 @@
           u = ["7z", "arj", "deb", "gz", "pkg", "rar", "rpm", "tar", "z", "zip"],
           l = ["dmg", "iso"],
           M = [...y, ...m, ...s, ...u, ...l],
-          c = [".bat.txt", ".ps1.txt", ".sh.txt", ".py.txt"],
-          S = new Map();
-        S.set([...M, ...c], "/wp-.*/"), S.set(["exe"], "/wp-(content|admin|includes)/");
+          S = [".bat.txt", ".ps1.txt", ".sh.txt", ".py.txt"],
+          c = new Map();
+        c.set([...M, ...S], "/wp-.*/"), c.set(["exe"], "/wp-(content|admin|includes)/");
       },
       4702: (e, a, t) => {
         "use strict";
@@ -5980,10 +6106,10 @@
             if ("download" === l || "dl" === l) return !0;
             if (!["dmg", "exe", "msi", "zip", "7z"].some((e) => e === a)) return null;
             let M = u.pathname.split("/"),
-              c = M.slice(-1)[0];
-            if (c) {
-              const n = c.match(r.n);
-              n && (c = c.slice(0, n.index)), (c = c.toLowerCase());
+              S = M.slice(-1)[0];
+            if (S) {
+              const n = S.match(r.n);
+              n && (S = S.slice(0, n.index)), (S = S.toLowerCase());
               const m = M.slice(0, -1).map((e) => e.toLowerCase()),
                 l = (0, s.H)(u.hostname).toLowerCase();
               return (
@@ -5991,21 +6117,21 @@
                   ["install", "installer", "setup", "portable", "converter", "webcam", "recovery"].some((a) => e.includes(a)) ||
                   ("exe" === a && ["pdftojpg", "pdftoword", "pdftoexcel"].some((a) => a === e)) ||
                   (r.b.test(t) && d.some((a) => a.every((a) => e.includes(a)))) ||
-                  r.o.test(e))(c, a, e) ||
+                  r.o.test(e))(S, a, e) ||
                 ((e, a, t, r) =>
                   (0, s.k)(e).some((e) => (0, s.s)(e ? e.toLowerCase() : "", a, 4)) ||
-                  t.some((e) => !!e && ((e = e.toLowerCase()), (0, s.s)(e, a, 4) || (0, s.s)(e, r, 4))))(u.hostname, c, m, l) ||
-                ["x32", "x64", "x86", "i386"].some((e) => c.includes(e)) ||
+                  t.some((e) => !!e && ((e = e.toLowerCase()), (0, s.s)(e, a, 4) || (0, s.s)(e, r, 4))))(u.hostname, S, m, l) ||
+                ["x32", "x64", "x86", "i386"].some((e) => S.includes(e)) ||
                 ((e) =>
                   ["backup", "converter", "disk", "driver", "editor", "software", "speed", "system", "tools", "vpn", "webcam"].some((a) =>
                     e.includes(a)
                   ))(l) ||
                 ((e, a) =>
                   (o.some((a) => e.includes(a)) && a.some((e) => o.some((a) => e.includes(a)))) || a.some((e) => i.some((a) => a === e)))(
-                  c,
+                  S,
                   m
                 ) ||
-                c.match(r.o) ||
+                S.match(r.o) ||
                 m.some((e) => r.o.test(e)) ||
                 ((e, a, t, r, n) => {
                   let d;
@@ -6027,7 +6153,7 @@
                       ? a.some((e) => (0, s.s)(e ? e.toLowerCase() : "", o, 5)) || (0, s.s)(t, o)
                       : void 0)
                   );
-                })(u, m, c, t, l) ||
+                })(u, m, S, t, l) ||
                 ((e, a) => {
                   const t = e.href ? e.href.toLowerCase() : "",
                     s = e.search ? e.search.toLowerCase() : "";
@@ -6201,6 +6327,9 @@
                   this.persistent;
                   const e = indexedDB.open(this.indexedDBName, this.version);
                   return (
+                    (e.onerror = (e) => {
+                      console.error(`IDB: Error opening IndexedDB ${this.indexedDBName}`, e);
+                    }),
                     (e.onupgradeneeded = () => {
                       const a = e.result;
                       a.objectStoreNames.contains(this.objectStorageName) || a.createObjectStore(this.objectStorageName);
@@ -6289,9 +6418,9 @@
               let { dbVersion: y, waitStrategy: m } = e;
               (y = y || 1), (m = m || "allOrNothing");
               const u = r.indexedDB.open(e.dbName, y);
-              let l, M, c;
+              let l, M, S;
               (u.onupgradeneeded = () => {
-                (l = u.result), (c = l.createObjectStore(i, T));
+                (l = u.result), (S = l.createObjectStore(i, T));
               }),
                 (u.onerror = (e) => {
                   console.error(`IDB: Error opening IndexedDB ${o}`, e), d(e);
@@ -6301,11 +6430,11 @@
                     (l = u.result),
                     (M = l.transaction(i, "readwrite")),
                     (M.oncomplete = () => l && l.close()),
-                    (c = M.objectStore(i)),
+                    (S = M.objectStore(i)),
                     (l.onerror = (e) => {
                       console.error(`IDB: db.onerror ${o}`, e), d(e);
                     }),
-                    n("allOrNothing" == m ? Promise.all(e[a].map((e) => t(c, e))) : Promise.allSettled(e[a].map((e) => t(c, e))));
+                    n("allOrNothing" == m ? Promise.all(e[a].map((e) => t(S, e))) : Promise.allSettled(e[a].map((e) => t(S, e))));
                 });
             }),
           d = (e, a) =>
@@ -6378,7 +6507,7 @@
           e: () => m,
           f: () => u,
           g: () => b,
-          j: () => c,
+          j: () => S,
           k: () => n,
           l: () => o,
           m: () => y,
@@ -6387,7 +6516,7 @@
           p: () => g,
           q: () => T,
           r: () => M,
-          s: () => S
+          s: () => c
         });
         var s = t(5417);
         const r = /https:\/\/([a-z0-9]*)?\.cloudfront\.net\/.*/i,
@@ -6416,8 +6545,8 @@
             /https?:\/\/(?:[a-z\d][a-z\d.-]*\.?)?\.?metacdn\.(com|net|org)(\/|$)/,
             /https?:\/\/([a-z0-9]*)?\.eljur\.ru/
           ],
-          c = new RegExp(`/\\d{10}\\w{6}\\.(${s.a.join("|")}|${s.i.map((e) => e.split(".").slice(1).join("\\.")).join("|")})`, "i"),
-          S = ["youtube.com/get_midroll", "youtube.com/pagead", "&el=adunit&", "youtube.com/youtubei/v1/player/ad_break"],
+          S = new RegExp(`/\\d{10}\\w{6}\\.(${s.a.join("|")}|${s.i.map((e) => e.split(".").slice(1).join("\\.")).join("|")})`, "i"),
+          c = ["youtube.com/get_midroll", "youtube.com/pagead", "&el=adunit&", "youtube.com/youtubei/v1/player/ad_break"],
           b = /^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/,
           h = /\d+\.\d+\.\d+/,
           g = /(Firefox|Chrome|Edge)(.\w+)?.Update.\w+(.\w+)?(.\w+)?(.\w+)?.(zip|js)$/i;
@@ -6482,7 +6611,7 @@
       },
       8290: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => l, b: () => m, c: () => M, d: () => u, e: () => i, f: () => c, g: () => T });
+        t.d(a, { a: () => l, b: () => m, c: () => M, d: () => u, e: () => i, f: () => S, g: () => T });
         var s = t(2024),
           r = t(4846),
           n = t(7456),
@@ -6597,7 +6726,7 @@
               }),
               console.debug(`TLE: Sent exclusion telemetry for category ${e}, type ${a} and domain ${t}`);
           },
-          c = async (e, a) => {
+          S = async (e, a) => {
             if ((0, n.x)()) return console.debug("Incognito Mode: No Telemetry was sent."), !0;
             console.debug("CALLING... SIMPLE STORAGE GET");
             let t = await (0, d.b)("telemetry");
@@ -6620,8 +6749,8 @@
             u = "major",
             l = "model",
             M = "name",
-            c = "type",
-            S = "vendor",
+            S = "type",
+            c = "vendor",
             b = "version",
             h = "architecture",
             g = "console",
@@ -6674,11 +6803,11 @@
             ue = "Windows",
             le = typeof r !== T && r.navigator ? r.navigator : navigator,
             Me = le && le.userAgentData ? le.userAgentData : n,
-            ce = function (e) {
+            Se = function (e) {
               for (var a = {}, t = 0; t < e.length; t++) a[e[t].toUpperCase()] = e[t];
               return a;
             },
-            Se = function (e, a) {
+            ce = function (e, a) {
               if (typeof e === y && e.length > 0) {
                 for (var t in e) if (ge(e[t]) == ge(a)) return !0;
                 return !1;
@@ -6744,8 +6873,8 @@
             _e = function (e, a) {
               for (var t in a)
                 if (typeof a[t] === y && a[t].length > 0) {
-                  for (var s = 0; s < a[t].length; s++) if (Se(a[t][s], e)) return "?" === t ? n : t;
-                } else if (Se(a[t], e)) return "?" === t ? n : t;
+                  for (var s = 0; s < a[t].length; s++) if (ce(a[t][s], e)) return "?" === t ? n : t;
+                } else if (ce(a[t], e)) return "?" === t ? n : t;
               return e;
             },
             Ie = {
@@ -6905,21 +7034,21 @@
               ],
               device: [
                 [/\b(sch-i[89]0\d|shw-m380s|sm-[ptx]\w{2,4}|gt-[pn]\d{2,4}|sgh-t8[56]9|nexus 10)/i],
-                [l, [S, ae], [c, p]],
+                [l, [c, ae], [S, p]],
                 [/\b((?:s[cgp]h|gt|sm)-\w+|sc[g-]?[\d]+a?|galaxy nexus)/i, /samsung[- ]([-\w]+)/i, /sec-(sgh\w+)/i],
-                [l, [S, ae], [c, A]],
+                [l, [c, ae], [S, A]],
                 [/(?:\/|\()(ip(?:hone|od)[\w, ]*)(?:\/|;)/i],
-                [l, [S, U], [c, A]],
+                [l, [c, U], [S, A]],
                 [/\((ipad);[-\w\),; ]+apple/i, /applecoremedia\/[\w\.]+ \((ipad)/i, /\b(ipad)\d\d?,\d\d?[;\]].+ios/i],
-                [l, [S, U], [c, p]],
+                [l, [c, U], [S, p]],
                 [/(macintosh);/i],
-                [l, [S, U]],
+                [l, [c, U]],
                 [/\b(sh-?[altvz]?\d\d[a-ekm]?)/i],
-                [l, [S, te], [c, A]],
+                [l, [c, te], [S, A]],
                 [/\b((?:ag[rs][23]?|bah2?|sht?|btv)-a?[lw]\d{2})\b(?!.+d\/s)/i],
-                [l, [S, $], [c, p]],
+                [l, [c, $], [S, p]],
                 [/(?:huawei|honor)([-\w ]+)[;\)]/i, /\b(nexus 6p|\w{2,4}e?-[atu]?[ln][\dx][012359c][adn]?)\b(?!.+d\/s)/i],
-                [l, [S, $], [c, A]],
+                [l, [c, $], [S, A]],
                 [
                   /\b(poco[\w ]+|m2\d{3}j\d\d[a-z]{2})(?: bui|\))/i,
                   /\b; (\w+) build\/hm\1/i,
@@ -6929,87 +7058,87 @@
                 ],
                 [
                   [l, /_/g, " "],
-                  [S, re],
-                  [c, A]
+                  [c, re],
+                  [S, A]
                 ],
                 [/\b(mi[-_ ]?(?:pad)(?:[\w_ ]+))(?: bui|\))/i],
                 [
                   [l, /_/g, " "],
-                  [S, re],
-                  [c, p]
+                  [c, re],
+                  [S, p]
                 ],
                 [/; (\w+) bui.+ oppo/i, /\b(cph[12]\d{3}|p(?:af|c[al]|d\w|e[ar])[mt]\d0|x9007|a101op)\b/i],
-                [l, [S, "OPPO"], [c, A]],
+                [l, [c, "OPPO"], [S, A]],
                 [/vivo (\w+)(?: bui|\))/i, /\b(v[12]\d{3}\w?[at])(?: bui|;)/i],
-                [l, [S, "Vivo"], [c, A]],
+                [l, [c, "Vivo"], [S, A]],
                 [/\b(rmx[12]\d{3})(?: bui|;|\))/i],
-                [l, [S, "Realme"], [c, A]],
+                [l, [c, "Realme"], [S, A]],
                 [
                   /\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\//i,
                   /\bmot(?:orola)?[- ](\w*)/i,
                   /((?:moto[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i
                 ],
-                [l, [S, ee], [c, A]],
+                [l, [c, ee], [S, A]],
                 [/\b(mz60\d|xoom[2 ]{0,2}) build\//i],
-                [l, [S, ee], [c, p]],
+                [l, [c, ee], [S, p]],
                 [/((?=lg)?[vl]k\-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i],
-                [l, [S, X], [c, p]],
+                [l, [c, X], [S, p]],
                 [
                   /(lm(?:-?f100[nv]?|-[\w\.]+)(?= bui|\))|nexus [45])/i,
                   /\blg[-e;\/ ]+((?!browser|netcast|android tv)\w+)/i,
                   /\blg-?([\d\w]+) bui/i
                 ],
-                [l, [S, X], [c, A]],
+                [l, [c, X], [S, A]],
                 [/(ideatab[-\w ]+)/i, /lenovo ?(s[56]000[-\w]+|tab(?:[\w ]+)|yt[-\d\w]{6}|tb[-\d\w]{6})/i],
-                [l, [S, "Lenovo"], [c, p]],
+                [l, [c, "Lenovo"], [S, p]],
                 [/(?:maemo|nokia).*(n900|lumia \d+)/i, /nokia[-_ ]?([-\w\.]*)/i],
                 [
                   [l, /_/g, " "],
-                  [S, "Nokia"],
-                  [c, A]
+                  [c, "Nokia"],
+                  [S, A]
                 ],
                 [/(pixel c)\b/i],
-                [l, [S, Y], [c, p]],
+                [l, [c, Y], [S, p]],
                 [/droid.+; (pixel[\daxl ]{0,6})(?: bui|\))/i],
-                [l, [S, Y], [c, A]],
+                [l, [c, Y], [S, A]],
                 [/droid.+ (a?\d[0-2]{2}so|[c-g]\d{4}|so[-gl]\w+|xq-a\w[4-7][12])(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i],
-                [l, [S, se], [c, A]],
+                [l, [c, se], [S, A]],
                 [/sony tablet [ps]/i, /\b(?:sony)?sgp\w+(?: bui|\))/i],
                 [
                   [l, "Xperia Tablet"],
-                  [S, se],
-                  [c, p]
+                  [c, se],
+                  [S, p]
                 ],
                 [/ (kb2005|in20[12]5|be20[12][59])\b/i, /(?:one)?(?:plus)? (a\d0\d\d)(?: b|\))/i],
-                [l, [S, "OnePlus"], [c, A]],
+                [l, [c, "OnePlus"], [S, A]],
                 [/(alexa)webm/i, /(kf[a-z]{2}wi|aeo[c-r]{2})( bui|\))/i, /(kf[a-z]+)( bui|\)).+silk\//i],
-                [l, [S, z], [c, p]],
+                [l, [c, z], [S, p]],
                 [/((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\//i],
                 [
                   [l, /(.+)/g, "Fire Phone $1"],
-                  [S, z],
-                  [c, A]
+                  [c, z],
+                  [S, A]
                 ],
                 [/(playbook);[-\w\),; ]+(rim)/i],
-                [l, S, [c, p]],
+                [l, c, [S, p]],
                 [/\b((?:bb[a-f]|st[hv])100-\d)/i, /\(bb10; (\w+)/i],
-                [l, [S, q], [c, A]],
+                [l, [c, q], [S, A]],
                 [/(?:\b|asus_)(transfo[prime ]{4,10} \w+|eeepc|slider \w+|nexus 7|padfone|p00[cj])/i],
-                [l, [S, V], [c, p]],
+                [l, [c, V], [S, p]],
                 [/ (z[bes]6[027][012][km][ls]|zenfone \d\w?)\b/i],
-                [l, [S, V], [c, A]],
+                [l, [c, V], [S, A]],
                 [/(nexus 9)/i],
-                [l, [S, "HTC"], [c, p]],
+                [l, [c, "HTC"], [S, p]],
                 [
                   /(htc)[-;_ ]{1,2}([\w ]+(?=\)| bui)|\w+)/i,
                   /(zte)[- ]([\w ]+?)(?: bui|\/|\))/i,
                   /(alcatel|geeksphone|nexian|panasonic(?!(?:;|\.))|sony(?!-bra))[-_ ]?([-\w]*)/i
                 ],
-                [S, [l, /_/g, " "], [c, A]],
+                [c, [l, /_/g, " "], [S, A]],
                 [/droid.+; ([ab][1-7]-?[0178a]\d\d?)/i],
-                [l, [S, "Acer"], [c, p]],
+                [l, [c, "Acer"], [S, p]],
                 [/droid.+; (m[1-5] note) bui/i, /\bmz-([-\w]{2,})/i],
-                [l, [S, "Meizu"], [c, A]],
+                [l, [c, "Meizu"], [S, A]],
                 [
                   /(blackberry|benq|palm(?=\-)|sonyericsson|acer|asus|dell|meizu|motorola|polytron|infinix|tecno)[-_ ]?([-\w]*)/i,
                   /(hp) ([\w ]+\w)/i,
@@ -7019,98 +7148,98 @@
                   /(jolla)/i,
                   /(oppo) ?([\w ]+) bui/i
                 ],
-                [S, l, [c, A]],
+                [c, l, [S, A]],
                 [/(kobo)\s(ereader|touch)/i, /(archos) (gamepad2?)/i, /(hp).+(touchpad(?!.+tablet)|tablet)/i, /(kindle)\/([\w\.]+)/i],
-                [S, l, [c, p]],
+                [c, l, [S, p]],
                 [/(surface duo)/i],
-                [l, [S, Q], [c, p]],
+                [l, [c, Q], [S, p]],
                 [/droid [\d\.]+; (fp\du?)(?: b|\))/i],
-                [l, [S, "Fairphone"], [c, A]],
+                [l, [c, "Fairphone"], [S, A]],
                 [/(shield[\w ]+) b/i],
-                [l, [S, "Nvidia"], [c, p]],
+                [l, [c, "Nvidia"], [S, p]],
                 [/(sprint) (\w+)/i],
-                [S, l, [c, A]],
+                [c, l, [S, A]],
                 [/(kin\.[onetw]{3})/i],
                 [
                   [l, /\./g, " "],
-                  [S, Q],
-                  [c, A]
+                  [c, Q],
+                  [S, A]
                 ],
                 [/droid.+; ([c6]+|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i],
-                [l, [S, ne], [c, p]],
+                [l, [c, ne], [S, p]],
                 [/droid.+; (ec30|ps20|tc[2-8]\d[kx])\)/i],
-                [l, [S, ne], [c, A]],
+                [l, [c, ne], [S, A]],
                 [/smart-tv.+(samsung)/i],
-                [S, [c, D]],
+                [c, [S, D]],
                 [/hbbtv.+maple;(\d+)/i],
                 [
                   [l, /^/, "SmartTV"],
-                  [S, ae],
-                  [c, D]
+                  [c, ae],
+                  [S, D]
                 ],
                 [/(nux; netcast.+smarttv|lg (netcast\.tv-201\d|android tv))/i],
                 [
-                  [S, X],
-                  [c, D]
+                  [c, X],
+                  [S, D]
                 ],
                 [/(apple) ?tv/i],
-                [S, [l, U + " TV"], [c, D]],
+                [c, [l, U + " TV"], [S, D]],
                 [/crkey/i],
                 [
                   [l, ie + "cast"],
-                  [S, Y],
-                  [c, D]
+                  [c, Y],
+                  [S, D]
                 ],
                 [/droid.+aft(\w)( bui|\))/i],
-                [l, [S, z], [c, D]],
+                [l, [c, z], [S, D]],
                 [/\(dtv[\);].+(aquos)/i, /(aquos-tv[\w ]+)\)/i],
-                [l, [S, te], [c, D]],
+                [l, [c, te], [S, D]],
                 [/(bravia[\w ]+)( bui|\))/i],
-                [l, [S, se], [c, D]],
+                [l, [c, se], [S, D]],
                 [/(mitv-\w{5}) bui/i],
-                [l, [S, re], [c, D]],
+                [l, [c, re], [S, D]],
                 [/Hbbtv.*(technisat) (.*);/i],
-                [S, l, [c, D]],
+                [c, l, [S, D]],
                 [/\b(roku)[\dx]*[\)\/]((?:dvp-)?[\d\.]*)/i, /hbbtv\/\d+\.\d+\.\d+ +\([\w\+ ]*; *([\w\d][^;]*);([^;]*)/i],
                 [
-                  [S, fe],
+                  [c, fe],
                   [l, fe],
-                  [c, D]
+                  [S, D]
                 ],
                 [/\b(android tv|smart[- ]?tv|opera tv|tv; rv:)\b/i],
-                [[c, D]],
+                [[S, D]],
                 [/(ouya)/i, /(nintendo) (\w+)/i],
-                [S, l, [c, g]],
+                [c, l, [S, g]],
                 [/droid.+; (shield) bui/i],
-                [l, [S, "Nvidia"], [c, g]],
+                [l, [c, "Nvidia"], [S, g]],
                 [/(playstation \w+)/i],
-                [l, [S, se], [c, g]],
+                [l, [c, se], [S, g]],
                 [/\b(xbox(?: one)?(?!; xbox))[\); ]/i],
-                [l, [S, Q], [c, g]],
+                [l, [c, Q], [S, g]],
                 [/((pebble))app/i],
-                [S, l, [c, C]],
+                [c, l, [S, C]],
                 [/(watch)(?: ?os[,\/]|\d,\d\/)[\d\.]+/i],
-                [l, [S, U], [c, C]],
+                [l, [c, U], [S, C]],
                 [/droid.+; (glass) \d/i],
-                [l, [S, Y], [c, C]],
+                [l, [c, Y], [S, C]],
                 [/droid.+; (wt63?0{2,3})\)/i],
-                [l, [S, ne], [c, C]],
+                [l, [c, ne], [S, C]],
                 [/(quest( 2| pro)?)/i],
-                [l, [S, me], [c, C]],
+                [l, [c, me], [S, C]],
                 [/(tesla)(?: qtcarbrowser|\/[-\w\.]+)/i],
-                [S, [c, f]],
+                [c, [S, f]],
                 [/(aeobc)\b/i],
-                [l, [S, z], [c, f]],
+                [l, [c, z], [S, f]],
                 [/droid .+?; ([^;]+?)(?: bui|\) applew).+? mobile safari/i],
-                [l, [c, A]],
+                [l, [S, A]],
                 [/droid .+?; ([^;]+?)(?: bui|\) applew).+?(?! mobile) safari/i],
-                [l, [c, p]],
+                [l, [S, p]],
                 [/\b((tablet|tab)[;\/]|focus\/\d(?!.+mobile))/i],
-                [[c, p]],
+                [[S, p]],
                 [/(phone|mobile(?:[;\/]| [ \w\/\.]*safari)|pda(?=.+windows ce))/i],
-                [[c, A]],
+                [[S, A]],
                 [/(android[-\w\. ]{0,9});.+buil/i],
-                [l, [S, "Generic"]]
+                [l, [c, "Generic"]]
               ],
               engine: [
                 [/windows.+ edge\/([\w\.]+)/i],
@@ -7212,7 +7341,7 @@
               pe.call(d.init, [
                 [W, [M, b, u]],
                 [J, [h]],
-                [K, [c, l, S]],
+                [K, [S, l, c]],
                 [Z, [M, b]],
                 [L, [M, b]]
               ]),
@@ -7228,7 +7357,7 @@
               pe.call(d.toString, [
                 [W, [M, b]],
                 [J, [h]],
-                [K, [S, l]],
+                [K, [c, l]],
                 [Z, [M, b]],
                 [L, [M, b]]
               ]),
@@ -7259,7 +7388,7 @@
                   ((d.prototype.is = function (e) {
                     var a = !1;
                     for (var t in this)
-                      if (this.hasOwnProperty(t) && !Se(s, t) && ge(r ? De(r, this[t]) : this[t]) == ge(r ? De(r, e) : e)) {
+                      if (this.hasOwnProperty(t) && !ce(s, t) && ge(r ? De(r, this[t]) : this[t]) == ge(r ? De(r, e) : e)) {
                         if (((a = !0), e != T)) break;
                       } else if (e == T && a) {
                         a = !a;
@@ -7318,13 +7447,13 @@
                       le.brave && typeof le.brave.isBrave == i && this.set(M, "Brave");
                       break;
                     case K:
-                      !this.get(c) && Me && Me[A] && this.set(c, A),
+                      !this.get(S) && Me && Me[A] && this.set(S, A),
                         "Macintosh" == this.get(l) &&
                           le &&
                           typeof le.standalone !== T &&
                           le.maxTouchPoints &&
                           le.maxTouchPoints > 2 &&
-                          this.set(l, "iPad").set(c, p);
+                          this.set(l, "iPad").set(S, p);
                       break;
                     case L:
                       !this.get(M) && Me && Me[w] && this.set(M, Me[w]);
@@ -7366,7 +7495,7 @@
                     d && (d && "64" == e[H] && (d += "64"), Ee.call(this.data, d + ";", a));
                     break;
                   case K:
-                    e[A] && this.set(c, A), e[l] && this.set(l, e[l]);
+                    e[A] && this.set(S, A), e[l] && this.set(l, e[l]);
                     break;
                   case L:
                     var o = e[w];
@@ -7454,10 +7583,10 @@
             );
           }
           (Fe.VERSION = "2.0.0-alpha.2"),
-            (Fe.BROWSER = ce([M, b, u])),
-            (Fe.CPU = ce([h])),
-            (Fe.DEVICE = ce([l, S, c, g, A, D, p, C, f])),
-            (Fe.ENGINE = Fe.OS = ce([M, b])),
+            (Fe.BROWSER = Se([M, b, u])),
+            (Fe.CPU = Se([h])),
+            (Fe.DEVICE = Se([l, c, S, g, A, D, p, C, f])),
+            (Fe.ENGINE = Fe.OS = Se([M, b])),
             typeof a !== T
               ? ("object" !== T && e.exports && (a = e.exports = Fe), (a.UAParser = Fe))
               : "function" === i && t.amdO
@@ -7494,7 +7623,7 @@
       },
       8203: (e, a, t) => {
         "use strict";
-        t.d(a, { a: () => c });
+        t.d(a, { a: () => S });
         var s = t(2024),
           r = t(2023),
           n = t(4846),
@@ -7505,11 +7634,14 @@
           y = t(9450),
           m = t(6271),
           u = t(4308);
-        const l = "https://sirius.mwbsys.com/api/v1/updates/manifest",
+        let l = "https://sirius.mwbsys.com/api/v1/updates/manifest",
           M = "XbXzxs1H5c852pToE3xA";
-        class c {
-          constructor(e, a = "release") {
-            (this.hooks = e), (this.channel = a);
+        class S {
+          constructor(e, a = "release", t = !0) {
+            (this.hooks = e),
+              (this.channel = a),
+              (this.prod = t),
+              this.prod || ((l = "https://sirius-staging.mwbsys.com/api/v1/updates/manifest"), (M = "pznxfw65x9vuPAs_1N1y"));
           }
           static hashSHA256(e) {
             return (0, r.sha256)(e);
@@ -7549,17 +7681,17 @@
               });
             if ((console.debug("UPD: FetchSirius finished"), "ok" !== u.status))
               throw (console.error("Negative response from Sirius: ", JSON.stringify(u)), new Error(u.status));
-            const S = p(u.manifest.packages),
-              b = S.filter((a) => {
+            const c = p(u.manifest.packages),
+              b = c.filter((a) => {
                 if (!a.version) return !1;
                 const t = new T.a(a.version),
                   s = new T.a(e.find((e) => e.name == a.name).version);
                 return t.greater(s);
               });
             return (
-              console.debug(`UPD: ${b.length}/${S.length} fetched packages need to be updated (${S.length - b.length} up-to-date)`),
+              console.debug(`UPD: ${b.length}/${c.length} fetched packages need to be updated (${c.length - b.length} up-to-date)`),
               b.length > 0 && this.notifyHook("onUpdateStart"),
-              await Promise.all(b.map((e) => c.download(e))),
+              await Promise.all(b.map((e) => S.download(e))),
               this.notifyHook("onDownloadComplete"),
               b
             );
@@ -7570,7 +7702,7 @@
             let t = Object.keys(e)
               .filter((e) => a.includes(e))
               .map((a) => {
-                const t = e[a] && e[a].version.trim();
+                let t = e[a] && e[a].version && e[a].version.trim();
                 return (t && "" !== t) || (t = "2.0.2"), e[a].name ? { name: e[a].name, semver: t, channel: this.channel } : null;
               });
             (t = this.cleanPackages(t)),
@@ -7625,7 +7757,7 @@
               await Promise.all(
                 D.map(async (e) => {
                   try {
-                    await c.download(e);
+                    await S.download(e);
                   } catch (a) {
                     throw (console.error(`UPD: Error downloading full package for ${e.name}`, a), a);
                   }
@@ -7635,7 +7767,7 @@
               D.length > 0)
             )
               try {
-                await S(D, e);
+                await c(D, e);
               } catch (e) {
                 throw (console.error("UPD: Error reloading full packages", e), e);
               }
@@ -7645,7 +7777,7 @@
             const t = a[(0, d.g)(e.name)],
               s = await Promise.all(e.incrementals.map((e) => (0, o.d)(e.url)));
             s.forEach((a, t) => {
-              if (c.hashSHA256(a) !== e.incrementals[t].sha256) throw new Error("Integrity verification");
+              if (S.hashSHA256(a) !== e.incrementals[t].sha256) throw new Error("Integrity verification");
             });
             const r = s.map((e) => b(e)),
               n = r[0];
@@ -7663,12 +7795,12 @@
           }
           static download(e) {
             return (0, o.d)(e.url).then((a) => {
-              if (c.hashSHA256(a) !== e.sha256) throw new Error("integrity verification");
+              if (S.hashSHA256(a) !== e.sha256) throw new Error("integrity verification");
               return (0, y.e)(e.name, e.version, a);
             });
           }
         }
-        const S = async (e, a) => {
+        const c = async (e, a) => {
             const t = e.map((e) => e.name);
             (await (0, y.c)(t)).forEach((e) => {
               a[e.cleanName] = e;
@@ -7754,61 +7886,70 @@
       7456: (e, a, t) => {
         "use strict";
         t.d(a, {
-          A: () => V,
-          B: () => x,
-          D: () => _,
-          E: () => j,
-          F: () => E,
-          G: () => H,
-          H: () => b,
+          A: () => q,
+          B: () => O,
+          D: () => I,
+          E: () => x,
+          F: () => _,
+          G: () => N,
+          H: () => h,
           I: () => c,
-          K: () => g,
-          L: () => h,
-          M: () => u,
-          N: () => l,
-          O: () => i,
-          P: () => y,
-          Q: () => T,
-          a: () => J,
-          b: () => f,
-          c: () => D,
-          d: () => C,
-          e: () => p,
-          f: () => w,
-          g: () => R,
-          j: () => N,
-          k: () => M,
-          l: () => S,
-          m: () => U,
-          n: () => P,
-          o: () => F,
-          p: () => B,
-          q: () => q,
-          r: () => L,
-          s: () => m,
-          t: () => A,
-          w: () => W,
-          x: () => O,
-          y: () => K,
-          z: () => z
+          K: () => A,
+          L: () => g,
+          M: () => l,
+          N: () => M,
+          O: () => T,
+          P: () => m,
+          Q: () => y,
+          a: () => K,
+          b: () => E,
+          c: () => C,
+          d: () => f,
+          e: () => D,
+          f: () => v,
+          g: () => W,
+          h: () => i,
+          j: () => k,
+          k: () => S,
+          l: () => b,
+          m: () => V,
+          n: () => B,
+          o: () => P,
+          p: () => j,
+          q: () => Y,
+          r: () => G,
+          s: () => u,
+          t: () => p,
+          w: () => J,
+          x: () => R,
+          y: () => Z,
+          z: () => U
         });
         var s = t(2663),
           r = t(7151),
           n = t(8035),
           d = t(4846),
           o = t(7456);
-        const i = function () {
+        const i = (e) =>
+            e
+              .toLowerCase()
+              .replace(/[<>]/g, "")
+              .replace(/http[s]?:\/\//g, "")
+              .replace("www.", "")
+              .replace(/\/$/, "")
+              .trim(),
+          T = function () {
             return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (e) {
               let a = (16 * Math.random()) | 0;
               return ("x" == e ? a : (3 & a) | 8).toString(16);
             });
           },
-          T = (e) => (0, r.c)({ uuid: e }),
-          y = async function () {
+          y = (e) => (0, r.c)({ uuid: e }),
+          m = async function () {
             let e = await (0, r.a)();
             return e || ((e = o.O()), await o.Q(e)), e;
           },
-          m = (e, a, t = 1) => {
+          u = (e, a, t = 1) => {
             for (let s = e.length; s >= t; s--)
               for (let t = 0; t <= e.length - s; t++) {
                 const r = e.substr(t, s);
@@ -7816,7 +7957,7 @@
               }
             return !1;
           },
-          u = function (e) {
+          l = function (e) {
             if (null == e || "" === e) return "";
             e.toLowerCase().startsWith("blob:") && (e = e.substring(5));
             try {
@@ -7831,7 +7972,7 @@
               return e;
             }
           },
-          l = function (e) {
+          M = function (e) {
             try {
               if (e && !e.includes(".")) return console.debug("UT: Invalid url passed: ", e), "";
               const a = (0, s.c)(e, { allowPrivateDomains: !0 });
@@ -7840,7 +7981,7 @@
               return console.error("UT Error: ", e), "";
             }
           },
-          M = (e) => {
+          S = (e) => {
             if (!e) return [];
             const a = (0, s.a)(e),
               t = (0, s.d)(e);
@@ -7853,18 +7994,18 @@
             const a = (0, s.d)(e, { allowPrivateDomains: !0 });
             return a ? a.toLowerCase() : (console.debug("SD: Subdomain parsing error for: ", e), "");
           },
-          S = (e) => {
+          b = (e) => {
             if (!e) return "";
             if (e.startsWith("chrome-extension")) return "";
             const a = (0, s.b)(e, { allowPrivateDomains: !0 });
             return a || (console.debug("D: Domain parsing error for: ", a), "");
           },
-          b = (e) => {
+          h = (e) => {
             if (!e) return "";
             const a = (0, s.a)(e, { allowPrivateDomains: !0 });
             return a ? a.toLowerCase() : (console.debug("SLD: Domain parsing error for: ", e), "");
           },
-          h = (e) => {
+          g = (e) => {
             if (!e) return console.debug("UE: Params Error: No URL passed"), null;
             let a, t;
             try {
@@ -7878,87 +8019,88 @@
               t && t.includes("/") ? null : t && t.toLowerCase()
             );
           },
-          g = (e) => {
-            let a = u(e);
+          A = (e) => {
+            let a = l(e);
             if (!a) return [];
             let t = a.split("."),
-              s = [],
-              r = 0;
+              r = [],
+              n = 0;
             do {
-              s.push(t.slice(r).join(".")), r++;
-            } while (r < t.length - 1);
-            return s;
+              r.push(t.slice(n).join(".")), n++;
+            } while (n < t.length - 1);
+            let d = (0, s.c)(e, { allowPrivateDomains: !0 }) || "";
+            return console.debug("UD: publicSuffix: ", { url: e, publicSuffix: d }), (r = r.filter((e) => e !== d)), r;
           },
-          A = function (e, a, t) {
+          p = function (e, a, t) {
             d.chrome.tabs.get(e, (s) => {
               d.chrome.runtime.lastError ||
                 ((d.chrome.action || d.chrome.browserAction).setBadgeText({ tabId: e, text: a }),
                 (d.chrome.action || d.chrome.browserAction).setBadgeBackgroundColor({ tabId: e, color: t }));
             });
           },
-          p = function (e) {
+          D = function (e) {
             let a;
             return (a = "Uint8Array" == e.constructor.name ? e : new Uint8Array(e)), a.reduce((e, a) => e + String.fromCharCode(a), "");
           },
-          D = function (e) {
+          C = function (e) {
             return Uint8Array.from(e, (e) => e.charCodeAt(0)).buffer;
           },
-          C = function (e) {
+          f = function (e) {
             return btoa(o.e(e));
           },
-          f = function (e) {
+          E = function (e) {
             return o.c(atob(e));
           },
-          E = (e) => D(JSON.stringify(e)),
-          _ = (e) => !(e.length < 4) && 40 == e[0] && 181 == e[1] && 47 == e[2] && 253 == e[3];
-        let I = {};
-        Object.defineProperty(I, "browser", { writable: !0 });
-        const w = function () {
-          return I.browser
-            ? I.browser
+          _ = (e) => C(JSON.stringify(e)),
+          I = (e) => !(e.length < 4) && 40 == e[0] && 181 == e[1] && 47 == e[2] && 253 == e[3];
+        let w = {};
+        Object.defineProperty(w, "browser", { writable: !0 });
+        const v = function () {
+          return w.browser
+            ? w.browser
             : navigator.userAgent.includes("Firefox/")
-            ? (I.browser = "Firefox")
+            ? (w.browser = "Firefox")
             : navigator.userAgent.includes("Opera/") || navigator.userAgent.includes("OPR/")
-            ? (I.browser = "Opera")
+            ? (w.browser = "Opera")
             : navigator.userAgent.includes("Edge/") || navigator.userAgent.includes("Edg/")
-            ? (I.browser = "Edge")
+            ? (w.browser = "Edge")
             : navigator.userAgent.includes("Chrome/")
-            ? (I.browser = "Chrome")
+            ? (w.browser = "Chrome")
             : navigator.userAgent.includes("Safari/")
-            ? (I.browser = "Safari")
+            ? (w.browser = "Safari")
             : "Browser";
         };
-        let v = {};
-        Object.defineProperty(v, "os", { writable: !0 });
-        const H = () =>
+        let H = {};
+        Object.defineProperty(H, "os", { writable: !0 });
+        const N = () =>
             new Promise((e) => {
-              v.os
-                ? e(v.os)
+              H.os
+                ? e(H.os)
                 : d.chrome.runtime.getPlatformInfo(({ os: a }) => {
-                    (v.os = a), e(v.os);
+                    (H.os = a), e(H.os);
                   });
             }),
-          N = function (e, a, t, s, r, n, o = null) {
+          k = function (e, a, t, s, r, n, o = null) {
             return (
-              d.chrome.runtime.getURL("app/eventpages/" + (z() ? "block-mv3.html" : "block.html")) +
+              d.chrome.runtime.getURL("app/eventpages/" + (U() ? "block-mv3.html" : "block.html")) +
               "?" +
-              k({ referrer: e, url: a, host: u(a), type: t, subtype: s, tabId: r, filename: n, prevUrl: o })
+              F({ referrer: e, url: a, host: l(a), type: t, subtype: s, tabId: r, filename: n, prevUrl: o })
             );
           },
-          k = function (e) {
+          F = function (e) {
             let a = new URLSearchParams();
             for (let t in e) e.hasOwnProperty(t) && a.set(t, e[t]);
             return a.toString();
           },
-          F = async function (e, a = {}) {
+          P = async function (e, a = {}) {
             let t = await fetch(e, o.p(a));
             return console.debug("Fetch response: ", t), await t.json();
           },
-          P = async function (e, a = {}) {
+          B = async function (e, a = {}) {
             let t = await fetch(e, o.p(a));
             return await t.arrayBuffer();
           },
-          B = function (e) {
+          j = function (e) {
             return (
               (e.method = e.method || "GET"),
               (e.headers = e.headers || {}),
@@ -7967,14 +8109,14 @@
               e
             );
           },
-          j = (e, a) => {
+          x = (e, a) => {
             d.performance.mark(e), a && d.performance.measure(e + "_time", a, e);
           },
-          x = (e = "") => n.g.test(e),
-          O = () => d.chrome.extension.inIncognitoContext,
-          R = (e) => e.replace(n.k, "").replace(n.c, "_").replace("_2", ""),
-          W = (e = "") => e.startsWith("blob:") || e.startsWith("data:"),
-          J = (e) => {
+          O = (e = "") => n.g.test(e),
+          R = () => d.chrome.extension.inIncognitoContext,
+          W = (e) => e.replace(n.k, "").replace(n.c, "_").replace("_2", ""),
+          J = (e = "") => e.startsWith("blob:") || e.startsWith("data:"),
+          K = (e) => {
             if (e < 1e3) return e.toString();
             const a = Math.floor(("" + e).length / 3);
             let t = parseFloat((0 != a ? e / Math.pow(1e3, a) : e).toPrecision(2));
@@ -7984,17 +8126,17 @@
             let r = "";
             return t < 10 && e > t * Math.pow(1e3, a) && (r = "+"), t + ["", "k", "m", "b", "t"][a] + r;
           },
-          K = () => !!indexedDB,
-          Z = "adTelemDate",
-          L = () =>
+          Z = () => !!indexedDB,
+          L = "adTelemDate",
+          G = () =>
             new Promise(async (e) => {
               const a = new Date().toLocaleDateString();
-              return (await (0, r.b)(Z)) === a ? e(!1) : ((0, r.c)({ [Z]: a }), e(!0));
+              return (await (0, r.b)(L)) === a ? e(!1) : ((0, r.c)({ [L]: a }), e(!0));
             });
-        let G = {};
-        Object.defineProperty(G, "isMV3", { writable: !0 });
-        const z = () => ((G.isMV3 = G.isMV3 || 3 === d.chrome.runtime.getManifest().manifest_version), G.isMV3),
-          U = (e) => {
+        let z = {};
+        Object.defineProperty(z, "isMV3", { writable: !0 });
+        const U = () => ((z.isMV3 = z.isMV3 || 3 === d.chrome.runtime.getManifest().manifest_version), z.isMV3),
+          V = (e) => {
             const a = e,
               t = URL.createObjectURL(new Blob([a], { type: "text/plain" }));
             let s;
@@ -8005,7 +8147,7 @@
               .slice(0, 10)}_${r.getHours()}${r.getMinutes()}${r.getSeconds()}.txt`),
               console.log("MDL: Downloading logfile", { dlDownloadName: s, url: t });
             let n = { url: t, filename: s, conflictAction: "uniquify" };
-            "Firefox" === w() && (n.saveAs = !1),
+            "Firefox" === v() && (n.saveAs = !1),
               d.chrome.downloads
                 .download(n)
                 .then(() => {
@@ -8018,7 +8160,7 @@
                 e.state && "complete" === e.state.current && URL.revokeObjectURL(t);
               });
           },
-          V = (e) => {
+          q = (e) => {
             if (!e || "" === e) return !0;
             if (
               e.startsWith("chrome-extension://") ||
@@ -8040,7 +8182,7 @@
               a.hostname.startsWith("172.")
             );
           },
-          q = (e, a, t) => {
+          Y = (e, a, t) => {
             let s = (0, (r = Math.min(a, t * 2 ** e)), 0 + Math.random() * (r - 0));
             var r;
             return (s = Math.floor(s)), s;
@@ -10491,11 +10633,11 @@
                     : ((this._nth = e), 2 === e && null == a ? ((this._isSecond = !0), this.addSeconds(this._orient)) : this);
                 };
               },
-              c = 0;
-            c < i.length;
-            c++
+              S = 0;
+            S < i.length;
+            S++
           )
-            a[i[c]] = M(0 === c ? -1 : c);
+            a[i[S]] = M(0 === S ? -1 : S);
         })();
       },
       72: () => {
@@ -38041,8 +38183,8 @@
               659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424,
               2428436474, 2756734187, 3204031479, 3329325298
             ],
-            c = ["hex", "array", "digest", "arrayBuffer"],
-            S = [];
+            S = ["hex", "array", "digest", "arrayBuffer"],
+            c = [];
           (!n.JS_SHA256_NO_NODE_JS && Array.isArray) ||
             (Array.isArray = function (e) {
               return "[object Array]" === Object.prototype.toString.call(e);
@@ -38066,8 +38208,8 @@
                 (a.update = function (e) {
                   return a.create().update(e);
                 });
-              for (var t = 0; t < c.length; ++t) {
-                var s = c[t];
+              for (var t = 0; t < S.length; ++t) {
+                var s = S[t];
                 a[s] = b(s, e);
               }
               return a;
@@ -38107,33 +38249,33 @@
                 (a.update = function (e, t) {
                   return a.create(e).update(t);
                 });
-              for (var t = 0; t < c.length; ++t) {
-                var s = c[t];
+              for (var t = 0; t < S.length; ++t) {
+                var s = S[t];
                 a[s] = A(s, e);
               }
               return a;
             };
           function D(e, a) {
             a
-              ? ((S[0] =
-                  S[16] =
-                  S[1] =
-                  S[2] =
-                  S[3] =
-                  S[4] =
-                  S[5] =
-                  S[6] =
-                  S[7] =
-                  S[8] =
-                  S[9] =
-                  S[10] =
-                  S[11] =
-                  S[12] =
-                  S[13] =
-                  S[14] =
-                  S[15] =
+              ? ((c[0] =
+                  c[16] =
+                  c[1] =
+                  c[2] =
+                  c[3] =
+                  c[4] =
+                  c[5] =
+                  c[6] =
+                  c[7] =
+                  c[8] =
+                  c[9] =
+                  c[10] =
+                  c[11] =
+                  c[12] =
+                  c[13] =
+                  c[14] =
+                  c[15] =
                     0),
-                (this.blocks = S))
+                (this.blocks = c))
               : (this.blocks = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]),
               e
                 ? ((this.h0 = 3238371032),
@@ -38301,8 +38443,8 @@
                 m = this.h2,
                 u = this.h3,
                 l = this.h4,
-                c = this.h5,
-                S = this.h6,
+                S = this.h5,
+                c = this.h6,
                 b = this.h7,
                 h = this.blocks;
               for (e = 16; e < 64; ++e)
@@ -38322,30 +38464,30 @@
                         (r =
                           b +
                           (t = ((l >>> 6) | (l << 26)) ^ ((l >>> 11) | (l << 21)) ^ ((l >>> 25) | (l << 7))) +
-                          ((l & c) ^ (~l & S)) +
+                          ((l & S) ^ (~l & c)) +
                           M[e] +
                           h[e])) <<
                       0),
                     (u = (r + (a + s)) << 0)),
                   (a = ((u >>> 2) | (u << 30)) ^ ((u >>> 13) | (u << 19)) ^ ((u >>> 22) | (u << 10))),
                   (s = (d = u & T) ^ (u & y) ^ n),
-                  (S =
+                  (c =
                     (m +
                       (r =
-                        S +
+                        c +
                         (t = ((b >>> 6) | (b << 26)) ^ ((b >>> 11) | (b << 21)) ^ ((b >>> 25) | (b << 7))) +
-                        ((b & l) ^ (~b & c)) +
+                        ((b & l) ^ (~b & S)) +
                         M[e + 1] +
                         h[e + 1])) <<
                     0),
                   (a = (((m = (r + (a + s)) << 0) >>> 2) | (m << 30)) ^ ((m >>> 13) | (m << 19)) ^ ((m >>> 22) | (m << 10))),
                   (s = (o = m & u) ^ (m & T) ^ d),
-                  (c =
+                  (S =
                     (y +
                       (r =
-                        c +
-                        (t = ((S >>> 6) | (S << 26)) ^ ((S >>> 11) | (S << 21)) ^ ((S >>> 25) | (S << 7))) +
-                        ((S & b) ^ (~S & l)) +
+                        S +
+                        (t = ((c >>> 6) | (c << 26)) ^ ((c >>> 11) | (c << 21)) ^ ((c >>> 25) | (c << 7))) +
+                        ((c & b) ^ (~c & l)) +
                         M[e + 2] +
                         h[e + 2])) <<
                     0),
@@ -38355,8 +38497,8 @@
                     (T +
                       (r =
                         l +
-                        (t = ((c >>> 6) | (c << 26)) ^ ((c >>> 11) | (c << 21)) ^ ((c >>> 25) | (c << 7))) +
-                        ((c & S) ^ (~c & b)) +
+                        (t = ((S >>> 6) | (S << 26)) ^ ((S >>> 11) | (S << 21)) ^ ((S >>> 25) | (S << 7))) +
+                        ((S & c) ^ (~S & b)) +
                         M[e + 3] +
                         h[e + 3])) <<
                     0),
@@ -38367,8 +38509,8 @@
                 (this.h2 = (this.h2 + m) << 0),
                 (this.h3 = (this.h3 + u) << 0),
                 (this.h4 = (this.h4 + l) << 0),
-                (this.h5 = (this.h5 + c) << 0),
-                (this.h6 = (this.h6 + S) << 0),
+                (this.h5 = (this.h5 + S) << 0),
+                (this.h6 = (this.h6 + c) << 0),
                 (this.h7 = (this.h7 + b) << 0);
             }),
             (D.prototype.hex = function () {
@@ -38860,8 +39002,8 @@
               u = [2, { id: a }],
               l = [0, { "webview-assets": a }],
               M = [0, { vfs: a, "webview-assets": a }],
-              c = [0, { "aws-cloud9": l, cloud9: M }],
-              S = [0, { dualstack: y, "analytics-gateway": a, "aws-cloud9": l, cloud9: M }],
+              S = [0, { "aws-cloud9": l, cloud9: M }],
+              c = [0, { dualstack: y, "analytics-gateway": a, "aws-cloud9": l, cloud9: M }],
               b = [0, { dualstack: y, s3: a, "s3-website": a, "aws-cloud9": l, cloud9: M }],
               h = [0, { dualstack: y, "aws-cloud9": l, cloud9: M }],
               g = [0, { apps: a }],
@@ -39621,14 +39763,14 @@
                         compute: s,
                         "compute-1": s,
                         "us-east-1": [2, { dualstack: y, "analytics-gateway": a, "aws-cloud9": l, cloud9: M }],
-                        "ap-northeast-1": S,
+                        "ap-northeast-1": c,
                         "ap-northeast-2": b,
                         "ap-south-1": b,
                         "ap-southeast-1": h,
                         "ap-southeast-2": h,
                         "ca-central-1": b,
                         "eu-central-1": b,
-                        "eu-west-1": S,
+                        "eu-west-1": c,
                         "eu-west-2": b,
                         "eu-west-3": b,
                         s3: a,
@@ -39660,13 +39802,13 @@
                         "sa-east-1": h,
                         "us-east-2": [0, { dualstack: y, s3: a, "s3-website": a, "analytics-gateway": a, "aws-cloud9": l, cloud9: M }],
                         "us-west-2": [0, { "analytics-gateway": a, "aws-cloud9": l, cloud9: M }],
-                        "af-south-1": c,
-                        "ap-east-1": c,
-                        "ap-northeast-3": c,
-                        "eu-north-1": c,
-                        "eu-south-1": c,
-                        "me-south-1": c,
-                        "us-west-1": c,
+                        "af-south-1": S,
+                        "ap-east-1": S,
+                        "ap-northeast-3": S,
+                        "eu-north-1": S,
+                        "eu-south-1": S,
+                        "me-south-1": S,
+                        "us-west-1": S,
                         elb: s
                       }
                     ],
@@ -47337,9 +47479,9 @@
               8 & n && u(0);
               var m = 6 - d,
                 M = 3 == T ? 4 : T,
-                c = l(e, m, M),
-                S = y ? 1 << y : d,
-                b = l(e, (m += M), S) + (1 == y && 256),
+                S = l(e, m, M),
+                c = y ? 1 << y : d,
+                b = l(e, (m += M), c) + (1 == y && 256),
                 h = b;
               if (!d) {
                 var g = 1 << (10 + (e[5] >> 3));
@@ -47352,10 +47494,10 @@
                 (A[4] = 4),
                 (A[8] = 8),
                 {
-                  b: m + S,
+                  b: m + c,
                   y: 0,
                   l: 0,
-                  d: c,
+                  d: S,
                   w: a && 1 != a ? a : A.subarray(12),
                   e: h,
                   o: new o(A.buffer, 0, 3),
@@ -47368,11 +47510,11 @@
             if (25481893 == ((s >> 4) | (e[3] << 20))) return 8 + (((t = e)[4] | (t[5] << 8) | (t[6] << 16) | (t[7] << 24)) >>> 0);
             u(0);
           },
-          c = function (e) {
+          S = function (e) {
             for (var a = 0; 1 << a <= e; ++a);
             return a - 1;
           },
-          S = function (e, a, t) {
+          c = function (e, a, t) {
             var o = 4 + (a << 3),
               i = 5 + (15 & e[a]);
             i > t && u(3);
@@ -47382,7 +47524,7 @@
                 m = -1,
                 l = -1,
                 M = -1,
-                S = T,
+                c = T,
                 b = new s(512 + (T << 2)),
                 h = new d(b, 0, 256),
                 g = new n(b, 0, 256),
@@ -47393,7 +47535,7 @@
               m < 255 && y > 0;
 
             ) {
-              var f = c(y + 1),
+              var f = S(y + 1),
                 E = o >> 3,
                 _ = (1 << (f + 1)) - 1,
                 I = ((e[E] | (e[E + 1] << 8) | (e[E + 2] << 16)) >> (7 & o)) & _,
@@ -47403,7 +47545,7 @@
               if (
                 (H < v ? ((o += f), (I = H)) : ((o += f + 1), I > w && (I -= v)),
                 (h[++m] = --I),
-                -1 == I ? ((y += I), (D[--S] = m)) : (y -= I),
+                -1 == I ? ((y += I), (D[--c] = m)) : (y -= I),
                 !I)
               )
                 do {
@@ -47420,23 +47562,23 @@
                   D[k] = B;
                   do {
                     k = (k + F) & P;
-                  } while (k >= S);
+                  } while (k >= c);
                 }
             }
             for (k && u(0), M = 0; M < T; ++M) {
               var x = g[D[M]]++,
-                O = (C[M] = i - c(x));
+                O = (C[M] = i - S(x));
               A[M] = (x << O) - T;
             }
             return [(o + 7) >> 3, { b: i, s: D, n: C, t: A }];
           },
-          b = S(new r([81, 16, 99, 140, 49, 198, 24, 99, 12, 33, 196, 24, 99, 102, 102, 134, 70, 146, 4]), 0, 6)[1],
-          h = S(
+          b = c(new r([81, 16, 99, 140, 49, 198, 24, 99, 12, 33, 196, 24, 99, 102, 102, 134, 70, 146, 4]), 0, 6)[1],
+          h = c(
             new r([33, 20, 196, 24, 99, 140, 33, 132, 16, 66, 8, 33, 132, 16, 66, 8, 33, 68, 68, 68, 68, 68, 68, 68, 68, 36, 9]),
             0,
             6
           )[1],
-          g = S(new r([32, 132, 16, 66, 102, 70, 68, 68, 68, 68, 36, 73, 2]), 0, 5)[1],
+          g = c(new r([32, 132, 16, 66, 102, 70, 68, 68, 68, 68, 36, 73, 2]), 0, 5)[1],
           A = function (e, a) {
             for (var t = e.length, s = new o(t), r = 0; r < t; ++r) (s[r] = a), (a += 1 << e[r]);
             return s;
@@ -47452,7 +47594,7 @@
               d = (1 << t.b) - 1,
               o = -t.b;
             n || u(0);
-            for (var i = 0, T = t.b, y = (s << 3) - 8 + c(n) - T, m = -1; y > o && m < r; ) {
+            for (var i = 0, T = t.b, y = (s << 3) - 8 + S(n) - T, m = -1; y > o && m < r; ) {
               var l = y >> 3;
               (i = ((i << T) | ((e[l] | (e[l + 1] << 8) | (e[l + 2] << 16)) >> (7 & y))) & d), (a[++m] = t.s[i]), (y -= T = t.n[i]);
             }
@@ -47516,13 +47658,13 @@
                         y = d.subarray(256, 268),
                         m = new n(d.buffer, 268);
                       if (o < 128) {
-                        var l = S(e, a + 1, 6),
+                        var l = c(e, a + 1, 6),
                           M = l[0],
                           b = l[1],
                           h = M << 3,
                           g = e[(a += o)];
                         g || u(0);
-                        for (var A = 0, p = 0, D = b.b, C = D, f = (++a << 3) - 8 + c(g); !((f -= D) < h); ) {
+                        for (var A = 0, p = 0, D = b.b, C = D, f = (++a << 3) - 8 + S(g); !((f -= D) < h); ) {
                           var E = f >> 3;
                           if (((A += ((e[E] | (e[E + 1] << 8)) >> (7 & f)) & ((1 << D) - 1)), (i[++s] = b.s[A]), (f -= C) < h)) break;
                           (p += ((e[(E = f >> 3)] | (e[E + 1] << 8)) >> (7 & f)) & ((1 << C) - 1)),
@@ -47542,10 +47684,10 @@
                       }
                       var I = 0;
                       for (t = 0; t < s; ++t) (N = i[t]) > 11 && u(0), (I += N && 1 << (N - 1));
-                      var w = c(I) + 1,
+                      var w = S(I) + 1,
                         v = 1 << w,
                         H = v - I;
-                      for (H & (H - 1) && u(0), i[s++] = c(H) + 1, t = 0; t < s; ++t) {
+                      for (H & (H - 1) && u(0), i[s++] = S(H) + 1, t = 0; t < s; ++t) {
                         var N = i[t];
                         ++y[(i[t] = N && w + 1 - N)];
                       }
@@ -47579,7 +47721,7 @@
                     if (1 == R) {
                       var W = new r([0, 0, e[d++]]);
                       x[O] = { s: W.subarray(2, 3), n: W.subarray(0, 1), t: new n(W.buffer, 0, 1), b: 0 };
-                    } else 2 == R ? ((d = (s = S(e, d, 9 - (1 & O)))[0]), (x[O] = s[1])) : 3 == R && (a.t || u(0), (x[O] = a.t[O]));
+                    } else 2 == R ? ((d = (s = c(e, d, 9 - (1 & O)))[0]), (x[O] = s[1])) : 3 == R && (a.t || u(0), (x[O] = a.t[O]));
                   }
                   var J = (a.t = x),
                     K = J[0],
@@ -47587,7 +47729,7 @@
                     L = J[2],
                     G = e[l - 1];
                   G || u(0);
-                  var z = (l << 3) - 8 + c(G) - L.b,
+                  var z = (l << 3) - 8 + S(G) - L.b,
                     U = z >> 3,
                     V = 0,
                     q = ((e[U] | (e[U + 1] << 8)) >> (7 & z)) & ((1 << L.b) - 1),
@@ -47672,7 +47814,7 @@
       1909: (e) => {
         "use strict";
         e.exports = JSON.parse(
-          '{"mbgc.db.ads.2":{"md5":"74daffca8d28e5bf659524670a119c4f","name":"mbgc.db.ads.2","sha256":"4c0e0e8685cea6faf28ac2379cabfc5223a90c7c6de6a2addf63f0fa5eb24a17","size":302347,"url":"cdn.mwbsys.com/packages/mbgc.db.ads.2/7/4/d/a/74daffca8d28e5bf659524670a119c4f/6eff0bcd-f565-461b-8753-454c47f93261.2","version":"2.0.202311021416"},"mbgc.db.adware.2":{"md5":"ceb2ec5a08972324488fe5527ca53a42","name":"mbgc.db.adware.2","sha256":"c9d68fb50aef5c1316726ec3f764502f22841a9d126fdf325ba2df75a6592076","size":4545,"url":"cdn.mwbsys.com/packages/mbgc.db.adware.2/c/e/b/2/ceb2ec5a08972324488fe5527ca53a42/ddb6cc0d-0555-483d-a617-58062d98dcdf.2","version":"2.0.202310041920"},"mbgc.db.compromised.2":{"md5":"f5888f9dd87223071970eb4c91e7b4b0","name":"mbgc.db.compromised.2","sha256":"c4c7824cadbd8ce493f334b810ad848c005a8c623d95550b0dfdbd890915da4b","size":14617,"url":"cdn.mwbsys.com/packages/mbgc.db.compromised.2/f/5/8/8/f5888f9dd87223071970eb4c91e7b4b0/cc5c45d7-64c7-4fb0-803c-a83f6e99d650.2","version":"2.0.202310190845"},"mbgc.db.exploit.2":{"md5":"f038f65baec923d70dfdd3ac6f817de6","name":"mbgc.db.exploit.2","sha256":"2fe06697ab631e9530d4f3e894fde27855a84999c0b91cd74bbded2c8572fa7e","size":5471,"url":"cdn.mwbsys.com/packages/mbgc.db.exploit.2/f/0/3/8/f038f65baec923d70dfdd3ac6f817de6/5c8b0c1b-8cbb-4eb3-9c58-eddde4d44f79.2","version":"2.0.202310190745"},"mbgc.db.featureflags.2":{"md5":"c474da3eb026b7ff9f840dda6933f836","name":"mbgc.db.featureflags.2","sha256":"01ad1770d5b499da2c36f63274dbf4106d7f35f5b903becbf1a5cd61e5b738d2","size":112,"url":"cdn.mwbsys.com/packages/mbgc.db.featureflags.2/c/4/7/4/c474da3eb026b7ff9f840dda6933f836/30ff69af-0e23-44bc-8e8e-051a82fdac94.2","version":"2.0.202310242116"},"mbgc.db.fraud.2":{"md5":"22ffced5df8195b708caff922c601881","name":"mbgc.db.fraud.2","sha256":"5a20d86d61a6315f992183601a26b64d8956188308d83097fa46655a0e228f95","size":551530,"url":"cdn.mwbsys.com/packages/mbgc.db.fraud.2/2/2/f/f/22ffced5df8195b708caff922c601881/bce2b98d-5546-46da-8fa4-400edec1fc51.2","version":"2.0.202311021346"},"mbgc.db.hijack.2":{"md5":"9ece6fe4102addf9c426c24a2ba06d15","name":"mbgc.db.hijack.2","sha256":"6831c7e0b8fae7056b44ac8ee2756fb7f73c26ea77828384156d5dde97d910f0","size":23221,"url":"cdn.mwbsys.com/packages/mbgc.db.hijack.2/9/e/c/e/9ece6fe4102addf9c426c24a2ba06d15/67d5fe8a-e2dc-4eb9-ba52-8142cbf55a9b.2","version":"2.0.202310310715"},"mbgc.db.malvertising.2":{"md5":"b40e8f77cfaffb348e907dd8e9ba930b","name":"mbgc.db.malvertising.2","sha256":"9c62030a61b66ccc8d8b67b43be472eabae4189bb670e077f3cd5400a7bccfa0","size":144994,"url":"cdn.mwbsys.com/packages/mbgc.db.malvertising.2/b/4/0/e/b40e8f77cfaffb348e907dd8e9ba930b/d628c96a-e508-466a-a8d5-ca921d1ffd3b.2","version":"2.0.202310302116"},"mbgc.db.malware.partial.urls.2":{"md5":"661ba019c220762ce2c262307a3e8223","name":"mbgc.db.malware.partial.urls.2","sha256":"51f82d3180a73d5382719a67a9e712175eaa20d168657f8b6c22297bea12a394","size":7365,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.partial.urls.2/6/6/1/b/661ba019c220762ce2c262307a3e8223/f3732ea5-88c3-4961-a3c1-6b7774c4bb76.2","version":"2.0.202310161645"},"mbgc.db.malware.patterns.2":{"md5":"5bd5d9984406567936863f05dadf469f","name":"mbgc.db.malware.patterns.2","sha256":"82fc42a370325590898b614a4edbd3b696baa12383f2b1fcb09578bb1fbe292c","size":2701,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.patterns.2/5/b/d/5/5bd5d9984406567936863f05dadf469f/529af5aa-ccf2-4571-b722-7cb5cbab7ef5.2","version":"2.0.202310241246"},"mbgc.db.malware.urls.2":{"md5":"8c65ba14ec01df966397cc6e3342c359","name":"mbgc.db.malware.urls.2","sha256":"879546672dddb80ead72222a078696edeaa02f01c495ca4606e19be564d9ba2d","size":320393,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.urls.2/8/c/6/5/8c65ba14ec01df966397cc6e3342c359/4271147a-8c45-41a9-ac91-d60c16646609.2","version":"2.0.202311031114"},"mbgc.db.pharma.2":{"md5":"786fb6f99d1ade2376e9f654fae9e0cd","name":"mbgc.db.pharma.2","sha256":"84b6d1f6afa118f867d6279295e91c7ef6ffab88521105b660d238226d8aea1a","size":14360,"url":"cdn.mwbsys.com/packages/mbgc.db.pharma.2/7/8/6/f/786fb6f99d1ade2376e9f654fae9e0cd/c886f35a-57d4-4c3c-abc1-ff662ddd75f0.2","version":"2.0.202310151613"},"mbgc.db.phishing.2":{"md5":"e646f5e428e4c7ab1bc51bd7ff93de20","name":"mbgc.db.phishing.2","sha256":"fc097c1039d1d4e2912261a784ca48ecb8bbd87e022da335db537372edb8fa85","size":453896,"url":"cdn.mwbsys.com/packages/mbgc.db.phishing.2/e/6/4/6/e646f5e428e4c7ab1bc51bd7ff93de20/06145870-667b-4e64-afb1-4fbf10aee71c.2","version":"2.0.202311031114"},"mbgc.db.ransomware.2":{"md5":"30a6f7687ba4b073c30e3f7cc5782d91","name":"mbgc.db.ransomware.2","sha256":"354c34dd49ba2051c81d55bd09d096e896e869c747e44945f5b537ebf58b5880","size":25038,"url":"cdn.mwbsys.com/packages/mbgc.db.ransomware.2/3/0/a/6/30a6f7687ba4b073c30e3f7cc5782d91/5899f221-d77d-4cc3-97cb-786febcd73b7.2","version":"2.0.202310151014"},"mbgc.db.reputation.2":{"md5":"b8369dfdc8693757f431fb1da34a49d4","name":"mbgc.db.reputation.2","sha256":"f8b2ea9b0dc65a35c18690e1dac5f0bb5ff493d5855c03ffa67c7772697be806","size":342343,"url":"cdn.mwbsys.com/packages/mbgc.db.reputation.2/b/8/3/6/b8369dfdc8693757f431fb1da34a49d4/d5d5f3c6-ef16-4b31-9576-fab7216bf2e7.2","version":"2.0.202311031114"},"mbgc.db.riskware.2":{"md5":"f8287966ec5b7b65e3c1879963b4e3a9","name":"mbgc.db.riskware.2","sha256":"9f00d7b4713800c0f9663d6a4e785c9e8d58384a5bc96accac73c65cdc95a20d","size":2082463,"url":"cdn.mwbsys.com/packages/mbgc.db.riskware.2/f/8/2/8/f8287966ec5b7b65e3c1879963b4e3a9/a997cc67-4932-4ef9-ac0a-008b234261c2.2","version":"2.0.202311030915"},"mbgc.db.spam.2":{"md5":"23467875319738296a5bd07646446939","name":"mbgc.db.spam.2","sha256":"51cda22f3c1395279119da3a7c499bdcc585265d4787c2b29767eb9dc6ea98d4","size":19965,"url":"cdn.mwbsys.com/packages/mbgc.db.spam.2/2/3/4/6/23467875319738296a5bd07646446939/4e12bfaa-bf50-4e72-9397-868df8b33919.2","version":"2.0.202311020815"},"mbgc.db.spyware.2":{"md5":"64e086be92e9044efaf6966a395dea04","name":"mbgc.db.spyware.2","sha256":"e6d2075895dbd82dfbbbd2be519d89cb04d273352c9f2e10509486208302d3af","size":41543,"url":"cdn.mwbsys.com/packages/mbgc.db.spyware.2/6/4/e/0/64e086be92e9044efaf6966a395dea04/a5346a85-b7c6-4a48-9449-49a81ec8484f.2","version":"2.0.202311021245"},"mbgc.db.top1m.2":{"md5":"289944ac4bccbe82654f9c7364bf90c7","name":"mbgc.db.top1m.2","sha256":"6c90d92a0af9b040655ea20c961663b40f7e20f0e2cc1cebb48b02c2a6619c89","size":6798579,"url":"cdn.mwbsys.com/packages/mbgc.db.top1m.2/2/8/9/9/289944ac4bccbe82654f9c7364bf90c7/1a23abc6-df3f-4612-a383-a85f35f02715.2","version":"2.0.202311022314"},"mbgc.db.trojan.2":{"md5":"722142ba8be903ac55b74ed11d68c26a","name":"mbgc.db.trojan.2","sha256":"05fa59e90cceeee696cb24faccb1e46111fd58aa520c8199651c97c6b88a9b4b","size":1636154,"url":"cdn.mwbsys.com/packages/mbgc.db.trojan.2/7/2/2/1/722142ba8be903ac55b74ed11d68c26a/1d49dfbe-ed64-4f03-a351-25869422ae9f.2","version":"2.0.202311030915"},"mbgc.db.whitelist.ads.2":{"md5":"e910f3839da08fb71cc7b38ac1c99321","name":"mbgc.db.whitelist.ads.2","sha256":"bd3a9da667f088285d383a8966d29330ad5ad3c4b1acfc9fc9492505a968fc3e","size":370,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.ads.2/e/9/1/0/e910f3839da08fb71cc7b38ac1c99321/3164f9e0-945c-4091-a18f-634764048a70.2","version":"2.0.202309131757"},"mbgc.db.whitelist.malware.2":{"md5":"1f878c90406435744acc04b0a546c2db","name":"mbgc.db.whitelist.malware.2","sha256":"f0a03197338490b0fd59aa37325445f2369ffc0c540b0170c5245177e9deed9d","size":1573,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.malware.2/1/f/8/7/1f878c90406435744acc04b0a546c2db/7c837328-4791-4184-adf6-be411fabea4b.2","version":"2.0.202310201146"},"mbgc.db.whitelist.scams.manual.2":{"md5":"960d8a3f0b272764b1e0315b0c909463","name":"mbgc.db.whitelist.scams.manual.2","sha256":"07cdf080d20761f9e89c5bc3173a3e1f6670ddc56f9981bf1c257de7ec7d18e6","size":18183,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.manual.2/9/6/0/d/960d8a3f0b272764b1e0315b0c909463/b6b928fb-88f3-4491-b99b-276c67cc7601.2","version":"2.0.202311030915"},"mbgc.db.whitelist.scams.patterns.2":{"md5":"9fdd852ea88d6724acb064f5b9399f3c","name":"mbgc.db.whitelist.scams.patterns.2","sha256":"ce870c377708fc76d6db25debc5cf1a307df7fab0753afe42166f3e80d73ec9b","size":2836,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.patterns.2/9/f/d/d/9fdd852ea88d6724acb064f5b9399f3c/a67494f4-d049-47a4-8274-8b571b0ca4be.2","version":"2.0.202310201346"},"mbgc.db.whitelist.tracker.2":{"md5":"f756ea45ae97665c26a76ffc80652503","name":"mbgc.db.whitelist.tracker.2","sha256":"6ae5d44c3dba02d00ac14f1e1402d96871dba96171f472794a18806f0626dc0d","size":845,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.tracker.2/f/7/5/6/f756ea45ae97665c26a76ffc80652503/2e8bfef0-ac27-4d68-b9f5-f1017e3a1df1.2","version":"2.0.202309131757"},"mbgc.db.worm.2":{"md5":"50bfcac8a96dbd4072e442147ebe1cfd","name":"mbgc.db.worm.2","sha256":"e8ed2cce5fa0c49d9539c1aa74037dba456e9c6394e37d91e43574a1f139cc84","size":3343,"url":"cdn.mwbsys.com/packages/mbgc.db.worm.2/5/0/b/f/50bfcac8a96dbd4072e442147ebe1cfd/17816702-6a72-4604-bdd3-ce570fb5519e.2","version":"2.0.202310191946"}}'
+          '{"mbgc.db.ads.2":{"md5":"6cdbc57c60de9e83cb7102ec4e9f8e1f","name":"mbgc.db.ads.2","sha256":"b83af6aeb71c186a0ae0b38bd8f2830172938a8ab2f2d666f456b9515b43f472","size":302360,"url":"cdn.mwbsys.com/packages/mbgc.db.ads.2/6/c/d/b/6cdbc57c60de9e83cb7102ec4e9f8e1f/69dc954f-c6d1-43b3-906e-c501e6119ddb.2","version":"2.0.202312110949"},"mbgc.db.adware.2":{"md5":"a7131f8516b6000e3556decf266a8acf","name":"mbgc.db.adware.2","sha256":"933c4acde50a1e77729a04be84e628855238365e07c0c22e61194eeba1cff4a0","size":53,"url":"cdn.mwbsys.com/packages/mbgc.db.adware.2/a/7/1/3/a7131f8516b6000e3556decf266a8acf/43819392-27c3-40d5-9b95-6f44e5ae9cf7.2","version":"2.0.202312111219"},"mbgc.db.compromised.2":{"md5":"c444664cd450fc2fcf543d0276fe404a","name":"mbgc.db.compromised.2","sha256":"4ee7b71f40d525c369fb14a2e98befa2954bf4fcdcf321894541d05ddac09323","size":13978,"url":"cdn.mwbsys.com/packages/mbgc.db.compromised.2/c/4/4/4/c444664cd450fc2fcf543d0276fe404a/cff40898-97cd-46b0-b1c3-15e220982c8b.2","version":"2.0.202312041818"},"mbgc.db.exploit.2":{"md5":"ce2b55e65f9e0d9f6006a62a360ca978","name":"mbgc.db.exploit.2","sha256":"e4f5e379d38e58c186a808945b4d153b5368593ec787193985be332419ce911c","size":53,"url":"cdn.mwbsys.com/packages/mbgc.db.exploit.2/c/e/2/b/ce2b55e65f9e0d9f6006a62a360ca978/db1b392b-3292-4ece-81e9-e0b723d5223a.2","version":"2.0.202312111219"},"mbgc.db.featureflags.2":{"md5":"4b0682990b6e9e39aec9cdbf94b81b58","name":"mbgc.db.featureflags.2","sha256":"51827bbf7430d78f05c0f08031b171543b75449b0cf9257ea59920165549477f","size":127,"url":"cdn.mwbsys.com/packages/mbgc.db.featureflags.2/4/b/0/6/4b0682990b6e9e39aec9cdbf94b81b58/69a0f523-adfa-4293-9758-ae697373fb5c.2","version":"2.0.202312071617"},"mbgc.db.fraud.2":{"md5":"926b1abad2d3d0314a87a5f8bd6b32e9","name":"mbgc.db.fraud.2","sha256":"e09d983812c4f3aa256b48f706e656386dee4a73663517d02be98c704eb8b6ac","size":547244,"url":"cdn.mwbsys.com/packages/mbgc.db.fraud.2/9/2/6/b/926b1abad2d3d0314a87a5f8bd6b32e9/cdf47627-7b47-41bf-98ec-5e475f43ac27.2","version":"2.0.202312111017"},"mbgc.db.hijack.2":{"md5":"2413ba4d39fcf64809ba0b62e3f1dac0","name":"mbgc.db.hijack.2","sha256":"fb5fc7a10583060eca33402a73b0aad1e5968a96f741680e62c28f230669a762","size":22041,"url":"cdn.mwbsys.com/packages/mbgc.db.hijack.2/2/4/1/3/2413ba4d39fcf64809ba0b62e3f1dac0/079b7819-c85f-41dc-a7f0-4b606c624bc1.2","version":"2.0.202312081216"},"mbgc.db.malvertising.2":{"md5":"5649da5c3181440275ace797f22d632b","name":"mbgc.db.malvertising.2","sha256":"9d4335cbbdc93b2256e14223e3729dec1c250bd1c36fb7eac3be70af6291f4a4","size":126019,"url":"cdn.mwbsys.com/packages/mbgc.db.malvertising.2/5/6/4/9/5649da5c3181440275ace797f22d632b/de9c967b-bb11-4f81-95fd-f71f3309a234.2","version":"2.0.202312110916"},"mbgc.db.malware.partial.urls.2":{"md5":"28ade73b096433d2f62cabecf913efad","name":"mbgc.db.malware.partial.urls.2","sha256":"5dfd829e8d2e717d8d58bb78bd51e42a2da86f09511388a21618f77b9902a928","size":7495,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.partial.urls.2/2/8/a/d/28ade73b096433d2f62cabecf913efad/440ecbf6-e1a7-4713-a88e-f698dca7080c.2","version":"2.0.202311301715"},"mbgc.db.malware.patterns.2":{"md5":"d58563d5521d699222c6a44056818037","name":"mbgc.db.malware.patterns.2","sha256":"e0246b8297d3035ae5c380c78dec7cfac3c20de9c92327dcc2069e0959780690","size":2831,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.patterns.2/d/5/8/5/d58563d5521d699222c6a44056818037/c0a13c2c-f431-45ac-8077-76e902bced68.2","version":"2.0.202312051521"},"mbgc.db.malware.urls.2":{"md5":"5ab2ad87bd9bedce9b702c08eef2429d","name":"mbgc.db.malware.urls.2","sha256":"9b3c447180298bd259f9c79012df042e878e774b6e81cd943178142657a399f9","size":342375,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.urls.2/5/a/b/2/5ab2ad87bd9bedce9b702c08eef2429d/c4e64040-35c7-4eb2-82e0-4f7d614bfaeb.2","version":"2.0.202312111219"},"mbgc.db.pharma.2":{"md5":"4584ff00760b4529799368343aa2b354","name":"mbgc.db.pharma.2","sha256":"b7f7678736930bc2f758a03617d4cd5a67746ed0b4917f083fd89de1f1942b97","size":13896,"url":"cdn.mwbsys.com/packages/mbgc.db.pharma.2/4/5/8/4/4584ff00760b4529799368343aa2b354/97abca0e-1f31-4b83-bfc7-da54810d3ef6.2","version":"2.0.202312100147"},"mbgc.db.phishing.2":{"md5":"21ca7a7ee9968ca979c3592d87fd1b34","name":"mbgc.db.phishing.2","sha256":"223026e71faa596008f025814235488942633b2cbe95df64a68e563c8072ff35","size":524125,"url":"cdn.mwbsys.com/packages/mbgc.db.phishing.2/2/1/c/a/21ca7a7ee9968ca979c3592d87fd1b34/800e0bd9-49c7-49bb-97e8-a9c618f15084.2","version":"2.0.202312111219"},"mbgc.db.ransomware.2":{"md5":"9b270ff88f33f686e9d207b37e64bed4","name":"mbgc.db.ransomware.2","sha256":"f2336e3d7fa767e91d15f3d0ddc7e832a7337e1002df3638627ac81939c4bfc3","size":24905,"url":"cdn.mwbsys.com/packages/mbgc.db.ransomware.2/9/b/2/7/9b270ff88f33f686e9d207b37e64bed4/d5410dea-b322-4137-a309-2c3191918664.2","version":"2.0.202312071647"},"mbgc.db.reputation.2":{"md5":"1a1352cad1f7cec3d2c8f69abd3d6675","name":"mbgc.db.reputation.2","sha256":"0408128aff8ee54e86e2661cefb644bcfc780622ff5014071bb212d2d8508928","size":349387,"url":"cdn.mwbsys.com/packages/mbgc.db.reputation.2/1/a/1/3/1a1352cad1f7cec3d2c8f69abd3d6675/eeeab312-7663-4e7d-9f73-3382b8b03179.2","version":"2.0.202312111219"},"mbgc.db.riskware.2":{"md5":"ce3981230f6a75dffbf127689eafffb9","name":"mbgc.db.riskware.2","sha256":"59f6f82294d6123ee51e72c9b8db5c150362d5f9e14f0e72d80477e75fbec715","size":2133826,"url":"cdn.mwbsys.com/packages/mbgc.db.riskware.2/c/e/3/9/ce3981230f6a75dffbf127689eafffb9/e1182de0-99fe-4153-8510-5f40a33c52fc.2","version":"2.0.202312111116"},"mbgc.db.spam.2":{"md5":"6481edd0f7924f611ed98052d767c6aa","name":"mbgc.db.spam.2","sha256":"70851a23a6b50249178e1c23965542cb9ea2abbc6b318550032d3775d15bd11e","size":19694,"url":"cdn.mwbsys.com/packages/mbgc.db.spam.2/6/4/8/1/6481edd0f7924f611ed98052d767c6aa/e06d8446-f987-468d-9f15-9bdcfb17bdfc.2","version":"2.0.202312110916"},"mbgc.db.spyware.2":{"md5":"8e611d018096e1e488b395f65344bf82","name":"mbgc.db.spyware.2","sha256":"c56a233e65125963b1365b9b35fa581c15d363ebd44cbdb68cae8e954bac58a8","size":44230,"url":"cdn.mwbsys.com/packages/mbgc.db.spyware.2/8/e/6/1/8e611d018096e1e488b395f65344bf82/2f4c27ee-3622-4d5b-8445-94efccf83888.2","version":"2.0.202312111219"},"mbgc.db.top1m.2":{"md5":"2b968c7299140aaf65a44253daebdb51","name":"mbgc.db.top1m.2","sha256":"94029e391c8a77551c2fed7dbae235ef6ef476795c93a990202ebb4e2b94f578","size":6796413,"url":"cdn.mwbsys.com/packages/mbgc.db.top1m.2/2/b/9/6/2b968c7299140aaf65a44253daebdb51/fbd2059e-45fe-4b92-bd1c-5ae530af76ad.2","version":"2.0.202312110949"},"mbgc.db.trojan.2":{"md5":"92a46773ef9ebff6488e6e59f76ae393","name":"mbgc.db.trojan.2","sha256":"b146df3e8cf3b2a3bacb31953a9d2a7e1028184be237e71ff3b3b41a213444f0","size":1614649,"url":"cdn.mwbsys.com/packages/mbgc.db.trojan.2/9/2/a/4/92a46773ef9ebff6488e6e59f76ae393/56bdcfa7-c07c-4544-9a1e-0c31e751c634.2","version":"2.0.202312111219"},"mbgc.db.whitelist.ads.2":{"md5":"e910f3839da08fb71cc7b38ac1c99321","name":"mbgc.db.whitelist.ads.2","sha256":"bd3a9da667f088285d383a8966d29330ad5ad3c4b1acfc9fc9492505a968fc3e","size":370,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.ads.2/e/9/1/0/e910f3839da08fb71cc7b38ac1c99321/40d74cea-ddde-415e-85d5-ea8058e9483b.2","version":"2.0.202312111147"},"mbgc.db.whitelist.malware.2":{"md5":"c721f1371f23e2a1796d2131a1e9111d","name":"mbgc.db.whitelist.malware.2","sha256":"7255daa555699ce5630ff0b7fb498e559cb1693c59058e7d727d0278fce235d6","size":1590,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.malware.2/c/7/2/1/c721f1371f23e2a1796d2131a1e9111d/d35dacf8-496a-4b57-a595-1b0f2b62f149.2","version":"2.0.202312111219"},"mbgc.db.whitelist.scams.manual.2":{"md5":"d5f6f3bb5688dd02418e598fb2d299a4","name":"mbgc.db.whitelist.scams.manual.2","sha256":"bf65f917b1c99e512f136a6881ee996151b7b13e9f70e9b73c20bb1abf047176","size":20434,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.manual.2/d/5/f/6/d5f6f3bb5688dd02418e598fb2d299a4/ca0f1da1-d612-49b3-833a-c144bb45f66f.2","version":"2.0.202312101647"},"mbgc.db.whitelist.scams.patterns.2":{"md5":"f460b88a5d9d5b4d3cfe6ebcd47af416","name":"mbgc.db.whitelist.scams.patterns.2","sha256":"f5949418cb148f144137456fa066af602d3a182e05c769f1e1c34d4dc95c3a6f","size":2827,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.patterns.2/f/4/6/0/f460b88a5d9d5b4d3cfe6ebcd47af416/b70e77f4-4c36-481e-9179-579734b257cf.2","version":"2.0.202311032116"},"mbgc.db.whitelist.tracker.2":{"md5":"f756ea45ae97665c26a76ffc80652503","name":"mbgc.db.whitelist.tracker.2","sha256":"6ae5d44c3dba02d00ac14f1e1402d96871dba96171f472794a18806f0626dc0d","size":845,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.tracker.2/f/7/5/6/f756ea45ae97665c26a76ffc80652503/2e8bfef0-ac27-4d68-b9f5-f1017e3a1df1.2","version":"2.0.202309131757"},"mbgc.db.worm.2":{"md5":"97223ff7aeb2d55b4b062887e6221d36","name":"mbgc.db.worm.2","sha256":"0f7d43fdd0d4b20e52aa376072b4a77862c5266a05174033b11246ab253ef8c4","size":3244,"url":"cdn.mwbsys.com/packages/mbgc.db.worm.2/9/7/2/2/97223ff7aeb2d55b4b062887e6221d36/956a12d3-0d9f-4f32-90ee-eaa4be253d76.2","version":"2.0.202312111147"}}'
         );
       }
     },

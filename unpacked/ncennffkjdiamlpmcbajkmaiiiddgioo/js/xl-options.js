@@ -51,9 +51,9 @@
   },
   function (E, C, B) {
     !(function () {
-      const { isMac: E } = B(2),
+      const { isMacDevice: E } = B(2),
         { macOptions: C } = B(10);
-      if (E()) return void C();
+      if (E) return void C();
       document.querySelector(".setting-plugin").style.display = "block";
       let D = {
           setMonitorVideoTags: (...E) => {
@@ -274,28 +274,30 @@
     const s = () => {
         chrome.runtime.sendMessage({ name: "xl_call_function", method: "startThunder", launchApp: "Thunder" });
       },
-      a = (E, C) => {
+      a = (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
+      c = (E) => {
+        return Math.floor(E / 60) + "." + Math.floor(E % 60);
+      },
+      l = (E, C) => {
         const B = C.exec(E);
         if (B && B[1]) {
           return decodeURIComponent(B[1]);
         }
         return "";
       };
-    const c = (E) =>
+    const d = () => window.self !== window.top,
+      m = (E) =>
         new Promise((C) => {
           chrome.storage.local.get((B) => {
             C(E ? B[E] : B);
           });
         }),
-      l = new RegExp(
+      u = new RegExp(
         '((((http|https)://[^":<>#?&=\\s\\r\\n]+\\.torrent\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|(((http|https)://[^":<>#?&=\\s\\r\\n]+\\.(m3u8|mov|mp4|mpv|m4v|g3p|g32|avi|asf|wmv|avs|flv|mkv|mpg|mpeg|dat|ogm|vob|rm|ts|tp|ifo|nsv|m2ts|3gp|f4v|rmvb|rar|xlsx|xls|doc|docx|epub|pptx|ppt|zip|7z|iso|pdf|exe|dmg|ipa|apk)\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|((?<=[">\\s\\r\\n])((magnet:[^"<>\\s\\r\\n]*xt(\\.[0-9]+)*=urn:((sha1)|(md5)|(btih)|(tree:tiger)|(bitprint)|(ed2k)|(aich)|(kzhash)|(crc32)):[0-9a-zA-Z]{10,}[^"<>\\s\\r\\n]*)|(ed2k://((\\|)|(%7[cC]))file((\\|)|(%7[cC]))[^"<>\\s\\r\\n]+((\\|)|(%7[cC]))[0-9]+((\\|)|(%7[cC]))[0-9a-zA-Z]+((\\|)|(%7[cC]))[^"<>\\s\\r\\n)]*/)|(ftp://[^"<>\\s\\r\\n]+)|((([Tt]hunder)|(qqdl)|([Ff]lashget))://([a-zA-Z0-9\\+/])+={0,2}))(?=["<\\r\\n])))|(((thunder|Thunder):\\/\\/[^\\s\\r\\n"]+?)(?="|\'))',
         "gi"
       );
+    const p = /(macintosh|macintel)/i.test(navigator.userAgent);
     E.exports = {
-      isMac: () => {
-        const E = navigator.userAgent.toLocaleLowerCase();
-        return !!/macintosh|mac os x/i.test(E);
-      },
       ajax: r,
       getSrcFromVideoTag: (E) => {
         let C = void 0;
@@ -309,9 +311,13 @@
           return C;
         }
       },
-      getAllVideo: () => {
-        return document.getElementsByTagName("video");
-      },
+      getAllVideo: async () =>
+        new Promise((E) => {
+          window.onload = () => {
+            const C = document.getElementsByTagName("video");
+            E(C);
+          };
+        }),
       isMouseInElement: (E, C) => {
         let B = !1;
         if (!C) return B;
@@ -332,10 +338,8 @@
       setExtStorage: (E, C) => {
         chrome.storage.local.set({ [E]: C });
       },
-      getFileUrlSuffix: (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
-      convertSecondsToMinutes: (E) => {
-        return Math.floor(E / 60) + "." + Math.floor(E % 60);
-      },
+      getFileUrlSuffix: a,
+      convertSecondsToMinutes: c,
       getXLChromeExtConfigs: () =>
         new Promise((E, C) => {
           r({
@@ -350,7 +354,7 @@
           });
         }),
       hasClassName: (E, C) => E.classList.value.includes(C),
-      getMatchFileName: a,
+      getMatchFileName: l,
       getUrlInfo: function (E) {
         let C = "",
           B = !1;
@@ -360,12 +364,12 @@
             e = D.pathname ? D.pathname.substring(D.pathname.lastIndexOf(".")).toLocaleLowerCase() : "unknown";
           switch (A) {
             case "magnet:":
-              C = a(E, /dn=([^&]+)/i);
+              C = l(E, /dn=([^&]+)/i);
               break;
             case "thunder:":
               break;
             case "ed2k:":
-              C = a(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
+              C = l(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
               break;
             case "ftp:":
               C = E.replace(/\?.*$/, "").replace(/.*\//, "");
@@ -375,10 +379,10 @@
               F.includes(e) && (B = !0),
                 (C = ".m3u8" === e && document.title ? document.title + e : E.replace(/\?.*$/, "").replace(/.*\//, ""));
           }
-          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e };
+          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e, isInIframe: d() };
         } catch (E) {}
       },
-      isInIframe: () => window.self !== window.top,
+      isInIframe: d,
       isValidProtocol: (E) => {
         if (!E) return !1;
         const C = new URL(E).protocol.toLocaleLowerCase();
@@ -388,7 +392,7 @@
         return "thunderx://" + btoa(unescape(encodeURIComponent(JSON.stringify(E))));
       },
       generateDialogRootId: (E) => "ncennffkjdiamlpmcbajkmaiiiddgioo-prompt" + E,
-      getChromeStorageValue: c,
+      getChromeStorageValue: m,
       createDownloadTask: (E, C) => {
         chrome.downloads.download({ url: E, filename: C }, (E) => {
           chrome.runtime.lastError;
@@ -399,7 +403,7 @@
         E.parentElement.appendChild(E);
       },
       checkNotificationTime: async () => {
-        const E = (await c("lastNotificationTime")) || "",
+        const E = (await m("lastNotificationTime")) || "",
           C = new Date().toLocaleDateString();
         return E !== C && (chrome.storage.local.set({ lastNotificationTime: C }), !0);
       },
@@ -448,7 +452,7 @@
       getOptionsSettings: async function () {
         const E = { enable: !1, size: 2 };
         (this.limitSizeInfo = E), (this.isShortcutEnable = !0), (this.monitorVideo = !0);
-        const C = await c();
+        const C = await m();
         if (!C) return;
         void 0 !== C.video_monitor && (this.monitorVideo = C.video_monitor),
           void 0 !== C.multi_select_shortcut_enable && (this.isShortcutEnable = C.multi_select_shortcut_enable);
@@ -464,12 +468,71 @@
       },
       isForbiddenFileUrlProtocol: (E) => {
         const { protocol: C } = new URL(E);
-        return !!C && !o.includes(C);
+        return !!C && o.includes(C);
       },
-      resourceUrlReg: l,
+      statVideoInfo: (E) => {
+        try {
+          for (let C of E) {
+            let E = "",
+              B = "";
+            const D = C.src,
+              F = a(C.src);
+            (B = i.includes(F) ? "direct" : "other"),
+              C.addEventListener("loadedmetadata", () => {
+                E = c(C.duration);
+              }),
+              C.addEventListener("playing", () => {
+                chrome.runtime.sendMessage({
+                  name: "xl_sniff_video_info",
+                  videoType: B,
+                  fileUrlSuffix: F,
+                  videoDuration: E,
+                  videoSrc: D,
+                  stat: "browser_plugin_webpage_video_play"
+                });
+              });
+          }
+        } catch (E) {}
+      },
+      resourceUrlReg: u,
+      trackEvent: (...E) => {
+        chrome.runtime.sendMessage({ name: "xl_call_function", method: "trackEvent", args: E });
+      },
+      xlSendNativeMessage: async (E, C) => {
+        return await chrome.runtime.sendNativeMessage(E, { ua: navigator.userAgent, ...C });
+      },
+      getAllCookies: (E) =>
+        new Promise((C) => {
+          chrome.cookies.getAll(E, (E) => {
+            let B = "";
+            if (E) {
+              for (const C in E) B = B.concat(E[C].name, "=", E[C].value, "; ");
+              C(B);
+            } else C(B);
+          });
+        }),
+      getDispositionFileName: (E) => {
+        var C = new RegExp("filename[^;=\n]*=((['\"]).*?|[^;\n]*)", "g"),
+          B = C.exec(E);
+        if (null === B) return "";
+        var D = C.exec(E),
+          F = null;
+        return (
+          (F = (F = (F = (F = null === D ? B[1] : -1 === D[1].toLowerCase().indexOf("utf-8") ? B[1] : D[1]).replace(
+            /"([^"]*)"/g,
+            "$1"
+          )).replace("UTF-8''", "")).replace("utf-8''", "")),
+          decodeURIComponent(F.replace(/\+/g, ""))
+        );
+      },
+      getNameFromTitle: (E, C, B) => {
+        const D = B || document.title;
+        return D ? D + E : C.replace(/\?.*$/, "").replace(/.*\//, "");
+      },
       urlRegexp: /^(ftp|http[s]?):\/\/([^\/]*)[\/]?/,
       domainRegexp: /(.*?\.)?(.*?\..*)/,
-      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" }
+      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" },
+      isMacDevice: p
     };
   },
   function (E, C, B) {

@@ -11,25 +11,25 @@
         url_ccgi_cdn: "https://client-cdn4.hola.org/client_cgi",
         url_perr: "https://perr.hola.org/client_cgi",
         www_host: "hola.org",
-        version: "1.216.954",
+        version: "1.218.811",
         url_site: "https://hola.org",
         url_bext: "https://client.hola.org/bext",
         agents: [
-          { ip: "137.184.194.200", port: "22224", name: "zagent2716" },
-          { ip: "24.199.106.240", port: "22224", name: "zagent2760" },
-          { ip: "165.22.12.89", port: "22224", name: "zagent2688" },
-          { ip: "45.77.7.51", port: "22224", name: "zagent2604" },
-          { ip: "149.28.193.59", port: "22224", name: "zagent2608" },
-          { ip: "209.222.21.108", port: "22224", name: "zagent1640" },
-          { ip: "143.198.28.175", port: "22224", name: "zagent2660" },
-          { ip: "137.184.202.179", port: "22224", name: "zagent2714" },
-          { ip: "45.63.10.110", port: "22224", name: "zagent2551" },
-          { ip: "24.199.97.164", port: "22224", name: "zagent2771" }
+          { ip: "64.227.111.129", port: "22224", name: "zagent2776" },
+          { ip: "64.227.107.148", port: "22224", name: "zagent2778" },
+          { ip: "140.82.6.171", port: "22224", name: "zagent2547" },
+          { ip: "147.182.251.180", port: "22224", name: "zagent2766" },
+          { ip: "144.202.101.248", port: "22224", name: "zagent2603" },
+          { ip: "144.202.97.118", port: "22224", name: "zagent2601" },
+          { ip: "24.199.97.180", port: "22224", name: "zagent2765" },
+          { ip: "147.182.129.49", port: "22224", name: "zagent2721" },
+          { ip: "165.22.8.104", port: "22224", name: "zagent2685" },
+          { ip: "140.82.4.96", port: "22224", name: "zagent2540" }
         ],
         fallback_agents: {
           agents: [
-            { ip: "147.182.169.62", name: "zagent2948" },
-            { ip: "207.148.24.201", name: "zagent43" }
+            { ip: "207.148.24.201", name: "zagent43" },
+            { ip: "147.182.169.62", name: "zagent2948" }
           ],
           ports: { direct: 22222, peer: 22223, hola: 22224, trial: 22225, trial_peer: 22226 }
         },

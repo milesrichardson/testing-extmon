@@ -1041,7 +1041,7 @@
           ? ((o.sharedfolderid = r.getID()), (o.grouping = g.encryptWithKey(t.group.substring(r.getName().length + 1), a)))
           : (o.grouping = g.encryptWithKey(t.group, a));
         try {
-          var s = void 0 !== parent.reduxApp && parent.reduxApp.getState().settings.features.url_encryption,
+          var s = bg.get("LPContentScriptFeatures").url_encryption,
             n = "http://sn" !== t.url && "http://group" !== t.url;
           s && n && (t.url.match(/^[a-z\-]+?[0-9]*\:\/\//i) || (t.url = "http://" + t.url), (o.url = g.encryptWithKey(t.url, a)));
         } catch (t) {
@@ -1127,7 +1127,8 @@
       (AccountBaseWithFields.prototype.processEnteredData = function (t, e, o, a) {
         AccountBase.prototype.processEnteredData.apply(this, arguments);
         var r = this.getKey(),
-          s = t.unencryptedUsername;
+          s = t.unencryptedUsername,
+          n = t.password;
         if (
           ((t.username = this.encryptIfNecessary("username", t.unencryptedUsername, o)),
           (t.password = this.encryptIfNecessary("password", t.password, o)),
@@ -1135,19 +1136,19 @@
           (t.totp = this.encryptIfNecessary("totp", t.totp, o)),
           t.fields)
         )
-          for (var n = 0; n < t.fields.length; ++n) {
-            var i = t.fields[n],
-              p = this.getFieldValue(i),
-              c = this._data.fields[n],
-              u;
-            p !== this.getFieldValue(c, !0) || r !== o || i.formname !== c.formname || i.name !== c.name
-              ? (this.processEnteredFieldData(i, e, o),
-                p === s && "password" !== i.type
-                  ? (i.value = t.username)
-                  : t.password && "password" === i.type
-                  ? (i.value = t.password)
+          for (var i = 0; i < t.fields.length; ++i) {
+            var p = t.fields[i],
+              c = this.getFieldValue(p),
+              u = this._data.fields[i],
+              l;
+            c !== this.getFieldValue(u, !0) || r !== o || p.formname !== u.formname || p.name !== u.name
+              ? (this.processEnteredFieldData(p, e, o),
+                c === s && "password" !== p.type
+                  ? (p.value = t.username)
+                  : n === c && "password" === p.type
+                  ? (p.value = t.password)
                   : (a.saveFields = !0))
-              : (t.fields[n] = c);
+              : (t.fields[i] = u);
           }
       }),
       (AccountBaseWithFields.prototype.getFieldValue = function (t, e) {
@@ -1258,7 +1259,7 @@
       (Account.prototype.getSearchTokens = function (t) {
         var e = AccountBaseWithFields.prototype.getSearchTokens.apply(this, arguments),
           o = this.getUsername();
-        return o && e.push(o), this._data.url && e.push(bg.hostof(this._data.url)), e;
+        return o && e.push(o), this._data.url && e.push(bg.hostof(this._data.url)), this._data.aid && e.push(this._data.aid), e;
       }),
       (Account.prototype.getRepromptType = function () {
         return this.REPROMPT_TYPE;
@@ -1421,9 +1422,10 @@
           r =
             ((a.username = t.username ? g.encryptWithBTOA(t.username) : ""),
             (a.password = t.password ? g.encryptWithBTOA(t.password) : ""),
+            (a.domain = bg.AES.url2hex(bg.lp_gettld_url(t.url))),
             bg.AES.url2hex(t.url));
         try {
-          var s = void 0 !== parent.reduxApp && parent.reduxApp.getState().settings.features.url_encryption,
+          var s = bg.get("LPContentScriptFeatures").url_encryption,
             n = "http://sn" !== t.url && "http://group" !== t.url;
           s && n && (r = a.url);
         } catch (t) {
@@ -2541,6 +2543,7 @@
         function (t, e, o) {
           t && t.attacharraychanges && (o = JSON.parse(JSON.stringify(t.attacharraychanges))),
             AccountBase.prototype.update.apply(this, arguments),
+            g.refreshSites(),
             H.call(this, o),
             j.call(this, o),
             (t.attachpresent = 0 < this._attachments.length ? "1" : ""),

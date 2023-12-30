@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "アプリ"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 拡張機能のサポート終了"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "2024 年 1 月 15 日以降、この拡張機能は Microsoft によってサポートされなくなります。"
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "詳細については、この拡張機能のサポート ページを参照してください。"
+  },
+  "Support": {
+    "message": "サポート"
   }
 }

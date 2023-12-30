@@ -1430,8 +1430,7 @@
       function dn(t, e) {
         const n = cn;
         return function o() {
-          const r = e.apply(null, arguments);
-          null !== r && n.$off(t, o);
+          null !== e.apply(null, arguments) && n.$off(t, o);
         };
       }
       function pn(t, e, n) {
@@ -2763,8 +2762,7 @@
       function rr(t, e, n) {
         const o = or;
         return function r() {
-          const s = e.apply(null, arguments);
-          null !== s && cr(t, r, n, o);
+          null !== e.apply(null, arguments) && cr(t, r, n, o);
         };
       }
       const sr = Re && !(J && Number(J[1]) <= 53);

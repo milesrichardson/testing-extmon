@@ -2,10 +2,10 @@
 (self.webpackChunksource = self.webpackChunksource || []).push([
   [870],
   {
-    357: (e) => {
+    20357: (e) => {
       e.exports = { Agent: function () {} };
     },
-    3634: (e) => {
+    73634: (e) => {
       e.exports = {
         useRouter: () => {
           const { location: e } = window;
@@ -24,33 +24,33 @@
     4848: (e, t, n) => {
       "use strict";
       n.d(t, { queryClient: () => w.E, renderFeed: () => V });
-      var o = n(7692),
-        r = n(9526),
-        a = n(3961),
+      var o = n(17692),
+        r = n(89526),
+        a = n(73961),
         l = n(5615),
-        s = n(874),
-        c = n(7992),
-        i = n(8615),
+        s = n(70874),
+        c = n(87992),
+        i = n(18615),
         u = n(2097),
-        p = n(3717),
-        d = n(2601),
-        m = n(7250),
-        Z = n(9266),
-        f = n(2090),
-        h = n(2506),
+        p = n(73717),
+        d = n(72601),
+        m = n(37250),
+        Z = n(89266),
+        f = n(12090),
+        h = n(52506),
         b = n(9442),
-        g = n(636),
-        v = n(1063),
-        k = n(1127);
+        g = n(40636),
+        v = n(91063),
+        k = n(21127);
       function E(e) {
         let { trackEvent: t, children: n } = e;
         return (0, v.we)("segment", { trackEvent: t }), (0, k.tZ)(r.Fragment, null, n);
       }
-      var w = n(5890),
-        C = n(5233),
-        P = n(4615),
-        S = n(8812),
-        T = n(909);
+      var w = n(75890),
+        C = n(65233),
+        P = n(14615),
+        S = n(28812),
+        T = n(90909);
       const y = (e) => e?.includes("-xfas"),
         M = (e) => {
           if (!e || !y(e)) return e;
@@ -67,9 +67,9 @@
           };
           return (0, k.tZ)(C.p, { value: { openNewWindow: n, pushUrl: (e) => n(e) } }, t);
         };
-      var _ = n(3721),
-        x = n(4710),
-        R = n(1939);
+      var _ = n(13721),
+        x = n(74710),
+        R = n(41939);
       const H = (0, _.Gp)((e, t) => {
         let { href: n, onClick: r, ...a } = e;
         return (0, k.tZ)(
@@ -143,11 +143,11 @@
             )
           );
         };
-      var F = n(9857),
+      var F = n(99857),
         N = n(7343),
-        U = n(6542),
-        $ = n(7940),
-        q = n(3431),
+        U = n(46542),
+        $ = n(67940),
+        q = n(93431),
         D = n.n(q);
       const W = { PAGE_HERO: F.ZP, SECTION_HERO: N.Z },
         G = {
@@ -193,7 +193,7 @@
         I(e, (0, k.tZ)(J, (0, o.Z)({}, n, { feedSlugName: t })));
       }
     },
-    5890: (e, t, n) => {
+    75890: (e, t, n) => {
       "use strict";
       n.d(t, { E: () => o });
       const o = new (n(5615).QueryClient)({

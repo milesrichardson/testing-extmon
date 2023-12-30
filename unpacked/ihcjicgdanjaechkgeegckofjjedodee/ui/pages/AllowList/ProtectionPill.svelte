@@ -13,13 +13,15 @@
 
 <Checkbox bind:group custom {value}>
     <div
-        class="flex flex-row items-center gap-[10px] transition-all duration-150 py-[6px] px-[14px] font-medium text-sm bg-[#DCDDE0] dark:bg-grayNeutral70 rounded-[50px] cursor-pointer peer-checked:bg-mbPrimary-100 peer-checked:text-mbPrimary dark:peer-checked:bg-mbPrimaryDark dark:peer-checked:text-bgDark"
+        class="flex flex-row items-center gap-[10px] transition-all duration-150 py-[6px] px-[14px] 
+        font-medium text-sm bg-[#DCDDE0] dark:bg-grayNeutral70 rounded-[50px] cursor-pointer peer-checked:bg-mbPrimary-100 peer-checked:text-mbPrimary
+         dark:peer-checked:bg-mbPrimaryDark dark:peer-checked:text-bgDark dark:text-bgDark"
     >
         {#if group.includes(value)}
             <div class="w-4 h-4" transition:fade={{duration: 150}}>
                 <CheckmarkIcon />
             </div>
         {/if}
-        {label}
+        <span>{label}</span>
     </div>
 </Checkbox>

@@ -232,9 +232,6 @@
   "editContact": {
     "message": "Taisyti kontaktą"
   },
-  "ensNotFoundOnCurrentNetwork": {
-    "message": "ENS pavadinimas dabartiniame tinkle nerastas. Mėginkite perjungti į pagrindinį „Ethereum“ tinklą."
-  },
   "ensRegistrationError": {
     "message": "ENS pavadinimo registracijos klaida"
   },
@@ -782,12 +779,6 @@
   },
   "unknown": {
     "message": "Nežinoma"
-  },
-  "unknownCameraError": {
-    "message": "Kreipiantis į jūsų kamerą iškilo problema. Bandykite dar kartą..."
-  },
-  "unknownCameraErrorTitle": {
-    "message": "Vaje! Kažkas negerai..."
   },
   "unknownNetwork": {
     "message": "Nežinomas privatusis tinklas"

@@ -2832,7 +2832,9 @@
                               var t = n(e);
                               if (t.dialog) {
                                 var r = a(e);
-                                u(r) || (t.pattern && c(t.pattern, r)) || (l(e, t, r), e.execCommand("findNext"));
+                                u(r) ||
+                                  (t.pattern && c(t.pattern, r)) ||
+                                  ((t.posFrom = t.posTo = e.getCursor()), l(e, t, r), e.execCommand("findNext"));
                               }
                             }, 200));
                         })(t));

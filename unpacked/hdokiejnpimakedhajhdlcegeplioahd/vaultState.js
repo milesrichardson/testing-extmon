@@ -5,8 +5,8 @@
       o = null,
       c = null,
       s = null,
-      g = null,
       l = null,
+      g = null,
       n = "function" == typeof LPPlatform.isSPA && LPPlatform.isSPA(),
       r = n ? 50 : 1e3,
       u = function (e) {
@@ -19,7 +19,7 @@
           (LPPlatform.lpIsExtension() && !bg.get("g_isie")) || n
             ? n
               ? bgInterface.contentWindow.webClient.init(function (e) {
-                  (window.reduxApp = e), d(), top.Topics.get(top.Topics.SPA_IFRAME_WEB_CLIENT_INITIALIZED).publish();
+                  (window.reduxApp = e), b(), top.Topics.get(top.Topics.SPA_IFRAME_WEB_CLIENT_INITIALIZED).publish();
                 })
               : (((e = document.createElement("iframe")).src = n
                   ? LPPlatform.getResourcePath("webclient-vault.html")
@@ -29,10 +29,10 @@
                 document.body.appendChild(e),
                 e.addEventListener("load", function () {
                   e.contentWindow.webClient.init(function (e) {
-                    (window.reduxApp = e), d();
+                    (window.reduxApp = e), b();
                   });
                 }))
-            : d();
+            : b();
         }),
         Topics.get(Topics.IDENTITY_ENABLE).subscribe(function (e) {
           i = e.getID();
@@ -43,9 +43,9 @@
         Topics.get(Topics.UPDATE_VAULT_STATE).subscribe(u),
         function () {
           if (bg.get("lploggedin")) {
-            if (g && bg.get("g_identity") !== i) {
+            if (l && bg.get("g_identity") !== i) {
               i = bg.get("g_identity");
-              for (var e = 0, t = g.length; e < t; ++e) i === g[e].getID() && g[e].enable({ reprompt: !1 });
+              for (var e = 0, t = l.length; e < t; ++e) i === l[e].getID() && l[e].enable({ reprompt: !1 });
             }
             var n = parseInt(bg.get("g_local_accts_version"));
             o < n
@@ -56,9 +56,9 @@
               c !== bg.get("g_showcredmon") && ((c = bg.get("g_showcredmon")), Topics.get(Topics.REFRESH_PREFERENCES).publish());
           } else
             Topics.get(Topics.CLEAR_DATA).publish(),
-              clearInterval(l),
-              (l = setInterval(function () {
-                b();
+              clearInterval(g),
+              (g = setInterval(function () {
+                d();
               }, r));
         }),
       p =
@@ -69,12 +69,17 @@
           o = e;
         }),
         (VaultState.setIdentities = function (e) {
-          g = e;
+          l = e;
         }),
         function () {
-          return bg && bg.get("lploggedin") && -1 < parseInt(bg.get("g_local_accts_version")) && (!n || bg.get("loginCheckFinished"));
+          return (
+            bg &&
+            bg.get("lploggedin") &&
+            -1 < parseInt(bg.get("g_local_accts_version")) &&
+            (!n || (bg.get("loginCheckFinished") && reduxApp && -1 < reduxApp.getState().encryptedVaultDataSource.vaultVersion))
+          );
         }),
-      b = function (e) {
+      d = function (e) {
         return (
           !!p() &&
           ((t = bg.get("lploggedin")),
@@ -82,21 +87,21 @@
           (o = parseInt(bg.get("g_local_accts_version"))),
           (c = bg.get("g_showcredmon")),
           Topics.get(Topics.LOGIN).publish({ fadeIn: void 0 === e || e }),
-          clearInterval(l),
+          clearInterval(g),
           $("#creditMonitoringMenuItem").show(),
           (!LPProxy.isFreeUser() && !LPProxy.isExpiredUser() && -1 == navigator.userAgent.indexOf(" Edge/")) ||
             bg.get("g_has_credit_monitoring_premium") ||
             $("#creditMonitoringMenuItem").hide(),
-          (l = setInterval(function () {
+          (g = setInterval(function () {
             a();
           }, r)),
           !0)
         );
       },
-      d = function () {
-        b(!1) ||
-          (l = setInterval(function () {
-            b();
+      b = function () {
+        d(!1) ||
+          (g = setInterval(function () {
+            d();
           }, r));
       };
   })();

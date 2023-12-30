@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Programos"
+  },
+  "EndOfSupportHeader": {
+    "message": "„Microsoft 365“ plėtinio palaikymo pabaiga"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Nuo 2024 m. sausio 15 d. \"Microsoft\" nebepalaiko šio plėtinio."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Norėdami gauti daugiau informacijos, apsilankykite šio plėtinio palaikymo puslapyje."
+  },
+  "Support": {
+    "message": "Palaikymas"
   }
 }

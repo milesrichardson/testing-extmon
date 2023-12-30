@@ -3,7 +3,7 @@ var source;
 (self.webpackChunksource = self.webpackChunksource || []).push([
   [998],
   {
-    9735: (t) => {
+    99735: (t) => {
       t.exports = [
         { type: "url", match: "order\\/confirm|confirm|checkout.*\\/thank|\\/(order)?complete|\\/success", score: 0.75 },
         {
@@ -50,8 +50,8 @@ var source;
         }
       ];
     },
-    8301: (t, e, r) => {
-      const i = r(9735);
+    88301: (t, e, r) => {
+      const i = r(99735);
       t.exports = {
         isOrderConfirmation: function () {
           let { url: t, html: e, text: r, config: a = i } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -83,10 +83,10 @@ var source;
         }
       };
     },
-    5526: (t, e, r) => {
+    45526: (t, e, r) => {
       "use strict";
-      r.d(e, { Hx: () => S, ec: () => p, rg: () => b, MT: () => y, X_: () => _ });
-      var i = r(4835);
+      r.d(e, { Hx: () => T, ec: () => p, rg: () => b, MT: () => y, X_: () => _ });
+      var i = r(14835);
       function a(t) {
         const e = t.availability;
         return !e || (e.indexOf("/OutOfStock") < 0 && e.indexOf("/SoldOutfStock") < 0);
@@ -149,7 +149,8 @@ var source;
             currency: t.priceCurrency || r.priceCurrency,
             price: t.price || r.price || r.priceSpecification?.price || r.lowPrice,
             category: t.category,
-            gtin: t.gtin14 || t.gtin13 || t.gtin12 || t.gtin8 || t.gtin
+            gtin: t.gtin14 || t.gtin13 || t.gtin12 || t.gtin8 || t.gtin,
+            condition: r.itemCondition || t.itemCondition
           }),
             (0, i.isString)(t.brand) ? (o.brand = t.brand) : (0, i.isObject)(t.brand) && (o.brand = t.brand.name);
         }
@@ -206,7 +207,8 @@ var source;
         breadcrumb: [{ selector: "[itemprop=breadcrumb]" }],
         description: [{ selector: "[itemprop=description]" }, { selector: ".product-info" }, { selector: ".itemDesc" }],
         price: [{ selector: "[itemprop=price]" }, { selector: ".product-price" }, { selector: ".price" }],
-        url: [{ selector: "[rel=canonical]", attribute: "href" }]
+        url: [{ selector: "[rel=canonical]", attribute: "href" }],
+        condition: { selector: "[itemprop=itemCondition]" }
       };
       class m {
         constructor() {
@@ -292,7 +294,8 @@ var source;
               mpn: l(o.querySelector("[itemprop=mpn],[itemprop=MPN], [property=mpn],[property=MPN]")),
               currency: l(o.querySelector("[itemprop=priceCurrency], [property=priceCurrency]")),
               url: l(o.querySelector("[itemprop=url], [property=url]")),
-              brand: l(o.querySelector("[itemprop=brand],[itemprop=manufacturer], [property=brand],[property=manufacturer]"))
+              brand: l(o.querySelector("[itemprop=brand],[itemprop=manufacturer], [property=brand],[property=manufacturer]")),
+              condition: l(o.querySelector("[itemprop=itemCondition], [property=itemCondition]"))
             });
           const n = t.querySelector(
             '[itemscope][itemtype*="://schema.org/BreadcrumbList"], [vocab*="://schema.org"][typeof="BreadcrumbList"]'
@@ -318,7 +321,8 @@ var source;
                 currency: `${e}"product:price:currency"],${e}"price:currency"]`,
                 brand: `${e}"og:brand"],${e}"product:brand"],${e}"product:brand:name"]`,
                 upc: `${e}"og:upc"]`,
-                url: `${e}"og:url"]`
+                url: `${e}"og:url"]`,
+                condition: `${e}"product:condition"]`
               },
               i = new m({
                 title: l(t.querySelector(r.title)),
@@ -326,7 +330,8 @@ var source;
                 price: l(t.querySelector(r.price)),
                 currency: l(t.querySelector(r.currency)),
                 brand: l(t.querySelector(r.brand)),
-                upc: l(t.querySelector(r.upc))
+                upc: l(t.querySelector(r.upc)),
+                condition: l(t.querySelector(r.condition))
               }),
               a = l(t.querySelector(r.url));
             return a && /^(http|\/)/.test(a) && (i.url = a), i;
@@ -353,7 +358,8 @@ var source;
               for (const i of t) if (((r = n({ container: e, config: i, isArray: !0 })), r)) break;
               return (0, i.isString)(r) ? r.split(/\s?-\s?/) : (0, i.isArray)(r) && 1 === r.length ? r[0].split(/\s?-\s?/) : r;
             })(t.breadcrumb),
-            url: r(t.url) ?? location.href
+            url: r(t.url) ?? location.href,
+            condition: n({ container: e, config: t.condition, isArray: !1 })
           });
         }
         getPrice() {
@@ -372,18 +378,18 @@ var source;
             m = "",
             p = -1;
           const h = this;
-          function I(t) {
+          function g(t) {
             return !["toysrus.com", "babiesrus.com", "walmart.com"].some((e) => new RegExp(`^(?:www.)?${e}`, "i").test(t));
           }
-          function g(t) {
+          function I(t) {
             const e = [];
             let r = t;
             for (; r.parentNode; ) e.push(r.parentNode), (r = r.parentNode);
             return e;
           }
           function f(t, e) {
-            const r = g(t),
-              i = g(e);
+            const r = I(t),
+              i = I(e);
             for (const t of r) for (const e of i) if (t === e) return t;
             return null;
           }
@@ -400,25 +406,25 @@ var source;
             let p = "";
             p = 3 === n.nodeType ? n.data : n.innerText || n.textContent || "";
             let h = 0,
-              I = D(u);
-            "bold" === I("font-weight") && (h += 1),
-              ((u.offsetWidth || u.offsetHeight) && "hidden" !== I("visibility") && "none" !== I("display")) || (h -= 100);
-            const g = p.replace(/\s+/g, "");
+              g = D(u);
+            "bold" === g("font-weight") && (h += 1),
+              ((u.offsetWidth || u.offsetHeight) && "hidden" !== g("visibility") && "none" !== g("display")) || (h -= 100);
+            const I = p.replace(/\s+/g, "");
             r.test(m) || (h -= 100);
-            g.replace(/price|our/gi, "").length < 2 * m.length + 4 && (h += 10),
-              s.test(g) && (h += 2),
+            I.replace(/price|our/gi, "").length < 2 * m.length + 4 && (h += 10),
+              s.test(I) && (h += 2),
               -1 !== m.indexOf(".") && (h += 2),
               (h += (function (t) {
                 let e = t("font-size") || "";
                 const r = a.test(e) ? 16 : 1;
                 return (e = e.replace(/px|em|pt/, "")), (e -= 0), isNaN(e) ? 0 : e * r;
-              })(I)),
+              })(g)),
               d.test(p) && (h -= 4),
               o.test(p) && h++,
               (n = u);
             let f = 0;
             for (; null !== n && n !== i.body && f++ < 4; ) {
-              0 !== f && (I = D(n)), "line-through" === I("text-decoration-line") && (h -= 100);
+              0 !== f && (g = D(n)), "line-through" === g("text-decoration-line") && (h -= 100);
               for (const t of n.childNodes) 3 === t.nodeType && t.data && (o.test(t.data) && (h += 1), d.test(t.data) && (h -= 1));
               l.test(n.tagName) && (h -= 5),
                 o.test(n.getAttribute("class") || n.getAttribute("className") || "") && (h += 1),
@@ -459,7 +465,7 @@ var source;
             let a = r.data.replace(/\s/g, "");
             i.lastIndex = 0;
             let s = a.match(i);
-            if ((p < 0 && n.test(a) && I(this._domain) && (p = e.length), s)) {
+            if ((p < 0 && n.test(a) && g(this._domain) && (p = e.length), s)) {
               if (s[0].match(/\.$/g) && v.nextNode()) {
                 const t = v.currentNode;
                 if (t?.data) {
@@ -503,10 +509,10 @@ var source;
         }
       }
       var h = r(5939),
-        I = r.n(h),
-        g = r(1271),
-        f = r.n(g),
-        D = r(3564),
+        g = r.n(h),
+        I = r(81271),
+        f = r.n(I),
+        D = r(83564),
         V = r.n(D);
       function v(t) {
         if (!t || 0 === t.length) return "";
@@ -565,7 +571,8 @@ var source;
         });
       }
       const w = "product-not-found";
-      function C(t) {
+      var C;
+      function x(t) {
         function e(t) {
           if ("string" == typeof t && t.startsWith("%")) return !0;
           if (Array.isArray(t)) for (const r of t) if (e(r)) return !0;
@@ -577,7 +584,10 @@ var source;
         }
         return !1;
       }
-      const S = class extends I() {
+      !(function (t) {
+        (t.Used = "used"), (t.New = "new"), (t.LikeNew = "like new");
+      })(C || (C = {}));
+      const T = class extends g() {
         urlChangeTimeout = null;
         parsedData = {};
         constructor(t) {
@@ -648,7 +658,19 @@ var source;
           );
         }
         normalizeParameters(t) {
-          return t.salePrice && (t.salePrice = V().unformat(t.salePrice)), t;
+          var e;
+          return (
+            t.salePrice && (t.salePrice = V().unformat(t.salePrice)),
+            this.config.searchProducts.condition &&
+              (t.condition =
+                ((e = t.condition ?? ""),
+                /\b(renewed|restored|refurbished|RefurbishedCondition)\b/i.test(e)
+                  ? C.LikeNew
+                  : /\b(used|UsedCondition)\b/i.test(e)
+                  ? C.Used
+                  : C.New)),
+            t
+          );
         }
         async parse() {
           const t = (t) =>
@@ -660,7 +682,7 @@ var source;
             r = this.config.container ? Array.prototype.slice.call(document.querySelectorAll(this.config.container), 0) : [document];
           for (const i of r) {
             let r = {};
-            (this.config.searchProducts && !C(this.config.searchProducts)) || (r = this.parseCommonParameters(i));
+            (this.config.searchProducts && !x(this.config.searchProducts)) || (r = this.parseCommonParameters(i));
             let a = this.parseCustomParameters(r, i);
             if (0 === Object.keys(a).length) return void this.emit(w, { config: this.config, container: i });
             a = await t(a);
@@ -671,7 +693,7 @@ var source;
         }
       };
     },
-    2001: (t, e, r) => {
+    62001: (t, e, r) => {
       "use strict";
       function i(t) {
         let { attribute: e = "data-focus-visible-added", className: r = "focus-visible" } =
@@ -782,11 +804,11 @@ var source;
       }
       r.d(e, { Z: () => i });
     },
-    4011: (t, e, r) => {
+    84011: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
-      var i = r(2887),
-        a = r(1939);
+      var i = r(22887),
+        a = r(41939);
       const s = {
         methods: {
           clickHtml(t) {
@@ -814,11 +836,11 @@ var source;
         }
       };
     },
-    2228: (t, e, r) => {
+    32228: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = r(9442),
-        a = r(8051);
+        a = r(98051);
       const s = {
         methods: {
           track(t) {
@@ -840,7 +862,7 @@ var source;
         }
       };
     },
-    909: (t, e, r) => {
+    90909: (t, e, r) => {
       "use strict";
       r.d(e, {
         BF: () => a,
@@ -877,27 +899,30 @@ var source;
         u = "Coupons and Cash Back Available Notification - combo CTA",
         m = "Coupon Magic Results with CB CTA";
     },
-    2506: (t, e, r) => {
+    52506: (t, e, r) => {
       "use strict";
-      r.d(e, { Jb: () => a, ZP: () => i });
-      const i = {
+      r.d(e, { Jb: () => s, ZP: () => a });
+      var i = r(82530);
+      const a = {
           CDN: "https://static.rakuten.com",
           member_api: "www.rakuten.com",
           domain: "www.rakuten.com",
-          api: "apituner.ecbsn.com",
+          apituner_domain: i.env.apituner_domain ?? "apituner.ecbsn.com",
+          api_domain: i.env.api_domain ?? "api.rakuten.com",
           search_api: "search.ecbsn.com",
           BASE: "https://%domain%",
-          STORES: "https://%api%/apituner/button/domain/entity/list",
-          STORE_REWARDS: "https://%api%/apituner/v1/store/reward/list?channel={channel}",
-          STORE_DEALS_COUNT: "https://%api%/apituner/button/store/deal/count",
-          DEALS: "https://%api%/apituner/button/store/deal/list",
-          STORE_DEALS: "https://%api%/apituner/button/store/deal/list?storeId={storeId}",
-          STORE_COUPONS: "https://api.rakuten.com/button-acs/stores/{storeId}/coupons",
-          STORE_CONTENT: "https://%api%/apituner/button/store/content?id={storeId}",
-          CAMPAIGNS: "https://%api%/apituner/button/campaign/list",
-          EDS: "https://%api%/apituner/eds/member/profile",
+          STORES: "https://%apituner_domain%/apituner/button/domain/entity/list",
+          STORE_REWARDS: "https://%apituner_domain%/apituner/v1/store/reward/list?channel={channel}",
+          STORE_DEALS_COUNT: "https://%apituner_domain%/apituner/button/store/deal/count",
+          DEALS: "https://%apituner_domain%/apituner/button/store/deal/list",
+          STORE_DEALS: "https://%apituner_domain%/apituner/button/store/deal/list?storeId=%storeId%",
+          STORE_CONTENT: "https://%apituner_domain%/apituner/button/store/content?id=%storeId%",
+          CAMPAIGNS: "https://%apituner_domain%/apituner/button/campaign/list",
+          EDS: "https://%apituner_domain%/apituner/eds/member/profile",
           GIFT_CARD: "https://%domain%/api/gift-cards/catalog/product/%giftCardProductCode",
           ABANDONED_PRODUCTS: "https://cas.rrcbsn.com/cart_abandonment/v1/members/%uid%/products",
+          STORE_COUPONS: "https://%api_domain%/button-acs/stores/%storeId%/coupons",
+          PRODUCT_METADATA: "https://%api_domain%/product-metadata-extractor/v1/regions/USA/stores/%storeId%/products",
           MEMBER_DETAILS: "https://%member_api%/api/v3/button/member",
           MEMBER_ACTIVITY: "https://%member_api%/api/v3/button/member/activity",
           MEMBER_GEOGATING: "https://%member_api%/geogating/v1/checkStatus.do",
@@ -915,7 +940,7 @@ var source;
           MEMBER_TAF: "https://%member_api%/api/v3/button/member/referral/program",
           PRICE_MAGIC: "https://search.ecbsn.com/search/price-magic/v1/similar-products?partnerId=1&sourceName=Toolbar",
           PRICE_MAGIC_BULK: "https://search.ecbsn.com/search/price-magic/v1/bulk-products?sourceName=Toolbar",
-          SIMILAR_STORES: "https://%api%/apituner/similar-stores/v1_0",
+          SIMILAR_STORES: "https://%apituner_domain%/apituner/similar-stores/v1_0",
           CAPTURE_ORDER: "https://capture.ecbsn.com/api/1.0/commercecapture",
           URL_SHORTENER: "https://%domain%/urlshortener/v1/urls",
           SETTINGS: "https://%member_api%/toolbar/config/settings.json",
@@ -925,10 +950,10 @@ var source;
           SETTINGS_MERCHANTS: "https://button.rrcbsn.com/settings/merchants.json",
           SETTINGS_SERP: "https://button.rrcbsn.com/settings/serp.json",
           SETTINGS_PROMOS: "https://button.rrcbsn.com/settings/promos.json",
-          WEB_INSTALL: "https://%domain%/button/%browser/install/success?sourceName=toolbar&eeid=45426&toolbarId=%userid",
+          WEB_INSTALL: "https://%domain%/button/%browser/install/success?sourceName=toolbar&eeid=45426&toolbarId=%toolbarId",
           WEB_LOGON_FORM: "https://%domain%/auth/getLogonForm.do?tb=yes&eeid=26118",
           WEB_LOGIN: "https://%domain%/button/user-auth.htm?tb=yes&auth_type=su&sourceName=toolbar",
-          WEB_UNINSTALL: "https://%domain%/button/uninstall.htm?tb=yes&toolbarId=%userid&v=%version",
+          WEB_UNINSTALL: "https://%domain%/button/uninstall.htm?tb=yes&toolbarId=%toolbarId&v=%version",
           WEB_MOBILE_EXTENSION: "rakuten://us/beo?url=https://%domain%/button/mobile/enable&autologin=true",
           WEB_SEARCH: "https://%domain%/search?term={terms}&tb=yes&ebtoken=%ebtoken",
           WEB_REWARDS: "https://%domain%/pending-cash-back.htm?tb=yes&ebtoken=%ebtoken&eeid=26117",
@@ -945,12 +970,12 @@ var source;
           WEBSTORE_SAFARI: "https://itunes.apple.com/app/apple-store/id1451893560?pt=117880184&mt=12&ls=1",
           WEBSTORE_FIREFOX: "https://addons.mozilla.org/en-US/firefox/addon/ebates/reviews/add",
           WEBSTORE_EDGE: "https://microsoftedge.microsoft.com/addons/detail/gmmlpenookphoknnpfilofakghemolmg",
-          WEBSTORE_CHROME: "https://chrome.google.com/webstore/detail/ebates-cash-back/chhjbpecpncaggjpdakmflnfcopglcmi/reviews",
+          WEBSTORE_CHROME: "https://chromewebstore.google.com/detail/rakuten-get-cash-back-for/chhjbpecpncaggjpdakmflnfcopglcmi/reviews",
           POPUP_SEARCH: "https://%search_api%/store/list/suggest?q={terms}&rows=25&start=0"
         },
-        a = "https://api.engager.ecbsn.com";
+        s = "https://api.engager.ecbsn.com";
     },
-    3931: (t, e, r) => {
+    53931: (t, e, r) => {
       "use strict";
       function i(t) {
         const e = document.createElement("input");
@@ -964,10 +989,10 @@ var source;
       }
       r.d(e, { v: () => i });
     },
-    4927: (t, e, r) => {
+    54927: (t, e, r) => {
       "use strict";
       r.d(e, { l: () => s });
-      var i = r(3564),
+      var i = r(83564),
         a = r.n(i);
       function s(t) {
         const e = (t) => t.toString().replace(/\.0+$/, "");
@@ -985,19 +1010,19 @@ var source;
         return "";
       }
     },
-    8007: (t, e, r) => {
+    68007: (t, e, r) => {
       "use strict";
       r.d(e, { p: () => s });
-      var i = r(7322),
+      var i = r(87322),
         a = r.n(i);
       function s(t, e) {
         return a()(e).format(t);
       }
     },
-    1218: (t, e, r) => {
+    91218: (t, e, r) => {
       "use strict";
       r.d(e, { b: () => o, l: () => s });
-      var i = r(3564),
+      var i = r(83564),
         a = r.n(i);
       function s(t, e) {
         return a().formatMoney(t, e).replace(/\.0+$/, "");
@@ -1006,7 +1031,7 @@ var source;
         return a().unformat(t);
       }
     },
-    7586: (t, e, r) => {
+    87586: (t, e, r) => {
       "use strict";
       function i(t) {
         const e = t.storeContent.averageReportingHours || 0;
@@ -1063,7 +1088,7 @@ var source;
       }
       r.d(e, { _: () => i });
     },
-    6439: (t, e, r) => {
+    26439: (t, e, r) => {
       "use strict";
       function i(t) {
         if (!t) return {};
@@ -1081,7 +1106,7 @@ var source;
       }
       r.d(e, { L: () => i });
     },
-    3650: (t, e, r) => {
+    23650: (t, e, r) => {
       "use strict";
       function i(t) {
         if (t && !t.startsWith("data:")) {
@@ -1093,10 +1118,10 @@ var source;
       }
       r.d(e, { g: () => i });
     },
-    9491: (t, e, r) => {
+    79491: (t, e, r) => {
       "use strict";
       r.d(e, { F: () => a });
-      var i = r(4927);
+      var i = r(54927);
       function a(t) {
         const e = [];
         return (
@@ -1126,13 +1151,13 @@ var source;
         );
       }
     },
-    8812: (t, e, r) => {
+    28812: (t, e, r) => {
       "use strict";
-      r.d(e, { Cp: () => m, HI: () => I, Oi: () => u, dR: () => d, gw: () => g, h1: () => l, lz: () => n, s$: () => p, wz: () => h });
-      var i = r(7322),
+      r.d(e, { Cp: () => m, HI: () => g, Oi: () => u, dR: () => d, gw: () => I, h1: () => l, lz: () => n, s$: () => p, wz: () => h });
+      var i = r(87322),
         a = r.n(i),
-        s = r(8007),
-        o = r(6439);
+        s = r(68007),
+        o = r(26439);
       function n() {
         let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "",
           e =
@@ -1192,7 +1217,7 @@ var source;
           i = e.amount;
         return r > i ? 1 : r === i ? 0 : -1;
       }
-      function I(t) {
+      function g(t) {
         let {
           id: e,
           title: r,
@@ -1222,16 +1247,16 @@ var source;
           ...(0, o.L)(m.reward)
         };
       }
-      function g(t) {
+      function I(t) {
         return new Promise((e) => {
           setTimeout(e, t);
         });
       }
     },
-    9525: (t, e, r) => {
+    69525: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
-      var i = r(2324),
+      var i = r(92324),
         a = r.n(i);
       function s(t) {
         return a()(t, {
@@ -1283,27 +1308,40 @@ var source;
         });
       }
     },
-    2823: (t, e, r) => {
+    8893: (t, e, r) => {
       "use strict";
       r.r(e);
-      var i = r(4835),
-        a = r(1271),
+      var i = r(14835),
+        a = r(81271),
         s = r.n(a),
-        o = r(1935),
+        o = r(21935),
         n = r.n(o),
-        c = r(4615),
-        l = r(8051),
+        c = r(14615),
+        l = r(98051),
         d = r(9442),
-        u = r(636),
-        m = r(5526),
-        p = r(8007),
-        h = r(8812);
-      var I = r(1953),
-        g = r.n(I),
-        f = r(4927),
-        D = r(1218);
-      var V = r(4730);
-      var v = function () {
+        u = r(40636),
+        m = r(45526),
+        p = r(68007),
+        h = r(28812);
+      var g = r(61953),
+        I = r.n(g),
+        f = r(54927),
+        D = r(91218);
+      var V = r(64730);
+      const v = new (class {
+        variations = {};
+        constructor() {
+          this.get = this.variation;
+        }
+        init(t) {
+          this.variations = t;
+        }
+        variation(t) {
+          let e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
+          return Object.prototype.hasOwnProperty.call(this.variations, t) ? this.variations[t] : e;
+        }
+      })();
+      var y = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -1331,10 +1369,10 @@ var source;
             : t._e()
         ]);
       };
-      v._withStripped = !0;
-      var y = r(2887),
-        b = r(1939);
-      const _ = g().extend({
+      y._withStripped = !0;
+      var b = r(22887),
+        _ = r(41939);
+      const w = I().extend({
         data: () => ({ visible: !1 }),
         async mounted() {
           const t = await (0, u.By)();
@@ -1361,25 +1399,25 @@ var source;
               (this.visible = !1);
           },
           clickDetails() {
-            const t = (0, y.Z)(this.detailsUrl);
+            const t = (0, b.Z)(this.detailsUrl);
             this.module_type && d.Z.track("Visit Page", { preceding_screen_name: this.module_type, url: t }),
               setTimeout(() => {
-                (0, b.Z)(t);
+                (0, _.Z)(t);
               }, 100),
               this.hide();
           }
         }
       });
-      _.extend({
+      w.extend({
         created() {
           this.$on("hover.hide", () => {
             (0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, "notification-checkout": !1 });
           });
         }
       });
-      var w = r(2977);
-      const C = _.extend({
-        components: { RCloseButton: w.Z },
+      var C = r(62977);
+      const x = w.extend({
+        components: { RCloseButton: C.Z },
         data: () => ({ promo: {}, module_type: "Interrupt Message" }),
         created() {
           (this.category = this.promo.id),
@@ -1401,7 +1439,7 @@ var source;
             c.Z.extension.fireEvent("updatePromo", { data: { id: this.promo.id, interruptShown: !0 } });
           },
           clickLink(t) {
-            const e = (0, y.Z)(t);
+            const e = (0, b.Z)(t);
             return d.Z.track("Visit Page", { preceding_screen_name: this.module_type, url: e }), c.Z.browser.navigate(e), this.hide(), !1;
           },
           hide(t) {
@@ -1414,15 +1452,15 @@ var source;
           }
         }
       });
-      var S = r(2264);
-      const k = (0, S.Z)(C, v, [], !1, null, null, null).exports;
-      function x(t) {
+      var T = r(62264);
+      const k = (0, T.Z)(x, y, [], !1, null, null, null).exports;
+      function S(t) {
         let e = t.promos.find((t) => t.active && t.interruptImage && !t.interruptShown);
         e &&
           !t.interruptBlackList.find((t) => document.location.host.search(new RegExp(`${t}$`, "i")) >= 0) &&
           new k({ data: { promo: e } }).$mount();
       }
-      var T = function () {
+      var A = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -1442,8 +1480,8 @@ var source;
           )
         ]);
       };
-      T._withStripped = !0;
-      var A = function () {
+      A._withStripped = !0;
+      var P = function () {
         var t = this,
           e = t._self._c;
         return e("transition", { attrs: { appear: "", name: "rr-fade" } }, [
@@ -1513,12 +1551,12 @@ var source;
           )
         ]);
       };
-      A._withStripped = !0;
-      var P = r(6846),
-        N = r(7138),
-        E = r(7040);
+      P._withStripped = !0;
+      var N = r(56846),
+        E = r(91694),
+        L = r(35597);
       const $ = {
-        components: { RButton: P.Z, RCloseButton: w.Z, RCashback: E.Z, RHeadingLogo: N.Z },
+        components: { RButton: N.Z, RCloseButton: C.Z, RCashback: L.Z, RHeadingLogo: E.Z },
         props: {
           merchants: { type: Array, required: !0 },
           title: { type: String, default: "Preparing your Taxes? Get help and Cash Back from these stores:" }
@@ -1534,9 +1572,9 @@ var source;
           }
         }
       };
-      const L = (0, S.Z)($, A, [], !1, null, null, null).exports,
-        O = g().extend({
-          components: { PromoTaxes: L },
+      const R = (0, T.Z)($, P, [], !1, null, null, null).exports,
+        O = I().extend({
+          components: { PromoTaxes: R },
           props: { merchants: { type: Array, required: !0 } },
           data: () => ({ visible: !1, category: "Tax Page", module_type: "modal", entity_name: "Taxes", style: {} }),
           async mounted() {
@@ -1577,9 +1615,9 @@ var source;
             }
           }
         }),
-        R = O;
-      const M = (0, S.Z)(R, T, [], !1, null, null, null).exports;
-      var B = function () {
+        M = O;
+      const B = (0, T.Z)(M, A, [], !1, null, null, null).exports;
+      var q = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -1597,9 +1635,9 @@ var source;
           1
         );
       };
-      B._withStripped = !0;
-      const q = g().extend({
-          components: { PromoTaxes: L },
+      q._withStripped = !0;
+      const Z = I().extend({
+          components: { PromoTaxes: R },
           props: {
             merchants: { type: Array, required: !0 },
             config: { type: Object, required: !0 },
@@ -1637,8 +1675,8 @@ var source;
             }
           }
         }),
-        Z = q;
-      const U = (0, S.Z)(Z, B, [], !1, null, null, null).exports;
+        U = Z;
+      const H = (0, T.Z)(U, q, [], !1, null, null, null).exports;
       var j = function () {
         var t = this,
           e = t._self._c;
@@ -1696,9 +1734,9 @@ var source;
         ]);
       };
       j._withStripped = !0;
-      var H = r(9525);
-      const F = g().extend({
-        components: { RButton: P.Z },
+      var F = r(69525);
+      const G = I().extend({
+        components: { RButton: N.Z },
         props: {
           config: { type: Object, required: !0 },
           merchant: { type: Object, required: !0 },
@@ -1707,10 +1745,10 @@ var source;
         data: () => ({ visible: !1, show: !0 }),
         computed: {
           sanitizedTitle() {
-            return (0, H.Z)(this.config.title);
+            return (0, F.Z)(this.config.title);
           },
           sanitizedDescription() {
-            return (0, H.Z)(this.config.description);
+            return (0, F.Z)(this.config.description);
           }
         },
         mounted() {
@@ -1725,15 +1763,15 @@ var source;
           }
         }
       });
-      const G = (0, S.Z)(F, j, [], !1, null, null, null).exports;
-      class z {
+      const z = (0, T.Z)(G, j, [], !1, null, null, null).exports;
+      class W {
         constructor(t) {
           let { merchant: e, config: r, entity_name: i } = t;
           Object.assign(this, { merchant: e, config: r, entity_name: i }), (this.module_type = "SERP module");
         }
         async render() {
           const t = await (0, u.By)({ insertConfig: this.config.insertConfig });
-          (this.$view = new G({ propsData: { merchant: this.merchant, config: this.config, darkMode: (0, u.rO)() } })),
+          (this.$view = new z({ propsData: { merchant: this.merchant, config: this.config, darkMode: (0, u.rO)() } })),
             this.$view.$on("clickCTA", () => {
               c.Z.extension.fireEvent("activate", {
                 data: {
@@ -1770,7 +1808,7 @@ var source;
           this.$view.$el.remove(), this.$view.$destroy();
         }
       }
-      var W = function () {
+      var K = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -1810,9 +1848,9 @@ var source;
               ])
         ]);
       };
-      W._withStripped = !0;
-      const K = g().extend({
-        components: { RCloseButton: w.Z },
+      K._withStripped = !0;
+      const Y = I().extend({
+        components: { RCloseButton: C.Z },
         data: () => ({ visible: !0, module_type: "SERP module", entity_name: "BF Ads", calculatedCountDown: "" }),
         mounted() {
           s()(".ebates-serp-promo").length > 0 &&
@@ -1856,9 +1894,9 @@ var source;
           }
         }
       });
-      const Y = (0, S.Z)(K, W, [], !1, null, null, null).exports;
-      let X;
-      var Q = function () {
+      const X = (0, T.Z)(Y, K, [], !1, null, null, null).exports;
+      let Q;
+      var J = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -1869,8 +1907,8 @@ var source;
             ])
           : t._e();
       };
-      Q._withStripped = !0;
-      const J = g().extend({
+      J._withStripped = !0;
+      const tt = I().extend({
         data: () => ({ visible: !0 }),
         computed: { isMac: () => navigator.userAgent.indexOf("Mac") > 0 },
         methods: {
@@ -1879,9 +1917,9 @@ var source;
           }
         }
       });
-      const tt = (0, S.Z)(
+      const et = (0, T.Z)(
+        tt,
         J,
-        Q,
         [
           function () {
             var t = this,
@@ -1899,7 +1937,7 @@ var source;
         null,
         null
       ).exports;
-      var et = function () {
+      var rt = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -1910,8 +1948,8 @@ var source;
           1
         );
       };
-      et._withStripped = !0;
-      var rt = function () {
+      rt._withStripped = !0;
+      var it = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -1949,18 +1987,18 @@ var source;
           ]
         );
       };
-      rt._withStripped = !0;
-      var it = r(1183),
-        at = r(9649);
-      const st = {
-        components: { RForm: it.Z, RCloseButton: w.Z, RButton: P.Z, RHeadingLogo: N.Z },
+      it._withStripped = !0;
+      var at = r(61183),
+        st = r(9649);
+      const ot = {
+        components: { RForm: at.Z, RCloseButton: C.Z, RButton: N.Z, RHeadingLogo: E.Z },
         props: { interruptImage: { type: String, default: "" } },
-        computed: { imageSrc: () => (0, at.$)("img/chrome.png") }
+        computed: { imageSrc: () => (0, st.$)("img/chrome.png") }
       };
-      const ot = (0, S.Z)(st, rt, [], !1, null, null, null).exports,
-        nt = g().extend({
+      const nt = (0, T.Z)(ot, it, [], !1, null, null, null).exports,
+        ct = I().extend({
           name: "WelcomeView",
-          components: { WelcomeForm: ot },
+          components: { WelcomeForm: nt },
           props: { interruptImage: { type: String, default: "" } },
           data: () => ({ visible: !1, module_type: "modal", entity_name: "Step 2 Install Success" }),
           async mounted() {
@@ -1976,8 +2014,8 @@ var source;
             }
           }
         });
-      const ct = (0, S.Z)(nt, et, [], !1, null, null, null).exports;
-      var lt = function () {
+      const lt = (0, T.Z)(ct, rt, [], !1, null, null, null).exports;
+      var dt = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -2008,8 +2046,8 @@ var source;
           1
         );
       };
-      lt._withStripped = !0;
-      var dt = function () {
+      dt._withStripped = !0;
+      var ut = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -2140,9 +2178,9 @@ var source;
           ]
         );
       };
-      dt._withStripped = !0;
-      var ut = r(1868),
-        mt = function () {
+      ut._withStripped = !0;
+      var mt = r(51868),
+        pt = function () {
           var t = this,
             e = t._self._c;
           return e(
@@ -2178,8 +2216,8 @@ var source;
             ]
           );
         };
-      mt._withStripped = !0;
-      const pt = {
+      pt._withStripped = !0;
+      const ht = {
         model: { prop: "modelValue", event: "change" },
         props: {
           id: { type: String, default: "" },
@@ -2221,13 +2259,13 @@ var source;
           }
         }
       };
-      const ht = (0, S.Z)(pt, mt, [], !1, null, null, null).exports;
-      var It = r(696);
-      const gt = {
-        components: { RModalForm: ut.Z, RButton: P.Z, RCheckbox: ht, RLink: It.Z },
+      const gt = (0, T.Z)(ht, pt, [], !1, null, null, null).exports;
+      var It = r(50696);
+      const ft = {
+        components: { RModalForm: mt.Z, RButton: N.Z, RCheckbox: gt, RLink: It.Z },
         props: { logging: { type: String, required: !0 }, anonymousLogging: { type: String, required: !0 } },
         computed: {
-          privacyImageSrc: () => (0, at.$)("img/privacy.png"),
+          privacyImageSrc: () => (0, st.$)("img/privacy.png"),
           loggingModel: {
             get() {
               return this.logging;
@@ -2246,9 +2284,9 @@ var source;
           }
         }
       };
-      const ft = (0, S.Z)(gt, dt, [], !1, null, null, null).exports,
-        Dt = g().extend({
-          components: { DataCollectionForm: ft },
+      const Dt = (0, T.Z)(ft, ut, [], !1, null, null, null).exports,
+        Vt = I().extend({
+          components: { DataCollectionForm: Dt },
           props: { settings: { type: Object, default: () => ({}) } },
           data: () => ({ visible: !1, anonymousLogging: "", logging: "" }),
           computed: { imageDataCollection: () => c.Z.extension.getURL("/img/privacy.png") },
@@ -2279,10 +2317,10 @@ var source;
             }
           }
         });
-      (0, S.Z)(Dt, lt, [], !1, null, null, null).exports;
-      var Vt = r(6402),
-        vt = r(6439),
-        yt = function () {
+      (0, T.Z)(Vt, dt, [], !1, null, null, null).exports;
+      var vt = r(26402),
+        yt = r(26439),
+        bt = function () {
           var t = this,
             e = t._self._c;
           t._self._setupProxy;
@@ -2371,13 +2409,13 @@ var source;
             1
           );
         };
-      yt._withStripped = !0;
-      const bt = g().extend({
-        components: { RButton: P.Z, RHeadingLogo: N.Z },
+      bt._withStripped = !0;
+      const _t = I().extend({
+        components: { RButton: N.Z, RHeadingLogo: E.Z },
         props: { offer: { type: Object, required: !0 }, darkMode: { type: Boolean, default: !1 } }
       });
-      const _t = (0, S.Z)(bt, yt, [], !1, null, null, null).exports;
-      var wt = function () {
+      const wt = (0, T.Z)(_t, bt, [], !1, null, null, null).exports;
+      var Ct = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -2478,14 +2516,14 @@ var source;
           1
         );
       };
-      wt._withStripped = !0;
-      var Ct = r(9597);
-      const St = g().extend({
-        components: { RButton: P.Z, RHeadingLogo: N.Z, RLoader: Ct.Z },
+      Ct._withStripped = !0;
+      var xt = r(89597);
+      const Tt = I().extend({
+        components: { RButton: N.Z, RHeadingLogo: E.Z, RLoader: xt.Z },
         props: { offer: { type: Object, required: !0 }, loading: { type: Boolean, default: !1 }, darkMode: { type: Boolean, default: !1 } }
       });
-      const kt = (0, S.Z)(St, wt, [], !1, null, null, null).exports;
-      var xt = function () {
+      const kt = (0, T.Z)(Tt, Ct, [], !1, null, null, null).exports;
+      var St = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -2560,10 +2598,10 @@ var source;
             )
           : t._e();
       };
-      xt._withStripped = !0;
-      var Tt = r(1145);
-      const At = g().extend({
-        components: { RModalForm: ut.Z, RButton: P.Z, RDivider: Tt.Z },
+      St._withStripped = !0;
+      var At = r(31145);
+      const Pt = I().extend({
+        components: { RModalForm: mt.Z, RButton: N.Z, RDivider: At.Z },
         props: { offer: { type: Object, required: !0 } },
         data: () => ({ visible: !0 }),
         methods: {
@@ -2572,8 +2610,8 @@ var source;
           }
         }
       });
-      const Pt = (0, S.Z)(At, xt, [], !1, null, null, null).exports;
-      var Nt = function () {
+      const Nt = (0, T.Z)(Pt, St, [], !1, null, null, null).exports;
+      var Et = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -2698,10 +2736,10 @@ var source;
             )
           : t._e();
       };
-      Nt._withStripped = !0;
-      var Et = r(2838);
-      const $t = g().extend({
-        components: { RModalForm: ut.Z, RDivider: Tt.Z, RButton: P.Z, RLoader: Ct.Z, CheckIcon: Et.Z },
+      Et._withStripped = !0;
+      var Lt = r(22838);
+      const $t = I().extend({
+        components: { RModalForm: mt.Z, RDivider: At.Z, RButton: N.Z, RLoader: xt.Z, CheckIcon: Lt.Z },
         props: { offer: { type: Object, required: !0 } },
         data: () => ({ visible: !0 }),
         computed: {
@@ -2718,9 +2756,9 @@ var source;
           tolowercase: (t) => t.toLowerCase()
         }
       });
-      const Lt = (0, S.Z)($t, Nt, [], !1, null, null, null).exports;
+      const Rt = (0, T.Z)($t, Et, [], !1, null, null, null).exports;
       let Ot = "";
-      function Rt(t) {
+      function Mt(t) {
         let { config: e } = t;
         !(function (t) {
           if (t.enable) {
@@ -2733,7 +2771,7 @@ var source;
                         r = await Promise.all(
                           s()(e)
                             .map((e, r) =>
-                              Mt(t, r)
+                              Bt(t, r)
                                 .then((t) => (t && (t.el = r), t))
                                 .catch(() => {})
                             )
@@ -2749,17 +2787,17 @@ var source;
                         return (
                           i.find(".rr-iscb-yelp").remove(),
                           i.attr("data-iscb-link-added", "true"),
-                          new Zt({ parent: e.el, model: e, config: r })
+                          new Ut({ parent: e.el, model: e, config: r })
                         );
                       })({ offer: e, config: t });
                     });
                   } else if ("page" === t.type && !s()(".rr-iscb-offer").length) {
-                    const e = await Mt(t);
+                    const e = await Bt(t);
                     e &&
                       (e.cards.forEach((t) => (t.error = "")),
                       (e.page = (function (t) {
                         let { offer: e, config: r } = t;
-                        return s()(".rr-iscb-offer").remove(), new qt({ model: e, config: r });
+                        return s()(".rr-iscb-offer").remove(), new Zt({ model: e, config: r });
                       })({ offer: e, config: t })));
                   }
                 })(t);
@@ -2769,14 +2807,14 @@ var source;
           }
         })(e);
       }
-      function Mt(t) {
+      function Bt(t) {
         let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document.body;
         const r = s()(t.title || t.name, e).text();
         return !r || ((e !== document.body || (r === Ot && document.querySelector(".rr-iscb-offer"))) && e === document.body)
           ? Promise.resolve(null)
           : ((Ot = r), (0, l.Z)("ISC", { name: (0, u.IA)(r) }));
       }
-      class Bt {
+      class qt {
         module_type = "In Store Cash Back";
         constructor(t) {
           let { model: e } = t;
@@ -2799,7 +2837,7 @@ var source;
           this.$view?.hide();
         }
       }
-      class qt extends Bt {
+      class Zt extends qt {
         entity_name = "Offer";
         linkedCardsView = null;
         detailsView = null;
@@ -2819,13 +2857,13 @@ var source;
         }
         clickDetails() {
           this.track("Click Module", { cta_type: "See Details" }),
-            (this.detailsView = new Ut({ model: this.model, linkView: this, preceding_screen_name: this.entity_name }));
+            (this.detailsView = new Ht({ model: this.model, linkView: this, preceding_screen_name: this.entity_name }));
         }
         createLinkedCardsView() {
           this.linkedCardsView = new jt({ model: this.model, linkView: this, preceding_screen_name: this.entity_name });
         }
         navigateToWebsite() {
-          const t = (0, y.Z)(`/in-store.htm?mod_type=add_card&eeid=40650&tb=yes&soid=${this.model.store.id}`);
+          const t = (0, b.Z)(`/in-store.htm?mod_type=add_card&eeid=40650&tb=yes&soid=${this.model.store.id}`);
           d.Z.track("Visit Page", { preceding_screen_name: "ISCB Link Card modal", url: t }), c.Z.browser.navigate(t);
         }
         update(t) {
@@ -2838,22 +2876,22 @@ var source;
           this.$view.loader = !0;
         }
         async render() {
-          await (0, Vt.Z)(),
+          await (0, vt.Z)(),
             (this.$view = new this.ViewClass({ propsData: { offer: this.model, darkMode: (0, u.rO)() } }).$mount()),
             (this.$el = this.$view.$el),
             this.$view.$on("cta", () => this.clickCTA()),
             this.$view.$on("details", () => this.clickDetails()),
             (0, u.O8)({ el: this.$el, config: this.config, parent: this.parent }),
-            s()(this.$el).parent().length && this.track("View Module", { type: this.config.entity_name, ...(0, vt.L)(this.model.reward) });
+            s()(this.$el).parent().length && this.track("View Module", { type: this.config.entity_name, ...(0, yt.L)(this.model.reward) });
         }
       }
-      class Zt extends qt {
-        ViewClass = _t;
+      class Ut extends Zt {
+        ViewClass = wt;
         constructor(t) {
           super(t);
         }
       }
-      class Ut extends Bt {
+      class Ht extends qt {
         type = "Details";
         entity_name = "Store Details";
         linkedCardsView = null;
@@ -2872,10 +2910,10 @@ var source;
           this.linkedCardsView = new jt({ model: this.model, linkView: this.linkView, preceding_screen_name: this.entity_name });
         }
         async render() {
-          this.track("View Module", { preceding_screen_name: this.preceding_screen_name, ...(0, vt.L)(this.model.reward) });
+          this.track("View Module", { preceding_screen_name: this.preceding_screen_name, ...(0, yt.L)(this.model.reward) });
           const t = await (0, u.By)();
           return (
-            (this.$view = new Pt({ propsData: { offer: this.model } }).$mount()),
+            (this.$view = new Nt({ propsData: { offer: this.model } }).$mount()),
             (this.$el = this.$view.$el),
             this.$view.$on("close", (t) => this.clickClose(t)),
             this.$view.$on("linkOffer", () => this.clickLinkOffer()),
@@ -2885,7 +2923,7 @@ var source;
           );
         }
       }
-      class jt extends Bt {
+      class jt extends qt {
         type = "Linked Cards";
         entity_name = "Link Card Modal";
         constructor(t) {
@@ -2909,10 +2947,10 @@ var source;
           this.linkView.navigateToWebsite();
         }
         async render() {
-          this.track("View Module", { preceding_screen_name: this.preceding_screen_name, ...(0, vt.L)(this.model.reward) });
+          this.track("View Module", { preceding_screen_name: this.preceding_screen_name, ...(0, yt.L)(this.model.reward) });
           const t = await (0, u.By)();
           return (
-            (this.$view = new Lt({ propsData: { offer: this.model } }).$mount()),
+            (this.$view = new Rt({ propsData: { offer: this.model } }).$mount()),
             (this.$el = this.$view.$el),
             this.$view.$on("close", (t) => this.clickClose(t)),
             this.$view.$on("linkNew", () => this.clickLinkNewCard()),
@@ -2921,7 +2959,7 @@ var source;
           );
         }
       }
-      var Ht = function () {
+      var Ft = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -3002,8 +3040,8 @@ var source;
           ]
         );
       };
-      Ht._withStripped = !0;
-      const Ft = {
+      Ft._withStripped = !0;
+      const Gt = {
         created() {
           this.onScroll = (0, i.debounce)(() => {
             const t = this.$el?.getBoundingClientRect();
@@ -3022,11 +3060,11 @@ var source;
           document.removeEventListener("scroll", this.onScroll);
         }
       };
-      function Gt(t, e) {
+      function zt(t, e) {
         return (0, h.Oi)(t) < e;
       }
-      var zt = r(7659),
-        Wt = function () {
+      var Wt = r(17659),
+        Kt = function () {
           var t = this,
             e = t._self._c;
           return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
@@ -3039,21 +3077,21 @@ var source;
             })
           ]);
         };
-      Wt._withStripped = !0;
-      var Kt = r(1694);
-      const Yt = {
-        components: { SvgIcon: Kt.Z },
+      Kt._withStripped = !0;
+      var Yt = r(11694);
+      const Xt = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const Xt = (0, S.Z)(Yt, Wt, [], !1, null, null, null).exports;
-      var Qt = r(4738);
-      const Jt = g().extend({
-        components: { ExternalLink: Qt.Z, RakutenIcon: zt.Z, ReferralIcon: Xt, RCashback: E.Z },
-        mixins: [Ft],
+      const Qt = (0, T.Z)(Xt, Kt, [], !1, null, null, null).exports;
+      var Jt = r(84738);
+      const te = I().extend({
+        components: { ExternalLink: Jt.Z, RakutenIcon: Wt.Z, ReferralIcon: Qt, RCashback: L.Z },
+        mixins: [Gt],
         props: {
           merchant: { type: Object, required: !0 },
           isClickable: { type: Boolean, default: !1 },
@@ -3061,7 +3099,7 @@ var source;
         },
         computed: {
           bonuses() {
-            return this.merchant.bonuses.filter((t) => "promo" !== t.type && !Gt(t.expiration, 0));
+            return this.merchant.bonuses.filter((t) => "promo" !== t.type && !zt(t.expiration, 0));
           },
           reward() {
             return { ...this.merchant.reward, expired: this.merchant.rewardsExpired };
@@ -3073,14 +3111,14 @@ var source;
           }
         }
       });
-      const te = (0, S.Z)(Jt, Ht, [], !1, null, null, null).exports;
-      let ee = (function () {
+      const ee = (0, T.Z)(te, Ft, [], !1, null, null, null).exports;
+      let re = (function () {
         class t {
           constructor(t) {
             (0, i.extendOwn)(this, t), (this.$el = s()(this.el)), this.render();
           }
           render() {
-            const t = new te({ propsData: { merchant: this.merchant } }).$mount().$el,
+            const t = new ee({ propsData: { merchant: this.merchant } }).$mount().$el,
               { insertType: e, injectElSelector: r } = this.wConfig.serp;
             (0, u.O8)({ el: t, config: { [e]: r }, parent: this.$el });
           }
@@ -3135,7 +3173,7 @@ var source;
             });
           }
           render() {
-            (0, Vt.Z)();
+            (0, vt.Z)();
           }
         }
         return {
@@ -3151,8 +3189,8 @@ var source;
           }
         };
       })();
-      var re = r(3650),
-        ie = function () {
+      var ie = r(23650),
+        ae = function () {
           var t = this,
             e = t._self._c;
           t._self._setupProxy;
@@ -3191,12 +3229,12 @@ var source;
             ]
           );
         };
-      ie._withStripped = !0;
-      var ae = r(2803),
-        se = r(2228);
-      const oe = g().extend({
-        components: { RPopover: ae.Z },
-        mixins: [se.Z],
+      ae._withStripped = !0;
+      var se = r(72803),
+        oe = r(32228);
+      const ne = I().extend({
+        components: { RPopover: se.Z },
+        mixins: [oe.Z],
         props: {
           storeId: { type: Number, default: null },
           storeName: { type: String, default: "" },
@@ -3224,8 +3262,8 @@ var source;
           }
         }
       });
-      const ne = (0, S.Z)(oe, ie, [], !1, null, null, null).exports;
-      var ce = function () {
+      const ce = (0, T.Z)(ne, ae, [], !1, null, null, null).exports;
+      var le = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -3263,10 +3301,10 @@ var source;
           )
         ]);
       };
-      ce._withStripped = !0;
-      const le = g().extend({
-        components: { ExternalLink: Qt.Z, RakutenIcon: zt.Z },
-        mixins: [Ft],
+      le._withStripped = !0;
+      const de = I().extend({
+        components: { ExternalLink: Jt.Z, RakutenIcon: Wt.Z },
+        mixins: [Gt],
         props: { store: { type: Object, required: !0 } },
         computed: {
           cashbackAmount() {
@@ -3274,13 +3312,13 @@ var source;
           }
         }
       });
-      const de = (0, S.Z)(le, ce, [], !1, null, null, null).exports;
-      var ue = r(3564),
-        me = r.n(ue);
-      function pe(t) {
+      const ue = (0, T.Z)(de, le, [], !1, null, null, null).exports;
+      var me = r(83564),
+        pe = r.n(me);
+      function he(t) {
         return Number.isFinite(t) ? Math.round(100 * t) / 100 : 0;
       }
-      var he = r(8257),
+      var ge = r(8257),
         Ie = function () {
           var t = this,
             e = t._self._c;
@@ -3301,7 +3339,7 @@ var source;
           ]);
         };
       Ie._withStripped = !0;
-      var ge = function () {
+      var fe = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -3329,8 +3367,8 @@ var source;
           1
         );
       };
-      ge._withStripped = !0;
-      var fe = function () {
+      fe._withStripped = !0;
+      var De = function () {
         var t = this,
           e = t._self._c;
         return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
@@ -3343,20 +3381,20 @@ var source;
           })
         ]);
       };
-      fe._withStripped = !0;
-      const De = {
-        components: { SvgIcon: Kt.Z },
+      De._withStripped = !0;
+      const Ve = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const Ve = (0, S.Z)(De, fe, [], !1, null, null, null).exports,
-        ve = g().extend({ components: { RPopover: ae.Z, InfoIcon: Ve } });
-      const ye = (0, S.Z)(ve, ge, [], !1, null, null, null).exports,
-        be = g().extend({
-          components: { RButton: P.Z, TopPick: ye },
+      const ve = (0, T.Z)(Ve, De, [], !1, null, null, null).exports,
+        ye = I().extend({ components: { RPopover: se.Z, InfoIcon: ve } });
+      const be = (0, T.Z)(ye, fe, [], !1, null, null, null).exports,
+        _e = I().extend({
+          components: { RButton: N.Z, TopPick: be },
           props: {
             product: { type: Object, required: !0 },
             topPick: { type: Boolean, default: !1 },
@@ -3379,12 +3417,12 @@ var source;
           methods: {
             clickSeeCategories() {
               const t = (0, h.h1)(this.product.storeUrl, { eeid: "57415" });
-              (0, b.Z)(t);
+              (0, _.Z)(t);
             }
           }
         });
-      const _e = (0, S.Z)(be, Ie, [], !1, null, null, null).exports;
-      var we = function () {
+      const we = (0, T.Z)(_e, Ie, [], !1, null, null, null).exports;
+      var Ce = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -3400,9 +3438,9 @@ var source;
           )
         ]);
       };
-      we._withStripped = !0;
-      const Ce = g().extend({ components: { RakutenIcon: zt.Z } });
-      const Se = (0, S.Z)(Ce, we, [], !1, null, null, null).exports;
+      Ce._withStripped = !0;
+      const xe = I().extend({ components: { RakutenIcon: Wt.Z } });
+      const Te = (0, T.Z)(xe, Ce, [], !1, null, null, null).exports;
       var ke = function () {
         var t = this,
           e = t._self._c;
@@ -3444,8 +3482,8 @@ var source;
         );
       };
       ke._withStripped = !0;
-      const xe = g().extend({
-        components: { RakutenIcon: zt.Z, RPopover: ae.Z, InfoIcon: Ve },
+      const Se = I().extend({
+        components: { RakutenIcon: Wt.Z, RPopover: se.Z, InfoIcon: ve },
         data: () => ({ popoverVisible: !1 }),
         mounted() {
           this.$nextTick().then(() => {
@@ -3453,17 +3491,17 @@ var source;
           });
         }
       });
-      const Te = (0, S.Z)(xe, ke, [], !1, null, null, null).exports;
-      var Ae = function () {
+      const Ae = (0, T.Z)(Se, ke, [], !1, null, null, null).exports;
+      var Pe = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
         return e("r-cashback", { staticClass: "rr-mt-8", attrs: { reward: t.reward, icon: "" } });
       };
-      Ae._withStripped = !0;
-      const Pe = g().extend({ components: { RCashback: E.Z }, props: { reward: { type: Object, required: !0 } } });
-      const Ne = (0, S.Z)(Pe, Ae, [], !1, null, null, null).exports;
-      class Ee {
+      Pe._withStripped = !0;
+      const Ne = I().extend({ components: { RCashback: L.Z }, props: { reward: { type: Object, required: !0 } } });
+      const Ee = (0, T.Z)(Ne, Pe, [], !1, null, null, null).exports;
+      class Le {
         module_type = "SERP Injections";
         entity_name = "Google Shopping Comparison Chart";
         constructor(t) {
@@ -3483,7 +3521,7 @@ var source;
         renderHeaders() {
           this.config.headers.forEach((t) => {
             let e = null;
-            "itemCBHeader" === t.type ? (e = new Se()) : "finalPriceCBHeader" === t.type && (e = new Te()),
+            "itemCBHeader" === t.type ? (e = new Te()) : "finalPriceCBHeader" === t.type && (e = new Ae()),
               e.$mount(),
               (0, u.O8)({ el: e.$el, config: t });
           });
@@ -3533,9 +3571,9 @@ var source;
                   store_name: i.storeName,
                   store_id: i.storeId,
                   item_price: a?.product?.itemPrice,
-                  price_after_cashback: i.reward?.tiered ? "" : pe(a?.product?.total),
+                  price_after_cashback: i.reward?.tiered ? "" : he(a?.product?.total),
                   ranking_index: s,
-                  ...(0, vt.L)(i?.reward)
+                  ...(0, yt.L)(i?.reward)
                 }));
             }),
             { count_of_injections: t, injection_details: e }
@@ -3560,8 +3598,8 @@ var source;
             i.merchant?.offers_cb &&
               (r = {
                 ...r,
-                price_after_cashback: i.merchant.reward?.tiered ? "" : pe(i.row?.product?.total),
-                ...(0, vt.L)(i.merchant.reward)
+                price_after_cashback: i.merchant.reward?.tiered ? "" : he(i.row?.product?.total),
+                ...(0, yt.L)(i.merchant.reward)
               })),
             this.track("Click Module", { cta_type: e, ...(r && { clicked_store: r }) });
         }
@@ -3593,8 +3631,8 @@ var source;
           (0, i.extendOwn)(this, t), (this.$el = this.$el.closest("tr")), this.calculateProductCashback();
         }
         calculateProductCashback() {
-          const t = (0, ue.unformat)(this.$el.find(this.config["get-item-price"]).find(this.config["item-price"]).text()),
-            e = (0, ue.unformat)(this.$el.find(this.config["get-total-price"]).find(this.config["total-price"]).text()),
+          const t = (0, me.unformat)(this.$el.find(this.config["get-item-price"]).find(this.config["item-price"]).text()),
+            e = (0, me.unformat)(this.$el.find(this.config["get-total-price"]).find(this.config["total-price"]).text()),
             r = { itemPrice: t, totalPrice: e, amount: 0, total: 0, storeUrl: "", hasReward: !1, tiered: !1 };
           if (this.merchant?.offers_cb) {
             const { reward: i, shoppingURL: a } = this.merchant;
@@ -3602,7 +3640,7 @@ var source;
               (r.range = i?.range),
               (r.storeUrl = a.split("_")[0]),
               (r.hasReward = !0),
-              t && e && ((r.amount = (0, he._)(i, t)), (r.total = e - r.amount));
+              t && e && ((r.amount = (0, ge._)(i, t)), (r.total = e - r.amount));
           }
           return (this.product = r), r;
         }
@@ -3611,9 +3649,9 @@ var source;
             let e = null;
             "serpLink" === t.type
               ? this.merchant?.reward?.amount > 0 &&
-                ((this.serpLink = new Ne({ propsData: { reward: this.merchant.reward } }).$mount()), (e = this.serpLink))
+                ((this.serpLink = new Ee({ propsData: { reward: this.merchant.reward } }).$mount()), (e = this.serpLink))
               : ["itemCB", "finalPriceCB"].includes(t.type) &&
-                ((this.cashBackAmountCell = new _e({
+                ((this.cashBackAmountCell = new we({
                   propsData: { product: this.product, topPick: !1, isFinalCB: "finalPriceCB" === t.type }
                 }).$mount()),
                 (e = this.cashBackAmountCell)),
@@ -3622,12 +3660,12 @@ var source;
             (this.rendered = !0);
         }
       }
-      const Le = "product_ads",
+      const Re = "product_ads",
         Oe = "link_ad",
-        Re = "title",
-        Me = "BTN159",
-        Be = "offers-table";
-      class qe {
+        Me = "title",
+        Be = "BTN159",
+        qe = "offers-table";
+      class Ze {
         constructor(t) {
           let { config: e, settings: r } = t;
           (this.config = e), (this.settings = r), (this.query = "");
@@ -3659,10 +3697,10 @@ var source;
                   .find(i.container)
                   .filter(":not([ebates-serp-link])")
                   .each((t, a) => {
-                    r.push(new Ze({ el: a, config: i, search_term: e, search_engine: this.config.domain, settings: this.settings }));
+                    r.push(new Ue({ el: a, config: i, search_term: e, search_engine: this.config.domain, settings: this.settings }));
                   });
             }),
-            r.filter((t) => t.domain || t.config.type === Be).sort((t, e) => (2 & t.el.compareDocumentPosition(e.el) ? 1 : -1))
+            r.filter((t) => t.domain || t.config.type === qe).sort((t, e) => (2 & t.el.compareDocumentPosition(e.el) ? 1 : -1))
           );
         }
         async handleLinks(t, e) {
@@ -3679,18 +3717,18 @@ var source;
                     let { storeId: r } = e;
                     return r === t.merchant.storeId;
                   });
-                  V.Z.get(Me) && !r.affiliatizerEnabled && (r.settings_serp = !1),
+                  V.Z.get(Be) && !r.affiliatizerEnabled && (r.settings_serp = !1),
                     (t.merchant = r),
                     t.$el.attr({ "ebates-track": t.merchant.track_events, "ebates-id": r.storeId });
                 }
               });
               const i = [...new Set(r.map((t) => t?.merchant?.settings_serp && t.merchant.storeId))].filter(Boolean);
               if (i.length && !this.config.hasResults) {
-                const t = "A" === V.Z.get(Me),
-                  e = "B" === V.Z.get(Me);
+                const t = "A" === V.Z.get(Be),
+                  e = "B" === V.Z.get(Be);
                 let a = [],
                   s = [];
-                (this.settings.featureFlags.clickableSERP || V.Z.get(Me)) &&
+                (this.settings.featureFlags.clickableSERP || V.Z.get(Be)) &&
                   (([a, s] = await Promise.all([
                     (0, l.Z)("getCampaignStores", { id: 12019 }),
                     (0, l.Z)("getCampaignStores", { id: 11999 })
@@ -3707,23 +3745,23 @@ var source;
                     }) || []));
                 let o = 1;
                 r.forEach((r) => {
-                  (r.rank = [Re, Be].includes(r.config.type) ? o++ : ""),
+                  (r.rank = [Me, qe].includes(r.config.type) ? o++ : ""),
                     (r.merchants = i),
-                    V.Z.get(Me) && !a.includes(r.merchant?.storeId)
+                    V.Z.get(Be) && !a.includes(r.merchant?.storeId)
                       ? ((r.clickableSERP = t && !s.includes(r.merchant?.storeId)), e || r.render())
                       : ((r.clickableSERP = this.settings.featureFlags.clickableSERP && !s.includes(r.merchant?.storeId)), r.render());
                 }),
-                  this.settings.featureFlags.serpOfferTable && new Ee({ links: r }).render();
+                  this.settings.featureFlags.serpOfferTable && new Le({ links: r }).render();
                 const n = r.filter((t) => t.config.type === Oe).map((t) => t.domain),
-                  c = r.filter((t) => t.config.type !== Le).map((t) => (t.config.type === Oe ? { [t.domain]: "ad" } : t.domain));
-                r.find((t) => t.config.type === Le) && c.unshift(Le);
-                const u = r.filter((t) => t.merchant?.settings_serp && t.config.type === Re).map((t) => t.domain),
-                  m = r.filter((t) => t.config.type === Le).map((t) => t.domain),
-                  p = r.filter((t) => !t.merchant?.settings_serp && t.config.type === Re).map((t) => t.domain);
-                r.find((t) => t.merchant?.settings_serp && t.config.type === Re) && V.Z.activate(Me),
+                  c = r.filter((t) => t.config.type !== Re).map((t) => (t.config.type === Oe ? { [t.domain]: "ad" } : t.domain));
+                r.find((t) => t.config.type === Re) && c.unshift(Re);
+                const u = r.filter((t) => t.merchant?.settings_serp && t.config.type === Me).map((t) => t.domain),
+                  m = r.filter((t) => t.config.type === Re).map((t) => t.domain),
+                  p = r.filter((t) => !t.merchant?.settings_serp && t.config.type === Me).map((t) => t.domain);
+                r.find((t) => t.merchant?.settings_serp && t.config.type === Me) && V.Z.activate(Be),
                   !e &&
                     u.length > 0 &&
-                    (this.settings.featureFlags.clickableSERP || V.Z.get(Me)) &&
+                    (this.settings.featureFlags.clickableSERP || V.Z.get(Be)) &&
                     d.Z.track("View SERP", {
                       url: this.config.domain,
                       ranked_list: c,
@@ -3754,11 +3792,11 @@ var source;
                     (e &&
                       "false" !== localStorage.getItem(e.id) &&
                       "false" !== sessionStorage.getItem(e.id) &&
-                      (X
-                        ? (X.remove(), (X = null))
+                      (Q
+                        ? (Q.remove(), (Q = null))
                         : c.Z.extension.fireEvent("getStores", { data: { storeIds: e.config.storeIds } }, async (t) => {
-                            (X = new U({ propsData: { merchants: t, config: e.config, entityName: e.id, promoId: e.id } }).$mount()),
-                              (await (0, u.By)({ insertConfig: { "prepend-to": "#center_col" } })).appendChild(X.$el);
+                            (Q = new H({ propsData: { merchants: t, config: e.config, entityName: e.id, promoId: e.id } }).$mount()),
+                              (await (0, u.By)({ insertConfig: { "prepend-to": "#center_col" } })).appendChild(Q.$el);
                           })),
                     EBATES.settings.featureFlags.promoSerp && "false" !== localStorage.getItem("rr-serp-promo") && t)
                   ) {
@@ -3774,22 +3812,22 @@ var source;
                         return r.map((t) => t.toLowerCase()).includes(t.toLowerCase());
                       });
                     e
-                      ? X ||
+                      ? Q ||
                         c.Z.extension.fireEvent("getStore", { data: { storeId: e.config.storeId, fetch: !0 } }, async (t) => {
-                          (X = new z({ merchant: t, config: e.config, entity_name: e.id })), X.render();
+                          (Q = new W({ merchant: t, config: e.config, entity_name: e.id })), Q.render();
                         })
-                      : X && (X.remove(), (X = null));
+                      : Q && (Q.remove(), (Q = null));
                   }
                   const r = (0, i.find)(EBATES.settings.promos, (t) => t.active && t.serpTrigger && t.serpImage);
                   r &&
                     (s()(r.serpTrigger).length
-                      ? X ||
-                        ((X = new Y({ data: { ...r, query: t } }).$mount().$el),
-                        r.serpClosed || s()(X)[r.injection || "prependTo"](r.targetNode || "#center_col"))
-                      : X && (X.remove(), (X = null)));
+                      ? Q ||
+                        ((Q = new X({ data: { ...r, query: t } }).$mount().$el),
+                        r.serpClosed || s()(Q)[r.injection || "prependTo"](r.targetNode || "#center_col"))
+                      : Q && (Q.remove(), (Q = null)));
                 })(this.query, this.config),
-                ee.init({ settings: this.settings }));
-          } else /^https:\/\/www.google.com\/travel\/hotels/.test(location.href) && ee.init({ settings: this.settings });
+                re.init({ settings: this.settings }));
+          } else /^https:\/\/www.google.com\/travel\/hotels/.test(location.href) && re.init({ settings: this.settings });
         }
         checkLinksForGiftCards(t) {
           this.settings.featureFlags.giftCardSERP &&
@@ -3812,7 +3850,7 @@ var source;
             ]).get(t.attr("data-type")),
             r = t.attr("data-name");
           if (
-            ("A" === V.Z.get(Me) &&
+            ("A" === V.Z.get(Be) &&
               (Object.prototype.hasOwnProperty.call(this.settings.progressiveEducation, "clickableSerpTest") ||
                 (Object.assign(this.settings.progressiveEducation, {
                   SERPinjections: !0,
@@ -3823,15 +3861,15 @@ var source;
             this.settings.progressiveEducation[e])
           ) {
             const i = t.find(".ebates-serp-wrapper").get(0),
-              a = new ne({ propsData: { type: e, storeName: r, searchDomain: this.config.domain, anchor: i } }).$mount();
+              a = new ce({ propsData: { type: e, storeName: r, searchDomain: this.config.domain, anchor: i } }).$mount();
             i?.appendChild(a.$el);
           }
         }
         render() {
-          (0, Vt.Z)(), setTimeout(() => this.renderPopover(), 2e3);
+          (0, vt.Z)(), setTimeout(() => this.renderPopover(), 2e3);
         }
       }
-      class Ze {
+      class Ue {
         constructor(t) {
           (this.merchant = null),
             (this.giftCardStore = null),
@@ -3848,7 +3886,7 @@ var source;
             const t = this.href.match(new RegExp(this.config.href));
             t?.length > 1 && (this.href = decodeURIComponent(t.pop()));
           }
-          (this.domain = (0, re.g)(this.href)), this.$el.find(this.config.elements).on("click", (t) => this.clickLink(t));
+          (this.domain = (0, ie.g)(this.href)), this.$el.find(this.config.elements).on("click", (t) => this.clickLink(t));
         }
         get linkType() {
           let t = "";
@@ -3871,14 +3909,14 @@ var source;
           if (!this.merchant) return;
           (0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, preceding_screen_name: this.linkType });
           const e = s()(".ebates-serp");
-          if ("B" === V.Z.get(Me) || 0 === e.length) return;
+          if ("B" === V.Z.get(Be) || 0 === e.length) return;
           let r = s()('[ebates-serp-link="title"]'),
             a = r
               .filter('[ebates-track="true"]')
               .map((t, e) => ({ rank: r.index(e) + 1, id: e.getAttribute("ebates-id") }))
               .get(),
             o = (0, i.unique)(a, (t) => t.id);
-          (this.settings.featureFlags.clickableSERP || V.Z.get(Me)) &&
+          (this.settings.featureFlags.clickableSERP || V.Z.get(Be)) &&
             this.track("Click SERP", { result_rank_non_cb: o.map((t) => t.id).join(","), result_rank_cb: r.index(this.$el) + 1 }),
             t.stopPropagation();
         }
@@ -3917,9 +3955,9 @@ var source;
         render() {
           return (
             this.merchant?.settings_serp &&
-              this.config.type === Re &&
+              this.config.type === Me &&
               ((this.isClickable = this.clickableSERP && this.merchant.affiliatizerEnabled && this.href),
-              (this.serpLink = new te({ propsData: { merchant: this.merchant, isClickable: this.isClickable, darkMode: (0, u.rO)() } })),
+              (this.serpLink = new ee({ propsData: { merchant: this.merchant, isClickable: this.isClickable, darkMode: (0, u.rO)() } })),
               (this.rendered = !0),
               this.serpLink.$mount(),
               this.serpLink.$on("click", () => this.clickSERPInjection()),
@@ -3932,7 +3970,7 @@ var source;
           );
         }
         renderGiftCard(t) {
-          (this.serpLink = new de({ propsData: { store: t } })),
+          (this.serpLink = new ue({ propsData: { store: t } })),
             (this.rendered = !0),
             this.serpLink.$mount(),
             this.serpLink.$on("click", () => this.clickSERPGiftCard(t)),
@@ -3945,17 +3983,17 @@ var source;
         track(t) {
           let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
           return d.Z.track(t, {
-            url: (0, re.g)(this.href),
+            url: (0, ie.g)(this.href),
             store_id: this.merchant?.storeId,
             store_name: this.merchant?.storeName,
             serp_rank: this.rank,
             link_type: this.linkType,
-            ...(0, vt.L)(this.linkReward),
+            ...(0, yt.L)(this.linkReward),
             ...e
           });
         }
       }
-      var Ue = function () {
+      var He = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -3976,10 +4014,10 @@ var source;
           1
         );
       };
-      Ue._withStripped = !0;
-      const je = g().extend({
-        components: { RakutenIcon: zt.Z, RButton: P.Z },
-        mixins: [Ft],
+      He._withStripped = !0;
+      const je = I().extend({
+        components: { RakutenIcon: Wt.Z, RButton: N.Z },
+        mixins: [Gt],
         props: { merchant: { type: Object, required: !0 }, config: { type: Object, required: !1, default: () => ({}) } },
         computed: {
           cashbackAmount() {
@@ -3987,12 +4025,12 @@ var source;
           }
         }
       });
-      const He = (0, S.Z)(je, Ue, [], !1, null, null, null).exports,
-        Fe = "Micro-activation CTA",
-        Ge = "Google Product Card";
-      let ze = !1;
-      class We {
-        entity_name = Ge;
+      const Fe = (0, T.Z)(je, He, [], !1, null, null, null).exports,
+        Ge = "Micro-activation CTA",
+        ze = "Google Product Card";
+      let We = !1;
+      class Ke {
+        entity_name = ze;
         module_type = "SERP Injections";
         constructor(t) {
           t && ((this.config = t), this.init());
@@ -4004,22 +4042,22 @@ var source;
               const e = t.querySelector(this.config.url),
                 r = e?.getAttribute(this.config.hrefAttr),
                 i = t.querySelector(this.config.price)?.innerText;
-              return { el: t, url: r, price: me().unformat(i) };
+              return { el: t, url: r, price: pe().unformat(i) };
             }));
           const t = await this.getMicroCTAData();
-          t?.length > 0 && ((this.type = Fe), this.renderMicroCTA(t) && this.trackViewModule({ microCTALinks: t }));
+          t?.length > 0 && ((this.type = Ge), this.renderMicroCTA(t) && this.trackViewModule({ microCTALinks: t }));
         }
         track(t, e) {
           d.Z.track(t, { module_type: this.module_type, entity_name: this.entity_name, domain: "google.com", type: this.type, ...e });
         }
         renderMicroCTA(t) {
           return (
-            !ze &&
+            !We &&
             (t.forEach((t) => {
               let { merchant: e, link: r, price: i, index: a } = t;
-              this.injectMicroCTA({ merchant: e, link: r, price: i, index: a }) && (ze = !0);
+              this.injectMicroCTA({ merchant: e, link: r, price: i, index: a }) && (We = !0);
             }),
-            ze)
+            We)
           );
         }
         async getMicroCTAData() {
@@ -4058,51 +4096,51 @@ var source;
                   store_name: e.storeName,
                   product_url: r.url,
                   sale_price: a,
-                  ...(0, vt.L)(e.reward)
+                  ...(0, yt.L)(e.reward)
                 };
               }))
           });
         }
         injectMicroCTA(t) {
           let { merchant: e, link: r, price: i, index: a } = t;
-          (0, Vt.Z)();
-          const s = new He({ propsData: { merchant: e, config: this.config.microCTA } }).$mount();
+          (0, vt.Z)();
+          const s = new Fe({ propsData: { merchant: e, config: this.config.microCTA } }).$mount();
           return (
             s.$on("click", () => {
               this.track("Click Module", {
-                cta_type: Fe,
+                cta_type: Ge,
                 item_title: this.title,
                 product_url: r.url,
-                clicked_store: { ranking_index: a + 1, store_id: e.storeId, store_name: e.storeName, sale_price: i, ...(0, vt.L)(e.reward) }
+                clicked_store: { ranking_index: a + 1, store_id: e.storeId, store_name: e.storeName, sale_price: i, ...(0, yt.L)(e.reward) }
               }),
-                (0, l.Z)("updateMerchantSession", { storeId: e.storeId, preceding_screen_name: Ge }),
+                (0, l.Z)("updateMerchantSession", { storeId: e.storeId, preceding_screen_name: ze }),
                 e.affiliatizerEnabled
                   ? (0, l.Z)("activate", {
                       storeId: e.storeId,
                       tabId: c.Z.browser.NEWTAB,
                       store_url: r.url,
-                      sessionAttributes: { source: `${Ge} ${Fe}` }
+                      sessionAttributes: { source: `${ze} ${Ge}` }
                     })
-                  : (0, b.Z)({ tabId: c.Z.browser.NEWTAB, url: r.url });
+                  : (0, _.Z)({ tabId: c.Z.browser.NEWTAB, url: r.url });
             }),
             r.el.addEventListener("click", () => {
-              (0, l.Z)("updateMerchantSession", { storeId: e.storeId, preceding_screen_name: Ge });
+              (0, l.Z)("updateMerchantSession", { storeId: e.storeId, preceding_screen_name: ze });
             }),
             (0, u.O8)({ el: s.$el, config: this.config.microCTA, parent: r.el })
           );
         }
       }
-      let Ke = null,
-        Ye = null,
-        Xe = null;
-      function Qe(t) {
+      let Ye = null,
+        Xe = null,
+        Qe = null;
+      function Je(t) {
         let { config: e, settings: r } = t;
         function a() {
           if (new RegExp(e.rx).test(document.location.href))
             return (
               "google" === e.domain &&
-                (Xe ||
-                  (Xe = new (class {
+                (Qe ||
+                  (Qe = new (class {
                     constructor(t) {
                       t &&
                         s()(() => {
@@ -4158,15 +4196,15 @@ var source;
                       ).observe(document.body, { attributes: !1, childList: !0, subtree: !0, characterData: !1 });
                     }
                   })(r.hotelsWidgets)),
-                !Ye && r.featureFlags.serpProductCard && (Ye = new We(e.items.find((t) => "product_card" === t.type)))),
+                !Xe && r.featureFlags.serpProductCard && (Xe = new Ke(e.items.find((t) => "product_card" === t.type)))),
               window.removeEventListener("addressbar.urlchange", a),
-              Ke || (Ke = new qe({ config: e, settings: r })),
+              Ye || (Ye = new Ze({ config: e, settings: r })),
               !1
             );
         }
         e.domain, window.addEventListener("addressbar.urlchange", a), a();
       }
-      function Je(t, e, r) {
+      function tr(t, e, r) {
         t.forEach((t) =>
           (function (t, e, r) {
             if (e) {
@@ -4206,29 +4244,29 @@ var source;
           })(t, e, r)
         );
       }
-      const tr = [" & ", ", PIN: "];
-      function er(t) {
+      const er = [" & ", ", PIN: "];
+      function rr(t) {
         let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
         return (0, i.isObject)(t)
-          ? (0, i.mapObject)(t, (t) => er(t, e))
+          ? (0, i.mapObject)(t, (t) => rr(t, e))
           : (0, i.isString)(t)
           ? t
-              .replace(/%promo/gi, rr(e))
-              .replace(/%pin/gi, ir(e))
+              .replace(/%promo/gi, ir(e))
+              .replace(/%pin/gi, ar(e))
               .replace(/%origin/i, window.location.origin)
               .replace(/%pathname/i, window.location.pathname)
           : t;
       }
-      function rr(t) {
-        let e = tr;
+      function ir(t) {
+        let e = er;
         for (let r in e) if (t.indexOf(e[r]) > 0) return t.split(e[r])[0];
         return t;
       }
-      function ir(t) {
-        let e = tr;
+      function ar(t) {
+        let e = er;
         for (let r in e) if (t.indexOf(e[r]) > 0) return t.split(e[r])[1];
       }
-      function ar(t) {
+      function sr(t) {
         let e = t;
         if (e) {
           (e += ""), (e = e.replace(/[^\d.,\n]/g, "")), (e = e.replace(/[\r\n]/g, ""));
@@ -4244,7 +4282,7 @@ var source;
         }
         return 0;
       }
-      function sr(t, e, r) {
+      function or(t, e, r) {
         let i = t;
         if (e) {
           let t = e.split("//");
@@ -4257,24 +4295,24 @@ var source;
         }
         return i || r;
       }
-      function or() {
-        nr(
+      function nr() {
+        cr(
           "var _oldAlert = window.alert; window.alert = function(){}; var _oldConfirm = window.confirm; window.confirm = function(){return true};"
         );
       }
-      function nr(t) {
+      function cr(t) {
         let e = document.createElement("script");
         (e.innerText = t), (document.head || document.documentElement).appendChild(e), e.remove();
       }
-      function cr(t, e) {
+      function lr(t, e) {
         if (t) {
           let r = s()(t);
           r.trigger("focus");
           let i = r.get(0);
-          i && (Je(["focus"], i), r.val(e), Je(["change", "input", "keyup"], i));
+          i && (tr(["focus"], i), r.val(e), tr(["change", "input", "keyup"], i));
         }
       }
-      function lr(t) {
+      function dr(t) {
         let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document;
         var r, a;
         if ((s().expr[":"].alltext || s().extend(s().expr[":"], { alltext: (t) => s()(t).text() }), "string" == typeof t)) {
@@ -4283,7 +4321,7 @@ var source;
             s()(e)
               .find(t)
               .map(function () {
-                return ar(
+                return sr(
                   s()(this)
                     .contents()
                     .filter(function () {
@@ -4318,14 +4356,14 @@ var source;
         }
         return "";
       }
-      function dr(t) {
+      function ur(t) {
         for (var e = {}, r = ("?" === t[0] ? t.substr(1) : t).split("&"), i = 0; i < r.length; i++) {
           var a = r[i].split("=");
           e[decodeURIComponent(a[0])] = decodeURIComponent(a[1] || "");
         }
         return e;
       }
-      const ur = (t) => {
+      const mr = (t) => {
           if ((t = t.trim()).startsWith("SUM(") && t.endsWith(")"))
             return (
               (t = t.substring(4, t.length - 1).trim()),
@@ -4333,26 +4371,26 @@ var source;
                 let e = 0;
                 for (let r of t) {
                   const t = r.startsWith("-") ? -1 : 1;
-                  -1 === t && (r = r.substr(1).trim()), (e += ur(r) * t);
+                  -1 === t && (r = r.substr(1).trim()), (e += mr(r) * t);
                 }
                 return e;
-              })(mr(t))
+              })(pr(t))
             );
           if (t.startsWith("OR(") && t.endsWith(")"))
             return (
               (t = t.substring(3, t.length - 1).trim()),
               ((t) => {
                 for (let e of t) {
-                  const t = ur(e);
+                  const t = mr(e);
                   if (t) return t;
                 }
                 return 0;
-              })(mr(t))
+              })(pr(t))
             );
-          if (t.startsWith("{") && t.endsWith("}")) return ar(lr((t = t.substring(1, t.length - 1).trim())));
+          if (t.startsWith("{") && t.endsWith("}")) return sr(dr((t = t.substring(1, t.length - 1).trim())));
           throw new Error("Misformatted formula");
         },
-        mr = (t) => {
+        pr = (t) => {
           let e = 0,
             r = 0,
             i = [],
@@ -4378,8 +4416,8 @@ var source;
           if (s()) return i.push(t.substring(a).trim()), i;
           throw new Error("Misformatted formula");
         },
-        pr = (t) => ur(t.substr(1));
-      let hr = new (class {
+        hr = (t) => mr(t.substr(1));
+      let gr = new (class {
         getItem(t) {
           try {
             return sessionStorage.getItem(t);
@@ -4397,8 +4435,8 @@ var source;
         }
       })();
       var Ir = r(5939),
-        gr = r.n(Ir);
-      class fr {
+        fr = r.n(Ir);
+      class Dr {
         constructor(t) {
           let { id: e, persistent: r = !0, resetOnStop: i } = t;
           if (!e) throw "State id must be specified";
@@ -4417,7 +4455,7 @@ var source;
         }
         load() {
           if (this._persistent) {
-            let t = hr.getItem(this._id);
+            let t = gr.getItem(this._id);
             if (t && ((t = JSON.parse(t)), t.ttl > Date.now())) return void (this.data = t);
           }
           this.data = { index: 0, state: 0, total: 0, orderTotal: 0, timestamp: 0, coupons: [], result: null, terminated: !1 };
@@ -4426,10 +4464,10 @@ var source;
           this.terminated ||
             (t && Object.assign(this.data, t),
             (this.data.ttl = Date.now() + 6e4),
-            this._persistent && hr.setItem(this._id, JSON.stringify(this.data)));
+            this._persistent && gr.setItem(this._id, JSON.stringify(this.data)));
         }
         clear() {
-          this._persistent && hr.removeItem(this._id);
+          this._persistent && gr.removeItem(this._id);
         }
         addCoupon(t) {
           this.data.coupons.push(t), this.save();
@@ -4439,7 +4477,7 @@ var source;
         }
       }
       ["index", "state", "total", "orderTotal", "currency", "timestamp", "coupons", "result", "disableAlert"].forEach((t) => {
-        Object.defineProperty(fr.prototype, t, {
+        Object.defineProperty(Dr.prototype, t, {
           set(e) {
             this.save({ [t]: e });
           },
@@ -4448,7 +4486,7 @@ var source;
           }
         });
       });
-      const Dr = class {
+      const Vr = class {
           constructor(t) {
             let { command: e } = t;
             this.command = e;
@@ -4470,7 +4508,7 @@ var source;
             );
           }
         },
-        Vr = class extends Dr {
+        vr = class extends Vr {
           constructor(t) {
             let { command: e, code: r } = t;
             (s().support.cors = !0), super({ command: e, code: r });
@@ -4478,7 +4516,7 @@ var source;
           setup() {
             switch (
               ((this.method = this.command.type || "POST"),
-              (this.url = er(this.command.url, this.code)),
+              (this.url = rr(this.command.url, this.code)),
               this.command.response ? this.command.response.type : null)
             ) {
               case "json":
@@ -4492,11 +4530,11 @@ var source;
             }
             return (
               (0, i.isString)(this.command.data)
-                ? (this.data = dr(this.command.data))
+                ? (this.data = ur(this.command.data))
                 : (0, i.isObject)(this.command.data)
                 ? (this.data = this.command.data)
                 : (this.data = {}),
-              (this.data = er(this.data, this.code)),
+              (this.data = rr(this.data, this.code)),
               (0, i.isObject)(this.command.headers) ? (this.headers = this.command.headers) : (this.headers = {}),
               Promise.resolve()
             );
@@ -4509,7 +4547,7 @@ var source;
                 data: this.data,
                 dataType: this.command.response && "json" === this.command.response.type ? "json" : "html",
                 beforeSend(t) {
-                  if (this.headers) for (let e in this.headers) e && this.headers[e] && t.setRequestHeader(e, er(this.headers[e]));
+                  if (this.headers) for (let e in this.headers) e && this.headers[e] && t.setRequestHeader(e, rr(this.headers[e]));
                 },
                 success: function (e, r, i) {
                   t({ data: e, xhr: i });
@@ -4527,7 +4565,7 @@ var source;
               : { data: r.responseText, config: this.command.response };
           }
         },
-        vr = class extends Vr {
+        yr = class extends vr {
           constructor(t) {
             let { command: e, code: r } = t;
             super({ command: e, code: r });
@@ -4539,10 +4577,10 @@ var source;
               (this.method = this.$form.attr("method") || "POST"),
               (0, i.isObject)(this.command.form) && this.command.form.method && (this.method = this.command.form.method),
               (this.url = this.$form.attr("action")),
-              (0, i.isObject)(this.command.form) && this.command.form.url && (this.url = er(this.command.form.url, this.code)),
+              (0, i.isObject)(this.command.form) && this.command.form.url && (this.url = rr(this.command.form.url, this.code)),
               0 === this.url.indexOf("javascript:") && (this.url = location.href),
               (0, i.isString)(this.command.data)
-                ? (this.data = dr(this.command.data))
+                ? (this.data = ur(this.command.data))
                 : (0, i.isObject)(this.command.data)
                 ? (this.data = this.command.data)
                 : (this.data = {}),
@@ -4556,17 +4594,17 @@ var source;
                   let r = e.getAttribute("name");
                   r && !this.data.hasOwnProperty(r) && (this.data[r] = e.value);
                 }),
-              (this.data = er(this.data, this.code)),
+              (this.data = rr(this.data, this.code)),
               (0, i.isObject)(this.command.headers) ? (this.headers = this.command.headers) : (this.headers = {});
           }
         },
-        yr = class extends Dr {
+        br = class extends Vr {
           constructor(t) {
             let { command: e, code: r } = t;
             super({ command: e, code: r }), (this.el = s()(e.submit).get(0));
           }
           run() {
-            this.el && Je(["mouseover", "mousedown", "click", "mouseup", "focus"], this.el);
+            this.el && tr(["mouseover", "mousedown", "click", "mouseup", "focus"], this.el);
           }
           tierdown() {
             let t = null,
@@ -4589,40 +4627,40 @@ var source;
               .then(() => (t && t.disconnect(), e && window.clearTimeout(e), { data: window.document, config: this.command.response }));
           }
         },
-        br = class extends yr {
+        _r = class extends br {
           constructor(t) {
             let { command: e, code: r } = t;
             super({ command: e, code: r }), (this.el = s()(e.submit).get(0));
           }
           run() {
-            Je(["keydown", "keypress", "keyup"], this.el, 13);
+            tr(["keydown", "keypress", "keyup"], this.el, 13);
           }
         },
-        _r = class extends Dr {
+        wr = class extends Vr {
           constructor(t) {
             let { command: e, code: r } = t;
             super({ command: e, code: r });
           }
           run() {
-            or(), hr.setItem("caa_disableAlert", "1");
+            nr(), gr.setItem("caa_disableAlert", "1");
           }
           tierdown() {
             return document;
           }
         },
-        wr = class extends Dr {
+        Cr = class extends Vr {
           constructor(t) {
             let { command: e, code: r } = t;
             super({ command: e, code: r });
           }
           run() {
-            nr("if(window._oldAlert){window.alert = _oldAlert}; if(window._oldConfirm){window.confirm = _oldConfirm;}");
+            cr("if(window._oldAlert){window.alert = _oldAlert}; if(window._oldConfirm){window.confirm = _oldConfirm;}");
           }
           tierdown() {
             return document;
           }
         };
-      function Cr(t) {
+      function xr(t) {
         let { config: e = {}, data: r, originalTotal: i, originalOrderTotal: a, controls: o } = t;
         switch (e.type) {
           case "json":
@@ -4630,12 +4668,12 @@ var source;
               let { config: e, data: r, originalTotal: i } = t,
                 a = {};
               e.discount
-                ? ((a.discount = ar(sr(r, e.discount))),
-                  a.discount ? (a.total = i - a.discount) : ((a.total = ar(sr(r, e.total, i))), (a.discount = i - a.total)))
-                : ((a.total = ar(sr(r, e.total, i))), (a.discount = i - a.total));
+                ? ((a.discount = sr(or(r, e.discount))),
+                  a.discount ? (a.total = i - a.discount) : ((a.total = sr(or(r, e.total, i))), (a.discount = i - a.total)))
+                : ((a.total = sr(or(r, e.total, i))), (a.discount = i - a.total));
               if (e.success) {
                 let [t, i] = e.success.split("=="),
-                  s = sr(r, t);
+                  s = or(r, t);
                 a.success = void 0 === i ? !!s : i === s;
               } else a.success = a.discount > 0;
               return a;
@@ -4651,10 +4689,10 @@ var source;
               }
               if (e.discount) {
                 let t = new RegExp(e.discount, "gim").exec(r);
-                t && t.length && ((a.discount = ar(t.pop())), (a.total = i - a.discount));
+                t && t.length && ((a.discount = sr(t.pop())), (a.total = i - a.discount));
               } else {
                 let t = new RegExp(e.total, "gim").exec(r);
-                t && t.length && ((a.total = ar(t.pop())), (a.discount = i - a.total));
+                t && t.length && ((a.total = sr(t.pop())), (a.discount = i - a.total));
               }
               return (a.success = a.discount > 0), a;
             })({ config: e, data: r, originalTotal: i });
@@ -4662,25 +4700,25 @@ var source;
             return new Promise((t, r) =>
               s().ajax({
                 url: location.href,
-                success: (r) => t(Sr({ config: e, data: r, originalTotal: i, originalOrderTotal: a, controls: o })),
+                success: (r) => t(Tr({ config: e, data: r, originalTotal: i, originalOrderTotal: a, controls: o })),
                 error: r
               })
             );
           default:
-            return Sr({ config: e, data: r, originalTotal: i, originalOrderTotal: a, controls: o });
+            return Tr({ config: e, data: r, originalTotal: i, originalOrderTotal: a, controls: o });
         }
       }
-      function Sr(t) {
+      function Tr(t) {
         let { config: e = {}, data: r, originalTotal: i, originalOrderTotal: a, controls: o } = t;
         if (o.error && s()(o.error, r).length) return null;
         let n = {},
-          c = ar(lr(o.total, r)) || i,
-          l = (o.orderTotal && ar(lr(o.orderTotal, r))) || c,
+          c = sr(dr(o.total, r)) || i,
+          l = (o.orderTotal && sr(dr(o.orderTotal, r))) || c,
           d = i - c,
           u = null;
         return (
-          "discount" === e.type && ((d = ar(lr(e.discount, r)) || d), d >= 0 && ((c = i - d), (l = a - d))),
-          o.subTotal && (u = o.subTotal.startsWith("=") ? pr(o.subTotal) : ar(lr(o.subTotal))),
+          "discount" === e.type && ((d = sr(dr(e.discount, r)) || d), d >= 0 && ((c = i - d), (l = a - d))),
+          o.subTotal && (u = o.subTotal.startsWith("=") ? hr(o.subTotal) : sr(dr(o.subTotal))),
           (n.discount = d),
           (n.total = c),
           (n.orderTotal = u || l),
@@ -4702,18 +4740,18 @@ var source;
                     let { command: e, finish: r = !1 } = t;
                     switch (e.type) {
                       case "click":
-                        return new yr({ command: e });
-                      case "enter":
                         return new br({ command: e });
+                      case "enter":
+                        return new _r({ command: e });
                       case "get":
                       case "post":
-                        return r ? new yr({ command: e }) : new Vr({ command: e });
+                        return r ? new br({ command: e }) : new vr({ command: e });
                       case "submit":
-                        return r ? new yr({ command: e }) : new vr({ command: e });
+                        return r ? new br({ command: e }) : new yr({ command: e });
                       case "enableAlert":
-                        return new wr({ command: e });
+                        return new Cr({ command: e });
                       case "disableAlert":
-                        return new _r({ command: e });
+                        return new wr({ command: e });
                     }
                   })({ command: e, finish: this.finish }).execute(this.code)
                 ),
@@ -4730,7 +4768,7 @@ var source;
               ? Promise.reject()
               : this.config.controls.form && s()(this.config.controls.form).length && !s()(this.config.controls.promo).length
               ? new Promise((t) => {
-                  Je(["focus", "mousemove", "mouseover", "mousedown", "mouseup", "click", "focus"], s()(this.config.controls.form).get(0)),
+                  tr(["focus", "mousemove", "mouseover", "mousedown", "mouseup", "click", "focus"], s()(this.config.controls.form).get(0)),
                     (0, i.delay)(t, 2500);
                 })
               : void 0
@@ -4752,8 +4790,8 @@ var source;
           return this.state.terminated
             ? Promise.reject()
             : ((this.state.state = 1),
-              cr(this.config.controls.promo, rr(this.code)),
-              cr(this.config.controls.pin, ir(this.code)),
+              lr(this.config.controls.promo, ir(this.code)),
+              lr(this.config.controls.pin, ar(this.code)),
               this.applyCommands(this.config.apply));
         }
         parse(t) {
@@ -4780,7 +4818,7 @@ var source;
                   o();
                 });
               })(this.config.controls.total).then(() =>
-                Cr({
+                xr({
                   config: r,
                   data: e,
                   originalTotal: this.originalTotal,
@@ -4831,16 +4869,16 @@ var source;
             .then(() => ((this.state.state = 5), this.state.result));
         }
       }
-      let xr;
-      function Tr(t) {
+      let Sr;
+      function Ar(t) {
         let { rules: e, resolve: r, reject: a, state: o } = t,
           n = [];
         const c = e.find((t) => {
           if (t.controls.promo && t.controls.total && t.apply)
             if (!t.controls.form || s()(t.controls.form).length)
               if (s()(t.controls.total).length)
-                if (ar(lr(t.controls.total)) <= 0) n.push(`wrong total "${t.controls.total}"`);
-                else if (t.controls.orderTotal && ar(lr(t.controls.orderTotal)) <= 0) n.push(`wrong orderTotal "${t.controls.orderTotal}"`);
+                if (sr(dr(t.controls.total)) <= 0) n.push(`wrong total "${t.controls.total}"`);
+                else if (t.controls.orderTotal && sr(dr(t.controls.orderTotal)) <= 0) n.push(`wrong orderTotal "${t.controls.orderTotal}"`);
                 else {
                   if (o.state || t.controls.form || s()(t.controls.promo).length) {
                     if (!o.state && t.controls.coupon && s()(t.controls.coupon).text().replace(/[ -]*/g, "").length)
@@ -4857,22 +4895,22 @@ var source;
               else n.push(`no total "${t.controls.total}"`);
             else n.push(`no form "${t.controls.form}"`);
         });
-        c && !n.length && (xr.disconnect(), r(c));
+        c && !n.length && (Sr.disconnect(), r(c));
       }
       s().extend(s().expr.pseudos, { alltext: (t) => s()(t).text() }),
         s().extend(s().expr.pseudos, { blank: (t) => s()(t).val().match(/^\s*$/) });
-      const Ar = class extends gr() {
+      const Pr = class extends fr() {
         constructor() {
           let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
           if ((super(), !t.id)) throw new Error("Unique id required to initialize CAA");
           (this.options = t),
             (this.id = t.id),
-            (this.state = new fr({ id: this.id, resetOnStop: t.resetOnStop })),
+            (this.state = new Dr({ id: this.id, resetOnStop: t.resetOnStop })),
             (this.coupons = (0, i.uniq)(
               t.coupons.filter((t) => t && t.code),
               (t) => t.code
             )),
-            this.state.disableAlert && or();
+            this.state.disableAlert && nr();
           let e = () => {
               this.coupons.length
                 ? (this.emit("Init", { data: this.state }), this.options.init && this.options.init(this))
@@ -4898,9 +4936,9 @@ var source;
                 })),
               r.length
                 ? new Promise((t, e) => {
-                    (xr = new MutationObserver((0, i.throttle)(() => Tr({ rules: r, resolve: t, reject: e, state: a }), 1e3))),
-                      xr.observe(document.body || document.querySelector("html"), { attributes: !1, childList: !0, subtree: !0 }),
-                      Tr({ rules: r, resolve: t, reject: e, state: a });
+                    (Sr = new MutationObserver((0, i.throttle)(() => Ar({ rules: r, resolve: t, reject: e, state: a }), 1e3))),
+                      Sr.observe(document.body || document.querySelector("html"), { attributes: !1, childList: !0, subtree: !0 }),
+                      Ar({ rules: r, resolve: t, reject: e, state: a });
                   })
                 : Promise.reject("no matching config")
             );
@@ -4924,9 +4962,9 @@ var source;
         }
         start() {
           this.state.timestamp = Date.now();
-          let t = lr(this.config.controls.currency || { selector: this.config.controls.total, rx: "(.*?)[\\d\\s]" });
-          (this.state.total = ar(lr(this.config.controls.total))),
-            (this.state.orderTotal = (this.config.controls.orderTotal && ar(lr(this.config.controls.orderTotal))) || this.state.total),
+          let t = dr(this.config.controls.currency || { selector: this.config.controls.total, rx: "(.*?)[\\d\\s]" });
+          (this.state.total = sr(dr(this.config.controls.total))),
+            (this.state.orderTotal = (this.config.controls.orderTotal && sr(dr(this.config.controls.orderTotal))) || this.state.total),
             (this.state.currency = t || "$"),
             this._applyCoupons();
         }
@@ -4936,7 +4974,7 @@ var source;
         finishing(t) {
           1 === t.length
             ? new kr({
-                state: new fr({ id: this.id, persistent: !1 }),
+                state: new Dr({ id: this.id, persistent: !1 }),
                 config: this.config,
                 code: t[0].code,
                 originalTotal: this.state.total,
@@ -5019,7 +5057,7 @@ var source;
                     coupons: t,
                     finishing: this.finishing.bind(this)
                   });
-              this.state.clear(), hr.removeItem("caa_disableAlert");
+              this.state.clear(), gr.removeItem("caa_disableAlert");
             });
         }
         couponApplianceDone() {
@@ -5034,18 +5072,18 @@ var source;
           var r = 0,
             i = s()(this.config.controls.promo).focus(),
             a = setInterval(() => {
-              t[r] ? (Je("focus", i.get(0)), i.val(t[r].code), new yr({ command: this.config.apply }).run(), r++) : (clearInterval(a), e());
+              t[r] ? (tr("focus", i.get(0)), i.val(t[r].code), new br({ command: this.config.apply }).run(), r++) : (clearInterval(a), e());
             }, this.config.apply.timeout || 1500);
         }
       };
-      function Pr(t) {
+      function Nr(t) {
         const { action: e, ...r } = t;
         r.url = location.origin + location.pathname;
         const i = { action: e, event: r };
         c.Z.extension.fireEvent("log.caa", { data: i });
       }
-      "1" === hr.getItem("caa_disableAlert") && or();
-      var Nr = function () {
+      "1" === gr.getItem("caa_disableAlert") && nr();
+      var Er = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -5070,8 +5108,8 @@ var source;
           )
         ]);
       };
-      Nr._withStripped = !0;
-      var Er = r(4473),
+      Er._withStripped = !0;
+      var Lr = r(74473),
         $r = function () {
           var t = this,
             e = t._self._c;
@@ -5130,8 +5168,8 @@ var source;
           );
         };
       $r._withStripped = !0;
-      const Lr = g().extend({
-        components: { RButton: P.Z, RForm: it.Z, RCashback: E.Z },
+      const Rr = I().extend({
+        components: { RButton: N.Z, RForm: at.Z, RCashback: L.Z },
         props: {
           coupons: { type: Array, default: () => [] },
           merchant: { type: Object, required: !0 },
@@ -5142,7 +5180,7 @@ var source;
           flagMessage() {
             return this.coupons.length > 1 ? `${this.coupons.length} Coupons Found` : "1 Coupon Found";
           },
-          couponAnimationImageSrc: () => (0, at.$)("img/coupon-animation.svg"),
+          couponAnimationImageSrc: () => (0, st.$)("img/coupon-animation.svg"),
           cashBackFormatted() {
             return (0, f.l)(this.merchant.reward);
           }
@@ -5153,8 +5191,8 @@ var source;
           }
         }
       });
-      const Or = (0, S.Z)(Lr, $r, [], !1, null, null, null).exports;
-      var Rr = function () {
+      const Or = (0, T.Z)(Rr, $r, [], !1, null, null, null).exports;
+      var Mr = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -5172,10 +5210,10 @@ var source;
           ]
         );
       };
-      Rr._withStripped = !0;
-      const Mr = {
-        components: { RPopover: ae.Z },
-        mixins: [se.Z],
+      Mr._withStripped = !0;
+      const Br = {
+        components: { RPopover: se.Z },
+        mixins: [oe.Z],
         props: {
           storeId: { type: Number, default: null },
           storeName: { type: String, default: "" },
@@ -5183,10 +5221,10 @@ var source;
         },
         data: () => ({ type: "CouponMagic", entityName: "Coupon Magic", moduleType: "tooltip" })
       };
-      const Br = (0, S.Z)(Mr, Rr, [], !1, null, null, null).exports,
-        qr = g().extend({
-          components: { CouponsButtonForm: Or, EducationPopover: Br },
-          mixins: [Er.Z],
+      const qr = (0, T.Z)(Br, Mr, [], !1, null, null, null).exports,
+        Zr = I().extend({
+          components: { CouponsButtonForm: Or, EducationPopover: qr },
+          mixins: [Lr.Z],
           props: {
             settings: { type: Object, default: () => ({}) },
             coupons: { type: Array, required: !0 },
@@ -5213,7 +5251,7 @@ var source;
                 t.appendChild(this.$el), (this.visible = !0), this.track("View Module"), this.renderPopover();
               }),
               setTimeout(() => {
-                Pr({
+                Nr({
                   action: "show",
                   coupon_auto_apply_status: "Show Flag",
                   store_name: this.merchant.storeName,
@@ -5271,8 +5309,8 @@ var source;
             }
           }
         });
-      const Zr = (0, S.Z)(qr, Nr, [], !1, null, null, null).exports;
-      var Ur = function () {
+      const Ur = (0, T.Z)(Zr, Er, [], !1, null, null, null).exports;
+      var Hr = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -5305,10 +5343,10 @@ var source;
             })
           : t._e();
       };
-      Ur._withStripped = !0;
-      var jr = r(909),
-        Hr = r(2506),
-        Fr = function () {
+      Hr._withStripped = !0;
+      var jr = r(90909),
+        Fr = r(52506),
+        Gr = function () {
           var t = this,
             e = t._self._c;
           t._self._setupProxy;
@@ -5401,8 +5439,8 @@ var source;
             ]
           );
         };
-      Fr._withStripped = !0;
-      var Gr = function () {
+      Gr._withStripped = !0;
+      var zr = function () {
         var t = this,
           e = t._self._c;
         return e("div", { staticClass: "rr-flex rr-flex-col rr-text-center" }, [
@@ -5449,9 +5487,9 @@ var source;
           ])
         ]);
       };
-      Gr._withStripped = !0;
-      const zr = {
-        components: { CheckIcon: Et.Z, RLink: It.Z },
+      zr._withStripped = !0;
+      const Wr = {
+        components: { CheckIcon: Lt.Z, RLink: It.Z },
         props: {
           coupons: { type: Array, required: !0 },
           index: { type: Number, default: 0 },
@@ -5508,8 +5546,8 @@ var source;
               );
           },
           openStorePage() {
-            const t = (0, y.Z)(`/${this.merchant.siteUrl}`);
-            (0, b.Z)(t),
+            const t = (0, b.Z)(`/${this.merchant.siteUrl}`);
+            (0, _.Z)(t),
               this.$emit("track", "Visit Page", {
                 preceding_screen_name: "Coupon Application Progress Screen with CB Confirmation",
                 url: t
@@ -5517,8 +5555,8 @@ var source;
           }
         }
       };
-      const Wr = (0, S.Z)(zr, Gr, [], !1, null, null, null).exports;
-      var Kr = function () {
+      const Kr = (0, T.Z)(Wr, zr, [], !1, null, null, null).exports;
+      var Yr = function () {
         var t = this,
           e = t._self._c;
         return e("div", [
@@ -5730,8 +5768,8 @@ var source;
           )
         ]);
       };
-      Kr._withStripped = !0;
-      var Yr = function () {
+      Yr._withStripped = !0;
+      var Xr = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -5744,8 +5782,8 @@ var source;
           1
         );
       };
-      Yr._withStripped = !0;
-      var Xr = function () {
+      Xr._withStripped = !0;
+      var Qr = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -5796,13 +5834,13 @@ var source;
           1
         );
       };
-      Xr._withStripped = !0;
-      var Qr = r(3931),
-        Jr = r(3669),
-        ti = r(4994),
-        ei = r(9809),
-        ri = r(154),
-        ii = function () {
+      Qr._withStripped = !0;
+      var Jr = r(53931),
+        ti = r(43669),
+        ei = r(84994),
+        ri = r(39809),
+        ii = r(50154),
+        ai = function () {
           var t = this,
             e = t._self._c;
           return e("svg-icon", t._b({ attrs: { viewBox: "0 0 24 24" } }, "svg-icon", t.$props, !1), [
@@ -5815,18 +5853,18 @@ var source;
             })
           ]);
         };
-      ii._withStripped = !0;
-      const ai = {
-        components: { SvgIcon: Kt.Z },
+      ai._withStripped = !0;
+      const si = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const si = (0, S.Z)(ai, ii, [], !1, null, null, null).exports,
-        oi = {
-          components: { LinkIcon: si, CheckIcon: Et.Z, RIconButton: Jr.Z, EmailIcon: ti.Z, FacebookIcon: ei.Z, TwitterIcon: ri.Z },
+      const oi = (0, T.Z)(si, ai, [], !1, null, null, null).exports,
+        ni = {
+          components: { LinkIcon: oi, CheckIcon: Lt.Z, RIconButton: ti.Z, EmailIcon: ei.Z, FacebookIcon: ri.Z, TwitterIcon: ii.Z },
           props: {
             member: { type: Object, required: !0 },
             source: { type: String, required: !0 },
@@ -5847,7 +5885,7 @@ var source;
               const t = (await (0, l.Z)("createReferralLink", { siteUrl: this.merchant?.siteUrl })) || "",
                 e = this.source === jr.b ? 57122 : 45830,
                 r = (0, h.h1)(t, { eeid: e });
-              (this.shareLinkActive = !0), this.share({ method: "Copy" }), (0, Qr.v)(r), this.$emit("click", "Copy");
+              (this.shareLinkActive = !0), this.share({ method: "Copy" }), (0, Jr.v)(r), this.$emit("click", "Copy");
             },
             async shareFacebook() {
               this.share({ method: "Facebook" }), this.$emit("click", "Facebook");
@@ -5860,9 +5898,9 @@ var source;
             }
           }
         };
-      const ni = (0, S.Z)(oi, Xr, [], !1, null, null, null).exports,
-        ci = {
-          components: { RShareButtons: ni },
+      const ci = (0, T.Z)(ni, Qr, [], !1, null, null, null).exports,
+        li = {
+          components: { RShareButtons: ci },
           props: { member: { type: Object, required: !0 } },
           data: () => ({ bonusAmount: "$25+", source: "Coupon Magic" }),
           created() {
@@ -5874,8 +5912,8 @@ var source;
             d.Z.track("Visit Refer A Friend", { referral_token: this.member.shortURLToken, source: this.source });
           }
         };
-      const li = (0, S.Z)(ci, Yr, [], !1, null, null, null).exports;
-      var di = function () {
+      const di = (0, T.Z)(li, Xr, [], !1, null, null, null).exports;
+      var ui = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -5901,8 +5939,8 @@ var source;
           1
         );
       };
-      di._withStripped = !0;
-      var ui = function () {
+      ui._withStripped = !0;
+      var mi = function () {
         var t = this,
           e = t._self._c;
         return e("svg-icon", t._b({ attrs: { viewBox: "0 0 576 512" } }, "svg-icon", t.$props, !1), [
@@ -5913,18 +5951,18 @@ var source;
           })
         ]);
       };
-      ui._withStripped = !0;
-      const mi = {
-        components: { SvgIcon: Kt.Z },
+      mi._withStripped = !0;
+      const pi = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const pi = (0, S.Z)(mi, ui, [], !1, null, null, null).exports,
-        hi = {
-          components: { RLink: It.Z, StarIcon: pi },
+      const hi = (0, T.Z)(pi, mi, [], !1, null, null, null).exports,
+        gi = {
+          components: { RLink: It.Z, StarIcon: hi },
           computed: {
             ratingsText() {
               const t = "Rate us on ";
@@ -5938,8 +5976,8 @@ var source;
             }
           }
         };
-      const Ii = (0, S.Z)(hi, di, [], !1, null, null, null).exports;
-      var gi = function () {
+      const Ii = (0, T.Z)(gi, ui, [], !1, null, null, null).exports;
+      var fi = function () {
         var t = this,
           e = t._self._c;
         return t.visible
@@ -5956,8 +5994,8 @@ var source;
             ])
           : t._e();
       };
-      gi._withStripped = !0;
-      var fi = function () {
+      fi._withStripped = !0;
+      var Di = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -6002,9 +6040,9 @@ var source;
           ]
         );
       };
-      fi._withStripped = !0;
-      const Di = {
-        components: { RPopover: ae.Z },
+      Di._withStripped = !0;
+      const Vi = {
+        components: { RPopover: se.Z },
         props: {
           conditions: { type: Object, default: () => ({}) },
           message: { type: String, default: "" },
@@ -6012,11 +6050,11 @@ var source;
           options: { type: Object, default: () => ({}) },
           width: { type: String, default: "450px" }
         },
-        methods: { sanitizeHtml: H.Z }
+        methods: { sanitizeHtml: F.Z }
       };
-      const Vi = (0, S.Z)(Di, fi, [], !1, null, null, null).exports,
-        vi = {
-          components: { ExclusionsPopover: Vi, InfoIcon: Ve },
+      const vi = (0, T.Z)(Vi, Di, [], !1, null, null, null).exports,
+        yi = {
+          components: { ExclusionsPopover: vi, InfoIcon: ve },
           props: {
             conditions: { type: Object, required: !0 },
             options: { type: Object, default: () => ({}) },
@@ -6029,8 +6067,8 @@ var source;
             }
           }
         };
-      const yi = (0, S.Z)(vi, gi, [], !1, null, null, null).exports;
-      var bi = function () {
+      const bi = (0, T.Z)(yi, fi, [], !1, null, null, null).exports;
+      var _i = function () {
         var t = this;
         return (0, t._self._c)(
           "span",
@@ -6038,18 +6076,18 @@ var source;
           [t._v(" " + t._s(t.code) + " ")]
         );
       };
-      bi._withStripped = !0;
-      const _i = { props: { code: { type: String, default: "" } } };
-      const wi = (0, S.Z)(_i, bi, [], !1, null, null, null).exports,
-        Ci = {
+      _i._withStripped = !0;
+      const wi = { props: { code: { type: String, default: "" } } };
+      const Ci = (0, T.Z)(wi, _i, [], !1, null, null, null).exports,
+        xi = {
           components: {
-            ShareSection: li,
-            REligibilityPopover: yi,
+            ShareSection: di,
+            REligibilityPopover: bi,
             RateSection: Ii,
-            RButton: P.Z,
-            ExclusionsPopover: Vi,
-            InfoIcon: Ve,
-            RCouponStatic: wi
+            RButton: N.Z,
+            ExclusionsPopover: vi,
+            InfoIcon: ve,
+            RCouponStatic: Ci
           },
           inject: ["configId"],
           props: {
@@ -6094,9 +6132,9 @@ var source;
             }
           }
         };
-      const Si = (0, S.Z)(
-        Ci,
-        Kr,
+      const Ti = (0, T.Z)(
+        xi,
+        Yr,
         [
           function () {
             var t = this,
@@ -6311,8 +6349,8 @@ var source;
         ]);
       };
       ki._withStripped = !0;
-      const xi = {
-        components: { RLink: It.Z, RButton: P.Z, CheckIcon: Et.Z, RHeadingLogo: N.Z },
+      const Si = {
+        components: { RLink: It.Z, RButton: N.Z, CheckIcon: Lt.Z, RHeadingLogo: E.Z },
         props: {
           coupons: { type: Array, required: !0 },
           state: { type: String, default: "success" },
@@ -6368,18 +6406,18 @@ var source;
         methods: {
           formatCashBack: f.l,
           linkToStore() {
-            const t = (0, y.Z)(`/${this.merchant.siteUrl}`),
+            const t = (0, b.Z)(`/${this.merchant.siteUrl}`),
               e = (0, h.h1)(t, { eeid: 60814, tb: "yes", ebtoken: EBATES.settings.ebToken });
-            (0, b.Z)(e);
+            (0, _.Z)(e);
             const r = this.btn175B ? "Coupon Magic Results" : this.entity_name;
             this.$emit("track", "Visit Page", { preceding_screen_name: r, url: e });
           },
-          formatMoney: (t) => me().formatMoney(t)
+          formatMoney: (t) => pe().formatMoney(t)
         }
       };
-      const Ti = (0, S.Z)(xi, ki, [], !1, null, null, null).exports,
-        Ai = g().extend({
-          components: { "form-progress": Wr, "form-result": Si, "form-result-large": Ti, RModalForm: ut.Z },
+      const Ai = (0, T.Z)(Si, ki, [], !1, null, null, null).exports,
+        Pi = I().extend({
+          components: { "form-progress": Kr, "form-result": Ti, "form-result-large": Ai, RModalForm: mt.Z },
           props: {
             state: { type: String, default: "processing" },
             coupons: { type: Array, default: () => [] },
@@ -6413,7 +6451,7 @@ var source;
             cashbackAmount() {
               let t = 0;
               return (
-                this.subTotal && (t = (0, he._)(this.merchant.reward, this.subTotal)),
+                this.subTotal && (t = (0, ge._)(this.merchant.reward, this.subTotal)),
                 t > this.cashbackLimit &&
                   this.$root.$emit("caa-log", {
                     action: "Calculation Error",
@@ -6429,11 +6467,11 @@ var source;
             }
           }
         });
-      const Pi = (0, S.Z)(Ai, Fr, [], !1, null, null, null).exports,
-        Ni = "Coupon Application Progress Screen",
-        Ei = g().extend({
-          components: { CouponsFormContent: Pi },
-          mixins: [Er.Z],
+      const Ni = (0, T.Z)(Pi, Gr, [], !1, null, null, null).exports,
+        Ei = "Coupon Application Progress Screen",
+        Li = I().extend({
+          components: { CouponsFormContent: Ni },
+          mixins: [Lr.Z],
           provide() {
             return { configId: this.config?.id };
           },
@@ -6442,7 +6480,7 @@ var source;
             coupons: [],
             acs_coupons: [],
             merchant: null,
-            entity_name: Ni,
+            entity_name: Ei,
             module_type: "Coupon Magic",
             visible: !0,
             appliedCoupons: [],
@@ -6480,7 +6518,7 @@ var source;
               (await (0, u.By)({ waitStyles: !1, top: !0 })).appendChild(this.$el),
               this.progress ||
                 "processing" !== this.state ||
-                ("B" === this.btn175 && (this.entity_name = `${Ni} with CB Confirmation`),
+                ("B" === this.btn175 && (this.entity_name = `${Ei} with CB Confirmation`),
                 this.track("View Module", { preceding_screen_name: this.preceding_screen_name })),
               this.$el
             );
@@ -6490,7 +6528,7 @@ var source;
               let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {},
                 r = {};
               if (EBATES.settings.featureFlags.caaAdaptiveSources && V.Z.get("BTN181")) {
-                const a = e.preceding_screen_name === Ni,
+                const a = e.preceding_screen_name === Ei,
                   s = ("View Module" === t && !a) || ("close" === e.cta_type && "processing" === this.state);
                 if (a) {
                   const t = this.coupon?.code?.toUpperCase();
@@ -6559,12 +6597,12 @@ var source;
               c.Z.extension.setItem("CAA-reviewed", 2),
                 this.track("Click Module", { cta_type: "Rate App" }),
                 c.Z.browser.isChrome
-                  ? c.Z.browser.navigate(`${Hr.ZP.WEBSTORE_CHROME}?utm_source=caa`)
+                  ? c.Z.browser.navigate(`${Fr.ZP.WEBSTORE_CHROME}?utm_source=caa`)
                   : c.Z.browser.isFirefox
-                  ? c.Z.browser.navigate(Hr.ZP.WEBSTORE_FIREFOX)
+                  ? c.Z.browser.navigate(Fr.ZP.WEBSTORE_FIREFOX)
                   : c.Z.browser.isSafariApp
-                  ? c.Z.browser.navigate(Hr.ZP.WEBSTORE_SAFARI)
-                  : c.Z.browser.isWebkitEdge && c.Z.browser.navigate(`${Hr.ZP.WEBSTORE_EDGE}?cid=CAA#ratings-reviews`),
+                  ? c.Z.browser.navigate(Fr.ZP.WEBSTORE_SAFARI)
+                  : c.Z.browser.isWebkitEdge && c.Z.browser.navigate(`${Fr.ZP.WEBSTORE_EDGE}?cid=CAA#ratings-reviews`),
                 this.apply();
             },
             async onShowResultScreen() {
@@ -6591,7 +6629,7 @@ var source;
                     amount_saved: o,
                     subtotal: s,
                     estimated_cash_back: this.cashback,
-                    ...(0, vt.L)(this.merchant.reward)
+                    ...(0, yt.L)(this.merchant.reward)
                   }),
                   (a = this.couponDiscount > 0 ? "Coupon Applied Successfully" : "Coupon Applied Successfully No Savings"))
                 : "error" === this.state &&
@@ -6604,11 +6642,11 @@ var source;
                     id: this.config.id,
                     subtotal: s,
                     estimated_cash_back: this.cashback,
-                    ...(0, vt.L)(this.merchant.reward)
+                    ...(0, yt.L)(this.merchant.reward)
                   }),
                   (a = this.merchant.offers_cb && !this.merchant.suppressed ? "Coupons not Applied with CB" : "Coupons not Applied no CB")),
                 this.track("View Module", {
-                  preceding_screen_name: Ni,
+                  preceding_screen_name: Ei,
                   type: a,
                   amount_saved: Math.round(this.couponDiscount),
                   amount_total: s,
@@ -6640,8 +6678,8 @@ var source;
             }
           }
         });
-      const $i = (0, S.Z)(Ei, Ur, [], !1, null, null, null).exports;
-      var Li = function () {
+      const $i = (0, T.Z)(Li, Hr, [], !1, null, null, null).exports;
+      var Ri = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -6844,7 +6882,7 @@ var source;
                 : t._e()
             ]);
       };
-      Li._withStripped = !0;
+      Ri._withStripped = !0;
       var Oi = function () {
         var t = this,
           e = t._self._c;
@@ -6922,7 +6960,7 @@ var source;
         );
       };
       Oi._withStripped = !0;
-      var Ri = function () {
+      var Mi = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -6946,8 +6984,8 @@ var source;
           ]
         );
       };
-      Ri._withStripped = !0;
-      var Mi = function () {
+      Mi._withStripped = !0;
+      var Bi = function () {
         var t = this,
           e = t._self._c;
         return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
@@ -6960,22 +6998,20 @@ var source;
           })
         ]);
       };
-      Mi._withStripped = !0;
-      const Bi = {
-        components: { SvgIcon: Kt.Z },
+      Bi._withStripped = !0;
+      const qi = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const qi = {
-        components: { CouponIcon: (0, S.Z)(Bi, Mi, [], !1, null, null, null).exports },
-        props: { couponsNumber: { type: Number, default: 0 } }
-      };
-      const Zi = (0, S.Z)(qi, Ri, [], !1, null, null, null).exports,
-        Ui = {
-          components: { RButton: P.Z, RHeadingLogo: N.Z, RCloseButton: w.Z, NotificationCoupons: Zi },
+      const Zi = (0, T.Z)(qi, Bi, [], !1, null, null, null).exports,
+        Ui = { components: { CouponIcon: Zi }, props: { couponsNumber: { type: Number, default: 0 } } };
+      const Hi = (0, T.Z)(Ui, Mi, [], !1, null, null, null).exports,
+        ji = {
+          components: { RButton: N.Z, RHeadingLogo: E.Z, RCloseButton: C.Z, NotificationCoupons: Hi },
           props: {
             close: { type: Boolean, default: !0 },
             merchant: { type: Object, required: !0 },
@@ -6992,8 +7028,8 @@ var source;
             }
           }
         };
-      const ji = (0, S.Z)(Ui, Oi, [], !1, null, null, null).exports;
-      var Hi = function () {
+      const Fi = (0, T.Z)(ji, Oi, [], !1, null, null, null).exports;
+      var Gi = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -7085,9 +7121,9 @@ var source;
           1
         );
       };
-      Hi._withStripped = !0;
-      const Fi = {
-        components: { RButton: P.Z, RHeadingLogo: N.Z, RCloseButton: w.Z, CheckIcon: Et.Z },
+      Gi._withStripped = !0;
+      const zi = {
+        components: { RButton: N.Z, RHeadingLogo: E.Z, RCloseButton: C.Z, CheckIcon: Lt.Z },
         props: {
           merchant: { type: Object, required: !0 },
           deals: { type: Array, default: () => [] },
@@ -7120,7 +7156,7 @@ var source;
             return this.coupon?.discount > 0;
           },
           stackedSavings() {
-            const t = (0, he._)(this.merchant.reward, this.coupon.orderTotal);
+            const t = (0, ge._)(this.merchant.reward, this.coupon.orderTotal);
             return (0, D.l)(t + this.coupon.discount);
           },
           tieredPrefix() {
@@ -7128,8 +7164,8 @@ var source;
           }
         }
       };
-      const Gi = (0, S.Z)(Fi, Hi, [], !1, null, null, null).exports;
-      var zi = function () {
+      const Wi = (0, T.Z)(zi, Gi, [], !1, null, null, null).exports;
+      var Ki = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -7171,10 +7207,10 @@ var source;
           1
         );
       };
-      zi._withStripped = !0;
-      const Wi = { components: { RCloseButton: w.Z, RButton: P.Z, RHeadingLogo: N.Z } };
-      const Ki = (0, S.Z)(Wi, zi, [], !1, null, null, null).exports;
-      var Yi = function () {
+      Ki._withStripped = !0;
+      const Yi = { components: { RCloseButton: C.Z, RButton: N.Z, RHeadingLogo: E.Z } };
+      const Xi = (0, T.Z)(Yi, Ki, [], !1, null, null, null).exports;
+      var Qi = function () {
         var t = this,
           e = t._self._c;
         return t.isHoverExclusionTest
@@ -7253,9 +7289,9 @@ var source;
               1
             );
       };
-      Yi._withStripped = !0;
-      const Xi = {
-        components: { RCheckbox: ht, RSwitch: r(3124).Z, RButton: P.Z },
+      Qi._withStripped = !0;
+      const Ji = {
+        components: { RCheckbox: gt, RSwitch: r(13124).Z, RButton: N.Z },
         props: {
           optoutText: { type: String, default: "" },
           domainName: { type: String, default: "" },
@@ -7267,7 +7303,7 @@ var source;
         },
         computed: {
           optoutSanitizedHTML() {
-            return (0, H.Z)(this.optoutText);
+            return (0, F.Z)(this.optoutText);
           },
           optOutModeModel: {
             get() {
@@ -7284,8 +7320,8 @@ var source;
           }
         }
       };
-      const Qi = (0, S.Z)(Xi, Yi, [], !1, null, null, null).exports;
-      var Ji = function () {
+      const ta = (0, T.Z)(Ji, Qi, [], !1, null, null, null).exports;
+      var ea = function () {
         var t = this,
           e = t._self._c;
         return e("div", { staticClass: "rr-overflow-hidden" }, [
@@ -7332,8 +7368,8 @@ var source;
               ])
         ]);
       };
-      Ji._withStripped = !0;
-      var ta = function () {
+      ea._withStripped = !0;
+      var ra = function () {
         var t = this,
           e = t._self._c;
         return e("svg-icon", t._b({ attrs: { viewBox: "0 0 448 512" } }, "svg-icon", t.$props, !1), [
@@ -7344,20 +7380,20 @@ var source;
           })
         ]);
       };
-      ta._withStripped = !0;
-      const ea = {
-        components: { SvgIcon: Kt.Z },
+      ra._withStripped = !0;
+      const ia = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const ra = (0, S.Z)(ea, ta, [], !1, null, null, null).exports;
-      var ia = r(4011);
-      const aa = {
-        components: { BellIcon: ra },
-        mixins: [ia.Z],
+      const aa = (0, T.Z)(ia, ra, [], !1, null, null, null).exports;
+      var sa = r(84011);
+      const oa = {
+        components: { BellIcon: aa },
+        mixins: [sa.Z],
         props: {
           hoverMessageIcon: { type: String, default: "" },
           hoverMessage: { type: String, default: "" },
@@ -7365,20 +7401,20 @@ var source;
         },
         computed: {
           hoverMessageSanitized() {
-            return (0, H.Z)(this.hoverMessage);
+            return (0, F.Z)(this.hoverMessage);
           }
         }
       };
-      const sa = (0, S.Z)(aa, Ji, [], !1, null, null, null).exports;
-      var oa = function () {
+      const na = (0, T.Z)(oa, ea, [], !1, null, null, null).exports;
+      var ca = function () {
         var t = this;
         return (0, t._self._c)(
           "r-exclusion-message",
           t._b({ class: t.isHoverExclusionTest ? "rr-px-32 rr-pb-24" : "rr-bg-pref rr-pa-32" }, "r-exclusion-message", t.$props, !1)
         );
       };
-      oa._withStripped = !0;
-      var na = function () {
+      ca._withStripped = !0;
+      var la = function () {
         var t = this,
           e = t._self._c;
         return e("div", { staticClass: "rr-overflow-hidden" }, [
@@ -7425,9 +7461,9 @@ var source;
           ])
         ]);
       };
-      na._withStripped = !0;
-      const ca = {
-        components: { RLink: It.Z, BellIcon: ra },
+      la._withStripped = !0;
+      const da = {
+        components: { RLink: It.Z, BellIcon: aa },
         props: {
           storeName: { type: String, default: "" },
           storeLandingUrl: { type: String, default: "" },
@@ -7435,13 +7471,13 @@ var source;
         },
         methods: {
           clickLink() {
-            (0, b.Z)((0, y.Z)(this.storeLandingUrl));
+            (0, _.Z)((0, b.Z)(this.storeLandingUrl));
           }
         }
       };
-      const la = {
-        components: { RExclusionMessage: (0, S.Z)(ca, na, [], !1, null, null, null).exports },
-        mixins: [ia.Z],
+      const ua = {
+        components: { RExclusionMessage: (0, T.Z)(da, la, [], !1, null, null, null).exports },
+        mixins: [sa.Z],
         props: {
           storeName: { type: String, default: "" },
           storeLandingUrl: { type: String, default: "" },
@@ -7449,8 +7485,8 @@ var source;
           isHoverExclusionTest: { type: Boolean, default: !1 }
         }
       };
-      const da = (0, S.Z)(la, oa, [], !1, null, null, null).exports;
-      var ua = function () {
+      const ma = (0, T.Z)(ua, ca, [], !1, null, null, null).exports;
+      var pa = function () {
         var t = this,
           e = t._self._c;
         return t.dateLessDays(t.bonus.expiration, 0)
@@ -7476,8 +7512,8 @@ var source;
               1
             );
       };
-      ua._withStripped = !0;
-      var ma = function () {
+      pa._withStripped = !0;
+      var ha = function () {
         var t = this,
           e = t._self._c;
         return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
@@ -7490,22 +7526,22 @@ var source;
           })
         ]);
       };
-      ma._withStripped = !0;
-      const pa = {
-        components: { SvgIcon: Kt.Z },
+      ha._withStripped = !0;
+      const ga = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const ha = {
-        components: { BonusIcon: (0, S.Z)(pa, ma, [], !1, null, null, null).exports },
-        mixins: [ia.Z],
+      const Ia = {
+        components: { BonusIcon: (0, T.Z)(ga, ha, [], !1, null, null, null).exports },
+        mixins: [sa.Z],
         props: { bonus: { type: Object, required: !0 } },
         computed: {
           descriptionSanitized() {
-            return (0, H.Z)(this.bonus.description);
+            return (0, F.Z)(this.bonus.description);
           },
           hoverImage() {
             return this.bonus.hoverImage128 || this.bonus.hoverImage;
@@ -7518,10 +7554,10 @@ var source;
               : "";
           }
         },
-        methods: { dateLessDays: (t, e) => Gt(t, e) }
+        methods: { dateLessDays: (t, e) => zt(t, e) }
       };
-      const Ia = (0, S.Z)(ha, ua, [], !1, null, null, null).exports;
-      var ga = function () {
+      const fa = (0, T.Z)(Ia, pa, [], !1, null, null, null).exports;
+      var Da = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -7538,10 +7574,10 @@ var source;
           1
         );
       };
-      ga._withStripped = !0;
-      const fa = { components: { AlertIcon: r(1165).Z }, props: { storeName: { type: String, default: "" } } };
-      const Da = (0, S.Z)(fa, ga, [], !1, null, null, null).exports;
-      var Va = function () {
+      Da._withStripped = !0;
+      const Va = { components: { AlertIcon: r(81165).Z }, props: { storeName: { type: String, default: "" } } };
+      const va = (0, T.Z)(Va, Da, [], !1, null, null, null).exports;
+      var ya = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -7583,10 +7619,10 @@ var source;
           2
         );
       };
-      Va._withStripped = !0;
-      const va = {
-        components: { RPopover: ae.Z },
-        mixins: [se.Z],
+      ya._withStripped = !0;
+      const ba = {
+        components: { RPopover: se.Z },
+        mixins: [oe.Z],
         props: {
           storeId: { type: Number, default: null },
           storeName: { type: String, default: "" },
@@ -7595,8 +7631,8 @@ var source;
         },
         data: () => ({ entityName: "Hover", moduleType: "tooltip" })
       };
-      const ya = (0, S.Z)(va, Va, [], !1, null, null, null).exports;
-      var ba = function () {
+      const _a = (0, T.Z)(ba, ya, [], !1, null, null, null).exports;
+      var wa = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -7642,10 +7678,10 @@ var source;
           2
         );
       };
-      ba._withStripped = !0;
-      var _a = r(8316);
-      const wa = {
-        components: { ChevronDown: _a.Z, RButton: P.Z },
+      wa._withStripped = !0;
+      var Ca = r(26097);
+      const xa = {
+        components: { ChevronDown: Ca.Z, RButton: N.Z },
         props: { exclusionList: { type: String, default: null } },
         data: () => ({ expanded: !1 }),
         computed: {
@@ -7657,7 +7693,7 @@ var source;
           }
         },
         methods: {
-          sanitize: (t) => (0, H.Z)(t),
+          sanitize: (t) => (0, F.Z)(t),
           expand() {
             (this.expanded = !this.expanded),
               this.expanded &&
@@ -7673,17 +7709,17 @@ var source;
           }
         }
       };
-      const Ca = (0, S.Z)(wa, ba, [], !1, null, null, null).exports;
-      var Sa = function () {
+      const Ta = (0, T.Z)(xa, wa, [], !1, null, null, null).exports;
+      var ka = function () {
         var t = this,
           e = t._self._c;
         return e("r-popover", { staticClass: "rr-text-center rr-bg-dark", attrs: { backgroundColor: "#292A6B" }, on: { show: t.onShow } }, [
           e("div", { staticClass: "rr-t-descriptor-l rr-text-inverse" }, [t._v(" New look, same great Cash Back \u2728 ")])
         ]);
       };
-      Sa._withStripped = !0;
-      const ka = {
-        components: { RPopover: ae.Z },
+      ka._withStripped = !0;
+      const Sa = {
+        components: { RPopover: se.Z },
         props: { storeId: { type: Number, default: null }, storeName: { type: String, default: "" } },
         data: () => ({ entityName: "Visual Refresh", moduleType: "tooltip" }),
         methods: {
@@ -7700,21 +7736,21 @@ var source;
           }
         }
       };
-      const xa = (0, S.Z)(ka, Sa, [], !1, null, null, null).exports;
-      var Ta = function () {
+      const Aa = (0, T.Z)(Sa, ka, [], !1, null, null, null).exports;
+      var Pa = function () {
         var t = this,
           e = t._self._c;
         return t.visible ? e("div", { ref: "feed" }) : t._e();
       };
-      Ta._withStripped = !0;
-      const Aa = {
+      Pa._withStripped = !0;
+      const Na = {
           componentDefaultProps: {
             Carousel: { px: 0 },
             PageHeroCarouselTopic: { itemContainerProps: { pt: 0, pb: 0 } },
             SectionHeroCarouselTopic: { itemContainerProps: { pt: 0, pb: 0 } }
           }
         },
-        Pa = {
+        Ea = {
           props: {
             slugName: { type: String, required: !0 },
             timelineSlugName: { type: String, default: "" },
@@ -7737,7 +7773,7 @@ var source;
                 slugName: this.slugName,
                 storeId: this.storeId,
                 moduleType: this.moduleType,
-                options: Aa
+                options: Na
               }));
           },
           methods: {
@@ -7746,8 +7782,8 @@ var source;
             }
           }
         };
-      const Na = (0, S.Z)(Pa, Ta, [], !1, null, null, null).exports;
-      var Ea = function () {
+      const La = (0, T.Z)(Ea, Pa, [], !1, null, null, null).exports;
+      var $a = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -7770,7 +7806,7 @@ var source;
                 t.showQuickView
                   ? e("rab-quick-view", {
                       key: "rab-quick-view",
-                      attrs: { merchant: t.merchant, cashbackAmount: t.cashbackAmount },
+                      attrs: { merchant: t.merchant, product: t.product, coupons: t.coupons, cashbackAmount: t.cashbackAmount },
                       on: {
                         hideQuickView: function (e) {
                           t.showQuickView = !1;
@@ -7794,8 +7830,13 @@ var source;
                   ? t._e()
                   : e("action-button-form", {
                       ref: "anchor",
-                      attrs: { merchant: t.merchant, cashbackAmount: t.cashbackAmount },
-                      on: { onClick: t.rabClick, onMove: t.moveRab, track: t.track }
+                      attrs: {
+                        loading: t.loading,
+                        merchant: t.merchant,
+                        product: t.coupons && t.product,
+                        cashbackAmount: t.cashbackAmount
+                      },
+                      on: { onClick: t.rabClick, track: t.track }
                     })
               ],
               1
@@ -7804,14 +7845,96 @@ var source;
           1
         );
       };
-      Ea._withStripped = !0;
-      var $a = function () {
+      $a._withStripped = !0;
+      var Ra = r(80713),
+        Oa = r.n(Ra),
+        Ma = r(1705),
+        Ba = r.n(Ma);
+      class qa extends fr() {
+        isProductScraperInitiated = !1;
+        isCartScraperInitiated = !1;
+        init(t) {
+          let { settings: e, merchant: r } = t;
+          (this.settings = e), (this.merchant = r);
+        }
+        isStoreEligible(t) {
+          const { cartScraperStoreList: e, cartScraperBlockList: r } = this.settings.featureFlags;
+          return e && Array.isArray(e.storeIds)
+            ? e.storeIds.includes(t.storeId)
+            : !r || !Array.isArray(r.storeIds) || !r.storeIds.includes(t.storeId);
+        }
+        initCartScraper() {
+          const { cartScraper: t } = this.settings.featureFlags;
+          if (this.settings.isFillrEnabled && !this.isCartScraperInitiated && t) {
+            this.isCartScraperInitiated = !0;
+            const t = async (t) => {
+              let { detail: e } = t;
+              if ((this.emit("cart:detected", e), this.merchant && this.isStoreEligible(this.merchant))) {
+                const t = await (0, l.Z)("getStoreContent", { storeId: this.merchant.storeId }),
+                  r = t?.freeShipping?.minimumSubtotal,
+                  i = {
+                    store_name: this.merchant.storeName,
+                    store_id: this.merchant.storeId,
+                    tracking_ticket: this.merchant.shoppingTrip.ttn,
+                    product_list: e.product_list,
+                    cart_total: e.cart_total,
+                    cart_total_qty: e.cart_total_qty,
+                    currency: e.currency,
+                    timestamp: e.timestamp,
+                    page_url: e.page_url,
+                    free_shipping: r ? e.cart_total / 100 >= r : null
+                  };
+                c.Z.extension.fireEvent("postFillrCartScraped", { data: i });
+              }
+            };
+            document.addEventListener("fillr:cart:detected", t), Oa().setDevKey("a157b4f6d3f2d669e92ec47175b7a5b1"), Oa().start();
+          }
+        }
+        initProductPageScraper() {
+          let t = location.pathname;
+          const { productScraper: e } = this.settings.featureFlags;
+          if (
+            this.settings.isFillrEnabled &&
+            !this.isProductScraperInitiated &&
+            e &&
+            this.merchant &&
+            this.isStoreEligible(this.merchant)
+          ) {
+            this.isProductScraperInitiated = !0;
+            new MutationObserver(
+              (0, i.debounce)(() => {
+                t !== location.pathname && ((t = location.pathname), Ba().scrape());
+              }, 1e3)
+            ).observe(document.body, { attributes: !1, childList: !0, subtree: !0, characterData: !1 });
+            let e = {};
+            const r = (t) => {
+                if (this.merchant) {
+                  const e = {
+                    store_name: this.merchant.storeName,
+                    store_id: this.merchant.storeId,
+                    tracking_ticket: this.merchant.shoppingTrip.ttn,
+                    ...t
+                  };
+                  c.Z.extension.fireEvent("postFillrProductPageScraped", { data: e });
+                }
+              },
+              a = (t) => {
+                let { detail: a } = t;
+                const s = JSON.parse(a).product;
+                (0, i.isEqual)(s, e) || ((e = s), r(s)), this.emit("product:data:scraped", s);
+              };
+            document.addEventListener("fillr:product:data:scraped", a), Ba().start();
+          }
+        }
+      }
+      const Za = new qa();
+      var Ua = function () {
         var t = this,
           e = t._self._c;
         return e(
           "r-form",
           {
-            staticClass: "rr-action rr-pa-8",
+            staticClass: "rr-action",
             attrs: { "data-tid": "action-button", width: "auto", backgroundColor: "#8529CD", flat: !0, position: t.position },
             nativeOn: {
               mouseenter: function (e) {
@@ -7841,15 +7964,16 @@ var source;
             }
           },
           [
+            t.loading ? e("div", { staticClass: "rr-action__loading" }) : t._e(),
             e(
               "div",
-              { staticClass: "rr-flex rr-flex-row rr-justify-center rr-items-center" },
+              { staticClass: "rr-flex rr-flex-row rr-justify-center rr-items-center rr-pa-8" },
               [
-                e("div", { staticClass: "rr-action__logo" }),
+                e("r-logo", { staticClass: "rr-pa-8", attrs: { variant: "icon-white", size: "small", alt: "" } }),
                 e(
                   "div",
                   {
-                    staticClass: "rr-action__text-container rr-flex",
+                    staticClass: "rr-action__text-container rr-flex rr-items-center",
                     class: {
                       "rr-action__text-container--transition": t.transition,
                       "rr-action__text-container--transition-slow": t.transitionSlow
@@ -7861,32 +7985,44 @@ var source;
                       e(
                         "div",
                         {
-                          directives: [{ name: "show", rawName: "v-show", value: t.expanded, expression: "expanded" }],
+                          directives: [
+                            { name: "show", rawName: "v-show", value: t.expanded && !t.loading, expression: "expanded && !loading" }
+                          ],
                           ref: "text",
-                          staticClass: "rr-action__text rr-t-button-l rr-text-inverse rr-pr-8"
+                          staticClass: "rr-text-inverse rr-pr-8",
+                          class: { "rr-action__text rr-t-button-l": !t.product, "rr-action__text-small": t.product }
                         },
-                        [t._v(" " + t._s(t.cashbackAmount) + " ")]
+                        [t._v(" " + t._s(t.label) + " ")]
                       )
                     ])
                   ],
                   1
                 ),
-                e("check-icon", { staticClass: "rr-action__corner-check rr-shadow-default rr-text-action", attrs: { size: "12" } }),
-                e("div", { staticClass: "dot", staticStyle: { bottom: "12px", right: "6px" } }),
-                e("div", { staticClass: "dot", staticStyle: { bottom: "6px", right: "6px" } }),
-                e("div", { staticClass: "dot", staticStyle: { bottom: "6px", right: "12px" } })
+                t.loading
+                  ? t._e()
+                  : [
+                      e("check-icon", { staticClass: "rr-action__corner-check rr-shadow-default", attrs: { size: "12" } }),
+                      e("div", { staticClass: "dot", staticStyle: { bottom: "12px", right: "6px" } }),
+                      e("div", { staticClass: "dot", staticStyle: { bottom: "6px", right: "6px" } }),
+                      e("div", { staticClass: "dot", staticStyle: { bottom: "6px", right: "12px" } })
+                    ]
               ],
-              1
+              2
             )
           ]
         );
       };
-      $a._withStripped = !0;
-      const La = {
-        components: { RForm: it.Z, CheckIcon: Et.Z },
-        props: { merchant: { type: Object, required: !0 }, cashbackAmount: { type: String, default: "" } },
+      Ua._withStripped = !0;
+      var Ha = r(65900);
+      const ja = {
+        components: { RForm: at.Z, CheckIcon: Lt.Z, RLogo: Ha.Z },
+        props: {
+          merchant: { type: Object, required: !0 },
+          cashbackAmount: { type: String, default: "" },
+          product: { type: Object, default: null },
+          loading: { type: Boolean, default: !1 }
+        },
         data: () => ({
-          entity_name: "RAB",
           show: !1,
           expanded: !1,
           dragging: !1,
@@ -7897,21 +8033,25 @@ var source;
           transitionSlow: !1
         }),
         computed: {
+          label() {
+            return this.product ? "Savings found!" : this.cashbackAmount;
+          },
           position() {
             return { top: `${this.top}px`, right: `${this.right}px` };
+          },
+          entity_name() {
+            return this.product ? "Savings found PDP" : "RAB";
+          }
+        },
+        watch: {
+          product() {
+            this.product &&
+              ((this.transition = !0), this.$emit("track", "View Module", { entity_name: this.entity_name }), this.animateText());
           }
         },
         mounted() {
-          this.merchant.rab ||
-            ((this.transition = !1),
-            this.showText(),
-            setTimeout(() => {
-              (this.transitionSlow = !0),
-                this.hideText(),
-                setTimeout(() => {
-                  (this.transitionSlow = !1), (this.transition = !0);
-                }, 1e3);
-            }, 2e3)),
+          this.merchant.rab || ((this.transition = !1), this.animateText()),
+            this.product && this.showText(),
             (this.show = !0),
             this.$emit("track", "View Module", {
               entity_name: this.entity_name,
@@ -7919,7 +8059,7 @@ var source;
               store_name: this.merchant.storeName,
               store_domain: this.merchant.domainName,
               source_of_activation: this.merchant.shoppingTrip.source,
-              ...(0, vt.L)(this.merchant.reward)
+              ...(0, yt.L)(this.merchant.reward)
             });
           const t = sessionStorage.getItem("rr-rab-position-top");
           t ? (this.top = parseInt(t, 10)) : sessionStorage.setItem("rr-rab-position-top", `${this.top}px`),
@@ -7950,7 +8090,7 @@ var source;
             (this.right = 10), this.showText();
           },
           onMouseleave() {
-            this.hideText();
+            this.product || this.hideText();
           },
           async setTextContainerWidth() {
             const t = this.$refs.text;
@@ -7964,6 +8104,13 @@ var source;
           hideText() {
             (this.expanded = !1), (this.textContainerWidth = 0);
           },
+          async animateText() {
+            this.showText(),
+              await (0, h.gw)(2e3),
+              this.product || ((this.transitionSlow = !0), this.hideText(), await (0, h.gw)(1e3)),
+              (this.transitionSlow = !1),
+              (this.transition = !0);
+          },
           trackMoveEvent() {
             this.$emit("track", "View Module", {
               entity_name: "Moved RAB",
@@ -7973,13 +8120,20 @@ var source;
           }
         }
       };
-      const Oa = (0, S.Z)(La, $a, [], !1, null, null, null).exports;
-      var Ra = function () {
+      const Fa = (0, T.Z)(ja, Ua, [], !1, null, null, null).exports;
+      var Ga = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
         return e("rab-quick-view-form", {
-          attrs: { merchant: t.merchant, cashbackAmount: t.cashbackAmount, tiers: t.tiers, storeContent: t.storeContent },
+          attrs: {
+            merchant: t.merchant,
+            product: t.product,
+            coupons: t.coupons,
+            cashbackAmount: t.cashbackAmount,
+            tiers: t.tiers,
+            storeContent: t.storeContent
+          },
           on: {
             close: function (e) {
               return t.$emit("hideQuickView");
@@ -8002,9 +8156,9 @@ var source;
           }
         });
       };
-      Ra._withStripped = !0;
-      var Ma = r(9491),
-        Ba = function () {
+      Ga._withStripped = !0;
+      var za = r(79491),
+        Wa = function () {
           var t = this,
             e = t._self._c;
           return e(
@@ -8101,10 +8255,7 @@ var source;
                       ? t._e()
                       : e("div", {
                           staticClass: "rab-quick-view__merchant-logo",
-                          style: {
-                            "background-image": `url(${t.merchantLogo.url}`,
-                            "background-color": t.merchantLogo.bgColor || "#ffffff"
-                          }
+                          style: { backgroundImage: `url(${t.merchantLogo.url}`, backgroundColor: t.merchantLogo.bgColor || "#ffffff" }
                         })
                   ])
                 ],
@@ -8114,7 +8265,7 @@ var source;
                 "div",
                 {
                   ref: "scrollContainer",
-                  staticClass: "rr-px-24 rr-pt-24 rr-box-border",
+                  staticClass: "rr-pa-20 rr-box-border",
                   staticStyle: { "max-height": "472px" },
                   on: { click: t.formClick }
                 },
@@ -8139,83 +8290,23 @@ var source;
                               )
                             ])
                       ]),
-                      t.isLoading
+                      t.product
+                        ? e("rab-product-details", { attrs: { product: t.product, coupons: t.coupons, merchant: t.merchant } })
+                        : t.isLoading
                         ? e("r-loader", { staticClass: "rr-mb-24" })
                         : [
-                            t.tiers.length
-                              ? e(
-                                  "conditions-dropdown",
-                                  {
-                                    staticClass: "rr-mb-12",
-                                    attrs: { title: "Cash Back Categories" },
-                                    on: { toggleConditions: t.toggleTiers }
-                                  },
-                                  t._l(t.tiers, function (r) {
-                                    return e(
-                                      "div",
-                                      { key: r.id, staticClass: "rr-flex rr-pt-8" },
-                                      [
-                                        r.rewardAmount
-                                          ? [
-                                              e(
-                                                "div",
-                                                {
-                                                  staticClass: "rr-text-cashback rr-t-tag-small rr-mr-8",
-                                                  staticStyle: { "min-width": "28px" }
-                                                },
-                                                [t._v(" " + t._s(r.rewardAmount) + " ")]
-                                              ),
-                                              e("div", { staticClass: "rr-t-fine-print" }, [t._v(" " + t._s(r.names) + " ")])
-                                            ]
-                                          : r.cashBack
-                                          ? [
-                                              e("div", { staticClass: "rr-t-fine-print" }, [
-                                                e("span", { staticClass: "rr-text-cashback" }, [t._v(t._s(r.cashBack))]),
-                                                t._v(" " + t._s(r.description) + " ")
-                                              ])
-                                            ]
-                                          : t._e()
-                                      ],
-                                      2
-                                    );
-                                  }),
-                                  0
-                                )
-                              : t._e(),
-                            e(
-                              "conditions-dropdown",
-                              {
-                                staticClass: "rr-mb-20",
-                                attrs: { title: "Cash Back Terms & Exclusions" },
-                                on: { toggleConditions: t.toggleExclusions }
+                            e("rab-categories", {
+                              attrs: { tiers: t.tiers, expanded: t.tiersExpanded },
+                              on: { toggleConditions: t.toggleTiers }
+                            }),
+                            e("rab-exclusions", {
+                              attrs: {
+                                conditions: t.storeContent.conditions,
+                                reportingMessage: t.reportingMessage,
+                                expanded: t.exclusionsExpanded
                               },
-                              [
-                                e("div", { staticClass: "rr-t-fine-print" }, [
-                                  t.storeContent.conditions.reward
-                                    ? e("div", { staticClass: "rr-mt-8" }, [
-                                        e("strong", [t._v("Exclusions:")]),
-                                        t._v(" "),
-                                        e("span", { domProps: { innerHTML: t._s(t.sanitizedMessage(t.storeContent.conditions.reward)) } })
-                                      ])
-                                    : t._e(),
-                                  t.storeContent.conditions.nonReward
-                                    ? e("div", { staticClass: "rr-mt-8" }, [
-                                        e("strong", [t._v("Special Terms:")]),
-                                        t._v(" "),
-                                        e("span", {
-                                          domProps: { innerHTML: t._s(t.sanitizedMessage(t.storeContent.conditions.nonReward)) }
-                                        })
-                                      ])
-                                    : t._e(),
-                                  e("div", { staticClass: "rr-mt-8" }, [
-                                    e("strong", [t._v("Posting Time:")]),
-                                    t._v(
-                                      " Cash Back will be automatically added to your Rakuten account " + t._s(t.reportingMessage) + ". "
-                                    )
-                                  ])
-                                ])
-                              ]
-                            )
+                              on: { toggleConditions: t.toggleExclusions }
+                            })
                           ]
                     ],
                     2
@@ -8225,40 +8316,40 @@ var source;
             ]
           );
         };
-      function qa(t) {
+      function Ka(t) {
         return getComputedStyle(t);
       }
-      function Za(t, e) {
+      function Ya(t, e) {
         for (var r in e) {
           var i = e[r];
           "number" == typeof i && (i += "px"), (t.style[r] = i);
         }
         return t;
       }
-      function Ua(t) {
+      function Xa(t) {
         var e = document.createElement("div");
         return (e.className = t), e;
       }
-      Ba._withStripped = !0;
-      var ja =
+      Wa._withStripped = !0;
+      var Qa =
         "undefined" != typeof Element &&
         (Element.prototype.matches ||
           Element.prototype.webkitMatchesSelector ||
           Element.prototype.mozMatchesSelector ||
           Element.prototype.msMatchesSelector);
-      function Ha(t, e) {
-        if (!ja) throw new Error("No element matching method supported");
-        return ja.call(t, e);
+      function Ja(t, e) {
+        if (!Qa) throw new Error("No element matching method supported");
+        return Qa.call(t, e);
       }
-      function Fa(t) {
+      function ts(t) {
         t.remove ? t.remove() : t.parentNode && t.parentNode.removeChild(t);
       }
-      function Ga(t, e) {
+      function es(t, e) {
         return Array.prototype.filter.call(t.children, function (t) {
-          return Ha(t, e);
+          return Ja(t, e);
         });
       }
-      var za = {
+      var rs = {
           main: "ps",
           rtl: "ps__rtl",
           element: {
@@ -8281,49 +8372,49 @@ var source;
             }
           }
         },
-        Wa = { x: null, y: null };
-      function Ka(t, e) {
+        is = { x: null, y: null };
+      function as(t, e) {
         var r = t.element.classList,
-          i = za.state.scrolling(e);
-        r.contains(i) ? clearTimeout(Wa[e]) : r.add(i);
+          i = rs.state.scrolling(e);
+        r.contains(i) ? clearTimeout(is[e]) : r.add(i);
       }
-      function Ya(t, e) {
-        Wa[e] = setTimeout(function () {
-          return t.isAlive && t.element.classList.remove(za.state.scrolling(e));
+      function ss(t, e) {
+        is[e] = setTimeout(function () {
+          return t.isAlive && t.element.classList.remove(rs.state.scrolling(e));
         }, t.settings.scrollingThreshold);
       }
-      var Xa = function (t) {
+      var os = function (t) {
           (this.element = t), (this.handlers = {});
         },
-        Qa = { isEmpty: { configurable: !0 } };
-      (Xa.prototype.bind = function (t, e) {
+        ns = { isEmpty: { configurable: !0 } };
+      (os.prototype.bind = function (t, e) {
         void 0 === this.handlers[t] && (this.handlers[t] = []), this.handlers[t].push(e), this.element.addEventListener(t, e, !1);
       }),
-        (Xa.prototype.unbind = function (t, e) {
+        (os.prototype.unbind = function (t, e) {
           var r = this;
           this.handlers[t] = this.handlers[t].filter(function (i) {
             return !(!e || i === e) || (r.element.removeEventListener(t, i, !1), !1);
           });
         }),
-        (Xa.prototype.unbindAll = function () {
+        (os.prototype.unbindAll = function () {
           for (var t in this.handlers) this.unbind(t);
         }),
-        (Qa.isEmpty.get = function () {
+        (ns.isEmpty.get = function () {
           var t = this;
           return Object.keys(this.handlers).every(function (e) {
             return 0 === t.handlers[e].length;
           });
         }),
-        Object.defineProperties(Xa.prototype, Qa);
-      var Ja = function () {
+        Object.defineProperties(os.prototype, ns);
+      var cs = function () {
         this.eventElements = [];
       };
-      function ts(t) {
+      function ls(t) {
         if ("function" == typeof window.CustomEvent) return new CustomEvent(t);
         var e = document.createEvent("CustomEvent");
         return e.initCustomEvent(t, !1, !1, void 0), e;
       }
-      function es(t, e, r, i, a) {
+      function ds(t, e, r, i, a) {
         var s;
         if ((void 0 === i && (i = !0), void 0 === a && (a = !1), "top" === e))
           s = ["contentHeight", "containerHeight", "scrollTop", "y", "up", "down"];
@@ -8344,45 +8435,45 @@ var source;
           (t.reach[c] = null), u[n] < 1 && (t.reach[c] = "start");
           u[n] > t[s] - t[o] - 1 && (t.reach[c] = "end");
           e &&
-            (u.dispatchEvent(ts("ps-scroll-" + c)),
-            e < 0 ? u.dispatchEvent(ts("ps-scroll-" + l)) : e > 0 && u.dispatchEvent(ts("ps-scroll-" + d)),
+            (u.dispatchEvent(ls("ps-scroll-" + c)),
+            e < 0 ? u.dispatchEvent(ls("ps-scroll-" + l)) : e > 0 && u.dispatchEvent(ls("ps-scroll-" + d)),
             i &&
               (function (t, e) {
-                Ka(t, e), Ya(t, e);
+                as(t, e), ss(t, e);
               })(t, c));
-          t.reach[c] && (e || a) && u.dispatchEvent(ts("ps-" + c + "-reach-" + t.reach[c]));
+          t.reach[c] && (e || a) && u.dispatchEvent(ls("ps-" + c + "-reach-" + t.reach[c]));
         })(t, r, s, i, a);
       }
-      function rs(t) {
+      function us(t) {
         return parseInt(t, 10) || 0;
       }
-      (Ja.prototype.eventElement = function (t) {
+      (cs.prototype.eventElement = function (t) {
         var e = this.eventElements.filter(function (e) {
           return e.element === t;
         })[0];
-        return e || ((e = new Xa(t)), this.eventElements.push(e)), e;
+        return e || ((e = new os(t)), this.eventElements.push(e)), e;
       }),
-        (Ja.prototype.bind = function (t, e, r) {
+        (cs.prototype.bind = function (t, e, r) {
           this.eventElement(t).bind(e, r);
         }),
-        (Ja.prototype.unbind = function (t, e, r) {
+        (cs.prototype.unbind = function (t, e, r) {
           var i = this.eventElement(t);
           i.unbind(e, r), i.isEmpty && this.eventElements.splice(this.eventElements.indexOf(i), 1);
         }),
-        (Ja.prototype.unbindAll = function () {
+        (cs.prototype.unbindAll = function () {
           this.eventElements.forEach(function (t) {
             return t.unbindAll();
           }),
             (this.eventElements = []);
         }),
-        (Ja.prototype.once = function (t, e, r) {
+        (cs.prototype.once = function (t, e, r) {
           var i = this.eventElement(t),
             a = function (t) {
               i.unbind(e, a), r(t);
             };
           i.bind(e, a);
         });
-      var is = {
+      var ms = {
         isWebKit: "undefined" != typeof document && "WebkitAppearance" in document.documentElement.style,
         supportsTouch:
           "undefined" != typeof window &&
@@ -8392,7 +8483,7 @@ var source;
         supportsIePointer: "undefined" != typeof navigator && navigator.msMaxTouchPoints,
         isChrome: "undefined" != typeof navigator && /Chrome/i.test(navigator && navigator.userAgent)
       };
-      function as(t) {
+      function ps(t) {
         var e = t.element,
           r = Math.floor(e.scrollTop),
           i = e.getBoundingClientRect();
@@ -8401,21 +8492,21 @@ var source;
           (t.contentWidth = e.scrollWidth),
           (t.contentHeight = e.scrollHeight),
           e.contains(t.scrollbarXRail) ||
-            (Ga(e, za.element.rail("x")).forEach(function (t) {
-              return Fa(t);
+            (es(e, rs.element.rail("x")).forEach(function (t) {
+              return ts(t);
             }),
             e.appendChild(t.scrollbarXRail)),
           e.contains(t.scrollbarYRail) ||
-            (Ga(e, za.element.rail("y")).forEach(function (t) {
-              return Fa(t);
+            (es(e, rs.element.rail("y")).forEach(function (t) {
+              return ts(t);
             }),
             e.appendChild(t.scrollbarYRail)),
           !t.settings.suppressScrollX && t.containerWidth + t.settings.scrollXMarginOffset < t.contentWidth
             ? ((t.scrollbarXActive = !0),
               (t.railXWidth = t.containerWidth - t.railXMarginWidth),
               (t.railXRatio = t.containerWidth / t.railXWidth),
-              (t.scrollbarXWidth = ss(t, rs((t.railXWidth * t.containerWidth) / t.contentWidth))),
-              (t.scrollbarXLeft = rs(
+              (t.scrollbarXWidth = hs(t, us((t.railXWidth * t.containerWidth) / t.contentWidth))),
+              (t.scrollbarXLeft = us(
                 ((t.negativeScrollAdjustment + e.scrollLeft) * (t.railXWidth - t.scrollbarXWidth)) / (t.contentWidth - t.containerWidth)
               )))
             : (t.scrollbarXActive = !1),
@@ -8423,8 +8514,8 @@ var source;
             ? ((t.scrollbarYActive = !0),
               (t.railYHeight = t.containerHeight - t.railYMarginHeight),
               (t.railYRatio = t.containerHeight / t.railYHeight),
-              (t.scrollbarYHeight = ss(t, rs((t.railYHeight * t.containerHeight) / t.contentHeight))),
-              (t.scrollbarYTop = rs((r * (t.railYHeight - t.scrollbarYHeight)) / (t.contentHeight - t.containerHeight))))
+              (t.scrollbarYHeight = hs(t, us((t.railYHeight * t.containerHeight) / t.contentHeight))),
+              (t.scrollbarYTop = us((r * (t.railYHeight - t.scrollbarYHeight)) / (t.contentHeight - t.containerHeight))))
             : (t.scrollbarYActive = !1),
           t.scrollbarXLeft >= t.railXWidth - t.scrollbarXWidth && (t.scrollbarXLeft = t.railXWidth - t.scrollbarXWidth),
           t.scrollbarYTop >= t.railYHeight - t.scrollbarYHeight && (t.scrollbarYTop = t.railYHeight - t.scrollbarYHeight),
@@ -8433,7 +8524,7 @@ var source;
               i = Math.floor(t.scrollTop);
             e.isRtl ? (r.left = e.negativeScrollAdjustment + t.scrollLeft + e.containerWidth - e.contentWidth) : (r.left = t.scrollLeft);
             e.isScrollbarXUsingBottom ? (r.bottom = e.scrollbarXBottom - i) : (r.top = e.scrollbarXTop + i);
-            Za(e.scrollbarXRail, r);
+            Ya(e.scrollbarXRail, r);
             var a = { top: i, height: e.railYHeight };
             e.isScrollbarYUsingRight
               ? e.isRtl
@@ -8448,28 +8539,28 @@ var source;
                   e.scrollbarYLeft -
                   e.scrollbarYOuterWidth)
               : (a.left = e.scrollbarYLeft + t.scrollLeft);
-            Za(e.scrollbarYRail, a),
-              Za(e.scrollbarX, { left: e.scrollbarXLeft, width: e.scrollbarXWidth - e.railBorderXWidth }),
-              Za(e.scrollbarY, { top: e.scrollbarYTop, height: e.scrollbarYHeight - e.railBorderYWidth });
+            Ya(e.scrollbarYRail, a),
+              Ya(e.scrollbarX, { left: e.scrollbarXLeft, width: e.scrollbarXWidth - e.railBorderXWidth }),
+              Ya(e.scrollbarY, { top: e.scrollbarYTop, height: e.scrollbarYHeight - e.railBorderYWidth });
           })(e, t),
           t.scrollbarXActive
-            ? e.classList.add(za.state.active("x"))
-            : (e.classList.remove(za.state.active("x")),
+            ? e.classList.add(rs.state.active("x"))
+            : (e.classList.remove(rs.state.active("x")),
               (t.scrollbarXWidth = 0),
               (t.scrollbarXLeft = 0),
               (e.scrollLeft = !0 === t.isRtl ? t.contentWidth : 0)),
           t.scrollbarYActive
-            ? e.classList.add(za.state.active("y"))
-            : (e.classList.remove(za.state.active("y")), (t.scrollbarYHeight = 0), (t.scrollbarYTop = 0), (e.scrollTop = 0));
+            ? e.classList.add(rs.state.active("y"))
+            : (e.classList.remove(rs.state.active("y")), (t.scrollbarYHeight = 0), (t.scrollbarYTop = 0), (e.scrollTop = 0));
       }
-      function ss(t, e) {
+      function hs(t, e) {
         return (
           t.settings.minScrollbarLength && (e = Math.max(e, t.settings.minScrollbarLength)),
           t.settings.maxScrollbarLength && (e = Math.min(e, t.settings.maxScrollbarLength)),
           e
         );
       }
-      function os(t, e) {
+      function gs(t, e) {
         var r = e[0],
           i = e[1],
           a = e[2],
@@ -8483,16 +8574,16 @@ var source;
           m = null,
           p = null,
           h = null;
-        function I(e) {
+        function g(e) {
           e.touches && e.touches[0] && (e[a] = e.touches[0].pageY),
             (u[c] = m + h * (e[a] - p)),
-            Ka(t, l),
-            as(t),
+            as(t, l),
+            ps(t),
             e.stopPropagation(),
             e.type.startsWith("touch") && e.changedTouches.length > 1 && e.preventDefault();
         }
-        function g() {
-          Ya(t, l), t[d].classList.remove(za.state.clicking), t.event.unbind(t.ownerDocument, "mousemove", I);
+        function I() {
+          ss(t, l), t[d].classList.remove(rs.state.clicking), t.event.unbind(t.ownerDocument, "mousemove", g);
         }
         function f(e, o) {
           (m = u[c]),
@@ -8500,9 +8591,9 @@ var source;
             (p = e[a]),
             (h = (t[i] - t[r]) / (t[s] - t[n])),
             o
-              ? t.event.bind(t.ownerDocument, "touchmove", I)
-              : (t.event.bind(t.ownerDocument, "mousemove", I), t.event.once(t.ownerDocument, "mouseup", g), e.preventDefault()),
-            t[d].classList.add(za.state.clicking),
+              ? t.event.bind(t.ownerDocument, "touchmove", g)
+              : (t.event.bind(t.ownerDocument, "mousemove", g), t.event.once(t.ownerDocument, "mouseup", I), e.preventDefault()),
+            t[d].classList.add(rs.state.clicking),
             e.stopPropagation();
         }
         t.event.bind(t[o], "mousedown", function (t) {
@@ -8512,7 +8603,7 @@ var source;
             f(t, !0);
           });
       }
-      var ns = {
+      var Is = {
           "click-rail": function (t) {
             t.element,
               t.event.bind(t.scrollbarY, "mousedown", function (t) {
@@ -8520,18 +8611,18 @@ var source;
               }),
               t.event.bind(t.scrollbarYRail, "mousedown", function (e) {
                 var r = e.pageY - window.pageYOffset - t.scrollbarYRail.getBoundingClientRect().top > t.scrollbarYTop ? 1 : -1;
-                (t.element.scrollTop += r * t.containerHeight), as(t), e.stopPropagation();
+                (t.element.scrollTop += r * t.containerHeight), ps(t), e.stopPropagation();
               }),
               t.event.bind(t.scrollbarX, "mousedown", function (t) {
                 return t.stopPropagation();
               }),
               t.event.bind(t.scrollbarXRail, "mousedown", function (e) {
                 var r = e.pageX - window.pageXOffset - t.scrollbarXRail.getBoundingClientRect().left > t.scrollbarXLeft ? 1 : -1;
-                (t.element.scrollLeft += r * t.containerWidth), as(t), e.stopPropagation();
+                (t.element.scrollLeft += r * t.containerWidth), ps(t), e.stopPropagation();
               });
           },
           "drag-thumb": function (t) {
-            os(t, [
+            gs(t, [
               "containerWidth",
               "contentWidth",
               "pageX",
@@ -8542,7 +8633,7 @@ var source;
               "x",
               "scrollbarXRail"
             ]),
-              os(t, [
+              gs(t, [
                 "containerHeight",
                 "contentHeight",
                 "pageY",
@@ -8559,7 +8650,7 @@ var source;
             t.event.bind(t.ownerDocument, "keydown", function (r) {
               if (
                 !((r.isDefaultPrevented && r.isDefaultPrevented()) || r.defaultPrevented) &&
-                (Ha(e, ":hover") || Ha(t.scrollbarX, ":focus") || Ha(t.scrollbarY, ":focus"))
+                (Ja(e, ":hover") || Ja(t.scrollbarX, ":focus") || Ja(t.scrollbarY, ":focus"))
               ) {
                 var i,
                   a = document.activeElement ? document.activeElement : t.ownerDocument.activeElement;
@@ -8567,10 +8658,10 @@ var source;
                   if ("IFRAME" === a.tagName) a = a.contentDocument.activeElement;
                   else for (; a.shadowRoot; ) a = a.shadowRoot.activeElement;
                   if (
-                    Ha((i = a), "input,[contenteditable]") ||
-                    Ha(i, "select,[contenteditable]") ||
-                    Ha(i, "textarea,[contenteditable]") ||
-                    Ha(i, "button,[contenteditable]")
+                    Ja((i = a), "input,[contenteditable]") ||
+                    Ja(i, "select,[contenteditable]") ||
+                    Ja(i, "textarea,[contenteditable]") ||
+                    Ja(i, "button,[contenteditable]")
                   )
                     return;
                 }
@@ -8611,7 +8702,7 @@ var source;
                   (t.settings.suppressScrollY && 0 !== o) ||
                   ((e.scrollTop -= o),
                   (e.scrollLeft += s),
-                  as(t),
+                  ps(t),
                   (function (r, i) {
                     var a = Math.floor(e.scrollTop);
                     if (0 === r) {
@@ -8645,11 +8736,11 @@ var source;
                 s = i[1];
               if (
                 !(function (t, r, i) {
-                  if (!is.isWebKit && e.querySelector("select:focus")) return !0;
+                  if (!ms.isWebKit && e.querySelector("select:focus")) return !0;
                   if (!e.contains(t)) return !1;
                   for (var a = t; a && a !== e; ) {
-                    if (a.classList.contains(za.element.consuming)) return !0;
-                    var s = qa(a);
+                    if (a.classList.contains(rs.element.consuming)) return !0;
+                    var s = Ka(a);
                     if (i && s.overflowY.match(/(scroll|auto)/)) {
                       var o = a.scrollHeight - a.clientHeight;
                       if (o > 0 && ((a.scrollTop > 0 && i < 0) || (a.scrollTop < o && i > 0))) return !0;
@@ -8671,7 +8762,7 @@ var source;
                       !t.scrollbarYActive &&
                       (a ? (e.scrollLeft += a * t.settings.wheelSpeed) : (e.scrollLeft -= s * t.settings.wheelSpeed), (o = !0))
                   : ((e.scrollTop -= s * t.settings.wheelSpeed), (e.scrollLeft += a * t.settings.wheelSpeed)),
-                  as(t),
+                  ps(t),
                   (o =
                     o ||
                     (function (r, i) {
@@ -8688,22 +8779,22 @@ var source;
             void 0 !== window.onwheel ? t.event.bind(e, "wheel", r) : void 0 !== window.onmousewheel && t.event.bind(e, "mousewheel", r);
           },
           touch: function (t) {
-            if (is.supportsTouch || is.supportsIePointer) {
+            if (ms.supportsTouch || ms.supportsIePointer) {
               var e = t.element,
                 r = {},
                 i = 0,
                 a = {},
                 s = null;
-              is.supportsTouch
+              ms.supportsTouch
                 ? (t.event.bind(e, "touchstart", l), t.event.bind(e, "touchmove", d), t.event.bind(e, "touchend", u))
-                : is.supportsIePointer &&
+                : ms.supportsIePointer &&
                   (window.PointerEvent
                     ? (t.event.bind(e, "pointerdown", l), t.event.bind(e, "pointermove", d), t.event.bind(e, "pointerup", u))
                     : window.MSPointerEvent &&
                       (t.event.bind(e, "MSPointerDown", l), t.event.bind(e, "MSPointerMove", d), t.event.bind(e, "MSPointerUp", u)));
             }
             function o(r, i) {
-              (e.scrollTop -= i), (e.scrollLeft -= r), as(t);
+              (e.scrollTop -= i), (e.scrollLeft -= r), ps(t);
             }
             function n(t) {
               return t.targetTouches ? t.targetTouches[0] : t;
@@ -8731,8 +8822,8 @@ var source;
                   (function (t, r, i) {
                     if (!e.contains(t)) return !1;
                     for (var a = t; a && a !== e; ) {
-                      if (a.classList.contains(za.element.consuming)) return !0;
-                      var s = qa(a);
+                      if (a.classList.contains(rs.element.consuming)) return !0;
+                      var s = Ka(a);
                       if (i && s.overflowY.match(/(scroll|auto)/)) {
                         var o = a.scrollHeight - a.clientHeight;
                         if (o > 0 && ((a.scrollTop > 0 && i < 0) || (a.scrollTop < o && i > 0))) return !0;
@@ -8758,7 +8849,7 @@ var source;
                       n = Math.abs(i);
                     if (n > o) {
                       if ((i < 0 && a === t.contentHeight - t.containerHeight) || (i > 0 && 0 === a))
-                        return 0 === window.scrollY && i > 0 && is.isChrome;
+                        return 0 === window.scrollY && i > 0 && ms.isChrome;
                     } else if (o > n && ((r < 0 && s === t.contentWidth - t.containerWidth) || (r > 0 && 0 === s))) return !0;
                     return !0;
                   })(u, m) && s.preventDefault();
@@ -8781,12 +8872,12 @@ var source;
             }
           }
         },
-        cs = function (t, e) {
+        fs = function (t, e) {
           var r = this;
           if ((void 0 === e && (e = {}), "string" == typeof t && (t = document.querySelector(t)), !t || !t.nodeName))
             throw new Error("no element is specified to initialize PerfectScrollbar");
           for (var i in ((this.element = t),
-          t.classList.add(za.main),
+          t.classList.add(rs.main),
           (this.settings = {
             handlers: ["click-rail", "drag-thumb", "keyboard", "wheel", "touch"],
             maxScrollbarLength: null,
@@ -8807,20 +8898,20 @@ var source;
           var a,
             s,
             o = function () {
-              return t.classList.add(za.state.focus);
+              return t.classList.add(rs.state.focus);
             },
             n = function () {
-              return t.classList.remove(za.state.focus);
+              return t.classList.remove(rs.state.focus);
             };
-          (this.isRtl = "rtl" === qa(t).direction),
-            !0 === this.isRtl && t.classList.add(za.rtl),
+          (this.isRtl = "rtl" === Ka(t).direction),
+            !0 === this.isRtl && t.classList.add(rs.rtl),
             (this.isNegativeScroll = ((s = t.scrollLeft), (t.scrollLeft = -1), (a = t.scrollLeft < 0), (t.scrollLeft = s), a)),
             (this.negativeScrollAdjustment = this.isNegativeScroll ? t.scrollWidth - t.clientWidth : 0),
-            (this.event = new Ja()),
+            (this.event = new cs()),
             (this.ownerDocument = t.ownerDocument || document),
-            (this.scrollbarXRail = Ua(za.element.rail("x"))),
+            (this.scrollbarXRail = Xa(rs.element.rail("x"))),
             t.appendChild(this.scrollbarXRail),
-            (this.scrollbarX = Ua(za.element.thumb("x"))),
+            (this.scrollbarX = Xa(rs.element.thumb("x"))),
             this.scrollbarXRail.appendChild(this.scrollbarX),
             this.scrollbarX.setAttribute("tabindex", 0),
             this.event.bind(this.scrollbarX, "focus", o),
@@ -8828,20 +8919,20 @@ var source;
             (this.scrollbarXActive = null),
             (this.scrollbarXWidth = null),
             (this.scrollbarXLeft = null);
-          var c = qa(this.scrollbarXRail);
+          var c = Ka(this.scrollbarXRail);
           (this.scrollbarXBottom = parseInt(c.bottom, 10)),
             isNaN(this.scrollbarXBottom)
-              ? ((this.isScrollbarXUsingBottom = !1), (this.scrollbarXTop = rs(c.top)))
+              ? ((this.isScrollbarXUsingBottom = !1), (this.scrollbarXTop = us(c.top)))
               : (this.isScrollbarXUsingBottom = !0),
-            (this.railBorderXWidth = rs(c.borderLeftWidth) + rs(c.borderRightWidth)),
-            Za(this.scrollbarXRail, { display: "block" }),
-            (this.railXMarginWidth = rs(c.marginLeft) + rs(c.marginRight)),
-            Za(this.scrollbarXRail, { display: "" }),
+            (this.railBorderXWidth = us(c.borderLeftWidth) + us(c.borderRightWidth)),
+            Ya(this.scrollbarXRail, { display: "block" }),
+            (this.railXMarginWidth = us(c.marginLeft) + us(c.marginRight)),
+            Ya(this.scrollbarXRail, { display: "" }),
             (this.railXWidth = null),
             (this.railXRatio = null),
-            (this.scrollbarYRail = Ua(za.element.rail("y"))),
+            (this.scrollbarYRail = Xa(rs.element.rail("y"))),
             t.appendChild(this.scrollbarYRail),
-            (this.scrollbarY = Ua(za.element.thumb("y"))),
+            (this.scrollbarY = Xa(rs.element.thumb("y"))),
             this.scrollbarYRail.appendChild(this.scrollbarY),
             this.scrollbarY.setAttribute("tabindex", 0),
             this.event.bind(this.scrollbarY, "focus", o),
@@ -8849,21 +8940,21 @@ var source;
             (this.scrollbarYActive = null),
             (this.scrollbarYHeight = null),
             (this.scrollbarYTop = null);
-          var l = qa(this.scrollbarYRail);
+          var l = Ka(this.scrollbarYRail);
           (this.scrollbarYRight = parseInt(l.right, 10)),
             isNaN(this.scrollbarYRight)
-              ? ((this.isScrollbarYUsingRight = !1), (this.scrollbarYLeft = rs(l.left)))
+              ? ((this.isScrollbarYUsingRight = !1), (this.scrollbarYLeft = us(l.left)))
               : (this.isScrollbarYUsingRight = !0),
             (this.scrollbarYOuterWidth = this.isRtl
               ? (function (t) {
-                  var e = qa(t);
-                  return rs(e.width) + rs(e.paddingLeft) + rs(e.paddingRight) + rs(e.borderLeftWidth) + rs(e.borderRightWidth);
+                  var e = Ka(t);
+                  return us(e.width) + us(e.paddingLeft) + us(e.paddingRight) + us(e.borderLeftWidth) + us(e.borderRightWidth);
                 })(this.scrollbarY)
               : null),
-            (this.railBorderYWidth = rs(l.borderTopWidth) + rs(l.borderBottomWidth)),
-            Za(this.scrollbarYRail, { display: "block" }),
-            (this.railYMarginHeight = rs(l.marginTop) + rs(l.marginBottom)),
-            Za(this.scrollbarYRail, { display: "" }),
+            (this.railBorderYWidth = us(l.borderTopWidth) + us(l.borderBottomWidth)),
+            Ya(this.scrollbarYRail, { display: "block" }),
+            (this.railYMarginHeight = us(l.marginTop) + us(l.marginBottom)),
+            Ya(this.scrollbarYRail, { display: "" }),
             (this.railYHeight = null),
             (this.railYRatio = null),
             (this.reach = {
@@ -8872,45 +8963,45 @@ var source;
             }),
             (this.isAlive = !0),
             this.settings.handlers.forEach(function (t) {
-              return ns[t](r);
+              return Is[t](r);
             }),
             (this.lastScrollTop = Math.floor(t.scrollTop)),
             (this.lastScrollLeft = t.scrollLeft),
             this.event.bind(this.element, "scroll", function (t) {
               return r.onScroll(t);
             }),
-            as(this);
+            ps(this);
         };
-      (cs.prototype.update = function () {
+      (fs.prototype.update = function () {
         this.isAlive &&
           ((this.negativeScrollAdjustment = this.isNegativeScroll ? this.element.scrollWidth - this.element.clientWidth : 0),
-          Za(this.scrollbarXRail, { display: "block" }),
-          Za(this.scrollbarYRail, { display: "block" }),
-          (this.railXMarginWidth = rs(qa(this.scrollbarXRail).marginLeft) + rs(qa(this.scrollbarXRail).marginRight)),
-          (this.railYMarginHeight = rs(qa(this.scrollbarYRail).marginTop) + rs(qa(this.scrollbarYRail).marginBottom)),
-          Za(this.scrollbarXRail, { display: "none" }),
-          Za(this.scrollbarYRail, { display: "none" }),
-          as(this),
-          es(this, "top", 0, !1, !0),
-          es(this, "left", 0, !1, !0),
-          Za(this.scrollbarXRail, { display: "" }),
-          Za(this.scrollbarYRail, { display: "" }));
+          Ya(this.scrollbarXRail, { display: "block" }),
+          Ya(this.scrollbarYRail, { display: "block" }),
+          (this.railXMarginWidth = us(Ka(this.scrollbarXRail).marginLeft) + us(Ka(this.scrollbarXRail).marginRight)),
+          (this.railYMarginHeight = us(Ka(this.scrollbarYRail).marginTop) + us(Ka(this.scrollbarYRail).marginBottom)),
+          Ya(this.scrollbarXRail, { display: "none" }),
+          Ya(this.scrollbarYRail, { display: "none" }),
+          ps(this),
+          ds(this, "top", 0, !1, !0),
+          ds(this, "left", 0, !1, !0),
+          Ya(this.scrollbarXRail, { display: "" }),
+          Ya(this.scrollbarYRail, { display: "" }));
       }),
-        (cs.prototype.onScroll = function (t) {
+        (fs.prototype.onScroll = function (t) {
           this.isAlive &&
-            (as(this),
-            es(this, "top", this.element.scrollTop - this.lastScrollTop),
-            es(this, "left", this.element.scrollLeft - this.lastScrollLeft),
+            (ps(this),
+            ds(this, "top", this.element.scrollTop - this.lastScrollTop),
+            ds(this, "left", this.element.scrollLeft - this.lastScrollLeft),
             (this.lastScrollTop = Math.floor(this.element.scrollTop)),
             (this.lastScrollLeft = this.element.scrollLeft));
         }),
-        (cs.prototype.destroy = function () {
+        (fs.prototype.destroy = function () {
           this.isAlive &&
             (this.event.unbindAll(),
-            Fa(this.scrollbarX),
-            Fa(this.scrollbarY),
-            Fa(this.scrollbarXRail),
-            Fa(this.scrollbarYRail),
+            ts(this.scrollbarX),
+            ts(this.scrollbarY),
+            ts(this.scrollbarXRail),
+            ts(this.scrollbarYRail),
             this.removePsClasses(),
             (this.element = null),
             (this.scrollbarX = null),
@@ -8919,7 +9010,7 @@ var source;
             (this.scrollbarYRail = null),
             (this.isAlive = !1));
         }),
-        (cs.prototype.removePsClasses = function () {
+        (fs.prototype.removePsClasses = function () {
           this.element.className = this.element.className
             .split(" ")
             .filter(function (t) {
@@ -8927,9 +9018,9 @@ var source;
             })
             .join(" ");
         });
-      const ls = cs;
-      var ds = r(7586),
-        us = function () {
+      const Ds = fs;
+      var Vs = r(87586),
+        vs = function () {
           var t = this,
             e = t._self._c;
           return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
@@ -8940,17 +9031,242 @@ var source;
             })
           ]);
         };
-      us._withStripped = !0;
-      const ms = {
-        components: { SvgIcon: Kt.Z },
+      vs._withStripped = !0;
+      const ys = {
+        components: { SvgIcon: Yt.Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const ps = (0, S.Z)(ms, us, [], !1, null, null, null).exports;
-      var hs = function () {
+      const bs = (0, T.Z)(ys, vs, [], !1, null, null, null).exports;
+      var _s = function () {
+        var t = this,
+          e = t._self._c;
+        return e("div", { staticClass: "rr-t-body rr-product" }, [
+          e(
+            "div",
+            { staticClass: "rr-product__alert rr-mb-12 rr-pa-8 rr-rounded-ui rr-flex rr-items-start" },
+            [
+              e("start-illustration", { staticClass: "rr-product__alert__icon", attrs: { size: "32" } }),
+              e("div", { staticClass: "rr-pl-8" }, [t._v(" " + t._s(t.alertText) + " ")])
+            ],
+            1
+          ),
+          e("div", { staticClass: "rr-flex rr-flex-row" }, [
+            e("div", {
+              staticClass: "rr-product__product-logo rr-rounded-ui rr-mr-12",
+              style: { backgroundImage: `url(${t.productImage})` },
+              attrs: { title: t.product.title, "aria-label": t.product.title, rel: "click" },
+              on: {
+                click: function (e) {
+                  return t.$emit("onClick", { productData: t.product, source: "product image" });
+                }
+              }
+            }),
+            e("div", [
+              e("div", { staticClass: "rr-t-medium-h3 rr-mb-8" }, [t._v(" " + t._s(t.totalSavings) + " ")]),
+              t.saleSavings
+                ? e("div", { staticClass: "rr-mb-8" }, [
+                    e("strong", [t._v("Store savings:")]),
+                    t._v(" " + t._s(t.formatMoney(t.saleSavings)) + " ")
+                  ])
+                : t._e(),
+              t.saleSavings && t.cashBackAmount
+                ? e("div", { staticClass: "rr-mb-8" }, [
+                    e("strong", { staticClass: "rr-text-cashback" }, [t._v(t._s(t.rewardAmount) + " Cash Back:")]),
+                    t._v(" " + t._s(t.formatMoney(t.cashBackAmount)) + " ")
+                  ])
+                : t._e(),
+              e(
+                "div",
+                { staticClass: "rr-flex rr-flex-row" },
+                [
+                  0 === t.product.shippingCost ? e("r-badge", { attrs: { variant: "shipping" } }, [t._v(" Free Shipping ")]) : t._e(),
+                  t.couponsCountMessage
+                    ? e("r-badge", { attrs: { variant: "coupons" } }, [t._v(" " + t._s(t.couponsCountMessage) + " ")])
+                    : t._e()
+                ],
+                1
+              )
+            ])
+          ])
+        ]);
+      };
+      _s._withStripped = !0;
+      var ws = r(50507),
+        Cs = function () {
+          var t = this,
+            e = t._self._c;
+          return e(
+            "span",
+            {
+              staticClass: "rr-flex rr-items-center rr-px-8 rr-badge rr-rounded-full rr-mr-2 rr-t-fine-print rr-fw-regular",
+              class: { "r-badge--shipping": "shipping" === t.variant, "r-badge--coupons": "coupons" === t.variant },
+              staticStyle: { padding: "2px" }
+            },
+            [e(t.icon, { tag: "component", staticClass: "rr-mr-4" }), t._t("default")],
+            2
+          );
+        };
+      Cs._withStripped = !0;
+      var xs = function () {
+        var t = this,
+          e = t._self._c;
+        return e("svg-icon", t._b({ attrs: { viewBox: "0 0 16 16" } }, "svg-icon", t.$props, !1), [
+          e("path", {
+            attrs: {
+              d: "M13.3332 5.33317H11.3332V4.1665C11.3332 3.33808 10.6616 2.6665 9.83317 2.6665H1.99984C1.2665 2.6665 0.666504 3.2665 0.666504 3.99984V11.3332H1.99984C1.99984 12.4398 2.89317 13.3332 3.99984 13.3332C5.1065 13.3332 5.99984 12.4398 5.99984 11.3332H9.99984C9.99984 12.4398 10.8932 13.3332 11.9998 13.3332C13.1065 13.3332 13.9998 12.4398 13.9998 11.3332H15.3332V7.99984L13.3332 5.33317ZM12.9998 6.33317L14.3065 7.99984H11.3332V6.33317H12.9998ZM3.99984 11.9998C3.63317 11.9998 3.33317 11.6998 3.33317 11.3332C3.33317 10.9665 3.63317 10.6665 3.99984 10.6665C4.3665 10.6665 4.6665 10.9665 4.6665 11.3332C4.6665 11.6998 4.3665 11.9998 3.99984 11.9998ZM5.47984 9.99984C5.11317 9.59317 4.59317 9.33317 3.99984 9.33317C3.4065 9.33317 2.8865 9.59317 2.51984 9.99984H1.99984V3.99984H9.99984V9.99984H5.47984ZM11.9998 11.9998C11.6332 11.9998 11.3332 11.6998 11.3332 11.3332C11.3332 10.9665 11.6332 10.6665 11.9998 10.6665C12.3665 10.6665 12.6665 10.9665 12.6665 11.3332C12.6665 11.6998 12.3665 11.9998 11.9998 11.9998Z",
+              fill: "#29296E"
+            }
+          })
+        ]);
+      };
+      xs._withStripped = !0;
+      const Ts = {
+        components: { SvgIcon: Yt.Z },
+        props: {
+          color: { type: String, default: "currentColor" },
+          size: { type: [Number, String], default: 16 },
+          rotate: { type: Number, default: 0 }
+        }
+      };
+      const ks = (0, T.Z)(Ts, xs, [], !1, null, null, null).exports,
+        Ss = {
+          props: { variant: { type: String, required: !0 } },
+          data: () => ({ TruckIcon: ks, CouponIcon: Zi }),
+          computed: {
+            icon() {
+              return "shipping" === this.variant ? this.TruckIcon : this.CouponIcon;
+            }
+          },
+          methods: {}
+        };
+      const As = (0, T.Z)(Ss, Cs, [], !1, null, null, null).exports;
+      var Ps = function () {
+        var t = this,
+          e = t._self._c;
+        return e("svg-icon", t._b({ attrs: { viewBox: "0 0 32 32" } }, "svg-icon", t.$props, !1), [
+          e("path", {
+            attrs: {
+              d: "M19.7023 20.3294L21 19.1023L20.3157 17.3814L18.7885 16.9548L17.1365 16.3485L15.8621 15.9453L17.4506 15.0567L19.1195 14.1168L20.0438 12.3379L19.5369 11.597L19.565 11.5418L18.5688 11.4804L18.27 11.4659L16.8351 12.2692L14.0484 13.6104L13.9879 13.1387L13.7024 11.2404L13.7113 9.72593L13.4406 9L12.4919 9.00241L11.7182 9.55188L11.3928 11.0869L11.3819 14.5413L10.385 14.2725L6.94355 13.3321L6.67186 13.3048L5.73499 12.8854L4.59012 13.5722L6.78421 15.7504L8.67515 16.6526L7.37554 17.4071L4.46057 19.5082L4 20.0342L4.26104 20.7198L5.29815 21.0386L6.09894 20.874L7.84894 20.2179L11.0685 18.5546L11.2148 18.3878L11.178 21.5639L11.7381 25.3558L12.0781 25.7948L12.6595 26L13.5019 25.3118L13.4917 24.2158L14.1005 18.9256L16.1955 19.6605L17.8 20.1L19.7023 20.3294Z"
+            }
+          }),
+          e("path", {
+            attrs: {
+              d: "M21.5457 5.18498L21.6001 5.61909L21.8446 5.97071L22.2552 6.44457L23.0419 7.43108L23.2362 7.6096L21.928 7.6735L21.5454 7.65993L21.2522 7.62765L20.9175 7.73346L20.8378 7.65695L20.7528 7.68001L20.7385 7.71976L20.7328 7.68829L20.5312 7.67608L20 7.94346L20.3288 8.43672L23.3354 8.75348L22.8978 10.5648L22.8338 12.6561L23.2078 13L23.6327 12.75L23.7655 12.5058L23.8754 12.2535L24.608 9.26695L24.7183 9.29733L26.3031 11.0088L27.4527 11.154L27.6013 10.419L27.2707 9.82627L26.4521 8.6208L26.6933 8.64984L26.8024 8.64359L26.7842 8.66462L26.8435 8.61375L27.1526 8.72974L29 8.01821L28.7211 7.35212H25.6554L25.5715 7.34548L25.1412 7.30085L25.3569 6.23511L25.7164 5.06967L25.9229 4.59771L25.7812 4L25.3785 4.02713L25.0287 4.32124L24.6797 5.0888L24.0894 6.5029L23.4625 5.91062L22.1107 4.85804L21.5457 5.18498ZM27.8802 8.10286L27.8924 8.06216L27.8804 8.08929L27.8802 8.10286ZM23.1459 11.2746L23.1864 11.2789L23.1459 11.2746ZM22.364 5.33163L22.4038 5.32145L22.4047 5.28564L22.364 5.33163Z"
+            }
+          }),
+          e("path", {
+            attrs: {
+              d: "M25.6465 27.6855L25.9134 27.727L26.2285 27.7062L26.2802 27.6878L26.354 27.695L26.3606 27.7118L26.3667 27.725L26.545 27.7378L27 27.4684L26.7438 27.0045L24.0523 26.7383L24.471 25.1528L24.4306 23.3067L24.1552 23L23.7471 23.1888L23.6981 23.454L23.5149 23.6341L22.8639 26.2883L22.8368 26.2448L21.3809 24.7593L20.3471 24.6099L20.2019 25.2844L20.5055 25.8128L21.2563 26.8719L21.0376 26.8436H20.9416L20.9575 26.8212L20.9068 26.8493L20.6256 26.7801L19 27.4246L19.2316 27.9722L21.9681 28.0111L22.0512 27.991L22.4404 28.0443L22.1621 28.976L21.9285 30.0354L21.7516 30.4628L21.8667 30.9571L22.2256 31L22.5786 30.7138L22.7798 29.9857L23.3641 28.7498L23.93 29.2816L25.1421 30.2055L25.6101 29.9212L25.6212 29.5309L25.363 29.2397L25.0161 28.8011L24.3001 27.935L24.1165 27.7083L25.3007 27.6822L25.6465 27.6855ZM19.969 27.3671L19.9642 27.3482L19.9674 27.3844L19.969 27.3671ZM24.1785 24.5087L24.1958 24.5128L24.1785 24.5087ZM24.8783 29.8033L24.8962 29.7999L24.892 29.8042L24.8783 29.8033Z"
+            }
+          })
+        ]);
+      };
+      Ps._withStripped = !0;
+      const Ns = {
+        components: { SvgIcon: Yt.Z },
+        props: {
+          color: { type: String, default: "currentColor" },
+          size: { type: [Number, String], default: 16 },
+          rotate: { type: Number, default: 0 }
+        }
+      };
+      const Es = {
+        components: { RBadge: As, StartIllustration: (0, T.Z)(Ns, Ps, [], !1, null, null, null).exports },
+        props: {
+          product: { type: Object, required: !0 },
+          merchant: { type: Object, required: !0 },
+          coupons: { type: Array, default: null }
+        },
+        data: () => ({ productImage: "" }),
+        computed: {
+          rewardAmount() {
+            return this.product.eligible_for_cash_back && (0, f.l)(this.merchant.reward);
+          },
+          cashBackAmount() {
+            return this.product.eligible_for_cash_back && (0, ge._)(this.merchant.reward, this.product.salePrice);
+          },
+          couponsCountMessage() {
+            return this.couponsCount > 0 && `${this.couponsCount} coupon${this.couponsCount > 1 ? "s" : ""}`;
+          },
+          saleSavings() {
+            return this.product.listPrice - this.product.salePrice;
+          },
+          totalSavings() {
+            const t = (0, D.l)(this.saleSavings + this.cashBackAmount);
+            return this.saleSavings ? `Save ${t}` : `Get ${t} back`;
+          },
+          couponsCount() {
+            return this.coupons?.length ?? 0;
+          },
+          alertText() {
+            return this.couponsCount > 1
+              ? `Shop now to lock in this deal! We\u2019ll remind you to try ${this.couponsCount} coupons at checkout.`
+              : 1 === this.couponsCount
+              ? "Shop now to lock in this deal! We\u2019ll remind you to try 1 coupon at checkout."
+              : this.saleSavings
+              ? "Way to stack! Check out now to lock in this price and Cash Back."
+              : "Check out now to lock in this Cash Back deal!";
+          }
+        },
+        watch: {
+          product(t, e) {
+            e.imageUrl !== t.imageUrl && this.updateProductImage();
+          }
+        },
+        async mounted() {
+          this.updateProductImage();
+        },
+        methods: {
+          formatMoney: (t) => (0, D.l)(t),
+          async updateProductImage() {
+            this.productImage = await (0, ws.b)(this.product.imageUrl);
+          }
+        }
+      };
+      const Ls = (0, T.Z)(Es, _s, [], !1, null, null, null).exports;
+      var $s = function () {
+        var t = this,
+          e = t._self._c;
+        return e(
+          "conditions-dropdown",
+          {
+            attrs: { title: "Cash Back Terms & Exclusions" },
+            on: {
+              toggleConditions: function (e) {
+                return t.$emit("toggleConditions");
+              }
+            }
+          },
+          [
+            e("div", { staticClass: "rr-t-fine-print" }, [
+              t.conditions.reward
+                ? e("div", { staticClass: "rr-mt-8" }, [
+                    e("strong", [t._v("Exclusions:")]),
+                    t._v(" "),
+                    e("span", { domProps: { innerHTML: t._s(t.sanitizedMessage(t.conditions.reward)) } })
+                  ])
+                : t._e(),
+              t.conditions.nonReward
+                ? e("div", { staticClass: "rr-mt-8" }, [
+                    e("strong", [t._v("Special Terms:")]),
+                    t._v(" "),
+                    e("span", { domProps: { innerHTML: t._s(t.sanitizedMessage(t.conditions.nonReward)) } })
+                  ])
+                : t._e(),
+              e("div", { staticClass: "rr-mt-8" }, [
+                e("strong", [t._v("Posting Time:")]),
+                t._v(" Cash Back will be automatically added to your Rakuten account " + t._s(t.reportingMessage) + ". ")
+              ])
+            ])
+          ]
+        );
+      };
+      $s._withStripped = !0;
+      var Rs = function () {
         var t = this,
           e = t._self._c;
         return e("div", { staticClass: "rab-dropdown rr-box-border rr-pa-20 rr-cursor-pointer", on: { click: t.onClick } }, [
@@ -8970,9 +9286,9 @@ var source;
           ])
         ]);
       };
-      hs._withStripped = !0;
-      const Is = {
-        components: { ChevronDown: _a.Z },
+      Rs._withStripped = !0;
+      const Os = {
+        components: { ChevronDown: Ca.Z },
         props: { title: { type: String, required: !0 } },
         data: () => ({ expanded: !1, containerHeight: 0 }),
         methods: {
@@ -8984,20 +9300,75 @@ var source;
           }
         }
       };
-      const gs = (0, S.Z)(Is, hs, [], !1, null, null, null).exports,
-        fs = {
+      const Ms = (0, T.Z)(Os, Rs, [], !1, null, null, null).exports,
+        Bs = {
+          components: { ConditionsDropdown: Ms },
+          props: { conditions: { type: Object, required: !0 }, reportingMessage: { type: String, required: !0 } },
+          methods: { sanitizedMessage: (t) => (0, F.Z)(t) }
+        };
+      const qs = (0, T.Z)(Bs, $s, [], !1, null, null, null).exports;
+      var Zs = function () {
+        var t = this,
+          e = t._self._c;
+        return t.tiers.length
+          ? e(
+              "conditions-dropdown",
+              {
+                attrs: { title: "Cash Back Categories" },
+                on: {
+                  toggleConditions: function (e) {
+                    return t.$emit("toggleConditions");
+                  }
+                }
+              },
+              t._l(t.tiers, function (r) {
+                return e(
+                  "div",
+                  { key: r.id, staticClass: "rr-flex rr-pt-8" },
+                  [
+                    r.rewardAmount
+                      ? [
+                          e("div", { staticClass: "rr-text-cashback rr-t-tag-small rr-mr-8", staticStyle: { "min-width": "28px" } }, [
+                            t._v(" " + t._s(r.rewardAmount) + " ")
+                          ]),
+                          e("div", { staticClass: "rr-t-fine-print" }, [t._v(" " + t._s(r.names) + " ")])
+                        ]
+                      : r.cashBack
+                      ? [
+                          e("div", { staticClass: "rr-t-fine-print" }, [
+                            e("span", { staticClass: "rr-text-cashback" }, [t._v(t._s(r.cashBack))]),
+                            t._v(" " + t._s(r.description) + " ")
+                          ])
+                        ]
+                      : t._e()
+                  ],
+                  2
+                );
+              }),
+              0
+            )
+          : t._e();
+      };
+      Zs._withStripped = !0;
+      const Us = { components: { ConditionsDropdown: Ms }, props: { tiers: { type: Array, required: !0 } } };
+      const Hs = (0, T.Z)(Us, Zs, [], !1, null, null, null).exports,
+        js = {
           components: {
-            RIconButton: Jr.Z,
-            RForm: it.Z,
-            RCloseButton: w.Z,
-            RHeadingLogo: N.Z,
-            KebabMenuIcon: ps,
-            CheckIcon: Et.Z,
-            ConditionsDropdown: gs,
-            RLoader: Ct.Z
+            RIconButton: ti.Z,
+            RForm: at.Z,
+            RCloseButton: C.Z,
+            RHeadingLogo: E.Z,
+            KebabMenuIcon: bs,
+            CheckIcon: Lt.Z,
+            RLoader: xt.Z,
+            RabProductDetails: Ls,
+            RabCategories: Hs,
+            RabExclusions: qs
           },
           props: {
             merchant: { type: Object, required: !0 },
+            product: { type: Object, default: null },
+            coupons: { type: Array, default: null },
             cashbackAmount: { type: String, default: "" },
             tiers: { type: Array, default: null },
             storeContent: { type: Object, default: () => ({}) }
@@ -9030,16 +9401,16 @@ var source;
               return this.merchant.images.squareLogo || this.merchant.images.largeLogo;
             },
             groupedTiers() {
-              return (0, Ma.F)(this.tiers).filter((t) => t.rewardAmount);
+              return (0, za.F)(this.tiers).filter((t) => t.rewardAmount);
             },
             isLoading() {
               return !this.tiers || !this.storeContent;
             },
             expanded() {
-              return this.tiersExpanded || this.exclusionsExpanded;
+              return this.product || this.tiersExpanded || this.exclusionsExpanded;
             },
             reportingMessage() {
-              return (0, ds.Z)({ ...this.merchant, storeContent: this.storeContent });
+              return (0, Vs.Z)({ ...this.merchant, storeContent: this.storeContent });
             },
             position() {
               return { top: `${this.top}px`, right: "10px" };
@@ -9053,7 +9424,7 @@ var source;
           mounted() {
             this.setInitTop();
             const t = this.$refs.scrollContainer,
-              e = new ls(t);
+              e = new Ds(t);
             (this.resizeObserver = new ResizeObserver(() => {
               e.update(), this.adjustTop();
             })),
@@ -9069,7 +9440,6 @@ var source;
             toggleExclusions() {
               this.$emit("toggleExclusions"), (this.exclusionsExpanded = !this.exclusionsExpanded);
             },
-            sanitizedMessage: (t) => (0, H.Z)(t),
             adjustTop() {
               this.top = Math.min(this.initialTop, window.innerHeight - this.$el.offsetHeight);
             },
@@ -9086,31 +9456,37 @@ var source;
             }
           }
         };
-      const Ds = (0, S.Z)(fs, Ba, [], !1, null, null, null).exports,
-        Vs = g().extend({
-          components: { RabQuickViewForm: Ds },
-          props: { merchant: { type: Object, required: !0 }, cashbackAmount: { type: String, default: "" } },
-          data: () => ({ entity_name: "RAB Quickview", tiers: null, storeContent: null }),
+      const Fs = (0, T.Z)(js, Wa, [], !1, null, null, null).exports,
+        Gs = I().extend({
+          components: { RabQuickViewForm: Fs },
+          props: {
+            merchant: { type: Object, required: !0 },
+            product: { type: Object, required: !0 },
+            coupons: { type: Array, default: null },
+            cashbackAmount: { type: String, default: "" }
+          },
+          data: () => ({ tiers: null, storeContent: null }),
           computed: {
+            entity_name() {
+              return this.product ? "Active PDP" : "RAB Quickview";
+            },
             merchantLogo() {
               return this.merchant.images.squareLogo;
             },
             groupedTiers() {
-              return (0, Ma.F)(this.tiers);
+              return (0, za.F)(this.tiers);
             }
           },
           async mounted() {
-            (await (0, u.By)()).appendChild(this.$el),
-              (this.show = !0),
-              this.$emit("track", "View Module", { entity_name: this.entity_name });
+            this.$emit("track", "View Module", { entity_name: this.entity_name });
             const t = this.merchant.storeId,
               e = await (0, l.Z)("getTiers", { storeId: t });
-            (this.tiers = (0, Ma.F)(e)), (this.storeContent = await (0, l.Z)("getStoreContent", { storeId: t }));
+            (this.tiers = (0, za.F)(e)), (this.storeContent = await (0, l.Z)("getStoreContent", { storeId: t }));
           }
         }),
-        vs = Vs;
-      const ys = (0, S.Z)(vs, Ra, [], !1, null, null, null).exports;
-      var bs = function () {
+        zs = Gs;
+      const Ws = (0, T.Z)(zs, Ga, [], !1, null, null, null).exports;
+      var Ks = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -9168,10 +9544,10 @@ var source;
           1
         );
       };
-      bs._withStripped = !0;
-      const _s = {
-        components: { RIconButton: Jr.Z, ChevronIcon: _a.Z, RPopover: ae.Z, RCloseButton: w.Z },
-        mixins: [se.Z],
+      Ks._withStripped = !0;
+      const Ys = {
+        components: { RIconButton: ti.Z, ChevronIcon: Ca.Z, RPopover: se.Z, RCloseButton: C.Z },
+        mixins: [oe.Z],
         props: { anchor: { type: Object, default: null } },
         data: () => ({
           type: "RAB",
@@ -9217,89 +9593,185 @@ var source;
           }
         }
       };
-      const ws = {
-        components: { RabQuickView: ys, ActionButtonForm: Oa, EducationPopover: (0, S.Z)(_s, bs, [], !1, null, null, null).exports },
-        props: {
-          merchant: { type: Object, required: !0 },
-          cashbackAmount: { type: String, default: "" },
-          progressiveEducation: { type: Object, default: () => ({}) }
-        },
-        data: () => ({ module_type: "RAB", entity_name: "RAB", showQuickView: !1, educationPopperVisible: !1, events: {} }),
-        watch: {
-          showQuickView(t) {
-            this.educationPopperVisible && t && (this.educationPopperVisible = !1);
-          }
-        },
-        beforeMount() {
-          this.events = this.merchant.rabEvents || {};
-        },
-        mounted() {
-          this.renderPopover();
-        },
-        methods: {
-          async timeoutSnooze() {
-            (0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, rabSnoozeTimestamp: Date.now() }),
-              await this.close("temporary"),
-              this.$emit("remove");
+      const Xs = (0, T.Z)(Ys, Ks, [], !1, null, null, null).exports,
+        Qs = "BTN190",
+        Js = {
+          components: { RabQuickView: Ws, ActionButtonForm: Fa, EducationPopover: Xs },
+          props: {
+            merchant: { type: Object, required: !0 },
+            cashbackAmount: { type: String, default: "" },
+            progressiveEducation: { type: Object, default: () => ({}) }
           },
-          async sessionSnooze() {
-            await this.close("whole session"), this.$emit("hide");
-          },
-          async close(t) {
-            return t && this.track("Hide", { hide_type: t }), (this.showQuickView = !1), await this.$nextTick();
-          },
-          rabClick() {
-            this.showQuickView = !0;
-          },
-          track(t) {
-            let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-            if (!e.new_position && !e.hide_type) {
-              const r = t + (e.entity_name || this.entity_name);
-              if (this.events[r]) return;
-              (this.events[r] = !0), (0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, rabEvents: this.events });
+          data: () => ({
+            module_type: "RAB",
+            entity_name: "RAB",
+            showQuickView: !1,
+            educationPopperVisible: !1,
+            events: {},
+            product: null,
+            coupons: null,
+            loading: !1,
+            urlChangeTimeout: null,
+            fillrProductDetail: null
+          }),
+          watch: {
+            showQuickView(t) {
+              this.educationPopperVisible && t && (this.educationPopperVisible = !1);
+            },
+            async product() {
+              null === this.coupons && (this.coupons = await (0, l.Z)("getCoupons", { storeId: this.merchant.storeId })),
+                this.product || ((this.entity_name = "PDP"), (this.showQuickView = !1));
             }
-            d.Z.track(t, {
-              module_type: this.module_type,
-              entity_name: this.entity_name,
-              tracking_ticket: this.merchant.shoppingTrip.ttn,
-              domain: location.host,
-              ...e
-            });
           },
-          toggleTiers() {
-            this.track("View Module", { entity_name: "RAB Quickview Category" });
+          beforeMount() {
+            this.events = this.merchant.rabEvents || {};
           },
-          toggleExclusions() {
-            this.track("View Module", { entity_name: "RAB Quickview Terms" });
+          mounted() {
+            this.renderPopover();
+            const t = self.EBATES.settings.featureFlags.rabPDP && V.Z.get(Qs),
+              e = self.EBATES.settings.featureFlags.rabPDPTreshold,
+              r = self.EBATES.settings.featureFlags.rabPDPMerchants?.storeIds ?? [],
+              a = e?.stackedSaving ?? 15,
+              s = e?.cashbackSaving ?? 1,
+              o = e?.cashbackAmount ?? 3;
+            window.addEventListener("addressbar.urlchange", () => {
+              this.urlChangeTimeout ||
+                (this.urlChangeTimeout = setTimeout(() => {
+                  (this.urlChangeTimeout = null), (this.product = null);
+                }, 4e3));
+            }),
+              t &&
+                r.includes(this.merchant.storeId) &&
+                !this.merchant.reward.range &&
+                this.merchant.reward.amount >= o &&
+                Za.on("product:data:scraped", async (t) => {
+                  if ((clearTimeout(this.urlChangeTimeout), (this.urlChangeTimeout = null), (0, i.isEqual)(t, this.fillrProductDetail)))
+                    return;
+                  if (((this.fillrProductDetail = t), t.price.length > 1))
+                    return (
+                      (this.product = null),
+                      void this.track("Suppress Module", { entity_name: "Savings found PDP", suppress_reason_code: "5" })
+                    );
+                  const e = Math.round(parseFloat(t.price[0]?.amount)),
+                    r = new m.ec(document).extract(),
+                    o = await (0, l.Z)("getProductCatalogDetails", { merchant: this.merchant, detail: t, common: r });
+                  if (((this.product = null), !o)) return;
+                  const n = !!this.merchant.excludedCategories?.find((t) => o.categoryIds.includes(String(t)));
+                  (o.saleSaving = o.listPrice - o.salePrice),
+                    (o.cashbackSaving = (0, ge._)(this.merchant.reward, o.salePrice)),
+                    (o.stackedSaving = o.saleSaving + o.cashbackSaving);
+                  const c = [
+                    Boolean((o.stackedSaving / o.listPrice) * 100 < a),
+                    Boolean(o.cashbackSaving < s),
+                    Boolean(!o.eligible_for_cash_back),
+                    Boolean(e !== Math.round(o.salePrice)),
+                    Boolean(n)
+                  ];
+                  if (c.includes(!0)) {
+                    const t = c
+                      .map((t, e) => t && e)
+                      .filter(Number.isInteger)
+                      .toString();
+                    this.track("Suppress Module", {
+                      entity_name: "Savings found PDP",
+                      suppress_reason_code: t,
+                      ...this.productMessageInfo(o)
+                    });
+                  } else
+                    "A" === (await V.Z.activate(Qs, { store_id: this.merchant.storeId })) &&
+                      ((this.product = o), (this.entity_name = "Savings found PDP"));
+                });
           },
-          renderPopover() {
-            this.progressiveEducation?.RAB &&
-              this.$el &&
-              setTimeout(() => {
-                this.educationPopperVisible = !0;
-              }, 3e3);
+          methods: {
+            async timeoutSnooze() {
+              (0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, rabSnoozeTimestamp: Date.now() }),
+                await this.close("temporary"),
+                this.$emit("remove");
+            },
+            async sessionSnooze() {
+              await this.close("whole session"), this.$emit("hide");
+            },
+            async close(t) {
+              return t && this.track("Hide", { hide_type: t }), (this.showQuickView = !1), await this.$nextTick();
+            },
+            rabClick() {
+              this.showQuickView = !0;
+            },
+            track(t) {
+              let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+              if (!(e.new_position || e.hide_type || this.product || e.suppress_reason_code)) {
+                const r = t + (e.entity_name || this.entity_name);
+                if (this.events[r]) return;
+                (this.events[r] = !0), (0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, rabEvents: this.events });
+              }
+              d.Z.track(t, {
+                module_type: this.module_type,
+                entity_name: this.entity_name,
+                domain: location.host,
+                ...(this.merchant && {
+                  tracking_ticket: this.merchant.shoppingTrip.ttn,
+                  source_of_activation: this.merchant.shoppingTrip.source,
+                  store_id: this.merchant.storeId,
+                  store_name: this.merchant.storeName,
+                  store_domain: this.merchant.domainName,
+                  was_cash_back: this.merchant.reward.previous,
+                  ...(0, yt.L)(this.merchant.reward)
+                }),
+                ...this.productMessageInfo(),
+                ...e
+              });
+            },
+            productMessageInfo() {
+              let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : this.product;
+              return t
+                ? {
+                    stacked_saving: t.stackedSaving,
+                    stacked_saving_percentage: Math.floor((t.stackedSaving / t.listPrice) * 100),
+                    sale_discount: t.saleSaving,
+                    no_of_coupons: this.coupons?.length,
+                    is_freeshipping: 0 === t.shippingCost,
+                    cash_back_amount: t.cashbackSaving
+                  }
+                : {};
+            },
+            toggleTiers() {
+              this.track("View Module", { entity_name: "RAB Quickview Category" });
+            },
+            toggleExclusions() {
+              this.track("View Module", { entity_name: "RAB Quickview Terms" });
+            },
+            renderPopover() {
+              this.progressiveEducation?.RAB &&
+                this.$el &&
+                setTimeout(() => {
+                  this.showQuickView
+                    ? ((EBATES.settings.progressiveEducation.RAB = !1),
+                      (0, l.Z)("settings", { progressiveEducation: EBATES.settings.progressiveEducation }))
+                    : (this.educationPopperVisible = !0);
+                }, 3e3);
+            }
           }
-        }
-      };
-      const Cs = (0, S.Z)(ws, Ea, [], !1, null, null, null).exports,
-        Ss = g().extend({
+        },
+        to = Js;
+      const eo = (0, T.Z)(to, $a, [], !1, null, null, null).exports,
+        ro = I().extend({
           name: "NotificationView",
           components: {
-            NotificationOptout: Qi,
-            NotificationMessage: sa,
-            NotificationWarning: da,
-            NotificationBonus: Ia,
-            NotificationRecommended: Da,
-            NotificationExclusion: Ca,
-            NotificationOptoutUndo: Ki,
-            NotificationActivate: ji,
-            NotificationActivated: Gi,
-            ActionButton: Cs,
-            EducationPopover: ya,
-            TransitionPopover: xa,
-            RadiantFeed: Na
+            NotificationOptout: ta,
+            NotificationMessage: na,
+            NotificationWarning: ma,
+            NotificationBonus: fa,
+            NotificationRecommended: va,
+            NotificationExclusion: Ta,
+            NotificationOptoutUndo: Xi,
+            NotificationActivate: Fi,
+            NotificationActivated: Wi,
+            ActionButton: eo,
+            EducationPopover: _a,
+            TransitionPopover: Aa,
+            RadiantFeed: La
           },
-          mixins: [Er.Z],
+          mixins: [Lr.Z],
           data: () => ({
             merchant: {},
             settings: {},
@@ -9454,8 +9926,7 @@ var source;
                 this.merchant.affiliatizerEnabled ||
                 (this.settings.featureFlags.checkoutReminderForBgActivation &&
                   (await c.Z.extension.fireEvent("isEligibleForBackgroundActivation", { data: this.merchant })));
-              (this.isCartReminder = r && this.settings.featureFlags.cartReminder),
-                this.isCartReminder && (this.version = "Remind me later");
+              (this.isCartReminder = r && v.variation("cartReminder")), this.isCartReminder && (this.version = "Remind me later");
             }
             this.rab ||
               window.setTimeout(
@@ -9465,7 +9936,7 @@ var source;
                     tracking_ticket: this.merchant.shoppingTrip.ttn,
                     ...(this.couponsAvailable && { coupons_number: this.coupons.length }),
                     ...(this.merchant.reward.previous && { was_cashback: this.merchant.reward.previous }),
-                    ...(0, vt.L)(this.merchant.reward),
+                    ...(0, yt.L)(this.merchant.reward),
                     ...(this.merchant.rewardsExpired && { rewardsExpired: !0 }),
                     ...(this.isBTN181 && {
                       oc_coupons: this.coupons.filter((t) => "OC" === t.source).length,
@@ -9484,7 +9955,11 @@ var source;
               }),
               c.Z.extension.attachEvent("takeover", (t) => {
                 let { data: e } = t;
-                e.merchant.storeId === this.merchant.storeId && this.rab && ((this.merchant = e.merchant), this.hide());
+                e.merchant.storeId === this.merchant.storeId && this.rab && ((this.merchant = e.merchant), (this.showRab = !1));
+              }),
+              c.Z.extension.attachEvent("hideRab", (t) => {
+                let { data: e } = t;
+                e.merchant.storeId === this.merchant.storeId && this.rab && (this.showRab = !1);
               }),
               this.merchant.hoverText &&
                 (this.merchant.exclusions || this.exclusionList || this.isNotificationMessageVisible || this.merchantCanOptout) &&
@@ -9574,7 +10049,7 @@ var source;
               this.removePopover(), (this.visible = !1), window.clearTimeout(this.hideTimer), this.closeNotification();
             },
             async toggleOptOut(t) {
-              const e = (0, re.g)(window.location.href);
+              const e = (0, ie.g)(window.location.href);
               t
                 ? (this.settings.blacklist.push(e),
                   (this.visible = !1),
@@ -9597,7 +10072,7 @@ var source;
                 c.Z.extension.fireEvent("blacklist-update", { data: { domain: e, blacklisted: t } });
             },
             async getDeals() {
-              this.deals || (this.deals = await (0, l.Z)("getCoupons", { storeId: this.merchant.storeId }));
+              this.deals || (this.deals = await (0, l.Z)("getCouponOffers", { storeId: this.merchant.storeId }));
             },
             onMouseOut() {
               this.hideTimer = window.setTimeout(() => {
@@ -9638,8 +10113,7 @@ var source;
                 ? (this.rab = !0)
                 : (this.merchant.activated || this.merchant.backgroundActivated) &&
                   this.settings.featureFlags.hoverRAB &&
-                  ((document.hidden && "A" === V.Z.get("BTN176")) ||
-                  (!document.hidden && "A" === (await V.Z.activate("BTN176", { store_id: this.merchant.storeId })))
+                  (V.Z.get("BTN190")
                     ? ((0, l.Z)("updateMerchantSession", { storeId: this.merchant.storeId, rab: !0 }), (this.rab = !0))
                     : (this.rab = !1));
               const t = this.merchant.rabSnoozeTimestamp;
@@ -9647,10 +10121,10 @@ var source;
             }
           }
         }),
-        ks = Ss;
-      const xs = (0, S.Z)(ks, Li, [], !1, null, null, null).exports,
-        Ts = "eb-caa-cache";
-      var As = function () {
+        io = ro;
+      const ao = (0, T.Z)(io, Ri, [], !1, null, null, null).exports,
+        so = "eb-caa-cache";
+      var oo = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -9715,11 +10189,11 @@ var source;
             )
           : t._e();
       };
-      As._withStripped = !0;
-      const Ps = g().extend({
-        components: { RModalForm: ut.Z, RakutenIcon: zt.Z },
+      oo._withStripped = !0;
+      const no = I().extend({
+        components: { RModalForm: mt.Z, RakutenIcon: Wt.Z },
         data: () => ({ visible: !1 }),
-        computed: { postInstallImageSrc: () => (0, at.$)("img/post-install-popup-image.png") },
+        computed: { postInstallImageSrc: () => (0, st.$)("img/post-install-popup-image.png") },
         mounted() {
           this.visible = !0;
         },
@@ -9732,8 +10206,8 @@ var source;
           }
         }
       });
-      const Ns = (0, S.Z)(Ps, As, [], !1, null, null, null).exports,
-        Es = async (t) => {
+      const co = (0, T.Z)(no, oo, [], !1, null, null, null).exports,
+        lo = async (t) => {
           let { postInstallPopup: e } = t;
           if (!c.Z.browser.isChrome || e || !document.querySelector("ul.user")) return;
           let r = setInterval(async () => {
@@ -9741,24 +10215,24 @@ var source;
             t?.accessLevel &&
               (clearInterval(r),
               (async function () {
-                if ("A" !== (await V.Z.activate("BTN145"))) return void $s();
-                const t = new Ns().$mount();
+                if ("A" !== (await V.Z.activate("BTN145"))) return void uo();
+                const t = new co().$mount();
                 (await (0, u.By)()).appendChild(t.$el);
                 const e = function (t) {
                   let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                   d.Z.track(t, { module_type: "modal", entity_name: "Chrome Pin Icon Notification", ...e });
                 };
                 t.$on("close", () => {
-                  $s(), t.hide(), e("Click Module", { cta_type: "close" });
+                  uo(), t.hide(), e("Click Module", { cta_type: "close" });
                 }),
                   e("View Module");
               })());
           }, 1e3);
         };
-      function $s() {
+      function uo() {
         c.Z.extension.fireEvent("settings", { data: { postInstallPopup: !0 } });
       }
-      const Ls = async (t) => {
+      const mo = async (t) => {
         if (t.url)
           try {
             const e = await fetch(`chrome-extension://${t.url}`);
@@ -9767,7 +10241,7 @@ var source;
             t.installed = !1;
           }
       };
-      var Os = (function (t) {
+      var po = (function (t) {
           return (
             (t.campaign = "utm_campaign"),
             (t.medium = "utm_medium"),
@@ -9790,59 +10264,59 @@ var source;
             (t.fbclid = "fbclid"),
             t
           );
-        })(Os || {}),
-        Rs = (function (t) {
+        })(po || {}),
+        ho = (function (t) {
           return (t.fbc = "_fbc"), t;
-        })(Rs || {});
-      function Ms() {
+        })(ho || {});
+      function go() {
         const t = new URLSearchParams(window.location?.search),
-          e = qs(),
+          e = fo(),
           r = {
-            source: t.get(Os.channel) || t.get(Os.source),
-            medium: t.get(Os.medium),
-            term: t.get(Os.term),
-            content: t.get(Os.content),
-            target: t.get(Os.target) || t.get(Os.legacyTarget),
-            device: t.get(Os.device),
-            group: t.get(Os.group),
-            goal: t.get(Os.goal),
-            audience: t.get(Os.audience),
+            source: t.get(po.channel) || t.get(po.source),
+            medium: t.get(po.medium),
+            term: t.get(po.term),
+            content: t.get(po.content),
+            target: t.get(po.target) || t.get(po.legacyTarget),
+            device: t.get(po.device),
+            group: t.get(po.group),
+            goal: t.get(po.goal),
+            audience: t.get(po.audience),
             ...(e && { click_id: e })
           };
         return (
           Object.keys(r).forEach((t) => null === r[t] && delete r[t]),
-          (Object.keys(r).length > 0 || t.has(Os.campaign)) &&
+          (Object.keys(r).length > 0 || t.has(po.campaign)) &&
             (r.id = (function () {
               const t = new URLSearchParams(window.location?.search),
-                e = t.get(Os.campaign);
+                e = t.get(po.campaign);
               if (e) return e;
-              const r = qs();
+              const r = fo();
               if (r) return "FACEBOOK";
               return "UNKNOWN";
             })()),
           r
         );
       }
-      function Bs() {
+      function Io() {
         const t = new URLSearchParams(window.location?.search),
           e = {
-            src: t.get(Os.src),
-            size: t.get(Os.size),
-            pub: t.get(Os.pub),
-            eeid: t.get(Os.eeid),
-            ebs: t.get(Os.ebs),
-            gclid: t.get(Os.gclid)
+            src: t.get(po.src),
+            size: t.get(po.size),
+            pub: t.get(po.pub),
+            eeid: t.get(po.eeid),
+            ebs: t.get(po.ebs),
+            gclid: t.get(po.gclid)
           };
         return Object.keys(e).forEach((t) => null === e[t] && delete e[t]), e;
       }
-      function qs() {
+      function fo() {
         const t = new URLSearchParams(window.location?.search),
-          e = (0, u.ej)(Rs.fbc);
+          e = (0, u.ej)(ho.fbc);
         let r;
-        return (r = e ? e?.split(".")?.pop() || null : t.get(Os.fbclid)), r;
+        return (r = e ? e?.split(".")?.pop() || null : t.get(po.fbclid)), r;
       }
-      var Zs = r(8301),
-        Us = function () {
+      var Do = r(88301),
+        Vo = function () {
           var t = this,
             e = t._self._c;
           t._self._setupProxy;
@@ -9877,8 +10351,8 @@ var source;
             1
           );
         };
-      Us._withStripped = !0;
-      var js = function () {
+      Vo._withStripped = !0;
+      var vo = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -10104,12 +10578,12 @@ var source;
           ]
         );
       };
-      js._withStripped = !0;
-      var Hs = { MODE_NUMBER: 1, MODE_ALPHA_NUM: 2, MODE_8BIT_BYTE: 4, MODE_KANJI: 8 };
-      function Fs(t) {
-        (this.mode = Hs.MODE_8BIT_BYTE), (this.data = t);
+      vo._withStripped = !0;
+      var yo = { MODE_NUMBER: 1, MODE_ALPHA_NUM: 2, MODE_8BIT_BYTE: 4, MODE_KANJI: 8 };
+      function bo(t) {
+        (this.mode = yo.MODE_8BIT_BYTE), (this.data = t);
       }
-      Fs.prototype = {
+      bo.prototype = {
         getLength: function (t) {
           return this.data.length;
         },
@@ -10117,12 +10591,12 @@ var source;
           for (var e = 0; e < this.data.length; e++) t.put(this.data.charCodeAt(e), 8);
         }
       };
-      var Gs = Fs,
-        zs = { L: 1, M: 0, Q: 3, H: 2 };
-      function Ws(t, e) {
+      var _o = bo,
+        wo = { L: 1, M: 0, Q: 3, H: 2 };
+      function Co(t, e) {
         (this.totalCount = t), (this.dataCount = e);
       }
-      (Ws.RS_BLOCK_TABLE = [
+      (Co.RS_BLOCK_TABLE = [
         [1, 26, 19],
         [1, 26, 16],
         [1, 26, 13],
@@ -10284,32 +10758,32 @@ var source;
         [34, 54, 24, 34, 55, 25],
         [20, 45, 15, 61, 46, 16]
       ]),
-        (Ws.getRSBlocks = function (t, e) {
-          var r = Ws.getRsBlockTable(t, e);
+        (Co.getRSBlocks = function (t, e) {
+          var r = Co.getRsBlockTable(t, e);
           if (null == r) throw new Error("bad rs block @ typeNumber:" + t + "/errorCorrectLevel:" + e);
           for (var i = r.length / 3, a = new Array(), s = 0; s < i; s++)
-            for (var o = r[3 * s + 0], n = r[3 * s + 1], c = r[3 * s + 2], l = 0; l < o; l++) a.push(new Ws(n, c));
+            for (var o = r[3 * s + 0], n = r[3 * s + 1], c = r[3 * s + 2], l = 0; l < o; l++) a.push(new Co(n, c));
           return a;
         }),
-        (Ws.getRsBlockTable = function (t, e) {
+        (Co.getRsBlockTable = function (t, e) {
           switch (e) {
-            case zs.L:
-              return Ws.RS_BLOCK_TABLE[4 * (t - 1) + 0];
-            case zs.M:
-              return Ws.RS_BLOCK_TABLE[4 * (t - 1) + 1];
-            case zs.Q:
-              return Ws.RS_BLOCK_TABLE[4 * (t - 1) + 2];
-            case zs.H:
-              return Ws.RS_BLOCK_TABLE[4 * (t - 1) + 3];
+            case wo.L:
+              return Co.RS_BLOCK_TABLE[4 * (t - 1) + 0];
+            case wo.M:
+              return Co.RS_BLOCK_TABLE[4 * (t - 1) + 1];
+            case wo.Q:
+              return Co.RS_BLOCK_TABLE[4 * (t - 1) + 2];
+            case wo.H:
+              return Co.RS_BLOCK_TABLE[4 * (t - 1) + 3];
             default:
               return;
           }
         });
-      var Ks = Ws;
-      function Ys() {
+      var xo = Co;
+      function To() {
         (this.buffer = new Array()), (this.length = 0);
       }
-      Ys.prototype = {
+      To.prototype = {
         get: function (t) {
           var e = Math.floor(t / 8);
           return 1 == ((this.buffer[e] >>> (7 - (t % 8))) & 1);
@@ -10326,36 +10800,36 @@ var source;
         }
       };
       for (
-        var Xs = Ys,
-          Qs = {
+        var ko = To,
+          So = {
             glog: function (t) {
               if (t < 1) throw new Error("glog(" + t + ")");
-              return Qs.LOG_TABLE[t];
+              return So.LOG_TABLE[t];
             },
             gexp: function (t) {
               for (; t < 0; ) t += 255;
               for (; t >= 256; ) t -= 255;
-              return Qs.EXP_TABLE[t];
+              return So.EXP_TABLE[t];
             },
             EXP_TABLE: new Array(256),
             LOG_TABLE: new Array(256)
           },
-          Js = 0;
-        Js < 8;
-        Js++
+          Ao = 0;
+        Ao < 8;
+        Ao++
       )
-        Qs.EXP_TABLE[Js] = 1 << Js;
-      for (Js = 8; Js < 256; Js++)
-        Qs.EXP_TABLE[Js] = Qs.EXP_TABLE[Js - 4] ^ Qs.EXP_TABLE[Js - 5] ^ Qs.EXP_TABLE[Js - 6] ^ Qs.EXP_TABLE[Js - 8];
-      for (Js = 0; Js < 255; Js++) Qs.LOG_TABLE[Qs.EXP_TABLE[Js]] = Js;
-      var to = Qs;
-      function eo(t, e) {
+        So.EXP_TABLE[Ao] = 1 << Ao;
+      for (Ao = 8; Ao < 256; Ao++)
+        So.EXP_TABLE[Ao] = So.EXP_TABLE[Ao - 4] ^ So.EXP_TABLE[Ao - 5] ^ So.EXP_TABLE[Ao - 6] ^ So.EXP_TABLE[Ao - 8];
+      for (Ao = 0; Ao < 255; Ao++) So.LOG_TABLE[So.EXP_TABLE[Ao]] = Ao;
+      var Po = So;
+      function No(t, e) {
         if (null == t.length) throw new Error(t.length + "/" + e);
         for (var r = 0; r < t.length && 0 == t[r]; ) r++;
         this.num = new Array(t.length - r + e);
         for (var i = 0; i < t.length - r; i++) this.num[i] = t[i + r];
       }
-      eo.prototype = {
+      No.prototype = {
         get: function (t) {
           return this.num[t];
         },
@@ -10364,27 +10838,27 @@ var source;
         },
         multiply: function (t) {
           for (var e = new Array(this.getLength() + t.getLength() - 1), r = 0; r < this.getLength(); r++)
-            for (var i = 0; i < t.getLength(); i++) e[r + i] ^= to.gexp(to.glog(this.get(r)) + to.glog(t.get(i)));
-          return new eo(e, 0);
+            for (var i = 0; i < t.getLength(); i++) e[r + i] ^= Po.gexp(Po.glog(this.get(r)) + Po.glog(t.get(i)));
+          return new No(e, 0);
         },
         mod: function (t) {
           if (this.getLength() - t.getLength() < 0) return this;
-          for (var e = to.glog(this.get(0)) - to.glog(t.get(0)), r = new Array(this.getLength()), i = 0; i < this.getLength(); i++)
+          for (var e = Po.glog(this.get(0)) - Po.glog(t.get(0)), r = new Array(this.getLength()), i = 0; i < this.getLength(); i++)
             r[i] = this.get(i);
-          for (i = 0; i < t.getLength(); i++) r[i] ^= to.gexp(to.glog(t.get(i)) + e);
-          return new eo(r, 0).mod(t);
+          for (i = 0; i < t.getLength(); i++) r[i] ^= Po.gexp(Po.glog(t.get(i)) + e);
+          return new No(r, 0).mod(t);
         }
       };
-      var ro = eo,
-        io = 0,
-        ao = 1,
-        so = 2,
-        oo = 3,
-        no = 4,
-        co = 5,
-        lo = 6,
-        uo = 7,
-        mo = {
+      var Eo = No,
+        Lo = 0,
+        $o = 1,
+        Ro = 2,
+        Oo = 3,
+        Mo = 4,
+        Bo = 5,
+        qo = 6,
+        Zo = 7,
+        Uo = {
           PATTERN_POSITION_TABLE: [
             [],
             [6, 18],
@@ -10431,13 +10905,13 @@ var source;
           G18: 7973,
           G15_MASK: 21522,
           getBCHTypeInfo: function (t) {
-            for (var e = t << 10; mo.getBCHDigit(e) - mo.getBCHDigit(mo.G15) >= 0; )
-              e ^= mo.G15 << (mo.getBCHDigit(e) - mo.getBCHDigit(mo.G15));
-            return ((t << 10) | e) ^ mo.G15_MASK;
+            for (var e = t << 10; Uo.getBCHDigit(e) - Uo.getBCHDigit(Uo.G15) >= 0; )
+              e ^= Uo.G15 << (Uo.getBCHDigit(e) - Uo.getBCHDigit(Uo.G15));
+            return ((t << 10) | e) ^ Uo.G15_MASK;
           },
           getBCHTypeNumber: function (t) {
-            for (var e = t << 12; mo.getBCHDigit(e) - mo.getBCHDigit(mo.G18) >= 0; )
-              e ^= mo.G18 << (mo.getBCHDigit(e) - mo.getBCHDigit(mo.G18));
+            for (var e = t << 12; Uo.getBCHDigit(e) - Uo.getBCHDigit(Uo.G18) >= 0; )
+              e ^= Uo.G18 << (Uo.getBCHDigit(e) - Uo.getBCHDigit(Uo.G18));
             return (t << 12) | e;
           },
           getBCHDigit: function (t) {
@@ -10445,56 +10919,56 @@ var source;
             return e;
           },
           getPatternPosition: function (t) {
-            return mo.PATTERN_POSITION_TABLE[t - 1];
+            return Uo.PATTERN_POSITION_TABLE[t - 1];
           },
           getMask: function (t, e, r) {
             switch (t) {
-              case io:
+              case Lo:
                 return (e + r) % 2 == 0;
-              case ao:
+              case $o:
                 return e % 2 == 0;
-              case so:
+              case Ro:
                 return r % 3 == 0;
-              case oo:
+              case Oo:
                 return (e + r) % 3 == 0;
-              case no:
+              case Mo:
                 return (Math.floor(e / 2) + Math.floor(r / 3)) % 2 == 0;
-              case co:
+              case Bo:
                 return ((e * r) % 2) + ((e * r) % 3) == 0;
-              case lo:
+              case qo:
                 return (((e * r) % 2) + ((e * r) % 3)) % 2 == 0;
-              case uo:
+              case Zo:
                 return (((e * r) % 3) + ((e + r) % 2)) % 2 == 0;
               default:
                 throw new Error("bad maskPattern:" + t);
             }
           },
           getErrorCorrectPolynomial: function (t) {
-            for (var e = new ro([1], 0), r = 0; r < t; r++) e = e.multiply(new ro([1, to.gexp(r)], 0));
+            for (var e = new Eo([1], 0), r = 0; r < t; r++) e = e.multiply(new Eo([1, Po.gexp(r)], 0));
             return e;
           },
           getLengthInBits: function (t, e) {
             if (1 <= e && e < 10)
               switch (t) {
-                case Hs.MODE_NUMBER:
+                case yo.MODE_NUMBER:
                   return 10;
-                case Hs.MODE_ALPHA_NUM:
+                case yo.MODE_ALPHA_NUM:
                   return 9;
-                case Hs.MODE_8BIT_BYTE:
-                case Hs.MODE_KANJI:
+                case yo.MODE_8BIT_BYTE:
+                case yo.MODE_KANJI:
                   return 8;
                 default:
                   throw new Error("mode:" + t);
               }
             else if (e < 27)
               switch (t) {
-                case Hs.MODE_NUMBER:
+                case yo.MODE_NUMBER:
                   return 12;
-                case Hs.MODE_ALPHA_NUM:
+                case yo.MODE_ALPHA_NUM:
                   return 11;
-                case Hs.MODE_8BIT_BYTE:
+                case yo.MODE_8BIT_BYTE:
                   return 16;
-                case Hs.MODE_KANJI:
+                case yo.MODE_KANJI:
                   return 10;
                 default:
                   throw new Error("mode:" + t);
@@ -10502,13 +10976,13 @@ var source;
             else {
               if (!(e < 41)) throw new Error("type:" + e);
               switch (t) {
-                case Hs.MODE_NUMBER:
+                case yo.MODE_NUMBER:
                   return 14;
-                case Hs.MODE_ALPHA_NUM:
+                case yo.MODE_ALPHA_NUM:
                   return 13;
-                case Hs.MODE_8BIT_BYTE:
+                case yo.MODE_8BIT_BYTE:
                   return 16;
-                case Hs.MODE_KANJI:
+                case yo.MODE_KANJI:
                   return 12;
                 default:
                   throw new Error("mode:" + t);
@@ -10557,8 +11031,8 @@ var source;
             return (r += 10 * (Math.abs((100 * d) / e / e - 50) / 5));
           }
         },
-        po = mo;
-      function ho(t, e) {
+        Ho = Uo;
+      function jo(t, e) {
         (this.typeNumber = t),
           (this.errorCorrectLevel = e),
           (this.modules = null),
@@ -10566,26 +11040,26 @@ var source;
           (this.dataCache = null),
           (this.dataList = []);
       }
-      var Io = ho.prototype;
-      (Io.addData = function (t) {
-        var e = new Gs(t);
+      var Fo = jo.prototype;
+      (Fo.addData = function (t) {
+        var e = new _o(t);
         this.dataList.push(e), (this.dataCache = null);
       }),
-        (Io.isDark = function (t, e) {
+        (Fo.isDark = function (t, e) {
           if (t < 0 || this.moduleCount <= t || e < 0 || this.moduleCount <= e) throw new Error(t + "," + e);
           return this.modules[t][e];
         }),
-        (Io.getModuleCount = function () {
+        (Fo.getModuleCount = function () {
           return this.moduleCount;
         }),
-        (Io.make = function () {
+        (Fo.make = function () {
           if (this.typeNumber < 1) {
             var t = 1;
             for (t = 1; t < 40; t++) {
-              for (var e = Ks.getRSBlocks(t, this.errorCorrectLevel), r = new Xs(), i = 0, a = 0; a < e.length; a++) i += e[a].dataCount;
+              for (var e = xo.getRSBlocks(t, this.errorCorrectLevel), r = new ko(), i = 0, a = 0; a < e.length; a++) i += e[a].dataCount;
               for (a = 0; a < this.dataList.length; a++) {
                 var s = this.dataList[a];
-                r.put(s.mode, 4), r.put(s.getLength(), po.getLengthInBits(s.mode, t)), s.write(r);
+                r.put(s.mode, 4), r.put(s.getLength(), Ho.getLengthInBits(s.mode, t)), s.write(r);
               }
               if (r.getLengthInBits() <= 8 * i) break;
             }
@@ -10593,7 +11067,7 @@ var source;
           }
           this.makeImpl(!1, this.getBestMaskPattern());
         }),
-        (Io.makeImpl = function (t, e) {
+        (Fo.makeImpl = function (t, e) {
           (this.moduleCount = 4 * this.typeNumber + 17), (this.modules = new Array(this.moduleCount));
           for (var r = 0; r < this.moduleCount; r++) {
             this.modules[r] = new Array(this.moduleCount);
@@ -10606,10 +11080,10 @@ var source;
             this.setupTimingPattern(),
             this.setupTypeInfo(t, e),
             this.typeNumber >= 7 && this.setupTypeNumber(t),
-            null == this.dataCache && (this.dataCache = ho.createData(this.typeNumber, this.errorCorrectLevel, this.dataList)),
+            null == this.dataCache && (this.dataCache = jo.createData(this.typeNumber, this.errorCorrectLevel, this.dataList)),
             this.mapData(this.dataCache, e);
         }),
-        (Io.setupPositionProbePattern = function (t, e) {
+        (Fo.setupPositionProbePattern = function (t, e) {
           for (var r = -1; r <= 7; r++)
             if (!(t + r <= -1 || this.moduleCount <= t + r))
               for (var i = -1; i <= 7; i++)
@@ -10620,15 +11094,15 @@ var source;
                     (0 <= i && i <= 6 && (0 == r || 6 == r)) ||
                     (2 <= r && r <= 4 && 2 <= i && i <= 4));
         }),
-        (Io.getBestMaskPattern = function () {
+        (Fo.getBestMaskPattern = function () {
           for (var t = 0, e = 0, r = 0; r < 8; r++) {
             this.makeImpl(!0, r);
-            var i = po.getLostPoint(this);
+            var i = Ho.getLostPoint(this);
             (0 == r || t > i) && ((t = i), (e = r));
           }
           return e;
         }),
-        (Io.createMovieClip = function (t, e, r) {
+        (Fo.createMovieClip = function (t, e, r) {
           var i = t.createEmptyMovieClip(e, r);
           this.make();
           for (var a = 0; a < this.modules.length; a++)
@@ -10639,12 +11113,12 @@ var source;
             }
           return i;
         }),
-        (Io.setupTimingPattern = function () {
+        (Fo.setupTimingPattern = function () {
           for (var t = 8; t < this.moduleCount - 8; t++) null == this.modules[t][6] && (this.modules[t][6] = t % 2 == 0);
           for (var e = 8; e < this.moduleCount - 8; e++) null == this.modules[6][e] && (this.modules[6][e] = e % 2 == 0);
         }),
-        (Io.setupPositionAdjustPattern = function () {
-          for (var t = po.getPatternPosition(this.typeNumber), e = 0; e < t.length; e++)
+        (Fo.setupPositionAdjustPattern = function () {
+          for (var t = Ho.getPatternPosition(this.typeNumber), e = 0; e < t.length; e++)
             for (var r = 0; r < t.length; r++) {
               var i = t[e],
                 a = t[r];
@@ -10653,8 +11127,8 @@ var source;
                   for (var o = -2; o <= 2; o++) this.modules[i + s][a + o] = -2 == s || 2 == s || -2 == o || 2 == o || (0 == s && 0 == o);
             }
         }),
-        (Io.setupTypeNumber = function (t) {
-          for (var e = po.getBCHTypeNumber(this.typeNumber), r = 0; r < 18; r++) {
+        (Fo.setupTypeNumber = function (t) {
+          for (var e = Ho.getBCHTypeNumber(this.typeNumber), r = 0; r < 18; r++) {
             var i = !t && 1 == ((e >> r) & 1);
             this.modules[Math.floor(r / 3)][(r % 3) + this.moduleCount - 8 - 3] = i;
           }
@@ -10663,8 +11137,8 @@ var source;
             this.modules[(r % 3) + this.moduleCount - 8 - 3][Math.floor(r / 3)] = i;
           }
         }),
-        (Io.setupTypeInfo = function (t, e) {
-          for (var r = (this.errorCorrectLevel << 3) | e, i = po.getBCHTypeInfo(r), a = 0; a < 15; a++) {
+        (Fo.setupTypeInfo = function (t, e) {
+          for (var r = (this.errorCorrectLevel << 3) | e, i = Ho.getBCHTypeInfo(r), a = 0; a < 15; a++) {
             var s = !t && 1 == ((i >> a) & 1);
             a < 6 ? (this.modules[a][8] = s) : a < 8 ? (this.modules[a + 1][8] = s) : (this.modules[this.moduleCount - 15 + a][8] = s);
           }
@@ -10678,14 +11152,14 @@ var source;
           }
           this.modules[this.moduleCount - 8][8] = !t;
         }),
-        (Io.mapData = function (t, e) {
+        (Fo.mapData = function (t, e) {
           for (var r = -1, i = this.moduleCount - 1, a = 7, s = 0, o = this.moduleCount - 1; o > 0; o -= 2)
             for (6 == o && o--; ; ) {
               for (var n = 0; n < 2; n++)
                 if (null == this.modules[i][o - n]) {
                   var c = !1;
                   s < t.length && (c = 1 == ((t[s] >>> a) & 1)),
-                    po.getMask(e, i, o - n) && (c = !c),
+                    Ho.getMask(e, i, o - n) && (c = !c),
                     (this.modules[i][o - n] = c),
                     -1 == --a && (s++, (a = 7));
                 }
@@ -10695,29 +11169,29 @@ var source;
               }
             }
         }),
-        (ho.PAD0 = 236),
-        (ho.PAD1 = 17),
-        (ho.createData = function (t, e, r) {
-          for (var i = Ks.getRSBlocks(t, e), a = new Xs(), s = 0; s < r.length; s++) {
+        (jo.PAD0 = 236),
+        (jo.PAD1 = 17),
+        (jo.createData = function (t, e, r) {
+          for (var i = xo.getRSBlocks(t, e), a = new ko(), s = 0; s < r.length; s++) {
             var o = r[s];
-            a.put(o.mode, 4), a.put(o.getLength(), po.getLengthInBits(o.mode, t)), o.write(a);
+            a.put(o.mode, 4), a.put(o.getLength(), Ho.getLengthInBits(o.mode, t)), o.write(a);
           }
           var n = 0;
           for (s = 0; s < i.length; s++) n += i[s].dataCount;
           if (a.getLengthInBits() > 8 * n) throw new Error("code length overflow. (" + a.getLengthInBits() + ">" + 8 * n + ")");
           for (a.getLengthInBits() + 4 <= 8 * n && a.put(0, 4); a.getLengthInBits() % 8 != 0; ) a.putBit(!1);
-          for (; !(a.getLengthInBits() >= 8 * n || (a.put(ho.PAD0, 8), a.getLengthInBits() >= 8 * n)); ) a.put(ho.PAD1, 8);
-          return ho.createBytes(a, i);
+          for (; !(a.getLengthInBits() >= 8 * n || (a.put(jo.PAD0, 8), a.getLengthInBits() >= 8 * n)); ) a.put(jo.PAD1, 8);
+          return jo.createBytes(a, i);
         }),
-        (ho.createBytes = function (t, e) {
+        (jo.createBytes = function (t, e) {
           for (var r = 0, i = 0, a = 0, s = new Array(e.length), o = new Array(e.length), n = 0; n < e.length; n++) {
             var c = e[n].dataCount,
               l = e[n].totalCount - c;
             (i = Math.max(i, c)), (a = Math.max(a, l)), (s[n] = new Array(c));
             for (var d = 0; d < s[n].length; d++) s[n][d] = 255 & t.buffer[d + r];
             r += c;
-            var u = po.getErrorCorrectPolynomial(l),
-              m = new ro(s[n], u.getLength() - 1).mod(u);
+            var u = Ho.getErrorCorrectPolynomial(l),
+              m = new Eo(s[n], u.getLength() - 1).mod(u);
             o[n] = new Array(u.getLength() - 1);
             for (d = 0; d < o[n].length; d++) {
               var p = d + m.getLength() - o[n].length;
@@ -10726,14 +11200,14 @@ var source;
           }
           var h = 0;
           for (d = 0; d < e.length; d++) h += e[d].totalCount;
-          var I = new Array(h),
-            g = 0;
-          for (d = 0; d < i; d++) for (n = 0; n < e.length; n++) d < s[n].length && (I[g++] = s[n][d]);
-          for (d = 0; d < a; d++) for (n = 0; n < e.length; n++) d < o[n].length && (I[g++] = o[n][d]);
-          return I;
+          var g = new Array(h),
+            I = 0;
+          for (d = 0; d < i; d++) for (n = 0; n < e.length; n++) d < s[n].length && (g[I++] = s[n][d]);
+          for (d = 0; d < a; d++) for (n = 0; n < e.length; n++) d < o[n].length && (g[I++] = o[n][d]);
+          return g;
         });
-      var go = ho;
-      var fo = {
+      var Go = jo;
+      var zo = {
         props: {
           value: { type: String, required: !0, default: "" },
           className: { type: String, default: "" },
@@ -10780,7 +11254,7 @@ var source;
               a = this.foreground,
               s = this.renderAs,
               o = e >>> 0,
-              n = new go(-1, zs[r]);
+              n = new Go(-1, wo[r]);
             n.addData(
               (function (t) {
                 for (var e = "", r = 0; r < t.length; r++) {
@@ -10891,23 +11365,23 @@ var source;
           ]);
         }
       };
-      const Do = fo;
-      var Vo = r(7027),
-        vo = r(8068),
-        yo = r(2568),
-        bo = r.n(yo);
-      g().use(bo());
-      const _o = g().extend({
+      const Wo = zo;
+      var Ko = r(77027),
+        Yo = r(8068),
+        Xo = r(32568),
+        Qo = r.n(Xo);
+      I().use(Qo());
+      const Jo = I().extend({
           components: {
             RLink: It.Z,
-            RButton: P.Z,
-            RHeadingLogo: N.Z,
-            RShareButtons: ni,
-            RForm: it.Z,
-            RTagFloating: Vo.Z,
-            QrcodeVue: Do,
-            RadiantFeed: Na,
-            ProductTile: vo.Z
+            RButton: N.Z,
+            RHeadingLogo: E.Z,
+            RShareButtons: ci,
+            RForm: at.Z,
+            RTagFloating: Ko.Z,
+            QrcodeVue: Wo,
+            RadiantFeed: La,
+            ProductTile: Yo.Z
           },
           props: {
             merchant: { type: Object, required: !0 },
@@ -10923,7 +11397,7 @@ var source;
           data: () => ({ category: "PostPurchase", module_type: jr.b }),
           computed: {
             memberReferralAmountFormatted() {
-              return me().formatMoney(this.memberReferralAmount, "$", 0);
+              return pe().formatMoney(this.memberReferralAmount, "$", 0);
             },
             isMobileExtension() {
               return "Mobile Extension" === this.entityName;
@@ -10991,15 +11465,15 @@ var source;
             }
           }
         }),
-        wo = _o;
-      const Co = (0, S.Z)(wo, js, [], !1, null, null, null).exports,
-        So = "Address",
-        ko = "Desktop Notification",
-        xo = "RAF",
-        To = "Mobile Extension",
-        Ao = "Cart Abandonment PPC",
-        Po = g().extend({
-          components: { OrderConfirmationForm: Co },
+        tn = Jo;
+      const en = (0, T.Z)(tn, vo, [], !1, null, null, null).exports,
+        rn = "Address",
+        an = "Desktop Notification",
+        sn = "RAF",
+        on = "Mobile Extension",
+        nn = "Cart Abandonment PPC",
+        cn = I().extend({
+          components: { OrderConfirmationForm: en },
           props: {
             merchant: { type: Object, required: !0 },
             settings: { type: Object, required: !0 },
@@ -11015,38 +11489,38 @@ var source;
             if (
               ((this.tafSettings = await (0, l.Z)("getTafSettings", { force: !0 })),
               (this.entity_name = await this.calcEntityName()),
-              this.entity_name === To)
+              this.entity_name === on)
             ) {
               const t = await (0, l.Z)("getSessionID"),
                 e = encodeURIComponent(t);
-              this.qrCodeUrl = (0, h.h1)((0, y.Z)(Hr.ZP.WEB_MOBILE_EXTENSION), { desktop_session_id: e });
+              this.qrCodeUrl = (0, h.h1)((0, b.Z)(Fr.ZP.WEB_MOBILE_EXTENSION), { desktop_session_id: e });
             }
             this.render(), (0, u.PI)();
           },
           methods: {
             async calcEntityName() {
-              let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [Ao, To, So, ko, xo];
+              let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : [nn, on, rn, an, sn];
               const e = ((await c.Z.extension.getItem("postPurchaseCounter")) || 0) % t.length;
               for (let r = e; r < e + t.length; ++r) {
                 const e = r % t.length,
                   i = t[e];
-                if ((c.Z.extension.setItem("postPurchaseCounter", e + 1), i === Ao && (await this.checkAndSetAbandonedProducts())))
-                  return Ao;
+                if ((c.Z.extension.setItem("postPurchaseCounter", e + 1), i === nn && (await this.checkAndSetAbandonedProducts())))
+                  return nn;
                 if (
                   !(
-                    i !== So ||
+                    i !== rn ||
                     (this.member.hasPaymentAddress && this.member.hasPaymentAddress.postal) ||
                     "PayPal" === this.member.paymentMethod ||
                     this.member.isAmexUser ||
                     this.settings.postPurchaseMessageAddressUpdated
                   )
                 )
-                  return So;
-                if (i === ko && c.Z.browser.isWebkit && "granted" !== this.settings.notificationsEnabled) return ko;
-                if (i === To && (await this.isUserElegibleToInstallSafariButton())) return To;
-                if (i === xo) return xo;
+                  return rn;
+                if (i === an && c.Z.browser.isWebkit && "granted" !== this.settings.notificationsEnabled) return an;
+                if (i === on && (await this.isUserElegibleToInstallSafariButton())) return on;
+                if (i === sn) return sn;
               }
-              return xo;
+              return sn;
             },
             async checkAndSetAbandonedProducts() {
               const t = await (0, l.Z)("getProductsPostPurchase");
@@ -11058,7 +11532,7 @@ var source;
             track(t) {
               let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
               return (
-                this.entity_name === xo && (e.type = (this.memberReferralAmount ? "has" : "never") + " referred"),
+                this.entity_name === sn && (e.type = (this.memberReferralAmount ? "has" : "never") + " referred"),
                 d.Z.track(t, {
                   module_type: this.module_type,
                   entity_name: this.entity_name,
@@ -11073,26 +11547,26 @@ var source;
                 (0, l.Z)("getBrowserNotificationPermission", "Post Purchase");
             },
             updateAddress() {
-              const t = (0, y.Z)("/account-settings.htm?add-address-modal=true&tb=yes&eeid=26117&sourceName=toolbar");
+              const t = (0, b.Z)("/account-settings.htm?add-address-modal=true&tb=yes&eeid=26117&sourceName=toolbar");
               (0, l.Z)("settings", { postPurchaseMessage: !0, postPurchaseMessageAddressUpdated: !0 }), this.navigate(t);
             },
             getCashBackDetails() {
-              return { store_name: this.merchant.storeName, store_id: this.merchant.storeId, ...(0, vt.L)(this.merchant.reward) };
+              return { store_name: this.merchant.storeName, store_id: this.merchant.storeId, ...(0, yt.L)(this.merchant.reward) };
             },
             async render() {
               (await (0, u.By)()).appendChild(this.$el), this.show();
             },
             show() {
               if (((this.visible = !0), this.module_type && this.entity_name))
-                if (this.entity_name === Ao) {
+                if (this.entity_name === nn) {
                   const t = {
-                    domain: (0, re.g)(document.location.href),
+                    domain: (0, ie.g)(document.location.href),
                     displayed_item_count: this.abandonedProducts.length,
                     product_list: this.abandonedProducts.map((t) => (0, h.HI)(t))
                   };
                   this.track("View Module", t);
-                } else this.track("View Module", (0, vt.L)(this.merchant.reward));
-              this.entity_name === xo &&
+                } else this.track("View Module", (0, yt.L)(this.merchant.reward));
+              this.entity_name === sn &&
                 this.track("Visit Refer A Friend", {
                   referral_token: this.member.shortURLToken,
                   source: jr.b,
@@ -11107,15 +11581,15 @@ var source;
               (this.visible = !1), setTimeout(() => this.$destroy(), 200);
             },
             clickLink(t) {
-              this.navigate((0, y.Z)(t));
+              this.navigate((0, b.Z)(t));
             },
             openReferralTermsPage() {
-              this.navigate((0, y.Z)(Hr.ZP.WEB_TC));
+              this.navigate((0, b.Z)(Fr.ZP.WEB_TC));
             },
             navigate(t) {
               this.track("Visit Page", { preceding_screen_name: this.module_type, url: t }),
                 setTimeout(() => {
-                  (0, b.Z)(t);
+                  (0, _.Z)(t);
                 }, 100);
             },
             async isUserElegibleToInstallSafariButton() {
@@ -11130,43 +11604,43 @@ var source;
             }
           }
         }),
-        No = Po;
-      const Eo = (0, S.Z)(No, Us, [], !1, null, null, null).exports;
-      let $o, Lo, Oo;
-      const Ro = [];
-      function Mo(t) {
-        (Lo = t.merchant),
-          ($o = t.settings),
-          (Oo = Date.now()),
+        ln = cn;
+      const dn = (0, T.Z)(ln, Vo, [], !1, null, null, null).exports;
+      let un, mn, pn;
+      const hn = [];
+      function gn(t) {
+        (mn = t.merchant),
+          (un = t.settings),
+          (pn = Date.now()),
           s()(window).on("error.ebConfirmation", (t) => {
             const e = t.originalEvent;
-            Ro.push({ code: "javascript", description: e.message, source: `${e.filename}:${e.lineno}`, timestamp: Date.now() });
+            hn.push({ code: "javascript", description: e.message, source: `${e.filename}:${e.lineno}`, timestamp: Date.now() });
           }),
-          1 !== Lo.storeId &&
+          1 !== mn.storeId &&
             (async function () {
               try {
                 const t = await new Promise((t, e) => {
                   if (!document.body) return void e("No document.body found");
                   const r = (0, i.debounce)(() => {
                       const e = location.href;
-                      if (Lo.orderConfirmationURLRegex) {
-                        if (new RegExp(Lo.orderConfirmationURLRegex).test(e)) {
+                      if (mn.orderConfirmationURLRegex) {
+                        if (new RegExp(mn.orderConfirmationURLRegex).test(e)) {
                           const e = (function (t) {
                             let e = document.documentElement.innerHTML;
-                            if (10226 === Lo.storeId)
+                            if (10226 === mn.storeId)
                               try {
                                 const t = document.getElementById("orderconfirmpixel");
                                 e = t.contentWindow?.document.documentElement.innerHTML ?? "";
                               } catch (t) {}
                             return !e || (t && !new RegExp(t).test(e)) ? "" : e;
-                          })(Lo.orderConfirmationDOMRegex);
+                          })(mn.orderConfirmationDOMRegex);
                           e && (a.disconnect(), t(e));
                         }
                       } else {
                         const r = document.body?.innerText,
                           i = document.documentElement.innerHTML,
-                          s = $o.orderConfirmationConfig,
-                          { score: o } = (0, Zs.isOrderConfirmation)({ url: e, html: i, text: r, config: s });
+                          s = un.orderConfirmationConfig,
+                          { score: o } = (0, Do.isOrderConfirmation)({ url: e, html: i, text: r, config: s });
                         if (o >= 1) return a.disconnect(), t(i);
                       }
                     }, 1e3),
@@ -11179,50 +11653,51 @@ var source;
                 });
                 await (async function () {
                   const t = await (0, l.Z)("getMerchant", { url: location.href });
-                  t && (Lo = t);
+                  t && (mn = t);
                 })(),
                   await (function (t) {
-                    if (Lo.orderConfirmationURLRegex)
+                    if (mn.orderConfirmationURLRegex)
                       return (0, l.Z)("CaptureOrderPage", {
                         content: t,
-                        load_time: Date.now() - Oo,
-                        javascript_error: !!Ro.length,
-                        merchant: Lo
+                        load_time: Date.now() - pn,
+                        javascript_error: !!hn.length,
+                        merchant: mn
                       });
                     return Promise.resolve();
                   })(t),
-                  await (0, l.Z)("flushImmerseSession", { storeId: Lo.storeId }),
+                  await (0, l.Z)("flushImmerseSession", { storeId: mn.storeId }),
                   (async function () {
                     if (
-                      (Lo.orderConfirmationURLRegex || $o.featureFlags.confirmation) &&
-                      $o.postPurchaseMessage &&
-                      Lo.activated &&
-                      Lo.offers_cb &&
-                      Lo["notification-confirmation"]
+                      (mn.orderConfirmationURLRegex || un.featureFlags.confirmation) &&
+                      un.postPurchaseMessage &&
+                      mn.activated &&
+                      mn.offers_cb &&
+                      mn["notification-confirmation"]
                     ) {
                       const t = document.body?.innerText,
-                        e = (0, Zs.getOrderConfirmationNumber)(t);
+                        e = (0, Do.getOrderConfirmationNumber)(t);
                       d.Z.track("View Order Confirmation", {
-                        store_id: Lo.storeId,
+                        store_id: mn.storeId,
                         location_flag: "merchant",
                         url: location.host + location.pathname,
-                        on_ebates: Lo.storeId ? "Y" : "N",
-                        offers_cb: Lo.offers_cb ? "Y" : "N",
-                        ebates_trip: Lo.activated ? "Y" : "N",
-                        tracking_ticket: Lo.shoppingTrip.ttn || "None",
+                        on_ebates: mn.storeId ? "Y" : "N",
+                        offers_cb: mn.offers_cb ? "Y" : "N",
+                        ebates_trip: mn.activated ? "Y" : "N",
+                        tracking_ticket: mn.shoppingTrip.ttn || "None",
                         order_confirmation_number: e,
-                        icb: Lo.icbEnabled
+                        icb: mn.icbEnabled
                       }),
-                        (0, l.Z)("updateMerchantSession", { storeId: Lo.storeId, "notification-confirmation": !1 });
+                        (0, l.Z)("updateMerchantSession", { storeId: mn.storeId, "notification-confirmation": !1 });
                       const r = await (0, l.Z)("account", {});
-                      new Eo({ propsData: { merchant: Lo, settings: $o, member: r } }).$mount();
+                      new dn({ propsData: { merchant: mn, settings: un, member: r } }).$mount(),
+                        c.Z.extension.fireEvent("hideRab", { data: { merchant: mn } });
                     }
                   })(),
                   s()(window).off("error.ebConfirmation");
               } catch (t) {}
             })();
       }
-      var Bo = function () {
+      var In = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -11261,10 +11736,10 @@ var source;
             : t._e()
         ]);
       };
-      Bo._withStripped = !0;
-      var qo = r(6818);
-      const Zo = g().extend({
-        components: { RButton: P.Z, RCloseButton: w.Z, RHeadingLogo: N.Z },
+      In._withStripped = !0;
+      var fn = r(46818);
+      const Dn = I().extend({
+        components: { RButton: N.Z, RCloseButton: C.Z, RHeadingLogo: E.Z },
         props: {
           content: { type: String, required: !0 },
           config: { type: Object, required: !0 },
@@ -11274,17 +11749,17 @@ var source;
         computed: {
           sanitizedContent() {
             const t = this.content.replace(/\{(.+?)\}/g, (t, e) => this.replaceMacro(e));
-            return (0, H.Z)(t);
+            return (0, F.Z)(t);
           },
           buttonText() {
-            return (0, H.Z)(this.config.button?.text || "Get Savings");
+            return (0, F.Z)(this.config.button?.text || "Get Savings");
           }
         },
         mounted() {
           (this.visible = !0),
             this.$nextTick(() => {
               const t = document.querySelector(this.config.anchorSelector)?.parentNode;
-              (0, qo.fi)(
+              (0, fn.fi)(
                 t,
                 this.$refs.rootEl,
                 this.config.popper || {
@@ -11322,8 +11797,8 @@ var source;
           }
         }
       });
-      const Uo = (0, S.Z)(Zo, Bo, [], !1, null, null, null).exports;
-      var jo = function () {
+      const Vn = (0, T.Z)(Dn, In, [], !1, null, null, null).exports;
+      var vn = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -11342,9 +11817,9 @@ var source;
             })
           : t._e();
       };
-      jo._withStripped = !0;
-      const Ho = g().extend({
-        components: { PromoTooltip: Uo },
+      vn._withStripped = !0;
+      const yn = I().extend({
+        components: { PromoTooltip: Vn },
         props: {
           content: { type: String, required: !0 },
           config: { type: Object, required: !0 },
@@ -11380,8 +11855,8 @@ var source;
             const { monthlyPriceSelector: t, yearPriceSelector: e } = this.config,
               r = document.querySelector(t)?.innerText,
               i = document.querySelector(e)?.innerText,
-              a = ar(r),
-              s = ar(i);
+              a = sr(r),
+              s = sr(i);
             if (a && s) {
               return parseFloat((12 * a - s).toFixed(2), 10);
             }
@@ -11394,28 +11869,28 @@ var source;
           }
         }
       });
-      const Fo = (0, S.Z)(Ho, jo, [], !1, null, null, null).exports;
-      let Go,
-        zo,
-        Wo,
-        Ko,
-        Yo,
-        Xo,
-        Qo,
-        Jo,
-        tn = null;
-      function en() {
-        clearTimeout(Xo),
-          new RegExp(Wo.config.matchPattern).test(location.href)
-            ? (Xo = setTimeout(() => {
-                (0, m.X_)(Wo.config.anchorSelector, 6e4)
-                  .then(() => on())
+      const bn = (0, T.Z)(yn, vn, [], !1, null, null, null).exports;
+      let _n,
+        wn,
+        Cn,
+        xn,
+        Tn,
+        kn,
+        Sn,
+        An,
+        Pn = null;
+      function Nn() {
+        clearTimeout(kn),
+          new RegExp(Cn.config.matchPattern).test(location.href)
+            ? (kn = setTimeout(() => {
+                (0, m.X_)(Cn.config.anchorSelector, 6e4)
+                  .then(() => Rn())
                   .catch(() => {});
               }, 1e3))
-            : tn && (tn.hide(), (tn = null));
+            : Pn && (Pn.hide(), (Pn = null));
       }
-      function rn() {
-        Wo.config.actions?.clicks?.forEach((t) => {
+      function En() {
+        Cn.config.actions?.clicks?.forEach((t) => {
           const e = document.querySelector(t);
           if (e) {
             const t = new MouseEvent("click", { bubbles: !0 });
@@ -11423,64 +11898,64 @@ var source;
           }
         });
       }
-      function an(t) {
+      function Ln(t) {
         let { storeId: e, ...r } = t;
-        Object.keys(r).forEach((t) => (Go[t] = r[t])), (0, l.Z)("updateMerchantSession", { storeId: e, ...r });
+        Object.keys(r).forEach((t) => (_n[t] = r[t])), (0, l.Z)("updateMerchantSession", { storeId: e, ...r });
       }
-      function sn(t) {
+      function $n(t) {
         let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-        d.Z.track(t, { module_type: Ko, entity_name: Yo, store_id: Go.storeId, store_name: Go.storeName, domain: location.host, ...e });
+        d.Z.track(t, { module_type: xn, entity_name: Tn, store_id: _n.storeId, store_name: _n.storeName, domain: location.host, ...e });
       }
-      async function on() {
-        if (!Go.hidePromoTooltip && !tn) {
+      async function Rn() {
+        if (!_n.hidePromoTooltip && !Pn) {
           const t = await (0, u.By)(),
-            e = "DisneyPlus" === Wo.id ? Fo : Uo;
-          (Go.tiers = await (0, l.Z)("getTiers", { storeId: Go.storeId })),
-            (tn = new e({ propsData: { content: Wo.config.content, config: Wo.config, merchant: Go } })),
-            tn.$on("update-merchant", (t) => an(t)),
-            tn.$on("clickCTA", () => {
-              Go?.activated
-                ? (sn("Click Module", { cta_type: "Activate" }), rn())
-                : Go &&
-                  !Go.activated &&
+            e = "DisneyPlus" === Cn.id ? bn : Vn;
+          (_n.tiers = await (0, l.Z)("getTiers", { storeId: _n.storeId })),
+            (Pn = new e({ propsData: { content: Cn.config.content, config: Cn.config, merchant: _n } })),
+            Pn.$on("update-merchant", (t) => Ln(t)),
+            Pn.$on("clickCTA", () => {
+              _n?.activated
+                ? ($n("Click Module", { cta_type: "Activate" }), En())
+                : _n &&
+                  !_n.activated &&
                   ((0, l.Z)("activate", {
-                    storeId: Go.storeId,
+                    storeId: _n.storeId,
                     store_url: document.location.href,
                     forceBackgroundActivation: !0,
-                    sessionAttributes: { source: `${Yo} ${Ko}` }
+                    sessionAttributes: { source: `${Tn} ${xn}` }
                   }),
-                  rn()),
-                tn.hide();
+                  En()),
+                Pn.hide();
             }),
-            tn.$on("clickClose", () => {
-              tn.hide(), sn("Click Module", { cta_type: "close" }), an({ storeId: Go.storeId, hidePromoTooltip: !0 });
+            Pn.$on("clickClose", () => {
+              Pn.hide(), $n("Click Module", { cta_type: "close" }), Ln({ storeId: _n.storeId, hidePromoTooltip: !0 });
             }),
-            tn.$on("track", (t) => {
+            Pn.$on("track", (t) => {
               let { eventName: e, ...r } = t;
-              sn(e, r);
+              $n(e, r);
             }),
-            t.appendChild(tn.$mount().$el);
+            t.appendChild(Pn.$mount().$el);
         }
       }
-      let nn = null;
-      function cn(t) {
+      let On = null;
+      function Mn(t) {
         c.Z.browser.isWebkit &&
-          ((Qo = t.merchant),
-          (Jo = t.settings),
-          Jo &&
+          ((Sn = t.merchant),
+          (An = t.settings),
+          An &&
             (async function () {
               if (c.Z.browser.isChrome) {
                 const t = await (0, l.Z)("installedExtensions");
-                Jo = Jo.filter((e) => {
+                An = An.filter((e) => {
                   let { name: r } = e;
                   return t?.includes(r);
                 });
               }
-              if (Jo.length) {
+              if (An.length) {
                 const t = (0, i.debounce)(() => {
-                  Jo.filter((t) => !ln(t, "click") && un(t.selector)).forEach((t) => {
-                    if ((Jo.splice(Jo.indexOf(t), 1), ln(t, "show") || dn(t, "show"), !ln(t, "clicked"))) {
-                      const e = un(t.selector);
+                  An.filter((t) => !Bn(t, "click") && Zn(t.selector)).forEach((t) => {
+                    if ((An.splice(An.indexOf(t), 1), Bn(t, "show") || qn(t, "show"), !Bn(t, "clicked"))) {
+                      const e = Zn(t.selector);
                       e &&
                         e.addEventListener("click", (e) =>
                           (function (t, e) {
@@ -11489,36 +11964,36 @@ var source;
                               a = i.id ? `#${i.id}` : "",
                               s = i.classList ? [...i.classList].map((t) => `.${t}`).join("") : "",
                               o = `${i.tagName}${a}${s}`;
-                            dn({ target: o, ...e }, "click");
+                            qn({ target: o, ...e }, "click");
                           })(e, t)
                         );
                     }
                   }),
-                    0 === Jo.length && nn?.disconnect();
+                    0 === An.length && On?.disconnect();
                 }, 1e3);
-                (nn = new MutationObserver(t)),
-                  nn.observe(document.documentElement, { attributes: !1, childList: !0, subtree: !1 }),
-                  nn.observe(document.body, { attributes: !1, childList: !0, subtree: !1 }),
+                (On = new MutationObserver(t)),
+                  On.observe(document.documentElement, { attributes: !1, childList: !0, subtree: !1 }),
+                  On.observe(document.body, { attributes: !1, childList: !0, subtree: !1 }),
                   t();
               }
             })());
       }
-      function ln(t, e) {
-        return sessionStorage[`rr-sdt-${t.name}-${e}`] === Qo.shoppingTrip.ttn;
+      function Bn(t, e) {
+        return sessionStorage[`rr-sdt-${t.name}-${e}`] === Sn.shoppingTrip.ttn;
       }
-      function dn(t, e) {
+      function qn(t, e) {
         var r;
-        (r = e), (sessionStorage[`rr-sdt-${t.name}-${r}`] = Qo.shoppingTrip.ttn);
+        (r = e), (sessionStorage[`rr-sdt-${t.name}-${r}`] = Sn.shoppingTrip.ttn);
         const i = "show" === e ? "View Competitor UI" : "Click Competitor UI";
         d.Z.track(i, {
-          store_id: Qo.storeId,
+          store_id: Sn.storeId,
           url: location.host + location.pathname,
           type: t.name,
-          tracking_ticket: Qo.ttn,
+          tracking_ticket: Sn.shoppingTrip.ttn,
           target: t.target
         });
       }
-      function un(t) {
+      function Zn(t) {
         return (function (t) {
           let e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document.documentElement;
           return t.split("::shadow").reduce(
@@ -11537,7 +12012,7 @@ var source;
           );
         })(t, arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : document.documentElement)[0];
       }
-      var mn = function () {
+      var Un = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -11548,8 +12023,8 @@ var source;
             })
           : t._e();
       };
-      mn._withStripped = !0;
-      var pn = function () {
+      Un._withStripped = !0;
+      var Hn = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -11593,20 +12068,20 @@ var source;
           1
         );
       };
-      pn._withStripped = !0;
-      const hn = g().extend({
-        components: { RPopover: ae.Z, RButton: P.Z, RHeadingLogo: N.Z, RCloseButton: w.Z },
+      Hn._withStripped = !0;
+      const jn = I().extend({
+        components: { RPopover: se.Z, RButton: N.Z, RHeadingLogo: E.Z, RCloseButton: C.Z },
         props: {
           activationReminderMessage: { type: String, default: "" },
           reward: { type: Object, required: !0 },
           anchor: { type: Object, default: null }
         },
         emits: ["clickClose"],
-        methods: { sanitizeHtml: H.Z, formatCashBack: f.l }
+        methods: { sanitizeHtml: F.Z, formatCashBack: f.l }
       });
-      const In = (0, S.Z)(hn, pn, [], !1, null, null, null).exports,
-        gn = g().extend({
-          components: { ActivationTrackerView: In },
+      const Fn = (0, T.Z)(jn, Hn, [], !1, null, null, null).exports,
+        Gn = I().extend({
+          components: { ActivationTrackerView: Fn },
           props: { merchant: { type: Object, required: !0 }, anchor: { type: Object, default: null } },
           data: () => ({ entity_name: "Walmart pop-over", module_type: "tooltip", visible: !1, currentUrl: "" }),
           async mounted() {
@@ -11637,7 +12112,7 @@ var source;
                 this.track("View Module", {
                   store_id: this.merchant.storeId,
                   store_name: this.merchant.storeName,
-                  ...(0, vt.L)(this.merchant.reward)
+                  ...(0, yt.L)(this.merchant.reward)
                 });
             },
             hide() {
@@ -11652,34 +12127,35 @@ var source;
             }
           }
         });
-      const fn = (0, S.Z)(gn, mn, [], !1, null, null, null).exports;
-      let Dn = null;
-      function Vn(t) {
-        if (document.body && !sessionStorage.getItem("rr-activation-tracker-closed")) {
-          const e = new MutationObserver(
+      const zn = (0, T.Z)(Gn, Un, [], !1, null, null, null).exports;
+      let Wn = null;
+      function Kn(t) {
+        const e = t.activationReminderTrigger;
+        if (e && document.body && !sessionStorage.getItem("rr-activation-tracker-closed")) {
+          const r = new MutationObserver(
             (0, i.debounce)(() => {
-              !(async function (t, e) {
-                const r = document.querySelector(e.activationReminderTrigger);
-                r
-                  ? Dn ||
-                    (Dn = new fn({
-                      propsData: { merchant: e, anchor: r },
+              !(async function (t, e, r) {
+                const i = document.querySelector(e);
+                i
+                  ? Wn ||
+                    (Wn = new zn({
+                      propsData: { merchant: r, anchor: i },
                       methods: {
                         disconnectObserver() {
                           t.disconnect();
                         }
                       }
                     }).$mount())
-                  : Dn && (Dn.remove(), (Dn = null));
-              })(e, t);
+                  : Wn && (Wn.remove(), (Wn = null));
+              })(r, e, t);
             }, 500)
           );
-          e.observe(document.body, { attributes: !1, childList: !0, subtree: !0 });
+          r.observe(document.body, { attributes: !1, childList: !0, subtree: !0 });
         }
       }
-      const vn = "rr-coupon-scrape",
-        yn = ["click"];
-      class bn {
+      const Yn = "rr-coupon-scrape",
+        Xn = ["click"];
+      class Qn {
         scrapedCoupon = "";
         scrapedErrorMessage = "";
         preCouponOrderTotal = null;
@@ -11715,7 +12191,7 @@ var source;
           } catch (t) {}
         }
         loadCouponScrapeState() {
-          const t = localStorage.getItem(vn);
+          const t = localStorage.getItem(Yn);
           if (t) {
             const e = JSON.parse(t);
             e.url === this.url &&
@@ -11726,7 +12202,7 @@ var source;
               (this.couponAutofilled = e.couponAutofilled),
               (this.scrapedErrorMessage = this.getErrorMessage()),
               this.sendCouponScrapedEvents(),
-              localStorage.removeItem(vn));
+              localStorage.removeItem(Yn));
           }
         }
         setupPageUnloadMonitor() {
@@ -11746,7 +12222,7 @@ var source;
             preCouponOrderTotal: this.preCouponOrderTotal,
             couponAutofilled: this.couponAutofilled
           };
-          localStorage.setItem(vn, JSON.stringify(t));
+          localStorage.setItem(Yn, JSON.stringify(t));
         }
         isControlsAvailable() {
           const t = s()(this.couponInputSelector).get(0),
@@ -11754,7 +12230,7 @@ var source;
           return (this.preCouponOrderTotal = this.extractOrderTotal(this.orderTotalSelector)), !!(t && this.preCouponOrderTotal && e);
         }
         setupEventListeners() {
-          if (this.applyButton) for (const t of yn) this.applyButton.removeEventListener(t, this.applyButtonListener, !1);
+          if (this.applyButton) for (const t of Xn) this.applyButton.removeEventListener(t, this.applyButtonListener, !1);
           if (this.isControlsAvailable()) this.attachEvents();
           else {
             const t = new MutationObserver(
@@ -11771,7 +12247,7 @@ var source;
             (this.applyButton = s()(this.applyButtonSelector).get(0)),
             this.applyButton)
           )
-            for (const t of yn) this.applyButton.addEventListener(t, this.applyButtonListener, !1);
+            for (const t of Xn) this.applyButton.addEventListener(t, this.applyButtonListener, !1);
         }
         applyButtonClicked(t) {
           this.couponInput && this.couponInput.value.trim() && this.initializeCouponMonitor(this.couponInput, t);
@@ -11828,65 +12304,64 @@ var source;
             store_name: this.merchant.storeName,
             pre_coupon_subtotal: this.preCouponOrderTotal,
             post_coupon_subtotal: this.postCouponOrderTotal,
-            ...(0, vt.L)(this.merchant.reward)
+            ...(0, yt.L)(this.merchant.reward)
           };
         }
         extractOrderTotal(t) {
           const e = { selector: t },
-            r = me().unformat((0, m.MT)(e));
+            r = pe().unformat((0, m.MT)(e));
           return r && 0 !== r ? r : null;
         }
       }
-      var _n = r(507),
-        wn = function () {
-          var t = this,
-            e = t._self._c;
-          t._self._setupProxy;
-          return e("transition", { attrs: { name: "rr-slide-fade" } }, [
-            t.visible && (t.recommendedStore || t.promo.url)
-              ? e(
-                  "aside",
-                  {
-                    staticClass: "rr-modal-backdrop",
-                    attrs: { "data-tid": "no-cash-back-interrupt", role: "dialog" },
-                    on: {
-                      click: function (e) {
-                        return e.target !== e.currentTarget ? null : t.close("backdrop");
-                      }
+      var Jn = function () {
+        var t = this,
+          e = t._self._c;
+        t._self._setupProxy;
+        return e("transition", { attrs: { name: "rr-slide-fade" } }, [
+          t.visible && (t.recommendedStore || t.promo.url)
+            ? e(
+                "aside",
+                {
+                  staticClass: "rr-modal-backdrop",
+                  attrs: { "data-tid": "no-cash-back-interrupt", role: "dialog" },
+                  on: {
+                    click: function (e) {
+                      return e.target !== e.currentTarget ? null : t.close("backdrop");
                     }
-                  },
-                  [
-                    e(
-                      "div",
-                      { staticStyle: { position: "fixed", top: "10px", right: "10px", background: "transparent" } },
-                      [
-                        e("r-close-button", {
-                          on: {
-                            click: function (e) {
-                              return t.close("close");
-                            }
+                  }
+                },
+                [
+                  e(
+                    "div",
+                    { staticStyle: { position: "fixed", top: "10px", right: "10px", background: "transparent" } },
+                    [
+                      e("r-close-button", {
+                        on: {
+                          click: function (e) {
+                            return t.close("close");
                           }
-                        }),
-                        e("img", {
-                          staticClass: "rr-cursor-pointer",
-                          attrs: { alt: "", src: t.interruptImage },
-                          on: {
-                            click: function (e) {
-                              return e.stopPropagation(), t.activate.apply(null, arguments);
-                            }
+                        }
+                      }),
+                      e("img", {
+                        staticClass: "rr-cursor-pointer",
+                        attrs: { alt: "", src: t.interruptImage },
+                        on: {
+                          click: function (e) {
+                            return e.stopPropagation(), t.activate.apply(null, arguments);
                           }
-                        })
-                      ],
-                      1
-                    )
-                  ]
-                )
-              : t._e()
-          ]);
-        };
-      wn._withStripped = !0;
-      const Cn = g().extend({
-        components: { RCloseButton: w.Z },
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]
+              )
+            : t._e()
+        ]);
+      };
+      Jn._withStripped = !0;
+      const tc = I().extend({
+        components: { RCloseButton: C.Z },
         props: {
           merchant: { type: Object, required: !0 },
           recommendedStore: { type: Object, default: null },
@@ -11932,20 +12407,21 @@ var source;
                 store_url: "",
                 sessionAttributes: { source: `${this.entity_name} ${this.module_type}` }
               });
-            } else this.$emit("navigate", { url: (0, y.Z)(this.promo.url) });
+            } else this.$emit("navigate", { url: (0, b.Z)(this.promo.url) });
             this.$emit("activate");
           }
         }
       });
-      const Sn = (0, S.Z)(Cn, wn, [], !1, null, null, null).exports,
-        kn = class {
+      const ec = (0, T.Z)(tc, Jn, [], !1, null, null, null).exports,
+        rc = class {
           constructor(t) {
             let { merchant: e, recommendedStore: r, promo: i, track: a } = t;
             Object.assign(this, { merchant: e, recommendedStore: r, promo: i, track: a });
           }
           async render() {
             const t = await (0, u.By)();
-            (this.$view = new Sn({ propsData: { ...this } }).$mount()),
+            return (
+              (this.$view = new ec({ propsData: { ...this } }).$mount()),
               t.appendChild(this.$view.$el),
               ["close", "activate"].forEach((t) => {
                 this.$view.$on(t, () => this.$view.hide());
@@ -11957,10 +12433,12 @@ var source;
               this.$view.$on("track", (t) => {
                 let { name: e, ...r } = t;
                 this.track(this.$view, e, { type: this.promo.id, ...r });
-              });
+              }),
+              this.$view
+            );
           }
         };
-      var xn = function () {
+      var ic = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12000,10 +12478,9 @@ var source;
             : t._e()
         ]);
       };
-      xn._withStripped = !0;
-      var Tn = r(7573);
-      const An = g().extend({
-        components: { RButton: P.Z, RCloseButton: w.Z, RLogo: Tn.Z },
+      ic._withStripped = !0;
+      const ac = I().extend({
+        components: { RButton: N.Z, RCloseButton: C.Z, RLogo: Ha.Z },
         props: {
           merchant: { type: Object, required: !0 },
           recommendedStore: { type: Object, required: !0 },
@@ -12020,13 +12497,13 @@ var source;
         computed: {
           recommendedStoreBanner() {
             return ((t) =>
-              (0, H.Z)(
+              (0, F.Z)(
                 t.replace("%storeName", this.recommendedStore.storeName).replace("%cashBack", (0, f.l)(this.recommendedStore.reward))
               ))(this.promo.recommendedStoreBanner);
           },
           recommendedStoreButton() {
             return this.promo.recommendedStoreButton
-              ? (0, H.Z)(this.promo.recommendedStoreButton)
+              ? (0, F.Z)(this.promo.recommendedStoreButton)
               : this.recommendedStore.reward.targetSet
               ? "Get This Deal"
               : "Shop Now";
@@ -12042,7 +12519,7 @@ var source;
           show() {
             (this.visible = !0),
               setTimeout(() => {
-                this.$emit("track", { name: "View Module", ...(0, vt.L)(this.recommendedStore.reward) });
+                this.$emit("track", { name: "View Module", ...(0, yt.L)(this.recommendedStore.reward) });
               }, 100),
               setTimeout(() => {
                 (0, l.Z)("updateMerchantSession", { storeId: this.promo.storeId, notification: !1 });
@@ -12069,15 +12546,16 @@ var source;
           }
         }
       });
-      const Pn = (0, S.Z)(An, xn, [], !1, null, null, null).exports,
-        Nn = class {
+      const sc = (0, T.Z)(ac, ic, [], !1, null, null, null).exports,
+        oc = class {
           constructor(t) {
             let { merchant: e, recommendedStore: r, promo: i, track: a } = t;
             Object.assign(this, { merchant: e, recommendedStore: r, promo: i, track: a });
           }
           async render() {
             const t = await (0, u.By)();
-            (this.$view = new Pn({ propsData: { ...this } }).$mount()),
+            return (
+              (this.$view = new sc({ propsData: { ...this } }).$mount()),
               t.appendChild(this.$view.$el),
               ["close", "activate"].forEach((t) => {
                 this.$view.$on(t, () => this.$view.hide());
@@ -12085,10 +12563,12 @@ var source;
               this.$view.$on("track", (t) => {
                 let { name: e, ...r } = t;
                 this.track(this.$view, e, r);
-              });
+              }),
+              this.$view
+            );
           }
         };
-      var En = function () {
+      var nc = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12149,9 +12629,9 @@ var source;
             )
           : t._e();
       };
-      En._withStripped = !0;
-      const $n = g().extend({
-          components: { RModalForm: ut.Z, RCashback: E.Z },
+      nc._withStripped = !0;
+      const cc = I().extend({
+          components: { RModalForm: mt.Z, RCashback: L.Z },
           props: {
             merchant: { type: Object, required: !0 },
             recommendedStores: { type: Array, required: !0 },
@@ -12189,7 +12669,7 @@ var source;
                 this.$emit("activate");
             },
             clickOther() {
-              const t = (0, y.Z)(this.promo.url);
+              const t = (0, b.Z)(this.promo.url);
               this.$emit("track", { name: "Visit Page", preceding_screen_name: `${this.module_type} ${this.entity_name}`, url: t }),
                 this.$emit("navigate", { url: t }),
                 this.$emit("click-other");
@@ -12199,16 +12679,17 @@ var source;
             }
           }
         }),
-        Ln = $n;
-      const On = (0, S.Z)(Ln, En, [], !1, null, null, null).exports,
-        Rn = class {
+        lc = cc;
+      const dc = (0, T.Z)(lc, nc, [], !1, null, null, null).exports,
+        uc = class {
           constructor(t) {
             let { merchant: e, recommendedStores: r, promo: i, userId: a, track: s } = t;
             Object.assign(this, { merchant: e, recommendedStores: r, promo: i, userId: a, track: s });
           }
           async render() {
             const t = await (0, u.By)();
-            (this.$view = new On({ propsData: { ...this } }).$mount()),
+            return (
+              (this.$view = new dc({ propsData: { ...this } }).$mount()),
               t.appendChild(this.$view.$el),
               ["close", "activate", "click-other"].forEach((t) => {
                 this.$view.$on(t, () => this.$view.hide());
@@ -12220,13 +12701,15 @@ var source;
               this.$view.$on("track", (t) => {
                 let { name: e, ...r } = t;
                 this.track(this.$view, e, r);
-              });
+              }),
+              this.$view
+            );
           }
         };
-      class Mn {
+      class mc {
         recommendedStore = null;
         recommendedStores = null;
-        controllers = { interrupt: kn, banner: Nn, modal: Rn };
+        controllers = { interrupt: rc, banner: oc, modal: uc };
         constructor(t) {
           let { promo: e, merchant: r, settings: i } = t;
           (this.merchant = r), (this.promo = e), (this.settings = i), this.init();
@@ -12262,21 +12745,26 @@ var source;
             await (0, l.Z)("updateRewards", { channel: t, storeIds: this.promo.recommendedStoreIds });
             const e = (await (0, l.Z)("getStores", { channel: t, storeIds: this.promo.recommendedStoreIds })).filter((t) => t.offers_cb),
               r = e.map(async (t) => {
-                t.images.largeLogo.url = await (0, _n.b)(t.images.largeLogo.url);
+                t.images.largeLogo.url = await (0, ws.b)(t.images.largeLogo.url);
               });
             await Promise.all(r), (this.recommendedStores = e);
           }
           const e = this.getController();
           if (e && this.flag()) {
-            const { merchant: t, recommendedStore: r, recommendedStores: i, promo: a } = this;
-            new e({
-              merchant: t,
-              recommendedStore: r,
-              recommendedStores: i,
-              promo: a,
-              userId: this.settings.user_id,
-              track: this.track
-            }).render();
+            const { merchant: t, recommendedStore: r, recommendedStores: i, promo: a } = this,
+              s = await new e({
+                merchant: t,
+                recommendedStore: r,
+                recommendedStores: i,
+                promo: a,
+                userId: this.settings.user_id,
+                track: this.track
+              }).render();
+            c.Z.extension.attachEvent("merchantStandDown", async (e) => {
+              let { data: r = {} } = e;
+              const { storeId: i } = r;
+              i === t.storeId && s.hide();
+            });
           }
         }
         track(t, e) {
@@ -12291,7 +12779,7 @@ var source;
           });
         }
       }
-      var Bn = function () {
+      var pc = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12368,17 +12856,17 @@ var source;
             ])
           : t._e();
       };
-      function qn(t) {
+      function hc(t) {
         return parseFloat(t.amount) > 0;
       }
-      Bn._withStripped = !0;
-      const Zn = g().extend({
+      pc._withStripped = !0;
+      const gc = I().extend({
         name: "TiersView",
-        components: { CloseButton: w.Z },
+        components: { CloseButton: C.Z },
         data: () => ({ show: !1, tier: null, parentNode: !1 }),
         computed: {
           tiers() {
-            return this.merchant.tiers.filter((t) => qn(t.reward));
+            return this.merchant.tiers.filter((t) => hc(t.reward));
           },
           cashbackAmount() {
             return (0, f.l)(this.tier.reward);
@@ -12400,7 +12888,7 @@ var source;
               let [r, i] = e;
               if (r === t) return (this.tier = this.merchant.tiers.find((t) => t.id === i)), !0;
             }),
-            this.tier && qn(this.tier.reward) && (this.show = !0));
+            this.tier && hc(this.tier.reward) && (this.show = !0));
         },
         methods: {
           hide() {
@@ -12411,9 +12899,9 @@ var source;
           }
         }
       });
-      const Un = (0, S.Z)(
-        Zn,
-        Bn,
+      const Ic = (0, T.Z)(
+        gc,
+        pc,
         [
           function () {
             var t = this,
@@ -12430,7 +12918,7 @@ var source;
         "a150de90",
         null
       ).exports;
-      var jn = function () {
+      var fc = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12448,8 +12936,8 @@ var source;
           1
         );
       };
-      jn._withStripped = !0;
-      var Hn = function () {
+      fc._withStripped = !0;
+      var Dc = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12541,9 +13029,9 @@ var source;
           ]
         );
       };
-      Hn._withStripped = !0;
-      const Fn = g().extend({
-        components: { REligibilityPopover: yi, RModalForm: ut.Z, RButton: P.Z },
+      Dc._withStripped = !0;
+      const Vc = I().extend({
+        components: { REligibilityPopover: bi, RModalForm: mt.Z, RButton: N.Z },
         props: {
           merchant: { type: Object, required: !0 },
           conditions: { type: Object, default: null },
@@ -12565,7 +13053,7 @@ var source;
               e &&
                 this.featureFlag &&
                 this.merchant.affiliatizerEnabled &&
-                (e.tiered && e.range ? "Fixed" === e.display && (t = (0, he._)(e, this.orderTotal)) : (t = (0, he._)(e, this.orderTotal))),
+                (e.tiered && e.range ? "Fixed" === e.display && (t = (0, ge._)(e, this.orderTotal)) : (t = (0, ge._)(e, this.orderTotal))),
               t
             );
           },
@@ -12583,10 +13071,10 @@ var source;
           }
         }
       });
-      const Gn = (0, S.Z)(Fn, Hn, [], !1, null, null, null).exports,
-        zn = g().extend({
+      const vc = (0, T.Z)(Vc, Dc, [], !1, null, null, null).exports,
+        yc = I().extend({
           name: "TakeoverView",
-          components: { TakeoverForm: Gn },
+          components: { TakeoverForm: vc },
           props: { merchant: { type: Object, required: !0 }, settings: { type: Object, default: () => ({}) } },
           data: () => ({
             category: "Takeover Prevention",
@@ -12612,8 +13100,8 @@ var source;
                   this.featureFlag &&
                   this.merchant.affiliatizerEnabled &&
                   (e?.tiered && e?.range
-                    ? "Fixed" === e.display && (t = (0, he._)(e, this.orderTotal))
-                    : (t = (0, he._)(e, this.orderTotal))),
+                    ? "Fixed" === e.display && (t = (0, ge._)(e, this.orderTotal))
+                    : (t = (0, ge._)(e, this.orderTotal))),
                 t
               );
             },
@@ -12624,7 +13112,7 @@ var source;
             (await (0, u.By)()).appendChild(this.$el);
             const t = () =>
               "visible" === document.visibilityState &&
-              (this.track("View Module", (0, vt.L)(this.merchant.reward)), document.removeEventListener("visibilitychange", t), !0);
+              (this.track("View Module", (0, yt.L)(this.merchant.reward)), document.removeEventListener("visibilitychange", t), !0);
             t() || document.addEventListener("visibilitychange", t);
             const e = await c.Z.extension.fireEvent("getStoreContent", { data: this.merchant });
             e?.conditions && (this.conditions = e.conditions), this.show();
@@ -12647,7 +13135,7 @@ var source;
                 const t = await c.Z.extension.fireEvent("getCouponsConfig", {
                   data: { storeId: this.merchant.storeId, url: document.location.href }
                 });
-                t?.length && t.find((t) => ((this.orderTotal = t.controls?.orderTotal && ar(lr(t.controls.orderTotal))), this.orderTotal));
+                t?.length && t.find((t) => ((this.orderTotal = t.controls?.orderTotal && sr(dr(t.controls.orderTotal))), this.orderTotal));
               }
             },
             clickCTA() {
@@ -12672,8 +13160,8 @@ var source;
             }
           }
         });
-      const Wn = (0, S.Z)(zn, jn, [], !1, null, null, null).exports;
-      var Kn = function () {
+      const bc = (0, T.Z)(yc, fc, [], !1, null, null, null).exports;
+      var _c = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12703,8 +13191,8 @@ var source;
           1
         );
       };
-      Kn._withStripped = !0;
-      var Yn = function () {
+      _c._withStripped = !0;
+      var wc = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -12790,9 +13278,9 @@ var source;
           ]
         );
       };
-      Yn._withStripped = !0;
-      const Xn = {
-        components: { RButton: P.Z, RDivider: Tt.Z, RForm: it.Z, REligibilityPopover: yi },
+      wc._withStripped = !0;
+      const Cc = {
+        components: { RButton: N.Z, RDivider: At.Z, RForm: at.Z, REligibilityPopover: bi },
         props: {
           merchant: { type: Object, required: !0 },
           superCAA: { type: Boolean, default: !1 },
@@ -12825,17 +13313,17 @@ var source;
               ? `Activate ${this.$options.filters.formatCashBack(this.cashbackAmount)} Cash Back`
               : "Activate Cash Back";
           },
-          couponAnimationImageSrc: () => (0, at.$)("img/coupon-animation.svg"),
-          dollarAnimationImageSrc: () => (0, at.$)("img/dollar-animation.svg"),
+          couponAnimationImageSrc: () => (0, st.$)("img/coupon-animation.svg"),
+          dollarAnimationImageSrc: () => (0, st.$)("img/dollar-animation.svg"),
           reportingMessage() {
-            return (0, ds.Z)({ ...this.merchant, storeContent: this.storeContent });
+            return (0, Vs.Z)({ ...this.merchant, storeContent: this.storeContent });
           }
         }
       };
-      const Qn = (0, S.Z)(Xn, Yn, [], !1, null, null, null).exports,
-        Jn = g().extend({
-          components: { CartReminderForm: Qn },
-          mixins: [Er.Z],
+      const xc = (0, T.Z)(Cc, wc, [], !1, null, null, null).exports,
+        Tc = I().extend({
+          components: { CartReminderForm: xc },
+          mixins: [Lr.Z],
           props: {
             merchant: { type: Object, required: !0 },
             cartTotal: { type: Number, default: null },
@@ -12859,7 +13347,7 @@ var source;
               let e = 0;
               return this.merchant.rewardsExpired || (t.range && !this.superCAA)
                 ? null
-                : ((e = (0, he._)(t, this.cartTotal)), e >= this.THRESHOLD_MIN && e < this.THRESHOLD_MAX ? e : null);
+                : ((e = (0, ge._)(t, this.cartTotal)), e >= this.THRESHOLD_MIN && e < this.THRESHOLD_MAX ? e : null);
             }
           },
           created() {
@@ -12873,7 +13361,7 @@ var source;
               e.querySelector(".ebates-notification, .rr-modal-form")
                 ? this.$destroy()
                 : ((this.visible = !0),
-                  this.track("View Module", (0, vt.L)(this.merchant.reward)),
+                  this.track("View Module", (0, yt.L)(this.merchant.reward)),
                   c.Z.extension.attachEvent("closeNotification", (t) => {
                     let { data: e } = t;
                     e.merchant.storeId === this.merchant.storeId && this.hide();
@@ -12928,8 +13416,8 @@ var source;
             }
           }
         });
-      const tc = (0, S.Z)(Jn, Kn, [], !1, null, null, null).exports;
-      var ec = function () {
+      const kc = (0, T.Z)(Tc, _c, [], !1, null, null, null).exports;
+      var Sc = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -12987,8 +13475,8 @@ var source;
           1
         );
       };
-      ec._withStripped = !0;
-      var rc = function () {
+      Sc._withStripped = !0;
+      var Ac = function () {
         var t = this,
           e = t._self._c;
         t._self._setupProxy;
@@ -13089,9 +13577,9 @@ var source;
           ]
         );
       };
-      rc._withStripped = !0;
-      const ic = g().extend({
-        components: { RPopover: ae.Z, RIconButton: Jr.Z, FacebookIcon: ei.Z, EmailIcon: ti.Z, TwitterIcon: ri.Z, LinkIcon: si },
+      Ac._withStripped = !0;
+      const Pc = I().extend({
+        components: { RPopover: se.Z, RIconButton: ti.Z, FacebookIcon: ri.Z, EmailIcon: ei.Z, TwitterIcon: ii.Z, LinkIcon: oi },
         props: {
           merchant: { type: Object, required: !0 },
           anchor: { type: Object, default: null },
@@ -13117,7 +13605,7 @@ var source;
                 productUrl: location.href
               }),
               e = await (0, l.Z)("urlShortener", { url: t });
-            (0, Qr.v)(e),
+            (0, Jr.v)(e),
               this.share({ method: "Copy" }),
               this.$emit("click", "Copy"),
               (this.linkCopied = !0),
@@ -13136,8 +13624,8 @@ var source;
           }
         }
       });
-      const ac = (0, S.Z)(ic, rc, [], !1, null, null, null).exports;
-      var sc = function () {
+      const Nc = (0, T.Z)(Pc, Ac, [], !1, null, null, null).exports;
+      var Ec = function () {
         var t = this,
           e = t._self._c;
         return e(
@@ -13168,10 +13656,10 @@ var source;
           1
         );
       };
-      sc._withStripped = !0;
-      const oc = {
-        components: { RPopover: ae.Z, RCloseButton: w.Z },
-        mixins: [se.Z],
+      Ec._withStripped = !0;
+      const Lc = {
+        components: { RPopover: se.Z, RCloseButton: C.Z },
+        mixins: [oe.Z],
         props: {
           anchor: { type: Object, default: null },
           closable: { type: Boolean, default: !0 },
@@ -13197,10 +13685,10 @@ var source;
           }
         }
       };
-      const nc = (0, S.Z)(oc, sc, [], !1, null, null, null).exports;
-      var cc = r(2459);
-      const lc = g().extend({
-        components: { RafPopoverContent: ac, RafEducationPopover: nc, ButtonHollow: cc.Z },
+      const $c = (0, T.Z)(Lc, Ec, [], !1, null, null, null).exports;
+      var Rc = r(42459);
+      const Oc = I().extend({
+        components: { RafPopoverContent: Nc, RafEducationPopover: $c, ButtonHollow: Rc.Z },
         props: {
           merchant: { type: Object, required: !0 },
           settings: { type: Object, default: null, required: !0 },
@@ -13220,7 +13708,7 @@ var source;
           educationClosed: !1,
           listener: null,
           educationType: "RafProductPagePopover",
-          termsUrl: (0, y.Z)(Hr.ZP.WEB_REFERRAL_TERMS)
+          termsUrl: (0, b.Z)(Fr.ZP.WEB_REFERRAL_TERMS)
         }),
         computed: {
           referBonusAmount() {
@@ -13234,7 +13722,7 @@ var source;
           }
         },
         async mounted() {
-          (0, Vt.Z)(),
+          (0, vt.Z)(),
             this.injectionSite.prepend(this.$el),
             this.renderIntro(),
             this.isFirstTime ? this.track("View Module", { type: "pill" }) : this.track("View Module", { type: "icon" }),
@@ -13283,77 +13771,23 @@ var source;
           }
         }
       });
-      const dc = (0, S.Z)(lc, ec, [], !1, null, null, null).exports;
-      var uc = r(713),
-        mc = r.n(uc),
-        pc = r(1705),
-        hc = r.n(pc);
-      class Ic extends gr() {
-        constructor(t) {
-          let { settings: e } = t;
-          super(), (this.settings = e);
-        }
-        isStoreEligible(t) {
-          const { cartScraperStoreList: e, cartScraperBlockList: r } = this.settings.featureFlags;
-          return e && Array.isArray(e.storeIds)
-            ? e.storeIds.includes(t.storeId)
-            : !r || !Array.isArray(r.storeIds) || !r.storeIds.includes(t.storeId);
-        }
-        initCartScraper(t) {
-          const { cartScraper: e } = this.settings.featureFlags;
-          if (this.settings.isFillrEnabled && e) {
-            const e = async (e) => {
-              let { detail: r } = e;
-              if ((this.emit("cart:detected", r), this.isStoreEligible(t))) {
-                const e = await (0, l.Z)("getStoreContent", { storeId: t.storeId }),
-                  i = e?.freeShipping?.minimumSubtotal,
-                  a = {
-                    store_name: t.storeName,
-                    store_id: t.storeId,
-                    tracking_ticket: t.shoppingTrip.ttn,
-                    product_list: r.product_list,
-                    cart_total: r.cart_total,
-                    cart_total_qty: r.cart_total_qty,
-                    currency: r.currency,
-                    timestamp: r.timestamp,
-                    page_url: r.page_url,
-                    free_shipping: i ? r.cart_total / 100 >= i : null
-                  };
-                c.Z.extension.fireEvent("postFillrCartScraped", { data: a });
-              }
-            };
-            document.addEventListener("fillr:cart:detected", e), mc().setDevKey("a157b4f6d3f2d669e92ec47175b7a5b1"), mc().start();
-          }
-        }
-        initProductPageScraper(t) {
-          const { productScraper: e } = this.settings.featureFlags;
-          if (this.settings.isFillrEnabled && e && this.isStoreEligible(t)) {
-            const e = (e) => {
-              let { detail: r } = e;
-              this.emit("product:data:scraped", r);
-              const i = { store_name: t.storeName, store_id: t.storeId, tracking_ticket: t.shoppingTrip.ttn, ...r };
-              c.Z.extension.fireEvent("postFillrProductPageScraped", { data: i });
-            };
-            document.addEventListener("fillr:product:data:scraped", e), hc().start();
-          }
-        }
-      }
-      let gc,
-        fc,
-        Dc,
-        Vc,
-        vc = null,
-        yc = null,
-        bc = null,
-        _c = null,
-        wc = null,
-        Cc = !1;
-      async function Sc(t) {
+      const Mc = (0, T.Z)(Oc, Sc, [], !1, null, null, null).exports;
+      let Bc,
+        qc,
+        Zc,
+        Uc,
+        Hc = null;
+      let jc = null,
+        Fc = null,
+        Gc = null,
+        zc = null,
+        Wc = !1;
+      async function Kc(t) {
         if (
-          ((gc = t.merchant),
-          (fc = t.settings),
-          (Dc = t.caaController),
-          (Vc = gc.storeId),
+          ((Bc = t.merchant),
+          (qc = t.settings),
+          (Zc = t.caaController),
+          (Uc = Bc.storeId),
           (function (t) {
             if (t.isFeedPreviewMode && t.featureFlags.feedPreview) {
               const t = document.createElement("div");
@@ -13374,80 +13808,77 @@ var source;
                   t.remove();
                 });
             }
-          })(fc),
-          gc.activated
-            ? (gc.tiersConfiguration &&
-                gc.reward.tiered &&
-                !fc.disabledTieredStores.includes(Vc) &&
-                new Un({ data: { merchant: gc } }).$mount(),
-              cn({ merchant: gc, settings: fc.standDown }),
+          })(qc),
+          Za.init({ merchant: Bc, settings: qc }),
+          Bc.activated
+            ? (Bc.tiersConfiguration &&
+                Bc.reward.tiered &&
+                !qc.disabledTieredStores.includes(Uc) &&
+                new Ic({ data: { merchant: Bc } }).$mount(),
+              Mn({ merchant: Bc, settings: qc.standDown }),
               c.Z.extension.attachEvent("takeover", (t) => {
                 let { data: e } = t;
                 const r = e.merchant;
-                new Wn({ propsData: { merchant: r, settings: fc } }).$mount();
+                new bc({ propsData: { merchant: r, settings: qc } }).$mount();
               }),
-              wc || (wc = new Ic({ settings: fc })),
-              wc.initCartScraper(gc),
-              wc.initProductPageScraper(gc))
-            : gc.activationReminderTrigger && !gc.suppressed && gc.offers_cb && Vn(gc),
-          gc.notification)
+              Za.initCartScraper(),
+              Za.initProductPageScraper())
+            : !Bc.suppressed && Bc.offers_cb && Kn(Bc),
+          Bc.notification)
         ) {
-          const t = (await Pc()).find((t) => t.cart),
+          const t = (await tl()).find((t) => t.cart),
             e = new RegExp(t?.url);
           t?.url && e.test(location.href)
             ? (async function () {
                 try {
-                  (await kc({ allowInactiveMerchantBTN175: Ac() })) &&
-                    Ac() &&
-                    "A" === V.Z.get("BTN175") &&
-                    Dc.buttonView?.$once("close", Tc);
+                  await Yc();
                 } catch ({ CAANotAvailable: t }) {
-                  t && Nc();
+                  t && el();
                 }
               })()
-            : Nc();
-        } else Nc();
+            : el();
+        } else el();
         c.Z.extension.attachEvent("showConfirmationHover", (t) => {
           let { data: e } = t;
           return (async function (t) {
             let { shoppingTrip: e } = t;
-            yc?.visible
-              ? (gc.backgroundActivated = !0)
-              : (bc?.hide(),
-                (gc.settings_optout = !!gc.settings_optout),
-                (gc.activated = !0),
-                (gc.shoppingTrip = e),
-                new xs({ data: { merchant: gc, settings: fc } }).$mount(),
+            Fc?.visible
+              ? (Bc.backgroundActivated = !0)
+              : (Gc?.hide(),
+                (Bc.settings_optout = !!Bc.settings_optout),
+                (Bc.activated = !0),
+                (Bc.shoppingTrip = e),
+                new ao({ data: { merchant: Bc, settings: qc } }).$mount(),
                 (0, u.PI)());
           })(e.merchant);
         }),
-          Mo({ merchant: gc, settings: fc }),
+          gn({ merchant: Bc, settings: qc }),
           (function (t) {
-            if (((Go = t.merchant), (zo = t.settings), Go.hidePromoTooltip || !zo.featureFlags.promoTooltip)) return;
+            if (((_n = t.merchant), (wn = t.settings), _n.hidePromoTooltip || !wn.featureFlags.promoTooltip)) return;
             if (
-              ((Wo = zo.promos.find((t) => {
+              ((Cn = wn.promos.find((t) => {
                 let { active: e, type: r, config: i } = t;
-                return e && "promo-tooltip" === r && i.storeId === Go.storeId;
+                return e && "promo-tooltip" === r && i.storeId === _n.storeId;
               })),
-              !Wo || (c.Z.browser.isSafari && parseInt(c.Z.browser.version, 10) < 12))
+              !Cn || (c.Z.browser.isSafari && parseInt(c.Z.browser.version, 10) < 12))
             )
               return;
-            const { content: e, matchPattern: r, anchorSelector: i, trigger: a } = Wo.config || {};
+            const { content: e, matchPattern: r, anchorSelector: i, trigger: a } = Cn.config || {};
             e &&
               r &&
-              ((Ko = "tooltip"),
-              (Yo = Wo.id),
+              ((xn = "tooltip"),
+              (Tn = Cn.id),
               "urlchange" === a
-                ? Go.domainName === (0, re.g)(location.href) &&
-                  (en(),
+                ? _n.domainName === (0, ie.g)(location.href) &&
+                  (Nn(),
                   window.addEventListener("addressbar.urlchange", () => {
-                    en();
+                    Nn();
                   }))
                 : new RegExp(r).test(location.href) &&
                   (0, m.X_)(i, 6e4)
-                    .then(() => on())
+                    .then(() => Rn())
                     .catch(() => {}));
-          })({ merchant: gc, settings: fc }),
+          })({ merchant: Bc, settings: qc }),
           (function (t) {
             let { merchant: e, settings: r, caaConfigs: i } = t;
             const a = i?.[0];
@@ -13465,7 +13896,7 @@ var source;
               d &&
               c &&
               u &&
-              new bn({
+              new Qn({
                 merchant: e,
                 id: o,
                 url: s,
@@ -13475,38 +13906,38 @@ var source;
                 applyButtonSelector: c,
                 applyTimeout: l
               }).scrape();
-          })({ merchant: gc, settings: fc, caaConfigs: await Pc() });
+          })({ merchant: Bc, settings: qc, caaConfigs: await tl() });
       }
-      function kc() {
+      function Yc() {
         let { allowInactiveMerchant: t = !1, allowInactiveMerchantBTN175: e = !1 } =
           arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
         return new Promise((r, i) => {
-          if (s()(".ebates-hover, .rr-modal-form", (0, u.Ay)() || document).length > 0 || Cc) return void r(!1);
-          const a = gc.settings_caa && fc.checkoutNotifications.caa,
+          if (s()(".ebates-hover, .rr-modal-form", (0, u.Ay)() || document).length > 0 || Wc) return void r(!1);
+          const a = Bc.settings_caa && qc.checkoutNotifications.caa,
             o =
-              gc.activated || !gc.offers_cb || (fc.featureFlags.superCAA && !gc.activated && gc.offers_cb && gc.loggedIn) || gc.suppressed,
-            n = !gc.settings_caa && fc.featureFlags.caaAdaptiveSources && "A" === V.Z.get("BTN181");
+              Bc.activated || !Bc.offers_cb || (qc.featureFlags.superCAA && !Bc.activated && Bc.offers_cb && Bc.loggedIn) || Bc.suppressed,
+            n = !Bc.settings_caa && qc.featureFlags.caaAdaptiveSources && "A" === V.Z.get("BTN181");
           (a && o) || t || e || n
             ? (async () => {
-                const a = await (0, l.Z)("getCoupons", { storeId: Vc }),
+                const a = await (0, l.Z)("getCouponOffers", { storeId: Uc }),
                   s = "X" === V.Z.get("BTN181");
                 if (a.filter((t) => !s || "OC" === t.source).length) {
                   try {
-                    const t = await Pc(),
+                    const t = await tl(),
                       e = t.find((t) => t.cart || t.checkout),
                       r = ((o = e), o.controls?.orderTotal || o.controls?.total);
                     await (0, m.X_)(r, 2e3);
                     const a = (0, m.MT)({ selector: r }),
                       s = (0, D.b)(a);
-                    if (gc.orderTotal && gc.orderTotal === s) return void i({ CAANotAvailable: !0 });
+                    if (Bc.orderTotal && Bc.orderTotal === s) return void i({ CAANotAvailable: !0 });
                   } catch {}
                   var o;
-                  if (!gc.suppressed || (fc.featureFlags.caaSuppressed && gc.suppressed)) {
+                  if (!Bc.suppressed || (qc.featureFlags.caaSuppressed && Bc.suppressed)) {
                     const s = "X" === V.Z.get("BTN181");
-                    Dc.init(
+                    Zc.init(
                       {
                         coupons: a.filter((t) => !s || "OC" === t.source),
-                        merchant: gc,
+                        merchant: Bc,
                         allowInactiveMerchant: t,
                         allowInactiveMerchantBTN175: e,
                         isEligibleForNoNPartner: n,
@@ -13514,17 +13945,17 @@ var source;
                       },
                       function (t) {
                         if (t) {
-                          const t = Ac() && V.Z.get("BTN175");
+                          const t = Jc() && V.Z.get("BTN175");
                           ["A", "B"].includes(t) &&
-                            Dc.buttonView?.$on("close", () => {
-                              Cc = !0;
+                            Zc.buttonView?.$on("close", () => {
+                              Wc = !0;
                             }),
                             "B" === t &&
-                              Dc.buttonView?.$on("clickActivateCTA", () => {
-                                Cc = !0;
+                              Zc.buttonView?.$on("clickActivateCTA", () => {
+                                Wc = !0;
                               }),
                             r(!0);
-                        } else e && !Dc.test175 ? i({ CAANotAvailable: !0 }) : i({ CAANotAvailable: !1 });
+                        } else i({ CAANotAvailable: !1 });
                       }
                     );
                   } else i({ CAANotAvailable: !0 });
@@ -13533,75 +13964,73 @@ var source;
             : i({ CAANotAvailable: !0 });
         });
       }
-      async function xc() {
-        if (!s()(".ebates-hover, .ebates-notification, .rr-caa__flag, .rr-modal-form", (0, u.Ay)() || document).length && !Cc)
+      async function Xc() {
+        if (!s()(".ebates-hover, .ebates-notification, .rr-caa__flag, .rr-modal-form", (0, u.Ay)() || document).length && !Wc)
           try {
-            (await kc({ allowInactiveMerchantBTN175: Ac() })) &&
-              Ac() &&
+            (await Yc({ allowInactiveMerchantBTN175: Jc() })) &&
+              Jc() &&
               "A" === V.Z.get("BTN175") &&
-              Dc.buttonView?.$once("close", () => {
-                Tc();
+              Zc.buttonView?.$once("close", () => {
+                Qc();
               });
           } catch {
-            !gc.activated && gc.offers_cb && Tc();
+            !Bc.activated && Bc.offers_cb && Qc();
           }
       }
-      function Tc() {
-        !gc.notification && gc["notification-reminder"] && gc.settings_checkout && fc.checkoutNotifications.activation
-          ? (wc || (wc = new Ic({ settings: fc })),
-            wc.on("cart:detected", (t) => {
+      function Qc() {
+        !Bc.notification && Bc["notification-reminder"] && Bc.settings_checkout && qc.checkoutNotifications.activation
+          ? (Za.on("cart:detected", (t) => {
               !(async function (t) {
-                (gc.affiliatizerEnabled ||
-                  (fc.featureFlags.checkoutReminderForBgActivation &&
-                    (await (0, l.Z)("isEligibleForBackgroundActivation", { storeId: Vc })))) &&
-                  fc.featureFlags.cartReminder &&
-                  (bc
-                    ? (bc.$props.cartTotal = t.cart_total / 100)
-                    : ((bc = new tc({ propsData: { merchant: gc, cartTotal: t.cart_total / 100 } }).$mount()),
-                      bc.$on("closed", () => {
-                        !Cc && fc.featureFlags.cartReminderCAA && gc.settings_caa && V.Z.get("BTN178") && kc({ allowInactiveMerchant: !0 });
+                (Bc.affiliatizerEnabled ||
+                  (qc.featureFlags.checkoutReminderForBgActivation &&
+                    (await (0, l.Z)("isEligibleForBackgroundActivation", { storeId: Uc })))) &&
+                  v.variation("cartReminder") &&
+                  (Gc
+                    ? (Gc.$props.cartTotal = t.cart_total / 100)
+                    : ((Gc = new kc({ propsData: { merchant: Bc, cartTotal: t.cart_total / 100 } }).$mount()),
+                      Gc.$on("closed", () => {
+                        !Wc && qc.featureFlags.cartReminderCAA && Bc.settings_caa && V.Z.get("BTN178") && Yc({ allowInactiveMerchant: !0 });
                       })));
               })(t);
             }),
-            wc.initCartScraper(gc))
-          : Ac() && "A" === V.Z.get("BTN175") && Cc && Nc();
+            Za.initCartScraper(Bc))
+          : Jc() && "A" === V.Z.get("BTN175") && Wc && el();
       }
-      function Ac() {
+      function Jc() {
         return (
-          fc.featureFlags.caaWithActivation &&
-          gc.settings_caa &&
-          gc.loggedIn &&
-          !gc.activated &&
-          gc.offers_cb &&
-          gc.affiliatizerEnabled &&
-          !gc.notification
+          qc.featureFlags.caaWithActivation &&
+          Bc.settings_caa &&
+          Bc.loggedIn &&
+          !Bc.activated &&
+          Bc.offers_cb &&
+          Bc.affiliatizerEnabled &&
+          !Bc.notification
         );
       }
-      async function Pc() {
-        return vc || (vc = await Dc.getConfigByUrl({ url: location.href, storeId: Vc })), vc;
+      async function tl() {
+        return jc || (jc = await Zc.getConfigByUrl({ url: location.href, storeId: Uc })), jc;
       }
-      async function Nc() {
-        gc.notification && !gc.offers_cb && gc.recommendedStores
-          ? gc.recommendedStores.interruptShown || _c || (_c = new Mn({ promo: gc.recommendedStores, merchant: gc, settings: fc }))
-          : gc.notification && !gc.suppressed && ((!gc.activated && gc.settings_notification) || (gc.activated && gc.settings_confirmation))
+      async function el() {
+        Bc.notification && !Bc.offers_cb && Bc.recommendedStores && !Bc.suppressed
+          ? Bc.recommendedStores.interruptShown || zc || (zc = new mc({ promo: Bc.recommendedStores, merchant: Bc, settings: qc }))
+          : Bc.notification && !Bc.suppressed && ((!Bc.activated && Bc.settings_notification) || (Bc.activated && Bc.settings_confirmation))
           ? s()(() => {
-              (gc.settings_optout = !!gc.settings_optout),
-                (gc.backgroundActivated = !1),
-                (yc = new xs({ data: { merchant: gc, settings: fc } }).$mount()),
+              (Bc.settings_optout = !!Bc.settings_optout),
+                (Bc.backgroundActivated = !1),
+                (Fc = new ao({ data: { merchant: Bc, settings: qc } }).$mount()),
                 (0, u.PI)();
             })
-          : !gc.activated && !gc.notification && gc.raf && fc.featureFlags.rafProductPage && V.Z.get("BTN182")
-          ? (wc || (wc = new Ic({ settings: fc })),
-            wc.on("product:data:scraped", async (t) => {
+          : !Bc.activated && !Bc.notification && Bc.raf && qc.featureFlags.rafProductPage && V.Z.get("BTN182")
+          ? (Za.on("product:data:scraped", async (t) => {
               t &&
                 (async function (t) {
                   let { merchant: e, settings: r, productTitle: i } = t;
                   const a = document.querySelector(e.raf?.container);
-                  if (a) {
+                  if (a && !Hc) {
                     if ("A" !== (await V.Z.activate("BTN182", { storeId: e.storeId }))) return;
                     const t = await (0, l.Z)("account", {}),
                       s = await (0, l.Z)("getTafSettings", { force: !0 });
-                    new dc({
+                    Hc = new Mc({
                       propsData: {
                         merchant: e,
                         settings: r,
@@ -13614,32 +14043,32 @@ var source;
                       }
                     }).$mount();
                   }
-                })({ settings: fc, merchant: gc, productTitle: t.name?.[0] });
+                })({ settings: qc, merchant: Bc, productTitle: t.name?.[0] });
             }),
-            wc.initProductPageScraper(gc))
-          : x(fc),
-          Cc || xc(),
+            Za.initProductPageScraper())
+          : S(qc),
+          Wc || Xc(),
           window.addEventListener("addressbar.urlchange", () => {
-            (vc = null),
+            (jc = null),
               setTimeout(() => {
-                (Cc = !1), xc();
+                (Wc = !1), Xc();
               }, 1e3);
           });
       }
-      const Ec = (self.EBATES = {});
-      function $c() {
+      const rl = (self.EBATES = {});
+      function il() {
         return /install\/success/.test(location.href);
       }
-      g().filter("formatCashBack", f.l),
-        g().filter("date", h.s$),
-        g().filter("format", D.l),
+      I().filter("formatCashBack", f.l),
+        I().filter("date", h.s$),
+        I().filter("format", D.l),
         (function () {
           if (window.self !== window.top) return;
           let t = null;
           c.Z.extension.attachEvent("permission-request-backdrop", (e) => {
             let { data: r } = e;
             "show" === r
-              ? ((t = new tt().$mount()),
+              ? ((t = new et().$mount()),
                 (0, u.By)().then((e) => {
                   e.appendChild(t.$el);
                 }))
@@ -13652,7 +14081,7 @@ var source;
             t !== location.href && ((t = location.href), window.dispatchEvent(new Event("addressbar.urlchange")));
           }, 200);
         })();
-      class Lc {
+      class al {
         caaController = new (class {
           constructor() {
             (this.form = null),
@@ -13662,22 +14091,22 @@ var source;
               (this.allowInactiveMerchantBTN175 = !1),
               (this.buttonView = null),
               (this.isEligibleForNoNPartner = !1);
-            const t = sessionStorage.getItem(Ts);
+            const t = sessionStorage.getItem(so);
             (this._cache = t ? JSON.parse(t) : null),
               this._cache && this.validateCache(this._cache)
                 ? this.getConfigByUrl({ url: location.href, storeId: this._cache.merchant.storeId }).then((t) => {
                     t && (this.initState(this._cache), this.createForm(this._cache), this.createModule());
                   })
-                : sessionStorage.removeItem(Ts);
+                : sessionStorage.removeItem(so);
           }
           saveCache(t) {
-            const e = sessionStorage.getItem(Ts);
+            const e = sessionStorage.getItem(so);
             let r = {};
             try {
               r = JSON.parse(e) || {};
             } catch (t) {}
             sessionStorage.setItem(
-              Ts,
+              so,
               JSON.stringify({
                 ...r,
                 ...t,
@@ -13691,7 +14120,7 @@ var source;
             );
           }
           clearCache() {
-            sessionStorage.removeItem(Ts);
+            sessionStorage.removeItem(so);
           }
           validateCache() {
             let { coupons: t, config: e, merchant: r, timestamp: i } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -13786,7 +14215,7 @@ var source;
             (this.moduleTimeout = setTimeout(() => {
               t(!1);
             }, 3e3)),
-              (this.module = new Ar(
+              (this.module = new Pr(
                 Object.assign(r, {
                   id: "rr-caa",
                   coupons: this.coupons,
@@ -13828,7 +14257,7 @@ var source;
                 await r(), this.module.finishing(t);
               }),
               this.form.$on("cancel", async () => {
-                Pr({
+                Nr({
                   action: "cancel",
                   coupon_auto_apply_status: "Terminated",
                   store_name: this.merchant.storeName,
@@ -13839,7 +14268,7 @@ var source;
                   await r(),
                   this.module.stop();
               }),
-              this.form.$on("caa-log", Pr),
+              this.form.$on("caa-log", Nr),
               this.form.$on("close", this.showRab);
           }
           async createButton() {
@@ -13869,7 +14298,7 @@ var source;
                           ["A", "B"].includes(V.Z.get("BTN175")) &&
                           !this.merchant.activated &&
                           V.Z.get("BTN175"));
-                      const t = new Zr({
+                      const t = new Ur({
                         propsData: {
                           settings: EBATES.settings,
                           coupons: this.coupons,
@@ -13896,7 +14325,7 @@ var source;
           hasAppliedCoupon(t) {
             this.hasAppliedCouponEvent ||
               ((this.hasAppliedCouponEvent = !0),
-              Pr({
+              Nr({
                 action: "Coupon already applied",
                 coupon_auto_apply_status: "Coupon already applied",
                 store_name: this.merchant.storeName,
@@ -13913,7 +14342,7 @@ var source;
             this.createForm(t),
               this.saveCache(),
               this.module.start(),
-              Pr({
+              Nr({
                 action: "start",
                 coupon_auto_apply_status: "Apply Coupon",
                 store_name: this.merchant.storeName,
@@ -13953,8 +14382,8 @@ var source;
           showRab() {
             EBATES.settings.featureFlags.hoverRAB &&
               this.merchant.activated &&
-              "A" === V.Z.get("BTN176") &&
-              new xs({ data: { merchant: this.merchant, settings: EBATES.settings } }).$mount();
+              V.Z.get("BTN190") &&
+              new ao({ data: { merchant: this.merchant, settings: EBATES.settings } }).$mount();
           }
         })();
         productTracker = null;
@@ -13962,11 +14391,11 @@ var source;
         constructor() {
           c.Z.extension.attachEvent("contentSettings", (t, e) => {
             let { data: r } = t;
-            (this.settings = r.settings), (Ec.settings = this.settings), e();
+            (this.settings = r.settings), (rl.settings = this.settings), v.init(rl.settings.featureFlags), e();
           }),
             c.Z.extension.attachEvent("welcome", () => {
               const t = (0, i.findWhere)(this.settings.promos, { id: "welcome-modal", active: !0 }) || {};
-              new ct({ propsData: { interruptImage: t.interruptImage } }).$mount();
+              new lt({ propsData: { interruptImage: t.interruptImage } }).$mount();
             });
         }
         handleBrowserMessage() {
@@ -13995,7 +14424,7 @@ var source;
           );
         }
         [jr.UW.HOME_DOMAIN]() {
-          if ($c()) {
+          if (il()) {
             if (c.Z.browser.isSafari) {
               const t = document.querySelector('meta[name="session.id"]')?.getAttribute("content") || "";
               (0, l.Z)("sessionId", {
@@ -14004,7 +14433,7 @@ var source;
                 cookies: { "extension-install-source": (0, u.ej)("extension-install-source"), userId: (0, u.ej)("eutid") }
               });
             }
-            (0, l.Z)("SurfaceVisitedData", { referring_visit_id: localStorage.RAKUTEN_VISIT_ID, campaign: Ms(), legacy_campaign: Bs() });
+            (0, l.Z)("SurfaceVisitedData", { referring_visit_id: localStorage.RAKUTEN_VISIT_ID, campaign: go(), legacy_campaign: Io() });
           }
           (0, l.Z)("browserInfo", {
             darkMode: window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches,
@@ -14020,7 +14449,7 @@ var source;
               s()("#eb-help").on("click", function () {
                 window.close();
               })),
-            $c() && Es(this.settings),
+            il() && lo(this.settings),
             (0, m.X_)("head").then(() => {
               s()("head").append(
                 `<meta name="extensionInstalled" content="true"/>\n\t\t\t\t<ebatesToolbar\n\t\t\t\t\ttoolbarVersion="${
@@ -14111,15 +14540,15 @@ var source;
           })({ settings: this.settings, merchant: e, config: r });
         }
         [jr.UW.PRICE_MAGIC]() {
-          x(this.settings);
+          S(this.settings);
         }
         [jr.UW.SERP](t) {
           let { config: e } = t;
-          Qe({ config: e, settings: this.settings });
+          Je({ config: e, settings: this.settings });
         }
         [jr.UW.ISCB](t) {
           let { config: e } = t;
-          Rt({ config: e });
+          Mt({ config: e });
         }
         [jr.UW.TAXES_PROMO](t) {
           let { taxes_promo: e } = t;
@@ -14127,7 +14556,7 @@ var source;
             "false" !== localStorage.getItem("ebates-taxes") &&
               "false" !== sessionStorage.getItem("ebates-taxes") &&
               c.Z.extension.fireEvent("getStores", { data: { storeIds: t.storeIds } }, (t) => {
-                new M({ propsData: { merchants: t } }).$mount();
+                new B({ propsData: { merchants: t } }).$mount();
               });
           })(e);
         }
@@ -14141,42 +14570,44 @@ var source;
             const r = { ...t.defaults, ...(0, m.rg)(t.reward, {}) };
             if (r.ttn || r.partner) {
               const t = function () {
-                let { display: t, ...e } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-                const r = e.amount && parseFloat(e.amount),
-                  i = e.range && parseFloat(e.range);
-                return t && (r || i) ? { amount: r || i, display: t, range: !!i } : null;
-              };
-              (0, l.Z)("interstitial", {
-                url: e,
-                trackingTicketNumber: r.ttn,
-                partner: r.partner,
-                interstitialType: r.interstitialType,
-                sessionInterval: r.sessionInterval,
-                sessionReward: t(r)
-              });
+                  let t,
+                    { display: e, ...r } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                  const i = r.amount && parseFloat(r.amount),
+                    a = r.range && parseFloat(r.range);
+                  return e && (i || a) && (t = { amount: i || a, display: e, range: !!a }), t;
+                },
+                i = {
+                  url: e,
+                  trackingTicketNumber: r.ttn,
+                  partner: r.partner,
+                  interstitialType: r.interstitialType,
+                  sessionInterval: r.sessionInterval,
+                  sessionReward: t(r)
+                };
+              (0, l.Z)("interstitial", i);
             }
           })(e);
         }
         async [jr.UW.MERCHANT](t) {
           let { merchant: e } = t;
-          (Ec.merchant = e),
+          (rl.merchant = e),
             e.blacklisted
               ? e.notification &&
                 e.activated &&
                 ((e.notification = !1), (0, l.Z)("updateMerchantSession", { storeId: e.storeId, notification: !1 }))
               : e.standDownPattern && new RegExp(e.standDownPattern, "i").test(location.href)
               ? (0, l.Z)("datadogTrack", { type: "info", name: "MerchantUISuppressed", data: { url: (0, h.lz)(location.href) } })
-              : Sc({ merchant: e, settings: this.settings, caaController: this.caaController });
+              : Kc({ merchant: e, settings: this.settings, caaController: this.caaController });
         }
         [jr.UW.INSTALLED_EXTENSIONS](t) {
           let { extensions: e } = t;
           !(async function (t) {
-            await Promise.all(t.map((t) => Ls(t))), (0, l.Z)("saveAndSendInstalledExtensions", { extensions: t });
+            await Promise.all(t.map((t) => mo(t))), (0, l.Z)("saveAndSendInstalledExtensions", { extensions: t });
           })(e);
         }
       }
       if (window.self === window.top) {
-        const t = new Lc();
+        const t = new al();
         if (
           ((self.EBATES.runner = t),
           V.Z.load(),
@@ -14215,10 +14646,10 @@ var source;
         }
       }
     },
-    4730: (t, e, r) => {
+    64730: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => a });
-      var i = r(8051);
+      var i = r(98051);
       const a = new (class {
         async load() {
           this.tests = await (0, i.Z)("tests");
@@ -14234,10 +14665,10 @@ var source;
         }
       })();
     },
-    6402: (t, e, r) => {
+    26402: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
-      var i = r(4615);
+      var i = r(14615);
       const a = 3e3;
       function s() {
         let { node: t = document.head, name: e = [] } = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
@@ -14276,19 +14707,19 @@ var source;
         );
       }
     },
-    507: (t, e, r) => {
+    50507: (t, e, r) => {
       "use strict";
       r.d(e, { b: () => a });
-      var i = r(8051);
+      var i = r(98051);
       async function a(t) {
         let e = "";
         return t && t.startsWith("http") && (e = await (0, i.Z)("encodeImageURI", t)), e;
       }
     },
-    8051: (t, e, r) => {
+    98051: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => a });
-      var i = r(4615);
+      var i = r(14615);
       function a(t, e, r) {
         return i.Z.extension.fireEvent(t, { data: e }, r);
       }
@@ -14296,21 +14727,21 @@ var source;
     9649: (t, e, r) => {
       "use strict";
       r.d(e, { $: () => a });
-      var i = r(4615);
+      var i = r(14615);
       function a(t) {
         return i.Z.extension.getURL(i.Z.browser.isSafariApp ? `extension/${t}` : t);
       }
     },
-    636: (t, e, r) => {
+    40636: (t, e, r) => {
       "use strict";
-      r.d(e, { TN: () => C, By: () => _, PI: () => k, ej: () => y, Ay: () => w, O8: () => S, rO: () => x, CO: () => T, IA: () => b });
-      var i = r(1271),
+      r.d(e, { TN: () => C, By: () => _, PI: () => T, ej: () => y, Ay: () => w, O8: () => x, rO: () => k, CO: () => S, IA: () => b });
+      var i = r(81271),
         a = r.n(i),
-        s = r(4835),
-        o = r(4615),
-        n = r(6402),
-        c = r(2001),
-        l = r(3650);
+        s = r(14835),
+        o = r(14615),
+        n = r(26402),
+        c = r(62001),
+        l = r(23650);
       const d = "react-root",
         u = "[data-emotion]";
       function m(t) {
@@ -14327,8 +14758,8 @@ var source;
         );
       };
       p._withStripped = !0;
-      var h = r(1953);
-      const I = r
+      var h = r(61953);
+      const g = r
         .n(h)()
         .extend({
           async mounted() {
@@ -14347,8 +14778,8 @@ var source;
             }
           }
         });
-      const g = (0, r(2264).Z)(I, p, [], !1, null, null, null).exports;
-      r(5526);
+      const I = (0, r(62264).Z)(g, p, [], !1, null, null, null).exports;
+      r(45526);
       const f = new Map();
       let D = 10;
       const V = "function" == typeof HTMLElement.prototype.attachShadow;
@@ -14388,7 +14819,7 @@ var source;
             const i = r ? "closed" : "open";
             (d = n.attachShadow({ mode: i })), o.Z.browser.isSafari && (0, c.Z)(d, { className: "rr-focus-visible" });
           }
-          a ? S({ el: r, config: a, parent: t }) : t.appendChild(r),
+          a ? x({ el: r, config: a, parent: t }) : t.appendChild(r),
             i &&
               ((e = new MutationObserver(
                 (0, s.debounce)(() => {
@@ -14423,13 +14854,13 @@ var source;
                 }, 500)
               )),
               e.observe(t, { attributes: !1, childList: !0, subtree: !1 }));
-          const I = new MutationObserver(
+          const g = new MutationObserver(
             (0, s.debounce)(() => {
               d.querySelector(":not(style)") ||
-                (I.disconnect(), r.parentNode?.removeChild(r), f.delete(t), v && (v.$destroy(), (v = null)), e && e.disconnect());
+                (g.disconnect(), r.parentNode?.removeChild(r), f.delete(t), v && (v.$destroy(), (v = null)), e && e.disconnect());
             }, 5e3)
           );
-          I.observe(d, { attributes: !1, childList: !0, subtree: !1 }), f.set(t, d);
+          g.observe(d, { attributes: !1, childList: !0, subtree: !1 }), f.set(t, d);
         }
         return e ? await (0, n.Z)({ node: d, name: r }) : (0, n.Z)({ node: d, name: r }), d;
       }
@@ -14442,7 +14873,7 @@ var source;
           if (t) for (; t.firstChild; ) t.removeChild(t.lastChild);
         });
       }
-      function S(t) {
+      function x(t) {
         let { el: e, config: r, parent: i = document } = t;
         return r["insert-before"]
           ? a()(e).insertBefore(a()(r["insert-before"], i)).get(0)
@@ -14458,23 +14889,23 @@ var source;
           ? a()(r.before, i).after(a()(e)).get(0)
           : void 0;
       }
-      function k() {
-        self.EBATES.settings?.featureFlags.skipLink && (v = new g().$mount());
+      function T() {
+        self.EBATES.settings?.featureFlags.skipLink && (v = new I().$mount());
       }
-      function x() {
+      function k() {
         return (
           !!/^https:\/\/www.google.com/.test(location.href) &&
           "dark" === document.querySelector('meta[name="color-scheme"]')?.getAttribute("content")
         );
       }
-      function T() {
+      function S() {
         return -1 !== location.pathname.search(/[\\/]popup[\\/]popup.html/);
       }
     },
-    1939: (t, e, r) => {
+    41939: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => a });
-      var i = r(4615);
+      var i = r(14615);
       function a(t, e) {
         return i.Z.browser.navigate(t, e);
       }
@@ -14482,8 +14913,8 @@ var source;
     9442: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
-      var i = r(8051),
-        a = r(636);
+      var i = r(98051),
+        a = r(40636);
       const s = {
         getAnonymousId: () => (0, i.Z)("segment.anonymousId"),
         track(t) {
@@ -14493,7 +14924,7 @@ var source;
         }
       };
     },
-    2887: (t, e, r) => {
+    22887: (t, e, r) => {
       "use strict";
       function i(t) {
         return "string" == typeof t
@@ -14506,7 +14937,7 @@ var source;
       }
       r.d(e, { Z: () => i });
     },
-    4473: (t, e, r) => {
+    74473: (t, e, r) => {
       "use strict";
       async function i(t) {
         (t.module_type || t.entity_name) &&
@@ -14544,7 +14975,7 @@ var source;
         }
       };
     },
-    8355: (t, e) => {
+    18355: (t, e) => {
       "use strict";
       e.Nm = e.Rq = void 0;
       var r = /^([^\w]*)(javascript|data|vbscript)/im,
@@ -14577,12 +15008,12 @@ var source;
           return r.test(u) ? e.Rq : l;
         });
     },
-    713: (t, e, r) => {
-      t.exports = r(8649);
+    80713: (t, e, r) => {
+      t.exports = r(98649);
     },
-    3404: (t, e, r) => {
+    93404: (t, e, r) => {
       t.exports = { debug: !1, monitor: !1 };
-      const i = r(1586);
+      const i = r(21586);
       let a = !1;
       Object.defineProperty(t.exports, "monitor", {
         get: function () {
@@ -14593,45 +15024,46 @@ var source;
         }
       });
     },
-    492: (t) => {
-      t.exports = "1.6.89";
+    50492: (t) => {
+      t.exports = "1.7.1";
     },
     4658: (t, e, r) => {
-      const i = r(8269),
-        a = r(4524),
-        s = r(2605),
-        o = r(7981),
-        n = r(5863),
-        c = (t) => {
+      const i = r(68269),
+        a = r(54524),
+        s = r(12605),
+        o = r(37981),
+        n = r(45863),
+        c = r(72210),
+        l = (t) => {
           const e = a.formatTotalElement(t),
             r = a.stripSuffix(e);
           return parseFloat(s.normalise(r));
         },
-        l = (t) => {
+        d = (t) => {
           if (!t) return;
           let e = t.match(/\[\d+\]$/g);
           return e && ((e = e[0].match(/\d+/)[0]), e && !isNaN(e)) ? e : void 0;
         },
-        d = (t) => {
+        u = (t) => {
           if (!t || !t.replace(/\[\d+\]$/g, "")) return;
-          const e = l(t);
-          return e ? document.querySelectorAll(t.replace(/\[\d+\]$/g, ""))[e] : document.querySelector(t);
-        },
-        u = (t, e) => {
-          if (e) return e.startsWith(">") && t ? (/\[\d+\]$/g.test(t) && (t = t.replace(/\[\d+\]$/g, "")), t + e) : e;
+          const e = d(t);
+          return e ? c.queryAll(t.replace(/\[\d+\]$/g, ""))[e] : c.query(t);
         },
         m = (t, e) => {
+          if (e) return e.startsWith(">") && t ? (/\[\d+\]$/g.test(t) && (t = t.replace(/\[\d+\]$/g, "")), t + e) : e;
+        },
+        p = (t, e) => {
           if (!/^\[\d+\]$/g.test(t) || !/^\[\d+\]$/g.test(e)) return;
-          (t = l(t)), (e = l(e));
+          (t = d(t)), (e = d(e));
           const r = parseInt(e - t);
           return isNaN(r) ? void 0 : r;
         },
-        p = (t, e) => {
-          const r = l(t),
+        h = (t, e) => {
+          const r = d(t),
             i = parseInt(r) + e;
           if (i) return "[" + i + "]";
         },
-        h = (t, e) => {
+        g = (t, e) => {
           for (; e.parentNode && e.parentNode !== t; ) e = e.parentNode;
           return e.parentNode === t;
         },
@@ -14654,34 +15086,34 @@ var source;
             }
             case "itemPrice":
             case "lineTotal":
-              return [c(e), o.getCurrencyScore(e.textContent)];
+              return [l(e), o.getCurrencyScore(e.textContent)];
             case "url":
               return [e.href, o.getProductUrlScore(e.href)];
           }
         },
-        g = (t) => ("image" === t ? "image_url" : "itemPrice" === t ? "item_price" : "lineTotal" === t ? "line_total" : t),
-        f = (t) => t.name && (t.image_url || t.url) && Object.keys(t).length > 3,
-        D = { node: void 0, reference: "", depth: "" },
-        V = (t, e, r) => {
+        f = (t) => ("image" === t ? "image_url" : "itemPrice" === t ? "item_price" : "lineTotal" === t ? "line_total" : t),
+        D = (t) => t.name && (t.image_url || t.url) && Object.keys(t).length > 3,
+        V = { node: void 0, reference: "", depth: "" },
+        v = (t, e, r) => {
           const i = r.name || r.image;
           i &&
             (r.area && a.isAncestor(r.area, i)
-              ? ((t.node = e.node = D.node = r.area), (D.reference = i === r.name ? "name" : "image"), (D.depth = a.getDepth(r.area, i)))
+              ? ((t.node = e.node = V.node = r.area), (V.reference = i === r.name ? "name" : "image"), (V.depth = a.getDepth(r.area, i)))
               : ((t, e, r) => {
-                  const i = D.reference;
-                  if (t[i] && D.depth) {
-                    const s = a.getAncestor(r[i], D.depth);
-                    a.getDepth(document.body, s) === a.getDepth(document.body, D.node) && (t.node = e.node = s);
+                  const i = V.reference;
+                  if (t[i] && V.depth) {
+                    const s = a.getAncestor(r[i], V.depth);
+                    a.getDepth(document.body, s) === a.getDepth(document.body, V.node) && (t.node = e.node = s);
                   }
                 })(t, e, r));
         },
-        v = (t, e) => {
+        y = (t, e) => {
           if (!t || !e) return !0;
-          const r = d(t.area),
-            i = d(e.area);
+          const r = u(t.area),
+            i = u(e.area);
           return !r || !i || a.lowestCommonAncestor(r, i, 5);
         },
-        y = (t, e, r) => {
+        b = (t, e, r) => {
           const i = [];
           for (let e = 1; t.area && e < t.area.length; e++) {
             const a = {},
@@ -14692,17 +15124,17 @@ var source;
               if ("area" !== r && !a.area) return;
               const o = t[r][0];
               let c = o ? o + t[r][e] : t[r][e];
-              if (((c = "area" === r ? c : u(a.area, c)), "area" === r && i.length > 0 && i[0].area && d(i[0].area) === d(c))) return;
-              const l = d(c);
+              if (((c = "area" === r ? c : m(a.area, c)), "area" === r && i.length > 0 && i[0].area && u(i[0].area) === u(c))) return;
+              const l = u(c);
               if (l) {
                 if ("area" !== r) {
                   const t = n.area;
-                  if (t && !h(t, l)) return;
+                  if (t && !g(t, l)) return;
                 }
-                (n[r] = l), "area" === r ? (a[g(r)] = c) : (([a[g(r)], s[g(r)]] = I(r, l)), "name" === r && (a.nameNode = l));
+                (n[r] = l), "area" === r ? (a[f(r)] = c) : (([a[f(r)], s[f(r)]] = I(r, l)), "name" === r && (a.nameNode = l));
               }
             }),
-              a.area && f(a) && (o.addProductCurrencyScore(s, a), V(a, s, n), (a.selectors = t), (a.score = s), i.push(a));
+              a.area && D(a) && (o.addProductCurrencyScore(s, a), v(a, s, n), (a.selectors = t), (a.score = s), i.push(a));
           }
           i.length > 0 && e.push(i);
         };
@@ -14715,12 +15147,12 @@ var source;
           let s = [],
             c = [];
           const l = ["area", "name", "image", "quantity", "itemPrice", "lineTotal", "url"];
-          let h;
+          let d;
           if (t) {
             const e = a.deepCopyFunction(t.product);
             if (!e) return {};
-            for (const t of e) y(t, s, l);
-            s.length > 0 && ((s = s.sort((t, e) => e.length - t.length).shift()), (c = s[0].selectors), (h = s.map((t) => t.score))),
+            for (const t of e) b(t, s, l);
+            s.length > 0 && ((s = s.sort((t, e) => e.length - t.length).shift()), (c = s[0].selectors), (d = s.map((t) => t.score))),
               s.length > 1 &&
                 c &&
                 ((t, e, r, i) => {
@@ -14728,27 +15160,31 @@ var source;
                     const a = {},
                       s = {},
                       n = {};
-                    r.forEach((t) => {
-                      if (!e[t]) return;
-                      const r = e[t].length - 1;
-                      if (e[t][r - 1] && e[t][r]) {
-                        const i = m(e[t][r - 1], e[t][r]);
-                        if (i) {
-                          const o = p(e[t][r], i),
-                            c = e[t][0] + o,
-                            l = d("area" !== t ? u(e.area[0], c) : c);
-                          l &&
-                            ((n[t] = l),
-                            e[t].push(o),
-                            "area" === t ? (a[g(t)] = c) : (([a[g(t)], s[g(t)]] = I(t, l)), "name" === t && (a.nameNode = l)));
+                    if (
+                      (r.forEach((t) => {
+                        if (!e[t]) return;
+                        const r = e[t].length - 1;
+                        if (e[t][r - 1] && e[t][r]) {
+                          const i = p(e[t][r - 1], e[t][r]);
+                          if (i) {
+                            const o = h(e[t][r], i),
+                              c = e[t][0] + o,
+                              l = u("area" !== t ? m(e.area[0], c) : c);
+                            l &&
+                              ((n[t] = l),
+                              e[t].push(o),
+                              "area" === t ? (a[f(t)] = c) : (([a[f(t)], s[f(t)]] = I(t, l)), "name" === t && (a.nameNode = l)));
+                          }
                         }
-                      }
-                    });
+                      }),
+                      !a.area)
+                    )
+                      break;
                     const c = t[t.length - 1];
-                    if (!f(a) || !v(a, c)) break;
-                    o.addProductCurrencyScore(s, a), V(a, s, n), t.push(a), i.push(s);
+                    if (!D(a) || !y(a, c)) break;
+                    o.addProductCurrencyScore(s, a), v(a, s, n), t.push(a), i.push(s);
                   }
-                })(s, c, l, h);
+                })(s, c, l, d);
           }
           return (
             s.forEach((t) => {
@@ -14759,13 +15195,13 @@ var source;
                   (0 === t.item_price || (t.line_total && t.item_price !== t.line_total / t.quantity)) &&
                   (t.item_price = t.line_total / t.quantity);
             }),
-            { productList: s, scores: h }
+            { productList: s, scores: d }
           );
         }
       };
     },
-    7092: (t, e, r) => {
-      const i = r(7894),
+    97092: (t, e, r) => {
+      const i = r(57894),
         a = function (t) {
           const e = t.detail;
           e && i.send("fillr:cartdetected", e);
@@ -14782,25 +15218,26 @@ var source;
         }
       };
     },
-    8649: (t, e, r) => {
-      const i = r(3404),
-        a = r(7092),
-        s = r(7894),
-        o = r(5946),
-        n = r(492),
-        c = r(1586),
-        l = r(5863),
-        d = r(2605),
+    98649: (t, e, r) => {
+      const i = r(93404),
+        a = r(97092),
+        s = r(57894),
+        o = r(75946),
+        n = r(50492),
+        c = r(21586),
+        l = r(45863),
+        d = r(12605),
         u = r(7567),
-        m = r(6575),
-        p = r(4538),
-        h = r(6036),
-        I = r(7912),
-        g = r(7797),
-        f = r(5847),
-        D = r(3032),
-        V = r(463),
-        v = [
+        m = r(96575),
+        p = r(84538),
+        h = r(26036),
+        g = r(7912),
+        I = r(17797),
+        f = r(45847),
+        D = r(73032),
+        V = r(10463),
+        v = r(72210),
+        y = [
           "cart_total",
           "cart_total_keyword",
           "currency",
@@ -14812,9 +15249,10 @@ var source;
           "cart_total_qty",
           "shipping_total",
           "valid"
-        ];
+        ],
+        b = [/\bspanx\.com$/i];
       a.init();
-      const y = {
+      const _ = {
         version: n,
         fom: void 0,
         headings: {},
@@ -14845,7 +15283,7 @@ var source;
         start: function () {
           this.authStatus ||
             ((this.authStatus = "pending"),
-            I.performCheck((t) => {
+            g.performCheck((t) => {
               (this.authStatus = t || "unknown"), !1 === i.monitor && (a.reset(), (i.monitor = !0)), c.watch(this);
               let e = 0;
               const r = setInterval(() => {
@@ -14855,11 +15293,27 @@ var source;
               }, 1e3);
               this._mutationHandler || (this._mutationHandler = this.mutationHanlder.bind(this)),
                 document.removeEventListener("fillr:cart:mutation", this._mutationHandler, !0),
-                document.addEventListener("fillr:cart:mutation", this._mutationHandler, !0);
+                document.addEventListener("fillr:cart:mutation", this._mutationHandler, !0),
+                this._classificationListener || (this._classificationListener = this.classificationListener.bind(this)),
+                document.removeEventListener("fillr:classifier:classificationChanged:local", this._classificationListener, !0),
+                document.addEventListener("fillr:classifier:classificationChanged:local", this._classificationListener, !0);
             }));
         },
         mutationHanlder: function () {
           l.log("Cart mutated: "), this.create();
+        },
+        classificationListener: function (t) {
+          let e = !1;
+          for (let t = 0; t < b.length && !e; t++) e = b[t].test(window.location.hostname);
+          if (e)
+            try {
+              (t = JSON.parse(t.detail)) &&
+                "Cart" === t.guessedPageType &&
+                !1 === this.isCartUrl &&
+                ((this.isCartUrl = !0), (this.scrapeError = null), (m.classify = () => !0), this.create());
+            } catch (t) {
+              l.log("Exception when handling page-classifier event", t);
+            }
         },
         setDevKey: function (t) {
           this.devKey = t;
@@ -14904,19 +15358,19 @@ var source;
                 !this.isCartUrl)
               )
                 throw new Error("Invalid Cart URL");
-              let t = Array.from(document.body.querySelectorAll("*"));
+              let t = Array.from(v.queryAll("*"));
               const e = f.filterProductNode(t);
               if (
                 ((this.isCart =
-                  0 === document.body.querySelectorAll(u.cartNegativeSelectors).length &&
-                  (t.length !== e.length ||
-                    document.body.querySelectorAll(u.cartPositiveSelectors).length > 0 ||
+                  0 === v.queryAll(u.cartNegativeSelectors).length &&
+                  ((e.length && t.length !== e.length) ||
+                    v.queryAll(u.cartPositiveSelectors).length > 0 ||
                     document.location.href.match(u.cartUrlRegex))),
                 l.log("Url: ", document.location.href),
                 l.log("Product line length on Cart: ", e.length),
-                l.log("Positive selectors: ", document.body.querySelectorAll(u.cartPositiveSelectors)),
+                l.log("Positive selectors: ", v.queryAll(u.cartPositiveSelectors)),
                 l.log("Cart Url: ", document.location.href.match(u.cartUrlRegex)),
-                l.log("Negative selectors: ", document.body.querySelectorAll(u.cartNegativeSelectors)),
+                l.log("Negative selectors: ", v.queryAll(u.cartNegativeSelectors)),
                 !this.isCart)
               )
                 throw new Error("Can't detect the cart information.");
@@ -14929,7 +15383,7 @@ var source;
               }
               if (!this.scrape.cartTotal || isNaN(this.scrape.cartTotal)) throw new Error("Can't extract the total price!");
               if (this.isCartProductEnabled && 0 === this.scrape.productList.length) {
-                const e = g.extractProductList(t);
+                const e = I.extractProductList(t);
                 if (
                   ((this.scrape.productList = e.productList),
                   (this.scrape.productStrategy = e.productStrategy),
@@ -14998,8 +15452,8 @@ var source;
             if (
               (function (t, e) {
                 if (!e) return !1;
-                for (let r = 0; r < v.length; r++) {
-                  const i = v[r];
+                for (let r = 0; r < y.length; r++) {
+                  const i = y[r];
                   if ((void 0 !== t[i] ? JSON.stringify(t[i]) : "") !== (void 0 !== e[i] ? JSON.stringify(e[i]) : "")) return !1;
                 }
                 return !0;
@@ -15093,9 +15547,9 @@ var source;
           return h.stringify(this.getCartInformation());
         }
       };
-      t.exports = y;
+      t.exports = _;
     },
-    8269: (t) => {
+    68269: (t) => {
       t.exports = {
         "boutiquerugs.com$": {
           product: [
@@ -15122,14 +15576,14 @@ var source;
             {
               area: ['div[class="seller-bucket"]', "[0]", "[1]"],
               name: ['div[class="item-title"]>span>span', "[0]", "[1]"],
-              image: ["img", "[0]", "[1]"],
+              image: ['div[class="item-image"]>img', "[0]", "[1]"],
               quantity: ['select[id*="qty-BId-ItemId="]', "[0]", "[1]"],
               lineTotal: ['div[class="item-price"]>span>span', "[0]", "[1]"]
             },
             {
               area: ['div[class="line-item--listings"]', "[0]", "[1]"],
               name: ['div[class="item-title"]>span>span', "[0]", "[1]"],
-              image: ["img", "[0]", "[1]"],
+              image: ['div[class="item-image"]>img', "[0]", "[1]"],
               quantity: ['select[id*="qty-BId-ItemId="]', "[0]", "[1]"],
               itemPrice: ['div[class="item-price"]>span>span', "[0]", "[2]"]
             }
@@ -15138,11 +15592,11 @@ var source;
         "ebay.co.uk$": {
           product: [
             {
-              area: ['ul[class="cart-bucket__vendor-list"]>li', "[0]", "[1]"],
-              name: ['h3[class*="lines"]', "[0]", "[1]"],
-              image: ['div[class="image-display"]>img', "[0]", "[1]"],
-              quantity: ['div[class="quantity-row-lower"]>div>div>span>span>input', "[0]", "[1]"],
-              lineTotal: ['div[class*="item-price"]>span>span>span', "[0]", "[1]"]
+              area: ['ul[class="cart-bucket__vendor-list"]>li', "[0]", "[1]", "[2]"],
+              name: ['h3[class*="lines"]', "[0]", "[1]", "[2]"],
+              image: ['div[class="image-display"]>img', "[0]", "[1]", "[2]"],
+              quantity: ['div[class="quantity-row-lower"]>div>div>span>span>input', "[0]", "[1]", "[2]"],
+              lineTotal: ['div[class*="item-price"]>span>span>span', "[0]", "[1]", "[2]"]
             }
           ]
         },
@@ -15173,7 +15627,7 @@ var source;
             {
               area: ['div[class="sc-jtXFOG iHSeby"]', "[0]", "[1]"],
               name: ['p[data-selector="art-sc-prodDesc"]', "[0]", "[1]"],
-              image: ["img", "[0]", "[1]"],
+              image: ['a[class="sc-bdvvaa djNlPY"]>img', "[0]", "[1]"],
               quantity: ['input[id="quantity"]', "[0]", "[1]"],
               lineTotal: ['div[data-selector="art-sc-itemPrice"]>span', "[0]", "[1]"],
               url: ['div[class="sc-tAEdG joWiup"]>div>a', "[0]", "[1]"]
@@ -15769,7 +16223,7 @@ var source;
               area: ['li[class="product sfl-true"]', "[0]", "[1]"],
               name: ['strong[class="name"]>a', "[0]", "[1]"],
               image: ['a>div[class="product-image"]>img', "[0]", "[1]"],
-              quantity: ["em", "[3]", "[7]"],
+              quantity: ['div[class="selection"]>em', "[3]", "[7]"],
               lineTotal: [null, 'span[class="price sale discounted-false"]', 'div[class="prodPrice"]>span[class="price"]'],
               url: ['strong[class="name"]>a', "[0]", "[1]"]
             },
@@ -15777,7 +16231,7 @@ var source;
               area: ['li[class="product sfl-"]', "[0]", "[1]"],
               name: ['strong[class="name"]', "[0]", "[1]"],
               image: ['div[class="product-image"]>img', "[0]", "[1]"],
-              quantity: ["em", "[3]", "[7]"],
+              quantity: ['div[class="selection"]>em', "[3]", "[7]"],
               lineTotal: [null, 'span[class="price sale discounted-false"]', 'span[class="price"]']
             }
           ]
@@ -16005,18 +16459,26 @@ var source;
         "ssense.com$": {
           product: [
             {
-              area: ['li[class="shopping-item__container sub-order-summary__item"]', "[0]", "[1]", "[2]", "[3]"],
-              name: ['span[data-test="checkoutBrandNameText"]', "[0]", "[1]", "[2]", "[3]"],
-              image: ['img[data-test="checkoutProductImage"]', "[0]", "[1]", "[2]", "[3]"],
-              itemPrice: ['div[id="regular-price"]', "[0]", "[1]", "[2]", "[3]"],
-              lineTotal: ['div[id="regular-price"]', "[0]", "[1]", "[2]", "[3]"]
-            },
-            {
               area: ['li[class="shopping-item__container"]', "[0]", "[1]"],
               name: ['div[class="shopping-item-description__container"]>p', "[0]", "[2]"],
               image: ['img[class="shopping-item-image__img"]', "[0]", "[1]"],
               itemPrice: ['div[id="regular-price"]', "[0]", "[1]"],
               lineTotal: ['div[id="regular-price"]', "[0]", "[1]"]
+            },
+            {
+              area: ['li[class="shopping-item__container sub-order-summary__item"]', "[0]", "[1]", "[2]"],
+              name: ['p[data-test="checkoutProductNameText"]', "[0]", "[1]", "[2]"],
+              image: ['img[data-test="checkoutProductImage"]', "[0]", "[1]", "[2]"],
+              itemPrice: ['div[id="regular-price"]', "[0]", "[1]", "[2]"],
+              lineTotal: ['div[id="regular-price"]', "[0]", "[1]", "[2]"]
+            },
+            {
+              area: ['li[class="cart-items-list__list-item"]', "[0]", "[1]", "[2]"],
+              name: ['a[data-test="shoppingBagProductDescriptionLink"]>span', "[0]", "[1]", "[2]"],
+              image: ['img[class="cart-item-image"]', "[0]", "[1]", "[2]"],
+              itemPrice: ['span[class="s-text cart-item-price--current"]', "[0]", "[1]", "[2]"],
+              lineTotal: ['span[class="s-text cart-item-price--current"]', "[0]", "[1]", "[2]"],
+              url: ['a[data-test="shoppingBagProductDescriptionLink"]', "[0]", "[1]", "[2]"]
             }
           ]
         },
@@ -16174,7 +16636,7 @@ var source;
         }
       };
     },
-    2605: (t) => {
+    12605: (t) => {
       const e = /\d{1,3}(\d+|([.,\s]?\d{3})*)((sek\d\d)|([.,\s]\d\d?)?\s?(kr|sek|:-|[^:]\b)|(:\d\d))/gi,
         r =
           /[$\u20a0\u20a1\u20a2\u20a3\u20a4\u20a5\u20a6\u20a7\u20a8\u20a9\u20aa\u20ab\u20ac\u20ad\u20ae\u20af\u20b0\u20b1\u20b2\u20b3\u20b4\u20b5\u20b6\u20b7\u20b8\u20b9\u20ba\u20bc\u20bd\u20be\u20bf\xa2\xa3\xa4\xa5\u060b\u09f2\u09f3\u09fb\u0af1\u0bf9\u0e3f\u17db\u20a0-\u20bd\ua838\ufdfc\ufe69\uff04\uffe0\uffe1\uffe5\uffe6]+/gi;
@@ -16260,13 +16722,72 @@ var source;
         }
       };
     },
-    4336: (t) => {
+    72210: (t, e, r) => {
+      const i = r(43311),
+        a = (t, e = !0, r = document.documentElement) => {
+          const i = [],
+            a = (r) => {
+              if (r && r.nodeType === Node.ELEMENT_NODE && (e || !(i.length > 0))) {
+                if ((r.matches(t) && i.push(r), r.children && r.children.length > 0))
+                  for (let t = 0; t < r.children.length; t++) {
+                    const e = r.children[t];
+                    a(e);
+                  }
+                if (r.shadowRoot && r.shadowRoot.children)
+                  for (let t = 0; t < r.shadowRoot.children.length; t++) {
+                    const e = r.shadowRoot.children[t];
+                    a(e);
+                  }
+              }
+            };
+          return a(r), e ? i : i[0];
+        };
       t.exports = {
-        productUrlSpecificRules: function (t, e, r, i) {
-          const a = (e, r, i) => {
-              let s;
-              if ("object" == typeof r) for (const t of r) s = s || a(e, t, i);
-              else if ("RegExp" === e.constructor.name) s = i.find((t) => e.test(t[r]));
+        query: (t, e = document.documentElement) => (i.isEnabled ? a(t, !1, e) : e.querySelector(t)),
+        queryAll: (t, e = document.documentElement) => (i.isEnabled ? a(t, !0, e) : e.querySelectorAll(t))
+      };
+    },
+    96802: (t, e, r) => {
+      const i = r(72210),
+        a = [
+          {
+            url: "macys.com.*?checkout",
+            customProductScanners: [
+              (t, e) => {
+                const r = i.queryAll("[class=rc-section]");
+                for (const i of r)
+                  if (/e.?gift card/i.test(i.textContent)) return (e.name = "E Gift Card"), (e.quantity = 1), (e.node = i), void t.push(e);
+              }
+            ]
+          }
+        ];
+      t.exports = (t) => {
+        for (const e of a)
+          try {
+            if (new RegExp(e.url).test(window.location.href))
+              for (const r of e.customProductScanners) {
+                r(t, {
+                  item_price: void 0,
+                  line_total: void 0,
+                  quantity: void 0,
+                  name: void 0,
+                  url: void 0,
+                  image_url: void 0,
+                  node: void 0
+                });
+              }
+          } catch (t) {}
+        return !1;
+      };
+    },
+    94336: (t, e, r) => {
+      const i = r(72210);
+      t.exports = {
+        productUrlSpecificRules: function (t, e, r, a) {
+          const s = (e, r, i) => {
+              let a;
+              if ("object" == typeof r) for (const t of r) a = a || s(e, t, i);
+              else if ("RegExp" === e.constructor.name) a = i.find((t) => e.test(t[r]));
               else if ("index" === r) {
                 const e = t.parentNode.childNodes;
                 let r = 0;
@@ -16274,18 +16795,18 @@ var source;
                   if (i === t) break;
                   r++;
                 }
-                s = i[r];
-              } else s = i.find((t) => e === t[r]);
-              return s;
+                a = i[r];
+              } else a = i.find((t) => e === t[r]);
+              return a;
             },
-            s = (t, e, r, i, s = !0) => {
+            o = (t, e, r, i, a = !0) => {
               let o;
               if ("function" == typeof i) {
-                o = i(a(t, e, r));
-              } else o || (o = a(t, e, r)[i]);
-              if (o) return s ? window.location.origin + o : o;
+                o = i(s(t, e, r));
+              } else o || (o = s(t, e, r)[i]);
+              if (o) return a ? window.location.origin + o : o;
             },
-            o = [
+            n = [
               (t, e, r) => ({
                 match: new RegExp(
                   t.textContent
@@ -16300,7 +16821,7 @@ var source;
                 urlKey: "url"
               }),
               (t, e, r) => ({
-                match: t.querySelectorAll("div[data-testid='itemTitle']")[0].textContent.replace("...", ""),
+                match: i.queryAll("div[data-testid='itemTitle']", t)[0].textContent.replace("...", ""),
                 matchKey: "Description",
                 list: window.Dell.Transactional.Cart.Metrics.Data.CartItems,
                 urlKey: "EditItemUrl"
@@ -16331,7 +16852,7 @@ var source;
                 urlKey: "url"
               }),
               (t, e, r) => ({
-                match: t.querySelector('[class*=product-name],[class*=productCardTitle],h2[class*="item__name"]').innerText.split(/\n/)[0],
+                match: i.query('[class*=product-name],[class*=productCardTitle],h2[class*="item__name"]', t).innerText.split(/\n/)[0],
                 matchKey: "name",
                 list: (() => {
                   for (const t in window.localStorage) {
@@ -16359,12 +16880,12 @@ var source;
                 list: window.dataLayer[0].cart.items.map((t) => t.sku),
                 urlKey: (t) => "/dp/" + t.id
               }),
-              (t, e, r, i) => ({
-                match: i
-                  ? i.name
+              (t, e, r, a) => ({
+                match: a
+                  ? a.name
                   : new RegExp(
-                      t
-                        .querySelector("[data-selector*=Title]")
+                      i
+                        .query("[data-selector*=Title]", t)
                         .innerText.split(" ")
                         .splice(-4)
                         .join(" ")
@@ -16410,14 +16931,14 @@ var source;
                 urlKey: (t) => "/" + t.name.replace(/\s/g, "-").toLowerCase() + "/" + t.itemId + ".html"
               }),
               (t, e, r) => ({
-                match: new RegExp(t.querySelector("p[class=product_item_name]").innerText.trim()),
+                match: new RegExp(i.query("p[class=product_item_name]", t).innerText.trim()),
                 matchKey: "name",
                 list: JSON.parse(window.uv_listener.currentUV).basket.lineItems.map((t) => t.product),
                 urlKey: "url",
                 page: /review/gi
               }),
               (t, e, r) => ({
-                match: t.querySelector("[data-sku]").getAttribute("data-sku"),
+                match: i.query("[data-sku]", t).getAttribute("data-sku"),
                 matchKey: "Sku_ID",
                 list: window.bt_at.Items,
                 urlKey: "Product_URL",
@@ -16427,9 +16948,7 @@ var source;
                 match: r.alt,
                 matchKey: "shortDescription",
                 list: JSON.parse(
-                  document
-                    .querySelector("[id^=CheckoutContainer-]")
-                    .nextElementSibling.nextElementSibling.innerText.match(/"items":(\[.*?\])/)[1]
+                  i.query("[id^=CheckoutContainer-]").nextElementSibling.nextElementSibling.innerText.match(/"items":(\[.*?\])/)[1]
                 ),
                 urlKey: "productDetailUrl"
               }),
@@ -16470,11 +16989,9 @@ var source;
                 addOrigin: !1
               }),
               (t, e, r) => ({
-                match: JSON.parse(t.querySelector("[data-test-id=CART_DETAILS_ITEM]").getAttribute("data-test-info")).itemId,
+                match: JSON.parse(i.query("[data-test-id=CART_DETAILS_ITEM]", t).getAttribute("data-test-info")).itemId,
                 matchKey: "itemId",
-                list: Array.from(document.querySelectorAll("[data-test-id=CART_DETAILS_ITEM]")).map((t) =>
-                  JSON.parse(t.getAttribute("data-test-info"))
-                ),
+                list: Array.from(i.queryAll("[data-test-id=CART_DETAILS_ITEM]")).map((t) => JSON.parse(t.getAttribute("data-test-info"))),
                 urlKey: (t) => "https://www.ebay.com/itm/" + t.itemId,
                 addOrigin: !1
               }),
@@ -16493,20 +17010,19 @@ var source;
                     .toLowerCase()
               }),
               (t, e, r) => ({
-                match:
-                  parseInt(t.getAttribute("data-product-id")) || parseInt(t.querySelector("[data-product]").getAttribute("data-product")),
+                match: parseInt(t.getAttribute("data-product-id")) || parseInt(i.query("[data-product]", t).getAttribute("data-product")),
                 matchKey: "product_id",
                 list: JSON.parse(window.localStorage.user_profile).cart_items,
                 urlKey: "url"
               }),
               (t, e, r) => ({
-                match: t.querySelector("[class$=item-number]").innerText.match(/\d+/gi)[0],
+                match: i.query("[class$=item-number]", t).innerText.match(/\d+/gi)[0],
                 matchKey: "itemNumber",
                 list: [...window.dataLayer].reverse().find((t) => "checkout" === t.page).data.products,
                 urlKey: "url"
               }),
-              (t, e, r, i) => ({
-                match: i ? i.image_url : t.querySelector("[class=prodId]").innerText,
+              (t, e, r, a) => ({
+                match: a ? a.image_url : i.query("[class=prodId]", t).innerText,
                 matchKey: ["allocatedProductId", "skn", "imageUrl"],
                 list: [].concat.apply(
                   [],
@@ -16516,7 +17032,7 @@ var source;
                 page: /checkout.*(information|pay|review)/gi
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").src,
+                match: i.query("img", t).src,
                 matchKey: "image",
                 list: window.getOrderClient.checkoutModel.itemModels,
                 urlKey: (t) => "/p/" + t.itemId
@@ -16569,14 +17085,15 @@ var source;
                 })(),
                 urlKey: (t) => "/" + location.href.split("/")[3] + "/shop/product/" + t.productID
               }),
-              (t, e, r) => ({
-                match: r.alt.split(/\sColor/)[0],
+              (t, e, r, i) => ({
+                match: i ? i.name : r.alt.split(/\sColor/)[0],
                 matchKey: "name",
                 list: [...window.dataLayer].reverse().find((t) => "checkout-step" === t.event).ecommerce.checkout.products,
-                urlKey: (t) => "/s/" + t.id
+                urlKey: (t) => "/s/" + t.name.replace(/\s/g, "-").toLowerCase() + "/" + t.id,
+                page: /nordstrom.com.*?checkout/gi
               }),
               (t, e, r) => ({
-                match: new RegExp(t.querySelector("span[class=ProductName-primary]").textContent.replace(/[^a-z0-9\s]/gi, "."), "gi"),
+                match: new RegExp(i.query("span[class=ProductName-primary]", t).textContent.replace(/[^a-z0-9\s]/gi, "."), "gi"),
                 matchKey: "productName",
                 list: window.digitalData.cart.items.map((t) => t.productInfo),
                 urlKey: (t) => "/product/~/" + t.sku + ".html"
@@ -16588,9 +17105,9 @@ var source;
                 urlKey: (t) => "/" + t.productUrl
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").alt,
+                match: i.query("img", t).alt,
                 matchKey: "imageAlternateText",
-                list: JSON.parse(document.querySelector("script[id=data-mz-preload-checkout]").textContent).items.map((t) => t.product),
+                list: JSON.parse(i.query("script[id=data-mz-preload-checkout]").textContent).items.map((t) => t.product),
                 urlKey: (t) => "/product/" + t.productCode,
                 page: /acehardware.com/
               }),
@@ -16602,17 +17119,17 @@ var source;
                 page: /persol.com/
               }),
               (t, e, r) => ({
-                match: t.querySelector("div[data-og-product]").getAttribute("data-og-product"),
+                match: i.query("div[data-og-product]", t).getAttribute("data-og-product"),
                 matchKey: "productID",
-                list: [{ productID: t.querySelector("div[data-og-product]").getAttribute("data-og-product") }],
+                list: [{ productID: i.query("div[data-og-product]", t).getAttribute("data-og-product") }],
                 urlKey: (t) => "/" + t.productID + ".html",
                 page: /petsmart.com.*?checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("[class$=iteminfo-title]").innerText,
+                match: i.query("[class$=iteminfo-title]", t).innerText,
                 matchKey: "name",
-                list: document
-                  .querySelector("script[id=init_data]")
+                list: i
+                  .query("script[id=init_data]")
                   .innerText.match(/("|')productUrl.*?("|')name("|'):("|').*?("|')/gi)
                   .map((t) => JSON.parse(`{${t}}`)),
                 urlKey: "productUrl",
@@ -16620,7 +17137,7 @@ var source;
                 addOrigin: !1
               }),
               (t, e, r) => ({
-                match: t.querySelector("[data-ppid]").getAttribute("data-ppid"),
+                match: i.query("[data-ppid]", t).getAttribute("data-ppid"),
                 matchKey: "id",
                 list: window.__PRELOADED_STATE__.orderItems.map((t) => t.product),
                 urlKey: "url",
@@ -16628,7 +17145,7 @@ var source;
                 page: /jcpenney.com.*?checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").alt,
+                match: i.query("img", t).alt,
                 matchKey: "name",
                 list: (() => {
                   const t = [],
@@ -16652,32 +17169,30 @@ var source;
                 page: /stubhub.com.*?checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").alt,
+                match: i.query("img", t).alt,
                 matchKey: "name",
-                list: [{ name: t.querySelector("img").alt, id: t.getAttribute("data-auto-id").match(/-product-(\w*?)_/i)[1] }],
+                list: [{ name: i.query("img", t).alt, id: t.getAttribute("data-auto-id").match(/-product-(\w*?)_/i)[1] }],
                 urlKey: (t) => `/us/~/${t.id}.html`,
                 page: /adidas.com/
               }),
               (t, e, r) => ({
-                match: t.querySelector("span[class=p_n]").innerText,
+                match: i.query("span[class=p_n]", t).innerText,
                 matchKey: "productCode",
-                list: [{ productCode: t.querySelector("span[class=p_n]").innerText }],
+                list: [{ productCode: i.query("span[class=p_n]", t).innerText }],
                 urlKey: (t) => "/us/en/p/~/" + t.productCode,
                 page: /lenovo.com.*checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").src.match(/\/([\w]*?)\.jpg/)[1],
+                match: i.query("img", t).src.match(/\/([\w]*?)\.jpg/)[1],
                 matchKey: "productID",
-                list: [{ productID: t.querySelector("img").src.match(/\/([\w]*?)\.jpg/)[1] }],
+                list: [{ productID: i.query("img", t).src.match(/\/([\w]*?)\.jpg/)[1] }],
                 urlKey: (t) => `/~/V_${t.productID}.html`,
                 page: /carters.com.*checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("div[class*='name']").innerText.trim(),
+                match: i.query("div[class*='name']", t).innerText.trim(),
                 matchKey: "name",
-                list: JSON.parse(document.querySelector("div[id=checkout-main]").getAttribute("data-gtmdata")).product.map(
-                  (t) => t.productInfo
-                ),
+                list: JSON.parse(i.query("div[id=checkout-main]").getAttribute("data-gtmdata")).product.map((t) => t.productInfo),
                 urlKey: (t) => `/~/${t.sku}.html`,
                 page: /gamestop.com.*checkout/
               }),
@@ -16689,16 +17204,16 @@ var source;
                 page: /bluemercury.com.*checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").alt,
+                match: i.query("img", t).alt,
                 matchKey: "productDisplayName",
                 list: window.orderItems,
                 urlKey: (t) => `/us/store/jump/product/~/${t.productId}`,
                 page: /homegoods.com.*review/
               }),
               (t, e, r) => ({
-                match: t.querySelector("[class=item-productid]").innerText,
+                match: i.query("[class=item-productid]", t).innerText,
                 matchKey: "productID",
-                list: [{ productID: t.querySelector("[class=item-productid]").innerText }],
+                list: [{ productID: i.query("[class=item-productid]", t).innerText }],
                 urlKey: (t) => `/~/${t.productID}.html`,
                 page: /sallybeauty.com.*checkout/i
               }),
@@ -16712,21 +17227,21 @@ var source;
                 page: /overstock.com.*?checkout/
               }),
               (t, e, r) => ({
-                match: parseInt(t.querySelector("[product-id]").getAttribute("product-id")),
+                match: parseInt(i.query("[product-id]", t).getAttribute("product-id")),
                 matchKey: "id",
                 list: window.INITIAL_STATE.checkout.checkoutCart.products,
                 urlKey: (t) => "/en-us/" + t.url,
                 page: /ssense.com.*?checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").alt.trim(),
+                match: i.query("img", t).alt.trim(),
                 matchKey: "item_name",
-                list: JSON.parse(document.querySelector("[data-gtmitemdata]").getAttribute("data-gtmitemdata")).ecommerce.items,
+                list: JSON.parse(i.query("[data-gtmitemdata]").getAttribute("data-gtmitemdata")).ecommerce.items,
                 urlKey: (t) => `/products/${t.item_id}.html`,
                 page: /coachoutlet.com.*?checkout/
               }),
               (t, e, r) => ({
-                match: t.querySelector("img").src,
+                match: i.query("img", t).src,
                 matchKey: "image",
                 list: window.checkoutConfig.quoteItemData.map((t) => ({ image: t.thumbnail, url: t.product.absolute_url })),
                 urlKey: "url",
@@ -16747,12 +17262,12 @@ var source;
                 urlKey: (t) => `/${t.canonicalUrl}`,
                 page: /verizon.com.*?prospectCheckout/gi
               }),
-              (t, e, r, i) => ({
-                match: i ? i.name : t.querySelector("span[data-qa*='pdtname']").innerText.trim(),
+              (t, e, r, a) => ({
+                match: a ? a.name : i.query("span[data-qa*='pdtname']", t).innerText.trim(),
                 matchKey: "item_name",
                 list: window.miniCartGtm
                   ? window.miniCartGtm.ecommerce.items
-                  : JSON.parse(document.querySelector("div[class*='checkout-form-area']").getAttribute("data-gtmitemdata")).ecommerce.items,
+                  : JSON.parse(i.query("div[class*='checkout-form-area']").getAttribute("data-gtmitemdata")).ecommerce.items,
                 urlKey: (t) => `/products/~/${t.item_id}.html`,
                 page: /surprise.katespade.com.*?checkout/gi
               }),
@@ -16799,18 +17314,18 @@ var source;
                 urlKey: (t) => `/${t.id}.html`,
                 page: /shopdisney.com.*?(cart|checkout)/gi
               }),
-              (t, e, r, i) => ({
-                match: i ? i.name : e.textContent,
+              (t, e, r, a) => ({
+                match: a ? a.name : e.textContent,
                 matchKey: "index",
                 list: (() => {
-                  let t = Array.from(document.querySelectorAll("iframe")).filter((t) => t.src.match(/&U2=/));
+                  let t = Array.from(i.queryAll("iframe")).filter((t) => t.src.match(/&U2=/));
                   return t && t.length > 0
                     ? t[0].src
                         .split("&U2=")[1]
                         .split("&")[0]
                         .split("%2C")
                         .map((t) => ({ id: t }))
-                    : ((t = Array.from(document.querySelectorAll("iframe")).filter((t) => t.src.match(/basketstatus/))),
+                    : ((t = Array.from(i.queryAll("iframe")).filter((t) => t.src.match(/basketstatus/))),
                       t && t.length > 0
                         ? t[0].src
                             .split("_basketstatus_")[1]
@@ -16829,7 +17344,7 @@ var source;
                 page: /bloomingdales.com.*?checkout/gi
               }),
               (t, e, r) => ({
-                match: t.querySelector("div[data-at*=brand_label]").nextElementSibling.textContent,
+                match: i.query("div[data-at*=brand_label]", t).nextElementSibling.textContent,
                 matchKey: "productName",
                 list: window.digitalData.cart.item.map((t) => t.sku),
                 urlKey: "fullSiteProductUrl",
@@ -16849,22 +17364,44 @@ var source;
                 list: window.prd.map((t) => t.item),
                 urlKey: (t) => `/${t.displayUrl.split(";")[0]}`,
                 page: /boots.com.*?checkout/gi
+              }),
+              (t, e, r, i) => ({
+                match: i ? i.name : void 0,
+                matchKey: "name",
+                list: window.cartJsonData.cartItems.map((t) => ({
+                  name: t.itemProperties.productTitle,
+                  url: t.itemProperties.productSeoURL
+                })),
+                urlKey: (t) => `${t.url}`,
+                page: /(m.)?kohls.com.*?checkout.*?v2.*?checkout/gi
+              }),
+              (t, e, r) => ({
+                match: e.innerText,
+                matchKey: "name",
+                list: JSON.parse(JSON.parse(window.localStorage["persist:nextjs"]).summary).cart.products.map((t) => ({
+                  name: t.xitem_productName,
+                  url: t.xitem_productUrl
+                })),
+                urlKey: "url",
+                addOrigin: !1,
+                page: /petco.com.*?checkout/gi
               })
             ];
           return (function () {
-            let a;
-            for (const n of o)
+            let i;
+            for (const s of n)
               try {
-                const o = n(t, e, r, i);
-                if (o.page && !o.page.test(window.location.href)) continue;
-                if ((o && o.match && o.matchKey && o.list && o.urlKey && (a = s(o.match, o.matchKey, o.list, o.urlKey, o.addOrigin)), a))
-                  return a;
+                const n = s(t, e, r, a);
+                if (n.page && !n.page.test(window.location.href)) continue;
+                if ((n && n.match && n.matchKey && n.list && n.urlKey && (i = o(n.match, n.matchKey, n.list, n.urlKey, n.addOrigin)), i))
+                  return i;
               } catch (t) {}
           })();
         }
       };
     },
-    9745: (t) => {
+    49745: (t, e, r) => {
+      const i = r(72210);
       t.exports = {
         cartTotalSpecific: function () {
           const t = [
@@ -16879,8 +17416,8 @@ var source;
               {
                 pattern: /www.(williams-sonoma|westelm|potterybarn(kids)?|pbteen|markandgraham).com.*?checkout/gi,
                 method: function () {
-                  const t = document
-                      .querySelector("checkout-app")
+                  const t = i
+                      .query("checkout-app")
                       .shadowRoot.querySelector("summary-view")
                       .shadowRoot.querySelector("summary-feature")
                       .shadowRoot.querySelector("summary-total-feature[title=Total]"),
@@ -16893,7 +17430,7 @@ var source;
                 method: function () {
                   let t = window.cartJSON
                     ? window.cartJSON.output.totalDueToday
-                    : JSON.parse(document.querySelector("div[id=init_data]").innerText).output.actualDueToday;
+                    : JSON.parse(i.query("div[id=init_data]").innerText).output.actualDueToday;
                   if (((t = parseFloat(t)), t)) return { total: t };
                 }
               },
@@ -16902,6 +17439,24 @@ var source;
                 method: function () {
                   let t = window.mbpDataLayer ? window.mbpDataLayer.find((t) => "mbp-checkout" === t.app).order.orderTotalBalance : void 0;
                   if ((t && (t = parseFloat(t)), t)) return { total: t };
+                }
+              },
+              {
+                pattern: /m.shein.com.*?cart/gi,
+                method: function () {
+                  let t;
+                  const e = document.querySelector("span[class*='cart-checkout__price-total']"),
+                    r = e && e.innerText.replace(/\$|\s/, "");
+                  if ((r && (t = parseFloat(r)), t)) return { total: t };
+                }
+              },
+              {
+                pattern: /bombas.com.*?cart/gi,
+                method: function () {
+                  let t;
+                  const e = document.querySelector("a[data-track-label='checkout']"),
+                    r = e && e.innerText;
+                  if ((r && (t = parseFloat(r.split("$")[1])), t)) return { total: t };
                 }
               }
             ],
@@ -16940,11 +17495,17 @@ var source;
               "|stockx.com",
               "|aliexpress.*?cart",
               "|thebodyshop.com\\/en-gb\\/cart",
-              "|habitat.co.uk\\/webapp\\/wcs\\/stores\\/servlet.*?(DoLookupAddressMobile|ArgosDeliveryAvailabilityMobile)"
+              "|habitat.co.uk\\/webapp\\/wcs\\/stores\\/servlet.*?(DoLookupAddressMobile|ArgosDeliveryAvailabilityMobile)",
+              "|checkout.homebase.co.uk\\/checkout",
+              "|selfridges.com\\/GB\\/en\\/app\\/checkout\\/secure",
+              "|(m.)?kohls.com\\/checkout\\/v2\\/checkout",
+              "|harrods.com\\/en-gb\\/commerce\\/checkout",
+              "|lenovo.com.au.*?checkout",
+              "|spanx.com"
             ].join("")
           );
-          let i = Array.from(
-            document.querySelectorAll(
+          let a = Array.from(
+            i.queryAll(
               [
                 "[class*='OptionRowPrice']",
                 "[class*='ShoePrice']",
@@ -16969,23 +17530,29 @@ var source;
                 "div[class*='duetoday'] span[class*='PriceContainer']",
                 "div[class*='cart-checkout__price']>span:first-of-type",
                 "div[id='paymentContent'] h1 + div > p",
-                "div[data-testid='bid-entry-step-wrapper']>h2",
+                "div[data-testid*='make-an-offer'] + div p:first-child + p, div[data-testid*='pricing-options'] + div p:first-child + p",
                 "div[class='cart-summary-footer-total']",
                 "div[aria-label*='Total excluding delivery'] + div",
                 "[id='totalDeliveryCost']",
-                "div[class*='headr__total'] > p > strong:nth-child(2)"
+                "div[class*='headr__total'] > p > strong:nth-child(2)",
+                "div > span[data-test*='orderTotal']",
+                "div > h3[data-testid='order-summary-total-excluding-delivery']",
+                "div[id^='panel'] > div[class$='cart-block-bold'] > span[class$='value']",
+                "dd[data-test='summary-total']",
+                "div[class*='total']>span[class='totalAmount']",
+                "td.cart-totals-table__data--total-price"
               ].join(",")
             )
           );
-          if ((document.location.path || document.location.href).match(r) && i.length > 0) {
-            if (1 === i.length) return i[0];
-            if (((i = i.filter((t) => t.parentNode && t.parentNode.outerHTML.match(/selected/))), 1 === i.length)) return i[0];
+          if ((document.location.path || document.location.href).match(r) && a.length > 0) {
+            if (1 === a.length) return a[0];
+            if (((a = a.filter((t) => t.parentNode && t.parentNode.outerHTML.match(/selected/))), 1 === a.length)) return a[0];
           }
         }
       };
     },
-    6036: (t, e, r) => {
-      const i = r(5863);
+    26036: (t, e, r) => {
+      const i = r(45863);
       t.exports = {
         stringify: function (t, e, r) {
           try {
@@ -16996,8 +17563,8 @@ var source;
         }
       };
     },
-    5863: (t, e, r) => {
-      const i = r(3404);
+    45863: (t, e, r) => {
+      const i = r(93404);
       t.exports = {
         log: function () {
           i.debug;
@@ -17005,9 +17572,9 @@ var source;
       };
     },
     7912: (t, e, r) => {
-      const i = r(5946),
-        a = r(5863),
-        s = r(4524);
+      const i = r(75946),
+        a = r(45863),
+        s = r(54524);
       let o = [],
         n = null,
         c = !1,
@@ -17017,7 +17584,7 @@ var source;
         m = null;
       const p = i.generate(),
         h = "$$fillrHome",
-        I = function () {
+        g = function () {
           clearTimeout(m), (m = null);
           const t = { res: u, errorOccurred: d };
           for (let e = 0; e < o.length; e++) {
@@ -17049,7 +17616,7 @@ var source;
             (0 !== h.indexOf("$$") && -1 !== h.indexOf(":")) || document._createElement || ((c = !0), (l = !0)),
             l || d)
           )
-            I();
+            g();
           else if (!c) {
             c = !0;
             try {
@@ -17068,17 +17635,17 @@ var source;
                   "?t=cs"),
                 -1 === e.src.indexOf("://") && (e.src = "https://" + e.src),
                 e.addEventListener("load", function () {
-                  (l = !0), (u = 1 === e.width && 1 === e.height), I();
+                  (l = !0), (u = 1 === e.width && 1 === e.height), g();
                 }),
                 e.addEventListener("error", function () {
-                  (d = !0), I();
+                  (d = !0), g();
                 }),
                 n.appendChild(e);
             } catch (t) {
-              (d = !0), I();
+              (d = !0), g();
             }
             m = setTimeout(() => {
-              (d = !0), I();
+              (d = !0), g();
             }, 15e3);
           }
         },
@@ -17090,7 +17657,7 @@ var source;
         }
       };
     },
-    4538: (t) => {
+    84538: (t) => {
       t.exports = {
         run: (t) => {
           if ("undefined" == typeof performance || void 0 === performance.now) return t();
@@ -17101,8 +17668,8 @@ var source;
         }
       };
     },
-    7981: (t, e, r) => {
-      const i = r(4524),
+    37981: (t, e, r) => {
+      const i = r(54524),
         a = "\\s?(\\$|au?d?|usd?|\u20ac|eur?o?|\xa3|gbp|kr|se)\\s?",
         s = "[0-9]{1,3}((,|\\.)[0-9]{3})*((\\.|,)[0-9]{2})?",
         o = "\\d",
@@ -17138,15 +17705,15 @@ var source;
         m = /(\w+)/i,
         p = /(\d+)/i,
         h = /([-a-zA-Z]+)/i,
-        I = new RegExp(d.source + "\\/" + u.source, "i"),
-        g = /delete|remove|clear|quantity|qty|details|save|hide|view|options|learn\s+more/i,
+        g = new RegExp(d.source + "\\/" + u.source, "i"),
+        I = /delete|remove|clear|quantity|qty|details|save|hide|view|options|learn\s+more/i,
         f = /(img|png|jpg|jpeg|image)/i,
         D = /(www|https?|:\/\/)/i,
         V = (t, e) =>
           t && 0 !== t.length && 0 !== t.split("/")
             ? "img" !== e && f.test(t)
               ? 0
-              : (I.test(t) && "prd" === e) || (I.test(t) && "img" === e && f.test(t))
+              : (g.test(t) && "prd" === e) || (g.test(t) && "img" === e && f.test(t))
               ? 1
               : !D.test(t) && u.test(t)
               ? 0.8
@@ -17161,7 +17728,7 @@ var source;
         getProductUrlScore: (t) => V(t, "prd"),
         getNameScore: (t) =>
           t && 0 !== t.length
-            ? g.test(t) || (!m.test(t) && p.test(t))
+            ? I.test(t) || (!m.test(t) && p.test(t))
               ? 0
               : 1 === t.length && h.test(t)
               ? 0.3
@@ -17198,9 +17765,30 @@ var source;
         }
       };
     },
+    43311: (t) => {
+      const e = [/dell.com($|\..+)/i];
+      t.exports = {
+        isEnabled: (() => {
+          for (let t = 0; t < e.length; t++) {
+            const r = e[t];
+            if (window.location && void 0 !== window.location.hostname && window.location.hostname.match(r)) return !0;
+            if (window.location && "file:" === window.location.protocol && window.location.href.match(r)) return !0;
+          }
+          return !1;
+        })()
+      };
+    },
     7567: (t, e, r) => {
-      const i = r(4524),
-        a = [
+      const i = r(54524),
+        a = r(72210),
+        s = [
+          "nordstrom.com.*?checkout",
+          "target.com.*?checkout",
+          "bloomingdales.com.*?checkout",
+          "walmart.com.*?checkout",
+          "stockx.com.*?buy"
+        ],
+        o = [
           "qvc.com.*?your-information",
           "mejuri.com.*?checkout",
           "verizon.com.*?(cart|checkout)",
@@ -17217,41 +17805,26 @@ var source;
           "bestbuy.com.*?checkout",
           "casper.com.*?checkout",
           "oldnavy.gap.com.*?checkout",
-          "secure.farfetch.com.*?Payment"
+          "secure.farfetch.com.*?Payment",
+          "checkout.homebase.co.uk.*?checkout",
+          "asda.com.*?checkout",
+          "(m.)?kohls.com.*?checkout.*?v2.*?checkout",
+          "nordstrom.com.*?checkout"
         ],
-        s = [
-          "button[class*=buy]",
-          "input[class*=buy]",
-          "input[value=Toevoegen]",
-          "input[value=Add]",
+        n = ["cos.com.*?gbp.*?checkout"],
+        c = [
           "input[class*=shipping-groups]",
-          "div[class^=cart-summary]",
           "button[class*=paymentbutton i]",
           'button[aria-label*=add][aria-label*="to basket"]',
+          "button[class*=select-address]",
           i.caseSensitivity([
-            ["class*", "shipping", "form"],
-            ["class*", "billing", "form"],
-            ["class*", "signup", "form"],
-            ["id*", "shipping", "form"],
-            ["id*", "billing", "form"],
-            ["id*", "signup", "form"],
-            ["id*", "AddToCart", "button"],
-            ["class*", "add-to-cart", "button"],
-            ["class*", "add-to-bag", "button"],
-            ["data-comp*", "AddToBasket", "button"],
-            ["class*", "addToBag", "button"],
-            ["id*", "AddToCart", "button"],
-            ["class*", "add-to-cart", "button"],
-            ["class*", "add-to-bag", "button"],
-            ["data-comp*", "AddToBasket", "button"],
-            ["class*", "addToBag", "button"],
             ["class*", "address-summary", "div"],
             ["id*", "shipping-container", "div"],
             ["name*", "checkoutCart", "button"],
             ["id*", "grand_total", "div"]
           ])
         ].join(),
-        o = new RegExp(
+        l = new RegExp(
           "(" +
             [
               "cart-item-total",
@@ -17279,12 +17852,13 @@ var source;
               "cart-item__cost-total",
               "Price-promotional",
               "item-totals",
-              "previewAmount "
+              "previewAmount ",
+              "cart-line-item__product-price"
             ].join("|") +
             ")",
           "gi"
         ),
-        n = new RegExp(
+        d = new RegExp(
           "(" +
             [
               "price--reduced",
@@ -17299,7 +17873,7 @@ var source;
             ")",
           "gi"
         ),
-        c = new RegExp(
+        u = new RegExp(
           "(" +
             [
               "(sc-product-price\\b)",
@@ -17319,7 +17893,7 @@ var source;
             ")",
           "gi"
         ),
-        l = new RegExp(
+        m = new RegExp(
           "(" +
             [
               "cart_row",
@@ -17340,13 +17914,13 @@ var source;
               "(^cart_item_row $)",
               "(^divProductItem$)",
               "cart-deal-item-wrapper",
-              "(^orderItemDetailRow)"
+              "(^orderItemDetailRow)",
+              "cart-line-item__wrap"
             ].join("|") +
             ")",
           "gi"
         ),
-        d = new RegExp("(" + ["cvs.com.*?checkout", "target.com.*?checkout", "bloomingdales.com.*?checkout"].join("|") + ")", "gi"),
-        u = new RegExp(
+        p = new RegExp(
           "(" +
             [
               "cartarticle",
@@ -17370,12 +17944,13 @@ var source;
               "(^cart-product$)",
               "(^pli  )",
               "(^cart__item.*?--normal$)",
-              "(^itemSummary--)"
+              "(^itemSummary--)",
+              "cart-line-item__wrap"
             ].join("|") +
             ")",
           "gi"
         ),
-        m = new RegExp(
+        h = new RegExp(
           "(" +
             [
               "previous",
@@ -17407,38 +17982,9 @@ var source;
             ")",
           "gi"
         ),
-        p = new RegExp(
-          "(" +
-            [
-              "'jum-page'",
-              "accessory",
-              "footer",
-              "header",
-              "donation",
-              "saved?-?for-?later-?(cards|item)",
-              "cart-savelater-product",
-              "wishlistsection",
-              "bonus-offer-section"
-            ].join("|") +
-            ")",
-          "gi"
-        ),
-        h = new RegExp(
-          "(" +
-            [
-              "jum-column-side",
-              "recommended-products",
-              "carousel.*?products",
-              "carousel-content",
-              "saved?-?for-?later-?(cards|item)",
-              "cart-savelater-product",
-              "wishlistsection",
-              "bonus-offer-section"
-            ].join("|") +
-            ")",
-          "gi"
-        ),
-        I = new RegExp(
+        g = new RegExp("(" + ["'jum-page'"].join("|") + ")", "gi"),
+        I = new RegExp("(" + ["gift-boxes", "form-giftwrap"].join("|") + ")", "gi"),
+        f = new RegExp(
           "(" +
             [
               "cart",
@@ -17503,9 +18049,9 @@ var source;
             ")",
           "gi"
         ),
-        g = new RegExp("(" + ["payment.architrade", "paydollar.com"].join("|") + ")", "gi"),
-        f = new RegExp("(" + ["place your order", "proceed to checkout"].map((t) => "\\b" + t + "\\b").join("|") + ")", "gi"),
-        D = new RegExp(
+        D = new RegExp("(" + ["payment.architrade", "paydollar.com"].join("|") + ")", "gi"),
+        V = new RegExp("(" + ["place your order", "proceed to checkout"].map((t) => "\\b" + t + "\\b").join("|") + ")", "gi"),
+        v = new RegExp(
           "(" +
             [
               "spara",
@@ -17560,7 +18106,7 @@ var source;
               "^payment$",
               "^In Stock$",
               "^FREE Shipping",
-              "^Ship (in|it)",
+              "^Ship (in|it|to)",
               "^discount applied$",
               "^available to ship$",
               "^size$",
@@ -17586,12 +18132,22 @@ var source;
               "^Items \\(",
               "^Estimated Taxes$",
               "^connect with any carrier\\b",
-              "^arrives by\\b"
+              "^arrives by\\b",
+              "Select A Store",
+              "^autoship$",
+              "^product$",
+              "^colou?r$",
+              "^size$",
+              "^quantity$",
+              "^price$",
+              "save for later",
+              "^(Duplicate & Personalise|Preview & Edit)$",
+              "^Options Details$"
             ].join("|") +
             ")",
           "gi"
         ),
-        V = new RegExp(
+        y = new RegExp(
           "(" +
             [
               "subname",
@@ -17609,15 +18165,15 @@ var source;
               "^variant__name$",
               "storename",
               "SIZE_NAME",
-              "service-name"
+              "service-name",
+              "seller-name"
             ].join("|") +
             ")",
           "i"
         ),
-        v = new RegExp("(" + ["(btn|button).*(edit|delete|remove)"].join("|") + ")", "i"),
-        y = new RegExp("(" + ["basket-item", "product-text", "product-title", "product__description__name"].join("|") + ")", "i"),
-        b = {
-          ".": ["div[class='cart-item']", "div[class='productRow']"],
+        b = new RegExp("(" + ["(btn|button).*(edit|delete|remove)"].join("|") + ")", "i"),
+        _ = new RegExp("(" + ["basket-item", "product-text", "product-title", "product__description__name"].join("|") + ")", "i"),
+        w = {
           "cyberport.de|bose.co.uk|hollandandbarrett.com": ["[class*='cartItem ']"],
           "soliver.de": ["[class='itemRow ']"],
           "coolstuff.se": ["[class*='cartArticle row']"],
@@ -17638,25 +18194,16 @@ var source;
           "overstock.com": ["div[class='item-image-and-details-container']"],
           "www.tui.se": ["[class='per-passenger']"],
           "www.customink.com": ["[class='cart-OrderItem']"],
-          "www.carphonewarehouse.com": ["[class='row pstnRltv']", "[class='prdctBox']"],
           "apple.(co.uk|com)": ["div[class='rs-iteminfo row']"],
           "www.myprotein.com": ["[class*='basketItemRow']"],
-          "www.hugoboss.com": ["[class*='cart-product__wrapper']"],
           "www.goldsmiths.co.uk": ["div[class*='row-item product']"],
           "www.zara.com": ["div[class*='shop-cart-item']"],
           "www.viking-direct.co.uk": ["div[class*='product-row--cart-page']"],
-          "www.allsaints.com": ["tr[class*='basket-row']", "tr[class='line-item']"],
           "m.gamestop.com": ["tr[class*='lineitemrow']"],
           "gamestop.com": ["div[class*='cart-product-list'] div[class*='product-info']"],
-          "jcrew.com|thursdayboots.com": ["div[class*='item-row']"],
           "victoriassecret.com": ["article[class*='fabric-product-selection-component']"],
-          "www.target.com": [
-            "[data-test='cart-item-list-item']",
-            "div[data-test='cartItem']",
-            'div[class*="CheckoutStepContainer"] a[data-test*="image-card"] div[class*="Children"]>div'
-          ],
+          "www.target.com": ['div[class*="CheckoutStepContainer"] a[data-test*="image-card"] div[class*="Children"]>div'],
           "www.voelkner.de": ["div[id='shopping-cart-aside-contents']"],
-          "cashstar.com": ["div[class*='innerPreview']"],
           "www.birdsnest.com.au": ["tr[id*='bag_item_row']"],
           "www.showpo.com": ["div[class*='prod-list']"],
           "www.spotlightstores.com|www.anacondastores.com": ["div[class*='minicart-product row']"],
@@ -17689,7 +18236,7 @@ var source;
           "carters.com": ["div[class*='c-cart-category__item']", "ul[class^='checkout-line-items-list']>li>div[class*='image']"],
           "www.homedepot.com": ["div[class='cartItemMobile'],div[class='cartItemDesktop']"],
           "www.abercrombie.com": ["li[class='product-template-item']"],
-          "columbia.com": ["div[class^='product-line-item ']"],
+          "columbia.com": ["div[class*='order-product-summary'] div[class^='product-line-item ']"],
           "keurig.com": ["div[class*='line-item clearfix']"],
           "cvs.com": ["li[role='listitem']", "h2 + div > div > ul > li"],
           "kbethos.com": ["div[class*='cart-lines-row']"],
@@ -17709,10 +18256,7 @@ var source;
             "div[class='row content'] div[class='row product ']"
           ],
           "chewy.com": ["div[class*='CartItemCard']"],
-          "journeys.com": ["li[class='cart-line-item cart-line-item--row-gap']"],
-          "nordstrom.com": ["fieldset[name='fulfillmentMethod'] ul>li>div"],
           "www.blackriflecoffee.com": ["tr[class='cart__row table__section']"],
-          "www.vans.com": ["div[class^='checkout-summary-item-table-item']"],
           "warbyparker.com": ["div[data-eventid^='product-card']"],
           "stuartweitzman.com": ["div[class='item-wrapper']>div[class*='product-line-item']"],
           "puffy.com": ["ul[class^='cart-item-list']>li[class^='cart-item']"],
@@ -17735,7 +18279,6 @@ var source;
           "24s.com": ["div[class='card']>[class*='card-body']", "div[class='accordion-container']>[class*='card-body']"],
           "backcountry.com": ["div[data-id='cart-productrow']>div", "[id='commerce-items']>[class*='product-row']"],
           "stubhub.com": ["div[class='Event__Info Review__Section']"],
-          "aeropostale.com": ["[id='cart-table'] [class^=cart-row]"],
           "glassesusa.com": ["div[name*='step'] li>div>div:nth-child(2)"],
           "loft.com": [
             "section[class^='my-bag'] li[class^='product']",
@@ -17751,10 +18294,6 @@ var source;
           "surprise.katespade.com": [
             "table[id='cart-table'] tr[class='cart-row']",
             "div[class='delivery-product-block'] div[class$='product-line-item  ']"
-          ],
-          "ssense.com": [
-            "ul[class='cart-items-list__container'] > li[class*='list-item']",
-            "div[class*='order-summary'] > li[class*='item__container']"
           ],
           "coachoutlet.com": ["div[class$='product-block'] div[class*='product-line-item ']"],
           "urbandecay.com": ["table[id='cart_table'] tr[class='cart_row']"],
@@ -17787,7 +18326,7 @@ var source;
           "fragrancenet.com": ["[id='basket'] div[data-sku]"],
           "t-mobile.com": ["div[class='cart-card']"],
           "lanebryant.com": ["div[class*='product-info']"],
-          "dollartree.com": ["div[class*='cart-summary']>div[class^='product']"],
+          "dollartree.com": ["div[class*='cart-summary']>div[class^='product']", "div[class*='cart-item row']"],
           "aliexpress.(com|us)": [
             "div[class='cart-store-block']>div[class*='cart-product']",
             "div[id*='placeorder_wrap'] div[class*='pl-product-container']"
@@ -17796,9 +18335,17 @@ var source;
           "stockx.com": ["div[data-component='buysell-header']"],
           "pavers.co.uk": ["div[class*='cart__item ']"],
           "augustinusbader.com": ["div[class='bag-items__item-basic']"],
-          "calvinklein.co.uk": ["div[data-testid='basketItem']"]
+          "calvinklein.co.uk": ["div[data-testid='basketItem']"],
+          "amazon.co.uk": ["div[id*='sc-active'] > div[class='a-cardui-body a-scroller-none']"],
+          "moonpig.com\\/uk\\/review-pay": ["ul[data-testid*='lp-carousel-scroll-area'] > li > div"],
+          "walmart.com": ["div[data-testid*=fulfillment-items] ul>li"],
+          "petcircle.com.au": ["ul>li[class*='cart-summary-item']"],
+          "thebodyshop.com": ["div[class*='d-flex cx-info']"],
+          "petco.com": ['div[class*="cart-summary-section"] > div[class*="item"]'],
+          "uniqlo.com.au": ['ol[class*="cart-product"]>li', 'div[class*="items"]>ul>li[class="item"]'],
+          "spanx.com": ["[class*=cart-line-item]"]
         },
-        _ = [
+        C = [
           "[id*='main-cart-table']",
           "div[class='shoppingcart box']",
           "[class*='cart-contents']",
@@ -17824,7 +18371,7 @@ var source;
           "div[class='shipping-productsdetailscontainer']",
           "div[id='js-cart-fragment']"
         ].join(","),
-        w = [
+        x = [
           "[class=cart]",
           "[class=basket]",
           "[class=checkout]",
@@ -17848,7 +18395,7 @@ var source;
           "div[id=footer_price_label]",
           "div[class=order-totals]"
         ].join(","),
-        C = [
+        T = [
           "[id=t-minibasket]",
           "[id=side-cart]",
           "div[aria-labelledby=empty-bag-header]",
@@ -17865,10 +18412,15 @@ var source;
           'div[class^="flyoutCart minicart-"]',
           'section[class^="order-history"]>div[data-list-type="order-history"]'
         ].join(","),
-        S = {
+        k = {
           "amazon.com": { name: ["span[class^='wrap-word-break']"] },
           "journeys.com": { name: ["div[class='details-row']>div[class='details']>strong"] },
-          "spanx.com": { name: ["th[class='product__description']>span[class^='product__description__name order-summary']"] },
+          "spanx.com": {
+            name: [
+              "th[class='product__description']>span[class^='product__description__name order-summary']",
+              "a.cart-line-item__product-title"
+            ]
+          },
           "24s.com": {
             name: ["div[class$='offer-description']>p"],
             options: ["p[class$='offer-brand']", "div[class$='offer-color-size']>div"]
@@ -17876,11 +18428,16 @@ var source;
           "lenovo.com": { name: ["div[class='head']>span[class='left']"] },
           "ikea.com": { name: ["div[class='prodName']"] },
           "bluemercury.com": { name: ["div[class^='product__description__title']"], options: ["div[class$='custom-variants ']"] },
-          "ssense.com": { name: ["p[data-test*='ProductName']"] },
           "qvc.com.*?review": { name: ["div[class='prodDescr'] > h3"] },
           "lg.com": { name: ["[class='product-item-name']"] },
           "mejuri.com": { name: ["div[data-h*='line-item-name']"] },
-          "cvs.com": { name: ["a>p[class*='primaryText']", "div:nth-child(1) > p[class='ItemDetails-module__itemInfoText']:nth-child(1)"] },
+          "cvs.com": {
+            name: [
+              "a>p[class*='primaryText']",
+              "div:nth-child(1) > p[class='ItemDetails-module__itemInfoText']:nth-child(1)",
+              "div>p[class*='reviewOrder-module__itemInfoText']:nth-child(1)"
+            ]
+          },
           "dyson.com": { name: ["div[class*='leap-cart__product-name']", "div[class*='checkout--list__title']"] },
           "vividseats.com": { name: ["h3[class='productionName']"] },
           "michaels.com": { name: ["div[class='mini-cart-name']"] },
@@ -17888,65 +18445,74 @@ var source;
           "shein.com.*?cart": { name: ["div[class='right-struct']>span:first-of-type"] },
           "t-mobile.com": { name: ["h3[data-testid='device-name']"] },
           "stockx.com": { name: ["h1[class*='heading']"] },
-          "habitat.co.uk.*?webapp.*?wcs": { name: ["div[class*='size5of8'] > p > strong"] }
+          "habitat.co.uk.*?webapp.*?wcs": { name: ["div[class*='size5of8'] > p > strong"] },
+          "lululemon.co.uk": { name: ["div[class*='line-item-header'] > div[class='line-item-name'] > a"] },
+          "carparts.com.*?checkout": { name: ["div:last-child > div:first-child > div:nth-child(2) > span:nth-child(2)"] },
+          "lenovo.com.au": { name: ["div[class*=head]>span:first-child"] }
         };
       t.exports = {
-        lineTotalRegex: o,
-        lineTotalParentRegex: n,
-        lineItemPriceRegex: c,
-        lineProductDetectionRegex: l,
-        lineProductDetectionUrlRegex: d,
-        lineProductExtractionRegex: u,
-        lineIgnorePriceRegex: m,
-        lineIgnoreRegex: p,
-        lineIgnoreQuerySelector: s,
-        lineIgnoreAncestorRegex: h,
-        nodeProductDetectionSelectors: b,
+        lineTotalRegex: l,
+        lineTotalParentRegex: d,
+        lineItemPriceRegex: u,
+        lineProductDetectionRegex: m,
+        lineProductExtractionRegex: p,
+        lineIgnorePriceRegex: h,
+        lineIgnoreRegex: g,
+        lineIgnoreQuerySelector: c,
+        lineIgnoreAncestorRegex: I,
+        nodeProductDetectionSelectors: w,
         extractProductNodesByDomain: (t) => {
           let e = [];
-          for (const [r, i] of Object.entries(b))
+          for (const [r, i] of Object.entries(w))
             if (
               (r &&
                 i &&
                 new RegExp(r).test(window.location.href) &&
-                (e = t ? Array.from(t.querySelectorAll(i)) : Array.from(document.body.querySelectorAll(i))),
+                (e = t ? Array.from(a.queryAll(i, t)) : Array.from(a.queryAll(i, document.body))),
               e.length > 0)
             )
               break;
           return e;
         },
-        nodeCartDetectionSelectors: _,
-        cartUrlRegex: I,
-        isNotProductUrlRegex: g,
-        cartPositiveSelectors: w,
-        cartNegativeSelectors: C,
-        checkoutRegex: f,
-        nameDetectionSelectors: S,
+        nodeCartDetectionSelectors: C,
+        cartUrlRegex: f,
+        isNotProductUrlRegex: D,
+        cartPositiveSelectors: x,
+        cartNegativeSelectors: T,
+        checkoutRegex: V,
+        nameDetectionSelectors: k,
         extractProductNameNodesByDomain: (t, e = !1) => {
           if (!t || 1 !== t.nodeType) return;
           let r = [];
-          for (let [i, a] of Object.entries(S))
+          for (let [i, s] of Object.entries(k))
             if (
               (i &&
-                a &&
+                s &&
                 new RegExp(i).test(window.location.href) &&
-                ((a = e ? a.options : a.name), a && (r = Array.from(t.querySelectorAll(a)))),
+                ((s = e ? s.options : s.name), s && (r = Array.from(a.queryAll(s, t)))),
               r.length > 0)
             )
               return r;
         },
-        productNameIgnoreTextRegex: D,
-        productNameIgnoreClassNameRegex: V,
-        productNameIgnoreIdRegex: v,
-        productNameClassNameRegex: y,
+        productNameIgnoreTextRegex: v,
+        productNameIgnoreClassNameRegex: y,
+        productNameIgnoreIdRegex: b,
+        productNameClassNameRegex: _,
         useGlobalContextScanner: () => {
-          for (const t of a) if (new RegExp(t).test(window.location.href)) return !0;
+          for (const t of o) if (new RegExp(t).test(window.location.href)) return !0;
+        },
+        forceSiteSpecificProductLines: () => {
+          for (const t of s) if (new RegExp(t).test(window.location.href)) return !0;
+        },
+        observeCharacterDataMutations: (t) => {
+          for (const t of n) if (new RegExp(t).test(window.location.href)) return !0;
+          return !1;
         }
       };
     },
-    4018: (t, e, r) => {
-      const i = r(3102),
-        a = r(5863),
+    44018: (t, e, r) => {
+      const i = r(83102),
+        a = r(45863),
         s = {
           en: { totalCandidate: ["(^Your Order Summary$)"], symbol: ["usd", "\\$"], ignore: ["quantity"] },
           sv: { totalCandidate: [], symbol: ["sek", "kr", "\\:\\-"], ignore: ["Total Score"], suffix: ["se"], code: "SEK" },
@@ -17989,8 +18555,8 @@ var source;
       const p = new RegExp(m.map((t) => (t.match(/[a-zA-Z]+/gi) ? "\\b" + t + "\\b" : t.match(/-$/) ? "\\d" + t : t)).join("|"), "gi"),
         h = [];
       Object.keys(s).forEach((t) => s[t].ignore.map((t) => h.push(t)));
-      const I = new RegExp("(" + h.join("|") + ")", "gi"),
-        g = new RegExp("(" + ["tot", "receipt", "checkout", "summary\\b"].join("|") + ")", "gi"),
+      const g = new RegExp("(" + h.join("|") + ")", "gi"),
+        I = new RegExp("(" + ["tot", "receipt", "checkout", "summary\\b"].join("|") + ")", "gi"),
         f = new RegExp(
           "(" +
             [
@@ -18131,7 +18697,8 @@ var source;
               "(bag_price)",
               "(cart-content__item)",
               "(ProductsDetailsList)",
-              "(product-list--list-item)"
+              "(product-list--list-item)",
+              "(LineItemContainer)"
             ].join("|") +
             ")",
           "gi"
@@ -18140,10 +18707,10 @@ var source;
         totalRgx: n,
         lowestTotalRgx: l,
         totalCandidateRgx: u,
-        ignoreRgx: I,
+        ignoreRgx: g,
         suffixRgx: p,
         totalData: s,
-        validTotalClassRgx: g,
+        validTotalClassRgx: I,
         validTotalLineClassRgx: f,
         invalidTotalClassRgx: D,
         invalidParentTotalClassRgx: V,
@@ -18163,10 +18730,10 @@ var source;
         }
       };
     },
-    3102: (t) => {
+    83102: (t) => {
       t.exports = {
         keywordList: {
-          "^totalt\\s+\\d+\\s+produkt\\(er\\)\\s+inklusive\\s+fraktkostnad$": 746,
+          "^total\\s+inc\\s+tax$": 746,
           "^subtotal\\s+\\(\\s+\\d+\\s+items\\)$": 746,
           "^est\\.\\s+total\\s+before\\s+tax$": 746,
           "^totaalprijs\\s+\\(inclusief\\s+btw\\)$": 746,
@@ -18198,52 +18765,53 @@ var source;
           "^total\\s+cost\\(inclusive\\s+of\\s+vat\\)$": 746,
           "^order\\s+total\\s+\\:$": 746,
           "^total\\s+excluding\\s+delivery\\:$": 746,
+          "^your\\s+order\\s+total$": 746,
           "^totalsum\\s+inkl\\.\\s+moms$": 746,
           "^total\\s+inc\\.\\s+savings$": 746,
-          "^order\\s+total\\s+\\(gbp\\)$": 746,
           "^estimated\\s+total\\(before\\s+tax/shipping\\)$": 746,
           "^order\\s+total\\s+\\(aud\\)$": 746,
           "^est\\.\\s+total": 746,
-          "^totalt\\s+ink\\.\\s+mva\\:$": 746,
           "^total\\s+\\(inc\\s+vat\\)$": 746,
+          "^totalt\\s+ink\\.\\s+mva\\:$": 746,
           "^summa\\s+att\\s+betala$": 746,
           "^total\\s+\\(excluding\\s+postage\\)$": 746,
+          "^tax,\\s+total,\\s+&\\s+payment$": 746,
           "^total\\s+payment\\s+amount": 746,
           "^att\\s+betala\\s+": 746,
-          "^tax,\\s+total,\\s+&\\s+payment$": 746,
           "^totalt\\s+bel\xf8p\\s+inkl\\.\\s+mva\\:$": 746,
           "^subtotal\\s+\\(\\d+\\s+items?\\)$": 746,
           "^grand-total$": 746,
-          "^grand_total$": 746,
           "^grand\\s+total\\s+\\(inc\\.gst\\)$": 746,
+          "^grand_total$": 746,
           "^estimated\\s+order\\s+total\\:$": 746,
-          "^totalt\\s+\\(inkl\\.\\s+moms\\)\\:$": 746,
           "^amount\\s+due\\s+\\:$": 746,
-          "^order\\s+total\\:": 746,
+          "^totalt\\s+\\(inkl\\.\\s+moms\\)\\:$": 746,
           "^subtotal\\s+\\(\\d+\\s+item\\)\\:$": 746,
+          "^order\\s+total\\:": 746,
+          "^total\\s+order\\s+value$": 746,
           "^grand_total\\s+\\:$": 746,
           "^total\\s+before\\s+tax\\:$": 746,
-          "^total\\s+order\\s+value$": 746,
           "^order\\s+total\\s+excl\\.\\s+tax$": 746,
-          "^balance\\s+to\\s+be\\s+applied\\s+to\\s+credit\\s+card\\:$": 746,
           "^order\\s+subtotal\\s+\\(\\d+\\s+items?\\)\\:$": 746,
+          "^balance\\s+to\\s+be\\s+applied\\s+to\\s+credit\\s+card\\:$": 746,
+          "^totalpris\\s+inkl\\.\\s+skatter\\s+och\\s+avgifter$": 746,
           "^to\\s+be\\s+applied\\s+to\\s+credit\\s+card\\:$": 746,
           "^est\\.\\s+subtotal\\s+price\\*\\:$": 746,
-          "^totalpris\\s+inkl\\.\\s+skatter\\s+och\\s+avgifter$": 746,
-          "^total\\s+amount\\:$": 746,
           "^total\\s+\\(excluding\\s+delivery\\)$": 746,
+          "^total\\s+amount\\:$": 746,
           "^total\\s+\\(incl\\.\\s+delivery\\:": 746,
           "^totalsumma\\s+ink\\.\\s+moms$": 746,
+          "^total\\s+inc\\s+gst\\:$": 746,
           "^total\\s+\\(vat\\s+included\\)$": 746,
           "^gesamtsumme\\s+\\(inkl\\.\\s+mwst\\.\\)$": 746,
-          "^total\\s+inc\\s+gst\\:$": 746,
-          "^cart\\s+total\\:\\s+": 746,
           "^totalt\\s+\\(inkl\\.\\s+mva\\)\\:$": 746,
+          "^cart\\s+total\\:\\s+": 746,
           "^total\\s+\\(incl\\.\\s+vat\\)$": 746,
+          "^estimated\\s+total\\:\\s+$": 746,
           "^totalt\\s+belopp\\s+inkl\\.\\s+moms$": 746,
           "^totalt\\s+bel\xf8p\\s+inklusive\\s+moms$": 746,
           "^totalbelopp\\s+inkl\\s+moms$": 746,
-          "^estimated\\s+total\\:\\s+$": 746,
+          "^total\\s+\\(including\\s+savings\\)\\:$": 746,
           "^total\\s+due\\s+today$": 746,
           "^grand\\s+total\\s+incl\\.\\s+tax$": 746,
           "^total\\s+amount\\s+to\\s+pay$": 746,
@@ -18252,52 +18820,52 @@ var source;
           "^subtotal\\s+inc\\s+vat$": 746,
           "^totalt\\s+inkl\\.\\s+moms$": 746,
           "^order\\s+balance\\s+to\\s+credit\\s+card$": 746,
-          "^total\\s+\\(including\\s+savings\\)\\:$": 746,
+          "^subtotal\\s+\\(gst\\s+incl\\.\\)$": 746,
           "^you\\s+should\\s+pay$": 746,
           "^totalt\\s+att\\s+betala$": 746,
           "^total\\s+charge\\s+\\:$": 746,
-          "^subtotal\\s+\\(gst\\s+incl\\.\\)$": 746,
+          "^total\\s+for\\s+stay$": 746,
           "^total\\s+amount\\s+to\\s+be\\s+paid\\s+\\:$": 746,
           "^est\\.\\s+total$": 746,
-          "^total\\s+for\\s+stay$": 746,
-          "^total\\s+amount$": 746,
           "^goods\\s+total\\s+\\(excluding\\s+delivery\\)$": 746,
+          "^total\\s+amount$": 746,
           "^pre-tax\\s+order\\s+total$": 746,
+          "^totalt\\s+att\\s+betala\\:$": 746,
           "^sammanlagt\\s+belopp\\s+att\\s+betala\\s+per\\s+passagerare$": 746,
           "^totalt\\*$": 746,
-          "^totalt\\s+att\\s+betala\\:$": 746,
           "^total\\s+\\(gst\\s+included\\)$": 746,
-          "^totalsumma\\s+att\\s+betala\\s+vid\\s+vistelsen\\:$": 746,
           "^total\\s+to\\s+be\\s+charged$": 746,
+          "^totalsumma\\s+att\\s+betala\\s+vid\\s+vistelsen\\:$": 746,
           "^order\\s+subtotal\\s+before\\s+discounts/promotions\\:$": 746,
           "^subtotal\\s+\\(excluding\\s+delivery\\)\\:$": 746,
+          "^\xe5\\s+betale\\:\\s+": 746,
           "^total\\s+to\\s+pay\\s+incl\\.\\s+gst$": 746,
           "^sum\\s+inkl\\.\\s+mva\\.$": 746,
           "^totaal\\s+orderbedrag\\s+\\(incl\\.\\s+btw\\s+en\\s+bezorgkosten\\)$": 746,
           "^total\\s+to\\s+pay\\s+\\(incl\\.\\s+gst\\)$": 746,
-          "^\xe5\\s+betale\\:\\s+": 746,
+          "^totalt\\s+eks\\.\\s+mva\\:$": 746,
           "^amount\\s+due\\s+today$": 746,
           "^your\\s+order\\s+total\\:$": 746,
-          "^totalt\\s+eks\\.\\s+mva\\:$": 746,
+          "^total\\s+sum\\s+varer\\:$": 746,
           "^total\\s+\\(inc\\.\\s+vat\\)$": 746,
           "^totalsumma\\s+inkl\\.\\s+moms$": 746,
           "^delsumma\\s+inkl\\.\\s+moms$": 746,
           "^sub-total\\s+incl\\.\\s+vat$": 746,
           "^total\\s+incl\\.\\s+vat$": 746,
           "^order\\s+total\\s+incl\\.\\s+tax$": 746,
-          "^total\\s+sum\\s+varer\\:$": 746,
           "^total\\s+\\(excl\\.\\s+delivery\\)$": 746,
-          "^grand\\s+total\\:$": 746,
           "^subtotal\\s+before\\s+tax$": 746,
+          "^grand\\s+total\\:$": 746,
           "^totalt\\s+inkl\\s+mva\\.$": 746,
-          "^cart\\s+subtotal\\s+\\(\\d+\\s+items\\)$": 746,
           "^total\\s+\\(excluding\\s+delivery\\)\\:$": 746,
+          "^cart\\s+subtotal\\s+\\(\\d+\\s+items\\)$": 746,
           "^sub-order\\s+total\\:$": 746,
           "^grand\\s+total": 746,
           "^est\\.\\s+total\\s+before\\s+tax\\:$": 746,
-          "^total\\s+\\(incl\\s+gst\\)$": 746,
           "^totalt\\s+\xe5\\s+betale\\:$": 746,
+          "^total\\s+\\(incl\\s+gst\\)$": 746,
           "^summa\\s+\\(inkl\\.\\s+moms\\)\\:$": 746,
+          "^totalt\\s+pris\\s+inkl\\.\\s+moms$": 746,
           "^totalt\\s+inkl\\.\\s+moms\\:$": 746,
           "^totaalprijs\\s+incl\\.\\s+btw$": 746,
           "^cart\\s+subtotal\\s+\\:$": 746,
@@ -18306,9 +18874,9 @@ var source;
           "^att\\s+betala\\s+inkl\\s+moms$": 746,
           "^summa\\s+inkl\\s+moms$": 746,
           "^order\\s+total\\s+\\(usd\\)$": 746,
-          "^totalt\\s+pris\\s+inkl\\.\\s+moms$": 746,
           "^totaal\\s+orderbedrag\\s+incl\\.\\s+btw$": 746,
           "^gesamtbetrag\\s+in\\s+euro\\s+mit\\s+mwst\\.$": 746,
+          "^subtotal\\s+\\(excl\\.\\s+tax\\)$": 746,
           "^basket\\s+subtotal\\s+\\(\\d+\\s+items?\\)\\:?$": 746,
           "^subtotal\\s+\\(\\d+\\s+items?\\)\\:?$": 746,
           "^subtotal\\s+\\(\\d+\\s+items\\)\\:$": 746,
@@ -18319,110 +18887,109 @@ var source;
           "^estimated\\s+aud\\s+total\\:$": 746,
           "^totaal\\s+eerste\\s+jaar$": 746,
           "^est\\.total$": 746,
-          "^subtotal\\s+\\(excl\\.\\s+tax\\)$": 746,
           "^total\\s+price\\s+for\\s+stay$": 746,
-          "^subtotal\\s+ink\\s+moms$": 746,
           "^total\\s+to\\s+pay\\s+now$": 746,
+          "^subtotal\\s+ink\\s+moms$": 746,
+          "^you\\s+pay$": 746,
           "^totalbelopp\\s+inkl\\.\\s+moms\\s+$": 746,
           "^total\\s+\\(\\d\\s+items\\)$": 746,
-          "^you\\s+pay$": 746,
           "^total\\s+price\\s+inc\\.\\s+delivery$": 746,
           "^total\\s+price\\s+inc\\.\\s+delivery\\:$": 746,
+          "^total\\s+amount\\s+\\:": 746,
           "^total\\s+to\\s+pay\\:$": 746,
           "^total\\s+including\\s+delivery\\:$": 746,
-          "^total\\s+amount\\s+\\:": 746,
           "^est\\.\\s+total\\:$": 746,
+          "^totalbel\xf8p\\s+\\(inkl\\s+frakt\\s+og\\s+mva\\)\\:$": 746,
           "^estimated\\s+order\\s+total$": 746,
           "^total\\s+\\(\\d+\\s+items?\\)$": 746,
           "^monthly\\s+total\\s+\\(usd\\)$": 746,
-          "^totalbel\xf8p\\s+\\(inkl\\s+frakt\\s+og\\s+mva\\)\\:$": 746,
           "^total\\s+before\\s+tax$": 746,
+          "^total\\s+including\\s+vat\\s+&\\s+delivery$": 746,
           "^subtotal\\s+for\\s+\\d+\\s+item\\(s\\)$": 746,
           "^totalsumma\\s+\\(inkl\\.\\s+moms\\)$": 746,
-          "^total\\s+including\\s+vat\\s+&\\s+delivery$": 746,
+          "^total\\s+including\\s+vat": 746,
           "^subtotaal\\s+inclusief\\s+btw\\:$": 746,
           "^est\\.\\s+order\\s+subtotal$": 746,
           "^est\\.\\s+order\\s+total$": 746,
-          "^total\\s+including\\s+vat": 746,
+          "^total\\s+including\\s+vat$": 746,
           "^subtotal\\s+before\\s+delivery$": 746,
           "^total\\s+in\\s+aud$": 746,
           "^total\\s+to\\s+pay\\s+\\(aud\\)$": 746,
           "^totalsum\\s+kr\\s+": 746,
-          "^total\\s+including\\s+vat$": 746,
           "^total\\s+includes\\s+gst$": 746,
+          "^order\\s+total\\s+including\\s+vat\\:$": 746,
           "^totalt\\s+\\(inkl\\.\\s+moms\\)$": 746,
           "^totalt\\s+kr\\s+": 746,
-          "^order\\s+total\\s+including\\s+vat\\:$": 746,
           "^total\\s+for\\s+your\\s+order$": 746,
           "^total,\\s+including\\s+shipping\\:$": 746,
+          "^estimated\\s+total\\s+due\\s+\\(usd\\)\\:$": 746,
           "^shopping\\s+cart\\s+total$": 746,
           "^total\\s+inc\\.\\s+vat$": 746,
-          "^estimated\\s+total\\s+due\\s+\\(usd\\)\\:$": 746,
           "^total\\s+before\\s+tax\\s+\\(usd\\)\\:$": 746,
-          "^est\\.\\s+order\\s+total\\:$": 746,
           "^totalpris\\s+f\xf6r\\s+resan\\:$": 746,
+          "^est\\.\\s+order\\s+total\\:$": 746,
+          "^total\\s+\\(before\\s+delivery\\)$": 746,
           "^est\\.\\s+total\\s+\\(pre\\s+tax\\)$": 746,
           "^total\\s+inc\\s+vat$": 746,
-          "^total\\s+inc\\s+tax$": 746,
-          "^total\\s+\\(before\\s+delivery\\)$": 746,
           "^total\\s+\\(\\d+\\s+items?\\)\\:?$": 746,
+          "^totalt\\s+\\d+\\s+produkt\\(er\\)\\s+inklusive\\s+fraktkostnad$": 746,
           "^order\\s+total\\s+\\(\\d+\\s+items\\)$": 746,
           "^order\\s+total\\s+\\(\\d+\\s+item\\)$": 746,
           "^sluttsum\\s+\\(inkl\\.\\s+mva\\)$": 746,
           "^\xe5\\s+betale\\s+nok$": 746,
-          "^totalt\\s+inkl\\s+moms$": 746,
           "^cart\\s+total\\s+\\(\\d+\\s+items\\)$": 746,
+          "^totalt\\s+inkl\\s+moms$": 746,
+          "^gesamtsumme\\s+inkl\\.\\s+steuern$": 746,
           "^summa\\s+\\(inklusive\\s+moms\\s+och\\s+frakt\\)\\:": 746,
           "^total\\s+cost\\s+including\\s+delivery$": 746,
           "^subtotal\\s+\\(\\d+\\s+items\\)$": 746,
           "^total\\s+\\(inc\\.\\s+gst\\)$": 746,
-          "^gesamtsumme\\s+inkl\\.\\s+steuern$": 746,
           "^sum$": 745,
           "^subtotal\\s+\\*$": 745,
+          "^totalt\\s+sek$": 745,
           "^total\\s+\\(gbp\\)$": 745,
-          "^total\\s+price$": 745,
+          "^basket\\s+total\\:$": 745,
           "^totalsum$": 745,
           "^cart\\s+totals$": 745,
-          "^basket\\s+total\\:$": 745,
           "^total\\s+paid\\:$": 745,
           "^sub-total\\:$": 745,
           "^subtotal\\s+\\($": 745,
-          "^subtotal\\s+\\$": 745,
           "^totalt\\s+": 745,
-          "^totalbel\xf8p$": 745,
+          "^subtotal\\s+\\$": 745,
           "^subtotal$": 745,
+          "^totalbel\xf8p$": 745,
           "^booking\\s+total$": 745,
           "^total\\s+due$": 745,
           "^pay\\s+today$": 745,
+          "^total\\(\\d+\\s+items\\)$": 745,
           "^balance\\s+due$": 745,
           "^total\\:$": 745,
-          "^total\\(\\d+\\s+items\\)$": 745,
+          "^total\\s+cost$": 745,
           "^subtotal\\:$": 745,
           "^basket\\s+total$": 745,
-          "^total\\s+cost$": 745,
           "^total\\s+\\(estimated\\)$": 745,
-          "^total\\s+\\(inc\\.": 745,
           "^your\\s+total$": 745,
+          "^total\\s+\\(inc\\.": 745,
           "^estimated\\s+total$": 745,
           "^totalt$": 745,
           "^product\\s+total\\:$": 745,
           "^pre-tax\\s+total\\:$": 745,
+          "^cart\\s+total\\*$": 745,
           "^subtotal\\:": 745,
           "^total\\s+payable\\:$": 745,
           "^total\\s+charge$": 745,
-          "^cart\\s+total\\*$": 745,
           "^cart\\s+total$": 745,
           "^product\\s+total$": 745,
           "^estimated\\s+total\\*$": 745,
           "^total\\s+qv\\:$": 745,
           "^final\\s+total,$": 745,
-          "^totalsumma$": 745,
           "^totalbelopp$": 745,
-          "^total$\\d+$": 745,
+          "^totalsumma$": 745,
           "^summa\\s+totalt$": 745,
+          "^total$\\d+$": 745,
+          "^totalsum\\:$": 745,
           "^your\\s+order$": 745,
           "^total\\s+\\(\\d+\\)$": 745,
-          "^totalsum\\:$": 745,
           "^totale\\s+reissom$": 745,
           "^payment\\s+total\\:$": 745,
           "^estimated\\s+total\\:$": 745,
@@ -18430,125 +18997,125 @@ var source;
           "^cart\\s+total\\:$": 745,
           "^order\\s+subtotal$": 745,
           "^total\\:\\s+$": 745,
-          "^subtotal\b$": 745,
           "^totalincl\\s+gst$": 745,
+          "^subtotal\b$": 745,
           "^total\\(excluding\\s+delivery\\)$": 745,
-          "^du\\s+betaler\\:$": 745,
           "^current\\s+total\\:$": 745,
+          "^du\\s+betaler\\:$": 745,
           "^subtotal\\s+\\:$": 745,
           "^totalt\\s+pris$": 745,
+          "^total\\s+\\(usd\\)$": 745,
           "^total\\s+price\\:$": 745,
           "^total\\s+sum$": 745,
           "^total\\s+\\:$": 745,
           "^total\\s+value$": 745,
-          "^total\\s+\\(usd\\)$": 745,
-          "^sub\\s+total$": 745,
           "^\xe5\\s+betale$": 745,
+          "^sub\\s+total$": 745,
           "^total\\s+payable$": 745,
           "^trolley\\s+total$": 745,
           "^totalpris$": 745,
+          "^sub-total$": 745,
           "^totalt\\:$": 745,
           "^total\\s+\\(est\\.\\)\\:$": 745,
-          "^sub-total$": 745,
-          "^ordre\\s+total$": 745,
           "^total\\s+kostnad$": 745,
-          "^basket\\s+subtotal\\:$": 745,
           "^totalkostnad\\:$": 745,
           "^order\\s+subtotal\\:$": 745,
+          "^basket\\s+subtotal\\:$": 745,
+          "^ordre\\s+total$": 745,
           "^totalt\\s+sek\\*$": 745,
           "^sub\\s+total\\:$": 745,
-          "^bag\\s+total$": 745,
           "^sum\\s+totalt\\:$": 745,
+          "^bag\\s+total$": 745,
           "^subtotal\\s+\\(\\d+\\)$": 745,
-          "^subtotal\\s+$": 745,
           "^total\\s+purchase$": 745,
           "^estimated\\s+subtotal$": 745,
+          "^subtotal\\s+$": 745,
           "^total\\s+charges$": 745,
           "^total\\s+monthly$": 745,
           "^pay\\s+totally$": 745,
+          "^your\\s+total\\:$": 745,
           "^sub-total\\:": 745,
           "^aud\\s+total\\:$": 745,
           "^basket\\s+subtotal$": 745,
-          "^your\\s+total\\:$": 745,
-          "^totalt\\s+sek$": 745,
+          "^total\\s+price$": 745,
+          "^total\\s+summa\\:$": 745,
           "^total\\:": 745,
           "^total\\s+due\\:$": 745,
-          "^totalsumma\\:$": 745,
+          "^total\\s+summa\\:": 745,
           "^totalpris\\:$": 745,
-          "^total\\s+summa\\:$": 745,
           "^pre-tax\\s+total$": 745,
+          "^total\\s+order$": 745,
           "^total\\s+$": 745,
           "^total\\:\\s+": 745,
-          "^total\\s+order$": 745,
           "^est\\.\\s+subtotal\\*\\:$": 745,
           "^subtotal\\*\\:$": 745,
-          "^total\\s+summa\\:": 745,
+          "^totalsumma\\:$": 745,
           "^total$": 745,
           "^gesamtsumme$": 44,
           "^gesamtbetrag\\:$": 44,
           "^gesamtsumme\\:$": 44,
-          "^gesamtkosten$": 44,
           "^summe\\:$": 44,
+          "^gesamtkosten$": 44,
           "^gesamtpreis$": 44,
           "^gesamt\\:$": 44,
+          "^gesamtbetrag$": 44,
           "^gesamt$": 44,
           "^insgesamt$": 44,
-          "^gesamtbetrag$": 44,
           "^zwischensumme\\:$": 44,
           "^bestellung\\s+gesamt\\:$": 44,
+          "^totaal\\s+\u20ac": 33,
+          "^subtotaal$": 33,
+          "^totaal\\s+bestelling$": 33,
           "^u\\s+betaalt\\:$": 33,
+          "^totaalbedrag$": 33,
           "^totaal$": 33,
           "^totaalprijs$": 33,
-          "^totaal\\s+\u20ac": 33,
-          "^totaal\\s+bestelling$": 33,
-          "^subtotaal$": 33,
-          "^totaal\\*$": 33,
-          "^totaalbedrag$": 33,
           "^eindtotaal$": 33,
-          "^att\\s+betala\\:": 9,
-          "^summa\\:$": 9,
-          "^att\\s+betala\\:$": 9,
+          "^totaal\\*$": 33,
           "^summa$": 9,
+          "^att\\s+betala\\:": 9,
+          "^att\\s+betala\\:$": 9,
+          "^summa\\:$": 9,
           "^att\\s+betala$": 8,
+          "^sum\\:$": 4,
           "^cart\\s+subtotal$": 4,
           "^merchandise\\s+subtotal$": 4,
-          "^sum\\:$": 4,
           "^k\xf6pupplysningar$": 3,
           "^amount\\:$": 3,
           "^totaal\\:$": 2,
-          "^rechnungssumme$": 2,
-          "^summe$": 2,
+          "^totaalbedrag\\:$": 2,
           "^amount$": 2,
+          "^summe$": 2,
+          "^rechnungssumme$": 2,
           "^net\\s+charged$": 2,
           "^sluttsum$": 2,
-          "^totaalbedrag\\:$": 2,
           "^belopp\\:$": 2,
           "^bag\\s+subtotal$": 2,
           "^zahlbetrag$": 2,
           "^totaal\\s+bedrag\\:$": 2,
           "^subtotaal\\s+\\:$": 1,
           "^estimated\\s+shipping\\:$": 1,
+          "^place\\s+order$": 1,
           "^transaction\\s+amount": 1,
-          "^transaction\\s+amount\\:$": 1,
           "^cart\\s+subtotal\\:$": 1,
           "^item\\(s\\)\\s+total$": 1,
           "^your\\s+cart\\:$": 1,
-          "^place\\s+order$": 1,
+          "^transaction\\s+amount\\:$": 1,
           "^purchase\\s+amount$": 1,
-          "^est\\.\\s+balance\\*\\:$": 1,
           "^betalning$": 1,
-          "^balance$": 1,
           "^ordersumma$": 1,
+          "^balance$": 1,
+          "^est\\.\\s+balance\\*\\:$": 1,
           "^due\\s+today\\:$": 1,
           "^due\\s+today$": 1,
           "^voraussichtl\\.\\s+mietpreis$": 1,
           "^amount\\s+gbp": 1,
           "^estimatedtotal$": 1,
           "^invoice\\s+amount$": 1,
-          "^amount\\s+\\:$": 1,
           "^best\xe4ll$": 1,
-          "^your\\s+subtotal\\:$": 1,
+          "^amount\\s+\\:$": 1,
           "^items\\s+subtotal\\:$": 1,
+          "^your\\s+subtotal\\:$": 1,
           "^your\\s+price$": 1
         },
         lowestKeywordList: {
@@ -18558,9 +19125,6 @@ var source;
           "^order\\s+summary$": ["secure.safecharge.com", "www.zulily.com"],
           "^produkter$": ["www.trademax.se"],
           "^-\\s+checkout$": ["www.goodamerican.com"],
-          "^varukorg$": ["www.coop.se"],
-          "^checkout\\s+\\(\\d+\\)$": ["floryday.com.", "sea-m.banggood.com"],
-          "^din\\s+varukorg$": ["www.ellos.se", "www.jotex.se"],
           "^checkout$": [
             "merrypeople.com.bobbi-gumboot-black-black-merry-people",
             "poshpeanut.com.",
@@ -18568,12 +19132,15 @@ var source;
             "woodenwick.com.",
             "www.everlane.com"
           ],
+          "^varukorg$": ["www.coop.se"],
+          "^din\\s+varukorg$": ["www.ellos.se", "www.jotex.se"],
+          "^checkout\\s+\\(\\d+\\)$": ["floryday.com.", "sea-m.banggood.com"],
           "^checkout\\s+securely$": ["m.wholesale7.net"],
           "^checkout\\s+>$": ["m.vova.com"]
         }
       };
     },
-    6575: (t) => {
+    96575: (t) => {
       const e = {
           "/number/": "/[\\d-_]+|/BBY01-\\d+",
           "orders/detail/unique/": "orders/detail/\\S+",
@@ -18584,10 +19151,9 @@ var source;
           "/ip/product": "/(ip|browse|seller|reviews|lists|help)/\\S+/[_-a-zA-Z0-9*]+",
           "/product/": "/product(s)?/\\S+",
           "/p/product": "/p/\\S+/A-\\d+",
-          "/us/product.html": "/(au|us)/\\S+.html",
           "/restaurants-name/": "/restaurants-\\S+/"
         },
-        r = ["stockx.com/(en-gb/)?buy/", "habitat.co.uk/webapp/wcs"],
+        r = ["stockx.com/(en-gb/)?buy/", "habitat.co.uk/webapp/wcs", "groupon.(co.uk|com.au)/deals/.+/confirmation"],
         i = new RegExp(
           [
             "cart\\b",
@@ -18615,8 +19181,9 @@ var source;
             "/pay/rpc/card",
             "reservation/reviewDetails",
             "billingdisplay\\?",
-            "en-gb/trolley",
-            "/test/"
+            "/trolley(/|$)",
+            "/test/",
+            "/review-pay"
           ].join("|"),
           "gi"
         ),
@@ -18682,23 +19249,24 @@ var source;
         urlTokenizer: o
       };
     },
-    4524: (t, e, r) => {
-      const i = r(2605),
-        a = r(5863),
-        s = function (t, e) {
+    54524: (t, e, r) => {
+      const i = r(12605),
+        a = r(45863),
+        s = r(72210),
+        o = function (t, e) {
           const r = [],
             i = e || 4;
           for (let e = 0; e < i && t; e++, t = t.parentNode) r.push(t);
           return r;
         },
-        o = (t) => {
+        n = (t) => {
           let e, r;
           if ("object" != typeof t || null === t) return t;
           const i = Array.isArray(t) ? [] : {};
-          for (r in t) (e = t[r]), (i[r] = o(e));
+          for (r in t) (e = t[r]), (i[r] = n(e));
           return i;
         },
-        n = function (t, e = document.body) {
+        c = function (t, e = document.body) {
           try {
             const r = document.evaluate(t, e, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
             if (r.snapshotLength > 0) return r.snapshotItem(0);
@@ -18706,17 +19274,17 @@ var source;
             a.log(t.toString());
           }
         },
-        c = (t) => {
+        l = (t) => {
           if (t) return t.innerText || t.textContent;
         };
       t.exports = {
-        hasAncestorClass: function (t, e) {
+        hasAncestorAttribute: function (t, e, r) {
           for (; null !== (t = t.parentNode); )
             if (t.attributes) {
               if (
                 Array.prototype.slice
                   .call(t.attributes)
-                  .map((t) => t.nodeValue)
+                  .map((t) => (!r || t.name.match(r) ? t.nodeValue : ""))
                   .join(" ")
                   .match(e)
               )
@@ -18757,7 +19325,7 @@ var source;
           if ("input" === t.nodeName.toLowerCase() && t.value) return t.value;
           if (t.textContent.match(/\d+Updated total price/gi)) return t.textContent.split(/Updated total price/gi)[0];
           let e =
-            Array.from(t.querySelectorAll("sup")).pop() ||
+            Array.from(s.queryAll("sup", t)).pop() ||
             (t.nextElementSibling && "sup" === t.nextElementSibling.nodeName.toLowerCase() ? t.nextElementSibling : null);
           if (
             (e || (e = t.nextElementSibling && /sup/gi.test(t.nextElementSibling.className) ? t.nextElementSibling : null),
@@ -18844,13 +19412,19 @@ var source;
         },
         hasClassname: (t, e) =>
           !(!t || !e) && !(!t.className || !t.className.match || "string" != typeof t.className) && t.className.match(e),
+        hasAncestorClass: function (t, e) {
+          if (!t || !e) return !1;
+          for (; null !== (t = t.parentNode); )
+            if (t.className && t.className.match && "string" == typeof t.className && t.className.match(e)) return !0;
+          return !1;
+        },
         hasId: (t, e) => !(!t || !e) && !(!t.id || !t.id.match || "string" != typeof t.id) && t.id.match(e),
         lowestCommonAncestor: function (t, e, r = 4) {
-          const i = s(t, r),
-            a = s(e, r);
+          const i = o(t, r),
+            a = o(e, r);
           for (let t = 0; t < i.length; t++) if (a.indexOf(i[t]) > -1) return i[t];
         },
-        deepCopyFunction: o,
+        deepCopyFunction: n,
         merge: (t, e) => {
           const r = ["name", "image_url", "quantity", "item_price", "line_total", "url"],
             i = (t, e, r, i) => {
@@ -18923,7 +19497,7 @@ var source;
             e ? 0.1 * r : r
           );
         },
-        getElementByXPath: n,
+        getElementByXPath: c,
         getElementByText: function (t, e) {
           if (void 0 === t || null == t || 0 === t.length) return;
           let r = './/*[text()[contains(.,"' + t + '")]]';
@@ -18933,7 +19507,7 @@ var source;
             for (const t of e) -1 !== r.indexOf("contains") && (r += " and "), (r += 'contains(text(),"' + t + '")');
             r += "]";
           }
-          return n(r, e);
+          return c(r, e);
         },
         normaliseText: function (t) {
           const e = t.textContent;
@@ -18977,9 +19551,9 @@ var source;
           };
         },
         isIterable: (t) => Symbol.iterator in Object(t),
-        getNodeText: c,
+        getNodeText: l,
         numberOfWordsNodeText: (t) => {
-          const e = c(t);
+          const e = l(t);
           return e ? e.split(/\s+/g).length : 0;
         },
         getObjectFromPath: function (t, e) {
@@ -19005,10 +19579,16 @@ var source;
             const e = t.tagName;
             if (e) return e.toLowerCase();
           }
+        },
+        isShadowRoot: function (t) {
+          return t && t.constructor && "ShadowRoot" === t.constructor.name;
+        },
+        getChildrenNodes: function (t) {
+          return t.shadowRoot ? t.shadowRoot.children : t.children;
         }
       };
     },
-    5946: (t) => {
+    75946: (t) => {
       t.exports = (function () {
         const t = {},
           e = [];
@@ -19046,7 +19626,7 @@ var source;
         );
       })();
     },
-    1682: (t) => {
+    91682: (t) => {
       t.exports = {
         "boutiquerugs.com$": {
           product: [
@@ -19136,6 +19716,13 @@ var source;
             },
             {
               area: '//*[@id="mainContent"]/DIV[1]/DIV[3]/DIV[1]/UL[1]/LI[2]',
+              name: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/H3[1]",
+              image: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/IMG[1]",
+              quantity: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[3]/DIV[1]/DIV[2]/DIV[2]/DIV[2]/DIV[1]/DIV[1]/SPAN[1]/SPAN[1]/INPUT[1]",
+              lineTotal: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[3]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/SPAN[1]/SPAN[1]/SPAN[1]"
+            },
+            {
+              area: '//*[@id="mainContent"]/DIV[1]/DIV[3]/DIV[1]/UL[1]/LI[3]',
               name: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/H3[1]",
               image: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/IMG[1]",
               quantity: "/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[1]/DIV[3]/DIV[1]/DIV[2]/DIV[2]/DIV[2]/DIV[1]/DIV[1]/SPAN[1]/SPAN[1]/INPUT[1]",
@@ -20739,31 +21326,10 @@ var source;
           product: [
             {
               area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[4]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/LI[1]',
-              name: "/DIV[2]/DIV[1]/SPAN[1]",
+              name: "/DIV[2]/DIV[1]/P[1]",
               image: "/DIV[1]/IMG[1]",
               itemPrice: '//*[@id="regular-price"]',
               lineTotal: '//*[@id="regular-price"]'
-            },
-            {
-              area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[4]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/LI[2]',
-              name: "/DIV[2]/DIV[1]/SPAN[1]",
-              image: "/DIV[1]/IMG[1]",
-              itemPrice: "/DIV[2]/DIV[2]/DIV[1]",
-              lineTotal: "/DIV[2]/DIV[2]/DIV[1]"
-            },
-            {
-              area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[4]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/LI[3]',
-              name: "/DIV[2]/DIV[1]/SPAN[1]",
-              image: "/DIV[1]/IMG[1]",
-              itemPrice: "/DIV[2]/DIV[2]/DIV[1]",
-              lineTotal: "/DIV[2]/DIV[2]/DIV[1]"
-            },
-            {
-              area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[4]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/LI[4]',
-              name: "/DIV[2]/DIV[1]/SPAN[1]",
-              image: "/DIV[1]/IMG[1]",
-              itemPrice: "/DIV[2]/DIV[2]/DIV[1]",
-              lineTotal: "/DIV[2]/DIV[2]/DIV[1]"
             },
             {
               area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[3]/DIV[1]/DIV[2]/DIV[1]/LI[1]',
@@ -20778,6 +21344,44 @@ var source;
               image: "/DIV[1]/IMG[1]",
               itemPrice: "/DIV[2]/DIV[2]/DIV[1]",
               lineTotal: "/DIV[2]/DIV[2]/DIV[1]"
+            },
+            {
+              area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[4]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/LI[2]',
+              name: "/DIV[2]/DIV[1]/P[1]",
+              image: "/DIV[1]/IMG[1]",
+              itemPrice: "/DIV[2]/DIV[2]/DIV[1]",
+              lineTotal: "/DIV[2]/DIV[2]/DIV[1]"
+            },
+            {
+              area: '//*[@id="wrap"]/DIV[1]/FORM[1]/DIV[1]/DIV[1]/DIV[1]/DIV[4]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/LI[3]',
+              name: "/DIV[2]/DIV[1]/P[1]",
+              image: "/DIV[1]/IMG[1]",
+              itemPrice: "/DIV[2]/DIV[2]/DIV[1]",
+              lineTotal: "/DIV[2]/DIV[2]/DIV[1]"
+            },
+            {
+              area: '//*[@id="wrap"]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/UL[1]/LI[1]',
+              name: "/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[2]/A[1]/SPAN[1]",
+              image: "/DIV[1]/DIV[1]/DIV[1]/IMG[1]",
+              itemPrice: "/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]",
+              lineTotal: "/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]",
+              url: "/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[2]/A[1]"
+            },
+            {
+              area: '//*[@id="wrap"]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/UL[1]/LI[2]',
+              name: "/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[2]/A[1]/SPAN[1]",
+              image: "/DIV[1]/DIV[1]/DIV[1]/IMG[1]",
+              itemPrice: "/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]",
+              lineTotal: "/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]",
+              url: "/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[2]/A[1]"
+            },
+            {
+              area: '//*[@id="wrap"]/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[2]/UL[1]/LI[3]',
+              name: "/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[2]/A[1]/SPAN[1]",
+              image: "/DIV[1]/DIV[1]/DIV[1]/IMG[1]",
+              itemPrice: "/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]",
+              lineTotal: "/DIV[1]/DIV[2]/DIV[1]/DIV[1]/DIV[1]/SPAN[1]",
+              url: "/DIV[1]/DIV[1]/DIV[2]/DIV[1]/DIV[2]/A[1]"
             }
           ]
         },
@@ -21025,8 +21629,13 @@ var source;
         }
       };
     },
-    6868: (t, e, r) => {
-      const i = r(2605);
+    16868: (t, e, r) => {
+      const i = r(12605),
+        a = ["style", "script", "select", "option", "input"],
+        s = /[A-Za-z0-9]+/i,
+        o = function (t) {
+          return !~a.indexOf(t.parentNode.nodeName.toLowerCase()) && t.textContent.match(s);
+        };
       t.exports = {
         lines: void 0,
         elemCount: 0,
@@ -21058,10 +21667,7 @@ var source;
           let a,
             s = 0;
           for (; null !== (a = e.nextNode()); ) {
-            if (
-              !~["style", "script", "select", "option", "input"].indexOf(a.parentNode.nodeName.toLowerCase()) &&
-              a.textContent.match(/[A-Za-z0-9]+/i)
-            ) {
+            if (o(a)) {
               const t = {
                 text: a.textContent ? a.textContent.trim().replace(/\s+/gm, " ") : void 0,
                 el: a,
@@ -21074,7 +21680,6 @@ var source;
                 (t.rect = a.getBoundingClientRect ? a.getBoundingClientRect() : void 0),
                 (t.parentRect = a.parentNode && a.parentNode.getBoundingClientRect ? a.parentNode.getBoundingClientRect() : void 0),
                 (t.isCurrency = !isNaN(t.num.value) && t.text.match(i.currencyRgx) && i.isLikelyCurrencyText(t.text)),
-                (t.isMoney = t.isCurrency && null != t.text.match(i.moneyRgx)),
                 r.push(t);
             }
             s++;
@@ -21083,13 +21688,14 @@ var source;
         }
       };
     },
-    1586: (t, e, r) => {
-      const i = r(5863),
-        a = r(4524),
-        s = r(3404),
-        o = r(6036),
-        n = r(4018),
-        c = r(2605);
+    21586: (t, e, r) => {
+      const i = r(45863),
+        a = r(54524),
+        s = r(93404),
+        o = r(26036),
+        n = r(44018),
+        c = r(12605),
+        l = r(72210);
       t.exports = {
         links: [],
         hidden: [],
@@ -21106,19 +21712,18 @@ var source;
           if ((void 0 !== t && (this.cartInfo = t), !1 === s.monitor)) return void i.log("Monitor is not enabled");
           if ("undefined" == typeof MutationObserver) return void i.log("MutationObserver is undefined");
           null != this.observer && (this.observer.disconnect(), (this.observer = void 0)),
-            (this.links = Array.prototype.slice.call(document.querySelectorAll("a"))),
+            (this.links = Array.prototype.slice.call(l.queryAll("a"))),
             (this.hidden = this.links.filter((t) => null === t.offsetParent));
           const e = a.debounce(this.checkDomForCartChanges.bind(this), 2e3, 25);
-          return (
-            (this.observer = new MutationObserver((t) => {
-              t = Array.from(t);
-              for (const e of t) if (a.isIterable(e.addedNodes)) for (const t of e.addedNodes) this.addedNodes.push(t);
-              e();
-            })),
-            window.document.body && null != this.observer
-              ? this.observer.observe(document, { attributes: !1, childList: !0, characterData: !1, subtree: !0 })
-              : void 0
-          );
+          this.observer = new MutationObserver((t) => {
+            t = Array.from(t);
+            for (const e of t) if (a.isIterable(e.addedNodes)) for (const t of e.addedNodes) this.addedNodes.push(t);
+            e();
+          });
+          const o = r(7567).observeCharacterDataMutations();
+          return window.document.body && null != this.observer
+            ? this.observer.observe(document, { attributes: !1, childList: !0, characterData: o, subtree: !0 })
+            : void 0;
         },
         cartTotalStringify: function (t) {
           return t && t.cartTotalNode
@@ -21165,14 +21770,14 @@ var source;
         },
         checkDomForCartChanges: function () {
           i.log("Checking dom");
-          const t = Array.prototype.slice.call(document.querySelectorAll("a")),
+          const t = Array.prototype.slice.call(l.queryAll("a")),
             e = t.filter((t) => null === t.offsetParent),
             r = document.location.href,
             s = n.countTotalLines(document.body);
           let o = this.currencyValuesCount();
           0 === o && (o = this.checkMutationsForCurrencyValues());
           const c = this.cartTotalStringify(this.cartInfo),
-            l = this.cartInfo && this.cartInfo.cartTotalNode && !a.isBody(this.cartInfo.cartTotalNode);
+            d = this.cartInfo && this.cartInfo.cartTotalNode && !a.isBody(this.cartInfo.cartTotalNode);
           if (
             ((this.addedNodes.length = 0),
             i.log(
@@ -21191,7 +21796,7 @@ var source;
               this.countCurrencyValues,
               o,
               " detached:",
-              l
+              d
             ),
             this.links.length !== t.length ||
               this.hidden.length !== e.length ||
@@ -21199,7 +21804,7 @@ var source;
               this.cartTotal !== c ||
               this.countTotalLines !== s ||
               this.countCurrencyValues < o ||
-              l)
+              d)
           ) {
             (this.links = t),
               (this.hidden = e),
@@ -21216,10 +21821,10 @@ var source;
         }
       };
     },
-    7894: (t, e, r) => {
-      const i = r(5863),
-        a = r(6036),
-        s = r(3143);
+    57894: (t, e, r) => {
+      const i = r(45863),
+        a = r(26036),
+        s = r(33143);
       let o = [],
         n = !0;
       const c = function () {
@@ -21279,8 +21884,9 @@ var source;
         }
       };
     },
-    9728: (t, e, r) => {
-      const i = r(2605);
+    49728: (t, e, r) => {
+      const i = r(12605),
+        a = r(72210);
       t.exports = function (t, e) {
         for (let r = 0; r < t.attributes.length; r++) {
           const a = t.attributes[r];
@@ -21299,14 +21905,14 @@ var source;
                   (/(test|automation)-?id/gi.test(a.nodeName) && /(item|prod|product).?(name|title)/gi.test(a.nodeValue))) &&
                 (e.name = a.nodeValue));
         }
-        const r = t.querySelectorAll("[data-test]");
+        const r = a.queryAll("[data-test]", t);
         for (let t = 0; t < r.length && !e.name; t++) {
           const i = r[t];
           /(item|prod|product).?(name|title)$/gi.test(i.dataset.test) && (e.name = i.innerText);
         }
-        const a = t.querySelectorAll("[data-automationid]");
-        for (let t = 0; t < a.length; t++) {
-          const r = a[t];
+        const s = a.queryAll("[data-automationid]", t);
+        for (let t = 0; t < s.length; t++) {
+          const r = s[t];
           /(price)/gi.test(r.dataset.automationid)
             ? (e.price = parseFloat(i.normalise(r.innerText), 10))
             : /(quantity)/gi.test(r.dataset.automationid) && (e.quantity = parseInt(r.innerText.replace(/[\t\D\n\r\s\v\0]*/gim, ""), 10));
@@ -21314,158 +21920,1440 @@ var source;
         return e;
       };
     },
-    8919: (t, e, r) => {
-      const i = r(4524),
-        a = r(6868),
-        s = r(5863),
-        o = r(3120),
-        n = r(8733),
-        c = r(9728),
-        l = r(7057),
-        d = r(3283),
-        u = r(8679),
-        m = r(8354),
-        p = r(5847),
-        h = {
-          article: !0,
-          table: !0,
-          div: !0,
-          li: !0,
-          span: !0,
-          tr: !0,
-          form: !0,
-          dd: !0,
-          section: !0,
-          ol: !0,
-          ul: !0,
-          dl: !0,
-          figure: !0,
-          details: !1,
-          dt: !1,
-          fieldset: !1,
-          p: !1,
-          related: !1
+    3744: (t) => {
+      const e = {
+          REMOVE_ITEM_TEXT: { attribute: !1, hints: ["remove item"] },
+          REMOVE_ITEM_ATTRIBUTE: { attribute: !0, hints: ["remove item"] },
+          MOVE_TO_WISHLIST_TEXT: { attribute: !1, hints: ["move to wishlist"] },
+          MOVE_TO_WISHLIST_ATTRIBUTE: { attribute: !0, hints: ["move to wishlist"] },
+          SAVE_FOR_LATER_TEXT: { attribute: !1, hints: ["save for later"] }
         },
-        I = function (t) {
-          const e = /add\s?to\s?(cart|list|bag)|sold\sout|^add$/i,
-            r = t.querySelectorAll("a, button");
-          for (const t of r) {
-            if (t.textContent.match(e)) return !0;
-          }
+        r = {
+          REMOVE_ITEM_ATTRIBUTE: { attribute: !0, hints: ["remove item"] },
+          MOVE_TO_WISHLIST_ATTRIBUTE: { attribute: !0, hints: ["move to wishlist"] }
         },
-        g = function (t) {
-          if (t.isDomainProduct) return !0;
-          const e = (function (t) {
-            return (
-              (t.node.querySelectorAll("form").length > 0 && t.node.querySelectorAll("input[type=text],input[type=tel]").length > 3) ||
-              t.node.querySelectorAll("input[type=text],input[type=tel]").length > 5 ||
-              p.shouldIgnoreProduct(t) ||
-              I(t.node)
-            );
-          })(t);
-          if (e) return !1;
-          const r =
-              t.node.className &&
-              t.node.className.match(/(checkout|cart|order|purchase|basket|shopping|product-(line|template))/i) &&
-              t.node.className.match(/(item(__container|content)?|product)$/i) &&
-              !t.node.className.match(/(cartrow|cartcell|total-line)/i),
-            i = t.hasImage || 1 === t.imageAttributeMatchesProductName.length || t.strongProductNameLink || t.tableScrapeData.name || r,
-            a = m.exactlyOnePrice(t.possiblePrices),
-            o =
-              t.hasQuantity ||
-              t.tableScrapeData.quantity ||
-              (t.hasPrice && t.allImages && 1 === t.allImages.length && t.allImages[0].isBackgroundImage && t.strongProductNameLink) ||
-              (r && t.hasPrice && a) ||
-              t.isDomainSpecificSelectorProductNode;
-          return (
-            s.log([
-              ["className", t.node.className],
-              ["hasImageOrName", i],
-              ["hasPrice", t.hasPrice],
-              ["hasProductClass", r],
-              ["hasQty", o],
-              ["sumHasQty", t.hasQuantity],
-              ["exactlyOnePrice", a],
-              ["isDomainProduct", t.isDomainProduct],
-              ["disqualified", e],
-              ["possibleNames", t.possibleNames],
-              ["possibleImages", t.allImages.length],
-              ["possiblePrices", t.possiblePrices],
-              ["summary.node", t.node]
-            ]),
-            t.hasPrice && o && i
-          );
-        };
-      t.exports = function (t) {
-        if (!t || !t.tagName || void 0 === t.innerText || !h[t.tagName.toLowerCase()]) return;
-        if ("tr" === t.tagName.toLowerCase()) {
-          const e = t.nextElementSibling;
-          if (e && e.tagName === t.tagName && e.className && e.className !== t.className && e.className.match(/price/gi)) {
-            const r = document.createElement("td");
-            (r.className = "_fillr _fillrPriceData " + e.className), (r.innerHTML = e.innerHTML), t.appendChild(r);
-          }
+        i = { QUANTITY_ATTRIBUTE: { attribute: !0, hints: ["quantity"] } },
+        a = {
+          QUANTITY: { attribute: !1, hints: ["quantity"] },
+          QUANTITY_AND_PRICE: { attribute: !1, hints: ["quantity", "price"] },
+          REMOVE_ITEM: { attribute: !1, hints: ["remove item"] },
+          SAVE_FOR_LATER: { attribute: !1, hints: ["save for later"] }
+        },
+        s = { IMAGE: { attribute: !1, hints: ["price"] }, QUANTITY: { attribute: !1, hints: ["price", "quantity"] } },
+        o = { attribute: !1, hints: ["quantity"] };
+      t.exports = {
+        BUTTON_LINK: e,
+        TEXT: a,
+        IMAGE: r,
+        INPUT: i,
+        PRICE: s,
+        QUANTITY_STEPPER: o,
+        isButtonLinkType: function (t) {
+          return Object.values(e).includes(t);
+        },
+        isTextType: function (t) {
+          return Object.values(a).includes(t);
+        },
+        isImageType: function (t) {
+          return Object.values(r).includes(t);
+        },
+        isInputType: function (t) {
+          return Object.values(i).includes(t);
+        },
+        isPriceAndImageType: function (t) {
+          return s.IMAGE === t;
+        },
+        isPriceAndQuantityType: function (t) {
+          return s.QUANTITY === t;
+        },
+        isQuantityStepperType: function (t) {
+          return o === t;
         }
-        const e = l.detect(t),
-          r = l.detectImageAttributeMatchesProductName(t),
-          s = d.scanLinks(t);
-        a.create(t);
-        const I = m.parse(a),
-          f = I.currencies,
-          D = I.otherNums,
-          V = I.textFilter;
-        let v = I.attributeScrapeData;
-        const y = o(t);
-        n(t, y), (v = c(t, v));
-        const b = d.detectPossibleNames(a, V),
-          _ = m.hasPrice(t) || y.price,
-          w = u.detect(t) || v.quantity || y.quantity || u.extract(t),
-          C = i.hasAncestorClass(t, /(cart|checkout|bag|basket)/gi),
-          S = p.isDomainProduct(t),
-          k = p.isDomainSpecificSelectorProductNode(t);
-        if (t.tagName && "dd" === t.tagName.toLowerCase()) {
-          const e = t.parentNode && t.parentNode.parentNode ? t.parentNode.parentNode : null;
-          e && e.className && e.className.match && e.className.match(/product|item.*(cart|basket)/gi) && (t = e);
-        }
-        const x = {
-            isCart: C,
-            hasImage: e.length > 0,
-            hasPrice: _,
-            hasQuantity: w,
-            isDomainProduct: S,
-            isDomainSpecificSelectorProductNode: k,
-            allImages: e,
-            possiblePrices: f,
-            imageAttributeMatchesProductName: r,
-            strongProductNameLink: s,
-            largeImagePresent: 1 === e.length,
-            attributeScrapeData: v,
-            tableScrapeData: y,
-            node: t
-          },
-          T = {
-            node: t,
-            allImages: e,
-            imageAttributeMatchesProductName: r,
-            strongProductNameLink: s,
-            suspectedSingleItem: !w,
-            possiblePrices: f,
-            possibleQuantities: D,
-            possibleNames: b,
-            attributeScrapeData: v,
-            tableScrapeData: y,
-            isDomainProduct: S
-          };
-        return g(x) ? T : void 0;
       };
     },
-    8354: (t, e, r) => {
-      const i = r(4018),
-        a = r(4524),
-        s = r(2605),
+    96525: (t, e, r) => {
+      const i = r(70643),
+        a = r(45863);
+      t.exports = {
+        get: () => {},
+        findAllDuplicates: (t, e, r, s = null, o = !0) => {
+          try {
+            const a = [],
+              n = e();
+            for (let e = 0; e < n.length; e++) {
+              let c,
+                l = n[e];
+              if (s) c = s(l);
+              else {
+                let e;
+                const a = r(l);
+                a && Array.isArray(a) ? (e = i.matchesRegex(a, [t.matchingRegex])) : a && (e = a.match(t.matchingRegex)),
+                  (l = 3 === l.nodeType ? l.parentNode : l);
+                const s = t.visible === i.isVisible(l),
+                  n = t.node.tagName === l.tagName,
+                  d = i.sameAttribute(t.node, l);
+                c = s && n && (!o || d) && e;
+              }
+              c && a.push(l);
+            }
+            return a;
+          } catch (t) {
+            return a.log(t), [];
+          }
+        }
+      };
+    },
+    94143: (t, e, r) => {
+      const i = r(96525),
+        a = r(70643),
+        s = r(91933),
+        o = r(3744),
+        n = r(72210),
+        c = ["id", "class", "name", "title", "href", "onclick", "aria-label", "data-h", "data-test", "data-test-id", "data-selen"];
+      t.exports = {
+        get: (t, e, r) => {
+          const i = n.queryAll("button, a, input[type=button]", t);
+          for (const t of i) {
+            const i = a.getText(t),
+              n = a.getValidAttributesText(t, c);
+            let l, d;
+            if ((l = a.matchesRegex(i, s.removeItemTextRegexes))) d = o.BUTTON_LINK.REMOVE_ITEM_TEXT;
+            else if ((l = a.matchesRegex(n, s.removeItemAttributeRegexes))) d = o.BUTTON_LINK.REMOVE_ITEM_ATTRIBUTE;
+            else if ((l = a.matchesRegex(i, s.moveToWishlistTextRegexes))) d = o.BUTTON_LINK.MOVE_TO_WISHLIST_TEXT;
+            else if ((l = a.matchesRegex(n, s.moveToWishlistAttributeRegexes))) d = o.BUTTON_LINK.MOVE_TO_WISHLIST_ATTRIBUTE;
+            else {
+              if (!(l = a.matchesRegex(i, s.saveForLaterTextRegexes))) continue;
+              d = o.BUTTON_LINK.SAVE_FOR_LATER_TEXT;
+            }
+            const u = { text: i, attributes: n, node: t, matchingRegex: l, anchorType: d, visible: a.isVisible(t) };
+            a.isVisible(t) ? e.push(u) : r.push(u);
+          }
+        },
+        findAllDuplicates: (t, e) =>
+          i.findAllDuplicates(
+            t,
+            () => n.queryAll("button, a, input[type=button]", e),
+            (e) => (t.anchorType.attribute ? a.getValidAttributesText(e, c) : a.getText(e))
+          )
+      };
+    },
+    14121: (t, e, r) => {
+      const i = r(96525),
+        a = r(70643),
+        s = r(91933),
+        o = r(3744),
+        n = r(72210),
+        c = [
+          "id",
+          "class",
+          "name",
+          "ng-model",
+          "aria-label",
+          "data-test",
+          "data-automation",
+          "data-testid",
+          "data-comp",
+          "href",
+          "data-original-src",
+          "data-src",
+          "src",
+          "alt"
+        ];
+      t.exports = {
+        get: (t, e, r) => {
+          const i = n.queryAll("img, svg", t);
+          for (const t of i) {
+            let i = a.getValidAttributesText(t, c);
+            const n = a.getValidAttributesText(t.parentNode, c);
+            let l, d;
+            if (((i = n ? i + n : i), (l = a.matchesRegex(i, s.removeItemAttributeRegexes)))) d = o.IMAGE.REMOVE_ITEM_ATTRIBUTE;
+            else {
+              if (!(l = a.matchesRegex(i, s.moveToWishlistAttributeRegexes))) continue;
+              d = o.IMAGE.MOVE_TO_WISHLIST_ATTRIBUTE;
+            }
+            const u = { attributes: i, node: t, matchingRegex: l, anchorType: d, visible: a.isVisible(t) };
+            a.isVisible(t) ? e.push(u) : r.push(u);
+          }
+        },
+        findAllDuplicates: (t, e) =>
+          i.findAllDuplicates(
+            t,
+            () => n.queryAll("img, svg", e),
+            (t) => {
+              const e = a.getValidAttributesText(t, c),
+                r = a.getValidAttributesText(t.parentNode, c);
+              return r ? e + r : e;
+            }
+          )
+      };
+    },
+    34597: (t, e, r) => {
+      const i = r(96525),
+        a = r(70643),
+        s = r(91933),
+        o = r(3744),
+        n = r(72210),
+        c = ["input", "select", "mat-select", "div[class*=quantity-select]>select"].join(","),
+        l = ["id", "class", "name", "ng-model", "aria-label", "data-test", "data-automation", "data-testid", "data-comp"];
+      t.exports = {
+        get: (t, e, r) => {
+          const i = n.queryAll(c, t);
+          for (const t of i) {
+            const i = a.getValidAttributesText(t, l);
+            let n, c;
+            if (!(n = a.matchesRegex(i, s.quantityAttributeRegexes))) continue;
+            c = o.INPUT.QUANTITY_ATTRIBUTE;
+            const d = { node: t, attributes: i, matchingRegex: n, anchorType: c, visible: a.isVisible(t) };
+            a.isVisible(t) ? e.push(d) : r.push(d);
+          }
+        },
+        findAllDuplicates: (t, e) =>
+          i.findAllDuplicates(
+            t,
+            () => n.queryAll(c, e),
+            (t) => a.getValidAttributesText(t, l)
+          )
+      };
+    },
+    89094: (t, e, r) => {
+      const i = r(70643),
+        a = r(45863),
+        s = r(91933);
+      function o(t) {
+        return !(!t || !t.tagName) && "body" !== t.tagName.toLowerCase() && "html" !== t.tagName.toLowerCase();
+      }
+      t.exports = {
+        get: (t, e, r, s, n, c) => {
+          try {
+            const a = i.getTextNodes(t);
+            for (const t of a)
+              if (i.validTextNode(t)) {
+                const a = t.parentNode,
+                  l = i.getText(t),
+                  d = i.isVisible(a);
+                if (i.isPriceText(l, a)) {
+                  let t = 0,
+                    i = a;
+                  for (; t < n && o(i); ) {
+                    const o = s(i, d);
+                    if (1 === o.length) {
+                      const t = { node: i, text: l, price: a, other: o[0], anchorType: c, visible: d };
+                      d ? e.push(t) : r.push(t);
+                      break;
+                    }
+                    t++, (i = i.parentElement);
+                  }
+                }
+              }
+          } catch (t) {
+            a.log(t);
+          }
+        },
+        findAllDuplicates: (t, e, r) => {
+          try {
+            let a = i.findDuplicateNodes(t.price, e, 1);
+            a = a.filter((t) => i.matchesRegex(i.getText(t), s.priceTextRegexes));
+            let o = r();
+            t.visible
+              ? ((a = a.filter((t) => i.isVisible(t))), (o = o.filter((t) => i.isVisible(t))))
+              : ((a = a.filter((t) => !i.isVisible(t))), (o = o.filter((t) => !i.isVisible(t))));
+            return a.length && o.length && a.length === o.length ? a : [];
+          } catch (t) {
+            return a.log(t), [];
+          }
+        }
+      };
+    },
+    7815: (t, e, r) => {
+      const i = r(89094),
+        a = r(70643),
+        s = r(3744),
+        o = r(72210);
+      function n(t, e) {
+        const r = o.queryAll("img", t),
+          i = [];
+        for (const t of r) a.isVisible(t) === e && (a.isProductImage(t) || a.isProductLineChildElement(t, 3)) && i.push(t);
+        return i;
+      }
+      t.exports = {
+        get: (t, e, r) => {
+          i.get(t, e, r, n, 7, s.PRICE.IMAGE);
+        },
+        findAllDuplicates: (t, e) => i.findAllDuplicates(t, e, () => a.findDuplicateNodes(t.other, e, 1))
+      };
+    },
+    74357: (t, e, r) => {
+      const i = r(89094),
+        a = r(70643),
+        s = r(91933),
+        o = r(3744),
+        n = r(72210);
+      function c(t, e) {
+        const r = ["id", "class", "name", "ng-model", "aria-label", "data-test", "data-automation", "data-testid", "data-comp"],
+          i = [],
+          o = n.queryAll("div,span,p,td", t);
+        for (const t of o) {
+          const o = a.getValidAttributesText(t, r),
+            n = a.getText(t);
+          a.matchesRegex(o, s.quantityAttributeRegexes) && n && n.match(/\d/) && a.isVisible(t) === e && i.push(t);
+        }
+        return i;
+      }
+      t.exports = {
+        get: (t, e, r) => {
+          i.get(t, e, r, c, 5, o.PRICE.QUANTITY);
+        },
+        findAllDuplicates: (t, e) =>
+          i.findAllDuplicates(t, e, () => {
+            let r = a.findDuplicateNodes(t.other, e);
+            return (r = r.filter((t) => /\d/.test(a.getText(t)))), r;
+          })
+      };
+    },
+    66589: (t, e, r) => {
+      const i = r(96525),
+        a = r(70643),
+        s = r(91933),
+        o = r(3744),
+        n = r(72210),
+        c = /^(-|\u2013)\s?\d{1,2}\s?\+$/gi,
+        l = /^(-|\u2013)$/,
+        d = /^(-|\u2013)\s?\+$/;
+      function u(t) {
+        const e = a.getText(t);
+        if (e && e.match(c)) return !0;
+        if (2 === n.queryAll("a, button, input[type=button]", t).length) {
+          if (e && e.match(/^\d{1,2}$/)) return !0;
+          if (1 === n.queryAll("input[type=number],input[name*=quantity],input[class*=quantity]", t).length) return !0;
+          if (3 === t.childElementCount) return !0;
+        } else if (e && e.match(d) && 3 === t.childElementCount && 1 === n.queryAll("input", t).length) return !0;
+        return !1;
+      }
+      t.exports = {
+        get: (t, e, r) => {
+          const i = Array.from(n.queryAll(s.quantitySelectors, t));
+          for (const t of i)
+            if (u(t)) {
+              const i = a.isVisible(t),
+                s = { node: t, anchorType: o.QUANTITY_STEPPER, visible: i };
+              i ? e.push(s) : r.push(s);
+            } else {
+              const e = a.getText(t);
+              if (e && e.match(l)) {
+                const e = t.parentElement,
+                  r = e ? e.parentElement : void 0;
+                e && i.push(e), r && i.push(r);
+              }
+            }
+        },
+        findAllDuplicates: (t, e) =>
+          i.findAllDuplicates(
+            t,
+            () => a.findDuplicateNodes(t.node, e),
+            (t) => "",
+            (e) => {
+              const r = u(e),
+                i = t.visible === a.isVisible(e);
+              return r && i;
+            }
+          )
+      };
+    },
+    93061: (t, e, r) => {
+      const i = r(96525),
+        a = r(70643),
+        s = r(91933),
+        o = r(45863),
+        n = r(3744);
+      function c(t, e, r) {
+        let i = Array.from(r.childNodes);
+        if (
+          ((i = i.filter((t) => [1, 3].includes(t.nodeType))),
+          (i = i.filter((t) => 3 !== t.nodeType || (t.textContent && t.textContent.trim().length > 0))),
+          2 === i.length)
+        ) {
+          const r = i[0] === e ? i[1] : i[0];
+          if (r && 1 === r.childNodes.length) {
+            const s = r.childNodes[0];
+            if (3 === s.nodeType) {
+              const r = a.getText(s);
+              return i[0] === e ? (t += r) : (t = r + t), t;
+            }
+          }
+        }
+      }
+      t.exports = {
+        get: (t, e, r) => {
+          try {
+            const i = a.getTextNodes(t);
+            for (const t of i)
+              if (a.validTextNode(t)) {
+                const i = t.parentNode;
+                let o = a.getText(t);
+                const l = c(o, t, i);
+                let d, u;
+                if ((l && (o = [o, l]), (d = a.matchesRegex(o, s.quantityTextRegexes)))) u = n.TEXT.QUANTITY;
+                else if ((d = a.matchesRegex(o, s.quantityAndPriceTextRegexes))) u = n.TEXT.QUANTITY_AND_PRICE;
+                else if ((d = a.matchesRegex(o, s.removeItemTextRegexes))) u = n.TEXT.REMOVE_ITEM;
+                else {
+                  if (!(d = a.matchesRegex(o, s.saveForLaterTextRegexes))) continue;
+                  u = n.TEXT.SAVE_FOR_LATER;
+                }
+                const m = { text: o, textNode: t, node: i, matchingRegex: d, anchorType: u, visible: a.isVisible(i) };
+                a.isVisible(i) ? e.push(m) : r.push(m);
+              }
+          } catch (t) {
+            o.log(t);
+          }
+        },
+        findAllDuplicates: (t, e) =>
+          i.findAllDuplicates(
+            t,
+            () => {
+              const t = [];
+              for (const r of a.getTextNodes(e)) a.validTextNode(r) && t.push(r);
+              return t;
+            },
+            (t) => {
+              const e = a.getText(t),
+                r = c(e, t, t.parentNode);
+              return r ? [e, r] : e;
+            },
+            null,
+            !1
+          )
+      };
+    },
+    7434: (t, e, r) => {
+      const i = r(83785),
+        a = r(73809),
+        s = r(93061),
+        o = r(94143),
+        n = r(34597),
+        c = r(14121),
+        l = r(66589),
+        d = r(74357),
+        u = r(7815),
+        m = r(96846),
+        p = r(7031),
+        h = r(4070),
+        g = r(70643),
+        I = r(7567),
+        f = r(45863);
+      function D(t) {
+        const e = [];
+        for (const r of t) e.push({ node: r });
+        return e;
+      }
+      t.exports = {
+        detect: (t) => {
+          if (
+            t &&
+            t.length &&
+            (f.log("Site specific nodes provided for product line detection: ", t),
+            (t = t.filter((t) => {
+              const e = g.isVisible(t),
+                [r, i] = h.getAllHints(t, e);
+              return (
+                r.includes("quantity") ||
+                r.includes("price") ||
+                (r.includes("image") && i.image.descriptions.includes("attributes suggest product image")) ||
+                I.forceSiteSpecificProductLines()
+              );
+            })).length)
+          )
+            return D(t);
+          const e = m.detect(document.body);
+          if (e && e.length) return f.log("tableProductLines: ", e), D(e);
+          const r = [],
+            V = [];
+          let v = [];
+          return (
+            l.get(document.body, r, V),
+            o.get(document.body, r, V),
+            c.get(document.body, r, V),
+            n.get(document.body, r, V),
+            d.get(document.body, r, V),
+            s.get(document.body, r, V),
+            f.log("anchorPointsVisible: ", r),
+            f.log("anchorPointsHidden: ", V),
+            r.length && (f.log("Performing detection using visible anchor points"), (v = i.detect(r)), v.length <= 1 && (v = a.detect(r))),
+            0 === v.length &&
+              V.length &&
+              (f.log("Performing detection using hidden anchor points"), (v = i.detect(V)), v.length <= 1 && (v = a.detect(V))),
+            0 === v.length &&
+              ((r.length = 0),
+              (V.length = 0),
+              u.get(document.body, r, V),
+              f.log("anchorPointsVisible (image and price): ", r),
+              f.log("anchorPointsHidden (image and price): ", V),
+              r.length &&
+                (f.log("Performing detection using visible anchor points (image and price)"),
+                (v = i.detect(r)),
+                v.length <= 1 && (v = a.detect(r))),
+              0 === v.length &&
+                V.length &&
+                (f.log("Performing detection using hidden anchor points (image and price)"),
+                (v = i.detect(V)),
+                v.length <= 1 && (v = a.detect(V)))),
+            0 === v.length && (v = p.detect(document.body)),
+            D(v)
+          );
+        }
+      };
+    },
+    57419: (t, e, r) => {
+      const i = r(70643),
+        a = r(91933),
+        s = r(45847),
+        o = r(72210);
+      function n(t) {
+        const e = ["class"];
+        let r = t;
+        for (; r; ) {
+          const t = i.getValidAttributesText(r, e);
+          if (i.matchesRegex(t, a.recommendedProductsAttributeRegexes)) return !0;
+          r = r.parentNode;
+        }
+        return !1;
+      }
+      function c(t, e, r) {
+        let s = [];
+        e.forEach((t) => {
+          s = s.concat(...o.queryAll("*", t));
+        });
+        const [n] = i.getHeadings(t, void 0, r, s);
+        if (n && 1 === n.length)
+          for (const t of n) {
+            const e = i.getText(t);
+            if (i.matchesRegex(e, a.recommendedProductsHeadingRegexes)) return !0;
+          }
+        return !1;
+      }
+      function l(t, e) {
+        const r = o.queryAll("a, button", t);
+        for (const t of r) {
+          if (i.isVisible(t) !== e) continue;
+          let r = e ? t.innerText : t.textContent;
+          r = r ? r.trim() : "";
+          const s = ["class", "title"],
+            o = i.getValidAttributesText(t, s);
+          if (!i.matchesRegex(o, a.notAddToCartAttributeRegexes)) {
+            if (i.matchesRegex(r, a.addToCartTextRegexes)) return !0;
+            if (i.matchesRegex(o, a.addToCartAttributeRegexes)) return !0;
+          }
+        }
+        return !1;
+      }
+      function d(t, e) {
+        const [r] = i.getHeadings(t, 0, e);
+        if (r && r.length)
+          for (const t of r) {
+            const e = i.getText(t);
+            if (i.matchesRegex(e, a.recommendedProductsHeadingRegexes)) return !0;
+          }
+        const s = o.queryAll("div", t);
+        for (const t of s) {
+          const e = ["class"],
+            r = i.getValidAttributesText(t, e);
+          if (i.matchesRegex(r, a.addOnItemsAttributeRegexes)) return !0;
+        }
+        return !1;
+      }
+      function u(t, e, r) {
+        const i = d(t, r);
+        return (c(t, e, r) || l(t, r) || n(t)) && !i;
+      }
+      function m(t, e) {
+        const r = Array.from(o.queryAll("input", t))
+          .filter((t) => ~["text", "tel", "email"].indexOf(t.type) && i.isVisible(t) === e)
+          .concat(Array.from(o.queryAll("select", t)))
+          .filter((t) => i.isVisible(t) === e);
+        return (
+          (Array.from(o.queryAll("form", t)).filter((t) => i.isVisible(t) === e).length > 0 && r.length > 3) ||
+          r.length > 4 ||
+          o.queryAll(a.formSelectors, t).length > 0
+        );
+      }
+      t.exports = {
+        filter: (t) =>
+          t.filter(
+            (e) =>
+              !(function (t, e) {
+                const r = i.isVisible(t);
+                return (
+                  o.queryAll("*", t).length < 3 ||
+                  !!["html", "body", "button"].includes(t.tagName.toLowerCase()) ||
+                  !!m(t, r) ||
+                  !!u(t, e, r) ||
+                  !!s.shouldIgnoreProduct({ node: t })
+                );
+              })(e, t)
+          ),
+        forUnitTesting: {
+          _containsForm: m,
+          _isRecommendedProduct: u,
+          _productLineContainsAddOnItem: d,
+          _isRecommendedProductButtonLinkStrategy: l,
+          _isRecommendedProductHeadingStrategy: c,
+          _isRecommendedProductAttributeStrategy: n
+        }
+      };
+    },
+    70643: (t, e, r) => {
+      const i = r(91933),
+        a = r(72210),
+        s = r(43311),
+        o = [
+          "id",
+          "class",
+          "name",
+          "ng-model",
+          "aria-label",
+          "data-test",
+          "data-automation",
+          "data-testid",
+          "data-id",
+          "data-comp",
+          "href",
+          "data-original-src",
+          "data-src",
+          "src",
+          "alt"
+        ],
+        n = ["style", "script", "select", "option", "input", "th"],
+        c = /[A-Za-z0-9]+/i;
+      t.exports = {
+        validTextNode: function (t) {
+          const e = t.parentNode,
+            r = t.textContent,
+            i = e.tagName && !n.includes(e.tagName.toLowerCase()),
+            a = r.match(c);
+          return i && null !== a;
+        },
+        getText: function (t) {
+          return t.textContent ? this.cleanText(t.textContent) : "";
+        },
+        cleanText: function (t) {
+          return t && t.trim().replace(/\s+/gm, " ");
+        },
+        getTextNodes: function (t, e = []) {
+          const r = Array.from(t.childNodes);
+          s.isEnabled && t.shadowRoot && r.unshift(t.shadowRoot);
+          for (const t of r)
+            1 === t.nodeType || (s.isEnabled && "ShadowRoot" === t.constructor.name)
+              ? this.getTextNodes(t, e)
+              : 3 === t.nodeType && e.push(t);
+          return e;
+        },
+        getTagName: function (t) {
+          return t.tagName && t.tagName.toLowerCase();
+        },
+        isVisible: function (t) {
+          const e = (t.getAttribute && t.getAttribute("fillrvisible")) || (window.fillrTestingEnv && window.fillrTestingEnv.visible);
+          if (e) return "true" === e;
+          const r = t.getBoundingClientRect && t.getBoundingClientRect();
+          return r && (r.width > 0 || r.height > 0);
+        },
+        matchesRegex: function (t, e) {
+          if (t && e)
+            if ("Array" === t.constructor.name) {
+              for (const r of t) for (const t of e) if (r && t.test(r)) return t;
+            } else for (const r of e) if (t && r.test(t)) return r;
+        },
+        sameAttribute: function (t, e) {
+          const r = ["class", "name"];
+          for (const i of r) {
+            const r = t.getAttribute(i),
+              a = e.getAttribute(i);
+            if (r) return r === a;
+          }
+          const i = t.parentNode,
+            a = e.parentNode;
+          for (const t of r) {
+            const e = i && i.getAttribute(t),
+              r = a && a.getAttribute(t);
+            if (e) return e === r;
+          }
+        },
+        getValidAttributesText: function (t, e) {
+          const r = t.attributes;
+          let i = "";
+          if (r)
+            for (const t of r) {
+              if (!e.includes(t.name)) continue;
+              const r = t && t.textContent;
+              r && (i += "." + r);
+            }
+          return i;
+        },
+        findDuplicateNodes: function (t, e, r) {
+          let i = [],
+            s = 0;
+          for (r = r || 0; s <= r && t; ) {
+            const r = t.className,
+              o = t.tagName.toLowerCase();
+            if (r && o && ((i = Array.from(a.queryAll(`${o}[class="${r}"]`, e))), i.length)) return i;
+            (t = t.parentNode), s++;
+          }
+          return i;
+        },
+        isProductLineChildElement: function (t, e) {
+          const r = [
+            "id",
+            "class",
+            "name",
+            "ng-model",
+            "aria-label",
+            "data-test",
+            "data-automation",
+            "data-testid",
+            "data-id",
+            "data-comp",
+            "data-auid",
+            "alt"
+          ];
+          if (!t) return !1;
+          let a = 0;
+          for (e = e || 4; a <= e && t; ) {
+            const e = this.getValidAttributesText(t, r);
+            if (this.matchesRegex(e, i.productLineAttributeRegexes)) return !0;
+            (t = t.parentNode), a++;
+          }
+          return !1;
+        },
+        isProductImage: function (t) {
+          if (!t) return !1;
+          let e = 0;
+          let r = t;
+          for (; e <= 4 && r; ) {
+            const t = this.getValidAttributesText(r, o);
+            if (this.matchesRegex(t, i.removeItemAttributeRegexes)) return !1;
+            if (this.matchesRegex(t, i.moveToWishlistAttributeRegexes)) return !1;
+            if (this.matchesRegex(t, i.brandImageAttributeRegexes)) return !1;
+            if (this.matchesRegex(t, i.productImageAttributeRegexes)) return !0;
+            (r = r.parentNode), e++;
+          }
+          return !1;
+        },
+        nodeContainsClearProductImage: function (t, e) {
+          const r = Array.from(a.queryAll("img,div[style*=background-image]", t));
+          for (const t of r) if (this.isVisible(t) === e && this.isProductImage(t)) return !0;
+        },
+        isHeadingElement: function (t) {
+          const e = ["h1", "h2", "h3", "h4", "h5"];
+          if (t.tagName && e.includes(t.tagName.toLowerCase())) return !0;
+          e.push("div", "span");
+          const r = this.getValidAttributesText(t, ["class", "data-locator"]),
+            a = Array.from(t.childNodes).every((t) => 3 === t.nodeType);
+          return !!(e.includes(t.tagName.toLowerCase()) && this.matchesRegex(r, i.headingAttributeRegexes) && a);
+        },
+        getHeadings: function (t, e, r, i = []) {
+          let s = 0;
+          e = isNaN(e) ? 5 : -1 === e ? 1 / 0 : e;
+          let o = t;
+          const n = [];
+          for (; s <= e && o; ) {
+            const e = Array.from(a.queryAll("*", o)),
+              c = e.slice(0, e.indexOf(t));
+            for (const t of c) {
+              !n.includes(t) && this.isHeadingElement(t) && this.isVisible(t) === r && !i.includes(t) && n.push(t);
+            }
+            if (n.length) return [n, o];
+            (o = o.parentNode), s++;
+          }
+          return [];
+        },
+        isOrderTotalPrice: function (t) {
+          return t && this.matchesRegex(t, i.totalPriceAttributeRegexes) && !this.matchesRegex(t, i.itemPriceAttributeRegexes);
+        },
+        isPriceText: function (t, e) {
+          const r = [
+            "id",
+            "class",
+            "name",
+            "ng-model",
+            "aria-label",
+            "data-test",
+            "data-automation",
+            "data-testid",
+            "data-test-id",
+            "data-comp"
+          ];
+          let a = this.getValidAttributesText(e, r);
+          const s = this.getValidAttributesText(e.parentNode, r);
+          return (a = s ? a + s : a), !this.isOrderTotalPrice(a) && t && this.matchesRegex(t, i.priceTextRegexes);
+        }
+      };
+    },
+    83785: (t, e, r) => {
+      const i = r(70643),
+        a = r(57419),
+        s = r(93061),
+        o = r(94143),
+        n = r(91933),
+        c = r(34597),
+        l = r(66589),
+        d = r(74357),
+        u = r(7815),
+        m = r(14121),
+        p = r(45863),
+        h = r(54524),
+        g = r(3744),
+        I = r(72210);
+      function f(t) {
+        return (
+          !(!t.tagName || "body" !== t.tagName.toLowerCase()) ||
+          !(!Array.from(document.body.children).includes(t) || /cart/i.test(t.className))
+        );
+      }
+      function D(t, e) {
+        const r = t.anchorType;
+        return g.isTextType(r)
+          ? s.findAllDuplicates(t, e)
+          : g.isButtonLinkType(r)
+          ? o.findAllDuplicates(t, e)
+          : g.isInputType(r)
+          ? c.findAllDuplicates(t, e)
+          : g.isQuantityStepperType(r)
+          ? l.findAllDuplicates(t, e)
+          : g.isPriceAndQuantityType(r)
+          ? d.findAllDuplicates(t, e)
+          : g.isPriceAndImageType(r)
+          ? u.findAllDuplicates(t, e)
+          : g.isImageType(r)
+          ? m.findAllDuplicates(t, e)
+          : void 0;
+      }
+      function V(t, e, r) {
+        for (const a of e) i.isVisible(a) === t.visible && r.push({ chosenAnchorPoint: t, node: a });
+      }
+      function v(t, e) {
+        for (const r of t) {
+          p.log("\nCandidate product line: ", r);
+          const t = D(r.chosenAnchorPoint, r.node);
+          if ((p.log("Duplicate anchor points for candidate product line: ", t), t && 1 === t.length))
+            p.log("Found a product line: ", r), e.push(r.node);
+          else if (t && t.length > 1) {
+            const t = [];
+            V(r.chosenAnchorPoint, h.getChildrenNodes(r.node), t), v(t, e);
+          }
+        }
+      }
+      function y(t, e, r, a) {
+        if (!e.length) return !1;
+        r = r.slice(a);
+        const s = t.anchorType,
+          o = t.visible,
+          n = t.node,
+          c = r.filter((t) => t.anchorType === s && t.visible === o && i.sameAttribute(n, t.node));
+        return e.length === c.length;
+      }
+      function b(t, e) {
+        const r = I.queryAll("h1,h2,h3,h4", t);
+        for (const t of r) {
+          if (i.isVisible(t) !== e) continue;
+          const r = i.getText(t);
+          if (i.matchesRegex(r, n.productSectionHeadingsRegexes)) return !0;
+        }
+        return !1;
+      }
+      function _(t, e) {
+        const r = i.isVisible(e);
+        if (b(t, r)) {
+          let a = e;
+          for (; a !== t; ) {
+            if (i.nodeContainsClearProductImage(a, r)) return a;
+            a = a.parentNode;
+          }
+        }
+        return t;
+      }
+      function w(t, e, r) {
+        if (t && t.length > 1 && t.length === e.length) {
+          p.log("Checking for smallest product lines");
+          for (let i = 0; i < e.length; i++) {
+            const a = t[i];
+            let s = e[i];
+            (s = _(s, a)), p.log("Smallest product line: ", s), s && r.push(s);
+          }
+        }
+        return r.length ? r : e;
+      }
+      t.exports = {
+        detect: function (t) {
+          let e = [];
+          const r = [];
+          let s, o, n;
+          if ((p.log("Multi product line detection commencing."), t && t.length))
+            for (const [e, a] of t.entries()) {
+              p.log("Looking for product lines with anchorPoint: ", a);
+              let c = a.node;
+              for (; c && !f(c); ) {
+                p.log("\nChecking if products node: ", c), (o = D(a, c)), p.log("Duplicate anchor points: ", o);
+                if (o && o.length > 1 && i.isVisible(c) === a.visible) {
+                  if ((p.log("\nFound products node: ", c), p.log("Chosen anchor point: ", a), (n = a), (s = c), !y(n, o, t, e))) {
+                    const r = s.parentNode.parentNode,
+                      i = D(a, r);
+                    p.log("\nSeems we did not find all of the duplicate anchor points."),
+                      p.log("Lets move the detected products node up a few parents and try again."),
+                      y(n, i, t, e) &&
+                        (p.log("Moving the products node up has resulted in us finding all of the duplicate anchor points!"),
+                        p.log("New products node: ", r),
+                        p.log("New duplicate anchor points: ", i),
+                        (s = r),
+                        (o = i));
+                  }
+                  V(n, h.getChildrenNodes(s), r);
+                  break;
+                }
+                (c = c.parentNode), h.isShadowRoot(c) && (c = c.host);
+              }
+              if (r.length) break;
+            }
+          return (
+            p.log("\ncandidateProductLines: ", r),
+            r && r.length > 0 && v(r, e),
+            p.log("\nProduct lines: ", e),
+            (e = a.filter(e)),
+            p.log("Filtered product lines: ", e),
+            (e = w(o, e, [])),
+            p.log("\nProduct lines: ", e),
+            e
+          );
+        },
+        forUnitTesting: { _getProductLinesFromCandidates: v, _invalidProductsNode: f, _isProductSection: b, _getSmallestProductLines: w }
+      };
+    },
+    7031: (t, e, r) => {
+      const i = r(70643),
+        a = r(91933),
+        s = r(45863),
+        o = r(72210);
+      function n(t, e) {
+        let r = t;
+        for (; r; ) {
+          if (r === e) return !0;
+          r = r.parentNode;
+        }
+      }
+      function c(t, e, r) {
+        try {
+          const s = [],
+            o = i.getTextNodes(t);
+          for (const t of o) {
+            const a = t.parentNode;
+            if (i.isVisible(a) !== r) continue;
+            if (n(t, e)) continue;
+            const o = i.getText(t);
+            o && s.push(o);
+          }
+          return (
+            s.length < 7 &&
+            s.every((t) =>
+              (function (t) {
+                return i.matchesRegex(t, a.orderSummaryTextRegexes);
+              })(t)
+            )
+          );
+        } catch (t) {
+          s.log(t);
+        }
+      }
+      function l(t) {
+        const e = i.getText(t);
+        return i.matchesRegex(e, a.orderSummaryHeadingRegexes);
+      }
+      function d(t) {
+        return Array.from(o.queryAll("img", t)).filter((t) => {
+          const e = "picture" === i.getTagName(t.parentNode) ? t.parentNode : void 0;
+          return i.isProductImage(t) || i.isProductImage(e);
+        });
+      }
+      t.exports = {
+        detect: (t) => {
+          const e = o.queryAll("img", t);
+          for (const t of e) {
+            const e = i.isVisible(t),
+              r = "picture" === i.getTagName(t.parentNode) ? t.parentNode : void 0;
+            if (i.isProductImage(t) || i.isProductImage(r)) {
+              const [r, a] = i.getHeadings(t, -1, e);
+              if (r && 1 === r.length) for (const t of r) if (l(t) && c(a, t, e)) return d(a).map((t) => t.parentElement);
+            }
+          }
+          return [];
+        },
+        forUnitTesting: { _isProductImageOrderSummaryElem: c, _getAllProductImages: d }
+      };
+    },
+    4070: (t, e, r) => {
+      const i = r(70643),
+        a = r(91933),
+        s = r(7567),
+        o = r(45863),
+        n = r(72210);
+      function c(t, e, r, i) {
+        t[e] ? (t[e].nodes.push(r), t[e].descriptions.push(i)) : (t[e] = { nodes: [r], descriptions: [i] });
+      }
+      function l(t, e, r) {
+        for (const i of r.hints) c(e, i, t, "anchor point");
+      }
+      t.exports = {
+        nodeHasQuantityHint: function (t, e, r) {
+          const s = ["id", "class", "name", "ng-model", "aria-label", "data-test", "data-automation", "data-testid", "data-comp"],
+            o = ["div", "span", "p", "td"].join(","),
+            l = n.queryAll(o, t);
+          for (const t of l) {
+            if (i.isVisible(t) !== r) continue;
+            const o = i.getValidAttributesText(t, s),
+              n = i.getText(t);
+            if (n && n.match(/\d/) && i.matchesRegex(o, a.quantityAttributeRegexes)) {
+              c(e, "quantity", t, "quantity element");
+              break;
+            }
+          }
+        },
+        nodeHasTextHint: function (t, e, r) {
+          try {
+            const s = i.getTextNodes(t);
+            for (const t of s)
+              if (i.validTextNode(t)) {
+                const s = t.parentNode;
+                if (i.isVisible(s) !== r) continue;
+                const o = i.getText(t);
+                if (i.matchesRegex(o, a.priceTextRegexes)) c(e, "price", s, "text is price");
+                else {
+                  if (!i.matchesRegex(o, a.otherTextRegexes)) continue;
+                  c(e, "other", s, "text suggests product");
+                }
+              }
+          } catch (t) {
+            o.log(t);
+          }
+        },
+        nodeHasImageWithLink: function (t, e, r, a) {
+          for (const t of a) {
+            if (i.isVisible(t) !== r) continue;
+            let a = 0;
+            const s = 2;
+            let o = t.parentNode;
+            for (; a < s && o; ) {
+              const r = o.tagName;
+              if (r && "a" === r.toLowerCase()) return void c(e, "image", t, "wrapped in link tag");
+              (o = o.parentNode), a++;
+            }
+          }
+        },
+        nodeHasImageWithProductName: function (t, e, r, a) {
+          for (const o of a) {
+            if (i.isVisible(o) !== r) continue;
+            const a = o.alt || o.title,
+              n = a.split(" ");
+            if (n && n.length < 2) continue;
+            if (a.match(s.productNameIgnoreTextRegex)) continue;
+            if (t.textContent && t.textContent.indexOf(a) > -1) return void c(e, "image", o, "attributes have product name");
+          }
+        },
+        nodeHasImageWithProductImageAttributeMetadata: function (t, e, r, a) {
+          for (const t of a)
+            if (i.isVisible(t) === r && i.isProductImage(t)) return void c(e, "image", t, "attributes suggest product image");
+        },
+        nodeHasProductImageHint: function (t, e, r) {
+          const i = Array.from(n.queryAll("img,div[style*=background-image]", t));
+          this.nodeHasImageWithProductImageAttributeMetadata(t, e, r, i),
+            this.nodeHasImageWithProductName(t, e, r, i),
+            this.nodeHasImageWithLink(t, e, r, i);
+        },
+        getAllHints: function (t, e, r) {
+          const i = {};
+          return (
+            r &&
+              r.length &&
+              (function (t, e, r) {
+                const i = Array.from(n.queryAll("*", t));
+                for (const t of r) i.includes(t.node) && l(t.node, e, t.anchorType);
+              })(t, i, r),
+            this.nodeHasQuantityHint(t, i, e),
+            this.nodeHasTextHint(t, i, e),
+            this.nodeHasProductImageHint(t, i, e),
+            o.log("Product line hints for node: ", t, i, Object.keys(i)),
+            [Object.keys(i), i]
+          );
+        }
+      };
+    },
+    91933: (t, e, r) => {
+      const i = r(76350),
+        a = i.removeItemTextRegexes,
+        s = i.saveForLaterTextRegexes,
+        o = i.moveToWishlistTextRegexes,
+        n = i.quantityTextRegexes,
+        c = i.quantityAndPriceTextRegexes,
+        l = i.quantityAttributeRegexes,
+        d = i.removeItemAttributeRegexes,
+        u = i.moveToWishlistAttributeRegexes,
+        m = i.addToCartTextRegexes,
+        p = i.addToCartAttributeRegexes,
+        h = i.notAddToCartAttributeRegexes,
+        g = i.productSectionHeadingsRegexes,
+        I = i.productImageAttributeRegexes,
+        f = i.brandImageAttributeRegexes,
+        D = i.productLineAttributeRegexes,
+        V = i.priceTextRegexes,
+        v = i.otherTextRegexes,
+        y = i.quantitySelectors,
+        b = i.formSelectors,
+        _ = i.recommendedProductsHeadingRegexes,
+        w = i.recommendedProductsAttributeRegexes,
+        C = i.orderSummaryHeadingRegexes,
+        x = i.orderSummaryTextRegexes,
+        T = i.totalPriceAttributeRegexes,
+        k = i.itemPriceAttributeRegexes,
+        S = i.addOnItemsAttributeRegexes,
+        A = i.headingAttributeRegexes,
+        P = i.productTableHeadingsRegex;
+      t.exports = {
+        removeItemTextRegexes: a,
+        moveToWishlistTextRegexes: o,
+        saveForLaterTextRegexes: s,
+        quantityTextRegexes: n,
+        quantityAndPriceTextRegexes: c,
+        quantityAttributeRegexes: l,
+        removeItemAttributeRegexes: d,
+        moveToWishlistAttributeRegexes: u,
+        addToCartTextRegexes: m,
+        addToCartAttributeRegexes: p,
+        notAddToCartAttributeRegexes: h,
+        productSectionHeadingsRegexes: g,
+        productImageAttributeRegexes: I,
+        productLineAttributeRegexes: D,
+        priceTextRegexes: V,
+        otherTextRegexes: v,
+        quantitySelectors: y,
+        formSelectors: b,
+        recommendedProductsHeadingRegexes: _,
+        recommendedProductsAttributeRegexes: w,
+        orderSummaryHeadingRegexes: C,
+        orderSummaryTextRegexes: x,
+        totalPriceAttributeRegexes: T,
+        itemPriceAttributeRegexes: k,
+        addOnItemsAttributeRegexes: S,
+        headingAttributeRegexes: A,
+        brandImageAttributeRegexes: f,
+        productTableHeadingsRegex: P
+      };
+    },
+    76350: (t) => {
+      const e = ['[class*="qty" i]', '[class*="quantity" i]'].join(","),
+        r = [
+          /^(\$|\xa3)\s?\d{1,4}(,\d\d\d)?(\.\d\d)?\s?(USD?|AU?D?|GBP|ea)?$/,
+          /^(USD?|AU?D?|GBP)\s?(\$|\xa3)\s?\d{1,4}(,\d\d\d)?(\.\d\d)?$/,
+          /^\d{1,4}(,\d\d\d)?\.\d\d\s?(USD?|AU?D?|GBP|ea)?$/,
+          /^\d{1,4},\d\d\d\s?(USD?|AU?D?|GBP|ea)$/
+        ],
+        i = [
+          'form[class*="shipping" i]',
+          'form[class*="billing" i]',
+          'form[class*="signup" i]',
+          'form[id*="shipping" i]',
+          'form[id*="billing" i]',
+          'form[id*="signup" i]',
+          'form[id*="address-form" i]',
+          'form[id*="checkoutform" i]'
+        ].join(","),
+        a = [
+          /^edit$/i,
+          /^view$/i,
+          /^details$/i,
+          /^\d+\sitems?$/i,
+          /^\d+$/,
+          /^arrives\sin\s\d+\sto\s\d+\sdays$/i,
+          /^estimated\s\d+-\d+\sbusiness\sdays$/i
+        ].concat(r);
+      t.exports = {
+        removeItemTextRegexes: [/^remove$/i, /^remove\sitem$/i, /^remove\sproduct$/i],
+        removeItemAttributeRegexes: [
+          /quantity=0/i,
+          /remove.{0,2}item/i,
+          /remove.{0,2}line.{0,2}item/i,
+          /product.{0,2}remove/i,
+          /products?.{0,2}delete/i,
+          /item.{0,2}delete/i,
+          /item.{0,2}remove/i,
+          /remove.{0,2}item/i,
+          /remove.{0,2}product/i,
+          /delete.{0,2}product/i,
+          /del.{0,2}item/i,
+          /basket.{0,2}delete/i,
+          /cart.{0,2}block.{0,2}delete/i,
+          /remove.*?from.*?cart/i,
+          /remove\s?this\s?item/i,
+          /delete.{0,2}from.*?basket/i,
+          /remove.{0,2}from.{0,2}basket/i,
+          /icon.{0,2}trashcan/
+        ],
+        saveForLaterTextRegexes: [/^save\sfor\slater$/i],
+        moveToWishlistTextRegexes: [/^move\sto\s(wishlist|favou?rites)$/i, /^add\sto\syour\s(wish\s?list|favou?rites)$/i],
+        moveToWishlistAttributeRegexes: [
+          /move.?to.?(wishlist|favou?rites)/i,
+          /icon_wish\.png/i,
+          /icon.{0,2}wishlist/i,
+          /cart.{0,2}add.{0,2}wishlist/i
+        ],
+        quantityTextRegexes: [
+          /^quantity\s?:?$/i,
+          /^quantity\s?:?\s?\d{1,2}$/i,
+          /^qty\s?:?$/i,
+          /^qty\s?:?\s?\d{1,2}$/i,
+          /^qty\.\s?:?$/i,
+          /^qty\.\s?:?\s?\d{1,2}$/i,
+          /^\d{1,2}x$/,
+          /^\(x\d{1,2}\)/,
+          /^\xd7\s?\d$/
+        ],
+        quantityAttributeRegexes: [/qty/i, /quani?tity/i, /quantcell/i, /product.{0,2}count/i],
+        quantitySelectors: e,
+        quantityAndPriceTextRegexes: [
+          /^(\xa3|\$)\s?\d{1,4}(\.\d\d)?\s?(AU?D?|USD?|GBP)?\s?(x|@|\xd7)\s?\d{1,2}$/,
+          /^\(?\d{1,2}\s?(x|@|\xd7)\s?(\xa3|\$)\s?\d{1,4}(\.\d\d)?\s?(AU?D?|USD?|GBP)?\)?$/,
+          /^(AU?D?|USD?|GBP)\s?(\xa3|\$)\s?\d{1,4}(\.\d\d)?\s?(x|@|\xd7)\s?\d{1,2}$/,
+          /^\d{1,2}\s?(x|@|\xd7)\s?(AU?D?|USD?|GBP)\s?(\xa3|\$)\s?\d{1,4}(\.\d\d)?$/,
+          /^qty\s?:\s?\d{1,2}\s?(x|@|\xd7)\s?(\xa3|\$)\s?\d{1,4}(\.\d\d)?$/i
+        ],
+        priceTextRegexes: r,
+        otherTextRegexes: [/^size:\s?(s)?$/i, /^colou?r:[a-z\s]+$/i],
+        addToCartTextRegexes: [/(add|move)\s?to\s?(cart|bag|basket)/i, /sold\sout/i, /^add$/i],
+        addToCartAttributeRegexes: [/add.{0,2}to.{0,2}(cart|bag|basket)/i],
+        notAddToCartAttributeRegexes: [/increment.{0,2}add/i, /increaseqty/i],
+        productSectionHeadingsRegexes: [
+          /^shipping$/i,
+          /^store\spickup$/i,
+          /^digital\sdelivery$/i,
+          /^order\spickup$/i,
+          /^to\sthe\sdoor\sdelivery/i,
+          /^shipping\sitems\s\(\d+\)$/i,
+          /^pickup\sitems\s\(\d+\)$/i,
+          /^email\sdelivery$/i
+        ],
+        productImageAttributeRegexes: [
+          /product.{0,2}image/i,
+          /item.{0,2}image/i,
+          /item.{0,2}list.{0,2}image/i,
+          /item.{0,2}thumbnail/i,
+          /shoppinglist.{0,2}image/i,
+          /\/products?\//i,
+          /product.{0,2}thumb/i,
+          /product.{0,2}img/i,
+          /prd.{0,2}photo/i,
+          /product.{0,2}tile.{0,2}image/i,
+          /image.{0,2}list.{0,2}item/i,
+          /bag.{0,2}item.{0,2}thumbnail/i,
+          /prod.{0,2}img/i,
+          /item.{0,2}img/i
+        ],
+        brandImageAttributeRegexes: [/brand.{0,2}image/i],
+        productLineAttributeRegexes: [
+          /line.{0,2}item/i,
+          /cart.{0,2}item/i,
+          /checkout.{0,2}item/i,
+          /ordered.{0,2}item/i,
+          /list.{0,2}item/i,
+          /goods.{0,2}item/i,
+          /cart.{0,2}group.{0,2}item/i
+        ],
+        formSelectors: i,
+        recommendedProductsHeadingRegexes: [
+          /frequently\sbought\stogether/i,
+          /have\syou\sconsidered/i,
+          /related\sto\sitems\sin\syour\scart/i,
+          /customers\salso\sbought/i,
+          /you\smay\salso\slike/i,
+          /save\swith.*?specials/i,
+          /top\spicks\sfor\syou/i,
+          /rewards\sfor\syou/i
+        ],
+        recommendedProductsAttributeRegexes: [
+          /recommneded.{0,2}product/i,
+          /recommended.{0,2}product/i,
+          /item.{0,2}recommendation/i,
+          /recomlist/i,
+          /product.{0,2}recommendations/i,
+          /recommendations.{0,2}group.{0,2}carousel/i,
+          /saved?.{0,2}for.{0,2}later.{0,2}(cards|item)/i,
+          /cart.{0,2}savelater.{0,2}product/i,
+          /wishlistsection/i,
+          /bonus.{0,2}offer.{0,2}section/i,
+          /carousel.*?products/i,
+          /carousel.{0,2}content/i,
+          /wag.{0,2}cart.{0,2}carousel/i
+        ],
+        orderSummaryHeadingRegexes: [
+          /^my\sbag/i,
+          /\(\d+\sitems\)/i,
+          /^items\sin\sorder$/i,
+          /^shipping\s\d+\sitems$/i,
+          /^shipping\sitems\s\(\d+\)$/i,
+          /^your\sitems$/i
+        ],
+        orderSummaryTextRegexes: a,
+        totalPriceAttributeRegexes: [/total/i, /summary/i],
+        itemPriceAttributeRegexes: [/(item|list|product).?price/i],
+        addOnItemsAttributeRegexes: [/\baddons\b/i],
+        headingAttributeRegexes: [/title/i, /heading/i, /header/i, /\bh6\b/i],
+        productTableHeadingsRegex: [
+          /^quantity$/i,
+          /^qty$/i,
+          /^your\sorder\sdetails$/i,
+          /^total$/i,
+          /^price/i,
+          /^subtotal$/i,
+          /^product\sname$/i,
+          /^product$/i,
+          /^cart\sitems/i,
+          /^item$/i
+        ]
+      };
+    },
+    73809: (t, e, r) => {
+      const i = r(70643),
+        a = r(57419),
+        s = r(4070),
+        o = r(45863),
+        n = r(72210);
+      function c(t) {
+        return !!t && (!t.tagName || "body" !== t.tagName.toLowerCase()) && (!t.tagName || "html" !== t.tagName.toLowerCase());
+      }
+      function l(t, e, r) {
+        o.log("Found a single product line, but without a product image."), o.log("Lets bubble up some more and see if we can find one.");
+        const s = [];
+        let l = t.parentNode;
+        for (; l && c(l); ) {
+          if (i.isVisible(l) === e) {
+            const t = n.queryAll("img,div[style*=background-image]", l);
+            for (const r of t) i.isProductImage(r) && i.isVisible(r) === e && (o.log("Found a product image: ", r), s.push(r));
+            if (1 === s.length)
+              return o.log("New single product line: ", l), o.log("Applying filtering to new product line"), r.push("image"), a.filter([l]);
+          }
+          l = l.parentNode;
+        }
+        return [t];
+      }
+      t.exports = {
+        hints: void 0,
+        detect: function (t) {
+          let e;
+          o.log("Single product line detection commencing.");
+          for (const r of t) {
+            o.log("Looking for product line with anchorPoint: ", r);
+            let n = r.node;
+            for (; n && i.isVisible(n) === r.visible; ) {
+              o.log("Checking if node is a product line: ", n);
+              const [i] = s.getAllHints(n, r.visible, t);
+              if ((o.log("Hints for single product line detection: ", i, n), i && i.length > 2)) {
+                if (
+                  (o.log("More than 2 hints found, likely found a single product line: ", n),
+                  (e = [n]),
+                  (e = a.filter(e)),
+                  o.log("Filtered single product line: ", e),
+                  1 === e.length)
+                )
+                  return i.includes("image") || (e = l(e[0], r.visible, i)), (this.hints = i), e;
+                break;
+              }
+              n = n.parentNode;
+            }
+          }
+          return [];
+        }
+      };
+    },
+    96846: (t, e, r) => {
+      const i = r(70643),
+        a = r(91933),
+        s = r(45863),
+        o = r(72210),
+        n = [/lineitem/i, /cartitem/i],
+        c = ["id", "class", "data-test", "name", "data-testid", "ng-model", "aria-label", "ng-repeat"];
+      function l(t, e) {
+        const r = i.getText(t),
+          l = t.outerHTML,
+          d = i.getValidAttributesText(t, c),
+          u = Array.from(o.queryAll("img", t)).filter((t) => i.isVisible(t) === e),
+          m = (function (t, e) {
+            try {
+              const r = i.getTextNodes(t);
+              for (const t of r)
+                if (i.validTextNode(t)) {
+                  const r = t.parentNode;
+                  if (i.isVisible(r) !== e) continue;
+                  const s = i.getText(t);
+                  if (i.matchesRegex(s, a.priceTextRegexes)) return !0;
+                }
+            } catch (t) {
+              s.log(t);
+            }
+          })(t, e);
+        return !!(r && l && m && l.match(/quantity|qty/i)) || !!(r && u && m && 1 === u.length) || !(!d || !i.matchesRegex(d, n));
+      }
+      function d(t) {
+        let e = o.queryAll("thead,tr[class*=head]", t);
+        if (e && 0 === e.length) {
+          const r = o.query("tbody>tr:first-child", t);
+          r &&
+            (function (t) {
+              const e = [];
+              for (const r of t.children) {
+                const t = r.tagName.toLowerCase();
+                e.includes(t) || e.push(t);
+              }
+              return 1 === e.length && "th" === e[0];
+            })(r) &&
+            (e = [r]);
+        }
+        return e;
+      }
+      function u(t) {
+        const e = Array.from(o.queryAll("th", t));
+        if (e && e.length > 1) {
+          let t = 0;
+          for (const r of e) {
+            const e = i.getText(r);
+            i.matchesRegex(e, a.productTableHeadingsRegex) && t++;
+          }
+          return t > 1;
+        }
+        return !1;
+      }
+      t.exports = {
+        detect: (t) => {
+          const e = o.queryAll("table", t);
+          for (const t of e) {
+            const e = [],
+              r = i.isVisible(t),
+              a = d(t);
+            if (a && 1 === a.length && u(a[0])) {
+              const a = o.queryAll("tbody>tr", t);
+              for (const t of a) {
+                const a = i.isVisible(t);
+                l(t, a) && r === a && e.push(t);
+              }
+              if (e.length) return e;
+            }
+          }
+          return [];
+        },
+        forUnitTesting: { _getTableHeadingsBlock: d, _isProductLineHeadingsBlock: u, _isProductLine: l }
+      };
+    },
+    68354: (t, e, r) => {
+      const i = r(44018),
+        a = r(54524),
+        s = r(12605),
         o = r(7567),
-        n = r(5863),
-        c = r(6868),
-        l = r(5847);
+        n = r(45863),
+        c = r(16868),
+        l = r(45847),
+        d = r(72210);
       t.exports = {
         hasPrice: function (t) {
           return (
@@ -21490,7 +23378,6 @@ var source;
                       const e = Object.assign({}, s),
                         a = Object.assign({}, s);
                       (e.isCurrency = !1),
-                        (e.isMoney = !1),
                         (e.text = t[0].trim()),
                         (e.uniqueKey = e.text + Math.random()),
                         (e.num = { value: parseInt(e.text, 10), sourceText: e.text, isDecimalCurrency: !1 }),
@@ -21513,7 +23400,7 @@ var source;
             (n = {}),
             (i = i.filter(c)),
             r.sort((t, e) => (s.symbolRegex.test(t.text) ? -1 : s.symbolRegex.test(e.text) ? 1 : 0));
-          return { currencies: r, otherNums: i, attributeScrapeData: o, textFilter: a };
+          return { currencies: r, otherNums: i, attributeScrapeData: o, allNums: a };
         },
         shouldIgnoreProductCurrency: (t) => {
           let e = !1;
@@ -21538,29 +23425,29 @@ var source;
         },
         extract: function (t, e, r) {
           const i = t.cloneNode(!0);
-          Array.prototype.slice.call(i.querySelectorAll("p,div,span,small,ol,ul")).forEach((t) => {
+          Array.prototype.slice.call(d.queryAll("p,div,span,small,ol,ul", i)).forEach((t) => {
             !t.style || ("hidden" !== t.style.visibility && "none" !== t.style.display) || t.parentElement.removeChild(t);
           }),
-            Array.from(i.querySelectorAll("input,select")).forEach((t) => {
+            Array.from(d.queryAll("input,select", i)).forEach((t) => {
               t.parentElement.removeChild(t);
             }),
-            Array.from(i.querySelectorAll("*"))
+            Array.from(d.queryAll("*", i))
               .filter(
                 (t) => "line-through" === window.getComputedStyle(t).textDecorationLine || "line-through" === t.style.textDecorationLine
               )
               .map((t) => t.parentElement.removeChild(t));
           let o,
-            d,
-            u = !1;
-          const m = c.sortFomNumbers(e.possiblePrices, !0, !1);
-          for (let t = 0; t < m.length; t++) {
-            const e = m[t],
+            u,
+            m = !1;
+          const p = c.sortFomNumbers(e.possiblePrices, !0, !1);
+          for (let t = 0; t < p.length; t++) {
+            const e = p[t],
               i = "string" == typeof e.parent.className && e.parent.className.match(/exact-price/gi),
-              s = a.hasAncestorClass(e.parent, /product[-_]*price/gi) && a.hasAncestorClass(e.parent, /product-.*subtotal/gi);
+              s = a.hasAncestorAttribute(e.parent, /product[-_]*price/gi) && a.hasAncestorAttribute(e.parent, /product-.*subtotal/gi);
             if (
               e.num.value > 0 &&
-              (d || i ? ((o = e.num.value), i && r && (d = o * r)) : ((d = e.num.value), (1 === r || (r && s)) && ((o = d / r), (u |= s))),
-              d && o)
+              (u || i ? ((o = e.num.value), i && r && (u = o * r)) : ((u = e.num.value), (1 === r || (r && s)) && ((o = u / r), (m |= s))),
+              u && o)
             )
               break;
           }
@@ -21570,142 +23457,143 @@ var source;
               t.price &&
               t.total &&
               t.total === t.quantity * t.price &&
-              ((r = t.quantity), (o = t.price), (d = t.total), (u = !0));
+              ((r = t.quantity), (o = t.price), (u = t.total), (m = !0));
           }
           if (
-            (t.className && t.className.match && t.className.match(/basket-item/gi) && (u |= r && o && d && d === r * o),
+            (t.className && t.className.match && t.className.match(/basket-item/gi) && (m |= r && o && u && u === r * o),
             !o && e.tableScrapeData.price && (o = e.tableScrapeData.price),
-            !d && e.tableScrapeData.total && (d = e.tableScrapeData.total),
-            !r || !d || !o)
+            !u && e.tableScrapeData.total && (u = e.tableScrapeData.total),
+            !r || !u || !o)
           ) {
             const t = e.attributeScrapeData.quantity,
               i = e.attributeScrapeData.price,
               a = e.attributeScrapeData.total;
             t && i && a
-              ? ((r = t), (o = i), (d = a))
+              ? ((r = t), (o = i), (u = a))
               : t && i
-              ? ((r = t), (o = i), (d = t * i))
+              ? ((r = t), (o = i), (u = t * i))
               : t && a
-              ? ((r = t), (d = a), (o = a / t))
-              : i && a && ((o = i), (d = a), (r = Math.round(a / i)));
+              ? ((r = t), (u = a), (o = a / t))
+              : i && a && ((o = i), (u = a), (r = Math.round(a / i)));
           }
-          r && d && !o && (o = d / r);
-          let p = [],
-            h = [];
+          r && u && !o && (o = u / r);
+          let h = [],
+            g = [];
           const I = document.createTreeWalker(i, NodeFilter.SHOW_TEXT, null, !1);
-          let g = null,
-            f = null,
-            D = null;
-          for (; null !== (g = I.nextNode()); )
-            if (D > 0) --D;
+          let f = null,
+            D = null,
+            V = null;
+          for (; null !== (f = I.nextNode()); )
+            if (V > 0) --V;
             else if (
-              !~["style", "script", "select", "option", "input", "a", "sup"].indexOf(g.parentNode.nodeName.toLowerCase()) &&
-              g.textContent.match(/[A-Za-z0-9]+/i)
+              !~["style", "script", "select", "option", "input", "a", "sup"].indexOf(f.parentNode.nodeName.toLowerCase()) &&
+              f.textContent.match(/[A-Za-z0-9]+/i)
             ) {
-              const t = window.getComputedStyle(g.parentNode);
+              const t = window.getComputedStyle(f.parentNode);
               if (t && t["text-decoration"] && t["text-decoration"].indexOf("line-through") > -1) continue;
-              let e = g.textContent;
-              if (l.skipProductLine(g)) {
-                D++;
+              let e = f.textContent;
+              if (l.skipProductLine(f)) {
+                V++;
                 continue;
               }
-              0 === g.parentNode.querySelectorAll("*").length &&
-                g.nextSibling &&
-                ((e = g.parentNode.textContent), (D = Array.from(g.parentNode.childNodes).filter((t) => 3 === t.nodeType).length - 1)),
+              0 === d.queryAll("*", f.parentNode).length &&
+                f.nextSibling &&
+                ((e = f.parentNode.textContent), (V = Array.from(f.parentNode.childNodes).filter((t) => 3 === t.nodeType).length - 1)),
                 (e = e.replace(/[\d.]+%/gi, ""));
               let i = !1;
-              if ((e.match(/\d\d/) && (i = e.replace(/[^0-9]/gim, "").match(/^\d\d$/gi)), i && f)) {
-                const t = f.textContent + e;
+              if ((e.match(/\d\d/) && (i = e.replace(/[^0-9]/gim, "").match(/^\d\d$/gi)), i && D)) {
+                const t = D.textContent + e;
                 if ((n.log("Joined", t), t.replace(/\u00a0/g, " ").match(s.currencyRgx))) {
                   const e = s.numberValue(t.replace(/\u00a0/g, " "));
                   if (!isNaN(e.value) && e.isDecimalCurrency) {
                     e.pageText = t;
-                    p[p.length - 1 < 0 ? 0 : p.length - 1] = e;
+                    h[h.length - 1 < 0 ? 0 : h.length - 1] = e;
                   }
                 }
-                f = null;
+                D = null;
               }
               const a = l.extractPriceWithQuantity(e);
-              void 0 !== a && ((r = a.quantity), (e = a.textContent), (d = a.detectedLineTotal));
+              void 0 !== a && ((r = a.quantity), (e = a.textContent), (u = a.detectedLineTotal));
               const c = s.numberValue(e.replace(/\u00a0/g, " "));
               e.replace(/\u00a0/g, " ").match(s.currencyRgx) && !isNaN(c.value) && c.isDecimalCurrency
-                ? ((c.pageText = e), p.push(c), (f = g))
-                : (f = null);
-              const m = l.extractPrice(g, e, r);
+                ? ((c.pageText = e), h.push(c), (D = f))
+                : (D = null);
+              const p = l.extractPrice(f, e, r);
               if (
-                void 0 !== m &&
-                !u &&
-                ((e = m.textContent), (o = m.detectedPrice), (d = m.detectedLineTotal), m.skipNode && D++, m.breakNode)
+                void 0 !== p &&
+                !m &&
+                ((e = p.textContent), (o = p.detectedPrice), (u = p.detectedLineTotal), p.skipNode && V++, p.breakNode)
               )
                 break;
-              isNaN(c.value) || c.isDecimalCurrency || h.push(c);
+              isNaN(c.value) || c.isDecimalCurrency || g.push(c);
             }
           if (e.isDomainProduct) {
             const e = l.extractNextLineProduct(t, r);
-            void 0 !== e && ((o = e.detectedPrice), (d = e.detectedLineTotal));
+            void 0 !== e && ((o = e.detectedPrice), (u = e.detectedLineTotal));
           }
-          let V = {};
-          const v = (t) => {
-            if (!V[t.value]) return (V[t.value] = !0), !0;
+          let v = {};
+          const y = (t) => {
+            if (!v[t.value]) return (v[t.value] = !0), !0;
           };
-          let y, b;
-          (p = p.filter(v)), (V = {}), (h = h.filter(v)), n.log("Price text", p), n.log("Other numbers", h);
-          let _ = p;
-          (_ = _.filter(
+          let b, _;
+          (h = h.filter(y)), (v = {}), (g = g.filter(y)), n.log("Price text", h), n.log("Other numbers", g);
+          let w = h;
+          (w = w.filter(
             (t) =>
               1 === t.pageText.match(s.currencyRgx).length && parseInt(t.value, 10) !== r && 0 !== t.pageText.match(s.currencyRgx)[0][0]
           )),
-            _.forEach((t) => {
+            w.forEach((t) => {
               const e = t.pageText.split("@");
               e.length > 1 && (t.pageText = e[1]);
             }),
-            (_ = _.map((t) => s.normalise(t.pageText))),
-            n.log("Filtered prices", _, o, d);
-          const w = _.map((t) => (r ? t / r : t)),
-            C = w.filter((t) => ~_.indexOf(t));
-          n.log("Factored Prices", w),
-            n.log("Matched Factored Prices", C),
-            C.length > 0
-              ? ((y = C.pop()), (b = y * r))
-              : _.length > 0 && _.every((t, e, r) => t === _[0])
-              ? (y = b = _[0])
-              : 2 === _.length
-              ? _[0] < _[1]
-                ? ((y = _[0]), (b = _[1]))
-                : ((y = _[1]), (b = _[0]))
-              : (y = _.filter((t) => !isNaN(t)).sort((t, e) => t - e)[0]);
-          const S = { item_price: o || y, line_total: d || b || y * r, quantity: r };
-          S.item_price > 1e6 && (S.item_price = 0), S.line_total > 1e6 && (S.line_total = 0);
-          let k = S.item_price,
-            x = S.quantity,
-            T = S.line_total;
-          if (Math.abs(k * x - T) < 0.01) return S;
-          if ((k > T && ((k = T), (T = S.item_price)), x && T)) {
-            const t = (T / x) * 100;
+            (w = w.map((t) => s.normalise(t.pageText))),
+            n.log("Filtered prices", w, o, u);
+          const C = w.map((t) => (r ? t / r : t)),
+            x = C.filter((t) => ~w.indexOf(t));
+          n.log("Factored Prices", C),
+            n.log("Matched Factored Prices", x),
+            x.length > 0
+              ? ((b = x.pop()), (_ = b * r))
+              : w.length > 0 && w.every((t, e, r) => t === w[0])
+              ? (b = _ = w[0])
+              : 2 === w.length
+              ? w[0] < w[1]
+                ? ((b = w[0]), (_ = w[1]))
+                : ((b = w[1]), (_ = w[0]))
+              : (b = w.filter((t) => !isNaN(t)).sort((t, e) => t - e)[0]);
+          const T = { item_price: o || b, line_total: u || _ || b * r, quantity: r };
+          T.item_price > 1e6 && (T.item_price = 0), T.line_total > 1e6 && (T.line_total = 0);
+          let k = T.item_price,
+            S = T.quantity,
+            A = T.line_total;
+          if (Math.abs(k * S - A) < 0.01) return T;
+          if ((k > A && ((k = A), (A = T.item_price)), S && A)) {
+            const t = (A / S) * 100;
             t - Math.floor(t) < 0.001 && (k = t / 100);
-          } else ((x && k && !T) || (x && k && T / k - Math.floor(T / k) > 0.01)) && (T = x * k);
-          return T / k - Math.floor(T / k) < 0.01 && (x = Math.floor(T / k)), (S.item_price = k), (S.quantity = x), (S.total = T), S;
+          } else ((S && k && !A) || (S && k && A / k - Math.floor(A / k) > 0.01)) && (A = S * k);
+          return A / k - Math.floor(A / k) < 0.01 && (S = Math.floor(A / k)), (T.item_price = k), (T.quantity = S), (T.total = A), T;
         },
         sanitize: function (t) {}
       };
     },
-    5847: (t, e, r) => {
-      const i = r(4524),
-        a = r(2605),
-        s = r(7567);
-      let o = [];
+    45847: (t, e, r) => {
+      const i = r(54524),
+        a = r(12605),
+        s = r(7567),
+        o = r(72210);
+      let n = [];
       t.exports = {
         extractPrice: function (t, e, r) {
-          let o,
-            n,
-            c = !1;
+          let n,
+            c,
+            l = !1;
           if (
             i.hasClassname(t.parentNode, s.lineTotalRegex) ||
             i.hasClassname(t.parentNode.parentNode, s.lineTotalParentRegex) ||
             Array.from(t.parentNode.attributes).filter((t) => /Pris totalt|Artikel-Gesamtpreis/gi.test(t.nodeValue)).length > 0 ||
             Array.from(t.parentNode.attributes).filter((t) => /Price/gi.test(t.nodeValue) && /data-component/gi.test(t.nodeName)).length > 0
           )
-            (e = a.normalise(i.formatTotalElement(t.parentElement))) && ((o = e), (n = (o / r).toFixed(2)));
+            (e = a.normalise(i.formatTotalElement(t.parentElement))) && ((n = e), (c = (n / r).toFixed(2)));
           else if (
             i.hasClassname(t.parentNode, /(pix-price)|(o-price-text)|order-item-linesum|c-cart-list__item__price/gi) ||
             ("price" === t.parentNode.className &&
@@ -21713,27 +23601,28 @@ var source;
               t.ownerDocument.location.href.match(/teknikmagasinet|xxl|jernia/gi))
           ) {
             const e = a.normalise(i.formatTotalElement(t.parentElement));
-            e && ((o = e), (n = (o / r).toFixed(2)));
+            e && ((n = e), (c = (n / r).toFixed(2)));
           } else if (i.hasClassname(t.parentNode, /priceTotal/gi)) {
             const i = t.nextSibling;
-            i && i.textContent && (e = a.normalise(i.textContent)) && ((o = e), (n = (o / r).toFixed(2)), (c = !0));
+            i && i.textContent && (e = a.normalise(i.textContent)) && ((n = e), (c = (n / r).toFixed(2)), (l = !0));
           } else if (
             i.hasClassname(t.parentNode, s.lineItemPriceRegex) ||
             (i.hasClassname(t.parentNode, /^price$|^amount$/) && !i.hasClassname(t.parentNode.parentNode, /^old-price$/)) ||
             i.hasClassname(t.parentNode.parentNode, /^current-price$/)
           )
-            (e = a.normalise(e)) && ((n = e), (o = (n * r).toFixed(2)));
+            (e = a.normalise(e)) && ((c = e), (n = (c * r).toFixed(2)));
           else if (i.hasClassname(t.parentNode.parentNode, /price/gi)) {
-            const i = t.parentNode.parentNode.querySelectorAll(
-              ".price__integer,.price__dot,.price__fractional,.oPriceLeft,.oPriceSeparator,.oPriceRight"
+            const i = o.queryAll(
+              ".price__integer,.price__dot,.price__fractional,.oPriceLeft,.oPriceSeparator,.oPriceRight",
+              t.parentNode.parentNode
             );
             3 === i.length &&
               i[2].className.match(/price__fractional|oPriceRight/gi) &&
               (e = a.normalise(t.parentNode.parentNode.innerText)) &&
-              ((n = e), (o = (n * r).toFixed(2)));
+              ((c = e), (n = (c * r).toFixed(2)));
           }
-          return void 0 !== o && void 0 !== n
-            ? { textContent: e, detectedPrice: n, detectedLineTotal: o, skipNode: c, breakNode: !1 }
+          return void 0 !== n && void 0 !== c
+            ? { textContent: e, detectedPrice: c, detectedLineTotal: n, skipNode: l, breakNode: !1 }
             : void 0;
         },
         extractPriceWithQuantity: function (t) {
@@ -21747,11 +23636,11 @@ var source;
           }
         },
         isDomainSpecificSelectorProductNode: function (t) {
-          return o.length && o.includes(t);
+          return n.length && n.includes(t);
         },
         isDomainProduct: function (t) {
           const e =
-              Array.from(t.querySelectorAll("span[class=product-name]")).filter(
+              Array.from(o.queryAll("span[class=product-name]", t)).filter(
                 (t) =>
                   t.firstElementChild && "A" === t.firstElementChild.tagName && t.lastElementChild && "A" === t.lastElementChild.tagName
               ).length > 0,
@@ -21759,9 +23648,9 @@ var source;
               i.hasClassname(t, s.lineProductDetectionRegex) ||
               (t.parentNode && t.parentNode.id && /products_cart/gi.test(t.parentNode.id) && t.className.match(/\brow\b/gi)),
             a = Array.from(t.attributes).filter((t) => /product in products|shopcart.rows$|^list-item-\d+/gi.test(t.nodeValue)).length > 0,
-            o = i.hasClassname(t.parentNode, /basket-products__item/gi),
-            n = t.querySelectorAll("[data-asin]").length > 0,
-            c = {
+            n = i.hasClassname(t.parentNode, /basket-products__item/gi),
+            c = o.queryAll("[data-asin]", t).length > 0,
+            l = {
               "nyp-product ?$": /nyp-receipt-order/gi,
               "box-content": /book-box/gi,
               "^receipt$": /formSummaryContent/gi,
@@ -21789,27 +23678,25 @@ var source;
               "^container\\sorder-summary": /checkout\sconfirm-order/gi,
               EventDetailsWrapper: /EventInfoWrapper/gi
             };
-          let l = !1;
-          for (const e in c)
-            if (t.className.match(new RegExp(e, "gi")) && i.hasAncestorClass(t, c[e])) {
-              l = !0;
+          let d = !1;
+          for (const e in l)
+            if (t.className.match(new RegExp(e, "gi")) && i.hasAncestorAttribute(t, l[e])) {
+              d = !0;
               break;
             }
-          const d =
-              (t.firstElementChild === t.querySelector("img") ||
-                (t.firstElementChild === t.querySelector("a") && t.querySelector("a > img:first-child"))) &&
-              1 === t.querySelectorAll("img").length &&
-              t.querySelector("img").alt &&
-              this.isDomainSpecificSelectorProductNode(t),
-            u = document.location.href.match(s.lineProductDetectionUrlRegex) && this.isDomainSpecificSelectorProductNode(t);
-          return e || r || a || o || l || n || d || u;
+          const u =
+            (t.firstElementChild === o.query("img", t) || (t.firstElementChild === o.query("a", t) && o.query("a > img:first-child", t))) &&
+            1 === o.queryAll("img", t).length &&
+            o.query("img", t).alt &&
+            this.isDomainSpecificSelectorProductNode(t);
+          return e || r || a || n || d || c || u;
         },
         extractNextLineProduct: function (t, e) {
           if (t && t.nextSibling && e) {
             const r = t.nextSibling.nextSibling;
             if (r && r.textContent && "function" == typeof r.querySelectorAll) {
               const t = a.normalise(r.textContent);
-              if (t && a.isLikelyCurrencyText(t) && r.querySelectorAll("span[class='price']").length && t.length < 20) {
+              if (t && a.isLikelyCurrencyText(t) && o.queryAll("span[class='price']", r).length && t.length < 20) {
                 const r = t;
                 return { detectedPrice: (r / e).toFixed(2), detectedLineTotal: r };
               }
@@ -21830,34 +23717,22 @@ var source;
         },
         shouldIgnoreProduct: function (t) {
           let e = !1;
-          if (t.node.querySelectorAll(s.lineIgnoreQuerySelector).length > 0) return !0;
-          const r = t.node.querySelectorAll("a"),
-            a = r[0];
-          if (
-            (1 === r.length && a && i.hasClassname(a, /product-option|explanation-link/gi) && (e = !0),
-            t.node.querySelectorAll("[class*=add-to] a.button").length > 0 && (e = !0),
-            (i.hasAncestorClass(t.node, s.lineIgnoreAncestorRegex) || i.hasClassname(t.node, s.lineIgnoreRegex)) && (e = !0),
-            t.allImages && t.allImages.length > 0)
-          ) {
-            0 ===
-              t.allImages.filter((t) => {
-                const e = i.getImageUrl(t);
-                return !(e && e.match(/(loader|loading).?(ajax)?\.gif$/gi));
-              }).length && (e = !0);
-          }
-          return e;
+          return (
+            o.queryAll(s.lineIgnoreQuerySelector, t.node).length > 0 ||
+            ((i.hasAncestorClass(t.node, s.lineIgnoreAncestorRegex) || i.hasClassname(t.node, s.lineIgnoreRegex)) && (e = !0), e)
+          );
         },
         filterProductNode: function (t) {
-          o.length = 0;
-          let e = s.extractProductNodesByDomain();
-          const r = document.body.querySelector(s.nodeCartDetectionSelectors);
-          return 0 === e.length && r ? (e = Array.from(r.querySelectorAll("*"))) : (o = e), e.length > 0 ? e : t;
+          n.length = 0;
+          const e = s.extractProductNodesByDomain();
+          return e.length ? ((n = e), e) : [];
         }
       };
     },
-    7057: (t, e, r) => {
-      const i = r(4524),
-        a = function (t) {
+    17057: (t, e, r) => {
+      const i = r(54524),
+        a = r(72210),
+        s = function (t) {
           const e = i.getImageUrl(t);
           return (
             (!e || !/info-circle-icon/i.test(e)) &&
@@ -21866,11 +23741,11 @@ var source;
             (t.height > 20 || t.width > 20 || t.naturalHeight > 20 || t.naturalWidth > 20)
           );
         };
-      let s;
+      let o;
       t.exports = {
-        detect: function (t) {
-          let e = Array.from(t.querySelectorAll("img")).filter((t) => a(t) && i.isVisible(t));
-          const r = Array.from(t.querySelectorAll("*[style*=background-image]"))
+        extractAllImages: function (t) {
+          let e = Array.from(a.queryAll("img", t)).filter((t) => s(t) && i.isVisible(t));
+          const r = Array.from(a.queryAll("*[style*=background-image]", t))
             .map((t) => {
               const e = t.style.backgroundImage.replace(/url\(['"]?([^'")]+)['"]?\).*/gi, "$1");
               return {
@@ -21887,13 +23762,13 @@ var source;
                 sourceElement: t
               };
             })
-            .filter((t) => a(t) && i.isVisible(t));
+            .filter((t) => s(t) && i.isVisible(t));
           0 === e.length && (e = e.concat(r));
-          const s = t.querySelectorAll("picture");
-          if (1 === s.length) {
-            const t = s[0],
-              r = t.querySelector("img"),
-              i = t.querySelector("source");
+          const o = a.queryAll("picture", t);
+          if (1 === o.length) {
+            const t = o[0],
+              r = a.query("img", t),
+              i = a.query("source", t);
             if (i && i.srcset) {
               const a = i.srcset.split(/\s+[0-9]+[wxh]|,\s+/)[0];
               (e = e.filter((e) => !(e.nodeType && t.contains(e)))),
@@ -21909,14 +23784,15 @@ var source;
                   parentElement: t.parentElement,
                   alt: r && r.alt ? r.alt : t.alt,
                   title: r && r.title ? r.title : t.innerText,
-                  sourceElement: t
+                  sourceElement: t,
+                  img: r
                 });
             }
           }
           return e;
         },
-        detectImageAttributeMatchesProductName: function (t) {
-          return Array.from(t.querySelectorAll("img")).filter((e) => {
+        extractImagesWithAttributeMatchingText: function (t) {
+          return Array.from(a.queryAll("img", t)).filter((e) => {
             const r = t.innerText;
             for (let t = 0; t < e.attributes.length; ++t)
               if (
@@ -21934,8 +23810,9 @@ var source;
         },
         extract: function (t, e, r) {
           if (e && !i.isVisible(e[0])) return;
-          const a = Array.from(e);
-          a.sort((t, e) => {
+          const s = Array.from(e);
+          s.sort((t, e) => {
+            (t = t.img || t.sourceElement || t), (e = e.img || e.sourceElement || e);
             const r = i.imageSize(t),
               a = i.imageSize(e);
             if (r !== a) return a - r;
@@ -21943,12 +23820,14 @@ var source;
               o = "a" === e.parentElement.nodeName.toLowerCase();
             if (s && !o) return -1;
             if (o && !s) return 1;
-            const n = (t.currentSrc || t.src).match(/(\.jpg|image\/jpeg)/i),
-              c = (e.currentSrc || e.src).match(/(\.jpg|image\/jpeg)/i);
-            return n && !c ? -1 : c && !n ? 1 : 0;
+            const n = t.currentSrc || t.src,
+              c = e.currentSrc || e.src,
+              l = n && n.match(/(\.jpg|image\/jpeg)/i),
+              d = c && c.match(/(\.jpg|image\/jpeg)/i);
+            return l && !d ? -1 : d && !l ? 1 : 0;
           });
-          let o = i.getImageUrl(a);
-          if ((o && a.length > 0 && (s = a[0]), r && !o))
+          let n = i.getImageUrl(s);
+          if ((n && s.length > 0 && (o = s[0]), r && !n))
             try {
               const t = [
                   ["alt*", (r = r.replace(/'/g, "\\'")), "img"],
@@ -21956,36 +23835,37 @@ var source;
                   ["src*", r, "img"],
                   ["data-original-src*", r, "img"]
                 ],
-                e = document.querySelector(i.caseSensitivity(t));
-              e && ((s = e), (o = i.getImageUrl(e)));
+                e = a.query(i.caseSensitivity(t));
+              e && ((o = e), (n = i.getImageUrl(e)));
             } catch (t) {}
-          if (!o && t.parentNode) {
-            const e = t.parentNode.querySelectorAll("a img");
-            1 === e.length && ((s = e[0]), (o = i.getImageUrl(e[0])));
+          if (!n && t.parentNode) {
+            const e = a.queryAll("a img", t.parentNode);
+            1 === e.length && ((o = e[0]), (n = i.getImageUrl(e[0])));
           }
-          return [o, s];
+          return [n, o];
         }
       };
     },
-    3283: (t, e, r) => {
-      const i = r(4524),
-        a = r(5863),
+    73283: (t, e, r) => {
+      const i = r(54524),
+        a = r(45863),
         s = r(7567),
-        o = s.productNameIgnoreTextRegex,
-        n = s.productNameIgnoreClassNameRegex,
-        c = s.productNameIgnoreIdRegex,
-        l = s.productNameClassNameRegex;
-      let d;
-      const u = function (t, e = !1) {
+        o = r(72210),
+        n = s.productNameIgnoreTextRegex,
+        c = s.productNameIgnoreClassNameRegex,
+        l = s.productNameIgnoreIdRegex,
+        d = s.productNameClassNameRegex;
+      let u;
+      const m = function (t, e = !1) {
           if (
             t &&
             t.length > 0 &&
-            ((t = Array.from(t).filter((t) => !(!t || t.textContent.match(o) || n.test(t.className) || c.test(t.id)))), (d = t[0]), d)
+            ((t = Array.from(t).filter((t) => !(!t || t.textContent.match(n) || c.test(t.className) || l.test(t.id)))), (u = t[0]), u)
           ) {
-            if (e || l.test(d.className)) return d.innerText || d.textContent;
-            if (d.innerText) {
-              const t = d.innerText,
-                e = d.querySelector("[class*='brand']");
+            if (e || d.test(u.className)) return u.innerText || u.textContent;
+            if (u.innerText) {
+              const t = u.innerText,
+                e = o.query("[class*='brand']", u);
               if (e && e.innerText) {
                 const r = e.innerText.trim();
                 let i = t.split("\n");
@@ -22000,12 +23880,12 @@ var source;
                   .trim();
             }
           }
-          d = void 0;
+          u = void 0;
         },
-        m = function (t, e) {
+        p = function (t, e) {
           let r, a;
           if (e) {
-            const o = i.caseSensitivity([
+            const n = i.caseSensitivity([
                 ["class*", "brand"],
                 ["class*", "variant"],
                 ["class", "color"],
@@ -22014,11 +23894,11 @@ var source;
                 ["data-attribute", "color"],
                 ["data-attribute", "size"]
               ]),
-              n = i.caseSensitivity([
+              c = i.caseSensitivity([
                 ["class*", "price"],
                 ["id*", "price"]
               ]),
-              c = (t) =>
+              l = (t) =>
                 t
                   ? (t = (t = t
                       .replace(/\s+/g, " ")
@@ -22028,7 +23908,7 @@ var source;
                       .filter((t, e, r) => r.indexOf(t) === e)
                       .join(", "))
                   : t,
-              l = (t, r = !1) => {
+              d = (t, r = !1) => {
                 if (
                   ((a = Array.from(t)
                     .map((t) =>
@@ -22040,18 +23920,16 @@ var source;
                     )
                     .filter((t) => t && e && !e.toLowerCase().includes(t.toLowerCase()))),
                   (a = a.join(", ")),
-                  (a = c(a)),
+                  (a = l(a)),
                   a)
                 )
                   return a;
               };
             (r = s.extractProductNameNodesByDomain(t, !0)),
               r && r.length > 0
-                ? (a = l(r, !0))
-                : ((r = Array.from(t.querySelectorAll(o)).filter(
-                    (t) => 0 === t.querySelectorAll(n).length && "a" !== t.tagName.toLowerCase()
-                  )),
-                  r && r.length > 0 && (a = l(r))),
+                ? (a = d(r, !0))
+                : ((r = Array.from(o.queryAll(n, t)).filter((t) => 0 === o.queryAll(c, t).length && "a" !== t.tagName.toLowerCase())),
+                  r && r.length > 0 && (a = d(r))),
               (e = e
                 .trim()
                 .split(/([\n\r]+|\\n|\\r)/gm)[0]
@@ -22063,36 +23941,37 @@ var source;
         };
       t.exports = {
         scanLinks: function (t) {
-          const e = Array.from(t.querySelectorAll("a")).filter((t) => i.isVisible(t));
+          const e = Array.from(o.queryAll("a", t)).filter((t) => i.isVisible(t));
           return (
             (1 === e.length && void 0 !== e[0].innerText && -1 === e[0].innerText.trim().indexOf("\n")) ||
-            (e.length > 0 && e[0].parentNode && l.test(e[0].parentNode.className)) ||
-            t.querySelectorAll(
+            (e.length > 0 && e[0].parentNode && d.test(e[0].parentNode.className)) ||
+            o.queryAll(
               i.caseSensitivity([
                 ["class*", "title", "a"],
                 ["class*", "ats-name"],
                 ["data-test*", "title"],
                 ["id*", "hotel-name-link", "a"],
                 ["data-qa-id", "cart-item-name", "a"]
-              ])
+              ]),
+              t
             ).length > 0
           );
         },
-        detectPossibleNames: function (t, e) {
-          const r = t.filter((t) => !e[t.text] && null === t.text.match(o));
+        extractPossibleNames: function (t, e) {
+          const r = t.filter((t) => !e[t.text] && null === t.text.match(n));
           return r.sort((t, e) => e.text.length - t.text.length), r;
         },
         strategies: [
           (t, e) => {
             const r = s.extractProductNameNodesByDomain(t);
             if (r && r.length) {
-              const t = u(r, !0);
+              const t = m(r, !0);
               if (t) return t;
             }
           },
           (t, e) => {
             let r;
-            const a = t.querySelectorAll(
+            const a = o.queryAll(
                 i.caseSensitivity([
                   ["class*", "product-displayname"],
                   ["class*", "productName"],
@@ -22103,10 +23982,12 @@ var source;
                   ["class*", "product_name"],
                   ["class*", "product_title"],
                   ["class*", "Heading-main"],
-                  ["class", "rs-iteminfo-title"]
-                ])
+                  ["class", "rs-iteminfo-title"],
+                  ["id*", "product-name"]
+                ]),
+                t
               ),
-              s = t.querySelectorAll(
+              s = o.queryAll(
                 i.caseSensitivity([
                   ["class*", "cart-product__description"],
                   ["class*", "cart-summary-product-description"],
@@ -22114,7 +23995,8 @@ var source;
                   ["class", "product-description"],
                   ["class", "city"],
                   ["class*", "cart-item-description__product"]
-                ])
+                ]),
+                t
               );
             if (a.length && s.length)
               if (1 === a.length && 1 === s.length) {
@@ -22122,22 +24004,22 @@ var source;
                 r = [[t, s[0]].filter((t) => i.numberOfWordsNodeText(t) > 3 && i.numberOfWordsNodeText(t) < 20)[0] || t];
               } else r = a;
             else a.length ? (r = a) : s.length && (r = s);
-            const o = u(r);
-            if (o) return o;
+            const n = m(r);
+            if (n) return n;
           },
           (t, e) => {
-            const r = Array.from(t.querySelectorAll(i.caseSensitivity("class*", "name"))).filter(
-                (t) => t.textContent && !t.textContent.trim().match(o) && (!t.className || !t.className.match(n))
+            const r = Array.from(o.queryAll(i.caseSensitivity("class*", "name"), t)).filter(
+                (t) => t.textContent && !t.textContent.trim().match(n) && (!t.className || !t.className.match(c))
               ),
-              a = u(r);
+              a = m(r);
             if (a) return a;
           },
           (t, e) => {
             let r;
             const i = e.imageAttributeMatchesProductName;
             return (
-              Array.isArray(i) && i[0] && "" !== i[0].alt && ((r = i[0].alt), (d = i[0])),
-              !r && Array.isArray(i) && i[0] && "" !== i[0].title && ((r = i[0].title), (d = i[0])),
+              Array.isArray(i) && i[0] && "" !== i[0].alt && ((r = i[0].alt), (u = i[0])),
+              !r && Array.isArray(i) && i[0] && "" !== i[0].title && ((r = i[0].title), (u = i[0])),
               r
             );
           },
@@ -22146,31 +24028,31 @@ var source;
               r = 0;
             const a = ["class*", "data-test*", "data-automation-id*", "data-automationid*", "data-testid*", "data-selector*"];
             for (; r < a.length && !e; ) {
-              const s = t.querySelectorAll(i.caseSensitivity(a[r], "title"));
-              (e = u(s)), r++;
+              const s = o.queryAll(i.caseSensitivity(a[r], "title"), t);
+              (e = m(s)), r++;
             }
             return e;
           },
           (t) => {
             let e;
-            const r = Array.from(t.querySelectorAll("a")).filter(
+            const r = Array.from(o.queryAll("a", t)).filter(
               (t) =>
-                0 === t.querySelectorAll("img").length &&
-                (!t.className || null === t.className.match(n)) &&
-                (!t.id || null === t.id.match(c)) &&
+                0 === o.queryAll("img", t).length &&
+                (!t.className || null === t.className.match(c)) &&
+                (!t.id || null === t.id.match(l)) &&
                 t.textContent &&
-                null === t.textContent.match(o)
+                null === t.textContent.match(n)
             );
             return (
               r.length > 0 &&
                 (r.sort(function (t, e) {
-                  return null !== e.innerText.match(o)
+                  return null !== e.innerText.match(n)
                     ? -1
-                    : null !== t.innerText.match(o)
+                    : null !== t.innerText.match(n)
                     ? 1
                     : e.innerText.trim().length - t.innerText.trim().length;
                 }),
-                (d = r[0]),
+                (u = r[0]),
                 (e = r[0].innerText.trim())),
               e
             );
@@ -22182,33 +24064,35 @@ var source;
             if (e && e.attributeScrapeData && e.attributeScrapeData.name) return e.attributeScrapeData.name;
           },
           (t) => {
-            const e = t.querySelectorAll(
+            const e = o.queryAll(
               i.caseSensitivity([
                 ["class*", "desc"],
                 ["class", "info"]
-              ])
+              ]),
+              t
             );
-            return u(e);
+            return m(e);
           },
           (t) => {
-            const e = Array.from(t.querySelectorAll("h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6")).map((t) => t.innerText);
+            const e = Array.from(o.queryAll("h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6", t)).map((t) => t.innerText);
             if (e.length > 0) return e.shift();
           },
           (t) => {
-            const e = t.querySelectorAll(
+            const e = o.queryAll(
               i.caseSensitivity([
                 ["ng-bind*", "desc"],
                 ["ng-bind*", "title"],
                 ["ng-bind*", "label"],
                 ["ng-bind*", "name"]
-              ])
+              ]),
+              t
             );
-            return u(e);
+            return m(e);
           },
           (t, e) => {
             if (
               ((e.possibleNames = e.possibleNames.filter((t) => !t.isCurrency)),
-              e && e.possibleNames && 1 === e.possibleNames.length && !1 === n.test(e.possibleNames[0].el.className))
+              e && e.possibleNames && 1 === e.possibleNames.length && !1 === c.test(e.possibleNames[0].el.className))
             )
               return e.possibleNames[0].text;
           }
@@ -22216,7 +24100,7 @@ var source;
         extract: function (t, e) {
           for (let r = 0; r < this.strategies.length; r++) {
             let i = this.strategies[r](t, e);
-            if (((i = i && null === i.match(o) ? i : void 0), i)) return a.log("product name#" + r + ": ", i), [m(t, i), d];
+            if (((i = i && null === i.match(n) ? i : void 0), i)) return a.log("product name#" + r + ": ", i), [p(t, i), u];
           }
           return [];
         },
@@ -22228,7 +24112,7 @@ var source;
                 ["src*", e, "img"],
                 ["data-original-src*", e, "img"]
               ];
-              let s = document.querySelector(i.caseSensitivity(t));
+              let s = o.query(i.caseSensitivity(t));
               if ((s || (s = r), s)) {
                 const t = s.title && s.title.split(/\s/g).length > 1 ? s.title : "",
                   e = s.alt && s.alt.split(/\s/g).length > 1 ? s.alt : "",
@@ -22241,59 +24125,43 @@ var source;
               (a && a.match(/gift\s+card/i)) ||
               (a = a ? "eGift Cards (cashstar) - " + a : "eGift Cards (cashstar)"),
             /&#[0-9]+;/gi.test(a) && (a = new DOMParser().parseFromString(a, "text/html").documentElement.textContent),
-            (a = a && !a.match(o) ? a : void 0),
+            (a = a && !a.match(n) ? a : void 0),
             a
           );
         }
       };
     },
-    7797: (t, e, r) => {
-      const i = r(4524),
-        a = r(5863),
-        s = r(6036),
-        o = r(7567),
-        n = r(8679),
-        c = r(3283),
-        l = r(7057),
-        d = r(6741),
-        u = r(8354),
-        m = r(8919),
-        p = r(5847),
-        h = r(5721),
-        I = r(4658),
-        g = r(6868),
-        f = r(463),
-        D = function (t, e) {
-          for (e.splice(0, e.length); t.length > 0; ) e.push(t.shift());
-        },
-        V = function (t) {
-          if (!t) return t;
-          let e = t.tagName;
-          return (
-            t.className
-              ? (e += "." + t.className)
-              : t.dataset && t.dataset.test
-              ? (e += "-" + t.dataset.test)
-              : t.parentNode && (e = V(t.parentNode) + " > " + e),
-            e
-          );
-        };
+    17797: (t, e, r) => {
+      const i = r(54524),
+        a = r(45863),
+        s = r(7567),
+        o = r(58679),
+        n = r(73283),
+        c = r(17057),
+        l = r(96741),
+        d = r(68354),
+        u = r(7434),
+        m = r(35721),
+        p = r(4658),
+        h = r(10463),
+        g = r(13023),
+        I = r(96802);
       t.exports = {
         productList: [],
         productStrategy: void 0,
         domainProductList: [],
         extractProductLine: function (t, e) {
-          t = e.node;
-          const r = n.extract(t, e),
-            a = u.extract(t, e, r),
-            [s, o] = c.extract(t, e),
-            [m, p] = l.extract(t, e.allImages, s);
+          (t = e.node), g.extract(t, e);
+          const r = o.extract(t, e),
+            a = d.extract(t, e, r),
+            [s, u] = n.extract(t, e),
+            [m, p] = c.extract(t, e.allImages, s);
           return {
             item_price: a.item_price,
             line_total: a.line_total,
             quantity: a.quantity,
-            name: c.sanitize(s, m, p),
-            url: d.extract(t, o, p),
+            name: n.sanitize(s, m, p),
+            url: l.extract(t, u, p),
             image_url: m,
             html: t.outerHTML.split("\n")[0],
             source: i.getSourceString(t),
@@ -22302,24 +24170,24 @@ var source;
           };
         },
         getResult: function () {
-          return { productList: this.productList, productStrategy: Array.from(this.productStrategy).join(",") };
+          return I(this.productList), { productList: this.productList, productStrategy: Array.from(this.productStrategy).join(",") };
         },
         extractProductList: function (t, e = !0) {
-          if (((this.productList = []), (this.productStrategy = new Set()), o.useGlobalContextScanner())) {
-            const t = f();
+          if (((this.productList = []), (this.productStrategy = new Set()), s.useGlobalContextScanner())) {
+            const t = h();
             if (t && t.length > 0)
               return (
                 (this.productList = t),
                 this.productList.forEach((t) => {
-                  t.url || ((t.url = d.extract(null, null, null, t)), t.url && this.productStrategy.add("general"));
+                  t.url || ((t.url = l.extract(null, null, null, t)), t.url && this.productStrategy.add("general"));
                 }),
                 this.productStrategy.add("globalContextScanner"),
                 this.getResult()
               );
           }
           if (e) {
-            const t = h.extract(),
-              e = I.extract();
+            const t = m.extract(),
+              e = p.extract();
             if (
               (a.log("Xpath Result: ", t),
               a.log("CSS Result: ", e),
@@ -22332,239 +24200,31 @@ var source;
             )
               return (
                 this.productList.forEach((t) => {
-                  !t.url && t.name && t.nameNode && ((t.url = d.extract(t.node, t.nameNode)), t.url && this.productStrategy.add("general")),
+                  !t.url && t.name && t.nameNode && ((t.url = l.extract(t.node, t.nameNode)), t.url && this.productStrategy.add("general")),
                     (t.source = i.getSourceString(t.node));
                 }),
                 this.getResult()
               );
           }
           this.domainProdcutList = [];
-          if (document.location.href.match(o.isNotProductUrlRegex)) return this.getResult();
-          t.forEach((t) => {
-            if (0 === t.childElementCount || t.childElementCount > 13) return;
-            t && t.tagName;
-            const e = m(t);
-            if (e) {
-              const r = this.extractProductLine(t, e);
-              this.productList.push(r);
+          if (document.location.href.match(s.isNotProductUrlRegex)) return this.getResult();
+          const r = u.detect(t);
+          if ((a.log("Detected product line(s): ", r), r && r.length))
+            for (const t of r) {
+              const e = this.extractProductLine(t.node, t);
+              e && this.productList.push(e);
             }
-            const r = t.querySelectorAll("._fillr");
-            for (let t = 0; t < r.length; t++) r[t].remove();
-          });
-          for (let t = 0; t < this.strategies.length; t++) {
-            const e = this.strategies[t].bind(this);
-            this.productList.length > 0 && (e(), a.log("#" + t + ": ", this.productList));
-          }
           return this.productStrategy.add("general"), this.getResult();
-        },
-        strategies: [
-          function () {
-            const t = {},
-              e = {};
-            for (let r = 0; r < this.productList.length; r++) {
-              const i = this.productList[r],
-                a = V(i.node);
-              i.name && !e[i.name] && Math.abs(i.item_price * i.quantity - i.line_total) < 0.01 && (e[i.name] = !0),
-                a && (t[a] ? t[a].push(r) : (t[a] = [r]));
-            }
-            this.productList = this.productList.filter((t) => {
-              if (e[t.name]) {
-                const e = Math.abs(t.item_price * t.quantity - t.line_total);
-                if (isNaN(e) || e >= 0.01) return !1;
-              }
-              return !0;
-            });
-          },
-          function () {
-            (this.domainProductList = p.filterDomainProductList(this.productList)),
-              this.domainProductList.length > 0 && (this.productList = this.domainProductList);
-          },
-          function () {
-            this.productList = this.productList.filter(
-              (t) =>
-                !this.productList.some(
-                  (e) => !(t.name !== e.name || t.node === e.node || !t.node.contains(e.node) || (!e.image_url && t.image_url))
-                )
-            );
-          },
-          function () {
-            this.productList = this.productList.filter(
-              (t) =>
-                !/^wrapper$|^donate$/gi.test(t.node.id) && !/p_right$|^grandTotal$/gi.test(t.node.className) && !/^Donate\b/gi.test(t.name)
-            );
-          },
-          function () {
-            const t = {};
-            let e = 0;
-            this.productList = this.productList.filter((r) => {
-              const i = (function (t) {
-                let e = 0;
-                return (
-                  t.name && t.name.length > 0 && e++,
-                  t.image_url && t.image_url.length > 0 && e++,
-                  t.item_price > 0 && e++,
-                  t.line_total > 0 && e++,
-                  t.quantity > 0 && e++,
-                  t.item_price && t.quantity && t.line_total && 0 === Math.round(t.quantity * t.item_price - t.line_total) && e++,
-                  e
-                );
-              })(r);
-              return i >= (t[r.name] ? t[r.name] : 0) && ((t[r.name] = i), i > e && (e = i), !0);
-            });
-          },
-          function () {
-            this.productList = this.productList.filter(
-              (t) =>
-                !this.productList.some(
-                  (e) =>
-                    !(t.image_url && !e.image_url && t.name && (!e.name || t.name.split(/\s/g).length > e.name.split(/\s/g).length)) &&
-                    !(t.node === e.node || !t.node.contains(e.node))
-                )
-            );
-          },
-          function () {
-            this.productList = this.productList.filter(
-              (t) =>
-                !(
-                  (void 0 === t.name || 0 === t.name.length) &&
-                  isNaN(t.item_price) &&
-                  isNaN(t.line_total) &&
-                  (void 0 === t.image_url || "" === t.image_url)
-                )
-            );
-          },
-          function () {
-            let t,
-              e,
-              r = 1572864;
-            document.body.scrollWidth &&
-              document.body.scrollHeight &&
-              document.body.scrollWidth * document.body.scrollHeight < r &&
-              (r = document.body.scrollWidth * document.body.scrollHeight * 0.95);
-            const i = this.productList.reduce(
-                (i, a) =>
-                  a.size > i && a.size < r
-                    ? ((t = V(a.node)),
-                      (e = a.node.className && a.node.className.match(/(product|item)/gi) ? a.node.className.trim() : void 0),
-                      a.size)
-                    : i,
-                0
-              ),
-              a = this.productList.reduce(
-                (t, e) => (e.size && e.size < r && e.node.getBoundingClientRect().width > t ? e.node.getBoundingClientRect().width : t),
-                0
-              );
-            this.productList = this.productList.filter((s) => {
-              const o = t && t === V(s.node),
-                n = s.node.className && e && e.length > 15 && -1 !== s.node.className.indexOf(e),
-                c = n || o ? 0.33 : 0.5,
-                l = n || o ? 0.45 : 0.9;
-              return (
-                this.domainProductList.length > 0 ||
-                (s.size < r && (0 === i || (s.size > i * c && s.node.getBoundingClientRect().width > a * l)))
-              );
-            });
-          },
-          function () {
-            const t = this.productList.map((t) => t.node.outerHTML);
-            this.productList = this.productList.filter((e, r) => t.indexOf(e.node.outerHTML) === r);
-          },
-          function () {
-            g.create(document.body);
-            const t = g.lines,
-              e = g.elemCount;
-            for (let r = 0; r < t.length; r++) {
-              const a = t[r];
-              a.domPosition = a.domIndex / e;
-              for (let t = 0; t < this.productList.length; t++) {
-                const e = this.productList[t].node.getBoundingClientRect();
-                (i.isContained(e, a.rect) || i.isContained(e, a.parentRect)) && ((a.isProductItem = !0), (a.productIndex = t));
-              }
-            }
-            p.isDomainProduct(this.productList[0].node) ||
-              (function (t, e, r) {
-                if (!t || !e || t.length < 1 || e.length < 1) return;
-                const i = [],
-                  a = {},
-                  o = {},
-                  n = e.filter(function (t) {
-                    return !isNaN(t.num.value) && (o[t.num.value] || (o[t.num.value] = []), o[t.num.value].push(t), !0);
-                  });
-                for (let r = 0; r < t.length; r++) {
-                  let s = !1;
-                  const c = t[r];
-                  c.item_price &&
-                    c.item_price < 1e-5 &&
-                    c.quantity &&
-                    c.quantity > 1e7 &&
-                    c.line_total &&
-                    ((c.item_price = c.line_total), (c.quantity = 1)),
-                    c.image_url && 0 === c.image_url.indexOf("//")
-                      ? (c.image_url = window.location.protocol + c.image_url)
-                      : c.image_url && 0 === c.image_url.indexOf("/") && (c.image_url = window.location.origin + c.image_url);
-                  let l = "";
-                  c.node.dataset && c.node.dataset.uuid && (l = c.node.dataset.uuid);
-                  const d = ("" !== c.name ? c.name : "Unknown Product:  ") + c.quantity + " @ " + c.item_price + " #" + l,
-                    u =
-                      c.name &&
-                      a[d] &&
-                      c.name === a[d].name &&
-                      c.size === a[d].size &&
-                      c.node.getBoundingClientRect().y !== a[d].node.getBoundingClientRect().y;
-                  ((void 0 !== c.name && !a[d]) || u || (void 0 !== c.image_url && !a[c.image_url])) &&
-                    ((a[d] = c), (a[c.image_url] = c), i.push(c));
-                  const m = parseFloat(c.item_price),
-                    p = parseInt(c.quantity, 10),
-                    h = parseFloat(c.line_total);
-                  if (m && p && h && Math.abs(m * p - h) < 0.1) continue;
-                  const I = n.filter(function (t) {
-                    return t.isProductItem && t.productIndex === r;
-                  });
-                  let g = p,
-                    f = m,
-                    D = h;
-                  !o[p] && I.length > 0 && ((g = e.firstNumber(I, !1, !0, p)), (s = !0)),
-                    (!o[m] || s) && I.length > 0 && ((f = e.firstNumber(I, !0, !0, m)), (s = !0)),
-                    (!o[h] || s) && I.length > 0 && ((D = e.firstNumber(I, !0, !1, h)), (s = !0)),
-                    o[D] && Math.abs(D - g * f) < 0.1 && ((c.quantity = g), (c.item_price = f), (c.line_total = D)),
-                    !c.quantity &&
-                      c.item_price &&
-                      c.line_total &&
-                      !isNaN(c.item_price) &&
-                      ((g = c.line_total / c.item_price), g - Math.floor(g) < 0.1 && (c.quantity = Math.floor(g))),
-                    isNaN(c.item_price) && (c.item_price = 0),
-                    isNaN(c.line_total) && (c.line_total = 0);
-                }
-                D(i, t);
-                let c = 0,
-                  l = 0;
-                const d = t.filter((t) => {
-                  if (t.line_total)
-                    try {
-                      c += parseFloat(t.line_total);
-                    } catch (t) {}
-                  const e = (t, e) => ("node" === t ? "" : e);
-                  if (!a[s.stringify(t, e)]) {
-                    if (((a[s.stringify(t, e)] = t), t.line_total))
-                      try {
-                        l += parseFloat(t.line_total);
-                      } catch (t) {}
-                    return t;
-                  }
-                  return !1;
-                });
-                r && c !== r && Math.abs(l - r) < Math.abs(c - r) && D(d, t);
-              })(this.productList, g);
-          }
-        ]
+        }
       };
     },
-    8679: (t, e, r) => {
-      const i = r(4524),
-        a = r(2605),
-        s = r(6868),
-        o = r(5863),
-        n = [
+    58679: (t, e, r) => {
+      const i = r(54524),
+        a = r(12605),
+        s = r(16868),
+        o = r(45863),
+        n = r(72210),
+        c = [
           ["class*", "qty"],
           ["class*", "quantity"],
           ["class", "count"],
@@ -22580,7 +24240,7 @@ var source;
           ["class*", "NumberDropDown", "select"],
           ["class*", "Quant"]
         ],
-        c = [
+        l = [
           ["class*", "quantity", "input"],
           ["name*", "quantity", "input"],
           ["name*", "qty", "input"],
@@ -22594,16 +24254,16 @@ var source;
         detect: function (t) {
           return (
             null !== t.innerText.match(/(qty|quantity)/gim) ||
-            t.querySelectorAll(i.caseSensitivity(n)).length > 0 ||
-            1 === t.querySelectorAll(i.caseSensitivity(c)).length ||
-            Array.from(t.querySelectorAll("input")).filter((t) => t.id && t.id.match(/quantity/gi)).length > 0 ||
-            Array.from(t.querySelectorAll("input")).filter((t) => t.name && t.name.match(/quantity/gi)).length > 0 ||
-            t.querySelectorAll(".product-properties .select > .placeholder").length > 0 ||
-            t.querySelectorAll("select[data-dbk-variant-select=quantity]").length > 0 ||
-            1 === t.querySelectorAll("[class*=product-calc]").length ||
-            t.querySelectorAll("span[id*=booking-details-nights-to-stay]").length > 0 ||
-            t.querySelectorAll("div[class*=total-night-stay], div[class*=tt-current]").length > 0 ||
-            Array.from(t.querySelectorAll("div[class*=prdctDetails]")).filter((t) => t.textContent.match(/quantity/gi)).length > 0 ||
+            n.queryAll(i.caseSensitivity(c), t).length > 0 ||
+            1 === n.queryAll(i.caseSensitivity(l), t).length ||
+            Array.from(n.queryAll("input", t)).filter((t) => t.id && t.id.match(/quantity/gi)).length > 0 ||
+            Array.from(n.queryAll("input", t)).filter((t) => t.name && t.name.match(/quantity/gi)).length > 0 ||
+            n.queryAll(".product-properties .select > .placeholder", t).length > 0 ||
+            n.queryAll("select[data-dbk-variant-select=quantity]", t).length > 0 ||
+            1 === n.queryAll("[class*=product-calc]", t).length ||
+            n.queryAll("span[id*=booking-details-nights-to-stay]", t).length > 0 ||
+            n.queryAll("div[class*=total-night-stay], div[class*=tt-current]", t).length > 0 ||
+            Array.from(n.queryAll("div[class*=prdctDetails]", t)).filter((t) => t.textContent.match(/quantity/gi)).length > 0 ||
             t.outerHTML.match(/\bqty\b/gi)
           );
         },
@@ -22611,30 +24271,32 @@ var source;
           (t) => {
             let e = [];
             return (
-              t
-                .querySelectorAll(
+              n
+                .queryAll(
                   i.caseSensitivity([
                     ["class*", "qty"],
                     ["class*", "quantity"],
                     ["name*", "qty"]
-                  ])
+                  ]),
+                  t
                 )
                 .forEach((t) => {
                   if ("INPUT" === t.nodeName || "SELECT" === t.nodeName) e.push(t.value);
                   else {
-                    const r = t.querySelector("input,select");
+                    const r = n.query("input,select", t);
                     r && parseInt(r.value, 10) < 1e3 && e.push(r.value);
                   }
                 }),
               (e = e.filter((t) => !t.match(/[a-zA-Z]/gim) || "" === t)),
               1 === e.length
                 ? parseInt(e[0])
-                : (t
-                    .querySelectorAll(
+                : (n
+                    .queryAll(
                       i.caseSensitivity([
                         ["class*", "qty"],
                         ["class*", "quantity"]
-                      ])
+                      ]),
+                      t
                     )
                     .forEach((t) => {
                       t.innerText && e.push(t.innerText.replace(/size[: \d.]+|@[\s\S]*/gim, "").replace(/[\t\D\n\r\s\v\0]*/gim, ""));
@@ -22644,26 +24306,27 @@ var source;
             );
           },
           (t) => {
-            const e = t.querySelectorAll(i.caseSensitivity([["class*", "quantityNumber", "span"]]));
+            const e = n.queryAll(i.caseSensitivity([["class*", "quantityNumber", "span"]]), t);
             if (1 === e.length && !isNaN(parseInt(e[0].innerText.trim(), 10))) return parseInt(e[0].innerText.trim(), 10);
           },
           (t) => {
             try {
-              const e = t.querySelectorAll(i.caseSensitivity(c));
+              const e = n.queryAll(i.caseSensitivity(l), t);
               if (1 === e.length && !isNaN(parseInt(e[0].value, 10))) return parseInt(e[0].value, 10);
             } catch (t) {}
           },
           (t) => {
-            let e = t.querySelectorAll(
+            let e = n.queryAll(
               i.caseSensitivity([
                 ["class*", "qty", "select"],
                 ["name*", "quantity", "select"],
                 ["class*", "NumberDropDown", "select"]
-              ])
+              ]),
+              t
             );
             if (
               (0 === e.length &&
-                (e = Array.from(t.querySelectorAll("select")).filter(
+                (e = Array.from(n.queryAll("select", t)).filter(
                   (t) =>
                     t.options &&
                     Array.from(t.options).filter((t) => t.textContent && t.textContent.match(/a?antal|quantity|qty/gi)).length > 0
@@ -22676,11 +24339,12 @@ var source;
             }
           },
           (t) => {
-            const e = t.querySelectorAll(
+            const e = n.queryAll(
               i.caseSensitivity([
                 ["name*", "quantity", "input"],
                 ["name", "amount", "input"]
-              ])
+              ]),
+              t
             );
             if (e.length > 0 && !isNaN(parseInt(e[0].value, 10))) return parseInt(e[0].value, 10);
           },
@@ -22688,26 +24352,26 @@ var source;
             if (e && e.tableScrapeData.quantity) return e.tableScrapeData.quantity;
           },
           (t) => {
-            const e = t.querySelectorAll(
+            const e = n.queryAll(
               i.caseSensitivity([
                 ["class", "amount"],
                 ["class", "count"]
-              ])
+              ]),
+              t
             );
             if (1 === e.length && !isNaN(parseInt(e[0].innerText.trim(), 10))) return parseInt(e[0].innerText.trim(), 10);
           },
           (t) => {
-            let e = Array.from(t.querySelectorAll("[class='product-amount'],li,nobr")).filter((t) => t.textContent.match(/Anzahl|Menge/gi));
+            let e = Array.from(n.queryAll("[class='product-amount'],li,nobr", t)).filter((t) => t.textContent.match(/Anzahl|Menge/gi));
             if (
-              (0 === e.length && (e = Array.from(t.querySelectorAll("[class='oOrderQuantity'],div[class*='quantity-value']"))),
-              e.length > 0)
+              (0 === e.length && (e = Array.from(n.queryAll("[class='oOrderQuantity'],div[class*='quantity-value']", t))), e.length > 0)
             ) {
               const t = a.numberValue(e[0].textContent);
               if (!isNaN(t.value)) return t.value;
             }
           },
           (t) => {
-            const e = Array.from(t.querySelectorAll(".AddToCart-input.has-value"));
+            const e = Array.from(n.queryAll(".AddToCart-input.has-value", t));
             if (1 === e.length && !isNaN(parseInt(e[0].value, 10))) return parseInt(e[0].value, 10);
           },
           (t, e) => {
@@ -22738,105 +24402,105 @@ var source;
         }
       };
     },
-    6741: (t, e, r) => {
-      const i = r(4336),
-        a = r(4524),
-        s = r(5863),
-        o = new RegExp(["mejuri.com\\/shop\\/products"].join(""), "i"),
-        n = /^edit$|^remove$/i,
-        c = (t) => {
+    96741: (t, e, r) => {
+      const i = r(94336),
+        a = r(54524),
+        s = r(45863),
+        o = r(72210),
+        n = new RegExp(["mejuri.com\\/shop\\/products"].join(""), "i"),
+        c = /^edit$|^remove$/i,
+        l = (t) => {
           if (null == t) return !1;
           const e = t.replace(document.location.href, "");
-          return "" === e || "#" === e ? !!o.test(document.location.href) : -1 === e.indexOf("javascript:");
-        },
-        l = (t) => {
-          const e = t.href || t.getAttribute("href");
-          if (c(e) && ((t) => !(t.textContent ? t.textContent.trim() : "").match(n))(t)) return s.log(e, t), e;
+          return "" === e || "#" === e ? !!n.test(document.location.href) : -1 === e.indexOf("javascript:");
         },
         d = (t) => {
+          const e = t.href || t.getAttribute("href");
+          if (l(e) && ((t) => !(t.textContent ? t.textContent.trim() : "").match(c))(t)) return s.log(e, t), e;
+        },
+        u = (t) => {
           if (t && "function" == typeof t.querySelector) {
             if ("a" !== a.getNodeTag(t)) return;
             if (t) {
-              const e = l(t);
+              const e = d(t);
               if (e) return e;
             }
           }
         },
-        u = (t, e) => {
+        m = (t, e) => {
           let r,
             i = t,
             a = 0;
           for (; !r && i && a < 7; ) {
-            if (((r = d(i)), r)) return r;
+            if (((r = u(i)), r)) return r;
             if (i === e) break;
             (i = i.parentNode), a++;
           }
         },
-        m = [["class*", "sc-product-link", "a"]];
+        p = [["class*", "sc-product-link", "a"]];
       t.exports = {
-        extract: (t, e, r, o) => {
-          let n;
-          if (((n = i.productUrlSpecificRules(t, e, r, o)), n)) return n;
+        extract: (t, e, r, n) => {
+          let c;
+          if (((c = i.productUrlSpecificRules(t, e, r, n)), c)) return c;
           if (t) {
-            const e = t.querySelectorAll(a.caseSensitivity(m));
-            !n && e.length > 0 && (n = e[0].href);
+            const e = o.queryAll(a.caseSensitivity(p), t);
+            !c && e.length > 0 && (c = e[0].href);
           }
-          const c = a.getNodeTag(e);
+          const l = a.getNodeTag(e);
           if (
-            (!n &&
+            (!c &&
               e &&
-              "img" !== c &&
+              "img" !== l &&
               (s.log("product url from name node: ", e),
-              (n = ((t, e) => {
+              (c = ((t, e) => {
                 if (t.childElementCount) {
-                  const e = t.querySelectorAll("a");
+                  const e = o.queryAll("a", t);
                   if (1 === e.length) {
                     const t = e[0],
-                      r = l(t);
+                      r = d(t);
                     if (r) return r;
                   }
                 }
-                return u(t, e);
+                return m(t, e);
               })(e, t))),
-            "img" === c && (r = e),
-            !n &&
+            "img" === l && (r = e),
+            !c &&
               r &&
               (s.log("product url from image node: ", r),
-              (n = ((t, e) => {
+              (c = ((t, e) => {
                 const r = t ? t.alt || t.title : "";
                 if (r && r.length > 5) {
-                  const t = Array.from(e.querySelectorAll("a"));
+                  const t = Array.from(o.queryAll("a", e));
                   for (const e of t) {
                     const t = e.textContent ? e.textContent.trim() : "";
                     if (t && t.includes(r)) {
-                      const t = l(e);
+                      const t = d(e);
                       if (t) return t;
                     }
                   }
                 }
-                return (t = t.sourceElement ? t.sourceElement : t), u(t, e);
+                return (t = t.sourceElement ? t.sourceElement : t), m(t, e);
               })(r, t))),
-            !n && e && e.textContent.trim())
+            !c && e && e.textContent.trim())
           ) {
             const r = a.getElementByText(e.textContent.trim(), t);
-            n = u(r, t);
+            c = m(r, t);
           }
-          return s.log("product url: ", n), n;
+          return s.log("product url: ", c), c;
         }
       };
     },
-    463: (t, e, r) => {
-      const i = r(4524),
-        a = [],
-        s = ["cart.items", "cart.products", "cart.contents", "items", "products", "dataLayer.cart.items"],
-        o = [
+    10463: (t, e, r) => {
+      const i = r(54524),
+        a = r(72210),
+        s = [],
+        o = ["cart.items", "cart.products", "cart.contents", "items", "products", "dataLayer.cart.items"],
+        n = [
           { url: "qvc.com.*?your-information", getProductsObject: () => window.cartVars.cart.shippingList[0].shippingItemList },
           {
             url: "verizon.com.*?(cart|checkout)",
             getProductsObject: () =>
-              window.cartJSON
-                ? window.cartJSON.output.accessories
-                : JSON.parse(document.querySelector("div[id=init_data]").innerText).output.accessories
+              window.cartJSON ? window.cartJSON.output.accessories : JSON.parse(a.query("div[id=init_data]").innerText).output.accessories
           },
           {
             url: "verizon.com.*?prospectCheckout|verizon.com\\/sales\\/next\\/payment",
@@ -22847,7 +24511,7 @@ var source;
             getProductsObject: () =>
               window.miniCartGtm
                 ? window.miniCartGtm.ecommerce.items
-                : JSON.parse(document.querySelector("div[class*='checkout-form-area']").getAttribute("data-gtmitemdata")).ecommerce.items
+                : JSON.parse(a.query("div[class*='checkout-form-area']").getAttribute("data-gtmitemdata")).ecommerce.items
           },
           {
             url: "macys.com.*?checkout",
@@ -22874,29 +24538,45 @@ var source;
           {
             url: "secure.farfetch.com.*?Payment",
             getProductsObject: () => window.universal_variable.basket.lineItems.map((t) => t.product)
+          },
+          { url: "checkout.homebase.co.uk.*?checkout", getProductsObject: () => window.eventData.$items },
+          { url: "asda.com.*?checkout", getProductsObject: () => window.thirdPartyData.basketProducts.map((t) => t.productDetails) },
+          {
+            url: "(m.)?kohls.com.*?checkout.*?v2.*?checkout",
+            getProductsObject: () =>
+              window.cartJsonData.cartItems.map((t) => ({
+                name: t.itemProperties.productTitle,
+                line_total: t.itemPriceInfo.grossPrice,
+                image_url: t.itemProperties.image.url,
+                quantity: t.quantity
+              }))
+          },
+          {
+            url: "nordstrom.com.*?checkout",
+            getProductsObject: () => window.dataLayer.find((t) => t.event && "checkout-step" === t.event).ecommerce.checkout.products
           }
         ],
-        n = function (t) {
-          for (const e of s) {
+        c = function (t) {
+          for (const e of o) {
             const r = i.getObjectFromPath(t, e);
-            r && a.push(r);
+            r && s.push(r);
           }
         },
-        c = function (t) {
+        l = function (t) {
           const e = t.split(/[a-zA-Z0-9_$.[\]'"]+\s+=\s+/gi);
           for (let t = 0; t < e.length; t++) {
             const r = e[t].trim().replace("};", "}");
             if (0 === r.indexOf("{"))
               try {
                 const t = JSON.parse(r);
-                n(t);
+                c(t);
               } catch (t) {}
           }
         },
-        l = function (t) {
+        d = function (t) {
           const e = { html: "", node: document.body, size: 0, quantity: 1 },
             r = function (t) {
-              return t.match(/.*name$/gi) && !t.match(/^item_list_name$|(category|webVendor|productType|showSeller|designer)Name/gi);
+              return t.match(/.*name$/gi) && !t.match(/^item_list_name$|(category|webVendor|productType|showSeller|designer|brand)Name/gi);
             };
           for (const i in t)
             t[i] &&
@@ -22916,26 +24596,26 @@ var source;
                 : i.match(/^url$/gi) && (e.url = t[i]));
           return e.hasDiscountPrice && ((e.line_total = e.discountTotalPrice), (e.item_price = e.line_total / e.quantity)), e;
         },
-        d = function (t, e) {
+        u = function (t, e) {
           for (const r in t) e[r] || (e[r] = t[r]);
         },
-        u = function (t) {
+        m = function (t) {
           if (!t) return [];
           const e = [],
             r = {};
           for (let i = 0; i < t.length; i++) {
             const a = t[i],
-              s = l(a);
+              s = d(a);
             if (s.name) {
               const t = r[s.name];
-              t ? d(s, t) : ((r[s.name] = s), e.push(s));
+              t ? u(s, t) : ((r[s.name] = s), e.push(s));
             }
           }
           return e;
         };
       t.exports = function () {
         const t = (function () {
-          for (const t of o)
+          for (const t of n)
             try {
               if (new RegExp(t.url).test(window.location.href)) {
                 const e = t.getProductsObject();
@@ -22945,38 +24625,39 @@ var source;
           return [];
         })();
         if (t.length) {
-          const e = u(t);
+          const e = m(t);
           if (e && e.length > 0) return e;
         }
-        n(window),
+        c(window),
           (function () {
             const t = document.body.innerHTML.split(/<\s*\/?\s*script>/gi);
             for (let e = 0; e < t.length; e++) {
               if (t[e].length > 524288) continue;
               const r = t[e].trim();
-              c(r);
+              l(r);
             }
           })();
-        for (const t of a) {
-          const e = u(t);
+        for (const t of s) {
+          const e = m(t);
           if (e && e.length > 0) return e;
         }
       };
     },
-    8733: (t, e, r) => {
-      const i = r(2605);
+    38733: (t, e, r) => {
+      const i = r(12605),
+        a = r(72210);
       t.exports = function (t, e) {
         const r = {},
-          a = t.querySelectorAll("input[type=hidden]");
-        for (let t = 0; t < a.length; t++) {
-          const e = a[t],
-            s = [e.className, e.id, e.name].join(" ");
+          s = a.queryAll("input[type=hidden]", t);
+        for (let t = 0; t < s.length; t++) {
+          const e = s[t],
+            a = [e.className, e.id, e.name].join(" ");
           if (e.value && e.value.length > 0)
-            if (r.quantity || !s.match(/quantity|qty/gi) || isNaN(parseInt(e.value, 10))) {
-              if (!r.price && s.match(/(item|unit).*price/gi)) {
+            if (r.quantity || !a.match(/quantity|qty/gi) || isNaN(parseInt(e.value, 10))) {
+              if (!r.price && a.match(/(item|unit).*price/gi)) {
                 const t = i.numberValue(e.value);
                 isNaN(t.value) || (r.price = t.value);
-              } else if (!r.total && s.match(/price|total/gi)) {
+              } else if (!r.total && a.match(/price|total/gi)) {
                 const t = i.numberValue(e.value);
                 isNaN(t.value) || (r.total = t.value);
               }
@@ -22987,14 +24668,61 @@ var source;
         })(r, e);
       };
     },
-    3120: (t, e, r) => {
-      const i = r(2605),
-        a = function (t) {
+    13023: (t, e, r) => {
+      const i = r(16868),
+        a = r(83120),
+        s = r(38733),
+        o = r(49728),
+        n = r(45847),
+        c = r(73283),
+        l = r(17057),
+        d = r(68354),
+        u = r(58679);
+      t.exports = {
+        extract: (t, e) => {
+          i.create(t);
+          const r = (function (t) {
+              const e = a(t);
+              return s(t, e), e;
+            })(t),
+            [m, p] = (function (t) {
+              return [l.extractAllImages(t), l.extractImagesWithAttributeMatchingText(t)];
+            })(t);
+          let [h, g, I, f] = (function (t) {
+            const e = d.parse(t);
+            return [e.currencies, e.otherNums, e.allNums, e.attributeScrapeData];
+          })(i);
+          const [D] = (function (t, e, r) {
+            return [c.extractPossibleNames(e, r)];
+          })(0, i, I);
+          f = o(t, f);
+          const V = (function (t, e, r) {
+              return u.detect(t) || e.quantity || r.quantity || u.extract(t);
+            })(t, f, r),
+            [v] = (function (t) {
+              return [n.isDomainProduct(t), n.isDomainSpecificSelectorProductNode(t)];
+            })(t);
+          (e.allImages = m),
+            (e.imageAttributeMatchesProductName = p),
+            (e.suspectedSingleItem = !V),
+            (e.possiblePrices = h),
+            (e.possibleQuantities = g),
+            (e.possibleNames = D),
+            (e.attributeScrapeData = f),
+            (e.tableScrapeData = r),
+            (e.isDomainProduct = v);
+        }
+      };
+    },
+    83120: (t, e, r) => {
+      const i = r(12605),
+        a = r(72210),
+        s = function (t) {
           let e = t.parentNode;
           for (; e && e.tagName && "table" !== e.tagName.toLowerCase(); ) e = e.parentNode;
           return e;
         },
-        s = function (t, e) {
+        o = function (t, e) {
           t.sort((t, e) => t.value - e.value),
             t.length > 1
               ? e.quantity
@@ -23002,79 +24730,82 @@ var source;
                 : ((e.total = t[t.length - 1].value), (e.price = t[0].value), (e.quantity = Math.round(e.total / e.price)))
               : 1 === t.length && e.quantity && ((e.total = t[0].value), (e.price = e.total / e.quantity));
         },
-        o = function (t, e) {
-          if (!e.name && t.querySelectorAll("a[href*=product]").length > 0) {
-            const r = t.querySelectorAll("a[href*=product]")[0];
+        n = function (t, e) {
+          if (!e.name && a.queryAll("a[href*=product]", t).length > 0) {
+            const r = a.queryAll("a[href*=product]", t)[0];
             (e.name = r.innerText.trim()), (e.link = r.href);
           }
         };
       t.exports = function (t) {
         const e = {};
-        if (t && t.tagName && "tr" === t.tagName.toLowerCase() && a(t)) {
-          const r = a(t).querySelectorAll("tr")[0],
-            n = r.attributes.length > 0 && r.attributes[0].nodeName.match(/product/gi);
-          ((r && r !== t) || n) &&
+        if (t && t.tagName && "tr" === t.tagName.toLowerCase() && s(t)) {
+          const r = s(t),
+            c = a.queryAll("tr", r)[0],
+            l = c.attributes.length > 0 && c.attributes[0].nodeName.match(/product/gi);
+          ((c && c !== t) || l) &&
             (function (t, e, r) {
-              const a = t.querySelectorAll("td");
-              let n = e.querySelectorAll("td");
-              if ((0 === n.length && (n = e.querySelectorAll("th")), n.length === a.length)) {
+              const s = a.queryAll("td", t);
+              let c = a.queryAll("td", e);
+              if ((0 === c.length && (c = a.queryAll("th", e)), c.length === s.length)) {
                 const t = [];
-                for (let e = 0; e < a.length; e++) {
-                  const s = a[e];
-                  let c = n[e].className + " " + n[e].innerText.trim();
+                for (let e = 0; e < s.length; e++) {
+                  const o = s[e];
+                  let l = c[e].className + " " + c[e].innerText.trim();
                   if (
-                    ((c += s.className + " " + s.innerText.trim()),
-                    !r.name && c.match(/(name|product|produkt)/gi) && 1 === s.querySelectorAll("a").length)
+                    ((l += o.className + " " + o.innerText.trim()),
+                    !r.name && l.match(/(name|product|produkt)/gi) && 1 === a.queryAll("a", o).length)
                   ) {
-                    const t = s.querySelectorAll("a")[0];
+                    const t = a.queryAll("a", o)[0];
                     (r.name = t.innerText.trim()), (r.link = t.href);
-                  } else if (!r.name && s.querySelectorAll("a[href*=product]").length > 0) o(s, r);
-                  else if (!r.quantity && c.match(/(quantity|qty|count|num|a?antal)/gi)) {
-                    let t = parseInt(s.innerText, 10);
+                  } else if (!r.name && a.queryAll("a[href*=product]", o).length > 0) n(o, r);
+                  else if (!r.quantity && l.match(/(quantity|qty|count|num|a?antal)/gi)) {
+                    let t = parseInt(o.innerText, 10);
                     if (isNaN(t)) {
-                      const e = s.querySelectorAll("input");
+                      const e = a.queryAll("input", o);
                       1 === e.length && (t = parseInt(e[0].value, 10));
                     }
                     isNaN(t) || (r.quantity = t);
                   } else {
-                    const e = Array.from(s.childNodes).filter((t) => "string" == typeof t.className && t.className.match(/^discount/gi)),
-                      r = e.length > 0 ? e[0].innerText : s.innerText,
+                    const e = Array.from(o.childNodes).filter((t) => "string" == typeof t.className && t.className.match(/^discount/gi)),
+                      r = e.length > 0 ? e[0].innerText : o.innerText,
                       a = i.numberValue(r.trim());
                     a && a.isDecimalCurrency && t.push(a);
                   }
                 }
-                s(t, r);
+                o(t, r);
               }
-            })(t, r, e),
+            })(t, c, e),
             !e.name &&
               t.dataset &&
               t.dataset.role &&
               t.dataset.role.match(/(product|produkt|item)/gi) &&
               (function (t, e) {
                 const r = [],
-                  a = t.querySelectorAll("td");
-                for (let t = 0; t < a.length; t++) {
-                  const s = a[t],
-                    n = s.className + (s.dataset && s.dataset.role ? s.dataset.role : "");
-                  if (n.match(/productname/gi) || (n.match(/(name|product|produkt)/gi) && 1 === s.querySelectorAll("a").length)) {
-                    e.name = s.innerText.trim();
-                    const t = s.querySelectorAll("a")[0];
+                  s = a.queryAll("td", t);
+                for (let t = 0; t < s.length; t++) {
+                  const o = s[t],
+                    c = o.className + (o.dataset && o.dataset.role ? o.dataset.role : "");
+                  if (c.match(/productname/gi) || (c.match(/(name|product|produkt)/gi) && 1 === a.queryAll("a", o).length)) {
+                    e.name = o.innerText.trim();
+                    const t = a.queryAll("a", o)[0];
                     t && (e.link = t.href);
-                  } else if (!e.name && s.querySelectorAll("a[href*=product]").length > 0) o(s, e);
-                  else if (e.quantity || !n.match(/(quantity|qty|count|num|a?antal|productamount)/gi) || isNaN(parseInt(s.innerText, 10))) {
-                    const t = i.numberValue(s.innerText.trim());
+                  } else if (!e.name && a.queryAll("a[href*=product]", o).length > 0) n(o, e);
+                  else if (e.quantity || !c.match(/(quantity|qty|count|num|a?antal|productamount)/gi) || isNaN(parseInt(o.innerText, 10))) {
+                    const t = i.numberValue(o.innerText.trim());
                     t && t.isDecimalCurrency && r.push(t);
-                  } else e.quantity = parseInt(s.innerText, 10);
+                  } else e.quantity = parseInt(o.innerText, 10);
                 }
-                s(r, e);
+                o(r, e);
               })(t, e);
         }
         return (e.name = e.name ? e.name.split("\n")[0] : e.name), e;
       };
     },
-    9994: (t, e, r) => {
-      const i = r(4018).totalData,
-        a = {
+    29994: (t, e, r) => {
+      const i = r(44018),
+        a = r(72210),
+        s = i.totalData,
+        o = {
           USD: ["USD( \\$)?", "\\$", "US.?\\$"],
           AUD: ["AUD( \\$)?", "\\$", "AU.?\\$", "A\\$"],
           CAD: ["CAD( \\$)?", "\\$", "^C.?\\$"],
@@ -23120,74 +24851,85 @@ var source;
           UZS: ["\u043b\u0432", "UZS"],
           VEF: ["Bs", "VEF"]
         },
-        s = ["kr", "\\$"],
-        o = ["SEK", "NOK", "DKK"],
-        n = ["USD", "AUD", "CAD", "NZD", "TWD", "HKD", "SGD", "BRL", "MXN"],
-        c = function (t) {
-          return t && t.match(l(n)) ? "$" : t && t.match(l(o)) ? "kr" : void 0;
+        n = ["kr", "\\$"],
+        c = ["SEK", "NOK", "DKK"],
+        l = ["USD", "AUD", "CAD", "NZD", "TWD", "HKD", "SGD", "BRL", "MXN"],
+        d = function (t) {
+          return t && t.match(u(l)) ? "$" : t && t.match(u(c)) ? "kr" : void 0;
         },
-        l = function (t) {
+        u = function (t) {
           const e = t.map((t) => (t.match(/^[A-Z]{2,3}$/gi) ? "\\b" + t + "\\b" : t));
           return new RegExp("(" + e.join("|") + ")", "gi");
         },
-        d = function (t) {
+        m = function (t) {
           return t && (t = t.replace(/\([\s\S]+\)/gi, "")), t;
         };
       t.exports = function (t, e) {
-        const r = document.querySelector("meta[data-currency]");
+        const r = a.query("meta[data-currency]");
         if (r && r.dataset && r.dataset.currency) {
           const t = r.dataset.currency;
-          if (a[t]) return t;
+          if (o[t]) return t;
         }
-        const o = (function () {
+        const i = (function () {
           try {
             const t =
               (window.checkout && window.checkout.cart && window.checkout.cart.total && window.checkout.cart.total.currency) ||
               (window.utag_data && window.utag_data.Order_Currency) ||
-              (window.v2PageObj && window.v2PageObj.page && window.v2PageObj.page.attributes && window.v2PageObj.page.attributes.currency);
-            if (a[t]) return t;
+              (window.v2PageObj &&
+                window.v2PageObj.page &&
+                window.v2PageObj.page.attributes &&
+                window.v2PageObj.page.attributes.currency) ||
+              (window.__NEXT_DATA__ &&
+                window.__NEXT_DATA__.props &&
+                window.__NEXT_DATA__.props.pageProps &&
+                window.__NEXT_DATA__.props.pageProps.req &&
+                window.__NEXT_DATA__.props.pageProps.req.localization &&
+                window.__NEXT_DATA__.props.pageProps.req.localization.currency) ||
+              (window.dataLayer && window.dataLayer[0] && window.dataLayer[0].ecommerce && window.dataLayer[0].ecommerce.currencyCode) ||
+              (window.utag_data && window.utag_data.currencycode);
+            if (o[t]) return t;
           } catch (t) {}
         })();
-        if (o) return o;
-        const u = window.document.body.outerHTML.match(/("|')?currency(code)?("|')?(\s?)+:(\s?)+("|')[a-z]{3}("|')/gi),
-          m = window.document.body.outerHTML.match(/("|')?region(code)?("|')?(\s?)+:(\s?)+("|')[a-z]{2}("|')/gi);
-        if (u) {
-          const t = u[0].replace(/("|'| )/gi, "").split(":")[1];
+        if (i) return i;
+        const c = window.document.body.outerHTML.match(/("|')?currency(code)?("|')?(\s?)+:(\s?)+("|')[a-z]{3}("|')/gi),
+          p = window.document.body.outerHTML.match(/("|')?region(code)?("|')?(\s?)+:(\s?)+("|')[a-z]{2}("|')/gi);
+        if (c) {
+          const t = c[0].replace(/("|'| )/gi, "").split(":")[1];
           let e = !0;
-          if (m) {
-            const r = m[0]
+          if (p) {
+            const r = p[0]
               .replace(/("|'| )/gi, "")
               .split(":")[1]
               .toLowerCase();
-            i[r] && i[r].code !== a[t] && (e = !1);
+            s[r] && s[r].code !== o[t] && (e = !1);
           }
-          if (a[t] && e) return t;
+          if (o[t] && e) return t;
         }
-        let p;
+        let h;
         if ("string" == typeof document.location.path || "string" == typeof document.location.href) {
           const t = document.location.path || document.location.href;
-          for (const e in i) i[e].suffix && i[e].code && t.match("\\b" + i[e].suffix + "\\b") && (p = i[e].code);
+          for (const e in s) s[e].suffix && s[e].code && t.match("\\b" + s[e].suffix + "\\b") && (h = s[e].code);
         }
-        const h = (r) => {
-          const i = e && e.parent && e.parent.textContent && d(e.parent.textContent).match(r),
-            a = t.parentNode && d(t.parentNode.textContent).match(r),
-            s = t.parentNode && t.parentNode.nextElementSibling && d(t.parentNode.nextElementSibling.textContent).match(r);
+        const g = (r) => {
+          const i = e && e.parent && e.parent.textContent && m(e.parent.textContent).match(r),
+            a = t.parentNode && m(t.parentNode.textContent).match(r),
+            s = t.parentNode && t.parentNode.nextElementSibling && m(t.parentNode.nextElementSibling.textContent).match(r);
           return i || a || s;
         };
-        for (const t in a) {
-          const e = h(l(a[t]));
+        for (const t in o) {
+          const e = g(u(o[t]));
           if (e) {
-            const r = l(s),
+            const r = u(n),
               i = e.toString().match(r);
-            if (i && p && p !== t && c(p) === i.pop().toLowerCase()) continue;
-            const o = n
-                .map((t) => a[t])
+            if (i && h && h !== t && d(h) === i.pop().toLowerCase()) continue;
+            const a = l
+                .map((t) => o[t])
                 .join()
                 .split(","),
-              d = h(l(o.filter((t) => "\\$" !== t))),
-              u = l(a[t].filter((t) => "\\$" !== t));
-            if (e.toString().match(/\$/i) && d && !d.toString().match(u)) continue;
-            if (i && !d && !p) {
+              s = g(u(a.filter((t) => "\\$" !== t))),
+              c = u(o[t].filter((t) => "\\$" !== t));
+            if (e.toString().match(/\$/i) && s && !s.toString().match(c)) continue;
+            if (i && !s && !h) {
               const t = i.pop();
               if ("kr" === t) return "SEK";
               if ("$" === t) return "USD";
@@ -23195,18 +24937,18 @@ var source;
             return t;
           }
         }
-        return p || void 0;
+        return h || void 0;
       };
     },
-    3032: (t, e, r) => {
-      const i = r(6868),
-        a = r(4524),
-        s = r(2605),
-        o = r(4018),
-        n = r(9745),
-        c = r(5863),
-        l = r(3102),
-        d = r(9994),
+    73032: (t, e, r) => {
+      const i = r(16868),
+        a = r(54524),
+        s = r(12605),
+        o = r(44018),
+        n = r(49745),
+        c = r(45863),
+        l = r(83102),
+        d = r(29994),
         u = (t, e, r, i) => {
           const n = a.stripSuffix(t.text),
             l = a.stripSuffix(e.text);
@@ -23222,12 +24964,14 @@ var source;
               ("string" == typeof t.parent.id && !t.parent.id.match(/total|cart|amount/gi) && t.parent.id.match(/(footer)/gi)) ||
               t.parent.id.match(o.invalidTotalIdRgx)
             ),
-            g = !("string" == typeof t.parent.textContent && t.parent.textContent.match(o.invalidTotalTextRgx)),
+            I = !("string" == typeof t.parent.textContent && t.parent.textContent.match(o.invalidTotalTextRgx)),
             f = d && 1 === d.length && (n.trim().length < 25 || n === l) && m,
             D = !(t.parent.tagName && t.parent.tagName.match(/^a$/gi)),
             V = !(
               t.parent.outerHTML &&
-              t.parent.outerHTML.match(/(total-taxes)|(itemscount)|(qty)|(m-rackrate--value)|(promo-amount)|(removeCoupon)|(address)/gi)
+              t.parent.outerHTML.match(
+                /(total-taxes)|(itemscount)|(qty)|(m-rackrate--value)|(promo-amount)|(removeCoupon)|(address)|(shipping-price)/gi
+              )
             );
           c.log(
             "============validateTotalsCandidate=============",
@@ -23248,12 +24992,12 @@ var source;
             "\nTag: ",
             D,
             "\nText: ",
-            g,
+            I,
             "\nouterHTML: ",
             V,
             "\n==============================================="
           ),
-            void 0 !== u && u < 1e5 && p && f && h && D && g && V && ((i[e.uniqueKey] = i[e.uniqueKey].concat(t)), r.push(I(t.el, e)));
+            void 0 !== u && u < 1e5 && p && f && h && D && I && V && ((i[e.uniqueKey] = i[e.uniqueKey].concat(t)), r.push(g(t.el, e)));
         },
         m = function (t, e) {
           let r = t.textContent;
@@ -23261,7 +25005,7 @@ var source;
           try {
             if (/^[\d.]+$/gi.test(r)) {
               if (new RegExp("fortnightly payments of \\$" + r + " with", "g").test(i)) return !0;
-              if (new RegExp("for\\s" + r + "\\smos", "gi").test(i)) return !0;
+              if (new RegExp(r + "\\smos", "gi").test(i)) return !0;
             } else if (/^\$[\d.]+$/gi.test(r)) {
               if (((r = r.replace(/\$/, "\\$")), new RegExp("^pay\\sin\\s\\d+\\spayments\\sof\\s" + r, "gi").test(i))) return !0;
               if (new RegExp(r + "\\/mo", "gi").test(i)) return !0;
@@ -23287,7 +25031,7 @@ var source;
           }
           return !1;
         },
-        I = function (t, e) {
+        g = function (t, e) {
           t.nodeType === Node.TEXT_NODE && t.parentNode.nodeType === Node.ELEMENT_NODE && (t = t.parentNode);
           const r = a.formatTotalElement(t),
             i = a.stripSuffix(r),
@@ -23301,8 +25045,8 @@ var source;
           d = o.totalRgx;
         const m = o.ignoreRgx,
           p = o.lowestTotalRgx,
-          g = n.cartTotalSpecific();
-        if (g) return g.nodeType ? I(g) : g;
+          I = n.cartTotalSpecific();
+        if (I) return I.nodeType ? g(I) : I;
         const f = (t) => !(!t || !p) && p.test(t);
         let D = e.filter((t) => (t.text.match(d) || f(t.text)) && !t.text.match(m) && t.text.split(" ").length < 8);
         c.log("totalLines#1: ", D),
@@ -23436,8 +25180,8 @@ var source;
         );
         w.length > 0 && (y = w), c.log("Totals, AllTotals", b, y);
         const C = a.arrayUnique(y).sort((t, e) => t.total - e.total);
-        let S,
-          k = !1;
+        let x,
+          T = !1;
         for (const t in b)
           if (Object.prototype.hasOwnProperty.call(b, t)) {
             const e = _ ? _.parent : null,
@@ -23449,40 +25193,40 @@ var source;
               if (a.formatTotalElement(t.parent).match(s.currencyMinusRgx)) return;
               const i = t.parent,
                 o = t.parentRect;
-              if (e.contains(i)) return void (S = { el: i, total: e, distance: 0, parentDistance: 0, top: o.top, depth: 0 });
-              S || (S = { el: i, total: e, distance: 99999, parentDistance: 99999, top: 0, depth: 99999 });
+              if (e.contains(i)) return void (x = { el: i, total: e, distance: 0, parentDistance: 0, top: o.top, depth: 0 });
+              x || (x = { el: i, total: e, distance: 99999, parentDistance: 99999, top: 0, depth: 99999 });
               const n = i.parentElement,
                 l = Math.sqrt(Math.pow(r.right - o.right, 2) + Math.pow(r.top - o.top, 2)),
                 d = Math.sqrt(Math.pow(r.right - n.getBoundingClientRect().left, 2) + Math.pow(r.top - n.getBoundingClientRect().top, 2)),
                 u = Math.abs(r.top - o.top),
                 m = s.normalise(a.formatTotalElement(i)),
                 p = a.getDepth(a.lowestCommonAncestor(_.el, t.el, 15), t.el);
-              if (k && S.el === n) return;
+              if (T && x.el === n) return;
               const h = { el: i, total: e, distance: l, parentDistance: d, top: o.top, depth: p };
               if (u < 5) {
-                if (k && S && a.hasClassname(S.el, /discount/gi) && (S.parentDistance < d || S.distance < l)) return;
-                (S = h), (k = !0);
+                if (T && x && a.hasClassname(x.el, /discount/gi) && (x.parentDistance < d || x.distance < l)) return;
+                (x = h), (T = !0);
               } else
-                !k &&
-                  (l < S.distance || d < S.parentDistance) &&
-                  ((l < S.distance && d > S.parentDistance) || (l > S.distance && d < S.parentDistance)
-                    ? parseInt(m) > parseInt(s.normalise(a.formatTotalElement(S.el))) && u < Math.abs(r.top - S.top) && (S = h)
-                    : (S = h));
+                !T &&
+                  (l < x.distance || d < x.parentDistance) &&
+                  ((l < x.distance && d > x.parentDistance) || (l > x.distance && d < x.parentDistance)
+                    ? parseInt(m) > parseInt(s.normalise(a.formatTotalElement(x.el))) && u < Math.abs(r.top - x.top) && (x = h)
+                    : (x = h));
               c.log("LINE", e, i, l, d, u, p);
             }),
-              c.log("Closest", S);
+              c.log("Closest", x);
           }
-        if (S && S.el) return I(S.el, _);
+        if (x && x.el) return g(x.el, _);
         {
           const t = C.pop();
-          if (t && t.node) return I(t.node, _);
+          if (t && t.node) return g(t.node, _);
         }
         return { node: void 0, total: void 0, code: void 0, line: void 0 };
       };
     },
-    3143: (t, e, r) => {
-      const i = r(5863),
-        a = r(6036);
+    33143: (t, e, r) => {
+      const i = r(45863),
+        a = r(26036);
       t.exports = {
         getEventData: function (t) {
           const e = Math.floor(t.cartDetectedAt / 1e3),
@@ -23532,29 +25276,30 @@ var source;
         }
       };
     },
-    5721: (t, e, r) => {
-      const i = r(1682),
-        a = r(4524),
-        s = r(2605),
-        o = r(7981),
-        n = r(5863),
-        c = (t, e = document.body) => a.getElementByXPath(t, e),
-        l = (t) => {
+    35721: (t, e, r) => {
+      const i = r(91682),
+        a = r(54524),
+        s = r(12605),
+        o = r(37981),
+        n = r(45863),
+        c = r(72210),
+        l = (t, e = document.body) => a.getElementByXPath(t, e),
+        d = (t) => {
           let e = 0,
             r = t;
           for (; e < 2 && r.split("/").length > 4; ) {
             r = r.split("/").slice(0, -1).join("/");
-            const t = c(r);
+            const t = l(r);
             if ((n.log("evaluateParentXpath: ", t, r), t)) return t;
             e++;
           }
         },
-        d = (t, e = !0) => {
+        u = (t, e = !0) => {
           const r = e ? a.formatTotalElement(t) : t.textContent,
             i = a.stripSuffix(r);
           return parseFloat(s.normalise(i));
         },
-        u = (t, e) => {
+        m = (t, e) => {
           let r = 0;
           if (Math.abs(t.length - e.length) > 1) return -1;
           for (; r < Math.min(t.length, e.length); ) {
@@ -23563,36 +25308,36 @@ var source;
           }
           return -1;
         },
-        m = (t, e, r) => {
+        p = (t, e, r) => {
           for (const i of t.product) {
             const t = {},
               s = {};
             if (i.area) {
-              if ((n.log(i.area, e), e.length > 0 && -1 === u(e[0].area, i.area))) {
+              if ((n.log(i.area, e), e.length > 0 && -1 === m(e[0].area, i.area))) {
                 n.log("Wrong area with ", e[0].area);
                 continue;
               }
-              const r = c(i.area);
+              const r = l(i.area);
               if ((n.log("areaEl: ", r), !r)) continue;
               (t.area = i.area), (t.node = r), (s.node = r);
             }
             if (i.name) {
               const e = i.area && -1 === i.name.indexOf("//*") ? i.area + i.name : i.name,
-                r = c(e);
+                r = l(e);
               r && ((t.name = r.textContent.trim()), (t.nameNode = r), (s.name = o.getNameScore(t.name)));
             }
             if (i.image) {
               const e = i.area && -1 === i.image.indexOf("//*") ? i.area + i.image : i.image;
-              let r = c(e);
+              let r = l(e);
               if (!r || !/img/gi.test(r.tagName)) {
-                const t = l(e);
-                t && (r = t.querySelector("img"));
+                const t = d(e);
+                t && (r = c.query("img", t));
               }
               r && ((t.image_url = a.getImageUrl(r)), (s.image_url = o.getImageUrlScore(t.image_url)));
             }
             if (i.quantity) {
               const e = i.area && -1 === i.quantity.indexOf("//*") ? i.area + i.quantity : i.quantity,
-                r = c(e);
+                r = l(e);
               if (r) {
                 if (((t.quantity = parseInt(r.value)), !t.quantity && r.textContent && r.textContent.match(/\d+/))) {
                   const e = /[\s\S]*?qty:?|Quantity /gi;
@@ -23605,25 +25350,25 @@ var source;
             }
             if (i.lineTotal) {
               const e = i.area && -1 === i.lineTotal.indexOf("//*") ? i.area + i.lineTotal : i.lineTotal;
-              let r = c(e);
+              let r = l(e);
               r &&
                 (r.childElementCount > 1 && (r = r.firstElementChild),
-                (t.line_total = d(r)),
+                (t.line_total = u(r)),
                 (s.line_total = o.getCurrencyScore(r.textContent)));
             }
             if (i.itemPrice) {
               const e = i.area && -1 === i.itemPrice.indexOf("//*") ? i.area + i.itemPrice : i.itemPrice;
-              let r = c(e);
+              let r = l(e);
               r &&
                 (/\d+/.test(r.textContent) || 4 !== r.parentElement.childElementCount
                   ? r.childElementCount > 1 && (r = r.firstElementChild)
                   : (r = r.parentElement.lastElementChild),
-                (t.item_price = d(r)),
+                (t.item_price = u(r)),
                 (s.item_price = o.getCurrencyScore(r.textContent)));
             }
             if (i.url) {
               const e = i.area && -1 === i.url.indexOf("//*") ? i.area + i.url : i.url,
-                r = c(e);
+                r = l(e);
               r && ((t.url = r.href), (s.url = o.getProductUrlScore(t.url)));
             }
             o.addProductCurrencyScore(s, t), n.log("Detected product: ", t, " Score: ", s), e.push(t), r.push(s);
@@ -23637,9 +25382,9 @@ var source;
           Object.entries(i).some(([a, s]) => !!(r.match(a) || (e._fillrPath && e._fillrPath.match(a))) && ((t = i[a]), !0));
           let a = [];
           const s = [];
-          if (t && (m(t, a, s), a.length > 1)) {
+          if (t && (p(t, a, s), a.length > 1)) {
             const e = a.length,
-              r = u(a[0].area, a[1].area);
+              r = m(a[0].area, a[1].area);
             if (-1 !== r) {
               const i = parseInt(a[1].area.charAt(r)) - parseInt(a[0].area.charAt(r));
               if (!isNaN(i) && 0 !== i) {
@@ -23650,11 +25395,11 @@ var source;
                     break;
                   }
                 for (let t = i; ; t += i) {
-                  const l = parseInt(a[e - 1].area.charAt(r)) + t,
-                    d = a[e - 1].area.substring(0, r) + l + a[e - 1].area.substring(r + 1);
-                  if (void 0 === c(d)) break;
+                  const c = parseInt(a[e - 1].area.charAt(r)) + t,
+                    d = a[e - 1].area.substring(0, r) + c + a[e - 1].area.substring(r + 1);
+                  if (void 0 === l(d)) break;
                   const u = { product: [o] };
-                  (u.product[0].area = d), n.log("newXPath: ", u, " diff: ", i, " index: ", t), m(u, a, s);
+                  (u.product[0].area = d), n.log("newXPath: ", u, " diff: ", i, " index: ", t), p(u, a, s);
                 }
               }
             }
@@ -23673,29 +25418,53 @@ var source;
       };
     },
     1705: (t, e, r) => {
-      t.exports = r(9754);
+      t.exports = r(49754);
     },
-    770: (t) => {
+    30770: (t) => {
       t.exports = { debug: !0 };
     },
-    6128: (t) => {
-      t.exports = "1.0.1";
+    96128: (t) => {
+      t.exports = "1.1.14";
     },
-    9754: (t, e, r) => {
-      const i = r(8768),
-        a = r(8531),
-        s = r(2525),
-        o = r(1925),
-        n = r(665),
-        c = r(4150),
-        l = r(6128);
+    12736: (t, e, r) => {
+      const i = r(83020),
+        a = "fillr:product:data:scraped",
+        s = function (t) {
+          const e = t.detail;
+          e && i.send("fillr:productdatascraped", e);
+        };
       t.exports = {
+        init: () => {
+          document.addEventListener(a, s);
+        },
+        reset: () => {
+          document.removeEventListener(a, s), document.addEventListener(a, s);
+        },
+        disable: () => {
+          document.removeEventListener(a, s);
+        }
+      };
+    },
+    49754: (t, e, r) => {
+      const i = r(78768),
+        a = r(88531),
+        s = r(62525),
+        o = r(41925),
+        n = r(10665),
+        c = r(4150),
+        l = r(96128),
+        d = r(12736),
+        u = r(83020),
+        m = r(38706),
+        p = ["scrape", "start", "getEvents"];
+      (t.exports = {
         product: {
           name: [],
           description: [],
           color: [],
           rating: [],
           price: [],
+          priceInCents: [],
           url: [],
           canonical: [],
           sku: [],
@@ -23704,44 +25473,63 @@ var source;
           productID: [],
           gtin: [],
           image: [],
-          offer: []
+          offers: [],
+          category: [],
+          brand: [],
+          priceToSku: {},
+          urlToSku: {}
         },
         schemaList: [],
         scrapeError: void 0,
         version: l,
         start: function () {
-          let t = 0;
-          const e = setInterval(() => {
-            t++,
-              c.log("Waiting for document readystate to be complete..."),
-              ("complete" !== document.readyState && 5 !== t) || (clearInterval(e), this.scrape());
-          }, 1e3);
+          if (!this.started) {
+            this.started = !0;
+            let t = 0;
+            const e = setInterval(() => {
+              t++,
+                c.log("Waiting for document readystate to be complete..."),
+                ("complete" !== document.readyState && 5 !== t) || (clearInterval(e), this.scrape());
+            }, 1e3);
+          }
         },
         scrape: function () {
           try {
             if (!n.isProductPage()) throw new Error("Did not detect any schema or enough useful product data to proceed with extraction!");
             !(function (t, e) {
-              for (const e of Object.keys(t)) t[e].length = 0;
+              for (const e of Object.keys(t)) Array.isArray(t[e]) ? (t[e].length = 0) : (t[e] = {});
               e.length = 0;
             })(this.product, this.schemaList),
               i.extract(this.schemaList),
               a.extract(this.schemaList),
               s.extract(this.product, this.schemaList),
               o(this.product),
-              c.log(this.product),
+              c.log("Product: ", this.product),
               (function (t) {
                 c.log("Raising product data scraped event");
                 const e = new CustomEvent("fillr:product:data:scraped", { detail: t });
                 document.dispatchEvent(e);
-              })(this.product);
+              })(this.getProductInformationJson());
           } catch (t) {
             c.log(t), (this.scrapeError = t.message);
           }
+        },
+        getProductInformationJson: function () {
+          return JSON.stringify({ product: this.product });
+        },
+        getEvents: function () {
+          return JSON.stringify(u.getEvents());
         }
-      };
+      }),
+        !m.isTopFrame() || window.FillrProductPageScraper
+          ? (p.forEach((e) => {
+              t.exports[e] = () => "[]";
+            }),
+            window.FillrProductPageScraper && (t.exports = window.FillrProductPageScraper))
+          : d.init();
     },
-    1925: (t, e, r) => {
-      const i = r(2525),
+    41925: (t, e, r) => {
+      const i = r(62525),
         a = r(4150);
       t.exports = function (t) {
         const e = [
@@ -23771,23 +25559,24 @@ var source;
           for (const r of e)
             if (r.host?.test(window.location.href))
               for (const [e, s] of Object.entries(r))
-                t[e] && 0 === t[e].length && (a.log("Domain specific rule for: ", e), i.addToProduct(e, s(), t));
+                t[e] && 0 === t[e].length && (a.log("Domain specific rule for: ", e), i.addExtractedValue(t, { name: e }, s()));
         } catch (t) {}
       };
     },
     4150: (t, e, r) => {
-      const i = r(770);
+      const i = r(30770);
       t.exports = {
         log: function () {
           if (i.debug)
             try {
-              return;
+              if (window.console && console.log && -1 !== (console.log + "").indexOf("native code")) return;
+              if (window.console) return;
             } catch (t) {}
         }
       };
     },
-    665: (t, e, r) => {
-      const i = r(8706),
+    10665: (t, e, r) => {
+      const i = r(38706),
         a = r(4150);
       t.exports = {
         passingScore: 100,
@@ -23796,23 +25585,27 @@ var source;
             headerLines: [
               {
                 matchers: [
-                  /frequently bought together/,
+                  /frequently bought (together|with)/,
                   /^specifications?$/,
                   /about (the|this) product/,
                   /you (might|may) also like/,
                   /customers also shopped|loved/,
                   /^(customer|product)?\s?reviews$/,
                   /^reviews\s\(\d+\)$/,
-                  /^item (specifics|information)$/,
+                  /^item (specifics|information|reviews)(\s+\([0-9,]+\))?$/,
                   /ratings (and|&) reviews/,
                   "related products",
-                  "product description",
+                  "product (description|details)",
                   "people who viewed this item also viewed",
-                  "added to bag"
+                  "added to bag",
+                  "similar products"
                 ],
                 weight: 50
               },
-              { matchers: [/what'?s in the box/, "choose your model.", "quick specs", "tech specs"], weight: 20 }
+              {
+                matchers: [/what'?s in the box/, "choose your model.", "quick specs", "tech specs", "item reviews and shop ratings"],
+                weight: 20
+              }
             ],
             headerWords: [{ matchers: [/^(specifications?|specs)$/, "details", "about", "information", "description"], weight: 20 }],
             linkLines: [
@@ -23821,7 +25614,8 @@ var source;
                   /add to (shopping\s)?(cart|bag|basket|trolley)/,
                   /add to (wish|watch)?list/,
                   /add \d? items? to cart/,
-                  /buy\s(it\s)?now/
+                  /(buy|pre-order)\s(it\s)?now/,
+                  /add for (pickup|shipping)/
                 ],
                 weight: 100
               },
@@ -23834,12 +25628,16 @@ var source;
                   "write a review",
                   "pre-order",
                   "add item",
-                  "sign in to buy"
+                  "sign in to buy",
+                  /add to (my\s)?(list)/
                 ],
                 weight: 50
               }
             ],
-            path: [{ matchers: [/(\/product)|(\/shop\/buy)/i], weight: 100 }]
+            path: [
+              { matchers: [/(\/product)|(\/shop\/buy)/i], weight: 100 },
+              { matchers: [/\/goods.html/i, /g-[0-9]{10,20}.html/], weight: 20 }
+            ]
           },
           cart: {
             headerLines: [{ matchers: [/^(shopping|my|your) (cart|bag|basket)$/], weight: 50 }],
@@ -23990,7 +25788,22 @@ var source;
         }
       };
     },
-    8706: (t) => {
+    48867: (t) => {
+      const e =
+        "[$\xa2-\xa5\u058f\u060b\u09f2\u09f3\u09fb\u0af1\u0bf9\u0e3f\u17db\u20a0-\u20bd\ua838\ufdfc\ufe69\uff04\uffe0\uffe1\uffe5\uffe6]";
+      t.exports = {
+        currency: (t = "") => new RegExp(e, t),
+        nonCurrency: (t = "") =>
+          new RegExp(
+            "[^$\xa2-\xa5\u058f\u060b\u09f2\u09f3\u09fb\u0af1\u0bf9\u0e3f\u17db\u20a0-\u20bd\ua838\ufdfc\ufe69\uff04\uffe0\uffe1\uffe5\uffe6]",
+            t
+          ),
+        labeledPrice: (t = "i") => new RegExp("^[a-z ]{1,24}[\\-:]\\s+[A-Z]{0,3}" + e + "[0-9]+(\\.[0-9]{2})?$", t),
+        priceWithCurrency: (t = "i") => new RegExp("^([A-Z]{1,3}" + e + ")[0-9]+(\\.[0-9]{2})?$", t),
+        itemPrefix: (t = "i") => new RegExp("^(item|part)\\s+(#|no|num|number)\\s*[:-]?\\s+", t)
+      };
+    },
+    38706: (t) => {
       t.exports = {
         getElementText: function (t) {
           const e = "input" === t.tagName.toLowerCase() ? t.value : t.innerText || t.textContent;
@@ -24007,7 +25820,7 @@ var source;
           return "none" === window.getComputedStyle(t).display;
         },
         isEmptyObject: function (t) {
-          return Object.values(t)?.every((t) => null == t);
+          return !t || Object.values(t)?.every((t) => null == t);
         },
         objectExistsInArray: function (t, e) {
           try {
@@ -24045,129 +25858,348 @@ var source;
             t = e(arguments[0], arguments[1], arguments[2]);
           }
           return t;
+        },
+        isTopFrame: () => {
+          try {
+            return window.self && window.self.document ? window.self === window.top : window === window.top;
+          } catch (t) {
+            return !1;
+          }
         }
       };
     },
-    2525: (t, e, r) => {
-      const i = r(8706);
+    83020: (t, e, r) => {
+      const i = r(4150);
+      let a = [];
       t.exports = {
-        schemaProps: [
+        send: (t, e) => {
+          if (t && e)
+            if (/Android/gi.test(navigator._fillrPlatform) || "undefined" != typeof fillrProductPageExtractionJNI) {
+              const r = (function (t, e) {
+                if (!t || !e) return null;
+                let r = null;
+                for (const i in t)
+                  if (i.toLowerCase() === e.toLowerCase() && "function" == typeof t[i]) {
+                    r = t[i];
+                    break;
+                  }
+                return r;
+              })(window.fillrProductPageExtractionJNI, t.split(":").pop());
+              r
+                ? (i.log("Android - Event Data", e), r.call(window.fillrProductPageExtractionJNI, e))
+                : i.log("Android - No matching JNI method found!", t);
+            } else
+              (/iPhone/gi.test(navigator._fillrPlatform) ||
+                /^i(pad|pod|phone)/i.test(navigator.platform) ||
+                (navigator.userAgent.includes("Mac") && "ontouchend" in document)) &&
+                (i.log("iOS - Event Data", e),
+                (r = t),
+                setTimeout(() => {
+                  a.push({ url: r, time: new Date().getTime() });
+                }, 100));
+          var r;
+        },
+        getEvents: () => {
+          const t = a.slice();
+          return (a = []), t;
+        }
+      };
+    },
+    62525: (t, e, r) => {
+      const i = r(38706),
+        a = r(4150),
+        s = r(48867),
+        o = ["sku"],
+        n = [
           { name: "name", type: "text" },
           { name: "description", type: "text" },
           { name: "color", type: "text" },
-          { name: "rating", type: "text" },
+          { name: "rating", type: "text", altSpellings: ["ratingValue"] },
           { name: "price", type: "text" },
+          { name: "priceSpecification", type: "obj" },
           { name: "url", type: "text" },
           { name: "sku", type: "text" },
           { name: "model", type: "text" },
           { name: "mpn", type: "text" },
           { name: "productID", type: "text" },
-          { name: "gtin", type: "text" },
+          { name: "gtin", type: "text", altSpellings: [/^gtin\d+$/] },
           { name: "image", type: "text" },
+          { name: "category", type: "text" },
+          { name: "priceCurrency", type: "text" },
+          { name: "brand", type: "mixed" },
           { name: "offers", type: "obj" },
           { name: "itemOffered", type: "obj" },
           { name: "Product", type: "obj" },
           { name: "aggregateRating", type: "obj" }
         ],
-        altPropSpellings: { gtin: ["gtin12", "gtin13"], rating: ["ratingValue"] },
-        addToProductCustomRules: {
+        c = (t, e, r, i) => {
+          if (!r || !i) return;
+          t[e] || (t[e] = {});
+          const a = t[e];
+          a[r] = a[r] ? a[r].concat(i) : [i];
+        },
+        l = [
+          {
+            type: /^aggregateoffer$/i,
+            outName: "offers",
+            overwrite: "self",
+            transform: (t) => {
+              if (t.offers) return t.offers;
+              if (!t.price) {
+                const e = [];
+                if (
+                  (["lowPrice", "highPrice"].forEach((r) => {
+                    if (t[r]) {
+                      const i = t[r],
+                        a = Object.assign({}, t);
+                      (a["@type"] = "Offer"), (a.price = i), e.push(a);
+                    }
+                  }),
+                  e.length > 0)
+                )
+                  return e;
+              }
+              return t;
+            }
+          },
+          {
+            type: /^pricespecification$/i,
+            outName: ["price", "priceCurrency"],
+            overwrite: !1,
+            deleteSource: !0,
+            transform: (t) => {
+              if (Array.isArray(t.price) && 2 === t.price.length) return { price: t.price[0], priceCurrency: t.priceCurrency };
+            }
+          }
+        ],
+        d = {
           price: [
-            { name: "amount", prop: "price" },
-            { name: "currency", prop: "priceCurrency" }
+            { name: "amount", prop: n.find((t) => "price" === t.name) },
+            { name: "currency", prop: n.find((t) => "priceCurrency" === t.name) }
           ],
-          offer: [
-            { name: "sku", prop: "sku" },
-            { name: "url", prop: "url" },
-            { name: "price", prop: "price" }
+          offers: [
+            { name: "_beforeEach", prop: "*", handler: (t, e) => t && Object.keys(t).length > 1 },
+            { name: "sku", prop: n.find((t) => "sku" === t.name) },
+            { name: "url", prop: n.find((t) => "url" === t.name) },
+            { name: "price", prop: n.find((t) => "price" === t.name) },
+            {
+              name: "_after",
+              prop: "*",
+              handler: (t, e) => {
+                let r = e.sku;
+                if ((!r && t.sku && 1 === t.sku.length && (r = t.sku[0]), c(t, "urlToSku", e.url, r), e.price && e.price.amount)) {
+                  const i = e.price.amount + "",
+                    a = (100 * parseFloat(i)).toFixed(0);
+                  c(t, "priceToSku", a, r),
+                    (t.priceInCents && -1 !== t.priceInCents.indexOf(a)) ||
+                      (t.priceInCents = t.priceInCents ? t.priceInCents.concat(a) : [a]);
+                }
+              }
+            }
           ]
         },
-        addToProduct: function (t, e, r) {
-          if (r[t]) {
-            if (Array.isArray(e)) for (const i of e) this.addToProduct(t, i, r);
-            ~r[t].indexOf(e) || ("string" != typeof e && "number" != typeof e) || r[t].push(e);
+        u = [
+          { out: "url", in: [/\.url$/] },
+          { out: "sku", in: [/\.sku$/] },
+          { out: "rating", in: [/\.rating$/] },
+          { out: "color", in: [/\.color$/] },
+          { out: "brand", in: ["brand.name"] }
+        ],
+        m = (t, e, r) => {
+          for (const i of Object.keys(t)) {
+            let a = t[i];
+            if (a && (Array.isArray(a) || a["@type"])) {
+              m(a, i, t);
+              continue;
+            }
+            let o = i,
+              n = t;
+            if (
+              (Array.isArray(t) && e && ((o = e), (n = r)),
+              (a = a.toFixed ? a.toFixed(2) : a),
+              !/price/i.test(o) || /currency/i.test(o) || !a || !a.trim)
+            )
+              continue;
+            if ((s.labeledPrice().test(a) && (a = a.split(/[-:]\s+/)[1]), !t.priceCurrency && s.priceWithCurrency().test(a))) {
+              let t = a.split(s.currency())[0];
+              const e = a.replace(t, "").charAt(0);
+              1 === t.length && (t += e), (n.priceCurrency = t);
+            }
+            n.priceCurrency || 2 !== a.split(s.currency()).length || (n.priceCurrency = a.replace(s.nonCurrency("g"), ""));
+            const c = parseFloat(a.replace(/[^0-9.-]/g, ""));
+            isNaN(c) || (t[i] = c.toFixed(2));
           }
         },
-        _addToProductUsingCustomRules: function (t, e, r) {
-          if (!r[t]) return;
-          const a = (t, e) => {
-              const r = {};
-              for (const i of this.addToProductCustomRules[t])
-                t !== i.prop && this.addToProductCustomRules[i.prop] && e[i.prop]
-                  ? (r[i.name] = a(i.name, e))
-                  : (r[i.name] = this._getValueFromSchemaObj(i.prop, e));
-              return r;
-            },
-            s = a(t, e);
-          i.isEmptyObject(s) || i.objectExistsInArray(s, r[t]) || r[t].push(s);
+        p = (t, e) => {
+          for (const r of Object.keys(t))
+            t[r] && t[r].trim
+              ? ((t[r] = t[r].trim()), e && -1 !== o.indexOf(e.toLowerCase()) && (t[r] = t[r].replace(s.itemPrefix(), "")))
+              : t[r] && (Array.isArray(t[r]) || t[r]["@type"]) && p(t[r], r);
         },
-        _getValueFromSchemaObj: function (t, e) {
-          if (e[t]) return e[t];
-          if (e[t.toUpperCase()]) return e[t.toUpperCase()];
-          if (this.altPropSpellings[t]) for (const r of this.altPropSpellings[t]) if (e[r]) return e[r];
+        h = (t) => {
+          for (const e of Object.keys(t)) {
+            const r = t[e];
+            if (Array.isArray(r))
+              r.forEach((t) => {
+                t["@type"] && h(t);
+              });
+            else if (r && r["@type"])
+              for (let i = 0; i < l.length; i++) {
+                const s = l[i];
+                if (s.type.test(r["@type"])) {
+                  const i = s.transform(r);
+                  i &&
+                    g(s, e, t) &&
+                    (Array.isArray(s.outName)
+                      ? s.outName.forEach((s) => {
+                          i[s] && ((t[s] = i[s]), a.log("Transform: key=" + e + ", out=" + s, r, t[s]));
+                        })
+                      : ((t[s.outName] = i), a.log("Transform: key=" + e + ", out=" + s.outName, r, t[s.outName]))),
+                    i && s.deleteSource && (a.log("Delete:  key=" + e, t, r), delete t[e]);
+                }
+              }
+          }
         },
-        _addToProductFromSchema: function (t, e, r) {
-          if (this.addToProductCustomRules[t]) return void this._addToProductUsingCustomRules(t, e, r);
-          const i = this._getValueFromSchemaObj(t, e);
-          i && this.addToProduct(t, i, r);
+        g = (t, e, r) =>
+          !!(t && e && r) &&
+          (Array.isArray(t.outName)
+            ? t.outName.every((i) => {
+                const a = Object.assign({}, t);
+                return (a.outName = i), g(a, e, r);
+              })
+            : !r[t.outName] || !0 === t.overwrite || "true" === t.overwrite || ("self" === t.overwrite && e === t.outName)),
+        I = function (t, e) {
+          return "text" === e
+            ? ["string", "number"].includes(typeof t) || (Array.isArray(t) && t.every((t) => ["string", "number"].includes(typeof t)))
+            : "obj" === e
+            ? "object" == typeof t
+            : void 0;
+        };
+      t.exports = {
+        addExtractedValue: function (t, e, r, i) {
+          if (r && e)
+            if (Array.isArray(r)) for (const a of r) this.addExtractedValue(t, e, a, i);
+            else if (r) {
+              let a;
+              (a = i && i.length ? i.map((t) => t.name).join(".") + "." + e.name : e.name),
+                t[a] ? ~t[a].indexOf(r) || t[a].push(r) : (t[a] = [r]);
+            }
         },
-        _cleanProduct: function (t) {
-          const e = {
-            name: void 0,
-            url: void 0,
-            canonical: void 0,
-            sku: void 0,
-            model: void 0,
-            mpn: void 0,
-            productID: void 0,
-            gtin: void 0,
-            image: void 0
+        _parseValue: function (t) {
+          if ("string" == typeof t) return t;
+          if ("number" == typeof t) return t.toString();
+          if (Array.isArray(t)) {
+            for (let e = 0; e < t.length; e++) t[e] = this._parseValue(t[e]);
+            return t;
+          }
+          return t;
+        },
+        _extractValueFromSchemaObj: function (t, e) {
+          for (let [r, i] of Object.entries(e))
+            if (
+              ((r = r ? r.toLowerCase() : ""),
+              (t.name && r === t.name.toLowerCase()) ||
+                (t.altSpellings &&
+                  t.altSpellings.some((t) => (t instanceof RegExp && t.test(r)) || (t.toLowerCase && t.toLowerCase() === r))))
+            )
+              return this._parseValue(i);
+        },
+        _constructCustomObject: function (t, e, r) {
+          const i = (t, e, r) => {
+            const a = {};
+            let s = d[t.name];
+            if ("_beforeEach" === s[0].name) {
+              if (!s[0].handler(e, r)) return;
+              s = s.slice(1);
+            }
+            for (const o of s)
+              if (t.name !== o.prop.name && d[o.prop.name]) a[o.name] = i(o.prop, e, r);
+              else {
+                const t = this._extractValueFromSchemaObj(o.prop, e);
+                t && (a[o.name] = t);
+              }
+            return a;
           };
-          for (const r of Object.keys(e)) 0 !== t[r].length && (1 === t[r].length ? (e[r] = t[r][0]) : (e[r] = t[r]));
-          return e;
+          return i(t, e, r);
+        },
+        _addCustomObject: function (t, e, r, a) {
+          if (d[e.name]) {
+            const s = this._constructCustomObject(e, r, a);
+            if (!i.isEmptyObject(s) && !i.objectExistsInArray(s, t[e.name])) {
+              const r = d[e.name].find((t) => "_after" === t.name);
+              r && r.handler(t, s), this.addExtractedValue(t, e, s);
+            }
+          }
         },
         _extractProductDataFromPage: function (t) {
           for (const e of document.querySelectorAll('meta[property="og:title"],link[rel=canonical]'))
             0 === t.name.length &&
               (/title/.test(e.getAttribute("property")) || /title/.test(e.name)) &&
-              this.addToProduct("name", e.content, t),
+              this.addExtractedValue(t, { name: "name" }, e.content),
               0 === t.url.length &&
                 (/url/.test(e.getAttribute("property")) || /url/.test(e.name)) &&
-                this.addToProduct("url", e.content, t),
+                this.addExtractedValue(t, { name: "url" }, e.content),
               0 === t.description.length &&
                 (/description/.test(e.getAttribute("property")) || /description/.test(e.name)) &&
-                this.addToProduct("description", e.content, t),
-              "canonical" === e.rel && this.addToProduct("canonical", e.href, t);
+                this.addExtractedValue(t, { name: "description" }, e.content),
+              "canonical" === e.rel && this.addExtractedValue(t, { name: "canonical" }, e.href);
+        },
+        _extractProductDataFromSchemaObj: function (t, e, r = {}, i = []) {
+          const a = i[i.length - 1];
+          a && d[a.name] && this._addCustomObject(t, a, e, r);
+          for (const a of n) {
+            const s = this._extractValueFromSchemaObj(a, e);
+            if (
+              (("text" === a.type || "mixed" === a.type) &&
+                s &&
+                I(s, "text") &&
+                (d[a.name] ? this._addCustomObject(t, a, e, r) : this.addExtractedValue(t, a, s, i)),
+              ("obj" === a.type || "mixed" === a.type) && s && I(s, "obj"))
+            )
+              if (Array.isArray(s)) for (const r of s) this._extractProductDataFromSchemaObj(t, r, e, i.concat(a));
+              else this._extractProductDataFromSchemaObj(t, s, e, i.concat(a));
+          }
         },
         _extractProductDataFromSchemaList: function (t, e) {
-          const r = (t, e) => {
-              for (const r of t) i(r, e);
-            },
-            i = (e, a) => {
-              a && this._addToProductFromSchema("offer", e, t);
-              for (const a of this.schemaProps)
-                "text" === a.type
-                  ? this._addToProductFromSchema(a.name, e, t)
-                  : "obj" === a.type &&
-                    e[a.name] &&
-                    "object" == typeof e[a.name] &&
-                    (Array.isArray(e[a.name]) ? r(e[a.name], "offers" === a.name) : i(e[a.name], "offers" === a.name));
-            };
-          for (const t of e) i(t);
+          for (const r of e) this._extractProductDataFromSchemaObj(t, r);
         },
         extract: function (t, e) {
-          this._extractProductDataFromSchemaList(t, e), this._extractProductDataFromPage(t);
+          !(function (t) {
+            t &&
+              t.forEach((t) => {
+                p(t), m(t), h(t);
+              });
+          })(e),
+            a.log("extracting: ", e);
+          const r = {};
+          this._extractProductDataFromSchemaList(r, e),
+            a.log("extracted: ", r),
+            (function (t, e) {
+              for (const r of Object.keys(t))
+                if (e[r] && Array.isArray(t[r])) e[r] = e[r].concat(t[r]);
+                else if (Array.isArray(t[r])) {
+                  const i = u.find((t) => t.in.some((t) => (t instanceof RegExp && t.test(r)) || t === r));
+                  if (i && e[i.out]) for (const a of t[r]) ~e[i.out].indexOf(a) || e[i.out].push(a);
+                } else {
+                  const i = e[r],
+                    a = t[r];
+                  for (const t of Object.keys(a)) i[t] = i[t] ? i[t].concat(a[t]) : a[t];
+                }
+            })(r, t),
+            this._extractProductDataFromPage(t);
         }
       };
     },
-    8531: (t, e, r) => {
-      const i = r(8706),
+    88531: (t, e, r) => {
+      const i = r(38706),
         a = r(4150);
       t.exports = {
-        _isSchemaProduct: function (t) {
-          return t && /^https?:\/\/schema\.org\/?$/.test(t["@context"]) && "Product" === t["@type"];
+        _isSchemaProduct: function (t, e) {
+          const r = t["@context"] || e;
+          return t && /^https?:\/\/schema\.org\/?$/.test(r) && /^product$/i.test(t["@type"]);
         },
-        _extractSchemaProductFromArray: function (t, e) {
-          for (const r of t) this._isSchemaProduct(r) && e.push(r);
+        _extractSchemaProductFromArray: function (t, e, r) {
+          for (const i of t) this._isSchemaProduct(i, r) && e.push(i);
         },
         _extractFromJson: function (t, e) {
           const r = JSON.parse(t);
@@ -24176,7 +26208,7 @@ var source;
             Array.isArray(r) && this._extractSchemaProductFromArray(r, e),
             this._isSchemaProduct(r)
               ? e.push(r)
-              : r["@graph"] && Array.isArray(r["@graph"]) && this._extractSchemaProductFromArray(r["@graph"], e));
+              : r["@graph"] && Array.isArray(r["@graph"]) && this._extractSchemaProductFromArray(r["@graph"], e, r["@context"]));
         },
         extract: function (t) {
           try {
@@ -24210,9 +26242,9 @@ var source;
         }
       };
     },
-    8768: (t, e, r) => {
+    78768: (t, e, r) => {
       const i = r(4150),
-        a = r(8706),
+        a = r(38706),
         s = {
           "*": "textContent",
           meta: "content",
@@ -24278,7 +26310,7 @@ var source;
         }
       };
     },
-    6818: (t, e, r) => {
+    46818: (t, e, r) => {
       "use strict";
       function i(t) {
         if (null == t) return window;
@@ -24297,7 +26329,7 @@ var source;
       function o(t) {
         return "undefined" != typeof ShadowRoot && (t instanceof i(t).ShadowRoot || t instanceof ShadowRoot);
       }
-      r.d(e, { fi: () => gt });
+      r.d(e, { fi: () => It });
       var n = Math.max,
         c = Math.min,
         l = Math.round;
@@ -24326,9 +26358,9 @@ var source;
           m = !u() && r,
           p = (o.left + (m && d ? d.offsetLeft : 0)) / n,
           h = (o.top + (m && d ? d.offsetTop : 0)) / c,
-          I = o.width / n,
-          g = o.height / c;
-        return { width: I, height: g, top: h, right: p + I, bottom: h + g, left: p, x: p, y: h };
+          g = o.width / n,
+          I = o.height / c;
+        return { width: g, height: I, top: h, right: p + g, bottom: h + I, left: p, x: p, y: h };
       }
       function p(t) {
         var e = i(t);
@@ -24337,11 +26369,11 @@ var source;
       function h(t) {
         return t ? (t.nodeName || "").toLowerCase() : null;
       }
-      function I(t) {
+      function g(t) {
         return ((a(t) ? t.ownerDocument : t.document) || window.document).documentElement;
       }
-      function g(t) {
-        return m(I(t)).left + p(t).scrollLeft;
+      function I(t) {
+        return m(g(t)).left + p(t).scrollLeft;
       }
       function f(t) {
         return i(t).getComputedStyle(t);
@@ -24366,7 +26398,7 @@ var source;
                 i = l(e.height) / t.offsetHeight || 1;
               return 1 !== r || 1 !== i;
             })(e),
-          d = I(e),
+          d = g(e),
           u = m(t, c, r),
           f = { scrollLeft: 0, scrollTop: 0 },
           V = { x: 0, y: 0 };
@@ -24374,7 +26406,7 @@ var source;
           (n || (!n && !r)) &&
             (("body" !== h(e) || D(d)) &&
               (f = (a = e) !== i(a) && s(a) ? { scrollLeft: (o = a).scrollLeft, scrollTop: o.scrollTop } : p(a)),
-            s(e) ? (((V = m(e, !0)).x += e.clientLeft), (V.y += e.clientTop)) : d && (V.x = g(d))),
+            s(e) ? (((V = m(e, !0)).x += e.clientLeft), (V.y += e.clientTop)) : d && (V.x = I(d))),
           { x: u.left + f.scrollLeft - V.x, y: u.top + f.scrollTop - V.y, width: u.width, height: u.height }
         );
       }
@@ -24389,7 +26421,7 @@ var source;
         );
       }
       function y(t) {
-        return "html" === h(t) ? t : t.assignedSlot || t.parentNode || (o(t) ? t.host : null) || I(t);
+        return "html" === h(t) ? t : t.assignedSlot || t.parentNode || (o(t) ? t.host : null) || g(t);
       }
       function b(t) {
         return ["html", "body", "#document"].indexOf(h(t)) >= 0 ? t.ownerDocument.body : s(t) && D(t) ? t : b(y(t));
@@ -24410,7 +26442,7 @@ var source;
       function C(t) {
         return s(t) && "fixed" !== f(t).position ? t.offsetParent : null;
       }
-      function S(t) {
+      function x(t) {
         for (var e = i(t), r = C(t); r && w(r) && "static" === f(r).position; ) r = C(r);
         return r && ("html" === h(r) || ("body" === h(r) && "static" === f(r).position))
           ? e
@@ -24436,23 +26468,23 @@ var source;
               })(t) ||
               e;
       }
-      var k = "top",
-        x = "bottom",
-        T = "right",
+      var T = "top",
+        k = "bottom",
+        S = "right",
         A = "left",
         P = "auto",
-        N = [k, x, T, A],
+        N = [T, k, S, A],
         E = "start",
-        $ = "end",
-        L = "clippingParents",
-        O = "viewport",
-        R = "popper",
+        L = "end",
+        $ = "clippingParents",
+        R = "viewport",
+        O = "popper",
         M = "reference",
         B = N.reduce(function (t, e) {
-          return t.concat([e + "-" + E, e + "-" + $]);
+          return t.concat([e + "-" + E, e + "-" + L]);
         }, []),
         q = [].concat(N, [P]).reduce(function (t, e) {
-          return t.concat([e, e + "-" + E, e + "-" + $]);
+          return t.concat([e, e + "-" + E, e + "-" + L]);
         }, []),
         Z = ["beforeRead", "read", "afterRead", "beforeMain", "main", "afterMain", "beforeWrite", "write", "afterWrite"];
       function U(t) {
@@ -24479,8 +26511,8 @@ var source;
           i
         );
       }
-      var j = { placement: "bottom", modifiers: [], strategy: "absolute" };
-      function H() {
+      var H = { placement: "bottom", modifiers: [], strategy: "absolute" };
+      function j() {
         for (var t = arguments.length, e = new Array(t), r = 0; r < t; r++) e[r] = arguments[r];
         return !e.some(function (t) {
           return !(t && "function" == typeof t.getBoundingClientRect);
@@ -24492,7 +26524,7 @@ var source;
           r = e.defaultModifiers,
           i = void 0 === r ? [] : r,
           s = e.defaultOptions,
-          o = void 0 === s ? j : s;
+          o = void 0 === s ? H : s;
         return function (t, e, r) {
           void 0 === r && (r = o);
           var s,
@@ -24500,7 +26532,7 @@ var source;
             c = {
               placement: "bottom",
               orderedModifiers: [],
-              options: Object.assign({}, j, o),
+              options: Object.assign({}, H, o),
               modifiersData: {},
               elements: { reference: t, popper: e },
               attributes: {},
@@ -24567,8 +26599,8 @@ var source;
                   var t = c.elements,
                     e = t.reference,
                     r = t.popper;
-                  if (H(e, r)) {
-                    (c.rects = { reference: V(e, S(r), "fixed" === c.options.strategy), popper: v(r) }),
+                  if (j(e, r)) {
+                    (c.rects = { reference: V(e, x(r), "fixed" === c.options.strategy), popper: v(r) }),
                       (c.reset = !1),
                       (c.placement = c.options.placement),
                       c.orderedModifiers.forEach(function (t) {
@@ -24607,7 +26639,7 @@ var source;
                 m(), (d = !0);
               }
             };
-          if (!H(t, e)) return u;
+          if (!j(t, e)) return u;
           function m() {
             l.forEach(function (t) {
               return t();
@@ -24642,13 +26674,13 @@ var source;
           n = r.x + r.width / 2 - i.width / 2,
           c = r.y + r.height / 2 - i.height / 2;
         switch (s) {
-          case k:
+          case T:
             e = { x: n, y: r.y - i.height };
             break;
-          case x:
+          case k:
             e = { x: n, y: r.y + r.height };
             break;
-          case T:
+          case S:
             e = { x: r.x + r.width, y: c };
             break;
           case A:
@@ -24664,7 +26696,7 @@ var source;
             case E:
               e[l] = e[l] - (r[d] / 2 - i[d] / 2);
               break;
-            case $:
+            case L:
               e[l] = e[l] + (r[d] / 2 - i[d] / 2);
           }
         }
@@ -24684,53 +26716,53 @@ var source;
           m = t.roundOffsets,
           p = t.isFixed,
           h = n.x,
-          g = void 0 === h ? 0 : h,
+          I = void 0 === h ? 0 : h,
           D = n.y,
           V = void 0 === D ? 0 : D,
-          v = "function" == typeof m ? m({ x: g, y: V }) : { x: g, y: V };
-        (g = v.x), (V = v.y);
+          v = "function" == typeof m ? m({ x: I, y: V }) : { x: I, y: V };
+        (I = v.x), (V = v.y);
         var y = n.hasOwnProperty("x"),
           b = n.hasOwnProperty("y"),
           _ = A,
-          w = k,
+          w = T,
           C = window;
         if (u) {
-          var P = S(r),
+          var P = x(r),
             N = "clientHeight",
             E = "clientWidth";
           if (
-            (P === i(r) && "static" !== f((P = I(r))).position && "absolute" === c && ((N = "scrollHeight"), (E = "scrollWidth")),
-            s === k || ((s === A || s === T) && o === $))
+            (P === i(r) && "static" !== f((P = g(r))).position && "absolute" === c && ((N = "scrollHeight"), (E = "scrollWidth")),
+            s === T || ((s === A || s === S) && o === L))
           )
-            (w = x), (V -= (p && P === C && C.visualViewport ? C.visualViewport.height : P[N]) - a.height), (V *= d ? 1 : -1);
-          if (s === A || ((s === k || s === x) && o === $))
-            (_ = T), (g -= (p && P === C && C.visualViewport ? C.visualViewport.width : P[E]) - a.width), (g *= d ? 1 : -1);
+            (w = k), (V -= (p && P === C && C.visualViewport ? C.visualViewport.height : P[N]) - a.height), (V *= d ? 1 : -1);
+          if (s === A || ((s === T || s === k) && o === L))
+            (_ = S), (I -= (p && P === C && C.visualViewport ? C.visualViewport.width : P[E]) - a.width), (I *= d ? 1 : -1);
         }
-        var L,
-          O = Object.assign({ position: c }, u && X),
-          R =
+        var $,
+          R = Object.assign({ position: c }, u && X),
+          O =
             !0 === m
               ? (function (t, e) {
                   var r = t.x,
                     i = t.y,
                     a = e.devicePixelRatio || 1;
                   return { x: l(r * a) / a || 0, y: l(i * a) / a || 0 };
-                })({ x: g, y: V }, i(r))
-              : { x: g, y: V };
+                })({ x: I, y: V }, i(r))
+              : { x: I, y: V };
         return (
-          (g = R.x),
-          (V = R.y),
+          (I = O.x),
+          (V = O.y),
           d
             ? Object.assign(
                 {},
-                O,
-                (((L = {})[w] = b ? "0" : ""),
-                (L[_] = y ? "0" : ""),
-                (L.transform =
-                  (C.devicePixelRatio || 1) <= 1 ? "translate(" + g + "px, " + V + "px)" : "translate3d(" + g + "px, " + V + "px, 0)"),
-                L)
+                R,
+                ((($ = {})[w] = b ? "0" : ""),
+                ($[_] = y ? "0" : ""),
+                ($.transform =
+                  (C.devicePixelRatio || 1) <= 1 ? "translate(" + I + "px, " + V + "px)" : "translate3d(" + I + "px, " + V + "px, 0)"),
+                $)
               )
-            : Object.assign({}, O, (((e = {})[w] = b ? V + "px" : ""), (e[_] = y ? g + "px" : ""), (e.transform = ""), e))
+            : Object.assign({}, R, (((e = {})[w] = b ? V + "px" : ""), (e[_] = y ? I + "px" : ""), (e.transform = ""), e))
         );
       }
       const J = {
@@ -24748,11 +26780,11 @@ var source;
               return (
                 (t[r] = (function (t, e, r) {
                   var i = z(t),
-                    a = [A, k].indexOf(i) >= 0 ? -1 : 1,
+                    a = [A, T].indexOf(i) >= 0 ? -1 : 1,
                     s = "function" == typeof r ? r(Object.assign({}, e, { placement: t })) : r,
                     o = s[0],
                     n = s[1];
-                  return (o = o || 0), (n = (n || 0) * a), [A, T].indexOf(i) >= 0 ? { x: n, y: o } : { x: o, y: n };
+                  return (o = o || 0), (n = (n || 0) * a), [A, S].indexOf(i) >= 0 ? { x: n, y: o } : { x: o, y: n };
                 })(r, e.rects, s)),
                 t
               );
@@ -24792,11 +26824,11 @@ var source;
         return Object.assign({}, t, { left: t.x, top: t.y, right: t.x + t.width, bottom: t.y + t.height });
       }
       function ot(t, e, r) {
-        return e === O
+        return e === R
           ? st(
               (function (t, e) {
                 var r = i(t),
-                  a = I(t),
+                  a = g(t),
                   s = r.visualViewport,
                   o = a.clientWidth,
                   n = a.clientHeight,
@@ -24807,7 +26839,7 @@ var source;
                   var d = u();
                   (d || (!d && "fixed" === e)) && ((c = s.offsetLeft), (l = s.offsetTop));
                 }
-                return { width: o, height: n, x: c + g(t), y: l };
+                return { width: o, height: n, x: c + I(t), y: l };
               })(t, r)
             )
           : a(e)
@@ -24828,17 +26860,17 @@ var source;
           : st(
               (function (t) {
                 var e,
-                  r = I(t),
+                  r = g(t),
                   i = p(t),
                   a = null == (e = t.ownerDocument) ? void 0 : e.body,
                   s = n(r.scrollWidth, r.clientWidth, a ? a.scrollWidth : 0, a ? a.clientWidth : 0),
                   o = n(r.scrollHeight, r.clientHeight, a ? a.scrollHeight : 0, a ? a.clientHeight : 0),
-                  c = -i.scrollLeft + g(t),
+                  c = -i.scrollLeft + I(t),
                   l = -i.scrollTop;
                 return (
                   "rtl" === f(a || r).direction && (c += n(r.clientWidth, a ? a.clientWidth : 0) - s), { width: s, height: o, x: c, y: l }
                 );
-              })(I(t))
+              })(g(t))
             );
       }
       function nt(t, e, r, i) {
@@ -24846,7 +26878,7 @@ var source;
             "clippingParents" === e
               ? (function (t) {
                   var e = _(y(t)),
-                    r = ["absolute", "fixed"].indexOf(f(t).position) >= 0 && s(t) ? S(t) : t;
+                    r = ["absolute", "fixed"].indexOf(f(t).position) >= 0 && s(t) ? x(t) : t;
                   return a(r)
                     ? e.filter(function (t) {
                         return a(t) && at(t, r) && "body" !== h(t);
@@ -24887,36 +26919,36 @@ var source;
           o = r.strategy,
           n = void 0 === o ? t.strategy : o,
           c = r.boundary,
-          l = void 0 === c ? L : c,
+          l = void 0 === c ? $ : c,
           d = r.rootBoundary,
-          u = void 0 === d ? O : d,
+          u = void 0 === d ? R : d,
           p = r.elementContext,
-          h = void 0 === p ? R : p,
-          g = r.altBoundary,
-          f = void 0 !== g && g,
+          h = void 0 === p ? O : p,
+          I = r.altBoundary,
+          f = void 0 !== I && I,
           D = r.padding,
           V = void 0 === D ? 0 : D,
           v = ct("number" != typeof V ? V : lt(V, N)),
-          y = h === R ? M : R,
+          y = h === O ? M : O,
           b = t.rects.popper,
           _ = t.elements[f ? y : h],
-          w = nt(a(_) ? _ : _.contextElement || I(t.elements.popper), l, u, n),
+          w = nt(a(_) ? _ : _.contextElement || g(t.elements.popper), l, u, n),
           C = m(t.elements.reference),
-          S = Y({ reference: C, element: b, strategy: "absolute", placement: s }),
-          A = st(Object.assign({}, b, S)),
-          P = h === R ? A : C,
+          x = Y({ reference: C, element: b, strategy: "absolute", placement: s }),
+          A = st(Object.assign({}, b, x)),
+          P = h === O ? A : C,
           E = {
             top: w.top - P.top + v.top,
             bottom: P.bottom - w.bottom + v.bottom,
             left: w.left - P.left + v.left,
             right: P.right - w.right + v.right
           },
-          $ = t.modifiersData.offset;
-        if (h === R && $) {
-          var B = $[s];
+          L = t.modifiersData.offset;
+        if (h === O && L) {
+          var B = L[s];
           Object.keys(E).forEach(function (t) {
-            var e = [T, x].indexOf(t) >= 0 ? 1 : -1,
-              r = [k, x].indexOf(t) >= 0 ? "y" : "x";
+            var e = [S, k].indexOf(t) >= 0 ? 1 : -1,
+              r = [T, k].indexOf(t) >= 0 ? "y" : "x";
             E[t] += B[r] * e;
           });
         }
@@ -24942,9 +26974,9 @@ var source;
             m = r.altBoundary,
             p = r.padding,
             h = r.tether,
-            I = void 0 === h || h,
-            g = r.tetherOffset,
-            f = void 0 === g ? 0 : g,
+            g = void 0 === h || h,
+            I = r.tetherOffset,
+            f = void 0 === I ? 0 : I,
             D = dt(e, { boundary: d, rootBoundary: u, padding: p, altBoundary: m }),
             V = z(e.placement),
             y = W(e.placement),
@@ -24954,61 +26986,61 @@ var source;
             C = e.modifiersData.popperOffsets,
             P = e.rects.reference,
             N = e.rects.popper,
-            $ = "function" == typeof f ? f(Object.assign({}, e.rects, { placement: e.placement })) : f,
-            L = "number" == typeof $ ? { mainAxis: $, altAxis: $ } : Object.assign({ mainAxis: 0, altAxis: 0 }, $),
-            O = e.modifiersData.offset ? e.modifiersData.offset[e.placement] : null,
-            R = { x: 0, y: 0 };
+            L = "function" == typeof f ? f(Object.assign({}, e.rects, { placement: e.placement })) : f,
+            $ = "number" == typeof L ? { mainAxis: L, altAxis: L } : Object.assign({ mainAxis: 0, altAxis: 0 }, L),
+            R = e.modifiersData.offset ? e.modifiersData.offset[e.placement] : null,
+            O = { x: 0, y: 0 };
           if (C) {
             if (s) {
               var M,
-                B = "y" === _ ? k : A,
-                q = "y" === _ ? x : T,
+                B = "y" === _ ? T : A,
+                q = "y" === _ ? k : S,
                 Z = "y" === _ ? "height" : "width",
                 U = C[_],
-                j = U + D[B],
-                H = U - D[q],
-                F = I ? -N[Z] / 2 : 0,
+                H = U + D[B],
+                j = U - D[q],
+                F = g ? -N[Z] / 2 : 0,
                 G = y === E ? P[Z] : N[Z],
                 Y = y === E ? -N[Z] : -P[Z],
                 X = e.elements.arrow,
-                Q = I && X ? v(X) : { width: 0, height: 0 },
+                Q = g && X ? v(X) : { width: 0, height: 0 },
                 J = e.modifiersData["arrow#persistent"]
                   ? e.modifiersData["arrow#persistent"].padding
                   : { top: 0, right: 0, bottom: 0, left: 0 },
                 tt = J[B],
                 et = J[q],
                 rt = ut(0, P[Z], Q[Z]),
-                it = b ? P[Z] / 2 - F - rt - tt - L.mainAxis : G - rt - tt - L.mainAxis,
-                at = b ? -P[Z] / 2 + F + rt + et + L.mainAxis : Y + rt + et + L.mainAxis,
-                st = e.elements.arrow && S(e.elements.arrow),
+                it = b ? P[Z] / 2 - F - rt - tt - $.mainAxis : G - rt - tt - $.mainAxis,
+                at = b ? -P[Z] / 2 + F + rt + et + $.mainAxis : Y + rt + et + $.mainAxis,
+                st = e.elements.arrow && x(e.elements.arrow),
                 ot = st ? ("y" === _ ? st.clientTop || 0 : st.clientLeft || 0) : 0,
-                nt = null != (M = null == O ? void 0 : O[_]) ? M : 0,
+                nt = null != (M = null == R ? void 0 : R[_]) ? M : 0,
                 ct = U + at - nt,
-                lt = ut(I ? c(j, U + it - nt - ot) : j, U, I ? n(H, ct) : H);
-              (C[_] = lt), (R[_] = lt - U);
+                lt = ut(g ? c(H, U + it - nt - ot) : H, U, g ? n(j, ct) : j);
+              (C[_] = lt), (O[_] = lt - U);
             }
             if (l) {
               var mt,
-                pt = "x" === _ ? k : A,
-                ht = "x" === _ ? x : T,
-                It = C[w],
-                gt = "y" === w ? "height" : "width",
-                ft = It + D[pt],
-                Dt = It - D[ht],
-                Vt = -1 !== [k, A].indexOf(V),
-                vt = null != (mt = null == O ? void 0 : O[w]) ? mt : 0,
-                yt = Vt ? ft : It - P[gt] - N[gt] - vt + L.altAxis,
-                bt = Vt ? It + P[gt] + N[gt] - vt - L.altAxis : Dt,
+                pt = "x" === _ ? T : A,
+                ht = "x" === _ ? k : S,
+                gt = C[w],
+                It = "y" === w ? "height" : "width",
+                ft = gt + D[pt],
+                Dt = gt - D[ht],
+                Vt = -1 !== [T, A].indexOf(V),
+                vt = null != (mt = null == R ? void 0 : R[w]) ? mt : 0,
+                yt = Vt ? ft : gt - P[It] - N[It] - vt + $.altAxis,
+                bt = Vt ? gt + P[It] + N[It] - vt - $.altAxis : Dt,
                 _t =
-                  I && Vt
+                  g && Vt
                     ? (function (t, e, r) {
                         var i = ut(t, e, r);
                         return i > r ? r : i;
-                      })(yt, It, bt)
-                    : ut(I ? yt : ft, It, I ? bt : Dt);
-              (C[w] = _t), (R[w] = _t - It);
+                      })(yt, gt, bt)
+                    : ut(g ? yt : ft, gt, g ? bt : Dt);
+              (C[w] = _t), (O[w] = _t - gt);
             }
-            e.modifiersData[i] = R;
+            e.modifiersData[i] = O;
           }
         },
         requiresIfExists: ["offset"]
@@ -25026,7 +27058,7 @@ var source;
             o = r.modifiersData.popperOffsets,
             n = z(r.placement),
             c = K(n),
-            l = [A, T].indexOf(n) >= 0 ? "height" : "width";
+            l = [A, S].indexOf(n) >= 0 ? "height" : "width";
           if (s && o) {
             var d = (function (t, e) {
                 return ct(
@@ -25036,13 +27068,13 @@ var source;
                 );
               })(a.padding, r),
               u = v(s),
-              m = "y" === c ? k : A,
-              p = "y" === c ? x : T,
+              m = "y" === c ? T : A,
+              p = "y" === c ? k : S,
               h = r.rects.reference[l] + r.rects.reference[c] - o[c] - r.rects.popper[l],
-              I = o[c] - r.rects.reference[c],
-              g = S(s),
-              f = g ? ("y" === c ? g.clientHeight || 0 : g.clientWidth || 0) : 0,
-              D = h / 2 - I / 2,
+              g = o[c] - r.rects.reference[c],
+              I = x(s),
+              f = I ? ("y" === c ? I.clientHeight || 0 : I.clientWidth || 0) : 0,
+              D = h / 2 - g / 2,
               V = d[m],
               y = f - u[l] - d[p],
               b = f / 2 - u[l] / 2 + D,
@@ -25069,12 +27101,12 @@ var source;
           { top: t.top - e.height - r.y, right: t.right - e.width + r.x, bottom: t.bottom - e.height + r.y, left: t.left - e.width - r.x }
         );
       }
-      function It(t) {
-        return [k, T, x, A].some(function (e) {
+      function gt(t) {
+        return [T, S, k, A].some(function (e) {
           return t[e] >= 0;
         });
       }
-      var gt = F({
+      var It = F({
         defaultModifiers: [
           {
             name: "eventListeners",
@@ -25239,19 +27271,19 @@ var source;
                     m = r.altBoundary,
                     p = r.flipVariations,
                     h = void 0 === p || p,
-                    I = r.allowedAutoPlacements,
-                    g = e.options.placement,
-                    f = z(g),
+                    g = r.allowedAutoPlacements,
+                    I = e.options.placement,
+                    f = z(I),
                     D =
                       c ||
-                      (f === g || !h
-                        ? [et(g)]
+                      (f === I || !h
+                        ? [et(I)]
                         : (function (t) {
                             if (z(t) === P) return [];
                             var e = et(t);
                             return [it(t), e, it(e)];
-                          })(g)),
-                    V = [g].concat(D).reduce(function (t, r) {
+                          })(I)),
+                    V = [I].concat(D).reduce(function (t, r) {
                       return t.concat(
                         z(r) === P
                           ? (function (t, e) {
@@ -25282,7 +27314,7 @@ var source;
                               return Object.keys(p).sort(function (t, e) {
                                 return p[t] - p[e];
                               });
-                            })(e, { placement: r, boundary: d, rootBoundary: u, padding: l, flipVariations: h, allowedAutoPlacements: I })
+                            })(e, { placement: r, boundary: d, rootBoundary: u, padding: l, flipVariations: h, allowedAutoPlacements: g })
                           : r
                       );
                     }, []),
@@ -25295,31 +27327,31 @@ var source;
                   C < V.length;
                   C++
                 ) {
-                  var S = V[C],
-                    $ = z(S),
-                    L = W(S) === E,
-                    O = [k, x].indexOf($) >= 0,
-                    R = O ? "width" : "height",
-                    M = dt(e, { placement: S, boundary: d, rootBoundary: u, altBoundary: m, padding: l }),
-                    Z = O ? (L ? T : A) : L ? x : k;
-                  v[R] > y[R] && (Z = et(Z));
+                  var x = V[C],
+                    L = z(x),
+                    $ = W(x) === E,
+                    R = [T, k].indexOf(L) >= 0,
+                    O = R ? "width" : "height",
+                    M = dt(e, { placement: x, boundary: d, rootBoundary: u, altBoundary: m, padding: l }),
+                    Z = R ? ($ ? S : A) : $ ? k : T;
+                  v[O] > y[O] && (Z = et(Z));
                   var U = et(Z),
-                    j = [];
+                    H = [];
                   if (
-                    (s && j.push(M[$] <= 0),
-                    n && j.push(M[Z] <= 0, M[U] <= 0),
-                    j.every(function (t) {
+                    (s && H.push(M[L] <= 0),
+                    n && H.push(M[Z] <= 0, M[U] <= 0),
+                    H.every(function (t) {
                       return t;
                     }))
                   ) {
-                    (w = S), (_ = !1);
+                    (w = x), (_ = !1);
                     break;
                   }
-                  b.set(S, j);
+                  b.set(x, H);
                 }
                 if (_)
                   for (
-                    var H = function (t) {
+                    var j = function (t) {
                         var e = V.find(function (e) {
                           var r = b.get(e);
                           if (r)
@@ -25333,7 +27365,7 @@ var source;
                     F > 0;
                     F--
                   ) {
-                    if ("break" === H(F)) break;
+                    if ("break" === j(F)) break;
                   }
                 e.placement !== w && ((e.modifiersData[i]._skip = !0), (e.placement = w), (e.reset = !0));
               }
@@ -25358,8 +27390,8 @@ var source;
                 n = dt(e, { altBoundary: !0 }),
                 c = ht(o, i),
                 l = ht(n, a, s),
-                d = It(c),
-                u = It(l);
+                d = gt(c),
+                u = gt(l);
               (e.modifiersData[r] = { referenceClippingOffsets: c, popperEscapeOffsets: l, isReferenceHidden: d, hasPopperEscaped: u }),
                 (e.attributes.popper = Object.assign({}, e.attributes.popper, {
                   "data-popper-reference-hidden": d,
@@ -25370,7 +27402,7 @@ var source;
         ]
       });
     },
-    2264: (t, e, r) => {
+    62264: (t, e, r) => {
       "use strict";
       function i(t, e, r, i, a, s, o, n) {
         var c,
@@ -25411,7 +27443,7 @@ var source;
       }
       r.d(e, { Z: () => i });
     },
-    2459: (t, e, r) => {
+    42459: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -25446,10 +27478,10 @@ var source;
         );
       };
       i._withStripped = !0;
-      const a = { components: { RakutenIcon: r(7659).Z }, props: { hover: { type: Boolean, default: !0 } } };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const a = { components: { RakutenIcon: r(17659).Z }, props: { hover: { type: Boolean, default: !0 } } };
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    6846: (t, e, r) => {
+    56846: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -25504,9 +27536,9 @@ var source;
           isCssColor: (t) => t && t.match(/^(#|var\(--|(rgb|hsl)a?\()/)
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    2977: (t, e, r) => {
+    62977: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => n });
       var i = function () {
@@ -25529,8 +27561,8 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(2737),
-        s = r(3669);
+      var a = r(92737),
+        s = r(43669);
       const o = {
         components: { ExitIcon: a.Z, RIconButton: s.Z },
         props: {
@@ -25551,9 +27583,9 @@ var source;
         },
         methods: { isCssColor: (t) => t && t.match(/^(#|var\(--|(rgb|hsl)a?\()/) }
       };
-      const n = (0, r(2264).Z)(o, i, [], !1, null, null, null).exports;
+      const n = (0, r(62264).Z)(o, i, [], !1, null, null, null).exports;
     },
-    1145: (t, e, r) => {
+    31145: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -25575,9 +27607,9 @@ var source;
           }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    1183: (t, e, r) => {
+    61183: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => n });
       var i = function () {
@@ -25631,8 +27663,8 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(2977),
-        s = r(7138);
+      var a = r(62977),
+        s = r(91694);
       const o = {
         components: { RCloseButton: a.Z, RHeadingLogo: s.Z },
         props: {
@@ -25686,9 +27718,9 @@ var source;
           }
         }
       };
-      const n = (0, r(2264).Z)(o, i, [], !1, null, null, null).exports;
+      const n = (0, r(62264).Z)(o, i, [], !1, null, null, null).exports;
     },
-    1868: (t, e, r) => {
+    51868: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => U });
       var i = function () {
@@ -25728,7 +27760,7 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(1183),
+      var a = r(61183),
         s = [
           "input:not([inert])",
           "select:not([inert])",
@@ -25803,16 +27835,16 @@ var source;
             ? 0
             : t.tabIndex;
         },
-        I = function (t, e) {
+        g = function (t, e) {
           return t.tabIndex === e.tabIndex ? t.documentOrder - e.documentOrder : t.tabIndex - e.tabIndex;
         },
-        g = function (t) {
+        I = function (t) {
           return "INPUT" === t.tagName;
         },
         f = function (t) {
           return (
             (function (t) {
-              return g(t) && "radio" === t.type;
+              return I(t) && "radio" === t.type;
             })(t) &&
             !(function (t) {
               if (!t.name) return !0;
@@ -25900,7 +27932,7 @@ var source;
             e.disabled ||
             d(e) ||
             (function (t) {
-              return g(t) && "hidden" === t.type;
+              return I(t) && "hidden" === t.type;
             })(e) ||
             V(e, t) ||
             (function (t) {
@@ -25949,7 +27981,7 @@ var source;
               0 === n ? (s ? r.push.apply(r, c) : r.push(o)) : i.push({ documentOrder: a, tabIndex: n, item: e, isScope: s, content: c });
             }),
             i
-              .sort(I)
+              .sort(g)
               .reduce(function (t, e) {
                 return e.isScope ? t.push.apply(t, e.content) : t.push(e.content), t;
               }, [])
@@ -25961,11 +27993,11 @@ var source;
           return !1 !== c.call(t, o) && y(e, t);
         },
         C = s.concat("iframe").join(","),
-        S = function (t, e) {
+        x = function (t, e) {
           if (((e = e || {}), !t)) throw new Error("No node provided");
           return !1 !== c.call(t, C) && v(e, t);
         };
-      function k(t, e) {
+      function T(t, e) {
         var r = Object.keys(t);
         if (Object.getOwnPropertySymbols) {
           var i = Object.getOwnPropertySymbols(t);
@@ -25977,22 +28009,22 @@ var source;
         }
         return r;
       }
-      function x(t) {
+      function k(t) {
         for (var e = 1; e < arguments.length; e++) {
           var r = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? k(Object(r), !0).forEach(function (e) {
-                T(t, e, r[e]);
+            ? T(Object(r), !0).forEach(function (e) {
+                S(t, e, r[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r))
-            : k(Object(r)).forEach(function (e) {
+            : T(Object(r)).forEach(function (e) {
                 Object.defineProperty(t, e, Object.getOwnPropertyDescriptor(r, e));
               });
         }
         return t;
       }
-      function T(t, e, r) {
+      function S(t, e, r) {
         return (
           (e = (function (t) {
             var e = (function (t, e) {
@@ -26030,13 +28062,13 @@ var source;
         E = function (t) {
           return N(t) && !t.shiftKey;
         },
-        $ = function (t) {
+        L = function (t) {
           return N(t) && t.shiftKey;
         },
-        L = function (t) {
+        $ = function (t) {
           return setTimeout(t, 0);
         },
-        O = function (t, e) {
+        R = function (t, e) {
           var r = -1;
           return (
             t.every(function (t, i) {
@@ -26045,7 +28077,7 @@ var source;
             r
           );
         },
-        R = function (t) {
+        O = function (t) {
           for (var e = arguments.length, r = new Array(e > 1 ? e - 1 : 0), i = 1; i < e; i++) r[i - 1] = arguments[i];
           return "function" == typeof t ? t.apply(void 0, r) : t;
         },
@@ -26057,7 +28089,7 @@ var source;
           var r,
             i = (null == e ? void 0 : e.document) || document,
             a = (null == e ? void 0 : e.trapStack) || B,
-            s = x({ returnFocusOnDeactivate: !0, escapeDeactivates: !0, delayInitialFocus: !0, isKeyForward: E, isKeyBackward: $ }, e),
+            s = k({ returnFocusOnDeactivate: !0, escapeDeactivates: !0, delayInitialFocus: !0, isKeyForward: E, isKeyBackward: L }, e),
             o = {
               containers: [],
               containerGroups: [],
@@ -26104,7 +28136,7 @@ var source;
             d = function () {
               var t = l("initialFocus");
               if (!1 === t) return !1;
-              if (void 0 === t || !S(t, s.tabbableOptions))
+              if (void 0 === t || !x(t, s.tabbableOptions))
                 if (c(i.activeElement) >= 0) t = i.activeElement;
                 else {
                   var e = o.tabbableGroups[0];
@@ -26192,13 +28224,13 @@ var source;
                   "At least one node with a positive tabindex was found in one of your focus-trap's multiple containers. Positive tabindexes are only supported in single-container focus-traps."
                 );
             },
-            I = function t(e) {
+            g = function t(e) {
               var r = e.activeElement;
               if (r) return r.shadowRoot && null !== r.shadowRoot.activeElement ? t(r.shadowRoot) : r;
             },
-            g = function t(e) {
+            I = function t(e) {
               !1 !== e &&
-                e !== I(document) &&
+                e !== g(document) &&
                 (e && e.focus
                   ? (e.focus({ preventScroll: !!s.preventScroll }),
                     (o.mostRecentlyFocusedNode = e),
@@ -26223,28 +28255,28 @@ var source;
                   u = d >= 0 ? o.containerGroups[d] : void 0;
                 if (d < 0) n = a ? o.tabbableGroups[o.tabbableGroups.length - 1].lastTabbableNode : o.tabbableGroups[0].firstTabbableNode;
                 else if (a) {
-                  var m = O(o.tabbableGroups, function (t) {
+                  var m = R(o.tabbableGroups, function (t) {
                     var r = t.firstTabbableNode;
                     return e === r;
                   });
                   if (
                     (m < 0 &&
-                      (u.container === e || (S(e, s.tabbableOptions) && !w(e, s.tabbableOptions) && !u.nextTabbableNode(e, !1))) &&
+                      (u.container === e || (x(e, s.tabbableOptions) && !w(e, s.tabbableOptions) && !u.nextTabbableNode(e, !1))) &&
                       (m = d),
                     m >= 0)
                   ) {
-                    var I = 0 === m ? o.tabbableGroups.length - 1 : m - 1,
-                      g = o.tabbableGroups[I];
-                    n = h(e) >= 0 ? g.lastTabbableNode : g.lastDomTabbableNode;
+                    var g = 0 === m ? o.tabbableGroups.length - 1 : m - 1,
+                      I = o.tabbableGroups[g];
+                    n = h(e) >= 0 ? I.lastTabbableNode : I.lastDomTabbableNode;
                   } else N(r) || (n = u.nextTabbableNode(e, !1));
                 } else {
-                  var f = O(o.tabbableGroups, function (t) {
+                  var f = R(o.tabbableGroups, function (t) {
                     var r = t.lastTabbableNode;
                     return e === r;
                   });
                   if (
                     (f < 0 &&
-                      (u.container === e || (S(e, s.tabbableOptions) && !w(e, s.tabbableOptions) && !u.nextTabbableNode(e))) &&
+                      (u.container === e || (x(e, s.tabbableOptions) && !w(e, s.tabbableOptions) && !u.nextTabbableNode(e))) &&
                       (f = d),
                     f >= 0)
                   ) {
@@ -26259,9 +28291,9 @@ var source;
             V = function (t) {
               var e = M(t);
               c(e, t) >= 0 ||
-                (R(s.clickOutsideDeactivates, t)
+                (O(s.clickOutsideDeactivates, t)
                   ? r.deactivate({ returnFocus: s.returnFocusOnDeactivate })
-                  : R(s.allowOutsideClick, t) || t.preventDefault());
+                  : O(s.allowOutsideClick, t) || t.preventDefault());
             },
             C = function (t) {
               var e = M(t),
@@ -26292,17 +28324,17 @@ var source;
                     }) || (a = !1);
                 else a = !1;
                 a && (i = D({ target: o.mostRecentlyFocusedNode, isBackward: s.isKeyBackward(o.recentNavEvent) })),
-                  g(i || o.mostRecentlyFocusedNode || d());
+                  I(i || o.mostRecentlyFocusedNode || d());
               }
               o.recentNavEvent = void 0;
             },
-            k = function (t) {
+            T = function (t) {
               if (
                 !((e = t),
                 ("Escape" !== (null == e ? void 0 : e.key) &&
                   "Esc" !== (null == e ? void 0 : e.key) &&
                   27 !== (null == e ? void 0 : e.keyCode)) ||
-                  !1 === R(s.escapeDeactivates, t))
+                  !1 === O(s.escapeDeactivates, t))
               )
                 return t.preventDefault(), void r.deactivate();
               var e;
@@ -26311,14 +28343,14 @@ var source;
                   var e = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
                   o.recentNavEvent = t;
                   var r = D({ event: t, isBackward: e });
-                  r && (N(t) && t.preventDefault(), g(r));
+                  r && (N(t) && t.preventDefault(), I(r));
                 })(t, s.isKeyBackward(t));
             },
-            T = function (t) {
+            S = function (t) {
               var e = M(t);
               c(e, t) >= 0 ||
-                R(s.clickOutsideDeactivates, t) ||
-                R(s.allowOutsideClick, t) ||
+                O(s.clickOutsideDeactivates, t) ||
+                O(s.allowOutsideClick, t) ||
                 (t.preventDefault(), t.stopImmediatePropagation());
             },
             q = function () {
@@ -26326,15 +28358,15 @@ var source;
                 return (
                   A(a, r),
                   (o.delayInitialFocusTimer = s.delayInitialFocus
-                    ? L(function () {
-                        g(d());
+                    ? $(function () {
+                        I(d());
                       })
-                    : g(d())),
+                    : I(d())),
                   i.addEventListener("focusin", C, !0),
                   i.addEventListener("mousedown", V, { capture: !0, passive: !1 }),
                   i.addEventListener("touchstart", V, { capture: !0, passive: !1 }),
-                  i.addEventListener("click", T, { capture: !0, passive: !1 }),
-                  i.addEventListener("keydown", k, { capture: !0, passive: !1 }),
+                  i.addEventListener("click", S, { capture: !0, passive: !1 }),
+                  i.addEventListener("keydown", T, { capture: !0, passive: !1 }),
                   r
                 );
             },
@@ -26344,8 +28376,8 @@ var source;
                   i.removeEventListener("focusin", C, !0),
                   i.removeEventListener("mousedown", V, !0),
                   i.removeEventListener("touchstart", V, !0),
-                  i.removeEventListener("click", T, !0),
-                  i.removeEventListener("keydown", k, !0),
+                  i.removeEventListener("click", S, !0),
+                  i.removeEventListener("keydown", T, !0),
                   r
                 );
             },
@@ -26356,10 +28388,10 @@ var source;
                       return Array.from(t.removedNodes).some(function (t) {
                         return t === o.mostRecentlyFocusedNode;
                       });
-                    }) && g(d());
+                    }) && I(d());
                   })
                 : void 0,
-            j = function () {
+            H = function () {
               U &&
                 (U.disconnect(),
                 o.active &&
@@ -26383,13 +28415,13 @@ var source;
                   a = n(t, "checkCanFocusTrap");
                 a || p(), (o.active = !0), (o.paused = !1), (o.nodeFocusedBeforeActivation = i.activeElement), null == e || e();
                 var s = function () {
-                  a && p(), q(), j(), null == r || r();
+                  a && p(), q(), H(), null == r || r();
                 };
                 return a ? (a(o.containers.concat()).then(s, s), this) : (s(), this);
               },
               deactivate: function (t) {
                 if (!o.active) return this;
-                var e = x(
+                var e = k(
                   { onDeactivate: s.onDeactivate, onPostDeactivate: s.onPostDeactivate, checkCanReturnFocus: s.checkCanReturnFocus },
                   t
                 );
@@ -26398,7 +28430,7 @@ var source;
                   Z(),
                   (o.active = !1),
                   (o.paused = !1),
-                  j(),
+                  H(),
                   P(a, r);
                 var i = n(e, "onDeactivate"),
                   c = n(e, "onPostDeactivate"),
@@ -26406,8 +28438,8 @@ var source;
                   d = n(e, "returnFocus", "returnFocusOnDeactivate");
                 null == i || i();
                 var u = function () {
-                  L(function () {
-                    d && g(f(o.nodeFocusedBeforeActivation)), null == c || c();
+                  $(function () {
+                    d && I(f(o.nodeFocusedBeforeActivation)), null == c || c();
                   });
                 };
                 return d && l ? (l(f(o.nodeFocusedBeforeActivation)).then(u, u), this) : (u(), this);
@@ -26416,13 +28448,13 @@ var source;
                 if (o.paused || !o.active) return this;
                 var e = n(t, "onPause"),
                   r = n(t, "onPostPause");
-                return (o.paused = !0), null == e || e(), Z(), j(), null == r || r(), this;
+                return (o.paused = !0), null == e || e(), Z(), H(), null == r || r(), this;
               },
               unpause: function (t) {
                 if (!o.paused || !o.active) return this;
                 var e = n(t, "onUnpause"),
                   r = n(t, "onPostUnpause");
-                return (o.paused = !1), null == e || e(), p(), q(), j(), null == r || r(), this;
+                return (o.paused = !1), null == e || e(), p(), q(), H(), null == r || r(), this;
               },
               updateContainerElements: function (t) {
                 var e = [].concat(t).filter(Boolean);
@@ -26431,7 +28463,7 @@ var source;
                     return "string" == typeof t ? i.querySelector(t) : t;
                   })),
                   o.active && p(),
-                  j(),
+                  H(),
                   this
                 );
               }
@@ -26480,9 +28512,9 @@ var source;
           }
         }
       };
-      const U = (0, r(2264).Z)(Z, i, [], !1, null, null, null).exports;
+      const U = (0, r(62264).Z)(Z, i, [], !1, null, null, null).exports;
     },
-    3669: (t, e, r) => {
+    43669: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26525,9 +28557,9 @@ var source;
           }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    1165: (t, e, r) => {
+    81165: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26545,16 +28577,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    2838: (t, e, r) => {
+    22838: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26572,16 +28604,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    8316: (t, e, r) => {
+    26097: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26599,16 +28631,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    4994: (t, e, r) => {
+    84994: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26624,16 +28656,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    2737: (t, e, r) => {
+    92737: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26646,16 +28678,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    4738: (t, e, r) => {
+    84738: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26673,16 +28705,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    9809: (t, e, r) => {
+    39809: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26698,16 +28730,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    7659: (t, e, r) => {
+    17659: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26723,16 +28755,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    1694: (t, e, r) => {
+    11694: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26770,9 +28802,9 @@ var source;
           }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    154: (t, e, r) => {
+    50154: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26788,16 +28820,16 @@ var source;
       };
       i._withStripped = !0;
       const a = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    696: (t, e, r) => {
+    50696: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => o });
       var i = function () {
@@ -26824,7 +28856,7 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(8355);
+      var a = r(18355);
       const s = {
         props: { href: { type: String, default: null } },
         emits: ["click"],
@@ -26835,9 +28867,9 @@ var source;
           sanitizeUrl: (t) => (0, a.Nm)(t)
         }
       };
-      const o = (0, r(2264).Z)(s, i, [], !1, null, null, null).exports;
+      const o = (0, r(62264).Z)(s, i, [], !1, null, null, null).exports;
     },
-    9597: (t, e, r) => {
+    89597: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => c });
       var i = function () {
@@ -26864,21 +28896,21 @@ var source;
       };
       a._withStripped = !0;
       const s = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      var o = r(2264);
+      var o = r(62264);
       const n = {
         components: { LoaderIcon: (0, o.Z)(s, a, [], !1, null, null, null).exports },
         props: { color: { type: String, default: "#8529cd" }, size: { type: String, default: "28px" } }
       };
       const c = (0, o.Z)(n, i, [], !1, null, null, null).exports;
     },
-    7138: (t, e, r) => {
+    91694: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26892,10 +28924,10 @@ var source;
         );
       };
       i._withStripped = !0;
-      const a = { components: { RLogo: r(7573).Z } };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const a = { components: { RLogo: r(65900).Z } };
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    7573: (t, e, r) => {
+    65900: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => o });
       var i = function () {
@@ -26923,7 +28955,7 @@ var source;
               ? "icon" === this.variant || "icon-white" === this.variant
                 ? { height: "24px", width: "24px" }
                 : { height: "18px", width: "60px" }
-              : "icon" === this.variant
+              : "icon" === this.variant || "icon-white" === this.variant
               ? { height: "40px", width: "40px" }
               : { height: "24px", width: "80px" };
           },
@@ -26938,9 +28970,9 @@ var source;
           }
         }
       };
-      const o = (0, r(2264).Z)(s, i, [], !1, null, null, null).exports;
+      const o = (0, r(62264).Z)(s, i, [], !1, null, null, null).exports;
     },
-    3124: (t, e, r) => {
+    13124: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -26995,9 +29027,9 @@ var source;
           }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    7027: (t, e, r) => {
+    77027: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -27018,9 +29050,9 @@ var source;
           }
         }
       };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    369: (t, e, r) => {
+    30369: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => s });
       var i = function () {
@@ -27035,9 +29067,9 @@ var source;
       };
       i._withStripped = !0;
       const a = { props: { icon: { type: Boolean, default: !1 } } };
-      const s = (0, r(2264).Z)(a, i, [], !1, null, null, null).exports;
+      const s = (0, r(62264).Z)(a, i, [], !1, null, null, null).exports;
     },
-    7040: (t, e, r) => {
+    35597: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => d });
       var i = function () {
@@ -27060,7 +29092,7 @@ var source;
             ])
           },
           [
-            e("span", [t._v(t._s(t.label))]),
+            e("span", [t._v(t._s(t.label)), t._t("default")], 2),
             t.previousRewardLabel
               ? e("span", { staticClass: "rr-t-body rr-text-tertiary rr-ml-4" }, [t._v(t._s(t.previousRewardLabel))])
               : t._e()
@@ -27068,8 +29100,8 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(8812),
-        s = r(4927),
+      var a = r(28812),
+        s = r(54927),
         o = function () {
           var t = this,
             e = t._self._c;
@@ -27085,16 +29117,16 @@ var source;
         };
       o._withStripped = !0;
       const n = {
-        components: { SvgIcon: r(1694).Z },
+        components: { SvgIcon: r(11694).Z },
         props: {
           color: { type: String, default: "currentColor" },
           size: { type: [Number, String], default: 16 },
           rotate: { type: Number, default: 0 }
         }
       };
-      var c = r(2264);
+      var c = r(62264);
       const l = {
-        components: { CashBackInverseIcon: (0, c.Z)(n, o, [], !1, null, null, null).exports, RTagInlineBase: r(369).Z },
+        components: { CashBackInverseIcon: (0, c.Z)(n, o, [], !1, null, null, null).exports, RTagInlineBase: r(30369).Z },
         props: {
           reward: { type: Object, required: !0 },
           previousReward: { type: Object, default: null },
@@ -27232,11 +29264,11 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(507),
-        s = r(1218),
-        o = r(7027),
-        n = r(7040),
-        c = r(4738);
+      var a = r(50507),
+        s = r(91218),
+        o = r(77027),
+        n = r(35597),
+        c = r(84738);
       const l = "Extra cashback",
         d = {
           components: { RCashback: n.Z, RTagFloating: o.Z, ExternalLink: c.Z },
@@ -27269,9 +29301,9 @@ var source;
             formatPrice: (t) => (0, s.l)(t)
           }
         };
-      const u = (0, r(2264).Z)(d, i, [], !1, null, null, null).exports;
+      const u = (0, r(62264).Z)(d, i, [], !1, null, null, null).exports;
     },
-    2803: (t, e, r) => {
+    72803: (t, e, r) => {
       "use strict";
       r.d(e, { Z: () => o });
       var i = function () {
@@ -27306,9 +29338,9 @@ var source;
         );
       };
       i._withStripped = !0;
-      var a = r(6818);
+      var a = r(46818);
       const s = {
-        components: { RForm: r(1183).Z },
+        components: { RForm: r(61183).Z },
         props: {
           arrow: { type: Boolean, default: !0 },
           backgroundColor: { type: String, default: "white" },
@@ -27384,12 +29416,12 @@ var source;
           }
         }
       };
-      const o = (0, r(2264).Z)(s, i, [], !1, null, null, null).exports;
+      const o = (0, r(62264).Z)(s, i, [], !1, null, null, null).exports;
     }
   },
   (t) => {
     var e,
-      r = ((e = 2823), t((t.s = e)));
+      r = ((e = 8893), t((t.s = e)));
     source = r;
   }
 ]);

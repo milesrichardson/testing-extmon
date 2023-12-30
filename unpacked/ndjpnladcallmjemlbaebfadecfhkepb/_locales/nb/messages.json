@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Apper"
+  },
+  "EndOfSupportHeader": {
+    "message": "Avvikling av kundestøtte for Microsoft 365-utvidelse"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Fra og med 15. januar 2024 vil ikke denne utvidelsen lenger støttes av Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Hvis du vil ha mer informasjon, kan du gå til støttesiden for denne utvidelsen."
+  },
+  "Support": {
+    "message": "Kundestøtte"
   }
 }

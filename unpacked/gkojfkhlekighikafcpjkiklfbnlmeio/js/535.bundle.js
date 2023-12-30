@@ -992,7 +992,14 @@
         };
         return React.createElement(
           "a",
-          { className: classnames("link-button", cls), style, href, onClick: click, target: new_tab ? "_blank" : undefined },
+          {
+            className: classnames("link-button", cls),
+            style,
+            href,
+            onClick: click,
+            target: new_tab ? "_blank" : undefined,
+            rel: new_tab ? "noreferrer" : undefined
+          },
           children
         );
       };
@@ -1399,4 +1406,4 @@
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/535.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/535.bundle.js.map?build=nopeer_v2

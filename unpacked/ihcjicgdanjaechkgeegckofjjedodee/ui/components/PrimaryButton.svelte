@@ -10,10 +10,10 @@
 </script>
 
 <Button
-    class="{classes}  text-sm font-semibold rounded-3xl transition-colors duration-200 ease-in-out ring-0 focus:ring-0 
+    class="{classes} text-sm font-semibold rounded-3xl transition-colors duration-200 ease-in-out ring-0 focus:ring-0 
     {outlined
         ? '!bg-transparent border-mbPrimary text-mbPrimary hover:text-mbPrimary-800 hover:border-mbPrimary-800 dark:border-mbPrimaryDark dark:text-mbPrimaryDark dark:hover:text-mbPrimaryDark-800 dark:hover:border-mbPrimaryDark-800'
-        : 'bg-mbPrimary text-white hover:bg-mbPrimary-800 dark:bg-mbPrimaryDark dark:hover:bg-mbPrimaryDark-800 dark:text-bgDark'}"
+        : 'bg-mbPrimary text-white hover:bg-mbPrimary-800 dark:bg-mbPrimaryDark dark:hover:bg-mbPrimaryDark-800 dark:text-bgDark dark:disabled:text-white dark:disabled:bg-[#414451]'}"
     on:click
     {disabled}
     outline={outlined}

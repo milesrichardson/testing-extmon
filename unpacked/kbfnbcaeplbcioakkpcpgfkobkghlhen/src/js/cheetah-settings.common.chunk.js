@@ -63,8 +63,8 @@
       var n = a(50858),
         o = a(55818),
         i = a(27378),
-        l = a(8543),
-        s = a(54001),
+        s = a(8543),
+        l = a(54001),
         r = a(31278),
         c = a(86732),
         d = a(1509),
@@ -74,7 +74,7 @@
         return i.createElement(m.Y, g(e, u.LI));
       }
       function g(e, t) {
-        var a = (0, s.Sh)(e.className, t).className;
+        var a = (0, l.Sh)(e.className, t).className;
         return (0, o._)((0, n._)({}, e), { className: a });
       }
       !(function (e) {
@@ -116,8 +116,8 @@
               d = e.sticky,
               m = e.name;
             return i.createElement(
-              l.F.div,
-              (0, o._)((0, n._)({ role: "group" }, (0, s.Sh)(a, "horizontal" === c ? (!0 === d ? u.vD : u.ru) : u.oc)), { "data-name": m }),
+              s.F.div,
+              (0, o._)((0, n._)({ role: "group" }, (0, l.Sh)(a, "horizontal" === c ? (!0 === d ? u.vD : u.ru) : u.oc)), { "data-name": m }),
               t
             );
           });
@@ -135,7 +135,7 @@
             name: "info-button",
             "aria-label": t,
             tag: m.X.div,
-            title: i.createElement(l.F.div, (0, s.Sh)(u.bC, d), i.createElement("p", null, t)),
+            title: i.createElement(s.F.div, (0, l.Sh)(u.bC, d), i.createElement("p", null, t)),
             titleAlign: a,
             className: n
           },
@@ -148,8 +148,8 @@
       var n = a(27378),
         o = a(85441),
         i = a(8543),
-        l = a(3736),
-        s = a(31212),
+        s = a(3736),
+        l = a(31212),
         r = a(9205),
         c = a(50445),
         d = a(21928),
@@ -168,15 +168,15 @@
         const { domain: h, actions: w, state: f } = e,
           [C, S] = n.useState(!!f.view("page", "enabled").get()),
           x = { checked: C, update: S },
-          T = n.useMemo(() => new y.C((0, o.nD)(b())), []);
+          N = n.useMemo(() => new y.C((0, o.nD)(b())), []);
         return n.createElement(
           k.a.Context.Provider,
-          { value: T },
+          { value: N },
           n.createElement(
             i.F.div,
             { role: "region", "aria-label": "Grammarly settings" },
             f.view(({ user: e, page: a, dynamicConfig: o, dapi: i }) =>
-              n.createElement(l.a, {
+              n.createElement(s.a, {
                 actions: w,
                 config: { enabled: !0, domain: h },
                 settings: a,
@@ -208,7 +208,7 @@
                 isPiiDetectionSupported: (0, v.z)(t, e)
               })
             ),
-            f.view(({ user: e }) => n.createElement(s.Z, { user: e, openSubscriptionDialog: a, isAssistant: !0 }))
+            f.view(({ user: e }) => n.createElement(l.Z, { user: e, openSubscriptionDialog: a, isAssistant: !0 }))
           )
         );
       };
@@ -234,8 +234,8 @@
         var n = a(57050);
       var o = a(7992),
         i = a(48015);
-      if (1388 == a.j) var l = a(5114);
-      if (1388 == a.j) var s = a(55415);
+      if (1388 == a.j) var s = a(5114);
+      if (1388 == a.j) var l = a(55415);
       function r(e, t) {
         var a, n, o;
         const i =
@@ -263,7 +263,7 @@
         });
       }
       function u(e) {
-        return l.tryCatch(() => {
+        return s.tryCatch(() => {
           const t = new URL(e).hostname.split(".");
           return t.slice(t.length - 2).join(".");
         });
@@ -330,7 +330,7 @@
           a = y();
         return (0, n.zG)(
           e,
-          s.H6(
+          l.H6(
             "citeCopyButtonClick",
             "citeCopyIntextClick",
             "citePopupButtonDisable",
@@ -356,13 +356,13 @@
       const o = (e) => e.isGateEnabled(n.K.KnowledgeHubGmail);
     },
     73385: (e, t, a) => {
-      a.d(t, { v: () => l });
+      a.d(t, { v: () => s });
       var n = a(57050),
         o = a(27378),
         i = a(89872);
-      const l = ({ browser: e, className: t, title: a = "BETA", color: l = "blue" }) =>
+      const s = ({ browser: e, className: t, title: a = "BETA", color: s = "blue" }) =>
         "safari" !== e
-          ? o.createElement(i.C, { title: a, className: t, kind: "blue" === l ? "primary" : "green" === l ? "success" : (0, n.Rz)(l) })
+          ? o.createElement(i.C, { title: a, className: t, kind: "blue" === s ? "primary" : "green" === s ? "success" : (0, n.Rz)(s) })
           : null;
     },
     57226: (e, t, a) => {
@@ -384,15 +384,15 @@
       var n = a(27378),
         o = a(62369),
         i = a(93947),
-        l = a(72889),
-        s = a(54001),
+        s = a(72889),
+        l = a(54001),
         r = a(32502),
         c = a.n(r);
       const d = ({ onClick: e, dataGrammarlyPart: t = "unlock-premium-button", className: a }) =>
         n.createElement(
           o.z,
-          { kind: "premium", onClick: e, dataGrammarlyPart: t, ...(0, s.Sh)(c().premiumButton, a) },
-          n.createElement(i.J, { icon: l.O, variant: "premium", accessibilityLabel: "" }),
+          { kind: "premium", onClick: e, dataGrammarlyPart: t, ...(0, l.Sh)(c().premiumButton, a) },
+          n.createElement(i.J, { icon: s.O, variant: "premium", accessibilityLabel: "", size: "large" }),
           n.createElement("span", null, "Unlock Premium")
         );
     },
@@ -401,8 +401,8 @@
       var n = a(27378),
         o = a(17579),
         i = a(64757),
-        l = a(6726),
-        s = a(93265),
+        s = a(6726),
+        l = a(93265),
         r = a(10926),
         c = a(80394);
       const d = ({ lock: e = { message: "", isLocked: !1 }, dialect: t }) =>
@@ -411,7 +411,7 @@
           { className: c.label },
           e.isLocked &&
             n.createElement(
-              l.u,
+              s.u,
               { message: e.message },
               n.createElement("div", { className: c.lockIconWrapper }, n.createElement(o.N, null))
             ),
@@ -422,7 +422,7 @@
               "div",
               { className: `${c.selected} ${e.isLocked ? c.disabled : ""}` },
               n.createElement(r.G, { dialect: t, className: c.option }),
-              n.createElement(s.pL, null)
+              n.createElement(l.pL, null)
             )
           )
         );
@@ -432,8 +432,8 @@
       var n = a(27378),
         o = a(93265),
         i = a(65479),
-        l = a(18208);
-      const s = {
+        s = a(18208);
+      const l = {
           american: n.createElement(o.UE, null),
           australian: n.createElement(o.aE, null),
           british: n.createElement(o.M8, null),
@@ -444,11 +444,11 @@
           n.createElement(
             n.Fragment,
             null,
-            s[e],
+            l[e],
             n.createElement(
               "span",
               { "data-test-attr": `dialect_${e}`, className: `${i.option} ${null != t ? t : ""}` },
-              l.kC(e) + " English"
+              s.kC(e) + " English"
             )
           );
     },
@@ -457,8 +457,8 @@
       var n = a(27378),
         o = a(64757),
         i = a(18813),
-        l = a(63260),
-        s = a(44103),
+        s = a(63260),
+        l = a(44103),
         r = a(10926);
       class c extends n.Component {
         render() {
@@ -467,7 +467,7 @@
             ? { customPosition: { top: `-${32 * (this.props.dialects.length - 1) + 4}px`, left: "0" }, vAlign: "top" }
             : { customPosition: { top: "36px", left: "0" } };
           return (null === (e = this.props.lock) || void 0 === e ? void 0 : e.isLocked)
-            ? n.createElement(l.R, { lock: this.props.lock, dialect: this.props.dialect })
+            ? n.createElement(s.R, { lock: this.props.lock, dialect: this.props.dialect })
             : n.createElement(
                 i.L,
                 {
@@ -476,7 +476,7 @@
                   closeDelay: 150,
                   appearanceBehavior: "mouseClick",
                   name: "dialect",
-                  label: n.createElement(l.R, { dialect: this.props.dialect })
+                  label: n.createElement(s.R, { dialect: this.props.dialect })
                 },
                 this.props.dialects
                   .filter((e) => e !== this.props.dialect)
@@ -484,7 +484,7 @@
                     n.createElement(
                       o.zx.Flat,
                       { name: e, key: e, onClick: (t) => (null == t ? void 0 : t.isTrusted) && this.props.onSetDialect(e) },
-                      n.createElement("div", { className: s.option }, n.createElement(r.G, { className: s.label, dialect: e }))
+                      n.createElement("div", { className: l.option }, n.createElement(r.G, { className: l.label, dialect: e }))
                     )
                   )
               );
@@ -492,7 +492,7 @@
       }
     },
     93265: (e, t, a) => {
-      a.d(t, { M8: () => r, UE: () => l, _P: () => c, aE: () => s, kj: () => d, pL: () => i });
+      a.d(t, { M8: () => r, UE: () => s, _P: () => c, aE: () => l, kj: () => d, pL: () => i });
       var n = a(27378),
         o = a(34917);
       const i = () =>
@@ -501,27 +501,27 @@
             { width: "32", height: "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
             n.createElement("path", { d: "M13.9207 15L15.5 17.2562L17.0793 15H13.9207Z", stroke: "#6D758D", strokeWidth: "2" })
           ),
-        l = () => n.createElement("div", { className: o.american, role: "presentation" }),
-        s = () => n.createElement("div", { className: o.australian, role: "presentation" }),
+        s = () => n.createElement("div", { className: o.american, role: "presentation" }),
+        l = () => n.createElement("div", { className: o.australian, role: "presentation" }),
         r = () => n.createElement("div", { className: o.british, role: "presentation" }),
         c = () => n.createElement("div", { className: o.canadian, role: "presentation" }),
         d = () => n.createElement("div", { className: o.indian, role: "presentation" });
     },
     34601: (e, t, a) => {
-      a.d(t, { w: () => s });
+      a.d(t, { w: () => l });
       var n = a(27378),
         o = a(48015),
         i = a(6726),
-        l = a(50945);
-      const s = ({ children: e, blocked: t, wrapperClassName: a, disabledText: s = "Sign in to use this feature" }) =>
+        s = a(50945);
+      const l = ({ children: e, blocked: t, wrapperClassName: a, disabledText: l = "Sign in to use this feature" }) =>
         t
           ? n.createElement(
               i.u,
-              { message: s, position: "top" },
+              { message: l, position: "top" },
               n.createElement(
                 "div",
                 { className: a },
-                n.createElement("div", { className: l.hover_blocker, onClick: o.EI, onDoubleClick: o.EI }, e)
+                n.createElement("div", { className: s.hover_blocker, onClick: o.EI, onDoubleClick: o.EI }, e)
               )
             )
           : n.createElement(n.Fragment, null, e);
@@ -531,8 +531,8 @@
       var n = a(27378),
         o = a(48015),
         i = a(98716),
-        l = a(34601),
-        s = a(56913),
+        s = a(34601),
+        l = a(56913),
         r = a(54001);
       class c extends n.Component {
         constructor() {
@@ -559,11 +559,11 @@
                 "div",
                 { className: i.select_children },
                 this.props.children,
-                this.props.beta && n.createElement("span", { className: (0, s.G6)() ? i.new : i.beta }),
-                this.props.alpha && n.createElement("span", { className: (0, s.G6)() ? i.new : i.alpha }),
+                this.props.beta && n.createElement("span", { className: (0, l.G6)() ? i.new : i.beta }),
+                this.props.alpha && n.createElement("span", { className: (0, l.G6)() ? i.new : i.alpha }),
                 this.props.new && n.createElement("span", { className: i.new })
               ),
-              n.createElement(l.w, {
+              n.createElement(s.w, {
                 wrapperClassName: i.checkbox_control_wrapper,
                 blocked: this.props.disabled,
                 disabledText: this.props.disabledText
@@ -590,21 +590,21 @@
       var n = a(20641),
         o = a(27378),
         i = a(49405),
-        l = a(9234),
-        s = a(11250);
+        s = a(9234),
+        l = a(11250);
       class r extends o.Component {
         constructor() {
           super(...arguments),
             (this.onEnableDefsClick = (e) => {
               const { toggleDefs: t } = this.props,
                 a = e.target.checked;
-              t(a), s.J.definitionToggleClick(a ? "on" : "off"), (0, n.Tb)().toggleExtensionDefs(a);
+              t(a), l.J.definitionToggleClick(a ? "on" : "off"), (0, n.Tb)().toggleExtensionDefs(a);
             });
         }
         render() {
           const { enabledDefs: e, disabled: t } = this.props;
           return o.createElement(
-            l.C,
+            s.C,
             {
               onChange: this.onEnableDefsClick,
               checked: e,
@@ -625,8 +625,8 @@
       var n = a(27378),
         o = a(17347),
         i = a(98427),
-        l = a(34601),
-        s = a(54001),
+        s = a(34601),
+        l = a(54001),
         r = a(11250);
       class c extends n.Component {
         constructor() {
@@ -642,10 +642,10 @@
           const e = this.props.dialectStrong || this.props.dialectWeak || "american";
           return n.createElement(
             "div",
-            { ...(0, s.Sh)(o.line, this.props.disabled && o.disabled) },
+            { ...(0, l.Sh)(o.line, this.props.disabled && o.disabled) },
             n.createElement("div", null, "I write in"),
             n.createElement(
-              l.w,
+              s.w,
               { blocked: this.props.disabled },
               n.createElement(
                 "div",
@@ -668,8 +668,8 @@
       var n = a(20641),
         o = a(27378),
         i = a(65287),
-        l = a(62369),
-        s = a(56913),
+        s = a(62369),
+        l = a(56913),
         r = a(54001);
       const c = ({ showTitle: e, showBackground: t, openGBLanding: a }) =>
         o.createElement(
@@ -681,11 +681,11 @@
             e && o.createElement("div", { className: i.title }, "Grammarly for your team"),
             o.createElement("div", null, "Help your team make your business look great with top-notch writing."),
             o.createElement(
-              l.z,
+              s.z,
               {
                 size: "medium",
                 onClick: () => {
-                  a((0, s.Um)().businessHomepage), (0, n.Tb)().gGbUpHookClick();
+                  a((0, l.Um)().businessHomepage), (0, n.Tb)().gGbUpHookClick();
                 },
                 className: i.button
               },
@@ -699,8 +699,8 @@
       var n = a(42356),
         o = a(27378),
         i = a(49405),
-        l = a(9264),
-        s = a(9172),
+        s = a(9264),
+        l = a(9172),
         r = a(82828),
         c = a(62369),
         d = a(73385),
@@ -719,7 +719,7 @@
         C = a(24627),
         S = a(49475),
         x = a(34455);
-      const T = (e) =>
+      const N = (e) =>
           o.createElement(
             p.C,
             {
@@ -732,7 +732,7 @@
             },
             e.isAutoApplySupported ? "Correct text automatically" : "Correct spelling automatically"
           ),
-        N = (e) =>
+        T = (e) =>
           o.createElement(
             p.C,
             {
@@ -784,7 +784,16 @@
           o.createElement(
             "div",
             { className: i.cheetahLabelAndButton },
-            o.createElement("div", { className: i.cheetahLabel }, o.createElement("b", null, "GrammarlyGO")),
+            o.createElement(
+              "div",
+              null,
+              o.createElement("div", { className: i.cheetahLabel }, o.createElement("b", null, "Generative AI")),
+              o.createElement(
+                "div",
+                { className: i.llamaDescription },
+                "Brainstorm, write, and rewrite with Grammarly’s generative AI assistance."
+              )
+            ),
             o.createElement(
               c.z,
               {
@@ -814,7 +823,7 @@
             },
             e.label
           ),
-        G = (e) =>
+        L = (e) =>
           o.createElement(
             p.C,
             {
@@ -826,16 +835,15 @@
               dataGrammarlyPart: "settings-toggle-include-serengeti-context",
               isKeyboardAccessible: e.isKeyboardAccessible
             },
-            "Use organizational context in",
+            "Use organizational context",
             " ",
             o.createElement(
               "span",
               { className: i.nobr },
-              "GrammarlyGO ",
               o.createElement(d.v, { browser: (0, h.qs)(), color: "green", title: "internal" })
             )
           ),
-        L = (e) =>
+        G = (e) =>
           o.createElement(
             p.C,
             {
@@ -976,7 +984,7 @@
             )
           ),
         R = (e) => {
-          var t, a, i, d, u, p, R, F, I, M, U, O, J, z, W, Z, V, j, q, Y, Q;
+          var t, a, i, d, u, p, R, I, F, M, U, z, J, O, W, Z, V, j, q, Y, Q;
           const {
             actions: X,
             activeTab: $,
@@ -986,8 +994,8 @@
             user: ne,
             siteCategory: oe,
             openGBLanding: ie,
-            showGBUpHook: le,
-            placement: se,
+            showGBUpHook: se,
+            placement: le,
             dynamicConfig: re,
             enableRenderingHack: ce = !1,
             showCitationBuilderToggle: de = !0,
@@ -1020,9 +1028,9 @@
             }, []);
           const { premium: fe, experiments: Ce, anonymous: Se } = ne,
             xe = k.n5.isGrammarlyEmployee(ne) && ve,
-            Te = le && fe && !k.n5.doesUserBelongToInstitution(ne),
-            { dialectSettings: Ne } = te,
-            Ae = (null == Ne ? void 0 : Ne.dialect) || ae.dialectStrong,
+            Ne = se && fe && !k.n5.doesUserBelongToInstitution(ne),
+            { dialectSettings: Te } = te,
+            Ae = (null == Te ? void 0 : Te.dialect) || ae.dialectStrong,
             Be = ["british", "american", "australian", "canadian", ...(be ? ["indian"] : [])],
             _e = e.siteSwitcherChecked || {
               checked: !!te.enabled,
@@ -1040,9 +1048,9 @@
                   domain: ee.domain,
                   enabled: e,
                   pathName: t,
-                  inAllowList: $ && (0, s.eC)(new URL($.url), re)
+                  inAllowList: $ && (0, l.eC)(new URL($.url), re)
                 }),
-                  e || w.J.citePopupButtonDisable(ee.domain, "permanent", me || "", "toolbar", ue && !0 === (0, s.gO)(ee.domain, te));
+                  e || w.J.citePopupButtonDisable(ee.domain, "permanent", me || "", "toolbar", ue && !0 === (0, l.gO)(ee.domain, te));
               },
               [null == $ ? void 0 : $.url, ee.domain, me]
             );
@@ -1058,7 +1066,7 @@
                 {
                   kind: "link",
                   onClick: () => {
-                    e.openUrl((0, h.Um)().allSettings), w.J.allSettingsButtonClick(se);
+                    e.openUrl((0, h.Um)().allSettings), w.J.allSettingsButtonClick(le);
                   }
                 },
                 o.createElement(
@@ -1073,7 +1081,7 @@
               o.createElement(
                 o.Fragment,
                 null,
-                o.createElement(N, {
+                o.createElement(T, {
                   toggle: (e) => {
                     X.setDesktopIntegration(e), w.J.desktopIntegrationToggleClick(e ? "on" : "off");
                   },
@@ -1097,7 +1105,7 @@
                 null,
                 o.createElement(_, { manageButtonClick: () => e.openUrl((0, h.Um)().featuresSettings) }),
                 o.createElement(K, {
-                  label: o.createElement(o.Fragment, null, "Show GrammarlyGO on text selection"),
+                  label: o.createElement(o.Fragment, null, "Show on text selection"),
                   enabled:
                     !1 !==
                       (null === (i = null === (a = te.cheetah) || void 0 === a ? void 0 : a.status) || void 0 === i
@@ -1113,42 +1121,42 @@
                         : p.inlineRewriteEnabled),
                   disabled:
                     !1 ===
-                    (null === (F = null === (R = te.cheetah) || void 0 === R ? void 0 : R.status) || void 0 === F
+                    (null === (I = null === (R = te.cheetah) || void 0 === R ? void 0 : R.status) || void 0 === I
                       ? void 0
-                      : F.cheetahEnabled),
+                      : I.cheetahEnabled),
                   toggle: (e) => X.cheetahToggleInlineRewrite(e),
                   isKeyboardAccessible: e.isKeyboardAccessible
                 }),
                 o.createElement(K, {
-                  label: o.createElement(o.Fragment, null, "Show GrammarlyGO for quick replies"),
+                  label: o.createElement(o.Fragment, null, "Show for quick replies"),
                   enabled:
                     !1 !==
-                      (null === (M = null === (I = te.cheetah) || void 0 === I ? void 0 : I.status) || void 0 === M
+                      (null === (M = null === (F = te.cheetah) || void 0 === F ? void 0 : F.status) || void 0 === M
                         ? void 0
                         : M.cheetahEnabled) &&
                     !1 !==
                       (null ===
                         (J =
-                          null === (O = null === (U = te.cheetah) || void 0 === U ? void 0 : U.status) || void 0 === O
+                          null === (z = null === (U = te.cheetah) || void 0 === U ? void 0 : U.status) || void 0 === z
                             ? void 0
-                            : O.entryPointsConfig) || void 0 === J
+                            : z.entryPointsConfig) || void 0 === J
                         ? void 0
                         : J.inlineQuickReplyEnabled),
                   disabled:
                     !1 ===
-                    (null === (W = null === (z = te.cheetah) || void 0 === z ? void 0 : z.status) || void 0 === W
+                    (null === (W = null === (O = te.cheetah) || void 0 === O ? void 0 : O.status) || void 0 === W
                       ? void 0
                       : W.cheetahEnabled),
                   toggle: (e) => X.cheetahToggleInlineQuickReply(e),
                   isKeyboardAccessible: e.isKeyboardAccessible
                 }),
-                o.createElement("div", { className: x.separator })
+                !Ee && o.createElement("div", { className: x.separator })
               ),
             Ee &&
               o.createElement(
                 o.Fragment,
                 null,
-                o.createElement(G, {
+                o.createElement(L, {
                   enabled: "disabled" !== ae.serengetiState,
                   isKeyboardAccessible: e.isKeyboardAccessible,
                   toggle: (e) => {
@@ -1158,12 +1166,12 @@
                 o.createElement("div", { className: x.separator })
               ),
             de &&
-              (0, s.r4)(ee.domain, re, ue) &&
+              (0, l.r4)(ee.domain, re, ue) &&
               o.createElement(
                 o.Fragment,
                 null,
                 o.createElement(H, {
-                  enabled: (0, s.Td)(ee.domain, re, ue, te),
+                  enabled: (0, l.Td)(ee.domain, re, ue, te),
                   domain: ee.domain,
                   isKeyboardAccessible: e.isKeyboardAccessible,
                   toggle: Ke
@@ -1174,13 +1182,13 @@
               o.createElement(
                 o.Fragment,
                 null,
-                o.createElement(L, {
+                o.createElement(G, {
                   enabled: null === (V = null === (Z = te.knowledgeHubSettings) || void 0 === Z ? void 0 : Z.enabled) || void 0 === V || V,
                   isKeyboardAccessible: e.isKeyboardAccessible,
                   toggle: (e) => {
                     X.toggleKnowledgeHub(e),
-                      w.J.knowledgeHubFeatureToggleClick("popup", l.JJ.fromDomain(ee.domain), e ? l.L5.on : l.L5.off),
-                      (0, v.Tb)().knowledgeHub.featureToggleClick(l.JJ.fromDomain(ee.domain), e ? l.L5.on : l.L5.off);
+                      w.J.knowledgeHubFeatureToggleClick("popup", s.JJ.fromDomain(ee.domain), e ? s.L5.on : s.L5.off),
+                      (0, v.Tb)().knowledgeHub.featureToggleClick(s.JJ.fromDomain(ee.domain), e ? s.L5.on : s.L5.off);
                   }
                 }),
                 o.createElement("div", { className: x.separator })
@@ -1200,7 +1208,7 @@
               ),
             o.createElement(f.W, { disabled: Se, enabledDefs: te.enabledDefs, toggleDefs: X.toggleDefs }),
             o.createElement("div", { className: x.separator }),
-            o.createElement(T, {
+            o.createElement(N, {
               enabled: te.autocorrectEnabled || !1,
               isKeyboardAccessible: e.isKeyboardAccessible,
               isAutoApplySupported: ke,
@@ -1244,9 +1252,9 @@
               dialectWeak: ae.dialectWeak,
               dropdownOnTop: !0,
               disabled: Se,
-              lock: { isLocked: Boolean(null == Ne ? void 0 : Ne.dialectLockedByInstitution), message: "Locked by your organization" }
+              lock: { isLocked: Boolean(null == Te ? void 0 : Te.dialectLockedByInstitution), message: "Locked by your organization" }
             }),
-            Te && o.createElement(g.Z, { openGBLanding: ie, showTitle: "popup" === se, showBackground: "popup" === se }),
+            Ne && o.createElement(g.Z, { openGBLanding: ie, showTitle: "popup" === le, showBackground: "popup" === le }),
             (te.isDebugMenuVisible || xe) &&
               o.createElement(P, {
                 isAdvancedEnabled: te.advancedHistoryLoggerEnabled,
@@ -1270,21 +1278,21 @@
         };
     },
     49475: (e, t, a) => {
-      a.d(t, { w: () => s });
+      a.d(t, { w: () => l });
       var n = a(27378),
         o = a(49405),
         i = a(9234),
-        l = a(54001);
-      const s = (e) => {
+        s = a(54001);
+      const l = (e) => {
         const t = "docs.google.com" === e.domain ? "Google Docs" : e.domain,
-          { enabledInConfig: a, siteSwitcherChecked: s, favicon: r } = e,
-          c = s.checked && a,
+          { enabledInConfig: a, siteSwitcherChecked: l, favicon: r } = e,
+          c = l.checked && a,
           d = a ? "Check for writing suggestions" : "Checking is not supported";
         return n.createElement(
           i.C,
           {
             grayOut: !a,
-            onChange: (e) => s.update(e.target.checked),
+            onChange: (e) => l.update(e.target.checked),
             checked: c,
             extraClassName: o.site_switcher,
             dataGrammarlyPart: "siteSwitcher",
@@ -1299,7 +1307,7 @@
             " ",
             n.createElement(
               "span",
-              { ...(0, l.Sh)(o.domain, e.centeredToggle && o.centered) },
+              { ...(0, s.Sh)(o.domain, e.centeredToggle && o.centered) },
               n.createElement("span", { className: o.thin_text }, "on"),
               " ",
               r && n.createElement("span", { className: o.favicon }, n.createElement("img", { width: "16px", height: "16px", src: r })),
@@ -1314,8 +1322,8 @@
       var n = a(20641),
         o = a(43124),
         i = a(27378),
-        l = a(30955),
-        s = a(54001),
+        s = a(30955),
+        l = a(54001),
         r = a(11250),
         c = a(44358),
         d = a(65515),
@@ -1362,12 +1370,12 @@
             : null;
         return i.createElement(
           "div",
-          { className: t ? l.borderTop : void 0 },
+          { className: t ? s.borderTop : void 0 },
           i.createElement(
             "div",
-            { ...(0, s.Sh)(l.content, t ? void 0 : l.borderBottom) },
+            { ...(0, l.Sh)(s.content, t ? void 0 : s.borderBottom) },
             y,
-            i.createElement(d.Y, { onClick: k, className: l.premiumButton, dataGrammarlyPart: "settings-upgrade-button" })
+            i.createElement(d.Y, { onClick: k, className: s.premiumButton, dataGrammarlyPart: "settings-upgrade-button" })
           )
         );
       };
@@ -1386,14 +1394,14 @@
       );
     },
     21928: (e, t, a) => {
-      a.d(t, { Ng: () => i, WY: () => s, ZD: () => l });
+      a.d(t, { Ng: () => i, WY: () => l, ZD: () => s });
       var n = a(56913),
         o = a(51129);
       const i = (e) => {
           const t = o.n5.getType(e);
           return "registered" === t ? "free" : t;
         },
-        l = (e) => {
+        s = (e) => {
           return {
             clientVersion: e.version,
             platformVersion: "",
@@ -1405,7 +1413,7 @@
           };
           var t;
         },
-        s = (e) => {
+        l = (e) => {
           const t = new URL((0, n.Um)().grammarlyEmployeesBugReportsUrl);
           return (
             Object.entries(e).forEach(([e, a]) => {

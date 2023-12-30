@@ -1,38 +1,39 @@
 (() => {
   "use strict";
   const {
-      AbortController: e,
-      FileReader: t,
-      TextDecoder: s,
-      addEventListener: n,
-      atob: o,
-      btoa: r,
-      clearInterval: a,
-      clearTimeout: c,
-      crypto: i,
-      decodeURIComponent: l,
-      encodeURIComponent: u,
-      escape: h,
-      fetch: d,
-      location: p,
-      removeEventListener: w,
-      setInterval: g,
-      setTimeout: f,
-      unescape: m
-    } = self,
-    {
-      DOMParser: W,
-      Notification: v,
-      Image: x,
-      Worker: y,
-      XMLHttpRequest: S,
-      alert: T,
-      confirm: b,
-      document: R,
-      localStorage: k,
-      screen: D,
-      webkitNotifications: I
-    } = (self, p.origin, p.host, self);
+    AbortController: e,
+    FileReader: t,
+    TextDecoder: s,
+    addEventListener: n,
+    atob: o,
+    btoa: r,
+    clearInterval: a,
+    clearTimeout: c,
+    crypto: i,
+    decodeURIComponent: l,
+    encodeURIComponent: u,
+    escape: h,
+    location: d,
+    removeEventListener: p,
+    setInterval: w,
+    setTimeout: f,
+    unescape: g
+  } = self;
+  let { fetch: m } = self;
+  d.origin, d.host;
+  const {
+    DOMParser: W,
+    Notification: v,
+    Image: x,
+    Worker: y,
+    alert: S,
+    confirm: T,
+    document: b,
+    localStorage: R,
+    screen: k,
+    webkitNotifications: D
+  } = self;
+  let { XMLHttpRequest: I } = self;
   self.addEventListener("install", () => {
     console.log("SW: started"), self.skipWaiting().catch((e) => console.warn(e));
   });
@@ -53,9 +54,9 @@
               t.endsWith("favicon.ico")
             )
           )
-            return d(e.request);
+            return m(e.request);
           try {
-            const s = await d(e.request);
+            const s = await m(e.request);
             return (async (e, t) => {
               console.log(`SW: caching ${e}`);
               const s = await caches.open("dynamic"),

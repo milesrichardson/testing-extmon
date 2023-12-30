@@ -3,7 +3,7 @@
 
   "name": "__MSG_appName__",
   "short_name": "Smallpdf",
-  "version": "0.22.11",
+  "version": "0.22.17",
   "homepage_url": "https://smallpdf.com",
   "description": "__MSG_appDesc__",
   "manifest_version": 3,

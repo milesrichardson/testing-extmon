@@ -1,7 +1,7 @@
 (self["webpackChunkbrowser_extension"] = self["webpackChunkbrowser_extension"] || []).push([
   [776],
   {
-    /***/ 57190: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9060: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -9,13 +9,15 @@
         HB: () => /* binding */ BACKGROUND_TAB_ID,
         zc: () => /* binding */ ContentType,
         Az: () => /* reexport */ es /* CosmeticRuleType */.Az,
+        Al: () => /* binding */ EXTENDED_CSS_VERSION,
         Ro: () => /* binding */ FilteringEventType,
         ad: () => /* binding */ MAIN_FRAME_ID,
         Au: () => /* binding */ MESSAGE_HANDLER_NAME,
         SJ: () => /* reexport */ es /* NetworkRuleOption */.SJ,
         qK: () => /* binding */ RequestEvents,
         Zk: () => /* binding */ StealthActions,
-        Ql: () => /* binding */ TsWebExtension,
+        OT: () => /* binding */ TSWEBEXTENSION_VERSION,
+        I: () => /* binding */ createTsWebExtension,
         TU: () => /* binding */ defaultFilteringLog,
         ge: () => /* binding */ dist_getDomain,
         T1: () => /* binding */ isExtensionUrl,
@@ -24,12 +26,12 @@
         nZ: () => /* binding */ tabsApi
       });
 
-      // UNUSED EXPORTS: ALLOWLIST_FILTER_ID, CosmeticRule, EventChannel, FilteringLog, Frame, LogLevelEnum, Logger, MessageType, NetworkRule, RequestBlockingApi, RequestContextStorage, RequestEvent, StealthHelper, TabContext, TabsApi, TabsCosmeticInjector, USER_FILTER_ID, allowlist, configurationMV2Validator, configurationValidator, documentApi, engineApi, filterMV2Validator, getAssistantCreateRulePayloadValidator, getCookieRulesPayloadValidator, getCssPayloadValidator, getErrorMessage, getExtendedCssPayloadValidator, getHost, getRequestType, getSaveCookieLogEventPayloadValidator, hideRequestInitiatorElement, isThirdPartyRequest, logLevelNames, logger, messageValidator, processShouldCollapsePayloadValidator, requestContextStorage, sendAppMessage, settingsConfigValidator, stealthConfigValidator
+      // UNUSED EXPORTS: ALLOWLIST_FILTER_ID, CosmeticRule, EventChannel, ExtSessionStorage, ExtensionStorage, FilteringLog, Frame, LogLevelEnum, Logger, MessageType, NetworkRule, PersistentValueContainer, RequestBlockingApi, RequestContextStorage, RequestEvent, StealthHelper, TabContext, TabsApi, TabsCosmeticInjector, TsWebExtension, USER_FILTER_ID, allowlist, configurationMV2Validator, configurationValidator, createExtensionStorageDecorator, documentApi, documentBlockingService, engineApi, extSessionStorage, filterMV2Validator, getAssistantCreateRulePayloadValidator, getCookieRulesPayloadValidator, getCssPayloadValidator, getErrorMessage, getExtendedCssPayloadValidator, getHost, getRequestType, getSaveCookieLogEventPayloadValidator, hideRequestInitiatorElement, isThirdPartyRequest, logLevelNames, logger, messageValidator, messagesApi, processShouldCollapsePayloadValidator, redirectsService, requestContextStorage, resourcesService, sendAppMessage, sessionDecorator, settingsConfigValidator, stealthConfigValidator
 
       // EXTERNAL MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/index.js + 7 modules
       var es = __webpack_require__(3451);
       // EXTERNAL MODULE: ./node_modules/webextension-polyfill/dist/browser-polyfill.js
-      var browser_polyfill = __webpack_require__(53679);
+      var browser_polyfill = __webpack_require__(3679);
       var browser_polyfill_default = /*#__PURE__*/ __webpack_require__.n(browser_polyfill); // CONCATENATED MODULE: ./node_modules/@adguard/tswebextension/node_modules/tldts-core/dist/es6/src/domain.js
       /**
        * Check if `vhost` is a valid suffix of `hostname` (top-domain)
@@ -9200,7 +9202,846 @@
       }
 
       // EXTERNAL MODULE: ./node_modules/zod/lib/index.mjs
-      var lib = __webpack_require__(1604); // CONCATENATED MODULE: ./node_modules/@adguard/tswebextension/node_modules/nanoid/index.browser.js
+      var lib = __webpack_require__(1604);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/debounce.js + 1 modules
+      var debounce = __webpack_require__(9239);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseGet.js
+      var _baseGet = __webpack_require__(8087);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_defineProperty.js
+      var _defineProperty = __webpack_require__(3263); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseAssignValue.js
+      /**
+       * The base implementation of `assignValue` and `assignMergeValue` without
+       * value checks.
+       *
+       * @private
+       * @param {Object} object The object to modify.
+       * @param {string} key The key of the property to assign.
+       * @param {*} value The value to assign.
+       */
+      function baseAssignValue(object, key, value) {
+        if (key == "__proto__" && _defineProperty /* default */.Z) {
+          (0, _defineProperty /* default */.Z)(object, key, {
+            configurable: true,
+            enumerable: true,
+            value: value,
+            writable: true
+          });
+        } else {
+          object[key] = value;
+        }
+      }
+
+      /* harmony default export */ const _baseAssignValue = baseAssignValue;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/eq.js
+      var eq = __webpack_require__(4397); // CONCATENATED MODULE: ./node_modules/lodash-es/_assignValue.js
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _assignValue_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /**
+       * Assigns `value` to `key` of `object` if the existing value is not equivalent
+       * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+       * for equality comparisons.
+       *
+       * @private
+       * @param {Object} object The object to modify.
+       * @param {string} key The key of the property to assign.
+       * @param {*} value The value to assign.
+       */
+      function assignValue(object, key, value) {
+        var objValue = object[key];
+        if (
+          !(_assignValue_hasOwnProperty.call(object, key) && (0, eq /* default */.Z)(objValue, value)) ||
+          (value === undefined && !(key in object))
+        ) {
+          _baseAssignValue(object, key, value);
+        }
+      }
+
+      /* harmony default export */ const _assignValue = assignValue;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_castPath.js + 3 modules
+      var _castPath = __webpack_require__(430);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_isIndex.js
+      var _isIndex = __webpack_require__(7503);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObject.js
+      var isObject = __webpack_require__(6185);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_toKey.js
+      var _toKey = __webpack_require__(6698); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseSet.js
+      /**
+       * The base implementation of `_.set`.
+       *
+       * @private
+       * @param {Object} object The object to modify.
+       * @param {Array|string} path The path of the property to set.
+       * @param {*} value The value to set.
+       * @param {Function} [customizer] The function to customize path creation.
+       * @returns {Object} Returns `object`.
+       */
+      function baseSet(object, path, value, customizer) {
+        if (!(0, isObject /* default */.Z)(object)) {
+          return object;
+        }
+        path = (0, _castPath /* default */.Z)(path, object);
+
+        var index = -1,
+          length = path.length,
+          lastIndex = length - 1,
+          nested = object;
+
+        while (nested != null && ++index < length) {
+          var key = (0, _toKey /* default */.Z)(path[index]),
+            newValue = value;
+
+          if (key === "__proto__" || key === "constructor" || key === "prototype") {
+            return object;
+          }
+
+          if (index != lastIndex) {
+            var objValue = nested[key];
+            newValue = customizer ? customizer(objValue, key, nested) : undefined;
+            if (newValue === undefined) {
+              newValue = (0, isObject /* default */.Z)(objValue) ? objValue : (0, _isIndex /* default */.Z)(path[index + 1]) ? [] : {};
+            }
+          }
+          _assignValue(nested, key, newValue);
+          nested = nested[key];
+        }
+        return object;
+      }
+
+      /* harmony default export */ const _baseSet = baseSet; // CONCATENATED MODULE: ./node_modules/lodash-es/_basePickBy.js
+
+      /**
+       * The base implementation of  `_.pickBy` without support for iteratee shorthands.
+       *
+       * @private
+       * @param {Object} object The source object.
+       * @param {string[]} paths The property paths to pick.
+       * @param {Function} predicate The function invoked per property.
+       * @returns {Object} Returns the new object.
+       */
+      function basePickBy(object, paths, predicate) {
+        var index = -1,
+          length = paths.length,
+          result = {};
+
+        while (++index < length) {
+          var path = paths[index],
+            value = (0, _baseGet /* default */.Z)(object, path);
+
+          if (predicate(value, path)) {
+            _baseSet(result, (0, _castPath /* default */.Z)(path, object), value);
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _basePickBy = basePickBy;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/hasIn.js + 2 modules
+      var hasIn = __webpack_require__(7685); // CONCATENATED MODULE: ./node_modules/lodash-es/_basePick.js
+      /**
+       * The base implementation of `_.pick` without support for individual
+       * property identifiers.
+       *
+       * @private
+       * @param {Object} object The source object.
+       * @param {string[]} paths The property paths to pick.
+       * @returns {Object} Returns the new object.
+       */
+      function basePick(object, paths) {
+        return _basePickBy(object, paths, function (value, path) {
+          return (0, hasIn /* default */.Z)(object, path);
+        });
+      }
+
+      /* harmony default export */ const _basePick = basePick;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseFlatten.js + 1 modules
+      var _baseFlatten = __webpack_require__(6678); // CONCATENATED MODULE: ./node_modules/lodash-es/flatten.js
+      /**
+       * Flattens `array` a single level deep.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Array
+       * @param {Array} array The array to flatten.
+       * @returns {Array} Returns the new flattened array.
+       * @example
+       *
+       * _.flatten([1, [2, [3, [4]], 5]]);
+       * // => [1, 2, [3, [4]], 5]
+       */
+      function flatten(array) {
+        var length = array == null ? 0 : array.length;
+        return length ? (0, _baseFlatten /* default */.Z)(array, 1) : [];
+      }
+
+      /* harmony default export */ const lodash_es_flatten = flatten;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_overRest.js + 1 modules
+      var _overRest = __webpack_require__(3009);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_setToString.js + 3 modules
+      var _setToString = __webpack_require__(738); // CONCATENATED MODULE: ./node_modules/lodash-es/_flatRest.js
+      /**
+       * A specialized version of `baseRest` which flattens the rest array.
+       *
+       * @private
+       * @param {Function} func The function to apply a rest parameter to.
+       * @returns {Function} Returns the new function.
+       */
+      function flatRest(func) {
+        return (0, _setToString /* default */.Z)((0, _overRest /* default */.Z)(func, undefined, lodash_es_flatten), func + "");
+      }
+
+      /* harmony default export */ const _flatRest = flatRest; // CONCATENATED MODULE: ./node_modules/lodash-es/pick.js
+
+      /**
+       * Creates an object composed of the picked `object` properties.
+       *
+       * @static
+       * @since 0.1.0
+       * @memberOf _
+       * @category Object
+       * @param {Object} object The source object.
+       * @param {...(string|string[])} [paths] The property paths to pick.
+       * @returns {Object} Returns the new object.
+       * @example
+       *
+       * var object = { 'a': 1, 'b': '2', 'c': 3 };
+       *
+       * _.pick(object, ['a', 'c']);
+       * // => { 'a': 1, 'c': 3 }
+       */
+      var pick = _flatRest(function (object, paths) {
+        return object == null ? {} : _basePick(object, paths);
+      });
+
+      /* harmony default export */ const lodash_es_pick = pick;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Stack.js + 5 modules
+      var _Stack = __webpack_require__(2111); // CONCATENATED MODULE: ./node_modules/lodash-es/_assignMergeValue.js
+      /**
+       * This function is like `assignValue` except that it doesn't assign
+       * `undefined` values.
+       *
+       * @private
+       * @param {Object} object The object to modify.
+       * @param {string} key The key of the property to assign.
+       * @param {*} value The value to assign.
+       */
+      function assignMergeValue(object, key, value) {
+        if ((value !== undefined && !(0, eq /* default */.Z)(object[key], value)) || (value === undefined && !(key in object))) {
+          _baseAssignValue(object, key, value);
+        }
+      }
+
+      /* harmony default export */ const _assignMergeValue = assignMergeValue;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseFor.js + 1 modules
+      var _baseFor = __webpack_require__(1953);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_root.js
+      var _root = __webpack_require__(7583); // CONCATENATED MODULE: ./node_modules/lodash-es/_cloneBuffer.js
+      /** Detect free variable `exports`. */
+      var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
+
+      /** Detect free variable `module`. */
+      var freeModule = freeExports && typeof module == "object" && module && !module.nodeType && module;
+
+      /** Detect the popular CommonJS extension `module.exports`. */
+      var moduleExports = freeModule && freeModule.exports === freeExports;
+
+      /** Built-in value references. */
+      var Buffer = moduleExports ? _root /* default.Buffer */.Z.Buffer : undefined,
+        allocUnsafe = Buffer ? Buffer.allocUnsafe : undefined;
+
+      /**
+       * Creates a clone of  `buffer`.
+       *
+       * @private
+       * @param {Buffer} buffer The buffer to clone.
+       * @param {boolean} [isDeep] Specify a deep clone.
+       * @returns {Buffer} Returns the cloned buffer.
+       */
+      function cloneBuffer(buffer, isDeep) {
+        if (isDeep) {
+          return buffer.slice();
+        }
+        var length = buffer.length,
+          result = allocUnsafe ? allocUnsafe(length) : new buffer.constructor(length);
+
+        buffer.copy(result);
+        return result;
+      }
+
+      /* harmony default export */ const _cloneBuffer = cloneBuffer;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Uint8Array.js
+      var _Uint8Array = __webpack_require__(3898); // CONCATENATED MODULE: ./node_modules/lodash-es/_cloneArrayBuffer.js
+      /**
+       * Creates a clone of `arrayBuffer`.
+       *
+       * @private
+       * @param {ArrayBuffer} arrayBuffer The array buffer to clone.
+       * @returns {ArrayBuffer} Returns the cloned array buffer.
+       */
+      function cloneArrayBuffer(arrayBuffer) {
+        var result = new arrayBuffer.constructor(arrayBuffer.byteLength);
+        new _Uint8Array /* default */.Z(result).set(new _Uint8Array /* default */.Z(arrayBuffer));
+        return result;
+      }
+
+      /* harmony default export */ const _cloneArrayBuffer = cloneArrayBuffer; // CONCATENATED MODULE: ./node_modules/lodash-es/_cloneTypedArray.js
+
+      /**
+       * Creates a clone of `typedArray`.
+       *
+       * @private
+       * @param {Object} typedArray The typed array to clone.
+       * @param {boolean} [isDeep] Specify a deep clone.
+       * @returns {Object} Returns the cloned typed array.
+       */
+      function cloneTypedArray(typedArray, isDeep) {
+        var buffer = isDeep ? _cloneArrayBuffer(typedArray.buffer) : typedArray.buffer;
+        return new typedArray.constructor(buffer, typedArray.byteOffset, typedArray.length);
+      }
+
+      /* harmony default export */ const _cloneTypedArray = cloneTypedArray; // CONCATENATED MODULE: ./node_modules/lodash-es/_copyArray.js
+
+      /**
+       * Copies the values of `source` to `array`.
+       *
+       * @private
+       * @param {Array} source The array to copy values from.
+       * @param {Array} [array=[]] The array to copy values to.
+       * @returns {Array} Returns `array`.
+       */
+      function copyArray(source, array) {
+        var index = -1,
+          length = source.length;
+
+        array || (array = Array(length));
+        while (++index < length) {
+          array[index] = source[index];
+        }
+        return array;
+      }
+
+      /* harmony default export */ const _copyArray = copyArray; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseCreate.js
+
+      /** Built-in value references. */
+      var objectCreate = Object.create;
+
+      /**
+       * The base implementation of `_.create` without support for assigning
+       * properties to the created object.
+       *
+       * @private
+       * @param {Object} proto The object to inherit from.
+       * @returns {Object} Returns the new object.
+       */
+      var baseCreate = (function () {
+        function object() {}
+        return function (proto) {
+          if (!(0, isObject /* default */.Z)(proto)) {
+            return {};
+          }
+          if (objectCreate) {
+            return objectCreate(proto);
+          }
+          object.prototype = proto;
+          var result = new object();
+          object.prototype = undefined;
+          return result;
+        };
+      })();
+
+      /* harmony default export */ const _baseCreate = baseCreate;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_overArg.js
+      var _overArg = __webpack_require__(9598); // CONCATENATED MODULE: ./node_modules/lodash-es/_getPrototype.js
+      /** Built-in value references. */
+      var getPrototype = (0, _overArg /* default */.Z)(Object.getPrototypeOf, Object);
+
+      /* harmony default export */ const _getPrototype = getPrototype;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_isPrototype.js
+      var _isPrototype = __webpack_require__(772); // CONCATENATED MODULE: ./node_modules/lodash-es/_initCloneObject.js
+      /**
+       * Initializes an object clone.
+       *
+       * @private
+       * @param {Object} object The object to clone.
+       * @returns {Object} Returns the initialized clone.
+       */
+      function initCloneObject(object) {
+        return typeof object.constructor == "function" && !(0, _isPrototype /* default */.Z)(object)
+          ? _baseCreate(_getPrototype(object))
+          : {};
+      }
+
+      /* harmony default export */ const _initCloneObject = initCloneObject;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArguments.js + 1 modules
+      var isArguments = __webpack_require__(4880);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArray.js
+      var isArray = __webpack_require__(2576);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArrayLike.js
+      var isArrayLike = __webpack_require__(1698);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObjectLike.js
+      var isObjectLike = __webpack_require__(6164); // CONCATENATED MODULE: ./node_modules/lodash-es/isArrayLikeObject.js
+      /**
+       * This method is like `_.isArrayLike` except that it also checks if `value`
+       * is an object.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is an array-like object,
+       *  else `false`.
+       * @example
+       *
+       * _.isArrayLikeObject([1, 2, 3]);
+       * // => true
+       *
+       * _.isArrayLikeObject(document.body.children);
+       * // => true
+       *
+       * _.isArrayLikeObject('abc');
+       * // => false
+       *
+       * _.isArrayLikeObject(_.noop);
+       * // => false
+       */
+      function isArrayLikeObject(value) {
+        return (0, isObjectLike /* default */.Z)(value) && (0, isArrayLike /* default */.Z)(value);
+      }
+
+      /* harmony default export */ const lodash_es_isArrayLikeObject = isArrayLikeObject;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isBuffer.js + 1 modules
+      var isBuffer = __webpack_require__(7091);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isFunction.js
+      var isFunction = __webpack_require__(3816);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseGetTag.js + 2 modules
+      var _baseGetTag = __webpack_require__(7979); // CONCATENATED MODULE: ./node_modules/lodash-es/isPlainObject.js
+      /** `Object#toString` result references. */
+      var objectTag = "[object Object]";
+
+      /** Used for built-in method references. */
+      var funcProto = Function.prototype,
+        isPlainObject_objectProto = Object.prototype;
+
+      /** Used to resolve the decompiled source of functions. */
+      var funcToString = funcProto.toString;
+
+      /** Used to check objects for own properties. */
+      var isPlainObject_hasOwnProperty = isPlainObject_objectProto.hasOwnProperty;
+
+      /** Used to infer the `Object` constructor. */
+      var objectCtorString = funcToString.call(Object);
+
+      /**
+       * Checks if `value` is a plain object, that is, an object created by the
+       * `Object` constructor or one with a `[[Prototype]]` of `null`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.8.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+       * @example
+       *
+       * function Foo() {
+       *   this.a = 1;
+       * }
+       *
+       * _.isPlainObject(new Foo);
+       * // => false
+       *
+       * _.isPlainObject([1, 2, 3]);
+       * // => false
+       *
+       * _.isPlainObject({ 'x': 0, 'y': 0 });
+       * // => true
+       *
+       * _.isPlainObject(Object.create(null));
+       * // => true
+       */
+      function isPlainObject(value) {
+        if (!(0, isObjectLike /* default */.Z)(value) || (0, _baseGetTag /* default */.Z)(value) != objectTag) {
+          return false;
+        }
+        var proto = _getPrototype(value);
+        if (proto === null) {
+          return true;
+        }
+        var Ctor = isPlainObject_hasOwnProperty.call(proto, "constructor") && proto.constructor;
+        return typeof Ctor == "function" && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+      }
+
+      /* harmony default export */ const lodash_es_isPlainObject = isPlainObject;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isTypedArray.js + 1 modules
+      var isTypedArray = __webpack_require__(8307); // CONCATENATED MODULE: ./node_modules/lodash-es/_safeGet.js
+      /**
+       * Gets the value at `key`, unless `key` is "__proto__" or "constructor".
+       *
+       * @private
+       * @param {Object} object The object to query.
+       * @param {string} key The key of the property to get.
+       * @returns {*} Returns the property value.
+       */
+      function safeGet(object, key) {
+        if (key === "constructor" && typeof object[key] === "function") {
+          return;
+        }
+
+        if (key == "__proto__") {
+          return;
+        }
+
+        return object[key];
+      }
+
+      /* harmony default export */ const _safeGet = safeGet; // CONCATENATED MODULE: ./node_modules/lodash-es/_copyObject.js
+
+      /**
+       * Copies properties of `source` to `object`.
+       *
+       * @private
+       * @param {Object} source The object to copy properties from.
+       * @param {Array} props The property identifiers to copy.
+       * @param {Object} [object={}] The object to copy properties to.
+       * @param {Function} [customizer] The function to customize copied values.
+       * @returns {Object} Returns `object`.
+       */
+      function copyObject(source, props, object, customizer) {
+        var isNew = !object;
+        object || (object = {});
+
+        var index = -1,
+          length = props.length;
+
+        while (++index < length) {
+          var key = props[index];
+
+          var newValue = customizer ? customizer(object[key], source[key], key, object, source) : undefined;
+
+          if (newValue === undefined) {
+            newValue = source[key];
+          }
+          if (isNew) {
+            _baseAssignValue(object, key, newValue);
+          } else {
+            _assignValue(object, key, newValue);
+          }
+        }
+        return object;
+      }
+
+      /* harmony default export */ const _copyObject = copyObject;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_arrayLikeKeys.js + 1 modules
+      var _arrayLikeKeys = __webpack_require__(7610); // CONCATENATED MODULE: ./node_modules/lodash-es/_nativeKeysIn.js
+      /**
+       * This function is like
+       * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+       * except that it includes inherited enumerable properties.
+       *
+       * @private
+       * @param {Object} object The object to query.
+       * @returns {Array} Returns the array of property names.
+       */
+      function nativeKeysIn(object) {
+        var result = [];
+        if (object != null) {
+          for (var key in Object(object)) {
+            result.push(key);
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _nativeKeysIn = nativeKeysIn; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseKeysIn.js
+
+      /** Used for built-in method references. */
+      var _baseKeysIn_objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _baseKeysIn_hasOwnProperty = _baseKeysIn_objectProto.hasOwnProperty;
+
+      /**
+       * The base implementation of `_.keysIn` which doesn't treat sparse arrays as dense.
+       *
+       * @private
+       * @param {Object} object The object to query.
+       * @returns {Array} Returns the array of property names.
+       */
+      function baseKeysIn(object) {
+        if (!(0, isObject /* default */.Z)(object)) {
+          return _nativeKeysIn(object);
+        }
+        var isProto = (0, _isPrototype /* default */.Z)(object),
+          result = [];
+
+        for (var key in object) {
+          if (!(key == "constructor" && (isProto || !_baseKeysIn_hasOwnProperty.call(object, key)))) {
+            result.push(key);
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _baseKeysIn = baseKeysIn; // CONCATENATED MODULE: ./node_modules/lodash-es/keysIn.js
+
+      /**
+       * Creates an array of the own and inherited enumerable property names of `object`.
+       *
+       * **Note:** Non-object values are coerced to objects.
+       *
+       * @static
+       * @memberOf _
+       * @since 3.0.0
+       * @category Object
+       * @param {Object} object The object to query.
+       * @returns {Array} Returns the array of property names.
+       * @example
+       *
+       * function Foo() {
+       *   this.a = 1;
+       *   this.b = 2;
+       * }
+       *
+       * Foo.prototype.c = 3;
+       *
+       * _.keysIn(new Foo);
+       * // => ['a', 'b', 'c'] (iteration order is not guaranteed)
+       */
+      function keysIn(object) {
+        return (0, isArrayLike /* default */.Z)(object) ? (0, _arrayLikeKeys /* default */.Z)(object, true) : _baseKeysIn(object);
+      }
+
+      /* harmony default export */ const lodash_es_keysIn = keysIn; // CONCATENATED MODULE: ./node_modules/lodash-es/toPlainObject.js
+
+      /**
+       * Converts `value` to a plain object flattening inherited enumerable string
+       * keyed properties of `value` to own properties of the plain object.
+       *
+       * @static
+       * @memberOf _
+       * @since 3.0.0
+       * @category Lang
+       * @param {*} value The value to convert.
+       * @returns {Object} Returns the converted plain object.
+       * @example
+       *
+       * function Foo() {
+       *   this.b = 2;
+       * }
+       *
+       * Foo.prototype.c = 3;
+       *
+       * _.assign({ 'a': 1 }, new Foo);
+       * // => { 'a': 1, 'b': 2 }
+       *
+       * _.assign({ 'a': 1 }, _.toPlainObject(new Foo));
+       * // => { 'a': 1, 'b': 2, 'c': 3 }
+       */
+      function toPlainObject(value) {
+        return _copyObject(value, lodash_es_keysIn(value));
+      }
+
+      /* harmony default export */ const lodash_es_toPlainObject = toPlainObject; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseMergeDeep.js
+
+      /**
+       * A specialized version of `baseMerge` for arrays and objects which performs
+       * deep merges and tracks traversed objects enabling objects with circular
+       * references to be merged.
+       *
+       * @private
+       * @param {Object} object The destination object.
+       * @param {Object} source The source object.
+       * @param {string} key The key of the value to merge.
+       * @param {number} srcIndex The index of `source`.
+       * @param {Function} mergeFunc The function to merge values.
+       * @param {Function} [customizer] The function to customize assigned values.
+       * @param {Object} [stack] Tracks traversed source values and their merged
+       *  counterparts.
+       */
+      function baseMergeDeep(object, source, key, srcIndex, mergeFunc, customizer, stack) {
+        var objValue = _safeGet(object, key),
+          srcValue = _safeGet(source, key),
+          stacked = stack.get(srcValue);
+
+        if (stacked) {
+          _assignMergeValue(object, key, stacked);
+          return;
+        }
+        var newValue = customizer ? customizer(objValue, srcValue, key + "", object, source, stack) : undefined;
+
+        var isCommon = newValue === undefined;
+
+        if (isCommon) {
+          var isArr = (0, isArray /* default */.Z)(srcValue),
+            isBuff = !isArr && (0, isBuffer /* default */.Z)(srcValue),
+            isTyped = !isArr && !isBuff && (0, isTypedArray /* default */.Z)(srcValue);
+
+          newValue = srcValue;
+          if (isArr || isBuff || isTyped) {
+            if ((0, isArray /* default */.Z)(objValue)) {
+              newValue = objValue;
+            } else if (lodash_es_isArrayLikeObject(objValue)) {
+              newValue = _copyArray(objValue);
+            } else if (isBuff) {
+              isCommon = false;
+              newValue = _cloneBuffer(srcValue, true);
+            } else if (isTyped) {
+              isCommon = false;
+              newValue = _cloneTypedArray(srcValue, true);
+            } else {
+              newValue = [];
+            }
+          } else if (lodash_es_isPlainObject(srcValue) || (0, isArguments /* default */.Z)(srcValue)) {
+            newValue = objValue;
+            if ((0, isArguments /* default */.Z)(objValue)) {
+              newValue = lodash_es_toPlainObject(objValue);
+            } else if (!(0, isObject /* default */.Z)(objValue) || (0, isFunction /* default */.Z)(objValue)) {
+              newValue = _initCloneObject(srcValue);
+            }
+          } else {
+            isCommon = false;
+          }
+        }
+        if (isCommon) {
+          // Recursively merge objects and arrays (susceptible to call stack limits).
+          stack.set(srcValue, newValue);
+          mergeFunc(newValue, srcValue, srcIndex, customizer, stack);
+          stack["delete"](srcValue);
+        }
+        _assignMergeValue(object, key, newValue);
+      }
+
+      /* harmony default export */ const _baseMergeDeep = baseMergeDeep; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseMerge.js
+
+      /**
+       * The base implementation of `_.merge` without support for multiple sources.
+       *
+       * @private
+       * @param {Object} object The destination object.
+       * @param {Object} source The source object.
+       * @param {number} srcIndex The index of `source`.
+       * @param {Function} [customizer] The function to customize merged values.
+       * @param {Object} [stack] Tracks traversed source values and their merged
+       *  counterparts.
+       */
+      function baseMerge(object, source, srcIndex, customizer, stack) {
+        if (object === source) {
+          return;
+        }
+        (0, _baseFor /* default */.Z)(
+          source,
+          function (srcValue, key) {
+            stack || (stack = new _Stack /* default */.Z());
+            if ((0, isObject /* default */.Z)(srcValue)) {
+              _baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
+            } else {
+              var newValue = customizer ? customizer(_safeGet(object, key), srcValue, key + "", object, source, stack) : undefined;
+
+              if (newValue === undefined) {
+                newValue = srcValue;
+              }
+              _assignMergeValue(object, key, newValue);
+            }
+          },
+          lodash_es_keysIn
+        );
+      }
+
+      /* harmony default export */ const _baseMerge = baseMerge;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseRest.js
+      var _baseRest = __webpack_require__(8412);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_isIterateeCall.js
+      var _isIterateeCall = __webpack_require__(6199); // CONCATENATED MODULE: ./node_modules/lodash-es/_createAssigner.js
+      /**
+       * Creates a function like `_.assign`.
+       *
+       * @private
+       * @param {Function} assigner The function to assign values.
+       * @returns {Function} Returns the new assigner function.
+       */
+      function createAssigner(assigner) {
+        return (0, _baseRest /* default */.Z)(function (object, sources) {
+          var index = -1,
+            length = sources.length,
+            customizer = length > 1 ? sources[length - 1] : undefined,
+            guard = length > 2 ? sources[2] : undefined;
+
+          customizer = assigner.length > 3 && typeof customizer == "function" ? (length--, customizer) : undefined;
+
+          if (guard && (0, _isIterateeCall /* default */.Z)(sources[0], sources[1], guard)) {
+            customizer = length < 3 ? undefined : customizer;
+            length = 1;
+          }
+          object = Object(object);
+          while (++index < length) {
+            var source = sources[index];
+            if (source) {
+              assigner(object, source, index, customizer);
+            }
+          }
+          return object;
+        });
+      }
+
+      /* harmony default export */ const _createAssigner = createAssigner; // CONCATENATED MODULE: ./node_modules/lodash-es/merge.js
+
+      /**
+       * This method is like `_.assign` except that it recursively merges own and
+       * inherited enumerable string keyed properties of source objects into the
+       * destination object. Source properties that resolve to `undefined` are
+       * skipped if a destination value exists. Array and plain object properties
+       * are merged recursively. Other objects and value types are overridden by
+       * assignment. Source objects are applied from left to right. Subsequent
+       * sources overwrite property assignments of previous sources.
+       *
+       * **Note:** This method mutates `object`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.5.0
+       * @category Object
+       * @param {Object} object The destination object.
+       * @param {...Object} [sources] The source objects.
+       * @returns {Object} Returns `object`.
+       * @example
+       *
+       * var object = {
+       *   'a': [{ 'b': 2 }, { 'd': 4 }]
+       * };
+       *
+       * var other = {
+       *   'a': [{ 'c': 3 }, { 'e': 5 }]
+       * };
+       *
+       * _.merge(object, other);
+       * // => { 'a': [{ 'b': 2, 'c': 3 }, { 'd': 4, 'e': 5 }] }
+       */
+      var merge = _createAssigner(function (object, source, srcIndex) {
+        _baseMerge(object, source, srcIndex);
+      });
+
+      /* harmony default export */ const lodash_es_merge = merge; // CONCATENATED MODULE: ./node_modules/@adguard/tswebextension/node_modules/nanoid/index.browser.js
+
       let random = (bytes) => crypto.getRandomValues(new Uint8Array(bytes));
       let customRandom = (alphabet, defaultSize, getRandom) => {
         let mask = (2 << (Math.log(alphabet.length - 1) / Math.LN2)) - 1;
@@ -9234,12 +10075,12 @@
         }, "");
 
       // EXTERNAL MODULE: ./node_modules/bowser/es5.js
-      var es5 = __webpack_require__(22964);
+      var es5 = __webpack_require__(2964);
       var es5_default = /*#__PURE__*/ __webpack_require__.n(es5);
       // EXTERNAL MODULE: ./node_modules/@adguard/scriptlets/dist/umd/scriptlets.umd.js
-      var scriptlets_umd = __webpack_require__(68782);
+      var scriptlets_umd = __webpack_require__(8782);
       // EXTERNAL MODULE: ./node_modules/lru_map/dist/lru.js
-      var lru = __webpack_require__(87553); // CONCATENATED MODULE: ./node_modules/@adguard/tswebextension/dist/index.js
+      var lru = __webpack_require__(7553); // CONCATENATED MODULE: ./node_modules/@adguard/tswebextension/dist/index.js
       const USER_FILTER_ID = 0;
       const ALLOWLIST_FILTER_ID = 100;
       const BACKGROUND_TAB_ID = -1;
@@ -9251,11 +10092,9 @@
        * In inverted mode, the application will unblock ads everywhere except for the sites added to this list.
        */
       class Allowlist {
-        constructor() {
-          this.domains = [];
-          this.inverted = false;
-          this.enabled = false;
-        }
+        domains = [];
+        inverted = false;
+        enabled = false;
         /**
          * Configures allowlist state based on app configuration.
          *
@@ -9307,42 +10146,31 @@
          * Creates rule string based on specified domain.
          *
          * @param domain Allowlisted domain.
+         *
          * @returns Allowlist rule string.
          */
         static createAllowlistRuleString(domain) {
-          const escapedDomain = es.SimpleRegex.escapeRegexSpecials(domain);
-          return String.raw`@@///(www\.)?${escapedDomain}/$document,important`;
-        }
-      }
-
-      function __awaiter(thisArg, _arguments, P, generator) {
-        function adopt(value) {
-          return value instanceof P
-            ? value
-            : new P(function (resolve) {
-                resolve(value);
-              });
-        }
-        return new (P || (P = Promise))(function (resolve, reject) {
-          function fulfilled(value) {
-            try {
-              step(generator.next(value));
-            } catch (e) {
-              reject(e);
+          // Special case for wildcard tld + n domain.
+          if (domain.startsWith("*.")) {
+            return String.raw`@@||${domain.slice(2)}$document,important`;
+          }
+          // In other cases we use regexp to match domain and it`s 'www' subdomain strictly.
+          let regexp = "";
+          // transform allowlist domain special characters
+          for (let i = 0; i < domain.length; i += 1) {
+            const char = domain[i];
+            // transform wildcard to regexp equivalent
+            if (char === "*") {
+              regexp += ".*";
+              // escape domain separator
+            } else if (char === ".") {
+              regexp += String.raw`\.`;
+            } else {
+              regexp += char;
             }
           }
-          function rejected(value) {
-            try {
-              step(generator["throw"](value));
-            } catch (e) {
-              reject(e);
-            }
-          }
-          function step(result) {
-            result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
-          }
-          step((generator = generator.apply(thisArg, _arguments || [])).next());
-        });
+          return String.raw`@@///(www\.)?${regexp}/$document,important`;
+        }
       }
 
       /**
@@ -9440,17 +10268,24 @@
        * TSUrlFilter Engine wrapper.
        */
       class EngineApi {
+        allowlist;
+        appContext;
+        stealthApi;
+        static ASYNC_LOAD_CHINK_SIZE = 5000;
+        engine;
         /**
          * Gets app filtering status.
-         *
-         * TODO: This method is duplicated in {@link EngineApi}. Consider moving it to {@link appContext}
-         *  itself (DRY). But appContext supposed to be deleted (v.zhelvis).
          *
          * @returns True if filtering is enabled, otherwise returns false.
          */
         get isFilteringEnabled() {
-          var _a;
-          return Boolean((_a = this.appContext.configuration) === null || _a === void 0 ? void 0 : _a.settings.filteringEnabled);
+          // TODO: Remove this check after moving call of storage initialization in extension code.
+          // Check this flag before access storage values, because engine methods
+          // can by triggered before initialization by content script requests.
+          if (!this.appContext.isStorageInitialized) {
+            return false;
+          }
+          return Boolean(this.appContext.configuration?.settings.filteringEnabled);
         }
         /**
          * Creates Engine Api instance.
@@ -9469,47 +10304,45 @@
          *
          * @param configuration Engine configuration.
          */
-        startEngine(configuration) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const { filters, userrules, verbose } = configuration;
-            this.allowlist.configure(configuration);
-            const lists = [];
-            for (let i = 0; i < filters.length; i += 1) {
-              const { filterId, content, trusted } = filters[i];
-              const convertedContent = es /* RuleConverter.convertRules */.cR
-                .convertRules(content);
-              lists.push(new es /* StringRuleList */.eq(filterId, convertedContent, false, !trusted, !trusted));
-            }
-            if (userrules.length > 0) {
-              const convertedUserRules = es /* RuleConverter.convertRules */.cR
-                .convertRules(userrules.join("\n"));
-              lists.push(new es /* StringRuleList */.eq(USER_FILTER_ID, convertedUserRules));
-            }
-            const allowlistRulesList = this.allowlist.getAllowlistRules();
-            if (allowlistRulesList) {
-              lists.push(allowlistRulesList);
-            }
-            const stealthModeList = this.stealthApi.getStealthModeRuleList();
-            if (stealthModeList) {
-              lists.push(stealthModeList);
-            }
-            const ruleStorage = new es /* RuleStorage */.qc(lists);
-            (0, es /* setConfiguration */.Dg)({
-              engine: "extension",
-              version: browser_polyfill_default().runtime.getManifest().version,
-              verbose,
-              compatibility: es /* CompatibilityTypes.Extension */.cC.Extension
-            });
-            /*
-             * UI thread becomes blocked on the options page while request filter is created
-             * that's why we create filter rules using chunks of the specified length
-             * Request filter creation is rather slow operation so we should
-             * use setTimeout calls to give UI thread some time.
-             */
-            const engine = new es /* Engine */.D4(ruleStorage, true);
-            yield engine.loadRulesAsync(EngineApi.ASYNC_LOAD_CHINK_SIZE);
-            this.engine = engine;
+        async startEngine(configuration) {
+          const { filters, userrules, verbose } = configuration;
+          this.allowlist.configure(configuration);
+          const lists = [];
+          for (let i = 0; i < filters.length; i += 1) {
+            const { filterId, content, trusted } = filters[i];
+            const convertedContent = es /* RuleConverter.convertRules */.cR
+              .convertRules(content);
+            lists.push(new es /* StringRuleList */.eq(filterId, convertedContent, false, !trusted, !trusted));
+          }
+          if (userrules.length > 0) {
+            const convertedUserRules = es /* RuleConverter.convertRules */.cR
+              .convertRules(userrules.join("\n"));
+            lists.push(new es /* StringRuleList */.eq(USER_FILTER_ID, convertedUserRules));
+          }
+          const allowlistRulesList = this.allowlist.getAllowlistRules();
+          if (allowlistRulesList) {
+            lists.push(allowlistRulesList);
+          }
+          const stealthModeList = this.stealthApi.getStealthModeRuleList();
+          if (stealthModeList) {
+            lists.push(stealthModeList);
+          }
+          const ruleStorage = new es /* RuleStorage */.qc(lists);
+          (0, es /* setConfiguration */.Dg)({
+            engine: "extension",
+            version: browser_polyfill_default().runtime.getManifest().version,
+            verbose,
+            compatibility: es /* CompatibilityTypes.Extension */.cC.Extension
           });
+          /*
+           * UI thread becomes blocked on the options page while request filter is created
+           * that's why we create filter rules using chunks of the specified length
+           * Request filter creation is rather slow operation so we should
+           * use setTimeout calls to give UI thread some time.
+           */
+          const engine = new es /* Engine */.D4(ruleStorage, true);
+          await engine.loadRulesAsync(EngineApi.ASYNC_LOAD_CHINK_SIZE);
+          this.engine = engine;
         }
         /**
          * Searched for rules by match query.
@@ -9582,12 +10415,13 @@
           return this.engine ? this.engine.getRulesCount() : 0;
         }
       }
-      EngineApi.ASYNC_LOAD_CHINK_SIZE = 5000;
 
       /**
        * Matches rules from {@link EngineApi} based on current {@link Allowlist} state.
        */
       class DocumentApi {
+        allowlist;
+        engineApi;
         /**
          * Creates new DocumentApi instance.
          *
@@ -9641,9 +10475,7 @@
        * Simple pub-sub implementation.
        */
       class EventChannel {
-        constructor() {
-          this.listeners = [];
-        }
+        listeners = [];
         /**
          * Dispatch event.
          *
@@ -9699,6 +10531,26 @@
        */
       class Frame {
         /**
+         * Frame url.
+         */
+        url;
+        /**
+         * Frame request id.
+         */
+        requestId;
+        /**
+         * Frame cosmetic result.
+         * This data is saved in frame, because we need for access it
+         * after request content data delete.
+         */
+        cosmeticResult;
+        /**
+         * Frame matching result.
+         * This data is saved in frame, because we need for access it
+         * after request content data delete.
+         */
+        matchingResult;
+        /**
          * Creates frame instance.
          *
          * @param url Frame url.
@@ -9710,6 +10562,60 @@
         }
       }
 
+      var version$1 = "1.0.5";
+
+      function dist_defineProperty(obj, key, value) {
+        if (key in obj) {
+          Object.defineProperty(obj, key, {
+            value: value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+          });
+        } else {
+          obj[key] = value;
+        }
+        return obj;
+      }
+      var version = "2.0.56";
+      const EXTENDED_CSS_VERSION = version;
+      ({
+        error: typeof console !== "undefined" && console.error && console.error.bind ? console.error.bind(window.console) : console.error,
+        info: typeof console !== "undefined" && console.info && console.info.bind ? console.info.bind(window.console) : console.info
+      });
+      const isNumber = (arg) => {
+        return typeof arg === "number" && !Number.isNaN(arg);
+      };
+      class ThrottleWrapper {
+        constructor(callback) {
+          this.callback = callback;
+          this.executeCallback = this.executeCallback.bind(this);
+        }
+        executeCallback() {
+          this.lastRunTime = performance.now();
+          if (isNumber(this.timerId)) {
+            clearTimeout(this.timerId);
+            delete this.timerId;
+          }
+          this.callback();
+        }
+        run() {
+          if (isNumber(this.timerId)) {
+            return;
+          }
+          if (isNumber(this.lastRunTime)) {
+            const elapsedTime = performance.now() - this.lastRunTime;
+            if (elapsedTime < ThrottleWrapper.THROTTLE_DELAY_MS) {
+              this.timerId = window.setTimeout(this.executeCallback, ThrottleWrapper.THROTTLE_DELAY_MS - elapsedTime);
+              return;
+            }
+          }
+          this.timerId = window.setTimeout(this.executeCallback);
+        }
+      }
+      dist_defineProperty(ThrottleWrapper, "THROTTLE_DELAY_MS", 150);
+
+      const TSWEBEXTENSION_VERSION = version$1;
       const logLevelNames = [
         "error" /* LogLevelName.Error */,
         "warn" /* LogLevelName.Warn */,
@@ -9795,6 +10701,10 @@
          */
         collectStats: lib.z.boolean(),
         /**
+         * Enables verbose scriptlets logging if true.
+         */
+        debugScriptlets: lib.z.boolean().default(false),
+        /**
          * Enables stealth mode if true.
          */
         stealthModeEnabled: lib.z.boolean(),
@@ -9850,21 +10760,423 @@
         })
         .strict();
 
+      function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+        function accept(f) {
+          if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected");
+          return f;
+        }
+        var kind = contextIn.kind,
+          key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+        var target = !descriptorIn && ctor ? (contextIn["static"] ? ctor : ctor.prototype) : null;
+        var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+        var _,
+          done = false;
+        for (var i = decorators.length - 1; i >= 0; i--) {
+          var context = {};
+          for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+          for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+          context.addInitializer = function (f) {
+            if (done) throw new TypeError("Cannot add initializers after decoration has completed");
+            extraInitializers.push(accept(f || null));
+          };
+          var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+          if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if ((_ = accept(result.get))) descriptor.get = _;
+            if ((_ = accept(result.set))) descriptor.set = _;
+            if ((_ = accept(result.init))) initializers.unshift(_);
+          } else if ((_ = accept(result))) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+          }
+        }
+        if (target) Object.defineProperty(target, contextIn.name, descriptor);
+        done = true;
+      }
+      function __runInitializers(thisArg, initializers, value) {
+        var useValue = arguments.length > 2;
+        for (var i = 0; i < initializers.length; i++) {
+          value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+        }
+        return useValue ? value : void 0;
+      }
+
+      /**
+       * API to store a persistent value with debounced synchronization to the specified web extension storage key.
+       *
+       * After the container is created, we initialize it asynchronously to get the actual value from the storage.
+       * The Init method is guarded against multiple initializations to avoid unnecessary reads from the memory.
+       * Get/set methods are protected from uninitialized storage to ensure that actual data is used.
+       *
+       * We declare the sync get/set methods to update the cached value. This allows us to use containers in accessors.
+       *
+       * Set method updates the cached value and schedules the save operation to the storage via a debounce function to
+       * avoid unnecessary writes to the storage.
+       *
+       * This container saves the data to storage using the specified key to avoid collisions with other instances.
+       * It helps to avoid reading the data from the storage that is not related to the current instance.
+       */
+      class PersistentValueContainer {
+        // TODO: delete after the migration to event-driven background.
+        // We do not recalculate this value because the background type cannot change at runtime.
+        static #IS_BACKGROUND_PERSISTENT = PersistentValueContainer.#isBackgroundPersistent();
+        #api;
+        #key;
+        #value;
+        // TODO: make required after the migration to event-driven background.
+        #save;
+        #isInitialized = false;
+        /**
+         * Creates {@link PersistentValueContainer} instance.
+         * @param key The key to use for storing the data.
+         * @param api Webextension storage API.
+         * @param debounceMs The debounce time in milliseconds to save the data to the storage.
+         * Optional. Default is 300ms.
+         */
+        constructor(key, api, debounceMs = 300) {
+          this.#key = key;
+          this.#api = api;
+          /**
+           * TODO: remove this condition after the migration to event-driven background.
+           */
+          if (!PersistentValueContainer.#IS_BACKGROUND_PERSISTENT) {
+            this.#save = (0, debounce /* default */.Z)(() => {
+              this.#api.set({ [this.#key]: this.#value });
+            }, debounceMs);
+          }
+        }
+        /**
+         * Initializes the value.
+         * @param value The initial value.
+         * @returns Promise that resolves when the value is initialized.
+         * @throws Error, if storage already initialized.
+         */
+        async init(value) {
+          if (this.#isInitialized) {
+            throw new Error("Storage already initialized");
+          }
+          if (PersistentValueContainer.#IS_BACKGROUND_PERSISTENT) {
+            this.#value = value;
+          } else {
+            const storageData = await this.#api.get({
+              [this.#key]: value
+            });
+            this.#value = storageData[this.#key];
+          }
+          this.#isInitialized = true;
+        }
+        /**
+         * Gets the value.
+         * @returns The value stored by the specified key.
+         * @throws Error, if storage not initialized.
+         */
+        get() {
+          this.#checkIsInitialized();
+          return this.#value;
+        }
+        /**
+         * Sets the value.
+         * @param value Value to be stored in the specified key.
+         * @throws Error, if storage not initialized.
+         */
+        set(value) {
+          this.#checkIsInitialized();
+          this.#value = value;
+          if (this.#save) {
+            this.#save();
+          }
+        }
+        /**
+         * Checks if the storage is initialized.
+         * @throws Error, if storage not initialized.
+         */
+        #checkIsInitialized() {
+          if (!this.#isInitialized) {
+            throw new Error("Storage not initialized");
+          }
+        }
+        /**
+         * TODO: remove this method after the migration to event-driven background.
+         * Checks if the background script is persistent.
+         * @returns True if the background script is persistent.
+         */
+        static #isBackgroundPersistent() {
+          const manifest = browser_polyfill_default().runtime.getManifest();
+          if (manifest.manifest_version === 3) {
+            return false;
+          }
+          if (!manifest.background) {
+            return true;
+          }
+          const background = manifest.background;
+          return background.persistent ?? true;
+        }
+      }
+
+      /**
+       * API for storing persistent key-value data with debounced sync with the specified webextension storage key.
+       * Webextension storage synchronization described in the {@link PersistentValueContainer} class.
+       */
+      class ExtensionStorage {
+        /**
+         * API for storing persistent value with debounced sync with the specified webextension storage key.
+         */
+        #container;
+        /**
+         * Creates {@link ExtensionStorage} instance.
+         * @param key The key to use for storing the data.
+         * @param api Webextension storage API.
+         */
+        constructor(key, api) {
+          this.#container = new PersistentValueContainer(key, api);
+        }
+        /**
+         * Initializes the storage.
+         * @param data The initial data.
+         * @returns Promise that resolves when the storage is initialized.
+         * @throws Error, if storage already initialized.
+         */
+        init(data) {
+          return this.#container.init(data);
+        }
+        /**
+         * Gets the value by the specified key.
+         * @param key The key to use for storing the value.
+         * @throws Error, if storage not initialized.
+         * @returns Data stored by the specified key.
+         */
+        get(key) {
+          return this.#container.get()[key];
+        }
+        /**
+         * Sets the value by the specified key.
+         * @param key The key to use for storing the value.
+         * @param value New value.
+         * @throws Error, if storage not initialized.
+         */
+        set(key, value) {
+          const data = this.#container.get();
+          data[key] = value;
+          this.#container.set(data);
+        }
+        /**
+         * Deletes the value by the specified key.
+         * @param key The key to use for storing the value.
+         * @throws Error, if storage not initialized.
+         */
+        delete(key) {
+          const data = this.#container.get();
+          delete data[key];
+          this.#container.set(data);
+        }
+      }
+
+      /**
+       * Creates accessor decorator for the specified storage.
+       *
+       * @param storage The extension storage API to use.
+       * @returns Accessor decorator for the specified storage.
+       * @see https://github.com/tc39/proposal-decorators
+       */
+      function createExtensionStorageDecorator(storage) {
+        const fields = new Set();
+        /**
+         * Creates accessor decorator for the specified storage field.
+         *
+         * NOTE: You should not set the initial value to the accessor via assignment,
+         * because decorator overwrite accessors methods and don't use private property, created on initialization.
+         * Use Non-null assertion operator instead.
+         * @example `@storage('foo') accessor bar!: string`;
+         * @param field Storage field name.
+         * @throws Error if decorator is already registered for {@link field}
+         * or decorator is applied to class member different from auto accessor.
+         * @returns Decorator for access to specified storage {@link field}.
+         */
+        return function createFieldDecorator(field) {
+          // We prevent the use of multiple decorators on a single storage field,
+          // because manipulating data through the accessors of multiple modules can be confusing.
+          if (fields.has(field)) {
+            throw new Error(`Decorator for ${String(field)} field is already registered`);
+          }
+          fields.add(field);
+          return function fieldDecorator(_target, context) {
+            if (context.kind !== "accessor") {
+              throw new Error("Class member is not auto accessor");
+            }
+            // we do not set init descriptor, because data will be initialized asynchronously
+            return {
+              get() {
+                return storage.get(field);
+              },
+              set(value) {
+                return storage.set(field, value);
+              }
+            };
+          };
+        };
+      }
+
+      /**
+       * Memory storage that implements the StorageArea interface.
+       */
+      class MemoryStorage {
+        data;
+        /** @inheritdoc */
+        constructor(initData = {}) {
+          this.data = initData;
+        }
+        /** @inheritdoc */
+        get(keys) {
+          if (keys === undefined || keys === null) {
+            return Promise.resolve(this.data);
+          }
+          if (typeof keys === "string") {
+            return Promise.resolve({ [keys]: this.data[keys] });
+          }
+          if (Array.isArray(keys)) {
+            return Promise.resolve(lodash_es_pick(this.data, keys));
+          }
+          if (typeof keys === "object") {
+            const picked = Object.keys(keys);
+            this.data = lodash_es_merge(keys, this.data);
+            return Promise.resolve(lodash_es_pick(this.data, picked));
+          }
+          return Promise.resolve({});
+        }
+        /** @inheritdoc */
+        set(items) {
+          Object.assign(this.data, items);
+          return Promise.resolve();
+        }
+        /** @inheritdoc */
+        remove(keys) {
+          if (typeof keys === "string") {
+            delete this.data[keys];
+          } else {
+            keys.forEach((key) => {
+              delete this.data[key];
+            });
+          }
+          return Promise.resolve();
+        }
+        /** @inheritdoc */
+        clear() {
+          this.data = {};
+          return Promise.resolve();
+        }
+      }
+
+      /**
+       * API for storing data described by {@link SessionStorageSchema} in the {@link browser.storage.session}.
+       */
+      class ExtSessionStorage extends ExtensionStorage {
+        static #DOMAIN = "tswebextension";
+        static #DEFAULT_DATA = {
+          isAppStarted: false,
+          configuration: undefined
+        };
+        /**
+         * Creates {@link SessionStorage} instance.
+         */
+        constructor() {
+          // Use memory storage as a fallback for old browsers.
+          super(ExtSessionStorage.#DOMAIN, browser_polyfill_default().storage.session ?? new MemoryStorage());
+        }
+        /** @inheritdoc */
+        init() {
+          return super.init(ExtSessionStorage.#DEFAULT_DATA);
+        }
+      }
+      const extSessionStorage = new ExtSessionStorage();
+      const sessionDecorator = createExtensionStorageDecorator(extSessionStorage);
+
       /**
        * Top level app context storage.
        *
        * This context is needed to share data between other modules without cyclic dependencies.
        *
-       * TODO (v.zhelvis) move app context to common and make it generic.
+       * TODO (v.zhelvis) delete this context after DI is implemented.
        */
-      class AppContext {
-        constructor() {
+      let AppContext = (() => {
+        let _instanceExtraInitializers = [];
+        let _isAppStarted_decorators;
+        let _isAppStarted_initializers = [];
+        let _configuration_decorators;
+        let _configuration_initializers = [];
+        return class AppContext {
+          static {
+            _isAppStarted_decorators = [sessionDecorator("isAppStarted" /* SessionStorageKey.IsAppStarted */)];
+            _configuration_decorators = [sessionDecorator("configuration" /* SessionStorageKey.Configuration */)];
+            __esDecorate(
+              this,
+              null,
+              _isAppStarted_decorators,
+              {
+                kind: "accessor",
+                name: "isAppStarted",
+                static: false,
+                private: false,
+                access: {
+                  has: (obj) => "isAppStarted" in obj,
+                  get: (obj) => obj.isAppStarted,
+                  set: (obj, value) => {
+                    obj.isAppStarted = value;
+                  }
+                }
+              },
+              _isAppStarted_initializers,
+              _instanceExtraInitializers
+            );
+            __esDecorate(
+              this,
+              null,
+              _configuration_decorators,
+              {
+                kind: "accessor",
+                name: "configuration",
+                static: false,
+                private: false,
+                access: {
+                  has: (obj) => "configuration" in obj,
+                  get: (obj) => obj.configuration,
+                  set: (obj, value) => {
+                    obj.configuration = value;
+                  }
+                }
+              },
+              _configuration_initializers,
+              _instanceExtraInitializers
+            );
+          }
+          /**
+           * Is storage initialized.
+           * This flag is used to prevent access to persistent storage data on
+           * request from content script, before app is started.
+           */
+          isStorageInitialized = (__runInitializers(this, _instanceExtraInitializers), false);
+          #isAppStarted_accessor_storage = __runInitializers(this, _isAppStarted_initializers, void 0);
           /**
            * Is app started.
            */
-          this.isAppStarted = false;
-        }
-      }
+          get isAppStarted() {
+            return this.#isAppStarted_accessor_storage;
+          }
+          set isAppStarted(value) {
+            this.#isAppStarted_accessor_storage = value;
+          }
+          #configuration_accessor_storage = __runInitializers(this, _configuration_initializers, void 0);
+          /**
+           * MV2 ConfigurationMV2 excludes heavyweight fields with rules.
+           */
+          get configuration() {
+            return this.#configuration_accessor_storage;
+          }
+          set configuration(value) {
+            this.#configuration_accessor_storage = value;
+          }
+        };
+      })();
       const appContext = new AppContext();
 
       // TODO (v.zhelvis) move app context to common and make it generic.
@@ -9883,10 +11195,7 @@
          */
         // eslint-disable-next-line class-methods-use-this
         get verbose() {
-          var _a, _b;
-          return (_b = (_a = appContext.configuration) === null || _a === void 0 ? void 0 : _a.verbose) !== null && _b !== void 0
-            ? _b
-            : DEFAULT_VERBOSE_FLAG;
+          return appContext.configuration?.verbose ?? DEFAULT_VERBOSE_FLAG;
         }
         /**
          * Gets app log level.
@@ -9897,11 +11206,7 @@
          */
         // eslint-disable-next-line class-methods-use-this
         get logLevel() {
-          var _a, _b;
-          const logLevelString =
-            (_b = (_a = appContext.configuration) === null || _a === void 0 ? void 0 : _a.logLevel) !== null && _b !== void 0
-              ? _b
-              : DEFAULT_LOG_LEVEL;
+          const logLevelString = appContext.configuration?.logLevel ?? DEFAULT_LOG_LEVEL;
           switch (logLevelString) {
             case "error" /* LogLevelName.Error */:
               return 1 /* LogLevelWeight.Error */;
@@ -9915,6 +11220,7 @@
               throw new Error(`Logger only supports following levels: ${[logLevelNames.join(", ")]}`);
           }
         }
+        loggerImpl;
         /**
          * Logger constructor.
          *
@@ -9995,10 +11301,8 @@
        * {@link FilteringLogInterface} Default implementation.
        */
       class FilteringLog {
-        constructor() {
-          this.onLogEvent = new EventChannel();
-          this.channels = [];
-        }
+        onLogEvent = new EventChannel();
+        channels = [];
         /**
          * Registers listener for specified {@link FilteringLogEvent}.
          *
@@ -10031,6 +11335,33 @@
        * Tab context.
        */
       class TabContext {
+        info;
+        documentApi;
+        filteringLog;
+        /**
+         * Frames context.
+         * NOTE: this is temporary storage for frames data.
+         * Each frame context is deleted after navigation is complete.
+         * Storage is cleared on tab reload.
+         * Do not use it as a data source out of request or navigation processing.
+         */
+        frames = new Map();
+        /**
+         * Blocked request count.
+         */
+        blockedRequestCount = 0;
+        /**
+         * Document level rule, applied to the tab.
+         */
+        mainFrameRule = null;
+        /**
+         * We mark these tabs as synthetic because they may not actually exist.
+         */
+        isSyntheticTab = true;
+        /**
+         * Is document page request handled by memory cache or sw.
+         */
+        isDocumentRequestCached = false;
         /**
          * Context constructor.
          *
@@ -10042,26 +11373,6 @@
           this.info = info;
           this.documentApi = documentApi;
           this.filteringLog = filteringLog;
-          /**
-           * Frames context.
-           */
-          this.frames = new Map();
-          /**
-           * Blocked request count.
-           */
-          this.blockedRequestCount = 0;
-          /**
-           * Document level rule, applied to the tab.
-           */
-          this.mainFrameRule = null;
-          /**
-           * We mark these tabs as synthetic because they may not actually exist.
-           */
-          this.isSyntheticTab = true;
-          /**
-           * Is document page request handled by memory cache or sw.
-           */
-          this.isDocumentRequestCached = false;
           this.info = info;
         }
         /**
@@ -10079,7 +11390,7 @@
             // Get current main frame.
             const frame = this.frames.get(MAIN_FRAME_ID);
             // If main frame url is the same as request url, do nothing.
-            if ((frame === null || frame === void 0 ? void 0 : frame.url) === changeInfo.url) {
+            if (frame?.url === changeInfo.url) {
               return;
             }
             // If the main frame doesn't exist or its URL is different from the request URL,
@@ -10219,6 +11530,14 @@
        * Tabs API. Wrapper around browser.tabs API.
        */
       class TabsApi {
+        documentApi;
+        // TODO: Use a persistent map when the extended serialization is implemented. (AG-27098)
+        context = new Map();
+        onCreate = new EventChannel();
+        onUpdate = new EventChannel();
+        onDelete = new EventChannel();
+        onActivate = new EventChannel();
+        onReplace = new EventChannel();
         /**
          * Tabs API constructor.
          *
@@ -10226,12 +11545,6 @@
          */
         constructor(documentApi) {
           this.documentApi = documentApi;
-          this.context = new Map();
-          this.onCreate = new EventChannel();
-          this.onUpdate = new EventChannel();
-          this.onDelete = new EventChannel();
-          this.onActivate = new EventChannel();
-          this.onReplace = new EventChannel();
           this.handleTabCreate = this.handleTabCreate.bind(this);
           this.handleTabUpdate = this.handleTabUpdate.bind(this);
           this.handleTabActivate = this.handleTabActivate.bind(this);
@@ -10249,19 +11562,17 @@
         /**
          * Initializes tabs API and starts listening for tab & window events.
          */
-        start() {
-          return __awaiter(this, void 0, void 0, function* () {
-            browser_polyfill_default().tabs.onCreated.addListener(this.handleTabCreate);
-            browser_polyfill_default().tabs.onRemoved.addListener(this.handleTabDelete);
-            browser_polyfill_default().tabs.onUpdated.addListener(this.handleTabUpdate);
-            browser_polyfill_default().tabs.onActivated.addListener(this.handleTabActivate);
-            browser_polyfill_default().tabs.onReplaced.addListener(this.handleTabReplace);
-            // Firefox for android doesn't support windows API
-            // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows#browser_compatibility
-            if (browser_polyfill_default().windows) {
-              browser_polyfill_default().windows.onFocusChanged.addListener(this.onWindowFocusChanged);
-            }
-          });
+        async start() {
+          browser_polyfill_default().tabs.onCreated.addListener(this.handleTabCreate);
+          browser_polyfill_default().tabs.onRemoved.addListener(this.handleTabDelete);
+          browser_polyfill_default().tabs.onUpdated.addListener(this.handleTabUpdate);
+          browser_polyfill_default().tabs.onActivated.addListener(this.handleTabActivate);
+          browser_polyfill_default().tabs.onReplaced.addListener(this.handleTabReplace);
+          // Firefox for android doesn't support windows API
+          // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows#browser_compatibility
+          if (browser_polyfill_default().windows) {
+            browser_polyfill_default().windows.onFocusChanged.addListener(this.onWindowFocusChanged);
+          }
         }
         /**
          * Stops listening for tab & window events and clears tabs context.
@@ -10402,7 +11713,7 @@
          */
         updateTabMainFrameRule(tabId) {
           const tabContext = this.context.get(tabId);
-          if (!(tabContext === null || tabContext === void 0 ? void 0 : tabContext.info.url)) {
+          if (!tabContext?.info.url) {
             return;
           }
           tabContext.mainFrameRule = this.documentApi.matchFrame(tabContext.info.url);
@@ -10410,18 +11721,16 @@
         /**
          * Updates tab context data after filter engine load.
          */
-        updateCurrentTabsMainFrameRules() {
-          return __awaiter(this, void 0, void 0, function* () {
-            const currentTabs = yield browser_polyfill_default().tabs.query({});
-            if (!Array.isArray(currentTabs)) {
-              return;
+        async updateCurrentTabsMainFrameRules() {
+          const currentTabs = await browser_polyfill_default().tabs.query({});
+          if (!Array.isArray(currentTabs)) {
+            return;
+          }
+          for (const tab of currentTabs) {
+            if (typeof tab.id === "number") {
+              this.updateTabMainFrameRule(tab.id);
             }
-            for (const tab of currentTabs) {
-              if (typeof tab.id === "number") {
-                this.updateTabMainFrameRule(tab.id);
-              }
-            }
-          });
+          }
         }
         /**
          * Checks if tab is a new tab.
@@ -10434,12 +11743,11 @@
          * @returns True if tab is a new tab.
          */
         isNewPopupTab(tabId) {
-          var _a;
           const tab = this.context.get(tabId);
           if (!tab) {
             return false;
           }
-          const url = (_a = tab.info) === null || _a === void 0 ? void 0 : _a.url;
+          const url = tab.info?.url;
           return url === undefined || url === "" || url === "about:blank";
         }
         /**
@@ -10520,24 +11828,22 @@
          *
          * @param windowId Window ID.
          */
-        onWindowFocusChanged(windowId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            // If all browser windows have lost focus.
-            if (windowId === browser_polyfill_default().windows.WINDOW_ID_NONE) {
-              return;
-            }
-            const [activeTab] = yield browser_polyfill_default().tabs.query({
-              active: true,
-              windowId
-            });
-            if (!activeTab || !activeTab.id) {
-              return;
-            }
-            const tabContext = this.context.get(activeTab.id);
-            if (tabContext) {
-              this.onActivate.dispatch(tabContext);
-            }
+        async onWindowFocusChanged(windowId) {
+          // If all browser windows have lost focus.
+          if (windowId === browser_polyfill_default().windows.WINDOW_ID_NONE) {
+            return;
+          }
+          const [activeTab] = await browser_polyfill_default().tabs.query({
+            active: true,
+            windowId
           });
+          if (!activeTab || !activeTab.id) {
+            return;
+          }
+          const tabContext = this.context.get(activeTab.id);
+          if (tabContext) {
+            this.onActivate.dispatch(tabContext);
+          }
         }
         /**
          * Injects script to the frame by tab id and frame id.
@@ -10546,16 +11852,14 @@
          * @param tabId Tab ID.
          * @param frameId Frame ID.
          */
-        static injectScript(code, tabId, frameId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const injectDetails = {
-              code,
-              frameId,
-              runAt: "document_start",
-              matchAboutBlank: true
-            };
-            yield browser_polyfill_default().tabs.executeScript(tabId, injectDetails);
-          });
+        static async injectScript(code, tabId, frameId) {
+          const injectDetails = {
+            code,
+            frameId,
+            runAt: "document_start",
+            matchAboutBlank: true
+          };
+          await browser_polyfill_default().tabs.executeScript(tabId, injectDetails);
         }
         /**
          * Injects css styles to the frame by tab id and frame id.
@@ -10564,19 +11868,206 @@
          * @param tabId Tab ID.
          * @param frameId Frame ID.
          */
-        static injectCss(code, tabId, frameId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const injectDetails = {
-              code,
-              frameId,
-              runAt: "document_start",
-              matchAboutBlank: true,
-              cssOrigin: "user"
-            };
-            yield browser_polyfill_default().tabs.insertCSS(tabId, injectDetails);
-          });
+        static async injectCss(code, tabId, frameId) {
+          const injectDetails = {
+            code,
+            frameId,
+            runAt: "document_start",
+            matchAboutBlank: true,
+            cssOrigin: "user"
+          };
+          await browser_polyfill_default().tabs.insertCSS(tabId, injectDetails);
         }
       }
+
+      /**
+       * Implementation of the request context storage.
+       */
+      class RequestContextStorage extends Map {
+        /**
+         * Create new request context.
+         *
+         * @param requestId Request id.
+         * @param data Request context with a omitted eventId field. It is automatically generated.
+         * @returns Request context storage instance.
+         */
+        create(requestId, data) {
+          const requestContext = {
+            eventId: nanoid(),
+            ...data
+          };
+          super.set(requestId, requestContext);
+          return requestContext;
+        }
+        /**
+         * Update request context fields. Can be done partially.
+         *
+         * @param requestId Request id.
+         * @param data Partial request context.
+         * @returns Updated request context.
+         */
+        update(requestId, data) {
+          const requestContext = super.get(requestId);
+          if (requestContext) {
+            Object.assign(requestContext, data);
+            return requestContext;
+          }
+          // TODO: Throws error if request context not found after RequestEvents refactoring.
+          super.set(requestId, data);
+          return undefined;
+        }
+      }
+      const requestContextStorage = new RequestContextStorage();
+
+      /**
+       * Taken from:
+       * {@link https://github.com/seanl-adg/InlineResourceLiteral/blob/master/index.js#L136}
+       * {@link https://github.com/joliss/js-string-escape/blob/master/index.js}.
+       */
+      const reJsEscape = /["'\\\n\r\u2028\u2029]/g;
+      const escapeJs = (match) => {
+        switch (match) {
+          case '"':
+          case "'":
+          case "\\":
+            return `\\${match}`;
+          case "\n":
+            /**
+             * Line continuation character for ease of reading inlined resource.
+             */
+            return "\\n\\\n";
+          case "\r":
+            /**
+             * Carriage returns won't have any semantic meaning in JS.
+             */
+            return "";
+          case "\u2028":
+            return "\\u2028";
+          case "\u2029":
+            return "\\u2029";
+          default:
+            return match;
+        }
+      };
+      /**
+       * We use changing variable name because global properties can be modified across isolated worlds of extension
+       * content page and tab page.
+       *
+       * Issue: @see {@link https://bugs.chromium.org/p/project-zero/issues/detail?id=1225&desc=6}.
+       */
+      const variableName = `scriptExecuted${Date.now()}`;
+      /**
+       * Builds script to inject in a safe way.
+       *
+       * @see {@link LocalScriptRulesService} for details about script source.
+       * @param scriptText Script text.
+       * @returns Script to inject.
+       */
+      const buildScriptText = (scriptText) => {
+        /**
+         * Executes scripts in a scope of the page, but the `window` fields are in
+         * an isolated scope, e.g. `window.${variableName}` will only be visible in
+         * this scope of the script, but not in the original scope of the page.
+         * In order to prevent multiple script execution checks if script was already executed.
+         * Sometimes in Firefox when content-filtering is applied to the page race condition happens.
+         * This causes an issue when the page doesn't have its document.head or document.documentElement at the moment of
+         * injection. So script waits for them. But if a quantity of frame-requests reaches FRAME_REQUESTS_LIMIT then
+         * script stops waiting with the error.
+         * Description of the issue: @see {@link https://github.com/AdguardTeam/AdguardBrowserExtension/issues/1004}.
+         */
+        return `(function() {\
+                if (window.${variableName}) {\
+                    return;\
+                }\
+                var script = document.createElement("script");\
+                script.setAttribute("type", "text/javascript");\
+                script.textContent = "${scriptText.replace(reJsEscape, escapeJs)}";\
+                var FRAME_REQUESTS_LIMIT = 500;\
+                var frameRequests = 0;\
+                function waitParent () {\
+                    frameRequests += 1;\
+                    var parent = document.head || document.documentElement;\
+                    if (parent) {\
+                        try {\
+                            parent.appendChild(script);\
+                            parent.removeChild(script);\
+                        } catch (e) {\
+                        } finally {\
+                            window.${variableName} = true;\
+                            return true;\
+                        }\
+                    }\
+                    if(frameRequests < FRAME_REQUESTS_LIMIT) {\
+                        requestAnimationFrame(waitParent);\
+                    } else {\
+                        console.log("AdGuard: document.head or document.documentElement were unavailable too long");\
+                    }\
+                }\
+                waitParent();\
+            })()`;
+      };
+
+      /**
+       * By the rules of AMO we cannot use remote scripts (and our JS rules can be counted as such).
+       * Because of that we use the following approach (that was accepted by AMO reviewers):
+       *
+       * 1. We pre-build JS rules from AdGuard filters into the JSON file.
+       * 2. At runtime we check every JS rule if it's included into JSON.
+       *  If it is included we allow this rule to work since it's pre-built. Other rules are discarded.
+       * 3. We also allow "User rules" to work since those rules are added manually by the user.
+       *  This way filters maintainers can test new rules before including them in the filters.
+       */
+      class LocalScriptRulesService {
+        static JS_RULE_GENERIC_DOMAIN_TOKEN = "<any>";
+        static JS_RULE_SEPARATOR_TOKEN = "#%#";
+        /**
+         * If {@link setLocalScriptRules} was called (for example, it should be
+         * called in Firefox AMO), this set will contain a list of prebuilt JSON
+         * with scriptlets and JS rules allowed to run.
+         * Otherwise it will remain undefined.
+         */
+        localScripts;
+        /**
+         * Saves local script rules to object.
+         *
+         * @param json JSON object with pre-build JS rules.
+         */
+        setLocalScriptRules(json) {
+          this.localScripts = new Set(
+            json.rules.map((rule) => {
+              const { domains, script } = rule;
+              let ruleText = "";
+              if (domains !== LocalScriptRulesService.JS_RULE_GENERIC_DOMAIN_TOKEN) {
+                ruleText = domains;
+              }
+              ruleText += `${LocalScriptRulesService.JS_RULE_SEPARATOR_TOKEN}${script}`;
+              return ruleText;
+            })
+          );
+        }
+        /**
+         * Checks if ruleText is in the pre-built JSON with JS rules.
+         *
+         * @param ruleText Rule text.
+         *
+         * @returns True, if rule is local, else returns false.
+         */
+        isLocal(ruleText) {
+          if (this.localScripts === undefined) {
+            return true;
+          }
+          /**
+           * In case of Firefox add-ons JS filtering rules are hardcoded
+           * into add-on code. So, if rule is not local - we exclude these
+           * rules from execution for Firefox AMO.
+           *
+           * Check description of {@link LocalScriptRulesService} for
+           * details about script source.
+           */
+          return this.localScripts.has(ruleText);
+        }
+      }
+      const localScriptRulesService = new LocalScriptRulesService();
 
       /**
        * Finds header object by header name (case-insensitive).
@@ -10643,6 +12134,21 @@
             // Ignore
           }
         }
+        /**
+         * Hides document referrer.
+         */
+        static hideDocumentReferrer() {
+          const origDescriptor = Object.getOwnPropertyDescriptor(Document.prototype, "referrer");
+          if (!origDescriptor || !origDescriptor.get || !origDescriptor.configurable) {
+            return;
+          }
+          const returnEmptyReferrerFunc = () => "";
+          // Protect getter from native code check
+          returnEmptyReferrerFunc.toString = origDescriptor.get.toString.bind(origDescriptor.get);
+          Object.defineProperty(Document.prototype, "referrer", {
+            get: returnEmptyReferrerFunc
+          });
+        }
       }
 
       /**
@@ -10664,13 +12170,55 @@
        */
       class StealthService {
         /**
+         * Headers.
+         */
+        static HEADERS = {
+          REFERRER: "Referer",
+          X_CLIENT_DATA: "X-Client-Data",
+          DO_NOT_TRACK: "DNT"
+        };
+        /**
+         * Header values.
+         */
+        static HEADER_VALUES = {
+          DO_NOT_TRACK: {
+            name: "DNT",
+            value: "1"
+          },
+          GLOBAL_PRIVACY_CONTROL: {
+            name: "Sec-GPC",
+            value: "1"
+          }
+        };
+        /**
+         * Search engines regexps.
+         */
+        static SEARCH_ENGINES = [
+          /https?:\/\/(www\.)?google\./i,
+          /https?:\/\/(www\.)?yandex\./i,
+          /https?:\/\/(www\.)?bing\./i,
+          /https?:\/\/(www\.)?yahoo\./i,
+          /https?:\/\/(www\.)?go\.mail\.ru/i,
+          /https?:\/\/(www\.)?ask\.com/i,
+          /https?:\/\/(www\.)?aol\.com/i,
+          /https?:\/\/(www\.)?baidu\.com/i,
+          /https?:\/\/(www\.)?seznam\.cz/i
+        ];
+        /**
+         * Filtering logger.
+         */
+        filteringLog;
+        /**
+         * App context.
+         */
+        appContext;
+        /**
          * Configuration.
          *
          * @returns App Stealth configuration or undefined.
          */
         get config() {
-          var _a;
-          return (_a = this.appContext.configuration) === null || _a === void 0 ? void 0 : _a.settings.stealth;
+          return this.appContext.configuration?.settings.stealth;
         }
         /**
          * Constructor.
@@ -10688,12 +12236,11 @@
          * @returns Strings of cookie rules.
          */
         getCookieRulesTexts() {
-          var _a, _b;
           const result = [];
-          if ((_a = this.config) === null || _a === void 0 ? void 0 : _a.selfDestructFirstPartyCookies) {
+          if (this.config?.selfDestructFirstPartyCookies) {
             result.push(StealthService.generateCookieRuleText(this.config.selfDestructFirstPartyCookiesTime));
           }
-          if ((_b = this.config) === null || _b === void 0 ? void 0 : _b.selfDestructThirdPartyCookies) {
+          if (this.config?.selfDestructThirdPartyCookies) {
             result.push(StealthService.generateCookieRuleText(this.config.selfDestructThirdPartyCookiesTime, true));
           }
           return result;
@@ -10705,14 +12252,13 @@
          * @returns Stealth actions bitmask.
          */
         processRequestHeaders(context) {
-          var _a, _b, _c, _d;
           let stealthActions = StealthActions.None;
           const { requestUrl, requestType, requestHeaders } = context;
           if (!requestHeaders) {
             return stealthActions;
           }
           // Remove referrer for third-party requests
-          if ((_a = this.config) === null || _a === void 0 ? void 0 : _a.hideReferrer) {
+          if (this.config?.hideReferrer) {
             const refHeader = findHeaderByName(requestHeaders, StealthService.HEADERS.REFERRER);
             if (refHeader && refHeader.value && isThirdPartyRequest(requestUrl, refHeader.value)) {
               refHeader.value = StealthService.createMockRefHeaderUrl(requestUrl);
@@ -10721,7 +12267,7 @@
           }
           // Hide referrer in case of search engine is referrer
           const isMainFrame = requestType === RequestType.Document;
-          if (((_b = this.config) === null || _b === void 0 ? void 0 : _b.hideSearchQueries) && isMainFrame) {
+          if (this.config?.hideSearchQueries && isMainFrame) {
             const refHeader = findHeaderByName(requestHeaders, StealthService.HEADERS.REFERRER);
             if (
               refHeader &&
@@ -10734,13 +12280,13 @@
             }
           }
           // Remove X-Client-Data header
-          if ((_c = this.config) === null || _c === void 0 ? void 0 : _c.blockChromeClientData) {
+          if (this.config?.blockChromeClientData) {
             if (removeHeader(requestHeaders, StealthService.HEADERS.X_CLIENT_DATA)) {
               stealthActions |= StealthActions.BlockChromeClientData;
             }
           }
           // Adding Do-Not-Track (DNT) header
-          if ((_d = this.config) === null || _d === void 0 ? void 0 : _d.sendDoNotTrack) {
+          if (this.config?.sendDoNotTrack) {
             requestHeaders.push(StealthService.HEADER_VALUES.DO_NOT_TRACK);
             requestHeaders.push(StealthService.HEADER_VALUES.GLOBAL_PRIVACY_CONTROL);
             stealthActions |= StealthActions.SendDoNotTrack;
@@ -10763,9 +12309,19 @@
          * @returns Dom signal script.
          */
         getSetDomSignalScript() {
-          var _a;
-          if ((_a = this.config) === null || _a === void 0 ? void 0 : _a.sendDoNotTrack) {
+          if (this.config?.sendDoNotTrack) {
             return `;(function ${StealthHelper.setDomSignal.toString()})();`;
+          }
+          return "";
+        }
+        /**
+         * Returns hide document referrer script if hideReferrer enabled, otherwise empty string.
+         *
+         * @returns Hide referrer script.
+         */
+        getHideDocumentReferrerScript() {
+          if (this.config?.hideReferrer) {
+            return `;(function ${StealthHelper.hideDocumentReferrer.toString()})();`;
           }
           return "";
         }
@@ -10802,41 +12358,6 @@
           return StealthService.SEARCH_ENGINES.some((searchEngineRegex) => searchEngineRegex.test(url));
         }
       }
-      /**
-       * Headers.
-       */
-      StealthService.HEADERS = {
-        REFERRER: "Referer",
-        X_CLIENT_DATA: "X-Client-Data",
-        DO_NOT_TRACK: "DNT"
-      };
-      /**
-       * Header values.
-       */
-      StealthService.HEADER_VALUES = {
-        DO_NOT_TRACK: {
-          name: "DNT",
-          value: "1"
-        },
-        GLOBAL_PRIVACY_CONTROL: {
-          name: "Sec-GPC",
-          value: "1"
-        }
-      };
-      /**
-       * Search engines regexps.
-       */
-      StealthService.SEARCH_ENGINES = [
-        /https?:\/\/(www\.)?google\./i,
-        /https?:\/\/(www\.)?yandex\./i,
-        /https?:\/\/(www\.)?bing\./i,
-        /https?:\/\/(www\.)?yahoo\./i,
-        /https?:\/\/(www\.)?go\.mail\.ru/i,
-        /https?:\/\/(www\.)?ask\.com/i,
-        /https?:\/\/(www\.)?aol\.com/i,
-        /https?:\/\/(www\.)?baidu\.com/i,
-        /https?:\/\/(www\.)?seznam\.cz/i
-      ];
 
       /**
        * @file
@@ -10947,10 +12468,9 @@
        * @returns Promise resolved with response from the background page.
        */
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const sendAppMessage = (message) =>
-        __awaiter(void 0, void 0, void 0, function* () {
-          return browser.runtime.sendMessage(Object.assign({ handlerName: MESSAGE_HANDLER_NAME }, message));
-        });
+      const sendAppMessage = async (message) => {
+        return browser.runtime.sendMessage({ handlerName: MESSAGE_HANDLER_NAME, ...message });
+      };
 
       /**
        * Request content type.
@@ -11076,7 +12596,7 @@
         }
         try {
           return new Error(JSON.stringify(maybeError));
-        } catch (_a) {
+        } catch {
           // fallback in case there's an error stringifying the maybeError
           // like with circular references for example.
           return new Error(String(maybeError));
@@ -11098,13 +12618,34 @@
        */
       class StealthApi {
         /**
+         * Privacy permission for block webrtc stealth setting.
+         */
+        static PRIVACY_PERMISSIONS = {
+          permissions: ["privacy"]
+        };
+        /**
+         * Stealth filter identifier.
+         */
+        static STEALTH_MODE_FILTER_ID = -1;
+        /**
+         * Stealth service.
+         */
+        engine;
+        /**
+         * Filtering log.
+         */
+        filteringLog;
+        /**
+         * App context.
+         */
+        appContext;
+        /**
          * Stealth configuration.
          *
          * @returns App Stealth configuration or undefined.
          */
         get configuration() {
-          var _a;
-          return (_a = this.appContext.configuration) === null || _a === void 0 ? void 0 : _a.settings.stealth;
+          return this.appContext.configuration?.settings.stealth;
         }
         /**
          * Gets app stealth mode status.
@@ -11112,8 +12653,7 @@
          * @returns True if stealth mode is enabled, otherwise returns false.
          */
         get isStealthModeEnabled() {
-          var _a;
-          return Boolean((_a = this.appContext.configuration) === null || _a === void 0 ? void 0 : _a.settings.stealthModeEnabled);
+          return Boolean(this.appContext.configuration?.settings.stealthModeEnabled);
         }
         /**
          * Gets app filtering status.
@@ -11124,8 +12664,7 @@
          * @returns True if filtering is enabled, otherwise returns false.
          */
         get isFilteringEnabled() {
-          var _a;
-          return Boolean((_a = this.appContext.configuration) === null || _a === void 0 ? void 0 : _a.settings.filteringEnabled);
+          return Boolean(this.appContext.configuration?.settings.filteringEnabled);
         }
         /**
          * Stealth API constructor.
@@ -11142,20 +12681,18 @@
          * Requires privacy permissions and updates browser privacy.network
          * settings depending on blocking WebRTC or not.
          */
-        updateWebRtcPrivacyPermissions() {
-          return __awaiter(this, void 0, void 0, function* () {
-            if (!StealthApi.canBlockWebRTC()) {
-              return;
+        async updateWebRtcPrivacyPermissions() {
+          if (!StealthApi.canBlockWebRTC()) {
+            return;
+          }
+          try {
+            const isPermissionsGranted = await browser_polyfill_default().permissions.contains(StealthApi.PRIVACY_PERMISSIONS);
+            if (isPermissionsGranted) {
+              await this.handleBlockWebRTC();
             }
-            try {
-              const isPermissionsGranted = yield browser_polyfill_default().permissions.contains(StealthApi.PRIVACY_PERMISSIONS);
-              if (isPermissionsGranted) {
-                yield this.handleBlockWebRTC();
-              }
-            } catch (e) {
-              logger.error(getErrorMessage(e));
-            }
-          });
+          } catch (e) {
+            logger.error(getErrorMessage(e));
+          }
         }
         /**
          * Returns rule list with stealth mode rules.
@@ -11187,13 +12724,21 @@
           return stealthActions !== StealthActions.None;
         }
         /**
+         * Checks if both stealth mode and filtering are enabled.
+         *
+         * @returns True if stealth mode and filtering are enabled.
+         */
+        isStealthAllowed() {
+          return this.isStealthModeEnabled && this.isFilteringEnabled;
+        }
+        /**
          * Checks if stealth actions can be applied to request context.
          *
          * @param context Request context.
          * @returns True if stealth actions can be applied to request context.
          */
         canApplyStealthActionsToContext(context) {
-          if (!this.isStealthModeEnabled || !this.isFilteringEnabled) {
+          if (!this.isStealthAllowed()) {
             return false;
           }
           const { matchingResult } = context;
@@ -11210,49 +12755,55 @@
          * @returns Dom signal script.
          */
         getSetDomSignalScript() {
-          return this.engine.getSetDomSignalScript();
+          return this.isStealthAllowed() ? this.engine.getSetDomSignalScript() : "";
+        }
+        /**
+         * Returns hide document referrer script if hideDocumentReferrer enabled, otherwise empty string.
+         *
+         * @returns Hide referrer script.
+         */
+        getHideDocumentReferrerScript() {
+          return this.isStealthAllowed() ? this.engine.getHideDocumentReferrerScript() : "";
         }
         /**
          * Updates browser privacy.network settings depending on blocking WebRTC or not.
          */
-        handleBlockWebRTC() {
-          return __awaiter(this, void 0, void 0, function* () {
-            if (!this.configuration) {
-              return;
+        async handleBlockWebRTC() {
+          if (!this.configuration) {
+            return;
+          }
+          const webRTCDisabled = this.configuration.blockWebRTC && this.isStealthModeEnabled && this.isFilteringEnabled;
+          try {
+            if (webRTCDisabled) {
+              await browser_polyfill_default().privacy.network.webRTCIPHandlingPolicy.set({
+                value: "disable_non_proxied_udp",
+                scope: "regular"
+              });
+            } else {
+              await browser_polyfill_default().privacy.network.webRTCIPHandlingPolicy.clear({
+                scope: "regular"
+              });
             }
-            const webRTCDisabled = this.configuration.blockWebRTC && this.isStealthModeEnabled && this.isFilteringEnabled;
+          } catch (e) {
+            logger.error(`Error updating privacy.network settings: ${getErrorMessage(e)}`);
+          }
+          // privacy.network.peerConnectionEnabled is currently only supported in Firefox
+          if (typeof browser_polyfill_default().privacy.network.peerConnectionEnabled === "object") {
             try {
               if (webRTCDisabled) {
-                yield browser_polyfill_default().privacy.network.webRTCIPHandlingPolicy.set({
-                  value: "disable_non_proxied_udp",
+                await browser_polyfill_default().privacy.network.peerConnectionEnabled.set({
+                  value: false,
                   scope: "regular"
                 });
               } else {
-                yield browser_polyfill_default().privacy.network.webRTCIPHandlingPolicy.clear({
+                await browser_polyfill_default().privacy.network.peerConnectionEnabled.clear({
                   scope: "regular"
                 });
               }
             } catch (e) {
               logger.error(`Error updating privacy.network settings: ${getErrorMessage(e)}`);
             }
-            // privacy.network.peerConnectionEnabled is currently only supported in Firefox
-            if (typeof browser_polyfill_default().privacy.network.peerConnectionEnabled === "object") {
-              try {
-                if (webRTCDisabled) {
-                  yield browser_polyfill_default().privacy.network.peerConnectionEnabled.set({
-                    value: false,
-                    scope: "regular"
-                  });
-                } else {
-                  yield browser_polyfill_default().privacy.network.peerConnectionEnabled.clear({
-                    scope: "regular"
-                  });
-                }
-              } catch (e) {
-                logger.error(`Error updating privacy.network settings: ${getErrorMessage(e)}`);
-              }
-            }
-          });
+          }
         }
         /**
          * // TODO consider deprecating this method as edge browser is built on chromium now.
@@ -11266,176 +12817,152 @@
           return !!browser_polyfill_default().privacy;
         }
       }
-      /**
-       * Privacy permission for block webrtc stealth setting.
-       */
-      StealthApi.PRIVACY_PERMISSIONS = {
-        permissions: ["privacy"]
-      };
-      /**
-       * Stealth filter identifier.
-       */
-      StealthApi.STEALTH_MODE_FILTER_ID = -1;
       const stealthApi = new StealthApi(appContext, defaultFilteringLog);
 
       /**
-       * @file Temporary entry point for global background submodule instances.
-       * Needed for backward compatibility during internal API updates.
-       * Will be removed in the future.
+       * Checks if iframe has same source as main frame or if src is about:blank, javascript:, etc.
+       * We don't include frames with 'src=data:' because Chrome and Firefox
+       * do not allow data to be injected into frames with this type of src,
+       * this bug is reported here https://bugs.chromium.org/p/chromium/issues/detail?id=55084.
+       *
+       * @param frameUrl Frame url.
+       * @param frameId Unique id of frame in the tab.
+       * @param mainFrameUrl Url of tab where iframe exists.
+       * @returns True if frame without src, else returns false.
        */
-      const allowlist = new Allowlist();
-      const engineApi = new EngineApi(allowlist, appContext, stealthApi);
-      const documentApi = new DocumentApi(allowlist, engineApi);
-      const tabsApi = new TabsApi(documentApi);
+      function isLocalFrame(frameUrl, frameId, mainFrameUrl) {
+        return (
+          frameId !== MAIN_FRAME_ID &&
+          (frameUrl === mainFrameUrl ||
+            frameUrl === "about:blank" ||
+            frameUrl === "about:srcdoc" ||
+            // eslint-disable-next-line no-script-url
+            frameUrl.indexOf("javascript:") > -1)
+        );
+      }
 
       /**
-       * Taken from:
-       * {@link https://github.com/seanl-adg/InlineResourceLiteral/blob/master/index.js#L136}
-       * {@link https://github.com/joliss/js-string-escape/blob/master/index.js}.
+       * Creates match query for frame based on content script data and background tab context.
+       * Used in {@link CosmeticApi} and {@link CookieFiltering} to match rules for content scripts.
+       * @param frameUrl Frame url. Received from content script.
+       * @param frameId Frame id. Received from content script.
+       * @param tabContext Tab context. Received from background script.
+       * @returns Match query for {@link EngineApi}.
+       * @throws Error if tab context url is not defined.
        */
-      const reJsEscape = /["'\\\n\r\u2028\u2029]/g;
-      const escapeJs = (match) => {
-        switch (match) {
-          case '"':
-          case "'":
-          case "\\":
-            return `\\${match}`;
-          case "\n":
-            /**
-             * Line continuation character for ease of reading inlined resource.
-             */
-            return "\\n\\\n";
-          case "\r":
-            /**
-             * Carriage returns won't have any semantic meaning in JS.
-             */
-            return "";
-          case "\u2028":
-            return "\\u2028";
-          case "\u2029":
-            return "\\u2029";
-          default:
-            return match;
+      function createFrameMatchQuery(frameUrl, frameId, tabContext) {
+        const { info } = tabContext;
+        if (!info.url) {
+          throw new Error("Tab url is required");
         }
-      };
-      /**
-       * We use changing variable name because global properties can be modified across isolated worlds of extension
-       * content page and tab page.
-       *
-       * Issue: @see {@link https://bugs.chromium.org/p/project-zero/issues/detail?id=1225&desc=6}.
-       */
-      const variableName = `scriptExecuted${Date.now()}`;
-      /**
-       * Builds script to inject in a safe way.
-       *
-       * @see {@link LocalScriptRulesService} for details about script source.
-       * @param scriptText Script text.
-       * @returns Script to inject.
-       */
-      const buildScriptText = (scriptText) => {
-        /**
-         * Executes scripts in a scope of the page, but the `window` fields are in
-         * an isolated scope, e.g. `window.${variableName}` will only be visible in
-         * this scope of the script, but not in the original scope of the page.
-         * In order to prevent multiple script execution checks if script was already executed.
-         * Sometimes in Firefox when content-filtering is applied to the page race condition happens.
-         * This causes an issue when the page doesn't have its document.head or document.documentElement at the moment of
-         * injection. So script waits for them. But if a quantity of frame-requests reaches FRAME_REQUESTS_LIMIT then
-         * script stops waiting with the error.
-         * Description of the issue: @see {@link https://github.com/AdguardTeam/AdguardBrowserExtension/issues/1004}.
-         */
-        return `(function() {\
-                if (window.${variableName}) {\
-                    return;\
-                }\
-                var script = document.createElement("script");\
-                script.setAttribute("type", "text/javascript");\
-                script.textContent = "${scriptText.replace(reJsEscape, escapeJs)}";\
-                var FRAME_REQUESTS_LIMIT = 500;\
-                var frameRequests = 0;\
-                function waitParent () {\
-                    frameRequests += 1;\
-                    var parent = document.head || document.documentElement;\
-                    if (parent) {\
-                        try {\
-                            parent.appendChild(script);\
-                            parent.removeChild(script);\
-                        } catch (e) {\
-                        } finally {\
-                            window.${variableName} = true;\
-                            return true;\
-                        }\
-                    }\
-                    if(frameRequests < FRAME_REQUESTS_LIMIT) {\
-                        requestAnimationFrame(waitParent);\
-                    } else {\
-                        console.log("AdGuard: document.head or document.documentElement were unavailable too long");\
-                    }\
-                }\
-                waitParent();\
-            })()`;
-      };
+        const mainFrameUrl = info.url;
+        const isLocal = isLocalFrame(frameUrl, frameId, mainFrameUrl);
+        const requestUrl = isLocal ? mainFrameUrl : frameUrl;
+        let requestType;
+        // if frame is Local, then apply main frame rules.
+        if (isLocal) {
+          requestType = RequestType.Document;
+        } else if (frameId === MAIN_FRAME_ID) {
+          requestType = RequestType.Document;
+        } else {
+          requestType = RequestType.SubDocument;
+        }
+        return {
+          requestUrl,
+          frameUrl: requestUrl,
+          requestType,
+          frameRule: tabContext.mainFrameRule
+        };
+      }
 
       /**
-       * By the rules of AMO we cannot use remote scripts (and our JS rules can be counted as such).
-       * Because of that we use the following approach (that was accepted by AMO reviewers):
-       *
-       * 1. We pre-build JS rules from AdGuard filters into the JSON file.
-       * 2. At runtime we check every JS rule if it's included into JSON.
-       *  If it is included we allow this rule to work since it's pre-built. Other rules are discarded.
-       * 3. We also allow "User rules" to work since those rules are added manually by the user.
-       *  This way filters maintainers can test new rules before including them in the filters.
+       * CosmeticApiCommon contains common logic about building css for hiding elements.
        */
-      class LocalScriptRulesService {
+      class CosmeticApiCommon {
+        static LINE_BREAK = "\r\n";
         /**
-         * Saves local script rules to object.
-         *
-         * @param json JSON object with pre-build JS rules.
+         * Number of selectors in grouped selector list.
          */
-        setLocalScriptRules(json) {
-          this.localScripts = new Set(
-            json.rules.map((rule) => {
-              const { domains, script } = rule;
-              let ruleText = "";
-              if (domains !== LocalScriptRulesService.JS_RULE_GENERIC_DOMAIN_TOKEN) {
-                ruleText = domains;
-              }
-              ruleText += `${LocalScriptRulesService.JS_RULE_SEPARATOR_TOKEN}${script}`;
-              return ruleText;
-            })
-          );
-        }
+        static CSS_SELECTORS_PER_LINE = 50;
         /**
-         * Checks if ruleText is in the pre-built JSON with JS rules.
+         * Builds stylesheets from rules.
+         * If `groupElemhideSelectors` is set,
+         * element hiding selector are to be combined into selector lists of {@link CosmeticApi.CSS_SELECTORS_PER_LINE}.
          *
-         * @param ruleText Rule text.
+         * @param elemhideRules List of elemhide rules.
+         * @param injectRules List of inject css rules.
+         * @param groupElemhideSelectors Flag for elemhide selectors grouping.
          *
-         * @returns True, if rule is local, else returns false.
+         * @returns List of stylesheet expressions.
          */
-        isLocal(ruleText) {
-          if (this.localScripts === undefined) {
-            return true;
+        static buildStyleSheets(elemhideRules, injectRules, groupElemhideSelectors) {
+          const styles = [];
+          const elemHideStyles = CosmeticApiCommon.buildElemhideStyles(elemhideRules, groupElemhideSelectors);
+          if (elemHideStyles.length > 0) {
+            if (groupElemhideSelectors) {
+              styles.push(elemHideStyles.join(CosmeticApiCommon.LINE_BREAK));
+            } else {
+              styles.push(...elemHideStyles);
+            }
           }
-          /**
-           * In case of Firefox add-ons JS filtering rules are hardcoded
-           * into add-on code. So, if rule is not local - we exclude these
-           * rules from execution for Firefox AMO.
-           *
-           * Check description of {@link LocalScriptRulesService} for
-           * details about script source.
-           */
-          return this.localScripts.has(ruleText);
+          const cssStyles = injectRules.map((x) => x.getContent());
+          if (cssStyles.length > 0) {
+            if (groupElemhideSelectors) {
+              styles.push(cssStyles.join(CosmeticApiCommon.LINE_BREAK));
+            } else {
+              styles.push(...cssStyles);
+            }
+          }
+          return styles;
+        }
+        /**
+         * Builds element hiding stylesheet from rules.
+         * If `groupElemhideSelectors` is set,
+         * selector are to be combined into selector lists of {@link CosmeticApi.CSS_SELECTORS_PER_LINE}.
+         *
+         * @param elemhideRules List of elemhide rules.
+         * @param groupElemhideSelectors Flag for elemhide selectors grouping.
+         *
+         * @returns Array of styles.
+         */
+        static buildElemhideStyles(elemhideRules, groupElemhideSelectors) {
+          // TODO: refactor constants as ELEMHIDE_CSS_STYLE and ELEMHIDE_HIT_START are duplicates partly
+          const ELEMHIDE_CSS_STYLE = " { display: none !important; }";
+          const elemhideSelectors = [];
+          for (const selector of elemhideRules) {
+            elemhideSelectors.push(selector.getContent());
+          }
+          // if selector should not be grouped,
+          // add element hiding style to each of them
+          if (!groupElemhideSelectors) {
+            return elemhideSelectors.map((selector) => {
+              return `${selector}${ELEMHIDE_CSS_STYLE}`;
+            });
+          }
+          // otherwise selectors should be grouped into selector lists
+          const elemhideStyles = [];
+          for (let i = 0; i < elemhideSelectors.length; i += CosmeticApiCommon.CSS_SELECTORS_PER_LINE) {
+            const selectorList = elemhideSelectors.slice(i, i + CosmeticApiCommon.CSS_SELECTORS_PER_LINE).join(", ");
+            elemhideStyles.push(`${selectorList}${ELEMHIDE_CSS_STYLE}`);
+          }
+          return elemhideStyles;
         }
       }
-      LocalScriptRulesService.JS_RULE_GENERIC_DOMAIN_TOKEN = "<any>";
-      LocalScriptRulesService.JS_RULE_SEPARATOR_TOKEN = "#%#";
-      const localScriptRulesService = new LocalScriptRulesService();
 
+      /* eslint-disable jsdoc/require-returns */
       /**
        * Cosmetic api class.
        * Used to prepare and inject javascript and css into pages.
        */
-      class CosmeticApi {
+      class CosmeticApi extends CosmeticApiCommon {
+        static ELEMHIDE_HIT_START = " { display: none !important; content: 'adguard";
+        static INJECT_HIT_START = " content: 'adguard";
+        static HIT_SEP = encodeURIComponent(";");
+        static HIT_END = "' !important; }";
+        // Timeout for cosmetic injection retry on failure.
+        static INJECTION_RETRY_TIMEOUT_MS = 10;
+        // Max number of tries to inject cosmetic rules.
+        static INJECTION_MAX_TRIES = 100;
         /**
          * Applies scripts from a cosmetic result. It is possible inject a script
          * only once, because after the first inject, we set a flag in an isolated
@@ -11448,10 +12975,8 @@
          * @see {@link buildScriptText} for details about multiple injects.
          * @see {@link LocalScriptRulesService} for details about script source.
          */
-        static injectScript(scriptText, tabId, frameId = 0) {
-          return __awaiter(this, void 0, void 0, function* () {
-            return TabsApi.injectScript(buildScriptText(scriptText), tabId, frameId);
-          });
+        static async injectScript(scriptText, tabId, frameId = 0) {
+          return TabsApi.injectScript(buildScriptText(scriptText), tabId, frameId);
         }
         /**
          * Applies css from cosmetic result.
@@ -11464,10 +12989,8 @@
          * @param tabId Tab id.
          * @param frameId Frame id.
          */
-        static injectCss(cssText, tabId, frameId = 0) {
-          return __awaiter(this, void 0, void 0, function* () {
-            return TabsApi.injectCss(cssText, tabId, frameId);
-          });
+        static async injectCss(cssText, tabId, frameId = 0) {
+          return TabsApi.injectCss(cssText, tabId, frameId);
         }
         /**
          * Retrieves css styles from the cosmetic result.
@@ -11515,11 +13038,11 @@
          *
          * @param rules Cosmetic rules.
          * @param frameUrl Frame url.
-         * @returns Scripts or undefined.
+         * @returns Script text or empty string if no script rules are passed.
          */
         static getScriptText(rules, frameUrl) {
           if (rules.length === 0) {
-            return undefined;
+            return "";
           }
           const permittedRules = CosmeticApi.sanitizeScriptRules(rules);
           let debug = false;
@@ -11527,9 +13050,8 @@
           if (configuration) {
             const { settings } = configuration;
             if (settings) {
-              if (settings.collectStats) {
-                debug = true;
-              }
+              // https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2584
+              debug = settings.debugScriptlets;
             }
           }
           const scriptParams = {
@@ -11538,7 +13060,7 @@
           };
           const scriptText = permittedRules.map((rule) => rule.getScript(scriptParams)).join("\n");
           if (!scriptText) {
-            return undefined;
+            return "";
           }
           return `
         (function () {
@@ -11553,40 +13075,33 @@
         /**
          * Returns content script data for applying cosmetic.
          *
+         * @param frameUrl Frame url.
          * @param tabId Tab id.
          * @param frameId Frame id.
          * @returns Content script data for applying cosmetic.
          */
-        static getContentScriptData(tabId, frameId) {
-          const { isAppStarted, configuration } = appContext;
-          const areHitsStatsCollected =
-            (configuration === null || configuration === void 0 ? void 0 : configuration.settings.collectStats) || false;
+        static getContentScriptData(frameUrl, tabId, frameId) {
+          const { isStorageInitialized } = appContext;
           const data = {
-            isAppStarted,
-            areHitsStatsCollected,
+            isAppStarted: false,
+            areHitsStatsCollected: false,
             extCssRules: null
           };
+          // if storage is not initialized, then app is not ready yet.
+          if (!isStorageInitialized) {
+            return data;
+          }
+          const { isAppStarted, configuration } = appContext;
+          const areHitsStatsCollected = configuration?.settings.collectStats || false;
+          data.isAppStarted = isAppStarted;
+          data.areHitsStatsCollected = areHitsStatsCollected;
           const tabContext = tabsApi.getTabContext(tabId);
-          if (!tabContext) {
+          if (!tabContext?.info.url) {
             return data;
           }
-          const frame = tabContext.frames.get(frameId);
-          if (!frame) {
-            return data;
-          }
-          /**
-           * Cosmetic result may not be committed to frame context during worker request processing.
-           * We use engine request as a fallback for this case.
-           */
-          if (!(frame === null || frame === void 0 ? void 0 : frame.cosmeticResult)) {
-            frame.cosmeticResult = engineApi.matchCosmetic({
-              requestUrl: frame.url,
-              frameUrl: frame.url,
-              requestType: frameId === MAIN_FRAME_ID ? RequestType.Document : RequestType.SubDocument,
-              frameRule: tabContext.mainFrameRule
-            });
-          }
-          data.extCssRules = CosmeticApi.getExtCssRules(frame.cosmeticResult, areHitsStatsCollected);
+          const matchQuery = createFrameMatchQuery(frameUrl, frameId, tabContext);
+          const cosmeticResult = engineApi.matchCosmetic(matchQuery);
+          data.extCssRules = CosmeticApi.getExtCssRules(cosmeticResult, areHitsStatsCollected);
           return data;
         }
         /**
@@ -11594,43 +13109,36 @@
          *
          * @param params Data for css rules injecting.
          */
-        static applyCssRules(params) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const { tabId, frameId, cosmeticResult } = params;
-            const { configuration } = appContext;
-            const areHitsStatsCollected =
-              (configuration === null || configuration === void 0 ? void 0 : configuration.settings.collectStats) || false;
-            const cssText = CosmeticApi.getCssText(cosmeticResult, areHitsStatsCollected);
-            if (cssText) {
-              yield CosmeticApi.injectCss(cssText, tabId, frameId);
-            }
-          });
+        static async applyCssRules(params) {
+          const { tabId, frameId, cosmeticResult } = params;
+          const { configuration } = appContext;
+          const areHitsStatsCollected = configuration?.settings.collectStats || false;
+          const cssText = CosmeticApi.getCssText(cosmeticResult, areHitsStatsCollected);
+          if (cssText) {
+            await CosmeticApi.injectCss(cssText, tabId, frameId);
+          }
         }
         /**
          * Applies js rules to specific frame.
          *
          * @param params Data for js rule injecting.
          */
-        static applyJsRules(params) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const { tabId, frameId, cosmeticResult, url } = params;
-            const scriptRules = cosmeticResult.getScriptRules();
-            let scriptText = CosmeticApi.getScriptText(scriptRules, url);
-            // TODO: fix concatenation of undefined and string because:
-            // undefined + '<stealth script>' === 'undefined<stealth script>'
-            // AG-25896.
-            scriptText += stealthApi.getSetDomSignalScript();
-            if (scriptText) {
-              /**
-               * We can execute injectScript only once per frame, so we need to
-               * combine all the scripts into a single injection.
-               *
-               * @see {@link buildScriptText} for details about multiple injects.
-               * @see {@link LocalScriptRulesService} for details about script source
-               */
-              yield CosmeticApi.injectScript(scriptText, tabId, frameId);
-            }
-          });
+        static async applyJsRules(params) {
+          const { tabId, frameId, cosmeticResult, url } = params;
+          const scriptRules = cosmeticResult.getScriptRules();
+          let scriptText = CosmeticApi.getScriptText(scriptRules, url);
+          scriptText += stealthApi.getSetDomSignalScript();
+          scriptText += stealthApi.getHideDocumentReferrerScript();
+          if (scriptText) {
+            /**
+             * We can execute injectScript only once per frame, so we need to
+             * combine all the scripts into a single injection.
+             *
+             * @see {@link buildScriptText} for details about multiple injects.
+             * @see {@link LocalScriptRulesService} for details about script source
+             */
+            await CosmeticApi.injectScript(scriptText, tabId, frameId);
+          }
         }
         /**
          * Logs js rules to specific frame.
@@ -11674,10 +13182,8 @@
          * @param frameId Frame id.
          * @param tabId Tab id.
          */
-        static applyFrameJsRules(frameId, tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            return CosmeticApi.applyFrameCosmeticRules(frameId, tabId, CosmeticApi.applyJsRules);
-          });
+        static async applyFrameJsRules(frameId, tabId) {
+          return CosmeticApi.applyFrameCosmeticRules(frameId, tabId, CosmeticApi.applyJsRules);
         }
         /**
          * Injects css to specified frame based on provided data and injection FSM state.
@@ -11685,10 +13191,8 @@
          * @param frameId Frame id.
          * @param tabId Tab id.
          */
-        static applyFrameCssRules(frameId, tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            return CosmeticApi.applyFrameCosmeticRules(frameId, tabId, CosmeticApi.applyCssRules);
-          });
+        static async applyFrameCssRules(frameId, tabId) {
+          return CosmeticApi.applyFrameCosmeticRules(frameId, tabId, CosmeticApi.applyCssRules);
         }
         /**
          * Injects cosmetic result to specified frame based on data provided via context.
@@ -11698,29 +13202,27 @@
          * @param injector Inject function.
          * @param tries Number of tries for the injection in case of failure.
          */
-        static applyFrameCosmeticRules(frameId, tabId, injector, tries = 0) {
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              // We read a cosmetic result on execution, because the tab context can change while retrying the injection.
-              const frame = tabsApi.getTabFrame(tabId, frameId);
-              if (frame === null || frame === void 0 ? void 0 : frame.cosmeticResult) {
-                yield injector({
-                  frameId,
-                  tabId,
-                  url: frame.url,
-                  cosmeticResult: frame.cosmeticResult
-                });
-              }
-            } catch (e) {
-              if (tries < CosmeticApi.INJECTION_MAX_TRIES) {
-                setTimeout(() => {
-                  CosmeticApi.applyFrameCosmeticRules(frameId, tabId, injector, tries + 1);
-                }, CosmeticApi.INJECTION_RETRY_TIMEOUT_MS);
-              } else {
-                logger.debug(getErrorMessage(e));
-              }
+        static async applyFrameCosmeticRules(frameId, tabId, injector, tries = 0) {
+          try {
+            // We read a cosmetic result on execution, because the tab context can change while retrying the injection.
+            const frame = tabsApi.getTabFrame(tabId, frameId);
+            if (frame?.cosmeticResult) {
+              await injector({
+                frameId,
+                tabId,
+                url: frame.url,
+                cosmeticResult: frame.cosmeticResult
+              });
             }
-          });
+          } catch (e) {
+            if (tries < CosmeticApi.INJECTION_MAX_TRIES) {
+              setTimeout(() => {
+                CosmeticApi.applyFrameCosmeticRules(frameId, tabId, injector, tries + 1);
+              }, CosmeticApi.INJECTION_RETRY_TIMEOUT_MS);
+            } else {
+              logger.debug(getErrorMessage(e));
+            }
+          }
         }
         /**
          * Filters insecure scripts from remote sources.
@@ -11745,69 +13247,6 @@
             const text = rule.getText();
             return localScriptRulesService.isLocal(text);
           });
-        }
-        /**
-         * Builds element hiding stylesheet from rules.
-         * If `groupElemhideSelectors` is set,
-         * selector are to be combined into selector lists of {@link CosmeticApi.CSS_SELECTORS_PER_LINE}.
-         *
-         * @param elemhideRules List of elemhide rules.
-         * @param groupElemhideSelectors Flag for elemhide selectors grouping.
-         *
-         * @returns Array of styles.
-         */
-        static buildElemhideStyles(elemhideRules, groupElemhideSelectors) {
-          // TODO: refactor constants as ELEMHIDE_CSS_STYLE and ELEMHIDE_HIT_START are duplicates partly
-          const ELEMHIDE_CSS_STYLE = " { display: none !important; }";
-          const elemhideSelectors = [];
-          for (const selector of elemhideRules) {
-            elemhideSelectors.push(selector.getContent());
-          }
-          // if selector should not be grouped,
-          // add element hiding style to each of them
-          if (!groupElemhideSelectors) {
-            return elemhideSelectors.map((selector) => {
-              return `${selector}${ELEMHIDE_CSS_STYLE}`;
-            });
-          }
-          // otherwise selectors should be grouped into selector lists
-          const elemhideStyles = [];
-          for (let i = 0; i < elemhideSelectors.length; i += CosmeticApi.CSS_SELECTORS_PER_LINE) {
-            const selectorList = elemhideSelectors.slice(i, i + CosmeticApi.CSS_SELECTORS_PER_LINE).join(", ");
-            elemhideStyles.push(`${selectorList}${ELEMHIDE_CSS_STYLE}`);
-          }
-          return elemhideStyles;
-        }
-        /**
-         * Builds stylesheets from rules.
-         * If `groupElemhideSelectors` is set,
-         * element hiding selector are to be combined into selector lists of {@link CosmeticApi.CSS_SELECTORS_PER_LINE}.
-         *
-         * @param elemhideRules List of elemhide rules.
-         * @param injectRules List of inject css rules.
-         * @param groupElemhideSelectors Flag for elemhide selectors grouping.
-         *
-         * @returns List of stylesheet expressions.
-         */
-        static buildStyleSheets(elemhideRules, injectRules, groupElemhideSelectors) {
-          const styles = [];
-          const elemHideStyles = CosmeticApi.buildElemhideStyles(elemhideRules, groupElemhideSelectors);
-          if (elemHideStyles.length > 0) {
-            if (groupElemhideSelectors) {
-              styles.push(elemHideStyles.join(CosmeticApi.LINE_BREAK));
-            } else {
-              styles.push(...elemHideStyles);
-            }
-          }
-          const cssStyles = injectRules.map((x) => x.getContent());
-          if (cssStyles.length > 0) {
-            if (groupElemhideSelectors) {
-              styles.push(cssStyles.join(CosmeticApi.LINE_BREAK));
-            } else {
-              styles.push(...cssStyles);
-            }
-          }
-          return styles;
         }
         /**
          * Encodes rule text.
@@ -11882,53 +13321,6 @@
           return [...elemhideStyles, ...injectStyles];
         }
       }
-      CosmeticApi.ELEMHIDE_HIT_START = " { display: none !important; content: 'adguard";
-      CosmeticApi.INJECT_HIT_START = " content: 'adguard";
-      CosmeticApi.HIT_SEP = encodeURIComponent(";");
-      CosmeticApi.HIT_END = "' !important; }";
-      CosmeticApi.LINE_BREAK = "\r\n";
-      // Number of selectors in grouped selector list
-      CosmeticApi.CSS_SELECTORS_PER_LINE = 50;
-      // Timeout for cosmetic injection retry on failure.
-      CosmeticApi.INJECTION_RETRY_TIMEOUT_MS = 10;
-      // Max number of tries to inject cosmetic rules.
-      CosmeticApi.INJECTION_MAX_TRIES = 100;
-
-      /**
-       * Implementation of the request context storage.
-       */
-      class RequestContextStorage extends Map {
-        /**
-         * Create new request context.
-         *
-         * @param requestId Request id.
-         * @param data Request context with a omitted eventId field. It is automatically generated.
-         * @returns Request context storage instance.
-         */
-        create(requestId, data) {
-          const requestContext = Object.assign({ eventId: nanoid() }, data);
-          super.set(requestId, requestContext);
-          return requestContext;
-        }
-        /**
-         * Update request context fields. Can be done partially.
-         *
-         * @param requestId Request id.
-         * @param data Partial request context.
-         * @returns Updated request context.
-         */
-        update(requestId, data) {
-          const requestContext = super.get(requestId);
-          if (requestContext) {
-            Object.assign(requestContext, data);
-            return requestContext;
-          }
-          // TODO: Throws error if request context not found after RequestEvents refactoring.
-          super.set(requestId, data);
-          return undefined;
-        }
-      }
-      const requestContextStorage = new RequestContextStorage();
 
       /**
        * Css, injected to broken element for hiding.
@@ -12029,421 +13421,6 @@
         }
         CosmeticApi.injectCss(code, tabId, requestFrameId);
       }
-
-      const browserDetector = es5_default().getParser(window.navigator.userAgent);
-      const browserDetails = browserDetector.getBrowser();
-      const engineDetails = browserDetector.getEngine();
-      const isFirefox = browserDetails.name === "Firefox";
-      browserDetails.name === "Chrome";
-      const isChromium = engineDetails.name === "Blink";
-
-      /**
-       * This service encapsulate processing of $document modifier rules.
-       *
-       * Service is initialized in {@link configure} method, called from {@link EngineApi#startEngine}.
-       *
-       * Request rule is processed in {@link getDocumentBlockingResponse} method, called
-       * from {@link RequestBlockingApi.getBlockingResponse}.
-       *
-       * Request rule is processed following scenario:
-       * - if domain is trusted, ignore request
-       * - if rule is document blocking and {@link documentBlockingPageUrl} is undefined, return
-       * {@link WebRequestApi.onBeforeRequest} blocking response
-       * - if rule is document blocking and {@link documentBlockingPageUrl} is defined, return redirect response with
-       * required params.
-       * - if browser is Firefox, update page url by {@link browser.tabs} API, because FF doesn't support redirects to
-       * extension pages.
-       */
-      class DocumentBlockingService {
-        constructor() {
-          // list of domain names of sites, which should be excluded from document blocking
-          this.trustedDomains = [];
-        }
-        /**
-         * Configures service instance {@link documentBlockingPageUrl}.
-         *
-         * @param configuration App {@link Configuration}.
-         */
-        configure(configuration) {
-          const { settings, trustedDomains } = configuration;
-          this.documentBlockingPageUrl = settings === null || settings === void 0 ? void 0 : settings.documentBlockingPageUrl;
-          this.trustedDomains = trustedDomains;
-        }
-        /**
-         * Processes $document modifier rule matched request in {@link RequestBlockingApi.getBlockingResponse}.
-         *
-         * @param data Data for document request processing.
-         * @returns Blocking response or null {@link WebRequestApi.onBeforeRequest}.
-         */
-        getDocumentBlockingResponse(data) {
-          const { tabId, eventId, rule, referrerUrl, requestUrl } = data;
-          // if request url domain is trusted, ignore document blocking rule
-          if (this.isTrustedDomain(requestUrl)) {
-            return undefined;
-          }
-          // public filtering log event
-          defaultFilteringLog.publishEvent({
-            type: FilteringEventType.ApplyBasicRule,
-            data: {
-              eventId,
-              tabId,
-              rule,
-              requestUrl,
-              frameUrl: referrerUrl,
-              requestType: ContentType.Document
-            }
-          });
-          // if documentBlockingPage is undefined, block request
-          if (!this.documentBlockingPageUrl) {
-            return { cancel: true };
-          }
-          // get document blocking url with required params
-          const blockingUrl = DocumentBlockingService.createBlockingUrl(this.documentBlockingPageUrl, requestUrl, rule.getText());
-          // Chrome doesn't allow to show extension pages in incognito mode
-          if (isChromium && tabsApi.isIncognitoTab(tabId)) {
-            // Closing tab before opening a new one may lead to browser crash (Chromium)
-            browser_polyfill_default()
-              .tabs.create({ url: blockingUrl })
-              .then(() => {
-                browser_polyfill_default().tabs.remove(tabId);
-              })
-              .catch((e) => {
-                logger.warn(`Can't open info page about blocked domain. Err: ${e}`);
-              });
-          } else {
-            // Browser doesn't allow redirects to extension pages which are not listed in web
-            // accessible resources. We set blocking page url via browser.tabs
-            // api for bypassing this limitation.
-            DocumentBlockingService.reloadTabWithBlockingPage(tabId, blockingUrl);
-          }
-          return { cancel: true };
-        }
-        /**
-         * Checks if request url domain is trusted.
-         *
-         * @param url Request url.
-         * @returns True, if request url domain is trusted, else false.
-         */
-        isTrustedDomain(url) {
-          const domain = getHostname(url);
-          if (domain) {
-            return this.trustedDomains.includes(domain);
-          }
-          return false;
-        }
-        /**
-         * Updates tab with document blocking page url.
-         *
-         * @param tabId Tab id.
-         * @param url Blocking page url.
-         */
-        static reloadTabWithBlockingPage(tabId, url) {
-          const tabContext = tabsApi.getTabContext(tabId);
-          if (!tabContext) {
-            return;
-          }
-          browser_polyfill_default().tabs.update(tabId, { url });
-        }
-        /**
-         * Sets required url and rule query params to document-blocking page url.
-         *
-         * @param  documentBlockingPageUrl Url of document-blocking page.
-         * @param  requestUrl Processed request url.
-         * @param  ruleText Matched rule text.
-         * @returns Document blocking page url with required params.
-         */
-        static createBlockingUrl(documentBlockingPageUrl, requestUrl, ruleText) {
-          const url = new URL(documentBlockingPageUrl);
-          url.searchParams.set("url", requestUrl);
-          url.searchParams.set("rule", ruleText);
-          return url.toString();
-        }
-      }
-      const documentBlockingService = new DocumentBlockingService();
-
-      /**
-       * RedirectsCache is used for new type of blocking redirects, like click2load.html.
-       * Here we save redirected urls to check later for being able to view hidden frame after user
-       * clicked on button "click to load".
-       */
-      class RedirectsCache {
-        constructor() {
-          /**
-           * Instance or LRUMap.
-           */
-          this.cache = new lru.LRUMap(100);
-          /**
-           * Adds url to the cache.
-           *
-           * @param url Url added to cache.
-           */
-          this.add = (url) => {
-            this.cache.set(url, true);
-          };
-          /**
-           * Checks if url is in the cache.
-           *
-           * @param url Url to check.
-           * @returns True if url is in the cache.
-           */
-          this.hasUrl = (url) => {
-            return this.cache.has(url);
-          };
-        }
-      }
-      const redirectsCache = new RedirectsCache();
-
-      /**
-       * Used for new type of redirects, i.e.: click2load.html.
-       * This tokens are transferred to redirect and used later to unblock page after user clicked button
-       * "click to load".
-       */
-      class RedirectsTokensCache {
-        constructor() {
-          this.cache = new lru.LRUMap(1000);
-          /**
-           * Generates random unblock token for url and saves it to cache.
-           * Used for blocking redirect params creation {@link resourcesService.blockingUrlParams}.
-           *
-           * @returns Generated random string.
-           */
-          this.generateToken = () => {
-            const token = nanoid();
-            this.cache.set(token, true);
-            return token;
-          };
-          /**
-           * Checks whether token exist in cache.
-           * Used when redirect is checked in {@link resourcesService.shouldCreateRedirectUrl}.
-           *
-           * @param token Some string or null.
-           * @returns True if cache has such token.
-           */
-          this.hasToken = (token) => {
-            if (!token) {
-              return false;
-            }
-            return this.cache.has(token);
-          };
-        }
-      }
-      const redirectsTokensCache = new RedirectsTokensCache();
-
-      /**
-       * Prevent web pages to identify extension through its web accessible resources.
-       *
-       * Inspired by:
-       *  https://github.com/gorhill/uBlock/blob/7f999b759fe540e457e297363f55b25d9860dd3e/platform/chromium/vapi-background.
-       */
-      class ResourcesService {
-        /**
-         * Constructor.
-         *
-         * @param generateSecretKey Function to generate secret key.
-         */
-        constructor(generateSecretKey) {
-          this.secrets = [];
-          this.root = browser_polyfill_default().runtime.getURL("/");
-          this.lastSecretTime = 0;
-          this.generateSecretKey = generateSecretKey;
-          this.guardWar = this.guardWar.bind(this);
-        }
-        /**
-         * Init service.
-         *
-         * @param warDir Web accessible resources directory.
-         */
-        init(warDir) {
-          this.warDir = warDir;
-          const filter = {
-            urls: [`${this.root}${this.warDir}/*`]
-          };
-          const extraInfoSpec = ["blocking"];
-          browser_polyfill_default().webRequest.onBeforeRequest.addListener(this.guardWar, filter, extraInfoSpec);
-        }
-        /**
-         * Stops service.
-         */
-        stop() {
-          this.warDir = undefined;
-          this.secrets = [];
-          browser_polyfill_default().webRequest.onBeforeRequest.removeListener(this.guardWar);
-        }
-        /**
-         * Creates url for war file.
-         *
-         * @param path Resource relative path.
-         * @param params Additional params appended to url, by default empty.
-         * @throws Error, if web accessible resources path is not defined.
-         *
-         * @returns Url to resource with secret param.
-         */
-        createResourceUrl(path, params = new URLSearchParams()) {
-          if (!this.warDir) {
-            throw new Error("Resources path is not defined. Did you init the service?");
-          }
-          const secretParams = new URLSearchParams(this.createSecretParam());
-          const resultParams = new URLSearchParams([...secretParams, ...params]);
-          return browser_polyfill_default().runtime.getURL(`/${this.warDir}/${path}?${resultParams.toString()}`);
-        }
-        /**
-         * Loads war resource by path.
-         *
-         * @param path Resource relative path.
-         *
-         * @returns Promise resolved with resource content as a string.
-         */
-        loadResource(path) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const url = this.createResourceUrl(path);
-            const response = yield fetch(url);
-            return response.text();
-          });
-        }
-        /**
-         * Generates secret key, persists it in the secrets array and formats querystring.
-         *
-         * @returns Querystring with secret.
-         */
-        createSecretParam() {
-          if (this.secrets.length !== 0) {
-            // TODO move magic numbers to constants
-            if (Date.now() - this.lastSecretTime > 5000) {
-              this.secrets.splice(0);
-            } else if (this.secrets.length > 256) {
-              this.secrets.splice(0, this.secrets.length - 192);
-            }
-          }
-          this.lastSecretTime = Date.now();
-          const secret = this.generateSecretKey();
-          this.secrets.push(secret);
-          return `?secret=${secret}`;
-        }
-        /**
-         * If secret is not found redirects to the main url of extension, otherwise removes secret from the stored values.
-         *
-         * @param details Web request details.
-         * @returns Redirect or nothing.
-         */
-        guardWar(details) {
-          const { url } = details;
-          const pos = this.secrets.findIndex((secret) => url.lastIndexOf(`?secret=${secret}`) !== -1);
-          if (pos === -1) {
-            return { redirectUrl: this.root };
-          }
-          this.secrets.splice(pos, 1);
-          return undefined;
-        }
-      }
-      const resourcesService = new ResourcesService(() => {
-        return Math.floor(Math.random() * 982451653 + 982451653).toString(36);
-      });
-
-      /**
-       * Service for working with redirects.
-       */
-      class RedirectsService {
-        constructor() {
-          this.redirects = null;
-          /**
-           * Check whether redirect creating is needed i.e.: for click2load.html it's not needed after
-           * button click.
-           *
-           * @param redirectTitle A name of the redirect.
-           * @param requestUrl Request url.
-           * @returns True if should create redirect url.
-           */
-          this.shouldCreateRedirectUrl = (redirectTitle, requestUrl) => {
-            // if no redirects loaded we won't be able to create redirect url;
-            if (!this.redirects) {
-              return false;
-            }
-            // no further checking is needed for most of the redirects
-            // except blocking redirects, i.e. click2load.html
-            if (!this.redirects.isBlocking(redirectTitle)) {
-              return true;
-            }
-            // unblock token passed to redirect by createRedirectFileUrl and returned back.
-            // it should be last parameter in url
-            const UNBLOCK_TOKEN_PARAM = "__unblock";
-            let cleanRequestUrl = requestUrl;
-            const url = new URL(requestUrl);
-            const params = new URLSearchParams(url.search);
-            const unblockToken = params.get(UNBLOCK_TOKEN_PARAM);
-            if (unblockToken) {
-              // if redirect has returned unblock token back,
-              // add url to cache for no further redirecting on button click;
-              // save cleaned origin url so unblock token parameter should be cut off
-              params.delete(UNBLOCK_TOKEN_PARAM);
-              cleanRequestUrl = `${url.origin}${url.pathname}?${params.toString()}`;
-              redirectsCache.add(cleanRequestUrl);
-            }
-            return !redirectsCache.hasUrl(cleanRequestUrl) || !redirectsTokensCache.hasToken(unblockToken);
-          };
-        }
-        /**
-         * Starts redirects service.
-         */
-        start() {
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              const rawYaml = yield resourcesService.loadResource("redirects.yml");
-              this.redirects = new scriptlets_umd.redirects.Redirects(rawYaml);
-            } catch (e) {
-              throw new Error(e.message);
-            }
-          });
-        }
-        /**
-         * Builds blocking url search params.
-         *
-         * @param redirectTitle Title of the redirect.
-         * @param requestUrl Request url.
-         * @throws Error if this method called before redirects where set.
-         * @returns Url search params.
-         * @private
-         */
-        blockingUrlParams(redirectTitle, requestUrl) {
-          if (!this.redirects) {
-            throw new Error("This method should be called after redirects are loaded");
-          }
-          const params = new URLSearchParams();
-          if (this.redirects.isBlocking(redirectTitle)) {
-            const unblockToken = redirectsTokensCache.generateToken();
-            params.set("__unblock", unblockToken);
-            params.set("__origin", requestUrl);
-          }
-          return params;
-        }
-        /**
-         * Returns redirect url for the specified title.
-         *
-         * @param title Redirect title or null.
-         * @param requestUrl Request url.
-         * @returns Redirect url or null if redirect is not found.
-         */
-        createRedirectUrl(title, requestUrl) {
-          if (!title) {
-            return null;
-          }
-          if (!this.redirects) {
-            return null;
-          }
-          const redirectSource = this.redirects.getRedirect(title);
-          if (!redirectSource) {
-            logger.debug(`There is no redirect source with title: "${title}"`);
-            return null;
-          }
-          const shouldRedirect = this.shouldCreateRedirectUrl(title, requestUrl);
-          if (!shouldRedirect) {
-            return null;
-          }
-          // For blocking redirects we generate additional search params.
-          const params = this.blockingUrlParams(title, requestUrl);
-          return resourcesService.createResourceUrl(`redirects/${redirectSource.file}`, params);
-        }
-      }
-      const redirectsService = new RedirectsService();
 
       /**
        * Api for processing request filtering.
@@ -12586,9 +13563,7 @@
        * Generic wrapper for browser.webRequest with custom event implementation.
        */
       class RequestEvent {
-        constructor() {
-          this.listeners = [];
-        }
+        listeners = [];
         /**
          * Register listener for the browser.webRequest events.
          *
@@ -12642,6 +13617,9 @@
        * Injects cosmetic rules into tabs, opened before app initialization.
        */
       class TabsCosmeticInjector {
+        engineApi;
+        documentApi;
+        tabsApi;
         /**
          * Create instance of TabsCosmeticInjector.
          *
@@ -12658,17 +13636,15 @@
          * Creates contexts for tabs opened before api initialization and
          * applies cosmetic rules for each frame.
          */
-        processOpenTabs() {
-          return __awaiter(this, void 0, void 0, function* () {
-            const currentTabs = yield browser_polyfill_default().tabs.query({});
-            const tasks = currentTabs.map((tab) => this.processOpenTab(tab));
-            const promises = yield Promise.allSettled(tasks);
-            // Handles errors
-            promises.forEach((promise) => {
-              if (promise.status === "rejected") {
-                logger.error(promise.reason);
-              }
-            });
+        async processOpenTabs() {
+          const currentTabs = await browser_polyfill_default().tabs.query({});
+          const tasks = currentTabs.map((tab) => this.processOpenTab(tab));
+          const promises = await Promise.allSettled(tasks);
+          // Handles errors
+          promises.forEach((promise) => {
+            if (promise.status === "rejected") {
+              logger.error(promise.reason);
+            }
           });
         }
         /**
@@ -12677,49 +13653,47 @@
          *
          * @param tab Tab details.
          */
-        processOpenTab(tab) {
-          return __awaiter(this, void 0, void 0, function* () {
-            if (!TabContext.isBrowserTab(tab)) {
+        async processOpenTab(tab) {
+          if (!TabContext.isBrowserTab(tab)) {
+            return;
+          }
+          const tabContext = new TabContext(tab, this.documentApi);
+          const tabId = tab.id;
+          this.tabsApi.context.set(tabId, tabContext);
+          if (tab.url) {
+            tabContext.mainFrameRule = this.documentApi.matchFrame(tab.url);
+          }
+          const frames = await browser_polyfill_default().webNavigation.getAllFrames({ tabId });
+          if (!frames) {
+            return;
+          }
+          frames.forEach(({ frameId, url }) => {
+            const frame = new Frame(url);
+            tabContext.frames.set(frameId, frame);
+            if (!isHttpOrWsRequest(url)) {
               return;
             }
-            const tabContext = new TabContext(tab, this.documentApi);
-            const tabId = tab.id;
-            this.tabsApi.context.set(tabId, tabContext);
-            if (tab.url) {
-              tabContext.mainFrameRule = this.documentApi.matchFrame(tab.url);
-            }
-            const frames = yield browser_polyfill_default().webNavigation.getAllFrames({ tabId });
-            if (!frames) {
+            const isDocumentFrame = frameId === MAIN_FRAME_ID;
+            frame.matchingResult = this.engineApi.matchRequest({
+              requestUrl: url,
+              frameUrl: url,
+              requestType: isDocumentFrame ? RequestType.Document : RequestType.SubDocument,
+              frameRule: tabContext.mainFrameRule
+            });
+            if (!frame.matchingResult) {
               return;
             }
-            frames.forEach(({ frameId, url }) => {
-              const frame = new Frame(url);
-              tabContext.frames.set(frameId, frame);
-              if (!isHttpOrWsRequest(url)) {
-                return;
-              }
-              const isDocumentFrame = frameId === MAIN_FRAME_ID;
-              frame.matchingResult = this.engineApi.matchRequest({
-                requestUrl: url,
-                frameUrl: url,
-                requestType: isDocumentFrame ? RequestType.Document : RequestType.SubDocument,
-                frameRule: tabContext.mainFrameRule
-              });
-              if (!frame.matchingResult) {
-                return;
-              }
-              const cosmeticOption = frame.matchingResult.getCosmeticOption();
-              frame.cosmeticResult = this.engineApi.getCosmeticResult(url, cosmeticOption);
-              const { cosmeticResult } = frame;
-              CosmeticApi.applyFrameCssRules(frameId, tabId);
-              CosmeticApi.applyFrameJsRules(frameId, tabId);
-              CosmeticApi.logScriptRules({
-                url,
-                tabId,
-                cosmeticResult,
-                timestamp: Date.now(),
-                contentType: isDocumentFrame ? ContentType.Document : ContentType.Subdocument
-              });
+            const cosmeticOption = frame.matchingResult.getCosmeticOption();
+            frame.cosmeticResult = this.engineApi.getCosmeticResult(url, cosmeticOption);
+            const { cosmeticResult } = frame;
+            CosmeticApi.applyFrameCssRules(frameId, tabId);
+            CosmeticApi.applyFrameJsRules(frameId, tabId);
+            CosmeticApi.logScriptRules({
+              url,
+              tabId,
+              cosmeticResult,
+              timestamp: Date.now(),
+              contentType: isDocumentFrame ? ContentType.Document : ContentType.Subdocument
             });
           });
         }
@@ -12730,6 +13704,15 @@
        * Request events class.
        */
       class RequestEvents {
+        static onBeforeRequest = new RequestEvent();
+        static onBeforeSendHeaders = new RequestEvent();
+        static onSendHeaders = new RequestEvent();
+        static onHeadersReceived = new RequestEvent();
+        static onAuthRequired = new RequestEvent();
+        static onBeforeRedirect = new RequestEvent();
+        static onResponseStarted = new RequestEvent();
+        static onCompleted = new RequestEvent();
+        static onErrorOccurred = new RequestEvent();
         /**
          * Initializes request events service.
          */
@@ -12801,7 +13784,6 @@
          * @returns Request data.
          */
         static handleOnBeforeRequest(details) {
-          var _a, _b;
           const { requestId, type, tabId, parentFrameId, originUrl, initiator, method, timeStamp } = details;
           let { url, frameId } = details;
           /**
@@ -12850,22 +13832,20 @@
             initiator ||
             // Comparison of the requested url with the tab frame url in case of
             // a navigation change from the browser address bar.
-            ((_a = tabsApi.getTabMainFrame(tabId)) === null || _a === void 0 ? void 0 : _a.url) ||
-            ((_b = tabsApi.getTabFrame(tabId, requestFrameId)) === null || _b === void 0 ? void 0 : _b.url) ||
+            tabsApi.getTabMainFrame(tabId)?.url ||
+            tabsApi.getTabFrame(tabId, requestFrameId)?.url ||
             url;
           // Retrieve the rest part of the request context for record all fields.
-          const requestContext = requestContextStorage.create(
-            requestId,
-            Object.assign(Object.assign({}, tabFrameRequestContext), {
-              requestFrameId,
-              state: "beforeRequest" /* RequestContextState.BeforeRequest */,
-              timestamp: timeStamp,
-              thirdParty: isThirdPartyRequest(url, referrerUrl),
-              referrerUrl,
-              contentType,
-              method: method
-            })
-          );
+          const requestContext = requestContextStorage.create(requestId, {
+            ...tabFrameRequestContext,
+            requestFrameId,
+            state: "beforeRequest" /* RequestContextState.BeforeRequest */,
+            timestamp: timeStamp,
+            thirdParty: isThirdPartyRequest(url, referrerUrl),
+            referrerUrl,
+            contentType,
+            method: method
+          });
           return { details, context: requestContext };
         }
         /**
@@ -12983,270 +13963,6 @@
           return { details, context };
         }
       }
-      RequestEvents.onBeforeRequest = new RequestEvent();
-      RequestEvents.onBeforeSendHeaders = new RequestEvent();
-      RequestEvents.onSendHeaders = new RequestEvent();
-      RequestEvents.onHeadersReceived = new RequestEvent();
-      RequestEvents.onAuthRequired = new RequestEvent();
-      RequestEvents.onBeforeRedirect = new RequestEvent();
-      RequestEvents.onResponseStarted = new RequestEvent();
-      RequestEvents.onCompleted = new RequestEvent();
-      RequestEvents.onErrorOccurred = new RequestEvent();
-
-      /**
-       * Headers filtering service module.
-       */
-      class HeadersService {
-        /**
-         * Constructor.
-         *
-         * @param filteringLog Filtering log.
-         */
-        constructor(filteringLog) {
-          this.filteringLog = filteringLog;
-        }
-        /**
-         * On before send headers handler.
-         * Removes request headers.
-         *
-         * @param context Request context.
-         * @returns True if headers were modified.
-         */
-        onBeforeSendHeaders(context) {
-          const { requestHeaders, matchingResult, tabId, requestUrl, requestId, contentType, timestamp } = context;
-          if (!requestHeaders || !matchingResult) {
-            return false;
-          }
-          const rules = matchingResult.getRemoveHeaderRules();
-          if (rules.length === 0) {
-            return false;
-          }
-          let isModified = false;
-          rules.forEach((rule) => {
-            let isAppliedRule = false;
-            if (rule.isAllowlist()) {
-              // Allowlist rules must be applicable by header name to be logged
-              isAppliedRule = HeadersService.isApplicableRemoveHeaderRule(requestHeaders, rule, true);
-            } else {
-              isAppliedRule = HeadersService.applyRule(requestHeaders, rule, true);
-              if (!isModified && isAppliedRule) {
-                isModified = true;
-              }
-            }
-            if (isAppliedRule) {
-              this.filteringLog.publishEvent({
-                type: FilteringEventType.RemoveHeader,
-                data: {
-                  removeHeader: true,
-                  headerName: rule.getAdvancedModifierValue(),
-                  eventId: nanoid(),
-                  tabId,
-                  requestUrl,
-                  frameUrl: requestUrl,
-                  frameDomain: dist_getDomain(requestUrl),
-                  requestType: contentType,
-                  timestamp,
-                  rule
-                }
-              });
-            }
-          });
-          if (isModified) {
-            requestContextStorage.update(requestId, { requestHeaders });
-          }
-          return isModified;
-        }
-        /**
-         * On headers received handler.
-         * Removes response headers.
-         *
-         * @param context Request context.
-         * @returns True if headers were modified.
-         */
-        onHeadersReceived(context) {
-          const { responseHeaders, matchingResult, tabId, requestUrl, requestId, contentType, timestamp } = context;
-          if (!responseHeaders || !matchingResult) {
-            return false;
-          }
-          const rules = matchingResult.getRemoveHeaderRules();
-          if (rules.length === 0) {
-            return false;
-          }
-          let isModified = false;
-          rules.forEach((rule) => {
-            let isAppliedRule = false;
-            if (rule.isAllowlist()) {
-              // Allowlist rules must be applicable by header name to be logged
-              isAppliedRule = HeadersService.isApplicableRemoveHeaderRule(responseHeaders, rule, false);
-            } else {
-              isAppliedRule = HeadersService.applyRule(responseHeaders, rule, false);
-              if (!isModified && isAppliedRule) {
-                isModified = true;
-              }
-            }
-            if (isAppliedRule) {
-              this.filteringLog.publishEvent({
-                type: FilteringEventType.RemoveHeader,
-                data: {
-                  removeHeader: true,
-                  headerName: rule.getAdvancedModifierValue(),
-                  eventId: nanoid(),
-                  tabId,
-                  requestUrl,
-                  frameUrl: requestUrl,
-                  frameDomain: dist_getDomain(requestUrl),
-                  requestType: contentType,
-                  timestamp,
-                  rule
-                }
-              });
-            }
-          });
-          if (isModified) {
-            requestContextStorage.update(requestId, { responseHeaders });
-          }
-          return isModified;
-        }
-        /**
-         * Applies rule to headers. Removes header from headers if rule matches.
-         * Important: this method modifies headers array as they are passed by reference.
-         *
-         * @param headers Headers.
-         * @param rule Rule to apply if it has remove header modifier.
-         * @param isRequestHeaders Is request headers.
-         * @returns True if headers removed by rule.
-         */
-        static applyRule(headers, rule, isRequestHeaders) {
-          const headerName = HeadersService.getApplicableHeaderName(rule, isRequestHeaders);
-          if (!headerName) {
-            return false;
-          }
-          return removeHeader(headers, headerName);
-        }
-        /**
-         * Checks if rule is applicable to headers.
-         *
-         * @param headers   Headers.
-         * @param rule  Rule with $removeheader modifier.
-         * @param isRequestHeaders Is request headers.
-         * @returns True if rule is applicable.
-         */
-        static isApplicableRemoveHeaderRule(headers, rule, isRequestHeaders) {
-          const headerName = HeadersService.getApplicableHeaderName(rule, isRequestHeaders);
-          if (!headerName) {
-            return false;
-          }
-          return !!findHeaderByName(headers, headerName);
-        }
-        /**
-         * Returns header name if rule has remove header modifier and it is applicable.
-         *
-         * @param rule Rule with $removeheader modifier.
-         * @param isRequestHeaders Is request headers.
-         * @returns Header name or null if rule is not applicable.
-         */
-        static getApplicableHeaderName(rule, isRequestHeaders) {
-          const modifier = rule.getAdvancedModifier();
-          if (!modifier) {
-            return null;
-          }
-          const headerName = modifier.getApplicableHeaderName(isRequestHeaders);
-          if (!headerName) {
-            return null;
-          }
-          return headerName;
-        }
-      }
-      const headersService = new HeadersService(defaultFilteringLog);
-
-      /**
-       * Params filtering service module.
-       */
-      class ParamsService {
-        /**
-         * Constructor.
-         *
-         * @param filteringLog Filtering log.
-         */
-        constructor(filteringLog) {
-          this.filteringLog = filteringLog;
-        }
-        /**
-         * Removes request params from url, stored in request context.
-         *
-         * @param requestId Request id.
-         * @returns Modified url or null.
-         */
-        getPurgedUrl(requestId) {
-          const context = requestContextStorage.get(requestId);
-          if (!context) {
-            return null;
-          }
-          const { matchingResult, method, requestUrl, contentType, timestamp } = context;
-          if (!matchingResult || !ParamsService.isMethodSupported(method)) {
-            return null;
-          }
-          const removeParamRules = matchingResult.getRemoveParamRules();
-          if (removeParamRules.length === 0) {
-            return null;
-          }
-          const purgedUrl = removeParamRules.reduce((url, rule) => {
-            if (rule.isAllowlist()) {
-              this.filteringLog.publishEvent({
-                type: FilteringEventType.RemoveParam,
-                data: {
-                  removeParam: true,
-                  eventId: nanoid(),
-                  tabId: context.tabId,
-                  requestUrl: url,
-                  frameUrl: url,
-                  frameDomain: dist_getDomain(url),
-                  requestType: contentType,
-                  rule,
-                  timestamp
-                }
-              });
-              return url;
-            }
-            const modifier = rule.getAdvancedModifier();
-            const modifiedUrl = modifier.removeParameters(url);
-            const hasUrlChanged = modifiedUrl !== url;
-            if (hasUrlChanged) {
-              context.isRemoveparamRedirect = true;
-              this.filteringLog.publishEvent({
-                type: FilteringEventType.RemoveParam,
-                data: {
-                  removeParam: true,
-                  eventId: nanoid(),
-                  tabId: context.tabId,
-                  requestUrl: modifiedUrl,
-                  frameUrl: modifiedUrl,
-                  frameDomain: dist_getDomain(modifiedUrl),
-                  requestType: contentType,
-                  rule,
-                  timestamp
-                }
-              });
-            }
-            return modifier.removeParameters(url);
-          }, requestUrl);
-          if (purgedUrl === requestUrl) {
-            return null;
-          }
-          return purgedUrl;
-        }
-        /**
-         * Checks if we support requests for specified method.
-         *
-         * @param method Request method.
-         * @returns True if method supported.
-         */
-        static isMethodSupported(method) {
-          return ParamsService.SupportedMethods.includes(method.toUpperCase());
-        }
-      }
-      ParamsService.SupportedMethods = ["GET", "OPTIONS", "HEAD"];
-      const paramsService = new ParamsService(defaultFilteringLog);
 
       /**
        * Cookie rules manager class.
@@ -13363,6 +14079,64 @@
        */
       class ParsedCookie {
         /**
+         * The request-URI to associate with the setting of the cookie.
+         */
+        url;
+        /**
+         * Defines the host to which the cookie will be sent.
+         * Only the current domain can be set as the value, or a domain of a higher
+         * order, unless it is a public suffix. Setting the domain will make
+         * the cookie available to it, as well as to all its subdomains.
+         *
+         * Can be empty. And actually should be empty for `__Host-` cookies.
+         *
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#attributes}
+         */
+        domain;
+        /**
+         * The name of the cookie.
+         */
+        name;
+        /**
+         * The value of the cookie.
+         */
+        value;
+        /**
+         * The expiration date of the cookie.
+         */
+        expires;
+        /**
+         * The parsed max-age value in seconds.
+         */
+        maxAge;
+        /**
+         * True if the cookie is marked as Secure.
+         */
+        secure;
+        /**
+         * Whether the cookie should be marked as HttpOnly.
+         */
+        httpOnly;
+        /**
+         * Cookie's same-site status.
+         */
+        sameSite;
+        /**
+         * Cookies path. Defaults to the path portion of the url parameter.
+         */
+        path;
+        /**
+         * Priority chrome only specs.
+         * Isn't affected. Let it be here just in case.
+         *
+         * @see {@link https://bugs.chromium.org/p/chromium/issues/detail?id=232693}
+         */
+        priority;
+        /**
+         * Cookie's third-party status.
+         */
+        thirdParty = false;
+        /**
          * Constructor.
          *
          * @param name Cookie name.
@@ -13370,10 +14144,6 @@
          * @param url Url.
          */
         constructor(name, value, url) {
-          /**
-           * Cookie's third-party status.
-           */
-          this.thirdParty = false;
           this.name = name;
           this.value = value;
           this.url = url;
@@ -13412,6 +14182,16 @@
        * Cookie Utils.
        */
       class CookieUtils {
+        /**
+         * RegExp to match field-content in RFC 7230 sec 3.2.
+         *
+         * Example:
+         * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+         * field-vchar   = VCHAR / obs-text
+         * obs-text      = %x80-FF.
+         */
+        // eslint-disable-next-line no-control-regex
+        static FIELD_CONTENT_REGEX = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
         /**
          * Parses set-cookie header from http response header.
          *
@@ -13632,17 +14412,8 @@
           return cookies.map((cookie) => `${cookie.name}=${cookie.value}`).join("; ");
         }
       }
-      /**
-       * RegExp to match field-content in RFC 7230 sec 3.2.
-       *
-       * Example:
-       * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
-       * field-vchar   = VCHAR / obs-text
-       * obs-text      = %x80-FF.
-       */
-      // eslint-disable-next-line no-control-regex
-      CookieUtils.FIELD_CONTENT_REGEX = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
 
+      /* eslint-disable class-methods-use-this */
       /**
        * Cookie api implementation.
        */
@@ -13654,16 +14425,14 @@
          * @param url Request url.
          * @returns True if cookie was removed.
          */
-        removeCookie(name, url) {
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              yield browser_polyfill_default().cookies.remove({ name, url });
-              return true;
-            } catch (e) {
-              logger.error(e.message);
-            }
-            return false;
-          });
+        async removeCookie(name, url) {
+          try {
+            await browser_polyfill_default().cookies.remove({ name, url });
+            return true;
+          } catch (e) {
+            logger.error(e.message);
+          }
+          return false;
         }
         /**
          * Updates cookie.
@@ -13672,24 +14441,21 @@
          *
          * @returns Promise resolved with true if cookie was updated, false otherwise.
          */
-        modifyCookie(cookie) {
-          var _a;
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              const update = BrowserCookieApi.convertToSetDetailsType(cookie);
-              yield browser_polyfill_default().cookies.set(update);
-              return true;
-            } catch (e) {
-              // If `domain` contains the `path` part, the cookie cannot be saved,
-              // since `domain` can only contain hostname.
-              if ((_a = cookie.domain) === null || _a === void 0 ? void 0 : _a.includes("/")) {
-                logger.info(e.message);
-              } else {
-                logger.error(e.message);
-              }
+        async modifyCookie(cookie) {
+          try {
+            const update = BrowserCookieApi.convertToSetDetailsType(cookie);
+            await browser_polyfill_default().cookies.set(update);
+            return true;
+          } catch (e) {
+            // If `domain` contains the `path` part, the cookie cannot be saved,
+            // since `domain` can only contain hostname.
+            if (cookie.domain?.includes("/")) {
+              logger.info(e.message);
+            } else {
+              logger.error(e.message);
             }
-            return false;
-          });
+          }
+          return false;
         }
         /**
          * Search for cookies that match a given pattern.
@@ -13698,16 +14464,14 @@
          *
          * @returns List of found cookies.
          */
-        findCookies(pattern) {
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              const found = yield browser_polyfill_default().cookies.getAll(pattern);
-              return found;
-            } catch (e) {
-              logger.error(e.message);
-            }
-            return [];
-          });
+        async findCookies(pattern) {
+          try {
+            const found = await browser_polyfill_default().cookies.getAll(pattern);
+            return found;
+          } catch (e) {
+            logger.error(e.message);
+          }
+          return [];
         }
         /**
          * Converts cookie to SetDetailsType.
@@ -13777,6 +14541,7 @@
         }
       }
 
+      /* eslint-disable class-methods-use-this,jsdoc/require-description-complete-sentence */
       /**
        * Cookie filtering.
        *
@@ -13801,13 +14566,14 @@
        *  - apply
        */
       class CookieFiltering {
+        filteringLog;
+        browserCookieApi = new BrowserCookieApi();
         /**
          * Constructor.
          *
          * @param filteringLog Filtering log.
          */
         constructor(filteringLog) {
-          this.browserCookieApi = new BrowserCookieApi();
           this.filteringLog = filteringLog;
         }
         /**
@@ -13823,7 +14589,7 @@
             return false;
           }
           const cookieHeader = findHeaderByName(requestHeaders, "Cookie");
-          if (!(cookieHeader === null || cookieHeader === void 0 ? void 0 : cookieHeader.value)) {
+          if (!cookieHeader?.value) {
             return false;
           }
           const cookies = CookieUtils.parseCookies(cookieHeader.value, requestUrl);
@@ -13961,10 +14727,7 @@
           const { responseHeaders, requestUrl, thirdParty, requestId } = context;
           if (responseHeaders && requestUrl && typeof thirdParty === "boolean") {
             const cookies = CookieUtils.parseSetCookieHeaders(responseHeaders, requestUrl);
-            const newCookies = cookies.filter((c) => {
-              var _a;
-              return !((_a = context.cookies) === null || _a === void 0 ? void 0 : _a.includes(c));
-            });
+            const newCookies = cookies.filter((c) => !context.cookies?.includes(c));
             for (const cookie of newCookies) {
               cookie.thirdParty = thirdParty;
             }
@@ -13989,39 +14752,41 @@
          * TODO: Return engine startup status data to content script
          * to delay execution of cookie rules until the engine is ready
          *
-         * Looks up blocking rules for content-script in frame context.
+         * Looks up blocking rules for content-script.
          *
+         * @param frameUrl Frame url.
          * @param tabId Tab id.
          * @param frameId Frame id.
          * @returns List of blocking rules.
          */
-        getBlockingRules(tabId, frameId) {
-          const frame = tabsApi.getTabFrame(tabId, frameId);
-          if (!frame || !frame.matchingResult) {
+        getBlockingRules(frameUrl, tabId, frameId) {
+          const tabContext = tabsApi.getTabContext(tabId);
+          if (!tabContext?.info.url) {
             return [];
           }
-          const cookieRules = frame.matchingResult.getCookieRules();
-          return CookieRulesFinder.getBlockingRules(frame.url, cookieRules);
+          const matchQuery = createFrameMatchQuery(frameUrl, frameId, tabContext);
+          const matchingResult = engineApi.matchRequest(matchQuery);
+          if (!matchingResult) {
+            return [];
+          }
+          const cookieRules = matchingResult.getCookieRules();
+          return CookieRulesFinder.getBlockingRules(matchQuery.requestUrl, cookieRules);
         }
         /**
          * Applies rules.
          *
          * @param context Request context.
          */
-        applyRules(context) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const { matchingResult, cookies, requestUrl, tabId } = context;
-            if (!matchingResult || !cookies) {
-              return;
-            }
-            const cookieRules = matchingResult.getCookieRules();
-            const promises = cookies.map((cookie) =>
-              __awaiter(this, void 0, void 0, function* () {
-                yield this.applyRulesToCookie(cookie, cookieRules, requestUrl, tabId);
-              })
-            );
-            yield Promise.all(promises);
+        async applyRules(context) {
+          const { matchingResult, cookies, requestUrl, tabId } = context;
+          if (!matchingResult || !cookies) {
+            return;
+          }
+          const cookieRules = matchingResult.getCookieRules();
+          const promises = cookies.map(async (cookie) => {
+            await this.applyRulesToCookie(cookie, cookieRules, requestUrl, tabId);
           });
+          await Promise.all(promises);
         }
         /**
          * Attempts to find a "parent" cookie with a wider "path" field,
@@ -14036,25 +14801,22 @@
          *
          * @returns Item of parent cookie {@link ParsedCookie} or null if not found.
          */
-        findParentCookie(cookie) {
-          var _a;
-          return __awaiter(this, void 0, void 0, function* () {
-            const pattern = {
-              url: cookie.url,
-              name: cookie.name,
-              domain: cookie.domain,
-              secure: cookie.secure
-            };
-            const parentCookies = yield this.browserCookieApi.findCookies(pattern);
-            const sortedParentCookies = parentCookies.sort((a, b) => a.path.length - b.path.length);
-            for (let i = 0; i < sortedParentCookies.length; i += 1) {
-              const parentCookie = sortedParentCookies[i];
-              if ((_a = cookie.path) === null || _a === void 0 ? void 0 : _a.startsWith(parentCookie.path)) {
-                return ParsedCookie.fromBrowserCookie(parentCookie, cookie.url);
-              }
+        async findParentCookie(cookie) {
+          const pattern = {
+            url: cookie.url,
+            name: cookie.name,
+            domain: cookie.domain,
+            secure: cookie.secure
+          };
+          const parentCookies = await this.browserCookieApi.findCookies(pattern);
+          const sortedParentCookies = parentCookies.sort((a, b) => a.path.length - b.path.length);
+          for (let i = 0; i < sortedParentCookies.length; i += 1) {
+            const parentCookie = sortedParentCookies[i];
+            if (cookie.path?.startsWith(parentCookie.path)) {
+              return ParsedCookie.fromBrowserCookie(parentCookie, cookie.url);
             }
-            return null;
-          });
+          }
+          return null;
         }
         /**
          * Applies rules to cookie.
@@ -14064,33 +14826,31 @@
          * @param requestUrl Request URL, needs to record filtering event.
          * @param tabId Tab id.
          */
-        applyRulesToCookie(cookie, cookieRules, requestUrl, tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            const cookieName = cookie.name;
-            const isThirdPartyCookie = cookie.thirdParty;
-            const bRule = CookieRulesFinder.lookupNotModifyingRule(cookieName, cookieRules, isThirdPartyCookie);
-            if (bRule) {
-              if (bRule.isAllowlist() || (yield this.browserCookieApi.removeCookie(cookie.name, cookie.url))) {
-                this.recordCookieEvent(tabId, cookie, requestUrl, bRule, false, isThirdPartyCookie);
-              }
-              return;
+        async applyRulesToCookie(cookie, cookieRules, requestUrl, tabId) {
+          const cookieName = cookie.name;
+          const isThirdPartyCookie = cookie.thirdParty;
+          const bRule = CookieRulesFinder.lookupNotModifyingRule(cookieName, cookieRules, isThirdPartyCookie);
+          if (bRule) {
+            if (bRule.isAllowlist() || (await this.browserCookieApi.removeCookie(cookie.name, cookie.url))) {
+              this.recordCookieEvent(tabId, cookie, requestUrl, bRule, false, isThirdPartyCookie);
             }
-            const mRules = CookieRulesFinder.lookupModifyingRules(cookieName, cookieRules, isThirdPartyCookie);
-            if (mRules.length > 0) {
-              // Try to find "parent" cookie and modify it instead of creating
-              // "child copy" cookie.
-              const parentCookie = yield this.findParentCookie(cookie);
-              const cookieToModify = parentCookie || cookie;
-              const appliedRules = CookieFiltering.applyRuleToBrowserCookie(cookieToModify, mRules);
-              if (appliedRules.length > 0) {
-                if (yield this.browserCookieApi.modifyCookie(cookieToModify)) {
-                  appliedRules.forEach((r) => {
-                    this.recordCookieEvent(tabId, cookieToModify, requestUrl, r, true, isThirdPartyCookie);
-                  });
-                }
+            return;
+          }
+          const mRules = CookieRulesFinder.lookupModifyingRules(cookieName, cookieRules, isThirdPartyCookie);
+          if (mRules.length > 0) {
+            // Try to find "parent" cookie and modify it instead of creating
+            // "child copy" cookie.
+            const parentCookie = await this.findParentCookie(cookie);
+            const cookieToModify = parentCookie || cookie;
+            const appliedRules = CookieFiltering.applyRuleToBrowserCookie(cookieToModify, mRules);
+            if (appliedRules.length > 0) {
+              if (await this.browserCookieApi.modifyCookie(cookieToModify)) {
+                appliedRules.forEach((r) => {
+                  this.recordCookieEvent(tabId, cookieToModify, requestUrl, r, true, isThirdPartyCookie);
+                });
               }
             }
-          });
+          }
         }
         /**
          * Modifies instance of {@link ParsedCookie} with provided rules.
@@ -14158,9 +14918,572 @@
       const cookieFiltering = new CookieFiltering(defaultFilteringLog);
 
       /**
+       * Event channel wrapper for sending messages to assistant.
+       */
+      class Assistant {
+        static onCreateRule = new EventChannel();
+        /**
+         * Path to assembled @adguard/assistant module. Necessary for lazy on-demand
+         * loading of the assistant.
+         */
+        static assistantUrl = "";
+        /**
+         * Sends message to assistant to open it on the page.
+         *
+         * @param tabId Tab id.
+         */
+        static async openAssistant(tabId) {
+          // Lazy load assistant
+          await browser_polyfill_default().tabs.executeScript(tabId, { file: this.assistantUrl });
+          await messagesApi.sendMessage(tabId, {
+            type: MessageType.InitAssistant,
+            tabId,
+            assistantUrl: this.assistantUrl
+          });
+        }
+        /**
+         * Sends message to assistant to close it on the page.
+         *
+         * @param tabId Tab id.
+         */
+        static async closeAssistant(tabId) {
+          await messagesApi.sendMessage(tabId, {
+            type: MessageType.CloseAssistant
+          });
+        }
+      }
+
+      /* eslint-disable class-methods-use-this */
+      // TODO: add long live connection
+      // TODO: CollectHitStats
+      /**
+       * Messages API implementation. It is used to communicate with content scripts.
+       */
+      class MessagesApi {
+        tabsApi;
+        filteringLog;
+        // TODO: use IoC container?
+        /**
+         * Assistant event listener.
+         */
+        onAssistantCreateRuleListener;
+        /**
+         * Messages API constructor.
+         *
+         * @param tabsApi Tabs API.
+         * @param filteringLog Filtering log.
+         */
+        constructor(tabsApi, filteringLog) {
+          this.tabsApi = tabsApi;
+          this.filteringLog = filteringLog;
+          this.handleMessage = this.handleMessage.bind(this);
+        }
+        /**
+         * Sends message to the specified tab.
+         *
+         * @param tabId Tab ID.
+         * @param message Message.
+         */
+        async sendMessage(tabId, message) {
+          await browser_polyfill_default().tabs.sendMessage(tabId, message);
+        }
+        /**
+         * Messages handler.
+         *
+         * @param message Message object.
+         * @param sender Tab which sent the message.
+         *
+         * @returns Promise resolved with response to the message.
+         */
+        // TODO remove the rule bellow, and any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        async handleMessage(message, sender) {
+          try {
+            message = messageValidator.parse(message);
+          } catch (e) {
+            // ignore
+            return undefined;
+          }
+          const { type } = message;
+          switch (type) {
+            case MessageType.ProcessShouldCollapse: {
+              return this.handleProcessShouldCollapseMessage(sender, message.payload);
+            }
+            case MessageType.GetCosmeticData: {
+              return this.handleContentScriptDataMessage(sender, message.payload);
+            }
+            case MessageType.GetCookieRules: {
+              return this.handleGetCookieRulesMessage(sender, message.payload);
+            }
+            case MessageType.SaveCookieLogEvent: {
+              return this.handleSaveCookieLogEvent(sender, message.payload);
+            }
+            case MessageType.AssistantCreateRule: {
+              return this.handleAssistantCreateRuleMessage(sender, message.payload);
+            }
+            case MessageType.SaveCssHitsStats: {
+              return this.handleSaveCssHitsStats(sender, message.payload);
+            }
+          }
+          return undefined;
+        }
+        /**
+         * Handles should collapse element message.
+         *
+         * @param sender Tab, which sent message.
+         * @param payload Message payload.
+         * @returns True if element should be collapsed.
+         */
+        handleProcessShouldCollapseMessage(sender, payload) {
+          if (!payload || !sender?.tab?.id) {
+            return false;
+          }
+          const res = processShouldCollapsePayloadValidator.safeParse(payload);
+          if (!res.success) {
+            return false;
+          }
+          const tabId = sender.tab.id;
+          const { elementUrl, documentUrl, requestType } = res.data;
+          return RequestBlockingApi.shouldCollapseElement(tabId, elementUrl, documentUrl, requestType);
+        }
+        /**
+         * Handles get extended css message.
+         *
+         * @param sender Tab, which sent message.
+         * @param payload Message payload.
+         * @returns Extended css string or false or undefined.
+         */
+        handleContentScriptDataMessage(sender, payload) {
+          if (!payload || !sender?.tab?.id) {
+            return null;
+          }
+          const res = getExtendedCssPayloadValidator.safeParse(payload);
+          if (!res.success) {
+            return null;
+          }
+          const tabId = sender.tab.id;
+          let { frameId } = sender;
+          if (!frameId) {
+            frameId = 0;
+          }
+          return CosmeticApi.getContentScriptData(res.data.documentUrl, tabId, frameId);
+        }
+        /**
+         * Handles messages.
+         * Returns cookie rules data for content script.
+         *
+         * @param sender Tab, which sent message.
+         * @param payload Message payload.
+         * @returns Cookie rules data.
+         */
+        handleGetCookieRulesMessage(sender, payload) {
+          if (!payload || !sender?.tab?.id) {
+            return [];
+          }
+          const res = getCookieRulesPayloadValidator.safeParse(payload);
+          if (!res.success) {
+            return [];
+          }
+          const tabId = sender.tab.id;
+          let { frameId } = sender;
+          if (!frameId) {
+            frameId = 0;
+          }
+          const cookieRules = cookieFiltering.getBlockingRules(res.data.documentUrl, tabId, frameId);
+          return cookieRules.map((rule) => ({
+            ruleText: rule.getText(),
+            match: rule.getAdvancedModifierValue(),
+            isThirdParty: rule.isOptionEnabled(es /* NetworkRuleOption.ThirdParty */.SJ.ThirdParty),
+            filterId: rule.getFilterListId(),
+            isAllowlist: rule.isAllowlist()
+          }));
+        }
+        /**
+         * Calls filtering to add an event from cookie-controller content-script.
+         *
+         * @param sender Tab which sent the message.
+         * @param payload Message payload.
+         * @returns True if event was published to filtering log.
+         */
+        handleSaveCookieLogEvent(sender, payload) {
+          if (!payload || !sender?.tab?.id) {
+            return false;
+          }
+          const res = getSaveCookieLogEventPayloadValidator.safeParse(payload);
+          if (!res.success) {
+            return false;
+          }
+          const { data } = res;
+          this.filteringLog.publishEvent({
+            type: FilteringEventType.Cookie,
+            data: {
+              eventId: nanoid(),
+              tabId: sender.tab.id,
+              cookieName: data.cookieName,
+              frameDomain: data.cookieDomain,
+              cookieValue: data.cookieValue,
+              rule: new es /* NetworkRule */.nC(data.ruleText, data.filterId),
+              isModifyingCookieRule: false,
+              requestThirdParty: data.thirdParty,
+              timestamp: Date.now(),
+              requestType: ContentType.Cookie
+            }
+          });
+          return true;
+        }
+        /**
+         * Handles message with new rule from assistant content script.
+         *
+         * @param sender Tab, which sent message.
+         * @param payload Message payload.
+         * @returns True if rule was dispatched.
+         */
+        handleAssistantCreateRuleMessage(sender, payload) {
+          if (!payload || !sender?.tab?.id) {
+            return false;
+          }
+          const res = getAssistantCreateRulePayloadValidator.safeParse(payload);
+          if (!res.success) {
+            return false;
+          }
+          const { ruleText } = res.data;
+          Assistant.onCreateRule.dispatch(ruleText);
+          return true;
+        }
+        /**
+         * Handle message about saving css hits stats.
+         *
+         * @param sender Tab, which sent message.
+         * @param payload Message payload.
+         * @returns True if stats was saved.
+         */
+        handleSaveCssHitsStats(
+          sender,
+          // TODO add payload type
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          payload
+        ) {
+          if (!payload || !sender?.tab?.id) {
+            return false;
+          }
+          const tabId = sender.tab.id;
+          const tabContext = this.tabsApi.getTabContext(tabId);
+          if (!tabContext?.info.url) {
+            return false;
+          }
+          const { url } = tabContext.info;
+          let published = false;
+          for (let i = 0; i < payload.length; i += 1) {
+            const stat = payload[i];
+            const rule = new es /* CosmeticRule */.nR(stat.ruleText, stat.filterId);
+            this.filteringLog.publishEvent({
+              type: FilteringEventType.ApplyCosmeticRule,
+              data: {
+                tabId,
+                eventId: nanoid(),
+                rule,
+                element: stat.element,
+                frameUrl: url,
+                frameDomain: dist_getDomain(url),
+                requestType: ContentType.Document,
+                timestamp: Date.now()
+              }
+            });
+            published = true;
+          }
+          return published;
+        }
+      }
+
+      /**
+       * Headers filtering service module.
+       */
+      class HeadersService {
+        filteringLog;
+        /**
+         * Constructor.
+         *
+         * @param filteringLog Filtering log.
+         */
+        constructor(filteringLog) {
+          this.filteringLog = filteringLog;
+        }
+        /**
+         * On before send headers handler.
+         * Removes request headers.
+         *
+         * @param context Request context.
+         * @returns True if headers were modified.
+         */
+        onBeforeSendHeaders(context) {
+          const { requestHeaders, matchingResult, tabId, requestUrl, requestId, contentType, timestamp } = context;
+          if (!requestHeaders || !matchingResult) {
+            return false;
+          }
+          const rules = matchingResult.getRemoveHeaderRules();
+          if (rules.length === 0) {
+            return false;
+          }
+          let isModified = false;
+          rules.forEach((rule) => {
+            let isAppliedRule = false;
+            if (rule.isAllowlist()) {
+              // Allowlist rules must be applicable by header name to be logged
+              isAppliedRule = HeadersService.isApplicableRemoveHeaderRule(requestHeaders, rule, true);
+            } else {
+              isAppliedRule = HeadersService.applyRule(requestHeaders, rule, true);
+              if (!isModified && isAppliedRule) {
+                isModified = true;
+              }
+            }
+            if (isAppliedRule) {
+              this.filteringLog.publishEvent({
+                type: FilteringEventType.RemoveHeader,
+                data: {
+                  removeHeader: true,
+                  headerName: rule.getAdvancedModifierValue(),
+                  eventId: nanoid(),
+                  tabId,
+                  requestUrl,
+                  frameUrl: requestUrl,
+                  frameDomain: dist_getDomain(requestUrl),
+                  requestType: contentType,
+                  timestamp,
+                  rule
+                }
+              });
+            }
+          });
+          if (isModified) {
+            requestContextStorage.update(requestId, { requestHeaders });
+          }
+          return isModified;
+        }
+        /**
+         * On headers received handler.
+         * Removes response headers.
+         *
+         * @param context Request context.
+         * @returns True if headers were modified.
+         */
+        onHeadersReceived(context) {
+          const { responseHeaders, matchingResult, tabId, requestUrl, requestId, contentType, timestamp } = context;
+          if (!responseHeaders || !matchingResult) {
+            return false;
+          }
+          const rules = matchingResult.getRemoveHeaderRules();
+          if (rules.length === 0) {
+            return false;
+          }
+          let isModified = false;
+          rules.forEach((rule) => {
+            let isAppliedRule = false;
+            if (rule.isAllowlist()) {
+              // Allowlist rules must be applicable by header name to be logged
+              isAppliedRule = HeadersService.isApplicableRemoveHeaderRule(responseHeaders, rule, false);
+            } else {
+              isAppliedRule = HeadersService.applyRule(responseHeaders, rule, false);
+              if (!isModified && isAppliedRule) {
+                isModified = true;
+              }
+            }
+            if (isAppliedRule) {
+              this.filteringLog.publishEvent({
+                type: FilteringEventType.RemoveHeader,
+                data: {
+                  removeHeader: true,
+                  headerName: rule.getAdvancedModifierValue(),
+                  eventId: nanoid(),
+                  tabId,
+                  requestUrl,
+                  frameUrl: requestUrl,
+                  frameDomain: dist_getDomain(requestUrl),
+                  requestType: contentType,
+                  timestamp,
+                  rule
+                }
+              });
+            }
+          });
+          if (isModified) {
+            requestContextStorage.update(requestId, { responseHeaders });
+          }
+          return isModified;
+        }
+        /**
+         * Applies rule to headers. Removes header from headers if rule matches.
+         * Important: this method modifies headers array as they are passed by reference.
+         *
+         * @param headers Headers.
+         * @param rule Rule to apply if it has remove header modifier.
+         * @param isRequestHeaders Is request headers.
+         * @returns True if headers removed by rule.
+         */
+        static applyRule(headers, rule, isRequestHeaders) {
+          const headerName = HeadersService.getApplicableHeaderName(rule, isRequestHeaders);
+          if (!headerName) {
+            return false;
+          }
+          return removeHeader(headers, headerName);
+        }
+        /**
+         * Checks if rule is applicable to headers.
+         *
+         * @param headers   Headers.
+         * @param rule  Rule with $removeheader modifier.
+         * @param isRequestHeaders Is request headers.
+         * @returns True if rule is applicable.
+         */
+        static isApplicableRemoveHeaderRule(headers, rule, isRequestHeaders) {
+          const headerName = HeadersService.getApplicableHeaderName(rule, isRequestHeaders);
+          if (!headerName) {
+            return false;
+          }
+          return !!findHeaderByName(headers, headerName);
+        }
+        /**
+         * Returns header name if rule has remove header modifier and it is applicable.
+         *
+         * @param rule Rule with $removeheader modifier.
+         * @param isRequestHeaders Is request headers.
+         * @returns Header name or null if rule is not applicable.
+         */
+        static getApplicableHeaderName(rule, isRequestHeaders) {
+          const modifier = rule.getAdvancedModifier();
+          if (!modifier) {
+            return null;
+          }
+          const headerName = modifier.getApplicableHeaderName(isRequestHeaders);
+          if (!headerName) {
+            return null;
+          }
+          return headerName;
+        }
+      }
+      const headersService = new HeadersService(defaultFilteringLog);
+
+      /**
+       * Params filtering service module.
+       */
+      class ParamsService {
+        filteringLog;
+        /**
+         * Constructor.
+         *
+         * @param filteringLog Filtering log.
+         */
+        constructor(filteringLog) {
+          this.filteringLog = filteringLog;
+        }
+        static SupportedMethods = ["GET", "POST", "OPTIONS", "HEAD"];
+        /**
+         * Removes request params from url, stored in request context.
+         *
+         * @param requestId Request id.
+         * @returns Modified url or null.
+         */
+        getPurgedUrl(requestId) {
+          const context = requestContextStorage.get(requestId);
+          if (!context) {
+            return null;
+          }
+          const { matchingResult, method, requestUrl, contentType, timestamp } = context;
+          if (!matchingResult || !ParamsService.isMethodSupported(method)) {
+            return null;
+          }
+          const removeParamRules = matchingResult.getRemoveParamRules();
+          if (removeParamRules.length === 0) {
+            return null;
+          }
+          const purgedUrl = removeParamRules.reduce((url, rule) => {
+            if (rule.isAllowlist()) {
+              this.filteringLog.publishEvent({
+                type: FilteringEventType.RemoveParam,
+                data: {
+                  removeParam: true,
+                  eventId: nanoid(),
+                  tabId: context.tabId,
+                  requestUrl: url,
+                  frameUrl: url,
+                  frameDomain: dist_getDomain(url),
+                  requestType: contentType,
+                  rule,
+                  timestamp
+                }
+              });
+              return url;
+            }
+            const modifier = rule.getAdvancedModifier();
+            const modifiedUrl = modifier.removeParameters(url);
+            const hasUrlChanged = modifiedUrl !== url;
+            if (hasUrlChanged) {
+              context.isRemoveparamRedirect = true;
+              this.filteringLog.publishEvent({
+                type: FilteringEventType.RemoveParam,
+                data: {
+                  removeParam: true,
+                  eventId: nanoid(),
+                  tabId: context.tabId,
+                  requestUrl: modifiedUrl,
+                  frameUrl: modifiedUrl,
+                  frameDomain: dist_getDomain(modifiedUrl),
+                  requestType: contentType,
+                  rule,
+                  timestamp
+                }
+              });
+            }
+            return modifier.removeParameters(url);
+          }, requestUrl);
+          if (purgedUrl === requestUrl) {
+            return null;
+          }
+          return purgedUrl;
+        }
+        /**
+         * Checks if we support requests for specified method.
+         *
+         * @param method Request method.
+         * @returns True if method supported.
+         */
+        static isMethodSupported(method) {
+          return ParamsService.SupportedMethods.includes(method.toUpperCase());
+        }
+      }
+      const paramsService = new ParamsService(defaultFilteringLog);
+
+      /**
+       * Handles HTML entities.
+       * This is a workaround for the following issue:
+       * https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2249
+       * website was broken because win-1251 charset doesn't support some entities, e.g., ❤,
+       * which initially in the html string was &#10084 and after parsing became ❤.
+       */
+      class EntityHandler {
+        /**
+         * Escapes specific entities in an HTML string.
+         * @param html String to escape.
+         * @returns Escaped string.
+         */
+        static escapeEntities(html) {
+          return html.replace(/&#x([A-Fa-f0-9]{4});/g, "&amp;#x$1;");
+        }
+        /**
+         * Reverts escaped entities back to their original form.
+         * @param html String to revert.
+         * @returns Reverted string.
+         */
+        static revertEntities(html) {
+          return html.replace(/&amp;#x([A-Fa-f0-9]{4});/g, "&#x$1;");
+        }
+      }
+
+      /**
        * Document parser wrapper.
        */
       class DocumentParser {
+        parser;
+        parsererrorNS;
         /**
          * Constructor.
          */
@@ -14190,7 +15513,7 @@
          * @returns Document or null if parse error occurred.
          */
         parse(html) {
-          const doc = this.parser.parseFromString(html, "text/html");
+          const doc = this.parser.parseFromString(EntityHandler.escapeEntities(html), "text/html");
           if (this.isParseError(doc)) {
             return null;
           }
@@ -14203,6 +15526,8 @@
        * Html rule wildcard.
        */
       class Wildcard {
+        regexp;
+        shortcut;
         /**
          * Constructor.
          *
@@ -14282,12 +15607,64 @@
        *
        * https://kb.adguard.com/en/general/how-to-create-your-own-ad-filters#html-filtering-rules-syntax-1
        */
-      class HtmlRuleAttributes {}
+      class HtmlRuleAttributes {
+        /**
+         * Tag name attribute.
+         */
+        tagName;
+        /**
+         * Composed selector.
+         * Parsed [attributes] excepting special attributes are joined here to be a valid css selector string.
+         * Example:
+         * For "example.org$$div[id="ad_text"][tag-content="teas""ernet"]" rule, css selector will be "div[id*="ad_text"]".
+         */
+        selector;
+        /**
+         * Parent search level attribute.
+         */
+        parentSearchLevel;
+        /**
+         * Max length attribute
+         * Specifies the maximum length for content of HTML element.
+         * If this parameter is set and the content length exceeds the value - a rule does not apply to the element.
+         */
+        maxLength;
+        /**
+         * This is the most frequently used special attribute.
+         * It limits selection with those elements whose innerHTML code contains the specified substring.
+         */
+        tagContentFilter;
+        /**
+         * This special attribute works almost like tag-content and allows you to check the innerHTML code of the document.
+         * Rule will check if HTML code of the element fits to the search pattern.
+         */
+        wildcard;
+        /**
+         * Specifies the minimum length for content of HTML element.
+         * If this parameter is set and the content length is less than preset value - a rule does not apply to the element.
+         */
+        minLength;
+        /**
+         * Parent elements attributes.
+         */
+        parentElements;
+      }
 
       /**
        * Encapsulates html rule attributes parsing.
        */
       class HtmlRuleParser {
+        static ATTRIBUTE_START_MARK = "[";
+        static ATTRIBUTE_END_MARK = "]";
+        static QUOTES = '"';
+        static TAG_CONTENT_MASK = "tag-content";
+        static WILDCARD_MASK = "wildcard";
+        static TAG_CONTENT_MAX_LENGTH = "max-length";
+        static TAG_CONTENT_MIN_LENGTH = "min-length";
+        static PARENT_ELEMENTS = "parent-elements";
+        static PARENT_SEARCH_LEVEL = "parent-search-level";
+        static DEFAULT_PARENT_SEARCH_LEVEL = 3;
+        static DEFAULT_MAX_LENGTH = 8192;
         /**
          * Parses html rule.
          *
@@ -14381,22 +15758,15 @@
           return quoteIndex;
         }
       }
-      HtmlRuleParser.ATTRIBUTE_START_MARK = "[";
-      HtmlRuleParser.ATTRIBUTE_END_MARK = "]";
-      HtmlRuleParser.QUOTES = '"';
-      HtmlRuleParser.TAG_CONTENT_MASK = "tag-content";
-      HtmlRuleParser.WILDCARD_MASK = "wildcard";
-      HtmlRuleParser.TAG_CONTENT_MAX_LENGTH = "max-length";
-      HtmlRuleParser.TAG_CONTENT_MIN_LENGTH = "min-length";
-      HtmlRuleParser.PARENT_ELEMENTS = "parent-elements";
-      HtmlRuleParser.PARENT_SEARCH_LEVEL = "parent-search-level";
-      HtmlRuleParser.DEFAULT_PARENT_SEARCH_LEVEL = 3;
-      HtmlRuleParser.DEFAULT_MAX_LENGTH = 8192;
 
       /**
        * Encapsulates document element matching.
        */
       class HtmlRuleSelector {
+        /**
+         * Html Rule parse result.
+         */
+        ruleAttributes;
         /**
          * Constructor.
          *
@@ -14502,6 +15872,10 @@
        * Content string filter.
        */
       class ContentStringFilter {
+        context;
+        htmlRules;
+        replaceRules;
+        filteringLog;
         /**
          * Creates an instance of ContentStringFilter.
          *
@@ -14587,7 +15961,7 @@
           // eslint-disable-next-line no-undef
           const doctype = doc.doctype ? `${new XMLSerializer().serializeToString(doc.doctype)}\r\n` : "";
           if (deleted.length > 0) {
-            return doctype + doc.documentElement.outerHTML;
+            return doctype + EntityHandler.revertEntities(doc.documentElement.outerHTML);
           }
           return content;
         }
@@ -82835,6 +84209,53 @@
        */
       class ContentStream {
         /**
+         * Request context.
+         *
+         * This object is mutated during request processing.
+         */
+        context;
+        /**
+         * Content filter.
+         *
+         * Modifies content with specified rules.
+         */
+        contentStringFilter;
+        /**
+         * Web request filter.
+         */
+        filter;
+        /**
+         * Request charset.
+         */
+        charset;
+        /**
+         * Content.
+         */
+        content;
+        /**
+         * Decoder instance.
+         */
+        decoder;
+        /**
+         * Encoder instance.
+         */
+        encoder;
+        /**
+         * Filtering log.
+         */
+        filteringLog;
+        /**
+         * Contains collection of accepted content types for stream filtering.
+         */
+        allowedContentTypes = [
+          "text/",
+          "application/json",
+          "application/xml",
+          "application/xhtml+xml",
+          "application/javascript",
+          "application/x-javascript"
+        ];
+        /**
          * Content stream constructor.
          *
          * @param context Request context.
@@ -82843,17 +84264,6 @@
          * @param filteringLog Filtering log.
          */
         constructor(context, contentStringFilter, streamFilterCreator, filteringLog) {
-          /**
-           * Contains collection of accepted content types for stream filtering.
-           */
-          this.allowedContentTypes = [
-            "text/",
-            "application/json",
-            "application/xml",
-            "application/xhtml+xml",
-            "application/javascript",
-            "application/x-javascript"
-          ];
           this.content = "";
           this.context = context;
           this.contentStringFilter = contentStringFilter;
@@ -83065,6 +84475,17 @@
        */
       class ContentFiltering {
         /**
+         * Contains collection of supported request types for replace rules.
+         */
+        static supportedReplaceRulesRequestTypes = [
+          es /* RequestType.Document */.xd.Document,
+          es /* RequestType.SubDocument */.xd.SubDocument,
+          es /* RequestType.Script */.xd.Script,
+          es /* RequestType.Stylesheet */.xd.Stylesheet,
+          es /* RequestType.XmlHttpRequest */.xd.XmlHttpRequest,
+          es /* RequestType.Other */.xd.Other
+        ];
+        /**
          * Retrieves html rules.
          *
          * @param context Request context.
@@ -83171,23 +84592,13 @@
           }
         }
       }
-      /**
-       * Contains collection of supported request types for replace rules.
-       */
-      ContentFiltering.supportedReplaceRulesRequestTypes = [
-        es /* RequestType.Document */.xd.Document,
-        es /* RequestType.SubDocument */.xd.SubDocument,
-        es /* RequestType.Script */.xd.Script,
-        es /* RequestType.Stylesheet */.xd.Stylesheet,
-        es /* RequestType.XmlHttpRequest */.xd.XmlHttpRequest,
-        es /* RequestType.Other */.xd.Other
-      ];
 
       const CSP_HEADER_NAME = "Content-Security-Policy";
       /**
        * Content Security Policy Headers filtering service module.
        */
       class CspService {
+        filteringLog;
         /**
          * Constructor.
          *
@@ -83251,6 +84662,51 @@
        * CSP Trusted Types service module.
        */
       class TrustedTypesService {
+        static SPACE = " ";
+        static CSP_DIRECTIVE_VALUES_SEPARATOR = TrustedTypesService.SPACE;
+        static CSP_DIRECTIVES_SEPARATOR = ";";
+        /**
+         * Content Security Policy header name.
+         *
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy}
+         */
+        static CSP_HEADER_NAME = "content-security-policy";
+        /**
+         * Content Security Policy Report-Only header name.
+         *
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only}
+         */
+        static CSP_REPORT_ONLY_HEADER_NAME = "content-security-policy-report-only";
+        /**
+         * TrustedTypes directive.
+         *
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types}
+         */
+        static CSP_TRUSTED_TYPES_DIRECTIVE_NAME = "trusted-types";
+        /**
+         * TrustedTypes directive value that disallows creating any trusted types policy.
+         *
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types}
+         */
+        static NONE_TRUSTED_TYPES_POLICY_VALUE = "'none'";
+        /**
+         * Allows for creating Trusted Types policies with a name that was already used.
+         *
+         * Related:.
+         *
+         *
+         * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types}
+         */
+        static ALLOW_DUPLICATES_POLICY_VALUE = "'allow-duplicates'";
+        /**
+         * Trusted Types policy name for AdGuard scripts.
+         *
+         * Related issues:
+         * {@link https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2068 | #2068},
+         * AG-3320,
+         * AG-18204.
+         */
+        static AG_POLICY_NAME = "AGPolicy";
         /**
          * Checks whether the CSP header should be modified at all.
          * It is required if there are any scriptlet rules in the cosmetic result.
@@ -83412,51 +84868,13 @@
           return true;
         }
       }
-      TrustedTypesService.SPACE = " ";
-      TrustedTypesService.CSP_DIRECTIVE_VALUES_SEPARATOR = TrustedTypesService.SPACE;
-      TrustedTypesService.CSP_DIRECTIVES_SEPARATOR = ";";
-      /**
-       * Content Security Policy header name.
-       *
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy}
-       */
-      TrustedTypesService.CSP_HEADER_NAME = "content-security-policy";
-      /**
-       * Content Security Policy Report-Only header name.
-       *
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only}
-       */
-      TrustedTypesService.CSP_REPORT_ONLY_HEADER_NAME = "content-security-policy-report-only";
-      /**
-       * TrustedTypes directive.
-       *
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types}
-       */
-      TrustedTypesService.CSP_TRUSTED_TYPES_DIRECTIVE_NAME = "trusted-types";
-      /**
-       * TrustedTypes directive value that disallows creating any trusted types policy.
-       *
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types}
-       */
-      TrustedTypesService.NONE_TRUSTED_TYPES_POLICY_VALUE = "'none'";
-      /**
-       * Allows for creating Trusted Types policies with a name that was already used.
-       *
-       * Related:.
-       *
-       *
-       * @see {@link https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types}
-       */
-      TrustedTypesService.ALLOW_DUPLICATES_POLICY_VALUE = "'allow-duplicates'";
-      /**
-       * Trusted Types policy name for AdGuard scripts.
-       *
-       * Related issues:
-       * {@link https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2068 | #2068},
-       * AG-3320,
-       * AG-18204.
-       */
-      TrustedTypesService.AG_POLICY_NAME = "AGPolicy";
+
+      const browserDetector = es5_default().getParser(window.navigator.userAgent);
+      const browserDetails = browserDetector.getBrowser();
+      const engineDetails = browserDetector.getEngine();
+      const isFirefox = browserDetails.name === "Firefox";
+      browserDetails.name === "Chrome";
+      const isChromium = engineDetails.name === "Blink";
 
       /**
        * This API is used to remove traceable data from requests initiated by the background extension.
@@ -83482,6 +84900,176 @@
       }
 
       /**
+       * @file
+       * API for applying rules from background service
+       * by handling web Request API and web navigation events.
+       *
+       * Event data is aggregated into two contexts: {@link RequestContext},
+       * which contains data about the specified request
+       * and {@link TabContext} which contains data about the specified tab.
+       *
+       *
+       *  Applying {@link NetworkRule} from the background page:
+       *
+       * The {@link MatchingResult} of specified request is calculated and stored in context storages,
+       * at the time {@link RequestEvents.onBeforeRequest} is processed.
+       * The handler for this event also computes the response based on {@link MatchingResult}
+       * via {@link RequestBlockingApi.getBlockingResponse}.
+       * If the rule is blocking rule, the request will be cancelled, otherwise it will be handled by the next handlers.
+       * If content filtering is supported, it will be initialized for non-blocking requests.
+       *
+       * At {@link RequestEvents.onBeforeSendHeaders}, the request headers are modified or deleted
+       * based on the {@link MatchingResult} stored in {@link requestContextStorage}.
+       * At {@link RequestEvents.onHeadersReceived}, the response headers are handled in the same way,
+       * and also the 'trusted-types' directive is modified for CSP headers, @see {@link TrustedTypesService}.
+       *
+       * The specified {@link RequestContext} will be removed from {@link requestContextStorage}
+       * on {@link RequestEvents.onCompleted} or {@link RequestEvents.onErrorOccurred} events.
+       *
+       *
+       *  Applying {@link CosmeticRule} from the background page.
+       *
+       * We calculate {@link CosmeticResult} and store it in {@link TabContext} context
+       * at the time {@link RequestEvents.onBeforeRequest} is processed.
+       *
+       * To get the scripts up and running as quickly as possible
+       * we try to inject them the first time during the {@link RequestEvents.onResponseStarted}.
+       *
+       * All cosmetic rules are then injected on the {@link browser.webNavigation.onCommitted} event.
+       *
+       * In Firefox, {@link browser.webNavigation.onCommitted} may not work for child frames,
+       * so we also try to inject cosmetic rules on {@link RequestEvents.onCompleted}.
+       *
+       * For frames without a source, we inject cosmetics on the {@link browser.webNavigation.onDOMContentLoaded} event.
+       *
+       * The frame data will be removed from the specified {@link TabContext} on {@link browser.webNavigation.onCompleted} or
+       * {@link browser.webNavigation.onErrorOccurred } events.
+       *
+       *  Web Request API Event Handling:
+       *
+       *                                       ┌─────────────────────────────┐
+       * Matches {@link MatchingResult}        │                             │
+       * for the request.                      │       onBeforeRequest       ◄─┐
+       * If this is a frame request,           │                             │ │
+       * also matches the                      └──────────────┬──────────────┘ │
+       * {@link CosmeticResult}                               │                │
+       * for the specified frame.                             │                │
+       * If the request is neither blocked                    │                │
+       * nor redirected, apply the                            │                │
+       * $removeparam rules.                                  │                │
+       * In Firefox, if the request                           │                │
+       * is not blocked,                                      │                │
+       * initialize content filtering.                        │                │
+       * After that, check if a request is                    │                │
+       * third-party and has type CSP_REPORT                  │                │
+       * - then block it.                                     │                │
+       *                                                      │                │
+       *                                                      │                │
+       *                                       ┌──────────────▼──────────────┐ │
+       * Removes or modifies request           │                             │ │
+       * headers based on                      │      onBeforeSendHeaders    ◄─┼┐
+       * {@link MatchingResult}.               │                             │ ││
+       *                                       └──────────────┬──────────────┘ ││
+       *                                                      │                ││
+       *                                       ┌──────────────▼──────────────┐ ││
+       *                                       │                             │ ││
+       *                                       │        onSendHeaders        │ ││
+       *                                       │                             │ ││
+       *                                       └──────────────┬──────────────┘ ││
+       *                                                      │                ││
+       *                                       ┌──────────────▼──────────────┐ ││
+       * Removes or modifies response          │                             │ ││
+       * headers based on                    ┌─┤      onHeadersReceived      │ ││
+       * {@link MatchingResult}.             │ │                             │ ││
+       * Modifies 'trusted-types' directive  │ └─────────────────────────────┘ ││
+       * for CSP headers:                    │                                 ││.
+       * @see {@link TrustedTypesService}.   │                                 ││
+       *                                     │                                 ││
+       *                                     │                                 ││
+       *                                     │ ┌─────────────────────────────┐ ││
+       *                                     │ │                             │ ││
+       *                                     ├─►       onBeforeRedirect      ├─┴┤
+       *                                     │ │                             │  │
+       *                                     │ └─────────────────────────────┘  │
+       *                                     │                                  │
+       *                                     │ ┌─────────────────────────────┐  │
+       *                                     │ │                             │  │
+       *                                     ├─►        onAuthRequired       ├──┘
+       *                                     │ │                             │
+       *                                     │ └─────────────────────────────┘
+       *                                     │
+       *                                     │ ┌─────────────────────────────┐
+       * Try injecting JS rules into the     │ │                             │
+       * frame based on                      └─►      onResponseStarted      │
+       * {@link CosmeticRule}.                 │                             │
+       *                                       └──────────────┬──────────────┘
+       *                                                      │
+       *                                       ┌──────────────▼──────────────┐
+       * In Firefox, try injecting the         │                             │
+       * CSS and JS into the                   │         onCompleted         │
+       * subdocument frame based on            │                             │
+       * {@link CosmeticResult}.               └─────────────────────────────┘
+       * Remove the request information
+       * from {@link requestContextStorage}.
+       *
+       *                                       ┌─────────────────────────────┐
+       * Remove the request information        │                             │
+       * from {@link requestContextStorage}.   │       onErrorOccurred       │
+       *                                       │                             │
+       *                                       └─────────────────────────────┘.
+       *
+       *
+       *  Web Navigation API Event Handling:
+       *
+       *                                       ┌─────────────────────────────┐
+       *                                       │                             │
+       *                                       │  onCreatedNavigationTarget  │
+       *                                       │                             │
+       *                                       └──────────────┬──────────────┘
+       *                                                      │
+       *                                       ┌──────────────▼──────────────┐
+       *                                       │                             │
+       *                                       │       onBeforeNavigate      │
+       *                                       │                             │
+       *                                       └──────────────┬──────────────┘
+       *                                                      │
+       *                                       ┌──────────────▼──────────────┐
+       * Try injecting CSS and JS rules        │                             │
+       * into the frame with source            │         onCommitted         │
+       * based on {@link CosmeticRule}.        │                             │
+       *                                       └──────────────┬──────────────┘
+       *                                                      │
+       *                                       ┌──────────────▼──────────────┐
+       * Try injecting CSS and JS rules        │                             │
+       * into the subdocument frame            │      onDOMContentLoaded     ├─┐
+       * without source based on               │                             │ │
+       * {@link CosmeticRule}.                 └──────────────┬──────────────┘ │
+       *                                                      │                │
+       *                                       ┌──────────────▼──────────────┐ │
+       * Remove the frame data                 │                             │ │
+       * from {@link TabContext}.            ┌─┤         onCompleted         │ │
+       *                                     │ │                             │ │
+       *                                     │ └─────────────────────────────┘ │
+       *                                     │                                 │
+       *                                     │ ┌─────────────────────────────┐ │
+       *                                     │ │                             │ │
+       *                                     ├─►    onHistoryStateUpdated    ◄─┤
+       *                                     │ │                             │ │
+       *                                     │ └─────────────────────────────┘ │
+       *                                     │                                 │
+       *                                     │ ┌─────────────────────────────┐ │
+       *                                     │ │                             │ │
+       *                                     └─►  onReferenceFragmentUpdated ◄─┘
+       *                                       │                             │
+       *                                       └─────────────────────────────┘.
+       *
+       *                                       ┌─────────────────────────────┐
+       * Remove the frame data                 │                             │
+       * from {@link TabContext}.              │       onErrorOccurred       │
+       *                                       │                             │
+       *                                       └─────────────────────────────┘.
+       */
+      /**
        * API for applying rules from background service by handling
        * Web Request API and web navigation events.
        */
@@ -83505,6 +85093,8 @@
           // browser.webNavigation Events
           browser_polyfill_default().webNavigation.onCommitted.addListener(WebRequestApi.onCommitted);
           browser_polyfill_default().webNavigation.onDOMContentLoaded.addListener(WebRequestApi.onDomContentLoaded);
+          browser_polyfill_default().webNavigation.onCompleted.addListener(WebRequestApi.deleteFrameContext);
+          browser_polyfill_default().webNavigation.onErrorOccurred.addListener(WebRequestApi.deleteFrameContext);
         }
         /**
          * Removes web request event handlers.
@@ -83519,6 +85109,8 @@
           RequestEvents.onCompleted.removeListener(WebRequestApi.onCompleted);
           browser_polyfill_default().webNavigation.onCommitted.removeListener(WebRequestApi.onCommitted);
           browser_polyfill_default().webNavigation.onDOMContentLoaded.removeListener(WebRequestApi.onDomContentLoaded);
+          browser_polyfill_default().webNavigation.onCompleted.removeListener(WebRequestApi.deleteFrameContext);
+          browser_polyfill_default().webNavigation.onErrorOccurred.removeListener(WebRequestApi.deleteFrameContext);
         }
         /**
          * Flush browser in-memory cache.
@@ -83526,16 +85118,14 @@
          * This function is called after an engine update or filtering switch to ensure
          * that new rules are applied to requests that may have been cached by the browser.
          */
-        static flushMemoryCache() {
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              yield browser_polyfill_default().webRequest.handlerBehaviorChanged();
-            } catch (e) {
-              // TODO: use getErrorMessage instead
-              const message = e instanceof Error ? e.message : String(e);
-              logger.error(message);
-            }
-          });
+        static async flushMemoryCache() {
+          try {
+            await browser_polyfill_default().webRequest.handlerBehaviorChanged();
+          } catch (e) {
+            // TODO: use getErrorMessage instead
+            const message = e instanceof Error ? e.message : String(e);
+            logger.error(message);
+          }
         }
         /**
          * On before request event handler. This is the earliest event in the chain of the web request events.
@@ -83545,7 +85135,6 @@
          * @returns Web request response or void if there is nothing to do.
          */
         static onBeforeRequest({ context }) {
-          var _a;
           if (!context) {
             return undefined;
           }
@@ -83626,9 +85215,9 @@
               return { redirectUrl: purgedUrl };
             }
           }
-          if (response === null || response === void 0 ? void 0 : response.cancel) {
+          if (response?.cancel) {
             tabsApi.incrementTabBlockedRequestCount(tabId);
-            const mainFrameUrl = (_a = tabsApi.getTabMainFrame(tabId)) === null || _a === void 0 ? void 0 : _a.url;
+            const mainFrameUrl = tabsApi.getTabMainFrame(tabId)?.url;
             hideRequestInitiatorElement(tabId, requestFrameId, requestUrl, mainFrameUrl || referrerUrl, requestType, thirdParty);
           } else {
             ContentFiltering.onBeforeRequest(context);
@@ -83661,7 +85250,7 @@
           }
           // If the current request does not comply with any rules - we do not
           // need to call any other processing services (e.g. cookie, header)
-          if (context === null || context === void 0 ? void 0 : context.matchingResult) {
+          if (context?.matchingResult) {
             if (cookieFiltering.onBeforeSendHeaders(context)) {
               requestHeadersModified = true;
             }
@@ -83683,7 +85272,6 @@
          * @returns Web request event response.
          */
         static onHeadersReceived({ context, details }) {
-          var _a;
           if (!context) {
             return undefined;
           }
@@ -83695,11 +85283,11 @@
               statusCode: details.statusCode
             }
           });
-          if (!(context === null || context === void 0 ? void 0 : context.matchingResult)) {
+          if (!context?.matchingResult) {
             return undefined;
           }
           const { requestId, requestUrl, requestType, responseHeaders } = context;
-          const contentTypeHeader = (_a = findHeaderByName(responseHeaders, "content-type")) === null || _a === void 0 ? void 0 : _a.value;
+          const contentTypeHeader = findHeaderByName(responseHeaders, "content-type")?.value;
           if (contentTypeHeader) {
             requestContextStorage.update(requestId, { contentTypeHeader });
           }
@@ -83751,7 +85339,16 @@
            * that tab navigation steel is being processed and js injection may be causing the error.
            * In this case, js will be injected in the {@link WebNavigation.onCommitted} event.
            */
-          if (requestType === RequestType.Document && frame.url !== tabContext.info.url) {
+          if (
+            requestType === RequestType.Document &&
+            /**
+             * Check if url exists because it might be empty for new tabs.
+             * In this case we may inject on response started
+             * (https://github.com/AdguardTeam/AdguardBrowserExtension/issues/2571).
+             */
+            tabContext.info.url &&
+            tabContext.info.url !== frame.url
+          ) {
             return;
           }
           CosmeticApi.applyFrameJsRules(frameId, tabId);
@@ -83799,27 +85396,6 @@
          */
         static onErrorOccurred({ details }) {
           requestContextStorage.delete(details.requestId);
-        }
-        /**
-         * Checks if iframe has same source as main frame or if src is about:blank, javascript:, etc.
-         * We don't include frames with 'src=data:' because Chrome and Firefox
-         * do not allow data to be injected into frames with this type of src,
-         * this bug is reported here https://bugs.chromium.org/p/chromium/issues/detail?id=55084.
-         *
-         * @param frameUrl Frame url.
-         * @param frameId Unique id of frame in the tab.
-         * @param mainFrameUrl Url of tab where iframe exists.
-         * @returns True if frame without src, else returns false.
-         */
-        static isLocalFrame(frameUrl, frameId, mainFrameUrl) {
-          return (
-            frameId !== MAIN_FRAME_ID &&
-            (frameUrl === mainFrameUrl ||
-              frameUrl === "about:blank" ||
-              frameUrl === "about:srcdoc" ||
-              // eslint-disable-next-line no-script-url
-              frameUrl.indexOf("javascript:") > -1)
-          );
         }
         /**
          * Injects cosmetic rules to specified frame based on data from frame and response context.
@@ -83888,11 +85464,17 @@
          */
         static onDomContentLoaded(details) {
           const { tabId, frameId, url } = details;
-          const mainFrame = tabsApi.getTabMainFrame(tabId);
-          if (!mainFrame || !mainFrame.cosmeticResult || !WebRequestApi.isLocalFrame(url, frameId, mainFrame.url)) {
+          const tabContext = tabsApi.getTabContext(tabId);
+          const mainFrameUrl = tabContext?.info.url;
+          if (!mainFrameUrl || !isLocalFrame(url, frameId, mainFrameUrl)) {
             return;
           }
-          const { cosmeticResult } = mainFrame;
+          const cosmeticResult = engineApi.matchCosmetic({
+            requestUrl: mainFrameUrl,
+            frameUrl: mainFrameUrl,
+            requestType: RequestType.Document,
+            frameRule: tabContext.mainFrameRule
+          });
           CosmeticApi.applyCssRules({
             tabId,
             frameId,
@@ -83920,7 +85502,6 @@
          * @returns Web request response or void if there is nothing to do.
          */
         static onBeforeCspReport({ context }) {
-          var _a;
           // If filtering is disabled - skip process request.
           if (!engineApi.isFilteringEnabled) {
             return undefined;
@@ -83940,11 +85521,7 @@
             return undefined;
           }
           // If filtering disabled for this request.
-          if (
-            (_a = matchingResult === null || matchingResult === void 0 ? void 0 : matchingResult.getBasicResult()) === null || _a === void 0
-              ? void 0
-              : _a.isFilteringDisabled()
-          ) {
+          if (matchingResult?.getBasicResult()?.isFilteringDisabled()) {
             return undefined;
           }
           if (thirdParty) {
@@ -83963,298 +85540,19 @@
           // https://bugzilla.mozilla.org/show_bug.cgi?id=1588957#c10.
           return undefined;
         }
-      }
-
-      /**
-       * Event channel wrapper for sending messages to assistant.
-       */
-      class Assistant {
         /**
-         * Sends message to assistant to open it on the page.
-         *
-         * @param tabId Tab id.
+         * Delete frame data from tab context when navigation is finished.
+         * @param details Navigation event details.
          */
-        static openAssistant(tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            // Lazy load assistant
-            yield browser_polyfill_default().tabs.executeScript(tabId, { file: this.assistantUrl });
-            yield messagesApi.sendMessage(tabId, {
-              type: MessageType.InitAssistant,
-              tabId,
-              assistantUrl: this.assistantUrl
-            });
-          });
-        }
-        /**
-         * Sends message to assistant to close it on the page.
-         *
-         * @param tabId Tab id.
-         */
-        static closeAssistant(tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            yield messagesApi.sendMessage(tabId, {
-              type: MessageType.CloseAssistant
-            });
-          });
+        static deleteFrameContext(details) {
+          const { tabId, frameId } = details;
+          const tabContext = tabsApi.getTabContext(tabId);
+          if (!tabContext) {
+            return;
+          }
+          tabContext.frames.delete(frameId);
         }
       }
-      Assistant.onCreateRule = new EventChannel();
-      /**
-       * Path to assembled @adguard/assistant module. Necessary for lazy on-demand
-       * loading of the assistant.
-       */
-      Assistant.assistantUrl = "";
-
-      // TODO: add long live connection
-      // TODO: CollectHitStats
-      /**
-       * Messages API implementation. It is used to communicate with content scripts.
-       */
-      class MessagesApi {
-        /**
-         * Messages API constructor.
-         *
-         * @param filteringLog Filtering log.
-         */
-        constructor(filteringLog) {
-          this.filteringLog = filteringLog;
-          this.handleMessage = this.handleMessage.bind(this);
-        }
-        /**
-         * Sends message to the specified tab.
-         *
-         * @param tabId Tab ID.
-         * @param message Message.
-         */
-        sendMessage(tabId, message) {
-          return __awaiter(this, void 0, void 0, function* () {
-            yield browser_polyfill_default().tabs.sendMessage(tabId, message);
-          });
-        }
-        /**
-         * Messages handler.
-         *
-         * @param message Message object.
-         * @param sender Tab which sent the message.
-         *
-         * @returns Promise resolved with response to the message.
-         */
-        // TODO remove the rule bellow, and any
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        handleMessage(message, sender) {
-          return __awaiter(this, void 0, void 0, function* () {
-            try {
-              message = messageValidator.parse(message);
-            } catch (e) {
-              // ignore
-              return undefined;
-            }
-            const { type } = message;
-            switch (type) {
-              case MessageType.ProcessShouldCollapse: {
-                return this.handleProcessShouldCollapseMessage(sender, message.payload);
-              }
-              case MessageType.GetCosmeticData: {
-                return this.handleContentScriptDataMessage(sender, message.payload);
-              }
-              case MessageType.GetCookieRules: {
-                return this.handleGetCookieRulesMessage(sender, message.payload);
-              }
-              case MessageType.SaveCookieLogEvent: {
-                return this.handleSaveCookieLogEvent(sender, message.payload);
-              }
-              case MessageType.AssistantCreateRule: {
-                return this.handleAssistantCreateRuleMessage(sender, message.payload);
-              }
-              case MessageType.SaveCssHitsStats: {
-                return this.handleSaveCssHitsStats(sender, message.payload);
-              }
-            }
-            return undefined;
-          });
-        }
-        /**
-         * Handles should collapse element message.
-         *
-         * @param sender Tab, which sent message.
-         * @param payload Message payload.
-         * @returns True if element should be collapsed.
-         */
-        handleProcessShouldCollapseMessage(sender, payload) {
-          var _a;
-          if (!payload || !((_a = sender === null || sender === void 0 ? void 0 : sender.tab) === null || _a === void 0 ? void 0 : _a.id)) {
-            return false;
-          }
-          const res = processShouldCollapsePayloadValidator.safeParse(payload);
-          if (!res.success) {
-            return false;
-          }
-          const tabId = sender.tab.id;
-          const { elementUrl, documentUrl, requestType } = res.data;
-          return RequestBlockingApi.shouldCollapseElement(tabId, elementUrl, documentUrl, requestType);
-        }
-        /**
-         * Handles get extended css message.
-         *
-         * @param sender Tab, which sent message.
-         * @param payload Message payload.
-         * @returns Extended css string or false or undefined.
-         */
-        handleContentScriptDataMessage(sender, payload) {
-          var _a;
-          if (!payload || !((_a = sender === null || sender === void 0 ? void 0 : sender.tab) === null || _a === void 0 ? void 0 : _a.id)) {
-            return null;
-          }
-          const res = getExtendedCssPayloadValidator.safeParse(payload);
-          if (!res.success) {
-            return null;
-          }
-          const tabId = sender.tab.id;
-          let { frameId } = sender;
-          if (!frameId) {
-            frameId = 0;
-          }
-          // TODO check rules for parent/grandparent frames
-          if (!tabsApi.getTabFrame(tabId, frameId)) {
-            frameId = 0;
-          }
-          return CosmeticApi.getContentScriptData(tabId, frameId);
-        }
-        /**
-         * Handles messages.
-         * Returns cookie rules data for content script.
-         *
-         * @param sender Tab, which sent message.
-         * @param payload Message payload.
-         * @returns Cookie rules data.
-         */
-        handleGetCookieRulesMessage(sender, payload) {
-          var _a;
-          if (!payload || !((_a = sender === null || sender === void 0 ? void 0 : sender.tab) === null || _a === void 0 ? void 0 : _a.id)) {
-            return [];
-          }
-          const res = getCookieRulesPayloadValidator.safeParse(payload);
-          if (!res.success) {
-            return [];
-          }
-          const tabId = sender.tab.id;
-          let { frameId } = sender;
-          if (!frameId) {
-            frameId = 0;
-          }
-          // TODO check rules for parent/grandparent frames
-          if (!tabsApi.getTabFrame(tabId, frameId)) {
-            frameId = 0;
-          }
-          const cookieRules = cookieFiltering.getBlockingRules(tabId, frameId);
-          return cookieRules.map((rule) => ({
-            ruleText: rule.getText(),
-            match: rule.getAdvancedModifierValue(),
-            isThirdParty: rule.isOptionEnabled(es /* NetworkRuleOption.ThirdParty */.SJ.ThirdParty),
-            filterId: rule.getFilterListId(),
-            isAllowlist: rule.isAllowlist()
-          }));
-        }
-        /**
-         * Calls filtering to add an event from cookie-controller content-script.
-         *
-         * @param sender Tab which sent the message.
-         * @param payload Message payload.
-         * @returns True if event was published to filtering log.
-         */
-        handleSaveCookieLogEvent(sender, payload) {
-          var _a;
-          if (!payload || !((_a = sender === null || sender === void 0 ? void 0 : sender.tab) === null || _a === void 0 ? void 0 : _a.id)) {
-            return false;
-          }
-          const res = getSaveCookieLogEventPayloadValidator.safeParse(payload);
-          if (!res.success) {
-            return false;
-          }
-          const { data } = res;
-          this.filteringLog.publishEvent({
-            type: FilteringEventType.Cookie,
-            data: {
-              eventId: nanoid(),
-              tabId: sender.tab.id,
-              cookieName: data.cookieName,
-              frameDomain: data.cookieDomain,
-              cookieValue: data.cookieValue,
-              rule: new es /* NetworkRule */.nC(data.ruleText, data.filterId),
-              isModifyingCookieRule: false,
-              requestThirdParty: data.thirdParty,
-              timestamp: Date.now(),
-              requestType: ContentType.Cookie
-            }
-          });
-          return true;
-        }
-        /**
-         * Handles message with new rule from assistant content script.
-         *
-         * @param sender Tab, which sent message.
-         * @param payload Message payload.
-         * @returns True if rule was dispatched.
-         */
-        handleAssistantCreateRuleMessage(sender, payload) {
-          var _a;
-          if (!payload || !((_a = sender === null || sender === void 0 ? void 0 : sender.tab) === null || _a === void 0 ? void 0 : _a.id)) {
-            return false;
-          }
-          const res = getAssistantCreateRulePayloadValidator.safeParse(payload);
-          if (!res.success) {
-            return false;
-          }
-          const { ruleText } = res.data;
-          Assistant.onCreateRule.dispatch(ruleText);
-          return true;
-        }
-        /**
-         * Handle message about saving css hits stats.
-         *
-         * @param sender Tab, which sent message.
-         * @param payload Message payload.
-         * @returns True if stats was saved.
-         */
-        handleSaveCssHitsStats(
-          sender,
-          // TODO add payload type
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          payload
-        ) {
-          var _a;
-          if (!payload || !((_a = sender === null || sender === void 0 ? void 0 : sender.tab) === null || _a === void 0 ? void 0 : _a.id)) {
-            return false;
-          }
-          const tabId = sender.tab.id;
-          const frame = tabsApi.getTabMainFrame(tabId);
-          if (!(frame === null || frame === void 0 ? void 0 : frame.url)) {
-            return false;
-          }
-          const { url } = frame;
-          let published = false;
-          for (let i = 0; i < payload.length; i += 1) {
-            const stat = payload[i];
-            const rule = new es /* CosmeticRule */.nR(stat.ruleText, stat.filterId);
-            this.filteringLog.publishEvent({
-              type: FilteringEventType.ApplyCosmeticRule,
-              data: {
-                tabId,
-                eventId: nanoid(),
-                rule,
-                element: stat.element,
-                frameUrl: url,
-                frameDomain: dist_getDomain(url),
-                requestType: ContentType.Document,
-                timestamp: Date.now()
-              }
-            });
-            published = true;
-          }
-          return published;
-        }
-      }
-      const messagesApi = new MessagesApi(defaultFilteringLog);
 
       /**
        * Filter list configuration validator for MV2.
@@ -84280,17 +85578,42 @@
         filters: filterMV2Validator.array()
       });
 
+      /* eslint-disable class-methods-use-this */
       /**
        * App implementation for MV2.
        */
       class TsWebExtension {
+        appContext;
+        tabsApi;
+        engineApi;
+        stealthApi;
+        messagesApi;
+        tabCosmeticInjector;
+        redirectsService;
+        documentBlockingService;
+        filteringLog;
+        extSessionStorage;
+        /**
+         * Fires on filtering log event.
+         */
+        onFilteringLogEvent;
+        /**
+         * Fires when a rule has been created from the helper.
+         */
+        onAssistantCreateRule = Assistant.onCreateRule;
         /**
          * Gets app running status.
          *
          * @returns True if app started, else false.
          */
         get isStarted() {
-          return appContext.isAppStarted;
+          // TODO: Remove this check after moving call of storage initialization in extension code.
+          // Check this flag before access storage values, because engine methods
+          // can be triggered before initialization by extension `onCheckRequestFilterReady` method.
+          if (!this.appContext.isStorageInitialized) {
+            return false;
+          }
+          return this.appContext.isAppStarted;
         }
         /**
          * Sets app running status.
@@ -84298,7 +85621,7 @@
          * @param value Status value.
          */
         set isStarted(value) {
-          appContext.isAppStarted = value;
+          this.appContext.isAppStarted = value;
         }
         /**
          * Gets app configuration context.
@@ -84307,10 +85630,10 @@
          * @returns True if app started, else false.
          */
         get configuration() {
-          if (!appContext.configuration) {
+          if (!this.appContext.configuration) {
             throw new Error("Configuration not set!");
           }
-          return appContext.configuration;
+          return this.appContext.configuration;
         }
         /**
          * Sets app configuration context.
@@ -84318,28 +85641,55 @@
          * @param value Status value.
          */
         set configuration(value) {
-          appContext.configuration = value;
+          this.appContext.configuration = value;
         }
         /**
-         * Constructor.
+         * Creates new instance of {@link TsWebExtension}.
          *
-         * @param webAccessibleResourcesPath Path to web accessible resources for {@link resourcesService}.
+         * @param appContext Top level app context storage.
+         * @param tabsApi Wrapper around browser.tabs API.
+         * @param engineApi TSUrlFilter Engine wrapper.
+         * @param stealthApi Stealth api implementation.
+         * @param messagesApi Wrapper around browser.runtime API.
+         * @param tabCosmeticInjector Used to inject cosmetic rules into opened tabs on extension start.
+         * @param redirectsService Service for working with redirects.
+         * @param documentBlockingService Service encapsulate processing of $document modifier rules.
+         * @param filteringLog Filtering log API.
+         * @param extSessionStorage API for storing data described by SessionStorageSchema in the browser.storage.session.
          */
-        constructor(webAccessibleResourcesPath) {
-          /**
-           * Fires on filtering log event.
-           */
-          this.onFilteringLogEvent = defaultFilteringLog.onLogEvent;
-          /**
-           * Fires when a rule has been created from the helper.
-           */
-          this.onAssistantCreateRule = Assistant.onCreateRule;
-          /**
-           * Tabs cosmetic injector.
-           * Used to inject cosmetic rules into opened tabs on extension start.
-           */
-          this.tabCosmeticInjector = new TabsCosmeticInjector(engineApi, documentApi, tabsApi);
-          resourcesService.init(webAccessibleResourcesPath);
+        constructor(
+          appContext,
+          tabsApi,
+          engineApi,
+          stealthApi,
+          messagesApi,
+          tabCosmeticInjector,
+          redirectsService,
+          documentBlockingService,
+          filteringLog,
+          extSessionStorage
+        ) {
+          this.appContext = appContext;
+          this.tabsApi = tabsApi;
+          this.engineApi = engineApi;
+          this.stealthApi = stealthApi;
+          this.messagesApi = messagesApi;
+          this.tabCosmeticInjector = tabCosmeticInjector;
+          this.redirectsService = redirectsService;
+          this.documentBlockingService = documentBlockingService;
+          this.filteringLog = filteringLog;
+          this.extSessionStorage = extSessionStorage;
+          this.onFilteringLogEvent = this.filteringLog.onLogEvent;
+          this.getMessageHandler = this.getMessageHandler.bind(this);
+        }
+        /**
+         * Initialize app persistent data.
+         * This method called as soon as possible and allows access
+         * to the actual context before the app is started.
+         */
+        async initStorage() {
+          await this.extSessionStorage.init();
+          this.appContext.isStorageInitialized = true;
         }
         /**
          * Initializes {@link EngineApi} with passed {@link configuration}.
@@ -84351,32 +85701,28 @@
          *
          * @throws Error if configuration is not valid.
          */
-        start(configuration) {
-          return __awaiter(this, void 0, void 0, function* () {
-            configurationMV2Validator.parse(configuration);
-            this.configuration = TsWebExtension.createConfigurationMV2Context(configuration);
-            RequestEvents.init();
-            yield redirectsService.start();
-            documentBlockingService.configure(configuration);
-            yield engineApi.startEngine(configuration);
-            yield this.tabCosmeticInjector.processOpenTabs();
-            yield tabsApi.start();
-            WebRequestApi.start();
-            Assistant.assistantUrl = configuration.settings.assistantUrl;
-            yield WebRequestApi.flushMemoryCache();
-            yield stealthApi.updateWebRtcPrivacyPermissions();
-            this.isStarted = true;
-          });
+        async start(configuration) {
+          configurationMV2Validator.parse(configuration);
+          this.configuration = TsWebExtension.createConfigurationMV2Context(configuration);
+          RequestEvents.init();
+          await this.redirectsService.start();
+          this.documentBlockingService.configure(configuration);
+          await this.engineApi.startEngine(configuration);
+          await this.tabCosmeticInjector.processOpenTabs();
+          await this.tabsApi.start();
+          WebRequestApi.start();
+          Assistant.assistantUrl = configuration.settings.assistantUrl;
+          await WebRequestApi.flushMemoryCache();
+          await this.stealthApi.updateWebRtcPrivacyPermissions();
+          this.isStarted = true;
         }
         /**
          * Fully stop request and tab processing.
          */
-        stop() {
-          return __awaiter(this, void 0, void 0, function* () {
-            WebRequestApi.stop();
-            tabsApi.stop();
-            this.isStarted = false;
-          });
+        async stop() {
+          WebRequestApi.stop();
+          this.tabsApi.stop();
+          this.isStarted = false;
         }
         /**
          * Re-initializes {@link EngineApi} with passed {@link configuration}
@@ -84390,39 +85736,33 @@
          *
          * @throws Error if app is not started or configuration is not valid.
          */
-        configure(configuration) {
-          return __awaiter(this, void 0, void 0, function* () {
-            if (!this.isStarted) {
-              throw new Error("App is not started!");
-            }
-            configurationMV2Validator.parse(configuration);
-            this.configuration = TsWebExtension.createConfigurationMV2Context(configuration);
-            documentBlockingService.configure(configuration);
-            yield engineApi.startEngine(configuration);
-            yield tabsApi.updateCurrentTabsMainFrameRules();
-            yield WebRequestApi.flushMemoryCache();
-            yield stealthApi.updateWebRtcPrivacyPermissions();
-          });
+        async configure(configuration) {
+          if (!this.isStarted) {
+            throw new Error("App is not started!");
+          }
+          configurationMV2Validator.parse(configuration);
+          this.configuration = TsWebExtension.createConfigurationMV2Context(configuration);
+          this.documentBlockingService.configure(configuration);
+          await this.engineApi.startEngine(configuration);
+          await this.tabsApi.updateCurrentTabsMainFrameRules();
+          await WebRequestApi.flushMemoryCache();
+          await this.stealthApi.updateWebRtcPrivacyPermissions();
         }
         /**
          * Opens assistant in the tab.
          *
          * @param tabId Tab id where assistant will be opened.
          */
-        openAssistant(tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            yield Assistant.openAssistant(tabId);
-          });
+        async openAssistant(tabId) {
+          await Assistant.openAssistant(tabId);
         }
         /**
          * Close assistant in the required tab.
          *
          * @param tabId Tab id.
          */
-        closeAssistant(tabId) {
-          return __awaiter(this, void 0, void 0, function* () {
-            yield Assistant.closeAssistant(tabId);
-          });
+        async closeAssistant(tabId) {
+          await Assistant.closeAssistant(tabId);
         }
         /**
          * Return rules count for current configuration.
@@ -84430,7 +85770,7 @@
          * @returns Rules count.
          */
         getRulesCount() {
-          return engineApi.getRulesCount();
+          return this.engineApi.getRulesCount();
         }
         /**
          * Returns a message handler that will listen to internal messages,
@@ -84439,7 +85779,7 @@
          * @returns Messages handler.
          */
         getMessageHandler() {
-          return messagesApi.handleMessage;
+          return this.messagesApi.handleMessage;
         }
         /**
          * Sets prebuild local script rules.
@@ -84459,12 +85799,10 @@
          * @throws Error if {@link configuration} not set.
          * @param isFilteringEnabled `filteringEnabled` config value.
          */
-        setFilteringEnabled(isFilteringEnabled) {
-          return __awaiter(this, void 0, void 0, function* () {
-            this.configuration.settings.filteringEnabled = isFilteringEnabled;
-            yield WebRequestApi.flushMemoryCache();
-            yield stealthApi.updateWebRtcPrivacyPermissions();
-          });
+        async setFilteringEnabled(isFilteringEnabled) {
+          this.configuration.settings.filteringEnabled = isFilteringEnabled;
+          await WebRequestApi.flushMemoryCache();
+          await this.stealthApi.updateWebRtcPrivacyPermissions();
         }
         /**
          * Updates `collectStats` configuration value without re-initialization of engine.
@@ -84476,17 +85814,24 @@
           this.configuration.settings.collectStats = isCollectStats;
         }
         /**
+         * Updates `debugScriptlets` configuration value without re-initialization of engine.
+         *
+         * @throws Error if {@link configuration} not set.
+         * @param isDebugScriptlets `debugScriptlets` config value.
+         */
+        setDebugScriptlets(isDebugScriptlets) {
+          this.configuration.settings.debugScriptlets = isDebugScriptlets;
+        }
+        /**
          * Updates `stealthModeEnabled` configuration value without re-initialization of engine.
          * Also updates webRTC privacy.network settings on demand.
          *
          * @throws Error if {@link configuration} not set.
          * @param isStealthModeEnabled `stealthModeEnabled` config value.
          */
-        setStealthModeEnabled(isStealthModeEnabled) {
-          return __awaiter(this, void 0, void 0, function* () {
-            this.configuration.settings.stealthModeEnabled = isStealthModeEnabled;
-            yield stealthApi.updateWebRtcPrivacyPermissions();
-          });
+        async setStealthModeEnabled(isStealthModeEnabled) {
+          this.configuration.settings.stealthModeEnabled = isStealthModeEnabled;
+          await this.stealthApi.updateWebRtcPrivacyPermissions();
         }
         /**
          * Updates `selfDestructFirstPartyCookies` stealth config value without re-initialization of engine.
@@ -84567,11 +85912,9 @@
          * @throws Error if {@link configuration} not set.
          * @param isBlockWebRTC `blockWebRTC` stealth config value.
          */
-        setBlockWebRTC(isBlockWebRTC) {
-          return __awaiter(this, void 0, void 0, function* () {
-            this.configuration.settings.stealth.blockWebRTC = isBlockWebRTC;
-            yield stealthApi.updateWebRtcPrivacyPermissions();
-          });
+        async setBlockWebRTC(isBlockWebRTC) {
+          this.configuration.settings.stealth.blockWebRTC = isBlockWebRTC;
+          await this.stealthApi.updateWebRtcPrivacyPermissions();
         }
         /**
          * Creates configuration context.
@@ -84590,10 +85933,458 @@
         }
       }
 
+      /**
+       * Prevent web pages to identify extension through its web accessible resources.
+       *
+       * Inspired by:
+       *  https://github.com/gorhill/uBlock/blob/7f999b759fe540e457e297363f55b25d9860dd3e/platform/chromium/vapi-background.
+       */
+      class ResourcesService {
+        secrets = [];
+        root = browser_polyfill_default().runtime.getURL("/");
+        lastSecretTime = 0;
+        warDir;
+        generateSecretKey;
+        /**
+         * Constructor.
+         *
+         * @param generateSecretKey Function to generate secret key.
+         */
+        constructor(generateSecretKey) {
+          this.generateSecretKey = generateSecretKey;
+          this.guardWar = this.guardWar.bind(this);
+        }
+        /**
+         * Init service.
+         *
+         * @param warDir Web accessible resources directory.
+         */
+        init(warDir) {
+          this.warDir = warDir;
+          const filter = {
+            urls: [`${this.root}${this.warDir}/*`]
+          };
+          const extraInfoSpec = ["blocking"];
+          browser_polyfill_default().webRequest.onBeforeRequest.addListener(this.guardWar, filter, extraInfoSpec);
+        }
+        /**
+         * Stops service.
+         */
+        stop() {
+          this.warDir = undefined;
+          this.secrets = [];
+          browser_polyfill_default().webRequest.onBeforeRequest.removeListener(this.guardWar);
+        }
+        /**
+         * Creates url for war file.
+         *
+         * @param path Resource relative path.
+         * @param params Additional params appended to url, by default empty.
+         * @throws Error, if web accessible resources path is not defined.
+         *
+         * @returns Url to resource with secret param.
+         */
+        createResourceUrl(path, params = new URLSearchParams()) {
+          if (!this.warDir) {
+            throw new Error("Resources path is not defined. Did you init the service?");
+          }
+          const secretParams = new URLSearchParams(this.createSecretParam());
+          const resultParams = new URLSearchParams([...secretParams, ...params]);
+          return browser_polyfill_default().runtime.getURL(`/${this.warDir}/${path}?${resultParams.toString()}`);
+        }
+        /**
+         * Loads war resource by path.
+         *
+         * @param path Resource relative path.
+         *
+         * @returns Promise resolved with resource content as a string.
+         */
+        async loadResource(path) {
+          const url = this.createResourceUrl(path);
+          const response = await fetch(url);
+          return response.text();
+        }
+        /**
+         * Generates secret key, persists it in the secrets array and formats querystring.
+         *
+         * @returns Querystring with secret.
+         */
+        createSecretParam() {
+          if (this.secrets.length !== 0) {
+            // TODO move magic numbers to constants
+            if (Date.now() - this.lastSecretTime > 5000) {
+              this.secrets.splice(0);
+            } else if (this.secrets.length > 256) {
+              this.secrets.splice(0, this.secrets.length - 192);
+            }
+          }
+          this.lastSecretTime = Date.now();
+          const secret = this.generateSecretKey();
+          this.secrets.push(secret);
+          return `?secret=${secret}`;
+        }
+        /**
+         * If secret is not found redirects to the main url of extension, otherwise removes secret from the stored values.
+         *
+         * @param details Web request details.
+         * @returns Redirect or nothing.
+         */
+        guardWar(details) {
+          const { url } = details;
+          const pos = this.secrets.findIndex((secret) => url.lastIndexOf(`?secret=${secret}`) !== -1);
+          if (pos === -1) {
+            return { redirectUrl: this.root };
+          }
+          this.secrets.splice(pos, 1);
+          return undefined;
+        }
+      }
+
+      /**
+       * RedirectsCache is used for new type of blocking redirects, like click2load.html.
+       * Here we save redirected urls to check later for being able to view hidden frame after user
+       * clicked on button "click to load".
+       */
+      class RedirectsCache {
+        /**
+         * Instance or LRUMap.
+         */
+        cache = new lru.LRUMap(100);
+        /**
+         * Adds url to the cache.
+         *
+         * @param url Url added to cache.
+         */
+        add = (url) => {
+          this.cache.set(url, true);
+        };
+        /**
+         * Checks if url is in the cache.
+         *
+         * @param url Url to check.
+         * @returns True if url is in the cache.
+         */
+        hasUrl = (url) => {
+          return this.cache.has(url);
+        };
+      }
+      const redirectsCache = new RedirectsCache();
+
+      /**
+       * Used for new type of redirects, i.e.: click2load.html.
+       * This tokens are transferred to redirect and used later to unblock page after user clicked button
+       * "click to load".
+       */
+      class RedirectsTokensCache {
+        cache = new lru.LRUMap(1000);
+        /**
+         * Generates random unblock token for url and saves it to cache.
+         * Used for blocking redirect params creation {@link resourcesService.blockingUrlParams}.
+         *
+         * @returns Generated random string.
+         */
+        generateToken = () => {
+          const token = nanoid();
+          this.cache.set(token, true);
+          return token;
+        };
+        /**
+         * Checks whether token exist in cache.
+         * Used when redirect is checked in {@link resourcesService.shouldCreateRedirectUrl}.
+         *
+         * @param token Some string or null.
+         * @returns True if cache has such token.
+         */
+        hasToken = (token) => {
+          if (!token) {
+            return false;
+          }
+          return this.cache.has(token);
+        };
+      }
+      const redirectsTokensCache = new RedirectsTokensCache();
+
+      /**
+       * Service for working with redirects.
+       */
+      class RedirectsService {
+        resourcesService;
+        redirects = null;
+        /**
+         * Creates {@link RedirectsService} instance.
+         * @param resourcesService Prevent web pages to identify extension through its web accessible resources.
+         */
+        constructor(resourcesService) {
+          this.resourcesService = resourcesService;
+        }
+        /**
+         * Starts redirects service.
+         */
+        async start() {
+          try {
+            const rawYaml = await this.resourcesService.loadResource("redirects.yml");
+            this.redirects = new scriptlets_umd.redirects.Redirects(rawYaml);
+          } catch (e) {
+            throw new Error(e.message);
+          }
+        }
+        /**
+         * Returns redirect url for the specified title.
+         *
+         * @param title Redirect title or null.
+         * @param requestUrl Request url.
+         * @returns Redirect url or null if redirect is not found.
+         */
+        createRedirectUrl(title, requestUrl) {
+          if (!title) {
+            return null;
+          }
+          if (!this.redirects) {
+            return null;
+          }
+          const redirectSource = this.redirects.getRedirect(title);
+          if (!redirectSource) {
+            logger.debug(`There is no redirect source with title: "${title}"`);
+            return null;
+          }
+          const shouldRedirect = this.shouldCreateRedirectUrl(title, requestUrl);
+          if (!shouldRedirect) {
+            return null;
+          }
+          // For blocking redirects we generate additional search params.
+          const params = this.blockingUrlParams(title, requestUrl);
+          return this.resourcesService.createResourceUrl(`redirects/${redirectSource.file}`, params);
+        }
+        /**
+         * Check whether redirect creating is needed i.e.: for click2load.html it's not needed after
+         * button click.
+         *
+         * @param redirectTitle A name of the redirect.
+         * @param requestUrl Request url.
+         * @returns True if should create redirect url.
+         */
+        shouldCreateRedirectUrl = (redirectTitle, requestUrl) => {
+          // if no redirects loaded we won't be able to create redirect url;
+          if (!this.redirects) {
+            return false;
+          }
+          // no further checking is needed for most of the redirects
+          // except blocking redirects, i.e. click2load.html
+          if (!this.redirects.isBlocking(redirectTitle)) {
+            return true;
+          }
+          // unblock token passed to redirect by createRedirectFileUrl and returned back.
+          // it should be last parameter in url
+          const UNBLOCK_TOKEN_PARAM = "__unblock";
+          let cleanRequestUrl = requestUrl;
+          const url = new URL(requestUrl);
+          const params = new URLSearchParams(url.search);
+          const unblockToken = params.get(UNBLOCK_TOKEN_PARAM);
+          if (unblockToken) {
+            // if redirect has returned unblock token back,
+            // add url to cache for no further redirecting on button click;
+            // save cleaned origin url so unblock token parameter should be cut off
+            params.delete(UNBLOCK_TOKEN_PARAM);
+            cleanRequestUrl = `${url.origin}${url.pathname}?${params.toString()}`;
+            redirectsCache.add(cleanRequestUrl);
+          }
+          return !redirectsCache.hasUrl(cleanRequestUrl) || !redirectsTokensCache.hasToken(unblockToken);
+        };
+        /**
+         * Builds blocking url search params.
+         *
+         * @param redirectTitle Title of the redirect.
+         * @param requestUrl Request url.
+         * @throws Error if this method called before redirects where set.
+         * @returns Url search params.
+         * @private
+         */
+        blockingUrlParams(redirectTitle, requestUrl) {
+          if (!this.redirects) {
+            throw new Error("This method should be called after redirects are loaded");
+          }
+          const params = new URLSearchParams();
+          if (this.redirects.isBlocking(redirectTitle)) {
+            const unblockToken = redirectsTokensCache.generateToken();
+            params.set("__unblock", unblockToken);
+            params.set("__origin", requestUrl);
+          }
+          return params;
+        }
+      }
+
+      /**
+       * This service encapsulate processing of $document modifier rules.
+       *
+       * Service is initialized in {@link configure} method, called from {@link EngineApi#startEngine}.
+       *
+       * Request rule is processed in {@link getDocumentBlockingResponse} method, called
+       * from {@link RequestBlockingApi.getBlockingResponse}.
+       *
+       * Request rule is processed following scenario:
+       * - if domain is trusted, ignore request
+       * - if rule is document blocking and {@link documentBlockingPageUrl} is undefined, return
+       * {@link WebRequestApi.onBeforeRequest} blocking response
+       * - if rule is document blocking and {@link documentBlockingPageUrl} is defined, return redirect response with
+       * required params.
+       * - if browser is Firefox, update page url by {@link browser.tabs} API, because FF doesn't support redirects to
+       * extension pages.
+       */
+      class DocumentBlockingService {
+        tabsApi;
+        // base url of document blocking page
+        documentBlockingPageUrl;
+        // list of domain names of sites, which should be excluded from document blocking
+        trustedDomains = [];
+        /**
+         * Creates instance of {@link DocumentBlockingService}.
+         * @param tabsApi Wrapper around browser.tabs API.
+         */
+        constructor(tabsApi) {
+          this.tabsApi = tabsApi;
+        }
+        /**
+         * Configures service instance {@link documentBlockingPageUrl}.
+         *
+         * @param configuration App {@link Configuration}.
+         */
+        configure(configuration) {
+          const { settings, trustedDomains } = configuration;
+          this.documentBlockingPageUrl = settings?.documentBlockingPageUrl;
+          this.trustedDomains = trustedDomains;
+        }
+        /**
+         * Processes $document modifier rule matched request in {@link RequestBlockingApi.getBlockingResponse}.
+         *
+         * @param data Data for document request processing.
+         * @returns Blocking response or null {@link WebRequestApi.onBeforeRequest}.
+         */
+        getDocumentBlockingResponse(data) {
+          const { tabId, eventId, rule, referrerUrl, requestUrl } = data;
+          // if request url domain is trusted, ignore document blocking rule
+          if (this.isTrustedDomain(requestUrl)) {
+            return undefined;
+          }
+          // public filtering log event
+          defaultFilteringLog.publishEvent({
+            type: FilteringEventType.ApplyBasicRule,
+            data: {
+              eventId,
+              tabId,
+              rule,
+              requestUrl,
+              frameUrl: referrerUrl,
+              requestType: ContentType.Document
+            }
+          });
+          // if documentBlockingPage is undefined, block request
+          if (!this.documentBlockingPageUrl) {
+            return { cancel: true };
+          }
+          // get document blocking url with required params
+          const blockingUrl = DocumentBlockingService.createBlockingUrl(this.documentBlockingPageUrl, requestUrl, rule.getText());
+          // Chrome doesn't allow to show extension pages in incognito mode
+          if (isChromium && this.tabsApi.isIncognitoTab(tabId)) {
+            // Closing tab before opening a new one may lead to browser crash (Chromium)
+            browser_polyfill_default()
+              .tabs.create({ url: blockingUrl })
+              .then(() => {
+                browser_polyfill_default().tabs.remove(tabId);
+              })
+              .catch((e) => {
+                logger.warn(`Can't open info page about blocked domain. Err: ${e}`);
+              });
+          } else {
+            // Browser doesn't allow redirects to extension pages which are not listed in web
+            // accessible resources. We set blocking page url via browser.tabs
+            // api for bypassing this limitation.
+            this.reloadTabWithBlockingPage(tabId, blockingUrl);
+          }
+          return { cancel: true };
+        }
+        /**
+         * Checks if request url domain is trusted.
+         *
+         * @param url Request url.
+         * @returns True, if request url domain is trusted, else false.
+         */
+        isTrustedDomain(url) {
+          const domain = getHostname(url);
+          if (domain) {
+            return this.trustedDomains.includes(domain);
+          }
+          return false;
+        }
+        /**
+         * Updates tab with document blocking page url.
+         *
+         * @param tabId Tab id.
+         * @param url Blocking page url.
+         */
+        reloadTabWithBlockingPage(tabId, url) {
+          const tabContext = this.tabsApi.getTabContext(tabId);
+          if (!tabContext) {
+            return;
+          }
+          browser_polyfill_default().tabs.update(tabId, { url });
+        }
+        /**
+         * Sets required url and rule query params to document-blocking page url.
+         *
+         * @param  documentBlockingPageUrl Url of document-blocking page.
+         * @param  requestUrl Processed request url.
+         * @param  ruleText Matched rule text.
+         * @returns Document blocking page url with required params.
+         */
+        static createBlockingUrl(documentBlockingPageUrl, requestUrl, ruleText) {
+          const url = new URL(documentBlockingPageUrl);
+          url.searchParams.set("url", requestUrl);
+          url.searchParams.set("rule", ruleText);
+          return url.toString();
+        }
+      }
+
+      /**
+       * @file Temporary entry point for global background submodule instances.
+       * Needed for backward compatibility during internal API updates.
+       * Will be removed in the future.
+       */
+      const allowlist = new Allowlist();
+      const engineApi = new EngineApi(allowlist, appContext, stealthApi);
+      const documentApi = new DocumentApi(allowlist, engineApi);
+      const tabsApi = new TabsApi(documentApi);
+      const documentBlockingService = new DocumentBlockingService(tabsApi);
+      const messagesApi = new MessagesApi(tabsApi, defaultFilteringLog);
+      const resourcesService = new ResourcesService(() => {
+        return Math.floor(Math.random() * 982451653 + 982451653).toString(36);
+      });
+      const redirectsService = new RedirectsService(resourcesService);
+      /**
+       * Creates new instance of {@link TsWebExtension}.
+       * @param webAccessibleResourcesPath Path to web accessible resources for {@link resourcesService}.
+       * @returns New instance of {@link TsWebExtension}.
+       */
+      function createTsWebExtension(webAccessibleResourcesPath) {
+        resourcesService.init(webAccessibleResourcesPath);
+        const tabCosmeticInjector = new TabsCosmeticInjector(engineApi, documentApi, tabsApi);
+        return new TsWebExtension(
+          appContext,
+          tabsApi,
+          engineApi,
+          stealthApi,
+          messagesApi,
+          tabCosmeticInjector,
+          redirectsService,
+          documentBlockingService,
+          defaultFilteringLog,
+          extSessionStorage
+        );
+      }
+
       /***/
     },
 
-    /***/ 22964: /***/ function (module) {
+    /***/ 2964: /***/ function (module) {
       !(function (e, t) {
         true ? (module.exports = t()) : 0;
       })(this, function () {
@@ -85906,7 +87697,7 @@
       /***/
     },
 
-    /***/ 87553: /***/ function (__unused_webpack_module, exports) {
+    /***/ 7553: /***/ function (__unused_webpack_module, exports) {
       !(function (g, c) {
         true ? c(exports) : 0;
       })(this, function (g) {
@@ -86060,7 +87851,7 @@
       /***/
     },
 
-    /***/ 53679: /***/ function (module, exports) {
+    /***/ 3679: /***/ function (module, exports) {
       var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
       (function (global, factory) {
         if (true) {
@@ -87346,6 +89137,3083 @@
           module.exports = globalThis.browser;
         }
       });
+
+      /***/
+    },
+
+    /***/ 296: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _ListCache
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_listCacheClear.js
+
+      /**
+       * Removes all key-value entries from the list cache.
+       *
+       * @private
+       * @name clear
+       * @memberOf ListCache
+       */
+      function listCacheClear() {
+        this.__data__ = [];
+        this.size = 0;
+      }
+
+      /* harmony default export */ const _listCacheClear = listCacheClear;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/eq.js
+      var eq = __webpack_require__(4397); // CONCATENATED MODULE: ./node_modules/lodash-es/_assocIndexOf.js
+      /**
+       * Gets the index at which the `key` is found in `array` of key-value pairs.
+       *
+       * @private
+       * @param {Array} array The array to inspect.
+       * @param {*} key The key to search for.
+       * @returns {number} Returns the index of the matched value, else `-1`.
+       */
+      function assocIndexOf(array, key) {
+        var length = array.length;
+        while (length--) {
+          if ((0, eq /* default */.Z)(array[length][0], key)) {
+            return length;
+          }
+        }
+        return -1;
+      }
+
+      /* harmony default export */ const _assocIndexOf = assocIndexOf; // CONCATENATED MODULE: ./node_modules/lodash-es/_listCacheDelete.js
+
+      /** Used for built-in method references. */
+      var arrayProto = Array.prototype;
+
+      /** Built-in value references. */
+      var splice = arrayProto.splice;
+
+      /**
+       * Removes `key` and its value from the list cache.
+       *
+       * @private
+       * @name delete
+       * @memberOf ListCache
+       * @param {string} key The key of the value to remove.
+       * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+       */
+      function listCacheDelete(key) {
+        var data = this.__data__,
+          index = _assocIndexOf(data, key);
+
+        if (index < 0) {
+          return false;
+        }
+        var lastIndex = data.length - 1;
+        if (index == lastIndex) {
+          data.pop();
+        } else {
+          splice.call(data, index, 1);
+        }
+        --this.size;
+        return true;
+      }
+
+      /* harmony default export */ const _listCacheDelete = listCacheDelete; // CONCATENATED MODULE: ./node_modules/lodash-es/_listCacheGet.js
+
+      /**
+       * Gets the list cache value for `key`.
+       *
+       * @private
+       * @name get
+       * @memberOf ListCache
+       * @param {string} key The key of the value to get.
+       * @returns {*} Returns the entry value.
+       */
+      function listCacheGet(key) {
+        var data = this.__data__,
+          index = _assocIndexOf(data, key);
+
+        return index < 0 ? undefined : data[index][1];
+      }
+
+      /* harmony default export */ const _listCacheGet = listCacheGet; // CONCATENATED MODULE: ./node_modules/lodash-es/_listCacheHas.js
+
+      /**
+       * Checks if a list cache value for `key` exists.
+       *
+       * @private
+       * @name has
+       * @memberOf ListCache
+       * @param {string} key The key of the entry to check.
+       * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+       */
+      function listCacheHas(key) {
+        return _assocIndexOf(this.__data__, key) > -1;
+      }
+
+      /* harmony default export */ const _listCacheHas = listCacheHas; // CONCATENATED MODULE: ./node_modules/lodash-es/_listCacheSet.js
+
+      /**
+       * Sets the list cache `key` to `value`.
+       *
+       * @private
+       * @name set
+       * @memberOf ListCache
+       * @param {string} key The key of the value to set.
+       * @param {*} value The value to set.
+       * @returns {Object} Returns the list cache instance.
+       */
+      function listCacheSet(key, value) {
+        var data = this.__data__,
+          index = _assocIndexOf(data, key);
+
+        if (index < 0) {
+          ++this.size;
+          data.push([key, value]);
+        } else {
+          data[index][1] = value;
+        }
+        return this;
+      }
+
+      /* harmony default export */ const _listCacheSet = listCacheSet; // CONCATENATED MODULE: ./node_modules/lodash-es/_ListCache.js
+
+      /**
+       * Creates an list cache object.
+       *
+       * @private
+       * @constructor
+       * @param {Array} [entries] The key-value pairs to cache.
+       */
+      function ListCache(entries) {
+        var index = -1,
+          length = entries == null ? 0 : entries.length;
+
+        this.clear();
+        while (++index < length) {
+          var entry = entries[index];
+          this.set(entry[0], entry[1]);
+        }
+      }
+
+      // Add methods to `ListCache`.
+      ListCache.prototype.clear = _listCacheClear;
+      ListCache.prototype["delete"] = _listCacheDelete;
+      ListCache.prototype.get = _listCacheGet;
+      ListCache.prototype.has = _listCacheHas;
+      ListCache.prototype.set = _listCacheSet;
+
+      /* harmony default export */ const _ListCache = ListCache;
+
+      /***/
+    },
+
+    /***/ 8426: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _getNative_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7692);
+      /* harmony import */ var _root_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7583);
+
+      /* Built-in method references that are verified to be native. */
+      var Map = (0, _getNative_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(
+        _root_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z,
+        "Map"
+      );
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Map;
+
+      /***/
+    },
+
+    /***/ 4292: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _MapCache
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_getNative.js + 4 modules
+      var _getNative = __webpack_require__(7692); // CONCATENATED MODULE: ./node_modules/lodash-es/_nativeCreate.js
+      /* Built-in method references that are verified to be native. */
+      var nativeCreate = (0, _getNative /* default */.Z)(Object, "create");
+
+      /* harmony default export */ const _nativeCreate = nativeCreate; // CONCATENATED MODULE: ./node_modules/lodash-es/_hashClear.js
+
+      /**
+       * Removes all key-value entries from the hash.
+       *
+       * @private
+       * @name clear
+       * @memberOf Hash
+       */
+      function hashClear() {
+        this.__data__ = _nativeCreate ? _nativeCreate(null) : {};
+        this.size = 0;
+      }
+
+      /* harmony default export */ const _hashClear = hashClear; // CONCATENATED MODULE: ./node_modules/lodash-es/_hashDelete.js
+
+      /**
+       * Removes `key` and its value from the hash.
+       *
+       * @private
+       * @name delete
+       * @memberOf Hash
+       * @param {Object} hash The hash to modify.
+       * @param {string} key The key of the value to remove.
+       * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+       */
+      function hashDelete(key) {
+        var result = this.has(key) && delete this.__data__[key];
+        this.size -= result ? 1 : 0;
+        return result;
+      }
+
+      /* harmony default export */ const _hashDelete = hashDelete; // CONCATENATED MODULE: ./node_modules/lodash-es/_hashGet.js
+
+      /** Used to stand-in for `undefined` hash values. */
+      var HASH_UNDEFINED = "__lodash_hash_undefined__";
+
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _hashGet_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /**
+       * Gets the hash value for `key`.
+       *
+       * @private
+       * @name get
+       * @memberOf Hash
+       * @param {string} key The key of the value to get.
+       * @returns {*} Returns the entry value.
+       */
+      function hashGet(key) {
+        var data = this.__data__;
+        if (_nativeCreate) {
+          var result = data[key];
+          return result === HASH_UNDEFINED ? undefined : result;
+        }
+        return _hashGet_hasOwnProperty.call(data, key) ? data[key] : undefined;
+      }
+
+      /* harmony default export */ const _hashGet = hashGet; // CONCATENATED MODULE: ./node_modules/lodash-es/_hashHas.js
+
+      /** Used for built-in method references. */
+      var _hashHas_objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _hashHas_hasOwnProperty = _hashHas_objectProto.hasOwnProperty;
+
+      /**
+       * Checks if a hash value for `key` exists.
+       *
+       * @private
+       * @name has
+       * @memberOf Hash
+       * @param {string} key The key of the entry to check.
+       * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+       */
+      function hashHas(key) {
+        var data = this.__data__;
+        return _nativeCreate ? data[key] !== undefined : _hashHas_hasOwnProperty.call(data, key);
+      }
+
+      /* harmony default export */ const _hashHas = hashHas; // CONCATENATED MODULE: ./node_modules/lodash-es/_hashSet.js
+
+      /** Used to stand-in for `undefined` hash values. */
+      var _hashSet_HASH_UNDEFINED = "__lodash_hash_undefined__";
+
+      /**
+       * Sets the hash `key` to `value`.
+       *
+       * @private
+       * @name set
+       * @memberOf Hash
+       * @param {string} key The key of the value to set.
+       * @param {*} value The value to set.
+       * @returns {Object} Returns the hash instance.
+       */
+      function hashSet(key, value) {
+        var data = this.__data__;
+        this.size += this.has(key) ? 0 : 1;
+        data[key] = _nativeCreate && value === undefined ? _hashSet_HASH_UNDEFINED : value;
+        return this;
+      }
+
+      /* harmony default export */ const _hashSet = hashSet; // CONCATENATED MODULE: ./node_modules/lodash-es/_Hash.js
+
+      /**
+       * Creates a hash object.
+       *
+       * @private
+       * @constructor
+       * @param {Array} [entries] The key-value pairs to cache.
+       */
+      function Hash(entries) {
+        var index = -1,
+          length = entries == null ? 0 : entries.length;
+
+        this.clear();
+        while (++index < length) {
+          var entry = entries[index];
+          this.set(entry[0], entry[1]);
+        }
+      }
+
+      // Add methods to `Hash`.
+      Hash.prototype.clear = _hashClear;
+      Hash.prototype["delete"] = _hashDelete;
+      Hash.prototype.get = _hashGet;
+      Hash.prototype.has = _hashHas;
+      Hash.prototype.set = _hashSet;
+
+      /* harmony default export */ const _Hash = Hash;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_ListCache.js + 6 modules
+      var _ListCache = __webpack_require__(296);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Map.js
+      var _Map = __webpack_require__(8426); // CONCATENATED MODULE: ./node_modules/lodash-es/_mapCacheClear.js
+      /**
+       * Removes all key-value entries from the map.
+       *
+       * @private
+       * @name clear
+       * @memberOf MapCache
+       */
+      function mapCacheClear() {
+        this.size = 0;
+        this.__data__ = {
+          hash: new _Hash(),
+          map: new (_Map /* default */.Z || _ListCache /* default */.Z)(),
+          string: new _Hash()
+        };
+      }
+
+      /* harmony default export */ const _mapCacheClear = mapCacheClear; // CONCATENATED MODULE: ./node_modules/lodash-es/_isKeyable.js
+
+      /**
+       * Checks if `value` is suitable for use as unique object key.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is suitable, else `false`.
+       */
+      function isKeyable(value) {
+        var type = typeof value;
+        return type == "string" || type == "number" || type == "symbol" || type == "boolean" ? value !== "__proto__" : value === null;
+      }
+
+      /* harmony default export */ const _isKeyable = isKeyable; // CONCATENATED MODULE: ./node_modules/lodash-es/_getMapData.js
+
+      /**
+       * Gets the data for `map`.
+       *
+       * @private
+       * @param {Object} map The map to query.
+       * @param {string} key The reference key.
+       * @returns {*} Returns the map data.
+       */
+      function getMapData(map, key) {
+        var data = map.__data__;
+        return _isKeyable(key) ? data[typeof key == "string" ? "string" : "hash"] : data.map;
+      }
+
+      /* harmony default export */ const _getMapData = getMapData; // CONCATENATED MODULE: ./node_modules/lodash-es/_mapCacheDelete.js
+
+      /**
+       * Removes `key` and its value from the map.
+       *
+       * @private
+       * @name delete
+       * @memberOf MapCache
+       * @param {string} key The key of the value to remove.
+       * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+       */
+      function mapCacheDelete(key) {
+        var result = _getMapData(this, key)["delete"](key);
+        this.size -= result ? 1 : 0;
+        return result;
+      }
+
+      /* harmony default export */ const _mapCacheDelete = mapCacheDelete; // CONCATENATED MODULE: ./node_modules/lodash-es/_mapCacheGet.js
+
+      /**
+       * Gets the map value for `key`.
+       *
+       * @private
+       * @name get
+       * @memberOf MapCache
+       * @param {string} key The key of the value to get.
+       * @returns {*} Returns the entry value.
+       */
+      function mapCacheGet(key) {
+        return _getMapData(this, key).get(key);
+      }
+
+      /* harmony default export */ const _mapCacheGet = mapCacheGet; // CONCATENATED MODULE: ./node_modules/lodash-es/_mapCacheHas.js
+
+      /**
+       * Checks if a map value for `key` exists.
+       *
+       * @private
+       * @name has
+       * @memberOf MapCache
+       * @param {string} key The key of the entry to check.
+       * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+       */
+      function mapCacheHas(key) {
+        return _getMapData(this, key).has(key);
+      }
+
+      /* harmony default export */ const _mapCacheHas = mapCacheHas; // CONCATENATED MODULE: ./node_modules/lodash-es/_mapCacheSet.js
+
+      /**
+       * Sets the map `key` to `value`.
+       *
+       * @private
+       * @name set
+       * @memberOf MapCache
+       * @param {string} key The key of the value to set.
+       * @param {*} value The value to set.
+       * @returns {Object} Returns the map cache instance.
+       */
+      function mapCacheSet(key, value) {
+        var data = _getMapData(this, key),
+          size = data.size;
+
+        data.set(key, value);
+        this.size += data.size == size ? 0 : 1;
+        return this;
+      }
+
+      /* harmony default export */ const _mapCacheSet = mapCacheSet; // CONCATENATED MODULE: ./node_modules/lodash-es/_MapCache.js
+
+      /**
+       * Creates a map cache object to store key-value pairs.
+       *
+       * @private
+       * @constructor
+       * @param {Array} [entries] The key-value pairs to cache.
+       */
+      function MapCache(entries) {
+        var index = -1,
+          length = entries == null ? 0 : entries.length;
+
+        this.clear();
+        while (++index < length) {
+          var entry = entries[index];
+          this.set(entry[0], entry[1]);
+        }
+      }
+
+      // Add methods to `MapCache`.
+      MapCache.prototype.clear = _mapCacheClear;
+      MapCache.prototype["delete"] = _mapCacheDelete;
+      MapCache.prototype.get = _mapCacheGet;
+      MapCache.prototype.has = _mapCacheHas;
+      MapCache.prototype.set = _mapCacheSet;
+
+      /* harmony default export */ const _MapCache = MapCache;
+
+      /***/
+    },
+
+    /***/ 2111: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _Stack
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_ListCache.js + 6 modules
+      var _ListCache = __webpack_require__(296); // CONCATENATED MODULE: ./node_modules/lodash-es/_stackClear.js
+      /**
+       * Removes all key-value entries from the stack.
+       *
+       * @private
+       * @name clear
+       * @memberOf Stack
+       */
+      function stackClear() {
+        this.__data__ = new _ListCache /* default */.Z();
+        this.size = 0;
+      }
+
+      /* harmony default export */ const _stackClear = stackClear; // CONCATENATED MODULE: ./node_modules/lodash-es/_stackDelete.js
+
+      /**
+       * Removes `key` and its value from the stack.
+       *
+       * @private
+       * @name delete
+       * @memberOf Stack
+       * @param {string} key The key of the value to remove.
+       * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+       */
+      function stackDelete(key) {
+        var data = this.__data__,
+          result = data["delete"](key);
+
+        this.size = data.size;
+        return result;
+      }
+
+      /* harmony default export */ const _stackDelete = stackDelete; // CONCATENATED MODULE: ./node_modules/lodash-es/_stackGet.js
+
+      /**
+       * Gets the stack value for `key`.
+       *
+       * @private
+       * @name get
+       * @memberOf Stack
+       * @param {string} key The key of the value to get.
+       * @returns {*} Returns the entry value.
+       */
+      function stackGet(key) {
+        return this.__data__.get(key);
+      }
+
+      /* harmony default export */ const _stackGet = stackGet; // CONCATENATED MODULE: ./node_modules/lodash-es/_stackHas.js
+
+      /**
+       * Checks if a stack value for `key` exists.
+       *
+       * @private
+       * @name has
+       * @memberOf Stack
+       * @param {string} key The key of the entry to check.
+       * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+       */
+      function stackHas(key) {
+        return this.__data__.has(key);
+      }
+
+      /* harmony default export */ const _stackHas = stackHas;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Map.js
+      var _Map = __webpack_require__(8426);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_MapCache.js + 14 modules
+      var _MapCache = __webpack_require__(4292); // CONCATENATED MODULE: ./node_modules/lodash-es/_stackSet.js
+      /** Used as the size to enable large array optimizations. */
+      var LARGE_ARRAY_SIZE = 200;
+
+      /**
+       * Sets the stack `key` to `value`.
+       *
+       * @private
+       * @name set
+       * @memberOf Stack
+       * @param {string} key The key of the value to set.
+       * @param {*} value The value to set.
+       * @returns {Object} Returns the stack cache instance.
+       */
+      function stackSet(key, value) {
+        var data = this.__data__;
+        if (data instanceof _ListCache /* default */.Z) {
+          var pairs = data.__data__;
+          if (!_Map /* default */.Z || pairs.length < LARGE_ARRAY_SIZE - 1) {
+            pairs.push([key, value]);
+            this.size = ++data.size;
+            return this;
+          }
+          data = this.__data__ = new _MapCache /* default */.Z(pairs);
+        }
+        data.set(key, value);
+        this.size = data.size;
+        return this;
+      }
+
+      /* harmony default export */ const _stackSet = stackSet; // CONCATENATED MODULE: ./node_modules/lodash-es/_Stack.js
+
+      /**
+       * Creates a stack cache object to store key-value pairs.
+       *
+       * @private
+       * @constructor
+       * @param {Array} [entries] The key-value pairs to cache.
+       */
+      function Stack(entries) {
+        var data = (this.__data__ = new _ListCache /* default */.Z(entries));
+        this.size = data.size;
+      }
+
+      // Add methods to `Stack`.
+      Stack.prototype.clear = _stackClear;
+      Stack.prototype["delete"] = _stackDelete;
+      Stack.prototype.get = _stackGet;
+      Stack.prototype.has = _stackHas;
+      Stack.prototype.set = _stackSet;
+
+      /* harmony default export */ const _Stack = Stack;
+
+      /***/
+    },
+
+    /***/ 3063: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _root_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7583);
+
+      /** Built-in value references. */
+      var Symbol = _root_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"].Symbol */.Z.Symbol;
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Symbol;
+
+      /***/
+    },
+
+    /***/ 3898: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _root_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7583);
+
+      /** Built-in value references. */
+      var Uint8Array = _root_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"].Uint8Array */.Z.Uint8Array;
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Uint8Array;
+
+      /***/
+    },
+
+    /***/ 7610: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _arrayLikeKeys
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseTimes.js
+
+      /**
+       * The base implementation of `_.times` without support for iteratee shorthands
+       * or max array length checks.
+       *
+       * @private
+       * @param {number} n The number of times to invoke `iteratee`.
+       * @param {Function} iteratee The function invoked per iteration.
+       * @returns {Array} Returns the array of results.
+       */
+      function baseTimes(n, iteratee) {
+        var index = -1,
+          result = Array(n);
+
+        while (++index < n) {
+          result[index] = iteratee(index);
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _baseTimes = baseTimes;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArguments.js + 1 modules
+      var isArguments = __webpack_require__(4880);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArray.js
+      var isArray = __webpack_require__(2576);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isBuffer.js + 1 modules
+      var isBuffer = __webpack_require__(7091);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_isIndex.js
+      var _isIndex = __webpack_require__(7503);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isTypedArray.js + 1 modules
+      var isTypedArray = __webpack_require__(8307); // CONCATENATED MODULE: ./node_modules/lodash-es/_arrayLikeKeys.js
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _arrayLikeKeys_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /**
+       * Creates an array of the enumerable property names of the array-like `value`.
+       *
+       * @private
+       * @param {*} value The value to query.
+       * @param {boolean} inherited Specify returning inherited property names.
+       * @returns {Array} Returns the array of property names.
+       */
+      function arrayLikeKeys(value, inherited) {
+        var isArr = (0, isArray /* default */.Z)(value),
+          isArg = !isArr && (0, isArguments /* default */.Z)(value),
+          isBuff = !isArr && !isArg && (0, isBuffer /* default */.Z)(value),
+          isType = !isArr && !isArg && !isBuff && (0, isTypedArray /* default */.Z)(value),
+          skipIndexes = isArr || isArg || isBuff || isType,
+          result = skipIndexes ? _baseTimes(value.length, String) : [],
+          length = result.length;
+
+        for (var key in value) {
+          if (
+            (inherited || _arrayLikeKeys_hasOwnProperty.call(value, key)) &&
+            !(
+              skipIndexes &&
+              // Safari 9 has enumerable `arguments.length` in strict mode.
+              (key == "length" ||
+                // Node.js 0.10 has enumerable non-index properties on buffers.
+                (isBuff && (key == "offset" || key == "parent")) ||
+                // PhantomJS 2 has enumerable non-index properties on typed arrays.
+                (isType && (key == "buffer" || key == "byteLength" || key == "byteOffset")) ||
+                // Skip index properties.
+                (0, _isIndex /* default */.Z)(key, length))
+            )
+          ) {
+            result.push(key);
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _arrayLikeKeys = arrayLikeKeys;
+
+      /***/
+    },
+
+    /***/ 4747: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * A specialized version of `_.map` for arrays without support for iteratee
+       * shorthands.
+       *
+       * @private
+       * @param {Array} [array] The array to iterate over.
+       * @param {Function} iteratee The function invoked per iteration.
+       * @returns {Array} Returns the new mapped array.
+       */
+      function arrayMap(array, iteratee) {
+        var index = -1,
+          length = array == null ? 0 : array.length,
+          result = Array(length);
+
+        while (++index < length) {
+          result[index] = iteratee(array[index], index, array);
+        }
+        return result;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = arrayMap;
+
+      /***/
+    },
+
+    /***/ 1138: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Appends the elements of `values` to `array`.
+       *
+       * @private
+       * @param {Array} array The array to modify.
+       * @param {Array} values The values to append.
+       * @returns {Array} Returns `array`.
+       */
+      function arrayPush(array, values) {
+        var index = -1,
+          length = values.length,
+          offset = array.length;
+
+        while (++index < length) {
+          array[offset + index] = values[index];
+        }
+        return array;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = arrayPush;
+
+      /***/
+    },
+
+    /***/ 6678: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _baseFlatten
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_arrayPush.js
+      var _arrayPush = __webpack_require__(1138);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Symbol.js
+      var _Symbol = __webpack_require__(3063);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArguments.js + 1 modules
+      var isArguments = __webpack_require__(4880);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArray.js
+      var isArray = __webpack_require__(2576); // CONCATENATED MODULE: ./node_modules/lodash-es/_isFlattenable.js
+      /** Built-in value references. */
+      var spreadableSymbol = _Symbol /* default */.Z ? _Symbol /* default.isConcatSpreadable */.Z.isConcatSpreadable : undefined;
+
+      /**
+       * Checks if `value` is a flattenable `arguments` object or array.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
+       */
+      function isFlattenable(value) {
+        return (
+          (0, isArray /* default */.Z)(value) ||
+          (0, isArguments /* default */.Z)(value) ||
+          !!(spreadableSymbol && value && value[spreadableSymbol])
+        );
+      }
+
+      /* harmony default export */ const _isFlattenable = isFlattenable; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseFlatten.js
+
+      /**
+       * The base implementation of `_.flatten` with support for restricting flattening.
+       *
+       * @private
+       * @param {Array} array The array to flatten.
+       * @param {number} depth The maximum recursion depth.
+       * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
+       * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+       * @param {Array} [result=[]] The initial result value.
+       * @returns {Array} Returns the new flattened array.
+       */
+      function baseFlatten(array, depth, predicate, isStrict, result) {
+        var index = -1,
+          length = array.length;
+
+        predicate || (predicate = _isFlattenable);
+        result || (result = []);
+
+        while (++index < length) {
+          var value = array[index];
+          if (depth > 0 && predicate(value)) {
+            if (depth > 1) {
+              // Recursively flatten arrays (susceptible to call stack limits).
+              baseFlatten(value, depth - 1, predicate, isStrict, result);
+            } else {
+              (0, _arrayPush /* default */.Z)(result, value);
+            }
+          } else if (!isStrict) {
+            result[result.length] = value;
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _baseFlatten = baseFlatten;
+
+      /***/
+    },
+
+    /***/ 1953: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _baseFor
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_createBaseFor.js
+
+      /**
+       * Creates a base function for methods like `_.forIn` and `_.forOwn`.
+       *
+       * @private
+       * @param {boolean} [fromRight] Specify iterating from right to left.
+       * @returns {Function} Returns the new base function.
+       */
+      function createBaseFor(fromRight) {
+        return function (object, iteratee, keysFunc) {
+          var index = -1,
+            iterable = Object(object),
+            props = keysFunc(object),
+            length = props.length;
+
+          while (length--) {
+            var key = props[fromRight ? length : ++index];
+            if (iteratee(iterable[key], key, iterable) === false) {
+              break;
+            }
+          }
+          return object;
+        };
+      }
+
+      /* harmony default export */ const _createBaseFor = createBaseFor; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseFor.js
+
+      /**
+       * The base implementation of `baseForOwn` which iterates over `object`
+       * properties returned by `keysFunc` and invokes `iteratee` for each property.
+       * Iteratee functions may exit iteration early by explicitly returning `false`.
+       *
+       * @private
+       * @param {Object} object The object to iterate over.
+       * @param {Function} iteratee The function invoked per iteration.
+       * @param {Function} keysFunc The function to get the keys of `object`.
+       * @returns {Object} Returns `object`.
+       */
+      var baseFor = _createBaseFor();
+
+      /* harmony default export */ const _baseFor = baseFor;
+
+      /***/
+    },
+
+    /***/ 8087: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _castPath_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(430);
+      /* harmony import */ var _toKey_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6698);
+
+      /**
+       * The base implementation of `_.get` without support for default values.
+       *
+       * @private
+       * @param {Object} object The object to query.
+       * @param {Array|string} path The path of the property to get.
+       * @returns {*} Returns the resolved value.
+       */
+      function baseGet(object, path) {
+        path = (0, _castPath_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(path, object);
+
+        var index = 0,
+          length = path.length;
+
+        while (object != null && index < length) {
+          object = object[(0, _toKey_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(path[index++])];
+        }
+        return index && index == length ? object : undefined;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = baseGet;
+
+      /***/
+    },
+
+    /***/ 7979: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _baseGetTag
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Symbol.js
+      var _Symbol = __webpack_require__(3063); // CONCATENATED MODULE: ./node_modules/lodash-es/_getRawTag.js
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _getRawTag_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /**
+       * Used to resolve the
+       * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+       * of values.
+       */
+      var nativeObjectToString = objectProto.toString;
+
+      /** Built-in value references. */
+      var symToStringTag = _Symbol /* default */.Z ? _Symbol /* default.toStringTag */.Z.toStringTag : undefined;
+
+      /**
+       * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+       *
+       * @private
+       * @param {*} value The value to query.
+       * @returns {string} Returns the raw `toStringTag`.
+       */
+      function getRawTag(value) {
+        var isOwn = _getRawTag_hasOwnProperty.call(value, symToStringTag),
+          tag = value[symToStringTag];
+
+        try {
+          value[symToStringTag] = undefined;
+          var unmasked = true;
+        } catch (e) {}
+
+        var result = nativeObjectToString.call(value);
+        if (unmasked) {
+          if (isOwn) {
+            value[symToStringTag] = tag;
+          } else {
+            delete value[symToStringTag];
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _getRawTag = getRawTag; // CONCATENATED MODULE: ./node_modules/lodash-es/_objectToString.js
+
+      /** Used for built-in method references. */
+      var _objectToString_objectProto = Object.prototype;
+
+      /**
+       * Used to resolve the
+       * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+       * of values.
+       */
+      var _objectToString_nativeObjectToString = _objectToString_objectProto.toString;
+
+      /**
+       * Converts `value` to a string using `Object.prototype.toString`.
+       *
+       * @private
+       * @param {*} value The value to convert.
+       * @returns {string} Returns the converted string.
+       */
+      function objectToString(value) {
+        return _objectToString_nativeObjectToString.call(value);
+      }
+
+      /* harmony default export */ const _objectToString = objectToString; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseGetTag.js
+
+      /** `Object#toString` result references. */
+      var nullTag = "[object Null]",
+        undefinedTag = "[object Undefined]";
+
+      /** Built-in value references. */
+      var _baseGetTag_symToStringTag = _Symbol /* default */.Z ? _Symbol /* default.toStringTag */.Z.toStringTag : undefined;
+
+      /**
+       * The base implementation of `getTag` without fallbacks for buggy environments.
+       *
+       * @private
+       * @param {*} value The value to query.
+       * @returns {string} Returns the `toStringTag`.
+       */
+      function baseGetTag(value) {
+        if (value == null) {
+          return value === undefined ? undefinedTag : nullTag;
+        }
+        return _baseGetTag_symToStringTag && _baseGetTag_symToStringTag in Object(value) ? _getRawTag(value) : _objectToString(value);
+      }
+
+      /* harmony default export */ const _baseGetTag = baseGetTag;
+
+      /***/
+    },
+
+    /***/ 8412: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _identity_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6963);
+      /* harmony import */ var _overRest_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3009);
+      /* harmony import */ var _setToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(738);
+
+      /**
+       * The base implementation of `_.rest` which doesn't validate or coerce arguments.
+       *
+       * @private
+       * @param {Function} func The function to apply a rest parameter to.
+       * @param {number} [start=func.length-1] The start position of the rest parameter.
+       * @returns {Function} Returns the new function.
+       */
+      function baseRest(func, start) {
+        return (0, _setToString_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(
+          (0, _overRest_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(
+            func,
+            start,
+            _identity_js__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z
+          ),
+          func + ""
+        );
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = baseRest;
+
+      /***/
+    },
+
+    /***/ 6134: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _Symbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3063);
+      /* harmony import */ var _arrayMap_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4747);
+      /* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2576);
+      /* harmony import */ var _isSymbol_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6898);
+
+      /** Used as references for various `Number` constants. */
+      var INFINITY = 1 / 0;
+
+      /** Used to convert symbols to primitives and strings. */
+      var symbolProto = _Symbol_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z
+          ? _Symbol_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"].prototype */.Z.prototype
+          : undefined,
+        symbolToString = symbolProto ? symbolProto.toString : undefined;
+
+      /**
+       * The base implementation of `_.toString` which doesn't convert nullish
+       * values to empty strings.
+       *
+       * @private
+       * @param {*} value The value to process.
+       * @returns {string} Returns the string.
+       */
+      function baseToString(value) {
+        // Exit early for strings to avoid a performance hit in some environments.
+        if (typeof value == "string") {
+          return value;
+        }
+        if ((0, _isArray_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(value)) {
+          // Recursively convert values (susceptible to call stack limits).
+          return (0, _arrayMap_js__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z)(value, baseToString) + "";
+        }
+        if ((0, _isSymbol_js__WEBPACK_IMPORTED_MODULE_3__ /* ["default"] */.Z)(value)) {
+          return symbolToString ? symbolToString.call(value) : "";
+        }
+        var result = value + "";
+        return result == "0" && 1 / value == -INFINITY ? "-0" : result;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = baseToString;
+
+      /***/
+    },
+
+    /***/ 4995: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * The base implementation of `_.unary` without support for storing metadata.
+       *
+       * @private
+       * @param {Function} func The function to cap arguments for.
+       * @returns {Function} Returns the new capped function.
+       */
+      function baseUnary(func) {
+        return function (value) {
+          return func(value);
+        };
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = baseUnary;
+
+      /***/
+    },
+
+    /***/ 430: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _castPath
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArray.js
+      var isArray = __webpack_require__(2576);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_isKey.js
+      var _isKey = __webpack_require__(461);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_MapCache.js + 14 modules
+      var _MapCache = __webpack_require__(4292); // CONCATENATED MODULE: ./node_modules/lodash-es/memoize.js
+      /** Error message constants. */
+      var FUNC_ERROR_TEXT = "Expected a function";
+
+      /**
+       * Creates a function that memoizes the result of `func`. If `resolver` is
+       * provided, it determines the cache key for storing the result based on the
+       * arguments provided to the memoized function. By default, the first argument
+       * provided to the memoized function is used as the map cache key. The `func`
+       * is invoked with the `this` binding of the memoized function.
+       *
+       * **Note:** The cache is exposed as the `cache` property on the memoized
+       * function. Its creation may be customized by replacing the `_.memoize.Cache`
+       * constructor with one whose instances implement the
+       * [`Map`](http://ecma-international.org/ecma-262/7.0/#sec-properties-of-the-map-prototype-object)
+       * method interface of `clear`, `delete`, `get`, `has`, and `set`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Function
+       * @param {Function} func The function to have its output memoized.
+       * @param {Function} [resolver] The function to resolve the cache key.
+       * @returns {Function} Returns the new memoized function.
+       * @example
+       *
+       * var object = { 'a': 1, 'b': 2 };
+       * var other = { 'c': 3, 'd': 4 };
+       *
+       * var values = _.memoize(_.values);
+       * values(object);
+       * // => [1, 2]
+       *
+       * values(other);
+       * // => [3, 4]
+       *
+       * object.a = 2;
+       * values(object);
+       * // => [1, 2]
+       *
+       * // Modify the result cache.
+       * values.cache.set(object, ['a', 'b']);
+       * values(object);
+       * // => ['a', 'b']
+       *
+       * // Replace `_.memoize.Cache`.
+       * _.memoize.Cache = WeakMap;
+       */
+      function memoize(func, resolver) {
+        if (typeof func != "function" || (resolver != null && typeof resolver != "function")) {
+          throw new TypeError(FUNC_ERROR_TEXT);
+        }
+        var memoized = function () {
+          var args = arguments,
+            key = resolver ? resolver.apply(this, args) : args[0],
+            cache = memoized.cache;
+
+          if (cache.has(key)) {
+            return cache.get(key);
+          }
+          var result = func.apply(this, args);
+          memoized.cache = cache.set(key, result) || cache;
+          return result;
+        };
+        memoized.cache = new (memoize.Cache || _MapCache /* default */.Z)();
+        return memoized;
+      }
+
+      // Expose `MapCache`.
+      memoize.Cache = _MapCache /* default */.Z;
+
+      /* harmony default export */ const lodash_es_memoize = memoize; // CONCATENATED MODULE: ./node_modules/lodash-es/_memoizeCapped.js
+
+      /** Used as the maximum memoize cache size. */
+      var MAX_MEMOIZE_SIZE = 500;
+
+      /**
+       * A specialized version of `_.memoize` which clears the memoized function's
+       * cache when it exceeds `MAX_MEMOIZE_SIZE`.
+       *
+       * @private
+       * @param {Function} func The function to have its output memoized.
+       * @returns {Function} Returns the new memoized function.
+       */
+      function memoizeCapped(func) {
+        var result = lodash_es_memoize(func, function (key) {
+          if (cache.size === MAX_MEMOIZE_SIZE) {
+            cache.clear();
+          }
+          return key;
+        });
+
+        var cache = result.cache;
+        return result;
+      }
+
+      /* harmony default export */ const _memoizeCapped = memoizeCapped; // CONCATENATED MODULE: ./node_modules/lodash-es/_stringToPath.js
+
+      /** Used to match property names within property paths. */
+      var rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
+
+      /** Used to match backslashes in property paths. */
+      var reEscapeChar = /\\(\\)?/g;
+
+      /**
+       * Converts `string` to a property path array.
+       *
+       * @private
+       * @param {string} string The string to convert.
+       * @returns {Array} Returns the property path array.
+       */
+      var stringToPath = _memoizeCapped(function (string) {
+        var result = [];
+        if (string.charCodeAt(0) === 46 /* . */) {
+          result.push("");
+        }
+        string.replace(rePropName, function (match, number, quote, subString) {
+          result.push(quote ? subString.replace(reEscapeChar, "$1") : number || match);
+        });
+        return result;
+      });
+
+      /* harmony default export */ const _stringToPath = stringToPath;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/toString.js
+      var lodash_es_toString = __webpack_require__(9135); // CONCATENATED MODULE: ./node_modules/lodash-es/_castPath.js
+      /**
+       * Casts `value` to a path array if it's not one.
+       *
+       * @private
+       * @param {*} value The value to inspect.
+       * @param {Object} [object] The object to query keys on.
+       * @returns {Array} Returns the cast property path array.
+       */
+      function castPath(value, object) {
+        if ((0, isArray /* default */.Z)(value)) {
+          return value;
+        }
+        return (0, _isKey /* default */.Z)(value, object) ? [value] : _stringToPath((0, lodash_es_toString /* default */.Z)(value));
+      }
+
+      /* harmony default export */ const _castPath = castPath;
+
+      /***/
+    },
+
+    /***/ 3263: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _getNative_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7692);
+
+      var defineProperty = (function () {
+        try {
+          var func = (0, _getNative_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(Object, "defineProperty");
+          func({}, "", {});
+          return func;
+        } catch (e) {}
+      })();
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = defineProperty;
+
+      /***/
+    },
+
+    /***/ 8891: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /** Detect free variable `global` from Node.js. */
+      var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = freeGlobal;
+
+      /***/
+    },
+
+    /***/ 7692: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _getNative
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isFunction.js
+      var isFunction = __webpack_require__(3816);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_root.js
+      var _root = __webpack_require__(7583); // CONCATENATED MODULE: ./node_modules/lodash-es/_coreJsData.js
+      /** Used to detect overreaching core-js shims. */
+      var coreJsData = _root /* default.__core-js_shared__ */.Z["__core-js_shared__"];
+
+      /* harmony default export */ const _coreJsData = coreJsData; // CONCATENATED MODULE: ./node_modules/lodash-es/_isMasked.js
+
+      /** Used to detect methods masquerading as native. */
+      var maskSrcKey = (function () {
+        var uid = /[^.]+$/.exec((_coreJsData && _coreJsData.keys && _coreJsData.keys.IE_PROTO) || "");
+        return uid ? "Symbol(src)_1." + uid : "";
+      })();
+
+      /**
+       * Checks if `func` has its source masked.
+       *
+       * @private
+       * @param {Function} func The function to check.
+       * @returns {boolean} Returns `true` if `func` is masked, else `false`.
+       */
+      function isMasked(func) {
+        return !!maskSrcKey && maskSrcKey in func;
+      }
+
+      /* harmony default export */ const _isMasked = isMasked;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObject.js
+      var isObject = __webpack_require__(6185);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_toSource.js
+      var _toSource = __webpack_require__(5316); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseIsNative.js
+      /**
+       * Used to match `RegExp`
+       * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
+       */
+      var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+
+      /** Used to detect host constructors (Safari). */
+      var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+      /** Used for built-in method references. */
+      var funcProto = Function.prototype,
+        objectProto = Object.prototype;
+
+      /** Used to resolve the decompiled source of functions. */
+      var funcToString = funcProto.toString;
+
+      /** Used to check objects for own properties. */
+      var _baseIsNative_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /** Used to detect if a method is native. */
+      var reIsNative = RegExp(
+        "^" +
+          funcToString
+            .call(_baseIsNative_hasOwnProperty)
+            .replace(reRegExpChar, "\\$&")
+            .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?") +
+          "$"
+      );
+
+      /**
+       * The base implementation of `_.isNative` without bad shim checks.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a native function,
+       *  else `false`.
+       */
+      function baseIsNative(value) {
+        if (!(0, isObject /* default */.Z)(value) || _isMasked(value)) {
+          return false;
+        }
+        var pattern = (0, isFunction /* default */.Z)(value) ? reIsNative : reIsHostCtor;
+        return pattern.test((0, _toSource /* default */.Z)(value));
+      }
+
+      /* harmony default export */ const _baseIsNative = baseIsNative; // CONCATENATED MODULE: ./node_modules/lodash-es/_getValue.js
+
+      /**
+       * Gets the value at `key` of `object`.
+       *
+       * @private
+       * @param {Object} [object] The object to query.
+       * @param {string} key The key of the property to get.
+       * @returns {*} Returns the property value.
+       */
+      function getValue(object, key) {
+        return object == null ? undefined : object[key];
+      }
+
+      /* harmony default export */ const _getValue = getValue; // CONCATENATED MODULE: ./node_modules/lodash-es/_getNative.js
+
+      /**
+       * Gets the native function at `key` of `object`.
+       *
+       * @private
+       * @param {Object} object The object to query.
+       * @param {string} key The key of the method to get.
+       * @returns {*} Returns the function if it's native, else `undefined`.
+       */
+      function getNative(object, key) {
+        var value = _getValue(object, key);
+        return _baseIsNative(value) ? value : undefined;
+      }
+
+      /* harmony default export */ const _getNative = getNative;
+
+      /***/
+    },
+
+    /***/ 7503: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /** Used as references for various `Number` constants. */
+      var MAX_SAFE_INTEGER = 9007199254740991;
+
+      /** Used to detect unsigned integer values. */
+      var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+      /**
+       * Checks if `value` is a valid array-like index.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+       * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+       */
+      function isIndex(value, length) {
+        var type = typeof value;
+        length = length == null ? MAX_SAFE_INTEGER : length;
+
+        return (
+          !!length && (type == "number" || (type != "symbol" && reIsUint.test(value))) && value > -1 && value % 1 == 0 && value < length
+        );
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isIndex;
+
+      /***/
+    },
+
+    /***/ 6199: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _eq_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4397);
+      /* harmony import */ var _isArrayLike_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1698);
+      /* harmony import */ var _isIndex_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7503);
+      /* harmony import */ var _isObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6185);
+
+      /**
+       * Checks if the given arguments are from an iteratee call.
+       *
+       * @private
+       * @param {*} value The potential iteratee value argument.
+       * @param {*} index The potential iteratee index or key argument.
+       * @param {*} object The potential iteratee object argument.
+       * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+       *  else `false`.
+       */
+      function isIterateeCall(value, index, object) {
+        if (!(0, _isObject_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(object)) {
+          return false;
+        }
+        var type = typeof index;
+        if (
+          type == "number"
+            ? (0, _isArrayLike_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(object) &&
+              (0, _isIndex_js__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z)(index, object.length)
+            : type == "string" && index in object
+        ) {
+          return (0, _eq_js__WEBPACK_IMPORTED_MODULE_3__ /* ["default"] */.Z)(object[index], value);
+        }
+        return false;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isIterateeCall;
+
+      /***/
+    },
+
+    /***/ 461: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _isArray_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2576);
+      /* harmony import */ var _isSymbol_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6898);
+
+      /** Used to match property names within property paths. */
+      var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
+        reIsPlainProp = /^\w*$/;
+
+      /**
+       * Checks if `value` is a property name and not a property path.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @param {Object} [object] The object to query keys on.
+       * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
+       */
+      function isKey(value, object) {
+        if ((0, _isArray_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value)) {
+          return false;
+        }
+        var type = typeof value;
+        if (
+          type == "number" ||
+          type == "symbol" ||
+          type == "boolean" ||
+          value == null ||
+          (0, _isSymbol_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(value)
+        ) {
+          return true;
+        }
+        return reIsPlainProp.test(value) || !reIsDeepProp.test(value) || (object != null && value in Object(object));
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isKey;
+
+      /***/
+    },
+
+    /***/ 772: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /**
+       * Checks if `value` is likely a prototype object.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+       */
+      function isPrototype(value) {
+        var Ctor = value && value.constructor,
+          proto = (typeof Ctor == "function" && Ctor.prototype) || objectProto;
+
+        return value === proto;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isPrototype;
+
+      /***/
+    },
+
+    /***/ 1304: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _freeGlobal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8891);
+
+      /** Detect free variable `exports`. */
+      var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
+
+      /** Detect free variable `module`. */
+      var freeModule = freeExports && typeof module == "object" && module && !module.nodeType && module;
+
+      /** Detect the popular CommonJS extension `module.exports`. */
+      var moduleExports = freeModule && freeModule.exports === freeExports;
+
+      /** Detect free variable `process` from Node.js. */
+      var freeProcess = moduleExports && _freeGlobal_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"].process */.Z.process;
+
+      /** Used to access faster Node.js helpers. */
+      var nodeUtil = (function () {
+        try {
+          // Use `util.types` for Node.js 10+.
+          var types = freeModule && freeModule.require && freeModule.require("util").types;
+
+          if (types) {
+            return types;
+          }
+
+          // Legacy `process.binding('util')` for Node.js < 10.
+          return freeProcess && freeProcess.binding && freeProcess.binding("util");
+        } catch (e) {}
+      })();
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = nodeUtil;
+
+      /***/
+    },
+
+    /***/ 9598: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Creates a unary function that invokes `func` with its argument transformed.
+       *
+       * @private
+       * @param {Function} func The function to wrap.
+       * @param {Function} transform The argument transform.
+       * @returns {Function} Returns the new function.
+       */
+      function overArg(func, transform) {
+        return function (arg) {
+          return func(transform(arg));
+        };
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = overArg;
+
+      /***/
+    },
+
+    /***/ 3009: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _overRest
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_apply.js
+
+      /**
+       * A faster alternative to `Function#apply`, this function invokes `func`
+       * with the `this` binding of `thisArg` and the arguments of `args`.
+       *
+       * @private
+       * @param {Function} func The function to invoke.
+       * @param {*} thisArg The `this` binding of `func`.
+       * @param {Array} args The arguments to invoke `func` with.
+       * @returns {*} Returns the result of `func`.
+       */
+      function apply(func, thisArg, args) {
+        switch (args.length) {
+          case 0:
+            return func.call(thisArg);
+          case 1:
+            return func.call(thisArg, args[0]);
+          case 2:
+            return func.call(thisArg, args[0], args[1]);
+          case 3:
+            return func.call(thisArg, args[0], args[1], args[2]);
+        }
+        return func.apply(thisArg, args);
+      }
+
+      /* harmony default export */ const _apply = apply; // CONCATENATED MODULE: ./node_modules/lodash-es/_overRest.js
+
+      /* Built-in method references for those with the same name as other `lodash` methods. */
+      var nativeMax = Math.max;
+
+      /**
+       * A specialized version of `baseRest` which transforms the rest array.
+       *
+       * @private
+       * @param {Function} func The function to apply a rest parameter to.
+       * @param {number} [start=func.length-1] The start position of the rest parameter.
+       * @param {Function} transform The rest array transform.
+       * @returns {Function} Returns the new function.
+       */
+      function overRest(func, start, transform) {
+        start = nativeMax(start === undefined ? func.length - 1 : start, 0);
+        return function () {
+          var args = arguments,
+            index = -1,
+            length = nativeMax(args.length - start, 0),
+            array = Array(length);
+
+          while (++index < length) {
+            array[index] = args[start + index];
+          }
+          index = -1;
+          var otherArgs = Array(start + 1);
+          while (++index < start) {
+            otherArgs[index] = args[index];
+          }
+          otherArgs[start] = transform(array);
+          return _apply(func, this, otherArgs);
+        };
+      }
+
+      /* harmony default export */ const _overRest = overRest;
+
+      /***/
+    },
+
+    /***/ 7583: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _freeGlobal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8891);
+
+      /** Detect free variable `self`. */
+      var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+
+      /** Used as a reference to the global object. */
+      var root = _freeGlobal_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z || freeSelf || Function("return this")();
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = root;
+
+      /***/
+    },
+
+    /***/ 738: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _setToString
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/constant.js
+
+      /**
+       * Creates a function that returns `value`.
+       *
+       * @static
+       * @memberOf _
+       * @since 2.4.0
+       * @category Util
+       * @param {*} value The value to return from the new function.
+       * @returns {Function} Returns the new constant function.
+       * @example
+       *
+       * var objects = _.times(2, _.constant({ 'a': 1 }));
+       *
+       * console.log(objects);
+       * // => [{ 'a': 1 }, { 'a': 1 }]
+       *
+       * console.log(objects[0] === objects[1]);
+       * // => true
+       */
+      function constant(value) {
+        return function () {
+          return value;
+        };
+      }
+
+      /* harmony default export */ const lodash_es_constant = constant;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_defineProperty.js
+      var _defineProperty = __webpack_require__(3263);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/identity.js
+      var identity = __webpack_require__(6963); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseSetToString.js
+      /**
+       * The base implementation of `setToString` without support for hot loop shorting.
+       *
+       * @private
+       * @param {Function} func The function to modify.
+       * @param {Function} string The `toString` result.
+       * @returns {Function} Returns `func`.
+       */
+      var baseSetToString = !_defineProperty /* default */.Z
+        ? identity /* default */.Z
+        : function (func, string) {
+            return (0, _defineProperty /* default */.Z)(func, "toString", {
+              configurable: true,
+              enumerable: false,
+              value: lodash_es_constant(string),
+              writable: true
+            });
+          };
+
+      /* harmony default export */ const _baseSetToString = baseSetToString; // CONCATENATED MODULE: ./node_modules/lodash-es/_shortOut.js
+
+      /** Used to detect hot functions by number of calls within a span of milliseconds. */
+      var HOT_COUNT = 800,
+        HOT_SPAN = 16;
+
+      /* Built-in method references for those with the same name as other `lodash` methods. */
+      var nativeNow = Date.now;
+
+      /**
+       * Creates a function that'll short out and invoke `identity` instead
+       * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+       * milliseconds.
+       *
+       * @private
+       * @param {Function} func The function to restrict.
+       * @returns {Function} Returns the new shortable function.
+       */
+      function shortOut(func) {
+        var count = 0,
+          lastCalled = 0;
+
+        return function () {
+          var stamp = nativeNow(),
+            remaining = HOT_SPAN - (stamp - lastCalled);
+
+          lastCalled = stamp;
+          if (remaining > 0) {
+            if (++count >= HOT_COUNT) {
+              return arguments[0];
+            }
+          } else {
+            count = 0;
+          }
+          return func.apply(undefined, arguments);
+        };
+      }
+
+      /* harmony default export */ const _shortOut = shortOut; // CONCATENATED MODULE: ./node_modules/lodash-es/_setToString.js
+
+      /**
+       * Sets the `toString` method of `func` to return `string`.
+       *
+       * @private
+       * @param {Function} func The function to modify.
+       * @param {Function} string The `toString` result.
+       * @returns {Function} Returns `func`.
+       */
+      var setToString = _shortOut(_baseSetToString);
+
+      /* harmony default export */ const _setToString = setToString;
+
+      /***/
+    },
+
+    /***/ 6698: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _isSymbol_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6898);
+
+      /** Used as references for various `Number` constants. */
+      var INFINITY = 1 / 0;
+
+      /**
+       * Converts `value` to a string key if it's not a string or symbol.
+       *
+       * @private
+       * @param {*} value The value to inspect.
+       * @returns {string|symbol} Returns the key.
+       */
+      function toKey(value) {
+        if (typeof value == "string" || (0, _isSymbol_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value)) {
+          return value;
+        }
+        var result = value + "";
+        return result == "0" && 1 / value == -INFINITY ? "-0" : result;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = toKey;
+
+      /***/
+    },
+
+    /***/ 5316: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /** Used for built-in method references. */
+      var funcProto = Function.prototype;
+
+      /** Used to resolve the decompiled source of functions. */
+      var funcToString = funcProto.toString;
+
+      /**
+       * Converts `func` to its source code.
+       *
+       * @private
+       * @param {Function} func The function to convert.
+       * @returns {string} Returns the source code.
+       */
+      function toSource(func) {
+        if (func != null) {
+          try {
+            return funcToString.call(func);
+          } catch (e) {}
+          try {
+            return func + "";
+          } catch (e) {}
+        }
+        return "";
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = toSource;
+
+      /***/
+    },
+
+    /***/ 9239: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_debounce
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObject.js
+      var isObject = __webpack_require__(6185);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_root.js
+      var _root = __webpack_require__(7583); // CONCATENATED MODULE: ./node_modules/lodash-es/now.js
+      /**
+       * Gets the timestamp of the number of milliseconds that have elapsed since
+       * the Unix epoch (1 January 1970 00:00:00 UTC).
+       *
+       * @static
+       * @memberOf _
+       * @since 2.4.0
+       * @category Date
+       * @returns {number} Returns the timestamp.
+       * @example
+       *
+       * _.defer(function(stamp) {
+       *   console.log(_.now() - stamp);
+       * }, _.now());
+       * // => Logs the number of milliseconds it took for the deferred invocation.
+       */
+      var now = function () {
+        return _root /* default.Date.now */.Z.Date.now();
+      };
+
+      /* harmony default export */ const lodash_es_now = now;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/toNumber.js + 2 modules
+      var toNumber = __webpack_require__(8564); // CONCATENATED MODULE: ./node_modules/lodash-es/debounce.js
+      /** Error message constants. */
+      var FUNC_ERROR_TEXT = "Expected a function";
+
+      /* Built-in method references for those with the same name as other `lodash` methods. */
+      var nativeMax = Math.max,
+        nativeMin = Math.min;
+
+      /**
+       * Creates a debounced function that delays invoking `func` until after `wait`
+       * milliseconds have elapsed since the last time the debounced function was
+       * invoked. The debounced function comes with a `cancel` method to cancel
+       * delayed `func` invocations and a `flush` method to immediately invoke them.
+       * Provide `options` to indicate whether `func` should be invoked on the
+       * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+       * with the last arguments provided to the debounced function. Subsequent
+       * calls to the debounced function return the result of the last `func`
+       * invocation.
+       *
+       * **Note:** If `leading` and `trailing` options are `true`, `func` is
+       * invoked on the trailing edge of the timeout only if the debounced function
+       * is invoked more than once during the `wait` timeout.
+       *
+       * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+       * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+       *
+       * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+       * for details over the differences between `_.debounce` and `_.throttle`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Function
+       * @param {Function} func The function to debounce.
+       * @param {number} [wait=0] The number of milliseconds to delay.
+       * @param {Object} [options={}] The options object.
+       * @param {boolean} [options.leading=false]
+       *  Specify invoking on the leading edge of the timeout.
+       * @param {number} [options.maxWait]
+       *  The maximum time `func` is allowed to be delayed before it's invoked.
+       * @param {boolean} [options.trailing=true]
+       *  Specify invoking on the trailing edge of the timeout.
+       * @returns {Function} Returns the new debounced function.
+       * @example
+       *
+       * // Avoid costly calculations while the window size is in flux.
+       * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+       *
+       * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+       * jQuery(element).on('click', _.debounce(sendMail, 300, {
+       *   'leading': true,
+       *   'trailing': false
+       * }));
+       *
+       * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+       * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+       * var source = new EventSource('/stream');
+       * jQuery(source).on('message', debounced);
+       *
+       * // Cancel the trailing debounced invocation.
+       * jQuery(window).on('popstate', debounced.cancel);
+       */
+      function debounce(func, wait, options) {
+        var lastArgs,
+          lastThis,
+          maxWait,
+          result,
+          timerId,
+          lastCallTime,
+          lastInvokeTime = 0,
+          leading = false,
+          maxing = false,
+          trailing = true;
+
+        if (typeof func != "function") {
+          throw new TypeError(FUNC_ERROR_TEXT);
+        }
+        wait = (0, toNumber /* default */.Z)(wait) || 0;
+        if ((0, isObject /* default */.Z)(options)) {
+          leading = !!options.leading;
+          maxing = "maxWait" in options;
+          maxWait = maxing ? nativeMax((0, toNumber /* default */.Z)(options.maxWait) || 0, wait) : maxWait;
+          trailing = "trailing" in options ? !!options.trailing : trailing;
+        }
+
+        function invokeFunc(time) {
+          var args = lastArgs,
+            thisArg = lastThis;
+
+          lastArgs = lastThis = undefined;
+          lastInvokeTime = time;
+          result = func.apply(thisArg, args);
+          return result;
+        }
+
+        function leadingEdge(time) {
+          // Reset any `maxWait` timer.
+          lastInvokeTime = time;
+          // Start the timer for the trailing edge.
+          timerId = setTimeout(timerExpired, wait);
+          // Invoke the leading edge.
+          return leading ? invokeFunc(time) : result;
+        }
+
+        function remainingWait(time) {
+          var timeSinceLastCall = time - lastCallTime,
+            timeSinceLastInvoke = time - lastInvokeTime,
+            timeWaiting = wait - timeSinceLastCall;
+
+          return maxing ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
+        }
+
+        function shouldInvoke(time) {
+          var timeSinceLastCall = time - lastCallTime,
+            timeSinceLastInvoke = time - lastInvokeTime;
+
+          // Either this is the first call, activity has stopped and we're at the
+          // trailing edge, the system time has gone backwards and we're treating
+          // it as the trailing edge, or we've hit the `maxWait` limit.
+          return (
+            lastCallTime === undefined || timeSinceLastCall >= wait || timeSinceLastCall < 0 || (maxing && timeSinceLastInvoke >= maxWait)
+          );
+        }
+
+        function timerExpired() {
+          var time = lodash_es_now();
+          if (shouldInvoke(time)) {
+            return trailingEdge(time);
+          }
+          // Restart the timer.
+          timerId = setTimeout(timerExpired, remainingWait(time));
+        }
+
+        function trailingEdge(time) {
+          timerId = undefined;
+
+          // Only invoke if we have `lastArgs` which means `func` has been
+          // debounced at least once.
+          if (trailing && lastArgs) {
+            return invokeFunc(time);
+          }
+          lastArgs = lastThis = undefined;
+          return result;
+        }
+
+        function cancel() {
+          if (timerId !== undefined) {
+            clearTimeout(timerId);
+          }
+          lastInvokeTime = 0;
+          lastArgs = lastCallTime = lastThis = timerId = undefined;
+        }
+
+        function flush() {
+          return timerId === undefined ? result : trailingEdge(lodash_es_now());
+        }
+
+        function debounced() {
+          var time = lodash_es_now(),
+            isInvoking = shouldInvoke(time);
+
+          lastArgs = arguments;
+          lastThis = this;
+          lastCallTime = time;
+
+          if (isInvoking) {
+            if (timerId === undefined) {
+              return leadingEdge(lastCallTime);
+            }
+            if (maxing) {
+              // Handle invocations in a tight loop.
+              clearTimeout(timerId);
+              timerId = setTimeout(timerExpired, wait);
+              return invokeFunc(lastCallTime);
+            }
+          }
+          if (timerId === undefined) {
+            timerId = setTimeout(timerExpired, wait);
+          }
+          return result;
+        }
+        debounced.cancel = cancel;
+        debounced.flush = flush;
+        return debounced;
+      }
+
+      /* harmony default export */ const lodash_es_debounce = debounce;
+
+      /***/
+    },
+
+    /***/ 4397: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Performs a
+       * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+       * comparison between two values to determine if they are equivalent.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to compare.
+       * @param {*} other The other value to compare.
+       * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+       * @example
+       *
+       * var object = { 'a': 1 };
+       * var other = { 'a': 1 };
+       *
+       * _.eq(object, object);
+       * // => true
+       *
+       * _.eq(object, other);
+       * // => false
+       *
+       * _.eq('a', 'a');
+       * // => true
+       *
+       * _.eq('a', Object('a'));
+       * // => false
+       *
+       * _.eq(NaN, NaN);
+       * // => true
+       */
+      function eq(value, other) {
+        return value === other || (value !== value && other !== other);
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = eq;
+
+      /***/
+    },
+
+    /***/ 7685: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_hasIn
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseHasIn.js
+
+      /**
+       * The base implementation of `_.hasIn` without support for deep paths.
+       *
+       * @private
+       * @param {Object} [object] The object to query.
+       * @param {Array|string} key The key to check.
+       * @returns {boolean} Returns `true` if `key` exists, else `false`.
+       */
+      function baseHasIn(object, key) {
+        return object != null && key in Object(object);
+      }
+
+      /* harmony default export */ const _baseHasIn = baseHasIn;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_castPath.js + 3 modules
+      var _castPath = __webpack_require__(430);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArguments.js + 1 modules
+      var isArguments = __webpack_require__(4880);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isArray.js
+      var isArray = __webpack_require__(2576);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_isIndex.js
+      var _isIndex = __webpack_require__(7503);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isLength.js
+      var isLength = __webpack_require__(2024);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_toKey.js
+      var _toKey = __webpack_require__(6698); // CONCATENATED MODULE: ./node_modules/lodash-es/_hasPath.js
+      /**
+       * Checks if `path` exists on `object`.
+       *
+       * @private
+       * @param {Object} object The object to query.
+       * @param {Array|string} path The path to check.
+       * @param {Function} hasFunc The function to check properties.
+       * @returns {boolean} Returns `true` if `path` exists, else `false`.
+       */
+      function hasPath(object, path, hasFunc) {
+        path = (0, _castPath /* default */.Z)(path, object);
+
+        var index = -1,
+          length = path.length,
+          result = false;
+
+        while (++index < length) {
+          var key = (0, _toKey /* default */.Z)(path[index]);
+          if (!(result = object != null && hasFunc(object, key))) {
+            break;
+          }
+          object = object[key];
+        }
+        if (result || ++index != length) {
+          return result;
+        }
+        length = object == null ? 0 : object.length;
+        return (
+          !!length &&
+          (0, isLength /* default */.Z)(length) &&
+          (0, _isIndex /* default */.Z)(key, length) &&
+          ((0, isArray /* default */.Z)(object) || (0, isArguments /* default */.Z)(object))
+        );
+      }
+
+      /* harmony default export */ const _hasPath = hasPath; // CONCATENATED MODULE: ./node_modules/lodash-es/hasIn.js
+
+      /**
+       * Checks if `path` is a direct or inherited property of `object`.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Object
+       * @param {Object} object The object to query.
+       * @param {Array|string} path The path to check.
+       * @returns {boolean} Returns `true` if `path` exists, else `false`.
+       * @example
+       *
+       * var object = _.create({ 'a': _.create({ 'b': 2 }) });
+       *
+       * _.hasIn(object, 'a');
+       * // => true
+       *
+       * _.hasIn(object, 'a.b');
+       * // => true
+       *
+       * _.hasIn(object, ['a', 'b']);
+       * // => true
+       *
+       * _.hasIn(object, 'b');
+       * // => false
+       */
+      function hasIn(object, path) {
+        return object != null && _hasPath(object, path, _baseHasIn);
+      }
+
+      /* harmony default export */ const lodash_es_hasIn = hasIn;
+
+      /***/
+    },
+
+    /***/ 6963: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * This method returns the first argument it receives.
+       *
+       * @static
+       * @since 0.1.0
+       * @memberOf _
+       * @category Util
+       * @param {*} value Any value.
+       * @returns {*} Returns `value`.
+       * @example
+       *
+       * var object = { 'a': 1 };
+       *
+       * console.log(_.identity(object) === object);
+       * // => true
+       */
+      function identity(value) {
+        return value;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = identity;
+
+      /***/
+    },
+
+    /***/ 4880: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_isArguments
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseGetTag.js + 2 modules
+      var _baseGetTag = __webpack_require__(7979);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObjectLike.js
+      var isObjectLike = __webpack_require__(6164); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseIsArguments.js
+      /** `Object#toString` result references. */
+      var argsTag = "[object Arguments]";
+
+      /**
+       * The base implementation of `_.isArguments`.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+       */
+      function baseIsArguments(value) {
+        return (0, isObjectLike /* default */.Z)(value) && (0, _baseGetTag /* default */.Z)(value) == argsTag;
+      }
+
+      /* harmony default export */ const _baseIsArguments = baseIsArguments; // CONCATENATED MODULE: ./node_modules/lodash-es/isArguments.js
+
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var isArguments_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /** Built-in value references. */
+      var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+      /**
+       * Checks if `value` is likely an `arguments` object.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+       *  else `false`.
+       * @example
+       *
+       * _.isArguments(function() { return arguments; }());
+       * // => true
+       *
+       * _.isArguments([1, 2, 3]);
+       * // => false
+       */
+      var isArguments = _baseIsArguments(
+        (function () {
+          return arguments;
+        })()
+      )
+        ? _baseIsArguments
+        : function (value) {
+            return (
+              (0, isObjectLike /* default */.Z)(value) &&
+              isArguments_hasOwnProperty.call(value, "callee") &&
+              !propertyIsEnumerable.call(value, "callee")
+            );
+          };
+
+      /* harmony default export */ const lodash_es_isArguments = isArguments;
+
+      /***/
+    },
+
+    /***/ 2576: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Checks if `value` is classified as an `Array` object.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+       * @example
+       *
+       * _.isArray([1, 2, 3]);
+       * // => true
+       *
+       * _.isArray(document.body.children);
+       * // => false
+       *
+       * _.isArray('abc');
+       * // => false
+       *
+       * _.isArray(_.noop);
+       * // => false
+       */
+      var isArray = Array.isArray;
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isArray;
+
+      /***/
+    },
+
+    /***/ 1698: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _isFunction_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3816);
+      /* harmony import */ var _isLength_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2024);
+
+      /**
+       * Checks if `value` is array-like. A value is considered array-like if it's
+       * not a function and has a `value.length` that's an integer greater than or
+       * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+       * @example
+       *
+       * _.isArrayLike([1, 2, 3]);
+       * // => true
+       *
+       * _.isArrayLike(document.body.children);
+       * // => true
+       *
+       * _.isArrayLike('abc');
+       * // => true
+       *
+       * _.isArrayLike(_.noop);
+       * // => false
+       */
+      function isArrayLike(value) {
+        return (
+          value != null &&
+          (0, _isLength_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value.length) &&
+          !(0, _isFunction_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(value)
+        );
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isArrayLike;
+
+      /***/
+    },
+
+    /***/ 7091: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_isBuffer
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_root.js
+      var _root = __webpack_require__(7583); // CONCATENATED MODULE: ./node_modules/lodash-es/stubFalse.js
+      /**
+       * This method returns `false`.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.13.0
+       * @category Util
+       * @returns {boolean} Returns `false`.
+       * @example
+       *
+       * _.times(2, _.stubFalse);
+       * // => [false, false]
+       */
+      function stubFalse() {
+        return false;
+      }
+
+      /* harmony default export */ const lodash_es_stubFalse = stubFalse; // CONCATENATED MODULE: ./node_modules/lodash-es/isBuffer.js
+
+      /** Detect free variable `exports`. */
+      var freeExports = typeof exports == "object" && exports && !exports.nodeType && exports;
+
+      /** Detect free variable `module`. */
+      var freeModule = freeExports && typeof module == "object" && module && !module.nodeType && module;
+
+      /** Detect the popular CommonJS extension `module.exports`. */
+      var moduleExports = freeModule && freeModule.exports === freeExports;
+
+      /** Built-in value references. */
+      var Buffer = moduleExports ? _root /* default.Buffer */.Z.Buffer : undefined;
+
+      /* Built-in method references for those with the same name as other `lodash` methods. */
+      var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
+
+      /**
+       * Checks if `value` is a buffer.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.3.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
+       * @example
+       *
+       * _.isBuffer(new Buffer(2));
+       * // => true
+       *
+       * _.isBuffer(new Uint8Array(2));
+       * // => false
+       */
+      var isBuffer = nativeIsBuffer || lodash_es_stubFalse;
+
+      /* harmony default export */ const lodash_es_isBuffer = isBuffer;
+
+      /***/
+    },
+
+    /***/ 3816: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _baseGetTag_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7979);
+      /* harmony import */ var _isObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6185);
+
+      /** `Object#toString` result references. */
+      var asyncTag = "[object AsyncFunction]",
+        funcTag = "[object Function]",
+        genTag = "[object GeneratorFunction]",
+        proxyTag = "[object Proxy]";
+
+      /**
+       * Checks if `value` is classified as a `Function` object.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+       * @example
+       *
+       * _.isFunction(_);
+       * // => true
+       *
+       * _.isFunction(/abc/);
+       * // => false
+       */
+      function isFunction(value) {
+        if (!(0, _isObject_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value)) {
+          return false;
+        }
+        // The use of `Object#toString` avoids issues with the `typeof` operator
+        // in Safari 9 which returns 'object' for typed arrays and other constructors.
+        var tag = (0, _baseGetTag_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(value);
+        return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isFunction;
+
+      /***/
+    },
+
+    /***/ 2024: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /** Used as references for various `Number` constants. */
+      var MAX_SAFE_INTEGER = 9007199254740991;
+
+      /**
+       * Checks if `value` is a valid array-like length.
+       *
+       * **Note:** This method is loosely based on
+       * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+       * @example
+       *
+       * _.isLength(3);
+       * // => true
+       *
+       * _.isLength(Number.MIN_VALUE);
+       * // => false
+       *
+       * _.isLength(Infinity);
+       * // => false
+       *
+       * _.isLength('3');
+       * // => false
+       */
+      function isLength(value) {
+        return typeof value == "number" && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isLength;
+
+      /***/
+    },
+
+    /***/ 6185: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Checks if `value` is the
+       * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+       * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+       * @example
+       *
+       * _.isObject({});
+       * // => true
+       *
+       * _.isObject([1, 2, 3]);
+       * // => true
+       *
+       * _.isObject(_.noop);
+       * // => true
+       *
+       * _.isObject(null);
+       * // => false
+       */
+      function isObject(value) {
+        var type = typeof value;
+        return value != null && (type == "object" || type == "function");
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isObject;
+
+      /***/
+    },
+
+    /***/ 6164: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Checks if `value` is object-like. A value is object-like if it's not `null`
+       * and has a `typeof` result of "object".
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+       * @example
+       *
+       * _.isObjectLike({});
+       * // => true
+       *
+       * _.isObjectLike([1, 2, 3]);
+       * // => true
+       *
+       * _.isObjectLike(_.noop);
+       * // => false
+       *
+       * _.isObjectLike(null);
+       * // => false
+       */
+      function isObjectLike(value) {
+        return value != null && typeof value == "object";
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isObjectLike;
+
+      /***/
+    },
+
+    /***/ 6898: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _baseGetTag_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7979);
+      /* harmony import */ var _isObjectLike_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6164);
+
+      /** `Object#toString` result references. */
+      var symbolTag = "[object Symbol]";
+
+      /**
+       * Checks if `value` is classified as a `Symbol` primitive or object.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+       * @example
+       *
+       * _.isSymbol(Symbol.iterator);
+       * // => true
+       *
+       * _.isSymbol('abc');
+       * // => false
+       */
+      function isSymbol(value) {
+        return (
+          typeof value == "symbol" ||
+          ((0, _isObjectLike_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value) &&
+            (0, _baseGetTag_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(value) == symbolTag)
+        );
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isSymbol;
+
+      /***/
+    },
+
+    /***/ 8307: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_isTypedArray
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseGetTag.js + 2 modules
+      var _baseGetTag = __webpack_require__(7979);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isLength.js
+      var isLength = __webpack_require__(2024);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObjectLike.js
+      var isObjectLike = __webpack_require__(6164); // CONCATENATED MODULE: ./node_modules/lodash-es/_baseIsTypedArray.js
+      /** `Object#toString` result references. */
+      var argsTag = "[object Arguments]",
+        arrayTag = "[object Array]",
+        boolTag = "[object Boolean]",
+        dateTag = "[object Date]",
+        errorTag = "[object Error]",
+        funcTag = "[object Function]",
+        mapTag = "[object Map]",
+        numberTag = "[object Number]",
+        objectTag = "[object Object]",
+        regexpTag = "[object RegExp]",
+        setTag = "[object Set]",
+        stringTag = "[object String]",
+        weakMapTag = "[object WeakMap]";
+
+      var arrayBufferTag = "[object ArrayBuffer]",
+        dataViewTag = "[object DataView]",
+        float32Tag = "[object Float32Array]",
+        float64Tag = "[object Float64Array]",
+        int8Tag = "[object Int8Array]",
+        int16Tag = "[object Int16Array]",
+        int32Tag = "[object Int32Array]",
+        uint8Tag = "[object Uint8Array]",
+        uint8ClampedTag = "[object Uint8ClampedArray]",
+        uint16Tag = "[object Uint16Array]",
+        uint32Tag = "[object Uint32Array]";
+
+      /** Used to identify `toStringTag` values of typed arrays. */
+      var typedArrayTags = {};
+      typedArrayTags[float32Tag] =
+        typedArrayTags[float64Tag] =
+        typedArrayTags[int8Tag] =
+        typedArrayTags[int16Tag] =
+        typedArrayTags[int32Tag] =
+        typedArrayTags[uint8Tag] =
+        typedArrayTags[uint8ClampedTag] =
+        typedArrayTags[uint16Tag] =
+        typedArrayTags[uint32Tag] =
+          true;
+      typedArrayTags[argsTag] =
+        typedArrayTags[arrayTag] =
+        typedArrayTags[arrayBufferTag] =
+        typedArrayTags[boolTag] =
+        typedArrayTags[dataViewTag] =
+        typedArrayTags[dateTag] =
+        typedArrayTags[errorTag] =
+        typedArrayTags[funcTag] =
+        typedArrayTags[mapTag] =
+        typedArrayTags[numberTag] =
+        typedArrayTags[objectTag] =
+        typedArrayTags[regexpTag] =
+        typedArrayTags[setTag] =
+        typedArrayTags[stringTag] =
+        typedArrayTags[weakMapTag] =
+          false;
+
+      /**
+       * The base implementation of `_.isTypedArray` without Node.js optimizations.
+       *
+       * @private
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+       */
+      function baseIsTypedArray(value) {
+        return (
+          (0, isObjectLike /* default */.Z)(value) &&
+          (0, isLength /* default */.Z)(value.length) &&
+          !!typedArrayTags[(0, _baseGetTag /* default */.Z)(value)]
+        );
+      }
+
+      /* harmony default export */ const _baseIsTypedArray = baseIsTypedArray;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_baseUnary.js
+      var _baseUnary = __webpack_require__(4995);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_nodeUtil.js
+      var _nodeUtil = __webpack_require__(1304); // CONCATENATED MODULE: ./node_modules/lodash-es/isTypedArray.js
+      /* Node.js helper references. */
+      var nodeIsTypedArray = _nodeUtil /* default */.Z && _nodeUtil /* default.isTypedArray */.Z.isTypedArray;
+
+      /**
+       * Checks if `value` is classified as a typed array.
+       *
+       * @static
+       * @memberOf _
+       * @since 3.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+       * @example
+       *
+       * _.isTypedArray(new Uint8Array);
+       * // => true
+       *
+       * _.isTypedArray([]);
+       * // => false
+       */
+      var isTypedArray = nodeIsTypedArray ? (0, _baseUnary /* default */.Z)(nodeIsTypedArray) : _baseIsTypedArray;
+
+      /* harmony default export */ const lodash_es_isTypedArray = isTypedArray;
+
+      /***/
+    },
+
+    /***/ 8564: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_toNumber
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_trimmedEndIndex.js
+
+      /** Used to match a single whitespace character. */
+      var reWhitespace = /\s/;
+
+      /**
+       * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
+       * character of `string`.
+       *
+       * @private
+       * @param {string} string The string to inspect.
+       * @returns {number} Returns the index of the last non-whitespace character.
+       */
+      function trimmedEndIndex(string) {
+        var index = string.length;
+
+        while (index-- && reWhitespace.test(string.charAt(index))) {}
+        return index;
+      }
+
+      /* harmony default export */ const _trimmedEndIndex = trimmedEndIndex; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseTrim.js
+
+      /** Used to match leading whitespace. */
+      var reTrimStart = /^\s+/;
+
+      /**
+       * The base implementation of `_.trim`.
+       *
+       * @private
+       * @param {string} string The string to trim.
+       * @returns {string} Returns the trimmed string.
+       */
+      function baseTrim(string) {
+        return string ? string.slice(0, _trimmedEndIndex(string) + 1).replace(reTrimStart, "") : string;
+      }
+
+      /* harmony default export */ const _baseTrim = baseTrim;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObject.js
+      var isObject = __webpack_require__(6185);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isSymbol.js
+      var isSymbol = __webpack_require__(6898); // CONCATENATED MODULE: ./node_modules/lodash-es/toNumber.js
+      /** Used as references for various `Number` constants. */
+      var NAN = 0 / 0;
+
+      /** Used to detect bad signed hexadecimal string values. */
+      var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+      /** Used to detect binary string values. */
+      var reIsBinary = /^0b[01]+$/i;
+
+      /** Used to detect octal string values. */
+      var reIsOctal = /^0o[0-7]+$/i;
+
+      /** Built-in method references without a dependency on `root`. */
+      var freeParseInt = parseInt;
+
+      /**
+       * Converts `value` to a number.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to process.
+       * @returns {number} Returns the number.
+       * @example
+       *
+       * _.toNumber(3.2);
+       * // => 3.2
+       *
+       * _.toNumber(Number.MIN_VALUE);
+       * // => 5e-324
+       *
+       * _.toNumber(Infinity);
+       * // => Infinity
+       *
+       * _.toNumber('3.2');
+       * // => 3.2
+       */
+      function toNumber(value) {
+        if (typeof value == "number") {
+          return value;
+        }
+        if ((0, isSymbol /* default */.Z)(value)) {
+          return NAN;
+        }
+        if ((0, isObject /* default */.Z)(value)) {
+          var other = typeof value.valueOf == "function" ? value.valueOf() : value;
+          value = (0, isObject /* default */.Z)(other) ? other + "" : other;
+        }
+        if (typeof value != "string") {
+          return value === 0 ? value : +value;
+        }
+        value = _baseTrim(value);
+        var isBinary = reIsBinary.test(value);
+        return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
+      }
+
+      /* harmony default export */ const lodash_es_toNumber = toNumber;
+
+      /***/
+    },
+
+    /***/ 9135: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _baseToString_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6134);
+
+      /**
+       * Converts `value` to a string. An empty string is returned for `null`
+       * and `undefined` values. The sign of `-0` is preserved.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to convert.
+       * @returns {string} Returns the converted string.
+       * @example
+       *
+       * _.toString(null);
+       * // => ''
+       *
+       * _.toString(-0);
+       * // => '-0'
+       *
+       * _.toString([1, 2, 3]);
+       * // => '1,2,3'
+       */
+      function toString(value) {
+        return value == null ? "" : (0, _baseToString_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value);
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = toString;
 
       /***/
     },
@@ -91170,7 +96038,7 @@
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ __webpack_require__.O(0, [645], () => __webpack_exec__(57190));
+    /******/ __webpack_require__.O(0, [645], () => __webpack_exec__(9060));
     /******/ var __webpack_exports__ = __webpack_require__.O();
     /******/
   }

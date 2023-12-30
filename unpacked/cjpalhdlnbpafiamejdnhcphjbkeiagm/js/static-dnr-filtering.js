@@ -348,6 +348,9 @@ function addToDNR(context, list) {
       continue;
     }
     if (parser.hasError()) {
+      if (parser.astError === sfp.AST_ERROR_OPTION_EXCLUDED) {
+        context.invalid.add(`Incompatible with DNR: ${line}`);
+      }
       continue;
     }
 

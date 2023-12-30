@@ -44,19 +44,19 @@
       return Object.prototype.hasOwnProperty.call(E, C);
     }),
     (B.p = ""),
-    B((B.s = 1));
+    B((B.s = 2));
 })([
   function (E, C, B) {
-    const { ThunderEncode: D } = B(3),
-      { videoExtensions: F } = B(6),
-      { XLNativeMessage: A } = B(7),
+    const { ThunderEncode: D } = B(4),
+      { videoExtensions: F } = B(7),
+      { XLNativeMessage: A } = B(8),
       {
         SUPPORT_REQUEST_TYPE_ARRAY: e,
         FRAME_REQUEST_TYPE_ARRAY: t,
         CONTENT_TYPE_ARRAY: n,
         SUPPORT_MEDIA_EXT_ARRAY: i,
         FORBIDDEN_File_URL_PROTOCOL_ARRAY: o
-      } = B(9),
+      } = B(10),
       r = (E) => {
         if (!E) return;
         E.data =
@@ -98,28 +98,30 @@
     const s = () => {
         chrome.runtime.sendMessage({ name: "xl_call_function", method: "startThunder", launchApp: "Thunder" });
       },
-      a = (E, C) => {
+      a = (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
+      c = (E) => {
+        return Math.floor(E / 60) + "." + Math.floor(E % 60);
+      },
+      l = (E, C) => {
         const B = C.exec(E);
         if (B && B[1]) {
           return decodeURIComponent(B[1]);
         }
         return "";
       };
-    const c = (E) =>
+    const d = () => window.self !== window.top,
+      u = (E) =>
         new Promise((C) => {
           chrome.storage.local.get((B) => {
             C(E ? B[E] : B);
           });
         }),
-      l = new RegExp(
+      m = new RegExp(
         '((((http|https)://[^":<>#?&=\\s\\r\\n]+\\.torrent\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|(((http|https)://[^":<>#?&=\\s\\r\\n]+\\.(m3u8|mov|mp4|mpv|m4v|g3p|g32|avi|asf|wmv|avs|flv|mkv|mpg|mpeg|dat|ogm|vob|rm|ts|tp|ifo|nsv|m2ts|3gp|f4v|rmvb|rar|xlsx|xls|doc|docx|epub|pptx|ppt|zip|7z|iso|pdf|exe|dmg|ipa|apk)\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|((?<=[">\\s\\r\\n])((magnet:[^"<>\\s\\r\\n]*xt(\\.[0-9]+)*=urn:((sha1)|(md5)|(btih)|(tree:tiger)|(bitprint)|(ed2k)|(aich)|(kzhash)|(crc32)):[0-9a-zA-Z]{10,}[^"<>\\s\\r\\n]*)|(ed2k://((\\|)|(%7[cC]))file((\\|)|(%7[cC]))[^"<>\\s\\r\\n]+((\\|)|(%7[cC]))[0-9]+((\\|)|(%7[cC]))[0-9a-zA-Z]+((\\|)|(%7[cC]))[^"<>\\s\\r\\n)]*/)|(ftp://[^"<>\\s\\r\\n]+)|((([Tt]hunder)|(qqdl)|([Ff]lashget))://([a-zA-Z0-9\\+/])+={0,2}))(?=["<\\r\\n])))|(((thunder|Thunder):\\/\\/[^\\s\\r\\n"]+?)(?="|\'))',
         "gi"
       );
+    const p = /(macintosh|macintel)/i.test(navigator.userAgent);
     E.exports = {
-      isMac: () => {
-        const E = navigator.userAgent.toLocaleLowerCase();
-        return !!/macintosh|mac os x/i.test(E);
-      },
       ajax: r,
       getSrcFromVideoTag: (E) => {
         let C = void 0;
@@ -133,9 +135,13 @@
           return C;
         }
       },
-      getAllVideo: () => {
-        return document.getElementsByTagName("video");
-      },
+      getAllVideo: async () =>
+        new Promise((E) => {
+          window.onload = () => {
+            const C = document.getElementsByTagName("video");
+            E(C);
+          };
+        }),
       isMouseInElement: (E, C) => {
         let B = !1;
         if (!C) return B;
@@ -156,10 +162,8 @@
       setExtStorage: (E, C) => {
         chrome.storage.local.set({ [E]: C });
       },
-      getFileUrlSuffix: (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
-      convertSecondsToMinutes: (E) => {
-        return Math.floor(E / 60) + "." + Math.floor(E % 60);
-      },
+      getFileUrlSuffix: a,
+      convertSecondsToMinutes: c,
       getXLChromeExtConfigs: () =>
         new Promise((E, C) => {
           r({
@@ -174,7 +178,7 @@
           });
         }),
       hasClassName: (E, C) => E.classList.value.includes(C),
-      getMatchFileName: a,
+      getMatchFileName: l,
       getUrlInfo: function (E) {
         let C = "",
           B = !1;
@@ -184,12 +188,12 @@
             e = D.pathname ? D.pathname.substring(D.pathname.lastIndexOf(".")).toLocaleLowerCase() : "unknown";
           switch (A) {
             case "magnet:":
-              C = a(E, /dn=([^&]+)/i);
+              C = l(E, /dn=([^&]+)/i);
               break;
             case "thunder:":
               break;
             case "ed2k:":
-              C = a(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
+              C = l(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
               break;
             case "ftp:":
               C = E.replace(/\?.*$/, "").replace(/.*\//, "");
@@ -199,10 +203,10 @@
               F.includes(e) && (B = !0),
                 (C = ".m3u8" === e && document.title ? document.title + e : E.replace(/\?.*$/, "").replace(/.*\//, ""));
           }
-          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e };
+          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e, isInIframe: d() };
         } catch (E) {}
       },
-      isInIframe: () => window.self !== window.top,
+      isInIframe: d,
       isValidProtocol: (E) => {
         if (!E) return !1;
         const C = new URL(E).protocol.toLocaleLowerCase();
@@ -212,7 +216,7 @@
         return "thunderx://" + btoa(unescape(encodeURIComponent(JSON.stringify(E))));
       },
       generateDialogRootId: (E) => "ncennffkjdiamlpmcbajkmaiiiddgioo-prompt" + E,
-      getChromeStorageValue: c,
+      getChromeStorageValue: u,
       createDownloadTask: (E, C) => {
         chrome.downloads.download({ url: E, filename: C }, (E) => {
           chrome.runtime.lastError;
@@ -223,7 +227,7 @@
         E.parentElement.appendChild(E);
       },
       checkNotificationTime: async () => {
-        const E = (await c("lastNotificationTime")) || "",
+        const E = (await u("lastNotificationTime")) || "",
           C = new Date().toLocaleDateString();
         return E !== C && (chrome.storage.local.set({ lastNotificationTime: C }), !0);
       },
@@ -272,7 +276,7 @@
       getOptionsSettings: async function () {
         const E = { enable: !1, size: 2 };
         (this.limitSizeInfo = E), (this.isShortcutEnable = !0), (this.monitorVideo = !0);
-        const C = await c();
+        const C = await u();
         if (!C) return;
         void 0 !== C.video_monitor && (this.monitorVideo = C.video_monitor),
           void 0 !== C.multi_select_shortcut_enable && (this.isShortcutEnable = C.multi_select_shortcut_enable);
@@ -288,30 +292,169 @@
       },
       isForbiddenFileUrlProtocol: (E) => {
         const { protocol: C } = new URL(E);
-        return !!C && !o.includes(C);
+        return !!C && o.includes(C);
       },
-      resourceUrlReg: l,
+      statVideoInfo: (E) => {
+        try {
+          for (let C of E) {
+            let E = "",
+              B = "";
+            const D = C.src,
+              F = a(C.src);
+            (B = i.includes(F) ? "direct" : "other"),
+              C.addEventListener("loadedmetadata", () => {
+                E = c(C.duration);
+              }),
+              C.addEventListener("playing", () => {
+                chrome.runtime.sendMessage({
+                  name: "xl_sniff_video_info",
+                  videoType: B,
+                  fileUrlSuffix: F,
+                  videoDuration: E,
+                  videoSrc: D,
+                  stat: "browser_plugin_webpage_video_play"
+                });
+              });
+          }
+        } catch (E) {}
+      },
+      resourceUrlReg: m,
+      trackEvent: (...E) => {
+        chrome.runtime.sendMessage({ name: "xl_call_function", method: "trackEvent", args: E });
+      },
+      xlSendNativeMessage: async (E, C) => {
+        return await chrome.runtime.sendNativeMessage(E, { ua: navigator.userAgent, ...C });
+      },
+      getAllCookies: (E) =>
+        new Promise((C) => {
+          chrome.cookies.getAll(E, (E) => {
+            let B = "";
+            if (E) {
+              for (const C in E) B = B.concat(E[C].name, "=", E[C].value, "; ");
+              C(B);
+            } else C(B);
+          });
+        }),
+      getDispositionFileName: (E) => {
+        var C = new RegExp("filename[^;=\n]*=((['\"]).*?|[^;\n]*)", "g"),
+          B = C.exec(E);
+        if (null === B) return "";
+        var D = C.exec(E),
+          F = null;
+        return (
+          (F = (F = (F = (F = null === D ? B[1] : -1 === D[1].toLowerCase().indexOf("utf-8") ? B[1] : D[1]).replace(
+            /"([^"]*)"/g,
+            "$1"
+          )).replace("UTF-8''", "")).replace("utf-8''", "")),
+          decodeURIComponent(F.replace(/\+/g, ""))
+        );
+      },
+      getNameFromTitle: (E, C, B) => {
+        const D = B || document.title;
+        return D ? D + E : C.replace(/\?.*$/, "").replace(/.*\//, "");
+      },
       urlRegexp: /^(ftp|http[s]?):\/\/([^\/]*)[\/]?/,
       domainRegexp: /(.*?\.)?(.*?\..*)/,
-      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" }
+      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" },
+      isMacDevice: p
+    };
+  },
+  function (E, C) {
+    E.exports = {
+      onMessageName: {
+        xl_call_function: "xl_call_function",
+        CheckEnabled: "CheckEnabled",
+        xl_download: "xl_download",
+        xl_video_show: "xl_video_show",
+        xl_sniff_video_info: "xl_sniff_video_info"
+      },
+      onMessageMethod: {
+        startThunder: "startThunder",
+        addBlackListWebsite: "addBlackListWebsite",
+        removeBlackListWebsite: "removeBlackListWebsite",
+        getWebsiteDomains: "getWebsiteDomains",
+        trackEvent: "trackEvent"
+      },
+      recallCarouselInfo: [
+        {
+          index: 1,
+          backgroundClass: "step-1",
+          content: [
+            { class: "bold", text: "第一步：" },
+            { class: "bold", text: "安装“迅雷”客户端" },
+            { text: "1. 已下载，请在浏览器下载列表安装；2. 仅此活动入口安装包有效。" }
+          ],
+          footer: [{ action: "next", class: "blue", text: "下一步" }]
+        },
+        {
+          index: 2,
+          backgroundClass: "step-2",
+          content: [
+            { class: "bold", text: "第二步：" },
+            { class: "bold", text: "安装成功后，点击下方“立即领取”或打开迅雷插件面板领取" },
+            { class: "error", text: "领取失败，本地未安装迅雷或版本过低 <a action='install'>立即安装&gt;</a>" }
+          ],
+          footer: [
+            { action: "pre", text: "上一步" },
+            { action: "receive", class: "blue", text: "立即领取" }
+          ]
+        },
+        {
+          index: 3,
+          backgroundClass: "step-3",
+          content: [
+            { class: "bold", text: "第三步：" },
+            { class: "bold", text: "活动页点击“领取”加速卡" },
+            { text: "（领取条件请以活动页规则为准）" }
+          ],
+          footer: [
+            { action: "pre", text: "上一步" },
+            { action: "close", class: "blue", text: "关闭" }
+          ]
+        }
+      ],
+      toolBarStatusConfig: {
+        ENABLE: { icon: "images/icon19_normal.png", tips: "迅雷Chrome支持", badgeText: "" },
+        EXCEPTION: { icon: "images/icon19_normal.png", tips: "迅雷Chrome支持出现异常", badgeText: "!" },
+        DISABLE: { icon: "images/icon19_disabled.png", tips: "迅雷Chrome支持已被禁用", badgeText: "" },
+        PAGE_DISABLE: { icon: "images/icon19_pageDisable.png", tips: "当前页面已禁用迅雷Chrome支持", badgeText: "" }
+      },
+      recallChannelUrl: "https://down.sandai.net/thunder11/XunLeiWebSetup_extrecall.exe",
+      defaultFluentPlayConfig: { switch: !1, ban_type: [], ban_protocol: [] },
+      defaultDownloadSniffConfig: { switch: !1, ban_type: [".m3u8"], ban_protocol: [] },
+      popupPageTypeConfig: {
+        NOT_OPEN_SITE: "not_open_site",
+        OPEN_NOT_CONTROL_SITE: "open_not_control_site",
+        OPEN_CONTROL_SITE: "open_control_site",
+        STOP_ALL_CONTROL: "stop_all_control"
+      },
+      popupClickTypeConfig: {
+        MORE_CHOICE_DOWNLOAD: "more_choice_download",
+        OPEN_XUNLEI: "open_xunlei",
+        ADVANCED_SETTING: "advanced_setting",
+        STOP_ALL_CONTROL: "stop_all_control",
+        START_ALL_CONTROL: "start_all_control",
+        CANCEL_CONTROL_CURRENT_SITE: "cancel_control_current_site",
+        OPEN_CONTROL_CURRENT_SITE: "open_control_current_site",
+        DOWNLOAD_PICTURE_ENTRANCE_CLICK: "download_picture_entrance_click"
+      }
     };
   },
   function (E, C, B) {
-    E.exports = B(2);
+    E.exports = B(3);
   },
   function (E, C, B) {
     !(function () {
-      const { isMac: E, isValidProtocol: C } = B(0),
-        { macPopupMain: D } = B(10);
-      if (E()) return void D();
-      var F,
-        A,
-        e,
-        t = "",
-        n = {
-          trackEvent: (...E) => {
-            chrome.runtime.sendMessage({ name: "xl_call_function", method: "trackEvent", args: E });
-          },
+      const { isMacDevice: E } = B(0),
+        { macPopupMain: C } = B(11);
+      if (E) return void C();
+      const { isValidProtocol: D, trackEvent: F } = B(0),
+        { popupPageTypeConfig: A, popupClickTypeConfig: e } = B(1);
+      var t,
+        n,
+        i,
+        o = "",
+        r = {
           setPluginEnabled: (...E) => {
             chrome.runtime.sendMessage({ name: "xl_call_function", method: "setPluginEnabled", args: E });
           },
@@ -340,14 +483,17 @@
               });
             })
         },
-        i = void 0;
-      let o = !1;
-      function r(E) {
-        E && n.trackEvent(1022, 931, "value1=" + t + "&value2=" + E);
+        s = void 0;
+      let a = !1;
+      function c(E) {
+        E && F(1022, 931, "value1=" + o + "&value2=" + E + "&value5=pc");
       }
-      function s(E) {
-        F
-          ? (r("stop_all_control"),
+      function l(E) {
+        E && F(1022, 930, "value1=" + E + "&value5=pc");
+      }
+      function d(E) {
+        t
+          ? (c(e.STOP_ALL_CONTROL),
             (function () {
               let E = document.body.children[0];
               document.body.removeChild(E),
@@ -356,7 +502,7 @@
               let C = document.getElementById("off-take-over-sure");
               C &&
                 C.addEventListener("click", function () {
-                  n.setPluginEnabled(!1), window.close();
+                  r.setPluginEnabled(!1), window.close();
                 });
               let B = document.getElementById("off-take-over-cancel");
               B &&
@@ -364,54 +510,54 @@
                   window.close();
                 });
             })())
-          : (r("start_all_control"), n.setPluginEnabled(!F), window.close());
+          : (c(e.START_ALL_CONTROL), r.setPluginEnabled(!t), window.close());
       }
-      function a() {
-        r("advanced_setting"), window.open(chrome.runtime.getURL("options.html")), window.close();
+      function u() {
+        c(e.ADVANCED_SETTING), window.open(chrome.runtime.getURL("options.html")), window.close();
       }
-      function c() {
-        r("open_xunlei"), n.startThunder(), window.close();
+      function m() {
+        c(e.OPEN_XUNLEI), r.startThunder(), window.close();
       }
-      function l(E) {
+      function p(E) {
         chrome.tabs.query({ active: !0, currentWindow: !0 }, (C) => {
           const B = C[0];
           chrome.tabs.sendMessage(B.id, { name: "xl_recall_entry_click", source: E });
         });
       }
-      function d(E) {
-        F &&
-          h({ active: !0, currentWindow: !0 }, function (E) {
+      function v(E) {
+        t &&
+          b({ active: !0, currentWindow: !0 }, function (E) {
             var C = E.url,
               B = C.indexOf("://");
             if (B >= 0) {
               var D,
                 F = C.indexOf("/", B + 3);
               (D = F >= 0 ? C.substring(0, F) : C),
-                A
-                  ? (r("open_control_current_site"), n.removeBlackListWebsite(D, E.url, E.id))
-                  : (r("cancel_control_current_site"), n.addBlackListWebsite(D, E.id));
+                n
+                  ? (c(e.OPEN_CONTROL_CURRENT_SITE), r.removeBlackListWebsite(D, E.url, E.id))
+                  : (c(e.CANCEL_CONTROL_CURRENT_SITE), r.addBlackListWebsite(D, E.id));
             }
             window.close();
           });
       }
-      function u(E) {
-        r("more_choice_download"),
-          F &&
+      function h(E) {
+        c(e.MORE_CHOICE_DOWNLOAD),
+          t &&
             chrome.tabs.query({ active: !0, currentWindow: !0 }, function (E) {
               if (E)
                 for (var C = 0; C < E.length; C++) {
                   var B = E[C];
-                  n.enterMultiDownload(B.id, B.url);
+                  r.enterMultiDownload(B.id, B.url);
                 }
               window.close();
             });
       }
-      function m(E) {
-        r("download_picture_entrance_click");
+      function f(E) {
+        c(e.DOWNLOAD_PICTURE_ENTRANCE_CLICK);
         do {
-          if (!F) break;
+          if (!t) break;
           if (!E) {
-            _("该页面不支持下载");
+            L("该页面不支持下载");
             break;
           }
           chrome.tabs.query({ active: !0, currentWindow: !0 }, function (E) {
@@ -425,7 +571,7 @@
           });
         } while (0);
       }
-      function p(E) {
+      function g(E) {
         let C = (function () {
           let E = "";
           do {
@@ -441,109 +587,108 @@
           } while (0);
           return E;
         })();
-        C && chrome.tabs.create({ url: C }, function () {}), n.trackEvent(1022, 927);
+        C && chrome.tabs.create({ url: C }, function () {}), F(1022, 927);
       }
-      function v(E, C) {
+      function _(E, C) {
         let B = document.body.children[0];
         document.body.removeChild(B),
           (document.body.innerHTML =
             '\n      <div class="xly-dialog-abnormal">\n        <h2>迅雷下载支持异常</h2>\n        <p class="xly-dialog-abnormal__text">您还没安装迅雷，无法支持文件下载，请先安装最新版迅雷。</p>\n        <button id="install-thunder" class="td-button">立即安装</button>\n        <p class="xly-dialog-abnormal__tips">安装后，重启浏览器生效</p>\n      </div>\n      ');
         const D = document.querySelector(".xly-dialog-abnormal");
-        o &&
+        a &&
           E &&
           ((D.innerHTML +=
             '\n      <div class="browser-plugin__recall">\n        <div class="browser-plugin__recall-card"></div>\n        <div class="browser-plugin__recall-text">\n          下载迅雷 <span style="color: #B4723C">免费领</span>超级会员\n        </div>\n        <div class="browser-plugin__recall-limit"></div>\n      </div>\n      '),
           chrome.runtime.sendMessage({ name: "xl_show_recall_entry", source: "panel_not_installed", url: C })),
-          document.getElementById("install-thunder").addEventListener("click", p);
+          document.getElementById("install-thunder").addEventListener("click", g);
         const F = document.querySelector(".browser-plugin__recall");
         F &&
           F.addEventListener("click", () => {
-            l("panel_not_installed");
+            p("panel_not_installed");
           });
       }
-      function h(E, C) {
+      function b(E, C) {
         chrome.tabs.query(E, function (E) {
           if (E) for (var B = 0; B < E.length; B++) E[B].id >= 0 && C(E[B]);
         });
       }
-      function f(E, C) {
+      function w(E, C) {
         if (
-          ((t = "stop_all_control"),
-          n.trackEvent(1022, 930, "value1=" + t),
+          (l((o = A.STOP_ALL_CONTROL)),
           (document.body.innerHTML =
             '\n      <div class="browser-plugin">\n        <div class="browser-plugin__header">\n          <h1>迅雷</h1>\n        </div>\n        <div class="browser-plugin__main">\n          <i class="icon-internet"></i>\n          <p>已取消迅雷下载支持<br>\n          将无法为你提供高速下载\n            </p>\n          <button id=\'take-over-switch-btn\' class="button">开启接管</button>\n        </div>\n        <div class="browser-plugin__list">\n          <ul>\n            <li id=\'start-thunder-li\'>打开迅雷</li>\n            <li class=\'is-disabled\'>批量图片下载</li>\n            <li class=\'is-disabled\'>批量下载 <span class="shortcut-key">Shift+D</span></li>\n            <li id=\'pop-setting-li\'>高级设置</li>\n            <li id=\'take-over-switch-li\'>开启全部接管<span class="text">(建议开启)</span> </li>\n          </ul>\n        </div>\n      </div>\n      '),
-          o && E)
+          a && E)
         ) {
           (document.querySelector(".browser-plugin").innerHTML +=
             '\n      <div class="browser-plugin__recall-wrapper">\n        <div class="browser-plugin__recall">\n          <div class="browser-plugin__recall-card"></div>\n          <div class="browser-plugin__recall-text">\n            下载迅雷 <span style="color: #B4723C">免费领</span>超级会员\n          </div>\n          <div class="browser-plugin__recall-limit"></div>\n        </div>\n      </div>\n      '),
             chrome.runtime.sendMessage({ name: "xl_show_recall_entry", source: "panel_installed", url: C });
         }
-        document.getElementById("take-over-switch-btn").addEventListener("click", s),
-          document.getElementById("take-over-switch-li").addEventListener("click", s),
-          document.getElementById("pop-setting-li").addEventListener("click", a),
-          document.getElementById("start-thunder-li").addEventListener("click", c);
+        document.getElementById("take-over-switch-btn").addEventListener("click", d),
+          document.getElementById("take-over-switch-li").addEventListener("click", d),
+          document.getElementById("pop-setting-li").addEventListener("click", u),
+          document.getElementById("start-thunder-li").addEventListener("click", m);
         const B = document.querySelector(".browser-plugin__recall");
         B &&
           B.addEventListener("click", () => {
-            l("panel_installed");
+            p("panel_installed");
           });
       }
-      function g() {
-        (t = "not_open_site"), n.trackEvent(1022, 930, "value1=" + t);
+      function x() {
+        l((o = A.NOT_OPEN_SITE));
         let E = document.body.children[0];
         document.body.removeChild(E),
           (document.body.innerHTML =
             '\n      <div class="browser-plugin">\n        <div class="browser-plugin__header">\n          <h1>迅雷</h1>\n        </div>\n        <div class="browser-plugin__main is-active">\n          <i class="icon-internet"></i>\n          <p>迅雷下载支持<br>提供更快的链接和视频的下载\n            </p>\n        </div>\n        <div class="browser-plugin__list">\n          <ul>\n            <li id=\'start-thunder-li\'>打开迅雷</li>\n            <li id=\'multi-sel-pic\'>批量图片下载</li>\n            <li id=\'enter-multi-sel\'>多选下载 <span class="shortcut-key">Shift+D</span></li>\n            <li id=\'pop-setting-li\'>高级设置</li>\n            <li id=\'take-over-switch-li\'>暂停全部接管</li>\n          </ul>\n        </div>\n      </div>\n    '),
-          document.getElementById("take-over-switch-li").addEventListener("click", s),
-          document.getElementById("pop-setting-li").addEventListener("click", a),
-          document.getElementById("start-thunder-li").addEventListener("click", c),
-          document.getElementById("enter-multi-sel").addEventListener("click", u),
+          document.getElementById("take-over-switch-li").addEventListener("click", d),
+          document.getElementById("pop-setting-li").addEventListener("click", u),
+          document.getElementById("start-thunder-li").addEventListener("click", m),
+          document.getElementById("enter-multi-sel").addEventListener("click", h),
           document.getElementById("multi-sel-pic").addEventListener("click", () => {
-            m(!1);
+            f(!1);
           });
       }
-      function b(E, B, D, F) {
-        (t = B ? "open_not_control_site" : "open_control_site"), n.trackEvent(1022, 930, "value1=" + t);
-        let A = document.body.children[0];
+      function T(E, C, B, F) {
+        l((o = C ? A.OPEN_NOT_CONTROL_SITE : A.OPEN_CONTROL_SITE));
+        let e = document.body.children[0];
         if (
-          (document.body.removeChild(A),
+          (document.body.removeChild(e),
           (document.body.innerHTML = `\n      <div class="browser-plugin">\n        <div class="browser-plugin__header">\n          <h1>迅雷</h1>\n        </div>\n        <div class="${
-            B ? "browser-plugin__main" : "browser-plugin__main is-active"
+            C ? "browser-plugin__main" : "browser-plugin__main is-active"
           }">\n          <i class="icon-internet"></i> \n          <p>${E}<br>\n            ${
-            B ? "该网站已取消下载接管<br>开启后可使用迅雷高速下载" : "已接管该网站的下载链接"
+            C ? "该网站已取消下载接管<br>开启后可使用迅雷高速下载" : "已接管该网站的下载链接"
           }\n            </p>\n          <button id='take-over-website-switch' class="button">${
-            B ? "开启接管本站点" : "取消接管本站点"
+            C ? "开启接管本站点" : "取消接管本站点"
           }</button>\n        </div>\n        <div class="browser-plugin__list">\n          <ul>\n            <li id='start-thunder-li'>打开迅雷</li>\n            <li id='multi-sel-pic'>批量图片下载</li>\n            <li id='enter-multi-sel'>多选下载 <span class="shortcut-key">Shift+D</span></li>\n            <li id='pop-setting-li'>高级设置</li>\n            <li id='take-over-switch-li'>暂停全部接管</li>\n          </ul>\n        </div>\n      </div>\n    `),
-          D && C)
+          B && D)
         ) {
           (document.querySelector(".browser-plugin").innerHTML +=
             '\n      <div class="browser-plugin__recall-wrapper">\n        <div class="browser-plugin__recall">\n          <div class="browser-plugin__recall-card"></div>\n          <div class="browser-plugin__recall-text">\n            下载迅雷 <span style="color: #B4723C">免费领</span>超级会员\n          </div>\n          <div class="browser-plugin__recall-limit"></div>\n        </div>\n      </div>\n      '),
             chrome.runtime.sendMessage({ name: "xl_show_recall_entry", source: "panel_installed", url: F });
         }
-        document.getElementById("pop-setting-li").addEventListener("click", a),
-          document.getElementById("start-thunder-li").addEventListener("click", c),
-          document.getElementById("enter-multi-sel").addEventListener("click", u),
+        document.getElementById("pop-setting-li").addEventListener("click", u),
+          document.getElementById("start-thunder-li").addEventListener("click", m),
+          document.getElementById("enter-multi-sel").addEventListener("click", h),
           document.getElementById("multi-sel-pic").addEventListener("click", () => {
-            m(!0);
+            f(!0);
           }),
-          document.getElementById("take-over-switch-li").addEventListener("click", s),
-          document.getElementById("take-over-website-switch").addEventListener("click", d);
-        const e = document.querySelector(".browser-plugin__recall");
-        e &&
-          e.addEventListener("click", () => {
-            l("panel_installed");
+          document.getElementById("take-over-switch-li").addEventListener("click", d),
+          document.getElementById("take-over-website-switch").addEventListener("click", v);
+        const t = document.querySelector(".browser-plugin__recall");
+        t &&
+          t.addEventListener("click", () => {
+            p("panel_installed");
           });
       }
-      function _(E) {
-        i && (clearTimeout(i), (i = void 0));
+      function L(E) {
+        s && (clearTimeout(s), (s = void 0));
         let C = document.body.children[0];
         document.body.removeChild(C),
           (document.body.innerHTML = `\n      <div class="xl-tips">\n        <i class="icon-note"></i>${E}\n      </div>\n    `),
-          (i = setTimeout(() => {
-            (i = void 0), window.close();
+          (s = setTimeout(() => {
+            (s = void 0), window.close();
           }, 3e3));
       }
-      function w(E) {
+      function y(E) {
         let C = E;
         do {
           let B = E.indexOf("://");
@@ -553,35 +698,35 @@
         } while (0);
         return C;
       }
-      (window.showGuidePage = v),
+      (window.showGuidePage = _),
         document.addEventListener("DOMContentLoaded", function () {
           chrome.storage.local.set({ isHiddenRecallBadge: !0 }),
-            i && (clearTimeout(i), (i = void 0)),
-            h({ active: !0, currentWindow: !0 }, function (E) {
+            s && (clearTimeout(s), (s = void 0)),
+            b({ active: !0, currentWindow: !0 }, function (E) {
               if (E) {
-                let B = E.url || "";
-                chrome.runtime.sendMessage({ name: "CheckEnabled", url: B, tabId: E.id, topFrame: !0 }, async function (E) {
-                  o = E.isShowRecallInfo;
-                  const D = C(B);
+                let C = E.url || "";
+                chrome.runtime.sendMessage({ name: "CheckEnabled", url: C, tabId: E.id, topFrame: !0 }, async function (E) {
+                  a = E.isShowRecallInfo;
+                  const B = D(C);
                   do {
                     if (E.exception) {
-                      v(D, B);
+                      _(B, C);
                       break;
                     }
-                    if (!(F = E.bPlugin)) {
-                      f(D, B);
+                    if (!(t = E.bPlugin)) {
+                      w(B, C);
                       break;
                     }
-                    if (!B || !D) {
-                      g();
+                    if (!C || !B) {
+                      x();
                       break;
                     }
-                    let C = w(B);
-                    if (((A = !E.bWebsite), (e = !E.bPage), A || e)) {
-                      b(C, !0, o, B);
+                    let D = y(C);
+                    if (((n = !E.bWebsite), (i = !E.bPage), n || i)) {
+                      T(D, !0, a, C);
                       break;
                     }
-                    b(C, !1, o, B);
+                    T(D, !1, a, C);
                   } while (0);
                 });
               }
@@ -590,8 +735,8 @@
     })();
   },
   function (E, C, B) {
-    const { AnsicodeChr: D } = B(4),
-      { UnicodeChr: F } = B(5);
+    const { AnsicodeChr: D } = B(5),
+      { UnicodeChr: F } = B(6);
     function A(E) {
       var C = E.toString(16);
       C = (C = "000" + C.toUpperCase()).substr(C.length - 4);
@@ -976,7 +1121,7 @@
     ];
   },
   function (E, C, B) {
-    var { EventContainer: D } = B(8);
+    var { EventContainer: D } = B(9);
     function F() {
       (this.nativePort = null),
         (this.eventContainer = new D()),
@@ -1224,15 +1369,16 @@
     };
   },
   function (E, C, B) {
-    const { onStartMacThunder: D, queryTabs: F, urlRegexp: A, isValidProtocol: e } = B(0),
-      { onMessageName: t, onMessageMethod: n } = B(11);
+    const { onStartMacThunder: D, queryTabs: F, urlRegexp: A, isValidProtocol: e, trackEvent: t } = B(0),
+      { onMessageName: n, onMessageMethod: i, popupPageTypeConfig: o, popupClickTypeConfig: r } = B(1);
     E.exports = {
       macPopupMain: () => {
         let E,
           C = null,
           B = void 0,
-          i = void 0;
-        const o = (E) => {
+          s = void 0,
+          a = "";
+        const c = (E) => {
             chrome.tabs.query({ active: !0, currentWindow: !0 }, (E) => {
               if (E[0]) {
                 const C = "xl-images.html?tabId=" + E[0].id;
@@ -1240,15 +1386,21 @@
               }
             });
           },
-          r = () => {
+          l = (E) => {
+            E && t(1022, 931, "value1=" + a + "&value2=" + E + "&value5=mac");
+          },
+          d = (E) => {
+            E && t(1022, 930, "value1=" + E + "&value5=mac");
+          },
+          u = () => {
             F({ active: !0, currentWindow: !0 }, (C) => {
               E
                 ? ((...E) => {
-                    chrome.runtime.sendMessage({ name: t.xl_call_function, method: n.removeBlackListWebsite, args: E });
-                  })(i, C.id)
+                    chrome.runtime.sendMessage({ name: n.xl_call_function, method: i.removeBlackListWebsite, args: E });
+                  })(s, C.id)
                 : ((...E) => {
-                    chrome.runtime.sendMessage({ name: t.xl_call_function, method: n.addBlackListWebsite, args: E });
-                  })(i, C.id),
+                    chrome.runtime.sendMessage({ name: n.xl_call_function, method: i.addBlackListWebsite, args: E });
+                  })(s, C.id),
                 (E = !E);
             }),
               setTimeout(() => {
@@ -1258,97 +1410,52 @@
         document.addEventListener("DOMContentLoaded", () => {
           F({ active: !0, currentWindow: !0 }, (F) => {
             F &&
-              chrome.runtime.sendMessage({ name: t.CheckEnabled, url: i, tabId: F.id, topFrame: !0 }, async function (t) {
-                return (B = t.isInstallThunder)
+              chrome.runtime.sendMessage({ name: n.CheckEnabled, url: s, tabId: F.id, topFrame: !0 }, async function (n) {
+                return (B = n.isInstallThunder)
                   ? e(F.url)
-                    ? ((i = A.exec(F.url)[0]),
-                      (C = t.websiteBlacklist),
-                      (E = !!C.includes(i)),
+                    ? ((s = A.exec(F.url)[0]),
+                      (C = n.websiteBlacklist),
+                      (E = !!C.includes(s)),
+                      (a = E ? o.OPEN_NOT_CONTROL_SITE : o.OPEN_CONTROL_SITE),
+                      d(a),
                       (document.body.innerHTML = `\n      <div class="browser-plugin">\n        <div class="browser-plugin__header">\n          <h1>迅雷</h1>\n        </div>\n        <div class="${
                         E ? "browser-plugin__main" : "browser-plugin__main is-active"
-                      }">\n          <i class="icon-internet"></i> \n          <p>${i}<br>\n          ${
+                      }">\n          <i class="icon-internet"></i> \n          <p>${s}<br>\n          ${
                         E ? "该网站已取消下载接管<br>开启后可使用迅雷高速下载" : "已接管该网站的下载链接"
                       }\n          </p>\n        <button id='take-over-website-switch' class="button">${
                         E ? "开启接管本站点" : "取消接管本站点"
                       }</button>\n      </div>\n      <div class="browser-plugin__list">\n        <ul>\n          <li id='start-thunder-li'>打开迅雷</li>\n          <li id='multi-sel-pic'>批量图片下载</li>\n        </ul>\n      </div>\n    </div>\n    `),
-                      document.getElementById("start-thunder-li").addEventListener("click", D),
-                      document.getElementById("multi-sel-pic").addEventListener("click", () => {
-                        o();
+                      document.getElementById("start-thunder-li").addEventListener("click", () => {
+                        l(r.OPEN_XUNLEI), D();
                       }),
-                      void document.getElementById("take-over-website-switch").addEventListener("click", r))
-                    : ((document.body.innerHTML =
+                      document.getElementById("multi-sel-pic").addEventListener("click", () => {
+                        l(r.DOWNLOAD_PICTURE_ENTRANCE_CLICK), c();
+                      }),
+                      void document.getElementById("take-over-website-switch").addEventListener("click", () => {
+                        l(E ? r.OPEN_CONTROL_CURRENT_SITE : r.CANCEL_CONTROL_CURRENT_SITE), u();
+                      }))
+                    : ((a = o.NOT_OPEN_SITE),
+                      d(a),
+                      (document.body.innerHTML =
                         '\n      <div class="browser-plugin">\n        <div class="browser-plugin__header">\n          <h1>迅雷</h1>\n        </div>\n        <div class="browser-plugin__main is-active">\n          <i class="icon-internet"></i> \n          <p>该站点不支持下载接管<br>\n          </p>\n      </div>\n      <div class="browser-plugin__list">\n        <ul>\n          <li id=\'start-thunder-li\'>打开迅雷</li>\n          <li id=\'multi-sel-pic\'>批量图片下载</li>\n        </ul>\n      </div>\n    </div>\n    '),
-                      document.getElementById("start-thunder-li").addEventListener("click", D),
+                      document.getElementById("start-thunder-li").addEventListener("click", () => {
+                        l(r.OPEN_XUNLEI), D();
+                      }),
                       void document.getElementById("multi-sel-pic").addEventListener("click", () => {
-                        o();
+                        l(r.DOWNLOAD_PICTURE_ENTRANCE_CLICK), c();
                       }))
                   : ((document.body.innerHTML =
                       '\n      <div class="xly-dialog-abnormal">\n        <h2>迅雷下载支持异常</h2>\n        <p class="xly-dialog-abnormal__text">您还没安装迅雷，无法支持文件下载，请先安装最新版迅雷。</p>\n        <button id="install-thunder" class="td-button">立即安装</button>\n        <p class="xly-dialog-abnormal__tips">安装后，重启浏览器生效</p>\n      </div>\n    '),
                     void document.getElementById("install-thunder").addEventListener("click", () => {
-                      chrome.tabs.create({ url: "https://mac.xunlei.com/" });
+                      t(1022, 927),
+                        setTimeout(() => {
+                          chrome.tabs.create({ url: "https://mac.xunlei.com/" });
+                        });
                     }));
               });
           });
         });
       }
-    };
-  },
-  function (E, C) {
-    E.exports = {
-      onMessageName: { xl_call_function: "xl_call_function", CheckEnabled: "CheckEnabled", xl_download: "xl_download" },
-      onMessageMethod: {
-        startThunder: "startThunder",
-        addBlackListWebsite: "addBlackListWebsite",
-        removeBlackListWebsite: "removeBlackListWebsite",
-        getWebsiteDomains: "getWebsiteDomains"
-      },
-      recallCarouselInfo: [
-        {
-          index: 1,
-          backgroundClass: "step-1",
-          content: [
-            { class: "bold", text: "第一步：" },
-            { class: "bold", text: "安装“迅雷”客户端" },
-            { text: "1. 已下载，请在浏览器下载列表安装；2. 仅此活动入口安装包有效。" }
-          ],
-          footer: [{ action: "next", class: "blue", text: "下一步" }]
-        },
-        {
-          index: 2,
-          backgroundClass: "step-2",
-          content: [
-            { class: "bold", text: "第二步：" },
-            { class: "bold", text: "安装成功后，点击下方“立即领取”或打开迅雷插件面板领取" },
-            { class: "error", text: "领取失败，本地未安装迅雷或版本过低 <a action='install'>立即安装&gt;</a>" }
-          ],
-          footer: [
-            { action: "pre", text: "上一步" },
-            { action: "receive", class: "blue", text: "立即领取" }
-          ]
-        },
-        {
-          index: 3,
-          backgroundClass: "step-3",
-          content: [
-            { class: "bold", text: "第三步：" },
-            { class: "bold", text: "活动页点击“领取”加速卡" },
-            { text: "（领取条件请以活动页规则为准）" }
-          ],
-          footer: [
-            { action: "pre", text: "上一步" },
-            { action: "close", class: "blue", text: "关闭" }
-          ]
-        }
-      ],
-      toolBarStatusConfig: {
-        ENABLE: { icon: "images/icon19_normal.png", tips: "迅雷Chrome支持", badgeText: "" },
-        EXCEPTION: { icon: "images/icon19_normal.png", tips: "迅雷Chrome支持出现异常", badgeText: "!" },
-        DISABLE: { icon: "images/icon19_disabled.png", tips: "迅雷Chrome支持已被禁用", badgeText: "" },
-        PAGE_DISABLE: { icon: "images/icon19_pageDisable.png", tips: "当前页面已禁用迅雷Chrome支持", badgeText: "" }
-      },
-      recallChannelUrl: "https://down.sandai.net/thunder11/XunLeiWebSetup_extrecall.exe",
-      defaultFluentPlayConfig: { switch: !1, ban_type: [], ban_protocol: [] },
-      defaultDownloadSniffConfig: { switch: !1, ban_type: [".m3u8"], ban_protocol: [] }
     };
   }
 ]);

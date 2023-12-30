@@ -5,7 +5,7 @@
   "name": "Kami for Google Chrome™",
   "short_name": "Kami",
   "default_locale": "en",
-  "version": "2.0.17911",
+  "version": "2.0.18121",
   "description": "Kami is an interactive learning platform empowering students and enhancing the way teachers teach, feedback, and assess.",
   "homepage_url": "https://www.kamiapp.com",
   "icons": {
@@ -62,7 +62,7 @@
     },
     {
       "matches": ["*://*/*"],
-      "js": ["notable/integrations/schoology/content.js"],
+      "js": ["notable/content_global.js"],
       "run_at": "document_end"
     },
     {
@@ -114,6 +114,11 @@
       "matches": ["https://www.canva.com/design/*"],
       "js": ["notable/canva.js"],
       "css": ["notable/canva.css"]
+    },
+    {
+      "matches": ["https://www.teacherspayteachers.com/**"],
+      "js": ["notable/integrations/teachers_pay_teachers/open_with_kami.js"],
+      "css": ["notable/integrations/teachers_pay_teachers/button.css"]
     }
   ],
   "mime_types": ["application/pdf"],
@@ -143,6 +148,7 @@
     "notable/integrations/schoology/page_script.js",
     "notable/integrations/schoology/styles.css",
     "notable/integrations/peardeck/page_script.js",
+    "notable/integrations/teachers_pay_teachers/kami-logo-full-white.svg",
     "notable/office365/outer_page.js",
     "http:/*",
     "https:/*",

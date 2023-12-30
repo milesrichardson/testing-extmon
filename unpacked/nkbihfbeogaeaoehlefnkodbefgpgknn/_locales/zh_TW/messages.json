@@ -479,9 +479,6 @@
   "ensIllegalCharacter": {
     "message": "Illegal Character for ENS."
   },
-  "ensNotFoundOnCurrentNetwork": {
-    "message": "現有網路中找不到 ENS 名稱。嘗試轉換到主要以太坊網路。"
-  },
   "ensRegistrationError": {
     "message": "ENS 名稱註冊錯誤"
   },
@@ -1433,12 +1430,6 @@
   },
   "unknown": {
     "message": "未知"
-  },
-  "unknownCameraError": {
-    "message": "無法存取攝影鏡頭。請再試一次..."
-  },
-  "unknownCameraErrorTitle": {
-    "message": "糟糕！出了些問題...."
   },
   "unknownNetwork": {
     "message": "未知私有網路"

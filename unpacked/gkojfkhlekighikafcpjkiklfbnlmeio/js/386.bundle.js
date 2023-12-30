@@ -9,7 +9,7 @@
       ("use strict");
       (function () {
         var process, zerr, assert;
-        var is_node = typeof module == "object" && module.exports && module.children;
+        var is_node = typeof module == "object" && module.exports && module.children && typeof __webpack_require__ != "function";
         var is_rn =
           (typeof global == "object" && !!global.nativeRequire) || (typeof navigator == "object" && navigator.product == "ReactNative");
         if (!is_node) {
@@ -47,6 +47,7 @@
         !((__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(8425), __webpack_require__(6545), __webpack_require__(1291)]),
         (__WEBPACK_AMD_DEFINE_RESULT__ = function (events, array, zutil) {
           var E = Etask;
+          var GEN_FN = "GeneratorFunction";
           var etask = Etask;
           var env = process.env,
             assign = Object.assign;
@@ -68,7 +69,7 @@
             ctx = ctx || cb_ctx;
             var ms = Date.now() - ctx.start;
             if (longcb_ms && ms > longcb_ms) {
-              zerr("long cb " + ms + "ms: " + et.get_name() + ", " + et.run_state.f.toString().slice(0, 128));
+              zerr("long cb " + ms + "ms: " + et.get_name() + ", " + et.funcs[et.cur_state].toString().slice(0, 128));
             }
             if (perf_enable) {
               var name = et.get_name();
@@ -107,94 +108,66 @@
             return err;
           }
           function Etask(opt, states) {
-            if (!(this instanceof Etask)) return new Etask(opt, states);
-            if (Array.isArray(opt) || typeof opt == "function") {
-              states = opt;
-              opt = undefined;
+            if (!(this instanceof Etask)) {
+              if (Array.isArray(opt) || typeof opt == "function") {
+                states = opt;
+                opt = undefined;
+              }
+              opt = (typeof opt == "string" && { name: opt }) || opt || {};
+              if (typeof states == "function" && states.constructor.name == GEN_FN) return E._generator(null, states, opt);
+              return new Etask(opt, typeof states == "function" ? [states] : states);
             }
-            opt = (typeof opt == "string" && { name: opt }) || opt || {};
-            if (typeof states == "function") {
-              if (states.constructor.name == "GeneratorFunction") return E._generator(null, states, opt);
-              states = [states];
-            }
-            this.cur_state =
-              this.states =
-              this._finally =
-              this.error =
-              this.at_return =
-              this.next_state =
-              this.use_retval =
-              this.running =
-              this.at_continue =
-              this.cancel =
-              this.wait_timer =
-              this.retval =
-              this.run_state =
-              this._stack =
-              this.down =
-              this.up =
-              this.child =
-              this.name =
-              this._name =
-              this.parent =
-              this.cancelable =
-              this.tm_create =
-              this._alarm =
-              this.tm_completed =
-              this.parent_type =
-              this.info =
-              this.then_waiting =
-              this.free =
-              this.parent_guess =
-              this.child_guess =
-              this.wait_retval =
-                undefined;
+            assert(Array.isArray(states), "states must be an array");
+            events.EventEmitter.call(this);
             this.name = opt.name;
-            this._name = this.name === undefined ? "noname" : this.name;
             this.cancelable = opt.cancel;
             this.then_waiting = new Set();
             this.child = new Set();
             this.child_guess = new Set();
             this.cur_state = -1;
-            this.states = [];
-            this._stack = Etask.use_bt ? stack_get() : undefined;
+            this.next_state = -1;
+            this.state0_args = opt.state0_args;
+            this.states_idx = {};
             this.tm_create = Date.now();
-            this.info = {};
-            var idx = (this.states.idx = {});
-            for (var i = 0; i < states.length; i++) {
-              var pstate = states[i],
-                t;
-              assert(typeof pstate == "function", "invalid state type");
-              t = this._get_func_type(pstate);
-              var state = {
-                f: pstate,
-                label: t.label,
-                try_catch: t.try_catch,
-                catch: t.catch,
-                finally: t.finally,
-                cancel: t.cancel,
-                sig: undefined
-              };
-              if (i == 0 && opt.state0_args) {
-                state.f = state.f.bind.apply(state.f, [this].concat(opt.state0_args));
-              }
-              if (state.label) idx[state.label] = i;
-              assert(
-                (state.catch || state.try_catch ? 1 : 0) + (state.finally ? 1 : 0) + (state.cancel ? 1 : 0) <= 1,
-                "invalid multiple state types"
-              );
-              state.sig = state.finally || state.cancel;
-              if (state.finally) {
-                assert(this._finally === undefined, "more than 1 finally$");
+            this.use_retval = false;
+            this.at_return = false;
+            this.free = false;
+            this._stack = Etask.use_bt ? stack_get() : undefined;
+            this._finally = -1;
+            this._cancel = -1;
+            this.error =
+              this.running =
+              this.at_continue =
+              this.wait_timer =
+              this.retval =
+              this.down =
+              this.up =
+              this.parent =
+              this._alarm =
+              this.tm_completed =
+              this.parent_type =
+              this.parent_guess =
+              this.wait_retval =
+              this.generator =
+              this.generator_ctor =
+                undefined;
+            this.funcs = states;
+            this.states = [];
+            for (var i = 0; i < states.length; ++i) {
+              var func = states[i];
+              assert(typeof func == "function", "invalid state type");
+              var type = this._get_state_type(func.name, undefined);
+              if (type.label) this.states_idx[type.label] = i;
+              if (type.finally) {
+                assert(this._finally == -1, "more than 1 finally$");
                 this._finally = i;
               }
-              if (state.cancel) {
-                assert(this.cancel === undefined, "more than 1 cancel$");
-                this.cancel = i;
+              if (type.cancel) {
+                assert(this._cancel == -1, "more than 1 cancel$");
+                this._cancel = i;
               }
-              this.states[i] = state;
+              this.states.push(type);
             }
-            var _this = this;
             E.root.add(this);
             var in_run = E.in_run_top();
             if (opt.spawn_parent) this.spawn_parent(opt.spawn_parent);
@@ -202,6 +175,7 @@
             else if (in_run) this._spawn_parent_guess(in_run);
             if (opt.init) opt.init.call(this);
             if (opt.async) {
+              var _this = this;
               var wait_retval = this._set_wait_retval();
               E.nextTick(function () {
                 if (_this.running !== undefined) return;
@@ -211,6 +185,15 @@
             return this;
           }
           zutil.inherits(Etask, events.EventEmitter);
+          Object.defineProperty(E.prototype, "info", {
+            get: function () {
+              if (!this._info) this._info = {};
+              return this._info;
+            },
+            set: function (v) {
+              this._info = v;
+            }
+          });
           E.prototype._root_remove = function () {
             assert(!this.parent, "cannot remove from root when has parent");
             if (!E.root.delete(this)) assert(0, "etask not in root\n" + E.ps({ MARK: this }));
@@ -245,7 +228,7 @@
             this.free = true;
           };
           E.prototype._call_err = function (e) {
-            E.ef(e);
+            E.ef(e, this);
           };
           E.prototype.emit_safe = function () {
             try {
@@ -262,12 +245,12 @@
             }
           };
           E.prototype._complete = function () {
-            if (zerr.is(zerr.L.DEBUG)) zerr.debug(this._name + ": close");
+            if (zerr.is(zerr.L.DEBUG)) zerr.debug(this.shortname() + ": close");
             this.tm_completed = Date.now();
             this.parent_type = this.up ? "call" : "spawn";
             if (this.error) this.emit_safe("uncaught", this.error);
-            if (this._finally !== undefined) {
-              var ret = this._call_safe(this.states[this._finally].f);
+            if (this._finally !== -1) {
+              var ret = this._call_safe(this.funcs[this._finally]);
               if (E.is_err(ret)) this._set_retval(ret);
             }
             this.emit_safe("finally");
@@ -292,23 +275,19 @@
           };
           E.prototype._next = function (rv) {
             if (this.tm_completed) return true;
-            rv = rv || { ret: undefined, err: undefined };
             var states = this.states;
-            var state = this.at_return ? states.length : this.next_state !== undefined ? this.next_state : this.cur_state + 1;
-            this.retval = rv.ret;
-            this.error = rv.err;
-            if (rv.err !== undefined) {
-              if (zerr.on_exception) zerr.on_exception(rv.err);
-              if (this.run_state && this.run_state.try_catch) {
+            var state = this.at_return ? states.length : this.next_state != -1 ? this.next_state : this.cur_state + 1;
+            this.retval = rv && rv.ret;
+            this.error = rv && rv.err;
+            if (this.error !== undefined) {
+              if (zerr.on_exception) zerr.on_exception(this.error, this);
+              if (this.cur_state > -1 && states[this.cur_state].try_catch) {
                 this.use_retval = true;
                 for (; state < states.length && states[state].sig; state++);
               } else for (; state < states.length && !states[state].catch; state++);
-            } else {
-              for (; state < states.length && (states[state].sig || states[state].catch); state++) {}
-            }
+            } else for (; state < states.length && states[state].aux; state++);
             this.cur_state = state;
-            this.run_state = states[state];
-            this.next_state = undefined;
+            this.next_state = -1;
             if (this.cur_state < states.length) return false;
             this._complete();
             return true;
@@ -337,20 +316,22 @@
             } else if (ret instanceof Etask_err) {
               rv.err = ret.error;
               rv.ret = undefined;
-            } else if (typeof ret.then == "function") {
-              wait_retval = this._set_wait_retval();
-              ret.then(
-                function (_ret) {
-                  _this._got_retval(wait_retval, _ret);
-                },
-                function (err) {
-                  _this._got_retval(wait_retval, E.err(err));
-                }
-              );
-              return true;
-            } else if (typeof ret.next == "function" && typeof ret.throw == "function") {
-              rv.ret = E._generator(ret, this.states[this.cur_state]);
-              return this._handle_rv(rv);
+            } else if (typeof ret == "object") {
+              if (typeof ret.then == "function") {
+                wait_retval = this._set_wait_retval();
+                ret.then(
+                  function (_ret) {
+                    _this._got_retval(wait_retval, _ret);
+                  },
+                  function (err) {
+                    _this._got_retval(wait_retval, E.err(err));
+                  }
+                );
+                return true;
+              } else if (typeof ret.next == "function" && typeof ret.throw == "function") {
+                rv.ret = E._generator(ret, this.funcs[this.cur_state], {});
+                return this._handle_rv(rv);
+              }
             }
             return false;
           };
@@ -384,21 +365,23 @@
           };
           E.prototype._run = function () {
             var rv = { ret: undefined, err: undefined };
+            var _cb_ctx;
             while (1) {
-              var _cb_ctx;
-              var arg = this.error && !this.use_retval ? this.error : this.retval;
-              this.use_retval = false;
               this.running = true;
               rv.ret = rv.err = undefined;
               E.in_run.push(this);
-              if (zerr.is(zerr.L.DEBUG)) zerr.debug(this._name + ":S" + this.cur_state + ": running");
+              if (zerr.is(zerr.L.DEBUG)) zerr.debug(this.shortname() + ":S" + this.cur_state + ": running");
               if (cb_pre) _cb_ctx = cb_pre(this);
               try {
-                rv.ret = this.run_state.f.call(this, arg);
+                rv.ret =
+                  this.state0_args && this.cur_state == 0
+                    ? this.funcs[this.cur_state].apply(this, this.state0_args)
+                    : this.funcs[this.cur_state].call(this, this.error && !this.use_retval ? this.error : this.retval);
               } catch (e) {
                 rv.err = e;
                 if (rv.err instanceof Error) rv.err.etask = this;
               }
+              this.use_retval = false;
               if (cb_post) cb_post(this, _cb_ctx);
               this.running = false;
               E.in_run.pop();
@@ -428,24 +411,16 @@
             if (this.down) assert(0, "caller already has a down\n" + this.ps());
             if (down.parent_guess) down._parent_guess_remove();
             assert(!down.parent, "returned etask already has a spawn parent");
-            assert(!down.up, "returned etask already has a caller parent");
+            assert(!down.up, "returned etask already has a caller parent, consider using wait_ext");
             down._parent_remove();
             this.down = down;
             down.up = this;
           };
-          var func_type_cache = {};
-          E.prototype._get_func_type = function (func, on_fail) {
-            var name = func.name;
-            var type = func_type_cache[name];
+          var state_type_cache = {};
+          E.prototype._get_state_type = function (name, on_fail) {
+            var type = state_type_cache[name];
             if (type) return type;
-            type = func_type_cache[name] = {
-              name: undefined,
-              label: undefined,
-              try_catch: undefined,
-              catch: undefined,
-              finally: undefined,
-              cancel: undefined
-            };
+            type = state_type_cache[name] = new Etask_state_type();
             if (!name) return type;
             type.name = name;
             var n = name.split("$");
@@ -459,7 +434,7 @@
             for (var j = 0; j < f.length; j++) {
               if (f[j] == "try") {
                 type.try_catch = true;
-                if (f[j + 1] == "catch") j++;
+                if (j + 1 < f.length && f[j + 1] == "catch") j++;
               } else if (f[j] == "catch") type["catch"] = true;
               else if (f[j] == "finally" || f[j] == "ensure") type.finally = true;
               else if (f[j] == "cancel") type.cancel = true;
@@ -467,12 +442,29 @@
                 return void (on_fail || assert.bind(null, false))("unknown func name " + name);
               }
             }
+            if (+(type.catch || type.try_catch) + +type.finally + +type.cancel > 1) {
+              return void (on_fail || assert.bind(null, false))("invalid multiple state types");
+            }
+            type.sig = type.finally || type.cancel;
+            type.aux = type.sig || type.catch;
             return type;
           };
+          class Etask_state_type {
+            constructor() {
+              this.name = undefined;
+              this.label = undefined;
+              this.try_catch = false;
+              this.catch = false;
+              this.finally = false;
+              this.cancel = false;
+              this.sig = false;
+              this.aux = false;
+            }
+          }
           E.prototype.spawn = function (child, replace) {
             if (!(child instanceof Etask) && child && typeof child.then == "function") {
               var promise = child;
-              child = etask([
+              child = new Etask({}, [
                 function () {
                   return promise;
                 }
@@ -506,20 +498,20 @@
             this.parent = parent;
           };
           E.prototype.set_state = function (name) {
-            var state = this.states.idx[name];
+            var state = this.states_idx[name];
             assert(state !== undefined, 'named func "' + name + '" not found');
             return (this.next_state = state);
           };
           E.prototype.finally = function (cb) {
-            this.prependListener("finally", cb);
+            if (this.tm_completed) process.nextTick(cb);
+            else this.prependListener("finally", cb);
           };
           E.prototype.goto_fn = function (name) {
             return this.goto.bind(this, name);
           };
           E.prototype.goto = function (name, promise) {
             this.set_state(name);
-            var state = this.states[this.next_state];
-            assert(!state.sig, "goto to sig");
+            assert(!this.states[this.next_state].sig, "goto to sig");
             return this.continue(promise);
           };
           E.prototype.loop = function (promise) {
@@ -579,6 +571,7 @@
               });
             }
             this.emit_safe("wait_on_child");
+            return false;
           };
           E.prototype._got_retval = function (wait_retval, res) {
             if (this.wait_retval !== wait_retval || wait_retval.completed) return;
@@ -615,13 +608,13 @@
           E.prototype._ecancel = function () {
             if (this.tm_completed) return this;
             this.emit_safe("cancel");
-            if (this.cancel !== undefined) return this._call_safe(this.states[this.cancel].f);
+            if (this._cancel != -1) return this._call_safe(this.funcs[this._cancel]);
             if (this.cancelable) return this.return();
           };
           E.prototype._ecancel_child = function () {
             if (!this.child.size) return;
-            var child = Array.from(this.child.values());
-            for (var i = 0; i < child.length; i++) child[i]._ecancel();
+            var children = Array.from(this.child.values());
+            for (var child of children) child._ecancel();
           };
           E.prototype.return_fn = function () {
             return this.return.bind(this);
@@ -629,7 +622,7 @@
           E.prototype.return = function (promise) {
             if (this.tm_completed) return this._set_retval(promise);
             this.at_return = true;
-            this.next_state = undefined;
+            this.next_state = -1;
             return this.continue(promise, true);
           };
           E.prototype.del_alarm = function () {
@@ -639,10 +632,28 @@
             if (a.cb) this.removeListener("sig_alarm", a.cb);
             this._alarm = undefined;
           };
+          E.prototype.upd_alarm = function (ms) {
+            var a = this._alarm;
+            if (!a) return;
+            var cb = a.cb;
+            this.alarm(ms, cb);
+          };
+          E.prototype.inc_alarm = function (ms) {
+            var a = this._alarm;
+            if (!a) return;
+            var cb = a.cb;
+            var left = this.alarm_left();
+            this.alarm(ms + left, cb);
+          };
           E.prototype.alarm_left = function () {
             var a = this._alarm;
             if (!a) return 0;
-            return a.start - Date.now();
+            return a.start + a.ms - Date.now();
+          };
+          E.prototype.alarm_elapsed = function () {
+            var a = this._alarm;
+            if (!a) return 0;
+            return Date.now() - a.start;
           };
           E.prototype._operation_opt = function (opt) {
             if (opt.goto) return { ret: this.goto(opt.goto, opt.ret) };
@@ -675,7 +686,6 @@
             this.et = et;
             this.op = op;
             this.child = opt.child;
-            this.at_child = opt.at_child;
             this.cond = opt.cond;
             this.rethrow = opt.rethrow;
             this.ready = this.completed = undefined;
@@ -708,7 +718,7 @@
               opt = timeout;
               timeout = 0;
             }
-            return new Etask_wait(this, "wait_child", { timeout, child, at_child: null, cond, rethrow: opt && opt.rethrow });
+            return new Etask_wait(this, "wait_child", { timeout, child, cond, rethrow: opt && opt.rethrow });
           };
           E.prototype.throw_fn = function (err) {
             return err ? this.throw.bind(this, err) : this.throw.bind(this);
@@ -731,7 +741,7 @@
             return names.join(" ");
           };
           E.prototype.state_str = function () {
-            return this.cur_state + (this.next_state ? "->" + this.next_state : "");
+            return this.cur_state + (this.next_state >= 0 ? "->" + this.next_state : "");
           };
           E.prototype.get_depth = function () {
             var i = 0,
@@ -844,17 +854,17 @@
             });
             return this;
           };
-          E.resolve = function (res) {
+          E.resolve = function (v) {
             return etask([
               function () {
-                return res;
+                return v;
               }
             ]);
           };
-          E.reject = function (err) {
+          E.reject = function (e) {
             return etask([
               function () {
-                throw err;
+                throw e;
               }
             ]);
           };
@@ -863,6 +873,9 @@
             var wait = this.wait();
             promise.then(wait.continue_fn(), wait.throw_fn());
             return wait;
+          };
+          E.prototype.shortname = function () {
+            return this.name === undefined ? "noname" : this.name;
           };
           E.prototype.longname = function (flags) {
             flags = flags || { TIME: 1 };
@@ -1038,17 +1051,16 @@
           E.for = function (cond, inc, opt, states) {
             if (Array.isArray(opt) || typeof opt == "function") {
               states = opt;
-              opt = {};
+              opt = undefined;
             }
-            if (typeof states == "function") states = [states];
-            opt = opt || {};
-            return etask({ name: "for", cancel: true, init: opt.init_parent }, [
+            states = typeof states == "function" ? [states] : states;
+            return etask({ name: "for", cancel: true, init: opt && opt.init_parent }, [
               function loop() {
                 return !cond || cond.call(this);
               },
               function try_catch$(res) {
                 if (!res) return this.return();
-                return etask({ name: "for_iter", cancel: true, init: opt.init }, states || []);
+                return etask({ name: "for_iter", cancel: true, init: opt && opt.init }, states || []);
               },
               function () {
                 if (this.error) {
@@ -1151,7 +1163,7 @@
             var iter = !Array.isArray(arr_iter)
               ? arr_iter
               : function () {
-                  if (at < arr_iter.length) return cb.call(this, arr_iter[at++]);
+                  if (at < arr_iter.length) return cb.call(this, arr_iter[at], at++);
                 };
             return etask({ name: "all_limit", cancel: true }, [
               function () {
@@ -1264,7 +1276,7 @@
             if (!e_method) e_method = opt.prefix + method;
             var fn = _prototype[method];
             _prototype[e_method] = function () {
-              return etask._apply({ name: e_method, nfn: 1 }, fn, this, arguments);
+              return E._apply({ name: e_method, nfn: 1 }, fn, this, arguments);
             };
           };
           E.wait = function (timeout) {
@@ -1292,14 +1304,20 @@
               states = opt;
               opt = undefined;
             }
-            var is_generator = typeof states == "function" && states.constructor.name == "GeneratorFunction";
-            return function () {
+            var is_gen = typeof states == "function" && states.constructor.name == GEN_FN;
+            var arg_start = +push_this;
+            var wrap = function () {
               var _opt = assign({}, opt);
-              _opt.state0_args = Array.from(arguments);
-              if (push_this) _opt.state0_args.unshift(this);
-              if (is_generator) return E._generator(null, states, _opt);
-              return new Etask(_opt, states);
+              _opt.state0_args = new Array(arg_start + arguments.length);
+              _opt.state0_args[0] = this;
+              for (var i = 0; i < arguments.length; i++) _opt.state0_args[arg_start + i] = arguments[i];
+              if (is_gen) return E._generator(null, states, _opt);
+              return new Etask(_opt, typeof states == "function" ? [states] : states);
             };
+            if (states.name) {
+              Object.defineProperty(wrap, "name", { value: states.name, writable: false });
+            }
+            return wrap;
           }
           E.fn = function (opt, states) {
             return etask_fn(opt, states, false);
@@ -1310,8 +1328,8 @@
           E._generator = function (gen, ctor, opt) {
             opt = opt || {};
             opt.name = opt.name || (ctor && ctor.name) || "generator";
-            if (opt.cancel === undefined) opt.cancel = true;
-            var done;
+            opt.cancel = opt.cancel === undefined ? true : opt.cancel;
+            var done = false;
             return new Etask(opt, [
               function () {
                 this.generator = gen = gen || ctor.apply(this, opt.state0_args || []);
@@ -1348,56 +1366,106 @@
           };
           E.interval = function (opt, states) {
             if (typeof opt == "number") opt = { ms: opt };
-            if (opt.mode == "fixed") {
-              return E.for(
-                null,
-                function () {
-                  return etask.sleep(opt.ms);
-                },
-                states
-              );
-            }
-            if (opt.mode == "smart" || !opt.mode) {
-              var now;
-              return E.for(
-                function () {
-                  now = Date.now();
-                  return true;
-                },
-                function () {
-                  var delay = zutil.clamp(0, now + opt.ms - Date.now(), Infinity);
-                  return etask.sleep(delay);
-                },
-                states
-              );
-            }
-            if (opt.mode == "spawn") {
-              var stopped = false;
-              return etask([
-                function loop() {
-                  etask([
-                    function try_catch$() {
-                      return etask(states);
-                    },
-                    function (res) {
-                      if (!this.error) return;
-                      if (this.error.ebreak !== ebreak_obj) return this.throw(this.error);
-                      stopped = true;
-                    }
-                  ]);
-                },
-                function () {
-                  if (stopped) return this.return();
-                  return etask.sleep(opt.ms);
-                },
-                function () {
-                  if (stopped) return this.return();
-                  return this.goto("loop");
-                }
-              ]);
-            }
+            if (!opt.mode || opt.mode == "smart") return interval_smart(opt, states);
+            if (opt.mode == "fixed") return interval_fixed(opt, states);
+            if (opt.mode == "spawn") return interval_spawn(opt, states);
             throw new Error("unexpected mode " + opt.mode);
           };
+          function interval_smart(opt, states) {
+            var STATE_BEGIN = 0;
+            var STATE_OPS = 1;
+            var STATE_TIMER = 2;
+            var STATE_DONE = 4;
+            var state, w, timer, gap_timer;
+            var init_parent = function () {
+              w = this.wait();
+              this.finally(() => clearTimeout(timer));
+            };
+            const set_state = (for_et, flag) => {
+              if ((state = state | flag) != (STATE_OPS | STATE_TIMER)) return;
+              state = state | STATE_DONE;
+              if (flag == STATE_TIMER) return void for_et.continue();
+              if (gap_timer && zutil.is_timer_refresh) gap_timer.refresh();
+              else {
+                clearTimeout(gap_timer);
+                gap_timer = setTimeout(for_et.continue_fn(), 0);
+              }
+            };
+            return E.for(
+              function () {
+                state = STATE_BEGIN;
+                if (timer && zutil.is_timer_refresh) timer.refresh();
+                else {
+                  clearTimeout(timer);
+                  timer = setTimeout(() => set_state(this, STATE_TIMER), opt.ms);
+                }
+                return true;
+              },
+              function () {
+                set_state(this, STATE_OPS);
+                return w;
+              },
+              { init_parent },
+              states
+            );
+          }
+          function interval_fixed(opt, states) {
+            var w, timer;
+            var init_parent = function () {
+              w = this.wait();
+              this.finally(() => clearTimeout(timer));
+            };
+            return E.for(
+              null,
+              function () {
+                if (timer && zutil.is_timer_refresh) timer.refresh();
+                else {
+                  clearTimeout(timer);
+                  timer = setTimeout(this.continue_fn(), opt.ms);
+                }
+                return w;
+              },
+              { init_parent },
+              states
+            );
+          }
+          function interval_spawn(opt, states) {
+            var w,
+              timer,
+              stopped = false;
+            var init = function () {
+              w = this.wait();
+              this.finally(() => clearTimeout(timer));
+            };
+            states = typeof states == "function" ? [states] : states;
+            return etask({ name: "interval_spawn", cancel: true, init }, [
+              function loop() {
+                etask([
+                  function try_catch$() {
+                    return etask(states);
+                  },
+                  function (res) {
+                    if (!this.error) return;
+                    if (this.error.ebreak !== ebreak_obj) return this.throw(this.error);
+                    stopped = true;
+                  }
+                ]);
+              },
+              function () {
+                if (stopped) return this.return();
+                if (timer && zutil.is_timer_refresh) timer.refresh();
+                else {
+                  clearTimeout(timer);
+                  timer = setTimeout(this.continue_fn(), opt.ms);
+                }
+                return w;
+              },
+              function () {
+                if (stopped) return this.return();
+                return this.goto("loop");
+              }
+            ]);
+          }
           E._class = function (cls) {
             var proto = cls.prototype,
               keys = Object.getOwnPropertyNames(proto);
@@ -1406,7 +1474,7 @@
               var descr = Object.getOwnPropertyDescriptor(proto, key);
               if (descr.get || descr.set) continue;
               var p = proto[key];
-              if (p && p.constructor && p.constructor.name == "GeneratorFunction") proto[key] = E._fn(p);
+              if (typeof p == "function" && p.constructor.name == GEN_FN) proto[key] = E._fn(p);
             }
             return cls;
           };
@@ -1426,7 +1494,7 @@
             return etask(function race() {
               if (!Array.isArray(ets)) zerr.zexit("provided argument is not an array");
               if (!ets.length) return;
-              var race_et = etask.wait();
+              var race_et = E.wait();
               var _this = this;
               function _child_error_handler(e) {
                 race_et.throw(e);
@@ -1469,7 +1537,7 @@
               if (!Array.isArray(ets)) zerr.zexit("provided argument is not an array");
               var length = ets.length;
               if (!length) return;
-              var race_et = etask.wait();
+              var race_et = E.wait();
               var errors = [];
               var _this = this;
               function _child_error_handler(e) {
@@ -1515,4 +1583,4 @@
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/386.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/386.bundle.js.map?build=nopeer_v2

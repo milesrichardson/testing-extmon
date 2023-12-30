@@ -1,16 +1,16 @@
 (self.webpackChunk = self.webpackChunk || []).push([
   [2812],
   {
-    14454: (e, t, r) => {
-      r.d(t, { t: () => a });
-      var n = r(57050),
-        i = r(40154);
-      r(83257);
+    14454: (e, t, n) => {
+      n.d(t, { t: () => a });
+      var r = n(57050),
+        i = n(40154);
+      n(83257);
       function o(e, t) {
         return { decode: e.decode, encode: t.encode };
       }
       function s(e) {
-        return { decode: e.decode, encode: n.yR };
+        return { decode: e.decode, encode: r.yR };
       }
       i.Z_, i.Rx, i.O7, i.dX, i.mI;
       var a,
@@ -19,13 +19,13 @@
         d,
         l,
         p,
-        f = r(85384),
-        v = r(73915),
-        h = r(73975),
-        y = r(95195),
-        m = r(22232),
-        g = r(66268),
-        I = r(98992);
+        f = n(85384),
+        v = n(73915),
+        h = n(73975),
+        y = n(95195),
+        m = n(22232),
+        g = n(66268),
+        I = n(98992);
       (c = a || (a = {})),
         (u = c.Type = g.lY.Type.sduiCardAction),
         (d = v.n(f.z2)(I.eX)),
@@ -37,7 +37,7 @@
             return e;
           }
         })),
-        (p = (0, n.ls)(
+        (p = (0, r.ls)(
           l.decode,
           y.mapLeft(function (e) {
             return new Error(i.ii(e));
@@ -46,75 +46,75 @@
         (c.isSduiCardAction = function (e) {
           return (
             e.type === a.Type &&
-            ((r = e.actions), y.isRight(p(r))) &&
+            ((n = e.actions), y.isRight(p(n))) &&
             "object" == typeof (t = e.scope) &&
             null != t &&
             Object.keys(t).every(function (e) {
-              var r = t[e];
-              return "alertRefs" === e ? Array.isArray(r) : ((0, m.L0)(e), !1);
+              var n = t[e];
+              return "alertRefs" === e ? Array.isArray(n) : ((0, m.L0)(e), !1);
             })
           );
-          var t, r;
+          var t, n;
         });
     },
-    72812: (e, t, r) => {
-      r.d(t, { X: () => D, x: () => x });
-      var n = r(57050),
-        i = r(5114),
-        o = r(22232),
-        s = r(71249),
-        a = r(83078),
-        c = r(95195),
-        u = r(64015),
-        d = r(81531),
-        l = r(46680),
-        p = r(33678),
-        f = r(14454),
-        v = r(9922),
-        h = r(32952),
-        y = r(41398),
-        m = r(85985),
-        g = r(77176),
-        I = r(16118),
-        b = r(60797),
-        _ = r(2834),
-        A = r(19751),
-        w = r(50628),
-        S = r(28811),
-        C = r(78929),
-        F = r(21038),
-        R = r(12054),
-        O = r(31668),
-        E = r(26393);
+    72812: (e, t, n) => {
+      n.d(t, { X: () => U, x: () => x });
+      var r = n(57050),
+        i = n(5114),
+        o = n(22232),
+        s = n(71249),
+        a = n(83078),
+        c = n(95195),
+        u = n(64015),
+        d = n(81531),
+        l = n(46680),
+        p = n(33678),
+        f = n(14454),
+        v = n(9922),
+        h = n(32952),
+        y = n(41398),
+        m = n(85985),
+        g = n(77176),
+        I = n(16118),
+        b = n(60797),
+        _ = n(2834),
+        A = n(19751),
+        w = n(50628),
+        S = n(28811),
+        C = n(78929),
+        F = n(21038),
+        O = n(12054),
+        R = n(31668),
+        E = n(26393);
       function M(e, t) {
         (null == t || t > e.length) && (t = e.length);
-        for (var r = 0, n = new Array(t); r < t; r++) n[r] = e[r];
-        return n;
+        for (var n = 0, r = new Array(t); n < t; n++) r[n] = e[n];
+        return r;
       }
       function P(e, t) {
         if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
       }
       function k(e, t) {
-        for (var r = 0; r < t.length; r++) {
-          var n = t[r];
-          (n.enumerable = n.enumerable || !1), (n.configurable = !0), "value" in n && (n.writable = !0), Object.defineProperty(e, n.key, n);
+        for (var n = 0; n < t.length; n++) {
+          var r = t[n];
+          (r.enumerable = r.enumerable || !1), (r.configurable = !0), "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
         }
       }
-      function j(e, t, r) {
-        return t in e ? Object.defineProperty(e, t, { value: r, enumerable: !0, configurable: !0, writable: !0 }) : (e[t] = r), e;
+      function j(e, t, n) {
+        return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : (e[t] = n), e;
       }
       function G(e) {
         for (var t = 1; t < arguments.length; t++) {
-          var r = null != arguments[t] ? arguments[t] : {},
-            n = Object.keys(r);
+          var n = null != arguments[t] ? arguments[t] : {},
+            r = Object.keys(n);
           "function" == typeof Object.getOwnPropertySymbols &&
-            (n = n.concat(
-              Object.getOwnPropertySymbols(r).filter(function (e) {
-                return Object.getOwnPropertyDescriptor(r, e).enumerable;
+            (r = r.concat(
+              Object.getOwnPropertySymbols(n).filter(function (e) {
+                return Object.getOwnPropertyDescriptor(n, e).enumerable;
               })
             )),
-            n.forEach(function (t) {
-              j(e, t, r[t]);
+            r.forEach(function (t) {
+              j(e, t, n[t]);
             });
         }
         return e;
@@ -125,18 +125,18 @@
           Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t))
             : (function (e, t) {
-                var r = Object.keys(e);
+                var n = Object.keys(e);
                 if (Object.getOwnPropertySymbols) {
-                  var n = Object.getOwnPropertySymbols(e);
+                  var r = Object.getOwnPropertySymbols(e);
                   t &&
-                    (n = n.filter(function (t) {
+                    (r = r.filter(function (t) {
                       return Object.getOwnPropertyDescriptor(e, t).enumerable;
                     })),
-                    r.push.apply(r, n);
+                    n.push.apply(n, r);
                 }
-                return r;
-              })(Object(t)).forEach(function (r) {
-                Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
+                return n;
+              })(Object(t)).forEach(function (n) {
+                Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n));
               }),
           e
         );
@@ -147,20 +147,20 @@
             if (Array.isArray(e)) return e;
           })(e) ||
           (function (e, t) {
-            var r = null == e ? null : ("undefined" != typeof Symbol && e[Symbol.iterator]) || e["@@iterator"];
-            if (null != r) {
-              var n,
+            var n = null == e ? null : ("undefined" != typeof Symbol && e[Symbol.iterator]) || e["@@iterator"];
+            if (null != n) {
+              var r,
                 i,
                 o = [],
                 s = !0,
                 a = !1;
               try {
-                for (r = r.call(e); !(s = (n = r.next()).done) && (o.push(n.value), !t || o.length !== t); s = !0);
+                for (n = n.call(e); !(s = (r = n.next()).done) && (o.push(r.value), !t || o.length !== t); s = !0);
               } catch (e) {
                 (a = !0), (i = e);
               } finally {
                 try {
-                  s || null == r.return || r.return();
+                  s || null == n.return || n.return();
                 } finally {
                   if (a) throw i;
                 }
@@ -171,10 +171,10 @@
           (function (e, t) {
             if (!e) return;
             if ("string" == typeof e) return M(e, t);
-            var r = Object.prototype.toString.call(e).slice(8, -1);
-            "Object" === r && e.constructor && (r = e.constructor.name);
-            if ("Map" === r || "Set" === r) return Array.from(r);
-            if ("Arguments" === r || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)) return M(e, t);
+            var n = Object.prototype.toString.call(e).slice(8, -1);
+            "Object" === n && e.constructor && (n = e.constructor.name);
+            if ("Map" === n || "Set" === n) return Array.from(n);
+            if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return M(e, t);
           })(e, t) ||
           (function () {
             throw new TypeError(
@@ -184,7 +184,7 @@
         );
       }
       var x = (function () {
-        function e(t, r, n, i, o) {
+        function e(t, n, r, i, o) {
           var s = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : new p.A();
           P(this, e),
             j(this, "_sduiService", void 0),
@@ -198,15 +198,15 @@
             j(this, "_sduiAlertIdResolver", void 0),
             j(this, "sduiActionEvents", void 0),
             (this._sduiService = t),
-            (this._sduiManager = r),
-            (this._sduiFeedManager = n),
+            (this._sduiManager = n),
+            (this._sduiFeedManager = r),
             (this._capiClient = i),
             (this._focusedItem = o),
             (this._platformEnvironment = s),
             (this._log = d.C8.Logging.getLogger("SduiViewModelImpl", l.i.DEBUG)),
             (this._subs = new v.w.Keeper()),
             (this.sduiActionEvents = new h.xQ()),
-            (this._sduiAlertIdResolver = D(this._sduiManager.alertIdResolver, this._log)),
+            (this._sduiAlertIdResolver = U(this._sduiManager.alertIdResolver, this._log)),
             this._subs.push(
               this._handleSduiActions(),
               this._handleSduiCardOnFocus(),
@@ -216,15 +216,15 @@
               this._handleSduiOnEmptyEvents()
             );
         }
-        var t, r, u;
+        var t, n, u;
         return (
           (t = e),
-          (r = [
+          (n = [
             {
               key: "onAssistantClose",
               value: function () {
                 var e = this;
-                (0, n.zG)(
+                (0, r.zG)(
                   this._sduiFeedManager.currentFeed,
                   i.map(function (e) {
                     return e.feedId;
@@ -233,7 +233,7 @@
                     return S.a.get(t)(e._sduiManager.state.get());
                   }),
                   i.chain(function (e) {
-                    return (0, n.zG)(
+                    return (0, r.zG)(
                       E.ab.findFirst(e.content, "assistantFeed"),
                       i.filter(function (e) {
                         return Array.isArray(e.onAssistantClose) && e.onAssistantClose.length > 0;
@@ -244,14 +244,14 @@
                     );
                   }),
                   i.map(function (t) {
-                    var r = z(t, 2),
-                      n = r[0],
-                      i = r[1];
+                    var n = z(t, 2),
+                      r = n[0],
+                      i = n[1];
                     return e.sduiActionEvents.next({
                       type: f.t.Type,
-                      sourceId: n.id,
+                      sourceId: r.id,
                       cardId: i.id,
-                      actions: n.onAssistantClose,
+                      actions: r.onAssistantClose,
                       scope: { alertRefs: i.alertIds }
                     });
                   })
@@ -267,12 +267,12 @@
                     y.M(this._focusedItem),
                     m.h(function (e) {
                       var t = z(e, 2),
-                        r = t[0].sduiRootId,
+                        n = t[0].sduiRootId,
                         o = t[1];
-                      return (0, n.zG)(
+                      return (0, r.zG)(
                         o,
                         i.filter(function (e) {
-                          return e === r;
+                          return e === n;
                         }),
                         i.isSome
                       );
@@ -282,13 +282,13 @@
                     })
                   )
                   .subscribe(function (t) {
-                    var r = t.sduiId,
-                      n = t.sduiRootId,
+                    var n = t.sduiId,
+                      r = t.sduiRootId,
                       i = t.emptyStrongAlertRef;
                     return e.sduiActionEvents.next({
                       type: f.t.Type,
-                      sourceId: r,
-                      cardId: n,
+                      sourceId: n,
+                      cardId: r,
                       actions: i.onEmpty,
                       scope: { alertRefs: i.alertIds }
                     });
@@ -336,11 +336,11 @@
                   .pipe(
                     I.G(),
                     g.U(function (t) {
-                      var r = z(t, 1)[0];
-                      return (0, n.zG)(
-                        r,
+                      var n = z(t, 1)[0];
+                      return (0, r.zG)(
+                        n,
                         i.chain(function (t) {
-                          return (0, n.zG)(
+                          return (0, r.zG)(
                             e._sduiManager.findFirstCardWithContent(t),
                             i.filter(C.E.isAssistantCardContent),
                             i.map(function (e) {
@@ -352,23 +352,23 @@
                     }),
                     b.oA,
                     _.b(function (t) {
-                      var r = z(t, 2),
-                        o = r[0],
+                      var n = z(t, 2),
+                        o = n[0],
                         a = o.card,
                         c = o.parentStrongAlertRef,
-                        u = r[1];
+                        u = n[1];
                       e.sduiActionEvents.next({
                         type: f.t.Type,
                         sourceId: a.id,
                         cardId: u,
                         actions: a.onBlur,
                         scope: {
-                          alertRefs: (0, n.zG)(
+                          alertRefs: (0, r.zG)(
                             c,
                             i.map(function (e) {
                               return e.alertIds;
                             }),
-                            i.getOrElse((0, n.a9)(s.cS))
+                            i.getOrElse((0, r.a9)(s.cS))
                           )
                         }
                       });
@@ -385,7 +385,7 @@
                   .pipe(
                     b.oA,
                     g.U(function (t) {
-                      return (0, n.zG)(
+                      return (0, r.zG)(
                         e._sduiManager.findFirstCardWithContent(t),
                         i.map(function (e) {
                           return [e, t];
@@ -395,11 +395,11 @@
                     b.oA
                   )
                   .subscribe(function (t) {
-                    var r = z(t, 2),
-                      o = r[0],
+                    var n = z(t, 2),
+                      o = n[0],
                       s = o.card,
                       a = o.parentStrongAlertRef,
-                      c = r[1];
+                      c = n[1];
                     e._sduiFeedManager.notifyCardFocused(c),
                       e.sduiActionEvents.next({
                         type: f.t.Type,
@@ -407,7 +407,7 @@
                         cardId: c,
                         actions: s.onFocus,
                         scope: {
-                          alertRefs: (0, n.zG)(
+                          alertRefs: (0, r.zG)(
                             a,
                             i.map(function (e) {
                               return e.alertIds;
@@ -429,18 +429,18 @@
                   .pipe(
                     A.skipBy(f.t.eq),
                     _.b(function (t) {
-                      var r = t.cardId,
+                      var n = t.cardId,
                         s = t.sourceId,
                         u = t.actions,
                         d = t.scope;
-                      e._log.info("sdui card action:", { cardId: r, actions: u, scope: d }),
+                      e._log.info("sdui card action:", { cardId: n, actions: u, scope: d }),
                         u.forEach(function (t) {
                           switch (t.type) {
                             case "notify":
                               return void e._sduiService.sendUserAction(t.sourceId || s, t.userAction);
                             case "removeRoot":
                               return void requestAnimationFrame(function () {
-                                e._sduiManager.pushRemovedRoot([F.j.Item.Id.from(r), R.i5.RemoveRootSDUIAction]);
+                                e._sduiManager.pushRemovedRoot([F.j.Item.Id.from(n), O.i5.RemoveRootSDUIAction]);
                               });
                             case "applyAlerts":
                             case "closeCard":
@@ -463,21 +463,22 @@
                             case "newRevision":
                             case "openGrammarlyGo":
                             case "openPerformanceScore":
+                            case "nativeOpenUserSatisfactionFeedback":
                               return;
                             case "removeAlerts":
-                              return void (0, n.zG)(
+                              return void (0, r.zG)(
                                 e._sduiAlertIdResolver(d.alertRefs),
                                 a.bw(function () {
                                   requestAnimationFrame(function () {
-                                    e._sduiManager.pushRemovedAlerts([d.alertRefs.map(F.j.AlertId.from), R.i5.RemoveAlertsSDUIAction]);
+                                    e._sduiManager.pushRemovedAlerts([d.alertRefs.map(F.j.AlertId.from), O.i5.RemoveAlertsSDUIAction]);
                                   });
                                 })
                               );
                             case "openLink":
-                              return void e._platformEnvironment.actions.openPopup(new O.Z(t.url));
+                              return void e._platformEnvironment.actions.openPopup(new R.Z(t.url));
                             case "pushAssistantFeed":
                               return void requestAnimationFrame(function () {
-                                return (0, n.zG)(
+                                return (0, r.zG)(
                                   e._sduiFeedManager.pushFeed(F.j.Item.Id.from(t.feedId), t.cardId),
                                   c.mapLeft(function (t) {
                                     return e._log.error(t), t;
@@ -493,7 +494,7 @@
                                 return e._sduiFeedManager.focusCard(t.cardId);
                               });
                             case "switchView":
-                              var u = { where: t.where, selected: t.selected, sduiRootId: F.j.Item.Id.from(r) };
+                              var u = { where: t.where, selected: t.selected, sduiRootId: F.j.Item.Id.from(n) };
                               return e._switchCallerCard(u), e._switchActiveCard(u), e._switchActiveFeed(u), void e._switchActivePopover(u);
                             case "interactPopover":
                               var l = e._sduiManager.popoverManager.getInteractionActions(t.rootPopoverId, t.popoverViewId, t.interaction);
@@ -541,13 +542,13 @@
               key: "_switchActiveCard",
               value: function (e) {
                 var t = this;
-                (0, n.zG)(
+                (0, r.zG)(
                   this._focusedItem.get(),
                   i.filter(function (t) {
                     return e.sduiRootId !== t;
                   }),
-                  a.bw(function (r) {
-                    return t._sduiManager.pushSwitchView(T(G({}, e), { sduiRootId: F.j.Item.Id.from(r) }));
+                  a.bw(function (n) {
+                    return t._sduiManager.pushSwitchView(T(G({}, e), { sduiRootId: F.j.Item.Id.from(n) }));
                   })
                 );
               }
@@ -556,14 +557,14 @@
               key: "_switchActiveFeed",
               value: function (e) {
                 var t = this;
-                (0, n.zG)(
+                (0, r.zG)(
                   this._sduiFeedManager.currentFeed,
                   i.filter(function (t) {
                     return t.feedId !== e.sduiRootId;
                   }),
-                  a.bw(function (r) {
-                    var n = r.feedId;
-                    return t._sduiManager.pushSwitchView(T(G({}, e), { sduiRootId: n }));
+                  a.bw(function (n) {
+                    var r = n.feedId;
+                    return t._sduiManager.pushSwitchView(T(G({}, e), { sduiRootId: r }));
                   })
                 );
               }
@@ -573,9 +574,9 @@
               value: function (e) {
                 var t = this;
                 this._sduiManager.popoverManager.activePopoverView.pipe(w.P()).subscribe(
-                  a.bw(function (r) {
-                    var n = r.rootPopoverId;
-                    t._sduiManager.pushSwitchView(T(G({}, e), { sduiRootId: n }));
+                  a.bw(function (n) {
+                    var r = n.rootPopoverId;
+                    t._sduiManager.pushSwitchView(T(G({}, e), { sduiRootId: r }));
                   })
                 );
               }
@@ -586,19 +587,19 @@
                 this._subs.dispose();
               }
             }
-          ]) && k(t.prototype, r),
+          ]) && k(t.prototype, n),
           u && k(t, u),
           e
         );
       })();
-      function D(e, t) {
-        return function (r) {
-          return (0, n.zG)(
-            r,
+      function U(e, t) {
+        return function (n) {
+          return (0, r.zG)(
+            n,
             u.UI(e),
             u.vP(i.option),
             a.ew(function () {
-              return t.error("Could not resolve strong alert ref for ".concat(JSON.stringify(r)));
+              return t.error("Could not resolve strong alert ref for ".concat(JSON.stringify(n)));
             }),
             i.filter(u.Od),
             a.ew(function () {

@@ -951,3 +951,6 @@ label span {
     0 0 4px rgba(102, 175, 233, 0.6);
   outline: 0;
 }
+.other-settings.multi-option-mode .section-name {
+  display: inline;
+}

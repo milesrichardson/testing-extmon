@@ -2144,6 +2144,22 @@
     );
   }
 
+  function cachedFactory(factory, size) {
+    const cache = new Map();
+    return (key) => {
+      if (cache.has(key)) {
+        return cache.get(key);
+      }
+      const value = factory(key);
+      cache.set(key, value);
+      if (cache.size > size) {
+        const first = cache.keys().next().value;
+        cache.delete(first);
+      }
+      return value;
+    };
+  }
+
   const simpleIPV6Regex = /\[[0-9:a-zA-Z]+?\]/;
   function isIPV6(url) {
     const openingBracketIndex = simpleIPV6Regex.exec(url);
@@ -2183,56 +2199,139 @@
   function isURLMatched(url, urlTemplate) {
     const isFirstIPV6 = isIPV6(url);
     const isSecondIPV6 = isIPV6(urlTemplate);
-    if (isFirstIPV6 && isSecondIPV6) {
+    if (isRegExp(urlTemplate)) {
+      const regexp = createRegExp(urlTemplate);
+      return regexp ? regexp.test(url) : false;
+    } else if (isFirstIPV6 && isSecondIPV6) {
       return compareIPV6(url, urlTemplate);
     } else if (!isFirstIPV6 && !isSecondIPV6) {
-      const regex = createUrlRegex(urlTemplate);
-      return regex !== null && Boolean(url.match(regex));
+      return matchURLPattern(url, urlTemplate);
     }
     return false;
   }
-  function createUrlRegex(urlTemplate) {
+  const URL_CACHE_SIZE = 32;
+  const prepareURL = cachedFactory((url) => {
+    let parsed;
     try {
-      urlTemplate = urlTemplate.trim();
-      const exactBeginning = urlTemplate[0] === "^";
-      const exactEnding = urlTemplate[urlTemplate.length - 1] === "$";
-      const hasLastSlash = /\/\$?$/.test(urlTemplate);
-      urlTemplate = urlTemplate
-        .replace(/^\^/, "")
-        .replace(/\$$/, "")
-        .replace(/^.*?\/{2,3}/, "")
-        .replace(/\?.*$/, "")
-        .replace(/\/$/, "");
-      let slashIndex;
-      let beforeSlash;
-      let afterSlash;
-      if ((slashIndex = urlTemplate.indexOf("/")) >= 0) {
-        beforeSlash = urlTemplate.substring(0, slashIndex);
-        afterSlash = urlTemplate.replace(/\$/g, "").substring(slashIndex);
-      } else {
-        beforeSlash = urlTemplate.replace(/\$/g, "");
-      }
-      let result = exactBeginning ? "^(.*?\\:\\/{2,3})?" : "^(.*?\\:\\/{2,3})?([^/]*?\\.)?";
-      const hostParts = beforeSlash.split(".");
-      result += "(";
-      for (let i = 0; i < hostParts.length; i++) {
-        if (hostParts[i] === "*") {
-          hostParts[i] = "[^\\.\\/]+?";
-        }
-      }
-      result += hostParts.join("\\.");
-      result += ")";
-      if (afterSlash) {
-        result += "(";
-        result += afterSlash.replace("/", "\\/");
-        result += ")";
-      }
-      result += exactEnding ? "(\\/?(\\?[^/]*?)?)$" : `(\\/${hasLastSlash ? "" : "?"}.*?)$`;
-      return new RegExp(result, "i");
-    } catch (e) {
+      parsed = new URL(url);
+    } catch (err) {
       return null;
     }
+    const { hostname, pathname, protocol, port } = parsed;
+    const hostParts = hostname.split(".").reverse();
+    const pathParts = pathname.split("/").slice(1);
+    if (!pathParts[pathParts.length - 1]) {
+      pathParts.splice(pathParts.length - 1, 1);
+    }
+    return {
+      hostParts,
+      pathParts,
+      port,
+      protocol
+    };
+  }, URL_CACHE_SIZE);
+  const URL_MATCH_CACHE_SIZE = 32 * 1024;
+  const preparePattern = cachedFactory((pattern) => {
+    if (!pattern) {
+      return null;
+    }
+    const exactStart = pattern.startsWith("^");
+    const exactEnd = pattern.endsWith("$");
+    if (exactStart) {
+      pattern = pattern.substring(1);
+    }
+    if (exactEnd) {
+      pattern = pattern.substring(0, pattern.length - 1);
+    }
+    let protocol = "";
+    const protocolIndex = pattern.indexOf("://");
+    if (protocolIndex > 0) {
+      protocol = pattern.substring(0, protocolIndex + 1);
+      pattern = pattern.substring(protocolIndex + 3);
+    }
+    const slashIndex = pattern.indexOf("/");
+    const host = slashIndex < 0 ? pattern : pattern.substring(0, slashIndex);
+    let hostName = host;
+    let port = "*";
+    const portIndex = host.indexOf(":");
+    if (portIndex >= 0) {
+      hostName = host.substring(0, portIndex);
+      port = host.substring(portIndex + 1);
+    }
+    const hostParts = hostName.split(".").reverse();
+    const path = slashIndex < 0 ? "" : pattern.substring(slashIndex + 1);
+    const pathParts = path.split("/");
+    if (!pathParts[pathParts.length - 1]) {
+      pathParts.splice(pathParts.length - 1, 1);
+    }
+    return {
+      hostParts,
+      pathParts,
+      port,
+      exactStart,
+      exactEnd,
+      protocol
+    };
+  }, URL_MATCH_CACHE_SIZE);
+  function matchURLPattern(url, pattern) {
+    const u = prepareURL(url);
+    const p = preparePattern(pattern);
+    if (
+      !(u && p) ||
+      p.hostParts.length > u.hostParts.length ||
+      (p.exactStart && p.hostParts.length !== u.hostParts.length) ||
+      (p.exactEnd && p.pathParts.length !== u.pathParts.length) ||
+      (p.port !== "*" && p.port !== u.port) ||
+      (p.protocol && p.protocol !== u.protocol)
+    ) {
+      return false;
+    }
+    for (let i = 0; i < p.hostParts.length; i++) {
+      const pHostPart = p.hostParts[i];
+      const uHostPart = u.hostParts[i];
+      if (pHostPart !== "*" && pHostPart !== uHostPart) {
+        return false;
+      }
+    }
+    if (
+      p.hostParts.length >= 2 &&
+      p.hostParts.at(-1) !== "*" &&
+      (p.hostParts.length < u.hostParts.length - 1 || (p.hostParts.length === u.hostParts.length - 1 && u.hostParts.at(-1) !== "www"))
+    ) {
+      return false;
+    }
+    if (p.pathParts.length === 0) {
+      return true;
+    }
+    if (p.pathParts.length > u.pathParts.length) {
+      return false;
+    }
+    for (let i = 0; i < p.pathParts.length; i++) {
+      const pPathPart = p.pathParts[i];
+      const uPathPart = u.pathParts[i];
+      if (pPathPart !== "*" && pPathPart !== uPathPart) {
+        return false;
+      }
+    }
+    return true;
   }
+  function isRegExp(pattern) {
+    return pattern.startsWith("/") && pattern.endsWith("/") && pattern.length > 2;
+  }
+  const REGEXP_CACHE_SIZE = 1024;
+  const createRegExp = cachedFactory((pattern) => {
+    if (pattern.startsWith("/")) {
+      pattern = pattern.substring(1);
+    }
+    if (pattern.endsWith("/")) {
+      pattern = pattern.substring(0, pattern.length - 1);
+    }
+    try {
+      return new RegExp(pattern);
+    } catch (err) {
+      return null;
+    }
+  }, REGEXP_CACHE_SIZE);
 
   function Body({ data, actions }) {
     const context = getComponentContext();

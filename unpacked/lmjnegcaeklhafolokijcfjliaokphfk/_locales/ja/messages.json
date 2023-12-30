@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ バイト",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "ja"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "バージョン情報"
@@ -154,7 +154,7 @@
   "adaptative": {
     "message": "$ARG1$ 適応",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +207,13 @@
   "browser_info": {
     "message": "ブラウザー $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +221,7 @@
   "browser_locale": {
     "message": "ブラウザーの言語: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +229,7 @@
   "build_options": {
     "message": "構築オプション: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +237,7 @@
   "built_on": {
     "message": "$ARG1$ で構築",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +248,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ 個のビデオ",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +316,7 @@
   "chrome_premium_hls": {
     "message": "プレミアムステータスなしでは、HLS ダウンロードは前回の $ARG1$ 分後にのみ実行できます。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,7 +339,7 @@
   "chrome_premium_source": {
     "message": "あなたは $ARG1$ でプレミアムユーザーです。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -389,7 +389,7 @@
   "coapp_latest_version": {
     "message": "最新バージョンは $ARG1$ です。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +406,10 @@
   "coapp_outofdate_text": {
     "message": "コンパニオンアプリのバージョン $ARG1$ を実行していますが、この機能にはバージョン $ARG2$ が必要です。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -585,7 +585,7 @@
   "convrule_format": {
     "message": "$ARG1$ をフォーマットする",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -593,7 +593,7 @@
   "convrule_from_domain": {
     "message": "ドメイン $ARG1$ から",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,7 +610,7 @@
   "convrule_with_ext": {
     "message": "拡張子 '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -627,7 +627,7 @@
   "copy_of": {
     "message": "$ARG1$ のコピー",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -635,10 +635,10 @@
   "corrupted_media_file": {
     "message": "ファイル '$ARG2$' からメディア '$ARG1$' の情報を取得できませんでした。ファイルが壊れている可能性があります。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -667,7 +667,7 @@
   "directory_not_exist_body": {
     "message": "フォルダー '$ARG1$' は存在しません。作成してもよろしいですか?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -717,7 +717,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' は存在しますが、フォルダーではありません。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -740,7 +740,7 @@
   "failed_aggregating": {
     "message": "\"$ARG1$\" の集約に失敗しました。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -748,7 +748,7 @@
   "failed_converting": {
     "message": "\"$ARG1$\" の変換に失敗しました。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -756,7 +756,7 @@
   "failed_getting_info": {
     "message": "\"$ARG1$\" から情報を取得できませんでした。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -779,7 +779,7 @@
   "file_generated": {
     "message": "ファイル \"$ARG1$\" が生成されました。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -787,7 +787,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" はダウンロード完了です。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -798,7 +798,7 @@
   "from_domain": {
     "message": "$ARG1$ から",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -809,7 +809,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ ファイル",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -817,7 +817,7 @@
   "gallery_from_domain": {
     "message": "$ARG1$ のギャラリー",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -825,7 +825,7 @@
   "gallery_links_from_domain": {
     "message": "$ARG1$ からのリンク",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -866,7 +866,7 @@
   "lic_mismatch1": {
     "message": "ライセンスは $ARG1$ 用ですが、拡張ブラウザーの構築が指定されていません。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -874,10 +874,10 @@
   "lic_mismatch2": {
     "message": "ライセンスは $ARG1$ 用ですが、拡張構築は $ARG2$ 用です。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -945,7 +945,7 @@
   "network_error_status": {
     "message": "ネットワークエラー - 状態 $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -962,7 +962,7 @@
   "no_audio_in_file": {
     "message": "ファイル $ARG1$ にオーディオストリームがありません。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -991,7 +991,7 @@
   "no_video_in_file": {
     "message": "ファイル $ARG1$ にビデオストリームがありません。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1005,10 +1005,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1025,7 +1025,7 @@
   "overwrite_file": {
     "message": "ファイル '$ARG1$' を上書きしますか?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1045,10 +1045,10 @@
   "platform_info": {
     "message": "基盤となるコンピューター $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1098,10 +1098,10 @@
   "req_locale": {
     "message": "または、アドオンを '$ARG1$' に翻訳するのに役立つかもしれません ($ARG2$ 文字列がありません)?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1241,7 +1241,7 @@
   "version": {
     "message": "バージョン $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1732,7 +1732,7 @@
   "you_downloaded_n_videos": {
     "message": "Video DownloadHelper で $ARG1$ 個目のファイルをダウンロードしました。",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

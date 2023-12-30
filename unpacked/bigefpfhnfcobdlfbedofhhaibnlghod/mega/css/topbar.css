@@ -29,12 +29,16 @@
   padding: 4px;
   width: auto;
 }
+.topbar .fm-import-download-buttons {
+  margin-left: 8px;
+}
 .topbar .searcher-wrapper {
+  -webkit-margin-start: 12px;
   align-items: flex-end;
   display: flex;
   flex-grow: 1;
   justify-content: flex-start;
-  padding: 0 4px;
+  margin-inline-start: 12px;
 }
 .topbar-searcher {
   display: flex;
@@ -119,6 +123,31 @@
   flex-direction: column;
   width: 100%;
 }
+.dropdown-search .dropdown-search-results .dropdown-search-results-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+.dropdown-search .dropdown-search-results .dropdown-search-results-item-filename {
+  display: flex;
+  margin-inline-start: 8px;
+  overflow: hidden;
+}
+.dropdown-search .dropdown-search-results .dropdown-search-results-item-filename span {
+  opacity: 0.7;
+  white-space: pre;
+}
+.dropdown-search .dropdown-search-results .dropdown-search-results-item-filename .suffix {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-search .dropdown-search-results .dropdown-search-results-item-filename .txt-bold {
+  opacity: 1;
+}
+.dropdown-search-results-item-file-icon {
+  height: 24px;
+  text-align: start;
+  width: 22px;
+}
 .dropdown-section .dropdown-section-clear {
   color: var(--stroke-info);
 }
@@ -164,6 +193,9 @@
 .dropdown-section-body .dropdown-section-body-item:hover {
   background: var(--stroke-grey-2);
 }
+.dropdown-results .dropdown-section-body .dropdown-section-body-item:last-child:hover {
+  border-radius: 0 0 18px 18px;
+}
 .dropdown-section-body .dropdown-recently-searched-item {
   display: flex;
 }
@@ -197,6 +229,7 @@
 ;
 }
 .dropdown-item-file {
+  align-items: center;
   display: grid;
   grid-template-columns: auto 1fr;
 }
@@ -210,6 +243,7 @@
 }
 .dropdown-item-text-medium {
   color: var(--text-color-medium);
+  font: var(--text-body2);
 }
 .dropdown-no-recents {
   gap: 16px;
@@ -238,6 +272,33 @@
   font: var(--text-body1);
   font-weight: 400;
   line-height: 30px;
+}
+.dropdown-search .search-loader {
+  display: flex;
+  height: 48px;
+  left: 0;
+  margin: auto;
+  padding: 34px 0;
+  position: relative;
+  top: 0;
+  width: 48px;
+}
+.dropdown-search .search-loader:after {
+  animation: loading 0.75s ease infinite;
+  border: 5px solid #00c0a6;
+  border-radius: 50%;
+  border-top: 5px solid var(--progress-round-fill);
+  content: "";
+  height: 30px;
+  width: 30px;
+}
+@keyframes loading {
+  0% {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }
 .topbar .mini-search {
   -webkit-margin-end: 16px;

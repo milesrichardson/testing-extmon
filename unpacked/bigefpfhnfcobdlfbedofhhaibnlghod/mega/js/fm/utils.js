@@ -341,9 +341,7 @@ MegaUtils.prototype.reload = function megaUtilsReload(force) {
     var apipath = debug && localStorage.apipath;
     var cdlogger = debug && localStorage.chatdLogger;
     const rad = sessionStorage.rad;
-    const allowNullKeys = localStorage.allownullkeys;
-    const megaLiteMode = localStorage.megaLiteMode;
-    const testLargeNodes = localStorage.testLargeNodes;
+    const { mInfinity, megaLiteMode, allownullkeys, testLargeNodes } = localStorage;
 
     force = force || sessionStorage.fmAetherReload;
 
@@ -389,8 +387,11 @@ MegaUtils.prototype.reload = function megaUtilsReload(force) {
     if (hashLogic) {
       localStorage.hashLogic = 1;
     }
-    if (allowNullKeys) {
+    if (allownullkeys) {
       localStorage.allownullkeys = 1;
+    }
+    if (mInfinity) {
+      localStorage.mInfinity = 1;
     }
     if (megaLiteMode) {
       localStorage.megaLiteMode = 1;
@@ -444,6 +445,15 @@ MegaUtils.prototype.reload = function megaUtilsReload(force) {
 
       if (window.delay) {
         delay.abort();
+      }
+
+      if (force === -0x7e080f) {
+        if (mega.infinity) {
+          delete localStorage.mInfinity;
+        } else {
+          localStorage.mInfinity = 1;
+        }
+        delete localStorage.megaLiteMode;
       }
 
       if (window.fmdb) {
@@ -1118,7 +1128,7 @@ MegaUtils.prototype.checkForDuplication = function (id) {
   for (let i = M.v.length; i--; ) {
     const n = M.v[i] || false;
 
-    if (!n.name || missingkeys[n.h]) {
+    if (!n.name || missingkeys[n.h] || n.p !== id) {
       if (d) {
         console.debug("name-less node", missingkeys[n.h], [n]);
       }
@@ -1196,7 +1206,7 @@ mBroadcaster.addListener(
     "use strict";
 
     var dups = M.checkForDuplication(id);
-    if (dups && (dups.files || dups.folders) && !M.gallery) {
+    if (dups && (dups.files || dups.folders)) {
       var $bar = $(".fm-notification-block.duplicated-items-found").addClass("visible");
 
       $(".fix-me-btn", $bar).rebind("click.df", function () {
@@ -1384,6 +1394,20 @@ MegaUtils.prototype.getSafePath = function (path, file) {
 };
 
 /**
+ * Retrieve transfer quota details, i.e. by firing an uq request.
+ */
+MegaUtils.prototype.getTransferQuota = async function () {
+  "use strict";
+  const { result } = await api.req({ a: "uq", xfer: 1, qc: 1 });
+
+  return freeze({
+    ...result,
+    max: result.mxfer,
+    base: result.pxfer
+  });
+};
+
+/**
  * Get the state of the storage
  * @param {Number|Boolean} [force] Do not use the cached u_attr value
  * @return {MegaPromise} 0: Green, 1: Orange (almost full), 2: Red (full)
@@ -1396,7 +1420,7 @@ MegaUtils.prototype.getStorageState = async function (force) {
   }
 
   // XXX: Not using mega.attr.get since we don't want the result indexedDB-cached.
-  const { result } = await api.send({ a: "uga", u: u_handle, ua: "^!usl", v: 1 });
+  const result = await api.send({ a: "uga", u: u_handle, ua: "^!usl", v: 1 });
   if (d) {
     console.debug("getStorageState", result);
     console.assert(result === ENOENT || result.av, `getStorageState: Unexpected response... ${result}`);
@@ -1487,13 +1511,56 @@ MegaUtils.prototype.checkGoingOverStorageQuota = function (opSize) {
 };
 
 /**
+ * Fill LHP storage block caption.
+ * @param {HTMLElement} container storage block element
+ * @param {Number|String} storageQuota available storage quota
+ * @returns {Promise} fulfilled on completion.
+ */
+MegaUtils.prototype.createLeftStorageBlockCaption = async function (container, storageQuota) {
+  "use strict";
+
+  let checked = false;
+  const $storageBlock = $(container);
+  const $popup = $(".js-lp-storage-information-popup", $storageBlock.parent()).removeClass("hidden");
+
+  $storageBlock.rebind("mouseenter.storage-usage", () => {
+    if (!checked) {
+      checked = true;
+
+      Promise.resolve(!u_attr.p || u_attr.tq || this.getTransferQuota()).then((res) => {
+        if (typeof res === "object") {
+          // base transfer quota from getTransferQuota()
+          res = res.base;
+        }
+        if (typeof res === "number") {
+          res = bytesToSize(res, 0);
+        }
+
+        if (u_attr.p) {
+          u_attr.tq = res;
+          $popup.text(l.storage_usage_caption_pro.replace("%1", storageQuota).replace("%2", u_attr.tq));
+        } else {
+          $popup.text(l.storage_usage_caption_free.replace("%1", storageQuota));
+        }
+      });
+    }
+
+    delay("storage-information-popup", () => $popup.addClass("hovered"), 1e3);
+  });
+
+  $storageBlock.rebind("mouseleave.storage-usage", () => {
+    delay.cancel("storage-information-popup");
+    $popup.removeClass("hovered");
+  });
+};
+
+/**
  * Fill left-pane element with storage quota footprint.
  * @param {Object} [data] already-retrieved storage-quota
  * @returns {Promise} fulfilled on completion.
  */
 MegaUtils.prototype.checkLeftStorageBlock = async function (data) {
   "use strict";
-
   const storageBlock = document.querySelector(".js-lp-storage-usage-block");
 
   if (!u_type || !fminitialized || this.storageQuotaCache) {
@@ -1556,6 +1623,11 @@ MegaUtils.prototype.checkLeftStorageBlock = async function (data) {
 
   if (loaderSpinner) {
     loaderSpinner.remove();
+  }
+
+  if (!u_attr.pf && !u_attr.b && (!u_attr.tq || !storageBlock.classList.contains("caption-running"))) {
+    storageBlock.classList.add("caption-running");
+    return this.createLeftStorageBlockCaption(storageBlock, space);
   }
 };
 

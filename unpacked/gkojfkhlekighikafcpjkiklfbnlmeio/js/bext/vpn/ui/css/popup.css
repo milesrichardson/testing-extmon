@@ -893,13 +893,6 @@ html body {
   font-feature-settings: "ss04";
   color: var(--neutral-600);
 }
-.rebranding a {
-  color: var(--neutral-600);
-  text-decoration: underline;
-}
-.rebranding a:hover {
-  color: var(--orange);
-}
 .rebranding .p1-reg {
   font-size: 18px;
   line-height: 136%;
@@ -2086,7 +2079,8 @@ input {
   flex: 0 0 auto;
 }
 .menu-update-your-br,
-.menu-survey {
+.menu-survey,
+.menu-suggest-rebranding {
   font-weight: bold;
   margin-bottom: 16px;
   border-bottom: 1px solid #d4e0ec;
@@ -2101,7 +2095,8 @@ input {
   cursor: pointer;
 }
 .menu-update-your-br .menu-item-alert_btn,
-.menu-survey .menu-item-alert_btn {
+.menu-survey .menu-item-alert_btn,
+.menu-suggest-rebranding .menu-item-alert_btn {
   width: 8px;
   height: 8px;
   position: absolute;
@@ -2112,7 +2107,8 @@ input {
 .menu-update-your-br {
   background-image: url("../img/ic_update.svg");
 }
-.menu-survey {
+.menu-survey,
+.menu-suggest-rebranding {
   background-image: url("../img/ic_star.svg");
 }
 .account-menu {
@@ -3418,7 +3414,7 @@ div.watermark .watermark-upgrade:hover {
   height: 100%;
   width: 100%;
   animation-duration: 300ms;
-  animation-delay: -300ms/2;
+  animation-delay: -150ms;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -3436,7 +3432,7 @@ div.watermark .watermark-upgrade:hover {
   transform: scale(1.3);
 }
 .arrow-btn.hover .arrow-anim {
-  animation-duration: 600ms/3;
+  animation-duration: 200ms;
 }
 .arrow-btn.hover.up-down .arrow-anim {
   animation-name: bounce-up-down;
@@ -3541,6 +3537,9 @@ div.watermark .watermark-upgrade:hover {
 }
 .tooltip.wm-tooltip-logo img:hover {
   transform: scale(1.1);
+}
+.tooltip.wm-tooltip-logo-holiday_season {
+  padding: 0 16px 24px;
 }
 .tooltip.wm-tooltip-bonus {
   cursor: default;
@@ -5091,6 +5090,28 @@ body.tpopup_window .modal-login {
 }
 .tooltip-banner-wrapper .tooltip-banner.mm-banner .plan-btn-small.best-plan .regular-price {
   color: #a3b5ca;
+}
+div.watermark.pos-bottom .tooltip-banner-holiday_season,
+div.watermark.pos-top .tooltip-banner-holiday_season {
+  width: 300px;
+  padding: 0 30px 74px;
+  border-radius: 16px;
+  background-color: #fff;
+  box-shadow:
+    0px 2px 4px 0px rgba(163, 181, 202, 0.05),
+    0px 4px 6px 0px rgba(163, 181, 202, 0.1),
+    0px 8px 12px 0px rgba(163, 181, 202, 0.1),
+    0px 12px 20px 0px rgba(163, 181, 202, 0.2);
+  transform: translateY(var(--tooltip-shift-y));
+}
+.tooltip-banner-holiday_season .tooltip_banner_arrow {
+  display: none;
+}
+div.watermark.pos-bottom .tooltip-banner-holiday_season {
+  --tooltip-shift-y: calc(-100% - 40px);
+}
+div.watermark.pos-top .tooltip-banner-holiday_season {
+  --tooltip-shift-y: calc(100% + 20px);
 }
 .modal-stop_vpn_confirmation {
   width: 456px;
@@ -7743,4 +7764,108 @@ body.tpopup_window .modal-login {
 .country-dropdown:hover {
   color: #ff6400;
   border-color: #ff6400;
+}
+.suggest-rebranding {
+  font-family: Poppins;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto auto 5px auto;
+  padding: 0 16px;
+  width: 344px;
+  height: 64px;
+  box-sizing: border-box;
+  background: url(../img/try_new_bg.svg) no-repeat;
+  background-size: 100%;
+  color: var(--neutral-700);
+  font-size: 14px;
+  line-height: 136%;
+  letter-spacing: 0.14px;
+  font-weight: 500;
+}
+.premium-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+.premium-banner .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.premium-banner .image {
+  width: 229px;
+  height: 154px;
+  background-size: cover;
+  background-image: url(../img/tree_balls.png);
+}
+.premium-banner .title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.267px;
+  color: var(--neutral-700);
+  margin: 40px auto 8px;
+  text-align: center;
+}
+.premium-banner .text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+.premium-banner .cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  margin-top: 24px;
+  padding: 0 40px;
+  background-color: var(--orange);
+  border: none;
+  outline: none;
+  border-radius: 24px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.178px;
+  cursor: pointer;
+}
+.premium-banner .cta svg {
+  margin-left: 8px;
+}
+.premium-banner .cta svg path {
+  fill: #fff;
+}
+.premium-banner.logo .image {
+  width: 104px;
+  height: 104px;
+  background-image: url(../img/tree_ball.png);
+}
+.premium-banner.logo .title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.46;
+  margin: 12px auto 4px;
+}
+.premium-banner.logo .text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.34;
+}
+.premium-banner.logo .cta {
+  height: 32px;
+  margin-top: 16px;
+  padding: 0 24px;
+  border-radius: 16px;
+  font-size: 12px;
+  letter-spacing: 0;
 }

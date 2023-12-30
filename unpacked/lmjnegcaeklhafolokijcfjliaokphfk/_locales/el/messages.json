@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ Bytes",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "el"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Πληροφορίες"
@@ -154,7 +154,7 @@
   "adaptative": {
     "message": "Προσαρμοστικό $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +207,13 @@
   "browser_info": {
     "message": "Πρόγραμμα περιήγησης $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +221,7 @@
   "browser_locale": {
     "message": "Γλώσσα προγράμματος περιήγησης: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +229,7 @@
   "build_options": {
     "message": "Επιλογές έκδοσης: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +237,7 @@
   "built_on": {
     "message": "Δημιουργήθηκε: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +248,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ βίντεο",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +316,7 @@
   "chrome_premium_hls": {
     "message": "Εκτός λειτουργίας Premium, μια HLS λήψη δεν μπορεί να γίνει αν δεν περάσουν $ARG1$ λεπτά από την προηγούμενη",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,7 +339,7 @@
   "chrome_premium_source": {
     "message": "Είστε χρήστης Premium μέσω $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -389,7 +389,7 @@
   "coapp_latest_version": {
     "message": "Η πιο πρόσφατη διαθέσιμη έκδοση είναι η $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +406,10 @@
   "coapp_outofdate_text": {
     "message": "Εκτελείτε τη Συνοδό Εφαρμογή με έκδοση $ARG1$ αλλά αυτή η δυνατότητα απαιτεί την έκδοση $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -585,7 +585,7 @@
   "convrule_format": {
     "message": "προς τη μορφή $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -593,7 +593,7 @@
   "convrule_from_domain": {
     "message": "από τον ιστότοπο $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,7 +610,7 @@
   "convrule_with_ext": {
     "message": "με επέκταση '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -627,7 +627,7 @@
   "copy_of": {
     "message": "Αντίγραφο του $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -635,10 +635,10 @@
   "corrupted_media_file": {
     "message": "Απέτυχε η λήψη πληροφοριών για το μέσο '$ARG1$' από το αρχείο '$ARG2$'. Το αρχείο ίσως έχει υποστεί ζημιά.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -667,7 +667,7 @@
   "directory_not_exist_body": {
     "message": "Ο φάκελος '$ARG1$' δεν υπάρχει, να δημιουργηθεί;",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -717,7 +717,7 @@
   "error_not_directory": {
     "message": "Το '$ARG1$' υπάρχει, αλλά δεν είναι φάκελος",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -740,7 +740,7 @@
   "failed_aggregating": {
     "message": "Αποτυχία συγχώνευσης του \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -748,7 +748,7 @@
   "failed_converting": {
     "message": "Αποτυχία μετατροπής του \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -756,7 +756,7 @@
   "failed_getting_info": {
     "message": "Αποτυχία λήψης πληροφοριών από το \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -779,7 +779,7 @@
   "file_generated": {
     "message": "Το αρχείο \"$ARG1$\" δημιουργήθηκε.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -787,7 +787,7 @@
   "file_ready": {
     "message": "Το \"$ARG1$\" είναι τώρα έτοιμο",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -798,7 +798,7 @@
   "from_domain": {
     "message": "Από $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -809,7 +809,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ αρχεία",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -817,7 +817,7 @@
   "gallery_from_domain": {
     "message": "Γκαλερί από το $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -825,7 +825,7 @@
   "gallery_links_from_domain": {
     "message": "Σύνδεσμοι απ' το $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -866,7 +866,7 @@
   "lic_mismatch1": {
     "message": "Η άδεια χρήσης είναι για το $ARG1$ αλλά η έκδοση browser της επέκτασης δεν έχει καθοριστεί",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -874,10 +874,10 @@
   "lic_mismatch2": {
     "message": "Η άδεια χρήσης είναι για το $ARG1$ αλλά η έκδοση της επέκτασης είναι για το $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -945,7 +945,7 @@
   "network_error_status": {
     "message": "Σφάλμα δικτύου - κατάσταση $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -962,7 +962,7 @@
   "no_audio_in_file": {
     "message": "Δεν υπάρχει ροή ήχου στο αρχείο $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -991,7 +991,7 @@
   "no_video_in_file": {
     "message": "Δεν υπάρχει ροή βίντεο στο αρχείο $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1005,10 +1005,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1025,7 +1025,7 @@
   "overwrite_file": {
     "message": "Να τροποποιηθεί το υπάρχον αρχείο '$ARG1$';",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1045,10 +1045,10 @@
   "platform_info": {
     "message": "Πλατφόρμα $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1098,10 +1098,10 @@
   "req_locale": {
     "message": "Ή ίσως να βοηθήσετε στη μετάφραση του πρόσθετου στα '$ARG1$' (λείπουν $ARG2$ φράσεις);",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1241,7 +1241,7 @@
   "version": {
     "message": "Έκδοση $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1732,7 +1732,7 @@
   "you_downloaded_n_videos": {
     "message": "Μόλις κατεβάσατε επιτυχώς το $ARG1$ο σας βίντεο με τον Video DownloadHelper.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

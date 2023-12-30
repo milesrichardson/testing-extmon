@@ -104,7 +104,7 @@
       var n = o(65238),
         a = o(38465),
         i = o(97340),
-        s = o(70185);
+        s = o(71262);
       const r = {
           [n.fC.SEARCH_IN_CENTER]: {
             name: "Search in center intro",
@@ -275,12 +275,12 @@
         a = o(95220),
         i = o(68122),
         s = o(80809);
-      const r = () => Promise.resolve().then(o.bind(o, 70185));
+      const r = () => Promise.resolve().then(o.bind(o, 71262));
       function d() {
         return {
           name: "Welcome",
           progressBarText: "Welcome",
-          component: () => o.e(6744).then(o.bind(o, 36744)),
+          component: () => o.e(9586).then(o.bind(o, 89586)),
           subStepProps: {
             heading: "Welcome to Momentum",
             subheading:
@@ -340,7 +340,7 @@
       function c() {
         return {
           name: "Ready",
-          component: () => o.e(4736).then(o.bind(o, 14736)),
+          component: () => o.e(6691).then(o.bind(o, 26691)),
           progressBarText: "Ready",
           customCss: " .tour .tour-fullscreen .cta { max-width: 100ch; }",
           subStepProps: {
@@ -358,7 +358,7 @@
       const u = {
         legacyId: "29195944-06AE-4067-9CE1-96014D80B27F",
         name: "Introduction",
-        component: () => o.e(4719).then(o.bind(o, 24719)),
+        component: () => o.e(3283).then(o.bind(o, 13283)),
         disabledBrowsers: ["Mobile"],
         transitionName: "fade",
         hideOtherApps: !0,
@@ -517,13 +517,13 @@
         d = o(35746),
         l = o(16730),
         c = o(96046);
-      const u = () => Promise.resolve().then(o.bind(o, 70185));
+      const u = () => Promise.resolve().then(o.bind(o, 71262));
       let p = !1;
       const g = {
         legacyId: "C6D78F5E-470F-4F12-A139-4A80FDF3EC13",
         name: "Plus Introduction",
         plusSubscriptionTimeGate: "2022-06-05T00:00:00.000Z",
-        component: () => o.e(4719).then(o.bind(o, 24719)),
+        component: () => o.e(3283).then(o.bind(o, 13283)),
         onCreated: () => {
           (p = "true" === localStorage.getItem("pomodoro-showing")),
             (window.onbeforeunload = () => {
@@ -546,7 +546,7 @@
           {
             name: "Welcome",
             progressBarText: "Welcome",
-            component: () => o.e(6744).then(o.bind(o, 36744)),
+            component: () => o.e(9586).then(o.bind(o, 89586)),
             subStepProps: {
               subheading:
                 "Welcome to Momentum Plus, your all-in-one command center to help you beat distractions and achieve your goals more consistently.",
@@ -755,7 +755,7 @@
           {
             name: "Ready",
             progressBarText: "Ready",
-            component: () => o.e(4736).then(o.bind(o, 14736)),
+            component: () => o.e(6691).then(o.bind(o, 26691)),
             subStepProps: {
               heading: "Build Momentum",
               subheading: "Ready to get more Momentum towards your biggest goals?",
@@ -772,10 +772,12 @@
       };
       var h = o(81405);
       function b() {
+        var e, t;
         return {
           feature: "notifications",
-          notification_id: m.models.notificationManager.displayed[0].get("notification_id") + "-2",
-          group_id: m.models.notificationManager.displayed[0].get("group_id")
+          notification_id:
+            (null === (e = m.models.notificationManager.displayed[0]) || void 0 === e ? void 0 : e.get("notification_id")) + "-2",
+          group_id: null === (t = m.models.notificationManager.displayed[0]) || void 0 === t ? void 0 : t.get("group_id")
         };
       }
       const y = {
@@ -817,24 +819,24 @@
             f.capture("upgrade step complete", { name: e.name.toLowerCase(), is_paid_event: !!e.completionIsPaidEvent });
           },
           firstSubStep: () => (m.isLoggedIn() ? 1 : 0),
-          component: () => o.e(6822).then(o.bind(o, 56822)),
+          component: () => o.e(102).then(o.bind(o, 10102)),
           hideOtherApps: !0,
           customCss: ".progress { visibility: hidden; }",
           transition: "slide-left-fade",
           reverseTransition: "slide-right-fade",
           customWidth: 800,
           customHeight: 650,
-          sidebar: () => Promise.all([o.e(115), o.e(6065)]).then(o.bind(o, 16065)),
+          sidebar: () => Promise.all([o.e(229), o.e(1603)]).then(o.bind(o, 11603)),
           subSteps: [
             {
-              component: () => o.e(8215).then(o.bind(o, 82537)),
+              component: () => o.e(1994).then(o.bind(o, 11994)),
               name: "Email",
               interceptNextStep: !0,
               hasSaleBanner: !0,
               customCss: ".modal { background: white !important; }"
             },
             {
-              component: () => o.e(3335).then(o.bind(o, 93335)),
+              component: () => o.e(13).then(o.bind(o, 80013)),
               name: "Plan",
               interceptNextStep: !0,
               hasSaleBanner: !0,
@@ -843,7 +845,7 @@
               customCss: ".modal { background: white !important; }"
             },
             {
-              component: () => o.e(2425).then(o.bind(o, 72425)),
+              component: () => o.e(7032).then(o.bind(o, 47032)),
               completionIsPaidEvent: !0,
               name: "Payment",
               hideFooter: !0,
@@ -854,7 +856,7 @@
               customCss: ".modal { max-height: 95vh; overflow: auto !important; background: white !important; }"
             },
             {
-              component: () => o.e(9726).then(o.bind(o, 99726)),
+              component: () => o.e(2092).then(o.bind(o, 72092)),
               completionIsPaidEvent: !0,
               interceptNextStep: !0,
               name: "Thanks",
@@ -864,28 +866,28 @@
           ]
         },
         M = {
-          [n.os.UPSELL_AI_CHAT]: { name: "AiChat", component: () => Promise.all([o.e(5962), o.e(7910)]).then(o.bind(o, 97910)) },
-          [n.os.UPSELL_AUTOFOCUS]: { name: "Autofocus", component: () => Promise.all([o.e(5962), o.e(506)]).then(o.bind(o, 20506)) },
-          [n.os.UPSELL_BALANCE_MODE]: { name: "Balance Mode", component: () => Promise.all([o.e(5962), o.e(1932)]).then(o.bind(o, 51932)) },
-          [n.os.UPSELL_COUNTDOWNS]: { name: "Countdown", component: () => Promise.all([o.e(5962), o.e(8212)]).then(o.bind(o, 88212)) },
-          [n.os.UPSELL_MANTRAS]: { name: "Mantra", component: () => Promise.all([o.e(5962), o.e(8817)]).then(o.bind(o, 38817)) },
-          [n.os.UPSELL_METRICS]: { name: "Metrics", component: () => Promise.all([o.e(5962), o.e(6247)]).then(o.bind(o, 96247)) },
-          [n.os.UPSELL_MULTI_TODO]: { name: "MultiTodo", component: () => Promise.all([o.e(5962), o.e(9540)]).then(o.bind(o, 69540)) },
-          [n.os.UPSELL_NOTES]: { name: "Notes", component: () => Promise.all([o.e(5962), o.e(3516)]).then(o.bind(o, 13516)) },
-          [n.os.UPSELL_PHOTOS]: { name: "Photos", component: () => Promise.all([o.e(5962), o.e(2579)]).then(o.bind(o, 62579)) },
-          [n.os.UPSELL_POMODORO]: { name: "Pomodoro", component: () => Promise.all([o.e(5962), o.e(7094)]).then(o.bind(o, 37094)) },
-          [n.os.UPSELL_QUOTES]: { name: "Quotes", component: () => Promise.all([o.e(5962), o.e(531)]).then(o.bind(o, 70531)) },
-          [n.os.UPSELL_SOUNDSCAPES]: { name: "Soundscapes", component: () => Promise.all([o.e(5962), o.e(4496)]).then(o.bind(o, 84496)) },
-          [n.os.UPSELL_TAB_GROUPS]: { name: "Tab Groups", component: () => Promise.all([o.e(5962), o.e(6629)]).then(o.bind(o, 76629)) },
-          [n.os.UPSELL_TAB_STASH]: { name: "Tab Stash", component: () => Promise.all([o.e(5962), o.e(3327)]).then(o.bind(o, 43327)) },
-          [n.os.UPSELL_THEMES]: { name: "Themes", component: () => Promise.all([o.e(5962), o.e(8154)]).then(o.bind(o, 88154)) },
+          [n.os.UPSELL_AI_CHAT]: { name: "AiChat", component: () => Promise.all([o.e(5195), o.e(4296)]).then(o.bind(o, 44296)) },
+          [n.os.UPSELL_AUTOFOCUS]: { name: "Autofocus", component: () => Promise.all([o.e(5195), o.e(3946)]).then(o.bind(o, 93946)) },
+          [n.os.UPSELL_BALANCE_MODE]: { name: "Balance Mode", component: () => Promise.all([o.e(5195), o.e(604)]).then(o.bind(o, 10604)) },
+          [n.os.UPSELL_COUNTDOWNS]: { name: "Countdown", component: () => Promise.all([o.e(5195), o.e(1396)]).then(o.bind(o, 31396)) },
+          [n.os.UPSELL_MANTRAS]: { name: "Mantra", component: () => Promise.all([o.e(5195), o.e(827)]).then(o.bind(o, 60827)) },
+          [n.os.UPSELL_METRICS]: { name: "Metrics", component: () => Promise.all([o.e(5195), o.e(7424)]).then(o.bind(o, 7424)) },
+          [n.os.UPSELL_MULTI_TODO]: { name: "MultiTodo", component: () => Promise.all([o.e(5195), o.e(6700)]).then(o.bind(o, 96700)) },
+          [n.os.UPSELL_NOTES]: { name: "Notes", component: () => Promise.all([o.e(5195), o.e(438)]).then(o.bind(o, 90438)) },
+          [n.os.UPSELL_PHOTOS]: { name: "Photos", component: () => Promise.all([o.e(5195), o.e(8071)]).then(o.bind(o, 28071)) },
+          [n.os.UPSELL_POMODORO]: { name: "Pomodoro", component: () => Promise.all([o.e(5195), o.e(3491)]).then(o.bind(o, 3491)) },
+          [n.os.UPSELL_QUOTES]: { name: "Quotes", component: () => Promise.all([o.e(5195), o.e(1011)]).then(o.bind(o, 31011)) },
+          [n.os.UPSELL_SOUNDSCAPES]: { name: "Soundscapes", component: () => Promise.all([o.e(5195), o.e(1976)]).then(o.bind(o, 41976)) },
+          [n.os.UPSELL_TAB_GROUPS]: { name: "Tab Groups", component: () => Promise.all([o.e(5195), o.e(2578)]).then(o.bind(o, 92578)) },
+          [n.os.UPSELL_TAB_STASH]: { name: "Tab Stash", component: () => Promise.all([o.e(5195), o.e(6498)]).then(o.bind(o, 76498)) },
+          [n.os.UPSELL_THEMES]: { name: "Themes", component: () => Promise.all([o.e(5195), o.e(7154)]).then(o.bind(o, 57154)) },
           [n.os.UPSELL_TODO_INTEGRATIONS]: {
             name: "Todo Integrations",
-            component: () => Promise.all([o.e(5962), o.e(4817), o.e(2769)]).then(o.bind(o, 52769))
+            component: () => Promise.all([o.e(5195), o.e(4817), o.e(962)]).then(o.bind(o, 50962))
           },
-          [n.os.UPSELL_WEATHER]: { name: "Weather", component: () => Promise.all([o.e(5962), o.e(9727)]).then(o.bind(o, 79727)) },
-          [n.os.UPSELL_WORLD_CLOCKS]: { name: "World Clocks", component: () => Promise.all([o.e(5962), o.e(6293)]).then(o.bind(o, 16293)) },
-          [n.os.PLUS_GATE]: { name: "Plus Features", component: () => Promise.all([o.e(5962), o.e(2552)]).then(o.bind(o, 2552)) }
+          [n.os.UPSELL_WEATHER]: { name: "Weather", component: () => Promise.all([o.e(5195), o.e(4566)]).then(o.bind(o, 74566)) },
+          [n.os.UPSELL_WORLD_CLOCKS]: { name: "World Clocks", component: () => Promise.all([o.e(5195), o.e(1567)]).then(o.bind(o, 61567)) },
+          [n.os.PLUS_GATE]: { name: "Plus Features", component: () => Promise.all([o.e(5195), o.e(254)]).then(o.bind(o, 50254)) }
         };
       Object.values(M).forEach((e) => {
         (e.name = "Upsell: " + e.name), (e.getPlanInfo = !0);
@@ -894,7 +896,7 @@
       var w = o(68122);
       const T = {
         name: "Tab Stash Onboarding",
-        component: () => o.e(4719).then(o.bind(o, 24719)),
+        component: () => o.e(3283).then(o.bind(o, 13283)),
         event: "tabStash:opened",
         userCreatedTimeGate: o(51740)._R,
         transitionName: "fade",
@@ -909,10 +911,10 @@
         subSteps: [
           {
             name: "Tab Stash",
-            component: () => Promise.resolve().then(o.bind(o, 70185)),
+            component: () => Promise.resolve().then(o.bind(o, 71262)),
             subStepProps: {
               heading: "",
-              component: () => o.e(2855).then(o.bind(o, 42855)),
+              component: () => o.e(1074).then(o.bind(o, 11074)),
               arrow: "left-above",
               maskDefinitions: [{ padding: [10], targetElements: ".tabs .app" }],
               elementReadyCheck: () => document.querySelector(".tabs .app-popup:not(.slide-down-fade-enter-active)"),
@@ -926,7 +928,7 @@
       var D = o(14333);
       const N = {
           name: "Plus Offer",
-          component: () => Promise.all([o.e(115), o.e(6640), o.e(2425), o.e(4442), o.e(3994)]).then(o.bind(o, 33994)),
+          component: () => Promise.all([o.e(229), o.e(4139), o.e(7032), o.e(4442), o.e(8298)]).then(o.bind(o, 8298)),
           getPlanInfo: !0,
           hideOtherApps: !0,
           subSteps: [
@@ -957,7 +959,7 @@
           [n.os.UPGRADE]: v,
           [n.os.SEARCH_IN_CENTER_NOTIFICATION]: y,
           [n.os.PLUS_OFFER]: N,
-          [n.os.REFRESH_MODAL]: { name: "Refresh Modal", component: () => o.e(9299).then(o.bind(o, 19299)) },
+          [n.os.REFRESH_MODAL]: { name: "Refresh Modal", component: () => o.e(9253).then(o.bind(o, 49253)) },
           [n.os.SAFARI_VERSION]: {
             name: "Safari Version Notification",
             headerText: "Want Momentum as your start page?",
@@ -969,13 +971,13 @@
           },
           [n.os.SAFARI_ACCOUNT]: {
             name: "Safari account modal",
-            component: () => o.e(9933).then(o.bind(o, 49933)),
+            component: () => o.e(3105).then(o.bind(o, 73105)),
             customCss: ".step-container { background: white; } .modal { --modal-height: auto!important; }",
             transitionName: "fade"
           },
           [n.os.PERMISSION_REQUEST]: {
             name: "Permission request",
-            component: () => o.e(7648).then(o.bind(o, 17648)),
+            component: () => o.e(8971).then(o.bind(o, 68971)),
             transitionName: "fade"
           },
           [n.os.TAB_STASH_ONBOARDING]: T,
@@ -1000,7 +1002,7 @@
         a = o(40531),
         i = o(95220),
         s = o(15106);
-      const r = () => Promise.resolve().then(o.bind(o, 70185));
+      const r = () => Promise.resolve().then(o.bind(o, 71262));
       function d({
         subheading:
           e = "We’ve unlocked our premium dashboard features for 30 days to help you get more organized, motivated, and focused to beat distractions!"
@@ -1009,8 +1011,8 @@
           name: "Intro",
           progressBarText: "Intro",
           lockProgressBar: !0,
-          component: () => o.e(6744).then(o.bind(o, 36744)),
-          subStepProps: { subheading: e, component: () => o.e(7900).then(o.bind(o, 57900)) }
+          component: () => o.e(9586).then(o.bind(o, 89586)),
+          subStepProps: { subheading: e, component: () => o.e(6856).then(o.bind(o, 46856)) }
         };
       }
       function l({
@@ -1129,14 +1131,14 @@
       } = {}) {
         return {
           name: "Ready",
-          component: () => o.e(4736).then(o.bind(o, 14736)),
+          component: () => o.e(6691).then(o.bind(o, 26691)),
           progressBarText: "Ready",
           subStepProps: { subheading: e, buttonText: t, bannerHeading: n, bannerSubheading: a, bannerButtonText: i, bannerButtonLink: s }
         };
       }
       const g = {
         name: "Tour",
-        component: () => o.e(4719).then(o.bind(o, 24719)),
+        component: () => o.e(3283).then(o.bind(o, 13283)),
         customCss: ` .top-row { padding-top: ${a.ax.bookmarksVisible ? 10 : 46}px; `,
         getPlanInfo: !0,
         transitionName: "fade-overlay",
@@ -1230,7 +1232,7 @@
           }
           async _getNextStep() {
             for (let t in this.allocatedDefinitions) {
-              if (!this.allocatedDefinitions.hasOwnProperty(t)) continue;
+              if (!Object.prototype.hasOwnProperty.call(this.allocatedDefinitions, t)) continue;
               let o = this.allocatedDefinitions[t];
               if (!o.event && (await this._stepCanBeShown(o))) {
                 var e;
@@ -1381,7 +1383,7 @@
     60617: (e, t, o) => {
       "use strict";
       o.d(t, { a: () => n });
-      const n = (0, o(28692).Q_)("modal", {
+      const n = (0, o(63420).Q_)("modal", {
         state: () => ({ activeStep: {}, activeSubStepIndex: 0 }),
         getters: { stepActive: (e) => !!Object.keys(e.activeStep).length }
       });
@@ -1392,14 +1394,14 @@
       var n = o(99437);
       const a = new n.Z.observable({}),
         i = new Proxy(a, {
-          get: (e, t) => (e.hasOwnProperty(t) || n.Z.set(e, t, m.models.customization.getComputedSetting(t)), e[t]),
+          get: (e, t) => (Object.prototype.hasOwnProperty.call(e, t) || n.Z.set(e, t, m.models.customization.getComputedSetting(t)), e[t]),
           set: () => (
             console.warn('Computed settings cannot be set by reactiveCustomization. Instead set persistent settings with "persistent"'), !1
           )
         }),
         s = new n.Z.observable({}),
         r = new Proxy(s, {
-          get: (e, t) => (e.hasOwnProperty(t) || n.Z.set(e, t, m.models.customization.get(t)), e[t]),
+          get: (e, t) => (Object.prototype.hasOwnProperty.call(e, t) || n.Z.set(e, t, m.models.customization.get(t)), e[t]),
           set: (e, t, o) => (m.models.customization.save(t, o), n.Z.set(e, t, o), !0)
         });
       function d(e = {}) {
@@ -1424,7 +1426,7 @@
       o.d(t, { Z: () => n });
       const n = o(99437).Z.observable({ globalPlaying: !1, globalVolume: 50, tracks: {}, fadeDuration: 500, random: !1 });
     },
-    34659: (e, t, o) => {
+    75474: (e, t, o) => {
       "use strict";
       o.r(t), o.d(t, { default: () => r });
       var n = o(8081),
@@ -1450,7 +1452,7 @@
         clocks: () => n(o.e(1554).then(o.bind(o, 71554))),
         focus: () => n(o.e(5711).then(o.bind(o, 85711))),
         linksViewStateStore: () => n(o.e(9968).then(o.bind(o, 89968))),
-        linksStore: () => n(o.e(3370).then(o.bind(o, 23370))),
+        linksStore: () => n(o.e(1886).then(o.bind(o, 71886))),
         tabsViewStateStore: () => n(o.e(5140).then(o.bind(o, 85140))),
         tabsStore: () => n(o.e(3943).then(o.bind(o, 63943)))
       };
@@ -1464,7 +1466,7 @@
         })(n || (n = {}));
       const a = n;
     },
-    70185: (e, t, o) => {
+    71262: (e, t, o) => {
       "use strict";
       o.r(t), o.d(t, { default: () => i });
       var n = function () {
@@ -1691,15 +1693,15 @@
           }
         }
       };
-      o(48697);
+      o(19381);
       const i = (0, o(51900).Z)(a, n, [], !1, null, "674d557f", null).exports;
     },
-    48697: (e, t, o) => {
-      var n = o(34659);
+    19381: (e, t, o) => {
+      var n = o(75474);
       n.__esModule && (n = n.default),
         "string" == typeof n && (n = [[e.id, n, ""]]),
         n.locals && (e.exports = n.locals),
-        (0, o(45346).Z)("2a30f348", n, !1, { ssrId: !0 });
+        (0, o(45346).Z)("28589230", n, !1, { ssrId: !0 });
     },
     13377: (e) => {
       "use strict";

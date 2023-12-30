@@ -2,7 +2,7 @@
   var e = {
       1267: (e, T, t) => {
         "use strict";
-        t.d(T, { C: () => d, D: () => s, ob: () => a, v: () => r }),
+        t.d(T, { D: () => y, E: () => d, F: () => r, G: () => s, rb: () => a, w: () => n }),
           Object.freeze({
             LicenseStateUnknown: 0,
             LicenseStateFree: 1,
@@ -15,82 +15,90 @@
           Object.freeze([2, 4, 6]);
         const a = "MSG_RECORDS_GET",
           s = "MSG_DEBUG_TEST_CHANNEL",
-          d = "MSG_DEBUG_TEST_CHANNEL_RESPONSE",
-          r = "MSG_COLOR_SCHEME_CHANGED";
+          d = "MSG_DEBUG_STAGING_CHANNEL",
+          r = "MSG_DEBUG_TEST_CHANNEL_RESPONSE",
+          y = "MSG_DEBUG_STAGING_CHANNEL_RESPONSE",
+          n = "MSG_COLOR_SCHEME_CHANGED";
       },
-      3032: (e, T, t) => {
+      6381: (e, T, t) => {
         "use strict";
-        t.d(T, { b: () => r }), t(5722);
+        t.d(T, { b: () => y, c: () => n }), t(5722);
         var a = t(4846),
           s = t(1267);
-        const d = (e, T, t, s = 2e4) => {
-          if (document.getElementById("malwarebytes-root")) return void console.log("Already displaying a notification");
-          let d = null;
-          !(function () {
-            (d = document.createElement("div")),
-              (d.tabIndex = -1),
-              (d.style.position = "fixed"),
-              (d.style.bottom = "auto"),
-              (d.style.right = "0"),
-              (d.style.top = "0"),
-              (d.style.left = "0"),
-              (d.style.zIndex = "2147483647"),
-              (d.style.width = "100%"),
-              (d.id = "malwarebytes-root");
-            const r = d.attachShadow({ mode: "closed" });
-            document.body.insertBefore(d, document.body.firstChild),
-              fetch(a.chrome.runtime.getURL(e))
-                .then((e) => e.text())
-                .then((e) => {
-                  try {
-                    for (const e of T) {
-                      let T = document.createElement(e.type);
-                      T.setAttribute("rel", "stylesheet"),
-                        T.setAttribute("href", e.ref),
-                        e.media && T.setAttribute("media", e.media),
-                        r.appendChild(T);
+        a.chrome.i18n.getUILanguage().split("-")[0];
+        const d = (e, T = document) =>
+            e.forEach(({ id: e, msg: t, sub: s = null }) => {
+              const d = T.getElementById(e);
+              d && (d.textContent = a.chrome.i18n.getMessage(t, s));
+            }),
+          r = (e, T, t, s = 2e4) => {
+            if (document.getElementById("malwarebytes-root")) return void console.log("Already displaying a notification");
+            let d = null;
+            !(function () {
+              (d = document.createElement("div")),
+                (d.tabIndex = -1),
+                (d.style.position = "fixed"),
+                (d.style.bottom = "auto"),
+                (d.style.right = "0"),
+                (d.style.top = "0"),
+                (d.style.left = "0"),
+                (d.style.zIndex = "2147483647"),
+                (d.style.width = "100%"),
+                (d.id = "malwarebytes-root");
+              const r = d.attachShadow({ mode: "closed" });
+              document.body.insertBefore(d, document.body.firstChild),
+                fetch(a.chrome.runtime.getURL(e))
+                  .then((e) => e.text())
+                  .then((e) => {
+                    try {
+                      for (const e of T) {
+                        let T = document.createElement(e.type);
+                        T.setAttribute("rel", "stylesheet"),
+                          T.setAttribute("href", e.ref),
+                          e.media && T.setAttribute("media", e.media),
+                          r.appendChild(T);
+                      }
+                    } catch (e) {
+                      console.error("Error while injecting links", e);
                     }
-                  } catch (e) {
-                    console.error("Error while injecting links", e);
-                  }
-                  const a = new DOMParser().parseFromString(e, "text/html");
-                  let s = document.createElement("div");
-                  r.appendChild(s),
-                    (s.className = "top-container"),
-                    (s.style.display = "flex"),
-                    (s.style.padding = "10px"),
-                    (s.style.right = "0"),
-                    (s.style.position = "absolute");
-                  let y = document.createElement("div");
-                  (y.className = "row-container"), (y.style.width = "100%"), (y.style.display = "flex"), (y.style.margin = "5 5 5 5");
-                  let n = document.createElement("div"),
-                    M = document.createElement("div");
-                  s.appendChild(y),
-                    y.appendChild(n),
-                    y.appendChild(M),
-                    (n.style.flex = "1"),
-                    (M.style.flex = "0 0 auto"),
-                    M.appendChild(a.body);
-                  const m = r.querySelector("#mb-close");
-                  m &&
-                    m.addEventListener("click", () => {
-                      for (console.log("closing notification"); document.getElementById("malwarebytes-root"); )
-                        document.getElementById("malwarebytes-root").remove();
-                      d = null;
-                    }),
-                    t(r);
-                })
-                .catch((e) => {
-                  console.error("Error while fetching notification page", e);
-                });
-            let y = setTimeout(function () {
-              let e = document.getElementById("malwarebytes-root");
-              e && e.remove(), clearTimeout(y), (d = null);
-            }, s);
-          })();
-        };
-        function r() {
-          let e = { type: s.ob };
+                    const a = new DOMParser().parseFromString(e, "text/html");
+                    let s = document.createElement("div");
+                    r.appendChild(s),
+                      (s.className = "top-container"),
+                      (s.style.display = "flex"),
+                      (s.style.padding = "10px"),
+                      (s.style.right = "0"),
+                      (s.style.position = "absolute");
+                    let y = document.createElement("div");
+                    (y.className = "row-container"), (y.style.width = "100%"), (y.style.display = "flex"), (y.style.margin = "5 5 5 5");
+                    let n = document.createElement("div"),
+                      M = document.createElement("div");
+                    s.appendChild(y),
+                      y.appendChild(n),
+                      y.appendChild(M),
+                      (n.style.flex = "1"),
+                      (M.style.flex = "0 0 auto"),
+                      M.appendChild(a.body);
+                    const m = r.querySelector("#mb-close");
+                    m &&
+                      m.addEventListener("click", () => {
+                        for (console.log("closing notification"); document.getElementById("malwarebytes-root"); )
+                          document.getElementById("malwarebytes-root").remove();
+                        d = null;
+                      }),
+                      t(r);
+                  })
+                  .catch((e) => {
+                    console.error("Error while fetching notification page", e);
+                  });
+              let y = setTimeout(function () {
+                let e = document.getElementById("malwarebytes-root");
+                e && e.remove(), clearTimeout(y), (d = null);
+              }, s);
+            })();
+          };
+        function y() {
+          let e = { type: s.rb };
           (e.payload = { min: Date.today().addDays(-30).toString("MMM d yyyy"), max: Date.today().toString("MMM d yyyy") }),
             a.chrome.runtime.sendMessage(e, function (e) {
               if (!e || e.error)
@@ -100,7 +108,7 @@
                 const T = Object.entries(e.success.records);
                 let t = T.reduce((e, T) => e + T[1].ads, 0),
                   s = T.reduce((e, T) => e + T[1].malwares, 0),
-                  r = T.reduce((e, T) => e + T[1].scams, 0),
+                  d = T.reduce((e, T) => e + T[1].scams, 0),
                   y = T.reduce((e, T) => e + (T[1].content || 0), 0);
                 const n = [
                   { type: "link", ref: a.chrome.runtime.getURL("app/eventpages/monthly-notification.css"), media: "" },
@@ -111,16 +119,16 @@
                   },
                   { type: "link", ref: "https://fonts.googleapis.com/css?family=Roboto&display=swap", media: "" }
                 ];
-                d(
+                r(
                   "app/eventpages/monthly-notification.html",
                   n,
                   (e) => {
                     [
                       { key: "ads", total: t },
                       { key: "malware", total: s },
-                      { key: "scams", total: r },
+                      { key: "scams", total: d },
                       { key: "content", total: y }
-                    ].map((T) => {
+                    ].forEach((T) => {
                       (e.querySelector(`#${T.key}`).innerText = T.total.toLocaleString()),
                         0 === T.total && e.querySelector(`#${T.key}`).classList.add("disabled");
                     });
@@ -130,8 +138,35 @@
               }
             });
         }
+        function n(e) {
+          const T = [
+            { type: "link", ref: a.chrome.runtime.getURL("app/eventpages/clipboard-notification.css"), media: "" },
+            {
+              type: "link",
+              ref: a.chrome.runtime.getURL("app/eventpages/clipboard-notification-dark.css"),
+              media: "(prefers-color-scheme: dark)"
+            },
+            { type: "link", ref: "https://fonts.googleapis.com/css?family=Roboto&display=swap", media: "" }
+          ];
+          r(
+            "app/eventpages/clipboard-notification.html",
+            T,
+            (T) => {
+              d(
+                [
+                  { id: "mb-shell-injection-header", msg: "shellInjectionWarningHeader" },
+                  { id: "mb-shell-injection-message", msg: "shellInjectionWarningMessage" },
+                  { id: "mb-disable-shell-warning", msg: "buttonDisableShellWarning" }
+                ],
+                T
+              ),
+                e(T);
+            },
+            2e4
+          );
+        }
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-          a.chrome.runtime.sendMessage({ type: s.v });
+          a.chrome.runtime.sendMessage({ type: s.w });
         });
       },
       4846: (e) => {
@@ -30136,10 +30171,16 @@
     (a.p = (chrome || window.chrome).runtime.getURL("")),
     (() => {
       "use strict";
-      var e = a(3032),
+      var e = a(6381),
         T = a(4846),
         t = a(1267);
-      function s(e, T) {
+      const s = (e) => {
+        e.getElementById("mb-disable-shell-warning").addEventListener("click", async () => {
+          const e = document.getElementById("malwarebytes-root");
+          e && e.remove();
+        });
+      };
+      function d(e, T) {
         console.log("DFM: " + e);
         let t = document.getElementById("job-list");
         if (t) {
@@ -30149,8 +30190,8 @@
       }
       window.addEventListener("load", () => {
         const a = document.getElementById("action"),
-          d = new URL(document.location).searchParams;
-        switch (d.get("action")) {
+          r = new URL(document.location).searchParams;
+        switch (r.get("action")) {
           case "user-group-a":
             a.innerText = "User Group changed to A";
             break;
@@ -30189,8 +30230,15 @@
             break;
           case "test-channel-update":
             (a.innerText = "Test channel update triggered"),
-              s("Starting test channel update", "start-test-channel-update"),
-              T.chrome.runtime.sendMessage({ type: t.D }, function (e) {
+              d("Starting test channel update", "start-test-channel-update"),
+              T.chrome.runtime.sendMessage({ type: t.G }, function (e) {
+                return !e || e.error ? (console.log("DTCU - Error: " + e.error), e.error) : (console.log("DTCU: Done"), e.result);
+              });
+            break;
+          case "staging-channel-update":
+            (a.innerText = "Staging channel update triggered"),
+              d("Starting staging channel update", "start-staging-channel-update"),
+              T.chrome.runtime.sendMessage({ type: t.E }, function (e) {
                 return !e || e.error ? (console.log("DTCU - Error: " + e.error), e.error) : (console.log("DTCU: Done"), e.result);
               });
             break;
@@ -30200,11 +30248,14 @@
           case "trigger-monthly-notification":
             (a.innerText = "The monthly notification triggered"), (0, e.b)();
             break;
+          case "trigger-shell-notification":
+            (a.innerText = "The monthly notification triggered"), (0, e.c)(s);
+            break;
           case "debug-add-allow":
             a.innerText = "Debug add allow";
             break;
           case "set-feature":
-            a.innerText = `Set feature ${d.get("key")} to ${d.get("value")}`;
+            a.innerText = `Set feature ${r.get("key")} to ${r.get("value")}`;
             break;
           case "indexeddb-bulk":
             a.innerText = "Wait for the bulk writer to finish its job (console)";
@@ -30214,7 +30265,11 @@
         }
       }),
         T.chrome.runtime.onMessage.addListener(
-          (e) => (e.type === t.C && (console.debug("OMAL: debugger-page.js received MSG_DEBUG_TEST_CHANNEL_RESPONSE"), s(e.text, e.id)), !0)
+          (e) => (
+            e.type === t.F && (console.debug("OMAL: debugger-page.js received MSG_DEBUG_TEST_CHANNEL_RESPONSE"), d(e.text, e.id)),
+            e.type === t.D && (console.debug("OMAL: debugger-page.js received MSG_DEBUG_STAGING_CHANNEL_RESPONSE"), d(e.text, e.id)),
+            !0
+          )
         );
     })();
 })();

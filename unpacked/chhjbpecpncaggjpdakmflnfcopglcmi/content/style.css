@@ -1,5 +1,5 @@
 /*!
- * Rakuten Cash Back Button v5.35.0
+ * Rakuten Cash Back Button v5.36.1
  * Copyrights 2023 Ebates Inc. dba Rakuten
  */
 .rr-mx-auto {
@@ -911,35 +911,22 @@
   font-weight: 400;
 }
 .rr-t-h1 {
-  font-size: 32px;
-  line-height: 36px;
-}
-.rr-t-h1,
-.rr-t-h1-m {
   font-family: Stag;
+  font-size: 32px;
   font-weight: 300;
-}
-.rr-t-h1-m {
-  font-size: 40px;
-  line-height: 44px;
+  line-height: 36px;
 }
 .rr-t-h2 {
   font-size: 24px;
   line-height: 28px;
 }
 .rr-t-h2,
-.rr-t-h2-l {
-  font-family: Stag;
-  font-weight: 400;
-}
-.rr-t-h2-l {
-  font-size: 40px;
-  line-height: 42px;
-}
 .rr-t-h3 {
   font-family: Stag;
-  font-size: 20px;
   font-weight: 400;
+}
+.rr-t-h3 {
+  font-size: 20px;
   line-height: 24px;
 }
 .rr-t-desktop-banner-s {
@@ -947,6 +934,12 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 28px;
+}
+.rr-t-desktop-banner-l {
+  font-family: Rakuten Sans UI;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 34px;
 }
 .rr-t-link {
   font-size: 16px;
@@ -991,11 +984,25 @@
   font-weight: 400;
   line-height: 16px;
 }
-.rr-t-hero-small {
+.rr-t-hero-small,
+.rr-t-medium-h1 {
   font-family: Stag;
   font-size: 40px;
   font-weight: 300;
   line-height: 44px;
+}
+.rr-t-medium-h2 {
+  font-size: 32px;
+  line-height: 36px;
+}
+.rr-t-medium-h2,
+.rr-t-medium-h3 {
+  font-family: Stag;
+  font-weight: 400;
+}
+.rr-t-medium-h3 {
+  font-size: 28px;
+  line-height: 30px;
 }
 .rr-fw-light {
   font-weight: 300 !important;
@@ -2066,10 +2073,18 @@
   cursor: pointer;
   min-width: auto;
 }
-.rr-action__logo {
-  background: #8529cd no-repeat 50%/24px url(chrome-extension://__MSG_@@extension_id__/img/rakuten/icon-rakuten-white.svg);
-  height: 40px;
-  width: 40px;
+.rr-action__loading {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-name: Rotate;
+  animation-timing-function: linear;
+  border-color: #551b82 #551b82 #b763f9 #b763f9;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 5px;
+  height: 46px;
+  position: absolute;
+  width: 46px;
 }
 .rr-action__text-container {
   height: 40px;
@@ -2082,24 +2097,41 @@
   transition: width 1s;
 }
 .rr-action__text {
-  align-self: center;
   user-select: none;
   white-space: nowrap;
 }
-.rr-action__corner-check {
-  left: -3px;
-  padding: 4px;
-  top: -3px;
+.rr-action__text-small {
+  font-family: Rakuten Sans UI;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: left;
 }
-.rr-action .dot,
 .rr-action__corner-check {
-  background-color: #fff;
+  background-color: #3dc763;
+  border: 2px solid #fff;
   border-radius: 50%;
+  color: #fff;
+  left: -5px;
+  padding: 4px;
   position: absolute;
+  top: -5px;
 }
 .rr-action .dot {
+  background-color: #fff;
+  border-radius: 50%;
   height: 3px;
+  position: absolute;
   width: 3px;
+}
+@keyframes Rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }
 .rr-icon-spin {
   -moz-animation: rr-spin 2s linear infinite;
@@ -2190,9 +2222,40 @@
   padding: 0;
   width: 100%;
 }
+.r-badge--shipping {
+  background-color: #dfeefd;
+  border-color: #29296e;
+  color: #29296e;
+}
+.r-badge--coupons {
+  background-color: #fff2d1;
+  border-color: #575757;
+  color: #575757;
+}
+.rr-product {
+  width: 100%;
+}
+.rr-product__product-logo {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid hsla(0, 0%, 66%, 0.5);
+  height: 48px;
+  width: 48px;
+}
+.rr-product__alert {
+  background: #edf9f0;
+  border: 0.5px solid #cff2d9;
+  color: #1b4940;
+}
+.rr-product__alert__icon {
+  background-color: #cff2d9;
+  border-radius: 16px;
+  color: #009470;
+  flex: 0 0 auto;
+}
 .rab-dropdown {
-  border: 1px solid #b9b9b9;
-  border-radius: 8px;
+  border-top: 1px solid #b9b9b9;
   width: 100%;
 }
 .rab-quick-view__header {
@@ -2217,14 +2280,16 @@
 }
 .rab-quick-view__merchant-logo {
   background: no-repeat 50% / contain;
+  background-origin: content-box;
   border: 1px solid #b9b9b9;
   border-radius: 4px;
   bottom: 0;
-  height: 56px;
+  height: 40px;
   left: 50%;
+  padding: 8px;
   position: absolute;
   transform: translate(-50%, 50%);
-  width: 56px;
+  width: 40px;
 }
 .rab-quick-view .height-enter-active,
 .rab-quick-view .height-leave-active {

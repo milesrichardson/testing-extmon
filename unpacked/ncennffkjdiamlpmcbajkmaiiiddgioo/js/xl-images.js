@@ -46,6 +46,319 @@
     (B.p = ""),
     B((B.s = 3));
 })([
+  function (E, C, B) {
+    const { ThunderEncode: D } = B(6),
+      { videoExtensions: F } = B(9),
+      { XLNativeMessage: A } = B(2),
+      {
+        SUPPORT_REQUEST_TYPE_ARRAY: e,
+        FRAME_REQUEST_TYPE_ARRAY: t,
+        CONTENT_TYPE_ARRAY: n,
+        SUPPORT_MEDIA_EXT_ARRAY: r,
+        FORBIDDEN_File_URL_PROTOCOL_ARRAY: a
+      } = B(10),
+      i = (E) => {
+        if (!E) return;
+        E.data =
+          (function (E) {
+            const C = [];
+            for (let B in E) C.push(encodeURIComponent(name) + "=" + encodeURIComponent(E.key));
+            return C.join("&");
+          })(E.data) || {};
+        let C = E.url,
+          B = { method: E.type };
+        "GET" === E.type
+          ? E.data.length > 0 && (C = E.url + "?" + E.data)
+          : ((B.body = E.data), (B.headers = { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" })),
+          fetch(C, B)
+            .then((C) => {
+              const B = C.status;
+              if (B >= 200 && B < 300) {
+                -1 !== C.headers.get("Content-Type").toLowerCase().indexOf("application/json")
+                  ? C.json()
+                      .then((C) => {
+                        E.success && E.success(C);
+                      })
+                      .catch((C) => {
+                        E.error && E.error(B);
+                      })
+                  : C.text()
+                      .then((C) => {
+                        E.success && E.success(C);
+                      })
+                      .catch((C) => {
+                        E.error && E.error(B);
+                      });
+              }
+            })
+            .catch((C) => {
+              E.error && E.error(-1);
+            });
+      };
+    const o = () => {
+        chrome.runtime.sendMessage({ name: "xl_call_function", method: "startThunder", launchApp: "Thunder" });
+      },
+      s = (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
+      c = (E) => {
+        return Math.floor(E / 60) + "." + Math.floor(E % 60);
+      },
+      l = (E, C) => {
+        const B = C.exec(E);
+        if (B && B[1]) {
+          return decodeURIComponent(B[1]);
+        }
+        return "";
+      };
+    const d = () => window.self !== window.top,
+      u = (E) =>
+        new Promise((C) => {
+          chrome.storage.local.get((B) => {
+            C(E ? B[E] : B);
+          });
+        }),
+      m = new RegExp(
+        '((((http|https)://[^":<>#?&=\\s\\r\\n]+\\.torrent\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|(((http|https)://[^":<>#?&=\\s\\r\\n]+\\.(m3u8|mov|mp4|mpv|m4v|g3p|g32|avi|asf|wmv|avs|flv|mkv|mpg|mpeg|dat|ogm|vob|rm|ts|tp|ifo|nsv|m2ts|3gp|f4v|rmvb|rar|xlsx|xls|doc|docx|epub|pptx|ppt|zip|7z|iso|pdf|exe|dmg|ipa|apk)\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|((?<=[">\\s\\r\\n])((magnet:[^"<>\\s\\r\\n]*xt(\\.[0-9]+)*=urn:((sha1)|(md5)|(btih)|(tree:tiger)|(bitprint)|(ed2k)|(aich)|(kzhash)|(crc32)):[0-9a-zA-Z]{10,}[^"<>\\s\\r\\n]*)|(ed2k://((\\|)|(%7[cC]))file((\\|)|(%7[cC]))[^"<>\\s\\r\\n]+((\\|)|(%7[cC]))[0-9]+((\\|)|(%7[cC]))[0-9a-zA-Z]+((\\|)|(%7[cC]))[^"<>\\s\\r\\n)]*/)|(ftp://[^"<>\\s\\r\\n]+)|((([Tt]hunder)|(qqdl)|([Ff]lashget))://([a-zA-Z0-9\\+/])+={0,2}))(?=["<\\r\\n])))|(((thunder|Thunder):\\/\\/[^\\s\\r\\n"]+?)(?="|\'))',
+        "gi"
+      );
+    const v = /(macintosh|macintel)/i.test(navigator.userAgent);
+    E.exports = {
+      ajax: i,
+      getSrcFromVideoTag: (E) => {
+        let C = void 0;
+        if (E && "video" === E.tagName.toLocaleLowerCase()) {
+          if ((E.src && 0 !== E.src.toLocaleLowerCase().indexOf("blob:") && (C = E.src), !E.children || 0 === E.children.length)) return C;
+          for (let B of E.children)
+            if ("source" === B.tagName.toLocaleLowerCase() && B.src) {
+              0 !== B.src.toLocaleLowerCase().indexOf("blob:") && (C = B.src);
+              break;
+            }
+          return C;
+        }
+      },
+      getAllVideo: async () =>
+        new Promise((E) => {
+          window.onload = () => {
+            const C = document.getElementsByTagName("video");
+            E(C);
+          };
+        }),
+      isMouseInElement: (E, C) => {
+        let B = !1;
+        if (!C) return B;
+        const D = C.getBoundingClientRect();
+        return E.clientX < D.left || E.clientY < D.top || E.clientX > D.right || E.clientY > D.bottom ? B : (B = !0);
+      },
+      macDownFile: function (E) {
+        let C = "";
+        for (const B of E) C += D(B.src) + "\n";
+        (C += new Date().toString()), navigator.clipboard.writeText(C), o();
+      },
+      onStartMacThunder: o,
+      queryTabs: (E, C) => {
+        chrome.tabs.query(E, (E) => {
+          if (E) for (const B of E) B.id >= 0 && C(B);
+        });
+      },
+      setExtStorage: (E, C) => {
+        chrome.storage.local.set({ [E]: C });
+      },
+      getFileUrlSuffix: s,
+      convertSecondsToMinutes: c,
+      getXLChromeExtConfigs: () =>
+        new Promise((E, C) => {
+          i({
+            url: "http://static-xl.a.88cdn.com/json/xl_chrome_ext_config.json",
+            type: "GET",
+            success: function (C) {
+              E(C);
+            },
+            error: function (E) {
+              C(E);
+            }
+          });
+        }),
+      hasClassName: (E, C) => E.classList.value.includes(C),
+      getMatchFileName: l,
+      getUrlInfo: function (E) {
+        let C = "",
+          B = !1;
+        try {
+          const D = new URL(E),
+            A = D.protocol.toLocaleLowerCase() || "",
+            e = D.pathname ? D.pathname.substring(D.pathname.lastIndexOf(".")).toLocaleLowerCase() : "unknown";
+          switch (A) {
+            case "magnet:":
+              C = l(E, /dn=([^&]+)/i);
+              break;
+            case "thunder:":
+              break;
+            case "ed2k:":
+              C = l(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
+              break;
+            case "ftp:":
+              C = E.replace(/\?.*$/, "").replace(/.*\//, "");
+              break;
+            case "http:":
+            case "https:":
+              F.includes(e) && (B = !0),
+                (C = ".m3u8" === e && document.title ? document.title + e : E.replace(/\?.*$/, "").replace(/.*\//, ""));
+          }
+          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e, isInIframe: d() };
+        } catch (E) {}
+      },
+      isInIframe: d,
+      isValidProtocol: (E) => {
+        if (!E) return !1;
+        const C = new URL(E).protocol.toLocaleLowerCase();
+        return "https:" === C || "http:" === C || "ftp:" === C;
+      },
+      generateThunderXUrl: (E) => {
+        return "thunderx://" + btoa(unescape(encodeURIComponent(JSON.stringify(E))));
+      },
+      generateDialogRootId: (E) => "ncennffkjdiamlpmcbajkmaiiiddgioo-prompt" + E,
+      getChromeStorageValue: u,
+      createDownloadTask: (E, C) => {
+        chrome.downloads.download({ url: E, filename: C }, (E) => {
+          chrome.runtime.lastError;
+        });
+      },
+      updateElementToLast: (E) => {
+        if (!E.nextSibling) return;
+        E.parentElement.appendChild(E);
+      },
+      checkNotificationTime: async () => {
+        const E = (await u("lastNotificationTime")) || "",
+          C = new Date().toLocaleDateString();
+        return E !== C && (chrome.storage.local.set({ lastNotificationTime: C }), !0);
+      },
+      checkResourceInConfig: (E, C, B = "") => E.switch && !E.ban_type.includes(C) && !E.ban_protocol.includes(B),
+      isSupportRequestType: (E) => {
+        const C = E.toLowerCase();
+        return e.includes(C);
+      },
+      isFrameRequestType: (E) => {
+        const C = E.toLowerCase();
+        return t.includes(C);
+      },
+      isSupportContentType: (E) => {
+        const C = E.toLowerCase();
+        return n.includes(C);
+      },
+      isSupportMediaExt: (E) => {
+        const C = E.toLowerCase();
+        return r.includes(C);
+      },
+      getUrlFileName: (E) => (E ? decodeURIComponent(E.replace(/\?.*$/, "").replace(/.*\//, "")) : ""),
+      getFileNameExt: (E) => {
+        const C = E.lastIndexOf(".");
+        return -1 !== C ? E.slice(C).toLowerCase() : "";
+      },
+      checkThunderInstall: async () =>
+        new Promise((E, C) => {
+          A.postMessage("GetThunderInfo", [], void 0, function (C, B, D) {
+            E(C && B && B[0].thunderVersion);
+          });
+        }),
+      updateToolBarStatus: (E, C) => {
+        ((E, C) => {
+          const B = { path: E, tabId: C };
+          chrome.action.setIcon(B);
+        })(E.icon, C),
+          ((E, C) => {
+            const B = { title: E, tabId: C };
+            chrome.action.setTitle(B);
+          })(E.tips, C),
+          ((E, C) => {
+            const B = { text: E, tabId: C };
+            chrome.action.setBadgeBackgroundColor({ color: [0, 0, 0, 0] }), chrome.action.setBadgeText(B);
+          })(E.badgeText, C);
+      },
+      getOptionsSettings: async function () {
+        const E = { enable: !1, size: 2 };
+        (this.limitSizeInfo = E), (this.isShortcutEnable = !0), (this.monitorVideo = !0);
+        const C = await u();
+        if (!C) return;
+        void 0 !== C.video_monitor && (this.monitorVideo = C.video_monitor),
+          void 0 !== C.multi_select_shortcut_enable && (this.isShortcutEnable = C.multi_select_shortcut_enable);
+        const B = C["take-over-limit-size-info"];
+        if (!B) return;
+        let D;
+        try {
+          D = JSON.parse(B);
+        } catch (C) {
+          D = E;
+        }
+        (D.size = isNaN(D.size) || D.size < 0 ? 2 : parseInt(D.size, 10)), (this.limitSizeInfo = D);
+      },
+      isForbiddenFileUrlProtocol: (E) => {
+        const { protocol: C } = new URL(E);
+        return !!C && a.includes(C);
+      },
+      statVideoInfo: (E) => {
+        try {
+          for (let C of E) {
+            let E = "",
+              B = "";
+            const D = C.src,
+              F = s(C.src);
+            (B = r.includes(F) ? "direct" : "other"),
+              C.addEventListener("loadedmetadata", () => {
+                E = c(C.duration);
+              }),
+              C.addEventListener("playing", () => {
+                chrome.runtime.sendMessage({
+                  name: "xl_sniff_video_info",
+                  videoType: B,
+                  fileUrlSuffix: F,
+                  videoDuration: E,
+                  videoSrc: D,
+                  stat: "browser_plugin_webpage_video_play"
+                });
+              });
+          }
+        } catch (E) {}
+      },
+      resourceUrlReg: m,
+      trackEvent: (...E) => {
+        chrome.runtime.sendMessage({ name: "xl_call_function", method: "trackEvent", args: E });
+      },
+      xlSendNativeMessage: async (E, C) => {
+        return await chrome.runtime.sendNativeMessage(E, { ua: navigator.userAgent, ...C });
+      },
+      getAllCookies: (E) =>
+        new Promise((C) => {
+          chrome.cookies.getAll(E, (E) => {
+            let B = "";
+            if (E) {
+              for (const C in E) B = B.concat(E[C].name, "=", E[C].value, "; ");
+              C(B);
+            } else C(B);
+          });
+        }),
+      getDispositionFileName: (E) => {
+        var C = new RegExp("filename[^;=\n]*=((['\"]).*?|[^;\n]*)", "g"),
+          B = C.exec(E);
+        if (null === B) return "";
+        var D = C.exec(E),
+          F = null;
+        return (
+          (F = (F = (F = (F = null === D ? B[1] : -1 === D[1].toLowerCase().indexOf("utf-8") ? B[1] : D[1]).replace(
+            /"([^"]*)"/g,
+            "$1"
+          )).replace("UTF-8''", "")).replace("utf-8''", "")),
+          decodeURIComponent(F.replace(/\+/g, ""))
+        );
+      },
+      getNameFromTitle: (E, C, B) => {
+        const D = B || document.title;
+        return D ? D + E : C.replace(/\?.*$/, "").replace(/.*\//, "");
+      },
+      urlRegexp: /^(ftp|http[s]?):\/\/([^\/]*)[\/]?/,
+      domainRegexp: /(.*?\.)?(.*?\..*)/,
+      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" },
+      isMacDevice: v
+    };
+  },
   function (E, C) {
     var B = function () {};
     function D(E) {
@@ -143,7 +456,7 @@
     };
   },
   function (E, C, B) {
-    var { EventContainer: D } = B(0);
+    var { EventContainer: D } = B(1);
     function F() {
       (this.nativePort = null),
         (this.eventContainer = new D()),
@@ -246,263 +559,13 @@
     E.exports = { XLNativeMessage: A };
   },
   function (E, C, B) {
-    const { ThunderEncode: D } = B(6),
-      { videoExtensions: F } = B(9),
-      { XLNativeMessage: A } = B(1),
-      {
-        SUPPORT_REQUEST_TYPE_ARRAY: e,
-        FRAME_REQUEST_TYPE_ARRAY: t,
-        CONTENT_TYPE_ARRAY: n,
-        SUPPORT_MEDIA_EXT_ARRAY: r,
-        FORBIDDEN_File_URL_PROTOCOL_ARRAY: i
-      } = B(10),
-      a = (E) => {
-        if (!E) return;
-        E.data =
-          (function (E) {
-            const C = [];
-            for (let B in E) C.push(encodeURIComponent(name) + "=" + encodeURIComponent(E.key));
-            return C.join("&");
-          })(E.data) || {};
-        let C = E.url,
-          B = { method: E.type };
-        "GET" === E.type
-          ? E.data.length > 0 && (C = E.url + "?" + E.data)
-          : ((B.body = E.data), (B.headers = { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" })),
-          fetch(C, B)
-            .then((C) => {
-              const B = C.status;
-              if (B >= 200 && B < 300) {
-                -1 !== C.headers.get("Content-Type").toLowerCase().indexOf("application/json")
-                  ? C.json()
-                      .then((C) => {
-                        E.success && E.success(C);
-                      })
-                      .catch((C) => {
-                        E.error && E.error(B);
-                      })
-                  : C.text()
-                      .then((C) => {
-                        E.success && E.success(C);
-                      })
-                      .catch((C) => {
-                        E.error && E.error(B);
-                      });
-              }
-            })
-            .catch((C) => {
-              E.error && E.error(-1);
-            });
-      };
-    const o = () => {
-        chrome.runtime.sendMessage({ name: "xl_call_function", method: "startThunder", launchApp: "Thunder" });
-      },
-      s = (E, C) => {
-        const B = C.exec(E);
-        if (B && B[1]) {
-          return decodeURIComponent(B[1]);
-        }
-        return "";
-      };
-    const c = (E) =>
-        new Promise((C) => {
-          chrome.storage.local.get((B) => {
-            C(E ? B[E] : B);
-          });
-        }),
-      l = new RegExp(
-        '((((http|https)://[^":<>#?&=\\s\\r\\n]+\\.torrent\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|(((http|https)://[^":<>#?&=\\s\\r\\n]+\\.(m3u8|mov|mp4|mpv|m4v|g3p|g32|avi|asf|wmv|avs|flv|mkv|mpg|mpeg|dat|ogm|vob|rm|ts|tp|ifo|nsv|m2ts|3gp|f4v|rmvb|rar|xlsx|xls|doc|docx|epub|pptx|ppt|zip|7z|iso|pdf|exe|dmg|ipa|apk)\\b(?![&.-]))(\\??([-a-zA-Z0-9@:;%_\\+,.~#?&//=]*)))|((?<=[">\\s\\r\\n])((magnet:[^"<>\\s\\r\\n]*xt(\\.[0-9]+)*=urn:((sha1)|(md5)|(btih)|(tree:tiger)|(bitprint)|(ed2k)|(aich)|(kzhash)|(crc32)):[0-9a-zA-Z]{10,}[^"<>\\s\\r\\n]*)|(ed2k://((\\|)|(%7[cC]))file((\\|)|(%7[cC]))[^"<>\\s\\r\\n]+((\\|)|(%7[cC]))[0-9]+((\\|)|(%7[cC]))[0-9a-zA-Z]+((\\|)|(%7[cC]))[^"<>\\s\\r\\n)]*/)|(ftp://[^"<>\\s\\r\\n]+)|((([Tt]hunder)|(qqdl)|([Ff]lashget))://([a-zA-Z0-9\\+/])+={0,2}))(?=["<\\r\\n])))|(((thunder|Thunder):\\/\\/[^\\s\\r\\n"]+?)(?="|\'))',
-        "gi"
-      );
-    E.exports = {
-      isMac: () => {
-        const E = navigator.userAgent.toLocaleLowerCase();
-        return !!/macintosh|mac os x/i.test(E);
-      },
-      ajax: a,
-      getSrcFromVideoTag: (E) => {
-        let C = void 0;
-        if (E && "video" === E.tagName.toLocaleLowerCase()) {
-          if ((E.src && 0 !== E.src.toLocaleLowerCase().indexOf("blob:") && (C = E.src), !E.children || 0 === E.children.length)) return C;
-          for (let B of E.children)
-            if ("source" === B.tagName.toLocaleLowerCase() && B.src) {
-              0 !== B.src.toLocaleLowerCase().indexOf("blob:") && (C = B.src);
-              break;
-            }
-          return C;
-        }
-      },
-      getAllVideo: () => {
-        return document.getElementsByTagName("video");
-      },
-      isMouseInElement: (E, C) => {
-        let B = !1;
-        if (!C) return B;
-        const D = C.getBoundingClientRect();
-        return E.clientX < D.left || E.clientY < D.top || E.clientX > D.right || E.clientY > D.bottom ? B : (B = !0);
-      },
-      macDownFile: function (E) {
-        let C = "";
-        for (const B of E) C += D(B.src) + "\n";
-        (C += new Date().toString()), navigator.clipboard.writeText(C), o();
-      },
-      onStartMacThunder: o,
-      queryTabs: (E, C) => {
-        chrome.tabs.query(E, (E) => {
-          if (E) for (const B of E) B.id >= 0 && C(B);
-        });
-      },
-      setExtStorage: (E, C) => {
-        chrome.storage.local.set({ [E]: C });
-      },
-      getFileUrlSuffix: (E) => E.substring(E.lastIndexOf(".") + 1).toLocaleLowerCase(),
-      convertSecondsToMinutes: (E) => {
-        return Math.floor(E / 60) + "." + Math.floor(E % 60);
-      },
-      getXLChromeExtConfigs: () =>
-        new Promise((E, C) => {
-          a({
-            url: "http://static-xl.a.88cdn.com/json/xl_chrome_ext_config.json",
-            type: "GET",
-            success: function (C) {
-              E(C);
-            },
-            error: function (E) {
-              C(E);
-            }
-          });
-        }),
-      hasClassName: (E, C) => E.classList.value.includes(C),
-      getMatchFileName: s,
-      getUrlInfo: function (E) {
-        let C = "",
-          B = !1;
-        try {
-          const D = new URL(E),
-            A = D.protocol.toLocaleLowerCase() || "",
-            e = D.pathname ? D.pathname.substring(D.pathname.lastIndexOf(".")).toLocaleLowerCase() : "unknown";
-          switch (A) {
-            case "magnet:":
-              C = s(E, /dn=([^&]+)/i);
-              break;
-            case "thunder:":
-              break;
-            case "ed2k:":
-              C = s(E, /ed2k:\/\/\|file\|([^|]+)\|/i);
-              break;
-            case "ftp:":
-              C = E.replace(/\?.*$/, "").replace(/.*\//, "");
-              break;
-            case "http:":
-            case "https:":
-              F.includes(e) && (B = !0),
-                (C = ".m3u8" === e && document.title ? document.title + e : E.replace(/\?.*$/, "").replace(/.*\//, ""));
-          }
-          return { fileName: (C = C || document.title), protocol: A, isVideoURL: B, url: E, suffix: e };
-        } catch (E) {}
-      },
-      isInIframe: () => window.self !== window.top,
-      isValidProtocol: (E) => {
-        if (!E) return !1;
-        const C = new URL(E).protocol.toLocaleLowerCase();
-        return "https:" === C || "http:" === C || "ftp:" === C;
-      },
-      generateThunderXUrl: (E) => {
-        return "thunderx://" + btoa(unescape(encodeURIComponent(JSON.stringify(E))));
-      },
-      generateDialogRootId: (E) => "ncennffkjdiamlpmcbajkmaiiiddgioo-prompt" + E,
-      getChromeStorageValue: c,
-      createDownloadTask: (E, C) => {
-        chrome.downloads.download({ url: E, filename: C }, (E) => {
-          chrome.runtime.lastError;
-        });
-      },
-      updateElementToLast: (E) => {
-        if (!E.nextSibling) return;
-        E.parentElement.appendChild(E);
-      },
-      checkNotificationTime: async () => {
-        const E = (await c("lastNotificationTime")) || "",
-          C = new Date().toLocaleDateString();
-        return E !== C && (chrome.storage.local.set({ lastNotificationTime: C }), !0);
-      },
-      checkResourceInConfig: (E, C, B = "") => E.switch && !E.ban_type.includes(C) && !E.ban_protocol.includes(B),
-      isSupportRequestType: (E) => {
-        const C = E.toLowerCase();
-        return e.includes(C);
-      },
-      isFrameRequestType: (E) => {
-        const C = E.toLowerCase();
-        return t.includes(C);
-      },
-      isSupportContentType: (E) => {
-        const C = E.toLowerCase();
-        return n.includes(C);
-      },
-      isSupportMediaExt: (E) => {
-        const C = E.toLowerCase();
-        return r.includes(C);
-      },
-      getUrlFileName: (E) => (E ? decodeURIComponent(E.replace(/\?.*$/, "").replace(/.*\//, "")) : ""),
-      getFileNameExt: (E) => {
-        const C = E.lastIndexOf(".");
-        return -1 !== C ? E.slice(C).toLowerCase() : "";
-      },
-      checkThunderInstall: async () =>
-        new Promise((E, C) => {
-          A.postMessage("GetThunderInfo", [], void 0, function (C, B, D) {
-            E(C && B && B[0].thunderVersion);
-          });
-        }),
-      updateToolBarStatus: (E, C) => {
-        ((E, C) => {
-          const B = { path: E, tabId: C };
-          chrome.action.setIcon(B);
-        })(E.icon, C),
-          ((E, C) => {
-            const B = { title: E, tabId: C };
-            chrome.action.setTitle(B);
-          })(E.tips, C),
-          ((E, C) => {
-            const B = { text: E, tabId: C };
-            chrome.action.setBadgeBackgroundColor({ color: [0, 0, 0, 0] }), chrome.action.setBadgeText(B);
-          })(E.badgeText, C);
-      },
-      getOptionsSettings: async function () {
-        const E = { enable: !1, size: 2 };
-        (this.limitSizeInfo = E), (this.isShortcutEnable = !0), (this.monitorVideo = !0);
-        const C = await c();
-        if (!C) return;
-        void 0 !== C.video_monitor && (this.monitorVideo = C.video_monitor),
-          void 0 !== C.multi_select_shortcut_enable && (this.isShortcutEnable = C.multi_select_shortcut_enable);
-        const B = C["take-over-limit-size-info"];
-        if (!B) return;
-        let D;
-        try {
-          D = JSON.parse(B);
-        } catch (C) {
-          D = E;
-        }
-        (D.size = isNaN(D.size) || D.size < 0 ? 2 : parseInt(D.size, 10)), (this.limitSizeInfo = D);
-      },
-      isForbiddenFileUrlProtocol: (E) => {
-        const { protocol: C } = new URL(E);
-        return !!C && !i.includes(C);
-      },
-      resourceUrlReg: l,
-      urlRegexp: /^(ftp|http[s]?):\/\/([^\/]*)[\/]?/,
-      domainRegexp: /(.*?\.)?(.*?\..*)/,
-      extStorageName: { websiteBlacklistArr: "websiteBlacklistArr" }
-    };
-  },
-  function (E, C, B) {
     E.exports = B(4);
   },
   function (E, C, B) {
     var { stat: D } = B(5);
-    const { isMac: F } = B(2),
-      { macDownFile: A } = B(2);
-    var e, t, n, r, i;
+    const { isMacDevice: F } = B(0),
+      { macDownFile: A } = B(0);
+    var e, t, n, r, a;
     (e = /\s+/),
       (t = "ncennffkjdiamlpmcbajkmaiiiddgioo"),
       (n = ""),
@@ -550,10 +613,10 @@
           };
         }
       }),
-      ((i = function (E) {
+      ((a = function (E) {
         (this.config = Object.assign({}, this.config, E)), this.render();
       }).prototype.config = { min: 0, max: 100, value: 0, range: !1, disabled: !1, theme: "#009688", step: 1 }),
-      (i.prototype.render = function (E) {
+      (a.prototype.render = function (E) {
         var C = this.config,
           B = document.createElement("div");
         if (((B.className = "xl-slider"), C.step < 1 && (C.step = 1), C.max < C.min && (C.max = C.min + C.step), C.range)) {
@@ -596,7 +659,7 @@
             : (this.sliderBtnWrap[0].dataset.value = C.value),
           this.slide();
       }),
-      (i.prototype.slide = function (E, C, B) {
+      (a.prototype.slide = function (E, C, B) {
         var D = this,
           F = D.config,
           A = D.sliderInner,
@@ -606,17 +669,17 @@
           t = D.sliderBtnWrap,
           n = 0,
           r = 100,
-          i = 1,
-          a = 100 / ((F.max - F.min) / Math.ceil(F.step)),
+          a = 1,
+          i = 100 / ((F.max - F.min) / Math.ceil(F.step)),
           o = function (E, C) {
             if (
               ((E = (function (E) {
-                return (E = Math.ceil(E) * a > 100 ? Math.ceil(E) * a : Math.round(E) * a) > 100 ? 100 : E;
+                return (E = Math.ceil(E) * i > 100 ? Math.ceil(E) * i : Math.round(E) * i) > 100 ? 100 : E;
               })(E)),
               0 === C ? (n = E) : (r = E),
               !(r - n <= 0))
             ) {
-              (t[C].style.left = E + "%"), (t[C].style.zIndex = i++);
+              (t[C].style.left = E + "%"), (t[C].style.zIndex = a++);
               var B = s(t[0].offsetLeft),
                 A = F.range ? s(t[1].offsetLeft) : 0;
               (B = B > 100 ? 100 : B), (A = A > 100 ? 100 : A);
@@ -632,9 +695,9 @@
             }
           },
           s = function (E) {
-            var C = ((E / e()) * 100) / a,
-              B = Math.round(C) * a;
-            return E == e() && (B = Math.ceil(C) * a), B;
+            var C = ((E / e()) * 100) / i,
+              B = Math.round(C) * i;
+            return E == e() && (B = Math.ceil(C) * i), B;
           },
           c = function (E, C) {
             var B = t[E].querySelector(".xl-slider-wrap-value");
@@ -644,19 +707,19 @@
               n = F.left - e.left - e.width,
               r = A.getBoundingClientRect();
             if (n < 5 || n < 0) {
-              var i = D.container.querySelector(`.xl-slider-temp-value${E}`);
-              i ||
-                (((i = document.createElement("div")).className = `xl-slider-temp-value${E}`),
-                (i.innerText = C),
-                A.appendChild(i),
+              var a = D.container.querySelector(`.xl-slider-temp-value${E}`);
+              a ||
+                (((a = document.createElement("div")).className = `xl-slider-temp-value${E}`),
+                (a.innerText = C),
+                A.appendChild(a),
                 (B.style.visibility = "hidden")),
-                (i.style.left = 0 === E ? F.left - F.width / 2 - r.left - 5 + "px" : e.right + F.width / 2 - r.left + 5 + "px"),
-                (i.innerText = C);
+                (a.style.left = 0 === E ? F.left - F.width / 2 - r.left - 5 + "px" : e.right + F.width / 2 - r.left + 5 + "px"),
+                (a.innerText = C);
             } else {
               minDistance = 0;
-              var a = D.container.querySelector(".xl-slider-temp-value0"),
+              var i = D.container.querySelector(".xl-slider-temp-value0"),
                 o = D.container.querySelector(".xl-slider-temp-value1");
-              a && (A.removeChild(a), (t[0].querySelector(".xl-slider-wrap-value").style.visibility = "visible")),
+              i && (A.removeChild(i), (t[0].querySelector(".xl-slider-wrap-value").style.visibility = "visible")),
                 o && (A.removeChild(o), (t[1].querySelector(".xl-slider-wrap-value").style.visibility = "visible"));
             }
           };
@@ -685,7 +748,7 @@
                 E = E || window.event;
                 var B = D + E.clientX - F;
                 B < 0 && (B = 0), B > e() && (B = e());
-                var A = ((B / e()) * 100) / a;
+                var A = ((B / e()) * 100) / i;
                 o(A, C), E.preventDefault();
               },
               function () {}
@@ -697,14 +760,14 @@
               B = this.getBoundingClientRect(),
               D = E.clientX - B.left;
             D < 0 && (D = 0), D > e() && (D = e());
-            var A = ((D / e()) * 100) / a;
+            var A = ((D / e()) * 100) / i;
             (C = F.range && Math.abs(D - t[0].offsetLeft) > Math.abs(D - t[1].offsetLeft) ? 1 : 0), o(A, C), E.preventDefault();
           });
       }),
-      (i.prototype.onChange = function (E) {
+      (a.prototype.onChange = function (E) {
         this.config.change = r.debounce(E, 100);
       }),
-      (i.prototype.setValue = function (E, C) {
+      (a.prototype.setValue = function (E, C) {
         return (this.config.value = E), this.slide("set", E, C || 0);
       }),
       (window.onload = function () {
@@ -712,7 +775,7 @@
           C = document.querySelector("#total"),
           B = document.querySelector("#pictureWrap"),
           e = document.querySelector("#pictureType"),
-          a = document.querySelector(".xl-button"),
+          i = document.querySelector(".xl-button"),
           o = !0,
           s = 0,
           c = 0,
@@ -741,28 +804,28 @@
                     r = t.toLocaleLowerCase();
                   r !== n && ("jpg" === r && "jpeg" === n ? (C.src = C.src) : (C.src += "." + n));
                 } else (F = E.indexOf("gif") > -1 ? "GIF" : "其他"), (A = u.find((E) => E.type === F));
-                (C.type = F), (A.count += 1), h(e);
+                (C.type = F), (A.count += 1), f(e);
               }
           })(E.url, E.responseHeaders);
         }
         function p(t) {
           (m = t.filter((E) => ((E.select = o), !(/^data:/.test(E.src) || E.naturalWidth <= 1 || E.naturalHeight <= 1)))),
             (u[0].count = m.length),
-            f(B, !0),
-            h(e);
-          var v = new i({ elem: "#widthSlider", min: 0, max: s, value: [0, s], range: !0, theme: "#2670ea" }),
-            p = new i({ elem: "#heightSlider", min: 0, max: c, value: [0, c], range: !0, theme: "#2670ea" });
+            h(B, !0),
+            f(e);
+          var v = new a({ elem: "#widthSlider", min: 0, max: s, value: [0, s], range: !0, theme: "#2670ea" }),
+            p = new a({ elem: "#heightSlider", min: 0, max: c, value: [0, c], range: !0, theme: "#2670ea" });
           (l = [0, s]),
             (d = [0, c]),
             v.onChange((C) => {
               l = C;
               var D = g({ width: C, height: d });
-              (E.textContent = D.length), f(B);
+              (E.textContent = D.length), h(B);
             }),
             p.onChange((C) => {
               d = C;
               var D = g({ width: l, height: C });
-              (E.textContent = D.length), f(B);
+              (E.textContent = D.length), h(B);
             }),
             (C.textContent = "总共" + u[0].count + "个"),
             (E.textContent = g().length),
@@ -793,35 +856,30 @@
                       var A = e.querySelectorAll("span");
                       r.removeClass(A[0], "is-checked"), (u[0].select = !1);
                     }
-                    (E.textContent = g({ width: l, height: d }).length), f(B);
+                    (E.textContent = g({ width: l, height: d }).length), h(B);
                   }
                 }
               })(C.target);
             }),
-            a.addEventListener("click", (E) => {
-              r.hasClass(a, "disable") ||
+            i.addEventListener("click", (E) => {
+              r.hasClass(i, "disable") ||
                 (function (E) {
-                  if (E.length)
-                    if (F()) A(E);
-                    else {
-                      var C = u.filter((E) => E.select).map((E) => E.key);
-                      D(
-                        1022,
-                        933,
-                        `value1=${E.length}&value2=${u[0].count}&value5=${C.join(",")}&value6=(${l.join("-")})*(${d.join("-")})`
-                      ),
-                        chrome.runtime.sendMessage({
-                          name: "xl_download_multi",
-                          referurl: n,
-                          urls: E.map((E) => E.src).filter((E) => 0 === E.indexOf("http"))
-                        });
-                    }
-                  else alert("请选择您需要下载的图片! ");
+                  if (E.length) {
+                    var C = u.filter((E) => E.select).map((E) => E.key);
+                    D(1022, 933, `value1=${E.length}&value2=${u[0].count}&value5=${C.join(",")}&value6=(${l.join("-")})*(${d.join("-")})`),
+                      F
+                        ? A(E)
+                        : chrome.runtime.sendMessage({
+                            name: "xl_download_multi",
+                            referurl: n,
+                            urls: E.map((E) => E.src).filter((E) => 0 === E.indexOf("http"))
+                          });
+                  } else alert("请选择您需要下载的图片! ");
                 })(g());
             }),
             D(1022, 932);
         }
-        function h(E) {
+        function f(E) {
           var C = document.createDocumentFragment();
           u.forEach((E, B) => {
             var D = document.createElement("span");
@@ -833,7 +891,7 @@
             (E.innerHTML = ""),
             E.appendChild(C);
         }
-        function f(E, C = !1) {
+        function h(E, C = !1) {
           if (E)
             if (C) {
               var B = document.createDocumentFragment();
@@ -887,7 +945,7 @@
               D.select
             );
           });
-          return D.length ? r.removeClass(a, "disable") : r.addClass(a, "disable"), D;
+          return D.length ? r.removeClass(i, "disable") : r.addClass(i, "disable"), D;
         }
         !(function () {
           let E = new URL(location.href);
@@ -937,52 +995,53 @@
       });
   },
   function (E, C, B) {
-    var { getWebPeerId: D, Ajax: F } = B(0),
-      { XLNativeMessage: A } = B(1),
-      e = void 0,
-      t = function (E, C, B, D, A, t, n) {
-        var r =
+    var { getWebPeerId: D, Ajax: F } = B(1),
+      { XLNativeMessage: A } = B(2);
+    const { isMacDevice: e } = B(0);
+    var t = void 0,
+      n = function (E, C, B, D, A, n, r) {
+        var a =
           "http://stat.download.xunlei.com:8099/?xlbtid=1&aid=" +
           E +
           "&id=" +
           C +
           "&peerid=" +
           A +
-          "&userid=&referfrom=100001&OS=win&OSversion=" +
-          t +
+          `&userid=&referfrom=100001&OS=${e ? "Mac OS" : "win"}&OSversion=` +
+          n +
           "&productname=ThunderX&productversion=" +
           D +
           "&value3=" +
-          e +
+          t +
           "&value4=" +
-          n +
+          r +
           "&valueT=" +
           new Date().getTime();
-        B && B.length > 0 && (r += "&" + B), F({ url: r, type: "GET", success: function (E) {}, error: function (E) {} });
+        B && B.length > 0 && (a += "&" + B), F({ url: a, type: "GET", success: function (E) {}, error: function (E) {} });
       },
-      n = function (E, C, B) {
+      r = function (E, C, B) {
         A.postMessage("GetThunderInfo", [], void 0, async function (F, A, e) {
           if (F) {
-            var n = A[0].peerId,
+            var t = A[0].peerId,
               r = A[0].osVersion,
-              i = A[0].thunderVersion,
-              a = A[0].parentProcess;
-            t(E, C, B, i, n, r, a);
+              a = A[0].thunderVersion,
+              i = A[0].parentProcess;
+            n(E, C, B, a, t, r, i);
           } else {
             const F = await D("Q");
-            t(E, C, B, "", F, "", "");
+            n(E, C, B, "", F, "", "");
           }
         });
       };
     E.exports = {
       stat: function (E, C, B) {
-        e
-          ? n(E, C, B)
+        t
+          ? r(E, C, B)
           : F({
               url: chrome.runtime.getURL("manifest.json"),
               type: "GET",
               success: function (D) {
-                (e = D.version), n(E, C, B);
+                (t = D.version), r(E, C, B);
               },
               error: function (E) {}
             });
@@ -1015,17 +1074,17 @@
                   t = "",
                   n = "",
                   r = "",
-                  i = 0;
+                  a = 0;
                 do {
-                  (D = (C = E.charCodeAt(i++)) >> 2),
-                    (F = ((3 & C) << 4) | ((B = E.charCodeAt(i++)) >> 4)),
-                    (A = ((15 & B) << 2) | ((n = E.charCodeAt(i++)) >> 6)),
+                  (D = (C = E.charCodeAt(a++)) >> 2),
+                    (F = ((3 & C) << 4) | ((B = E.charCodeAt(a++)) >> 4)),
+                    (A = ((15 & B) << 2) | ((n = E.charCodeAt(a++)) >> 6)),
                     (r = 63 & n),
                     isNaN(B) ? (A = r = 64) : isNaN(n) && (r = 64),
                     (t = t + e.charAt(D) + e.charAt(F) + e.charAt(A) + e.charAt(r)),
                     (C = B = n = ""),
                     (D = F = A = r = "");
-                } while (i < E.length);
+                } while (a < E.length);
                 return t;
               })(
                 (function (E) {

@@ -107,7 +107,7 @@
       var j = N(94234),
         A = N(13990),
         u = N(61250);
-      const a = () => Promise.all([N.e(5084), N.e(1961)]).then(N.bind(N, 21961)),
+      const a = () => Promise.all([N.e(4427), N.e(338)]).then(N.bind(N, 60338)),
         T = new (D.Z.extend({
           mixins: [j.FZ, j.cl, j.TF, j.Ox, j.mX, (0, u.Z)(() => ({ is_paid_event: !0 }))],
           unreactive() {

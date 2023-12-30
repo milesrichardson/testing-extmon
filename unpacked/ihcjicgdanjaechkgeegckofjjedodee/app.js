@@ -61580,7 +61580,7 @@
           (a.isPrivate = null),
           (a.publicSuffix = null),
           (a.subdomain = null),
-          Re(e, 4, Ze, t, Ge).subdomain
+          Re(e, 2, Ze, t, Ge).publicSuffix
         );
       }
       function $e(e, t = {}) {
@@ -61594,20 +61594,34 @@
           (a.isPrivate = null),
           (a.publicSuffix = null),
           (a.subdomain = null),
+          Re(e, 4, Ze, t, Ge).subdomain
+        );
+      }
+      function Ve(e, t = {}) {
+        var a;
+        return (
+          ((a = Ge).domain = null),
+          (a.domainWithoutSuffix = null),
+          (a.hostname = null),
+          (a.isIcann = null),
+          (a.isIp = null),
+          (a.isPrivate = null),
+          (a.publicSuffix = null),
+          (a.subdomain = null),
           Re(e, 5, Ze, t, Ge).domainWithoutSuffix
         );
       }
-      const Ve = () =>
+      const qe = () =>
           new Promise((t, a) => {
             e.chrome.storage.local.get(["uuid"], (s) => (e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s.uuid)));
           }),
-        qe = (t) =>
+        Xe = (t) =>
           new Promise((a, s) => {
             e.chrome.storage.local.get(t, (r) =>
               e.chrome.runtime.lastError ? s(e.chrome.runtime.lastError) : a("string" == typeof t ? r[t] : r)
             );
           }),
-        Xe = (t) =>
+        Qe = (t) =>
           new Promise((a, s) => {
             try {
               e.chrome.storage.local.set(t, () => (e.chrome.runtime.lastError ? s(e.chrome.runtime.lastError) : a(!0)));
@@ -61615,7 +61629,7 @@
               console.error("Setting failed: ", e), s(e);
             }
           }),
-        Qe = [
+        et = [
           "doc",
           "docm",
           "docx",
@@ -61643,7 +61657,7 @@
           "xltm",
           "xltx"
         ],
-        et = [
+        tt = [
           "application/msword",
           "application/vnd.ms-excel.addin.macroEnabled.12",
           "application/vnd.ms-excel.sheet.binary.macroEnabled.12",
@@ -61665,15 +61679,15 @@
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           "application/vnd.openxmlformats-officedocument.wordprocessingml.template"
         ],
-        tt = { content: !0, host: !0, unwanted: !0, url: !0 },
-        at = [
+        at = { content: !0, host: !0, unwanted: !0, url: !0 },
+        st = [
           "application/x-msdos-program",
           "application/x-msdownload",
           "application/exe",
           "application/x-exe",
           "application/vnd.microsoft.portable-executable"
         ],
-        st = [
+        rt = [
           "text/javascript",
           "application/javascript",
           "application/x-vbs",
@@ -61682,7 +61696,7 @@
           "application/x-vbe",
           "application/hta"
         ],
-        rt = {
+        nt = {
           agency: 2,
           army: 1,
           art: 3,
@@ -61769,9 +61783,9 @@
           xyz: 1,
           zone: 2
         },
-        nt = Object.keys(rt),
-        ot = ["apk", "bin", "com", "dat", "dll", "exe", "gadget", "inf", "jar", "lnk", "msi", "pif", "scf", "scr", "slk"],
-        it = [
+        ot = Object.keys(nt),
+        it = ["apk", "bin", "com", "dat", "dll", "exe", "gadget", "inf", "jar", "lnk", "msi", "pif", "scf", "scr", "slk"],
+        dt = [
           "bat",
           "cgi",
           "cmd",
@@ -61797,24 +61811,24 @@
           "wsc",
           "wsf"
         ],
-        dt = ["7z", "arj", "deb", "gz", "pkg", "rar", "rpm", "tar", "z", "zip"],
-        lt = ["dmg", "iso"],
-        ut = [...ot, ...it, ...Qe, ...dt, ...lt],
-        mt = [".bat.txt", ".ps1.txt", ".sh.txt", ".py.txt"],
-        Tt = new Map();
-      Tt.set([...ut, ...mt], "/wp-.*/"), Tt.set(["exe"], "/wp-(content|admin|includes)/");
-      const yt = /https:\/\/([a-z0-9]*)?\.cloudfront\.net\/.*/i,
-        ct = /mbgc\.db\./,
-        Mt = /[\\.]/g,
-        ht = /[.](js|vbs|vbe|wsf|wsc|wsh|hta)$/i,
-        bt = /[.](exe|dll)$/i,
-        St = /[.](exe|dll|scr)$/i,
-        gt = /\//g,
-        _t = /^(\d{1,3})[.](\d{1,3})[.](\d{1,3})[.](\d{1,3})$/,
-        pt = /(\.dmg|\.exe|\.msi|\.zip|\.7z)/,
-        ft = [
+        lt = ["7z", "arj", "deb", "gz", "pkg", "rar", "rpm", "tar", "z", "zip"],
+        ut = ["dmg", "iso"],
+        mt = [...it, ...dt, ...et, ...lt, ...ut],
+        Tt = [".bat.txt", ".ps1.txt", ".sh.txt", ".py.txt"],
+        yt = new Map();
+      yt.set([...mt, ...Tt], "/wp-.*/"), yt.set(["exe"], "/wp-(content|admin|includes)/");
+      const ct = /https:\/\/([a-z0-9]*)?\.cloudfront\.net\/.*/i,
+        Mt = /mbgc\.db\./,
+        ht = /[\\.]/g,
+        bt = /[.](js|vbs|vbe|wsf|wsc|wsh|hta)$/i,
+        St = /[.](exe|dll)$/i,
+        gt = /[.](exe|dll|scr)$/i,
+        _t = /\//g,
+        pt = /^(\d{1,3})[.](\d{1,3})[.](\d{1,3})[.](\d{1,3})$/,
+        ft = /(\.dmg|\.exe|\.msi|\.zip|\.7z)/,
+        Dt = [
           /https?:\/\/(?:[a-z0-9][a-z0-9.-]*\.?)?s3(?:-accesspoint)?(?:(?:[-.][a-z]{2}-[a-z]+-?[a-z]*-\d)|(?:-external-1))?\.amazonaws\.com\/.*/gi,
-          yt,
+          ct,
           /https?:\/\/(?:[a-z0-9][a-z0-9.-]*\.?)?\.1drv\.com\/.*/i,
           /https?:\/\/([a-z0-9]*)?\.zoho\.com\/.*/i,
           /https?:\/\/([a-z0-9]*)?\.sendspace\.com\/.*/i,
@@ -61828,12 +61842,12 @@
           /https?:\/\/(?:[a-z\d][a-z\d.-]*\.?)?\.?metacdn\.(com|net|org)(\/|$)/,
           /https?:\/\/([a-z0-9]*)?\.eljur\.ru/
         ],
-        Dt = new RegExp(`/\\d{10}\\w{6}\\.(${ut.join("|")}|${mt.map((e) => e.split(".").slice(1).join("\\.")).join("|")})`, "i"),
-        At = ["youtube.com/get_midroll", "youtube.com/pagead", "&el=adunit&", "youtube.com/youtubei/v1/player/ad_break"],
-        vt = /^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/,
-        wt = /\d+\.\d+\.\d+/,
-        Ct = /(Firefox|Chrome|Edge)(.\w+)?.Update.\w+(.\w+)?(.\w+)?(.\w+)?.(zip|js)$/i,
-        kt = (e) =>
+        At = new RegExp(`/\\d{10}\\w{6}\\.(${mt.join("|")}|${Tt.map((e) => e.split(".").slice(1).join("\\.")).join("|")})`, "i"),
+        vt = ["youtube.com/get_midroll", "youtube.com/pagead", "&el=adunit&", "youtube.com/youtubei/v1/player/ad_break"],
+        wt = /^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$/,
+        Ct = /\d+\.\d+\.\d+/,
+        kt = /(Firefox|Chrome|Edge)(.\w+)?.Update.\w+(.\w+)?(.\w+)?(.\w+)?.(zip|js)$/i,
+        Et = (e) =>
           e
             .toLowerCase()
             .replace(/[<>]/g, "")
@@ -61841,14 +61855,14 @@
             .replace("www.", "")
             .replace(/\/$/, "")
             .trim(),
-        Et = function () {
+        It = function () {
           return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (e) {
             let t = (16 * Math.random()) | 0;
             return ("x" == e ? t : (3 & t) | 8).toString(16);
           });
         },
-        It = (e) => Xe({ uuid: e }),
-        Ht = (e, t, a = 1) => {
+        Ht = (e) => Qe({ uuid: e }),
+        Lt = (e, t, a = 1) => {
           for (let s = e.length; s >= a; s--)
             for (let a = 0; a <= e.length - s; a++) {
               const r = e.substr(a, s);
@@ -61856,7 +61870,7 @@
             }
           return !1;
         },
-        Lt = function (e) {
+        Nt = function (e) {
           if (null == e || "" === e) return "";
           e.toLowerCase().startsWith("blob:") && (e = e.substring(5));
           try {
@@ -61871,34 +61885,21 @@
             return e;
           }
         },
-        Nt = function (e) {
+        xt = function (e) {
           try {
             if (e && !e.includes(".")) return console.debug("UT: Invalid url passed: ", e), "";
-            const t = (function (e, t = {}) {
-              var a;
-              return (
-                ((a = Ge).domain = null),
-                (a.domainWithoutSuffix = null),
-                (a.hostname = null),
-                (a.isIcann = null),
-                (a.isIp = null),
-                (a.isPrivate = null),
-                (a.publicSuffix = null),
-                (a.subdomain = null),
-                Re(e, 2, Ze, t, Ge).publicSuffix
-              );
-            })(e, { allowPrivateDomains: !0 });
+            const t = Ue(e, { allowPrivateDomains: !0 });
             return t ? (t ? t.toLowerCase() : "") : (console.debug("UT: TLD parsing error for ", e), "");
           } catch (e) {
             return console.error("UT Error: ", e), "";
           }
         },
-        xt = (e) => {
+        Pt = (e) => {
           if (!e) return "";
-          const t = Ue(e, { allowPrivateDomains: !0 });
+          const t = $e(e, { allowPrivateDomains: !0 });
           return t ? t.toLowerCase() : (console.debug("SD: Subdomain parsing error for: ", e), "");
         },
-        Pt = (e) => {
+        Ft = (e) => {
           if (!e) return "";
           if (e.startsWith("chrome-extension")) return "";
           const t = (function (e, t = {}) {
@@ -61917,12 +61918,12 @@
           })(e, { allowPrivateDomains: !0 });
           return t || (console.debug("D: Domain parsing error for: ", t), "");
         },
-        Ft = (e) => {
+        jt = (e) => {
           if (!e) return "";
-          const t = $e(e, { allowPrivateDomains: !0 });
+          const t = Ve(e, { allowPrivateDomains: !0 });
           return t ? t.toLowerCase() : (console.debug("SLD: Domain parsing error for: ", e), "");
         },
-        jt = (e) => {
+        Yt = (e) => {
           if (!e) return console.debug("UE: Params Error: No URL passed"), null;
           let t, a;
           try {
@@ -61936,8 +61937,8 @@
             a && a.includes("/") ? null : a && a.toLowerCase()
           );
         },
-        Yt = (e) => {
-          let t = Lt(e);
+        Ot = (e) => {
+          let t = Nt(e);
           if (!t) return [];
           let a = t.split("."),
             s = [],
@@ -61945,63 +61946,64 @@
           do {
             s.push(a.slice(r).join(".")), r++;
           } while (r < a.length - 1);
-          return s;
+          let n = Ue(e, { allowPrivateDomains: !0 }) || "";
+          return console.debug("UD: publicSuffix: ", { url: e, publicSuffix: n }), (s = s.filter((e) => e !== n)), s;
         },
-        Ot = function (e) {
+        Bt = function (e) {
           let t;
           return (t = "Uint8Array" == e.constructor.name ? e : new Uint8Array(e)), t.reduce((e, t) => e + String.fromCharCode(t), "");
         },
-        Bt = function (e) {
+        Wt = function (e) {
           return Uint8Array.from(e, (e) => e.charCodeAt(0)).buffer;
         },
-        Wt = function (e) {
-          return btoa(Ot(e));
+        Rt = function (e) {
+          return btoa(Bt(e));
         },
-        Rt = (e) => Bt(JSON.stringify(e));
-      let Jt = {};
-      Object.defineProperty(Jt, "browser", { writable: !0 });
-      const zt = function () {
-        return Jt.browser
-          ? Jt.browser
+        Jt = (e) => Wt(JSON.stringify(e));
+      let zt = {};
+      Object.defineProperty(zt, "browser", { writable: !0 });
+      const Kt = function () {
+        return zt.browser
+          ? zt.browser
           : navigator.userAgent.includes("Firefox/")
-          ? (Jt.browser = "Firefox")
+          ? (zt.browser = "Firefox")
           : navigator.userAgent.includes("Opera/") || navigator.userAgent.includes("OPR/")
-          ? (Jt.browser = "Opera")
+          ? (zt.browser = "Opera")
           : navigator.userAgent.includes("Edge/") || navigator.userAgent.includes("Edg/")
-          ? (Jt.browser = "Edge")
+          ? (zt.browser = "Edge")
           : navigator.userAgent.includes("Chrome/")
-          ? (Jt.browser = "Chrome")
+          ? (zt.browser = "Chrome")
           : navigator.userAgent.includes("Safari/")
-          ? (Jt.browser = "Safari")
+          ? (zt.browser = "Safari")
           : "Browser";
       };
-      let Kt = {};
-      Object.defineProperty(Kt, "os", { writable: !0 });
-      const Zt = () =>
+      let Zt = {};
+      Object.defineProperty(Zt, "os", { writable: !0 });
+      const Gt = () =>
           new Promise((t) => {
-            Kt.os
-              ? t(Kt.os)
+            Zt.os
+              ? t(Zt.os)
               : e.chrome.runtime.getPlatformInfo(({ os: e }) => {
-                  (Kt.os = e), t(Kt.os);
+                  (Zt.os = e), t(Zt.os);
                 });
           }),
-        Gt = function (t, a, s, r, n, o, i = null) {
+        Ut = function (t, a, s, r, n, o, i = null) {
           return (
-            e.chrome.runtime.getURL("app/eventpages/" + (na() ? "block-mv3.html" : "block.html")) +
+            e.chrome.runtime.getURL("app/eventpages/" + (oa() ? "block-mv3.html" : "block.html")) +
             "?" +
-            Ut({ referrer: t, url: a, host: Lt(a), type: s, subtype: r, tabId: n, filename: o, prevUrl: i })
+            $t({ referrer: t, url: a, host: Nt(a), type: s, subtype: r, tabId: n, filename: o, prevUrl: i })
           );
         },
-        Ut = function (e) {
+        $t = function (e) {
           let t = new URLSearchParams();
           for (let a in e) e.hasOwnProperty(a) && t.set(a, e[a]);
           return t.toString();
         },
-        $t = async function (e, t = {}) {
-          let a = await fetch(e, Vt(t));
+        Vt = async function (e, t = {}) {
+          let a = await fetch(e, qt(t));
           return console.debug("Fetch response: ", a), await a.json();
         },
-        Vt = function (e) {
+        qt = function (e) {
           return (
             (e.method = e.method || "GET"),
             (e.headers = e.headers || {}),
@@ -62010,15 +62012,15 @@
             e
           );
         },
-        qt = (t, a) => {
+        Xt = (t, a) => {
           e.performance.mark(t), a && e.performance.measure(t + "_time", a, t);
         },
-        Xt = (e = "") => vt.test(e);
-      function Qt(e) {
+        Qt = (e = "") => wt.test(e);
+      function ea(e) {
         try {
-          if (Xt(e)) return !0;
+          if (Qt(e)) return !0;
           const t = e.replace(/^(https?:\/\/)?(www\.)?/i, "");
-          let a = kt(t);
+          let a = Et(t);
           return !(
             !(a.startsWith("http") || (a.includes(".") && !a.endsWith("."))) ||
             a.length < 3 ||
@@ -62029,14 +62031,14 @@
           return !1;
         }
       }
-      const ea = () => e.chrome.extension.inIncognitoContext,
-        ta = (e) => e.replace(ct, "").replace(Mt, "_").replace("_2", ""),
-        aa = () => !!indexedDB,
-        sa = "adTelemDate";
-      let ra = {};
-      Object.defineProperty(ra, "isMV3", { writable: !0 });
-      const na = () => ((ra.isMV3 = ra.isMV3 || 3 === e.chrome.runtime.getManifest().manifest_version), ra.isMV3),
-        oa = (t) => {
+      const ta = () => e.chrome.extension.inIncognitoContext,
+        aa = (e) => e.replace(Mt, "").replace(ht, "_").replace("_2", ""),
+        sa = () => !!indexedDB,
+        ra = "adTelemDate";
+      let na = {};
+      Object.defineProperty(na, "isMV3", { writable: !0 });
+      const oa = () => ((na.isMV3 = na.isMV3 || 3 === e.chrome.runtime.getManifest().manifest_version), na.isMV3),
+        ia = (t) => {
           const a = t,
             s = URL.createObjectURL(new Blob([a], { type: "text/plain" }));
           let r;
@@ -62047,7 +62049,7 @@
             .slice(0, 10)}_${n.getHours()}${n.getMinutes()}${n.getSeconds()}.txt`),
             console.log("MDL: Downloading logfile", { dlDownloadName: r, url: s });
           let o = { url: s, filename: r, conflictAction: "uniquify" };
-          "Firefox" === zt() && (o.saveAs = !1),
+          "Firefox" === Kt() && (o.saveAs = !1),
             e.chrome.downloads
               .download(o)
               .then(() => {
@@ -62060,7 +62062,7 @@
               e.state && "complete" === e.state.current && URL.revokeObjectURL(s);
             });
         },
-        ia = (e) => {
+        da = (e) => {
           if (!e || "" === e) return !0;
           if (
             e.startsWith("chrome-extension://") ||
@@ -62082,11 +62084,11 @@
             t.hostname.startsWith("172.")
           );
         },
-        da = {
+        la = {
           disableOptionsSelected: [],
           currentSelectedWebsite: { hostData: "", rowId: "" },
           initProtectionsFilter: () => {
-            na() && document.querySelector("#allow-control-protections-scams").remove(), $("#allow-control-protections").dropdown();
+            oa() && document.querySelector("#allow-control-protections-scams").remove(), $("#allow-control-protections").dropdown();
           },
           correctProtectionsFilterDataValues: () => {
             $("#allow-control-protections-ads").attr("data-value", d),
@@ -62098,7 +62100,7 @@
               (e) => {
                 let t = $("#allow-control-url");
                 document.getElementById("allow-control-url-box").classList.add("valid"),
-                  da.disableOptionsSelected.length > 0 && da.enableAddToListModalBtn(!0),
+                  la.disableOptionsSelected.length > 0 && la.enableAddToListModalBtn(!0),
                   t.val(e.host).trigger("click");
               },
               (e) => {
@@ -62123,27 +62125,27 @@
               t = document.getElementById("allow-control-url"),
               a = (a) => {
                 let s = t.value.trim(),
-                  r = Qt(s),
-                  n = da.clean(s);
+                  r = ea(s),
+                  n = la.clean(s);
                 console.debug(`Evaluated domain is ${n} - for ${s}`),
                   r ? e.classList.add("valid") : e.classList.remove("valid"),
-                  r && da.disableOptionsSelected.length > 0
-                    ? (console.log(da.disableOptionsSelected), da.enableAddToListModalBtn(!0))
-                    : da.enableAddToListModalBtn(!1);
+                  r && la.disableOptionsSelected.length > 0
+                    ? (console.log(la.disableOptionsSelected), la.enableAddToListModalBtn(!0))
+                    : la.enableAddToListModalBtn(!1);
               },
               s = (e) => {
                 const t = e.target.dataset.value;
-                -1 === da.disableOptionsSelected.indexOf(t)
-                  ? (da.disableOptionsSelected.push(t),
+                -1 === la.disableOptionsSelected.indexOf(t)
+                  ? (la.disableOptionsSelected.push(t),
                     (e.target.className = "chip-selected"),
                     ($(`#${e.target.id}-check`)[0].style.display = "block"),
                     a())
-                  : (da.disableOptionsSelected.splice(da.disableOptionsSelected.indexOf(t), 1),
+                  : (la.disableOptionsSelected.splice(la.disableOptionsSelected.indexOf(t), 1),
                     (e.target.className = ""),
                     ($(`#${e.target.id}-check`)[0].style.display = "none"),
                     a());
               };
-            da.cleanAllowModalListeners(),
+            la.cleanAllowModalListeners(),
               t.addEventListener("keyup", a, !1),
               t.addEventListener("focusout", a, !1),
               t.addEventListener("change", a, !1),
@@ -62155,7 +62157,7 @@
               }),
               $(".ui.modal.allow-control-row").modal({
                 onHide: () => {
-                  da.cleanAllowListModal();
+                  la.cleanAllowListModal();
                 }
               });
           },
@@ -62175,7 +62177,7 @@
               $(".input.search-bar .right-icons .close-icon").off();
           },
           initAllowListClickListeners: () => {
-            da.cleanAllowListClickListeners(),
+            la.cleanAllowListClickListeners(),
               $(".allow-table-more").dropdown(),
               $(".ui.modal.allow-control-row .close-icon").on("click", () => {
                 $(".ui.modal.allow-control-row").modal("hide");
@@ -62183,7 +62185,7 @@
               $(".ui.modal.allow-control-row #allow-cancel").on("click", () => {
                 $(".ui.modal.allow-control-row").modal("hide");
               }),
-              $(".allow-control-url-wrapper img.add-link-icon").on("click", da.populateInputWithTabUrl),
+              $(".allow-control-url-wrapper img.add-link-icon").on("click", la.populateInputWithTabUrl),
               $(".allow-control-url-wrapper img.add-link-icon")
                 .on("mouseenter", function () {
                   $("#allow-modal-link-tooltip")[0].style.display = "flex";
@@ -62191,7 +62193,7 @@
                 .on("mouseleave", function () {
                   $("#allow-modal-link-tooltip")[0].style.display = "none";
                 }),
-              $("#allow-done").on("click", da.insertAllowRow),
+              $("#allow-done").on("click", la.insertAllowRow),
               $("#open-remove-all-btn").on("click", () => {
                 $(".ui.modal.delete-items-window.allow.all").modal("show");
               }),
@@ -62202,7 +62204,7 @@
                 $(".ui.modal.delete-items-window.allow.all").modal("hide");
               }),
               $("#yes-remove-all").on("click", () => {
-                da.removeAllAllows(),
+                la.removeAllAllows(),
                   $(".ui.modal.delete-items-window.allow.all").modal("hide"),
                   $(".remove.all.snackbar").css({ visibility: "visible", opacity: "1" }),
                   setTimeout(() => {
@@ -62234,7 +62236,7 @@
                 ($(".input.search-bar")[0].style.display = "none"),
                   ($(".ui.table thead")[0].style.visibility = "visible"),
                   (document.getElementById("allow-table-search").value = ""),
-                  da.onClearSearch(),
+                  la.onClearSearch(),
                   $(".allow-list-no-results-box").addClass("hidden"),
                   $(".allow-table").css("overflow-y", "auto");
               });
@@ -62248,27 +62250,27 @@
               ($("#allow-control-protections-malware")[0].className = ""),
               ($("#allow-control-protections-scams-check")[0].style.display = "none"),
               ($("#allow-control-protections-scams")[0].className = ""),
-              da.enableAddToListModalBtn(!1),
-              (da.disableOptionsSelected = []);
+              la.enableAddToListModalBtn(!1),
+              (la.disableOptionsSelected = []);
           },
           removeAllAllows: () => {
             $(".allow-table table tbody tr").each((e, t) => {
-              da.setLoadingState(t.id);
+              la.setLoadingState(t.id);
             }),
               e.chrome.runtime.sendMessage({ type: Y }, function (e) {
                 !e || e.error
                   ? $(".allow-table table tbody tr").each((e, t) => {
-                      da.setLoadingState(t.id);
+                      la.setLoadingState(t.id);
                     })
                   : $(".allow-table table tbody tr").each((e, t) => {
-                      $(t).remove(), da.checkEmptyView();
+                      $(t).remove(), la.checkEmptyView();
                     });
               });
           },
           addAllowData: (t, a, s, r) => {
             (t = t.replace(/[<>]/g, "")),
               (a = a.join(",")),
-              da.cleanAllowListModal(),
+              la.cleanAllowListModal(),
               $(".disabled.snackbar").css({ visibility: "visible", opacity: "1" }),
               $(".allow-list-no-items-box").addClass("hidden"),
               e.chrome.runtime.sendMessage({ type: P, payload: { host: t, allow: a, fromAllowTab: !0 } }, function (e) {
@@ -62290,7 +62292,7 @@
           clean: (e) => e.toLowerCase().replace(/[^a-z0-9]/g, ""),
           addRowDeleteListener: () => {
             $(".ui.modal.delete-allow-item #yes-remove-item").on("click", (t) => {
-              const { hostData: a, rowId: s } = da.currentSelectedWebsite;
+              const { hostData: a, rowId: s } = la.currentSelectedWebsite;
               e.chrome.runtime.sendMessage({ type: O, payload: { host: a } }, function (e) {
                 !e || e.error
                   ? (console.log("ERROR:", e.error),
@@ -62300,7 +62302,7 @@
                     }, 2e3))
                   : ($("#allow-table-row-" + s).remove(),
                     $(".remove.item.snackbar").css({ visibility: "visible", opacity: "1" }),
-                    da.checkEmptyView(),
+                    la.checkEmptyView(),
                     setTimeout(() => {
                       $(".remove.item.snackbar").css({ visibility: "hidden", opacity: "0" });
                     }, 2e3)),
@@ -62331,18 +62333,18 @@
             e.addClass("loading"), e.attr("disabled", "disabled");
             let t = $("#allow-control-url"),
               a = $(".allow-table table tbody"),
-              s = kt(t.val()),
-              r = da.clean(s);
+              s = Et(t.val()),
+              r = la.clean(s);
             r &&
               r.length >= 3 &&
-              (da.updateOrAddTableRow(a, r, s),
-              da.addAllowData(
+              (la.updateOrAddTableRow(a, r, s),
+              la.addAllowData(
                 s,
-                da.disableOptionsSelected,
+                la.disableOptionsSelected,
                 (a) => {
-                  da.completeRowAdd(r, a, s),
+                  la.completeRowAdd(r, a, s),
                     t.val(""),
-                    (da.disableOptionsSelected = []),
+                    (la.disableOptionsSelected = []),
                     $("#allow-control-protections").dropdown("clear"),
                     e.removeClass("loading"),
                     $(".ui.modal.allow-control-row").modal("hide");
@@ -62353,9 +62355,9 @@
               ));
           },
           completeRowAdd: (e, t, a) => {
-            $("#allow-table-row-" + e + " .exclusions").text(da.translateExclusionToHumanReadable(t)),
-              da.unsetLoadingState(e),
-              da.addRowDeleteListener(e, a);
+            $("#allow-table-row-" + e + " .exclusions").text(la.translateExclusionToHumanReadable(t)),
+              la.unsetLoadingState(e),
+              la.addRowDeleteListener(e, a);
           },
           translateExclusionToHumanReadable: (e) => {
             let t = [];
@@ -62375,7 +62377,7 @@
           },
           updateOrAddTableRow: (e, t, a) => {
             let s = $("#allow-table-row-" + t);
-            s && s.length > 0 ? da.setLoadingState(t) : da.addAllowDataAsTableRow(e, t, a);
+            s && s.length > 0 ? la.setLoadingState(t) : la.addAllowDataAsTableRow(e, t, a);
           },
           addAllowDataAsTableRow: (e, t, s) => {
             $(".allow-table table.ui.table tfoot").hide(),
@@ -62391,11 +62393,11 @@
                   '"></div>                           </div>                       </div>                </td>\n            </tr>'
               );
             let r = $("#allow-table-row-tld-" + t);
-            r.text(da.superTruncater(s, 22)),
+            r.text(la.superTruncater(s, 22)),
               a([{ id: `open-remove-allow-item-modal-${t}`, msg: "deleteWebsiteModalOption" }]),
               $(`#delete-item-${t}`).dropdown(),
               $(`#open-remove-allow-item-modal-${t}`).on("click", () => {
-                (da.currentSelectedWebsite = { hostData: s, rowId: t }), $(".ui.modal.delete-allow-item").modal("show");
+                (la.currentSelectedWebsite = { hostData: s, rowId: t }), $(".ui.modal.delete-allow-item").modal("show");
               }),
               s.length > 22 &&
                 (r.attr("data-tooltip", `${s.slice(0, 70)}${s.length > 70 ? "..." : ""}`),
@@ -62408,29 +62410,29 @@
             let a,
               s = e.split(".");
             if (s && s.length > 0)
-              if (1 === s.length) a = da.superTruncater_combine(null, !1, s[0], !1, null, t);
+              if (1 === s.length) a = la.superTruncater_combine(null, !1, s[0], !1, null, t);
               else if (2 === s.length) {
-                let e = da.superTruncater_part(s[0], t),
-                  r = da.superTruncater_tld(s, 1);
-                a = da.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
+                let e = la.superTruncater_part(s[0], t),
+                  r = la.superTruncater_tld(s, 1);
+                a = la.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
               } else if (3 === s.length)
                 if (s[1].length > 3) {
-                  let e = da.superTruncater_part(s[1], t),
-                    r = da.superTruncater_part(s[0], 5),
-                    n = da.superTruncater_tld(s, 2);
-                  a = da.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
+                  let e = la.superTruncater_part(s[1], t),
+                    r = la.superTruncater_part(s[0], 5),
+                    n = la.superTruncater_tld(s, 2);
+                  a = la.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
                 } else {
-                  let e = da.superTruncater_part(s[0], t),
-                    r = da.superTruncater_tld(s, 1);
-                  a = da.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
+                  let e = la.superTruncater_part(s[0], t),
+                    r = la.superTruncater_tld(s, 1);
+                  a = la.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
                 }
               else {
-                let e = da.superTruncater_part(s[1], t),
-                  r = da.superTruncater_part(s[0], 5),
-                  n = da.superTruncater_tld(s, 2);
-                a = da.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
+                let e = la.superTruncater_part(s[1], t),
+                  r = la.superTruncater_part(s[0], 5),
+                  n = la.superTruncater_tld(s, 2);
+                a = la.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
               }
-            return da.fullUrlTruncater(a);
+            return la.fullUrlTruncater(a);
           },
           fullUrlTruncater: (e) => {
             let t = e.split(/\/(.+)/);
@@ -62457,7 +62459,7 @@
             return e && e.length > 0 && (r += e.length + 1), a && a.length > 0 && (r += a.length + 1), (r += t.length), r > s ? r - s : 0;
           },
           superTruncater_combine: (e, t, a, s, r, n) => {
-            let o = da.superTruncater_measure(e, a, r, n - 1),
+            let o = la.superTruncater_measure(e, a, r, n - 1),
               i = 0;
             e && (i = e.length), i + a.length + 2 > n && ((a = a.substr(0, a.length - o)), (s = !0));
             let d = "";
@@ -62468,7 +62470,7 @@
             let e = $("#allow-table-search");
             e.on("keyup change", function (t) {
               let a = e.val();
-              a && ((a = a.trim()), a.length >= 3) ? da.onSearch(a) : da.onClearSearch();
+              a && ((a = a.trim()), a.length >= 3) ? la.onSearch(a) : la.onClearSearch();
             });
           },
           toggleEmptySearchMessage: (e) => {
@@ -62483,13 +62485,13 @@
                 $(".allow-list-no-results-box").addClass("hidden"),
                 $(".allow-table").css("overflow-y", "auto"),
                 $("#empty-search-footer").css("display", "none"),
-                da.checkEmptyView());
+                la.checkEmptyView());
           },
           onClearSearch: () => {
             $(".allow-table table tbody tr").each((e, t) => {
               $(t).removeClass("hidden");
             }),
-              da.toggleEmptySearchMessage(!1);
+              la.toggleEmptySearchMessage(!1);
           },
           onSearch: (e) => {
             let t = 0;
@@ -62504,7 +62506,7 @@
                         return t++, console.debug("showing row because of: " + n), $(s).removeClass("hidden"), !1;
                     });
               }),
-              0 === t ? da.toggleEmptySearchMessage(!0) : da.toggleEmptySearchMessage(!1);
+              0 === t ? la.toggleEmptySearchMessage(!0) : la.toggleEmptySearchMessage(!1);
           },
           hasValidAllows: (e) => {
             if (e && e.length > 0) for (const t of e) if (t > 0) return !0;
@@ -62553,12 +62555,12 @@
               document.getElementById("allow-include").classList.add(t),
               Ne(e.chrome.i18n.getMessage("allowListNavItem")),
               (document.getElementById("allow-table-search").placeholder = e.chrome.i18n.getMessage("allowListSearchPlaceholder")),
-              da.cleanModals(),
-              da.correctProtectionsFilterDataValues(),
-              da.initProtectionsFilter(),
-              da.initAllowModalListeners(),
-              da.initAllowListClickListeners(),
-              da.i18nTweaks(),
+              la.cleanModals(),
+              la.correctProtectionsFilterDataValues(),
+              la.initProtectionsFilter(),
+              la.initAllowModalListeners(),
+              la.initAllowListClickListeners(),
+              la.i18nTweaks(),
               e.chrome.runtime.sendMessage({ type: W }, function (e) {
                 let t,
                   a = $(".allow-table table tbody");
@@ -62566,20 +62568,20 @@
                   ($(".allow-list-no-items-box").removeClass("hidden"), $("#open-remove-all-btn").addClass("disabled"));
                 for (let s in e.success)
                   e.success.hasOwnProperty(s) &&
-                    da.hasValidAllows(e.success[s]) &&
-                    ((t = da.clean(s)), da.addAllowDataAsTableRow(a, t, s), da.completeRowAdd(t, e.success[s], s));
+                    la.hasValidAllows(e.success[s]) &&
+                    ((t = la.clean(s)), la.addAllowDataAsTableRow(a, t, s), la.completeRowAdd(t, e.success[s], s));
               }),
-              da.initSearchListener();
+              la.initSearchListener();
           },
           i18nTweaks: () => {
             document.querySelector(".ui.dimmer.modals").classList.add(t);
           }
         },
-        la = da.onAllowTab,
-        ua = {
+        ua = la.onAllowTab,
+        ma = {
           currentBlockItem: "",
           onBlockTab: () => (
-            ua.cleanModals(),
+            ma.cleanModals(),
             Le(),
             a([
               { id: "blocked-items-summary-1", msg: "blockedItemsSummary1" },
@@ -62601,7 +62603,7 @@
             ]),
             document.getElementById("block-include").classList.add(t),
             Ne(e.chrome.i18n.getMessage("blockNavItem")),
-            ua.initBlockList()
+            ma.initBlockList()
           ),
           cleanModals: () => {
             document.querySelectorAll(".ui.modal.delete-blocked-items-window.all").length > 1 &&
@@ -62610,18 +62612,18 @@
                 document.querySelector(".ui.modal.delete-blocked-items-window.item").remove();
           },
           initBlockList: async () => {
-            const e = await ua.loadBlockedItemList();
+            const e = await ma.loadBlockedItemList();
             let t = 0;
             if (e && e.length > 0)
               for (const a of e) {
-                let e = ua.clean(Lt(a));
+                let e = ma.clean(Nt(a));
                 e &&
                   e.length >= 3 &&
                   (console.debug("ADDING ROW ", a),
-                  ua.addToTable(e, a, t),
+                  ma.addToTable(e, a, t),
                   $(`.ui.dropdown.delete-item#${e}-${t}`).dropdown(),
                   $(`#open-remove-item-${e}-${t}`).on("click", () => {
-                    $(".ui.modal.delete-blocked-items-window.item").modal("show"), (ua.currentBlockItem = a);
+                    $(".ui.modal.delete-blocked-items-window.item").modal("show"), (ma.currentBlockItem = a);
                   }),
                   $(".ui.modal.delete-blocked-items-window.item #cancel-remove-blocked-item").on("click", () => {
                     $(".ui.modal.delete-blocked-items-window.item").modal("hide");
@@ -62635,7 +62637,7 @@
                   (t += 1);
               }
             else $("#open-delete-all-items").addClass("disabled");
-            ua.toggleFooter(ua.isBlockTableEmpty()), ua.initUnblockHandlers(), ua.initDeleteItemsModalListeners();
+            ma.toggleFooter(ma.isBlockTableEmpty()), ma.initUnblockHandlers(), ma.initDeleteItemsModalListeners();
           },
           loadBlockedItemList: () =>
             new Promise((t) => {
@@ -62672,18 +62674,18 @@
             }
           },
           removeFromTable: (e) => {
-            document.querySelectorAll("#block-table table tbody")[0].removeChild(e), ua.toggleFooter(ua.isBlockTableEmpty());
+            document.querySelectorAll("#block-table table tbody")[0].removeChild(e), ma.toggleFooter(ma.isBlockTableEmpty());
           },
           unblockEventListener: (e) => {
-            const t = ua.currentBlockItem;
-            return ua.deleteBlockedItem(t).then((e) => {
+            const t = ma.currentBlockItem;
+            return ma.deleteBlockedItem(t).then((e) => {
               if (e) {
                 const e = document.querySelectorAll(`tr[data-url="${t}"]`);
                 Array.from(e).forEach((e) => {
-                  ua.removeFromTable(e);
+                  ma.removeFromTable(e);
                 }),
                   $(".remove.block-item.snackbar").css({ visibility: "visible", opacity: "1" }),
-                  ua.isBlockTableEmpty() && $("#open-delete-all-items").addClass("disabled"),
+                  ma.isBlockTableEmpty() && $("#open-delete-all-items").addClass("disabled"),
                   setTimeout(() => {
                     $(".remove.block-item.snackbar").css({ visibility: "hidden", opacity: "0" });
                   }, 2e3);
@@ -62691,23 +62693,23 @@
             });
           },
           unblocAllkEventListener: () =>
-            ua.deleteAllBlockedItems().then((e) => {
+            ma.deleteAllBlockedItems().then((e) => {
               e &&
                 (document.querySelectorAll("#block-table table tbody")[0].replaceChildren(),
-                ua.toggleFooter(ua.isBlockTableEmpty()),
+                ma.toggleFooter(ma.isBlockTableEmpty()),
                 $(".remove.all.blocked-items.snackbar").css({ visibility: "visible", opacity: "1" }),
                 setTimeout(() => {
                   $(".remove.all.blocked-items.snackbar").css({ visibility: "hidden", opacity: "0" });
                 }, 2e3));
             }),
           initUnblockHandlers: () => {
-            ua.clearUnblockHandlers(),
-              document.querySelector("#yes-remove-blocked-item").addEventListener("click", ua.unblockEventListener),
-              document.getElementById("yes-remove-all-blocks").addEventListener("click", ua.unblocAllkEventListener);
+            ma.clearUnblockHandlers(),
+              document.querySelector("#yes-remove-blocked-item").addEventListener("click", ma.unblockEventListener),
+              document.getElementById("yes-remove-all-blocks").addEventListener("click", ma.unblocAllkEventListener);
           },
           clearUnblockHandlers: () => {
-            document.querySelector("#yes-remove-blocked-item").removeEventListener("click", ua.unblockEventListener),
-              document.getElementById("yes-remove-all-blocks").removeEventListener("click", ua.unblocAllkEventListener);
+            document.querySelector("#yes-remove-blocked-item").removeEventListener("click", ma.unblockEventListener),
+              document.getElementById("yes-remove-all-blocks").removeEventListener("click", ma.unblocAllkEventListener);
           },
           clean: (e) => e.toLowerCase().replace(/[^a-z0-9]/g, ""),
           isBlockTableEmpty: () => 0 === document.getElementsByClassName("allow-table-row").length,
@@ -62737,14 +62739,14 @@
               });
           }
         },
-        ma = ua.onBlockTab,
-        Ta =
-          (ua.unblockEventListener,
+        Ta = ma.onBlockTab,
+        ya =
+          (ma.unblockEventListener,
           async () => {
             const e = !1 === (await Ee());
             Ce(document.getElementById("settings-toggle-ads"), e),
               Ce(document.getElementById("settings-toggle-malware"), e),
-              na()
+              oa()
                 ? ((document.getElementById("setting-toggle-scams-parent").style.display = "none"),
                   (document.getElementById("settings-malware-label").textContent = "Malware/Scams"))
                 : Ce(document.getElementById("settings-toggle-scams"), e),
@@ -62752,56 +62754,56 @@
               Ce(document.getElementById("settings-toggle-block-count"), e),
               Ce(document.getElementById("settings-toggle-skimmer-protection"), e);
           }),
-        ya = async () => {
+        ca = async () => {
           const t = await Ee(),
             a = document.getElementById("settings-toggle-killswitch");
-          na() && (await Da(t)),
+          oa() && (await Aa(t)),
             await we({ [_]: !t }),
             (a.checked = !t),
-            await Ta(),
+            await ya(),
             e.chrome.runtime.sendMessage({ type: n }, function (e) {
               (e && !e.error) || console.error("Error calling icon-refresh: " + (e ? e.error : "No response received"));
             }),
             Ae();
         },
-        ca = async () => {
+        Ma = async () => {
           $("#settings-include .checkbox").checkbox(),
             await Promise.all([
               xe("settings-toggle-killswitch", _, null, () => {
                 const e = document.getElementById("settings-toggle-killswitch"),
                   t = !e.checked;
-                if (!1 === t) return ya();
+                if (!1 === t) return ca();
                 (e.checked = t),
                   (document.getElementById("killswitch-label").classList = "switch"),
                   $(".ui.modal.killswitch-confirmation").modal("show");
               }),
-              xe("settings-toggle-ads", c, null, Ma),
-              xe("settings-toggle-gtld", M, null, Sa),
-              xe("settings-toggle-block-count", g, null, ba),
+              xe("settings-toggle-ads", c, null, ha),
+              xe("settings-toggle-gtld", M, null, ga),
+              xe("settings-toggle-block-count", g, null, Sa),
               xe("settings-toggle-skimmer-protection", p, null, null),
-              xe("settings-toggle-verbose-logging", f, null, ga),
-              xe("settings-toggle-malware", b, null, ha),
+              xe("settings-toggle-verbose-logging", f, null, _a),
+              xe("settings-toggle-malware", b, null, ba),
               xe("settings-toggle-scams", S, null, null),
-              xe("settings-toggle-monthly-notification", D, null, _a),
-              xe("settings-toggle-malicious-notification", A, null, pa)
+              xe("settings-toggle-monthly-notification", D, null, pa),
+              xe("settings-toggle-malicious-notification", A, null, fa)
             ]),
-            await Ta();
-        },
-        Ma = async () => {
-          fa(c, Q);
+            await ya();
         },
         ha = async () => {
-          fa(b, ee);
+          Da(c, Q);
         },
         ba = async () => {
-          const t = await ve(g);
-          na() && (await e.chrome.declarativeNetRequest.setExtensionActionOptions({ displayActionCountAsBadgeText: t }));
+          Da(b, ee);
         },
         Sa = async () => {
-          const e = await ve(M);
-          console.debug("GTLD: State changed to ", { state: e }), na() && !0 === e && (await va(e));
+          const t = await ve(g);
+          oa() && (await e.chrome.declarativeNetRequest.setExtensionActionOptions({ displayActionCountAsBadgeText: t }));
         },
         ga = async () => {
+          const e = await ve(M);
+          console.debug("GTLD: State changed to ", { state: e }), oa() && !0 === e && (await wa(e));
+        },
+        _a = async () => {
           const t = await ve(f);
           return (
             console.debug("Verbose Logging: State changed to ", { state: t }),
@@ -62815,17 +62817,17 @@
             })
           );
         },
-        _a = async () => {
-          fa(D, ae);
-        },
         pa = async () => {
-          fa(A, se);
+          Da(D, ae);
         },
-        fa = async (e, t) => {
+        fa = async () => {
+          Da(A, se);
+        },
+        Da = async (e, t) => {
           const a = await ve(e);
-          console.debug(`EST: ${e} CHANGED TO: `, a), na() && (await Aa(t, a)), console.debug(`EST: MV3 ${e} CHANGED TO: `, a);
+          console.debug(`EST: ${e} CHANGED TO: `, a), oa() && (await va(t, a)), console.debug(`EST: MV3 ${e} CHANGED TO: `, a);
         },
-        Da = (t) =>
+        Aa = (t) =>
           new Promise((a, s) => {
             e.chrome.runtime.sendMessage({ type: V, enable: t }, (e) => {
               !e || e.error
@@ -62834,7 +62836,7 @@
                 : a(e.success);
             });
           }),
-        Aa = (t, a) =>
+        va = (t, a) =>
           new Promise((s, r) => {
             e.chrome.runtime.sendMessage({ type: q, protection: t, enable: a }, (e) => {
               !e || e.error
@@ -62843,7 +62845,7 @@
                 : s(e.success);
             });
           }),
-        va = (t) =>
+        wa = (t) =>
           new Promise((a, s) => {
             e.chrome.runtime.sendMessage({ type: X, enable: t }, (e) => {
               !e || e.error
@@ -62852,16 +62854,16 @@
                 : a(e.success);
             });
           });
-      var wa = s(7757),
-        Ca = s.n(wa),
-        ka = (s(5722), s(2023)),
-        Ea = s(2024);
-      function Ia(e, t) {
+      var Ca = s(7757),
+        ka = s.n(Ca),
+        Ea = (s(5722), s(2023)),
+        Ia = s(2024);
+      function Ha(e, t) {
         return new Promise((a, s) => {
           (e.onsuccess = t ? () => a(t(e.result)) : () => a(e.result)), (e.onerror = () => s(e.error));
         });
       }
-      class Ha {
+      class La {
         constructor({ file: e, lockedFile: t }) {
           (this.file = e), (this.lockedFile = t), (this.writeQueue = Promise.resolve()), (this.closed = void 0), (this.aborted = void 0);
         }
@@ -62881,7 +62883,7 @@
         async close() {
           if (!this.lockedFile) throw new Error("FileHandle is not open");
           await this.writeQueue,
-            this.lockedFile.active && "readonly" !== this.lockedFile.mode && (await Ia(this.lockedFile.flush())),
+            this.lockedFile.active && "readonly" !== this.lockedFile.mode && (await Ha(this.lockedFile.flush())),
             (this.closed = !0),
             (this.lockedFile = null),
             (this.writeQueue = Promise.resolve());
@@ -62893,33 +62895,33 @@
             (this.writeQueue = Promise.resolve());
         }
         async getMetadata() {
-          return this.ensureLocked(), Ia(this.lockedFile.getMetadata());
+          return this.ensureLocked(), Ha(this.lockedFile.getMetadata());
         }
         async readAsText(e, t) {
           return (
             this.ensureLocked({ invalidMode: "writeonly" }),
             "number" == typeof t && (this.lockedFile.location = t),
-            Ia(this.lockedFile.readAsText(e))
+            Ha(this.lockedFile.readAsText(e))
           );
         }
         async readAsArrayBuffer(e, t) {
           return (
             this.ensureLocked({ invalidMode: "writeonly" }),
             "number" == typeof t && (this.lockedFile.location = t),
-            Ia(this.lockedFile.readAsArrayBuffer(e))
+            Ha(this.lockedFile.readAsArrayBuffer(e))
           );
         }
         async truncate(e = 0) {
-          return this.ensureLocked({ invalidMode: "readonly" }), Ia(this.lockedFile.truncate(e));
+          return this.ensureLocked({ invalidMode: "readonly" }), Ha(this.lockedFile.truncate(e));
         }
         async append(e) {
-          return this.ensureLocked({ invalidMode: "readonly" }), Ia(this.lockedFile.append(e));
+          return this.ensureLocked({ invalidMode: "readonly" }), Ha(this.lockedFile.append(e));
         }
         async write(e, t) {
           return (
             this.ensureLocked({ invalidMode: "readonly" }),
             "number" == typeof t && (this.lockedFile.location = t),
-            Ia(this.lockedFile.write(e), () => this.lockedFile.location)
+            Ha(this.lockedFile.write(e), () => this.lockedFile.location)
           );
         }
         queuedWrite(e, t) {
@@ -62934,7 +62936,7 @@
           await this.writeQueue;
         }
       }
-      class La {
+      class Na {
         constructor({ filesStorage: e, idb: t, fileName: a, fileType: s, mutableFile: r }) {
           (this.filesStorage = e), (this.idb = t), (this.fileName = a), (this.fileType = s), (this.mutableFile = r);
         }
@@ -62944,10 +62946,10 @@
         open(e) {
           if (this.lockedFile) throw new Error("MutableFile cannot be opened twice");
           const t = this.mutableFile.open(e);
-          return new Ha({ file: this, lockedFile: t });
+          return new La({ file: this, lockedFile: t });
         }
         getFile() {
-          return Ia(this.mutableFile.getFile());
+          return Ha(this.mutableFile.getFile());
         }
         async persistAsFileSnapshot(e) {
           if (e === this.fileName) throw new Error("Snapshot name and the file name should be different");
@@ -62988,7 +62990,7 @@
           });
         }
       }
-      class Na {
+      class xa {
         constructor({ name: e, persistent: t } = {}) {
           (this.name = e),
             (this.persistent = t),
@@ -63004,11 +63006,14 @@
                 this.persistent;
                 const e = indexedDB.open(this.indexedDBName, this.version);
                 return (
+                  (e.onerror = (e) => {
+                    console.error(`IDB: Error opening IndexedDB ${this.indexedDBName}`, e);
+                  }),
                   (e.onupgradeneeded = () => {
                     const t = e.result;
                     t.objectStoreNames.contains(this.objectStorageName) || t.createObjectStore(this.objectStorageName);
                   }),
-                  Ia(e)
+                  Ha(e)
                 );
               })()),
             this.initializedPromise
@@ -63020,26 +63025,26 @@
         async createMutableFile(e, t = "text") {
           if (!self.IDBMutableFile) throw new Error("This environment does not support IDBMutableFile");
           const a = await this.initializedDB(),
-            s = await Ia(a.createMutableFile(e, t));
-          return new La({ filesStorage: this, idb: a, fileName: e, fileType: t, mutableFile: s });
+            s = await Ha(a.createMutableFile(e, t));
+          return new Na({ filesStorage: this, idb: a, fileName: e, fileType: t, mutableFile: s });
         }
         async put(e, t) {
           if (!e || "string" != typeof e) throw new Error("fileName parameter is mandatory");
-          if (!(t instanceof File || t instanceof Blob || (self.IDBMutableFile && t instanceof self.IDBMutableFile) || t instanceof La))
+          if (!(t instanceof File || t instanceof Blob || (self.IDBMutableFile && t instanceof self.IDBMutableFile) || t instanceof Na))
             throw new Error(`Unable to persist ${e}. Unknown file type.`);
-          t instanceof La && (t = t.mutableFile);
+          t instanceof Na && (t = t.mutableFile);
           const a = await this.initializedDB();
-          return Ia(this.getObjectStoreTransaction({ idb: a, mode: "readwrite" }).put(t, e));
+          return Ha(this.getObjectStoreTransaction({ idb: a, mode: "readwrite" }).put(t, e));
         }
         async remove(e) {
           if (!e) throw new Error("fileName parameter is mandatory");
           const t = await this.initializedDB();
-          return Ia(this.getObjectStoreTransaction({ idb: t, mode: "readwrite" }).delete(e));
+          return Ha(this.getObjectStoreTransaction({ idb: t, mode: "readwrite" }).delete(e));
         }
         async list(e) {
           const t = await this.initializedDB(),
             a = this.getObjectStoreTransaction({ idb: t });
-          let s = await Ia(a.getAllKeys());
+          let s = await Ha(a.getAllKeys());
           return (
             e &&
               (s = s.filter((t) => {
@@ -63058,65 +63063,65 @@
         async count(e) {
           if (!e) {
             const e = await this.initializedDB();
-            return Ia(this.getObjectStoreTransaction({ idb: e }).count());
+            return Ha(this.getObjectStoreTransaction({ idb: e }).count());
           }
           return (await this.list(e)).length;
         }
         async get(e) {
           const t = await this.initializedDB();
-          return Ia(this.getObjectStoreTransaction({ idb: t }).get(e)).then((a) =>
+          return Ha(this.getObjectStoreTransaction({ idb: t }).get(e)).then((a) =>
             self.IDBMutableFile && a instanceof self.IDBMutableFile
-              ? new La({ filesStorage: this, idb: t, fileName: e, fileType: a.type, mutableFile: a })
+              ? new Na({ filesStorage: this, idb: t, fileName: e, fileType: a.type, mutableFile: a })
               : a
           );
         }
         async clear() {
           const e = await this.initializedDB();
-          return Ia(this.getObjectStoreTransaction({ idb: e, mode: "readwrite" }).clear());
+          return Ha(this.getObjectStoreTransaction({ idb: e, mode: "readwrite" }).clear());
         }
       }
-      async function xa({ name: e, persistent: t } = {}) {
-        const a = new Na({ name: e || "default", persistent: t });
+      async function Pa({ name: e, persistent: t } = {}) {
+        const a = new xa({ name: e || "default", persistent: t });
         return await a.initializedDB(), a;
       }
-      let Pa;
-      xa({ name: "db", persistent: !0 }).then((e) => {
-        Pa = e;
+      let Fa;
+      Pa({ name: "db", persistent: !0 }).then((e) => {
+        Fa = e;
       });
-      const Fa = {
+      const ja = {
           nextQueue: 0,
           queue1: Promise.resolve(),
           queue2: Promise.resolve(),
           queue3: Promise.resolve(),
           next: (e) => {
             let t;
-            t = 0 === Fa.nextQueue ? Fa.queue1 : 1 === Fa.nextQueue ? Fa.queue2 : Fa.queue3;
+            t = 0 === ja.nextQueue ? ja.queue1 : 1 === ja.nextQueue ? ja.queue2 : ja.queue3;
             let a = t.then(e);
             return (
-              0 === Fa.nextQueue
-                ? ((Fa.queue1 = a), Fa.nextQueue++)
-                : 1 === Fa.nextQueue
-                ? ((Fa.queue2 = a), Fa.nextQueue++)
-                : ((Fa.queue3 = a), (Fa.nextQueue = 0)),
+              0 === ja.nextQueue
+                ? ((ja.queue1 = a), ja.nextQueue++)
+                : 1 === ja.nextQueue
+                ? ((ja.queue2 = a), ja.nextQueue++)
+                : ((ja.queue3 = a), (ja.nextQueue = 0)),
               a
             );
           }
         },
-        ja = function (e, t) {
-          return Fa.next(() =>
+        Ya = function (e, t) {
+          return ja.next(() =>
             (async function (e, t = {}) {
-              let a = await fetch(e, Vt(t));
+              let a = await fetch(e, qt(t));
               return await a.arrayBuffer();
             })(e, t)
           );
         },
-        Ya = (e) => Fa.next(() => Oa(e)),
-        Oa = function (e) {
+        Oa = (e) => ja.next(() => Ba(e)),
+        Ba = function (e) {
           return new Promise((t, a) => {
-            if (null != Pa) return t();
-            console.warn("FIL: " + e + " database is loading the IDB"), xa({ name: "db", persistent: !0 }).then((e) => ((Pa = e), t()));
+            if (null != Fa) return t();
+            console.warn("FIL: " + e + " database is loading the IDB"), Pa({ name: "db", persistent: !0 }).then((e) => ((Fa = e), t()));
           }).then(() =>
-            Pa.get(e)
+            Fa.get(e)
               .then((t) => {
                 if (!t) throw new Error("storage.get returned nothing for " + e);
                 return Promise.resolve(t);
@@ -63139,15 +63144,15 @@
               .catch((t) => console.log(`FIL: ${e} err reading: `, t))
           );
         },
-        Ba = async function (e, t, a) {
-          let s = await xa({ name: e, persistent: !0 });
+        Wa = async function (e, t, a) {
+          let s = await Pa({ name: e, persistent: !0 });
           if (!s) throw new Error("getFileStorage");
           let r = new Blob([a]);
           if (!r) throw new Error("new Blob");
           if (!(await s.put(t, r))) throw new Error("storage.put");
         };
-      async function Wa(e, t) {
-        let a = await xa({ name: e, persistent: !0 });
+      async function Ra(e, t) {
+        let a = await Pa({ name: e, persistent: !0 });
         if (!a) throw new Error("getFileStorage");
         try {
           await a.remove(t);
@@ -63155,7 +63160,7 @@
           console.log("Error deleting file: " + e);
         }
       }
-      class Ra {
+      class Ja {
         constructor(e) {
           (this.major = 0), (this.minor = 0), (this.patch = 0);
           var t = e.split(".");
@@ -63174,7 +63179,7 @@
           );
         }
       }
-      const Ja = [
+      const za = [
           "mbgc.db.ads.2",
           "mbgc.db.adware.2",
           "mbgc.db.compromised.2",
@@ -63196,42 +63201,42 @@
           "mbgc.db.whitelist.scams.manual.2",
           "mbgc.db.top1m.2"
         ],
-        za = [
+        Ka = [
           "mbgc.db.malware.partial.urls.2",
           "mbgc.db.malware.patterns.2",
           "mbgc.db.malware.urls.2",
           "mbgc.db.whitelist.scams.patterns.2",
           "mbgc.db.whitelist.tracker.2"
         ],
-        Ka = "mbgc.db.featureflags.2",
-        Za = () => {
+        Za = "mbgc.db.featureflags.2",
+        Ga = () => {
           const t = e.chrome.runtime.getManifest().version;
-          return na() ? [`mbgc.db.rulesetoverride.${t}`] : [];
+          return oa() ? [`mbgc.db.rulesetoverride.${t}`] : [];
         },
-        Ga = [...Ja, ...za, Ka, ...Za()],
-        Ua = ["malware_partial_urls", "malware_patterns", "whitelist_scams_patterns"],
-        $a = "db";
-      var Va = ArrayBuffer,
-        qa = Uint8Array,
-        Xa = Uint16Array,
-        Qa = Int16Array,
-        es = Int32Array,
-        ts = function (e, t, a) {
-          if (qa.prototype.slice) return qa.prototype.slice.call(e, t, a);
+        Ua = [...za, ...Ka, Za, ...Ga()],
+        $a = ["malware_partial_urls", "malware_patterns", "whitelist_scams_patterns"],
+        Va = "db";
+      var qa = ArrayBuffer,
+        Xa = Uint8Array,
+        Qa = Uint16Array,
+        es = Int16Array,
+        ts = Int32Array,
+        as = function (e, t, a) {
+          if (Xa.prototype.slice) return Xa.prototype.slice.call(e, t, a);
           (null == t || t < 0) && (t = 0), (null == a || a > e.length) && (a = e.length);
-          var s = new qa(a - t);
+          var s = new Xa(a - t);
           return s.set(e.subarray(t, a)), s;
         },
-        as = function (e, t, a, s) {
-          if (qa.prototype.fill) return qa.prototype.fill.call(e, t, a, s);
+        ss = function (e, t, a, s) {
+          if (Xa.prototype.fill) return Xa.prototype.fill.call(e, t, a, s);
           for ((null == a || a < 0) && (a = 0), (null == s || s > e.length) && (s = e.length); a < s; ++a) e[a] = t;
           return e;
         },
-        ss = function (e, t, a, s) {
-          if (qa.prototype.copyWithin) return qa.prototype.copyWithin.call(e, t, a, s);
+        rs = function (e, t, a, s) {
+          if (Xa.prototype.copyWithin) return Xa.prototype.copyWithin.call(e, t, a, s);
           for ((null == a || a < 0) && (a = 0), (null == s || s > e.length) && (s = e.length); a < s; ) e[t++] = e[a++];
         },
-        rs = [
+        ns = [
           "invalid zstd data",
           "window size too large (>2046MB)",
           "invalid block type",
@@ -63239,16 +63244,16 @@
           "match distance too far back",
           "unexpected EOF"
         ],
-        ns = function (e, t, a) {
-          var s = new Error(t || rs[e]);
-          if (((s.code = e), Error.captureStackTrace && Error.captureStackTrace(s, ns), !a)) throw s;
+        os = function (e, t, a) {
+          var s = new Error(t || ns[e]);
+          if (((s.code = e), Error.captureStackTrace && Error.captureStackTrace(s, os), !a)) throw s;
           return s;
         },
-        os = function (e, t, a) {
+        is = function (e, t, a) {
           for (var s = 0, r = 0; s < a; ++s) r |= e[t++] << (s << 3);
           return r;
         },
-        is = function (e, t) {
+        ds = function (e, t) {
           var a,
             s = e[0] | (e[1] << 8) | (e[2] << 16);
           if (3126568 == s && 253 == e[3]) {
@@ -63257,19 +63262,19 @@
               o = (r >> 2) & 1,
               i = 3 & r,
               d = r >> 6;
-            8 & r && ns(0);
+            8 & r && os(0);
             var l = 6 - n,
               u = 3 == i ? 4 : i,
-              m = os(e, l, u),
+              m = is(e, l, u),
               T = d ? 1 << d : n,
-              y = os(e, (l += u), T) + (1 == d && 256),
+              y = is(e, (l += u), T) + (1 == d && 256),
               c = y;
             if (!n) {
               var M = 1 << (10 + (e[5] >> 3));
               c = M + (M >> 3) * (7 & e[5]);
             }
-            c > 2145386496 && ns(1);
-            var h = new qa((1 == t ? y || c : t ? 0 : c) + 12);
+            c > 2145386496 && os(1);
+            var h = new Xa((1 == t ? y || c : t ? 0 : c) + 12);
             return (
               (h[0] = 1),
               (h[4] = 4),
@@ -63281,7 +63286,7 @@
                 d: m,
                 w: t && 1 != t ? t : h.subarray(12),
                 e: c,
-                o: new es(h.buffer, 0, 3),
+                o: new ts(h.buffer, 0, 3),
                 u: y,
                 c: o,
                 m: Math.min(131072, c)
@@ -63289,16 +63294,16 @@
             );
           }
           if (25481893 == ((s >> 4) | (e[3] << 20))) return 8 + (((a = e)[4] | (a[5] << 8) | (a[6] << 16) | (a[7] << 24)) >>> 0);
-          ns(0);
+          os(0);
         },
-        ds = function (e) {
+        ls = function (e) {
           for (var t = 0; 1 << t <= e; ++t);
           return t - 1;
         },
-        ls = function (e, t, a) {
+        us = function (e, t, a) {
           var s = 4 + (t << 3),
             r = 5 + (15 & e[t]);
-          r > a && ns(3);
+          r > a && os(3);
           for (
             var n = 1 << r,
               o = n,
@@ -63306,17 +63311,17 @@
               d = -1,
               l = -1,
               u = n,
-              m = new Va(512 + (n << 2)),
-              T = new Qa(m, 0, 256),
-              y = new Xa(m, 0, 256),
-              c = new Xa(m, 512, n),
+              m = new qa(512 + (n << 2)),
+              T = new es(m, 0, 256),
+              y = new Qa(m, 0, 256),
+              c = new Qa(m, 512, n),
               M = 512 + (n << 1),
-              h = new qa(m, M, n),
-              b = new qa(m, M + n);
+              h = new Xa(m, M, n),
+              b = new Xa(m, M + n);
             i < 255 && o > 0;
 
           ) {
-            var S = ds(o + 1),
+            var S = ls(o + 1),
               g = s >> 3,
               _ = (1 << (S + 1)) - 1,
               p = ((e[g] | (e[g + 1] << 8) | (e[g + 2] << 16)) >> (7 & s)) & _,
@@ -63334,7 +63339,7 @@
                 (d = ((e[v] | (e[v + 1] << 8)) >> (7 & s)) & 3), (s += 2), (i += d);
               } while (3 == d);
           }
-          (i > 255 || o) && ns(0);
+          (i > 255 || o) && os(0);
           for (var w = 0, C = (n >> 1) + (n >> 3) + 3, k = n - 1, E = 0; E <= i; ++E) {
             var I = T[E];
             if (I < 1) y[E] = -I;
@@ -63346,52 +63351,52 @@
                 } while (w >= u);
               }
           }
-          for (w && ns(0), l = 0; l < n; ++l) {
+          for (w && os(0), l = 0; l < n; ++l) {
             var H = y[h[l]]++,
-              L = (b[l] = r - ds(H));
+              L = (b[l] = r - ls(H));
             c[l] = (H << L) - n;
           }
           return [(s + 7) >> 3, { b: r, s: h, n: b, t: c }];
         },
-        us = ls(new qa([81, 16, 99, 140, 49, 198, 24, 99, 12, 33, 196, 24, 99, 102, 102, 134, 70, 146, 4]), 0, 6)[1],
-        ms = ls(
-          new qa([33, 20, 196, 24, 99, 140, 33, 132, 16, 66, 8, 33, 132, 16, 66, 8, 33, 68, 68, 68, 68, 68, 68, 68, 68, 36, 9]),
+        ms = us(new Xa([81, 16, 99, 140, 49, 198, 24, 99, 12, 33, 196, 24, 99, 102, 102, 134, 70, 146, 4]), 0, 6)[1],
+        Ts = us(
+          new Xa([33, 20, 196, 24, 99, 140, 33, 132, 16, 66, 8, 33, 132, 16, 66, 8, 33, 68, 68, 68, 68, 68, 68, 68, 68, 36, 9]),
           0,
           6
         )[1],
-        Ts = ls(new qa([32, 132, 16, 66, 102, 70, 68, 68, 68, 68, 36, 73, 2]), 0, 5)[1],
-        ys = function (e, t) {
-          for (var a = e.length, s = new es(a), r = 0; r < a; ++r) (s[r] = t), (t += 1 << e[r]);
+        ys = us(new Xa([32, 132, 16, 66, 102, 70, 68, 68, 68, 68, 36, 73, 2]), 0, 5)[1],
+        cs = function (e, t) {
+          for (var a = e.length, s = new ts(a), r = 0; r < a; ++r) (s[r] = t), (t += 1 << e[r]);
           return s;
         },
-        cs = new qa(new es([0, 0, 0, 0, 16843009, 50528770, 134678020, 202050057, 269422093]).buffer, 0, 36),
-        Ms = ys(cs, 0),
-        hs = new qa(new es([0, 0, 0, 0, 0, 0, 0, 0, 16843009, 50528770, 117769220, 185207048, 252579084, 16]).buffer, 0, 53),
-        bs = ys(hs, 3),
-        Ss = function (e, t, a) {
+        Ms = new Xa(new ts([0, 0, 0, 0, 16843009, 50528770, 134678020, 202050057, 269422093]).buffer, 0, 36),
+        hs = cs(Ms, 0),
+        bs = new Xa(new ts([0, 0, 0, 0, 0, 0, 0, 0, 16843009, 50528770, 117769220, 185207048, 252579084, 16]).buffer, 0, 53),
+        Ss = cs(bs, 3),
+        gs = function (e, t, a) {
           var s = e.length,
             r = t.length,
             n = e[s - 1],
             o = (1 << a.b) - 1,
             i = -a.b;
-          n || ns(0);
-          for (var d = 0, l = a.b, u = (s << 3) - 8 + ds(n) - l, m = -1; u > i && m < r; ) {
+          n || os(0);
+          for (var d = 0, l = a.b, u = (s << 3) - 8 + ls(n) - l, m = -1; u > i && m < r; ) {
             var T = u >> 3;
             (d = ((d << l) | ((e[T] | (e[T + 1] << 8) | (e[T + 2] << 16)) >> (7 & u))) & o), (t[++m] = a.s[d]), (u -= l = a.n[d]);
           }
-          (u == i && m + 1 == r) || ns(0);
+          (u == i && m + 1 == r) || os(0);
         },
-        gs = function (e, t, a) {
+        _s = function (e, t, a) {
           var s = 6,
             r = (t.length + 3) >> 2,
             n = r << 1,
             o = r + n;
-          Ss(e.subarray(s, (s += e[0] | (e[1] << 8))), t.subarray(0, r), a),
-            Ss(e.subarray(s, (s += e[2] | (e[3] << 8))), t.subarray(r, n), a),
-            Ss(e.subarray(s, (s += e[4] | (e[5] << 8))), t.subarray(n, o), a),
-            Ss(e.subarray(s), t.subarray(o), a);
+          gs(e.subarray(s, (s += e[0] | (e[1] << 8))), t.subarray(0, r), a),
+            gs(e.subarray(s, (s += e[2] | (e[3] << 8))), t.subarray(r, n), a),
+            gs(e.subarray(s, (s += e[4] | (e[5] << 8))), t.subarray(n, o), a),
+            gs(e.subarray(s), t.subarray(o), a);
         },
-        _s = function (e, t, a) {
+        ps = function (e, t, a) {
           var s,
             r = t.b,
             n = e[r],
@@ -63401,10 +63406,10 @@
             d = (r += 3) + i;
           if (1 == o) {
             if (r >= e.length) return;
-            return (t.b = r + 1), a ? (as(a, e[r], t.y, (t.y += i)), a) : as(new qa(i), e[r]);
+            return (t.b = r + 1), a ? (ss(a, e[r], t.y, (t.y += i)), a) : ss(new Xa(i), e[r]);
           }
           if (!(d > e.length)) {
-            if (0 == o) return (t.b = d), a ? (a.set(e.subarray(r, d), t.y), (t.y += i), a) : ts(e, r, d);
+            if (0 == o) return (t.b = d), a ? (a.set(e.subarray(r, d), t.y), (t.y += i), a) : as(e, r, d);
             if (2 == o) {
               var l = e[r],
                 u = 3 & l,
@@ -63423,29 +63428,29 @@
                     ? ((T |= (e[++r] << 4) | ((3 & e[++r]) << 12)), (y = (e[r] >> 2) | (e[++r] << 6)))
                     : ((T |= (e[++r] << 4) | ((63 & e[++r]) << 12)), (y = (e[r] >> 6) | (e[++r] << 2) | (e[++r] << 10)))),
                 ++r;
-              var M = a ? a.subarray(t.y, t.y + t.m) : new qa(t.m),
+              var M = a ? a.subarray(t.y, t.y + t.m) : new Xa(t.m),
                 h = M.length - T;
               if (0 == u) M.set(e.subarray(r, (r += T)), h);
-              else if (1 == u) as(M, e[r++], h);
+              else if (1 == u) ss(M, e[r++], h);
               else {
                 var b = t.h;
                 if (2 == u) {
                   var S = (function (e, t) {
                     var a = 0,
                       s = -1,
-                      r = new qa(292),
+                      r = new Xa(292),
                       n = e[t],
                       o = r.subarray(0, 256),
                       i = r.subarray(256, 268),
-                      d = new Xa(r.buffer, 268);
+                      d = new Qa(r.buffer, 268);
                     if (n < 128) {
-                      var l = ls(e, t + 1, 6),
+                      var l = us(e, t + 1, 6),
                         u = l[0],
                         m = l[1],
                         T = u << 3,
                         y = e[(t += n)];
-                      y || ns(0);
-                      for (var c = 0, M = 0, h = m.b, b = h, S = (++t << 3) - 8 + ds(y); !((S -= h) < T); ) {
+                      y || os(0);
+                      for (var c = 0, M = 0, h = m.b, b = h, S = (++t << 3) - 8 + ls(y); !((S -= h) < T); ) {
                         var g = S >> 3;
                         if (((c += ((e[g] | (e[g + 1] << 8)) >> (7 & S)) & ((1 << h) - 1)), (o[++s] = m.s[c]), (S -= b) < T)) break;
                         (M += ((e[(g = S >> 3)] | (e[g + 1] << 8)) >> (7 & S)) & ((1 << b) - 1)),
@@ -63455,7 +63460,7 @@
                           (b = m.n[M]),
                           (M = m.t[M]);
                       }
-                      ++s > 255 && ns(0);
+                      ++s > 255 && os(0);
                     } else {
                       for (s = n - 127; a < s; a += 2) {
                         var _ = e[++t];
@@ -63464,53 +63469,53 @@
                       ++t;
                     }
                     var p = 0;
-                    for (a = 0; a < s; ++a) (v = o[a]) > 11 && ns(0), (p += v && 1 << (v - 1));
-                    var f = ds(p) + 1,
+                    for (a = 0; a < s; ++a) (v = o[a]) > 11 && os(0), (p += v && 1 << (v - 1));
+                    var f = ls(p) + 1,
                       D = 1 << f,
                       A = D - p;
-                    for (A & (A - 1) && ns(0), o[s++] = ds(A) + 1, a = 0; a < s; ++a) {
+                    for (A & (A - 1) && os(0), o[s++] = ls(A) + 1, a = 0; a < s; ++a) {
                       var v = o[a];
                       ++i[(o[a] = v && f + 1 - v)];
                     }
-                    var w = new qa(D << 1),
+                    var w = new Xa(D << 1),
                       C = w.subarray(0, D),
                       k = w.subarray(D);
                     for (d[f] = 0, a = f; a > 0; --a) {
                       var E = d[a];
-                      as(k, a, E, (d[a - 1] = E + i[a] * (1 << (f - a))));
+                      ss(k, a, E, (d[a - 1] = E + i[a] * (1 << (f - a))));
                     }
-                    for (d[0] != D && ns(0), a = 0; a < s; ++a) {
+                    for (d[0] != D && os(0), a = 0; a < s; ++a) {
                       var I = o[a];
                       if (I) {
                         var H = d[I];
-                        as(C, a, H, (d[I] = H + (1 << (f - I))));
+                        ss(C, a, H, (d[I] = H + (1 << (f - I))));
                       }
                     }
                     return [t, { n: k, b: f, s: C }];
                   })(e, r);
                   (y += r - (r = S[0])), (t.h = b = S[1]);
-                } else b || ns(0);
-                (c ? gs : Ss)(e.subarray(r, (r += y)), M.subarray(h), b);
+                } else b || os(0);
+                (c ? _s : gs)(e.subarray(r, (r += y)), M.subarray(h), b);
               }
               var g = e[r++];
               if (g) {
                 255 == g ? (g = 32512 + (e[r++] | (e[r++] << 8))) : g > 127 && (g = ((g - 128) << 8) | e[r++]);
                 var _ = e[r++];
-                3 & _ && ns(0);
-                for (var p = [ms, Ts, us], f = 2; f > -1; --f) {
+                3 & _ && os(0);
+                for (var p = [Ts, ys, ms], f = 2; f > -1; --f) {
                   var D = (_ >> (2 + (f << 1))) & 3;
                   if (1 == D) {
-                    var A = new qa([0, 0, e[r++]]);
-                    p[f] = { s: A.subarray(2, 3), n: A.subarray(0, 1), t: new Xa(A.buffer, 0, 1), b: 0 };
-                  } else 2 == D ? ((r = (s = ls(e, r, 9 - (1 & f)))[0]), (p[f] = s[1])) : 3 == D && (t.t || ns(0), (p[f] = t.t[f]));
+                    var A = new Xa([0, 0, e[r++]]);
+                    p[f] = { s: A.subarray(2, 3), n: A.subarray(0, 1), t: new Qa(A.buffer, 0, 1), b: 0 };
+                  } else 2 == D ? ((r = (s = us(e, r, 9 - (1 & f)))[0]), (p[f] = s[1])) : 3 == D && (t.t || os(0), (p[f] = t.t[f]));
                 }
                 var v = (t.t = p),
                   w = v[0],
                   C = v[1],
                   k = v[2],
                   E = e[d - 1];
-                E || ns(0);
-                var I = (d << 3) - 8 + ds(E) - k.b,
+                E || os(0);
+                var I = (d << 3) - 8 + ls(E) - k.b,
                   H = I >> 3,
                   L = 0,
                   N = ((e[H] | (e[H + 1] << 8)) >> (7 & I)) & ((1 << k.b) - 1),
@@ -63525,10 +63530,10 @@
                     W = C.n[x],
                     R = 1 << B,
                     J = R + (((e[(H = (I -= B) >> 3)] | (e[H + 1] << 8) | (e[H + 2] << 16) | (e[H + 3] << 24)) >>> (7 & I)) & (R - 1));
-                  H = (I -= hs[Y]) >> 3;
-                  var z = bs[Y] + (((e[H] | (e[H + 1] << 8) | (e[H + 2] << 16)) >> (7 & I)) & ((1 << hs[Y]) - 1));
-                  H = (I -= cs[F]) >> 3;
-                  var K = Ms[F] + (((e[H] | (e[H + 1] << 8) | (e[H + 2] << 16)) >> (7 & I)) & ((1 << cs[F]) - 1));
+                  H = (I -= bs[Y]) >> 3;
+                  var z = Ss[Y] + (((e[H] | (e[H + 1] << 8) | (e[H + 2] << 16)) >> (7 & I)) & ((1 << bs[Y]) - 1));
+                  H = (I -= Ms[F]) >> 3;
+                  var K = hs[F] + (((e[H] | (e[H + 1] << 8) | (e[H + 2] << 16)) >> (7 & I)) & ((1 << Ms[F]) - 1));
                   if (
                     ((H = (I -= j) >> 3),
                     (N = k.t[N] + (((e[H] | (e[H + 1] << 8)) >> (7 & I)) & ((1 << j) - 1))),
@@ -63557,22 +63562,22 @@
                 }
                 if (L != h) for (; h < M.length; ) M[L++] = M[h++];
                 else L = M.length;
-                a ? (t.y += L) : (M = ts(M, 0, L));
+                a ? (t.y += L) : (M = as(M, 0, L));
               } else if (a) {
                 if (((t.y += T), h)) for (f = 0; f < T; ++f) M[f] = M[h + f];
-              } else h && (M = ts(M, h));
+              } else h && (M = as(M, h));
               return (t.b = d), M;
             }
-            ns(2);
+            os(2);
           }
         };
-      function ps(e, t) {
+      function fs(e, t) {
         for (var a = 0, s = [], r = +!t, n = 0; e.length; ) {
-          var o = is(e, r || t);
+          var o = ds(e, r || t);
           if ("object" == typeof o) {
             for (r ? ((t = null), o.w.length == o.u && (s.push((t = o.w)), (n += o.u))) : (s.push(t), (o.e = 0)); !o.l; ) {
-              var i = _s(e, o, t);
-              i || ns(5), t ? (o.e = o.y) : (s.push(i), (n += i.length), ss(o.w, 0, i.length), o.w.set(i, o.w.length - i.length));
+              var i = ps(e, o, t);
+              i || os(5), t ? (o.e = o.y) : (s.push(i), (n += i.length), rs(o.w, 0, i.length), o.w.set(i, o.w.length - i.length));
             }
             a = o.b + 4 * o.c;
           } else a = o;
@@ -63580,24 +63585,24 @@
         }
         return (function (e, t) {
           if (1 == e.length) return e[0];
-          for (var a = new qa(t), s = 0, r = 0; s < e.length; ++s) {
+          for (var a = new Xa(t), s = 0, r = 0; s < e.length; ++s) {
             var n = e[s];
             a.set(n, r), (r += n.length);
           }
           return a;
         })(s, n);
       }
-      class fs {
+      class Ds {
         constructor(e, t) {
           (this.name = e), (this.cleanName = t);
         }
         async read() {
-          const e = await Ya(this.name);
+          const e = await Oa(this.name);
           return this.unpack(e);
         }
         async readBundled() {
           console.debug("READ BUNDLED FOR: ", { name: this.name, cleanName: this.cleanName });
-          let t = await ja(e.chrome.runtime.getURL("db/" + this.name));
+          let t = await Ya(e.chrome.runtime.getURL("db/" + this.name));
           return this.unpack(t);
         }
         unpack(e) {
@@ -63606,16 +63611,16 @@
         }
         unpackInflate(e) {
           const t = new Uint8Array(e);
-          return ((e) => !(e.length < 4) && 40 == e[0] && 181 == e[1] && 47 == e[2] && 253 == e[3])(t) ? Ot(ps(t)) : Ot(t);
+          return ((e) => !(e.length < 4) && 40 == e[0] && 181 == e[1] && 47 == e[2] && 253 == e[3])(t) ? Bt(fs(t)) : Bt(t);
         }
         static async clear() {
           return (async function () {
-            const e = await xa({ name: "db", persistent: !0 });
+            const e = await Pa({ name: "db", persistent: !0 });
             await e.clear();
           })();
         }
       }
-      class Ds {
+      class As {
         add(e) {
           var t = this.indices(e);
           for (var a of t) this.data[~~(a / 32)] |= 1 << a % 32;
@@ -63631,12 +63636,12 @@
         }
         serialize() {
           var e = {};
-          return (e.k = this.k), (e.m = this.m), (e.data = Wt(this.data.buffer)), e;
+          return (e.k = this.k), (e.m = this.m), (e.data = Rt(this.data.buffer)), e;
         }
         static deserialize(e, t) {
           var a,
-            s = new Ds();
-          return (s.k = e.k), (s.m = e.m), (s.data = t ? e.data : new Uint32Array(((a = e.data), Bt(atob(a))))), s;
+            s = new As();
+          return (s.k = e.k), (s.m = e.m), (s.data = t ? e.data : new Uint32Array(((a = e.data), Wt(atob(a))))), s;
         }
         djb2(e) {
           var t = 5381;
@@ -63655,17 +63660,17 @@
           (this.k = e.k), (this.m = e.m), (this.data = e.data);
         }
       }
-      class As {
+      class vs {
         constructor(e, t) {
-          (this.name = e), t ? (this.bloomFilter = Ds.deserialize(t, !0)) : (this.file = new fs(e, ta(e)));
+          (this.name = e), t ? (this.bloomFilter = As.deserialize(t, !0)) : (this.file = new Ds(e, aa(e)));
         }
         parse() {
-          return this.file.read().then((e) => ((this.bloomFilter = Ds.deserialize(e)), this));
+          return this.file.read().then((e) => ((this.bloomFilter = As.deserialize(e)), this));
         }
         parseBundled() {
           return (
             console.debug(`IDB: Reading the bundled database for ${this.name}`),
-            this.file.readBundled().then((e) => ((this.bloomFilter = Ds.deserialize(e)), this))
+            this.file.readBundled().then((e) => ((this.bloomFilter = As.deserialize(e)), this))
           );
         }
         ready() {
@@ -63682,9 +63687,9 @@
           this.bloomFilter.replace(e);
         }
       }
-      const vs = (t, a, s) =>
+      const ws = (t, a, s) =>
           new Promise((r, n) => {
-            if (!aa) return void n(new Error("IndexedDb not available"));
+            if (!sa) return void n(new Error("IndexedDb not available"));
             const { dbName: o, storeName: i, storeOptions: d } = t;
             let { dbVersion: l, waitStrategy: u } = t;
             (l = l || 1), (u = u || "allOrNothing");
@@ -63708,7 +63713,7 @@
                   r("allOrNothing" == u ? Promise.all(t[a].map((e) => s(c, e))) : Promise.allSettled(t[a].map((e) => s(c, e))));
               });
           }),
-        ws = (e, t) =>
+        Cs = (e, t) =>
           new Promise((a, s) => {
             const r = e.put(t);
             (r.onsuccess = () => {
@@ -63716,7 +63721,7 @@
             }),
               (r.onerror = (e) => s(e));
           }),
-        Cs = (e, t) =>
+        ks = (e, t) =>
           new Promise((a, s) => {
             const r = e.get(t);
             (r.onsuccess = () => {
@@ -63724,22 +63729,22 @@
             }),
               (r.onerror = (e) => s(e));
           }),
-        ks = JSON.parse(
-          '{"mbgc.db.ads.2":{"md5":"74daffca8d28e5bf659524670a119c4f","name":"mbgc.db.ads.2","sha256":"4c0e0e8685cea6faf28ac2379cabfc5223a90c7c6de6a2addf63f0fa5eb24a17","size":302347,"url":"cdn.mwbsys.com/packages/mbgc.db.ads.2/7/4/d/a/74daffca8d28e5bf659524670a119c4f/6eff0bcd-f565-461b-8753-454c47f93261.2","version":"2.0.202311021416"},"mbgc.db.adware.2":{"md5":"ceb2ec5a08972324488fe5527ca53a42","name":"mbgc.db.adware.2","sha256":"c9d68fb50aef5c1316726ec3f764502f22841a9d126fdf325ba2df75a6592076","size":4545,"url":"cdn.mwbsys.com/packages/mbgc.db.adware.2/c/e/b/2/ceb2ec5a08972324488fe5527ca53a42/ddb6cc0d-0555-483d-a617-58062d98dcdf.2","version":"2.0.202310041920"},"mbgc.db.compromised.2":{"md5":"f5888f9dd87223071970eb4c91e7b4b0","name":"mbgc.db.compromised.2","sha256":"c4c7824cadbd8ce493f334b810ad848c005a8c623d95550b0dfdbd890915da4b","size":14617,"url":"cdn.mwbsys.com/packages/mbgc.db.compromised.2/f/5/8/8/f5888f9dd87223071970eb4c91e7b4b0/cc5c45d7-64c7-4fb0-803c-a83f6e99d650.2","version":"2.0.202310190845"},"mbgc.db.exploit.2":{"md5":"f038f65baec923d70dfdd3ac6f817de6","name":"mbgc.db.exploit.2","sha256":"2fe06697ab631e9530d4f3e894fde27855a84999c0b91cd74bbded2c8572fa7e","size":5471,"url":"cdn.mwbsys.com/packages/mbgc.db.exploit.2/f/0/3/8/f038f65baec923d70dfdd3ac6f817de6/5c8b0c1b-8cbb-4eb3-9c58-eddde4d44f79.2","version":"2.0.202310190745"},"mbgc.db.featureflags.2":{"md5":"c474da3eb026b7ff9f840dda6933f836","name":"mbgc.db.featureflags.2","sha256":"01ad1770d5b499da2c36f63274dbf4106d7f35f5b903becbf1a5cd61e5b738d2","size":112,"url":"cdn.mwbsys.com/packages/mbgc.db.featureflags.2/c/4/7/4/c474da3eb026b7ff9f840dda6933f836/30ff69af-0e23-44bc-8e8e-051a82fdac94.2","version":"2.0.202310242116"},"mbgc.db.fraud.2":{"md5":"22ffced5df8195b708caff922c601881","name":"mbgc.db.fraud.2","sha256":"5a20d86d61a6315f992183601a26b64d8956188308d83097fa46655a0e228f95","size":551530,"url":"cdn.mwbsys.com/packages/mbgc.db.fraud.2/2/2/f/f/22ffced5df8195b708caff922c601881/bce2b98d-5546-46da-8fa4-400edec1fc51.2","version":"2.0.202311021346"},"mbgc.db.hijack.2":{"md5":"9ece6fe4102addf9c426c24a2ba06d15","name":"mbgc.db.hijack.2","sha256":"6831c7e0b8fae7056b44ac8ee2756fb7f73c26ea77828384156d5dde97d910f0","size":23221,"url":"cdn.mwbsys.com/packages/mbgc.db.hijack.2/9/e/c/e/9ece6fe4102addf9c426c24a2ba06d15/67d5fe8a-e2dc-4eb9-ba52-8142cbf55a9b.2","version":"2.0.202310310715"},"mbgc.db.malvertising.2":{"md5":"b40e8f77cfaffb348e907dd8e9ba930b","name":"mbgc.db.malvertising.2","sha256":"9c62030a61b66ccc8d8b67b43be472eabae4189bb670e077f3cd5400a7bccfa0","size":144994,"url":"cdn.mwbsys.com/packages/mbgc.db.malvertising.2/b/4/0/e/b40e8f77cfaffb348e907dd8e9ba930b/d628c96a-e508-466a-a8d5-ca921d1ffd3b.2","version":"2.0.202310302116"},"mbgc.db.malware.partial.urls.2":{"md5":"661ba019c220762ce2c262307a3e8223","name":"mbgc.db.malware.partial.urls.2","sha256":"51f82d3180a73d5382719a67a9e712175eaa20d168657f8b6c22297bea12a394","size":7365,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.partial.urls.2/6/6/1/b/661ba019c220762ce2c262307a3e8223/f3732ea5-88c3-4961-a3c1-6b7774c4bb76.2","version":"2.0.202310161645"},"mbgc.db.malware.patterns.2":{"md5":"5bd5d9984406567936863f05dadf469f","name":"mbgc.db.malware.patterns.2","sha256":"82fc42a370325590898b614a4edbd3b696baa12383f2b1fcb09578bb1fbe292c","size":2701,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.patterns.2/5/b/d/5/5bd5d9984406567936863f05dadf469f/529af5aa-ccf2-4571-b722-7cb5cbab7ef5.2","version":"2.0.202310241246"},"mbgc.db.malware.urls.2":{"md5":"8c65ba14ec01df966397cc6e3342c359","name":"mbgc.db.malware.urls.2","sha256":"879546672dddb80ead72222a078696edeaa02f01c495ca4606e19be564d9ba2d","size":320393,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.urls.2/8/c/6/5/8c65ba14ec01df966397cc6e3342c359/4271147a-8c45-41a9-ac91-d60c16646609.2","version":"2.0.202311031114"},"mbgc.db.pharma.2":{"md5":"786fb6f99d1ade2376e9f654fae9e0cd","name":"mbgc.db.pharma.2","sha256":"84b6d1f6afa118f867d6279295e91c7ef6ffab88521105b660d238226d8aea1a","size":14360,"url":"cdn.mwbsys.com/packages/mbgc.db.pharma.2/7/8/6/f/786fb6f99d1ade2376e9f654fae9e0cd/c886f35a-57d4-4c3c-abc1-ff662ddd75f0.2","version":"2.0.202310151613"},"mbgc.db.phishing.2":{"md5":"e646f5e428e4c7ab1bc51bd7ff93de20","name":"mbgc.db.phishing.2","sha256":"fc097c1039d1d4e2912261a784ca48ecb8bbd87e022da335db537372edb8fa85","size":453896,"url":"cdn.mwbsys.com/packages/mbgc.db.phishing.2/e/6/4/6/e646f5e428e4c7ab1bc51bd7ff93de20/06145870-667b-4e64-afb1-4fbf10aee71c.2","version":"2.0.202311031114"},"mbgc.db.ransomware.2":{"md5":"30a6f7687ba4b073c30e3f7cc5782d91","name":"mbgc.db.ransomware.2","sha256":"354c34dd49ba2051c81d55bd09d096e896e869c747e44945f5b537ebf58b5880","size":25038,"url":"cdn.mwbsys.com/packages/mbgc.db.ransomware.2/3/0/a/6/30a6f7687ba4b073c30e3f7cc5782d91/5899f221-d77d-4cc3-97cb-786febcd73b7.2","version":"2.0.202310151014"},"mbgc.db.reputation.2":{"md5":"b8369dfdc8693757f431fb1da34a49d4","name":"mbgc.db.reputation.2","sha256":"f8b2ea9b0dc65a35c18690e1dac5f0bb5ff493d5855c03ffa67c7772697be806","size":342343,"url":"cdn.mwbsys.com/packages/mbgc.db.reputation.2/b/8/3/6/b8369dfdc8693757f431fb1da34a49d4/d5d5f3c6-ef16-4b31-9576-fab7216bf2e7.2","version":"2.0.202311031114"},"mbgc.db.riskware.2":{"md5":"f8287966ec5b7b65e3c1879963b4e3a9","name":"mbgc.db.riskware.2","sha256":"9f00d7b4713800c0f9663d6a4e785c9e8d58384a5bc96accac73c65cdc95a20d","size":2082463,"url":"cdn.mwbsys.com/packages/mbgc.db.riskware.2/f/8/2/8/f8287966ec5b7b65e3c1879963b4e3a9/a997cc67-4932-4ef9-ac0a-008b234261c2.2","version":"2.0.202311030915"},"mbgc.db.spam.2":{"md5":"23467875319738296a5bd07646446939","name":"mbgc.db.spam.2","sha256":"51cda22f3c1395279119da3a7c499bdcc585265d4787c2b29767eb9dc6ea98d4","size":19965,"url":"cdn.mwbsys.com/packages/mbgc.db.spam.2/2/3/4/6/23467875319738296a5bd07646446939/4e12bfaa-bf50-4e72-9397-868df8b33919.2","version":"2.0.202311020815"},"mbgc.db.spyware.2":{"md5":"64e086be92e9044efaf6966a395dea04","name":"mbgc.db.spyware.2","sha256":"e6d2075895dbd82dfbbbd2be519d89cb04d273352c9f2e10509486208302d3af","size":41543,"url":"cdn.mwbsys.com/packages/mbgc.db.spyware.2/6/4/e/0/64e086be92e9044efaf6966a395dea04/a5346a85-b7c6-4a48-9449-49a81ec8484f.2","version":"2.0.202311021245"},"mbgc.db.top1m.2":{"md5":"289944ac4bccbe82654f9c7364bf90c7","name":"mbgc.db.top1m.2","sha256":"6c90d92a0af9b040655ea20c961663b40f7e20f0e2cc1cebb48b02c2a6619c89","size":6798579,"url":"cdn.mwbsys.com/packages/mbgc.db.top1m.2/2/8/9/9/289944ac4bccbe82654f9c7364bf90c7/1a23abc6-df3f-4612-a383-a85f35f02715.2","version":"2.0.202311022314"},"mbgc.db.trojan.2":{"md5":"722142ba8be903ac55b74ed11d68c26a","name":"mbgc.db.trojan.2","sha256":"05fa59e90cceeee696cb24faccb1e46111fd58aa520c8199651c97c6b88a9b4b","size":1636154,"url":"cdn.mwbsys.com/packages/mbgc.db.trojan.2/7/2/2/1/722142ba8be903ac55b74ed11d68c26a/1d49dfbe-ed64-4f03-a351-25869422ae9f.2","version":"2.0.202311030915"},"mbgc.db.whitelist.ads.2":{"md5":"e910f3839da08fb71cc7b38ac1c99321","name":"mbgc.db.whitelist.ads.2","sha256":"bd3a9da667f088285d383a8966d29330ad5ad3c4b1acfc9fc9492505a968fc3e","size":370,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.ads.2/e/9/1/0/e910f3839da08fb71cc7b38ac1c99321/3164f9e0-945c-4091-a18f-634764048a70.2","version":"2.0.202309131757"},"mbgc.db.whitelist.malware.2":{"md5":"1f878c90406435744acc04b0a546c2db","name":"mbgc.db.whitelist.malware.2","sha256":"f0a03197338490b0fd59aa37325445f2369ffc0c540b0170c5245177e9deed9d","size":1573,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.malware.2/1/f/8/7/1f878c90406435744acc04b0a546c2db/7c837328-4791-4184-adf6-be411fabea4b.2","version":"2.0.202310201146"},"mbgc.db.whitelist.scams.manual.2":{"md5":"960d8a3f0b272764b1e0315b0c909463","name":"mbgc.db.whitelist.scams.manual.2","sha256":"07cdf080d20761f9e89c5bc3173a3e1f6670ddc56f9981bf1c257de7ec7d18e6","size":18183,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.manual.2/9/6/0/d/960d8a3f0b272764b1e0315b0c909463/b6b928fb-88f3-4491-b99b-276c67cc7601.2","version":"2.0.202311030915"},"mbgc.db.whitelist.scams.patterns.2":{"md5":"9fdd852ea88d6724acb064f5b9399f3c","name":"mbgc.db.whitelist.scams.patterns.2","sha256":"ce870c377708fc76d6db25debc5cf1a307df7fab0753afe42166f3e80d73ec9b","size":2836,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.patterns.2/9/f/d/d/9fdd852ea88d6724acb064f5b9399f3c/a67494f4-d049-47a4-8274-8b571b0ca4be.2","version":"2.0.202310201346"},"mbgc.db.whitelist.tracker.2":{"md5":"f756ea45ae97665c26a76ffc80652503","name":"mbgc.db.whitelist.tracker.2","sha256":"6ae5d44c3dba02d00ac14f1e1402d96871dba96171f472794a18806f0626dc0d","size":845,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.tracker.2/f/7/5/6/f756ea45ae97665c26a76ffc80652503/2e8bfef0-ac27-4d68-b9f5-f1017e3a1df1.2","version":"2.0.202309131757"},"mbgc.db.worm.2":{"md5":"50bfcac8a96dbd4072e442147ebe1cfd","name":"mbgc.db.worm.2","sha256":"e8ed2cce5fa0c49d9539c1aa74037dba456e9c6394e37d91e43574a1f139cc84","size":3343,"url":"cdn.mwbsys.com/packages/mbgc.db.worm.2/5/0/b/f/50bfcac8a96dbd4072e442147ebe1cfd/17816702-6a72-4604-bdd3-ce570fb5519e.2","version":"2.0.202310191946"}}'
+        Es = JSON.parse(
+          '{"mbgc.db.ads.2":{"md5":"6cdbc57c60de9e83cb7102ec4e9f8e1f","name":"mbgc.db.ads.2","sha256":"b83af6aeb71c186a0ae0b38bd8f2830172938a8ab2f2d666f456b9515b43f472","size":302360,"url":"cdn.mwbsys.com/packages/mbgc.db.ads.2/6/c/d/b/6cdbc57c60de9e83cb7102ec4e9f8e1f/69dc954f-c6d1-43b3-906e-c501e6119ddb.2","version":"2.0.202312110949"},"mbgc.db.adware.2":{"md5":"a7131f8516b6000e3556decf266a8acf","name":"mbgc.db.adware.2","sha256":"933c4acde50a1e77729a04be84e628855238365e07c0c22e61194eeba1cff4a0","size":53,"url":"cdn.mwbsys.com/packages/mbgc.db.adware.2/a/7/1/3/a7131f8516b6000e3556decf266a8acf/43819392-27c3-40d5-9b95-6f44e5ae9cf7.2","version":"2.0.202312111219"},"mbgc.db.compromised.2":{"md5":"c444664cd450fc2fcf543d0276fe404a","name":"mbgc.db.compromised.2","sha256":"4ee7b71f40d525c369fb14a2e98befa2954bf4fcdcf321894541d05ddac09323","size":13978,"url":"cdn.mwbsys.com/packages/mbgc.db.compromised.2/c/4/4/4/c444664cd450fc2fcf543d0276fe404a/cff40898-97cd-46b0-b1c3-15e220982c8b.2","version":"2.0.202312041818"},"mbgc.db.exploit.2":{"md5":"ce2b55e65f9e0d9f6006a62a360ca978","name":"mbgc.db.exploit.2","sha256":"e4f5e379d38e58c186a808945b4d153b5368593ec787193985be332419ce911c","size":53,"url":"cdn.mwbsys.com/packages/mbgc.db.exploit.2/c/e/2/b/ce2b55e65f9e0d9f6006a62a360ca978/db1b392b-3292-4ece-81e9-e0b723d5223a.2","version":"2.0.202312111219"},"mbgc.db.featureflags.2":{"md5":"4b0682990b6e9e39aec9cdbf94b81b58","name":"mbgc.db.featureflags.2","sha256":"51827bbf7430d78f05c0f08031b171543b75449b0cf9257ea59920165549477f","size":127,"url":"cdn.mwbsys.com/packages/mbgc.db.featureflags.2/4/b/0/6/4b0682990b6e9e39aec9cdbf94b81b58/69a0f523-adfa-4293-9758-ae697373fb5c.2","version":"2.0.202312071617"},"mbgc.db.fraud.2":{"md5":"926b1abad2d3d0314a87a5f8bd6b32e9","name":"mbgc.db.fraud.2","sha256":"e09d983812c4f3aa256b48f706e656386dee4a73663517d02be98c704eb8b6ac","size":547244,"url":"cdn.mwbsys.com/packages/mbgc.db.fraud.2/9/2/6/b/926b1abad2d3d0314a87a5f8bd6b32e9/cdf47627-7b47-41bf-98ec-5e475f43ac27.2","version":"2.0.202312111017"},"mbgc.db.hijack.2":{"md5":"2413ba4d39fcf64809ba0b62e3f1dac0","name":"mbgc.db.hijack.2","sha256":"fb5fc7a10583060eca33402a73b0aad1e5968a96f741680e62c28f230669a762","size":22041,"url":"cdn.mwbsys.com/packages/mbgc.db.hijack.2/2/4/1/3/2413ba4d39fcf64809ba0b62e3f1dac0/079b7819-c85f-41dc-a7f0-4b606c624bc1.2","version":"2.0.202312081216"},"mbgc.db.malvertising.2":{"md5":"5649da5c3181440275ace797f22d632b","name":"mbgc.db.malvertising.2","sha256":"9d4335cbbdc93b2256e14223e3729dec1c250bd1c36fb7eac3be70af6291f4a4","size":126019,"url":"cdn.mwbsys.com/packages/mbgc.db.malvertising.2/5/6/4/9/5649da5c3181440275ace797f22d632b/de9c967b-bb11-4f81-95fd-f71f3309a234.2","version":"2.0.202312110916"},"mbgc.db.malware.partial.urls.2":{"md5":"28ade73b096433d2f62cabecf913efad","name":"mbgc.db.malware.partial.urls.2","sha256":"5dfd829e8d2e717d8d58bb78bd51e42a2da86f09511388a21618f77b9902a928","size":7495,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.partial.urls.2/2/8/a/d/28ade73b096433d2f62cabecf913efad/440ecbf6-e1a7-4713-a88e-f698dca7080c.2","version":"2.0.202311301715"},"mbgc.db.malware.patterns.2":{"md5":"d58563d5521d699222c6a44056818037","name":"mbgc.db.malware.patterns.2","sha256":"e0246b8297d3035ae5c380c78dec7cfac3c20de9c92327dcc2069e0959780690","size":2831,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.patterns.2/d/5/8/5/d58563d5521d699222c6a44056818037/c0a13c2c-f431-45ac-8077-76e902bced68.2","version":"2.0.202312051521"},"mbgc.db.malware.urls.2":{"md5":"5ab2ad87bd9bedce9b702c08eef2429d","name":"mbgc.db.malware.urls.2","sha256":"9b3c447180298bd259f9c79012df042e878e774b6e81cd943178142657a399f9","size":342375,"url":"cdn.mwbsys.com/packages/mbgc.db.malware.urls.2/5/a/b/2/5ab2ad87bd9bedce9b702c08eef2429d/c4e64040-35c7-4eb2-82e0-4f7d614bfaeb.2","version":"2.0.202312111219"},"mbgc.db.pharma.2":{"md5":"4584ff00760b4529799368343aa2b354","name":"mbgc.db.pharma.2","sha256":"b7f7678736930bc2f758a03617d4cd5a67746ed0b4917f083fd89de1f1942b97","size":13896,"url":"cdn.mwbsys.com/packages/mbgc.db.pharma.2/4/5/8/4/4584ff00760b4529799368343aa2b354/97abca0e-1f31-4b83-bfc7-da54810d3ef6.2","version":"2.0.202312100147"},"mbgc.db.phishing.2":{"md5":"21ca7a7ee9968ca979c3592d87fd1b34","name":"mbgc.db.phishing.2","sha256":"223026e71faa596008f025814235488942633b2cbe95df64a68e563c8072ff35","size":524125,"url":"cdn.mwbsys.com/packages/mbgc.db.phishing.2/2/1/c/a/21ca7a7ee9968ca979c3592d87fd1b34/800e0bd9-49c7-49bb-97e8-a9c618f15084.2","version":"2.0.202312111219"},"mbgc.db.ransomware.2":{"md5":"9b270ff88f33f686e9d207b37e64bed4","name":"mbgc.db.ransomware.2","sha256":"f2336e3d7fa767e91d15f3d0ddc7e832a7337e1002df3638627ac81939c4bfc3","size":24905,"url":"cdn.mwbsys.com/packages/mbgc.db.ransomware.2/9/b/2/7/9b270ff88f33f686e9d207b37e64bed4/d5410dea-b322-4137-a309-2c3191918664.2","version":"2.0.202312071647"},"mbgc.db.reputation.2":{"md5":"1a1352cad1f7cec3d2c8f69abd3d6675","name":"mbgc.db.reputation.2","sha256":"0408128aff8ee54e86e2661cefb644bcfc780622ff5014071bb212d2d8508928","size":349387,"url":"cdn.mwbsys.com/packages/mbgc.db.reputation.2/1/a/1/3/1a1352cad1f7cec3d2c8f69abd3d6675/eeeab312-7663-4e7d-9f73-3382b8b03179.2","version":"2.0.202312111219"},"mbgc.db.riskware.2":{"md5":"ce3981230f6a75dffbf127689eafffb9","name":"mbgc.db.riskware.2","sha256":"59f6f82294d6123ee51e72c9b8db5c150362d5f9e14f0e72d80477e75fbec715","size":2133826,"url":"cdn.mwbsys.com/packages/mbgc.db.riskware.2/c/e/3/9/ce3981230f6a75dffbf127689eafffb9/e1182de0-99fe-4153-8510-5f40a33c52fc.2","version":"2.0.202312111116"},"mbgc.db.spam.2":{"md5":"6481edd0f7924f611ed98052d767c6aa","name":"mbgc.db.spam.2","sha256":"70851a23a6b50249178e1c23965542cb9ea2abbc6b318550032d3775d15bd11e","size":19694,"url":"cdn.mwbsys.com/packages/mbgc.db.spam.2/6/4/8/1/6481edd0f7924f611ed98052d767c6aa/e06d8446-f987-468d-9f15-9bdcfb17bdfc.2","version":"2.0.202312110916"},"mbgc.db.spyware.2":{"md5":"8e611d018096e1e488b395f65344bf82","name":"mbgc.db.spyware.2","sha256":"c56a233e65125963b1365b9b35fa581c15d363ebd44cbdb68cae8e954bac58a8","size":44230,"url":"cdn.mwbsys.com/packages/mbgc.db.spyware.2/8/e/6/1/8e611d018096e1e488b395f65344bf82/2f4c27ee-3622-4d5b-8445-94efccf83888.2","version":"2.0.202312111219"},"mbgc.db.top1m.2":{"md5":"2b968c7299140aaf65a44253daebdb51","name":"mbgc.db.top1m.2","sha256":"94029e391c8a77551c2fed7dbae235ef6ef476795c93a990202ebb4e2b94f578","size":6796413,"url":"cdn.mwbsys.com/packages/mbgc.db.top1m.2/2/b/9/6/2b968c7299140aaf65a44253daebdb51/fbd2059e-45fe-4b92-bd1c-5ae530af76ad.2","version":"2.0.202312110949"},"mbgc.db.trojan.2":{"md5":"92a46773ef9ebff6488e6e59f76ae393","name":"mbgc.db.trojan.2","sha256":"b146df3e8cf3b2a3bacb31953a9d2a7e1028184be237e71ff3b3b41a213444f0","size":1614649,"url":"cdn.mwbsys.com/packages/mbgc.db.trojan.2/9/2/a/4/92a46773ef9ebff6488e6e59f76ae393/56bdcfa7-c07c-4544-9a1e-0c31e751c634.2","version":"2.0.202312111219"},"mbgc.db.whitelist.ads.2":{"md5":"e910f3839da08fb71cc7b38ac1c99321","name":"mbgc.db.whitelist.ads.2","sha256":"bd3a9da667f088285d383a8966d29330ad5ad3c4b1acfc9fc9492505a968fc3e","size":370,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.ads.2/e/9/1/0/e910f3839da08fb71cc7b38ac1c99321/40d74cea-ddde-415e-85d5-ea8058e9483b.2","version":"2.0.202312111147"},"mbgc.db.whitelist.malware.2":{"md5":"c721f1371f23e2a1796d2131a1e9111d","name":"mbgc.db.whitelist.malware.2","sha256":"7255daa555699ce5630ff0b7fb498e559cb1693c59058e7d727d0278fce235d6","size":1590,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.malware.2/c/7/2/1/c721f1371f23e2a1796d2131a1e9111d/d35dacf8-496a-4b57-a595-1b0f2b62f149.2","version":"2.0.202312111219"},"mbgc.db.whitelist.scams.manual.2":{"md5":"d5f6f3bb5688dd02418e598fb2d299a4","name":"mbgc.db.whitelist.scams.manual.2","sha256":"bf65f917b1c99e512f136a6881ee996151b7b13e9f70e9b73c20bb1abf047176","size":20434,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.manual.2/d/5/f/6/d5f6f3bb5688dd02418e598fb2d299a4/ca0f1da1-d612-49b3-833a-c144bb45f66f.2","version":"2.0.202312101647"},"mbgc.db.whitelist.scams.patterns.2":{"md5":"f460b88a5d9d5b4d3cfe6ebcd47af416","name":"mbgc.db.whitelist.scams.patterns.2","sha256":"f5949418cb148f144137456fa066af602d3a182e05c769f1e1c34d4dc95c3a6f","size":2827,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.scams.patterns.2/f/4/6/0/f460b88a5d9d5b4d3cfe6ebcd47af416/b70e77f4-4c36-481e-9179-579734b257cf.2","version":"2.0.202311032116"},"mbgc.db.whitelist.tracker.2":{"md5":"f756ea45ae97665c26a76ffc80652503","name":"mbgc.db.whitelist.tracker.2","sha256":"6ae5d44c3dba02d00ac14f1e1402d96871dba96171f472794a18806f0626dc0d","size":845,"url":"cdn.mwbsys.com/packages/mbgc.db.whitelist.tracker.2/f/7/5/6/f756ea45ae97665c26a76ffc80652503/2e8bfef0-ac27-4d68-b9f5-f1017e3a1df1.2","version":"2.0.202309131757"},"mbgc.db.worm.2":{"md5":"97223ff7aeb2d55b4b062887e6221d36","name":"mbgc.db.worm.2","sha256":"0f7d43fdd0d4b20e52aa376072b4a77862c5266a05174033b11246ab253ef8c4","size":3244,"url":"cdn.mwbsys.com/packages/mbgc.db.worm.2/9/7/2/2/97223ff7aeb2d55b4b062887e6221d36/956a12d3-0d9f-4f32-90ee-eaa4be253d76.2","version":"2.0.202312111147"}}'
         ),
-        Es = (e) => {
+        Is = (e) => {
           const t = new Set(e),
-            a = Ja.filter((e) => t.has(e)),
-            s = za.filter((e) => t.has(e)),
+            a = za.filter((e) => t.has(e)),
+            s = Ka.filter((e) => t.has(e)),
             r = a
-              .map((e) => ({ name: e, cleanName: ta(e), isBloom: !0, isFeatureFlags: !1 }))
-              .concat(s.map((e) => ({ name: e, cleanName: ta(e), isBloom: !1, isFeatureFlags: !1 })));
-          t.has(Ka) && r.push({ name: Ka, cleanName: ta(Ka), isBloom: !1, isFeatureFlags: !0 });
-          const n = Za();
-          return n.length > 0 && t.has(n[0]) && r.push({ name: n[0], cleanName: ta(n[0]), isBloom: !1, isFeatureFlags: !1 }), r;
+              .map((e) => ({ name: e, cleanName: aa(e), isBloom: !0, isFeatureFlags: !1 }))
+              .concat(s.map((e) => ({ name: e, cleanName: aa(e), isBloom: !1, isFeatureFlags: !1 })));
+          t.has(Za) && r.push({ name: Za, cleanName: aa(Za), isBloom: !1, isFeatureFlags: !0 });
+          const n = Ga();
+          return n.length > 0 && t.has(n[0]) && r.push({ name: n[0], cleanName: aa(n[0]), isBloom: !1, isFeatureFlags: !1 }), r;
         },
-        Is = async (e) => {
-          if (!aa()) return console.warn("SDTC: IndexedDB not available in this browser"), !1;
+        Hs = async (e) => {
+          if (!sa()) return console.warn("SDTC: IndexedDB not available in this browser"), !1;
           var t,
             a = e.map((e) => {
               let t;
@@ -63750,23 +63755,23 @@
             });
           return (
             await ((t = { dbName: "cachedDb", storeName: "cachedDbStore", storeOptions: { keyPath: "dbName" }, values: a }),
-            vs(t, "values", ws)),
+            ws(t, "values", Cs)),
             !0
           );
         },
-        Hs = async (e) => {
-          if (!aa()) return console.warn("LISD: IndexedDB not available in this browser"), [];
-          const t = Es(e),
+        Ls = async (e) => {
+          if (!sa()) return console.warn("LISD: IndexedDB not available in this browser"), [];
+          const t = Is(e),
             a = [];
           t.forEach((e) => {
-            a.push(Ps(e.name, e.isBloom, e.isFeatureFlags));
+            a.push(Fs(e.name, e.isBloom, e.isFeatureFlags));
           });
           const s = [];
           (await Promise.allSettled(a)).forEach((e, a) => {
             const r = t[a];
             if ("rejected" == e.status) return void console.warn(`LISD: Error loading ${r.name} from the IdbStorage`, e.reason);
             const n = e.value;
-            s.push(xs(n, n.version));
+            s.push(Ps(n, n.version));
           });
           const r = s.filter((e) => !e.version);
           if (r.length > 0) {
@@ -63775,13 +63780,13 @@
                 "LISD: Databases with no version",
                 r.map((e) => e.name)
               );
-            const e = (await qe("databases")) || {},
+            const e = (await Xe("databases")) || {},
               t = [];
             if (
               (r.forEach((a) => {
                 (a.version = e[a.name] && e[a.name].version),
                   console.debug(`LISD: Version for ${a.name}:`, a.version),
-                  a.version && t.push(Ns(a.name, a.version));
+                  a.version && t.push(xs(a.name, a.version));
               }),
               t.length > 0)
             )
@@ -63793,34 +63798,34 @@
           }
           return console.log(`LBD: ${s.length} databases loaded from IdbStorage`), s;
         },
-        Ls = (e, t, a) => {
+        Ns = (e, t, a) => {
           if (!t) throw new Error("Version is required");
-          return Promise.all([Wa($a, e), Ba($a, e, a), Ns(e, t), Xe({ idbStorageDatabases: !0 })]);
-        },
-        Ns = (e, t) => {
-          const a = Rt({ name: e, version: t });
-          return Ba($a, `${e}.version`, a);
+          return Promise.all([Ra(Va, e), Wa(Va, e, a), xs(e, t), Qe({ idbStorageDatabases: !0 })]);
         },
         xs = (e, t) => {
+          const a = Jt({ name: e, version: t });
+          return Wa(Va, `${e}.version`, a);
+        },
+        Ps = (e, t) => {
           const a = {};
           return (
             (a.name = e.name),
             (a.version = t),
-            (a.cleanName = ta(a.name)),
+            (a.cleanName = aa(a.name)),
             (a.isBloom = e.isBloom),
             (a.isRaw = e.isRaw),
             (a.data = e.result),
             (a.isFeatureFlags = e.isFeatureFlags),
             "malware_urls" == a.cleanName && ((a.rawData = a.data), (a.data = new Set(a.data))),
-            Ua.includes(a.cleanName) && ((a.rawData = a.data), (a.data = a.data.map((e) => new RegExp(e, "i"))), (a.isRegex = !0)),
+            $a.includes(a.cleanName) && ((a.rawData = a.data), (a.data = a.data.map((e) => new RegExp(e, "i"))), (a.isRegex = !0)),
             a
           );
         },
-        Ps = (e, t, a) => {
-          const s = t && new As(e),
-            r = !t && new fs(e),
+        Fs = (e, t, a) => {
+          const s = t && new vs(e),
+            r = !t && new Ds(e),
             n = t ? s.parse() : r.read();
-          return Promise.allSettled([n, Ya(`${e}.version`)]).then((r) => {
+          return Promise.allSettled([n, Oa(`${e}.version`)]).then((r) => {
             const [n, o] = r;
             if ("rejected" == n.status) {
               if ("string" == typeof n.reason) throw new Error(`Error loading ${e} from IdbStorage: ${n.reason}`);
@@ -63837,15 +63842,18 @@
             })(e, o.value);
             return { name: e, isBloom: t, isFeatureFlags: a, isRaw: !t, result: t ? s : n.value, version: i };
           });
-        },
-        Fs = "https://sirius.mwbsys.com/api/v1/updates/manifest",
-        js = "XbXzxs1H5c852pToE3xA";
-      class Ys {
-        constructor(e, t = "release") {
-          (this.hooks = e), (this.channel = t);
+        };
+      let js = "https://sirius.mwbsys.com/api/v1/updates/manifest",
+        Ys = "XbXzxs1H5c852pToE3xA";
+      class Os {
+        constructor(e, t = "release", a = !0) {
+          (this.hooks = e),
+            (this.channel = t),
+            (this.prod = a),
+            this.prod || ((js = "https://sirius-staging.mwbsys.com/api/v1/updates/manifest"), (Ys = "pznxfw65x9vuPAs_1N1y"));
         }
         static hashSHA256(e) {
-          return (0, ka.sha256)(e);
+          return (0, Ea.sha256)(e);
         }
         cleanPackages(e) {
           let t = e.filter((e) => null !== e);
@@ -63855,55 +63863,55 @@
           console.debug("UPD: Update called with channel: " + this.channel),
             console.debug("UPD: Will check updates for", t),
             this.feedbackFunc && this.feedbackFunc("UPD: Will check updates");
-          const a = Ga.map(ta);
+          const a = Ua.map(aa);
           let s = t
-            .filter((e) => a.includes(ta(e.name)))
+            .filter((e) => a.includes(aa(e.name)))
             .map(
               ({ version: e = "", name: t }) => (
                 ((e = e.trim()) && "" !== e) || (e = "2.0.2"), t ? { name: t, semver: e, channel: this.channel } : null
               )
             );
           (s = this.cleanPackages(s)), console.debug("UPD: Version mapping part finished");
-          const r = await Ve();
+          const r = await qe();
           console.debug("UPD: GetUUID part finished");
-          const n = new Ea.UAParser().getBrowser(),
+          const n = new Ia.UAParser().getBrowser(),
             o = {
               product: "mbgc-c",
               build: "consumer",
               semver: e.chrome.runtime.getManifest().version,
               os_version: n.name + " " + n.version,
-              installation_token: zt().toLowerCase() + "-" + r,
+              installation_token: Kt().toLowerCase() + "-" + r,
               installed_packages: s
             },
-            i = await $t(Fs, {
+            i = await Vt(js, {
               method: "POST",
-              headers: { Authorization: `Token token="${js}"`, "Content-Type": "application/json" },
+              headers: { Authorization: `Token token="${Ys}"`, "Content-Type": "application/json" },
               body: JSON.stringify(o)
             });
           if ((console.debug("UPD: FetchSirius finished"), "ok" !== i.status))
             throw (console.error("Negative response from Sirius: ", JSON.stringify(i)), new Error(i.status));
-          const d = zs(i.manifest.packages),
+          const d = Ks(i.manifest.packages),
             l = d.filter((e) => {
               if (!e.version) return !1;
-              const a = new Ra(e.version),
-                s = new Ra(t.find((t) => t.name == e.name).version);
+              const a = new Ja(e.version),
+                s = new Ja(t.find((t) => t.name == e.name).version);
               return a.greater(s);
             });
           return (
             console.debug(`UPD: ${l.length}/${d.length} fetched packages need to be updated (${d.length - l.length} up-to-date)`),
             l.length > 0 && this.notifyHook("onUpdateStart"),
-            await Promise.all(l.map((e) => Ys.download(e))),
+            await Promise.all(l.map((e) => Os.download(e))),
             this.notifyHook("onDownloadComplete"),
             l
           );
         }
         async updateIncrementals(t) {
           console.debug("UPD: Update called");
-          const a = Ga.map(ta);
+          const a = Ua.map(aa);
           let s = Object.keys(t)
             .filter((e) => a.includes(e))
             .map((e) => {
-              const a = t[e] && t[e].version.trim();
+              let a = t[e] && t[e].version && t[e].version.trim();
               return (a && "" !== a) || (a = "2.0.2"), t[e].name ? { name: t[e].name, semver: a, channel: this.channel } : null;
             });
           (s = this.cleanPackages(s)),
@@ -63912,37 +63920,37 @@
               "UPD: Will check updates for",
               s.map((e) => e.name)
             );
-          const r = await Ve();
+          const r = await qe();
           console.debug("UPD: GetUUID part finished");
-          const n = new Ea.UAParser().getBrowser(),
+          const n = new Ia.UAParser().getBrowser(),
             o = {
               product: "mbgc-c",
               build: "consumer",
               semver: e.chrome.runtime.getManifest().version,
               os_version: n.name + " " + n.version,
-              installation_token: zt().toLowerCase() + "-" + r,
+              installation_token: Kt().toLowerCase() + "-" + r,
               installed_packages: s
             },
-            i = await $t(Fs, {
+            i = await Vt(js, {
               method: "POST",
-              headers: { Authorization: `Token token="${js}"`, "Content-Type": "application/json" },
+              headers: { Authorization: `Token token="${Ys}"`, "Content-Type": "application/json" },
               body: JSON.stringify(o)
             });
           if ((console.debug("UPD: FetchSirius finished"), "ok" !== i.status))
             throw (console.error("Negative response from Sirius: ", JSON.stringify(i)), new Error(i.status));
-          const d = zs(i.manifest.packages),
+          const d = Ks(i.manifest.packages),
             l = d
               .filter((e) => {
                 if (!e.version) return !1;
-                const t = new Ra(e.version),
-                  a = new Ra(s.find((t) => t.name == e.name).semver);
+                const t = new Ja(e.version),
+                  a = new Ja(s.find((t) => t.name == e.name).semver);
                 return t.greater(a);
               })
               .map((e) => ({ ...e, localVersion: s.find((t) => t.name == e.name).semver }));
           console.debug(`UPD: ${l.length}/${d.length} fetched packages need to be updated (${d.length - l.length} up-to-date)`),
             console.debug("UPD: Packages to update ", l),
             l.length > 0 && this.notifyHook("onUpdateStart");
-          const [u, m] = Js(l);
+          const [u, m] = zs(l);
           if (
             ((await Promise.allSettled(u.map((e) => this.downloadAndApplyIncremental(e, t)))).forEach((e, t) => {
               const a = u[t];
@@ -63954,7 +63962,7 @@
             await Promise.all(
               m.map(async (e) => {
                 try {
-                  await Ys.download(e);
+                  await Os.download(e);
                 } catch (t) {
                   throw (console.error(`UPD: Error downloading full package for ${e.name}`, t), t);
                 }
@@ -63964,53 +63972,53 @@
             m.length > 0)
           )
             try {
-              await Os(m, t);
+              await Bs(m, t);
             } catch (e) {
               throw (console.error("UPD: Error reloading full packages", e), e);
             }
-          return this.notifyHook("onDownloadComplete"), l.map((e) => t[ta(e.name)]);
+          return this.notifyHook("onDownloadComplete"), l.map((e) => t[aa(e.name)]);
         }
         async downloadAndApplyIncremental(e, t) {
-          const a = t[ta(e.name)],
-            s = await Promise.all(e.incrementals.map((e) => ja(e.url)));
+          const a = t[aa(e.name)],
+            s = await Promise.all(e.incrementals.map((e) => Ya(e.url)));
           s.forEach((t, a) => {
-            if (Ys.hashSHA256(t) !== e.incrementals[a].sha256) throw new Error("Integrity verification");
+            if (Os.hashSHA256(t) !== e.incrementals[a].sha256) throw new Error("Integrity verification");
           });
-          const r = s.map((e) => Bs(e)),
+          const r = s.map((e) => Ws(e)),
             n = r[0];
           if (n.from != a.version)
             throw new Error(`First incremental version does not match current version, expected: ${a.version}, found: ${n.from}`);
-          const o = Rs(r),
-            i = Ws(o, a),
+          const o = Js(r),
+            i = Rs(o, a),
             d = a.version;
           t[a.cleanName].version = e.version;
-          const l = Rt(i);
-          await Ls(e.name, e.version, l), console.log(`UPD: Database ${a.name} successfully migrated from ${d} to ${e.version}`);
+          const l = Jt(i);
+          await Ns(e.name, e.version, l), console.log(`UPD: Database ${a.name} successfully migrated from ${d} to ${e.version}`);
         }
         notifyHook(e) {
           this.hooks && this.hooks.hasOwnProperty(e) && this.hooks[e]();
         }
         static download(e) {
-          return ja(e.url).then((t) => {
-            if (Ys.hashSHA256(t) !== e.sha256) throw new Error("integrity verification");
-            return Ls(e.name, e.version, t);
+          return Ya(e.url).then((t) => {
+            if (Os.hashSHA256(t) !== e.sha256) throw new Error("integrity verification");
+            return Ns(e.name, e.version, t);
           });
         }
       }
-      const Os = async (e, t) => {
+      const Bs = async (e, t) => {
           const a = e.map((e) => e.name);
-          (await Hs(a)).forEach((e) => {
+          (await Ls(a)).forEach((e) => {
             t[e.cleanName] = e;
           });
         },
-        Bs = (e) => JSON.parse(Ot(ps(new Uint8Array(e)))),
-        Ws = (e, t) => {
+        Ws = (e) => JSON.parse(Bt(fs(new Uint8Array(e)))),
+        Rs = (e, t) => {
           let a;
           if (t.isBloom) {
             const s = t.data.getBloomFilterPlainObject().data,
               r = new Uint32Array(e.length);
             for (let t = 0; t < r.length; t++) t.toString() in e.changes ? (r[t] = parseInt(e.changes[t.toString()])) : (r[t] = s[t]);
-            (a = { k: e.k, m: e.m, data: r }), t.data.replaceBloomFilter(a), (a.data = Wt(a.data.buffer));
+            (a = { k: e.k, m: e.m, data: r }), t.data.replaceBloomFilter(a), (a.data = Rt(a.data.buffer));
           } else if (t.isRegex) {
             const s = t.rawData,
               r = new Array(e.length);
@@ -64024,7 +64032,7 @@
           }
           return a;
         },
-        Rs = (e) => {
+        Js = (e) => {
           let t = {},
             a = {};
           for (let s = 0; s < e.length; s++) {
@@ -64033,7 +64041,7 @@
           }
           return (t.changes = a), t;
         },
-        Js = (e) => {
+        zs = (e) => {
           const t = [],
             a = [];
           return (
@@ -64063,7 +64071,7 @@
             [t, a]
           );
         },
-        zs = (e = []) =>
+        Ks = (e = []) =>
           e.map(({ name: e, available_packages: t = [], available_incrementals: a = [] }) => ({
             name: e,
             version: t[0] && t[0].semver,
@@ -64079,15 +64087,15 @@
               url: e.file_hash && "https://" + e.file_hash.url
             }))
           })),
-        Ks = async () => {
-          if (ea()) return void console.log("Incognito Mode: No Telemetry was sent.");
-          const t = new Ea.UAParser().getResult(),
-            a = await qe("machineId"),
+        Zs = async () => {
+          if (ta()) return void console.log("Incognito Mode: No Telemetry was sent.");
+          const t = new Ia.UAParser().getResult(),
+            a = await Xe("machineId"),
             s = await (async function () {
-              let e = await Ve();
-              return e || ((e = Et()), await It(e)), e;
+              let e = await qe();
+              return e || ((e = It()), await Ht(e)), e;
             })(),
-            r = zt();
+            r = Kt();
           console.debug(`RTR: BNAME IS: ${JSON.stringify(r)}`);
           const n = r.toLowerCase();
           return {
@@ -64096,7 +64104,7 @@
               build: "consumer",
               version: e.chrome.runtime.getManifest().version,
               caller: { name: "BrowserExtension" },
-              components: await Gs(),
+              components: await Us(),
               architecture: t.cpu.architecture || "",
               os_version: t.os.name ? t.os.name + " " + t.os.version : "",
               browser_version: t.browser.name ? t.browser.name + " " + t.browser.version : "",
@@ -64107,30 +64115,30 @@
             header: { time: new Date().toISOString(), installation_token: n + "-" + s, uuid: s, machine_id: a || "" }
           };
         },
-        Zs = async (e) => {
-          if (ea()) return void console.log("Incognito Mode: No Telemetry was sent.");
-          if (!1 === (await qe("sendTelemetry"))) return void console.log("Telemetry disabled: No Telemetry was sent.");
-          let t = await Ks();
+        Gs = async (e) => {
+          if (ta()) return void console.log("Incognito Mode: No Telemetry was sent.");
+          if (!1 === (await Xe("sendTelemetry"))) return void console.log("Telemetry disabled: No Telemetry was sent.");
+          let t = await Zs();
           (t.client.caller.trigger = "action"),
             (t.ui_events = [{ action: e, event_type: "EmailInputScreen", obj_id: t.header.uuid, time_stamp: new Date().toISOString() }]);
           let a = JSON.stringify(t),
-            s = await $t("https://telemetry.malwarebytes.com/api/v2/streams/user_actions/record/", {
+            s = await Vt("https://telemetry.malwarebytes.com/api/v2/streams/user_actions/record/", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: a
             });
           console.debug("Sent userAction[" + e + "] telemetry. ", s);
         },
-        Gs = async () => {
-          if (ea()) return void console.debug("Incognito Mode: No Telemetry was sent.");
-          const e = (await qe("databases")) || {};
+        Us = async () => {
+          if (ta()) return void console.debug("Incognito Mode: No Telemetry was sent.");
+          const e = (await Xe("databases")) || {};
           let t = {};
           for (let a in e) Object.prototype.hasOwnProperty.call(e, a) && (t[a] = e[a].version);
           return t;
         },
-        Us = async (e, t, a, s, r, n) => {
-          if (ea()) return void console.debug("Incognito Mode: No Telemetry was sent.");
-          let o = await Ks();
+        $s = async (e, t, a, s, r, n) => {
+          if (ta()) return void console.debug("Incognito Mode: No Telemetry was sent.");
+          let o = await Zs();
           (o.client.caller.trigger = "detection"),
             (o.mwac = {
               detections: [
@@ -64139,38 +64147,38 @@
                   disposition: "block",
                   category: e,
                   sub_category: t,
-                  network: { url: a, domain: Lt(a), parent_url: s, url_history: r.join(" ") },
+                  network: { url: a, domain: Nt(a), parent_url: s, url_history: r.join(" ") },
                   ...(n && { process: { threatName: n } })
                 }
               ]
             }),
-            $t("https://telemetry.malwarebytes.com/api/v2/streams/mwac/record", {
+            Vt("https://telemetry.malwarebytes.com/api/v2/streams/mwac/record", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(o)
             });
         },
-        $s = async (e, t, a) => {
-          if (ea()) return void console.debug("Incognito Mode: No Telemetry was sent.");
-          const s = await Ks();
+        Vs = async (e, t, a) => {
+          if (ta()) return void console.debug("Incognito Mode: No Telemetry was sent.");
+          const s = await Zs();
           (s.client.caller.trigger = "exclusion"),
             (s.mwac = {
               detections: [
                 { direction: "outbound", disposition: "exclude " + e + " " + t, category: e, sub_category: t, network: { domain: a } }
               ]
             }),
-            await $t("https://telemetry.malwarebytes.com/api/v2/streams/mwac/record", {
+            await Vt("https://telemetry.malwarebytes.com/api/v2/streams/mwac/record", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(s)
             }),
             console.debug(`TLE: Sent exclusion telemetry for category ${e}, type ${t} and domain ${a}`);
         },
-        Vs = (e = "") => ht.test(e),
         qs = (e = "") => bt.test(e),
-        Xs = (e) => et.some((t) => t === e),
-        Qs = (e) => e && e.startsWith("http://"),
-        er = (t) => {
+        Xs = (e = "") => St.test(e),
+        Qs = (e) => tt.some((t) => t === e),
+        er = (e) => e && e.startsWith("http://"),
+        tr = (t) => {
           e.chrome.downloads &&
             e.chrome.downloads.cancel(t, () => {
               e.chrome.runtime.lastError && e.chrome.runtime.lastError.message === `Download ${t} is already complete`
@@ -64178,7 +64186,7 @@
                 : e.chrome.downloads.search({ id: t }, (a) => a && e.chrome.downloads.erase({ id: t }, null));
             });
         },
-        tr = (e) =>
+        ar = (e) =>
           new Promise(async (t) => {
             try {
               const a = new AbortController(),
@@ -64203,7 +64211,7 @@
               console.log("IP: error, ", a), t({ ...e, isPe: !1 });
             }
           }),
-        ar = [
+        sr = [
           ["audio", "editor"],
           ["boost", "speed"],
           ["clean", "pc"],
@@ -64231,12 +64239,12 @@
           ["tuneup"],
           ["winoptimizer"]
         ],
-        sr = ["win32", "win64", "msi64", "msi86"],
-        rr = ["64bit", "32bit"],
-        nr = ["paintnet", "paint.net", "paint_net", "paint-net", "paintdotnet", "paint net", "paint dot net"],
-        or = (e) => e && ft.some((t) => e.match(t)),
-        ir = (e, t) => {
-          let a = e.match(_t);
+        rr = ["win32", "win64", "msi64", "msi86"],
+        nr = ["64bit", "32bit"],
+        or = ["paintnet", "paint.net", "paint_net", "paint-net", "paintdotnet", "paint net", "paint dot net"],
+        ir = (e) => e && Dt.some((t) => e.match(t)),
+        dr = (e, t) => {
+          let a = e.match(pt);
           return (
             !!(
               a &&
@@ -64250,54 +64258,54 @@
             ) && (console.debug(`IWL: Scams wl ip literal matched. ${e} is allowed >>> Matches: `, a), !0)
           );
         },
-        dr = (e, t, a) => {
-          const s = Nt(e);
+        lr = (e, t, a) => {
+          const s = xt(e);
           let r;
           try {
             r = new URL(e.toLowerCase().startsWith("blob:") ? e.substring(5) : e);
           } catch (e) {
             return console.debug("SPF: Failed to parse url: ", e), !1;
           }
-          if (nt.some((e) => e === s || s.endsWith(`.${e}`))) return console.debug("SPF: No chek for risky tld", s), null;
-          if (Xt(r.hostname)) return null;
-          const n = xt(r.hostname);
+          if (ot.some((e) => e === s || s.endsWith(`.${e}`))) return console.debug("SPF: No chek for risky tld", s), null;
+          if (Qt(r.hostname)) return null;
+          const n = Pt(r.hostname);
           if ("download" === n || "dl" === n) return !0;
           if (!["dmg", "exe", "msi", "zip", "7z"].some((e) => e === t)) return null;
           let o = r.pathname.split("/"),
             i = o.slice(-1)[0];
           if (i) {
-            const s = i.match(pt);
+            const s = i.match(ft);
             s && (i = i.slice(0, s.index)), (i = i.toLowerCase());
             const n = o.slice(0, -1).map((e) => e.toLowerCase()),
-              d = Ft(r.hostname).toLowerCase();
+              d = jt(r.hostname).toLowerCase();
             return (
               ((e = "", t, a) =>
                 ["install", "installer", "setup", "portable", "converter", "webcam", "recovery"].some((t) => e.includes(t)) ||
                 ("exe" === t && ["pdftojpg", "pdftoword", "pdftoexcel"].some((t) => t === e)) ||
-                (yt.test(a) && ar.some((t) => t.every((t) => e.includes(t)))) ||
-                wt.test(e))(i, t, e) ||
+                (ct.test(a) && sr.some((t) => t.every((t) => e.includes(t)))) ||
+                Ct.test(e))(i, t, e) ||
               ((e, t, a, s) =>
                 ((e) => {
                   if (!e) return [];
-                  const t = $e(e),
-                    a = Ue(e);
+                  const t = Ve(e),
+                    a = $e(e);
                   return t || a
                     ? [...(t ? [t] : []), ...(a ? a.split(".") : [])].map((e) => e.toLowerCase())
                     : (console.debug("DL: Domain parsing error for: ", e), []);
-                })(e).some((e) => Ht(e ? e.toLowerCase() : "", t, 4)) ||
-                a.some((e) => !!e && ((e = e.toLowerCase()), Ht(e, t, 4) || Ht(e, s, 4))))(r.hostname, i, n, d) ||
+                })(e).some((e) => Lt(e ? e.toLowerCase() : "", t, 4)) ||
+                a.some((e) => !!e && ((e = e.toLowerCase()), Lt(e, t, 4) || Lt(e, s, 4))))(r.hostname, i, n, d) ||
               ["x32", "x64", "x86", "i386"].some((e) => i.includes(e)) ||
               ((e) =>
                 ["backup", "converter", "disk", "driver", "editor", "software", "speed", "system", "tools", "vpn", "webcam"].some((t) =>
                   e.includes(t)
                 ))(d) ||
               ((e, t) =>
-                (sr.some((t) => e.includes(t)) && t.some((e) => sr.some((t) => e.includes(t)))) || t.some((e) => rr.some((t) => t === e)))(
+                (rr.some((t) => e.includes(t)) && t.some((e) => rr.some((t) => e.includes(t)))) || t.some((e) => nr.some((t) => t === e)))(
                 i,
                 n
               ) ||
-              i.match(wt) ||
-              n.some((e) => wt.test(e)) ||
+              i.match(Ct) ||
+              n.some((e) => Ct.test(e)) ||
               ((e, t, a, s, r) => {
                 let n;
                 try {
@@ -64305,17 +64313,17 @@
                 } catch (e) {
                   return console.debug(`SRC: Failed to parse url ${s}: `, e), !1;
                 }
-                const o = Ft(n.hostname);
+                const o = jt(n.hostname);
                 return (
                   !!((e, t, a) => {
                     if (t === a) {
-                      const t = xt(e);
+                      const t = Pt(e);
                       return ["download", "cdn"].some((e) => e === t);
                     }
                     return !1;
                   })(e.hostname, r, o) ||
-                  (or(e.href) || (e.hostname && "github.com" === e.hostname.toLowerCase())
-                    ? t.some((e) => Ht(e ? e.toLowerCase() : "", o, 5)) || Ht(a, o)
+                  (ir(e.href) || (e.hostname && "github.com" === e.hostname.toLowerCase())
+                    ? t.some((e) => Lt(e ? e.toLowerCase() : "", o, 5)) || Lt(a, o)
                     : void 0)
                 );
               })(r, n, i, a, d) ||
@@ -64323,29 +64331,29 @@
                 const a = e.href ? e.href.toLowerCase() : "",
                   s = e.search ? e.search.toLowerCase() : "";
                 return (
-                  ["exe", "zip", "7z"].some((e) => e === t) && "https:" === e.protocol && nr.some((e) => a.includes(e) || s.includes(e))
+                  ["exe", "zip", "7z"].some((e) => e === t) && "https:" === e.protocol && or.some((e) => a.includes(e) || s.includes(e))
                 );
               })(r, t)
             );
           }
           return !1;
         },
-        lr = (e, t, a) => {
+        ur = (e, t, a) => {
           if (!a) return !1;
           let s, r;
           try {
-            [s, r] = [e, t].map((e) => Ft(Lt(e)));
+            [s, r] = [e, t].map((e) => jt(Nt(e)));
           } catch (e) {
             return console.debug("ISR: Failed to parse url: ", e), !1;
           }
           return s === r || "softpedia" === r;
         },
-        ur = function () {
+        mr = function () {
           console.debug("UA_PARSER_NAV: ", navigator);
-          const { name: e, version: t } = new Ea.UAParser().getBrowser();
+          const { name: e, version: t } = new Ia.UAParser().getBrowser();
           return console.debug("UA_PARSER: ", { name: e, version: t }), e + " " + t;
         };
-      class mr {
+      class Tr {
         constructor() {
           (this.EXCLUSIONS = {}), (this.EXCLUSION_INDIVIDUAL = {});
         }
@@ -64390,7 +64398,7 @@
           throw new Error("Cannot call this method on base class");
         }
       }
-      class Tr extends mr {
+      class yr extends Tr {
         constructor() {
           super();
         }
@@ -64402,7 +64410,7 @@
               .then((a) => ((t = a), (e = e.toLowerCase()), this.getExclusionsForHost(e)))
               .then((a) => (console.debug("EXC: On MergeExclusions for Exclude"), this.exclude_mergeExclusions(e, a, t, !0)))
               .then(
-                (t) => (console.debug("EXC: On SetNamedNode matching merged exclusions:", Zr.EXCLUSIONS), this.exclude_setNamedNode(e, t))
+                (t) => (console.debug("EXC: On SetNamedNode matching merged exclusions:", Gr.EXCLUSIONS), this.exclude_setNamedNode(e, t))
               )
               .then((e) => ((a = e), console.debug("EXC: On GetExclusionsNode"), this.exclude_getExclusionsNode()))
               .then((t) => (console.debug("EXC: On AddKeyToExclusionsIndex"), this.exclude_addKeyToExclusionsIndex(e, t)))
@@ -64444,7 +64452,7 @@
         }
         getExclusions_getExclusionsByNames(t) {
           return new Promise((a, s) => {
-            e.chrome.storage.sync.get(t, function (t) {
+            e.chrome.storage.local.get(t, function (t) {
               e.chrome.runtime.lastError ? s({ error: e.chrome.runtime.lastError.message }) : a(t);
             });
           });
@@ -64460,7 +64468,9 @@
             .then((a) => ((t = a), (e = e.toLowerCase()), console.debug("RMX: On GetExistingData"), this.getExclusionsForHost(e)))
             .then((a) => this.exclude_removeExclusions(e, a, t))
             .then((s) =>
-              a && !0 === a
+              null == s
+                ? Promise.resolve(null)
+                : a && !0 === a
                 ? (console.log("RMX: OnMergeExclusions for Add"), this.exclude_mergeExclusions(e, s, t, !1))
                 : Promise.resolve(s)
             )
@@ -64470,6 +64480,7 @@
             .then((e) => ((s = e), console.debug("EXC: On GetExclusionsNode"), this.exclude_getExclusionsNode()))
             .then((t) => (console.debug("EXC: On AddKeyToExclusionsIndex"), this.exclude_addKeyToExclusionsIndex(e, t)))
             .then((e) => (console.debug("EXC: On SetExclusionsNode"), this.exclude_setExclusionsNode(e, s)))
+            .then((t) => (!0 === t && delete this.EXCLUSIONS[e], Promise.resolve(t)))
             .catch((e) => Promise.reject(e));
         }
         removeExclusions(e) {
@@ -64505,7 +64516,7 @@
         }
         exclude_getExclusionsNode() {
           return new Promise((t, a) => {
-            e.chrome.storage.sync.get(["exclusions"], function (s) {
+            e.chrome.storage.local.get(["exclusions"], function (s) {
               e.chrome.runtime.lastError
                 ? (console.debug("Rejecting GetExclusionsNode after datastore"), a({ error: e.chrome.runtime.lastError.message }))
                 : s && s.exclusions
@@ -64521,7 +64532,7 @@
         }
         exclude_mapExclusionsToInts(e) {
           try {
-            const t = e.split(",").map((e) => mr.exclusionConstantToInt(e));
+            const t = e.split(",").map((e) => Tr.exclusionConstantToInt(e));
             return Promise.resolve(t);
           } catch (e) {
             return console.log("Rejecting MapExclusions with: ", e), Promise.reject(e);
@@ -64529,7 +64540,7 @@
         }
         exclude_mapIntsToExclusions(e) {
           try {
-            const t = [...e.map((e) => mr.exclusionIntToConstant(e))];
+            const t = [...e.map((e) => Tr.exclusionIntToConstant(e))];
             return Promise.resolve(t.join(","));
           } catch (e) {
             return console.log("Rejecting MapInts with: ", e), Promise.reject(e);
@@ -64572,7 +64583,7 @@
         }
         exclude_setExclusionsNode(t, a) {
           return new Promise((s, r) => {
-            e.chrome.storage.sync.set({ exclusions: t }, function () {
+            e.chrome.storage.local.set({ exclusions: t }, function () {
               e.chrome.runtime.lastError
                 ? (console.debug("Rejecting SetExclusionsNode"), r({ error: e.chrome.runtime.lastError.message }))
                 : s({ success: a || !0 });
@@ -64583,7 +64594,7 @@
           return new Promise((s, r) => {
             a
               ? (console.debug("Updating the named node"),
-                e.chrome.storage.sync.set({ [t]: a }, function () {
+                e.chrome.storage.local.set({ [t]: a }, function () {
                   e.chrome.runtime.lastError
                     ? (console.debug("Rejecting SetNamedNode in datastore"), r({ error: e.chrome.runtime.lastError.message }))
                     : (console.debug("Resolving SetNamedNode in datastore"), s(a));
@@ -64606,7 +64617,7 @@
           return a
             ? (console.debug("Resolving GetExistingData from cache:"), console.debug(a), Promise.resolve(a))
             : new Promise((a, s) => {
-                e.chrome.storage.sync.get([t], function (t) {
+                e.chrome.storage.local.get([t], function (t) {
                   e.chrome.runtime.lastError
                     ? (console.debug("Rejecting GetExistingData after datastore"), s({ error: e.chrome.runtime.lastError.message }))
                     : a(t);
@@ -64615,7 +64626,7 @@
         }
         getIndividualExclusions() {
           return new Promise((t) => {
-            e.chrome.storage.sync.get(["exclusionIndividual"], ({ exclusionIndividual: e = {} }) => {
+            e.chrome.storage.local.get(["exclusionIndividual"], ({ exclusionIndividual: e = {} }) => {
               (this.EXCLUSION_INDIVIDUAL = e), t();
             });
           });
@@ -64658,56 +64669,56 @@
           });
         }
       }
-      const yr = 10,
-        cr = async (t) => {
-          if (!na()) return [];
+      const cr = 10,
+        Mr = async (t) => {
+          if (!oa()) return [];
           const a = await e.chrome.declarativeNetRequest.getDynamicRules();
           return t ? (Array.isArray(t) ? a.filter((e) => t.includes(e.priority)) : a.filter((e) => e.priority === t)) : a;
         },
-        Mr = async (e, t) => {
-          if (!na()) return [];
-          const a = await cr(t);
+        hr = async (e, t) => {
+          if (!oa()) return [];
+          const a = await Mr(t);
           return console.debug("ALL DYNAMIC RULES: ", a), a.filter((t) => e.includes(t.action.type));
         },
-        hr = async () => {
-          if (!na()) return [];
+        br = async () => {
+          if (!oa()) return [];
           let e = 1;
-          const t = await cr();
+          const t = await Mr();
           return console.debug("EXISTING_DYNAMIC_RULES", t), t.length > 0 && (e = t.at(-1).id), e;
         },
-        br = async (t) => {
-          if (!na()) return;
-          const a = (await cr(t)).map((e) => e.id);
+        Sr = async (t) => {
+          if (!oa()) return;
+          const a = (await Mr(t)).map((e) => e.id);
           await e.chrome.declarativeNetRequest.updateDynamicRules({ addRules: [], removeRuleIds: [...a] });
         },
-        Sr = () => (na() ? e.chrome.declarativeNetRequest.getSessionRules() : []),
-        gr = (e, t) => {
+        gr = () => (oa() ? e.chrome.declarativeNetRequest.getSessionRules() : []),
+        _r = (e, t) => {
           const a = [];
           return (
             "block" === e.type
-              ? (a.push({ id: t, priority: yr, action: { type: "block" }, condition: { urlFilter: e.url, resourceTypes: fr } }),
+              ? (a.push({ id: t, priority: cr, action: { type: "block" }, condition: { urlFilter: e.url, resourceTypes: Dr } }),
                 a.push({
                   id: t + 1,
-                  priority: yr,
+                  priority: cr,
                   action: { type: "redirect", redirect: { extensionPath: "/app/eventpages/block-mv3.html?type=malware" } },
-                  condition: { urlFilter: e.url, resourceTypes: pr }
+                  condition: { urlFilter: e.url, resourceTypes: fr }
                 }))
-              : (a.push({ id: t, priority: yr, action: { type: "allow" }, condition: { urlFilter: Lt(e.url), resourceTypes: Dr } }),
+              : (a.push({ id: t, priority: cr, action: { type: "allow" }, condition: { urlFilter: Nt(e.url), resourceTypes: Ar } }),
                 a.push({
                   id: t + 1,
-                  priority: yr,
+                  priority: cr,
                   action: { type: "allow" },
-                  condition: { urlFilter: "*", initiatorDomains: [Lt(e.url)], resourceTypes: Dr }
+                  condition: { urlFilter: "*", initiatorDomains: [Nt(e.url)], resourceTypes: Ar }
                 })),
             a
           );
         },
-        _r = new (class {
+        pr = new (class {
           constructor() {
             (this.CACHE = {}), this.loadCache();
           }
           async loadCache() {
-            const e = (await cr(yr)).filter((e) => "allow" === e.action && e.condition.urlFilter && "*" !== e.condition.urlFilter);
+            const e = (await Mr(cr)).filter((e) => "allow" === e.action && e.condition.urlFilter && "*" !== e.condition.urlFilter);
             for (const t of e) this.CACHE[t.condition.urlFilter] = !0;
           }
           addToCache(e) {
@@ -64717,11 +64728,11 @@
             return !!this.CACHE[e];
           }
         })(),
-        pr = ["main_frame"],
-        fr = ["sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket"],
-        Dr = [...pr, ...fr],
-        Ar = 3 === e.chrome.runtime.getManifest().manifest_version,
-        vr = new (class extends Tr {
+        fr = ["main_frame"],
+        Dr = ["sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket"],
+        Ar = [...fr, ...Dr],
+        vr = 3 === e.chrome.runtime.getManifest().manifest_version,
+        wr = new (class extends yr {
           constructor() {
             super(), (this.TEMPORARY_EXCLUSIONS = {}), this.loadTemporaryExclusions();
           }
@@ -64749,10 +64760,10 @@
               await this.whitelistRuleExistsForHost(t, a))
             )
               return s;
-            let r = await hr();
+            let r = await br();
             const n = this.getPriorityForExclusions(a);
             let o;
-            o = 2 === n ? pr : 1 === n ? fr : Dr;
+            o = 2 === n ? fr : 1 === n ? Dr : Ar;
             const i = [
               { id: r + 1, priority: n, action: { type: "allow" }, condition: { urlFilter: t, resourceTypes: o } },
               { id: r + 2, priority: n, action: { type: "allow" }, condition: { urlFilter: "*", initiatorDomains: [t], resourceTypes: o } }
@@ -64816,7 +64827,7 @@
             return await e.chrome.declarativeNetRequest.updateDynamicRules({ addRules: [], removeRuleIds: [...r] }), a;
           }
           async loadTemporaryExclusions() {
-            const e = await Sr();
+            const e = await gr();
             for (const t of e)
               if (t.condition.initiatorDomains && t.condition.tabIds)
                 for (const e of t.condition.tabIds) this.TEMPORARY_EXCLUSIONS[e] = t.condition.initiatorDomains;
@@ -64824,21 +64835,21 @@
           async excludeTemporarily(t, a) {
             if (await this.whitelistRuleExistsForHost(t))
               return void console.debug("EXCLUDE_TEMP: WHITELIST RULE EXISTS FOR HOST: ", { host: t });
-            const s = (await Mr(["block"], yr)).filter((e) => e.condition.urlFilter === t).length > 0;
+            const s = (await hr(["block"], cr)).filter((e) => e.condition.urlFilter === t).length > 0;
             a = +a;
             let r = await (async () => {
               let e = 1;
-              const t = await Sr();
+              const t = await gr();
               return console.debug("EXISTING_SESSION_RULES", t), t.length > 0 && (e = t.at(-1).id), e;
             })();
             console.debug("EXCLUDE_TEMP: TABID: ", { tabId: a });
             const n = [
-              { id: r + 1, priority: s ? 12 : 2, action: { type: "allow" }, condition: { urlFilter: t, resourceTypes: Dr, tabIds: [a] } },
+              { id: r + 1, priority: s ? 12 : 2, action: { type: "allow" }, condition: { urlFilter: t, resourceTypes: Ar, tabIds: [a] } },
               {
                 id: r + 2,
                 priority: s ? 12 : 2,
                 action: { type: "allow" },
-                condition: { urlFilter: "*", initiatorDomains: [t], resourceTypes: Dr, tabIds: [a] }
+                condition: { urlFilter: "*", initiatorDomains: [t], resourceTypes: Ar, tabIds: [a] }
               }
             ];
             console.debug("MV3: ADD RULE: ", n),
@@ -64862,12 +64873,12 @@
             return !1;
           }
           async getExistingWhitelistDynamicRules() {
-            return Mr(["allow"], [1, 2, 3]);
+            return hr(["allow"], [1, 2, 3]);
           }
         })(),
-        wr = new Tr(),
-        Cr = Ar ? vr : wr,
-        kr = (e) => {
+        Cr = new yr(),
+        kr = vr ? wr : Cr,
+        Er = (e) => {
           switch (e) {
             case 2:
             case 3:
@@ -64879,7 +64890,7 @@
           }
           throw new Error(`${e} is not recognised`);
         };
-      class Er {
+      class Ir {
         constructor() {
           this.CACHE = new Set();
         }
@@ -64905,8 +64916,8 @@
           throw new Error("Cannot call this method on a base class");
         }
       }
-      const Ir = 3 === e.chrome.runtime.getManifest().manifest_version,
-        Hr = new (class extends Er {
+      const Hr = 3 === e.chrome.runtime.getManifest().manifest_version,
+        Lr = new (class extends Ir {
           constructor() {
             super();
           }
@@ -64988,23 +64999,23 @@
               await e.chrome.declarativeNetRequest.updateDynamicRules({ addRules: [...n], removeRuleIds: [] });
           }
           async _buildMv3BlockRules(e) {
-            let t = await hr();
+            let t = await br();
             const a = [];
             for (const s of e)
-              a.push({ id: ++t, priority: 3, action: { type: "block" }, condition: { urlFilter: s, resourceTypes: fr } }),
+              a.push({ id: ++t, priority: 3, action: { type: "block" }, condition: { urlFilter: s, resourceTypes: Dr } }),
                 a.push({
                   id: ++t,
                   priority: 3,
                   action: { type: "redirect", redirect: { extensionPath: "/app/eventpages/block-mv3.html?type=user-block" } },
-                  condition: { urlFilter: s, resourceTypes: pr }
+                  condition: { urlFilter: s, resourceTypes: fr }
                 });
             return a;
           }
           async _getExistingDynamicRules() {
-            return Mr(["block", "redirect"], [3]);
+            return hr(["block", "redirect"], [3]);
           }
         })(),
-        Lr = new (class extends Er {
+        Nr = new (class extends Ir {
           constructor() {
             super();
           }
@@ -65052,8 +65063,8 @@
             });
           }
         })(),
-        Nr = Ir ? Hr : Lr;
-      class xr {
+        xr = Hr ? Lr : Nr;
+      class Pr {
         constructor() {
           this.CACHE = new Map();
         }
@@ -65088,7 +65099,7 @@
           throw new Error("Cannot call this method on base class");
         }
       }
-      const Pr = new (class extends xr {
+      const Fr = new (class extends Pr {
           constructor() {
             super();
           }
@@ -65170,7 +65181,7 @@
           }
           async _itemsFromStorage() {
             return new Promise((t, a) => {
-              (e.chrome.storage.sync || e.chrome.storage.local).get("contentControls", (s) => {
+              e.chrome.storage.local.get("contentControls", (s) => {
                 e.chrome.runtime.lastError
                   ? (console.error("Error getting content controls from storage", e.chrome.runtime.lastError),
                     a(e.chrome.runtime.lastError))
@@ -65180,7 +65191,7 @@
           }
           async _saveItemsToStorage(t) {
             return new Promise((a, s) => {
-              (e.chrome.storage.sync || e.chrome.storage.local).set({ contentControls: t }, () => {
+              e.chrome.storage.local.set({ contentControls: t }, () => {
                 e.chrome.runtime.lastError
                   ? (console.error("Error saving content controls to storage", e.chrome.runtime.lastError), s(e.chrome.runtime.lastError))
                   : a();
@@ -65188,8 +65199,8 @@
             });
           }
         })(),
-        Fr = Pr;
-      class jr {
+        jr = Fr;
+      class Yr {
         addItem(e, t) {
           throw new Error("Cannot call this method on base class");
         }
@@ -65209,7 +65220,7 @@
           throw new Error("Cannot call this method on base class");
         }
       }
-      const Yr = new (class extends jr {
+      const Or = new (class extends Yr {
           constructor() {
             super();
           }
@@ -65224,7 +65235,7 @@
           async deleteItem(t, a) {
             const s = (await this.loadSavedItems()).filter((e) => e.site !== t && e.date !== a);
             return new Promise((t, a) => {
-              (e.chrome.storage.sync || e.chrome.storage.local).set({ detectionHistory: s }, () => {
+              e.chrome.storage.local.set({ detectionHistory: s }, () => {
                 e.chrome.runtime.lastError
                   ? (console.error("Error deleting the history to storage", e.chrome.runtime.lastError), a(e.chrome.runtime.lastError))
                   : t(!0);
@@ -65233,7 +65244,7 @@
           }
           async deleteAllItems() {
             return new Promise((t, a) => {
-              (e.chrome.storage.sync || e.chrome.storage.local).set({ detectionHistory: [] }, () => {
+              e.chrome.storage.local.set({ detectionHistory: [] }, () => {
                 e.chrome.runtime.lastError
                   ? (console.error("Error deleting the history to storage", e.chrome.runtime.lastError), a(e.chrome.runtime.lastError))
                   : t(!0);
@@ -65252,7 +65263,7 @@
           }
           async _itemsFromStorage() {
             return new Promise((t, a) => {
-              (e.chrome.storage.sync || e.chrome.storage.local).get("detectionHistory", (s) => {
+              e.chrome.storage.local.get("detectionHistory", (s) => {
                 e.chrome.runtime.lastError
                   ? (console.error("Error getting detection history from storage", e.chrome.runtime.lastError),
                     a(e.chrome.runtime.lastError))
@@ -65263,7 +65274,7 @@
           async _saveItemToStorage(t) {
             const a = (await this._itemsFromStorage()) || [];
             return new Promise((s, r) => {
-              (e.chrome.storage.sync || e.chrome.storage.local).set({ detectionHistory: [t, ...a] }, () => {
+              e.chrome.storage.local.set({ detectionHistory: [t, ...a] }, () => {
                 e.chrome.runtime.lastError
                   ? (console.error("Error saving detection history item to storage", e.chrome.runtime.lastError),
                     r(e.chrome.runtime.lastError))
@@ -65272,11 +65283,11 @@
             });
           }
         })(),
-        Or = Yr,
-        Br = ["mbgc.mv3.ads_2", "mbgc.mv3.malware_1"],
-        Wr = ["mbgc.mv3.whitelist_1", "mbgc.mv3.ads_1"],
-        Rr = { MALWARE: ["mbgc.mv3.malware_1"], ADS_TRACKERS: ["mbgc.mv3.ads_2"], [te]: Br },
-        Jr = async (t) => {
+        Br = Or,
+        Wr = ["mbgc.mv3.ads_2", "mbgc.mv3.malware_1"],
+        Rr = ["mbgc.mv3.whitelist_1", "mbgc.mv3.ads_1"],
+        Jr = { MALWARE: ["mbgc.mv3.malware_1"], ADS_TRACKERS: ["mbgc.mv3.ads_2"], [te]: Wr },
+        zr = async (t) => {
           if (0 === t.length) return;
           let a = 0;
           const s = await e.chrome.declarativeNetRequest.getAvailableStaticRuleCount();
@@ -65287,36 +65298,36 @@
             console.debug("RULESET: Available rule count: ", s), a++;
           }
         },
-        zr = async () => ({
+        Kr = async () => ({
           dynamicRuleCount: ((await e.chrome.declarativeNetRequest.getDynamicRules()) || []).length,
           staticRuleCount: 33e4 - ((await e.chrome.declarativeNetRequest.getAvailableStaticRuleCount()) || 0),
           staticRulesetCount: ((await e.chrome.declarativeNetRequest.getEnabledRulesets()) || []).length
         }),
-        Kr = async () => {
+        Zr = async () => {
           const t = await e.chrome.tabs.query({ currentWindow: !0 });
           for (const e of t) if (e.url.includes("/ruleset-error.html")) return !0;
           return !1;
         },
-        Zr = {},
-        Gr = "AD",
-        Ur = "MALWARE",
-        $r = "SCAM",
-        Vr = "CONTENT",
-        qr = "BG_HEU_",
-        Xr = "BG_REG_",
-        Qr = [p, D, A, c, b, S],
-        en = new Date().getTime(),
-        tn = `chrome-extension://${e.chrome.runtime.id}`,
-        an = `moz-extension://${e.chrome.i18n.getMessage("@@extension_id")}`,
-        sn = "cachedLogsStore",
-        rn = 10485760,
-        nn = 5242880;
-      let on,
-        dn = !0,
-        ln = !0;
-      Object.defineProperty(Zr, "SHOULD_SHOW_WELCOME", { value: !1, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "READY_TO_ACCEPT_REQUESTS", { value: !1, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "SETTINGS", {
+        Gr = {},
+        Ur = "AD",
+        $r = "MALWARE",
+        Vr = "SCAM",
+        qr = "CONTENT",
+        Xr = "BG_HEU_",
+        Qr = "BG_REG_",
+        en = [p, D, A, c, b, S],
+        tn = new Date().getTime(),
+        an = `chrome-extension://${e.chrome.runtime.id}`,
+        sn = `moz-extension://${e.chrome.i18n.getMessage("@@extension_id")}`,
+        rn = "cachedLogsStore",
+        nn = 10485760,
+        on = 5242880;
+      let dn,
+        ln = !0,
+        un = !0;
+      Object.defineProperty(Gr, "SHOULD_SHOW_WELCOME", { value: !1, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "READY_TO_ACCEPT_REQUESTS", { value: !1, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "SETTINGS", {
           value: {
             enableProtection: !0,
             enableProtectionAds: !0,
@@ -65326,29 +65337,31 @@
             enableNativeMessaging: null,
             enableVerboseLogging: !1,
             enableMonthlyNotification: !0,
-            enableMaliciousNotification: !0
+            enableMaliciousNotification: !0,
+            enableBlockCountDisplay: !0,
+            enableBlockYoutubeCustomAds: !0
           },
           writable: !0,
           configurable: !0
         }),
-        Object.defineProperty(Zr, "INTERNAL_VERSION", { value: "Build 722", writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "DATABASES", { value: {}, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "FEATURE_FLAGS", { value: {}, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "EXCLUSIONS", { value: {}, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "EXCLUSION_TEMPORARY", { value: null, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "EXCLUSION_INDIVIDUAL", { value: {}, writable: !0 }),
-        Object.defineProperty(Zr, "RECORD", { value: {}, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "RECORD_LOADED", { value: !1, writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "ALL_TIME_STATS", {
+        Object.defineProperty(Gr, "INTERNAL_VERSION", { value: "Build 757", writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "DATABASES", { value: {}, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "FEATURE_FLAGS", { value: {}, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "EXCLUSIONS", { value: {}, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "EXCLUSION_TEMPORARY", { value: null, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "EXCLUSION_INDIVIDUAL", { value: {}, writable: !0 }),
+        Object.defineProperty(Gr, "RECORD", { value: {}, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "RECORD_LOADED", { value: !1, writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "ALL_TIME_STATS", {
           value: { ads: 0, malwares: 0, scams: 0, content: 0 },
           writable: !0,
           configurable: !0
         }),
-        Object.defineProperty(Zr, "ALL_TIME_STATS_LOADED", { value: !1, writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "SAFE_CACHE", { value: {}, writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "TABS", { value: {}, writable: !0, configurable: !0 }),
-        Object.defineProperty(Zr, "LICENSE", { value: m.LicenseStateFree, writable: !0 }),
-        Object.defineProperty(Zr, "RISKY_TLDS", {
+        Object.defineProperty(Gr, "ALL_TIME_STATS_LOADED", { value: !1, writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "SAFE_CACHE", { value: {}, writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "TABS", { value: {}, writable: !0, configurable: !0 }),
+        Object.defineProperty(Gr, "LICENSE", { value: m.LicenseStateFree, writable: !0 }),
+        Object.defineProperty(Gr, "RISKY_TLDS", {
           value: [
             "agency",
             "beauty",
@@ -65380,10 +65393,10 @@
           writable: !1,
           configurable: !1
         }),
-        Object.defineProperty(Zr, "RISKY_EXECUTABLES", { value: ["exe", "dmg", "bat", "sh", "pkg"], writable: !1, configurable: !1 }),
-        Object.defineProperty(Zr, "CONSOLE_TRACE", { value: "", writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "SESSION_LOG", { value: "", writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "ALWAYS_ALLOW", {
+        Object.defineProperty(Gr, "RISKY_EXECUTABLES", { value: ["exe", "dmg", "bat", "sh", "pkg"], writable: !1, configurable: !1 }),
+        Object.defineProperty(Gr, "CONSOLE_TRACE", { value: "", writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "SESSION_LOG", { value: "", writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "ALWAYS_ALLOW", {
           value: {
             "amazon.com": !0,
             "www.amazon.com": !0,
@@ -65477,102 +65490,118 @@
           writable: !1,
           configurable: !1
         }),
-        Object.defineProperty(Zr, "NEW_FEATURES", { value: [ce, Me], writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "LOGGED_URLS", { value: new Set(), writable: !0, configurable: !1 }),
-        Object.defineProperty(Zr, "TAB_MALWARE_NOTIFIED", { value: new Set(), writable: !0, configurable: !1 });
-      const un = (t) =>
+        Object.defineProperty(Gr, "NEW_FEATURES", { value: [ce, Me], writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "LOGGED_URLS", { value: new Set(), writable: !0, configurable: !1 }),
+        Object.defineProperty(Gr, "TAB_MALWARE_NOTIFIED", { value: new Set(), writable: !0, configurable: !1 });
+      const mn = (t) =>
           new Promise((a, s) => {
             e.chrome.storage.local.set({ needToReload: t }, () => (e.chrome.runtime.lastError ? s(e.chrome.runtime.lastError) : a()));
           }),
-        mn = () =>
+        Tn = () =>
           new Promise((t, a) => {
             e.chrome.storage.local.get(["localIpWhitelisting"], ({ localIpWhitelisting: s }) =>
               e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError) : t(s)
             );
           }),
-        Tn = (t) =>
+        yn = (t) =>
           new Promise((a, s) => {
             e.chrome.storage.local.set({ localIpWhitelisting: t }, () =>
               e.chrome.runtime.lastError ? s(e.chrome.runtime.lastError) : a()
             );
           }),
-        yn = () =>
+        cn = () =>
           new Promise((t, a) => {
             e.chrome.storage.local.get(["detectReputation"], ({ detectReputation: s }) =>
               e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError) : t(s)
             );
           }),
-        cn = (t) =>
+        Mn = (t) =>
           new Promise((a, s) => {
             e.chrome.storage.local.set({ detectReputation: t }, () => (e.chrome.runtime.lastError ? s(e.chrome.runtime.lastError) : a()));
           });
-      async function Mn(t, a = null) {
-        const s = await Ln();
-        e.chrome.tabs.sendMessage(s, { type: "MSG_DEBUG_TEST_CHANNEL_RESPONSE", text: t, id: a });
+      async function hn(t, a = null) {
+        const s = await Nn();
+        let r;
+        switch (a) {
+          case "end-test-channel-update":
+            r = "MSG_DEBUG_TEST_CHANNEL_RESPONSE";
+            break;
+          case "end-staging-channel-update":
+            r = "MSG_DEBUG_STAGING_CHANNEL_RESPONSE";
+            break;
+          default:
+            return void console.debug("Unknown message id: ", a);
+        }
+        e.chrome.tabs.sendMessage(s, { type: r, text: t, id: a });
       }
-      (Zr.init = async () => {
+      (Gr.init = async () => {
         await (async () => {
-          (ln = await mn()), void 0 === ln && (await Tn(!0), (ln = await mn())), console.debug("INI: Local IP whitelisting is:", ln);
+          (un = await Tn()), void 0 === un && (await yn(!0), (un = await Tn())), console.debug("INI: Local IP whitelisting is:", un);
         })(),
           await (async () => {
-            (dn = await yn()), void 0 === dn && (await cn(!0), (dn = await yn())), console.debug("INI: Detect reputation is:", dn);
+            (ln = await cn()), void 0 === ln && (await Mn(!0), (ln = await cn())), console.debug("INI: Detect reputation is:", ln);
           })(),
-          e.chrome.runtime.connectNative && Zr.connectNative(),
-          await Nr.loadSavedBlockedItems(),
-          await Fr.loadSavedItems(),
-          Cr.getExclusions()
-            .then((e) => Zr.settingsGet(null))
-            .then((e) => ((Zr.SETTINGS = { ...Zr.SETTINGS, ...e }), Zr.postNativeTogglesState(), Promise.resolve()))
-            .then(() => Zr.initDatabases())
-            .then(() => ((Zr.READY_TO_ACCEPT_REQUESTS = !0), Zr.getOrCreateUUID()))
+          e.chrome.runtime.connectNative && Gr.connectNative(),
+          await xr.loadSavedBlockedItems(),
+          await jr.loadSavedItems(),
+          kr
+            .getExclusions()
+            .then((e) => Gr.settingsGet(null))
+            .then(
+              (e) => (
+                console.debug("ALL SETTINGS: ", e), (Gr.SETTINGS = { ...Gr.SETTINGS, ...e }), Gr.postNativeTogglesState(), Promise.resolve()
+              )
+            )
+            .then(() => Gr.initDatabases())
+            .then(() => ((Gr.READY_TO_ACCEPT_REQUESTS = !0), Gr.getOrCreateUUID()))
             .then(
               (t) => (
-                hn(t),
-                "Firefox" === zt() &&
+                bn(t),
+                "Firefox" === Kt() &&
                   e.chrome.storage.local.get("sendTelemetry", (e) => {
                     void 0 === e.sendTelemetry &&
                       (console.debug("INI: Turning off telemetry by default"),
-                      Zr.settingsSet({ sendTelemetry: !1 }).then(() => {
-                        Zr.SETTINGS.sendTelemetry = !1;
+                      Gr.settingsSet({ sendTelemetry: !1 }).then(() => {
+                        Gr.SETTINGS.sendTelemetry = !1;
                       }));
                   }),
-                Zr.flushLogs(),
-                Zr.hasFinishedOnboarding().then((t) =>
+                Gr.flushLogs(),
+                Gr.hasFinishedOnboarding().then((t) =>
                   new Promise((t) => {
                     e.chrome.storage.local.get("enableProtection", (a) =>
                       e.chrome.runtime.lastError
                         ? (console.error("HFO: Error checking true protection value: ", e.chrome.runtime.lastError), t(!0))
                         : void 0 === a.enableProtection
-                        ? (console.debug("HFO: Switching Protection On"), Zr.settingsSet({ enableProtection: !0 }).then(() => t(!0)))
+                        ? (console.debug("HFO: Switching Protection On"), Gr.settingsSet({ enableProtection: !0 }).then(() => t(!0)))
                         : (console.debug("HFO: Restoring Protection value"), t(a.enableProtection))
                     );
                   }).then(
                     (e) => (
                       console.log(`HFO: Protection layers are ${e ? "" : "not"} active`),
-                      (Zr.SETTINGS.enableProtection = e),
+                      (Gr.SETTINGS.enableProtection = e),
                       Promise.resolve(e)
                     )
                   )
                 )
               )
             )
-            .then((e) => (Zr.sendClientTelemetry(), Promise.resolve()))
+            .then((e) => (Gr.sendClientTelemetry(), Promise.resolve()))
             .then(
               (t) => (
                 e.chrome.tabs.query({}, function (e) {
-                  for (const t of e) Zr.map(t.id, t.url || t.pendingUrl);
-                  Zr.iconRefreshAll();
+                  for (const t of e) Gr.map(t.id, t.url || t.pendingUrl);
+                  Gr.iconRefreshAll();
                 }),
                 Promise.resolve(!0)
               )
             )
             .then((e) =>
-              Zr.SHOULD_SHOW_WELCOME
-                ? "Firefox" === zt()
-                  ? Zr.hasFinishedOnboarding().then((e) => {
-                      Zr.showWelcome("moz-extension://", e);
+              Gr.SHOULD_SHOW_WELCOME
+                ? "Firefox" === Kt()
+                  ? Gr.hasFinishedOnboarding().then((e) => {
+                      Gr.showWelcome("moz-extension://", e);
                     })
-                  : (Zr.showWelcome("chrome-extension://", !1), Promise.resolve())
+                  : (Gr.showWelcome("chrome-extension://", !1), Promise.resolve())
                 : Promise.resolve()
             )
             .catch((e) => {
@@ -65580,57 +65609,76 @@
             }),
           e.chrome.alarms.create("initUpdateDBAlarm", { delayInMinutes: 1 }),
           e.chrome.alarms.create("showMonthlyNotificationAlarm", { delayInMinutes: 1 }),
-          Zr.createContextMenu();
+          Gr.createContextMenu();
       }),
-        (Zr.updateUsingTestChannel = async () => (
-          console.log("Update using test channel"),
-          await Zr.updateExtensionWithSpecificChannel("test"),
-          await Mn("Update using test channel complete"),
-          await Mn(
-            "Databases: " +
-              Object.keys(Zr.DATABASES)
-                .map((e) => `(${Zr.DATABASES[e].name}:${Zr.DATABASES[e].version})`)
-                .join(", "),
-            "end-test-channel-update"
-          ),
-          !0
-        )),
-        (Zr.updateExtensionWithSpecificChannel = async (e) =>
-          new Promise((t) => {
-            Zr.updateDatabases(
+        (Gr.updateUsingTestChannel = async () => {
+          try {
+            console.log("Update using test channel"),
+              await Gr.updateExtensionWithSpecificChannel("test"),
+              await hn("Update using test channel complete");
+            let e = () =>
+              "Databases: " +
+              Object.keys(Gr.DATABASES)
+                .map((e) => `(${Gr.DATABASES[e].name}:${Gr.DATABASES[e].version})`)
+                .join(", ");
+            await hn(e(), "end-test-channel-update");
+          } catch (e) {
+            return e;
+          }
+        }),
+        (Gr.updateUsingStagingChannel = async () => {
+          try {
+            console.log("Clear existing database files..."),
+              console.log("Update using staging channel..."),
+              await Gr.updateExtensionWithSpecificChannel("release", !1),
+              await hn("Update using staging channel complete.");
+            let e = () =>
+              "Databases: " +
+              Object.keys(Gr.DATABASES)
+                .map((e) => `(${Gr.DATABASES[e].name}:${Gr.DATABASES[e].version})`)
+                .join(", ");
+            await hn(e(), "end-staging-channel-update");
+          } catch (e) {
+            return e;
+          }
+        }),
+        (Gr.updateExtensionWithSpecificChannel = async (e, t) =>
+          new Promise((a) => {
+            Gr.updateDatabases(
               {
                 onUpdateStart: async () => {
-                  await Mn("Update started", "update-started");
+                  await hn("Update started", "update-started");
                 },
                 onDownloadComplete: async () => {
-                  await Mn("Download completed", "download-completed");
+                  await hn("Download completed", "download-completed");
                 },
                 onUpdateComplete: async () => {
-                  await Mn("Update completed", "update-completed"), t();
+                  await hn("Update completed", "update-completed"), a();
                 },
                 onUpdateError: async (e) => {
-                  await Mn("UPDATE_FAILED: " + JSON.stringify(e), "error-in-test-channel-update");
+                  await hn("UPDATE_FAILED: " + JSON.stringify(e), "error-in-test-channel-update");
                 }
               },
               1,
-              e
+              e,
+              t
             );
           })),
-        (Zr.resetExtension = () => (
+        (Gr.resetExtension = () => (
           console.debug("RSE: Resetting extension"),
-          (Zr.SETTINGS = {}),
-          Zr.settingsClear()
-            .then(() => ((Zr.RECORD = {}), console.debug("RSE: Cleared settings"), Zr.clearCachedDbs()))
-            .then(() => (console.debug("RSE: Cleared databases"), fs.clear()))
-            .then(() => (console.debug("RSE: Cleared database files"), Zr.clearCachedLogs()))
+          (Gr.SETTINGS = {}),
+          Gr.settingsClear()
+            .then(() => ((Gr.RECORD = {}), console.debug("RSE: Cleared settings"), Gr.clearCachedDbs()))
+            .then(() => (console.debug("RSE: Cleared databases"), Ds.clear()))
+            .then(() => (console.debug("RSE: Cleared database files"), Gr.clearCachedLogs()))
             .then(
               () => (
-                (Zr.CONSOLE_TRACE = ""),
-                (Zr.SESSION_LOG = ""),
+                (Gr.CONSOLE_TRACE = ""),
+                (Gr.SESSION_LOG = ""),
                 console.debug("RSE: Cleared cached logs"),
-                (Zr.DATABASES = {}),
+                (Gr.DATABASES = {}),
                 e.chrome.runtime.reload(),
-                Zr.onInstalled(),
+                Gr.onInstalled(),
                 Promise.resolve()
               )
             )
@@ -65638,7 +65686,7 @@
               console.error("RSE: Failed to update extension due to error. ", e);
             })
         )),
-        (Zr.showMonthlyNotification = () => {
+        (Gr.showMonthlyNotification = () => {
           console.debug("SMN: Checking if we should show monthly notification"),
             e.chrome.storage.local.get("lastMonthlyNotification", (t) => {
               if (e.chrome.runtime.lastError)
@@ -65646,7 +65694,7 @@
               else if (void 0 === t.lastMonthlyNotification) {
                 const e = new Date().toISOString();
                 console.debug("SMN: New user detected, setting monthly notification start date:", e),
-                  Zr.settingsSet({ lastMonthlyNotification: e }).then(() => {
+                  Gr.settingsSet({ lastMonthlyNotification: e }).then(() => {
                     console.debug("SMN: Updated last monthly notification date");
                   });
               } else {
@@ -65655,9 +65703,9 @@
                 if (e.getMonth() === a.getMonth() && e.getFullYear() === a.getFullYear())
                   return void console.debug("SMN: Already shown this month");
                 console.debug("SMN: Showing monthly notification"),
-                  Zr.showNotification()
+                  Gr.showNotification()
                     .then(() => {
-                      Zr.settingsSet({ lastMonthlyNotification: new Date().toISOString() }).then(() => {
+                      Gr.settingsSet({ lastMonthlyNotification: new Date().toISOString() }).then(() => {
                         console.debug("SMN: Updated last monthly notification date");
                       });
                     })
@@ -65667,9 +65715,9 @@
               }
             });
         }),
-        (Zr.showNotification = () =>
+        (Gr.showNotification = () =>
           new Promise((t, a) => {
-            if ("Safari" === zt()) return console.debug("SN: Not showing notification in Safari"), void t();
+            if ("Safari" === Kt()) return console.debug("SN: Not showing notification in Safari"), void t();
             e.chrome.tabs.query({ active: !0, currentWindow: !0 }, ([s]) => {
               if (e.chrome.runtime.lastError)
                 return (
@@ -65684,100 +65732,100 @@
               );
             });
           })),
-        (Zr.connectNative = async () => {
+        (Gr.connectNative = async () => {
           console.debug("CN: Connecting to native...");
           try {
             !e.chrome.runtime.connectNative && e.chrome.runtime.reload(),
-              (on = e.chrome.runtime.connectNative("mbambgnativemsg.exe")),
-              on.onDisconnect.addListener(async (t) => {
+              (dn = e.chrome.runtime.connectNative("mbambgnativemsg.exe")),
+              dn.onDisconnect.addListener(async (t) => {
                 e.chrome.runtime.lastError && console.log("CN: Native App connection error ", e.chrome.runtime.lastError.message),
-                  (on = null),
-                  e.chrome.storage.sync.set({ nativeHostStatus: !1 }),
-                  await Xe({ licenseStatePremium: 0 }),
-                  (Zr.LICENSE = 0),
+                  (dn = null),
+                  e.chrome.storage.local.set({ nativeHostStatus: !1 }),
+                  await Qe({ licenseStatePremium: 0 }),
+                  (Gr.LICENSE = 0),
                   console.log("CN: Native App Disconnected.");
               }),
               console.log("CN: Succesfully connected to Native App"),
-              e.chrome.storage.sync.set({ nativeHostStatus: !0 }),
-              on.onMessage.addListener((e) => {
+              e.chrome.storage.local.set({ nativeHostStatus: !0 }),
+              dn.onMessage.addListener((e) => {
                 console.debug("CN: Native App Message: ", e),
                   e &&
                     e.eBGAction &&
                     e.eBGAction.forEach &&
                     e.eBGAction.forEach(async (e) => {
-                      if (e.eMachId) return await Xe({ machineId: e.eMachId });
-                      if (e.ePing) return on.postMessage({ eBGAction: [{ ePong: "Unused" }] });
+                      if (e.eMachId) return await Qe({ machineId: e.eMachId });
+                      if (e.ePing) return dn.postMessage({ eBGAction: [{ ePong: "Unused" }] });
                       if (e.eExpirationTime) {
                         console.debug("CN: Received expirationTime", e);
                         const t = e.eExpirationTime / 60;
-                        return Zr.overrideAdTelemAlarm(t);
+                        return Gr.overrideAdTelemAlarm(t);
                       }
                       return void 0 !== e.eLicenseStatePremium
                         ? (console.debug("CN: Setting licenseStatePremium to", e.eLicenseStatePremium),
-                          (Zr.LICENSE = e.eLicenseStatePremium),
+                          (Gr.LICENSE = e.eLicenseStatePremium),
                           console.log("CN: Setting the new license status to", e.eLicenseStatePremium),
-                          void (await Xe({ licenseStatePremium: e.eLicenseStatePremium })))
+                          void (await Qe({ licenseStatePremium: e.eLicenseStatePremium })))
                         : e.eLicenseTermPremium
                         ? (console.debug("CN: Setting licenseTermPremium to", e.eLicenseTermPremium),
-                          await Xe({ licenseTermPremium: e.eLicenseTermPremium }))
+                          await Qe({ licenseTermPremium: e.eLicenseTermPremium }))
                         : void 0 !== e.eLicenseStatePrivacy
                         ? (console.debug("CN: Setting licenseStatePrivacy to", e.eLicenseStatePrivacy),
-                          await Xe({ licenseStatePrivacy: e.eLicenseStatePrivacy }))
+                          await Qe({ licenseStatePrivacy: e.eLicenseStatePrivacy }))
                         : e.eLicenseTermPrivacy
                         ? (console.debug("CN: Setting licenseTermPrivacy to", e.eLicenseTermPrivacy),
-                          await Xe({ licenseTermPrivacy: e.eLicenseTermPrivacy }))
+                          await Qe({ licenseTermPrivacy: e.eLicenseTermPrivacy }))
                         : e.eMbamVersion
-                        ? (console.debug("CN: Mbam versions", e.eMbamVersion), await Xe({ mbamVersion: e.eMbamVersion }))
+                        ? (console.debug("CN: Mbam versions", e.eMbamVersion), await Qe({ mbamVersion: e.eMbamVersion }))
                         : void 0;
                     });
               });
           } catch (t) {
-            e.chrome.storage.sync.set({ nativeHostStatus: !1 }),
+            e.chrome.storage.local.set({ nativeHostStatus: !1 }),
               console.log("CN: Failed to connect to local app: ", t),
               console.log("CN: Will retry on browser restart"),
-              (on = null);
+              (dn = null);
           }
         }),
-        (Zr.disconnectNative = () => {
+        (Gr.disconnectNative = () => {
           try {
-            on && on.postMessage({ eBGAction: [{ eStop: "" }] }) && on.disconnect(),
+            dn && dn.postMessage({ eBGAction: [{ eStop: "" }] }) && dn.disconnect(),
               console.log("DN: Successfully disconnected from native app");
           } catch (e) {
             console.log("DN: Failure disconnecting from native app ", e);
           }
         }),
-        (Zr.getNativeStatus = () =>
+        (Gr.getNativeStatus = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.get("nativeHostStatus", function (s) {
+            e.chrome.storage.local.get("nativeHostStatus", function (s) {
               e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError) : t(s.nativeHostStatus);
             });
           }));
-      const hn = (e) => {
-        on && (e ? on.postMessage({ eBGAction: [{ eProfName: e, eId: zt() }] }) : on.postMessage({ eBGAction: [{ eId: zt() }] }));
+      const bn = (e) => {
+        dn && (e ? dn.postMessage({ eBGAction: [{ eProfName: e, eId: Kt() }] }) : dn.postMessage({ eBGAction: [{ eId: Kt() }] }));
       };
-      (Zr.permUpdateEvent = ({ permissions: e }) => {
-        e && e.includes("nativeMessaging") && un(!0);
+      (Gr.permUpdateEvent = ({ permissions: e }) => {
+        e && e.includes("nativeMessaging") && mn(!0);
       }),
-        e.chrome.permissions.onAdded.addListener(Zr.permUpdateEvent),
-        e.chrome.permissions.onRemoved.addListener(Zr.permUpdateEvent),
-        (Zr.reloadApp = () => {
+        e.chrome.permissions.onAdded.addListener(Gr.permUpdateEvent),
+        e.chrome.permissions.onRemoved.addListener(Gr.permUpdateEvent),
+        (Gr.reloadApp = () => {
           new Promise((t, a) => {
             e.chrome.storage.local.get(["needToReload"], ({ needToReload: s }) =>
               e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError) : t(s)
             );
           }).then((t) => {
             t &&
-              ((Zr.SAFE_CACHE = {}),
+              ((Gr.SAFE_CACHE = {}),
               0 === e.chrome.extension.getViews({ type: "popup" }).length
-                ? un(!1).then(() => e.chrome.runtime.reload())
+                ? mn(!1).then(() => e.chrome.runtime.reload())
                 : setTimeout(() => {
-                    Zr.reloadApp();
+                    Gr.reloadApp();
                   }, 1500));
           });
         }),
-        (Zr.msgIsNeedingNativeMsg = async (t, { parameters: a } = {}) => {
+        (Gr.msgIsNeedingNativeMsg = async (t, { parameters: a } = {}) => {
           const s = a && a.source;
-          return "win" !== (await Zt())
+          return "win" !== (await Gt())
             ? t({ needsIt: !1, why: "NOT_WINDOWS" })
             : e.chrome.runtime.connectNative
             ? t({ needsIt: !1, why: "ALREADY_DONE" })
@@ -65787,7 +65835,7 @@
                 );
               })) && "blockPage" !== s
             ? t({ needsIt: !1, why: "MSG_SENT_ONCE" })
-            : !1 === (await Zr.settingsGet(h))
+            : !1 === (await Gr.settingsGet(h))
             ? t({ needsIt: !1, why: "USER_DENIED" })
             : ("blockPage" !== s &&
                 (await new Promise((t, a) => {
@@ -65797,15 +65845,15 @@
                 })),
               t({ needsIt: !0, why: "WE_SAID_SO" }));
         }),
-        (Zr.msgToggleNativeMsg = async (t, { payload: a } = {}) => {
+        (Gr.msgToggleNativeMsg = async (t, { payload: a } = {}) => {
           console.debug("MTNM: Toggling Native Messaging ", a);
           const s = a.on ? await Se() : await ge();
-          Zr.settingsSet({ [h]: s }), t(e.chrome.runtime.lastError ? { error: e.chrome.runtime.lastError } : {});
+          Gr.settingsSet({ [h]: s }), t(e.chrome.runtime.lastError ? { error: e.chrome.runtime.lastError } : {});
         }),
-        (Zr.showWelcome = (t) => {
+        (Gr.showWelcome = (t) => {
           let a = t + e.chrome.i18n.getMessage("@@extension_id") + "/app/eventpages/{PAGE}.html";
           const s = (() => {
-            switch (zt()) {
+            switch (Kt()) {
               case "Firefox":
                 return "welcome-firefox";
               case "Chrome":
@@ -65821,99 +65869,99 @@
             e.chrome.tabs.create({ url: a, active: !0 }, (e) => {
               console.debug("INI: New tab created: ", e);
             }),
-            (Zr.SHOULD_SHOW_WELCOME = !1);
+            (Gr.SHOULD_SHOW_WELCOME = !1);
         }),
-        (Zr.sendClientTelemetry = (e) => {
+        (Gr.sendClientTelemetry = (e) => {
           e
-            ? bn()
-            : Zr.SETTINGS.sendTelemetry &&
+            ? Sn()
+            : Gr.SETTINGS.sendTelemetry &&
               (async () => {
-                if (ea()) return void console.debug("Incognito Mode: No Telemetry was sent.");
+                if (ta()) return void console.debug("Incognito Mode: No Telemetry was sent.");
                 if (
                   await (async (e, t) => {
-                    if (ea()) return console.debug("Incognito Mode: No Telemetry was sent."), !0;
+                    if (ta()) return console.debug("Incognito Mode: No Telemetry was sent."), !0;
                     console.debug("CALLING... SIMPLE STORAGE GET");
-                    let a = await qe("telemetry");
+                    let a = await Xe("telemetry");
                     return (
                       console.debug("CALLED SIMPLE STORAGE GET", a),
                       !!(a && a[e] && a[e].lastSendTime && a[e].lastSendTime < Date.now() && Date.now() < a[e].lastSendTime + t) ||
-                        ((a = a || {}), (a[e] = a[e] || {}), (a[e].lastSendTime = Date.now()), await Xe({ telemetry: a }), !1)
+                        ((a = a || {}), (a[e] = a[e] || {}), (a[e].lastSendTime = Date.now()), await Qe({ telemetry: a }), !1)
                     );
                   })("client", 864e5)
                 )
                   return void console.debug("Telemetry skipped for throttling");
-                let e = await Ks();
+                let e = await Zs();
                 e.client.caller.trigger = "scheduled";
                 let t = JSON.stringify(e);
-                await $t("https://telemetry.malwarebytes.com/api/v2/streams/client/record", {
+                await Vt("https://telemetry.malwarebytes.com/api/v2/streams/client/record", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: t
                 });
               })();
         });
-      const bn = () => {
-        Zr.loadAllStatsData().then(async (e) => {
+      const Sn = () => {
+        Gr.loadAllStatsData().then(async (e) => {
           if (e && e.ads) {
-            const t = (await qe("adsLastCount")) || 0;
+            const t = (await Xe("adsLastCount")) || 0;
             if (t !== e.ads) {
               const a = e.ads - t,
                 s = [{ adTrackers: a }];
               console.debug("CN: eBlockTelemetryData", s),
-                on && on.postMessage({ eBlockTelemetry: s }),
+                dn && dn.postMessage({ eBlockTelemetry: s }),
                 (async (e) => {
-                  if (ea()) return void console.debug("Incognito Mode: No Ad/Tracker Telemetry was sent.");
-                  let t = await Ks();
+                  if (ta()) return void console.debug("Incognito Mode: No Ad/Tracker Telemetry was sent.");
+                  let t = await Zs();
                   t.header.machine_id
                     ? ((t.client.caller.trigger = "timed"),
                       (t.mwac = { detections: [{ direction: "outbound", disposition: "block", category: "ad_tracker", daily_count: e }] }),
-                      $t("https://telemetry.malwarebytes.com/api/v2/streams/mwac/record", {
+                      Vt("https://telemetry.malwarebytes.com/api/v2/streams/mwac/record", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(t)
                       }))
                     : console.debug("TA: No machine ID, no ad telemetry will be sent");
                 })(a),
-                await Xe({ adsLastCount: e.ads });
+                await Qe({ adsLastCount: e.ads });
             } else console.log("CN: Ads/trackers stats not being sent due to no updates");
           }
         });
       };
-      (Zr.markNewFeaturesAsSeen = async (e) => {
-        const t = (await Zr.settingsGet("newFeatures")) || {};
-        await Zr.settingsSet({ newFeatures: { ...t, [e]: !0 } });
+      (Gr.markNewFeaturesAsSeen = async (e) => {
+        const t = (await Gr.settingsGet("newFeatures")) || {};
+        await Gr.settingsSet({ newFeatures: { ...t, [e]: !0 } });
       }),
-        (Zr.isNewFeatureSeen = async () => (await Zr.settingsGet("newFeatures")) || {}),
-        (Zr.msgIsNewFeatureSeen = (e) => (
-          Zr.isNewFeatureSeen()
+        (Gr.isNewFeatureSeen = async () => (await Gr.settingsGet("newFeatures")) || {}),
+        (Gr.msgIsNewFeatureSeen = (e) => (
+          Gr.isNewFeatureSeen()
             .then((t) => e(t))
             .catch((t) => e({ error: t })),
           !0
         )),
-        (Zr.msgMarkNewFeatureSeen = (e, t) => (
-          Zr.markNewFeaturesAsSeen(e)
+        (Gr.msgMarkNewFeatureSeen = (e, t) => (
+          Gr.markNewFeaturesAsSeen(e)
             .then(() => t({}))
             .catch((e) => t({ error: e })),
           !0
         )),
-        (Zr.updateDatabases = async (e, t = 1, a = "release") => {
+        (Gr.updateDatabases = async (e, t = 1, a = "release", s = !0) => {
           console.debug("UPD: Update attempt:", t);
-          const s = new Ys(e, a);
+          const r = new Os(e, a, s);
           try {
-            const t = await s.updateIncrementals(Zr.DATABASES);
+            const t = await r.updateIncrementals(Gr.DATABASES);
             console.debug("UPD: Updater part finished", { newDbs: t });
             let a = {};
             for (let e of t) a[e.name] = e.version;
             if (
-              (console.log(`UPD: ${t.length}/${Ga.length} databases updated`, JSON.stringify(a)),
-              Zr.settingsSet({ last_successful_fetch: new Date().toLocaleString() }),
+              (console.log(`UPD: ${t.length}/${Ua.length} databases updated`, JSON.stringify(a)),
+              Gr.settingsSet({ last_successful_fetch: new Date().toLocaleString() }),
               t.length > 0)
             ) {
-              Zr.updateDatabasesCache(t);
+              Gr.updateDatabasesCache(t);
               const e = t.filter((e) => e.isFeatureFlags);
-              e && e.length > 0 && Zr.setFeatureFlags(e[0].data);
+              e && e.length > 0 && Gr.setFeatureFlags(e[0].data);
               const a = t.filter((e) => e.name.startsWith("mbgc.db.rulesetoverride."));
-              a && a.length > 0 && (console.debug("UPDATING OVERRIDES", a[0].data), Zr.updateRulesetOverrides(a[0].data));
+              a && a.length > 0 && (console.debug("UPDATING OVERRIDES", a[0].data), Gr.updateRulesetOverrides(a[0].data));
             }
             e && e.hasOwnProperty("onUpdateComplete") && (await e.onUpdateComplete());
           } catch (a) {
@@ -65926,31 +65974,31 @@
               })(t, 2e3, 250);
               console.log("UPD: Delay time for next attempt:", a),
                 setTimeout(() => {
-                  Zr.updateDatabases(e, t + 1);
+                  Gr.updateDatabases(e, t + 1);
                 }, a);
             } else
               console.log("UPD: Updates canceled due to max request limit reached", 4),
                 console.error("UPD: error handing database read: ", a),
                 e && e.hasOwnProperty("onUpdateError") && (await e.onUpdateError(a)),
-                Zr.settingsSet({ last_fetch_failure: new Date().toLocaleString() });
+                Gr.settingsSet({ last_fetch_failure: new Date().toLocaleString() });
           }
         }),
-        (Zr.getOrCreateUUID = () =>
-          Ve().then((e) =>
+        (Gr.getOrCreateUUID = () =>
+          qe().then((e) =>
             e
               ? Promise.resolve(e)
               : ((e = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (e) {
                   let t = (16 * Math.random()) | 0;
                   return ("x" == e ? t : (3 & t) | 8).toString(16);
                 })),
-                Zr.settingsSet({ uuid: e }).then((t) => Promise.resolve(e)))
+                Gr.settingsSet({ uuid: e }).then((t) => Promise.resolve(e)))
           )),
-        (Zr.clearCachedDbs = async () => {
-          aa() || (Zr.settingsSet({ cachedDatabases: !1 }), console.warn("CCD: IndexedDB not available in this browser"));
+        (Gr.clearCachedDbs = async () => {
+          sa() || (Gr.settingsSet({ cachedDatabases: !1 }), console.warn("CCD: IndexedDB not available in this browser"));
           try {
             await ((t = "cachedDb"),
             new Promise((a, s) => {
-              if (!aa) return void s(new Error("IndexedDb not available"));
+              if (!sa) return void s(new Error("IndexedDb not available"));
               const r = e.indexedDB.open(t);
               let n;
               (r.onerror = (e) => {
@@ -65977,16 +66025,16 @@
           var t;
           console.debug("CCD: Successfully deleted IndexDB Cached data store");
         }),
-        (Zr.updateDatabasesCache = async (t = []) => {
+        (Gr.updateDatabasesCache = async (t = []) => {
           if (0 != t.length) {
-            if (!aa()) return Zr.settingsSet({ cachedDatabases: !1 }), void console.debug("UDC: IndexedDB not available in this browser");
+            if (!sa()) return Gr.settingsSet({ cachedDatabases: !1 }), void console.debug("UDC: IndexedDB not available in this browser");
             console.log(`UDC: ${t.length} will be saved in the cache`),
               console.debug(
                 "UDC: Databases to be cached:",
                 t.map((e) => e.name)
               );
             try {
-              await Is(t), await Zr.settingsSet({ cachedDatabases: !0 });
+              await Hs(t), await Gr.settingsSet({ cachedDatabases: !0 });
             } catch (e) {
               return void console.error("UDC: Error during saving databases to the cache", e);
             }
@@ -65996,20 +66044,20 @@
               });
           }
         }),
-        (Zr.setDatabases = (e = []) => {
+        (Gr.setDatabases = (e = []) => {
           e.forEach((e) => {
-            Zr.DATABASES[e.cleanName] = e;
+            Gr.DATABASES[e.cleanName] = e;
           });
         }),
-        (Zr.setFeatureFlags = (e = {}) => {
-          for (const t in e) Object.prototype.hasOwnProperty.call(e, t) && (Zr.FEATURE_FLAGS[t] = e[t]);
-          console.debug("FEATURE_FLAGS: Feature flags set to: ", Zr.FEATURE_FLAGS);
+        (Gr.setFeatureFlags = (e = {}) => {
+          for (const t in e) Object.prototype.hasOwnProperty.call(e, t) && (Gr.FEATURE_FLAGS[t] = e[t]);
+          console.debug("FEATURE_FLAGS: Feature flags set to: ", Gr.FEATURE_FLAGS);
         }),
-        (Zr.updateRulesetOverrides = async (t) => {
+        (Gr.updateRulesetOverrides = async (t) => {
           await (async (t) => {
-            if (!na()) return;
+            if (!oa()) return;
             console.debug("UPDATE_OVERRIDES: overrides", { overrides: t });
-            let a = await cr(yr);
+            let a = await Mr(cr);
             a = a.filter((e) => ["allow", "block"].includes(e.action.type));
             const s = {};
             for (const e of a) {
@@ -66020,7 +66068,7 @@
             console.debug("UPDATE_OVERRIDES: urlToTypes", { urlToTypes: s });
             let r = [],
               n = [],
-              o = await hr();
+              o = await br();
             for (const e of t) {
               console.debug("UPDATE_OVERRIDES: processing", { override: e });
               const { type: t, url: a } = e;
@@ -66029,52 +66077,52 @@
                 continue;
               }
               if (s[a]) {
-                const e = await cr(yr);
+                const e = await Mr(cr);
                 console.debug("UPDATE_OVERRIDES: existingRules", { existingRules: e });
                 const t = e
-                  .filter((e) => e.condition.urlFilter === Lt(a) || (e.condition.initiatorDomains || []).includes(Lt(a)))
+                  .filter((e) => e.condition.urlFilter === Nt(a) || (e.condition.initiatorDomains || []).includes(Nt(a)))
                   .map((e) => e.id);
                 n = [...n, ...t];
               }
-              const i = gr(e, o + 1);
+              const i = _r(e, o + 1);
               (r = [...r, ...i]), (o += i.length);
             }
             console.debug("UPDATE_OVERRIDES: newRules", { newAddRules: r, newRemoveRuleIds: n }),
               await e.chrome.declarativeNetRequest.updateDynamicRules({ addRules: r, removeRuleIds: n });
             const i = t.map((e) => e.url);
-            _r.addToCache(i);
+            pr.addToCache(i);
           })(t);
         }),
-        (Zr.indexedDbTest = async () => {
+        (Gr.indexedDbTest = async () => {
           for (let e = 0; e < 10; e++) {
-            const t = Zr.random(255, 32);
+            const t = Gr.random(255, 32);
             console.log("Adding test", e, "filling with", t);
             const a = "2.0." + new Date().toString("yyyyMMddhhmmss"),
               s = { data: new Uint8Array(1048576), name: `test0${e}`, version: a };
             s.data.fill(t);
-            const r = Rt(s);
-            await Ls(s.name, s.version, r);
+            const r = Jt(s);
+            await Ns(s.name, s.version, r);
           }
         }),
-        (Zr.initDatabases = async () => {
-          if (na())
+        (Gr.initDatabases = async () => {
+          if (oa())
             try {
               await (async (t) => {
                 console.debug("INDB: INITMV3RULESETS WITH: ", t);
-                const a = Rr[t] || Br;
+                const a = Jr[t] || Wr;
                 console.debug("INDB: INITMV3RULESETS RULESETS: ", a);
                 try {
-                  await Jr(a);
+                  await zr(a);
                 } catch (t) {
                   throw (
                     (console.error("INDB: initMV3Rulesets failed with error: ", t),
                     (async () => {
-                      const { dynamicRuleCount: t, staticRuleCount: a, staticRulesetCount: s } = await zr(),
+                      const { dynamicRuleCount: t, staticRuleCount: a, staticRulesetCount: s } = await Kr(),
                         r =
-                          ("Firefox" === zt ? "moz-extension://" : "chrome-extension://") +
+                          ("Firefox" === Kt ? "moz-extension://" : "chrome-extension://") +
                           e.chrome.i18n.getMessage("@@extension_id") +
                           `/app/eventpages/ruleset-error.html?dCnt=${t}&sCnt=${a}&srCnt=${s}`;
-                      (await Kr()) ||
+                      (await Zr()) ||
                         e.chrome.tabs.create({ url: r, active: !0 }, (e) => {
                           console.debug("RULESET: Ruleset error page created", e);
                         });
@@ -66084,18 +66132,18 @@
                 }
               })(te);
             } catch (e) {
-              Zr.SHOULD_SHOW_WELCOME = !1;
+              Gr.SHOULD_SHOW_WELCOME = !1;
             }
           const t = [];
-          let a = Ga,
+          let a = Ua,
             s = [],
             r = [],
             n = [];
-          !0 === Zr.SETTINGS.cachedDatabases && aa()
+          !0 === Gr.SETTINGS.cachedDatabases && sa()
             ? (console.debug("ID: Databases cache detected"),
               (s = await (async (e) => {
-                if (!aa()) return console.warn("LCD: IndexedDB not available in this browser"), [];
-                const t = Es(e),
+                if (!sa()) return console.warn("LCD: IndexedDB not available in this browser"), [];
+                const t = Is(e),
                   a = await ((s = {
                     dbName: "cachedDb",
                     storeName: "cachedDbStore",
@@ -66103,7 +66151,7 @@
                     waitStrategy: "allSettled",
                     keys: t.map((e) => e.cleanName)
                   }),
-                  vs(s, "keys", Cs));
+                  ws(s, "keys", ks));
                 var s;
                 const r = [];
                 a.forEach((e, a) => {
@@ -66114,13 +66162,13 @@
                   n
                     ? n.dbName && n.data
                       ? r.push(
-                          xs(
+                          Ps(
                             {
                               name: s.name,
                               isBloom: s.isBloom,
                               isFeatureFlags: s.isFeatureFlags,
                               isRaw: !s.isBloom,
-                              result: s.isBloom ? new As(s.name, n.data.bloomFilter) : n.data
+                              result: s.isBloom ? new vs(s.name, n.data.bloomFilter) : n.data
                             },
                             n.version
                           )
@@ -66135,21 +66183,21 @@
                       "LCD: Cache databases with no version",
                       n.map((e) => e.name)
                     );
-                  const e = (await qe("databases")) || {};
+                  const e = (await Xe("databases")) || {};
                   n.forEach((t) => {
                     (t.version = e[t.name] && e[t.name].version), console.debug(`LCD: Version for ${t.name}:`, t.version);
                   });
                   const t = n.filter((e) => e.version);
-                  t.length > 0 && (console.debug(`LCD: Re-writing ${t.length} databases in the cache, version was set`), await Is(t));
+                  t.length > 0 && (console.debug(`LCD: Re-writing ${t.length} databases in the cache, version was set`), await Hs(t));
                 }
                 return console.log(`LCD: ${r.length} databases loaded from the cache`), r;
               })(a)))
             : console.warn("ID: Cached databases not available"),
             t.push(...s.map((e) => e.name)),
             (a = a.filter((e) => !t.includes(e))),
-            1 == Zr.SETTINGS.idbStorageDatabases &&
+            1 == Gr.SETTINGS.idbStorageDatabases &&
               a.length > 0 &&
-              (console.debug(`ID: ${a.length} databases will be loaded from IdbStorage`), (r = await Hs(a))),
+              (console.debug(`ID: ${a.length} databases will be loaded from IdbStorage`), (r = await Ls(a))),
             t.push(...r.map((e) => e.name)),
             (a = a.filter((e) => !t.includes(e))),
             a.length > 0 &&
@@ -66157,14 +66205,14 @@
               (n = await (async (e) => {
                 console.debug("LBD: Forcing reading bundled databases at " + new Date().toLocaleString()),
                   console.debug("LBD: Databases to be loaded:", e);
-                const t = Es(e);
+                const t = Is(e);
                 console.debug("LBD: All DBs:", t);
                 const a = [];
                 t.forEach((e) => {
                   a.push(
                     ((e, t, a) => {
-                      const s = t && new As(e),
-                        r = !t && new fs(e);
+                      const s = t && new vs(e),
+                        r = !t && new Ds(e);
                       return (t ? s.parseBundled() : r.readBundled()).then((r) => ({
                         name: e,
                         isBloom: t,
@@ -66180,7 +66228,7 @@
                 return (
                   console.debug("LBD: DB Results:", JSON.stringify(r)),
                   r.forEach((e) => {
-                    s.push(xs(e, ks[e.name].version));
+                    s.push(Ps(e, Es[e.name].version));
                   }),
                   console.debug("LBD: Bundled unpack complete at " + new Date().toLocaleString()),
                   console.log(`LBD: ${s.length} bundled databases loaded`),
@@ -66189,30 +66237,30 @@
               })(a))),
             t.push(...n.map((e) => e.name)),
             console.log(
-              `ID: ${t.length}/${Ga.length} databases loaded. ${s.length} from cache, ${r.length} from IdbStorage, ${n.length} from the db directory (bundled)`
+              `ID: ${t.length}/${Ua.length} databases loaded. ${s.length} from cache, ${r.length} from IdbStorage, ${n.length} from the db directory (bundled)`
             );
           const o = [...s, ...r, ...n],
             i = o.filter((e) => e.isFeatureFlags);
-          i.length > 0 && (console.debug("FEATURE_FLAGS: Setting from:", i), Zr.setFeatureFlags(i[0].data));
+          i.length > 0 && (console.debug("FEATURE_FLAGS: Setting from:", i), Gr.setFeatureFlags(i[0].data));
           const d = o.filter((e) => e.name.startsWith("mbgc.db.rulesetoverride."));
-          d && d.length > 0 && (console.debug("UPDATING OVERRIDES: INIT"), Zr.updateRulesetOverrides(d[0].data));
-          let l = new fs("mbgc.db.easylist.2"),
+          d && d.length > 0 && (console.debug("UPDATING OVERRIDES: INIT"), Gr.updateRulesetOverrides(d[0].data));
+          let l = new Ds("mbgc.db.easylist.2"),
             u = await l.readBundled();
-          (Zr.DATABASES.easylist = u), Zr.setDatabases([...s, ...r, ...n]), Zr.updateDatabasesCache([...r, ...n]);
+          Gr.setDatabases([...s, ...r, ...n]), Gr.updateDatabasesCache([...r, ...n]), (Gr.DATABASES.easylist = u);
         }),
-        (Zr.msgGetBlockedItems = async (e) => {
-          const t = await Nr.getBlockedItems();
+        (Gr.msgGetBlockedItems = async (e) => {
+          const t = await xr.getBlockedItems();
           console.debug("MSG_GET_BLOCKED_ITEMS: ", t), e({ items: t });
         }),
-        (Zr.msgDeleteBlockedItem = async (e, t) => {
-          const a = await Nr.deleteBlockedItem(e);
+        (Gr.msgDeleteBlockedItem = async (e, t) => {
+          const a = await xr.deleteBlockedItem(e);
           console.debug("msgDeleteBlockedItem result: ", a), t({ success: a });
         }),
-        (Zr.deleteAllBlockedItems = async (e, t) => {
-          const a = await Nr.deleteAllBlockedItems();
+        (Gr.deleteAllBlockedItems = async (e, t) => {
+          const a = await xr.deleteAllBlockedItems();
           console.debug("msgDeleteAllBlockedItems result: ", a), t({ success: a });
         }),
-        (Zr.debugMyData = () => (
+        (Gr.debugMyData = () => (
           new Promise((t, a) => {
             e.chrome.storage.sync.get(null, function (s) {
               return e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s);
@@ -66227,19 +66275,19 @@
           }),
           "Working. " + new Date().toLocaleString()
         )),
-        (Zr.debugNewUUID = () =>
+        (Gr.debugNewUUID = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.remove("user_group", function () {
+            e.chrome.storage.local.remove("user_group", function () {
               return e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(!0);
             });
           })
             .then((t) => {
-              e.chrome.storage.sync.remove("user_email", function () {
+              e.chrome.storage.local.remove("user_email", function () {
                 return e.chrome.runtime.lastError ? Promise.reject(e.chrome.runtime.lastError.message) : Promise.resolve(!0);
               });
             })
             .then(() => {
-              e.chrome.storage.sync.set({ user_welcomed: !1 }, () =>
+              e.chrome.storage.local.set({ user_welcomed: !1 }, () =>
                 e.chrome.runtime.lastError ? Promise.reject(e.chrome.runtime.lastError.message) : Promise.resolve(!0)
               );
             })
@@ -66254,31 +66302,31 @@
               });
             })
             .then((e) => {
-              let t = Et();
-              It(t).then((e) => Promise.resolve(!0));
+              let t = It();
+              Ht(t).then((e) => Promise.resolve(!0));
             })),
-        (Zr.debugDropTabHistories = () => {
+        (Gr.debugDropTabHistories = () => {
           let e = 0;
-          if (Zr.TABS)
-            for (let t in Zr.TABS)
-              if (Zr.TABS.hasOwnProperty(t)) {
-                let a = Zr.TABS[t];
+          if (Gr.TABS)
+            for (let t in Gr.TABS)
+              if (Gr.TABS.hasOwnProperty(t)) {
+                let a = Gr.TABS[t];
                 a.meta && a.meta.history && ((a.meta.history = []), e++);
               }
           return e + " histories dropped";
         }),
-        (Zr.newUUIDSync = () => {
-          e.chrome.storage.sync.remove("user_group", function () {
+        (Gr.newUUIDSync = () => {
+          e.chrome.storage.local.remove("user_group", function () {
             e.chrome.runtime.lastError
               ? console.log("INI: Reset UG Failed: " + e.chrome.runtime.lastError)
               : console.log("INI: Reset UG completed");
           }),
-            e.chrome.storage.sync.remove("user_email", function () {
+            e.chrome.storage.local.remove("user_email", function () {
               e.chrome.runtime.lastError
                 ? console.log("INI: Reset UE Failed: " + e.chrome.runtime.lastError)
                 : console.log("INI: Reset UE completed");
             }),
-            e.chrome.storage.sync.set({ user_welcomed: !1 }, function () {
+            e.chrome.storage.local.set({ user_welcomed: !1 }, function () {
               e.chrome.runtime.lastError
                 ? console.log("INI: Reset UW Failed: " + e.chrome.runtime.lastError)
                 : console.log("INI: Reset UW completed");
@@ -66294,70 +66342,70 @@
                 : console.log("INI: Reset EX completed");
             });
         }),
-        (Zr.debugDownloadLogs = () => {
-          Zr.msgDownloadLogs((e) => {
-            e.success || console.error("Failed to download logs: " + e.error), oa(e.data);
+        (Gr.debugDownloadLogs = () => {
+          Gr.msgDownloadLogs((e) => {
+            e.success || console.error("Failed to download logs: " + e.error), ia(e.data);
           });
         }),
-        (Zr.debugUserGroupA = () =>
+        (Gr.debugUserGroupA = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.set({ user_group: G }, function () {
+            e.chrome.storage.local.set({ user_group: G }, function () {
               return e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(!0);
             });
           })
             .then((t) => {
-              e.chrome.storage.sync.remove("user_email", function () {
+              e.chrome.storage.local.remove("user_email", function () {
                 return e.chrome.runtime.lastError ? Promise.reject(e.chrome.runtime.lastError.message) : Promise.resolve(!0);
               });
             })
             .then(() => {
-              e.chrome.storage.sync.set({ user_welcomed: !1 }, () =>
+              e.chrome.storage.local.set({ user_welcomed: !1 }, () =>
                 e.chrome.runtime.lastError ? Promise.reject(e.chrome.runtime.lastError.message) : Promise.resolve(!0)
               );
             })
             .then((e) => Promise.resolve(!0))),
-        (Zr.debugStatsFull = () => (Zr.msgDbgAddStats((e) => console.log(e), !0), "Done.")),
-        (Zr.debugStatsOld = () => (Zr.msgDbgAddOldStats((e) => console.log(e), !0), "Done.")),
-        (Zr.debugAlterAllTimeStats = () => (Zr.msgAlterAllTimeStats((e) => console.log(e), !0), "Done.")),
-        (Zr.debugDetectionHistory = () => (Zr.msgDbgPopulateDetectionHistory((e) => console.log(e), !0), "Done.")),
-        (Zr.debugStatsNone = () => (Zr.msgDbgClearStats((e) => console.log(e), !0), "Done.")),
-        (Zr.debugToggleRepuationDB = () => ((dn = !dn), cn(dn), console.log(`DRD: Repuation DB is now on? ${dn}`), dn)),
-        (Zr.debugToggleLocalIpWhiteListing = () => ((ln = !ln), Tn(ln), console.log(`DRD: Local IP Whitelisting is now on? ${ln}`), ln)),
-        (Zr.isPremium = () => {
-          const e = Zr.LICENSE;
+        (Gr.debugStatsFull = () => (Gr.msgDbgAddStats((e) => console.log(e), !0), "Done.")),
+        (Gr.debugStatsOld = () => (Gr.msgDbgAddOldStats((e) => console.log(e), !0), "Done.")),
+        (Gr.debugAlterAllTimeStats = () => (Gr.msgAlterAllTimeStats((e) => console.log(e), !0), "Done.")),
+        (Gr.debugDetectionHistory = () => (Gr.msgDbgPopulateDetectionHistory((e) => console.log(e), !0), "Done.")),
+        (Gr.debugStatsNone = () => (Gr.msgDbgClearStats((e) => console.log(e), !0), "Done.")),
+        (Gr.debugToggleRepuationDB = () => ((ln = !ln), Mn(ln), console.log(`DRD: Repuation DB is now on? ${ln}`), ln)),
+        (Gr.debugToggleLocalIpWhiteListing = () => ((un = !un), yn(un), console.log(`DRD: Local IP Whitelisting is now on? ${un}`), un)),
+        (Gr.isPremium = () => {
+          const e = Gr.LICENSE;
           return (
             console.debug(`License state: ${e}`),
             e === m.LicenseStateLicensed || e === m.LicenseStateTrial || e == m.LicenseStateLicenseGrace
           );
         }),
-        (Zr.isTrial = () => "LICENSE_TRIAL" === Zr.LICENSE),
-        (Zr.insertDebugStatistics = () => {
+        (Gr.isTrial = () => "LICENSE_TRIAL" === Gr.LICENSE),
+        (Gr.insertDebugStatistics = () => {
           let e = Date.today().addWeeks(-5),
             t = Date.today();
           for (; e.compareTo(t) < 1; )
-            (Zr.RECORD[e.toString("MMM d")] = {
+            (Gr.RECORD[e.toString("MMM d")] = {
               ts: e.getTime(),
-              ads: Zr.random(500, 50),
-              malwares: Zr.random(200),
-              scams: Zr.random(450, 10),
-              content: Zr.random(200)
+              ads: Gr.random(500, 50),
+              malwares: Gr.random(200),
+              scams: Gr.random(450, 10),
+              content: Gr.random(200)
             }),
               (e = e.addDays(1));
         }),
-        (Zr.insertOldDebugStatistics = () => {
-          (Zr.ALL_TIME_STATS = { ads: 100, malwares: 100, scams: 100, content: 100 }),
-            e.chrome.storage.sync.set({ allTimeStats: Zr.ALL_TIME_STATS }, () => {
-              console.log("allTimeStats saved to the storage", Zr.ALL_TIME_STATS);
+        (Gr.insertOldDebugStatistics = () => {
+          (Gr.ALL_TIME_STATS = { ads: 100, malwares: 100, scams: 100, content: 100 }),
+            e.chrome.storage.local.set({ allTimeStats: Gr.ALL_TIME_STATS }, () => {
+              console.log("allTimeStats saved to the storage", Gr.ALL_TIME_STATS);
             }),
-            e.chrome.storage.sync.set({ installationDate: null }, () => console.log("set installation date to null"));
+            e.chrome.storage.local.set({ installationDate: null }, () => console.log("set installation date to null"));
         }),
-        (Zr.alterAllTimeStats = () => {
-          (Zr.ALL_TIME_STATS = { ads: 3710478760989116e68, malwares: null, scams: null, content: null }),
-            e.chrome.storage.sync.set({ allTimeStats: Zr.ALL_TIME_STATS }, () => {
-              console.debug("STATS: allTimeStats have been altered", Zr.ALL_TIME_STATS);
+        (Gr.alterAllTimeStats = () => {
+          (Gr.ALL_TIME_STATS = { ads: 3710478760989116e68, malwares: null, scams: null, content: null }),
+            e.chrome.storage.local.set({ allTimeStats: Gr.ALL_TIME_STATS }, () => {
+              console.debug("STATS: allTimeStats have been altered", Gr.ALL_TIME_STATS);
             });
         }),
-        (Zr.insertDetectionHistoryData = () => {
+        (Gr.insertDetectionHistoryData = () => {
           let t = Date.today().setHours(0, 1, 0, 0),
             a = Date.today().setHours(20, 59, 0, 0);
           const s = ["malware", "scam", "content"],
@@ -66372,12 +66420,12 @@
               a = { date: t, site: `www.${e}-${t}.com`, subtype: r[e][Math.floor(3 * Math.random())], type: e };
             n.push(a), (t += 18e5);
           }
-          e.chrome.storage.sync.set({ detectionHistory: n }), console.log("Detection History populated successfully:", n);
+          e.chrome.storage.local.set({ detectionHistory: n }), console.log("Detection History populated successfully:", n);
         }),
-        (Zr.random = (e, t) => (t || (t = 1), Math.floor(Math.random() * e + t))),
-        (Zr.today = () => Date.today().toString("MMM d")),
-        (Zr.todayTimestamp = () => Date.today().getTime()),
-        (Zr.exclusionIntToConstant = (e) => {
+        (Gr.random = (e, t) => (t || (t = 1), Math.floor(Math.random() * e + t))),
+        (Gr.today = () => Date.today().toString("MMM d")),
+        (Gr.todayTimestamp = () => Date.today().getTime()),
+        (Gr.exclusionIntToConstant = (e) => {
           switch (e) {
             case 2:
             case 3:
@@ -66391,162 +66439,162 @@
           }
           throw new Error(`${e} is not recognised`);
         }),
-        (Zr.isHeuristicAdsIndividualExcluded = (e) => Zr.EXCLUSION_INDIVIDUAL[e] && Zr.EXCLUSION_INDIVIDUAL[e]["heuristic-ad-block"]),
-        (Zr.isEasyListAdsIndividualExcluded = (e) => Zr.EXCLUSION_INDIVIDUAL[e] && Zr.EXCLUSION_INDIVIDUAL[e]["easylist-ad-block"]),
-        (Zr.removeAllExclusionsInMeta = (e) =>
+        (Gr.isHeuristicAdsIndividualExcluded = (e) => Gr.EXCLUSION_INDIVIDUAL[e] && Gr.EXCLUSION_INDIVIDUAL[e]["heuristic-ad-block"]),
+        (Gr.isEasyListAdsIndividualExcluded = (e) => Gr.EXCLUSION_INDIVIDUAL[e] && Gr.EXCLUSION_INDIVIDUAL[e]["easylist-ad-block"]),
+        (Gr.removeAllExclusionsInMeta = (e) =>
           new Promise((t) => {
-            for (let e in Zr.TABS)
-              Zr.TABS.hasOwnProperty(e) &&
-                ((Zr.TABS[e].meta.isExcludedAds = !1),
-                (Zr.TABS[e].meta.isExcludedScams = !1),
-                (Zr.TABS[e].meta.isExcludedMalware = !1),
-                (Zr.TABS[e].meta.isExcludedTrackers = !1));
+            for (let e in Gr.TABS)
+              Gr.TABS.hasOwnProperty(e) &&
+                ((Gr.TABS[e].meta.isExcludedAds = !1),
+                (Gr.TABS[e].meta.isExcludedScams = !1),
+                (Gr.TABS[e].meta.isExcludedMalware = !1),
+                (Gr.TABS[e].meta.isExcludedTrackers = !1));
             t(e);
           })),
-        (Zr.updateExclusionsInMeta = (e, t, a, s) =>
+        (Gr.updateExclusionsInMeta = (e, t, a, s) =>
           new Promise((r) => {
-            for (let a in Zr.TABS)
-              Zr.TABS.hasOwnProperty(a) &&
-                Zr.TABS[a].site &&
-                Zr.TABS[a].site.host === e &&
+            for (let a in Gr.TABS)
+              Gr.TABS.hasOwnProperty(a) &&
+                Gr.TABS[a].site &&
+                Gr.TABS[a].site.host === e &&
                 (t.forEach((e) => {
-                  let t = Zr.exclusionIntToConstant(e);
+                  let t = Gr.exclusionIntToConstant(e);
                   switch (t) {
                     case d:
-                      Zr.TABS[a].meta.isExcludedAds = s;
+                      Gr.TABS[a].meta.isExcludedAds = s;
                       break;
                     case i:
-                      Zr.TABS[a].meta.isExcludedScams = s;
+                      Gr.TABS[a].meta.isExcludedScams = s;
                       break;
                     case o:
                     case l:
-                      Zr.TABS[a].meta.isExcludedMalware = s;
+                      Gr.TABS[a].meta.isExcludedMalware = s;
                       break;
                     default:
                       console.error("Meta not actually updated: Unrecognised '" + e + "' / '" + t + "'");
                   }
                 }),
                 console.log("Meta updated."),
-                console.log(Zr.TABS[a]));
+                console.log(Gr.TABS[a]));
             r(a);
           })),
-        (Zr.postNativeExclusion = (t, a, s) => {
-          if (!on) return void (e.chrome.runtime.connectNative && Zr.connectNative());
-          const r = a ? t : Lt(t);
+        (Gr.postNativeExclusion = (t, a, s) => {
+          if (!dn) return void (e.chrome.runtime.connectNative && Gr.connectNative());
+          const r = a ? t : Nt(t);
           console.log("PD: Posting message to native app about: ", r),
-            on.postMessage({ eBGAction: [{ [Xt(r) ? "eIpv4" : "eUrl"]: r }, { eExclude: s }] });
+            dn.postMessage({ eBGAction: [{ [Qt(r) ? "eIpv4" : "eUrl"]: r }, { eExclude: s }] });
         }),
-        (Zr.postNativeExclusionRemoval = (e) => {
-          on &&
+        (Gr.postNativeExclusionRemoval = (e) => {
+          dn &&
             (console.log("PNER: Posting to native app re allowlist removal of ", e),
-            on.postMessage({ eBGAction: [{ [Xt(e) ? "remIpv4" : "remUrl"]: e }] }));
+            dn.postMessage({ eBGAction: [{ [Qt(e) ? "remIpv4" : "remUrl"]: e }] }));
         }),
-        (Zr.postNativeTogglesState = () => {
-          if (!on) return;
-          const e = Zr.computeTogglesState();
-          console.debug("PNTS: Posting toggles state to native app: ", e), on.postMessage({ eBGAction: [{ eGlobalBgToggles: e }] });
+        (Gr.postNativeTogglesState = () => {
+          if (!dn) return;
+          const e = Gr.computeTogglesState();
+          console.debug("PNTS: Posting toggles state to native app: ", e), dn.postMessage({ eBGAction: [{ eGlobalBgToggles: e }] });
         }),
-        (Zr.recordAll = (e, t, a, s, r) => {
-          Zr.recordForDate(e, 1), Zr.recordForTab(e, t, a, s, r);
+        (Gr.recordAll = (e, t, a, s, r) => {
+          Gr.recordForDate(e, 1), Gr.recordForTab(e, t, a, s, r);
         }),
-        (Zr.recordForTab = (e, t, a, s, r) => {
+        (Gr.recordForTab = (e, t, a, s, r) => {
           let n;
           switch (e) {
-            case Gr:
+            case Ur:
               n = "ads";
               break;
-            case Ur:
+            case $r:
               n = "malware";
               break;
-            case $r:
+            case Vr:
               n = "scams";
               break;
-            case Vr:
+            case qr:
               n = "content";
           }
           n &&
-            Zr.TABS[t] &&
-            Zr.TABS[t].blocked &&
-            Zr.TABS[t].blocked.totals &&
-            (r && (Zr.TABS[t].blocked.totals[n] || (Zr.TABS[t].blocked.totals[n] = 0), Zr.TABS[t].blocked.totals[n]++),
-            Zr.TABS[t].blocked[n] && Zr.TABS[t].blocked[n][a]
-              ? Zr.TABS[t].blocked[n][a][s]
-                ? Zr.TABS[t].blocked[n][a][s]++
-                : (Zr.TABS[t].blocked[n][a][s] = 1)
-              : (Zr.TABS[t].blocked[n] || (Zr.TABS[t].blocked[n] = {}),
-                (Zr.TABS[t].blocked[n][a] = {}),
-                (Zr.TABS[t].blocked[n][a][s] = 1))),
-            console.debug("RFT: ", Zr.TABS[t]);
+            Gr.TABS[t] &&
+            Gr.TABS[t].blocked &&
+            Gr.TABS[t].blocked.totals &&
+            (r && (Gr.TABS[t].blocked.totals[n] || (Gr.TABS[t].blocked.totals[n] = 0), Gr.TABS[t].blocked.totals[n]++),
+            Gr.TABS[t].blocked[n] && Gr.TABS[t].blocked[n][a]
+              ? Gr.TABS[t].blocked[n][a][s]
+                ? Gr.TABS[t].blocked[n][a][s]++
+                : (Gr.TABS[t].blocked[n][a][s] = 1)
+              : (Gr.TABS[t].blocked[n] || (Gr.TABS[t].blocked[n] = {}),
+                (Gr.TABS[t].blocked[n][a] = {}),
+                (Gr.TABS[t].blocked[n][a][s] = 1))),
+            console.debug("RFT: ", Gr.TABS[t]);
         }),
-        (Zr.persistDailyData = () =>
+        (Gr.persistDailyData = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.set({ records: Zr.RECORD }, () => {
+            e.chrome.storage.local.set({ records: Gr.RECORD }, () => {
               e.chrome.runtime.lastError
                 ? (console.error(e.chrome.runtime.lastError.message), a(e.chrome.runtime.lastError.message))
                 : t(!0);
             });
           })),
-        (Zr.persistDailyStatsData = () =>
+        (Gr.persistDailyStatsData = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.set({ allTimeStats: Zr.ALL_TIME_STATS }, () => {
+            e.chrome.storage.local.set({ allTimeStats: Gr.ALL_TIME_STATS }, () => {
               e.chrome.runtime.lastError
                 ? (console.error(e.chrome.runtime.lastError.message), a(e.chrome.runtime.lastError.message))
-                : t(Zr.ALL_TIME_STATS);
+                : t(Gr.ALL_TIME_STATS);
             });
           })),
-        (Zr.checkValidStatsObject = (e) => {
+        (Gr.checkValidStatsObject = (e) => {
           const t = ["ads", "malwares", "scams", "content"],
             a = t.every((t) => e.hasOwnProperty(t)),
             s = t.every((t) => "number" == typeof e[t]);
           return a && s;
         }),
-        (Zr.cleanStats = (e) => {
+        (Gr.cleanStats = (e) => {
           for (const t in e)
             "number" != typeof e[t]
-              ? (console.debug(`STATS: rolling 30 days ${t} stats due to invalid value`), Zr.roll30DaysStats(t))
-              : e[t].toString().length > 13 && (console.debug(`STATS: rolling 30 days ${t} stats due to exp value`), Zr.roll30DaysStats(t));
+              ? (console.debug(`STATS: rolling 30 days ${t} stats due to invalid value`), Gr.roll30DaysStats(t))
+              : e[t].toString().length > 13 && (console.debug(`STATS: rolling 30 days ${t} stats due to exp value`), Gr.roll30DaysStats(t));
         }),
-        (Zr.recordForDate = (e, t) => {
-          let a = Zr.today();
+        (Gr.recordForDate = (e, t) => {
+          let a = Gr.today();
           switch (
-            (Zr.RECORD[a] || (Zr.RECORD[a] = { ts: Zr.todayTimestamp(), ads: 0, malwares: 0, scams: 0, content: 0 }),
-            Zr.cleanStats(Zr.ALL_TIME_STATS),
+            (Gr.RECORD[a] || (Gr.RECORD[a] = { ts: Gr.todayTimestamp(), ads: 0, malwares: 0, scams: 0, content: 0 }),
+            Gr.cleanStats(Gr.ALL_TIME_STATS),
             e)
           ) {
-            case Gr:
-              (Zr.RECORD[a].ads += t), (Zr.ALL_TIME_STATS.ads += t);
-              break;
             case Ur:
-              (Zr.RECORD[a].malwares += t), (Zr.ALL_TIME_STATS.malwares += t);
+              (Gr.RECORD[a].ads += t), (Gr.ALL_TIME_STATS.ads += t);
               break;
             case $r:
-              (Zr.RECORD[a].scams += t), (Zr.ALL_TIME_STATS.scams += t);
+              (Gr.RECORD[a].malwares += t), (Gr.ALL_TIME_STATS.malwares += t);
               break;
             case Vr:
-              (Zr.RECORD[a].content += t), (Zr.ALL_TIME_STATS.content += t);
+              (Gr.RECORD[a].scams += t), (Gr.ALL_TIME_STATS.scams += t);
+              break;
+            case qr:
+              (Gr.RECORD[a].content += t), (Gr.ALL_TIME_STATS.content += t);
               break;
             default:
               console.error("Error: detection not recorded. Type must be one of RecordType");
           }
         }),
-        (Zr.getRecordKeysSorted = () => {
+        (Gr.getRecordKeysSorted = () => {
           let e = [];
-          for (let t in Zr.RECORD) Zr.RECORD.hasOwnProperty(t) && e.push(t);
+          for (let t in Gr.RECORD) Gr.RECORD.hasOwnProperty(t) && e.push(t);
           return (
             e.sort(function (e, t) {
-              return Zr.RECORD[e].ts < Zr.RECORD[t].ts ? -1 : 1;
+              return Gr.RECORD[e].ts < Gr.RECORD[t].ts ? -1 : 1;
             }),
             console.debug("GRKS: getRecordKeysSorted keys, ", e),
             e
           );
         }),
-        (Zr.recallDetectionData_lookupRecords = (e, t) =>
+        (Gr.recallDetectionData_lookupRecords = (e, t) =>
           new Promise((a, s) => {
             if (Date.parse(e).clearTime().equals(Date.parse(t).clearTime()))
-              Zr.RECORD[e]
-                ? (console.debug("recallDetectionData: Single result is in record"), a(Zr.RECORD))
+              Gr.RECORD[e]
+                ? (console.debug("recallDetectionData: Single result is in record"), a(Gr.RECORD))
                 : (console.debug("recallDetectionData: Loading from min"),
-                  Zr.loadAllDetectionRecords().then(
+                  Gr.loadAllDetectionRecords().then(
                     (e) => {
                       a(e);
                     },
@@ -66556,11 +66604,11 @@
                   ));
             else {
               console.debug("recallDetectionData: Sorting record");
-              let r = Zr.getRecordKeysSorted(),
+              let r = Gr.getRecordKeysSorted(),
                 n = r[0],
                 o = r[r.length - 1],
-                i = Zr.RECORD[n],
-                d = Zr.RECORD[o],
+                i = Gr.RECORD[n],
+                d = Gr.RECORD[o],
                 l = Date.parse(e),
                 u = Date.parse(t);
               r.length > 0 &&
@@ -66571,9 +66619,9 @@
                   "recallDetectionData: Last: " + o + " (" + d.ts + ") >= " + t + " (" + u.getTime() + ") : " + (d.ts >= u.getTime())
                 )),
                 r.length > 0 && i.ts <= l.getTime() && d.ts >= u.getTime()
-                  ? (console.debug("recallDetectionData: All of requested range in records cache"), a(Zr.RECORD))
+                  ? (console.debug("recallDetectionData: All of requested range in records cache"), a(Gr.RECORD))
                   : (console.debug("recallDetectionData: Loading for range"),
-                    Zr.loadAllDetectionRecords().then(
+                    Gr.loadAllDetectionRecords().then(
                       (e) => {
                         console.debug("loadAllDetectionRecords: successful resolve", e), a(e);
                       },
@@ -66583,7 +66631,7 @@
                     ));
             }
           })),
-        (Zr.recallDetectionData_filterResults = (e, t, a) =>
+        (Gr.recallDetectionData_filterResults = (e, t, a) =>
           new Promise((s) => {
             let r;
             if ((console.debug("recallDetectionData: then: ", e), t || a)) {
@@ -66604,127 +66652,151 @@
             } else console.debug("recallDetectionData: then - return all results"), (r = e);
             s(r);
           })),
-        (Zr.recallDetectionData = (e, t) =>
-          Zr.syncDetectionData()
-            .then((a) => Zr.recallDetectionData_lookupRecords(e, t))
+        (Gr.recallDetectionData = (e, t) =>
+          Gr.syncDetectionData()
+            .then((a) => Gr.recallDetectionData_lookupRecords(e, t))
             .then(
-              (a) => (console.debug("RecallData: filter results"), Zr.recallDetectionData_filterResults(a, e, t)),
+              (a) => (console.debug("RecallData: filter results"), Gr.recallDetectionData_filterResults(a, e, t)),
               (e) => (console.debug("RecallData: error ", e), Promise.reject(e))
             )),
-        (Zr.recallAllStats = (e, t) =>
-          Zr.syncAllStatsData().then(
+        (Gr.recallAllStats = (e, t) =>
+          Gr.syncAllStatsData().then(
             (e) => e,
             (e) => (console.debug("RecallData: error ", e), Promise.reject(e))
           )),
-        (Zr.loadAllDetectionRecords = () =>
+        (Gr.loadAllDetectionRecords = () =>
           new Promise((t, a) => {
             e.chrome.storage.sync.get(["records"], function (s) {
-              e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s.records);
+              if (e.chrome.runtime.lastError) return void a(e.chrome.runtime.lastError.message);
+              const r = s.records;
+              r
+                ? e.chrome.storage.local.set({ records: r }, function () {
+                    e.chrome.runtime.lastError
+                      ? a(e.chrome.runtime.lastError.message)
+                      : e.chrome.storage.sync.remove(["records"], function () {
+                          e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(r);
+                        });
+                  })
+                : e.chrome.storage.local.get(["records"], function (s) {
+                    e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s.records);
+                  });
             });
           })),
-        (Zr.loadAllStatsData = () =>
+        (Gr.loadAllStatsData = () =>
           new Promise((t, a) => {
             e.chrome.storage.sync.get(["allTimeStats"], function (s) {
-              e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s.allTimeStats);
+              if (e.chrome.runtime.lastError) return void a(e.chrome.runtime.lastError.message);
+              const r = s.allTimeStats;
+              r
+                ? e.chrome.storage.local.set({ allTimeStats: r }, function () {
+                    e.chrome.runtime.lastError
+                      ? a(e.chrome.runtime.lastError.message)
+                      : e.chrome.storage.sync.remove(["allTimeStats"], function () {
+                          e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(r);
+                        });
+                  })
+                : e.chrome.storage.local.get(["allTimeStats"], function (s) {
+                    e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s.allTimeStats);
+                  });
             });
           })),
-        (Zr.syncDetectionData_mergeDetectionRecordsWithCache = (e) =>
+        (Gr.syncDetectionData_mergeDetectionRecordsWithCache = (e) =>
           new Promise((t) => {
-            if ((e || (e = {}), Zr.RECORD))
-              for (let t in Zr.RECORD)
-                if (Zr.RECORD.hasOwnProperty(t))
+            if ((e || (e = {}), Gr.RECORD))
+              for (let t in Gr.RECORD)
+                if (Gr.RECORD.hasOwnProperty(t))
                   if (e[t])
-                    if (!0 === Zr.RECORD_LOADED) e[t] = Zr.RECORD[t];
+                    if (!0 === Gr.RECORD_LOADED) e[t] = Gr.RECORD[t];
                     else {
                       let a = e[t];
-                      (a.ads += Zr.RECORD[t].ads),
-                        (a.malwares += Zr.RECORD[t].malwares),
-                        (a.scams += Zr.RECORD[t].scams),
-                        (a.content += Zr.RECORD[t].content),
+                      (a.ads += Gr.RECORD[t].ads),
+                        (a.malwares += Gr.RECORD[t].malwares),
+                        (a.scams += Gr.RECORD[t].scams),
+                        (a.content += Gr.RECORD[t].content),
                         (e[t] = a);
                     }
-                  else e[t] = Zr.RECORD[t];
+                  else e[t] = Gr.RECORD[t];
             t(e);
           })),
-        (Zr.syncAllStatsData_mergeAllTimeStasWithCache = (e) =>
+        (Gr.syncAllStatsData_mergeAllTimeStasWithCache = (e) =>
           new Promise((t) => {
-            (null != e && 0 !== Object.keys(e).length) || Zr.roll30DaysStats(),
-              Zr.checkValidStatsObject(Zr.ALL_TIME_STATS) &&
-                (!0 === Zr.ALL_TIME_STATS_LOADED
-                  ? (e = Zr.ALL_TIME_STATS)
-                  : ((e.ads += Zr.ALL_TIME_STATS.ads),
-                    (e.malwares += Zr.ALL_TIME_STATS.malwares),
-                    (e.scams += Zr.ALL_TIME_STATS.scams),
-                    (e.content += Zr.ALL_TIME_STATS.content))),
+            (null != e && 0 !== Object.keys(e).length) || Gr.roll30DaysStats(),
+              Gr.checkValidStatsObject(Gr.ALL_TIME_STATS) &&
+                (!0 === Gr.ALL_TIME_STATS_LOADED
+                  ? (e = Gr.ALL_TIME_STATS)
+                  : ((e.ads += Gr.ALL_TIME_STATS.ads),
+                    (e.malwares += Gr.ALL_TIME_STATS.malwares),
+                    (e.scams += Gr.ALL_TIME_STATS.scams),
+                    (e.content += Gr.ALL_TIME_STATS.content))),
               t(e);
           })),
-        (Zr.syncDetectionData_replaceCache = (e) =>
+        (Gr.syncDetectionData_replaceCache = (e) =>
           new Promise((t) => {
-            (Zr.RECORD = e), (Zr.RECORD_LOADED = !0), t(!0);
+            (Gr.RECORD = e), (Gr.RECORD_LOADED = !0), t(!0);
           })),
-        (Zr.syncAllStasData_replaceCache = (e) =>
+        (Gr.syncAllStasData_replaceCache = (e) =>
           new Promise(async (t) => {
-            Zr.ALL_TIME_STATS = e;
-            const a = await Zr.getInstallationDate();
-            (Zr.ALL_TIME_STATS_LOADED = null != a), t(!0);
+            Gr.ALL_TIME_STATS = e;
+            const a = await Gr.getInstallationDate();
+            (Gr.ALL_TIME_STATS_LOADED = null != a), t(!0);
           })),
-        (Zr.syncDetectionData_cleanupOldData = (e) =>
+        (Gr.syncDetectionData_cleanupOldData = (e) =>
           new Promise((t, a) => {
             let s = Date.today().addDays(-30);
             s.setHours(0), s.setMinutes(0), s.setSeconds(0), s.setMilliseconds(0), (s = s.getTime());
             for (let t in e) e.hasOwnProperty(t) && e[t].ts < s && (console.debug("Deleting outdated record: " + t), delete e[t]);
             t(e);
           })),
-        (Zr.syncDetectionData = () =>
-          Zr.loadAllDetectionRecords()
-            .then((e) => Zr.syncDetectionData_mergeDetectionRecordsWithCache(e))
-            .then((e) => Zr.syncDetectionData_cleanupOldData(e))
-            .then((e) => Zr.syncDetectionData_replaceCache(e))
-            .then((e) => Zr.persistDailyData())
+        (Gr.syncDetectionData = () =>
+          Gr.loadAllDetectionRecords()
+            .then((e) => Gr.syncDetectionData_mergeDetectionRecordsWithCache(e))
+            .then((e) => Gr.syncDetectionData_cleanupOldData(e))
+            .then((e) => Gr.syncDetectionData_replaceCache(e))
+            .then((e) => Gr.persistDailyData())
             .catch((e) => Promise.reject(e))),
-        (Zr.syncAllStatsData = () =>
-          Zr.loadAllStatsData()
-            .then((e) => Zr.syncAllStatsData_mergeAllTimeStasWithCache(e))
-            .then((e) => Zr.syncAllStasData_replaceCache(e))
-            .then((e) => Zr.persistDailyStatsData())
+        (Gr.syncAllStatsData = () =>
+          Gr.loadAllStatsData()
+            .then((e) => Gr.syncAllStatsData_mergeAllTimeStasWithCache(e))
+            .then((e) => Gr.syncAllStasData_replaceCache(e))
+            .then((e) => Gr.persistDailyStatsData())
             .catch((e) => Promise.reject(e))),
-        (Zr.map = (t, a) => {
-          const s = Pt(a),
-            r = Yt(a);
-          wn(t, a, s, r);
-          const n = Zr.onBeforeTabWebRequest({ tabId: t, url: a, sld: s, domains: r });
+        (Gr.map = (t, a) => {
+          const s = Ft(a),
+            r = Ot(a);
+          Cn(t, a, s, r);
+          const n = Gr.onBeforeTabWebRequest({ tabId: t, url: a, sld: s, domains: r });
           n && n.redirectUrl && e.chrome.tabs.update(t, { url: n.redirectUrl });
         }),
-        (Zr.settingsGet = function (t) {
+        (Gr.settingsGet = function (t) {
           return new Promise((a, s) => {
             e.chrome.storage.local.get(t, (r) => {
               if (e.chrome.runtime.lastError) s(e.chrome.runtime.lastError);
               else {
                 const e = "string" == typeof t ? r[t] : r;
-                if (void 0 === e && void 0 !== Zr.SETTINGS[t]) return a(Zr.SETTINGS[t]);
+                if (void 0 === e && void 0 !== Gr.SETTINGS[t]) return a(Gr.SETTINGS[t]);
                 a(e);
               }
             });
           });
         }),
-        (Zr.settingsToCache = (e) =>
+        (Gr.settingsToCache = (e) =>
           new Promise((t) => {
-            for (let t in Object.keys(e)) e.hasOwnProperty(t) && (Zr.SETTINGS[t] = e[t]);
+            for (let t in Object.keys(e)) e.hasOwnProperty(t) && (Gr.SETTINGS[t] = e[t]);
             t(!0);
           })),
-        (Zr.settingsSet = function (t) {
+        (Gr.settingsSet = function (t) {
           return new Promise(async (a, s) => {
             try {
-              t && t.hasOwnProperty(h) && (t[h] || Zr.disconnectNative()),
+              t && t.hasOwnProperty(h) && (t[h] || Gr.disconnectNative()),
                 e.chrome.storage.local.set(t, function () {
                   e.chrome.runtime.lastError
                     ? s(e.chrome.runtime.lastError)
                     : (void 0 !== t.enableProtection &&
                         (console.debug("SS: Cached the enableProtection value which was added to settings"),
-                        (Zr.SETTINGS.enableProtection = t.enableProtection),
-                        Zr.postNativeTogglesState()),
-                      (Zr.SETTINGS[Object.keys(t)[0]] = Object.values(t)[0]),
-                      Zr.reloadApp(),
+                        (Gr.SETTINGS.enableProtection = t.enableProtection),
+                        Gr.postNativeTogglesState()),
+                      (Gr.SETTINGS[Object.keys(t)[0]] = Object.values(t)[0]),
+                      Gr.reloadApp(),
                       a(!0));
                 });
             } catch (e) {
@@ -66732,7 +66804,7 @@
             }
           });
         }),
-        (Zr.settingsClear = async () =>
+        (Gr.settingsClear = async () =>
           new Promise((t, a) => {
             e.chrome.storage.local.clear(() => {
               e.chrome.runtime.lastError
@@ -66742,42 +66814,43 @@
                   });
             });
           })),
-        (Zr.computeTogglesState = () => {
+        (Gr.computeTogglesState = () => {
           let e = 1;
           return (
             Object.keys(v).forEach((t) => {
-              const a = 0 != Zr.SETTINGS[t] ? v[t] : 0;
+              const a = 0 != Gr.SETTINGS[t] ? v[t] : 0;
               e |= a;
             }),
             e
           );
         }),
-        (Zr.setLicense = (e) => ((Zr.LICENSE = e.type), Zr.LICENSE)),
-        (Zr.msgWebsiteCheckboxGet = (e, t) => (
-          Cr.getExclusions()
-            .then((e) => Zr.isOverriddenForDomain(t.payload.const, t.payload.url))
+        (Gr.setLicense = (e) => ((Gr.LICENSE = e.type), Gr.LICENSE)),
+        (Gr.msgWebsiteCheckboxGet = (e, t) => (
+          kr
+            .getExclusions()
+            .then((e) => Gr.isOverriddenForDomain(t.payload.const, t.payload.url))
             .then((a) => {
               switch (t.payload.const) {
                 case d:
                   a
                     ? (console.debug("Returning overridden result for ads cb"),
-                      e({ success: !0 !== Zr.isExcludedForDomain(d, t.payload.url) }))
+                      e({ success: !0 !== Gr.isExcludedForDomain(d, t.payload.url) }))
                     : (console.debug("Returning result by querying settings for ads cb"),
-                      Zr.settingsGet(c).then((t) => {
+                      Gr.settingsGet(c).then((t) => {
                         e({ success: !1 !== t });
                       }));
                   break;
                 case i:
                   a
-                    ? e({ success: !0 !== Zr.isExcludedForDomain(i, t.payload.url) })
-                    : Zr.settingsGet(S).then((t) => {
+                    ? e({ success: !0 !== Gr.isExcludedForDomain(i, t.payload.url) })
+                    : Gr.settingsGet(S).then((t) => {
                         e({ success: !1 !== t });
                       });
                   break;
                 case o:
                   a
-                    ? e({ success: !0 !== Zr.isExcludedForDomain(o, t.payload.url) })
-                    : Zr.settingsGet(b).then((t) => {
+                    ? e({ success: !0 !== Gr.isExcludedForDomain(o, t.payload.url) })
+                    : Gr.settingsGet(b).then((t) => {
                         e({ success: !1 !== t });
                       });
                   break;
@@ -66790,52 +66863,52 @@
             }),
           !0
         )),
-        (Zr.msgGetAllowGranular = (t, { payload: a }) => {
+        (Gr.msgGetAllowGranular = (t, { payload: a }) => {
           console.debug(`MGAG: Payload: ${JSON.stringify(a)}`);
           let { url: s, blockUrl: r } = a;
-          const n = Lt(s.toLowerCase());
+          const n = Nt(s.toLowerCase());
           return (
             (r = r.toLowerCase()),
-            Zr.EXCLUSION_INDIVIDUAL[n] && Zr.EXCLUSION_INDIVIDUAL[n].hasOwnProperty(r)
-              ? t({ value: Zr.EXCLUSION_INDIVIDUAL[n][r] })
-              : (e.chrome.storage.sync.get(
+            Gr.EXCLUSION_INDIVIDUAL[n] && Gr.EXCLUSION_INDIVIDUAL[n].hasOwnProperty(r)
+              ? t({ value: Gr.EXCLUSION_INDIVIDUAL[n][r] })
+              : (e.chrome.storage.local.get(
                   ["exclusionIndividual"],
-                  ({ exclusionIndividual: e = {} }) => ((Zr.EXCLUSION_INDIVIDUAL = e), t({ value: e[n] && e[n][r] }))
+                  ({ exclusionIndividual: e = {} }) => ((Gr.EXCLUSION_INDIVIDUAL = e), t({ value: e[n] && e[n][r] }))
                 ),
                 !0)
           );
         }),
-        (Zr.msgSetAllowGranular = (t, { payload: a }) => {
+        (Gr.msgSetAllowGranular = (t, { payload: a }) => {
           console.debug("MSAG: Payload: ", a);
           let { url: s, blockUrl: r, value: n } = a;
-          const o = Lt(s.toLowerCase());
+          const o = Nt(s.toLowerCase());
           r = r.toLowerCase();
-          const i = { exclusionIndividual: { ...Zr.EXCLUSION_INDIVIDUAL, [o]: { ...Zr.EXCLUSION_INDIVIDUAL[o], [r]: n } } };
+          const i = { exclusionIndividual: { ...Gr.EXCLUSION_INDIVIDUAL, [o]: { ...Gr.EXCLUSION_INDIVIDUAL[o], [r]: n } } };
           return (
-            e.chrome.storage.sync.set(i, () => {
-              (Zr.EXCLUSION_INDIVIDUAL[o] = i.exclusionIndividual[o]), pn(), t({ value: n });
+            e.chrome.storage.local.set(i, () => {
+              (Gr.EXCLUSION_INDIVIDUAL[o] = i.exclusionIndividual[o]), fn(), t({ value: n });
             }),
             !0
           );
         }),
-        (Zr.appendHeuristicAds = (e, t) =>
-          Zr.EXCLUSION_INDIVIDUAL[e] && Zr.EXCLUSION_INDIVIDUAL[e].hasOwnProperty("heuristic-ad-block")
+        (Gr.appendHeuristicAds = (e, t) =>
+          Gr.EXCLUSION_INDIVIDUAL[e] && Gr.EXCLUSION_INDIVIDUAL[e].hasOwnProperty("heuristic-ad-block")
             ? ((t.ads && t.ads[e] && t.ads[e].hasOwnProperty("heuristic-ad-block")) ||
                 (t.ads || (t.ads = {}), t.ads[e] || (t.ads[e] = {}), (t.ads[e]["heuristic-ad-block"] = 0)),
               t)
             : t),
-        (Zr.appendEasylistAds = (e, t) =>
-          Zr.EXCLUSION_INDIVIDUAL[e] && Zr.EXCLUSION_INDIVIDUAL[e].hasOwnProperty("easylist-ad-block")
+        (Gr.appendEasylistAds = (e, t) =>
+          Gr.EXCLUSION_INDIVIDUAL[e] && Gr.EXCLUSION_INDIVIDUAL[e].hasOwnProperty("easylist-ad-block")
             ? ((t.ads && t.ads[e] && t.ads[e].hasOwnProperty("easylist-ad-block")) ||
                 (t.ads || (t.ads = {}), t.ads[e] || (t.ads[e] = {}), (t.ads[e]["easylist-ad-block"] = 0)),
               t)
             : t),
-        (Zr.msgRecordsGet = (e, t) =>
+        (Gr.msgRecordsGet = (e, t) =>
           t
             ? (console.debug("RecordsGet: recall data using constraints: ", t.payload),
-              Zr.recallDetectionData(t.payload ? t.payload.min : null, t.payload ? t.payload.max : null).then(
+              Gr.recallDetectionData(t.payload ? t.payload.min : null, t.payload ? t.payload.max : null).then(
                 function (t) {
-                  e({ success: { isPremium: Zr.isPremium(), records: t, todayKey: Zr.today() } });
+                  e({ success: { isPremium: Gr.isPremium(), records: t, todayKey: Gr.today() } });
                 },
                 function (t) {
                   console.error("MRG: RecordsGet: Failure ", t), e({ error: t });
@@ -66843,10 +66916,18 @@
               ),
               !0)
             : (e({ error: "Request not supplied for records get" }), !1)),
-        (Zr.roll30DaysStats = (t) => {
+        (Gr.roll30DaysStats = (t) => {
           const a = Date.today().addDays(-30).toString("MMM d yyyy"),
             s = Date.today().toString("MMM d yyyy");
-          Zr.recallDetectionData(a, s).then((a) => {
+          Gr.recallDetectionData(a, s).then((a) => {
+            if (!Gr.checkValidStatsObject(a))
+              return (
+                (Gr.ALL_TIME_STATS_LOADED = !0),
+                Gr.ALL_TIME_STATS.ads || (Gr.ALL_TIME_STATS.ads = 0),
+                Gr.ALL_TIME_STATS.malwares || (Gr.ALL_TIME_STATS.malwares = 0),
+                Gr.ALL_TIME_STATS.scams || (Gr.ALL_TIME_STATS.scams = 0),
+                void (Gr.ALL_TIME_STATS.content || (Gr.ALL_TIME_STATS.content = 0))
+              );
             const s = Object.entries(a),
               r = {
                 ads: s.reduce((e, t) => e + t[1].ads, 0),
@@ -66856,30 +66937,30 @@
               };
             switch (t) {
               case "ads":
-                console.debug("STATS: Rolling 30 days ads stats"), (Zr.ALL_TIME_STATS.ads = r.ads);
+                console.debug("STATS: Rolling 30 days ads stats"), (Gr.ALL_TIME_STATS.ads = r.ads);
                 break;
               case "malwares":
-                console.debug("STATS: Rolling 30 days malwares stats"), (Zr.ALL_TIME_STATS.malwares = r.malwares);
+                console.debug("STATS: Rolling 30 days malwares stats"), (Gr.ALL_TIME_STATS.malwares = r.malwares);
                 break;
               case "scams":
-                console.debug("STATS: Rolling 30 days scams stats"), (Zr.ALL_TIME_STATS.scams = r.scams);
+                console.debug("STATS: Rolling 30 days scams stats"), (Gr.ALL_TIME_STATS.scams = r.scams);
                 break;
               case "content":
-                console.debug("STATS: Rolling 30 days content stats"), (Zr.ALL_TIME_STATS.content = r.content);
+                console.debug("STATS: Rolling 30 days content stats"), (Gr.ALL_TIME_STATS.content = r.content);
                 break;
               default:
-                console.debug("STATS: Rolling 30 days stats"), (Zr.ALL_TIME_STATS = r);
+                console.debug("STATS: Rolling 30 days stats"), (Gr.ALL_TIME_STATS = r);
             }
-            (Zr.ALL_TIME_STATS_LOADED = !0),
-              e.chrome.storage.sync.set({ savedOldUserStats: !0 }),
-              e.chrome.storage.sync.set({ allTimeStats: r });
+            (Gr.ALL_TIME_STATS_LOADED = !0),
+              e.chrome.storage.local.set({ savedOldUserStats: !0 }),
+              e.chrome.storage.local.set({ allTimeStats: r });
           });
         }),
-        (Zr.msgAllStatsGet = (e) => (
+        (Gr.msgAllStatsGet = (e) => (
           console.debug("STATS: Getting all time stats"),
-          Zr.recallAllStats().then(
+          Gr.recallAllStats().then(
             function (t) {
-              e({ success: { isPremium: Zr.isPremium(), stats: t, todayKey: Zr.today() } });
+              e({ success: { isPremium: Gr.isPremium(), stats: t, todayKey: Gr.today() } });
             },
             function (t) {
               console.error("MRG: AllStasGet: Failure ", t), e({ error: t });
@@ -66887,32 +66968,30 @@
           ),
           !0
         )),
-        (Zr.msgTabDataGet = (e, t) => {
+        (Gr.msgTabDataGet = (e, t) => {
           try {
-            let a = Zr.TABS[t.payload];
-            e(
-              a
-                ? {
-                    success: {
-                      host: a.site.friendlyUrl || a.site.host,
-                      blocked: Zr.appendHeuristicAds(a.site.host, a.blocked) && Zr.appendEasylistAds(a.site.host, a.blocked),
-                      excluded: Zr.EXCLUSION_INDIVIDUAL[a.site.host] || {}
-                    }
+            let a = Gr.TABS[t.payload];
+            a && a.site
+              ? e({
+                  success: {
+                    host: a.site.friendlyUrl || a.site.host,
+                    blocked: Gr.appendHeuristicAds(a.site.host, a.blocked) && Gr.appendEasylistAds(a.site.host, a.blocked),
+                    excluded: Gr.EXCLUSION_INDIVIDUAL[a.site.host] || {}
                   }
-                : { error: "Background replied: No tab data defined for: " + t.payload + "!" }
-            );
+                })
+              : e({ error: "Background replied: No tab data defined for: " + t.payload + "!" });
           } catch (t) {
             e({ error: "Data get failed. Background replied: " + t.message });
           }
           return !1;
         }),
-        (Zr.msgIconRefresh = (e, t) => (t ? Zr.iconRefresh(t) : Zr.iconRefreshAll(), e({ success: !0 }), !1)),
-        (Zr.msgIsPremium = (e) => (e({ success: Zr.isPremium() }), !1)),
-        (Zr.msgIsTrial = (e) => (e({ success: Zr.isTrial() }), !1)),
-        (Zr.msgRemAllowAll = (e) => (
-          Cr.removeAllExclusions().then(
+        (Gr.msgIconRefresh = (e, t) => (t ? Gr.iconRefresh(t) : Gr.iconRefreshAll(), e({ success: !0 }), !1)),
+        (Gr.msgIsPremium = (e) => (e({ success: Gr.isPremium() }), !1)),
+        (Gr.msgIsTrial = (e) => (e({ success: Gr.isTrial() }), !1)),
+        (Gr.msgRemAllowAll = (e) => (
+          kr.removeAllExclusions().then(
             function (t) {
-              t.forEach(Zr.postNativeExclusionRemoval), pn(), e({ success: !0 });
+              t.forEach(Gr.postNativeExclusionRemoval), fn(), e({ success: !0 });
             },
             function (t) {
               e({ error: t });
@@ -66920,9 +66999,9 @@
           ),
           !0
         )),
-        (Zr.getIsOldUser = () =>
+        (Gr.getIsOldUser = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.get("savedOldUserStats", function (s) {
+            e.chrome.storage.local.get("savedOldUserStats", function (s) {
               if (e.chrome.runtime.lastError) a(e.chrome.runtime.lastError);
               else {
                 const e = s.savedOldUserStats || !1;
@@ -66930,10 +67009,10 @@
               }
             });
           })),
-        (Zr.msgSettingsGet = (e, t) => (
-          Zr.settingsGet(t.payload).then(
+        (Gr.msgSettingsGet = (e, t) => (
+          Gr.settingsGet(t.payload).then(
             function (a) {
-              void 0 === a && Qr.includes(t.payload) && e({ success: !0 }), e({ success: a });
+              void 0 === a && en.includes(t.payload) && e({ success: !0 }), e({ success: a });
             },
             function (t) {
               e({ error: t });
@@ -66941,9 +67020,9 @@
           ),
           !0
         )),
-        (Zr.msgSettingsSet = (e, t, a) => (
+        (Gr.msgSettingsSet = (e, t, a) => (
           t || a.payload.hasOwnProperty(h)
-            ? Zr.settingsSet(a.payload).then(
+            ? Gr.settingsSet(a.payload).then(
                 function (t) {
                   e({ success: t });
                 },
@@ -66954,47 +67033,47 @@
             : e({ error: "Attempted to call settingsSet for a content script" }),
           !0
         )),
-        (Zr.msgDbgAddStats = (e, t) => (
-          t ? (Zr.insertDebugStatistics(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
+        (Gr.msgDbgAddStats = (e, t) => (
+          t ? (Gr.insertDebugStatistics(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
         )),
-        (Zr.msgDbgAddOldStats = (e, t) => (
-          t ? (Zr.insertOldDebugStatistics(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
+        (Gr.msgDbgAddOldStats = (e, t) => (
+          t ? (Gr.insertOldDebugStatistics(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
         )),
-        (Zr.msgAlterAllTimeStats = (e, t) => (
-          t ? (Zr.alterAllTimeStats(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
+        (Gr.msgAlterAllTimeStats = (e, t) => (
+          t ? (Gr.alterAllTimeStats(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
         )),
-        (Zr.msgDbgPopulateDetectionHistory = (e, t) => (
-          t ? (Zr.insertDetectionHistoryData(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
+        (Gr.msgDbgPopulateDetectionHistory = (e, t) => (
+          t ? (Gr.insertDetectionHistoryData(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }), !1
         )),
-        (Zr.msgDbgClearStats = (e, t) => (
-          t ? ((Zr.RECORD = {}), Zr.persistDailyData(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }),
+        (Gr.msgDbgClearStats = (e, t) => (
+          t ? ((Gr.RECORD = {}), Gr.persistDailyData(), e({ success: !0 })) : e({ error: "Attempted to call debug for a content script" }),
           !1
         )),
-        (Zr.msgAddAllowTemporary = (e, t, a) => (
+        (Gr.msgAddAllowTemporary = (e, t, a) => (
           t
             ? a.host
-              ? ((Zr.EXCLUSION_TEMPORARY = { host: Lt(a.host), tab: a.initiator }),
+              ? ((Gr.EXCLUSION_TEMPORARY = { host: Nt(a.host), tab: a.initiator }),
                 console.log("Temporary exclusion set up for " + a.host + " (tab " + a.initiator + " initiated this)"),
-                !1 !== Zr.SETTINGS.sendTelemetry && $s(a.exclusion, u, a.host),
-                pn(),
+                !1 !== Gr.SETTINGS.sendTelemetry && Vs(a.exclusion, u, a.host),
+                fn(),
                 e({ success: !0 }))
               : e({ error: "No host supplied" })
             : e({ error: "Attempted to call add-allow-temp for a content script" }),
           !0
         )),
-        (Zr.msgAddAllow = (e, t, { payload: a }, s) => {
+        (Gr.msgAddAllow = (e, t, { payload: a }, s) => {
           let r = !1;
-          if ((Lt(s.url) == a.host && ((a.allow = i), (r = !0)), t || r)) {
-            const t = Lt(a.host);
-            Cr.exclude(t, a.allow)
+          if ((Nt(s.url) == a.host && ((a.allow = i), (r = !0)), t || r)) {
+            const t = Nt(a.host);
+            kr.exclude(t, a.allow)
               .then((s) => {
-                console.debug("Exclusions when finishing Add-Allow: ", Cr.EXCLUSIONS),
-                  pn(),
+                console.debug("Exclusions when finishing Add-Allow: ", kr.EXCLUSIONS),
+                  fn(),
                   s.error
                     ? (console.error("MAA: Rejecting AddAllow Message:", s.error), e({ error: s }))
                     : (e(s),
-                      a.allow !== d && Zr.postNativeExclusion(t, !0, !0),
-                      !1 === Zr.SETTINGS.sendTelemetry || a.fromAllowTab || $s(a.allow, u, a.host));
+                      a.allow !== d && Gr.postNativeExclusion(t, !0, !0),
+                      !1 === Gr.SETTINGS.sendTelemetry || a.fromAllowTab || Vs(a.allow, u, a.host));
               })
               .catch((t) => {
                 console.error("Rejecting AddAllow Message: ", t), e({ error: t });
@@ -67002,15 +67081,15 @@
           } else e({ error: "Attempted to call add-allow for a content script" });
           return !0;
         }),
-        (Zr.msgAddAllowMetaOnly = (e, t, a) => {
+        (Gr.msgAddAllowMetaOnly = (e, t, a) => {
           if (t) {
             let t = [];
-            t.push(mr.exclusionConstantToInt(a.payload.exclusionConst)),
-              Zr.updateExclusionsInMeta(a.payload.host, t, {}, a.payload.isAdd)
+            t.push(Tr.exclusionConstantToInt(a.payload.exclusionConst)),
+              Gr.updateExclusionsInMeta(a.payload.host, t, {}, a.payload.isAdd)
                 .then((t) => {
                   t.error
                     ? (console.error("MAAMO: Rejecting MetaOnly Message: ", t.error), e({ error: t }))
-                    : (console.debug("MAAMO: Resolving MetaOnly Message:"), pn(), e({ success: !0 }));
+                    : (console.debug("MAAMO: Resolving MetaOnly Message:"), fn(), e({ success: !0 }));
                 })
                 .catch((t) => {
                   console.error("MAAMO: Rejecting MetaOnly Message: ", t), e({ error: t });
@@ -67018,8 +67097,8 @@
           } else e({ error: "Attempted to call meta-only for a content script" });
           return !0;
         }),
-        (Zr.msgAllowGetAll = (e) => (
-          Cr.getExclusions().then(
+        (Gr.msgAllowGetAll = (e) => (
+          kr.getExclusions().then(
             function (t) {
               e({ success: t });
             },
@@ -67029,9 +67108,9 @@
           ),
           !0
         )),
-        (Zr.getContentControlItems = () =>
+        (Gr.getContentControlItems = () =>
           new Promise((e, t) => {
-            Fr.getAll()
+            jr.getAll()
               .then((t) => {
                 const a = Array.from(t.keys());
                 e(a);
@@ -67040,8 +67119,9 @@
                 t(e);
               });
           })),
-        (Zr.msgContentControlGetAll = (e) => (
-          Fr.getAll()
+        (Gr.msgContentControlGetAll = (e) => (
+          jr
+            .getAll()
             .then((t) => {
               const a = Array.from(t.keys());
               console.debug("CCTRL: Returning all content controls: ", a), e({ success: a });
@@ -67051,9 +67131,10 @@
             }),
           !0
         )),
-        (Zr.msgContentControlRemoveItem = (e, t) => (
+        (Gr.msgContentControlRemoveItem = (e, t) => (
           console.debug("CCTRL: Removing item: ", t),
-          Fr.deleteItem(t.payload.host)
+          jr
+            .deleteItem(t.payload.host)
             .then((t) => {
               e({ success: !0 });
             })
@@ -67062,9 +67143,10 @@
             }),
           !0
         )),
-        (Zr.msgContentControlAddItem = (e, t) => (
+        (Gr.msgContentControlAddItem = (e, t) => (
           console.debug("CCTRL: Adding item: ", t.payload.host, " to category: ", "general"),
-          Fr.addItem(t.payload.host, "general")
+          jr
+            .addItem(t.payload.host, "general")
             .then((t) => {
               e({ success: !0 });
             })
@@ -67073,8 +67155,9 @@
             }),
           !0
         )),
-        (Zr.msgContentControlRemoveAll = (e) => (
-          Fr.deleteAllItems()
+        (Gr.msgContentControlRemoveAll = (e) => (
+          jr
+            .deleteAllItems()
             .then((t) => {
               e({ success: !0 });
             })
@@ -67083,8 +67166,8 @@
             }),
           !0
         )),
-        (Zr.msgDetectionHistoryRemoveAll = (e) => (
-          Or.deleteAllItems()
+        (Gr.msgDetectionHistoryRemoveAll = (e) => (
+          Br.deleteAllItems()
             .then((t) => {
               e({ success: !0 });
             })
@@ -67093,8 +67176,8 @@
             }),
           !0
         )),
-        (Zr.msgDetectionHistoryGetAll = (e) => (
-          Or.getAll()
+        (Gr.msgDetectionHistoryGetAll = (e) => (
+          Br.getAll()
             .then((t) => {
               console.debug("DH: Returning detection history: ", t), e({ success: t });
             })
@@ -67103,9 +67186,9 @@
             }),
           !0
         )),
-        (Zr.msgDetectionHistoryRemoveItem = (e, t) => (
+        (Gr.msgDetectionHistoryRemoveItem = (e, t) => (
           console.debug("DH: Removing item: ", t),
-          Or.deleteItem(t.payload.host, t.payload.rowId)
+          Br.deleteItem(t.payload.host, t.payload.rowId)
             .then((t) => {
               e({ success: !0 });
             })
@@ -67114,9 +67197,9 @@
             }),
           !0
         )),
-        (Zr.msgDetectionHistoryAddItem = (e, t) => (
+        (Gr.msgDetectionHistoryAddItem = (e, t) => (
           console.debug("DH: Adding item: ", t.payload, " to the history"),
-          Or.addItem(t.payload)
+          Br.addItem(t.payload)
             .then((t) => {
               e({ success: !0 });
             })
@@ -67125,14 +67208,14 @@
             }),
           !0
         )),
-        (Zr.msgIsLayerActive = (e, t, a, s) => (
+        (Gr.msgIsLayerActive = (e, t, a, s) => (
           t
             ? (console.log("MILA: Checking isProtectionActive with url: ", a.payload.url),
-              e({ success: Zr.isProtectionActive(a.payload.exclConst, a.payload.url, a.payload.url, s) }))
+              e({ success: Gr.isProtectionActive(a.payload.exclConst, a.payload.url, a.payload.url, s) }))
             : e({ error: "Attempted to call layer-active for a content script" }),
           !0
         )),
-        (Zr.logLocalDbInfo = () =>
+        (Gr.logLocalDbInfo = () =>
           new Promise((t, a) => {
             e.chrome.storage.local.get(null, ({ databases: s, ...r }) => {
               if (e.chrome.runtime.lastError) a(e.chrome.runtime.lastError.message);
@@ -67142,11 +67225,11 @@
               } else t();
             });
           })),
-        (Zr.msgDownloadLogs = async (e, t = !1) => {
-          const a = await Nr.getBlockedItems(),
-            s = await Cr.getExclusions(),
-            r = await Zr.getContentControlItems();
-          if ("Firefox" === zt()) {
+        (Gr.msgDownloadLogs = async (e, t = !1) => {
+          const a = await xr.getBlockedItems(),
+            s = await kr.getExclusions(),
+            r = await Gr.getContentControlItems();
+          if ("Firefox" === Kt()) {
             var n = navigator.userAgent,
               o = n.indexOf("Firefox") + 8,
               i = n.substring(o);
@@ -67157,41 +67240,41 @@
               console.log("MDL: Browser name and version:", t, a);
             });
           console.debug("MDL: Downloading logs"),
-            console.log("MDL: User settings: ", JSON.stringify(Zr.SETTINGS)),
+            console.log("MDL: User settings: ", JSON.stringify(Gr.SETTINGS)),
             console.log("MDL: Blocked items: ", a),
             console.log("MDL: Allowed items: ", JSON.stringify(s)),
             console.log("MDL: Content Control Items: ", JSON.stringify(r));
           let d = "";
           try {
-            xn(),
+            Pn(),
               console.debug("MDL: Getting logs - log local db info"),
-              await Zr.logLocalDbInfo(),
+              await Gr.logLocalDbInfo(),
               t
-                ? (console.debug("MDL: Getting logs from IDB"), (d = await Zr.logFromIDB()))
-                : ((d = Zr.SESSION_LOG), console.debug("MDL: Getting logs from session", d));
+                ? (console.debug("MDL: Getting logs from IDB"), (d = await Gr.logFromIDB()))
+                : ((d = Gr.SESSION_LOG), console.debug("MDL: Getting logs from session", d));
           } catch (e) {
             console.debug("MDL: Error getting logs", e);
           }
           try {
-            const a = t ? rn : nn,
-              s = d + Zr.CONSOLE_TRACE;
+            const a = t ? nn : on,
+              s = d + Gr.CONSOLE_TRACE;
             e({ success: !0, data: s.length > a ? s.slice(s.length - a) : s });
           } catch (t) {
             console.debug("MDL: Error generating logfile", t), e({ error: t });
           }
         }),
-        (Zr.msgRemAllowDomain = (e, t, a) => (
+        (Gr.msgRemAllowDomain = (e, t, a) => (
           t
-            ? Cr.removeExclusions(a.payload.host).then((t) => {
+            ? kr.removeExclusions(a.payload.host).then((t) => {
                 !t || t.error
                   ? e({ error: t ? t.error : "No response was returned from removeExclusions" })
-                  : (pn(), e(t.success), Zr.postNativeExclusionRemoval(a.payload.host));
+                  : (fn(), e(t.success), Gr.postNativeExclusionRemoval(a.payload.host));
               })
             : e({ error: "Attempted to call rem-allow for a content script" }),
           !0
         )),
-        (Zr.msgAllowGetSingle = (e, t) => (
-          Cr.getExclusions_getExclusionsByNames(t.payload).then(
+        (Gr.msgAllowGetSingle = (e, t) => (
+          kr.getExclusions_getExclusionsByNames(t.payload).then(
             function (t) {
               e({ success: t });
             },
@@ -67201,13 +67284,14 @@
           ),
           !0
         )),
-        (Zr.msgRemAllowSingle = (e, t, a) => (
+        (Gr.msgRemAllowSingle = (e, t, a) => (
           t
-            ? Cr.getExclusions()
-                .then((e) => Cr.removeExclude(a.payload.host, a.payload.exclusion, a.payload.override))
+            ? kr
+                .getExclusions()
+                .then((e) => kr.removeExclude(a.payload.host, a.payload.exclusion, a.payload.override))
                 .then((t) => {
-                  console.debug("MRAS: Exclusions when finishing Rem-Allow: ", Cr.EXCLUSIONS),
-                    pn(),
+                  console.debug("MRAS: Exclusions when finishing Rem-Allow: ", kr.EXCLUSIONS),
+                    fn(),
                     t.error
                       ? (console.error("MRAS: Rejecting RemAllow Single Message: ", t.error), e({ error: t }))
                       : (console.debug("MRAS: Resolving RemAllow Single Message: ", t), e(t));
@@ -67218,8 +67302,8 @@
             : e({ error: "Attempted to call RemAllow Single for a content script" }),
           !0
         )),
-        (Zr.msgIsOnboardingComplete = (e) => (
-          Zr.hasFinishedOnboarding().then(
+        (Gr.msgIsOnboardingComplete = (e) => (
+          Gr.hasFinishedOnboarding().then(
             function (t) {
               e({ success: t });
             },
@@ -67229,8 +67313,8 @@
           ),
           !0
         )),
-        (Zr.msgUserGroupGet = (e) => (
-          Zr.getUserGroup().then(
+        (Gr.msgUserGroupGet = (e) => (
+          Gr.getUserGroup().then(
             function (t) {
               e({ success: t });
             },
@@ -67240,8 +67324,8 @@
           ),
           !0
         )),
-        (Zr.msgUuidGet = (e) => (
-          Ve().then(
+        (Gr.msgUuidGet = (e) => (
+          qe().then(
             function (t) {
               e({ success: t });
             },
@@ -67251,15 +67335,15 @@
           ),
           !0
         )),
-        (Zr.msgIntVer = (e) => (e({ success: Zr.INTERNAL_VERSION }), !0)),
-        (Zr.msgToggleMV3Protection = async (t, a) => {
+        (Gr.msgIntVer = (e) => (e({ success: Gr.INTERNAL_VERSION }), !0)),
+        (Gr.msgToggleMV3Protection = async (t, a) => {
           try {
             await (async (t) => {
               const a = await e.chrome.declarativeNetRequest.getEnabledRulesets();
               console.debug("RULESET: Enabled rulesets: ", a);
-              const s = Br.filter((e) => !a.includes(e)),
-                r = Array.from(new Set([...Wr, ...a, ...s]));
-              if (t) console.debug("RULESET: Enabling rulesets: ", r), await Jr(r);
+              const s = Wr.filter((e) => !a.includes(e)),
+                r = Array.from(new Set([...Rr, ...a, ...s]));
+              if (t) console.debug("RULESET: Enabling rulesets: ", r), await zr(r);
               else {
                 console.debug("RULESET: Disabling rulesets: ", a);
                 try {
@@ -67274,11 +67358,11 @@
             console.error(`msgToggleMV3Protection: Failed to toggleAllMV3Protection: to ${t}`, e), a({ error: e });
           }
         }),
-        (Zr.msgToggleMV3IndividualProtection = async (t, a, s) => {
+        (Gr.msgToggleMV3IndividualProtection = async (t, a, s) => {
           try {
             await (async (t, a) => {
               const s = await e.chrome.declarativeNetRequest.getEnabledRulesets(),
-                r = Br.filter((e) => !s.includes(e)),
+                r = Wr.filter((e) => !s.includes(e)),
                 n = ((e) => {
                   switch (e) {
                     case Q:
@@ -67294,7 +67378,7 @@
                 })(t);
               let o = [];
               (o = a
-                ? [...Wr, ...s, ...r].filter((e) => {
+                ? [...Rr, ...s, ...r].filter((e) => {
                     const t = e.split("."),
                       a = t[t.length - 1].split("_")[0];
                     return n === a;
@@ -67319,45 +67403,45 @@
             console.error(`msgToggleMV3IndividualProtection: Failed to toggleAllMV3Protection: to ${t}`, e), s({ error: e });
           }
         }),
-        (Zr.msgToggleMV3GTLDProtection = async (t, a) => {
+        (Gr.msgToggleMV3GTLDProtection = async (t, a) => {
           try {
             await (async (t, a) => {
-              if (na())
+              if (oa())
                 if (t) {
-                  let t = (await hr()) + 1;
+                  let t = (await br()) + 1;
                   const s = [];
                   for (const e of a)
-                    s.push({ id: t, priority: 4, action: { type: "block" }, condition: { urlFilter: `||.${e}`, resourceTypes: Dr } }),
+                    s.push({ id: t, priority: 4, action: { type: "block" }, condition: { urlFilter: `||.${e}`, resourceTypes: Ar } }),
                       (t += 1);
                   await e.chrome.declarativeNetRequest.updateDynamicRules({ addRules: s, removeRuleIds: [] });
-                } else await br(4);
-            })(t, Zr.RISKY_TLDS),
+                } else await Sr(4);
+            })(t, Gr.RISKY_TLDS),
               a({ success: !0 });
           } catch (e) {
             console.error(`msgToggleMV3GTLDProtection: Failed to toggleAllMV3Protection: to ${t}`, e), a({ error: e });
           }
         }),
-        (Zr.msgToggleVerboseLogging = async (e, t) => {
-          fn(), t({ success: !0 });
+        (Gr.msgToggleVerboseLogging = async (e, t) => {
+          Dn(), t({ success: !0 });
         }),
-        (Zr.msgExportSettings = async (t, a) => {
+        (Gr.msgExportSettings = async (t, a) => {
           try {
             console.debug("MSG_EXPORT: Exporting settings", { config: t });
             const s = { version: e.chrome.runtime.getManifest().version };
             if (!0 === t["allow-list"]) {
-              const e = await Cr.exportExclusions();
+              const e = await kr.exportExclusions();
               s["allow-list"] = e;
             }
             if (!0 === t["blocked-items"]) {
-              const e = await Nr.getBlockedItems();
+              const e = await xr.getBlockedItems();
               s["blocked-items"] = e;
             }
             if (!0 === t["content-control"]) {
-              const e = await Fr.export();
+              const e = await jr.export();
               s["content-control"] = e;
             }
             if (!0 === t.settings) {
-              const e = await Zr.settingsGet(null);
+              const e = await Gr.settingsGet(null);
               s.settings = e;
             }
             console.debug("MSG_EXPORT: Data to export", { exportData: s }), a({ data: s });
@@ -67365,23 +67449,23 @@
             console.error("MSG_EXPORT: Failed to export settings", e), a({ error: e });
           }
         }),
-        (Zr.msgImportSettings = (e, t) => {
+        (Gr.msgImportSettings = (e, t) => {
           try {
             console.debug("MSG_IMPORT: Importing settings", { data: e }),
-              e["allow-list"] && (console.debug("MSG_IMPORT: Importing allow-list", e["allow-list"]), Cr.importExclusions(e["allow-list"])),
+              e["allow-list"] && (console.debug("MSG_IMPORT: Importing allow-list", e["allow-list"]), kr.importExclusions(e["allow-list"])),
               e["blocked-items"] &&
-                (console.debug("MSG_IMPORT: Importing blocked-items", e["blocked-items"]), Nr.blockItems(e["blocked-items"])),
+                (console.debug("MSG_IMPORT: Importing blocked-items", e["blocked-items"]), xr.blockItems(e["blocked-items"])),
               e["content-control"] &&
-                (console.debug("MSG_IMPORT: Importing content-control", e["content-control"]), Fr.import(e["content-control"])),
-              e.settings && (console.debug("MSG_IMPORT: Importing settings", e.settings), Zr.settingsSet(e.settings)),
+                (console.debug("MSG_IMPORT: Importing content-control", e["content-control"]), jr.import(e["content-control"])),
+              e.settings && (console.debug("MSG_IMPORT: Importing settings", e.settings), Gr.settingsSet(e.settings)),
               t({ success: !0 });
           } catch (e) {
             console.error("MSG_IMPORT: Failed to import settings", e), t({ error: e });
           }
         }),
-        (Zr.handleForceDatabaseUpdate = (e) => {
+        (Gr.handleForceDatabaseUpdate = (e) => {
           console.debug("HFDU: FORCE UPDATE TRIGGERED"),
-            Zr.updateDatabases(
+            Gr.updateDatabases(
               {
                 onUpdateStart: async () => {
                   e.postMessage({ message: "UPDATE_STARTED" });
@@ -67399,12 +67483,12 @@
               1
             );
         }),
-        (Zr.isDetectableScam = (e, t, a) => {
-          if (Zr.isOwnExtensionPage(e)) return console.debug("IDS: Skipped a scam scan for own event page"), !1;
-          const s = Lt(t);
-          if (s && ir(s, ln)) return console.logOnce(t, "IDS: Skipped a scam scan for ip literal ", t), !1;
-          if (Zr.isProtectionActive(i, e, t, a)) {
-            let t = Zr.isWhitelistedScams(e);
+        (Gr.isDetectableScam = (e, t, a) => {
+          if (Gr.isOwnExtensionPage(e)) return console.debug("IDS: Skipped a scam scan for own event page"), !1;
+          const s = Nt(t);
+          if (s && dr(s, un)) return console.logOnce(t, "IDS: Skipped a scam scan for ip literal ", t), !1;
+          if (Gr.isProtectionActive(i, e, t, a)) {
+            let t = Gr.isWhitelistedScams(e);
             return (
               t
                 ? console.debug("IDS: determined should not check scams for " + e + " because it IS whitelisted")
@@ -67414,67 +67498,67 @@
           }
           return console.log("IDS: determined should not check scams for " + e + " because layer inactive"), !1;
         }),
-        (Zr.isExcludedTemporarily = (e, t) => {
+        (Gr.isExcludedTemporarily = (e, t) => {
           if (t) {
-            if (Zr.EXCLUSION_TEMPORARY && e) {
-              let a = Lt(e);
-              if (Zr.EXCLUSION_TEMPORARY.host === a) {
-                if (t == Zr.EXCLUSION_TEMPORARY.tab) return !0;
-                console.debug(a + " is temporarily excluded for tab " + Zr.EXCLUSION_TEMPORARY.tab + ", but not not for this tab " + t);
+            if (Gr.EXCLUSION_TEMPORARY && e) {
+              let a = Nt(e);
+              if (Gr.EXCLUSION_TEMPORARY.host === a) {
+                if (t == Gr.EXCLUSION_TEMPORARY.tab) return !0;
+                console.debug(a + " is temporarily excluded for tab " + Gr.EXCLUSION_TEMPORARY.tab + ", but not not for this tab " + t);
               }
             }
           } else console.debug("No optional tabId specified for exclusionsMatchSync. Skipping isExcludedTemporary check");
           return !1;
         }),
-        (Zr.isExcludedTemporarilyForFullUrl = (e, t) => {
+        (Gr.isExcludedTemporarilyForFullUrl = (e, t) => {
           if (t) {
-            if (Zr.EXCLUSION_TEMPORARY && e && Zr.EXCLUSION_TEMPORARY.host === e) {
-              if (t == Zr.EXCLUSION_TEMPORARY.tab) return !0;
-              console.debug(e + " is temporarily excluded for tab " + Zr.EXCLUSION_TEMPORARY.tab + ", but not not for this tab " + t);
+            if (Gr.EXCLUSION_TEMPORARY && e && Gr.EXCLUSION_TEMPORARY.host === e) {
+              if (t == Gr.EXCLUSION_TEMPORARY.tab) return !0;
+              console.debug(e + " is temporarily excluded for tab " + Gr.EXCLUSION_TEMPORARY.tab + ", but not not for this tab " + t);
             }
           } else console.debug("No optional tabId specified for exclusionsMatchSync. Skipping isExcludedTemporary check");
           return !1;
         }),
-        (Zr.isProtectionActive = (e, t, a, s) => {
-          if (!0 !== Zr.SETTINGS.enableProtection)
-            return console.log("IPA: Determined false - killswitch active (value " + Zr.SETTINGS.enableProtection + ")"), !1;
-          if (Zr.isExcludedTemporarily(t, s)) return console.log("IPA: Determined false - temporary exclusion active"), !1;
-          let r = Zr.isDomainValueOverriddenSync(e, t, Cr.EXCLUSIONS);
+        (Gr.isProtectionActive = (e, t, a, s) => {
+          if (!0 !== Gr.SETTINGS.enableProtection)
+            return console.log("IPA: Determined false - killswitch active (value " + Gr.SETTINGS.enableProtection + ")"), !1;
+          if (Gr.isExcludedTemporarily(t, s)) return console.log("IPA: Determined false - temporary exclusion active"), !1;
+          let r = Gr.isDomainValueOverriddenSync(e, t, kr.EXCLUSIONS);
           switch (e) {
             case d:
-              return Zr.isProtectionActive_determination(d, Zr.SETTINGS.enableProtectionAds, t, r);
+              return Gr.isProtectionActive_determination(d, Gr.SETTINGS.enableProtectionAds, t, r);
             case i:
-              return Zr.isProtectionActive_determination(i, Zr.SETTINGS.enableProtectionScams, t, r);
+              return Gr.isProtectionActive_determination(i, Gr.SETTINGS.enableProtectionScams, t, r);
             case o:
-              return Zr.isProtectionActive_determination(o, Zr.SETTINGS.enableProtectionMalware, t, r);
+              return Gr.isProtectionActive_determination(o, Gr.SETTINGS.enableProtectionMalware, t, r);
             default:
               return console.error("Unhandled case '" + e + "' in isProtectionActive"), !0;
           }
         }),
-        (Zr.isProtectionActive_determination = (e, t, a, s) => {
+        (Gr.isProtectionActive_determination = (e, t, a, s) => {
           let r = !1,
             n = !1,
             o = !0;
           return (
-            s ? ((r = Zr.isExcludedForDomain(e, a)), (o = !r)) : (o = !1 !== t),
-            o && ((n = Zr.isExcludedForFullUrl(e, a)), n && console.log("IPA excluded " + a + " by full url"), (o = !n)),
+            s ? ((r = Gr.isExcludedForDomain(e, a)), (o = !r)) : (o = !1 !== t),
+            o && ((n = Gr.isExcludedForFullUrl(e, a)), n && console.log("IPA excluded " + a + " by full url"), (o = !n)),
             o
           );
         }),
-        (Zr.isDomainValueOverridden = (e, t) =>
-          Zr.getExclusions()
-            .then((a) => Promise.resolve(Zr.isDomainValueOverriddenSync(e, t, a)))
+        (Gr.isDomainValueOverridden = (e, t) =>
+          Gr.getExclusions()
+            .then((a) => Promise.resolve(Gr.isDomainValueOverriddenSync(e, t, a)))
             .catch((e) => Promise.reject(e))),
-        (Zr.isDomainValueOverriddenSync = (e, t, a) => {
+        (Gr.isDomainValueOverriddenSync = (e, t, a) => {
           if (!t) return !1;
           let s, r, n;
           try {
-            s = Lt(t);
+            s = Nt(t);
           } catch (e) {
             console.debug("DVO: Failed to call urlHost on " + t, e), (s = t);
           }
           s.startsWith("www.") && (r = s.substring(4)), (n = (r && a[r]) || a[s]);
-          let o = mr.exclusionConstantToInt(e),
+          let o = Tr.exclusionConstantToInt(e),
             i = !1;
           return (
             n &&
@@ -67485,25 +67569,25 @@
             i
           );
         }),
-        (Zr.isExcludedForFullUrl = (e, t) => {
-          let a = mr.exclusionConstantToInt(e);
-          for (let e in Cr.EXCLUSIONS)
+        (Gr.isExcludedForFullUrl = (e, t) => {
+          let a = Tr.exclusionConstantToInt(e);
+          for (let e in kr.EXCLUSIONS)
             if (
-              Cr.EXCLUSIONS.hasOwnProperty(e) &&
-              Zr.isFullUrlMatch(e, t) &&
-              Cr.EXCLUSIONS[e] &&
-              Array.isArray(Cr.EXCLUSIONS[e]) &&
-              Cr.EXCLUSIONS[e].includes(a)
+              kr.EXCLUSIONS.hasOwnProperty(e) &&
+              Gr.isFullUrlMatch(e, t) &&
+              kr.EXCLUSIONS[e] &&
+              Array.isArray(kr.EXCLUSIONS[e]) &&
+              kr.EXCLUSIONS[e].includes(a)
             )
               return console.debug("IFU: " + e + " is excluded for full url"), !0;
           return !1;
         }),
-        (Zr.isFullUrlMatch = (e, t) => {
-          let a = Zr.cleanHost(e),
-            s = Zr.cleanHost(t);
+        (Gr.isFullUrlMatch = (e, t) => {
+          let a = Gr.cleanHost(e),
+            s = Gr.cleanHost(t);
           return console.debug("IFU: Comparing [exclusion] " + a + " to [tab] " + s), !!s && s.toLowerCase() === a.toLowerCase();
         }),
-        (Zr.cleanHost = (e) =>
+        (Gr.cleanHost = (e) =>
           e
             .toLowerCase()
             .replace(/[<>]/g, "")
@@ -67511,38 +67595,38 @@
             .replace("www.", "")
             .replace(/\/$/, "")
             .trim()),
-        (Zr.isExcludedForDomain = (e, t) => {
-          let a = mr.exclusionConstantToInt(e),
-            s = Yt(t);
-          for (let e in Cr.EXCLUSIONS)
+        (Gr.isExcludedForDomain = (e, t) => {
+          let a = Tr.exclusionConstantToInt(e),
+            s = Ot(t);
+          for (let e in kr.EXCLUSIONS)
             if (
-              Cr.EXCLUSIONS.hasOwnProperty(e) &&
-              Zr.isKeyMatch(e, t, s) &&
-              Cr.EXCLUSIONS[e] &&
-              Array.isArray(Cr.EXCLUSIONS[e]) &&
-              Cr.EXCLUSIONS[e].includes(a)
+              kr.EXCLUSIONS.hasOwnProperty(e) &&
+              Gr.isKeyMatch(e, t, s) &&
+              kr.EXCLUSIONS[e] &&
+              Array.isArray(kr.EXCLUSIONS[e]) &&
+              kr.EXCLUSIONS[e].includes(a)
             )
               return console.debug(`IEFD: ${e} is excluded for domain`), !0;
           return console.debug("IEFD: " + t + " is NOT excluded for domain", e), !1;
         }),
-        (Zr.isOverriddenForDomain = (e, t) =>
+        (Gr.isOverriddenForDomain = (e, t) =>
           new Promise((a) => {
-            let s = mr.exclusionConstantToInt(e);
-            console.debug("OFD: Looking for " + s + " in exclusions:", Cr.EXCLUSIONS);
-            let r = Yt(t);
-            for (let e in Cr.EXCLUSIONS)
+            let s = Tr.exclusionConstantToInt(e);
+            console.debug("OFD: Looking for " + s + " in exclusions:", kr.EXCLUSIONS);
+            let r = Ot(t);
+            for (let e in kr.EXCLUSIONS)
               if (
-                Cr.EXCLUSIONS.hasOwnProperty(e) &&
-                (console.debug("OFD: Found the domain " + e + ":", Cr.EXCLUSIONS[e]),
-                Zr.isKeyMatch(e, t, r) &&
-                  Cr.EXCLUSIONS[e] &&
-                  Array.isArray(Cr.EXCLUSIONS[e]) &&
-                  (Cr.EXCLUSIONS[e].includes(s) || Cr.EXCLUSIONS[e].includes(-1 * s)))
+                kr.EXCLUSIONS.hasOwnProperty(e) &&
+                (console.debug("OFD: Found the domain " + e + ":", kr.EXCLUSIONS[e]),
+                Gr.isKeyMatch(e, t, r) &&
+                  kr.EXCLUSIONS[e] &&
+                  Array.isArray(kr.EXCLUSIONS[e]) &&
+                  (kr.EXCLUSIONS[e].includes(s) || kr.EXCLUSIONS[e].includes(-1 * s)))
               )
                 return console.debug("OFD: " + e + " is overridden for domain"), a(!0);
             return a(!1);
           })),
-        (Zr.isKeyMatch = function (e, t, a) {
+        (Gr.isKeyMatch = function (e, t, a) {
           return (
             console.debug(`IKM: Checking if ${e} is in domains for ${t}`),
             console.debug("IKM: Domains to check: ", a),
@@ -67558,117 +67642,145 @@
             ) || e === t
           );
         }),
-        (Zr.isWhitelisted = (e, t, a) => {
+        (Gr.isWhitelisted = (e, t, a) => {
           let s = !t || !t.data || !t.data.ready(),
             r = !1;
           if (s) console.log("IWL: " + a + " wl in invalid state. Whitelisting by default.");
           else {
-            let s = Yt(e);
-            (r = In(0, s, t)),
+            let s = Ot(e);
+            (r = Hn(0, s, t)),
               r && console.logOnce(e, "IWL: " + a + " wl domain matches " + e + ". Entry is whitelisted. Domains checked: ", s);
           }
           return s || r;
         }),
-        (Zr.isWhitelistedMalware = (e) => Zr.isWhitelisted(e, Zr.DATABASES.whitelist_malware, "Malware")),
-        (Zr.isWhitelistedScamsByPattern = (e) => {
-          if (Zr.DATABASES.whitelist_scams_patterns)
-            return Zr.DATABASES.whitelist_scams_patterns.data.some((t) => {
+        (Gr.isWhitelistedMalware = (e) => Gr.isWhitelisted(e, Gr.DATABASES.whitelist_malware, "Malware")),
+        (Gr.isWhitelistedScamsByPattern = (e) => {
+          if (Gr.DATABASES.whitelist_scams_patterns)
+            return Gr.DATABASES.whitelist_scams_patterns.data.some((t) => {
               if (t.test(e)) return console.logOnce(e, `IWL: Scams wl pattern matched. ${e} is whitelisted`), !0;
             });
           console.error(new Error("Missing whitelist scams database!"));
         }),
-        (Zr.isWhitelistedScams = (e) => {
-          let t = Lt(e);
+        (Gr.isWhitelistedScams = (e) => {
+          let t = Nt(e);
           return "localhost" === t
             ? (console.logOnce(e, `IWS: IS whitelisted because host is localhost for ${e}`), !0)
-            : Zr.isWhitelistedScamsByPattern(e)
+            : Gr.isWhitelistedScamsByPattern(e)
             ? (console.logOnce(e, `IWS: IS whitelisted by pattern for ${e}`), !0)
-            : ir(t, ln)
+            : dr(t, un)
             ? (console.logOnce(e, `IWS: IS whitelisted by IP for ${e}`), !0)
             : !(
-                (!Zr.isWhitelisted(e, Zr.DATABASES.whitelist_scams_manual, "Scams") && !Zr.isWhitelisted(e, Zr.DATABASES.top1m, "Scams")) ||
+                (!Gr.isWhitelisted(e, Gr.DATABASES.whitelist_scams_manual, "Scams") && !Gr.isWhitelisted(e, Gr.DATABASES.top1m, "Scams")) ||
                 (console.logOnce(e, `IWS: IS whitelisted by db for ${e}`), 0)
               );
         }),
-        (Zr.isWhitelistedAds = (e) => Zr.isWhitelisted(e, Zr.DATABASES.whitelist_ads, "Ads")),
-        (Zr.queryFeatureFlag = (e) => Zr.FEATURE_FLAGS[e]),
-        (Zr.msgEasylistElementsToHide = (e, t, a) => ({
-          ids: Zr.DATABASES.easylist.ids,
-          classes: Zr.DATABASES.easylist.classes,
-          tags: Zr.DATABASES.easylist.tags,
-          selectors: Zr.DATABASES.easylist.selectors
-        })),
-        (Zr.tryNewTab = ({ tabId: e, url: t, sld: a, domains: s }) => {
+        (Gr.isWhitelistedAds = (e) => Gr.isWhitelisted(e, Gr.DATABASES.whitelist_ads, "Ads")),
+        (Gr.queryFeatureFlag = (e) => ({ isEnabled: Gr.FEATURE_FLAGS[e] })),
+        (Gr.msgEasylistElementsToHide = (e, t, a) => {
+          if (((t = Et(t)), Gr.DATABASES.whitelist_tracker)) {
+            const e = Gr.DATABASES.whitelist_tracker.data;
+            for (let a of e)
+              if (a.host === t && a.tracker.startsWith("easylist")) {
+                if ("easylist" === a.tracker)
+                  return (
+                    console.debug("MEETH: Site is whitelisted by a 'whitelist_tracker' entry for " + t),
+                    { ids: [], classes: [], tags: [], selectors: [] }
+                  );
+                {
+                  const e = a.tracker.split("|");
+                  if (2 == e.length) {
+                    console.debug(`MEETH: Site is whitelisted by a 'whitelist_tracker' entry for [${t}:${e[1]}]`);
+                    const a = e[1].split(",");
+                    return {
+                      ids: Gr.DATABASES.easylist.ids.filter((e) => !a.includes(e)),
+                      classes: Gr.DATABASES.easylist.classes.filter((e) => !a.includes(e)),
+                      tags: Gr.DATABASES.easylist.tags.filter((e) => !a.includes(e)),
+                      selectors: Gr.DATABASES.easylist.selectors.filter((e) => !a.includes(e))
+                    };
+                  }
+                }
+              }
+          }
+          return {
+            ids: Gr.DATABASES.easylist.ids,
+            classes: Gr.DATABASES.easylist.classes,
+            tags: Gr.DATABASES.easylist.tags,
+            selectors: Gr.DATABASES.easylist.selectors,
+            exception_rules: Gr.DATABASES.easylist.exception_rules[t] || [],
+            specific_hide: Gr.DATABASES.easylist.specific_hide[t] || []
+          };
+        }),
+        (Gr.tryNewTab = ({ tabId: e, url: t, sld: a, domains: s }) => {
           if (e && e > -1)
-            if (Zr.TABS[e]) {
-              let r = Lt(t);
-              Zr.TABS[e].site.host !== r && wn(e, t, a, s);
-            } else wn(e, t, a, s);
+            if (Gr.TABS[e]) {
+              let r = Nt(t);
+              Gr.TABS[e].site.host !== r && Cn(e, t, a, s);
+            } else Cn(e, t, a, s);
         }),
-        (Zr.tabsOnUpdateLoading = (e, t, a) => {
-          (Zr.TABS[e] && "loading" === Zr.TABS[e].status) ||
-            (t.url ? t.url.startsWith("chrome://") || wn(e, t.url, Pt(t.url), Yt(t.url)) : wn(e, a.url, Pt(a.url), Yt(a.url)));
+        (Gr.tabsOnUpdateLoading = (e, t, a) => {
+          (Gr.TABS[e] && "loading" === Gr.TABS[e].status) ||
+            (t.url ? t.url.startsWith("chrome://") || Cn(e, t.url, Ft(t.url), Ot(t.url)) : Cn(e, a.url, Ft(a.url), Ot(a.url)));
         }),
-        (Zr.tabsOnUpdateComplete = (e) => {
-          Zr.syncDetectionData(), Zr.syncAllStatsData(), Zr.iconRefresh(e), Zr.keepTabInSync(e);
+        (Gr.tabsOnUpdateComplete = (e) => {
+          Gr.syncDetectionData(), Gr.syncAllStatsData(), Gr.iconRefresh(e), Gr.keepTabInSync(e);
         }),
-        (Zr.keepTabInSync = (t) => {
+        (Gr.keepTabInSync = (t) => {
           t >= 0 &&
-            Zr.TABS[t] &&
-            ((Zr.TABS[t].status = "complete"),
+            Gr.TABS[t] &&
+            ((Gr.TABS[t].status = "complete"),
             (e.chrome.action || e.chrome.browserAction).getBadgeText({ tabId: t }, (e) => {
               e &&
-                Object.values(Zr.TABS[t].blocked.totals).reduce((e, t) => e + t, 0) !== Number(e) &&
-                Zr.TABS[t].blockedHistory &&
-                (Zr.TABS[t].blocked = JSON.parse(JSON.stringify(Zr.TABS[t].blockedHistory)));
+                Object.values(Gr.TABS[t].blocked.totals).reduce((e, t) => e + t, 0) !== Number(e) &&
+                Gr.TABS[t].blockedHistory &&
+                (Gr.TABS[t].blocked = JSON.parse(JSON.stringify(Gr.TABS[t].blockedHistory)));
             }));
         }),
-        (Zr.tabsOnRemoved = (e, t) => {
+        (Gr.tabsOnRemoved = (e, t) => {
           console.debug("Chrome: onRemoved(tabId, info): ", t),
-            Zr.SAFE_CACHE[e] && ((Zr.SAFE_CACHE[e] = { ...Zr.SAFE_CACHE[e] }), delete Zr.SAFE_CACHE[e]),
-            Zr.TAB_MALWARE_NOTIFIED[e] && delete Zr.TAB_MALWARE_NOTIFIED[e];
+            Gr.SAFE_CACHE[e] && ((Gr.SAFE_CACHE[e] = { ...Gr.SAFE_CACHE[e] }), delete Gr.SAFE_CACHE[e]),
+            Gr.TAB_MALWARE_NOTIFIED[e] && delete Gr.TAB_MALWARE_NOTIFIED[e];
         }),
-        (Zr.iconRefreshAll = () => {
+        (Gr.iconRefreshAll = () => {
           e.chrome.tabs.query({}, (e) => {
-            for (const t of e) Zr.iconRefresh(t.id);
+            for (const t of e) Gr.iconRefresh(t.id);
           });
         }),
-        (Zr.setBGIcon = (t, a) => {
+        (Gr.setBGIcon = (t, a) => {
           const s = window.matchMedia("(prefers-color-scheme: dark)").matches ? "-dark" : "";
           (e.chrome.action || e.chrome.browserAction).setIcon({
             tabId: t,
             path: a ? e.chrome.runtime.getURL(`app/assets/icon${s}.png`) : e.chrome.runtime.getURL(`app/assets/icon-disabled${s}.png`)
           });
         }),
-        (Zr.iconRefresh = (t) => {
+        (Gr.iconRefresh = (t) => {
           t
             ? e.chrome.tabs.get(t, async (a) => {
                 if (!e.chrome.runtime.lastError) {
                   let e = !1;
-                  !0 === (await Zr.settingsGet("enableProtection")) &&
+                  !0 === (await Gr.settingsGet("enableProtection")) &&
                     (e =
-                      (await Zr.isProtectionActive(o, a.url, a.url, t)) ||
-                      (await Zr.isProtectionActive(i, a.url, a.url, t)) ||
-                      (await Zr.isProtectionActive(d, a.url, a.url, t))),
-                    Zr.setBGIcon(t, e);
+                      (await Gr.isProtectionActive(o, a.url, a.url, t)) ||
+                      (await Gr.isProtectionActive(i, a.url, a.url, t)) ||
+                      (await Gr.isProtectionActive(d, a.url, a.url, t))),
+                    Gr.setBGIcon(t, e);
                 }
               })
-            : (console.debug("Icon refresh - null tabId. Having to refresh-all instead"), Zr.iconRefreshAll());
+            : (console.debug("Icon refresh - null tabId. Having to refresh-all instead"), Gr.iconRefreshAll());
         }),
-        (Zr.cacheSafeness = (e, t) => {
-          Zr.SAFE_CACHE[e] ? (Zr.SAFE_CACHE[e] = { ...Zr.SAFE_CACHE[e], [t]: !0 }) : (Zr.SAFE_CACHE[e] = { [t]: !0 });
+        (Gr.cacheSafeness = (e, t) => {
+          Gr.SAFE_CACHE[e] ? (Gr.SAFE_CACHE[e] = { ...Gr.SAFE_CACHE[e], [t]: !0 }) : (Gr.SAFE_CACHE[e] = { [t]: !0 });
         }),
-        (Zr.uncacheSafeness = (e, t) => {
-          if (!Zr.SAFE_CACHE[e]) return;
-          let a = Zr.SAFE_CACHE[e];
-          t in a && delete a[t], (Zr.SAFE_CACHE[e] = a);
+        (Gr.uncacheSafeness = (e, t) => {
+          if (!Gr.SAFE_CACHE[e]) return;
+          let a = Gr.SAFE_CACHE[e];
+          t in a && delete a[t], (Gr.SAFE_CACHE[e] = a);
         }),
-        (Zr.isOwnExtensionPage = (e, { url: t, originUrl: a } = {}) =>
-          [e, t].some((e = "") => e.startsWith(tn) || e.startsWith(an) || e.startsWith("about:")) || (a && a.startsWith(an))),
-        (Zr.handleDebugUrls = (t) => {
+        (Gr.isOwnExtensionPage = (e, { url: t, originUrl: a } = {}) =>
+          [e, t].some((e = "") => e.startsWith(an) || e.startsWith(sn) || e.startsWith("about:")) || (a && a.startsWith(sn))),
+        (Gr.handleDebugUrls = (t) => {
           if ("https://www.malwarebytes.com/browserguard/download-debug-logs?yes=true" === t.url)
             return (
-              Zr.debugDownloadLogs(),
+              Gr.debugDownloadLogs(),
               console.debug("BTW: Hit redirect to download URL"),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/downloading.html") }
             );
@@ -67679,26 +67791,26 @@
           if ("user-group-a" === s)
             return (
               console.debug("BTW: Switching to User Group A"),
-              Zr.debugUserGroupA(),
+              Gr.debugUserGroupA(),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=user-group-a") }
             );
           if ("my-data" === s)
             return (
               console.debug("BTW: Logging my debug data"),
-              Zr.debugMyData(),
+              Gr.debugMyData(),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=my-data") }
             );
           if ("full-stats" === s)
             return (
               console.debug("BTW: Creating full stats"),
-              Zr.debugStatsFull(),
-              (Zr.ALL_TIME_STATS_LOADED = !1),
+              Gr.debugStatsFull(),
+              (Gr.ALL_TIME_STATS_LOADED = !1),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=full-stats") }
             );
           if ("factory-reset" === s)
             return (
               console.debug("BTW: Running factory reset"),
-              Zr.resetExtension(),
+              Gr.resetExtension(),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=factory-reset") }
             );
           if ("reset-monthly-notification-date" === s)
@@ -67712,20 +67824,25 @@
               console.debug("BTW: Monthly notification display triggered"),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=trigger-monthly-notification") }
             );
+          if ("trigger-shell-notification" === s)
+            return (
+              console.debug("BTW: Shell notification display triggered"),
+              { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=trigger-shell-notification") }
+            );
           if ("toggle-reputation" === s) {
             console.debug("BTW: Toggling Reputation DB state");
-            const t = Zr.debugToggleRepuationDB() ? "on" : "off";
+            const t = Gr.debugToggleRepuationDB() ? "on" : "off";
             return { redirectUrl: e.chrome.runtime.getURL(`app/eventpages/debugger.html?action=toggle-reputation-${t}`) };
           }
           if ("toggle-local-ip-allow" === s) {
             console.debug("BTW: Toggling Local IP Allow");
-            const t = Zr.debugToggleLocalIpWhiteListing() ? "on" : "off";
+            const t = Gr.debugToggleLocalIpWhiteListing() ? "on" : "off";
             return { redirectUrl: e.chrome.runtime.getURL(`app/eventpages/debugger.html?action=toggle-local-ip-allow-${t}`) };
           }
           if ("populate-detection-history" === s)
             return (
               console.debug("BTW: Populating Detection History"),
-              Zr.debugDetectionHistory(),
+              Gr.debugDetectionHistory(),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=populate-detection-history") }
             );
           if ("test-channel-update" === s)
@@ -67733,16 +67850,21 @@
               console.debug("BTW: Test Channel Update Page"),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=test-channel-update") }
             );
+          if ("staging-channel-update" === s)
+            return (
+              console.debug("BTW: Staging Channel Update Page"),
+              { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=staging-channel-update") }
+            );
           if ("old-stats" === s)
             return (
               console.debug("BTW: Creating old stats to the detection history"),
-              Zr.debugStatsOld(),
+              Gr.debugStatsOld(),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=old-stats") }
             );
           if ("alter-all-time-stats" === s)
             return (
               console.debug("BTW: Altering all time stats"),
-              Zr.debugAlterAllTimeStats(),
+              Gr.debugAlterAllTimeStats(),
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=alter-all-time-stats") }
             );
           if ("debug-add-allow" === s) {
@@ -67760,14 +67882,14 @@
             const t = a.get("key"),
               s = JSON.parse(a.get("value"));
             return (
-              console.debug(`BTW: Set the feature ${t} to ${s} (it was ${Zr.FEATURE_FLAGS[t]})`),
-              (Zr.FEATURE_FLAGS[t] = s),
+              console.debug(`BTW: Set the feature ${t} to ${s} (it was ${Gr.FEATURE_FLAGS[t]})`),
+              (Gr.FEATURE_FLAGS[t] = s),
               { redirectUrl: e.chrome.runtime.getURL(`app/eventpages/debugger.html?${a.toString()}`) }
             );
           }
           return "indexeddb-bulk" === s
             ? (console.log("Start indexedDB tests..."),
-              Zr.indexedDbTest()
+              Gr.indexedDbTest()
                 .then(() => {
                   console.log("Now you can check the size of your indexedDB!");
                 })
@@ -67777,44 +67899,44 @@
               { redirectUrl: e.chrome.runtime.getURL("app/eventpages/debugger.html?action=indexeddb-bulk") })
             : null;
         }),
-        (Zr.onBeforeTabWebRequest = (t) => {
-          if (na() && !t.domains) {
-            const e = Yt(t.url) || [];
+        (Gr.onBeforeTabWebRequest = (t) => {
+          if (oa() && !t.domains) {
+            const e = Ot(t.url) || [];
             Object.defineProperty(t, "domains", { value: e, writable: !0, configurable: !0 });
           }
           if (t.url.startsWith("https://yt3.ggpht.com") || (t.url.startsWith("https://www.youtube.com") && t.url.endsWith(".svg")))
             return { cancel: !1 };
-          if (t.tabId >= 0 && Zr.TABS[t.tabId] && Zr.TABS[t.tabId].site) {
-            let r = Zr.TABS[t.tabId].site.url || "";
+          if (t.tabId >= 0 && Gr.TABS[t.tabId] && Gr.TABS[t.tabId].site) {
+            let r = Gr.TABS[t.tabId].site.url || "";
             if (r && r.startsWith("file://")) console.debug("BTW: Skipping all scans for local-file");
-            else if (Zr.isOwnExtensionPage(r, t))
+            else if (Gr.isOwnExtensionPage(r, t))
               console.debug(
                 `BTW: Skipping all scans for own extension event page (tabURL: ${r} | detailsURL: ${t.url} | originURL: ${t.originUrl})`
               );
             else {
-              if (Zr.isExcludedTemporarily(Zr.TABS[t.tabId].site.url, t.tabId)) {
-                if ((console.log("BTW: Excluded Temporary: " + Zr.TABS[t.tabId].site.url), t.isMainFrame)) {
-                  const e = Lt(t.url);
-                  Lt(Zr.TABS[t.tabId].site.url) === e && Zr.postNativeExclusion(e, !0);
+              if (Gr.isExcludedTemporarily(Gr.TABS[t.tabId].site.url, t.tabId)) {
+                if ((console.log("BTW: Excluded Temporary: " + Gr.TABS[t.tabId].site.url), t.isMainFrame)) {
+                  const e = Nt(t.url);
+                  Nt(Gr.TABS[t.tabId].site.url) === e && Gr.postNativeExclusion(e, !0);
                 }
                 return { cancel: !1 };
               }
-              if (Zr.isExcludedTemporarily(t.url, t.tabId)) return console.log("BTW: Excluded Temporary: " + t.url), { cancel: !1 };
-              if (Zr.SETTINGS) {
-                if (Zr.SAFE_CACHE[t.tabId] && Zr.SAFE_CACHE[t.tabId][t.url && t.url.split("?")[0]]) return {};
+              if (Gr.isExcludedTemporarily(t.url, t.tabId)) return console.log("BTW: Excluded Temporary: " + t.url), { cancel: !1 };
+              if (Gr.SETTINGS) {
+                if (Gr.SAFE_CACHE[t.tabId] && Gr.SAFE_CACHE[t.tabId][t.url && t.url.split("?")[0]]) return {};
                 if (
                   ((a = r),
                   (s = t.url),
                   t.domains,
                   t.tabId,
-                  !na() && (!a || !a.startsWith(`chrome-extension://${e.chrome.runtime.id}`)) && (Nr.isBlocked(s) || Nr.isBlocked(a)))
+                  !oa() && (!a || !a.startsWith(`chrome-extension://${e.chrome.runtime.id}`)) && (xr.isBlocked(s) || xr.isBlocked(a)))
                 ) {
                   console.debug("IUBI: Is user blocked item", t);
-                  let e = Zr.TABS[t.tabId] ? Zr.TABS[t.tabId].meta.history.map((e) => e.url) : [r];
+                  let e = Gr.TABS[t.tabId] ? Gr.TABS[t.tabId].meta.history.map((e) => e.url) : [r];
                   console.debug("IUBI: tab History: ", e);
                   try {
                     const a = { site: t.url, type: "content", subtype: "content", date: Date.now() };
-                    Or.addItem(a), An("user_block", "content", t.url, r, e);
+                    Br.addItem(a), vn("user_block", "content", t.url, r, e);
                   } catch (e) {
                     console.warn("IUBI: Error sending telemetry", e);
                   }
@@ -67822,95 +67944,95 @@
                 }
                 if (
                   (function (t) {
-                    if (na()) return !1;
+                    if (oa()) return !1;
                     if (t && (t.startsWith(`chrome-extension://${e.chrome.runtime.id}`) || t.startsWith("moz-extension://"))) return !1;
-                    const a = Yt(t);
-                    if (a.length > 1) for (let e of a) if (Fr.existsForUrl(e)) return !0;
-                    return Fr.existsForUrl(t) || Fr.existsForUrl(Lt(t));
+                    const a = Ot(t);
+                    if (a.length > 1) for (let e of a) if (jr.existsForUrl(e)) return !0;
+                    return jr.existsForUrl(t) || jr.existsForUrl(Nt(t));
                   })(t.url)
                 ) {
                   console.debug("IBIC: Is blocked in content controls", t);
-                  let a = Zr.TABS[t.tabId] ? Zr.TABS[t.tabId].meta.history.map((e) => e.url) : [r];
+                  let a = Gr.TABS[t.tabId] ? Gr.TABS[t.tabId].meta.history.map((e) => e.url) : [r];
                   console.debug("IBIC: tab History: ", a);
                   try {
                     const e = { site: t.url, type: "content", subtype: "content", date: Date.now() };
-                    Or.addItem(e), An("user_block", "content", t.url, r, a);
+                    Br.addItem(e), vn("user_block", "content", t.url, r, a);
                   } catch (e) {
                     console.warn("IBIC: Error sending telemetry", e);
                   }
-                  const s = Lt(t.url);
+                  const s = Nt(t.url);
                   return (
-                    Zr.recordAll(Vr, t.tabId, s, s, !0),
+                    Gr.recordAll(qr, t.tabId, s, s, !0),
                     { redirectUrl: e.chrome.runtime.getURL(`app/eventpages/block-content-control.html?url=${t.url}`) }
                   );
                 }
                 const n = t.initiator || t.originUrl || t.documentUrl,
                   l = t.url,
-                  u = Yt(n);
+                  u = Ot(n);
                 if (
-                  (Cr.getExclusions().then((e) => {
+                  (kr.getExclusions().then((e) => {
                     const t = !!e[u[1]] && e[u[1]].includes(6);
-                    if (!0 === Zr.FEATURE_FLAGS.enableBlockLocalPortScanning && !ia(n) && ia(l)) {
-                      if (!t && !Zr.isWhitelistedScams(u[1]))
+                    if (!0 === Gr.FEATURE_FLAGS.enableBlockLocalPortScanning && !da(n) && da(l)) {
+                      if (!t && !Gr.isWhitelistedScams(u[1]))
                         return console.log(`BTW: (NETWORK_BLOCK) ${n} is trying to reach local network at ${l}`), { cancel: !0 };
                       console.log("BTW: Port scanning disabled due to page is added to scam exclusions");
                     }
                   }),
-                  !0 === Zr.FEATURE_FLAGS.enableSuspiciousPostOrPutDetection &&
+                  !0 === Gr.FEATURE_FLAGS.enableSuspiciousPostOrPutDetection &&
                     !(
                       ("PUT" !== t.method && "POST" !== t.method) ||
-                      Pt(n) === Pt(l) ||
-                      Zr.isWhitelistedScams(r) ||
-                      Zr.isWhitelistedScams(t.url) ||
-                      Zr.isWhitelistedScams(n)
+                      Ft(n) === Ft(l) ||
+                      Gr.isWhitelistedScams(r) ||
+                      Gr.isWhitelistedScams(t.url) ||
+                      Gr.isWhitelistedScams(n)
                     ))
                 ) {
                   console.log(`BTW: ${t.url} is not in the white listed entries`);
-                  let e = Zr.TABS[t.tabId].site.url || "",
+                  let e = Gr.TABS[t.tabId].site ? Gr.TABS[t.tabId].site.url : "",
                     a = `phishing attempt found on ${n} for ${t.url}`,
                     s = new URL(t.url);
-                  if (nt.some((e) => s.hostname.endsWith(`.${e}`)))
+                  if (ot.some((e) => s.hostname.endsWith(`.${e}`)))
                     return (
                       console.log("BTW: (NETWORK_BLOCK) suspicious request made to high risk TLD, possible phishing!"),
-                      Xe({ lastDBused: null }),
-                      kn({
+                      Qe({ lastDBused: null }),
+                      En({
                         tabId: t.tabId,
                         tabURL: e,
                         url: t.url,
                         type: "scam",
                         subtype: "phishing",
-                        rule: `${qr}phishing`,
+                        rule: `${Xr}phishing`,
                         blockMessage: a
                       })
                     );
                 }
-                const m = jt(r),
+                const m = Yt(r),
                   T = t.initiator || t.originUrl,
-                  y = dr(t.url, m, T);
+                  y = lr(t.url, m, T);
                 let c,
                   M = [
-                    { db: Zr.DATABASES.adware, name: "adware" },
-                    { db: Zr.DATABASES.compromised, name: "compromised" },
-                    { db: Zr.DATABASES.exploit, name: "exploit" },
-                    { db: Zr.DATABASES.hijack, name: "hijack" },
-                    { db: Zr.DATABASES.malvertising, name: "malvertising" },
-                    { db: Zr.DATABASES.ransomware, name: "ransomware" },
-                    { db: Zr.DATABASES.spyware, name: "spyware" },
-                    { db: Zr.DATABASES.trojan, name: "trojan" },
-                    { db: Zr.DATABASES.worm, name: "worm" },
-                    { db: Zr.DATABASES.fraud, name: "fraud" },
-                    { db: Zr.DATABASES.pharma, name: "pharma" },
-                    { db: Zr.DATABASES.phishing, name: "phishing" },
-                    { db: Zr.DATABASES.riskware, name: "riskware" },
-                    { db: Zr.DATABASES.spam, name: "spam" }
+                    { db: Gr.DATABASES.adware, name: "adware" },
+                    { db: Gr.DATABASES.compromised, name: "compromised" },
+                    { db: Gr.DATABASES.exploit, name: "exploit" },
+                    { db: Gr.DATABASES.hijack, name: "hijack" },
+                    { db: Gr.DATABASES.malvertising, name: "malvertising" },
+                    { db: Gr.DATABASES.ransomware, name: "ransomware" },
+                    { db: Gr.DATABASES.spyware, name: "spyware" },
+                    { db: Gr.DATABASES.trojan, name: "trojan" },
+                    { db: Gr.DATABASES.worm, name: "worm" },
+                    { db: Gr.DATABASES.fraud, name: "fraud" },
+                    { db: Gr.DATABASES.pharma, name: "pharma" },
+                    { db: Gr.DATABASES.phishing, name: "phishing" },
+                    { db: Gr.DATABASES.riskware, name: "riskware" },
+                    { db: Gr.DATABASES.spam, name: "spam" }
                   ].find((e) => {
-                    if (Hn(r, t.url, t.domains, e.db, t.tabId))
+                    if (Ln(r, t.url, t.domains, e.db, t.tabId))
                       return "riskware" === e.name && y
-                        ? (console.debug("BTW: Skipped riskware detection due to Safe Pattern"), Zr.postNativeExclusion(t.url), !1)
+                        ? (console.debug("BTW: Skipped riskware detection due to Safe Pattern"), Gr.postNativeExclusion(t.url), !1)
                         : ((c = `malware (${e.name}) match found on ${r} for ${t.url}`), !0);
                   });
                 if (M)
-                  return Cn({
+                  return kn({
                     tabId: t.tabId,
                     tabURL: r,
                     url: t.url,
@@ -67919,52 +68041,52 @@
                     blockMessage: c,
                     isMainFrame: t.isMainFrame
                   });
-                const h = Zr.handleDebugUrls(t);
+                const h = Gr.handleDebugUrls(t);
                 if (null !== h) return h;
                 let b,
-                  S = !t.isMainFrame && t.sld && Zr.TABS[t.tabId] && Zr.TABS[t.tabId].site && Zr.TABS[t.tabId].site.sld !== t.sld;
+                  S = !t.isMainFrame && t.sld && Gr.TABS[t.tabId] && Gr.TABS[t.tabId].site && Gr.TABS[t.tabId].site.sld !== t.sld;
                 if (
-                  ((r = Zr.TABS[t.tabId].site.url),
+                  ((r = Gr.TABS[t.tabId].site ? Gr.TABS[t.tabId].site.url : ""),
                   (function (t, a, s, r, n) {
                     return (
                       (!t || !t.startsWith(`chrome-extension://${e.chrome.runtime.id}`)) &&
-                      !!Zr.isProtectionActive(d, t, a, r) &&
-                      !Zr.isTrackerWhitelistedForDomain(r, a) &&
-                      !Zr.isWhitelistedAds(a) &&
-                      ((n && In(0, s, Zr.DATABASES.ads)) || At.some((e) => a.includes(e)))
+                      !!Gr.isProtectionActive(d, t, a, r) &&
+                      !Gr.isTrackerWhitelistedForDomain(r, a) &&
+                      !Gr.isWhitelistedAds(a) &&
+                      ((n && Hn(0, s, Gr.DATABASES.ads)) || vt.some((e) => a.includes(e)))
                     );
                   })(r, t.url, t.domains, t.tabId, S))
                 )
                   return (function ({ tabId: e, url: t, domains: a, tabUrl: s, blockMessage: r }) {
-                    const n = Lt(s);
-                    return Zr.isExcludedForDomain(d, n)
+                    const n = Nt(s);
+                    return Gr.isExcludedForDomain(d, n)
                       ? {}
-                      : Zr.EXCLUSION_INDIVIDUAL[n] && Zr.EXCLUSION_INDIVIDUAL[n][a[0]]
+                      : Gr.EXCLUSION_INDIVIDUAL[n] && Gr.EXCLUSION_INDIVIDUAL[n][a[0]]
                       ? (console.log(`OA: Didn't block ${a[0]} because user excluded on this page`),
-                        Zr.recordAll(Gr, e, n, a[0], !0),
-                        Zr.updateBadgeCount(e),
+                        Gr.recordAll(Ur, e, n, a[0], !0),
+                        Gr.updateBadgeCount(e),
                         {})
                       : (console.log(`OA: (NETWORK_BLOCK) ${r}`),
-                        Zr.recordAll(Gr, e, n, a[0], !0),
-                        Zr.updateBadgeCount(e),
-                        na() ? { cancel: !0, type: "ad" } : { cancel: !0 });
+                        Gr.recordAll(Ur, e, n, a[0], !0),
+                        Gr.updateBadgeCount(e),
+                        oa() ? { cancel: !0, type: "ad" } : { cancel: !0 });
                   })({ tabId: t.tabId, url: t.url, domains: t.domains, tabUrl: r, blockMessage: `ad match found for ${t.url} on ${r}` });
                 try {
                   let e = t.url.replace("http://", "").replace("https://", "");
                   if (
                     (e.endsWith("/") && (e = e.substr(0, e.length - 1)),
-                    Zr.isProtectionActive(o, r, t.url, t.tabId) && !Zr.isWhitelistedMalware(t.url))
+                    Gr.isProtectionActive(o, r, t.url, t.tabId) && !Gr.isWhitelistedMalware(t.url))
                   )
-                    if (Zr.DATABASES.malware_urls) {
+                    if (Gr.DATABASES.malware_urls) {
                       if (
-                        (Zr.DATABASES.malware_urls.data && Zr.DATABASES.malware_urls.data.has && Zr.DATABASES.malware_urls.data.has(e)) ||
-                        (Zr.DATABASES.malware_urls.data &&
-                          Zr.DATABASES.malware_urls.data.includes &&
-                          Zr.DATABASES.malware_urls.data.includes(e))
+                        (Gr.DATABASES.malware_urls.data && Gr.DATABASES.malware_urls.data.has && Gr.DATABASES.malware_urls.data.has(e)) ||
+                        (Gr.DATABASES.malware_urls.data &&
+                          Gr.DATABASES.malware_urls.data.includes &&
+                          Gr.DATABASES.malware_urls.data.includes(e))
                       )
-                        return Cn({
+                        return kn({
                           tabId: t.tabId,
-                          tabURL: Zr.TABS[t.tabId] ? Zr.TABS[t.tabId].site.url : "",
+                          tabURL: Gr.TABS[t.tabId] && Gr.TABS[t.tabId].site ? Gr.TABS[t.tabId].site.url : "",
                           url: t.url,
                           type: "malware",
                           subtype: "full-url-malware",
@@ -67975,12 +68097,12 @@
                 } catch (e) {
                   console.warn("BTW: ERR checking mal-urls: ", e);
                 }
-                if (Zr.DATABASES.malware_partial_urls && (b = Zr.regexDbMatch(Zr.DATABASES.malware_partial_urls, t.url))) {
-                  if (Zr.isProtectionActive(i, r, r, t.tabId) && !Zr.isWhitelistedMalware(t.url)) {
-                    const e = Nn("malware_partial_urls");
+                if (Gr.DATABASES.malware_partial_urls && (b = Gr.regexDbMatch(Gr.DATABASES.malware_partial_urls, t.url))) {
+                  if (Gr.isProtectionActive(i, r, r, t.tabId) && !Gr.isWhitelistedMalware(t.url)) {
+                    const e = xn("malware_partial_urls");
                     return (
-                      Xe({ lastDBused: null }),
-                      Zr.onSuspiciousDownload({
+                      Qe({ lastDBused: null }),
+                      Gr.onSuspiciousDownload({
                         tabId: t.tabId,
                         tabURL: t.url,
                         referrer: t.domains[0],
@@ -67988,7 +68110,7 @@
                         filename: t.url,
                         shouldRedirect: !0,
                         shouldBeWhitelistedBySpecificUrl: !0,
-                        rule: `${Xr}${(0, ka.sha256)(b.source)}`,
+                        rule: `${Qr}${(0, Ea.sha256)(b.source)}`,
                         blockTag: "(PAGE_BLOCK)",
                         blockMessage: `Partial url match found for ${t.url}` + (e ? `Database: ${JSON.stringify(e)}` : "")
                       })
@@ -67996,23 +68118,23 @@
                   }
                   console.debug("BTW: NO partial url match found for " + t.url + " because scams check is disabled");
                 }
-                if (Zr.isDetectableScam(r, t.url, t.tabId)) {
-                  if (Zr.DATABASES.malware_patterns) {
-                    if ((b = Zr.regexDbMatch(Zr.DATABASES.malware_patterns, t.url)))
-                      return kn({
+                if (Gr.isDetectableScam(r, t.url, t.tabId)) {
+                  if (Gr.DATABASES.malware_patterns) {
+                    if ((b = Gr.regexDbMatch(Gr.DATABASES.malware_patterns, t.url)))
+                      return En({
                         tabId: t.tabId,
-                        tabURL: Zr.TABS[t.tabId] ? Zr.TABS[t.tabId].site.url : "",
+                        tabURL: Gr.TABS[t.tabId] && Gr.TABS[t.tabId].site ? Gr.TABS[t.tabId].site.url : "",
                         url: t.url,
                         type: "scam",
                         subtype: "malware-pattern",
                         blockMessage: `malware pattern match found for ${t.url}`,
-                        rule: `${Xr}${(0, ka.sha256)(b.source)}`,
+                        rule: `${Qr}${(0, Ea.sha256)(b.source)}`,
                         isMainFrame: t.isMainFrame
                       });
                     console.debug(`BTW: NO malware pattern match found for ${t.url}`);
                   } else console.error("BTW: Missing malware pattern database!");
-                  if (!y && Hn(r, t.url, t.domains, Zr.DATABASES.reputation, t.tabId) && dn)
-                    return Cn({
+                  if (!y && Ln(r, t.url, t.domains, Gr.DATABASES.reputation, t.tabId) && ln)
+                    return kn({
                       tabId: t.tabId,
                       tabURL: r,
                       url: t.url,
@@ -68022,47 +68144,47 @@
                       isMainFrame: t.isMainFrame
                     });
                   console.debug(`BTW: NO scam (malware-reputation) match found for ${t.url} on ${r}`);
-                  const e = T && Zr.isWhitelistedScams(T),
-                    a = T && !Zr.isProtectionActive(i, T, T, t.tabId);
+                  const e = T && Gr.isWhitelistedScams(T),
+                    a = T && !Gr.isProtectionActive(i, T, T, t.tabId);
                   if (
                     (console.debug("BTW: Page file extension is safeFilePattern? ", y),
-                    Zr.SETTINGS.enableProtectionGtld && !y && Zr.RISKY_TLDS.includes(Nt(t.url)) && !lr(t.url, T, e || a))
+                    Gr.SETTINGS.enableProtectionGtld && !y && Gr.RISKY_TLDS.includes(xt(t.url)) && !ur(t.url, T, e || a))
                   ) {
                     const e = `scam (risky-tld) match found for ${t.url} on ${r}`;
-                    if (!Zr.isWhitelistedScams(t.url)) {
-                      if (Zr.TABS[t.tabId]) {
+                    if (!Gr.isWhitelistedScams(t.url)) {
+                      if (Gr.TABS[t.tabId]) {
                         if (
-                          Zr.TABS[t.tabId].lastScam &&
-                          Zr.TABS[t.tabId].lastScam === t.url &&
-                          new Date().getTime() - Zr.TABS[t.tabId].lastScamTime < 1e3
+                          Gr.TABS[t.tabId].lastScam &&
+                          Gr.TABS[t.tabId].lastScam === t.url &&
+                          new Date().getTime() - Gr.TABS[t.tabId].lastScamTime < 1e3
                         )
                           return (
-                            (Zr.TABS[t.tabId].lastScam = t.url),
-                            (Zr.TABS[t.tabId].lastScamTime = new Date().getTime()),
+                            (Gr.TABS[t.tabId].lastScam = t.url),
+                            (Gr.TABS[t.tabId].lastScamTime = new Date().getTime()),
                             console.log(`BTW: (PAGE_BLOCK) ${e}`),
-                            xn(),
-                            En(t.tabId, null, t.url, "scam", "suspiciousTLD", null)
+                            Pn(),
+                            In(t.tabId, null, t.url, "scam", "suspiciousTLD", null)
                           );
-                        (Zr.TABS[t.tabId].lastScam = t.url), (Zr.TABS[t.tabId].lastScamTime = new Date().getTime());
+                        (Gr.TABS[t.tabId].lastScam = t.url), (Gr.TABS[t.tabId].lastScamTime = new Date().getTime());
                       }
                       return (
-                        Xe({ lastDBused: null }),
-                        kn({
+                        Qe({ lastDBused: null }),
+                        En({
                           tabId: t.tabId,
                           tabURL: r,
                           url: t.url,
                           type: "scam",
                           subtype: "suspiciousTLD",
-                          rule: `${qr}suspiciousTLD`,
+                          rule: `${Xr}suspiciousTLD`,
                           blockMessage: e
                         })
                       );
                     }
                   }
-                  if (!(y || !Zr.RISKY_EXECUTABLES.includes(m) || a || (e && or(t.url))))
+                  if (!(y || !Gr.RISKY_EXECUTABLES.includes(m) || a || (e && ir(t.url))))
                     return (
-                      Xe({ lastDBused: null }),
-                      Zr.onSuspiciousDownload({
+                      Qe({ lastDBused: null }),
+                      Gr.onSuspiciousDownload({
                         tabId: t.tabId,
                         tabURL: r,
                         referrer: t.domains[0],
@@ -68076,78 +68198,80 @@
                     );
                   console.debug("BTW: NO high risk extension match found for " + r);
                 } else console.debug("BTW: Skipping scam scans");
-                t.sld && "youtube.com" !== t.sld.toLowerCase() && Zr.cacheSafeness(t.tabId, t.url && t.url.split("?")[0]),
-                  [t.url, T, r].forEach((e) => e && _n(e));
+                t.sld && "youtube.com" !== t.sld.toLowerCase() && Gr.cacheSafeness(t.tabId, t.url && t.url.split("?")[0]),
+                  [t.url, T, r].forEach((e) => e && pn(e));
               } else console.log("BTW: Skipped scans. Settings is missing");
             }
           }
           var a, s;
           return { cancel: !1 };
         }),
-        (Zr.regexDbMatch = (e, t) => e && e.data && e.data.find((e) => e.test(t))),
-        (Zr.isTrackerWhitelistedForDomain = (e, t) => {
-          let a = Zr.TABS[e].site.sld,
-            s = Lt(t);
+        (Gr.regexDbMatch = (e, t) => e && e.data && e.data.find((e) => e.test(t))),
+        (Gr.isTrackerWhitelistedForDomain = (e, t) => {
+          let a = Gr.TABS[e].site ? Gr.TABS[e].site.sld : "",
+            s = Nt(t);
           return (
-            s !== a && !!Zr.DATABASES.whitelist_tracker && Zr.DATABASES.whitelist_tracker.data.some((e) => e.host === a && e.tracker === s)
+            s !== a && !!Gr.DATABASES.whitelist_tracker && Gr.DATABASES.whitelist_tracker.data.some((e) => e.host === a && e.tracker === s)
           );
         }),
-        (Zr.onBeforeTablessWebRequest = () => ({ cancel: !1 })),
+        (Gr.onBeforeTablessWebRequest = () => ({ cancel: !1 })),
         e.chrome.tabs.onUpdated.addListener((e, t, a) => {
           "complete" === t.status
-            ? Zr.tabsOnUpdateComplete(e)
+            ? Gr.tabsOnUpdateComplete(e)
             : "loading" === t.status
-            ? Zr.tabsOnUpdateLoading(e, t, a)
-            : void 0 === t.status && Zr.iconRefresh(e),
-            Sn(a);
+            ? Gr.tabsOnUpdateLoading(e, t, a)
+            : void 0 === t.status && Gr.iconRefresh(e),
+            gn(a);
         });
-      const Sn = (e) => {
-        e.id && e.url && Zr.TABS[e.id] && Zr.TABS[e.id].site && (Zr.TABS[e.id].site.friendlyUrl = Lt(e.url));
+      const gn = (e) => {
+        e.id && e.url && Gr.TABS[e.id] && Gr.TABS[e.id].site && (Gr.TABS[e.id].site.friendlyUrl = Nt(e.url));
       };
-      e.chrome.tabs.onRemoved.addListener(Zr.tabsOnRemoved),
+      e.chrome.tabs.onRemoved.addListener(Gr.tabsOnRemoved),
         e.chrome.windows.onRemoved.addListener((e) => {
-          (Zr.SAFE_CACHE = {}), Zr.flushLogs();
+          (Gr.SAFE_CACHE = {}), Gr.flushLogs();
         }),
         e.chrome.tabs.onReplaced.addListener((e, t) => {
-          Zr.TABS[e]
-            ? (console.debug("Chrome has swapped tab " + t + " for " + e + " => Removing unused tab"), (Zr.TABS[t] = null))
+          Gr.TABS[e]
+            ? (console.debug("Chrome has swapped tab " + t + " for " + e + " => Removing unused tab"), (Gr.TABS[t] = null))
             : (console.debug("Chrome has swapped tab " + t + " for " + e + " => Replacing in namespace"),
-              (Zr.TABS[e] = Zr.TABS[t]),
-              (Zr.TABS[e].tabId = e),
-              (Zr.TABS[t] = null));
+              (Gr.TABS[e] = Gr.TABS[t]),
+              (Gr.TABS[e].tabId = e),
+              (Gr.TABS[t] = null));
         }),
         e.chrome.tabs.onCreated.addListener((t) => {
           e.chrome.tabs.get(t.id, async (t) => {
             if (!e.chrome.runtime.lastError) {
-              let e = await Zr.settingsGet("enableProtection");
-              Zr.setBGIcon(t.id, e);
+              let e = await Gr.settingsGet("enableProtection");
+              Gr.setBGIcon(t.id, e);
             }
           });
         }),
-        (Zr.getUserGroup = () =>
+        (Gr.getUserGroup = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.get(["user_group"], function (s) {
+            e.chrome.storage.local.get(["user_group"], function (s) {
               e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(s.user_group);
             });
           }).then((e) =>
             e
               ? (console.debug("GUG: Valid - " + e), Promise.resolve(e))
               : (console.log("GUG: Invalid - No stored user_group - will determine"),
-                Zr.determineUserGroup().then((e) => (console.debug("GUG: Determined " + e), Promise.resolve(e))))
+                Gr.determineUserGroup().then((e) => (console.debug("GUG: Determined " + e), Promise.resolve(e))))
           )),
-        (Zr.determineUserGroup = () =>
+        (Gr.determineUserGroup = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.set({ user_group: G }, () => (e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(G)));
+            e.chrome.storage.local.set({ user_group: G }, () =>
+              e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError.message) : t(G)
+            );
           }).then((e) =>
             e === G
-              ? Zr.settingsGet("enableProtection").then((t) =>
-                  void 0 === t ? Zr.settingsSet({ enableProtection: !0 }).then((t) => Promise.resolve(e)) : Promise.resolve(e)
+              ? Gr.settingsGet("enableProtection").then((t) =>
+                  void 0 === t ? Gr.settingsSet({ enableProtection: !0 }).then((t) => Promise.resolve(e)) : Promise.resolve(e)
                 )
               : Promise.resolve(e)
           )),
-        (Zr.getUserEmail = () =>
+        (Gr.getUserEmail = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.get(["user_email"], function (s) {
+            e.chrome.storage.local.get(["user_email"], function (s) {
               e.chrome.runtime.lastError
                 ? a(e.chrome.runtime.lastError.message)
                 : s.user_email
@@ -68155,49 +68279,49 @@
                 : a(new Error("No stored user_email"));
             });
           })),
-        (Zr.userWelcomed = () =>
+        (Gr.userWelcomed = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.get(["user_welcomed"], (s) => {
+            e.chrome.storage.local.get(["user_welcomed"], (s) => {
               if (e.chrome.runtime.lastError) return a(e.chrome.runtime.lastError.message);
               s.user_welcomed
                 ? t(s.user_welcomed)
                 : void 0 === s.user_welcomed
-                ? (e.chrome.storage.sync.set({ user_welcomed: !0 }, () => console.log("UW: Updated old user to having being welcomed")),
+                ? (e.chrome.storage.local.set({ user_welcomed: !0 }, () => console.log("UW: Updated old user to having being welcomed")),
                   t(!0))
                 : a(new Error("No stored user_welcomed"));
             });
           })),
-        (Zr.hasFinishedOnboarding = () =>
-          Zr.getUserGroup()
+        (Gr.hasFinishedOnboarding = () =>
+          Gr.getUserGroup()
             .then(
               (e) => (
                 console.debug("HFO: testing for user in group " + e),
                 e === G
-                  ? Zr.userWelcomed().then(
+                  ? Gr.userWelcomed().then(
                       (e) => (console.debug("HFO: Yes - ", e), Promise.resolve({ result: !0, group: G })),
                       (e) => (console.debug("HFO: No - ", e), Promise.resolve({ result: !1, group: G }))
                     )
-                  : Zr.getUserEmail().then(
+                  : Gr.getUserEmail().then(
                       (e) => (console.debug("HFO: Yes - " + e), Promise.resolve(!0)),
                       (e) => (console.debug("HFO: No - " + e), Promise.resolve(!1))
                     )
               )
             )
             .catch((e) => (console.error("Failed to check hasFinishedOnboarding: ", e), Promise.reject(e)))),
-        (Zr.migrate_excludeTypeConvert = (e) =>
+        (Gr.migrate_excludeTypeConvert = (e) =>
           "malware/scams" === e
             ? o + "," + i
             : "ads/clickbait" === e
             ? d
             : (console.error("Don't know how to convert '" + e + "' to consts"), null)),
-        (Zr.migrate_exclude = (e) => Zr.exclude(e.data, Zr.migrate_excludeTypeConvert(e.category))),
-        (Zr.migrate = () => {
+        (Gr.migrate_exclude = (e) => Gr.exclude(e.data, Gr.migrate_excludeTypeConvert(e.category))),
+        (Gr.migrate = () => {
           console.log("Migrate: looking for old exclusions"),
             e.chrome.storage.local.get(["exclusions"], function (t) {
               Array.isArray(t.exclusions)
                 ? t.exclusions
                     .reduce(
-                      (e, t) => e.then(() => (console.debug("Migrate: About to process: ", t), Zr.migrate_exclude(t))),
+                      (e, t) => e.then(() => (console.debug("Migrate: About to process: ", t), Gr.migrate_exclude(t))),
                       Promise.resolve()
                     )
                     .then(() => {
@@ -68215,61 +68339,61 @@
           t.name === r &&
             t.onDisconnect.addListener(function () {
               e.chrome.tabs.query({ active: !0, currentWindow: !0 }, function (t) {
-                setTimeout(e.chrome.tabs.update, 500, t[0].id, { url: t[0].url || t[0].pendingUrl }), (Zr.SAFE_CACHE = {});
+                setTimeout(e.chrome.tabs.update, 500, t[0].id, { url: t[0].url || t[0].pendingUrl }), (Gr.SAFE_CACHE = {});
               }),
-                Zr.reloadApp();
+                Gr.reloadApp();
             });
         }),
         e.chrome.runtime.onInstalled.addListener(function (e) {
-          "install" === e.reason ? Zr.onInstalled() : "update" === e.reason && Zr.onUpdated(e);
+          "install" === e.reason ? Gr.onInstalled() : "update" === e.reason && Gr.onUpdated(e);
         }),
-        (Zr.getInstallationDate = () =>
+        (Gr.getInstallationDate = () =>
           new Promise((t, a) => {
-            e.chrome.storage.sync.get("installationDate", function (s) {
+            e.chrome.storage.local.get("installationDate", function (s) {
               e.chrome.runtime.lastError ? a(e.chrome.runtime.lastError) : t(s.installationDate);
             });
           })),
-        (Zr.setInstallationDate = (t) =>
+        (Gr.setInstallationDate = (t) =>
           new Promise((a, s) => {
-            e.chrome.storage.sync.set({ installationDate: t }, () =>
+            e.chrome.storage.local.set({ installationDate: t }, () =>
               e.chrome.runtime.lastError
                 ? console.error("Error saving the installation date", e.chrome.runtime.lastError.message)
                 : console.log("Installation date successfully saved: ", t)
             );
           })),
-        (Zr.initAllTimeStatsVariables = () => {
+        (Gr.initAllTimeStatsVariables = () => {
           const t = { ads: 0, malwares: 0, scams: 0, content: 0 };
           return (
-            (Zr.ALL_TIME_STATS = t),
-            e.chrome.storage.sync.set({ allTimeStats: t }, () =>
+            (Gr.ALL_TIME_STATS = t),
+            e.chrome.storage.local.set({ allTimeStats: t }, () =>
               e.chrome.runtime.lastError
                 ? console.error("Error saving the installation date", e.chrome.runtime.lastError.message)
                 : console.log("All time stats info reseted!")
             )
           );
         }),
-        (Zr.onInstalled = async () => {
+        (Gr.onInstalled = async () => {
           const t = Date.today().toString("MMM d yyyy");
           console.info(
-            "This is a first install. Welcome to " + Zr.INTERNAL_VERSION + ". \nPlease wait for notice that protection layers are active."
+            "This is a first install. Welcome to " + Gr.INTERNAL_VERSION + ". \nPlease wait for notice that protection layers are active."
           ),
-            Zr.newUUIDSync(),
-            (Zr.SHOULD_SHOW_WELCOME = !0),
-            e.chrome.storage.sync.set({ user_welcomed: !1 }, () => console.debug("INI: Set user_welcomed to false")),
-            e.chrome.storage.sync.set({ user_group: G }, () =>
+            Gr.newUUIDSync(),
+            (Gr.SHOULD_SHOW_WELCOME = !0),
+            e.chrome.storage.local.set({ user_welcomed: !1 }, () => console.debug("INI: Set user_welcomed to false")),
+            e.chrome.storage.local.set({ user_group: G }, () =>
               e.chrome.runtime.lastError
                 ? console.error("Error forcing Group_A", e.chrome.runtime.lastError.message)
                 : console.log("Upgraded account forced into Group_A")
             ),
-            Zr.setInstallationDate(t),
-            Zr.initAllTimeStatsVariables(),
-            Zr.createContextMenu(),
-            na() &&
+            Gr.setInstallationDate(t),
+            Gr.initAllTimeStatsVariables(),
+            Gr.createContextMenu(),
+            oa() &&
               (await e.chrome.declarativeNetRequest.setExtensionActionOptions({ displayActionCountAsBadgeText: !0 }),
               await e.chrome.action.setBadgeBackgroundColor({ color: "#666" }),
-              await br());
+              await Sr());
         }),
-        (Zr.onUpdated = (t) => {
+        (Gr.onUpdated = (t) => {
           let a = e.chrome.runtime.getManifest().version;
           console.info(
             "Updated from " +
@@ -68277,30 +68401,30 @@
               " to " +
               a +
               " - " +
-              Zr.INTERNAL_VERSION +
+              Gr.INTERNAL_VERSION +
               ". \nPlease wait for notice that protection layers are active."
           ),
             t.previousVersion <= "1.0.47" &&
-              (Zr.migrate(),
-              e.chrome.storage.sync.set({ user_group: G }, () =>
+              (Gr.migrate(),
+              e.chrome.storage.local.set({ user_group: G }, () =>
                 e.chrome.runtime.lastError
                   ? console.error("Error forcing Group_A", e.chrome.runtime.lastError.message)
                   : console.log("Upgraded account forced into Group_A")
               )),
-            Zr.createContextMenu(),
-            na() && br(yr),
-            na() &&
+            Gr.createContextMenu(),
+            oa() && Sr(cr),
+            oa() &&
               t.previousVersion.startsWith("2") &&
               (async function () {
-                if ((console.debug("MV3_Exclusion_Migrate: Migrating to MV3"), !Ar)) return;
-                const e = await wr.getExclusions();
+                if ((console.debug("MV3_Exclusion_Migrate: Migrating to MV3"), !vr)) return;
+                const e = await Cr.getExclusions();
                 console.debug("MV3_Exclusion_Migrate: Migrating Allow List", e);
                 for (const [t, a] of Object.entries(e))
                   try {
                     console.debug("MV3_Exclusion_Migrate: Migrating Allow List for domain and ints", { domain: t, exclusionInts: a });
-                    const e = a.map((e) => kr(e));
+                    const e = a.map((e) => Er(e));
                     console.debug("MV3_Exclusion_Migrate: Migrating Allow List for domain and consts", { domain: t, exclusionConsts: e }),
-                      await vr.exclude(t, e),
+                      await wr.exclude(t, e),
                       console.debug("MV3_Exclusion_Migrate: Migrated Allow List for domain", t);
                   } catch (e) {
                     console.error("MV3_Exclusion_Migrate: Error migrating Allow List for domain", {
@@ -68311,11 +68435,11 @@
                   }
               })().then(() => {
                 !(async function () {
-                  if ((console.debug("MV3_UserBlocks_Migrate: Migrating to MV3"), Ir))
+                  if ((console.debug("MV3_UserBlocks_Migrate: Migrating to MV3"), Hr))
                     try {
-                      const e = await Lr.getBlockedItems();
+                      const e = await Nr.getBlockedItems();
                       console.debug("MV3_UserBlocks_Migrate: Migrating user blocks", e),
-                        await Hr.blockItems(e),
+                        await Lr.blockItems(e),
                         console.debug("MV3_UserBlocks_Migrate: Migrated user blocks", e);
                     } catch (e) {
                       console.error("MV3_UserBlocks_Migrate: Error migrating user blocks", e);
@@ -68323,23 +68447,23 @@
                 })();
               });
         }),
-        (Zr.onEmailScreenShown = () => Zs("shown")),
-        (Zr.onEmailSubmitSucceeds = () => Zs("submit_success")),
-        (Zr.onEmailSubmitFails = () => Zs("submit_failure")),
-        (Zr.clearCachedLogs = () =>
+        (Gr.onEmailScreenShown = () => Gs("shown")),
+        (Gr.onEmailSubmitSucceeds = () => Gs("submit_success")),
+        (Gr.onEmailSubmitFails = () => Gs("submit_failure")),
+        (Gr.clearCachedLogs = () =>
           new Promise((t, a) => {
-            if (!e.indexedDB || ea()) return console.debug("LFI: IndexedDB not available in this browser"), t("");
-            const s = e.indexedDB.deleteDatabase(sn);
+            if (!e.indexedDB || ta()) return console.debug("LFI: IndexedDB not available in this browser"), t("");
+            const s = e.indexedDB.deleteDatabase(rn);
             (s.onerror = (e) => (console.error("CCL: Failed to clear cached logs", e), a(e))),
               (s.onsuccess = () => (console.debug("CCL: Successfully cleared cached logs"), t()));
           })),
-        (Zr.logFromIDB = () =>
+        (Gr.logFromIDB = () =>
           new Promise((t) => {
-            if (!e.indexedDB || ea()) return console.debug("LFI: IndexedDB not available in this browser"), t("");
-            const a = e.indexedDB.open(sn, 1);
+            if (!e.indexedDB || ta()) return console.debug("LFI: IndexedDB not available in this browser"), t("");
+            const a = e.indexedDB.open(rn, 1);
             let s, r, n;
             (a.onupgradeneeded = () => {
-              (s = a.result), (n = s.createObjectStore(sn, { keyPath: "logs" }));
+              (s = a.result), (n = s.createObjectStore(rn, { keyPath: "logs" }));
             }),
               (a.onerror = (e) => {
                 console.error("LFI: error opening log IDB: ", e), t("");
@@ -68347,40 +68471,42 @@
               (a.onsuccess = async () => {
                 console.debug("LFI: Succesfully opened IndexDB Cached data store"),
                   (s = a.result),
-                  (r = s.transaction(sn, "readwrite")),
-                  (n = r.objectStore(sn)),
+                  (r = s.transaction(rn, "readwrite")),
+                  (n = r.objectStore(rn)),
                   (s.onerror = (e) => {
                     console.error("LFI: IndexDB Error: ", e), t("");
                   });
-                const e = await Zr.logGet(n);
+                const e = await Gr.logGet(n);
                 (r.oncomplete = () => s.close()), t(e || "");
               });
           })),
-        (Zr.logGet = (e) =>
+        (Gr.logGet = (e) =>
           new Promise((t) => {
             const a = e.get("current");
             (a.onsuccess = () => t(a.result && a.result.data)), (a.onerror = (e) => t(null));
           })),
-        (Zr.flushSessionLog = (e) => {
-          (Zr.SESSION_LOG += e), Zr.SESSION_LOG.length > nn && (Zr.SESSION_LOG = Zr.SESSION_LOG.slice(Zr.SESSION_LOG.length - nn));
+        (Gr.flushSessionLog = (e) => {
+          (Gr.SESSION_LOG += e), Gr.SESSION_LOG.length > on && (Gr.SESSION_LOG = Gr.SESSION_LOG.slice(Gr.SESSION_LOG.length - on));
         }),
-        (Zr.flushLogs = () => {
-          let t = Zr.CONSOLE_TRACE;
+        (Gr.flushLogs = () => {
+          let t = Gr.CONSOLE_TRACE;
           return (
-            (Zr.CONSOLE_TRACE = ""),
-            Zr.flushSessionLog(t),
+            (Gr.CONSOLE_TRACE = ""),
+            Gr.flushSessionLog(t),
             new Promise((a) => {
-              if (!e.indexedDB || ea()) return a(null);
-              const s = e.indexedDB.open(sn, 1);
+              if (!e.indexedDB || ta()) return a(null);
+              const s = e.indexedDB.open(rn, 1);
               let r, n, o;
               (s.onupgradeneeded = () => {
-                (r = s.result), (o = r.createObjectStore(sn, { keyPath: "logs" }));
+                (r = s.result), (o = r.createObjectStore(rn, { keyPath: "logs" }));
               }),
-                (s.onerror = a),
+                (s.onerror = (e) => {
+                  console.error("LTI: error opening log IDB: ", e), a(null);
+                }),
                 (s.onsuccess = async () => {
-                  (r = s.result), (n = r.transaction(sn, "readwrite")), (o = n.objectStore(sn)), (r.onerror = a);
-                  let e = await Zr.logGet(o);
-                  console.debug("LTI: Retrieved saved logs"), e && e.length > rn && (e = e.slice(e.length - rn));
+                  (r = s.result), (n = r.transaction(rn, "readwrite")), (o = n.objectStore(rn)), (r.onerror = a);
+                  let e = await Gr.logGet(o);
+                  console.debug("LTI: Retrieved saved logs"), e && e.length > nn && (e = e.slice(e.length - nn));
                   const i = o.put({ logs: "current", data: e ? e + t : t });
                   (i.onsuccess = () => {
                     console.debug("LTI: Successfully Saved Logs"), (n.oncomplete = () => r.close()), a();
@@ -68392,22 +68518,22 @@
             })
           );
         });
-      const gn = new RegExp('"', "g");
-      function _n(e) {
-        Zr.LOGGED_URLS.has(e) || Zr.LOGGED_URLS.add(e);
-      }
-      function pn() {
-        Zr.LOGGED_URLS = new Set();
+      const _n = new RegExp('"', "g");
+      function pn(e) {
+        Gr.LOGGED_URLS.has(e) || Gr.LOGGED_URLS.add(e);
       }
       function fn() {
-        console ? (console = Zr.logger(console)) : window && window.console && (window.console = Zr.logger(console));
+        Gr.LOGGED_URLS = new Set();
       }
-      (Zr.logger = (e) => {
+      function Dn() {
+        console ? (console = Gr.logger(console)) : window && window.console && (window.console = Gr.logger(console));
+      }
+      (Gr.logger = (e) => {
         const t = (e = "", t) => {
-          Zr.CONSOLE_TRACE.length > 781250 && Zr.flushLogs(),
-            (Zr.CONSOLE_TRACE += `{"@timestamp": "${new Date().toISOString()}", "session": "${en}", "message": "${e
+          Gr.CONSOLE_TRACE.length > 781250 && Gr.flushLogs(),
+            (Gr.CONSOLE_TRACE += `{"@timestamp": "${new Date().toISOString()}", "session": "${tn}", "message": "${e
               .toString()
-              .replace(gn, "'")}", "level": "${t}"}\n`);
+              .replace(_n, "'")}", "level": "${t}"}\n`);
         };
         return {
           info: (...a) => {
@@ -68417,13 +68543,13 @@
             t(a, "INFO"), e.log(...a);
           },
           warn: (...a) => {
-            Zr.settingsGet(f).then((e) => {
+            Gr.settingsGet(f).then((e) => {
               e && t(a, "WARN");
             }),
               e.warn(...a);
           },
           debug: (...a) => {
-            Zr.settingsGet(f).then((e) => {
+            Gr.settingsGet(f).then((e) => {
               e && t(a, "DEBUG");
             }),
               e.debug(...a);
@@ -68432,14 +68558,14 @@
             t(a, "ERROR"), e.error(...a);
           },
           trace: (...t) => e.trace(...t),
-          logOnce: Zr.logOnce
+          logOnce: Gr.logOnce
         };
       }),
-        (Zr.logOnce = (e, ...t) => {
-          Zr.LOGGED_URLS.has(e) ? console.debug(...t) : (console.log(...t), _n(e));
+        (Gr.logOnce = (e, ...t) => {
+          Gr.LOGGED_URLS.has(e) ? console.debug(...t) : (console.log(...t), pn(e));
         }),
         e.chrome.runtime.onConnect.addListener((e) => {
-          e.name === Z && Zr.handleForceDatabaseUpdate(e);
+          e.name === Z && Gr.handleForceDatabaseUpdate(e);
         }),
         e.chrome.runtime.onMessage.addListener((t, a, s) => {
           let r =
@@ -68450,162 +68576,174 @@
             (void 0 !== typeof browser && a.url.startsWith("moz-extension://" + e.chrome.i18n.getMessage("@@extension_id")));
           switch (t.type) {
             case "MSG_TELEMETRY_EMAIL_SHOWN":
-              return Zr.onEmailScreenShown(), !1;
+              return Gr.onEmailScreenShown(), !1;
             case "MSG_TELEMETRY_EMAIL_SENT":
-              return Zr.onEmailSubmitSucceeds(), !1;
+              return Gr.onEmailSubmitSucceeds(), !1;
             case "MSG_TELEMETRY_EMAIL_FAILED":
-              return Zr.onEmailSubmitFails(), !1;
+              return Gr.onEmailSubmitFails(), !1;
             case "MSG_FIREFOX":
               return (
                 s({ success: !0 }), t.obj ? console.log("SF: " + t.payload, JSON.stringify(t.obj)) : console.log("SF: " + t.payload), !1
               );
             case "MSG_ICONS_REFRESH":
-              return Zr.iconRefreshAll(), s({ success: !0 }), !1;
+              return Gr.iconRefreshAll(), s({ success: !0 }), !1;
             case n:
-              return Zr.msgIconRefresh(s, a && a.tab ? a.tab.id : null);
+              return Gr.msgIconRefresh(s, a && a.tab ? a.tab.id : null);
             case N:
-              return Zr.msgRecordsGet(s, t);
+              return Gr.msgRecordsGet(s, t);
             case x:
-              return Zr.msgAllStatsGet(s);
+              return Gr.msgAllStatsGet(s);
             case k:
-              return Zr.msgWebsiteCheckboxGet(s, t);
+              return Gr.msgWebsiteCheckboxGet(s, t);
             case F:
-              return Zr.msgSetAllowGranular(s, t);
+              return Gr.msgSetAllowGranular(s, t);
             case j:
-              return Zr.msgGetAllowGranular(s, t);
+              return Gr.msgGetAllowGranular(s, t);
             case L:
-              return Zr.msgTabDataGet(s, t);
+              return Gr.msgTabDataGet(s, t);
             case "MSG_TAB_ID_GET":
-              return s({ tabId: a.tab.id }), !0;
+              return a && a.tab && s({ tabId: a.tab.id }), !0;
             case "MSG_TAB_INFO_GET":
-              return (
-                e.chrome.tabs.query({ active: !0, currentWindow: !0 }, (e) => {
-                  s({ id: e[0].id, url: e[0].url });
-                }),
-                !0
-              );
+              return a && a.tab && s({ id: a.tab.id, url: a.tab.url }), !0;
             case "MSG_IS_NEEDING_NATIVE_MSG":
-              return Zr.msgIsNeedingNativeMsg(s, t), !0;
+              return Gr.msgIsNeedingNativeMsg(s, t), !0;
             case "MSG_TOGGLE_NATIVE_MSG":
-              return Zr.msgToggleNativeMsg(s, t), !0;
+              return Gr.msgToggleNativeMsg(s, t), !0;
             case H:
-              return Zr.msgIsPremium(s);
+              return Gr.msgIsPremium(s);
             case "MSG_IS_TRIAL":
-              return Zr.msgIsTrial(s);
+              return Gr.msgIsTrial(s);
             case E:
-              return Zr.msgSettingsGet(s, t);
+              return Gr.msgSettingsGet(s, t);
             case I:
-              return Zr.msgSettingsSet(s, r, t);
+              return Gr.msgSettingsSet(s, r, t);
             case "MSG_DEBUG_ADD_STATS":
-              return Zr.msgDbgAddStats(s, r);
+              return Gr.msgDbgAddStats(s, r);
             case "MSG_DEBUG_CLEAR_STATS":
-              return Zr.msgDbgClearStats(s, r);
+              return Gr.msgDbgClearStats(s, r);
             case B:
-              return Zr.msgRemAllowSingle(s, r, t);
+              return Gr.msgRemAllowSingle(s, r, t);
             case P:
-              return Zr.msgAddAllow(s, r, t, a);
+              return Gr.msgAddAllow(s, r, t, a);
             case "MSG_ADD_ALLOW_TEMPORARY":
-              return !!na() || Zr.msgAddAllowTemporary(s, r, t);
+              return !!oa() || Gr.msgAddAllowTemporary(s, r, t);
             case "MSG_ADD_ALLOW_META_ONLY":
-              return Zr.msgAddAllowMetaOnly(s, r, t);
+              return Gr.msgAddAllowMetaOnly(s, r, t);
             case W:
-              return Zr.msgAllowGetAll(s);
+              return Gr.msgAllowGetAll(s);
             case "MSG_ALLOW_GET_SINGLE":
-              return Zr.msgAllowGetSingle(s, t);
+              return Gr.msgAllowGetSingle(s, t);
             case O:
-              return Zr.msgRemAllowDomain(s, r, t);
+              return Gr.msgRemAllowDomain(s, r, t);
             case Y:
-              return Zr.msgRemAllowAll(s);
+              return Gr.msgRemAllowAll(s);
             case ne:
-              return Zr.msgContentControlGetAll(s);
+              return Gr.msgContentControlGetAll(s);
             case oe:
-              return Zr.msgContentControlRemoveItem(s, t);
+              return Gr.msgContentControlRemoveItem(s, t);
             case ie:
-              return Zr.msgContentControlAddItem(s, t);
+              return Gr.msgContentControlAddItem(s, t);
             case de:
-              return Zr.msgContentControlRemoveAll(s);
+              return Gr.msgContentControlRemoveAll(s);
             case le:
-              return Zr.msgDetectionHistoryGetAll(s);
+              return Gr.msgDetectionHistoryGetAll(s);
             case "MSG_DETECTION_HISTORY_ADD_ITEM":
-              return Zr.msgDetectionHistoryAddItem(s, t);
+              return Gr.msgDetectionHistoryAddItem(s, t);
             case ue:
-              return Zr.msgDetectionHistoryRemoveAll(s);
+              return Gr.msgDetectionHistoryRemoveAll(s);
             case me:
-              return Zr.msgDetectionHistoryRemoveItem(s, t);
+              return Gr.msgDetectionHistoryRemoveItem(s, t);
             case "MSG_IS_ONBOARDING_COMPLETE":
-              return Zr.msgIsOnboardingComplete(s);
+              return Gr.msgIsOnboardingComplete(s);
             case C:
-              return Zr.msgUserGroupGet(s);
+              return Gr.msgUserGroupGet(s);
             case "MSG_UUID_GET":
-              return Zr.msgUuidGet(s);
+              return Gr.msgUuidGet(s);
             case "MSG_INT_VER":
-              return Zr.msgIntVer(s);
+              return Gr.msgIntVer(s);
             case "MSG_IS_LAYER_ACTIVE":
-              return Zr.msgIsLayerActive(s, r, t, a && a.tab ? a.tab.id : null);
+              return Gr.msgIsLayerActive(s, r, t, a && a.tab ? a.tab.id : null);
             case R:
-              return Zr.msgDownloadLogs(s, t.fullLog), !0;
+              return Gr.msgDownloadLogs(s, t.fullLog), !0;
             case "MSG_BADGE_COUNT_UPDATE":
-              return Zr.updateBadgeCount(t.tabId), !0;
+              return Gr.updateBadgeCount(t.tabId), !0;
             case "MSG_RECORD_ALL":
               return (
                 console.debug(`FBADS: BLOCKING AD AT TABID: ${t.tabId} DOMAIN: "${t.domain}" tabUrl: ${t.domain}`),
-                Zr.recordAll(t.recordType, t.tabId, t.domain, t.domain, !0),
+                Gr.recordAll(t.recordType, t.tabId, t.domain, t.domain, !0),
                 !0
               );
             case "MSG_IS_AD_PROTECTION_ACTIVE":
-              console.debug(`FBADS: CHECKING FOR ACTIVE PROTECTION AT TABID: ${t.tabId} DOMAIN: "${t.domain}" tabUrl: ${t.domain}`);
-              const o =
-                Zr.isProtectionActive(d, t.domain, t.domain, t.tabId) &&
-                !Zr.isHeuristicAdsIndividualExcluded(Lt(t.domain)) &&
-                !Zr.isEasyListAdsIndividualExcluded(Lt(t.domain));
-              return s({ isActive: o }), !0;
+              return (
+                console.debug(`FBADS: CHECKING FOR ACTIVE PROTECTION AT TABID: ${t.tabId} DOMAIN: "${t.domain}" tabUrl: ${t.domain}`),
+                s({
+                  isActive:
+                    Gr.isProtectionActive(d, t.domain, t.domain, t.tabId) &&
+                    !Gr.isHeuristicAdsIndividualExcluded(Nt(t.domain)) &&
+                    !Gr.isEasyListAdsIndividualExcluded(Nt(t.domain))
+                }),
+                !0
+              );
             case J:
-              return Zr.msgGetBlockedItems(s), !0;
+              return Gr.msgGetBlockedItems(s), !0;
             case z:
-              return Zr.msgDeleteBlockedItem(t.url, s), !0;
+              return Gr.msgDeleteBlockedItem(t.url, s), !0;
             case K:
-              return Zr.deleteAllBlockedItems(t, s), !0;
+              return Gr.deleteAllBlockedItems(t, s), !0;
             case U:
-              return Zr.resetExtension(), !0;
+              return Gr.resetExtension(), !0;
             case "MSG_RECORD_CONTENT_AD":
-              return Zr.recordContentAd(t), !0;
+              return Gr.recordContentAd(t), !0;
             case "MSG_RECORD_EASYLIST_AD":
-              return Zr.recordEasylistAd(t), !0;
+              return Gr.recordEasylistAd(t), !0;
             case V:
-              return Zr.msgToggleMV3Protection(t.enable, s), !0;
+              return Gr.msgToggleMV3Protection(t.enable, s), !0;
             case q:
-              return Zr.msgToggleMV3IndividualProtection(t.enable, t.protection, s), !0;
+              return Gr.msgToggleMV3IndividualProtection(t.enable, t.protection, s), !0;
             case X:
-              return Zr.msgToggleMV3GTLDProtection(t.enable, s), !0;
+              return Gr.msgToggleMV3GTLDProtection(t.enable, s), !0;
             case re:
-              return Zr.msgToggleVerboseLogging(t.enable, s), !0;
+              return Gr.msgToggleVerboseLogging(t.enable, s), !0;
             case Te:
-              return Zr.msgIsNewFeatureSeen(s);
+              return Gr.msgIsNewFeatureSeen(s);
             case ye:
-              return Zr.msgMarkNewFeatureSeen(t.feature, s);
+              return Gr.msgMarkNewFeatureSeen(t.feature, s);
             case "MSG_INFO_BLOCKED_CONTENT_DISPLAYED":
               return (
-                (Zr.TAB_MALWARE_NOTIFIED[t.payload.tabId] = Zr.TAB_MALWARE_NOTIFIED[t.payload.tabId] || new Set()),
-                Zr.TAB_MALWARE_NOTIFIED[t.payload.tabId].add(t.payload.host),
+                (Gr.TAB_MALWARE_NOTIFIED[t.payload.tabId] = Gr.TAB_MALWARE_NOTIFIED[t.payload.tabId] || new Set()),
+                Gr.TAB_MALWARE_NOTIFIED[t.payload.tabId].add(t.payload.host),
                 !0
               );
             case he:
-              return Zr.msgExportSettings(t.config, s), !0;
+              return Gr.msgExportSettings(t.config, s), !0;
             case be:
-              return Zr.msgImportSettings(t.data, s), !0;
+              return Gr.msgImportSettings(t.data, s), !0;
             case "MSG_IS_WHITELISTED_SCAM":
-              return s(Zr.isWhitelistedScams(t.payload.domain)), !0;
+              return s(Gr.isWhitelistedScams(t.payload.domain)), !0;
             case "MSG_DEBUG_TEST_CHANNEL":
-              return s(Zr.updateUsingTestChannel()), !0;
+              return s(Gr.updateUsingTestChannel()), !0;
+            case "MSG_DEBUG_STAGING_CHANNEL":
+              return s(Gr.updateUsingStagingChannel()), !0;
             case "MSG_COLOR_SCHEME_CHANGED":
-              return Zr.iconRefreshAll(), !0;
+              return Gr.iconRefreshAll(), !0;
             case "MSG_QUERY_FEATURE_FLAG":
-              return s(Zr.queryFeatureFlag(t.payload.feature)), !0;
+              return s(Gr.queryFeatureFlag(t.payload.feature)), !0;
             case "MSG_LOAD_INLINE_SCRIPT":
               return e.chrome.tabs.executeScript(t.tabId, { code: t.source }), !0;
             case "MSG_GET_EASYLIST_SELECTORS":
-              let i = Zr.msgEasylistElementsToHide(t.parameters.tabId, t.parameters.domain, t.parameters.url);
-              return s({ tabId: t.parameters.tabId, ids: i.ids, classes: i.classes, tags: i.tags, selectors: i.selectors }), !0;
+              let o = Gr.msgEasylistElementsToHide(t.parameters.tabId, t.parameters.domain, t.parameters.url);
+              return (
+                s({
+                  tabId: t.parameters.tabId,
+                  ids: o.ids,
+                  classes: o.classes,
+                  tags: o.tags,
+                  selectors: o.selectors,
+                  exception_rules: o.exception_rules,
+                  specific_hide: o.specific_hide
+                }),
+                !0
+              );
             default:
               "isExcluded" === t.type ||
                 "detection" === t.type ||
@@ -68617,52 +68755,52 @@
           let s = !1;
           -1 !== t.url.indexOf("msn.com") && "I12C" === e.parameters.prop && (s = !0), a({ isWhitelisted: s });
         }),
-        fn(),
-        na() ||
+        Dn(),
+        oa() ||
           (window.onbeforeunload = async (e) => {
-            Zr.disconnectNative(), await Zr.flushLogs(), delete e.returnValue;
+            Gr.disconnectNative(), await Gr.flushLogs(), delete e.returnValue;
           }),
         e.chrome.storage.onChanged.addListener((e, t) => {
-          Zr.settingsGet(null).then((e) => {
-            const t = Zr.computeTogglesState();
-            (Zr.SETTINGS = { ...Zr.SETTINGS, ...e }), t != Zr.computeTogglesState() && Zr.postNativeTogglesState();
+          Gr.settingsGet(null).then((e) => {
+            const t = Gr.computeTogglesState();
+            (Gr.SETTINGS = { ...Gr.SETTINGS, ...e }), t != Gr.computeTogglesState() && Gr.postNativeTogglesState();
           });
         }),
         e.chrome.alarms.onAlarm.addListener(async (t) => {
           if (
             ("sendTelemetryAlarm" === t.name
-              ? Zr.sendClientTelemetry()
+              ? Gr.sendClientTelemetry()
               : "updateDBAlarm" === t.name
-              ? (Zr.updateDatabases(), on && on.postMessage({ eBGAction: [{ ePing: "Unused" }] }))
+              ? (Gr.updateDatabases(), dn && dn.postMessage({ eBGAction: [{ ePing: "Unused" }] }))
               : "sendAdTelemetryAlarm" === t.name
-              ? (await Zr.settingsGet("disableAdTelemDailyLimit"))
-                ? (console.debug("AD_TELEM: Daily limit disabled, sending ad/tracker telemetry"), Zr.sendClientTelemetry(!0))
+              ? (await Gr.settingsGet("disableAdTelemDailyLimit"))
+                ? (console.debug("AD_TELEM: Daily limit disabled, sending ad/tracker telemetry"), Gr.sendClientTelemetry(!0))
                 : (console.debug("AD_TELEM: Checking if 24 hours have passed since last ad/tracker telemetry"),
                   (await new Promise(async (e) => {
                     const t = new Date().toLocaleDateString();
-                    return (await qe(sa)) === t ? e(!1) : (Xe({ [sa]: t }), e(!0));
-                  })) && Zr.sendClientTelemetry(!0))
+                    return (await Xe(ra)) === t ? e(!1) : (Qe({ [ra]: t }), e(!0));
+                  })) && Gr.sendClientTelemetry(!0))
               : "additionalRuleSpaceCheckAlarm" === t.name
-              ? na() &&
+              ? oa() &&
                 (async () => {
                   const t = await e.chrome.declarativeNetRequest.getEnabledRulesets();
                   if (!t || 0 === t.length) return;
-                  const a = Br.filter((e) => !t.includes(e));
-                  0 !== a.length && (await Jr(a));
+                  const a = Wr.filter((e) => !t.includes(e));
+                  0 !== a.length && (await zr(a));
                 })()
-              : "showMonthlyNotificationAlarm" === t.name && Zr.showMonthlyNotification(),
+              : "showMonthlyNotificationAlarm" === t.name && Gr.showMonthlyNotification(),
             "initUpdateDBAlarm" === t.name)
           )
             return (
-              qt("init_update_db_begin"),
-              Zr.updateDatabases().then((e) => {
-                qt("init_update_db_complete", "init_update_db_begin");
+              Xt("init_update_db_begin"),
+              Gr.updateDatabases().then((e) => {
+                Xt("init_update_db_complete", "init_update_db_begin");
               })
             );
         }),
-        (Zr.overrideAdTelemAlarm = async (t) => (
-          await Zr.settingsSet({ disableAdTelemDailyLimit: !0 }),
-          "Firefox" === zt()
+        (Gr.overrideAdTelemAlarm = async (t) => (
+          await Gr.settingsSet({ disableAdTelemDailyLimit: !0 }),
+          "Firefox" === Kt()
             ? new Promise((a) => {
                 e.chrome.alarms.create("sendAdTelemetryAlarm", { periodInMinutes: t }),
                   console.debug(`AD_TELEM: Successfully reset 'sendAdTelemetryAlarm' to ${t} minutes`),
@@ -68679,51 +68817,51 @@
         e.chrome.alarms.create("updateDBAlarm", { periodInMinutes: 20 }),
         e.chrome.alarms.create("additionalRuleSpaceCheckAlarm", { periodInMinutes: 60 }),
         e.chrome.alarms.create("showMonthlyNotificationAlarm", { delayInMinutes: 1, periodInMinutes: 5 });
-      var Dn = {};
-      function An(e, t, a, s, r, n) {
-        if (!1 !== Zr.SETTINGS.sendTelemetry) {
+      var An = {};
+      function vn(e, t, a, s, r, n) {
+        if (!1 !== Gr.SETTINGS.sendTelemetry) {
           const o = [{ ["user_block" === e ? "userBlocks" : e]: { subcategory: t, url: a } }];
-          on.postMessage({ eBlockTelemetry: o }), Us(e, t, a, s, r, n);
+          dn.postMessage({ eBlockTelemetry: o }), $s(e, t, a, s, r, n);
         }
       }
-      async function vn(t) {
-        if (!Zr || !Zr.READY_TO_ACCEPT_REQUESTS) return void console.log("REQ: Download request deferred - extension is being initialized");
-        let a = Dn[t];
+      async function wn(t) {
+        if (!Gr || !Gr.READY_TO_ACCEPT_REQUESTS) return void console.log("REQ: Download request deferred - extension is being initialized");
+        let a = An[t];
         if (!a) return;
         let { url: s, finalUrl: r, mime: n, referrer: o, filename: d, blocked: l } = a;
-        if (Yt(r || s).some((e) => Zr.ALWAYS_ALLOW[e])) return console.log("ODE: Skipped heuristics for always allowed site ", r || s);
+        if (Ot(r || s).some((e) => Gr.ALWAYS_ALLOW[e])) return console.log("ODE: Skipped heuristics for always allowed site ", r || s);
         if (l) return console.debug("ODE: Detected an already-blocked download: ", a);
         const u = await new Promise((t) => e.chrome.tabs.query({ currentWindow: !0, active: !0 }, (e) => t(e[0])));
         let m;
         o = o || (u && u.url);
-        const T = !r || Zr.isWhitelistedScams(r),
-          y = !o || Zr.isWhitelistedScams(o),
-          c = Zr.isWhitelistedScams(s),
-          M = jt(r || s),
+        const T = !r || Gr.isWhitelistedScams(r),
+          y = !o || Gr.isWhitelistedScams(o),
+          c = Gr.isWhitelistedScams(s),
+          M = Yt(r || s),
           h = !0;
         if (
           (console.log("ODE: Download event for: " + s + " / " + r),
-          (({ url: e, finalUrl: t, referrer: a }) => [e, t].some((e) => e && dr(e, jt(e), a)))(a))
+          (({ url: e, finalUrl: t, referrer: a }) => [e, t].some((e) => e && lr(e, Yt(e), a)))(a))
         )
           return console.log("ODE: Skipping download heuristics due to safe filename pattern");
         if (
           (({ url: e, finalUrl: t, referrer: a }) =>
-            !!(((e = "") => e.startsWith("blob:") || e.startsWith("data:"))(t || e) && a && Zr.isWhitelistedScams(a)) ||
-            (Zr.RISKY_TLDS.includes(Nt(t || e)) && lr(t || e, a, a && Zr.isWhitelistedScams(a))))({ url: s, finalUrl: r, referrer: o })
+            !!(((e = "") => e.startsWith("blob:") || e.startsWith("data:"))(t || e) && a && Gr.isWhitelistedScams(a)) ||
+            (Gr.RISKY_TLDS.includes(xt(t || e)) && ur(t || e, a, a && Gr.isWhitelistedScams(a))))({ url: s, finalUrl: r, referrer: o })
         )
           return console.log("ODE: Skipping download heuristics due to safe referral");
-        if ([o, s, r].some((e) => e && !Zr.isProtectionActive(i, e, e))) return console.log("ODE: protection is not active on page");
+        if ([o, s, r].some((e) => e && !Gr.isProtectionActive(i, e, e))) return console.log("ODE: protection is not active on page");
         const b = u && u.id;
-        if ([o, s, r].some((e) => e && Zr.isExcludedTemporarily(e, b)))
+        if ([o, s, r].some((e) => e && Gr.isExcludedTemporarily(e, b)))
           return console.log("ODE: Detected a temporarily excluded download: ", a);
-        if (Zr.isOwnExtensionPage(o || s)) return console.log("ODE: Skipped blocking download from own event page");
+        if (Gr.isOwnExtensionPage(o || s)) return console.log("ODE: Skipped blocking download from own event page");
         if (!a.ip && d) {
           if (
             ((a.ip = !0),
             !(
               (c && T) ||
               ((e, t, a, s, r, n) =>
-                !!((e && "about:blank" === a) || ((t || n) && or(s)) || (void 0 === s && n && or(a)) || (r && r.includes("image/"))))(
+                !!((e && "about:blank" === a) || ((t || n) && ir(s)) || (void 0 === s && n && ir(a)) || (r && r.includes("image/"))))(
                 T,
                 c,
                 s,
@@ -68733,12 +68871,12 @@
               )
             ))
           ) {
-            if (tt[a.danger] || [s, r, d].some(Vs) || ((e) => e && (at.includes(e) || st.includes(e)))(n))
+            if (at[a.danger] || [s, r, d].some(qs) || ((e) => e && (st.includes(e) || rt.includes(e)))(n))
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68746,12 +68884,12 @@
                   blockMessage: `Potential download-danger detected. ${JSON.stringify(a)}`
                 })
               );
-            if (at.includes(n) && !d.endsWith("exe"))
+            if (st.includes(n) && !d.endsWith("exe"))
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68759,12 +68897,12 @@
                   blockMessage: `Blocked a download due to potential mimetype spoofing: ${JSON.stringify(a)}`
                 })
               );
-            if ([r, s, d].some(qs))
+            if ([r, s, d].some(Xs))
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68772,12 +68910,12 @@
                   blockMessage: `Blocked a download from a non-whitelisted source: ${JSON.stringify(a)}`
                 })
               );
-            if (Qs(r || s) && ((e, t = "") => ("txt" === e ? mt.some((e) => t.endsWith(e)) : ut.some((t) => t === e)))(M, d))
+            if (er(r || s) && ((e, t = "") => ("txt" === e ? Tt.some((e) => t.endsWith(e)) : mt.some((t) => t === e)))(M, d))
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68794,14 +68932,14 @@
                 } catch (e) {
                   return console.error("HSDOR: Could not determine if sus office DL: ", e), !1;
                 }
-                return a.length > 1 && 1 === (a.match(gt) || []).length && Xs(t);
+                return a.length > 1 && 1 === (a.match(_t) || []).length && Qs(t);
               })(r || s, n)
             )
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68810,7 +68948,7 @@
                 })
               );
             if (
-              ((e, t, a, s) => !!Xt(Lt(e)) && (("txt" === a ? mt.some((e) => s.endsWith(e)) : ut.some((e) => a === e)) || Xs(t)))(
+              ((e, t, a, s) => !!Qt(Nt(e)) && (("txt" === a ? Tt.some((e) => s.endsWith(e)) : mt.some((e) => a === e)) || Qs(t)))(
                 r || s,
                 n,
                 M,
@@ -68819,9 +68957,9 @@
             )
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68835,14 +68973,14 @@
                 try {
                   a = new URL(e).pathname;
                 } catch (e) {}
-                return [a, t].some((e) => Dt.test(e));
+                return [a, t].some((e) => At.test(e));
               })(r || s, d)
             )
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68852,15 +68990,15 @@
               );
             if (
               ((e, t) => {
-                for (let [a, s] of Tt) if (a.some((e) => t.endsWith(e)) && e.some((e) => e && e.match(s))) return !0;
+                for (let [a, s] of yt) if (a.some((e) => t.endsWith(e)) && e.some((e) => e && e.match(s))) return !0;
                 return !1;
               })([r, s], d)
             )
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68872,15 +69010,15 @@
               ((e, t) => {
                 if (!t) return;
                 let a;
-                switch (rt[Nt(e)]) {
+                switch (nt[xt(e)]) {
                   case 1:
-                    a = [ot, it, mt, Qe, dt, lt];
+                    a = [it, dt, Tt, et, lt, ut];
                     break;
                   case 2:
-                    a = [ot, it, mt, Qe, dt];
+                    a = [it, dt, Tt, et, lt];
                     break;
                   case 3:
-                    a = [ot, it, mt];
+                    a = [it, dt, Tt];
                     break;
                   default:
                     return void console.debug("ISTD: Not a risky tld");
@@ -68890,9 +69028,9 @@
             )
               return (
                 (a.blocked = !0),
-                er(a.id),
-                Xe({ lastDBused: null }),
-                Zr.onSuspiciousDownload({
+                tr(a.id),
+                Qe({ lastDBused: null }),
+                Gr.onSuspiciousDownload({
                   referrer: o,
                   url: s,
                   filename: d,
@@ -68903,18 +69041,18 @@
           }
           if (
             (a.totalBytes <= 2097152 &&
-              "Firefox" !== zt() &&
+              "Firefox" !== Kt() &&
               (console.debug(`ODE: Pausing Download ${t}`), (m = !0), e.chrome.downloads.pause(t)),
             c && T)
           ) {
-            if (!((T && "about:blank" === s) || St.test(a.filename || ""))) {
-              const e = await tr(a);
+            if (!((T && "about:blank" === s) || gt.test(a.filename || ""))) {
+              const e = await ar(a);
               if (e.isPe)
                 return (
                   (a.blocked = !0),
-                  er(a.id),
-                  Xe({ lastDBused: null }),
-                  Zr.onSuspiciousDownload({
+                  tr(a.id),
+                  Qe({ lastDBused: null }),
+                  Gr.onSuspiciousDownload({
                     referrer: o,
                     url: s,
                     filename: e.filename,
@@ -68924,14 +69062,14 @@
                 );
             }
           } else {
-            const e = await tr(a);
+            const e = await ar(a);
             if (e.isPe && (!T || "about:blank" !== s)) {
-              if (!((c && or(r)) || (void 0 === r && y && or(s))))
+              if (!((c && ir(r)) || (void 0 === r && y && ir(s))))
                 return (
                   (a.blocked = !0),
-                  er(a.id),
-                  Xe({ lastDBused: null }),
-                  Zr.onSuspiciousDownload({
+                  tr(a.id),
+                  Qe({ lastDBused: null }),
+                  Gr.onSuspiciousDownload({
                     referrer: o,
                     url: s,
                     filename: e.filename,
@@ -68939,12 +69077,12 @@
                     blockMessage: `Blocked a download due to PE detection: ${JSON.stringify(e)}`
                   })
                 );
-              if (Qs(r || s))
+              if (er(r || s))
                 return (
                   (a.blocked = !0),
-                  er(a.id),
-                  Xe({ lastDBused: null }),
-                  Zr.onSuspiciousDownload({
+                  tr(a.id),
+                  Qe({ lastDBused: null }),
+                  Gr.onSuspiciousDownload({
                     referrer: o,
                     url: s,
                     filename: e.filename,
@@ -68954,107 +69092,107 @@
                 );
             }
           }
-          if (!y && d && Ct.test(d))
+          if (!y && d && kt.test(d))
             return (
               (a.blocked = !0),
-              er(a.id),
-              Xe({ lastDBused: null }),
-              Zr.onSuspiciousDownload({
+              tr(a.id),
+              Qe({ lastDBused: null }),
+              Gr.onSuspiciousDownload({
                 referrer: o,
                 url: s,
                 filename: d,
                 dlEvent: h,
-                rule: `${Xr}${(0, ka.sha256)(Ct.source)}`,
+                rule: `${Qr}${(0, Ea.sha256)(kt.source)}`,
                 blockMessage: `Blocked a download due to SocGholish filename pattern: ${JSON.stringify(a)}`
               })
             );
           m && (console.debug(`ODE: Resuming Download ${t}`), (m = !1), e.chrome.downloads.resume(t));
         }
       }
-      function wn(e, t, a, s) {
+      function Cn(e, t, a, s) {
         if (e >= 0) {
           let r;
-          Zr.TABS[e] && Zr.TABS[e].blocked && (r = JSON.parse(JSON.stringify(Zr.TABS[e].blocked)));
-          const n = Zr.TABS[e];
-          (Zr.TABS[e] = {
+          Gr.TABS[e] && Gr.TABS[e].blocked && (r = JSON.parse(JSON.stringify(Gr.TABS[e].blocked)));
+          const n = Gr.TABS[e];
+          (Gr.TABS[e] = {
             tabId: e,
-            site: { url: t, host: Lt(t), sld: a, domains: s, friendlyUrl: n && n.site && n.site.friendlyUrl },
+            site: { url: t, host: Nt(t), sld: a, domains: s, friendlyUrl: n && n.site && n.site.friendlyUrl },
             status: "loading",
-            meta: { history: Zr.TABS[e] ? Zr.TABS[e].meta.history : [], timestamp: Date.now() },
+            meta: { history: Gr.TABS[e] ? Gr.TABS[e].meta.history : [], timestamp: Date.now() },
             blocked: { totals: { ads: 0, malware: 0, scams: 0, content: 0 }, ads: {}, malware: {}, scams: {}, content: {} },
             blockedHistory: r
           }),
-            (Zr.TABS[e].meta.history = Zr.TABS[e].meta.history.filter((e) => Date.now() - 1e4 <= e.timestamp)),
-            Zr.TABS[e].meta.history.push({ url: Zr.TABS[e].site.url, timestamp: Zr.TABS[e].meta.timestamp });
+            (Gr.TABS[e].meta.history = Gr.TABS[e].meta.history.filter((e) => Date.now() - 1e4 <= e.timestamp)),
+            Gr.TABS[e].meta.history.push({ url: Gr.TABS[e].site ? Gr.TABS[e].site.url : "", timestamp: Gr.TABS[e].meta.timestamp });
         } else console.debug("Error: tab " + e + " less than 0 (Not Adding)");
       }
-      function Cn({ tabId: t, tabURL: a, url: s, type: r, subtype: n, rule: i, blockMessage: d, isMainFrame: l }) {
-        let u = Zr.TABS[t] ? Zr.TABS[t].meta.history.map((e) => e.url) : [a];
-        const m = Lt(a),
-          T = Lt(s);
-        if (Zr.isExcludedForDomain(o, m)) return {};
-        if (Zr.EXCLUSION_INDIVIDUAL[m] && Zr.EXCLUSION_INDIVIDUAL[m][T])
+      function kn({ tabId: t, tabURL: a, url: s, type: r, subtype: n, rule: i, blockMessage: d, isMainFrame: l }) {
+        let u = Gr.TABS[t] ? Gr.TABS[t].meta.history.map((e) => e.url) : [a];
+        const m = Nt(a),
+          T = Nt(s);
+        if (Gr.isExcludedForDomain(o, m)) return {};
+        if (Gr.EXCLUSION_INDIVIDUAL[m] && Gr.EXCLUSION_INDIVIDUAL[m][T])
           return (
             console.logOnce(s, `OM: Didn't block ${T} because user excluded on this page`),
-            Zr.recordAll(Ur, t, m, T, !0),
-            Zr.updateBadgeCount(t),
+            Gr.recordAll($r, t, m, T, !0),
+            Gr.updateBadgeCount(t),
             {}
           );
-        const y = Nn(n);
+        const y = xn(n);
         console.log(`OM: (PAGE_BLOCK) ${d}. ${y ? `Database: ${JSON.stringify(y)}` : ""}`),
-          xn(),
-          Zr.postNativeExclusion(s),
-          Zr.recordAll(Ur, t, m, T, !0),
-          Zr.updateBadgeCount(t);
+          Pn(),
+          Gr.postNativeExclusion(s),
+          Gr.recordAll($r, t, m, T, !0),
+          Gr.updateBadgeCount(t);
         const c = { site: s, type: r, subtype: n, date: Date.now() };
-        Or.addItem(c), An(r, n, s, a, u, i);
-        let M = Gt(null, s, r, n, t);
+        Br.addItem(c), vn(r, n, s, a, u, i);
+        let M = Ut(null, s, r, n, t);
         return ["ws://", "wss://"].some((e) => s && s.startsWith(e)) || !l
           ? (console.log(`OM: (NETWORK_BLOCK) Malware (${r}) detection on ${s}. Cancelling Request.`),
-            Zr.TAB_MALWARE_NOTIFIED[t] && Zr.TAB_MALWARE_NOTIFIED[t].has(m)
+            Gr.TAB_MALWARE_NOTIFIED[t] && Gr.TAB_MALWARE_NOTIFIED[t].has(m)
               ? (console.log(`OM: (NETWORK_BLOCK) Malware (${T}) detection on ${s}. Already notified.`), { cancel: !0 })
               : (e.chrome.tabs.sendMessage(t, { type: "MSG_INFO_BLOCKED_CONTENT", src: m, malware: T, tabId: t }), { cancel: !0 }))
           : (console.log(`OM: Malware (${r}) detection on ${s}. Redirecting to block page.`),
-            t && "Edge" === zt() && e.chrome.tabs.update(t, { url: M }),
+            t && "Edge" === Kt() && e.chrome.tabs.update(t, { url: M }),
             { redirectUrl: M });
       }
-      function kn({ tabId: e, tabURL: t, referrer: a, url: s, type: r, subtype: n, filename: o, rule: d, blockMessage: l }) {
+      function En({ tabId: e, tabURL: t, referrer: a, url: s, type: r, subtype: n, filename: o, rule: d, blockMessage: l }) {
         let u,
           m,
-          T = Zr.TABS[e] ? Zr.TABS[e].meta.history.map((e) => e.url) : [t];
+          T = Gr.TABS[e] ? Gr.TABS[e].meta.history.map((e) => e.url) : [t];
         try {
-          u = Lt(t || s);
+          u = Nt(t || s);
         } catch (e) {
           u = t;
         }
         console.debug("SCA: About to flag url '" + s + "' on tab with url " + t);
         try {
-          m = Lt(s);
+          m = Nt(s);
         } catch (e) {
           m = s;
         }
-        if (Zr.isExcludedForDomain(i, u)) return {};
-        if (Zr.EXCLUSION_INDIVIDUAL[u] && Zr.EXCLUSION_INDIVIDUAL[u][m])
+        if (Gr.isExcludedForDomain(i, u)) return {};
+        if (Gr.EXCLUSION_INDIVIDUAL[u] && Gr.EXCLUSION_INDIVIDUAL[u][m])
           return (
             console.logOnce(s, `OS: Didn't block ${m} because user excluded on this page`),
-            Zr.recordAll($r, e, t ? u : m, m, !0),
-            Zr.updateBadgeCount(e),
+            Gr.recordAll(Vr, e, t ? u : m, m, !0),
+            Gr.updateBadgeCount(e),
             {}
           );
-        l && (console.log(`OS: (PAGE_BLOCK) ${l}`), xn()),
-          Zr.postNativeExclusion(s),
-          Zr.recordAll($r, e, t ? u : m, m, !0),
-          Zr.updateBadgeCount(e);
+        l && (console.log(`OS: (PAGE_BLOCK) ${l}`), Pn()),
+          Gr.postNativeExclusion(s),
+          Gr.recordAll(Vr, e, t ? u : m, m, !0),
+          Gr.updateBadgeCount(e);
         const y = { site: s, type: r, subtype: n, date: Date.now() };
         return (
-          Or.addItem(y), An(r, n, s, t, T, d), console.log(`SCA: Redirecting ${s} to block page for ${r} detection`), En(e, a, s, r, n, o)
+          Br.addItem(y), vn(r, n, s, t, T, d), console.log(`SCA: Redirecting ${s} to block page for ${r} detection`), In(e, a, s, r, n, o)
         );
       }
-      function En(t, a, s, r, n, o) {
-        let i = Gt(a, s, r, n, t, o || void 0);
-        return t && "Edge" === zt() && e.chrome.tabs.update(t, { url: i }), { redirectUrl: i };
+      function In(t, a, s, r, n, o) {
+        let i = Ut(a, s, r, n, t, o || void 0);
+        return t && "Edge" === Kt() && e.chrome.tabs.update(t, { url: i }), { redirectUrl: i };
       }
-      function In(e, t, a) {
+      function Hn(e, t, a) {
         return (
           a &&
           t.some((e) => {
@@ -69068,29 +69206,29 @@
           })
         );
       }
-      function Hn(t, a, s, r, n) {
+      function Ln(t, a, s, r, n) {
         if (!r) return console.log("IDM: Not checking is detectable malware for missing database!"), !1;
-        if (Zr.ALWAYS_ALLOW[s[0]]) return console.debug("IDM: Skipped due to domain is in ALWAYS_ALLOW list"), !1;
+        if (Gr.ALWAYS_ALLOW[s[0]]) return console.debug("IDM: Skipped due to domain is in ALWAYS_ALLOW list"), !1;
         if (
           t &&
           (t.startsWith("chrome-extension://" + e.chrome.runtime.id) ||
             t.startsWith("moz-extension://" + e.chrome.i18n.getMessage("@@extension_id")))
         )
           return console.debug("IDM: Skipped a malware scan for own event page"), !1;
-        if (Zr.isProtectionActive(o, t, a, n)) {
-          if (In(0, s, r)) return !Zr.isWhitelistedMalware(a);
+        if (Gr.isProtectionActive(o, t, a, n)) {
+          if (Hn(0, s, r)) return !Gr.isWhitelistedMalware(a);
         } else console.log(`IDM: Determined no need to malware scan ${t} for ${a} (layer is inactive)`);
         return !1;
       }
-      async function Ln() {
+      async function Nn() {
         return new Promise((t) => {
           e.chrome.tabs.query({ active: !0, currentWindow: !0 }, (e) => {
             t(e[0].id);
           });
         });
       }
-      function Nn(e) {
-        if (!Zr.DATABASES) return;
+      function xn(e) {
+        if (!Gr.DATABASES) return;
         switch (e) {
           case "malware-pattern":
             e = "malware_patterns";
@@ -69098,49 +69236,49 @@
           case "full-url-malware":
             e = "malware_urls";
         }
-        const t = Zr.DATABASES[e];
+        const t = Gr.DATABASES[e];
         if (!t) return;
         const a = t.cleanName.charAt(0).toUpperCase() + t.cleanName.slice(1);
-        return Xe({ lastDBused: `${a}: ${t.version}` }), { [t.cleanName]: t.version };
+        return Qe({ lastDBused: `${a}: ${t.version}` }), { [t.cleanName]: t.version };
       }
-      function xn() {
+      function Pn() {
         let t;
-        Zr.DATABASES && (t = Object.keys(Zr.DATABASES).map((e) => ({ [e]: Zr.DATABASES[e].version })));
-        const a = { browser: ur(), version: e.chrome.runtime.getManifest().version, build: Zr.INTERNAL_VERSION, databases: t };
+        Gr.DATABASES && (t = Object.keys(Gr.DATABASES).map((e) => ({ [e]: Gr.DATABASES[e].version })));
+        const a = { browser: mr(), version: e.chrome.runtime.getManifest().version, build: Gr.INTERNAL_VERSION, databases: t };
         console.log(`ENV: ${JSON.stringify(a)}`);
       }
       e.chrome.runtime.onMessage.addListener((e, t, a) => {
-        if (Zr && Zr.READY_TO_ACCEPT_REQUESTS) {
+        if (Gr && Gr.READY_TO_ACCEPT_REQUESTS) {
           if (
             ("detection" === e.type &&
-              ("scam" === e.parameters.type && Zr.isDetectableScam(t.tab.url, e.parameters.url, t.tab.id)
+              ("scam" === e.parameters.type && Gr.isDetectableScam(t.tab.url, e.parameters.url, t.tab.id)
                 ? (a({ detect: !0 }),
-                  Xe({ lastDBused: null }),
-                  kn({
+                  Qe({ lastDBused: null }),
+                  En({
                     tabId: t.tab.id,
                     tabURL: e.parameters.url,
                     referrer: e.parameters.url,
                     url: e.parameters.url,
                     type: e.parameters.type,
                     subtype: e.parameters.subtype,
-                    rule: e.parameters.subtype && `${qr}${e.parameters.subtype}`
+                    rule: e.parameters.subtype && `${Xr}${e.parameters.subtype}`
                   }))
                 : a({ detect: !1 })),
             "isExcluded" === e.type)
           )
             if ((console.debug("BKG: Checking is-TSS-Excluded for ", e), "scam" === e.parameters.type)) {
               if (t.tab && t.tab.url) {
-                let s = Zr.isDetectableScam(t.tab.url, e.parameters.url, t.tab.id);
+                let s = Gr.isDetectableScam(t.tab.url, e.parameters.url, t.tab.id);
                 if (s) {
                   const s =
-                    Zr.isExcludedTemporarily(e.parameters.url, t.tab.id) || Zr.isExcludedTemporarilyForFullUrl(e.parameters.url, t.tab.id);
+                    Gr.isExcludedTemporarily(e.parameters.url, t.tab.id) || Gr.isExcludedTemporarilyForFullUrl(e.parameters.url, t.tab.id);
                   console.debug("BKG: checking is-TSS-ExcludedTemporarily: ", { message: e, excluded: s }), a({ excluded: s });
                 } else a({ excluded: !s });
               }
-            } else a({ excluded: Zr.isExcludedTemporarily(e.parameters.url, t.tab.id) });
+            } else a({ excluded: Gr.isExcludedTemporarily(e.parameters.url, t.tab.id) });
           if ("telemetryPhishingTunnel" === e.type) {
             const t = e.parameters.url;
-            Us("phishing", "tunnel", t, t, [], ""), a(!0);
+            $s("phishing", "tunnel", t, t, [], ""), a(!0);
           }
         } else console.log("REQ: Heuristic request deferred - extension is being initialized");
       }),
@@ -69151,7 +69289,7 @@
           { urls: ["<all_urls>"] },
           []
         ),
-        (Zr.onSuspiciousDownload = ({
+        (Gr.onSuspiciousDownload = ({
           tabId: t,
           tabURL: a,
           referrer: s,
@@ -69165,21 +69303,21 @@
           blockMessage: m
         }) => {
           const T = l ? "suspiciousContent" : "suspiciousDownload";
-          Xe({ lastDBused: null }),
-            kn({ tabId: t, tabURL: a, referrer: s, url: r, type: "scam", subtype: T, filename: n, rule: d || `${qr}${T}` });
-          let y = Gt(s, r, "scam", T, t, n);
-          if ((i && (y += "&rules=specific"), m && (console.log(`OSD: ${u} ${m}`), xn()), o))
+          Qe({ lastDBused: null }),
+            En({ tabId: t, tabURL: a, referrer: s, url: r, type: "scam", subtype: T, filename: n, rule: d || `${Xr}${T}` });
+          let y = Ut(s, r, "scam", T, t, n);
+          if ((i && (y += "&rules=specific"), m && (console.log(`OSD: ${u} ${m}`), Pn()), o))
             return console.debug("OSD: Redirecting download tab for scam"), { redirectUrl: y };
           console.debug("OSD: Creating download block tab for scam"), e.chrome.tabs.create({ url: y, active: !0 });
         }),
         e.chrome.downloads &&
           e.chrome.downloads.onCreated.addListener((e) => {
             e.url.startsWith("file://")
-              ? console.log("DLE: Skipping download event for apparent local file browsing: ", Dn[e.id] ? Dn[e.id] : e)
-              : e.url.startsWith(`blob:${tn}`)
+              ? console.log("DLE: Skipping download event for apparent local file browsing: ", An[e.id] ? An[e.id] : e)
+              : e.url.startsWith(`blob:${an}`)
               ? console.log("DLE: Skipping local extension download")
               : (new Date(e.startTime) > Date.now() - 3e4 &&
-                  ((Dn[e.id] = {
+                  ((An[e.id] = {
                     id: e.id,
                     date: e.startTime,
                     url: e.url,
@@ -69191,37 +69329,38 @@
                     danger: e.danger,
                     totalBytes: e.totalBytes
                   }),
-                  console.log("DLE: Download event: ", JSON.stringify(Dn[e.id]))),
-                vn(e.id));
+                  console.log("DLE: Download event: ", JSON.stringify(An[e.id]))),
+                wn(e.id));
           }),
         e.chrome.downloads &&
           e.chrome.downloads.onChanged.addListener((t) => {
             let a = t.id;
             console.log("DLC: Details have changed: ", JSON.stringify(t)),
-              Dn[a] && Dn[a].url && Dn[a].url.startsWith("file://")
-                ? console.log("DLC: Skipping download event for apparent local file download: ", Dn[a])
-                : !Dn[a] && (!t.url || (t.url.startsWith && t.url.startsWith("file://")))
+              An[a] && An[a].url && An[a].url.startsWith("file://")
+                ? console.log("DLC: Skipping download event for apparent local file download: ", An[a])
+                : !An[a] && (!t.url || (t.url.startsWith && t.url.startsWith("file://")))
                 ? console.log("DLC: Skipping download event for apparent local file details: ", JSON.stringify(t))
-                : t.url && t.url.startsWith(`blob:${tn}`)
+                : t.url && t.url.startsWith(`blob:${an}`)
                 ? console.log("DLC: Skipping local extension download")
-                : (t.url && t.url.current && (Dn[a].url = t.url.current),
-                  t.mime && t.mime.current && (Dn[a].mime = t.mime.current),
-                  t.filename && t.filename.current && (Dn[a].filename = t.filename.current),
-                  vn(a),
-                  t.state && "complete" === t.state.current && Dn[a].blocked && e.chrome.downloads.removeFile(a),
-                  !t.state || ("complete" !== t.state.current && "interrupted" !== t.state.current) || delete Dn[a]);
+                : (t.url && t.url.current && (An[a].url = t.url.current),
+                  t.mime && t.mime.current && (An[a].mime = t.mime.current),
+                  t.filename && t.filename.current && (An[a].filename = t.filename.current),
+                  wn(a),
+                  t.state && "complete" === t.state.current && An[a].blocked && e.chrome.downloads.removeFile(a),
+                  !t.state || ("complete" !== t.state.current && "interrupted" !== t.state.current) || delete An[a]);
           }),
-        (Zr.updateBadgeCount = (t) => {
+        (Gr.updateBadgeCount = (t) => {
           t &&
-            Zr.settingsGet(g).then((a) => {
+            Gr.TABS[t] &&
+            Gr.settingsGet(g).then((a) => {
               if ((console.debug("UBC: Block Count Enabled: ", a), !1 === a)) return;
               let s = 0;
-              const r = Zr.TABS[t].site.host,
-                n = Zr.TABS[t].blocked.ads[r],
-                o = Zr.TABS[t].blocked.scams[r],
-                i = Zr.TABS[t].blocked.malware[r],
-                d = Zr.TABS[t].blocked.content[r];
-              let l = Zr.EXCLUSION_INDIVIDUAL[r] || {};
+              const r = Gr.TABS[t].site ? Gr.TABS[t].site.host : "",
+                n = Gr.TABS[t].blocked.ads[r],
+                o = Gr.TABS[t].blocked.scams[r],
+                i = Gr.TABS[t].blocked.malware[r],
+                d = Gr.TABS[t].blocked.content[r];
+              let l = Gr.EXCLUSION_INDIVIDUAL[r] || {};
               [n, i, o, d].forEach((e) => {
                 for (let t in e)
                   if (!l[t]) {
@@ -69230,7 +69369,7 @@
                   }
               });
               let u = s.toString();
-              "Firefox" === zt() &&
+              "Firefox" === Kt() &&
                 (u = ((e) => {
                   if (e < 1e3) return e.toString();
                   const t = Math.floor(("" + e).length / 3);
@@ -69250,7 +69389,7 @@
                 })(t, u);
             });
         }),
-        (Zr.removeContextMenus = () =>
+        (Gr.removeContextMenus = () =>
           new Promise((t, a) => {
             e.chrome.contextMenus.removeAll(() => {
               e.chrome.runtime.lastError
@@ -69258,8 +69397,8 @@
                 : t();
             });
           })),
-        (Zr.createContextMenu = async () => {
-          await Zr.removeContextMenus();
+        (Gr.createContextMenu = async () => {
+          await Gr.removeContextMenus();
           const t = ["frame", "link"],
             a = e.chrome.contextMenus.create({ id: "mbbg_parent_context_menu", title: "Malwarebytes Browser Guard", contexts: t }),
             s = e.chrome.contextMenus.create({
@@ -69273,7 +69412,7 @@
             console.debug("CMN: Menu Item Clicked. Info -> ", t);
             const r = [];
             t.linkUrl && r.push(t.linkUrl), t.srcUrl && r.push(t.srcUrl);
-            const n = await Ln();
+            const n = await Nn();
             (async function (t) {
               const a = await (async function (t) {
                 return new Promise((a) => {
@@ -69288,26 +69427,26 @@
                   (e.chrome.action || e.chrome.browserAction).setBadgeBackgroundColor({ tabId: t, color: a });
                 }, 1e3);
             })(n).then(),
-              await Nr.blockItems(r);
-            for (let e of r) Zr.uncacheSafeness(n, e && e.split("?")[0]);
+              await xr.blockItems(r);
+            for (let e of r) Gr.uncacheSafeness(n, e && e.split("?")[0]);
             !t.srcUrl ||
               ("image" !== t.mediaType && "video" !== t.mediaType) ||
               ("image" === t.mediaType && e.chrome.webRequest.handlerBehaviorChanged(),
               e.chrome.tabs.sendMessage(n, { type: "blockMedia", mediaType: t.mediaType, src: t.srcUrl }));
           });
         }),
-        (Zr.recordContentAd = async (e) => {
-          e && (Zr.recordAll(Gr, e.tabId, Lt(e.tabUrl), "heuristic-ad-block", !0), Zr.updateBadgeCount(e.tabId));
+        (Gr.recordContentAd = async (e) => {
+          e && (Gr.recordAll(Ur, e.tabId, Nt(e.tabUrl), "heuristic-ad-block", !0), Gr.updateBadgeCount(e.tabId));
         }),
-        (Zr.recordEasylistAd = async (e) => {
-          e && (Zr.recordAll(Gr, e.tabId, Lt(e.tabUrl), "easylist-ad-block", !0), Zr.updateBadgeCount(e.tabId));
+        (Gr.recordEasylistAd = async (e) => {
+          e && (Gr.recordAll(Ur, e.tabId, Nt(e.tabUrl), "easylist-ad-block", !0), Gr.updateBadgeCount(e.tabId));
         }),
-        Zr.init;
-      const Pn = {
+        Gr.init;
+      const Fn = {
           currentSelectedWebsite: { hostData: "", rowId: "" },
           filter: "",
           onHistoryTab: async () => {
-            Pn.cleanModals(),
+            Fn.cleanModals(),
               Le(),
               a([
                 { id: "history-learn-more", msg: "detectionHistoryLearnMore" },
@@ -69322,7 +69461,7 @@
               ]),
               document.getElementById("history-include").classList.add(t),
               Ne(e.chrome.i18n.getMessage("detectionHistoryNavItem")),
-              await Pn.showContent();
+              await Fn.showContent();
           },
           cleanModals: () => {
             document.querySelectorAll(".ui.modal.delete-history-item").length > 1 &&
@@ -69344,16 +69483,16 @@
               $(".ui.modal.delete-history-item #yes-remove-history-item").off();
           },
           showContent: async () => {
-            Pn.cleanListeners();
+            Fn.cleanListeners();
             const e = await Pe(),
               t = document.getElementById("no-premium-page"),
               a = document.getElementById("premium-page");
             e
-              ? (t.remove(), (a.style.display = "inherit"), Pn.initPremiumContent())
+              ? (t.remove(), (a.style.display = "inherit"), Fn.initPremiumContent())
               : ((t.style.display = "inherit"),
                 a.remove(),
                 (document.getElementById("nav-premium-icon").style.display = "inherit"),
-                await Pn.initNonPremiumContent());
+                await Fn.initNonPremiumContent());
           },
           initPremiumContent: () => {
             (document.getElementById("premium-page").style.opacity = 1),
@@ -69369,10 +69508,10 @@
                 { id: "cancel-remove-all-history", msg: "detectionHistoryCancelRemove" },
                 { id: "yes-remove-all-history", msg: "detectionHistoryYesRemove" }
               ]),
-              Pn.initChips(),
-              Pn.generateTable(),
-              Pn.initHistoryClickListeners(),
-              Pn.addRowDeleteListener();
+              Fn.initChips(),
+              Fn.generateTable(),
+              Fn.initHistoryClickListeners(),
+              Fn.addRowDeleteListener();
           },
           initNonPremiumContent: async () => {
             document.getElementById("no-premium-page").style.opacity = 1;
@@ -69382,7 +69521,7 @@
               { id: "no-premium-first-card", msg: "detectionHistoryNonPremiumFirstCard" },
               { id: "no-premium-second-card", msg: "detectionHistoryNonPremiumSecondCard" }
             ]);
-            const s = await Zr.getNativeStatus();
+            const s = await Gr.getNativeStatus();
             t.textContent = s
               ? e.chrome.i18n.getMessage("detectionHistoryUpgrade")
               : e.chrome.i18n.getMessage("detectionHistoryGetPremium");
@@ -69395,7 +69534,7 @@
                   if (!e || e.error) s(new Error("Error calling MSG_DETECTION_HISTORY_GET_ALL: " + (e ? e.error : "No response received")));
                   else {
                     e.success.forEach((e) => {
-                      Pn.hasValidValues(e) && Pn.addHistoryItemDataAsTableRow(t, e.date, e), a();
+                      Fn.hasValidValues(e) && Fn.addHistoryItemDataAsTableRow(t, e.date, e), a();
                     });
                     const s = document.querySelectorAll("#history-include .premium-page .history-table table tbody tr:not(.hidden)"),
                       r = s[s.length - 1];
@@ -69414,9 +69553,9 @@
                 const t = e.target.dataset.chip;
                 if (
                   (e.target.classList.contains("active")
-                    ? (e.target.classList.remove("active"), (Pn.filter = ""))
-                    : (Pn.cleanChips(), e.target.classList.add("active"), (Pn.filter = t)),
-                  "malware" === Pn.filter || "scam" === Pn.filter)
+                    ? (e.target.classList.remove("active"), (Fn.filter = ""))
+                    : (Fn.cleanChips(), e.target.classList.add("active"), (Fn.filter = t)),
+                  "malware" === Fn.filter || "scam" === Fn.filter)
                 ) {
                   const e = document.querySelector("#history-include .premium-page .history-table"),
                     t = 1;
@@ -69436,7 +69575,7 @@
                     s.length > t && s[t].classList.remove("malware-filter");
                   }
                 }
-                Pn.onSearch();
+                Fn.onSearch();
               });
             });
           },
@@ -69450,7 +69589,7 @@
           },
           onSearch: () => {
             let e = 0;
-            const t = Pn.filter;
+            const t = Fn.filter;
             $(".history-table").css("overflow-y", "auto"),
               $(".history-table table tbody tr").each((a, s) => {
                 "" !== t
@@ -69459,7 +69598,7 @@
                       .find("td.detection-type-" + t)
                       .each((a, r) => (e++, console.debug("showing row because of: " + t), $(s).removeClass("hidden"), !1)))
                   : $(s).removeClass("hidden"),
-                  Pn.setNewLastItem();
+                  Fn.setNewLastItem();
               });
             const a = $(".history-table table tbody tr td.site-column:not(.hidden)");
             "malware" === t || "scam" === t
@@ -69469,10 +69608,10 @@
               : a.each((e, t) => {
                   t.textContent = t.dataset.tooltip ? je(t.dataset.tooltip) : je(t.textContent);
                 }),
-              Pn.toggleEmptySearchMessage(0 === e);
+              Fn.toggleEmptySearchMessage(0 === e);
           },
           toggleEmptySearchMessage: (e) => {
-            e && "" !== Pn.filter
+            e && "" !== Fn.filter
               ? ($("#history-empty-search-footer").removeClass("hidden"),
                 $(".history-list-no-results-box").removeClass("hidden"),
                 $(".history-list-no-items-box").addClass("hidden"),
@@ -69482,7 +69621,7 @@
               : ($("#history-empty-search-footer").addClass("hidden"),
                 $(".history-list-no-results-box").addClass("hidden"),
                 $("#history-empty-search-footer").css("display", "none"),
-                Pn.checkEmptyView());
+                Fn.checkEmptyView());
           },
           checkEmptyView: () => {
             $(".history-table table.ui.table tbody tr").length < 1 &&
@@ -69500,7 +69639,7 @@
                 $(".ui.modal.delete-history-window.all").modal("hide");
               }),
               $("#yes-remove-all-history").on("click", () => {
-                Pn.removeAllHistory(),
+                Fn.removeAllHistory(),
                   $(".ui.modal.delete-history-window.all").modal("hide"),
                   $(".remove.all.snackbar").css({ visibility: "visible", opacity: "1" }),
                   setTimeout(() => {
@@ -69525,19 +69664,19 @@
           },
           removeAllHistory: () => {
             $(".history-table table tbody tr").each((e, t) => {
-              Pn.setLoadingState(t.id);
+              Fn.setLoadingState(t.id);
             }),
               e.chrome.runtime.sendMessage({ type: ue }, function (e) {
                 !e || e.error
                   ? ($(".history-table table tbody tr").each((e, t) => {
-                      Pn.setLoadingState(t.id);
+                      Fn.setLoadingState(t.id);
                     }),
                     $(".error.history.snackbar").css({ visibility: "visible", opacity: "1" }),
                     setTimeout(() => {
                       $(".error.history.snackbar").css({ visibility: "hidden", opacity: "0" });
                     }, 2e3))
                   : $(".history-table table tbody tr").each((e, t) => {
-                      $(t).remove(), Pn.checkEmptyView();
+                      $(t).remove(), Fn.checkEmptyView();
                     });
               });
           },
@@ -69568,7 +69707,7 @@
             a([{ id: `open-remove-item-modal-${t}`, msg: "deleteWebsiteModalOption" }]),
               $(`#delete-item-${t}`).dropdown(),
               $(`#open-remove-item-modal-${t}`).on("click", () => {
-                (Pn.currentSelectedWebsite = { hostData: s, rowId: t }), $(".ui.modal.delete-history-item").modal("show");
+                (Fn.currentSelectedWebsite = { hostData: s, rowId: t }), $(".ui.modal.delete-history-item").modal("show");
               }),
               s.length > 22
                 ? (d.attr("data-tooltip", `${s.slice(0, 70)}${s.length > 70 ? "..." : ""}`),
@@ -69579,11 +69718,11 @@
           },
           addRowDeleteListener: () => {
             $(".ui.modal.delete-history-item #yes-remove-history-item").on("click", (e) => {
-              Pn.deleteHistoryItem();
+              Fn.deleteHistoryItem();
             });
           },
           deleteHistoryItem: () => {
-            const { hostData: t, rowId: a } = Pn.currentSelectedWebsite;
+            const { hostData: t, rowId: a } = Fn.currentSelectedWebsite;
             e.chrome.runtime.sendMessage({ type: me, payload: { host: t, rowId: a } }, function (e) {
               !e || e.error
                 ? (console.log("ERROR:", e.error),
@@ -69596,12 +69735,12 @@
                   setTimeout(() => {
                     $(".remove.item.snackbar").css({ visibility: "hidden", opacity: "0" });
                   }, 2e3),
-                  Pn.checkEmptyView());
+                  Fn.checkEmptyView());
             });
           }
         },
-        Fn = Pn.onHistoryTab,
-        jn = {
+        jn = Fn.onHistoryTab,
+        Yn = {
           populateFilter: (e, t, a, s, r) => {
             let n = $(e);
             n.removeClass("loader");
@@ -69613,7 +69752,7 @@
                 o.find(".premium-lock").hide(),
                 i.find(".premium-lock").hide(),
                 o.on("click", (e) => {
-                  o.hasClass("active") || ($(".card.active").removeClass("active"), o.addClass("active")), jn.onDrawLineChart(s, r);
+                  o.hasClass("active") || ($(".card.active").removeClass("active"), o.addClass("active")), Yn.onDrawLineChart(s, r);
                 }))
               : (o.addClass("locked-by-premium"),
                 o.find(".premium-lock").show(),
@@ -69633,7 +69772,7 @@
               t.startsWith("/") && (t = t.substring(1)), $(".stats-chart-icon").attr("src", "assets/" + t + ".svg");
             } else (s = e.chrome.i18n.getMessage("statsItemsBlocked")), (r = 0), $(".stats-chart-icon").attr("src", "assets/ads.svg");
             $("#stats-chart-title").text(s),
-              (a = jn.freshChart(a)).data.datasets.forEach((e) => {
+              (a = Yn.freshChart(a)).data.datasets.forEach((e) => {
                 t.forEach((t) => {
                   a.data.labels.push(t[0]), e.data.push(t[r + 1]);
                 });
@@ -69664,19 +69803,19 @@
                   } else l.push(["No Data", 0, 0, 0, 0, 0]);
                 });
             }
-            let u = jn.freshChart(null);
-            jn.onDrawLineChart(l, u),
-              jn.populateFilter(".stats-ads .value", n, !0, l, u),
-              jn.populateFilter(".stats-malware .value", o, !0, l, u),
-              jn.populateFilter(".stats-scams .value", i, !0, l, u),
-              jn.populateFilter(".stats-content .value", d, e, l, u);
+            let u = Yn.freshChart(null);
+            Yn.onDrawLineChart(l, u),
+              Yn.populateFilter(".stats-ads .value", n, !0, l, u),
+              Yn.populateFilter(".stats-malware .value", o, !0, l, u),
+              Yn.populateFilter(".stats-scams .value", i, !0, l, u),
+              Yn.populateFilter(".stats-content .value", d, e, l, u);
           },
           freshChart: () => {
             const e = window.matchMedia("(prefers-color-scheme: dark)").matches;
             null != window.chartBar && (window.chartBar.destroy(), (window.chartBar = null));
             let t = document.getElementById("stats-chart").getContext("2d");
             return (
-              (window.chartBar = new (Ca())(t, {
+              (window.chartBar = new (ka())(t, {
                 type: "line",
                 data: {
                   labels: [],
@@ -69734,7 +69873,7 @@
             $(".stats-chart-range-filter").dropdown({
               onChange: function (e, t, a) {
                 let s = e.split(", ");
-                jn.onChangeRangeFilter(s[0], s[1]);
+                Yn.onChangeRangeFilter(s[0], s[1]);
               }
             }),
               $(".stats-chart-range-filter").on("click", () => {
@@ -69746,36 +69885,36 @@
               });
           },
           checkIfOldUser: async () => {
-            const e = await Zr.getInstallationDate();
+            const e = await Gr.getInstallationDate();
             if (null == e) {
               const e = Date.today().addDays(-30).toString("MMM d yyyy");
-              Zr.setInstallationDate(e), Zr.roll30DaysStats();
+              Gr.setInstallationDate(e), Gr.roll30DaysStats();
             } else console.debug("STATS: User installation date:", e);
           },
           onChangeRangeFilter: async (e, t) => {
-            jn.drawLineChart(!0, { ads: 0, malwares: 0, scams: 0, content: 0 }, "", { ads: 0, malwares: 0, scams: 0, content: 0 }),
+            Yn.drawLineChart(!0, { ads: 0, malwares: 0, scams: 0, content: 0 }, "", { ads: 0, malwares: 0, scams: 0, content: 0 }),
               (1 == e || (7 == e && 1 == t)) && e--;
             let s = Date.today()
                 .addDays(-1 * e)
                 .toString("MMM d yyyy"),
               r = Date.today().toString("MMM d yyyy");
             if ("all-time" === e) {
-              const e = await Zr.getInstallationDate();
-              (await Zr.getIsOldUser()) &&
+              const e = await Gr.getInstallationDate();
+              (await Gr.getIsOldUser()) &&
                 (a([{ id: "all-time-stats-tooltip-txt", msg: "allTimeStatisticsTooltipTxt" }]),
                 (document.getElementById("all-time-stats-start-date").textContent = e.replace(/^(\S+\s+\S+)\s+/, "$1, ")),
                 (document.getElementById("chart-all-time-stats-info").style.display = "block")),
                 (s = e);
             } else document.getElementById("chart-all-time-stats-info").style.display = "none";
-            jn.getRecords(
+            Yn.getRecords(
               (a, n, o) => {
                 if ("all-time" === e) {
                   document.getElementById("chart-not-available").style.display = "flex";
                   const e = s.replace(/\b\w+\s*$/, ""),
                     t = r.replace(/\b\w+\s*$/, "");
-                  "Firefox" === zt()
-                    ? jn.drawLineChart(a, { [t]: "Today", [e]: "Installation Date" }, o, n)
-                    : jn.drawLineChart(a, { [e]: "Installation Date", [t]: "Today" }, o, n);
+                  "Firefox" === Kt()
+                    ? Yn.drawLineChart(a, { [t]: "Today", [e]: "Installation Date" }, o, n)
+                    : Yn.drawLineChart(a, { [e]: "Installation Date", [t]: "Today" }, o, n);
                 } else {
                   let e;
                   document.getElementById("chart-not-available").style.display = "none";
@@ -69822,7 +69961,7 @@
                         console.debug("CRF: New key day: " + d + ": ", l);
                     e[d + t] = l;
                   }
-                  console.debug("CRF: Adjusted records: ", e), jn.drawLineChart(a, e, o, { ads: r, malwares: i, scams: d, content: l });
+                  console.debug("CRF: Adjusted records: ", e), Yn.drawLineChart(a, e, o, { ads: r, malwares: i, scams: d, content: l });
                 }
               },
               (e) => console.error(e),
@@ -69849,7 +69988,7 @@
               });
           },
           maybeHideScams: () => {
-            if (!na()) return;
+            if (!oa()) return;
             const e = document.querySelector("#scams-card");
             e && e.remove();
           },
@@ -69866,7 +70005,7 @@
                 document.getElementById("content-learn-more").addEventListener("click", () => {
                   window.open("https://links.malwarebytes.com/support/mbbg/content-control", "_blank");
                 });
-              const a = await Zr.getNativeStatus();
+              const a = await Gr.getNativeStatus();
               t.textContent = a ? e.chrome.i18n.getMessage("contentControlUpgrade") : e.chrome.i18n.getMessage("contentControlGetPremium");
             }
           },
@@ -69875,9 +70014,9 @@
               document.querySelector(".ui.modal.get-premium-modal").remove();
           },
           hideContentControlCard: () => {
-            Zt().then((e) => {
+            Gt().then((e) => {
               "win" === e
-                ? jn.initModalControls()
+                ? Yn.initModalControls()
                 : (document.getElementById("stats-content-control-card").remove(),
                   document.querySelectorAll("#statistics-include .stats-filters.ui.grid>.card.column ").forEach((e) => {
                     e.classList.add("mac-view");
@@ -69888,8 +70027,8 @@
           },
           onStatisticsTab: () => {
             He(),
-              jn.maybeHideScams(),
-              jn.cleanModals(),
+              Yn.maybeHideScams(),
+              Yn.cleanModals(),
               a([
                 { id: "stats-this-week", msg: "statsThisWeek" },
                 { id: "stats-today", msg: "statsToday" },
@@ -69903,11 +70042,11 @@
                 { id: "content-learn-more", msg: "contentControlLearnMore" },
                 { id: "chart-not-available-txt", msg: "statsChartNoAvailable" }
               ]),
-              jn.checkIfOldUser(),
-              jn.hideContentControlCard(),
-              jn.initRangeFilter(),
-              jn.onChangeRangeFilter(7, 1),
-              Zr.connectNative(),
+              Yn.checkIfOldUser(),
+              Yn.hideContentControlCard(),
+              Yn.initRangeFilter(),
+              Yn.onChangeRangeFilter(7, 1),
+              Gr.connectNative(),
               $(".statistic.history-container.item").tab({
                 cache: !1,
                 evaluateScripts: !0,
@@ -69918,7 +70057,7 @@
                   }
                 },
                 onLoad: () => {
-                  Fn();
+                  jn();
                 }
               }),
               window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
@@ -69936,8 +70075,8 @@
               });
           }
         },
-        Yn = jn.onStatisticsTab,
-        On = (t) => {
+        On = Yn.onStatisticsTab,
+        Bn = (t) => {
           const a = t.target;
           a.classList.add("disabled"),
             (a.disabled = !0),
@@ -69948,13 +70087,13 @@
                       t ? JSON.stringify(t.error) : e.chrome.runtime.lastError ? JSON.stringify(e.chrome.runtime.lastError.message) : "🤷‍♂️"
                     }`
                   )
-                : oa(t.data),
+                : ia(t.data),
                 setTimeout(() => {
                   a.classList.remove("disabled"), (a.disabled = !1);
                 }, 950);
             });
         },
-        Bn = async () => {
+        Wn = async () => {
           const t = document.getElementById("update-button"),
             a = t.getElementsByTagName("p")[0];
           a.textContent = e.chrome.i18n.getMessage("supportCheckForUpdatesIP");
@@ -69988,24 +70127,24 @@
                   n.disconnect());
             });
         },
-        Wn = () => Array.from(document.getElementsByClassName("column")).forEach((e = {}) => (e.classList = "eight wide column")),
-        Rn = {},
-        Jn = { empty: e.chrome.i18n.getMessage("noBlocks"), paused: e.chrome.i18n.getMessage("protectionPaused") };
-      let zn = { "toggle-ads": null, "toggle-malware": null, "toggle-scams": null };
-      Rn.currentScreen = "";
-      const Kn = (e, t) => {
-        if (((zn = { ...zn, [e]: t }), Object.keys(zn).every((e) => !zn[e]))) return "pause" !== Rn.currentScreen && Rn.showPauseScreen();
+        Rn = () => Array.from(document.getElementsByClassName("column")).forEach((e = {}) => (e.classList = "eight wide column")),
+        Jn = {},
+        zn = { empty: e.chrome.i18n.getMessage("noBlocks"), paused: e.chrome.i18n.getMessage("protectionPaused") };
+      let Kn = { "toggle-ads": null, "toggle-malware": null, "toggle-scams": null };
+      Jn.currentScreen = "";
+      const Zn = (e, t) => {
+        if (((Kn = { ...Kn, [e]: t }), Object.keys(Kn).every((e) => !Kn[e]))) return "pause" !== Jn.currentScreen && Jn.showPauseScreen();
         document.querySelector(".container-stats-summary-count").textContent > 0
-          ? "blocks" !== Rn.currentScreen && Rn.showBlockCountScreen(!0)
-          : "empty" !== Rn.currentScreen && Rn.showNoDetectionScreen();
+          ? "blocks" !== Jn.currentScreen && Jn.showBlockCountScreen(!0)
+          : "empty" !== Jn.currentScreen && Jn.showNoDetectionScreen();
       };
-      (Rn.enableToggles = async (e, t) => {
+      (Jn.enableToggles = async (e, t) => {
         $("#website-include .checkbox").checkbox(),
-          Rn.linkCheckboxToAllowList("toggle-ads", e, t, d),
-          Rn.linkCheckboxToAllowList("toggle-malware", e, t, o),
-          na() || Rn.linkCheckboxToAllowList("toggle-scams", e, t, i);
+          Jn.linkCheckboxToAllowList("toggle-ads", e, t, d),
+          Jn.linkCheckboxToAllowList("toggle-malware", e, t, o),
+          oa() || Jn.linkCheckboxToAllowList("toggle-scams", e, t, i);
       }),
-        (Rn.constToInt = (e) => {
+        (Jn.constToInt = (e) => {
           switch (e) {
             case i:
               return 6;
@@ -70016,25 +70155,25 @@
           }
           return -1;
         }),
-        (Rn.linkCheckboxToAllowList = async (t, a, s, r) => {
+        (Jn.linkCheckboxToAllowList = async (t, a, s, r) => {
           let n = document.getElementById(t);
           (n.checked = !1),
             await new Promise((a, o) => {
               e.chrome.runtime.sendMessage({ type: k, payload: { const: r, url: s } }, function (e) {
                 !e || e.error
                   ? o(new Error("Error calling MSG_WEBSITE_CHECKBOX_GET: " + (e ? e.error : "No response received")))
-                  : ((n.checked = e.success), Kn(t, e.success), a());
+                  : ((n.checked = e.success), Zn(t, e.success), a());
               });
             });
           let o = !1;
           await ke((e) => {
-            (o = !1 === e), $(n).prop("disabled", o), o && Kn(t, e), Ie(n), Rn.linkCheckboxToEvents(a, n, r);
+            (o = !1 === e), $(n).prop("disabled", o), o && Zn(t, e), Ie(n), Jn.linkCheckboxToEvents(a, n, r);
           });
         }),
-        (Rn.linkCheckboxToEvents = (t, a, s) => {
+        (Jn.linkCheckboxToEvents = (t, a, s) => {
           $(a).on("change", async () => {
             new Promise((r, n) => {
-              let o = kt(t);
+              let o = Et(t);
               a.checked
                 ? e.chrome.runtime.sendMessage(
                     { type: B, payload: { host: o, exclusion: s, override: !0, originalHost: t } },
@@ -70047,32 +70186,32 @@
                   });
             })
               .then((e) => {
-                console.debug("Successfully toggled Allow List for " + s), Kn(a.id, a.checked);
+                console.debug("Successfully toggled Allow List for " + s), Zn(a.id, a.checked);
               })
               .catch((e) => {
-                (a.checked = !1), Ie(a), Kn(a.id, a.checked), console.error("Failed to toggle Allow List for " + s, e);
+                (a.checked = !1), Ie(a), Zn(a.id, a.checked), console.error("Failed to toggle Allow List for " + s, e);
               }),
               Ae();
           });
         }),
-        (Rn.showPauseScreen = () => {
+        (Jn.showPauseScreen = () => {
           (document.querySelector(".container-stats-summary").style.display = "none"),
             (document.getElementById("container-stats-no-chart-blue").style.display = "none"),
             (document.getElementById("container-stats-no-chart-green").style.display = "none"),
             (document.getElementById("container-stats-pause").style.display = "block");
           const e = document.querySelector(".blocks-count-result .empty");
-          if (e) (e.textContent = Jn.paused), (document.getElementById("mb-block-result").style.display = "none");
+          if (e) (e.textContent = zn.paused), (document.getElementById("mb-block-result").style.display = "none");
           else {
             const e = document.createElement("span");
             e.classList.add("ui", "empty"),
-              (e.textContent = Jn.paused),
+              (e.textContent = zn.paused),
               document.querySelector(".ad-list").appendChild(e),
               (document.getElementById("mb-block-result").style.display = "none"),
               document.querySelectorAll("#blocked-list .item").forEach((e) => (e.style.display = "none"));
           }
-          Rn.currentScreen = "pause";
+          Jn.currentScreen = "pause";
         }),
-        (Rn.showBlockCountScreen = (e) => {
+        (Jn.showBlockCountScreen = (e) => {
           if (
             ((document.querySelector(".container-stats-summary").style.display = "block"),
             (document.getElementById("container-stats-no-chart-blue").style.display = "inline"),
@@ -70092,9 +70231,9 @@
                 ? $("#website-include .blocked-list-container").css("height", 240)
                 : $("#website-include .blocked-list-container").css("height", 190);
           }
-          Rn.currentScreen = "blocks";
+          Jn.currentScreen = "blocks";
         }),
-        (Rn.showNoDetectionScreen = () => {
+        (Jn.showNoDetectionScreen = () => {
           (document.querySelector(".container-stats-summary").style.display = "block"),
             (document.querySelector(".container-stats-summary-count").style.color = "#8ED788"),
             (document.getElementById("container-stats-no-chart-blue").style.display = "none"),
@@ -70102,15 +70241,15 @@
             (document.getElementById("container-stats-no-chart-green").style.display = "inline"),
             (document.getElementById("mb-block-result").style.display = "none");
           const e = document.querySelector(".blocks-count-result .empty");
-          e && (e.textContent = Jn.empty), (Rn.currentScreen = "empty");
+          e && (e.textContent = zn.empty), (Jn.currentScreen = "empty");
         }),
-        (Rn.updateTotals = (e) => {
+        (Jn.updateTotals = (e) => {
           ke((t) => {
             (document.querySelector(".container-stats-summary-count").textContent = e),
-              !1 === t ? Rn.showPauseScreen() : e > 0 ? Rn.showBlockCountScreen() : Rn.showNoDetectionScreen();
+              !1 === t ? Jn.showPauseScreen() : e > 0 ? Jn.showBlockCountScreen() : Jn.showNoDetectionScreen();
           });
         }),
-        (Rn.adListItem = (t, a, s, r, n) => {
+        (Jn.adListItem = (t, a, s, r, n) => {
           let o;
           switch (r) {
             case "heuristic-ad-block":
@@ -70134,16 +70273,16 @@
             "granularTrustText"
           )}">\n                <img id="allowed-icon-${a}" \n                    src="assets/allow-icon.svg" class="allow-toggle-button hidden" alt="allow-icon" />\n            </label>\n            </div>\n            <div class="ui dropdown custom blocks-menu">\n                <img src="assets/ellipsis-vertical.svg" class="ellipsis vertical icon" alt="ellipsis-vertical-icon" />\n                <div class="menu">\n                    <div id="allow-site-${a}" class="item allow-option">\n                        <img id="blocked-icon-${a}"\n                             src="assets/allow-icon.svg" class = "allow-button" alt="block-icon" />\n                        <span id="allow-website-option-${a}"></span>\n                    </div>\n                    <div id="block-site-${a}" class="item block-option" style='display:none'>\n                        <img id="blocked-icon-${a}" \n                            src="assets/cancel-icon.svg" class = "block-button" alt="block-icon" />\n                        <span id="block-website-option-${a}"></span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>`;
         }),
-        (Rn.hideLabel = (e) => {
+        (Jn.hideLabel = (e) => {
           e && e.classList.add("byee");
         }),
-        (Rn.showLabel = (e) => {
+        (Jn.showLabel = (e) => {
           e && e.classList.remove("byee");
         }),
-        (Rn.shouldClearOutTotals = () =>
+        (Jn.shouldClearOutTotals = () =>
           (document.querySelectorAll("#blocked-list img.block-button.hidden") || []).length ===
           (document.querySelectorAll("#blocked-list img.allow-toggle-button") || []).length),
-        (Rn.linkCheckboxToGranularAllowList = (t, a, s) => {
+        (Jn.linkCheckboxToGranularAllowList = (t, a, s) => {
           const r = document.getElementById(`allow-site-${t}`),
             n = document.getElementById(`block-site-${t}`),
             o = document.querySelector(`#ad-list-ad-${t} .label`);
@@ -70158,30 +70297,30 @@
                   $(`#allowed-icon-${t}`).removeClass("hidden"),
                   (document.getElementById(`block-site-${t}`).style.display = "block"),
                   $(`#blocked-icon-${t}`).addClass("hidden"),
-                  Rn.hideLabel(o),
-                  Rn.shouldClearOutTotals() && Rn.updateTotals(0))
+                  Jn.hideLabel(o),
+                  Jn.shouldClearOutTotals() && Jn.updateTotals(0))
                 : ((document.getElementById(`allow-site-${t}`).style.display = "block"),
                   $(`#allowed-icon-${t}`).addClass("hidden"),
                   (document.getElementById(`block-site-${t}`).style.display = "none"),
                   $(`#blocked-icon-${t}`).removeClass("hidden"),
-                  Rn.showLabel(o));
+                  Jn.showLabel(o));
             }),
-            Rn.linkGranularBtnSetMsg(r, { url: a, blockUrl: s, value: !0 }, () => {
-              Rn.hideLabel(o),
+            Jn.linkGranularBtnSetMsg(r, { url: a, blockUrl: s, value: !0 }, () => {
+              Jn.hideLabel(o),
                 (document.getElementById(`allow-site-${t}`).style.display = "none"),
                 $(`#allowed-icon-${t}`).removeClass("hidden"),
                 (document.getElementById(`block-site-${t}`).style.display = "block"),
                 $(`#blocked-icon-${t}`).addClass("hidden");
             }),
-            Rn.linkGranularBtnSetMsg(n, { url: a, blockUrl: s, value: !1 }, () => {
-              Rn.showLabel(o),
+            Jn.linkGranularBtnSetMsg(n, { url: a, blockUrl: s, value: !1 }, () => {
+              Jn.showLabel(o),
                 (document.getElementById(`allow-site-${t}`).style.display = "block"),
                 $(`#allowed-icon-${t}`).addClass("hidden"),
                 (document.getElementById(`block-site-${t}`).style.display = "none"),
                 $(`#blocked-icon-${t}`).removeClass("hidden");
             });
         }),
-        (Rn.linkGranularBtnSetMsg = (t, a, s) => {
+        (Jn.linkGranularBtnSetMsg = (t, a, s) => {
           t.addEventListener("click", () => {
             e.chrome.runtime.sendMessage({ type: F, payload: a }, (e) => {
               console.debug(`RESP: ${JSON.stringify(e)} FOR: ${JSON.stringify(a)}`),
@@ -70190,8 +70329,8 @@
             });
           });
         }),
-        (Rn.sanitizeLink = (e) => e.replace(/[<>]/g, "")),
-        (Rn.prepareLists = (e, t, s, r, n, o, i) => {
+        (Jn.sanitizeLink = (e) => e.replace(/[<>]/g, "")),
+        (Jn.prepareLists = (e, t, s, r, n, o, i) => {
           let d = !1,
             l = 0,
             u = 0;
@@ -70205,29 +70344,29 @@
                   d = !0;
                   let r = 0;
                   i[s] || ((r = e[s]), (u += r));
-                  const n = Rn.sanitizeLink(s);
-                  m.insertAdjacentHTML("beforeend", Rn.adListItem(e, l, r, n, T)),
+                  const n = Jn.sanitizeLink(s);
+                  m.insertAdjacentHTML("beforeend", Jn.adListItem(e, l, r, n, T)),
                     $(`#blocked-on-site-${l}`).popup({ position: "top right" }),
                     $(`#allowed-on-site-${l}`).popup({ position: "top right" }),
                     a([
                       { id: `allow-website-option-${l}`, msg: "allowWebsiteOption" },
                       { id: `block-website-option-${l}`, msg: "blockWebsiteOption" }
                     ]),
-                    Rn.linkCheckboxToGranularAllowList(l, t, s),
+                    Jn.linkCheckboxToGranularAllowList(l, t, s),
                     l++;
                 }
             }),
             d
               ? $(".blocks-count-result .empty").remove()
-              : $(".blocks-count-result #ui-empty-container").append(`<span class="ui empty">${Jn.empty}</span>`),
+              : $(".blocks-count-result #ui-empty-container").append(`<span class="ui empty">${zn.empty}</span>`),
             u
           );
         }),
-        (Rn.assignName = (e) => {
+        (Jn.assignName = (e) => {
           let t = $(".website-name");
           t.removeClass("loader"), t.text(((e, t = 2048) => (e.length > t ? e.substr(0, t - 1) + "..." : e))(e, 255));
         }),
-        (Rn.humanReadable = (t) =>
+        (Jn.humanReadable = (t) =>
           "full-url-malware" === t
             ? "malware"
             : "suspiciousPage" === t
@@ -70257,7 +70396,7 @@
             : "printLoop" === t
             ? e.chrome.i18n.getMessage("humanReadableSubTypePrintLoop")
             : t),
-        (Rn.sharedSwitchToTabs = () => {
+        (Jn.sharedSwitchToTabs = () => {
           $(".mb-current-website-tab span").text(e.chrome.i18n.getMessage("currentWebsiteNavItem")),
             $(".back-span").css("display", "none"),
             $("#nav-premium-icon").css("display", "none"),
@@ -70269,21 +70408,21 @@
             $(".header-container-tabs .first-tab").addClass("mb-tabs"),
             $(".header-container-tabs .first-tab").removeClass("mb-dynamic-tab"),
             $("#dashboard-stats-tab").css("display", "flex"),
-            Zt().then((e) => {
+            Gt().then((e) => {
               "mac" === e
                 ? ($("#dashboard-upsell-tab").css("display", "none"), $(".mb-tabs").width(244))
                 : ($("#dashboard-upsell-tab").css("display", "flex"), $(".mb-tabs").width(152));
             }),
             $(".mb-stats-tab").removeClass("hidden");
         }),
-        (Rn.maybeHideScamsToggle = () => {
-          if (!na()) return;
+        (Jn.maybeHideScamsToggle = () => {
+          if (!oa()) return;
           const e = document.querySelector("#toggle-scams-item");
           e && e.remove();
         }),
-        (Rn.onWebsiteTab = () => {
+        (Jn.onWebsiteTab = () => {
           He(),
-            Rn.maybeHideScamsToggle(),
+            Jn.maybeHideScamsToggle(),
             a([
               { id: "cr-warning", msg: "warning" },
               { id: "cr-warning-text", msg: "currentWebsiteWarning" },
@@ -70291,11 +70430,11 @@
               { id: "cr-protection-header", msg: "currentWebsiteProtectionHeader" },
               { id: "cr-loading-header", msg: "loading" },
               { id: "cr-total", msg: "total" },
-              { id: "block-type-l1", msg: na() ? "blockTypesSummaryLine1_Mv3" : "blockTypesSummaryLine1" },
-              { id: "block-type-l2", msg: na() ? "blockTypesSummaryLine2_Mv3" : "blockTypesSummaryLine2" },
+              { id: "block-type-l1", msg: oa() ? "blockTypesSummaryLine1_Mv3" : "blockTypesSummaryLine1" },
+              { id: "block-type-l2", msg: oa() ? "blockTypesSummaryLine2_Mv3" : "blockTypesSummaryLine2" },
               { id: "cr-cannot", msg: "cantEvaluate" }
             ]),
-            Rn.sharedSwitchToTabs(),
+            Jn.sharedSwitchToTabs(),
             $("#website-include .valid-data").hide(),
             $("#website-include .invalid-data").hide(),
             Fe(
@@ -70303,9 +70442,9 @@
                 if (t.isValid) {
                   $("#website-include .valid-data").show(),
                     $("#website-include .invalid-data").hide(),
-                    Rn.enableToggles(t.host, t.url),
-                    Rn.assignName(t.host);
-                  let e = Rn.prepareLists(
+                    Jn.enableToggles(t.host, t.url),
+                    Jn.assignName(t.host);
+                  let e = Jn.prepareLists(
                     t.host,
                     t.url,
                     t.blocked.ads[t.host],
@@ -70314,13 +70453,13 @@
                     t.blocked.content[t.host],
                     t.excluded
                   );
-                  Rn.updateTotals(e);
+                  Jn.updateTotals(e);
                 } else if (
                   ($("#website-include .valid-data").hide(),
                   $("#website-include .invalid-data").show(),
                   t.pageType === pe && t.redirectSubType)
                 )
-                  Rn.assignName(`${t.host} (${e.chrome.i18n.getMessage("blockedFor")} ${Rn.humanReadable(t.redirectSubType)})`),
+                  Jn.assignName(`${t.host} (${e.chrome.i18n.getMessage("blockedFor")} ${Jn.humanReadable(t.redirectSubType)})`),
                     $("#website-include .invalid-data-blocked").removeClass("hidden"),
                     $("#website-include .invalid-data-system").addClass("hidden");
                 else
@@ -70330,22 +70469,22 @@
                     t.pageType)
                   ) {
                     case "BROWSER_GUARD":
-                      Rn.assignName("Malwarebytes Browser Guard");
+                      Jn.assignName("Malwarebytes Browser Guard");
                       break;
                     case "EXTENSION":
-                      Rn.assignName(e.chrome.i18n.getMessage("extensionPage"));
+                      Jn.assignName(e.chrome.i18n.getMessage("extensionPage"));
                       break;
                     case "BLANK_NEW_TAB":
-                      Rn.assignName(e.chrome.i18n.getMessage("newTab"));
+                      Jn.assignName(e.chrome.i18n.getMessage("newTab"));
                       break;
                     case "SYSTEM":
-                      Rn.assignName(e.chrome.i18n.getMessage("systemPage"));
+                      Jn.assignName(e.chrome.i18n.getMessage("systemPage"));
                       break;
                     case "CHROME_WEBSTORE":
-                      Rn.assignName(e.chrome.i18n.getMessage("webstorePage"));
+                      Jn.assignName(e.chrome.i18n.getMessage("webstorePage"));
                       break;
                     default:
-                      Rn.assignName(t.host);
+                      Jn.assignName(t.host);
                   }
               },
               (e) => {
@@ -70353,8 +70492,8 @@
               }
             );
         });
-      const Zn = Rn.onWebsiteTab,
-        Gn = () => {
+      const Gn = Jn.onWebsiteTab,
+        Un = () => {
           a([
             { id: "export-header", msg: "exportHeader" },
             { id: "export-description", msg: "exportDescription" },
@@ -70369,9 +70508,9 @@
           ]);
           const e = document.getElementsByName("exports");
           for (let t = 0; t < e.length; t++) e[t].checked = !0;
-          $n();
+          Vn();
         },
-        Un = () => {
+        $n = () => {
           console.debug("INC_EXP: initNonPremiumContent"),
             a([
               { id: "export-non-premium-content-title", msg: "exportNonPremiumTitle" },
@@ -70383,15 +70522,15 @@
               { id: "export-learn-more-btn", msg: "nonPremiumLearnMoreBtn" }
             ]);
         },
-        $n = () => {
-          document.getElementById("export-btn").addEventListener("click", Vn),
-            "Firefox" === zt()
+        Vn = () => {
+          document.getElementById("export-btn").addEventListener("click", qn),
+            "Firefox" === Kt()
               ? document.getElementById("import-btn").addEventListener("click", () => {
                   e.chrome.tabs.create({ url: "eventpages/firefox-import.html" });
                 })
-              : document.getElementById("import-btn").addEventListener("click", eo);
+              : document.getElementById("import-btn").addEventListener("click", to);
         },
-        Vn = async (e) => {
+        qn = async (e) => {
           const t = document.getElementById("export-btn");
           t.classList.add("loading"), (t.disabled = !0);
           const a = document.getElementsByName("exports");
@@ -70401,18 +70540,18 @@
             const t = a[e];
             s[t.value] = t.checked;
           }
-          console.debug("INC_EXP: Exporting Data", s), await qn(s), t.classList.remove("loading"), (t.disabled = !1);
+          console.debug("INC_EXP: Exporting Data", s), await Xn(s), t.classList.remove("loading"), (t.disabled = !1);
         },
-        qn = async (e) => {
+        Xn = async (e) => {
           try {
             await (2e3, new Promise((e) => setTimeout(e, 2e3)));
-            const t = await Xn(e);
-            Qn(JSON.stringify(t));
+            const t = await Qn(e);
+            eo(JSON.stringify(t));
           } catch (e) {
-            so("Export failed. Please try again later.", !0);
+            ro("Export failed. Please try again later.", !0);
           }
         },
-        Xn = (t) =>
+        Qn = (t) =>
           new Promise((a, s) => {
             e.chrome.runtime.sendMessage({ type: he, config: t }, (t) => {
               !t || t.error || e.chrome.runtime.lastError
@@ -70421,7 +70560,7 @@
                 : (console.log("INC_EXP: Successfully exported settings"), a(t.data));
             });
           }),
-        Qn = (t) => {
+        eo = (t) => {
           let a = "BG-Export";
           const s = URL.createObjectURL(new Blob([t], { type: "application/json" }));
           console.log("INC_EXP: Generated export file", s);
@@ -70441,7 +70580,7 @@
             ),
             console.log("INC_EXP: Successfully Downloaded export file");
         },
-        eo = async (e) => {
+        to = async (e) => {
           const t = document.getElementById("import-file-input");
           t.addEventListener("change", async (e) => {
             const t = e.target.files;
@@ -70453,9 +70592,9 @@
             (r.onload = async (e) => {
               const t = e.target.result;
               try {
-                await to(t), so("Your Browser Guard settings have been imported successfully");
+                await ao(t), ro("Your Browser Guard settings have been imported successfully");
               } catch (e) {
-                console.error("INC_EXP: Failed to import settings", e), so("Import failed. Please try again later.", !0);
+                console.error("INC_EXP: Failed to import settings", e), ro("Import failed. Please try again later.", !0);
               }
               a.classList.remove("loading"), (a.disabled = !1);
             }),
@@ -70469,12 +70608,12 @@
           }),
             t.click();
         },
-        to = async (e) => {
+        ao = async (e) => {
           const t = JSON.parse(e);
           if (!t) throw new Error("Invalid import data");
-          console.debug("INC_EXP: Importing Data", { dataAsJson: t }), await ao(t);
+          console.debug("INC_EXP: Importing Data", { dataAsJson: t }), await so(t);
         },
-        ao = (t) =>
+        so = (t) =>
           new Promise((a, s) =>
             e.chrome.runtime.sendMessage({ type: be, data: t }, (t) => {
               !t || t.error || e.chrome.runtime.lastError
@@ -70483,7 +70622,7 @@
                 : (console.log("INC_EXP: Successfully imported settings"), a());
             })
           ),
-        so = (e, t) => {
+        ro = (e, t) => {
           const a = document.getElementById("export-include-snackbar");
           if (!a) return;
           (a.style.visibility = "visible"), t && a.classList.add("error");
@@ -70493,10 +70632,10 @@
               (a.style.visibility = "hidden"), a.classList.remove("error");
             }, 3e3);
         },
-        ro = {
+        no = {
           verifyBGCard: async () => {
             const t = await Ee(),
-              a = await ("Firefox" === zt()
+              a = await ("Firefox" === Kt()
                 ? browser.runtime.onUpdateAvailable.addListener(() => "update_available")
                 : new Promise((t, a) => {
                     e.chrome.runtime.requestUpdateCheck((s) => {
@@ -70537,7 +70676,7 @@
                 (d.style.display = "none"),
                 (o.textContent = e.chrome.i18n.getMessage("bgInactive")),
                 i.addEventListener("click", async () => {
-                  await we({ enableProtection: !0 }), e.chrome.runtime.sendMessage({ type: n }), ro.verifyBGCard();
+                  await we({ enableProtection: !0 }), e.chrome.runtime.sendMessage({ type: n }), no.verifyBGCard();
                 }));
           },
           verifyDeviceSecurityCard: (t, a, s) => {
@@ -70618,7 +70757,7 @@
                 (y.style.display = "none"));
           },
           onUpsellTab: async () => {
-            e.chrome.storage.sync.set({ newUIFeatureChecked: !0 }),
+            e.chrome.storage.local.set({ newUIFeatureChecked: !0 }),
               (document.getElementById("new-upsell-tab").style.display = "none"),
               a([
                 { id: "upsell-summary-text", msg: "upSellSummaryText" },
@@ -70627,26 +70766,26 @@
                 { id: "dev-sec-updated", msg: "upsellLearnMoreText" },
                 { id: "vpn-protection-title", msg: "vpnProtectionTitle" }
               ]),
-              Zr.connectNative();
-            const t = await qe("licenseStatePremium"),
-              s = await qe("licenseStatePrivacy"),
+              Gr.connectNative();
+            const t = await Xe("licenseStatePremium"),
+              s = await Xe("licenseStatePrivacy"),
               r = await Pe(),
-              n = await Zr.getNativeStatus(),
-              { prodVersion: o } = (await qe("mbamVersion")) || { prodVersion: 0 };
-            ro.verifyBGCard(),
-              ro.verifyDeviceSecurityCard(r, n, t),
-              parseInt(o) < 5 ? document.getElementById("vpn-protection-card").remove() : ro.verifyVpnProtectionCard(r, n, t, s);
+              n = await Gr.getNativeStatus(),
+              { prodVersion: o } = (await Xe("mbamVersion")) || { prodVersion: 0 };
+            no.verifyBGCard(),
+              no.verifyDeviceSecurityCard(r, n, t),
+              parseInt(o) < 5 ? document.getElementById("vpn-protection-card").remove() : no.verifyVpnProtectionCard(r, n, t, s);
           }
         },
-        no = ro.onUpsellTab,
-        oo = { currentSelectedWebsite: { hostData: "", rowId: "" } },
-        io = `chrome-extension://${e.chrome.runtime.id}`,
-        lo = `moz-extension://${e.chrome.i18n.getMessage("@@extension_id")}`;
-      (oo.isOwnExtensionPage = (e) => e.startsWith(io) || e.startsWith(lo) || e.startsWith("chrome://")),
-        (oo.onContentControlTab = () => {
-          oo.maybeInitPremiumContent();
+        oo = no.onUpsellTab,
+        io = { currentSelectedWebsite: { hostData: "", rowId: "" } },
+        lo = `chrome-extension://${e.chrome.runtime.id}`,
+        uo = `moz-extension://${e.chrome.i18n.getMessage("@@extension_id")}`;
+      (io.isOwnExtensionPage = (e) => e.startsWith(lo) || e.startsWith(uo) || e.startsWith("chrome://")),
+        (io.onContentControlTab = () => {
+          io.maybeInitPremiumContent();
         }),
-        (oo.maybeInitPremiumContent = async () => {
+        (io.maybeInitPremiumContent = async () => {
           Le();
           const a = await Pe(),
             s = !1 === a;
@@ -70655,12 +70794,12 @@
           a
             ? (r.querySelector("#non-premium-content").classList.add("hidden"),
               r.querySelector("#premium-content").classList.remove("hidden"),
-              oo.initPremiumContent())
+              io.initPremiumContent())
             : (r.querySelector("#non-premium-content").classList.remove("hidden"),
               r.querySelector("#premium-content").classList.add("hidden"),
-              oo.initNonPremiumContent());
+              io.initNonPremiumContent());
         }),
-        (oo.initPremiumContent = () => {
+        (io.initPremiumContent = () => {
           a([
             { id: "content-control-summary", msg: "contentControlSummary" },
             { id: "content-control-urlz", msg: "contentControlInputLabel" },
@@ -70690,19 +70829,19 @@
           ]),
             (document.getElementById("content-control-table-search").placeholder =
               e.chrome.i18n.getMessage("contentControlSearchPlaceholder")),
-            oo.cleanModals(),
-            oo.initModalListeners(),
-            oo.initContentControlClickListeners(),
+            io.cleanModals(),
+            io.initModalListeners(),
+            io.initContentControlClickListeners(),
             e.chrome.runtime.sendMessage({ type: ne }, function (e) {
               let t,
                 a = $(".content-control-table table tbody");
               0 === e.success.length &&
                 ($(".content-control-no-items-box").removeClass("hidden"), $("#content-ctrl-open-remove-all-btn").addClass("disabled"));
-              for (const s of e.success) (t = oo.clean(s)), oo.addDataAsTableRow(a, t, s), oo.completeRowAdd(t, s);
+              for (const s of e.success) (t = io.clean(s)), io.addDataAsTableRow(a, t, s), io.completeRowAdd(t, s);
             }),
-            oo.initSearchListener();
+            io.initSearchListener();
         }),
-        (oo.initNonPremiumContent = () => {
+        (io.initNonPremiumContent = () => {
           a([
             { id: "non-premium-content-title", msg: "contentControlNonPremiumTitle" },
             { id: "non-premium-content-msg-1", msg: "contentControlNonPremiumMessage1" },
@@ -70713,7 +70852,7 @@
             { id: "learn-more-btn", msg: "nonPremiumLearnMoreBtn" }
           ]);
         }),
-        (oo.cleanModals = () => {
+        (io.cleanModals = () => {
           document.querySelectorAll(".ui.modal.content-control-row").length > 1 &&
             document.querySelector(".ui.modal.content-control-row").remove(),
             document.querySelectorAll(".ui.modal.delete-content-control-item").length > 1 &&
@@ -70721,14 +70860,14 @@
             document.querySelectorAll(".ui.modal.delete-items-window.content.all").length > 1 &&
               document.querySelector(".ui.modal.delete-items-window.content.all").remove();
         }),
-        (oo.initModalListeners = () => {
+        (io.initModalListeners = () => {
           const e = document.getElementById("content-control-url-box"),
             t = document.getElementById("content-control-url"),
             a = (t) => {
-              let a = Qt(t.target.value.trim());
-              a ? e.classList.add("valid") : e.classList.remove("valid"), oo.enableAddToListModalBtn(a);
+              let a = ea(t.target.value.trim());
+              a ? e.classList.add("valid") : e.classList.remove("valid"), io.enableAddToListModalBtn(a);
             };
-          oo.cleanModalListeners(),
+          io.cleanModalListeners(),
             t.addEventListener("keyup", a, !1),
             t.addEventListener("focusout", a, !1),
             t.addEventListener("change", a, !1),
@@ -70737,27 +70876,27 @@
             }),
             $(".ui.modal.content-control-row").modal({
               onHide: () => {
-                oo.cleanContentControlModal();
+                io.cleanContentControlModal();
               }
             });
         }),
-        (oo.enableAddToListModalBtn = (e) => {
+        (io.enableAddToListModalBtn = (e) => {
           const t = document.getElementById("content-control-done");
           e
             ? (t.removeAttribute("disabled"), t.classList.remove("disabled"))
             : (t.setAttribute("disabled", "disabled"), t.classList.add("disabled"));
         }),
-        (oo.cleanModalListeners = () => {
+        (io.cleanModalListeners = () => {
           $("#content-control-add-website-btn").off();
         }),
-        (oo.cleanContentControlModal = () => {
+        (io.cleanContentControlModal = () => {
           (document.getElementById("content-control-url").value = ""),
             document.getElementById("content-control-url-box").classList.remove("valid"),
-            oo.enableAddToListModalBtn(!1);
+            io.enableAddToListModalBtn(!1);
         }),
-        (oo.clean = (e) => e.toLowerCase().replace(/[^a-z0-9]/g, "")),
-        (oo.initContentControlClickListeners = () => {
-          oo.cleanContentControlClickListeners(),
+        (io.clean = (e) => e.toLowerCase().replace(/[^a-z0-9]/g, "")),
+        (io.initContentControlClickListeners = () => {
+          io.cleanContentControlClickListeners(),
             $(".content-control-table-more").dropdown(),
             $(".ui.modal.content-control-row .close-icon").on("click", () => {
               $(".ui.modal.content-control-row").modal("hide");
@@ -70765,7 +70904,7 @@
             $(".ui.modal.content-control-row #content-control-cancel").on("click", () => {
               $(".ui.modal.content-control-row").modal("hide");
             }),
-            $(".content-control-url-wrapper img.add-link-icon").on("click", oo.populateInputWithTabUrl),
+            $(".content-control-url-wrapper img.add-link-icon").on("click", io.populateInputWithTabUrl),
             $(".content-control-url-wrapper img.add-link-icon")
               .on("mouseenter", function () {
                 $("#content-control-modal-link-tooltip")[0].style.display = "flex";
@@ -70773,7 +70912,7 @@
               .on("mouseleave", function () {
                 $("#content-control-modal-link-tooltip")[0].style.display = "none";
               }),
-            $("#content-control-done").on("click", oo.insertContentControlRow),
+            $("#content-control-done").on("click", io.insertContentControlRow),
             $("#content-ctrl-open-remove-all-btn").on("click", () => {
               $(".ui.modal.delete-items-window.content.all").modal("show");
             }),
@@ -70784,7 +70923,7 @@
               $(".ui.modal.delete-items-window.content.all").modal("hide");
             }),
             $("#content-ctrl-yes-remove-all").on("click", () => {
-              oo.removeAllContentControls(),
+              io.removeAllContentControls(),
                 $(".ui.modal.delete-items-window.content.all").modal("hide"),
                 $(".remove.all.snackbar").css({ visibility: "visible", opacity: "1" }),
                 setTimeout(() => {
@@ -70816,12 +70955,12 @@
               ($(".input.search-bar")[0].style.display = "none"),
                 ($(".ui.table thead")[0].style.visibility = "visible"),
                 (document.getElementById("content-control-table-search").value = ""),
-                oo.onClearSearch(),
+                io.onClearSearch(),
                 $(".content-control-no-results-box").addClass("hidden"),
                 $(".content-control-table").css("overflow-y", "auto");
             });
         }),
-        (oo.cleanContentControlClickListeners = () => {
+        (io.cleanContentControlClickListeners = () => {
           $(".content-control-table-more").off(),
             $(".content-control-url-wrapper img.add-link-icon").off(),
             $(".content-control-url-wrapper img.add-link-icon").off(),
@@ -70836,13 +70975,13 @@
             $(".icon.search-bar").off(),
             $(".input.search-bar .right-icons .close-icon").off();
         }),
-        (oo.populateInputWithTabUrl = () => {
+        (io.populateInputWithTabUrl = () => {
           Fe(
             (e) => {
-              if (oo.isOwnExtensionPage(e.host)) return;
+              if (io.isOwnExtensionPage(e.host)) return;
               let t = $("#content-control-url");
               document.getElementById("content-control-url-box").classList.add("valid"),
-                oo.enableAddToListModalBtn(!0),
+                io.enableAddToListModalBtn(!0),
                 t.val(e.host).trigger("click");
             },
             (e) => {
@@ -70850,20 +70989,20 @@
             }
           );
         }),
-        (oo.insertContentControlRow = () => {
+        (io.insertContentControlRow = () => {
           let e = $("#content-control-done");
           e.addClass("loading"), e.attr("disabled", "disabled");
           let t = $("#content-control-url"),
             a = $(".content-control-table table tbody"),
-            s = kt(t.val()),
-            r = oo.clean(s);
+            s = Et(t.val()),
+            r = io.clean(s);
           r &&
             r.length >= 3 &&
-            (oo.updateOrAddTableRow(a, r, s),
-            oo.addContentControlData(
+            (io.updateOrAddTableRow(a, r, s),
+            io.addContentControlData(
               s,
               (a) => {
-                oo.completeRowAdd(r, a, s),
+                io.completeRowAdd(r, a, s),
                   t.val(""),
                   $("#content-control-protections").dropdown("clear"),
                   e.removeClass("loading"),
@@ -70874,23 +71013,23 @@
               }
             ));
         }),
-        (oo.removeAllContentControls = () => {
+        (io.removeAllContentControls = () => {
           $(".content-control-table table tbody tr").each((e, t) => {
-            oo.setLoadingState(t.id);
+            io.setLoadingState(t.id);
           }),
             e.chrome.runtime.sendMessage({ type: de }, function (e) {
               !e || e.error
                 ? $(".content-control-table table tbody tr").each((e, t) => {
-                    oo.setLoadingState(t.id);
+                    io.setLoadingState(t.id);
                   })
                 : $(".content-control-table table tbody tr").each((e, t) => {
-                    $(t).remove(), oo.checkEmptyView();
+                    $(t).remove(), io.checkEmptyView();
                   });
             });
         }),
-        (oo.addContentControlData = (t, a, s) => {
+        (io.addContentControlData = (t, a, s) => {
           (t = t.replace(/[<>]/g, "")),
-            oo.cleanContentControlModal(),
+            io.cleanContentControlModal(),
             $(".disabled.snackbar").css({ visibility: "visible", opacity: "1" }),
             $(".content-control-no-items-box").addClass("hidden"),
             e.chrome.runtime.sendMessage({ type: ie, payload: { host: t } }, function (e) {
@@ -70908,14 +71047,14 @@
                   a(e.success));
             });
         }),
-        (oo.completeRowAdd = (e, t) => {
-          oo.unsetLoadingState(e), oo.addRowDeleteListener();
+        (io.completeRowAdd = (e, t) => {
+          io.unsetLoadingState(e), io.addRowDeleteListener();
         }),
-        (oo.updateOrAddTableRow = (e, t, a) => {
+        (io.updateOrAddTableRow = (e, t, a) => {
           let s = $("#content-control-table-row-" + t);
-          s && s.length > 0 ? oo.setLoadingState(t) : oo.addDataAsTableRow(e, t, a);
+          s && s.length > 0 ? io.setLoadingState(t) : io.addDataAsTableRow(e, t, a);
         }),
-        (oo.addDataAsTableRow = (e, t, s) => {
+        (io.addDataAsTableRow = (e, t, s) => {
           $(".content-control-table table.ui.table tfoot").hide(),
             e.append(
               '<tr id="content-control-table-row-' +
@@ -70929,11 +71068,11 @@
                 '"></div>                           </div>                       </div>                </td>\n            </tr>'
             );
           let r = $("#content-control-table-row-tld-" + t);
-          r.text(oo.superTruncater(s, 50)),
+          r.text(io.superTruncater(s, 50)),
             a([{ id: `open-remove-content-ctrl-item-modal-${t}`, msg: "deleteWebsiteModalOption" }]),
             $(`#delete-content-ctrl-item-${t}`).dropdown(),
             $(`#open-remove-content-ctrl-item-modal-${t}`).on("click", () => {
-              (oo.currentSelectedWebsite = { hostData: s, rowId: t }), $(".ui.modal.delete-content-control-item").modal("show");
+              (io.currentSelectedWebsite = { hostData: s, rowId: t }), $(".ui.modal.delete-content-control-item").modal("show");
             }),
             s.length > 50 &&
               (r.attr("data-tooltip", `${s.slice(0, 70)}${s.length > 70 ? "..." : ""}`),
@@ -70941,21 +71080,21 @@
               r.attr("data-variation", "mini"),
               r.text(`${s.slice(0, 50)}...`));
         }),
-        (oo.setLoadingState = (e) => {
+        (io.setLoadingState = (e) => {
           e.indexOf("content-control-table-row-") < 0 && (e = "content-control-table-row-" + e),
             0 !== e.indexOf("#") && (e = "#" + e),
             $(e + " .ellipsis-delete-container").addClass("hidden"),
             $(e + " .loader").addClass("active");
         }),
-        (oo.unsetLoadingState = (e) => {
+        (io.unsetLoadingState = (e) => {
           e.indexOf("content-control-table-row-") < 0 && (e = "content-control-table-row-" + e),
             0 !== e.indexOf("#") && (e = "#" + e),
             $(e + " .loader").removeClass("active"),
             $(e + " .ellipsis-delete-container").removeClass("hidden");
         }),
-        (oo.addRowDeleteListener = () => {
+        (io.addRowDeleteListener = () => {
           $(".ui.modal.delete-content-control-item #yes-remove-item").on("click", (t) => {
-            const { hostData: a, rowId: s } = oo.currentSelectedWebsite;
+            const { hostData: a, rowId: s } = io.currentSelectedWebsite;
             e.chrome.runtime.sendMessage({ type: oe, payload: { host: a } }, function (e) {
               !e || e.error
                 ? (console.log("ERROR:", e.error),
@@ -70965,21 +71104,21 @@
                   }, 2e3))
                 : ($("#content-control-table-row-" + s).remove(),
                   $(".remove.item.snackbar").css({ visibility: "visible", opacity: "1" }),
-                  oo.checkEmptyView(),
+                  io.checkEmptyView(),
                   setTimeout(() => {
                     $(".remove.item.snackbar").css({ visibility: "hidden", opacity: "0" });
                   }, 2e3));
             });
           });
         }),
-        (oo.initSearchListener = () => {
+        (io.initSearchListener = () => {
           let e = $("#content-control-table-search");
           e.on("keyup change", function (t) {
             let a = e.val();
-            a && ((a = a.trim()), a.length >= 3) ? oo.onSearch(a) : oo.onClearSearch();
+            a && ((a = a.trim()), a.length >= 3) ? io.onSearch(a) : io.onClearSearch();
           });
         }),
-        (oo.onSearch = (e) => {
+        (io.onSearch = (e) => {
           let t = 0;
           (e = e.toLowerCase()),
             $(".content-control-table table tbody tr").each((a, s) => {
@@ -70992,15 +71131,15 @@
                       return t++, console.debug("showing row because of: " + n), $(s).removeClass("hidden"), !1;
                   });
             }),
-            oo.toggleEmptySearchMessage(0 === t);
+            io.toggleEmptySearchMessage(0 === t);
         }),
-        (oo.onClearSearch = () => {
+        (io.onClearSearch = () => {
           $(".content-control-table table tbody tr").each((e, t) => {
             $(t).removeClass("hidden");
           }),
-            oo.toggleEmptySearchMessage(!1);
+            io.toggleEmptySearchMessage(!1);
         }),
-        (oo.toggleEmptySearchMessage = (e) => {
+        (io.toggleEmptySearchMessage = (e) => {
           e
             ? ($("#empty-search-footer").removeClass("hidden"),
               $(".content-control-no-results-box").removeClass("hidden"),
@@ -71012,44 +71151,44 @@
               $(".content-control-no-results-box").addClass("hidden"),
               $(".content-control-table").css("overflow-y", "auto"),
               $("#empty-search-footer").css("display", "none"),
-              oo.checkEmptyView());
+              io.checkEmptyView());
         }),
-        (oo.checkEmptyView = () => {
+        (io.checkEmptyView = () => {
           $(".content-control-table table.ui.table tbody tr").length < 1 &&
             ($(".content-control-no-items-box").removeClass("hidden"),
             $(".content-control-table table.ui.table tfoot#empty-list-footer").show(),
             $("#content-ctrl-open-remove-all-btn").addClass("disabled"));
         }),
-        (oo.superTruncater = (e, t) => {
+        (io.superTruncater = (e, t) => {
           if (e.length <= t) return e;
           let a,
             s = e.split(".");
           if (s && s.length > 0)
-            if (1 === s.length) a = oo.superTruncater_combine(null, !1, s[0], !1, null, t);
+            if (1 === s.length) a = io.superTruncater_combine(null, !1, s[0], !1, null, t);
             else if (2 === s.length) {
-              let e = oo.superTruncater_part(s[0], t),
-                r = oo.superTruncater_tld(s, 1);
-              a = oo.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
+              let e = io.superTruncater_part(s[0], t),
+                r = io.superTruncater_tld(s, 1);
+              a = io.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
             } else if (3 === s.length)
               if (s[1].length > 3) {
-                let e = oo.superTruncater_part(s[1], t),
-                  r = oo.superTruncater_part(s[0], 5),
-                  n = oo.superTruncater_tld(s, 2);
-                a = oo.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
+                let e = io.superTruncater_part(s[1], t),
+                  r = io.superTruncater_part(s[0], 5),
+                  n = io.superTruncater_tld(s, 2);
+                a = io.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
               } else {
-                let e = oo.superTruncater_part(s[0], t),
-                  r = oo.superTruncater_tld(s, 1);
-                a = oo.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
+                let e = io.superTruncater_part(s[0], t),
+                  r = io.superTruncater_tld(s, 1);
+                a = io.superTruncater_combine(null, !1, e, e.length !== s[0].length, r, t);
               }
             else {
-              let e = oo.superTruncater_part(s[1], t),
-                r = oo.superTruncater_part(s[0], 5),
-                n = oo.superTruncater_tld(s, 2);
-              a = oo.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
+              let e = io.superTruncater_part(s[1], t),
+                r = io.superTruncater_part(s[0], 5),
+                n = io.superTruncater_tld(s, 2);
+              a = io.superTruncater_combine(r, r.length !== s[0].length, e, e.length !== s[1].length, n, t);
             }
-          return oo.fullUrlTruncater(a);
+          return io.fullUrlTruncater(a);
         }),
-        (oo.fullUrlTruncater = (e) => {
+        (io.fullUrlTruncater = (e) => {
           let t = e.split(/\/(.+)/);
           if (t.length > 1) {
             let e = t[0],
@@ -71064,31 +71203,31 @@
           }
           return e;
         }),
-        (oo.superTruncater_tld = (e, t) => {
+        (io.superTruncater_tld = (e, t) => {
           let a = "";
           for (let s = t; s < e.length; s++) a.length > 0 && (a += "."), (a += e[s]);
           return a;
         }),
-        (oo.superTruncater_measure = (e, t, a, s) => {
+        (io.superTruncater_measure = (e, t, a, s) => {
           let r = 0;
           return e && e.length > 0 && (r += e.length + 1), a && a.length > 0 && (r += a.length + 1), (r += t.length), r > s ? r - s : 0;
         }),
-        (oo.superTruncater_combine = (e, t, a, s, r, n) => {
-          let o = oo.superTruncater_measure(e, a, r, n - 1),
+        (io.superTruncater_combine = (e, t, a, s, r, n) => {
+          let o = io.superTruncater_measure(e, a, r, n - 1),
             i = 0;
           e && (i = e.length), i + a.length + 2 > n && ((a = a.substr(0, a.length - o)), (s = !0));
           let d = "";
           return e && ((d += e), (d += t ? "…" : ".")), (d += a), s && (d += "…"), r && (s || (d += "."), (d += r)), d;
         }),
-        (oo.superTruncater_part = (e, t) => (e.length > t ? e.substr(0, t - 1) : e));
-      const uo = oo.onContentControlTab,
-        mo = {};
-      (mo.tabActions = {
-        onAllowTab: la,
-        onBlockTab: ma,
+        (io.superTruncater_part = (e, t) => (e.length > t ? e.substr(0, t - 1) : e));
+      const mo = io.onContentControlTab,
+        To = {};
+      (To.tabActions = {
+        onAllowTab: ua,
+        onBlockTab: Ta,
         onSettingsTab: async () => {
           Le(),
-            "Safari" === zt()
+            "Safari" === Kt()
               ? ((document.getElementById("monthly-notification-desc").style.display = "none"),
                 (document.getElementById("monthly-notification-toggle").style.display = "none"))
               : document.getElementById("malicious-notification-toggle").classList.remove("settings-toggle"),
@@ -71124,11 +71263,11 @@
               $(".ui.modal.killswitch-confirmation").modal("hide");
             }),
             $(".ui.modal.killswitch-confirmation #killswitch-confirmation-yes").on("click", () => {
-              ya(), $(".ui.modal.killswitch-confirmation").modal("hide");
+              ca(), $(".ui.modal.killswitch-confirmation").modal("hide");
             }),
-            await Promise.all([ca()]);
+            await Promise.all([Ma()]);
         },
-        onStatisticsTab: Yn,
+        onStatisticsTab: On,
         onSupportTab: () => {
           document.querySelectorAll(".ui.modal.confirm-factory-reset").length > 1 &&
             document.querySelector(".ui.modal.confirm-factory-reset").remove(),
@@ -71178,9 +71317,9 @@
               xe("telemetry-consent", y, "#telemetry-consent-label .loader", !1);
             })(),
             (() => {
-              document.getElementById("dl-debug-logs").addEventListener("click", On);
+              document.getElementById("dl-debug-logs").addEventListener("click", Bn);
               const e = document.getElementById("update-button");
-              e.classList.add("blue-bg"), e.addEventListener("click", Bn);
+              e.classList.add("blue-bg"), e.addEventListener("click", Wn);
             })(),
             $("#telemetry-consent-label").popup({ position: "top right" }),
             $("#factory-reset").on("click", () => {
@@ -71198,15 +71337,15 @@
             (document.getElementById("support-include").classList = t),
             "ru" === t &&
               (() => {
-                Wn();
+                Rn();
                 const e = document.getElementById("update-button-wrapper");
                 e && document.getElementById("version-info-sub-header").appendChild(e);
               })(),
-            ["es", "pl", "it", "nl", "pt"].some((e) => e === t) && Wn();
+            ["es", "pl", "it", "nl", "pt"].some((e) => e === t) && Rn();
         },
-        onWebsiteTab: Zn,
-        onUpsellTab: no,
-        onContentControlTab: uo,
+        onWebsiteTab: Gn,
+        onUpsellTab: oo,
+        onContentControlTab: mo,
         onExportTab: () => {
           Le(),
             (async () => {
@@ -71218,20 +71357,20 @@
               const r = document.getElementById("export-include");
               a
                 ? (console.debug("INC_EXP: Premium User"),
-                  Gn(),
+                  Un(),
                   r.querySelector("#non-premium-content").classList.add("hidden"),
                   r.querySelector("#premium-content").classList.remove("hidden"))
                 : (console.debug("INC_EXP: Non-Premium User"),
-                  Un(),
+                  $n(),
                   r.querySelector("#non-premium-content").classList.remove("hidden"),
                   r.querySelector("#premium-content").classList.add("hidden"));
             })();
         }
       }),
-        (mo.tabMenu = () => {
+        (To.tabMenu = () => {
           $(".header-container-tabs-more").dropdown({
             onShow: () => {
-              mo.isFeatureSeen().then((e) => {
+              To.isFeatureSeen().then((e) => {
                 !0 === e[ce] && $("#content-control-nav-item").removeClass("new"), !0 === e[Me] && $("#export-nav-item").removeClass("new");
               });
             }
@@ -71250,7 +71389,7 @@
               }
             },
             onLoad: (e) => {
-              mo.onTabVisible(e);
+              To.onTabVisible(e);
             }
           }),
             t.tab("change tab", "website"),
@@ -71264,7 +71403,7 @@
                 }
               },
               onLoad: (e) => {
-                mo.markFeatureAsSeen(mo.tabToFeature(e)), mo.onTabVisible(e);
+                To.markFeatureAsSeen(To.tabToFeature(e)), To.onTabVisible(e);
               }
             }),
             a.tab("change tab", "website"),
@@ -71278,27 +71417,27 @@
                 }
               },
               onLoad: (e) => {
-                mo.onTabVisible(e);
+                To.onTabVisible(e);
               }
             }),
             e.tab("change tab", "website");
         }),
-        (mo.onTabVisible = (e) => {
+        (To.onTabVisible = (e) => {
           $(".item").removeClass("active"), $('.item[data-tab="' + e + '"]').addClass("active");
           let t = "on" + (e = e.substring(0, 1).toUpperCase() + e.substring(1)) + "Tab";
           try {
-            mo.tabActions[t]();
+            To.tabActions[t]();
           } catch (a) {
             console.log(a), console.log("Error: No onTab method defined for " + e + ": " + t);
           }
         }),
-        (mo.isFeatureSeen = () =>
+        (To.isFeatureSeen = () =>
           new Promise((t, a) => {
             e.chrome.runtime.sendMessage({ type: Te }, function (e) {
               !e || e.error ? (console.error("Failed to check if new feature is seen: " + e.error), a(e.error)) : t(e);
             });
           })),
-        (mo.markFeatureAsSeen = (t) =>
+        (To.markFeatureAsSeen = (t) =>
           t
             ? new Promise((a, s) => {
                 e.chrome.runtime.sendMessage({ type: ye, feature: t }, function (e) {
@@ -71306,7 +71445,7 @@
                 });
               })
             : Promise.resolve()),
-        (mo.tabToFeature = (e) => {
+        (To.tabToFeature = (e) => {
           switch (e) {
             case "contentControl":
               return ce;
@@ -71316,28 +71455,109 @@
               return null;
           }
         }),
-        (mo.init = () => {
-          const t = ["content-control-nav-item", "export-nav-item"];
+        (To.onBoardingFlowConstrols = () => {
           a([
-            { id: "current-website-nav-item", msg: "currentWebsiteNavItem" },
-            { id: "stats-nav-item", msg: "statsNavItem" },
-            { id: "allow-list-nav-item", msg: "allowListNavItem" },
-            { id: "block-nav-item", msg: "blockNavItem" },
-            { id: "support-nav-item", msg: "supportNavItem" },
-            { id: "upsell-nav-item", msg: "upsellNavItem" },
-            { id: "back-btn", msg: "backText" },
-            { id: "content-control-nav-item", msg: "contentControlNavItem" },
-            { id: "export-nav-item", msg: "exportNavItem" }
-          ]),
-            mo.tabMenu(),
+            { id: "obf-slide-1-title", msg: "obfSlide1Title" },
+            { id: "obf-slide-1-desc", msg: "obfSlide1Desc" },
+            { id: "obf-slide-2-title", msg: "obfSlide2Title" },
+            { id: "obf-slide-2-desc", msg: "obfSlide2Desc" },
+            { id: "obf-slide-3-title", msg: "obfSlide3Title" },
+            { id: "obf-slide-3-desc", msg: "obfSlide3Desc" },
+            { id: "obf-slide-4-title", msg: "obfSlide4Title" },
+            { id: "obf-slide-4-subtitle-p1", msg: "obfSlide4SubtitlePart1" },
+            { id: "obf-slide-4-subtitle-p2", msg: "obfSlide4SubtitlePart2" },
+            { id: "obf-slide-4-subtitle-1", msg: "obfSlide4Subtitle1" },
+            { id: "obf-slide-4-desc-1", msg: "obfSlide4Desc1" },
+            { id: "obf-slide-4-subtitle-2", msg: "obfSlide4Subtitle2" },
+            { id: "obf-slide-4-desc-2", msg: "obfSlide4Desc2" },
+            { id: "obf-slide-4-subtitle-3", msg: "obfSlide4Subtitle3" },
+            { id: "obf-slide-4-desc-3", msg: "obfSlide4Desc3" },
+            { id: "obf-slide-4-learn-more", msg: "learnMoreText" },
+            { id: "obf-back-btn", msg: "backText" },
+            { id: "obf-next-btn", msg: "nextText" },
+            { id: "obf-done-btn", msg: "doneText" }
+          ]);
+          let e = 0;
+          const t = document.getElementById("prev-slide-btn"),
+            s = document.getElementById("next-slide-btn"),
+            r = document.getElementById("done-btn"),
+            n = document.querySelectorAll(".carousel-control .carousel-indicator .dot");
+          function o(a) {
+            const o = document.querySelector(".carousel-wrapper"),
+              i = document.querySelector(".carousel-item").offsetWidth;
+            (o.style.transform = `translateX(${-a * i}px)`),
+              (e = a),
+              n.forEach((e) => {
+                e.classList.remove("active");
+              }),
+              document.getElementById(`dot-${a + 1}`).classList.add("active"),
+              0 === a
+                ? ((t.style.visibility = "hidden"), (s.style.visibility = "visible"), (r.style.display = "none"))
+                : 3 === a
+                ? ((t.style.visibility = "visible"), (s.style.visibility = "hidden"), (r.style.display = "inherit"))
+                : ((t.style.visibility = "visible"), (s.style.visibility = "visible"), (r.style.display = "none"));
+          }
+          $(".carousel-control .carousel-indicator .dot").on("click", (e) => {
+            console.log("dot on jquery", e.target.dataset.index), o(parseInt(e.target.dataset.index));
+          }),
+            $("#prev-slide-btn").on("click", () => {
+              const t = document.querySelectorAll(".carousel-item").length;
+              (e = (e - 1 + t) % t), o(e);
+            }),
+            $("#next-slide-btn").on("click", () => {
+              const t = document.querySelectorAll(".carousel-item").length;
+              (e = (e + 1) % t), o(e);
+            }),
+            $(".ui.modal.onboarding-flow .close-icon").on("click", () => {
+              $(".ui.modal.onboarding-flow").modal("hide");
+            }),
+            $(".ui.modal.onboarding-flow #done-btn").on("click", () => {
+              $(".ui.modal.onboarding-flow").modal("hide");
+            }),
+            o(e);
+        }),
+        (To.cleanOnboardingFlowModal = () => {
+          document.querySelectorAll(".ui.modal.onboarding-flow").length > 1 && document.querySelector(".ui.modal.onboarding-flow").remove(),
+            $("#prev-slide-btn").off(),
+            $("#next-slide-btn").off(),
+            $(".ui.modal.onboarding-flow .close-icon").off(),
+            $(".ui.modal.onboarding-flow #done-btn").off(),
+            $(".carousel-control .carousel-indicator .dot").off();
+        }),
+        (To.initOnBoardingFlowModal = () => {
+          $(".ui.modal.onboarding-flow").modal({
+            onHide: () => {
+              To.cleanOnboardingFlowModal(), document.getElementById("view-tutorial-nav-item").classList.remove("selected", "active");
+            }
+          }),
+            To.onBoardingFlowConstrols(),
+            $(".ui.modal.onboarding-flow").modal("show");
+        }),
+        (To.init = () => {
+          new URLSearchParams(window.location.search).get("show-onboarding") && To.initOnBoardingFlowModal();
+          const t = ["content-control-nav-item", "export-nav-item"];
+          $("#view-tutorial-nav-item").on("click", To.initOnBoardingFlowModal),
+            a([
+              { id: "current-website-nav-item", msg: "currentWebsiteNavItem" },
+              { id: "stats-nav-item", msg: "statsNavItem" },
+              { id: "allow-list-nav-item", msg: "allowListNavItem" },
+              { id: "block-nav-item", msg: "blockNavItem" },
+              { id: "support-nav-item", msg: "supportNavItem" },
+              { id: "view-tutorial-nav-item", msg: "viewTutorialNavItem" },
+              { id: "upsell-nav-item", msg: "upsellNavItem" },
+              { id: "back-btn", msg: "backText" },
+              { id: "content-control-nav-item", msg: "contentControlNavItem" },
+              { id: "export-nav-item", msg: "exportNavItem" }
+            ]),
+            To.tabMenu(),
             (document.getElementById("nav-premium-icon").style.display = "none"),
             e.chrome.windows.getCurrent((e) => {
               e.height < 600 && document.querySelector("body").classList.add("small-screen");
             }),
-            Zt().then((a) => {
+            Gt().then((a) => {
               console.debug(`OS name: ${a}`),
                 "win" === a
-                  ? (e.chrome.storage.sync.get("newUIFeatureChecked", function ({ newUIFeatureChecked: e }) {
+                  ? (e.chrome.storage.local.get("newUIFeatureChecked", function ({ newUIFeatureChecked: e }) {
                       document.getElementById("new-upsell-tab").style.display = e ? "none" : "flex";
                     }),
                     Pe().then((e) => {
@@ -71349,6 +71569,6 @@
                   : (document.getElementById("content-control-nav-item").remove(), document.getElementById("export-nav-item").remove());
             });
         }),
-        document.addEventListener("DOMContentLoaded", mo.init);
+        document.addEventListener("DOMContentLoaded", To.init);
     })();
 })();

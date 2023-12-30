@@ -5,7 +5,7 @@
     64164: (e, a, t) => {
       t.r(a);
       var l = t(99437),
-        i = t(31779),
+        i = t(28277),
         n = t(13990),
         r = t(85040);
       const s = document.querySelector(".region.top-right"),

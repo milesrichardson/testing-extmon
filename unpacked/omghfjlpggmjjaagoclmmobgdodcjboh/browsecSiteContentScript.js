@@ -41,8 +41,8 @@
       46: (module) => {
         module.exports = [
           { id: "372", serverId: "exp_372", variants: [1] },
-          { id: "371", serverId: "exp_371", variants: [0.5, 0.5] },
-          { id: "373", serverId: "exp_373", variants: [0.5, 0.5] }
+          { id: "371", serverId: "exp_371v1", variants: [0.5, 0.5] },
+          { id: "373", serverId: "exp_373v1", variants: [0.5, 0.5] }
         ];
       },
       4019: (module, __unused_webpack_exports, __webpack_require__) => {
@@ -76,7 +76,7 @@
       2857: (module) => {
         "use strict";
         module.exports = JSON.parse(
-          '["https://d34u6hk73vgwqs.cloudfront.net/","https://a703.l461.r761.fastcloudcdn.net/api/","https://ca901.l503.r843.fastcloudcdn.net/"]'
+          '["https://d3pxmstlgndb29.cloudfront.net/","https://a703.l461.r761.fastcloudcdn.net/api/","https://ca901.l503.r843.fastcloudcdn.net/"]'
         );
       }
     },

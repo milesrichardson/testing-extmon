@@ -275,7 +275,8 @@ function numOfBytes(bytes, precision, isSpd) {
   }
 
   var fn = isSpd ? bytesToSpeed : bytesToSize;
-  var parts = fn(bytes, precision).split(" ");
+  const formatted = fn(bytes, precision);
+  const parts = formatted.split(formatted.includes(" ") ? " " : "\u00A0");
 
   return { size: parts[0], unit: parts[1] || "B" };
 }
@@ -355,8 +356,11 @@ function bytesToSize(bytes, precision, format) {
     return resultSize;
   } else if (format && format !== 4) {
     return "<span>" + resultSize + "</span>" + resultUnit;
-  } else {
-    return resultSize + " " + resultUnit;
+  }
+
+  // \u00A0 is a non-breaking space so that the size and unit will always remain on the same line
+  else {
+    return resultSize + "\u00A0" + resultUnit;
   }
 }
 
@@ -2313,6 +2317,7 @@ function getFMColPrefs(pref) {
   columnsPreferences.versions = pref & 2;
   columnsPreferences.playtime = pref & 128;
   columnsPreferences.accessCtrl = pref & 256;
+  columnsPreferences.fileLoc = pref & 512;
 
   return columnsPreferences;
 }
@@ -2343,6 +2348,8 @@ function getNumberColPrefs(colName) {
       return 128;
     case "accessCtrl":
       return 256;
+    case "fileLoc":
+      return 512;
     default:
       return null;
   }

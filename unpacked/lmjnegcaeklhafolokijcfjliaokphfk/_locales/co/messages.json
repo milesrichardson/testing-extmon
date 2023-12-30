@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ ottetti",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ Go",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ Ko",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,16 +26,19 @@
   "MB": {
     "message": "$ARG1$ Mo",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
+  },
+  "__MSG_appDesc_": {
+    "message": "Scaricà e video di u Web"
   },
   "__localeName": {
     "message": "co"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\"]"
   },
   "about": {
     "message": "Apprupositu"
@@ -145,6 +148,24 @@
   "action_quickdownload_title": {
     "message": "Scaricamentu rapidu"
   },
+  "action_quicksidedownload_description": {
+    "message": "Scaricamentu laterale senza dumandà a destinazione"
+  },
+  "action_quicksidedownload_title": {
+    "message": "Scaricamentu laterale prestu"
+  },
+  "action_sidedownload_description": {
+    "message": "Scaricadore esperimentale"
+  },
+  "action_sidedownload_title": {
+    "message": "Scaricamentu laterale"
+  },
+  "action_sidedownloadconvert_description": {
+    "message": "Scaricamentu laterale di u medià è cunversione in un’altru furmatu"
+  },
+  "action_sidedownloadconvert_title": {
+    "message": "Scaricamentu laterale è cunversione"
+  },
   "action_stop_description": {
     "message": "Piantà a cattura"
   },
@@ -154,7 +175,7 @@
   "adaptative": {
     "message": "$ARG1$ adattevule",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -207,13 +228,13 @@
   "browser_info": {
     "message": "Navigatore $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -221,7 +242,7 @@
   "browser_locale": {
     "message": "Lingua di u navigatore : $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -229,7 +250,7 @@
   "build_options": {
     "message": "Ozzioni di custruzzione : $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +258,7 @@
   "built_on": {
     "message": "Custruitu u $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -248,7 +269,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ video",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -316,7 +337,7 @@
   "chrome_premium_hls": {
     "message": "Senza u statu Premium, un scaricamentu HLS pò esse fattu solu $ARG1$ minuti dopu à u precedente",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -339,13 +360,13 @@
   "chrome_premium_source": {
     "message": "Site un utilizatore Premium via $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
   },
   "chrome_product_intro": {
-    "message": "Pudete mudernizà ver di Premium impieghendu qualsisia ozzione quaghjò :"
+    "message": "Pudete mudernizà ver di Premium impieghendu qualsiasi ozzione quaghjò :"
   },
   "chrome_req_review": {
     "message": "D’un’altra manera, chì ne pensate di lascià un bellu cummentu nant’à u Web Store di Chrome ?"
@@ -389,7 +410,7 @@
   "coapp_latest_version": {
     "message": "L’ultima versione dispunibule hè $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -406,10 +427,10 @@
   "coapp_outofdate_text": {
     "message": "Impiegate a versione $ARG1$ di l’appiecazione cumpagnu ma sta funzione richiede a versione $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -585,7 +606,7 @@
   "convrule_format": {
     "message": "à u furmatu $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -593,7 +614,7 @@
   "convrule_from_domain": {
     "message": "di u duminiu $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,7 +631,7 @@
   "convrule_with_ext": {
     "message": "cù l’estensione « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -627,7 +648,7 @@
   "copy_of": {
     "message": "Copia di $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -635,7 +656,7 @@
   "corrupted_media_file": {
     "message": "Ùn si pò micca ottene d’infurmazione di u medià « $ARG1$ » in u schedariu « $ARG1$ ». Forse, u schedariu hè alteratu.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -664,7 +685,7 @@
   "directory_not_exist_body": {
     "message": "U cartulare « $ARG1$ » ùn esiste micca ; site prontu(a) à crealu ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -714,7 +735,7 @@
   "error_not_directory": {
     "message": "« $ARG1$ » esiste ma ùn hè micca un cartulare",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -734,10 +755,13 @@
   "export": {
     "message": "Espurtà"
   },
+  "f4f_streaming": {
+    "message": "Flussu direttu F4F"
+  },
   "failed_aggregating": {
     "message": "Fiascu à l’aghjunghjitura di « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -745,7 +769,7 @@
   "failed_converting": {
     "message": "Fiascu à a cunversione di « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -753,7 +777,7 @@
   "failed_getting_info": {
     "message": "Fiascu à a culletta d’infurmazione in « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -776,7 +800,7 @@
   "file_generated": {
     "message": "U schedariu « $ARG1$ » hè statu creatu.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -784,7 +808,7 @@
   "file_ready": {
     "message": "« $ARG1$ » hè prontu avà",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -795,7 +819,7 @@
   "from_domain": {
     "message": "Da « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -806,7 +830,7 @@
   "gallery_files_types": {
     "message": "Schedarii di tipu « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -814,7 +838,7 @@
   "gallery_from_domain": {
     "message": "Galleria di « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -822,7 +846,7 @@
   "gallery_links_from_domain": {
     "message": "Liami di « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -863,7 +887,7 @@
   "lic_mismatch1": {
     "message": "A licenza hè per « $ARG1$ » ma a versione di l’estensione di u navigatore ùn hè micca stata specificata",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -871,10 +895,10 @@
   "lic_mismatch2": {
     "message": "A licenza hè per « $ARG1$ » ma l’estensione hè stata creata per « $ARG2$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -942,13 +966,13 @@
   "network_error_status": {
     "message": "Sbagliu di a reta - statu « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
   },
   "new_sub_directory": {
-    "message": "Creà un sottu-cartulare"
+    "message": "Creà un sottucartulare"
   },
   "next": {
     "message": "Seguente"
@@ -959,7 +983,7 @@
   "no_audio_in_file": {
     "message": "Nisunu flussu audio in u schedariu « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -988,7 +1012,7 @@
   "no_video_in_file": {
     "message": "Nisunu flussu video in u schedariu « $ARG1$ »",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1002,10 +1026,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1022,7 +1046,7 @@
   "overwrite_file": {
     "message": "Rimpiazzà u schedariu « $ARG1$ » ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1042,10 +1066,10 @@
   "platform_info": {
     "message": "Piattaforma $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1095,10 +1119,10 @@
   "req_locale": {
     "message": "Osinnò, aiutacci à traduce l’estensione in « $ARG1$ » chì ci sò sempre $ARG2$ catene micca tradutte ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1197,7 +1221,7 @@
     "message": "Regule di numinazione astuta"
   },
   "sub_directory_name": {
-    "message": "Nome di sottu-cartulare"
+    "message": "Nome di sottucartulare"
   },
   "support_forum": {
     "message": "Foru d’assistenza"
@@ -1238,7 +1262,7 @@
   "version": {
     "message": "Versione $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1325,7 +1349,7 @@
     "message": "Certi siti ponu restituisce un novu indirizzu web invece di u cuntenutu di u medià"
   },
   "weh_prefs_description_contextMenuEnabled": {
-    "message": "Accede à e cumande da un cliccu-dirittu nant’à a pagina"
+    "message": "Accede à e cumande da un cliccu dirittu nant’à a pagina"
   },
   "weh_prefs_description_convertControlledMax": {
     "message": "U numeru massimu di tacche simultanee d’aghjunghjitura o di cunversione"
@@ -1362,6 +1386,9 @@
   },
   "weh_prefs_description_downloadStreamControlledMax": {
     "message": "Cuntrolleghja u numeru di flussi per scaricà ogni elementu"
+  },
+  "weh_prefs_description_f4fEnabled": {
+    "message": "Attivazione di a diffusione segmentata F4F"
   },
   "weh_prefs_description_fileDialogType": {
     "message": "Cumu i dialoghi di schedariu sò affissati"
@@ -1597,6 +1624,9 @@
   "weh_prefs_label_downloadStreamControlledMax": {
     "message": "Numeru massimu di scaricamenti di flussu simultanei"
   },
+  "weh_prefs_label_f4fEnabled": {
+    "message": "Attivà « F4F »"
+  },
   "weh_prefs_label_fileDialogType": {
     "message": "Dialogu di schedariu"
   },
@@ -1696,6 +1726,9 @@
   "weh_prefs_label_tbsnEnabled": {
     "message": "Accettà Facebook"
   },
+  "weh_prefs_label_tbvwsExtractionMethod": {
+    "message": "Metoda d’estrazzione"
+  },
   "weh_prefs_label_titleMode": {
     "message": "Tituli longhi nant’à u pannellu principale"
   },
@@ -1729,7 +1762,7 @@
   "you_downloaded_n_videos": {
     "message": "Venite subitu di riesce à scaricà u vostru $ARG1$u schedariu cù Video DownloadHelper.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

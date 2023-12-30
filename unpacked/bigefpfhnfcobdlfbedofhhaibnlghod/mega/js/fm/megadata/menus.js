@@ -209,6 +209,7 @@ MegaData.prototype.menuItems = async function menuItems() {
             exp = selNode.shares.EXP;
           }
         }
+
         items[".sh4r1ng-item"] = 1;
 
         if (shares.length || M.ps[selNode.h]) {
@@ -233,6 +234,11 @@ MegaData.prototype.menuItems = async function menuItems() {
       // If the selected folder contains any versioning show clear version
       if (selNode.tvf && M.getNodeRights(selNode.h) > 1) {
         items[".clearprevious-versions"] = 1;
+      }
+
+      // This is just to make sure the source root is on the cloud drive
+      if (mega.rewind && sourceRoot === M.RootID) {
+        items[".rewind-item"] = !!mega.rewind.contextMenu;
       }
     } else {
       if (selNode.tvf > 0 && !folderlink) {
@@ -510,7 +516,7 @@ MegaData.prototype.menuItems = async function menuItems() {
   }
 
   // If in MEGA Lite mode, temporarily hide any Download, Copy and Manage Share options while in the Shared area
-  if (mega.lite && (M.currentrootid === "shares" || M.currentrootid === "out-shares")) {
+  if (mega.lite.inLiteMode && (M.currentrootid === "shares" || M.currentrootid === "out-shares")) {
     delete items[".download-item"];
     delete items[".copy-item"];
     delete items[".sh4r1ng-item"];
@@ -706,6 +712,10 @@ MegaData.prototype.contextMenuUI = function contextMenuUI(e, ll, items) {
 
           if ($.hasWebKitDirectorySupport) {
             $(menuCMI).filter(".folderupload-item").removeClass("hidden");
+          }
+
+          if (mega.rewind) {
+            $(menuCMI).filter(".rewind-item").removeClass("hidden");
           }
         }
         itemsViewed = true;
@@ -929,10 +939,15 @@ MegaData.prototype.contextMenuUI = function contextMenuUI(e, ll, items) {
       }
     } else if (currNodeClass && (currNodeClass.indexOf("cloud-drive") > -1 || currNodeClass.indexOf("folder-link") > -1)) {
       flt = ".properties-item";
+
       if (folderlink) {
         flt += ",.import-item";
       } else {
         flt += ",.findupes-item";
+
+        if (mega.rewind) {
+          flt += ",.rewind-item";
+        }
       }
       if (M.v.length && folderlink) {
         flt += ",.zipdownload-item,.download-item";
@@ -967,8 +982,9 @@ MegaData.prototype.contextMenuUI = function contextMenuUI(e, ll, items) {
         const vid = mega.gallery.isVideo(M.d[h]);
         return !!(vid && vid.isPreviewable && MediaAttribute.getMediaType(M.d[h]));
       });
+      const allowSlideshow = oneImageSelected && mega.gallery.nodesAllowSlideshow(mega.gallery.albums.store[M.d[pfid].id].nodes);
 
-      slideshowItem.toggleClass("hidden", !oneImageSelected);
+      slideshowItem.toggleClass("hidden", !allowSlideshow);
       previewItem.toggleClass("hidden", !hasImageSelected);
       $menuCMI.filter(".properties-item").removeClass("hidden");
       importItem.removeClass("hidden");
@@ -1030,6 +1046,15 @@ MegaData.prototype.contextMenuUI = function contextMenuUI(e, ll, items) {
             $("i", $openItem).removeClass("icon-folder-open").addClass("icon-bucket");
           } else {
             $("i", $openItem).removeClass("icon-bucket").addClass("icon-folder-open");
+          }
+        }
+
+        // We know the rewind-item is already active and passed the check
+        // We need to check the 2nd time if the source of event is on right location
+        if (items[".rewind-item"]) {
+          const fromCloudDriveTree = $currentTarget.closest(".js-myfile-tree-panel").length;
+          if (!fromCloudDriveTree && M.currentrootid !== M.RootID) {
+            $menuCMI.filter(".rewind-item").addClass("hidden");
           }
         }
       };

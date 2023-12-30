@@ -22,7 +22,6 @@ this.pagejs = (e) => {
             A_so: [].some,
             A_sh: [].shift,
             A_j: [].join,
-            A_po: [].pop,
             A_f: [].filter,
             A_iO: [].indexOf,
             A_iA: Array.isArray,
@@ -42,6 +41,7 @@ this.pagejs = (e) => {
             M_f: Math.floor,
             M_r: Math.random,
             M_m: Math.max,
+            M_mi: Math.min,
             M_i: MutationEvent.prototype.initMutationEvent,
             M_pA: MutationEvent.prototype.ADDITION,
             M_pAT: MutationEvent.AT_TARGET,
@@ -66,6 +66,7 @@ this.pagejs = (e) => {
             S_tLC: "".toLowerCase,
             S_tUC: "".toUpperCase,
             Y_tST: Symbol.toStringTag,
+            USP_tS: URLSearchParams.prototype.toString,
             D_pFS: DOMParser.prototype.parseFromString,
             U_cOU: URL.createObjectURL,
             U_rOU: URL.revokeObjectURL,
@@ -80,6 +81,7 @@ this.pagejs = (e) => {
             I_tS: (e) => "" + e,
             E_r: Element.prototype.remove,
             E_s: Element.prototype.setAttribute,
+            E_rA: Element.prototype.removeAttribute,
             D_cS: r(Document.prototype, "currentScript").get,
             D_gRS: r(Document.prototype, "readyState").get,
             D_cE: Document.prototype.createElementNS,
@@ -143,46 +145,46 @@ this.pagejs = (e) => {
         F_tS: i,
         A_fE: l,
         A_so: c,
-        A_sh: u,
-        A_j: d,
-        A_po: p,
+        A_sh: d,
+        A_j: u,
         A_f: g,
-        A_iO: f,
-        A_iA: v,
-        O_a: m,
-        O_k: _,
-        O_v: M,
-        O_dP: h,
-        O_dPy: b,
-        O_hOP: y,
-        O_gOPN: w,
-        O_gOPD: E,
-        O_gOPDs: S,
-        O_gPO: G,
+        A_iO: p,
+        A_iA: f,
+        O_a: v,
+        O_k: m,
+        O_v: _,
+        O_dP: b,
+        O_dPy: M,
+        O_hOP: h,
+        O_gOPN: y,
+        O_gOPD: w,
+        O_gOPDs: E,
+        O_gPO: S,
         O_tS: R,
-        J_p: O,
+        J_p: G,
         J_s: L,
-        M_f: C,
-        M_r: T,
+        M_f: O,
+        M_r: C,
         M_m: I,
+        M_mi: T,
         M_i: x,
-        M_pA: A,
+        M_pA: P,
         M_pAT: D,
-        N_tS: P,
-        N_MSI: U,
-        P_t: $,
-        P_c: k,
-        R_rABS: F,
-        R_rAT: N,
-        R_r: j,
+        N_tS: A,
+        N_MSI: k,
+        P_t: U,
+        P_c: $,
+        R_rABS: j,
+        R_rAT: F,
+        R_r: N,
         R_enq: V,
         R_cl: q,
         S_fCC: X,
         S_sl: B,
         S_su: H,
         S_iO: W,
-        S_sp_nr: J,
-        S_tr: K,
+        S_sp_nr: K,
+        S_tr: J,
         S_rA_nr: z,
         S_cCA: Y,
         S_tLC: Q,
@@ -195,157 +197,165 @@ this.pagejs = (e) => {
         D_gEBT: se,
         E_r: ae,
         E_s: ie,
-        M_aN: le,
-        M_rN: ce,
+        E_rA: le,
+        M_aN: ce,
+        M_rN: de,
         C_d: ue,
-        U_cOU: de,
+        U_cOU: ge,
         U_rOU: pe,
-        X_o: ge,
-        X_s: fe,
-        X_pSD: ve,
-        X_pSH: me,
-        X_pSL: _e,
-        X_pSO: Me,
-        X_pSU: he,
-        D_n: be,
-        I_tS: ye,
-        W_aEL: we,
-        W_rEL: Ee,
-        parseInt: Se,
-        parseFloat: Ge,
-        console: Re,
-        encodeURIComponent: Oe,
-        decodeURIComponent: Le,
-        encodeURI: Ce,
-        decodeURI: Te,
-        escape: Ie,
-        unescape: xe,
+        USP_tS: fe,
+        X_o: ve,
+        X_s: me,
+        X_pSD: _e,
+        X_pSH: be,
+        X_pSL: Me,
+        X_pSO: he,
+        X_pSU: ye,
+        D_n: we,
+        I_tS: Ee,
+        W_aEL: Se,
+        W_rEL: Re,
+        parseInt: Ge,
+        parseFloat: Le,
+        console: Oe,
+        encodeURIComponent: Ce,
+        decodeURIComponent: Ie,
+        encodeURI: Te,
+        decodeURI: xe,
+        escape: Pe,
+        unescape: De,
         atob: Ae,
-        btoa: De,
-        postMessage: Pe,
-        dispatchEvent: Ue,
-        alert: $e,
-        prompt: ke,
-        confirm: Fe,
-        close: Ne,
-        getElementById: je,
-        createEvent: Ve,
-        createElement: qe,
-        CustomEvent: Xe,
-        CompositionEvent: Be,
-        KeyboardEvent: He,
-        MouseEvent: We,
-        MutationEvent: Je,
-        MutationObserver: Ke,
-        Uint8Array: ze,
-        FileReader: Ye,
-        DOMParser: Qe,
-        XMLHttpRequest: Ze,
-        Function: et,
-        RegExp: tt,
-        Promise: nt,
-        Blob: ot,
-        ReadableStream: rt,
-        Number: st,
-        String: at,
-        Proxy: it,
-        Window: lt
+        btoa: ke,
+        postMessage: Ue,
+        dispatchEvent: $e,
+        alert: je,
+        prompt: Fe,
+        confirm: Ne,
+        close: Ve,
+        getElementById: qe,
+        createEvent: Xe,
+        createElement: Be,
+        CustomEvent: He,
+        CompositionEvent: We,
+        KeyboardEvent: Ke,
+        MouseEvent: Je,
+        MutationEvent: ze,
+        MutationObserver: Ye,
+        Uint8Array: Qe,
+        FileReader: Ze,
+        DOMParser: et,
+        XMLHttpRequest: tt,
+        Function: nt,
+        RegExp: ot,
+        Promise: rt,
+        Blob: st,
+        ReadableStream: at,
+        Number: it,
+        String: lt,
+        Proxy: ct,
+        Window: dt
       } = n,
-      ct = r,
-      ut = s,
-      dt = _,
-      pt = M,
-      gt = m,
-      ft = h,
-      vt = b,
-      mt = w,
-      _t = E,
-      Mt = G,
-      ht =
-        S ||
+      ut = r,
+      gt = s,
+      pt = m,
+      ft = _,
+      vt = v,
+      mt = b,
+      _t = M,
+      bt = y,
+      Mt = w,
+      ht = S,
+      yt =
+        E ||
         ((e) => {
-          const t = Gt({});
-          for (const n in e) t[n] = _t(e, n);
+          const t = Lt({});
+          for (const n in e) t[n] = Mt(e, n);
           return t;
         }),
-      bt = v,
-      yt = C,
-      wt = T,
-      Et = I,
-      St = (e, t, n) => ct(ut, e, t, n),
-      Gt = o,
-      Rt = (e, t, n) => (vt(e, t, Gt({ value: n, configurable: !0, enumerable: !0, writable: !0 })), e),
-      Ot = (e, t) => (Wt(e, t) ? e[t] : void 0),
-      Lt = (e, t) => {
-        const n = _t(e, t);
-        return n ? Gt(n).value : void 0;
+      wt = f,
+      Et = O,
+      St = C,
+      Rt = I,
+      Gt = (e, t, n) => ut(gt, e, t, n),
+      Lt = o,
+      Ot = (e, t, n) => (_t(e, t, Lt({ value: n, configurable: !0, enumerable: !0, writable: !0 })), e),
+      Ct = (e, t) => (Kt(e, t) ? e[t] : void 0),
+      It = (e, t) => {
+        const n = Mt(e, t);
+        return n ? Lt(n).value : void 0;
       },
-      Ct = (e, t) => {
+      Tt = (e, t) => {
         const n = (e, t, o) => {
-          const r = _t(e, t),
-            s = r ? Gt(r) : void 0;
+          const r = Mt(e, t),
+            s = r ? Lt(r) : void 0;
           let a;
-          return s ? (s.enumerable ? s.value : void 0) : --o >= 0 && (a = Mt(e)) ? n(a, t, o) : void 0;
+          return s ? (s.enumerable ? s.value : void 0) : --o >= 0 && (a = ht(e)) ? n(a, t, o) : void 0;
         };
         return n(e, t, 5);
       },
-      Tt = (e) => {
-        const t = (t, ...n) => St(e, t, n);
-        return Rt(t, "wrappedJSObject", e), t;
+      xt = (e) => {
+        const t = (t, ...n) => Gt(e, t, n);
+        return Ot(t, "wrappedJSObject", e), t;
       },
-      It = () => (e) => Tt(e),
-      xt = Tt(a),
-      At = O,
-      Dt = (e) => {
+      Pt = () => (e) => xt(e),
+      Dt = xt(a),
+      At = G,
+      kt = (e) => {
         const t = (e, n) => {
           let o;
           if (null === e) o = "null";
-          else if ("object" == typeof e) {
-            if (n) {
-              if (-1 != Bt(n, e)) throw "Converting circular structure to JSON";
-              Rt(n, n.length, e);
-            } else n = [e];
-            if (bt(e)) {
-              let r = "";
-              for (let o = 0; o < e.length; o++) {
-                let s;
-                s = Wt(e, o) ? Ot(e, o) : Ct(e, o);
-                const a = t(s, n);
-                r += `${o ? "," : ""}${void 0 === a ? "null" : a}`;
+          else {
+            const r = typeof e;
+            if ("object" === r) {
+              if (n) {
+                if (-1 != Ht(n, e)) throw "Converting circular structure to JSON";
+                Ot(n, n.length, e);
+              } else n = [e];
+              if (wt(e)) {
+                let r = "";
+                for (let o = 0; o < e.length; o++) {
+                  let s;
+                  s = Kt(e, o) ? Ct(e, o) : Tt(e, o);
+                  const a = t(s, n);
+                  r += `${o ? "," : ""}${void 0 === a ? "null" : a}`;
+                }
+                o = `[${r}]`;
+              } else {
+                let r = "";
+                Wt(pt(e), (o) => {
+                  const s = t(e[o], n);
+                  void 0 !== s && (r += `${r ? "," : ""}${L(o)}: ${s}`);
+                }),
+                  (o = `{${r}}`);
               }
-              o = `[${r}]`;
+              n.length -= 1;
             } else {
-              let r = "";
-              Ht(dt(e), (o) => {
-                const s = t(e[o], n);
-                void 0 !== s && (r += `${r ? "," : ""}${L(o)}: ${s}`);
-              }),
-                (o = `{${r}}`);
+              if ("bigint" === r) throw "Do not know how to serialize a BigInt";
+              o = L(e);
             }
-            n.length -= 1;
-          } else o = L(e);
+          }
           return o;
         };
         return t(e);
       },
-      Pt = (e) => {
-        const t = O(e),
+      Ut = (e) => {
+        const t = G(e),
           n = (e) => {
             const t = [];
-            for (let n = 0; n < e.length; n++) Rt(t, n, o(e[n]));
+            for (let n = 0; n < e.length; n++) Ot(t, n, o(e[n]));
             return t;
           },
           o = (e) => {
             if (null === e);
             else if ("object" == typeof e) {
-              if (bt(e)) return n(e);
+              if (wt(e)) return n(e);
               {
                 const t = {};
                 return (
-                  Ht(dt(e), (r) => {
+                  Wt(pt(e), (r) => {
                     const s = e[r];
                     let a;
-                    (a = "object" == typeof s ? (bt(s) ? n(s) : o(s)) : s), Rt(t, r, a);
+                    (a = "object" == typeof s ? (wt(s) ? n(s) : o(s)) : s), Ot(t, r, a);
                   }),
                   t
                 );
@@ -355,120 +365,120 @@ this.pagejs = (e) => {
           };
         return o(t);
       },
-      Ut = It()(c),
-      $t = (e, t, n, ...o) => {
+      $t = Pt()(c),
+      jt = (e, t, n, ...o) => {
         const r = o || [],
-          s = jt(e, 0, t),
-          a = jt(e, t, n),
-          i = jt(e, t + n);
-        let l = qt([], s);
-        return (l = qt(l, r)), (l = qt(l, i)), Gt({ result: l, removed: a });
+          s = Vt(e, 0, t),
+          a = Vt(e, t, n),
+          i = Vt(e, t + n);
+        let l = Xt([], s);
+        return (l = Xt(l, r)), (l = Xt(l, i)), Lt({ result: l, removed: a });
       },
-      kt = It()(u),
-      Ft = It()(p),
-      Nt = It()(g),
-      jt = (e, t, n) => {
+      Ft = Pt()(d),
+      Nt = Pt()(g),
+      Vt = (e, t, n) => {
         const o = e.length;
         let r = t || 0;
         if (r >= o) return [];
-        r < 0 && (r = Et(0, o + r));
+        r < 0 && (r = Rt(0, o + r));
         let s = void 0 === n ? o : n;
-        s < 0 && (s = Et(0, o + s)), s > o && (s = o);
-        const a = Gt({});
-        for (let t = r; t < s; t++) a[t] = Lt(e, t);
-        return pt(a);
+        s < 0 && (s = Rt(0, o + s)), s > o && (s = o);
+        const a = Lt({});
+        for (let t = r; t < s; t++) a[t] = It(e, t);
+        return ft(a);
       },
-      Vt = It()(d),
-      qt = (e, ...t) => {
+      qt = Pt()(u),
+      Xt = (e, ...t) => {
         let n = e.length;
-        const o = Gt(e);
+        const o = Lt(e);
         for (let e = 0; e < t.length; e++) {
           const r = t[e],
-            s = bt(r) ? r : [r];
-          for (let e = 0; e < s.length; e++) o[n + e] = Lt(s, e);
+            s = wt(r) ? r : [r];
+          for (let e = 0; e < s.length; e++) o[n + e] = It(s, e);
           n += s.length;
         }
-        return pt(o);
+        return ft(o);
       },
-      Xt = (e, t) => {
+      Bt = (e, t) => {
         let n = e.length || 0;
-        return Rt(e, n, t), n++, (e.length = n);
+        return Ot(e, n, t), n++, (e.length = n);
       },
-      Bt = It()(f),
-      Ht = It()(l),
-      Wt = It()(y),
-      Jt = It()(J),
-      Kt = It()(B),
-      zt = Tt(R),
-      Yt = Mt({}),
-      Qt = (e) => {
-        const t = Gt(e),
-          n = mt(t);
+      Ht = Pt()(p),
+      Wt = Pt()(l),
+      Kt = Pt()(h),
+      Jt = Pt()(K),
+      zt = Pt()(B),
+      Yt = xt(R),
+      Qt = ht({}),
+      Zt = (e) => {
+        const t = Lt(e),
+          n = bt(t);
         for (let e = 0; e < n.length; e++) {
           const o = n[e],
             r = t[o];
-          null !== r && "object" == typeof r && Mt(r) === Yt && (t[o] = Qt(r));
+          null !== r && "object" == typeof r && ht(r) === Qt && (t[o] = Zt(r));
         }
         return t;
       },
-      Zt = (e) => {
-        const t = Jt(zt(e), " ");
-        return Kt(Vt(jt(t, 1), " "), 0, -1);
+      en = (e) => {
+        const t = Jt(Yt(e), " ");
+        return zt(qt(Vt(t, 1), " "), 0, -1);
       },
-      en = (It()(i), It()(x)),
-      tn = A,
-      nn = D,
-      on = It()(P),
-      rn = U,
-      sn = async (e) => e,
-      an = It()($),
-      ln = It()(k),
-      cn = It()(F),
-      un = It()(N),
-      dn = It()(j),
-      pn = V ? It()(V) : V,
-      gn = q ? It()(q) : q,
+      tn = (Pt()(i), Pt()(x)),
+      nn = P,
+      on = D,
+      rn = Pt()(A),
+      sn = k,
+      an = Pt()(U),
+      ln = Pt()($),
+      cn = Pt()(j),
+      dn = Pt()(F),
+      un = Pt()(N),
+      gn = V ? Pt()(V) : V,
+      pn = q ? Pt()(q) : q,
       fn = X,
-      vn = It()(H),
-      mn = It()(W),
-      _n = It()(K),
-      Mn =
-        (It()(
+      vn = Pt()(H),
+      mn = Pt()(W),
+      _n = Pt()(J),
+      bn =
+        (Pt()(
           z ||
             function (e, t) {
-              return Vt(Jt(this, e), t);
+              return qt(Jt(this, e), t);
             }
         ),
-        It()(Y)),
-      hn = It()(Q),
-      bn = It()(Z),
+        Pt()(Y)),
+      Mn = Pt()(Q),
+      hn = Pt()(Z),
       yn = ee,
-      wn = Tt(te),
-      En = Tt(ne),
-      Sn = Tt(oe),
-      Gn = (Tt(re), Tt(se), Tt(ae)),
-      Rn = Tt(ie),
-      On = Tt(le),
-      Ln = Tt(ce),
-      Cn = Tt(ue),
-      Tn = (It()(ge), ve),
-      In = me,
-      xn = _e,
-      An = Me,
-      Dn = he,
-      Pn = (It()(fe), be),
-      Un = it,
-      $n = st,
-      kn = Xe,
+      wn = xt(te),
+      En = xt(ne),
+      Sn = xt(oe),
+      Rn = (xt(re), xt(se), xt(ae)),
+      Gn = xt(ie),
+      Ln = xt(le),
+      On = xt(ce),
+      Cn = xt(de),
+      In = xt(ue),
+      Tn = xt(fe),
+      xn = (Pt()(ve), _e),
+      Pn = be,
+      Dn = Me,
+      An = he,
+      kn = ye,
+      Un = (Pt()(me), we),
+      $n = ct,
+      jn = it,
       Fn = He,
-      Nn = We,
-      jn = ze,
-      Vn = Ke,
-      qn = ot,
-      Xn = function (e, t) {
-        return Lt(e, t);
+      Nn = Ke,
+      Vn = Je,
+      qn = Qe,
+      Xn = Ye,
+      Bn = st,
+      Hn = function (e, t) {
+        return It(e, t);
       },
-      Bn = Gt({
+      Wn = Lt({
         addEventListener: !1,
         Array: !0,
         Blob: !0,
@@ -492,20 +502,20 @@ this.pagejs = (e) => {
         Uint8Array: !0,
         XMLHttpRequest: !0
       }),
-      Hn = (() => {
-        const e = Gt({ getElementById: je, createEvent: Ve, createElement: qe, dispatchEvent: Ue, addEventListener, removeEventListener }),
-          t = Gt({});
+      Kn = (() => {
+        const e = Lt({ getElementById: qe, createEvent: Xe, createElement: Be, dispatchEvent: $e, addEventListener, removeEventListener }),
+          t = Lt({});
         return (
-          Ht(dt(e), (n) => {
+          Wt(pt(e), (n) => {
             try {
               const o = e[n];
               t[n] = function (...e) {
-                return St(o, Kn.document, e);
+                return Gt(o, Yn.document, e);
               };
             } catch (e) {
               t[n] = ((e, t) => {
                 if (
-                  (Yn.error(
+                  (Zn.error(
                     `Tampermonkey sandbox preparation ${t ? "(" + t + ") " : ""}failed. This usually is caused by a third-party extension.`,
                     e
                   ),
@@ -518,33 +528,30 @@ this.pagejs = (e) => {
           t
         );
       })(),
-      Wn = Gt({
-        top: !0,
-        location: !0
-      }),
-      Jn = e,
-      { unsafeWindow: Kn, unsafeThis: zn } = Jn;
-    e.bridges = e.bridges || Gt({});
-    const Yn = (e.console = e.console || Gt({})),
-      Qn = Gt({ addEventListener: xt(we, Kn), removeEventListener: xt(Ee, Kn) });
-    Ht(dt(Wn), async (e) => {
-      if (!Qn[e])
+      Jn = Lt({ top: !0, location: !0 }),
+      zn = e,
+      { unsafeWindow: Yn, unsafeThis: Qn } = zn;
+    e.bridges = e.bridges || Lt({});
+    const Zn = (e.console = e.console || Lt({})),
+      eo = Lt({ addEventListener: Dt(Se, Yn), removeEventListener: Dt(Re, Yn) });
+    Wt(pt(Jn), async (e) => {
+      if (!eo[e])
         try {
-          const t = Kn[e];
+          const t = Yn[e];
           if (null == t) return;
-          Qn[e] = t;
+          eo[e] = t;
         } catch (e) {}
     }),
-      Ht(dt(Bn), async (e) => {
-        if (!Qn[e])
+      Wt(pt(Wn), async (e) => {
+        if (!eo[e])
           try {
-            let t = Lt(Kn, e);
-            if (void 0 === t && (zn === Kn || void 0 === (t = Lt(zn, e)))) return;
-            const n = Bn[e];
-            Qn[e] = !1 === n && "function" == typeof t ? xt(t, zn) : t;
+            let t = It(Yn, e);
+            if (void 0 === t && (Qn === Yn || void 0 === (t = It(Qn, e)))) return;
+            const n = Wn[e];
+            eo[e] = !1 === n && "function" == typeof t ? Dt(t, Qn) : t;
           } catch (e) {}
       });
-    const Zn = (e) => {
+    const to = (e) => {
         let t,
           n = [],
           o = !1;
@@ -552,116 +559,135 @@ this.pagejs = (e) => {
           if (!o) {
             if (n.length) {
               const t = n;
-              (n = []), Ht(t, (t) => t(e));
+              (n = []), Wt(t, (t) => t(e));
             } else t = e;
             o = !0;
           }
         });
-        const r = Gt({ then: (e) => (o ? e(t) : Xt(n, e), r) });
+        const r = Lt({ then: (e) => (o ? e(t) : Bt(n, e), r) });
         return r;
       },
-      { createEvent: eo } = Hn,
-      to = () => on(Pn() + 19831206 * wt() + 1, 36),
-      no = async (e) => {
+      { createEvent: no } = Kn,
+      oo = () => rn(Un() + 19831206 * St() + 1, 36),
+      ro = async (e) => {
         await null, e();
       },
-      oo = (() => {
+      so = () => {
+        const e = En(Yn.document);
+        e && (Ln(e, "nonce"), Rn(e));
+      },
+      ao = (() => {
         const { console: t, bridges: n } = e,
-          o = Gt({});
+          o = Lt({});
         let r;
-        const s = (e, t) => {
-          let n = [],
-            r = [];
-          const s = () => {
-            (n = []), (r = []), (a = null), delete o[e];
-          };
-          let a = Gt({
-            postMessage: (n) => {
-              t.send("port.message", Gt({ response_id: e, value: n }));
-            },
-            onMessage: Gt({
-              addListener: (e) => {
-                Xt(n, e);
-              }
-            }),
-            onDisconnect: Gt({
-              addListener: (e) => {
-                Xt(r, e);
-              }
-            }),
-            disconnect: () => {
-              t.send("port.message", Gt({ response_id: e, disconnect: !0 })), s();
-            }
-          });
-          return (
-            (o[e] = Gt({
-              message: (e) => {
-                n && Ht(n, (t) => t(e));
+        const s = (e, t, n) => {
+            let r,
+              s = [],
+              i = [];
+            const l = () => {
+                (s = []), (i = []), u(), (v = null), delete o[t];
               },
-              disconnect: () => {
-                r && Ht(r, (e) => e()), s();
-              }
-            })),
-            a
-          );
-        };
-        return Gt({
+              c = (n) => {
+                e.send("port.message", Lt({ response_id: t, value: n }));
+              },
+              d = (e, t = !0) => {
+                (r = e), t && c(e);
+              },
+              u = () => {
+                r = void 0;
+              },
+              g = Lt({
+                addListener: (e) => {
+                  Bt(s, e);
+                }
+              }),
+              p = Lt({
+                addListener: (e) => {
+                  Bt(i, e);
+                }
+              }),
+              f = () => {
+                e.send("port.message", Lt({ response_id: t, disconnect: !0 })), l();
+              };
+            let v = Lt(
+              n
+                ? { postMessage: c, connectMessage: d, stopReconnecting: u, onMessage: g, onDisconnect: p, disconnect: f }
+                : { postMessage: c, onMessage: g, onDisconnect: p, disconnect: f }
+            );
+            return (
+              (o[t] = Lt({
+                message: (e) => {
+                  s && Wt(s, (t) => t(e));
+                },
+                disconnect: () => {
+                  if (r && n) return a(n, t), void d(r);
+                  i && Wt(i, (e) => e()), l();
+                }
+              })),
+              v
+            );
+          },
+          a = (e, t) => {
+            n.first.send("port.message", Lt({ response_id: t, connect: !0, destination: e }));
+          };
+        return Lt({
           message: (e, n) => {
             let a;
             if (e.connect) {
               if (!e.destination || !e.response_id) throw "invalid message";
-              r && r(e.destination, s(e.response_id, n));
+              r && r(e.destination, s(n, e.response_id));
             } else {
               if (!e.response_id) throw "invalid message";
               if (!(a = o[e.response_id])) return void t.warn("ports: unkown id", e.response_id, e);
               e.disconnect ? a.disconnect() : a.message(e.value);
             }
           },
-          connect: (e) => {
-            const t = to();
-            return n.first.send("port.message", Gt({ response_id: t, connect: !0, destination: e })), s(t, n.first);
+          connect: function (e, t) {
+            const o = oo();
+            return a(e, o), s(n.first, o, t ? e : void 0);
           },
-          onConnect: Gt({
+          onConnect: Lt({
             addListener: (e) => {
               r = e;
             }
           })
         });
       })(),
-      { bridges: ro } = e,
-      so = Gt({}),
-      ao = Gt({});
-    let io = !0,
-      lo = [];
-    no(() => {
-      (io = !1), Ht(lo, ({ m: e, i: t }) => ro.first.send("console", [e, t])), (lo = []);
+      { bridges: io } = e,
+      lo = Lt({}),
+      co = Lt({});
+    let uo = !0,
+      go = [];
+    ro(() => {
+      (uo = !1), Wt(go, ({ m: e, i: t }) => io.first.send("console", [e, t])), (go = []);
     }),
-      Ht(["debug", "log", "info", "warn", "error"], (e) => {
-        Rt(so, e, (...t) => {
+      Wt(["debug", "log", "info", "warn", "error"], (e) => {
+        Ot(lo, e, (...t) => {
           const n = ((e) => {
             const t = [];
             return (
-              Ht(e, (e) => {
-                Xt(t, ((e) => Dt(e))(e));
+              Wt(e, (e) => {
+                Bt(t, ((e) => kt(e))(e));
               }),
               t
             );
           })(t);
-          if (io) return Xt(lo, Gt({ m: e, i: n }));
-          ro.first.send("console", [e, n]);
+          if (uo) return Bt(go, Lt({ m: e, i: n }));
+          io.first.send("console", [e, n]);
         });
       });
-    const co = Gt(ht(Kn.console)),
-      uo = Gt({});
-    Ht(mt(Re), (e) => {
-      const t = Gt(co[e]);
-      uo[e] = Gt({ get: "value" in t ? () => t.value : t.get, enumerable: !0, configurable: !1 });
+    const po = Lt(yt(Yn.console)),
+      fo = Lt({});
+    Wt(bt(Oe), (e) => {
+      const t = Lt(po[e]);
+      fo[e] = Lt({ get: "value" in t ? () => t.value : t.get, enumerable: !0, configurable: !1 });
     }),
-      ft(ao, uo);
-    const po = ["chrome"],
-      go = ["GM_addElement", "GM.addElement", "GM_addStyle", "GM.addStyle"],
-      fo = ["GM_cookie", "GM.cookie"],
-      vo = [
+      mt(co, fo);
+    const vo = ["chrome"],
+      mo = ["GM.backgroundControl"],
+      _o = ["GM_addElement", "GM.addElement", "GM_addStyle", "GM.addStyle"],
+      bo = ["GM_cookie", "GM.cookie"],
+      Mo = [
         "GM_listValues",
         "GM.listValues",
         "GM_getValue",
@@ -671,157 +697,157 @@ this.pagejs = (e) => {
         "GM_removeValueChangeListener",
         "GM.removeValueChangeListener"
       ],
-      mo = ["GM_setValue", "GM.setValue", "GM_deleteValue", "GM.deleteValue"],
-      _o = ["GM_download", "GM.download"],
-      Mo = ["GM_getResourceText", "GM.getResourceText", "GM_getResourceURL", "GM.getResourceUrl"],
-      ho = ["GM_getTab", "GM.getTab", "GM_getTabs", "GM.getTabs", "GM_saveTab", "GM.saveTab"],
-      bo = ["GM_log", "GM.log"],
-      yo = ["GM_notification", "GM.notification"],
-      wo = ["GM_openInTab", "GM.openInTab"],
-      Eo = ["GM_registerMenuCommand", "GM.registerMenuCommand", "GM_unregisterMenuCommand", "GM.unregisterMenuCommand"],
-      So = ["GM_setClipboard", "GM.setClipboard"],
-      Go = ["GM_xmlhttpRequest", "GM.xmlHttpRequest"],
-      Ro = ["window.close"],
-      Oo = ["window.focus"],
-      Lo = ["window.onurlchange"],
-      Co = ["GM_webRequest", "GM.webRequest"],
-      To = Gt({
-        encode: (e) => xe(Oe(e)),
-        decode: (e) => Le(Ie(e))
+      ho = ["GM_setValue", "GM.setValue", "GM_deleteValue", "GM.deleteValue"],
+      yo = ["GM_download", "GM.download"],
+      wo = ["GM_getResourceText", "GM.getResourceText", "GM_getResourceURL", "GM.getResourceUrl"],
+      Eo = ["GM_getTab", "GM.getTab", "GM_getTabs", "GM.getTabs", "GM_saveTab", "GM.saveTab"],
+      So = ["GM_log", "GM.log"],
+      Ro = ["GM_notification", "GM.notification"],
+      Go = ["GM_openInTab", "GM.openInTab"],
+      Lo = ["GM_registerMenuCommand", "GM.registerMenuCommand", "GM_unregisterMenuCommand", "GM.unregisterMenuCommand"],
+      Oo = ["GM_setClipboard", "GM.setClipboard"],
+      Co = ["GM_xmlhttpRequest", "GM.xmlHttpRequest"],
+      Io = ["window.close"],
+      To = ["window.focus"],
+      xo = ["window.onurlchange"],
+      Po = ["GM_webRequest", "GM.webRequest"],
+      Do = Lt({
+        encode: (e) => De(Ce(e)),
+        decode: (e) => Ie(Pe(e))
       }),
-      Io = Gt({
+      Ao = Lt({
         encode: (e) => {
           let t = "";
-          for (let n = 0; n < e.length; n++) t += fn(255 & Mn(e, n));
-          return De(t);
+          for (let n = 0; n < e.length; n++) t += fn(255 & bn(e, n));
+          return ke(t);
         },
         decode: (e) => Ae(e)
       }),
-      xo = (e) => {
-        const t = new jn(e.length);
-        for (let n = 0; n < e.length; n++) t[n] = Mn(e, n);
+      ko = (e) => {
+        const t = new qn(e.length);
+        for (let n = 0; n < e.length; n++) t[n] = bn(e, n);
         return t.buffer;
       },
-      Ao = (e, t) =>
-        Zn((n) => {
-          const o = new Qn.FileReader();
+      Uo = (e, t) =>
+        to((n) => {
+          const o = new eo.FileReader();
           (o.onload = () => {
-            n(dn(o));
+            n(un(o));
           }),
             (o.onerror = (e) => {
-              Yn.warn(`unable to decode data ${e}`), n("");
+              Zn.warn(`unable to decode data ${e}`), n("");
             }),
-            t ? un(o, e, t) : cn(o, e);
+            t ? dn(o, e, t) : cn(o, e);
         }),
-      { bridges: Do } = e;
-    let Po = 0,
-      Uo = 0;
-    const $o = Gt({}),
-      ko = Gt({}),
-      Fo = function (e, t, n, o) {
+      { bridges: $o } = e;
+    let jo = 0,
+      Fo = 0;
+    const No = Lt({}),
+      Vo = Lt({}),
+      qo = function (e, t, n, o) {
         const r = () => {
-          $o[n] && (St(e, this, o), delete $o[n]);
+          No[n] && (Gt(e, this, o), delete No[n]);
         };
-        "function" == typeof e && (($o[n] = e), 0 === t ? no(() => r()) : Do.first.send("setTimeout", Gt({ t: t || 1 }), () => r()));
+        "function" == typeof e && ((No[n] = e), 0 === t ? ro(() => r()) : $o.first.send("setTimeout", Lt({ t: t || 1 }), () => r()));
       },
-      No = (e) => {
-        const t = ko[e];
-        t && (t.disconnect(), delete ko[e]);
-      },
-      jo = (e, t, ...n) => {
-        const o = to();
-        return Fo(e, t, o, n), o;
-      },
-      Vo = (e) => {
-        ((e) => {
-          delete $o[e];
-        })(e);
-      },
-      qo = (e) => No(e),
-      Xo = (e, t, ...n) => {
-        const o = ++Uo;
-        return (t = Et(t, 1)), Fo(e, t, o, n), o;
+      Xo = (e) => {
+        const t = Vo[e];
+        t && (t.disconnect(), delete Vo[e]);
       },
       Bo = (e, t, ...n) => {
-        const o = ++Po;
+        const o = oo();
+        return qo(e, t, o, n), o;
+      },
+      Ho = (e) => {
+        ((e) => {
+          delete No[e];
+        })(e);
+      },
+      Wo = (e) => Xo(e),
+      Ko = (e, t, ...n) => {
+        const o = ++Fo;
+        return (t = Rt(t, 1)), qo(e, t, o, n), o;
+      },
+      Jo = (e, t, ...n) => {
+        const o = ++jo;
         return (
           (function (e, t, n, o) {
             if ("function" == typeof e) {
-              const r = (ko[n] = oo.connect("setInterval"));
+              const r = (Vo[n] = ao.connect("setInterval"));
               r.onMessage.addListener(() => {
-                ko[n] && St(e, this, o);
+                Vo[n] && Gt(e, this, o);
               }),
-                r.onDisconnect.addListener(() => No(n)),
-                r.postMessage(Gt({ method: "setInterval", t: t || 1 }));
+                r.onDisconnect.addListener(() => Xo(n)),
+                r.postMessage(Lt({ method: "setInterval", t: t || 1 }));
             }
-          })(e, (t = Et(t, 1)), o, n),
+          })(e, (t = Rt(t, 1)), o, n),
           o
         );
       },
-      Ho = (t) => {
+      zo = (t) => {
         const { contextId: n, bridges: o } = e,
-          r = Gt({}),
-          s = (e, t) => Ut(t, (t) => -1 != Bt(e, t)),
+          r = Lt({}),
+          s = (e, t) => $t(t, (t) => -1 != Ht(e, t)),
           a = (e) =>
             function () {
-              const t = sn(St(e, this, arguments));
-              return Rt(t, "then", (e) => an(t, e)), Rt(t, "catch", (e) => ln(t, e)), t;
+              const t = (async (e) => e)(Gt(e, this, arguments));
+              return Ot(t, "then", (e) => an(t, e)), Ot(t, "catch", (e) => ln(t, e)), t;
             },
           i = (e, t) =>
             function (...n) {
               const o = [];
-              if (void 0 !== t) for (let e = 0; e < t; e++) Xt(o, Xn(n, e) || void 0);
-              return new Qn.Promise((t) => {
-                St(e, this, qt(o, [t]));
+              if (void 0 !== t) for (let e = 0; e < t; e++) Bt(o, Hn(n, e) || void 0);
+              return new eo.Promise((t) => {
+                Gt(e, this, Xt(o, [t]));
               });
             },
           l = (e, t) => {
             let n;
-            const o = new Qn.Promise((o, r) => {
-              const s = Gt({}),
+            const o = new eo.Promise((o, r) => {
+              const s = Lt({}),
                 a = t.onload,
                 i = t.ontimeout,
                 l = t.onerror;
-              Ht(dt(t), (e) => {
+              Wt(pt(t), (e) => {
                 s[e] = t[e];
               }),
                 (s.onerror = function (e) {
-                  r(e), l && St(l, this, arguments);
+                  l ? (o(e), Gt(l, this, arguments)) : r(e);
                 }),
                 (s.ontimeout = function (e) {
-                  r(e), i && St(i, this, arguments);
+                  i ? (o(e), Gt(i, this, arguments)) : r(e);
                 }),
                 (s.onload = function (e) {
-                  o(e), a && St(a, this, arguments);
+                  o(e), a && Gt(a, this, arguments);
                 });
               const c = e(s).abort;
               !0 === n ? c() : (n = c);
             });
             return (
-              Rt(o, "abort", () => {
+              Ot(o, "abort", () => {
                 "function" == typeof n ? n() : (n = !0);
               }),
               o
             );
           };
-        return Gt({
+        return Lt({
           of: (e) => {
             const c = e.script,
-              u = (() => {
-                const e = s(c.grant, So),
-                  t = (e, t, r) => {
-                    o.first.send("setClipboard", Gt({ content: e, info: t, id: n, uuid: c.uuid }), r ? () => r() : null);
-                  };
-                return Gt({ GM_setClipboard: e ? Gt({ value: t }) : void 0, "GM.setClipboard": e ? Gt({ get: () => i(t, 2) }) : void 0 });
-              })(),
               d = (() => {
+                const e = s(c.grant, Oo),
+                  t = (e, t, r) => {
+                    o.first.send("setClipboard", Lt({ content: e, info: t, id: n, uuid: c.uuid }), r ? () => r() : null);
+                  };
+                return Lt({ GM_setClipboard: e ? Lt({ value: t }) : void 0, "GM.setClipboard": e ? Lt({ get: () => i(t, 2) }) : void 0 });
+              })(),
+              u = (() => {
                 let t = [];
                 const o = e.storage;
                 let r = 0,
                   i = null;
-                const l = s(c.grant, vo),
-                  u = s(c.grant, mo),
-                  d = (e, t) => {
+                const l = s(c.grant, Mo),
+                  d = s(c.grant, ho),
+                  u = (e, t) => {
                     if ("string" != typeof e) return t;
                     {
                       const n = vn(e, 0, 1);
@@ -829,18 +855,18 @@ this.pagejs = (e) => {
                         case "b":
                           return "true" === e;
                         case "n":
-                          return $n(e);
+                          return jn(e);
                         case "x":
                           try {
-                            return To.decode(Io.decode(e));
+                            return Do.decode(Ao.decode(e));
                           } catch (t) {
                             return e;
                           }
                         case "o":
                           try {
-                            return Pt(e);
+                            return Ut(e);
                           } catch (e) {
-                            Yn.log(`values: parseValueFromStorage: ${e}`);
+                            Zn.log(`values: parseValueFromStorage: ${e}`);
                           }
                           return t;
                         case "u":
@@ -850,25 +876,25 @@ this.pagejs = (e) => {
                       }
                     }
                   },
-                  p = (e, n, o, r) => {
+                  g = (e, n, o, r) => {
                     n != o &&
-                      Ht(t, (t) => {
+                      Wt(t, (t) => {
                         if (t && t.key == e && t.cb)
                           try {
-                            t.cb(e, d(n), d(o), r);
+                            t.cb(e, u(n), u(o), r);
                           } catch (t) {
-                            Yn.warn(`values: change listener of "${e}" failed with: ${t.message}`);
+                            Zn.warn(`values: change listener of "${e}" failed with: ${t.message}`);
                           }
                       });
                   },
-                  g = (e, t) => {
+                  p = (e, t) => {
                     i &&
-                      i.postMessage(Gt({ method: "saveStorageKey", uuid: c.uuid, key: e, value: o.data[e], removed: t, id: n, ts: o.ts }));
+                      i.postMessage(Lt({ method: "saveStorageKey", uuid: c.uuid, key: e, value: o.data[e], removed: t, id: n, ts: o.ts }));
                   };
-                (l || u) &&
-                  ((i = oo.connect("values")),
+                (l || d) &&
+                  ((i = ao.connect("values", !0)),
                   i.onDisconnect.addListener(() => {
-                    i = null;
+                    Zn.warn("values: port disconnected"), (i = null);
                   })),
                   i &&
                     l &&
@@ -876,101 +902,115 @@ this.pagejs = (e) => {
                       const { storage: t, removed: n } = e;
                       if (!t) return;
                       const r = t,
-                        s = dt(r);
-                      n && Xt(s, n),
-                        Ht(s, (e) => {
+                        s = pt(r);
+                      n && Bt(s, n),
+                        Wt(s, (e) => {
                           const t = o.data[e],
                             n = r[e];
-                          void 0 === n ? delete o.data[e] : (o.data[e] = n), p(e, t, n, !0);
+                          void 0 === n ? delete o.data[e] : (o.data[e] = n), g(e, t, n, !0);
                         });
                     }),
-                    i.postMessage(Gt({ method: "addStorageListener", uuid: c.uuid, id: n })));
-                const f = (e, t) => d(o.data[e], t),
-                  v = () => dt(o.data),
+                    i.connectMessage(Lt({ method: "addStorageListener", uuid: c.uuid, id: n })));
+                const f = (e, t) => u(o.data[e], t),
+                  v = () => pt(o.data),
                   m = (e, n) => {
                     const o = ++r,
-                      s = Gt({ id: o, key: e, cb: n });
-                    return Xt(t, s), o;
+                      s = Lt({ id: o, key: e, cb: n });
+                    return Bt(t, s), o;
                   },
                   _ = (e) => {
                     t = Nt(t, (t) => t.id !== e);
                   },
-                  M = (e, t) => {
+                  b = (e, t) => {
                     const n = o.data[e];
-                    (o.ts = Pn()),
+                    (o.ts = Un()),
                       (o.data[e] = ((e) => {
-                        const t = vn(typeof e, 0, 1);
-                        let n;
-                        if ("o" === t)
-                          try {
-                            n = t + Dt(e);
-                          } catch (e) {
-                            return void Yn.log(e);
-                          }
-                        else n = t + e;
+                        const t = typeof e;
+                        let n,
+                          o = vn(t, 0, 1);
+                        switch (t) {
+                          case "object":
+                            try {
+                              n = o + kt(e);
+                            } catch (e) {
+                              return void Zn.log(e);
+                            }
+                            break;
+                          case "function":
+                          case "symbol":
+                          case "bigint":
+                            (o = "u"), (n = o + void 0);
+                            break;
+                          case "string":
+                          case "number":
+                          case "undefined":
+                          case "boolean":
+                            n = o + e;
+                            break;
+                          default:
+                            n = t;
+                        }
                         return n;
                       })(t)),
-                      g(e),
-                      p(e, n, o.data[e], !1);
+                      p(e),
+                      g(e, n, o.data[e], !1);
                   },
-                  h = (e) => {
+                  M = (e) => {
                     const t = o.data[e];
-                    (o.ts = Pn()), delete o.data[e], g(e, !0), p(e, t, o.data[e], !1);
+                    (o.ts = Un()), delete o.data[e], p(e, !0), g(e, t, o.data[e], !1);
                   };
-                return Gt({
-                  GM_getValue: l ? Gt({ value: f }) : void 0,
-                  "GM.getValue": l ? Gt({ get: () => a(f) }) : void 0,
-                  GM_listValues: l ? Gt({ value: v }) : void 0,
-                  "GM.listValues": l ? Gt({ get: () => a(v) }) : void 0,
-                  GM_addValueChangeListener: l ? Gt({ value: m }) : void 0,
-                  "GM.addValueChangeListener": l ? Gt({ get: () => a(m) }) : void 0,
-                  GM_removeValueChangeListener: l ? Gt({ value: _ }) : void 0,
-                  "GM.removeValueChangeListener": l ? Gt({ get: () => a(_) }) : void 0,
-                  GM_setValue: u ? Gt({ value: M }) : void 0,
-                  "GM.setValue": u ? Gt({ get: () => a(M) }) : void 0,
-                  GM_deleteValue: u ? Gt({ value: h }) : void 0,
-                  "GM.deleteValue": u ? Gt({ get: () => a(h) }) : void 0
-                });
-              })(),
-              p = (() => {
-                const e = s(c.grant, Lo),
-                  t = (() => {
-                    let e = [],
-                      t = null;
-                    return Gt({
-                      register: (o) => {
-                        Xt(e, o),
-                          t ||
-                            ((t = oo.connect("onurlchange")),
-                            t.onMessage.addListener(({ url: t }) => {
-                              t && Ht(e, (e) => e(Gt({ url: t })));
-                            }),
-                            t.postMessage(Gt({ method: "observeUrlChanges", uuid: c.uuid, id: n })));
-                      },
-                      unregister: (n) => {
-                        let o;
-                        n && (o = Bt(e, n)) > -1 && (e = $t(e, o, 1).result), t && 0 === e.length && (t.disconnect(), (t = null));
-                      }
-                    });
-                  })();
-                return Gt({
-                  "window.onurlchange": e
-                    ? Gt({
-                        value: t
-                      })
-                    : void 0
+                return Lt({
+                  GM_getValue: l ? Lt({ value: f }) : void 0,
+                  "GM.getValue": l ? Lt({ get: () => a(f) }) : void 0,
+                  GM_listValues: l ? Lt({ value: v }) : void 0,
+                  "GM.listValues": l ? Lt({ get: () => a(v) }) : void 0,
+                  GM_addValueChangeListener: l ? Lt({ value: m }) : void 0,
+                  "GM.addValueChangeListener": l ? Lt({ get: () => a(m) }) : void 0,
+                  GM_removeValueChangeListener: l ? Lt({ value: _ }) : void 0,
+                  "GM.removeValueChangeListener": l ? Lt({ get: () => a(_) }) : void 0,
+                  GM_setValue: d ? Lt({ value: b }) : void 0,
+                  "GM.setValue": d ? Lt({ get: () => a(b) }) : void 0,
+                  GM_deleteValue: d ? Lt({ value: M }) : void 0,
+                  "GM.deleteValue": d ? Lt({ get: () => a(M) }) : void 0
                 });
               })(),
               g = (() => {
-                const e = s(c.grant, Mo),
+                const e = s(c.grant, xo),
+                  t = (() => {
+                    let e = [],
+                      t = null;
+                    return Lt({
+                      register: (o, r) => {
+                        Bt(e, o),
+                          t ||
+                            ((t = ao.connect("onurlchange", !0)),
+                            t.onMessage.addListener(({ url: t }) => {
+                              if (!t) return;
+                              const n = Lt({ url: t });
+                              Wt(e, (e) => {
+                                Gt(e, r, [n]);
+                              });
+                            }),
+                            t.connectMessage(Lt({ method: "observeUrlChanges", uuid: c.uuid, id: n })));
+                      },
+                      unregister: (n) => {
+                        let o;
+                        n && (o = Ht(e, n)) > -1 && (e = jt(e, o, 1).result), t && 0 === e.length && (t.disconnect(), (t = null));
+                      }
+                    });
+                  })();
+                return Lt({ "window.onurlchange": e ? Lt({ value: t }) : void 0 });
+              })(),
+              p = (() => {
+                const e = s(c.grant, wo),
                   t = (e) => {
                     for (let t = 0; t < c.resources.length; t++) {
                       const n = c.resources[t];
                       if (n.name == e) {
-                        if (n.error) Yn.warn("@resource: " + n.error);
+                        if (n.error) Zn.warn("@resource: " + n.error);
                         else
                           try {
-                            if ("string" == typeof n.content) return To.decode(n.content);
+                            if ("string" == typeof n.content) return Do.decode(n.content);
                           } catch (e) {}
                         return "";
                       }
@@ -981,10 +1021,10 @@ this.pagejs = (e) => {
                     for (let t = 0; t < c.resources.length; t++) {
                       const n = c.resources[t];
                       if (n.name == e) {
-                        if (n.error) Yn.warn("@resource: " + n.error);
+                        if (n.error) Zn.warn("@resource: " + n.error);
                         else if ("string" == typeof n.content) {
                           try {
-                            return `data:${n.meta || "application/octet-stream"};base64,${Io.encode(n.content)}`;
+                            return `data:${n.meta || "application/octet-stream"};base64,${Ao.encode(n.content)}`;
                           } catch (e) {}
                           return n.url;
                         }
@@ -993,25 +1033,25 @@ this.pagejs = (e) => {
                     }
                     return null;
                   };
-                return Gt({
-                  GM_getResourceText: e ? Gt({ value: t }) : void 0,
-                  "GM.getResourceText": e ? Gt({ get: () => a(t) }) : void 0,
-                  GM_getResourceURL: e ? Gt({ value: n }) : void 0,
-                  "GM.getResourceUrl": e ? Gt({ get: () => a(n) }) : void 0
+                return Lt({
+                  GM_getResourceText: e ? Lt({ value: t }) : void 0,
+                  "GM.getResourceText": e ? Lt({ get: () => a(t) }) : void 0,
+                  GM_getResourceURL: e ? Lt({ value: n }) : void 0,
+                  "GM.getResourceUrl": e ? Lt({ get: () => a(n) }) : void 0
                 });
               })(),
               f = (() => {
-                const e = s(c.grant, ho),
+                const e = s(c.grant, Eo),
                   t = (e, t) => {
-                    o.first.send("tabs", Gt({ action: "set", uuid: c.uuid, tab: e }), t ? () => t() : null);
+                    o.first.send("tabs", Lt({ action: "set", uuid: c.uuid, tab: e }), t ? () => t() : null);
                   },
                   n = (e) => {
                     o.first.send(
                       "tabs",
-                      Gt({ action: "get", uuid: c.uuid }),
+                      Lt({ action: "get", uuid: c.uuid }),
                       e
                         ? (t) => {
-                            e(t || Gt({}));
+                            e(t || Lt({}));
                           }
                         : null
                     );
@@ -1019,95 +1059,100 @@ this.pagejs = (e) => {
                   r = (e) => {
                     o.first.send(
                       "tabs",
-                      Gt({ action: "list", uuid: c.uuid }),
+                      Lt({ action: "list", uuid: c.uuid }),
                       e
                         ? (t) => {
-                            e(t || Gt({}));
+                            e(t || Lt({}));
                           }
                         : null
                     );
                   };
-                return Gt({
-                  GM_saveTab: e ? Gt({ value: t }) : void 0,
-                  "GM.saveTab": e ? Gt({ get: () => i(t, 1) }) : void 0,
-                  GM_getTab: e ? Gt({ value: n }) : void 0,
-                  "GM.getTab": e ? Gt({ get: () => i(n) }) : void 0,
-                  GM_getTabs: e ? Gt({ value: r }) : void 0,
-                  "GM.getTabs": e ? Gt({ get: () => i(r) }) : void 0
+                return Lt({
+                  GM_saveTab: e ? Lt({ value: t }) : void 0,
+                  "GM.saveTab": e
+                    ? Lt({
+                        get: () => i(t, 1)
+                      })
+                    : void 0,
+                  GM_getTab: e ? Lt({ value: n }) : void 0,
+                  "GM.getTab": e ? Lt({ get: () => i(n) }) : void 0,
+                  GM_getTabs: e ? Lt({ value: r }) : void 0,
+                  "GM.getTabs": e ? Lt({ get: () => i(r) }) : void 0
                 });
               })(),
               v = (() => {
-                const e = s(c.grant, Go),
+                const e = s(c.grant, Co),
                   o = (e) => {
-                    const o = Qt(e);
+                    const o = Zt(e);
                     let s = !1,
                       a = () => {
                         s = !0;
                       };
                     const i = (e, t) => {
-                        (t = t || Gt({})),
+                        (t = t || Lt({})),
                           e &&
-                            jo(() => {
-                              gt(t, r), St(e, t, [t]);
+                            Bo(() => {
+                              vt(t, r), Gt(e, t, [t]);
                             }, 1);
                       },
                       l = o.url;
                     "object" == typeof l && l.href && (o.url = l.href);
-                    const u = (e, t) => {
-                        const n = Zt(e);
+                    const d = (e, t) => {
+                        const n = en(e);
                         if ("Blob" === n || "File" === n) {
                           const o = e;
-                          Ao(o).then((e) => {
-                            t(Gt({ type: n, value: e, meta: o.type, name: o.name, lastModified: o.lastModified }));
+                          Uo(o).then((e) => {
+                            t(Lt({ type: n, value: e, meta: o.type, name: o.name, lastModified: o.lastModified }));
                           });
                         } else if ("FormData" === n) {
                           const n = e,
                             o = n.keys();
                           let r;
-                          const s = Gt({}),
+                          const s = Lt({}),
                             a = [];
-                          for (; !(r = o.next()).done; ) Xt(a, r.value);
+                          for (; !(r = o.next()).done; ) Bt(a, r.value);
                           const i = () => {
                             if (a.length) {
                               const e = Ft(a);
                               let t = n.getAll(e);
-                              "[]" !== vn(e, -2) && (t = Xn(t, 0)),
-                                u(t, (t) => {
+                              "[]" !== vn(e, -2) && (t = Hn(t, 0)),
+                                d(t, (t) => {
                                   (s[e] = t), i();
                                 });
-                            } else t(Gt({ type: "FormData", value: s }));
+                            } else t(Lt({ type: "FormData", value: s }));
                           };
                           i();
-                        } else if ("Array" === n || "Object" === n) {
+                        } else if ("URLSearchParams" === n) t(Lt({ type: "URLSearchParams", value: Tn(e) }));
+                        else if ("Array" === n || "Object" === n) {
                           const o = e;
                           let r,
                             s,
                             a = 0,
                             i = 0;
                           if ("Object" === n) {
-                            const e = dt(o);
-                            (s = (t) => (t < e.length ? e[t] : null)), (r = Gt({}));
+                            const e = pt(o);
+                            (s = (t) => (t < e.length ? e[t] : null)), (r = Lt({}));
                           } else (s = (e) => (e < o.length ? e : null)), (r = []);
                           const l = () => {
                             const e = s(a);
                             null === e
-                              ? t(Gt({ type: n, value: r }))
-                              : u(o[e], (t) => {
-                                  (r[e] = t), a++, i++ < 1024 ? l() : ((i = 0), jo(l, 1));
+                              ? t(Lt({ type: n, value: r }))
+                              : d(o[e], (t) => {
+                                  (r[e] = t), a++, i++ < 1024 ? l() : ((i = 0), Bo(l, 1));
                                 });
                           };
                           l();
-                        } else t(Gt({ value: e }));
+                        } else t(Lt({ value: e }));
                       },
-                      d = (e, t, n, o, r) => {
+                      u = (e, t, n, o, r) => {
                         let s;
                         if (n) "stream" == o && (s = n);
-                        else if ("arraybuffer" == o) s = t || xo(e || "");
-                        else if ("blob" == o) s = new Qn.Blob([t || xo(e || "")], Gt({ type: r }));
-                        else if ("json" == o) s = Pt(e || "");
+                        else if ("arraybuffer" == o) s = t || ko(e || "");
+                        else if ("blob" == o) s = new eo.Blob([t || ko(e || "")], Lt({ type: r }));
+                        else if ("json" == o) s = Ut(e || "");
                         else if ("document" == o) {
-                          const t = new Qn.DOMParser(),
-                            n = Xn(Jt(r || "text/xml", ";"), 0);
+                          const t = new eo.DOMParser(),
+                            n = Hn(Jt(r || "text/xml", ";"), 0);
                           try {
                             s = wn(t, e || "", n);
                           } catch (e) {
@@ -1119,8 +1164,8 @@ this.pagejs = (e) => {
                             (t
                               ? ((e) => {
                                   let t = "";
-                                  const n = new jn(e);
-                                  for (let e = 0; e < n.length; e += 32687) t += St(fn, null, n.subarray(e, e + 32687));
+                                  const n = new qn(e);
+                                  for (let e = 0; e < n.length; e += 32687) t += Gt(fn, null, n.subarray(e, e + 32687));
                                   return t;
                                 })(t)
                               : "");
@@ -1130,10 +1175,10 @@ this.pagejs = (e) => {
                       ((e) => {
                         if (o.url) {
                           const t = vn(o.url, 0, 5);
-                          if (-1 != Bt(["data:", "blob:"], t)) return e();
+                          if (-1 != Ht(["data:", "blob:"], t)) return e();
                         }
                         if (!o.data) return e();
-                        u(o.data, (t) => {
+                        d(o.data, (t) => {
                           o.binary && (t.type = "Blob"), (o.data = t), (o.data_type = "typified"), e();
                         });
                       })(() => {
@@ -1141,59 +1186,60 @@ this.pagejs = (e) => {
                         let e,
                           r,
                           l,
-                          u = oo.connect("xhr"),
-                          p = [];
+                          d = ao.connect("xhr"),
+                          g = [],
+                          p = !1;
                         const {
-                            method: g,
-                            url: f,
-                            redirect: v,
-                            headers: m,
-                            cookie: _,
+                            method: f,
+                            url: v,
+                            redirect: m,
+                            headers: _,
+                            cookie: b,
                             binary: M,
                             nocache: h,
-                            revalidate: b,
-                            timeout: y,
-                            context: w,
-                            responseType: E,
-                            overrideMimeType: S,
+                            revalidate: y,
+                            timeout: w,
+                            context: E,
+                            responseType: S,
+                            overrideMimeType: R,
                             anonymous: G,
-                            fetch: R,
+                            fetch: L,
                             user: O,
-                            password: L,
-                            data: C,
+                            password: C,
+                            data: I,
                             data_type: T
                           } = o,
-                          I = Gt({
-                            method: g,
-                            url: f,
-                            redirect: v,
-                            headers: m,
-                            cookie: _,
+                          x = Lt({
+                            method: f,
+                            url: v,
+                            redirect: m,
+                            headers: _,
+                            cookie: b,
                             binary: M,
                             nocache: h,
-                            revalidate: b,
-                            timeout: y,
-                            responseType: E,
-                            overrideMimeType: S,
+                            revalidate: y,
+                            timeout: w,
+                            responseType: S,
+                            overrideMimeType: R,
                             anonymous: G,
-                            fetch: R,
+                            fetch: L,
                             user: O,
-                            password: L,
-                            data: C,
+                            password: C,
+                            data: I,
                             data_type: T
                           });
-                        if (I.headers) {
-                          const e = I.headers;
-                          Ht(dt(e), (t) => {
-                            "cookie" === hn(t) && ((I.cookie = `${e[t]}`), delete e[t]);
+                        if (x.headers) {
+                          const e = x.headers;
+                          Wt(pt(e), (t) => {
+                            "cookie" === Mn(t) && ((x.cookie = `${e[t]}`), delete e[t]);
                           });
                         }
-                        let x, A, D, P;
-                        u.postMessage(
-                          Gt({
+                        let P, D, A, k;
+                        d.postMessage(
+                          Lt({
                             method: "xhr",
-                            details: I,
-                            callbacks: Gt({
+                            details: x,
+                            callbacks: Lt({
                               onloadstart: !!o.onloadstart,
                               onload: !!o.onload,
                               ondone: !!o.onloadend,
@@ -1206,77 +1252,79 @@ this.pagejs = (e) => {
                               onpartial: !0
                             }),
                             id: n,
-                            location: Qn.location.href,
+                            location: eo.location.href,
                             uuid: c.uuid,
                             no_blob: "js" == t.sandboxMode
                           })
                         );
-                        const U = E ? hn(E) : "";
-                        let $;
-                        const k = async (t) => {
+                        const U = S ? Mn(S) : "";
+                        let $,
+                          j = 0,
+                          F = 0;
+                        const N = async (t) => {
                             if (t && (l || void 0 !== e || void 0 !== r)) {
                               if (
-                                (S
-                                  ? (P = S)
+                                (R
+                                  ? (k = R)
                                   : t &&
-                                    (P = ((e) => {
-                                      const t = Gt({});
+                                    (k = ((e) => {
+                                      const t = Lt({});
                                       return (
                                         e &&
-                                          Ht(Jt(e, "\n"), (e) => {
+                                          Wt(Jt(e, "\n"), (e) => {
                                             const n = Jt(e, ":");
                                             if (n.length < 2) return;
-                                            const o = Xn(n, 0);
+                                            const o = Hn(n, 0);
                                             if (!o) return;
-                                            const r = Vt(jt(n, 1), ":");
-                                            t[hn(_n(o))] = _n(r || "");
+                                            const r = qt(Vt(n, 1), ":");
+                                            t[Mn(_n(o))] = _n(r || "");
                                           }),
                                         t
                                       );
                                     })(t.responseHeaders)["content-type"]),
-                                (x = e),
+                                (P = e),
                                 l)
                               )
-                                D = l.stream;
+                                A = l.stream;
                               else if (r) {
                                 const e = r;
-                                if (((A = e.buffer), -1 == Bt(["blob", "arraybuffer"], U) && !x)) {
+                                if (((D = e.buffer), -1 == Ht(["blob", "arraybuffer"], U) && !P)) {
                                   let t;
-                                  Ut(
-                                    [P, e.type],
+                                  $t(
+                                    [k, e.type],
                                     (e) =>
                                       (t = ((e, t, n, o) => {
-                                        const r = mn(e, t);
+                                        const r = mn(e, "charset=");
                                         if (-1 == r) return;
-                                        const s = vn(e, r + t.length),
+                                        const s = vn(e, r + 8),
                                           a = mn(s, ";");
-                                        return -1 == a ? (o && o.optionalEnd ? s : void 0) : vn(e, r + t.length, a);
-                                      })(hn(e || ""), "charset=", 0, Gt({ optionalEnd: !0 })))
+                                        return -1 == a ? (o && o.optionalEnd ? s : void 0) : vn(e, r + 8, a);
+                                      })(Mn(e || ""), 0, 0, Lt({ optionalEnd: !0 })))
                                   );
-                                  const n = new qn([A]);
-                                  ($ = Ao(n, t)), (x = await $);
+                                  const n = new Bn([D]);
+                                  ($ = Uo(n, t)), (P = await $);
                                 }
                                 $ = void 0;
                               } else $ && (await $);
                               e = r = void 0;
                             }
-                            if (x || D || A) {
-                              (t.responseType = E), Ht(["response_data"], (e) => delete t[e]);
-                              const e = Gt({
-                                response: () => d(x, A, D, U, P || "binary/octet-stream"),
-                                responseText: () => d(x, A, D, "text", P),
-                                responseXML: () => d(x, A, D, "document", "text/xml")
+                            if (P || A || D) {
+                              (t.responseType = S), Wt(["response_data"], (e) => delete t[e]);
+                              const e = Lt({
+                                response: () => u(P, D, A, U, k || "binary/octet-stream"),
+                                responseText: () => u(P, D, A, "text", k),
+                                responseXML: () => u(P, D, A, "document", "text/xml")
                               });
-                              Ht(dt(e), (n) => {
-                                vt(
+                              Wt(pt(e), (n) => {
+                                _t(
                                   t,
                                   n,
-                                  Gt({
+                                  Lt({
                                     get() {
                                       try {
                                         return e[n]();
                                       } catch (e) {
-                                        Yn.warn(`${g}:`, e);
+                                        Zn.warn(`${f}:`, e);
                                       }
                                     }
                                   })
@@ -1284,21 +1332,21 @@ this.pagejs = (e) => {
                               });
                             }
                           },
-                          F = [],
-                          N = async (e) => {
-                            e && Xt(F, e);
+                          V = [],
+                          q = async (e) => {
+                            e && Bt(V, e);
                             {
-                              const e = kt(F);
+                              const e = Ft(V);
                               e && e();
                             }
                           };
                         "stream" === U &&
-                          N(async () => {
-                            l = await Zn((e) => {
-                              const t = new Qn.ReadableStream(
-                                Gt({
+                          q(async () => {
+                            l = await to((e) => {
+                              const t = new eo.ReadableStream(
+                                Lt({
                                   start: (n) => {
-                                    jo(() => e(Gt({ stream: t, ctrl: n })), 0);
+                                    Bo(() => e(Lt({ stream: t, ctrl: n })), 0);
                                   },
                                   cancel: () => {
                                     l && (l.canceled || a(), (l.canceled = !0));
@@ -1307,8 +1355,8 @@ this.pagejs = (e) => {
                               );
                             });
                           }),
-                          u.onMessage.addListener((t) =>
-                            N(() =>
+                          d.onMessage.addListener((t) =>
+                            q(() =>
                               (async (t) => {
                                 if (t.onpartial) {
                                   const n = t.data,
@@ -1317,31 +1365,33 @@ this.pagejs = (e) => {
                                     a = n.nada;
                                   if (l) {
                                     if (l.canceled) return;
-                                    const e = pn || ((e, t) => e.enqueue(t));
+                                    const e = gn || ((e, t) => e.enqueue(t));
                                     if (void 0 !== s) e(l.ctrl, s);
                                     else if (void 0 !== a) {
-                                      const t = new jn(a.buffer);
+                                      const t = new qn(a.buffer);
                                       e(l.ctrl, t);
-                                    } else Yn.error(`${g}:`, "data message without data?!");
+                                    } else Zn.error(`${f}:`, "data message without data?!");
                                   } else {
                                     let t;
-                                    s && Xt(p, s),
+                                    s && Bt(g, s),
                                       a && (t = a),
                                       (void 0 !== o.index && o.index !== o.length - 1) ||
-                                        (p.length && ((e = Vt(p, "")), (p = [])), (r = t));
+                                        (g.length && ((e = qt(g, "")), (g = [])), (r = t));
                                   }
                                 } else {
                                   const e = t.data;
-                                  if ((w && (e.context = w), t.onload)) await k(e), i(o.onreadystatechange, e), i(o.onload, e);
-                                  else if (t.onreadystatechange) await k(e), 4 != e.readyState && i(o.onreadystatechange, e);
-                                  else if (t.onerror) t.exception && Yn.error(t.exception), i(o.onerror, e);
+                                  if (((j = e.readyState || j), (F = e.status || F), E && (e.context = E), t.onload))
+                                    await N(e), i(o.onreadystatechange, e), i(o.onload, e);
+                                  else if (t.onreadystatechange) await N(e), 4 != e.readyState && i(o.onreadystatechange, e);
+                                  else if (t.onerror) t.exception && Zn.error(t.exception), i(o.onerror, e);
                                   else if (t.onabort) i(o.onabort, e);
-                                  else if (t.ondone) l && !l.canceled && (gn || ((e) => e.close()))(l.ctrl), await k(e), i(o.onloadend, e);
-                                  else if (t.onloadstart) l && (await k(e)), i(o.onloadstart, e);
+                                  else if (t.ondone)
+                                    (p = !0), l && !l.canceled && (pn || ((e) => e.close()))(l.ctrl), await N(e), i(o.onloadend, e);
+                                  else if (t.onloadstart) l && (await N(e)), i(o.onloadstart, e);
                                   else if (t.onuploadprogress) o.upload && i(o.upload.onprogress, e);
                                   else {
                                     const n =
-                                      Xn(
+                                      Hn(
                                         Nt(["onprogress", "ontimeout"], (e) => !!t[e]),
                                         0
                                       ) || "onerror";
@@ -1351,12 +1401,14 @@ this.pagejs = (e) => {
                               })(t)
                             )
                           ),
-                          u.onDisconnect.addListener(() => (u = null)),
+                          d.onDisconnect.addListener(() => {
+                            p || i(o.onerror, Lt({ readyState: j, status: F, error: "background shutdown" })), (d = null);
+                          }),
                           (a = () => {
-                            u && u.postMessage(Gt({ cancel: !0 }));
+                            d && d.postMessage(Lt({ cancel: !0 }));
                           });
                       }),
-                      Gt({
+                      Lt({
                         abort: () => {
                           a();
                         }
@@ -1364,23 +1416,23 @@ this.pagejs = (e) => {
                     );
                   },
                   r = (() => {
-                    const e = Gt({ DONE: Tn, HEADERS_RECEIVED: In, LOADING: xn, OPENED: An, UNSENT: Dn });
+                    const e = Lt({ DONE: xn, HEADERS_RECEIVED: Pn, LOADING: Dn, OPENED: An, UNSENT: kn });
                     return (
-                      Ht(["text", "arraybuffer", "blob", "document", "json", "stream"], (t) => {
-                        e[`RESPONSE_TYPE_${bn(t)}`] = t;
+                      Wt(["text", "arraybuffer", "blob", "document", "json", "stream"], (t) => {
+                        e[`RESPONSE_TYPE_${hn(t)}`] = t;
                       }),
                       e
                     );
                   })();
                 return (
-                  Ht(dt(r), (e) => Rt(o, e, r[e])),
-                  Gt({
-                    GM_xmlhttpRequest: e ? Gt({ value: o }) : void 0,
+                  Wt(pt(r), (e) => Ot(o, e, r[e])),
+                  Lt({
+                    GM_xmlhttpRequest: e ? Lt({ value: o }) : void 0,
                     "GM.xmlHttpRequest": e
-                      ? Gt({
+                      ? Lt({
                           get: () => {
                             const e = (e) => l(o, e);
-                            return Ht(dt(r), (t) => Rt(e, t, r[t])), e;
+                            return Wt(pt(r), (t) => Ot(e, t, r[t])), e;
                           }
                         })
                       : void 0
@@ -1388,59 +1440,6 @@ this.pagejs = (e) => {
                 );
               })(),
               m = (() => {
-                const e = s(c.grant, yo),
-                  t = (e, t, r, s) => {
-                    let a = null;
-                    const i = ["timeout", "text", "image", "title", "highlight", "silent"],
-                      l = Gt({});
-                    if ("object" == typeof e) {
-                      const n = e;
-                      Ht(i, (e) => {
-                        l[e] = n[e];
-                      }),
-                        (a = n.ondone),
-                        (s = n.onclick),
-                        "function" == typeof t && (a = t);
-                    } else (l.image = r), (l.text = e), (l.title = t);
-                    l.text && ((l.image = l.image || c.icon64 || c.icon || void 0), (l.title = l.title || c.name)),
-                      (l.onclick = s),
-                      (l.ondone = a || void 0),
-                      ((e) => {
-                        const { text: t, title: r, image: s, highlight: a, silent: i, timeout: l, onclick: u, ondone: d } = Qt(e),
-                          p = Gt({ id: n, uuid: c.uuid, text: t, title: r, image: s, highlight: a, silent: i, timeout: l });
-                        t || a
-                          ? o.first.send("notification", p, (e) => {
-                              u && e.clicked && u(), d && d(!0 === e.clicked);
-                            })
-                          : Yn.warn("GM_notification: neither a message text nor highlight options were given!");
-                      })(l);
-                  };
-                return Gt({
-                  GM_notification: e ? Gt({ value: t }) : void 0,
-                  "GM.notification": e
-                    ? Gt({
-                        get: () => (e, n, o, r) => {
-                          let s;
-                          return (
-                            (s = "object" == typeof e ? e : Gt({ text: e, title: n, image: o, onclick: r })),
-                            new Qn.Promise((e) => {
-                              const n = Gt({});
-                              Ht(dt(s), (e) => {
-                                n[e] = s[e];
-                              });
-                              const o = n.ondone;
-                              (n.ondone = function (...t) {
-                                o && St(o, this, t), St(e, this, t);
-                              }),
-                                t(n);
-                            })
-                          );
-                        }
-                      })
-                    : void 0
-                });
-              })(),
-              _ = (() => {
                 let n;
                 const o = () => {
                   if (!n) {
@@ -1452,34 +1451,42 @@ this.pagejs = (e) => {
                         copyright: i,
                         deleted: l,
                         description_i18n: c,
-                        description: u,
-                        downloadURL: d,
-                        fileURL: p,
-                        grant: g,
+                        description: d,
+                        downloadURL: u,
+                        fileURL: g,
+                        grant: p,
                         header: f,
                         homepage: v,
                         icon: m,
                         icon64: _,
-                        lastModified: M,
-                        name_i18n: h,
-                        name: b,
+                        lastModified: b,
+                        name_i18n: M,
+                        name: h,
                         namespace: y,
                         position: w,
                         resources: E,
                         supportURL: S,
-                        system: G,
-                        updateURL: R,
-                        version: O,
-                        webRequest: L,
+                        system: R,
+                        updateURL: G,
+                        version: L,
+                        webRequest: O,
                         options: {
-                          override: { orig_connects: C, orig_excludes: T, orig_includes: I, orig_matches: x },
-                          run_at: A,
+                          override: { orig_connects: C, orig_excludes: I, orig_includes: T, orig_matches: x },
+                          run_at: P,
                           unwrap: D
                         }
                       } = o,
-                      { downloadMode: P, inIncognitoContext: U, isFirstPartyIsolation: $, sandboxMode: k, userAgent: F, version: N } = t,
-                      j = R || p,
-                      V = Gt({
+                      {
+                        downloadMode: A,
+                        inIncognitoContext: k,
+                        relaxedCsp: U,
+                        isFirstPartyIsolation: $,
+                        sandboxMode: j,
+                        userAgent: F,
+                        version: N
+                      } = t,
+                      V = G || g,
+                      q = Lt({
                         antifeatures: r,
                         author: s,
                         blockers: a,
@@ -1487,115 +1494,222 @@ this.pagejs = (e) => {
                         copyright: i,
                         deleted: l,
                         description_i18n: c,
-                        description: u,
-                        downloadURL: d,
-                        excludes: T,
-                        fileURL: p,
-                        grant: g,
+                        description: d,
+                        downloadURL: u,
+                        excludes: I,
+                        fileURL: g,
+                        grant: p,
                         header: f,
                         homepage: v,
                         icon: m,
                         icon64: _,
-                        includes: I,
-                        lastModified: M,
+                        includes: T,
+                        lastModified: b,
                         matches: x,
-                        name_i18n: h,
-                        name: b,
+                        name_i18n: M,
+                        name: h,
                         namespace: y,
                         options: o.options,
                         position: w,
                         resources: E,
-                        "run-at": A,
+                        "run-at": P,
                         supportURL: S,
-                        system: G,
+                        system: R,
                         unwrap: D,
-                        updateURL: R,
-                        version: O,
-                        webRequest: L
+                        updateURL: G,
+                        version: L,
+                        webRequest: O
                       }),
-                      q = Gt({
-                        downloadMode: P,
+                      X = Lt({
+                        downloadMode: A,
                         isFirstPartyIsolation: $,
-                        isIncognito: U,
-                        sandboxMode: k,
-                        script: V,
+                        isIncognito: k,
+                        relaxedCsp: U,
+                        sandboxMode: j,
+                        script: q,
                         scriptHandler: "Tampermonkey",
                         scriptMetaStr: o.header,
-                        scriptUpdateURL: j,
-                        scriptWillUpdate: !!j,
+                        scriptUpdateURL: V,
+                        scriptWillUpdate: !!V,
                         userAgentData: F,
                         version: N
                       });
-                    n = q;
+                    n = X;
                   }
-                  return Pt(Dt(n));
+                  return Ut(kt(n));
                 };
-                return Gt({ GM_info: Gt({ get: o }), "GM.info": Gt({ get: o }) });
+                return Lt({ GM_info: Lt({ get: o }), "GM.info": Lt({ get: o }) });
               })(),
-              M = (() => {
-                const e = s(c.grant, Co);
+              _ = (() => {
+                const e = s(c.grant, Po);
                 let t = null;
                 const n = (e, n) => {
                   const o = () => {
                     t == r && (t = null), (r = null);
                   };
                   t && t.disconnect();
-                  let r = (t = oo.connect("webRequest"));
+                  let r = (t = ao.connect("webRequest", !0));
                   return (
                     n &&
                       r.onMessage.addListener((e) => {
                         n(e.type, e.message || "ok", e.details);
                       }),
                     r.onDisconnect.addListener(o),
-                    r.postMessage(Gt({ rules: e, uuid: c.uuid })),
-                    Gt({
+                    r.connectMessage(Lt({ rules: e, uuid: c.uuid })),
+                    Lt({
                       abort: () => {
                         r && r.disconnect(), o();
                       }
                     })
                   );
                 };
-                return Gt({ GM_webRequest: e ? Gt({ value: n }) : void 0, "GM.webRequest": e ? Gt({ get: () => a(n) }) : void 0 });
+                return Lt({ GM_webRequest: e ? Lt({ value: n }) : void 0, "GM.webRequest": e ? Lt({ get: () => a(n) }) : void 0 });
               })(),
-              h = (() => {
-                const e = s(c.grant, Eo);
+              b = (() => {
+                const e = s(c.grant, Lo);
                 let t = 0;
-                const n = Gt({}),
+                const n = Lt({}),
                   o = (e, o, s) => {
                     if ("string" != typeof e) throw "invalid name";
-                    const a = ++t,
-                      i = oo.connect("registerMenuCommand");
-                    return (
-                      i.onMessage.addListener((e) => {
-                        if ("run" === e.method) {
-                          const t = e.event,
-                            n = t ? (t.keyCode ? new Fn("keypress", t) : new Nn("click", e.event)) : void 0;
-                          jo(() => o(n), 1);
-                        }
+                    const a = ao.connect("registerMenuCommand", !0),
+                      { accessKey: i, autoClose: l, title: d, id: u } = "string" == typeof s ? Lt({ accessKey: s }) : s || Lt({}),
+                      g = void 0 !== u ? u : ++t;
+                    a.onMessage.addListener((e) => {
+                      if ("run" === e.method) {
+                        const t = e.event,
+                          n = t ? (t.keyCode ? new Nn("keypress", t) : new Vn("click", e.event)) : void 0;
+                        Bo(() => o(n), 1);
+                      }
+                    }),
+                      a.onDisconnect.addListener(() => {
+                        r(g);
                       }),
-                      i.onDisconnect.addListener(() => {
-                        r(a);
-                      }),
-                      i.postMessage(Gt({ method: "register", name: e, uuid: c.uuid, accessKey: s })),
-                      (n[a] = i.disconnect),
-                      a
-                    );
+                      a.connectMessage(Lt({ name: e, uuid: c.uuid, accessKey: i, autoClose: l, title: d, id: `${g}` }));
+                    const p = n[g];
+                    return p && p(), (n[g] = a.disconnect), g;
                   },
                   r = (e) => {
                     let t;
                     (t = n[e]) && (t(), delete n[e]);
                   };
-                return Gt({
-                  GM_registerMenuCommand: e ? Gt({ value: o }) : void 0,
-                  "GM.registerMenuCommand": e ? Gt({ get: () => a(o) }) : void 0,
-                  GM_unregisterMenuCommand: e ? Gt({ value: r }) : void 0,
-                  "GM.unregisterMenuCommand": e ? Gt({ get: () => a(r) }) : void 0
+                return Lt({
+                  GM_registerMenuCommand: e ? Lt({ value: o }) : void 0,
+                  "GM.registerMenuCommand": e ? Lt({ get: () => a(o) }) : void 0,
+                  GM_unregisterMenuCommand: e ? Lt({ value: r }) : void 0,
+                  "GM.unregisterMenuCommand": e ? Lt({ get: () => a(r) }) : void 0
                 });
               })(),
-              b = (() => {
-                const e = s(c.grant, fo),
-                  t = (e, t) => Gt({ action: e, uuid: c.uuid, location: Qn.location.href, details: t }),
-                  n = Gt({
+              M = (() => {
+                const e = s(c.grant, Ro),
+                  t = (e, t, n, o) => {
+                    let r,
+                      s,
+                      a = null;
+                    const i = (e) => qt([e ? `tag-${e}` : oo(), c.uuid], "#");
+                    if ("object" == typeof e) {
+                      const n = e,
+                        { timeout: l, text: d, image: u, title: g, highlight: p, silent: f, url: v, tag: m } = n;
+                      (s = i(m)),
+                        (r = Lt({
+                          id: s,
+                          timeout: l,
+                          text: d,
+                          image: u || c.icon64 || c.icon || void 0,
+                          title: g || c.name,
+                          highlight: p,
+                          silent: f,
+                          url: v,
+                          tag: m
+                        })),
+                        (a = n.ondone),
+                        (o = n.onclick),
+                        "function" == typeof t && (a = t);
+                    } else
+                      (s = i()),
+                        (r = Lt({ id: s, text: e, title: "string" == typeof t ? t : c.name, image: n || c.icon64 || c.icon || void 0 }));
+                    (r.onclick = o),
+                      (r.ondone = a || void 0),
+                      ((e, t) => {
+                        const {
+                          text: n,
+                          title: o,
+                          tag: r,
+                          url: s,
+                          image: a,
+                          highlight: i,
+                          silent: l,
+                          timeout: d,
+                          onclick: u,
+                          ondone: g
+                        } = Zt(t);
+                        if (n || i) {
+                          const t = "notification",
+                            p = ao.connect(t, !0);
+                          p.onMessage.addListener((e) => {
+                            const { clicked: t } = e;
+                            let c = !1;
+                            const f = Lt({
+                              text: n,
+                              title: o,
+                              tag: r,
+                              url: s,
+                              image: a,
+                              highlight: i,
+                              silent: l,
+                              timeout: d,
+                              preventDefault: () => {
+                                c = !0;
+                              }
+                            });
+                            u && t && (u(f), p.postMessage(Lt({ canceled: c }))), g && g(!0 === t, f), p.disconnect();
+                          }),
+                            p.connectMessage(
+                              Lt({
+                                method: "notification",
+                                id: e,
+                                uuid: c.uuid,
+                                text: n,
+                                title: o,
+                                tag: r,
+                                url: s,
+                                image: a,
+                                highlight: i,
+                                silent: l,
+                                timeout: d
+                              })
+                            );
+                        } else Zn.warn("GM_notification: neither a message text nor highlight options were given!");
+                      })(s, r);
+                  };
+                return Lt({
+                  GM_notification: e ? Lt({ value: t }) : void 0,
+                  "GM.notification": e
+                    ? Lt({
+                        get: () => (e, n, o, r) => {
+                          let s;
+                          return (
+                            (s = "object" == typeof e ? e : Lt({ text: e, title: n, image: o, onclick: r })),
+                            new eo.Promise((e) => {
+                              const n = Lt({});
+                              Wt(pt(s), (e) => {
+                                n[e] = s[e];
+                              });
+                              const o = n.ondone;
+                              (n.ondone = function (t, n) {
+                                o && Gt(o, this, [t, n]), Gt(e, this, [t]);
+                              }),
+                                t(n);
+                            })
+                          );
+                        }
+                      })
+                    : void 0
+                });
+              })(),
+              h = (() => {
+                const e = s(c.grant, bo),
+                  t = (e, t) => Lt({ action: e, uuid: c.uuid, location: eo.location.href, details: t }),
+                  n = Lt({
                     set: (e, n) => {
                       o.first.send(
                         "cookie",
@@ -1630,14 +1744,14 @@ this.pagejs = (e) => {
                       );
                     }
                   });
-                return Gt({
+                return Lt({
                   GM_cookie: e
-                    ? Gt({
+                    ? Lt({
                         get: () => {
                           const e = (e, t, o) => (n[e] || (() => {}))(t, o);
                           return (
-                            Ht(dt(n), (t) => {
-                              Rt(e, t, n[t]);
+                            Wt(pt(n), (t) => {
+                              Ot(e, t, n[t]);
                             }),
                             e
                           );
@@ -1645,14 +1759,14 @@ this.pagejs = (e) => {
                       })
                     : void 0,
                   "GM.cookie": e
-                    ? Gt({
+                    ? Lt({
                         get: () => {
-                          const e = Gt({});
+                          const e = Lt({});
                           return (
-                            Ht(dt(n), (t) => {
+                            Wt(pt(n), (t) => {
                               e[t] = (e) =>
                                 ((e, t) =>
-                                  new Qn.Promise((o, r) => {
+                                  new eo.Promise((o, r) => {
                                     if ("list" == e) {
                                       const s = t;
                                       n[e](s, (e, t) => {
@@ -1679,11 +1793,11 @@ this.pagejs = (e) => {
                 });
               })(),
               y = (() => {
-                const e = s(c.grant, _o),
+                const e = s(c.grant, yo),
                   t = (e, t) =>
                     "object" == typeof e
                       ? e
-                      : Gt({
+                      : Lt({
                           url: e,
                           name: t,
                           headers: void 0,
@@ -1698,48 +1812,53 @@ this.pagejs = (e) => {
                   n = (e, n) => {
                     const o = t(e, n),
                       r = (e, t) => {
-                        (t = t || Gt({})),
+                        (t = t || Lt({})),
                           e &&
-                            jo(() => {
-                              St(e, t, [t]);
+                            Bo(() => {
+                              Gt(e, t, [t]);
                             }, 1);
                       },
-                      { url: s, name: a, headers: i, saveAs: l, conflictAction: u } = o;
-                    let d = oo.connect("download");
-                    d.onMessage.addListener((e) => {
+                      { url: s, name: a, headers: i, saveAs: l, conflictAction: d } = o;
+                    let u,
+                      g = ao.connect("download", !0);
+                    const p = () => {
+                      g && g.stopReconnecting();
+                    };
+                    g.onMessage.addListener((e) => {
+                      g && void 0 === u && ((u = e.id), g.connectMessage(Lt({ method: "download", uuid: c.uuid, id: u }), !1));
                       try {
                         e.load
-                          ? o.onload && r(o.onload, e.data)
+                          ? (o.onload && r(o.onload, e.data), p())
                           : e.progress
                           ? o.onprogress && r(o.onprogress, e.data)
                           : e.timeout
-                          ? o.ontimeout && r(o.ontimeout, e.data)
-                          : o.onerror && r(o.onerror, e.data);
+                          ? (o.ontimeout && r(o.ontimeout, e.data), p())
+                          : (o.onerror && r(o.onerror, e.data), p());
                       } catch (e) {
-                        Yn.log("env: Error: TM_download - ", e, o);
+                        Zn.log("env: Error: TM_download - ", e, o);
                       }
                     }),
-                      d.onDisconnect.addListener(() => (d = null));
-                    const p = Gt({
-                      details: Gt({ url: s, name: a || "File.download", headers: i, conflictAction: u, saveAs: l }),
+                      g.onDisconnect.addListener(() => (g = null));
+                    const f = Lt({
+                      details: Lt({ url: s, name: a || "File.download", headers: i, conflictAction: d, saveAs: l }),
                       uuid: c.uuid
                     });
                     return (
-                      d.postMessage(p),
-                      Gt({
+                      g.postMessage(f),
+                      Lt({
                         abort: () => {
-                          d && d.postMessage(Gt({ uuid: c.uuid, cancel: !0 }));
+                          g && g.postMessage(Lt({ uuid: c.uuid, cancel: !0 }));
                         }
                       })
                     );
                   };
-                return Gt({
-                  GM_download: e ? Gt({ value: n }) : void 0,
-                  "GM.download": e ? Gt({ get: () => (e, o) => l(n, t(e, o)) }) : void 0
+                return Lt({
+                  GM_download: e ? Lt({ value: n }) : void 0,
+                  "GM.download": e ? Lt({ get: () => (e, o) => l(n, t(e, o)) }) : void 0
                 });
               })(),
               w = (() => {
-                const e = s(c.grant, wo),
+                const e = s(c.grant, Go),
                   t = (e, t) => {
                     let n,
                       o,
@@ -1747,126 +1866,139 @@ this.pagejs = (e) => {
                       s = null;
                     const a = (() => {
                       const e = [];
-                      return Gt({
+                      return Lt({
                         run: (t) => {
-                          if ((t && Xt(e, t), n)) for (; e.length; ) Ft(e)();
+                          if ((t && Bt(e, t), n)) for (; e.length; ) Ft(e)();
                         }
                       });
                     })();
-                    let i = oo.connect("openInTab");
+                    let i = ao.connect("openInTab", !0);
                     const l = () => {
-                      i && i.postMessage(Gt({ close: !0 }));
+                      i && i.postMessage(Lt({ close: !0 }));
                     };
                     i.onMessage.addListener((e) => {
                       e.tabId
                         ? r
                           ? l()
-                          : ((n = e.tabId), a.run())
+                          : (i && void 0 === n && i.connectMessage(Lt({ method: "openTab", uuid: c.uuid, tabId: e.tabId }), !1),
+                            (n = e.tabId),
+                            a.run())
                         : e.name
                         ? (o = e.name)
-                        : e.closed && ((r = !0), s && (s(), (s = null)));
+                        : e.closed && ((r = !0), s && (s(), (s = null)), i && i.stopReconnecting());
                     }),
                       i.onDisconnect.addListener(() => (i = null)),
-                      i.postMessage(Gt({ method: "openTab", url: e, location: Qn.location.href, options: t, uuid: c.uuid }));
-                    const u = Gt({});
+                      i.postMessage(Lt({ method: "openTab", url: e, location: eo.location.href, options: t, uuid: c.uuid }));
+                    const d = Lt({});
                     return (
-                      ft(
-                        u,
-                        Gt({
-                          close: Gt({
+                      mt(
+                        d,
+                        Lt({
+                          close: Lt({
                             value: () => {
-                              r ? Yn.warn("env: attempt to close already closed tab!") : l();
+                              r ? Zn.warn("env: attempt to close already closed tab!") : l();
                             }
                           }),
-                          focus: Gt({
+                          focus: Lt({
                             value: () => {
-                              i && i.postMessage(Gt({ focus: !0 }));
+                              i && i.postMessage(Lt({ focus: !0 }));
                             }
                           }),
-                          closed: Gt({ get: () => r }),
-                          onclose: Gt({
+                          closed: Lt({ get: () => r }),
+                          onclose: Lt({
                             get: () => s,
                             set: (e) => {
                               s = e;
                             }
                           }),
-                          name: Gt({
+                          name: Lt({
                             get: () => o,
                             set: (e) => {
                               a.run(() => {
-                                i && i.postMessage(Gt({ name: e }));
+                                i && i.postMessage(Lt({ name: e }));
                               });
                             }
                           })
                         })
                       ),
-                      u
+                      d
                     );
                   };
-                return Gt({ GM_openInTab: e ? Gt({ value: t }) : void 0, "GM.openInTab": e ? Gt({ get: () => a(t) }) : void 0 });
+                return Lt({ GM_openInTab: e ? Lt({ value: t }) : void 0, "GM.openInTab": e ? Lt({ get: () => a(t) }) : void 0 });
               })(),
               E = (() => {
-                const e = s(c.grant, Ro);
-                return Gt({
+                const e = s(c.grant, Io);
+                return Lt({
                   "window.close": e
-                    ? Gt({
+                    ? Lt({
                         value: (e) => {
-                          o.first.send("closeTab", Gt({ uuid: c.uuid }), e ? () => e() : null);
+                          o.first.send("closeTab", Lt({ uuid: c.uuid }), e ? () => e() : null);
                         }
                       })
                     : void 0
                 });
               })(),
               S = (() => {
-                const e = s(c.grant, Oo);
-                return Gt({
+                const e = s(c.grant, To);
+                return Lt({
                   "window.focus": e
-                    ? Gt({
+                    ? Lt({
                         value: (e) => {
-                          o.first.send("focusTab", Gt({ uuid: c.uuid }), e ? () => e() : null);
+                          o.first.send("focusTab", Lt({ uuid: c.uuid }), e ? () => e() : null);
                         }
                       })
                     : void 0
                 });
               })(),
-              G = (() => {
-                const e = s(c.grant, bo),
+              R = (() => {
+                const e = s(c.grant, So),
                   t = function (...e) {
-                    St(Yn.log, this, e);
+                    Gt(Zn.log, this, e);
                   };
-                return Gt({ GM_log: e ? Gt({ value: t }) : void 0, "GM.log": e ? Gt({ get: () => a(t) }) : void 0 });
+                return Lt({ GM_log: e ? Lt({ value: t }) : void 0, "GM.log": e ? Lt({ get: () => a(t) }) : void 0 });
               })(),
-              R = ({ root: e, tag: t, properties: n, cb: r }) => {
-                const s = to(),
-                  a = Gt({ tag: t, properties: n, id: s, uuid: c.uuid });
+              G = ({ root: e, tag: t, properties: n, cb: r }) => {
+                const s = oo(),
+                  a = Lt({ tag: t, properties: n, id: s, uuid: c.uuid });
                 o.first.send("addElement", a, e, r ? () => r() : null);
-                const i = Hn.getElementById(s),
+                const i = Kn.getElementById(s),
                   l = n ? n.id : void 0;
-                return void 0 !== l && Rn(i, "id", l), i;
+                return void 0 !== l && Gn(i, "id", l), i;
               },
-              O = (() => {
-                const e = s(c.grant, go),
-                  t = (e, t) => R(Gt({ root: void 0, tag: "style", properties: Gt({ textContent: e }), cb: t }));
-                return Gt({ GM_addStyle: e ? Gt({ value: t }) : void 0, "GM.addStyle": e ? Gt({ get: () => a(t) }) : void 0 });
-              })(),
               L = (() => {
-                const e = s(c.grant, go),
+                const e = s(c.grant, _o),
+                  t = (e, t) => G(Lt({ root: void 0, tag: "style", properties: Lt({ textContent: e }), cb: t }));
+                return Lt({ GM_addStyle: e ? Lt({ value: t }) : void 0, "GM.addStyle": e ? Lt({ get: () => a(t) }) : void 0 });
+              })(),
+              O = (() => {
+                const e = s(c.grant, _o),
                   t = (e, t, n, o) => {
                     let r, s, a, i;
                     return (
                       "string" == typeof e ? ((s = e), (a = t), (i = n)) : ((r = e), (s = t), (a = n), (i = o)),
-                      a && (a = Gt(a)),
-                      R(Gt({ root: r, tag: s, properties: a, cb: i }))
+                      a && (a = Lt(a)),
+                      G(Lt({ root: r, tag: s, properties: a, cb: i }))
                     );
                   };
-                return Gt({ GM_addElement: e ? Gt({ value: t }) : void 0, "GM.addElement": e ? Gt({ get: () => a(t) }) : void 0 });
+                return Lt({ GM_addElement: e ? Lt({ value: t }) : void 0, "GM.addElement": e ? Lt({ get: () => a(t) }) : void 0 });
               })(),
-              C = Gt({ ...L, ...O, ...E, ...b, ...y, ...S, ..._, ...G, ...h, ...m, ...w, ...g, ...u, ...f, ...p, ...d, ...M, ...v });
-            return (r[e.script.uuid] = r[e.script.uuid] || C), r[e.script.uuid];
+              C = (() => {
+                const e = s(c.grant, mo),
+                  t = (e, t) => {
+                    o.first.send(
+                      "backgroundControl",
+                      Lt({ uuid: c.uuid, restart: "restart" === e.action || void 0 }),
+                      t ? ({ error: e }) => t(e) : null
+                    );
+                  };
+                return Lt({ "GM.backgroundControl": e ? Lt({ get: () => a(t) }) : void 0 });
+              })(),
+              I = Lt({ ...O, ...L, ...E, ...h, ...y, ...S, ...m, ...R, ...b, ...M, ...w, ...p, ...d, ...f, ...g, ...u, ..._, ...v, ...C });
+            return (r[e.script.uuid] = r[e.script.uuid] || I), r[e.script.uuid];
           }
         });
       },
-      Wo = (e, t, n, o, r, s) => {
+      Yo = (e, t, n, o, r, s) => {
         const a = (e, t, n, o, r) => {
           const a = t[n],
             i = typeof a;
@@ -1876,38 +2008,47 @@ this.pagejs = (e) => {
               : r &&
                 "function" === i &&
                 (t[n] = function () {
-                  return St(a, r, arguments);
+                  return Gt(a, r, arguments);
                 }),
-            St(e, Kn, t)
+            Gt(e, Yn, t)
           );
         };
         let i = !0;
-        no(() => (i = !1));
-        const l = Gt({}),
+        ro(() => (i = !1));
+        const l = Lt({}),
           c = (e) => !!("object" == typeof e && null !== e ? e.capture : e),
-          u = (e, o, r) => {
-            if ("urlchange" != e || !n["window.onurlchange"]) {
-              const n = c(r);
-              let u, d;
-              if (i && ((u = "DOMContentLoaded" == e) || "load" == e)) {
-                const r = Sn(Kn.document);
-                if ((u && ("complete" == r || "interactive" === r) && "document-idle" != t) || (!u && "complete" == r))
+          d = (e, o, r) => {
+            let d, g;
+            null === o ||
+              ("object" == typeof o
+                ? ((d = async (e) => {
+                    const t = o.handleEvent;
+                    "function" == typeof t && Gt(t, o, [e]);
+                  }),
+                  (g = o))
+                : ((d = o), (g = void 0)));
+            const f = c(r);
+            let v, m;
+            if (void 0 !== d) {
+              if (i && ((v = "DOMContentLoaded" == e) || "load" == e)) {
+                const n = Sn(Yn.document);
+                if ((v && ("complete" == n || "interactive" === n) && "document-idle" != t) || (!v && "complete" == n))
                   return void (async (e, t, n, o) => {
-                    const r = Gt({
+                    const r = Lt({
                       attrName: "null",
                       newValue: "null",
                       prevValue: "null",
-                      eventPhase: nn,
-                      attrChange: tn,
-                      target: Kn.document,
-                      relatedNode: Kn.document,
-                      srcElement: Kn.document
+                      eventPhase: on,
+                      attrChange: nn,
+                      target: Yn.document,
+                      relatedNode: Yn.document,
+                      srcElement: Yn.document
                     });
                     await null,
                       n || (await null),
                       "load" === e && (await null),
                       ((e, t, n, o) => {
-                        const r = Gt({
+                        const r = Lt({
                             attrChange: 0,
                             attrName: null,
                             bubbles: !0,
@@ -1923,62 +2064,65 @@ this.pagejs = (e) => {
                             returnValue: !0,
                             srcElement: null,
                             target: null,
-                            timeStamp: Pn()
+                            timeStamp: Un()
                           }),
                           a = "string" == typeof n ? () => s(n, o) : n,
                           i = new Event(e);
-                        Ht(dt(r), (e) => {
-                          Rt(i, e, r[e]);
+                        Wt(pt(r), (e) => {
+                          Ot(i, e, r[e]);
                         }),
-                          Ht(dt(t), (e) => {
-                            Rt(i, e, t[e]);
+                          Wt(pt(t), (e) => {
+                            Ot(i, e, t[e]);
                           }),
-                          St(a, o, [i]);
+                          Gt(a, o, [i]);
                       })(e, r, t, o);
-                  })(e, o, n, g);
+                  })(e, d, f, p);
               }
-              if ("string" == typeof o || ("object" == typeof r && r.once)) d = o;
-              else {
-                const t = `${e}-${n}`;
+              const c = "urlchange" == e ? n["window.onurlchange"] : void 0;
+              if ("string" != typeof d) {
+                const t = `${e}-${f}`;
                 l[t] = l[t] || [];
-                const r = function (...e) {
-                  return St(o, this === Kn || this === zn ? g : this, e);
-                };
-                Xt(l[t], Gt({ listener: o, filter: r })), (d = r);
+                const n = function (...t) {
+                    return "object" == typeof r && r.once && u(e, o, r), Gt(d, this === Yn || this === Qn ? p : this, t);
+                  },
+                  s = Lt({ listener: d, filter: n, object: g });
+                if ((Bt(l[t], s), (m = n), c)) return void c.value.register(n);
+              } else {
+                if (c) return void Zn.warn("env: urlchange listener must be a function!");
+                m = d;
               }
-              return a(Qn.addEventListener, [e, d, r], 1, !0);
+              return a(eo.addEventListener, [e, m, r], 1, !0);
             }
-            n["window.onurlchange"].value.register(o);
           },
-          d = (e, t, o) => {
-            if ("urlchange" != e || !n["window.onurlchange"]) {
-              const n = c(o),
-                r = `${e}-${n}`,
-                s = l[r] && Nt(l[r], (e) => e.listener === t);
-              if (s && s.length) {
-                let t;
-                if (
-                  (Ht(s, (n) => {
+          u = (e, t, o) => {
+            let r, s;
+            null === t || ("object" == typeof t ? (s = t) : (r = t));
+            const i = "urlchange" == e ? n["window.onurlchange"] : void 0,
+              d = c(o),
+              u = `${e}-${d}`,
+              g = l[u] && Nt(l[u], (e) => (e.object ? e.object === s : e.listener === r));
+            if (g && g.length) {
+              let t;
+              if (
+                (Wt(g, (n) => {
+                  if (i) i.value.unregister(n.filter);
+                  else
                     try {
-                      a(Qn.removeEventListener, [e, n.filter, o], 1, !0);
+                      a(eo.removeEventListener, [e, n.filter, o], 1, !0);
                     } catch (n) {
                       t = n;
                     }
-                    const s = Bt(l[r], n);
-                    l[r] = $t(l[r], s, 1).result;
-                  }),
-                  l[r].length || delete l[r],
-                  t)
-                )
-                  throw t;
-                return;
-              }
-              return a(Qn.removeEventListener, [e, t, o], 1, !0);
-            }
-            n["window.onurlchange"].value.unregister(t);
+                  const r = Ht(l[u], n);
+                  l[u] = jt(l[u], r, 1).result;
+                }),
+                l[u].length || delete l[u],
+                t)
+              )
+                throw t;
+            } else if (void 0 !== r) return a(eo.removeEventListener, [e, r, o], 1, !0);
           },
-          p = Gt({
-            CDATA: Gt({
+          g = Lt({
+            CDATA: Lt({
               value: function (e) {
                 (this.src = e),
                   (this.toString = function () {
@@ -1987,83 +2131,85 @@ this.pagejs = (e) => {
                   (this.toXMLString = this.toString);
               }
             }),
-            uneval: Gt({
+            uneval: Lt({
               value: (e) => {
                 try {
-                  return `\\$1 = ${Dt(e)};`;
+                  return `\\$1 = ${kt(e)};`;
                 } catch (e) {
-                  Yn.log(e);
+                  Zn.log(e);
                 }
               }
             }),
-            define: Gt({ value: void 0 }),
-            module: Gt({ value: void 0 }),
-            exports: Gt({ value: void 0 }),
-            setTimeout: Gt({ value: (...e) => a(Xo, e, 0, !0, g) }),
-            setInterval: Gt({ value: (...e) => a(Bo, e, 0, !0, g) }),
+            define: Lt({ value: void 0 }),
+            module: Lt({ value: void 0 }),
+            exports: Lt({ value: void 0 }),
+            setTimeout: Lt({
+              value: (...e) => a(Ko, e, 0, !0, p)
+            }),
+            setInterval: Lt({ value: (...e) => a(Jo, e, 0, !0, p) }),
             close: (() => {
               const e = n["window.close"];
-              return e ? Gt({ get: () => (Kn == Kn.top ? (t) => e.value(t) : Qn.close) }) : void 0;
+              return e ? Lt({ get: () => (Yn == Yn.top ? (t) => e.value(t) : eo.close) }) : void 0;
             })(),
             focus: (() => {
               const e = n["window.focus"];
-              return e ? Gt({ get: () => (t) => e.value(t) }) : void 0;
+              return e ? Lt({ get: () => (t) => e.value(t) }) : void 0;
             })(),
             onurlchange: n["window.onurlchange"]
               ? (() => {
                   let e = null;
-                  return Gt({
+                  return Lt({
                     get: () => e,
                     set: (t) => {
-                      e && d("urlchange", e), (e = t), u("urlchange", e);
+                      e && u("urlchange", e), (e = t), d("urlchange", e);
                     }
                   });
                 })()
               : void 0,
-            location: Gt({
+            location: Lt({
               set: (e) => {
-                Qn.location.href = e;
+                eo.location.href = e;
               }
             }),
-            name: Gt({
-              get: () => Kn.name,
+            name: Lt({
+              get: () => Yn.name,
               set: (e) => {
-                Kn.name = e;
+                Yn.name = e;
               }
             }),
-            clearInterval: Gt({ get: () => qo }),
-            clearTimeout: Gt({ get: () => Vo }),
-            addEventListener: Gt({ value: u }),
-            removeEventListener: Gt({ value: d }),
-            console: Gt({ get: () => ao })
+            clearInterval: Lt({ get: () => Wo }),
+            clearTimeout: Lt({ get: () => Ho }),
+            addEventListener: Lt({ value: d }),
+            removeEventListener: Lt({ value: u }),
+            console: Lt({ get: () => co })
           });
         if (!e) {
-          const e = Gt({
-            window: Gt({ get: () => g }),
-            globalThis: Gt({ get: () => g }),
-            cloneInto: Gt({ value: (e) => e }),
-            exportFunction: Gt({
+          const e = Lt({
+            window: Lt({ get: () => p }),
+            globalThis: Lt({ get: () => p }),
+            cloneInto: Lt({ value: (e) => e }),
+            exportFunction: Lt({
               value: (e, t, n) => {
-                const o = n && Ot(n, "defineAs");
+                const o = n && Ct(n, "defineAs");
                 return o && (t[o] = e), e;
               }
             }),
-            createObjectIn: Gt({
+            createObjectIn: Lt({
               value: (e, t) => {
-                const n = Gt({}),
-                  o = t && Ot(t, "defineAs");
+                const n = Lt({}),
+                  o = t && Ct(t, "defineAs");
                 return o && (e[o] = n), n;
               }
             }),
-            undefined: Gt({ get: () => {} })
+            undefined: Lt({ get: () => {} })
           });
-          gt(p, e);
+          vt(g, e);
         }
-        o && gt(p, o);
-        const g = r(p);
-        return g;
+        o && vt(g, o);
+        const p = r(g);
+        return p;
       };
-    let Jo;
+    let Qo;
     (async () => {
       const n = e.contextId;
       let o;
@@ -2075,52 +2221,56 @@ this.pagejs = (e) => {
               let r,
                 s,
                 a = 1;
-              const i = Gt({}),
-                l = (e) => {
+              const i = Lt({}),
+                l = Lt({}),
+                c = (e) => {
                   e && (r = e);
                 },
-                c = (e) => {
+                d = (e) => {
                   const t = ++a;
-                  return (i[a] = e), t;
+                  return (l[a] = e), t;
                 };
               o((o, a) =>
                 o == `${t}_${r}`
                   ? ((t) => {
-                      const { m: o, r: a, a: l, n: c } = t;
-                      if ("message.response" == o) {
+                      const { m: o, r: a, a: c, n: d } = t;
+                      if ((i[o] && (Wt(i[o], (e) => e(c)), delete i[o]), "message.response" == o)) {
                         if (null == a) throw "Invalid Message";
                         ((e, t) => {
                           let n;
-                          e && (n = i[e]) && (n(t), delete i[e]);
-                        })(a, l);
+                          e && (n = l[e]) && (n(t), delete l[e]);
+                        })(a, c);
                       } else if (s) {
                         const t = a
                           ? (t) => {
-                              n(`${e}_${r}`, Gt({ m: "message.response", a: t, r: a }));
+                              n(`${e}_${r}`, Lt({ m: "message.response", a: t, r: a }));
                             }
                           : () => {};
-                        s(Gt({ method: o, args: l, node: c }), t);
+                        s(Lt({ method: o, args: c, node: d }), t);
                       }
                     })(a)
                   : null
               );
-              const u = Gt({
+              const u = Lt({
                 init: async (e) => {
-                  r ? l() : l(e);
+                  r ? c() : c(e);
                 },
                 refresh: () => null,
                 switchId: (e) => {
-                  r && u.cleanup(), l(e);
+                  r && u.cleanup(), c(e);
                 },
                 send: (t, o, s, a) =>
-                  Zn((i) => {
-                    let l, u;
-                    "function" != typeof s && null !== s ? ((l = s), (u = a)) : (u = s),
-                      n(`${e}_${r}`, Gt({ m: t, a: o, r: u ? c(u) : null, n: l })),
+                  to((i) => {
+                    let l, c;
+                    "function" != typeof s && null !== s ? ((l = s), (c = a)) : (c = s),
+                      n(`${e}_${r}`, Lt({ m: t, a: o, r: c ? d(c) : null, n: l })),
                       i();
                   }),
                 sendToId: (t, o, r) => {
-                  n(`${e}_${t}`, Gt({ m: o, a: r, r: null }));
+                  n(`${e}_${t}`, Lt({ m: o, a: r, r: null }));
+                },
+                once: (e, t) => {
+                  i[e] || (i[e] = []), Bt(i[e], t);
                 },
                 setMessageListener: (e) => {
                   s = e;
@@ -2128,25 +2278,26 @@ this.pagejs = (e) => {
                 cleanup: () => null
               });
               return u;
-            })(Gt({ sendPrefix: "2U", listenPrefix: "2S", send: r, onMessage: s }))
+            })(Lt({ sendPrefix: "2U", listenPrefix: "2S", send: r, onMessage: s }))
           : (({ sendPrefix: e, listenPrefix: n, cloneInto: o }) => {
-              let r,
-                s,
-                a = 1;
-              const i = Gt({});
-              let l = !1,
-                c = [];
+              const r = Lt({});
+              let s,
+                a,
+                i = 1;
+              const l = Lt({});
+              let c = !1,
+                d = [];
               const u = () => {
-                  (v = Kn.document.documentElement), (l = !1);
-                  const e = c;
-                  (c = []),
-                    Ht(e, (e) => {
-                      l || _() ? Xt(c, e) : e();
+                  (m = Yn.document.documentElement), (c = !1);
+                  const e = d;
+                  (d = []),
+                    Wt(e, (e) => {
+                      c || b() ? Bt(d, e) : e();
                     });
                 },
-                d = (e) => {
-                  const t = ++a;
-                  return (i[a] = e), t;
+                g = (e) => {
+                  const t = ++i;
+                  return (l[i] = e), t;
                 },
                 p = (e, t) => {
                   const { m: n, a: r, r: s, n: a } = t,
@@ -2155,220 +2306,235 @@ this.pagejs = (e) => {
                       var s;
                       return (
                         n
-                          ? ((r = eo("MutationEvent")), en(r, e, !1, !1, n || null, void 0, void 0, Dt(t), tn))
-                          : (r = new kn(e, Gt({ detail: ((s = t), o ? o(s, Kn.document) : s) }))),
+                          ? ((r = no("MutationEvent")), tn(r, e, !1, !1, n || null, void 0, void 0, kt(t), nn))
+                          : (r = new Fn(e, Lt({ detail: ((s = t), o ? o(s, Yn.document) : s) }))),
                         r
                       );
-                    })(e, Gt({ m: n, a: r, r: s }), a);
-                  St(Ue, Kn, [i]);
+                    })(e, Lt({ m: n, a: r, r: s }), a);
+                  Gt($e, Yn, [i]);
                 },
-                g = (t) => {
-                  const { m: n, r: o, a } = Qt("CustomEvent" == Zt((l = t)) ? Cn(l) : At(On(l)));
-                  var l;
-                  if ("unlock" == n) p(`${e}_${s}`, Gt({ m: "unlocked", a: void 0, r: null })), u();
+                f = (t) => {
+                  const { m: n, r: o, a: i } = Zt("CustomEvent" == en((c = t)) ? In(c) : At(On(c)));
+                  var c;
+                  if ((r[n] && (Wt(r[n], (e) => e(i)), delete r[n]), "unlock" == n))
+                    p(`${e}_${a}`, Lt({ m: "unlocked", a: void 0, r: null })), u();
                   else if ("unlocked" == n) u();
                   else if ("message.response" == n) {
                     if (null == o) throw "Invalid Message";
                     ((e, t) => {
                       let n;
-                      e && (n = i[e]) && (n(t), delete i[e]);
-                    })(o, a);
-                  } else if (r) {
-                    const i = o
+                      e && (n = l[e]) && (n(t), delete l[e]);
+                    })(o, i);
+                  } else if (s) {
+                    const r = o
                       ? (t) => {
-                          p(`${e}_${s}`, Gt({ m: "message.response", a: t, r: o }));
+                          p(`${e}_${a}`, Lt({ m: "message.response", a: t, r: o }));
                         }
                       : () => {};
-                    r(Gt({ method: n, args: a, node: "MutationEvent" === Zt(t) ? Ln(t) : void 0 }), i);
+                    s(Lt({ method: n, args: i, node: "MutationEvent" === en(t) ? Cn(t) : void 0 }), r);
                   }
                 },
-                f = (e) => {
-                  e && (s = e), s && Qn.addEventListener(`${n}_${s}`, g, !0);
+                v = (e) => {
+                  e && (a = e), a && eo.addEventListener(`${n}_${a}`, f, !0);
                 };
-              let v, m;
-              const _ = () => {
+              let m, _;
+              const b = () => {
                   if (
                     (() => {
-                      const e = Kn.document.documentElement;
-                      return v || (v = e), v !== e;
+                      const e = Yn.document.documentElement;
+                      return m || (m = e), m !== e;
                     })()
                   ) {
-                    if (m) {
-                      const e = m;
-                      (m = void 0), e(Kn.document);
+                    if (_) {
+                      const e = _;
+                      (_ = void 0), e(Yn.document);
                     }
                     return !0;
                   }
                 },
-                M = Gt({
+                M = Lt({
                   init: async (n, o) => {
-                    s ? f() : f(n),
+                    a ? v() : v(n),
                       t && !o && (await null),
-                      ((v = Kn.document.documentElement),
-                      Zn((e) => {
-                        m = e;
-                        const t = new Vn(() => {
-                          _() && t.disconnect();
+                      ((m = Yn.document.documentElement),
+                      to((e) => {
+                        _ = e;
+                        const t = new Xn(() => {
+                          b() && t.disconnect();
                         });
-                        t.observe(Kn.document, Gt({ childList: !0 }));
+                        t.observe(Yn.document, Lt({ childList: !0 }));
                       })).then(() => {
-                        (l = !0), M.refresh(), p(`${e}_${s}`, Gt({ m: "unlock", a: void 0, r: null }));
+                        (c = !0), M.refresh(), p(`${e}_${a}`, Lt({ m: "unlock", a: void 0, r: null }));
                       });
                   },
                   refresh: () => {
-                    const e = s;
+                    const e = a;
                     e && (M.cleanup(), M.init(e, !0));
                   },
                   switchId: (e) => {
-                    s && M.cleanup(), f(e);
+                    a && M.cleanup(), v(e);
                   },
                   send: (t, n, o, r) =>
-                    Zn((a) => {
-                      let i, u;
-                      "function" != typeof o && null !== o ? ((i = o), (u = r)) : (u = o), _();
-                      const g = () => {
-                        p(`${e}_${s}`, Gt({ m: t, a: n, r: u ? d(u) : null, n: i })), a();
+                    to((s) => {
+                      let i, l;
+                      "function" != typeof o && null !== o ? ((i = o), (l = r)) : (l = o), b();
+                      const u = () => {
+                        p(`${e}_${a}`, Lt({ m: t, a: n, r: l ? g(l) : null, n: i })), s();
                       };
-                      l ? Xt(c, g) : g();
+                      c ? Bt(d, u) : u();
                     }),
                   sendToId: (t, n, o) => {
-                    p(`${e}_${t}`, Gt({ m: n, a: o, r: null }));
+                    p(`${e}_${t}`, Lt({ m: n, a: o, r: null }));
                   },
                   setMessageListener: (e) => {
-                    r = e;
+                    s = e;
+                  },
+                  once: (e, t) => {
+                    r[e] || (r[e] = []), Bt(r[e], t);
                   },
                   cleanup: () => {
-                    s && (Qn.removeEventListener(`${n}_${s}`, g, !0), (s = void 0));
+                    a && (eo.removeEventListener(`${n}_${a}`, f, !0), (a = void 0));
                   }
                 });
               return M;
-            })(Gt({ sendPrefix: "2C", listenPrefix: "2P" }))),
+            })(
+              Lt({
+                sendPrefix: "2C",
+                listenPrefix: "2P"
+              })
+            )),
         (e.bridges.first = o);
-      const l = gt(e.console, so);
+      const l = vt(e.console, lo);
       o.init(n);
-      const c = Gt({});
+      const c = Lt({});
       o.setMessageListener(({ method: t, args: n }) => {
-        if ("commid" == t) o.switchId(n.id);
-        else if ("setForeignAttr" == t) Kn[n.attr] = n.value;
+        if ("commid" == t) o.switchId(n.id), o.send("ack", Lt({ id: n.id }));
+        else if ("injectable" == t)
+          g(n.id, () => {
+            o.send("ack", Lt({ id: n.id }));
+          }),
+            o.send("injectableack", Lt({ id: n.id }));
+        else if ("setForeignAttr" == t) Yn[n.attr] = n.value;
         else if ("script" == t) {
-          const { id: t, unwrap: o, bundle: r } = n,
-            { script: s } = r,
+          const { id: t, unwrap: r, bundle: s } = n,
+            { script: a } = s,
             {
-              name: a,
-              uuid: i,
-              options: { run_at: l }
-            } = s;
-          p(t, (t) => {
-            const s = o
+              name: i,
+              uuid: l,
+              options: { run_at: u }
+            } = a;
+          g(t, (t) => {
+            const o = r
               ? () => t()
               : () =>
-                  St(
+                  Gt(
                     t,
                     ((t, n, o, r) => {
                       const { pageWindow: s, cloneInto: a, exportFunction: i } = e,
-                        l = s || Kn,
+                        l = s || Yn,
                         { script: c } = t,
-                        u = c.options.compat_powerful_this,
-                        d = -1 !== Bt(c.grant, "none");
-                      Jo = Jo || Ho(n);
-                      const p = Jo.of(t),
-                        g = (e) => Gt({ p: m, r: St, s: e }),
-                        f = Gt({ seed: Gt({ get: () => g(M), once: !0 }) }),
-                        v = Gt({}),
-                        m = Gt({ GM: v }),
+                        d = c.options.compat_powerful_this,
+                        u = -1 !== Ht(c.grant, "none");
+                      Qo = Qo || zo(n);
+                      const g = Qo.of(t),
+                        p = (e) => Lt({ p: m, r: Gt, s: e }),
+                        f = Lt({ seed: Lt({ get: () => p(b), once: !0 }) }),
+                        v = Lt({}),
+                        m = Lt({ GM: v }),
                         _ = l && l;
-                      u && (Rt(f, "GM", Gt({ value: v })), Rt(f, "unsafeWindow", Gt({ value: _ }))),
-                        d || (m.unsafeWindow = _),
-                        Ht(dt(p), (e) => {
+                      d && (Ot(f, "GM", Lt({ value: v })), Ot(f, "unsafeWindow", Lt({ value: _ }))),
+                        u || (m.unsafeWindow = _),
+                        Wt(pt(g), (e) => {
                           const t = vn(e, 0, 3),
-                            n = p[e];
+                            n = g[e];
                           if (void 0 !== n)
-                            if ("GM_" === t) (m[e] = void 0 !== n.get ? n.get() : n.value), u && Rt(f, e, n);
+                            if ("GM_" === t) (m[e] = void 0 !== n.get ? n.get() : n.value), d && Ot(f, e, n);
                             else if ("GM." === t) {
-                              const t = Kt(e, 3);
-                              vt(v, t, n);
+                              const t = zt(e, 3);
+                              _t(v, t, n);
                             }
                         });
-                      const M = d ? g(u ? m : Gt({})) : Wo(d, c.options.run_at, p, f, o, r);
-                      return M;
-                    })(r, n.flags, u, g),
+                      const b = u ? p(d ? m : Lt({})) : Yo(u, c.options.run_at, g, f, o, r);
+                      return b;
+                    })(s, n.flags, d, p),
                     []
                   );
-            "document-start" == l || "context-menu" == l ? s() : (c[i] = s);
-          });
-        } else if ("port.message" == t) oo.message(n, o);
+            "document-start" == u || "context-menu" == u ? o() : (c[l] = o);
+          }),
+            o.send(`scriptack-${t}`, Lt({ id: t }));
+        } else if ("port.message" == t) ao.message(n, o);
         else if ("external.connect" == t)
           ((t) => {
             const { bridges: n } = e,
-              o = Kn,
-              r = Ot(o, "external");
+              o = Yn,
+              r = Ct(o, "external");
             if (!r) return;
-            const s = t ? (e) => t(e, o, Gt({ cloneFunctions: !0 })) : (e) => e,
+            const s = t ? (e) => t(e, o, Lt({ cloneFunctions: !0 })) : (e) => e,
               a = (e, t) => {
                 n.first.send("external.message", e, t);
               };
             try {
               const e = () => {
-                const e = Gt({
+                const e = Lt({
                   getVersion: (e) => {
-                    a(Gt({ method: "getVersion" }), (t) => e(s(t)));
+                    a(Lt({ method: "getVersion" }), (t) => e(s(t)));
                   },
                   openOptions: (e, t) => {
-                    a(Gt({ method: "openOptions", params: e }), t);
+                    a(Lt({ method: "openOptions", params: e }), t);
                   },
                   isInstalled: (e, t, n) => {
                     "function" == typeof t && ((n = t), (t = null)),
-                      a(Gt({ method: "isInstalled", script: Gt({ name: e, namespace: t }) }), (e) => n(s(e)));
+                      a(Lt({ method: "isInstalled", script: Lt({ name: e, namespace: t }) }), (e) => n(s(e)));
                   }
                 });
                 return s(e);
               };
-              ft(r, Gt({ Tampermonkey: Gt({ value: e(), configurable: !0 }) }));
+              mt(r, Lt({ Tampermonkey: Lt({ value: e(), configurable: !0 }) }));
             } catch (e) {}
           })(a);
         else if ("run" == t) {
           const { uuid: e } = n,
-            t = Ot(c, e);
+            t = Ct(c, e);
           t ? "function" == typeof t && (t(), delete c[e]) : l.warn(`env: missing script "${e}"!`);
         }
       });
-      const { createProxy: u } = ((e, t) => {
+      const { createProxy: d } = ((e, t) => {
           const n = ((e) => {
-            let t = Gt({});
+            let t = Lt({});
             const n = (e, o, r) => {
-              const s = Mt(e);
-              (s && s === o) || (null != s && --r >= 0 && n(s, e, r), (t = gt(t, ht(e))));
+              const s = ht(e);
+              (s && s === o) || (null != s && --r >= 0 && n(s, e, r), (t = vt(t, yt(e))));
             };
             return n(e, null, 5), t;
-          })(Kn);
-          Ht(po, (e) => delete n[e]);
+          })(Yn);
+          Wt(vo, (e) => delete n[e]);
           const o = n;
-          return Gt({
+          return Lt({
             createProxy: (n) => {
               let r = o;
               const s = (e) => {
                   let t, n;
-                  const o = (t = _t(g, e)) || (n = r[e]);
-                  return Gt({ d: o ? Gt(o) : o, l: !!t, w: !!n });
+                  const o = (t = Mt(p, e)) || (n = r[e]);
+                  return Lt({ d: o ? Lt(o) : o, l: !!t, w: !!n });
                 },
                 a = (e) => {
                   if (!l(e)) return !1;
                   if ("length" === e) return !0;
-                  const t = yt($n(e));
-                  return t >= 0 && t <= rn && e === `${t}`;
+                  const t = Et(jn(e));
+                  return t >= 0 && t <= sn && e === `${t}`;
                 },
                 i = (e) => "on" === vn(e, 0, 2),
                 l = (e) => "string" == typeof e,
                 c = (e, n) => {
                   const o = vn(e, 2),
-                    r = p[o];
-                  if ((r && (t.removeEventListener(o, r), delete p[o]), n && ((e) => "function" == typeof e)(n))) {
-                    const e = (...e) => St(n, t, e);
-                    t.addEventListener(o, e), (p[o] = e);
+                    r = g[o];
+                  if ((r && (t.removeEventListener(o, r), delete g[o]), n && ((e) => "function" == typeof e)(n))) {
+                    const e = (...e) => Gt(n, t, e);
+                    t.addEventListener(o, e), (g[o] = e);
                   }
                 },
-                u = (t) => void 0 !== t && (t === e || t === Kn || t === zn),
-                d = Gt({
+                d = (t) => void 0 !== t && (t === e || t === Yn || t === Qn),
+                u = Lt({
                   addEventListener: !0,
                   alert: !0,
                   atob: !0,
@@ -2414,6 +2580,7 @@ this.pagejs = (e) => {
                   setInterval: !0,
                   setResizable: !0,
                   setTimeout: !0,
+                  showDirectoryPicker: !0,
                   sizeToContent: !0,
                   stop: !0,
                   structuredClone: !0,
@@ -2423,30 +2590,30 @@ this.pagejs = (e) => {
                   webkitRequestFileSystem: !0,
                   webkitResolveLocalFileSystemURL: !0
                 });
-              Ht(dt(d), (e) => {
-                n[e] = n[e] || Gt({ bind: !0 });
+              Wt(pt(u), (e) => {
+                n[e] = n[e] || Lt({ bind: !0 });
               });
-              const p = Gt({}),
-                g = Gt({});
-              Rt(g, yn, "Window");
-              const f = new Un(
-                g,
-                Gt({
+              const g = Lt({}),
+                p = Lt({});
+              Ot(p, yn, "Window");
+              const f = new $n(
+                p,
+                Lt({
                   defineProperty: (e, t, o) => {
-                    const { d: r, l: u } = s(t),
-                      d = Gt(o);
-                    return (r && !r.configurable && (!!r.configurable != !!d.configurable || !!r.enumerable != !!r.enumerable)) || a(t)
-                      ? (vt(u ? g : Kn, t, d), !1)
-                      : (vt(g, t, d), l(t) && i(t) && c(t), delete n[t], !0);
+                    const { d: r, l: d } = s(t),
+                      u = Lt(o);
+                    return (r && !r.configurable && (!!r.configurable != !!u.configurable || !!r.enumerable != !!r.enumerable)) || a(t)
+                      ? (_t(d ? p : Yn, t, u), !1)
+                      : (_t(p, t, u), l(t) && i(t) && c(t), delete n[t], !0);
                   },
                   deleteProperty: (e, t) => {
-                    let { d: a, l: u, w: d } = s(t);
+                    let { d: a, l: d, w: u } = s(t);
                     return (
                       !(!a || !a.configurable) &&
-                      (u && ((u = delete g[t]), l(t) && i(t) && c(t)),
-                      (d || ((a = r[t]) && a.configurable)) && (o === r && (r = gt(Gt({}), o)), (d = delete r[t])),
+                      (d && ((d = delete p[t]), l(t) && i(t) && c(t)),
+                      (u || ((a = r[t]) && a.configurable)) && (o === r && (r = vt(Lt({}), o)), (u = delete r[t])),
                       delete n[t],
-                      u || d)
+                      d || u)
                     );
                   },
                   get: (e, t) => {
@@ -2455,87 +2622,75 @@ this.pagejs = (e) => {
                       if ((o.once && delete n[t], "value" in o)) return o.value;
                       if (o.get) return o.get();
                     }
-                    const { d: r, l: i } = a(t) ? Gt({ d: _t(Kn, t), l: !1 }) : s(t);
+                    const { d: r, l: i } = a(t) ? Lt({ d: Mt(Yn, t), l: !1 }) : s(t);
                     if (r) {
                       let e;
                       const n =
-                        "value" in r ? Ot(r, "value") : (e = Ot(r, "get")) && "function" == typeof e ? (i ? e() : xt(e, Kn)()) : void 0;
-                      return n && o && o.bind ? xt(n, Kn) : i || "event" == t ? n : u(n) || "globalThis" === t ? f : n;
+                        "value" in r ? Ct(r, "value") : (e = Ct(r, "get")) && "function" == typeof e ? (i ? e() : Dt(e, Yn)()) : void 0;
+                      return n && o && o.bind ? Dt(n, Yn) : i || "event" == t ? n : d(n) || "globalThis" === t ? f : n;
                     }
                   },
                   getOwnPropertyDescriptor: (e, t) => {
                     let { d: o, l: r } = s(t);
                     if (!o) {
                       const e = n[t];
-                      if (e) return Gt({ enumerable: !0, configurable: !0, writable: !0, value: e.value, set: e.set, get: e.get });
+                      if (e) return Lt({ enumerable: !0, configurable: !0, writable: !0, value: e.value, set: e.set, get: e.get });
                       if (!a(t)) return;
-                      (o = _t(Kn, t)), (r = !1);
+                      (o = Mt(Yn, t)), (r = !1);
                     }
-                    const i = gt(Gt({}), o);
-                    if ((u(i.value) && (i.value = f), !r)) {
+                    const i = vt(Lt({}), o);
+                    if ((d(i.value) && (i.value = f), !r)) {
                       const e = i.get;
                       e &&
                         (i.get = () => {
-                          const t = xt(e, Kn)();
-                          return u(t) ? f : t;
+                          const t = Dt(e, Yn)();
+                          return d(t) ? f : t;
                         }),
-                        i && !i.configurable && vt(g, t, i);
+                        i && !i.configurable && _t(p, t, i);
                     }
                     return i;
                   },
-                  has: (e, t) => t in g || t in n || t in r,
+                  has: (e, t) => t in p || t in n || t in r,
                   ownKeys: () => {
                     const e = (e) => !(e in r),
-                      t = dt(r),
-                      n = Nt(dt(ht(g)), e),
-                      o = Gt({});
-                    for (let e = 0; "Window" === Zt(Lt(Kn, e)); e += 1) o[e] = !0;
-                    const s = Nt(dt(o), e);
-                    return qt(t, n, s);
+                      t = pt(r),
+                      n = Nt(pt(yt(p)), e),
+                      o = Lt({});
+                    for (let e = 0; "Window" === en(It(Yn, e)); e += 1) o[e] = !0;
+                    const s = Nt(pt(o), e);
+                    return Xt(t, n, s);
                   },
                   preventExtensions: () => !0,
                   set: (e, t, o) => {
                     const r = n[t];
                     if (r && r.set) return r.set(o), !0;
-                    const { d: u } = s(t);
-                    return !((u && !u.writable && !Ot(u, "set")) || a(t) || (delete n[t], Rt(g, t, o), l(t) && i(t) && c(t, o), 0));
+                    const { d } = s(t);
+                    return !((d && !d.writable && !Ct(d, "set")) || a(t) || (delete n[t], Ot(p, t, o), l(t) && i(t) && c(t, o), 0));
                   }
                 })
               );
               return f;
             }
           });
-        })(i, Qn),
-        d = (e) => {
-          o.send("csp", Gt({ src: e }));
+        })(i, eo),
+        u = (e) => {
+          o.send("csp", Lt({ src: e }));
         },
-        p = async (e, t) => {
-          vt(
-            zn,
-            e,
-            Gt({
-              set: (n) => {
-                delete zn[e];
-                const o = En(Kn.document);
-                return o && Gn(o), t(n);
-              },
-              configurable: !0,
-              enumerable: !1
-            })
-          ),
-            no(() => delete zn[e]);
+        g = async (e, t) => {
+          _t(Qn, e, Lt({ set: (n) => (delete Qn[e], so(), t(n)), configurable: !0, enumerable: !1 })), ro(() => delete Qn[e]);
         },
-        g = (e, t) =>
+        p = (e, t) =>
           t
             ? ((e, t) => {
-                const n = `__p__${to()}`;
+                const n = `__p__${oo()}`;
                 (async (e, t) => {
-                  p(e, (e) => St(e, t, []));
+                  g(e, (e) => Gt(e, t, []));
                 })(n, t),
-                  d('window["' + n + '"] = function(){' + e + "};"),
-                  delete zn[n];
+                  u('window["' + n + '"] = function(){' + e + "};"),
+                  delete Qn[n];
               })(e, t)
-            : d(e);
-    })();
+            : u(e);
+    })(),
+      so();
   })();
 };

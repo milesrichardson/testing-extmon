@@ -1,4 +1,2 @@
 "use strict";
-
-// eslint-disable-next-line no-undef
-window.alert = () => true;
+window.alert = () => !0;

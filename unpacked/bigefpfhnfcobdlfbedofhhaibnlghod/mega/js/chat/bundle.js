@@ -13056,6 +13056,21 @@
           });
           $("span", $copyButton).text(l[1990]);
         }
+        componentDidMount() {
+          super.componentDidMount();
+          M.safeShowDialog(ChatlinkDialog.NAMESPACE, () => {
+            if (!this.isMounted()) {
+              throw new Error(`${ChatlinkDialog.NAMESPACE} dialog: component not mounted.`);
+            }
+            return $(`#${ChatlinkDialog.NAMESPACE}`);
+          });
+        }
+        componentWillUnmount() {
+          super.componentWillUnmount();
+          if ($.dialog === ChatlinkDialog.NAMESPACE) {
+            closeDialog();
+          }
+        }
         render() {
           const { chatRoom } = this.props;
           const { newTopic, link } = this.state;
@@ -13071,6 +13086,7 @@
           return external_React_default().createElement(
             modalDialogs.Z.ModalDialog,
             (0, esm_extends.Z)({}, this.state, {
+              id: ChatlinkDialog.NAMESPACE,
               title: chatRoom.iAmOperator() && !chatRoom.topic ? (chatRoom.isMeeting ? l.rename_meeting : l[9080]) : "",
               className: `
                     chat-rename-dialog
@@ -13241,7 +13257,8 @@
       ChatlinkDialog.defaultProps = {
         requiresUpdateOnResize: true,
         disableCheckingVisibility: true
-      }; // CONCATENATED MODULE: ./js/chat/ui/pushSettingsDialog.jsx
+      };
+      ChatlinkDialog.NAMESPACE = "chat-link-dialog"; // CONCATENATED MODULE: ./js/chat/ui/pushSettingsDialog.jsx
       var pushSettingsDialog_class;
 
       class PushSettingsDialog extends mixins.wl {
@@ -13896,6 +13913,9 @@
                       this.setState({
                         joining: true
                       });
+                      if (this.props.chatRoom.scheduledMeeting) {
+                        delay("chat-event-sm-guest-join", () => eventlog(99929));
+                      }
                       this.props.onJoinGuestClick(firstName, lastName, previewAudio, previewVideo);
                     }
                   }
@@ -14121,7 +14141,12 @@
               null,
               l.wr_leave_confirmation,
               "",
-              (cb) => cb && this.doLeave(),
+              (cb) => {
+                if (cb) {
+                  delay("chat-event-wr-leave", () => eventlog(99938));
+                  this.doLeave();
+                }
+              },
               1
             );
           this.renderDeniedDialog = () => msgDialog("error", "", l.wr_denied, l.wr_denied_details, this.doLeave);
@@ -14641,6 +14666,7 @@
               return this.renderDeniedDialog();
             }
             if (termCode === SfuClient.TermCode.kWaitingRoomAllowTimeout) {
+              delay("chat-event-wr-timeout", () => eventlog(99939));
               return this.renderTimeoutDialog();
             }
           });
@@ -14696,7 +14722,8 @@
                   : confirmLeave({
                       title: l.assign_host_leave_call,
                       body: l.assign_host_leave_call_details,
-                      cta: l.assign_host_button
+                      cta: l.assign_host_button,
+                      altCta: l.leave_anyway
                     })
             });
           });
@@ -14758,7 +14785,8 @@
                     external_React_default().createElement(this.LeaveButton, {
                       chatRoom: chatRoom,
                       participants: chatRoom.getCallParticipants(),
-                      onLeave: () => call.hangUp()
+                      onLeave: () => call.hangUp(),
+                      onConfirmDenied: () => call.hangUp()
                     }),
                     external_React_default().createElement(dropdowns.DropdownItem, {
                       className: "link-button",
@@ -15174,7 +15202,12 @@
             const { scheduledMeeting, chatId } = chatRoom || {};
             if (scheduledMeeting) {
               const { isRecurring, title } = scheduledMeeting;
-              const doConfirm = (res) => res && megaChat.plugins.meetingsManager.cancelMeeting(scheduledMeeting, chatId);
+              const doConfirm = (res) => {
+                if (res) {
+                  megaChat.plugins.meetingsManager.cancelMeeting(scheduledMeeting, chatId);
+                  delay("chat-event-sm-cancel", () => eventlog(99925));
+                }
+              };
               if (isRecurring) {
                 return chatRoom.hasUserMessages()
                   ? msgDialog(
@@ -15462,14 +15495,22 @@
             secondLabel: l.waiting_room_info,
             toggled: room.options[MCO_FLAGS.WAITING_ROOM],
             disabled: room.havePendingCall(),
-            onClick: () => room.toggleWaitingRoom()
+            onClick: () => {
+              room.toggleWaitingRoom();
+              delay("chat-event-wr-create-button", () => eventlog(99937));
+            }
           };
           const openInviteButton = {
             icon: "icon-user-filled",
             label: room.isMeeting ? l.meeting_open_invite_label : l.chat_open_invite_label,
             secondLabel: l.open_invite_desc,
             toggled: room.options[MCO_FLAGS.OPEN_INVITE],
-            onClick: () => room.toggleOpenInvite()
+            onClick: () => {
+              room.toggleOpenInvite();
+              if (room.scheduledMeeting) {
+                delay("chat-event-sm-allow-non-hosts", () => eventlog(99928));
+              }
+            }
           };
           let retentionTime = room.retentionTime ? secondsToDays(room.retentionTime) : 0;
           const ICON_ACTIVE = external_React_default().createElement("i", {
@@ -15745,6 +15786,9 @@
                               onClick: (e) => {
                                 if ($(e.target).closest(".disabled").length > 0) {
                                   return false;
+                                }
+                                if (scheduledMeeting) {
+                                  delay("chat-event-sm-share-meeting-link", () => eventlog(99924));
                                 }
                                 this.props.onGetManageChatLinkClicked();
                               }
@@ -16163,9 +16207,12 @@
             chatRoom.rebind("showGetChatLinkDialog.ui", () => {
               createTimeoutPromise(() => chatRoom.topic && chatRoom.state === ChatRoom.STATE.READY, 350, 15000).always(() => {
                 return chatRoom.isCurrentlyActive
-                  ? this.setState({
-                      chatLinkDialog: true
-                    })
+                  ? this.setState(
+                      {
+                        chatLinkDialog: true
+                      },
+                      () => affiliateUI.registeredDialog.show()
+                    )
                   : chatRoom.updatePublicHandle(false, true);
               });
             });
@@ -19702,6 +19749,7 @@
                     onClick: () => {
                       const { startDateTime, endDateTime } = this.state;
                       if (startDateTime !== this.occurrenceRef.start || endDateTime !== this.occurrenceRef.end) {
+                        delay("chat-event-sm-edit-meeting", () => eventlog(99923));
                         this.occurrenceRef.update(startDateTime, endDateTime);
                       }
                       onClose();
@@ -19881,6 +19929,11 @@
                 async () => {
                   const { chatRoom, onClose } = this.props;
                   const params = [this.state, chatRoom];
+                  if (chatRoom) {
+                    delay("chat-event-sm-edit-meeting", () => eventlog(99923));
+                  } else {
+                    delay("chat-event-sm-button-create", () => eventlog(99922));
+                  }
                   await megaChat.plugins.meetingsManager[chatRoom ? "updateMeeting" : "createMeeting"](...params);
                   this.setState(
                     {
@@ -20160,7 +20213,10 @@
                 checked: recurring,
                 label: l.schedule_recurring_label,
                 isLoading: isLoading,
-                onToggle: this.handleToggle
+                onToggle: (prop) => {
+                  this.handleToggle(prop);
+                  delay("chat-event-sm-recurring", () => eventlog(99919));
+                }
               }),
               recurring &&
                 external_React_default().createElement(Recurring, {
@@ -20201,14 +20257,20 @@
                 toggled: link,
                 label: l.schedule_link_label,
                 isLoading: isLoading,
-                onToggle: this.handleToggle
+                onToggle: (prop) => {
+                  this.handleToggle(prop);
+                  delay("chat-event-sm-meeting-link", () => eventlog(99920));
+                }
               }),
               external_React_default().createElement(Checkbox, {
                 name: "sendInvite",
                 checked: sendInvite,
                 label: l.schedule_invite_label,
                 isLoading: isLoading,
-                onToggle: this.handleToggle
+                onToggle: (prop) => {
+                  this.handleToggle(prop);
+                  delay("chat-event-sm-calendar-invite", () => eventlog(99921));
+                }
               }),
               external_React_default().createElement(Checkbox, {
                 name: "waitingRoom",
@@ -23250,10 +23312,12 @@
               leftPaneWidth: leftPaneWidth,
               renderView: (view) => this.renderView(view),
               startMeeting: () => this.startMeeting(),
-              scheduleMeeting: () =>
+              scheduleMeeting: () => {
                 this.setState({
                   scheduleMeetingDialog: true
-                }),
+                });
+                delay(`chat-event-sm-button-main`, () => eventlog(99918));
+              },
               createGroupChat: () =>
                 this.setState({
                   startGroupChatDialog: true
@@ -26694,7 +26758,8 @@
                       : confirmLeave({
                           title: l.assign_host_leave_call,
                           body: l.assign_host_leave_call_details,
-                          cta: l.assign_host_button
+                          cta: l.assign_host_button,
+                          altCta: l.leave_anyway
                         });
                   }
                 },
@@ -26789,7 +26854,8 @@
               external_React_default().createElement(LeaveButton, {
                 chatRoom: chatRoom,
                 participants: chatRoom.getCallParticipants(),
-                onLeave: onCallEnd
+                onLeave: onCallEnd,
+                onConfirmDenied: onCallEnd
               })
             );
           };
@@ -28881,6 +28947,10 @@
                 }),
                 () => {
                   chatRoom.ringUser(handle, call.callId, 1);
+                  if (chatRoom.options.w) {
+                    var _call$sfuClient;
+                    call == null || (_call$sfuClient = call.sfuClient) == null || _call$sfuClient.wrAllowJoin([handle]);
+                  }
                   tSleep(40).then(() => {
                     this.doHangUp(handle);
                     return Object.keys(chatRoom.uniqueCallParts).includes(handle)
@@ -29788,7 +29858,8 @@
                     : confirmLeave({
                         title: l.assign_host_leave_call,
                         body: l.assign_host_leave_call_details,
-                        cta: l.assign_host_button
+                        cta: l.assign_host_button,
+                        altCta: l.leave_anyway
                       })
               },
               external_React_default().createElement("span", null, l.leave)
@@ -29862,7 +29933,8 @@
                 external_React_default().createElement(this.LeaveButton, {
                   chatRoom: chatRoom,
                   participants: chatRoom.getCallParticipants(),
-                  onLeave: onCallEnd
+                  onLeave: onCallEnd,
+                  onConfirmDenied: onCallEnd
                 }),
                 external_React_default().createElement(
                   meetings_button.Z,
@@ -30963,8 +31035,22 @@
               onLeave == null || onLeave();
               $(document).trigger("closeDropdowns");
             };
-            this.confirmLeave = ({ title, body, cta }) => {
-              msgDialog(`confirmationa:!^${cta}!${l[82]}`, null, title, body, (cb) => cb && this.toggleDialog(), 1);
+            this.confirmLeave = ({ title, body, cta, altCta }) => {
+              msgDialog(
+                `confirmationa:!^${cta}!${altCta || l[82]}`,
+                null,
+                title,
+                body,
+                (cb) => {
+                  if (cb) {
+                    this.toggleDialog();
+                  } else if (cb === false) {
+                    var _this$props$onConfirm, _this$props;
+                    (_this$props$onConfirm = (_this$props = this.props).onConfirmDenied) == null || _this$props$onConfirm.call(_this$props);
+                  }
+                },
+                1
+              );
             };
           }
           render() {

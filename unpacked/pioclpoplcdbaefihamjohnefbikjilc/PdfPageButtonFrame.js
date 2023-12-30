@@ -1,7 +1,7 @@
 /*! For license information please see PdfPageButtonFrame.js.LICENSE.txt */
-(() => {
+!(function () {
   var e = {
-      46463: (e, t, s) => {
+      18472: function (e, t, s) {
         s(24527).Thrift,
           (e.exports.nI5 = "^[A-Za-z]+/[A-Za-z0-9._+-]+$"),
           (e.exports.emj = "image/gif"),
@@ -10,7 +10,42 @@
           (e.exports.uOi = "application/pdf"),
           (e.exports.xGc = "application/octet-stream");
       },
-      50026: (e, t, s) => {
+      21924: function (e, t, s) {
+        "use strict";
+        var i = s(40210),
+          n = s(55559),
+          a = n(i("String.prototype.indexOf"));
+        e.exports = function (e, t) {
+          var s = i(e, !!t);
+          return "function" == typeof s && a(e, ".prototype.") > -1 ? n(s) : s;
+        };
+      },
+      55559: function (e, t, s) {
+        "use strict";
+        var i = s(58612),
+          n = s(40210),
+          a = n("%Function.prototype.apply%"),
+          o = n("%Function.prototype.call%"),
+          r = n("%Reflect.apply%", !0) || i.call(o, a),
+          p = n("%Object.getOwnPropertyDescriptor%", !0),
+          u = n("%Object.defineProperty%", !0),
+          c = n("%Math.max%");
+        if (u)
+          try {
+            u({}, "a", { value: 1 });
+          } catch (e) {
+            u = null;
+          }
+        e.exports = function (e) {
+          var t = r(i, o, arguments);
+          return p && u && p(t, "length").configurable && u(t, "length", { value: 1 + c(0, e.length - (arguments.length - 1)) }), t;
+        };
+        var y = function () {
+          return r(i, a, arguments);
+        };
+        u ? u(e.exports, "apply", { value: y }) : (e.exports.apply = y);
+      },
+      50026: function (e, t, s) {
         e.exports = {
           Admin: s(47411),
           AuthenticationErrors: s(59754),
@@ -36,10 +71,10 @@
           Utility: s(2401)
         };
       },
-      47411: (e, t, s) => {
+      47411: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(81343),
-          n = s(52965);
+          n = s(81343),
+          a = s(52965);
         s(77915),
           s(2401),
           (e.exports.BetaFeatureStatusInternal = { OPEN: 0, ACTIVE_FOR_ALL_USERS: 50, CLOSED: 100 }),
@@ -108,7 +143,7 @@
             4: { alias: "created", type: i.Type.I64 }
           })),
           (e.exports.CreateIncentiveRequest = i.Struct.define("CreateIncentiveRequest", {
-            1: { alias: "incentiveToCreate", type: i.Type.STRUCT, def: a.Incentive }
+            1: { alias: "incentiveToCreate", type: i.Type.STRUCT, def: n.Incentive }
           })),
           (e.exports.UpdateIncentiveRequest = i.Struct.define("UpdateIncentiveRequest", {
             1: { alias: "id", type: i.Type.I32 },
@@ -187,13 +222,13 @@
           (this.output = e), (this.seqid = 0);
         }
         function p(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), o))
-            e[a] && this.processor.addMethod(o[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), o))
+            e[n] && this.processor.addMethod(o[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (o.createBusinessDiscountDeal = i.Method.define({
@@ -204,9 +239,9 @@
           }),
           result: i.Struct.define("createBusinessDiscountDealResult", {
             0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessDiscountDeal },
-            1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-            3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+            1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+            3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
           })
         })),
           (o.getBusinessDiscountDeal = i.Method.define({
@@ -217,9 +252,9 @@
             }),
             result: i.Struct.define("getBusinessDiscountDealResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessDiscountDeal },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (o.updateBusinessDiscountDeal = i.Method.define({
@@ -230,9 +265,9 @@
             }),
             result: i.Struct.define("updateBusinessDiscountDealResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessDiscountDeal },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (o.cancelBusinessDiscountDeal = i.Method.define({
@@ -243,8 +278,8 @@
             }),
             result: i.Struct.define("cancelBusinessDiscountDealResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.endBusinessDiscountDeal = i.Method.define({
@@ -255,9 +290,9 @@
             }),
             result: i.Struct.define("endBusinessDiscountDealResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessDiscountDeal },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (o.listAllBusinessDiscountDeals = i.Method.define({
@@ -267,8 +302,8 @@
             }),
             result: i.Struct.define("listAllBusinessDiscountDealsResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.BusinessDiscountDeal) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.listDiscountDealsForBusiness = i.Method.define({
@@ -279,8 +314,8 @@
             }),
             result: i.Struct.define("listDiscountDealsForBusinessResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.BusinessDiscountDeal) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.createBusinessDiscountOffer = i.Method.define({
@@ -291,9 +326,9 @@
             }),
             result: i.Struct.define("createBusinessDiscountOfferResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessDiscountOffer },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.updateBusinessDiscountOffer = i.Method.define({
@@ -304,9 +339,9 @@
             }),
             result: i.Struct.define("updateBusinessDiscountOfferResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessDiscountOffer },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (o.cancelBusinessDiscountOffer = i.Method.define({
@@ -317,8 +352,8 @@
             }),
             result: i.Struct.define("cancelBusinessDiscountOfferResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.listAllBusinessDiscountOffers = i.Method.define({
@@ -328,8 +363,8 @@
             }),
             result: i.Struct.define("listAllBusinessDiscountOffersResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.BusinessDiscountOffer) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.setupECCBusiness = i.Method.define({
@@ -339,9 +374,9 @@
               2: { alias: "businessId", type: i.Type.I32, index: 1 }
             }),
             result: i.Struct.define("setupECCBusinessResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (o.lookUpBackToSchoolEmail = i.Method.define({
@@ -352,8 +387,8 @@
             }),
             result: i.Struct.define("lookUpBackToSchoolEmailResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BackToSchoolEmailLookUpResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.createIncentive = i.Method.define({
@@ -363,9 +398,9 @@
               2: { alias: "createIncentiveRequest", type: i.Type.STRUCT, def: e.exports.CreateIncentiveRequest, index: 1 }
             }),
             result: i.Struct.define("createIncentiveResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Incentive },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Incentive },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.updateIncentive = i.Method.define({
@@ -375,10 +410,10 @@
               2: { alias: "updateIncentiveRequest", type: i.Type.STRUCT, def: e.exports.UpdateIncentiveRequest, index: 1 }
             }),
             result: i.Struct.define("updateIncentiveResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Incentive },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Incentive },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.deactivateBusinessUser = i.Method.define({
@@ -388,9 +423,9 @@
               2: { alias: "userId", type: i.Type.I32, index: 1 }
             }),
             result: i.Struct.define("deactivateBusinessUserResult", {
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.deactivateBusinessUserEvenLastAdmin = i.Method.define({
@@ -400,9 +435,9 @@
               2: { alias: "userId", type: i.Type.I32, index: 1 }
             }),
             result: i.Struct.define("deactivateBusinessUserEvenLastAdminResult", {
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.reactivateBusinessUser = i.Method.define({
@@ -412,9 +447,9 @@
               2: { alias: "userId", type: i.Type.I32, index: 1 }
             }),
             result: i.Struct.define("reactivateBusinessUserResult", {
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.listBetaFeatures = i.Method.define({
@@ -422,8 +457,8 @@
             args: i.Struct.define("listBetaFeaturesArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listBetaFeaturesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.BetaFeatureInternal) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.updateBetaFeature = i.Method.define({
@@ -433,8 +468,8 @@
               2: { alias: "feature", type: i.Type.STRUCT, def: e.exports.BetaFeatureInternal, index: 1 }
             }),
             result: i.Struct.define("updateBetaFeatureResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.listEnrollmentsForBetaFeature = i.Method.define({
@@ -447,8 +482,8 @@
             }),
             result: i.Struct.define("listEnrollmentsForBetaFeatureResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.ListEnrollmentsForBetaFeatureResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.listEnrollmentsForBetaFeatureAndStatus = i.Method.define({
@@ -462,8 +497,8 @@
             }),
             result: i.Struct.define("listEnrollmentsForBetaFeatureAndStatusResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.ListEnrollmentsForBetaFeatureResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.approveBetaFeatureEnrollment = i.Method.define({
@@ -473,8 +508,8 @@
               2: { alias: "enrollmentGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("approveBetaFeatureEnrollmentResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.enrollAndEnableBusinessesIntoBetaFeature = i.Method.define({
@@ -486,8 +521,8 @@
             }),
             result: i.Struct.define("enrollAndEnableBusinessesIntoBetaFeatureResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.EnrollAndEnableIntoBetaFeatureResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.enrollAndEnableUsersIntoBetaFeature = i.Method.define({
@@ -499,8 +534,8 @@
             }),
             result: i.Struct.define("enrollAndEnableUsersIntoBetaFeatureResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.EnrollAndEnableIntoBetaFeatureResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.listBlacklistedDomains = i.Method.define({
@@ -512,8 +547,8 @@
             }),
             result: i.Struct.define("listBlacklistedDomainsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.ListBlacklistedDomainsResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.addOrUpdateBlacklistedDomain = i.Method.define({
@@ -523,8 +558,8 @@
               2: { alias: "domain", type: i.Type.STRUCT, def: e.exports.BlacklistedDomain, index: 1 }
             }),
             result: i.Struct.define("addOrUpdateBlacklistedDomainResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.deleteBlacklistedDomain = i.Method.define({
@@ -534,8 +569,8 @@
               2: { alias: "domainGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("deleteBlacklistedDomainResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (o.addBlacklistedDomains = i.Method.define({
@@ -546,34 +581,34 @@
             }),
             result: i.Struct.define("addBlacklistedDomainsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AddBlacklistedDomainsResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.prototype.createBusinessDiscountDeal = function (e, t, s) {
             var i = o.createBusinessDiscountDeal,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.getBusinessDiscountDeal = function (e, t, s) {
             var i = o.getBusinessDiscountDeal,
-              a = new i.args();
-            (a.authenticationToken = e), (a.dealId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.dealId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.updateBusinessDiscountDeal = function (e, t, s) {
             var i = o.updateBusinessDiscountDeal,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.cancelBusinessDiscountDeal = function (e, t, s) {
             var i = o.cancelBusinessDiscountDeal,
-              a = new i.args();
-            (a.authenticationToken = e), (a.dealId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.dealId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.endBusinessDiscountDeal = function (e, t, s) {
             var i = o.endBusinessDiscountDeal,
-              a = new i.args();
-            (a.authenticationToken = e), (a.dealId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.dealId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.listAllBusinessDiscountDeals = function (e, t) {
             var s = o.listAllBusinessDiscountDeals,
@@ -582,23 +617,23 @@
           }),
           (r.prototype.listDiscountDealsForBusiness = function (e, t, s) {
             var i = o.listDiscountDealsForBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.businessId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.businessId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.createBusinessDiscountOffer = function (e, t, s) {
             var i = o.createBusinessDiscountOffer,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.updateBusinessDiscountOffer = function (e, t, s) {
             var i = o.updateBusinessDiscountOffer,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.cancelBusinessDiscountOffer = function (e, t, s) {
             var i = o.cancelBusinessDiscountOffer,
-              a = new i.args();
-            (a.authenticationToken = e), (a.offerId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.offerId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.listAllBusinessDiscountOffers = function (e, t) {
             var s = o.listAllBusinessDiscountOffers,
@@ -607,38 +642,38 @@
           }),
           (r.prototype.setupECCBusiness = function (e, t, s) {
             var i = o.setupECCBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.businessId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.businessId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.lookUpBackToSchoolEmail = function (e, t, s) {
             var i = o.lookUpBackToSchoolEmail,
-              a = new i.args();
-            (a.authenticationToken = e), (a.email = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.email = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.createIncentive = function (e, t, s) {
             var i = o.createIncentive,
-              a = new i.args();
-            (a.authenticationToken = e), (a.createIncentiveRequest = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.createIncentiveRequest = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.updateIncentive = function (e, t, s) {
             var i = o.updateIncentive,
-              a = new i.args();
-            (a.authenticationToken = e), (a.updateIncentiveRequest = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.updateIncentiveRequest = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.deactivateBusinessUser = function (e, t, s) {
             var i = o.deactivateBusinessUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.deactivateBusinessUserEvenLastAdmin = function (e, t, s) {
             var i = o.deactivateBusinessUserEvenLastAdmin,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.reactivateBusinessUser = function (e, t, s) {
             var i = o.reactivateBusinessUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.listBetaFeatures = function (e, t) {
             var s = o.listBetaFeatures,
@@ -647,62 +682,62 @@
           }),
           (r.prototype.updateBetaFeature = function (e, t, s) {
             var i = o.updateBetaFeature,
-              a = new i.args();
-            (a.authenticationToken = e), (a.feature = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.feature = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (r.prototype.listEnrollmentsForBetaFeature = function (e, t, s, i, a) {
-            var n = o.listEnrollmentsForBetaFeature,
-              r = new n.args();
+          (r.prototype.listEnrollmentsForBetaFeature = function (e, t, s, i, n) {
+            var a = o.listEnrollmentsForBetaFeature,
+              r = new a.args();
             (r.authenticationToken = e),
               (r.featureGuid = t),
               (r.firstResult = s),
               (r.maxResults = i),
-              n.sendRequest(this.output, this.seqid++, r, a);
+              a.sendRequest(this.output, this.seqid++, r, n);
           }),
-          (r.prototype.listEnrollmentsForBetaFeatureAndStatus = function (e, t, s, i, a, n) {
+          (r.prototype.listEnrollmentsForBetaFeatureAndStatus = function (e, t, s, i, n, a) {
             var r = o.listEnrollmentsForBetaFeatureAndStatus,
               p = new r.args();
             (p.authenticationToken = e),
               (p.featureGuid = t),
               (p.status = s),
               (p.firstResult = i),
-              (p.maxResults = a),
-              r.sendRequest(this.output, this.seqid++, p, n);
+              (p.maxResults = n),
+              r.sendRequest(this.output, this.seqid++, p, a);
           }),
           (r.prototype.approveBetaFeatureEnrollment = function (e, t, s) {
             var i = o.approveBetaFeatureEnrollment,
-              a = new i.args();
-            (a.authenticationToken = e), (a.enrollmentGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.enrollmentGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.enrollAndEnableBusinessesIntoBetaFeature = function (e, t, s, i) {
-            var a = o.enrollAndEnableBusinessesIntoBetaFeature,
-              n = new a.args();
-            (n.authenticationToken = e), (n.featureKey = t), (n.businessIds = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.enrollAndEnableBusinessesIntoBetaFeature,
+              a = new n.args();
+            (a.authenticationToken = e), (a.featureKey = t), (a.businessIds = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.enrollAndEnableUsersIntoBetaFeature = function (e, t, s, i) {
-            var a = o.enrollAndEnableUsersIntoBetaFeature,
-              n = new a.args();
-            (n.authenticationToken = e), (n.featureKey = t), (n.userIds = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.enrollAndEnableUsersIntoBetaFeature,
+              a = new n.args();
+            (a.authenticationToken = e), (a.featureKey = t), (a.userIds = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.listBlacklistedDomains = function (e, t, s, i) {
-            var a = o.listBlacklistedDomains,
-              n = new a.args();
-            (n.authenticationToken = e), (n.firstResult = t), (n.maxResults = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.listBlacklistedDomains,
+              a = new n.args();
+            (a.authenticationToken = e), (a.firstResult = t), (a.maxResults = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.addOrUpdateBlacklistedDomain = function (e, t, s) {
             var i = o.addOrUpdateBlacklistedDomain,
-              a = new i.args();
-            (a.authenticationToken = e), (a.domain = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.domain = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.deleteBlacklistedDomain = function (e, t, s) {
             var i = o.deleteBlacklistedDomain,
-              a = new i.args();
-            (a.authenticationToken = e), (a.domainGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.domainGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.addBlacklistedDomains = function (e, t, s) {
             var i = o.addBlacklistedDomains,
-              a = new i.args();
-            (a.authenticationToken = e), (a.domains = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.domains = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.AdminService.Client = r),
           (p.prototype.start = function () {
@@ -713,7 +748,7 @@
           }),
           (e.exports.AdminService.Server = p);
       },
-      59754: (e, t, s) => {
+      59754: function (e, t, s) {
         var i = s(24527).Thrift;
         (e.exports.AuthenticationErrorCode = {
           UNKNOWN: 1,
@@ -747,10 +782,10 @@
             2: { alias: "message", type: i.Type.STRING }
           }));
       },
-      64247: (e, t, s) => {
+      64247: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(59754),
-          n = s(53109),
+          n = s(59754),
+          a = s(53109),
           o = s(52965),
           r = s(60570);
         (e.exports.AuthenticationCredentialType = {
@@ -768,7 +803,7 @@
             1: { alias: "type", type: i.Type.I32 },
             2: { alias: "usernameOrEmail", type: i.Type.STRING },
             3: { alias: "password", type: i.Type.STRING },
-            4: { alias: "openIdCredential", type: i.Type.STRUCT, def: n.OpenIdCredential },
+            4: { alias: "openIdCredential", type: i.Type.STRUCT, def: a.OpenIdCredential },
             5: { alias: "ssoLoginToken", type: i.Type.STRING },
             6: { alias: "exchangeToken", type: i.Type.STRING },
             7: { alias: "uid", type: i.Type.STRING },
@@ -791,14 +826,14 @@
         function u(e) {
           (this.output = e), (this.seqid = 0);
         }
-        function d(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
-            e[a] && this.processor.addMethod(p[a], e[a].bind(e));
+        function c(e, t, s) {
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
+            e[n] && this.processor.addMethod(p[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (p.authenticate = i.Method.define({
@@ -815,13 +850,13 @@
           (p.authenticateOpenID = i.Method.define({
             alias: "authenticateOpenID",
             args: i.Struct.define("authenticateOpenIDArgs", {
-              1: { alias: "credential", type: i.Type.STRUCT, def: n.OpenIdCredential, index: 0 }
+              1: { alias: "credential", type: i.Type.STRUCT, def: a.OpenIdCredential, index: 0 }
             }),
             result: i.Struct.define("authenticateOpenIDResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.AuthenticationRequestResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException },
-              3: { alias: "formatException", type: i.Type.EXCEPTION, def: a.BadOpenIDException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.AuthenticationRequestResult },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException },
+              3: { alias: "formatException", type: i.Type.EXCEPTION, def: n.BadOpenIDException }
             })
           })),
           (p.validateUserForOAuth = i.Method.define({
@@ -832,54 +867,54 @@
               3: { alias: "provider", type: i.Type.I32, index: 2 }
             }),
             result: i.Struct.define("validateUserForOAuthResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.AuthenticationRequestResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.AuthenticationRequestResult },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException }
             })
           })),
           (p.registerUser = i.Method.define({
             alias: "registerUser",
             args: i.Struct.define("registerUserArgs", {
-              1: { alias: "credential", type: i.Type.STRUCT, def: n.PlainCredential, index: 0 }
+              1: { alias: "credential", type: i.Type.STRUCT, def: a.PlainCredential, index: 0 }
             }),
             result: i.Struct.define("registerUserResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.RegistrationRequestResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.RegistrationRequestResult },
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException }
             })
           })),
           (p.validateForRegistration = i.Method.define({
             alias: "validateForRegistration",
             args: i.Struct.define("validateForRegistrationArgs", {
-              1: { alias: "credential", type: i.Type.STRUCT, def: n.OpenIdCredential, index: 0 }
+              1: { alias: "credential", type: i.Type.STRUCT, def: a.OpenIdCredential, index: 0 }
             }),
             result: i.Struct.define("validateForRegistrationResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.RegistrationRequestResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException },
-              2: { alias: "formatException", type: i.Type.EXCEPTION, def: a.BadOpenIDException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.RegistrationRequestResult },
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException },
+              2: { alias: "formatException", type: i.Type.EXCEPTION, def: n.BadOpenIDException }
             })
           })),
           (p.associateOpenIDWithUser = i.Method.define({
             alias: "associateOpenIDWithUser",
             args: i.Struct.define("associateOpenIDWithUserArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "credential", type: i.Type.STRUCT, def: n.OpenIdCredential, index: 1 }
+              2: { alias: "credential", type: i.Type.STRUCT, def: a.OpenIdCredential, index: 1 }
             }),
             result: i.Struct.define("associateOpenIDWithUserResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException },
-              2: { alias: "formatException", type: i.Type.EXCEPTION, def: a.BadOpenIDException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException },
+              2: { alias: "formatException", type: i.Type.EXCEPTION, def: n.BadOpenIDException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserException }
             })
           })),
           (p.dissociateOpenIDFromUser = i.Method.define({
             alias: "dissociateOpenIDFromUser",
             args: i.Struct.define("dissociateOpenIDFromUserArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "credential", type: i.Type.STRUCT, def: n.OpenIdCredential, index: 1 }
+              2: { alias: "credential", type: i.Type.STRUCT, def: a.OpenIdCredential, index: 1 }
             }),
             result: i.Struct.define("dissociateOpenIDFromUserResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException },
-              2: { alias: "formatException", type: i.Type.EXCEPTION, def: a.BadOpenIDException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException },
+              2: { alias: "formatException", type: i.Type.EXCEPTION, def: n.BadOpenIDException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserException }
             })
           })),
           (p.updatePassword = i.Method.define({
@@ -890,8 +925,8 @@
               3: { alias: "newPassword", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("updatePasswordResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException }
             })
           })),
           (p.dissociateAllOpenIDsFromUser = i.Method.define({
@@ -900,8 +935,8 @@
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 }
             }),
             result: i.Struct.define("dissociateAllOpenIDsFromUserResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserException }
             })
           })),
           (p.monolithAuthTokenFromNAPToken = i.Method.define({
@@ -911,8 +946,8 @@
             }),
             result: i.Struct.define("monolithAuthTokenFromNAPTokenResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.UserNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.SystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.UserNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.SystemException }
             })
           })),
           (u.prototype.authenticate = function (e, t) {
@@ -926,9 +961,9 @@
             (i.credential = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (u.prototype.validateUserForOAuth = function (e, t, s, i) {
-            var a = p.validateUserForOAuth,
-              n = new a.args();
-            (n.uid = e), (n.email = t), (n.provider = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.validateUserForOAuth,
+              a = new n.args();
+            (a.uid = e), (a.email = t), (a.provider = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.registerUser = function (e, t) {
             var s = p.registerUser,
@@ -942,18 +977,18 @@
           }),
           (u.prototype.associateOpenIDWithUser = function (e, t, s) {
             var i = p.associateOpenIDWithUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.credential = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.credential = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.dissociateOpenIDFromUser = function (e, t, s) {
             var i = p.dissociateOpenIDFromUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.credential = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.credential = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updatePassword = function (e, t, s, i) {
-            var a = p.updatePassword,
-              n = new a.args();
-            (n.userId = e), (n.oldPassword = t), (n.newPassword = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.updatePassword,
+              a = new n.args();
+            (a.userId = e), (a.oldPassword = t), (a.newPassword = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.dissociateAllOpenIDsFromUser = function (e, t) {
             var s = p.dissociateAllOpenIDsFromUser,
@@ -966,15 +1001,15 @@
             (i.credential = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (e.exports.AuthenticationService.Client = u),
-          (d.prototype.start = function () {
+          (c.prototype.start = function () {
             this.stransport.listen();
           }),
-          (d.prototype.stop = function () {
+          (c.prototype.stop = function () {
             this.stransport.close();
           }),
-          (e.exports.AuthenticationService.Server = d);
+          (e.exports.AuthenticationService.Server = c);
       },
-      53109: (e, t, s) => {
+      53109: function (e, t, s) {
         var i = s(24527).Thrift;
         (e.exports.Result = { SUCCESS: 1, UNKNOWN_OPENID: 2, USER_EXISTS: 3, OPENID_CONFLICT: 4 }),
           (e.exports.ServiceProvider = { GOOGLE: 0, FACEBOOK: 1, APPLE: 2 }),
@@ -1014,10 +1049,10 @@
             13: { alias: "clientType", type: i.Type.I32 }
           }));
       },
-      2487: (e, t, s) => {
+      2487: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965),
-          n = s(77915),
+          n = s(52965),
+          a = s(77915),
           o = s(35137),
           r = s(88606);
         (e.exports.NoteShareAdminShareType = {
@@ -1059,10 +1094,10 @@
           (e.exports.NoteShareAdminResult = i.Struct.define("NoteShareAdminResult", {
             1: { alias: "endsAt", type: i.Type.I32 },
             2: { alias: "hasMoreNoteShares", type: i.Type.BOOL },
-            3: { alias: "notes", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Note) },
-            4: { alias: "notebooks", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, n.Notebook) },
-            5: { alias: "users", type: i.Type.MAP, def: i.Map.define(i.Type.I32, i.Type.STRUCT, n.User) },
-            6: { alias: "identities", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, n.Identity) },
+            3: { alias: "notes", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Note) },
+            4: { alias: "notebooks", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, a.Notebook) },
+            5: { alias: "users", type: i.Type.MAP, def: i.Map.define(i.Type.I32, i.Type.STRUCT, a.User) },
+            6: { alias: "identities", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, a.Identity) },
             7: { alias: "shareRelationships", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, o.NoteShareRelationships) },
             8: { alias: "workspaces", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, r.Workspace) }
           })),
@@ -1100,7 +1135,7 @@
             1: { alias: "recommendedNotes", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RecommendedNote) },
             2: { alias: "recommendedNotebooks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RecommendedNotebook) },
             3: { alias: "trendingNotebooks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RecommendedNotebook) },
-            4: { alias: "recommendedArticles", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.RelatedContent) },
+            4: { alias: "recommendedArticles", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.RelatedContent) },
             5: { alias: "educationCards", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.EducationCard) },
             6: { alias: "summaryPeriodStart", type: i.Type.I64 },
             7: { alias: "summaryPeriodEnd", type: i.Type.I64 },
@@ -1116,7 +1151,7 @@
           })),
           (e.exports.SecurityDetails = i.Struct.define("SecurityDetails", { 1: { alias: "twoFactorEnabled", type: i.Type.BOOL } })),
           (e.exports.UserProfileWithSecurityDetails = i.Struct.define("UserProfileWithSecurityDetails", {
-            1: { alias: "userProfile", type: i.Type.STRUCT, def: n.UserProfile },
+            1: { alias: "userProfile", type: i.Type.STRUCT, def: a.UserProfile },
             2: { alias: "securityDetails", type: i.Type.STRUCT, def: e.exports.SecurityDetails },
             3: { alias: "status", type: i.Type.I32 },
             4: { alias: "serviceLevel", type: i.Type.I32 },
@@ -1124,11 +1159,11 @@
             6: { alias: "serviceLevelV2", type: i.Type.I32 }
           })),
           (e.exports.ClientAccessEntriesPage = i.Struct.define("ClientAccessEntriesPage", {
-            1: { alias: "entries", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.ClientAccessEntry) },
+            1: { alias: "entries", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.ClientAccessEntry) },
             2: { alias: "hasMore", type: i.Type.BOOL }
           })),
           (e.exports.ServiceAccessEntriesPage = i.Struct.define("ServiceAccessEntriesPage", {
-            1: { alias: "entries", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.ServiceAccessEntry) },
+            1: { alias: "entries", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.ServiceAccessEntry) },
             2: { alias: "hasMore", type: i.Type.BOOL }
           })),
           (e.exports.BusinessAppTokenMetadata = i.Struct.define("BusinessAppTokenMetadata", {
@@ -1143,14 +1178,14 @@
         function u(e) {
           (this.output = e), (this.seqid = 0);
         }
-        function d(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
-            e[a] && this.processor.addMethod(p[a], e[a].bind(e));
+        function c(e, t, s) {
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
+            e[n] && this.processor.addMethod(p[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (p.findNoteShares = i.Method.define({
@@ -1161,8 +1196,8 @@
           }),
           result: i.Struct.define("findNoteSharesResult", {
             0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.NoteShareAdminResult },
-            1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-            2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+            1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+            2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
           })
         })),
           (p.getBusinessSummary = i.Method.define({
@@ -1173,8 +1208,8 @@
             }),
             result: i.Struct.define("getBusinessSummaryResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessSummary },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (p.getBusinessSummaryNotificationDetails = i.Method.define({
@@ -1184,17 +1219,17 @@
             }),
             result: i.Struct.define("getBusinessSummaryNotificationDetailsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessSummaryNotificationResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (p.listBusinessInvitations = i.Method.define({
             alias: "listBusinessInvitations",
             args: i.Struct.define("listBusinessInvitationsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listBusinessInvitationsResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.BusinessInvitation) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.BusinessInvitation) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.approveInvitations = i.Method.define({
@@ -1204,9 +1239,9 @@
               2: { alias: "emails", type: i.Type.LIST, def: i.List.define(i.Type.STRING), index: 1 }
             }),
             result: i.Struct.define("approveInvitationsResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.BusinessInvitation) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.BusinessInvitation) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.removeInvitations = i.Method.define({
@@ -1216,8 +1251,8 @@
               2: { alias: "emails", type: i.Type.LIST, def: i.List.define(i.Type.STRING), index: 1 }
             }),
             result: i.Struct.define("removeInvitationsResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.listBusinessUserProfilesWithSecurityDetails = i.Method.define({
@@ -1227,20 +1262,20 @@
             }),
             result: i.Struct.define("listBusinessUserProfilesWithSecurityDetailsResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.UserProfileWithSecurityDetails) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.listBusinessUsersProfileInfoWithSecurityDetails = i.Method.define({
             alias: "listBusinessUsersProfileInfoWithSecurityDetails",
             args: i.Struct.define("listBusinessUsersProfileInfoWithSecurityDetailsArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "userProfileInfoRequest", type: i.Type.STRUCT, def: n.UserProfileInfoRequest, index: 1 }
+              2: { alias: "userProfileInfoRequest", type: i.Type.STRUCT, def: a.UserProfileInfoRequest, index: 1 }
             }),
             result: i.Struct.define("listBusinessUsersProfileInfoWithSecurityDetailsResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.UserProfileWithSecurityDetails) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.setBusinessUserRole = i.Method.define({
@@ -1251,9 +1286,9 @@
               3: { alias: "role", type: i.Type.I32, index: 2 }
             }),
             result: i.Struct.define("setBusinessUserRoleResult", {
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.setBusinessEmailForUser = i.Method.define({
@@ -1264,9 +1299,9 @@
               3: { alias: "email", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("setBusinessEmailForUserResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (p.getClientAccessHistoryForUser = i.Method.define({
@@ -1276,12 +1311,12 @@
               2: { alias: "startDateInMillis", type: i.Type.I64, index: 1 },
               3: { alias: "endDateInMillis", type: i.Type.I64, index: 2 },
               4: { alias: "pageSize", type: i.Type.I32, index: 3 },
-              5: { alias: "before", type: i.Type.STRUCT, def: n.ClientAccessEntry, index: 4 }
+              5: { alias: "before", type: i.Type.STRUCT, def: a.ClientAccessEntry, index: 4 }
             }),
             result: i.Struct.define("getClientAccessHistoryForUserResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.ClientAccessEntriesPage },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.getServiceAccessHistoryForUser = i.Method.define({
@@ -1291,12 +1326,12 @@
               2: { alias: "startDateInMillis", type: i.Type.I64, index: 1 },
               3: { alias: "endDateInMillis", type: i.Type.I64, index: 2 },
               4: { alias: "pageSize", type: i.Type.I32, index: 3 },
-              5: { alias: "before", type: i.Type.STRUCT, def: n.ServiceAccessEntry, index: 4 }
+              5: { alias: "before", type: i.Type.STRUCT, def: a.ServiceAccessEntry, index: 4 }
             }),
             result: i.Struct.define("getServiceAccessHistoryForUserResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.ServiceAccessEntriesPage },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.isAvailableForAutoApproval = i.Method.define({
@@ -1307,7 +1342,7 @@
             }),
             result: i.Struct.define("isAvailableForAutoApprovalResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (p.listAutoApproveDomains = i.Method.define({
@@ -1315,8 +1350,8 @@
             args: i.Struct.define("listAutoApproveDomainsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listAutoApproveDomainsResult", {
               0: { alias: "returnValue", type: i.Type.SET, def: i.Set.define(i.Type.STRUCT, e.exports.BusinessAutoApproveDomain) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.listJoinableAutoApproveDomains = i.Method.define({
@@ -1326,8 +1361,8 @@
             }),
             result: i.Struct.define("listJoinableAutoApproveDomainsResult", {
               0: { alias: "returnValue", type: i.Type.SET, def: i.Set.define(i.Type.STRING) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.removeAutoApproveDomain = i.Method.define({
@@ -1337,8 +1372,8 @@
               2: { alias: "domain", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("removeAutoApproveDomainResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.reserveAutoApproveDomain = i.Method.define({
@@ -1349,8 +1384,8 @@
             }),
             result: i.Struct.define("reserveAutoApproveDomainResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessAutoApproveDomain },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.resendAutoApproveDomainConfirmationEmail = i.Method.define({
@@ -1360,9 +1395,9 @@
               2: { alias: "domain", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("resendAutoApproveDomainConfirmationEmailResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.getDisplayNamesForExternalUsers = i.Method.define({
@@ -1373,8 +1408,8 @@
             }),
             result: i.Struct.define("getDisplayNamesForExternalUsersResult", {
               0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.I32, i.Type.STRING) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.revokeAccess = i.Method.define({
@@ -1384,9 +1419,9 @@
               2: { alias: "userId", type: i.Type.I32, index: 1 }
             }),
             result: i.Struct.define("revokeAccessResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (p.revokeAccessForBobMigration = i.Method.define({
@@ -1398,9 +1433,9 @@
               4: { alias: "bobUserId", type: i.Type.I32, index: 3 }
             }),
             result: i.Struct.define("revokeAccessForBobMigrationResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (p.deactivateBusinessUser = i.Method.define({
@@ -1411,9 +1446,9 @@
             }),
             result: i.Struct.define("deactivateBusinessUserResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (p.reactivateBusinessUserAndChargeBusiness = i.Method.define({
@@ -1424,9 +1459,9 @@
             }),
             result: i.Struct.define("reactivateBusinessUserAndChargeBusinessResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (p.createAccessToken = i.Method.define({
@@ -1437,9 +1472,9 @@
             }),
             result: i.Struct.define("createAccessTokenResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.CreateBusinessAppTokenResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.revokeAccessToken = i.Method.define({
@@ -1449,9 +1484,9 @@
               2: { alias: "tokenType", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("revokeAccessTokenResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.getAccessTokenMetadata = i.Method.define({
@@ -1462,20 +1497,20 @@
             }),
             result: i.Struct.define("getAccessTokenMetadataResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.BusinessAppTokenMetadata },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (u.prototype.findNoteShares = function (e, t, s) {
             var i = p.findNoteShares,
-              a = new i.args();
-            (a.authenticationToken = e), (a.filter = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.filter = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getBusinessSummary = function (e, t, s) {
             var i = p.getBusinessSummary,
-              a = new i.args();
-            (a.authenticationToken = e), (a.resultSpec = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.resultSpec = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getBusinessSummaryNotificationDetails = function (e, t) {
             var s = p.getBusinessSummaryNotificationDetails,
@@ -1489,13 +1524,13 @@
           }),
           (u.prototype.approveInvitations = function (e, t, s) {
             var i = p.approveInvitations,
-              a = new i.args();
-            (a.authenticationToken = e), (a.emails = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.emails = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.removeInvitations = function (e, t, s) {
             var i = p.removeInvitations,
-              a = new i.args();
-            (a.authenticationToken = e), (a.emails = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.emails = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.listBusinessUserProfilesWithSecurityDetails = function (e, t) {
             var s = p.listBusinessUserProfilesWithSecurityDetails,
@@ -1504,43 +1539,43 @@
           }),
           (u.prototype.listBusinessUsersProfileInfoWithSecurityDetails = function (e, t, s) {
             var i = p.listBusinessUsersProfileInfoWithSecurityDetails,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userProfileInfoRequest = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userProfileInfoRequest = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.setBusinessUserRole = function (e, t, s, i) {
-            var a = p.setBusinessUserRole,
-              n = new a.args();
-            (n.authenticationToken = e), (n.userId = t), (n.role = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setBusinessUserRole,
+              a = new n.args();
+            (a.authenticationToken = e), (a.userId = t), (a.role = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.setBusinessEmailForUser = function (e, t, s, i) {
-            var a = p.setBusinessEmailForUser,
-              n = new a.args();
-            (n.authenticationToken = e), (n.userId = t), (n.email = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setBusinessEmailForUser,
+              a = new n.args();
+            (a.authenticationToken = e), (a.userId = t), (a.email = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.getClientAccessHistoryForUser = function (e, t, s, i, a, n) {
+          (u.prototype.getClientAccessHistoryForUser = function (e, t, s, i, n, a) {
             var o = p.getClientAccessHistoryForUser,
               r = new o.args();
             (r.authenticationToken = e),
               (r.startDateInMillis = t),
               (r.endDateInMillis = s),
               (r.pageSize = i),
-              (r.before = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.before = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
-          (u.prototype.getServiceAccessHistoryForUser = function (e, t, s, i, a, n) {
+          (u.prototype.getServiceAccessHistoryForUser = function (e, t, s, i, n, a) {
             var o = p.getServiceAccessHistoryForUser,
               r = new o.args();
             (r.authenticationToken = e),
               (r.startDateInMillis = t),
               (r.endDateInMillis = s),
               (r.pageSize = i),
-              (r.before = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.before = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
           (u.prototype.isAvailableForAutoApproval = function (e, t, s) {
             var i = p.isAvailableForAutoApproval,
-              a = new i.args();
-            (a.authenticationToken = e), (a.emailDomain = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.emailDomain = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.listAutoApproveDomains = function (e, t) {
             var s = p.listAutoApproveDomains,
@@ -1554,73 +1589,73 @@
           }),
           (u.prototype.removeAutoApproveDomain = function (e, t, s) {
             var i = p.removeAutoApproveDomain,
-              a = new i.args();
-            (a.authenticationToken = e), (a.domain = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.domain = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.reserveAutoApproveDomain = function (e, t, s) {
             var i = p.reserveAutoApproveDomain,
-              a = new i.args();
-            (a.authenticationToken = e), (a.confirmationEmail = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.confirmationEmail = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.resendAutoApproveDomainConfirmationEmail = function (e, t, s) {
             var i = p.resendAutoApproveDomainConfirmationEmail,
-              a = new i.args();
-            (a.authenticationToken = e), (a.domain = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.domain = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getDisplayNamesForExternalUsers = function (e, t, s) {
             var i = p.getDisplayNamesForExternalUsers,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.revokeAccess = function (e, t, s) {
             var i = p.revokeAccess,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.revokeAccessForBobMigration = function (e, t, s, i, a) {
-            var n = p.revokeAccessForBobMigration,
-              o = new n.args();
+          (u.prototype.revokeAccessForBobMigration = function (e, t, s, i, n) {
+            var a = p.revokeAccessForBobMigration,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.legacyUserId = t),
               (o.withFacade = s),
               (o.bobUserId = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.deactivateBusinessUser = function (e, t, s) {
             var i = p.deactivateBusinessUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.reactivateBusinessUserAndChargeBusiness = function (e, t, s) {
             var i = p.reactivateBusinessUserAndChargeBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.userId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.userId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createAccessToken = function (e, t, s) {
             var i = p.createAccessToken,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tokenType = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tokenType = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.revokeAccessToken = function (e, t, s) {
             var i = p.revokeAccessToken,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tokenType = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tokenType = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getAccessTokenMetadata = function (e, t, s) {
             var i = p.getAccessTokenMetadata,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tokenType = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tokenType = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.BusinessService.Client = u),
-          (d.prototype.start = function () {
+          (c.prototype.start = function () {
             this.stransport.listen();
           }),
-          (d.prototype.stop = function () {
+          (c.prototype.stop = function () {
             this.stransport.close();
           }),
-          (e.exports.BusinessService.Server = d);
+          (e.exports.BusinessService.Server = c);
       },
-      81343: (e, t, s) => {
+      81343: function (e, t, s) {
         var i = s(24527).Thrift;
         s(77915),
           (e.exports.IncentiveRedemptionStatus = { ACTIVE: 1, IN_PROGRESS: 2, REDEEMED: 3, EXPIRED: 4 }),
@@ -1679,35 +1714,35 @@
             9: { alias: "redemptionOrderNumber", type: i.Type.STRING }
           }));
       },
-      1380: (e, t, s) => {
+      1380: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965),
-          n = s(22024),
+          n = s(52965),
+          a = s(22024),
           o = s(32602),
           r = (e.exports.CommunicationEngine = {});
         function p(e) {
           (this.output = e), (this.seqid = 0);
         }
         function u(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), r))
-            e[a] && this.processor.addMethod(r[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), r))
+            e[n] && this.processor.addMethod(r[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (r.getMessages = i.Method.define({
           alias: "getMessages",
           args: i.Struct.define("getMessagesArgs", {
             1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-            2: { alias: "request", type: i.Type.STRUCT, def: n.MessageRequest, index: 1 }
+            2: { alias: "request", type: i.Type.STRUCT, def: a.MessageRequest, index: 1 }
           }),
           result: i.Struct.define("getMessagesResult", {
-            0: { alias: "returnValue", type: i.Type.STRUCT, def: n.MessageResponse },
-            1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+            0: { alias: "returnValue", type: i.Type.STRUCT, def: a.MessageResponse },
+            1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
           })
         })),
           (r.syncMessages = i.Method.define({
@@ -1718,19 +1753,19 @@
             }),
             result: i.Struct.define("syncMessagesResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: o.MessageResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (p.prototype.getMessages = function (e, t, s) {
             var i = r.getMessages,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.syncMessages = function (e, t, s) {
             var i = r.syncMessages,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.CommunicationEngine.Client = p),
           (u.prototype.start = function () {
@@ -1741,32 +1776,32 @@
           }),
           (e.exports.CommunicationEngine.Server = u);
       },
-      72319: (e, t, s) => {
+      72319: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(22024),
-          n = (e.exports.SharedAPI = {});
+          n = s(22024),
+          a = (e.exports.SharedAPI = {});
         function o(e) {
           (this.output = e), (this.seqid = 0);
         }
         function r(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), n))
-            e[a] && this.processor.addMethod(n[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), a))
+            e[n] && this.processor.addMethod(a[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
-        (n.processServerResponse = i.Method.define({
+        (a.processServerResponse = i.Method.define({
           oneway: !0,
           alias: "processServerResponse",
           args: i.Struct.define("processServerResponseArgs", {
-            1: { alias: "response", type: i.Type.STRUCT, def: a.MessageResponse, index: 0 }
+            1: { alias: "response", type: i.Type.STRUCT, def: n.MessageResponse, index: 0 }
           }),
           result: i.Struct.define("processServerResponseResult")
         })),
-          (n.initialize = i.Method.define({
+          (a.initialize = i.Method.define({
             oneway: !0,
             alias: "initialize",
             args: i.Struct.define("initializeArgs", {
@@ -1776,25 +1811,25 @@
             }),
             result: i.Struct.define("initializeResult")
           })),
-          (n.trigger = i.Method.define({
+          (a.trigger = i.Method.define({
             oneway: !0,
             alias: "trigger",
-            args: i.Struct.define("triggerArgs", { 1: { alias: "trigger", type: i.Type.STRUCT, def: a.Trigger, index: 0 } }),
+            args: i.Struct.define("triggerArgs", { 1: { alias: "trigger", type: i.Type.STRUCT, def: n.Trigger, index: 0 } }),
             result: i.Struct.define("triggerResult")
           })),
-          (n.requestPlacement = i.Method.define({
+          (a.requestPlacement = i.Method.define({
             oneway: !0,
             alias: "requestPlacement",
             args: i.Struct.define("requestPlacementArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("requestPlacementResult")
           })),
-          (n.placementIsVisible = i.Method.define({
+          (a.placementIsVisible = i.Method.define({
             oneway: !0,
             alias: "placementIsVisible",
             args: i.Struct.define("placementIsVisibleArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("placementIsVisibleResult")
           })),
-          (n.userAction = i.Method.define({
+          (a.userAction = i.Method.define({
             oneway: !0,
             alias: "userAction",
             args: i.Struct.define("userActionArgs", {
@@ -1803,66 +1838,66 @@
             }),
             result: i.Struct.define("userActionResult")
           })),
-          (n.syncComplete = i.Method.define({
+          (a.syncComplete = i.Method.define({
             oneway: !0,
             alias: "syncComplete",
             args: i.Struct.define("syncCompleteArgs", { 1: { alias: "communicationEngineUpdateId", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("syncCompleteResult")
           })),
-          (n.placementWasDismissed = i.Method.define({
+          (a.placementWasDismissed = i.Method.define({
             oneway: !0,
             alias: "placementWasDismissed",
             args: i.Struct.define("placementWasDismissedArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("placementWasDismissedResult")
           })),
-          (n.placementWillNotBeVisible = i.Method.define({
+          (a.placementWillNotBeVisible = i.Method.define({
             oneway: !0,
             alias: "placementWillNotBeVisible",
             args: i.Struct.define("placementWillNotBeVisibleArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("placementWillNotBeVisibleResult")
           })),
           (o.prototype.processServerResponse = function (e, t) {
-            var s = n.processServerResponse,
+            var s = a.processServerResponse,
               i = new s.args();
             (i.response = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.initialize = function (e, t, s, i) {
-            var a = n.initialize,
-              o = new a.args();
-            (o.supportedPlacements = e), (o.supportedTriggers = t), (o.savedState = s), a.sendRequest(this.output, this.seqid++, o, i);
+            var n = a.initialize,
+              o = new n.args();
+            (o.supportedPlacements = e), (o.supportedTriggers = t), (o.savedState = s), n.sendRequest(this.output, this.seqid++, o, i);
           }),
           (o.prototype.trigger = function (e, t) {
-            var s = n.trigger,
+            var s = a.trigger,
               i = new s.args();
             (i.trigger = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.requestPlacement = function (e, t) {
-            var s = n.requestPlacement,
+            var s = a.requestPlacement,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.placementIsVisible = function (e, t) {
-            var s = n.placementIsVisible,
+            var s = a.placementIsVisible,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.userAction = function (e, t, s) {
-            var i = n.userAction,
-              a = new i.args();
-            (a.placement = e), (a.blob = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.userAction,
+              n = new i.args();
+            (n.placement = e), (n.blob = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (o.prototype.syncComplete = function (e, t) {
-            var s = n.syncComplete,
+            var s = a.syncComplete,
               i = new s.args();
             (i.communicationEngineUpdateId = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.placementWasDismissed = function (e, t) {
-            var s = n.placementWasDismissed,
+            var s = a.placementWasDismissed,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.placementWillNotBeVisible = function (e, t) {
-            var s = n.placementWillNotBeVisible,
+            var s = a.placementWillNotBeVisible,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
@@ -1878,20 +1913,20 @@
         function u(e) {
           (this.output = e), (this.seqid = 0);
         }
-        function d(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
-            e[a] && this.processor.addMethod(p[a], e[a].bind(e));
+        function c(e, t, s) {
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
+            e[n] && this.processor.addMethod(p[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (p.getMessages = i.Method.define({
           oneway: !0,
           alias: "getMessages",
-          args: i.Struct.define("getMessagesArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: a.MessageRequest, index: 0 } }),
+          args: i.Struct.define("getMessagesArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: n.MessageRequest, index: 0 } }),
           result: i.Struct.define("getMessagesResult")
         })),
           (p.show = i.Method.define({
@@ -1908,7 +1943,7 @@
             oneway: !0,
             alias: "sendEvents",
             args: i.Struct.define("sendEventsArgs", {
-              1: { alias: "events", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Event), index: 0 }
+              1: { alias: "events", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Event), index: 0 }
             }),
             result: i.Struct.define("sendEventsResult")
           })),
@@ -1944,9 +1979,9 @@
             (i.request = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (u.prototype.show = function (e, t, s, i) {
-            var a = p.show,
-              n = new a.args();
-            (n.placement = e), (n.content = t), (n.priority = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.show,
+              a = new n.args();
+            (a.placement = e), (a.content = t), (a.priority = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.sendEvents = function (e, t) {
             var s = p.sendEvents,
@@ -1974,58 +2009,58 @@
             (i.placements = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (e.exports.MainApp.Client = u),
-          (d.prototype.start = function () {
+          (c.prototype.start = function () {
             this.stransport.listen();
           }),
-          (d.prototype.stop = function () {
+          (c.prototype.stop = function () {
             this.stransport.close();
           }),
-          (e.exports.MainApp.Server = d);
+          (e.exports.MainApp.Server = c);
       },
-      34898: (e, t, s) => {
+      34898: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(32602),
-          n = (e.exports.SharedAPIV2 = {});
+          n = s(32602),
+          a = (e.exports.SharedAPIV2 = {});
         function o(e) {
           (this.output = e), (this.seqid = 0);
         }
         function r(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), n))
-            e[a] && this.processor.addMethod(n[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), a))
+            e[n] && this.processor.addMethod(a[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
-        (n.processServerResponse = i.Method.define({
+        (a.processServerResponse = i.Method.define({
           oneway: !0,
           alias: "processServerResponse",
           args: i.Struct.define("processServerResponseArgs", {
-            1: { alias: "response", type: i.Type.STRUCT, def: a.MessageResponse, index: 0 }
+            1: { alias: "response", type: i.Type.STRUCT, def: n.MessageResponse, index: 0 }
           }),
           result: i.Struct.define("processServerResponseResult")
         })),
-          (n.initialize = i.Method.define({
+          (a.initialize = i.Method.define({
             oneway: !0,
             alias: "initialize",
-            args: i.Struct.define("initializeArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: a.InitializeRequest, index: 0 } }),
+            args: i.Struct.define("initializeArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: n.InitializeRequest, index: 0 } }),
             result: i.Struct.define("initializeResult")
           })),
-          (n.requestPlacement = i.Method.define({
+          (a.requestPlacement = i.Method.define({
             oneway: !0,
             alias: "requestPlacement",
             args: i.Struct.define("requestPlacementArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("requestPlacementResult")
           })),
-          (n.placementIsVisible = i.Method.define({
+          (a.placementIsVisible = i.Method.define({
             oneway: !0,
             alias: "placementIsVisible",
             args: i.Struct.define("placementIsVisibleArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("placementIsVisibleResult")
           })),
-          (n.userAction = i.Method.define({
+          (a.userAction = i.Method.define({
             oneway: !0,
             alias: "userAction",
             args: i.Struct.define("userActionArgs", {
@@ -2034,19 +2069,19 @@
             }),
             result: i.Struct.define("userActionResult")
           })),
-          (n.placementWasDismissed = i.Method.define({
+          (a.placementWasDismissed = i.Method.define({
             oneway: !0,
             alias: "placementWasDismissed",
             args: i.Struct.define("placementWasDismissedArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("placementWasDismissedResult")
           })),
-          (n.placementWillNotBeVisible = i.Method.define({
+          (a.placementWillNotBeVisible = i.Method.define({
             oneway: !0,
             alias: "placementWillNotBeVisible",
             args: i.Struct.define("placementWillNotBeVisibleArgs", { 1: { alias: "placement", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("placementWillNotBeVisibleResult")
           })),
-          (n.htmlFetched = i.Method.define({
+          (a.htmlFetched = i.Method.define({
             oneway: !0,
             alias: "htmlFetched",
             args: i.Struct.define("htmlFetchedArgs", {
@@ -2056,44 +2091,44 @@
             result: i.Struct.define("htmlFetchedResult")
           })),
           (o.prototype.processServerResponse = function (e, t) {
-            var s = n.processServerResponse,
+            var s = a.processServerResponse,
               i = new s.args();
             (i.response = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.initialize = function (e, t) {
-            var s = n.initialize,
+            var s = a.initialize,
               i = new s.args();
             (i.request = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.requestPlacement = function (e, t) {
-            var s = n.requestPlacement,
+            var s = a.requestPlacement,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.placementIsVisible = function (e, t) {
-            var s = n.placementIsVisible,
+            var s = a.placementIsVisible,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.userAction = function (e, t, s) {
-            var i = n.userAction,
-              a = new i.args();
-            (a.placement = e), (a.blob = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.userAction,
+              n = new i.args();
+            (n.placement = e), (n.blob = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (o.prototype.placementWasDismissed = function (e, t) {
-            var s = n.placementWasDismissed,
+            var s = a.placementWasDismissed,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.placementWillNotBeVisible = function (e, t) {
-            var s = n.placementWillNotBeVisible,
+            var s = a.placementWillNotBeVisible,
               i = new s.args();
             (i.placement = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (o.prototype.htmlFetched = function (e, t, s) {
-            var i = n.htmlFetched,
-              a = new i.args();
-            (a.uri = e), (a.html = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.htmlFetched,
+              n = new i.args();
+            (n.uri = e), (n.html = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.SharedAPIV2.Client = o),
           (r.prototype.start = function () {
@@ -2107,33 +2142,33 @@
         function u(e) {
           (this.output = e), (this.seqid = 0);
         }
-        function d(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
-            e[a] && this.processor.addMethod(p[a], e[a].bind(e));
+        function c(e, t, s) {
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
+            e[n] && this.processor.addMethod(p[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (p.syncMessages = i.Method.define({
           oneway: !0,
           alias: "syncMessages",
-          args: i.Struct.define("syncMessagesArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: a.MessageRequest, index: 0 } }),
+          args: i.Struct.define("syncMessagesArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: n.MessageRequest, index: 0 } }),
           result: i.Struct.define("syncMessagesResult")
         })),
           (p.show = i.Method.define({
             oneway: !0,
             alias: "show",
-            args: i.Struct.define("showArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: a.ShowRequest, index: 0 } }),
+            args: i.Struct.define("showArgs", { 1: { alias: "request", type: i.Type.STRUCT, def: n.ShowRequest, index: 0 } }),
             result: i.Struct.define("showResult")
           })),
           (p.sendAnalyticsEvent = i.Method.define({
             oneway: !0,
             alias: "sendAnalyticsEvent",
             args: i.Struct.define("sendAnalyticsEventArgs", {
-              1: { alias: "event", type: i.Type.STRUCT, def: a.AnalyticsEvent, index: 0 }
+              1: { alias: "event", type: i.Type.STRUCT, def: n.AnalyticsEvent, index: 0 }
             }),
             result: i.Struct.define("sendAnalyticsEventResult")
           })),
@@ -2210,15 +2245,15 @@
             (i.uri = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (e.exports.MainAppV2.Client = u),
-          (d.prototype.start = function () {
+          (c.prototype.start = function () {
             this.stransport.listen();
           }),
-          (d.prototype.stop = function () {
+          (c.prototype.stop = function () {
             this.stransport.close();
           }),
-          (e.exports.MainAppV2.Server = d);
+          (e.exports.MainAppV2.Server = c);
       },
-      22024: (e, t, s) => {
+      22024: function (e, t, s) {
         var i = s(24527).Thrift;
         (e.exports.Priority = { IMMEDIATE: 0, SUITABLE: 1 }),
           (e.exports.Placement = { FULLSCREEN: 0, BANNER: 1, CARD: 2 }),
@@ -2264,7 +2299,7 @@
             6: { alias: "clientVersion", type: i.Type.STRING }
           }));
       },
-      32602: (e, t, s) => {
+      32602: function (e, t, s) {
         var i = s(24527).Thrift;
         (e.exports.CommEnginePlacement = { FULLSCREEN: 0, BANNER: 1, CARD: 2 }),
           (e.exports.CommEnginePriority = { IMMEDIATE: 0, SUITABLE: 1 }),
@@ -2335,9 +2370,9 @@
             3: { alias: "priority", type: i.Type.I32 }
           }));
       },
-      52965: (e, t, s) => {
+      52965: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(77915);
+          n = s(77915);
         (e.exports.EDAMErrorCode = {
           UNKNOWN: 1,
           BAD_DATA_FORMAT: 2,
@@ -2391,14 +2426,14 @@
             2: { alias: "key", type: i.Type.STRING }
           })),
           (e.exports.EDAMInvalidContactsException = i.Exception.define("EDAMInvalidContactsException", {
-            1: { alias: "contacts", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Contact) },
+            1: { alias: "contacts", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Contact) },
             2: { alias: "parameter", type: i.Type.STRING },
             3: { alias: "reasons", type: i.Type.LIST, def: i.List.define(i.Type.I32) }
           }));
       },
-      15448: (e, t, s) => {
+      15448: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965);
+          n = s(52965);
         (e.exports.TClientType = {
           MAC: 0,
           WINDOWS: 1,
@@ -2433,21 +2468,21 @@
           (e.exports.TGetServiceStateJsonResponse = i.Struct.define("TGetServiceStateJsonResponse", {
             1: { alias: "jsonResponse", type: i.Type.STRING }
           }));
-        var n = (e.exports.ExperimentsService = {});
+        var a = (e.exports.ExperimentsService = {});
         function o(e) {
           (this.output = e), (this.seqid = 0);
         }
         function r(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), n))
-            e[a] && this.processor.addMethod(n[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), a))
+            e[n] && this.processor.addMethod(a[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
-        (n.getProps = i.Method.define({
+        (a.getProps = i.Method.define({
           alias: "getProps",
           args: i.Struct.define("getPropsArgs", {
             1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
@@ -2455,11 +2490,11 @@
           }),
           result: i.Struct.define("getPropsResult", {
             0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.TGetPropsResponse },
-            1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+            1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
           })
         })),
-          (n.getServiceState = i.Method.define({
+          (a.getServiceState = i.Method.define({
             alias: "getServiceState",
             args: i.Struct.define("getServiceStateArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
@@ -2467,11 +2502,11 @@
             }),
             result: i.Struct.define("getServiceStateResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.TGetServiceStateResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
-          (n.getProps2 = i.Method.define({
+          (a.getProps2 = i.Method.define({
             alias: "getProps2",
             args: i.Struct.define("getProps2Args", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
@@ -2479,11 +2514,11 @@
             }),
             result: i.Struct.define("getProps2Result", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.TGetPropsJsonResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
-          (n.getServiceState2 = i.Method.define({
+          (a.getServiceState2 = i.Method.define({
             alias: "getServiceState2",
             args: i.Struct.define("getServiceState2Args", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
@@ -2491,29 +2526,29 @@
             }),
             result: i.Struct.define("getServiceState2Result", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.TGetServiceStateJsonResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (o.prototype.getProps = function (e, t, s) {
-            var i = n.getProps,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.getProps,
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (o.prototype.getServiceState = function (e, t, s) {
-            var i = n.getServiceState,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.getServiceState,
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (o.prototype.getProps2 = function (e, t, s) {
-            var i = n.getProps2,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.getProps2,
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (o.prototype.getServiceState2 = function (e, t, s) {
-            var i = n.getServiceState2,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.getServiceState2,
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.ExperimentsService.Client = o),
           (r.prototype.start = function () {
@@ -2524,7 +2559,7 @@
           }),
           (e.exports.ExperimentsService.Server = r);
       },
-      48412: (e, t, s) => {
+      48412: function (e, t, s) {
         s(24527).Thrift,
           (e.exports.EDAM_ATTRIBUTE_LEN_MIN = 1),
           (e.exports.EDAM_ATTRIBUTE_LEN_MAX = 4096),
@@ -2811,9 +2846,9 @@
           (e.exports.EDAM_PREFERENCE_WORKCHATACTIVE = "evernote.workchatactive"),
           (e.exports.EDAM_PREFERENCE_WORKCHATACTIVE_TIMESPAN = 31556952e3);
       },
-      60136: (e, t, s) => {
+      60136: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(77915);
+          n = s(77915);
         (e.exports.RecipientType = { USER: 1, BUSINESS: 2 }),
           (e.exports.EntityPrivilegeLevel = { READ: 1, EDIT: 2 }),
           (e.exports.PrivilegeSharing = { MANAGE: 1 }),
@@ -2835,7 +2870,7 @@
             2: { alias: "entityType", type: i.Type.I32 },
             3: { alias: "entityId", type: i.Type.I64 },
             4: { alias: "privilegeValues", type: i.Type.STRUCT, def: e.exports.PrivilegeValues },
-            5: { alias: "identity", type: i.Type.STRUCT, def: a.Identity },
+            5: { alias: "identity", type: i.Type.STRUCT, def: n.Identity },
             6: { alias: "entityGuid", type: i.Type.STRING }
           })),
           (e.exports.MembershipCommon = i.Struct.define("MembershipCommon", {
@@ -2859,10 +2894,10 @@
             2: { alias: "created", type: i.Type.BOOL }
           }));
       },
-      27909: (e, t, s) => {
+      27909: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965),
-          n = s(77915);
+          n = s(52965),
+          a = s(77915);
         (e.exports.MessageAttachmentType = { NOTE: 1, NOTEBOOK: 2 }),
           (e.exports.PaginationDirection = { OLDER: 1, NEWER: 2 }),
           (e.exports.MessageThreadChangeType = { PARTICIPANT_ADDED: 1, PARTICIPANT_REMOVED: 2, MESSAGE_THREAD_RENAMED: 3 }),
@@ -2914,7 +2949,7 @@
             5: { alias: "changedAt", type: i.Type.I64 },
             6: { alias: "eventId", type: i.Type.I64 },
             7: { alias: "stringValue", type: i.Type.STRING },
-            8: { alias: "identityValue", type: i.Type.STRUCT, def: n.Identity }
+            8: { alias: "identityValue", type: i.Type.STRUCT, def: a.Identity }
           })),
           (e.exports.Message = i.Struct.define("Message", {
             1: { alias: "id", type: i.Type.I64 },
@@ -2945,11 +2980,11 @@
           })),
           (e.exports.Destination = i.Struct.define("Destination", {
             1: { alias: "messageThreadId", type: i.Type.I64 },
-            2: { alias: "recipients", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Contact) }
+            2: { alias: "recipients", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Contact) }
           })),
           (e.exports.UserMessagingInfo = i.Struct.define("UserMessagingInfo", {
             1: { alias: "threads", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.UserThread) },
-            2: { alias: "identities", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Identity) }
+            2: { alias: "identities", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Identity) }
           })),
           (e.exports.UserThreadInfo = i.Struct.define("UserThreadInfo", {
             1: { alias: "messages", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.Message) },
@@ -2966,7 +3001,7 @@
             2: { alias: "userMaxEventId", type: i.Type.I64 },
             3: { alias: "threads", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.UserThread) },
             4: { alias: "messages", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.Message) },
-            5: { alias: "identities", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Identity) },
+            5: { alias: "identities", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Identity) },
             6: { alias: "threadChanges", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.MessageThreadChange) }
           })),
           (e.exports.FindMessagesFilter = i.Struct.define("FindMessagesFilter", {
@@ -2991,7 +3026,7 @@
           })),
           (e.exports.CreateMessageThreadSpec = i.Struct.define("CreateMessageThreadSpec", {
             1: { alias: "message", type: i.Type.STRUCT, def: e.exports.Message },
-            2: { alias: "participants", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Contact) },
+            2: { alias: "participants", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Contact) },
             3: { alias: "messageThreadName", type: i.Type.STRING },
             4: { alias: "groupThread", type: i.Type.BOOL },
             5: { alias: "readStatus", type: i.Type.BOOL }
@@ -3003,11 +3038,11 @@
           })),
           (e.exports.UpdateParticipantsSpec = i.Struct.define("UpdateParticipantsSpec", {
             1: { alias: "threadId", type: i.Type.I64 },
-            2: { alias: "participantsToAdd", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Contact) },
+            2: { alias: "participantsToAdd", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Contact) },
             3: { alias: "participantsToRemove", type: i.Type.LIST, def: i.List.define(i.Type.I64) }
           })),
           (e.exports.UpdateParticipantsResult = i.Struct.define("UpdateParticipantsResult", {
-            1: { alias: "participantIdsToContact", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, n.Contact) }
+            1: { alias: "participantIdsToContact", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, a.Contact) }
           })),
           (e.exports.ReinviteContactResult = i.Struct.define("ReinviteContactResult", {
             1: { alias: "participantIds", type: i.Type.LIST, def: i.List.define(i.Type.I64) }
@@ -3018,13 +3053,13 @@
           (this.output = e), (this.seqid = 0);
         }
         function p(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), o))
-            e[a] && this.processor.addMethod(o[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), o))
+            e[n] && this.processor.addMethod(o[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (o.sendMessage = i.Method.define({
@@ -3036,9 +3071,9 @@
           }),
           result: i.Struct.define("sendMessageResult", {
             0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Message },
-            1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-            3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+            1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+            3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
           })
         })),
           (o.sendMessageToThread = i.Method.define({
@@ -3049,9 +3084,9 @@
             }),
             result: i.Struct.define("sendMessageToThreadResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Message },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.sendMessageToThreadWithoutEmails = i.Method.define({
@@ -3062,9 +3097,9 @@
             }),
             result: i.Struct.define("sendMessageToThreadWithoutEmailsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Message },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.createMessageThread = i.Method.define({
@@ -3075,9 +3110,9 @@
             }),
             result: i.Struct.define("createMessageThreadResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.CreateMessageThreadResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
             })
           })),
           (o.createMessageThreadWithoutEmails = i.Method.define({
@@ -3088,9 +3123,9 @@
             }),
             result: i.Struct.define("createMessageThreadWithoutEmailsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.CreateMessageThreadResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
             })
           })),
           (o.updateParticipants = i.Method.define({
@@ -3101,9 +3136,9 @@
             }),
             result: i.Struct.define("updateParticipantsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.UpdateParticipantsResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
             })
           })),
           (o.reinviteContact = i.Method.define({
@@ -3111,13 +3146,13 @@
             args: i.Struct.define("reinviteContactArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
               2: { alias: "threadId", type: i.Type.I64, index: 1 },
-              3: { alias: "contact", type: i.Type.STRUCT, def: n.Contact, index: 2 }
+              3: { alias: "contact", type: i.Type.STRUCT, def: a.Contact, index: 2 }
             }),
             result: i.Struct.define("reinviteContactResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.ReinviteContactResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
             })
           })),
           (o.renameMessageThread = i.Method.define({
@@ -3128,9 +3163,9 @@
               3: { alias: "threadName", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("renameMessageThreadResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.updateReadStatus = i.Method.define({
@@ -3142,9 +3177,9 @@
             }),
             result: i.Struct.define("updateReadStatusResult", {
               0: { alias: "returnValue", type: i.Type.I64 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.updateDeleteStatus = i.Method.define({
@@ -3156,9 +3191,9 @@
             }),
             result: i.Struct.define("updateDeleteStatusResult", {
               0: { alias: "returnValue", type: i.Type.I64 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.getMessages = i.Method.define({
@@ -3170,9 +3205,9 @@
             }),
             result: i.Struct.define("getMessagesResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.UserThreadInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.getThreads = i.Method.define({
@@ -3180,21 +3215,21 @@
             args: i.Struct.define("getThreadsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getThreadsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.UserMessagingInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (o.getThreadIdWithUser = i.Method.define({
             alias: "getThreadIdWithUser",
             args: i.Struct.define("getThreadIdWithUserArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "user", type: i.Type.STRUCT, def: n.User, index: 1 }
+              2: { alias: "user", type: i.Type.STRUCT, def: a.User, index: 1 }
             }),
             result: i.Struct.define("getThreadIdWithUserResult", {
               0: { alias: "returnValue", type: i.Type.I64 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.getMessageSyncChunk = i.Method.define({
@@ -3205,8 +3240,8 @@
             }),
             result: i.Struct.define("getMessageSyncChunkResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.MessageSyncChunk },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (o.updateBlockStatus = i.Method.define({
@@ -3217,9 +3252,9 @@
               3: { alias: "blockStatus", type: i.Type.BOOL, index: 2 }
             }),
             result: i.Struct.define("updateBlockStatusResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.findMessages = i.Method.define({
@@ -3233,32 +3268,32 @@
             }),
             result: i.Struct.define("findMessagesResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.FindMessagesResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (o.validateRecipients = i.Method.define({
             alias: "validateRecipients",
             args: i.Struct.define("validateRecipientsArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "contacts", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Contact), index: 1 }
+              2: { alias: "contacts", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Contact), index: 1 }
             }),
             result: i.Struct.define("validateRecipientsResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
             })
           })),
           (o.validateContacts = i.Method.define({
             alias: "validateContacts",
             args: i.Struct.define("validateContactsArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "contacts", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Contact), index: 1 }
+              2: { alias: "contacts", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Contact), index: 1 }
             }),
             result: i.Struct.define("validateContactsResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: a.EDAMInvalidContactsException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "invalidContactsException", type: i.Type.EXCEPTION, def: n.EDAMInvalidContactsException }
             })
           })),
           (o.getAttachmentMessagesReceived = i.Method.define({
@@ -3268,9 +3303,9 @@
             }),
             result: i.Struct.define("getAttachmentMessagesReceivedResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.Message) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.hasNonEmptyMessages = i.Method.define({
@@ -3281,64 +3316,64 @@
             }),
             result: i.Struct.define("hasNonEmptyMessagesResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (r.prototype.sendMessage = function (e, t, s, i) {
-            var a = o.sendMessage,
-              n = new a.args();
-            (n.authenticationToken = e), (n.message = t), (n.destination = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.sendMessage,
+              a = new n.args();
+            (a.authenticationToken = e), (a.message = t), (a.destination = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.sendMessageToThread = function (e, t, s) {
             var i = o.sendMessageToThread,
-              a = new i.args();
-            (a.authenticationToken = e), (a.message = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.message = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.sendMessageToThreadWithoutEmails = function (e, t, s) {
             var i = o.sendMessageToThreadWithoutEmails,
-              a = new i.args();
-            (a.authenticationToken = e), (a.message = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.message = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.createMessageThread = function (e, t, s) {
             var i = o.createMessageThread,
-              a = new i.args();
-            (a.authenticationToken = e), (a.spec = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.spec = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.createMessageThreadWithoutEmails = function (e, t, s) {
             var i = o.createMessageThreadWithoutEmails,
-              a = new i.args();
-            (a.authenticationToken = e), (a.spec = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.spec = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.updateParticipants = function (e, t, s) {
             var i = o.updateParticipants,
-              a = new i.args();
-            (a.authenticationToken = e), (a.spec = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.spec = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.reinviteContact = function (e, t, s, i) {
-            var a = o.reinviteContact,
-              n = new a.args();
-            (n.authenticationToken = e), (n.threadId = t), (n.contact = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.reinviteContact,
+              a = new n.args();
+            (a.authenticationToken = e), (a.threadId = t), (a.contact = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.renameMessageThread = function (e, t, s, i) {
-            var a = o.renameMessageThread,
-              n = new a.args();
-            (n.authenticationToken = e), (n.threadId = t), (n.threadName = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.renameMessageThread,
+              a = new n.args();
+            (a.authenticationToken = e), (a.threadId = t), (a.threadName = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.updateReadStatus = function (e, t, s, i) {
-            var a = o.updateReadStatus,
-              n = new a.args();
-            (n.authenticationToken = e), (n.threadId = t), (n.messageId = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.updateReadStatus,
+              a = new n.args();
+            (a.authenticationToken = e), (a.threadId = t), (a.messageId = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.updateDeleteStatus = function (e, t, s, i) {
-            var a = o.updateDeleteStatus,
-              n = new a.args();
-            (n.authenticationToken = e), (n.threadId = t), (n.messageId = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.updateDeleteStatus,
+              a = new n.args();
+            (a.authenticationToken = e), (a.threadId = t), (a.messageId = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.getMessages = function (e, t, s, i) {
-            var a = o.getMessages,
-              n = new a.args();
-            (n.authenticationToken = e), (n.threadId = t), (n.filter = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.getMessages,
+              a = new n.args();
+            (a.authenticationToken = e), (a.threadId = t), (a.filter = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (r.prototype.getThreads = function (e, t) {
             var s = o.getThreads,
@@ -3347,38 +3382,38 @@
           }),
           (r.prototype.getThreadIdWithUser = function (e, t, s) {
             var i = o.getThreadIdWithUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.user = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.user = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.getMessageSyncChunk = function (e, t, s) {
             var i = o.getMessageSyncChunk,
-              a = new i.args();
-            (a.authenticationToken = e), (a.filter = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.filter = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.updateBlockStatus = function (e, t, s, i) {
-            var a = o.updateBlockStatus,
-              n = new a.args();
-            (n.authenticationToken = e), (n.userId = t), (n.blockStatus = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = o.updateBlockStatus,
+              a = new n.args();
+            (a.authenticationToken = e), (a.userId = t), (a.blockStatus = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (r.prototype.findMessages = function (e, t, s, i, a, n) {
+          (r.prototype.findMessages = function (e, t, s, i, n, a) {
             var r = o.findMessages,
               p = new r.args();
             (p.authenticationToken = e),
               (p.filter = t),
               (p.resultSpec = s),
               (p.maxMessages = i),
-              (p.pagination = a),
-              r.sendRequest(this.output, this.seqid++, p, n);
+              (p.pagination = n),
+              r.sendRequest(this.output, this.seqid++, p, a);
           }),
           (r.prototype.validateRecipients = function (e, t, s) {
             var i = o.validateRecipients,
-              a = new i.args();
-            (a.authenticationToken = e), (a.contacts = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.contacts = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.validateContacts = function (e, t, s) {
             var i = o.validateContacts,
-              a = new i.args();
-            (a.authenticationToken = e), (a.contacts = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.contacts = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (r.prototype.getAttachmentMessagesReceived = function (e, t) {
             var s = o.getAttachmentMessagesReceived,
@@ -3387,8 +3422,8 @@
           }),
           (r.prototype.hasNonEmptyMessages = function (e, t, s) {
             var i = o.hasNonEmptyMessages,
-              a = new i.args();
-            (a.authenticationToken = e), (a.dateFilter = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.dateFilter = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.MessageStore.Client = r),
           (p.prototype.start = function () {
@@ -3399,10 +3434,10 @@
           }),
           (e.exports.MessageStore.Server = p);
       },
-      35137: (e, t, s) => {
+      35137: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(60570),
-          n = s(88606),
+          n = s(60570),
+          a = s(88606),
           o = s(77915),
           r = s(52965);
         s(48412),
@@ -3445,7 +3480,7 @@
             3: { alias: "updateCount", type: i.Type.I32 },
             4: { alias: "notes", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, o.Note) },
             5: { alias: "notebooks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, o.Notebook) },
-            19: { alias: "workspaces", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.WorkspaceResponse) },
+            19: { alias: "workspaces", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.WorkspaceResponse) },
             6: { alias: "tags", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, o.Tag) },
             7: { alias: "searches", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, o.SavedSearch) },
             8: { alias: "resources", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, o.Resource) },
@@ -3920,14 +3955,14 @@
         function u(e) {
           (this.output = e), (this.seqid = 0);
         }
-        function d(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
-            e[a] && this.processor.addMethod(p[a], e[a].bind(e));
+        function c(e, t, s) {
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), p))
+            e[n] && this.processor.addMethod(p[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (p.getSyncState = i.Method.define({
@@ -5080,7 +5115,7 @@
               2: { alias: "authenticationToken", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("authenticateToSharedNotebookResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.AuthenticationResult },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.AuthenticationResult },
               1: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException },
               2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: r.EDAMNotFoundException },
               3: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException }
@@ -5179,7 +5214,7 @@
               3: { alias: "authenticationToken", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("authenticateToSharedNoteResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.AuthenticationResult },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.AuthenticationResult },
               1: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException },
               2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: r.EDAMNotFoundException },
               3: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException }
@@ -5572,11 +5607,11 @@
             alias: "createWorkspace",
             args: i.Struct.define("createWorkspaceArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "workspace", type: i.Type.STRUCT, def: n.Workspace, index: 1 },
-              3: { alias: "spec", type: i.Type.STRUCT, def: n.WorkspaceResponseSpec, index: 2 }
+              2: { alias: "workspace", type: i.Type.STRUCT, def: a.Workspace, index: 1 },
+              3: { alias: "spec", type: i.Type.STRUCT, def: a.WorkspaceResponseSpec, index: 2 }
             }),
             result: i.Struct.define("createWorkspaceResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.WorkspaceResponse },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.WorkspaceResponse },
               1: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException },
               2: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException }
             })
@@ -5586,10 +5621,10 @@
             args: i.Struct.define("getWorkspaceArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
               2: { alias: "workspaceGuid", type: i.Type.STRING, index: 1 },
-              3: { alias: "responseSpec", type: i.Type.STRUCT, def: n.WorkspaceResponseSpec, index: 2 }
+              3: { alias: "responseSpec", type: i.Type.STRUCT, def: a.WorkspaceResponseSpec, index: 2 }
             }),
             result: i.Struct.define("getWorkspaceResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.WorkspaceResponse },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.WorkspaceResponse },
               1: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException },
               2: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException },
               3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: r.EDAMNotFoundException }
@@ -5599,11 +5634,11 @@
             alias: "listWorkspaces",
             args: i.Struct.define("listWorkspacesArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "workspaceResponseSpec", type: i.Type.STRUCT, def: n.WorkspaceResponseSpec, index: 1 },
-              3: { alias: "filter", type: i.Type.STRUCT, def: n.WorkspaceFilter, index: 2 }
+              2: { alias: "workspaceResponseSpec", type: i.Type.STRUCT, def: a.WorkspaceResponseSpec, index: 1 },
+              3: { alias: "filter", type: i.Type.STRUCT, def: a.WorkspaceFilter, index: 2 }
             }),
             result: i.Struct.define("listWorkspacesResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.WorkspaceResponse) },
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.WorkspaceResponse) },
               1: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException },
               2: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException }
             })
@@ -5612,10 +5647,10 @@
             alias: "updateWorkspace",
             args: i.Struct.define("updateWorkspaceArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "workspace", type: i.Type.STRUCT, def: n.Workspace, index: 1 }
+              2: { alias: "workspace", type: i.Type.STRUCT, def: a.Workspace, index: 1 }
             }),
             result: i.Struct.define("updateWorkspaceResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Workspace },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Workspace },
               1: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException },
               2: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException },
               3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: r.EDAMNotFoundException }
@@ -5625,10 +5660,10 @@
             alias: "manageWorkspaceSharing",
             args: i.Struct.define("manageWorkspaceSharingArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "request", type: i.Type.STRUCT, def: n.ManageWorkspaceSharingRequest, index: 1 }
+              2: { alias: "request", type: i.Type.STRUCT, def: a.ManageWorkspaceSharingRequest, index: 1 }
             }),
             result: i.Struct.define("manageWorkspaceSharingResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.ManageWorkspaceSharingResponse },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.ManageWorkspaceSharingResponse },
               1: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException },
               2: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException },
               3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: r.EDAMNotFoundException }
@@ -5737,7 +5772,7 @@
               4: { alias: "noteKey", type: i.Type.STRING, index: 3 }
             }),
             result: i.Struct.define("validateAndCreateShareResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.AuthenticationResult },
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.AuthenticationResult },
               1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: r.EDAMNotFoundException },
               2: { alias: "systemException", type: i.Type.EXCEPTION, def: r.EDAMSystemException },
               3: { alias: "userException", type: i.Type.EXCEPTION, def: r.EDAMUserException },
@@ -5751,41 +5786,41 @@
           }),
           (u.prototype.getSyncStateWithMetrics = function (e, t, s) {
             var i = p.getSyncStateWithMetrics,
-              a = new i.args();
-            (a.authenticationToken = e), (a.clientMetrics = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.clientMetrics = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.getSyncChunk = function (e, t, s, i, a) {
-            var n = p.getSyncChunk,
-              o = new n.args();
+          (u.prototype.getSyncChunk = function (e, t, s, i, n) {
+            var a = p.getSyncChunk,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.afterUSN = t),
               (o.maxEntries = s),
               (o.fullSyncOnly = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (u.prototype.getFilteredSyncChunk = function (e, t, s, i, a) {
-            var n = p.getFilteredSyncChunk,
-              o = new n.args();
+          (u.prototype.getFilteredSyncChunk = function (e, t, s, i, n) {
+            var a = p.getFilteredSyncChunk,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.afterUSN = t),
               (o.maxEntries = s),
               (o.filter = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.getLinkedNotebookSyncState = function (e, t, s) {
             var i = p.getLinkedNotebookSyncState,
-              a = new i.args();
-            (a.authenticationToken = e), (a.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.getLinkedNotebookSyncChunk = function (e, t, s, i, a, n) {
+          (u.prototype.getLinkedNotebookSyncChunk = function (e, t, s, i, n, a) {
             var o = p.getLinkedNotebookSyncChunk,
               r = new o.args();
             (r.authenticationToken = e),
               (r.linkedNotebook = t),
               (r.afterUSN = s),
               (r.maxEntries = i),
-              (r.fullSyncOnly = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.fullSyncOnly = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
           (u.prototype.listNotebooks = function (e, t) {
             var s = p.listNotebooks,
@@ -5799,21 +5834,21 @@
           }),
           (u.prototype.listAccessibleBusinessNotebooks = function (e, t, s) {
             var i = p.listAccessibleBusinessNotebooks,
-              a = new i.args();
-            (a.authenticationToken = e), (a.resultSpec = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.resultSpec = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.countNotebooks = function (e, t, s, i) {
-            var a = p.countNotebooks,
-              n = new a.args();
-            (n.authenticationToken = e),
-              (n.excludeBackingNotebooks = t),
-              (n.excludeDefaultNotebooks = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.countNotebooks,
+              a = new n.args();
+            (a.authenticationToken = e),
+              (a.excludeBackingNotebooks = t),
+              (a.excludeDefaultNotebooks = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getNotebook = function (e, t, s) {
             var i = p.getNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getDefaultNotebook = function (e, t) {
             var s = p.getDefaultNotebook,
@@ -5827,23 +5862,23 @@
           }),
           (u.prototype.createNotebook = function (e, t, s) {
             var i = p.createNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateNotebook = function (e, t, s) {
             var i = p.updateNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateNotebookWithResultSpec = function (e, t, s, i) {
-            var a = p.updateNotebookWithResultSpec,
-              n = new a.args();
-            (n.authenticationToken = e), (n.notebook = t), (n.resultSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.updateNotebookWithResultSpec,
+              a = new n.args();
+            (a.authenticationToken = e), (a.notebook = t), (a.resultSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.expungeNotebook = function (e, t, s) {
             var i = p.expungeNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.listTags = function (e, t) {
             var s = p.listTags,
@@ -5852,33 +5887,33 @@
           }),
           (u.prototype.listTagsByNotebook = function (e, t, s) {
             var i = p.listTagsByNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getTag = function (e, t, s) {
             var i = p.getTag,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createTag = function (e, t, s) {
             var i = p.createTag,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tag = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tag = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateTag = function (e, t, s) {
             var i = p.updateTag,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tag = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tag = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.untagAll = function (e, t, s) {
             var i = p.untagAll,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.expungeTag = function (e, t, s) {
             var i = p.expungeTag,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.listSearches = function (e, t) {
             var s = p.listSearches,
@@ -5887,163 +5922,163 @@
           }),
           (u.prototype.getSearch = function (e, t, s) {
             var i = p.getSearch,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createSearch = function (e, t, s) {
             var i = p.createSearch,
-              a = new i.args();
-            (a.authenticationToken = e), (a.search = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.search = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateSearch = function (e, t, s) {
             var i = p.updateSearch,
-              a = new i.args();
-            (a.authenticationToken = e), (a.search = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.search = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.expungeSearch = function (e, t, s) {
             var i = p.expungeSearch,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.findNotes = function (e, t, s, i, a) {
-            var n = p.findNotes,
-              o = new n.args();
-            (o.authenticationToken = e), (o.filter = t), (o.offset = s), (o.maxNotes = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (u.prototype.findNotes = function (e, t, s, i, n) {
+            var a = p.findNotes,
+              o = new a.args();
+            (o.authenticationToken = e), (o.filter = t), (o.offset = s), (o.maxNotes = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.findNoteOffset = function (e, t, s, i) {
-            var a = p.findNoteOffset,
-              n = new a.args();
-            (n.authenticationToken = e), (n.filter = t), (n.guid = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.findNoteOffset,
+              a = new n.args();
+            (a.authenticationToken = e), (a.filter = t), (a.guid = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.findNotesMetadata = function (e, t, s, i, a, n) {
+          (u.prototype.findNotesMetadata = function (e, t, s, i, n, a) {
             var o = p.findNotesMetadata,
               r = new o.args();
             (r.authenticationToken = e),
               (r.filter = t),
               (r.offset = s),
               (r.maxNotes = i),
-              (r.resultSpec = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.resultSpec = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
           (u.prototype.filteredSearch = function (e, t, s, i) {
-            var a = p.filteredSearch,
-              n = new a.args();
-            (n.authenticationToken = e), (n.request = t), (n.resultSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.filteredSearch,
+              a = new n.args();
+            (a.authenticationToken = e), (a.request = t), (a.resultSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getNoteSnippets = function (e, t, s, i) {
-            var a = p.getNoteSnippets,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuids = t), (n.maxSnippetLength = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.getNoteSnippets,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuids = t), (a.maxSnippetLength = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getNoteSnippetsV2 = function (e, t, s, i) {
-            var a = p.getNoteSnippetsV2,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuids = t), (n.maxSnippetLength = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.getNoteSnippetsV2,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuids = t), (a.maxSnippetLength = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.findNoteCounts = function (e, t, s, i) {
-            var a = p.findNoteCounts,
-              n = new a.args();
-            (n.authenticationToken = e), (n.filter = t), (n.withTrash = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.findNoteCounts,
+              a = new n.args();
+            (a.authenticationToken = e), (a.filter = t), (a.withTrash = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getNoteWithResultSpec = function (e, t, s, i) {
-            var a = p.getNoteWithResultSpec,
-              n = new a.args();
-            (n.authenticationToken = e), (n.guid = t), (n.resultSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.getNoteWithResultSpec,
+              a = new n.args();
+            (a.authenticationToken = e), (a.guid = t), (a.resultSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.getNote = function (e, t, s, i, a, n, o) {
+          (u.prototype.getNote = function (e, t, s, i, n, a, o) {
             var r = p.getNote,
               u = new r.args();
             (u.authenticationToken = e),
               (u.guid = t),
               (u.withContent = s),
               (u.withResourcesData = i),
-              (u.withResourcesRecognition = a),
-              (u.withResourcesAlternateData = n),
+              (u.withResourcesRecognition = n),
+              (u.withResourcesAlternateData = a),
               r.sendRequest(this.output, this.seqid++, u, o);
           }),
           (u.prototype.getPreferences = function (e, t, s) {
             var i = p.getPreferences,
-              a = new i.args();
-            (a.authenticationToken = e), (a.preferenceNames = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.preferenceNames = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updatePreferences = function (e, t, s) {
             var i = p.updatePreferences,
-              a = new i.args();
-            (a.authenticationToken = e), (a.preferencesToUpdate = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.preferencesToUpdate = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getNoteApplicationData = function (e, t, s) {
             var i = p.getNoteApplicationData,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getNoteApplicationDataEntry = function (e, t, s, i) {
-            var a = p.getNoteApplicationDataEntry,
-              n = new a.args();
-            (n.authenticationToken = e), (n.guid = t), (n.key = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.getNoteApplicationDataEntry,
+              a = new n.args();
+            (a.authenticationToken = e), (a.guid = t), (a.key = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.setNoteApplicationDataEntry = function (e, t, s, i, a) {
-            var n = p.setNoteApplicationDataEntry,
-              o = new n.args();
-            (o.authenticationToken = e), (o.guid = t), (o.key = s), (o.value = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (u.prototype.setNoteApplicationDataEntry = function (e, t, s, i, n) {
+            var a = p.setNoteApplicationDataEntry,
+              o = new a.args();
+            (o.authenticationToken = e), (o.guid = t), (o.key = s), (o.value = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.unsetNoteApplicationDataEntry = function (e, t, s, i) {
-            var a = p.unsetNoteApplicationDataEntry,
-              n = new a.args();
-            (n.authenticationToken = e), (n.guid = t), (n.key = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.unsetNoteApplicationDataEntry,
+              a = new n.args();
+            (a.authenticationToken = e), (a.guid = t), (a.key = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getNoteContent = function (e, t, s) {
             var i = p.getNoteContent,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.getNoteSearchText = function (e, t, s, i, a) {
-            var n = p.getNoteSearchText,
-              o = new n.args();
+          (u.prototype.getNoteSearchText = function (e, t, s, i, n) {
+            var a = p.getNoteSearchText,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.guid = t),
               (o.noteOnly = s),
               (o.tokenizeForIndexing = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.getResourceSearchText = function (e, t, s) {
             var i = p.getResourceSearchText,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getNoteTagNames = function (e, t, s) {
             var i = p.getNoteTagNames,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createNote = function (e, t, s) {
             var i = p.createNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.note = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.note = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateNote = function (e, t, s) {
             var i = p.updateNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.note = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.note = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.setContentClass = function (e, t, s, i) {
-            var a = p.setContentClass,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuid = t), (n.contentClass = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setContentClass,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuid = t), (a.contentClass = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.deleteNote = function (e, t, s) {
             var i = p.deleteNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.expungeNote = function (e, t, s) {
             var i = p.expungeNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.expungeNotes = function (e, t, s) {
             var i = p.expungeNotes,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuids = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuids = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.expungeInactiveNotes = function (e, t) {
             var s = p.expungeInactiveNotes,
@@ -6051,159 +6086,159 @@
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
           (u.prototype.copyNote = function (e, t, s, i) {
-            var a = p.copyNote,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuid = t), (n.toNotebookGuid = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.copyNote,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuid = t), (a.toNotebookGuid = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.importPublicNote = function (e, t, s, i, a, n) {
+          (u.prototype.importPublicNote = function (e, t, s, i, n, a) {
             var o = p.importPublicNote,
               r = new o.args();
             (r.authenticationToken = e),
               (r.shardId = t),
               (r.noteGuid = s),
               (r.noteKey = i),
-              (r.toNotebookGuid = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.toNotebookGuid = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
           (u.prototype.listNoteVersions = function (e, t, s) {
             var i = p.listNoteVersions,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.getNoteVersion = function (e, t, s, i, a, n, o) {
+          (u.prototype.getNoteVersion = function (e, t, s, i, n, a, o) {
             var r = p.getNoteVersion,
               u = new r.args();
             (u.authenticationToken = e),
               (u.noteGuid = t),
               (u.updateSequenceNum = s),
               (u.withResourcesData = i),
-              (u.withResourcesRecognition = a),
-              (u.withResourcesAlternateData = n),
+              (u.withResourcesRecognition = n),
+              (u.withResourcesAlternateData = a),
               r.sendRequest(this.output, this.seqid++, u, o);
           }),
-          (u.prototype.getResource = function (e, t, s, i, a, n, o) {
+          (u.prototype.getResource = function (e, t, s, i, n, a, o) {
             var r = p.getResource,
               u = new r.args();
             (u.authenticationToken = e),
               (u.guid = t),
               (u.withData = s),
               (u.withRecognition = i),
-              (u.withAttributes = a),
-              (u.withAlternateData = n),
+              (u.withAttributes = n),
+              (u.withAlternateData = a),
               r.sendRequest(this.output, this.seqid++, u, o);
           }),
           (u.prototype.getResourceApplicationData = function (e, t, s) {
             var i = p.getResourceApplicationData,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getResourceApplicationDataEntry = function (e, t, s, i) {
-            var a = p.getResourceApplicationDataEntry,
-              n = new a.args();
-            (n.authenticationToken = e), (n.guid = t), (n.key = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.getResourceApplicationDataEntry,
+              a = new n.args();
+            (a.authenticationToken = e), (a.guid = t), (a.key = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.setResourceApplicationDataEntry = function (e, t, s, i, a) {
-            var n = p.setResourceApplicationDataEntry,
-              o = new n.args();
-            (o.authenticationToken = e), (o.guid = t), (o.key = s), (o.value = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (u.prototype.setResourceApplicationDataEntry = function (e, t, s, i, n) {
+            var a = p.setResourceApplicationDataEntry,
+              o = new a.args();
+            (o.authenticationToken = e), (o.guid = t), (o.key = s), (o.value = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.unsetResourceApplicationDataEntry = function (e, t, s, i) {
-            var a = p.unsetResourceApplicationDataEntry,
-              n = new a.args();
-            (n.authenticationToken = e), (n.guid = t), (n.key = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.unsetResourceApplicationDataEntry,
+              a = new n.args();
+            (a.authenticationToken = e), (a.guid = t), (a.key = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.updateResource = function (e, t, s) {
             var i = p.updateResource,
-              a = new i.args();
-            (a.authenticationToken = e), (a.resource = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.resource = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getResourceData = function (e, t, s) {
             var i = p.getResourceData,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (u.prototype.getResourceByHash = function (e, t, s, i, a, n, o) {
+          (u.prototype.getResourceByHash = function (e, t, s, i, n, a, o) {
             var r = p.getResourceByHash,
               u = new r.args();
             (u.authenticationToken = e),
               (u.noteGuid = t),
               (u.contentHash = s),
               (u.withData = i),
-              (u.withRecognition = a),
-              (u.withAlternateData = n),
+              (u.withRecognition = n),
+              (u.withAlternateData = a),
               r.sendRequest(this.output, this.seqid++, u, o);
           }),
           (u.prototype.getResourceRecognition = function (e, t, s) {
             var i = p.getResourceRecognition,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getResourceAlternateData = function (e, t, s) {
             var i = p.getResourceAlternateData,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getResourceAttributes = function (e, t, s) {
             var i = p.getResourceAttributes,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getAds = function (e, t, s) {
             var i = p.getAds,
-              a = new i.args();
-            (a.authenticationToken = e), (a.adParameters = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.adParameters = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getRandomAd = function (e, t, s) {
             var i = p.getRandomAd,
-              a = new i.args();
-            (a.authenticationToken = e), (a.adParameters = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.adParameters = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getPublicNotebook = function (e, t, s) {
             var i = p.getPublicNotebook,
-              a = new i.args();
-            (a.userId = e), (a.publicUri = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.userId = e), (n.publicUri = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createSharedNotebook = function (e, t, s) {
             var i = p.createSharedNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.sharedNotebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.sharedNotebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.shareNotebook = function (e, t, s, i) {
-            var a = p.shareNotebook,
-              n = new a.args();
-            (n.authenticationToken = e), (n.sharedNotebook = t), (n.message = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.shareNotebook,
+              a = new n.args();
+            (a.authenticationToken = e), (a.sharedNotebook = t), (a.message = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.createOrUpdateNotebookShares = function (e, t, s) {
             var i = p.createOrUpdateNotebookShares,
-              a = new i.args();
-            (a.authenticationToken = e), (a.shareTemplate = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.shareTemplate = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateSharedNotebook = function (e, t, s) {
             var i = p.updateSharedNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.sharedNotebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.sharedNotebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.setSharedNotebookRecipientSettings = function (e, t, s, i) {
-            var a = p.setSharedNotebookRecipientSettings,
-              n = new a.args();
-            (n.authenticationToken = e),
-              (n.sharedNotebookId = t),
-              (n.recipientSettings = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setSharedNotebookRecipientSettings,
+              a = new n.args();
+            (a.authenticationToken = e),
+              (a.sharedNotebookId = t),
+              (a.recipientSettings = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.setNotebookRecipientSettings = function (e, t, s, i) {
-            var a = p.setNotebookRecipientSettings,
-              n = new a.args();
-            (n.authenticationToken = e), (n.notebookGuid = t), (n.recipientSettings = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setNotebookRecipientSettings,
+              a = new n.args();
+            (a.authenticationToken = e), (a.notebookGuid = t), (a.recipientSettings = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.sendMessageToSharedNotebookMembers = function (e, t, s, i, a) {
-            var n = p.sendMessageToSharedNotebookMembers,
-              o = new n.args();
+          (u.prototype.sendMessageToSharedNotebookMembers = function (e, t, s, i, n) {
+            var a = p.sendMessageToSharedNotebookMembers,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.notebookGuid = t),
               (o.messageText = s),
               (o.recipients = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.listSharedNotebooks = function (e, t) {
             var s = p.listSharedNotebooks,
@@ -6212,23 +6247,23 @@
           }),
           (u.prototype.expungeSharedNotebooks = function (e, t, s) {
             var i = p.expungeSharedNotebooks,
-              a = new i.args();
-            (a.authenticationToken = e), (a.sharedNotebookIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.sharedNotebookIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createLinkedNotebook = function (e, t, s) {
             var i = p.createLinkedNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getOrCreateLinkedNotebook = function (e, t, s) {
             var i = p.getOrCreateLinkedNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateLinkedNotebook = function (e, t, s) {
             var i = p.updateLinkedNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.linkedNotebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.listLinkedNotebooks = function (e, t) {
             var s = p.listLinkedNotebooks,
@@ -6237,13 +6272,13 @@
           }),
           (u.prototype.expungeLinkedNotebook = function (e, t, s) {
             var i = p.expungeLinkedNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.authenticateToSharedNotebook = function (e, t, s) {
             var i = p.authenticateToSharedNotebook,
-              a = new i.args();
-            (a.shareKeyOrGlobalId = e), (a.authenticationToken = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.shareKeyOrGlobalId = e), (n.authenticationToken = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getSharedNotebookByAuth = function (e, t) {
             var s = p.getSharedNotebookByAuth,
@@ -6252,269 +6287,269 @@
           }),
           (u.prototype.emailNote = function (e, t, s) {
             var i = p.emailNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.parameters = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.parameters = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.emailNoteV2 = function (e, t, s, i) {
-            var a = p.emailNoteV2,
-              n = new a.args();
-            (n.authenticationToken = e), (n.parameters = t), (n.untitledTask = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.emailNoteV2,
+              a = new n.args();
+            (a.authenticationToken = e), (a.parameters = t), (a.untitledTask = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.shareNote = function (e, t, s) {
             var i = p.shareNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getSharedNoteKey = function (e, t, s) {
             var i = p.getSharedNoteKey,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.stopSharingNote = function (e, t, s) {
             var i = p.stopSharingNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.stopSharingNoteWithRecipients = function (e, t, s) {
             var i = p.stopSharingNoteWithRecipients,
-              a = new i.args();
-            (a.authenticationToken = e), (a.guid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.guid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.authenticateToSharedNote = function (e, t, s, i) {
-            var a = p.authenticateToSharedNote,
-              n = new a.args();
-            (n.guid = e), (n.noteKey = t), (n.authenticationToken = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.authenticateToSharedNote,
+              a = new n.args();
+            (a.guid = e), (a.noteKey = t), (a.authenticationToken = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.createOrUpdateSharedNotes = function (e, t, s) {
             var i = p.createOrUpdateSharedNotes,
-              a = new i.args();
-            (a.authenticationToken = e), (a.shareTemplate = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.shareTemplate = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.findRelated = function (e, t, s, i) {
-            var a = p.findRelated,
-              n = new a.args();
-            (n.authenticationToken = e), (n.query = t), (n.resultSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.findRelated,
+              a = new n.args();
+            (a.authenticationToken = e), (a.query = t), (a.resultSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.findSearchSuggestions = function (e, t, s, i) {
-            var a = p.findSearchSuggestions,
-              n = new a.args();
-            (n.authenticationToken = e), (n.query = t), (n.resultSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.findSearchSuggestions,
+              a = new n.args();
+            (a.authenticationToken = e), (a.query = t), (a.resultSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.findSearchSuggestionsV2 = function (e, t, s) {
             var i = p.findSearchSuggestionsV2,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateUserSetting = function (e, t, s, i) {
-            var a = p.updateUserSetting,
-              n = new a.args();
-            (n.authenticationToken = e), (n.setting = t), (n.value = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.updateUserSetting,
+              a = new n.args();
+            (a.authenticationToken = e), (a.setting = t), (a.value = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.findTimeZones = function (e, t, s, i) {
-            var a = p.findTimeZones,
-              n = new a.args();
-            (n.authenticationToken = e), (n.timeZoneSpec = t), (n.maxTimeZones = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.findTimeZones,
+              a = new n.args();
+            (a.authenticationToken = e), (a.timeZoneSpec = t), (a.maxTimeZones = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.findContacts = function (e, t, s) {
             var i = p.findContacts,
-              a = new i.args();
-            (a.authenticationToken = e), (a.query = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.query = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.findInBusiness = function (e, t, s) {
             var i = p.findInBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.query = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.query = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.shareNoteWithBusiness = function (e, t, s) {
             var i = p.shareNoteWithBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.stopSharingNoteWithBusiness = function (e, t, s) {
             var i = p.stopSharingNoteWithBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.requestAccessToNotebook = function (e, t, s, i) {
-            var a = p.requestAccessToNotebook,
-              n = new a.args();
-            (n.authToken = e), (n.notebookGuid = t), (n.privilegeLevel = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.requestAccessToNotebook,
+              a = new n.args();
+            (a.authToken = e), (a.notebookGuid = t), (a.privilegeLevel = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getNoteLockStatus = function (e, t, s) {
             var i = p.getNoteLockStatus,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.acquireNoteLock = function (e, t, s) {
             var i = p.acquireNoteLock,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.acquireNoteLockWithDeviceId = function (e, t, s, i) {
-            var a = p.acquireNoteLockWithDeviceId,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuid = t), (n.deviceId = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.acquireNoteLockWithDeviceId,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuid = t), (a.deviceId = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.releaseNoteLock = function (e, t, s) {
             var i = p.releaseNoteLock,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.releaseNoteLockWithDeviceId = function (e, t, s, i) {
-            var a = p.releaseNoteLockWithDeviceId,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuid = t), (n.deviceId = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.releaseNoteLockWithDeviceId,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuid = t), (a.deviceId = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getViewersForNotes = function (e, t, s) {
             var i = p.getViewersForNotes,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuids = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuids = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.updateNoteIfUsnMatches = function (e, t, s) {
             var i = p.updateNoteIfUsnMatches,
-              a = new i.args();
-            (a.authenticationToken = e), (a.note = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.note = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.manageNotebookShares = function (e, t, s) {
             var i = p.manageNotebookShares,
-              a = new i.args();
-            (a.authenticationToken = e), (a.parameters = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.parameters = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getNotebookShares = function (e, t, s) {
             var i = p.getNotebookShares,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getNoteShares = function (e, t, s) {
             var i = p.getNoteShares,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.manageNoteShares = function (e, t, s) {
             var i = p.manageNoteShares,
-              a = new i.args();
-            (a.authenticationToken = e), (a.parameters = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.parameters = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.joinPublishedBusinessNotebook = function (e, t, s) {
             var i = p.joinPublishedBusinessNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.unpublishNotebook = function (e, t, s, i) {
-            var a = p.unpublishNotebook,
-              n = new a.args();
-            (n.authenticationToken = e),
-              (n.notebookGuid = t),
-              (n.convertGroupSharesToIndividual = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.unpublishNotebook,
+              a = new n.args();
+            (a.authenticationToken = e),
+              (a.notebookGuid = t),
+              (a.convertGroupSharesToIndividual = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.getNotebookSharesEmailAddresses = function (e, t, s, i, a) {
-            var n = p.getNotebookSharesEmailAddresses,
-              o = new n.args();
+          (u.prototype.getNotebookSharesEmailAddresses = function (e, t, s, i, n) {
+            var a = p.getNotebookSharesEmailAddresses,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.notebookGuid = t),
               (o.identities = s),
               (o.skipUnknownUserIdentities = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (u.prototype.renameNotebook = function (e, t, s, i) {
-            var a = p.renameNotebook,
-              n = new a.args();
-            (n.authenticationToken = e), (n.notebookGuid = t), (n.name = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.renameNotebook,
+              a = new n.args();
+            (a.authenticationToken = e), (a.notebookGuid = t), (a.name = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.sendLogRequest = function (e, t, s) {
             var i = p.sendLogRequest,
-              a = new i.args();
-            (a.authenticationToken = e), (a.logRequest = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.logRequest = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getLinkedAccountSyncState = function (e, t, s) {
             var i = p.getLinkedAccountSyncState,
-              a = new i.args();
-            (a.authenticationToken = e), (a.linkedAccount = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.linkedAccount = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.authenticateToNote = function (e, t, s) {
             var i = p.authenticateToNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.createWorkspace = function (e, t, s, i) {
-            var a = p.createWorkspace,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspace = t), (n.spec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.createWorkspace,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspace = t), (a.spec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.getWorkspace = function (e, t, s, i) {
-            var a = p.getWorkspace,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceGuid = t), (n.responseSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.getWorkspace,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceGuid = t), (a.responseSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.listWorkspaces = function (e, t, s, i) {
-            var a = p.listWorkspaces,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceResponseSpec = t), (n.filter = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.listWorkspaces,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceResponseSpec = t), (a.filter = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.updateWorkspace = function (e, t, s) {
             var i = p.updateWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspace = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspace = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.manageWorkspaceSharing = function (e, t, s) {
             var i = p.manageWorkspaceSharing,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.joinWorkspace = function (e, t, s) {
             var i = p.joinWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.leaveWorkspace = function (e, t, s) {
             var i = p.leaveWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.getWorkspaceUserInterfaceProperties = function (e, t, s) {
             var i = p.getWorkspaceUserInterfaceProperties,
-              a = new i.args();
-            (a.authentiationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authentiationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (u.prototype.setWorkspaceUserInterfaceLayoutStyle = function (e, t, s, i) {
-            var a = p.setWorkspaceUserInterfaceLayoutStyle,
-              n = new a.args();
-            (n.authentiationToken = e), (n.workspaceGuid = t), (n.layoutStyle = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setWorkspaceUserInterfaceLayoutStyle,
+              a = new n.args();
+            (a.authentiationToken = e), (a.workspaceGuid = t), (a.layoutStyle = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.setNotebookUserInterfaceDisplayOrder = function (e, t, s, i) {
-            var a = p.setNotebookUserInterfaceDisplayOrder,
-              n = new a.args();
-            (n.authentiationToken = e), (n.workspaceGuid = t), (n.notebookDisplayOrder = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setNotebookUserInterfaceDisplayOrder,
+              a = new n.args();
+            (a.authentiationToken = e), (a.workspaceGuid = t), (a.notebookDisplayOrder = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.setNotebookUserInterfaceColors = function (e, t, s, i) {
-            var a = p.setNotebookUserInterfaceColors,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceGuid = t), (n.updatedColors = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setNotebookUserInterfaceColors,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceGuid = t), (a.updatedColors = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (u.prototype.setNoteUserInterfaceDisplayOrder = function (e, t, s, i) {
-            var a = p.setNoteUserInterfaceDisplayOrder,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceGuid = t), (n.noteDisplayOrder = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = p.setNoteUserInterfaceDisplayOrder,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceGuid = t), (a.noteDisplayOrder = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (u.prototype.validateAndCreateShare = function (e, t, s, i, a) {
-            var n = p.validateAndCreateShare,
-              o = new n.args();
-            (o.authenticationToken = e), (o.userId = t), (o.noteGuid = s), (o.noteKey = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (u.prototype.validateAndCreateShare = function (e, t, s, i, n) {
+            var a = p.validateAndCreateShare,
+              o = new a.args();
+            (o.authenticationToken = e), (o.userId = t), (o.noteGuid = s), (o.noteKey = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (e.exports.NoteStore.Client = u),
-          (d.prototype.start = function () {
+          (c.prototype.start = function () {
             this.stransport.listen();
           }),
-          (d.prototype.stop = function () {
+          (c.prototype.stop = function () {
             this.stransport.close();
           }),
-          (e.exports.NoteStore.Server = d);
+          (e.exports.NoteStore.Server = c);
       },
-      88606: (e, t, s) => {
+      88606: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965),
-          n = s(77915),
+          n = s(52965),
+          a = s(77915),
           o = s(60136);
         (e.exports.WorkspaceType = { INVITE_ONLY: 1, DISCOVERABLE: 2, OPEN: 3 }),
           (e.exports.WorkspacePrivilegeLevel = { READ: 1, EDIT: 2, EDIT_AND_MANAGE: 3 }),
@@ -6549,7 +6584,7 @@
             1: { alias: "common", type: i.Type.STRUCT, def: o.InvitationCommon },
             2: { alias: "workspaceGuid", type: i.Type.STRING },
             3: { alias: "privilege", type: i.Type.I32 },
-            4: { alias: "contact", type: i.Type.STRUCT, def: n.Contact }
+            4: { alias: "contact", type: i.Type.STRUCT, def: a.Contact }
           })),
           (e.exports.WorkspaceMembership = i.Struct.define("WorkspaceMembership", {
             1: { alias: "common", type: i.Type.STRUCT, def: o.MembershipCommon },
@@ -6568,9 +6603,9 @@
           })),
           (e.exports.ErrorResponse = i.Struct.define("ErrorResponse", {
             1: { alias: "noErrors", type: i.Type.BOOL },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-            3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-            4: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+            3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+            4: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
           })),
           (e.exports.ManageWorkspaceMembershipResponse = i.Struct.define("ManageWorkspaceMembershipResponse", {
             1: { alias: "membership", type: i.Type.STRUCT, def: e.exports.WorkspaceMembership },
@@ -6579,7 +6614,7 @@
           (e.exports.ManageWorkspaceInvitationResponse = i.Struct.define("ManageWorkspaceInvitationResponse", {
             1: { alias: "invitation", type: i.Type.STRUCT, def: e.exports.WorkspaceInvitation },
             2: { alias: "membership", type: i.Type.STRUCT, def: e.exports.WorkspaceMembership },
-            3: { alias: "identity", type: i.Type.STRUCT, def: n.Identity },
+            3: { alias: "identity", type: i.Type.STRUCT, def: a.Identity },
             4: { alias: "errorResponse", type: i.Type.STRUCT, def: e.exports.ErrorResponse }
           })),
           (e.exports.ManageWorkspaceRemoveResponse = i.Struct.define("ManageWorkspaceRemoveResponse", {
@@ -6641,12 +6676,12 @@
           (e.exports.WorkspaceResponse = i.Struct.define("WorkspaceResponse", {
             1: { alias: "workspace", type: i.Type.STRUCT, def: e.exports.Workspace },
             2: { alias: "invitations", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.WorkspaceInvitation) },
-            3: { alias: "identityByInvitationsGuid", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, n.Identity) },
+            3: { alias: "identityByInvitationsGuid", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, a.Identity) },
             4: { alias: "memberships", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.WorkspaceMembership) },
             6: { alias: "workspaceRestrictions", type: i.Type.STRUCT, def: e.exports.WorkspaceRestrictions },
             7: { alias: "notebookGuids", type: i.Type.LIST, def: i.List.define(i.Type.STRING) },
             8: { alias: "accessInfo", type: i.Type.STRUCT, def: e.exports.AccessInfo },
-            9: { alias: "notebookRestrictions", type: i.Type.STRUCT, def: n.NotebookRestrictions },
+            9: { alias: "notebookRestrictions", type: i.Type.STRUCT, def: a.NotebookRestrictions },
             10: { alias: "aggregations", type: i.Type.STRUCT, def: e.exports.WorkspaceAggregations },
             11: { alias: "member", type: i.Type.BOOL }
           })),
@@ -6655,9 +6690,9 @@
             2: { alias: "includeNotes", type: i.Type.BOOL }
           }));
       },
-      41511: (e, t, s) => {
+      41511: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965);
+          n = s(52965);
         s(77915),
           (e.exports.ETNoteSortOrder = { CREATED: 1, UPDATED: 2, RELEVANCE: 3, UPDATE_SEQUENCE_NUMBER: 4, TITLE: 5 }),
           (e.exports.SearchScope = i.Struct.define("SearchScope", {
@@ -6710,21 +6745,21 @@
             7: { alias: "tagGuids", type: i.Type.LIST, def: i.List.define(i.Type.STRING) },
             8: { alias: "sessionGuid", type: i.Type.STRING }
           }));
-        var n = (e.exports.TeamSearch = {});
+        var a = (e.exports.TeamSearch = {});
         function o(e) {
           (this.output = e), (this.seqid = 0);
         }
         function r(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), n))
-            e[a] && this.processor.addMethod(n[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), a))
+            e[n] && this.processor.addMethod(a[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
-        (n.queryNotes = i.Method.define({
+        (a.queryNotes = i.Method.define({
           alias: "queryNotes",
           args: i.Struct.define("queryNotesArgs", {
             1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
@@ -6732,12 +6767,12 @@
           }),
           result: i.Struct.define("queryNotesResult", {
             0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SearchResult },
-            1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-            3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+            1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+            3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
           })
         })),
-          (n.querySuggestion = i.Method.define({
+          (a.querySuggestion = i.Method.define({
             alias: "querySuggestion",
             args: i.Struct.define("querySuggestionArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
@@ -6745,20 +6780,20 @@
             }),
             result: i.Struct.define("querySuggestionResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SearchSuggestion },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (o.prototype.queryNotes = function (e, t, s) {
-            var i = n.queryNotes,
-              a = new i.args();
-            (a.authenticationToken = e), (a.query = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.queryNotes,
+              n = new i.args();
+            (n.authenticationToken = e), (n.query = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (o.prototype.querySuggestion = function (e, t, s) {
-            var i = n.querySuggestion,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteFilter = t), i.sendRequest(this.output, this.seqid++, a, s);
+            var i = a.querySuggestion,
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteFilter = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.TeamSearch.Client = o),
           (r.prototype.start = function () {
@@ -6769,7 +6804,7 @@
           }),
           (e.exports.TeamSearch.Server = r);
       },
-      77915: (e, t, s) => {
+      77915: function (e, t, s) {
         var i = s(24527).Thrift;
         s(48412),
           (e.exports.PrivilegeLevel = { NORMAL: 1, PREMIUM: 3, VIP: 5, MANAGER: 7, SUPPORT: 8, ADMIN: 9 }),
@@ -7420,10 +7455,10 @@
             13: { alias: "device", type: i.Type.STRUCT, def: e.exports.SdmsDevice }
           }));
       },
-      60570: (e, t, s) => {
+      60570: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(77915),
-          n = s(52965),
+          n = s(77915),
+          a = s(52965),
           o = s(53109);
         (e.exports.LoginStatus = {
           UNKNOWN: 0,
@@ -7470,7 +7505,7 @@
             1: { alias: "currentTime", type: i.Type.I64 },
             2: { alias: "authenticationToken", type: i.Type.STRING },
             3: { alias: "expiration", type: i.Type.I64 },
-            4: { alias: "user", type: i.Type.STRUCT, def: a.User },
+            4: { alias: "user", type: i.Type.STRUCT, def: n.User },
             5: { alias: "publicUserInfo", type: i.Type.STRUCT, def: e.exports.PublicUserInfo },
             6: { alias: "noteStoreUrl", type: i.Type.STRING },
             7: { alias: "webApiUrlPrefix", type: i.Type.STRING },
@@ -7561,13 +7596,13 @@
           (this.output = e), (this.seqid = 0);
         }
         function u(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), r))
-            e[a] && this.processor.addMethod(r[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), r))
+            e[n] && this.processor.addMethod(r[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (r.checkVersion = i.Method.define({
@@ -7604,8 +7639,8 @@
             }),
             result: i.Struct.define("authenticateResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.authenticateOpenID = i.Method.define({
@@ -7621,8 +7656,8 @@
             }),
             result: i.Struct.define("authenticateOpenIDResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.authenticateLongSession = i.Method.define({
@@ -7638,8 +7673,8 @@
             }),
             result: i.Struct.define("authenticateLongSessionResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.authenticateLongSessionV2 = i.Method.define({
@@ -7649,8 +7684,8 @@
             }),
             result: i.Struct.define("authenticateLongSessionV2Result", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.completeTwoFactorAuthentication = i.Method.define({
@@ -7663,16 +7698,16 @@
             }),
             result: i.Struct.define("completeTwoFactorAuthenticationResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.revokeLongSession = i.Method.define({
             alias: "revokeLongSession",
             args: i.Struct.define("revokeLongSessionArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("revokeLongSessionResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.authenticateToBusiness = i.Method.define({
@@ -7680,8 +7715,8 @@
             args: i.Struct.define("authenticateToBusinessArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("authenticateToBusinessResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.refreshAuthentication = i.Method.define({
@@ -7689,8 +7724,8 @@
             args: i.Struct.define("refreshAuthenticationArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("refreshAuthenticationResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.refreshAuthenticationForPing = i.Method.define({
@@ -7700,17 +7735,17 @@
             }),
             result: i.Struct.define("refreshAuthenticationForPingResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getUser = i.Method.define({
             alias: "getUser",
             args: i.Struct.define("getUserArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.User },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.User },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getPublicUserInfo = i.Method.define({
@@ -7718,27 +7753,27 @@
             args: i.Struct.define("getPublicUserInfoArgs", { 1: { alias: "username", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getPublicUserInfoResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.PublicUserInfo },
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
             })
           })),
           (r.getPremiumInfo = i.Method.define({
             alias: "getPremiumInfo",
             args: i.Struct.define("getPremiumInfoArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getPremiumInfoResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.PremiumInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.PremiumInfo },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getSubscriptionInfo = i.Method.define({
             alias: "getSubscriptionInfo",
             args: i.Struct.define("getSubscriptionInfoArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getSubscriptionInfoResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.SubscriptionInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.SubscriptionInfo },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getNoteStoreUrl = i.Method.define({
@@ -7746,8 +7781,8 @@
             args: i.Struct.define("getNoteStoreUrlArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getNoteStoreUrlResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getUserUrls = i.Method.define({
@@ -7755,8 +7790,8 @@
             args: i.Struct.define("getUserUrlsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserUrlsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.UserUrls },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.inviteToBusiness = i.Method.define({
@@ -7766,8 +7801,8 @@
               2: { alias: "emailAddress", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("inviteToBusinessResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.removeFromBusiness = i.Method.define({
@@ -7777,9 +7812,9 @@
               2: { alias: "emailAddress", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("removeFromBusinessResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (r.updateBusinessUserIdentifier = i.Method.define({
@@ -7790,34 +7825,34 @@
               3: { alias: "newEmailAddress", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("updateBusinessUserIdentifierResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (r.listBusinessUsers = i.Method.define({
             alias: "listBusinessUsers",
             args: i.Struct.define("listBusinessUsersArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "businessUserFilter", type: i.Type.STRUCT, def: a.BusinessUserFilter, index: 1 }
+              2: { alias: "businessUserFilter", type: i.Type.STRUCT, def: n.BusinessUserFilter, index: 1 }
             }),
             result: i.Struct.define("listBusinessUsersResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.UserProfile) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.UserProfile) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.listBusinessUsersProfileInfo = i.Method.define({
             alias: "listBusinessUsersProfileInfo",
             args: i.Struct.define("listBusinessUsersProfileInfoArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "businessUserFilter", type: i.Type.STRUCT, def: a.BusinessUserFilter, index: 1 },
-              3: { alias: "userProfileInfoRequest", type: i.Type.STRUCT, def: a.UserProfileInfoRequest, index: 2 }
+              2: { alias: "businessUserFilter", type: i.Type.STRUCT, def: n.BusinessUserFilter, index: 1 },
+              3: { alias: "userProfileInfoRequest", type: i.Type.STRUCT, def: n.UserProfileInfoRequest, index: 2 }
             }),
             result: i.Struct.define("listBusinessUsersProfileInfoResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.UserProfile) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.UserProfile) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.listBusinessInvitations = i.Method.define({
@@ -7827,9 +7862,9 @@
               2: { alias: "includeRequestedInvitations", type: i.Type.BOOL, index: 1 }
             }),
             result: i.Struct.define("listBusinessInvitationsResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.BusinessInvitation) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.BusinessInvitation) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.registerForSyncPushNotifications = i.Method.define({
@@ -7840,9 +7875,9 @@
             }),
             result: i.Struct.define("registerForSyncPushNotificationsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.RegisterForSyncPushNotificationsResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (r.multiRegisterForSyncPushNotifications = i.Method.define({
@@ -7857,9 +7892,9 @@
                 type: i.Type.LIST,
                 def: i.List.define(i.Type.STRUCT, e.exports.MultiRegisterForSyncPushNotificationsResult)
               },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (r.unregisterForSyncPushNotifications = i.Method.define({
@@ -7868,9 +7903,9 @@
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 }
             }),
             result: i.Struct.define("unregisterForSyncPushNotificationsResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (r.createSessionAuthenticationToken = i.Method.define({
@@ -7880,17 +7915,17 @@
             }),
             result: i.Struct.define("createSessionAuthenticationTokenResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
             })
           })),
           (r.getAccountLimits = i.Method.define({
             alias: "getAccountLimits",
             args: i.Struct.define("getAccountLimitsArgs", { 1: { alias: "serviceLevel", type: i.Type.I32, index: 0 } }),
             result: i.Struct.define("getAccountLimitsResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.AccountLimits },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.AccountLimits },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
             })
           })),
           (r.getConnectedIdentities = i.Method.define({
@@ -7900,9 +7935,9 @@
               2: { alias: "identityIds", type: i.Type.LIST, def: i.List.define(i.Type.I64), index: 1 }
             }),
             result: i.Struct.define("getConnectedIdentitiesResult", {
-              0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, a.Identity) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, n.Identity) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getLoginInfo = i.Method.define({
@@ -7912,8 +7947,8 @@
             }),
             result: i.Struct.define("getLoginInfoResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.LoginInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getNAPAccessToken = i.Method.define({
@@ -7921,8 +7956,8 @@
             args: i.Struct.define("getNAPAccessTokenArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getNAPAccessTokenResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (r.getNAPAccessJWT = i.Method.define({
@@ -7933,14 +7968,14 @@
             }),
             result: i.Struct.define("getNAPAccessJWTResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
             })
           })),
           (p.prototype.checkVersion = function (e, t, s, i) {
-            var a = r.checkVersion,
-              n = new a.args();
-            (n.clientName = e), (n.edamVersionMajor = t), (n.edamVersionMinor = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = r.checkVersion,
+              a = new n.args();
+            (a.clientName = e), (a.edamVersionMajor = t), (a.edamVersionMinor = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (p.prototype.getBootstrapInfo = function (e, t) {
             var s = r.getBootstrapInfo,
@@ -7952,53 +7987,53 @@
               i = new s.args();
             (i.locale = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (p.prototype.authenticate = function (e, t, s, i, a, n) {
+          (p.prototype.authenticate = function (e, t, s, i, n, a) {
             var o = r.authenticate,
               p = new o.args();
             (p.username = e),
               (p.password = t),
               (p.consumerKey = s),
               (p.consumerSecret = i),
-              (p.supportsTwoFactor = a),
-              o.sendRequest(this.output, this.seqid++, p, n);
+              (p.supportsTwoFactor = n),
+              o.sendRequest(this.output, this.seqid++, p, a);
           }),
-          (p.prototype.authenticateOpenID = function (e, t, s, i, a, n, o, p) {
+          (p.prototype.authenticateOpenID = function (e, t, s, i, n, a, o, p) {
             var u = r.authenticateOpenID,
-              d = new u.args();
-            (d.credential = e),
-              (d.consumerKey = t),
-              (d.consumerSecret = s),
-              (d.deviceIdentifier = i),
-              (d.deviceDescription = a),
-              (d.authLongSession = n),
-              (d.supportsTwoFactor = o),
-              u.sendRequest(this.output, this.seqid++, d, p);
+              c = new u.args();
+            (c.credential = e),
+              (c.consumerKey = t),
+              (c.consumerSecret = s),
+              (c.deviceIdentifier = i),
+              (c.deviceDescription = n),
+              (c.authLongSession = a),
+              (c.supportsTwoFactor = o),
+              u.sendRequest(this.output, this.seqid++, c, p);
           }),
-          (p.prototype.authenticateLongSession = function (e, t, s, i, a, n, o, p) {
+          (p.prototype.authenticateLongSession = function (e, t, s, i, n, a, o, p) {
             var u = r.authenticateLongSession,
-              d = new u.args();
-            (d.username = e),
-              (d.password = t),
-              (d.consumerKey = s),
-              (d.consumerSecret = i),
-              (d.deviceIdentifier = a),
-              (d.deviceDescription = n),
-              (d.supportsTwoFactor = o),
-              u.sendRequest(this.output, this.seqid++, d, p);
+              c = new u.args();
+            (c.username = e),
+              (c.password = t),
+              (c.consumerKey = s),
+              (c.consumerSecret = i),
+              (c.deviceIdentifier = n),
+              (c.deviceDescription = a),
+              (c.supportsTwoFactor = o),
+              u.sendRequest(this.output, this.seqid++, c, p);
           }),
           (p.prototype.authenticateLongSessionV2 = function (e, t) {
             var s = r.authenticateLongSessionV2,
               i = new s.args();
             (i.authParams = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (p.prototype.completeTwoFactorAuthentication = function (e, t, s, i, a) {
-            var n = r.completeTwoFactorAuthentication,
-              o = new n.args();
+          (p.prototype.completeTwoFactorAuthentication = function (e, t, s, i, n) {
+            var a = r.completeTwoFactorAuthentication,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.oneTimeCode = t),
               (o.deviceIdentifier = s),
               (o.deviceDescription = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
           (p.prototype.revokeLongSession = function (e, t) {
             var s = r.revokeLongSession,
@@ -8052,46 +8087,46 @@
           }),
           (p.prototype.inviteToBusiness = function (e, t, s) {
             var i = r.inviteToBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.emailAddress = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.emailAddress = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.removeFromBusiness = function (e, t, s) {
             var i = r.removeFromBusiness,
-              a = new i.args();
-            (a.authenticationToken = e), (a.emailAddress = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.emailAddress = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.updateBusinessUserIdentifier = function (e, t, s, i) {
-            var a = r.updateBusinessUserIdentifier,
-              n = new a.args();
-            (n.authenticationToken = e), (n.oldEmailAddress = t), (n.newEmailAddress = s), a.sendRequest(this.output, this.seqid++, n, i);
+            var n = r.updateBusinessUserIdentifier,
+              a = new n.args();
+            (a.authenticationToken = e), (a.oldEmailAddress = t), (a.newEmailAddress = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (p.prototype.listBusinessUsers = function (e, t, s) {
             var i = r.listBusinessUsers,
-              a = new i.args();
-            (a.authenticationToken = e), (a.businessUserFilter = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.businessUserFilter = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.listBusinessUsersProfileInfo = function (e, t, s, i) {
-            var a = r.listBusinessUsersProfileInfo,
-              n = new a.args();
-            (n.authenticationToken = e),
-              (n.businessUserFilter = t),
-              (n.userProfileInfoRequest = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+            var n = r.listBusinessUsersProfileInfo,
+              a = new n.args();
+            (a.authenticationToken = e),
+              (a.businessUserFilter = t),
+              (a.userProfileInfoRequest = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
           (p.prototype.listBusinessInvitations = function (e, t, s) {
             var i = r.listBusinessInvitations,
-              a = new i.args();
-            (a.authenticationToken = e), (a.includeRequestedInvitations = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.includeRequestedInvitations = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.registerForSyncPushNotifications = function (e, t, s) {
             var i = r.registerForSyncPushNotifications,
-              a = new i.args();
-            (a.authenticationToken = e), (a.credentials = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.credentials = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.multiRegisterForSyncPushNotifications = function (e, t, s) {
             var i = r.multiRegisterForSyncPushNotifications,
-              a = new i.args();
-            (a.authenticationTokens = e), (a.credentials = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationTokens = e), (n.credentials = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.unregisterForSyncPushNotifications = function (e, t) {
             var s = r.unregisterForSyncPushNotifications,
@@ -8110,8 +8145,8 @@
           }),
           (p.prototype.getConnectedIdentities = function (e, t, s) {
             var i = r.getConnectedIdentities,
-              a = new i.args();
-            (a.authenticationToken = e), (a.identityIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.identityIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (p.prototype.getLoginInfo = function (e, t) {
             var s = r.getLoginInfo,
@@ -8125,8 +8160,8 @@
           }),
           (p.prototype.getNAPAccessJWT = function (e, t, s) {
             var i = r.getNAPAccessJWT,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
           (e.exports.UserStore.Client = p),
           (u.prototype.start = function () {
@@ -8137,15 +8172,15 @@
           }),
           (e.exports.UserStore.Server = u);
       },
-      2401: (e, t, s) => {
+      2401: function (e, t, s) {
         var i = s(24527).Thrift,
-          a = s(52965),
-          n = s(77915),
+          n = s(52965),
+          a = s(77915),
           o = s(27909),
           r = s(35137),
           p = s(53109),
           u = s(88606),
-          d = s(60570);
+          c = s(60570);
         (e.exports.MarketingEmailType = { DESKTOP_UPSELL: 1, CLIPPER_UPSELL: 2, MOBILE_UPSELL: 3, VIEW_NOTE_ON_DESKTOP: 4 }),
           (e.exports.TsdType = { REGULAR_TSD: 1, TARGETED_UPSELL: 2 }),
           (e.exports.TsdTiming = { SUITABLE: 1, BEFORE_FLE: 2, AFTER_FLE: 3, IMMEDIATELY: 4, NOTE_CLOSE: 5 }),
@@ -8267,7 +8302,7 @@
             4: { alias: "deviceInfo", type: i.Type.STRING },
             5: { alias: "carrierInfo", type: i.Type.STRING },
             6: { alias: "connectionInfo", type: i.Type.STRING },
-            7: { alias: "logFile", type: i.Type.STRUCT, def: n.Data },
+            7: { alias: "logFile", type: i.Type.STRUCT, def: a.Data },
             8: { alias: "subject", type: i.Type.STRING },
             9: { alias: "issueDescription", type: i.Type.STRING },
             10: { alias: "tags", type: i.Type.LIST, def: i.List.define(i.Type.STRING) }
@@ -8349,7 +8384,7 @@
           })),
           (e.exports.RelatedContentProfilePage = i.Struct.define("RelatedContentProfilePage", {
             1: { alias: "relatedContentProfile", type: i.Type.STRUCT, def: e.exports.RelatedContentProfile },
-            2: { alias: "userProfile", type: i.Type.STRUCT, def: n.UserProfile }
+            2: { alias: "userProfile", type: i.Type.STRUCT, def: a.UserProfile }
           })),
           (e.exports.PromotionStatus = i.Struct.define("PromotionStatus", {
             1: { alias: "promotionId", type: i.Type.STRING },
@@ -8371,8 +8406,8 @@
           })),
           (e.exports.RealTimeNotePermissionsResult = i.Struct.define("RealTimeNotePermissionsResult", {
             1: { alias: "userId", type: i.Type.I32 },
-            2: { alias: "byOwnerToken", type: i.Type.STRUCT, def: n.NoteRestrictions },
-            3: { alias: "byBusinessToken", type: i.Type.STRUCT, def: n.NoteRestrictions }
+            2: { alias: "byOwnerToken", type: i.Type.STRUCT, def: a.NoteRestrictions },
+            3: { alias: "byBusinessToken", type: i.Type.STRUCT, def: a.NoteRestrictions }
           })),
           (e.exports.MessageNotification = i.Struct.define("MessageNotification", {
             1: { alias: "syncChunk", type: i.Type.STRUCT, def: o.MessageSyncChunk },
@@ -8419,7 +8454,7 @@
             3: { alias: "tsdType", type: i.Type.I32 },
             4: { alias: "tsdTiming", type: i.Type.SET, def: i.Set.define(i.Type.I32) },
             5: { alias: "tsdVariation", type: i.Type.I32 },
-            6: { alias: "subscriptionInfo", type: i.Type.STRUCT, def: n.SubscriptionInfo },
+            6: { alias: "subscriptionInfo", type: i.Type.STRUCT, def: a.SubscriptionInfo },
             7: { alias: "teamStarterPackResult", type: i.Type.STRUCT, def: e.exports.TeamStarterPackResult }
           })),
           (e.exports.MoveNotebookBetweenAccountsParams = i.Struct.define("MoveNotebookBetweenAccountsParams", {
@@ -8435,7 +8470,7 @@
             3: { alias: "parameter", type: i.Type.STRING }
           })),
           (e.exports.MoveNotebooksBetweenAccountsResult = i.Struct.define("MoveNotebooksBetweenAccountsResult", {
-            1: { alias: "createdNotebooks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Notebook) },
+            1: { alias: "createdNotebooks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Notebook) },
             2: { alias: "failures", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.MoveNotebooksBetweenAccountsError) }
           })),
           (e.exports.MoveNoteBetweenAccountsParams = i.Struct.define("MoveNoteBetweenAccountsParams", {
@@ -8443,8 +8478,8 @@
             2: { alias: "targetNotebookGuid", type: i.Type.STRING }
           })),
           (e.exports.MoveNoteBetweenAccountsResult = i.Struct.define("MoveNoteBetweenAccountsResult", {
-            1: { alias: "sourceNote", type: i.Type.STRUCT, def: n.Note },
-            2: { alias: "createdNote", type: i.Type.STRUCT, def: n.Note }
+            1: { alias: "sourceNote", type: i.Type.STRUCT, def: a.Note },
+            2: { alias: "createdNote", type: i.Type.STRUCT, def: a.Note }
           })),
           (e.exports.IncentiveEligibilityResult = i.Struct.define("IncentiveEligibilityResult", {
             1: { alias: "eligibleForIncentive", type: i.Type.BOOL },
@@ -8611,17 +8646,17 @@
             2: { alias: "monolithUserActiveIdentities", type: i.Type.LIST, def: i.List.define(i.Type.I64) }
           }));
         var y = (e.exports.Utility = {});
-        function c(e) {
+        function d(e) {
           (this.output = e), (this.seqid = 0);
         }
         function l(e, t, s) {
-          var a;
-          for (a in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), y))
-            e[a] && this.processor.addMethod(y[a], e[a].bind(e));
+          var n;
+          for (n in ((this.service = e), (this.stransport = t), (this.processor = new i.Processor()), y))
+            e[n] && this.processor.addMethod(y[n], e[n].bind(e));
           this.stransport.process = function (e, t, i) {
-            var a = new s(e),
-              n = new s(t);
-            this.processor.process(a, n, i);
+            var n = new s(e),
+              a = new s(t);
+            this.processor.process(n, a, i);
           }.bind(this);
         }
         (y.sendMarketingEmail = i.Method.define({
@@ -8631,8 +8666,8 @@
             2: { alias: "parameters", type: i.Type.STRUCT, def: e.exports.MarketingEmailParameters, index: 1 }
           }),
           result: i.Struct.define("sendMarketingEmailResult", {
-            1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-            2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+            1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+            2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
           })
         })),
           (y.fileSupportTicket = i.Method.define({
@@ -8642,8 +8677,8 @@
               2: { alias: "ticket", type: i.Type.STRUCT, def: e.exports.SupportTicket, index: 1 }
             }),
             result: i.Struct.define("fileSupportTicketResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.fileSupportTicketReturnId = i.Method.define({
@@ -8654,8 +8689,8 @@
             }),
             result: i.Struct.define("fileSupportTicketReturnIdResult", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.sendAppFeedback = i.Method.define({
@@ -8665,8 +8700,8 @@
               2: { alias: "appFeedback", type: i.Type.STRUCT, def: e.exports.AppFeedback, index: 1 }
             }),
             result: i.Struct.define("sendAppFeedbackResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.sendAppFeedbackForDevice = i.Method.define({
@@ -8678,8 +8713,8 @@
               4: { alias: "appFeedback", type: i.Type.STRUCT, def: e.exports.AppFeedback, index: 3 }
             }),
             result: i.Struct.define("sendAppFeedbackForDeviceResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getCrossPromotionInfo = i.Method.define({
@@ -8687,26 +8722,26 @@
             args: i.Struct.define("getCrossPromotionInfoArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getCrossPromotionInfoResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.CrossPromotionInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.sendVerificationEmail = i.Method.define({
             alias: "sendVerificationEmail",
             args: i.Struct.define("sendVerificationEmailArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("sendVerificationEmailResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.confirmEmailAddress = i.Method.define({
             alias: "confirmEmailAddress",
             args: i.Struct.define("confirmEmailAddressArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("confirmEmailAddressResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getOAuthCredential = i.Method.define({
@@ -8717,9 +8752,9 @@
             }),
             result: i.Struct.define("getOAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.OAuthCredential },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getOAuthCredentialByEmailAndScope = i.Method.define({
@@ -8732,9 +8767,9 @@
             }),
             result: i.Struct.define("getOAuthCredentialByEmailAndScopeResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.OAuthCredential },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.hasOAuthCredential = i.Method.define({
@@ -8745,8 +8780,8 @@
             }),
             result: i.Struct.define("hasOAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getScopedGoogleOAuthCredential = i.Method.define({
@@ -8757,9 +8792,9 @@
             }),
             result: i.Struct.define("getScopedGoogleOAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.OAuthCredential },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getAllScopedGoogleOAuthCredential = i.Method.define({
@@ -8770,9 +8805,9 @@
             }),
             result: i.Struct.define("getAllScopedGoogleOAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.OAuthCredential) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.hasGoogleOAuthCredential = i.Method.define({
@@ -8783,8 +8818,8 @@
             }),
             result: i.Struct.define("hasGoogleOAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.setOAuthCredential = i.Method.define({
@@ -8795,9 +8830,9 @@
             }),
             result: i.Struct.define("setOAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.OAuthCredential },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.deleteOAuthCredential = i.Method.define({
@@ -8807,9 +8842,9 @@
               2: { alias: "serviceId", type: i.Type.I16, index: 1 }
             }),
             result: i.Struct.define("deleteOAuthCredentialResult", {
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.deleteOAuthCredentialByEmailAndScope = i.Method.define({
@@ -8821,9 +8856,9 @@
               4: { alias: "scope", type: i.Type.STRING, index: 3 }
             }),
             result: i.Struct.define("deleteOAuthCredentialByEmailAndScopeResult", {
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.canNewOauthAccountBeAdded = i.Method.define({
@@ -8831,8 +8866,8 @@
             args: i.Struct.define("canNewOauthAccountBeAddedArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("canNewOauthAccountBeAddedResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.validateAuthenticationTokenStatus = i.Method.define({
@@ -8843,8 +8878,8 @@
             }),
             result: i.Struct.define("validateAuthenticationTokenStatusResult", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getUserCardScanningEndDate = i.Method.define({
@@ -8852,9 +8887,9 @@
             args: i.Struct.define("getUserCardScanningEndDateArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserCardScanningEndDateResult", {
               0: { alias: "returnValue", type: i.Type.I64 },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getPromotionStatus = i.Method.define({
@@ -8865,9 +8900,9 @@
             }),
             result: i.Struct.define("getPromotionStatusResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.PromotionStatus) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.promotionsShown = i.Method.define({
@@ -8878,9 +8913,9 @@
             }),
             result: i.Struct.define("promotionsShownResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.PromotionStatus) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.promotionOptedOut = i.Method.define({
@@ -8890,9 +8925,9 @@
               2: { alias: "promotionId", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("promotionOptedOutResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getRelatedContentSourcePreferences = i.Method.define({
@@ -8902,8 +8937,8 @@
             }),
             result: i.Struct.define("getRelatedContentSourcePreferencesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RelatedContentSourcePreference) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.setRelatedContentSourceActivated = i.Method.define({
@@ -8914,9 +8949,9 @@
               3: { alias: "activated", type: i.Type.BOOL, index: 2 }
             }),
             result: i.Struct.define("setRelatedContentSourceActivatedResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.clearRelatedContentProfiles = i.Method.define({
@@ -8926,8 +8961,8 @@
               2: { alias: "sourceId", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("clearRelatedContentProfilesResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.addRelatedContentProfiles = i.Method.define({
@@ -8937,8 +8972,8 @@
               2: { alias: "profiles", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RelatedContentProfile), index: 1 }
             }),
             result: i.Struct.define("addRelatedContentProfilesResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.updateRelatedContentProfiles = i.Method.define({
@@ -8948,8 +8983,8 @@
               2: { alias: "sourceId", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("updateRelatedContentProfilesResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getRelatedContentProfilePage = i.Method.define({
@@ -8960,8 +8995,8 @@
             }),
             result: i.Struct.define("getRelatedContentProfilePageResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.RelatedContentProfilePage },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.importNotesFromEnex = i.Method.define({
@@ -8975,9 +9010,9 @@
               6: { alias: "importNoteUpdated", type: i.Type.BOOL, index: 5 }
             }),
             result: i.Struct.define("importNotesFromEnexResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.setUserProfilePhoto = i.Method.define({
@@ -8987,18 +9022,18 @@
               2: { alias: "photo", type: i.Type.BINARY, index: 1 }
             }),
             result: i.Struct.define("setUserProfilePhotoResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.removeUserProfilePhoto = i.Method.define({
             alias: "removeUserProfilePhoto",
             args: i.Struct.define("removeUserProfilePhotoArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("removeUserProfilePhotoResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.setUserFullName = i.Method.define({
@@ -9008,9 +9043,9 @@
               2: { alias: "name", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("setUserFullNameResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getMessageInvitation = i.Method.define({
@@ -9018,9 +9053,9 @@
             args: i.Struct.define("getMessageInvitationArgs", { 1: { alias: "messageInvitationId", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getMessageInvitationResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.MessagingInvitation },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.claimMessageInvitation = i.Method.define({
@@ -9030,9 +9065,9 @@
               2: { alias: "messageInvitationId", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("claimMessageInvitationResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.canPurchaseTeamStarterPack = i.Method.define({
@@ -9043,8 +9078,8 @@
             }),
             result: i.Struct.define("canPurchaseTeamStarterPackResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.TeamStarterPackResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getTsdEligibility = i.Method.define({
@@ -9055,9 +9090,9 @@
             }),
             result: i.Struct.define("getTsdEligibilityResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.TierSelectionDisplayEligibilityResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.updatePassword = i.Method.define({
@@ -9068,9 +9103,9 @@
               3: { alias: "newPassword", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("updatePasswordResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getIncentiveEligibility = i.Method.define({
@@ -9078,18 +9113,18 @@
             args: i.Struct.define("getIncentiveEligibilityArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getIncentiveEligibilityResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.IncentiveEligibilityResult },
-              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.invalidateGoogleOauthCredential = i.Method.define({
             alias: "invalidateGoogleOauthCredential",
             args: i.Struct.define("invalidateGoogleOauthCredentialArgs", { 1: { alias: "authToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("invalidateGoogleOauthCredentialResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.invalidateGoogleOauthCredentialByEmailAndScope = i.Method.define({
@@ -9100,9 +9135,9 @@
               3: { alias: "scope", type: i.Type.STRING, index: 2 }
             }),
             result: i.Struct.define("invalidateGoogleOauthCredentialByEmailAndScopeResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.associateOpenIDWithUser = i.Method.define({
@@ -9112,9 +9147,9 @@
               2: { alias: "credential", type: i.Type.STRUCT, def: p.OpenIdCredential, index: 1 }
             }),
             result: i.Struct.define("associateOpenIDWithUserResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.dissociateOpenIDFromUser = i.Method.define({
@@ -9124,9 +9159,9 @@
               2: { alias: "credential", type: i.Type.STRUCT, def: p.OpenIdCredential, index: 1 }
             }),
             result: i.Struct.define("dissociateOpenIDFromUserResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.dissociateAllOpenIDsFromUser = i.Method.define({
@@ -9135,8 +9170,8 @@
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 }
             }),
             result: i.Struct.define("dissociateAllOpenIDsFromUserResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.moveNotebookBetweenAccounts = i.Method.define({
@@ -9147,10 +9182,10 @@
               3: { alias: "parameters", type: i.Type.STRUCT, def: e.exports.MoveNotebookBetweenAccountsParams, index: 2 }
             }),
             result: i.Struct.define("moveNotebookBetweenAccountsResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Notebook },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Notebook },
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.moveNotebooksBetweenAccounts = i.Method.define({
@@ -9162,9 +9197,9 @@
             }),
             result: i.Struct.define("moveNotebooksBetweenAccountsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.MoveNotebooksBetweenAccountsResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.moveNoteBetweenAccounts = i.Method.define({
@@ -9176,9 +9211,9 @@
             }),
             result: i.Struct.define("moveNoteBetweenAccountsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.MoveNoteBetweenAccountsResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.findNotesMetadataForIon = i.Method.define({
@@ -9192,9 +9227,9 @@
             }),
             result: i.Struct.define("findNotesMetadataForIonResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: r.NotesMetadataList },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.findNotesCardMetadata = i.Method.define({
@@ -9208,9 +9243,9 @@
             }),
             result: i.Struct.define("findNotesCardMetadataResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.NoteCardMetadata) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getNotesCardMetadata = i.Method.define({
@@ -9222,8 +9257,8 @@
             }),
             result: i.Struct.define("getNotesCardMetadataResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.NoteCardMetadata) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.createWorkspaceWithResultSpec = i.Method.define({
@@ -9235,8 +9270,8 @@
             }),
             result: i.Struct.define("createWorkspaceWithResultSpecResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.WorkspaceResponse },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.createWorkspace = i.Method.define({
@@ -9247,8 +9282,8 @@
             }),
             result: i.Struct.define("createWorkspaceResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.Workspace },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.copyWorkspace = i.Method.define({
@@ -9259,8 +9294,8 @@
             }),
             result: i.Struct.define("copyWorkspaceResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.WorkspaceResponse },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.listSyncingNotebookGuidsInBusinessAccount = i.Method.define({
@@ -9270,8 +9305,8 @@
             }),
             result: i.Struct.define("listSyncingNotebookGuidsInBusinessAccountResult", {
               0: { alias: "returnValue", type: i.Type.SET, def: i.Set.define(i.Type.STRING) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.getWorkspace = i.Method.define({
@@ -9283,9 +9318,9 @@
             }),
             result: i.Struct.define("getWorkspaceResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.WorkspaceResponse },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getWorkspaceIfUserHasPrivilege = i.Method.define({
@@ -9298,9 +9333,9 @@
             }),
             result: i.Struct.define("getWorkspaceIfUserHasPrivilegeResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.WorkspaceResponse },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.listWorkspaces = i.Method.define({
@@ -9308,8 +9343,8 @@
             args: i.Struct.define("listWorkspacesArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listWorkspacesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, u.Workspace) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.listWorkspacesWithResultSpec = i.Method.define({
@@ -9321,8 +9356,8 @@
             }),
             result: i.Struct.define("listWorkspacesWithResultSpecResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, u.WorkspaceResponse) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException }
             })
           })),
           (y.updateWorkspace = i.Method.define({
@@ -9333,9 +9368,9 @@
             }),
             result: i.Struct.define("updateWorkspaceResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.Workspace },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.moveNotebookToAccount = i.Method.define({
@@ -9345,9 +9380,9 @@
               2: { alias: "notebookGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("moveNotebookToAccountResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.manageWorkspaceSharing = i.Method.define({
@@ -9358,9 +9393,9 @@
             }),
             result: i.Struct.define("manageWorkspaceSharingResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.ManageWorkspaceSharingResponse },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.joinWorkspace = i.Method.define({
@@ -9370,9 +9405,9 @@
               2: { alias: "workspaceGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("joinWorkspaceResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.leaveWorkspace = i.Method.define({
@@ -9382,9 +9417,9 @@
               2: { alias: "workspaceGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("leaveWorkspaceResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.sendSharedNotebookViewedEvent = i.Method.define({
@@ -9394,9 +9429,9 @@
               2: { alias: "notebookGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("sendSharedNotebookViewedEventResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.sendSharedNoteViewedEvent = i.Method.define({
@@ -9406,9 +9441,9 @@
               2: { alias: "noteGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("sendSharedNoteViewedEventResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.sendWorkspaceViewedEvent = i.Method.define({
@@ -9418,9 +9453,9 @@
               2: { alias: "workspaceGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("sendWorkspaceViewedEventResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.sendWorkspaceViewedEventV2 = i.Method.define({
@@ -9431,9 +9466,9 @@
             }),
             result: i.Struct.define("sendWorkspaceViewedEventV2Result", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: u.AccessInfo },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.expungeWorkspace = i.Method.define({
@@ -9443,23 +9478,23 @@
               2: { alias: "workspaceGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("expungeWorkspaceResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.createSurveyNote = i.Method.define({
             alias: "createSurveyNote",
             args: i.Struct.define("createSurveyNoteArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "note", type: i.Type.STRUCT, def: n.Note, index: 1 },
+              2: { alias: "note", type: i.Type.STRUCT, def: a.Note, index: 1 },
               3: { alias: "surveyId", type: i.Type.I32, index: 2 }
             }),
             result: i.Struct.define("createSurveyNoteResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Note },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Note },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.createSurvey = i.Method.define({
@@ -9470,9 +9505,9 @@
             }),
             result: i.Struct.define("createSurveyResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Survey },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.finalizeSurvey = i.Method.define({
@@ -9483,9 +9518,9 @@
             }),
             result: i.Struct.define("finalizeSurveyResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Survey },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.cloneSurvey = i.Method.define({
@@ -9499,9 +9534,9 @@
             }),
             result: i.Struct.define("cloneSurveyResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Survey },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getLastOpenSurveyForEntity = i.Method.define({
@@ -9513,9 +9548,9 @@
             }),
             result: i.Struct.define("getLastOpenSurveyForEntityResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.Survey },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.listSurveysForEntity = i.Method.define({
@@ -9527,9 +9562,9 @@
             }),
             result: i.Struct.define("listSurveysForEntityResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.Survey) },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getSurveyItemForEntity = i.Method.define({
@@ -9542,9 +9577,9 @@
             }),
             result: i.Struct.define("getSurveyItemForEntityResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SurveyItem },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.finalizeEntityForRating = i.Method.define({
@@ -9558,24 +9593,24 @@
             }),
             result: i.Struct.define("finalizeEntityForRatingResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SurveyItem },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.updateAndFinalizeSurveyNote = i.Method.define({
             alias: "updateAndFinalizeSurveyNote",
             args: i.Struct.define("updateAndFinalizeSurveyNoteArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "note", type: i.Type.STRUCT, def: n.Note, index: 1 },
+              2: { alias: "note", type: i.Type.STRUCT, def: a.Note, index: 1 },
               3: { alias: "surveyId", type: i.Type.I32, index: 2 },
               4: { alias: "category", type: i.Type.STRING, index: 3 }
             }),
             result: i.Struct.define("updateAndFinalizeSurveyNoteResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SurveyItem },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.removeSurveyItem = i.Method.define({
@@ -9586,9 +9621,9 @@
               3: { alias: "surveyItemId", type: i.Type.I32, index: 2 }
             }),
             result: i.Struct.define("removeSurveyItemResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.saveSurveyItemRating = i.Method.define({
@@ -9600,9 +9635,9 @@
             }),
             result: i.Struct.define("saveSurveyItemRatingResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SurveyItemRating },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.saveSurveyItemComment = i.Method.define({
@@ -9614,9 +9649,9 @@
             }),
             result: i.Struct.define("saveSurveyItemCommentResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SurveyItemRating },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.addSurveyItemComment = i.Method.define({
@@ -9628,9 +9663,9 @@
             }),
             result: i.Struct.define("addSurveyItemCommentResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.SurveyItemComment },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getConfigValuesAsJSON = i.Method.define({
@@ -9641,8 +9676,8 @@
             }),
             result: i.Struct.define("getConfigValuesAsJSONResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.addAllUsersFromBusinessToSpace = i.Method.define({
@@ -9653,18 +9688,18 @@
             }),
             result: i.Struct.define("addAllUsersFromBusinessToSpaceResult", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.listNotebooksForIonOnly = i.Method.define({
             alias: "listNotebooksForIonOnly",
             args: i.Struct.define("listNotebooksForIonOnlyArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listNotebooksForIonOnlyResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Notebook) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Notebook) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getMaxServiceUpdatedFromNotes = i.Method.define({
@@ -9675,77 +9710,77 @@
             }),
             result: i.Struct.define("getMaxServiceUpdatedFromNotesResult", {
               0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.I64) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.addResource = i.Method.define({
             alias: "addResource",
             args: i.Struct.define("addResourceArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "resource", type: i.Type.STRUCT, def: n.Resource, index: 1 }
+              2: { alias: "resource", type: i.Type.STRUCT, def: a.Resource, index: 1 }
             }),
             result: i.Struct.define("addResourceResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Resource },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Resource },
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.addResourceToNote = i.Method.define({
             alias: "addResourceToNote",
             args: i.Struct.define("addResourceToNoteArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "resource", type: i.Type.STRUCT, def: n.Resource, index: 1 }
+              2: { alias: "resource", type: i.Type.STRUCT, def: a.Resource, index: 1 }
             }),
             result: i.Struct.define("addResourceToNoteResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Note },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Note },
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.updateNoteIfUsnMatches = i.Method.define({
             alias: "updateNoteIfUsnMatches",
             args: i.Struct.define("updateNoteIfUsnMatchesArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "note", type: i.Type.STRUCT, def: n.Note, index: 1 },
+              2: { alias: "note", type: i.Type.STRUCT, def: a.Note, index: 1 },
               3: { alias: "resourcesUpdateRequest", type: i.Type.STRUCT, def: e.exports.ResourcesUpdateRequest, index: 2 }
             }),
             result: i.Struct.define("updateNoteIfUsnMatchesResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: r.UpdateNoteIfUsnMatchesResult },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.createNote = i.Method.define({
             alias: "createNote",
             args: i.Struct.define("createNoteArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "note", type: i.Type.STRUCT, def: n.Note, index: 1 },
+              2: { alias: "note", type: i.Type.STRUCT, def: a.Note, index: 1 },
               3: { alias: "resourcesCreateRequest", type: i.Type.STRUCT, def: e.exports.ResourcesCreateRequest, index: 2 }
             }),
             result: i.Struct.define("createNoteResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Note },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Note },
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.createNoteWithTasks = i.Method.define({
             alias: "createNoteWithTasks",
             args: i.Struct.define("createNoteWithTasksArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "note", type: i.Type.STRUCT, def: n.Note, index: 1 },
-              3: { alias: "tasks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.Task), index: 2 }
+              2: { alias: "note", type: i.Type.STRUCT, def: a.Note, index: 1 },
+              3: { alias: "tasks", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.Task), index: 2 }
             }),
             result: i.Struct.define("createNoteWithTasksResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.Note },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.Note },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.listBetaFeatures = i.Method.define({
@@ -9753,9 +9788,9 @@
             args: i.Struct.define("listBetaFeaturesArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listBetaFeaturesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.BetaFeature) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.listBetaFeatureEnrollments = i.Method.define({
@@ -9763,9 +9798,9 @@
             args: i.Struct.define("listBetaFeatureEnrollmentsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listBetaFeatureEnrollmentsResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.BetaFeatureEnrollment) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.enrollInBetaFeature = i.Method.define({
@@ -9775,9 +9810,9 @@
               2: { alias: "featureKey", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("enrollInBetaFeatureResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.enableBetaFeature = i.Method.define({
@@ -9789,9 +9824,9 @@
               4: { alias: "enabled", type: i.Type.BOOL, index: 3 }
             }),
             result: i.Struct.define("enableBetaFeatureResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.listEnabledFeatures = i.Method.define({
@@ -9799,9 +9834,9 @@
             args: i.Struct.define("listEnabledFeaturesArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("listEnabledFeaturesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRING) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.checkEnabledFeatures = i.Method.define({
@@ -9812,9 +9847,9 @@
             }),
             result: i.Struct.define("checkEnabledFeaturesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.FeatureAvailability) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.checkUserFeatures = i.Method.define({
@@ -9825,9 +9860,9 @@
             }),
             result: i.Struct.define("checkUserFeaturesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.FeatureAvailability) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getNotePermissionsForRTE = i.Method.define({
@@ -9838,9 +9873,9 @@
             }),
             result: i.Struct.define("getNotePermissionsForRTEResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.RealTimeNotePermissionsResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.pinContentToWidget = i.Method.define({
@@ -9853,9 +9888,9 @@
             }),
             result: i.Struct.define("pinContentToWidgetResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.PinnedContent },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.unpinContentFromWidget = i.Method.define({
@@ -9868,9 +9903,9 @@
             }),
             result: i.Struct.define("unpinContentFromWidgetResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.listPinnedContent = i.Method.define({
@@ -9881,9 +9916,9 @@
             }),
             result: i.Struct.define("listPinnedContentResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.PinnedContent) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getWorkspaceNotebookSummary = i.Method.define({
@@ -9894,9 +9929,9 @@
             }),
             result: i.Struct.define("getWorkspaceNotebookSummaryResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.NotebookSummary) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.updateContentOfPinnedWidget = i.Method.define({
@@ -9919,9 +9954,9 @@
             }),
             result: i.Struct.define("updateContentOfPinnedWidgetResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.PinnedContent) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.changePinnedContentPosition = i.Method.define({
@@ -9933,9 +9968,9 @@
             }),
             result: i.Struct.define("changePinnedContentPositionResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.PinnedContent) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.requestAccessToWorkspace = i.Method.define({
@@ -9945,9 +9980,9 @@
               2: { alias: "workspaceGuid", type: i.Type.STRING, index: 1 }
             }),
             result: i.Struct.define("requestAccessToWorkspaceResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.listRecommendedNotes = i.Method.define({
@@ -9960,9 +9995,9 @@
             }),
             result: i.Struct.define("listRecommendedNotesResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RecommendedNoteCardMetadata) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getRecommendedNoteCardMetadata = i.Method.define({
@@ -9973,9 +10008,9 @@
             }),
             result: i.Struct.define("getRecommendedNoteCardMetadataResult", {
               0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, e.exports.RecommendedNoteCardMetadata) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.submitRatingForRecommendedNote = i.Method.define({
@@ -9987,9 +10022,9 @@
               4: { alias: "engine", type: i.Type.STRING, index: 3 }
             }),
             result: i.Struct.define("submitRatingForRecommendedNoteResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getFirebaseAuthCredential = i.Method.define({
@@ -9997,17 +10032,17 @@
             args: i.Struct.define("getFirebaseAuthCredentialArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getFirebaseAuthCredentialResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getUserRestrictions = i.Method.define({
             alias: "getUserRestrictions",
             args: i.Struct.define("getUserRestrictionsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserRestrictionsResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.UserRestrictions },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.UserRestrictions },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getNsvcThirdPartyAuthorizationToken = i.Method.define({
@@ -10017,8 +10052,8 @@
             }),
             result: i.Struct.define("getNsvcThirdPartyAuthorizationTokenResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.NsvcThirdPartyAuthorizationTokenResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getNsvcThirdPartyAuthorizationTokenByType = i.Method.define({
@@ -10029,8 +10064,8 @@
             }),
             result: i.Struct.define("getNsvcThirdPartyAuthorizationTokenByTypeResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.NsvcThirdPartyAuthorizationTokenResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.registerSession = i.Method.define({
@@ -10039,9 +10074,9 @@
               1: { alias: "request", type: i.Type.STRUCT, def: e.exports.RegisterDeviceSessionRequest, index: 0 }
             }),
             result: i.Struct.define("registerSessionResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.hasActiveSessions = i.Method.define({
@@ -10051,9 +10086,9 @@
             }),
             result: i.Struct.define("hasActiveSessionsResult", {
               0: { alias: "returnValue", type: i.Type.BOOL },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.sendOneTimeCode = i.Method.define({
@@ -10066,8 +10101,8 @@
             }),
             result: i.Struct.define("sendOneTimeCodeResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getMasked2FAMobileNumbers = i.Method.define({
@@ -10075,9 +10110,9 @@
             args: i.Struct.define("getMasked2FAMobileNumbersArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getMasked2FAMobileNumbersResult", {
               0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRING) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.mmsvcGetPaywallState = i.Method.define({
@@ -10088,8 +10123,8 @@
             }),
             result: i.Struct.define("mmsvcGetPaywallStateResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.MmsvcResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.mmsvcCreateDeviceSync = i.Method.define({
@@ -10097,8 +10132,8 @@
             args: i.Struct.define("mmsvcCreateDeviceSyncArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("mmsvcCreateDeviceSyncResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.MmsvcResponse },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.revokeSession = i.Method.define({
@@ -10107,18 +10142,18 @@
               1: { alias: "request", type: i.Type.STRUCT, def: e.exports.RevokeSessionRequest, index: 0 }
             }),
             result: i.Struct.define("revokeSessionResult", {
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.authenticateToBusiness = i.Method.define({
             alias: "authenticateToBusiness",
             args: i.Struct.define("authenticateToBusinessArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("authenticateToBusinessResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: d.AuthenticationResult },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: c.AuthenticationResult },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.createSessionAuthenticationToken = i.Method.define({
@@ -10128,56 +10163,56 @@
             }),
             result: i.Struct.define("createSessionAuthenticationTokenResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.getUser = i.Method.define({
             alias: "getUser",
             args: i.Struct.define("getUserArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.User },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.User },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getUserUrls = i.Method.define({
             alias: "getUserUrls",
             args: i.Struct.define("getUserUrlsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserUrlsResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: d.UserUrls },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: c.UserUrls },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getSubscriptionInfo = i.Method.define({
             alias: "getSubscriptionInfo",
             args: i.Struct.define("getSubscriptionInfoArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getSubscriptionInfoResult", {
-              0: { alias: "returnValue", type: i.Type.STRUCT, def: n.SubscriptionInfo },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.STRUCT, def: a.SubscriptionInfo },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.revokeLongSession = i.Method.define({
             alias: "revokeLongSession",
             args: i.Struct.define("revokeLongSessionArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("revokeLongSessionResult", {
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.listBusinessUsers = i.Method.define({
             alias: "listBusinessUsers",
             args: i.Struct.define("listBusinessUsersArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "businessUserFilter", type: i.Type.STRUCT, def: n.BusinessUserFilter, index: 1 }
+              2: { alias: "businessUserFilter", type: i.Type.STRUCT, def: a.BusinessUserFilter, index: 1 }
             }),
             result: i.Struct.define("listBusinessUsersResult", {
-              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, n.UserProfile) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.LIST, def: i.List.define(i.Type.STRUCT, a.UserProfile) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getConnectedIdentities = i.Method.define({
@@ -10187,9 +10222,9 @@
               2: { alias: "identityIds", type: i.Type.LIST, def: i.List.define(i.Type.I64), index: 1 }
             }),
             result: i.Struct.define("getConnectedIdentitiesResult", {
-              0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, n.Identity) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.I64, i.Type.STRUCT, a.Identity) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getIdentitiesByNsyncMemberships = i.Method.define({
@@ -10199,22 +10234,22 @@
               2: { alias: "nsyncMembershipIds", type: i.Type.LIST, def: i.List.define(i.Type.STRING), index: 1 }
             }),
             result: i.Struct.define("getIdentitiesByNsyncMembershipsResult", {
-              0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, n.Identity) },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "edamNoteFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              0: { alias: "returnValue", type: i.Type.MAP, def: i.Map.define(i.Type.STRING, i.Type.STRUCT, a.Identity) },
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "edamNoteFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getNAPAccessJWT = i.Method.define({
             alias: "getNAPAccessJWT",
             args: i.Struct.define("getNAPAccessJWTArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "request", type: i.Type.STRUCT, def: d.GetNAPAccessJWTRequest, index: 1 }
+              2: { alias: "request", type: i.Type.STRUCT, def: c.GetNAPAccessJWTRequest, index: 1 }
             }),
             result: i.Struct.define("getNAPAccessJWTResult", {
               0: { alias: "returnValue", type: i.Type.STRING },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.unpublishNotebook = i.Method.define({
@@ -10226,9 +10261,9 @@
             }),
             result: i.Struct.define("unpublishNotebookResult", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.moveNotebookToAccountV2 = i.Method.define({
@@ -10239,22 +10274,22 @@
             }),
             result: i.Struct.define("moveNotebookToAccountV2Result", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              2: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              2: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.updateNotebook = i.Method.define({
             alias: "updateNotebook",
             args: i.Struct.define("updateNotebookArgs", {
               1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 },
-              2: { alias: "notebook", type: i.Type.STRUCT, def: n.Notebook, index: 1 }
+              2: { alias: "notebook", type: i.Type.STRUCT, def: a.Notebook, index: 1 }
             }),
             result: i.Struct.define("updateNotebookResult", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
           (y.updateNotebookStack = i.Method.define({
@@ -10266,9 +10301,9 @@
             }),
             result: i.Struct.define("updateNotebookStackResult", {
               0: { alias: "returnValue", type: i.Type.I32 },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException },
-              3: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException },
+              3: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException }
             })
           })),
           (y.getUserCustomClaims = i.Method.define({
@@ -10276,752 +10311,752 @@
             args: i.Struct.define("getUserCustomClaimsArgs", { 1: { alias: "authenticationToken", type: i.Type.STRING, index: 0 } }),
             result: i.Struct.define("getUserCustomClaimsResult", {
               0: { alias: "returnValue", type: i.Type.STRUCT, def: e.exports.AuthenticatedUserCustomClaims },
-              1: { alias: "userException", type: i.Type.EXCEPTION, def: a.EDAMUserException },
-              2: { alias: "systemException", type: i.Type.EXCEPTION, def: a.EDAMSystemException },
-              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: a.EDAMNotFoundException }
+              1: { alias: "userException", type: i.Type.EXCEPTION, def: n.EDAMUserException },
+              2: { alias: "systemException", type: i.Type.EXCEPTION, def: n.EDAMSystemException },
+              3: { alias: "notFoundException", type: i.Type.EXCEPTION, def: n.EDAMNotFoundException }
             })
           })),
-          (c.prototype.sendMarketingEmail = function (e, t, s) {
+          (d.prototype.sendMarketingEmail = function (e, t, s) {
             var i = y.sendMarketingEmail,
-              a = new i.args();
-            (a.authenticationToken = e), (a.parameters = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.parameters = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.fileSupportTicket = function (e, t, s) {
+          (d.prototype.fileSupportTicket = function (e, t, s) {
             var i = y.fileSupportTicket,
-              a = new i.args();
-            (a.authenticationToken = e), (a.ticket = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.ticket = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.fileSupportTicketReturnId = function (e, t, s) {
+          (d.prototype.fileSupportTicketReturnId = function (e, t, s) {
             var i = y.fileSupportTicketReturnId,
-              a = new i.args();
-            (a.authenticationToken = e), (a.ticket = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.ticket = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.sendAppFeedback = function (e, t, s) {
+          (d.prototype.sendAppFeedback = function (e, t, s) {
             var i = y.sendAppFeedback,
-              a = new i.args();
-            (a.authenticationToken = e), (a.appFeedback = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.appFeedback = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.sendAppFeedbackForDevice = function (e, t, s, i, a) {
-            var n = y.sendAppFeedbackForDevice,
-              o = new n.args();
+          (d.prototype.sendAppFeedbackForDevice = function (e, t, s, i, n) {
+            var a = y.sendAppFeedbackForDevice,
+              o = new a.args();
             (o.deviceIdentifier = e),
               (o.apiConsumerKey = t),
               (o.apiConsumerSecret = s),
               (o.appFeedback = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.getCrossPromotionInfo = function (e, t) {
+          (d.prototype.getCrossPromotionInfo = function (e, t) {
             var s = y.getCrossPromotionInfo,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.sendVerificationEmail = function (e, t) {
+          (d.prototype.sendVerificationEmail = function (e, t) {
             var s = y.sendVerificationEmail,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.confirmEmailAddress = function (e, t) {
+          (d.prototype.confirmEmailAddress = function (e, t) {
             var s = y.confirmEmailAddress,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getOAuthCredential = function (e, t, s) {
+          (d.prototype.getOAuthCredential = function (e, t, s) {
             var i = y.getOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.serviceId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.serviceId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getOAuthCredentialByEmailAndScope = function (e, t, s, i, a) {
-            var n = y.getOAuthCredentialByEmailAndScope,
-              o = new n.args();
-            (o.authenticationToken = e), (o.serviceId = t), (o.email = s), (o.scope = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (d.prototype.getOAuthCredentialByEmailAndScope = function (e, t, s, i, n) {
+            var a = y.getOAuthCredentialByEmailAndScope,
+              o = new a.args();
+            (o.authenticationToken = e), (o.serviceId = t), (o.email = s), (o.scope = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.hasOAuthCredential = function (e, t, s) {
+          (d.prototype.hasOAuthCredential = function (e, t, s) {
             var i = y.hasOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.serviceId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.serviceId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getScopedGoogleOAuthCredential = function (e, t, s) {
+          (d.prototype.getScopedGoogleOAuthCredential = function (e, t, s) {
             var i = y.getScopedGoogleOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.googleOAuthScope = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.googleOAuthScope = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getAllScopedGoogleOAuthCredential = function (e, t, s) {
+          (d.prototype.getAllScopedGoogleOAuthCredential = function (e, t, s) {
             var i = y.getAllScopedGoogleOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.googleOAuthScope = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.googleOAuthScope = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.hasGoogleOAuthCredential = function (e, t, s) {
+          (d.prototype.hasGoogleOAuthCredential = function (e, t, s) {
             var i = y.hasGoogleOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.googleOAuthScope = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.googleOAuthScope = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.setOAuthCredential = function (e, t, s) {
+          (d.prototype.setOAuthCredential = function (e, t, s) {
             var i = y.setOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.oAuthCredential = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.oAuthCredential = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.deleteOAuthCredential = function (e, t, s) {
+          (d.prototype.deleteOAuthCredential = function (e, t, s) {
             var i = y.deleteOAuthCredential,
-              a = new i.args();
-            (a.authenticationToken = e), (a.serviceId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.serviceId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.deleteOAuthCredentialByEmailAndScope = function (e, t, s, i, a) {
-            var n = y.deleteOAuthCredentialByEmailAndScope,
-              o = new n.args();
-            (o.authenticationToken = e), (o.serviceId = t), (o.email = s), (o.scope = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (d.prototype.deleteOAuthCredentialByEmailAndScope = function (e, t, s, i, n) {
+            var a = y.deleteOAuthCredentialByEmailAndScope,
+              o = new a.args();
+            (o.authenticationToken = e), (o.serviceId = t), (o.email = s), (o.scope = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.canNewOauthAccountBeAdded = function (e, t) {
+          (d.prototype.canNewOauthAccountBeAdded = function (e, t) {
             var s = y.canNewOauthAccountBeAdded,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.validateAuthenticationTokenStatus = function (e, t, s) {
+          (d.prototype.validateAuthenticationTokenStatus = function (e, t, s) {
             var i = y.validateAuthenticationTokenStatus,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tokens = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tokens = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getUserCardScanningEndDate = function (e, t) {
+          (d.prototype.getUserCardScanningEndDate = function (e, t) {
             var s = y.getUserCardScanningEndDate,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getPromotionStatus = function (e, t, s) {
+          (d.prototype.getPromotionStatus = function (e, t, s) {
             var i = y.getPromotionStatus,
-              a = new i.args();
-            (a.authenticationToken = e), (a.promotionIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.promotionIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.promotionsShown = function (e, t, s) {
+          (d.prototype.promotionsShown = function (e, t, s) {
             var i = y.promotionsShown,
-              a = new i.args();
-            (a.authenticationToken = e), (a.promotionIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.promotionIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.promotionOptedOut = function (e, t, s) {
+          (d.prototype.promotionOptedOut = function (e, t, s) {
             var i = y.promotionOptedOut,
-              a = new i.args();
-            (a.authenticationToken = e), (a.promotionId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.promotionId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getRelatedContentSourcePreferences = function (e, t) {
+          (d.prototype.getRelatedContentSourcePreferences = function (e, t) {
             var s = y.getRelatedContentSourcePreferences,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.setRelatedContentSourceActivated = function (e, t, s, i) {
-            var a = y.setRelatedContentSourceActivated,
-              n = new a.args();
-            (n.authenticationToken = e), (n.sourceId = t), (n.activated = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.setRelatedContentSourceActivated = function (e, t, s, i) {
+            var n = y.setRelatedContentSourceActivated,
+              a = new n.args();
+            (a.authenticationToken = e), (a.sourceId = t), (a.activated = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.clearRelatedContentProfiles = function (e, t, s) {
+          (d.prototype.clearRelatedContentProfiles = function (e, t, s) {
             var i = y.clearRelatedContentProfiles,
-              a = new i.args();
-            (a.authenticationToken = e), (a.sourceId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.sourceId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.addRelatedContentProfiles = function (e, t, s) {
+          (d.prototype.addRelatedContentProfiles = function (e, t, s) {
             var i = y.addRelatedContentProfiles,
-              a = new i.args();
-            (a.authenticationToken = e), (a.profiles = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.profiles = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.updateRelatedContentProfiles = function (e, t, s) {
+          (d.prototype.updateRelatedContentProfiles = function (e, t, s) {
             var i = y.updateRelatedContentProfiles,
-              a = new i.args();
-            (a.authenticationToken = e), (a.sourceId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.sourceId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getRelatedContentProfilePage = function (e, t, s) {
+          (d.prototype.getRelatedContentProfilePage = function (e, t, s) {
             var i = y.getRelatedContentProfilePage,
-              a = new i.args();
-            (a.authenticationToken = e), (a.profileId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.profileId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.importNotesFromEnex = function (e, t, s, i, a, n, o) {
+          (d.prototype.importNotesFromEnex = function (e, t, s, i, n, a, o) {
             var r = y.importNotesFromEnex,
               p = new r.args();
             (p.authenticationToken = e),
               (p.enexUrl = t),
               (p.notebookGuid = s),
               (p.importNoteTags = i),
-              (p.importNoteCreated = a),
-              (p.importNoteUpdated = n),
+              (p.importNoteCreated = n),
+              (p.importNoteUpdated = a),
               r.sendRequest(this.output, this.seqid++, p, o);
           }),
-          (c.prototype.setUserProfilePhoto = function (e, t, s) {
+          (d.prototype.setUserProfilePhoto = function (e, t, s) {
             var i = y.setUserProfilePhoto,
-              a = new i.args();
-            (a.authenticationToken = e), (a.photo = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.photo = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.removeUserProfilePhoto = function (e, t) {
+          (d.prototype.removeUserProfilePhoto = function (e, t) {
             var s = y.removeUserProfilePhoto,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.setUserFullName = function (e, t, s) {
+          (d.prototype.setUserFullName = function (e, t, s) {
             var i = y.setUserFullName,
-              a = new i.args();
-            (a.authenticationToken = e), (a.name = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.name = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getMessageInvitation = function (e, t) {
+          (d.prototype.getMessageInvitation = function (e, t) {
             var s = y.getMessageInvitation,
               i = new s.args();
             (i.messageInvitationId = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.claimMessageInvitation = function (e, t, s) {
+          (d.prototype.claimMessageInvitation = function (e, t, s) {
             var i = y.claimMessageInvitation,
-              a = new i.args();
-            (a.authenticationToken = e), (a.messageInvitationId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.messageInvitationId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.canPurchaseTeamStarterPack = function (e, t, s) {
+          (d.prototype.canPurchaseTeamStarterPack = function (e, t, s) {
             var i = y.canPurchaseTeamStarterPack,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getTsdEligibility = function (e, t, s) {
+          (d.prototype.getTsdEligibility = function (e, t, s) {
             var i = y.getTsdEligibility,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.updatePassword = function (e, t, s, i) {
-            var a = y.updatePassword,
-              n = new a.args();
-            (n.authenticationToken = e), (n.oldPassword = t), (n.newPassword = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.updatePassword = function (e, t, s, i) {
+            var n = y.updatePassword,
+              a = new n.args();
+            (a.authenticationToken = e), (a.oldPassword = t), (a.newPassword = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.getIncentiveEligibility = function (e, t) {
+          (d.prototype.getIncentiveEligibility = function (e, t) {
             var s = y.getIncentiveEligibility,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.invalidateGoogleOauthCredential = function (e, t) {
+          (d.prototype.invalidateGoogleOauthCredential = function (e, t) {
             var s = y.invalidateGoogleOauthCredential,
               i = new s.args();
             (i.authToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.invalidateGoogleOauthCredentialByEmailAndScope = function (e, t, s, i) {
-            var a = y.invalidateGoogleOauthCredentialByEmailAndScope,
-              n = new a.args();
-            (n.authToken = e), (n.email = t), (n.scope = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.invalidateGoogleOauthCredentialByEmailAndScope = function (e, t, s, i) {
+            var n = y.invalidateGoogleOauthCredentialByEmailAndScope,
+              a = new n.args();
+            (a.authToken = e), (a.email = t), (a.scope = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.associateOpenIDWithUser = function (e, t, s) {
+          (d.prototype.associateOpenIDWithUser = function (e, t, s) {
             var i = y.associateOpenIDWithUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.credential = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.credential = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.dissociateOpenIDFromUser = function (e, t, s) {
+          (d.prototype.dissociateOpenIDFromUser = function (e, t, s) {
             var i = y.dissociateOpenIDFromUser,
-              a = new i.args();
-            (a.authenticationToken = e), (a.credential = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.credential = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.dissociateAllOpenIDsFromUser = function (e, t) {
+          (d.prototype.dissociateAllOpenIDsFromUser = function (e, t) {
             var s = y.dissociateAllOpenIDsFromUser,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.moveNotebookBetweenAccounts = function (e, t, s, i) {
-            var a = y.moveNotebookBetweenAccounts,
-              n = new a.args();
-            (n.sourceAuthenticationToken = e),
-              (n.targetAuthenticationToken = t),
-              (n.parameters = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.moveNotebookBetweenAccounts = function (e, t, s, i) {
+            var n = y.moveNotebookBetweenAccounts,
+              a = new n.args();
+            (a.sourceAuthenticationToken = e),
+              (a.targetAuthenticationToken = t),
+              (a.parameters = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.moveNotebooksBetweenAccounts = function (e, t, s, i) {
-            var a = y.moveNotebooksBetweenAccounts,
-              n = new a.args();
-            (n.sourceAuthenticationToken = e),
-              (n.targetAuthenticationToken = t),
-              (n.parameters = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.moveNotebooksBetweenAccounts = function (e, t, s, i) {
+            var n = y.moveNotebooksBetweenAccounts,
+              a = new n.args();
+            (a.sourceAuthenticationToken = e),
+              (a.targetAuthenticationToken = t),
+              (a.parameters = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.moveNoteBetweenAccounts = function (e, t, s, i) {
-            var a = y.moveNoteBetweenAccounts,
-              n = new a.args();
-            (n.sourceAuthenticationToken = e),
-              (n.targetAuthenticationToken = t),
-              (n.parameters = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.moveNoteBetweenAccounts = function (e, t, s, i) {
+            var n = y.moveNoteBetweenAccounts,
+              a = new n.args();
+            (a.sourceAuthenticationToken = e),
+              (a.targetAuthenticationToken = t),
+              (a.parameters = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.findNotesMetadataForIon = function (e, t, s, i, a, n) {
+          (d.prototype.findNotesMetadataForIon = function (e, t, s, i, n, a) {
             var o = y.findNotesMetadataForIon,
               r = new o.args();
             (r.authenticationToken = e),
               (r.filter = t),
               (r.offset = s),
               (r.maxNotes = i),
-              (r.resultSpec = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.resultSpec = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
-          (c.prototype.findNotesCardMetadata = function (e, t, s, i, a, n) {
+          (d.prototype.findNotesCardMetadata = function (e, t, s, i, n, a) {
             var o = y.findNotesCardMetadata,
               r = new o.args();
             (r.authenticationToken = e),
               (r.filter = t),
               (r.offset = s),
               (r.maxNotes = i),
-              (r.resultSpec = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.resultSpec = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
-          (c.prototype.getNotesCardMetadata = function (e, t, s, i) {
-            var a = y.getNotesCardMetadata,
-              n = new a.args();
-            (n.authenticationToken = e), (n.noteGuids = t), (n.resultSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.getNotesCardMetadata = function (e, t, s, i) {
+            var n = y.getNotesCardMetadata,
+              a = new n.args();
+            (a.authenticationToken = e), (a.noteGuids = t), (a.resultSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.createWorkspaceWithResultSpec = function (e, t, s, i) {
-            var a = y.createWorkspaceWithResultSpec,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspace = t), (n.spec = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.createWorkspaceWithResultSpec = function (e, t, s, i) {
+            var n = y.createWorkspaceWithResultSpec,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspace = t), (a.spec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.createWorkspace = function (e, t, s) {
+          (d.prototype.createWorkspace = function (e, t, s) {
             var i = y.createWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspace = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspace = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.copyWorkspace = function (e, t, s) {
+          (d.prototype.copyWorkspace = function (e, t, s) {
             var i = y.copyWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.spec = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.spec = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.listSyncingNotebookGuidsInBusinessAccount = function (e, t) {
+          (d.prototype.listSyncingNotebookGuidsInBusinessAccount = function (e, t) {
             var s = y.listSyncingNotebookGuidsInBusinessAccount,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getWorkspace = function (e, t, s, i) {
-            var a = y.getWorkspace,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceGuid = t), (n.responseSpec = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.getWorkspace = function (e, t, s, i) {
+            var n = y.getWorkspace,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceGuid = t), (a.responseSpec = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.getWorkspaceIfUserHasPrivilege = function (e, t, s, i, a) {
-            var n = y.getWorkspaceIfUserHasPrivilege,
-              o = new n.args();
+          (d.prototype.getWorkspaceIfUserHasPrivilege = function (e, t, s, i, n) {
+            var a = y.getWorkspaceIfUserHasPrivilege,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.workspaceGuid = t),
               (o.responseSpec = s),
               (o.privilegeLevel = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.listWorkspaces = function (e, t) {
+          (d.prototype.listWorkspaces = function (e, t) {
             var s = y.listWorkspaces,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.listWorkspacesWithResultSpec = function (e, t, s, i) {
-            var a = y.listWorkspacesWithResultSpec,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceResponseSpec = t), (n.filter = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.listWorkspacesWithResultSpec = function (e, t, s, i) {
+            var n = y.listWorkspacesWithResultSpec,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceResponseSpec = t), (a.filter = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.updateWorkspace = function (e, t, s) {
+          (d.prototype.updateWorkspace = function (e, t, s) {
             var i = y.updateWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspace = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspace = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.moveNotebookToAccount = function (e, t, s) {
+          (d.prototype.moveNotebookToAccount = function (e, t, s) {
             var i = y.moveNotebookToAccount,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.manageWorkspaceSharing = function (e, t, s) {
+          (d.prototype.manageWorkspaceSharing = function (e, t, s) {
             var i = y.manageWorkspaceSharing,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.joinWorkspace = function (e, t, s) {
+          (d.prototype.joinWorkspace = function (e, t, s) {
             var i = y.joinWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.leaveWorkspace = function (e, t, s) {
+          (d.prototype.leaveWorkspace = function (e, t, s) {
             var i = y.leaveWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.sendSharedNotebookViewedEvent = function (e, t, s) {
+          (d.prototype.sendSharedNotebookViewedEvent = function (e, t, s) {
             var i = y.sendSharedNotebookViewedEvent,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.sendSharedNoteViewedEvent = function (e, t, s) {
+          (d.prototype.sendSharedNoteViewedEvent = function (e, t, s) {
             var i = y.sendSharedNoteViewedEvent,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.sendWorkspaceViewedEvent = function (e, t, s) {
+          (d.prototype.sendWorkspaceViewedEvent = function (e, t, s) {
             var i = y.sendWorkspaceViewedEvent,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.sendWorkspaceViewedEventV2 = function (e, t, s) {
+          (d.prototype.sendWorkspaceViewedEventV2 = function (e, t, s) {
             var i = y.sendWorkspaceViewedEventV2,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.expungeWorkspace = function (e, t, s) {
+          (d.prototype.expungeWorkspace = function (e, t, s) {
             var i = y.expungeWorkspace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.createSurveyNote = function (e, t, s, i) {
-            var a = y.createSurveyNote,
-              n = new a.args();
-            (n.authenticationToken = e), (n.note = t), (n.surveyId = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.createSurveyNote = function (e, t, s, i) {
+            var n = y.createSurveyNote,
+              a = new n.args();
+            (a.authenticationToken = e), (a.note = t), (a.surveyId = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.createSurvey = function (e, t, s) {
+          (d.prototype.createSurvey = function (e, t, s) {
             var i = y.createSurvey,
-              a = new i.args();
-            (a.authenticationToken = e), (a.survey = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.survey = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.finalizeSurvey = function (e, t, s) {
+          (d.prototype.finalizeSurvey = function (e, t, s) {
             var i = y.finalizeSurvey,
-              a = new i.args();
-            (a.authenticationToken = e), (a.surveyId = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.surveyId = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.cloneSurvey = function (e, t, s, i, a, n) {
+          (d.prototype.cloneSurvey = function (e, t, s, i, n, a) {
             var o = y.cloneSurvey,
               r = new o.args();
             (r.authenticationToken = e),
               (r.surveyId = t),
               (r.surveyName = s),
               (r.copyRatings = i),
-              (r.copyComments = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.copyComments = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
-          (c.prototype.getLastOpenSurveyForEntity = function (e, t, s, i) {
-            var a = y.getLastOpenSurveyForEntity,
-              n = new a.args();
-            (n.authenticationToken = e), (n.entityType = t), (n.entityGuid = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.getLastOpenSurveyForEntity = function (e, t, s, i) {
+            var n = y.getLastOpenSurveyForEntity,
+              a = new n.args();
+            (a.authenticationToken = e), (a.entityType = t), (a.entityGuid = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.listSurveysForEntity = function (e, t, s, i) {
-            var a = y.listSurveysForEntity,
-              n = new a.args();
-            (n.authenticationToken = e), (n.entityType = t), (n.entityGuid = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.listSurveysForEntity = function (e, t, s, i) {
+            var n = y.listSurveysForEntity,
+              a = new n.args();
+            (a.authenticationToken = e), (a.entityType = t), (a.entityGuid = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.getSurveyItemForEntity = function (e, t, s, i, a) {
-            var n = y.getSurveyItemForEntity,
-              o = new n.args();
+          (d.prototype.getSurveyItemForEntity = function (e, t, s, i, n) {
+            var a = y.getSurveyItemForEntity,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.entityType = t),
               (o.entityGuid = s),
               (o.surveyId = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.finalizeEntityForRating = function (e, t, s, i, a, n) {
+          (d.prototype.finalizeEntityForRating = function (e, t, s, i, n, a) {
             var o = y.finalizeEntityForRating,
               r = new o.args();
             (r.authenticationToken = e),
               (r.surveyId = t),
               (r.entityType = s),
               (r.entityGuid = i),
-              (r.category = a),
-              o.sendRequest(this.output, this.seqid++, r, n);
+              (r.category = n),
+              o.sendRequest(this.output, this.seqid++, r, a);
           }),
-          (c.prototype.updateAndFinalizeSurveyNote = function (e, t, s, i, a) {
-            var n = y.updateAndFinalizeSurveyNote,
-              o = new n.args();
-            (o.authenticationToken = e), (o.note = t), (o.surveyId = s), (o.category = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (d.prototype.updateAndFinalizeSurveyNote = function (e, t, s, i, n) {
+            var a = y.updateAndFinalizeSurveyNote,
+              o = new a.args();
+            (o.authenticationToken = e), (o.note = t), (o.surveyId = s), (o.category = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.removeSurveyItem = function (e, t, s, i) {
-            var a = y.removeSurveyItem,
-              n = new a.args();
-            (n.authenticationToken = e), (n.surveyId = t), (n.surveyItemId = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.removeSurveyItem = function (e, t, s, i) {
+            var n = y.removeSurveyItem,
+              a = new n.args();
+            (a.authenticationToken = e), (a.surveyId = t), (a.surveyItemId = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.saveSurveyItemRating = function (e, t, s, i) {
-            var a = y.saveSurveyItemRating,
-              n = new a.args();
-            (n.authenticationToken = e), (n.surveyItemId = t), (n.rating = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.saveSurveyItemRating = function (e, t, s, i) {
+            var n = y.saveSurveyItemRating,
+              a = new n.args();
+            (a.authenticationToken = e), (a.surveyItemId = t), (a.rating = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.saveSurveyItemComment = function (e, t, s, i) {
-            var a = y.saveSurveyItemComment,
-              n = new a.args();
-            (n.authenticationToken = e), (n.surveyItemId = t), (n.comment = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.saveSurveyItemComment = function (e, t, s, i) {
+            var n = y.saveSurveyItemComment,
+              a = new n.args();
+            (a.authenticationToken = e), (a.surveyItemId = t), (a.comment = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.addSurveyItemComment = function (e, t, s, i) {
-            var a = y.addSurveyItemComment,
-              n = new a.args();
-            (n.authenticationToken = e), (n.surveyItemId = t), (n.comment = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.addSurveyItemComment = function (e, t, s, i) {
+            var n = y.addSurveyItemComment,
+              a = new n.args();
+            (a.authenticationToken = e), (a.surveyItemId = t), (a.comment = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.getConfigValuesAsJSON = function (e, t, s) {
+          (d.prototype.getConfigValuesAsJSON = function (e, t, s) {
             var i = y.getConfigValuesAsJSON,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.addAllUsersFromBusinessToSpace = function (e, t, s) {
+          (d.prototype.addAllUsersFromBusinessToSpace = function (e, t, s) {
             var i = y.addAllUsersFromBusinessToSpace,
-              a = new i.args();
-            (a.authenticationToken = e), (a.spaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.spaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.listNotebooksForIonOnly = function (e, t) {
+          (d.prototype.listNotebooksForIonOnly = function (e, t) {
             var s = y.listNotebooksForIonOnly,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getMaxServiceUpdatedFromNotes = function (e, t, s) {
+          (d.prototype.getMaxServiceUpdatedFromNotes = function (e, t, s) {
             var i = y.getMaxServiceUpdatedFromNotes,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuids = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuids = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.addResource = function (e, t, s) {
+          (d.prototype.addResource = function (e, t, s) {
             var i = y.addResource,
-              a = new i.args();
-            (a.authenticationToken = e), (a.resource = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.resource = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.addResourceToNote = function (e, t, s) {
+          (d.prototype.addResourceToNote = function (e, t, s) {
             var i = y.addResourceToNote,
-              a = new i.args();
-            (a.authenticationToken = e), (a.resource = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.resource = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.updateNoteIfUsnMatches = function (e, t, s, i) {
-            var a = y.updateNoteIfUsnMatches,
-              n = new a.args();
-            (n.authenticationToken = e), (n.note = t), (n.resourcesUpdateRequest = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.updateNoteIfUsnMatches = function (e, t, s, i) {
+            var n = y.updateNoteIfUsnMatches,
+              a = new n.args();
+            (a.authenticationToken = e), (a.note = t), (a.resourcesUpdateRequest = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.createNote = function (e, t, s, i) {
-            var a = y.createNote,
-              n = new a.args();
-            (n.authenticationToken = e), (n.note = t), (n.resourcesCreateRequest = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.createNote = function (e, t, s, i) {
+            var n = y.createNote,
+              a = new n.args();
+            (a.authenticationToken = e), (a.note = t), (a.resourcesCreateRequest = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.createNoteWithTasks = function (e, t, s, i) {
-            var a = y.createNoteWithTasks,
-              n = new a.args();
-            (n.authenticationToken = e), (n.note = t), (n.tasks = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.createNoteWithTasks = function (e, t, s, i) {
+            var n = y.createNoteWithTasks,
+              a = new n.args();
+            (a.authenticationToken = e), (a.note = t), (a.tasks = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.listBetaFeatures = function (e, t) {
+          (d.prototype.listBetaFeatures = function (e, t) {
             var s = y.listBetaFeatures,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.listBetaFeatureEnrollments = function (e, t) {
+          (d.prototype.listBetaFeatureEnrollments = function (e, t) {
             var s = y.listBetaFeatureEnrollments,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.enrollInBetaFeature = function (e, t, s) {
+          (d.prototype.enrollInBetaFeature = function (e, t, s) {
             var i = y.enrollInBetaFeature,
-              a = new i.args();
-            (a.authenticationToken = e), (a.featureKey = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.featureKey = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.enableBetaFeature = function (e, t, s, i, a) {
-            var n = y.enableBetaFeature,
-              o = new n.args();
+          (d.prototype.enableBetaFeature = function (e, t, s, i, n) {
+            var a = y.enableBetaFeature,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.featureKey = t),
               (o.enrollmentGuid = s),
               (o.enabled = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.listEnabledFeatures = function (e, t) {
+          (d.prototype.listEnabledFeatures = function (e, t) {
             var s = y.listEnabledFeatures,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.checkEnabledFeatures = function (e, t, s) {
+          (d.prototype.checkEnabledFeatures = function (e, t, s) {
             var i = y.checkEnabledFeatures,
-              a = new i.args();
-            (a.authenticationToken = e), (a.featureKeysToCheck = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.featureKeysToCheck = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.checkUserFeatures = function (e, t, s) {
+          (d.prototype.checkUserFeatures = function (e, t, s) {
             var i = y.checkUserFeatures,
-              a = new i.args();
-            (a.authenticationToken = e), (a.featureKeysToCheck = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.featureKeysToCheck = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getNotePermissionsForRTE = function (e, t, s) {
+          (d.prototype.getNotePermissionsForRTE = function (e, t, s) {
             var i = y.getNotePermissionsForRTE,
-              a = new i.args();
-            (a.authenticationToken = e), (a.noteGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.noteGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.pinContentToWidget = function (e, t, s, i, a) {
-            var n = y.pinContentToWidget,
-              o = new n.args();
+          (d.prototype.pinContentToWidget = function (e, t, s, i, n) {
+            var a = y.pinContentToWidget,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.workspaceGuid = t),
               (o.entityType = s),
               (o.entityGuidOrUri = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.unpinContentFromWidget = function (e, t, s, i, a) {
-            var n = y.unpinContentFromWidget,
-              o = new n.args();
+          (d.prototype.unpinContentFromWidget = function (e, t, s, i, n) {
+            var a = y.unpinContentFromWidget,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.workspaceGuid = t),
               (o.entityType = s),
               (o.entityGuidOrUri = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.listPinnedContent = function (e, t, s) {
+          (d.prototype.listPinnedContent = function (e, t, s) {
             var i = y.listPinnedContent,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getWorkspaceNotebookSummary = function (e, t, s) {
+          (d.prototype.getWorkspaceNotebookSummary = function (e, t, s) {
             var i = y.getWorkspaceNotebookSummary,
-              a = new i.args();
-            (a.authenticationToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.updateContentOfPinnedWidget = function (e, t, s, i, a) {
-            var n = y.updateContentOfPinnedWidget,
-              o = new n.args();
+          (d.prototype.updateContentOfPinnedWidget = function (e, t, s, i, n) {
+            var a = y.updateContentOfPinnedWidget,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.workspaceGuid = t),
               (o.toBePinnedContentList = s),
               (o.toBeUnpinnedContentList = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.changePinnedContentPosition = function (e, t, s, i) {
-            var a = y.changePinnedContentPosition,
-              n = new a.args();
-            (n.authenticationToken = e), (n.workspaceGuid = t), (n.request = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.changePinnedContentPosition = function (e, t, s, i) {
+            var n = y.changePinnedContentPosition,
+              a = new n.args();
+            (a.authenticationToken = e), (a.workspaceGuid = t), (a.request = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.requestAccessToWorkspace = function (e, t, s) {
+          (d.prototype.requestAccessToWorkspace = function (e, t, s) {
             var i = y.requestAccessToWorkspace,
-              a = new i.args();
-            (a.authToken = e), (a.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authToken = e), (n.workspaceGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.listRecommendedNotes = function (e, t, s, i, a) {
-            var n = y.listRecommendedNotes,
-              o = new n.args();
-            (o.authenticationToken = e), (o.request = t), (o.offset = s), (o.maxNotes = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (d.prototype.listRecommendedNotes = function (e, t, s, i, n) {
+            var a = y.listRecommendedNotes,
+              o = new a.args();
+            (o.authenticationToken = e), (o.request = t), (o.offset = s), (o.maxNotes = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.getRecommendedNoteCardMetadata = function (e, t, s) {
+          (d.prototype.getRecommendedNoteCardMetadata = function (e, t, s) {
             var i = y.getRecommendedNoteCardMetadata,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.submitRatingForRecommendedNote = function (e, t, s, i, a) {
-            var n = y.submitRatingForRecommendedNote,
-              o = new n.args();
-            (o.authenticationToken = e), (o.noteGuid = t), (o.rating = s), (o.engine = i), n.sendRequest(this.output, this.seqid++, o, a);
+          (d.prototype.submitRatingForRecommendedNote = function (e, t, s, i, n) {
+            var a = y.submitRatingForRecommendedNote,
+              o = new a.args();
+            (o.authenticationToken = e), (o.noteGuid = t), (o.rating = s), (o.engine = i), a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.getFirebaseAuthCredential = function (e, t) {
+          (d.prototype.getFirebaseAuthCredential = function (e, t) {
             var s = y.getFirebaseAuthCredential,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getUserRestrictions = function (e, t) {
+          (d.prototype.getUserRestrictions = function (e, t) {
             var s = y.getUserRestrictions,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getNsvcThirdPartyAuthorizationToken = function (e, t) {
+          (d.prototype.getNsvcThirdPartyAuthorizationToken = function (e, t) {
             var s = y.getNsvcThirdPartyAuthorizationToken,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getNsvcThirdPartyAuthorizationTokenByType = function (e, t, s) {
+          (d.prototype.getNsvcThirdPartyAuthorizationTokenByType = function (e, t, s) {
             var i = y.getNsvcThirdPartyAuthorizationTokenByType,
-              a = new i.args();
-            (a.authenticationToken = e), (a.tokenType = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.tokenType = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.registerSession = function (e, t) {
+          (d.prototype.registerSession = function (e, t) {
             var s = y.registerSession,
               i = new s.args();
             (i.request = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.hasActiveSessions = function (e, t) {
+          (d.prototype.hasActiveSessions = function (e, t) {
             var s = y.hasActiveSessions,
               i = new s.args();
             (i.request = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.sendOneTimeCode = function (e, t, s, i, a) {
-            var n = y.sendOneTimeCode,
-              o = new n.args();
+          (d.prototype.sendOneTimeCode = function (e, t, s, i, n) {
+            var a = y.sendOneTimeCode,
+              o = new a.args();
             (o.authenticationToken = e),
               (o.sendToBackupPhone = t),
               (o.messageTemplate = s),
               (o.useVoice = i),
-              n.sendRequest(this.output, this.seqid++, o, a);
+              a.sendRequest(this.output, this.seqid++, o, n);
           }),
-          (c.prototype.getMasked2FAMobileNumbers = function (e, t) {
+          (d.prototype.getMasked2FAMobileNumbers = function (e, t) {
             var s = y.getMasked2FAMobileNumbers,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.mmsvcGetPaywallState = function (e, t, s) {
+          (d.prototype.mmsvcGetPaywallState = function (e, t, s) {
             var i = y.mmsvcGetPaywallState,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.mmsvcCreateDeviceSync = function (e, t) {
+          (d.prototype.mmsvcCreateDeviceSync = function (e, t) {
             var s = y.mmsvcCreateDeviceSync,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.revokeSession = function (e, t) {
+          (d.prototype.revokeSession = function (e, t) {
             var s = y.revokeSession,
               i = new s.args();
             (i.request = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.authenticateToBusiness = function (e, t) {
+          (d.prototype.authenticateToBusiness = function (e, t) {
             var s = y.authenticateToBusiness,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.createSessionAuthenticationToken = function (e, t) {
+          (d.prototype.createSessionAuthenticationToken = function (e, t) {
             var s = y.createSessionAuthenticationToken,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getUser = function (e, t) {
+          (d.prototype.getUser = function (e, t) {
             var s = y.getUser,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getUserUrls = function (e, t) {
+          (d.prototype.getUserUrls = function (e, t) {
             var s = y.getUserUrls,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.getSubscriptionInfo = function (e, t) {
+          (d.prototype.getSubscriptionInfo = function (e, t) {
             var s = y.getSubscriptionInfo,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.revokeLongSession = function (e, t) {
+          (d.prototype.revokeLongSession = function (e, t) {
             var s = y.revokeLongSession,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (c.prototype.listBusinessUsers = function (e, t, s) {
+          (d.prototype.listBusinessUsers = function (e, t, s) {
             var i = y.listBusinessUsers,
-              a = new i.args();
-            (a.authenticationToken = e), (a.businessUserFilter = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.businessUserFilter = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getConnectedIdentities = function (e, t, s) {
+          (d.prototype.getConnectedIdentities = function (e, t, s) {
             var i = y.getConnectedIdentities,
-              a = new i.args();
-            (a.authenticationToken = e), (a.identityIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.identityIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getIdentitiesByNsyncMemberships = function (e, t, s) {
+          (d.prototype.getIdentitiesByNsyncMemberships = function (e, t, s) {
             var i = y.getIdentitiesByNsyncMemberships,
-              a = new i.args();
-            (a.authenticationToken = e), (a.nsyncMembershipIds = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.nsyncMembershipIds = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.getNAPAccessJWT = function (e, t, s) {
+          (d.prototype.getNAPAccessJWT = function (e, t, s) {
             var i = y.getNAPAccessJWT,
-              a = new i.args();
-            (a.authenticationToken = e), (a.request = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.request = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.unpublishNotebook = function (e, t, s, i) {
-            var a = y.unpublishNotebook,
-              n = new a.args();
-            (n.authenticationToken = e),
-              (n.notebookGuid = t),
-              (n.convertGroupSharesToIndividual = s),
-              a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.unpublishNotebook = function (e, t, s, i) {
+            var n = y.unpublishNotebook,
+              a = new n.args();
+            (a.authenticationToken = e),
+              (a.notebookGuid = t),
+              (a.convertGroupSharesToIndividual = s),
+              n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.moveNotebookToAccountV2 = function (e, t, s) {
+          (d.prototype.moveNotebookToAccountV2 = function (e, t, s) {
             var i = y.moveNotebookToAccountV2,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebookGuid = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebookGuid = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.updateNotebook = function (e, t, s) {
+          (d.prototype.updateNotebook = function (e, t, s) {
             var i = y.updateNotebook,
-              a = new i.args();
-            (a.authenticationToken = e), (a.notebook = t), i.sendRequest(this.output, this.seqid++, a, s);
+              n = new i.args();
+            (n.authenticationToken = e), (n.notebook = t), i.sendRequest(this.output, this.seqid++, n, s);
           }),
-          (c.prototype.updateNotebookStack = function (e, t, s, i) {
-            var a = y.updateNotebookStack,
-              n = new a.args();
-            (n.authenticationToken = e), (n.notebookGuid = t), (n.stack = s), a.sendRequest(this.output, this.seqid++, n, i);
+          (d.prototype.updateNotebookStack = function (e, t, s, i) {
+            var n = y.updateNotebookStack,
+              a = new n.args();
+            (a.authenticationToken = e), (a.notebookGuid = t), (a.stack = s), n.sendRequest(this.output, this.seqid++, a, i);
           }),
-          (c.prototype.getUserCustomClaims = function (e, t) {
+          (d.prototype.getUserCustomClaims = function (e, t) {
             var s = y.getUserCustomClaims,
               i = new s.args();
             (i.authenticationToken = e), s.sendRequest(this.output, this.seqid++, i, t);
           }),
-          (e.exports.Utility.Client = c),
+          (e.exports.Utility.Client = d),
           (l.prototype.start = function () {
             this.stransport.listen();
           }),
@@ -11030,7 +11065,7 @@
           }),
           (e.exports.Utility.Server = l);
       },
-      24527: (e, t, s) => {
+      24527: function (e, t, s) {
         e.exports = {
           Thrift: s(21293),
           ArrayBufferSerializerTransport: s(38722),
@@ -11049,7 +11084,7 @@
           NodeBinaryProtocol: s(8633)
         };
       },
-      95733: (e) => {
+      95733: function (e) {
         var t = {
           fromByte: function (e) {
             "use strict";
@@ -11074,9 +11109,9 @@
               throw new Error("Unable to accurately transfer numbers larger than 2^53 - 1 as integers. Number provided was " + e);
             var t = (Array(64).join("0") + Math.abs(e).toString(2)).slice(-64);
             e < 0 && (t = this.twosCompliment(t));
-            for (var s = new ArrayBuffer(8), i = new DataView(s), a = 0; a < 8; a++) {
-              var n = parseInt(t.substr(8 * a, 8), 2);
-              i.setUint8(a, n);
+            for (var s = new ArrayBuffer(8), i = new DataView(s), n = 0; n < 8; n++) {
+              var a = parseInt(t.substr(8 * n, 8), 2);
+              i.setUint8(n, a);
             }
             return s;
           },
@@ -11095,9 +11130,9 @@
             var t,
               s = unescape(encodeURIComponent(e)),
               i = s.length,
-              a = new Uint8Array(i);
-            for (t = 0; t < i; t++) a[t] = s.charCodeAt(t);
-            return a.buffer;
+              n = new Uint8Array(i);
+            for (t = 0; t < i; t++) n[t] = s.charCodeAt(t);
+            return n.buffer;
           },
           toByte: function (e) {
             "use strict";
@@ -11123,8 +11158,8 @@
             "use strict";
             for (var t = 1, s = "", i = 0; i < 8; i++) s += (Array(8).join("0") + e.getUint8(i).toString(2)).slice(-8);
             "1" === s[0] && ((t = -1), (s = this.twosCompliment(s)));
-            var a = s.indexOf("1");
-            if (-1 !== a && a < 10) throw new Error("Unable to receive number larger than 2^53 - 1 as an integer");
+            var n = s.indexOf("1");
+            if (-1 !== n && n < 10) throw new Error("Unable to receive number larger than 2^53 - 1 as an integer");
             return parseInt(s, 2) * t;
           },
           toDouble: function (e) {
@@ -11136,17 +11171,17 @@
             var t,
               s,
               i = "",
-              a = e.byteLength;
-            for (t = 0; t < a; t++) 1 == (s = e.getUint8(t).toString(16)).length && (s = "0" + s), (i += "%" + s);
+              n = e.byteLength;
+            for (t = 0; t < n; t++) 1 == (s = e.getUint8(t).toString(16)).length && (s = "0" + s), (i += "%" + s);
             return decodeURIComponent(i);
           }
         };
         e.exports = t;
       },
-      29292: (e, t, s) => {
+      29292: function (e, t, s) {
         var i = s(21293),
-          a = s(95733),
-          n = i.Type,
+          n = s(95733),
+          a = i.Type,
           o = -2147418112;
         function r(e, t, s) {
           "use strict";
@@ -11180,7 +11215,7 @@
           (r.prototype.writeFieldEnd = function () {}),
           (r.prototype.writeFieldStop = function () {
             "use strict";
-            this.writeByte(n.STOP);
+            this.writeByte(a.STOP);
           }),
           (r.prototype.writeMapBegin = function (e, t, s) {
             "use strict";
@@ -11203,52 +11238,52 @@
           }),
           (r.prototype.writeByte = function (e) {
             "use strict";
-            this.trans.write(a.fromByte(e));
+            this.trans.write(n.fromByte(e));
           }),
           (r.prototype.writeBinary = function (e) {
             "use strict";
-            if (("string" == typeof e && (e = a.fromString(e)), null == e.byteLength)) throw Error("Cannot read length of binary data");
+            if (("string" == typeof e && (e = n.fromString(e)), null == e.byteLength)) throw Error("Cannot read length of binary data");
             this.writeI32(e.byteLength), this.trans.write(e);
           }),
           (r.prototype.writeI16 = function (e) {
             "use strict";
-            this.trans.write(a.fromShort(e));
+            this.trans.write(n.fromShort(e));
           }),
           (r.prototype.writeI32 = function (e) {
             "use strict";
-            this.trans.write(a.fromInt(e));
+            this.trans.write(n.fromInt(e));
           }),
           (r.prototype.writeI64 = function (e) {
             "use strict";
-            this.trans.write(a.fromLong(e));
+            this.trans.write(n.fromLong(e));
           }),
           (r.prototype.writeDouble = function (e) {
             "use strict";
-            this.trans.write(a.fromDouble(e));
+            this.trans.write(n.fromDouble(e));
           }),
           (r.prototype.writeString = function (e) {
             "use strict";
-            var t = a.fromString(e);
+            var t = n.fromString(e);
             this.writeI32(t.byteLength), this.trans.write(t);
           }),
           (r.prototype.writeType = function (e, t) {
             "use strict";
             switch (e) {
-              case n.BOOL:
+              case a.BOOL:
                 return this.writeBool(t);
-              case n.BYTE:
+              case a.BYTE:
                 return this.writeByte(t);
-              case n.I16:
+              case a.I16:
                 return this.writeI16(t);
-              case n.I32:
+              case a.I32:
                 return this.writeI32(t);
-              case n.I64:
+              case a.I64:
                 return this.writeI64(t);
-              case n.DOUBLE:
+              case a.DOUBLE:
                 return this.writeDouble(t);
-              case n.STRING:
+              case a.STRING:
                 return this.writeString(t);
-              case n.BINARY:
+              case a.BINARY:
                 return this.writeBinary(t);
               default:
                 throw Error("Invalid type: " + e);
@@ -11278,7 +11313,7 @@
             "use strict";
             var e = this.readByte(),
               t = { fname: null, ftype: e, fid: 0 };
-            return e != n.STOP && (t.fid = this.readI16()), t;
+            return e != a.STOP && (t.fid = this.readI16()), t;
           }),
           (r.prototype.readFieldEnd = function () {}),
           (r.prototype.readMapBegin = function () {
@@ -11306,58 +11341,58 @@
           (r.prototype.readByte = function () {
             "use strict";
             var e = this.trans.read(1);
-            return a.toByte(e);
+            return n.toByte(e);
           }),
           (r.prototype.readI16 = function () {
             "use strict";
             var e = this.trans.read(2);
-            return a.toShort(e);
+            return n.toShort(e);
           }),
           (r.prototype.readI32 = function () {
             "use strict";
             var e = this.trans.read(4);
-            return a.toInt(e);
+            return n.toInt(e);
           }),
           (r.prototype.readI64 = function () {
             "use strict";
             var e = this.trans.read(8);
-            return a.toLong(e);
+            return n.toLong(e);
           }),
           (r.prototype.readDouble = function () {
             "use strict";
             var e = this.trans.read(8);
-            return a.toDouble(e);
+            return n.toDouble(e);
           }),
           (r.prototype.readBinary = function () {
             "use strict";
             var e = this.readI32(),
               t = this.trans.read(e);
-            return a.toBytes(t);
+            return n.toBytes(t);
           }),
           (r.prototype.readString = function () {
             "use strict";
             var e = this.readI32(),
               t = this.trans.read(e);
-            return a.toString(t);
+            return n.toString(t);
           }),
           (r.prototype.readType = function (e) {
             "use strict";
             switch (e) {
-              case n.BOOL:
+              case a.BOOL:
                 return this.readBool();
-              case n.BYTE:
+              case a.BYTE:
                 return this.readByte();
-              case n.I16:
+              case a.I16:
                 return this.readI16();
-              case n.I32:
+              case a.I32:
                 return this.readI32();
-              case n.I64:
+              case a.I64:
                 return this.readI64();
-              case n.DOUBLE:
+              case a.DOUBLE:
                 return this.readDouble();
-              case n.STRING:
+              case a.STRING:
                 return this.readString();
-              case n.BINARY:
+              case a.BINARY:
                 return this.readBinary();
               default:
                 throw new Error("Invalid type: " + e);
@@ -11374,7 +11409,7 @@
           (r.prototype.skipFields = function () {
             "use strict";
             var e = this.readFieldBegin();
-            e.ftype !== n.STOP && (this.skip(e.ftype), this.readFieldEnd(), this.skipFields());
+            e.ftype !== a.STOP && (this.skip(e.ftype), this.readFieldEnd(), this.skipFields());
           }),
           (r.prototype.skipMap = function () {
             "use strict";
@@ -11400,31 +11435,31 @@
           (r.prototype.skip = function (e) {
             "use strict";
             switch (e) {
-              case n.STOP:
+              case a.STOP:
                 return;
-              case n.BOOL:
+              case a.BOOL:
                 return this.readBool();
-              case n.BYTE:
+              case a.BYTE:
                 return this.readByte();
-              case n.I16:
+              case a.I16:
                 return this.readI16();
-              case n.I32:
+              case a.I32:
                 return this.readI32();
-              case n.I64:
+              case a.I64:
                 return this.readI64();
-              case n.DOUBLE:
+              case a.DOUBLE:
                 return this.readDouble();
-              case n.STRING:
+              case a.STRING:
                 return this.readString();
-              case n.STRUCT:
+              case a.STRUCT:
                 return this.skipStruct();
-              case n.MAP:
+              case a.MAP:
                 return this.skipMap();
-              case n.SET:
+              case a.SET:
                 return this.skipSet();
-              case n.LIST:
+              case a.LIST:
                 return this.skipList();
-              case n.BINARY:
+              case a.BINARY:
                 return this.readBinary();
               default:
                 throw Error("Invalid type: " + e);
@@ -11432,36 +11467,36 @@
           }),
           (e.exports = r);
       },
-      2188: (e, t, s) => {
+      2188: function (e, t, s) {
         var i = s(21293).Type,
-          a = function (e) {
+          n = function (e) {
             "use strict";
             this.transport = e;
           };
-        ((a.Type = {})[i.BOOL] = '"tf"'),
-          (a.Type[i.BYTE] = '"i8"'),
-          (a.Type[i.I16] = '"i16"'),
-          (a.Type[i.I32] = '"i32"'),
-          (a.Type[i.I64] = '"i64"'),
-          (a.Type[i.DOUBLE] = '"dbl"'),
-          (a.Type[i.STRUCT] = '"rec"'),
-          (a.Type[i.STRING] = '"str"'),
-          (a.Type[i.MAP] = '"map"'),
-          (a.Type[i.LIST] = '"lst"'),
-          (a.Type[i.SET] = '"set"'),
-          ((a.RType = {}).tf = i.BOOL),
-          (a.RType.i8 = i.BYTE),
-          (a.RType.i16 = i.I16),
-          (a.RType.i32 = i.I32),
-          (a.RType.i64 = i.I64),
-          (a.RType.dbl = i.DOUBLE),
-          (a.RType.rec = i.STRUCT),
-          (a.RType.str = i.STRING),
-          (a.RType.map = i.MAP),
-          (a.RType.lst = i.LIST),
-          (a.RType.set = i.SET),
-          (a.Version = 1),
-          (a.prototype = {
+        ((n.Type = {})[i.BOOL] = '"tf"'),
+          (n.Type[i.BYTE] = '"i8"'),
+          (n.Type[i.I16] = '"i16"'),
+          (n.Type[i.I32] = '"i32"'),
+          (n.Type[i.I64] = '"i64"'),
+          (n.Type[i.DOUBLE] = '"dbl"'),
+          (n.Type[i.STRUCT] = '"rec"'),
+          (n.Type[i.STRING] = '"str"'),
+          (n.Type[i.MAP] = '"map"'),
+          (n.Type[i.LIST] = '"lst"'),
+          (n.Type[i.SET] = '"set"'),
+          ((n.RType = {}).tf = i.BOOL),
+          (n.RType.i8 = i.BYTE),
+          (n.RType.i16 = i.I16),
+          (n.RType.i32 = i.I32),
+          (n.RType.i64 = i.I64),
+          (n.RType.dbl = i.DOUBLE),
+          (n.RType.rec = i.STRUCT),
+          (n.RType.str = i.STRING),
+          (n.RType.map = i.MAP),
+          (n.RType.lst = i.LIST),
+          (n.RType.set = i.SET),
+          (n.Version = 1),
+          (n.prototype = {
             getTransport: function () {
               "use strict";
               return this.transport;
@@ -11491,7 +11526,7 @@
             },
             writeMessageBegin: function (e, t, s) {
               "use strict";
-              (this.tstack = []), (this.tpos = []), this.tstack.push([a.Version, '"' + e + '"', t, s]);
+              (this.tstack = []), (this.tpos = []), this.tstack.push([n.Version, '"' + e + '"', t, s]);
             },
             writeMessageEnd: function () {
               "use strict";
@@ -11511,12 +11546,12 @@
                 t = this.tstack[e],
                 s = "{",
                 i = !0;
-              for (var a in t) i ? (i = !1) : (s += ","), (s += a + ":" + t[a]);
+              for (var n in t) i ? (i = !1) : (s += ","), (s += n + ":" + t[n]);
               (s += "}"), (this.tstack[e] = s);
             },
             writeFieldBegin: function (e, t, s) {
               "use strict";
-              this.tpos.push(this.tstack.length), this.tstack.push({ fieldId: '"' + s + '"', fieldType: a.Type[t] });
+              this.tpos.push(this.tstack.length), this.tstack.push({ fieldId: '"' + s + '"', fieldType: n.Type[t] });
             },
             writeFieldEnd: function () {
               "use strict";
@@ -11527,7 +11562,7 @@
             writeFieldStop: function () {},
             writeMapBegin: function (e, t, s) {
               "use strict";
-              this.tpos.push(this.tstack.length), this.tstack.push([a.Type[e], a.Type[t], 0]);
+              this.tpos.push(this.tstack.length), this.tstack.push([n.Type[e], n.Type[t], 0]);
             },
             writeMapEnd: function () {
               "use strict";
@@ -11537,16 +11572,16 @@
                 var t = (this.tstack.length - e - 1) / 2;
                 this.tstack[e][this.tstack[e].length - 1] = t;
                 for (var s = "}", i = !0; this.tstack.length > e + 1; ) {
-                  var a = this.tstack.pop(),
-                    n = this.tstack.pop();
-                  i ? (i = !1) : (s = "," + s), isNaN(n) || (n = '"' + n + '"'), (s = n + ":" + a + s);
+                  var n = this.tstack.pop(),
+                    a = this.tstack.pop();
+                  i ? (i = !1) : (s = "," + s), isNaN(a) || (a = '"' + a + '"'), (s = a + ":" + n + s);
                 }
                 (s = "{" + s), this.tstack[e].push(s), (this.tstack[e] = "[" + this.tstack[e].join(",") + "]");
               }
             },
             writeListBegin: function (e, t) {
               "use strict";
-              this.tpos.push(this.tstack.length), this.tstack.push([a.Type[e], t]);
+              this.tpos.push(this.tstack.length), this.tstack.push([n.Type[e], t]);
             },
             writeListEnd: function () {
               "use strict";
@@ -11558,7 +11593,7 @@
             },
             writeSetBegin: function (e, t) {
               "use strict";
-              this.tpos.push(this.tstack.length), this.tstack.push([a.Type[e], t]);
+              this.tpos.push(this.tstack.length), this.tstack.push([n.Type[e], t]);
             },
             writeSetEnd: function () {
               "use strict";
@@ -11664,8 +11699,8 @@
                   this.robj = JSON.parse(this.robj);
                 }
               var i = {},
-                n = this.robj.shift();
-              if (n != a.Version) throw Error("Wrong thrift protocol version: " + n);
+                a = this.robj.shift();
+              if (a != n.Version) throw Error("Wrong thrift protocol version: " + a);
               return (
                 (i.fname = this.robj.shift()),
                 (i.mtype = this.robj.shift()),
@@ -11691,16 +11726,16 @@
               var e = {},
                 t = -1,
                 s = i.STOP;
-              for (var n in this.rstack[this.rstack.length - 1])
-                if (null !== n) {
-                  (t = parseInt(n, 10)), this.rpos.push(this.rstack.length);
+              for (var a in this.rstack[this.rstack.length - 1])
+                if (null !== a) {
+                  (t = parseInt(a, 10)), this.rpos.push(this.rstack.length);
                   var o = this.rstack[this.rstack.length - 1][t];
                   delete this.rstack[this.rstack.length - 1][t], this.rstack.push(o);
                   break;
                 }
               if (-1 != t)
                 for (var r in this.rstack[this.rstack.length - 1])
-                  null !== a.RType[r] && ((s = a.RType[r]), (this.rstack[this.rstack.length - 1] = this.rstack[this.rstack.length - 1][r]));
+                  null !== n.RType[r] && ((s = n.RType[r]), (this.rstack[this.rstack.length - 1] = this.rstack[this.rstack.length - 1][r]));
               return (e.fname = ""), (e.ftype = s), (e.fid = t), e;
             },
             readFieldEnd: function () {
@@ -11710,14 +11745,14 @@
             readMapBegin: function (e, t, s) {
               "use strict";
               var i = this.rstack.pop(),
-                n = {};
+                a = {};
               return (
-                (n.ktype = a.RType[i.shift()]),
-                (n.vtype = a.RType[i.shift()]),
-                (n.size = i.shift()),
+                (a.ktype = n.RType[i.shift()]),
+                (a.vtype = n.RType[i.shift()]),
+                (a.size = i.shift()),
                 this.rpos.push(this.rstack.length),
                 this.rstack.push(i.shift()),
-                n
+                a
               );
             },
             readMapEnd: function () {
@@ -11728,7 +11763,7 @@
               "use strict";
               var s = this.rstack[this.rstack.length - 1],
                 i = {};
-              return (i.etype = a.RType[s.shift()]), (i.size = s.shift()), this.rpos.push(this.rstack.length), this.rstack.push(s), i;
+              return (i.etype = n.RType[s.shift()]), (i.size = s.shift()), this.rpos.push(this.rstack.length), this.rstack.push(s), i;
             },
             readListEnd: function () {
               "use strict";
@@ -11796,18 +11831,18 @@
                 e &&
                   (t = function (t, s) {
                     var i;
-                    return s && (i = new a(s)), e(t, i);
+                    return s && (i = new n(s)), e(t, i);
                   }),
                 this.transport.flush(t)
               );
             }
           }),
-          (e.exports = a);
+          (e.exports = n);
       },
-      8633: (e, t, s) => {
+      8633: function (e, t, s) {
         var i = s(21293).Type,
-          a = {},
-          n = -2147418112;
+          n = {},
+          a = -2147418112;
         function o(e, t, s) {
           "use strict";
           (this.transport = this.trans = e), (this.strictRead = void 0 !== t && t), (this.strictWrite = void 0 === s || s);
@@ -11827,7 +11862,7 @@
           (o.prototype.writeMessageBegin = function (e, t, s) {
             "use strict";
             this.strictWrite
-              ? (this.writeI32(n | t), this.writeString(e), this.writeI32(s))
+              ? (this.writeI32(a | t), this.writeString(e), this.writeI32(s))
               : (this.writeString(e), this.writeByte(t), this.writeI32(s));
           }),
           (o.prototype.writeMessageEnd = function () {}),
@@ -11863,33 +11898,33 @@
           }),
           (o.prototype.writeByte = function (e) {
             "use strict";
-            this.trans.write(a.fromByte(e));
+            this.trans.write(n.fromByte(e));
           }),
           (o.prototype.writeBinary = function (e) {
             "use strict";
-            if (("string" == typeof e && (e = a.fromString(e)), null == e.length)) throw Error("Cannot read length of binary data");
+            if (("string" == typeof e && (e = n.fromString(e)), null == e.length)) throw Error("Cannot read length of binary data");
             this.writeI32(e.length), this.trans.write(e);
           }),
           (o.prototype.writeI16 = function (e) {
             "use strict";
-            this.trans.write(a.fromShort(e));
+            this.trans.write(n.fromShort(e));
           }),
           (o.prototype.writeI32 = function (e) {
             "use strict";
-            this.trans.write(a.fromInt(e));
+            this.trans.write(n.fromInt(e));
           }),
           (o.prototype.writeI64 = function (e) {
             "use strict";
-            var t = a.fromLong(e);
+            var t = n.fromLong(e);
             this.trans.write(t);
           }),
           (o.prototype.writeDouble = function (e) {
             "use strict";
-            this.trans.write(a.fromDouble(e));
+            this.trans.write(n.fromDouble(e));
           }),
           (o.prototype.writeString = function (e) {
             "use strict";
-            var t = a.fromString(e);
+            var t = n.fromString(e);
             this.writeI32(t.length), this.trans.write(t);
           }),
           (o.prototype.writeType = function (e, t) {
@@ -11921,7 +11956,7 @@
               t = { mtype: null, fname: null, seqid: null };
             if (e < 0) {
               var s = -65536 & e;
-              if (s != n) throw (console.log("BAD: " + s), Error("Bad version in readMessageBegin: " + e));
+              if (s != a) throw (console.log("BAD: " + s), Error("Bad version in readMessageBegin: " + e));
               (t.mtype = 255 & e), (t.fname = this.readString()), (t.seqid = this.readI32());
             } else {
               if (this.strictRead) throw Error("No protocol version header");
@@ -11979,7 +12014,7 @@
           (o.prototype.readI64 = function () {
             "use strict";
             var e = this.trans.read(8);
-            return a.toLong(e);
+            return n.toLong(e);
           }),
           (o.prototype.readDouble = function () {
             "use strict";
@@ -12085,62 +12120,62 @@
                 throw Error("Invalid type: " + e);
             }
           }),
-          (a.fromByte = function (e) {
+          (n.fromByte = function (e) {
             "use strict";
             var t = new Buffer(1);
             return t.writeInt8(e, 0), t;
           }),
-          (a.fromShort = function (e) {
+          (n.fromShort = function (e) {
             "use strict";
             e = parseInt(e);
             var t = new Buffer(2);
             return t.writeInt16BE(e, 0), t;
           }),
-          (a.fromInt = function (e) {
+          (n.fromInt = function (e) {
             "use strict";
             e = parseInt(e);
             var t = new Buffer(4);
             return t.writeInt32BE(e, 0), t;
           }),
-          (a.fromLong = function (e) {
+          (n.fromLong = function (e) {
             "use strict";
             if (((e = parseInt(e)), Math.abs(e) >= Math.pow(2, 53)))
               throw new Error("Unable to accurately transfer numbers larger than 2^53 - 1 as integers. Number provided was " + e);
             var t = (Array(64).join("0") + Math.abs(e).toString(2)).slice(-64);
             e < 0 && (t = this.twosCompliment(t));
             for (var s = new Buffer(8), i = 0; i < 8; i++) {
-              var a = parseInt(t.substr(8 * i, 8), 2);
-              s.writeUInt8(a, i);
+              var n = parseInt(t.substr(8 * i, 8), 2);
+              s.writeUInt8(n, i);
             }
             return s;
           }),
-          (a.twosCompliment = function (e) {
+          (n.twosCompliment = function (e) {
             "use strict";
             var t = e.lastIndexOf("1");
             return e.substring(0, t).replace(/1/g, "x").replace(/0/g, "1").replace(/x/g, "0") + e.substring(t);
           }),
-          (a.fromDouble = function (e) {
+          (n.fromDouble = function (e) {
             "use strict";
             var t = new Buffer(8);
             return t.writeDoubleBE(e, 0), t;
           }),
-          (a.fromString = function (e) {
+          (n.fromString = function (e) {
             "use strict";
             var t = Buffer.byteLength(e),
               s = new Buffer(t);
             return s.write(e), s;
           }),
-          (a.toLong = function (e) {
+          (n.toLong = function (e) {
             "use strict";
             for (var t = 1, s = "", i = 0; i < 8; i++) s += (Array(8).join("0") + e.readUInt8(i).toString(2)).slice(-8);
             "1" === s[0] && ((t = -1), (s = this.twosCompliment(s)));
-            var a = s.indexOf("1");
-            if (-1 !== a && a < 10) throw new Error("Unable to receive number larger than 2^53 - 1 as an integer");
+            var n = s.indexOf("1");
+            if (-1 !== n && n < 10) throw new Error("Unable to receive number larger than 2^53 - 1 as an integer");
             return parseInt(s, 2) * t;
           }),
           (e.exports = o);
       },
-      21293: (e) => {
+      21293: function (e) {
         var t = {
           Version: "0.9.0",
           Type: {
@@ -12212,31 +12247,31 @@
           return new t.Method(e);
         }),
           (t.Method.noop = function () {}),
-          (t.Method.sendException = function (e, s, i, a) {
+          (t.Method.sendException = function (e, s, i, n) {
             "use strict";
-            var n;
-            a ||
+            var a;
+            n ||
               (i instanceof t.TApplicationException
-                ? (a = t.TApplicationException)
+                ? (n = t.TApplicationException)
                 : i instanceof t.TException
-                ? (a = t.TException)
-                : ((a = t.TApplicationException),
-                  (n = {}),
-                  i && (i.message && (n.message = i.message + ""), null != i.code && Number.isFinite(n.code) && (n.code = i.code)),
-                  (i = new t.TApplicationException(n)))),
+                ? (n = t.TException)
+                : ((n = t.TApplicationException),
+                  (a = {}),
+                  i && (i.message && (a.message = i.message + ""), null != i.code && Number.isFinite(a.code) && (a.code = i.code)),
+                  (i = new t.TApplicationException(a)))),
               e.writeMessageBegin("", t.MessageType.EXCEPTION, s),
-              a.write(e, i),
+              n.write(e, i),
               e.writeMessageEnd(),
               e.flush();
           }),
-          (t.Method.prototype.sendRequest = function (e, s, i, a) {
+          (t.Method.prototype.sendRequest = function (e, s, i, n) {
             "use strict";
             e.writeMessageBegin(this.alias, t.MessageType.CALL, s),
               this.args.write(e, i),
               e.writeMessageEnd(),
               e.flush(
                 function (e, t) {
-                  e ? a(e) : this.processResponse(t, a);
+                  e ? n(e) : this.processResponse(t, n);
                 }.bind(this)
               );
           }),
@@ -12246,140 +12281,140 @@
           }),
           (t.Method.prototype.processResponse = function (e, s) {
             "use strict";
-            var i, a, n, o;
+            var i, n, a, o;
             if (((s = s || t.Method.noop), (i = e.readMessageBegin()).mtype == t.MessageType.EXCEPTION))
-              return (n = t.TApplicationException.read(e)), e.readMessageEnd(), void s(n);
+              return (a = t.TApplicationException.read(e)), e.readMessageEnd(), void s(a);
             if (i.mtype == t.MessageType.REPLY)
               if (this.alias == i.fname) {
-                for (o in ((a = this.result.read(e)), e.readMessageEnd(), this.result.fields))
-                  if (0 != o && a[this.result.fields[o].alias]) return void s((n = a[this.result.fields[o].alias]));
-                s(null, a.returnValue);
-              } else s((n = Error("Unrecognized method name. Expected [" + this.alias + "] Received [" + i.fname + "]")));
-            else s((n = Error("Client expects REPLY but received unsupported message type: " + i.mtype)));
+                for (o in ((n = this.result.read(e)), e.readMessageEnd(), this.result.fields))
+                  if (0 != o && n[this.result.fields[o].alias]) return void s((a = n[this.result.fields[o].alias]));
+                s(null, n.returnValue);
+              } else s((a = Error("Unrecognized method name. Expected [" + this.alias + "] Received [" + i.fname + "]")));
+            else s((a = Error("Client expects REPLY but received unsupported message type: " + i.mtype)));
           }),
           (t.List = {}),
           (t.List.define = function (e, s, i) {
             "use strict";
-            var a = function () {
+            var n = function () {
               return [];
             };
             return (
               "string" != typeof e && ((i = s), (s = e), (e = "anonymous")),
-              (a.alias = e),
-              (a.type = s),
-              (a.def = i),
-              (a.read = t.List.read.bind(null, a)),
-              (a.write = t.List.write.bind(null, a)),
-              a
+              (n.alias = e),
+              (n.type = s),
+              (n.def = i),
+              (n.read = t.List.read.bind(null, n)),
+              (n.write = t.List.write.bind(null, n)),
+              n
             );
           }),
           (t.List.read = function (e, s) {
             "use strict";
             var i = new e(),
-              a = s.readListBegin();
-            return t.List.readEntries(e, i, s, a.size), s.readListEnd(), i;
+              n = s.readListBegin();
+            return t.List.readEntries(e, i, s, n.size), s.readListEnd(), i;
           }),
           (t.List.readEntries = function (e, t, s, i) {
             "use strict";
-            var a;
-            for (a = 0; a < i; a++) null != e.def ? t.push(e.def.read(s)) : t.push(s.readType(e.type));
+            var n;
+            for (n = 0; n < i; n++) null != e.def ? t.push(e.def.read(s)) : t.push(s.readType(e.type));
           }),
           (t.List.write = function (e, t, s) {
             "use strict";
             var i,
-              a,
-              n = s.length;
-            for (t.writeListBegin(e.type, n), a = 0; a < n; a++) (i = s[a]), e.def ? e.def.write(t, i) : t.writeType(e.type, i);
+              n,
+              a = s.length;
+            for (t.writeListBegin(e.type, a), n = 0; n < a; n++) (i = s[n]), e.def ? e.def.write(t, i) : t.writeType(e.type, i);
             t.writeListEnd();
           }),
           (t.Set = {}),
           (t.Set.define = function (e, s, i) {
             "use strict";
-            var a = function () {
+            var n = function () {
               return [];
             };
             return (
               "string" != typeof e && ((i = s), (s = e), (e = "anonymous")),
-              (a.alias = e),
-              (a.type = s),
-              (a.def = i),
-              (a.read = t.Set.read.bind(null, a)),
-              (a.write = t.Set.write.bind(null, a)),
-              a
+              (n.alias = e),
+              (n.type = s),
+              (n.def = i),
+              (n.read = t.Set.read.bind(null, n)),
+              (n.write = t.Set.write.bind(null, n)),
+              n
             );
           }),
           (t.Set.read = function (e, s) {
             "use strict";
             var i = new e(),
-              a = s.readSetBegin();
-            return t.Set.readEntries(e, i, s, a.size), s.readSetEnd(), i;
+              n = s.readSetBegin();
+            return t.Set.readEntries(e, i, s, n.size), s.readSetEnd(), i;
           }),
           (t.Set.readEntries = function (e, t, s, i) {
             "use strict";
-            var a;
-            for (a = 0; a < i; a++) null != e.def ? t.push(e.def.read(s)) : t.push(s.readType(e.type));
+            var n;
+            for (n = 0; n < i; n++) null != e.def ? t.push(e.def.read(s)) : t.push(s.readType(e.type));
           }),
           (t.Set.write = function (e, t, s) {
             "use strict";
             var i,
-              a,
-              n = s.length;
-            for (t.writeSetBegin(e.type, n), a = 0; a < n; a++) (i = s[a]), e.def ? e.def.write(t, i) : t.writeType(e.type, i);
+              n,
+              a = s.length;
+            for (t.writeSetBegin(e.type, a), n = 0; n < a; n++) (i = s[n]), e.def ? e.def.write(t, i) : t.writeType(e.type, i);
             t.writeSetEnd();
           }),
           (t.Map = {}),
-          (t.Map.define = function (e, s, i, a) {
+          (t.Map.define = function (e, s, i, n) {
             "use strict";
-            var n = function () {
+            var a = function () {
               return {};
             };
             return (
-              "string" != typeof e && ((a = i), (i = s), (s = e), (e = "anonymous")),
-              (n.alias = e),
-              (n.ktype = s),
-              (n.vtype = i),
-              (n.vdef = a),
-              (n.read = t.Map.read.bind(null, n)),
-              (n.write = t.Map.write.bind(null, n)),
-              n
+              "string" != typeof e && ((n = i), (i = s), (s = e), (e = "anonymous")),
+              (a.alias = e),
+              (a.ktype = s),
+              (a.vtype = i),
+              (a.vdef = n),
+              (a.read = t.Map.read.bind(null, a)),
+              (a.write = t.Map.write.bind(null, a)),
+              a
             );
           }),
           (t.Map.read = function (e, s) {
             "use strict";
             var i = new e(),
-              a = s.readMapBegin();
-            return t.Map.readEntries(e, i, s, a.size), s.readMapEnd(), i;
+              n = s.readMapBegin();
+            return t.Map.readEntries(e, i, s, n.size), s.readMapEnd(), i;
           }),
           (t.Map.readEntries = function (e, t, s, i) {
             "use strict";
-            var a, n;
-            for (a = 0; a < i; a++) (n = s.readType(e.ktype)), null != e.vdef ? (t[n] = e.vdef.read(s)) : (t[n] = s.readType(e.vtype));
+            var n, a;
+            for (n = 0; n < i; n++) (a = s.readType(e.ktype)), null != e.vdef ? (t[a] = e.vdef.read(s)) : (t[a] = s.readType(e.vtype));
           }),
           (t.Map.write = function (e, t, s) {
             "use strict";
             var i,
-              a,
               n,
+              a,
               o = Object.keys(s),
               r = o.length;
-            for (t.writeMapBegin(e.ktype, e.vtype, r), n = 0; n < r; n++)
-              (i = o[n]), t.writeType(e.ktype, i), (a = s[i]), e.vdef ? e.vdef.write(t, a) : t.writeType(e.vtype, a);
+            for (t.writeMapBegin(e.ktype, e.vtype, r), a = 0; a < r; a++)
+              (i = o[a]), t.writeType(e.ktype, i), (n = s[i]), e.vdef ? e.vdef.write(t, n) : t.writeType(e.vtype, n);
             t.writeMapEnd();
           }),
           (t.Struct = {}),
           (t.Struct.define = function (e, s) {
             "use strict";
             var i,
-              a,
-              n = {};
-            for (i in (s = s || {})) (a = s[i]), (n[a.alias] = a.defaultValue || null);
+              n,
+              a = {};
+            for (i in (s = s || {})) (n = s[i]), (a[n.alias] = n.defaultValue || null);
             var o = function (e) {
-              return (e = "object" == typeof e ? e : {}), t.defaults({}, e, n);
+              return (e = "object" == typeof e ? e : {}), t.defaults({}, e, a);
             };
             return (
               (o.alias = e),
               (o.fields = s),
-              (o.defaultValues = n),
+              (o.defaultValues = a),
               (o.read = t.Struct.read.bind(null, o)),
               (o.write = t.Struct.write.bind(null, o)),
               (o.values = t.Struct.values.bind(null, o)),
@@ -12390,12 +12425,12 @@
           (t.Struct.setByDef = function (e, t, s) {
             "use strict";
             var i,
-              a,
-              n = e.fields,
+              n,
+              a = e.fields,
               o = !1;
-            for (i in n)
-              if ((a = n[i]).def && s instanceof a.def) {
-                (t[a.alias] = s), (o = !0);
+            for (i in a)
+              if ((n = a[i]).def && s instanceof n.def) {
+                (t[n.alias] = s), (o = !0);
                 break;
               }
             return o;
@@ -12404,11 +12439,11 @@
             "use strict";
             var s,
               i,
-              a,
-              n = e.fields,
+              n,
+              a = e.fields,
               o = Object.keys(e.fields),
               r = new Array(o.length);
-            for (a = 0; a < o.length; a++) null != (i = n[(s = o[a])].index) ? (r[i] = t[n[s].alias]) : (r[a] = t[n[s].alias]);
+            for (n = 0; n < o.length; n++) null != (i = a[(s = o[n])].index) ? (r[i] = t[a[s].alias]) : (r[n] = t[a[s].alias]);
             return r;
           }),
           (t.Struct.read = function (e, s) {
@@ -12418,23 +12453,23 @@
           }),
           (t.Struct.readFields = function (e, s, i) {
             "use strict";
-            for (var a, n; ; ) {
-              if ((a = s.readFieldBegin()).ftype == t.Type.STOP) return;
-              (n = e.fields[a.fid]) && t.equals(a.ftype, n.type)
-                ? n.def
-                  ? (i[n.alias] = n.def.read(s))
-                  : (i[n.alias] = s.readType(n.type))
-                : s.skip(a.ftype),
+            for (var n, a; ; ) {
+              if ((n = s.readFieldBegin()).ftype == t.Type.STOP) return;
+              (a = e.fields[n.fid]) && t.equals(n.ftype, a.type)
+                ? a.def
+                  ? (i[a.alias] = a.def.read(s))
+                  : (i[a.alias] = s.readType(a.type))
+                : s.skip(n.ftype),
                 s.readFieldEnd();
             }
           }),
           (t.Struct.write = function (e, s, i) {
             "use strict";
-            var a, n, o;
-            for (a in (s.writeStructBegin(e.alias), e.fields))
-              null != (o = i[(n = e.fields[a]).alias]) &&
-                (s.writeFieldBegin(n.alias, t.serializedType(n.type), a),
-                n.def ? new n.def.write(s, o) : s.writeType(n.type, o),
+            var n, a, o;
+            for (n in (s.writeStructBegin(e.alias), e.fields))
+              null != (o = i[(a = e.fields[n]).alias]) &&
+                (s.writeFieldBegin(a.alias, t.serializedType(a.type), n),
+                a.def ? new a.def.write(s, o) : s.writeType(a.type, o),
                 s.writeFieldEnd());
             s.writeFieldStop(), s.writeStructEnd();
           }),
@@ -12442,19 +12477,19 @@
           (t.Exception.define = function (e, s) {
             "use strict";
             var i,
-              a,
-              n = {};
-            for (i in (s = s || {})) (a = s[i]), (n[a.alias] = a.defaultValue || null);
+              n,
+              a = {};
+            for (i in (s = s || {})) (n = s[i]), (a[n.alias] = n.defaultValue || null);
             var o = function (e) {
               var s = {};
               "object" == typeof e && (s = e),
-                t.defaults(this, s, n),
+                t.defaults(this, s, a),
                 "string" == typeof e ? (this.message = e) : e instanceof Error && (this.message = e.message);
             };
             return (
               (o.alias = e),
               (o.fields = s),
-              (o.defaultValues = n),
+              (o.defaultValues = a),
               (o.read = t.Struct.read.bind(null, o)),
               (o.write = t.Struct.write.bind(null, o)),
               o
@@ -12485,40 +12520,40 @@
           }),
           (t.Processor.prototype.process = function (e, s) {
             "use strict";
-            var i, a, n, o, r;
+            var i, n, a, o, r;
             try {
               if ((o = e.readMessageBegin()).mtype != t.MessageType.CALL)
                 throw new t.TException("Server expects CALL but received unsupported message type: " + o.mtype);
               if (null == (i = this.methods[o.fname])) throw new t.TException("Unrecognized method name: " + o.fname);
-              (r = (a = i.def).args.read(e)),
-                (n = new a.result()),
+              (r = (n = i.def).args.read(e)),
+                (a = new n.result()),
                 i.fn.apply(
                   null,
-                  a.args.values(r).concat([
+                  n.args.values(r).concat([
                     function (e) {
-                      (n.returnValue = e), a.sendResponse(s, o.seqid, n);
+                      (a.returnValue = e), n.sendResponse(s, o.seqid, a);
                     },
                     function (e) {
                       var i = o ? o.seqid : -1;
-                      n && a.result.setByDef(n, e) ? a.sendResponse(s, o.seqid, n) : t.Method.sendException(s, i, e);
+                      a && n.result.setByDef(a, e) ? n.sendResponse(s, o.seqid, a) : t.Method.sendException(s, i, e);
                     }
                   ])
                 );
             } catch (e) {
               console.log(e);
               var p = o ? o.seqid : -1;
-              n && a.result.setByDef(n, e) ? a.sendResponse(s, o.seqid, n) : t.Method.sendException(s, p, e);
+              a && n.result.setByDef(a, e) ? n.sendResponse(s, o.seqid, a) : t.Method.sendException(s, p, e);
             }
           }),
           (e.exports = t);
       },
-      38722: (e, t, s) => {
+      38722: function (e, t, s) {
         s(21293);
         var i,
-          a = function () {
+          n = function () {
             (this.buffer = []), (this.readOffset = 0);
           };
-        ((i = a.prototype).reset = function () {
+        ((i = n.prototype).reset = function () {
           (this.buffer = []), (this.readOffset = 0);
         }),
           (i.getBytes = function () {
@@ -12548,30 +12583,30 @@
           }),
           (i.flush = function (e) {}),
           (i.send = function (e, t, s, i) {}),
-          (e.exports = a);
+          (e.exports = n);
       },
-      66895: (e, t, s) => {
+      66895: function (e, t, s) {
         var i = s(2523),
-          a = s(10579);
-        function n(e, t) {
+          n = s(10579);
+        function a(e, t) {
           "use strict";
-          (this.input = new a()), (this.url = e), (this.opts = t || {});
+          (this.input = new n()), (this.url = e), (this.opts = t || {});
         }
-        (n.prototype.open = function () {}),
-          (n.prototype.close = function () {}),
-          (n.prototype.read = function (e) {
+        (a.prototype.open = function () {}),
+          (a.prototype.close = function () {}),
+          (a.prototype.read = function (e) {
             throw Error("BinaryFetchHttpTransport object does not support reads");
           }),
-          (n.prototype.write = function (e) {
+          (a.prototype.write = function (e) {
             this.input.write(e);
           }),
-          (n.prototype.clear = function () {
+          (a.prototype.clear = function () {
             this.input.clear();
           }),
-          (n.prototype.flush = function (e) {
+          (a.prototype.flush = function (e) {
             const t = "application/x-thrift";
             var s = { "Content-Type": t, Accept: t };
-            if (this.opts.headers) for (var n in this.opts.headers) s[n] = this.opts.headers[n];
+            if (this.opts.headers) for (var a in this.opts.headers) s[a] = this.opts.headers[a];
             this.input.flush();
             const o = new Blob([this.input.buffer], { type: t });
             fetch(this.url, { method: "post", headers: s, body: o, credentials: this.opts.noCredentials ? "omit" : "include" })
@@ -12580,7 +12615,7 @@
                   if (200 === t.status)
                     t.arrayBuffer()
                       .then((t) => {
-                        e(null, new a(t));
+                        e(null, new n(t));
                       })
                       .catch((t) => {
                         e(
@@ -12603,11 +12638,11 @@
               }),
               this.clear();
           }),
-          (e.exports = n);
+          (e.exports = a);
       },
-      40594: (e, t, s) => {
+      40594: function (e, t, s) {
         var i = s(10579),
-          a = function (e) {
+          n = function (e) {
             "use strict";
             (this.notify = e), (this.received = new i()), (this.input = new i());
           };
@@ -12629,18 +12664,18 @@
             }),
             (e.flush = function (e) {
               this.input.flush();
-              for (var t = this.input.buffer, s = t.length, i = [], a = 0; a < s; a++) i.push(String.fromCharCode(t[a]));
+              for (var t = this.input.buffer, s = t.length, i = [], n = 0; n < s; n++) i.push(String.fromCharCode(t[n]));
               this.notify(window.btoa(i.join(""))), this.reset();
             }),
             (e.send = function (e, t, s, i) {}),
             (e.receive = function (e) {
-              for (var t = window.atob(e), s = t.length, a = new Uint8Array(s), n = 0; n < s; n++) a[n] = t.charCodeAt(n);
-              this.received = new i(a.buffer);
+              for (var t = window.atob(e), s = t.length, n = new Uint8Array(s), a = 0; a < s; a++) n[a] = t.charCodeAt(a);
+              this.received = new i(n.buffer);
             });
-        })(a.prototype),
-          (e.exports = a);
+        })(n.prototype),
+          (e.exports = n);
       },
-      2523: (e) => {
+      2523: function (e) {
         function t(e, t) {
           (this.message = e), (this.cause = t);
         }
@@ -12658,7 +12693,7 @@
           (i.prototype.name = "NetworkException"),
           (e.exports = { TransportException: t, HTTPException: s, NetworkException: i });
       },
-      5122: (e) => {
+      5122: function (e) {
         var t = function (e) {
           "use strict";
           (this.notify = e), (this.received = ""), (this.pos = 0);
@@ -12688,7 +12723,7 @@
         })(t.prototype),
           (e.exports = t);
       },
-      10579: (e) => {
+      10579: function (e) {
         function t(e) {
           "use strict";
           (this.queue = []), (this.buffer = e), (this.offset = 0);
@@ -12727,13 +12762,13 @@
           }),
           (e.exports = t);
       },
-      38935: (e, t, s) => {
+      38935: function (e, t, s) {
         var i = s(39807),
-          a = s(2523),
-          n = s(72693),
+          n = s(2523),
+          a = s(72693),
           o = s(49069),
           r = s(8575);
-        function p(e, t, s, a, n) {
+        function p(e, t, s, n, a) {
           "use strict";
           var o = r.parse(e);
           (this.hostname = o.hostname),
@@ -12742,8 +12777,8 @@
             (this.url = o.href),
             (this.quiet = !!t),
             (this.insecure = !!s),
-            (this.additionalHeaders = a),
-            (this.agent = n),
+            (this.additionalHeaders = n),
+            (this.agent = a),
             (this.input = new i());
         }
         (p.prototype.open = function () {}),
@@ -12767,17 +12802,17 @@
               r = { hostname: this.hostname, port: this.port, path: this.path, method: "POST", headers: s };
             this.agent && (r.agent = this.agent);
             var p = this.url,
-              u = (this.insecure ? n : o).request(r, function (s) {
-                var n = [];
+              u = (this.insecure ? a : o).request(r, function (s) {
+                var a = [];
                 if (200 !== s.statusCode) {
                   var o = "Error in Thrift response. status:" + s.statusCode + "headers: " + JSON.stringify(s.headers);
-                  if ((t.log(o), e)) return void e(new a.TransportException(o, new a.HTTPException("", p, s.statusCode, s.headers)));
+                  if ((t.log(o), e)) return void e(new n.TransportException(o, new n.HTTPException("", p, s.statusCode, s.headers)));
                 }
                 s.on("data", function (e) {
-                  n.push(e);
+                  a.push(e);
                 }),
                   s.on("end", function () {
-                    var t = Buffer.concat(n);
+                    var t = Buffer.concat(a);
                     e && e(null, new i(t));
                   });
               });
@@ -12785,7 +12820,7 @@
               t.log("Error making Thrift HTTP request: " + s),
                 e &&
                   e(
-                    new a.TransportException(s.message ? s.message : "Thrift request failed", new a.NetworkException(JSON.stringify(s), p))
+                    new n.TransportException(s.message ? s.message : "Thrift request failed", new n.NetworkException(JSON.stringify(s), p))
                   );
             }),
               this.input.flush(),
@@ -12799,7 +12834,7 @@
           }),
           (e.exports = p);
       },
-      39807: (e) => {
+      39807: function (e) {
         function t(e) {
           "use strict";
           (this.queue = []), (this.offset = 0), (this.buffer = e);
@@ -12829,7 +12864,7 @@
           }),
           (e.exports = t);
       },
-      45099: (e) => {
+      45099: function (e) {
         function t(e) {
           "use strict";
           (this.queue = []), (this.buffer = e), (this.offset = 0);
@@ -12861,24 +12896,24 @@
           }),
           (e.exports = t);
       },
-      63950: (e, t, s) => {
+      63950: function (e, t, s) {
         var i = s(2523),
-          a = s(10579);
-        function n(e, t) {
-          (this.input = new a()), (this.url = e), (this.opts = t || {});
+          n = s(10579);
+        function a(e, t) {
+          (this.input = new n()), (this.url = e), (this.opts = t || {});
         }
-        (n.prototype.open = function () {}),
-          (n.prototype.close = function () {}),
-          (n.prototype.read = function (e) {
+        (a.prototype.open = function () {}),
+          (a.prototype.close = function () {}),
+          (a.prototype.read = function (e) {
             throw Error("BinaryHttpTransport object does not support reads");
           }),
-          (n.prototype.write = function (e) {
+          (a.prototype.write = function (e) {
             this.input.write(e);
           }),
-          (n.prototype.clear = function () {
+          (a.prototype.clear = function () {
             this.input.clear();
           }),
-          (n.prototype.flush = function (e) {
+          (a.prototype.flush = function (e) {
             var t;
             (t = new XMLHttpRequest()).open("POST", this.url, !0),
               (t.withCredentials = !this.opts.noCredentials),
@@ -12886,27 +12921,27 @@
               t.setRequestHeader("Accept", "application/x-thrift"),
               (t.responseType = "arraybuffer");
             var s = this.opts.headers || {};
-            for (var n in s) {
-              var o = s[n];
-              t.setRequestHeader(n, o);
+            for (var a in s) {
+              var o = s[a];
+              t.setRequestHeader(a, o);
             }
             var r = this.url;
             (t.onload = function (s) {
               if (e)
-                if (200 === t.status) e(null, new a(t.response));
+                if (200 === t.status) e(null, new n(t.response));
                 else {
                   const s = t
                       .getAllResponseHeaders()
                       .trim()
                       .split(/[\r\n]+/),
-                    a = {};
+                    n = {};
                   s.forEach(function (e) {
                     var t = e.split(": "),
                       s = t.shift(),
                       i = t.join(": ");
-                    a[s] = i;
+                    n[s] = i;
                   }),
-                    e(new i.TransportException("Non 200 http response", new i.HTTPException("Non 200 http response", r, t.status, a)));
+                    e(new i.TransportException("Non 200 http response", new i.HTTPException("Non 200 http response", r, t.status, n)));
                 }
             }),
               (t.onerror = function (t) {
@@ -12919,25 +12954,25 @@
               t.send(this.input.buffer.buffer),
               this.clear();
           }),
-          (e.exports = n);
+          (e.exports = a);
       },
-      30640: (e, t, s) => {
+      30640: function (e, t, s) {
         var i = s(45099);
-        function a(e, t) {
+        function n(e, t) {
           (this.input = new i()), (this.url = e), (this.opts = t || {});
         }
-        (a.prototype.open = function () {}),
-          (a.prototype.close = function () {}),
-          (a.prototype.read = function (e) {
+        (n.prototype.open = function () {}),
+          (n.prototype.close = function () {}),
+          (n.prototype.read = function (e) {
             throw Error("TextHttpTransport object does not support reads");
           }),
-          (a.prototype.write = function (e) {
+          (n.prototype.write = function (e) {
             this.input.write(e);
           }),
-          (a.prototype.clear = function () {
+          (n.prototype.clear = function () {
             this.input.clear();
           }),
-          (a.prototype.flush = function (e) {
+          (n.prototype.flush = function (e) {
             var t;
             (t = (function () {
               try {
@@ -12972,914 +13007,2101 @@
               t.send(this.input.buffer),
               this.clear();
           }),
-          (e.exports = a);
+          (e.exports = n);
       },
-      62587: (e) => {
+      17648: function (e) {
         "use strict";
-        function t(e, t) {
-          return Object.prototype.hasOwnProperty.call(e, t);
-        }
-        e.exports = function (e, s, i, a) {
-          (s = s || "&"), (i = i || "=");
-          var n = {};
-          if ("string" != typeof e || 0 === e.length) return n;
-          var o = /\+/g;
-          e = e.split(s);
-          var r = 1e3;
-          a && "number" == typeof a.maxKeys && (r = a.maxKeys);
-          var p = e.length;
-          r > 0 && p > r && (p = r);
-          for (var u = 0; u < p; ++u) {
-            var d,
-              y,
-              c,
-              l,
-              T = e[u].replace(o, "%20"),
-              E = T.indexOf(i);
-            E >= 0 ? ((d = T.substr(0, E)), (y = T.substr(E + 1))) : ((d = T), (y = "")),
-              (c = decodeURIComponent(d)),
-              (l = decodeURIComponent(y)),
-              t(n, c) ? (Array.isArray(n[c]) ? n[c].push(l) : (n[c] = [n[c], l])) : (n[c] = l);
+        var t = Array.prototype.slice,
+          s = Object.prototype.toString;
+        e.exports = function (e) {
+          var i = this;
+          if ("function" != typeof i || "[object Function]" !== s.call(i))
+            throw new TypeError("Function.prototype.bind called on incompatible " + i);
+          for (var n, a = t.call(arguments, 1), o = Math.max(0, i.length - a.length), r = [], p = 0; p < o; p++) r.push("$" + p);
+          if (
+            ((n = Function(
+              "binder",
+              "return function (" + r.join(",") + "){ return binder.apply(this,arguments); }"
+            )(function () {
+              if (this instanceof n) {
+                var s = i.apply(this, a.concat(t.call(arguments)));
+                return Object(s) === s ? s : this;
+              }
+              return i.apply(e, a.concat(t.call(arguments)));
+            })),
+            i.prototype)
+          ) {
+            var u = function () {};
+            (u.prototype = i.prototype), (n.prototype = new u()), (u.prototype = null);
           }
           return n;
         };
       },
-      12361: (e) => {
+      58612: function (e, t, s) {
         "use strict";
-        var t = function (e) {
-          switch (typeof e) {
-            case "string":
-              return e;
-            case "boolean":
-              return e ? "true" : "false";
-            case "number":
-              return isFinite(e) ? e : "";
-            default:
-              return "";
+        var i = s(17648);
+        e.exports = Function.prototype.bind || i;
+      },
+      40210: function (e, t, s) {
+        "use strict";
+        var i,
+          n = SyntaxError,
+          a = Function,
+          o = TypeError,
+          r = function (e) {
+            try {
+              return a('"use strict"; return (' + e + ").constructor;")();
+            } catch (e) {}
+          },
+          p = Object.getOwnPropertyDescriptor;
+        if (p)
+          try {
+            p({}, "");
+          } catch (e) {
+            p = null;
           }
+        var u = function () {
+            throw new o();
+          },
+          c = p
+            ? (function () {
+                try {
+                  return u;
+                } catch (e) {
+                  try {
+                    return p(arguments, "callee").get;
+                  } catch (e) {
+                    return u;
+                  }
+                }
+              })()
+            : u,
+          y = s(41405)(),
+          d = s(28185)(),
+          l =
+            Object.getPrototypeOf ||
+            (d
+              ? function (e) {
+                  return e.__proto__;
+                }
+              : null),
+          T = {},
+          E = "undefined" != typeof Uint8Array && l ? l(Uint8Array) : i,
+          f = {
+            "%AggregateError%": "undefined" == typeof AggregateError ? i : AggregateError,
+            "%Array%": Array,
+            "%ArrayBuffer%": "undefined" == typeof ArrayBuffer ? i : ArrayBuffer,
+            "%ArrayIteratorPrototype%": y && l ? l([][Symbol.iterator]()) : i,
+            "%AsyncFromSyncIteratorPrototype%": i,
+            "%AsyncFunction%": T,
+            "%AsyncGenerator%": T,
+            "%AsyncGeneratorFunction%": T,
+            "%AsyncIteratorPrototype%": T,
+            "%Atomics%": "undefined" == typeof Atomics ? i : Atomics,
+            "%BigInt%": "undefined" == typeof BigInt ? i : BigInt,
+            "%BigInt64Array%": "undefined" == typeof BigInt64Array ? i : BigInt64Array,
+            "%BigUint64Array%": "undefined" == typeof BigUint64Array ? i : BigUint64Array,
+            "%Boolean%": Boolean,
+            "%DataView%": "undefined" == typeof DataView ? i : DataView,
+            "%Date%": Date,
+            "%decodeURI%": decodeURI,
+            "%decodeURIComponent%": decodeURIComponent,
+            "%encodeURI%": encodeURI,
+            "%encodeURIComponent%": encodeURIComponent,
+            "%Error%": Error,
+            "%eval%": eval,
+            "%EvalError%": EvalError,
+            "%Float32Array%": "undefined" == typeof Float32Array ? i : Float32Array,
+            "%Float64Array%": "undefined" == typeof Float64Array ? i : Float64Array,
+            "%FinalizationRegistry%": "undefined" == typeof FinalizationRegistry ? i : FinalizationRegistry,
+            "%Function%": a,
+            "%GeneratorFunction%": T,
+            "%Int8Array%": "undefined" == typeof Int8Array ? i : Int8Array,
+            "%Int16Array%": "undefined" == typeof Int16Array ? i : Int16Array,
+            "%Int32Array%": "undefined" == typeof Int32Array ? i : Int32Array,
+            "%isFinite%": isFinite,
+            "%isNaN%": isNaN,
+            "%IteratorPrototype%": y && l ? l(l([][Symbol.iterator]())) : i,
+            "%JSON%": "object" == typeof JSON ? JSON : i,
+            "%Map%": "undefined" == typeof Map ? i : Map,
+            "%MapIteratorPrototype%": "undefined" != typeof Map && y && l ? l(new Map()[Symbol.iterator]()) : i,
+            "%Math%": Math,
+            "%Number%": Number,
+            "%Object%": Object,
+            "%parseFloat%": parseFloat,
+            "%parseInt%": parseInt,
+            "%Promise%": "undefined" == typeof Promise ? i : Promise,
+            "%Proxy%": "undefined" == typeof Proxy ? i : Proxy,
+            "%RangeError%": RangeError,
+            "%ReferenceError%": ReferenceError,
+            "%Reflect%": "undefined" == typeof Reflect ? i : Reflect,
+            "%RegExp%": RegExp,
+            "%Set%": "undefined" == typeof Set ? i : Set,
+            "%SetIteratorPrototype%": "undefined" != typeof Set && y && l ? l(new Set()[Symbol.iterator]()) : i,
+            "%SharedArrayBuffer%": "undefined" == typeof SharedArrayBuffer ? i : SharedArrayBuffer,
+            "%String%": String,
+            "%StringIteratorPrototype%": y && l ? l(""[Symbol.iterator]()) : i,
+            "%Symbol%": y ? Symbol : i,
+            "%SyntaxError%": n,
+            "%ThrowTypeError%": c,
+            "%TypedArray%": E,
+            "%TypeError%": o,
+            "%Uint8Array%": "undefined" == typeof Uint8Array ? i : Uint8Array,
+            "%Uint8ClampedArray%": "undefined" == typeof Uint8ClampedArray ? i : Uint8ClampedArray,
+            "%Uint16Array%": "undefined" == typeof Uint16Array ? i : Uint16Array,
+            "%Uint32Array%": "undefined" == typeof Uint32Array ? i : Uint32Array,
+            "%URIError%": URIError,
+            "%WeakMap%": "undefined" == typeof WeakMap ? i : WeakMap,
+            "%WeakRef%": "undefined" == typeof WeakRef ? i : WeakRef,
+            "%WeakSet%": "undefined" == typeof WeakSet ? i : WeakSet
+          };
+        if (l)
+          try {
+            null.error;
+          } catch (e) {
+            var S = l(l(e));
+            f["%Error.prototype%"] = S;
+          }
+        var h = function e(t) {
+            var s;
+            if ("%AsyncFunction%" === t) s = r("async function () {}");
+            else if ("%GeneratorFunction%" === t) s = r("function* () {}");
+            else if ("%AsyncGeneratorFunction%" === t) s = r("async function* () {}");
+            else if ("%AsyncGenerator%" === t) {
+              var i = e("%AsyncGeneratorFunction%");
+              i && (s = i.prototype);
+            } else if ("%AsyncIteratorPrototype%" === t) {
+              var n = e("%AsyncGenerator%");
+              n && l && (s = l(n.prototype));
+            }
+            return (f[t] = s), s;
+          },
+          I = {
+            "%ArrayBufferPrototype%": ["ArrayBuffer", "prototype"],
+            "%ArrayPrototype%": ["Array", "prototype"],
+            "%ArrayProto_entries%": ["Array", "prototype", "entries"],
+            "%ArrayProto_forEach%": ["Array", "prototype", "forEach"],
+            "%ArrayProto_keys%": ["Array", "prototype", "keys"],
+            "%ArrayProto_values%": ["Array", "prototype", "values"],
+            "%AsyncFunctionPrototype%": ["AsyncFunction", "prototype"],
+            "%AsyncGenerator%": ["AsyncGeneratorFunction", "prototype"],
+            "%AsyncGeneratorPrototype%": ["AsyncGeneratorFunction", "prototype", "prototype"],
+            "%BooleanPrototype%": ["Boolean", "prototype"],
+            "%DataViewPrototype%": ["DataView", "prototype"],
+            "%DatePrototype%": ["Date", "prototype"],
+            "%ErrorPrototype%": ["Error", "prototype"],
+            "%EvalErrorPrototype%": ["EvalError", "prototype"],
+            "%Float32ArrayPrototype%": ["Float32Array", "prototype"],
+            "%Float64ArrayPrototype%": ["Float64Array", "prototype"],
+            "%FunctionPrototype%": ["Function", "prototype"],
+            "%Generator%": ["GeneratorFunction", "prototype"],
+            "%GeneratorPrototype%": ["GeneratorFunction", "prototype", "prototype"],
+            "%Int8ArrayPrototype%": ["Int8Array", "prototype"],
+            "%Int16ArrayPrototype%": ["Int16Array", "prototype"],
+            "%Int32ArrayPrototype%": ["Int32Array", "prototype"],
+            "%JSONParse%": ["JSON", "parse"],
+            "%JSONStringify%": ["JSON", "stringify"],
+            "%MapPrototype%": ["Map", "prototype"],
+            "%NumberPrototype%": ["Number", "prototype"],
+            "%ObjectPrototype%": ["Object", "prototype"],
+            "%ObjProto_toString%": ["Object", "prototype", "toString"],
+            "%ObjProto_valueOf%": ["Object", "prototype", "valueOf"],
+            "%PromisePrototype%": ["Promise", "prototype"],
+            "%PromiseProto_then%": ["Promise", "prototype", "then"],
+            "%Promise_all%": ["Promise", "all"],
+            "%Promise_reject%": ["Promise", "reject"],
+            "%Promise_resolve%": ["Promise", "resolve"],
+            "%RangeErrorPrototype%": ["RangeError", "prototype"],
+            "%ReferenceErrorPrototype%": ["ReferenceError", "prototype"],
+            "%RegExpPrototype%": ["RegExp", "prototype"],
+            "%SetPrototype%": ["Set", "prototype"],
+            "%SharedArrayBufferPrototype%": ["SharedArrayBuffer", "prototype"],
+            "%StringPrototype%": ["String", "prototype"],
+            "%SymbolPrototype%": ["Symbol", "prototype"],
+            "%SyntaxErrorPrototype%": ["SyntaxError", "prototype"],
+            "%TypedArrayPrototype%": ["TypedArray", "prototype"],
+            "%TypeErrorPrototype%": ["TypeError", "prototype"],
+            "%Uint8ArrayPrototype%": ["Uint8Array", "prototype"],
+            "%Uint8ClampedArrayPrototype%": ["Uint8ClampedArray", "prototype"],
+            "%Uint16ArrayPrototype%": ["Uint16Array", "prototype"],
+            "%Uint32ArrayPrototype%": ["Uint32Array", "prototype"],
+            "%URIErrorPrototype%": ["URIError", "prototype"],
+            "%WeakMapPrototype%": ["WeakMap", "prototype"],
+            "%WeakSetPrototype%": ["WeakSet", "prototype"]
+          },
+          N = s(58612),
+          g = s(17642),
+          x = N.call(Function.call, Array.prototype.concat),
+          R = N.call(Function.apply, Array.prototype.splice),
+          m = N.call(Function.call, String.prototype.replace),
+          A = N.call(Function.call, String.prototype.slice),
+          C = N.call(Function.call, RegExp.prototype.exec),
+          O = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g,
+          M = /\\(\\)?/g,
+          v = function (e, t) {
+            var s,
+              i = e;
+            if ((g(I, i) && (i = "%" + (s = I[i])[0] + "%"), g(f, i))) {
+              var a = f[i];
+              if ((a === T && (a = h(i)), void 0 === a && !t))
+                throw new o("intrinsic " + e + " exists, but is not available. Please file an issue!");
+              return { alias: s, name: i, value: a };
+            }
+            throw new n("intrinsic " + e + " does not exist!");
+          };
+        e.exports = function (e, t) {
+          if ("string" != typeof e || 0 === e.length) throw new o("intrinsic name must be a non-empty string");
+          if (arguments.length > 1 && "boolean" != typeof t) throw new o('"allowMissing" argument must be a boolean');
+          if (null === C(/^%?[^%]*%?$/, e))
+            throw new n("`%` may not be present anywhere but at the beginning and end of the intrinsic name");
+          var s = (function (e) {
+              var t = A(e, 0, 1),
+                s = A(e, -1);
+              if ("%" === t && "%" !== s) throw new n("invalid intrinsic syntax, expected closing `%`");
+              if ("%" === s && "%" !== t) throw new n("invalid intrinsic syntax, expected opening `%`");
+              var i = [];
+              return (
+                m(e, O, function (e, t, s, n) {
+                  i[i.length] = s ? m(n, M, "$1") : t || e;
+                }),
+                i
+              );
+            })(e),
+            i = s.length > 0 ? s[0] : "",
+            a = v("%" + i + "%", t),
+            r = a.name,
+            u = a.value,
+            c = !1,
+            y = a.alias;
+          y && ((i = y[0]), R(s, x([0, 1], y)));
+          for (var d = 1, l = !0; d < s.length; d += 1) {
+            var T = s[d],
+              E = A(T, 0, 1),
+              S = A(T, -1);
+            if (('"' === E || "'" === E || "`" === E || '"' === S || "'" === S || "`" === S) && E !== S)
+              throw new n("property names with quotes must have matching quotes");
+            if ((("constructor" !== T && l) || (c = !0), g(f, (r = "%" + (i += "." + T) + "%")))) u = f[r];
+            else if (null != u) {
+              if (!(T in u)) {
+                if (!t) throw new o("base intrinsic for " + e + " exists, but the property is not available.");
+                return;
+              }
+              if (p && d + 1 >= s.length) {
+                var h = p(u, T);
+                u = (l = !!h) && "get" in h && !("originalValue" in h.get) ? h.get : u[T];
+              } else (l = g(u, T)), (u = u[T]);
+              l && !c && (f[r] = u);
+            }
+          }
+          return u;
         };
-        e.exports = function (e, s, i, a) {
+      },
+      28185: function (e) {
+        "use strict";
+        var t = { foo: {} },
+          s = Object;
+        e.exports = function () {
+          return { __proto__: t }.foo === t.foo && !({ __proto__: null } instanceof s);
+        };
+      },
+      41405: function (e, t, s) {
+        "use strict";
+        var i = "undefined" != typeof Symbol && Symbol,
+          n = s(55419);
+        e.exports = function () {
           return (
-            (s = s || "&"),
-            (i = i || "="),
-            null === e && (e = void 0),
-            "object" == typeof e
-              ? Object.keys(e)
-                  .map(function (a) {
-                    var n = encodeURIComponent(t(a)) + i;
-                    return Array.isArray(e[a])
-                      ? e[a]
-                          .map(function (e) {
-                            return n + encodeURIComponent(t(e));
-                          })
-                          .join(s)
-                      : n + encodeURIComponent(t(e[a]));
-                  })
-                  .join(s)
-              : a
-              ? encodeURIComponent(t(a)) + i + encodeURIComponent(t(e))
-              : ""
+            "function" == typeof i && "function" == typeof Symbol && "symbol" == typeof i("foo") && "symbol" == typeof Symbol("bar") && n()
           );
         };
       },
-      17673: (e, t, s) => {
+      55419: function (e) {
         "use strict";
-        (t.decode = t.parse = s(62587)), (t.encode = t.stringify = s(12361));
-      },
-      91632: () => {
-        !(function (e) {
-          var t = {};
-          function s(i) {
-            if (t[i]) return t[i].exports;
-            var a = (t[i] = { i, l: !1, exports: {} });
-            return e[i].call(a.exports, a, a.exports, s), (a.l = !0), a.exports;
+        e.exports = function () {
+          if ("function" != typeof Symbol || "function" != typeof Object.getOwnPropertySymbols) return !1;
+          if ("symbol" == typeof Symbol.iterator) return !0;
+          var e = {},
+            t = Symbol("test"),
+            s = Object(t);
+          if ("string" == typeof t) return !1;
+          if ("[object Symbol]" !== Object.prototype.toString.call(t)) return !1;
+          if ("[object Symbol]" !== Object.prototype.toString.call(s)) return !1;
+          for (t in ((e[t] = 42), e)) return !1;
+          if ("function" == typeof Object.keys && 0 !== Object.keys(e).length) return !1;
+          if ("function" == typeof Object.getOwnPropertyNames && 0 !== Object.getOwnPropertyNames(e).length) return !1;
+          var i = Object.getOwnPropertySymbols(e);
+          if (1 !== i.length || i[0] !== t) return !1;
+          if (!Object.prototype.propertyIsEnumerable.call(e, t)) return !1;
+          if ("function" == typeof Object.getOwnPropertyDescriptor) {
+            var n = Object.getOwnPropertyDescriptor(e, t);
+            if (42 !== n.value || !0 !== n.enumerable) return !1;
           }
-          (s.m = e),
-            (s.c = t),
-            (s.d = function (e, t, i) {
-              s.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: i });
-            }),
-            (s.r = function (e) {
-              "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
-                Object.defineProperty(e, "__esModule", { value: !0 });
-            }),
-            (s.t = function (e, t) {
-              if ((1 & t && (e = s(e)), 8 & t)) return e;
-              if (4 & t && "object" == typeof e && e && e.__esModule) return e;
-              var i = Object.create(null);
-              if ((s.r(i), Object.defineProperty(i, "default", { enumerable: !0, value: e }), 2 & t && "string" != typeof e))
-                for (var a in e)
-                  s.d(
-                    i,
-                    a,
-                    function (t) {
-                      return e[t];
-                    }.bind(null, a)
-                  );
-              return i;
-            }),
-            (s.n = function (e) {
-              var t =
-                e && e.__esModule
-                  ? function () {
-                      return e.default;
-                    }
-                  : function () {
-                      return e;
-                    };
-              return s.d(t, "a", t), t;
-            }),
-            (s.o = function (e, t) {
-              return Object.prototype.hasOwnProperty.call(e, t);
-            }),
-            (s.p = ""),
-            s((s.s = 64));
-        })({
-          37: function (e, t, s) {
-            "use strict";
-            var i,
-              a = {
-                Event: { GET_TAB_ID: "topee.tabInfo.getTabId", TAB_ID: "topee.tabInfo.tabId" },
-                init: function () {
-                  var e;
-                  if (
-                    (window === window.top &&
-                      (window.addEventListener("message", function (e) {
-                        e.data &&
-                          e.data.type === a.Event.GET_TAB_ID &&
-                          a.tabId.then((t) => e.source && e.source.postMessage({ type: a.Event.TAB_ID, detail: t, debug: r }, e.origin));
-                      }),
-                      safari.self.addEventListener("message", function (e) {
-                        "tabUpdate" === e.name && e.message && e.message.url && (window.location = e.message.url);
-                      })),
-                    isNaN(n))
-                  )
-                    if (window !== window.top) {
-                      if (window !== window.top)
-                        return (
-                          window.addEventListener("message", function (t) {
-                            t.data &&
-                              t.data.type === a.Event.TAB_ID &&
-                              "number" == typeof t.data.detail &&
-                              ((n = t.data.detail), d(t.data.debug), u(t.data.debug), i(t.data.detail), clearInterval(e));
-                          }),
-                          (e = setInterval(function () {
-                            window.top.postMessage({ type: a.Event.GET_TAB_ID }, "*");
-                          }, 200)),
-                          void window.top.postMessage({ type: a.Event.GET_TAB_ID }, "*")
-                        );
-                    } else
-                      safari.self.addEventListener("message", function (e) {
-                        "forceTabId" === e.name &&
-                          e.message &&
-                          "number" == typeof e.message.tabId &&
-                          ((n = e.message.tabId),
-                          sessionStorage.setItem("topee_tabId", n),
-                          d(e.message.debug),
-                          u(e.message.debug),
-                          i(e.message.tabId));
-                      });
-                  else i(n);
-                },
-                sayHello: function () {
-                  var e = isNaN(n) ? null : n;
-                  if (null === e) {
-                    if (o) return;
-                    o = !0;
-                  }
-                  window.isTabRegistered ||
-                    (a.tabId.then(
-                      (t) =>
-                        window.topee_log &&
-                        console.debug(
-                          `topee.hello(tabId: ${e}, referrer: "${document.referrer}", historyLength: ${history.length}) @ ${window.location.href} -> ${t}`
-                        )
-                    ),
-                    safari.extension.dispatchMessage("hello", {
-                      tabId: e,
-                      referrer: document.referrer,
-                      historyLength: history.length,
-                      userAgent: navigator.userAgent,
-                      payload: Object.assign({ eventName: "hello", tabId: e, url: document.location.href }, p())
-                    }),
-                    (window.isTabRegistered = !0));
-                },
-                sayAlive: function () {
-                  safari.extension.dispatchMessage("alive", {
-                    tabId: n,
-                    payload: Object.assign({ eventName: "alive", tabId: n, url: document.location.href }, p())
-                  });
-                },
-                sayBye: function (e) {
-                  var t = isNaN(n) ? null : n;
-                  window.isTabRegistered &&
-                    (window.topee_log && console.debug(`topee.bye(tabId: ${t}, url: ${window.location.href})`),
-                    safari.extension.dispatchMessage("bye", {
-                      tabId: t,
-                      referrer: document.referrer,
-                      historyLength: history.length,
-                      payload: { tabId: t, eventName: "bye", reason: e ? e.type : "unknown", url: window.location.href }
-                    }),
-                    (window.isTabRegistered = !1));
-                },
-                isForThisFrame: function (e) {
-                  return null == e || e === a.frameId;
+          return !0;
+        };
+      },
+      17642: function (e, t, s) {
+        "use strict";
+        var i = s(58612);
+        e.exports = i.call(Function.call, Object.prototype.hasOwnProperty);
+      },
+      70631: function (e, t, s) {
+        var i = "function" == typeof Map && Map.prototype,
+          n = Object.getOwnPropertyDescriptor && i ? Object.getOwnPropertyDescriptor(Map.prototype, "size") : null,
+          a = i && n && "function" == typeof n.get ? n.get : null,
+          o = i && Map.prototype.forEach,
+          r = "function" == typeof Set && Set.prototype,
+          p = Object.getOwnPropertyDescriptor && r ? Object.getOwnPropertyDescriptor(Set.prototype, "size") : null,
+          u = r && p && "function" == typeof p.get ? p.get : null,
+          c = r && Set.prototype.forEach,
+          y = "function" == typeof WeakMap && WeakMap.prototype ? WeakMap.prototype.has : null,
+          d = "function" == typeof WeakSet && WeakSet.prototype ? WeakSet.prototype.has : null,
+          l = "function" == typeof WeakRef && WeakRef.prototype ? WeakRef.prototype.deref : null,
+          T = Boolean.prototype.valueOf,
+          E = Object.prototype.toString,
+          f = Function.prototype.toString,
+          S = String.prototype.match,
+          h = String.prototype.slice,
+          I = String.prototype.replace,
+          N = String.prototype.toUpperCase,
+          g = String.prototype.toLowerCase,
+          x = RegExp.prototype.test,
+          R = Array.prototype.concat,
+          m = Array.prototype.join,
+          A = Array.prototype.slice,
+          C = Math.floor,
+          O = "function" == typeof BigInt ? BigInt.prototype.valueOf : null,
+          M = Object.getOwnPropertySymbols,
+          v = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? Symbol.prototype.toString : null,
+          k = "function" == typeof Symbol && "object" == typeof Symbol.iterator,
+          D = "function" == typeof Symbol && Symbol.toStringTag && (Symbol.toStringTag, 1) ? Symbol.toStringTag : null,
+          P = Object.prototype.propertyIsEnumerable,
+          U =
+            ("function" == typeof Reflect ? Reflect.getPrototypeOf : Object.getPrototypeOf) ||
+            ([].__proto__ === Array.prototype
+              ? function (e) {
+                  return e.__proto__;
                 }
-              };
-            (a.tabId = new Promise(function (e) {
-              i = e;
-            })),
-              window === window.top ? (a.frameId = 0) : (a.frameId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER));
-            var n = window.opener ? NaN : parseInt(sessionStorage.getItem("topee_tabId")),
-              o = !1,
-              r = (function () {
-                var e = sessionStorage.getItem("topee_debug");
-                if (!e) return {};
+              : null);
+        function b(e, t) {
+          if (e === 1 / 0 || e === -1 / 0 || e != e || (e && e > -1e3 && e < 1e3) || x.call(/e/, t)) return t;
+          var s = /[0-9](?=(?:[0-9]{3})+(?![0-9]))/g;
+          if ("number" == typeof e) {
+            var i = e < 0 ? -C(-e) : C(e);
+            if (i !== e) {
+              var n = String(i),
+                a = h.call(t, n.length + 1);
+              return I.call(n, s, "$&_") + "." + I.call(I.call(a, /([0-9]{3})/g, "$&_"), /_$/, "");
+            }
+          }
+          return I.call(t, s, "$&_");
+        }
+        var L = s(24654),
+          w = L.custom,
+          _ = X(w) ? w : null;
+        function G(e, t, s) {
+          var i = "double" === (s.quoteStyle || t) ? '"' : "'";
+          return i + e + i;
+        }
+        function B(e) {
+          return I.call(String(e), /"/g, "&quot;");
+        }
+        function F(e) {
+          return !("[object Array]" !== j(e) || (D && "object" == typeof e && D in e));
+        }
+        function q(e) {
+          return !("[object RegExp]" !== j(e) || (D && "object" == typeof e && D in e));
+        }
+        function X(e) {
+          if (k) return e && "object" == typeof e && e instanceof Symbol;
+          if ("symbol" == typeof e) return !0;
+          if (!e || "object" != typeof e || !v) return !1;
+          try {
+            return v.call(e), !0;
+          } catch (e) {}
+          return !1;
+        }
+        e.exports = function e(t, s, i, n) {
+          var r = s || {};
+          if (W(r, "quoteStyle") && "single" !== r.quoteStyle && "double" !== r.quoteStyle)
+            throw new TypeError('option "quoteStyle" must be "single" or "double"');
+          if (
+            W(r, "maxStringLength") &&
+            ("number" == typeof r.maxStringLength ? r.maxStringLength < 0 && r.maxStringLength !== 1 / 0 : null !== r.maxStringLength)
+          )
+            throw new TypeError('option "maxStringLength", if provided, must be a positive integer, Infinity, or `null`');
+          var p = !W(r, "customInspect") || r.customInspect;
+          if ("boolean" != typeof p && "symbol" !== p)
+            throw new TypeError("option \"customInspect\", if provided, must be `true`, `false`, or `'symbol'`");
+          if (W(r, "indent") && null !== r.indent && "\t" !== r.indent && !(parseInt(r.indent, 10) === r.indent && r.indent > 0))
+            throw new TypeError('option "indent" must be "\\t", an integer > 0, or `null`');
+          if (W(r, "numericSeparator") && "boolean" != typeof r.numericSeparator)
+            throw new TypeError('option "numericSeparator", if provided, must be `true` or `false`');
+          var E = r.numericSeparator;
+          if (void 0 === t) return "undefined";
+          if (null === t) return "null";
+          if ("boolean" == typeof t) return t ? "true" : "false";
+          if ("string" == typeof t) return z(t, r);
+          if ("number" == typeof t) {
+            if (0 === t) return 1 / 0 / t > 0 ? "0" : "-0";
+            var N = String(t);
+            return E ? b(t, N) : N;
+          }
+          if ("bigint" == typeof t) {
+            var x = String(t) + "n";
+            return E ? b(t, x) : x;
+          }
+          var C = void 0 === r.depth ? 5 : r.depth;
+          if ((void 0 === i && (i = 0), i >= C && C > 0 && "object" == typeof t)) return F(t) ? "[Array]" : "[Object]";
+          var M,
+            w = (function (e, t) {
+              var s;
+              if ("\t" === e.indent) s = "\t";
+              else {
+                if (!("number" == typeof e.indent && e.indent > 0)) return null;
+                s = m.call(Array(e.indent + 1), " ");
+              }
+              return { base: s, prev: m.call(Array(t + 1), s) };
+            })(r, i);
+          if (void 0 === n) n = [];
+          else if (H(n, t) >= 0) return "[Circular]";
+          function V(t, s, a) {
+            if ((s && (n = A.call(n)).push(s), a)) {
+              var o = { depth: r.depth };
+              return W(r, "quoteStyle") && (o.quoteStyle = r.quoteStyle), e(t, o, i + 1, n);
+            }
+            return e(t, r, i + 1, n);
+          }
+          if ("function" == typeof t && !q(t)) {
+            var Y = (function (e) {
+                if (e.name) return e.name;
+                var t = S.call(f.call(e), /^function\s*([\w$]+)/);
+                return t ? t[1] : null;
+              })(t),
+              ee = Q(t, V);
+            return "[Function" + (Y ? ": " + Y : " (anonymous)") + "]" + (ee.length > 0 ? " { " + m.call(ee, ", ") + " }" : "");
+          }
+          if (X(t)) {
+            var te = k ? I.call(String(t), /^(Symbol\(.*\))_[^)]*$/, "$1") : v.call(t);
+            return "object" != typeof t || k ? te : K(te);
+          }
+          if (
+            (M = t) &&
+            "object" == typeof M &&
+            (("undefined" != typeof HTMLElement && M instanceof HTMLElement) ||
+              ("string" == typeof M.nodeName && "function" == typeof M.getAttribute))
+          ) {
+            for (var se = "<" + g.call(String(t.nodeName)), ie = t.attributes || [], ne = 0; ne < ie.length; ne++)
+              se += " " + ie[ne].name + "=" + G(B(ie[ne].value), "double", r);
+            return (se += ">"), t.childNodes && t.childNodes.length && (se += "..."), se + "</" + g.call(String(t.nodeName)) + ">";
+          }
+          if (F(t)) {
+            if (0 === t.length) return "[]";
+            var ae = Q(t, V);
+            return w &&
+              !(function (e) {
+                for (var t = 0; t < e.length; t++) if (H(e[t], "\n") >= 0) return !1;
+                return !0;
+              })(ae)
+              ? "[" + J(ae, w) + "]"
+              : "[ " + m.call(ae, ", ") + " ]";
+          }
+          if (
+            (function (e) {
+              return !("[object Error]" !== j(e) || (D && "object" == typeof e && D in e));
+            })(t)
+          ) {
+            var oe = Q(t, V);
+            return "cause" in Error.prototype || !("cause" in t) || P.call(t, "cause")
+              ? 0 === oe.length
+                ? "[" + String(t) + "]"
+                : "{ [" + String(t) + "] " + m.call(oe, ", ") + " }"
+              : "{ [" + String(t) + "] " + m.call(R.call("[cause]: " + V(t.cause), oe), ", ") + " }";
+          }
+          if ("object" == typeof t && p) {
+            if (_ && "function" == typeof t[_] && L) return L(t, { depth: C - i });
+            if ("symbol" !== p && "function" == typeof t.inspect) return t.inspect();
+          }
+          if (
+            (function (e) {
+              if (!a || !e || "object" != typeof e) return !1;
+              try {
+                a.call(e);
                 try {
-                  var t = JSON.parse(e);
-                  return null === t || "object" != typeof t ? {} : t;
+                  u.call(e);
                 } catch (e) {
-                  return {};
+                  return !0;
                 }
-              })();
-            function p() {
-              return {
-                frameId: a.frameId,
-                isVisible: !document.hidden,
-                hasFocus: document.hasFocus(),
-                status: "complete" === document.readyState ? "complete" : "loading",
-                url: window.location.href
-              };
+                return e instanceof Map;
+              } catch (e) {}
+              return !1;
+            })(t)
+          ) {
+            var re = [];
+            return (
+              o &&
+                o.call(t, function (e, s) {
+                  re.push(V(s, t, !0) + " => " + V(e, t));
+                }),
+              Z("Map", a.call(t), re, w)
+            );
+          }
+          if (
+            (function (e) {
+              if (!u || !e || "object" != typeof e) return !1;
+              try {
+                u.call(e);
+                try {
+                  a.call(e);
+                } catch (e) {
+                  return !0;
+                }
+                return e instanceof Set;
+              } catch (e) {}
+              return !1;
+            })(t)
+          ) {
+            var pe = [];
+            return (
+              c &&
+                c.call(t, function (e) {
+                  pe.push(V(e, t));
+                }),
+              Z("Set", u.call(t), pe, w)
+            );
+          }
+          if (
+            (function (e) {
+              if (!y || !e || "object" != typeof e) return !1;
+              try {
+                y.call(e, y);
+                try {
+                  d.call(e, d);
+                } catch (e) {
+                  return !0;
+                }
+                return e instanceof WeakMap;
+              } catch (e) {}
+              return !1;
+            })(t)
+          )
+            return $("WeakMap");
+          if (
+            (function (e) {
+              if (!d || !e || "object" != typeof e) return !1;
+              try {
+                d.call(e, d);
+                try {
+                  y.call(e, y);
+                } catch (e) {
+                  return !0;
+                }
+                return e instanceof WeakSet;
+              } catch (e) {}
+              return !1;
+            })(t)
+          )
+            return $("WeakSet");
+          if (
+            (function (e) {
+              if (!l || !e || "object" != typeof e) return !1;
+              try {
+                return l.call(e), !0;
+              } catch (e) {}
+              return !1;
+            })(t)
+          )
+            return $("WeakRef");
+          if (
+            (function (e) {
+              return !("[object Number]" !== j(e) || (D && "object" == typeof e && D in e));
+            })(t)
+          )
+            return K(V(Number(t)));
+          if (
+            (function (e) {
+              if (!e || "object" != typeof e || !O) return !1;
+              try {
+                return O.call(e), !0;
+              } catch (e) {}
+              return !1;
+            })(t)
+          )
+            return K(V(O.call(t)));
+          if (
+            (function (e) {
+              return !("[object Boolean]" !== j(e) || (D && "object" == typeof e && D in e));
+            })(t)
+          )
+            return K(T.call(t));
+          if (
+            (function (e) {
+              return !("[object String]" !== j(e) || (D && "object" == typeof e && D in e));
+            })(t)
+          )
+            return K(V(String(t)));
+          if (
+            !(function (e) {
+              return !("[object Date]" !== j(e) || (D && "object" == typeof e && D in e));
+            })(t) &&
+            !q(t)
+          ) {
+            var ue = Q(t, V),
+              ce = U ? U(t) === Object.prototype : t instanceof Object || t.constructor === Object,
+              ye = t instanceof Object ? "" : "null prototype",
+              de = !ce && D && Object(t) === t && D in t ? h.call(j(t), 8, -1) : ye ? "Object" : "",
+              le =
+                (ce || "function" != typeof t.constructor ? "" : t.constructor.name ? t.constructor.name + " " : "") +
+                (de || ye ? "[" + m.call(R.call([], de || [], ye || []), ": ") + "] " : "");
+            return 0 === ue.length ? le + "{}" : w ? le + "{" + J(ue, w) + "}" : le + "{ " + m.call(ue, ", ") + " }";
+          }
+          return String(t);
+        };
+        var V =
+          Object.prototype.hasOwnProperty ||
+          function (e) {
+            return e in this;
+          };
+        function W(e, t) {
+          return V.call(e, t);
+        }
+        function j(e) {
+          return E.call(e);
+        }
+        function H(e, t) {
+          if (e.indexOf) return e.indexOf(t);
+          for (var s = 0, i = e.length; s < i; s++) if (e[s] === t) return s;
+          return -1;
+        }
+        function z(e, t) {
+          if (e.length > t.maxStringLength) {
+            var s = e.length - t.maxStringLength,
+              i = "... " + s + " more character" + (s > 1 ? "s" : "");
+            return z(h.call(e, 0, t.maxStringLength), t) + i;
+          }
+          return G(I.call(I.call(e, /(['\\])/g, "\\$1"), /[\x00-\x1f]/g, Y), "single", t);
+        }
+        function Y(e) {
+          var t = e.charCodeAt(0),
+            s = { 8: "b", 9: "t", 10: "n", 12: "f", 13: "r" }[t];
+          return s ? "\\" + s : "\\x" + (t < 16 ? "0" : "") + N.call(t.toString(16));
+        }
+        function K(e) {
+          return "Object(" + e + ")";
+        }
+        function $(e) {
+          return e + " { ? }";
+        }
+        function Z(e, t, s, i) {
+          return e + " (" + t + ") {" + (i ? J(s, i) : m.call(s, ", ")) + "}";
+        }
+        function J(e, t) {
+          if (0 === e.length) return "";
+          var s = "\n" + t.prev + t.base;
+          return s + m.call(e, "," + s) + "\n" + t.prev;
+        }
+        function Q(e, t) {
+          var s = F(e),
+            i = [];
+          if (s) {
+            i.length = e.length;
+            for (var n = 0; n < e.length; n++) i[n] = W(e, n) ? t(e[n], e) : "";
+          }
+          var a,
+            o = "function" == typeof M ? M(e) : [];
+          if (k) {
+            a = {};
+            for (var r = 0; r < o.length; r++) a["$" + o[r]] = o[r];
+          }
+          for (var p in e)
+            W(e, p) &&
+              ((s && String(Number(p)) === p && p < e.length) ||
+                (k && a["$" + p] instanceof Symbol) ||
+                (x.call(/[^\w$]/, p) ? i.push(t(p, e) + ": " + t(e[p], e)) : i.push(p + ": " + t(e[p], e))));
+          if ("function" == typeof M) for (var u = 0; u < o.length; u++) P.call(e, o[u]) && i.push("[" + t(o[u]) + "]: " + t(e[o[u]], e));
+          return i;
+        }
+      },
+      55798: function (e) {
+        "use strict";
+        var t = String.prototype.replace,
+          s = /%20/g,
+          i = "RFC3986";
+        e.exports = {
+          default: i,
+          formatters: {
+            RFC1738: function (e) {
+              return t.call(e, s, "+");
+            },
+            RFC3986: function (e) {
+              return String(e);
             }
-            function u(e) {
-              "object" == typeof e && null !== e && sessionStorage.setItem("topee_debug", JSON.stringify(e));
-            }
-            function d(e) {
-              if (arguments.length > 0) {
-                if ("object" != typeof e || null === e) return;
-                r = e;
+          },
+          RFC1738: "RFC1738",
+          RFC3986: i
+        };
+      },
+      80129: function (e, t, s) {
+        "use strict";
+        var i = s(58261),
+          n = s(55235),
+          a = s(55798);
+        e.exports = { formats: a, parse: n, stringify: i };
+      },
+      55235: function (e, t, s) {
+        "use strict";
+        var i = s(12769),
+          n = Object.prototype.hasOwnProperty,
+          a = Array.isArray,
+          o = {
+            allowDots: !1,
+            allowPrototypes: !1,
+            allowSparse: !1,
+            arrayLimit: 20,
+            charset: "utf-8",
+            charsetSentinel: !1,
+            comma: !1,
+            decoder: i.decode,
+            delimiter: "&",
+            depth: 5,
+            ignoreQueryPrefix: !1,
+            interpretNumericEntities: !1,
+            parameterLimit: 1e3,
+            parseArrays: !0,
+            plainObjects: !1,
+            strictNullHandling: !1
+          },
+          r = function (e) {
+            return e.replace(/&#(\d+);/g, function (e, t) {
+              return String.fromCharCode(parseInt(t, 10));
+            });
+          },
+          p = function (e, t) {
+            return e && "string" == typeof e && t.comma && e.indexOf(",") > -1 ? e.split(",") : e;
+          },
+          u = function (e, t, s, i) {
+            if (e) {
+              var a = s.allowDots ? e.replace(/\.([^.[]+)/g, "[$1]") : e,
+                o = /(\[[^[\]]*])/g,
+                r = s.depth > 0 && /(\[[^[\]]*])/.exec(a),
+                u = r ? a.slice(0, r.index) : a,
+                c = [];
+              if (u) {
+                if (!s.plainObjects && n.call(Object.prototype, u) && !s.allowPrototypes) return;
+                c.push(u);
               }
-              r.log ? (window.topee_log = r.log) : delete window.topee_log;
-            }
-            d(), (window.isTabRegistered = !1), (e.exports = a);
-          },
-          38: function (e, t, s) {
-            e.exports = { extension: s(39), i18n: s(47), runtime: s(40), tabs: s(48) };
-          },
-          39: function (e, t, s) {
-            var i = s(40),
-              a = {
-                getURL: function (e) {
-                  return i.getURL(e);
-                }
-              };
-            e.exports = a;
-          },
-          40: function (e, t, s) {
-            "use strict";
-            var i = s(41),
-              a = s(37),
-              n = s(42),
-              o = s(46),
-              r = {},
-              p = new i();
-            p.setMaxListeners(1024),
-              (r.sendMessage = function (e, t) {
-                o.dispatchRequest({ eventName: "sendMessage", message: e }, t);
-              }),
-              (r.onMessage = {
-                addListener: function (e) {
-                  p.addListener("message", e);
-                },
-                removeListener: function (e) {
-                  p.removeListener("message", e);
-                }
-              }),
-              safari.self.addEventListener("message", function (e) {
-                if ("request" === e.name && a.isForThisFrame(e.message.frameId))
-                  return (
-                    p.emit("message", e.message.payload, { id: "topee" }, function (t) {
-                      o.dispatchRequest({ eventName: "messageResponse", messageId: e.message.messageId, message: t });
-                    }),
-                    void (void 0 === e.message.frameId && n.broadcast(e.message))
-                  );
-                "request" === e.name && n.hasChild(e.message.frameId) && n.forward(e.message.frameId, e.message);
-              }),
-              (r.sayAlive = function () {
-                a.sayAlive();
-              }),
-              (r.getURL = function (e) {
-                if (!safari.extension.baseURI) throw new Error("safari.extension.baseURI didn't return usable value");
-                return safari.extension.baseURI + e;
-              }),
-              (r.getPlatformInfo = function (e) {
-                e({ os: "mac", arch: "x86-64", nacl_arch: "x86-64" });
-              }),
-              (e.exports = r);
-          },
-          41: function (e, t, s) {
-            "use strict";
-            var i,
-              a = "object" == typeof Reflect ? Reflect : null,
-              n =
-                a && "function" == typeof a.apply
-                  ? a.apply
-                  : function (e, t, s) {
-                      return Function.prototype.apply.call(e, t, s);
-                    };
-            i =
-              a && "function" == typeof a.ownKeys
-                ? a.ownKeys
-                : Object.getOwnPropertySymbols
-                ? function (e) {
-                    return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e));
+              for (var y = 0; s.depth > 0 && null !== (r = o.exec(a)) && y < s.depth; ) {
+                if (((y += 1), !s.plainObjects && n.call(Object.prototype, r[1].slice(1, -1)) && !s.allowPrototypes)) return;
+                c.push(r[1]);
+              }
+              return (
+                r && c.push("[" + a.slice(r.index) + "]"),
+                (function (e, t, s, i) {
+                  for (var n = i ? t : p(t, s), a = e.length - 1; a >= 0; --a) {
+                    var o,
+                      r = e[a];
+                    if ("[]" === r && s.parseArrays) o = [].concat(n);
+                    else {
+                      o = s.plainObjects ? Object.create(null) : {};
+                      var u = "[" === r.charAt(0) && "]" === r.charAt(r.length - 1) ? r.slice(1, -1) : r,
+                        c = parseInt(u, 10);
+                      s.parseArrays || "" !== u
+                        ? !isNaN(c) && r !== u && String(c) === u && c >= 0 && s.parseArrays && c <= s.arrayLimit
+                          ? ((o = [])[c] = n)
+                          : "__proto__" !== u && (o[u] = n)
+                        : (o = { 0: n });
+                    }
+                    n = o;
                   }
-                : function (e) {
-                    return Object.getOwnPropertyNames(e);
-                  };
-            var o =
-              Number.isNaN ||
-              function (e) {
-                return e != e;
-              };
-            function r() {
-              r.init.call(this);
+                  return n;
+                })(c, t, s, i)
+              );
             }
-            (e.exports = r),
-              (r.EventEmitter = r),
-              (r.prototype._events = void 0),
-              (r.prototype._eventsCount = 0),
-              (r.prototype._maxListeners = void 0);
-            var p = 10;
-            function u(e) {
-              return void 0 === e._maxListeners ? r.defaultMaxListeners : e._maxListeners;
-            }
-            function d(e, t, s, i) {
-              var a, n, o, r;
-              if ("function" != typeof s)
-                throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof s);
-              if (
-                (void 0 === (n = e._events)
-                  ? ((n = e._events = Object.create(null)), (e._eventsCount = 0))
-                  : (void 0 !== n.newListener && (e.emit("newListener", t, s.listener ? s.listener : s), (n = e._events)), (o = n[t])),
-                void 0 === o)
-              )
-                (o = n[t] = s), ++e._eventsCount;
-              else if (
-                ("function" == typeof o ? (o = n[t] = i ? [s, o] : [o, s]) : i ? o.unshift(s) : o.push(s),
-                (a = u(e)) > 0 && o.length > a && !o.warned)
-              ) {
-                o.warned = !0;
-                var p = new Error(
-                  "Possible EventEmitter memory leak detected. " +
-                    o.length +
-                    " " +
-                    String(t) +
-                    " listeners added. Use emitter.setMaxListeners() to increase limit"
-                );
-                (p.name = "MaxListenersExceededWarning"),
-                  (p.emitter = e),
-                  (p.type = t),
-                  (p.count = o.length),
-                  (r = p),
-                  console && console.warn && console.warn(r);
-              }
+          };
+        e.exports = function (e, t) {
+          var s = (function (e) {
+            if (!e) return o;
+            if (null !== e.decoder && void 0 !== e.decoder && "function" != typeof e.decoder)
+              throw new TypeError("Decoder has to be a function.");
+            if (void 0 !== e.charset && "utf-8" !== e.charset && "iso-8859-1" !== e.charset)
+              throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
+            var t = void 0 === e.charset ? o.charset : e.charset;
+            return {
+              allowDots: void 0 === e.allowDots ? o.allowDots : !!e.allowDots,
+              allowPrototypes: "boolean" == typeof e.allowPrototypes ? e.allowPrototypes : o.allowPrototypes,
+              allowSparse: "boolean" == typeof e.allowSparse ? e.allowSparse : o.allowSparse,
+              arrayLimit: "number" == typeof e.arrayLimit ? e.arrayLimit : o.arrayLimit,
+              charset: t,
+              charsetSentinel: "boolean" == typeof e.charsetSentinel ? e.charsetSentinel : o.charsetSentinel,
+              comma: "boolean" == typeof e.comma ? e.comma : o.comma,
+              decoder: "function" == typeof e.decoder ? e.decoder : o.decoder,
+              delimiter: "string" == typeof e.delimiter || i.isRegExp(e.delimiter) ? e.delimiter : o.delimiter,
+              depth: "number" == typeof e.depth || !1 === e.depth ? +e.depth : o.depth,
+              ignoreQueryPrefix: !0 === e.ignoreQueryPrefix,
+              interpretNumericEntities:
+                "boolean" == typeof e.interpretNumericEntities ? e.interpretNumericEntities : o.interpretNumericEntities,
+              parameterLimit: "number" == typeof e.parameterLimit ? e.parameterLimit : o.parameterLimit,
+              parseArrays: !1 !== e.parseArrays,
+              plainObjects: "boolean" == typeof e.plainObjects ? e.plainObjects : o.plainObjects,
+              strictNullHandling: "boolean" == typeof e.strictNullHandling ? e.strictNullHandling : o.strictNullHandling
+            };
+          })(t);
+          if ("" === e || null == e) return s.plainObjects ? Object.create(null) : {};
+          for (
+            var c =
+                "string" == typeof e
+                  ? (function (e, t) {
+                      var s,
+                        u = { __proto__: null },
+                        c = t.ignoreQueryPrefix ? e.replace(/^\?/, "") : e,
+                        y = t.parameterLimit === 1 / 0 ? void 0 : t.parameterLimit,
+                        d = c.split(t.delimiter, y),
+                        l = -1,
+                        T = t.charset;
+                      if (t.charsetSentinel)
+                        for (s = 0; s < d.length; ++s)
+                          0 === d[s].indexOf("utf8=") &&
+                            ("utf8=%E2%9C%93" === d[s] ? (T = "utf-8") : "utf8=%26%2310003%3B" === d[s] && (T = "iso-8859-1"),
+                            (l = s),
+                            (s = d.length));
+                      for (s = 0; s < d.length; ++s)
+                        if (s !== l) {
+                          var E,
+                            f,
+                            S = d[s],
+                            h = S.indexOf("]="),
+                            I = -1 === h ? S.indexOf("=") : h + 1;
+                          -1 === I
+                            ? ((E = t.decoder(S, o.decoder, T, "key")), (f = t.strictNullHandling ? null : ""))
+                            : ((E = t.decoder(S.slice(0, I), o.decoder, T, "key")),
+                              (f = i.maybeMap(p(S.slice(I + 1), t), function (e) {
+                                return t.decoder(e, o.decoder, T, "value");
+                              }))),
+                            f && t.interpretNumericEntities && "iso-8859-1" === T && (f = r(f)),
+                            S.indexOf("[]=") > -1 && (f = a(f) ? [f] : f),
+                            n.call(u, E) ? (u[E] = i.combine(u[E], f)) : (u[E] = f);
+                        }
+                      return u;
+                    })(e, s)
+                  : e,
+              y = s.plainObjects ? Object.create(null) : {},
+              d = Object.keys(c),
+              l = 0;
+            l < d.length;
+            ++l
+          ) {
+            var T = d[l],
+              E = u(T, c[T], s, "string" == typeof e);
+            y = i.merge(y, E, s);
+          }
+          return !0 === s.allowSparse ? y : i.compact(y);
+        };
+      },
+      58261: function (e, t, s) {
+        "use strict";
+        var i = s(37478),
+          n = s(12769),
+          a = s(55798),
+          o = Object.prototype.hasOwnProperty,
+          r = {
+            brackets: function (e) {
+              return e + "[]";
+            },
+            comma: "comma",
+            indices: function (e, t) {
+              return e + "[" + t + "]";
+            },
+            repeat: function (e) {
               return e;
             }
-            function y() {
-              for (var e = [], t = 0; t < arguments.length; t++) e.push(arguments[t]);
-              this.fired || (this.target.removeListener(this.type, this.wrapFn), (this.fired = !0), n(this.listener, this.target, e));
-            }
-            function c(e, t, s) {
-              var i = { fired: !1, wrapFn: void 0, target: e, type: t, listener: s },
-                a = y.bind(i);
-              return (a.listener = s), (i.wrapFn = a), a;
-            }
-            function l(e, t, s) {
-              var i = e._events;
-              if (void 0 === i) return [];
-              var a = i[t];
-              return void 0 === a
-                ? []
-                : "function" == typeof a
-                ? s
-                  ? [a.listener || a]
-                  : [a]
-                : s
-                ? (function (e) {
-                    for (var t = new Array(e.length), s = 0; s < t.length; ++s) t[s] = e[s].listener || e[s];
-                    return t;
-                  })(a)
-                : E(a, a.length);
-            }
-            function T(e) {
-              var t = this._events;
-              if (void 0 !== t) {
-                var s = t[e];
-                if ("function" == typeof s) return 1;
-                if (void 0 !== s) return s.length;
+          },
+          p = Array.isArray,
+          u = Array.prototype.push,
+          c = function (e, t) {
+            u.apply(e, p(t) ? t : [t]);
+          },
+          y = Date.prototype.toISOString,
+          d = a.default,
+          l = {
+            addQueryPrefix: !1,
+            allowDots: !1,
+            charset: "utf-8",
+            charsetSentinel: !1,
+            delimiter: "&",
+            encode: !0,
+            encoder: n.encode,
+            encodeValuesOnly: !1,
+            format: d,
+            formatter: a.formatters[d],
+            indices: !1,
+            serializeDate: function (e) {
+              return y.call(e);
+            },
+            skipNulls: !1,
+            strictNullHandling: !1
+          },
+          T = {},
+          E = function e(t, s, a, o, r, u, y, d, E, f, S, h, I, N, g, x) {
+            for (var R, m = t, A = x, C = 0, O = !1; void 0 !== (A = A.get(T)) && !O; ) {
+              var M = A.get(t);
+              if (((C += 1), void 0 !== M)) {
+                if (M === C) throw new RangeError("Cyclic object value");
+                O = !0;
               }
-              return 0;
+              void 0 === A.get(T) && (C = 0);
             }
-            function E(e, t) {
-              for (var s = new Array(t), i = 0; i < t; ++i) s[i] = e[i];
+            if (
+              ("function" == typeof d
+                ? (m = d(s, m))
+                : m instanceof Date
+                ? (m = S(m))
+                : "comma" === a &&
+                  p(m) &&
+                  (m = n.maybeMap(m, function (e) {
+                    return e instanceof Date ? S(e) : e;
+                  })),
+              null === m)
+            ) {
+              if (r) return y && !N ? y(s, l.encoder, g, "key", h) : s;
+              m = "";
+            }
+            if (
+              "string" == typeof (R = m) ||
+              "number" == typeof R ||
+              "boolean" == typeof R ||
+              "symbol" == typeof R ||
+              "bigint" == typeof R ||
+              n.isBuffer(m)
+            )
+              return y ? [I(N ? s : y(s, l.encoder, g, "key", h)) + "=" + I(y(m, l.encoder, g, "value", h))] : [I(s) + "=" + I(String(m))];
+            var v,
+              k = [];
+            if (void 0 === m) return k;
+            if ("comma" === a && p(m)) N && y && (m = n.maybeMap(m, y)), (v = [{ value: m.length > 0 ? m.join(",") || null : void 0 }]);
+            else if (p(d)) v = d;
+            else {
+              var D = Object.keys(m);
+              v = E ? D.sort(E) : D;
+            }
+            for (var P = o && p(m) && 1 === m.length ? s + "[]" : s, U = 0; U < v.length; ++U) {
+              var b = v[U],
+                L = "object" == typeof b && void 0 !== b.value ? b.value : m[b];
+              if (!u || null !== L) {
+                var w = p(m) ? ("function" == typeof a ? a(P, b) : P) : P + (f ? "." + b : "[" + b + "]");
+                x.set(t, C);
+                var _ = i();
+                _.set(T, x), c(k, e(L, w, a, o, r, u, "comma" === a && N && p(m) ? null : y, d, E, f, S, h, I, N, g, _));
+              }
+            }
+            return k;
+          };
+        e.exports = function (e, t) {
+          var s,
+            n = e,
+            u = (function (e) {
+              if (!e) return l;
+              if (null !== e.encoder && void 0 !== e.encoder && "function" != typeof e.encoder)
+                throw new TypeError("Encoder has to be a function.");
+              var t = e.charset || l.charset;
+              if (void 0 !== e.charset && "utf-8" !== e.charset && "iso-8859-1" !== e.charset)
+                throw new TypeError("The charset option must be either utf-8, iso-8859-1, or undefined");
+              var s = a.default;
+              if (void 0 !== e.format) {
+                if (!o.call(a.formatters, e.format)) throw new TypeError("Unknown format option provided.");
+                s = e.format;
+              }
+              var i = a.formatters[s],
+                n = l.filter;
+              return (
+                ("function" == typeof e.filter || p(e.filter)) && (n = e.filter),
+                {
+                  addQueryPrefix: "boolean" == typeof e.addQueryPrefix ? e.addQueryPrefix : l.addQueryPrefix,
+                  allowDots: void 0 === e.allowDots ? l.allowDots : !!e.allowDots,
+                  charset: t,
+                  charsetSentinel: "boolean" == typeof e.charsetSentinel ? e.charsetSentinel : l.charsetSentinel,
+                  delimiter: void 0 === e.delimiter ? l.delimiter : e.delimiter,
+                  encode: "boolean" == typeof e.encode ? e.encode : l.encode,
+                  encoder: "function" == typeof e.encoder ? e.encoder : l.encoder,
+                  encodeValuesOnly: "boolean" == typeof e.encodeValuesOnly ? e.encodeValuesOnly : l.encodeValuesOnly,
+                  filter: n,
+                  format: s,
+                  formatter: i,
+                  serializeDate: "function" == typeof e.serializeDate ? e.serializeDate : l.serializeDate,
+                  skipNulls: "boolean" == typeof e.skipNulls ? e.skipNulls : l.skipNulls,
+                  sort: "function" == typeof e.sort ? e.sort : null,
+                  strictNullHandling: "boolean" == typeof e.strictNullHandling ? e.strictNullHandling : l.strictNullHandling
+                }
+              );
+            })(t);
+          "function" == typeof u.filter ? (n = (0, u.filter)("", n)) : p(u.filter) && (s = u.filter);
+          var y,
+            d = [];
+          if ("object" != typeof n || null === n) return "";
+          y = t && t.arrayFormat in r ? t.arrayFormat : t && "indices" in t ? (t.indices ? "indices" : "repeat") : "indices";
+          var T = r[y];
+          if (t && "commaRoundTrip" in t && "boolean" != typeof t.commaRoundTrip)
+            throw new TypeError("`commaRoundTrip` must be a boolean, or absent");
+          var f = "comma" === T && t && t.commaRoundTrip;
+          s || (s = Object.keys(n)), u.sort && s.sort(u.sort);
+          for (var S = i(), h = 0; h < s.length; ++h) {
+            var I = s[h];
+            (u.skipNulls && null === n[I]) ||
+              c(
+                d,
+                E(
+                  n[I],
+                  I,
+                  T,
+                  f,
+                  u.strictNullHandling,
+                  u.skipNulls,
+                  u.encode ? u.encoder : null,
+                  u.filter,
+                  u.sort,
+                  u.allowDots,
+                  u.serializeDate,
+                  u.format,
+                  u.formatter,
+                  u.encodeValuesOnly,
+                  u.charset,
+                  S
+                )
+              );
+          }
+          var N = d.join(u.delimiter),
+            g = !0 === u.addQueryPrefix ? "?" : "";
+          return (
+            u.charsetSentinel && ("iso-8859-1" === u.charset ? (g += "utf8=%26%2310003%3B&") : (g += "utf8=%E2%9C%93&")),
+            N.length > 0 ? g + N : ""
+          );
+        };
+      },
+      12769: function (e, t, s) {
+        "use strict";
+        var i = s(55798),
+          n = Object.prototype.hasOwnProperty,
+          a = Array.isArray,
+          o = (function () {
+            for (var e = [], t = 0; t < 256; ++t) e.push("%" + ((t < 16 ? "0" : "") + t.toString(16)).toUpperCase());
+            return e;
+          })(),
+          r = function (e, t) {
+            for (var s = t && t.plainObjects ? Object.create(null) : {}, i = 0; i < e.length; ++i) void 0 !== e[i] && (s[i] = e[i]);
+            return s;
+          };
+        e.exports = {
+          arrayToObject: r,
+          assign: function (e, t) {
+            return Object.keys(t).reduce(function (e, s) {
+              return (e[s] = t[s]), e;
+            }, e);
+          },
+          combine: function (e, t) {
+            return [].concat(e, t);
+          },
+          compact: function (e) {
+            for (var t = [{ obj: { o: e }, prop: "o" }], s = [], i = 0; i < t.length; ++i)
+              for (var n = t[i], o = n.obj[n.prop], r = Object.keys(o), p = 0; p < r.length; ++p) {
+                var u = r[p],
+                  c = o[u];
+                "object" == typeof c && null !== c && -1 === s.indexOf(c) && (t.push({ obj: o, prop: u }), s.push(c));
+              }
+            return (
+              (function (e) {
+                for (; e.length > 1; ) {
+                  var t = e.pop(),
+                    s = t.obj[t.prop];
+                  if (a(s)) {
+                    for (var i = [], n = 0; n < s.length; ++n) void 0 !== s[n] && i.push(s[n]);
+                    t.obj[t.prop] = i;
+                  }
+                }
+              })(t),
+              e
+            );
+          },
+          decode: function (e, t, s) {
+            var i = e.replace(/\+/g, " ");
+            if ("iso-8859-1" === s) return i.replace(/%[0-9a-f]{2}/gi, unescape);
+            try {
+              return decodeURIComponent(i);
+            } catch (e) {
+              return i;
+            }
+          },
+          encode: function (e, t, s, n, a) {
+            if (0 === e.length) return e;
+            var r = e;
+            if (
+              ("symbol" == typeof e ? (r = Symbol.prototype.toString.call(e)) : "string" != typeof e && (r = String(e)), "iso-8859-1" === s)
+            )
+              return escape(r).replace(/%u[0-9a-f]{4}/gi, function (e) {
+                return "%26%23" + parseInt(e.slice(2), 16) + "%3B";
+              });
+            for (var p = "", u = 0; u < r.length; ++u) {
+              var c = r.charCodeAt(u);
+              45 === c ||
+              46 === c ||
+              95 === c ||
+              126 === c ||
+              (c >= 48 && c <= 57) ||
+              (c >= 65 && c <= 90) ||
+              (c >= 97 && c <= 122) ||
+              (a === i.RFC1738 && (40 === c || 41 === c))
+                ? (p += r.charAt(u))
+                : c < 128
+                ? (p += o[c])
+                : c < 2048
+                ? (p += o[192 | (c >> 6)] + o[128 | (63 & c)])
+                : c < 55296 || c >= 57344
+                ? (p += o[224 | (c >> 12)] + o[128 | ((c >> 6) & 63)] + o[128 | (63 & c)])
+                : ((u += 1),
+                  (c = 65536 + (((1023 & c) << 10) | (1023 & r.charCodeAt(u)))),
+                  (p += o[240 | (c >> 18)] + o[128 | ((c >> 12) & 63)] + o[128 | ((c >> 6) & 63)] + o[128 | (63 & c)]));
+            }
+            return p;
+          },
+          isBuffer: function (e) {
+            return !(!e || "object" != typeof e || !(e.constructor && e.constructor.isBuffer && e.constructor.isBuffer(e)));
+          },
+          isRegExp: function (e) {
+            return "[object RegExp]" === Object.prototype.toString.call(e);
+          },
+          maybeMap: function (e, t) {
+            if (a(e)) {
+              for (var s = [], i = 0; i < e.length; i += 1) s.push(t(e[i]));
               return s;
             }
-            Object.defineProperty(r, "defaultMaxListeners", {
-              enumerable: !0,
-              get: function () {
-                return p;
-              },
-              set: function (e) {
-                if ("number" != typeof e || e < 0 || o(e))
-                  throw new RangeError(
-                    'The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + e + "."
-                  );
-                p = e;
+            return t(e);
+          },
+          merge: function e(t, s, i) {
+            if (!s) return t;
+            if ("object" != typeof s) {
+              if (a(t)) t.push(s);
+              else {
+                if (!t || "object" != typeof t) return [t, s];
+                ((i && (i.plainObjects || i.allowPrototypes)) || !n.call(Object.prototype, s)) && (t[s] = !0);
               }
-            }),
-              (r.init = function () {
-                (void 0 !== this._events && this._events !== Object.getPrototypeOf(this)._events) ||
-                  ((this._events = Object.create(null)), (this._eventsCount = 0)),
-                  (this._maxListeners = this._maxListeners || void 0);
-              }),
-              (r.prototype.setMaxListeners = function (e) {
-                if ("number" != typeof e || e < 0 || o(e))
-                  throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + e + ".");
-                return (this._maxListeners = e), this;
-              }),
-              (r.prototype.getMaxListeners = function () {
-                return u(this);
-              }),
-              (r.prototype.emit = function (e) {
-                for (var t = [], s = 1; s < arguments.length; s++) t.push(arguments[s]);
-                var i = "error" === e,
-                  a = this._events;
-                if (void 0 !== a) i = i && void 0 === a.error;
-                else if (!i) return !1;
-                if (i) {
-                  var o;
-                  if ((t.length > 0 && (o = t[0]), o instanceof Error)) throw o;
-                  var r = new Error("Unhandled error." + (o ? " (" + o.message + ")" : ""));
-                  throw ((r.context = o), r);
-                }
-                var p = a[e];
-                if (void 0 === p) return !1;
-                if ("function" == typeof p) n(p, this, t);
-                else {
-                  var u = p.length,
-                    d = E(p, u);
-                  for (s = 0; s < u; ++s) n(d[s], this, t);
-                }
-                return !0;
-              }),
-              (r.prototype.addListener = function (e, t) {
-                return d(this, e, t, !1);
-              }),
-              (r.prototype.on = r.prototype.addListener),
-              (r.prototype.prependListener = function (e, t) {
-                return d(this, e, t, !0);
-              }),
-              (r.prototype.once = function (e, t) {
-                if ("function" != typeof t)
-                  throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof t);
-                return this.on(e, c(this, e, t)), this;
-              }),
-              (r.prototype.prependOnceListener = function (e, t) {
-                if ("function" != typeof t)
-                  throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof t);
-                return this.prependListener(e, c(this, e, t)), this;
-              }),
-              (r.prototype.removeListener = function (e, t) {
-                var s, i, a, n, o;
-                if ("function" != typeof t)
-                  throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof t);
-                if (void 0 === (i = this._events)) return this;
-                if (void 0 === (s = i[e])) return this;
-                if (s === t || s.listener === t)
-                  0 == --this._eventsCount
-                    ? (this._events = Object.create(null))
-                    : (delete i[e], i.removeListener && this.emit("removeListener", e, s.listener || t));
-                else if ("function" != typeof s) {
-                  for (a = -1, n = s.length - 1; n >= 0; n--)
-                    if (s[n] === t || s[n].listener === t) {
-                      (o = s[n].listener), (a = n);
-                      break;
+              return t;
+            }
+            if (!t || "object" != typeof t) return [t].concat(s);
+            var o = t;
+            return (
+              a(t) && !a(s) && (o = r(t, i)),
+              a(t) && a(s)
+                ? (s.forEach(function (s, a) {
+                    if (n.call(t, a)) {
+                      var o = t[a];
+                      o && "object" == typeof o && s && "object" == typeof s ? (t[a] = e(o, s, i)) : t.push(s);
+                    } else t[a] = s;
+                  }),
+                  t)
+                : Object.keys(s).reduce(function (t, a) {
+                    var o = s[a];
+                    return n.call(t, a) ? (t[a] = e(t[a], o, i)) : (t[a] = o), t;
+                  }, o)
+            );
+          }
+        };
+      },
+      37478: function (e, t, s) {
+        "use strict";
+        var i = s(40210),
+          n = s(21924),
+          a = s(70631),
+          o = i("%TypeError%"),
+          r = i("%WeakMap%", !0),
+          p = i("%Map%", !0),
+          u = n("WeakMap.prototype.get", !0),
+          c = n("WeakMap.prototype.set", !0),
+          y = n("WeakMap.prototype.has", !0),
+          d = n("Map.prototype.get", !0),
+          l = n("Map.prototype.set", !0),
+          T = n("Map.prototype.has", !0),
+          E = function (e, t) {
+            for (var s, i = e; null !== (s = i.next); i = s) if (s.key === t) return (i.next = s.next), (s.next = e.next), (e.next = s), s;
+          };
+        e.exports = function () {
+          var e,
+            t,
+            s,
+            i = {
+              assert: function (e) {
+                if (!i.has(e)) throw new o("Side channel does not contain " + a(e));
+              },
+              get: function (i) {
+                if (r && i && ("object" == typeof i || "function" == typeof i)) {
+                  if (e) return u(e, i);
+                } else if (p) {
+                  if (t) return d(t, i);
+                } else if (s)
+                  return (function (e, t) {
+                    var s = E(e, t);
+                    return s && s.value;
+                  })(s, i);
+              },
+              has: function (i) {
+                if (r && i && ("object" == typeof i || "function" == typeof i)) {
+                  if (e) return y(e, i);
+                } else if (p) {
+                  if (t) return T(t, i);
+                } else if (s)
+                  return (function (e, t) {
+                    return !!E(e, t);
+                  })(s, i);
+                return !1;
+              },
+              set: function (i, n) {
+                r && i && ("object" == typeof i || "function" == typeof i)
+                  ? (e || (e = new r()), c(e, i, n))
+                  : p
+                  ? (t || (t = new p()), l(t, i, n))
+                  : (s || (s = { key: {}, next: null }),
+                    (function (e, t, s) {
+                      var i = E(e, t);
+                      i ? (i.value = s) : (e.next = { key: t, next: e.next, value: s });
+                    })(s, i, n));
+              }
+            };
+          return i;
+        };
+      },
+      81469: function () {
+        !(function () {
+          var e = {
+              30: function (e) {
+                !(function () {
+                  if (!crypto.subtle) {
+                    const e = Promise.resolve("");
+                    crypto.subtle = {
+                      generateKey: function () {
+                        return e;
+                      },
+                      importKey: function () {
+                        return e;
+                      },
+                      exportKey: function () {
+                        return e;
+                      },
+                      encrypt: function () {
+                        return e;
+                      },
+                      decrypt: function () {
+                        return e;
+                      }
+                    };
+                  }
+                  crypto.subtle;
+                })(),
+                  (e.exports = {
+                    createSalt: function () {
+                      return crypto.getRandomValues(new Uint8Array(16));
+                    },
+                    createKey: function () {
+                      return crypto.subtle.generateKey({ name: "AES-CBC", length: 256 }, !0, ["encrypt", "decrypt"]);
+                    },
+                    importKey: function (e) {
+                      return crypto.subtle.importKey("jwk", { kty: "oct", k: e, alg: "A256CBC", ext: !0 }, { name: "AES-CBC" }, !0, [
+                        "encrypt",
+                        "decrypt"
+                      ]);
+                    },
+                    exportKey: function (e) {
+                      return crypto.subtle.exportKey("jwk", e).then(function (e) {
+                        return e.k;
+                      });
+                    },
+                    encrypt: function (e, t, s) {
+                      return crypto.subtle.encrypt({ name: "AES-CBC", iv: t }, s, e);
+                    },
+                    decrypt: function (e, t, s) {
+                      return crypto.subtle.decrypt({ name: "AES-CBC", iv: t }, s, e);
                     }
-                  if (a < 0) return this;
-                  0 === a
-                    ? s.shift()
-                    : (function (e, t) {
-                        for (; t + 1 < e.length; t++) e[t] = e[t + 1];
-                        e.pop();
-                      })(s, a),
-                    1 === s.length && (i[e] = s[0]),
-                    void 0 !== i.removeListener && this.emit("removeListener", e, o || t);
-                }
-                return this;
-              }),
-              (r.prototype.off = r.prototype.removeListener),
-              (r.prototype.removeAllListeners = function (e) {
-                var t, s, i;
-                if (void 0 === (s = this._events)) return this;
-                if (void 0 === s.removeListener)
+                  });
+              },
+              31: function (e) {
+                function t(e) {
+                  var t = [];
                   return (
-                    0 === arguments.length
-                      ? ((this._events = Object.create(null)), (this._eventsCount = 0))
-                      : void 0 !== s[e] && (0 == --this._eventsCount ? (this._events = Object.create(null)) : delete s[e]),
-                    this
+                    e.forEach(function (e) {
+                      t.push(String.fromCharCode(e));
+                    }),
+                    t.join("")
                   );
-                if (0 === arguments.length) {
-                  var a,
-                    n = Object.keys(s);
-                  for (i = 0; i < n.length; ++i) "removeListener" !== (a = n[i]) && this.removeAllListeners(a);
-                  return this.removeAllListeners("removeListener"), (this._events = Object.create(null)), (this._eventsCount = 0), this;
                 }
-                if ("function" == typeof (t = s[e])) this.removeListener(e, t);
-                else if (void 0 !== t) for (i = t.length - 1; i >= 0; i--) this.removeListener(e, t[i]);
-                return this;
-              }),
-              (r.prototype.listeners = function (e) {
-                return l(this, e, !0);
-              }),
-              (r.prototype.rawListeners = function (e) {
-                return l(this, e, !1);
-              }),
-              (r.listenerCount = function (e, t) {
-                return "function" == typeof e.listenerCount ? e.listenerCount(t) : T.call(e, t);
-              }),
-              (r.prototype.listenerCount = T),
-              (r.prototype.eventNames = function () {
-                return this._eventsCount > 0 ? i(this._events) : [];
-              });
-          },
-          42: function (e, t, s) {
-            "use strict";
-            var i = new (s(43))(),
-              a = {
-                _frames: {},
-                add: function (e, t) {
-                  this.garbageCollect(), (this._frames[e] = t);
-                },
-                get: function (e) {
-                  return this.garbageCollect(), this._frames[e];
-                },
-                getAll: function () {
-                  return this.garbageCollect(), Object.values(this._frames);
-                },
-                garbageCollect: function () {
-                  for (var e in this._frames) this._frames[e].closed && delete this._frames[e];
+                function s(e) {
+                  return t(new Uint8Array(e));
                 }
-              };
-            e.exports = {
-              install: function () {
-                window.addEventListener("message", function (e) {
-                  safari.extension.baseURI.toLowerCase().startsWith(e.origin.toLowerCase()) &&
-                    (e.data &&
-                      "topee_get_iframe_key" === e.data.type &&
-                      (a.add(e.data.frameId, e.source),
-                      i.readyPromise
-                        .then(() => i.getKey())
-                        .then(function (t) {
-                          e.source && e.source.postMessage({ type: "topee_iframe_key", value: t }, e.origin);
-                        })),
-                    e.data &&
-                      "topee_iframe_request" === e.data.type &&
-                      i.decrypt(e.data.value).then(function (t) {
-                        var s = JSON.parse(t),
-                          a = e.data.messageId;
-                        void 0 !== a &&
-                          safari.self.addEventListener("message", function t(s) {
-                            "response" === s.name &&
-                              s.message.messageId === a &&
-                              (i.encrypt(JSON.stringify(s.message)).then(function (t) {
-                                e.source && e.source.postMessage({ type: "topee_iframe_response", value: t }, e.origin);
-                              }),
-                              safari.self.removeEventListener("message", t));
-                          }),
-                          safari.extension.dispatchMessage(s.name, s.value);
-                      }));
-                });
-              },
-              hasChild: function (e) {
-                return !!e && !!a.get(e);
-              },
-              forward: function (e, t) {
-                var s = a.get(e);
-                s
-                  ? i.readyPromise
-                      .then(() => i.encrypt(JSON.stringify(t)))
-                      .then((e) => s.postMessage({ type: "topee_iframe_request", value: e }, "*"))
-                  : window.topee_log && console.log("frame", e, "not found");
-              },
-              broadcast: function (e) {
-                var t = a.getAll();
-                0 != t.length &&
-                  i.readyPromise
-                    .then(() => i.encrypt(JSON.stringify(e)))
-                    .then((e) => t.forEach((t) => t.postMessage({ type: "topee_iframe_request", value: e }, "*")));
-              }
-            };
-          },
-          43: function (e, t, s) {
-            var i = s(44),
-              a = s(45);
-            e.exports = class {
-              constructor(e) {
-                this.readyPromise = e
-                  ? i.importKey(e).then(
-                      function (e) {
-                        return (this.key = e);
-                      }.bind(this)
-                    )
-                  : i.createKey().then(
-                      function (e) {
-                        return (this.key = e);
-                      }.bind(this)
-                    );
-              }
-              ready() {
-                return !!this.key;
-              }
-              getKey() {
-                return i.exportKey(this.key);
-              }
-              encrypt(e) {
-                var t = i.createSalt();
-                return i.encrypt(a.str2arrayBuffer(encodeURI(e)), t, this.key).then(function (e) {
-                  return { data: a.arrayBuffer2base64(e), salt: a.uint8array2base64(t) };
-                });
-              }
-              decrypt(e) {
-                return i.decrypt(a.base642arrayBuffer(e.data), a.base642uint8array(e.salt), this.key).then(function (e) {
-                  return decodeURI(a.arrayBuffer2str(e));
-                });
-              }
-            };
-          },
-          44: function (e, t) {
-            !(function () {
-              if (!crypto.subtle) {
-                const e = Promise.resolve("");
-                crypto.subtle = {
-                  generateKey: function () {
-                    return e;
+                function i(e) {
+                  return new Uint8Array(
+                    [].map.call(e, function (t) {
+                      var s = t.charCodeAt(0);
+                      if (s > 255) throw e + ": cannot convert non-ASCII character";
+                      return s;
+                    })
+                  );
+                }
+                function n(e) {
+                  return i(e).buffer;
+                }
+                e.exports = {
+                  uint8array2str: t,
+                  arrayBuffer2str: s,
+                  str2uint8array: i,
+                  str2arrayBuffer: n,
+                  uint8array2base64: function (e) {
+                    return btoa(t(e));
                   },
-                  importKey: function () {
-                    return e;
+                  arrayBuffer2base64: function (e) {
+                    return btoa(s(e));
                   },
-                  exportKey: function () {
-                    return e;
+                  base642uint8array: function (e) {
+                    return i(atob(e));
                   },
-                  encrypt: function () {
-                    return e;
-                  },
-                  decrypt: function () {
-                    return e;
+                  base642arrayBuffer: function (e) {
+                    return n(atob(e));
                   }
                 };
-              }
-              crypto.subtle;
-            })(),
-              (e.exports = {
-                createSalt: function () {
-                  return crypto.getRandomValues(new Uint8Array(16));
-                },
-                createKey: function () {
-                  return crypto.subtle.generateKey({ name: "AES-CBC", length: 256 }, !0, ["encrypt", "decrypt"]);
-                },
-                importKey: function (e) {
-                  return crypto.subtle.importKey("jwk", { kty: "oct", k: e, alg: "A256CBC", ext: !0 }, { name: "AES-CBC" }, !0, [
-                    "encrypt",
-                    "decrypt"
-                  ]);
-                },
-                exportKey: function (e) {
-                  return crypto.subtle.exportKey("jwk", e).then(function (e) {
-                    return e.k;
-                  });
-                },
-                encrypt: function (e, t, s) {
-                  return crypto.subtle.encrypt({ name: "AES-CBC", iv: t }, s, e);
-                },
-                decrypt: function (e, t, s) {
-                  return crypto.subtle.decrypt({ name: "AES-CBC", iv: t }, s, e);
-                }
-              });
-          },
-          45: function (e, t) {
-            function s(e) {
-              var t = [];
-              return (
-                e.forEach(function (e) {
-                  t.push(String.fromCharCode(e));
-                }),
-                t.join("")
-              );
-            }
-            function i(e) {
-              return s(new Uint8Array(e));
-            }
-            function a(e) {
-              return new Uint8Array(
-                [].map.call(e, function (t) {
-                  var s = t.charCodeAt(0);
-                  if (s > 255) throw e + ": cannot convert non-ASCII character";
-                  return s;
-                })
-              );
-            }
-            function n(e) {
-              return a(e).buffer;
-            }
-            e.exports = {
-              uint8array2str: s,
-              arrayBuffer2str: i,
-              str2uint8array: a,
-              str2arrayBuffer: n,
-              uint8array2base64: function (e) {
-                return btoa(s(e));
               },
-              arrayBuffer2base64: function (e) {
-                return btoa(i(e));
-              },
-              base642uint8array: function (e) {
-                return a(atob(e));
-              },
-              base642arrayBuffer: function (e) {
-                return n(atob(e));
-              }
-            };
-          },
-          46: function (e, t, s) {
-            var i = s(37),
-              a = {};
-            function n(e, t, s) {
-              var a = t.messageId || Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-              function n(e) {
-                "response" === e.name && e.message.messageId === a && (s(e.message.payload), safari.self.removeEventListener("message", n));
-              }
-              s && ((n.messageId = a), safari.self.addEventListener("message", n)),
-                (t.tabId = e),
-                (t.messageId = a),
-                (t.frameId = i.frameId),
-                (t.url = window.location.href),
-                safari.extension.dispatchMessage("request", { tabId: e, payload: t });
-            }
-            (a.dispatchRequest = function (e, t) {
-              i.tabId.then((s) => {
-                n(s, e, t);
-              });
-            }),
-              i.tabId.then((e) => {
-                a.dispatchRequest = function (t, s) {
-                  n(e, t, s);
+              29: function (e, t, s) {
+                var i = s(30),
+                  n = s(31);
+                e.exports = class {
+                  constructor(e) {
+                    this.readyPromise = e
+                      ? i.importKey(e).then(
+                          function (e) {
+                            return (this.key = e);
+                          }.bind(this)
+                        )
+                      : i.createKey().then(
+                          function (e) {
+                            return (this.key = e);
+                          }.bind(this)
+                        );
+                  }
+                  ready() {
+                    return !!this.key;
+                  }
+                  getKey() {
+                    return i.exportKey(this.key);
+                  }
+                  encrypt(e) {
+                    var t = i.createSalt();
+                    return i.encrypt(n.str2arrayBuffer(encodeURI(e)), t, this.key).then(function (e) {
+                      return { data: n.arrayBuffer2base64(e), salt: n.uint8array2base64(t) };
+                    });
+                  }
+                  decrypt(e) {
+                    return i.decrypt(n.base642arrayBuffer(e.data), n.base642uint8array(e.salt), this.key).then(function (e) {
+                      return decodeURI(n.arrayBuffer2str(e));
+                    });
+                  }
                 };
-              }),
-              (e.exports = a);
-          },
-          47: function (e, t) {
-            var s = {
-              getUILanguage: function () {
-                return navigator.language;
               },
-              getMessage: function (e) {
-                return e;
+              32: function (e, t, s) {
+                var i = s(23),
+                  n = {};
+                function a(e, t, s) {
+                  var n = t.messageId || Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+                  function a(e) {
+                    "response" === e.name &&
+                      e.message.messageId === n &&
+                      (s(e.message.payload), safari.self.removeEventListener("message", a));
+                  }
+                  s && ((a.messageId = n), safari.self.addEventListener("message", a)),
+                    (t.tabId = e),
+                    (t.messageId = n),
+                    (t.frameId = i.frameId),
+                    (t.url = window.location.href),
+                    safari.extension.dispatchMessage("request", { tabId: e, payload: t });
+                }
+                (n.dispatchRequest = function (e, t) {
+                  i.tabId.then((s) => {
+                    a(s, e, t);
+                  });
+                }),
+                  i.tabId.then((e) => {
+                    n.dispatchRequest = function (t, s) {
+                      a(e, t, s);
+                    };
+                  }),
+                  (e.exports = n);
               },
-              detectLanguage: function (e, t) {
-                t({ isReliable: !0, languages: [{ language: "en", percentage: 100 }] });
-              }
-            };
-            e.exports = s;
-          },
-          48: function (e, t, s) {
-            "use strict";
-            const i = s(46);
-            var a = {
-              query: function (e, t) {
-                i.dispatchRequest({ eventName: "tabs.query", queryInfo: e }, t);
-              },
-              remove: function () {
-                safari.extension.dispatchMessage("removeTab", { payload: { eventName: "removeTab", url: document.location.href } });
-              },
-              waitForReload: function () {
-                safari.extension.dispatchMessage("waitForReload", { payload: { eventName: "waitForReload", url: document.location.href } });
-              },
-              activate: function () {
-                safari.extension.dispatchMessage("returnToClipperTab", {
-                  payload: { eventName: "returnToClipperTab", url: document.location.href }
-                });
-              }
-            };
-            e.exports = a;
-          },
-          64: function (e, t, s) {
-            !(function () {
-              "use strict";
-              var e = s(43),
-                t = null,
-                i = [],
-                a = {},
-                n = [];
-              if (void 0 !== window.ApplePayError || void 0 !== window.WebKitNamespace) {
-                "undefined" == typeof safari && (window.safari = {}),
-                  void 0 === safari.extension && (safari.extension = {}),
-                  void 0 === safari.self && (safari.self = {}),
-                  void 0 === safari.extension.dispatchMessage &&
-                    (safari.extension.dispatchMessage = t
-                      ? r
-                      : function (e, t) {
-                          i.push([e, t]);
-                        }),
-                  void 0 === safari.self.addEventListener &&
-                    ((safari.self.addEventListener = function (e, s) {
-                      function i(e) {
-                        e.data && "topee_iframe_response" === e.data.type
-                          ? t.decrypt(e.data.value).then(function (e) {
-                              var t = JSON.parse(e);
-                              t.messageId === s.messageId &&
-                                (window.removeEventListener("message", s),
-                                s({ name: t.eventName, message: { messageId: t.messageId, payload: t.payload } }));
-                            })
-                          : e.data &&
-                            "topee_iframe_request" === e.data.type &&
-                            t.decrypt(e.data.value).then(function (e) {
-                              var t = JSON.parse(e);
-                              s({ name: t.eventName, message: { messageId: t.messageId, payload: t.payload } });
-                            });
-                      }
-                      "message" === e
-                        ? (s &&
-                            s.messageId &&
-                            ((a[s.messageId] = !0),
-                            setTimeout(function () {
-                              delete a[s.messageId];
-                            }, 1e3)),
-                          n.push({ type: e, safariCallback: s, decryptingCallback: i }),
-                          window.addEventListener("message", i))
-                        : console.error("Unexpected message listener:", e);
-                    }),
-                    (safari.self.removeEventListener = function (e, t) {
-                      var s = n.findIndex(function (s) {
-                        return s.type === e && s.safariCallback === t;
-                      });
-                      -1 != s
-                        ? (window.removeEventListener("message", n[s].decryptingCallback), n.splice(s, 1))
-                        : window.topee_log && console.log("listener for", e, "not found");
-                    })),
-                  window.addEventListener("message", function (s) {
-                    if ("topee_iframe_key" === s.data.type && s.data.value) {
-                      if (t) return void console.error("cannot overwrite encryption key");
-                      (t = new e(s.data.value)).readyPromise
-                        .then(function () {
-                          try {
-                            safari.extension.dispatchMessage = r;
-                          } catch (e) {
-                            console.warn("Cannot override dispatchMessage");
-                          }
-                          for (; i.length > 0; ) r.apply(window, i.shift());
-                        })
-                        .catch(function (e) {
-                          console.error(e), (t = null);
-                        });
+              25: function (e, t, s) {
+                var i = s(26),
+                  n = {
+                    getURL: function (e) {
+                      return i.getURL(e);
                     }
+                  };
+                e.exports = n;
+              },
+              33: function (e) {
+                var t = {
+                  getUILanguage: function () {
+                    return navigator.language;
+                  },
+                  getMessage: function (e) {
+                    return e;
+                  },
+                  detectLanguage: function (e, t) {
+                    t({ isReliable: !0, languages: [{ language: "en", percentage: 100 }] });
+                  }
+                };
+                e.exports = t;
+              },
+              24: function (e, t, s) {
+                e.exports = { extension: s(25), i18n: s(33), runtime: s(26), tabs: s(34) };
+              },
+              26: function (e, t, s) {
+                "use strict";
+                var i = s(27),
+                  n = s(23),
+                  a = s(28),
+                  o = s(32),
+                  r = {},
+                  p = new i();
+                p.setMaxListeners(1024),
+                  (r.sendMessage = function (e, t) {
+                    o.dispatchRequest({ eventName: "sendMessage", message: e }, t);
+                  }),
+                  (r.onMessage = {
+                    addListener: function (e) {
+                      p.addListener("message", e);
+                    },
+                    removeListener: function (e) {
+                      p.removeListener("message", e);
+                    }
+                  }),
+                  safari.self.addEventListener("message", function (e) {
+                    if ("request" === e.name && n.isForThisFrame(e.message.frameId))
+                      return (
+                        p.emit("message", e.message.payload, { id: "topee" }, function (t) {
+                          o.dispatchRequest({ eventName: "messageResponse", messageId: e.message.messageId, message: t });
+                        }),
+                        void (void 0 === e.message.frameId && a.broadcast(e.message))
+                      );
+                    "request" === e.name && a.hasChild(e.message.frameId) && a.forward(e.message.frameId, e.message);
+                  }),
+                  (r.sayAlive = function () {
+                    n.sayAlive();
+                  }),
+                  (r.getURL = function (e) {
+                    if (!safari.extension.baseURI) throw new Error("safari.extension.baseURI didn't return usable value");
+                    return safari.extension.baseURI + e;
+                  }),
+                  (r.getPlatformInfo = function (e) {
+                    e({ os: "mac", arch: "x86-64", nacl_arch: "x86-64" });
+                  }),
+                  (e.exports = r);
+              },
+              34: function (e, t, s) {
+                "use strict";
+                const i = s(32);
+                var n = {
+                  query: function (e, t) {
+                    i.dispatchRequest({ eventName: "tabs.query", queryInfo: e }, t);
+                  },
+                  remove: function () {
+                    safari.extension.dispatchMessage("removeTab", { payload: { eventName: "removeTab", url: document.location.href } });
+                  },
+                  waitForReload: function () {
+                    safari.extension.dispatchMessage("waitForReload", {
+                      payload: { eventName: "waitForReload", url: document.location.href }
+                    });
+                  },
+                  activate: function () {
+                    safari.extension.dispatchMessage("returnToClipperTab", {
+                      payload: { eventName: "returnToClipperTab", url: document.location.href }
+                    });
+                  }
+                };
+                e.exports = n;
+              },
+              28: function (e, t, s) {
+                "use strict";
+                var i = new (s(29))(),
+                  n = {
+                    _frames: {},
+                    add: function (e, t) {
+                      this.garbageCollect(), (this._frames[e] = t);
+                    },
+                    get: function (e) {
+                      return this.garbageCollect(), this._frames[e];
+                    },
+                    getAll: function () {
+                      return this.garbageCollect(), Object.values(this._frames);
+                    },
+                    garbageCollect: function () {
+                      for (var e in this._frames) this._frames[e].closed && delete this._frames[e];
+                    }
+                  };
+                e.exports = {
+                  install: function () {
+                    window.addEventListener("message", function (e) {
+                      safari.extension.baseURI.toLowerCase().startsWith(e.origin.toLowerCase()) &&
+                        (e.data &&
+                          "topee_get_iframe_key" === e.data.type &&
+                          (n.add(e.data.frameId, e.source),
+                          i.readyPromise
+                            .then(() => i.getKey())
+                            .then(function (t) {
+                              e.source && e.source.postMessage({ type: "topee_iframe_key", value: t }, e.origin);
+                            })),
+                        e.data &&
+                          "topee_iframe_request" === e.data.type &&
+                          i.decrypt(e.data.value).then(function (t) {
+                            var s = JSON.parse(t),
+                              n = e.data.messageId;
+                            void 0 !== n &&
+                              safari.self.addEventListener("message", function t(s) {
+                                "response" === s.name &&
+                                  s.message.messageId === n &&
+                                  (i.encrypt(JSON.stringify(s.message)).then(function (t) {
+                                    e.source && e.source.postMessage({ type: "topee_iframe_response", value: t }, e.origin);
+                                  }),
+                                  safari.self.removeEventListener("message", t));
+                              }),
+                              safari.extension.dispatchMessage(s.name, s.value);
+                          }));
+                    });
+                  },
+                  hasChild: function (e) {
+                    return !!e && !!n.get(e);
+                  },
+                  forward: function (e, t) {
+                    var s = n.get(e);
+                    s
+                      ? i.readyPromise
+                          .then(() => i.encrypt(JSON.stringify(t)))
+                          .then((e) => s.postMessage({ type: "topee_iframe_request", value: e }, "*"))
+                      : window.topee_log && console.log("frame", e, "not found");
+                  },
+                  broadcast: function (e) {
+                    var t = n.getAll();
+                    0 != t.length &&
+                      i.readyPromise
+                        .then(() => i.encrypt(JSON.stringify(e)))
+                        .then((e) => t.forEach((t) => t.postMessage({ type: "topee_iframe_request", value: e }, "*")));
+                  }
+                };
+              },
+              23: function (e) {
+                "use strict";
+                var t,
+                  s = {
+                    Event: { GET_TAB_ID: "topee.tabInfo.getTabId", TAB_ID: "topee.tabInfo.tabId" },
+                    init: function () {
+                      if (
+                        (window === window.top &&
+                          (window.addEventListener("message", function (e) {
+                            e.data &&
+                              e.data.type === s.Event.GET_TAB_ID &&
+                              s.tabId.then(
+                                (t) => e.source && e.source.postMessage({ type: s.Event.TAB_ID, detail: t, debug: o }, e.origin)
+                              );
+                          }),
+                          safari.self.addEventListener("message", function (e) {
+                            "tabUpdate" === e.name && e.message && e.message.url && (window.location = e.message.url);
+                          })),
+                        isNaN(n))
+                      )
+                        if (window !== window.top) {
+                          if (window !== window.top) {
+                            if ({ "accounts.spotify.com": !0 }[location.hostname]) return;
+                            var e;
+                            return (
+                              window.addEventListener("message", function (i) {
+                                i.data &&
+                                  i.data.type === s.Event.TAB_ID &&
+                                  "number" == typeof i.data.detail &&
+                                  ((n = i.data.detail), u(i.data.debug), p(i.data.debug), t(i.data.detail), clearInterval(e));
+                              }),
+                              (e = setInterval(function () {
+                                window.top.postMessage({ type: s.Event.GET_TAB_ID }, "*");
+                              }, 200)),
+                              void window.top.postMessage({ type: s.Event.GET_TAB_ID }, "*")
+                            );
+                          }
+                        } else
+                          safari.self.addEventListener("message", function (e) {
+                            "forceTabId" === e.name &&
+                              e.message &&
+                              "number" == typeof e.message.tabId &&
+                              ((n = e.message.tabId),
+                              i.setItem("topee_tabId", n),
+                              u(e.message.debug),
+                              p(e.message.debug),
+                              t(e.message.tabId));
+                          });
+                      else t(n);
+                    },
+                    sayHello: function () {
+                      var e = isNaN(n) ? null : n;
+                      if (null === e) {
+                        if (a) return;
+                        a = !0;
+                      }
+                      window.isTabRegistered ||
+                        (s.tabId.then(
+                          (t) =>
+                            window.topee_log &&
+                            console.debug(
+                              `topee.hello(tabId: ${e}, referrer: "${document.referrer}", historyLength: ${history.length}) @ ${window.location.href} -> ${t}`
+                            )
+                        ),
+                        safari.extension.dispatchMessage("hello", {
+                          tabId: e,
+                          referrer: document.referrer,
+                          historyLength: history.length,
+                          userAgent: navigator.userAgent,
+                          payload: Object.assign({ eventName: "hello", tabId: e, url: document.location.href }, r())
+                        }),
+                        (window.isTabRegistered = !0));
+                    },
+                    sayAlive: function () {
+                      isNaN(n) ||
+                        safari.extension.dispatchMessage("alive", {
+                          tabId: n,
+                          payload: Object.assign({ eventName: "alive", tabId: n, url: document.location.href }, r())
+                        });
+                    },
+                    sayBye: function (e) {
+                      var t = isNaN(n) ? null : n;
+                      window.isTabRegistered &&
+                        (window.topee_log && console.debug(`topee.bye(tabId: ${t}, url: ${window.location.href})`),
+                        safari.extension.dispatchMessage("bye", {
+                          tabId: t,
+                          referrer: document.referrer,
+                          historyLength: history.length,
+                          payload: { tabId: t, eventName: "bye", reason: e ? e.type : "unknown", url: window.location.href }
+                        }),
+                        (window.isTabRegistered = !1));
+                    },
+                    isForThisFrame: function (e) {
+                      return null == e || e === s.frameId;
+                    }
+                  },
+                  i = {
+                    cache: {},
+                    getItem: function (e) {
+                      return navigator.cookieEnabled ? sessionStorage.getItem(e) : i.cache[e];
+                    },
+                    setItem: function (e, t) {
+                      return navigator.cookieEnabled ? sessionStorage.setItem(e, t) : ((i.cache[e] = t), null);
+                    }
+                  };
+                (s.tabId = new Promise(function (e) {
+                  t = e;
+                })),
+                  window === window.top ? (s.frameId = 0) : (s.frameId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER));
+                var n = window.opener ? NaN : parseInt(i.getItem("topee_tabId")),
+                  a = !1,
+                  o = (function () {
+                    var e = i.getItem("topee_debug");
+                    if (!e) return {};
+                    try {
+                      var t = JSON.parse(e);
+                      return null === t || "object" != typeof t ? {} : t;
+                    } catch (e) {
+                      return {};
+                    }
+                  })();
+                function r() {
+                  return {
+                    frameId: s.frameId,
+                    isVisible: !document.hidden,
+                    hasFocus: document.hasFocus(),
+                    status: "complete" === document.readyState ? "complete" : "loading",
+                    url: window.location.href
+                  };
+                }
+                function p(e) {
+                  "object" == typeof e && null !== e && i.setItem("topee_debug", JSON.stringify(e));
+                }
+                function u(e) {
+                  if (arguments.length > 0) {
+                    if ("object" != typeof e || null === e) return;
+                    o = e;
+                  }
+                  o.log ? (window.topee_log = o.log) : delete window.topee_log;
+                }
+                u(), (window.isTabRegistered = !1), (e.exports = s);
+              },
+              27: function (e) {
+                "use strict";
+                var t,
+                  s = "object" == typeof Reflect ? Reflect : null,
+                  i =
+                    s && "function" == typeof s.apply
+                      ? s.apply
+                      : function (e, t, s) {
+                          return Function.prototype.apply.call(e, t, s);
+                        };
+                t =
+                  s && "function" == typeof s.ownKeys
+                    ? s.ownKeys
+                    : Object.getOwnPropertySymbols
+                    ? function (e) {
+                        return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e));
+                      }
+                    : function (e) {
+                        return Object.getOwnPropertyNames(e);
+                      };
+                var n =
+                  Number.isNaN ||
+                  function (e) {
+                    return e != e;
+                  };
+                function a() {
+                  a.init.call(this);
+                }
+                (e.exports = a),
+                  (e.exports.once = function (e, t) {
+                    return new Promise(function (s, i) {
+                      function n(s) {
+                        e.removeListener(t, a), i(s);
+                      }
+                      function a() {
+                        "function" == typeof e.removeListener && e.removeListener("error", n), s([].slice.call(arguments));
+                      }
+                      E(e, t, a, { once: !0 }),
+                        "error" !== t &&
+                          (function (e, t, s) {
+                            "function" == typeof e.on && E(e, "error", t, { once: !0 });
+                          })(e, n);
+                    });
+                  }),
+                  (a.EventEmitter = a),
+                  (a.prototype._events = void 0),
+                  (a.prototype._eventsCount = 0),
+                  (a.prototype._maxListeners = void 0);
+                var o = 10;
+                function r(e) {
+                  if ("function" != typeof e)
+                    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof e);
+                }
+                function p(e) {
+                  return void 0 === e._maxListeners ? a.defaultMaxListeners : e._maxListeners;
+                }
+                function u(e, t, s, i) {
+                  var n, a, o, u;
+                  if (
+                    (r(s),
+                    void 0 === (a = e._events)
+                      ? ((a = e._events = Object.create(null)), (e._eventsCount = 0))
+                      : (void 0 !== a.newListener && (e.emit("newListener", t, s.listener ? s.listener : s), (a = e._events)), (o = a[t])),
+                    void 0 === o)
+                  )
+                    (o = a[t] = s), ++e._eventsCount;
+                  else if (
+                    ("function" == typeof o ? (o = a[t] = i ? [s, o] : [o, s]) : i ? o.unshift(s) : o.push(s),
+                    (n = p(e)) > 0 && o.length > n && !o.warned)
+                  ) {
+                    o.warned = !0;
+                    var c = new Error(
+                      "Possible EventEmitter memory leak detected. " +
+                        o.length +
+                        " " +
+                        String(t) +
+                        " listeners added. Use emitter.setMaxListeners() to increase limit"
+                    );
+                    (c.name = "MaxListenersExceededWarning"),
+                      (c.emitter = e),
+                      (c.type = t),
+                      (c.count = o.length),
+                      (u = c),
+                      console && console.warn && console.warn(u);
+                  }
+                  return e;
+                }
+                function c() {
+                  if (!this.fired)
+                    return (
+                      this.target.removeListener(this.type, this.wrapFn),
+                      (this.fired = !0),
+                      0 === arguments.length ? this.listener.call(this.target) : this.listener.apply(this.target, arguments)
+                    );
+                }
+                function y(e, t, s) {
+                  var i = { fired: !1, wrapFn: void 0, target: e, type: t, listener: s },
+                    n = c.bind(i);
+                  return (n.listener = s), (i.wrapFn = n), n;
+                }
+                function d(e, t, s) {
+                  var i = e._events;
+                  if (void 0 === i) return [];
+                  var n = i[t];
+                  return void 0 === n
+                    ? []
+                    : "function" == typeof n
+                    ? s
+                      ? [n.listener || n]
+                      : [n]
+                    : s
+                    ? (function (e) {
+                        for (var t = new Array(e.length), s = 0; s < t.length; ++s) t[s] = e[s].listener || e[s];
+                        return t;
+                      })(n)
+                    : T(n, n.length);
+                }
+                function l(e) {
+                  var t = this._events;
+                  if (void 0 !== t) {
+                    var s = t[e];
+                    if ("function" == typeof s) return 1;
+                    if (void 0 !== s) return s.length;
+                  }
+                  return 0;
+                }
+                function T(e, t) {
+                  for (var s = new Array(t), i = 0; i < t; ++i) s[i] = e[i];
+                  return s;
+                }
+                function E(e, t, s, i) {
+                  if ("function" == typeof e.on) i.once ? e.once(t, s) : e.on(t, s);
+                  else {
+                    if ("function" != typeof e.addEventListener)
+                      throw new TypeError('The "emitter" argument must be of type EventEmitter. Received type ' + typeof e);
+                    e.addEventListener(t, function n(a) {
+                      i.once && e.removeEventListener(t, n), s(a);
+                    });
+                  }
+                }
+                Object.defineProperty(a, "defaultMaxListeners", {
+                  enumerable: !0,
+                  get: function () {
+                    return o;
+                  },
+                  set: function (e) {
+                    if ("number" != typeof e || e < 0 || n(e))
+                      throw new RangeError(
+                        'The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + e + "."
+                      );
+                    o = e;
+                  }
+                }),
+                  (a.init = function () {
+                    (void 0 !== this._events && this._events !== Object.getPrototypeOf(this)._events) ||
+                      ((this._events = Object.create(null)), (this._eventsCount = 0)),
+                      (this._maxListeners = this._maxListeners || void 0);
+                  }),
+                  (a.prototype.setMaxListeners = function (e) {
+                    if ("number" != typeof e || e < 0 || n(e))
+                      throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + e + ".");
+                    return (this._maxListeners = e), this;
+                  }),
+                  (a.prototype.getMaxListeners = function () {
+                    return p(this);
+                  }),
+                  (a.prototype.emit = function (e) {
+                    for (var t = [], s = 1; s < arguments.length; s++) t.push(arguments[s]);
+                    var n = "error" === e,
+                      a = this._events;
+                    if (void 0 !== a) n = n && void 0 === a.error;
+                    else if (!n) return !1;
+                    if (n) {
+                      var o;
+                      if ((t.length > 0 && (o = t[0]), o instanceof Error)) throw o;
+                      var r = new Error("Unhandled error." + (o ? " (" + o.message + ")" : ""));
+                      throw ((r.context = o), r);
+                    }
+                    var p = a[e];
+                    if (void 0 === p) return !1;
+                    if ("function" == typeof p) i(p, this, t);
+                    else {
+                      var u = p.length,
+                        c = T(p, u);
+                      for (s = 0; s < u; ++s) i(c[s], this, t);
+                    }
+                    return !0;
+                  }),
+                  (a.prototype.addListener = function (e, t) {
+                    return u(this, e, t, !1);
+                  }),
+                  (a.prototype.on = a.prototype.addListener),
+                  (a.prototype.prependListener = function (e, t) {
+                    return u(this, e, t, !0);
+                  }),
+                  (a.prototype.once = function (e, t) {
+                    return r(t), this.on(e, y(this, e, t)), this;
+                  }),
+                  (a.prototype.prependOnceListener = function (e, t) {
+                    return r(t), this.prependListener(e, y(this, e, t)), this;
+                  }),
+                  (a.prototype.removeListener = function (e, t) {
+                    var s, i, n, a, o;
+                    if ((r(t), void 0 === (i = this._events))) return this;
+                    if (void 0 === (s = i[e])) return this;
+                    if (s === t || s.listener === t)
+                      0 == --this._eventsCount
+                        ? (this._events = Object.create(null))
+                        : (delete i[e], i.removeListener && this.emit("removeListener", e, s.listener || t));
+                    else if ("function" != typeof s) {
+                      for (n = -1, a = s.length - 1; a >= 0; a--)
+                        if (s[a] === t || s[a].listener === t) {
+                          (o = s[a].listener), (n = a);
+                          break;
+                        }
+                      if (n < 0) return this;
+                      0 === n
+                        ? s.shift()
+                        : (function (e, t) {
+                            for (; t + 1 < e.length; t++) e[t] = e[t + 1];
+                            e.pop();
+                          })(s, n),
+                        1 === s.length && (i[e] = s[0]),
+                        void 0 !== i.removeListener && this.emit("removeListener", e, o || t);
+                    }
+                    return this;
+                  }),
+                  (a.prototype.off = a.prototype.removeListener),
+                  (a.prototype.removeAllListeners = function (e) {
+                    var t, s, i;
+                    if (void 0 === (s = this._events)) return this;
+                    if (void 0 === s.removeListener)
+                      return (
+                        0 === arguments.length
+                          ? ((this._events = Object.create(null)), (this._eventsCount = 0))
+                          : void 0 !== s[e] && (0 == --this._eventsCount ? (this._events = Object.create(null)) : delete s[e]),
+                        this
+                      );
+                    if (0 === arguments.length) {
+                      var n,
+                        a = Object.keys(s);
+                      for (i = 0; i < a.length; ++i) "removeListener" !== (n = a[i]) && this.removeAllListeners(n);
+                      return this.removeAllListeners("removeListener"), (this._events = Object.create(null)), (this._eventsCount = 0), this;
+                    }
+                    if ("function" == typeof (t = s[e])) this.removeListener(e, t);
+                    else if (void 0 !== t) for (i = t.length - 1; i >= 0; i--) this.removeListener(e, t[i]);
+                    return this;
+                  }),
+                  (a.prototype.listeners = function (e) {
+                    return d(this, e, !0);
+                  }),
+                  (a.prototype.rawListeners = function (e) {
+                    return d(this, e, !1);
+                  }),
+                  (a.listenerCount = function (e, t) {
+                    return "function" == typeof e.listenerCount ? e.listenerCount(t) : l.call(e, t);
+                  }),
+                  (a.prototype.listenerCount = l),
+                  (a.prototype.eventNames = function () {
+                    return this._eventsCount > 0 ? t(this._events) : [];
                   });
-                var o = s(37);
-                o.init(),
-                  window.parent.postMessage({ type: "topee_get_iframe_key", frameId: o.frameId }, "*"),
-                  (window.chrome = s(38)),
-                  window === window.top &&
-                    (o.sayHello(),
-                    window.addEventListener("pageshow", function () {
-                      o.sayHello();
-                    }));
               }
-              function r(e, s) {
-                var i = null;
-                s && s.payload && ((void 0 !== (i = s.payload.messageId) && a[i]) || (i = null), delete a[i]),
-                  t.encrypt(JSON.stringify({ name: e, value: s })).then(function (e) {
-                    var t = { type: "topee_iframe_request", value: e };
-                    null !== i && (t.messageId = i), window.topee_log && console.log("sending", t), window.parent.postMessage(t, "*");
-                  });
-              }
-            })();
+            },
+            t = {};
+          function s(i) {
+            var n = t[i];
+            if (void 0 !== n) return n.exports;
+            var a = (t[i] = { exports: {} });
+            return e[i](a, a.exports, s), a.exports;
           }
-        });
+          !(function () {
+            "use strict";
+            var e = s(29),
+              t = null,
+              i = [],
+              n = {},
+              a = [];
+            if (void 0 !== window.ApplePayError || void 0 !== window.WebKitNamespace) {
+              "undefined" == typeof safari && (window.safari = {}),
+                void 0 === safari.extension && (safari.extension = {}),
+                void 0 === safari.self && (safari.self = {}),
+                void 0 === safari.extension.dispatchMessage &&
+                  (safari.extension.dispatchMessage = t
+                    ? r
+                    : function (e, t) {
+                        i.push([e, t]);
+                      }),
+                void 0 === safari.self.addEventListener &&
+                  ((safari.self.addEventListener = function (e, s) {
+                    function i(e) {
+                      e.data && "topee_iframe_response" === e.data.type
+                        ? t.decrypt(e.data.value).then(function (e) {
+                            var t = JSON.parse(e);
+                            t.messageId === s.messageId &&
+                              (window.removeEventListener("message", s),
+                              s({ name: t.eventName, message: { messageId: t.messageId, payload: t.payload } }));
+                          })
+                        : e.data &&
+                          "topee_iframe_request" === e.data.type &&
+                          t.decrypt(e.data.value).then(function (e) {
+                            var t = JSON.parse(e);
+                            s({ name: t.eventName, message: { messageId: t.messageId, payload: t.payload } });
+                          });
+                    }
+                    "message" === e
+                      ? (s &&
+                          s.messageId &&
+                          ((n[s.messageId] = !0),
+                          setTimeout(function () {
+                            delete n[s.messageId];
+                          }, 1e3)),
+                        a.push({ type: e, safariCallback: s, decryptingCallback: i }),
+                        window.addEventListener("message", i))
+                      : console.error("Unexpected message listener:", e);
+                  }),
+                  (safari.self.removeEventListener = function (e, t) {
+                    var s = a.findIndex(function (s) {
+                      return s.type === e && s.safariCallback === t;
+                    });
+                    -1 != s
+                      ? (window.removeEventListener("message", a[s].decryptingCallback), a.splice(s, 1))
+                      : window.topee_log && console.log("listener for", e, "not found");
+                  })),
+                window.addEventListener("message", function (s) {
+                  if ("topee_iframe_key" === s.data.type && s.data.value) {
+                    if (t) return void console.error("cannot overwrite encryption key");
+                    (t = new e(s.data.value)).readyPromise
+                      .then(function () {
+                        try {
+                          safari.extension.dispatchMessage = r;
+                        } catch (e) {
+                          console.warn("Cannot override dispatchMessage");
+                        }
+                        for (; i.length > 0; ) r.apply(window, i.shift());
+                      })
+                      .catch(function (e) {
+                        console.error(e), (t = null);
+                      });
+                  }
+                });
+              var o = s(23);
+              o.init(),
+                window.parent.postMessage({ type: "topee_get_iframe_key", frameId: o.frameId }, "*"),
+                (window.chrome = s(24)),
+                window === window.top &&
+                  (o.sayHello(),
+                  window.addEventListener("pageshow", function () {
+                    o.sayHello();
+                  }));
+            }
+            function r(e, s) {
+              var i = null;
+              s && s.payload && ((void 0 !== (i = s.payload.messageId) && n[i]) || (i = null), delete n[i]),
+                t.encrypt(JSON.stringify({ name: e, value: s })).then(function (e) {
+                  var t = { type: "topee_iframe_request", value: e };
+                  null !== i && (t.messageId = i), window.topee_log && console.log("sending", t), window.parent.postMessage(t, "*");
+                });
+            }
+          })();
+        })();
       },
       52511: function (e, t, s) {
         var i;
         (e = s.nmd(e)),
-          (function (a) {
+          (function (n) {
             t && t.nodeType, e && e.nodeType;
-            var n = "object" == typeof s.g && s.g;
-            n.global !== n && n.window !== n && n.self;
+            var a = "object" == typeof s.g && s.g;
+            a.global !== a && a.window !== a && a.self;
             var o,
               r = 2147483647,
               p = 36,
               u = 26,
-              d = 38,
+              c = 38,
               y = 700,
-              c = /^xn--/,
+              d = /^xn--/,
               l = /[^\x20-\x7E]/,
               T = /[\x2E\u3002\uFF0E\uFF61]/g,
               E = {
@@ -13891,7 +15113,7 @@
               S = Math.floor,
               h = String.fromCharCode;
             function I(e) {
-              throw RangeError(E[e]);
+              throw new RangeError(E[e]);
             }
             function N(e, t) {
               for (var s = e.length, i = []; s--; ) i[s] = t(e[s]);
@@ -13902,16 +15124,16 @@
                 i = "";
               return s.length > 1 && ((i = s[0] + "@"), (e = s[1])), i + N((e = e.replace(T, ".")).split("."), t).join(".");
             }
-            function R(e) {
-              for (var t, s, i = [], a = 0, n = e.length; a < n; )
-                (t = e.charCodeAt(a++)) >= 55296 && t <= 56319 && a < n
-                  ? 56320 == (64512 & (s = e.charCodeAt(a++)))
+            function x(e) {
+              for (var t, s, i = [], n = 0, a = e.length; n < a; )
+                (t = e.charCodeAt(n++)) >= 55296 && t <= 56319 && n < a
+                  ? 56320 == (64512 & (s = e.charCodeAt(n++)))
                     ? i.push(((1023 & t) << 10) + (1023 & s) + 65536)
-                    : (i.push(t), a--)
+                    : (i.push(t), n--)
                   : i.push(t);
               return i;
             }
-            function x(e) {
+            function R(e) {
               return N(e, function (e) {
                 var t = "";
                 return e > 65535 && ((t += h((((e -= 65536) >>> 10) & 1023) | 55296)), (e = 56320 | (1023 & e))), t + h(e);
@@ -13923,18 +15145,18 @@
             function A(e, t, s) {
               var i = 0;
               for (e = s ? S(e / y) : e >> 1, e += S(e / t); e > (f * u) >> 1; i += p) e = S(e / f);
-              return S(i + ((f + 1) * e) / (e + d));
+              return S(i + ((f + 1) * e) / (e + c));
             }
             function C(e) {
               var t,
                 s,
                 i,
-                a,
                 n,
+                a,
                 o,
-                d,
-                y,
                 c,
+                y,
+                d,
                 l,
                 T,
                 E = [],
@@ -13944,59 +15166,59 @@
                 g = 72;
               for ((s = e.lastIndexOf("-")) < 0 && (s = 0), i = 0; i < s; ++i)
                 e.charCodeAt(i) >= 128 && I("not-basic"), E.push(e.charCodeAt(i));
-              for (a = s > 0 ? s + 1 : 0; a < f; ) {
+              for (n = s > 0 ? s + 1 : 0; n < f; ) {
                 for (
-                  n = h, o = 1, d = p;
-                  a >= f && I("invalid-input"),
-                    ((y = (T = e.charCodeAt(a++)) - 48 < 10 ? T - 22 : T - 65 < 26 ? T - 65 : T - 97 < 26 ? T - 97 : p) >= p ||
+                  a = h, o = 1, c = p;
+                  n >= f && I("invalid-input"),
+                    ((y = (T = e.charCodeAt(n++)) - 48 < 10 ? T - 22 : T - 65 < 26 ? T - 65 : T - 97 < 26 ? T - 97 : p) >= p ||
                       y > S((r - h) / o)) &&
                       I("overflow"),
                     (h += y * o),
-                    !(y < (c = d <= g ? 1 : d >= g + u ? u : d - g));
-                  d += p
+                    !(y < (d = c <= g ? 1 : c >= g + u ? u : c - g));
+                  c += p
                 )
-                  o > S(r / (l = p - c)) && I("overflow"), (o *= l);
-                (g = A(h - n, (t = E.length + 1), 0 == n)),
+                  o > S(r / (l = p - d)) && I("overflow"), (o *= l);
+                (g = A(h - a, (t = E.length + 1), 0 == a)),
                   S(h / t) > r - N && I("overflow"),
                   (N += S(h / t)),
                   (h %= t),
                   E.splice(h++, 0, N);
               }
-              return x(E);
+              return R(E);
             }
             function O(e) {
               var t,
                 s,
                 i,
-                a,
                 n,
+                a,
                 o,
-                d,
-                y,
                 c,
+                y,
+                d,
                 l,
                 T,
                 E,
                 f,
                 N,
                 g,
-                x = [];
-              for (E = (e = R(e)).length, t = 128, s = 0, n = 72, o = 0; o < E; ++o) (T = e[o]) < 128 && x.push(h(T));
-              for (i = a = x.length, a && x.push("-"); i < E; ) {
-                for (d = r, o = 0; o < E; ++o) (T = e[o]) >= t && T < d && (d = T);
-                for (d - t > S((r - s) / (f = i + 1)) && I("overflow"), s += (d - t) * f, t = d, o = 0; o < E; ++o)
+                R = [];
+              for (E = (e = x(e)).length, t = 128, s = 0, a = 72, o = 0; o < E; ++o) (T = e[o]) < 128 && R.push(h(T));
+              for (i = n = R.length, n && R.push("-"); i < E; ) {
+                for (c = r, o = 0; o < E; ++o) (T = e[o]) >= t && T < c && (c = T);
+                for (c - t > S((r - s) / (f = i + 1)) && I("overflow"), s += (c - t) * f, t = c, o = 0; o < E; ++o)
                   if (((T = e[o]) < t && ++s > r && I("overflow"), T == t)) {
-                    for (y = s, c = p; !(y < (l = c <= n ? 1 : c >= n + u ? u : c - n)); c += p)
-                      (g = y - l), (N = p - l), x.push(h(m(l + (g % N), 0))), (y = S(g / N));
-                    x.push(h(m(y, 0))), (n = A(s, f, i == a)), (s = 0), ++i;
+                    for (y = s, d = p; !(y < (l = d <= a ? 1 : d >= a + u ? u : d - a)); d += p)
+                      (g = y - l), (N = p - l), R.push(h(m(l + (g % N), 0))), (y = S(g / N));
+                    R.push(h(m(y, 0))), (a = A(s, f, i == n)), (s = 0), ++i;
                   }
                 ++s, ++t;
               }
-              return x.join("");
+              return R.join("");
             }
             (o = {
-              version: "1.3.2",
-              ucs2: { decode: R, encode: x },
+              version: "1.4.1",
+              ucs2: { decode: x, encode: R },
               decode: C,
               encode: O,
               toASCII: function (e) {
@@ -14006,7 +15228,7 @@
               },
               toUnicode: function (e) {
                 return g(e, function (e) {
-                  return c.test(e) ? C(e.slice(4).toLowerCase()) : e;
+                  return d.test(e) ? C(e.slice(4).toLowerCase()) : e;
                 });
               }
             }),
@@ -14016,10 +15238,9 @@
                 }.call(t, s, t, e)) || (e.exports = i);
           })();
       },
-      8575: (e, t, s) => {
+      8575: function (e, t, s) {
         "use strict";
-        var i = s(52511),
-          a = s(62502);
+        var i = s(52511);
         function n() {
           (this.protocol = null),
             (this.slashes = null),
@@ -14034,127 +15255,116 @@
             (this.path = null),
             (this.href = null);
         }
-        (t.parse = I),
-          (t.resolve = function (e, t) {
-            return I(e, !1, !0).resolve(t);
-          }),
-          (t.resolveObject = function (e, t) {
-            return e ? I(e, !1, !0).resolveObject(t) : t;
-          }),
-          (t.format = function (e) {
-            return a.isString(e) && (e = I(e)), e instanceof n ? e.format() : n.prototype.format.call(e);
-          }),
-          (t.Url = n);
-        var o = /^([a-z0-9.+-]+:)/i,
-          r = /:[0-9]*$/,
-          p = /^(\/\/?(?!\/)[^\?\s]*)(\?[^\s]*)?$/,
-          u = ["{", "}", "|", "\\", "^", "`"].concat(["<", ">", '"', "`", " ", "\r", "\n", "\t"]),
-          d = ["'"].concat(u),
-          y = ["%", "/", "?", ";", "#"].concat(d),
-          c = ["/", "?", "#"],
-          l = /^[+a-z0-9A-Z_-]{0,63}$/,
-          T = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
+        var a = /^([a-z0-9.+-]+:)/i,
+          o = /:[0-9]*$/,
+          r = /^(\/\/?(?!\/)[^?\s]*)(\?[^\s]*)?$/,
+          p = ["{", "}", "|", "\\", "^", "`"].concat(["<", ">", '"', "`", " ", "\r", "\n", "\t"]),
+          u = ["'"].concat(p),
+          c = ["%", "/", "?", ";", "#"].concat(u),
+          y = ["/", "?", "#"],
+          d = /^[+a-z0-9A-Z_-]{0,63}$/,
+          l = /^([+a-z0-9A-Z_-]{0,63})(.*)$/,
+          T = { javascript: !0, "javascript:": !0 },
           E = { javascript: !0, "javascript:": !0 },
-          f = { javascript: !0, "javascript:": !0 },
-          S = { http: !0, https: !0, ftp: !0, gopher: !0, file: !0, "http:": !0, "https:": !0, "ftp:": !0, "gopher:": !0, "file:": !0 },
-          h = s(17673);
-        function I(e, t, s) {
-          if (e && a.isObject(e) && e instanceof n) return e;
+          f = { http: !0, https: !0, ftp: !0, gopher: !0, file: !0, "http:": !0, "https:": !0, "ftp:": !0, "gopher:": !0, "file:": !0 },
+          S = s(80129);
+        function h(e, t, s) {
+          if (e && "object" == typeof e && e instanceof n) return e;
           var i = new n();
           return i.parse(e, t, s), i;
         }
         (n.prototype.parse = function (e, t, s) {
-          if (!a.isString(e)) throw new TypeError("Parameter 'url' must be a string, not " + typeof e);
+          if ("string" != typeof e) throw new TypeError("Parameter 'url' must be a string, not " + typeof e);
           var n = e.indexOf("?"),
-            r = -1 !== n && n < e.indexOf("#") ? "?" : "#",
-            u = e.split(r);
-          u[0] = u[0].replace(/\\/g, "/");
-          var I = (e = u.join(r));
-          if (((I = I.trim()), !s && 1 === e.split("#").length)) {
-            var N = p.exec(I);
-            if (N)
+            o = -1 !== n && n < e.indexOf("#") ? "?" : "#",
+            p = e.split(o);
+          p[0] = p[0].replace(/\\/g, "/");
+          var h = (e = p.join(o));
+          if (((h = h.trim()), !s && 1 === e.split("#").length)) {
+            var I = r.exec(h);
+            if (I)
               return (
-                (this.path = I),
-                (this.href = I),
-                (this.pathname = N[1]),
-                N[2]
-                  ? ((this.search = N[2]), (this.query = t ? h.parse(this.search.substr(1)) : this.search.substr(1)))
+                (this.path = h),
+                (this.href = h),
+                (this.pathname = I[1]),
+                I[2]
+                  ? ((this.search = I[2]), (this.query = t ? S.parse(this.search.substr(1)) : this.search.substr(1)))
                   : t && ((this.search = ""), (this.query = {})),
                 this
               );
           }
-          var g = o.exec(I);
-          if (g) {
-            var R = (g = g[0]).toLowerCase();
-            (this.protocol = R), (I = I.substr(g.length));
+          var N = a.exec(h);
+          if (N) {
+            var g = (N = N[0]).toLowerCase();
+            (this.protocol = g), (h = h.substr(N.length));
           }
-          if (s || g || I.match(/^\/\/[^@\/]+@[^@\/]+/)) {
-            var x = "//" === I.substr(0, 2);
-            !x || (g && f[g]) || ((I = I.substr(2)), (this.slashes = !0));
+          if (s || N || h.match(/^\/\/[^@/]+@[^@/]+/)) {
+            var x = "//" === h.substr(0, 2);
+            !x || (N && E[N]) || ((h = h.substr(2)), (this.slashes = !0));
           }
-          if (!f[g] && (x || (g && !S[g]))) {
-            for (var m, A, C = -1, O = 0; O < c.length; O++) -1 !== (M = I.indexOf(c[O])) && (-1 === C || M < C) && (C = M);
+          if (!E[N] && (x || (N && !f[N]))) {
+            for (var R, m, A = -1, C = 0; C < y.length; C++) -1 !== (O = h.indexOf(y[C])) && (-1 === A || O < A) && (A = O);
             for (
-              -1 !== (A = -1 === C ? I.lastIndexOf("@") : I.lastIndexOf("@", C)) &&
-                ((m = I.slice(0, A)), (I = I.slice(A + 1)), (this.auth = decodeURIComponent(m))),
-                C = -1,
-                O = 0;
-              O < y.length;
-              O++
+              -1 !== (m = -1 === A ? h.lastIndexOf("@") : h.lastIndexOf("@", A)) &&
+                ((R = h.slice(0, m)), (h = h.slice(m + 1)), (this.auth = decodeURIComponent(R))),
+                A = -1,
+                C = 0;
+              C < c.length;
+              C++
             ) {
-              var M;
-              -1 !== (M = I.indexOf(y[O])) && (-1 === C || M < C) && (C = M);
+              var O;
+              -1 !== (O = h.indexOf(c[C])) && (-1 === A || O < A) && (A = O);
             }
-            -1 === C && (C = I.length),
-              (this.host = I.slice(0, C)),
-              (I = I.slice(C)),
+            -1 === A && (A = h.length),
+              (this.host = h.slice(0, A)),
+              (h = h.slice(A)),
               this.parseHost(),
               (this.hostname = this.hostname || "");
-            var v = "[" === this.hostname[0] && "]" === this.hostname[this.hostname.length - 1];
-            if (!v)
-              for (var k = this.hostname.split(/\./), D = ((O = 0), k.length); O < D; O++) {
-                var P = k[O];
-                if (P && !P.match(l)) {
-                  for (var U = "", L = 0, b = P.length; L < b; L++) P.charCodeAt(L) > 127 ? (U += "x") : (U += P[L]);
-                  if (!U.match(l)) {
-                    var _ = k.slice(0, O),
-                      w = k.slice(O + 1),
-                      G = P.match(T);
-                    G && (_.push(G[1]), w.unshift(G[2])), w.length && (I = "/" + w.join(".") + I), (this.hostname = _.join("."));
+            var M = "[" === this.hostname[0] && "]" === this.hostname[this.hostname.length - 1];
+            if (!M)
+              for (var v = this.hostname.split(/\./), k = ((C = 0), v.length); C < k; C++) {
+                var D = v[C];
+                if (D && !D.match(d)) {
+                  for (var P = "", U = 0, b = D.length; U < b; U++) D.charCodeAt(U) > 127 ? (P += "x") : (P += D[U]);
+                  if (!P.match(d)) {
+                    var L = v.slice(0, C),
+                      w = v.slice(C + 1),
+                      _ = D.match(l);
+                    _ && (L.push(_[1]), w.unshift(_[2])), w.length && (h = "/" + w.join(".") + h), (this.hostname = L.join("."));
                     break;
                   }
                 }
               }
             this.hostname.length > 255 ? (this.hostname = "") : (this.hostname = this.hostname.toLowerCase()),
-              v || (this.hostname = i.toASCII(this.hostname));
-            var B = this.port ? ":" + this.port : "",
-              F = this.hostname || "";
-            (this.host = F + B),
+              M || (this.hostname = i.toASCII(this.hostname));
+            var G = this.port ? ":" + this.port : "",
+              B = this.hostname || "";
+            (this.host = B + G),
               (this.href += this.host),
-              v && ((this.hostname = this.hostname.substr(1, this.hostname.length - 2)), "/" !== I[0] && (I = "/" + I));
+              M && ((this.hostname = this.hostname.substr(1, this.hostname.length - 2)), "/" !== h[0] && (h = "/" + h));
           }
-          if (!E[R])
-            for (O = 0, D = d.length; O < D; O++) {
-              var q = d[O];
-              if (-1 !== I.indexOf(q)) {
-                var X = encodeURIComponent(q);
-                X === q && (X = escape(q)), (I = I.split(q).join(X));
+          if (!T[g])
+            for (C = 0, k = u.length; C < k; C++) {
+              var F = u[C];
+              if (-1 !== h.indexOf(F)) {
+                var q = encodeURIComponent(F);
+                q === F && (q = escape(F)), (h = h.split(F).join(q));
               }
             }
-          var V = I.indexOf("#");
-          -1 !== V && ((this.hash = I.substr(V)), (I = I.slice(0, V)));
-          var W = I.indexOf("?");
+          var X = h.indexOf("#");
+          -1 !== X && ((this.hash = h.substr(X)), (h = h.slice(0, X)));
+          var V = h.indexOf("?");
           if (
-            (-1 !== W
-              ? ((this.search = I.substr(W)), (this.query = I.substr(W + 1)), t && (this.query = h.parse(this.query)), (I = I.slice(0, W)))
+            (-1 !== V
+              ? ((this.search = h.substr(V)), (this.query = h.substr(V + 1)), t && (this.query = S.parse(this.query)), (h = h.slice(0, V)))
               : t && ((this.search = ""), (this.query = {})),
-            I && (this.pathname = I),
-            S[R] && this.hostname && !this.pathname && (this.pathname = "/"),
+            h && (this.pathname = h),
+            f[g] && this.hostname && !this.pathname && (this.pathname = "/"),
             this.pathname || this.search)
           ) {
-            B = this.pathname || "";
-            var j = this.search || "";
-            this.path = B + j;
+            G = this.pathname || "";
+            var W = this.search || "";
+            this.path = G + W;
           }
           return (this.href = this.format()), this;
         }),
@@ -14165,66 +15375,66 @@
               s = this.pathname || "",
               i = this.hash || "",
               n = !1,
-              o = "";
+              a = "";
             this.host
               ? (n = e + this.host)
               : this.hostname &&
                 ((n = e + (-1 === this.hostname.indexOf(":") ? this.hostname : "[" + this.hostname + "]")),
                 this.port && (n += ":" + this.port)),
-              this.query && a.isObject(this.query) && Object.keys(this.query).length && (o = h.stringify(this.query));
-            var r = this.search || (o && "?" + o) || "";
+              this.query && "object" == typeof this.query && Object.keys(this.query).length && (a = S.stringify(this.query));
+            var o = this.search || (a && "?" + a) || "";
             return (
               t && ":" !== t.substr(-1) && (t += ":"),
-              this.slashes || ((!t || S[t]) && !1 !== n)
+              this.slashes || ((!t || f[t]) && !1 !== n)
                 ? ((n = "//" + (n || "")), s && "/" !== s.charAt(0) && (s = "/" + s))
                 : n || (n = ""),
               i && "#" !== i.charAt(0) && (i = "#" + i),
-              r && "?" !== r.charAt(0) && (r = "?" + r),
+              o && "?" !== o.charAt(0) && (o = "?" + o),
               t +
                 n +
                 (s = s.replace(/[?#]/g, function (e) {
                   return encodeURIComponent(e);
                 })) +
-                (r = r.replace("#", "%23")) +
+                (o = o.replace("#", "%23")) +
                 i
             );
           }),
           (n.prototype.resolve = function (e) {
-            return this.resolveObject(I(e, !1, !0)).format();
+            return this.resolveObject(h(e, !1, !0)).format();
           }),
           (n.prototype.resolveObject = function (e) {
-            if (a.isString(e)) {
+            if ("string" == typeof e) {
               var t = new n();
               t.parse(e, !1, !0), (e = t);
             }
-            for (var s = new n(), i = Object.keys(this), o = 0; o < i.length; o++) {
-              var r = i[o];
-              s[r] = this[r];
+            for (var s = new n(), i = Object.keys(this), a = 0; a < i.length; a++) {
+              var o = i[a];
+              s[o] = this[o];
             }
             if (((s.hash = e.hash), "" === e.href)) return (s.href = s.format()), s;
             if (e.slashes && !e.protocol) {
-              for (var p = Object.keys(e), u = 0; u < p.length; u++) {
-                var d = p[u];
-                "protocol" !== d && (s[d] = e[d]);
+              for (var r = Object.keys(e), p = 0; p < r.length; p++) {
+                var u = r[p];
+                "protocol" !== u && (s[u] = e[u]);
               }
-              return S[s.protocol] && s.hostname && !s.pathname && (s.path = s.pathname = "/"), (s.href = s.format()), s;
+              return f[s.protocol] && s.hostname && !s.pathname && ((s.pathname = "/"), (s.path = s.pathname)), (s.href = s.format()), s;
             }
             if (e.protocol && e.protocol !== s.protocol) {
-              if (!S[e.protocol]) {
-                for (var y = Object.keys(e), c = 0; c < y.length; c++) {
-                  var l = y[c];
-                  s[l] = e[l];
+              if (!f[e.protocol]) {
+                for (var c = Object.keys(e), y = 0; y < c.length; y++) {
+                  var d = c[y];
+                  s[d] = e[d];
                 }
                 return (s.href = s.format()), s;
               }
-              if (((s.protocol = e.protocol), e.host || f[e.protocol])) s.pathname = e.pathname;
+              if (((s.protocol = e.protocol), e.host || E[e.protocol])) s.pathname = e.pathname;
               else {
-                for (var T = (e.pathname || "").split("/"); T.length && !(e.host = T.shift()); );
+                for (var l = (e.pathname || "").split("/"); l.length && !(e.host = l.shift()); );
                 e.host || (e.host = ""),
                   e.hostname || (e.hostname = ""),
-                  "" !== T[0] && T.unshift(""),
-                  T.length < 2 && T.unshift(""),
-                  (s.pathname = T.join("/"));
+                  "" !== l[0] && l.unshift(""),
+                  l.length < 2 && l.unshift(""),
+                  (s.pathname = l.join("/"));
               }
               if (
                 ((s.search = e.search),
@@ -14235,69 +15445,71 @@
                 (s.port = e.port),
                 s.pathname || s.search)
               ) {
-                var E = s.pathname || "",
-                  h = s.search || "";
-                s.path = E + h;
+                var T = s.pathname || "",
+                  S = s.search || "";
+                s.path = T + S;
               }
               return (s.slashes = s.slashes || e.slashes), (s.href = s.format()), s;
             }
-            var I = s.pathname && "/" === s.pathname.charAt(0),
-              N = e.host || (e.pathname && "/" === e.pathname.charAt(0)),
-              g = N || I || (s.host && e.pathname),
-              R = g,
+            var h = s.pathname && "/" === s.pathname.charAt(0),
+              I = e.host || (e.pathname && "/" === e.pathname.charAt(0)),
+              N = I || h || (s.host && e.pathname),
+              g = N,
               x = (s.pathname && s.pathname.split("/")) || [],
-              m = ((T = (e.pathname && e.pathname.split("/")) || []), s.protocol && !S[s.protocol]);
+              R = ((l = (e.pathname && e.pathname.split("/")) || []), s.protocol && !f[s.protocol]);
             if (
-              (m &&
+              (R &&
                 ((s.hostname = ""),
                 (s.port = null),
                 s.host && ("" === x[0] ? (x[0] = s.host) : x.unshift(s.host)),
                 (s.host = ""),
                 e.protocol &&
-                  ((e.hostname = null), (e.port = null), e.host && ("" === T[0] ? (T[0] = e.host) : T.unshift(e.host)), (e.host = null)),
-                (g = g && ("" === T[0] || "" === x[0]))),
-              N)
+                  ((e.hostname = null), (e.port = null), e.host && ("" === l[0] ? (l[0] = e.host) : l.unshift(e.host)), (e.host = null)),
+                (N = N && ("" === l[0] || "" === x[0]))),
+              I)
             )
               (s.host = e.host || "" === e.host ? e.host : s.host),
                 (s.hostname = e.hostname || "" === e.hostname ? e.hostname : s.hostname),
                 (s.search = e.search),
                 (s.query = e.query),
-                (x = T);
-            else if (T.length) x || (x = []), x.pop(), (x = x.concat(T)), (s.search = e.search), (s.query = e.query);
-            else if (!a.isNullOrUndefined(e.search))
+                (x = l);
+            else if (l.length) x || (x = []), x.pop(), (x = x.concat(l)), (s.search = e.search), (s.query = e.query);
+            else if (null != e.search)
               return (
-                m &&
-                  ((s.hostname = s.host = x.shift()),
-                  (v = !!(s.host && s.host.indexOf("@") > 0) && s.host.split("@")) &&
-                    ((s.auth = v.shift()), (s.host = s.hostname = v.shift()))),
+                R &&
+                  ((s.host = x.shift()),
+                  (s.hostname = s.host),
+                  (M = !!(s.host && s.host.indexOf("@") > 0) && s.host.split("@")) &&
+                    ((s.auth = M.shift()), (s.hostname = M.shift()), (s.host = s.hostname))),
                 (s.search = e.search),
                 (s.query = e.query),
-                (a.isNull(s.pathname) && a.isNull(s.search)) || (s.path = (s.pathname ? s.pathname : "") + (s.search ? s.search : "")),
+                (null === s.pathname && null === s.search) || (s.path = (s.pathname ? s.pathname : "") + (s.search ? s.search : "")),
                 (s.href = s.format()),
                 s
               );
             if (!x.length) return (s.pathname = null), s.search ? (s.path = "/" + s.search) : (s.path = null), (s.href = s.format()), s;
             for (
-              var A = x.slice(-1)[0],
-                C = ((s.host || e.host || x.length > 1) && ("." === A || ".." === A)) || "" === A,
-                O = 0,
-                M = x.length;
-              M >= 0;
-              M--
+              var m = x.slice(-1)[0],
+                A = ((s.host || e.host || x.length > 1) && ("." === m || ".." === m)) || "" === m,
+                C = 0,
+                O = x.length;
+              O >= 0;
+              O--
             )
-              "." === (A = x[M]) ? x.splice(M, 1) : ".." === A ? (x.splice(M, 1), O++) : O && (x.splice(M, 1), O--);
-            if (!g && !R) for (; O--; O) x.unshift("..");
-            !g || "" === x[0] || (x[0] && "/" === x[0].charAt(0)) || x.unshift(""), C && "/" !== x.join("/").substr(-1) && x.push("");
-            var v,
-              k = "" === x[0] || (x[0] && "/" === x[0].charAt(0));
+              "." === (m = x[O]) ? x.splice(O, 1) : ".." === m ? (x.splice(O, 1), C++) : C && (x.splice(O, 1), C--);
+            if (!N && !g) for (; C--; C) x.unshift("..");
+            !N || "" === x[0] || (x[0] && "/" === x[0].charAt(0)) || x.unshift(""), A && "/" !== x.join("/").substr(-1) && x.push("");
+            var M,
+              v = "" === x[0] || (x[0] && "/" === x[0].charAt(0));
             return (
-              m &&
-                ((s.hostname = s.host = k ? "" : x.length ? x.shift() : ""),
-                (v = !!(s.host && s.host.indexOf("@") > 0) && s.host.split("@")) &&
-                  ((s.auth = v.shift()), (s.host = s.hostname = v.shift()))),
-              (g = g || (s.host && x.length)) && !k && x.unshift(""),
-              x.length ? (s.pathname = x.join("/")) : ((s.pathname = null), (s.path = null)),
-              (a.isNull(s.pathname) && a.isNull(s.search)) || (s.path = (s.pathname ? s.pathname : "") + (s.search ? s.search : "")),
+              R &&
+                ((s.hostname = v ? "" : x.length ? x.shift() : ""),
+                (s.host = s.hostname),
+                (M = !!(s.host && s.host.indexOf("@") > 0) && s.host.split("@")) &&
+                  ((s.auth = M.shift()), (s.hostname = M.shift()), (s.host = s.hostname))),
+              (N = N || (s.host && x.length)) && !v && x.unshift(""),
+              x.length > 0 ? (s.pathname = x.join("/")) : ((s.pathname = null), (s.path = null)),
+              (null === s.pathname && null === s.search) || (s.path = (s.pathname ? s.pathname : "") + (s.search ? s.search : "")),
               (s.auth = e.auth || s.auth),
               (s.slashes = s.slashes || e.slashes),
               (s.href = s.format()),
@@ -14306,36 +15518,31 @@
           }),
           (n.prototype.parseHost = function () {
             var e = this.host,
-              t = r.exec(e);
+              t = o.exec(e);
             t && (":" !== (t = t[0]) && (this.port = t.substr(1)), (e = e.substr(0, e.length - t.length))), e && (this.hostname = e);
-          });
+          }),
+          (t.parse = h),
+          (t.resolve = function (e, t) {
+            return h(e, !1, !0).resolve(t);
+          }),
+          (t.resolveObject = function (e, t) {
+            return e ? h(e, !1, !0).resolveObject(t) : t;
+          }),
+          (t.format = function (e) {
+            return "string" == typeof e && (e = h(e)), e instanceof n ? e.format() : n.prototype.format.call(e);
+          }),
+          (t.Url = n);
       },
-      62502: (e) => {
-        "use strict";
-        e.exports = {
-          isString: function (e) {
-            return "string" == typeof e;
-          },
-          isObject: function (e) {
-            return "object" == typeof e && null !== e;
-          },
-          isNull: function (e) {
-            return null === e;
-          },
-          isNullOrUndefined: function (e) {
-            return null == e;
-          }
-        };
-      },
-      72693: () => {},
-      49069: () => {}
+      72693: function () {},
+      49069: function () {},
+      24654: function () {}
     },
     t = {};
   function s(i) {
-    var a = t[i];
-    if (void 0 !== a) return a.exports;
-    var n = (t[i] = { id: i, loaded: !1, exports: {} });
-    return e[i].call(n.exports, n, n.exports, s), (n.loaded = !0), n.exports;
+    var n = t[i];
+    if (void 0 !== n) return n.exports;
+    var a = (t[i] = { id: i, loaded: !1, exports: {} });
+    return e[i].call(a.exports, a, a.exports, s), (a.loaded = !0), a.exports;
   }
   (s.g = (function () {
     if ("object" == typeof globalThis) return globalThis;
@@ -14345,8 +15552,10 @@
       if ("object" == typeof window) return window;
     }
   })()),
-    (s.nmd = (e) => ((e.paths = []), e.children || (e.children = []), e)),
-    (() => {
+    (s.nmd = function (e) {
+      return (e.paths = []), e.children || (e.children = []), e;
+    }),
+    (function () {
       "use strict";
       function e(t) {
         return (
@@ -14368,8 +15577,8 @@
               if ("object" !== e(t) || null === t) return t;
               var i = t[Symbol.toPrimitive];
               if (void 0 !== i) {
-                var a = i.call(t, "string");
-                if ("object" !== e(a)) return a;
+                var n = i.call(t, "string");
+                if ("object" !== e(n)) return n;
                 throw new TypeError("@@toPrimitive must return a primitive value.");
               }
               return String(t);
@@ -14381,7 +15590,9 @@
           t
         );
       }
-      function i(e, t) {
+      s(81469);
+      const i = (e) => "[object Object]" === Object.prototype.toString.call(e);
+      function n(e, t) {
         var s = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var i = Object.getOwnPropertySymbols(e);
@@ -14393,7 +15604,6 @@
         }
         return s;
       }
-      s(91632);
       class a {
         constructor(e) {
           var t;
@@ -14423,23 +15633,23 @@
         dispatchEvent(e) {
           let s = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
           if (s.type && s.type !== e) throw new Error('Event payload must not contain member "type".');
-          const a = (function (e) {
+          const i = (function (e) {
             for (var s = 1; s < arguments.length; s++) {
-              var a = null != arguments[s] ? arguments[s] : {};
+              var i = null != arguments[s] ? arguments[s] : {};
               s % 2
-                ? i(Object(a), !0).forEach(function (s) {
-                    t(e, s, a[s]);
+                ? n(Object(i), !0).forEach(function (s) {
+                    t(e, s, i[s]);
                   })
                 : Object.getOwnPropertyDescriptors
-                ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(a))
-                : i(Object(a)).forEach(function (t) {
-                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(a, t));
+                ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(i))
+                : n(Object(i)).forEach(function (t) {
+                    Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(i, t));
                   });
             }
             return e;
           })({ type: e }, s);
           (this._listeners[e] || []).forEach((e) => {
-            e(a);
+            e(i);
           });
         }
         get hasListeners() {
@@ -14454,17 +15664,17 @@
           return t || ((t = []), (this._listeners[e] = t)), t;
         }
       }
-      var n = { isFirefox: !1, isSafari: !1, isEdge: !1, isChrome: !0 };
-      function o(e) {
+      var o = { isFirefox: !1, isSafari: !1, isEdge: "undefined" != typeof EDGE && EDGE, isChrome: !0 };
+      function r(e) {
         var t = "";
         return (
           e.forEach(function (e) {
-            t += e.date + " " + e.lvl + ": " + e.val + " \n";
+            t += "".concat(e.date, " ").concat(e.lvl, ": ").concat(e.val, " \n");
           }),
           t
         );
       }
-      var r = (function () {
+      var p = (function () {
           function e() {
             (this.loggers = []), (this.level = 2), (this.logEnabled = !1);
           }
@@ -14489,8 +15699,8 @@
             }),
             (e.prototype.subscribeToUnhandledErrors = function (e) {
               var t = this;
-              self.onerror = function (s, i, a) {
-                t.error("Unhandled error at " + i + ":" + a, s), "function" == typeof e && e(s);
+              self.onerror = function (s, i, n) {
+                t.error("Unhandled error at ".concat(i, ":").concat(n), s), "function" == typeof e && e(s);
               };
             }),
             (e.prototype.logSystemInfo = function () {
@@ -14504,14 +15714,14 @@
               return (
                 void 0 === e && (e = []),
                 this.getSystemInfo().then(function (s) {
-                  return s + "\n" + e.join("\n") + "\n\n" + o(t.getLogs());
+                  return "".concat(s, "\n").concat(e.join("\n"), "\n\n") + r(t.getLogs());
                 })
               );
             }),
             (e.prototype.getFormattedLogs = function () {
               var e = this;
               return this.getSystemInfo().then(function (t) {
-                return t + " \n\n" + o(e.getLogs());
+                return "".concat(t, " \n\n") + r(e.getLogs());
               });
             }),
             (e.prototype.clearLogs = function () {
@@ -14526,7 +15736,7 @@
               this.logEnabled = e;
             }),
             (e.prototype._isLogAvailable = function () {
-              return !n.isFirefox || this.logEnabled;
+              return !o.isFirefox || this.logEnabled;
             }),
             (e.prototype.invokeLoggers = function (e, t) {
               this._isLogAvailable() &&
@@ -14553,12 +15763,12 @@
             e
           );
         })(),
-        p = new r(),
-        u =
+        u = new p(),
+        c =
           ((function () {
             function e() {}
             (e.prototype.log = function (e, t) {
-              var s, i, a, n;
+              var s, i, n, a;
               if (self.console.debug.apply)
                 switch (e) {
                   case 3:
@@ -14568,10 +15778,10 @@
                     (i = self.console).warn.apply(i, t);
                     break;
                   case 0:
-                    (a = self.console).error.apply(a, t);
+                    (n = self.console).error.apply(n, t);
                     break;
                   default:
-                    (n = self.console).log.apply(n, t);
+                    (a = self.console).log.apply(a, t);
                 }
               else this._logWithoutApply(e, t);
             }),
@@ -14594,29 +15804,29 @@
               });
           })(),
           "evernoteStyle"),
-        d = /url\((['"]?)(\S*?)\1\)/g,
-        y =
-          (s(46463),
+        y = /url\((['"]?)(\S*?)\1\)/g,
+        d =
+          (s(18472),
           function (e, t, s, i) {
-            return new (s || (s = Promise))(function (a, n) {
+            return new (s || (s = Promise))(function (n, a) {
               function o(e) {
                 try {
                   p(i.next(e));
                 } catch (e) {
-                  n(e);
+                  a(e);
                 }
               }
               function r(e) {
                 try {
                   p(i.throw(e));
                 } catch (e) {
-                  n(e);
+                  a(e);
                 }
               }
               function p(e) {
                 var t;
                 e.done
-                  ? a(e.value)
+                  ? n(e.value)
                   : ((t = e.value),
                     t instanceof s
                       ? t
@@ -14627,46 +15837,46 @@
               p((i = i.apply(e, t || [])).next());
             });
           });
-      function c(e, t) {
+      function l(e, t) {
         return t.top >= e.top && t.left >= e.left && t.right <= e.right && t.bottom <= e.bottom;
       }
-      function l(e, t) {
+      function T(e, t) {
         var s = t || e.getBoundingClientRect(),
           i = window.pageXOffset,
-          a = window.pageYOffset;
+          n = window.pageYOffset;
         if (e !== document.body)
-          for (var n = e.parentNode; n !== document.body; ) (i += n.scrollLeft), (a += n.scrollTop), (n = n.parentNode);
-        return { bottom: s.bottom + a, height: s.height, left: s.left + i, right: s.right + i, top: s.top + a, width: s.width };
+          for (var a = e.parentNode; a !== document.body; ) (i += a.scrollLeft), (n += a.scrollTop), (a = a.parentNode);
+        return { bottom: s.bottom + n, height: s.height, left: s.left + i, right: s.right + i, top: s.top + n, width: s.width };
       }
-      var T = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;", "\\": "" };
-      function E(e) {
+      var E = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;", "\\": "" };
+      function f(e) {
         return (
           void 0 === e && (e = ""),
           e.replace(/(&(?!amp;|lt;|gt;|quot;|apos;)|<|>|"|'|\\)/g, function (e) {
-            return T.hasOwnProperty(e) ? T[e] : e;
+            return E.hasOwnProperty(e) ? E[e] : e;
           })
         );
       }
-      var f = function (e) {
+      var S = function (e) {
           return e.replace(/\\/g, "");
         },
-        S = function (e) {
+        h = function (e) {
           return e.replace(/\\'|'/g, function (e) {
             return "'" === e ? "\\'" : e;
           });
         },
-        h = function (e) {
+        I = function (e) {
           return e.replace(/[\r\n%#()<>[\\\]^`{|}]/g, encodeURIComponent);
         },
-        I = function (e) {
-          return [f, S].reduce(function (e, t) {
+        N = function (e) {
+          return [S, h].reduce(function (e, t) {
             return t(e);
           }, e);
         },
-        N = function (e) {
+        g = function (e) {
           return e.startsWith("data:");
         },
-        g = function (e) {
+        x = function (e) {
           return e.replace(/^["']*|["']*$/g, "");
         };
       function R(e, t) {
@@ -14682,11 +15892,11 @@
           (e.textContent === t.textContent && e.getElementsByTagName("img").length === t.getElementsByTagName("img").length)
         );
       }
-      function x(e) {
+      function m(e) {
         return e === window.document;
       }
-      function m(e, t) {
-        if (!e || x(e)) return !1;
+      function A(e, t) {
+        if (!e || m(e)) return !1;
         if ("" === e.textContent.trim() && 0 === e.getElementsByTagName("img").length) return !1;
         var s = e.getBoundingClientRect();
         if (!s.width || !s.height) return !1;
@@ -14697,40 +15907,40 @@
           (!e.parentNode || !t.parentNode || (e.parentNode !== t && t.parentNode !== e) || !R(e, t))
         );
       }
-      function A(e) {
+      function C(e) {
         for (var t = 0; t < e.children.length; t++) {
-          if (R(e.children[t], e)) return A(e.children[t]);
-          if (m(e.children[t], e)) return e.children[t];
+          if (R(e.children[t], e)) return C(e.children[t]);
+          if (A(e.children[t], e)) return e.children[t];
         }
         return e;
       }
-      var C,
-        O = function (e) {
+      var O,
+        M = function (e) {
           var t = e;
           return "string" != typeof t || (/&amp;/.test(t) && (t = t.replace(/&amp;/g, "&"))), t;
         },
-        M = function (e) {
+        v = function (e) {
           return "string" != typeof e ? "" : e.toString().toLowerCase();
         },
-        v = function (e) {
-          var t = e.dataset[u];
+        k = function (e) {
+          var t = e.dataset[c];
           return (t ? t.split(";") : []).filter(Boolean).reduce(function (e, t) {
             if (t) {
               var s = t.split(":");
               if (2 === s.length) {
                 var i = s[0],
-                  a = s[1];
-                e[i] = a;
+                  n = s[1];
+                e[i] = n;
               }
             }
             return e;
           }, {});
         },
-        k = {
+        D = {
           getAllTextNodesOfElement: function (e, t) {
             var s;
             void 0 === t && (t = window);
-            for (var i = [], a = t.document.createTreeWalker(e, NodeFilter.SHOW_TEXT, null); (s = a.nextNode()); ) i.push(s);
+            for (var i = [], n = t.document.createTreeWalker(e, NodeFilter.SHOW_TEXT, null); (s = n.nextNode()); ) i.push(s);
             return i;
           },
           getClosestToParentContainer: function (e, t) {
@@ -14753,84 +15963,84 @@
             return (
               void 0 === e && (e = window),
               void 0 === t && (t = document),
-              y(this, void 0, void 0, function () {
+              d(this, void 0, void 0, function () {
                 return (function (e, t) {
                   var s,
                     i,
-                    a,
                     n,
+                    a,
                     o = {
                       label: 0,
                       sent: function () {
-                        if (1 & a[0]) throw a[1];
-                        return a[1];
+                        if (1 & n[0]) throw n[1];
+                        return n[1];
                       },
                       trys: [],
                       ops: []
                     };
                   return (
-                    (n = { next: r(0), throw: r(1), return: r(2) }),
+                    (a = { next: r(0), throw: r(1), return: r(2) }),
                     "function" == typeof Symbol &&
-                      (n[Symbol.iterator] = function () {
+                      (a[Symbol.iterator] = function () {
                         return this;
                       }),
-                    n
+                    a
                   );
-                  function r(n) {
-                    return function (r) {
-                      return (function (n) {
+                  function r(r) {
+                    return function (p) {
+                      return (function (r) {
                         if (s) throw new TypeError("Generator is already executing.");
-                        for (; o; )
+                        for (; a && ((a = 0), r[0] && (o = 0)), o; )
                           try {
                             if (
                               ((s = 1),
                               i &&
-                                (a = 2 & n[0] ? i.return : n[0] ? i.throw || ((a = i.return) && a.call(i), 0) : i.next) &&
-                                !(a = a.call(i, n[1])).done)
+                                (n = 2 & r[0] ? i.return : r[0] ? i.throw || ((n = i.return) && n.call(i), 0) : i.next) &&
+                                !(n = n.call(i, r[1])).done)
                             )
-                              return a;
-                            switch (((i = 0), a && (n = [2 & n[0], a.value]), n[0])) {
+                              return n;
+                            switch (((i = 0), n && (r = [2 & r[0], n.value]), r[0])) {
                               case 0:
                               case 1:
-                                a = n;
+                                n = r;
                                 break;
                               case 4:
-                                return o.label++, { value: n[1], done: !1 };
+                                return o.label++, { value: r[1], done: !1 };
                               case 5:
-                                o.label++, (i = n[1]), (n = [0]);
+                                o.label++, (i = r[1]), (r = [0]);
                                 continue;
                               case 7:
-                                (n = o.ops.pop()), o.trys.pop();
+                                (r = o.ops.pop()), o.trys.pop();
                                 continue;
                               default:
-                                if (!((a = (a = o.trys).length > 0 && a[a.length - 1]) || (6 !== n[0] && 2 !== n[0]))) {
+                                if (!((n = (n = o.trys).length > 0 && n[n.length - 1]) || (6 !== r[0] && 2 !== r[0]))) {
                                   o = 0;
                                   continue;
                                 }
-                                if (3 === n[0] && (!a || (n[1] > a[0] && n[1] < a[3]))) {
-                                  o.label = n[1];
+                                if (3 === r[0] && (!n || (r[1] > n[0] && r[1] < n[3]))) {
+                                  o.label = r[1];
                                   break;
                                 }
-                                if (6 === n[0] && o.label < a[1]) {
-                                  (o.label = a[1]), (a = n);
+                                if (6 === r[0] && o.label < n[1]) {
+                                  (o.label = n[1]), (n = r);
                                   break;
                                 }
-                                if (a && o.label < a[2]) {
-                                  (o.label = a[2]), o.ops.push(n);
+                                if (n && o.label < n[2]) {
+                                  (o.label = n[2]), o.ops.push(r);
                                   break;
                                 }
-                                a[2] && o.ops.pop(), o.trys.pop();
+                                n[2] && o.ops.pop(), o.trys.pop();
                                 continue;
                             }
-                            n = t.call(e, o);
+                            r = t.call(e, o);
                           } catch (e) {
-                            (n = [6, e]), (i = 0);
+                            (r = [6, e]), (i = 0);
                           } finally {
-                            s = a = 0;
+                            s = n = 0;
                           }
-                        if (5 & n[0]) throw n[1];
-                        return { value: n[0] ? n[1] : void 0, done: !0 };
-                      })([n, r]);
+                        if (5 & r[0]) throw r[1];
+                        return { value: r[0] ? r[1] : void 0, done: !0 };
+                      })([r, p]);
                     };
                   }
                 })(this, function (s) {
@@ -14861,33 +16071,33 @@
           },
           getPreviousSibling: function (e) {
             for (var t = e, s = e.previousElementSibling; s; ) {
-              if (m(s, t)) {
+              if (A(s, t)) {
                 t = s;
                 break;
               }
               s = s.previousElementSibling;
             }
-            return x(t) ? e : t;
+            return m(t) ? e : t;
           },
           getNextSibling: function (e) {
             for (var t = e, s = e.nextElementSibling; s; ) {
-              if (m(s, t)) {
+              if (A(s, t)) {
                 t = s;
                 break;
               }
               s = s.nextElementSibling;
             }
-            return x(t) ? e : t;
+            return m(t) ? e : t;
           },
           moveUp: function (e) {
             for (var t = e, s = t.parentNode; s; ) {
-              if (m(s, t)) {
+              if (A(s, t)) {
                 (s.enNudgeDescendToNode = t), (t = s);
                 break;
               }
               (s = s.parentNode), (t = t.parentNode);
             }
-            return x(t) ? e : t;
+            return m(t) ? e : t;
           },
           moveDown: function (e) {
             var t = e;
@@ -14895,11 +16105,11 @@
               var s = t.enNudgeDescendToNode;
               return delete t.enNudgeDescendToNode, s;
             }
-            return A(t);
+            return C(t);
           },
-          descendTreeUntilUniqueElement: A,
-          isSuitableCandidate: m,
-          isDocumentElement: x,
+          descendTreeUntilUniqueElement: C,
+          isSuitableCandidate: A,
+          isDocumentElement: m,
           isSameElement: R,
           ce: function (e, t, s) {
             void 0 === e && (e = "div");
@@ -14945,31 +16155,31 @@
             } catch (e) {
               s = t;
             }
-            s = I(g(s));
-            var a = e.split("/");
-            a.splice(-1, 1);
-            var n = a.join("/") + "/",
+            s = N(x(s));
+            var n = e.split("/");
+            n.splice(-1, 1);
+            var a = "".concat(n.join("/"), "/"),
               o = s.trim();
             return (
               (i =
-                o.match(/^http/i) || N(o)
+                o.match(/^http/i) || g(o)
                   ? o
                   : o.match(/^\/\//)
-                  ? "https:" + o
+                  ? "https:".concat(o)
                   : o.match(/^\//)
-                  ? n.replace(/^(.*?:\/\/[^\/]+).*$/, "$1") + o
-                  : n.replace(/^(.*\/)/, "$1") + o),
-              N(i) && (i = "" + h(i)),
-              E(i)
+                  ? a.replace(/^(.*?:\/\/[^\/]+).*$/, "$1") + o
+                  : a.replace(/^(.*\/)/, "$1") + o),
+              g(i) && (i = "".concat(I(i))),
+              f(i)
             );
           },
-          removeEmbracedQuotes: g,
-          isDataURI: N,
-          sanitizeURL: I,
-          encodeOnlySpecialChars: h,
-          overrideSimpleQuote: S,
-          removeBackSlash: f,
-          escapeXML: E,
+          removeEmbracedQuotes: x,
+          isDataURI: g,
+          sanitizeURL: N,
+          encodeOnlySpecialChars: I,
+          overrideSimpleQuote: h,
+          removeBackSlash: S,
+          escapeXML: f,
           unescapeXML: function (e) {
             return (
               void 0 === e && (e = ""),
@@ -14985,74 +16195,81 @@
             return e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
           },
           elementRectInside: function (e, t, s) {
-            return e && s && c(s, l(e, t));
+            return e && s && l(s, T(e, t));
           },
-          getAbsoluteBoundingRect: l,
-          rectContainsRect: c,
+          getAbsoluteBoundingRect: T,
+          rectContainsRect: l,
           encodeURLPathname: function (e) {
-            if ("undefined" == typeof URL) return e;
+            var t = e;
+            if ("undefined" == typeof URL) return t;
             try {
-              var t = new URL(e),
-                s = t.origin,
-                i = t.search,
-                a = t.pathname,
-                n = function (e) {
+              var s = new URL(e),
+                i = s.origin,
+                n = s.search,
+                a = s.pathname,
+                o = function (e) {
                   return e.replace(/(\/{1,2}|:|,)/g, encodeURIComponent);
                 },
-                o = O(n(a.replace(/^\//, ""))),
-                r = O(n(i));
-              return [[s, o].join("/"), r].join("");
+                r = M(o(a.replace(/^\//, ""))),
+                p = M(o(n));
+              t = [[i, r].join("/"), p].join("");
             } catch (t) {
-              p.warn("Bad URL:", e);
+              u.warn("Bad URL:", e);
             }
+            return t;
           },
-          toLowerCase: M,
+          toLowerCase: v,
           isTagNameOf: function (e, t) {
-            return !!e && M(e.tagName) === M(t);
+            return !!e && v(e.tagName) === v(t);
           },
           isBlobURL: function (e) {
             return e.startsWith("blob:");
           },
           sanitizeBackgroundImageUrl: function (e) {
             try {
-              return E(decodeURI(e));
+              return f(decodeURI(e));
             } catch (t) {
-              return p.warn("Value", e, "could not be decoded"), E(e);
+              return u.warn("Value", e, "could not be decoded"), f(e);
             }
           },
           hasEvernoteStyles: function (e) {
-            return Boolean(e && e.dataset && e.dataset[u]);
+            return Boolean(e && e.dataset && e.dataset[c]);
           },
           removeEvernoteStyleData: function (e) {
-            delete e.dataset[u];
+            delete e.dataset[c];
           },
           addEvernoteStyles: function (e, t) {
             if ((void 0 === t && (t = {}), e)) {
-              var s = v(e);
+              var s = k(e);
               for (var i in t) {
-                var a = t[i];
-                s[i] = a;
+                var n = t[i];
+                s[i] = n;
               }
-              var n = [];
+              var a,
+                o = [];
               for (var i in s)
-                (a = t[i]),
-                  n.push(
-                    i.replace(/[A-Z]/g, function (e) {
-                      return "-" + M(e);
-                    }) +
-                      ":" +
-                      a
+                (n = t[i]),
+                  o.push(
+                    ""
+                      .concat(
+                        ((a = i),
+                        a.replace(/[A-Z]/g, function (e) {
+                          return "-".concat(v(e));
+                        })),
+                        ":"
+                      )
+                      .concat(n)
                   );
-              var o = n.join(";");
-              o.length && (o += ";"), (e.dataset[u] = o);
+              var r = o.join(";");
+              r.length && (r += ";"), (e.dataset[c] = r);
             }
           },
-          getEvernoteStyleDataFromNode: v,
+          getEvernoteStyleDataFromNode: k,
           getBackgroundUrlsFromText: function (e) {
-            for (var t, s = []; (t = d.exec(e)); ) {
+            for (var t, s = []; (t = y.exec(e)); ) {
               var i = t.slice(1),
-                a = g(i.join(""));
-              a && s.push(a);
+                n = x(i.join(""));
+              n && s.push(n);
             }
             return s;
           },
@@ -15065,43 +16282,43 @@
               try {
                 t = encodeURI(decodeURI(e));
               } catch (e) {
-                p.warn("URL could not be decoded because of", e);
+                u.warn("URL could not be decoded because of", e);
               }
             return t;
           }
         },
-        D = function () {
+        P = function () {
           return (
-            (D =
+            (P =
               Object.assign ||
               function (e) {
                 for (var t, s = 1, i = arguments.length; s < i; s++)
-                  for (var a in (t = arguments[s])) Object.prototype.hasOwnProperty.call(t, a) && (e[a] = t[a]);
+                  for (var n in (t = arguments[s])) Object.prototype.hasOwnProperty.call(t, n) && (e[n] = t[n]);
                 return e;
               }),
-            D.apply(this, arguments)
+            P.apply(this, arguments)
           );
         },
-        P = function (e, t, s, i) {
-          return new (s || (s = Promise))(function (a, n) {
+        U = function (e, t, s, i) {
+          return new (s || (s = Promise))(function (n, a) {
             function o(e) {
               try {
                 p(i.next(e));
               } catch (e) {
-                n(e);
+                a(e);
               }
             }
             function r(e) {
               try {
                 p(i.throw(e));
               } catch (e) {
-                n(e);
+                a(e);
               }
             }
             function p(e) {
               var t;
               e.done
-                ? a(e.value)
+                ? n(e.value)
                 : ((t = e.value),
                   t instanceof s
                     ? t
@@ -15112,89 +16329,89 @@
             p((i = i.apply(e, t || [])).next());
           });
         },
-        U = function (e, t) {
+        b = function (e, t) {
           var s,
             i,
-            a,
             n,
+            a,
             o = {
               label: 0,
               sent: function () {
-                if (1 & a[0]) throw a[1];
-                return a[1];
+                if (1 & n[0]) throw n[1];
+                return n[1];
               },
               trys: [],
               ops: []
             };
           return (
-            (n = { next: r(0), throw: r(1), return: r(2) }),
+            (a = { next: r(0), throw: r(1), return: r(2) }),
             "function" == typeof Symbol &&
-              (n[Symbol.iterator] = function () {
+              (a[Symbol.iterator] = function () {
                 return this;
               }),
-            n
+            a
           );
-          function r(n) {
-            return function (r) {
-              return (function (n) {
+          function r(r) {
+            return function (p) {
+              return (function (r) {
                 if (s) throw new TypeError("Generator is already executing.");
-                for (; o; )
+                for (; a && ((a = 0), r[0] && (o = 0)), o; )
                   try {
                     if (
                       ((s = 1),
                       i &&
-                        (a = 2 & n[0] ? i.return : n[0] ? i.throw || ((a = i.return) && a.call(i), 0) : i.next) &&
-                        !(a = a.call(i, n[1])).done)
+                        (n = 2 & r[0] ? i.return : r[0] ? i.throw || ((n = i.return) && n.call(i), 0) : i.next) &&
+                        !(n = n.call(i, r[1])).done)
                     )
-                      return a;
-                    switch (((i = 0), a && (n = [2 & n[0], a.value]), n[0])) {
+                      return n;
+                    switch (((i = 0), n && (r = [2 & r[0], n.value]), r[0])) {
                       case 0:
                       case 1:
-                        a = n;
+                        n = r;
                         break;
                       case 4:
-                        return o.label++, { value: n[1], done: !1 };
+                        return o.label++, { value: r[1], done: !1 };
                       case 5:
-                        o.label++, (i = n[1]), (n = [0]);
+                        o.label++, (i = r[1]), (r = [0]);
                         continue;
                       case 7:
-                        (n = o.ops.pop()), o.trys.pop();
+                        (r = o.ops.pop()), o.trys.pop();
                         continue;
                       default:
-                        if (!((a = (a = o.trys).length > 0 && a[a.length - 1]) || (6 !== n[0] && 2 !== n[0]))) {
+                        if (!((n = (n = o.trys).length > 0 && n[n.length - 1]) || (6 !== r[0] && 2 !== r[0]))) {
                           o = 0;
                           continue;
                         }
-                        if (3 === n[0] && (!a || (n[1] > a[0] && n[1] < a[3]))) {
-                          o.label = n[1];
+                        if (3 === r[0] && (!n || (r[1] > n[0] && r[1] < n[3]))) {
+                          o.label = r[1];
                           break;
                         }
-                        if (6 === n[0] && o.label < a[1]) {
-                          (o.label = a[1]), (a = n);
+                        if (6 === r[0] && o.label < n[1]) {
+                          (o.label = n[1]), (n = r);
                           break;
                         }
-                        if (a && o.label < a[2]) {
-                          (o.label = a[2]), o.ops.push(n);
+                        if (n && o.label < n[2]) {
+                          (o.label = n[2]), o.ops.push(r);
                           break;
                         }
-                        a[2] && o.ops.pop(), o.trys.pop();
+                        n[2] && o.ops.pop(), o.trys.pop();
                         continue;
                     }
-                    n = t.call(e, o);
+                    r = t.call(e, o);
                   } catch (e) {
-                    (n = [6, e]), (i = 0);
+                    (r = [6, e]), (i = 0);
                   } finally {
-                    s = a = 0;
+                    s = n = 0;
                   }
-                if (5 & n[0]) throw n[1];
-                return { value: n[0] ? n[1] : void 0, done: !0 };
-              })([n, r]);
+                if (5 & r[0]) throw r[1];
+                return { value: r[0] ? r[1] : void 0, done: !0 };
+              })([r, p]);
             };
           }
         };
       !(function (e) {
         (e.REQUEST = "EN_request"), (e.RESPONSE = "EN_response"), (e.ERROR = "__error__");
-      })(C || (C = {})),
+      })(O || (O = {})),
         (function () {
           function e(e, t) {
             (this.channelName = e || ""),
@@ -15217,20 +16434,20 @@
             }),
             (e.prototype.sendMessage = function (e, t, s) {
               var i = this;
-              return new Promise(function (a, n) {
-                var o = i.channelName + "-" + ++i.uniqueMessageID,
-                  r = { type: C.REQUEST, messageID: o, name: t, data: s };
-                i.pendingMessages.set(o, { name: t, resolve: a, reject: n }), e.postMessage(r, "*");
+              return new Promise(function (n, a) {
+                var o = "".concat(i.channelName, "-").concat(++i.uniqueMessageID),
+                  r = { type: O.REQUEST, messageID: o, name: t, data: s };
+                i.pendingMessages.set(o, { name: t, resolve: n, reject: a }), e.postMessage(r, "*");
               });
             }),
             (e.prototype.handleMessage = function (e) {
-              return P(this, void 0, void 0, function () {
-                return U(this, function (t) {
+              return U(this, void 0, void 0, function () {
+                return b(this, function (t) {
                   if (!e.data) return [2];
                   switch (e.data.type) {
-                    case C.REQUEST:
+                    case O.REQUEST:
                       return [2, this.handleRequest(e.data, e.source)];
-                    case C.RESPONSE:
+                    case O.RESPONSE:
                       return [2, this.handleResponse(e.data)];
                     default:
                       return [2];
@@ -15240,35 +16457,35 @@
               });
             }),
             (e.prototype.handleRequest = function (e, t) {
-              return P(this, void 0, void 0, function () {
-                var s, i, a;
-                return U(this, function (n) {
-                  switch (n.label) {
+              return U(this, void 0, void 0, function () {
+                var s, i, n;
+                return b(this, function (a) {
+                  switch (a.label) {
                     case 0:
                       return (s = e.name), (i = this.requestHandlers[s]) ? [4, this.executeRequest(e, i)] : [2];
                     case 1:
-                      return (a = n.sent()), t.postMessage(a, "*"), [2];
+                      return (n = a.sent()), t.postMessage(n, "*"), [2];
                   }
                 });
               });
             }),
             (e.prototype.executeRequest = function (e, t) {
-              return P(this, void 0, void 0, function () {
-                var s, i, a, n, o;
-                return U(this, function (r) {
+              return U(this, void 0, void 0, function () {
+                var s, i, n, a, o;
+                return b(this, function (r) {
                   switch (r.label) {
                     case 0:
                       (s = e.messageID), (r.label = 1);
                     case 1:
                       return r.trys.push([1, 3, , 4]), [4, t(e.data || {})];
                     case 2:
-                      return (i = r.sent()), [2, { type: C.RESPONSE, messageID: s, name, data: i }];
+                      return (i = r.sent()), [2, { type: O.RESPONSE, messageID: s, name: name, data: i }];
                     case 3:
                       return (
-                        (a = r.sent()),
-                        console.error(a),
-                        (n = a),
-                        [2, ((o = {}), (o[C.ERROR] = D(D({}, n), { stack: n.stack, message: n.message })), o)]
+                        (n = r.sent()),
+                        console.error(n),
+                        (a = n),
+                        [2, ((o = {}), (o[O.ERROR] = P(P({}, a), { stack: a.stack, message: a.message })), o)]
                       );
                     case 4:
                       return [2];
@@ -15277,15 +16494,15 @@
               });
             }),
             (e.prototype.handleResponse = function (e) {
-              return P(this, void 0, void 0, function () {
-                var t, s, i, a;
-                return U(this, function (n) {
+              return U(this, void 0, void 0, function () {
+                var t, s, i, n;
+                return b(this, function (a) {
                   return (
                     (t = e.messageID),
                     (s = this.pendingMessages.get(t))
                       ? ((i = s.resolve),
-                        (a = s.reject),
-                        e.data && e.data[C.ERROR] && a(e.data[C.ERROR]),
+                        (n = s.reject),
+                        e.data && e.data[O.ERROR] && n(e.data[O.ERROR]),
                         i(e.data),
                         this.pendingMessages.delete(t),
                         [2])
@@ -15485,7 +16702,7 @@
         ".co.zw",
         ".cat"
       ];
-      function b(e) {
+      function w(e) {
         return function (t) {
           var s = e.exec(t);
           return s ? s[1] : t;
@@ -15498,7 +16715,7 @@
             searchBox: "input[name=wd]",
             allowedElements: "h3.t a[data-click], .f font[size='-1']",
             bannedSubelements: "span.g, .m, .c",
-            titleTrim: b(/(.+)_\u767E\u5EA6\u641C\u7D22/)
+            titleTrim: w(/(.+)_\u767E\u5EA6\u641C\u7D22/)
           },
           Bing: {
             regex: /^https?:\/\/([^./]+\.)?bing\.com\/search/i,
@@ -15511,12 +16728,12 @@
             content: "#mArticle .inner_article",
             searchBox: "input[name=q]",
             allowedElements: ".coll_cont ul .wrap_tit a, .coll_cont ul .f_eb.desc",
-            titleTrim: b(/(.+)\s\u2013/)
+            titleTrim: w(/(.+)\s\u2013/)
           },
           Google: {
             regex: (function () {
               for (var e = [], t = 0; t < L.length; t++) e[t] = L[t].replace(/\./g, "\\.");
-              return new RegExp("^https?://www\\.google(" + e.join("|") + ")", "i");
+              return new RegExp("^https?://www\\.google(".concat(e.join("|"), ")"), "i");
             })(),
             content: "#rso",
             searchBox: "input[name=q][type=hidden]",
@@ -15529,7 +16746,7 @@
             content: "#content",
             searchBox: "input[name=query]",
             allowedElements: ".type01 dt a, .type01 dd:not(.txt_inline):not(.txt_block):not(.review):not([style*='display:none'])",
-            titleTrim: b(/(.+)\s\u003A/)
+            titleTrim: w(/(.+)\s\u003A/)
           },
           Yahoo: {
             regex: /^https?:\/\/([^./]+\.)*yahoo\.com\/s(earch|\?)/i,
@@ -15544,7 +16761,7 @@
             searchBox: "input[name=p]",
             allowedElements: "#WS2m .hd h3 a, #WS2m .bd p",
             bannedSubelements: "#WS2m .bd p.dlink",
-            titleTrim: b(/\u300C(.+)\u300D/)
+            titleTrim: w(/\u300C(.+)\u300D/)
           },
           Yandex: {
             regex: /^https?:\/\/([^./]+\.)?yandex\.(com|ru)\/search/,
@@ -15552,10 +16769,10 @@
             searchBox: "input[name=text]",
             allowedElements: ".serp-item__title-link, .serp-item__text",
             bannedSubelements: ".serp-item__date",
-            titleTrim: b(/(.+)\s+\u2014/)
+            titleTrim: w(/(.+)\s+\u2014/)
           }
         },
-        w = {
+        G = {
           searchEngines: _,
           specialCandidates: {
             "nytimes.com": ["#story"],
@@ -15615,34 +16832,34 @@
           topSites: { youtube: "YouTube", linked_in: "LinkedIn", amazon: "Amazon" },
           googleCountryDomains: L
         },
-        G = /^http[s]?:\/\/www[.]youtube[.]com\/watch[?][\S]*v=([a-z0-9_-]{5,20})/i,
-        B = /[?&]v=([^&#]*)/,
-        F = /^(http[s]?|ftp):\/\/.*\.pdf$/i,
-        q = /^ftp:\/\/.*/i,
-        X = /(http[s]?:)?\/\/.+/;
-      function V(e) {
+        B = /^http[s]?:\/\/www[.]youtube[.]com\/watch[?][\S]*v=([a-z0-9_-]{5,20})/i,
+        F = /[?&]v=([^&#]*)/,
+        q = /^(http[s]?|ftp):\/\/.*\.pdf$/i,
+        X = /^ftp:\/\/.*/i,
+        V = /(http[s]?:)?\/\/.+/;
+      function W(e) {
         void 0 === e && (e = window);
         var t = e.location.host;
         return /^www\./.test(t) && (t = t.substr(4)), t;
       }
-      function W(e) {
+      function j(e) {
         return void 0 === e && (e = window), e.location.pathname;
       }
-      function j(e) {
+      function H(e) {
         var t;
         void 0 === e && (e = window);
         var s = (function (e) {
           for (var t = -1, s = 0, i = 0; i < e.length; i++) {
-            var a = e[i].width * e[i].height;
-            a > s && ((t = i), (s = a));
+            var n = e[i].width * e[i].height;
+            n > s && ((t = i), (s = n));
           }
           return t >= 0 ? e[t] : null;
         })(e.document.querySelectorAll("img"));
         return null !== (t = null == s ? void 0 : s.getAttribute("src")) && void 0 !== t ? t : null;
       }
-      function H() {
-        for (var e = Object.keys(w.searchEngines), t = 0; t < e.length; t++)
-          if (w.searchEngines[e[t]].regex.test(document.location.href)) return e[t];
+      function z() {
+        for (var e = Object.keys(G.searchEngines), t = 0; t < e.length; t++)
+          if (G.searchEngines[e[t]].regex.test(document.location.href)) return e[t];
         return null;
       }
       function Y() {
@@ -15655,7 +16872,7 @@
         var e = document.location.href;
         return /^https:\/\/mail\.google\.com\/mail\//.test(e);
       }
-      function z() {
+      function $() {
         var e, t;
         if (document.querySelector("embed[type='application/pdf']"))
           return "about:blank" !==
@@ -15679,68 +16896,68 @@
       }
       function Z() {
         var e = document.title,
-          t = H(),
+          t = z(),
           s = (function () {
             var e = document.querySelector("ytd-watch-flexy:not([hidden]) h1.title.ytd-video-primary-info-renderer");
             if (!e) return null;
             var t = e.textContent;
-            return (null == t ? void 0 : t.trim()) + " - YouTube";
+            return "".concat(null == t ? void 0 : t.trim(), " - YouTube");
           })();
         if ((s && (e = s), t))
-          if (w.searchEngines[t].titleTrim) e = w.searchEngines[t].titleTrim(e);
+          if (G.searchEngines[t].titleTrim) e = G.searchEngines[t].titleTrim(e);
           else {
             var i = e.split(" - ");
-            e = e.replace(" - " + i[i.length - 1], "");
+            e = e.replace(" - ".concat(i[i.length - 1]), "");
           }
-        return z() && (e = n.isFirefox ? "PDF - " + document.title : "PDF - " + document.domain), e.trim();
+        return $() && (e = o.isFirefox ? "PDF - ".concat(document.title) : "PDF - ".concat(document.domain)), e.trim();
       }
-      function $(e) {
+      function J(e) {
         var t,
           s,
           i = null != e ? e : window.location.href,
-          a = function () {
-            var e = B.exec(i);
+          n = function () {
+            var e = F.exec(i);
             return e && e[1] ? e[1] : null;
           };
-        if (G.test(i) && a()) return "https://img.youtube.com/vi/" + a() + "/hqdefault.jpg";
-        var n = document.querySelector("[itemtype$='VideoObject'] [itemprop='thumbnailUrl'][href]");
-        return n && null !== (s = null === (t = n.getAttribute("href")) || void 0 === t ? void 0 : t.trim()) && void 0 !== s ? s : null;
+        if (B.test(i) && n()) return "https://img.youtube.com/vi/".concat(n(), "/hqdefault.jpg");
+        var a = document.querySelector("[itemtype$='VideoObject'] [itemprop='thumbnailUrl'][href]");
+        return a && null !== (s = null === (t = a.getAttribute("href")) || void 0 === t ? void 0 : t.trim()) && void 0 !== s ? s : null;
       }
-      var J,
-        Q = {
+      var Q,
+        ee = {
           isFtpPage: function () {
-            return q.test(document.location.href);
+            return X.test(document.location.href);
           },
           isPdfPage: function (e) {
-            return void 0 === e && (e = document.location.href), !(n.isEdge || !document || !document.body) && F.test(e);
+            return void 0 === e && (e = document.location.href), !(o.isEdge || !document || !document.body) && q.test(e);
           },
           getThumbnail: function () {
             var e,
               t,
               s,
               i,
-              a,
-              n = "",
-              o = $();
-            if (o) n = o;
+              n,
+              a = "",
+              o = J();
+            if (o) a = o;
             else {
               var r = document.querySelector("meta[property='twitter:image'][content]");
               r
-                ? (n = null !== (e = r.getAttribute("content")) && void 0 !== e ? e : "")
+                ? (a = null !== (e = r.getAttribute("content")) && void 0 !== e ? e : "")
                 : (r = document.querySelector("[itemtype$='ImageObject'] [itemprop='url'][src]"))
-                ? (n = null !== (t = r.getAttribute("content")) && void 0 !== t ? t : "")
+                ? (a = null !== (t = r.getAttribute("content")) && void 0 !== t ? t : "")
                 : (r = document.querySelector("meta[property='og:image'][content]")) &&
-                  X.test(null !== (s = r.getAttribute("content")) && void 0 !== s ? s : "") &&
-                  (n = null !== (i = r.getAttribute("content")) && void 0 !== i ? i : "");
+                  V.test(null !== (s = r.getAttribute("content")) && void 0 !== s ? s : "") &&
+                  (a = null !== (i = r.getAttribute("content")) && void 0 !== i ? i : "");
             }
             return (
-              n.startsWith("://") && (n = document.location.protocol + "//" + n.replace("://", "")),
-              n || (n = null !== (a = j(window)) && void 0 !== a ? a : ""),
-              n
+              a.startsWith("://") && (a = "".concat(document.location.protocol, "//").concat(a.replace("://", ""))),
+              a || (a = null !== (n = H(window)) && void 0 !== n ? n : ""),
+              a
             );
           },
-          getVideoThumbnail: $,
-          getText: function e(t, s, i, a, n, o) {
+          getVideoThumbnail: J,
+          getText: function e(t, s, i, n, a, o) {
             var r = s;
             if (t.nodeType === Node.TEXT_NODE) {
               var p;
@@ -15748,19 +16965,22 @@
                 (p = o
                   ? (function (e) {
                       var t = new RegExp(
-                        ["-", "_", "–", "—", "·"].join("|") +
-                          "|" +
-                          ["\\(", "\\)", "\\[", "\\]", "\\{", "\\}", "《", "》", "（", "）", "【", "】", "「", "」", "»"].join("|") +
-                          "|" +
-                          ["\\.", "!", ":", ";", '"', "'", ",", "\\?", "。", "、", "！", "，", "：", "…", "“", "”"].join("|") +
-                          "|" +
-                          ["@", "#", "\\$", "%", "\\^", "&", "\\*", "\\+", "=", "`", "~", "/", "\\\\", "\\|", ">", "<", "●"].join("|"),
+                        ""
+                          .concat(["-", "_", "–", "—", "·"].join("|"), "|")
+                          .concat(
+                            ["\\(", "\\)", "\\[", "\\]", "\\{", "\\}", "《", "》", "（", "）", "【", "】", "「", "」", "»"].join("|"),
+                            "|"
+                          )
+                          .concat(["\\.", "!", ":", ";", '"', "'", ",", "\\?", "。", "、", "！", "，", "：", "…", "“", "”"].join("|"), "|")
+                          .concat(
+                            ["@", "#", "\\$", "%", "\\^", "&", "\\*", "\\+", "=", "`", "~", "/", "\\\\", "\\|", ">", "<", "●"].join("|")
+                          ),
                         "g"
                       );
                       return e.replace(t, " ");
                     })(t.textContent.trim()).replace(/\s+/g, " ")
                   : t.textContent.trim().replace(/\s+/g, " ")),
-                " " === p || "" === p ? r : r + " " + p
+                " " === p || "" === p ? r : "".concat(r, " ").concat(p)
               );
             }
             if (t.nodeType === Node.ELEMENT_NODE && -1 === ["script", "noscript", "style"].indexOf(t.nodeName.toLowerCase())) {
@@ -15773,7 +16993,7 @@
             return { title: Z(), url: document.location.href };
           },
           getTitle: Z,
-          getPdfUrl: z,
+          getPdfUrl: $,
           isGmailThread: function () {
             if (K()) {
               var e = document.querySelectorAll("span > div > span > [src='images/cleardot.gif']"),
@@ -15786,50 +17006,50 @@
           isImageUrl: function (e) {
             return /\.(gif|jpe?g|tiff|png)$/i.test(e);
           },
-          isSearchEngine: H,
+          isSearchEngine: z,
           getFavIconUrl: function (e) {
             void 0 === e && (e = document);
             var t = e.querySelector("link[rel~='icon']");
-            return t ? t.getAttribute("href") : document.location.origin + "/favicon.ico";
+            return t ? t.getAttribute("href") : "".concat(document.location.origin, "/favicon.ico");
           },
           getThumbNail: function (e) {
-            return void 0 === e && (e = window), j(e);
+            return void 0 === e && (e = window), H(e);
           },
           getArticleTags: function (e) {
             void 0 === e && (e = window);
             var t = Array.from(e.document.getElementsByTagName("article"));
             return t.length ? t : null;
           },
-          getBiggestImage: j,
+          getBiggestImage: H,
           getSpecialCandidate: function (e) {
             void 0 === e && (e = window);
-            var t = V(e),
-              s = W(e),
-              i = w.specialCandidates[t] || w.specialCandidates[t + s];
+            var t = W(e),
+              s = j(e),
+              i = G.specialCandidates[t] || G.specialCandidates[t + s];
             if (i) {
-              var a = e.document || document,
-                n = i.find(function (e) {
-                  return Boolean(a.querySelector(e));
+              var n = e.document || document,
+                a = i.find(function (e) {
+                  return Boolean(n.querySelector(e));
                 });
-              if (n) return a.querySelector(n);
+              if (a) return n.querySelector(a);
             }
             return null;
           },
-          getPathName: W,
+          getPathName: j,
           getSpecialCaseArticle: function (e) {
             void 0 === e && (e = window);
-            var t = V(e);
-            if (w.specialCases[t]) {
+            var t = W(e);
+            if (G.specialCases[t]) {
               var s = e.document || document,
-                i = w.specialCases[t].join(","),
-                a = s.querySelector(i);
-              if (a) return a;
+                i = G.specialCases[t].join(","),
+                n = s.querySelector(i);
+              if (n) return n;
             }
             return null;
           },
-          getPageHost: V
+          getPageHost: W
         },
-        ee = (function () {
+        te = (function () {
           function e(e) {
             var t = e.outputFormat,
               s = void 0 === t ? "image/jpg" : t,
@@ -15840,12 +17060,12 @@
             (e.prototype.convert = function (e) {
               var t = this;
               return new Promise(function (s, i) {
-                var a = new Image();
-                (a.crossOrigin = "Anonymous"),
-                  (a.onload = function () {
+                var n = new Image();
+                (n.crossOrigin = "Anonymous"),
+                  (n.onload = function () {
                     var e = t._window.document.createElement("CANVAS"),
-                      n = e.getContext("2d");
-                    (e.height = a.naturalHeight), (e.width = a.naturalWidth), t._isNotEmptyImage(a) && n.drawImage(a, 0, 0);
+                      a = e.getContext("2d");
+                    (e.height = n.naturalHeight), (e.width = n.naturalWidth), t._isNotEmptyImage(n) && a.drawImage(n, 0, 0);
                     try {
                       var o = e.toDataURL(t.outputFormat);
                       s(o);
@@ -15853,12 +17073,12 @@
                       i(e);
                     }
                   }),
-                  (a.onerror = function (e) {
+                  (n.onerror = function (e) {
                     i(e);
                   }),
-                  (a.src = e),
-                  (a.complete || void 0 === a.complete) &&
-                    ((a.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="), (a.src = e));
+                  (n.src = e),
+                  (n.complete || void 0 === n.complete) &&
+                    ((n.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="), (n.src = e));
               });
             }),
             (e.prototype.convertSync = function (e, t) {
@@ -15866,9 +17086,9 @@
               if (!s || s[1] === this._window.document.location.origin) {
                 if (!e.naturalHeight && !e.naturalWidth) return t;
                 var i = this._window.document.createElement("CANVAS"),
-                  a = i.getContext("2d");
+                  n = i.getContext("2d");
                 return (
-                  (i.height = e.naturalHeight || 1), (i.width = e.naturalWidth || 1), a.drawImage(e, 0, 0), i.toDataURL(this.outputFormat)
+                  (i.height = e.naturalHeight || 1), (i.width = e.naturalWidth || 1), n.drawImage(e, 0, 0), i.toDataURL(this.outputFormat)
                 );
               }
               return t;
@@ -15884,7 +17104,7 @@
       !(function () {
         function e(e) {
           var t = e._window;
-          (this._window = t), (this.converter = new ee({ _window: t }));
+          (this._window = t), (this.converter = new te({ _window: t }));
         }
         (e.prototype.isImageSafeSize = function (e) {
           return (e.naturalWidth || 0) + (e.naturalHeight || 0) < 1800;
@@ -15901,59 +17121,65 @@
               try {
                 return this.converter.convertSync(e, t);
               } catch (e) {
-                p.warn("Image download error", e);
+                u.warn("Image download error", e);
               }
             return t;
           }),
           (e.prototype.svgToBase64 = function (e) {
-            return new ee({ _window: this._window }).convert(e);
+            return new te({ _window: this._window }).convert(e);
           });
       })();
-      var te = new Uint8Array(16);
-      function se() {
+      var se = new Uint8Array(16);
+      function ie() {
         if (
-          !J &&
-          !(J =
+          !Q &&
+          !(Q =
             ("undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto)) ||
             ("undefined" != typeof msCrypto && "function" == typeof msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto)))
         )
           throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-        return J(te);
+        return Q(se);
       }
-      const ie = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i,
-        ae = function (e) {
-          return "string" == typeof e && ie.test(e);
-        };
-      for (var ne = [], oe = 0; oe < 256; ++oe) ne.push((oe + 256).toString(16).substr(1));
-      const re = function (e) {
+      for (
+        var ne = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i,
+          ae = function (e) {
+            return "string" == typeof e && ne.test(e);
+          },
+          oe = [],
+          re = 0;
+        re < 256;
+        ++re
+      )
+        oe.push((re + 256).toString(16).substr(1));
+      var pe = function (e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
           s = (
-            ne[e[t + 0]] +
-            ne[e[t + 1]] +
-            ne[e[t + 2]] +
-            ne[e[t + 3]] +
+            oe[e[t + 0]] +
+            oe[e[t + 1]] +
+            oe[e[t + 2]] +
+            oe[e[t + 3]] +
             "-" +
-            ne[e[t + 4]] +
-            ne[e[t + 5]] +
+            oe[e[t + 4]] +
+            oe[e[t + 5]] +
             "-" +
-            ne[e[t + 6]] +
-            ne[e[t + 7]] +
+            oe[e[t + 6]] +
+            oe[e[t + 7]] +
             "-" +
-            ne[e[t + 8]] +
-            ne[e[t + 9]] +
+            oe[e[t + 8]] +
+            oe[e[t + 9]] +
             "-" +
-            ne[e[t + 10]] +
-            ne[e[t + 11]] +
-            ne[e[t + 12]] +
-            ne[e[t + 13]] +
-            ne[e[t + 14]] +
-            ne[e[t + 15]]
+            oe[e[t + 10]] +
+            oe[e[t + 11]] +
+            oe[e[t + 12]] +
+            oe[e[t + 13]] +
+            oe[e[t + 14]] +
+            oe[e[t + 15]]
           ).toLowerCase();
         if (!ae(s)) throw TypeError("Stringified UUID is invalid");
         return s;
       };
-      function pe(e, t, s) {
-        function i(e, i, a, n) {
+      function ue(e, t, s) {
+        function i(e, i, n, a) {
           if (
             ("string" == typeof e &&
               (e = (function (e) {
@@ -15990,149 +17216,149 @@
           )
             throw TypeError("Namespace must be array-like (16 iterable integer values, 0-255)");
           var o = new Uint8Array(16 + e.length);
-          if ((o.set(i), o.set(e, i.length), ((o = s(o))[6] = (15 & o[6]) | t), (o[8] = (63 & o[8]) | 128), a)) {
-            n = n || 0;
-            for (var r = 0; r < 16; ++r) a[n + r] = o[r];
-            return a;
+          if ((o.set(i), o.set(e, i.length), ((o = s(o))[6] = (15 & o[6]) | t), (o[8] = (63 & o[8]) | 128), n)) {
+            a = a || 0;
+            for (var r = 0; r < 16; ++r) n[a + r] = o[r];
+            return n;
           }
-          return re(o);
+          return pe(o);
         }
         try {
           i.name = e;
         } catch (e) {}
         return (i.DNS = "6ba7b810-9dad-11d1-80b4-00c04fd430c8"), (i.URL = "6ba7b811-9dad-11d1-80b4-00c04fd430c8"), i;
       }
-      function ue(e) {
+      function ce(e) {
         return 14 + (((e + 64) >>> 9) << 4) + 1;
       }
-      function de(e, t) {
+      function ye(e, t) {
         var s = (65535 & e) + (65535 & t);
         return (((e >> 16) + (t >> 16) + (s >> 16)) << 16) | (65535 & s);
       }
-      function ye(e, t, s, i, a, n) {
-        return de(((o = de(de(t, e), de(i, n))) << (r = a)) | (o >>> (32 - r)), s);
+      function de(e, t, s, i, n, a) {
+        return ye(((o = ye(ye(t, e), ye(i, a))) << (r = n)) | (o >>> (32 - r)), s);
         var o, r;
       }
-      function ce(e, t, s, i, a, n, o) {
-        return ye((t & s) | (~t & i), e, t, a, n, o);
+      function le(e, t, s, i, n, a, o) {
+        return de((t & s) | (~t & i), e, t, n, a, o);
       }
-      function le(e, t, s, i, a, n, o) {
-        return ye((t & i) | (s & ~i), e, t, a, n, o);
+      function Te(e, t, s, i, n, a, o) {
+        return de((t & i) | (s & ~i), e, t, n, a, o);
       }
-      function Te(e, t, s, i, a, n, o) {
-        return ye(t ^ s ^ i, e, t, a, n, o);
+      function Ee(e, t, s, i, n, a, o) {
+        return de(t ^ s ^ i, e, t, n, a, o);
       }
-      function Ee(e, t, s, i, a, n, o) {
-        return ye(s ^ (t | ~i), e, t, a, n, o);
+      function fe(e, t, s, i, n, a, o) {
+        return de(s ^ (t | ~i), e, t, n, a, o);
       }
-      pe("v3", 48, function (e) {
+      ue("v3", 48, function (e) {
         if ("string" == typeof e) {
           var t = unescape(encodeURIComponent(e));
           e = new Uint8Array(t.length);
           for (var s = 0; s < t.length; ++s) e[s] = t.charCodeAt(s);
         }
         return (function (e) {
-          for (var t = [], s = 32 * e.length, i = "0123456789abcdef", a = 0; a < s; a += 8) {
-            var n = (e[a >> 5] >>> a % 32) & 255,
-              o = parseInt(i.charAt((n >>> 4) & 15) + i.charAt(15 & n), 16);
+          for (var t = [], s = 32 * e.length, i = "0123456789abcdef", n = 0; n < s; n += 8) {
+            var a = (e[n >> 5] >>> n % 32) & 255,
+              o = parseInt(i.charAt((a >>> 4) & 15) + i.charAt(15 & a), 16);
             t.push(o);
           }
           return t;
         })(
           (function (e, t) {
-            (e[t >> 5] |= 128 << t % 32), (e[ue(t) - 1] = t);
-            for (var s = 1732584193, i = -271733879, a = -1732584194, n = 271733878, o = 0; o < e.length; o += 16) {
+            (e[t >> 5] |= 128 << t % 32), (e[ce(t) - 1] = t);
+            for (var s = 1732584193, i = -271733879, n = -1732584194, a = 271733878, o = 0; o < e.length; o += 16) {
               var r = s,
                 p = i,
-                u = a,
-                d = n;
-              (s = ce(s, i, a, n, e[o], 7, -680876936)),
-                (n = ce(n, s, i, a, e[o + 1], 12, -389564586)),
-                (a = ce(a, n, s, i, e[o + 2], 17, 606105819)),
-                (i = ce(i, a, n, s, e[o + 3], 22, -1044525330)),
-                (s = ce(s, i, a, n, e[o + 4], 7, -176418897)),
-                (n = ce(n, s, i, a, e[o + 5], 12, 1200080426)),
-                (a = ce(a, n, s, i, e[o + 6], 17, -1473231341)),
-                (i = ce(i, a, n, s, e[o + 7], 22, -45705983)),
-                (s = ce(s, i, a, n, e[o + 8], 7, 1770035416)),
-                (n = ce(n, s, i, a, e[o + 9], 12, -1958414417)),
-                (a = ce(a, n, s, i, e[o + 10], 17, -42063)),
-                (i = ce(i, a, n, s, e[o + 11], 22, -1990404162)),
-                (s = ce(s, i, a, n, e[o + 12], 7, 1804603682)),
-                (n = ce(n, s, i, a, e[o + 13], 12, -40341101)),
-                (a = ce(a, n, s, i, e[o + 14], 17, -1502002290)),
-                (s = le(s, (i = ce(i, a, n, s, e[o + 15], 22, 1236535329)), a, n, e[o + 1], 5, -165796510)),
-                (n = le(n, s, i, a, e[o + 6], 9, -1069501632)),
-                (a = le(a, n, s, i, e[o + 11], 14, 643717713)),
-                (i = le(i, a, n, s, e[o], 20, -373897302)),
-                (s = le(s, i, a, n, e[o + 5], 5, -701558691)),
-                (n = le(n, s, i, a, e[o + 10], 9, 38016083)),
-                (a = le(a, n, s, i, e[o + 15], 14, -660478335)),
-                (i = le(i, a, n, s, e[o + 4], 20, -405537848)),
-                (s = le(s, i, a, n, e[o + 9], 5, 568446438)),
-                (n = le(n, s, i, a, e[o + 14], 9, -1019803690)),
-                (a = le(a, n, s, i, e[o + 3], 14, -187363961)),
-                (i = le(i, a, n, s, e[o + 8], 20, 1163531501)),
-                (s = le(s, i, a, n, e[o + 13], 5, -1444681467)),
-                (n = le(n, s, i, a, e[o + 2], 9, -51403784)),
-                (a = le(a, n, s, i, e[o + 7], 14, 1735328473)),
-                (s = Te(s, (i = le(i, a, n, s, e[o + 12], 20, -1926607734)), a, n, e[o + 5], 4, -378558)),
-                (n = Te(n, s, i, a, e[o + 8], 11, -2022574463)),
-                (a = Te(a, n, s, i, e[o + 11], 16, 1839030562)),
-                (i = Te(i, a, n, s, e[o + 14], 23, -35309556)),
-                (s = Te(s, i, a, n, e[o + 1], 4, -1530992060)),
-                (n = Te(n, s, i, a, e[o + 4], 11, 1272893353)),
-                (a = Te(a, n, s, i, e[o + 7], 16, -155497632)),
-                (i = Te(i, a, n, s, e[o + 10], 23, -1094730640)),
-                (s = Te(s, i, a, n, e[o + 13], 4, 681279174)),
-                (n = Te(n, s, i, a, e[o], 11, -358537222)),
-                (a = Te(a, n, s, i, e[o + 3], 16, -722521979)),
-                (i = Te(i, a, n, s, e[o + 6], 23, 76029189)),
-                (s = Te(s, i, a, n, e[o + 9], 4, -640364487)),
-                (n = Te(n, s, i, a, e[o + 12], 11, -421815835)),
-                (a = Te(a, n, s, i, e[o + 15], 16, 530742520)),
-                (s = Ee(s, (i = Te(i, a, n, s, e[o + 2], 23, -995338651)), a, n, e[o], 6, -198630844)),
-                (n = Ee(n, s, i, a, e[o + 7], 10, 1126891415)),
-                (a = Ee(a, n, s, i, e[o + 14], 15, -1416354905)),
-                (i = Ee(i, a, n, s, e[o + 5], 21, -57434055)),
-                (s = Ee(s, i, a, n, e[o + 12], 6, 1700485571)),
-                (n = Ee(n, s, i, a, e[o + 3], 10, -1894986606)),
-                (a = Ee(a, n, s, i, e[o + 10], 15, -1051523)),
-                (i = Ee(i, a, n, s, e[o + 1], 21, -2054922799)),
-                (s = Ee(s, i, a, n, e[o + 8], 6, 1873313359)),
-                (n = Ee(n, s, i, a, e[o + 15], 10, -30611744)),
-                (a = Ee(a, n, s, i, e[o + 6], 15, -1560198380)),
-                (i = Ee(i, a, n, s, e[o + 13], 21, 1309151649)),
-                (s = Ee(s, i, a, n, e[o + 4], 6, -145523070)),
-                (n = Ee(n, s, i, a, e[o + 11], 10, -1120210379)),
-                (a = Ee(a, n, s, i, e[o + 2], 15, 718787259)),
-                (i = Ee(i, a, n, s, e[o + 9], 21, -343485551)),
-                (s = de(s, r)),
-                (i = de(i, p)),
-                (a = de(a, u)),
-                (n = de(n, d));
+                u = n,
+                c = a;
+              (s = le(s, i, n, a, e[o], 7, -680876936)),
+                (a = le(a, s, i, n, e[o + 1], 12, -389564586)),
+                (n = le(n, a, s, i, e[o + 2], 17, 606105819)),
+                (i = le(i, n, a, s, e[o + 3], 22, -1044525330)),
+                (s = le(s, i, n, a, e[o + 4], 7, -176418897)),
+                (a = le(a, s, i, n, e[o + 5], 12, 1200080426)),
+                (n = le(n, a, s, i, e[o + 6], 17, -1473231341)),
+                (i = le(i, n, a, s, e[o + 7], 22, -45705983)),
+                (s = le(s, i, n, a, e[o + 8], 7, 1770035416)),
+                (a = le(a, s, i, n, e[o + 9], 12, -1958414417)),
+                (n = le(n, a, s, i, e[o + 10], 17, -42063)),
+                (i = le(i, n, a, s, e[o + 11], 22, -1990404162)),
+                (s = le(s, i, n, a, e[o + 12], 7, 1804603682)),
+                (a = le(a, s, i, n, e[o + 13], 12, -40341101)),
+                (n = le(n, a, s, i, e[o + 14], 17, -1502002290)),
+                (s = Te(s, (i = le(i, n, a, s, e[o + 15], 22, 1236535329)), n, a, e[o + 1], 5, -165796510)),
+                (a = Te(a, s, i, n, e[o + 6], 9, -1069501632)),
+                (n = Te(n, a, s, i, e[o + 11], 14, 643717713)),
+                (i = Te(i, n, a, s, e[o], 20, -373897302)),
+                (s = Te(s, i, n, a, e[o + 5], 5, -701558691)),
+                (a = Te(a, s, i, n, e[o + 10], 9, 38016083)),
+                (n = Te(n, a, s, i, e[o + 15], 14, -660478335)),
+                (i = Te(i, n, a, s, e[o + 4], 20, -405537848)),
+                (s = Te(s, i, n, a, e[o + 9], 5, 568446438)),
+                (a = Te(a, s, i, n, e[o + 14], 9, -1019803690)),
+                (n = Te(n, a, s, i, e[o + 3], 14, -187363961)),
+                (i = Te(i, n, a, s, e[o + 8], 20, 1163531501)),
+                (s = Te(s, i, n, a, e[o + 13], 5, -1444681467)),
+                (a = Te(a, s, i, n, e[o + 2], 9, -51403784)),
+                (n = Te(n, a, s, i, e[o + 7], 14, 1735328473)),
+                (s = Ee(s, (i = Te(i, n, a, s, e[o + 12], 20, -1926607734)), n, a, e[o + 5], 4, -378558)),
+                (a = Ee(a, s, i, n, e[o + 8], 11, -2022574463)),
+                (n = Ee(n, a, s, i, e[o + 11], 16, 1839030562)),
+                (i = Ee(i, n, a, s, e[o + 14], 23, -35309556)),
+                (s = Ee(s, i, n, a, e[o + 1], 4, -1530992060)),
+                (a = Ee(a, s, i, n, e[o + 4], 11, 1272893353)),
+                (n = Ee(n, a, s, i, e[o + 7], 16, -155497632)),
+                (i = Ee(i, n, a, s, e[o + 10], 23, -1094730640)),
+                (s = Ee(s, i, n, a, e[o + 13], 4, 681279174)),
+                (a = Ee(a, s, i, n, e[o], 11, -358537222)),
+                (n = Ee(n, a, s, i, e[o + 3], 16, -722521979)),
+                (i = Ee(i, n, a, s, e[o + 6], 23, 76029189)),
+                (s = Ee(s, i, n, a, e[o + 9], 4, -640364487)),
+                (a = Ee(a, s, i, n, e[o + 12], 11, -421815835)),
+                (n = Ee(n, a, s, i, e[o + 15], 16, 530742520)),
+                (s = fe(s, (i = Ee(i, n, a, s, e[o + 2], 23, -995338651)), n, a, e[o], 6, -198630844)),
+                (a = fe(a, s, i, n, e[o + 7], 10, 1126891415)),
+                (n = fe(n, a, s, i, e[o + 14], 15, -1416354905)),
+                (i = fe(i, n, a, s, e[o + 5], 21, -57434055)),
+                (s = fe(s, i, n, a, e[o + 12], 6, 1700485571)),
+                (a = fe(a, s, i, n, e[o + 3], 10, -1894986606)),
+                (n = fe(n, a, s, i, e[o + 10], 15, -1051523)),
+                (i = fe(i, n, a, s, e[o + 1], 21, -2054922799)),
+                (s = fe(s, i, n, a, e[o + 8], 6, 1873313359)),
+                (a = fe(a, s, i, n, e[o + 15], 10, -30611744)),
+                (n = fe(n, a, s, i, e[o + 6], 15, -1560198380)),
+                (i = fe(i, n, a, s, e[o + 13], 21, 1309151649)),
+                (s = fe(s, i, n, a, e[o + 4], 6, -145523070)),
+                (a = fe(a, s, i, n, e[o + 11], 10, -1120210379)),
+                (n = fe(n, a, s, i, e[o + 2], 15, 718787259)),
+                (i = fe(i, n, a, s, e[o + 9], 21, -343485551)),
+                (s = ye(s, r)),
+                (i = ye(i, p)),
+                (n = ye(n, u)),
+                (a = ye(a, c));
             }
-            return [s, i, a, n];
+            return [s, i, n, a];
           })(
             (function (e) {
               if (0 === e.length) return [];
-              for (var t = 8 * e.length, s = new Uint32Array(ue(t)), i = 0; i < t; i += 8) s[i >> 5] |= (255 & e[i / 8]) << i % 32;
+              for (var t = 8 * e.length, s = new Uint32Array(ce(t)), i = 0; i < t; i += 8) s[i >> 5] |= (255 & e[i / 8]) << i % 32;
               return s;
             })(e),
             8 * e.length
           )
         );
       });
-      const fe = function (e, t, s) {
-        var i = (e = e || {}).random || (e.rng || se)();
+      var Se = function (e, t, s) {
+        var i = (e = e || {}).random || (e.rng || ie)();
         if (((i[6] = (15 & i[6]) | 64), (i[8] = (63 & i[8]) | 128), t)) {
           s = s || 0;
-          for (var a = 0; a < 16; ++a) t[s + a] = i[a];
+          for (var n = 0; n < 16; ++n) t[s + n] = i[n];
           return t;
         }
-        return re(i);
+        return pe(i);
       };
-      function Se(e, t, s, i) {
+      function he(e, t, s, i) {
         switch (e) {
           case 0:
             return (t & s) ^ (~t & i);
@@ -16143,33 +17369,33 @@
             return (t & s) ^ (t & i) ^ (s & i);
         }
       }
-      function he(e, t) {
+      function Ie(e, t) {
         return (e << t) | (e >>> (32 - t));
       }
-      pe("v5", 80, function (e) {
+      ue("v5", 80, function (e) {
         var t = [1518500249, 1859775393, 2400959708, 3395469782],
           s = [1732584193, 4023233417, 2562383102, 271733878, 3285377520];
         if ("string" == typeof e) {
           var i = unescape(encodeURIComponent(e));
           e = [];
-          for (var a = 0; a < i.length; ++a) e.push(i.charCodeAt(a));
+          for (var n = 0; n < i.length; ++n) e.push(i.charCodeAt(n));
         } else Array.isArray(e) || (e = Array.prototype.slice.call(e));
         e.push(128);
-        for (var n = e.length / 4 + 2, o = Math.ceil(n / 16), r = new Array(o), p = 0; p < o; ++p) {
-          for (var u = new Uint32Array(16), d = 0; d < 16; ++d)
-            u[d] = (e[64 * p + 4 * d] << 24) | (e[64 * p + 4 * d + 1] << 16) | (e[64 * p + 4 * d + 2] << 8) | e[64 * p + 4 * d + 3];
+        for (var a = e.length / 4 + 2, o = Math.ceil(a / 16), r = new Array(o), p = 0; p < o; ++p) {
+          for (var u = new Uint32Array(16), c = 0; c < 16; ++c)
+            u[c] = (e[64 * p + 4 * c] << 24) | (e[64 * p + 4 * c + 1] << 16) | (e[64 * p + 4 * c + 2] << 8) | e[64 * p + 4 * c + 3];
           r[p] = u;
         }
         (r[o - 1][14] = (8 * (e.length - 1)) / Math.pow(2, 32)),
           (r[o - 1][14] = Math.floor(r[o - 1][14])),
           (r[o - 1][15] = (8 * (e.length - 1)) & 4294967295);
         for (var y = 0; y < o; ++y) {
-          for (var c = new Uint32Array(80), l = 0; l < 16; ++l) c[l] = r[y][l];
-          for (var T = 16; T < 80; ++T) c[T] = he(c[T - 3] ^ c[T - 8] ^ c[T - 14] ^ c[T - 16], 1);
+          for (var d = new Uint32Array(80), l = 0; l < 16; ++l) d[l] = r[y][l];
+          for (var T = 16; T < 80; ++T) d[T] = Ie(d[T - 3] ^ d[T - 8] ^ d[T - 14] ^ d[T - 16], 1);
           for (var E = s[0], f = s[1], S = s[2], h = s[3], I = s[4], N = 0; N < 80; ++N) {
             var g = Math.floor(N / 20),
-              R = (he(E, 5) + Se(g, f, S, h) + I + t[g] + c[N]) >>> 0;
-            (I = h), (h = S), (S = he(f, 30) >>> 0), (f = E), (E = R);
+              x = (Ie(E, 5) + he(g, f, S, h) + I + t[g] + d[N]) >>> 0;
+            (I = h), (h = S), (S = Ie(f, 30) >>> 0), (f = E), (E = x);
           }
           (s[0] = (s[0] + E) >>> 0),
             (s[1] = (s[1] + f) >>> 0),
@@ -16200,7 +17426,7 @@
           255 & s[4]
         ];
       });
-      var Ie = (function () {
+      var Ne = (function () {
         function e() {
           if (e.instance) return e.instance;
           this.initialize(), (e.instance = this);
@@ -16210,7 +17436,7 @@
             return e.instance;
           }),
           (e.prototype.initialize = function () {
-            (this.clipId = fe()),
+            (this.clipId = Se()),
               (this.clipType = null),
               (this.origin = null),
               (this.domTotalNodesCount = 0),
@@ -16347,10 +17573,10 @@
       (function () {
         function e() {}
         (e.getEvent = function () {
-          return "success" === Ie.clipStatus
-            ? Ie
+          return "success" === Ne.clipStatus
+            ? Ne
             : {
-                clipId: (e = Ie).clipId,
+                clipId: (e = Ne).clipId,
                 clipperCoreVersion: e.clipperCoreVersion,
                 clipType: e.clipType,
                 origin: e.origin,
@@ -16365,10 +17591,10 @@
           var e;
         }),
           (e.getBlankEvent = function () {
-            return Ie.initialize(), Ie;
+            return Ne.initialize(), Ne;
           }),
           (e.reinitializeEvent = function () {
-            Ie.initialize();
+            Ne.initialize();
           });
       })(),
         (function () {
@@ -16385,23 +17611,30 @@
               return this.endTime && this.startTime ? this.endTime.getTime() - this.startTime.getTime() : 0;
             });
         })();
-      const Ne = self.chrome || self.browser || chrome || browser,
-        ge = (self.topee, Ne);
-      class Re {
+      const ge = self.chrome || chrome;
+      self.topee;
+      var xe,
+        Re,
+        me,
+        Ae,
+        Ce = ge;
+      class Oe {
         getAcceptLanguages() {
-          return new Promise((e) => {
-            ge.i18n.getAcceptLanguages(e);
+          return new Promise((e, t) => {
+            Ce.i18n.getAcceptLanguages((s) => {
+              const i = Ce.runtime.lastError;
+              return i ? t(i) : e(s);
+            });
           });
         }
-        getMessage() {
-          return ge.i18n.getMessage(...arguments);
+        getMessage(e, t) {
+          return Ce.i18n.getMessage(e, t);
         }
         getUILanguage() {
-          return ge.i18n.getUILanguage();
+          return Ce.i18n.getUILanguage();
         }
       }
-      var xe, me, Ae, Ce;
-      function Oe(e, t) {
+      function Me(e, t) {
         var s = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var i = Object.getOwnPropertySymbols(e);
@@ -16413,16 +17646,16 @@
         }
         return s;
       }
-      function Me(e) {
+      function ve(e) {
         for (var s = 1; s < arguments.length; s++) {
           var i = null != arguments[s] ? arguments[s] : {};
           s % 2
-            ? Oe(Object(i), !0).forEach(function (s) {
+            ? Me(Object(i), !0).forEach(function (s) {
                 t(e, s, i[s]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(i))
-            : Oe(Object(i)).forEach(function (t) {
+            : Me(Object(i)).forEach(function (t) {
                 Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(i, t));
               });
         }
@@ -16445,197 +17678,241 @@
             (e.BOOKMARK = "bookmark"),
             (e.SCREENSHOT = "screenshot"),
             (e.TOP_SITE = "topsite");
-        })(me || (me = {})),
+        })(Re || (Re = {})),
         (function (e) {
           e.SERIALIZE_ERROR = "SRLZ";
-        })(Ae || (Ae = {})),
+        })(me || (me = {})),
         (function (e) {
           (e.SERIALIZE_FAILED = "SERIALIZE_FAILED"),
             (e.NOTE_SIZE_EXCEEDED = "SR_NOTE_SIZE_EXCEEDED"),
             (e.SERIALIZE_TIMEOUT = "SERIALIZE_TIMEOUT");
-        })(Ce || (Ce = {}));
-      const ve = "clipperError",
-        ke = Me(
-          Me({}, me),
+        })(Ae || (Ae = {}));
+      const ke = "clipperError",
+        De = ve(
+          ve({}, Re),
           {},
           {
             MULTI_SELECT: "multiSelect",
-            DEFAULT_CLIP_TYPES: me.ARTICLE,
+            DEFAULT_CLIP_TYPES: Re.ARTICLE,
             CONTEXT_IMAGE: "contextMenuImage",
             CONTEXT_SCREENSHOT: "contextMenuScreenshot",
             LOGIN: "login"
           }
         ),
-        De = Boolean(!1),
-        Pe = (Object.freeze({ alert: "alert" }), ke.FULL_PAGE, ke.BOOKMARK, ke.CONTEXT_SCREENSHOT, "hasAnyLoggedInAccount");
-      class Ue {
-        constructor() {
-          this.action = De ? ge.browserAction : ge.action;
-        }
+        Pe = Boolean(!1),
+        Ue = (Object.freeze({ alert: "alert" }), De.FULL_PAGE, De.BOOKMARK, De.CONTEXT_SCREENSHOT, "hasAnyLoggedInAccount");
+      class be {
         setTitle(e) {
-          this.action.setTitle(e);
+          const { title: t, tabId: s } = e;
+          return Pe ? (Ce.browserAction.setTitle({ title: t, tabId: s }), Promise.resolve()) : Ce.action.setTitle({ title: t, tabId: s });
         }
         get onClicked() {
-          return {
-            addListener: (e) => this.action.onClicked.addListener(e),
-            removeListener: (e) => this.action.onClicked.removeListener(e)
-          };
+          const e = Pe ? Ce.browserAction : Ce.action;
+          return { addListener: (t) => e.onClicked.addListener(t), removeListener: (t) => e.onClicked.removeListener(t) };
         }
         disable(e) {
-          return new Promise((t) => {
-            this.action.disable(e, t);
-          });
+          return Ce.action.disable(e);
         }
         enable(e) {
-          return new Promise((t) => {
-            this.action.enable(e, t);
-          });
+          return Ce.action.enable(e);
         }
         setIcon(e) {
-          let t = e;
-          this.action.setIcon({ path: t });
+          return new Promise((t, s) => {
+            Ce.action.setIcon({ path: e }, () => {
+              const e = Ce.runtime.lastError;
+              return e ? s(e) : t();
+            });
+          });
         }
       }
       class Le {
         getURL(e) {
-          return ge.runtime.getURL(e);
+          return Ce.runtime.getURL(e);
         }
         getManifest() {
-          return ge.runtime.getManifest();
+          return Ce.runtime.getManifest();
         }
         get onMessage() {
-          return { addListener: (e) => ge.runtime.onMessage.addListener(e) };
+          return { addListener: (e) => Ce.runtime.onMessage.addListener(e) };
         }
         sendMessage(e) {
-          return ge.runtime.sendMessage(e);
+          return Ce.runtime.sendMessage(void 0, e);
         }
         get isGetManifestApiAvailable() {
-          return Boolean(ge && ge.runtime && ((e = ge.runtime.getManifest), Boolean(e && "function" == typeof e)));
+          return Boolean(Ce && Ce.runtime && ((e = Ce.runtime.getManifest), Boolean(e && "function" == typeof e)));
           var e;
         }
         reload() {
-          if (De) "undefined" != typeof document && document.location.reload();
-          else {
-            if (void 0 === ge.runtime.reload) throw new Error("WebClipper cannot be reloaded since you're using kiosk mode");
-            ge.runtime.reload();
+          if (!Ce.runtime.reload) {
+            if (!chrome || !chrome.runtime || "function" != typeof chrome.runtime.restart)
+              throw new Error("WebClipper cannot be reloaded since you're using kiosk mode");
+            chrome.runtime.restart();
           }
+          Ce.runtime.reload();
         }
       }
-      const be = (e) => e && e.then && "function" == typeof e.then;
-      class _e {
+      class we {
         captureVisibleTab(e) {
           let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
-          return new Promise((s, i) => {
-            if (!ge.tabs.captureVisibleTab) return void i(new TypeError("Method `captureVisibleTab` not defined."));
-            const a = ge.tabs.captureVisibleTab(e, t, s);
-            be(a) && a.then(s).catch(i);
-          });
+          return Ce.tabs.captureVisibleTab
+            ? new Promise((s, i) => {
+                Ce.tabs.captureVisibleTab(e, t, (e) => {
+                  const t = Ce.runtime.lastError;
+                  return t ? i(t) : s(e);
+                });
+              })
+            : Promise.reject(new TypeError("Method `captureVisibleTab` not defined."));
         }
         getZoom(e) {
           return new Promise((t, s) => {
-            const i = ge.tabs.getZoom(e, t);
-            be(i) && i.then(t).catch(s);
+            Ce.tabs.getZoom(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
           });
         }
         query(e) {
           return new Promise((t, s) => {
-            const i = ge.tabs.query(e, t);
-            be(i) && i.then(t).catch(s);
+            Ce.tabs.query(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
           });
         }
         sendMessage(e, t) {
           let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
-          return new Promise((i, a) => {
-            const n = ge.tabs.sendMessage(e, t, s, i);
-            be(n) && n.then(i).catch(a);
+          return new Promise((i, n) => {
+            Ce.tabs.sendMessage(e, t, s, (e) => {
+              const t = Ce.runtime.lastError;
+              return t ? n(t) : i(e);
+            });
           });
         }
         get onUpdated() {
-          return { addListener: (e) => ge.tabs.onUpdated.addListener(e), removeListener: (e) => ge.tabs.onUpdated.removeListener(e) };
+          return { addListener: (e) => Ce.tabs.onUpdated.addListener(e), removeListener: (e) => Ce.tabs.onUpdated.removeListener(e) };
         }
         get onActivated() {
-          return { addListener: (e) => ge.tabs.onActivated.addListener(e), removeListener: (e) => ge.tabs.onActivated.removeListener(e) };
+          return { addListener: (e) => Ce.tabs.onActivated.addListener(e), removeListener: (e) => Ce.tabs.onActivated.removeListener(e) };
         }
         get onRemoved() {
-          return { addListener: (e) => ge.tabs.onRemoved.addListener(e), removeListener: (e) => ge.tabs.onRemoved.removeListener(e) };
+          return { addListener: (e) => Ce.tabs.onRemoved.addListener(e), removeListener: (e) => Ce.tabs.onRemoved.removeListener(e) };
         }
         get TAB_ID_NONE() {
-          return ge.tabs.TAB_ID_NONE;
+          return Ce.tabs.TAB_ID_NONE;
         }
         remove(e) {
-          ge.tabs.remove(e);
+          return new Promise((t, s) => {
+            Ce.tabs.remove(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
+          });
         }
-        create(e, t) {
-          ge.tabs.create(e, t);
+        create(e) {
+          return new Promise((t, s) => {
+            Ce.tabs.create(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
+          });
         }
         update(e, t) {
-          ge.tabs.update(e, t);
+          return new Promise((s, i) => {
+            Ce.tabs.update(e, t, (e) => {
+              const t = Ce.runtime.lastError;
+              return t ? i(t) : s(e);
+            });
+          });
         }
         highlight(e) {
           return new Promise((t, s) => {
-            const i = ge.tabs.highlight(e, t);
-            be(i) && i.then(t).catch(s);
+            Ce.tabs.highlight(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
           });
         }
         get(e) {
           return new Promise((t, s) => {
-            const i = ge.tabs.get(e, t);
-            be(i) && i.then(t).catch(s);
+            Ce.tabs.get(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
           });
         }
       }
-      class we {
+      class _e {
         update(e, t) {
-          ge.windows.update(e, t);
+          return new Promise((s, i) => {
+            try {
+              const i = "boolean" == typeof t.focused ? t.focused : void 0;
+              Ce.windows.update(e, { focused: i }, () => s());
+            } catch (e) {
+              i(e);
+            }
+          });
         }
         create(e, t) {
-          ge.windows.create(e, t);
+          Ce.windows.create(e, t);
         }
         get onRemoved() {
-          return { addListener: (e) => ge.windows.onRemoved.addListener(e), removeListener: (e) => ge.windows.onRemoved.removeListener(e) };
+          return { addListener: (e) => Ce.windows.onRemoved.addListener(e), removeListener: (e) => Ce.windows.onRemoved.removeListener(e) };
         }
         remove(e) {
-          ge.windows.remove(e);
+          return new Promise((t, s) => {
+            try {
+              Ce.windows.remove(e, t);
+            } catch (e) {
+              s(e);
+            }
+          });
         }
       }
       class Ge {
-        constructor() {
-          (this._contextMenus = ge.contextMenus || ge.menus),
-            (this.onClicked = {
-              addListener: (e) => {
-                this._contextMenus.onClicked.addListener(e);
-              },
-              removeListener: (e) => {
-                this._contextMenus.onClicked.removeListener(e);
-              }
-            });
-        }
         create() {
           let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {},
             t = arguments.length > 1 ? arguments[1] : void 0;
-          return this._contextMenus.create(e, t);
+          return Ce.contextMenus.create(e, t);
         }
         update(e, t) {
-          return new Promise((s) => {
-            this._contextMenus.update(e, t, s);
+          return new Promise((s, i) => {
+            Ce.contextMenus.update(e, t, () => {
+              const e = chrome.runtime.lastError;
+              return e ? i(e) : s();
+            });
           });
         }
         remove(e) {
-          return new Promise((t) => {
-            this._contextMenus.remove(e), t();
+          return new Promise((t, s) => {
+            Ce.contextMenus.remove(e, () => {
+              const e = Ce.runtime.lastError;
+              return e ? s(e) : t();
+            });
           });
         }
         removeAll() {
-          return new Promise((e) => {
-            this._contextMenus.removeAll(e);
+          return new Promise((e, t) => {
+            Ce.contextMenus.removeAll(() => {
+              const s = Ce.runtime.lastError;
+              return s ? t(s) : e();
+            });
           });
         }
+        get onClicked() {
+          return {
+            addListener: (e) => {
+              Ce.contextMenus.onClicked.addListener(e);
+            },
+            removeListener: (e) => {
+              Ce.contextMenus.onClicked.removeListener(e);
+            }
+          };
+        }
       }
-      const { isPdfPage: Be } = Q,
+      const { isPdfPage: Be } = ee,
         Fe = /^(http[s]?|ftp):\/\/.+/,
-        qe = (e) => !(!e || "string" != typeof e) && Fe.test(e),
-        Xe = (e) => e && e.then && "function" == typeof e.then;
-      class Ve {
+        qe = (e) => !(!e || "string" != typeof e) && Fe.test(e);
+      class Xe {
         constructor() {
           (this.contains = this.contains.bind(this)),
             (this.request = this.request.bind(this)),
@@ -16643,187 +17920,250 @@
         }
         contains(e) {
           return new Promise((t, s) => {
-            const i = ge.permissions.contains(e, t);
-            Xe(i) && i.then(t).catch(s);
+            Ce.permissions.contains(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
           });
         }
         request(e) {
           return new Promise((t, s) => {
-            const i = ge.permissions.request(e, t);
-            Xe(i) && i.then(t).catch(s);
+            Ce.permissions.request(e, (e) => {
+              const i = Ce.runtime.lastError;
+              return i ? s(i) : t(e);
+            });
           });
         }
         async requestPermissionPerSite(e, t) {
-          return new Promise((s, i) => {
-            let a = t.url;
-            qe(a) || (qe(e.frameUrl) && (a = e.frameUrl));
-            const n = { permissions: ["cookies"], origins: [a, "*://*.evernote.com/*"] };
-            return ge.permissions.contains(n, (o) =>
-              o
-                ? s({ info: e, tab: t })
-                : ge.permissions.request(n, (n) => {
-                    if (n) return s({ info: e, tab: t });
-                    const o = a.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, (e) => {
-                      try {
-                        const t = new URL(e);
-                        return t.origin ? t.origin : "Domain URL";
-                      } catch (e) {
-                        return "Domain URL";
-                      }
-                    });
-                    return i(new Error(`User has not granted necessary permissions for origin: ${o}`));
-                  })
-            );
+          let s = t.url;
+          qe(s) || (qe(e.frameUrl) && (s = e.frameUrl));
+          const i = { permissions: ["cookies"], origins: [s, "*://*.evernote.com/*"] };
+          if (this.contains(i)) return { info: e, tab: t };
+          if (this.request(i)) return { info: e, tab: t };
+          const n = s.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi, (e) => {
+            try {
+              const t = new URL(e);
+              return t.origin ? t.origin : "Domain URL";
+            } catch (e) {
+              return "Domain URL";
+            }
           });
+          throw new Error(`User has not granted necessary permissions for origin: ${n}`);
         }
       }
-      class We {
+      class Ve {
         executeScript(e) {
-          ge.scripting.executeScript(e);
+          Ce.scripting.executeScript(e);
         }
       }
-      const je = new (class {
-        constructor() {
-          (this.browserAction = new Ue()),
-            (this.i18n = new Re()),
-            (this.runtime = new Le()),
-            (this.tabs = new _e()),
-            (this.windows = new we()),
-            (this.cookies = new (class {
-              constructor() {
-                this._handleCookieResponse = this._handleCookieResponse.bind(this);
-              }
-              get(e) {
-                let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0;
-                return new Promise(async (s) => {
-                  const i = t ? { name: e, url: t } : { name: e };
-                  let a = null;
-                  t && (a = await this.getSingleCookie(i)), a || (a = await this.find(i)), s(a);
-                });
-              }
-              getSingleCookie(e) {
-                return new Promise((t) => {
-                  ge.cookies.get(e, (e) => {
-                    if (ge.runtime.lastError) {
-                      const { message: e } = ge.runtime.lastError;
-                      return p.warn(e || "Error trying to get single cookie"), void t(null);
-                    }
-                    t(e);
+      var We = new (class {
+          constructor() {
+            (this.browserAction = new be()),
+              (this.i18n = new Oe()),
+              (this.runtime = new Le()),
+              (this.tabs = new we()),
+              (this.windows = new _e()),
+              (this.cookies = new (class {
+                get(e) {
+                  let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : void 0;
+                  return new Promise(async (s) => {
+                    const i = t ? { name: e, url: t } : { name: e };
+                    let n = null;
+                    if (t)
+                      try {
+                        n = await this.getSingleCookie(i);
+                      } catch (e) {
+                        u.warn(e.message || "Error trying to get single cookie");
+                      }
+                    n || (n = await this.find(i)), s(n);
                   });
-                });
-              }
-              find(e) {
-                return new Promise((t) => {
-                  ge.cookies.getAll(e, (s) => {
-                    const i = s.find((t) => t.name === e.name);
-                    t(i || null);
-                  });
-                });
-              }
-              set(e, t, s, i, a, n) {
-                return new Promise((o) =>
-                  ge.cookies.set(
-                    { name: e, expirationDate: s, path: i, domain: a, secure: Boolean(n), value: t },
-                    this._handleCookieResponse(o, `Cookie '${e}' could not be set`)
-                  )
-                );
-              }
-              delete(e, t) {
-                return new Promise(async (s) => {
-                  const i = `Cookie '${e}' could not be deleted`,
-                    a = await this.get(e, t);
-                  if (!a) return p.warn(i), void s(null);
-                  const n = this._removeStartingDot(t || this._buildUrl(a.domain, a.path, a.secure));
-                  ge.cookies.remove({ name: e, url: n }, this._handleCookieResponse(s, i));
-                });
-              }
-              _buildUrl(e, t, s) {
-                return `${s ? "https" : "http"}://${this._removeStartingDot(e)}${this._removeStartingDot(t || "")}`;
-              }
-              _removeStartingDot(e) {
-                return e.replace(/^\.*/, "");
-              }
-              _handleCookieResponse(e) {
-                let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
-                return (s) => {
-                  if (null === s) {
-                    let s = t;
-                    return (
-                      ge.runtime.lastError && ge.runtime.lastError.message && (s = ge.runtime.lastError.message), p.warn(s), void e(null)
-                    );
-                  }
-                  e(s);
-                };
-              }
-            })()),
-            (this.contextMenus = new Ge()),
-            (this.notifications = new (class {
-              create(e, t) {
-                return new Promise((s) => {
-                  ge.notifications.create(e, t, s);
-                });
-              }
-              clear(e) {
-                return new Promise((t) => {
-                  ge.notifications.clear(e, t);
-                });
-              }
-              getAll() {
-                return new Promise((e) => {
-                  ge.notifications.getAll(e);
-                });
-              }
-            })()),
-            (this.permissions = new Ve()),
-            (this.menus = this.contextMenus),
-            (this.storage = new (class {
-              set(e, t) {
-                return new Promise((s) => {
-                  if (De) localStorage.setItem(e, t), s();
-                  else {
-                    const i = ((e) => {
-                      return Array.isArray(e) || ((t = e), "[object Object]" === Object.prototype.toString.call(t)) ? JSON.stringify(e) : e;
-                      var t;
-                    })(t);
-                    ge.storage.local.set({ [e]: i }, s);
-                  }
-                });
-              }
-              get(e) {
-                return new Promise((t) => {
-                  if (De) {
-                    const s = localStorage.getItem(e);
-                    t(s);
-                  } else
-                    ge.storage.local.get(e, (s) => {
-                      t(s[e]);
+                }
+                getSingleCookie(e) {
+                  return new Promise((t, s) => {
+                    Ce.cookies.get(e, (e) => {
+                      const i = Ce.runtime.lastError;
+                      return i ? s(i) : t(e);
                     });
-                });
-              }
-              setAnyLoggedInAccount(e) {
-                return De ? Promise.resolve() : this.set(Pe, Boolean(e));
-              }
-              hasAnyLoggedInAccount() {
-                return De ? Promise.resolve() : this.get(Pe);
-              }
-            })()),
-            (this.scripting = new We());
-        }
-        get hasRuntimeApiAvailable() {
-          return Boolean(ge && ge.runtime);
-        }
-        get hasCookiesApiAvailable() {
-          return Boolean(ge && ge.cookies);
-        }
-        get hasNotificationsApiAvailable() {
-          return Boolean(ge && ge.notifications);
-        }
-        get hasRuntimeGetUrlAvailable() {
-          return Boolean(ge && ge.runtime && ge.runtime.getURL && "function" == typeof ge.runtime.getURL);
-        }
-      })();
-      var He = s(50026);
-      function Ye(e, t) {
+                  });
+                }
+                find(e) {
+                  if (!e || !e.name) return Promise.resolve(null);
+                  let t;
+                  return (
+                    (t = new Promise((t, s) => {
+                      Ce.cookies.getAll(e, (e) => {
+                        const i = Ce.runtime.lastError;
+                        return i ? s(i) : t(e);
+                      });
+                    })),
+                    t
+                      .then((t) => {
+                        let s = null;
+                        return t && (s = t.find((t) => t.name === e.name)), s || null;
+                      })
+                      .catch((e) => (u.warn(e.message || "Error trying to get cookies"), Promise.resolve(null)))
+                  );
+                }
+                set(e, t, s, i, n, a) {
+                  const o = { name: e, expirationDate: s, path: i, domain: n, secure: Boolean(a), value: t };
+                  let r;
+                  return (
+                    (r = new Promise((e, t) => {
+                      Ce.cookies.set(o, (s) => {
+                        const i = Ce.runtime.lastError;
+                        return i ? t(i) : e(s);
+                      });
+                    })),
+                    r.catch((t) => {
+                      const s = (t && t.message) || `Cookie '${e}' could not be set`;
+                      return u.warn(s), Promise.reject(t);
+                    })
+                  );
+                }
+                async delete(e, t) {
+                  const s = `Cookie '${e}' could not be deleted`,
+                    i = await this.get(e, t);
+                  if (!i) return u.warn(s), null;
+                  const n = this._removeStartingDot(t || this._buildUrl(i.domain, i.path, i.secure)),
+                    a = { name: e, url: n };
+                  let o;
+                  return (
+                    (o = new Promise((e, t) => {
+                      Ce.cookies.remove(a, (s) => {
+                        const i = Ce.runtime.lastError;
+                        return i ? t(i) : e(s);
+                      });
+                    })),
+                    o.catch((t) => {
+                      const s = (t && t.message) || `Cookie '${e}' could not be set`;
+                      return u.warn(s), Promise.resolve(t);
+                    })
+                  );
+                }
+                _buildUrl(e, t, s) {
+                  return `${s ? "https" : "http"}://${this._removeStartingDot(e)}${this._removeStartingDot(t || "")}`;
+                }
+                _removeStartingDot(e) {
+                  return e.replace(/^\.*/, "");
+                }
+              })()),
+              (this.contextMenus = new Ge()),
+              (this.notifications = new (class {
+                create(e, t) {
+                  return Ce.notifications
+                    ? new Promise((s, i) => {
+                        Ce.notifications.create(e, t, (e) => {
+                          const t = Ce.runtime.lastError;
+                          return t ? i(t) : s(e);
+                        });
+                      })
+                    : Promise.reject(new Error("Need to ask permission"));
+                }
+                clear(e) {
+                  return Ce.notifications
+                    ? new Promise((t, s) => {
+                        Ce.notifications.clear(e, (e) => {
+                          const i = Ce.runtime.lastError;
+                          return i ? s(i) : t(e);
+                        });
+                      })
+                    : Promise.reject(new Error("Need to ask permission"));
+                }
+                getAll() {
+                  return Ce.notifications
+                    ? new Promise((e, t) => {
+                        Ce.notifications.getAll((s) => {
+                          const i = Ce.runtime.lastError;
+                          return i ? t(i) : e(s);
+                        });
+                      })
+                    : Promise.reject(new Error("Need to ask permission"));
+                }
+              })()),
+              (this.permissions = new Xe()),
+              (this.menus = this.contextMenus),
+              (this.storage = new (class {
+                set(e, t) {
+                  return new Promise((s, n) => {
+                    if (Pe)
+                      try {
+                        const i = JSON.stringify(t);
+                        localStorage.setItem(e, i), s();
+                      } catch (e) {
+                        n(e);
+                      }
+                    else {
+                      const a = ((e) => (Array.isArray(e) || i(e) ? JSON.stringify(e) : e))(t),
+                        o = () => {
+                          const e = Ce.runtime.lastError;
+                          return e ? n(e) : s();
+                        };
+                      Ce.storage.local.set({ [e]: a }, o);
+                    }
+                  });
+                }
+                get(e) {
+                  return new Promise((t, s) => {
+                    if (Pe) {
+                      let i;
+                      try {
+                        i = localStorage.getItem(e);
+                      } catch (e) {
+                        return void s(e);
+                      }
+                      if (i && "string" == typeof i)
+                        try {
+                          const e = JSON.parse(i);
+                          return void t(e);
+                        } catch (e) {}
+                      t(i);
+                    } else
+                      new Promise((t, s) => {
+                        Ce.storage.local.get(e, (e) => {
+                          const i = Ce.runtime.lastError;
+                          return i ? s(i) : t(e);
+                        });
+                      })
+                        .then((s) => {
+                          const n = s[e];
+                          t(
+                            ((e) => {
+                              if (e && "string" == typeof e)
+                                try {
+                                  const t = JSON.parse(e);
+                                  if (t && (Array.isArray(t) || i(t))) return t;
+                                } catch (e) {}
+                              return e;
+                            })(n)
+                          );
+                        })
+                        .catch((e) => s(e));
+                  });
+                }
+                setAnyLoggedInAccount(e) {
+                  return Pe ? Promise.resolve() : this.set(Ue, Boolean(e));
+                }
+                hasAnyLoggedInAccount() {
+                  return Pe ? Promise.resolve() : this.get(Ue);
+                }
+              })()),
+              (this.scripting = new Ve());
+          }
+          get hasRuntimeApiAvailable() {
+            return Boolean(Ce && Ce.runtime);
+          }
+          get hasCookiesApiAvailable() {
+            return Boolean(Ce && Ce.cookies);
+          }
+          get hasNotificationsApiAvailable() {
+            return Boolean(Ce && Ce.notifications);
+          }
+          get hasRuntimeGetUrlAvailable() {
+            return Boolean(Ce && Ce.runtime && Ce.runtime.getURL && "function" == typeof Ce.runtime.getURL);
+          }
+        })(),
+        je = s(50026);
+      function He(e, t) {
         var s = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var i = Object.getOwnPropertySymbols(e);
@@ -16835,17 +18175,17 @@
         }
         return s;
       }
-      const Ke = "EDAM",
-        ze = "UNK",
-        Ze = "NET";
+      const ze = "EDAM",
+        Ye = "UNK",
+        Ke = "NET";
       class $e extends Error {
         constructor(e) {
-          let { code: t, message: s, instance: i, type: a, stack: n, opts: o, errorCode: r } = e;
+          let { code: t, message: s, instance: i, type: n, stack: a, opts: o, errorCode: r } = e;
           super(s),
-            (this.channelId = ve),
-            (this.type = a || ze),
+            (this.channelId = ke),
+            (this.type = n || Ye),
             (this.code = t || "UNK"),
-            n && (this.stack = n),
+            a && (this.stack = a),
             (this.opts = o || {}),
             r && (this.errorCode = r),
             (this.instance = i || "Error");
@@ -16873,12 +18213,12 @@
                 for (var s = 1; s < arguments.length; s++) {
                   var i = null != arguments[s] ? arguments[s] : {};
                   s % 2
-                    ? Ye(Object(i), !0).forEach(function (s) {
+                    ? He(Object(i), !0).forEach(function (s) {
                         t(e, s, i[s]);
                       })
                     : Object.getOwnPropertyDescriptors
                     ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(i))
-                    : Ye(Object(i)).forEach(function (t) {
+                    : He(Object(i)).forEach(function (t) {
                         Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(i, t));
                       });
                 }
@@ -16886,41 +18226,41 @@
               })({ message: JSON.stringify(e) }, s)
             );
           if (e instanceof $e) return e;
-          if (e.channelId === ve) return new $e(e);
+          if (e.channelId === ke) return new $e(e);
           if (
-            Object.keys(He.Errors)
-              .filter((e) => "function" == typeof He.Errors[e])
-              .find((t) => e instanceof He.Errors[t])
+            Object.keys(je.Errors)
+              .filter((e) => "function" == typeof je.Errors[e])
+              .find((t) => e instanceof je.Errors[t])
           )
             return $e.fromEDAM(e);
           if (e instanceof Error || (e.message && e.stack)) return $e.fromGeneric(e, s);
           const i = e.type || s.type,
-            a = e.errorCode || e.code || s.code;
-          return new $e({ code: a, type: i, message: e.message || (i && a ? "" : JSON.stringify(e)) });
+            n = e.errorCode || e.code || s.code;
+          return new $e({ code: n, type: i, message: e.message || (i && n ? "" : JSON.stringify(e)) });
         }
         static fromGeneric(e) {
           let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
           return ("undefined" != typeof ProgressEvent && e instanceof ProgressEvent) || (e.cause && "NetworkException" === e.cause.name)
-            ? new $e({ code: t.code || "OFFLINE", type: Ze, message: e.message, stack: e.stack })
+            ? new $e({ code: t.code || "OFFLINE", type: Ke, message: e.message, stack: e.stack })
             : new $e({ code: e.errorCode || e.code || t.code, type: t.type, message: e.message, stack: e.stack });
         }
         static fromEDAM(e) {
-          let t = ((s = He.Errors.EDAMErrorCode), (i = e.errorCode), Object.keys(s).find((e) => s[e] === i));
+          let t = ((s = je.Errors.EDAMErrorCode), (i = e.errorCode), Object.keys(s).find((e) => s[e] === i));
           var s, i;
           return (
-            e instanceof He.Errors.EDAMNotFoundException && (t = "NOT_FOUND"),
+            e instanceof je.Errors.EDAMNotFoundException && (t = "NOT_FOUND"),
             new $e({
               code: t,
               message: e.parameter || e.identifier || e.message,
               instance: e.constructor.name || "UnknownEDAMException",
-              type: Ke,
+              type: ze,
               opts: { rate: e.rateLimitDuration },
               errorCode: e.errorCode
             })
           );
         }
       }
-      function Je(e, t) {
+      function Ze(e, t) {
         var s = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var i = Object.getOwnPropertySymbols(e);
@@ -16932,33 +18272,33 @@
         }
         return s;
       }
-      function Qe(e) {
+      function Je(e) {
         for (var s = 1; s < arguments.length; s++) {
           var i = null != arguments[s] ? arguments[s] : {};
           s % 2
-            ? Je(Object(i), !0).forEach(function (s) {
+            ? Ze(Object(i), !0).forEach(function (s) {
                 t(e, s, i[s]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(i))
-            : Je(Object(i)).forEach(function (t) {
+            : Ze(Object(i)).forEach(function (t) {
                 Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(i, t));
               });
         }
         return e;
       }
-      const et = 36e5,
-        tt = "dispatchRequest",
-        st = "dispatchResponse",
-        it = "dispatchBroadcast",
-        at = "from-env",
+      const Qe = 36e5,
+        et = "dispatchRequest",
+        tt = "dispatchResponse",
+        st = "dispatchBroadcast",
+        it = "from-env",
         nt = "to-env",
-        ot = "t-name",
-        rt = "messageID",
-        pt = "name",
-        ut = "payload",
-        dt = "error",
-        yt = {
+        at = "t-name",
+        ot = "messageID",
+        rt = "name",
+        pt = "payload",
+        ut = "error",
+        ct = {
           EXTENSION: "extension",
           CONTENT: "content",
           CONTENT_FRAME: "content_script_frame",
@@ -16966,27 +18306,27 @@
           IFRAME: "iframe",
           BACKGROUND_OPTIONS: "background_options"
         };
-      let ct = null;
-      class lt {
+      let yt = null;
+      class dt {
         static setupSharedInstance(e) {
-          if (ct) throw new Error("Shared channel instance is already configured");
-          ct = new lt(e);
+          if (yt) throw new Error("Shared channel instance is already configured");
+          yt = new dt(e);
         }
         static get sharedInstance() {
-          return ct;
+          return yt;
         }
         static overrideSharedInstance(e) {
           if ("production".startsWith("production")) throw new Error("Unable to override Channel.sharedInstance for production");
-          ct = e;
+          yt = e;
         }
         static get Environment() {
-          return yt;
+          return ct;
         }
         get environment() {
           return this._environment;
         }
         constructor(e) {
-          if (!Object.keys(yt).some((t) => yt[t] === e)) throw new Error(`Unexpected environment "${e}"`);
+          if (!Object.keys(ct).some((t) => ct[t] === e)) throw new Error(`Unexpected environment "${e}"`);
           (this._environment = e),
             (this._guid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
               .replace(/x/g, () => ((16 * Math.random()) | 0).toString(16))
@@ -17015,61 +18355,61 @@
         sendToExtension(e) {
           let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
           this._throwIfNotSupportedPath(
-            [yt.CONTENT, yt.CONTENT_FRAME, yt.POPOVER, yt.IFRAME, yt.EXTENSION, yt.BACKGROUND_OPTIONS],
-            yt.EXTENSION
+            [ct.CONTENT, ct.CONTENT_FRAME, ct.POPOVER, ct.IFRAME, ct.EXTENSION, ct.BACKGROUND_OPTIONS],
+            ct.EXTENSION
           );
-          const { promise: s, message: i } = this._createMessagePromise(yt.EXTENSION, e, t);
+          const { promise: s, message: i } = this._createMessagePromise(ct.EXTENSION, e, t);
           if (!this._sendMessageToExtension(i)) {
-            if (!je.hasRuntimeApiAvailable) return Promise.reject();
-            this._handleResponsePromise(i[rt], null, "Message could not be sent"),
-              this.environment === yt.IFRAME && self.postMessage("BG_DEAD", "*");
+            if (!We.hasRuntimeApiAvailable) return Promise.reject();
+            this._handleResponsePromise(i[ot], null, "Message could not be sent"),
+              this.environment === ct.IFRAME && self.postMessage("BG_DEAD", "*");
           }
           return s;
         }
         sendToActiveTab(e) {
           let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
-          this._throwIfNotSupportedPath([yt.EXTENSION], yt.CONTENT);
-          const { promise: s, message: i } = this._createMessagePromise(yt.CONTENT, e, t);
+          this._throwIfNotSupportedPath([ct.EXTENSION], ct.CONTENT);
+          const { promise: s, message: i } = this._createMessagePromise(ct.CONTENT, e, t);
           return this.getActiveTab().then((e) => {
             if (!e) throw new Error("Could not find active tab");
-            return this._sendMessageToTab(e, i) || this._handleResponsePromise(i[rt], null, "Message could not be sent"), s;
+            return this._sendMessageToTab(e, i) || this._handleResponsePromise(i[ot], null, "Message could not be sent"), s;
           });
         }
         sendToTab(e, t) {
           let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
-          this._throwIfNotSupportedPath([yt.EXTENSION], yt.CONTENT);
-          const { promise: i, message: a } = this._createMessagePromise(yt.CONTENT, t, s);
-          return this._sendMessageToTab(e, a) || this._handleResponsePromise(a[rt], null, "Message could not be sent"), i;
+          this._throwIfNotSupportedPath([ct.EXTENSION], ct.CONTENT);
+          const { promise: i, message: n } = this._createMessagePromise(ct.CONTENT, t, s);
+          return this._sendMessageToTab(e, n) || this._handleResponsePromise(n[ot], null, "Message could not be sent"), i;
         }
         sendToUIframe(e, t) {
           let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null,
             i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
-          this._throwIfNotSupportedPath([yt.EXTENSION], yt.IFRAME);
-          const { promise: a, message: n } = this._createMessagePromise(yt.IFRAME, t, s);
-          return this._sendMessageToTab(e, n, i) || this._handleResponsePromise(n[rt], null, "Message could not be sent"), a;
+          this._throwIfNotSupportedPath([ct.EXTENSION], ct.IFRAME);
+          const { promise: n, message: a } = this._createMessagePromise(ct.IFRAME, t, s);
+          return this._sendMessageToTab(e, a, i) || this._handleResponsePromise(a[ot], null, "Message could not be sent"), n;
         }
         sendToContentFrame(e, t) {
           let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null,
             i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
-          this._throwIfNotSupportedPath([yt.EXTENSION], yt.CONTENT_FRAME);
-          const { promise: a, message: n } = this._createMessagePromise(yt.CONTENT_FRAME, t, s);
-          return this._sendMessageToTab(e, n, i) || this._handleResponsePromise(n[rt], null, "Message could not be sent"), a;
+          this._throwIfNotSupportedPath([ct.EXTENSION], ct.CONTENT_FRAME);
+          const { promise: n, message: a } = this._createMessagePromise(ct.CONTENT_FRAME, t, s);
+          return this._sendMessageToTab(e, a, i) || this._handleResponsePromise(a[ot], null, "Message could not be sent"), n;
         }
         sendToCustomEnvironment(e, t, s) {
           let i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;
-          const { promise: a, message: n } = this._createMessagePromise(s, t, i);
-          return this._sendMessageToTab(e, n) || this._handleResponsePromise(n[rt], null, "Message could not be sent"), a;
+          const { promise: n, message: a } = this._createMessagePromise(s, t, i);
+          return this._sendMessageToTab(e, a) || this._handleResponsePromise(a[ot], null, "Message could not be sent"), n;
         }
         sendToPopover(e) {
           let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
-          this._throwIfNotSupportedPath([yt.EXTENSION], yt.POPOVER);
-          const { promise: s, message: i } = this._createMessagePromise(yt.POPOVER, e, t);
-          return this._sendMessageToPopover(i) || this._handleResponsePromise(i[rt], null, "Message could not be sent"), s;
+          this._throwIfNotSupportedPath([ct.EXTENSION], ct.POPOVER);
+          const { promise: s, message: i } = this._createMessagePromise(ct.POPOVER, e, t);
+          return this._sendMessageToPopover(i) || this._handleResponsePromise(i[ot], null, "Message could not be sent"), s;
         }
         getActiveTab() {
-          return je.tabs.query({ active: !0, currentWindow: !0 }).then((e) => {
+          return We.tabs.query({ active: !0, currentWindow: !0 }).then((e) => {
             const t = e[0];
-            return De || (t && t.active) ? t : je.tabs.query({}).then((e) => e.find((e) => e.active));
+            return Pe || (t && t.active) ? t : We.tabs.query({}).then((e) => e.find((e) => e.active));
           });
         }
         addEventListener(e, t) {
@@ -17080,12 +18420,12 @@
         }
         broadcastEvent(e) {
           let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
-          if (-1 === [yt.EXTENSION].indexOf(this._environment)) throw new Error(`Broadcast cannot be sent from ${this._environment}`);
+          if (-1 === [ct.EXTENSION].indexOf(this._environment)) throw new Error(`Broadcast cannot be sent from ${this._environment}`);
           this._broadcastEvent(this._createBroadcastMessage(e, t));
         }
         broadcastEventInTab(e, t) {
           let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : null;
-          if (-1 === [yt.EXTENSION].indexOf(this._environment)) throw new Error(`Broadcast cannot be sent from ${this._environment}`);
+          if (-1 === [ct.EXTENSION].indexOf(this._environment)) throw new Error(`Broadcast cannot be sent from ${this._environment}`);
           this._sendMessageToTab(e, this._createBroadcastMessage(t, s));
         }
         createCtxMessageId() {
@@ -17098,46 +18438,46 @@
           return this._frames[e] || -1;
         }
         sendMessage() {
-          if (De) return je.runtime.sendMessage(...arguments);
+          if (Pe) return We.runtime.sendMessage(...arguments);
           let e = 0;
           const t = function () {
-            for (var s = arguments.length, i = new Array(s), a = 0; a < s; a++) i[a] = arguments[a];
-            return new Promise((s, a) => {
-              je.runtime
+            for (var s = arguments.length, i = new Array(s), n = 0; n < s; n++) i[n] = arguments[n];
+            return new Promise((s, n) => {
+              We.runtime
                 .sendMessage(...i)
                 .then(s)
-                .catch((n) => {
+                .catch((a) => {
                   ++e,
                     e <= 3
                       ? setTimeout(() => {
                           t(...i)
                             .then(s)
-                            .catch(a);
+                            .catch(n);
                         }, 1e3 * e)
-                      : a(n);
+                      : n(a);
                 });
             });
           };
           return t(...arguments);
         }
         sendMessageTabs() {
-          if (De) return je.tabs.sendMessage(...arguments);
+          if (Pe) return We.tabs.sendMessage(...arguments);
           let e = 0;
           const t = function () {
-            for (var s = arguments.length, i = new Array(s), a = 0; a < s; a++) i[a] = arguments[a];
-            return new Promise((s, a) => {
-              je.tabs
+            for (var s = arguments.length, i = new Array(s), n = 0; n < s; n++) i[n] = arguments[n];
+            return new Promise((s, n) => {
+              We.tabs
                 .sendMessage(...i)
                 .then(s)
-                .catch((n) => {
+                .catch((a) => {
                   ++e,
                     e <= 3
                       ? setTimeout(() => {
                           t(...i)
                             .then(s)
-                            .catch(a);
+                            .catch(n);
                         }, 1e3 * e)
-                      : a(n);
+                      : n(a);
                 });
             });
           };
@@ -17151,62 +18491,62 @@
           try {
             let t;
             return (
-              !!je.hasRuntimeApiAvailable &&
+              !!We.hasRuntimeApiAvailable &&
               ((t = this.sendMessage(e)),
-              !De &&
+              !Pe &&
                 t &&
                 t.catch((t) => {
                   let s = t;
-                  const i = e[rt];
+                  const i = e[ot];
                   if (i) {
                     s = this._handleServiceWorkerError(s);
-                    const t = e[dt];
+                    const t = e[ut];
                     this._handleResponsePromise(i, null, t || s);
                   }
                 }),
               !0)
             );
           } catch (t) {
-            return p.error(`Channel: Could not send the message "${e[pt]}", error:`, t), !1;
+            return u.error(`Channel: Could not send the message "${e[rt]}", error:`, t), !1;
           }
         }
         _sendMessageToPopover(e) {
           try {
-            return je.runtime.sendMessage(e), !0;
+            return We.runtime.sendMessage(e), !0;
           } catch (t) {
-            return p.error(`Channel: Could not send the message "${e[pt]}", error:`, t), !1;
+            return u.error(`Channel: Could not send the message "${e[rt]}", error:`, t), !1;
           }
         }
         _sendMessageToFrame(e, t, s) {
           try {
             const i = s,
-              a = i[dt];
-            let n;
+              n = i[ut];
+            let a;
             return (
-              a && a instanceof $e && (i[dt] = a.toJSON()),
-              (n = null !== t || void 0 !== t ? this.sendMessageTabs(e.id, i, { frameId: t }) : this.sendMessageTabs(e.id, i)),
-              !De &&
-                n &&
-                n.catch((e) => {
+              n && n instanceof $e && (i[ut] = n.toJSON()),
+              (a = null !== t || void 0 !== t ? this.sendMessageTabs(e.id, i, { frameId: t }) : this.sendMessageTabs(e.id, i)),
+              !Pe &&
+                a &&
+                a.catch((e) => {
                   let t = e;
-                  const i = s[rt];
+                  const i = s[ot];
                   if (i) {
                     t = this._handleServiceWorkerError(t);
-                    const e = s[dt];
+                    const e = s[ut];
                     this._handleResponsePromise(i, null, e || t);
                   }
                 }),
               !0
             );
           } catch (e) {
-            return p.error(`Channel: Could not send the message "${s[pt]}", error:`, e), !1;
+            return u.error(`Channel: Could not send the message "${s[rt]}", error:`, e), !1;
           }
         }
         _sendMessageToTab(e, t, s) {
           return this._sendMessageToFrame(e, s, t);
         }
         _extensionLoopAllTabs(e) {
-          je.tabs.query({}).then((t) => {
+          We.tabs.query({}).then((t) => {
             t.forEach(e);
           });
         }
@@ -17223,23 +18563,23 @@
         }
         _createMessagePromise(e, t, s) {
           const i = this._uniqueMessageID++,
-            a = this._createRequestMessage(e, i, t, s);
+            n = this._createRequestMessage(e, i, t, s);
           return {
-            promise: new Promise((e, a) => {
-              (this._pendingMessages[i] = { message: t, command: s ? s.command : null, date: new Date(), resolve: e, reject: a }),
+            promise: new Promise((e, n) => {
+              (this._pendingMessages[i] = { message: t, command: s ? s.command : null, date: new Date(), resolve: e, reject: n }),
                 this._updateTimeOutCheck();
             }),
-            message: a
+            message: n
           };
         }
         _removeTimedOutMessages() {
           const e = new Date();
           Object.keys(this._pendingMessages).forEach((t) => {
-            const { message: s, date: i, reject: a } = this._pendingMessages[t];
-            e - i > et &&
-              (p.warn(`Removing timed out message: '${s}', ID: ${t}`),
+            const { message: s, date: i, reject: n } = this._pendingMessages[t];
+            e - i > Qe &&
+              (u.warn(`Removing timed out message: '${s}', ID: ${t}`),
               delete this._pendingMessages[t],
-              a(new Error("Message did timeout")));
+              n(new Error("Message did timeout")));
           }),
             this._updateTimeOutCheck();
         }
@@ -17256,115 +18596,115 @@
             () => {
               this._removeTimedOutMessages();
             },
-            et - (e - s)
+            Qe - (e - s)
           );
         }
         _createRequestMessage(e, t, s, i) {
-          const a = { [at]: this._environment, [nt]: e, [ot]: tt, [rt]: `${this._guid}/${t}`, [pt]: s };
-          return void 0 !== i && (a[ut] = i), a;
+          const n = { [it]: this._environment, [nt]: e, [at]: et, [ot]: `${this._guid}/${t}`, [rt]: s };
+          return void 0 !== i && (n[pt] = i), n;
         }
-        _createResponseMessage(e, t, s, i, a) {
-          const n = { [at]: this._environment, [nt]: e, [ot]: st, [rt]: t, [pt]: s };
-          return void 0 !== i && (n[ut] = i), void 0 !== a && (n[dt] = a instanceof $e ? a.toJSON() : a), n;
+        _createResponseMessage(e, t, s, i, n) {
+          const a = { [it]: this._environment, [nt]: e, [at]: tt, [ot]: t, [rt]: s };
+          return void 0 !== i && (a[pt] = i), void 0 !== n && (a[ut] = n instanceof $e ? n.toJSON() : n), a;
         }
         _createBroadcastMessage(e, t) {
-          const s = { [at]: this._environment, [ot]: it, [pt]: e };
-          return void 0 !== t && (s[ut] = t), s;
+          const s = { [it]: this._environment, [at]: st, [rt]: e };
+          return void 0 !== t && (s[pt] = t), s;
         }
         _registerListener() {
           (this._listener = (e, t, s) => {
             s({}), this._handleMessage(t.tab, t.frameId, e);
           }),
-            je.runtime.onMessage.addListener(this._listener);
+            We.runtime.onMessage.addListener(this._listener);
         }
         _handleMessage(e, t, s) {
-          switch (s[ot]) {
-            case tt:
+          switch (s[at]) {
+            case et:
               this._handleDispatchRequest(e, t, s);
               break;
-            case st:
+            case tt:
               this._handleDispatchResponse(s);
               break;
-            case it:
+            case st:
               this._handleDispatchBroadcast(s);
               break;
             default:
-              throw new Error(`Unknown transport command: '${s[ot]}'`);
+              throw new Error(`Unknown transport command: '${s[at]}'`);
           }
         }
         _handleDispatchResponse(e) {
           if (e[nt] !== this._environment) return;
-          const t = e[rt];
+          const t = e[ot];
           if (!t) throw new Error(`Dispatched request has no ID: ${e}`);
-          this._handleResponsePromise(t, e[ut], e[dt]);
+          this._handleResponsePromise(t, e[pt], e[ut]);
         }
         _handleResponsePromise(e, t, s) {
-          const [i, a] = e.split("/");
+          const [i, n] = e.split("/");
           if (i !== this._guid) return;
-          const n = this._pendingMessages[a];
-          if (n) {
-            if ((delete this._pendingMessages[a], this._updateTimeOutCheck(), s)) {
+          const a = this._pendingMessages[n];
+          if (a) {
+            if ((delete this._pendingMessages[n], this._updateTimeOutCheck(), s)) {
               const e = $e.fromAny(s);
-              return p.error("Channel: Error in handleResponse", e.shortData, n.name || n.message, n.command), void n.reject(e);
+              return u.error("Channel: Error in handleResponse", e.shortData, a.name || a.message, a.command), void a.reject(e);
             }
-            n.resolve(t);
-          } else p.warn(`Can't find request for message ID: ${a}. Timeout?`);
+            a.resolve(t);
+          } else u.warn(`Can't find request for message ID: ${n}. Timeout?`);
         }
         _handleDispatchRequest(e, t, s) {
           if (s[nt] !== this._environment) return;
-          const i = s[at],
-            a = (a, n) => {
-              const o = this._createResponseMessage(i, s[rt], s[pt], a, n);
+          const i = s[it],
+            n = (n, a) => {
+              const o = this._createResponseMessage(i, s[ot], s[rt], n, a);
               switch (i) {
-                case yt.BACKGROUND_OPTIONS:
-                case yt.EXTENSION:
+                case ct.BACKGROUND_OPTIONS:
+                case ct.EXTENSION:
                   this._sendMessageToExtension(o);
                   break;
-                case yt.CONTENT:
+                case ct.CONTENT:
                   this._sendMessageToTab(e, o, t);
                   break;
-                case yt.POPOVER:
+                case ct.POPOVER:
                   this._sendMessageToPopover(o);
                   break;
-                case yt.IFRAME:
-                case yt.CONTENT_FRAME:
+                case ct.IFRAME:
+                case ct.CONTENT_FRAME:
                   this._sendMessageToFrame(e, t, o);
                   break;
                 default:
                   throw new Error(`Unexpected response environment: ${i}`);
               }
             },
-            n = this._registeredHandlers[s[pt]];
-          if (!n) {
-            const e = `Handler is not yet registered for message: ${s[pt]}`;
-            return p.error("Channel:", e), void a(void 0, e);
+            a = this._registeredHandlers[s[rt]];
+          if (!a) {
+            const e = `Handler is not yet registered for message: ${s[rt]}`;
+            return u.error("Channel:", e), void n(void 0, e);
           }
-          let o = s[ut];
-          "object" != typeof o || Array.isArray(o) || (o = Qe(Qe({}, o), {}, { isFrame: 0 !== t, frameId: t })),
-            Promise.resolve(n(o, e, t))
+          let o = s[pt];
+          "object" != typeof o || Array.isArray(o) || (o = Je(Je({}, o), {}, { isFrame: 0 !== t, frameId: t })),
+            Promise.resolve(a(o, e, t))
               .then((e) => {
-                a(e);
+                n(e);
               })
               .catch((e) => {
                 const t = e || new $e();
-                p.error(
-                  `Channel: Message '${s[pt]}${s[ut] && s[ut].command ? `.${s[ut].command}` : ""}' failed with error:`,
+                u.error(
+                  `Channel: Message '${s[rt]}${s[pt] && s[pt].command ? `.${s[pt].command}` : ""}' failed with error:`,
                   t.shortData || t
                 ),
-                  a(void 0, t);
+                  n(void 0, t);
               });
         }
         _handleDispatchBroadcast(e) {
-          this._eventDispatcher.dispatchEvent(e[pt], e[ut] || {});
+          this._eventDispatcher.dispatchEvent(e[rt], e[pt] || {});
         }
       }
-      lt.setupSharedInstance(lt.Environment.IFRAME);
-      const Tt = () => {
+      dt.setupSharedInstance(dt.Environment.IFRAME);
+      const lt = () => {
         const e = window.location.search.split("?location=")[1];
-        lt.sharedInstance.sendToExtension("openUI", { url: e });
+        dt.sharedInstance.sendToExtension("openUI", { url: e });
       };
-      k.DOMLoaded().then(() => {
-        document.getElementById("openClipper").onclick = Tt;
+      D.DOMLoaded().then(() => {
+        document.getElementById("openClipper").onclick = lt;
       });
     })();
 })();

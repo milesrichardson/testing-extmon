@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Приложения"
+  },
+  "EndOfSupportHeader": {
+    "message": "Край на поддръжката на разширението на Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Считано от 15 януари 2024 г., това разширение повече няма да се поддържа от Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "За повече информация посетете страницата за поддръжка за това разширение."
+  },
+  "Support": {
+    "message": "Поддръжка"
   }
 }

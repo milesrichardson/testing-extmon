@@ -1,5 +1,6 @@
 var g = document.getElementById("th-Google");
 var ms = document.getElementById("th-MicrosoftOnline");
+const nyc = document.getElementById("th-NYCOnline");
 var mnote = document.getElementById("th-privacy");
 // var elementsToTranslate = document.querySelectorAll('[data-trans-optionsdlg]');
 //         for (var i = 0; i < elementsToTranslate.length; i++) {
@@ -15,6 +16,18 @@ if (ms) {
       elementClicked.setAttribute("listener", "true");
       e.preventDefault();
       setProvider("MS");
+    });
+  }
+}
+
+//If Microsoft
+if (nyc) {
+  if (nyc.getAttribute("listener") !== "true") {
+    nyc.addEventListener("click", function (e) {
+      const elementClicked = e.target;
+      elementClicked.setAttribute("listener", "true");
+      e.preventDefault();
+      setProvider("NYC");
     });
   }
 }
@@ -50,13 +63,17 @@ function setProvider(provider) {
     var url = new URL(window.location);
     var orginTab = parseInt(url.searchParams.get("q"));
 
+    // window.close();
+
     //Update to focus on parent
     var updateProperties = {
       active: true
     };
     chrome.tabs.update(orginTab, updateProperties, (tab) => {
       //Close this window
-      window.close();
+      setTimeout(() => {
+        window.close();
+      }, 300);
     });
     //     });
   } catch (ex) {}

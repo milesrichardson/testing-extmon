@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplicaciones"
+  },
+  "EndOfSupportHeader": {
+    "message": "Fin de soporte de la extensión de Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "A partir del 15 de enero de 2024, Microsoft ya no admitirá esta extensión."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Para obtener más información, visita la página de soporte técnico de esta extensión."
+  },
+  "Support": {
+    "message": "Soporte"
   }
 }

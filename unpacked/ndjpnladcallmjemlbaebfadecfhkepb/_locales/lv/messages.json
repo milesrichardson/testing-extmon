@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Programmas"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 paplašinājuma atbalsta beigas"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "No 2024. gada 15. janvāra Microsoft vairs neatbalstīs šo paplašinājumu."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Lai iegūtu papildinformāciju, apmeklējiet šī paplašinājuma atbalsta lapu."
+  },
+  "Support": {
+    "message": "Klientu apkalpošanas dienests"
   }
 }

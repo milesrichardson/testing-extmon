@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ Byte",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,19 +26,19 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
   },
-  "appDesc": {
+  "__MSG_appDesc_": {
     "message": "Scarica i video dal Web"
   },
   "__localeName": {
     "message": "it"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\"]"
   },
   "about": {
     "message": "Info"
@@ -148,6 +148,24 @@
   "action_quickdownload_title": {
     "message": "Scaricamento veloce"
   },
+  "action_quicksidedownload_description": {
+    "message": "Scaricamento laterale senza chiedere la destinazione"
+  },
+  "action_quicksidedownload_title": {
+    "message": "Scaricamento laterale rapido"
+  },
+  "action_sidedownload_description": {
+    "message": "Scaricamento sperimentale"
+  },
+  "action_sidedownload_title": {
+    "message": "Scaricamento laterale"
+  },
+  "action_sidedownloadconvert_description": {
+    "message": "Scaricamento laterale per file multimediali e conversione in un altro formato"
+  },
+  "action_sidedownloadconvert_title": {
+    "message": "Scaricamento laterale e Conversione"
+  },
   "action_stop_description": {
     "message": "Ferma la cattura"
   },
@@ -157,7 +175,7 @@
   "adaptative": {
     "message": "$ARG1$ adattivo",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -176,6 +194,9 @@
   },
   "analyze_page": {
     "message": "Analizza pagina"
+  },
+  "appDesc": {
+    "message": "Scarica i video dal Web"
   },
   "appName": {
     "message": "Video DownloadHelper"
@@ -210,7 +231,7 @@
   "browser_locale": {
     "message": "Lingua del browser: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -218,7 +239,7 @@
   "build_options": {
     "message": "Opzioni di versione: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -226,7 +247,7 @@
   "built_on": {
     "message": "Compilato il $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -237,7 +258,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ video",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -305,7 +326,7 @@
   "chrome_premium_hls": {
     "message": "Senza abbonamento Premium, lo scaricamento di un file HLS può essere eseguito solo $ARG1$ minuti dopo il precedente",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -328,7 +349,7 @@
   "chrome_premium_source": {
     "message": "Sei un utente premium tramite $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -378,7 +399,7 @@
   "coapp_latest_version": {
     "message": "L'ultima versione disponibile è la $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -395,10 +416,10 @@
   "coapp_outofdate_text": {
     "message": "Stai usando la versione $ARG1$ dell'applicazione integrativa ma questa funzione richiede la versione $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -574,7 +595,7 @@
   "convrule_format": {
     "message": "al formato $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -582,7 +603,7 @@
   "convrule_from_domain": {
     "message": "dal formato $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -599,7 +620,7 @@
   "convrule_with_ext": {
     "message": "con estensione '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -616,7 +637,7 @@
   "copy_of": {
     "message": "Copia di $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -624,10 +645,10 @@
   "corrupted_media_file": {
     "message": "Impossibile ottenere informazioni dal supporto '$ARG1$' a causa del file '$ARG2$'. Il file potrebbe essere danneggiato.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -656,7 +677,7 @@
   "directory_not_exist_body": {
     "message": "La cartella '$ARG1$' non esiste, la creo?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -706,7 +727,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' esiste ma non è una cartella",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -729,7 +750,7 @@
   "failed_aggregating": {
     "message": "Aggregazione di \\\"$ARG1$\\\" fallita",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -737,7 +758,7 @@
   "failed_converting": {
     "message": "Conversione di \\\"$ARG1$\\\" fallita",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -745,7 +766,7 @@
   "failed_getting_info": {
     "message": "Raccolta informazioni da \\\"$ARG1$\\\" fallita",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -768,7 +789,7 @@
   "file_generated": {
     "message": "Il file \\\"$ARG1$\\\" è stato generato.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -776,7 +797,7 @@
   "file_ready": {
     "message": "\\\"$ARG1$\\\" è pronto",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -787,7 +808,7 @@
   "from_domain": {
     "message": "Da $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -798,7 +819,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ file",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -806,7 +827,7 @@
   "gallery_from_domain": {
     "message": "Galleria da $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -814,7 +835,7 @@
   "gallery_links_from_domain": {
     "message": "Link da $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -858,10 +879,10 @@
   "lic_mismatch2": {
     "message": "La licenza è per $ ARG1 $ ma la versione dell'estensione è $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -929,7 +950,7 @@
   "network_error_status": {
     "message": "Errore di rete - stato $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -946,7 +967,7 @@
   "no_audio_in_file": {
     "message": "Nessun flusso audio nel file $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -975,7 +996,7 @@
   "no_video_in_file": {
     "message": "Nessun flusso video nel file $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -989,10 +1010,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1009,7 +1030,7 @@
   "overwrite_file": {
     "message": "Sovrascrivo il file $ARG1$'?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1029,10 +1050,10 @@
   "platform_info": {
     "message": "Piattaforma $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1082,10 +1103,10 @@
   "req_locale": {
     "message": "O forse puoi aiutare a tradurre il componente aggiuntivo in '$ARG1$'? (mancano $ARG2$ stringhe)",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1225,7 +1246,7 @@
   "version": {
     "message": "Versione $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1683,6 +1704,9 @@
   "weh_prefs_label_tbsnEnabled": {
     "message": "Supporto Facebook"
   },
+  "weh_prefs_label_tbvwsExtractionMethod": {
+    "message": "Metodo di estrazione"
+  },
   "weh_prefs_label_titleMode": {
     "message": "Come saranno visualizzati i titoli dei video quando sono troppo lunghi"
   },
@@ -1716,7 +1740,7 @@
   "you_downloaded_n_videos": {
     "message": "Hai appena scaricato con successo il file n° $ARG1$ con Video DownloadHelper!",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

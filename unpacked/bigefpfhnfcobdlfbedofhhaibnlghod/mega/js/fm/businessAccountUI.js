@@ -646,7 +646,6 @@ BusinessAccountUI.prototype.viewSubAccountListUI = function (subAccounts, isBloc
         var activeDate = "--------";
         if (dd) {
           activeDate = new Date(dd.substr(0, 4), dd.substr(4, 2) - 1, dd.substr(6, 2));
-          // activeDate = activeDate.toLocaleDateString();
           activeDate = time2date(activeDate.getTime() / 1000, 1);
         }
         $(".business-sub-last-active span", $subTr).text(activeDate);
@@ -686,7 +685,7 @@ BusinessAccountUI.prototype.viewSubAccountListUI = function (subAccounts, isBloc
 
   // In MEGA Lite, on login and visiting the User Management page, the cloud drive is still showing, so hide it.
   // NB: Not using the hidden class, because something else is continually re-rendering and removing it.
-  if (mega.lite) {
+  if (mega.lite.inLiteMode) {
     $(".files-grid-view.fm").addClass("mega-lite-hidden");
   }
 };
@@ -1845,6 +1844,10 @@ BusinessAccountUI.prototype.viewAdminDashboardAnalysisUI = function () {
             usersM.viewBusinessInvoicesPage();
 
             $(".fm-right-files-block", ".fmholder").removeClass("hidden emptied");
+
+            if (mega.ui.mNodeFilter) {
+              mega.ui.mNodeFilter.resetFilterSelections();
+            }
           });
         });
       });
@@ -2092,11 +2095,16 @@ BusinessAccountUI.prototype.showExp_GraceUIElements = function () {
  */
 BusinessAccountUI.prototype.showExpiredDialog = function (isMaster) {
   "use strict";
-  var $dialog;
+
+  const $dialog = isMaster
+    ? $(".payment-reminder.user-management-dialog")
+    : $(".user-management-able-user-dialog.warning.user-management-dialog");
+
+  if (!$dialog.length) {
+    return;
+  }
 
   if (isMaster) {
-    $dialog = $(".payment-reminder.user-management-dialog");
-
     $("button.js-close", $dialog).rebind("click.subuser", function closeExpiredAccountDialog() {
       closeDialog();
     });
@@ -2127,8 +2135,6 @@ BusinessAccountUI.prototype.showExpiredDialog = function (isMaster) {
       return $dialog;
     });
   } else {
-    $dialog = $(".user-management-able-user-dialog.warning.user-management-dialog");
-
     $(".dialog-text-one", $dialog).safeHTML(l[20462]);
     $(".text-two-text", $dialog).text(l[20463]);
     $(".bold-warning", $dialog).text(l[20464] + ":");
@@ -2631,7 +2637,6 @@ BusinessAccountUI.prototype.viewBusinessInvoicesPage = function () {
       var invId = invoicesList[k].n;
 
       $newInvoiceRow.attr("id", invId);
-      // $newInvoiceRow.find('.inv-date').text(invoiceDate.toLocaleDateString());
       $newInvoiceRow.find(".inv-date").text(time2date(invoicesList[k].ts, 1));
       $newInvoiceRow.find(".inv-desc").text(invoicesList[k].d);
       $(".inv-total", $newInvoiceRow).text(formatCurrency(invoicesList[k].tot));

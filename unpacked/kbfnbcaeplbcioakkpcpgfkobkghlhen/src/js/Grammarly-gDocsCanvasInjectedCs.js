@@ -21,16 +21,16 @@
       super(`Matching not exhaustive: unexpected value ${JSON.stringify(t)}`);
     }
   }
-  async function s(e, n, o) {
+  async function i(e, n, o) {
     const r = o();
     if (!(e > 0)) return r;
     try {
       return await r;
     } catch (r) {
-      return await t(n), s(e - 1, n, o);
+      return await t(n), i(e - 1, n, o);
     }
   }
-  var i;
+  var s;
   !(function (t) {
     function e() {
       return ((65536 * (1 + Math.random())) | 0).toString(16).substring(1);
@@ -38,7 +38,7 @@
     t.create = function () {
       return e() + e() + "-" + e() + "-" + e() + "-" + e() + "-" + e() + e() + e();
     };
-  })(i || (i = {}));
+  })(s || (s = {}));
   void 0 !== self.requestIdleCallback && self.requestIdleCallback;
   var a;
   !(function (n) {
@@ -83,8 +83,8 @@
         (this.api = new Proxy({}, { get: (t, e) => ("then" === e ? void 0 : (...t) => this._handleCall(e, t)) }));
     }
     _handleCall(t, e) {
-      let n = i.create();
-      for (; this._calls.has(n); ) n = i.create();
+      let n = s.create();
+      for (; this._calls.has(n); ) n = s.create();
       const o = a.createCompletionSource();
       return this._calls.set(n, o), this._transport.outbound({ id: n, method: t, args: e }), o.promise;
     }
@@ -122,8 +122,8 @@
     const n = t.left <= e.left ? t : e,
       o = n === t ? e : t,
       r = t.top <= e.top ? t : e,
-      s = r === t ? e : t;
-    return n.left + n.width > o.left && r.top + r.height > s.top;
+      i = r === t ? e : t;
+    return n.left + n.width > o.left && r.top + r.height > i.top;
   }
   const f = (t, e) => (t.top === e.top ? u(t.left, e.left) : u(t.top, e.top)),
     p =
@@ -398,9 +398,9 @@
     d = [61439, 61438, 59651, 26, 30, 59649, 3, 59653, 59652, 16, 17],
     h = [61439, 61438, 59651, 26, 30, 59649, 3, 59653, 59652, 16, 17, 60417, 60416, 60419, 60418],
     m = [d, h],
-    v = [47, 91, ...d, 93, 47],
-    y = [47, 91, ...h, 93, 47],
-    b = [v, [...v, 103], y].map((t) => t.map((t) => String.fromCharCode(t)).join("")),
+    y = [47, 91, ...d, 93, 47],
+    v = [47, 91, ...h, 93, 47],
+    b = [y, [...y, 103], v].map((t) => t.map((t) => String.fromCharCode(t)).join("")),
     S = ["rgba(118, 167, 250, 0.501960784313726)", "rgba(118, 167, 250, 0.5)", "rgba(143, 143, 143, 0.34)", "rgba(0, 0, 0, 0.15)"].map(
       (t) => t.replace(/\s+/g, "")
     );
@@ -409,10 +409,10 @@
       o = t.length - 1;
     for (; n <= o; ) {
       const r = (n + o) >> 1,
-        s = e(t[r]);
-      if (s > 0) n = r + 1;
+        i = e(t[r]);
+      if (i > 0) n = r + 1;
       else {
-        if (!(s < 0)) return { kind: "found", index: r };
+        if (!(i < 0)) return { kind: "found", index: r };
         o = r - 1;
       }
     }
@@ -428,48 +428,48 @@
       n,
       o,
       r = T.INIT;
-    const s = () => {
+    const i = () => {
       (t = void 0), (e = void 0), (r = T.INIT), (n = void 0), (o = void 0);
     };
-    let i = 0;
+    let s = 0;
     return {
-      hasEquations: () => i > 0,
-      getEquationState: () => ({ level: t, stage: r, seqIndex: n, fragmentStartIndex: o, equations: i }),
+      hasEquations: () => s > 0,
+      getEquationState: () => ({ level: t, stage: r, seqIndex: n, fragmentStartIndex: o, equations: s }),
       onTranslate: (a, l, c, u, g) => {
         if (
           l &&
           void 0 !== o &&
-          ((o, s, i, a) => o === t && !(!e || e.x !== -i || e.y !== -a) && n === s - 1 && T.RESTORE === r)(a, c, u, g)
+          ((o, i, s, a) => o === t && !(!e || e.x !== -s || e.y !== -a) && n === i - 1 && T.RESTORE === r)(a, c, u, g)
         ) {
           const t = l.fragments,
             e = o,
             n = t.length - e;
-          if (n > 0) return t.splice(e, n), s(), i++, !0;
+          if (n > 0) return t.splice(e, n), i(), s++, !0;
         }
         return (t = a), (e = { x: u, y: g }), (o = null == l ? void 0 : l.fragments.length), (r = T.TRANSLATE), (n = c), !1;
       },
       onBeforeSave: (e, o) => {
         if (e === t) {
-          if (T.TRANSLATE !== r) return void s();
-          if (void 0 === n || o !== n + 1) return void s();
+          if (T.TRANSLATE !== r) return void i();
+          if (void 0 === n || o !== n + 1) return void i();
           (n = o), (r = T.SAVE);
         }
       },
       onAfterRestore: (e, o) => {
         if (e === t) {
-          if (T.SAVE !== r) return void s();
+          if (T.SAVE !== r) return void i();
           (n = o), (r = T.RESTORE);
         }
       },
       onClip: () => {
-        s();
+        i();
       },
       reset: () => {
-        (i = 0), s();
+        (s = 0), i();
       }
     };
   }
-  function A(t) {
+  function k(t) {
     return t.type === E.text;
   }
   !(function (t) {
@@ -481,57 +481,57 @@
     (function (t) {
       (t.ordinary = "ordinary"), (t.special = "special");
     })(C || (C = {}));
-  function k(t, e, n) {
+  function A(t, e, n) {
     let o = 0;
     return {
-      call(r, s, i, a) {
+      call(r, i, s, a) {
         var l;
-        const c = a(i),
-          u = null === (l = e.postFn) || void 0 === l ? void 0 : l[s];
+        const c = a(s),
+          u = null === (l = e.postFn) || void 0 === l ? void 0 : l[i];
         if (u)
           try {
-            u(r, t, i, c, o++);
+            u(r, t, s, c, o++);
           } catch (t) {
-            n.logException(`proxy.call.${String(s)}`, t);
+            n.logException(`proxy.call.${String(i)}`, t);
           }
         return c;
       },
-      set(r, s, i, a) {
+      set(r, i, s, a) {
         var l;
         o++;
-        const c = null === (l = e.overrideSet) || void 0 === l ? void 0 : l[s];
+        const c = null === (l = e.overrideSet) || void 0 === l ? void 0 : l[i];
         if (c)
           try {
-            const e = c(r, t, i);
+            const e = c(r, t, s);
             if (void 0 !== e) return a(e);
           } catch (t) {
-            n.logException(`proxy.set.${String(s)}`, t);
+            n.logException(`proxy.set.${String(i)}`, t);
           }
-        return a(i);
+        return a(s);
       }
     };
   }
   const _ = "M",
     R = " ";
-  function N(t) {
+  function P(t) {
     const e = /^(?:([\d\w]+) )?(?:(\w+) )?([\d.]+)px (?:['"])?([\w -]+)(?:['"])?$/.exec(t);
     if (e) {
-      const [t, n, o, r, s] = e;
-      let i = "400",
+      const [t, n, o, r, i] = e;
+      let s = "400",
         a = "normal";
       return (
         n &&
           (isNaN(parseInt(n, 10))
             ? "italic" === n
-              ? ((a = "italic"), (i = isNaN(parseInt(o, 10)) ? ("bold" === o ? "700" : "400") : o))
-              : (i = "bold" === n ? "700" : "400")
-            : ((i = n), (a = o || a))),
-        `${i} ${a} ${parseFloat(r).toFixed(4)}px "${s}"`
+              ? ((a = "italic"), (s = isNaN(parseInt(o, 10)) ? ("bold" === o ? "700" : "400") : o))
+              : (s = "bold" === n ? "700" : "400")
+            : ((s = n), (a = o || a))),
+        `${s} ${a} ${parseFloat(r).toFixed(4)}px "${i}"`
       );
     }
     return t;
   }
-  function P(t, e, n) {
+  function N(t, e, n) {
     const o = new DOMPoint(t, e).matrixTransform(n);
     return { left: o.x, top: o.y };
   }
@@ -554,7 +554,7 @@
       if ("bezierCurveTo" in t) return t.bezierCurveTo;
     };
   function G(t, e, n, o, r = !1) {
-    const s = (t, e, n, o = !1) => {
+    const i = (t, e, n, o = !1) => {
       t.beginPath(),
         (t.strokeStyle = `rgba(0,0,255,${o ? 0.05 : 0.2})`),
         (t.lineWidth = 2),
@@ -562,29 +562,29 @@
         t.lineTo(e, n - 20),
         t.stroke();
     };
-    t.save(), t.resetTransform(), s(t, e, n, r), o.forEach((o) => s(t, e + o, n, r)), t.restore();
+    t.save(), t.resetTransform(), i(t, e, n, r), o.forEach((o) => i(t, e + o, n, r)), t.restore();
   }
-  const z = (t, e, n, o, r, s = 0, i = !1) => {
+  const $ = (t, e, n, o, r, i = 0, s = !1) => {
       t.save(),
         t.resetTransform(),
-        (t.fillStyle = `rgba(221,0,0,${i ? 0.05 : 0.1})`),
+        (t.fillStyle = `rgba(221,0,0,${s ? 0.05 : 0.1})`),
         t.fillRect(e, n, o, 10),
-        (t.fillStyle = `rgba(221,0,0,${i ? 0.4 : 0.8})`),
+        (t.fillStyle = `rgba(221,0,0,${s ? 0.4 : 0.8})`),
         (t.font = "10px Arial"),
-        t.fillText(`${s}`, e, n + 10),
-        (t.fillStyle = `rgba(0,128,221,${i ? 0.4 : 0.8})`),
-        G(t, e, n, r, i),
+        t.fillText(`${i}`, e, n + 10),
+        (t.fillStyle = `rgba(0,128,221,${s ? 0.4 : 0.8})`),
+        G(t, e, n, r, s),
         t.restore();
     },
-    B = (t, e, n, o, r, s = !1) => {
+    q = (t, e, n, o, r, i = !1) => {
       t.save(),
         t.resetTransform(),
-        (t.fillStyle = `rgba(0,221,0,${s ? 0.05 : 0.1})`),
+        (t.fillStyle = `rgba(0,221,0,${i ? 0.05 : 0.1})`),
         t.fillRect(e, n + 10, o, 10),
         t.restore(),
-        G(t, e, n, r, s);
+        G(t, e, n, r, i);
     },
-    $ = (t, e, n, o = !1) => {
+    z = (t, e, n, o = !1) => {
       t.save(),
         t.resetTransform(),
         t.beginPath(),
@@ -596,22 +596,24 @@
         t.stroke(),
         t.restore();
     },
-    q = ["#ffffff", "rgba(255,255,255,1)"],
-    W = ["#f1f3f4", "rgba(241,243,244,1)"];
-  function K(t) {
+    B = "text-foreground",
+    W = "selection";
+  const K = ["#ffffff", "rgba(255,255,255,1)"],
+    U = ["#f1f3f4", "rgba(241,243,244,1)"];
+  function V(t) {
     if (t.compact) return 0;
     const { clips: e } = t.savableState;
     if (1 === e.length) {
       if (!t.currentPageMap) return 0;
-      return V(e[0], { ...t.currentPageMap.pageAttrs.canvasBitmapSize, left: 0, top: 0 });
+      return H(e[0], { ...t.currentPageMap.pageAttrs.canvasBitmapSize, left: 0, top: 0 });
     }
     if (2 === e.length) {
       const [t, n] = e;
-      return V(n, t);
+      return H(n, t);
     }
     return 0;
   }
-  function V(t, e) {
+  function H(t, e) {
     return t.left !== e.left || t.width !== e.width
       ? 0
       : 0 === t.top && t.height < 0.6666666666666666 * e.height
@@ -620,7 +622,7 @@
       ? 2
       : 0;
   }
-  function U(t) {
+  function Y(t) {
     const e = t.getCurrentPageAttrs();
     if (
       ((t.matchingBroken = !1),
@@ -629,9 +631,9 @@
       (t.compact = e.isCompactLayout),
       t.clearedRect &&
         (function (t, e) {
-          const { left: n, top: o, width: r, height: s } = e,
-            i = t;
-          return !(n <= 0 && o <= 0 && n + r >= i.width && o + s >= i.height);
+          const { left: n, top: o, width: r, height: i } = e,
+            s = t;
+          return !(n <= 0 && o <= 0 && n + r >= s.width && o + i >= s.height);
         })(e.canvasBitmapSize, t.clearedRect))
     ) {
       t.currentPageMap = null;
@@ -655,31 +657,31 @@
         (t.savableState.renderContainer = t.currentPageFragment = { type: "page", pageAttrs: e, fragments: [] });
     var n;
   }
-  function H(t, e, n, o) {
+  function J(t, e, n, o) {
     const r = n.metricsMap.getMetrics(e, _),
-      s = n.metricsMap.getMetrics(e, R);
-    if (!r || !s) return null;
+      i = n.metricsMap.getMetrics(e, R);
+    if (!r || !i) return null;
     return {
-      spaceMetrics: s,
+      spaceMetrics: i,
       top: t.top - D(r.chunk.actualBoundingBoxAscent, o),
       height: D(r.chunk.actualBoundingBoxAscent + r.chunk.actualBoundingBoxDescent, o)
     };
   }
-  function Y(t, e, n, { top: o, height: r }, s, i) {
-    const a = i.metricsMap.getMetrics(e, t);
+  function Q(t, e, n, { top: o, height: r }, i, s) {
+    const a = s.metricsMap.getMetrics(e, t);
     if (!a) return null;
-    const l = O(a.chunk.width, s);
-    return { baseline: n.top, top: o, left: n.left, text: t, width: l, height: r, charShifts: a.charShifts.map((t) => O(t.width, s)) };
+    const l = O(a.chunk.width, i);
+    return { baseline: n.top, top: o, left: n.left, text: t, width: l, height: r, charShifts: a.charShifts.map((t) => O(t.width, i)) };
   }
-  function J(t, e, n, o, r, s, i, a) {
-    const l = /^\d+$/.test(st(t)),
+  function X(t, e, n, o, r, i, s, a) {
+    const l = /^\d+$/.test(at(t)),
       c = !a && !l,
-      u = H(n, e, r, s);
+      u = J(n, e, r, i);
     if (c) return !0;
     if (l) {
-      const a = st(t);
-      if (i && u && A(i)) {
-        let t = i,
+      const a = at(t);
+      if (s && u && k(s)) {
+        let t = s,
           l = o.fragments.length - 1;
         for (let e = o.fragments.length - 1; e > 0; e--) {
           const r = o.fragments[e];
@@ -689,71 +691,71 @@
             break;
           }
         }
-        const c = Math.abs(t.height * X - u.height) < Z * u.height,
-          g = Math.abs(t.top - u.top) < u.height * Z;
+        const c = Math.abs(t.height * tt - u.height) < et * u.height,
+          g = Math.abs(t.top - u.top) < u.height * et;
         if (c && g) {
-          const i = Y(a, e, n, u, s, r);
-          if (i) {
-            const e = { ...i, height: t.height, baseline: t.baseline, type: E.footnoteLink, class: C.ordinary, linkText: a, text: "#" };
+          const s = Q(a, e, n, u, i, r);
+          if (s) {
+            const e = { ...s, height: t.height, baseline: t.baseline, type: E.footnoteLink, class: C.ordinary, linkText: a, text: "#" };
             if (
               (function (t) {
                 return t.type === E.space;
               })(t) &&
-              w(t.left, n.left, tt)
+              w(t.left, n.left, nt)
             )
               return (
                 !(function (t, e, n = 0.001) {
                   return (function (t, e, n = 0.001) {
                     return t >= e || t + n >= e;
                   })(e, t, n);
-                })(t.width, i.width, tt)
-                  ? o.fragments.splice(l, 1, e, { ...t, left: t.left + i.width, width: t.width - i.width })
+                })(t.width, s.width, nt)
+                  ? o.fragments.splice(l, 1, e, { ...t, left: t.left + s.width, width: t.width - s.width })
                   : o.fragments.splice(l, 1, e),
                 !0
               );
-            if (Math.abs(i.left - t.left - t.width) < 0.5 * u.spaceMetrics.chunk.width) return o.fragments.splice(l + 1, 0, e), !0;
+            if (Math.abs(s.left - t.left - t.width) < 0.5 * u.spaceMetrics.chunk.width) return o.fragments.splice(l + 1, 0, e), !0;
           }
         }
       }
-    } else if (a && i && u && A(i)) {
-      const a = Math.abs(i.height * X - u.height) < Z * u.height,
-        l = Math.abs(i.top - u.top) < u.height * Z;
+    } else if (a && s && u && k(s)) {
+      const a = Math.abs(s.height * tt - u.height) < et * u.height,
+        l = Math.abs(s.top - u.top) < u.height * et;
       if (a && l) {
-        const a = Y(st(t), e, n, u, s, r);
+        const a = Q(at(t), e, n, u, i, r);
         if (a) {
-          if (Math.abs(a.left - i.left - i.width) < 0.5 * u.spaceMetrics.chunk.width)
-            return o.fragments.push({ ...a, height: i.height, baseline: i.baseline, type: E.text, class: C.ordinary }), !0;
+          if (Math.abs(a.left - s.left - s.width) < 0.5 * u.spaceMetrics.chunk.width)
+            return o.fragments.push({ ...a, height: s.height, baseline: s.baseline, type: E.text, class: C.ordinary }), !0;
         }
       }
     }
     return !1;
   }
-  const Q = 1,
-    X = 0.6,
-    Z = 0.1,
-    tt = 0.001,
-    et = 192,
-    nt = ["rgba(0,0,0,1)"],
-    ot = [String.fromCharCode(8204), "‭", "‬"],
-    rt = new RegExp(`[${ot.join("")}]`, "g");
-  function st(t) {
-    return t.replace(rt, "");
+  const Z = 1,
+    tt = 0.6,
+    et = 0.1,
+    nt = 0.001,
+    ot = 192,
+    rt = ["rgba(0,0,0,1)"],
+    it = [String.fromCharCode(8204), "‭", "‬"],
+    st = new RegExp(`[${it.join("")}]`, "g");
+  function at(t) {
+    return t.replace(st, "");
   }
-  function it(t) {
+  function lt(t) {
     return "rgba(19,115,51,0.7)" === t;
   }
-  function at(t, e, n, o, r, s) {
-    var i, a;
-    const l = s.getTransform(),
-      c = P(e, n, l),
-      u = N(null !== (i = r.savableState.font) && void 0 !== i ? i : s.font),
-      g = st(t),
+  function ct(t, e, n, o, r, i) {
+    var s, a;
+    const l = i.getTransform(),
+      c = N(e, n, l),
+      u = P(null !== (s = r.savableState.font) && void 0 !== s ? s : i.font),
+      g = at(t),
       f = (p = t).startsWith("‭") && p.endsWith("‬");
     var p, d, h, m;
     if (
       ((d = r.savableState.font),
       (h = r.savableState.strokeStyle),
-      (m = s.fillStyle),
+      (m = i.fillStyle),
       '400 14px "Google Sans"' === d && "rgba(240,244,249,1)" === h && "string" == typeof m && ["#1f1f1f", "rgba(31,31,31,1)"].includes(m))
     )
       return;
@@ -769,54 +771,61 @@
         scaleX: l.a,
         scaleY: l.d
       });
-    const v = o.fragments.length > 0 ? o.fragments[o.fragments.length - 1] : null;
-    if (J(t, u, c, o, r, l, v, f)) return;
-    const y = v && ((b = v).type === E.text || b.type === E.footnoteLink) ? v : null;
+    const y = o.fragments.length > 0 ? o.fragments[o.fragments.length - 1] : null;
+    if (X(t, u, c, o, r, l, y, f)) return;
+    const v = y && ((b = y).type === E.text || b.type === E.footnoteLink) ? y : null;
     var b, S;
-    if (y) {
-      const t = { top: y.baseline, left: y.left },
-        e = c.left - t.left - y.width,
-        n = r.lastTextClipsId !== r.savableState.clipsId || c.top - t.top > 0.2 * y.height;
+    if (v) {
+      const t = { top: v.baseline, left: v.left },
+        e = c.left - t.left - v.width,
+        n = r.lastTextClipsId !== r.savableState.clipsId || c.top - t.top > 0.2 * v.height;
       !n &&
-        e > Q &&
+        e > Z &&
         (o.fragments.push({
           type: E.space,
           class: C.ordinary,
           baseline: c.top,
-          left: t.left + y.width,
-          top: y.top,
+          left: t.left + v.width,
+          top: v.top,
           width: e,
-          height: y.height
+          height: v.height
         }),
-        r.debugVizualize && B(s, t.left + y.width, c.top, e, [])),
+        r.debugVizualize && q(i, t.left + v.width, c.top, e, [])),
         n &&
           (o.fragments.push(
-            ((S = { baseline: y.baseline, left: y.left + y.width, top: y.top, height: y.height, width: r.lastTextWhitespaceWidth }),
+            ((S = { baseline: v.baseline, left: v.left + v.width, top: v.top, height: v.height, width: r.lastTextWhitespaceWidth }),
             { ...S, type: E.lineBreak, class: C.ordinary })
           ),
-          r.debugVizualize && $(s, y.left + y.width, y.top));
+          r.debugVizualize && z(i, v.left + v.width, v.top));
     }
     r.lastTextClipsId = r.savableState.clipsId;
-    const x = H(c, u, r, l);
+    const x = J(c, u, r, l);
     if (!x) return;
     r.lastTextWhitespaceWidth = x.spaceMetrics.chunk.width;
     const w = null !== (a = g.match(/[^\s]+|\s+/g)) && void 0 !== a ? a : [];
     for (const t of w) {
-      const e = Y(t, u, c, x, l, r);
+      const e = Q(t, u, c, x, l, r);
       if (null == e) continue;
       const n = { type: E.text, class: C.ordinary, ...e };
       o.fragments.push(n),
         r.debugVizualize &&
           (t.match(/^\s+$/)
-            ? B(s, c.left, c.top, n.width, n.charShifts)
-            : z(s, c.left, c.top, e.width, e.charShifts, " " === t ? void 0 : o.wordCount++)),
+            ? q(i, c.left, c.top, n.width, n.charShifts)
+            : $(i, c.left, c.top, e.width, e.charShifts, " " === t ? void 0 : o.wordCount++)),
         (c.left += n.width);
     }
   }
-  const lt = {
+  const ut = {
       postFn: {
-        fillText(t, e, [n, o, r, s]) {
-          const i = (function (t, e) {
+        fillText(t, e, [n, o, r, i]) {
+          if (e.useTextForegroundFiltering) {
+            const t = e.getRenderingPhase();
+            if (null !== t && t !== B) return;
+          }
+          if (e.useEquationFiltering) {
+            if ("equation" === e.getLayoutNodeType()) return;
+          }
+          const s = (function (t, e) {
             if (t.currentPartialMap) return t.currentPartialMap.sections.main;
             if (!t.currentPageMap) return null;
             const n = t.currentPageMap.sections,
@@ -825,7 +834,7 @@
                   ? t.currentPageMap.sections.footnotes
                   : t.currentPageMap.sections.main;
             if (t.compact) return o;
-            switch (K(t)) {
+            switch (V(t)) {
               case 1:
                 return n.header;
               case 2:
@@ -834,31 +843,40 @@
                 return o;
             }
           })(e, r);
-          if (!i)
+          if (!s)
             return void (function (t, e) {
-              !t.currentPageMap && !t.currentPartialMap && t.api.log(e, "Current page map expected");
+              !t.currentPageMap && !t.currentPartialMap && t.log(e, "Current page map expected");
             })(e, "proxy.fillText");
-          const a = i.fragments.length > 0;
-          at(n, o, r, i, e, t), !a && i.fragments.length > 0 && (i.rect = pt(e));
+          const a = s.fragments.length > 0;
+          ct(n, o, r, s, e, t), !a && s.fragments.length > 0 && (s.rect = ht(e));
         },
         drawImage(t, e, n) {
           const o = e.savableState.renderContainer;
           if (o) {
-            const [e, r, s, i, a, l, c, u, g] = n,
+            const [e, r, i, s, a, l, c, u, g] = n,
               f = t.getTransform(),
-              p = P(null != l ? l : r, null != c ? c : s, f),
-              d = null != u ? u : i,
+              p = N(null != l ? l : r, null != c ? c : i, f),
+              d = null != u ? u : s,
               h = null != g ? g : a,
               m = void 0 === d || void 0 === h ? void 0 : { width: d, height: h },
-              v = void 0 === m ? { ...p, width: void 0, height: void 0 } : { ...p, ...I(m.width, m.height, f) };
-            o.fragments.push({ type: "image", rect: v });
+              y = void 0 === m ? { ...p, width: void 0, height: void 0 } : { ...p, ...I(m.width, m.height, f) };
+            o.fragments.push({ type: "image", rect: y });
           }
         },
-        fillRect(t, e, [n, o, r, s]) {
-          if ("string" == typeof t.fillStyle && S.includes(t.fillStyle.replace(/\s+/g, ""))) {
-            const i = t.getTransform(),
-              a = { ...P(n, o, i), ...I(r, s, i) },
-              l = pt(e);
+        fillRect(t, e, [n, o, r, i]) {
+          if (
+            (function (t, e) {
+              if (e.useSelectionFiltering) {
+                const t = e.getRenderingPhase();
+                if (null !== t) return t === W;
+              }
+              const n = t.fillStyle;
+              return "string" == typeof n && S.includes(n.replace(/\s+/g, ""));
+            })(t, e)
+          ) {
+            const s = t.getTransform(),
+              a = { ...N(n, o, s), ...I(r, i, s) },
+              l = ht(e);
             if (!l || g(a, l)) {
               const t = (function (t, e, n) {
                 const o = x(t, (t) => {
@@ -873,43 +891,43 @@
           1 === e.saveCount &&
             null === e.currentPageFragment &&
             "string" == typeof t.fillStyle &&
-            q.includes(t.fillStyle) &&
+            K.includes(t.fillStyle) &&
             !e.savableState.clips.length &&
-            dt(e, t, [n, o, r, s]);
+            mt(e, t, [n, o, r, i]);
         },
         clearRect(t, e, n) {
-          e.savableState.clips.length || dt(e, t, n);
+          e.savableState.clips.length || mt(e, t, n);
         },
         scale(t, e) {
-          1 === e.saveCount && null === e.currentPageFragment && null !== e.clearedRect && U(e);
+          1 === e.saveCount && null === e.currentPageFragment && null !== e.clearedRect && Y(e);
         },
-        translate(t, e, [n, o], r, s) {
-          e.equations.onTranslate(e.saveCount, e.savableState.renderContainer, s, n, o);
+        translate(t, e, [n, o], r, i) {
+          e.equations.onTranslate(e.saveCount, e.savableState.renderContainer, i, n, o);
         },
         save(t, e, n, o, r) {
           e.equations.onBeforeSave(e.saveCount, r), e.saveCount++, e.savedState.push({ ...e.savableState });
         },
         restore(t, e, n, o, r) {
-          const s = e.savedState.pop();
-          if ((s && (e.savableState = s), e.saveCount--, 0 === e.saveCount)) {
+          const i = e.savedState.pop();
+          if ((i && (e.savableState = i), e.saveCount--, 0 === e.saveCount)) {
             if ((e.hasSuggestions && e.onChangeMode("suggest"), e.currentPageMap && e.currentPageFragment)) {
               const t = e.currentPageMap.pageAttrs,
                 n = e.currentPageMap.sections,
                 o = n.footer.rect ? Math.min(t.canvasBitmapSize.height, n.footer.rect.top) : t.canvasBitmapSize.height,
                 r = e.footnote.footnoteLineDetected ? e.footnote.footnoteLinePosition.top : o;
               n.footnotes.rect = { top: r, left: 0, width: t.canvasBitmapSize.width, height: o - r };
-              const s = n.header.rect ? Math.max(0, n.header.rect.top + n.header.rect.height) : 0;
-              (n.main.rect = { top: s, left: 0, width: t.canvasBitmapSize.width, height: r - s }),
+              const i = n.header.rect ? Math.max(0, n.header.rect.top + n.header.rect.height) : 0;
+              (n.main.rect = { top: i, left: 0, width: t.canvasBitmapSize.width, height: r - i }),
                 e.onRender({
                   pageMap:
                     ((a = e.currentPageMap),
                     {
                       pageAttrs: a.pageAttrs,
                       sections: {
-                        main: ft(a.sections.main),
-                        footnotes: ft(a.sections.footnotes),
-                        header: ft(a.sections.header),
-                        footer: ft(a.sections.footer)
+                        main: dt(a.sections.main),
+                        footnotes: dt(a.sections.footnotes),
+                        header: dt(a.sections.header),
+                        footer: dt(a.sections.footer)
                       }
                     }),
                   pageAttrs: t,
@@ -928,7 +946,7 @@
                 e.currentPageFragment &&
                 (e.onRender({
                   partialPageMap:
-                    ((i = e.currentPartialMap), { pageAttrs: i.pageAttrs, rect: i.rect, sections: { main: ft(i.sections.main) } }),
+                    ((s = e.currentPartialMap), { pageAttrs: s.pageAttrs, rect: s.rect, sections: { main: dt(s.sections.main) } }),
                   pageAttrs: e.currentPartialMap.pageAttrs,
                   selection: e.currentSelection,
                   hasSuggestions: e.hasSuggestions,
@@ -941,44 +959,44 @@
                 (e.strikethroughLines = []));
             e.equations.reset();
           }
-          var i, a;
+          var s, a;
           e.equations.onAfterRestore(e.saveCount, r);
         },
         moveTo(t, e, [n, o]) {
-          e.footnote.footnoteLineDetected || (e.footnote.lastPosition = { left: n, top: o }), e.path.push({ moveTo: gt(t, [n, o]) });
+          e.footnote.footnoteLineDetected || (e.footnote.lastPosition = { left: n, top: o }), e.path.push({ moveTo: pt(t, [n, o]) });
         },
         lineTo(t, e, [n, o]) {
           !(function (t, e, n, o) {
             var r;
             if (!t.footnote.footnoteLineDetected) {
-              const s = t.footnote.lastPosition;
-              if (s) {
-                const i = e - s.left;
+              const i = t.footnote.lastPosition;
+              if (i) {
+                const s = e - i.left;
                 if (
                   n > 0 &&
-                  Math.abs(s.top - n) < Q &&
-                  i === et &&
+                  Math.abs(i.top - n) < Z &&
+                  s === ot &&
                   (null === (r = null == t ? void 0 : t.savableState) || void 0 === r ? void 0 : r.strokeStyle) &&
-                  nt.includes(t.savableState.strokeStyle) &&
-                  ((t.footnote = { footnoteLineDetected: !0, footnoteLinePosition: s }), t.savableState.renderContainer)
+                  rt.includes(t.savableState.strokeStyle) &&
+                  ((t.footnote = { footnoteLineDetected: !0, footnoteLinePosition: i }), t.savableState.renderContainer)
                 ) {
-                  const r = P(e, n, o.getTransform());
+                  const r = N(e, n, o.getTransform());
                   t.savableState.renderContainer.fragments.push({ type: "footnote_line", y: r.top });
                 }
               }
             }
             t.footnote.footnoteLineDetected || (t.footnote.lastPosition = { left: e, top: n });
           })(e, n, o, t),
-            e.path.push({ lineTo: gt(t, [n, o]) });
+            e.path.push({ lineTo: pt(t, [n, o]) });
         },
         beginPath(t, e) {
           e.path = [];
         },
         clip(t, e, n) {
           var o, r;
-          if ((e.equations.onClip(), n[0])) e.api.logError("proxy.clip:unexpectedArguments", "clip with parameters is not supported");
+          if ((e.equations.onClip(), n[0])) e.logError("proxy.clip:unexpectedArguments", "clip with parameters is not supported");
           else if (1 !== e.path.length)
-            e.api.logError("proxy.clip:unsupportedPath", "clip with multiple paths is not supported", { pathSize: e.path.length });
+            e.logError("proxy.clip:unsupportedPath", "clip with multiple paths is not supported", { pathSize: e.path.length });
           else if ("rect" in e.path[0]) {
             if (((e.savableState.clips = [...e.savableState.clips, e.path[0].rect]), e.savableState.renderContainer)) {
               const t = { type: "clip", rect: e.path[0].rect, fragments: [] };
@@ -988,19 +1006,19 @@
               const t = (null !== (o = e.currentPageMap.sections.header.fragments.length) && void 0 !== o ? o : 0) > 0,
                 n = (null !== (r = e.currentPageMap.sections.footer.fragments.length) && void 0 !== r ? r : 0) > 0;
               if (!t || !n)
-                switch (K(e)) {
+                switch (V(e)) {
                   case 1:
-                    t || (e.currentPageMap.sections.header.rect = pt(e));
+                    t || (e.currentPageMap.sections.header.rect = ht(e));
                     break;
                   case 2:
-                    n || (e.currentPageMap.sections.footer.rect = pt(e));
+                    n || (e.currentPageMap.sections.footer.rect = ht(e));
                 }
             }
-          } else e.api.logError("proxy.clip:unsupportedPath", "clip only supports rect paths");
+          } else e.logError("proxy.clip:unsupportedPath", "clip only supports rect paths");
           e.savableState.clipsId = ++e.lastClipsId;
         },
         rect(t, e, n) {
-          e.path.push({ rect: ut(t, n) });
+          e.path.push({ rect: ft(t, n) });
         },
         stroke(t, e, n) {
           if (n[0]) return;
@@ -1024,24 +1042,24 @@
                 y: e.path[0].moveTo.top,
                 left: e.path[0].moveTo.left,
                 width: e.path[1].lineTo.left - e.path[0].moveTo.left,
-                unidentifiedUserColor: !it(o)
+                unidentifiedUserColor: !lt(o)
               }));
         },
-        bezierCurveTo(t, e, [n, o, r, s, i, a]) {
-          e.path.push({ bezierCurveTo: gt(t, [i, a]) });
+        bezierCurveTo(t, e, [n, o, r, i, s, a]) {
+          e.path.push({ bezierCurveTo: pt(t, [s, a]) });
         },
         fill(t, e) {
-          if ("string" == typeof (n = t.fillStyle) && W.includes(n) && e.savableState.renderContainer) {
+          if ("string" == typeof (n = t.fillStyle) && U.includes(n) && e.savableState.renderContainer) {
             const t = (function (t) {
               if (9 !== t.length) return;
               let e = 1 / 0,
                 n = 1 / 0,
                 o = -1 / 0,
                 r = -1 / 0;
-              for (let s = 0; s < t.length; s++) {
-                let i;
-                if (((i = 0 === s ? L(t[0]) : s % 2 == 1 ? j(t[s]) : F(t[s])), !i)) return;
-                (e = Math.min(i.left, e)), (n = Math.min(i.top, n)), (r = Math.max(i.left, r)), (o = Math.max(i.top, o));
+              for (let i = 0; i < t.length; i++) {
+                let s;
+                if (((s = 0 === i ? L(t[0]) : i % 2 == 1 ? j(t[i]) : F(t[i])), !s)) return;
+                (e = Math.min(s.left, e)), (n = Math.min(s.top, n)), (r = Math.max(s.left, r)), (o = Math.max(s.top, o));
               }
               return { left: e, top: n, width: r - e, height: o - n };
             })(e.path);
@@ -1058,7 +1076,7 @@
           let o;
           return (
             "string" == typeof n
-              ? ("rgba(221,0,0,1)" === n || "rgba(66,133,244,1)" === n ? (o = "rgba(0,0,0,0)") : it(n) && (e.hasSuggestions = !0),
+              ? ("rgba(221,0,0,1)" === n || "rgba(66,133,244,1)" === n ? (o = "rgba(0,0,0,0)") : lt(n) && (e.hasSuggestions = !0),
                 (e.savableState.strokeStyle = null != o ? o : n))
               : (e.savableState.strokeStyle = void 0),
             o
@@ -1073,19 +1091,19 @@
         }
       }
     },
-    ct = { overrideSet: { strokeStyle: (t, e, n) => ("rgba(221,0,0,1)" === n || "rgba(66,133,244,1)" === n ? "rgba(0,0,0,0)" : void 0) } };
-  function ut(t, [e, n, o, r]) {
-    const s = t.getTransform();
-    return { ...P(e, n, s), ...I(o, r, s) };
+    gt = { overrideSet: { strokeStyle: (t, e, n) => ("rgba(221,0,0,1)" === n || "rgba(66,133,244,1)" === n ? "rgba(0,0,0,0)" : void 0) } };
+  function ft(t, [e, n, o, r]) {
+    const i = t.getTransform();
+    return { ...N(e, n, i), ...I(o, r, i) };
   }
-  function gt(t, [e, n]) {
-    return P(e, n, t.getTransform());
+  function pt(t, [e, n]) {
+    return N(e, n, t.getTransform());
   }
-  function ft(t) {
+  function dt(t) {
     const { wordCount: e, ...n } = t;
     return n;
   }
-  function pt(t) {
+  function ht(t) {
     return t.savableState.clips.reduce(
       (t, e) =>
         t
@@ -1093,29 +1111,29 @@
               const n = Math.max(t.left, e.left),
                 o = Math.max(t.top, e.top),
                 r = Math.min(t.left + t.width, e.left + e.width),
-                s = Math.min(t.top + t.height, e.top + e.height);
-              return { left: n, top: o, width: n > r ? 0 : r - n, height: o > s ? 0 : s - o };
+                i = Math.min(t.top + t.height, e.top + e.height);
+              return { left: n, top: o, width: n > r ? 0 : r - n, height: o > i ? 0 : i - o };
             })(t, e)
           : e,
       null
     );
   }
-  function dt(t, e, [n, o, r, s]) {
-    const i = ut(e, [n, o, r, s]);
-    (t.clearedRect = i), (t.currentSelection = t.currentSelection.filter((t) => !g(t, i)));
+  function mt(t, e, [n, o, r, i]) {
+    const s = ft(e, [n, o, r, i]);
+    (t.clearedRect = s), (t.currentSelection = t.currentSelection.filter((t) => !g(t, s)));
   }
-  function ht(t, e, n) {
+  function yt(t, e, n) {
     let o;
-    function r(r, s) {
-      const i =
+    function r(r, i) {
+      const s =
         (void 0 === o &&
           ((o = null !== (a = e()) && void 0 !== a ? a : null),
           o || n.logError("createMeasuringFallbackMetricsMap", "Can't create self-measuring canvas")),
         o);
       var a;
-      if (!i) return;
-      n.log("createMeasuringFallbackMetricsMap", "No metrics for text"), (i.font = r), i.measureText(s);
-      const l = t.getMetrics(r, s);
+      if (!s) return;
+      n.log("createMeasuringFallbackMetricsMap", "No metrics for text"), (s.font = r), s.measureText(i);
+      const l = t.getMetrics(r, i);
       return l || n.logError("createMeasuringFallbackMetricsMap", "Self-measuring failed for text"), l;
     }
     return {
@@ -1142,7 +1160,7 @@
       toJSON: () => t.toJSON()
     };
   }
-  class mt {
+  class vt {
     constructor(t, e) {
       (this._transport = t),
         (this._api = e),
@@ -1165,34 +1183,39 @@
       this._disposed || ((this._disposed = !0), this._sub.unsubscribe());
     }
   }
-  class vt extends Error {
+  class bt extends Error {
     constructor(t) {
       super(`Assertion failed: ${t ? ("string" == typeof t ? t : t()) : "(unnamed)"}`);
     }
   }
-  function yt(t, e) {
-    if (!t) throw new vt(e);
+  function St(t, e) {
+    if (!t) throw new bt(e);
   }
-  function bt(t, e) {
-    if (null == t) throw new vt(() => (e ? `Expected ${e} to be non-null` : "Expected non-null"));
+  function xt(t, e) {
+    if (null == t) throw new bt(() => (e ? `Expected ${e} to be non-null` : "Expected non-null"));
     return t;
   }
-  function St(t) {
+  function wt(t, e, n) {
+    if (!(e in t)) return !1;
+    const o = t[e];
+    return "function" == typeof o && o.length === n;
+  }
+  function Tt(t) {
     return !("object" != typeof t || !t) && "number" == typeof t.start && "number" == typeof t.end;
   }
-  function xt(t) {
-    return Array.isArray(t) && t.length > 0 && void 0 !== t[0] && t.every(St);
+  function Et(t) {
+    return Array.isArray(t) && t.length > 0 && void 0 !== t[0] && t.every(Tt);
   }
-  function wt(t, e) {
+  function Ct(t, e) {
     return {
       get: () => e.reduce((t, e) => (null == t ? void 0 : t[e]), t.get()),
       parent() {
-        if (0 !== e.length) return wt(t, e.slice(0, -1));
+        if (0 !== e.length) return Ct(t, e.slice(0, -1));
       },
       getPath: () => [t, e]
     };
   }
-  function Tt(t) {
+  function Mt(t) {
     return {
       get(e) {
         let n = e;
@@ -1205,94 +1228,44 @@
       getPath: () => t
     };
   }
-  function Et(t) {
-    let e;
-    function n(e) {
-      return (
-        t(Mt.extractingIndexLookupMapKeys),
-        (function (t) {
-          const e = jt(t);
-          if (e) return { indexes: Tt([e.indexKey]), data: Tt([e.dataKey]) };
-        })(e)
-      );
-    }
-    return {
-      getIndexes: (t) => (void 0 === e && (e = n(t)), (e && e.indexes.get(t)) || []),
-      getData: (t) => (void 0 === e && (e = n(t)), (e && e.data.get(t)) || [])
-    };
+  function kt(t, e) {
+    if (
+      !(function (t) {
+        if ("object" != typeof t || !t) return !1;
+        if (
+          ![
+            { name: "clear", length: 0 },
+            { name: "get", length: 1 },
+            { name: "size", length: 0 },
+            { name: "map", length: 1 }
+          ].every(({ name: e, length: n }) => wt(t, e, n))
+        )
+          return !1;
+        try {
+          return At(t), !0;
+        } catch (t) {
+          return !1;
+        }
+      })(t)
+    )
+      return !1;
+    for (const n of Object.values(t)) if (Array.isArray(n) && 0 != n.length && n.every((t) => void 0 === t || e(t))) return !0;
+    return !1;
   }
-  function* Ct(t, e) {
-    const n = e.getIndexes(t),
-      o = e.getData(t);
-    for (const t of n) {
-      const e = o[t];
-      void 0 !== e && (yield [t, e]);
-    }
-  }
-  const Mt = {
-      extractingSuggestionSets: "start to extract extractedSuggestionSets",
-      extractingOpenEndRangesMapPath: "start to extract openEndRangesMapPath",
-      noDeleteSuggestionCannotExtractOpenEndRangesMapPath:
-        "can not extract openEndRangesMapPath, there is no suggestions in the document yet",
-      extractingIndexLookupMapPaths: "extracting IndexLookupMapPaths",
-      extractingDeletionIndexLookupMapPath: "extracting DeletionSuggestionIndexLookupMapPath",
-      extractingIndexLookupMapKeys: "extracting suggestion index lookup map keys",
-      extractContainerByAdditionLookupMap: "extract addition lookup map path by addition lookup map path",
-      pickDeletionIndexLookupMapFromTwoMaps: "pick deletion lookup map from two lookup maps"
-    },
-    At = {
-      canNotGetGDocsDocument: "can not get extracted gdocs document object",
-      suggestionMustHaveSameStart: "suggestion range must have same start",
-      suggestionCountNotMatch: "two SuggestionMaps must contains same amount of suggestions",
-      canNotFindSuggestionSetContainer: "can not find suggestion sets container",
-      canNotGetSuggestionRangeFromLookupMap: "can not get suggestion range from lookup map",
-      canNotExtractSuggestionRange: "can not extract suggestion range from suggestion",
-      canNotGetFirstSuggestionId: "can not get first suggestion id, suggestionMapAll is wrong",
-      suggestionSetsAreNotSameType: "suggestion sets do not have same type",
-      suggestionLookupMapArrayNotValid: "we can not find the relationship between two arrays",
-      canNotGetAdditionLookupMapContainer: "additionLookupMapContainer getter is wrong",
-      canNotGetSuggestionMapAdd: "can not find suggestionMapAdd by the same path for suggestionMapAll"
-    },
-    kt = (t) => `find ${t} suggestions set(s)`,
-    _t = (t) => `find ${t} suggestion Map(s) in suggestion set`,
-    Rt = (t) => `find ${t} deletion suggestion lookup map container(s)`,
-    Nt = (t) => `find ${t} suggestion lookup map(s)`,
-    Pt = (t) => `find ${t} deletion suggestion lookup map(s)`,
-    It = (t) => `find more ${t} array keys`;
-  function Ot(t, e, n) {
-    if (!(e in t)) return !1;
-    const o = t[e];
-    return "function" == typeof o && o.length === n;
-  }
-  const Dt = (t, e, n) => {
-    let o;
-    for (const [r, s] of Ct(t, e))
-      if (void 0 === o) s.includes(n) && (o = r);
-      else if (0 == s.length) return { start: o, end: r };
-  };
-  function Lt(t) {
-    const e = new Set();
-    return (
-      t.map((t) => {
-        for (const n of t) e.add(n);
-      }),
-      e.size
-    );
-  }
-  function jt(t) {
+  function At(t) {
     const e = t,
       n = Object.keys(t).filter((t) => Array.isArray(e[t]));
-    if (2 !== n.length) throw new Error(It(n.length));
+    if (2 !== n.length) throw new Error(`find more ${n.length} array keys`);
     const o = e[n[0]],
       r = e[n[1]];
-    if (!1 !== Ft(o, r)) {
-      if (!1 !== Ft(r, o)) return;
+    if (!1 !== _t(o, r)) {
+      if (!1 !== _t(r, o)) return;
       return { indexKey: n[0], dataKey: n[1] };
     }
-    if (!1 !== Ft(r, o)) return { indexKey: n[1], dataKey: n[0] };
-    throw new Error(At.suggestionLookupMapArrayNotValid);
+    if (!1 !== _t(r, o)) return { indexKey: n[1], dataKey: n[0] };
+    throw new Error("we can not find the relationship between two arrays");
   }
-  function Ft(t, e) {
+  function _t(t, e) {
     if (0 !== t.length || 0 !== e.length) {
       if (t.length > 0 && e.length > 0 && t.every((t) => "number" == typeof t && void 0 !== e[t])) {
         return (function (t, e = 3) {
@@ -1312,11 +1285,91 @@
       return !1;
     }
   }
-  function Gt(t, e) {
-    if ("object" == typeof e && e && Ot(e, "constructor", 5)) for (const [t, n] of Object.entries(e)) if (zt(t, n)) return !0;
-    return !1;
+  function Rt(t) {
+    let e;
+    function n(e) {
+      return (
+        t(Nt.extractingIndexLookupMapKeys),
+        (function (t) {
+          const e = At(t);
+          if (e) return { indexes: Mt([e.indexKey]), data: Mt([e.dataKey]) };
+        })(e)
+      );
+    }
+    return {
+      getIndexes: (t) => (void 0 === e && (e = n(t)), (e && e.indexes.get(t)) || []),
+      getData: (t) => (void 0 === e && (e = n(t)), (e && e.data.get(t)) || [])
+    };
+  }
+  function* Pt(t, e) {
+    const n = e.getIndexes(t),
+      o = e.getData(t);
+    for (const t of n) {
+      const e = o[t];
+      void 0 !== e && (yield [t, e]);
+    }
+  }
+  const Nt = {
+      extractingSuggestionSets: "start to extract extractedSuggestionSets",
+      extractingOpenEndRangesMapPath: "start to extract openEndRangesMapPath",
+      noDeleteSuggestionCannotExtractOpenEndRangesMapPath:
+        "can not extract openEndRangesMapPath, there is no suggestions in the document yet",
+      extractingIndexLookupMapPaths: "extracting IndexLookupMapPaths",
+      extractingDeletionIndexLookupMapPath: "extracting DeletionSuggestionIndexLookupMapPath",
+      extractingIndexLookupMapKeys: "extracting suggestion index lookup map keys",
+      extractContainerByAdditionLookupMap: "extract addition lookup map path by addition lookup map path",
+      pickDeletionIndexLookupMapFromTwoMaps: "pick deletion lookup map from two lookup maps"
+    },
+    It = {
+      canNotGetGDocsDocument: "can not get extracted gdocs document object",
+      suggestionMustHaveSameStart: "suggestion range must have same start",
+      suggestionCountNotMatch: "two SuggestionMaps must contains same amount of suggestions",
+      canNotFindSuggestionSetContainer: "can not find suggestion sets container",
+      canNotGetSuggestionRangeFromLookupMap: "can not get suggestion range from lookup map",
+      canNotExtractSuggestionRange: "can not extract suggestion range from suggestion",
+      canNotGetFirstSuggestionId: "can not get first suggestion id, suggestionMapAll is wrong",
+      suggestionSetsAreNotSameType: "suggestion sets do not have same type",
+      canNotGetAdditionLookupMapContainer: "additionLookupMapContainer getter is wrong",
+      canNotGetSuggestionMapAdd: "can not find suggestionMapAdd by the same path for suggestionMapAll",
+      wrongLookupMapDetails: "get wrong suggestion lookup maps"
+    },
+    Ot = (t) => `find ${t} suggestions set(s)`,
+    Dt = (t) => `find ${t} suggestion Map(s) in suggestion set`,
+    Lt = (t) => `find ${t} deletion suggestion lookup map container(s)`,
+    jt = (t) => `find ${t} suggestion lookup map(s)`,
+    Ft = (t) => `find ${t} deletion suggestion lookup map(s)`;
+  const Gt = (t, e, n) => {
+    let o;
+    for (const [r, i] of Pt(t, e))
+      if (void 0 === o) i.includes(n) && (o = r);
+      else if (0 == i.length) return { start: o, end: r };
+  };
+  function $t(t) {
+    const e = new Set();
+    return (
+      t.map((t) => {
+        for (const n of t) e.add(n);
+      }),
+      e.size
+    );
+  }
+  function qt(t) {
+    let e = Object.getPrototypeOf(t);
+    const n = [];
+    for (; e && e.constructor !== Object; )
+      if (e && e.constructor !== Object) {
+        const t = Object.getOwnPropertyNames(e)
+          .filter((t) => t.length > 3 && "constructor" !== t && "function" == typeof e[t])
+          .map((t) => `${t}(${e[t].length})`);
+        n.push(t), (e = Object.getPrototypeOf(e));
+      }
+    return n;
   }
   function zt(t, e) {
+    if ("object" == typeof e && e && wt(e, "constructor", 5)) for (const [t, n] of Object.entries(e)) if (Bt(t, n)) return !0;
+    return !1;
+  }
+  function Bt(t, e) {
     return (
       "object" == typeof e &&
       !!e &&
@@ -1328,17 +1381,17 @@
       4 === e.add.length
     );
   }
-  function Bt(t, e) {
-    return Xt(
+  function Wt(t, e) {
+    return te(
       t,
       (t, n) =>
         (function (t, e) {
           let n = !1;
           return (
-            Wt(t, (t) => {
+            kt(t, (t) => {
               if (!Array.isArray(t)) return !1;
               for (const o of t) {
-                if (!$t(o)) return !1;
+                if (!Kt(o)) return !1;
                 o === e && (n = !0);
               }
               return !0;
@@ -1348,123 +1401,106 @@
       2
     ).results;
   }
-  function $t(t) {
+  function Kt(t) {
     return "string" == typeof t && t.startsWith("suggest.");
   }
-  function qt(t) {
-    return Array.isArray(t) && t.every($t);
+  function Ut(t) {
+    return Array.isArray(t) && t.every(Kt);
   }
-  function Wt(t, e) {
-    if (
-      !(function (t) {
-        if ("object" != typeof t || !t) return !1;
-        if (
-          ![
-            { name: "clear", length: 0 },
-            { name: "get", length: 1 },
-            { name: "size", length: 0 },
-            { name: "map", length: 1 }
-          ].every(({ name: e, length: n }) => Ot(t, e, n))
-        )
-          return !1;
-        try {
-          return jt(t), !0;
-        } catch (t) {
-          return !1;
-        }
-      })(t)
-    )
-      return !1;
-    for (const n of Object.values(t)) if (Array.isArray(n) && 0 != n.length && n.every((t) => void 0 === t || e(t))) return !0;
-    return !1;
+  function Vt(t, e) {
+    return kt(e, Ut);
   }
-  function Kt(t, e) {
-    return Wt(e, qt);
-  }
-  function Vt(t, e, n, o) {
-    o(Mt.pickDeletionIndexLookupMapFromTwoMaps);
-    const r = (function (t) {
-      const e = Lt(t[0]),
-        n = Lt(t[1]);
+  function Ht(t, e, n, o, r) {
+    o(Nt.pickDeletionIndexLookupMapFromTwoMaps);
+    const i = (function (t) {
+      const e = $t(t[0]),
+        n = $t(t[1]);
       if (e !== n) return e < n ? 0 : 1;
       return;
     })(e);
-    return void 0 !== r
-      ? r
-      : (function ([t, e], n, o) {
-          const r = Object.keys(o)[0],
-            s = Dt(t, n, r),
-            i = Dt(e, n, r);
-          if (!s || !i) throw new Error(At.canNotGetSuggestionRangeFromLookupMap);
-          const a = o[r],
-            l = a.contains(s.start, s.end),
-            c = a.contains(i.start, i.end);
-          if (!l || !c) return l ? 1 : 0;
-          return s.start > i.start ? 0 : 1;
-        })(e, t, n);
+    return void 0 !== i
+      ? i
+      : (function ([t, e], n, o, r) {
+          const i = Object.keys(o)[0],
+            s = Gt(t, n, i),
+            a = Gt(e, n, i);
+          if (!s || !a) {
+            const e = qt(t);
+            throw (
+              (r(It.wrongLookupMapDetails, { signature: e, name: "suggestionLookupMap" }),
+              new Error(It.canNotGetSuggestionRangeFromLookupMap))
+            );
+          }
+          const l = o[i],
+            c = l.contains(s.start, s.end),
+            u = l.contains(a.start, a.end);
+          if (!c || !u) return c ? 1 : 0;
+          return s.start > a.start ? 0 : 1;
+        })(e, t, n, r);
   }
-  function Ut(t, e, n, o, r, s) {
-    const i = r.getSuggestionMap(e);
-    if (!i) return;
-    const a = r.getSuggestionMap(n);
-    if (!a) throw new Error(At.canNotGetSuggestionMapAdd);
-    const l = (function (t, e) {
+  function Yt(t, e, n, o, r, i, s) {
+    const a = r.getSuggestionMap(e);
+    if (!a) return;
+    const l = r.getSuggestionMap(n);
+    if (!l) throw new Error(It.canNotGetSuggestionMapAdd);
+    const c = (function (t, e) {
       const n = Object.keys(t),
         o = Object.keys(e);
       if (n.length !== o.length) {
         for (const t of n) if (!e[t]) return t;
-        if (n.length < o.length) throw new Error(At.canNotGetFirstSuggestionId);
+        if (n.length < o.length) throw new Error(It.canNotGetFirstSuggestionId);
       }
-    })(i, a);
-    return l
+    })(a, l);
+    return c
       ? (function (t, e, n) {
-          n(Mt.extractingDeletionIndexLookupMapPath);
-          const o = Bt(t, e);
-          if (1 == o.length) return Ht(o[0].path);
-          throw new Error(Pt(o.length));
-        })(t, l, s)
-      : (function (t, e, n, o) {
-          o(Mt.extractingIndexLookupMapPaths);
-          const r = (function (t) {
-            return Xt(t, Kt, 2).results;
+          n(Nt.extractingDeletionIndexLookupMapPath);
+          const o = Wt(t, e);
+          if (1 == o.length) return Jt(o[0].path);
+          throw new Error(Ft(o.length));
+        })(t, c, i)
+      : (function (t, e, n, o, r) {
+          o(Nt.extractingIndexLookupMapPaths);
+          const i = (function (t) {
+            return te(t, Vt, 2).results;
           })(t);
-          if (1 == r.length) {
-            const [t, ...e] = r[0].path;
+          if (1 == i.length) {
+            const [t, ...e] = i[0].path;
             return (function (t, e, n) {
               let o;
               return {
                 getDeletionLookupMap(r) {
                   if (void 0 === o) {
-                    const s = t.get(r);
-                    if (!s) throw new Error(At.canNotGetAdditionLookupMapContainer);
-                    const i = (function (t, e, n) {
-                      n(Mt.extractContainerByAdditionLookupMap);
+                    const i = t.get(r);
+                    if (!i) throw new Error(It.canNotGetAdditionLookupMapContainer);
+                    const s = (function (t, e, n) {
+                      n(Nt.extractContainerByAdditionLookupMap);
                       const o = [];
-                      for (const [n, i] of Object.entries(e))
-                        (r = i) !== (s = t) && "object" == typeof r && r && r.constructor === s.constructor && o.push(n);
-                      var r, s;
-                      if (1 === o.length) return Tt([o[0]]);
-                      if (o.length > 1) throw new Error(Rt(o.length));
-                    })(s, r, n);
-                    if (!i) return;
-                    o = Tt([...i.getPath(), ...e.getPath()]);
+                      for (const [n, s] of Object.entries(e))
+                        (r = s) !== (i = t) && "object" == typeof r && r && r.constructor === i.constructor && o.push(n);
+                      var r, i;
+                      if (1 === o.length) return Mt([o[0]]);
+                      if (o.length > 1) throw new Error(Lt(o.length));
+                    })(i, r, n);
+                    if (!s) return;
+                    o = Mt([...s.getPath(), ...e.getPath()]);
                   }
                   return o.get(r);
                 }
               };
-            })(Tt([t]), Tt(e), o);
+            })(Mt([t]), Mt(e), o);
           }
-          if (2 == r.length) {
-            return Ht(r[Vt(n, [r[0].value, r[1].value], e, o)].path);
+          if (2 == i.length) {
+            return Jt(i[Ht(n, [i[0].value, i[1].value], e, o, r)].path);
           }
-          throw new Error(Nt(r.length));
-        })(t, a, o, s);
+          const s = qt(t);
+          throw (r(It.wrongLookupMapDetails, { signature: s, name: "gdocsDocument" }), new Error(jt(i.length)));
+        })(t, l, o, i, s);
   }
-  function Ht(t) {
-    const e = Tt(t);
+  function Jt(t) {
+    const e = Mt(t);
     return { getDeletionLookupMap: (t) => e.get(t) };
   }
-  function Yt(t, e) {
+  function Qt(t, e) {
     const n = Object.entries(t)
       .map(([t, e]) => {
         if ("object" != typeof e || !e) return null;
@@ -1475,39 +1511,39 @@
           suggestionMap: e,
           suggestionIds: n,
           range: (function (t) {
-            const e = Xt(t, (t, e) => xt(e), 0);
-            if (1 !== e.results.length) throw new Error(At.canNotExtractSuggestionRange);
+            const e = te(t, (t, e) => Et(e), 0);
+            if (1 !== e.results.length) throw new Error(It.canNotExtractSuggestionRange);
             return e.results[0].value[0];
           })(e[n[0]])
         };
       })
       .filter(Boolean);
-    if (0 === n.length) return void e(Mt.noDeleteSuggestionCannotExtractOpenEndRangesMapPath);
-    if (2 != n.length) throw new Error(_t(n.length));
+    if (0 === n.length) return void e(Nt.noDeleteSuggestionCannotExtractOpenEndRangesMapPath);
+    if (2 != n.length) throw new Error(Dt(n.length));
     const [o, r] = n;
     if (o.suggestionIds.length !== r.suggestionIds.length || o.suggestionIds.some((t) => !r.suggestionMap[t]))
-      throw new Error(At.suggestionCountNotMatch);
-    if (o.range.start !== r.range.start) throw new Error(At.suggestionMustHaveSameStart);
-    return o.range.end > r.range.end ? Tt([o.openEndRangesMapPath]) : Tt([r.openEndRangesMapPath]);
+      throw new Error(It.suggestionCountNotMatch);
+    if (o.range.start !== r.range.start) throw new Error(It.suggestionMustHaveSameStart);
+    return o.range.end > r.range.end ? Mt([o.openEndRangesMapPath]) : Mt([r.openEndRangesMapPath]);
   }
-  function Jt(t, e, n, o) {
+  function Xt(t, e, n, o) {
     try {
       const r = (function (t, e) {
-          e(Mt.extractingSuggestionSets);
-          const n = Xt(t, Gt, 1);
-          if (1 !== n.results.length) throw new Error(At.canNotFindSuggestionSetContainer);
-          const o = Xt(n.results[0].value, zt, 1);
-          if (2 !== o.results.length) throw new Error(kt(o.results.length));
+          e(Nt.extractingSuggestionSets);
+          const n = te(t, zt, 1);
+          if (1 !== n.results.length) throw new Error(It.canNotFindSuggestionSetContainer);
+          const o = te(n.results[0].value, Bt, 1);
+          if (2 !== o.results.length) throw new Error(Ot(o.results.length));
           const r = o.results[0].value,
-            s = o.results[1].value;
-          if (s.constructor !== r.constructor) throw new Error(At.suggestionSetsAreNotSameType);
-          return { suggestionSetAll: r, suggestionSetAdd: s };
+            i = o.results[1].value;
+          if (i.constructor !== r.constructor) throw new Error(It.suggestionSetsAreNotSameType);
+          return { suggestionSetAll: r, suggestionSetAdd: i };
         })(t, o),
-        s = Et(o),
-        i = (function (t) {
+        i = Rt(o),
+        s = (function (t) {
           let e;
           return {
-            getSuggestionMap: (n) => (void 0 === e && (t(Mt.extractingOpenEndRangesMapPath), (e = Yt(n, t))), null == e ? void 0 : e.get(n))
+            getSuggestionMap: (n) => (void 0 === e && (t(Nt.extractingOpenEndRangesMapPath), (e = Qt(n, t))), null == e ? void 0 : e.get(n))
           };
         })(o);
       let a, l;
@@ -1516,15 +1552,15 @@
           try {
             return (
               void 0 === l &&
-                (void 0 === a && (a = Ut(e, r.suggestionSetAll, r.suggestionSetAdd, s, i, o)), a && (l = a.getDeletionLookupMap(e))),
+                (void 0 === a && (a = Yt(e, r.suggestionSetAll, r.suggestionSetAdd, i, s, o, n)), a && (l = a.getDeletionLookupMap(e))),
               l
                 ? ((t, e) => {
                     const n = [];
                     let o = -1;
-                    for (const [r, s] of Ct(t, e))
-                      -1 === o ? s.length > 0 && (o = r) : 0 == s.length && (n.push({ start: o, end: r }), (o = -1));
+                    for (const [r, i] of Pt(t, e))
+                      -1 === o ? i.length > 0 && (o = r) : 0 == i.length && (n.push({ start: o, end: r }), (o = -1));
                     return n;
-                  })(l, s)
+                  })(l, i)
                 : []
             );
           } catch (t) {
@@ -1536,16 +1572,16 @@
       return n(t.message), { getDeleteSuggestionRanges: () => [] };
     }
   }
-  function Qt(t, e, n) {
+  function Zt(t, e, n) {
     const o = t.get();
     if (!o) return [void 0, void 0, void 0];
-    const r = Xt(o, e, n);
+    const r = te(o, e, n);
     if (!r.results.length) return [void 0, void 0, void 0];
-    const s = r.results.map((e) => wt(t, e.path));
-    return [s[0], r.results[0].value, s];
+    const i = r.results.map((e) => Ct(t, e.path));
+    return [i[0], r.results[0].value, i];
   }
-  function Xt(t, e, n, o = Object.getOwnPropertyNames(t), r = 0, s) {
-    var i;
+  function te(t, e, n, o = Object.getOwnPropertyNames(t), r = 0, i) {
+    var s;
     const a = new Set(),
       l = [];
     let c = 0;
@@ -1554,7 +1590,7 @@
     const p = (t, e, n, o) => {
         if (null == t) return;
         if (a.has(t)) return;
-        if ((a.add(t), s && !s(t, e))) return;
+        if ((a.add(t), i && !i(t, e))) return;
         const r = { next: void 0, value: t, key: e, parent: n, depth: o };
         f ? (f.next = r) : (g = r), (f = r);
       },
@@ -1573,41 +1609,41 @@
       const t = d();
       if (!t) break;
       c++;
-      const { key: o, value: s, depth: a } = t;
-      if (!(s instanceof Window) && !(s instanceof Node)) {
+      const { key: o, value: i, depth: a } = t;
+      if (!(i instanceof Window) && !(i instanceof Node)) {
         try {
-          const t = null === (i = null == s ? void 0 : s.constructor) || void 0 === i ? void 0 : i.name;
+          const t = null === (s = null == i ? void 0 : i.constructor) || void 0 === s ? void 0 : s.name;
           if ("Window" === t || "HTMLDocument" === t) continue;
         } catch (t) {}
         if (!(a > n)) {
           try {
-            if (e(o, s)) {
+            if (e(o, i)) {
               const e = h(t);
-              l.push({ path: e, value: s, depth: a, iterations: c, performance: performance.now() - u });
+              l.push({ path: e, value: i, depth: a, iterations: c, performance: performance.now() - u });
               continue;
             }
           } catch (t) {}
-          if (null != s)
-            if (Array.isArray(s))
-              for (let e = 0; e < s.length && e < r; e++)
+          if (null != i)
+            if (Array.isArray(i))
+              for (let e = 0; e < i.length && e < r; e++)
                 try {
-                  p(s[e], `${e}`, t, a + 1);
+                  p(i[e], `${e}`, t, a + 1);
                 } catch (t) {}
-            else if ("function" == typeof s);
-            else if (s instanceof Object)
-              if (s instanceof Node);
+            else if ("function" == typeof i);
+            else if (i instanceof Object)
+              if (i instanceof Node);
               else
-                for (const e of Object.getOwnPropertyNames(s))
+                for (const e of Object.getOwnPropertyNames(i))
                   if ("prototype" !== e)
                     try {
-                      p(s[e], e, t, a + 1);
+                      p(i[e], e, t, a + 1);
                     } catch (t) {}
         }
       }
     }
     return { results: l, iterations: c, performance: performance.now() - u };
   }
-  function Zt(t) {
+  function ee(t) {
     let e,
       n = 0;
     const o = () => {
@@ -1621,40 +1657,40 @@
       get: () => (0 === n && o(), e)
     };
   }
-  function te(t) {
-    const e = bt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp"))),
-      n = bt(t[e], "kixApp"),
+  function ne(t) {
+    const e = xt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp"))),
+      n = xt(t[e], "kixApp"),
       o = (function (t, e) {
         const n = new Set();
         return t.filter((t) => {
           const o = e(t);
           return !n.has(o) && (n.add(o), !0);
         });
-      })(Xt(n, (t, e) => "string" == typeof e && "" === e.charAt(0), 5).results, (t) => t.value).filter((t) =>
+      })(te(n, (t, e) => "string" == typeof e && "" === e.charAt(0), 5).results, (t) => t.value).filter((t) =>
         isNaN(parseInt(t.path[t.path.length - 1], 10))
       );
     for (const t of o) {
       const o = t.path.slice(0, t.path.length - 1).reduce((t, e) => t[e], n);
-      if (1 === Xt(o, ee, 2).results.length) return [e].concat(t.path);
-      if (1 === Xt(o, ne, 2).results.length) return [e].concat(t.path);
+      if (1 === te(o, oe, 2).results.length) return [e].concat(t.path);
+      if (1 === te(o, re, 2).results.length) return [e].concat(t.path);
     }
     return null;
   }
-  function ee(t, e) {
+  function oe(t, e) {
     return Array.isArray(e) && m.some((t) => e.length === t.length && e.every((e, n) => e.charCodeAt(0) === t[n]));
   }
-  function ne(t, e) {
+  function re(t, e) {
     return e instanceof RegExp && b.includes(e.toString());
   }
-  function oe(t) {
+  function ie(t) {
     try {
       const e = t.get();
       if (!e) return null;
-      const n = Xt(
+      const n = te(
         e,
         (t, e) =>
           (function (t) {
-            return se(t) && Boolean(t.length > 0 && void 0 !== t[0]);
+            return ae(t) && Boolean(t.length > 0 && void 0 !== t[0]);
           })(e),
         3,
         void 0,
@@ -1669,21 +1705,21 @@
               "cell-grid" in t)
           )
       );
-      return n.results.length > 0 ? wt(t, n.results[0].path) : null;
+      return n.results.length > 0 ? Ct(t, n.results[0].path) : null;
     } catch (t) {
       return null;
     }
   }
-  function re(t) {
+  function se(t) {
     return Boolean(t && "object" == typeof t && "start" in t && "number" == typeof t.start && "end" in t && "number" == typeof t.end);
   }
-  function se(t) {
-    return Boolean(t && Array.isArray(t) && t.every(re));
+  function ae(t) {
+    return Boolean(t && Array.isArray(t) && t.every(se));
   }
-  function ie(t, e, n) {
+  function le(t, e, n) {
     return t.push(Array.isArray(e) || isNaN(e) ? n : e), t;
   }
-  class ae {
+  class ce {
     constructor(t, e, n) {
       (this._win = t),
         (this._logError = e),
@@ -1691,58 +1727,57 @@
         (this._result = null),
         (this._resizer = void 0),
         (this._kixApp = (function (t) {
-          const e = bt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp")));
-          return wt(((n = t), { get: () => n }), [e]);
+          const e = xt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp")));
+          return Ct(((n = t), { get: () => n }), [e]);
           var n;
         })(this._win)),
-        (this._images = Zt(() =>
+        (this._images = ee(() =>
           (function (t) {
-            const e = "inline",
-              n = "positioned";
+            const e = "inline";
             try {
-              const [o] = Qt(t, (t, o) => (t === e || t === n) && "object" == typeof o, 5);
-              yt(!!o);
-              const r = o.parent();
-              yt(!!r);
-              const [s, i] = Qt(o, (t, e) => "object" == typeof e && !!e && 2 === Object.keys(e).length, 5);
-              yt(!!s && !!i);
-              const a = bt(Object.keys(i)[0]),
-                [l, c] = bt(s.getPath());
-              return { inline: wt(r, [e, ...c, a]), positioned: wt(r, [n, ...c, a]) };
+              const [n] = Zt(t, (t, n) => (t === e || "positioned" === t) && "object" == typeof n, 5);
+              St(!!n);
+              const o = n.parent();
+              St(!!o);
+              const [r, i] = Zt(n, (t, e) => kt(e, (t) => Array.isArray(t)), 5);
+              St(!!r && !!i);
+              const s = xt(Object.keys(i)[0]),
+                [a, l] = xt(r.getPath());
+              return { inline: Ct(o, [e, ...l, s]) };
             } catch (t) {
-              return { inline: null, positioned: null, error: t };
+              return { inline: null, error: t };
             }
           })(this._kixApp)
         )),
-        (this._textSelection = Zt(() => oe(this._kixApp)));
+        (this._textSelection = ee(() => ie(this._kixApp)));
     }
     _attemptTextExtraction() {
       try {
-        const t = te(this._win),
+        const t = ne(this._win),
           e = (function (t) {
-            const e = bt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp"))),
-              n = Xt(
-                bt(t[e], "kixApp"),
+            const e = xt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp"))),
+              n = te(
+                xt(t[e], "kixApp"),
                 (t, e) => "horizontal_rule" === t && "object" == typeof e && null !== e && 2 === Object.keys(e).length,
                 6
               );
-            return 0 === n.results.length ? null : [e].concat(bt(n.results[0]).path, Object.keys(n.results[0].value)[0]);
+            return 0 === n.results.length ? null : [e].concat(xt(n.results[0]).path, Object.keys(n.results[0].value)[0]);
           })(this._win);
         let n = !1;
         this._images.refresh();
         const o = t ? [...t] : [],
           r = o.pop(),
-          s = o.reduce((t, e) => t[e], this._win),
-          i = null == e ? void 0 : e.pop(),
+          i = o.reduce((t, e) => t[e], this._win),
+          s = null == e ? void 0 : e.pop(),
           a = e ? (null == e ? void 0 : e.reduce((t, e) => t[e], this._win)) : {};
         if (o.length > 0) {
           const t =
               !this._useSuggestionInternalsWrapper &&
               (function (t, e) {
                 try {
-                  const n = bt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp"))),
-                    o = Xt(
-                      bt(t[n], "kixApp"),
+                  const n = xt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp"))),
+                    o = te(
+                      xt(t[n], "kixApp"),
                       (t, e) => Array.isArray(e) && e.some((t) => Array.isArray(t) && -1 !== t.toString().indexOf("suggest.")),
                       10
                     )
@@ -1779,42 +1814,40 @@
           if (this._useSuggestionInternalsWrapper) {
             const t = this.getKixApp(),
               e = o.slice(0, -1).reduce((t, e) => t[e], this._win);
-            c = Jt(
+            c = Xt(
               t,
               e,
-              (t) => this._logError("ExtractSuggestionInternals", t),
+              (t, e) => this._logError("ExtractSuggestionInternals", t, e),
               (t) => this._logInfo("ExtractSuggestionInternals", t)
             );
           }
           const u = (t) => {
             const e = null == t ? void 0 : t.get();
-            return Array.isArray(e) ? e.reduce(ie, []) : [];
+            return Array.isArray(e) ? e.reduce(le, []) : [];
           };
           return {
             getText: () => {
-              const t = s[r];
+              const t = i[r];
               if ("string" != typeof t)
                 throw (this._logError("ExtractFullText", "unexpected text value type"), new Error("unexpected text value type"));
-              const o = a[i],
-                g = Array.isArray(o) ? o.reduce(ie, []).sort((t, e) => t - e) : [],
-                f = u(this._images.get().positioned);
-              let p = u(this._images.get().inline);
+              const o = a[s],
+                g = Array.isArray(o) ? o.reduce(le, []).sort((t, e) => t - e) : [];
+              let f = u(this._images.get().inline);
               n ||
-                (p.length > 0
+                (f.length > 0
                   ? (n = !0)
                   : this._images.calcCount < 10 &&
                     "string" == typeof t &&
                     t.indexOf("*") >= 0 &&
-                    (this._images.refresh(), (p = u(this._images.get().inline)), (n = p.length > 0)));
-              const d = l && e && l[e];
+                    (this._images.refresh(), (f = u(this._images.get().inline)), (n = f.length > 0)));
+              const p = l && e && l[e];
               return {
                 fullText: t,
-                ignoredRanges: d ? [...d].reduce((t, e) => (t.push(Array.isArray(e) ? !!e[0] : !!t.length && t[t.length - 1]), t), []) : [],
+                ignoredRanges: p ? [...p].reduce((t, e) => (t.push(Array.isArray(e) ? !!e[0] : !!t.length && t[t.length - 1]), t), []) : [],
                 deleteSuggestionRanges: null == c ? void 0 : c.getDeleteSuggestionRanges(),
                 nonTextEntities: {
                   horizontal_rule: { startsAt: g, textRepresentation: "-" },
-                  inline_image: { startsAt: p, textRepresentation: "*" },
-                  positioned_image: { startsAt: f, textRepresentation: "" }
+                  inline_image: { startsAt: f, textRepresentation: "*" }
                 }
               };
             },
@@ -1830,7 +1863,7 @@
     _attemptResizerExtraction() {
       const t = (function (t) {
         try {
-          return [bt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp")))].concat("resize");
+          return [xt(Object.getOwnPropertyNames(t).find((t) => -1 !== t.toString().indexOf("_kixApp")))].concat("resize");
         } catch (t) {
           return null;
         }
@@ -1846,7 +1879,7 @@
           const t = this._textSelection.get();
           if (t) {
             const e = t.get();
-            if (se(e)) return e;
+            if (ae(e)) return e;
           }
           return null;
         },
@@ -1887,9 +1920,9 @@
       }
     }
   }
-  function le(t, e) {
+  function ue(t, e) {
     const n = (function (t, e) {
-        const n = Xt(
+        const n = te(
           t,
           (t, e) =>
             (function (t) {
@@ -1907,18 +1940,18 @@
             })(e),
           1
         );
-        if (1 !== n.results.length) return e("extractSelectionController", ce(n.results, "selection controller")), null;
+        if (1 !== n.results.length) return e("extractSelectionController", ge(n.results, "selection controller")), null;
         const o = n.results[0].value,
           r = o.getSelection();
         if (!r) return null;
-        const s = Xt(o, ue, 0, Object.getOwnPropertyNames(Object.getPrototypeOf(o)));
-        if (1 !== s.results.length) return e("extractSetSelectionResult", ce(s.results, "setSelection"), s.results), null;
-        const i = s.results[0].value;
+        const i = te(o, fe, 0, Object.getOwnPropertyNames(Object.getPrototypeOf(o)));
+        if (1 !== i.results.length) return e("extractSetSelectionResult", ge(i.results, "setSelection"), i.results), null;
+        const s = i.results[0].value;
         return {
           selectionController: o,
           selectionControllerAccessors: {
             setSelection(t, e, n) {
-              i.call(t, e, n);
+              s.call(t, e, n);
             }
           },
           currentSelection: r
@@ -1933,7 +1966,7 @@
         selectionControllerAccessors: null
       };
     if (!n) return o;
-    const { selectionController: r, selectionControllerAccessors: s, currentSelection: i } = n;
+    const { selectionController: r, selectionControllerAccessors: i, currentSelection: s } = n;
     o.selectionController = r;
     const {
       GDocsSelection: a,
@@ -1944,7 +1977,7 @@
     } = (function (t) {
       const e = t.constructor,
         n = (function (t) {
-          const e = Xt(
+          const e = te(
             t,
             (t, e) =>
               (function (t) {
@@ -1969,37 +2002,37 @@
           selectionAccessors: null,
           wrapSelection: null
         };
-      const { GDocsCursor: o, currentCursor: r, cursorPropName: s } = n,
-        i = Xt(t, (t, e) => xt(e), 0),
-        a = Xt(t, l, 0, Object.getOwnPropertyNames(Object.getPrototypeOf(t)));
+      const { GDocsCursor: o, currentCursor: r, cursorPropName: i } = n,
+        s = te(t, (t, e) => Et(e), 0),
+        a = te(t, l, 0, Object.getOwnPropertyNames(Object.getPrototypeOf(t)));
       function l(e, n) {
         return "function" == typeof n && 1 === n.length && !1 === n.call(t, {}) && !0 === n.call(t, t);
       }
-      if (1 === i.results.length && 1 === a.results.length) {
-        const t = i.results[0].path[0],
+      if (1 === s.results.length && 1 === a.results.length) {
+        const t = s.results[0].path[0],
           n = a.results[0].value,
-          l = { getCursor: (t) => t[s], getRanges: (e) => e[t], equals: (t, e) => n.call(t, e) };
+          l = { getCursor: (t) => t[i], getRanges: (e) => e[t], equals: (t, e) => n.call(t, e) };
         return {
           GDocsSelection: e,
           GDocsCursor: o,
-          GDocsTextRange: i.results[0].value[0].constructor,
+          GDocsTextRange: s.results[0].value[0].constructor,
           currentCursor: r,
           selectionAccessors: l
         };
       }
       return { GDocsSelection: e, GDocsCursor: o, GDocsTextRange: null, currentCursor: r, selectionAccessors: null };
-    })(i);
+    })(s);
     if (
       ((o.GDocsSelection = a),
       (o.GDocsCursor = l),
       (o.GDocsTextRange = c),
-      (o.selectionControllerAccessors = s),
+      (o.selectionControllerAccessors = i),
       (o.selectionAccessors = u),
       !g)
     )
       return o;
     const f = (function (t, e) {
-      const n = Xt(
+      const n = te(
         t,
         (t, n) =>
           n !== e &&
@@ -2011,23 +2044,23 @@
       if (2 !== n.results.length) return null;
       const o = n.results[0].value;
       return o.constructor;
-    })(i, g);
+    })(s, g);
     return (o.GDocsSelectionCursor = f), o;
   }
-  const ce = (t, e) => `Failed to extract ${e}, found ${t.length < 5 ? t.length : ">5"} candidates`;
-  function ue(t, e) {
+  const ge = (t, e) => `Failed to extract ${e}, found ${t.length < 5 ? t.length : ">5"} candidates`;
+  function fe(t, e) {
     return "function" == typeof e && 2 === e.length;
   }
-  var ge;
+  var pe;
   !(function (t) {
     (t.PagedMode = "kix-document"), (t.PagelessMode = "docstext-simple");
-  })(ge || (ge = {}));
-  const fe = (t, e) => {
-    const { results: n } = Xt(
+  })(pe || (pe = {}));
+  const de = (t, e) => {
+    const { results: n } = te(
       t,
       (t, e) =>
         ((t) => {
-          const e = [ge.PagedMode, ge.PagelessMode];
+          const e = [pe.PagedMode, pe.PagelessMode];
           return (
             "object" == typeof t &&
             null !== t &&
@@ -2046,17 +2079,211 @@
       );
     return { status: "success", rootNodeType: n[0].value.getType() };
   };
-  function pe(t) {
+  function he(t, e, n, o) {
+    const r = t[e];
+    if ("function" != typeof r) throw new Error(`Cannot patch non-function ${String(e)}`);
+    const i = new Proxy(r, {
+      apply(t, e, i) {
+        let s;
+        const a = () => {
+          if (!s)
+            try {
+              s = { originalResult: r.apply(e, i) };
+            } catch (t) {
+              s = { originalError: t };
+            }
+          if ("originalError" in s) throw s.originalError;
+          return s.originalResult;
+        };
+        try {
+          n(i, a, e);
+        } catch (t) {
+          if (!(s && "originalError" in s && t === s.originalError))
+            try {
+              o(t, i);
+            } catch (t) {}
+        }
+        return a();
+      }
+    });
+    t[e] = i;
+    let s = !0;
+    return {
+      dispose: function () {
+        if (s) {
+          if (t[e] !== i) throw new Error("Cannot un-patch the object");
+          (t[e] = r), (s = !1);
+        }
+      }
+    };
+  }
+  function me(t, e) {
+    if ("object" != typeof t || null === t) return;
+    const n = t[e];
+    return "function" == typeof n ? n : void 0;
+  }
+  function ye(t) {
+    if (null === t || "object" != typeof t) return !1;
+    const e = t;
+    if ("function" != typeof e.register || e.register.length < 3) return !1;
+    return Object.values(e).some(ve);
+  }
+  function ve(t) {
+    if (null === t || "object" != typeof t) return !1;
+    const e = t[B];
+    return "object" == typeof e && null !== e;
+  }
+  function be(t) {
+    var e;
+    return ((e = ye), te(t, (t, n) => e(n), 5).results).map((t) => t.value);
+  }
+  function Se(t, e, n, o) {
+    const r = be(t);
+    if (0 === r.length) throw new Error("No layout renderer registries found");
+    const i = (function (t) {
+        const e = Object.entries(t).filter(([t, e]) => ve(e));
+        if (1 !== e.length) throw new Error(`Cannot find the registry record: ${e.length} matched`);
+        const n = e[0][0];
+        return { getRegistryRecord: (t) => t[n] };
+      })(r[0]),
+      s = r[0].constructor,
+      a = r.filter((t) => t.constructor === s);
+    for (const t of a) c(t);
+    const l = he(
+      Object.getPrototypeOf(r[0]),
+      "register",
+      ([t, o, r], i) => {
+        try {
+          i();
+        } catch (e) {
+          return void n(e, t, o);
+        }
+        e(t, o, r);
+      },
+      (t, [e, n]) => o(t, e, n)
+    );
+    return {
+      dispose() {
+        l.dispose();
+      }
+    };
+    function c(t) {
+      const n = i.getRegistryRecord(t);
+      for (const [t, o] of Object.entries(n))
+        if ("string" == typeof t) for (const [n, r] of Object.entries(o)) "string" == typeof n && e(t, n, r);
+    }
+  }
+  function xe(t, e, n = () => !0) {
+    const o = new Map(),
+      r = new Map(),
+      i = new Set();
+    let s = !1,
+      a = null;
+    const l = Se(
+      t,
+      function (t, i, a) {
+        if (n(t, i) && !o.has(a.constructor)) {
+          const e = Object.getPrototypeOf(a);
+          o.set(a.constructor, { rendererProto: e, phase: t, nodeType: i }), s && g(e, t, i);
+        }
+        const l = r.get(a);
+        l
+          ? (l.phase !== t && e("Renderer registered for multiple phases", { phases: [l.phase, t], nodeType: i }), l.phases.add(t))
+          : r.set(a, { phases: new Set([t]), phase: t });
+      },
+      (t, n, o) => {
+        e("Error in original #register method", { error: t, phase: n, nodeType: o });
+      },
+      (t, n, o) => {
+        e("Error in #register hook", { error: t, phase: n, nodeType: o });
+      }
+    );
+    let c;
+    try {
+      c = (function (t) {
+        if (0 === t.length) throw new Error("Cannot find the #paint method name: no samples.");
+        let e = null;
+        for (const n of Object.keys(t[0]))
+          if (
+            "constructor" !== n &&
+            t.every((t) => me(t, n)) &&
+            t.some((t) => {
+              var e;
+              return 3 === (null === (e = me(t, n)) || void 0 === e ? void 0 : e.length);
+            })
+          ) {
+            if (e) throw new Error("Cannot find the #paint method name: multiple candidates.");
+            e = n;
+          }
+        if (!e) throw new Error("Cannot find the #paint method name: no candidates.");
+        return e;
+      })([...o.values()].map((t) => t.rendererProto));
+      for (const [t, e] of o) g(e.rendererProto, e.phase, e.nodeType);
+      return (
+        (s = !0),
+        {
+          isRendering: () => null !== a,
+          getNodeType: () => (a ? a.nodeType : null),
+          getRenderingPhase: () => (a ? a.phase : null),
+          dispose: u
+        }
+      );
+    } catch (t) {
+      throw (u(), t);
+    }
+    function u() {
+      (s = !1), l.dispose();
+      for (const t of i) t.dispose();
+    }
+    function g(t, n, o) {
+      try {
+        i.add(
+          he(t, c, f, (t, [r, i]) => {
+            let s;
+            try {
+              s = i && "function" == typeof i.getType && 0 === i.getType.length ? i.getType() : "[type-mismatch]";
+            } catch (t) {
+              s = "[error]";
+            }
+            e("Error in #paint hook", { error: t, phase: n, nodeType: o, paintNodeType: s });
+          })
+        );
+      } catch (t) {
+        e("Failed to patch a renderer class", { error: t, phase: n, nodeType: o });
+      }
+    }
+    function f([t, n], o, i) {
+      var s, l;
+      const c = a;
+      try {
+        const t = r.get(i),
+          u = n && "function" == typeof n.getType ? n.getType() : null,
+          g =
+            null !== (l = null !== (s = null == t ? void 0 : t.phase) && void 0 !== s ? s : null == c ? void 0 : c.phase) && void 0 !== l
+              ? l
+              : null;
+        a = { parent: c, phase: g, nodeType: u, node: n };
+        try {
+          o();
+        } catch (t) {
+          e("Error in original #paint method", { error: t, phase: g, nodeType: u });
+        }
+      } finally {
+        a = c;
+      }
+    }
+  }
+  function we(t) {
     return (function (t) {
       return t && "wrappedJSObject" in t;
     })(t)
       ? t.wrappedJSObject
       : t;
   }
-  function de(t) {
+  function Te(t) {
     t.dispatchEvent(new KeyboardEvent("keydown", { bubbles: !0, cancelable: !0, keyCode: 46, key: "Delete" }));
   }
-  function he(t, e) {
+  function Ee(t, e) {
     const n =
         void 0 === e.html
           ? void 0
@@ -2078,11 +2305,11 @@
         bubbles: !0
       });
     o.dataTransfer &&
-      (void 0 !== e.plain && pe(o.dataTransfer).setData("text/plain", e.plain),
-      void 0 !== e.html && pe(o.dataTransfer).setData("text/html", e.html)),
+      (void 0 !== e.plain && we(o.dataTransfer).setData("text/plain", e.plain),
+      void 0 !== e.html && we(o.dataTransfer).setData("text/html", e.html)),
       t.dispatchEvent(o);
   }
-  function me(t, e) {
+  function Ce(t, e) {
     t.dispatchEvent(
       new KeyboardEvent("keydown", { bubbles: !0, cancelable: !0, keyCode: 39, key: "ArrowRight", code: "ArrowRight", shiftKey: !0 })
     ),
@@ -2093,7 +2320,7 @@
         );
       })(t);
   }
-  var ve, ye, be, Se, xe, we;
+  var Me, ke, Ae, _e, Re, Pe;
   !(function (t) {
     (t.equals = function (t, e) {
       return w(t.left, e.left) && w(t.top, e.top);
@@ -2123,7 +2350,7 @@
       (t.l1Distance = function (t, e) {
         return Math.abs(t.top - e.top) + Math.abs(t.left - e.left);
       });
-  })(ve || (ve = {})),
+  })(Me || (Me = {})),
     (function (t) {
       function e(t) {
         return { top: t.top, left: t.left };
@@ -2133,7 +2360,7 @@
           return e({ top: t.top - n.top + o.top, left: t.left - n.left + o.left });
         }),
         (t.zero = { top: 0, left: 0 });
-    })(ye || (ye = {})),
+    })(ke || (ke = {})),
     (function (t) {
       function e(t) {
         return { top: t.top, left: t.left };
@@ -2145,7 +2372,7 @@
         (t.fromPage = function (t, n) {
           return e({ top: t.top - n.top, left: t.left - n.left });
         });
-    })(be || (be = {})),
+    })(Ae || (Ae = {})),
     (function (t) {
       function e(t) {
         return { top: t.top, left: t.left };
@@ -2160,31 +2387,31 @@
         (t.fromOffset = function (t, e, n) {
           return { top: t.top + e.top - n.top, left: t.left + e.left - n.left };
         });
-    })(Se || (Se = {})),
+    })(_e || (_e = {})),
     (function (t) {
       (t.editorElementSelector = "div.kix-appview-editor"),
         (t.textEventsTargetIframeSelector = "iframe.docs-texteventtarget-iframe"),
         (t.textEventsTargetElementSelector = '[contenteditable="true"]');
-    })(xe || (xe = {})),
+    })(Re || (Re = {})),
     (function (t) {
       (t.spellingBubbleSelector = "div.kix-spell-bubble"),
         (t.sellingUnderlinePromoBubbleSelector = "div.jfk-bubble.jfk-bubble-promo.docs-promo-bubble"),
         (t.pageLessModeTableMaskInner = "kix-domviewscroller-inner"),
         (t.pageLessModeTableMaskOuter = "kix-domviewscroller-outer");
-    })(we || (we = {}));
-  const Te = { success: !1, textChanged: !1, failReason: "noFullText" },
-    Ee = { success: !1, textChanged: !1, failReason: "fullTextMismatch" },
-    Ce = { success: !1, textChanged: !1, failReason: "noInternals" },
-    Me = { success: !1, textChanged: !1, failReason: "noEventTarget" },
-    Ae = { success: !1, textChanged: !1, failReason: "wrongRange" },
-    ke = { success: !1, textChanged: !0, failReason: "noFullTextAfter" },
-    _e = { success: !1, textChanged: !0, failReason: "resultTextMismatch" },
-    Re = { success: !0, textChanged: !0, failReason: null },
-    Ne = { ...Re, withIgnoreRanges: !0 };
-  function Pe(t, e) {
-    he(t, { plain: e });
+    })(Pe || (Pe = {}));
+  const Ne = { success: !1, textChanged: !1, failReason: "noFullText" },
+    Ie = { success: !1, textChanged: !1, failReason: "fullTextMismatch" },
+    Oe = { success: !1, textChanged: !1, failReason: "noInternals" },
+    De = { success: !1, textChanged: !1, failReason: "noEventTarget" },
+    Le = { success: !1, textChanged: !1, failReason: "wrongRange" },
+    je = { success: !1, textChanged: !0, failReason: "noFullTextAfter" },
+    Fe = { success: !1, textChanged: !0, failReason: "resultTextMismatch" },
+    Ge = { success: !0, textChanged: !0, failReason: null },
+    $e = { ...Ge, withIgnoreRanges: !0 };
+  function qe(t, e) {
+    Ee(t, { plain: e });
   }
-  class Ie {
+  class ze {
     constructor(t, e, n, o, r) {
       (this._getInternals = t),
         (this._getFullTextInfo = e),
@@ -2200,33 +2427,33 @@
       if (!o) return !1;
       const r = null === (t = n.getClientRects()) || void 0 === t ? void 0 : t.item(0);
       if (!r || r.width <= 0 || r.height <= 0) return !1;
-      const s = null === (e = o.getClientRects()) || void 0 === e ? void 0 : e.item(0);
-      if (!s || s.width <= 0 || s.height <= 0) return !1;
-      const i = Math.max(r.left, s.left),
-        a = Math.min(r.right, s.right),
-        l = Math.max(r.top, s.top),
-        c = Math.min(r.bottom, s.bottom);
-      if (i > a || l > c) return !1;
-      const u = Math.floor((i + a) / 2),
+      const i = null === (e = o.getClientRects()) || void 0 === e ? void 0 : e.item(0);
+      if (!i || i.width <= 0 || i.height <= 0) return !1;
+      const s = Math.max(r.left, i.left),
+        a = Math.min(r.right, i.right),
+        l = Math.max(r.top, i.top),
+        c = Math.min(r.bottom, i.bottom);
+      if (s > a || l > c) return !1;
+      const u = Math.floor((s + a) / 2),
         g = Math.floor(l + c) / 2;
       return (
-        (function (t, e = be.create({ left: 0, top: 0 }), n = !1) {
+        (function (t, e = Ae.create({ left: 0, top: 0 }), n = !1) {
           const o = { clientX: e.left, clientY: e.top, bubbles: !0, shiftKey: n };
           t.dispatchEvent(new MouseEvent("mousedown", o)), t.dispatchEvent(new MouseEvent("mouseup", o));
-        })(n, be.create({ left: u, top: g })),
+        })(n, Ae.create({ left: u, top: g })),
         !0
       );
     }
     replaceText({ start: t, end: e }, n, o, r = !1) {
-      const s = this._getFullTextInfo();
-      if (null === s) return Te;
-      const i = s.fullText;
-      if (void 0 !== o && i !== o) return Ee;
+      const i = this._getFullTextInfo();
+      if (null === i) return Ne;
+      const s = i.fullText;
+      if (void 0 !== o && s !== o) return Ie;
       const a = this._getInternals();
-      if (!a) return Ce;
+      if (!a) return Oe;
       const l = this._getKeyboardEventTarget();
-      if (!l) return Me;
-      if (t > e || t < 0 || e > i.length) return Ae;
+      if (!l) return De;
+      if (t > e || t < 0 || e > s.length) return Le;
       const c = () => {
           const t = a.selectionController.getSelection();
           l.dispatchEvent(
@@ -2249,23 +2476,23 @@
         const o = new t.GDocsCursor(n);
         if (n > e) {
           const r = new t.GDocsCursor(e),
-            s = new t.GDocsSelectionCursor(e, n - 1, r),
-            i = new t.GDocsSelectionCursor(e, n - 1, o);
-          return new t.GDocsSelection(o, i, s);
+            i = new t.GDocsSelectionCursor(e, n - 1, r),
+            s = new t.GDocsSelectionCursor(e, n - 1, o);
+          return new t.GDocsSelection(o, s, i);
         }
         return new t.GDocsSelection(o, null, null);
       })(a, t, e);
       a.selectionControllerAccessors.setSelection(a.selectionController, g, !0),
-        t === e ? "" !== n && Pe(l, n) : "" === n ? de(l) : Pe(l, n);
-      const f = (function ({ getFullTextInfo: t, fullTextBefore: e, newText: n, start: o, end: r, validationRetryWithIgnoreRanges: s }) {
-        const i = t(),
+        t === e ? "" !== n && qe(l, n) : "" === n ? Te(l) : qe(l, n);
+      const f = (function ({ getFullTextInfo: t, fullTextBefore: e, newText: n, start: o, end: r, validationRetryWithIgnoreRanges: i }) {
+        const s = t(),
           a = e.slice(0, o) + n + e.slice(r);
-        if ((null == i ? void 0 : i.fullText) === a) return Re;
-        const l = s && t(!0);
+        if ((null == s ? void 0 : s.fullText) === a) return Ge;
+        const l = i && t(!0);
         if (l) {
           const t = l.fullText === e.slice(0, o) + n + e.slice(o),
-            s = o + n.length,
-            i = r + n.length;
+            i = o + n.length,
+            s = r + n.length;
           if (
             t &&
             (function (t, e, n) {
@@ -2276,17 +2503,17 @@
               }
               for (let t = e; t < n; t++) if (!r[t]) return !1;
               return !0;
-            })(l, s, i)
+            })(l, i, s)
           )
-            return Ne;
+            return $e;
         }
-        if (!i && !l) return ke;
-        return _e;
-      })({ getFullTextInfo: this._getFullTextInfo, fullTextBefore: i, newText: n, start: t, end: e, validationRetryWithIgnoreRanges: r });
-      return f !== Te && u() && c(), f;
+        if (!s && !l) return je;
+        return Fe;
+      })({ getFullTextInfo: this._getFullTextInfo, fullTextBefore: s, newText: n, start: t, end: e, validationRetryWithIgnoreRanges: r });
+      return f !== Ne && u() && c(), f;
     }
   }
-  function Oe(t) {
+  function Be(t) {
     let e = !0;
     const n = new Set();
     return {
@@ -2306,32 +2533,32 @@
       }
     };
   }
-  function De(e, n, o = 1) {
+  function We(e, n, o = 1) {
     const r = new Set();
-    let s = !1;
+    let i = !1;
     return {
-      onRender(i) {
-        if (i.pageFragment.partialRect)
-          r.add(i),
+      onRender(s) {
+        if (s.pageFragment.partialRect)
+          r.add(s),
             (async () => {
-              if (s) return;
-              if ((await t(0), s)) return;
+              if (i) return;
+              if ((await t(0), i)) return;
               if (!r.size) return;
-              (s = !0), n(), await t(o), (s = !1);
-              const i = [...r.values()];
+              (i = !0), n(), await t(o), (i = !1);
+              const s = [...r.values()];
               r.clear();
-              for (const t of i) e.onRender(t, !0);
+              for (const t of s) e.onRender(t, !0);
             })();
         else {
           let t = !1;
-          if (((s = !1), r.size)) {
-            const e = i.pageFragment.pageAttrs.pageOffsetRect,
+          if (((i = !1), r.size)) {
+            const e = s.pageFragment.pageAttrs.pageOffsetRect,
               n = [...r.values()];
             for (const o of n) {
               g(o.pageFragment.pageAttrs.pageOffsetRect, e) && (r.delete(o), (t = !0));
             }
           }
-          e.onRender(i, t);
+          e.onRender(s, t);
         }
       },
       pause() {
@@ -2342,27 +2569,31 @@
       }
     };
   }
-  const Le = (e, n, r, i) => (a, l, c) => {
+  const Ke = (e, n, r, s) => (a, l, c) => {
     const u = () => document.querySelector(".kix-rotatingtilemanager:not(.docs-ui-unprintable *)");
     !(async function () {
       var g;
       try {
-        const f =
-          null !== (g = u()) && void 0 !== g
-            ? g
-            : await (async function () {
-                let e = 120;
-                const n = 250;
-                for (; e; ) {
-                  await t(n);
-                  const o = u();
-                  if (o) return o;
-                  e--;
-                }
-                return null;
-              })();
-        if (!f) return void e.api.logError("injected.startFail", "Injected init failed: Cannot find rotating tile manager in 30 seconds");
-        const p = () =>
+        const f = await i(10, 0, () => {
+            return (t = 400), (n = e.api.getInitOptions()), Promise.race([o(t), n]);
+            var t, n;
+          }),
+          p =
+            null !== (g = u()) && void 0 !== g
+              ? g
+              : await (async function () {
+                  let e = 120;
+                  const n = 250;
+                  for (; e; ) {
+                    await t(n);
+                    const o = u();
+                    if (o) return o;
+                    e--;
+                  }
+                  return null;
+                })();
+        if (!p) return void e.api.logError("injected.starting", "Injected init failed: Cannot find rotating tile manager in 30 seconds");
+        const d = () =>
             (function (t) {
               var e, n, o;
               try {
@@ -2370,33 +2601,33 @@
                   (o =
                     null ===
                       (n =
-                        null === (e = t.querySelector(xe.textEventsTargetIframeSelector)) || void 0 === e ? void 0 : e.contentDocument) ||
+                        null === (e = t.querySelector(Re.textEventsTargetIframeSelector)) || void 0 === e ? void 0 : e.contentDocument) ||
                     void 0 === n
                       ? void 0
-                      : n.querySelector(xe.textEventsTargetElementSelector)) && void 0 !== o
+                      : n.querySelector(Re.textEventsTargetElementSelector)) && void 0 !== o
                   ? o
                   : null;
               } catch (t) {
                 return null;
               }
             })(document),
-          d = () => {
+          h = () => {
             var t;
             return null !== (t = document.querySelector(".kix-appview-editor")) && void 0 !== t ? t : null;
           },
-          h = (function (t, e, n) {
-            const o = new ae(self, e, n);
-            let r = o.getKixApp(),
+          m = (function (t, e, n, o) {
+            const r = new ce(self, e, n);
+            let i = r.getKixApp(),
               s = null,
-              i = null,
-              a = 0,
-              l = 0;
-            function c() {
-              a >= 10 ||
-                (a++,
-                (r = o.getKixApp()),
-                (s = r ? le(r, e) : null),
-                (i =
+              a = null,
+              l = 0,
+              c = 0;
+            function u() {
+              l >= 10 ||
+                (l++,
+                (i = r.getKixApp()),
+                (s = i ? ue(i, e) : null),
+                (a =
                   s &&
                   s.GDocsCursor &&
                   s.GDocsSelection &&
@@ -2408,49 +2639,65 @@
                     ? s
                     : null));
             }
+            const g = (function () {
+              if (!o.monitorLayoutRendering) return null;
+              if (!i) return null;
+              const t = e.bind(null, "monitorLayoutNodeRenderers");
+              try {
+                return xe(i, t, o.limitLayoutRenderingPatching ? (t, e) => t === B || t === W : void 0);
+              } catch (e) {
+                return t("Failed to create layout node renderers monitor", e), null;
+              }
+            })();
             return {
-              fullTextExtractor: o,
+              fullTextExtractor: r,
               get gdocsApp() {
-                return o.getKixApp();
+                return r.getKixApp();
               },
               get selection() {
-                return s || c(), s;
+                return s || u(), s;
               },
               getSelectionFull() {
-                if ((s || c(), !i)) {
+                if ((s || u(), !a)) {
                   if (!s) return null;
                   t(() => {
-                    c();
+                    u();
                   });
                 }
-                return i;
+                return a;
               },
               getLayoutTreeAvailability: () =>
-                l >= 2 ? null : (l++, (r = o.getKixApp()), r ? fe(r, e) : { status: "fail", failReason: "noInstances" })
+                c >= 2 ? null : (c++, (i = r.getKixApp()), i ? de(i, e) : { status: "fail", failReason: "noInstances" }),
+              getRenderingPhase: () => (g ? g.getRenderingPhase() : null),
+              getLayoutNodeType: () => (g ? g.getNodeType() : null),
+              dispose() {
+                g && g.dispose();
+              }
             };
           })(
             (t) => {
-              const e = p();
-              e && me(e, t);
+              const e = d();
+              e && Ce(e, t);
             },
             e.api.logError,
-            e.api.log
+            e.api.log,
+            { monitorLayoutRendering: f.monitorLayoutRendering, limitLayoutRenderingPatching: f.limitLayoutRenderingPatching }
           ),
-          m = new Ie(
-            () => h.getSelectionFull(),
-            (t = !1) => h.fullTextExtractor.getText({ reQueryForIgnoredRanges: t, expectTextSelection: !1 }),
-            p,
-            () => f,
-            d
+          y = new ze(
+            () => m.getSelectionFull(),
+            (t = !1) => m.fullTextExtractor.getText({ reQueryForIgnoredRanges: t, expectTextSelection: !1 }),
+            d,
+            () => p,
+            h
           ),
           v = (function (e, n, o) {
             let r,
-              s = !1,
-              i = !1;
-            let a = Oe((t, r = !1) => {
+              i = !1,
+              s = !1;
+            let a = Be((t, r = !1) => {
               const a = {
                 fullText:
-                  i || !s ? null : o.getText({ reQueryForIgnoredRanges: t.hasSuggestions, expectTextSelection: t.selection.length > 0 }),
+                  s || !i ? null : o.getText({ reQueryForIgnoredRanges: t.hasSuggestions, expectTextSelection: t.selection.length > 0 }),
                 renderResult: t,
                 forcedFullRender: r
               };
@@ -2460,28 +2707,28 @@
               a.pause(),
               {
                 onChangeMode(t) {
-                  r !== t && ((r = t), "suggest" === r && ((s = !1), (i = !1), l(t)));
+                  r !== t && ((r = t), "suggest" === r && ((i = !1), (s = !1), l(t)));
                 },
                 onRender(t) {
                   a.onRender(t);
                 },
                 init: (t) => {
-                  t.forceFullRender && (a = De(a, () => o.triggerRender())),
+                  t.forceFullRender && (a = We(a, () => o.triggerRender())),
                     o.enableDeleteSuggestionRanges(t.useDeleteSuggestionRanges),
                     l(void 0);
                 }
               }
             );
             async function l(n) {
-              if ((await t(0), s || i)) return;
+              if ((await t(0), i || s)) return;
               if (r !== n) return;
               null === o.getText({ reQueryForIgnoredRanges: !0, expectTextSelection: !1 })
-                ? ((i = !0), e.logError("FullTextExtractor", "Cannot get full document text"))
-                : (s = !0),
+                ? ((s = !0), e.logError("FullTextExtractor", "Cannot get full document text"))
+                : (i = !0),
                 a.resume();
             }
-          })(e.api, n, h.fullTextExtractor),
-          y = ht(l.metricsMap, () => document.createElement("canvas").getContext("2d"), e.api);
+          })(e.api, n, m.fullTextExtractor),
+          b = yt(l.metricsMap, () => document.createElement("canvas").getContext("2d"), e.api);
         a((t) => {
           if (
             (function (t) {
@@ -2511,13 +2758,20 @@
                 equations: M()
               };
             })({
-              api: e.api,
-              metricsMap: y,
+              log: e.api.log,
+              logError: e.api.logError,
+              logException: e.api.logException,
+              useTextForegroundFiltering: f.useTextForegroundFiltering,
+              useEquationFiltering: f.useEquationFiltering,
+              useSelectionFiltering: f.useSelectionFiltering,
+              metricsMap: b,
+              getRenderingPhase: () => m.getRenderingPhase(),
+              getLayoutNodeType: () => m.getLayoutNodeType(),
               getCurrentPageAttrs() {
                 var e;
-                const n = f.getBoundingClientRect(),
-                  { left: o, top: r, width: s, height: i } = t.getBoundingClientRect(),
-                  a = { left: o - n.left, top: r - n.top, width: s, height: i };
+                const n = p.getBoundingClientRect(),
+                  { left: o, top: r, width: i, height: s } = t.getBoundingClientRect(),
+                  a = { left: o - n.left, top: r - n.top, width: i, height: s };
                 return {
                   canvasBitmapSize: { width: t.width, height: t.height },
                   pageOffsetRect: a,
@@ -2535,19 +2789,16 @@
             });
             return r
               ? (function ({ api: t, state: e }) {
-                  return k(e, ct, t);
+                  return A(e, gt, t);
                 })({ api: e.api, state: n })
-              : (function ({ api: t, state: e }) {
-                  return k(e, lt, t);
-                })({ api: e.api, state: n });
+              : (function (t) {
+                  return A(t, ut, t);
+                })(n);
           }
         }),
-          i({ replaceText: m.replaceText.bind(m), getLayoutTreeAvailability: () => h.getLayoutTreeAvailability() });
-        const b = await s(10, 0, () => {
-          return (t = 400), (n = e.api.init()), Promise.race([o(t), n]);
-          var t, n;
-        });
-        b && v.init(b),
+          s({ replaceText: y.replaceText.bind(y), getLayoutTreeAvailability: () => m.getLayoutTreeAvailability() });
+        if (!(await e.api.init())) return void e.api.logError("injected.starting", "Injected init failed: server init failed");
+        v.init(f),
           r || (await t(1e3), l.metricsMap.size || (await e.api.logError("init.textMeasuringCheck", "No text measuring events received"))),
           await (async function (e, n) {
             for (let o = 0; o < 60; o++) {
@@ -2580,8 +2831,8 @@
           return { request: `gr-cs-request-${t}`, response: `gr-cs-response-${t}` };
         })(o);
       (n = new l(new c(document, r.response, r.request))), n.api.log("injected.starting", "Injected script initialization");
-      const s = self[`GR_GDEI_${o}`];
-      if (!s) {
+      const i = self[`GR_GDEI_${o}`];
+      if (!i) {
         console.error("Could not start grammarly integration", "no early injected data found");
         const t = { message: document.documentElement.dataset.grGdcErrorMsg, stack: document.documentElement.dataset.grGdcErrorStack };
         return void n.api.logError("injected.starting", "No early injected data found", t);
@@ -2591,9 +2842,9 @@
         g = (function (t) {
           return { request: `gr-ics-request-${t}`, response: `gr-ics-response-${t}` };
         })(o);
-      Le(n, a, u, (t) => {
-        new mt(
-          (function (t, e = i.create()) {
+      Ke(n, a, u, (t) => {
+        new vt(
+          (function (t, e = s.create()) {
             return {
               inbound: {
                 subscribe: (n) =>
@@ -2614,10 +2865,9 @@
           })(new c(document, g.request, g.response)),
           { replaceText: (e, ...n) => t.replaceText(...n), getLayoutTreeAvailability: () => t.getLayoutTreeAvailability() }
         );
-      })(s.addMiddleware, s.textMeasuringState, s.getPatchedCanvases);
+      })(i.addMiddleware, i.textMeasuringState, i.getPatchedCanvases);
     } catch (t) {
-      console.error("Could not start grammarly integration", "module not loaded", t),
-        n && n.api.logError("injected.startFail", `Injected init failed: ${String(t)}`);
+      console.error("Could not start grammarly integration", "module not loaded", t), n && n.api.logException("injected.starting", t);
     }
   })();
 })();

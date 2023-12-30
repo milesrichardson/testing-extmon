@@ -2,11 +2,11 @@
   [637],
   {
     12989: (e, t, s) => {
-      s.d(t, { G: () => r });
+      s.d(t, { G: () => a });
       var i = s(23239),
         n = s(5114),
         o = s(624);
-      class r extends o.J {
+      class a extends o.J {
         constructor() {
           super(), (this._popoverActionsHandler = i.h.create(n.none));
         }
@@ -45,8 +45,8 @@
       var i = s(5114),
         n = s(21038),
         o = s(24055),
-        r = s(12054),
-        a = s(78929),
+        a = s(12054),
+        r = s(78929),
         d = s(31903),
         c = s(9922),
         p = s(85985),
@@ -73,13 +73,13 @@
               i.fromNullable,
               i.map((e) => n.j.AlertId.from(e.id))
             ),
-            P = e.capiEvents.pipe(
+            S = e.capiEvents.pipe(
               p.h(h.h.is("sdui_add", "sdui_remove", "sdui_update")),
               p.h(o.e.isSduiEvent),
-              l.U(r.al.fromSource(r.i5.CAPI))
+              l.U(a.al.fromSource(a.i5.CAPI))
             ),
-            S = b ? new A.G() : new g.z(),
-            x = new a.G(P, G, S),
+            P = b ? new A.G() : new g.z(),
+            x = new r.G(S, G, P),
             y = new d.Q({ sendUserAction: w }),
             E = new m.U(x, y, f, C, {
               openAssistant(e) {
@@ -88,7 +88,7 @@
               closePopover: (t) => e.pushCapiSduiEvent({ kind: "sdui_remove", sduiRootId: u.t_.Id.create(t), rev: 0 })
             });
           return (
-            S.setPopoverActionsHandler(E),
+            P.setPopoverActionsHandler(E),
             _.push(
               t.subscribe((e) => x.notifyAlertsChanged()),
               e.capiEvents
@@ -122,8 +122,8 @@
       var i = s(23239),
         n = s(72812),
         o = s(14454),
-        r = s(57757),
-        a = s(5114),
+        a = s(57757),
+        r = s(5114),
         d = s(31668),
         c = s(22232),
         p = s(71249),
@@ -135,7 +135,7 @@
       class A {
         constructor() {
           (this.feed = u.E),
-            (this.currentFeed = a.none),
+            (this.currentFeed = r.none),
             (this.onFeedRemove = u.E),
             (this.onFeedEmpty = u.E),
             (this.header = u.E),
@@ -154,8 +154,8 @@
         b = s(8901),
         _ = s(32952),
         G = s(9922),
-        P = s(41398),
-        S = s(77176),
+        S = s(41398),
+        P = s(77176),
         x = s(93508),
         y = s(19751),
         E = s(23063),
@@ -164,17 +164,17 @@
         M = s(26328),
         z = s(66268);
       class k {
-        constructor(e, t, s, o, r) {
+        constructor(e, t, s, o, a) {
           (this.sduiManager = e),
             (this.sduiFeedbackService = t),
             (this.environment = s),
             (this.capiClient = o),
-            (this.integrationModel = r),
-            (this._focusedItem = i.h.create(a.none)),
+            (this.integrationModel = a),
+            (this._focusedItem = i.h.create(r.none)),
             (this._sduiInlineCardActions = new _.xQ()),
             (this._subs = new G.w.Keeper()),
             (this.focusCard = (e) => {
-              this._focusedItem.set(a.some(e));
+              this._focusedItem.set(r.some(e));
             }),
             (this.handleSduiCardAction = (e, t, s) => {
               this._sduiInlineCardActions.next({ cardAction: e, cardModel: t, match: s });
@@ -183,25 +183,25 @@
               this._sduiViewModel.sduiActionEvents.next(e),
                 (0, h.zG)(
                   k.getSduiFeedActions(e.actions),
-                  a.map((t) =>
+                  r.map((t) =>
                     this.integrationModel.openAssistant({ type: F.WT.sdui, action: { ...e, actions: t, type: z.lY.Type.sduiCardAction } })
                   )
                 );
             }),
             (this.dispose = () => this._subs.dispose()),
-            (this._sduiViewModel = new n.x(t, e, new A(), o, this._focusedItem.view(a.map((e) => e.id))));
+            (this._sduiViewModel = new n.x(t, e, new A(), o, this._focusedItem.view(r.map((e) => e.id))));
           const d = this._sduiViewModel.sduiActionEvents
-              .pipe(P.M(this._sduiInlineCardActions.pipe(S.U(a.some), x.O(a.none))))
+              .pipe(S.M(this._sduiInlineCardActions.pipe(P.U(r.some), x.O(r.none))))
               .subscribe(([e, t]) =>
                 this._nativeHandling(
                   e,
                   (0, h.zG)(
                     t,
-                    a.map((e) => e.match)
+                    r.map((e) => e.match)
                   ),
                   (0, h.zG)(
                     t,
-                    a.map((e) => e.cardModel)
+                    r.map((e) => e.cardModel)
                   )
                 )
               ),
@@ -213,10 +213,10 @@
         _nativeHandling({ actions: e, cardId: t, sourceId: s, scope: i }, n, o) {
           (0, h.zG)(
             k.getSduiFeedActions(e),
-            a.map((e) => {
+            r.map((e) => {
               (0, h.zG)(
                 o,
-                a.map((n) => {
+                r.map((n) => {
                   n.onOpenExpandedViewBySduiAction(w.Oe.create(e, t, s, i));
                 })
               );
@@ -236,6 +236,7 @@
                 case "selectAlternative":
                 case "highlightAlert":
                 case "openPerformanceScore":
+                case "nativeOpenUserSatisfactionFeedback":
                 case "enablePlagiarismCheck":
                 case "disablePlagiarismCheck":
                 case "showHighlights":
@@ -253,31 +254,31 @@
                 case "openLink":
                   return void this.environment.actions.openPopup(new d.Z(e.url));
                 case "copyToClipboard":
-                  return void (0, h.zG)((0, r.v)(e.text), E.q(1)).subscribe();
+                  return void (0, h.zG)((0, a.v)(e.text), E.q(1)).subscribe();
                 case "stopApplyingAlerts":
                 case "upgradeToPremium":
                   return (
                     (0, h.zG)(
                       o,
-                      a.map((e) => e.openPlanComparisonPage({ forceUtmCampaign: b.L.Place.assistantCardList }))
+                      r.map((e) => e.openPlanComparisonPage({ forceUtmCampaign: b.L.Place.assistantCardList }))
                     ),
                     void (0, h.zG)(
                       n,
-                      a.map((e) => e.hide())
+                      r.map((e) => e.hide())
                     )
                   );
                 case "applyAlerts":
                   return void (0, h.zG)(
                     n,
-                    a.map((t) => {
+                    r.map((t) => {
                       null != t.alert &&
                         ((0, h.zG)(
                           (0, f.UQ)(t.alert, t.plainText),
                           (e) => new C.U_(e, (e) => t.replace(null != e ? e : "", !1)),
                           (t) =>
                             (0, h.zG)(
-                              a.fromNullable(t.replacements[e.alternativeIndex]),
-                              a.map((e) => t.getOnReplace(e)())
+                              r.fromNullable(t.replacements[e.alternativeIndex]),
+                              r.map((e) => t.getOnReplace(e)())
                             )
                         ),
                         t.hide());
@@ -287,19 +288,19 @@
                 case "removeRoot":
                   return void (0, h.zG)(
                     n,
-                    a.map((e) => e.hide())
+                    r.map((e) => e.hide())
                   );
                 case "removeAlerts":
                   return void (0, h.zG)(
                     n,
-                    a.map((e) => {
+                    r.map((e) => {
                       e.ignore(), e.hide();
                     })
                   );
                 case "openGrammarlyGo":
                   return void (0, h.zG)(
-                    a.sequenceArray([o, n]),
-                    a.map(([e, t]) => {
+                    r.sequenceArray([o, n]),
+                    r.map(([e, t]) => {
                       if (t.alert && (0, I.t)(t.alert.patternName)) {
                         const s = (0, f.UQ)(t.alert, t.plainText);
                         if (s.length > 0 && s[0].newText) {

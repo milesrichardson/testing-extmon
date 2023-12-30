@@ -37,15 +37,14 @@ async function injectDependencies(dependencies) {
 }
 
 // pure text
-function injectScript(scriptText) {
-  let scriptElement = document.createElement("script");
-  scriptElement.setAttribute("async", "");
-  scriptElement.appendChild(document.createTextNode(scriptText));
+function injectXScript(scriptText) {
+  let scriptElement = document.createElement("div");
+  scriptElement.setAttribute("script-content", btoa(scriptText));
   (document.body || document.head || document.documentElement).appendChild(scriptElement);
 }
 
 function initiate() {
-  injectScript(
+  injectXScript(
     'window.OpticFiles={url:"' +
       chrome.runtime.getURL("") +
       '",id:"' +
@@ -58,12 +57,16 @@ function initiate() {
       chrome.runtime.getURL("dist/img/toucan.png") +
       '"}}'
   );
-  injectScript(
+  injectXScript(
     `
    setInterval(() => {let a=document.evaluate("//div[text()='Camera is starting']",document,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue;if(a){a.innerText="Plugins being installed"}}, 500)`
   );
 
   injectDependencies([
+    {
+      type: "script",
+      url: chrome.runtime.getURL("dist/quick_hook.js")
+    },
     {
       type: "script",
       url: chrome.runtime.getURL("dist/dependencies/tfjs.js")

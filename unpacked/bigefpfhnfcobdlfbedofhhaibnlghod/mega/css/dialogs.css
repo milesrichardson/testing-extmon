@@ -4147,9 +4147,12 @@ body.theme-dark .share-link-expiry-calendar .datepicker--cell.-current- {
 }
 .mega-dialog.properties-dialog .file-status-icon {
   --mask-color: var(--icon-rest);
-  --icon-size: 16px;
+  --icon-size: 20px;
   left: 16px;
   top: 16px;
+}
+.mega-dialog.properties-dialog .file-status-icon.icon-info {
+  --mask-color: var(--secondary-orange);
 }
 .rtl .mega-dialog.properties-dialog .file-status-icon {
   left: auto;
@@ -8701,6 +8704,9 @@ body:not(.rtl) .mega-dialog.limited-bandwidth-dialog .plans-row .pricing-page.pl
   text-align: center;
   width: 120px;
 }
+.mega-dialog.voucher-info-redeem .s4-voucher-terms-label {
+  color: var(--text-color-high);
+}
 .mega-dialog.affiliate-request {
   width: 630px;
 }
@@ -11398,4 +11404,76 @@ body:not(.rtl) .mega-dialog.limited-bandwidth-dialog .plans-row .pricing-page.pl
 .pset-decr-dialog h3 {
   color: var(--text-color-high);
   font: var(--text-h2);
+}
+.mega-dialog.upgrade-welcome-dialog {
+  color: var(--text-color-high);
+  display: flex;
+  flex-direction: row;
+}
+.mega-dialog.upgrade-welcome-dialog header {
+  font: var(--text-h1-bold);
+  margin-bottom: 8px;
+}
+.mega-dialog.upgrade-welcome-dialog .thanks-text {
+  color: var(--text-color-medium);
+  font: var(--text-body1);
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 32px 9px 32px 32px;
+  width: 360px;
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .welcome-dialog.content {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .welcome-dialog.content .plan-info-header {
+  font: var(--text-h2-bold);
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .welcome-dialog.content-block {
+  gap: 16px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .content-block i {
+  --icon-size: 24px;
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .content-block .content-info {
+  display: flex;
+  flex-direction: column;
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .content-block .content-info .info-header {
+  color: var(--text-color-high);
+  font: var(--text-h3-bold);
+}
+.mega-dialog.upgrade-welcome-dialog .upgrade-welcome-content-left .content-block .content-info .info-text {
+  color: var(--text-color-medium);
+  font: var(--text-body1);
+}
+.mega-dialog.upgrade-welcome-dialog footer {
+  bottom: 0;
+  padding: 24px;
+  position: absolute;
+  width: 100%;
+}
+.mega-dialog.upgrade-welcome-dialog footer button {
+  align-self: flex-end;
+  width: max-content;
+}
+.mega-dialog.upgrade-welcome-dialog .image-container,
+.mega-dialog.upgrade-welcome-dialog footer button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.mega-dialog.upgrade-welcome-dialog .image {
+  background-image: url(../imagery/mega-dialog-welcome-image.6edf7e8412f5723e.png);
+  background-size: 221px;
+  height: 221px;
+  width: 221px;
 }

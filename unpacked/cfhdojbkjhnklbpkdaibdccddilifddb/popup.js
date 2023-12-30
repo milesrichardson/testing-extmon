@@ -1247,10 +1247,26 @@
      */
 
     // create the tab object once at the right time
-    const activeTab = new Promise((resolve) => {
+    const activeTab = new Promise((resolve, reject) => {
       document.addEventListener(
         "DOMContentLoaded",
         () => {
+          // In e2e tests, the popup will be open in its own, regular, window.
+          // We use testTabIndex to point the popup to the active tab.
+          const searchParams = new URLSearchParams(document.location.search);
+          const testTabId = parseInt(searchParams.get("testTabId"), 10);
+
+          if (Number.isInteger(testTabId)) {
+            browser.tabs
+              .get(testTabId)
+              .then((tab) => {
+                const { id, incognito, url } = tab;
+                resolve({ id, incognito, url });
+              })
+              .catch(reject);
+            return;
+          }
+
           browser.tabs.query({ active: true, lastFocusedWindow: true }).then((tabs) => {
             const { id, incognito, url } = tabs[0];
             resolve({ id, incognito, url });

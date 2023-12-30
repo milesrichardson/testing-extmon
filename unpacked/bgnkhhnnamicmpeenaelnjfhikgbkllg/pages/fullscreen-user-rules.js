@@ -1,17 +1,17 @@
 (self["webpackChunkbrowser_extension"] = self["webpackChunkbrowser_extension"] || []).push([
   [632],
   {
-    /***/ 43121: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3121: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -31,17 +31,17 @@
       /***/
     },
 
-    /***/ 49970: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9970: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -61,17 +61,17 @@
       /***/
     },
 
-    /***/ 84381: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 4381: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -91,17 +91,17 @@
       /***/
     },
 
-    /***/ 46949: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6949: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -121,17 +121,17 @@
       /***/
     },
 
-    /***/ 26834: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6834: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -151,17 +151,17 @@
       /***/
     },
 
-    /***/ 78168: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8168: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -181,17 +181,17 @@
       /***/
     },
 
-    /***/ 51258: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 1258: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -211,17 +211,17 @@
       /***/
     },
 
-    /***/ 66843: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6843: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -241,17 +241,17 @@
       /***/
     },
 
-    /***/ 99674: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9674: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -271,17 +271,17 @@
       /***/
     },
 
-    /***/ 40478: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 478: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       // Imports
@@ -301,33 +301,33 @@
       /***/
     },
 
-    /***/ 72060: /***/ (module, __webpack_exports__, __webpack_require__) => {
+    /***/ 2060: /***/ (module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
         /* harmony export */
       });
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(91389);
+        __webpack_require__(1389);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59633);
+      /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9633);
       /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_common_styles_fonts_pcss__WEBPACK_IMPORTED_MODULE_2__ =
-        __webpack_require__(84381);
+        __webpack_require__(4381);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_common_styles_vars_pcss__WEBPACK_IMPORTED_MODULE_3__ =
-        __webpack_require__(26834);
+        __webpack_require__(6834);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_common_styles_icons_pcss__WEBPACK_IMPORTED_MODULE_4__ =
-        __webpack_require__(46949);
+        __webpack_require__(6949);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_common_pcss__WEBPACK_IMPORTED_MODULE_5__ =
-        __webpack_require__(66843);
+        __webpack_require__(6843);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_button_pcss__WEBPACK_IMPORTED_MODULE_6__ =
-        __webpack_require__(51258);
+        __webpack_require__(1258);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_setting_pcss__WEBPACK_IMPORTED_MODULE_7__ =
-        __webpack_require__(40478);
+        __webpack_require__(478);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_modal_pcss__WEBPACK_IMPORTED_MODULE_8__ =
-        __webpack_require__(99674);
+        __webpack_require__(9674);
       // Imports
 
       var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()(
@@ -362,7 +362,7 @@
       /***/
     },
 
-    /***/ 58396: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8396: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Iu: () => /* binding */ translate
@@ -2018,11 +2018,537 @@
       /***/
     },
 
-    /***/ 99314: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 9219: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ S: () => /* binding */ SimpleRegex,
+        /* harmony export */ a: () => /* binding */ stringArraysEquals,
+        /* harmony export */ b: () => /* binding */ stringArraysHaveIntersection,
+        /* harmony export */ f: () => /* binding */ fastHash,
+        /* harmony export */ h: () => /* binding */ hasUnquotedSubstring,
+        /* harmony export */ i: () => /* binding */ indexOfAny,
+        /* harmony export */ r: () => /* binding */ replaceAll,
+        /* harmony export */ s: () => /* binding */ splitByDelimiterWithEscapeCharacter
+        /* harmony export */
+      });
+      /* unused harmony export c */
+      /**
+       * Splits the string by the delimiter, ignoring escaped delimiters
+       * and without tokenizing.
+       * Works for plain strings that don't include string representation of
+       * complex entities, e.g $replace modifier values.
+       *
+       * @param string - string to split
+       * @param delimiter - delimiter
+       * @param escapeCharacter - escape character
+       * @param preserveEmptyTokens - if true, preserve empty parts
+       * @param shouldUnescape - if true, unescape characters
+       * @return array of string parts
+       */
+      function splitByDelimiterWithEscapeCharacter(string, delimiter, escapeCharacter, preserveEmptyTokens, shouldUnescape) {
+        if (shouldUnescape === void 0) {
+          shouldUnescape = true;
+        }
+        if (!string) {
+          return [];
+        }
+        if (string.startsWith(delimiter)) {
+          // eslint-disable-next-line no-param-reassign
+          string = string.substring(1);
+        }
+        var words = [];
+        if (!string.includes(escapeCharacter)) {
+          words = string.split(delimiter);
+          if (!preserveEmptyTokens) {
+            words = words.filter(function (word) {
+              return !!word;
+            });
+          }
+          return words;
+        }
+        var chars = [];
+        var makeWord = function () {
+          var word = chars.join("");
+          words.push(word);
+          chars = [];
+        };
+        for (var i = 0; i < string.length; i += 1) {
+          var char = string.charAt(i);
+          var isLastChar = i === string.length - 1;
+          if (char === delimiter) {
+            var isEscapedChar = i > 0 && string[i - 1] === escapeCharacter;
+            if (isEscapedChar) {
+              if (shouldUnescape) {
+                chars.splice(chars.length - 1, 1);
+              }
+              chars.push(char);
+            } else {
+              makeWord();
+            }
+            if (isLastChar) {
+              makeWord();
+            }
+          } else if (isLastChar) {
+            chars.push(char);
+            makeWord();
+          } else {
+            chars.push(char);
+          }
+        }
+        if (!preserveEmptyTokens) {
+          words = words.filter(function (word) {
+            return !!word;
+          });
+        }
+        return words;
+      }
+      /**
+       * Checks if the specified string starts with a substr at the specified index.
+       *
+       * @param str - String to check
+       * @param startIndex - Index to start checking from
+       * @param substr - Substring to check
+       * @return boolean true if it does start
+       */
+      function startsAtIndexWith(str, startIndex, substr) {
+        if (str.length - startIndex < substr.length) {
+          return false;
+        }
+        for (var i = 0; i < substr.length; i += 1) {
+          if (str.charAt(startIndex + i) !== substr.charAt(i)) {
+            return false;
+          }
+        }
+        return true;
+      }
+      /**
+       * Checks if str has unquoted substr
+       *
+       * @param str
+       * @param substr
+       */
+      function hasUnquotedSubstring(str, substr) {
+        var quotes = ['"', "'", "/"];
+        if (!str.includes(substr)) {
+          return false;
+        }
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        if (indexOfAny(str, quotes) === -1) {
+          return true;
+        }
+        var stack = [];
+        for (var i = 0; i < str.length; i += 1) {
+          var cursor = str[i];
+          if (stack.length === 0) {
+            if (startsAtIndexWith(str, i, substr)) {
+              return true;
+            }
+          }
+          if (quotes.indexOf(cursor) >= 0 && (i === 0 || str[i - 1] !== "\\")) {
+            var last = stack.pop();
+            if (!last) {
+              stack.push(cursor);
+            } else if (last !== cursor) {
+              stack.push(last);
+              stack.push(cursor);
+            }
+          }
+        }
+        return false;
+      }
+      /**
+       * djb2 hash algorithm
+       *
+       * NOTE: This version uses some bit operands to exclude overflow MAX_SAFE_INTEGER
+       * (and moreover, exclude overflow 2^32).
+       *
+       * @see {@link https://gist.github.com/eplawless/52813b1d8ad9af510d85?permalink_comment_id=3367765#gistcomment-3367765}
+       *
+       * @param str string to get hash
+       * @return {number} hash
+       */
+      function fastHash(str) {
+        if (str.length === 0) {
+          return 0;
+        }
+        var hash = 5381;
+        for (var i = 0; i < str.length; i += 1) {
+          hash = (hash * 33) ^ str.charCodeAt(i);
+        }
+        return hash >>> 0;
+      }
+      /**
+       * Look for any symbol from "chars" array starting at "start" index or from the start of the string
+       *
+       * @param str   String to search
+       * @param chars Chars to search for
+       * @param start Start index (optional, inclusive)
+       * @return int Index of the element found or -1 if not
+       */
+      function indexOfAny(str, chars, start) {
+        if (start === void 0) {
+          start = 0;
+        }
+        if (str.length <= start) {
+          return -1;
+        }
+        for (var i = start; i < str.length; i += 1) {
+          var c = str.charAt(i);
+          if (chars.indexOf(c) > -1) {
+            return i;
+          }
+        }
+        return -1;
+      }
+      /**
+       * Replaces all occurences of find with replace in str
+       *
+       * @param str
+       * @param find
+       * @param replace
+       */
+      function replaceAll(str, find, replace) {
+        if (!str) {
+          return str;
+        }
+        return str.split(find).join(replace);
+      }
+      /**
+       * Checks if arrays are equal
+       *
+       * @param left array
+       * @param right array
+       * @return {boolean} true on equality
+       */
+      function stringArraysEquals(left, right) {
+        if (!left || !right) {
+          return !left && !right;
+        }
+        if (left.length !== right.length) {
+          return false;
+        }
+        for (var i = 0; i < left.length; i += 1) {
+          if (left[i] !== right[i]) {
+            return false;
+          }
+        }
+        return true;
+      }
+      /**
+       * Checks if arrays have an intersection
+       *
+       * @param left array
+       * @param right array
+       * @return {boolean} true on equality
+       */
+      function stringArraysHaveIntersection(left, right) {
+        if (!left || !right) {
+          return true;
+        }
+        for (var i = 0; i < left.length; i += 1) {
+          if (right.includes(left[i])) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      /* eslint-disable prefer-regex-literals */
+      // https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/regexp
+      // should be escaped . * + ? ^ $ { } ( ) | [ ] / \
+      // except of * | ^
+      var specialCharacters = [".", "+", "?", "$", "{", "}", "(", ")", "[", "]", "/", "\\"];
+      var reSpecialCharacters = new RegExp("[".concat(specialCharacters.join("\\"), "]"), "g");
+      var reSpecialCharactersFull = /[.*+?^${}()|[\]\\]/g;
+      var reEscapedSpecialCharactersFull = /\\[.*+?^${}()|[\]\\]/g;
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#using_special_characters_in_strings
+      var escapeSequence = {
+        n: "\n",
+        r: "\r",
+        t: "\t",
+        b: "\b",
+        f: "\f",
+        v: "\v"
+      };
+      /**
+       * Class with static helper methods for working with basic filtering rules patterns.
+       * https://kb.adguard.com/en/general/how-to-create-your-own-ad-filters#basic-rules
+       */
+      var SimpleRegex = /** @class */ (function () {
+        function SimpleRegex() {}
+        /**
+         * Extracts the shortcut from the rule's pattern.
+         * Shortcut is the longest substring of the pattern that does not contain
+         * any special characters.
+         *
+         * Please note, that the shortcut is always lower-case!
+         *
+         * @param pattern - network rule's pattern.
+         * @returns the shortcut or the empty string if we could not extract any.
+         */
+        SimpleRegex.extractShortcut = function (pattern) {
+          if (pattern.startsWith(this.MASK_REGEX_RULE) && pattern.endsWith(this.MASK_REGEX_RULE)) {
+            return this.extractRegexpShortcut(pattern);
+          }
+          return this.extractBasicShortcut(pattern);
+        };
+        /**
+         * Searches for the longest substring of the pattern that
+         * does not contain any special characters: *,^,|.
+         *
+         * @param pattern - network rule's pattern.
+         * @returns the shortcut or the empty string
+         */
+        SimpleRegex.extractBasicShortcut = function (pattern) {
+          var longest = "";
+          var parts = pattern.split(this.rePatternSpecialCharacters);
+          for (var _i = 0, parts_1 = parts; _i < parts_1.length; _i++) {
+            var part = parts_1[_i];
+            if (part.length > longest.length) {
+              longest = part;
+            }
+          }
+          return (longest || "").toLowerCase();
+        };
+        /**
+         * Searches for a shortcut inside of a regexp pattern.
+         * Shortcut in this case is a longest string with no REGEX special characters.
+         * Also, we discard complicated regexps right away.
+         *
+         * @param pattern - network rule's pattern (regexp).
+         * @returns the shortcut or the empty string
+         */
+        SimpleRegex.extractRegexpShortcut = function (pattern) {
+          var reText = pattern.substring(this.MASK_REGEX_RULE.length, pattern.length - this.MASK_REGEX_RULE.length);
+          if (reText.length === 0) {
+            // The rule is too short, doing nothing
+            return "";
+          }
+          if (reText.indexOf("?") >= 0) {
+            // Do not mess with complex expressions which use lookahead
+            // And with those using ? special character
+            // https://github.com/AdguardTeam/AdguardBrowserExtension/issues/978
+            return "";
+          }
+          var specialCharacter = "$$$";
+          // Prepend specialCharacter for the following replace calls to work properly
+          reText = specialCharacter + reText;
+          // Strip all types of brackets
+          reText = reText.replace(/[^\\]\(.*[^\\]\)/, specialCharacter);
+          reText = reText.replace(/[^\\]\[.*[^\\]\]/, specialCharacter);
+          reText = reText.replace(/[^\\]\{.*[^\\]\}/, specialCharacter);
+          // Strip some special characters
+          reText = reText.replace(/[^\\]\\[a-zA-Z]/, specialCharacter);
+          // Replace \. with .
+          reText = reText.replace(/\\\./g, ".");
+          // Split by special characters
+          // `.` is one of the special characters so our `specialCharacter`
+          // will be removed from the resulting array
+          var parts = reText.split(/[\\^$*+?()|[\]{}]/);
+          var longest = "";
+          for (var i = 0; i < parts.length; i += 1) {
+            var part = parts[i];
+            if (part.length > longest.length) {
+              longest = part;
+            }
+          }
+          return longest.toLowerCase();
+        };
+        /**
+         * patternToRegexp is a helper method for creating regular expressions from the simple
+         * wildcard-based syntax which is used in basic filters:
+         * https://kb.adguard.com/en/general/how-to-create-your-own-ad-filters#basic-rules
+         *
+         * @param pattern - basic rule pattern
+         * @returns regular expression
+         */
+        SimpleRegex.patternToRegexp = function (pattern) {
+          if (pattern === this.MASK_START_URL || pattern === this.MASK_PIPE || pattern === this.MASK_ANY_CHARACTER || pattern === "") {
+            return this.REGEX_ANY_CHARACTER;
+          }
+          if (pattern.startsWith(this.MASK_REGEX_RULE) && pattern.endsWith(this.MASK_REGEX_RULE)) {
+            // This is a regex rule, just remove the regex markers
+            return pattern.substring(this.MASK_REGEX_RULE.length, pattern.length - this.MASK_REGEX_RULE.length);
+          }
+          // Escape special characters except of * | ^
+          var regex = pattern.replace(reSpecialCharacters, "\\$&");
+          // Now escape "|" characters but avoid escaping them in the special places
+          if (regex.startsWith(this.MASK_START_URL)) {
+            regex =
+              regex.substring(0, this.MASK_START_URL.length) +
+              replaceAll(
+                regex.substring(this.MASK_START_URL.length, regex.length - this.MASK_PIPE.length),
+                this.MASK_PIPE,
+                "\\".concat(this.MASK_PIPE)
+              ) +
+              regex.substring(regex.length - this.MASK_PIPE.length);
+          } else {
+            regex =
+              regex.substring(0, this.MASK_PIPE.length) +
+              replaceAll(
+                regex.substring(this.MASK_PIPE.length, regex.length - this.MASK_PIPE.length),
+                this.MASK_PIPE,
+                "\\".concat(this.MASK_PIPE)
+              ) +
+              regex.substring(regex.length - this.MASK_PIPE.length);
+          }
+          // Replace special URL masks
+          regex = replaceAll(regex, this.MASK_ANY_CHARACTER, this.REGEX_ANY_CHARACTER);
+          regex = replaceAll(regex, this.MASK_SEPARATOR, this.REGEX_SEPARATOR);
+          // Replace start URL and pipes
+          if (regex.startsWith(this.MASK_START_URL)) {
+            regex = this.REGEX_START_URL + regex.substring(this.MASK_START_URL.length);
+          } else if (regex.startsWith(this.MASK_PIPE)) {
+            regex = this.REGEX_START_STRING + regex.substring(this.MASK_PIPE.length);
+          }
+          if (regex.endsWith(this.MASK_PIPE)) {
+            regex = regex.substring(0, regex.length - this.MASK_PIPE.length) + this.REGEX_END_STRING;
+          }
+          return regex;
+        };
+        /**
+         * Creates RegExp object from string in '/reg_exp/gi' format
+         *
+         * @param str
+         */
+        SimpleRegex.patternFromString = function (str) {
+          var parts = splitByDelimiterWithEscapeCharacter(str, "/", "\\", true);
+          var modifiers = parts[1] || "";
+          if (modifiers.indexOf("g") < 0) {
+            modifiers += "g";
+          }
+          return new RegExp(parts[0], modifiers);
+        };
+        /**
+         * Escapes characters with special meaning inside a regular expression.
+         *
+         * @param str
+         * @param searchPattern - Pattern for detecting special characters. Optional.
+         */
+        SimpleRegex.escapeRegexSpecials = function (str, searchPattern) {
+          if (searchPattern === void 0) {
+            searchPattern = reSpecialCharactersFull;
+          }
+          return str.replace(searchPattern, "\\$&");
+        };
+        /**
+         * Unescapes characters with special meaning inside a regular expression.
+         *
+         * @param str
+         * @param searchPattern - Pattern for detecting special characters. Optional.
+         */
+        SimpleRegex.unescapeRegexSpecials = function (str, searchPattern) {
+          if (searchPattern === void 0) {
+            searchPattern = reEscapedSpecialCharactersFull;
+          }
+          return str.replace(searchPattern, function (match) {
+            return match.substring(1);
+          });
+        };
+        /**
+         * Check if pattern is Regex
+         */
+        SimpleRegex.isRegexPattern = function (str) {
+          return str.startsWith("/") && str.endsWith("/");
+        };
+        /**
+         * Unescapes special characters in a string
+         * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#using_special_characters_in_strings
+         */
+        SimpleRegex.unescapeSpecials = function (str) {
+          var keys = Object.keys(escapeSequence).join("|");
+          var regex = new RegExp("\\\\(".concat(keys, ")"), "g");
+          return str.replace(regex, function (match, group) {
+            return escapeSequence[group];
+          });
+        };
+        /**
+         * Matching the beginning of an address. With this character you don't
+         * have to specify a particular protocol and subdomain in address mask.
+         * It means, || stands for http://*., https://*., ws://*., wss://*. at once.
+         */
+        SimpleRegex.MASK_START_URL = "||";
+        /**
+         * REGEX_START_URL corresponds to MASK_START_URL
+         */
+        SimpleRegex.REGEX_START_URL = "^(http|https|ws|wss)://([a-z0-9-_.]+\\.)?";
+        /**
+         * A pointer to the beginning or the end of address. The value depends on the
+         * character placement in the mask. For example, a rule swf| corresponds
+         * to http://example.com/annoyingflash.swf , but not to http://example.com/swf/index.html.
+         * |http://example.org corresponds to http://example.org,
+         * but not to http://domain.com?url=http://example.org.
+         */
+        SimpleRegex.MASK_PIPE = "|";
+        /**
+         * REGEX_END_STRING corresponds to MASK_PIPE if it is in the end of a pattern.
+         */
+        SimpleRegex.REGEX_END_STRING = "$";
+        /**
+         * REGEX_START_STRING corresponds to MASK_PIPE if it is in the beginning of a pattern.
+         */
+        SimpleRegex.REGEX_START_STRING = "^";
+        /**
+         * Separator character mark. Separator character is any character,
+         * but a letter, a digit, or one of the following: _ - .
+         */
+        SimpleRegex.MASK_SEPARATOR = "^";
+        /**
+         * REGEX_SEPARATOR corresponds to MASK_SEPARATOR
+         */
+        SimpleRegex.REGEX_SEPARATOR = "([^ a-zA-Z0-9.%_-]|$)";
+        /**
+         * This is a wildcard character. It is used to represent "any set of characters".
+         * This can also be an empty string or a string of any length.
+         */
+        SimpleRegex.MASK_ANY_CHARACTER = "*";
+        /**
+         * Path separator
+         */
+        SimpleRegex.MASK_BACKSLASH = "/";
+        /**
+         * REGEX_ANY_CHARACTER corresponds to MASK_ANY_CHARACTER.
+         */
+        SimpleRegex.REGEX_ANY_CHARACTER = ".*";
+        /**
+         * Enclose regex in two backslashes to mark a regex rule:
+         * https://kb.adguard.com/en/general/how-to-create-your-own-ad-filters#regular-expressions-support
+         */
+        SimpleRegex.MASK_REGEX_RULE = "/";
+        /**
+         *  Regex for matching special characters in modifier regex pattern
+         */
+        SimpleRegex.reModifierPatternSpecialCharacters = /[[\],\\]/g;
+        /**
+         *  Regex for matching escaped special characters in modifier regex pattern
+         */
+        SimpleRegex.reModifierPatternEscapedSpecialCharacters = /\\[[\],\\]/g;
+        /**
+         * If string starts with exclamation mark "!" we consider it as comment
+         */
+        SimpleRegex.MASK_COMMENT = "!";
+        /**
+         * Min length of rule shortcut
+         * This value has been picked as a result of performance experiments
+         */
+        SimpleRegex.MIN_SHORTCUT_LENGTH = 3;
+        /**
+         * Min length of generic rule shortcut
+         */
+        SimpleRegex.MIN_GENERIC_RULE_LENGTH = 4;
+        /** Regex with basic matching pattern special characters */
+        SimpleRegex.rePatternSpecialCharacters = new RegExp("[*^|]");
+        return SimpleRegex;
+      })();
+
+      /***/
+    },
+
+    /***/ 9314: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var isArray = __webpack_require__(74778);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var isArray = __webpack_require__(4778);
 
       var $TypeError = TypeError;
       // eslint-disable-next-line es/no-object-getownpropertydescriptor -- safe
@@ -2056,11 +2582,11 @@
       /***/
     },
 
-    /***/ 18245: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 8245: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var makeBuiltIn = __webpack_require__(85954);
-      var defineProperty = __webpack_require__(16572);
+      var makeBuiltIn = __webpack_require__(5954);
+      var defineProperty = __webpack_require__(6572);
 
       module.exports = function (target, name, descriptor) {
         if (descriptor.get) makeBuiltIn(descriptor.get, name, { getter: true });
@@ -2071,7 +2597,7 @@
       /***/
     },
 
-    /***/ 76299: /***/ (module) => {
+    /***/ 6299: /***/ (module) => {
       "use strict";
 
       var $TypeError = TypeError;
@@ -2085,10 +2611,10 @@
       /***/
     },
 
-    /***/ 74778: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4778: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var classof = __webpack_require__(74021);
+      var classof = __webpack_require__(4021);
 
       // `IsArray` abstract operation
       // https://tc39.es/ecma262/#sec-isarray
@@ -2102,7 +2628,7 @@
       /***/
     },
 
-    /***/ 65349: /***/ (module) => {
+    /***/ 5349: /***/ (module) => {
       "use strict";
 
       var $TypeError = TypeError;
@@ -2115,14 +2641,14 @@
       /***/
     },
 
-    /***/ 24252: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 4252: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var $ = __webpack_require__(65942);
-      var toObject = __webpack_require__(77410);
-      var lengthOfArrayLike = __webpack_require__(25474);
-      var setArrayLength = __webpack_require__(99314);
-      var doesNotExceedSafeInteger = __webpack_require__(76299);
+      var $ = __webpack_require__(5942);
+      var toObject = __webpack_require__(7410);
+      var lengthOfArrayLike = __webpack_require__(5474);
+      var setArrayLength = __webpack_require__(9314);
+      var doesNotExceedSafeInteger = __webpack_require__(6299);
       var fails = __webpack_require__(7931);
 
       var INCORRECT_TO_LENGTH = fails(function () {
@@ -2169,10 +2695,10 @@
     /***/ 582: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var defineBuiltIn = __webpack_require__(14039);
-      var uncurryThis = __webpack_require__(73074);
-      var toString = __webpack_require__(24473);
-      var validateArgumentsLength = __webpack_require__(65349);
+      var defineBuiltIn = __webpack_require__(4039);
+      var uncurryThis = __webpack_require__(3074);
+      var toString = __webpack_require__(4473);
+      var validateArgumentsLength = __webpack_require__(5349);
 
       var $URLSearchParams = URLSearchParams;
       var URLSearchParamsPrototype = $URLSearchParams.prototype;
@@ -2227,13 +2753,13 @@
       /***/
     },
 
-    /***/ 37899: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 7899: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var defineBuiltIn = __webpack_require__(14039);
-      var uncurryThis = __webpack_require__(73074);
-      var toString = __webpack_require__(24473);
-      var validateArgumentsLength = __webpack_require__(65349);
+      var defineBuiltIn = __webpack_require__(4039);
+      var uncurryThis = __webpack_require__(3074);
+      var toString = __webpack_require__(4473);
+      var validateArgumentsLength = __webpack_require__(5349);
 
       var $URLSearchParams = URLSearchParams;
       var URLSearchParamsPrototype = $URLSearchParams.prototype;
@@ -2267,12 +2793,12 @@
       /***/
     },
 
-    /***/ 26124: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 6124: /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
       "use strict";
 
-      var DESCRIPTORS = __webpack_require__(46372);
-      var uncurryThis = __webpack_require__(73074);
-      var defineBuiltInAccessor = __webpack_require__(18245);
+      var DESCRIPTORS = __webpack_require__(6372);
+      var uncurryThis = __webpack_require__(3074);
+      var defineBuiltInAccessor = __webpack_require__(8245);
 
       var URLSearchParamsPrototype = URLSearchParams.prototype;
       var forEach = uncurryThis(URLSearchParamsPrototype.forEach);
@@ -2296,667 +2822,7 @@
       /***/
     },
 
-    /***/ 24420: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var root = __webpack_require__(13056);
-
-      /** Built-in value references. */
-      var Symbol = root.Symbol;
-
-      module.exports = Symbol;
-
-      /***/
-    },
-
-    /***/ 69042: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var Symbol = __webpack_require__(24420),
-        getRawTag = __webpack_require__(66282),
-        objectToString = __webpack_require__(37661);
-
-      /** `Object#toString` result references. */
-      var nullTag = "[object Null]",
-        undefinedTag = "[object Undefined]";
-
-      /** Built-in value references. */
-      var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-      /**
-       * The base implementation of `getTag` without fallbacks for buggy environments.
-       *
-       * @private
-       * @param {*} value The value to query.
-       * @returns {string} Returns the `toStringTag`.
-       */
-      function baseGetTag(value) {
-        if (value == null) {
-          return value === undefined ? undefinedTag : nullTag;
-        }
-        return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
-      }
-
-      module.exports = baseGetTag;
-
-      /***/
-    },
-
-    /***/ 20439: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var trimmedEndIndex = __webpack_require__(5630);
-
-      /** Used to match leading whitespace. */
-      var reTrimStart = /^\s+/;
-
-      /**
-       * The base implementation of `_.trim`.
-       *
-       * @private
-       * @param {string} string The string to trim.
-       * @returns {string} Returns the trimmed string.
-       */
-      function baseTrim(string) {
-        return string ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, "") : string;
-      }
-
-      module.exports = baseTrim;
-
-      /***/
-    },
-
-    /***/ 91744: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      /** Detect free variable `global` from Node.js. */
-      var freeGlobal =
-        typeof __webpack_require__.g == "object" &&
-        __webpack_require__.g &&
-        __webpack_require__.g.Object === Object &&
-        __webpack_require__.g;
-
-      module.exports = freeGlobal;
-
-      /***/
-    },
-
-    /***/ 66282: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var Symbol = __webpack_require__(24420);
-
-      /** Used for built-in method references. */
-      var objectProto = Object.prototype;
-
-      /** Used to check objects for own properties. */
-      var hasOwnProperty = objectProto.hasOwnProperty;
-
-      /**
-       * Used to resolve the
-       * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-       * of values.
-       */
-      var nativeObjectToString = objectProto.toString;
-
-      /** Built-in value references. */
-      var symToStringTag = Symbol ? Symbol.toStringTag : undefined;
-
-      /**
-       * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
-       *
-       * @private
-       * @param {*} value The value to query.
-       * @returns {string} Returns the raw `toStringTag`.
-       */
-      function getRawTag(value) {
-        var isOwn = hasOwnProperty.call(value, symToStringTag),
-          tag = value[symToStringTag];
-
-        try {
-          value[symToStringTag] = undefined;
-          var unmasked = true;
-        } catch (e) {}
-
-        var result = nativeObjectToString.call(value);
-        if (unmasked) {
-          if (isOwn) {
-            value[symToStringTag] = tag;
-          } else {
-            delete value[symToStringTag];
-          }
-        }
-        return result;
-      }
-
-      module.exports = getRawTag;
-
-      /***/
-    },
-
-    /***/ 37661: /***/ (module) => {
-      /** Used for built-in method references. */
-      var objectProto = Object.prototype;
-
-      /**
-       * Used to resolve the
-       * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-       * of values.
-       */
-      var nativeObjectToString = objectProto.toString;
-
-      /**
-       * Converts `value` to a string using `Object.prototype.toString`.
-       *
-       * @private
-       * @param {*} value The value to convert.
-       * @returns {string} Returns the converted string.
-       */
-      function objectToString(value) {
-        return nativeObjectToString.call(value);
-      }
-
-      module.exports = objectToString;
-
-      /***/
-    },
-
-    /***/ 13056: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var freeGlobal = __webpack_require__(91744);
-
-      /** Detect free variable `self`. */
-      var freeSelf = typeof self == "object" && self && self.Object === Object && self;
-
-      /** Used as a reference to the global object. */
-      var root = freeGlobal || freeSelf || Function("return this")();
-
-      module.exports = root;
-
-      /***/
-    },
-
-    /***/ 5630: /***/ (module) => {
-      /** Used to match a single whitespace character. */
-      var reWhitespace = /\s/;
-
-      /**
-       * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
-       * character of `string`.
-       *
-       * @private
-       * @param {string} string The string to inspect.
-       * @returns {number} Returns the index of the last non-whitespace character.
-       */
-      function trimmedEndIndex(string) {
-        var index = string.length;
-
-        while (index-- && reWhitespace.test(string.charAt(index))) {}
-        return index;
-      }
-
-      module.exports = trimmedEndIndex;
-
-      /***/
-    },
-
-    /***/ 79412: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var isObject = __webpack_require__(67040),
-        now = __webpack_require__(14736),
-        toNumber = __webpack_require__(314);
-
-      /** Error message constants. */
-      var FUNC_ERROR_TEXT = "Expected a function";
-
-      /* Built-in method references for those with the same name as other `lodash` methods. */
-      var nativeMax = Math.max,
-        nativeMin = Math.min;
-
-      /**
-       * Creates a debounced function that delays invoking `func` until after `wait`
-       * milliseconds have elapsed since the last time the debounced function was
-       * invoked. The debounced function comes with a `cancel` method to cancel
-       * delayed `func` invocations and a `flush` method to immediately invoke them.
-       * Provide `options` to indicate whether `func` should be invoked on the
-       * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
-       * with the last arguments provided to the debounced function. Subsequent
-       * calls to the debounced function return the result of the last `func`
-       * invocation.
-       *
-       * **Note:** If `leading` and `trailing` options are `true`, `func` is
-       * invoked on the trailing edge of the timeout only if the debounced function
-       * is invoked more than once during the `wait` timeout.
-       *
-       * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
-       * until to the next tick, similar to `setTimeout` with a timeout of `0`.
-       *
-       * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
-       * for details over the differences between `_.debounce` and `_.throttle`.
-       *
-       * @static
-       * @memberOf _
-       * @since 0.1.0
-       * @category Function
-       * @param {Function} func The function to debounce.
-       * @param {number} [wait=0] The number of milliseconds to delay.
-       * @param {Object} [options={}] The options object.
-       * @param {boolean} [options.leading=false]
-       *  Specify invoking on the leading edge of the timeout.
-       * @param {number} [options.maxWait]
-       *  The maximum time `func` is allowed to be delayed before it's invoked.
-       * @param {boolean} [options.trailing=true]
-       *  Specify invoking on the trailing edge of the timeout.
-       * @returns {Function} Returns the new debounced function.
-       * @example
-       *
-       * // Avoid costly calculations while the window size is in flux.
-       * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
-       *
-       * // Invoke `sendMail` when clicked, debouncing subsequent calls.
-       * jQuery(element).on('click', _.debounce(sendMail, 300, {
-       *   'leading': true,
-       *   'trailing': false
-       * }));
-       *
-       * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
-       * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
-       * var source = new EventSource('/stream');
-       * jQuery(source).on('message', debounced);
-       *
-       * // Cancel the trailing debounced invocation.
-       * jQuery(window).on('popstate', debounced.cancel);
-       */
-      function debounce(func, wait, options) {
-        var lastArgs,
-          lastThis,
-          maxWait,
-          result,
-          timerId,
-          lastCallTime,
-          lastInvokeTime = 0,
-          leading = false,
-          maxing = false,
-          trailing = true;
-
-        if (typeof func != "function") {
-          throw new TypeError(FUNC_ERROR_TEXT);
-        }
-        wait = toNumber(wait) || 0;
-        if (isObject(options)) {
-          leading = !!options.leading;
-          maxing = "maxWait" in options;
-          maxWait = maxing ? nativeMax(toNumber(options.maxWait) || 0, wait) : maxWait;
-          trailing = "trailing" in options ? !!options.trailing : trailing;
-        }
-
-        function invokeFunc(time) {
-          var args = lastArgs,
-            thisArg = lastThis;
-
-          lastArgs = lastThis = undefined;
-          lastInvokeTime = time;
-          result = func.apply(thisArg, args);
-          return result;
-        }
-
-        function leadingEdge(time) {
-          // Reset any `maxWait` timer.
-          lastInvokeTime = time;
-          // Start the timer for the trailing edge.
-          timerId = setTimeout(timerExpired, wait);
-          // Invoke the leading edge.
-          return leading ? invokeFunc(time) : result;
-        }
-
-        function remainingWait(time) {
-          var timeSinceLastCall = time - lastCallTime,
-            timeSinceLastInvoke = time - lastInvokeTime,
-            timeWaiting = wait - timeSinceLastCall;
-
-          return maxing ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
-        }
-
-        function shouldInvoke(time) {
-          var timeSinceLastCall = time - lastCallTime,
-            timeSinceLastInvoke = time - lastInvokeTime;
-
-          // Either this is the first call, activity has stopped and we're at the
-          // trailing edge, the system time has gone backwards and we're treating
-          // it as the trailing edge, or we've hit the `maxWait` limit.
-          return (
-            lastCallTime === undefined || timeSinceLastCall >= wait || timeSinceLastCall < 0 || (maxing && timeSinceLastInvoke >= maxWait)
-          );
-        }
-
-        function timerExpired() {
-          var time = now();
-          if (shouldInvoke(time)) {
-            return trailingEdge(time);
-          }
-          // Restart the timer.
-          timerId = setTimeout(timerExpired, remainingWait(time));
-        }
-
-        function trailingEdge(time) {
-          timerId = undefined;
-
-          // Only invoke if we have `lastArgs` which means `func` has been
-          // debounced at least once.
-          if (trailing && lastArgs) {
-            return invokeFunc(time);
-          }
-          lastArgs = lastThis = undefined;
-          return result;
-        }
-
-        function cancel() {
-          if (timerId !== undefined) {
-            clearTimeout(timerId);
-          }
-          lastInvokeTime = 0;
-          lastArgs = lastCallTime = lastThis = timerId = undefined;
-        }
-
-        function flush() {
-          return timerId === undefined ? result : trailingEdge(now());
-        }
-
-        function debounced() {
-          var time = now(),
-            isInvoking = shouldInvoke(time);
-
-          lastArgs = arguments;
-          lastThis = this;
-          lastCallTime = time;
-
-          if (isInvoking) {
-            if (timerId === undefined) {
-              return leadingEdge(lastCallTime);
-            }
-            if (maxing) {
-              // Handle invocations in a tight loop.
-              clearTimeout(timerId);
-              timerId = setTimeout(timerExpired, wait);
-              return invokeFunc(lastCallTime);
-            }
-          }
-          if (timerId === undefined) {
-            timerId = setTimeout(timerExpired, wait);
-          }
-          return result;
-        }
-        debounced.cancel = cancel;
-        debounced.flush = flush;
-        return debounced;
-      }
-
-      module.exports = debounce;
-
-      /***/
-    },
-
-    /***/ 67040: /***/ (module) => {
-      /**
-       * Checks if `value` is the
-       * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
-       * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
-       *
-       * @static
-       * @memberOf _
-       * @since 0.1.0
-       * @category Lang
-       * @param {*} value The value to check.
-       * @returns {boolean} Returns `true` if `value` is an object, else `false`.
-       * @example
-       *
-       * _.isObject({});
-       * // => true
-       *
-       * _.isObject([1, 2, 3]);
-       * // => true
-       *
-       * _.isObject(_.noop);
-       * // => true
-       *
-       * _.isObject(null);
-       * // => false
-       */
-      function isObject(value) {
-        var type = typeof value;
-        return value != null && (type == "object" || type == "function");
-      }
-
-      module.exports = isObject;
-
-      /***/
-    },
-
-    /***/ 91259: /***/ (module) => {
-      /**
-       * Checks if `value` is object-like. A value is object-like if it's not `null`
-       * and has a `typeof` result of "object".
-       *
-       * @static
-       * @memberOf _
-       * @since 4.0.0
-       * @category Lang
-       * @param {*} value The value to check.
-       * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-       * @example
-       *
-       * _.isObjectLike({});
-       * // => true
-       *
-       * _.isObjectLike([1, 2, 3]);
-       * // => true
-       *
-       * _.isObjectLike(_.noop);
-       * // => false
-       *
-       * _.isObjectLike(null);
-       * // => false
-       */
-      function isObjectLike(value) {
-        return value != null && typeof value == "object";
-      }
-
-      module.exports = isObjectLike;
-
-      /***/
-    },
-
-    /***/ 57386: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var baseGetTag = __webpack_require__(69042),
-        isObjectLike = __webpack_require__(91259);
-
-      /** `Object#toString` result references. */
-      var symbolTag = "[object Symbol]";
-
-      /**
-       * Checks if `value` is classified as a `Symbol` primitive or object.
-       *
-       * @static
-       * @memberOf _
-       * @since 4.0.0
-       * @category Lang
-       * @param {*} value The value to check.
-       * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
-       * @example
-       *
-       * _.isSymbol(Symbol.iterator);
-       * // => true
-       *
-       * _.isSymbol('abc');
-       * // => false
-       */
-      function isSymbol(value) {
-        return typeof value == "symbol" || (isObjectLike(value) && baseGetTag(value) == symbolTag);
-      }
-
-      module.exports = isSymbol;
-
-      /***/
-    },
-
-    /***/ 14736: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var root = __webpack_require__(13056);
-
-      /**
-       * Gets the timestamp of the number of milliseconds that have elapsed since
-       * the Unix epoch (1 January 1970 00:00:00 UTC).
-       *
-       * @static
-       * @memberOf _
-       * @since 2.4.0
-       * @category Date
-       * @returns {number} Returns the timestamp.
-       * @example
-       *
-       * _.defer(function(stamp) {
-       *   console.log(_.now() - stamp);
-       * }, _.now());
-       * // => Logs the number of milliseconds it took for the deferred invocation.
-       */
-      var now = function () {
-        return root.Date.now();
-      };
-
-      module.exports = now;
-
-      /***/
-    },
-
-    /***/ 49789: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var debounce = __webpack_require__(79412),
-        isObject = __webpack_require__(67040);
-
-      /** Error message constants. */
-      var FUNC_ERROR_TEXT = "Expected a function";
-
-      /**
-       * Creates a throttled function that only invokes `func` at most once per
-       * every `wait` milliseconds. The throttled function comes with a `cancel`
-       * method to cancel delayed `func` invocations and a `flush` method to
-       * immediately invoke them. Provide `options` to indicate whether `func`
-       * should be invoked on the leading and/or trailing edge of the `wait`
-       * timeout. The `func` is invoked with the last arguments provided to the
-       * throttled function. Subsequent calls to the throttled function return the
-       * result of the last `func` invocation.
-       *
-       * **Note:** If `leading` and `trailing` options are `true`, `func` is
-       * invoked on the trailing edge of the timeout only if the throttled function
-       * is invoked more than once during the `wait` timeout.
-       *
-       * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
-       * until to the next tick, similar to `setTimeout` with a timeout of `0`.
-       *
-       * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
-       * for details over the differences between `_.throttle` and `_.debounce`.
-       *
-       * @static
-       * @memberOf _
-       * @since 0.1.0
-       * @category Function
-       * @param {Function} func The function to throttle.
-       * @param {number} [wait=0] The number of milliseconds to throttle invocations to.
-       * @param {Object} [options={}] The options object.
-       * @param {boolean} [options.leading=true]
-       *  Specify invoking on the leading edge of the timeout.
-       * @param {boolean} [options.trailing=true]
-       *  Specify invoking on the trailing edge of the timeout.
-       * @returns {Function} Returns the new throttled function.
-       * @example
-       *
-       * // Avoid excessively updating the position while scrolling.
-       * jQuery(window).on('scroll', _.throttle(updatePosition, 100));
-       *
-       * // Invoke `renewToken` when the click event is fired, but not more than once every 5 minutes.
-       * var throttled = _.throttle(renewToken, 300000, { 'trailing': false });
-       * jQuery(element).on('click', throttled);
-       *
-       * // Cancel the trailing throttled invocation.
-       * jQuery(window).on('popstate', throttled.cancel);
-       */
-      function throttle(func, wait, options) {
-        var leading = true,
-          trailing = true;
-
-        if (typeof func != "function") {
-          throw new TypeError(FUNC_ERROR_TEXT);
-        }
-        if (isObject(options)) {
-          leading = "leading" in options ? !!options.leading : leading;
-          trailing = "trailing" in options ? !!options.trailing : trailing;
-        }
-        return debounce(func, wait, {
-          leading: leading,
-          maxWait: wait,
-          trailing: trailing
-        });
-      }
-
-      module.exports = throttle;
-
-      /***/
-    },
-
-    /***/ 314: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
-      var baseTrim = __webpack_require__(20439),
-        isObject = __webpack_require__(67040),
-        isSymbol = __webpack_require__(57386);
-
-      /** Used as references for various `Number` constants. */
-      var NAN = 0 / 0;
-
-      /** Used to detect bad signed hexadecimal string values. */
-      var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
-
-      /** Used to detect binary string values. */
-      var reIsBinary = /^0b[01]+$/i;
-
-      /** Used to detect octal string values. */
-      var reIsOctal = /^0o[0-7]+$/i;
-
-      /** Built-in method references without a dependency on `root`. */
-      var freeParseInt = parseInt;
-
-      /**
-       * Converts `value` to a number.
-       *
-       * @static
-       * @memberOf _
-       * @since 4.0.0
-       * @category Lang
-       * @param {*} value The value to process.
-       * @returns {number} Returns the number.
-       * @example
-       *
-       * _.toNumber(3.2);
-       * // => 3.2
-       *
-       * _.toNumber(Number.MIN_VALUE);
-       * // => 5e-324
-       *
-       * _.toNumber(Infinity);
-       * // => Infinity
-       *
-       * _.toNumber('3.2');
-       * // => 3.2
-       */
-      function toNumber(value) {
-        if (typeof value == "number") {
-          return value;
-        }
-        if (isSymbol(value)) {
-          return NAN;
-        }
-        if (isObject(value)) {
-          var other = typeof value.valueOf == "function" ? value.valueOf() : value;
-          value = isObject(other) ? other + "" : other;
-        }
-        if (typeof value != "string") {
-          return value === 0 ? value : +value;
-        }
-        value = baseTrim(value);
-        var isBinary = reIsBinary.test(value);
-        return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
-      }
-
-      module.exports = toNumber;
-
-      /***/
-    },
-
-    /***/ 46047: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6047: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -2967,9 +2833,9 @@
       // UNUSED EXPORTS: MobXProviderContext, Observer, PropTypes, Provider, disposeOnUnmount, enableStaticRendering, inject, isUsingStaticRendering, observerBatching, useAsObservableSource, useLocalObservable, useLocalStore, useObserver, useStaticRendering
 
       // EXTERNAL MODULE: ./node_modules/mobx/dist/mobx.esm.js
-      var mobx_esm = __webpack_require__(31056);
+      var mobx_esm = __webpack_require__(1056);
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846); // CONCATENATED MODULE: ./node_modules/mobx-react-lite/es/utils/assertEnvironment.js
+      var react = __webpack_require__(846); // CONCATENATED MODULE: ./node_modules/mobx-react-lite/es/utils/assertEnvironment.js
       if (!react.useState) {
         throw new Error("mobx-react-lite requires React with Hooks support");
       }
@@ -2978,7 +2844,7 @@
       }
 
       // EXTERNAL MODULE: ./node_modules/react-dom/index.js
-      var react_dom = __webpack_require__(76644); // CONCATENATED MODULE: ./node_modules/mobx-react-lite/es/utils/reactBatchedUpdates.js
+      var react_dom = __webpack_require__(6644); // CONCATENATED MODULE: ./node_modules/mobx-react-lite/es/utils/reactBatchedUpdates.js
       // CONCATENATED MODULE: ./node_modules/mobx-react-lite/es/utils/observerBatching.js
       function defaultNoopBatch(callback) {
         callback();
@@ -4321,7 +4187,7 @@
       /***/
     },
 
-    /***/ 58171: /***/ function (module, exports, __webpack_require__) {
+    /***/ 8171: /***/ function (module, exports, __webpack_require__) {
       var __WEBPACK_AMD_DEFINE_RESULT__; /////////////////////////////////////////////////////////////////////////////////
       /* UAParser.js v1.0.36
    Copyright © 2012-2021 Faisal Salman <f@faisalman.com>
@@ -5549,7 +5415,7 @@
       /***/
     },
 
-    /***/ 53679: /***/ function (module, exports) {
+    /***/ 3679: /***/ function (module, exports) {
       var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
       (function (global, factory) {
         if (true) {
@@ -6839,7 +6705,7 @@
       /***/
     },
 
-    /***/ 82418: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 2418: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Xg: () => /* binding */ createDeferredActor,
@@ -6850,7 +6716,7 @@
       });
       /* unused harmony exports createNullActor, isActor */
       /* harmony import */ var _virtual_tslib_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3388);
-      /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98351);
+      /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8351);
       /* harmony import */ var _serviceScope_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9010);
 
       function createNullActor(id) {
@@ -6969,7 +6835,7 @@
       /***/
     },
 
-    /***/ 65697: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5697: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -6981,21 +6847,21 @@
       // EXTERNAL MODULE: ./node_modules/xstate/es/_virtual/_tslib.js
       var _tslib = __webpack_require__(3388);
       // EXTERNAL MODULE: ./node_modules/xstate/es/utils.js
-      var utils = __webpack_require__(98351);
+      var utils = __webpack_require__(8351);
       // EXTERNAL MODULE: ./node_modules/xstate/es/State.js
-      var State = __webpack_require__(44242);
+      var State = __webpack_require__(4242);
       // EXTERNAL MODULE: ./node_modules/xstate/es/actionTypes.js
-      var actionTypes = __webpack_require__(80127);
+      var actionTypes = __webpack_require__(127);
       // EXTERNAL MODULE: ./node_modules/xstate/es/actions.js
-      var es_actions = __webpack_require__(11020);
+      var es_actions = __webpack_require__(1020);
       // EXTERNAL MODULE: ./node_modules/xstate/es/environment.js
-      var environment = __webpack_require__(88685);
+      var environment = __webpack_require__(8685);
       // EXTERNAL MODULE: ./node_modules/xstate/es/constants.js
-      var constants = __webpack_require__(11231);
+      var constants = __webpack_require__(1231);
       // EXTERNAL MODULE: ./node_modules/xstate/es/stateUtils.js
-      var stateUtils = __webpack_require__(92002);
+      var stateUtils = __webpack_require__(2002);
       // EXTERNAL MODULE: ./node_modules/xstate/es/Actor.js
-      var Actor = __webpack_require__(82418); // CONCATENATED MODULE: ./node_modules/xstate/es/invokeUtils.js
+      var Actor = __webpack_require__(2418); // CONCATENATED MODULE: ./node_modules/xstate/es/invokeUtils.js
       function toInvokeSource(src) {
         if (typeof src === "string") {
           var simpleSrc = {
@@ -8972,7 +8838,7 @@
       /***/
     },
 
-    /***/ 44242: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 4242: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ TL: () => /* binding */ isStateConfig,
@@ -8983,11 +8849,11 @@
       });
       /* unused harmony export isState */
       /* harmony import */ var _virtual_tslib_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3388);
-      /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(11231);
-      /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98351);
-      /* harmony import */ var _stateUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(92002);
-      /* harmony import */ var _actions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(11020);
-      /* harmony import */ var _environment_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(88685);
+      /* harmony import */ var _constants_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1231);
+      /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8351);
+      /* harmony import */ var _stateUtils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2002);
+      /* harmony import */ var _actions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1020);
+      /* harmony import */ var _environment_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8685);
 
       function stateValuesEqual(a, b) {
         if (a === b) {
@@ -9286,7 +9152,7 @@
       /***/
     },
 
-    /***/ 59989: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9989: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -9299,17 +9165,17 @@
       // EXTERNAL MODULE: ./node_modules/xstate/es/_virtual/_tslib.js
       var _tslib = __webpack_require__(3388);
       // EXTERNAL MODULE: ./node_modules/xstate/es/types.js
-      var types = __webpack_require__(21329);
+      var types = __webpack_require__(1329);
       // EXTERNAL MODULE: ./node_modules/xstate/es/State.js
-      var State = __webpack_require__(44242);
+      var State = __webpack_require__(4242);
       // EXTERNAL MODULE: ./node_modules/xstate/es/actionTypes.js
-      var actionTypes = __webpack_require__(80127);
+      var actionTypes = __webpack_require__(127);
       // EXTERNAL MODULE: ./node_modules/xstate/es/actions.js
-      var actions = __webpack_require__(11020);
+      var actions = __webpack_require__(1020);
       // EXTERNAL MODULE: ./node_modules/xstate/es/environment.js
-      var environment = __webpack_require__(88685);
+      var environment = __webpack_require__(8685);
       // EXTERNAL MODULE: ./node_modules/xstate/es/utils.js
-      var utils = __webpack_require__(98351); // CONCATENATED MODULE: ./node_modules/xstate/es/scheduler.js
+      var utils = __webpack_require__(8351); // CONCATENATED MODULE: ./node_modules/xstate/es/scheduler.js
       var defaultOptions = {
         deferEvents: false
       };
@@ -9387,7 +9253,7 @@
         })();
 
       // EXTERNAL MODULE: ./node_modules/xstate/es/Actor.js
-      var Actor = __webpack_require__(82418); // CONCATENATED MODULE: ./node_modules/xstate/es/registry.js
+      var Actor = __webpack_require__(2418); // CONCATENATED MODULE: ./node_modules/xstate/es/registry.js
       var children = /*#__PURE__*/ new Map();
       var sessionIdIndex = 0;
       var registry = {
@@ -11262,7 +11128,7 @@
       /***/
     },
 
-    /***/ 92002: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 2002: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ G: () => /* binding */ getChildren,
@@ -11280,7 +11146,7 @@
       });
       /* unused harmony export getAdjList */
       /* harmony import */ var _virtual_tslib_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3388);
-      /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(98351);
+      /* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8351);
 
       var isLeafNode = function (stateNode) {
         return stateNode.type === "atomic" || stateNode.type === "final";
@@ -11590,38 +11456,38 @@
       /***/
     },
 
-    /***/ 96433: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    /***/ 6433: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(35491);
+        __webpack_require__(5491);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(
           _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__
         );
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ =
-        __webpack_require__(19532);
+        __webpack_require__(9532);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ =
-        __webpack_require__(48190);
+        __webpack_require__(8190);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ =
-        __webpack_require__(47630);
+        __webpack_require__(7630);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default =
         /*#__PURE__*/ __webpack_require__.n(
           _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__
         );
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ =
-        __webpack_require__(60664);
+        __webpack_require__(664);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ =
-        __webpack_require__(82563);
+        __webpack_require__(2563);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_styles_pcss__WEBPACK_IMPORTED_MODULE_6__ =
-        __webpack_require__(78168);
+        __webpack_require__(8168);
 
       var options = {};
 
@@ -11653,38 +11519,38 @@
       /***/
     },
 
-    /***/ 58575: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    /***/ 8575: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ =
-        __webpack_require__(35491);
+        __webpack_require__(5491);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(
           _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__
         );
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ =
-        __webpack_require__(19532);
+        __webpack_require__(9532);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ =
-        __webpack_require__(48190);
+        __webpack_require__(8190);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ =
-        __webpack_require__(47630);
+        __webpack_require__(7630);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default =
         /*#__PURE__*/ __webpack_require__.n(
           _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__
         );
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ =
-        __webpack_require__(60664);
+        __webpack_require__(664);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ =
-        __webpack_require__(82563);
+        __webpack_require__(2563);
       /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default =
         /*#__PURE__*/ __webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
       /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_3_use_1_node_modules_postcss_loader_dist_cjs_js_styles_pcss__WEBPACK_IMPORTED_MODULE_6__ =
-        __webpack_require__(72060);
+        __webpack_require__(2060);
 
       var options = {};
 
@@ -11716,31 +11582,31 @@
       /***/
     },
 
-    /***/ 12951: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    /***/ 2951: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./node_modules/react-dom/index.js
-      var react_dom = __webpack_require__(76644);
+      var react_dom = __webpack_require__(6644);
       // EXTERNAL MODULE: ./Extension/src/common/translators/reactTranslator.js
-      var reactTranslator = __webpack_require__(96537);
+      var reactTranslator = __webpack_require__(6537);
       // EXTERNAL MODULE: ./Extension/src/common/translators/i18n.ts
-      var i18n = __webpack_require__(97817);
+      var i18n = __webpack_require__(7817);
       // EXTERNAL MODULE: ./node_modules/mobx-react/dist/mobxreact.esm.js + 14 modules
-      var mobxreact_esm = __webpack_require__(46047);
+      var mobxreact_esm = __webpack_require__(6047);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/UserRulesEditor/index.js + 4 modules
-      var UserRulesEditor = __webpack_require__(59369);
+      var UserRulesEditor = __webpack_require__(9369);
       // EXTERNAL MODULE: ./Extension/src/common/constants.ts
-      var constants = __webpack_require__(91008);
+      var constants = __webpack_require__(1008);
       // EXTERNAL MODULE: ./Extension/src/pages/services/messenger.js
-      var messenger = __webpack_require__(34798);
+      var messenger = __webpack_require__(4798);
       // EXTERNAL MODULE: ./Extension/src/common/log.ts
-      var log = __webpack_require__(75019);
+      var log = __webpack_require__(5019);
       // EXTERNAL MODULE: ./node_modules/mobx/dist/mobx.esm.js
-      var mobx_esm = __webpack_require__(31056);
+      var mobx_esm = __webpack_require__(1056);
       // EXTERNAL MODULE: ./Extension/src/common/messages/index.ts
-      var messages = __webpack_require__(88427); // CONCATENATED MODULE: ./Extension/src/pages/fullscreen-user-rules/stores/FullscreenUserRulesStore.js
+      var messages = __webpack_require__(8427); // CONCATENATED MODULE: ./Extension/src/pages/fullscreen-user-rules/stores/FullscreenUserRulesStore.js
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -11806,13 +11672,13 @@
       const fullscreenUserRulesStore = /*#__PURE__*/ (0, react.createContext)(new FullscreenUserRulesStore());
 
       // EXTERNAL MODULE: ./Extension/src/pages/common/hooks/useAppearanceTheme.js
-      var useAppearanceTheme = __webpack_require__(49346);
+      var useAppearanceTheme = __webpack_require__(9346);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/ui/Icons.jsx
-      var Icons = __webpack_require__(41605);
+      var Icons = __webpack_require__(1605);
       // EXTERNAL MODULE: ./Extension/src/pages/options/styles/styles.pcss
-      var styles = __webpack_require__(58575);
+      var styles = __webpack_require__(8575);
       // EXTERNAL MODULE: ./Extension/src/pages/options/components/UserRules/styles.pcss
-      var UserRules_styles = __webpack_require__(96433); // CONCATENATED MODULE: ./Extension/src/pages/fullscreen-user-rules/components/fullscreen-user-rules/FullscreenUserRules.jsx
+      var UserRules_styles = __webpack_require__(6433); // CONCATENATED MODULE: ./Extension/src/pages/fullscreen-user-rules/components/fullscreen-user-rules/FullscreenUserRules.jsx
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -11937,7 +11803,7 @@
       /***/
     },
 
-    /***/ 19457: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9457: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -11972,7 +11838,7 @@
       // EXTERNAL MODULE: ./node_modules/zod/lib/index.mjs
       var lib = __webpack_require__(1604);
       // EXTERNAL MODULE: ./Extension/src/common/constants.ts
-      var constants = __webpack_require__(91008); // CONCATENATED MODULE: ./Extension/src/background/schema/configuration/general-settings.ts
+      var constants = __webpack_require__(1008); // CONCATENATED MODULE: ./Extension/src/background/schema/configuration/general-settings.ts
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -12936,7 +12802,7 @@
       });
       const regularFilterI18nMetadataValidator = lib /* default.record */.ZP.record(
         /**
-         * Two-letter language code.
+         * Locale code.
          */ lib /* default.string */.ZP.string(),
         filterInfoValidator
       ); // CONCATENATED MODULE: ./Extension/src/background/schema/i18n-metadata/tag.ts
@@ -12968,7 +12834,7 @@
       });
       const tagI18nMetadataValidator = lib /* default.record */.ZP.record(
         /**
-         * Two-letter language code.
+         * Locale code.
          */ lib /* default.string */.ZP.string(),
         tagInfoValidator
       ); // CONCATENATED MODULE: ./Extension/src/background/schema/i18n-metadata/group.ts
@@ -12997,7 +12863,7 @@
       });
       const groupI18nMetadataValidator = lib /* default.record */.ZP.record(
         /**
-         * Two-letter language code.
+         * Locale code.
          */ lib /* default.string */.ZP.string(),
         groupName
       ); // CONCATENATED MODULE: ./Extension/src/background/schema/i18n-metadata/i18n-metadata.ts
@@ -13683,7 +13549,7 @@
       /***/
     },
 
-    /***/ 91008: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 1008: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ CY: () => /* binding */ KEEP_ALIVE_PORT_NAME,
@@ -13696,6 +13562,7 @@
         /* harmony export */ XR: () => /* binding */ TRUSTED_TAG,
         /* harmony export */ XS: () => /* binding */ WASTE_CHARACTERS,
         /* harmony export */ Z1: () => /* binding */ VIEWED_NOTIFICATIONS_KEY,
+        /* harmony export */ ar: () => /* binding */ OPTIONS_PAGE,
         /* harmony export */ du: () => /* binding */ FILTERING_LOG,
         /* harmony export */ ih: () => /* binding */ CUSTOM_FILTERS_START_ID,
         /* harmony export */ jF: () => /* binding */ SCHEMA_VERSION_KEY,
@@ -13830,11 +13697,12 @@
       })(FiltersUpdateTime || (FiltersUpdateTime = {}));
       const NEWLINE_CHAR_UNIX = "\n";
       const NEWLINE_CHAR_REGEX = /\r?\n/;
+      const OPTIONS_PAGE = "pages/options.html";
 
       /***/
     },
 
-    /***/ 90637: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 637: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ C: () => /* binding */ MessageType,
@@ -13939,7 +13807,7 @@
       /***/
     },
 
-    /***/ 88427: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8427: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Cs: () => /* reexport safe */ _constants__WEBPACK_IMPORTED_MODULE_0__.C,
@@ -13949,9 +13817,9 @@
         /* harmony export */ pF: () => /* reexport safe */ _message_handler__WEBPACK_IMPORTED_MODULE_2__.p
         /* harmony export */
       });
-      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(90637);
-      /* harmony import */ var _send_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(38039);
-      /* harmony import */ var _message_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(93175);
+      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(637);
+      /* harmony import */ var _send_message__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8039);
+      /* harmony import */ var _message_handler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3175);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -13973,17 +13841,17 @@
       /***/
     },
 
-    /***/ 93175: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3175: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ p: () => /* binding */ MessageHandler
         /* harmony export */
       });
-      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68705);
+      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8705);
       /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_1__
       );
@@ -14060,18 +13928,18 @@
       /***/
     },
 
-    /***/ 38039: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 8039: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ D: () => /* binding */ sendTabMessage,
         /* harmony export */ b: () => /* binding */ sendMessage
         /* harmony export */
       });
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(90637);
+      /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(637);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14125,7 +13993,7 @@
       /***/
     },
 
-    /***/ 80239: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 239: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ YK: () => /* binding */ DEFAULT_FILTERS_UPDATE_PERIOD,
@@ -14136,8 +14004,8 @@
         /* harmony export */
       });
       /* unused harmony exports DEFAULT_ALLOWLIST, DEFAULT_INVERTED_ALLOWLIST */
-      /* harmony import */ var _background_schema__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19457);
-      /* harmony import */ var _user_agent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(65759);
+      /* harmony import */ var _background_schema__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9457);
+      /* harmony import */ var _user_agent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5759);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14214,13 +14082,13 @@
       /***/
     },
 
-    /***/ 97817: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7817: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ a: () => /* binding */ i18n
         /* harmony export */
       });
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
@@ -14252,15 +14120,15 @@
       /***/
     },
 
-    /***/ 96537: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 6537: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ _: () => /* binding */ reactTranslator
         /* harmony export */
       });
-      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70846);
-      /* harmony import */ var _adguard_translate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58396);
-      /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(97817);
+      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(846);
+      /* harmony import */ var _adguard_translate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8396);
+      /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7817);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14290,14 +14158,14 @@
       /***/
     },
 
-    /***/ 85672: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5672: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ O: () => /* binding */ translator
         /* harmony export */
       });
-      /* harmony import */ var _adguard_translate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58396);
-      /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(97817);
+      /* harmony import */ var _adguard_translate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8396);
+      /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7817);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14325,13 +14193,13 @@
       /***/
     },
 
-    /***/ 65759: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5759: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ Z: () => /* binding */ UserAgent
         /* harmony export */
       });
-      /* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(58171);
+      /* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8171);
       /* harmony import */ var ua_parser_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         ua_parser_js__WEBPACK_IMPORTED_MODULE_0__
       );
@@ -14375,7 +14243,7 @@
          *
          * @returns user agent browser name.
          */ static getBrowserName() {
-          return UserAgent.parser.getBrowser().name;
+          return UserAgent.isFirefoxMobile ? "Firefox Mobile" : UserAgent.parser.getBrowser().name;
         }
         /**
          * Returns current OS name.
@@ -14493,6 +14361,9 @@
          */ static isTargetEngine(engineName) {
           return UserAgent.parser.getEngine().name === engineName;
         }
+        static isTargetDeviceType(deviceType) {
+          return UserAgent.parser.getDevice().type === deviceType;
+        }
         /**
          * Returns a major browser version.
          *
@@ -14522,12 +14393,15 @@
       _define_property(UserAgent, "isWindows", UserAgent.isTargetPlatform("Windows"));
       _define_property(UserAgent, "isAndroid", UserAgent.isTargetPlatform("Android"));
       _define_property(UserAgent, "isChromium", UserAgent.isTargetEngine("Blink"));
+      _define_property(UserAgent, "isMobileDevice", UserAgent.isTargetDeviceType("mobile"));
+      _define_property(UserAgent, "isFirefoxMobile", UserAgent.isFirefox && UserAgent.isMobileDevice);
       _define_property(
         UserAgent,
         "isSupportedBrowser",
         (UserAgent.isChrome && Number(UserAgent.version) >= 79) ||
           (UserAgent.isEdgeChromium && Number(UserAgent.version) >= 79) ||
           (UserAgent.isFirefox && Number(UserAgent.version) >= 78) ||
+          (UserAgent.isFirefoxMobile && Number(UserAgent.version) >= 113) ||
           (UserAgent.isOpera && Number(UserAgent.version) >= 66)
       );
       _define_property(UserAgent, "browserName", UserAgent.getBrowserName());
@@ -14544,9 +14418,9 @@
       });
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./node_modules/react-dom/index.js
-      var react_dom = __webpack_require__(76644); // CONCATENATED MODULE: ./Extension/src/pages/common/components/AttachmentPortal/AttacmentPortal.jsx
+      var react_dom = __webpack_require__(6644); // CONCATENATED MODULE: ./Extension/src/pages/common/components/AttachmentPortal/AttacmentPortal.jsx
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14631,7 +14505,7 @@
       /***/
     },
 
-    /***/ 32907: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 2907: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ FP: () => /* binding */ EVENTS,
@@ -14639,9 +14513,9 @@
         /* harmony export */ iO: () => /* binding */ createSavingService
         /* harmony export */
       });
-      /* harmony import */ var xstate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(59989);
-      /* harmony import */ var xstate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(65697);
-      /* harmony import */ var _common_log__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(75019);
+      /* harmony import */ var xstate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9989);
+      /* harmony import */ var xstate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5697);
+      /* harmony import */ var _common_log__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5019);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14731,7 +14605,7 @@
       /***/
     },
 
-    /***/ 97026: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7026: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -14740,16 +14614,16 @@
       });
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./node_modules/classnames/index.js
       var classnames = __webpack_require__(8356);
       var classnames_default = /*#__PURE__*/ __webpack_require__.n(classnames);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/Editor/savingFSM.js
-      var savingFSM = __webpack_require__(32907);
+      var savingFSM = __webpack_require__(2907);
       // EXTERNAL MODULE: ./Extension/src/common/translators/reactTranslator.js
-      var reactTranslator = __webpack_require__(96537);
+      var reactTranslator = __webpack_require__(6537);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/ui/Icon.jsx
-      var Icon = __webpack_require__(19004); // CONCATENATED MODULE: ./Extension/src/pages/common/components/SavingButton/SavingButton.jsx
+      var Icon = __webpack_require__(9004); // CONCATENATED MODULE: ./Extension/src/pages/common/components/SavingButton/SavingButton.jsx
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -14836,16 +14710,16 @@
       /***/
     },
 
-    /***/ 89315: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9315: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ O: () => /* binding */ userRulesEditorStore
         /* harmony export */
       });
-      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70846);
-      /* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(31056);
-      /* harmony import */ var _services_messenger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(34798);
-      /* harmony import */ var _Editor_savingFSM__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32907);
+      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(846);
+      /* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1056);
+      /* harmony import */ var _services_messenger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4798);
+      /* harmony import */ var _Editor_savingFSM__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2907);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -15042,7 +14916,7 @@
       /***/
     },
 
-    /***/ 59369: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9369: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -15051,40 +14925,40 @@
       });
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./node_modules/mobx-react/dist/mobxreact.esm.js + 14 modules
-      var mobxreact_esm = __webpack_require__(46047);
+      var mobxreact_esm = __webpack_require__(6047);
       // EXTERNAL MODULE: ./node_modules/ace-builds/src-noconflict/ace.js
-      var ace = __webpack_require__(50350);
+      var ace = __webpack_require__(350);
       // EXTERNAL MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/simple-regex-f1b757a6.js
-      var simple_regex_f1b757a6 = __webpack_require__(79219); // CONCATENATED MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/simple-regex.js
+      var simple_regex_f1b757a6 = __webpack_require__(9219); // CONCATENATED MODULE: ./node_modules/@adguard/tsurlfilter/dist/es/simple-regex.js
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/Editor/index.js + 3 modules
-      var Editor = __webpack_require__(39506);
+      var Editor = __webpack_require__(9506);
       // EXTERNAL MODULE: ./Extension/src/common/translators/reactTranslator.js
-      var reactTranslator = __webpack_require__(96537);
+      var reactTranslator = __webpack_require__(6537);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/ui/Popover/index.js + 1 modules
-      var Popover = __webpack_require__(53665);
+      var Popover = __webpack_require__(3665);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/ui/Checkbox/index.js + 2 modules
-      var Checkbox = __webpack_require__(29072);
+      var Checkbox = __webpack_require__(9072);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/ui/Icon.jsx
-      var Icon = __webpack_require__(19004);
+      var Icon = __webpack_require__(9004);
       // EXTERNAL MODULE: ./Extension/src/pages/services/messenger.js
-      var messenger = __webpack_require__(34798);
+      var messenger = __webpack_require__(4798);
       // EXTERNAL MODULE: ./Extension/src/common/messages/index.ts
-      var messages = __webpack_require__(88427);
+      var messages = __webpack_require__(8427);
       // EXTERNAL MODULE: ./Extension/src/common/constants.ts
-      var constants = __webpack_require__(91008);
+      var constants = __webpack_require__(1008);
       // EXTERNAL MODULE: ./Extension/src/pages/helpers.js
-      var helpers = __webpack_require__(43481);
+      var helpers = __webpack_require__(3481);
       // EXTERNAL MODULE: ./Extension/src/common/log.ts
-      var log = __webpack_require__(75019);
+      var log = __webpack_require__(5019);
       // EXTERNAL MODULE: ./Extension/src/pages/common/utils/export.js
-      var utils_export = __webpack_require__(87311);
+      var utils_export = __webpack_require__(7311);
       // EXTERNAL MODULE: ./node_modules/classnames/index.js
       var classnames = __webpack_require__(8356);
       var classnames_default = /*#__PURE__*/ __webpack_require__.n(classnames);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/UserRulesEditor/UserRulesEditorStore.js
-      var UserRulesEditorStore = __webpack_require__(89315); // CONCATENATED MODULE: ./Extension/src/pages/common/components/UserRulesEditor/ToggleWrapButton.jsx
+      var UserRulesEditorStore = __webpack_require__(9315); // CONCATENATED MODULE: ./Extension/src/pages/common/components/UserRulesEditor/ToggleWrapButton.jsx
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -15137,7 +15011,7 @@
       });
 
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/SavingButton/index.js + 1 modules
-      var SavingButton = __webpack_require__(97026); // CONCATENATED MODULE: ./Extension/src/pages/common/components/UserRulesEditor/UserRulesSavingButton.jsx
+      var SavingButton = __webpack_require__(7026); // CONCATENATED MODULE: ./Extension/src/pages/common/components/UserRulesEditor/UserRulesSavingButton.jsx
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -15604,7 +15478,7 @@
       /***/
     },
 
-    /***/ 29072: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9072: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -15613,7 +15487,7 @@
       });
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./node_modules/prop-types/index.js
       var prop_types = __webpack_require__(3660);
       var prop_types_default = /*#__PURE__*/ __webpack_require__.n(prop_types);
@@ -15621,25 +15495,25 @@
       var classnames = __webpack_require__(8356);
       var classnames_default = /*#__PURE__*/ __webpack_require__.n(classnames);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-      var injectStylesIntoStyleTag = __webpack_require__(35491);
+      var injectStylesIntoStyleTag = __webpack_require__(5491);
       var injectStylesIntoStyleTag_default = /*#__PURE__*/ __webpack_require__.n(injectStylesIntoStyleTag);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
-      var styleDomAPI = __webpack_require__(19532);
+      var styleDomAPI = __webpack_require__(9532);
       var styleDomAPI_default = /*#__PURE__*/ __webpack_require__.n(styleDomAPI);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
-      var insertBySelector = __webpack_require__(48190);
+      var insertBySelector = __webpack_require__(8190);
       var insertBySelector_default = /*#__PURE__*/ __webpack_require__.n(insertBySelector);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
-      var setAttributesWithoutAttributes = __webpack_require__(47630);
+      var setAttributesWithoutAttributes = __webpack_require__(7630);
       var setAttributesWithoutAttributes_default = /*#__PURE__*/ __webpack_require__.n(setAttributesWithoutAttributes);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
-      var insertStyleElement = __webpack_require__(60664);
+      var insertStyleElement = __webpack_require__(664);
       var insertStyleElement_default = /*#__PURE__*/ __webpack_require__.n(insertStyleElement);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
-      var styleTagTransform = __webpack_require__(82563);
+      var styleTagTransform = __webpack_require__(2563);
       var styleTagTransform_default = /*#__PURE__*/ __webpack_require__.n(styleTagTransform);
       // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./Extension/src/pages/common/components/ui/Checkbox/checkbox.pcss
-      var Checkbox_checkbox = __webpack_require__(43121); // CONCATENATED MODULE: ./Extension/src/pages/common/components/ui/Checkbox/checkbox.pcss
+      var Checkbox_checkbox = __webpack_require__(3121); // CONCATENATED MODULE: ./Extension/src/pages/common/components/ui/Checkbox/checkbox.pcss
       var options = {};
 
       options.styleTagTransform = styleTagTransform_default();
@@ -15750,13 +15624,13 @@
       /***/
     },
 
-    /***/ 19004: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9004: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ J: () => /* binding */ Icon
         /* harmony export */
       });
-      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70846);
+      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(846);
       /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8356);
       /* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
         classnames__WEBPACK_IMPORTED_MODULE_1__
@@ -15821,13 +15695,13 @@
       /***/
     },
 
-    /***/ 41605: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 1605: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ P: () => /* binding */ Icons
         /* harmony export */
       });
-      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70846);
+      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(846);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -16856,7 +16730,7 @@
       /***/
     },
 
-    /***/ 53665: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3665: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -16865,11 +16739,11 @@
       });
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/AttachmentPortal/index.js + 1 modules
       var AttachmentPortal = __webpack_require__(8219);
       // EXTERNAL MODULE: ./Extension/src/pages/common/components/ui/Tooltip/index.js + 2 modules
-      var Tooltip = __webpack_require__(35756); // CONCATENATED MODULE: ./Extension/src/pages/common/components/ui/Popover/Popover.jsx
+      var Tooltip = __webpack_require__(5756); // CONCATENATED MODULE: ./Extension/src/pages/common/components/ui/Popover/Popover.jsx
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -16965,7 +16839,7 @@
       /***/
     },
 
-    /***/ 35756: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 5756: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXPORTS
@@ -16974,7 +16848,7 @@
       });
 
       // EXTERNAL MODULE: ./node_modules/react/index.js
-      var react = __webpack_require__(70846);
+      var react = __webpack_require__(846);
       // EXTERNAL MODULE: ./node_modules/prop-types/index.js
       var prop_types = __webpack_require__(3660);
       var prop_types_default = /*#__PURE__*/ __webpack_require__.n(prop_types);
@@ -16982,25 +16856,25 @@
       var classnames = __webpack_require__(8356);
       var classnames_default = /*#__PURE__*/ __webpack_require__.n(classnames);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js
-      var injectStylesIntoStyleTag = __webpack_require__(35491);
+      var injectStylesIntoStyleTag = __webpack_require__(5491);
       var injectStylesIntoStyleTag_default = /*#__PURE__*/ __webpack_require__.n(injectStylesIntoStyleTag);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleDomAPI.js
-      var styleDomAPI = __webpack_require__(19532);
+      var styleDomAPI = __webpack_require__(9532);
       var styleDomAPI_default = /*#__PURE__*/ __webpack_require__.n(styleDomAPI);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertBySelector.js
-      var insertBySelector = __webpack_require__(48190);
+      var insertBySelector = __webpack_require__(8190);
       var insertBySelector_default = /*#__PURE__*/ __webpack_require__.n(insertBySelector);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js
-      var setAttributesWithoutAttributes = __webpack_require__(47630);
+      var setAttributesWithoutAttributes = __webpack_require__(7630);
       var setAttributesWithoutAttributes_default = /*#__PURE__*/ __webpack_require__.n(setAttributesWithoutAttributes);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/insertStyleElement.js
-      var insertStyleElement = __webpack_require__(60664);
+      var insertStyleElement = __webpack_require__(664);
       var insertStyleElement_default = /*#__PURE__*/ __webpack_require__.n(insertStyleElement);
       // EXTERNAL MODULE: ./node_modules/style-loader/dist/runtime/styleTagTransform.js
-      var styleTagTransform = __webpack_require__(82563);
+      var styleTagTransform = __webpack_require__(2563);
       var styleTagTransform_default = /*#__PURE__*/ __webpack_require__.n(styleTagTransform);
       // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js!./Extension/src/pages/common/components/ui/Tooltip/tooltip.pcss
-      var tooltip = __webpack_require__(49970); // CONCATENATED MODULE: ./Extension/src/pages/common/components/ui/Tooltip/tooltip.pcss
+      var tooltip = __webpack_require__(9970); // CONCATENATED MODULE: ./Extension/src/pages/common/components/ui/Tooltip/tooltip.pcss
       var options = {};
 
       options.styleTagTransform = styleTagTransform_default();
@@ -17071,18 +16945,15 @@
       /***/
     },
 
-    /***/ 49346: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 9346: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ D: () => /* binding */ useAppearanceTheme
         /* harmony export */
       });
-      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(70846);
-      /* harmony import */ var lodash_throttle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49789);
-      /* harmony import */ var lodash_throttle__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
-        lodash_throttle__WEBPACK_IMPORTED_MODULE_1__
-      );
-      /* harmony import */ var _common_settings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(80239);
+      /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(846);
+      /* harmony import */ var lodash_es__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5899);
+      /* harmony import */ var _common_settings__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(239);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -17107,7 +16978,7 @@
           const DARK_THEME_CLASS = "dark-mode";
           const LIGHT_THEME_CLASS = "light-mode";
           const SET_TO_STORAGE_TIMEOUT = 500;
-          const throttledSetToStorage = lodash_throttle__WEBPACK_IMPORTED_MODULE_1___default()((mode) => {
+          const throttledSetToStorage = (0, lodash_es__WEBPACK_IMPORTED_MODULE_2__ /* ["default"] */.Z)((mode) => {
             localStorage.setItem(STORAGE_KEY, mode);
           }, SET_TO_STORAGE_TIMEOUT);
           let theme = appearanceTheme;
@@ -17117,12 +16988,12 @@
             throttledSetToStorage(theme);
           }
           switch (theme) {
-            case _common_settings__WEBPACK_IMPORTED_MODULE_2__ /* .AppearanceTheme.Dark */.hJ.Dark: {
+            case _common_settings__WEBPACK_IMPORTED_MODULE_1__ /* .AppearanceTheme.Dark */.hJ.Dark: {
               document.documentElement.classList.add(DARK_THEME_CLASS);
               document.documentElement.classList.remove(LIGHT_THEME_CLASS);
               break;
             }
-            case _common_settings__WEBPACK_IMPORTED_MODULE_2__ /* .AppearanceTheme.Light */.hJ.Light: {
+            case _common_settings__WEBPACK_IMPORTED_MODULE_1__ /* .AppearanceTheme.Light */.hJ.Light: {
               document.documentElement.classList.add(LIGHT_THEME_CLASS);
               document.documentElement.classList.remove(DARK_THEME_CLASS);
               break;
@@ -17138,7 +17009,7 @@
       /***/
     },
 
-    /***/ 87311: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 7311: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ I: () => /* binding */ ExportTypes,
@@ -17148,15 +17019,15 @@
       /* harmony import */ var core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(582);
       /* harmony import */ var core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_0___default =
         /*#__PURE__*/ __webpack_require__.n(core_js_modules_web_url_search_params_delete_js__WEBPACK_IMPORTED_MODULE_0__);
-      /* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(37899);
+      /* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7899);
       /* harmony import */ var core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_1___default =
         /*#__PURE__*/ __webpack_require__.n(core_js_modules_web_url_search_params_has_js__WEBPACK_IMPORTED_MODULE_1__);
-      /* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26124);
+      /* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6124);
       /* harmony import */ var core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_2___default =
         /*#__PURE__*/ __webpack_require__.n(core_js_modules_web_url_search_params_size_js__WEBPACK_IMPORTED_MODULE_2__);
-      /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(93620);
-      /* harmony import */ var _services_messenger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(34798);
-      /* harmony import */ var _common_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(88427);
+      /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(3620);
+      /* harmony import */ var _services_messenger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4798);
+      /* harmony import */ var _common_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8427);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -17225,7 +17096,7 @@
       /***/
     },
 
-    /***/ 43481: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 3481: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ $8: () => /* binding */ updateFilterDescription,
@@ -17240,15 +17111,15 @@
         /* harmony export */
       });
       /* unused harmony exports getFilenameExtension, indexOfIgnoreCase */
-      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(68705);
+      /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8705);
       /* harmony import */ var core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         core_js_modules_es_error_cause_js__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24252);
+      /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4252);
       /* harmony import */ var core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/ __webpack_require__.n(
         core_js_modules_es_array_push_js__WEBPACK_IMPORTED_MODULE_1__
       );
-      /* harmony import */ var _common_translators_translator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(85672);
+      /* harmony import */ var _common_translators_translator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5672);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -17458,19 +17329,19 @@
       /***/
     },
 
-    /***/ 34798: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 4798: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ d: () => /* binding */ messenger
         /* harmony export */
       });
-      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53679);
+      /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3679);
       /* harmony import */ var webextension_polyfill__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/ __webpack_require__.n(
         webextension_polyfill__WEBPACK_IMPORTED_MODULE_0__
       );
-      /* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32380);
-      /* harmony import */ var _common_log__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(75019);
-      /* harmony import */ var _common_messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(88427);
+      /* harmony import */ var nanoid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2380);
+      /* harmony import */ var _common_log__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5019);
+      /* harmony import */ var _common_messages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8427);
       /**
        * @file
        * This file is part of AdGuard Browser Extension (https://github.com/AdguardTeam/AdguardBrowserExtension).
@@ -17914,7 +17785,697 @@
       /***/
     },
 
-    /***/ 32380: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+    /***/ 3063: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _root_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7583);
+
+      /** Built-in value references. */
+      var Symbol = _root_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"].Symbol */.Z.Symbol;
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Symbol;
+
+      /***/
+    },
+
+    /***/ 7979: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ _baseGetTag
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_Symbol.js
+      var _Symbol = __webpack_require__(3063); // CONCATENATED MODULE: ./node_modules/lodash-es/_getRawTag.js
+      /** Used for built-in method references. */
+      var objectProto = Object.prototype;
+
+      /** Used to check objects for own properties. */
+      var _getRawTag_hasOwnProperty = objectProto.hasOwnProperty;
+
+      /**
+       * Used to resolve the
+       * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+       * of values.
+       */
+      var nativeObjectToString = objectProto.toString;
+
+      /** Built-in value references. */
+      var symToStringTag = _Symbol /* default */.Z ? _Symbol /* default.toStringTag */.Z.toStringTag : undefined;
+
+      /**
+       * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+       *
+       * @private
+       * @param {*} value The value to query.
+       * @returns {string} Returns the raw `toStringTag`.
+       */
+      function getRawTag(value) {
+        var isOwn = _getRawTag_hasOwnProperty.call(value, symToStringTag),
+          tag = value[symToStringTag];
+
+        try {
+          value[symToStringTag] = undefined;
+          var unmasked = true;
+        } catch (e) {}
+
+        var result = nativeObjectToString.call(value);
+        if (unmasked) {
+          if (isOwn) {
+            value[symToStringTag] = tag;
+          } else {
+            delete value[symToStringTag];
+          }
+        }
+        return result;
+      }
+
+      /* harmony default export */ const _getRawTag = getRawTag; // CONCATENATED MODULE: ./node_modules/lodash-es/_objectToString.js
+
+      /** Used for built-in method references. */
+      var _objectToString_objectProto = Object.prototype;
+
+      /**
+       * Used to resolve the
+       * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+       * of values.
+       */
+      var _objectToString_nativeObjectToString = _objectToString_objectProto.toString;
+
+      /**
+       * Converts `value` to a string using `Object.prototype.toString`.
+       *
+       * @private
+       * @param {*} value The value to convert.
+       * @returns {string} Returns the converted string.
+       */
+      function objectToString(value) {
+        return _objectToString_nativeObjectToString.call(value);
+      }
+
+      /* harmony default export */ const _objectToString = objectToString; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseGetTag.js
+
+      /** `Object#toString` result references. */
+      var nullTag = "[object Null]",
+        undefinedTag = "[object Undefined]";
+
+      /** Built-in value references. */
+      var _baseGetTag_symToStringTag = _Symbol /* default */.Z ? _Symbol /* default.toStringTag */.Z.toStringTag : undefined;
+
+      /**
+       * The base implementation of `getTag` without fallbacks for buggy environments.
+       *
+       * @private
+       * @param {*} value The value to query.
+       * @returns {string} Returns the `toStringTag`.
+       */
+      function baseGetTag(value) {
+        if (value == null) {
+          return value === undefined ? undefinedTag : nullTag;
+        }
+        return _baseGetTag_symToStringTag && _baseGetTag_symToStringTag in Object(value) ? _getRawTag(value) : _objectToString(value);
+      }
+
+      /* harmony default export */ const _baseGetTag = baseGetTag;
+
+      /***/
+    },
+
+    /***/ 8891: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /** Detect free variable `global` from Node.js. */
+      var freeGlobal = typeof global == "object" && global && global.Object === Object && global;
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = freeGlobal;
+
+      /***/
+    },
+
+    /***/ 7583: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _freeGlobal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8891);
+
+      /** Detect free variable `self`. */
+      var freeSelf = typeof self == "object" && self && self.Object === Object && self;
+
+      /** Used as a reference to the global object. */
+      var root = _freeGlobal_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z || freeSelf || Function("return this")();
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = root;
+
+      /***/
+    },
+
+    /***/ 9239: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_debounce
+      });
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObject.js
+      var isObject = __webpack_require__(6185);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/_root.js
+      var _root = __webpack_require__(7583); // CONCATENATED MODULE: ./node_modules/lodash-es/now.js
+      /**
+       * Gets the timestamp of the number of milliseconds that have elapsed since
+       * the Unix epoch (1 January 1970 00:00:00 UTC).
+       *
+       * @static
+       * @memberOf _
+       * @since 2.4.0
+       * @category Date
+       * @returns {number} Returns the timestamp.
+       * @example
+       *
+       * _.defer(function(stamp) {
+       *   console.log(_.now() - stamp);
+       * }, _.now());
+       * // => Logs the number of milliseconds it took for the deferred invocation.
+       */
+      var now = function () {
+        return _root /* default.Date.now */.Z.Date.now();
+      };
+
+      /* harmony default export */ const lodash_es_now = now;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/toNumber.js + 2 modules
+      var toNumber = __webpack_require__(8564); // CONCATENATED MODULE: ./node_modules/lodash-es/debounce.js
+      /** Error message constants. */
+      var FUNC_ERROR_TEXT = "Expected a function";
+
+      /* Built-in method references for those with the same name as other `lodash` methods. */
+      var nativeMax = Math.max,
+        nativeMin = Math.min;
+
+      /**
+       * Creates a debounced function that delays invoking `func` until after `wait`
+       * milliseconds have elapsed since the last time the debounced function was
+       * invoked. The debounced function comes with a `cancel` method to cancel
+       * delayed `func` invocations and a `flush` method to immediately invoke them.
+       * Provide `options` to indicate whether `func` should be invoked on the
+       * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+       * with the last arguments provided to the debounced function. Subsequent
+       * calls to the debounced function return the result of the last `func`
+       * invocation.
+       *
+       * **Note:** If `leading` and `trailing` options are `true`, `func` is
+       * invoked on the trailing edge of the timeout only if the debounced function
+       * is invoked more than once during the `wait` timeout.
+       *
+       * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+       * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+       *
+       * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+       * for details over the differences between `_.debounce` and `_.throttle`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Function
+       * @param {Function} func The function to debounce.
+       * @param {number} [wait=0] The number of milliseconds to delay.
+       * @param {Object} [options={}] The options object.
+       * @param {boolean} [options.leading=false]
+       *  Specify invoking on the leading edge of the timeout.
+       * @param {number} [options.maxWait]
+       *  The maximum time `func` is allowed to be delayed before it's invoked.
+       * @param {boolean} [options.trailing=true]
+       *  Specify invoking on the trailing edge of the timeout.
+       * @returns {Function} Returns the new debounced function.
+       * @example
+       *
+       * // Avoid costly calculations while the window size is in flux.
+       * jQuery(window).on('resize', _.debounce(calculateLayout, 150));
+       *
+       * // Invoke `sendMail` when clicked, debouncing subsequent calls.
+       * jQuery(element).on('click', _.debounce(sendMail, 300, {
+       *   'leading': true,
+       *   'trailing': false
+       * }));
+       *
+       * // Ensure `batchLog` is invoked once after 1 second of debounced calls.
+       * var debounced = _.debounce(batchLog, 250, { 'maxWait': 1000 });
+       * var source = new EventSource('/stream');
+       * jQuery(source).on('message', debounced);
+       *
+       * // Cancel the trailing debounced invocation.
+       * jQuery(window).on('popstate', debounced.cancel);
+       */
+      function debounce(func, wait, options) {
+        var lastArgs,
+          lastThis,
+          maxWait,
+          result,
+          timerId,
+          lastCallTime,
+          lastInvokeTime = 0,
+          leading = false,
+          maxing = false,
+          trailing = true;
+
+        if (typeof func != "function") {
+          throw new TypeError(FUNC_ERROR_TEXT);
+        }
+        wait = (0, toNumber /* default */.Z)(wait) || 0;
+        if ((0, isObject /* default */.Z)(options)) {
+          leading = !!options.leading;
+          maxing = "maxWait" in options;
+          maxWait = maxing ? nativeMax((0, toNumber /* default */.Z)(options.maxWait) || 0, wait) : maxWait;
+          trailing = "trailing" in options ? !!options.trailing : trailing;
+        }
+
+        function invokeFunc(time) {
+          var args = lastArgs,
+            thisArg = lastThis;
+
+          lastArgs = lastThis = undefined;
+          lastInvokeTime = time;
+          result = func.apply(thisArg, args);
+          return result;
+        }
+
+        function leadingEdge(time) {
+          // Reset any `maxWait` timer.
+          lastInvokeTime = time;
+          // Start the timer for the trailing edge.
+          timerId = setTimeout(timerExpired, wait);
+          // Invoke the leading edge.
+          return leading ? invokeFunc(time) : result;
+        }
+
+        function remainingWait(time) {
+          var timeSinceLastCall = time - lastCallTime,
+            timeSinceLastInvoke = time - lastInvokeTime,
+            timeWaiting = wait - timeSinceLastCall;
+
+          return maxing ? nativeMin(timeWaiting, maxWait - timeSinceLastInvoke) : timeWaiting;
+        }
+
+        function shouldInvoke(time) {
+          var timeSinceLastCall = time - lastCallTime,
+            timeSinceLastInvoke = time - lastInvokeTime;
+
+          // Either this is the first call, activity has stopped and we're at the
+          // trailing edge, the system time has gone backwards and we're treating
+          // it as the trailing edge, or we've hit the `maxWait` limit.
+          return (
+            lastCallTime === undefined || timeSinceLastCall >= wait || timeSinceLastCall < 0 || (maxing && timeSinceLastInvoke >= maxWait)
+          );
+        }
+
+        function timerExpired() {
+          var time = lodash_es_now();
+          if (shouldInvoke(time)) {
+            return trailingEdge(time);
+          }
+          // Restart the timer.
+          timerId = setTimeout(timerExpired, remainingWait(time));
+        }
+
+        function trailingEdge(time) {
+          timerId = undefined;
+
+          // Only invoke if we have `lastArgs` which means `func` has been
+          // debounced at least once.
+          if (trailing && lastArgs) {
+            return invokeFunc(time);
+          }
+          lastArgs = lastThis = undefined;
+          return result;
+        }
+
+        function cancel() {
+          if (timerId !== undefined) {
+            clearTimeout(timerId);
+          }
+          lastInvokeTime = 0;
+          lastArgs = lastCallTime = lastThis = timerId = undefined;
+        }
+
+        function flush() {
+          return timerId === undefined ? result : trailingEdge(lodash_es_now());
+        }
+
+        function debounced() {
+          var time = lodash_es_now(),
+            isInvoking = shouldInvoke(time);
+
+          lastArgs = arguments;
+          lastThis = this;
+          lastCallTime = time;
+
+          if (isInvoking) {
+            if (timerId === undefined) {
+              return leadingEdge(lastCallTime);
+            }
+            if (maxing) {
+              // Handle invocations in a tight loop.
+              clearTimeout(timerId);
+              timerId = setTimeout(timerExpired, wait);
+              return invokeFunc(lastCallTime);
+            }
+          }
+          if (timerId === undefined) {
+            timerId = setTimeout(timerExpired, wait);
+          }
+          return result;
+        }
+        debounced.cancel = cancel;
+        debounced.flush = flush;
+        return debounced;
+      }
+
+      /* harmony default export */ const lodash_es_debounce = debounce;
+
+      /***/
+    },
+
+    /***/ 6185: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Checks if `value` is the
+       * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+       * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+       * @example
+       *
+       * _.isObject({});
+       * // => true
+       *
+       * _.isObject([1, 2, 3]);
+       * // => true
+       *
+       * _.isObject(_.noop);
+       * // => true
+       *
+       * _.isObject(null);
+       * // => false
+       */
+      function isObject(value) {
+        var type = typeof value;
+        return value != null && (type == "object" || type == "function");
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isObject;
+
+      /***/
+    },
+
+    /***/ 6164: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /**
+       * Checks if `value` is object-like. A value is object-like if it's not `null`
+       * and has a `typeof` result of "object".
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+       * @example
+       *
+       * _.isObjectLike({});
+       * // => true
+       *
+       * _.isObjectLike([1, 2, 3]);
+       * // => true
+       *
+       * _.isObjectLike(_.noop);
+       * // => false
+       *
+       * _.isObjectLike(null);
+       * // => false
+       */
+      function isObjectLike(value) {
+        return value != null && typeof value == "object";
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isObjectLike;
+
+      /***/
+    },
+
+    /***/ 6898: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _baseGetTag_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7979);
+      /* harmony import */ var _isObjectLike_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6164);
+
+      /** `Object#toString` result references. */
+      var symbolTag = "[object Symbol]";
+
+      /**
+       * Checks if `value` is classified as a `Symbol` primitive or object.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to check.
+       * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+       * @example
+       *
+       * _.isSymbol(Symbol.iterator);
+       * // => true
+       *
+       * _.isSymbol('abc');
+       * // => false
+       */
+      function isSymbol(value) {
+        return (
+          typeof value == "symbol" ||
+          ((0, _isObjectLike_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(value) &&
+            (0, _baseGetTag_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(value) == symbolTag)
+        );
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = isSymbol;
+
+      /***/
+    },
+
+    /***/ 5899: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ Z: () => __WEBPACK_DEFAULT_EXPORT__
+        /* harmony export */
+      });
+      /* harmony import */ var _debounce_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9239);
+      /* harmony import */ var _isObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6185);
+
+      /** Error message constants. */
+      var FUNC_ERROR_TEXT = "Expected a function";
+
+      /**
+       * Creates a throttled function that only invokes `func` at most once per
+       * every `wait` milliseconds. The throttled function comes with a `cancel`
+       * method to cancel delayed `func` invocations and a `flush` method to
+       * immediately invoke them. Provide `options` to indicate whether `func`
+       * should be invoked on the leading and/or trailing edge of the `wait`
+       * timeout. The `func` is invoked with the last arguments provided to the
+       * throttled function. Subsequent calls to the throttled function return the
+       * result of the last `func` invocation.
+       *
+       * **Note:** If `leading` and `trailing` options are `true`, `func` is
+       * invoked on the trailing edge of the timeout only if the throttled function
+       * is invoked more than once during the `wait` timeout.
+       *
+       * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+       * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+       *
+       * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
+       * for details over the differences between `_.throttle` and `_.debounce`.
+       *
+       * @static
+       * @memberOf _
+       * @since 0.1.0
+       * @category Function
+       * @param {Function} func The function to throttle.
+       * @param {number} [wait=0] The number of milliseconds to throttle invocations to.
+       * @param {Object} [options={}] The options object.
+       * @param {boolean} [options.leading=true]
+       *  Specify invoking on the leading edge of the timeout.
+       * @param {boolean} [options.trailing=true]
+       *  Specify invoking on the trailing edge of the timeout.
+       * @returns {Function} Returns the new throttled function.
+       * @example
+       *
+       * // Avoid excessively updating the position while scrolling.
+       * jQuery(window).on('scroll', _.throttle(updatePosition, 100));
+       *
+       * // Invoke `renewToken` when the click event is fired, but not more than once every 5 minutes.
+       * var throttled = _.throttle(renewToken, 300000, { 'trailing': false });
+       * jQuery(element).on('click', throttled);
+       *
+       * // Cancel the trailing throttled invocation.
+       * jQuery(window).on('popstate', throttled.cancel);
+       */
+      function throttle(func, wait, options) {
+        var leading = true,
+          trailing = true;
+
+        if (typeof func != "function") {
+          throw new TypeError(FUNC_ERROR_TEXT);
+        }
+        if ((0, _isObject_js__WEBPACK_IMPORTED_MODULE_0__ /* ["default"] */.Z)(options)) {
+          leading = "leading" in options ? !!options.leading : leading;
+          trailing = "trailing" in options ? !!options.trailing : trailing;
+        }
+        return (0, _debounce_js__WEBPACK_IMPORTED_MODULE_1__ /* ["default"] */.Z)(func, wait, {
+          leading: leading,
+          maxWait: wait,
+          trailing: trailing
+        });
+      }
+
+      /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = throttle;
+
+      /***/
+    },
+
+    /***/ 8564: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        Z: () => /* binding */ lodash_es_toNumber
+      }); // CONCATENATED MODULE: ./node_modules/lodash-es/_trimmedEndIndex.js
+
+      /** Used to match a single whitespace character. */
+      var reWhitespace = /\s/;
+
+      /**
+       * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
+       * character of `string`.
+       *
+       * @private
+       * @param {string} string The string to inspect.
+       * @returns {number} Returns the index of the last non-whitespace character.
+       */
+      function trimmedEndIndex(string) {
+        var index = string.length;
+
+        while (index-- && reWhitespace.test(string.charAt(index))) {}
+        return index;
+      }
+
+      /* harmony default export */ const _trimmedEndIndex = trimmedEndIndex; // CONCATENATED MODULE: ./node_modules/lodash-es/_baseTrim.js
+
+      /** Used to match leading whitespace. */
+      var reTrimStart = /^\s+/;
+
+      /**
+       * The base implementation of `_.trim`.
+       *
+       * @private
+       * @param {string} string The string to trim.
+       * @returns {string} Returns the trimmed string.
+       */
+      function baseTrim(string) {
+        return string ? string.slice(0, _trimmedEndIndex(string) + 1).replace(reTrimStart, "") : string;
+      }
+
+      /* harmony default export */ const _baseTrim = baseTrim;
+
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isObject.js
+      var isObject = __webpack_require__(6185);
+      // EXTERNAL MODULE: ./node_modules/lodash-es/isSymbol.js
+      var isSymbol = __webpack_require__(6898); // CONCATENATED MODULE: ./node_modules/lodash-es/toNumber.js
+      /** Used as references for various `Number` constants. */
+      var NAN = 0 / 0;
+
+      /** Used to detect bad signed hexadecimal string values. */
+      var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+      /** Used to detect binary string values. */
+      var reIsBinary = /^0b[01]+$/i;
+
+      /** Used to detect octal string values. */
+      var reIsOctal = /^0o[0-7]+$/i;
+
+      /** Built-in method references without a dependency on `root`. */
+      var freeParseInt = parseInt;
+
+      /**
+       * Converts `value` to a number.
+       *
+       * @static
+       * @memberOf _
+       * @since 4.0.0
+       * @category Lang
+       * @param {*} value The value to process.
+       * @returns {number} Returns the number.
+       * @example
+       *
+       * _.toNumber(3.2);
+       * // => 3.2
+       *
+       * _.toNumber(Number.MIN_VALUE);
+       * // => 5e-324
+       *
+       * _.toNumber(Infinity);
+       * // => Infinity
+       *
+       * _.toNumber('3.2');
+       * // => 3.2
+       */
+      function toNumber(value) {
+        if (typeof value == "number") {
+          return value;
+        }
+        if ((0, isSymbol /* default */.Z)(value)) {
+          return NAN;
+        }
+        if ((0, isObject /* default */.Z)(value)) {
+          var other = typeof value.valueOf == "function" ? value.valueOf() : value;
+          value = (0, isObject /* default */.Z)(other) ? other + "" : other;
+        }
+        if (typeof value != "string") {
+          return value === 0 ? value : +value;
+        }
+        value = _baseTrim(value);
+        var isBinary = reIsBinary.test(value);
+        return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
+      }
+
+      /* harmony default export */ const lodash_es_toNumber = toNumber;
+
+      /***/
+    },
+
+    /***/ 2380: /***/ (__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
       "use strict";
       /* harmony export */ __webpack_require__.d(__webpack_exports__, {
         /* harmony export */ x0: () => /* binding */ nanoid
@@ -21777,7 +22338,7 @@
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ __webpack_require__.O(0, [374, 49, 981, 966, 645], () => __webpack_exec__(12951));
+    /******/ __webpack_require__.O(0, [374, 49, 981, 966], () => __webpack_exec__(2951));
     /******/ var __webpack_exports__ = __webpack_require__.O();
     /******/
   }

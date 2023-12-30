@@ -5,7 +5,7 @@
   "name": "__MSG_appName__",
   "short_name": "Equatio",
   "default_locale": "en_US",
-  "version": "51.0.0",
+  "version": "52.0.0",
   "description": "__MSG_appDesc__",
   "icons": {
     "16": "content/assets/equatioicon16.png",
@@ -105,5 +105,5 @@
   "externally_connectable": {
     "matches": ["https://equatio.texthelp.com/*"]
   },
-  "version_name": "51.0.0"
+  "version_name": "52.0.0"
 }

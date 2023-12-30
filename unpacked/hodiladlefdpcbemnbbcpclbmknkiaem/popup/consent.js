@@ -1,24 +1,33 @@
+const BG_WRAPPER = new Proxy(
+  {},
+  {
+    get(t, p, r) {
+      const v = Reflect.get(t, p, r);
+      if (typeof v !== "undefined") return v;
+
+      return () => chrome.runtime.sendMessage({ type: p }).then((k) => k.res);
+    }
+  }
+);
+
 const agreeBtn = document.querySelector("#agree");
 const disagreeBtn = document.querySelector("#disagree");
 
-chrome.runtime.getBackgroundPage(function (backgroundPage) {
-  const redirectTo = "/popup/popup.html";
+const redirectTo = "/popup/popup.html";
 
-  backgroundPage.isPolicyAgreed((isPolicyAgreed) => {
-    if (isPolicyAgreed !== 0) {
-      location.href = redirectTo;
-    }
-  });
-
-  agreeBtn.addEventListener("click", async () => {
-    const service = await backgroundPage.safeMeeting();
-    service.enable();
-    await new Promise((r) => backgroundPage.agreePolicy(r));
+BG_WRAPPER.isPolicyAgreed().then((isPolicyAgreed) => {
+  console.log(isPolicyAgreed);
+  if (isPolicyAgreed !== 0) {
     location.href = redirectTo;
-  });
+  }
+});
 
-  disagreeBtn.addEventListener("click", async () => {
-    await new Promise((r) => backgroundPage.rejectPolicy(r));
-    location.href = redirectTo;
-  });
+agreeBtn.addEventListener("click", async () => {
+  await BG_WRAPPER.agreePolicy();
+  location.href = redirectTo;
+});
+
+disagreeBtn.addEventListener("click", async () => {
+  await BG_WRAPPER.rejectPolicy();
+  location.href = redirectTo;
 });

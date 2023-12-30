@@ -144,7 +144,7 @@ pro.propay = {
     clickURLs();
 
     // Show loading spinner because some stuff may not be rendered properly yet
-    loadingDialog.show();
+    loadingDialog.show("propayReady");
 
     // Initialise some extra stuff just for mobile
     if (is_mobile) {
@@ -160,9 +160,14 @@ pro.propay = {
       voucherDialog.getLatestBalance(function () {
         // Load payment providers and do the rest of the rendering if the selected plan
         // has enough storage. Otherwuse do not proceed with rendering the page.
-        proceed.then(pro.propay.loadPaymentGatewayOptions).catch((ex) => {
-          console.error(ex);
-        });
+        proceed
+          .then(async () => {
+            await pro.propay.loadPaymentGatewayOptions();
+            loadingDialog.hide("propayReady");
+          })
+          .catch((ex) => {
+            console.error(ex);
+          });
       });
     });
   },
@@ -230,7 +235,9 @@ pro.propay = {
   /**
    * Loads the payment gateway options into Payment options section
    */
-  loadPaymentGatewayOptions: function () {
+  loadPaymentGatewayOptions: async function () {
+    "use strict";
+
     // If testing flag is enabled, enable all the gateways for easier debugging (this only works on Staging API)
     var enableAllPaymentGateways = localStorage.enableAllPaymentGateways ? 1 : 0;
 
@@ -241,116 +248,99 @@ pro.propay = {
     //   "supportsRecurring":0,"supportsMonthlyPayment":1,"supportsAnnualPayment":1,
     //   "supportsExpensivePlans":1,"extra":{"code":"B","taxIdLabel":"CPF"}
     // }
-    api_req(
-      { a: "ufpqfull", t: 0, d: enableAllPaymentGateways },
-      {
-        callback: function (gatewayOptions) {
-          const $placeholderText = $(".loading-placeholder-text", pro.propay.$page);
-          const $pricingBox = $(".pricing-page.plan", pro.propay.$page);
+    let { result: gatewayOptions } = await api.req({ a: "ufpqfull", t: 0, d: enableAllPaymentGateways });
 
-          // If an API error (negative number) exit early
-          if (typeof gatewayOptions === "number" && gatewayOptions < 0) {
-            $placeholderText.text("Error while loading, try reloading the page.");
-            return false;
-          }
+    const $placeholderText = $(".loading-placeholder-text", pro.propay.$page);
+    const $pricingBox = $(".pricing-page.plan", pro.propay.$page);
 
-          var tempGatewayOptions = [];
-          for (var ix = 0; ix < gatewayOptions.length; ix++) {
-            // If Pro Flexi, add only the gateways that support business plans
-            if (pro.propay.planNum === pro.ACCOUNT_LEVEL_PRO_FLEXI && gatewayOptions[ix].supportsBusinessPlans === 1) {
-              tempGatewayOptions.push(gatewayOptions[ix]);
-            }
+    // If an API error (negative number) exit early
+    if (typeof gatewayOptions === "number" && gatewayOptions < 0) {
+      $placeholderText.text("Error while loading, try reloading the page.");
+      return false;
+    }
 
-            // Otherwise for Pro Lite and Pro I-III, only add if the gateway supports individual plans
-            else if (
-              pro.propay.planNum !== pro.ACCOUNT_LEVEL_PRO_FLEXI &&
-              (typeof gatewayOptions[ix].supportsIndividualPlans === "undefined" || gatewayOptions[ix].supportsIndividualPlans)
-            ) {
-              tempGatewayOptions.push(gatewayOptions[ix]);
-            }
-          }
-
-          // if this user has a discount, clear gateways that are not supported.
-          const discountInfo = pro.propay.getDiscount();
-          const testGateway = localStorage.testGateway;
-          if (discountInfo) {
-            tempGatewayOptions = tempGatewayOptions.filter((gate) => {
-              if (gate.supportsMultiDiscountCodes && gate.supportsMultiDiscountCodes === 1) {
-                return true;
-              }
-              return testGateway;
-            });
-          }
-
-          gatewayOptions = tempGatewayOptions;
-
-          // Filter out if they don't support expensive plans
-          if (parseInt(pro.propay.planNum) !== 4) {
-            gatewayOptions = gatewayOptions.filter((opt) => {
-              return opt.supportsExpensivePlans !== 0;
-            });
-          }
-
-          // Make a clone of the array so it can be modified
-          pro.propay.allGateways = JSON.parse(JSON.stringify(gatewayOptions));
-
-          // If mobile, filter out all gateways except the supported ones
-          if (is_mobile) {
-            pro.propay.allGateways = mobile.propay.filterPaymentProviderOptions(pro.propay.allGateways);
-          }
-
-          // Check if the API has some issue and not returning any gateways at all
-          if (pro.propay.allGateways.length === 0) {
-            console.error("No valid gateways returned from the API");
-            msgDialog("warningb", "", l.no_payment_providers, "", () => {
-              loadSubPage("pro");
-            });
-            return false;
-          }
-
-          // Separate into two groups, the first group has 6 providers, the second has the rest
-          var primaryGatewayOptions = gatewayOptions.splice(0, 9);
-          var secondaryGatewayOptions = gatewayOptions;
-
-          // Show payment duration (e.g. month or year) and renewal option radio options
-          pro.propay.renderPlanDurationOptions(discountInfo);
-          pro.propay.initPlanDurationClickHandler();
-          pro.propay.initRenewalOptionClickHandler(discountInfo);
-
-          // Hide/show Argentian warning message depending on ipcc
-          if (u_attr.ipcc === "AR") {
-            $(".argentina-only", pro.propay.$page).removeClass("hidden");
-          } else {
-            $(".argentina-only", pro.propay.$page).addClass("hidden");
-          }
-
-          // If mobile, show all supported options at once and they can scroll vertically
-          if (is_mobile) {
-            pro.propay.renderPaymentProviderOptions(pro.propay.allGateways, "primary");
-          } else {
-            // Otherwise if desktop, render the two groups and a Show More button will show the second group
-            pro.propay.renderPaymentProviderOptions(primaryGatewayOptions, "primary");
-            pro.propay.renderPaymentProviderOptions(secondaryGatewayOptions, "secondary");
-          }
-
-          // Change radio button states when clicked
-          pro.propay.initPaymentMethodRadioButtons();
-          pro.propay.preselectPreviousPaymentOption();
-          pro.propay.updateDurationOptionsOnProviderChange();
-          pro.propay.initShowMoreOptionsButton();
-
-          // Update the pricing and whether is a regular payment or subscription
-          pro.propay.updateMainPrice(undefined, discountInfo);
-          pro.propay.updateTextDependingOnRecurring();
-
-          // Show the pricing box on the right (it is hidden while everything loads)
-          $pricingBox.removeClass("loading");
-
-          // Hide the loading dialog
-          loadingDialog.hide();
-        }
-      }
+    var tempGatewayOptions = gatewayOptions.filter(
+      (gate) =>
+        (pro.propay.planNum === pro.ACCOUNT_LEVEL_PRO_FLEXI && gate.supportsBusinessPlans === 1) ||
+        (pro.propay.planNum !== pro.ACCOUNT_LEVEL_PRO_FLEXI &&
+          (typeof gate.supportsIndividualPlans === "undefined" || gate.supportsIndividualPlans))
     );
+
+    // if this user has a discount, clear gateways that are not supported.
+    const discountInfo = pro.propay.getDiscount();
+    const testGateway = localStorage.testGateway;
+    if (discountInfo) {
+      tempGatewayOptions = tempGatewayOptions.filter((gate) => {
+        if (gate.supportsMultiDiscountCodes && gate.supportsMultiDiscountCodes === 1) {
+          return true;
+        }
+        return testGateway;
+      });
+    }
+
+    gatewayOptions = tempGatewayOptions;
+
+    // Filter out if they don't support expensive plans
+    if (parseInt(pro.propay.planNum) !== 4) {
+      gatewayOptions = gatewayOptions.filter((opt) => {
+        return opt.supportsExpensivePlans !== 0;
+      });
+    }
+
+    // Make a clone of the array so it can be modified
+    pro.propay.allGateways = JSON.parse(JSON.stringify(gatewayOptions));
+
+    // If mobile, filter out all gateways except the supported ones
+    if (is_mobile) {
+      pro.propay.allGateways = mobile.propay.filterPaymentProviderOptions(pro.propay.allGateways);
+    }
+
+    // Check if the API has some issue and not returning any gateways at all
+    if (pro.propay.allGateways.length === 0) {
+      console.error("No valid gateways returned from the API");
+      msgDialog("warningb", "", l.no_payment_providers, "", () => {
+        loadSubPage("pro");
+      });
+      return false;
+    }
+
+    // Separate into two groups, the first group has 6 providers, the second has the rest
+    var primaryGatewayOptions = gatewayOptions.splice(0, 9);
+    var secondaryGatewayOptions = gatewayOptions;
+
+    // Show payment duration (e.g. month or year) and renewal option radio options
+    pro.propay.renderPlanDurationOptions(discountInfo);
+    pro.propay.initPlanDurationClickHandler();
+    pro.propay.initRenewalOptionClickHandler(discountInfo);
+
+    // Hide/show Argentian warning message depending on ipcc
+    if (u_attr.ipcc === "AR") {
+      $(".argentina-only", pro.propay.$page).removeClass("hidden");
+    } else {
+      $(".argentina-only", pro.propay.$page).addClass("hidden");
+    }
+
+    // If mobile, show all supported options at once and they can scroll vertically
+    if (is_mobile) {
+      pro.propay.renderPaymentProviderOptions(pro.propay.allGateways, "primary");
+    } else {
+      // Otherwise if desktop, render the two groups and a Show More button will show the second group
+      pro.propay.renderPaymentProviderOptions(primaryGatewayOptions, "primary");
+      pro.propay.renderPaymentProviderOptions(secondaryGatewayOptions, "secondary");
+    }
+
+    // Change radio button states when clicked
+    pro.propay.initPaymentMethodRadioButtons();
+    pro.propay.preselectPreviousPaymentOption();
+    pro.propay.updateDurationOptionsOnProviderChange();
+    pro.propay.initShowMoreOptionsButton();
+
+    // Update the pricing and whether is a regular payment or subscription
+    pro.propay.updateMainPrice(undefined, discountInfo);
+    pro.propay.updateTextDependingOnRecurring();
+
+    // Show the pricing box on the right (it is hidden while everything loads)
+    $pricingBox.removeClass("loading");
   },
 
   /**
@@ -1034,7 +1024,6 @@ pro.propay = {
 
     // Set the date to current date e.g. 3 May 2022 (will be converted to local language wording/format)
     const date = new Date();
-    const options = { year: "numeric", month: "long", day: "numeric" };
     date.setMonth(date.getMonth() + numOfMonths);
 
     // Get the selected Pro plan name
@@ -1043,7 +1032,7 @@ pro.propay = {
     // Update text for "When the #-month/year promotion ends on 26 April, 2024 you will start a
     // recurring monthly/yearly subscription for Pro I of EUR9.99 and your card will be billed monthly/yearly."
     discountRecurringText = mega.icu.format(discountRecurringText, monthsOrYears);
-    discountRecurringText = discountRecurringText.replace("%1", date.toLocaleDateString(undefined, options));
+    discountRecurringText = discountRecurringText.replace("%1", time2date(date.getTime() / 1000, 2));
     discountRecurringText = discountRecurringText.replace("%2", proPlanName);
     discountRecurringText = discountRecurringText.replace("%3", price);
 
@@ -1601,6 +1590,15 @@ pro.propay = {
    */
   processUtcResults: function (utcResult, saleId) {
     "use strict";
+
+    // If the user is upgrading from free, set a flag to show the welcome dialog when the psts notification
+    // arrives. Set this flag if the user is in the experiment, regardless of which variation they are in.
+    // If the payment fails the welcome dialog will check if the user has a pro plan, and as such should still
+    // work as expected.
+    // Only set if user has not seen the welcome dialog before
+    if (u_attr["^!welDlg"] !== "0" && typeof mega.flags.ab_wdns !== "undefined") {
+      mega.attr.set("welDlg", 1, -2, true);
+    }
 
     // Handle results for different payment providers
     switch (pro.lastPaymentProviderId) {

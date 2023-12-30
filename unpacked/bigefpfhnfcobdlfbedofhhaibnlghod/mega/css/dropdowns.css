@@ -364,6 +364,13 @@
   border-radius: 12px;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
 }
+.dropdown-item .beta {
+  border: 1px solid var(--progress-bar-fill3);
+  border-radius: 3px;
+  color: var(--progress-bar-fill3);
+  font: var(--text-body2);
+  padding: 2px 8px;
+}
 .dropdown-warning {
   --icon-size: 24px;
   color: var(--text-color-warning);

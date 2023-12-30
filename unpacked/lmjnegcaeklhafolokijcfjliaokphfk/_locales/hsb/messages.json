@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ bajtow",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "hsb"
   },
   "__missingI18nTags": {
-    "message": "[\"about_chrome_licenses\",\"appDesc\",\"chrome_inapp_no_subs\",\"chrome_license_webstore_accepted\",\"chrome_noyt_text3\",\"edge_req_review\",\"lic_mismatch1\",\"lic_mismatch2\",\"lic_status_mismatch\",\"merge_error\",\"merge_local_files\",\"next\",\"no_audio_in_file\",\"no_video_in_file\",\"select_audio_file_to_merge\",\"select_video_file_to_merge\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_description_hlsRememberPrevLiveChunks\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_hlsRememberPrevLiveChunks\"]"
+    "message": "[\"about_chrome_licenses\",\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"chrome_inapp_no_subs\",\"chrome_license_webstore_accepted\",\"chrome_noyt_text3\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"edge_req_review\",\"lic_mismatch1\",\"lic_mismatch2\",\"lic_status_mismatch\",\"merge_error\",\"merge_local_files\",\"next\",\"no_audio_in_file\",\"no_video_in_file\",\"select_audio_file_to_merge\",\"select_video_file_to_merge\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_description_hlsRememberPrevLiveChunks\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_hlsRememberPrevLiveChunks\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Wo"
@@ -151,7 +151,7 @@
   "adaptative": {
     "message": "Přiměrjomny $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -204,13 +204,13 @@
   "browser_info": {
     "message": "Wobhladowak $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -218,7 +218,7 @@
   "browser_locale": {
     "message": "Lokale wobhladowaka: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -226,7 +226,7 @@
   "build_options": {
     "message": "Wersijowe opcije: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -234,7 +234,7 @@
   "built_on": {
     "message": "$ARG1$ wutworjeny",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -245,7 +245,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ widejow",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -304,7 +304,7 @@
   "chrome_premium_hls": {
     "message": "Bjez premiumoweho statusa da so HLS-sćehnjenje hakle $ARG1$ mjeńšin po předchadnym wuwjesć",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -327,7 +327,7 @@
   "chrome_premium_source": {
     "message": "Sće premiumowy wužiwar přez $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -377,7 +377,7 @@
   "coapp_latest_version": {
     "message": "Najnowša k dispoziciji stejaca wersija je $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -394,10 +394,10 @@
   "coapp_outofdate_text": {
     "message": "Wužiwaće wersiju $ARG1$ přewodneho nałoženja, ale tuta funkcija sej wersiju $ARG2$ wužaduje",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -573,7 +573,7 @@
   "convrule_format": {
     "message": "do formata $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -581,7 +581,7 @@
   "convrule_from_domain": {
     "message": "z domeny $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -598,7 +598,7 @@
   "convrule_with_ext": {
     "message": "z kóncowku '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -615,7 +615,7 @@
   "copy_of": {
     "message": "Kopija $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -623,10 +623,10 @@
   "corrupted_media_file": {
     "message": "Njeje móžno było, informacije wot medija '$ARG1$' z dataje '$ARG2$' dóstać. Dataja je snano wobškodźena.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -655,7 +655,7 @@
   "directory_not_exist_body": {
     "message": "Rjadowak '$ARG1$' njeeksistuje, ma so wutworić?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -702,7 +702,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' eksistuje, folder wšak njeje",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -725,7 +725,7 @@
   "failed_aggregating": {
     "message": "\"$ARG1$\" njeda so agregować",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -733,7 +733,7 @@
   "failed_converting": {
     "message": "\"$ARG1$\" njeda so konwertować",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -741,7 +741,7 @@
   "failed_getting_info": {
     "message": "Žane informacije wo \"$ARG1$\" dóstane",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -764,7 +764,7 @@
   "file_generated": {
     "message": "Dataja \"$ARG1$ je so wutworiła.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -772,7 +772,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" je nětko hotowa",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -783,7 +783,7 @@
   "from_domain": {
     "message": "Z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -794,7 +794,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ datajow",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -802,7 +802,7 @@
   "gallery_from_domain": {
     "message": "Galerija z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -810,7 +810,7 @@
   "gallery_links_from_domain": {
     "message": "Wotkazy z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -902,7 +902,7 @@
   "network_error_status": {
     "message": "Syćowy zmylk - status $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -943,10 +943,10 @@
   "number_type": {
     "message": "$ARG1$  $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -963,7 +963,7 @@
   "overwrite_file": {
     "message": "Dataju '$ARG1$' přepisać?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -983,10 +983,10 @@
   "platform_info": {
     "message": "Platforma $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1036,10 +1036,10 @@
   "req_locale": {
     "message": "Abo snano pomhał, přidatk do '$ARG1$' přełožować ($ARG2$ znamježkowych rjećazkow je přełožene)?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1173,7 +1173,7 @@
   "version": {
     "message": "Wersija $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1652,7 +1652,7 @@
   "you_downloaded_n_videos": {
     "message": "Sće runje swoju dataju $ARG1$. dataju z Video DownloadHelper wuspěšnje sćahnył.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

@@ -121,7 +121,7 @@
           e.setAttribute("type", "button"), e.addEventListener("click", () => l.success({ user_welcomed: !0 }));
         },
         success: (e) => {
-          r.chrome.storage.sync.set(e, () => {
+          r.chrome.storage.local.set(e, () => {
             console.log("User sync complete - ", e);
           }),
             r.chrome.runtime.sendMessage({ type: t, payload: { enableProtection: !0 } }, (e) => {
@@ -131,7 +131,7 @@
             }),
             console.debug("Redirecting to Dashboard"),
             window
-              ? (console.debug("Redirection to dashboard!"), (window.location.href = "../app.html"))
+              ? (console.debug("Redirection to dashboard!"), (window.location.href = "../app.html?show-onboarding=true"))
               : console.log("Redirection failed - cant access window from this scope!"),
             r.chrome.runtime.sendMessage({ type: "MSG_ICONS_REFRESH" });
         }

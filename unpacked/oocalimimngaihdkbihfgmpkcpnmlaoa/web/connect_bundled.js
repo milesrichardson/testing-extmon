@@ -5,17 +5,20 @@
  *******************************************************/
 (() => {
   "use strict";
-  const e = "Failed to read chrome storage. Please refresh the page and try again";
-  var t = function (e, t, n, o) {
-    return new (n || (n = Promise))(function (i, s) {
-      function r(e) {
+  const e = chrome.runtime.id,
+    n = ["bpgopfmgmnojmhnhmgpfmpnookgbmkko", "oocalimimngaihdkbihfgmpkcpnmlaoa", "igbncjcgfkfnfgbaieiimpfkobabmkce"],
+    t = "redirectDataMap",
+    o = "Failed to read chrome storage. Please refresh the page and try again";
+  var i = function (e, n, t, o) {
+    return new (t || (t = Promise))(function (i, s) {
+      function c(e) {
         try {
           a(o.next(e));
         } catch (e) {
           s(e);
         }
       }
-      function c(e) {
+      function r(e) {
         try {
           a(o.throw(e));
         } catch (e) {
@@ -23,101 +26,51 @@
         }
       }
       function a(e) {
-        var t;
+        var n;
         e.done
           ? i(e.value)
-          : ((t = e.value),
-            t instanceof n
-              ? t
-              : new n(function (e) {
-                  e(t);
-                })).then(r, c);
+          : ((n = e.value),
+            n instanceof t
+              ? n
+              : new t(function (e) {
+                  e(n);
+                })).then(c, r);
       }
-      a((o = o.apply(e, t || [])).next());
+      a((o = o.apply(e, n || [])).next());
     });
   };
-  const n = new (class {
-    getItemsAsync(n) {
-      return t(this, void 0, void 0, function* () {
-        return new Promise((t, o) => {
-          chrome.storage.local.get(n, (n) => {
-            chrome.runtime.lastError ? o(new Error(e)) : t(n);
+  const s = new (class {
+    getItemsAsync(e) {
+      return i(this, void 0, void 0, function* () {
+        return new Promise((n, t) => {
+          chrome.storage.local.get(e, (e) => {
+            chrome.runtime.lastError ? (console.log(chrome.runtime.lastError), t(new Error(o))) : n(e);
           });
         });
       });
     }
     getAllItemsAsync() {
-      return t(this, void 0, void 0, function* () {
-        return new Promise((t, n) => {
-          chrome.storage.local.get(null, (o) => {
-            chrome.runtime.lastError ? n(new Error(e)) : t(o);
-          });
-        });
-      });
-    }
-  })();
-  Object.freeze(n);
-  const o = n;
-  var i = function (e, t, n, o) {
-    return new (n || (n = Promise))(function (i, s) {
-      function r(e) {
-        try {
-          a(o.next(e));
-        } catch (e) {
-          s(e);
-        }
-      }
-      function c(e) {
-        try {
-          a(o.throw(e));
-        } catch (e) {
-          s(e);
-        }
-      }
-      function a(e) {
-        var t;
-        e.done
-          ? i(e.value)
-          : ((t = e.value),
-            t instanceof n
-              ? t
-              : new n(function (e) {
-                  e(t);
-                })).then(r, c);
-      }
-      a((o = o.apply(e, t || [])).next());
-    });
-  };
-  const s = new (class {
-    setItemsAsync(e) {
       return i(this, void 0, void 0, function* () {
-        return new Promise((t, n) => {
-          chrome.storage.local.set(e, () => {
-            chrome.runtime.lastError ? n(new Error("Failed to write to chrome storage. Please refresh the page and try again")) : t();
+        return new Promise((e, n) => {
+          chrome.storage.local.get(null, (t) => {
+            chrome.runtime.lastError ? (console.log(chrome.runtime.lastError), n(new Error(o))) : e(t);
           });
         });
       });
     }
   })();
   Object.freeze(s);
-  const r = s;
-  const c = chrome.runtime.id,
-    a = ["bpgopfmgmnojmhnhmgpfmpnookgbmkko", "oocalimimngaihdkbihfgmpkcpnmlaoa", "igbncjcgfkfnfgbaieiimpfkobabmkce"],
-    d = "redirectDataMap";
-  var u;
-  !(function (e) {
-    (e.REGISTER = "register"), (e.PARTY_START = "party_start"), (e.PARTY_JOIN = "party_join"), (e.PARTY_END = "party_end");
-  })(u || (u = {}));
-  var l = function (e, t, n, o) {
-    return new (n || (n = Promise))(function (i, s) {
-      function r(e) {
+  const c = s;
+  var r = function (e, n, t, o) {
+    return new (t || (t = Promise))(function (i, s) {
+      function c(e) {
         try {
           a(o.next(e));
         } catch (e) {
           s(e);
         }
       }
-      function c(e) {
+      function r(e) {
         try {
           a(o.throw(e));
         } catch (e) {
@@ -125,73 +78,125 @@
         }
       }
       function a(e) {
-        var t;
+        var n;
         e.done
           ? i(e.value)
-          : ((t = e.value),
-            t instanceof n
-              ? t
-              : new n(function (e) {
-                  e(t);
-                })).then(r, c);
+          : ((n = e.value),
+            n instanceof t
+              ? n
+              : new t(function (e) {
+                  e(n);
+                })).then(c, r);
       }
-      a((o = o.apply(e, t || [])).next());
+      a((o = o.apply(e, n || [])).next());
+    });
+  };
+  const a = new (class {
+    setItemsAsync(e) {
+      return r(this, void 0, void 0, function* () {
+        return new Promise((n, t) => {
+          chrome.storage.local.set(e, () => {
+            chrome.runtime.lastError ? t(new Error("Failed to write to chrome storage. Please refresh the page and try again")) : n();
+          });
+        });
+      });
+    }
+  })();
+  Object.freeze(a);
+  const d = a;
+  var u;
+  !(function (e) {
+    (e.REGISTER = "register"),
+      (e.PARTY_START = "party_start"),
+      (e.PARTY_JOIN = "party_join"),
+      (e.PARTY_END = "party_end"),
+      (e.PARTY_SHARE = "party_share");
+  })(u || (u = {}));
+  var l = function (e, n, t, o) {
+    return new (t || (t = Promise))(function (i, s) {
+      function c(e) {
+        try {
+          a(o.next(e));
+        } catch (e) {
+          s(e);
+        }
+      }
+      function r(e) {
+        try {
+          a(o.throw(e));
+        } catch (e) {
+          s(e);
+        }
+      }
+      function a(e) {
+        var n;
+        e.done
+          ? i(e.value)
+          : ((n = e.value),
+            n instanceof t
+              ? n
+              : new t(function (e) {
+                  e(n);
+                })).then(c, r);
+      }
+      a((o = o.apply(e, n || [])).next());
     });
   };
   const f = new (class {
     getRedirectDataForTabAsync(e) {
       return l(this, void 0, void 0, function* () {
-        const t = (yield o.getItemsAsync([d])).redirectDataMap,
-          n = this.t(e);
-        if (t && t[n]) {
-          const e = t[n];
+        const n = (yield c.getItemsAsync([t])).redirectDataMap,
+          o = this.t(e);
+        if (n && n[o]) {
+          const e = n[o];
           if (this.o(e)) return e;
         }
       });
     }
     deleteRedirectDataForTabAsync(e) {
       return l(this, void 0, void 0, function* () {
-        const t = (yield o.getItemsAsync([d])).redirectDataMap,
-          n = this.t(e);
-        t && t[n] && delete t[n], yield r.setItemsAsync({ [d]: t });
+        const n = (yield c.getItemsAsync([t])).redirectDataMap,
+          o = this.t(e);
+        n && n[o] && delete n[o], yield d.setItemsAsync({ [t]: n });
       });
     }
     t(e) {
       return e;
     }
-    storeRedirectDataForTabAsync(e, t) {
+    storeRedirectDataForTabAsync(e, n) {
       return l(this, void 0, void 0, function* () {
-        const n = this.t(t);
-        let i = yield o.getItemsAsync([d]);
-        (i[n] = e), (i = this.i(i)), yield r.setItemsAsync({ [d]: i });
+        console.log("store data for tab " + e);
+        const o = this.t(n);
+        let i = yield c.getItemsAsync([t]);
+        (i[o] = e), (i = this.i(i)), yield d.setItemsAsync({ [t]: i });
       });
     }
     i(e) {
-      return (function (e, t) {
-        const n = {};
+      return (function (e, n) {
+        const t = {};
         let o;
-        for (o in e) e.hasOwnProperty(o) && t(e[o]) && (n[o] = e[o]);
-        return n;
+        for (o in e) e.hasOwnProperty(o) && n(e[o]) && (t[o] = e[o]);
+        return t;
       })(e, this.o);
     }
     o(e) {
-      const t = e.date;
-      return void 0 !== t && "number" == typeof t && t <= Date.now() && Date.now() - t < 108e5;
+      const n = e.date;
+      return void 0 !== n && "number" == typeof n && n <= Date.now() && Date.now() - n < 108e5;
     }
   })();
   Object.freeze(f);
   const h = f,
-    v = { $6: ["*://*/*"] },
-    m = "Service_Background",
+    m = { $6: ["*://*/*"] },
+    v = "Service_Background",
     p = "Iframe";
   class y {
-    constructor(e, t, n) {
-      (this.sender = e), (this.target = t), (this.type = n);
+    constructor(e, n, t) {
+      (this.sender = e), (this.target = n), (this.type = t);
     }
   }
   class w extends y {
-    constructor(e, t, n) {
-      super(e, t, n), (this.type = n);
+    constructor(e, n, t) {
+      super(e, n, t), (this.type = t);
     }
   }
   var g;
@@ -222,98 +227,135 @@
       (e.SET_ACTIVE_PARTY = "setActiveParty"),
       (e.FULLSCREEN_WINDOW = "fullscreenWindow"),
       (e.MAX_WINDOW = "maxWindow"),
-      (e.GET_EXPERIMENT_FLAG = "getExpFlag");
+      (e.GET_EXPERIMENT_FLAG = "getExpFlag"),
+      (e.USER_LIST = "userList"),
+      (e.USER_AUTHENTICATED = "userAuthenticated"),
+      (e.BLOCK_CSP = "blockCSP");
   })(g || (g = {}));
   class x extends w {
-    constructor(e, t, n) {
-      super(e, t, g.LOG_EVENT), (this.data = n), (this.sender = e), (this.target = t);
+    constructor(e, n, t) {
+      super(e, n, g.LOG_EVENT), (this.data = t), (this.sender = e), (this.target = n);
     }
   }
-  var T = console.log.bind(window.console);
-  const b = new (class {
+  var T = console.log.bind(window.console),
+    b = function (e, n, t, o) {
+      return new (t || (t = Promise))(function (i, s) {
+        function c(e) {
+          try {
+            a(o.next(e));
+          } catch (e) {
+            s(e);
+          }
+        }
+        function r(e) {
+          try {
+            a(o.throw(e));
+          } catch (e) {
+            s(e);
+          }
+        }
+        function a(e) {
+          var n;
+          e.done
+            ? i(e.value)
+            : ((n = e.value),
+              n instanceof t
+                ? n
+                : new t(function (e) {
+                    e(n);
+                  })).then(c, r);
+        }
+        a((o = o.apply(e, n || [])).next());
+      });
+    };
+  const P = new (class {
       addListener(e) {
-        chrome.runtime.onMessage.addListener(e);
+        chrome.runtime.onMessage.addListener(e), chrome.runtime.onMessage.addListener(e);
       }
       removeListener(e) {
         chrome.runtime.onMessage.removeListener(e);
       }
-      sendMessageToTabAsync(e, t, n = 2e4) {
-        return new Promise((o, i) => {
-          const s = setTimeout(() => {
-            i();
-          }, n);
-          try {
-            chrome.tabs.sendMessage(t, e, (t) => {
-              chrome.runtime.lastError && T(chrome.runtime.lastError.message + JSON.stringify(e)), clearTimeout(s), o(t);
-            });
-          } catch (e) {
-            clearTimeout(s), i(e);
-          }
+      sendMessageToTabAsync(e, n, t = 2e4) {
+        return b(this, void 0, void 0, function* () {
+          return new Promise((o, i) => {
+            const s = setTimeout(() => {
+              console.log("send timeout"), i("Message Timeout");
+            }, t);
+            try {
+              chrome.tabs.sendMessage(n, e, (n) => {
+                chrome.runtime.lastError && T(chrome.runtime.lastError.message + JSON.stringify(e)), clearTimeout(s), o(n);
+              });
+            } catch (e) {
+              clearTimeout(s), i(e);
+            }
+          });
         });
       }
-      u(e, t) {
-        return new Promise((n, o) => {
-          let i = null;
-          t &&
-            (i = setTimeout(() => {
-              o({ error: "Send Message Timeout" });
-            }, t));
-          try {
-            chrome.runtime.sendMessage(c, e, (t) => {
-              chrome.runtime.lastError && console.log(chrome.runtime.lastError.message + JSON.stringify(e)), i && clearTimeout(i), n(t);
-            });
-          } catch (e) {
-            i && clearTimeout(i), o(e);
-          }
+      u(n, t) {
+        return b(this, void 0, void 0, function* () {
+          return new Promise((o, i) => {
+            let s = null;
+            t &&
+              (s = setTimeout(() => {
+                i({ error: "Send Message Timeout" });
+              }, t));
+            try {
+              chrome.runtime.sendMessage(e, n, (e) => {
+                chrome.runtime.lastError && console.log(chrome.runtime.lastError.message + JSON.stringify(n)), s && clearTimeout(s), o(e);
+              });
+            } catch (e) {
+              s && clearTimeout(s), i(e);
+            }
+          });
         });
       }
     })(),
-    P = b;
-  class S extends w {
-    constructor(e, t, n) {
-      super(e, t, g.LOG_EXPERIMENT), (this.data = n);
+    S = P;
+  class k extends w {
+    constructor(e, n, t) {
+      super(e, n, g.LOG_EXPERIMENT), (this.data = t);
     }
   }
-  var A, k, D;
+  var A, _, D;
   !(function (e) {
     (e.DO_AUTH_SIGN_IN = "doAuthSignIn"), (e.GET_AUTH_TOKEN = "getAuthToken"), (e.SIGN_OUT = "signOut");
   })(A || (A = {}));
   class I extends y {
-    constructor(e, t, n) {
-      super(e, t, n), (this.type = n);
-    }
-  }
-  class _ extends I {
-    constructor(e, t) {
-      super(e, t, A.DO_AUTH_SIGN_IN);
+    constructor(e, n, t) {
+      super(e, n, t), (this.type = t);
     }
   }
   class C extends I {
-    constructor(e, t) {
-      super(e, t, A.GET_AUTH_TOKEN);
+    constructor(e, n) {
+      super(e, n, A.DO_AUTH_SIGN_IN);
+    }
+  }
+  class M extends I {
+    constructor(e, n) {
+      super(e, n, A.GET_AUTH_TOKEN);
     }
   }
   class E extends I {
-    constructor(e, t) {
-      super(e, t, A.SIGN_OUT);
-    }
-  }
-  class M extends w {
-    constructor(e, t) {
-      super(e, t, g.GET_ACTIVE_PARTY);
+    constructor(e, n) {
+      super(e, n, A.SIGN_OUT);
     }
   }
   class N extends w {
-    constructor(e, t, n) {
-      super(e, t, g.ACCEPT_DROPIN), (this.data = n);
+    constructor(e, n) {
+      super(e, n, g.GET_ACTIVE_PARTY);
+    }
+  }
+  class O extends w {
+    constructor(e, n, t) {
+      super(e, n, g.ACCEPT_DROPIN), (this.data = t);
     }
   }
   !(function (e) {
     (e.WITH_ACTIVITY = "with_activity"), (e.NO_ACTIVITY = "no_activity"), (e.OFFLINE = "offline");
-  })(k || (k = {}));
+  })(_ || (_ = {}));
   class R extends w {
-    constructor(e, t, n) {
-      super(e, t, g.SET_STATUS_TYPE), (this.data = n);
+    constructor(e, n, t) {
+      super(e, n, g.SET_STATUS_TYPE), (this.data = t);
     }
   }
   !(function (e) {
@@ -341,16 +383,16 @@
       (e.ON_CHROME_STORAGE_UPDATE = "onChromeStorageUpdate"),
       (e.ON_WEB_RTC = "onWebRTC");
   })(D || (D = {}));
-  var V = function (e, t, n, o) {
-    return new (n || (n = Promise))(function (i, s) {
-      function r(e) {
+  var V = function (e, n, t, o) {
+    return new (t || (t = Promise))(function (i, s) {
+      function c(e) {
         try {
           a(o.next(e));
         } catch (e) {
           s(e);
         }
       }
-      function c(e) {
+      function r(e) {
         try {
           a(o.throw(e));
         } catch (e) {
@@ -358,21 +400,20 @@
         }
       }
       function a(e) {
-        var t;
+        var n;
         e.done
           ? i(e.value)
-          : ((t = e.value),
-            t instanceof n
-              ? t
-              : new n(function (e) {
-                  e(t);
-                })).then(r, c);
+          : ((n = e.value),
+            n instanceof t
+              ? n
+              : new t(function (e) {
+                  e(n);
+                })).then(c, r);
       }
-      a((o = o.apply(e, t || [])).next());
+      a((o = o.apply(e, n || [])).next());
     });
   };
-  const O = "https://www.netflix.com/watch/*";
-  console.log("Loaded");
+  const j = "https://www.netflix.com/watch/*";
   let $,
     F,
     G = "new";
@@ -380,270 +421,276 @@
     return (
       "https://www.tele.pe" === e.origin && (G = "old"),
       (function (e) {
-        if (null != a.find((t) => e.origin === `chrome-extension://${t}`)) return !0;
+        if (null != n.find((n) => e.origin === `chrome-extension://${n}`)) return !0;
         return null != e.origin.match(/^https:\/\/[^.]*\.(?:(?:tele\.pe)|(?:teleparty\.com)|(?:netflixparty\.com))$/);
       })(e)
     );
   }
-  function j() {
+  function L() {
     return V(this, void 0, void 0, function* () {
       return new Promise((e) => {
-        chrome.permissions.contains({ origins: v.$6 }, (t) => {
-          e(t);
-        });
+        console.log("check has default permissions", m.$6),
+          chrome.permissions.contains({ origins: m.$6 }, (n) => {
+            console.log(n), e(n);
+          });
       });
     });
   }
-  function L(e, t) {
+  function W(e, n) {
     return V(this, void 0, void 0, function* () {
-      const n = yield W();
-      n && (yield h.storeRedirectDataForTabAsync(e, n));
+      const t = yield q();
+      t && (yield h.storeRedirectDataForTabAsync(e, t));
       const { sessionId: o, service: i } = e,
-        s = new x(p, m, { sessionId: o, eventType: `redirect-${G}-${i}-chrome` }),
-        r = new x(p, m, { name: "user_click", action: { description: `redirect-${G}-${i}-chrome` } });
+        s = new x(p, v, { sessionId: o, eventType: `redirect-${G}-${i}-chrome` }),
+        c = new x(p, v, { name: "user_click", action: { description: `redirect-${G}-${i}-chrome` } });
       try {
-        yield P.u(r, 2500), yield P.u(s, 2500);
+        yield S.u(c, 2500), yield S.u(s, 2500);
       } finally {
-        t("resolveRedirect");
+        n("resolveRedirect");
       }
     });
   }
-  function W() {
+  function q() {
     return V(this, void 0, void 0, function* () {
-      return yield P.u(new w(p, m, g.GET_TAB_ID));
+      return yield S.u(new w(p, v, g.GET_TAB_ID));
     });
   }
-  navigator.serviceWorker.addEventListener("message", (e) => {
-    console.log(e), parent.postMessage(e.data, "*");
-  }),
+  console.log("Connect Loaded", window.origin, window.location),
+    navigator.serviceWorker &&
+      navigator.serviceWorker.addEventListener("message", (e) => {
+        console.log(e), parent.postMessage(e.data, "*");
+      }),
     window.addEventListener(
       "message",
       function (e) {
-        var t;
+        var n;
         try {
           if (U(e)) {
-            const t = e.data;
-            if (t) {
-              const n = (function (e) {
-                return (t) => {
-                  var n;
+            const n = e.data;
+            if (n && n.type && !n.from_connect) {
+              const t = (function (e) {
+                return (n) => {
+                  var t;
                   if (e.data.callbackId) {
-                    const n = { callbackId: e.data.callbackId, data: t };
+                    const t = { callbackId: e.data.callbackId, data: n, from_connect: !0 };
                     try {
-                      window.parent.postMessage(n, e.origin);
+                      window.parent.postMessage(t, e.origin);
                     } catch (e) {}
-                  } else null === (n = window.parent) || void 0 === n || n.postMessage(t, e.origin);
+                  } else
+                    null === (t = window.parent) ||
+                      void 0 === t ||
+                      t.postMessage(Object.assign(Object.assign({}, n), { from_connect: !0 }), e.origin);
                 };
               })(e);
-              "Content_Script" === t.target || t.target === m
-                ? (function (e, t) {
+              "Content_Script" === n.target || n.target === v
+                ? (function (e, n) {
                     V(this, void 0, void 0, function* () {
-                      const n = yield P.u(e);
-                      t(n);
+                      const t = yield S.u(e);
+                      n(t);
                     });
-                  })(t, n)
-                : "SetRedirectData" == t.type
-                ? L(t.data, n)
-                : t.sessionId
-                ? L(t, n)
-                : "GetPermissions" === t.type
-                ? (function (e, t) {
+                  })(n, t)
+                : "SetRedirectData" == n.type
+                ? W(n.data, t)
+                : n.sessionId
+                ? W(n, t)
+                : "GetPermissions" === n.type
+                ? (function (e, n) {
                     V(this, void 0, void 0, function* () {
-                      const n = yield j(),
+                      const t = yield L(),
                         o =
-                          n ||
+                          t ||
                           (yield (function (e) {
                             return V(this, void 0, void 0, function* () {
-                              return new Promise((t) => {
-                                var n;
+                              return new Promise((n) => {
+                                var t;
                                 const o = () =>
                                   V(this, void 0, void 0, function* () {
-                                    const n = `${"all_sites"}-${e}-chrome`,
-                                      i = new S(p, m, {
+                                    const t = `${"all_sites"}-${e}-chrome`,
+                                      i = new k(p, v, {
                                         experimentName: "permissions_request",
-                                        experimentVersion: n,
+                                        experimentVersion: t,
                                         eventType: "permissions-prompted"
                                       });
-                                    P.u(i),
-                                      chrome.permissions.request({ origins: v.$6 }, (e) => {
+                                    S.u(i),
+                                      chrome.permissions.request({ origins: m.$6 }, (e) => {
                                         var i;
                                         null == e &&
                                           console.log(null === (i = chrome.runtime.lastError) || void 0 === i ? void 0 : i.message);
-                                        const s = new S(p, m, {
+                                        const s = new k(p, v, {
                                           experimentName: "permissions_request",
-                                          experimentVersion: n,
+                                          experimentVersion: t,
                                           eventType: e ? "permissions-granted" : "permissions-denied"
                                         });
-                                        P.u(s, 2500)
+                                        S.u(s, 2500)
                                           .catch(() => {})
                                           .then(() => {
-                                            var n;
-                                            t(e),
-                                              null === (n = document.querySelector("html")) ||
-                                                void 0 === n ||
-                                                n.removeEventListener("click", o);
+                                            var t;
+                                            n(e),
+                                              null === (t = document.querySelector("html")) ||
+                                                void 0 === t ||
+                                                t.removeEventListener("click", o);
                                           });
                                       });
                                   });
-                                null === (n = document.querySelector("html")) || void 0 === n || n.addEventListener("click", o);
+                                null === (t = document.querySelector("html")) || void 0 === t || t.addEventListener("click", o);
                               });
                             });
-                          })(t.site));
+                          })(n.site));
                       e(o);
                     });
-                  })(n, t.data)
-                : "CheckHasPermissions" === t.type
-                ? j().then(n)
-                : "logExperiment" === t.type
-                ? (function (e, t) {
+                  })(t, n.data)
+                : "CheckHasPermissions" === n.type
+                ? L().then(t)
+                : "logExperiment" === n.type
+                ? (function (e, n) {
                     V(this, void 0, void 0, function* () {
-                      const { experimentName: n, experimentVersion: o, event: i } = e,
-                        s = new S(p, m, { experimentName: n, experimentVersion: o, eventType: i });
+                      const { experimentName: t, experimentVersion: o, event: i } = e,
+                        s = new k(p, v, { experimentName: t, experimentVersion: o, eventType: i });
                       try {
-                        yield P.u(s, 2500);
+                        yield S.u(s, 2500);
                       } finally {
-                        t();
+                        n();
                       }
                     });
-                  })(t.data, n)
-                : "logEvent" === t.type
-                ? (function (e, t) {
+                  })(n.data, t)
+                : "logEvent" === n.type
+                ? (function (e, n) {
                     V(this, void 0, void 0, function* () {
-                      const n = new x(p, m, e.event);
+                      const t = new x(p, v, e.event);
                       try {
-                        P.u(n, 2500);
+                        S.u(t, 2500);
                       } finally {
-                        t();
+                        n();
                       }
                     });
-                  })(t.data, n)
-                : "SetPermId" === t.type
+                  })(n.data, t)
+                : "SetPermId" === n.type
                 ? (function (e) {
                     V(this, void 0, void 0, function* () {
-                      const t = yield o.getAllItemsAsync();
-                      t.userId || (t.userId = e);
+                      const n = yield c.getAllItemsAsync();
+                      n.userId || (n.userId = e);
                     });
-                  })(t.data)
-                : "storeExperimentVersion" === t.type
-                ? (function (e, t) {
-                    var n;
+                  })(n.data)
+                : "storeExperimentVersion" === n.type
+                ? (function (e, n) {
+                    var t;
                     V(this, void 0, void 0, function* () {
-                      const { experimentName: i, experimentVersion: s } = e,
-                        c = yield o.getItemsAsync(["experiments"]),
-                        a = null !== (n = c.experiments) && void 0 !== n ? n : {};
-                      a[i] = s;
+                      const { experimentName: o, experimentVersion: i } = e,
+                        s = yield c.getItemsAsync(["experiments"]),
+                        r = null !== (t = s.experiments) && void 0 !== t ? t : {};
+                      r[o] = i;
                       try {
-                        yield r.setItemsAsync({ experiments: a });
+                        yield d.setItemsAsync({ experiments: r });
                       } finally {
-                        t();
+                        n();
                       }
                     });
-                  })(t.data, n)
-                : "GetPermId" === t.type
+                  })(n.data, t)
+                : "GetPermId" === n.type
                 ? (function (e) {
                     V(this, void 0, void 0, function* () {
-                      const t = (yield o.getAllItemsAsync()).userId;
-                      e(t);
-                    });
-                  })(n)
-                : "GetActiveNetflixTabs" === t.type
-                ? (function (e) {
-                    chrome.tabs.query({ url: O }, (t) => {
-                      e(t);
-                    });
-                  })(n)
-                : "CloseNetflixTabs" === t.type
-                ? (function (e) {
-                    chrome.tabs.query({ url: O }, (t) => {
-                      const n = t.map((e) => e.id).filter((e) => !!e);
-                      chrome.tabs.remove(n), e();
-                    });
-                  })(n)
-                : "AddSidebarHandler" === t.type
-                ? (function (e, t) {
-                    V(this, void 0, void 0, function* () {
-                      ($ = e), (F = yield W()), t(F);
-                    });
-                  })(e.origin, n)
-                : "DoGoogleAuth" === t.type
-                ? (function (e) {
-                    V(this, void 0, void 0, function* () {
-                      const t = new _(p, m);
-                      yield P.u(t), e();
-                    });
-                  })(n)
-                : "DoSignOut" === t.type
-                ? (function (e) {
-                    V(this, void 0, void 0, function* () {
-                      const t = new E(p, m);
-                      yield P.u(t), e();
-                    });
-                  })(n)
-                : "GetAuthToken" === t.type
-                ? (function (e) {
-                    V(this, void 0, void 0, function* () {
-                      const t = new C(p, m),
-                        n = yield P.u(t);
+                      const n = (yield c.getAllItemsAsync()).userId;
                       e(n);
                     });
-                  })(n)
-                : "LoadSessionTab" === t.type
-                ? (function (e, t) {
+                  })(t)
+                : "GetActiveNetflixTabs" === n.type
+                ? (function (e) {
+                    chrome.tabs.query({ url: j }, (n) => {
+                      e(n);
+                    });
+                  })(t)
+                : "CloseNetflixTabs" === n.type
+                ? (function (e) {
+                    chrome.tabs.query({ url: j }, (n) => {
+                      const t = n.map((e) => e.id).filter((e) => !!e);
+                      chrome.tabs.remove(t), e();
+                    });
+                  })(t)
+                : "AddSidebarHandler" === n.type
+                ? (function (e, n) {
                     V(this, void 0, void 0, function* () {
-                      chrome.tabs.create(e.tabData, (t) =>
+                      console.log("add sidebar handler"), ($ = e), (F = yield q()), n(F);
+                    });
+                  })(e.origin, t)
+                : "DoGoogleAuth" === n.type
+                ? (function (e) {
+                    V(this, void 0, void 0, function* () {
+                      const n = new C(p, v);
+                      yield S.u(n), e();
+                    });
+                  })(t)
+                : "DoSignOut" === n.type
+                ? (function (e) {
+                    V(this, void 0, void 0, function* () {
+                      const n = new E(p, v);
+                      yield S.u(n), e();
+                    });
+                  })(t)
+                : "GetAuthToken" === n.type
+                ? (function (e) {
+                    V(this, void 0, void 0, function* () {
+                      const n = new M(p, v),
+                        t = yield S.u(n);
+                      e(t);
+                    });
+                  })(t)
+                : "LoadSessionTab" === n.type
+                ? (function (e, n) {
+                    V(this, void 0, void 0, function* () {
+                      chrome.tabs.create(e.tabData, (n) =>
                         V(this, void 0, void 0, function* () {
-                          const n = t.id;
-                          n && (yield h.storeRedirectDataForTabAsync(e.sessionData, n));
+                          const t = n.id;
+                          t && (yield h.storeRedirectDataForTabAsync(e.sessionData, t));
                         })
                       );
                     });
-                  })(t.data)
-                : "GetActiveParty" === t.type
+                  })(n.data)
+                : "GetActiveParty" === n.type
                 ? (function (e) {
                     V(this, void 0, void 0, function* () {
-                      const t = new M(p, m),
-                        n = yield P.u(t);
-                      e(n);
-                    });
-                  })(n)
-                : "AcceptDropin" === t.type
-                ? (function (e) {
-                    V(this, void 0, void 0, function* () {
-                      const t = e.sessionId;
-                      P.u(new N(p, m, { sessionId: t }));
-                    });
-                  })(t.data)
-                : "SetStatusType" === t.type
-                ? (function (e) {
-                    V(this, void 0, void 0, function* () {
-                      const t = e.type;
-                      P.u(new R(p, m, t));
-                    });
-                  })(t.data)
-                : "GetStatusType" == t.type
-                ? (function (e) {
-                    V(this, void 0, void 0, function* () {
-                      const t = yield P.u(new w(p, m, g.GET_STATUS_TYPE));
+                      const n = new N(p, v),
+                        t = yield S.u(n);
                       e(t);
                     });
-                  })(n)
-                : n({ error: "Unsupported Operation" });
+                  })(t)
+                : "AcceptDropin" === n.type
+                ? (function (e) {
+                    V(this, void 0, void 0, function* () {
+                      const n = e.sessionId;
+                      S.u(new O(p, v, { sessionId: n }));
+                    });
+                  })(n.data)
+                : "SetStatusType" === n.type
+                ? (function (e) {
+                    V(this, void 0, void 0, function* () {
+                      const n = e.type;
+                      S.u(new R(p, v, n));
+                    });
+                  })(n.data)
+                : "GetStatusType" == n.type
+                ? (function (e) {
+                    V(this, void 0, void 0, function* () {
+                      const n = yield S.u(new w(p, v, g.GET_STATUS_TYPE));
+                      e(n);
+                    });
+                  })(t)
+                : console.log("Unsupported Operation " + n.type);
             }
           }
-        } catch (n) {
-          n &&
-            n.message.includes("Extension context invalidated") &&
-            (null === (t = window.top) || void 0 === t || t.postMessage("tp_reload", e.origin));
+        } catch (t) {
+          t &&
+            t.message.includes("Extension context invalidated") &&
+            (null === (n = window.top) || void 0 === n || n.postMessage("tp_reload", e.origin));
         }
       },
       !1
     ),
-    P.addListener(function (e, t, n) {
+    S.addListener(function (e, n, t) {
       var o;
-      if ("TP_Sidebar" === e.target && (null === (o = t.tab) || void 0 === o ? void 0 : o.id) === F) {
-        if (null != $) return window.parent.postMessage(e, $), n(), !0;
-        console.warn("Not ready yet");
-      }
-      return e.type === D.ON_PURCHASE && null != $ && window.parent.postMessage(e, $), !1;
+      return "TP_Sidebar" === e.target && (null === (o = n.tab) || void 0 === o ? void 0 : o.id) === F
+        ? null != $
+          ? (window.parent.postMessage(e, $), t(), !0)
+          : (console.warn("Not ready yet"), t(), !0)
+        : (e.type === D.ON_PURCHASE && null != $ && window.parent.postMessage(e, $), !1);
     });
 })();

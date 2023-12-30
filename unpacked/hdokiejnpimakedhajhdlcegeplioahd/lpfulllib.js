@@ -76,12 +76,12 @@
         {}
       ],
       3: [
-        function (B, I, e) {
+        function (I, B, e) {
           !function (e) {
-            var s = B(6),
-              r = B(7),
-              t = B(1),
-              a = B(5),
+            var s = I(6),
+              r = I(7),
+              t = I(1),
+              a = I(5),
               o = a.isError,
               l = a.isObject,
               c = a.isErrorEvent,
@@ -103,7 +103,7 @@
               _ = a.isSameStacktrace,
               z = a.parseUrl,
               j = a.fill,
-              A = B(2).wrapMethod,
+              A = I(2).wrapMethod,
               S = "source protocol user pass host port path".split(" "),
               C = /^(?:(\w+):)?\/\/(?:(\w+)(:\w+)?@)?([\w\.-]+)(?::(\d+))?(\/.*)/;
             function q() {
@@ -958,7 +958,7 @@
               }
             }).setUser = R.prototype.setUserContext),
               (R.prototype.setReleaseContext = R.prototype.setRelease),
-              (I.exports = R);
+              (B.exports = R);
           }.call(
             this,
             "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {}
@@ -2611,9 +2611,6 @@ function fakebg() {
       }),
       (this.is_user_debug_enabled = function () {
         return "undefined" != typeof g_user_debug_enabled && g_user_debug_enabled;
-      }),
-      (this.lpReportError = function (e) {
-        dispatch_message("lpReportError", { msg: e });
       }),
       function (e) {
         var a = {},
@@ -4388,7 +4385,10 @@ function enccbc(a, e, n) {
             .catch(function (e) {
               console.error("Web Crypto API encryption failed, falling back to legacy crypto functions"),
                 console.error(e),
-                lpReportError("Web Crypto API encryption failed, falling back to legacy crypto functions. uid=" + g_uid),
+                logger.error("Web Crypto API encryption failed, falling back to legacy crypto functions. uid=" + g_uid, {
+                  userId: g_uid,
+                  error: e
+                }),
                 (allowWebCryptoApi = !1),
                 enccbc(a, i, n);
             })
@@ -4835,7 +4835,7 @@ var dbgall = {
       ["Urdu", "ur-PK"],
       ["Vietnamese", "vi-VN"]
     ]),
-    "4.123.0"),
+    "4.125.0"),
   lpversionpre = "1",
   lploggedin = !1,
   lpisadmin = !1,
@@ -5080,8 +5080,8 @@ function lpacctinfo() {
     T,
     L,
     R,
-    B,
     I,
+    B,
     O,
     N,
     D,
@@ -5157,8 +5157,8 @@ function lpformfillinfo() {
     T,
     L,
     R,
-    B,
     I,
+    B,
     O,
     N,
     D,
@@ -9813,7 +9813,8 @@ function lpParseUri_old(a) {
           ? r.parser[r.strictMode ? "strict" : "loose"].exec(a.substr(0, 500))
           : r.parser[r.strictMode ? "strict" : "loose"].exec(a.substr(0, floor(a.length / 2)));
     } catch (e) {
-      lpReportError("parseuri : failing " + a), (t = r.parser[r.strictMode ? "strict" : "loose"].exec("http://"));
+      logger.error("parseuri : failing " + a, { parseuri: a, error: error }),
+        (t = r.parser[r.strictMode ? "strict" : "loose"].exec("http://"));
     }
   }
   for (var s = t, o = {}, l = 14; l--; ) o[r.key[l]] = s[l] || "";
@@ -10751,27 +10752,28 @@ function verify_accts_integrity(e, a, n, i, r, t, s, o) {
         (a = JSON.stringify(l.corruptedAids)),
         (d = JSON.stringify(l.corruptedIids)),
         (e = JSON.stringify(l.corruptedShareIds)),
-        (c =
-          "Vault integrity check failed. " +
-          l.corrupted +
-          " items were corrupted out of " +
-          l.total +
-          ". Ratio: " +
-          l.corruptionRatio +
-          ". Corrupted aids: " +
-          a +
-          ", corrupted iids: " +
-          d +
-          ", corrupted shareids: " +
-          e +
-          " uid: " +
-          o),
-        lpReportError(c),
+        logger.error(
+          (c =
+            "Vault integrity check failed. " +
+            l.corrupted +
+            " items were corrupted out of " +
+            l.total +
+            ". Ratio: " +
+            l.corruptionRatio +
+            ". Corrupted aids: " +
+            a +
+            ", corrupted iids: " +
+            d +
+            ", corrupted shareids: " +
+            e +
+            " uid: " +
+            o),
+          { shareIds: e, userId: o, corrupted: l.corrupted, corruptionRatio: l.corruptionRatio, total: l.total, iids: d, aids: a }
+        ),
         console.error(c)),
       l
     );
-  (c = "Vault integrity check failed. Username could not be decrypted using current local key. Uid: " + o),
-    lpReportError(c),
+  logger.error((c = "Vault integrity check failed. Username could not be decrypted using current local key. Uid: " + o), { userId: o }),
     console.error(c);
 }
 function getusernamefromacct(e) {
@@ -10854,12 +10856,21 @@ function reencryptShareeAutoPushes(e, a, n) {
     var l = i[s];
     if (null != a[l]) {
       if (((r[l] = lpdec(a[l], e)), "" != a[l] && (null == r[l] || "" == r[l]))) {
-        lpReportError("lprsa_acceptshareeautopushes : failing id=" + a.id + " because we failed to decrypt : " + l + "=" + a[l]), (t = !1);
+        logger.error("lprsa_acceptshareeautopushes : failing id=" + a.id + " because we failed to decrypt : " + l + "=" + a[l], {
+          failingId: a.id,
+          iteration: l,
+          dataIteration: a[l]
+        }),
+          (t = !1);
         break;
       }
       var c = lpenc(r[l]);
       if ("" != r[l] && (null == c || "" == c)) {
-        lpReportError("lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to reencrypt : " + l),
+        logger.error("lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to reencrypt : " + l, {
+          accountId: n,
+          id: a.id,
+          iteration: l
+        }),
           (t = !1);
         break;
       }
@@ -10873,16 +10884,18 @@ function reencryptShareeAutoPushes(e, a, n) {
       var u,
         m = lpdec((u = d.value), e);
       if ("" != u && (null == m || "" == m)) {
-        lpReportError(
-          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to decrypt field" + o + "=" + u
+        logger.error(
+          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to decrypt field" + o + "=" + u,
+          { accountId: n, id: a.id, field: o, oldvalue: u }
         ),
           (t = !1);
         break;
       }
       var g = lpenc(m);
       if ("" != m && (null == g || "" == g)) {
-        lpReportError(
-          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to reencrypt field" + o + "=" + m
+        logger.error(
+          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to reencrypt field" + o + "=" + m,
+          { accountId: n, id: a.id, field: o, newvalue: m }
         ),
           (t = !1);
         break;
@@ -10897,16 +10910,18 @@ function reencryptShareeAutoPushes(e, a, n) {
       var u,
         m = lpdec((u = h.value), e);
       if ("" != u && (null == m || "" == m)) {
-        lpReportError(
-          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to decrypt otherfield" + o + "=" + u
+        logger.error(
+          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to decrypt otherfield" + o + "=" + u,
+          { accountId: n, id: a.id, field: o, oldvalue: u }
         ),
           (t = !1);
         break;
       }
       var g = lpenc(m);
       if ("" != m && (null == g || "" == g)) {
-        lpReportError(
-          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to reencrypt otherfield" + o + "=" + m
+        logger.error(
+          "lprsa_acceptshareeautopushes : failing aid=" + n + " id=" + a.id + " because we failed to reencrypt otherfield" + o + "=" + m,
+          { accountId: n, id: a.id, field: o, newvalue: m }
         ),
           (t = !1);
         break;
@@ -10948,7 +10963,7 @@ function createShareeAutoPushesResponse(e, a, n) {
   if (void 0 === n || null == n)
     return (
       lpdbg("sharing", "createShareeAutoPushesResponse ERROR B"),
-      lpReportError("SHARE : createShareeAutoPushesResponse failed for aid=" + s, null),
+      logger.error("SHARE : createShareeAutoPushesResponse failed for aid=" + s, { accountId: s }),
       !1
     );
   var c = {},
@@ -10985,7 +11000,10 @@ function createShareeAutoPushesResponse(e, a, n) {
       if (0 == (x = lprsa_encryptdata(k, v)))
         return (
           lpdbg("sharing", "createShareeAutoPushesResponse ERROR C"),
-          lpReportError("SHARE : lprsa_encryptdata failed for shareeuid=" + y + " using shareepublickeyhex=" + k, null),
+          logger.error("SHARE : lprsa_encryptdata failed for shareeuid=" + y + " using shareepublickeyhex=" + k, {
+            shareeuid: y,
+            shareepublickeyhex: k
+          }),
           !1
         );
       for (z in ((o = (o += "&sharee" + u + "uid=" + LP.en(y)) + ("&sharee" + u + "sharekeyhexenc=" + LP.en(x))),
@@ -11002,7 +11020,7 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != _[z] && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR D"),
-            lpReportError("SHARE : error AES encrypting aid=" + s + " for shareeuid=" + y, null),
+            logger.error("SHARE : error AES encrypting aid=" + s + " for shareeuid=" + y, { accountId: s, shareeuid: y }),
             !1
           );
         o += "&sharee" + u + z + "=" + LP.en(j);
@@ -11015,7 +11033,11 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != g && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR E"),
-            lpReportError("SHARE : error AES encrypting field afid=" + m + " aid=" + s + " for shareeuid=" + y, null),
+            logger.error("SHARE : error AES encrypting field afid=" + m + " aid=" + s + " for shareeuid=" + y, {
+              afid: m,
+              accountId: s,
+              shareeuid: y
+            }),
             !1
           );
         (o = (o += "&sharee" + u + "fafid" + A + "=" + LP.en(m)) + ("&sharee" + u + "fvalue" + A + "=" + LP.en(j))), ++A;
@@ -11028,7 +11050,11 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != g && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR F"),
-            lpReportError("SHARE : error AES encrypting otherfield afid=" + m + " aid=" + s + " for shareeuid=" + y, null),
+            logger.error("SHARE : error AES encrypting otherfield afid=" + m + " aid=" + s + " for shareeuid=" + y, {
+              afid: m,
+              accountId: s,
+              shareeuid: y
+            }),
             !1
           );
         (o = (o += "&sharee" + u + "ofafid" + A + "=" + LP.en(m)) + ("&sharee" + u + "ofvalue" + A + "=" + LP.en(j))), ++A;
@@ -11039,7 +11065,11 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != g && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR G"),
-            lpReportError("SHARE : error AES encrypting newvalues k=" + A + " aid=" + s + " for shareeuid=" + y, null),
+            logger.error("SHARE : error AES encrypting newvalues k=" + A + " aid=" + s + " for shareeuid=" + y, {
+              value: g,
+              accountId: s,
+              shareeuid: y
+            }),
             !1
           );
         o += "&sharee" + u + "valueenc" + A + "=" + LP.en(j);
@@ -11060,7 +11090,10 @@ function createShareeAutoPushesResponse(e, a, n) {
       if (0 == (x = lprsa_encryptdata(q, v)))
         return (
           lpdbg("sharing", "createShareeAutoPushesResponse ERROR H"),
-          lpReportError("SHARE : lprsa_encryptdata failed for shareruid=" + C + " using sharerpublickeyhex=" + q, null),
+          logger.error("SHARE : lprsa_encryptdata failed for shareruid=" + C + " using sharerpublickeyhex=" + q, {
+            shareruid: C,
+            sharerpublickeyhex: q
+          }),
           !1
         );
       for (z in ((o = (o += "&sharer" + u + "uid=" + LP.en(C)) + ("&sharer" + u + "sharekeyhexenc=" + LP.en(x))),
@@ -11077,7 +11110,7 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != _[z] && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR I"),
-            lpReportError("SHARE : error AES encrypting aid=" + s + " for shareruid=" + C, null),
+            logger.error("SHARE : error AES encrypting aid=" + s + " for shareruid=" + C, { accountId: s, shareruid: C }),
             !1
           );
         o += "&sharer" + u + z + "=" + LP.en(j);
@@ -11090,7 +11123,11 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != g && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR J"),
-            lpReportError("SHARE : error AES encrypting field afid=" + m + " aid=" + s + " for shareruid=" + C, null),
+            logger.error("SHARE : error AES encrypting field afid=" + m + " aid=" + s + " for shareruid=" + C, {
+              afid: m,
+              shareruid: C,
+              accountId: s
+            }),
             !1
           );
         (o = (o += "&sharer" + u + "fafid" + A + "=" + LP.en(m)) + ("&sharer" + u + "fvalue" + A + "=" + LP.en(j))), ++A;
@@ -11103,7 +11140,11 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != g && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR K"),
-            lpReportError("SHARE : error AES encrypting otherfield afid=" + m + " aid=" + s + " for shareruid=" + C, null),
+            logger.error("SHARE : error AES encrypting otherfield afid=" + m + " aid=" + s + " for shareruid=" + C, {
+              afid: m,
+              shareruid: C,
+              accountId: s
+            }),
             !1
           );
         (o = (o += "&sharer" + u + "ofafid" + A + "=" + LP.en(m)) + ("&sharer" + u + "ofvalue" + A + "=" + LP.en(j))), ++A;
@@ -11114,7 +11155,11 @@ function createShareeAutoPushesResponse(e, a, n) {
         if ("" != g && (null == j || "" == j))
           return (
             lpdbg("sharing", "createShareeAutoPushesResponse ERROR L"),
-            lpReportError("SHARE : error AES encrypting newvalues k=" + A + " aid=" + s + " for shareruid=" + C, null),
+            logger.error("SHARE : error AES encrypting newvalues k=" + A + " aid=" + s + " for shareruid=" + C, {
+              value: g,
+              shareruid: C,
+              accountId: s
+            }),
             !1
           );
         o += "&sharer" + u + "valueenc" + A + "=" + LP.en(j);
@@ -11161,7 +11206,7 @@ function parseAutoPushMobile(e, a) {
       if (void 0 !== e[n][t[s]]) i[t[s]] = e[n][t[s]];
       else {
         if ("id" == t[s] || "aid" == t[s] || "sharekeyhexenc" == t[s]) {
-          lpReportError("SHARE: shareeautopushes : error missing required arg=" + t[s], null), (r = !1);
+          logger.error("SHARE: shareeautopushes : error missing required arg=" + t[s], { missingArg: t[s] }), (r = !1);
           break;
         }
         i[t[s]] = null;
@@ -11298,7 +11343,10 @@ function validateEncryptedSitePostParams(e) {
     ) {
       a[r[s]] && "" === lpmdec(a[r[s]], !1, n) && (t = !0);
     }
-    t && ((l = "Couldn't decrypt post params to devliver_and_add.php: " + e), lpReportError(l), captureException(new Error(l)));
+    t &&
+      ((l = "Couldn't decrypt post params to devliver_and_add.php: " + e),
+      logger.error(l, { postParams: e }),
+      captureException(new Error(l)));
   } catch (e) {
     captureException(e);
   }
@@ -11586,7 +11634,7 @@ function lpreadystatechange(e, a, n, i, r, t) {
             );
           var c = l[0].getAttribute("oldretry");
           if (c && "1" == c)
-            return s ? void lpretryrequestdone(o, !0) : void lpReportError("SK:ERROR : received oldretry=1 for non retry request!", null);
+            return s ? void lpretryrequestdone(o, !0) : void logger.error("SK:ERROR : received oldretry=1 for non retry request!", {});
         }
       }
       var l = !1,
@@ -11621,7 +11669,7 @@ function lpreadystatechange(e, a, n, i, r, t) {
             (0 <= r.url.indexOf("mobile")
               ? (l = !0)
               : ("undefined" != typeof LP && 0 == gPulledInvalidAccts && (LP.lpGetAccounts(), (gPulledInvalidAccts = !0)),
-                lpReportError("ERROR: Got invalid xml from getaccts")));
+                logger.error("ERROR: Got invalid xml from getaccts", {})));
       }
       if (s)
         l ||
@@ -11675,12 +11723,12 @@ function lpisretry(e) {
 }
 function lpgetretryrid(e) {
   var a,
-    e = new RegExp("[?&]rid=([^&]+)").exec(e),
-    n;
-  return e && 2 == e.length
-    ? e[1]
+    n = new RegExp("[?&]rid=([^&]+)").exec(e),
+    i;
+  return n && 2 == n.length
+    ? n[1]
     : (lpdbg("sk", "SK:lpgetretryrid - could not find rid in url"),
-      lpReportError("SK:lpgetretryrid - could not find rid in url", null),
+      logger.error("SK:lpgetretryrid - could not find rid in url", { url: e }),
       null);
 }
 function lpisqueueable(e) {
@@ -11711,7 +11759,7 @@ function lpretryinsert(e) {
     t,
     s;
   for (t in a) {
-    if (a[t].rid == n) return lpReportError("SK:We tried to append a row with an idential rid value", null), !1;
+    if (a[t].rid == n) return logger.error("SK:We tried to append a row with an identical rid value", {}), !1;
     null == r && i < parseInt(a[t].ts) && (r = t);
   }
   if (null == r) a[a.length] = e;
@@ -11724,7 +11772,7 @@ function lpretryinsert(e) {
   return (
     !!lpwriteretryfile(a) ||
     (lpdbg("error", "Could not write to retry file in lpretryinsert"),
-    lpReportError("SK:Could not write to retry file in lpretryinsert", null),
+    logger.error("SK:Could not write to retry file in lpretryinsert", {}),
     !1)
   );
 }
@@ -11746,7 +11794,7 @@ function lpretryrequestdone(e, a) {
         (g_retry.donems = new Date().getTime()),
         lpdbg("sk", "SK:Retry request completed successfully for rid=" + e),
         lpchangeretryinterval(!1))
-      : (lpReportError("SK:lpremovefromretryfile failed for rid=" + e, null),
+      : (logger.error("SK:Clpremovefromretryfile failed for rid=" + e, { rid: e }),
         lplogretryfile("SK:lpremovefromretryfile failed for rid=" + e + ". Contents of retry file:"),
         (g_retry.exit = !0))
     : ((g_retry.status = "failed"),
@@ -11886,12 +11934,12 @@ function lpreadretryfile(e) {
     if (null == e) return a;
     if ("" == e) return (g_retrycache = a);
     var e = lpdec(e);
-    if ("" == e || null == e) return lpReportError("Failed to decrypt retry data", null), lpdeleteretry(), a;
+    if ("" == e || null == e) return logger.error("Failed to decrypt retry data", {}), lpdeleteretry(), a;
     var e = lpatob(e);
-    if (null == e) return lpReportError("Failed to lpatob decrypted retry data (so perhaps decryption failed)", null), lpdeleteretry(), a;
+    if (null == e) return logger.error("Failed to lpatob decrypted retry data (so perhaps decryption failed)", {}), lpdeleteretry(), a;
     var n = e.indexOf(">LastPassRetry");
     if (e.length < 28 || 0 != e.indexOf("LastPassRetry<") || n != e.length - 14)
-      return lpReportError("Retry data format after decryption invalid: end=" + n + " data=" + e, null), lpdeleteretry(), a;
+      return logger.error("Retry data format after decryption invalid: end=" + n + " data=" + e, { end: n, data: e }), lpdeleteretry(), a;
     if ("" != (e = e.substring(14, n))) for (var i = e.split("\n"), r, t, r = 0; r < i.length; ++r) a[a.length] = lpxml2array(i[r]);
     g_retrycache = a;
   }
@@ -12388,7 +12436,7 @@ function lp_get_loginpws() {
       e;
     "" != a && (e = lp_loginpws_to_map(lp_unprotect_data(a)));
   } catch (e) {
-    lpReportError("Failure reading lp.loginpws");
+    logger.error("Failure reading lp.loginpws", {});
   }
   return e;
 }
@@ -14180,7 +14228,7 @@ function parseLinkedAccountPrivateKey(e, a) {
 }
 function parsemobile(
   e,
-  I,
+  B,
   O,
   a,
   N,
@@ -14254,9 +14302,9 @@ function parsemobile(
     oe = r && 0 < r.length ? r.length - 1 : 0,
     le = !1,
     ce;
-  (void 0 !== Z && !Z) || "LPAV" == e.substring(0, 4) || (a = I), ((o = o || new Array()).maxid = 0), (J = J || new Array());
+  (void 0 !== Z && !Z) || "LPAV" == e.substring(0, 4) || (a = B), ((o = o || new Array()).maxid = 0), (J = J || new Array());
   try {
-    for (; a < I; ) {
+    for (; a < B; ) {
       var k = e.substring(a, a + 4),
         v = unserialize_num(e.substring(a + 4, a + 8)),
         w,
@@ -14300,7 +14348,7 @@ function parsemobile(
           (P.group = lpmdec(P.encgroup, 1, u, m, P.aid)),
           g && u != g_local_key && ("" == P.group ? (P.group = g.decsharename) : (P.group = g.decsharename + "\\" + P.group)),
           (w += mget(e, w, P, "url")),
-          "!" === P.url.charAt(0) && ((P.isUrlEncrypted = !0), (P.url = AES.url2hex(lpmdec(P.url, 1, u, m)))),
+          "!" === P.url.charAt(0) && ((P.encryptedUrl = P.url), (P.url = AES.url2hex(lpmdec(P.url, 1, u, m)))),
           (w =
             (w =
               (w =
@@ -14673,42 +14721,42 @@ function parsemobile(
                 ("function" == typeof lpdbg && lpdbg("sharedfolders", "Attempting to add shared folder: " + R.id),
                 ve || "" != R.sharekeyaes || "SHAL" === k)
               ) {
-                var B = null,
+                var I = null,
                   we;
                 try {
                   if (
-                    ("SHAL" == k && null == B
-                      ? (linkedAccountRSA && (B = linkedAccountRSA.decrypt(R.sharekey)), (R.linkedshare = "1"))
-                      : null == B &&
+                    ("SHAL" == k && null == I
+                      ? (linkedAccountRSA && (I = linkedAccountRSA.decrypt(R.sharekey)), (R.linkedshare = "1"))
+                      : null == I &&
                         ("" != R.sharekeyaes &&
-                          ((B = lpmdec(R.sharekeyaes, !0)), "1" == R.associative) &&
-                          parseLinkedAccountPrivateKey(R.privateKey, AES.hex2bin(B)),
-                        (null != B && "" != B) ||
+                          ((I = lpmdec(R.sharekeyaes, !0)), "1" == R.associative) &&
+                          parseLinkedAccountPrivateKey(R.privateKey, AES.hex2bin(I)),
+                        (null != I && "" != I) ||
                           !ve ||
                           ("function" != typeof lpusexpcomencrypt ||
                             !lpusexpcomencrypt() ||
                             "function" != typeof lpxpcomobj.xCryptoRSADecrypt ||
-                            (null != (B = AES.hex2bin(lpxpcomobj.xCryptoRSADecrypt(c, R.sharekey))) && "" != B) ||
+                            (null != (I = AES.hex2bin(lpxpcomobj.xCryptoRSADecrypt(c, R.sharekey))) && "" != I) ||
                             "function" != typeof lpdbg ||
                             (logMissingSharedFolder(new Error("Share key decrypt failed"), g_uid, R.id),
                             lpdbg("sharedfolders", "Share key decrypt failed")),
                           (null !=
-                            (B =
-                              null == B &&
+                            (I =
+                              null == I &&
                               "function" == typeof have_nplastpass &&
                               have_nplastpass() &&
                               "undefined" != typeof g_nplastpass &&
                               "function" == typeof g_nplastpass.xCryptoRSADecrypt
                                 ? AES.hex2bin(g_nplastpass.xCryptoRSADecrypt(c, R.sharekey))
-                                : B) &&
-                            "" != B) ||
+                                : I) &&
+                            "" != I) ||
                             (parse_private_key((we = new RSAKey()), c) &&
-                              ((B = we.decrypt(R.sharekey)), "1" == R.associative) &&
-                              parseLinkedAccountPrivateKey(R.privateKey, AES.hex2bin(B))),
-                          null != B &&
-                            "" != B &&
+                              ((I = we.decrypt(R.sharekey)), "1" == R.associative) &&
+                              parseLinkedAccountPrivateKey(R.privateKey, AES.hex2bin(I))),
+                          null != I &&
+                            "" != I &&
                             "function" == typeof crypto_btoa &&
-                            ((R.sharekeyaes = lpmenc(B, !0)),
+                            ((R.sharekeyaes = lpmenc(I, !0)),
                             (lp_shared_folder_keys_upload =
                               (lp_shared_folder_keys_upload =
                                 (lp_shared_folder_keys_upload +=
@@ -14722,10 +14770,10 @@ function parsemobile(
                               "=" +
                               encodeURIComponent(crypto_btoa(R.sharekeyaes))),
                             lp_shared_folder_keys_upload_counter++))),
-                    null != B && "" != B)
+                    null != I && "" != I)
                   ) {
-                    var xe = AES.hex2bin(B),
-                      _e = lpmdec(R.sharename, 0, xe, B),
+                    var xe = AES.hex2bin(I),
+                      _e = lpmdec(R.sharename, 0, xe, I),
                       P;
                     if (
                       (R.linkedshare && (_e = linkedAccount.decsharename + "\\" + _e),
@@ -14743,7 +14791,7 @@ function parsemobile(
                       return P;
                     p || ke ? !p && ke && void 0 !== ae && null != ae && ae.push(P) : n.push(P),
                       (u = xe),
-                      (m = B),
+                      (m = I),
                       ((g = R).isHidden = ke),
                       "1" === R.associative && (linkedAccount = R),
                       p || ke ? !p && ke && void 0 !== ne && null != ne && ne.push(R) : d.push(R),
@@ -14878,7 +14926,7 @@ function parsemobile(
         return void setTimeout(function () {
           parsemobile(
             e,
-            I,
+            B,
             O,
             a,
             N,
@@ -14925,7 +14973,7 @@ function parsemobile(
   } catch (e) {
     "undefined" != typeof console &&
       ("function" == typeof console.error ? console.error(e) : "function" == typeof console.log && console.log(e)),
-      logDecryptionError(e);
+      logger.error("uid=" + g_uid + ";decryption_error=" + JSON.stringify(e), { userId: g_uid, decryption_error: JSON.stringify(e) });
   }
   0 < lp_shared_folder_keys_upload_counter &&
     "undefined" != typeof LP &&
@@ -15170,11 +15218,11 @@ function flattenshare(e) {
     serialize_str(e.privateKey);
   return (e.linkedshare ? "SHAL" : "SHAR") + serialize_str(a);
 }
-function flattendata(I, e, a, n, i, r, t, s, O, N, D, F, o, M, l, c, d, U, u, m, g, h, p, b) {
+function flattendata(B, e, a, n, i, r, t, s, O, N, D, F, o, M, l, c, d, U, u, m, g, h, p, b) {
   "number" != typeof (g_maxid = o) && (g_maxid = void 0 !== g_maxid ? parseInt(g_maxid) : 0);
   var f = "",
     y =
-      ((f += "LPAV" + serialize_str(I)),
+      ((f += "LPAV" + serialize_str(B)),
       O && 0 != O && (f += "PREM" + serialize_str(O)),
       lp_trueapi_trial_exp && 0 != lp_trueapi_trial_exp && (f += "TATE" + serialize_str(lp_trueapi_trial_exp)),
       lp_wote && 0 != lp_wote && (f += "WOTE" + serialize_str(lp_wote)),
@@ -15468,23 +15516,23 @@ function flattendata(I, e, a, n, i, r, t, s, O, N, D, F, o, M, l, c, d, U, u, m,
   }
   if (b && 0 < b.length) for (var _ = 0, ie = b.length; _ < ie; ++_) f += flattenshare(b[_]);
   if (m && 0 < m.length)
-    for (var _ = 0, ie = m.length, B; _ < ie; ++_) {
+    for (var _ = 0, ie = m.length, I; _ < ie; ++_) {
       (A = ""),
         (A =
           (A =
             (A =
-              (A = (A = (A += serialize_str((B = m[_]).username)) + serialize_str(B.accepted)) + serialize_str(B.confirmed)) +
-              serialize_str(B.hours_to_override)) + serialize_str(B.override_date)) + serialize_str(B.allowed_access)),
+              (A = (A = (A += serialize_str((I = m[_]).username)) + serialize_str(I.accepted)) + serialize_str(I.confirmed)) +
+              serialize_str(I.hours_to_override)) + serialize_str(I.override_date)) + serialize_str(I.allowed_access)),
         (f += "EMER" + serialize_str(A));
     }
   if (g && 0 < g.length)
-    for (var _ = 0, ie = g.length, B; _ < ie; ++_) {
+    for (var _ = 0, ie = g.length, I; _ < ie; ++_) {
       (A = ""),
         (A =
           (A =
             (A =
-              (A = (A = (A += serialize_str((B = g[_]).username)) + serialize_str(B.accepted)) + serialize_str(B.confirmed)) +
-              serialize_str(B.hours_to_override)) + serialize_str(B.override_date)) + serialize_str(B.allowed_access)),
+              (A = (A = (A += serialize_str((I = g[_]).username)) + serialize_str(I.accepted)) + serialize_str(I.confirmed)) +
+              serialize_str(I.hours_to_override)) + serialize_str(I.override_date)) + serialize_str(I.allowed_access)),
         (f += "EMEE" + serialize_str(A));
     }
   return (
@@ -15527,7 +15575,11 @@ function flattensite(e, a) {
       ((n += serialize_str(i)),
       void 0 !== e.encgroup && lpmdec(e.encgroup, !0, a, null, e.aid) == e.group ? e.encgroup : lpmenc(e.group, !0, a)),
     r =
-      ((n =
+      ((n += serialize_str(i)),
+      e.encryptedUrl
+        ? (n += serialize_str(e.encryptedUrl))
+        : (n += serialize_str("undefined" != typeof lp_no_url_bin2hex && lp_no_url_bin2hex ? e.url : AES.url2hex(e.url))),
+      (n =
         (n =
           (n =
             (n =
@@ -15538,14 +15590,7 @@ function flattensite(e, a) {
                       (n =
                         (n =
                           (n =
-                            (n =
-                              (n =
-                                (n =
-                                  (n =
-                                    (n += serialize_str(i)) +
-                                    serialize_str(
-                                      "undefined" != typeof lp_no_url_bin2hex && lp_no_url_bin2hex ? e.url : AES.url2hex(e.url)
-                                    )) + serialize_str(e.extra)) + serialize_str(e.fav)) + serialize_str(e.sharedfromaid)) +
+                            (n = (n = (n += serialize_str(e.extra)) + serialize_str(e.fav)) + serialize_str(e.sharedfromaid)) +
                             serialize_str(e.username)) + serialize_str(e.password)) + serialize_str(e.pwprotect ? "1" : "0")) +
                       serialize_str(e.genpw ? "1" : "0")) + serialize_str(e.sn ? "1" : "0")) + serialize_str(e.last_touch)) +
                 serialize_str(e.autologin ? "1" : "0")) + serialize_str(e.never_autofill ? "1" : "0")) + serialize_str(e.realm_data)) +
@@ -15772,18 +15817,6 @@ function logMissingSharedFolder(e, a, n) {
   "undefined" != typeof Raven
     ? Raven.captureException(e, { extra: { uid: a, shareId: n } })
     : "undefined" != typeof console && "function" == typeof console.error && console.error(e, a, n);
-}
-function logDecryptionError(e) {
-  $.ajax({
-    global: !1,
-    type: "POST",
-    cache: !1,
-    url: base_url + "error.php",
-    data: { msg: "uid=" + g_uid + ";decryption_error=" + JSON.stringify(e) },
-    dataType: "text",
-    success: function () {},
-    failure: function () {}
-  });
 }
 var canary = 0xdeadbeefcafe,
   j_lm = 15715070 == (16777215 & canary);
@@ -21110,8 +21143,10 @@ var rsa_extract_privatekey = (function () {
             ? lpdec(e, a)
             : AES.Decrypt({ pass: a + a.substring(0, 16), data: btoa(AES.hex2bin(e)), b64: !0, bits: 256, mode: "cbc" })),
         i(n)
-          ? (log_private_key_extract_error("private_key_is_invalid"), "")
-          : ("" === (a = n.substring(19, n.length - 19)) && log_private_key_extract_error("extracted_private_key_length_is_zero"), a))
+          ? (logger.error("rsa_key_extract_error : private_key_is_invalid", {}), "")
+          : ("" === (a = n.substring(19, n.length - 19)) &&
+              logger.error("rsa_key_extract_error : extracted_private_key_length_is_zero", {}),
+            a))
       : "";
   };
 })();
@@ -21126,9 +21161,6 @@ function rsa_encrypt_privatekey_v2(e, a) {
 }
 function rsa_encrypt_privatekey(e, a) {
   return rsa_encrypt_privatekey_v1(e, a);
-}
-function log_private_key_extract_error(e) {
-  $.ajax({ global: !1, type: "GET", cache: !1, dataType: "", url: "error.php?msg=rsa_key_extract_error:" + e });
 }
 function printStackTrace(e) {
   var a = (e = e || { guess: !0 }).e || null,
@@ -21381,7 +21413,7 @@ function lpwindow(e) {
     q = void 0 !== e.noheight ? e.noheight : null,
     E = void 0 !== e.nomaxwidth ? e.nomaxwidth : null,
     P = void 0 !== e.cancelbuttontext ? e.cancelbuttontext : null,
-    I = void 0 !== e.settingswin ? e.settingswin : null,
+    B = void 0 !== e.settingswin ? e.settingswin : null,
     O = void 0 === e.closebgclick || e.closebgclick,
     T = void 0 !== e.showcustom && e.showcustom,
     L = void 0 !== e.custombuttontext ? e.custombuttontext : null,
@@ -21390,9 +21422,9 @@ function lpwindow(e) {
     D = void 0 !== e.addnewstyle && e.addnewstyle,
     F = void 0 !== e.addnewclass ? e.addnewclass : "",
     M = void 0 !== e.customcloseicon ? e.customcloseicon : null,
-    B = {};
-  void 0 !== e.classok && (B.classok = e.classok),
-    void 0 !== e.classcancel && (B.classcancel = e.classcancel),
+    I = {};
+  void 0 !== e.classok && (I.classok = e.classok),
+    void 0 !== e.classcancel && (I.classcancel = e.classcancel),
     lpwindow_internal(
       a,
       n,
@@ -21418,7 +21450,7 @@ function lpwindow(e) {
       x,
       _,
       z,
-      B,
+      I,
       j,
       A,
       S,
@@ -21426,7 +21458,7 @@ function lpwindow(e) {
       q,
       E,
       P,
-      I,
+      B,
       O,
       (T = L && R ? T : !1),
       L,
@@ -21441,7 +21473,7 @@ function lpwindowx(e) {
   (e.xdialogwidth = !0), lpwindow(e);
 }
 function lpmessagebox(e, a, n, i, r, t, s) {
-  "function" == typeof tracelog && tracelog(a),
+  logger.info(a, {}),
     "undefined" == typeof LPDialog || s
       ? ((n = void 0 !== n ? n : null),
         lpwindow(
@@ -21831,7 +21863,7 @@ function lpwindow_internal(
   i,
   r,
   t,
-  I,
+  B,
   s,
   o,
   l,
@@ -21891,7 +21923,7 @@ function lpwindow_internal(
               i,
               r,
               t,
-              I,
+              B,
               s,
               o,
               null,
@@ -21951,7 +21983,7 @@ function lpwindow_internal(
       L = Lpwm.htmlprefix + E,
       R = Lpwm.titleprefix + E,
       ne = P + "x" + q,
-      B = null,
+      I = null,
       ie = null,
       re = null,
       te = P + "header",
@@ -21965,7 +21997,7 @@ function lpwindow_internal(
       ge = "",
       he = "auto",
       q =
-        (n && (A = (B = new LPButton("ok", P, E, I, k && void 0 !== k.classok ? k.classok : "")).html()),
+        (n && (A = (I = new LPButton("ok", P, E, B, k && void 0 !== k.classok ? k.classok : "")).html()),
         i && (S = (ie = new LPButton("cancel", P, E + q, K, k && void 0 !== k.classcancel ? k.classcancel : "")).html()),
         Y && void 0 !== x && x && (C = (re = new LPButton("custom", P, E, x, k && void 0 !== k.classok ? k.classok : "")).html()),
         void 0 !== d && d && (g_dialogclose[T] = d),
@@ -22055,8 +22087,8 @@ function lpwindow_internal(
       $("#" + o).keypress(function (e) {
         13 == e.which && (e.preventDefault(), ke());
       }),
-      B &&
-        setonclick("#" + B.id(), function () {
+      I &&
+        setonclick("#" + I.id(), function () {
           return ke(), !1;
         }),
       ie &&
@@ -22075,7 +22107,7 @@ function lpwindow_internal(
         setonclick("#" + T, function () {
           return hidedialog({ closeiframe: !0, clicked: this }), !1;
         }),
-      lpwindow_show_div(P, T, de, t, D, V, O, G, n, i, ke, B ? B.id() : "", oe, se);
+      lpwindow_show_div(P, T, de, t, D, V, O, G, n, i, ke, I ? I.id() : "", oe, se);
   }
 }
 function lpwindow_show_div(e, i, a, n, r, t, s, o, l, c, d, u, m, g) {
@@ -23921,13 +23953,8 @@ var ComputeChallengeErrorHandler = (function () {
       return e;
     },
     reportError: function (e) {
-      var a = o() + "error.php",
-        e = "error: website('4.0') errors(" + n + "): Compute challenge exception! Details: " + JSON.stringify(e);
-      n++,
-        "undefined" != typeof lpMakeRequest
-          ? lpMakeRequest(a, e)
-          : "undefined" != typeof LPPlatform &&
-            LPPlatform.ajax({ url: a, headers: { "X-CSRF-TOKEN": decodeURIComponent(l()) }, data: { msg: e }, type: "POST" });
+      var a = "error: website('4.0') errors(" + n + "): Compute challenge exception! Details: " + JSON.stringify(e);
+      n++, logger.error(a, { error: "website('4.0')", errorCount: n, exception: JSON.stringify(e) });
     }
   };
 })();
@@ -25275,7 +25302,6 @@ var sjcl = {
       }
     }
   },
-  lp_global_sprintf,
   EXPORTED_SYMBOLS =
     ("undefined" != typeof module && module.exports && (module.exports = sjcl),
     "function" == typeof define &&
@@ -25602,7 +25628,7 @@ var sjcl = {
             o = e[1],
             l = e[2],
             c = e[3],
-            I = e[4],
+            B = e[4],
             d = e[5],
             O = e[6],
             u = e[7],
@@ -25618,7 +25644,7 @@ var sjcl = {
             f = o,
             y = l,
             k = c,
-            v = I,
+            v = B,
             w = d,
             U = O,
             x = u,
@@ -25681,7 +25707,7 @@ var sjcl = {
             $ = t[2 * a],
             ee = t[2 * a + 1],
             R = q + (((_ << 18) | (z >>> 14)) ^ ((_ << 14) | (z >>> 18)) ^ ((z << 23) | (_ >>> 9))),
-            B = G + (((z << 18) | (_ >>> 14)) ^ ((z << 14) | (_ >>> 18)) ^ ((_ << 23) | (z >>> 9))) + (R >>> 0 < q >>> 0 ? 1 : 0),
+            I = G + (((z << 18) | (_ >>> 14)) ^ ((z << 14) | (_ >>> 18)) ^ ((_ << 23) | (z >>> 9))) + (R >>> 0 < q >>> 0 ? 1 : 0),
             ae = E + ((f & k) ^ (f & w) ^ (k & w)),
             ne,
             G = S,
@@ -25693,8 +25719,8 @@ var sjcl = {
             z,
             _ =
               (U +
-                (B =
-                  (B += T + ((R += L) >>> 0 < L >>> 0 ? 1 : 0)) +
+                (I =
+                  (I += T + ((R += L) >>> 0 < L >>> 0 ? 1 : 0)) +
                   ($ + ((R += ee) >>> 0 < ee >>> 0 ? 1 : 0)) +
                   (n + ((R += i) >>> 0 < i >>> 0 ? 1 : 0))) +
                 ((z = (x + R) | 0) >>> 0 < x >>> 0 ? 1 : 0)) |
@@ -25707,7 +25733,7 @@ var sjcl = {
             k = f,
             f,
             b =
-              (B +
+              (I +
                 ((((f << 4) | (b >>> 28)) ^ ((b << 30) | (f >>> 2)) ^ ((b << 25) | (f >>> 7))) + P + (ae >>> 0 < E >>> 0 ? 1 : 0)) +
                 ((f = (R + ae) | 0) >>> 0 < R >>> 0 ? 1 : 0)) |
               0;
@@ -25716,7 +25742,7 @@ var sjcl = {
           (c = e[3] = (c + k) | 0),
           (e[2] = (l + y + (c >>> 0 < k >>> 0 ? 1 : 0)) | 0),
           (d = e[5] = (d + w) | 0),
-          (e[4] = (I + v + (d >>> 0 < w >>> 0 ? 1 : 0)) | 0),
+          (e[4] = (B + v + (d >>> 0 < w >>> 0 ? 1 : 0)) | 0),
           (u = e[7] = (u + x) | 0),
           (e[6] = (O + U + (u >>> 0 < x >>> 0 ? 1 : 0)) | 0),
           (m = e[9] = (m + z) | 0),
@@ -25907,19 +25933,16 @@ var sjcl = {
       function f(e, a) {
         return Array(a + 1).join(e);
       }
-      void 0 !== g_isie && g_isie
-        ? (init_LPfn(), "undefined" != typeof LPfn && ((LPfn.sprintf = p), (LPfn.vsprintf = a)))
+      "undefined" != typeof exports
+        ? ((exports.sprintf = p), (exports.vsprintf = a))
         : ((e.sprintf = p),
           (e.vsprintf = a),
           "function" == typeof define &&
             define.amd &&
             define(function () {
               return { sprintf: p, vsprintf: a };
-            })),
-        ("undefined" != typeof LP || (void 0 !== is_firefox_webext && is_firefox_webext())) && (lp_global_sprintf = p),
-        void 0 !== g_isie && g_isie && (lp_global_sprintf = p);
+            }));
     })("undefined" == typeof window ? this : window),
-    void 0 !== is_firefox_webext && is_firefox_webext() && (sprintf = lp_global_sprintf),
     ["crc32"]);
 function crc32(e, a) {
   var n =
@@ -25933,7 +25956,7 @@ function crc32(e, a) {
 var LPPerl = new LPPerl_t();
 function LPPerl_t() {
   ("undefined" != typeof (sprintf = g_isfirefox ? sprintf : window.sprintf) && null !== sprintf) ||
-    void 0 === lp_global_sprintf ||
+    "undefined" == typeof lp_global_sprintf ||
     (sprintf = lp_global_sprintf),
     (this.time = function () {
       var e = 0,
@@ -27928,7 +27951,7 @@ function tokenize(e) {
       t = function e(a, n) {
         return a.push.apply(a, n);
       },
-      B = function e(a, n) {
+      I = function e(a, n) {
         return a
           .split("")
           .map(function (e) {
@@ -28140,24 +28163,24 @@ function tokenize(e) {
           }
         ]),
         R),
-      I = new Uint32Array(65536),
+      B = new Uint32Array(65536),
       Y = function e(a, n) {
-        for (var i = a.length, r = n.length, t = 1 << (i - 1), s = -1, o = 0, l = i, c = i; c--; ) I[a.charCodeAt(c)] |= 1 << c;
+        for (var i = a.length, r = n.length, t = 1 << (i - 1), s = -1, o = 0, l = i, c = i; c--; ) B[a.charCodeAt(c)] |= 1 << c;
         for (c = 0; c < r; c++) {
-          var d = I[n.charCodeAt(c)],
+          var d = B[n.charCodeAt(c)],
             u = d | o;
           (o |= ~((d |= ((d & s) + s) ^ s) | s)) & t && l++, (s &= d) & t && l--, (s = (s << 1) | ~(u | (o = (o << 1) | 1))), (o &= u);
         }
-        for (c = i; c--; ) I[a.charCodeAt(c)] = 0;
+        for (c = i; c--; ) B[a.charCodeAt(c)] = 0;
         return l;
       },
-      J = function B(e, a) {
+      J = function I(e, a) {
         for (var n = e.length, i = a.length, r = [], t = [], s = Math.ceil(n / 32), o = Math.ceil(i / 32), l = i, c = 0; c < s; c++)
           (t[c] = -1), (r[c] = 0);
         for (var d = 0; d < o - 1; d++) {
-          for (var u = 0, m = -1, g = 32 * d, h = Math.min(32, i) + g, p = g; p < h; p++) I[a.charCodeAt(p)] |= 1 << p;
+          for (var u = 0, m = -1, g = 32 * d, h = Math.min(32, i) + g, p = g; p < h; p++) B[a.charCodeAt(p)] |= 1 << p;
           for (var l = i, b = 0; b < n; b++) {
-            var f = I[e.charCodeAt(b)],
+            var f = B[e.charCodeAt(b)],
               y = (t[(b / 32) | 0] >>> b) & 1,
               k = (r[(b / 32) | 0] >>> b) & 1,
               v = f | u,
@@ -28169,12 +28192,12 @@ function tokenize(e) {
               (m = (f = (f << 1) | k) | ~(v | (w = (w << 1) | y))),
               (u = w & v);
           }
-          for (var x = g; x < h; x++) I[a.charCodeAt(x)] = 0;
+          for (var x = g; x < h; x++) B[a.charCodeAt(x)] = 0;
         }
-        for (var _ = 0, z = -1, j = 32 * d, A = Math.min(32, i - j) + j, S = j; S < A; S++) I[a.charCodeAt(S)] |= 1 << S;
+        for (var _ = 0, z = -1, j = 32 * d, A = Math.min(32, i - j) + j, S = j; S < A; S++) B[a.charCodeAt(S)] |= 1 << S;
         l = i;
         for (var C = 0; C < n; C++) {
-          var q = I[e.charCodeAt(C)],
+          var q = B[e.charCodeAt(C)],
             E = (t[(C / 32) | 0] >>> C) & 1,
             P = (r[(C / 32) | 0] >>> C) & 1,
             T = q | _,
@@ -28187,7 +28210,7 @@ function tokenize(e) {
             (z = (q = (q << 1) | P) | ~(T | (L = (L << 1) | E))),
             (_ = L & T);
         }
-        for (var R = j; R < A; R++) I[a.charCodeAt(R)] = 0;
+        for (var R = j; R < A; R++) B[a.charCodeAt(R)] = 0;
         return l;
       },
       c = function e(a, n) {
@@ -28399,7 +28422,7 @@ function tokenize(e) {
                       n;
                     return 0 === Object.keys((a = r)).length
                       ? "break"
-                      : ((n = B(t, r)),
+                      : ((n = I(t, r)),
                         void i.defaultMatch({ password: n }).forEach(function (e) {
                           var n = t.slice(e.i, +e.j + 1 || 9e9),
                             i,
@@ -29461,1152 +29484,720 @@ function tokenize(e) {
       );
     console.error("No zxcvbn functionality available");
   }),
-  "object" == typeof module && "object" == typeof module.exports && (module.exports = tokenize),
-  ((Topics = (function () {
-    var t = {};
-    return {
-      publish: function (e, a) {
-        Topics.get(e).publish(a);
-      },
-      get: function (e) {
-        var a = e && t[e],
-          r,
-          n,
-          i,
-          a;
-        return (
-          a ||
-            ((r = []),
-            (n = function (e) {
-              for (var a = 0, n = r.length; a < n; ++a) if (e === r[a]) return a;
-              return -1;
-            }),
-            (i = function (e) {
-              var e = n(e);
-              -1 < e && r.splice(e, 1);
-            }),
-            (a = {
-              publish: function () {
-                for (var e = !0, a = r.slice(), n = 0, i = a.length; n < i && !1 !== e; ++n)
-                  try {
-                    "function" == typeof a[n] && (e = a[n].apply(window, arguments));
-                  } catch (e) {
-                    "function" == typeof LPPlatform.logException && LPPlatform.logException(e);
-                  }
-              },
-              subscribe: function (e) {
-                -1 === n(e) && r.push(e);
-              },
-              subscribeFirst: function (e) {
-                i(e), r.unshift(e);
-              },
-              unsubscribe: function (e) {
-                i(e);
-              }
-            }),
-            e && (t[e] = a)),
-          a
-        );
+  "object" == typeof module && "object" == typeof module.exports && (module.exports = tokenize);
+var REPORT_ERROR_URL = "/lmiapi/report-error",
+  logger = {
+    error: function (e, a) {
+      this.log("ERROR", e, a);
+    },
+    warning: function (e, a) {
+      this.log("WARNING", e, a);
+    },
+    info: function (e, a) {
+      this.log("INFO", e, a);
+    },
+    debug: function (e, a) {
+      this.log("DEBUG", e, a);
+    },
+    notice: function (e, a) {
+      this.log("NOTICE", e, a);
+    },
+    alert: function (e, a) {
+      this.log("ALERT", e, a);
+    },
+    critical: function (e, a) {
+      this.log("CRITICAL", e, a);
+    },
+    emergency: function (e, a) {
+      this.log("EMERGENCY", e, a);
+    },
+    log: function (e, a, n) {
+      var i = REPORT_ERROR_URL,
+        a = { message: a, context: n, level: e };
+      try {
+        var r = new XMLHttpRequest();
+        "object" == typeof bg && "function" == typeof bg.get && "string" == typeof bg.get("base_url")
+          ? r.open("POST", bg.get("base_url").replace(/\/$/, "") + i)
+          : r.open("POST", i),
+          r.setRequestHeader("Content-type", "application/json"),
+          r.send(JSON.stringify(a));
+      } catch (e) {
+        console.warn("Error reporting log", e, a);
       }
-    };
-  })()).ITEMS_DESELECTED = 1),
-  (Topics.ITEMS_SELECTED = 2),
-  (Topics.CONTEXT_MENU = 3),
-  (Topics.CONFIRM = 4),
-  (Topics.ITEM_SHARE = 5),
-  (Topics.ERROR = 6),
-  (Topics.SUCCESS = 7),
-  (Topics.IDENTITY_ENABLE = 8),
-  (Topics.SITE_ADDED = 9),
-  (Topics.NOTE_ADDED = 10),
-  (Topics.FORM_FILL_ADDED = 11),
-  (Topics.EDIT_NOTE = 12),
-  (Topics.EDIT_SITE = 13),
-  (Topics.EDIT_FORM_FILL = 14),
-  (Topics.ACCEPT_SHARE = 15),
-  (Topics.REJECT_SHARE = 16),
-  (Topics.GROUP_ADDED = 17),
-  (Topics.RENAME_FOLDER = 18),
-  (Topics.CONTEXT_CLOSE = 19),
-  (Topics.EDIT_SETTINGS = 20),
-  (Topics.REQUEST_START = 21),
-  (Topics.REQUEST_SUCCESS = 22),
-  (Topics.REQUEST_ERROR = 23),
-  (Topics.COLLAPSE_ALL = 24),
-  (Topics.EXPAND_ALL = 25),
-  (Topics.DISPLAY_GRID = 26),
-  (Topics.DISPLAY_LIST = 27),
-  (Topics.CLEAR_DATA = 28),
-  (Topics.EDIT_IDENTITY = 29),
-  (Topics.CREATE_SUB_FOLDER = 30),
-  (Topics.DIALOG_OPEN = 31),
-  (Topics.DIALOG_CLOSE = 32),
-  (Topics.ESCAPE = 33),
-  (Topics.IDENTITY_ADDED = 34),
-  (Topics.PUSH_STATE = 35),
-  (Topics.EDIT_SHARED_FOLDER = 36),
-  (Topics.LEFT_ARROW = 37),
-  (Topics.RIGHT_ARROW = 38),
-  (Topics.PASSWORD_CHANGE = 39),
-  (Topics.UP_ARROW = 40),
-  (Topics.DOWN_ARROW = 41),
-  (Topics.ENTER = 42),
-  (Topics.EDIT_SHARED_FOLDER_ACCESS = 43),
-  (Topics.REMOVED_SHARED_FOLDER_USER = 44),
-  (Topics.LOGIN = 45),
-  (Topics.REFRESH_DATA = 46),
-  (Topics.ACCOUNT_LINKED = 48),
-  (Topics.ACCOUNT_UNLINKED = 49),
-  (Topics.CREATE_SHARED_FOLDER = 50),
-  (Topics.DIALOG_LOADING = 51),
-  (Topics.DIALOG_LOADED = 52),
-  (Topics.REPROMPT = 53),
-  (Topics.EDIT_APPLICATION = 54),
-  (Topics.ATTACHMENT_REMOVED = 55),
-  (Topics.CLEAR_STATE = 56),
-  (Topics.SELECT_COUNT_CHANGE = 57),
-  (Topics.REAPPLY_SEARCH = 58),
-  (Topics.EMERGENCY_RECIPIENT_ADDED = 59),
-  (Topics.EDIT_EMERGENCY_RECIPIENT = 60),
-  (Topics.UPDATE_NOTIFICATION_COUNT = 61),
-  (Topics.UPDATE_VAULT_STATE = 62),
-  (Topics.ENROLLED_CREDIT_MONITORING = 63),
-  (Topics.ITEM_SHARED = 64),
-  (Topics.REFRESH_PREFERENCES = 65),
-  (Topics.DISPLAY_COMPACT = 66),
-  (Topics.DISPLAY_LARGE = 67),
-  (Topics.ALL_COLLAPSED = 68),
-  (Topics.ALL_EXPANDED = 69),
-  (Topics.APPLICATION_ADDED = 70),
-  (Topics.REQUEST_STATUS = 71),
-  (Topics.DIALOG_RESIZE = 72),
-  (Topics.SECURENOTE_TEMPLATE_ADDED = 73),
-  (Topics.INITIALIZED = 74),
-  (Topics.REQUEST_FRAMEWORK_INITIALIZED = 75),
-  (Topics.SITE_NOTIFICATION_STATE = 76),
-  (Topics.SITE_NOTIFICATION = 77),
-  (Topics.DROPDOWN_SHOWN = 78),
-  (Topics.DROPDOWN_HIDE = 79),
-  (Topics.FILLED_GENERATED_PW = 80),
-  (Topics.VAULT_LEFT_MENU_TOGGLE = 81),
-  (Topics.EMPTY_VAULT_STATE_CHANGE = 82),
-  (Topics.LOGIN_FINISHED = 83),
-  (Topics.ACCTS_VERSION_UPDATED = 84),
-  (Topics.ITEM_REMOVED = 85),
-  (Topics.INFIELD_NOTIFICATION_OPENED = 86),
-  (Topics.INFIELD_NOTIFICATION_CLOSED = 87),
-  (Topics.INFIELD_NOTIFICATION_FILLED = 88),
-  (Topics.INFIELD_FRAME_POSITION_CHANGED = 89),
-  (Topics.MIGRATION_RUNNING = 90),
-  (Topics.BLOB_UPDATED = 91),
-  (Topics.CONVERT_FOLDER_TO_LEGACY = 92),
-  (Topics.FORM_SUBMITTED = 93),
-  (Topics.INTRO_TOURS_LOADED = 94),
-  (Topics.PREFERENCES_READ = 95),
-  (Topics.PREFERENCES_WRITE = 96),
-  (Topics.MANUAL_LOGIN_FINISHED = 97),
-  (Topics.PROCESSED_FORM_SUBMIT = 98),
-  (Topics.BADGE_NOTIFICATION = 99),
-  (Topics.BADGE_CLEAR = 100),
-  (Topics.POPOVER_RESIZE = 101),
-  (Topics.MATCHING_ITEMS_CHANGED = 102),
-  (Topics.PASSWORD_FORM_SUBMITTED = 103),
-  (Topics.REMOVED_SHARE = 104),
-  (Topics.ACCOUNT_LINKED_NEEDS_VERIFICATION = 105),
-  (Topics.CONTENT_SCRIPT_ADD_SITE_DIALOG_OPENED = 106),
-  (Topics.SPA_IFRAME_WEB_CLIENT_INITIALIZED = 107),
-  (LPMessaging = (function (s) {
-    var a = 0,
-      o = {},
-      r = 0,
-      t = function (e) {
-        var a = {},
-          n = !1,
-          i;
-        for (i in e)
-          if (e.hasOwnProperty(i)) {
-            var r = e[i];
-            switch (typeof r) {
-              case "function":
-                (n = n || !0), (a[i] = r.length);
-                break;
-              case "object":
-                (a[i] = t(r)), (n = n || null !== a[i]);
-            }
-          }
-        return n ? a : null;
-      },
-      l = function (e) {
-        var a = {},
-          n;
-        for (n in e)
-          if (e.hasOwnProperty(n)) {
-            var i = e[n];
-            switch (typeof i) {
-              case "function":
-                (a[n] = i), delete e[n];
-                break;
-              case "object":
-                a[n] = l(i);
-            }
-          }
-        return a;
-      },
-      c = function (e) {
-        return e && "object" == typeof e;
-      },
-      d = function (e) {
-        return "[object Array]" === Object.prototype.toString.call(e);
-      },
-      u = function (e) {
-        if (c(e))
-          switch (Object.prototype.toString.call(e)) {
-            case "[object Array]":
-              return !1;
-            case "[object Element]":
-              return !0;
-            case "[object Object]":
-              return null !== Object.getPrototypeOf(Object.getPrototypeOf(e));
-          }
-        return !1;
-      },
-      m = function (e) {
-        var a = d(e) ? [] : {},
-          n;
-        if (!u(e))
-          for (var i in e) {
-            e.hasOwnProperty(i) && ((n = e[i]), (a[i] = c(n) ? m(n) : n));
-          }
-        return a;
-      },
-      g = function (e, a) {
-        e.args = m(e.args);
-        var n = t(e.args),
-          i;
-        n && ((i = ++r), (o[i] = { functions: l(e.args), sender: a }), (e.requestID = i), (e.functions = n));
-      },
-      e,
-      n,
-      h = function (r, t, s, e) {
-        var o = function () {
-          for (var e = { responseRequestID: t.requestID, callbackPath: s }, a = [], n = 0, i = arguments.length; n < i; ++n)
-            a.push(arguments[n]);
-          (e.args = a), g(e, r), r(e);
-        };
-        switch (e) {
-          case 1:
-            return function (e) {
-              o.apply(this, arguments);
-            };
-          case 2:
-            return function (e, a) {
-              o.apply(this, arguments);
-            };
-          case 3:
-            return function (e, a, n) {
-              o.apply(this, arguments);
-            };
-          case 4:
-            return function (e, a, n, i) {
-              o.apply(this, arguments);
-            };
-          case 5:
-            return function (e, a, n, i, r) {
-              o.apply(this, arguments);
-            };
-          default:
-            return (
-              5 < e && Raven.captureException(new Error("Too many arguments passed.")),
-              function () {
-                o.apply(this, arguments);
-              }
-            );
-        }
-      },
-      p = function (e, a, n, i, r) {
-        for (var t in ((r = r || []), n)) {
-          var s = n[t];
-          "object" == typeof s ? p(e, a[t], s, i, r.concat(t)) : (a[t] = h(e, i, r.concat(t), s));
-        }
-      },
-      i,
-      b;
-    return {
-      handleRequest: function (e, a, n, i) {
-        var r = a.args;
-        p(n, r, a.functions, a), LPReflection.callFunction(e, a.cmd, r, i);
-      },
-      makeRequest: function (e, a, n) {
-        return g(a.data, n), e(a);
-      },
-      handleResponse: function (e) {
-        var a = o[e.responseRequestID].functions,
-          n = o[e.responseRequestID].sender;
-        delete o[e.responseRequestID];
-        for (var i = 0, r = e.callbackPath.length; i < r; ++i) a = a[e.callbackPath[i]];
-        var t = e.args;
-        p(n, t, e.functions, e), a.apply(s, t);
-      },
-      getNewMessageSourceID: function (e) {
-        return ++a;
-      }
-    };
-  })(this)),
-  (LPReflection = (function (s) {
-    var l = function (e, a, n) {
-        n = n || s;
-        for (var i = 0, r = (a = "string" == typeof a ? a.split(".") : a).length; i < r; ++i) {
-          var t = a[i];
-          if (e) {
-            if (!e.hasOwnProperty(t)) throw "Cannot access " + a.join(".") + ". Not defined on the interface.";
-            e = e[t];
-          }
-          i < r - 1 && (n = n[t]);
-        }
-        return { parent: n, property: a[a.length - 1], definition: e };
-      },
-      e,
-      a,
-      n;
-    return {
-      callFunction: function (e, a, n, i) {
-        var r = l(e, a, i && i.context),
-          t = r.parent[r.property];
-        if (i && i.additionalArguments && r.definition.options && r.definition.options.appendAdditionalArguments) {
-          for (var e = [].concat(i.additionalArguments), s = t.length - n.length - e.length, o = 0; o < s; ++o) n.push(void 0);
-          n = n.concat(i.additionalArguments);
-        }
-        if (!r.definition || !r.definition.before) return t.apply(r.parent, n);
-        r.definition.before.apply(
-          r.definition,
-          n.concat(function () {
-            t.apply(r.parent, n);
-          })
-        );
-      },
-      setValue: function (e, a, n, i) {
-        var e = l(e, a, i && i.context);
-        if (e.definition && !e.definition.allowWrite()) throw ("string" == typeof a ? a : a.join(".")) + " is not writeable.";
-        e.parent[e.property] = n;
-      },
-      getValue: function (e, a, n) {
-        var e = l(e, a, n && n.context);
-        return e.parent[e.property];
-      }
-    };
-  })(this)),
-  ((Interfaces = (function () {
-    var d = function (e, a) {
-        (this.type = e),
-          (this.options = a),
-          this.options &&
-            (this.options.include && (this.options.include = [].concat(this.options.include)), this.options.exclude) &&
-            (this.options.exclude = [].concat(this.options.exclude));
-      },
-      n = function (e, a) {
-        var a = [].concat(a);
-        for (i = 0; i < a.length; ++i) for (j = 0; j < e.length; ++j) if (e[j] === a[i]) return !0;
-        return !1;
-      },
-      e =
-        ((d.prototype.requiredBy = function (e) {
-          var a;
-          if (e && this.options) {
-            if (this.options.include) return n(this.options.include, e);
-            if (this.options.exclude) return !n(this.options.include, e);
-          }
-          return !0;
-        }),
-        (d.prototype.isSyncronized = function () {
-          return this.options && !0 === this.options.sync;
-        }),
-        (d.prototype.isSyncronousFunction = function () {
-          return this.type === Interfaces.TYPE_SYNC_FUNCTION;
-        }),
-        (d.prototype.isFunction = function () {
-          return this.type === Interfaces.TYPE_FUNCTION || this.type === Interfaces.TYPE_SYNC_FUNCTION;
-        }),
-        (d.prototype.isConstructor = function () {
-          return this.type === Interfaces.TYPE_CONSTRUCTOR;
-        }),
-        (d.prototype.isPrimitive = function () {
-          return !this.isFunction() && !this.isConstructor();
-        }),
-        (d.prototype.shouldSendIndirect = function () {
-          return this.isPrimitive()
-            ? !this.options || void 0 === this.options.sendIndirect || this.options.sendIndirect
-            : this.options && !0 === this.options.sendIndirect;
-        }),
-        (d.prototype.allowWrite = function () {
-          return this.options && !0 === this.options.write;
-        }),
-        (d.prototype.addIncludes = function (e) {
-          (this.options = this.options || {}), (this.options.include = this.options.include.concat(e));
-        }),
-        function (e, a) {
-          for (var n in a) {
-            var i = a[n];
-            "object" == typeof i && e.hasOwnProperty(n) ? Interfaces.extend(e[n], i) : (e[n] = i);
-          }
-        });
-    (u = function (n, i, r) {
-      return function (e) {
-        var a = i[e];
-        if (a && a.options && a.options.sourceFunction && !1 !== r.direct) return a.options.sourceFunction();
-        if (i.hasOwnProperty(e)) return n[e];
-        throw e + " is not defined in the interface.";
-      };
-    }),
-      (m = function (i, r, t, s) {
-        var o = function (e, a, n) {
-          if (!e.allowWrite()) throw t.concat(a) + " is not writeable.";
-          if (!e || typeof n !== e.type) throw a + " is not defined in the interface.";
-          i[a] = n;
-        };
-        return s.direct
-          ? function (e, a) {
-              var n = r[e];
-              o(n, e, a);
-            }
-          : function (e, a) {
-              var n = r[e];
-              o(n, e, a), n.shouldSendIndirect() && s.requestFunction({ cmd: "LPData.setValue", args: [t.concat(e), a] });
-            };
-      }),
-      (g = function (a, n, t, s) {
-        return function () {
-          var e = arguments,
-            i,
+    }
+  },
+  __extends =
+    (((Topics = (function () {
+      var t = {};
+      return {
+        publish: function (e, a) {
+          Topics.get(e).publish(a);
+        },
+        get: function (e) {
+          var a = e && t[e],
             r,
-            e;
+            n,
+            i,
+            a;
           return (
-            s.cloneObjects &&
-              !a.isSyncronousFunction() &&
-              ((i = function (a) {
-                return "function" == typeof a
-                  ? function () {
-                      var e = r(Array.from(arguments));
-                      a.apply(null, e);
+            a ||
+              ((r = []),
+              (n = function (e) {
+                for (var a = 0, n = r.length; a < n; ++a) if (e === r[a]) return a;
+                return -1;
+              }),
+              (i = function (e) {
+                var e = n(e);
+                -1 < e && r.splice(e, 1);
+              }),
+              (a = {
+                publish: function () {
+                  for (var e = !0, a = r.slice(), n = 0, i = a.length; n < i && !1 !== e; ++n)
+                    try {
+                      "function" == typeof a[n] && (e = a[n].apply(window, arguments));
+                    } catch (e) {
+                      "function" == typeof LPPlatform.logException && LPPlatform.logException(e);
                     }
-                  : a;
+                },
+                subscribe: function (e) {
+                  -1 === n(e) && r.push(e);
+                },
+                subscribeFirst: function (e) {
+                  i(e), r.unshift(e);
+                },
+                unsubscribe: function (e) {
+                  i(e);
+                }
               }),
-              (r = function (a) {
-                var n;
-                return a
-                  ? (Array.isArray(a)
-                      ? ((n = []),
-                        a.forEach(function (e) {
-                          "object" == typeof e ? n.push(r(e)) : n.push(i(e));
-                        }))
-                      : ((n = {}),
-                        Object.keys(a).forEach(function (e) {
-                          a[e] && "object" == typeof a[e] ? (n[e] = r(a[e])) : (n[e] = i(a[e]));
-                        })),
-                    i(n))
-                  : null;
-              }),
-              (e = Array.prototype.map.call(e, function (e) {
-                return ("object" == typeof e ? r : i)(e);
-              }))),
-            t.apply(n, e)
+              e && (t[e] = a)),
+            a
           );
-        };
-      }),
-      (h = function (i, r, t) {
-        if ("function" == typeof t.requestFunction)
-          return function () {
-            for (var e = [], a = 0, n = arguments.length; a < n; ++a) e.push(arguments[a]);
-            return t.requestFunction({ cmd: 0 < i.length ? i.concat(r) : r, args: e });
+        }
+      };
+    })()).ITEMS_DESELECTED = 1),
+    (Topics.ITEMS_SELECTED = 2),
+    (Topics.CONTEXT_MENU = 3),
+    (Topics.CONFIRM = 4),
+    (Topics.ITEM_SHARE = 5),
+    (Topics.ERROR = 6),
+    (Topics.SUCCESS = 7),
+    (Topics.IDENTITY_ENABLE = 8),
+    (Topics.SITE_ADDED = 9),
+    (Topics.NOTE_ADDED = 10),
+    (Topics.FORM_FILL_ADDED = 11),
+    (Topics.EDIT_NOTE = 12),
+    (Topics.EDIT_SITE = 13),
+    (Topics.EDIT_FORM_FILL = 14),
+    (Topics.ACCEPT_SHARE = 15),
+    (Topics.REJECT_SHARE = 16),
+    (Topics.GROUP_ADDED = 17),
+    (Topics.RENAME_FOLDER = 18),
+    (Topics.CONTEXT_CLOSE = 19),
+    (Topics.EDIT_SETTINGS = 20),
+    (Topics.REQUEST_START = 21),
+    (Topics.REQUEST_SUCCESS = 22),
+    (Topics.REQUEST_ERROR = 23),
+    (Topics.COLLAPSE_ALL = 24),
+    (Topics.EXPAND_ALL = 25),
+    (Topics.DISPLAY_GRID = 26),
+    (Topics.DISPLAY_LIST = 27),
+    (Topics.CLEAR_DATA = 28),
+    (Topics.EDIT_IDENTITY = 29),
+    (Topics.CREATE_SUB_FOLDER = 30),
+    (Topics.DIALOG_OPEN = 31),
+    (Topics.DIALOG_CLOSE = 32),
+    (Topics.ESCAPE = 33),
+    (Topics.IDENTITY_ADDED = 34),
+    (Topics.PUSH_STATE = 35),
+    (Topics.EDIT_SHARED_FOLDER = 36),
+    (Topics.LEFT_ARROW = 37),
+    (Topics.RIGHT_ARROW = 38),
+    (Topics.PASSWORD_CHANGE = 39),
+    (Topics.UP_ARROW = 40),
+    (Topics.DOWN_ARROW = 41),
+    (Topics.ENTER = 42),
+    (Topics.EDIT_SHARED_FOLDER_ACCESS = 43),
+    (Topics.REMOVED_SHARED_FOLDER_USER = 44),
+    (Topics.LOGIN = 45),
+    (Topics.REFRESH_DATA = 46),
+    (Topics.ACCOUNT_LINKED = 48),
+    (Topics.ACCOUNT_UNLINKED = 49),
+    (Topics.CREATE_SHARED_FOLDER = 50),
+    (Topics.DIALOG_LOADING = 51),
+    (Topics.DIALOG_LOADED = 52),
+    (Topics.REPROMPT = 53),
+    (Topics.EDIT_APPLICATION = 54),
+    (Topics.ATTACHMENT_REMOVED = 55),
+    (Topics.CLEAR_STATE = 56),
+    (Topics.SELECT_COUNT_CHANGE = 57),
+    (Topics.REAPPLY_SEARCH = 58),
+    (Topics.EMERGENCY_RECIPIENT_ADDED = 59),
+    (Topics.EDIT_EMERGENCY_RECIPIENT = 60),
+    (Topics.UPDATE_NOTIFICATION_COUNT = 61),
+    (Topics.UPDATE_VAULT_STATE = 62),
+    (Topics.ENROLLED_CREDIT_MONITORING = 63),
+    (Topics.ITEM_SHARED = 64),
+    (Topics.REFRESH_PREFERENCES = 65),
+    (Topics.DISPLAY_COMPACT = 66),
+    (Topics.DISPLAY_LARGE = 67),
+    (Topics.ALL_COLLAPSED = 68),
+    (Topics.ALL_EXPANDED = 69),
+    (Topics.APPLICATION_ADDED = 70),
+    (Topics.REQUEST_STATUS = 71),
+    (Topics.DIALOG_RESIZE = 72),
+    (Topics.SECURENOTE_TEMPLATE_ADDED = 73),
+    (Topics.INITIALIZED = 74),
+    (Topics.REQUEST_FRAMEWORK_INITIALIZED = 75),
+    (Topics.SITE_NOTIFICATION_STATE = 76),
+    (Topics.SITE_NOTIFICATION = 77),
+    (Topics.DROPDOWN_SHOWN = 78),
+    (Topics.DROPDOWN_HIDE = 79),
+    (Topics.FILLED_GENERATED_PW = 80),
+    (Topics.VAULT_LEFT_MENU_TOGGLE = 81),
+    (Topics.EMPTY_VAULT_STATE_CHANGE = 82),
+    (Topics.LOGIN_FINISHED = 83),
+    (Topics.ACCTS_VERSION_UPDATED = 84),
+    (Topics.ITEM_REMOVED = 85),
+    (Topics.INFIELD_NOTIFICATION_OPENED = 86),
+    (Topics.INFIELD_NOTIFICATION_CLOSED = 87),
+    (Topics.INFIELD_NOTIFICATION_FILLED = 88),
+    (Topics.INFIELD_FRAME_POSITION_CHANGED = 89),
+    (Topics.MIGRATION_RUNNING = 90),
+    (Topics.BLOB_UPDATED = 91),
+    (Topics.CONVERT_FOLDER_TO_LEGACY = 92),
+    (Topics.FORM_SUBMITTED = 93),
+    (Topics.INTRO_TOURS_LOADED = 94),
+    (Topics.PREFERENCES_READ = 95),
+    (Topics.PREFERENCES_WRITE = 96),
+    (Topics.MANUAL_LOGIN_FINISHED = 97),
+    (Topics.PROCESSED_FORM_SUBMIT = 98),
+    (Topics.BADGE_NOTIFICATION = 99),
+    (Topics.BADGE_CLEAR = 100),
+    (Topics.POPOVER_RESIZE = 101),
+    (Topics.MATCHING_ITEMS_CHANGED = 102),
+    (Topics.PASSWORD_FORM_SUBMITTED = 103),
+    (Topics.REMOVED_SHARE = 104),
+    (Topics.ACCOUNT_LINKED_NEEDS_VERIFICATION = 105),
+    (Topics.CONTENT_SCRIPT_ADD_SITE_DIALOG_OPENED = 106),
+    (Topics.SPA_IFRAME_WEB_CLIENT_INITIALIZED = 107),
+    (LPMessaging = (function (s) {
+      var a = 0,
+        o = {},
+        r = 0,
+        t = function (e) {
+          var a = {},
+            n = !1,
+            i;
+          for (i in e)
+            if (e.hasOwnProperty(i)) {
+              var r = e[i];
+              switch (typeof r) {
+                case "function":
+                  (n = n || !0), (a[i] = r.length);
+                  break;
+                case "object":
+                  (a[i] = t(r)), (n = n || null !== a[i]);
+              }
+            }
+          return n ? a : null;
+        },
+        l = function (e) {
+          var a = {},
+            n;
+          for (n in e)
+            if (e.hasOwnProperty(n)) {
+              var i = e[n];
+              switch (typeof i) {
+                case "function":
+                  (a[n] = i), delete e[n];
+                  break;
+                case "object":
+                  a[n] = l(i);
+              }
+            }
+          return a;
+        },
+        c = function (e) {
+          return e && "object" == typeof e;
+        },
+        d = function (e) {
+          return "[object Array]" === Object.prototype.toString.call(e);
+        },
+        u = function (e) {
+          if (c(e))
+            switch (Object.prototype.toString.call(e)) {
+              case "[object Array]":
+                return !1;
+              case "[object Element]":
+                return !0;
+              case "[object Object]":
+                return null !== Object.getPrototypeOf(Object.getPrototypeOf(e));
+            }
+          return !1;
+        },
+        m = function (e) {
+          var a = d(e) ? [] : {},
+            n;
+          if (!u(e))
+            for (var i in e) {
+              e.hasOwnProperty(i) && ((n = e[i]), (a[i] = c(n) ? m(n) : n));
+            }
+          return a;
+        },
+        g = function (e, a) {
+          e.args = m(e.args);
+          var n = t(e.args),
+            i;
+          n && ((i = ++r), (o[i] = { functions: l(e.args), sender: a }), (e.requestID = i), (e.functions = n));
+        },
+        e,
+        n,
+        h = function (r, t, s, e) {
+          var o = function () {
+            for (var e = { responseRequestID: t.requestID, callbackPath: s }, a = [], n = 0, i = arguments.length; n < i; ++n)
+              a.push(arguments[n]);
+            (e.args = a), g(e, r), r(e);
           };
-        throw "requestFunction must be specified for this interface since it is not direct access.";
-      }),
-      (p = function (e, a, n) {
-        return function () {
-          "function" == typeof a && a.apply(e, arguments), "function" == typeof n && n.apply(e, arguments);
+          switch (e) {
+            case 1:
+              return function (e) {
+                o.apply(this, arguments);
+              };
+            case 2:
+              return function (e, a) {
+                o.apply(this, arguments);
+              };
+            case 3:
+              return function (e, a, n) {
+                o.apply(this, arguments);
+              };
+            case 4:
+              return function (e, a, n, i) {
+                o.apply(this, arguments);
+              };
+            case 5:
+              return function (e, a, n, i, r) {
+                o.apply(this, arguments);
+              };
+            default:
+              return (
+                5 < e && Raven.captureException(new Error("Too many arguments passed.")),
+                function () {
+                  o.apply(this, arguments);
+                }
+              );
+          }
+        },
+        p = function (e, a, n, i, r) {
+          for (var t in ((r = r || []), n)) {
+            var s = n[t];
+            "object" == typeof s ? p(e, a[t], s, i, r.concat(t)) : (a[t] = h(e, i, r.concat(t), s));
+          }
+        },
+        i,
+        b;
+      return {
+        handleRequest: function (e, a, n, i) {
+          var r = a.args;
+          p(n, r, a.functions, a), LPReflection.callFunction(e, a.cmd, r, i);
+        },
+        makeRequest: function (e, a, n) {
+          return g(a.data, n), e(a);
+        },
+        handleResponse: function (e) {
+          var a = o[e.responseRequestID].functions,
+            n = o[e.responseRequestID].sender;
+          delete o[e.responseRequestID];
+          for (var i = 0, r = e.callbackPath.length; i < r; ++i) a = a[e.callbackPath[i]];
+          var t = e.args;
+          p(n, t, e.functions, e), a.apply(s, t);
+        },
+        getNewMessageSourceID: function (e) {
+          return ++a;
+        }
+      };
+    })(this)),
+    (LPReflection = (function (s) {
+      var l = function (e, a, n) {
+          n = n || s;
+          for (var i = 0, r = (a = "string" == typeof a ? a.split(".") : a).length; i < r; ++i) {
+            var t = a[i];
+            if (e) {
+              if (!e.hasOwnProperty(t)) throw "Cannot access " + a.join(".") + ". Not defined on the interface.";
+              e = e[t];
+            }
+            i < r - 1 && (n = n[t]);
+          }
+          return { parent: n, property: a[a.length - 1], definition: e };
+        },
+        e,
+        a,
+        n;
+      return {
+        callFunction: function (e, a, n, i) {
+          var r = l(e, a, i && i.context),
+            t = r.parent[r.property];
+          if (i && i.additionalArguments && r.definition.options && r.definition.options.appendAdditionalArguments) {
+            for (var e = [].concat(i.additionalArguments), s = t.length - n.length - e.length, o = 0; o < s; ++o) n.push(void 0);
+            n = n.concat(i.additionalArguments);
+          }
+          if (!r.definition || !r.definition.before) return t.apply(r.parent, n);
+          r.definition.before.apply(
+            r.definition,
+            n.concat(function () {
+              t.apply(r.parent, n);
+            })
+          );
+        },
+        setValue: function (e, a, n, i) {
+          var e = l(e, a, i && i.context);
+          if (e.definition && !e.definition.allowWrite()) throw ("string" == typeof a ? a : a.join(".")) + " is not writeable.";
+          e.parent[e.property] = n;
+        },
+        getValue: function (e, a, n) {
+          var e = l(e, a, n && n.context);
+          return e.parent[e.property];
+        }
+      };
+    })(this)),
+    ((Interfaces = (function () {
+      var d = function (e, a) {
+          (this.type = e),
+            (this.options = a),
+            this.options &&
+              (this.options.include && (this.options.include = [].concat(this.options.include)), this.options.exclude) &&
+              (this.options.exclude = [].concat(this.options.exclude));
+        },
+        n = function (e, a) {
+          var a = [].concat(a);
+          for (i = 0; i < a.length; ++i) for (j = 0; j < e.length; ++j) if (e[j] === a[i]) return !0;
+          return !1;
+        },
+        e =
+          ((d.prototype.requiredBy = function (e) {
+            var a;
+            if (e && this.options) {
+              if (this.options.include) return n(this.options.include, e);
+              if (this.options.exclude) return !n(this.options.include, e);
+            }
+            return !0;
+          }),
+          (d.prototype.isSyncronized = function () {
+            return this.options && !0 === this.options.sync;
+          }),
+          (d.prototype.isSyncronousFunction = function () {
+            return this.type === Interfaces.TYPE_SYNC_FUNCTION;
+          }),
+          (d.prototype.isFunction = function () {
+            return this.type === Interfaces.TYPE_FUNCTION || this.type === Interfaces.TYPE_SYNC_FUNCTION;
+          }),
+          (d.prototype.isConstructor = function () {
+            return this.type === Interfaces.TYPE_CONSTRUCTOR;
+          }),
+          (d.prototype.isPrimitive = function () {
+            return !this.isFunction() && !this.isConstructor();
+          }),
+          (d.prototype.shouldSendIndirect = function () {
+            return this.isPrimitive()
+              ? !this.options || void 0 === this.options.sendIndirect || this.options.sendIndirect
+              : this.options && !0 === this.options.sendIndirect;
+          }),
+          (d.prototype.allowWrite = function () {
+            return this.options && !0 === this.options.write;
+          }),
+          (d.prototype.addIncludes = function (e) {
+            (this.options = this.options || {}), (this.options.include = this.options.include.concat(e));
+          }),
+          function (e, a) {
+            for (var n in a) {
+              var i = a[n];
+              "object" == typeof i && e.hasOwnProperty(n) ? Interfaces.extend(e[n], i) : (e[n] = i);
+            }
+          });
+      (u = function (n, i, r) {
+        return function (e) {
+          var a = i[e];
+          if (a && a.options && a.options.sourceFunction && !1 !== r.direct) return a.options.sourceFunction();
+          if (i.hasOwnProperty(e)) return n[e];
+          throw e + " is not defined in the interface.";
         };
       }),
-      (b = function (e, a, n, i, r, t) {
-        var s = !1,
-          o = [],
-          l;
-        for (l in i) {
-          var c = i[l];
-          c instanceof d
-            ? c.isFunction()
-              ? !c.requiredBy(t.context) ||
-                (c.isSyncronousFunction() && t.asyncOnly) ||
-                (t.direct || c.isSyncronousFunction()
-                  ? a && "function" == typeof a[l]
-                    ? ((e[l] = g(c, a, a[l], t)), !t.direct && c.shouldSendIndirect() && (e[l] = p(e, e[l], h(r, l, t))))
-                    : o.push(c.type + ": " + r.concat(l).join("."))
-                  : (e[l] = h(r, l, t)))
-              : c.isConstructor()
-              ? c.requiredBy(t.context) &&
-                !t.asyncOnly &&
-                (a && "function" == typeof a[l] ? (e[l] = a[l]) : o.push(c.type + ": " + r.concat(l).join(".")))
-              : (s = !0)
-            : (e.hasOwnProperty(l) || (e[l] = {}), b(e[l], a && a[l], n && n[l], i[l], r.concat(l), t));
-        }
-        if ((s && ((e.get = u(n, i, t)), (e.set = m(n, i, r, t))), 0 < o.length && t.checkMissing))
-          throw "Background instance does not support the following:\n" + o.join("\n");
-        return e;
-      });
-    var a,
-      u,
-      m,
-      g,
-      h,
-      p,
-      b,
-      o =
-        ((s = {}),
-        (l = {}),
-        (c = function (e, a, n, i) {
-          var r = [],
-            t;
-          for (t in e) {
-            var s = i ? i.concat(t) : [t],
-              o = e[t];
-            o instanceof d
-              ? o.isPrimitive() &&
-                o.requiredBy(a) &&
-                (!n || o.isSyncronized()) &&
-                r.push({ sourceFunction: o.options && o.options.sourceFunction, path: s })
-              : (r = r.concat(c(o, a, n, s)));
-          }
-          return r;
+        (m = function (i, r, t, s) {
+          var o = function (e, a, n) {
+            if (!e.allowWrite()) throw t.concat(a) + " is not writeable.";
+            if (!e || typeof n !== e.type) throw a + " is not defined in the interface.";
+            i[a] = n;
+          };
+          return s.direct
+            ? function (e, a) {
+                var n = r[e];
+                o(n, e, a);
+              }
+            : function (e, a) {
+                var n = r[e];
+                o(n, e, a), n.shouldSendIndirect() && s.requestFunction({ cmd: "LPData.setValue", args: [t.concat(e), a] });
+              };
         }),
-        function (e, a) {
-          var n = [];
-          e = [].concat(e);
-          for (var i = 0; i < e.length; ++i) {
-            var r = e[i],
+        (g = function (a, n, t, s) {
+          return function () {
+            var e = arguments,
+              i,
+              r,
+              e;
+            return (
+              s.cloneObjects &&
+                !a.isSyncronousFunction() &&
+                ((i = function (a) {
+                  return "function" == typeof a
+                    ? function () {
+                        var e = r(Array.from(arguments));
+                        a.apply(null, e);
+                      }
+                    : a;
+                }),
+                (r = function (a) {
+                  var n;
+                  return a
+                    ? (Array.isArray(a)
+                        ? ((n = []),
+                          a.forEach(function (e) {
+                            "object" == typeof e ? n.push(r(e)) : n.push(i(e));
+                          }))
+                        : ((n = {}),
+                          Object.keys(a).forEach(function (e) {
+                            a[e] && "object" == typeof a[e] ? (n[e] = r(a[e])) : (n[e] = i(a[e]));
+                          })),
+                      i(n))
+                    : null;
+                }),
+                (e = Array.prototype.map.call(e, function (e) {
+                  return ("object" == typeof e ? r : i)(e);
+                }))),
+              t.apply(n, e)
+            );
+          };
+        }),
+        (h = function (i, r, t) {
+          if ("function" == typeof t.requestFunction)
+            return function () {
+              for (var e = [], a = 0, n = arguments.length; a < n; ++a) e.push(arguments[a]);
+              return t.requestFunction({ cmd: 0 < i.length ? i.concat(r) : r, args: e });
+            };
+          throw "requestFunction must be specified for this interface since it is not direct access.";
+        }),
+        (p = function (e, a, n) {
+          return function () {
+            "function" == typeof a && a.apply(e, arguments), "function" == typeof n && n.apply(e, arguments);
+          };
+        }),
+        (b = function (e, a, n, i, r, t) {
+          var s = !1,
+            o = [],
+            l;
+          for (l in i) {
+            var c = i[l];
+            c instanceof d
+              ? c.isFunction()
+                ? !c.requiredBy(t.context) ||
+                  (c.isSyncronousFunction() && t.asyncOnly) ||
+                  (t.direct || c.isSyncronousFunction()
+                    ? a && "function" == typeof a[l]
+                      ? ((e[l] = g(c, a, a[l], t)), !t.direct && c.shouldSendIndirect() && (e[l] = p(e, e[l], h(r, l, t))))
+                      : o.push(c.type + ": " + r.concat(l).join("."))
+                    : (e[l] = h(r, l, t)))
+                : c.isConstructor()
+                ? c.requiredBy(t.context) &&
+                  !t.asyncOnly &&
+                  (a && "function" == typeof a[l] ? (e[l] = a[l]) : o.push(c.type + ": " + r.concat(l).join(".")))
+                : (s = !0)
+              : (e.hasOwnProperty(l) || (e[l] = {}), b(e[l], a && a[l], n && n[l], i[l], r.concat(l), t));
+          }
+          if ((s && ((e.get = u(n, i, t)), (e.set = m(n, i, r, t))), 0 < o.length && t.checkMissing))
+            throw "Background instance does not support the following:\n" + o.join("\n");
+          return e;
+        });
+      var a,
+        u,
+        m,
+        g,
+        h,
+        p,
+        b,
+        o =
+          ((s = {}),
+          (l = {}),
+          (c = function (e, a, n, i) {
+            var r = [],
               t;
-            a.syncronizedOnly
-              ? void 0 === (t = l[r]) && (t = l[r] = c(a.interface, r, !0))
-              : void 0 === (t = s[r]) && (t = s[r] = c(a.interface, r, !1)),
-              (n = n.concat(t));
-          }
-          return n;
-        }),
-      s,
-      l,
-      c,
-      r,
-      t;
-    return {
-      TYPE_CONSTRUCTOR: "contsructor",
-      TYPE_SYNC_FUNCTION: "synchronous function",
-      TYPE_FUNCTION: "function",
-      TYPE_STRING: "string",
-      TYPE_BOOLEAN: "boolean",
-      TYPE_NUMBER: "number",
-      TYPE_OBJECT: "object",
-      Definition: d,
-      extend: e,
-      createInstance: function (e, a) {
-        return b(a.instance || {}, a.source || a.sourceFunctions, a.source || a.sourceData, e, [], a);
-      },
-      getPrimitives: function (e) {
-        var a = {};
-        if (e.context)
-          for (var n = o(e.context, e), i = 0, r = n.length; i < r; ++i) {
-            var t = n[i],
-              s,
-              s = t.sourceFunction
-                ? "function" == typeof t.sourceFunction
-                  ? t.sourceFunction()
-                  : LPReflection.callFunction(null, t.sourceFunction, [], { context: e.source })
-                : LPReflection.getValue(e.interface, t.path, { context: e.source });
-            LPReflection.setValue(null, t.path, s, { context: a });
-          }
-        return a;
-      },
-      clearPrimitives: function (e) {
-        if (e.context)
-          for (var a = o(e.context, e), n = 0; n < a.length; ++n) LPReflection.setValue(null, a[n].path, null, { context: e.source });
-      },
-      getName: function (e) {
-        for (var a in this) if (e === this[a]) return a;
-        throw new Error("Could not find interface name.");
-      }
-    };
-  })()).BackgroundInterface = (function (e) {
-    var a = e.TYPE_FUNCTION,
-      n = e.TYPE_SYNC_FUNCTION,
-      i = e.TYPE_STRING,
-      r = e.TYPE_BOOLEAN,
-      t = e.TYPE_OBJECT,
-      s = e.TYPE_NUMBER,
-      o = e.Definition;
-    return {
-      base_url: new o(i),
-      FILENAME_FRAGMENT_VALID: new o(s, { include: ["vault", "note"] }),
-      g_bigicons: new o(t, { include: ["vault", "extensionDropdown", "vaultItemSelect"], sendIndirect: !1, write: !0 }),
-      g_icons: new o(t, { include: ["vault", "extensionDropdown", "vaultItemSelect"] }),
-      g_applications: new o(t, {
-        include: ["vault", "extensionDropdown", "application"],
-        sourceFunction: function () {
-          return "undefined" != typeof g_applications ? g_applications : reduxApp.getNativeAppPasswords();
-        }
-      }),
-      g_emer_sharees: new o(t, { include: "vault" }),
-      g_emer_sharers: new o(t, { include: "vault" }),
-      g_enterpriseuser: new o(i, {
-        sync: !0,
-        sourceFunction: function () {
-          return "undefined" != typeof g_enterpriseuser
-            ? g_enterpriseuser
-            : reduxApp.getState().encryptedVaultDataSource.isEnterpriseUser
-            ? "1"
-            : "0";
-        }
-      }),
-      g_enterprisemodel: new o(s, { sync: !0 }),
-      g_enterpriseoffering: new o(s, { sync: !0 }),
-      g_enterpriseuserrole: new o(i, { sync: !0 }),
-      g_formfills: new o(t, { include: ["vault", "extensionDropdown", "formFill", "chooseProfile", "preferences"] }),
-      g_genpws: new o(t, { include: ["vault", "extensionDropdown"], write: !0 }),
-      g_identities: new o(t, { include: ["vault", "extensionDropdown"] }),
-      g_identity: new o(i, { include: ["vault", "extensionDropdown"], sync: !0 }),
-      g_iscompanyadmin: new o(r, { sync: !0 }),
-      g_is_company_subscription_expired: new o(r, { sync: !0 }),
-      g_show_billing_address_notification: new o(r, {
-        sync: !0,
-        sourceFunction: function () {
-          return "undefined" != typeof reduxApp
-            ? reduxApp.getState().user.showBillingAddressNotification
-            : "undefined" != typeof g_show_billing_address_notification && g_show_billing_address_notification;
-        }
-      }),
-      g_token: new o(i),
-      g_is_premium_as_a_perk: new o(r, { sync: !0 }),
-      g_is_restricted: new o(r),
-      g_has_credit_monitoring_premium: new o(r),
-      g_primary_device_switches_left: new o(s),
-      g_is_company_owner: new o(r),
-      g_display_premium_retrial_offer: new o(r),
-      g_infield_multidevice_paywall_tracking: new o(r, {
-        sourceFunction: function () {
-          return "undefined" != typeof LPContentScriptFeatures
-            ? LPContentScriptFeatures.g_infield_multidevice_paywall_tracking
-            : reduxApp.getState().settings.features.infield_multidevice_paywall_tracking;
-        }
-      }),
-      g_local_accts_version: new o(i, { include: ["vault", "extensionDropdown"], sync: !0 }),
-      g_local_key: new o(i),
-      g_pendings: new o(t, { include: "vault" }),
-      g_prefoverrides: new o(t),
-      gRecovery: new o(i),
-      g_premium_exp: new o(t, {
-        sourceFunction: function () {
-          return "undefined" != typeof g_premium_exp ? g_premium_exp : reduxApp.getState().encryptedVaultDataSource.premiumExp;
-        }
-      }),
-      g_is_premium_trial: new o(t),
-      g_product_price: new o(s),
-      g_local_currency: new o(i),
-      g_premium_trial_exp_days: new o(s),
-      g_hasplugin: new o(r),
-      g_2fa_inprocess: new o(r, { include: "vault" }),
-      g_is_legacy_premium: new o(s, { sync: !0 }),
-      g_is_families_trial_started: new o(s, { sync: !0 }),
-      g_predates_families: new o(s, { sync: !0 }),
-      g_seen_vault_post_families: new o(s, { sync: !0 }),
-      g_prompts: new o(t),
-      g_securenotes: new o(t, { include: ["vault", "extensionDropdown", "note", "vaultItemSelect"] }),
-      g_shares: new o(t),
-      g_showcredmon: new o(r, { include: "vault", sync: !0 }),
-      g_sites: new o(t, { include: ["vault", "extensionDropdown", "site", "note", "formFill", "contentScriptSite"] }),
-      g_pending_shares: new o(t, { include: ["vault"] }),
-      g_note_templates: new o(t, { include: ["vault", "note", "addItem", "extensionDropdown"] }),
-      g_language: new o(i),
-      g_uid: new o(s),
-      g_username: new o(i),
-      g_username_hash: new o(i, { include: "vault" }),
-      g_new_settings_enabled: new o(r, {
-        include: "vault",
-        sourceFunction: function () {
-          return "undefined" != typeof LPContentScriptFeatures
-            ? LPContentScriptFeatures.g_new_settings_enabled
-            : reduxApp.getState().user.newSettingsEnabled;
-        }
-      }),
-      g_nofolder_feature_enabled: new o(r, {
-        include: [
-          "vault",
-          "preferences",
-          "extensionDropdown",
-          "contentScript",
-          "siteDialog",
-          "site",
-          "note",
-          "formFill",
-          "contentScriptSite"
-        ],
-        sourceFunction: function () {
-          return "undefined" != typeof reduxApp
-            ? reduxApp.getState().settings.features.no_auto_folder
-            : "undefined" != typeof g_nofolder_feature_enabled && g_nofolder_feature_enabled;
-        }
-      }),
-      g_basicauth_feature_enabled: new o(r, {
-        include: [
-          "vault",
-          "preferences",
-          "extensionDropdown",
-          "contentScript",
-          "siteDialog",
-          "site",
-          "note",
-          "formFill",
-          "contentScriptSite"
-        ],
-        sourceFunction: function () {
-          return "undefined" != typeof reduxApp
-            ? reduxApp.getState().settings.features.basic_auth
-            : "undefined" != typeof g_basicauth_feature_enabled && g_basicauth_feature_enabled;
-        }
-      }),
-      g_family_shared_folders_enabled: new o(r, { include: "vault" }),
-      lp_attaches: new o(t, {
-        include: ["vault", "note"],
-        sourceFunction: function () {
-          return "undefined" != typeof lp_attaches ? lp_attaches : reduxApp.getState().encryptedVaultDataSource.attachments;
-        }
-      }),
-      lploggedin: new o(r, { sync: !0 }),
-      loginCheckFinished: new o(r, { sync: !0 }),
-      lpversion: new o(i, { include: "vault" }),
-      rsaprivatekeyhex: new o(i, {
-        include: "vault",
-        write: !0,
-        sourceFunction: function () {
-          return lp_rsaprivatekeyhex;
-        }
-      }),
-      siteCats: new o(t, { include: ["vault", "site"] }),
-      LPContentScriptFeatures: new o(t, {
-        sourceFunction: function () {
-          var e;
-          return "undefined" != typeof LPContentScriptFeatures
-            ? LPContentScriptFeatures
-            : ((e = reduxApp.getFeatureFlags()), "function" == typeof isDogfood && (e.isDogfood = isDogfood()), e);
-        }
-      }),
-      g_bigsquareicons: new o(t, { include: ["vault"] }),
-      g_isie: new o(r),
-      g_isedge: new o(r, { include: ["note", "extensionDropdown", "contentScript"] }),
-      RecordTypeConfig: new o(t, { include: ["vault", "note", "site", "addItem", "extensionDropdown"] }),
-      addeditformfill: new o(a),
-      addEmptyGroup: new o(a),
-      addEmptyGroups: new o(a),
-      LPServer: { ajax: new o(a), xmlRequest: new o(a), textRequest: new o(a), jsonRequest: new o(a) },
-      LPRavenTransport: new o(a),
-      BackgroundServer: {
-        emergencyAccess: {
-          acceptOffer: new o(a),
-          addRecipient: new o(a),
-          declineOffer: new o(a),
-          denyAccess: new o(a),
-          getRecipientInfo: new o(a),
-          getSharerInfo: new o(a),
-          removeRecipient: new o(a),
-          requestAccess: new o(a),
-          unlinkAccount: new o(a),
-          updateRecipient: new o(a),
-          updateShareeKey: new o(a)
+            for (t in e) {
+              var s = i ? i.concat(t) : [t],
+                o = e[t];
+              o instanceof d
+                ? o.isPrimitive() &&
+                  o.requiredBy(a) &&
+                  (!n || o.isSyncronized()) &&
+                  r.push({ sourceFunction: o.options && o.options.sourceFunction, path: s })
+                : (r = r.concat(c(o, a, n, s)));
+            }
+            return r;
+          }),
+          function (e, a) {
+            var n = [];
+            e = [].concat(e);
+            for (var i = 0; i < e.length; ++i) {
+              var r = e[i],
+                t;
+              a.syncronizedOnly
+                ? void 0 === (t = l[r]) && (t = l[r] = c(a.interface, r, !0))
+                : void 0 === (t = s[r]) && (t = s[r] = c(a.interface, r, !1)),
+                (n = n.concat(t));
+            }
+            return n;
+          }),
+        s,
+        l,
+        c,
+        r,
+        t;
+      return {
+        TYPE_CONSTRUCTOR: "contsructor",
+        TYPE_SYNC_FUNCTION: "synchronous function",
+        TYPE_FUNCTION: "function",
+        TYPE_STRING: "string",
+        TYPE_BOOLEAN: "boolean",
+        TYPE_NUMBER: "number",
+        TYPE_OBJECT: "object",
+        Definition: d,
+        extend: e,
+        createInstance: function (e, a) {
+          return b(a.instance || {}, a.source || a.sourceFunctions, a.source || a.sourceData, e, [], a);
         },
-        identities: { add: new o(a), remove: new o(a), update: new o(a) },
-        vault: {
-          history: { revertPasswordChange: new o(a), getPasswordHistory: new o(a), getUsernameHistory: new o(a), getNoteHistory: new o(a) }
+        getPrimitives: function (e) {
+          var a = {};
+          if (e.context)
+            for (var n = o(e.context, e), i = 0, r = n.length; i < r; ++i) {
+              var t = n[i],
+                s,
+                s = t.sourceFunction
+                  ? "function" == typeof t.sourceFunction
+                    ? t.sourceFunction()
+                    : LPReflection.callFunction(null, t.sourceFunction, [], { context: e.source })
+                  : LPReflection.getValue(e.interface, t.path, { context: e.source });
+              LPReflection.setValue(null, t.path, s, { context: a });
+            }
+          return a;
         },
-        sharing: {
-          individual: {
-            shareItems: new o(a),
-            unshareItem: new o(a),
-            acceptShare: new o(a),
-            rejectShare: new o(a),
-            inviteFriends: new o(a),
-            getSentShareData: new o(a),
-            getReceivedShareData: new o(a)
-          },
-          folder: {
-            getFolders: new o(a),
-            getPublicKeys: new o(a),
-            create: new o(a),
-            rename: new o(a),
-            remove: new o(a),
-            accept: new o(a),
-            reject: new o(a),
-            addMembers: new o(a),
-            getMembers: new o(a),
-            removeMember: new o(a),
-            reinviteMember: new o(a),
-            updateMemberPermissions: new o(a),
-            getRestrictions: new o(a),
-            updateRestrictions: new o(a),
-            startDownloading: new o(a),
-            stopDownloading: new o(a),
-            restoreDeleted: new o(a),
-            purgeDeleted: new o(a),
-            convertToEnterprise: new o(a),
-            convertToLegacy: new o(a)
-          }
+        clearPrimitives: function (e) {
+          if (e.context)
+            for (var a = o(e.context, e), n = 0; n < a.length; ++n) LPReflection.setValue(null, a[n].path, null, { context: e.source });
         },
-        sitesAndNotes: { saveCustomNoteTemplate: new o(a), deleteCustomNoteTemplate: new o(a) },
-        transact: { sendReminder: new o(a), sendMobileDownload: new o(a) },
-        families: { getMembers: new o(a), existingUserTrial: new o(a), getInvitations: new o(a) },
-        licensing: { getCompanyLicensing: new o(a), isCompanyExpired: new o(a), setCompanyExpired: new o(a) },
-        invitation: { acceptInvitation: new o(a), dismissInvitation: new o(a), getMembers: new o(a) },
-        aurora: { getOneClickSignupUrls: new o(a) }
-      },
-      changePassword: new o(a),
-      deleteAid: new o(a),
-      deleteformfill: new o(a),
-      deleteGroup: new o(a),
-      editAid: new o(a),
-      fastEncryptAttachments: new o(a),
-      generateSharingKeysFromVault: new o(a),
-      generate_key: new o(a),
-      get_securityChallengeScore: new o(a),
-      gotourl: new o(a),
-      launch: new o(a),
-      launchApp: new o(a),
-      loggedOut: new o(a),
-      loglogin: new o(a),
-      lpReportError: new o(a),
-      make_lp_hash_iterations: new o(a),
-      make_lp_key_hash: new o(a),
-      make_lp_key_iterations: new o(a),
-      moveIntoSharedFolder: new o(a),
-      moveSelectedToGroup: new o(a),
-      openAllSites: new o(a),
-      openexport: new o(a),
-      openentconsole: new o(a),
-      openOnNewTab: new o(a),
-      openFamilyConsole: new o(a),
-      openPremiumPaymentPage: new o(a),
-      openEnterprisePaymentPage: new o(a),
-      openTeamsPaymentPage: new o(a),
-      openFamiliesPaymentPage: new o(a),
-      openPricingPage: new o(a),
-      openfavorites: new o(a),
-      openimport: new o(a),
-      openseccheck: new o(a),
-      openURL: new o(a),
-      uploadSharingKeysWeb: new o(a),
-      processCS: new o(a),
-      storeAccountLinkToken: new o(a),
-      setPasswordlessData: new o(a),
-      removePasswordlessData: new o(a),
-      startPasswordlessEnrollmentSetup: new o(a),
-      removeAccountLinkToken: new o(a),
-      refreshGroupNames: new o(a),
-      refreshsites: new o(a),
-      renameGroup: new o(a),
-      saveFields: new o(a),
-      saveSite: new o(a),
-      singlefactor_reprompt: new o(a),
-      switch_identity: new o(a),
-      unlock_plug2web: new o(a),
-      install_binary: new o(a),
-      request_native_messaging: new o(a),
-      singlefactorWinbioSet: new o(a),
-      increment_local_accts_version: new o(a),
-      AES: { bin2hex: new o(n), Decrypt: new o(n), Encrypt: new o(n), hex2bin: new o(n), hex2url: new o(n), url2hex: new o(n) },
-      ab2bin: new o(n),
-      bin2ab: new o(n),
-      reorderOnURL: new o(n),
-      can_copy_to_clipboard: new o(n),
-      canLaunchApplication: new o(n),
-      check_filename_badchars: new o(n),
-      crypto_btoa: new o(n),
-      db_prepend: new o(n),
-      dec: new o(n),
-      enc: new o(n),
-      enccbc: new o(n),
-      encode_private_key: new o(n),
-      encode_public_key: new o(n),
-      fix_username: new o(n),
-      get_last_reprompt_time: new o(n),
-      get_mimetype_from_filename: new o(n),
-      get_personal_linked: new o(n),
-      get_personal_linked_needs_verification: new o(n),
-      get_show_expired_subscription_messaging: new o(n),
-      isAllowedFileExtension: new o(n),
-      getAllowedFileExtensions: new o(n),
-      getInvalidFileExtensionMessageStrings: new o(n),
-      removeLinkedAccount: new o(n),
-      get_random_password: new o(n),
-      getbigicon: new o(n),
-      geticonurlfromrecord: new o(n),
-      gs: new o(n),
-      have_binary: new o(n),
-      have_binary_function: new o(n),
-      isOffline: new o(n),
-      localStorage_getItem: new o(n),
-      localStorage_setItem: new o(n),
-      lp_gettld_url: new o(n),
-      lpCreatePass: new o(n),
-      lpdec: new o(n),
-      lpenc: new o(n),
-      lpevent: new o(n),
-      lpmdec: new o(n),
-      lpmenc: new o(n),
-      parse_public_key: new o(n),
-      parse_private_key: new o(n),
-      parsemobile: new o(n),
-      punycode: { URLToASCII: new o(n), URLToUnicode: new o(n) },
-      RSAKey: new o(e.TYPE_CONSTRUCTOR),
-      set_last_reprompt_time: new o(n),
-      SHA256: new o(n),
-      hostof: new o(n),
-      StringUtils: { translate: new o(n) },
-      Preferences: { get: new o(n), set: new o(n, { sendIndirect: !0 }) },
-      rsa_encrypt_privatekey: new o(n),
-      sendLpImprove: new o(a),
-      sendLpImproveCallback: new o(a),
-      Provisioning: {
-        provisioning: {
-          checkUserState: new o(a, { include: "provisioning" }),
-          sendApiCalls: new o(a, { include: "provisioning" }),
-          getLocalKey: new o(a, { include: "provisioning" })
+        getName: function (e) {
+          for (var a in this) if (e === this[a]) return a;
+          throw new Error("Could not find interface name.");
         }
-      },
-      ExtensionPreferences: {
-        getConst: new o(a),
-        getDefault: new o(a),
-        read: new o(a),
-        write: new o(a),
-        getUnavailablePreferences: new o(a)
-      },
-      LPPlatform: {
-        getUILanguage: new o(n),
-        fill: new o(a),
-        downloadAttachment: new o(a),
-        copyToClipboard: new o(n),
-        setProductPriceUpdatesObserver: new o(a),
-        isSafariAppStore: new o(a)
-      },
-      get_method_async: new o(a),
-      MigrationBackground: {
-        getShouldStartMigration: new o(a),
-        setShouldStartMigration: new o(a),
-        getBlobVersion: new o(a),
-        getIdentities: new o(a),
-        getLinkedUsername: new o(a),
-        getLinkedBlobVersion: new o(a),
-        subscribeToState: new o(a),
-        subscribeToStateOnce: new o(a),
-        wasMigration: new o(a),
-        publishState: new o(a),
-        saveBlobVersion: new o(a),
-        saveLinkedBlobVersion: new o(a),
-        sendSegmentEvent: new o(a),
-        shouldShowMigrationNotification: new o(n),
-        hasFormFills: new o(a),
-        postponeMigration: new o(a),
-        setMigrationState: new o(a)
-      },
-      FormfillMigrationBackground: {
-        isEnabled: new o(a),
-        getFormfills: new o(a),
-        getLinkedFormfills: new o(a),
-        createCustomNoteType: new o(a),
-        saveNote: new o(a)
-      },
-      Feature: { isEnabled: new o(a) },
-      Policies: {
-        logNameEnabled: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        }),
-        logUserNameEnabled: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        }),
-        logUrlEnabled: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        }),
-        getSaveSiteToPersonal: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        }),
-        getAccountSelectionBasedOnEmail: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        }),
-        showSecureNotes: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        })
-      },
-      FederatedLogin: {
-        isFederated: new o(a, {
-          include: [
-            "login",
-            "acctsiframe",
-            "update_phone",
-            "misc_challenge",
-            "enterprise_options",
-            "delete_account",
-            "otp",
-            "misc_login",
-            "enterprise_users"
-          ]
-        }),
-        getPassword: new o(a, {
-          include: [
-            "acctsiframe",
-            "update_phone",
-            "misc_challenge",
-            "enterprise_options",
-            "delete_account",
-            "otp",
-            "misc_login",
-            "enterprise_users"
-          ]
-        })
-      },
-      getVersion: new o(a),
-      LPPartner: { getPartnerInfo: new o(a) },
-      onSettingsIframeClose: new o(a, { include: ["vault"], appendAdditionalArguments: !0 }),
-      closeSettingsIframe: new o(a, { include: ["acctsiframe", "contentScript", "vault"], appendAdditionalArguments: !0 }),
-      GenPassHistory: { add: new o(a), clear: new o(a), getWithDate: new o(a), getWithReadableDate: new o(a), getWithoutDate: new o(a) },
-      FieldOverrides: { getAll: new o(a), getSite: new o(a) },
-      switchLanguage: new o(a),
-      saveUserLanguage: new o(a),
-      setRestriction: new o(a),
-      setLanguageNotificationDismissal: new o(a),
-      setPrimaryDevice: new o(a),
-      setDisplayRetrialOffer: new o(a),
-      getRetrialOfferDeepLinkEnabled: new o(a),
-      hideBillingAddressNotification: new o(a),
-      Recovery: { getOtpHash: new o(a) },
-      g_pendo_jwt_token: new o(i),
-      g_pendo_signing_key_name: new o(i)
-    };
-  })(Interfaces)),
-  (function (e) {
-    var a = Interfaces.TYPE_FUNCTION,
-      n = Interfaces.TYPE_SYNC_FUNCTION,
-      i = Interfaces.TYPE_STRING,
-      r = Interfaces.TYPE_NUMBER,
-      t = Interfaces.TYPE_BOOLEAN,
-      s = Interfaces.TYPE_OBJECT,
-      o = Interfaces.Definition,
-      s = {
-        g_is_company_owner: new o(t),
-        g_enterprisemodel: new o(r),
-        g_enterpriseoffering: new o(r),
-        countryfromip: new o(i),
-        g_is_federated_user: new o(t, {
+      };
+    })()).BackgroundInterface = (function (e) {
+      var a = e.TYPE_FUNCTION,
+        n = e.TYPE_SYNC_FUNCTION,
+        i = e.TYPE_STRING,
+        r = e.TYPE_BOOLEAN,
+        t = e.TYPE_OBJECT,
+        s = e.TYPE_NUMBER,
+        o = e.Definition;
+      return {
+        base_url: new o(i),
+        FILENAME_FRAGMENT_VALID: new o(s, { include: ["vault", "note"] }),
+        g_bigicons: new o(t, { include: ["vault", "extensionDropdown", "vaultItemSelect"], sendIndirect: !1, write: !0 }),
+        g_icons: new o(t, { include: ["vault", "extensionDropdown", "vaultItemSelect"] }),
+        g_applications: new o(t, {
+          include: ["vault", "extensionDropdown", "application"],
           sourceFunction: function () {
-            return reduxApp.isCurrentUserFederated();
+            return "undefined" != typeof g_applications ? g_applications : reduxApp.getNativeAppPasswords();
           }
         }),
-        g_product_price: new o(r),
-        g_local_currency: new o(i),
-        g_premium_trial_exp_days: new o(r),
-        g_company_trial_exp_days: new o(r),
-        g_company_license_exp_days: new o(r),
-        g_show_billing_address_notification: new o(t),
-        g_device_limit_releaseTS: new o(r),
-        g_show_device_limit_notification: new o(t, { write: !0, sync: !0 }),
-        g_is_company_subscription_expired: new o(t, { sync: !0 }),
-        g_company_renewalstatus: new o(i),
-        g_show_original_language_changed_notification: new o(t),
-        g_original_language: new o(i),
-        g_loggedinoffline: new o(i, { include: ["vault", "site", "preferences"] }),
-        g_loggedinonline: new o(i, { include: ["vault", "preferences"] }),
-        g_badgedata: new o(s, { include: ["login", "extensionDropdown", "vault"] }),
-        g_flags: new o(s, { include: "preferences" }),
-        extensionPreferences: new o(s, {
+        g_emer_sharees: new o(t, { include: "vault" }),
+        g_emer_sharers: new o(t, { include: "vault" }),
+        g_enterpriseuser: new o(i, {
           sync: !0,
           sourceFunction: function () {
-            var e = reduxApp.getState().settings,
-              a = e.extensionPreferences,
-              e = e.language;
-            return Object.assign({}, a, { language: e });
+            return "undefined" != typeof g_enterpriseuser
+              ? g_enterpriseuser
+              : reduxApp.getState().encryptedVaultDataSource.isEnterpriseUser
+              ? "1"
+              : "0";
           }
         }),
-        g_hideappearancebox: new o(t, { include: "preferences" }),
-        g_2fa_inprocess: new o(t, { include: "vault" }),
-        g_hidelogoffprefs: new o(t, { include: "preferences" }),
-        g_hidenotes: new o(t, { include: "preferences" }),
-        g_hiderecentlyusedlistsize: new o(t, { include: "preferences" }),
-        g_hidesaedhotkey: new o(t, { include: "preferences" }),
-        g_hidesearch: new o(t, { include: "preferences" }),
-        g_hidevault: new o(t, { include: "preferences" }),
-        g_hideshowvault: new o(t, { include: "preferences" }),
-        g_is_linux: new o(t, { include: "preferences" }),
-        g_is_win: new o(t, { include: ["vault", "preferences"] }),
-        g_is_mac: new o(t, { include: "preferences" }),
-        g_issafari_appext: new o(t, { include: "preferences" }),
-        g_langs: new o(s, { include: "preferences" }),
-        g_basicauth_feature_enabled: new o(s, {
+        g_enterprisemodel: new o(s, { sync: !0 }),
+        g_enterpriseoffering: new o(s, { sync: !0 }),
+        g_enterpriseuserrole: new o(i, { sync: !0 }),
+        g_formfills: new o(t, { include: ["vault", "extensionDropdown", "formFill", "chooseProfile", "preferences"] }),
+        g_genpws: new o(t, { include: ["vault", "extensionDropdown"], write: !0 }),
+        g_identities: new o(t, { include: ["vault", "extensionDropdown"] }),
+        g_identity: new o(i, { include: ["vault", "extensionDropdown"], sync: !0 }),
+        g_iscompanyadmin: new o(r, { sync: !0 }),
+        g_is_company_subscription_expired: new o(r, { sync: !0 }),
+        g_show_billing_address_notification: new o(r, {
+          sync: !0,
+          sourceFunction: function () {
+            return "undefined" != typeof reduxApp
+              ? reduxApp.getState().user.showBillingAddressNotification
+              : "undefined" != typeof g_show_billing_address_notification && g_show_billing_address_notification;
+          }
+        }),
+        g_token: new o(i),
+        g_is_premium_as_a_perk: new o(r, { sync: !0 }),
+        g_is_restricted: new o(r),
+        g_has_credit_monitoring_premium: new o(r),
+        g_primary_device_switches_left: new o(s),
+        g_is_company_owner: new o(r),
+        g_display_premium_retrial_offer: new o(r),
+        g_infield_multidevice_paywall_tracking: new o(r, {
+          sourceFunction: function () {
+            return "undefined" != typeof LPContentScriptFeatures
+              ? LPContentScriptFeatures.g_infield_multidevice_paywall_tracking
+              : reduxApp.getState().settings.features.infield_multidevice_paywall_tracking;
+          }
+        }),
+        g_local_accts_version: new o(i, { include: ["vault", "extensionDropdown"], sync: !0 }),
+        g_local_key: new o(i),
+        g_pendings: new o(t, { include: "vault" }),
+        g_prefoverrides: new o(t),
+        gRecovery: new o(i),
+        g_premium_exp: new o(t, {
+          sourceFunction: function () {
+            return "undefined" != typeof g_premium_exp ? g_premium_exp : reduxApp.getState().encryptedVaultDataSource.premiumExp;
+          }
+        }),
+        g_is_premium_trial: new o(t),
+        g_product_price: new o(s),
+        g_local_currency: new o(i),
+        g_premium_trial_exp_days: new o(s),
+        g_hasplugin: new o(r),
+        g_2fa_inprocess: new o(r, { include: "vault" }),
+        g_is_legacy_premium: new o(s, { sync: !0 }),
+        g_is_families_trial_started: new o(s, { sync: !0 }),
+        g_predates_families: new o(s, { sync: !0 }),
+        g_seen_vault_post_families: new o(s, { sync: !0 }),
+        g_prompts: new o(t),
+        g_securenotes: new o(t, { include: ["vault", "extensionDropdown", "note", "vaultItemSelect"] }),
+        g_shares: new o(t),
+        g_showcredmon: new o(r, { include: "vault", sync: !0 }),
+        g_sites: new o(t, { include: ["vault", "extensionDropdown", "site", "note", "formFill", "contentScriptSite"] }),
+        g_pending_shares: new o(t, { include: ["vault"] }),
+        g_note_templates: new o(t, { include: ["vault", "note", "addItem", "extensionDropdown"] }),
+        g_language: new o(i),
+        g_uid: new o(s),
+        g_username: new o(i),
+        g_username_hash: new o(i, { include: "vault" }),
+        g_new_settings_enabled: new o(r, {
+          include: "vault",
+          sourceFunction: function () {
+            return "undefined" != typeof LPContentScriptFeatures
+              ? LPContentScriptFeatures.g_new_settings_enabled
+              : reduxApp.getState().user.newSettingsEnabled;
+          }
+        }),
+        g_nofolder_feature_enabled: new o(r, {
           include: [
             "vault",
             "preferences",
@@ -30616,273 +30207,285 @@ function tokenize(e) {
             "site",
             "note",
             "formFill",
-            "contentScriptSite",
-            "contentScriptDialog"
-          ]
-        }),
-        g_manual_login: new o(t, { include: "login", write: !0 }),
-        g_master_password_saved: new o(t, { include: "preferences" }),
-        g_disableautofill: new o(t, {
-          include: "preferences",
+            "contentScriptSite"
+          ],
           sourceFunction: function () {
-            var e = reduxApp.getState().settings.enterpriseOverridePreferences.automaticallyFill;
-            return void 0 !== e && !e;
+            return "undefined" != typeof reduxApp
+              ? reduxApp.getState().settings.features.no_auto_folder
+              : "undefined" != typeof g_nofolder_feature_enabled && g_nofolder_feature_enabled;
           }
         }),
-        g_password_strength_hardening_enabled: new o(t, {
+        g_basicauth_feature_enabled: new o(r, {
+          include: [
+            "vault",
+            "preferences",
+            "extensionDropdown",
+            "contentScript",
+            "siteDialog",
+            "site",
+            "note",
+            "formFill",
+            "contentScriptSite"
+          ],
           sourceFunction: function () {
-            return reduxApp.getState().settings.features.password_strength_hardening;
+            return "undefined" != typeof reduxApp
+              ? reduxApp.getState().settings.features.basic_auth
+              : "undefined" != typeof g_basicauth_feature_enabled && g_basicauth_feature_enabled;
           }
         }),
-        g_nopoll: new o(t, { include: "preferences" }),
-        g_notification_data: new o(s, { include: ["login", "extensionDropdown", "vault"] }),
-        g_notification_type: new o(s, { include: ["login", "extensionDropdown"] }),
-        g_offer_popupfill: new o(t, { include: "preferences" }),
-        g_shownewloginoption: new o(t, { include: "preferences" }),
-        lp_phpsessid: new o(i),
-        lppassusernamehash: new o(t, { include: "preferences" }),
-        remembersignons: new o(t, { include: "login" }),
-        clearRecentTime: new o(t, { include: "extensionDropdown", sourceFunction: "getClearRecentTime" }),
-        g_sites_tld: new o(t, {
-          include: ["extensionDropdown", "contentScript"],
+        g_family_shared_folders_enabled: new o(r, { include: "vault" }),
+        lp_attaches: new o(t, {
+          include: ["vault", "note"],
           sourceFunction: function () {
-            return getmatchingsites(!1, !0, !1);
+            return "undefined" != typeof lp_attaches ? lp_attaches : reduxApp.getState().encryptedVaultDataSource.attachments;
           }
         }),
-        g_can_clear_clipboard: new o(t, { sourceFunction: "can_clear_clipboard" }),
-        g_can_copy_to_clipboard: new o(t, { sourceFunction: "can_copy_to_clipboard" }),
-        g_is_chrome_portable: new o(t),
-        g_is_restricted: new o(t),
-        g_has_credit_monitoring_premium: new o(t),
-        g_primary_device_switches_left: new o(r),
-        g_display_premium_retrial_offer: new o(t),
-        g_user_debug_enabled: new o(t, { sourceFunction: "is_user_debug_enabled" }),
-        g_have_binary: new o(t, { sourceFunction: "have_binary" }),
-        extensionBaseURL: new o(i, {
-          include: "contentScript",
+        lploggedin: new o(r, { sync: !0 }),
+        loginCheckFinished: new o(r, { sync: !0 }),
+        lpversion: new o(i, { include: "vault" }),
+        rsaprivatekeyhex: new o(i, {
+          include: "vault",
+          write: !0,
           sourceFunction: function () {
-            return getchromeurl("", !0);
+            return lp_rsaprivatekeyhex;
           }
         }),
-        makeLoginCheck: new o(a),
-        create_account_safe: new o(a),
-        clear_badge: new o(n, { sendIndirect: !0 }),
-        clear_badge_text: new o(a),
-        set_badge_text: new o(a),
-        clearCache: new o(a),
-        clearforms: new o(a),
-        clearrecent: new o(a),
-        LPContextMenus: { createContextMenus: new o(a) },
-        DeleteOTP: new o(a),
-        disableallalerts: new o(a),
-        disablepasswordmanager: new o(a),
-        disablesitealert: new o(a),
-        disableDropDownNotification: new o(a),
-        formfillexport: new o(a),
-        getConsoleLogs: new o(a),
-        get_saved_logins: new o(a),
-        delete_saved_login: new o(a),
-        generateSharingKeys: new o(a),
-        get_selected_tab: new o(a),
-        get_selected_tab_data_no_extension: new o(a),
+        siteCats: new o(t, { include: ["vault", "site"] }),
+        LPContentScriptFeatures: new o(t, {
+          sourceFunction: function () {
+            var e;
+            return "undefined" != typeof LPContentScriptFeatures
+              ? LPContentScriptFeatures
+              : ((e = reduxApp.getFeatureFlags()), "function" == typeof isDogfood && (e.isDogfood = isDogfood()), e);
+          }
+        }),
+        g_bigsquareicons: new o(t, { include: ["vault"] }),
+        g_isie: new o(r),
+        g_isedge: new o(r, { include: ["note", "extensionDropdown", "contentScript"] }),
+        RecordTypeConfig: new o(t, { include: ["vault", "note", "site", "addItem", "extensionDropdown"] }),
+        addeditformfill: new o(a),
+        addEmptyGroup: new o(a),
+        addEmptyGroups: new o(a),
+        LPServer: { ajax: new o(a), xmlRequest: new o(a), textRequest: new o(a), jsonRequest: new o(a) },
+        LPRavenTransport: new o(a),
+        BackgroundServer: {
+          emergencyAccess: {
+            acceptOffer: new o(a),
+            addRecipient: new o(a),
+            declineOffer: new o(a),
+            denyAccess: new o(a),
+            getRecipientInfo: new o(a),
+            getSharerInfo: new o(a),
+            removeRecipient: new o(a),
+            requestAccess: new o(a),
+            unlinkAccount: new o(a),
+            updateRecipient: new o(a),
+            updateShareeKey: new o(a)
+          },
+          identities: { add: new o(a), remove: new o(a), update: new o(a) },
+          vault: {
+            history: {
+              revertPasswordChange: new o(a),
+              getPasswordHistory: new o(a),
+              getUsernameHistory: new o(a),
+              getNoteHistory: new o(a)
+            }
+          },
+          sharing: {
+            individual: {
+              shareItems: new o(a),
+              unshareItem: new o(a),
+              acceptShare: new o(a),
+              rejectShare: new o(a),
+              inviteFriends: new o(a),
+              getSentShareData: new o(a),
+              getReceivedShareData: new o(a)
+            },
+            folder: {
+              getFolders: new o(a),
+              getPublicKeys: new o(a),
+              create: new o(a),
+              rename: new o(a),
+              remove: new o(a),
+              accept: new o(a),
+              reject: new o(a),
+              addMembers: new o(a),
+              getMembers: new o(a),
+              removeMember: new o(a),
+              reinviteMember: new o(a),
+              updateMemberPermissions: new o(a),
+              getRestrictions: new o(a),
+              updateRestrictions: new o(a),
+              startDownloading: new o(a),
+              stopDownloading: new o(a),
+              restoreDeleted: new o(a),
+              purgeDeleted: new o(a),
+              convertToEnterprise: new o(a),
+              convertToLegacy: new o(a)
+            }
+          },
+          sitesAndNotes: { saveCustomNoteTemplate: new o(a), deleteCustomNoteTemplate: new o(a) },
+          transact: { sendReminder: new o(a), sendMobileDownload: new o(a) },
+          families: { getMembers: new o(a), existingUserTrial: new o(a), getInvitations: new o(a) },
+          licensing: { getCompanyLicensing: new o(a), isCompanyExpired: new o(a), setCompanyExpired: new o(a) },
+          invitation: { acceptInvitation: new o(a), dismissInvitation: new o(a), getMembers: new o(a) },
+          aurora: { getOneClickSignupUrls: new o(a) }
+        },
+        changePassword: new o(a),
+        deleteAid: new o(a),
+        deleteformfill: new o(a),
+        deleteGroup: new o(a),
+        editAid: new o(a),
+        fastEncryptAttachments: new o(a),
+        generateSharingKeysFromVault: new o(a),
+        generate_key: new o(a),
+        get_securityChallengeScore: new o(a),
+        gotourl: new o(a),
+        launch: new o(a),
+        launchApp: new o(a),
         loggedOut: new o(a),
-        LP_do_login: new o(a),
+        loglogin: new o(a),
+        make_lp_hash_iterations: new o(a),
+        make_lp_key_hash: new o(a),
+        make_lp_key_iterations: new o(a),
+        moveIntoSharedFolder: new o(a),
+        moveSelectedToGroup: new o(a),
+        openAllSites: new o(a),
+        openexport: new o(a),
+        openentconsole: new o(a),
+        openOnNewTab: new o(a),
+        openFamilyConsole: new o(a),
+        openPremiumPaymentPage: new o(a),
+        openEnterprisePaymentPage: new o(a),
+        openTeamsPaymentPage: new o(a),
+        openFamiliesPaymentPage: new o(a),
+        openPricingPage: new o(a),
+        openfavorites: new o(a),
+        openimport: new o(a),
+        openseccheck: new o(a),
+        openURL: new o(a),
+        uploadSharingKeysWeb: new o(a),
+        processCS: new o(a),
+        storeAccountLinkToken: new o(a),
         setPasswordlessData: new o(a),
         removePasswordlessData: new o(a),
         startPasswordlessEnrollmentSetup: new o(a),
-        lpevent: new o(a),
-        setCompanyExpired: new o(a),
-        switchLanguage: new o(a),
-        saveUserLanguage: new o(a),
-        setDeviceLimitNotification: new o(a),
-        setLanguageNotificationDismissal: new o(a),
-        setPrimaryDevice: new o(a),
-        setDisplayRetrialOffer: new o(a),
-        getRetrialOfferDeepLinkEnabled: new o(a),
-        setWeakPasswordBadge: new o(a),
-        setSecurityScoreAlertBadge: new o(a),
-        checkDuplicatePasswordAndSetBadge: new o(a),
-        checkShouldShowBillingAddressNotification: new o(a),
-        hideBillingAddressNotification: new o(a),
-        LPData: { getData: new o(a), setValue: new o(a) },
-        LPPlatform: {
-          getCurrentTabDetails: new o(a),
-          getFavicon: new o(a),
-          openTabDialog: new o(a),
-          openSame: new o(a),
-          navigateTab: new o(a),
-          openPopoverDialog: new o(a),
-          isMac: new o(n),
-          isWin: new o(n),
-          postLegacyMessage: new o(a, { appendAdditionalArguments: !0, include: ["contentScript", "infieldPopup"] }),
-          connectLegacyMessaging: new o(a, { appendAdditionalArguments: !0, include: "contentScript" }),
-          openAcctsIframe: new o(a, { appendAdditionalArguments: !0, include: "vault" }),
-          makeNativeRequest: new o(a),
-          isSafariAppExtensionEnabled: new o(a),
-          isSelfDistributed: new o(a),
-          doAjax: new o(a),
-          isSafariAppStore: new o(a),
-          purchasePremium: new o(a),
-          fetchProduct: new o(a),
-          updateProductPrice: new o(a),
-          setProductPriceUpdatesObserver: new o(a),
-          registerProduct: new o(a),
-          openFileDialog: new o(a),
-          saveFile: new o(a),
-          openNativeFileSelector: new o(a),
-          copyToClipboard: new o(a),
-          copyLastCopiedString: new o(a),
-          writeAndOpenAttachmentFile: new o(a),
-          deleteAccount: new o(a)
-        },
-        reduxApp: {
-          trackPasswordEntry: new o(a),
-          setMultifactorEnabledState: new o(a),
-          trustedDeviceUpdated: new o(a),
-          setDisablePasswordAlerts: new o(a),
-          updateTrustedDeviceList: new o(a),
-          closePasswordChangedSuccessVaultBanner: new o(a)
-        },
-        openabout: new o(a),
-        deletesavedpw: new o(a),
-        openpricing: new o(a),
-        openTranslationsReadMore: new o(a),
-        openpremium: new o(a),
-        openenterprisepayment: new o(a),
-        openteamspayment: new o(a),
-        openfamiliespayment: new o(a),
-        opendebugtab: new o(a),
-        openentconsole: new o(a),
-        openFamilyConsole: new o(a),
-        passwordValidator: new o(a),
-        openexport: new o(a),
-        openfavorites: new o(a),
-        openhelp: new o(a),
-        openimport: new o(a),
-        openlastpassexport: new o(a),
-        openmyaccount: new o(a),
-        openprefs: new o(a),
-        openprint: new o(a),
-        openseccheck: new o(a),
-        opensessions: new o(a),
-        openURL: new o(a),
-        openvault: new o(a),
-        saveall: new o(a),
-        start_trial: new o(a),
-        unprotect_data: new o(a),
-        wlanexport: new o(a),
-        saveSiteFromSubmit: new o(a),
-        get_selected_tab_data: new o(a),
-        fillGeneratedPassword: new o(a),
-        saveAllSite: new o(a),
-        session_storage_get_item: new o(a),
-        session_storage_set_item: new o(a),
-        repromptSuccess: new o(a),
-        open_login: new o(a),
-        fillaid: new o(a),
-        fillform: new o(a),
-        fillitem: new o(a),
-        fillNoteFromDropdown: new o(a),
-        setup_hotkeys: new o(a),
-        getShareType: new o(a),
-        IntroTutorial: {
-          getState: new o(a),
-          setState: new o(a),
-          resetState: new o(a),
-          completeTutorial: new o(a),
-          isOnStateDomain: new o(a)
-        },
-        sendLpImprove: new o(a),
-        handleNeverURL: new o(a),
-        runChallenge3: new o(a),
-        can_clear_clipboard: new o(n),
+        removeAccountLinkToken: new o(a),
+        refreshGroupNames: new o(a),
+        refreshsites: new o(a),
+        renameGroup: new o(a),
+        saveFields: new o(a),
+        saveSite: new o(a),
+        singlefactor_reprompt: new o(a),
+        switch_identity: new o(a),
+        unlock_plug2web: new o(a),
+        install_binary: new o(a),
+        request_native_messaging: new o(a),
+        singlefactorWinbioSet: new o(a),
+        increment_local_accts_version: new o(a),
+        AES: { bin2hex: new o(n), Decrypt: new o(n), Encrypt: new o(n), hex2bin: new o(n), hex2url: new o(n), url2hex: new o(n) },
+        ab2bin: new o(n),
+        bin2ab: new o(n),
+        reorderOnURL: new o(n),
+        can_copy_to_clipboard: new o(n),
+        canLaunchApplication: new o(n),
+        check_filename_badchars: new o(n),
+        crypto_btoa: new o(n),
+        db_prepend: new o(n),
+        dec: new o(n),
+        enc: new o(n),
+        enccbc: new o(n),
+        encode_private_key: new o(n),
+        encode_public_key: new o(n),
         fix_username: new o(n),
-        get_lplanguage: new o(n),
-        getClearRecentTime: new o(n, { include: "extensionDropdown" }),
-        getmatchingsites: new o(n),
-        gettaburl: new o(n),
+        get_last_reprompt_time: new o(n),
+        get_mimetype_from_filename: new o(n),
+        get_personal_linked: new o(n),
+        get_personal_linked_needs_verification: new o(n),
+        get_show_expired_subscription_messaging: new o(n),
+        isAllowedFileExtension: new o(n),
+        getAllowedFileExtensions: new o(n),
+        getInvalidFileExtensionMessageStrings: new o(n),
+        removeLinkedAccount: new o(n),
+        get_random_password: new o(n),
+        getbigicon: new o(n),
+        geticonurlfromrecord: new o(n),
         gs: new o(n),
         have_binary: new o(n),
         have_binary_function: new o(n),
-        include_language: new o(n),
-        is_chrome_portable: new o(n),
-        is_opera_chromium: new o(n),
-        is_firefox_webext: new o(n),
-        is_user_debug_enabled: new o(n),
-        setcurrenttabid: new o(n, { sendIndirect: !0 }),
-        setcurrenturl: new o(n, { sendIndirect: !0 }),
+        isOffline: new o(n),
+        localStorage_getItem: new o(n),
+        localStorage_setItem: new o(n),
+        lp_gettld_url: new o(n),
+        lpCreatePass: new o(n),
+        lpdec: new o(n),
+        lpenc: new o(n),
+        lpevent: new o(n),
+        lpmdec: new o(n),
+        lpmenc: new o(n),
+        parse_public_key: new o(n),
+        parse_private_key: new o(n),
+        parsemobile: new o(n),
+        punycode: { URLToASCII: new o(n), URLToUnicode: new o(n) },
+        RSAKey: new o(e.TYPE_CONSTRUCTOR),
+        set_last_reprompt_time: new o(n),
+        SHA256: new o(n),
+        hostof: new o(n),
+        StringUtils: { translate: new o(n) },
+        Preferences: { get: new o(n), set: new o(n, { sendIndirect: !0 }) },
+        rsa_encrypt_privatekey: new o(n),
+        sendLpImprove: new o(a),
+        sendLpImproveCallback: new o(a),
+        Provisioning: {
+          provisioning: {
+            checkUserState: new o(a, { include: "provisioning" }),
+            sendApiCalls: new o(a, { include: "provisioning" }),
+            getLocalKey: new o(a, { include: "provisioning" })
+          }
+        },
+        ExtensionPreferences: {
+          getConst: new o(a),
+          getDefault: new o(a),
+          read: new o(a),
+          write: new o(a),
+          getUnavailablePreferences: new o(a)
+        },
+        LPPlatform: {
+          getUILanguage: new o(n),
+          fill: new o(a),
+          downloadAttachment: new o(a),
+          copyToClipboard: new o(n),
+          setProductPriceUpdatesObserver: new o(a),
+          isSafariAppStore: new o(a)
+        },
         get_method_async: new o(a),
-        updateFieldsFromSubmit: new o(a, { include: "contentScriptSiteDialog" }),
-        LPIcons: { get: new o(a) },
-        LPTabState: {
-          getSiteNotification: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          processTextSubmit: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          processPasswordSubmit: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          clear: new o(a, { include: ["contentScript", "contentScriptSite"], appendAdditionalArguments: !0 }),
-          getState: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          setLoginRequestRecentlyResolved: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          setCopiedGeneratedPassword: new o(a, { include: ["generatePassword", "infieldPopup"] }),
-          getCopiedGeneratedPassword: new o(a, { include: "contentScript" }),
-          clearFillSource: new o(a),
-          setLastFillSource: new o(a),
-          getLastFillSource: new o(a),
-          getWebRequestSiteNotificationData: new o(a)
+        MigrationBackground: {
+          getShouldStartMigration: new o(a),
+          setShouldStartMigration: new o(a),
+          getBlobVersion: new o(a),
+          getIdentities: new o(a),
+          getLinkedUsername: new o(a),
+          getLinkedBlobVersion: new o(a),
+          subscribeToState: new o(a),
+          subscribeToStateOnce: new o(a),
+          wasMigration: new o(a),
+          publishState: new o(a),
+          saveBlobVersion: new o(a),
+          saveLinkedBlobVersion: new o(a),
+          sendSegmentEvent: new o(a),
+          shouldShowMigrationNotification: new o(n),
+          hasFormFills: new o(a),
+          postponeMigration: new o(a),
+          setMigrationState: new o(a)
         },
-        SiteLaunchObserver: {
-          startFillTracking: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          isFeatureEnabled: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          formSubmitted: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          initiateFormExists: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
-          hasFormWithPassword: new o(a, { include: "contentScript", appendAdditionalArguments: !0 })
+        FormfillMigrationBackground: {
+          isEnabled: new o(a),
+          getFormfills: new o(a),
+          getLinkedFormfills: new o(a),
+          createCustomNoteType: new o(a),
+          saveNote: new o(a)
         },
-        showModalOverlay: new o(a),
-        removeModalOverlay: new o(a),
-        userHasAccount: new o(a),
-        hideYoureAlmostDoneMarketingOverlay: new o(a),
-        InfieldCommands: {
-          getPopupFillData: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          setActiveFormData: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          copyPassword: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          copyUserName: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          copyUrl: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          copyProp: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          copyTotp: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          getGeneratePasswordPrefs: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          setGeneratePasswordPrefs: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          searchVault: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          searchVaultAll: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          fillUserData: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          fillGeneratedPassword: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          editFormFill: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          fillForm: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          editSite: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
-          canCopy: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 })
-        },
-        basicAuth: {
-          isBasicAuth: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          setAuthCredential: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          removeAuth: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          cancelBasicAuth: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          hasFeature: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          closeNotification: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
-          isNotificationClosed: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 })
-        },
-        autoChangePassword: new o(a),
-        LPFeatures: {
-          getSaveSiteToPersonal: new o(a, {
-            include: [
-              "vault",
-              "preferences",
-              "extensionDropdown",
-              "contentScript",
-              "siteDialog",
-              "site",
-              "note",
-              "formFill",
-              "contentScriptSite"
-            ]
-          })
-        },
+        Feature: { isEnabled: new o(a) },
         Policies: {
           logNameEnabled: new o(a, {
             include: [
@@ -30926,6 +30529,20 @@ function tokenize(e) {
             ],
             appendAdditionalArguments: !0
           }),
+          getSaveSiteToPersonal: new o(a, {
+            include: [
+              "vault",
+              "preferences",
+              "extensionDropdown",
+              "contentScript",
+              "siteDialog",
+              "site",
+              "note",
+              "formFill",
+              "contentScriptSite"
+            ],
+            appendAdditionalArguments: !0
+          }),
           getAccountSelectionBasedOnEmail: new o(a, {
             include: [
               "vault",
@@ -30940,7 +30557,7 @@ function tokenize(e) {
             ],
             appendAdditionalArguments: !0
           }),
-          getSaveSiteToPersonal: new o(a, {
+          showSecureNotes: new o(a, {
             include: [
               "vault",
               "preferences",
@@ -30950,501 +30567,953 @@ function tokenize(e) {
               "site",
               "note",
               "formFill",
-              "contentScriptSiteDialog",
-              "contentScriptSite",
               "contentScriptSite"
             ],
             appendAdditionalArguments: !0
           })
         },
         FederatedLogin: {
-          login: new o(a, { include: ["login"] }),
-          validateK1Encryption: new o(a, { include: "contentScript", appendAdditionalArguments: !0 })
+          isFederated: new o(a, {
+            include: [
+              "login",
+              "acctsiframe",
+              "update_phone",
+              "misc_challenge",
+              "enterprise_options",
+              "delete_account",
+              "otp",
+              "misc_login",
+              "enterprise_users"
+            ]
+          }),
+          getPassword: new o(a, {
+            include: [
+              "acctsiframe",
+              "update_phone",
+              "misc_challenge",
+              "enterprise_options",
+              "delete_account",
+              "otp",
+              "misc_login",
+              "enterprise_users"
+            ]
+          })
         },
-        getLinkedAccount: new o(a, {
-          include: [
-            "vault",
-            "preferences",
-            "extensionDropdown",
-            "contentScript",
-            "siteDialog",
-            "site",
-            "note",
-            "formFill",
-            "contentScriptSite"
-          ],
-          appendAdditionalArguments: !0
-        }),
-        consent: { getCreateAccountDetails: new o(a, {}) },
-        LPModule: {
-          callService: new o(a, { includes: ["contentScript", "extensionDropdown", "vault"], appendAdditionalArguments: !0 }),
-          callRepository: new o(a, { includes: ["contentScript", "extensionDropdown", "vault"], appendAdditionalArguments: !0 })
-        },
-        MPWNoNag: new o(a),
-        addDomainToMPWNever: new o(a),
-        sendLpEvent: new o(a),
-        get_method: new o(a)
+        getVersion: new o(a),
+        LPPartner: { getPartnerInfo: new o(a) },
+        onSettingsIframeClose: new o(a, { include: ["vault"], appendAdditionalArguments: !0 }),
+        closeSettingsIframe: new o(a, { include: ["acctsiframe", "contentScript", "vault"], appendAdditionalArguments: !0 }),
+        GenPassHistory: { add: new o(a), clear: new o(a), getWithDate: new o(a), getWithReadableDate: new o(a), getWithoutDate: new o(a) },
+        FieldOverrides: { getAll: new o(a), getSite: new o(a) },
+        switchLanguage: new o(a),
+        saveUserLanguage: new o(a),
+        setRestriction: new o(a),
+        setLanguageNotificationDismissal: new o(a),
+        setPrimaryDevice: new o(a),
+        setDisplayRetrialOffer: new o(a),
+        getRetrialOfferDeepLinkEnabled: new o(a),
+        hideBillingAddressNotification: new o(a),
+        Recovery: { getOtpHash: new o(a) },
+        g_pendo_jwt_token: new o(i),
+        g_pendo_signing_key_name: new o(i)
       };
-    Interfaces.extend(e, s);
-  })(Interfaces.BackgroundInterface),
-  (LPBackgroundRequester = (function (y) {
-    return function (a, n) {
-      var i = this,
-        r = null,
-        t = !1,
-        s = [],
-        o,
-        l = (n = n || {}).interfaceDefinition,
-        c = Date.now(),
-        d = function (e) {
-          LPMessaging.handleResponse(e);
-        },
-        u = function (e, a) {
-          LPMessaging.handleRequest(
-            l,
-            e,
-            function (e) {
-              m({ type: "contentScriptResponse", data: e, frameID: a });
-            },
-            { context: n.reflectionContext, additionalArguments: a }
-          );
-        },
-        m = function (a) {
-          (a.sourceFrameID = r),
-            LPMessaging.makeRequest(o, a, function (e) {
-              m({ type: "contentScriptResponse", data: e, frameID: a.frameID || 0 });
-            });
-        },
-        g = function (e) {
-          if (null === r && e.request.initializationID === c) {
-            "undefined" != typeof Topics && Topics.get(Topics.REQUEST_FRAMEWORK_INITIALIZED).publish(e, i),
-              (r = e.frameID),
-              (t = !1),
-              o({ type: "initialized", sourceFrameID: r });
-            for (var a = 0, n = s.length; a < n; ++a) s[a]();
-          }
-        },
-        h = function (e) {
-          var a = n.reflectionContext || window;
-          "undefined" != typeof LPPlatform && LPPlatform.onLoad
-            ? LPPlatform.onLoad(a, e)
-            : "loading" === a.document.readyState
-            ? a.addEventListener("DOMContentLoaded", e)
-            : e();
-        },
-        p =
-          ((e = function (e) {
-            if (e.frameID === r)
-              switch (e.type) {
-                case "backgroundResponse":
-                case "contentScriptResponse":
-                  d(e.data);
-                  break;
-                case "contentScriptRequest":
-                  u(e.data, e.sourceFrameID);
-              }
-            else "initialization" === e.type && g(e.data);
+    })(Interfaces)),
+    !(function (e) {
+      var a = Interfaces.TYPE_FUNCTION,
+        n = Interfaces.TYPE_SYNC_FUNCTION,
+        i = Interfaces.TYPE_STRING,
+        r = Interfaces.TYPE_NUMBER,
+        t = Interfaces.TYPE_BOOLEAN,
+        s = Interfaces.TYPE_OBJECT,
+        o = Interfaces.Definition,
+        s = {
+          g_is_company_owner: new o(t),
+          g_enterprisemodel: new o(r),
+          g_enterpriseoffering: new o(r),
+          countryfromip: new o(i),
+          g_is_federated_user: new o(t, {
+            sourceFunction: function () {
+              return reduxApp.isCurrentUserFederated();
+            }
           }),
-          y.Raven ? y.Raven.wrap(e) : e),
-        e,
-        b = function (e) {
-          h(function () {
-            o({
-              type: "initialize",
-              data: {
-                initializationID: c,
-                interfaceName: n.interfaceName,
-                top: n.mainRequestFramework,
-                url: y.location.href,
-                childFrameCount: document.getElementsByTagName("iframe").length,
-                frameIdentity: e
-              }
-            });
-          });
-        },
-        f =
-          ((this.initialize = function (e) {
-            null !== r || t || ((o = a(p, f)), n.frameIdentityManager ? n.frameIdentityManager.getFrameIdentity(b) : b(), (t = !0)),
-              e && s.push(e);
+          g_product_price: new o(r),
+          g_local_currency: new o(i),
+          g_premium_trial_exp_days: new o(r),
+          g_company_trial_exp_days: new o(r),
+          g_company_license_exp_days: new o(r),
+          g_show_billing_address_notification: new o(t),
+          g_device_limit_releaseTS: new o(r),
+          g_show_device_limit_notification: new o(t, { write: !0, sync: !0 }),
+          g_is_company_subscription_expired: new o(t, { sync: !0 }),
+          g_company_renewalstatus: new o(i),
+          g_show_original_language_changed_notification: new o(t),
+          g_original_language: new o(i),
+          g_loggedinoffline: new o(i, { include: ["vault", "site", "preferences"] }),
+          g_loggedinonline: new o(i, { include: ["vault", "preferences"] }),
+          g_badgedata: new o(s, { include: ["login", "extensionDropdown", "vault"] }),
+          g_flags: new o(s, { include: "preferences" }),
+          extensionPreferences: new o(s, {
+            sync: !0,
+            sourceFunction: function () {
+              var e = reduxApp.getState().settings,
+                a = e.extensionPreferences,
+                e = e.language;
+              return Object.assign({}, a, { language: e });
+            }
           }),
-          (this.sendRequest = function (e) {
-            null === r
-              ? this.initialize(function () {
-                  m(e);
-                })
-              : m(e);
+          g_hideappearancebox: new o(t, { include: "preferences" }),
+          g_2fa_inprocess: new o(t, { include: "vault" }),
+          g_hidelogoffprefs: new o(t, { include: "preferences" }),
+          g_hidenotes: new o(t, { include: "preferences" }),
+          g_hiderecentlyusedlistsize: new o(t, { include: "preferences" }),
+          g_hidesaedhotkey: new o(t, { include: "preferences" }),
+          g_hidesearch: new o(t, { include: "preferences" }),
+          g_hidevault: new o(t, { include: "preferences" }),
+          g_hideshowvault: new o(t, { include: "preferences" }),
+          g_is_linux: new o(t, { include: "preferences" }),
+          g_is_win: new o(t, { include: ["vault", "preferences"] }),
+          g_is_mac: new o(t, { include: "preferences" }),
+          g_issafari_appext: new o(t, { include: "preferences" }),
+          g_langs: new o(s, { include: "preferences" }),
+          g_basicauth_feature_enabled: new o(s, {
+            include: [
+              "vault",
+              "preferences",
+              "extensionDropdown",
+              "contentScript",
+              "siteDialog",
+              "site",
+              "note",
+              "formFill",
+              "contentScriptSite",
+              "contentScriptDialog"
+            ]
           }),
-          function () {
-            (r = null), (s = []);
-          });
-    };
-  })(this)),
-  (function (r) {
-    var a;
-    (r.requestFrameworkInitializer =
-      ((a = function (e, a) {
-        var n = e("", { name: "requestPort" });
-        return (
-          n.onMessage.addListener(a),
-          function (e) {
-            n.postMessage(e);
-          }
-        );
-      }),
-      function (e) {
-        return a((chrome.runtime && chrome.runtime.connect) || parent.chrome.runtime.connect, e);
-      })),
-      (r.installBinary = function (a, n) {
-        var i = getBG();
-        chrome.permissions.contains({ permissions: ["nativeMessaging"] }, function (e) {
-          a || e ? i.openURL(i.base_url + "installer/") : r.requestNativeMessaging(n);
-        });
-      }),
-      (r.requestNativeMessaging = function (e) {
-        var a = getBG();
-        a.Preferences.set("native_messaging_asked", "1"),
-          e
-            ? window.open("/native_messaging.html?hidenever=1")
-            : void 0 !== chrome.permissions &&
-              chrome.permissions.request({ permissions: ["nativeMessaging", "privacy"] }, function (e) {
-                e && alert(a.gs("Please restart your browser to finish enabling native messaging."));
+          g_manual_login: new o(t, { include: "login", write: !0 }),
+          g_master_password_saved: new o(t, { include: "preferences" }),
+          g_disableautofill: new o(t, {
+            include: "preferences",
+            sourceFunction: function () {
+              var e = reduxApp.getState().settings.enterpriseOverridePreferences.automaticallyFill;
+              return void 0 !== e && !e;
+            }
+          }),
+          g_password_strength_hardening_enabled: new o(t, {
+            sourceFunction: function () {
+              return reduxApp.getState().settings.features.password_strength_hardening;
+            }
+          }),
+          g_nopoll: new o(t, { include: "preferences" }),
+          g_notification_data: new o(s, { include: ["login", "extensionDropdown", "vault"] }),
+          g_notification_type: new o(s, { include: ["login", "extensionDropdown"] }),
+          g_offer_popupfill: new o(t, { include: "preferences" }),
+          g_shownewloginoption: new o(t, { include: "preferences" }),
+          lp_phpsessid: new o(i),
+          lppassusernamehash: new o(t, { include: "preferences" }),
+          remembersignons: new o(t, { include: "login" }),
+          clearRecentTime: new o(t, { include: "extensionDropdown", sourceFunction: "getClearRecentTime" }),
+          g_sites_tld: new o(t, {
+            include: ["extensionDropdown", "contentScript"],
+            sourceFunction: function () {
+              return getmatchingsites(!1, !0, !1);
+            }
+          }),
+          g_can_clear_clipboard: new o(t, { sourceFunction: "can_clear_clipboard" }),
+          g_can_copy_to_clipboard: new o(t, { sourceFunction: "can_copy_to_clipboard" }),
+          g_is_chrome_portable: new o(t),
+          g_is_restricted: new o(t),
+          g_has_credit_monitoring_premium: new o(t),
+          g_primary_device_switches_left: new o(r),
+          g_display_premium_retrial_offer: new o(t),
+          g_user_debug_enabled: new o(t, { sourceFunction: "is_user_debug_enabled" }),
+          g_have_binary: new o(t, { sourceFunction: "have_binary" }),
+          extensionBaseURL: new o(i, {
+            include: "contentScript",
+            sourceFunction: function () {
+              return getchromeurl("", !0);
+            }
+          }),
+          makeLoginCheck: new o(a),
+          create_account_safe: new o(a),
+          clear_badge: new o(n, { sendIndirect: !0 }),
+          clear_badge_text: new o(a),
+          set_badge_text: new o(a),
+          clearCache: new o(a),
+          clearforms: new o(a),
+          clearrecent: new o(a),
+          LPContextMenus: { createContextMenus: new o(a) },
+          DeleteOTP: new o(a),
+          disableallalerts: new o(a),
+          disablepasswordmanager: new o(a),
+          disablesitealert: new o(a),
+          disableDropDownNotification: new o(a),
+          formfillexport: new o(a),
+          getConsoleLogs: new o(a),
+          get_saved_logins: new o(a),
+          delete_saved_login: new o(a),
+          generateSharingKeys: new o(a),
+          get_selected_tab: new o(a),
+          get_selected_tab_data_no_extension: new o(a),
+          loggedOut: new o(a),
+          LP_do_login: new o(a),
+          setPasswordlessData: new o(a),
+          removePasswordlessData: new o(a),
+          startPasswordlessEnrollmentSetup: new o(a),
+          lpevent: new o(a),
+          setCompanyExpired: new o(a),
+          switchLanguage: new o(a),
+          saveUserLanguage: new o(a),
+          setDeviceLimitNotification: new o(a),
+          setLanguageNotificationDismissal: new o(a),
+          setPrimaryDevice: new o(a),
+          setDisplayRetrialOffer: new o(a),
+          getRetrialOfferDeepLinkEnabled: new o(a),
+          setWeakPasswordBadge: new o(a),
+          setSecurityScoreAlertBadge: new o(a),
+          checkDuplicatePasswordAndSetBadge: new o(a),
+          checkShouldShowBillingAddressNotification: new o(a),
+          hideBillingAddressNotification: new o(a),
+          LPData: { getData: new o(a), setValue: new o(a) },
+          LPPlatform: {
+            getCurrentTabDetails: new o(a),
+            getFavicon: new o(a),
+            openTabDialog: new o(a),
+            openSame: new o(a),
+            navigateTab: new o(a),
+            openPopoverDialog: new o(a),
+            isMac: new o(n),
+            isWin: new o(n),
+            postLegacyMessage: new o(a, { appendAdditionalArguments: !0, include: ["contentScript", "infieldPopup"] }),
+            connectLegacyMessaging: new o(a, { appendAdditionalArguments: !0, include: "contentScript" }),
+            openAcctsIframe: new o(a, { appendAdditionalArguments: !0, include: "vault" }),
+            makeNativeRequest: new o(a),
+            isSafariAppExtensionEnabled: new o(a),
+            isSelfDistributed: new o(a),
+            doAjax: new o(a),
+            isSafariAppStore: new o(a),
+            purchasePremium: new o(a),
+            fetchProduct: new o(a),
+            updateProductPrice: new o(a),
+            setProductPriceUpdatesObserver: new o(a),
+            registerProduct: new o(a),
+            openFileDialog: new o(a),
+            saveFile: new o(a),
+            openNativeFileSelector: new o(a),
+            copyToClipboard: new o(a),
+            copyLastCopiedString: new o(a),
+            writeAndOpenAttachmentFile: new o(a),
+            deleteAccount: new o(a)
+          },
+          reduxApp: {
+            trackPasswordEntry: new o(a),
+            setMultifactorEnabledState: new o(a),
+            trustedDeviceUpdated: new o(a),
+            setDisablePasswordAlerts: new o(a),
+            updateTrustedDeviceList: new o(a),
+            closePasswordChangedSuccessVaultBanner: new o(a)
+          },
+          openabout: new o(a),
+          deletesavedpw: new o(a),
+          openpricing: new o(a),
+          openTranslationsReadMore: new o(a),
+          openpremium: new o(a),
+          openenterprisepayment: new o(a),
+          openteamspayment: new o(a),
+          openfamiliespayment: new o(a),
+          opendebugtab: new o(a),
+          openentconsole: new o(a),
+          openFamilyConsole: new o(a),
+          passwordValidator: new o(a),
+          openexport: new o(a),
+          openfavorites: new o(a),
+          openhelp: new o(a),
+          openimport: new o(a),
+          openlastpassexport: new o(a),
+          openmyaccount: new o(a),
+          openprefs: new o(a),
+          openprint: new o(a),
+          openseccheck: new o(a),
+          opensessions: new o(a),
+          openURL: new o(a),
+          openvault: new o(a),
+          saveall: new o(a),
+          start_trial: new o(a),
+          unprotect_data: new o(a),
+          wlanexport: new o(a),
+          saveSiteFromSubmit: new o(a),
+          get_selected_tab_data: new o(a),
+          fillGeneratedPassword: new o(a),
+          saveAllSite: new o(a),
+          session_storage_get_item: new o(a),
+          session_storage_set_item: new o(a),
+          repromptSuccess: new o(a),
+          open_login: new o(a),
+          fillaid: new o(a),
+          fillform: new o(a),
+          fillitem: new o(a),
+          fillNoteFromDropdown: new o(a),
+          setup_hotkeys: new o(a),
+          getShareType: new o(a),
+          IntroTutorial: {
+            getState: new o(a),
+            setState: new o(a),
+            resetState: new o(a),
+            completeTutorial: new o(a),
+            isOnStateDomain: new o(a)
+          },
+          sendLpImprove: new o(a),
+          handleNeverURL: new o(a),
+          runChallenge3: new o(a),
+          can_clear_clipboard: new o(n),
+          fix_username: new o(n),
+          get_lplanguage: new o(n),
+          getClearRecentTime: new o(n, { include: "extensionDropdown" }),
+          getmatchingsites: new o(n),
+          gettaburl: new o(n),
+          gs: new o(n),
+          have_binary: new o(n),
+          have_binary_function: new o(n),
+          include_language: new o(n),
+          is_chrome_portable: new o(n),
+          is_opera_chromium: new o(n),
+          is_firefox_webext: new o(n),
+          is_user_debug_enabled: new o(n),
+          setcurrenttabid: new o(n, { sendIndirect: !0 }),
+          setcurrenturl: new o(n, { sendIndirect: !0 }),
+          get_method_async: new o(a),
+          updateFieldsFromSubmit: new o(a, { include: "contentScriptSiteDialog" }),
+          LPIcons: { get: new o(a) },
+          LPTabState: {
+            getSiteNotification: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            processTextSubmit: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            processPasswordSubmit: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            clear: new o(a, { include: ["contentScript", "contentScriptSite"], appendAdditionalArguments: !0 }),
+            getState: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            setLoginRequestRecentlyResolved: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            setCopiedGeneratedPassword: new o(a, { include: ["generatePassword", "infieldPopup"] }),
+            getCopiedGeneratedPassword: new o(a, { include: "contentScript" }),
+            clearFillSource: new o(a),
+            setLastFillSource: new o(a),
+            getLastFillSource: new o(a),
+            getWebRequestSiteNotificationData: new o(a)
+          },
+          SiteLaunchObserver: {
+            startFillTracking: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            isFeatureEnabled: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            formSubmitted: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            initiateFormExists: new o(a, { include: "contentScript", appendAdditionalArguments: !0 }),
+            hasFormWithPassword: new o(a, { include: "contentScript", appendAdditionalArguments: !0 })
+          },
+          showModalOverlay: new o(a),
+          removeModalOverlay: new o(a),
+          userHasAccount: new o(a),
+          hideYoureAlmostDoneMarketingOverlay: new o(a),
+          InfieldCommands: {
+            getPopupFillData: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            setActiveFormData: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            copyPassword: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            copyUserName: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            copyUrl: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            copyProp: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            copyTotp: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            getGeneratePasswordPrefs: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            setGeneratePasswordPrefs: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            searchVault: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            searchVaultAll: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            fillUserData: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            fillGeneratedPassword: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            editFormFill: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            fillForm: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            editSite: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 }),
+            canCopy: new o(a, { include: ["infieldPopup"], appendAdditionalArguments: !0 })
+          },
+          basicAuth: {
+            isBasicAuth: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            setAuthCredential: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            removeAuth: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            cancelBasicAuth: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            hasFeature: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            closeNotification: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 }),
+            isNotificationClosed: new o(a, { include: ["contentScript"], appendAdditionalArguments: !0 })
+          },
+          autoChangePassword: new o(a),
+          LPFeatures: {
+            getSaveSiteToPersonal: new o(a, {
+              include: [
+                "vault",
+                "preferences",
+                "extensionDropdown",
+                "contentScript",
+                "siteDialog",
+                "site",
+                "note",
+                "formFill",
+                "contentScriptSite"
+              ]
+            })
+          },
+          Policies: {
+            logNameEnabled: new o(a, {
+              include: [
+                "vault",
+                "preferences",
+                "extensionDropdown",
+                "contentScript",
+                "siteDialog",
+                "site",
+                "note",
+                "formFill",
+                "contentScriptSite"
+              ],
+              appendAdditionalArguments: !0
+            }),
+            logUserNameEnabled: new o(a, {
+              include: [
+                "vault",
+                "preferences",
+                "extensionDropdown",
+                "contentScript",
+                "siteDialog",
+                "site",
+                "note",
+                "formFill",
+                "contentScriptSite"
+              ],
+              appendAdditionalArguments: !0
+            }),
+            logUrlEnabled: new o(a, {
+              include: [
+                "vault",
+                "preferences",
+                "extensionDropdown",
+                "contentScript",
+                "siteDialog",
+                "site",
+                "note",
+                "formFill",
+                "contentScriptSite"
+              ],
+              appendAdditionalArguments: !0
+            }),
+            getAccountSelectionBasedOnEmail: new o(a, {
+              include: [
+                "vault",
+                "preferences",
+                "extensionDropdown",
+                "contentScript",
+                "siteDialog",
+                "site",
+                "note",
+                "formFill",
+                "contentScriptSite"
+              ],
+              appendAdditionalArguments: !0
+            }),
+            getSaveSiteToPersonal: new o(a, {
+              include: [
+                "vault",
+                "preferences",
+                "extensionDropdown",
+                "contentScript",
+                "siteDialog",
+                "site",
+                "note",
+                "formFill",
+                "contentScriptSiteDialog",
+                "contentScriptSite",
+                "contentScriptSite"
+              ],
+              appendAdditionalArguments: !0
+            })
+          },
+          FederatedLogin: {
+            login: new o(a, { include: ["login"] }),
+            validateK1Encryption: new o(a, { include: "contentScript", appendAdditionalArguments: !0 })
+          },
+          getLinkedAccount: new o(a, {
+            include: [
+              "vault",
+              "preferences",
+              "extensionDropdown",
+              "contentScript",
+              "siteDialog",
+              "site",
+              "note",
+              "formFill",
+              "contentScriptSite"
+            ],
+            appendAdditionalArguments: !0
+          }),
+          consent: { getCreateAccountDetails: new o(a, {}) },
+          LPModule: {
+            callService: new o(a, { includes: ["contentScript", "extensionDropdown", "vault"], appendAdditionalArguments: !0 }),
+            callRepository: new o(a, { includes: ["contentScript", "extensionDropdown", "vault"], appendAdditionalArguments: !0 })
+          },
+          MPWNoNag: new o(a),
+          addDomainToMPWNever: new o(a),
+          sendLpEvent: new o(a),
+          get_method: new o(a),
+          mv3_extension_used_to_get_key: new o(t, { includes: ["vault"], sync: !0 })
+        };
+      Interfaces.extend(e, s);
+    })(Interfaces.BackgroundInterface),
+    (LPBackgroundRequester = (function (y) {
+      return function (a, n) {
+        var i = this,
+          r = null,
+          t = !1,
+          s = [],
+          o,
+          l = (n = n || {}).interfaceDefinition,
+          c = Date.now(),
+          d = function (e) {
+            LPMessaging.handleResponse(e);
+          },
+          u = function (e, a) {
+            LPMessaging.handleRequest(
+              l,
+              e,
+              function (e) {
+                m({ type: "contentScriptResponse", data: e, frameID: a });
+              },
+              { context: n.reflectionContext, additionalArguments: a }
+            );
+          },
+          m = function (a) {
+            (a.sourceFrameID = r),
+              LPMessaging.makeRequest(o, a, function (e) {
+                m({ type: "contentScriptResponse", data: e, frameID: a.frameID || 0 });
               });
-      });
-  })((LPPlatform = "undefined" == typeof LPPlatform ? {} : LPPlatform)),
-  (LPPlatform = "undefined" == typeof LPPlatform ? {} : LPPlatform),
-  (function () {
-    LPPlatform.isMac = function () {
-      return "undefined" != typeof navigator && -1 != navigator.appVersion.indexOf("Mac");
-    };
-    var n = function () {
-      var e = {},
-        a = document.location.href.split("?");
-      if (2 === a.length)
-        for (var n = a[1].split("&"), i = 0; i < n.length; ++i) {
-          var r = n[i].split("=");
-          2 === r.length && (e[r[0]] = r[1]);
-        }
-      return e;
-    };
-    LPPlatform.getUILanguage = function () {
-      var e, a;
-      return (n().lplanguage || "en-US").replace(/_/g, "-");
-    };
-  })(),
-  (function (t) {
-    var a, n, e, s, o;
-    (t.translate = function (e) {
-      return gs(e);
-    }),
-      (t.isWin = function () {
-        return "undefined" != typeof navigator && -1 != navigator.appVersion.indexOf("Windows");
-      }),
-      (n = []),
-      (e = a = null),
-      (s = function (e) {
-        var n = e.callback;
-        (e.callback = function (e) {
-          for (var a in e) window[a] = e[a];
-          n && n();
-        }),
-          a.LPData.getData(e);
-      }),
-      (o = function (e) {
-        "string" == typeof e && -1 === n.indexOf(e) && n.push(e),
-          setInterval(function () {
-            s({ context: n, triggers: { g_local_accts_version: a.get("g_local_accts_version") } });
-          }, 1e3);
-      }),
-      (t.getBackgroundInterface = function (e) {
-        return (
-          null === a && (a = t.createBackgroundInterface(e)),
-          e.getData ? a.getData({ context: e.context, callback: e.callback }) : e.callback && e.callback(a),
-          a
-        );
-      }),
-      (t.createBackgroundInterface = function (n) {
-        g_bg = window;
-        var a = new LPBackgroundRequester(t.requestFrameworkInitializer, {
-            interfaceDefinition: n.interfaceDefinition,
-            interfaceName: n.interfaceDefinition ? parent.Interfaces.getName(n.interfaceDefinition) : null,
-            reflectionContext: parent,
-            mainRequestFramework: void 0 === n.mainRequestFramework || n.mainRequestFramework
-          }),
-          i =
-            (a.initialize(),
+          },
+          g = function (e) {
+            if (null === r && e.request.initializationID === c) {
+              "undefined" != typeof Topics && Topics.get(Topics.REQUEST_FRAMEWORK_INITIALIZED).publish(e, i),
+                (r = e.frameID),
+                (t = !1),
+                o({ type: "initialized", sourceFrameID: r });
+              for (var a = 0, n = s.length; a < n; ++a) s[a]();
+            }
+          },
+          h = function (e) {
+            var a = n.reflectionContext || window;
+            "undefined" != typeof LPPlatform && LPPlatform.onLoad
+              ? LPPlatform.onLoad(a, e)
+              : "loading" === a.document.readyState
+              ? a.addEventListener("DOMContentLoaded", e)
+              : e();
+          },
+          p =
+            ((e = function (e) {
+              if (e.frameID === r)
+                switch (e.type) {
+                  case "backgroundResponse":
+                  case "contentScriptResponse":
+                    d(e.data);
+                    break;
+                  case "contentScriptRequest":
+                    u(e.data, e.sourceFrameID);
+                }
+              else "initialization" === e.type && g(e.data);
+            }),
+            y.Raven ? y.Raven.wrap(e) : e),
+          e,
+          b = function (e) {
+            h(function () {
+              o({
+                type: "initialize",
+                data: {
+                  initializationID: c,
+                  interfaceName: n.interfaceName,
+                  top: n.mainRequestFramework,
+                  url: y.location.href,
+                  childFrameCount: document.getElementsByTagName("iframe").length,
+                  frameIdentity: e
+                }
+              });
+            });
+          },
+          f =
+            ((this.initialize = function (e) {
+              null !== r || t || ((o = a(p, f)), n.frameIdentityManager ? n.frameIdentityManager.getFrameIdentity(b) : b(), (t = !0)),
+                e && s.push(e);
+            }),
+            (this.sendRequest = function (e) {
+              null === r
+                ? this.initialize(function () {
+                    m(e);
+                  })
+                : m(e);
+            }),
+            function () {
+              (r = null), (s = []);
+            });
+      };
+    })(this)),
+    !(function (r) {
+      var a;
+      (r.requestFrameworkInitializer =
+        ((a = function (e, a) {
+          var n = e("", { name: "requestPort" });
+          return (
+            n.onMessage.addListener(a),
             function (e) {
-              a.sendRequest({ type: "backgroundRequest", data: e });
-            }),
-          r = Interfaces.createInstance(Interfaces.BackgroundInterface, {
-            context: n.context,
-            source: window,
-            direct: !1,
-            requestFunction: i
-          });
-        return (
-          (r.getData = function (e) {
-            var a = e.callback;
-            (e.callback = function () {
-              n.pollBackground && o(e.context), a && a(r);
-            }),
-              s(e);
-          }),
-          parent.LPDialog &&
-            (parent.LPDialog.beforeLoad = function (e, a) {
-              Interfaces.createInstance(Interfaces.BackgroundInterface, {
-                instance: r,
-                context: e,
-                source: window,
-                direct: !1,
-                requestFunction: i
-              }),
-                r.getData({
-                  context: e,
-                  callback: function () {
-                    parent.LPProxy.initializeModel(), a();
-                  }
-                });
-            }),
-          n.backgroundIntitialization && n.backgroundIntitialization(r),
-          r
-        );
-      }),
-      (t.adjustPreferenceDefaults = function (e) {
-        e.disablepasswordmanagerasked = !1;
-      }),
-      (t.getPreference = function (e) {
-        return top.reduxApp && top.reduxApp.getPreference ? top.reduxApp.getPreference(e) : extensionPreferences[e];
-      }),
-      (t.setUserPreference = function (e, a) {
-        top.reduxApp && top.reduxApp.setExtensionPreference ? top.reduxApp.setExtensionPreference(e, a) : (extensionPreferences[e] = a);
-      }),
-      (t.setGlobalPreference = function (e, a) {
-        top.reduxApp && top.reduxApp.setExtensionPreference ? top.reduxApp.setExtensionPreference(e, a) : (extensionPreferences[e] = a);
-      }),
-      (t.writePreferences = function () {});
-  })(LPPlatform),
-  (function (e) {
-    e.translate = function (e) {
-      if (e) {
-        var a = e.trim();
-        if (0 < a.length) {
-          var a = LPPlatform.translate(a);
-          try {
-            return 1 < arguments.length ? sprintf.apply(null, [a].concat([].splice.call(arguments, 1))) : a;
-          } catch (e) {
-            return console.error("StringUtils.translate: sprintf failed: " + e), a;
-          }
-        }
-      }
-      return e;
-    };
-  })((StringUtils = {})),
-  (Preferences = (function () {
-    var i = {},
-      r = function (e, a) {
-        var n = LPPlatform.getPreference(e);
-        return (a = void 0 === a ? t[e] : a), void 0 === n ? a : n;
-      },
-      n = {
-        logoffWhenCloseBrowser: !0,
-        logoffWhenCloseBrowserVal: !0,
-        showvault: !0,
-        hideContextMenus: !0,
-        notificationsBottom: !0,
-        usepopupfill: !0,
-        openloginstart: !0,
-        storeLostOTP: !0,
-        enablenamedpipes: !0,
-        enablenewlogin: !0,
-        htmlindialog: !0,
-        Icon: !0,
-        generateHkKeyCode: !0,
-        generateHkMods: !0,
-        recheckHkKeyCode: !0,
-        recheckHkMods: !0,
-        searchHkKeyCode: !0,
-        searchHkMods: !0,
-        nextHkKeyCode: !0,
-        nextHkMods: !0,
-        prevHkKeyCode: !0,
-        prevHkMods: !0,
-        homeHkKeyCode: !0,
-        homeHkMods: !0,
-        openpopoverHkKeyCode: !0,
-        openpopoverHkMods: !0,
-        rememberpassword: !0,
-        dialogSizePrefs: !0
-      },
-      t = {
-        logoffWhenCloseBrowser: !1,
-        logoffWhenCloseBrowserVal: 0,
-        idleLogoffEnabled: !1,
-        idleLogoffVal: "",
-        openpref: "tabs",
-        htmlindialog: !1,
-        automaticallyFill: !0,
-        showvault: !1,
-        showAcctsInGroups: !0,
-        hideContextMenus: !1,
-        defaultffid: "0",
-        donotoverwritefilledfields: !1,
-        showNotifications: !0,
-        showGenerateNotifications: !1,
-        showFormFillNotifications: !1,
-        showSaveSiteNotifications: !1,
-        notificationsBottom: !1,
-        showNotificationsAfterClick: !1,
-        showSaveNotificationBar: !0,
-        showChangeNotificationBar: !0,
-        usepopupfill: !0,
-        showmatchingbadge: !0,
-        autoautoVal: 25,
-        warninsecureforms: !1,
-        infieldPopupEnabled: !1,
-        dontfillautocompleteoff: !1,
-        pollServerVal: 15,
-        clearClipboardSecsVal: 60,
-        recentUsedCount: 10,
-        searchNotes: !0,
-        openloginstart: !1,
-        storeLostOTP: !0,
-        enablenamedpipes: !0,
-        enablenewlogin: !1,
-        clearfilledfieldsonlogoff: !1,
-        toplevelmatchingsites: !1,
-        language: "en_US",
-        Icon: 1,
-        generate_length: 12,
-        generate_upper: !0,
-        generate_lower: !0,
-        generate_digits: !0,
-        generate_special: !1,
-        generate_mindigits: 1,
-        generate_ambig: !1,
-        generate_reqevery: !0,
-        generate_pronounceable: !1,
-        generate_allcombos: !0,
-        generate_advanced: !1,
-        gridView: !0,
-        compactView: !1,
-        "seenVault4.0": !1,
-        leftMenuMaximize: !0,
-        disablepasswordmanagerasked: !0,
-        rememberemail: !0,
-        rememberpassword: !1,
-        dialogSizePrefs: {},
-        tempID: 0,
-        lastreprompttime: 0,
-        identity: "",
-        alwayschooseprofilecc: !1,
-        showIntroTutorial: !0
-      },
-      s =
-        (LPPlatform.adjustPreferenceDefaults(t),
-        LPPlatform.isMac()
-          ? ((t.generateHkKeyCode = 0),
-            (t.generateHkMods = ""),
-            (t.recheckHkKeyCode = 0),
-            (t.recheckHkMods = ""),
-            (t.searchHkKeyCode = 76),
-            (t.searchHkMods = "shift meta"),
-            (t.nextHkKeyCode = 33),
-            (t.nextHkMods = "meta"),
-            (t.prevHkKeyCode = 34),
-            (t.prevHkMods = "meta"),
-            (t.homeHkKeyCode = 0),
-            (t.homeHkMods = ""),
-            (t.openpopoverHkKeyCode = 220),
-            (t.openpopoverHkMods = "meta"))
-          : ((t.generateHkKeyCode = 71),
-            (t.generateHkMods = "alt"),
-            (t.recheckHkKeyCode = 73),
-            (t.recheckHkMods = "alt"),
-            (t.searchHkKeyCode = 87),
-            (t.searchHkMods = "alt"),
-            (t.nextHkKeyCode = 33),
-            (t.nextHkMods = "alt"),
-            (t.prevHkKeyCode = 34),
-            (t.prevHkMods = "alt"),
-            (t.homeHkKeyCode = 72),
-            (t.homeHkMods = "control alt"),
-            (t.openpopoverHkKeyCode = 220),
-            (t.openpopoverHkMods = "alt")),
-        function (e, a) {
-          var n;
-          (i[e] || []).forEach(function (e) {
-            e(a);
+              n.postMessage(e);
+            }
+          );
+        }),
+        function (e) {
+          return a((chrome.runtime && chrome.runtime.connect) || parent.chrome.runtime.connect, e);
+        })),
+        (r.installBinary = function (a, n) {
+          var i = getBG();
+          chrome.permissions.contains({ permissions: ["nativeMessaging"] }, function (e) {
+            a || e ? i.openURL(i.base_url + "installer/") : r.requestNativeMessaging(n);
           });
         }),
-      o = function (e, a) {
-        LPPlatform.setUserPreference(e, a), n[e] && LPPlatform.setGlobalPreference(e, a), s(e, a);
-      };
-    return {
-      getDefault: function (e) {
-        switch (typeof e) {
-          case "object":
-            var a = {},
-              n;
-            for (n in e) a[n] = t[n];
-            return a;
-          case "string":
-            return t[e];
-          default:
-            return null;
-        }
-      },
-      get: function (e, a) {
-        switch (typeof e) {
-          case "object":
-            var n = {},
-              i;
-            for (i in e) n[i] = r(i, a ? a[i] : void 0);
-            return n;
-          case "string":
-            return r(e, a);
-          default:
-            return null;
-        }
-      },
-      set: function (e, a) {
-        if ("object" == typeof e) for (var n in e) o(n, e[n]);
-        else o(e, a);
-        LPPlatform.writePreferences();
-      },
-      addListener: function (e, a) {
-        var n = i[e] || [];
-        n.push(a), (i[e] = n);
-      },
-      removeListener: function (e, a) {
-        var n = i[e] || [];
-        i[e] = n.filter(function (e) {
-          return e !== a;
+        (r.requestNativeMessaging = function (e) {
+          var a = getBG();
+          a.Preferences.set("native_messaging_asked", "1"),
+            e
+              ? window.open("/native_messaging.html?hidenever=1")
+              : void 0 !== chrome.permissions &&
+                chrome.permissions.request({ permissions: ["nativeMessaging", "privacy"] }, function (e) {
+                  e && alert(a.gs("Please restart your browser to finish enabling native messaging."));
+                });
         });
-      },
-      triggerChange: s
-    };
-  })());
-var __extends =
-    (this && this.__extends) ||
-    (function () {
-      var i = function (e, a) {
-        return (i =
-          Object.setPrototypeOf ||
-          ({ __proto__: [] } instanceof Array
-            ? function (e, a) {
-                e.__proto__ = a;
-              }
-            : function (e, a) {
-                for (var n in a) a.hasOwnProperty(n) && (e[n] = a[n]);
-              }))(e, a);
+    })((LPPlatform = "undefined" == typeof LPPlatform ? {} : LPPlatform)),
+    (LPPlatform = "undefined" == typeof LPPlatform ? {} : LPPlatform),
+    !(function () {
+      LPPlatform.isMac = function () {
+        return "undefined" != typeof navigator && -1 != navigator.appVersion.indexOf("Mac");
       };
-      return function (e, a) {
-        function n() {
-          this.constructor = e;
-        }
-        i(e, a), (e.prototype = null === a ? Object.create(a) : ((n.prototype = a.prototype), new n()));
+      var n = function () {
+        var e = {},
+          a = document.location.href.split("?");
+        if (2 === a.length)
+          for (var n = a[1].split("&"), i = 0; i < n.length; ++i) {
+            var r = n[i].split("=");
+            2 === r.length && (e[r[0]] = r[1]);
+          }
+        return e;
+      };
+      LPPlatform.getUILanguage = function () {
+        var e, a;
+        return (n().lplanguage || "en-US").replace(/_/g, "-");
       };
     })(),
+    !(function (t) {
+      var a, n, e, s, o;
+      (t.translate = function (e) {
+        return gs(e);
+      }),
+        (t.isWin = function () {
+          return "undefined" != typeof navigator && -1 != navigator.appVersion.indexOf("Windows");
+        }),
+        (n = []),
+        (e = a = null),
+        (s = function (e) {
+          var n = e.callback;
+          (e.callback = function (e) {
+            for (var a in e) window[a] = e[a];
+            n && n();
+          }),
+            a.LPData.getData(e);
+        }),
+        (o = function (e) {
+          "string" == typeof e && -1 === n.indexOf(e) && n.push(e),
+            setInterval(function () {
+              s({ context: n, triggers: { g_local_accts_version: a.get("g_local_accts_version") } });
+            }, 1e3);
+        }),
+        (t.getBackgroundInterface = function (e) {
+          return (
+            null === a && (a = t.createBackgroundInterface(e)),
+            e.getData ? a.getData({ context: e.context, callback: e.callback }) : e.callback && e.callback(a),
+            a
+          );
+        }),
+        (t.createBackgroundInterface = function (n) {
+          g_bg = window;
+          var a = new LPBackgroundRequester(t.requestFrameworkInitializer, {
+              interfaceDefinition: n.interfaceDefinition,
+              interfaceName: n.interfaceDefinition ? parent.Interfaces.getName(n.interfaceDefinition) : null,
+              reflectionContext: parent,
+              mainRequestFramework: void 0 === n.mainRequestFramework || n.mainRequestFramework
+            }),
+            i =
+              (a.initialize(),
+              function (e) {
+                a.sendRequest({ type: "backgroundRequest", data: e });
+              }),
+            r = Interfaces.createInstance(Interfaces.BackgroundInterface, {
+              context: n.context,
+              source: window,
+              direct: !1,
+              requestFunction: i
+            });
+          return (
+            (r.getData = function (e) {
+              var a = e.callback;
+              (e.callback = function () {
+                n.pollBackground && o(e.context), a && a(r);
+              }),
+                s(e);
+            }),
+            parent.LPDialog &&
+              (parent.LPDialog.beforeLoad = function (e, a) {
+                Interfaces.createInstance(Interfaces.BackgroundInterface, {
+                  instance: r,
+                  context: e,
+                  source: window,
+                  direct: !1,
+                  requestFunction: i
+                }),
+                  r.getData({
+                    context: e,
+                    callback: function () {
+                      parent.LPProxy.initializeModel(), a();
+                    }
+                  });
+              }),
+            n.backgroundIntitialization && n.backgroundIntitialization(r),
+            r
+          );
+        }),
+        (t.adjustPreferenceDefaults = function (e) {
+          e.disablepasswordmanagerasked = !1;
+        }),
+        (t.getPreference = function (e) {
+          return top.reduxApp && top.reduxApp.getPreference ? top.reduxApp.getPreference(e) : extensionPreferences[e];
+        }),
+        (t.setUserPreference = function (e, a) {
+          top.reduxApp && top.reduxApp.setExtensionPreference ? top.reduxApp.setExtensionPreference(e, a) : (extensionPreferences[e] = a);
+        }),
+        (t.setGlobalPreference = function (e, a) {
+          top.reduxApp && top.reduxApp.setExtensionPreference ? top.reduxApp.setExtensionPreference(e, a) : (extensionPreferences[e] = a);
+        }),
+        (t.writePreferences = function () {});
+    })(LPPlatform),
+    !(function (e) {
+      e.translate = function (e) {
+        if (e) {
+          var a = e.trim();
+          if (0 < a.length) {
+            var a = LPPlatform.translate(a);
+            try {
+              return 1 < arguments.length ? sprintf.apply(null, [a].concat([].splice.call(arguments, 1))) : a;
+            } catch (e) {
+              return console.error("StringUtils.translate: sprintf failed: " + e), a;
+            }
+          }
+        }
+        return e;
+      };
+    })((StringUtils = {})),
+    (Preferences = (function () {
+      var i = {},
+        r = function (e, a) {
+          var n = LPPlatform.getPreference(e);
+          return (a = void 0 === a ? t[e] : a), void 0 === n ? a : n;
+        },
+        n = {
+          logoffWhenCloseBrowser: !0,
+          logoffWhenCloseBrowserVal: !0,
+          showvault: !0,
+          hideContextMenus: !0,
+          notificationsBottom: !0,
+          usepopupfill: !0,
+          openloginstart: !0,
+          storeLostOTP: !0,
+          enablenamedpipes: !0,
+          enablenewlogin: !0,
+          htmlindialog: !0,
+          Icon: !0,
+          generateHkKeyCode: !0,
+          generateHkMods: !0,
+          recheckHkKeyCode: !0,
+          recheckHkMods: !0,
+          searchHkKeyCode: !0,
+          searchHkMods: !0,
+          nextHkKeyCode: !0,
+          nextHkMods: !0,
+          prevHkKeyCode: !0,
+          prevHkMods: !0,
+          homeHkKeyCode: !0,
+          homeHkMods: !0,
+          openpopoverHkKeyCode: !0,
+          openpopoverHkMods: !0,
+          rememberpassword: !0,
+          dialogSizePrefs: !0
+        },
+        t = {
+          logoffWhenCloseBrowser: !1,
+          logoffWhenCloseBrowserVal: 0,
+          idleLogoffEnabled: !1,
+          idleLogoffVal: "",
+          openpref: "tabs",
+          htmlindialog: !1,
+          automaticallyFill: !0,
+          showvault: !1,
+          showAcctsInGroups: !0,
+          hideContextMenus: !1,
+          defaultffid: "0",
+          donotoverwritefilledfields: !1,
+          showNotifications: !0,
+          showGenerateNotifications: !1,
+          showFormFillNotifications: !1,
+          showSaveSiteNotifications: !1,
+          notificationsBottom: !1,
+          showNotificationsAfterClick: !1,
+          showSaveNotificationBar: !0,
+          showChangeNotificationBar: !0,
+          usepopupfill: !0,
+          showmatchingbadge: !0,
+          autoautoVal: 25,
+          warninsecureforms: !1,
+          infieldPopupEnabled: !1,
+          dontfillautocompleteoff: !1,
+          pollServerVal: 15,
+          clearClipboardSecsVal: 60,
+          recentUsedCount: 10,
+          searchNotes: !0,
+          openloginstart: !1,
+          storeLostOTP: !0,
+          enablenamedpipes: !0,
+          enablenewlogin: !1,
+          clearfilledfieldsonlogoff: !1,
+          toplevelmatchingsites: !1,
+          language: "en_US",
+          Icon: 1,
+          generate_length: 12,
+          generate_upper: !0,
+          generate_lower: !0,
+          generate_digits: !0,
+          generate_special: !1,
+          generate_mindigits: 1,
+          generate_ambig: !1,
+          generate_reqevery: !0,
+          generate_pronounceable: !1,
+          generate_allcombos: !0,
+          generate_advanced: !1,
+          gridView: !0,
+          compactView: !1,
+          "seenVault4.0": !1,
+          leftMenuMaximize: !0,
+          disablepasswordmanagerasked: !0,
+          rememberemail: !0,
+          rememberpassword: !1,
+          dialogSizePrefs: {},
+          tempID: 0,
+          lastreprompttime: 0,
+          identity: "",
+          alwayschooseprofilecc: !1,
+          showIntroTutorial: !0
+        },
+        s =
+          (LPPlatform.adjustPreferenceDefaults(t),
+          LPPlatform.isMac()
+            ? ((t.generateHkKeyCode = 0),
+              (t.generateHkMods = ""),
+              (t.recheckHkKeyCode = 0),
+              (t.recheckHkMods = ""),
+              (t.searchHkKeyCode = 76),
+              (t.searchHkMods = "shift meta"),
+              (t.nextHkKeyCode = 33),
+              (t.nextHkMods = "meta"),
+              (t.prevHkKeyCode = 34),
+              (t.prevHkMods = "meta"),
+              (t.homeHkKeyCode = 0),
+              (t.homeHkMods = ""),
+              (t.openpopoverHkKeyCode = 220),
+              (t.openpopoverHkMods = "meta"))
+            : ((t.generateHkKeyCode = 71),
+              (t.generateHkMods = "alt"),
+              (t.recheckHkKeyCode = 73),
+              (t.recheckHkMods = "alt"),
+              (t.searchHkKeyCode = 87),
+              (t.searchHkMods = "alt"),
+              (t.nextHkKeyCode = 33),
+              (t.nextHkMods = "alt"),
+              (t.prevHkKeyCode = 34),
+              (t.prevHkMods = "alt"),
+              (t.homeHkKeyCode = 72),
+              (t.homeHkMods = "control alt"),
+              (t.openpopoverHkKeyCode = 220),
+              (t.openpopoverHkMods = "alt")),
+          function (e, a) {
+            var n;
+            (i[e] || []).forEach(function (e) {
+              e(a);
+            });
+          }),
+        o = function (e, a) {
+          LPPlatform.setUserPreference(e, a), n[e] && LPPlatform.setGlobalPreference(e, a), s(e, a);
+        };
+      return {
+        getDefault: function (e) {
+          switch (typeof e) {
+            case "object":
+              var a = {},
+                n;
+              for (n in e) a[n] = t[n];
+              return a;
+            case "string":
+              return t[e];
+            default:
+              return null;
+          }
+        },
+        get: function (e, a) {
+          switch (typeof e) {
+            case "object":
+              var n = {},
+                i;
+              for (i in e) n[i] = r(i, a ? a[i] : void 0);
+              return n;
+            case "string":
+              return r(e, a);
+            default:
+              return null;
+          }
+        },
+        set: function (e, a) {
+          if ("object" == typeof e) for (var n in e) o(n, e[n]);
+          else o(e, a);
+          LPPlatform.writePreferences();
+        },
+        addListener: function (e, a) {
+          var n = i[e] || [];
+          n.push(a), (i[e] = n);
+        },
+        removeListener: function (e, a) {
+          var n = i[e] || [];
+          i[e] = n.filter(function (e) {
+            return e !== a;
+          });
+        },
+        triggerChange: s
+      };
+    })()),
+    (this && this.__extends) ||
+      (function () {
+        var i = function (e, a) {
+          return (i =
+            Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array
+              ? function (e, a) {
+                  e.__proto__ = a;
+                }
+              : function (e, a) {
+                  for (var n in a) a.hasOwnProperty(n) && (e[n] = a[n]);
+                }))(e, a);
+        };
+        return function (e, a) {
+          function n() {
+            this.constructor = e;
+          }
+          i(e, a), (e.prototype = null === a ? Object.create(a) : ((n.prototype = a.prototype), new n()));
+        };
+      })()),
   Migration = (function () {
     function e() {}
     return e;
@@ -32522,16 +32591,8 @@ var __extends =
   g_dopplastpass = !1,
   g_do_native_messaging = !0,
   g_disable_alternative_server = !1,
-  pollserver_url =
-    (this.lp_base =
-    original_base =
-    loglogin_url =
-    base_url =
-      (function (e, a) {
-        var n = -1 < navigator.userAgent.indexOf(" Electron/") && "LastpassApp" in (top || window);
-        return e;
-      })("https://lastpass.com/", !1)),
+  pollserver_url = (this.lp_base = original_base = loglogin_url = base_url = "https://lastpass.com/"),
   alp_url = "https://accounts.lastpass.com",
-  build_date = "Mon Oct 09 2023 20:31:23 GMT+0000 (Coordinated Universal Time)",
+  build_date = "Mon Dec 11 2023 20:38:49 GMT+0000 (Coordinated Universal Time)",
   g_cpwbot = !0,
   g_cpwbot_batch = !0;

@@ -76,7 +76,6 @@
               };
             }
           } catch (error) {
-            console.log(error);
             return {
               watchingAds: false,
               adDurationLeft: 0,
@@ -105,7 +104,6 @@
               return currentClosest != 0 ? currentClosest : undefined;
             }
           } catch (error) {
-            console.log(error);
             return undefined;
           }
         };
@@ -199,7 +197,8 @@
                 console.log("DOne Skip");
               }
             } catch (e) {
-              console.log(e);
+              return false;
+              // console.log(e);
             }
           });
         const getEpisodeInformation = () => {

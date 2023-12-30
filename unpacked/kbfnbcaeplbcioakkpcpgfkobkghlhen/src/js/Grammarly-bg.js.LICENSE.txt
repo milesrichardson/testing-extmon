@@ -50,6 +50,12 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
+/**
+ * @grammarly/base64 v0.1.0
+ * @copyright Grammarly, Inc. 2023
+ * @license UNLICENSED
+ */
+
 /** @license React v17.0.2
  * react.production.min.js
  *

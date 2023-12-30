@@ -146,7 +146,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, r) {
@@ -221,7 +222,7 @@
       t.d(e, "w", function () {
         return f;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return h;
       }),
       t.d(e, "a", function () {
@@ -245,44 +246,44 @@
       t.d(e, "x", function () {
         return b;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return S;
       }),
-      t.d(e, "Y", function () {
-        return x;
-      }),
-      t.d(e, "u", function () {
+      t.d(e, "Z", function () {
         return E;
       }),
-      t.d(e, "N", function () {
+      t.d(e, "u", function () {
         return O;
       }),
+      t.d(e, "N", function () {
+        return x;
+      }),
       t.d(e, "e", function () {
-        return I;
-      }),
-      t.d(e, "p", function () {
-        return P;
-      }),
-      t.d(e, "W", function () {
         return A;
       }),
-      t.d(e, "fb", function () {
+      t.d(e, "p", function () {
+        return I;
+      }),
+      t.d(e, "X", function () {
+        return P;
+      }),
+      t.d(e, "gb", function () {
         return L;
       }),
-      t.d(e, "ab", function () {
-        return M;
-      }),
-      t.d(e, "cb", function () {
+      t.d(e, "bb", function () {
         return j;
       }),
       t.d(e, "db", function () {
+        return M;
+      }),
+      t.d(e, "eb", function () {
         return T;
       }),
-      t.d(e, "R", function () {
-        return F;
+      t.d(e, "S", function () {
+        return G;
       }),
       t.d(e, "Q", function () {
-        return G;
+        return F;
       }),
       t.d(e, "b", function () {
         return R;
@@ -290,14 +291,14 @@
       t.d(e, "P", function () {
         return D;
       }),
-      t.d(e, "hb", function () {
+      t.d(e, "ib", function () {
         return k;
       }),
       t.d(e, "g", function () {
-        return U;
+        return q;
       }),
       t.d(e, "M", function () {
-        return q;
+        return U;
       }),
       t.d(e, "B", function () {
         return H;
@@ -308,13 +309,13 @@
       t.d(e, "D", function () {
         return Q;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return B;
       }),
       t.d(e, "r", function () {
         return W;
       }),
-      t.d(e, "V", function () {
+      t.d(e, "W", function () {
         return Y;
       }),
       t.d(e, "f", function () {
@@ -335,7 +336,7 @@
       t.d(e, "s", function () {
         return Z;
       }),
-      t.d(e, "bb", function () {
+      t.d(e, "cb", function () {
         return $;
       }),
       t.d(e, "J", function () {
@@ -347,13 +348,13 @@
       t.d(e, "K", function () {
         return re;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return ne;
       }),
       t.d(e, "n", function () {
         return oe;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ie;
       }),
       t.d(e, "m", function () {
@@ -365,7 +366,7 @@
       t.d(e, "A", function () {
         return ue;
       }),
-      t.d(e, "S", function () {
+      t.d(e, "T", function () {
         return se;
       }),
       t.d(e, "k", function () {
@@ -383,8 +384,11 @@
       t.d(e, "l", function () {
         return he;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return _e;
+      }),
+      t.d(e, "R", function () {
+        return me;
       });
     var e = t(3),
       r = t.n(e),
@@ -481,19 +485,19 @@
         u(i.a.SetProfileType, {
           type: e
         }),
-      x = (e = !1) =>
+      E = (e = !1) =>
         u(i.a.SetShowEquatioOnFirstRun, {
           value: e
         }),
-      E = () => u(i.a.GetShouldShowEquatioOnFirstRun),
-      O = (e, t = null) =>
+      O = () => u(i.a.GetShouldShowEquatioOnFirstRun),
+      x = (e, t = null) =>
         u(i.a.RegisterCompanionAppTarget, {
           platform: e,
           hostname: t
         }),
-      I = () => u(i.a.DisconnectCompanionDoc),
-      P = () => u(i.a.GetHandwritingCount),
-      A = (e) =>
+      A = () => u(i.a.DisconnectCompanionDoc),
+      I = () => u(i.a.GetHandwritingCount),
+      P = (e) =>
         u(i.a.SetHandwritingCount, {
           count: e
         }),
@@ -501,14 +505,14 @@
         u(i.a.UpdateGoogleSheetEquations, {
           spreadsheetId: e
         }),
-      M = () => u(i.a.ShowHandwritingExceededReminder),
-      j = () => u(i.a.ShowPredictionReminder),
+      j = () => u(i.a.ShowHandwritingExceededReminder),
+      M = () => u(i.a.ShowPredictionReminder),
       T = () => u(i.a.ShowReviewReminder),
-      F = (e) =>
+      G = (e) =>
         u(i.a.SendAnalyticsScreen, {
           screenName: e
         }),
-      G = (e, t = 0, r) =>
+      F = (e, t = 0, r) =>
         u(i.a.SendAnalyticsEvent, {
           category: e,
           value: t,
@@ -524,8 +528,8 @@
           url: e,
           base64: t
         }),
-      U = () => u(i.a.DismissReviewReminder),
-      q = (function () {
+      q = () => u(i.a.DismissReviewReminder),
+      U = (function () {
         var t = r()(
           o.a.mark(function e(t) {
             var r, n;
@@ -691,7 +695,20 @@
         u(i.a.GenerateMathQuestions, {
           options: e
         }),
-      _e = () => u(i.a.ShowFormsGeneratorUi);
+      _e = () => u(i.a.ShowFormsGeneratorUi),
+      me = (e, t, r, n) => {
+        let o = "";
+        return (
+          window && window.location && (o = window.location.href),
+          u(i.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: r,
+            eventProps: n,
+            url: o
+          })
+        );
+      };
   },
   406: function (e, t, r) {
     "use strict";
@@ -722,7 +739,7 @@
                     chrome.storage.sync.get("courseraPopupSeen", ({ courseraPopupSeen: e }) => {
                       chrome.runtime.lastError ||
                         e ||
-                        (Object(i.bb)("partner"),
+                        (Object(i.cb)("partner"),
                         chrome.storage.sync.set({
                           courseraPopupSeen: !0
                         }));
@@ -830,7 +847,9 @@
                           "boolean" == typeof t && (n = t ? "block" : "none"),
                           (r.style.display = n),
                           m(),
-                          "block" === r.style.display && Object(a.a)(),
+                          "block" === r.style.display
+                            ? (Object(i.R)("ApplicationOpened", "Application", "NA"), Object(a.a)())
+                            : Object(i.R)("ApplicationClosed", "Application", "NA"),
                           s(),
                           (e.next = 27))
                         : (e.next = 13);
@@ -934,16 +953,16 @@
         "load_equatio_api_toolbar" === e && v();
       });
   },
-  46: function (I, e, t) {
-    var P = t(23).default;
-    function A() {
+  46: function (A, e, t) {
+    var I = t(23).default;
+    function P() {
       "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-      (I.exports = A =
+      (A.exports = P =
         function () {
           return a;
         }),
-        (I.exports.__esModule = !0),
-        (I.exports.default = I.exports);
+        (A.exports.__esModule = !0),
+        (A.exports.default = A.exports);
       var a = {},
         e = Object.prototype,
         u = e.hasOwnProperty,
@@ -975,7 +994,7 @@
         };
       }
       function s(e, t, r, n) {
-        (t = t && t.prototype instanceof p ? t : p), (t = Object.create(t.prototype)), (n = new x(n || []));
+        (t = t && t.prototype instanceof p ? t : p), (t = Object.create(t.prototype)), (n = new E(n || []));
         return (
           o(t, "_invoke", {
             value: y(e, r, n)
@@ -1007,7 +1026,7 @@
             return this;
           }),
           Object.getPrototypeOf),
-        _ = _ && _(_(E([]))),
+        _ = _ && _(_(O([]))),
         m = (_ && _ !== e && u.call(_, n) && (t = _), (h.prototype = p.prototype = Object.create(t)));
       function g(e) {
         ["next", "throw", "return"].forEach(function (t) {
@@ -1021,7 +1040,7 @@
           var o,
             e = l(i[e], i, t);
           if ("throw" !== e.type)
-            return (t = (o = e.arg).value) && "object" == P(t) && u.call(t, "__await")
+            return (t = (o = e.arg).value) && "object" == I(t) && u.call(t, "__await")
               ? a.resolve(t.__await).then(
                   function (e) {
                     c("next", e, r, n);
@@ -1058,7 +1077,7 @@
           if ("executing" === a) throw new Error("Generator is already running");
           if ("completed" === a) {
             if ("throw" === e) throw t;
-            return O();
+            return x();
           }
           for (i.method = e, i.arg = t; ; ) {
             var r = i.delegate;
@@ -1117,7 +1136,7 @@
         var t = e.completion || {};
         (t.type = "normal"), delete t.arg, (e.completion = t);
       }
-      function x(e) {
+      function E(e) {
         (this.tryEntries = [
           {
             tryLoc: "root"
@@ -1126,7 +1145,7 @@
           e.forEach(b, this),
           this.reset(!0);
       }
-      function E(t) {
+      function O(t) {
         if (t) {
           var r,
             e = t[n];
@@ -1142,10 +1161,10 @@
             );
         }
         return {
-          next: O
+          next: x
         };
       }
-      function O() {
+      function x() {
         return {
           value: void 0,
           done: !0
@@ -1216,9 +1235,9 @@
             }
           );
         }),
-        (a.values = E),
-        (x.prototype = {
-          constructor: x,
+        (a.values = O),
+        (E.prototype = {
+          constructor: E,
           reset: function (e) {
             if (
               ((this.prev = 0),
@@ -1304,7 +1323,7 @@
           delegateYield: function (e, t, r) {
             return (
               (this.delegate = {
-                iterator: E(e),
+                iterator: O(e),
                 resultName: t,
                 nextLoc: r
               }),
@@ -1316,7 +1335,7 @@
         a
       );
     }
-    (I.exports = A), (I.exports.__esModule = !0), (I.exports.default = I.exports);
+    (A.exports = P), (A.exports.__esModule = !0), (A.exports.default = A.exports);
   },
   47: function (e, t, r) {
     var n = r(23).default,

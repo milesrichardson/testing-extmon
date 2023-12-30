@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "अ‍ॅप्स"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 एक्सटेंशन समर्थनाचा अंत्यबिंदू"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "15 जानेवारी 2024 पासून, हा एक्सटेंशन Microsoft द्वारे समर्थित नसेल."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "अधिक माहितीसाठी, कृपया या एक्सटेंशनसाठी समर्थन पृष्ठाला भेट द्या."
+  },
+  "Support": {
+    "message": "समर्थन"
   }
 }

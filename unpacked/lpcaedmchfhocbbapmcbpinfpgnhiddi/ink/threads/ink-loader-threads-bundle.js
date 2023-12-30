@@ -408,35 +408,35 @@ var inkLoadWasmModule = (() => {
       return {};
     }
     var ASM_CONSTS = {
-      302104: ($0, $1, $2, $3) => setTimeout(() => window.inkWasmRegistry[$3].dynCall_vi($1, $2), $0),
-      302185: ($0) => {
+      302040: ($0, $1, $2, $3) => setTimeout(() => window.inkWasmRegistry[$3].dynCall_vi($1, $2), $0),
+      302121: ($0) => {
         clearTimeout($0);
       },
-      302207: ($0, $1) => {
+      302143: ($0, $1) => {
         window.inkHostRegistry[$1].setTargetFPS($0);
       },
-      302256: ($0) => {
+      302192: ($0) => {
         window.inkHostRegistry[$0].bindScreen();
       },
-      302301: ($0, $1) => {
+      302237: ($0, $1) => {
         window.inkHostRegistry[$1].requestImage(UTF8ToString($0));
       },
-      302364: ($0, $1, $2, $3) => {
+      302300: ($0, $1, $2, $3) => {
         window.inkHostRegistry[$3].setCursor($0, $1, $2);
       },
-      302418: ($0, $1, $2) => {
+      302354: ($0, $1, $2) => {
         window.inkHostRegistry[$2].navigateToUri(UTF8ToString($0, $1));
       },
-      302486: ($0, $1) => {
+      302422: ($0, $1) => {
         window.inkHostRegistry[$1].setKeyboardMode($0);
       },
-      302538: ($0) => window.inkHostRegistry[$0].shouldPreloadShaders(),
-      302600: ($0) => window.inkHostRegistry[$0].shouldRegisterDocument(),
-      302664: ($0, $1, $2, $3, $4, $5) => {
+      302474: ($0) => window.inkHostRegistry[$0].shouldPreloadShaders(),
+      302536: ($0) => window.inkHostRegistry[$0].shouldRegisterDocument(),
+      302600: ($0, $1, $2, $3, $4, $5) => {
         const buf = window.inkHostRegistry[$5].renderText(GROWABLE_HEAP_U8().subarray($0, $0 + $1), $2, $3);
         GROWABLE_HEAP_I8().set(buf, $4);
       },
-      302778: ($0, $1, $2, $3, $4, $5) => {
+      302714: ($0, $1, $2, $3, $4, $5) => {
         window.inkHostRegistry[$0]
           .getFontData(UTF8ToString($1, $2))
           .then(function (fontBytesOrError) {
@@ -465,10 +465,10 @@ var inkLoadWasmModule = (() => {
             Atomics.notify(GROWABLE_HEAP_I32(), $5 >> 2);
           });
       },
-      303571: ($0) => {
+      303507: ($0) => {
         Atomics.wait(GROWABLE_HEAP_I32(), $0 >> 2, 0);
       },
-      303611: ($0, $1, $2, $3, $4, $5) => {
+      303547: ($0, $1, $2, $3, $4, $5) => {
         const name = window.inkHostRegistry[$0].selectMatchingFont(UTF8ToString($1, $2), $3, !!$4, $5);
         if (name) {
           const size = lengthBytesUTF8(name) + 1;
@@ -478,10 +478,10 @@ var inkLoadWasmModule = (() => {
         }
         return 0;
       },
-      303867: ($0, $1, $2) => {
+      303803: ($0, $1, $2) => {
         window.inkHostRegistry[$2].onSceneChange(new Uint8Array(GROWABLE_HEAP_U8().subarray($0, $0 + $1)));
       },
-      303960: ($0, $1, $2, $3, $4, $5, $6, $7, $8) => {
+      303896: ($0, $1, $2, $3, $4, $5, $6, $7, $8) => {
         window.inkHostRegistry[$8].onImageExported(
           $0,
           $1,
@@ -492,49 +492,49 @@ var inkLoadWasmModule = (() => {
           UTF8ToString($7)
         );
       },
-      304100: ($0, $1, $2) => {
+      304036: ($0, $1, $2) => {
         window.inkHostRegistry[$2].onToolEvent(new Uint8Array(GROWABLE_HEAP_U8().subarray($0, $0 + $1)));
       },
-      304191: ($0, $1) => {
+      304127: ($0, $1) => {
         window.inkHostRegistry[$1].onSequencePointReached($0);
       },
-      304250: ($0, $1, $2) => {
+      304186: ($0, $1, $2) => {
         window.inkHostRegistry[$2].onFlagChanged($0, !!$1);
       },
-      304306: ($0) => {
+      304242: ($0) => {
         window.inkHostRegistry[$0].onCameraChanged();
       },
-      304356: ($0, $1) => {
+      304292: ($0, $1) => {
         window.inkHostRegistry[$1].onCameraMovementStateChanged(!!$0);
       },
-      304423: ($0, $1) => {
+      304359: ($0, $1) => {
         window.inkHostRegistry[$1].onBlockingStateChanged(!!$0);
       },
-      304484: ($0) => {
+      304420: ($0) => {
         window.inkHostRegistry[$0].onInvisibleLayerActionPrevented();
       },
-      304550: ($0, $1, $2) => {
+      304486: ($0, $1, $2) => {
         window.inkHostRegistry[$2].onPdfLoadSuccess(new Uint8Array(GROWABLE_HEAP_U8().subarray($0, $0 + $1)));
       },
-      304646: ($0) => {
+      304582: ($0) => {
         window.inkHostRegistry[$0].onPdfLoadPasswordRequired();
       },
-      304706: ($0, $1, $2) => {
+      304642: ($0, $1, $2) => {
         window.inkHostRegistry[$2].onPdfLoadFailure(UTF8ToString($0, $1));
       },
-      304777: ($0, $1, $2, $3) => {
+      304713: ($0, $1, $2, $3) => {
         window.inkHostRegistry[$3].onPdfSaveSuccess($0, new Uint8Array(GROWABLE_HEAP_U8().subarray($1, $1 + $2)));
       },
-      304877: ($0, $1, $2, $3) => {
+      304813: ($0, $1, $2, $3) => {
         window.inkHostRegistry[$3].onPdfSaveFailure($0, UTF8ToString($1, $2));
       },
-      304952: ($0, $1) => {
+      304888: ($0, $1) => {
         window.inkHostRegistry[$0].onPdfUnsupportedFeature($1);
       },
-      305012: ($0) => {
+      304948: ($0) => {
         window.inkHostRegistry[$0].onPdfFormChanged();
       },
-      305063: ($0, $1, $2, $3, $4, $5, $6, $7) => {
+      304999: ($0, $1, $2, $3, $4, $5, $6, $7) => {
         window.inkHostRegistry[$0].onPdfFormFieldFocused(
           $1,
           new Uint8Array(GROWABLE_HEAP_U8().subarray($2, $2 + $3)),
@@ -543,32 +543,31 @@ var inkLoadWasmModule = (() => {
           UTF8ToString($6, $7)
         );
       },
-      305200: ($0, $1, $2) => {
+      305136: ($0, $1, $2) => {
         window.inkHostRegistry[$2].onPdfFormTextFieldFocusChanged(true, UTF8ToString($0, $1));
       },
-      305292: ($0) => {
+      305228: ($0) => {
         window.inkHostRegistry[$0].onPdfFormTextFieldFocusChanged(false);
       },
-      305362: ($0, $1) => {
+      305298: ($0, $1) => {
         window.inkHostRegistry[$1].onPendingTexturesChanged(!!$0);
       },
-      305425: ($0, $1, $2) => {
-        if (Module.canvas) {
-          const gl = Module.canvas.getContext("webgl");
-          if (gl) {
-            const di = gl.getExtension("WEBGL_debug_renderer_info");
-            if (di) {
-              stringToUTF8(gl.getParameter(di.UNMASKED_RENDERER_WEBGL), $0, $2);
-              stringToUTF8(gl.getParameter(di.UNMASKED_VENDOR_WEBGL), $1, $2);
-            }
+      305361: ($0, $1, $2) => {
+        const canvas = self.WorkerGlobalScope ? new OffscreenCanvas(128, 128) : document.createElement("canvas");
+        const gl = canvas.getContext("webgl");
+        if (gl) {
+          const di = gl.getExtension("WEBGL_debug_renderer_info");
+          if (di) {
+            stringToUTF8(gl.getParameter(di.UNMASKED_RENDERER_WEBGL), $0, $2);
+            stringToUTF8(gl.getParameter(di.UNMASKED_VENDOR_WEBGL), $1, $2);
           }
         }
       },
-      305711: () => !!Module.ctx,
-      305733: () => {
+      305723: () => !!Module.ctx,
+      305745: () => {
         debugger;
       },
-      305746: () => typeof wasmOffsetConverter !== "undefined"
+      305758: () => typeof wasmOffsetConverter !== "undefined"
     };
     function em_severity_log(severity, severityName, message) {
       if (typeof globalThis === "object" && typeof globalThis["Module"] === "object" && typeof globalThis["Module"]["log"] === "function") {
@@ -7337,32 +7336,32 @@ var inkLoadWasmModule = (() => {
       _fd_write
     ];
     var wasmImports = {
-      C: HaveOffsetConverter,
+      E: HaveOffsetConverter,
       db: ___emscripten_init_main_thread_js,
-      J: ___emscripten_thread_cleanup,
+      K: ___emscripten_thread_cleanup,
       ab: ___pthread_create_js,
       ib: ___syscall_openat,
       cd: __embind_finalize_value_array,
-      Q: __embind_finalize_value_object,
+      B: __embind_finalize_value_object,
       Va: __embind_register_bigint,
       sb: __embind_register_bool,
-      f: __embind_register_class,
+      g: __embind_register_class,
       i: __embind_register_class_constructor,
       d: __embind_register_class_function,
       e: __embind_register_class_property,
       Sa: __embind_register_emval,
       j: __embind_register_enum,
       c: __embind_register_enum_value,
-      K: __embind_register_float,
-      w: __embind_register_function,
-      s: __embind_register_integer,
-      k: __embind_register_memory_view,
-      I: __embind_register_std_string,
+      L: __embind_register_float,
+      v: __embind_register_function,
+      t: __embind_register_integer,
+      m: __embind_register_memory_view,
+      J: __embind_register_std_string,
       A: __embind_register_std_wstring,
       xd: __embind_register_value_array,
-      S: __embind_register_value_array_element,
-      R: __embind_register_value_object,
-      t: __embind_register_value_object_field,
+      R: __embind_register_value_array_element,
+      C: __embind_register_value_object,
+      r: __embind_register_value_object_field,
       Db: __embind_register_void,
       lb: __emscripten_get_now_is_monotonic,
       _a: __emscripten_notify_mailbox_postmessage,
@@ -7371,25 +7370,25 @@ var inkLoadWasmModule = (() => {
       fb: __emscripten_thread_set_strongref,
       Za: __emscripten_throw_longjmp,
       q: __emval_as,
-      F: __emval_call,
-      x: __emval_call_method,
-      g: __emval_decref,
-      B: __emval_get_global,
-      y: __emval_get_method_caller,
-      m: __emval_get_property,
-      o: __emval_incref,
-      _e: __emval_instanceof,
+      S: __emval_call,
+      w: __emval_call_method,
+      f: __emval_decref,
+      D: __emval_get_global,
+      x: __emval_get_method_caller,
+      n: __emval_get_property,
+      l: __emval_incref,
+      Qe: __emval_instanceof,
       Fe: __emval_new,
-      n: __emval_new_cstring,
-      l: __emval_run_destructors,
-      r: __emval_take_value,
+      o: __emval_new_cstring,
+      k: __emval_run_destructors,
+      s: __emval_take_value,
       Ua: __munmap_js,
       b: _abort,
-      E: _eglChooseConfig,
+      G: _eglChooseConfig,
       Ha: _eglCreateContext,
       Ga: _eglCreateWindowSurface,
-      H: _eglDestroyContext,
-      G: _eglDestroySurface,
+      I: _eglDestroyContext,
+      H: _eglDestroySurface,
       Ja: _eglGetCurrentContext,
       La: _eglGetCurrentDisplay,
       z: _eglGetCurrentSurface,
@@ -7399,11 +7398,11 @@ var inkLoadWasmModule = (() => {
       Na: _eglReleaseThread,
       Oa: _eglSwapBuffers,
       Fa: em_severity_log,
-      v: _emscripten_asm_const_int,
+      y: _emscripten_asm_const_int,
       h: _emscripten_asm_const_int_sync_on_main_thread,
-      L: _emscripten_check_blocking_allowed,
-      P: _emscripten_date_now,
-      D: _emscripten_errn,
+      M: _emscripten_check_blocking_allowed,
+      Q: _emscripten_date_now,
+      F: _emscripten_errn,
       eb: _emscripten_exit_with_live_runtime,
       Wa: _emscripten_get_heap_max,
       p: _emscripten_get_now,
@@ -7517,23 +7516,23 @@ var inkLoadWasmModule = (() => {
       dc: _emscripten_glGetActiveUniformBlockName,
       ec: _emscripten_glGetActiveUniformBlockiv,
       gc: _emscripten_glGetActiveUniformsiv,
-      Ze: _emscripten_glGetAttachedShaders,
-      Ye: _emscripten_glGetAttribLocation,
-      Xe: _emscripten_glGetBooleanv,
+      _e: _emscripten_glGetAttachedShaders,
+      Ze: _emscripten_glGetAttribLocation,
+      Ye: _emscripten_glGetBooleanv,
       Tb: _emscripten_glGetBufferParameteri64v,
-      We: _emscripten_glGetBufferParameteriv,
-      Ve: _emscripten_glGetError,
-      Ue: _emscripten_glGetFloatv,
+      Xe: _emscripten_glGetBufferParameteriv,
+      We: _emscripten_glGetError,
+      Ve: _emscripten_glGetFloatv,
       wc: _emscripten_glGetFragDataLocation,
-      Te: _emscripten_glGetFramebufferAttachmentParameteriv,
+      Ue: _emscripten_glGetFramebufferAttachmentParameteriv,
       Ub: _emscripten_glGetInteger64i_v,
       Wb: _emscripten_glGetInteger64v,
       Lc: _emscripten_glGetIntegeri_v,
-      Se: _emscripten_glGetIntegerv,
+      Te: _emscripten_glGetIntegerv,
       tb: _emscripten_glGetInternalformativ,
       Ab: _emscripten_glGetProgramBinary,
-      Qe: _emscripten_glGetProgramInfoLog,
-      Re: _emscripten_glGetProgramiv,
+      Re: _emscripten_glGetProgramInfoLog,
+      Se: _emscripten_glGetProgramiv,
       qa: _emscripten_glGetQueryObjecti64vEXT,
       sa: _emscripten_glGetQueryObjectivEXT,
       pa: _emscripten_glGetQueryObjectui64vEXT,
@@ -7690,10 +7689,10 @@ var inkLoadWasmModule = (() => {
       jb: _environ_get,
       kb: _environ_sizes_get,
       $a: _exit,
-      O: _fd_close,
-      M: _fd_read,
+      P: _fd_close,
+      N: _fd_read,
       Ta: _fd_seek,
-      N: _fd_write,
+      O: _fd_write,
       Ea: _getentropy,
       Ra: invoke_ii,
       Qa: invoke_iii,
@@ -7868,8 +7867,8 @@ var inkLoadWasmModule = (() => {
       (dynCall_iiiiijj = Module["dynCall_iiiiijj"] = wasmExports["Ch"])(a0, a1, a2, a3, a4, a5, a6, a7, a8));
     var dynCall_iiiiiijj = (Module["dynCall_iiiiiijj"] = (a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) =>
       (dynCall_iiiiiijj = Module["dynCall_iiiiiijj"] = wasmExports["Dh"])(a0, a1, a2, a3, a4, a5, a6, a7, a8, a9));
-    var ___start_em_js = (Module["___start_em_js"] = 329864);
-    var ___stop_em_js = (Module["___stop_em_js"] = 330387);
+    var ___start_em_js = (Module["___start_em_js"] = 329872);
+    var ___stop_em_js = (Module["___stop_em_js"] = 330395);
     function invoke_vii(index, a1, a2) {
       var sp = stackSave();
       try {

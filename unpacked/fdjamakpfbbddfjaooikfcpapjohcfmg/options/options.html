@@ -25,10 +25,56 @@
           <span>Fallback on the legacy login flow. Reload the extension after updating.</span></label
         >
       </form>
+      <form id="staging-options-form" class="hidden">
+        <h2>Staging Servers</h2>
+        <label class="checkbox-field"
+          ><input type="checkbox" class="toggle-input sr-only" name="target-staging-api" id="target-staging-api" />
+          <div class="checkbox-item"></div>
+          <span>Target staging API servers</span> <span id="staging-saved-api" class="save-checkmark-hidden"></span
+        ></label>
+        <fieldset id="staging-urls-fieldset-api" class="hidden">
+          <legend>Settings for API staging (all fields required)</legend>
+          <label class="text-field"
+            ><span>API Staging URL</span>
+            <input name="staging-url-api" id="staging-url-api" placeholder="https://api--my-branch.staging.dashlane.com"
+          /></label>
+          <label class="text-field"
+            ><span>API Cloudflare Access Key</span> <input name="staging-cloudflare-access-key-api" id="staging-cloudflare-access-key-api"
+          /></label>
+          <label class="text-field"
+            ><span>API Cloudflare Secret Key</span> <input name="staging-cloudflare-secret-key-api" id="staging-cloudflare-secret-key-api"
+          /></label>
+          <span>A staging URL for WS1 endpoints will be deduced from the API Staging URL value</span>
+        </fieldset>
+        <label class="checkbox-field"
+          ><input type="checkbox" class="toggle-input sr-only" name="target-staging-nitro" id="target-staging-nitro" disabled="disabled" />
+          <div class="checkbox-item"></div>
+          <span>Target staging Enclave (Nitro) servers</span> <span id="staging-saved-nitro" class="save-checkmark-hidden"></span
+        ></label>
+        <fieldset id="staging-urls-fieldset-nitro" class="hidden">
+          <legend>Settings for Enclave API staging (all fields required)</legend>
+          <label class="text-field"
+            ><span>Nitro Staging URL</span>
+            <input name="staging-url-nitro" id="staging-url-nitro" placeholder="https://nitro--my-branch.staging.dashlane.com"
+          /></label>
+          <label class="text-field"
+            ><span>Nitro Cloudflare Access Key</span>
+            <input name="staging-cloudflare-access-key-nitro" id="staging-cloudflare-access-key-nitro"
+          /></label>
+          <label class="text-field"
+            ><span>Nitro Cloudflare Secret Key</span>
+            <input name="staging-cloudflare-secret-key-nitro" id="staging-cloudflare-secret-key-nitro"
+          /></label>
+          <span></span>
+        </fieldset>
+      </form>
       <h2>Extension information</h2>
       <ul>
         <li>
           <p>Version:<span class="version-info" id="version"></span></p>
+        </li>
+        <li>
+          <p>Build type:<span class="version-info" id="build-type"></span></p>
         </li>
         <li>
           <p>Version Name:<span class="version-info" id="version-name"></span></p>

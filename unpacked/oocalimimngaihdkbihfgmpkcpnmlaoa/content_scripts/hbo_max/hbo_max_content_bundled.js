@@ -222,11 +222,11 @@
       },
       7206: (t) => {
         t.exports =
-          '<div id="chat-wrapper" tpInjected>\r\n    <iframe style="display: none;" id="tpChatFrame" allow="autoplay; clipboard-read; clipboard-write; payment; camera; microphone;" src="{CHAT_URL}">\r\n\r\n    </iframe>\r\n</div>';
+          '<div id="chat-wrapper" tpInjected>\n    <iframe style="display: none;" id="tpChatFrame" allow="autoplay; clipboard-read; clipboard-write; payment; camera; microphone;" src="{CHAT_URL}">\n\n    </iframe>\n</div>';
       },
       4296: (t) => {
         t.exports =
-          '<style tpInjected>\r\n    .hidden {\r\n    display: none !important;\r\n}   \r\n</style>\r\n<div class="hidden" id="tpIconContainer" tpInjected>\r\n    <div class="hidden" id="tp-buttons-container">\r\n        <button id="tp-icon-container">\r\n            <img id="tp-icon-white" src=\'{EXTENSION_LOGO_GRADIENT}\' />\r\n            <img id="play-chat-icon" class="hidden" src=\'{PLAY_CHAT}\' />\r\n            <span class="tooltiptext extension-txt" style="width: 120px;">Open Teleparty</span>\r\n            <div class="hidden" id="tp-message-indicator"></div>\r\n        </button>\r\n        <div class="tp-seperator"></div>\r\n        \x3c!-- <button class="tp-control-button" id="tp-friends-button">\r\n            <img id="tp-friends-image" src=\'{FRIENDS_IMAGE}\' />\r\n            <span class="tooltiptext extension-txt" style="width: 120px;"> Friends List</span>\r\n        </button> --\x3e\r\n        <div class="hidden" id="tp-party-active">\r\n            <button class="tp-control-button" id="tp-link-button">\r\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_IMAGE}\' />\r\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_ACTIVE_IMAGE}\' />\r\n                <span class="tooltiptext extension-txt" style="width: 120px;">Copy link</span>\r\n            </button>\r\n            <button class="tp-control-button" id="tp-chat-button">\r\n                <img id="tp-chat-reset" class="tp-center-image hidden" data-tp-id="overlay-reset_chat" src=\'{RESET_CHAT_IMAGE}\' />\r\n                <img id="tp-chat-hidden" class="tp-button-image tp-center-image" src=\'{CHAT_HIDDEN_IMAGE}\' />\r\n                <img id="tp-chat-gray" class="hidden tp-button-image tp-center-image" src=\'{CHAT_GRAY_IMAGE}\' />\r\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-show_chat" src=\'{CHAT_ACTIVE_IMAGE}\' />\r\n                <div class="hidden" id="tp-message-indicator"></div>\r\n                <span class="tooltiptext extension-txt" style="width: 120px;">Show chat</span>\r\n            </button>\r\n            <button class="tp-control-button" id="tp-disconnect-button">\r\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-leave_party"\r\n                    src=\'{DISCONNECT_IMAGE}\' />\r\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-leave_party" src=\'{DISCONNECT_IMAGE}\' />\r\n                <span class="tooltiptext extension-txt" style="width: 120px;">Leave Party</span>\r\n            </button>\r\n        </div>\r\n    </div>\r\n    \x3c!-- <button class="hidden tp-control-button" id="tp-chat-close-button">\r\n        <img id="tp-start-image" data-tp-id="overlay-hide_chat" src=\'{ARROW_RIGHT}\' />\r\n        <span class="tooltiptext extension-txt" style="width: 100px;">Hide chat</span>\r\n    </button> --\x3e\r\n    <div id="tp-error-box" class="hidden">\r\n        <p class="extension-txt-indicator" id="tp-controls-error-text">\r\n            Failed to connect to background script. Please Try again later\r\n        </p>\r\n    </div>\r\n</div>';
+          '<style tpInjected>\n    .hidden {\n    display: none !important;\n}   \n</style>\n<div class="hidden" id="tpIconContainer" tpInjected>\n    <div class="hidden" id="tp-buttons-container">\n        <button id="tp-icon-container">\n            <img id="tp-icon-white" src=\'{EXTENSION_LOGO_GRADIENT}\' />\n            <img id="play-chat-icon" class="hidden" src=\'{PLAY_CHAT}\' />\n            <span class="tooltiptext extension-txt" style="width: 120px;">Open Teleparty</span>\n            <div class="hidden" id="tp-message-indicator"></div>\n        </button>\n        <div class="tp-seperator"></div>\n        \x3c!-- <button class="tp-control-button" id="tp-friends-button">\n            <img id="tp-friends-image" src=\'{FRIENDS_IMAGE}\' />\n            <span class="tooltiptext extension-txt" style="width: 120px;"> Friends List</span>\n        </button> --\x3e\n        <div class="hidden" id="tp-party-active">\n            <button class="tp-control-button" id="tp-link-button">\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_IMAGE}\' />\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_ACTIVE_IMAGE}\' />\n                <span class="tooltiptext extension-txt" style="width: 120px;">Copy link</span>\n            </button>\n            <button class="tp-control-button" id="tp-chat-button">\n                <img id="tp-chat-reset" class="tp-center-image hidden" data-tp-id="overlay-reset_chat" src=\'{RESET_CHAT_IMAGE}\' />\n                <img id="tp-chat-hidden" class="tp-button-image tp-center-image" src=\'{CHAT_HIDDEN_IMAGE}\' />\n                <img id="tp-chat-gray" class="hidden tp-button-image tp-center-image" src=\'{CHAT_GRAY_IMAGE}\' />\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-show_chat" src=\'{CHAT_ACTIVE_IMAGE}\' />\n                <div class="hidden" id="tp-message-indicator"></div>\n                <span class="tooltiptext extension-txt" style="width: 120px;">Show chat</span>\n            </button>\n            <button class="tp-control-button" id="tp-disconnect-button">\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-leave_party"\n                    src=\'{DISCONNECT_IMAGE}\' />\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-leave_party" src=\'{DISCONNECT_IMAGE}\' />\n                <span class="tooltiptext extension-txt" style="width: 120px;">Leave Party</span>\n            </button>\n        </div>\n    </div>\n    \x3c!-- <button class="hidden tp-control-button" id="tp-chat-close-button">\n        <img id="tp-start-image" data-tp-id="overlay-hide_chat" src=\'{ARROW_RIGHT}\' />\n        <span class="tooltiptext extension-txt" style="width: 100px;">Hide chat</span>\n    </button> --\x3e\n    <div id="tp-error-box" class="hidden">\n        <p class="extension-txt-indicator" id="tp-controls-error-text">\n            Failed to connect to background script. Please Try again later\n        </p>\n    </div>\n</div>';
       }
     },
     e = {};
@@ -246,145 +246,48 @@
     (i.o = (t, e) => Object.prototype.hasOwnProperty.call(t, e)),
     (() => {
       "use strict";
-      var t,
-        e = function (t, e, i, n) {
-          return new (i || (i = Promise))(function (s, u) {
-            function o(t) {
-              try {
-                a(n.next(t));
-              } catch (t) {
-                u(t);
-              }
+      var t = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              a(n.next(t));
+            } catch (t) {
+              u(t);
             }
-            function r(t) {
-              try {
-                a(n.throw(t));
-              } catch (t) {
-                u(t);
-              }
+          }
+          function r(t) {
+            try {
+              a(n.throw(t));
+            } catch (t) {
+              u(t);
             }
-            function a(t) {
-              var e;
-              t.done
-                ? s(t.value)
-                : ((e = t.value),
-                  e instanceof i
-                    ? e
-                    : new i(function (t) {
-                        t(e);
-                      })).then(o, r);
-            }
-            a((n = n.apply(t, e || [])).next());
-          });
-        };
-      !(function (t) {
-        (t.EPISODE = "episode"), (t.FEATURE = "feature"), (t.LIVE = "live"), (t.EXTRA = "extra"), (t.EVENT = "event"), (t.OTHER = "other");
-      })(t || (t = {}));
-      var n;
-      function s(e) {
-        return e.includes("urn:hbo:feature")
-          ? t.FEATURE
-          : e.includes("urn:hbo:episode") || (e.includes("urn:hbo:page:") && e.includes(":type:episode"))
-          ? t.EPISODE
-          : e.includes("urn:hbo:extra")
-          ? t.EXTRA
-          : t.OTHER;
-      }
-      function u(t) {
-        return function () {
-          return new Promise((e) => {
-            setTimeout(() => {
-              e();
-            }, t);
-          });
-        };
-      }
-      function o(t, e, i) {
-        const { width: n, height: s, left: u, top: o } = t.getBoundingClientRect(),
-          r = u + n * e,
-          a = o + s / 2,
-          c = document.createEvent("MouseEvents");
-        c.initMouseEvent(i, !0, !0, window, 0, 0, 0, r, a, !1, !1, !1, !1, 0, null), t.dispatchEvent(c);
-      }
-      function r(t, e, i = 250) {
-        return function () {
-          const n = new Date().getTime(),
-            s = function () {
-              return t()
-                ? Promise.resolve()
-                : null !== e && new Date().getTime() - n > e
-                ? Promise.reject(new Error("delayUntil timed out: " + t))
-                : u(i)().then(s);
-            };
-          return s();
-        };
-      }
-      function a(t, e, i) {
-        t.push(e), t.length > i && t.splice(0, t.length - i);
-      }
-      function c(t) {
-        return t.concat().sort()[Math.floor(t.length / 2)];
-      }
-      !(function (t) {
-        (t.REGISTER = "register"), (t.PARTY_START = "party_start"), (t.PARTY_JOIN = "party_join"), (t.PARTY_END = "party_end");
-      })(n || (n = {}));
-      class D {
-        constructor() {
-          this.resetTasks(), (this.l = []), (this.p = 0), (this.g = Promise.resolve()), (this.v = !0);
-        }
-        createInstance() {
-          return new D();
-        }
-        pushTask(t, e) {
-          if (!this.v) return;
-          const i = { action: t, name: e };
-          0 === this.p && this.resetTasks(),
-            (this.p = this.l.push(i)),
-            (this.g = this.g.then(() => {
-              if (this.l.includes(i) && this.v)
-                return this.F(i)().then(() => {
-                  this.l.shift(), (this.p -= 1);
-                });
-            }));
-        }
-        disable() {
-          (this.v = !1), this.resetTasks();
-        }
-        resetTasks() {
-          (this.g = Promise.resolve()), (this.l = []), (this.p = 0);
-        }
-        F(t) {
-          return function () {
-            return t.action().catch(() => {});
-          };
-        }
-        get tasksInFlight() {
-          return this.p;
-        }
-        hasTaskInQueue(t) {
-          return this.l.some((e) => e.name === t);
-        }
-        removeTask(t) {
-          console.log(this.l),
-            (this.l = this.l.filter((e, i) => (e.name === t && 0 == i ? (console.error("Cannot filter active task"), !0) : e.name !== t))),
-            (this.p = this.l.length),
-            console.log(this.l);
-        }
-      }
-      const h = new D();
-      var d = console.log.bind(window.console);
-      const l = 340,
-        p = chrome.runtime.id,
-        g = "reactionContainerOpen",
-        v = "https://sessions.teleparty.com",
-        F = "https://redirect.teleparty.com",
-        y = F,
-        m = `${F}/sidebar`,
-        f = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
-        C = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
-        w = "recentlyUsedEmojiMap",
-        E = "redirectDataMap",
-        _ = [
+          }
+          function a(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          a((n = n.apply(t, e || [])).next());
+        });
+      };
+      const e = 340,
+        n = chrome.runtime.id,
+        s = "reactionContainerOpen",
+        u = "https://sessions.teleparty.com",
+        o = "https://redirect.teleparty.com",
+        r = o,
+        a = `${o}/sidebar`,
+        c = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
+        D = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
+        h = "recentlyUsedEmojiMap",
+        d = "redirectDataMap",
+        l = [
           {
             annotation: "face with tears of joy",
             group: 0,
@@ -444,9 +347,144 @@
             shortcodes: ["heart", "red_heart"]
           }
         ],
-        b =
-          /(?:\uD83D(?:\uDD73\uFE0F?|\uDC41(?:(?:\uFE0F(?:\u200D\uD83D\uDDE8\uFE0F?)?|\u200D\uD83D\uDDE8\uFE0F?))?|[\uDDE8\uDDEF]\uFE0F?|\uDC4B(?:\uD83C[\uDFFB-\uDFFF])?|\uDD90(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|[\uDD96\uDC4C\uDC48\uDC49\uDC46\uDD95\uDC47\uDC4D\uDC4E\uDC4A\uDC4F\uDE4C\uDC50\uDE4F\uDC85\uDCAA\uDC42\uDC43\uDC76\uDC66\uDC67](?:\uD83C[\uDFFB-\uDFFF])?|\uDC71(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2640\u2642]\uFE0F?))?)|\u200D(?:[\u2640\u2642]\uFE0F?)))?|\uDC68(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFC-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFE]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC68\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)|\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)))))?|\uDC69(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFC-\uDFFF]|\uDC68\uD83C[\uDFFC-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFD-\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFD\uDFFF]|\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFE]|\uDC68\uD83C[\uDFFB-\uDFFE])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])|\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])))))?|[\uDC74\uDC75](?:\uD83C[\uDFFB-\uDFFF])?|[\uDE4D\uDE4E\uDE45\uDE46\uDC81\uDE4B\uDE47\uDC6E](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD75(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC82\uDC77](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDC78(?:\uD83C[\uDFFB-\uDFFF])?|\uDC73(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC72\uDC70\uDC7C](?:\uD83C[\uDFFB-\uDFFF])?|[\uDC86\uDC87\uDEB6](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC83\uDD7A](?:\uD83C[\uDFFB-\uDFFF])?|\uDD74(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uDC6F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDEA3\uDEB4\uDEB5](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDEC0\uDECC\uDC6D\uDC6B\uDC6C](?:\uD83C[\uDFFB-\uDFFF])?|\uDDE3\uFE0F?|\uDC15(?:\u200D\uD83E\uDDBA)?|[\uDC3F\uDD4A\uDD77\uDD78\uDDFA\uDEE3\uDEE4\uDEE2\uDEF3\uDEE5\uDEE9\uDEF0\uDECE\uDD70\uDD79\uDDBC\uDD76\uDECD\uDDA5\uDDA8\uDDB1\uDDB2\uDCFD\uDD6F\uDDDE\uDDF3\uDD8B\uDD8A\uDD8C\uDD8D\uDDC2\uDDD2\uDDD3\uDD87\uDDC3\uDDC4\uDDD1\uDDDD\uDEE0\uDDE1\uDEE1\uDDDC\uDECF\uDECB\uDD49]\uFE0F?|[\uDE00\uDE03\uDE04\uDE01\uDE06\uDE05\uDE02\uDE42\uDE43\uDE09\uDE0A\uDE07\uDE0D\uDE18\uDE17\uDE1A\uDE19\uDE0B\uDE1B-\uDE1D\uDE10\uDE11\uDE36\uDE0F\uDE12\uDE44\uDE2C\uDE0C\uDE14\uDE2A\uDE34\uDE37\uDE35\uDE0E\uDE15\uDE1F\uDE41\uDE2E\uDE2F\uDE32\uDE33\uDE26-\uDE28\uDE30\uDE25\uDE22\uDE2D\uDE31\uDE16\uDE23\uDE1E\uDE13\uDE29\uDE2B\uDE24\uDE21\uDE20\uDE08\uDC7F\uDC80\uDCA9\uDC79-\uDC7B\uDC7D\uDC7E\uDE3A\uDE38\uDE39\uDE3B-\uDE3D\uDE40\uDE3F\uDE3E\uDE48-\uDE4A\uDC8B\uDC8C\uDC98\uDC9D\uDC96\uDC97\uDC93\uDC9E\uDC95\uDC9F\uDC94\uDC9B\uDC9A\uDC99\uDC9C\uDDA4\uDCAF\uDCA2\uDCA5\uDCAB\uDCA6\uDCA8\uDCA3\uDCAC\uDCAD\uDCA4\uDC40\uDC45\uDC44\uDC8F\uDC91\uDC6A\uDC64\uDC65\uDC63\uDC35\uDC12\uDC36\uDC29\uDC3A\uDC31\uDC08\uDC2F\uDC05\uDC06\uDC34\uDC0E\uDC2E\uDC02-\uDC04\uDC37\uDC16\uDC17\uDC3D\uDC0F\uDC11\uDC10\uDC2A\uDC2B\uDC18\uDC2D\uDC01\uDC00\uDC39\uDC30\uDC07\uDC3B\uDC28\uDC3C\uDC3E\uDC14\uDC13\uDC23-\uDC27\uDC38\uDC0A\uDC22\uDC0D\uDC32\uDC09\uDC33\uDC0B\uDC2C\uDC1F-\uDC21\uDC19\uDC1A\uDC0C\uDC1B-\uDC1E\uDC90\uDCAE\uDD2A\uDDFE\uDDFB\uDC92\uDDFC\uDDFD\uDD4C\uDED5\uDD4D\uDD4B\uDC88\uDE82-\uDE8A\uDE9D\uDE9E\uDE8B-\uDE8E\uDE90-\uDE9C\uDEF5\uDEFA\uDEB2\uDEF4\uDEF9\uDE8F\uDEA8\uDEA5\uDEA6\uDED1\uDEA7\uDEF6\uDEA4\uDEA2\uDEEB\uDEEC\uDCBA\uDE81\uDE9F-\uDEA1\uDE80\uDEF8\uDD5B\uDD67\uDD50\uDD5C\uDD51\uDD5D\uDD52\uDD5E\uDD53\uDD5F\uDD54\uDD60\uDD55\uDD61\uDD56\uDD62\uDD57\uDD63\uDD58\uDD64\uDD59\uDD65\uDD5A\uDD66\uDD25\uDCA7\uDEF7\uDD2E\uDC53-\uDC62\uDC51\uDC52\uDCFF\uDC84\uDC8D\uDC8E\uDD07-\uDD0A\uDCE2\uDCE3\uDCEF\uDD14\uDD15\uDCFB\uDCF1\uDCF2\uDCDE-\uDCE0\uDD0B\uDD0C\uDCBB\uDCBD-\uDCC0\uDCFA\uDCF7-\uDCF9\uDCFC\uDD0D\uDD0E\uDCA1\uDD26\uDCD4-\uDCDA\uDCD3\uDCD2\uDCC3\uDCDC\uDCC4\uDCF0\uDCD1\uDD16\uDCB0\uDCB4-\uDCB8\uDCB3\uDCB9\uDCB1\uDCB2\uDCE7-\uDCE9\uDCE4-\uDCE6\uDCEB\uDCEA\uDCEC-\uDCEE\uDCDD\uDCBC\uDCC1\uDCC2\uDCC5-\uDCD0\uDD12\uDD13\uDD0F-\uDD11\uDD28\uDD2B\uDD27\uDD29\uDD17\uDD2C\uDD2D\uDCE1\uDC89\uDC8A\uDEAA\uDEBD\uDEBF\uDEC1\uDED2\uDEAC\uDDFF\uDEAE\uDEB0\uDEB9-\uDEBC\uDEBE\uDEC2-\uDEC5\uDEB8\uDEAB\uDEB3\uDEAD\uDEAF\uDEB1\uDEB7\uDCF5\uDD1E\uDD03\uDD04\uDD19-\uDD1D\uDED0\uDD4E\uDD2F\uDD00-\uDD02\uDD3C\uDD3D\uDD05\uDD06\uDCF6\uDCF3\uDCF4\uDD31\uDCDB\uDD30\uDD1F-\uDD24\uDD34\uDFE0-\uDFE2\uDD35\uDFE3-\uDFE5\uDFE7-\uDFE9\uDFE6\uDFEA\uDFEB\uDD36-\uDD3B\uDCA0\uDD18\uDD33\uDD32\uDEA9])|\uD83E(?:[\uDD1A\uDD0F\uDD1E\uDD1F\uDD18\uDD19\uDD1B\uDD1C\uDD32\uDD33\uDDB5\uDDB6\uDDBB\uDDD2](?:\uD83C[\uDFFB-\uDFFF])?|\uDDD1(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?)))?|[\uDDD4\uDDD3](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDCF\uDD26\uDD37](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD34\uDDD5\uDD35\uDD30\uDD31\uDD36](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDB8\uDDB9\uDDD9-\uDDDD](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDDDE\uDDDF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDDCD\uDDCE\uDDD6\uDDD7\uDD38](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD3C(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDD3D\uDD3E\uDD39\uDDD8](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD23\uDD70\uDD29\uDD2A\uDD11\uDD17\uDD2D\uDD2B\uDD14\uDD10\uDD28\uDD25\uDD24\uDD12\uDD15\uDD22\uDD2E\uDD27\uDD75\uDD76\uDD74\uDD2F\uDD20\uDD73\uDD13\uDDD0\uDD7A\uDD71\uDD2C\uDD21\uDD16\uDDE1\uDD0E\uDD0D\uDD1D\uDDBE\uDDBF\uDDE0\uDDB7\uDDB4\uDD3A\uDDB0\uDDB1\uDDB3\uDDB2\uDD8D\uDDA7\uDDAE\uDD8A\uDD9D\uDD81\uDD84\uDD93\uDD8C\uDD99\uDD92\uDD8F\uDD9B\uDD94\uDD87\uDDA5\uDDA6\uDDA8\uDD98\uDDA1\uDD83\uDD85\uDD86\uDDA2\uDD89\uDDA9\uDD9A\uDD9C\uDD8E\uDD95\uDD96\uDD88\uDD8B\uDD97\uDD82\uDD9F\uDDA0\uDD40\uDD6D\uDD5D\uDD65\uDD51\uDD54\uDD55\uDD52\uDD6C\uDD66\uDDC4\uDDC5\uDD5C\uDD50\uDD56\uDD68\uDD6F\uDD5E\uDDC7\uDDC0\uDD69\uDD53\uDD6A\uDD59\uDDC6\uDD5A\uDD58\uDD63\uDD57\uDDC8\uDDC2\uDD6B\uDD6E\uDD5F-\uDD61\uDD80\uDD9E\uDD90\uDD91\uDDAA\uDDC1\uDD67\uDD5B\uDD42\uDD43\uDD64\uDDC3\uDDC9\uDDCA\uDD62\uDD44\uDDED\uDDF1\uDDBD\uDDBC\uDE82\uDDF3\uDE90\uDDE8\uDDE7\uDD47-\uDD49\uDD4E\uDD4F\uDD4D\uDD4A\uDD4B\uDD45\uDD3F\uDD4C\uDE80\uDE81\uDDFF\uDDE9\uDDF8\uDDF5\uDDF6\uDD7D\uDD7C\uDDBA\uDDE3-\uDDE6\uDD7B\uDE71-\uDE73\uDD7E\uDD7F\uDE70\uDDE2\uDE95\uDD41\uDDEE\uDE94\uDDFE\uDE93\uDDAF\uDDF0\uDDF2\uDDEA-\uDDEC\uDE78-\uDE7A\uDE91\uDE92\uDDF4\uDDF7\uDDF9-\uDDFD\uDDEF])|[\u263A\u2639\u2620\u2763\u2764]\uFE0F?|\u270B(?:\uD83C[\uDFFB-\uDFFF])?|[\u270C\u261D](?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\u270A(?:\uD83C[\uDFFB-\uDFFF])?|\u270D(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uD83C(?:\uDF85(?:\uD83C[\uDFFB-\uDFFF])?|\uDFC3(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC7\uDFC2](?:\uD83C[\uDFFB-\uDFFF])?|\uDFCC(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC4\uDFCA](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDFCB(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFF5\uDF36\uDF7D\uDFD4-\uDFD6\uDFDC-\uDFDF\uDFDB\uDFD7\uDFD8\uDFDA\uDFD9\uDFCE\uDFCD\uDF21\uDF24-\uDF2C\uDF97\uDF9F\uDF96\uDF99-\uDF9B\uDF9E\uDFF7\uDD70\uDD71\uDD7E\uDD7F\uDE02\uDE37]\uFE0F?|\uDFF4(?:(?:\u200D\u2620\uFE0F?|\uDB40\uDC67\uDB40\uDC62\uDB40(?:\uDC65\uDB40\uDC6E\uDB40\uDC67\uDB40\uDC7F|\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F|\uDC77\uDB40\uDC6C\uDB40\uDC73\uDB40\uDC7F)))?|\uDFF3(?:(?:\uFE0F(?:\u200D\uD83C\uDF08)?|\u200D\uD83C\uDF08))?|\uDDE6\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF]|\uDDE7\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF]|\uDDE8\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF]|\uDDE9\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF]|\uDDEA\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA]|\uDDEB\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7]|\uDDEC\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE]|\uDDED\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA]|\uDDEE\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9]|\uDDEF\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5]|\uDDF0\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF]|\uDDF1\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE]|\uDDF2\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF]|\uDDF3\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF]|\uDDF4\uD83C\uDDF2|\uDDF5\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE]|\uDDF6\uD83C\uDDE6|\uDDF7\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC]|\uDDF8\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF]|\uDDF9\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF]|\uDDFA\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF]|\uDDFB\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA]|\uDDFC\uD83C[\uDDEB\uDDF8]|\uDDFD\uD83C\uDDF0|\uDDFE\uD83C[\uDDEA\uDDF9]|\uDDFF\uD83C[\uDDE6\uDDF2\uDDFC]|[\uDFFB-\uDFFF\uDF38-\uDF3C\uDF37\uDF31-\uDF35\uDF3E-\uDF43\uDF47-\uDF53\uDF45\uDF46\uDF3D\uDF44\uDF30\uDF5E\uDF56\uDF57\uDF54\uDF5F\uDF55\uDF2D-\uDF2F\uDF73\uDF72\uDF7F\uDF71\uDF58-\uDF5D\uDF60\uDF62-\uDF65\uDF61\uDF66-\uDF6A\uDF82\uDF70\uDF6B-\uDF6F\uDF7C\uDF75\uDF76\uDF7E\uDF77-\uDF7B\uDF74\uDFFA\uDF0D-\uDF10\uDF0B\uDFE0-\uDFE6\uDFE8-\uDFED\uDFEF\uDFF0\uDF01\uDF03-\uDF07\uDF09\uDFA0-\uDFA2\uDFAA\uDF11-\uDF20\uDF0C\uDF00\uDF08\uDF02\uDF0A\uDF83\uDF84\uDF86-\uDF8B\uDF8D-\uDF91\uDF80\uDF81\uDFAB\uDFC6\uDFC5\uDFC0\uDFD0\uDFC8\uDFC9\uDFBE\uDFB3\uDFCF\uDFD1-\uDFD3\uDFF8\uDFA3\uDFBD\uDFBF\uDFAF\uDFB1\uDFAE\uDFB0\uDFB2\uDCCF\uDC04\uDFB4\uDFAD\uDFA8\uDF92\uDFA9\uDF93\uDFBC\uDFB5\uDFB6\uDFA4\uDFA7\uDFB7-\uDFBB\uDFA5\uDFAC\uDFEE\uDFF9\uDFE7\uDFA6\uDD8E\uDD91-\uDD9A\uDE01\uDE36\uDE2F\uDE50\uDE39\uDE1A\uDE32\uDE51\uDE38\uDE34\uDE33\uDE3A\uDE35\uDFC1\uDF8C])|\u26F7\uFE0F?|\u26F9(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\u2618\u26F0\u26E9\u2668\u26F4\u2708\u23F1\u23F2\u2600\u2601\u26C8\u2602\u26F1\u2744\u2603\u2604\u26F8\u2660\u2665\u2666\u2663\u265F\u26D1\u260E\u2328\u2709\u270F\u2712\u2702\u26CF\u2692\u2694\u2699\u2696\u26D3\u2697\u26B0\u26B1\u26A0\u2622\u2623\u2B06\u2197\u27A1\u2198\u2B07\u2199\u2B05\u2196\u2195\u2194\u21A9\u21AA\u2934\u2935\u269B\u2721\u2638\u262F\u271D\u2626\u262A\u262E\u25B6\u23ED\u23EF\u25C0\u23EE\u23F8-\u23FA\u23CF\u2640\u2642\u2695\u267E\u267B\u269C\u2611\u2714\u2716\u303D\u2733\u2734\u2747\u203C\u2049\u3030\u00A9\u00AE\u2122]\uFE0F?|[\u0023\u002A\u0030-\u0039](?:\uFE0F\u20E3|\u20E3)|[\u2139\u24C2\u3297\u3299\u25FC\u25FB\u25AA\u25AB]\uFE0F?|[\u2615\u26EA\u26F2\u26FA\u26FD\u2693\u26F5\u231B\u23F3\u231A\u23F0\u2B50\u26C5\u2614\u26A1\u26C4\u2728\u26BD\u26BE\u26F3\u267F\u26D4\u2648-\u2653\u26CE\u23E9-\u23EC\u2B55\u2705\u274C\u274E\u2795-\u2797\u27B0\u27BF\u2753-\u2755\u2757\u26AB\u26AA\u2B1B\u2B1C\u25FE\u25FD])/g,
-        j = [
+        p =
+          /(?:\uD83D(?:\uDD73\uFE0F?|\uDC41(?:(?:\uFE0F(?:\u200D\uD83D\uDDE8\uFE0F?)?|\u200D\uD83D\uDDE8\uFE0F?))?|[\uDDE8\uDDEF]\uFE0F?|\uDC4B(?:\uD83C[\uDFFB-\uDFFF])?|\uDD90(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|[\uDD96\uDC4C\uDC48\uDC49\uDC46\uDD95\uDC47\uDC4D\uDC4E\uDC4A\uDC4F\uDE4C\uDC50\uDE4F\uDC85\uDCAA\uDC42\uDC43\uDC76\uDC66\uDC67](?:\uD83C[\uDFFB-\uDFFF])?|\uDC71(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2640\u2642]\uFE0F?))?)|\u200D(?:[\u2640\u2642]\uFE0F?)))?|\uDC68(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFC-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFE]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC68\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)|\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)))))?|\uDC69(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFC-\uDFFF]|\uDC68\uD83C[\uDFFC-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFD-\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFD\uDFFF]|\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFE]|\uDC68\uD83C[\uDFFB-\uDFFE])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])|\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])))))?|[\uDC74\uDC75](?:\uD83C[\uDFFB-\uDFFF])?|[\uDE4D\uDE4E\uDE45\uDE46\uDC81\uDE4B\uDE47\uDC6E](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD75(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC82\uDC77](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDC78(?:\uD83C[\uDFFB-\uDFFF])?|\uDC73(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC72\uDC70\uDC7C](?:\uD83C[\uDFFB-\uDFFF])?|[\uDC86\uDC87\uDEB6](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC83\uDD7A](?:\uD83C[\uDFFB-\uDFFF])?|\uDD74(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uDC6F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDEA3\uDEB4\uDEB5](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDEC0\uDECC\uDC6D\uDC6B\uDC6C](?:\uD83C[\uDFFB-\uDFFF])?|\uDDE3\uFE0F?|\uDC15(?:\u200D\uD83E\uDDBA)?|[\uDC3F\uDD4A\uDD77\uDD78\uDDFA\uDEE3\uDEE4\uDEE2\uDEF3\uDEE5\uDEE9\uDEF0\uDECE\uDD70\uDD79\uDDBC\uDD76\uDECD\uDDA5\uDDA8\uDDB1\uDDB2\uDCFD\uDD6F\uDDDE\uDDF3\uDD8B\uDD8A\uDD8C\uDD8D\uDDC2\uDDD2\uDDD3\uDD87\uDDC3\uDDC4\uDDD1\uDDDD\uDEE0\uDDE1\uDEE1\uDDDC\uDECF\uDECB\uDD49]\uFE0F?|[\uDE00\uDE03\uDE04\uDE01\uDE06\uDE05\uDE02\uDE42\uDE43\uDE09\uDE0A\uDE07\uDE0D\uDE18\uDE17\uDE1A\uDE19\uDE0B\uDE1B-\uDE1D\uDE10\uDE11\uDE36\uDE0F\uDE12\uDE44\uDE2C\uDE0C\uDE14\uDE2A\uDE34\uDE37\uDE35\uDE0E\uDE15\uDE1F\uDE41\uDE2E\uDE2F\uDE32\uDE33\uDE26-\uDE28\uDE30\uDE25\uDE22\uDE2D\uDE31\uDE16\uDE23\uDE1E\uDE13\uDE29\uDE2B\uDE24\uDE21\uDE20\uDE08\uDC7F\uDC80\uDCA9\uDC79-\uDC7B\uDC7D\uDC7E\uDE3A\uDE38\uDE39\uDE3B-\uDE3D\uDE40\uDE3F\uDE3E\uDE48-\uDE4A\uDC8B\uDC8C\uDC98\uDC9D\uDC96\uDC97\uDC93\uDC9E\uDC95\uDC9F\uDC94\uDC9B\uDC9A\uDC99\uDC9C\uDDA4\uDCAF\uDCA2\uDCA5\uDCAB\uDCA6\uDCA8\uDCA3\uDCAC\uDCAD\uDCA4\uDC40\uDC45\uDC44\uDC8F\uDC91\uDC6A\uDC64\uDC65\uDC63\uDC35\uDC12\uDC36\uDC29\uDC3A\uDC31\uDC08\uDC2F\uDC05\uDC06\uDC34\uDC0E\uDC2E\uDC02-\uDC04\uDC37\uDC16\uDC17\uDC3D\uDC0F\uDC11\uDC10\uDC2A\uDC2B\uDC18\uDC2D\uDC01\uDC00\uDC39\uDC30\uDC07\uDC3B\uDC28\uDC3C\uDC3E\uDC14\uDC13\uDC23-\uDC27\uDC38\uDC0A\uDC22\uDC0D\uDC32\uDC09\uDC33\uDC0B\uDC2C\uDC1F-\uDC21\uDC19\uDC1A\uDC0C\uDC1B-\uDC1E\uDC90\uDCAE\uDD2A\uDDFE\uDDFB\uDC92\uDDFC\uDDFD\uDD4C\uDED5\uDD4D\uDD4B\uDC88\uDE82-\uDE8A\uDE9D\uDE9E\uDE8B-\uDE8E\uDE90-\uDE9C\uDEF5\uDEFA\uDEB2\uDEF4\uDEF9\uDE8F\uDEA8\uDEA5\uDEA6\uDED1\uDEA7\uDEF6\uDEA4\uDEA2\uDEEB\uDEEC\uDCBA\uDE81\uDE9F-\uDEA1\uDE80\uDEF8\uDD5B\uDD67\uDD50\uDD5C\uDD51\uDD5D\uDD52\uDD5E\uDD53\uDD5F\uDD54\uDD60\uDD55\uDD61\uDD56\uDD62\uDD57\uDD63\uDD58\uDD64\uDD59\uDD65\uDD5A\uDD66\uDD25\uDCA7\uDEF7\uDD2E\uDC53-\uDC62\uDC51\uDC52\uDCFF\uDC84\uDC8D\uDC8E\uDD07-\uDD0A\uDCE2\uDCE3\uDCEF\uDD14\uDD15\uDCFB\uDCF1\uDCF2\uDCDE-\uDCE0\uDD0B\uDD0C\uDCBB\uDCBD-\uDCC0\uDCFA\uDCF7-\uDCF9\uDCFC\uDD0D\uDD0E\uDCA1\uDD26\uDCD4-\uDCDA\uDCD3\uDCD2\uDCC3\uDCDC\uDCC4\uDCF0\uDCD1\uDD16\uDCB0\uDCB4-\uDCB8\uDCB3\uDCB9\uDCB1\uDCB2\uDCE7-\uDCE9\uDCE4-\uDCE6\uDCEB\uDCEA\uDCEC-\uDCEE\uDCDD\uDCBC\uDCC1\uDCC2\uDCC5-\uDCD0\uDD12\uDD13\uDD0F-\uDD11\uDD28\uDD2B\uDD27\uDD29\uDD17\uDD2C\uDD2D\uDCE1\uDC89\uDC8A\uDEAA\uDEBD\uDEBF\uDEC1\uDED2\uDEAC\uDDFF\uDEAE\uDEB0\uDEB9-\uDEBC\uDEBE\uDEC2-\uDEC5\uDEB8\uDEAB\uDEB3\uDEAD\uDEAF\uDEB1\uDEB7\uDCF5\uDD1E\uDD03\uDD04\uDD19-\uDD1D\uDED0\uDD4E\uDD2F\uDD00-\uDD02\uDD3C\uDD3D\uDD05\uDD06\uDCF6\uDCF3\uDCF4\uDD31\uDCDB\uDD30\uDD1F-\uDD24\uDD34\uDFE0-\uDFE2\uDD35\uDFE3-\uDFE5\uDFE7-\uDFE9\uDFE6\uDFEA\uDFEB\uDD36-\uDD3B\uDCA0\uDD18\uDD33\uDD32\uDEA9])|\uD83E(?:[\uDD1A\uDD0F\uDD1E\uDD1F\uDD18\uDD19\uDD1B\uDD1C\uDD32\uDD33\uDDB5\uDDB6\uDDBB\uDDD2](?:\uD83C[\uDFFB-\uDFFF])?|\uDDD1(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?)))?|[\uDDD4\uDDD3](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDCF\uDD26\uDD37](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD34\uDDD5\uDD35\uDD30\uDD31\uDD36](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDB8\uDDB9\uDDD9-\uDDDD](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDDDE\uDDDF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDDCD\uDDCE\uDDD6\uDDD7\uDD38](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD3C(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDD3D\uDD3E\uDD39\uDDD8](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD23\uDD70\uDD29\uDD2A\uDD11\uDD17\uDD2D\uDD2B\uDD14\uDD10\uDD28\uDD25\uDD24\uDD12\uDD15\uDD22\uDD2E\uDD27\uDD75\uDD76\uDD74\uDD2F\uDD20\uDD73\uDD13\uDDD0\uDD7A\uDD71\uDD2C\uDD21\uDD16\uDDE1\uDD0E\uDD0D\uDD1D\uDDBE\uDDBF\uDDE0\uDDB7\uDDB4\uDD3A\uDDB0\uDDB1\uDDB3\uDDB2\uDD8D\uDDA7\uDDAE\uDD8A\uDD9D\uDD81\uDD84\uDD93\uDD8C\uDD99\uDD92\uDD8F\uDD9B\uDD94\uDD87\uDDA5\uDDA6\uDDA8\uDD98\uDDA1\uDD83\uDD85\uDD86\uDDA2\uDD89\uDDA9\uDD9A\uDD9C\uDD8E\uDD95\uDD96\uDD88\uDD8B\uDD97\uDD82\uDD9F\uDDA0\uDD40\uDD6D\uDD5D\uDD65\uDD51\uDD54\uDD55\uDD52\uDD6C\uDD66\uDDC4\uDDC5\uDD5C\uDD50\uDD56\uDD68\uDD6F\uDD5E\uDDC7\uDDC0\uDD69\uDD53\uDD6A\uDD59\uDDC6\uDD5A\uDD58\uDD63\uDD57\uDDC8\uDDC2\uDD6B\uDD6E\uDD5F-\uDD61\uDD80\uDD9E\uDD90\uDD91\uDDAA\uDDC1\uDD67\uDD5B\uDD42\uDD43\uDD64\uDDC3\uDDC9\uDDCA\uDD62\uDD44\uDDED\uDDF1\uDDBD\uDDBC\uDE82\uDDF3\uDE90\uDDE8\uDDE7\uDD47-\uDD49\uDD4E\uDD4F\uDD4D\uDD4A\uDD4B\uDD45\uDD3F\uDD4C\uDE80\uDE81\uDDFF\uDDE9\uDDF8\uDDF5\uDDF6\uDD7D\uDD7C\uDDBA\uDDE3-\uDDE6\uDD7B\uDE71-\uDE73\uDD7E\uDD7F\uDE70\uDDE2\uDE95\uDD41\uDDEE\uDE94\uDDFE\uDE93\uDDAF\uDDF0\uDDF2\uDDEA-\uDDEC\uDE78-\uDE7A\uDE91\uDE92\uDDF4\uDDF7\uDDF9-\uDDFD\uDDEF])|[\u263A\u2639\u2620\u2763\u2764]\uFE0F?|\u270B(?:\uD83C[\uDFFB-\uDFFF])?|[\u270C\u261D](?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\u270A(?:\uD83C[\uDFFB-\uDFFF])?|\u270D(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uD83C(?:\uDF85(?:\uD83C[\uDFFB-\uDFFF])?|\uDFC3(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC7\uDFC2](?:\uD83C[\uDFFB-\uDFFF])?|\uDFCC(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC4\uDFCA](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDFCB(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFF5\uDF36\uDF7D\uDFD4-\uDFD6\uDFDC-\uDFDF\uDFDB\uDFD7\uDFD8\uDFDA\uDFD9\uDFCE\uDFCD\uDF21\uDF24-\uDF2C\uDF97\uDF9F\uDF96\uDF99-\uDF9B\uDF9E\uDFF7\uDD70\uDD71\uDD7E\uDD7F\uDE02\uDE37]\uFE0F?|\uDFF4(?:(?:\u200D\u2620\uFE0F?|\uDB40\uDC67\uDB40\uDC62\uDB40(?:\uDC65\uDB40\uDC6E\uDB40\uDC67\uDB40\uDC7F|\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F|\uDC77\uDB40\uDC6C\uDB40\uDC73\uDB40\uDC7F)))?|\uDFF3(?:(?:\uFE0F(?:\u200D\uD83C\uDF08)?|\u200D\uD83C\uDF08))?|\uDDE6\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF]|\uDDE7\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF]|\uDDE8\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF]|\uDDE9\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF]|\uDDEA\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA]|\uDDEB\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7]|\uDDEC\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE]|\uDDED\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA]|\uDDEE\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9]|\uDDEF\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5]|\uDDF0\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF]|\uDDF1\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE]|\uDDF2\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF]|\uDDF3\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF]|\uDDF4\uD83C\uDDF2|\uDDF5\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE]|\uDDF6\uD83C\uDDE6|\uDDF7\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC]|\uDDF8\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF]|\uDDF9\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF]|\uDDFA\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF]|\uDDFB\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA]|\uDDFC\uD83C[\uDDEB\uDDF8]|\uDDFD\uD83C\uDDF0|\uDDFE\uD83C[\uDDEA\uDDF9]|\uDDFF\uD83C[\uDDE6\uDDF2\uDDFC]|[\uDFFB-\uDFFF\uDF38-\uDF3C\uDF37\uDF31-\uDF35\uDF3E-\uDF43\uDF47-\uDF53\uDF45\uDF46\uDF3D\uDF44\uDF30\uDF5E\uDF56\uDF57\uDF54\uDF5F\uDF55\uDF2D-\uDF2F\uDF73\uDF72\uDF7F\uDF71\uDF58-\uDF5D\uDF60\uDF62-\uDF65\uDF61\uDF66-\uDF6A\uDF82\uDF70\uDF6B-\uDF6F\uDF7C\uDF75\uDF76\uDF7E\uDF77-\uDF7B\uDF74\uDFFA\uDF0D-\uDF10\uDF0B\uDFE0-\uDFE6\uDFE8-\uDFED\uDFEF\uDFF0\uDF01\uDF03-\uDF07\uDF09\uDFA0-\uDFA2\uDFAA\uDF11-\uDF20\uDF0C\uDF00\uDF08\uDF02\uDF0A\uDF83\uDF84\uDF86-\uDF8B\uDF8D-\uDF91\uDF80\uDF81\uDFAB\uDFC6\uDFC5\uDFC0\uDFD0\uDFC8\uDFC9\uDFBE\uDFB3\uDFCF\uDFD1-\uDFD3\uDFF8\uDFA3\uDFBD\uDFBF\uDFAF\uDFB1\uDFAE\uDFB0\uDFB2\uDCCF\uDC04\uDFB4\uDFAD\uDFA8\uDF92\uDFA9\uDF93\uDFBC\uDFB5\uDFB6\uDFA4\uDFA7\uDFB7-\uDFBB\uDFA5\uDFAC\uDFEE\uDFF9\uDFE7\uDFA6\uDD8E\uDD91-\uDD9A\uDE01\uDE36\uDE2F\uDE50\uDE39\uDE1A\uDE32\uDE51\uDE38\uDE34\uDE33\uDE3A\uDE35\uDFC1\uDF8C])|\u26F7\uFE0F?|\u26F9(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\u2618\u26F0\u26E9\u2668\u26F4\u2708\u23F1\u23F2\u2600\u2601\u26C8\u2602\u26F1\u2744\u2603\u2604\u26F8\u2660\u2665\u2666\u2663\u265F\u26D1\u260E\u2328\u2709\u270F\u2712\u2702\u26CF\u2692\u2694\u2699\u2696\u26D3\u2697\u26B0\u26B1\u26A0\u2622\u2623\u2B06\u2197\u27A1\u2198\u2B07\u2199\u2B05\u2196\u2195\u2194\u21A9\u21AA\u2934\u2935\u269B\u2721\u2638\u262F\u271D\u2626\u262A\u262E\u25B6\u23ED\u23EF\u25C0\u23EE\u23F8-\u23FA\u23CF\u2640\u2642\u2695\u267E\u267B\u269C\u2611\u2714\u2716\u303D\u2733\u2734\u2747\u203C\u2049\u3030\u00A9\u00AE\u2122]\uFE0F?|[\u0023\u002A\u0030-\u0039](?:\uFE0F\u20E3|\u20E3)|[\u2139\u24C2\u3297\u3299\u25FC\u25FB\u25AA\u25AB]\uFE0F?|[\u2615\u26EA\u26F2\u26FA\u26FD\u2693\u26F5\u231B\u23F3\u231A\u23F0\u2B50\u26C5\u2614\u26A1\u26C4\u2728\u26BD\u26BE\u26F3\u267F\u26D4\u2648-\u2653\u26CE\u23E9-\u23EC\u2B55\u2705\u274C\u274E\u2795-\u2797\u27B0\u27BF\u2753-\u2755\u2757\u26AB\u26AA\u2B1B\u2B1C\u25FE\u25FD])/g;
+      var g;
+      !(function (t) {
+        (t.EPISODE = "episode"), (t.FEATURE = "feature"), (t.LIVE = "live"), (t.EXTRA = "extra"), (t.EVENT = "event"), (t.OTHER = "other");
+      })(g || (g = {}));
+      var v;
+      function F(t) {
+        return t.includes("urn:hbo:feature")
+          ? g.FEATURE
+          : t.includes("urn:hbo:episode") || (t.includes("urn:hbo:page:") && t.includes(":type:episode"))
+          ? g.EPISODE
+          : t.includes("urn:hbo:extra")
+          ? g.EXTRA
+          : g.OTHER;
+      }
+      function y(t) {
+        return function () {
+          return new Promise((e) => {
+            setTimeout(() => {
+              e();
+            }, t);
+          });
+        };
+      }
+      function m(t, e, i) {
+        const { width: n, height: s, left: u, top: o } = t.getBoundingClientRect(),
+          r = u + n * e,
+          a = o + s / 2,
+          c = document.createEvent("MouseEvents");
+        c.initMouseEvent(i, !0, !0, window, 0, 0, 0, r, a, !1, !1, !1, !1, 0, null), t.dispatchEvent(c);
+      }
+      function f(t, e, i = 250) {
+        return function () {
+          const n = new Date().getTime(),
+            s = function () {
+              return t()
+                ? Promise.resolve()
+                : null !== e && new Date().getTime() - n > e
+                ? Promise.reject(new Error("delayUntil timed out: " + t))
+                : y(i)().then(s);
+            };
+          return s();
+        };
+      }
+      function C(t, e, i) {
+        t.push(e), t.length > i && t.splice(0, t.length - i);
+      }
+      function w(t) {
+        return t.concat().sort()[Math.floor(t.length / 2)];
+      }
+      !(function (t) {
+        (t.REGISTER = "register"),
+          (t.PARTY_START = "party_start"),
+          (t.PARTY_JOIN = "party_join"),
+          (t.PARTY_END = "party_end"),
+          (t.PARTY_SHARE = "party_share");
+      })(v || (v = {}));
+      var E = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              a(n.next(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function r(t) {
+            try {
+              a(n.throw(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function a(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          a((n = n.apply(t, e || [])).next());
+        });
+      };
+      class _ {
+        constructor() {
+          this.resetTasks(), (this.l = []), (this.p = 0), (this.g = Promise.resolve()), (this.v = !0);
+        }
+        createInstance() {
+          return new _();
+        }
+        pushTask(t, e) {
+          if (!this.v) return;
+          const i = { action: t, name: e };
+          0 === this.p && this.resetTasks(),
+            (this.p = this.l.push(i)),
+            (this.g = this.g.then(() => {
+              if (this.l.includes(i) && this.v)
+                return this.F(i)().then(() => {
+                  this.l.shift(), (this.p -= 1);
+                });
+            }));
+        }
+        disable() {
+          (this.v = !1), this.resetTasks();
+        }
+        resetTasks() {
+          (this.g = Promise.resolve()), (this.l = []), (this.p = 0);
+        }
+        F(t) {
+          return function () {
+            return E(this, void 0, void 0, function* () {
+              try {
+                yield t.action();
+              } catch (t) {}
+            });
+          };
+        }
+        get tasksInFlight() {
+          return this.p;
+        }
+        hasTaskInQueue(t) {
+          return this.l.some((e) => e.name === t);
+        }
+        removeTask(t) {
+          console.log(this.l),
+            (this.l = this.l.filter((e, i) => (e.name === t && 0 == i ? (console.error("Cannot filter active task"), !0) : e.name !== t))),
+            (this.p = this.l.length),
+            console.log(this.l);
+        }
+      }
+      const b = new _();
+      var j = console.log.bind(window.console);
+      const B = [
           "Batman.svg",
           "DeadPool.svg",
           "CptAmerica.svg",
@@ -468,7 +506,7 @@
           "IceCream.svg",
           "ChickenLeg.svg"
         ],
-        B = [
+        A = [
           "General/Alien.svg",
           "General/Batman.svg",
           "General/ChickenLeg.svg",
@@ -490,7 +528,7 @@
           "General/Snow-White.svg",
           "General/Wolverine.svg"
         ],
-        A = [
+        k = [
           "General/Alien.svg",
           "General/Batman.svg",
           "General/ChickenLeg.svg",
@@ -568,7 +606,7 @@
           "Thanksgiving/sun_flower.svg",
           "Thanksgiving/turkey_face.svg"
         ],
-        k = {
+        Q = {
           General: [
             "Alien.svg",
             "Batman.svg",
@@ -654,7 +692,7 @@
             "turkey_face.svg"
           ]
         };
-      function Q(t) {
+      function I(t) {
         return t
           ? t
               .replace(/&/g, "&amp;")
@@ -663,17 +701,17 @@
               .replace(/>/g, "&gt;")
               .replace(/[\r\n]{3,}/gm, "\n\n")
               .replace(
-                b,
+                p,
                 `<span style="font-size: ${(function (t) {
                   let e = 16;
-                  const i = t.replace(b, "").replace(/[\uFE0F]/g, ""),
-                    n = ((t || "").match(b) || []).length;
+                  const i = t.replace(p, "").replace(/[\uFE0F]/g, ""),
+                    n = ((t || "").match(p) || []).length;
                   return 0 === i.length && n <= 3 && (e = 32), e;
                 })(t)}px">$&</span>`
               )
           : t;
       }
-      const I = {
+      const x = {
           General: function () {
             return !0;
           },
@@ -692,58 +730,58 @@
             );
           }
         },
-        x = chrome.extension.getURL("img/x-circle.svg"),
-        S = "[data-testid='SkipButton']",
-        T = "[data-testid*='UpNext']",
-        M = 1e3,
-        P = 72e5,
-        V = 12e4,
-        $ = {
+        S = chrome.extension.getURL("img/x-circle.svg"),
+        T = "[data-testid='SkipButton']",
+        M = "[data-testid*='UpNext']",
+        P = 1e3,
+        V = 72e5,
+        $ = 12e4,
+        N = {
           title: "Teleparty | Disconnected from party",
           content:
             "Only the owner of this party can change the episode. Click the button below to be redirected to the party, then click on the red Tp icon to rejoin.",
           buttonTitle: "Return to Party"
         },
-        N = {
+        R = {
           title: "Teleparty | Are you still there?",
           content: "You will be removed from the party in 120 seconds for inactivity. Move your mouse to continue watching."
         },
-        R = {
+        U = {
           title: "Teleparty | Disconnected from party",
           content:
             "It looks like someone changed the video and we weren't able to connect you. Click the button below to be redirected to the party, then click on the red Tp icon to rejoin.",
           buttonTitle: "Return to Party"
         },
-        U = {
+        O = {
           title: "Teleparty | Disconnected from party",
           content:
             "It looks like you lost connection to the extension. Click the button below to be redirected to the party, then click on the red Tp icon to rejoin.",
           buttonTitle: "Return to Party"
         };
       function G(t, e) {
-        O();
+        L();
         const i = e
           ? (function (t) {
-              return `\n    <div id="alert-dialog-wrapper">\n      <div id="alert-dialog-container">\n        <div id="alert-title-wrapper">\n            <div class="alert-title">\n                <p id="alert-title-txt" class="extension-title">\n                    ${t.title}\n                </p>\n                <button id="alert-x-btn">\n                    <img src="${x}" alt="close" />\n                </button>\n            </div>\n            <div class="extension-border-bot">\n                \n            </div>\n        </div>\n        <div id="alert-description">\n            <p id="alert-content-txt" class="extension-txt">\n              ${t.content}\n            </p>\n            <button id="alert-return-btn" class="extension-btn">${t.buttonTitle}</button>\n        </div>\n      </div>\n    </div>\n    `;
+              return `\n    <div id="alert-dialog-wrapper">\n      <div id="alert-dialog-container">\n        <div id="alert-title-wrapper">\n            <div class="alert-title">\n                <p id="alert-title-txt" class="extension-title">\n                    ${t.title}\n                </p>\n                <button id="alert-x-btn">\n                    <img src="${S}" alt="close" />\n                </button>\n            </div>\n            <div class="extension-border-bot">\n                \n            </div>\n        </div>\n        <div id="alert-description">\n            <p id="alert-content-txt" class="extension-txt">\n              ${t.content}\n            </p>\n            <button id="alert-return-btn" class="extension-btn">${t.buttonTitle}</button>\n        </div>\n      </div>\n    </div>\n    `;
             })(t)
           : (function (t) {
-              return `\n  <div id="alert-dialog-wrapper">\n    <div id="alert-dialog-container">\n      <div id="alert-title-wrapper">\n          <div class="alert-title">\n              <p id="alert-title-txt" class="extension-title">\n                  ${t.title}\n              </p>\n              <button id="alert-x-btn">\n                  <img src="${x}" alt="close" />\n              </button>\n          </div>\n          <div class="extension-border-bot">\n              \n          </div>\n      </div>\n      <div id="alert-description">\n          <p id="alert-content-txt" class="extension-txt">\n            ${t.content}\n          </p>\n      </div>\n    </div>\n  </div>\n  `;
+              return `\n  <div id="alert-dialog-wrapper">\n    <div id="alert-dialog-container">\n      <div id="alert-title-wrapper">\n          <div class="alert-title">\n              <p id="alert-title-txt" class="extension-title">\n                  ${t.title}\n              </p>\n              <button id="alert-x-btn">\n                  <img src="${S}" alt="close" />\n              </button>\n          </div>\n          <div class="extension-border-bot">\n              \n          </div>\n      </div>\n      <div id="alert-description">\n          <p id="alert-content-txt" class="extension-txt">\n            ${t.content}\n          </p>\n      </div>\n    </div>\n  </div>\n  `;
             })(t);
         document.body.insertAdjacentHTML("afterbegin", i),
           jQuery("#alert-x-btn").click(() => {
-            O();
+            L();
           }),
           e &&
             jQuery("#alert-return-btn").click(() => {
-              O(), (window.location.href = e);
+              L(), (window.location.href = e);
             });
       }
-      function O() {
+      function L() {
         const t = document.querySelector("#alert-dialog-wrapper");
         t && t.remove();
       }
-      const L = { showAlert: !1 },
-        H = {
+      const H = { showAlert: !1 },
+        W = {
           showAlert: !0,
           alertModal: {
             title: "Teleparty | Disconnected from party",
@@ -751,7 +789,7 @@
             buttonTitle: "Return to Party"
           }
         },
-        W = {
+        z = {
           showAlert: !0,
           alertModal: {
             title: "Teleparty | Disconnected from party",
@@ -760,20 +798,26 @@
             buttonTitle: "Return to Party"
           }
         },
-        z = { showAlert: !0, alertModal: R };
-      class Y {
-        constructor(t, e, i, n, s) {
-          (this.requiredPermissions = t), (this.serverName = i), (this.name = n), (this.contentScripts = e), (this.syncFromEnd = s);
+        Y = { showAlert: !0, alertModal: U };
+      class K {
+        constructor(t, e, i, n, s, u = []) {
+          (this.requiredPermissions = t),
+            (this.serverName = i),
+            (this.name = n),
+            (this.contentScripts = e),
+            (this.syncFromEnd = s),
+            (this.browseScripts = u);
         }
         urlWithSessionId(t) {
-          return `${y}/join/${t}`;
+          return `${r}/join/${t}`;
         }
       }
-      var K;
+      var J;
       !(function (t) {
         (t.NETFLIX = "Netflix"),
           (t.HULU = "Hulu"),
           (t.DISNEY_PLUS = "Disney"),
+          (t.DISNEY_PLUS_MENA = "DisneyMena"),
           (t.HBO_MAX = "HBOMax"),
           (t.MAX = "Max"),
           (t.YOUTUBE = "Youtube"),
@@ -792,36 +836,37 @@
           (t.TUBI_TV = "TubiTV"),
           (t.MUBI = "Mubi"),
           (t.STAN = "Stan"),
-          (t.CRAVE = "Crave");
-      })(K || (K = {}));
-      const J = new (class extends Y {
+          (t.CRAVE = "Crave"),
+          (t.SLING = "slingtv");
+      })(J || (J = {}));
+      const X = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
-            return (t.hostname.includes(".hbomax.") && "other" !== s(t.pathname)) || t.pathname.includes("urn:hbo:page");
+            return (t.hostname.includes(".hbomax.") && "other" !== F(t.pathname)) || t.pathname.includes("urn:hbo:page");
           })(t);
         }
         isBrowsing(t) {
           return t.hostname.includes(".hbomax.");
         }
         getVideoId(t) {
-          const e = "urn:hbo:" + s(t.pathname) + ":",
+          const e = "urn:hbo:" + F(t.pathname) + ":",
             i = t.pathname.split(e);
           let n = null != i && i.length > 1 && null != i[1] ? i[1].match(/^([a-zA-Z\-_0-9]+)\??.*/) : null;
-          const u = null != n && 0 !== n.length ? i[1].match(/^([a-zA-Z\-_0-9]+)\??.*/) : void 0;
-          let o = u && u.length > 0 ? u[1] : void 0;
-          return o || ((n = t.pathname.match(/(page:)([a-zA-Z\-_0-9]+)\??.*/)), (o = null != n && 3 == n.length ? n[2] : void 0)), o;
+          const s = null != n && 0 !== n.length ? i[1].match(/^([a-zA-Z\-_0-9]+)\??.*/) : void 0;
+          let u = s && s.length > 0 ? s[1] : void 0;
+          return u || ((n = t.pathname.match(/(page:)([a-zA-Z\-_0-9]+)\??.*/)), (u = null != n && 3 == n.length ? n[2] : void 0)), u;
         }
         getVideoType(t) {
-          return s(t.pathname);
+          return F(t.pathname);
         }
-      })([], ["content_scripts/hbo_max/hbo_max_content_bundled.js"], "hbomax", K.HBO_MAX, !1);
-      Object.freeze(J);
-      const X = J;
+      })([], ["content_scripts/hbo_max/hbo_max_content_bundled.js"], "hbomax", J.HBO_MAX, !1);
+      Object.freeze(X);
+      const q = X;
       i(5640);
-      const q = "PING",
-        Z = "SYNC",
-        tt = "BROADCAST";
-      var et = function (t, e, i, n) {
+      const Z = "PING",
+        tt = "SYNC",
+        et = "BROADCAST";
+      var it = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -851,22 +896,22 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      class it extends class {
+      class nt extends class {
         constructor(t) {
           (this.m = t), console.log("Video Event Listener");
         }
         getCurrentStatus() {
-          return e(this, void 0, void 0, function* () {
+          return t(this, void 0, void 0, function* () {
             return "";
           });
         }
         getStatusMetaData() {
-          return e(this, void 0, void 0, function* () {});
+          return t(this, void 0, void 0, function* () {});
         }
         reloadNextEpisode() {
-          var t;
-          return e(this, void 0, void 0, function* () {
-            yield null === (t = this.C) || void 0 === t ? void 0 : t.reloadPartyAsync();
+          var e;
+          return t(this, void 0, void 0, function* () {
+            yield null === (e = this.C) || void 0 === e ? void 0 : e.reloadPartyAsync();
           });
         }
         startListening() {
@@ -876,14 +921,14 @@
           this.j();
         }
         _() {
-          const t = navigator;
-          t.mediaSession.setActionHandler("play", () =>
-            e(this, void 0, void 0, function* () {
+          const e = navigator;
+          e.mediaSession.setActionHandler("play", () =>
+            t(this, void 0, void 0, function* () {
               this.B(), this.m.play(), console.log("Bluetooth device played the video");
             })
           ),
-            t.mediaSession.setActionHandler("pause", () =>
-              e(this, void 0, void 0, function* () {
+            e.mediaSession.setActionHandler("pause", () =>
+              t(this, void 0, void 0, function* () {
                 this.B(), this.m.pause(), console.log("Bluetooth device paused the video");
               })
             );
@@ -931,43 +976,43 @@
           return !0;
         }
       } {
-        constructor(t, e) {
-          var i, n;
+        constructor(t, i) {
+          var n, s;
           super(t),
             (this.V = !1),
             (this.$ = this.checkWatchingAds.bind(this)),
             (this.N = this.B.bind(this)),
             (this.R = this.k.bind(this)),
             (this.U = this.T.bind(this)),
-            (this.G = this.O.bind(this)),
+            (this.O = this.G.bind(this)),
             (this.L = this.reloadListeners.bind(this)),
             (this.H = !1),
             (this.W = 70),
             (this.Y = () =>
-              et(this, void 0, void 0, function* () {
-                console.log("Interaction"), h.tasksInFlight < 5 && !h.hasTaskInQueue("NETFLIX_WAIT_FOR_CHANGE") && this.B();
+              it(this, void 0, void 0, function* () {
+                console.log("Interaction"), b.tasksInFlight < 5 && !b.hasTaskInQueue("NETFLIX_WAIT_FOR_CHANGE") && this.B();
               })),
             (this.K = () => {
               this.m.canFixChat() ||
-                u(100)().then(() => {
+                y(100)().then(() => {
                   this.J.getChatVisible() &&
                     (document.webkitIsFullScreen
                       ? jQuery("video:not(.gif-img):not(.tp-video-gif)").width(window.innerWidth)
-                      : jQuery("video:not(.gif-img):not(.tp-video-gif)").width(window.innerWidth - l));
+                      : jQuery("video:not(.gif-img):not(.tp-video-gif)").width(window.innerWidth - e));
                 });
             }),
             (this.m = t),
             this.m.setVideoEventListener(this),
-            (this.J = e),
+            (this.J = i),
             (this.X = this.m.onNode.bind(this.m)),
             (this.q = new MutationObserver(this.Z.bind(this))),
-            (null === (i = window.teleparty) || void 0 === i ? void 0 : i.injectScriptLoaded) ||
+            (null === (n = window.teleparty) || void 0 === n ? void 0 : n.injectScriptLoaded) ||
               (function (t) {
                 const e = document.createElement("script");
                 e.setAttribute("tpInjected", ""), (e.src = t), (document.head || document.documentElement).appendChild(e), e.remove();
               })(chrome.extension.getURL("content_scripts/hbo_max/hbo_max_injected_bundled.js")),
-            (null === (n = window.teleparty) || void 0 === n ? void 0 : n.replaceScriptLoaded) ||
-              (d("injecting replace script"),
+            (null === (s = window.teleparty) || void 0 === s ? void 0 : s.replaceScriptLoaded) ||
+              (j("injecting replace script"),
               (function (t) {
                 const e = document.createElement("script");
                 e.setAttribute("tpInjected", ""),
@@ -984,14 +1029,14 @@
         }
         et() {
           var t, e, i;
-          return et(this, void 0, void 0, function* () {
+          return it(this, void 0, void 0, function* () {
             if (!this.V && !(null === (t = this.C) || void 0 === t ? void 0 : t.changingVideo)) {
               this.V = !0;
               try {
-                yield r(this.m.removeVideoCover.bind(this.m), 2500)(),
-                  yield u(500)(),
+                yield f(this.m.removeVideoCover.bind(this.m), 2500)(),
+                  yield y(500)(),
                   (null === (e = this.C) || void 0 === e ? void 0 : e.changingVideo) ||
-                    (h.pushTask(this.m.skipPromo), this.reloadListeners(), null === (i = this.C) || void 0 === i || i.forceSync());
+                    (b.pushTask(this.m.skipPromo), this.reloadListeners(), null === (i = this.C) || void 0 === i || i.forceSync());
               } catch (t) {
                 this.m.logError("unable to remove video cover", t);
               } finally {
@@ -1011,7 +1056,7 @@
         }
         initListeners() {
           window.addEventListener("resize", this.K.bind(this)),
-            window.addEventListener("message", this.G, !1),
+            window.addEventListener("message", this.O, !1),
             window.addEventListener("FromNode", this.X, !1),
             window.addEventListener("reloadVideoListener", this.L, !1);
         }
@@ -1027,7 +1072,7 @@
           e && (e.addEventListener("waiting", this.R), e.addEventListener("canplay", this.U), e.addEventListener("loadstart", this.$)),
             window.addEventListener("mouseup", this.Y),
             window.addEventListener("keyup", this.Y),
-            window.addEventListener("message", this.G, !1),
+            window.addEventListener("message", this.O, !1),
             window.addEventListener("FromNode", this.X, !1),
             this.m.showControls();
         }
@@ -1049,12 +1094,12 @@
             this.nt && clearInterval(this.nt),
             window.removeEventListener("resize", this.K),
             window.document.removeEventListener("webkitfullscreenchange", this.K),
-            window.removeEventListener("message", this.G, !1),
+            window.removeEventListener("message", this.O, !1),
             window.removeEventListener("FromNode", this.X, !1),
             window.addEventListener("reloadVideoListener", this.L, !1);
         }
         loadNewVideoAsync(t) {
-          return et(this, void 0, void 0, function* () {
+          return it(this, void 0, void 0, function* () {
             yield new Promise((e, i) => {
               const n = performance.now(),
                 s = setInterval(() => {
@@ -1065,7 +1110,7 @@
                   performance.now() - n >= 2e4 && (clearInterval(s), i("Could not load new video in time."));
                 }, 200);
             }),
-              yield r(() => {
+              yield f(() => {
                 const t = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
                 return window.dispatchEvent(t), this.m.isVideoReady();
               }, 1 / 0)(),
@@ -1087,8 +1132,8 @@
             return t.parentElement.parentElement.parentElement;
         }
         ct() {
-          return et(this, void 0, void 0, function* () {
-            yield r(() => {
+          return it(this, void 0, void 0, function* () {
+            yield f(() => {
               const t = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
               return window.dispatchEvent(t), !this.m.isWatchingAd();
             }, 1 / 0)(),
@@ -1096,20 +1141,20 @@
           });
         }
         Dt() {
+          if (document.querySelector(M)) {
+            const t = jQuery(M).closest("[style*='bottom: 125px;']");
+            t && t.length && (t[0].style.paddingRight = this.J.getChatVisible() ? "340px" : "0px");
+          }
+        }
+        ht() {
           if (document.querySelector(T)) {
             const t = jQuery(T).closest("[style*='bottom: 125px;']");
             t && t.length && (t[0].style.paddingRight = this.J.getChatVisible() ? "340px" : "0px");
           }
         }
-        ht() {
-          if (document.querySelector(S)) {
-            const t = jQuery(S).closest("[style*='bottom: 125px;']");
-            t && t.length && (t[0].style.paddingRight = this.J.getChatVisible() ? "340px" : "0px");
-          }
-        }
         checkWatchingAds() {
           var t;
-          return et(this, void 0, void 0, function* () {
+          return it(this, void 0, void 0, function* () {
             this.Dt(),
               this.ht(),
               yield this.m.waitUpdateAPIState(),
@@ -1122,39 +1167,39 @@
             null == this.C || ((null === (t = this.C) || void 0 === t ? void 0 : t.changingVideo) && !this.H) || null == this.C.videoId
           );
         }
-        O(e) {
-          var i, n, s;
-          return et(this, void 0, void 0, function* () {
-            if (e.source != window || this.dt()) return;
-            const u = X.getVideoType(new URL(window.location.href)) != t.OTHER && null != this.m.getVideoElement();
-            if ("FROM_PAGE_POP" !== e.data.type && u) {
-              if (e.data.type && "FROM_PAGE" == e.data.type) {
-                if ((d("Replace called"), "episode" !== this.m.videoType || "episode" !== X.getVideoType(new URL(window.location.href))))
+        G(t) {
+          var e, i, n;
+          return it(this, void 0, void 0, function* () {
+            if (t.source != window || this.dt()) return;
+            const s = q.getVideoType(new URL(window.location.href)) != g.OTHER && null != this.m.getVideoElement();
+            if ("FROM_PAGE_POP" !== t.data.type && s) {
+              if (t.data.type && "FROM_PAGE" == t.data.type) {
+                if ((j("Replace called"), "episode" !== this.m.videoType || "episode" !== q.getVideoType(new URL(window.location.href))))
                   return;
                 this.C && (this.C.changingVideo = !0), (this.H = !1);
                 try {
                   yield this.m.updateVideoId();
                   const t = this.m.videoId;
-                  t ? this.M(t) : d("No next episode: " + t + " : " + (null === (i = this.C) || void 0 === i ? void 0 : i.videoId));
+                  t ? this.M(t) : j("No next episode: " + t + " : " + (null === (e = this.C) || void 0 === e ? void 0 : e.videoId));
                 } catch (t) {
-                  null === this.m.getVideoElement && this.P(L),
-                    d("Replace failed " + t),
-                    this.m.videoId !== (null === (n = this.C) || void 0 === n ? void 0 : n.videoId)
-                      ? (null === (s = this.C) || void 0 === s ? void 0 : s.changingVideo)
-                        ? this.P(z)
-                        : this.P(W)
+                  null === this.m.getVideoElement && this.P(H),
+                    j("Replace failed " + t),
+                    this.m.videoId !== (null === (i = this.C) || void 0 === i ? void 0 : i.videoId)
+                      ? (null === (n = this.C) || void 0 === n ? void 0 : n.changingVideo)
+                        ? this.P(Y)
+                        : this.P(z)
                       : this.C && (this.C.changingVideo = !1);
                 }
               }
-            } else this.P(L);
+            } else this.P(H);
           });
         }
       }
-      const nt = "Service_Background",
-        st = "Popup",
-        ut = "Content_Script",
-        ot = "Page_Controls";
-      var rt;
+      const st = "Service_Background",
+        ut = "Popup",
+        ot = "Content_Script",
+        rt = "Page_Controls";
+      var at;
       !(function (t) {
         (t.CREATE_SESSION = "createSession"),
           (t.RE_INJECT = "reInject"),
@@ -1170,60 +1215,95 @@
           (t.EMAIL_SIGN_IN = "emailSignIn"),
           (t.FORGOT_PASSWORD = "forgotPassword"),
           (t.EMAIL_SIGN_UP = "emailSignUp"),
+          (t.ON_GOOGLE_SIGN_IN = "OnGoogleSignIn"),
           (t.CREATE_SCHEDULED_EVENT = "createScheduledEvent"),
           (t.DELETE_SCHEDULED_EVENT = "deleteScheduledEvent"),
           (t.SET_USER_STATUS = "SET_USER_STATUS"),
           (t.SIGN_IN_CREATE = "SIGN_IN_CREATE");
-      })(rt || (rt = {}));
-      const at = new (class {
+      })(at || (at = {}));
+      var ct = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              a(n.next(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function r(t) {
+            try {
+              a(n.throw(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function a(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          a((n = n.apply(t, e || [])).next());
+        });
+      };
+      const Dt = new (class {
         addListener(t) {
-          chrome.runtime.onMessage.addListener(t);
+          chrome.runtime.onMessage.addListener(t), chrome.runtime.onMessage.addListener(t);
         }
         removeListener(t) {
           chrome.runtime.onMessage.removeListener(t);
         }
         sendMessageToTabAsync(t, e, i = 2e4) {
-          return new Promise((n, s) => {
-            const u = setTimeout(() => {
-              s();
-            }, i);
-            try {
-              chrome.tabs.sendMessage(e, t, (e) => {
-                chrome.runtime.lastError && d(chrome.runtime.lastError.message + JSON.stringify(t)), clearTimeout(u), n(e);
-              });
-            } catch (t) {
-              clearTimeout(u), s(t);
-            }
+          return ct(this, void 0, void 0, function* () {
+            return new Promise((n, s) => {
+              const u = setTimeout(() => {
+                console.log("send timeout"), s("Message Timeout");
+              }, i);
+              try {
+                chrome.tabs.sendMessage(e, t, (e) => {
+                  chrome.runtime.lastError && j(chrome.runtime.lastError.message + JSON.stringify(t)), clearTimeout(u), n(e);
+                });
+              } catch (t) {
+                clearTimeout(u), s(t);
+              }
+            });
           });
         }
         lt(t, e) {
-          return new Promise((i, n) => {
-            let s = null;
-            e &&
-              (s = setTimeout(() => {
-                n({ error: "Send Message Timeout" });
-              }, e));
-            try {
-              chrome.runtime.sendMessage(p, t, (e) => {
-                chrome.runtime.lastError && console.log(chrome.runtime.lastError.message + JSON.stringify(t)), s && clearTimeout(s), i(e);
-              });
-            } catch (t) {
-              s && clearTimeout(s), n(t);
-            }
+          return ct(this, void 0, void 0, function* () {
+            return new Promise((i, s) => {
+              let u = null;
+              e &&
+                (u = setTimeout(() => {
+                  s({ error: "Send Message Timeout" });
+                }, e));
+              try {
+                chrome.runtime.sendMessage(n, t, (e) => {
+                  chrome.runtime.lastError && console.log(chrome.runtime.lastError.message + JSON.stringify(t)), u && clearTimeout(u), i(e);
+                });
+              } catch (t) {
+                u && clearTimeout(u), s(t);
+              }
+            });
           });
         }
       })();
-      class ct {
+      class ht {
         constructor(t, e, i) {
           (this.sender = t), (this.target = e), (this.type = i);
         }
       }
-      class Dt extends ct {
+      class dt extends ht {
         constructor(t, e, i) {
           super(t, e, i), (this.gt = i);
         }
       }
-      var ht, dt, lt, pt;
+      var lt, pt, gt, vt;
       !(function (t) {
         (t.BROADCAST = "brodadcast"),
           (t.BROADCAST_NEXT_EPISODE = "broadcastNextEpisode"),
@@ -1239,10 +1319,10 @@
           (t.SEND_REACTION = "sendReaction"),
           (t.SEND_GIF = "sendGIF"),
           (t.WEB_RTC = "webRTC");
-      })(ht || (ht = {}));
-      class gt extends Dt {
+      })(lt || (lt = {}));
+      class Ft extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.GET_SESSION_DATA), (this.data = i);
+          super(t, e, lt.GET_SESSION_DATA), (this.data = i);
         }
       }
       !(function (t) {
@@ -1272,9 +1352,12 @@
           (t.SET_ACTIVE_PARTY = "setActiveParty"),
           (t.FULLSCREEN_WINDOW = "fullscreenWindow"),
           (t.MAX_WINDOW = "maxWindow"),
-          (t.GET_EXPERIMENT_FLAG = "getExpFlag");
-      })(dt || (dt = {}));
-      class vt {
+          (t.GET_EXPERIMENT_FLAG = "getExpFlag"),
+          (t.USER_LIST = "userList"),
+          (t.USER_AUTHENTICATED = "userAuthenticated"),
+          (t.BLOCK_CSP = "blockCSP");
+      })(pt || (pt = {}));
+      class yt {
         constructor() {
           (this.vt = this.Ft.bind(this)), (this.yt = []), this.ft();
         }
@@ -1285,17 +1368,17 @@
           this.yt = this.yt.filter((t) => {});
         }
         ft() {
-          at.addListener(this.vt);
+          Dt.addListener(this.vt);
         }
         teardown() {
-          (this.yt = []), at.removeListener(this.vt);
+          (this.yt = []), Dt.removeListener(this.vt);
         }
         Ft(t, e, i) {
           if (!this.Ct(t)) return !1;
           return !!this.wt(t, e, i) || (i({}), !1);
         }
         Ct(t) {
-          return t.target === ut;
+          return t.target === ot;
         }
         wt(t, e, i) {
           let n = !1;
@@ -1319,7 +1402,7 @@
           (t.ON_LOG_EVENT = "onLogEvent"),
           (t.USER_LIST = "userList"),
           (t.ON_WEB_RTC = "onWebRTC");
-      })(lt || (lt = {})),
+      })(gt || (gt = {})),
         (function (t) {
           (t.SET_USER_LIST = "setUserList"),
             (t.SET_CONNECTION_ID = "setConnectionId"),
@@ -1344,11 +1427,11 @@
             (t.OPEN_TAB = "openTab"),
             (t.ON_CHROME_STORAGE_UPDATE = "onChromeStorageUpdate"),
             (t.ON_WEB_RTC = "onWebRTC");
-        })(pt || (pt = {}));
-      var Ft,
-        yt,
-        mt,
-        ft = function (t, e, i, n) {
+        })(vt || (vt = {}));
+      var mt,
+        ft,
+        Ct,
+        wt = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
@@ -1378,84 +1461,84 @@
             a((n = n.apply(t, e || [])).next());
           });
         };
-      class Ct {
+      class Et {
         constructor(t, e) {
-          (this.J = t), (this.Et = e), d("Chat forwarder");
+          (this.J = t), (this.Et = e), j("Chat forwarder");
         }
         onMessage(t, e, i) {
           var n;
           switch (t.type) {
-            case dt.LOAD_SESSION: {
+            case pt.LOAD_SESSION: {
               const e = t;
               return this._t(e.data), !1;
             }
-            case lt.ON_MESSAGE: {
+            case gt.ON_MESSAGE: {
               const e = t;
               return this.bt(e), this.Et.onChatMessage(), !1;
             }
-            case lt.ON_BUFFER: {
+            case gt.ON_BUFFER: {
               const e = t;
               return this.jt(e), !1;
             }
-            case lt.ON_TYPING: {
+            case gt.ON_TYPING: {
               const e = t;
               return this.Bt(e), !1;
             }
-            case lt.ON_WATCHING_ADS: {
+            case gt.ON_WATCHING_ADS: {
               const e = t;
               return this.At(e), !1;
             }
-            case lt.UPDATE_SETTINGS: {
+            case gt.UPDATE_SETTINGS: {
               const e = t;
               return this.kt(e), !1;
             }
-            case lt.ON_REACTION: {
+            case gt.ON_REACTION: {
               const e = t;
               return this.Qt(e), !1;
             }
-            case lt.ON_GIF: {
+            case gt.ON_GIF: {
               const e = t;
               return this.It(e), !1;
             }
-            case lt.USER_LIST: {
+            case gt.USER_LIST: {
               const e = t;
               return this.xt(e), !1;
             }
-            case lt.ON_WEB_RTC:
+            case gt.ON_WEB_RTC:
               return this.J.onWebRTC(t.data), !0;
-            case rt.SET_CHAT_VISIBLE: {
+            case at.SET_CHAT_VISIBLE: {
               const e = t;
               return this.St(e.data), i(), !1;
             }
-            case pt.SIDEBAR_MESSAGING_READY: {
+            case vt.SIDEBAR_MESSAGING_READY: {
               console.log("Sidebar Ready");
               const t = null === (n = window.teleparty) || void 0 === n ? void 0 : n.tabId;
               return console.log(t), this.J.setChatFrameReady(null != t ? t : 0), i(), !0;
             }
-            case pt.DISPLAY_MODAL: {
+            case vt.DISPLAY_MODAL: {
               const e = t.data;
               return console.log(e), !0;
             }
-            case pt.ON_UPDATE_SETTINGS: {
+            case vt.ON_UPDATE_SETTINGS: {
               const e = t.data;
               return this.J.doUpdateSettings(e), i(), !0;
             }
-            case pt.ON_CHROME_STORAGE_UPDATE:
+            case vt.ON_CHROME_STORAGE_UPDATE:
               try {
                 chrome.storage.local.set(t.data);
               } catch (t) {
                 console.log("Failed to update chrome storage");
               }
               return i(), !0;
-            case pt.SET_REACTIONS_ACTIVE: {
+            case vt.SET_REACTIONS_ACTIVE: {
               const e = t.data;
               return this.J.setReactionsActive(e), i(), !0;
             }
-            case pt.RESET_VIEW:
+            case vt.RESET_VIEW:
               return this.J.resetChatWindow(!0), i(), !0;
-            case pt.ON_FOCUS:
+            case vt.ON_FOCUS:
               return this.J.onSidebarFocus(), i(), !0;
-            case pt.PREVIEW_REACTION: {
+            case vt.PREVIEW_REACTION: {
               const e = t.data;
               return this.J.showReaction(e), i(), !0;
             }
@@ -1471,7 +1554,7 @@
           this.J.teardown();
         }
         St(t) {
-          return ft(this, void 0, void 0, function* () {
+          return wt(this, void 0, void 0, function* () {
             this.J.isPartyWindowsActive()
               ? t.visible
                 ? yield this.J.resetChatWindow()
@@ -1481,7 +1564,7 @@
         }
         _t(t) {
           const e = t.sessionCallbackData.sessionId,
-            i = `${y}/join/${e}`;
+            i = `${r}/join/${e}`;
           if (
             (this.J.loadInitData(t),
             this.J.setPartyUrl(i),
@@ -1523,7 +1606,7 @@
       }
       !(function (t) {
         (t.PAUSED = "paused"), (t.PLAYING = "playing");
-      })(Ft || (Ft = {})),
+      })(mt || (mt = {})),
         (function (t) {
           (t.LOADING = "loading"),
             (t.PLAYING = "playing"),
@@ -1531,68 +1614,68 @@
             (t.AD_PLAYING = "ad_playing"),
             (t.PAUSED = "paused"),
             (t.NOT_READY = "not_ready");
-        })(yt || (yt = {})),
+        })(ft || (ft = {})),
         (function (t) {
           (t.UPDATE_SESSION = "updateSession"),
             (t.NEXT_EPISODE = "nextEpisode"),
             (t.REBOOT_SESSION = "rebootSession"),
             (t.GET_SERVER_TIME = "getServerTime"),
             (t.RELOAD_PARTY = "reloadParty");
-        })(mt || (mt = {}));
-      class wt extends Dt {
+        })(Ct || (Ct = {}));
+      class _t extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.BROADCAST), (this.data = i);
+          super(t, e, lt.BROADCAST), (this.data = i);
         }
       }
-      class Et extends ct {
-        constructor(t, e, i) {
-          super(t, e, i), (this.type = i);
-        }
-      }
-      class _t extends Et {
-        constructor(t, e, i) {
-          super(t, e, dt.TEARDOWN), (this.data = i);
-        }
-      }
-      class bt extends ct {
+      class bt extends ht {
         constructor(t, e, i) {
           super(t, e, i), (this.type = i);
         }
       }
       class jt extends bt {
+        constructor(t, e, i) {
+          super(t, e, pt.TEARDOWN), (this.data = i);
+        }
+      }
+      class Bt extends ht {
+        constructor(t, e, i) {
+          super(t, e, i), (this.type = i);
+        }
+      }
+      class At extends Bt {
         constructor(t, e) {
-          super(t, e, mt.GET_SERVER_TIME);
+          super(t, e, Ct.GET_SERVER_TIME);
         }
       }
-      class Bt extends Dt {
+      class kt extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.BROADCAST_NEXT_EPISODE), (this.data = i);
+          super(t, e, lt.BROADCAST_NEXT_EPISODE), (this.data = i);
         }
       }
-      class At extends Dt {
+      class Qt extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.SET_BUFFERING), (this.data = i);
+          super(t, e, lt.SET_BUFFERING), (this.data = i);
         }
       }
-      class kt extends Dt {
+      class It extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.SET_WATCHING_ADS), (this.data = i);
+          super(t, e, lt.SET_WATCHING_ADS), (this.data = i);
         }
       }
-      class Qt extends Et {
+      class xt extends bt {
         constructor(t, e, i) {
-          super(t, e, dt.LOG_EVENT), (this.data = i), (this.sender = t), (this.target = e);
+          super(t, e, pt.LOG_EVENT), (this.data = i), (this.sender = t), (this.target = e);
         }
       }
-      class It extends Et {
+      class St extends bt {
         constructor(t, e, i) {
-          super(t, e, dt.STAY_ALIVE), (this.data = i);
+          super(t, e, pt.STAY_ALIVE), (this.data = i);
         }
       }
-      const xt = "Failed to read chrome storage. Please refresh the page and try again",
-        St = "Failed to connect to Script. Please refresh the page and try again",
-        Tt = "An unexpected error occured. Please refresh the page and try again.";
-      var Mt = function (t, e, i, n) {
+      const Tt = "Failed to read chrome storage. Please refresh the page and try again",
+        Mt = "Failed to connect to Script. Please refresh the page and try again",
+        Pt = "An unexpected error occured. Please refresh the page and try again.";
+      var Vt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -1622,29 +1705,29 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      const Pt = new (class {
+      const $t = new (class {
         getItemsAsync(t) {
-          return Mt(this, void 0, void 0, function* () {
+          return Vt(this, void 0, void 0, function* () {
             return new Promise((e, i) => {
               chrome.storage.local.get(t, (t) => {
-                chrome.runtime.lastError ? i(new Error(xt)) : e(t);
+                chrome.runtime.lastError ? (console.log(chrome.runtime.lastError), i(new Error(Tt))) : e(t);
               });
             });
           });
         }
         getAllItemsAsync() {
-          return Mt(this, void 0, void 0, function* () {
+          return Vt(this, void 0, void 0, function* () {
             return new Promise((t, e) => {
               chrome.storage.local.get(null, (i) => {
-                chrome.runtime.lastError ? e(new Error(xt)) : t(i);
+                chrome.runtime.lastError ? (console.log(chrome.runtime.lastError), e(new Error(Tt))) : t(i);
               });
             });
           });
         }
       })();
-      Object.freeze(Pt);
-      const Vt = Pt;
-      var $t = function (t, e, i, n) {
+      Object.freeze($t);
+      const Nt = $t;
+      var Rt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -1674,9 +1757,9 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      const Nt = new (class {
+      const Ut = new (class {
         setItemsAsync(t) {
-          return $t(this, void 0, void 0, function* () {
+          return Rt(this, void 0, void 0, function* () {
             return new Promise((e, i) => {
               chrome.storage.local.set(t, () => {
                 chrome.runtime.lastError ? i(new Error("Failed to write to chrome storage. Please refresh the page and try again")) : e();
@@ -1685,9 +1768,9 @@
           });
         }
       })();
-      Object.freeze(Nt);
-      const Rt = Nt;
-      var Ut = function (t, e, i, n) {
+      Object.freeze(Ut);
+      const Ot = Ut;
+      var Gt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -1717,10 +1800,10 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      const Gt = new (class {
+      const Lt = new (class {
         getRedirectDataForTabAsync(t) {
-          return Ut(this, void 0, void 0, function* () {
-            const e = (yield Vt.getItemsAsync([E])).redirectDataMap,
+          return Gt(this, void 0, void 0, function* () {
+            const e = (yield Nt.getItemsAsync([d])).redirectDataMap,
               i = this.Mt(t);
             if (e && e[i]) {
               const t = e[i];
@@ -1729,20 +1812,21 @@
           });
         }
         deleteRedirectDataForTabAsync(t) {
-          return Ut(this, void 0, void 0, function* () {
-            const e = (yield Vt.getItemsAsync([E])).redirectDataMap,
+          return Gt(this, void 0, void 0, function* () {
+            const e = (yield Nt.getItemsAsync([d])).redirectDataMap,
               i = this.Mt(t);
-            e && e[i] && delete e[i], yield Rt.setItemsAsync({ [E]: e });
+            e && e[i] && delete e[i], yield Ot.setItemsAsync({ [d]: e });
           });
         }
         Mt(t) {
           return t;
         }
         storeRedirectDataForTabAsync(t, e) {
-          return Ut(this, void 0, void 0, function* () {
+          return Gt(this, void 0, void 0, function* () {
+            console.log("store data for tab " + t);
             const i = this.Mt(e);
-            let n = yield Vt.getItemsAsync([E]);
-            (n[i] = t), (n = this.Vt(n)), yield Rt.setItemsAsync({ [E]: n });
+            let n = yield Nt.getItemsAsync([d]);
+            (n[i] = t), (n = this.Vt(n)), yield Ot.setItemsAsync({ [d]: n });
           });
         }
         Vt(t) {
@@ -1758,9 +1842,9 @@
           return void 0 !== e && "number" == typeof e && e <= Date.now() && Date.now() - e < 108e5;
         }
       })();
-      Object.freeze(Gt);
-      const Ot = Gt;
-      var Lt = function (t, e, i, n) {
+      Object.freeze(Lt);
+      const Ht = Lt;
+      var Wt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -1790,19 +1874,19 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      class Ht {
+      class zt {
         constructor(t, e, i) {
           (this.$t = []),
             (this.Nt = 0),
             (this.Rt = 0),
             (this.Ut = []),
-            (this.Gt = !1),
             (this.Ot = !1),
+            (this.Gt = !1),
             (this.Lt = !1),
             (this.Ht = !1),
             (this.Wt = void 0),
             (this.zt = () =>
-              Lt(this, void 0, void 0, function* () {
+              Wt(this, void 0, void 0, function* () {
                 try {
                   yield fetch("https://www3.doubleclick.net", { method: "HEAD", mode: "no-cors", cache: "no-store" }), (this.Wt = !1);
                 } catch (t) {
@@ -1810,7 +1894,7 @@
                 }
               })),
             (this.Yt = (t = !1, e = !1) =>
-              Lt(this, void 0, void 0, function* () {
+              Wt(this, void 0, void 0, function* () {
                 if (this.Kt) return;
                 if (this.Lt) return void this.forceSync();
                 if (!this.Ht && !e) return;
@@ -1824,9 +1908,9 @@
                 }
               })),
             (this.te = () =>
-              Lt(this, void 0, void 0, function* () {
+              Wt(this, void 0, void 0, function* () {
                 if (
-                  (this.ee == Ft.PAUSED &&
+                  (this.ee == mt.PAUSED &&
                     this.ie &&
                     (clearInterval(this.ie),
                     (this.ie = setInterval(() => {
@@ -1837,7 +1921,7 @@
                   return;
                 if ((yield this.m.waitVideoDoneLoadingAsync(), this.se())) return;
                 const t = yield this.m.getStateAsync();
-                this.ee == Ft.PAUSED ? yield this.ue(t) : this.ee == Ft.PLAYING && (yield this.oe(t)), !1 === this.Ht && (this.Ht = !0);
+                this.ee == mt.PAUSED ? yield this.ue(t) : this.ee == mt.PLAYING && (yield this.oe(t)), !1 === this.Ht && (this.Ht = !0);
               })),
             (this.m = t),
             (this.J = e),
@@ -1845,37 +1929,37 @@
             this.re.setMessageForwarder(this),
             (this.ae = 0),
             (this.Kt = !1),
-            (this.ee = Ft.PAUSED),
+            (this.ee = mt.PAUSED),
             (this.ce = 0),
             (this.De = 0),
             (this.he = 0),
             (this.de = this.m.getStreamingServiceName()),
-            d("Video forwarder"),
+            j("Video forwarder"),
             this.zt();
         }
         onMessage(t, e, i) {
           switch (t.type) {
-            case dt.GET_VIDEO_DATA:
+            case pt.GET_VIDEO_DATA:
               return this.le(i), !0;
-            case dt.LOAD_SESSION: {
+            case pt.LOAD_SESSION: {
               const e = t;
               return this.pe(e.data), !1;
             }
-            case mt.UPDATE_SESSION: {
+            case Ct.UPDATE_SESSION: {
               const e = t;
               return this.ge(e.data), !1;
             }
-            case mt.NEXT_EPISODE: {
+            case Ct.NEXT_EPISODE: {
               const e = t;
               return this.ve(e.data), !1;
             }
-            case mt.REBOOT_SESSION: {
+            case Ct.REBOOT_SESSION: {
               const e = t;
               return this.Fe(e.data, i), !0;
             }
-            case mt.RELOAD_PARTY:
+            case Ct.RELOAD_PARTY:
               return this.reloadPartyAsync().then(() => console.log("Party Reloaded")), !0;
-            case lt.ON_WATCHING_ADS: {
+            case gt.ON_WATCHING_ADS: {
               const e = t;
               return this.At(e), !1;
             }
@@ -1884,8 +1968,8 @@
           }
         }
         At(t) {
-          t.data.anyoneWatchingAds && !this.Ot && (h.pushTask(this.m.doAdCheck.bind(this.m)), this.forceSync()),
-            (this.Ot = t.data.anyoneWatchingAds);
+          t.data.anyoneWatchingAds && !this.Gt && (b.pushTask(this.m.doAdCheck.bind(this.m)), this.forceSync()),
+            (this.Gt = t.data.anyoneWatchingAds);
         }
         get videoId() {
           return this.ye;
@@ -1894,113 +1978,113 @@
           this.ye = t;
         }
         sendTeardown(t) {
-          const e = new _t(ut, nt, t);
-          at.lt(e);
+          const e = new jt(ot, st, t);
+          Dt.lt(e);
         }
         teardown() {
           (this.fe = void 0),
             this.Ce && clearInterval(this.Ce),
             this.ie && clearInterval(this.ie),
             this.m.pause(),
-            h.disable(),
+            b.disable(),
             this.re.stopListening();
         }
         Fe(t, e) {
-          h.resetTasks(), this.ye == t.videoId && this.ge(t), e(this.ye == t.videoId);
-          const i = new Qt(ut, nt, { eventType: "reboot", sessionId: this.fe });
-          at.lt(i);
+          b.resetTasks(), this.ye == t.videoId && this.ge(t), e(this.ye == t.videoId);
+          const i = new xt(ot, st, { eventType: "reboot", sessionId: this.fe });
+          Dt.lt(i);
         }
         tryBroadcast(t = !1) {
-          this.Gt ||
+          this.Ot ||
             (this.Lt
               ? this.forceSync()
-              : 0 != this.m.uiEventsHappening || this.Kt || !this.fe || h.hasTaskInQueue(tt) || h.pushTask(() => this.Yt(t), tt));
+              : 0 != this.m.uiEventsHappening || this.Kt || !this.fe || b.hasTaskInQueue(et) || b.pushTask(() => this.Yt(t), et));
         }
         setBuffering(t) {
           if (this.fe) {
-            const e = new At(ut, nt, { buffering: t });
-            at.lt(e);
+            const e = new Qt(ot, st, { buffering: t });
+            Dt.lt(e);
           }
         }
         isWatchingAds() {
-          return this.Gt;
+          return this.Ot;
         }
         setWatchingAds(t, e) {
           if (this.fe) {
-            this.Gt = t;
-            const i = new kt(ut, nt, { watchingAds: t, adDurationLeft: e });
-            at.lt(i);
+            this.Ot = t;
+            const i = new It(ot, st, { watchingAds: t, adDurationLeft: e });
+            Dt.lt(i);
           }
         }
         sendNextEpisodeAsync(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             if (this.fe && t !== this.ye && t !== this.we) {
               (this.we = t), (this.Kt = !0);
-              const e = new Bt(ut, nt, { nextEpisode: t }),
-                i = yield at.lt(e);
+              const e = new kt(ot, st, { nextEpisode: t }),
+                i = yield Dt.lt(e);
               i && "Locked Session" === i.errorMessage && (yield this.Ee(t));
             }
           });
         }
         Ee(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             try {
-              yield r(() => t == this.ye, 1e4)(), (this.Kt = !1);
+              yield f(() => t == this.ye, 1e4)(), (this.Kt = !1);
             } catch (t) {
               this._e("An error has occured when trying to wait till the episode changed videos");
-              const e = { showAlert: !0, alertModal: $ };
+              const e = { showAlert: !0, alertModal: N };
               this.sendTeardown(e);
             }
           });
         }
         Xt(t, e) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             if (null == t.lastKnownTime || null == t.lastKnownTimeUpdatedAt || null == t.state) return !1;
-            if (e && t.state === Ft.PAUSED && t.lastKnownTime < M) return !1;
+            if (e && t.state === mt.PAUSED && t.lastKnownTime < P) return !1;
             const i = Math.abs(t.lastKnownTime - this.be());
-            if (t.state == this.ee && i < M) return !1;
-            if (i >= M) {
-              const t = new Qt(ut, nt, { name: "video_seek", action: { source: "self" } });
-              at.lt(t), this.de == K.AMAZON || this.de == K.PARAMOUNT ? yield u(200)() : this.de == K.HBO_MAX && (yield u(500)());
+            if (t.state == this.ee && i < P) return !1;
+            if (i >= P) {
+              const t = new xt(ot, st, { name: "video_seek", action: { source: "self" } });
+              Dt.lt(t), this.de == J.AMAZON || this.de == J.PARAMOUNT ? yield y(200)() : this.de == J.HBO_MAX && (yield y(500)());
             }
             return !0;
           });
         }
         Jt() {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             const t = yield this.m.getUpdateSessionDataAsync();
             (t.lastKnownTimeUpdatedAt -= this.Rt), (t.lastKnownTime = Math.round(t.lastKnownTime));
-            return new wt(ut, nt, t);
+            return new _t(ot, st, t);
           });
         }
         forceSync() {
-          h.pushTask(this.te, Z);
+          b.pushTask(this.te, tt);
         }
         ve(t) {
-          return Lt(this, void 0, void 0, function* () {
-            (this.ae = Date.now()), h.pushTask(() => this.je(t));
+          return Wt(this, void 0, void 0, function* () {
+            (this.ae = Date.now()), b.pushTask(() => this.je(t));
           });
         }
         je(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             try {
-              d("Continue next episode called"),
+              j("Continue next episode called"),
                 (this.Kt = !0),
                 yield this.m.jumpToNextEpisode(t),
                 yield this.re.loadNewVideoAsync(t.videoId),
-                d("After load new video"),
+                j("After load new video"),
                 this.re.reloadListeners(),
                 this.he < this.ae &&
-                  ((this.ee = Ft.PAUSED),
+                  ((this.ee = mt.PAUSED),
                   (this.ce = 0),
                   (this.De = Date.now()),
-                  d("Sending broadcast after next episode"),
-                  h.pushTask(() => this.Yt(!0, !0), tt),
-                  h.removeTask(Z)),
+                  j("Sending broadcast after next episode"),
+                  b.pushTask(() => this.Yt(!0, !0), et),
+                  b.removeTask(tt)),
                 (this.ye = t.videoId),
                 (this.Kt = !1);
-              const e = new Qt(ut, nt, { name: "video_start", action: { description: "video session has begun" } });
-              at.lt(e);
+              const e = new xt(ot, st, { name: "video_start", action: { description: "video session has begun" } });
+              Dt.lt(e);
             } catch (t) {
               this._e("Error loading new video."), console.log("Error was", t), yield this.reloadPartyAsync();
             }
@@ -2008,34 +2092,35 @@
         }
         persistExtension(t) {
           var e, i;
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             console.log("persist here");
             const n = null !== (i = null === (e = window.teleparty) || void 0 === e ? void 0 : e.tabId) && void 0 !== i ? i : 0,
-              s = new It(ut, nt, { tabId: n, persist: t });
-            at.lt(s);
+              s = new St(ot, st, { tabId: n, persist: t });
+            Dt.lt(s);
             const u = yield this.Be();
-            (u.date = Date.now()), Ot.storeRedirectDataForTabAsync(u, n);
+            (u.date = Date.now()), Ht.storeRedirectDataForTabAsync(u, n);
           });
         }
         reloadPartyAsync() {
           var t, e;
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             try {
+              console.log("Reloading party");
               const i = yield this.Be();
               i.date = Date.now();
               const n = yield this.Ae(i),
                 s = null !== (e = null === (t = window.teleparty) || void 0 === t ? void 0 : t.tabId) && void 0 !== e ? e : 0,
-                u = new It(ut, nt, { tabId: s, persist: !1 });
-              yield at.lt(u), yield Ot.storeRedirectDataForTabAsync(i, s), (window.location.href = n);
+                u = new St(ot, st, { tabId: s, persist: !1 });
+              yield Dt.lt(u), yield Ht.storeRedirectDataForTabAsync(i, s), console.log("Redirect URL is", n), (window.location.href = n);
             } catch (t) {
               console.log("Error reloading party", t), this._e("Failed to fix next episode.");
-              const e = new _t(ut, nt, { showAlert: !0, alertModal: R });
-              at.lt(e);
+              const e = new jt(ot, st, { showAlert: !0, alertModal: U });
+              Dt.lt(e);
             }
           });
         }
         Be() {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             return new Promise((t, e) => {
               const i = new XMLHttpRequest();
               (i.timeout = 1e4),
@@ -2096,6 +2181,8 @@
                 return `https://www.paramountplus.com/${this.mapToParamountType(t.videoType)}/video/${t.videoId}/`;
               case "hotstar":
                 return `https://www.hotstar.com/${t.videoId}/watch`;
+              case "disneymena":
+                return `https://apps.disneyplus.com/${t.videoId}/watch`;
               case "max":
                 return `https://play.max.com/video/watch/${t.videoId}`;
               case "plutotv":
@@ -2110,6 +2197,8 @@
                 return `https://mubi.com/${t.videoId}`;
               case "stan":
                 return `https://play.stan.com.au/programs/${t.videoId}/play`;
+              case "slingtv":
+                return `https://watch.sling.com/1/asset/${t.videoId}/watch`;
               default:
                 throw new Error();
             }
@@ -2118,32 +2207,32 @@
           throw new Error("Invalid Session Response");
         }
         ge(t) {
-          (this.he = Date.now()), h.pushTask(this.ke(t).bind(this));
+          (this.he = Date.now()), b.pushTask(this.ke(t).bind(this));
         }
         ke(t) {
-          if (t.state === Ft.PAUSED && this.ee === Ft.PLAYING) {
+          if (t.state === mt.PAUSED && this.ee === mt.PLAYING) {
             this.ne();
-            const t = new Qt(ut, nt, {
+            const t = new xt(ot, st, {
               name: "video_pause",
               action: { description: "video was played from pause", reason: "Video was played" }
             });
-            at.lt(t);
-          } else if (t.state === Ft.PLAYING && this.ee === Ft.PAUSED) {
-            const t = new Qt(ut, nt, {
+            Dt.lt(t);
+          } else if (t.state === mt.PLAYING && this.ee === mt.PAUSED) {
+            const t = new xt(ot, st, {
               name: "video_resume",
               action: { description: "video was played from pause", reason: "Video was played" }
             });
-            at.lt(t), this.ne();
+            Dt.lt(t), this.ne();
           }
           return (this.ee = t.state), (this.ce = t.lastKnownTime), (this.De = t.lastKnownTimeUpdatedAt), this.te;
         }
         le(t) {
           var e;
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             try {
               const e = yield this.m.getVideoDataAsync(),
                 i = yield this.m.getStateAsync();
-              (e.is_player_fullscreen = null !== document.fullscreenElement),
+              (e.is_player_fullscreen = null != document.fullscreenElement || document.webkitIsFullScreen),
                 (e.is_chat_visible = this.J.getChatVisible()),
                 (e.is_adblock_enabled = this.Wt),
                 (e.video_ts_ms = Math.round(i.playbackPositionMilliseconds)),
@@ -2155,18 +2244,18 @@
           });
         }
         _e(t) {
-          const e = new Qt(ut, nt, {
+          const e = new xt(ot, st, {
             name: "video_error",
             action: { description: t, reason: "An errors has occurred during video playback" }
           });
-          at.lt(e);
+          Dt.lt(e);
         }
         Zt(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             return new Promise((e) => {
               const i = performance.now(),
                 n = () =>
-                  Lt(this, void 0, void 0, function* () {
+                  Wt(this, void 0, void 0, function* () {
                     if (performance.now() - i >= 2500) e(!1);
                     else {
                       const i = yield this.Jt();
@@ -2182,98 +2271,97 @@
           });
         }
         qt(t) {
-          return Lt(this, void 0, void 0, function* () {
-            if (this.Kt || this.Gt) return;
+          return Wt(this, void 0, void 0, function* () {
+            if (this.Kt || this.Ot) return;
             const e = this.ee;
             if (t.data.bufferingState) {
-              (t.data.state = Ft.PAUSED), yield at.lt(t, 1e3), yield this.m.waitVideoDoneLoadingAsync();
+              (t.data.state = mt.PAUSED), yield Dt.lt(t, 1e3), yield this.m.waitVideoDoneLoadingAsync();
               const i = yield this.Jt();
-              (i.data.bufferingState = !0), e == Ft.PLAYING && (i.data.state = Ft.PLAYING), yield at.lt(i, 1e3);
-            } else yield at.lt(t, 1e3);
+              (i.data.bufferingState = !0), e == mt.PLAYING && (i.data.state = mt.PLAYING), yield Dt.lt(i, 1e3);
+            } else yield Dt.lt(t, 1e3);
           });
         }
         pe(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             const e = t.sessionCallbackData;
             (this.fe = e.sessionId),
               (this.ee = e.state),
               (this.ce = Number(e.lastKnownTime)),
               (this.De = Number(e.lastKnownTimeUpdatedAt)),
               (this.ye = e.videoId),
-              (this.Ot = !1),
+              (this.Gt = !1),
               "true" == e.controlLock && (this.Lt = !0),
-              t.isCreate ? ((this.Ht = !0), h.pushTask(this.Yt.bind(this), tt)) : this.forceSync();
-            const i = new Qt(ut, nt, { name: "video_start", action: { description: "video session has begun" } });
-            at.lt(i), this.re.startListening(), this.Qe();
+              t.isCreate ? ((this.Ht = !0), b.pushTask(this.Yt.bind(this), et)) : this.forceSync();
+            const i = new xt(ot, st, { name: "video_start", action: { description: "video session has begun" } });
+            Dt.lt(i), this.re.startListening(), this.Qe();
           });
         }
         Ie() {
           return new Promise((t) => {
-            const e = new jt(ut, nt),
+            const e = new At(ot, st),
               i = Date.now();
-            at
-              .lt(e)
+            Dt.lt(e)
               .then((t) => {
                 const e = Date.now();
                 if (t) {
                   const n = t.serverTime;
                   n &&
-                    (a(this.$t, e - i, 5), (this.Nt = c(this.$t)), a(this.Ut, e - Math.round(this.Nt / 2) - n, 5), (this.Rt = c(this.Ut)));
+                    (C(this.$t, e - i, 5), (this.Nt = w(this.$t)), C(this.Ut, e - Math.round(this.Nt / 2) - n, 5), (this.Rt = w(this.Ut)));
                 }
               })
               .catch((t) => {
-                d(t), this._e(t);
+                j(t), this._e(t);
               }),
               t();
           });
         }
         ne() {
-          const t = new Qt(ut, nt, {
+          const t = new xt(ot, st, {
             name: "video_heartbeat",
             action: { description: "new heartbeat", reason: "Heartbeat session was due" }
           });
-          at.lt(t);
+          Dt.lt(t);
         }
         Qe() {
           this.Ce && clearInterval(this.Ce),
             this.ie && clearInterval(this.ie),
             (this.Ce = setInterval(() => {
-              h.hasTaskInQueue(Z) || h.pushTask(this.te, Z);
+              b.hasTaskInQueue(tt) || b.pushTask(this.te, tt);
             }, 5e3)),
             (this.ie = setInterval(() => {
               this.ne();
             }, 6e4)),
             (this.xe = setInterval(() => {
-              h.hasTaskInQueue(q) || h.pushTask(this.Ie.bind(this), q);
+              b.hasTaskInQueue(Z) || b.pushTask(this.Ie.bind(this), Z);
             }, 12500)),
             this.Ie();
         }
         se() {
-          return !this.fe || this.m.uiEventsHappening > 0 || this.Gt || this.Kt || !this.re.shouldSync();
+          return !this.fe || this.m.uiEventsHappening > 0 || this.Ot || this.Kt || !this.re.shouldSync();
         }
         ue(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             const { playbackState: e, playbackPositionMilliseconds: i } = t;
-            if ((e !== yt.PAUSED && (yield this.m.pause()), Math.abs(this.ce - i) > 2500)) {
+            if ((e !== ft.PAUSED && (yield this.m.pause()), Math.abs(this.ce - i) > 2500)) {
               yield this.m.setCurrentTime(this.ce);
-              const t = new Qt(ut, nt, { name: "video_seek", action: { source: "another user" } });
-              at.lt(t);
+              const t = new xt(ot, st, { name: "video_seek", action: { source: "another user" } });
+              Dt.lt(t);
             }
           });
         }
         oe(t) {
-          return Lt(this, void 0, void 0, function* () {
+          return Wt(this, void 0, void 0, function* () {
             const { playbackState: e, playbackPositionMilliseconds: i } = t,
               n = this.be();
-            if ((e == yt.PAUSED && (yield this.m.play()), Math.abs(n - i) > 2500)) {
+            if ((e == ft.PAUSED && (yield this.m.play()), Math.abs(n - i) > 2500)) {
               yield this.m.setCurrentTime(n), yield this.m.play();
-              const t = new Qt(ut, nt, { name: "video_seek", action: { source: "another user" } });
-              at.lt(t);
+              const t = new xt(ot, st, { name: "video_seek", action: { source: "another user" } });
+              Dt.lt(t);
             }
           });
         }
         Se() {
-          return this.ee === Ft.PLAYING ? Date.now() - (this.De + this.Rt) : 0;
+          return this.ee === mt.PLAYING ? Date.now() - (this.De + this.Rt) : 0;
         }
         be() {
           return this.ce + this.Se();
@@ -2285,66 +2373,6 @@
           this.Kt = t;
         }
       }
-      var Wt = function (t, e, i, n) {
-        return new (i || (i = Promise))(function (s, u) {
-          function o(t) {
-            try {
-              a(n.next(t));
-            } catch (t) {
-              u(t);
-            }
-          }
-          function r(t) {
-            try {
-              a(n.throw(t));
-            } catch (t) {
-              u(t);
-            }
-          }
-          function a(t) {
-            var e;
-            t.done
-              ? s(t.value)
-              : ((e = t.value),
-                e instanceof i
-                  ? e
-                  : new i(function (t) {
-                      t(e);
-                    })).then(o, r);
-          }
-          a((n = n.apply(t, e || [])).next());
-        });
-      };
-      var zt = function (t, e, i, n) {
-        return new (i || (i = Promise))(function (s, u) {
-          function o(t) {
-            try {
-              a(n.next(t));
-            } catch (t) {
-              u(t);
-            }
-          }
-          function r(t) {
-            try {
-              a(n.throw(t));
-            } catch (t) {
-              u(t);
-            }
-          }
-          function a(t) {
-            var e;
-            t.done
-              ? s(t.value)
-              : ((e = t.value),
-                e instanceof i
-                  ? e
-                  : new i(function (t) {
-                      t(e);
-                    })).then(o, r);
-          }
-          a((n = n.apply(t, e || [])).next());
-        });
-      };
       var Yt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
@@ -2375,7 +2403,67 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      class Kt extends class {
+      var Kt = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              a(n.next(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function r(t) {
+            try {
+              a(n.throw(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function a(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          a((n = n.apply(t, e || [])).next());
+        });
+      };
+      var Jt = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              a(n.next(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function r(t) {
+            try {
+              a(n.throw(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function a(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          a((n = n.apply(t, e || [])).next());
+        });
+      };
+      class Xt extends class {
         constructor() {
           (this.Te = 0), (this.Lt = !1);
         }
@@ -2403,11 +2491,11 @@
         }
         logError(t, e) {
           console.error("ERROR", t, e);
-          const i = new Qt(ut, nt, { name: "video_error", action: { description: t, reason: e } });
-          at.lt(i);
+          const i = new xt(ot, st, { name: "video_error", action: { description: t, reason: e } });
+          Dt.lt(i);
         }
         doAdCheck() {
-          return zt(this, void 0, void 0, function* () {});
+          return Kt(this, void 0, void 0, function* () {});
         }
       } {
         constructor() {
@@ -2418,11 +2506,11 @@
             (this.Ve = 0),
             (this.$e = {}),
             (this.Ne = null !== (t = this.ot()) && void 0 !== t ? t : ""),
-            (this.Re = X.getVideoType(new URL(window.location.href))),
+            (this.Re = q.getVideoType(new URL(window.location.href))),
             (this.Ue = new CustomEvent("tpVideoNode", { detail: { type: "play" } })),
-            (this.Ge = new CustomEvent("tpVideoNode", { detail: { type: "pause" } })),
+            (this.Oe = new CustomEvent("tpVideoNode", { detail: { type: "pause" } })),
             (this.Te = 0),
-            (this.Oe = 0),
+            (this.Ge = 0),
             (this.Le = {
               time: 0,
               playbackState: 1,
@@ -2475,31 +2563,31 @@
         }
         loadVideoData() {
           var t;
-          (this.Ne = null !== (t = this.ot()) && void 0 !== t ? t : ""), (this.Re = X.getVideoType(new URL(window.location.href)));
+          (this.Ne = null !== (t = this.ot()) && void 0 !== t ? t : ""), (this.Re = q.getVideoType(new URL(window.location.href)));
         }
         isVideoReady() {
           const t = this.ze();
           return "paused" === t || "playing" === t;
         }
         waitVideoApiReadyAsync() {
-          var e, i;
-          return Yt(this, void 0, void 0, function* () {
+          var t, e;
+          return Jt(this, void 0, void 0, function* () {
             console.log("checking if joining");
-            const n =
+            const i =
               null !=
-              (yield Ot.getRedirectDataForTabAsync(
-                null !== (i = null === (e = window.teleparty) || void 0 === e ? void 0 : e.tabId) && void 0 !== i ? i : 0
+              (yield Ht.getRedirectDataForTabAsync(
+                null !== (e = null === (t = window.teleparty) || void 0 === t ? void 0 : t.tabId) && void 0 !== e ? e : 0
               ));
-            yield r(
+            yield f(
               () => (
-                n && this.removeVideoCover(),
-                (this.Re = X.getVideoType(new URL(window.location.href))),
-                null != this.getVideoElement() && this.Re !== t.OTHER
+                i && this.removeVideoCover(),
+                (this.Re = q.getVideoType(new URL(window.location.href))),
+                null != this.getVideoElement() && this.Re !== g.OTHER
               ),
               1 / 0,
               this.Pe
             )(),
-              n && this.removeVideoCover(),
+              i && this.removeVideoCover(),
               yield this.waitUpdateAPIState(),
               yield this.skipPromo(),
               this.loadVideoData();
@@ -2507,13 +2595,13 @@
         }
         waitVideoDoneLoadingAsync() {
           var t;
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             yield null === (t = this.re) || void 0 === t ? void 0 : t.checkWatchingAds();
             const e = this.getVideoElement();
             e && 1 === e.readyState && (this.We(e, 0.5, "mousedown"), this.We(e, 0.5, "mouseup")),
-              yield r(() => {
+              yield f(() => {
                 const t = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
-                return window.dispatchEvent(t), this.ze() !== yt.LOADING;
+                return window.dispatchEvent(t), this.ze() !== ft.LOADING;
               }, 5e3)();
           });
         }
@@ -2524,10 +2612,10 @@
           this.ye = t;
         }
         checkUpdateId() {
-          this.Le.videoId != this.videoId && (d("Id change"), (this.videoId = this.Le.videoId));
+          this.Le.videoId != this.videoId && (j("Id change"), (this.videoId = this.Le.videoId));
         }
         getStateAsync() {
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             return (
               yield this.waitUpdateAPIState(),
               new Promise((t, e) => {
@@ -2540,12 +2628,12 @@
         }
         waitUpdateAPIState() {
           var t, e, i, n, s, u;
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             const o = Date.now(),
-              a = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
-            window.dispatchEvent(a);
+              r = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
+            window.dispatchEvent(r);
             try {
-              yield r(() => this.Ve >= o, 500, 10)();
+              yield f(() => this.Ve >= o, 500, 10)();
             } catch (o) {
               (this.Le = {
                 playbackState: (null === (t = this.getVideoElement()) || void 0 === t ? void 0 : t.paused) ? 3 : 2,
@@ -2569,7 +2657,7 @@
         }
         getVideoDataAsync() {
           var t, e, i;
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             yield this.waitUpdateAPIState(), this.loadVideoData(), (this.ye = this.Le.videoId);
             const n = this.ot(),
               s = this.getScreenSize(),
@@ -2594,36 +2682,36 @@
           });
         }
         jumpToNextEpisode(t) {
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             if (((this.Te += 1), this.videoId !== t.videoId))
               try {
                 window.dispatchEvent(
                   new CustomEvent("tpVideoNode", { detail: { type: "nextEpisode", videoId: t.videoId, videoType: t.videoType } })
                 );
               } catch (t) {
-                d("Click next episode failed, but we will wait and see if the video changes in time. " + t),
+                j("Click next episode failed, but we will wait and see if the video changes in time. " + t),
                   this.logError("Click next episode failed, but we will wait and see if the video changes in time. ", t);
               }
             this.Te -= 1;
           });
         }
         skipPromo() {
-          return Yt(this, void 0, void 0, function* () {});
+          return Jt(this, void 0, void 0, function* () {});
         }
         getStreamingServiceName() {
-          return K.HBO_MAX;
+          return J.HBO_MAX;
         }
         pause() {
           return new Promise((t, e) => {
-            d("Attempting to pause"),
+            j("Attempting to pause"),
               (this.Te += 1),
               (() => {
-                Yt(this, void 0, void 0, function* () {
+                Jt(this, void 0, void 0, function* () {
                   try {
-                    window.dispatchEvent(this.Ge),
-                      yield r(() => {
+                    window.dispatchEvent(this.Oe),
+                      yield f(() => {
                         const t = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
-                        return window.dispatchEvent(t), this.ze() === yt.PAUSED;
+                        return window.dispatchEvent(t), this.ze() === ft.PAUSED;
                       }, 2500)(),
                       t();
                   } catch (t) {
@@ -2637,15 +2725,15 @@
         }
         play() {
           return new Promise((t, e) => {
-            d("Attempting to play"),
+            j("Attempting to play"),
               (this.Te += 1),
               (() => {
-                Yt(this, void 0, void 0, function* () {
+                Jt(this, void 0, void 0, function* () {
                   try {
                     window.dispatchEvent(this.Ue),
-                      yield r(() => {
+                      yield f(() => {
                         const t = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
-                        return window.dispatchEvent(t), this.ze() === yt.PLAYING;
+                        return window.dispatchEvent(t), this.ze() === ft.PLAYING;
                       }, 2500)(),
                       t();
                   } catch (t) {
@@ -2658,21 +2746,21 @@
           });
         }
         freeze(t) {
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             this.Te += 1;
             try {
-              yield this.pause(), yield u(t)(), yield this.play();
+              yield this.pause(), yield y(t)(), yield this.play();
             } finally {
               this.Te -= 1;
             }
           });
         }
         setCurrentTime(t) {
-          return Yt(this, void 0, void 0, function* () {
-            d("Seek called", !0), (this.Te += 1);
+          return Jt(this, void 0, void 0, function* () {
+            j("Seek called", !0), (this.Te += 1);
             try {
               window.dispatchEvent(new CustomEvent("tpVideoNode", { detail: { type: "seek", time: t / 1e3 } })),
-                yield u(500)(),
+                yield y(500)(),
                 yield this.waitVideoDoneLoadingAsync();
             } finally {
               this.Te -= 1;
@@ -2680,7 +2768,7 @@
           });
         }
         Je() {
-          return this.Oe;
+          return this.Ge;
         }
         Ye() {
           return Math.floor(this.Le.time);
@@ -2691,14 +2779,14 @@
         ze() {
           const t = this.getVideoElement();
           return null === t || "" === t.src
-            ? yt.NOT_READY
+            ? ft.NOT_READY
             : 4 == this.Le.playbackState
-            ? yt.LOADING
+            ? ft.LOADING
             : 3 == this.Le.playbackState
-            ? yt.PAUSED
+            ? ft.PAUSED
             : 2 == this.Le.playbackState
-            ? yt.PLAYING
-            : yt.NOT_READY;
+            ? ft.PLAYING
+            : ft.NOT_READY;
         }
         ot() {
           var t;
@@ -2710,31 +2798,31 @@
         }
         tryUpdateVideoTitle() {
           const t = this.ot();
-          return null != t && t !== this.Ne && (d("New current Title: " + t), (this.Ne = t), !0);
+          return null != t && t !== this.Ne && (j("New current Title: " + t), (this.Ne = t), !0);
         }
         updateVideoId() {
-          return Yt(this, void 0, void 0, function* () {
-            yield this.waitUpdateAPIState(), d("Trying to update Video iD");
+          return Jt(this, void 0, void 0, function* () {
+            yield this.waitUpdateAPIState(), j("Trying to update Video iD");
             try {
-              yield r(() => {
+              yield f(() => {
                 const t = new CustomEvent("tpVideoNode", { detail: { type: "UpdateState" } });
                 return (
                   window.dispatchEvent(t), !(!this.Le.videoId || this.Le.videoId == this.videoId) && ((this.videoId = this.Le.videoId), !0)
                 );
               }, 1e4)(),
-                d("UPDATED VIDEO ID: " + this.Ne + "|" + this.videoId);
+                j("UPDATED VIDEO ID: " + this.Ne + "|" + this.videoId);
             } catch (t) {
               throw (this.logError("unable to get new vieoId in time with error " + t), new Error("Couldn't get new videoId in time."));
             }
           });
         }
         He() {
-          return X.getVideoId(new URL(window.location.href));
+          return q.getVideoId(new URL(window.location.href));
         }
         triggerNextEpisode() {
           const t = this.getVideoElement();
           if (null === t) throw new Error("Video element not found.");
-          d("TRIGGERING NEXT EPISODE"), (t.currentTime = t.duration);
+          j("TRIGGERING NEXT EPISODE"), (t.currentTime = t.duration);
         }
         showControls() {
           var t, e, i, n;
@@ -2774,19 +2862,19 @@
           c.initMouseEvent(i, !0, !0, window, 0, 0, 0, r, a, !1, !1, !1, !1, 0, null), t.dispatchEvent(c);
         }
         getUpdateSessionDataAsync() {
-          return Yt(this, void 0, void 0, function* () {
+          return Jt(this, void 0, void 0, function* () {
             yield this.waitUpdateAPIState();
             const t = this.Ye();
             if (void 0 === t) throw new Error();
             const e = this.getVideoElement();
-            return { state: e && !e.paused ? Ft.PLAYING : Ft.PAUSED, lastKnownTime: t, lastKnownTimeUpdatedAt: Date.now() };
+            return { state: e && !e.paused ? mt.PLAYING : mt.PAUSED, lastKnownTime: t, lastKnownTimeUpdatedAt: Date.now() };
           });
         }
       }
-      var Jt,
-        Xt = i(7206),
-        qt = i.n(Xt),
-        Zt = function (t, e, i, n) {
+      var qt,
+        Zt = i(7206),
+        te = i.n(Zt),
+        ee = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
@@ -2816,7 +2904,7 @@
             a((n = n.apply(t, e || [])).next());
           });
         };
-      class te {
+      class ie {
         constructor(t) {
           var e, i, n, s, u, o;
           (this.Xe = {
@@ -2824,34 +2912,34 @@
             userNickname: null !== (i = t.userNickname) && void 0 !== i ? i : "",
             nameColor: null !== (n = t.nameColor) && void 0 !== n ? n : "",
             badge: null !== (s = t.badge) && void 0 !== s ? s : "",
-            reactions: null !== (u = t.reactions) && void 0 !== u ? u : C
+            reactions: null !== (u = t.reactions) && void 0 !== u ? u : D
           }),
             (this.qe = null !== (o = t.userId) && void 0 !== o ? o : "");
         }
         saveUserIcon(t) {
-          (t = Q(t)),
+          (t = I(t)),
             (this.Xe.userIcon = t),
-            Rt.setItemsAsync({ userIcon: t }),
-            d("new user settings after set user icon: " + JSON.stringify(this.Xe));
+            Ot.setItemsAsync({ userIcon: t }),
+            j("new user settings after set user icon: " + JSON.stringify(this.Xe));
         }
         saveUserNickname(t) {
           (this.Xe.userNickname = t),
-            Rt.setItemsAsync({ userNickname: t }),
-            d("new user settings after set user nickname: " + JSON.stringify(this.Xe));
+            Ot.setItemsAsync({ userNickname: t }),
+            j("new user settings after set user nickname: " + JSON.stringify(this.Xe));
         }
         saveUserSettings(t) {
-          return Zt(this, void 0, void 0, function* () {
-            const e = Q(t.userIcon);
+          return ee(this, void 0, void 0, function* () {
+            const e = I(t.userIcon);
             (this.Xe = t),
               (this.Xe.userIcon = e),
-              yield Rt.setItemsAsync({
+              yield Ot.setItemsAsync({
                 userNickname: t.userNickname,
                 userIcon: e,
                 nameColor: t.nameColor,
                 badge: t.badge,
                 reactions: t.reactions
               }),
-              d("new user settings after save: " + JSON.stringify(this.Xe));
+              j("new user settings after save: " + JSON.stringify(this.Xe));
           });
         }
         get userSettings() {
@@ -2867,84 +2955,84 @@
           return this.Xe.userNickname;
         }
       }
-      class ee extends Dt {
+      class ne extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.SET_TYPING), (this.data = i);
+          super(t, e, lt.SET_TYPING), (this.data = i);
         }
       }
-      class ie extends Dt {
+      class se extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.SEND_MESSAGE), (this.data = i);
+          super(t, e, lt.SEND_MESSAGE), (this.data = i);
         }
       }
-      class ne extends Dt {
+      class ue extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.BROADCAST_USER_SETTINGS), (this.data = i);
+          super(t, e, lt.BROADCAST_USER_SETTINGS), (this.data = i);
         }
       }
-      class se extends Dt {
+      class oe extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.SEND_REACTION), (this.data = i);
+          super(t, e, lt.SEND_REACTION), (this.data = i);
         }
       }
-      class ue extends Dt {
+      class re extends dt {
         constructor(t, e, i) {
-          super(t, e, ht.SEND_GIF), (this.data = i);
+          super(t, e, lt.SEND_GIF), (this.data = i);
         }
       }
-      var oe = new Uint8Array(16);
-      function re() {
+      var ae = new Uint8Array(16);
+      function ce() {
         if (
-          !Jt &&
-          !(Jt =
+          !qt &&
+          !(qt =
             ("undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto)) ||
             ("undefined" != typeof msCrypto && "function" == typeof msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto)))
         )
           throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-        return Jt(oe);
+        return qt(ae);
       }
-      const ae = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-      const ce = function (t) {
-        return "string" == typeof t && ae.test(t);
+      const De = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+      const he = function (t) {
+        return "string" == typeof t && De.test(t);
       };
-      for (var De = [], he = 0; he < 256; ++he) De.push((he + 256).toString(16).substr(1));
-      const de = function (t) {
+      for (var de = [], le = 0; le < 256; ++le) de.push((le + 256).toString(16).substr(1));
+      const pe = function (t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
           i = (
-            De[t[e + 0]] +
-            De[t[e + 1]] +
-            De[t[e + 2]] +
-            De[t[e + 3]] +
+            de[t[e + 0]] +
+            de[t[e + 1]] +
+            de[t[e + 2]] +
+            de[t[e + 3]] +
             "-" +
-            De[t[e + 4]] +
-            De[t[e + 5]] +
+            de[t[e + 4]] +
+            de[t[e + 5]] +
             "-" +
-            De[t[e + 6]] +
-            De[t[e + 7]] +
+            de[t[e + 6]] +
+            de[t[e + 7]] +
             "-" +
-            De[t[e + 8]] +
-            De[t[e + 9]] +
+            de[t[e + 8]] +
+            de[t[e + 9]] +
             "-" +
-            De[t[e + 10]] +
-            De[t[e + 11]] +
-            De[t[e + 12]] +
-            De[t[e + 13]] +
-            De[t[e + 14]] +
-            De[t[e + 15]]
+            de[t[e + 10]] +
+            de[t[e + 11]] +
+            de[t[e + 12]] +
+            de[t[e + 13]] +
+            de[t[e + 14]] +
+            de[t[e + 15]]
           ).toLowerCase();
-        if (!ce(i)) throw TypeError("Stringified UUID is invalid");
+        if (!he(i)) throw TypeError("Stringified UUID is invalid");
         return i;
       };
-      const le = function (t, e, i) {
-        var n = (t = t || {}).random || (t.rng || re)();
+      const ge = function (t, e, i) {
+        var n = (t = t || {}).random || (t.rng || ce)();
         if (((n[6] = (15 & n[6]) | 64), (n[8] = (63 & n[8]) | 128), e)) {
           i = i || 0;
           for (var s = 0; s < 16; ++s) e[i + s] = n[s];
           return e;
         }
-        return de(n);
+        return pe(n);
       };
-      var pe = function (t, e, i, n) {
+      var ve = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -2974,11 +3062,11 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      const ge = new (class {
+      const Fe = new (class {
         isUserIconValid(t) {
           return (
             !!t &&
-            (t.includes("?newIconUrl=") ? A.includes(t.split("?newIconUrl=")[1]) && j.includes(t.split("?newIconUrl=")[0]) : A.includes(t))
+            (t.includes("?newIconUrl=") ? k.includes(t.split("?newIconUrl=")[1]) && B.includes(t.split("?newIconUrl=")[0]) : k.includes(t))
           );
         }
         isUserIdValid(t) {
@@ -2988,22 +3076,22 @@
           return t && "string" == typeof t && t.length < 20;
         }
         getDefaultUserIcon() {
-          return B[Math.floor(Math.random() * B.length)];
+          return A[Math.floor(Math.random() * A.length)];
         }
         getDefaultUserNickName() {
           return "";
         }
         Ze(t) {
-          return pe(this, void 0, void 0, function* () {
+          return ve(this, void 0, void 0, function* () {
             try {
-              yield Rt.setItemsAsync(t);
+              yield Ot.setItemsAsync(t);
             } catch (t) {}
           });
         }
         getValidatedChromeStorageDataAsync() {
-          return pe(this, void 0, void 0, function* () {
-            const t = yield Vt.getAllItemsAsync(),
-              e = ge.validateStorageData(t);
+          return ve(this, void 0, void 0, function* () {
+            const t = yield Nt.getAllItemsAsync(),
+              e = Fe.validateStorageData(t);
             return JSON.stringify(t) !== JSON.stringify(e) && this.Ze(e), e;
           });
         }
@@ -3017,13 +3105,13 @@
           );
         }
       })();
-      Object.freeze(ge);
-      const ve = ge;
-      var Fe;
+      Object.freeze(Fe);
+      const ye = Fe;
+      var me;
       !(function (t) {
         (t.HEART = "heart"), (t.ANGRY = "angry"), (t.FIRE = "fire"), (t.LAUGH = "laugh"), (t.CRY = "cry"), (t.SURPRISE = "surprise");
-      })(Fe || (Fe = {}));
-      var ye = function (t, e, i, n) {
+      })(me || (me = {}));
+      var fe = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -3053,7 +3141,7 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      class me {
+      class Ce {
         constructor(t) {
           (this.ti = this.ei.bind(this)),
             (this.ii = this.resetIdleTimer.bind(this)),
@@ -3069,8 +3157,8 @@
               let i = "" !== e.id ? e.id : e.className;
               i = e.getAttribute("data-tp-id") ? e.getAttribute("data-tp-id") : i;
               const n = { name: "user_click", component: { name: i, type: e.nodeName, origin: "other" } },
-                s = new Qt(ut, nt, n);
-              at.lt(s),
+                s = new xt(ot, st, n);
+              Dt.lt(s),
                 t.target !== jQuery("emoji-picker")[0] &&
                   t.target !== jQuery("#chat-input")[0] &&
                   jQuery("#emoji-picker-container") &&
@@ -3089,10 +3177,10 @@
               console.log("on Emoji Click");
               const e = jQuery("#chat-input")[0],
                 i = t.detail.unicode,
-                n = new Qt(ut, nt, { name: "user_click", component: { name: "chat_input_container-emoji_picker-emoji", type: i } });
-              at.lt(n);
-              const s = new Qt(ut, nt, { eventType: `emoji-click-${i}`, sessionId: this.J.getSessionId() });
-              at.lt(s), h.pushTask(() => this.updateFrequentlyUsed(t.detail.emoji));
+                n = new xt(ot, st, { name: "user_click", component: { name: "chat_input_container-emoji_picker-emoji", type: i } });
+              Dt.lt(n);
+              const s = new xt(ot, st, { eventType: `emoji-click-${i}`, sessionId: this.J.getSessionId() });
+              Dt.lt(s), b.pushTask(() => this.updateFrequentlyUsed(t.detail.emoji));
               const u = window.getSelection();
               if (!jQuery("#chat-input").is(":focus") && e.lastChild) {
                 const t = document.createRange();
@@ -3104,29 +3192,29 @@
             (this.J = t);
         }
         ai() {
-          d("Idle Warning called"), G(N);
-          const t = new Qt(ut, nt, {
+          j("Idle Warning called"), G(R);
+          const t = new xt(ot, st, {
             name: "party_warning",
             action: { description: "user has been warned for being idle", reason: "user was idle for 120000 time in milliseconds." }
           });
-          at.lt(t);
-          const e = new Qt(ut, nt, { eventType: "idle-warn-2hr", sessionId: this.J.getSessionId() });
-          at.lt(e), (this.ci = setTimeout(this.Di.bind(this), V));
+          Dt.lt(t);
+          const e = new xt(ot, st, { eventType: "idle-warn-2hr", sessionId: this.J.getSessionId() });
+          Dt.lt(e), (this.ci = setTimeout(this.Di.bind(this), $));
         }
         Di() {
-          d("Idle kick called");
-          const t = new Qt(ut, nt, {
+          j("Idle kick called");
+          const t = new xt(ot, st, {
               name: "party_kick",
               action: { description: "user has been kicked for being idle", reason: "user was idle for 7200000 time in milliseconds." }
             }),
-            e = new _t(ut, nt, H);
-          at.lt(t), at.lt(e);
+            e = new jt(ot, st, W);
+          Dt.lt(t), Dt.lt(e);
         }
         resetIdleTimer() {
-          this.hi && clearTimeout(this.hi), this.ci && (O(), clearTimeout(this.ci)), (this.hi = setTimeout(this.ai.bind(this), P));
+          this.hi && clearTimeout(this.hi), this.ci && (L(), clearTimeout(this.ci)), (this.hi = setTimeout(this.ai.bind(this), V));
         }
         di() {
-          (this.hi = setTimeout(this.ai.bind(this), P)),
+          (this.hi = setTimeout(this.ai.bind(this), V)),
             (window.onmousemove = (t) => {
               t.isTrusted && this.ii();
             }),
@@ -3144,7 +3232,7 @@
             (window.onkeydown = null);
         }
         startListening() {
-          d("Listening for chat events"), this.di(), this.pi(), this.initWindowListeners();
+          j("Listening for chat events"), this.di(), this.pi(), this.initWindowListeners();
         }
         stopListening() {
           this.gi(), this.li(), this.vi();
@@ -3209,22 +3297,22 @@
         }
         Ci() {
           jQuery("#tp-heart-button").on("click", () => {
-            this.J.onReactionClicked(Fe.HEART);
+            this.J.onReactionClicked(me.HEART);
           }),
             jQuery("#tp-cry-button").on("click", () => {
-              this.J.onReactionClicked(Fe.CRY);
+              this.J.onReactionClicked(me.CRY);
             }),
             jQuery("#tp-angry-button").on("click", () => {
-              this.J.onReactionClicked(Fe.ANGRY);
+              this.J.onReactionClicked(me.ANGRY);
             }),
             jQuery("#tp-surprise-button").on("click", () => {
-              this.J.onReactionClicked(Fe.SURPRISE);
+              this.J.onReactionClicked(me.SURPRISE);
             }),
             jQuery("#tp-laugh-button").on("click", () => {
-              this.J.onReactionClicked(Fe.LAUGH);
+              this.J.onReactionClicked(me.LAUGH);
             }),
             jQuery("#tp-fire-button").on("click", () => {
-              this.J.onReactionClicked(Fe.FIRE);
+              this.J.onReactionClicked(me.FIRE);
             });
         }
         ri() {
@@ -3275,13 +3363,13 @@
         }
         updateFrequentlyUsed(t) {
           var e;
-          return ye(this, void 0, void 0, function* () {
-            const i = yield Vt.getItemsAsync([w]);
-            let n = null !== (e = i.recentlyUsedEmojiMap) && void 0 !== e ? e : _;
-            this.Ei(n) || (n = _),
+          return fe(this, void 0, void 0, function* () {
+            const i = yield Nt.getItemsAsync([h]);
+            let n = null !== (e = i.recentlyUsedEmojiMap) && void 0 !== e ? e : l;
+            this.Ei(n) || (n = l),
               Array.isArray(n) &&
                 (t && ((n = n.filter((e) => e.unicode != t.unicode)), n.unshift(t), (n = n.slice(0, 24))),
-                yield Rt.setItemsAsync({ [w]: n }),
+                yield Ot.setItemsAsync({ [h]: n }),
                 window.postMessage({ type: "TP_FREQ_USED", data: n }, "*"));
           });
         }
@@ -3306,7 +3394,7 @@
             jQuery("#chat-wrapper").off();
         }
       }
-      class fe {
+      class we {
         constructor(t) {
           (this.J = t),
             (this._i = []),
@@ -3318,19 +3406,19 @@
             (this.Qi = []),
             (this.Ii = []),
             (this.xi = ""),
-            d("Message Controller");
+            j("Message Controller");
         }
         Si(t, e, i, n) {
           return jQuery(
             `\n            <div class="msg-container ${
               !n && "tp-msg-combined"
             }-message">\n                <div class="tp-icon-name">\n                    <div class="icon">\n                    ${
-              n ? `<img src="${Q(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
+              n ? `<img src="${I(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
             }\n                    </div>\n                </div>\n                <div class="msg-txt message${
               i.isSystemMessage ? "-system" : "-txt"
             }">\n                    ${
               n ? `<h3 data-tp-id="chat_history_container-nickname">${e}</h3>` : ""
-            }\n                    <p data-tp-id="chat_history_container-message">${Q(
+            }\n                    <p data-tp-id="chat_history_container-message">${I(
               i.body
             ).trim()}</p>\n                </div>\n            </div>\n          `
           );
@@ -3343,15 +3431,15 @@
             `\n            <div class="msg-container ${
               !n && "tp-msg-combined"
             }-message">\n                <div class="tp-icon-name">\n                    <div class="icon" >\n                    ${
-              n ? `<img src="${Q(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
+              n ? `<img src="${I(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
             }\n                    </div>\n                </div>\n                <div class="msg-gif message-gif">\n                    ${
               n ? `<h3 data-tp-id="chat_history_container-nickname">${e}</h3>` : ""
             }  \n            ${
               o
-                ? `<video src="${Q(
+                ? `<video src="${I(
                     i.gifObject.media.full.url
                   )}"  height="${s}" class="tp-video-gif" data-tp-id="chat_history_container-gif" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback>`
-                : `<img src="${Q(
+                : `<img src="${I(
                     i.gifObject.media.fullMobile.url
                   )}"  height="${u}" class="tp-video-gif" data-tp-id="chat_history_container-gif" autoplay muted loop playsinline disablepictureinpicture disableremoteplayback>`
             }     \n                </div>\n            </div>\n          `
@@ -3362,10 +3450,10 @@
             `\n            <div class="msg ${
               !i && "tp-msg-combined"
             }-message">\n                <div class="tp-icon-name">\n                    ${
-              i ? `<img src="${Q(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
+              i ? `<img src="${I(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
             }\n                </div>\n                <div class="message${
               e.isSystemMessage ? "-system" : "-txt"
-            }">\n                    <p class="msg-nickname"></p>\n                    <p data-tp-id="chat_history_container-message">${Q(
+            }">\n                    <p class="msg-nickname"></p>\n                    <p data-tp-id="chat_history_container-message">${I(
               e.body
             ).trim()}</p>\n                </div>\n            </div>\n        `
           );
@@ -3378,13 +3466,13 @@
             `\n            <div class="msg-container ${
               !i && "tp-msg-combined"
             }-message">\n                <div class="tp-icon-name">\n                    <div class="tp-icon-name">\n                    ${
-              i ? `<img src="${Q(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
+              i ? `<img src="${I(t)}" data-tp-id="chat_history_container-user_icon"/>` : ""
             }\n                    </div>\n                </div>\n                <div class="msg-gif message-gif">\n                    <p class="msg-nickname"></p>\n                    ${
               u
-                ? `<video src="${Q(
+                ? `<video src="${I(
                     e.gifObject.media.full.url
                   )}" data-tp-id="chat_history_container-gif" height="${n}" class = "tp-video-gif" autoplay loop playsinline disablepictureinpicture disableremoteplayback>`
-                : `<img src="${Q(
+                : `<img src="${I(
                     e.gifObject.media.fullMobile.url
                   )}" data-tp-id="chat_history_container-gif" height="${s}" class = "tp-video-gif" autoplay loop playsinline disablepictureinpicture disableremoteplayback>`
             }\n                </div>\n            </div>\n          `
@@ -3396,7 +3484,7 @@
           (u.qe = e.permId), (u.$i = i), (u.Ni = n), (u.Ri = e), (u.Ui = s);
         }
         reloadMessages() {
-          this.J.queueMessageForFrame(pt.CLEAR_MESSAGES, "");
+          this.J.queueMessageForFrame(vt.CLEAR_MESSAGES, "");
           const t = JSON.parse(JSON.stringify(this._i));
           for (let e = 0; e < t.length; e++) {
             const i = t[e];
@@ -3404,7 +3492,7 @@
           }
           this._i = t;
         }
-        Gi(t, e) {
+        Oi(t, e) {
           if (Math.abs(t.timestamp - e.timestamp) > 6e4) return !1;
           if (t.permId !== e.permId) return !1;
           if ("isSystemMessage" in e && e.isSystemMessage && (e.body.includes("joined") || e.body.includes("left"))) return !1;
@@ -3430,25 +3518,25 @@
             t.body.indexOf("updated their user icon") > -1 &&
             (t.userIcon && this.setUserIcon(t.permId, t.userIcon), t.userNickname && this.setUserNickname(t.permId, t.userNickname));
           const n = this._i.slice(-1).pop(),
-            s = !(void 0 !== n && i > 0) || !this.Gi(n, t);
+            s = !(void 0 !== n && i > 0) || !this.Oi(n, t);
           this._i.push(t);
           const u = Object.assign({}, t),
             o = this.getUserIconURL(u.permId, u.userIcon),
             r = this.getUserNickname(u.permId, u.userNickname);
-          this.J.queueMessageForFrame(pt.ADD_MESSAGE, { originalMessage: u, userIcon: o, userNickname: r });
+          this.J.queueMessageForFrame(vt.ADD_MESSAGE, { originalMessage: u, userIcon: o, userNickname: r });
           const a = "" === r ? this.Mi(o, u, s) : this.Si(o, r, u, s);
-          this.Vi(a, u, o, r, s), this.scrollToBottom(), this.Oi();
+          this.Vi(a, u, o, r, s), this.scrollToBottom(), this.Gi();
         }
         addGif(t, e) {
           void 0 === e && (e = this._i.length);
           const i = this._i.slice(-1).pop(),
-            n = !(void 0 !== i && e > 0) || !this.Gi(i, t);
+            n = !(void 0 !== i && e > 0) || !this.Oi(i, t);
           this._i.push(t);
           const s = t.userIcon ? this.getUserIconURL(t.permId, t.userIcon) : this.getUserIconURL(t.permId),
-            o = t.userNickname ? this.getUserNickname(t.permId, t.userNickname) : "";
-          this.J.queueMessageForFrame(pt.ADD_MESSAGE, { originalMessage: t, userIcon: s, userNickname: o });
-          const r = "" === o ? this.Pi(s, t, n) : this.Ti(s, o, t, n);
-          (r[0].Li = !0), this.Vi(r, t, s, o, n), u(100)().then(this.scrollToBottom.bind(this)), this.Oi();
+            u = t.userNickname ? this.getUserNickname(t.permId, t.userNickname) : "";
+          this.J.queueMessageForFrame(vt.ADD_MESSAGE, { originalMessage: t, userIcon: s, userNickname: u });
+          const o = "" === u ? this.Pi(s, t, n) : this.Ti(s, u, t, n);
+          (o[0].Li = !0), this.Vi(o, t, s, u, n), y(100)().then(this.scrollToBottom.bind(this)), this.Gi();
         }
         scrollToBottom() {
           jQuery("#chat-history").scrollTop(jQuery("#chat-history").prop("scrollHeight"));
@@ -3456,7 +3544,7 @@
         clearUnreadCount() {
           this.bi > 0 && ((this.bi = 0), (document.title = this.ji));
         }
-        Oi() {
+        Gi() {
           (this.bi += 1), (this.Bi += 1), document.hasFocus() || (document.title = "(" + String(this.bi) + ") " + this.ji);
         }
         getUserIconURL(t, e = "") {
@@ -3470,19 +3558,19 @@
         parseIconSrc(t) {
           const e = t.includes("?newIconUrl=") ? t.split("?newIconUrl=")[1] : t,
             i = t.includes("?newIconUrl=") ? t.split("?newIconUrl=")[0] : t;
-          return A.includes(e)
+          return k.includes(e)
             ? chrome.runtime.getURL("img/icons/" + t)
-            : j.includes(i)
+            : B.includes(i)
             ? chrome.runtime.getURL("img/icons/General/" + t)
             : void 0;
         }
         getUserNickname(t, e = "") {
-          return this.ki.has(t) || (this.ki.set(t, e), this.Qi.push(e)), Q(this.ki.get(t));
+          return this.ki.has(t) || (this.ki.set(t, e), this.Qi.push(e)), I(this.ki.get(t));
         }
         Hi() {
-          let t = chrome.runtime.getURL("img/icons/General/" + j[Math.floor(Math.random() * j.length)]);
-          if (this.Ii.length < k.General.length)
-            for (; this.Ii.includes(t); ) t = chrome.runtime.getURL("img/icons/General/" + j[Math.floor(Math.random() * j.length)]);
+          let t = chrome.runtime.getURL("img/icons/General/" + B[Math.floor(Math.random() * B.length)]);
+          if (this.Ii.length < Q.General.length)
+            for (; this.Ii.includes(t); ) t = chrome.runtime.getURL("img/icons/General/" + B[Math.floor(Math.random() * B.length)]);
           return t;
         }
         Wi(t) {
@@ -3510,7 +3598,7 @@
           }
         }
         setUserIconUrl(t) {
-          (this.xi = t), this.J.queueMessageForFrame(pt.SET_USER_ICON_URL, t);
+          (this.xi = t), this.J.queueMessageForFrame(vt.SET_USER_ICON_URL, t);
         }
         renderSidebar() {
           jQuery("#user-icon img").attr("src", this.xi), jQuery(".user-icon img").attr("src", this.xi);
@@ -3527,16 +3615,16 @@
               const i = t.split("?newIconUrl="),
                 n = i[1],
                 s = i[0];
-              A.includes(n)
+              k.includes(n)
                 ? (e = chrome.runtime.getURL(`img/icons/${n}`))
-                : j.includes(s) && (e = chrome.runtime.getURL(`img/icons/General/${s}`));
+                : B.includes(s) && (e = chrome.runtime.getURL(`img/icons/General/${s}`));
             } else
-              A.includes(t)
+              k.includes(t)
                 ? (e = chrome.runtime.getURL(`img/icons/${t}`))
-                : j.includes(t) && (e = chrome.runtime.getURL(`img/icons/General/${t}`));
+                : B.includes(t) && (e = chrome.runtime.getURL(`img/icons/General/${t}`));
           if (null === e) {
-            let t = k.General.filter((t) => !this.Ii.includes(t));
-            0 === t.length && (t = k.General);
+            let t = Q.General.filter((t) => !this.Ii.includes(t));
+            0 === t.length && (t = Q.General);
             const i = t[Math.floor(Math.random() * t.length)];
             e = chrome.runtime.getURL(`/img/icons/General/${i}`);
           }
@@ -3547,7 +3635,7 @@
           this.Ai.set(t, i), this.Ii.push(i), this.renderSidebar();
         }
         setUserNickname(t, e) {
-          const i = Q(e);
+          const i = I(e);
           this.ki.set(t, i), this.Qi.push(i), this.renderSidebar();
         }
         updateUserData(t, e, i) {
@@ -3565,33 +3653,33 @@
           jQuery(
             '\n          <div class="msg-container">\n          <div class="msg-txt message-system" style="width:100%">\n          <p>\n          Thanks for using Teleparty! <br> \n          If you enjoy the extension, please leave a positive review \n          <a id="reviewLink" href="https://chrome.google.com/webstore/detail/netflix-party-is-now-tele/oocalimimngaihdkbihfgmpkcpnmlaoa/reviews" style="display:inline;color:red;text-decoration:underline;" target="none">here!</a>\n          </p>\n          </div>\n          </div>\n          '
           ).appendTo(jQuery("#chat-history"));
-          const t = new Qt(ut, nt, {
+          const t = new xt(ot, st, {
             name: "review-shown",
             action: { description: "review was shown on chrome", reason: "review was shown." }
           });
-          at.lt(t);
+          Dt.lt(t);
           const e = { eventType: "review-shown-chrome", sessionId: this.J.getSessionId() },
-            i = new Qt(ut, nt, e);
-          at.lt(i),
+            i = new xt(ot, st, e);
+          Dt.lt(i),
             jQuery("#reviewLink").click(() => {
               chrome.storage.local.set({ reviewClicked: !0 });
-              const t = new Qt(ut, nt, {
+              const t = new xt(ot, st, {
                 name: "review-clicked",
                 action: { description: "review was clicked on chrome", reason: "review was clicked." }
               });
-              at.lt(t);
+              Dt.lt(t);
               const e = { eventType: "review-clicked-chrome", sessionId: this.J.getSessionId() },
-                i = new Qt(ut, nt, e);
-              at.lt(i);
+                i = new xt(ot, st, e);
+              Dt.lt(i);
             });
         }
       }
-      class Ce {
+      class Ee {
         constructor(t) {
-          (this.Yi = !1), (this.Ki = !1), (this.Ot = !1), (this.J = t);
+          (this.Yi = !1), (this.Ki = !1), (this.Gt = !1), (this.J = t);
         }
         setupPresenceIndicator() {
-          (this.Yi = !1), (this.Ki = !1), (this.Ot = !1), this.Ji();
+          (this.Yi = !1), (this.Ki = !1), (this.Gt = !1), this.Ji();
         }
         Xi() {
           return jQuery("#presence-indicator");
@@ -3603,13 +3691,13 @@
           (this.Ki = t), this.Ji();
         }
         setWatchingAdsPresenceVisible(t) {
-          (this.Ot = t), this.Ji();
+          (this.Gt = t), this.Ji();
         }
         getWatchingAdsVisible() {
-          return this.Ot;
+          return this.Gt;
         }
         qi() {
-          return this.Ot
+          return this.Gt
             ? "People are watching ads..."
             : this.Yi && this.Ki
             ? "People are typing and buffering..."
@@ -3621,10 +3709,10 @@
         }
         Ji() {
           const t = this.qi();
-          this.Xi().text(t), this.J.queueMessageForFrame(pt.SET_PRESENCE_MESSAGE, { text: t });
+          this.Xi().text(t), this.J.queueMessageForFrame(vt.SET_PRESENCE_MESSAGE, { text: t });
         }
       }
-      var we = function (t, e, i, n) {
+      var _e = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -3654,7 +3742,7 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      var Ee = function (t, e, i, n) {
+      var be = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -3684,7 +3772,7 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      class _e extends class {
+      class je extends class {
         constructor() {
           (this.Zi = !1),
             (this.tn = 1),
@@ -3696,7 +3784,7 @@
             (this.on = !1),
             (this.rn = 0),
             (this.an = []),
-            (this.cn = new D()),
+            (this.cn = new _()),
             (this.Dn = !1),
             (this.hn = void 0),
             (this.dn = !0),
@@ -3706,11 +3794,11 @@
             (this.Fn = !1),
             (this.yn = []),
             (this.logEvent = (t) => {
-              const e = new Qt(ut, nt, t);
-              at.lt(e);
+              const e = new xt(ot, st, t);
+              Dt.lt(e);
             }),
             (this.checkInitReactionContainer = () => {
-              Vt.getItemsAsync([g]).then((t) => {
+              Nt.getItemsAsync([s]).then((t) => {
                 (!0 !== t.reactionContainerOpen && void 0 !== t.reactionContainerOpen) || this.showReactionHolder();
               });
             }),
@@ -3719,25 +3807,23 @@
               null === (t = this.Et) || void 0 === t || t.hideMessageIndicator();
             }),
             (this.setReactionsActive = (t) => {
-              this.cn.pushTask(() => Rt.setItemsAsync({ [g]: t.active }));
+              this.cn.pushTask(() => Ot.setItemsAsync({ [s]: t.active }));
             }),
             (this.onFullScreen = () => {
               var t;
               this.scrollToBottom(),
-                null != document.fullscreenElement
-                  ? (this.logEvent({ name: "fullscreen_enter" }),
-                    this.pn() && ((this.ln = !1), this.setChatVisible(this.shouldChatBeVisible())))
-                  : (this.logEvent({ name: "fullscreen_exit" }),
-                    this.pn() && ((this.ln = this.pn()), jQuery("#chat-wrapper").hide(), this.setChatVisible(!1, !1), this.removeChat())),
+                document.fullscreenElement || document.webkitIsFullScreen
+                  ? this.logEvent({ name: "fullscreen_enter" })
+                  : this.logEvent({ name: "fullscreen_exit" }),
                 null === (t = this.Et) || void 0 === t || t.setChatButtons();
             }),
             (this.cancelEvent = (t) => {
               t.stopPropagation();
             }),
             (this.mn = !1),
-            (this.Cn = new me(this)),
-            (this.wn = new Ce(this)),
-            (this.En = new fe(this)),
+            (this.Cn = new Ce(this)),
+            (this.wn = new Ee(this)),
+            (this.En = new we(this)),
             (this._n = void 0),
             (this.bn = void 0),
             (this.jn = !1);
@@ -3750,14 +3836,14 @@
           null === (t = this.Et) || void 0 === t || t.enablePartyIcons(), null === (e = this.Et) || void 0 === e || e.setChatButtons();
         }
         setChatVisible(t, e = !0) {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             if (this.isPartyWindowsActive()) throw new Error("Invalid Set Chat");
             e && (this.un = t), t && !this.Bn() && this.reloadChat();
           });
         }
         _e(t, e) {
-          const i = new Qt(ut, nt, { name: "error", action: { reason: e, description: t } });
-          at.lt(i);
+          const i = new xt(ot, st, { name: "error", action: { reason: e, description: t } });
+          Dt.lt(i);
         }
         getChatWindowVisible() {
           return this.gn;
@@ -3788,24 +3874,24 @@
         }
         queueMessageForFrame(t, e) {
           this.cn.pushTask(() =>
-            we(this, void 0, void 0, function* () {
+            _e(this, void 0, void 0, function* () {
               this.Qn(t, e);
             })
           );
         }
         Qn(t, e) {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const i = this.kn,
-              n = { type: t, data: e, target: "TP_Sidebar", tabId: i, sender: ut };
-            at.lt(n);
+              n = { type: t, data: e, target: "TP_Sidebar", tabId: i, sender: ot };
+            Dt.lt(n);
           });
         }
         In() {
           var t;
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             try {
               console.log("Start delay"),
-                yield r(() => this.Dn && null != this.kn, 3e4)(),
+                yield f(() => this.Dn && null != this.kn, 3e4)(),
                 console.log("Chat Frame is Loaded"),
                 this.hn && this.xn(this.hn),
                 null === (t = this.Et) || void 0 === t || t.setResetChatButton();
@@ -3815,17 +3901,17 @@
           });
         }
         pn() {
-          return !1;
+          return window.origin.includes(".crunchyroll.com"), window.origin.includes("tv.apple.com"), !1;
         }
         Sn() {
-          return we(this, void 0, void 0, function* () {
-            yield at.lt(new Et(ut, nt, dt.LOAD_CHAT_WINDOW)), console.log(this.kn);
+          return _e(this, void 0, void 0, function* () {
+            yield Dt.lt(new bt(ot, st, pt.LOAD_CHAT_WINDOW)), console.log(this.kn);
           });
         }
         resetChatWindow(t = !1) {
           var e;
-          return we(this, void 0, void 0, function* () {
-            yield at.lt(new Et(ut, nt, dt.RESET_CHAT_WINDOW)),
+          return _e(this, void 0, void 0, function* () {
+            yield Dt.lt(new bt(ot, st, pt.RESET_CHAT_WINDOW)),
               console.log(this.kn),
               (this.gn = !0),
               (this.un = !0),
@@ -3834,12 +3920,12 @@
           });
         }
         hideChatWindow() {
-          return we(this, void 0, void 0, function* () {
-            yield at.lt(new Et(ut, nt, dt.HIDE_CHAT_WINDOW)), (this.gn = !1), (this.un = !1);
+          return _e(this, void 0, void 0, function* () {
+            yield Dt.lt(new bt(ot, st, pt.HIDE_CHAT_WINDOW)), (this.gn = !1), (this.un = !1);
           });
         }
         Tn() {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             this.Sn(), this.cn.pushTask(this.In.bind(this));
           });
         }
@@ -3848,35 +3934,35 @@
         }
         xn(t) {
           var e;
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const i = Object.assign({}, t);
-            if (((i.iconMap = k), (i.extensionBaseUrl = chrome.runtime.getURL("")), i.storageData)) {
-              const t = yield ve.getValidatedChromeStorageDataAsync();
+            if (((i.iconMap = Q), (i.extensionBaseUrl = chrome.runtime.getURL("")), i.storageData)) {
+              const t = yield ye.getValidatedChromeStorageDataAsync();
               i.storageData = t;
             }
-            this.queueMessageForFrame(pt.LOAD_INIT_DATA, i);
+            this.queueMessageForFrame(vt.LOAD_INIT_DATA, i);
             const n = yield this.getVideoTitle();
-            this.queueMessageForFrame(pt.SET_PAGE_TITLE, { pageTitle: n }),
-              this.queueMessageForFrame(pt.SET_USER_LIST, this.yn),
-              this.queueMessageForFrame(pt.UPDATE_SETTINGS, {
+            this.queueMessageForFrame(vt.SET_PAGE_TITLE, { pageTitle: n }),
+              this.queueMessageForFrame(vt.SET_USER_LIST, this.yn),
+              this.queueMessageForFrame(vt.UPDATE_SETTINGS, {
                 userSettings: null === (e = this.Mn) || void 0 === e ? void 0 : e.userSettings
               });
           });
         }
         An() {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             if ((console.log("Reloading chat Frame"), this.hn && (yield this.xn(this.hn)), this.Mn)) {
               const t = this.En.getUserIconURL(this.Mn.permId, this.Mn.userIcon);
-              this.queueMessageForFrame(pt.SET_USER_ICON_URL, t);
+              this.queueMessageForFrame(vt.SET_USER_ICON_URL, t);
             }
             const t = yield this.getVideoTitle();
-            this.queueMessageForFrame(pt.SET_PAGE_TITLE, { pageTitle: t }), this.reloadMessages();
+            this.queueMessageForFrame(vt.SET_PAGE_TITLE, { pageTitle: t }), this.reloadMessages();
           });
         }
         Pn() {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             this.Vn(),
-              yield u(200)(),
+              yield y(200)(),
               (jQuery("#tpChatFrame")[0].style.display = "block"),
               this.setChatVisible(!0),
               this.addIconSelector(),
@@ -3886,7 +3972,7 @@
           });
         }
         Tt(t) {
-          this.Cn.initWindowListeners(), this.pn() && this.Tn(), this.cn.pushTask(this.In.bind(this)), O(), (this.Mn = new te(t));
+          this.Cn.initWindowListeners(), this.pn() && this.Tn(), this.cn.pushTask(this.In.bind(this)), L(), (this.Mn = new ie(t));
           const e = this.En.getUserIconURL(this.Mn.permId, this.Mn.userIcon);
           this.En.setUserIconUrl(e),
             this.En.renderSidebar(),
@@ -3902,26 +3988,26 @@
               : (this.Pn(), this.checkAddYoutubePromo());
         }
         checkAddYoutubePromo() {
-          return we(this, void 0, void 0, function* () {
-            "true" !== (yield Vt.getItemsAsync(["seenYoutubePromo"])).seenYoutubePromo &&
-              (this.En.addYoutubePromo(), Rt.setItemsAsync({ seenYoutubePromo: "true" }));
+          return _e(this, void 0, void 0, function* () {
+            "true" !== (yield Nt.getItemsAsync(["seenYoutubePromo"])).seenYoutubePromo &&
+              (this.En.addYoutubePromo(), Ot.setItemsAsync({ seenYoutubePromo: "true" }));
           });
         }
         sendInitDataToSidebar(t) {
           this.hn = t;
           const e = Object.assign({}, t);
-          (e.iconMap = k),
+          (e.iconMap = Q),
             (e.extensionBaseUrl = chrome.runtime.getURL("")),
             console.log(e),
-            this.queueMessageForFrame(pt.LOAD_INIT_DATA, e);
+            this.queueMessageForFrame(vt.LOAD_INIT_DATA, e);
         }
         reloadChat() {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             console.log("Reload chat"),
               this.Bn() ||
                 this.isPartyWindowsActive() ||
                 (this.Vn(),
-                yield u(200)(),
+                yield y(200)(),
                 (jQuery("#tpChatFrame")[0].style.display = "block"),
                 this.setChatVisible(this.un),
                 this.addIconSelector(),
@@ -3934,8 +4020,8 @@
           });
         }
         sendTeardown(t) {
-          const e = new _t(ut, nt, t);
-          at.lt(e);
+          const e = new jt(ot, st, t);
+          Dt.lt(e);
         }
         Bn() {
           return jQuery("#chat-wrapper").length > 0;
@@ -3944,9 +4030,9 @@
           this.En.clearUnreadCount();
         }
         Un() {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             try {
-              yield r(() => null !== document.querySelector("#chat-history") || this.ln || (this.Dn && this.dn), 1e4)();
+              yield f(() => null !== document.querySelector("#chat-history") || this.ln || (this.Dn && this.dn), 1e4)();
             } catch (t) {
               this._e("Failed to find chat history", t);
             }
@@ -3954,14 +4040,14 @@
         }
         addMessage(t, e = !1) {
           this.cn.pushTask(() =>
-            we(this, void 0, void 0, function* () {
+            _e(this, void 0, void 0, function* () {
               yield this.Un(), this.En.addMessage(t, e);
             })
           );
         }
         addGif(t) {
           this.cn.pushTask(() =>
-            we(this, void 0, void 0, function* () {
+            _e(this, void 0, void 0, function* () {
               yield this.Un(), this.En.addGif(t);
             })
           );
@@ -3983,21 +4069,21 @@
         }
         onBufferingMessage(t) {
           this.cn.pushTask(() =>
-            we(this, void 0, void 0, function* () {
+            _e(this, void 0, void 0, function* () {
               yield this.Un(), this.wn.setBufferingPresenceVisible(t.usersBuffering.length > 0);
             })
           );
         }
         onTypingMessage(t) {
           this.cn.pushTask(() =>
-            we(this, void 0, void 0, function* () {
+            _e(this, void 0, void 0, function* () {
               yield this.Un(), this.wn.setTypingPresenceVisible(t.usersTyping.length > 0);
             })
           );
         }
         onWatchingAdsMessage(t) {
           this.cn.pushTask(() =>
-            we(this, void 0, void 0, function* () {
+            _e(this, void 0, void 0, function* () {
               console.log("Set Ad Presence: " + t), yield this.Un(), this.wn.setWatchingAdsPresenceVisible(t.usersWatchingAds.length > 0);
             })
           );
@@ -4007,7 +4093,7 @@
         }
         doUpdateSettings(t) {
           var e;
-          null === (e = this.Mn) || void 0 === e || e.saveUserSettings(t), t.shouldBroadcast && this.Gn(this.On(t));
+          null === (e = this.Mn) || void 0 === e || e.saveUserSettings(t), t.shouldBroadcast && this.On(this.Gn(t));
         }
         onUpdateSettingsMessage(t) {
           if ((this.En.updateUserData(t.permId, t.userSettings.userIcon, t.userSettings.userNickname), this.Mn)) {
@@ -4016,7 +4102,7 @@
           }
         }
         $n() {
-          r(() => this.Bn(), 1e4)().then(() => {
+          f(() => this.Bn(), 1e4)().then(() => {
             this.Cn.startListening();
           });
         }
@@ -4064,11 +4150,11 @@
             jQuery("#reaction-btn").css({ background: "", padding: "" }),
             jQuery("#reaction-holder").css({ "padding-top": "" }),
             jQuery("#chat-input-container").css({ "padding-top": "" }),
-            this.cn.pushTask(() => Rt.setItemsAsync({ [g]: !1 }));
+            this.cn.pushTask(() => Ot.setItemsAsync({ [s]: !1 }));
         }
         onOpenGifPicker() {
           var t, e;
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             jQuery("#emoji-picker-container").is(":hidden") || this.toggleEmojiClicker(),
               jQuery("#gif-results-left")[0].innerHTML || this.fetchGIFs(),
               jQuery("#gif-btn-icon").css({ opacity: "1" });
@@ -4102,7 +4188,7 @@
             });
         }
         onVideoClick() {
-          this.queueMessageForFrame(pt.ON_PAGE_CLICK);
+          this.queueMessageForFrame(vt.ON_PAGE_CLICK);
         }
         toggleGIFs() {
           jQuery("#gif-picker-container").slideToggle(0, () => {
@@ -4111,44 +4197,45 @@
         }
         addEmojiPicker(t) {
           t.stopPropagation();
-          const e = new Qt(ut, nt, {
+          const e = new xt(ot, st, {
             name: "user_click",
             component: { name: "chat_input_container-emoji_picker", type: "button", origin: "tp" }
           });
-          at.lt(e), this.toggleEmojiClicker();
+          Dt.lt(e), this.toggleEmojiClicker();
         }
         addGifPicker(t) {
           t.stopPropagation();
-          const e = new Qt(ut, nt, {
+          const e = new xt(ot, st, {
             name: "user_click",
             component: { name: "chat_input_container-gif_popup", type: "button", origin: "tp" }
           });
-          at.lt(e), this.toggleGIFs();
+          Dt.lt(e), this.toggleGIFs();
         }
         addReactionTab(t) {
           t.stopPropagation();
-          const e = new Qt(ut, nt, {
+          const e = new xt(ot, st, {
             name: "user_click",
             component: { name: "chat_input_container-reaction_pinner", type: "button", origin: "tp" }
           });
-          at.lt(e), this.toggleReactions();
+          Dt.lt(e), this.toggleReactions();
         }
         Nn() {
           if (
-            (d("Set Chat Html called"),
-            (this.Wn = qt()),
-            (this.Wn = this.Wn.replace(/{EXTENSION_LOGO}/g, Q(chrome.runtime.getURL("img/tp_logo.svg")))),
+            (j("Set Chat Html called"),
+            (this.Wn = te()),
+            (this.Wn = this.Wn.replace(/{EXTENSION_LOGO}/g, I(chrome.runtime.getURL("img/tp_logo.svg")))),
             void 0 === this.Mn)
           )
             throw new Error("Attempt to set chatHtml when _userSettings is undefined.");
-          this.Wn = this.Wn.replace(/{CHAT_URL}/g, `${m}?t=${Date.now()}`);
-          for (const t of f) {
+          const t = chrome.runtime.getURL("");
+          this.Wn = this.Wn.replace(/{CHAT_URL}/g, `${a}?t=${Date.now()}&id=${encodeURIComponent(t.substring(0, t.length - 1))}`);
+          for (const t of c) {
             const e = new RegExp(`${t}_STATIC`.toUpperCase(), "g"),
               i = new RegExp(`${t}_GIF`.toUpperCase(), "g");
             (this.Wn = this.Wn.replace(e, chrome.runtime.getURL(`img/reactions/${t}/${t}_static.svg`))),
               (this.Wn = this.Wn.replace(i, chrome.runtime.getURL(`img/reactions/${t}/${t}.gif`)));
           }
-          (this.Wn = this.Wn.replace(/{USER_NICKNAME}/g, this.Mn.userNickname ? Q(this.Mn.userNickname) : "Add a nickname")),
+          (this.Wn = this.Wn.replace(/{USER_NICKNAME}/g, this.Mn.userNickname ? I(this.Mn.userNickname) : "Add a nickname")),
             (this.Wn = this.Wn.replace(/{USER_ICON}/g, this.En.getUserIconURL(this.Mn.permId, this.Mn.userIcon))),
             (this.Wn = this.Wn.replace(/{LINK_SVG}/g, chrome.runtime.getURL("img/icon_link_active.svg"))),
             (this.Wn = this.Wn.replace(/{RESET_SGV}/g, chrome.runtime.getURL("img/reset_chat.svg"))),
@@ -4241,10 +4328,10 @@
           this.fe = t;
         }
         onWebRTC(t) {
-          this.queueMessageForFrame(pt.ON_WEB_RTC, t);
+          this.queueMessageForFrame(vt.ON_WEB_RTC, t);
         }
         setSocketConnectionId(t) {
-          this.queueMessageForFrame(pt.SET_CONNECTION_ID, t);
+          this.queueMessageForFrame(vt.SET_CONNECTION_ID, t);
         }
         loadUserList(t) {
           t.forEach((t) => {
@@ -4257,7 +4344,7 @@
           }),
             (this.yn = t),
             jQuery("#user-count").text(t.length),
-            this.queueMessageForFrame(pt.SET_USER_LIST, t);
+            this.queueMessageForFrame(vt.SET_USER_LIST, t);
         }
         setSessionCreated(t) {
           this.Hn = t;
@@ -4274,66 +4361,66 @@
         userIconSelectorListener(t) {
           const e = jQuery(t.currentTarget).data("icon");
           e &&
-            (d("userIconSelector button clicked: " + e),
+            (j("userIconSelector button clicked: " + e),
             this.Mn &&
               (this.Mn.saveUserIcon(e),
-              this.queueMessageForFrame(pt.UPDATE_SETTINGS, { userSettings: this.Mn.userSettings }),
-              this.Gn(this.On(this.Mn.userSettings)))),
+              this.queueMessageForFrame(vt.UPDATE_SETTINGS, { userSettings: this.Mn.userSettings }),
+              this.On(this.Gn(this.Mn.userSettings)))),
             this.toggleIconContainer();
         }
         removeChat() {
           this.clearUnreadCount(), jQuery("#chat-container").remove(), jQuery("#chat-wrapper").remove();
         }
-        Gn(t, e) {
-          at.lt(t).then(e);
+        On(t, e) {
+          Dt.lt(t).then(e);
         }
         zn(t) {
-          return new se(ut, nt, { reactionType: t });
+          return new oe(ot, st, { reactionType: t });
         }
         Yn(t) {
-          return new ue(ut, nt, { gifObject: t });
+          return new re(ot, st, { gifObject: t });
         }
         Kn(t) {
-          return new ie(ut, nt, { body: t });
+          return new se(ot, st, { body: t });
         }
         Jn(t) {
-          return new ee(ut, nt, { typing: t });
+          return new ne(ot, st, { typing: t });
         }
-        On(t) {
-          return new ne(ut, nt, { userSettings: t });
+        Gn(t) {
+          return new ue(ot, st, { userSettings: t });
         }
         Xn(t) {
           return chrome.runtime.getURL(`img/reactions/${t}/${t}.gif`);
         }
         showReaction(t) {
           if (!this.shouldShowReaction()) return;
-          const e = t.reactionType,
-            i = this.getReactionContainer();
-          if (i) {
+          const i = t.reactionType,
+            n = this.getReactionContainer();
+          if (n) {
             const t = Math.floor(40 * Math.random()) + 40,
-              n = i[0].offsetWidth - (this.shouldAddReactionSpace() ? l : 0) - t,
-              s = Math.floor(Math.random() * n) + (this.shouldAddReactionSpace() ? l : 0),
-              u = this.Xn(e),
-              o = Math.ceil(3 * Math.random()),
-              r = jQuery(`<img class="on-screen-reaction on-screen-reaction-${o}" src='${u}' />`);
-            r.css("right", `${s}px`),
-              r.css("width", `${t}px`),
-              r.css("height", `${t}px`),
-              i.append(r),
+              s = n[0].offsetWidth - (this.shouldAddReactionSpace() ? e : 0) - t,
+              u = Math.floor(Math.random() * s) + (this.shouldAddReactionSpace() ? e : 0),
+              o = this.Xn(i),
+              r = Math.ceil(3 * Math.random()),
+              a = jQuery(`<img class="on-screen-reaction on-screen-reaction-${r}" src='${o}' />`);
+            a.css("right", `${u}px`),
+              a.css("width", `${t}px`),
+              a.css("height", `${t}px`),
+              n.append(a),
               setTimeout(() => {
-                r.remove();
+                a.remove();
               }, 5e3);
           }
         }
         onReactionClicked(t) {
-          console.log(t), this.Gn(this.zn(t));
-          const e = new Qt(ut, nt, {
+          console.log(t), this.On(this.zn(t));
+          const e = new xt(ot, st, {
             name: "user_click",
             component: { name: "chat_input_container-reaction_holder-reaction", type: t, origin: "tp" }
           });
-          at.lt(e);
-          const i = new Qt(ut, nt, { eventType: "reaction-" + t, sessionId: this.getSessionId() });
-          at.lt(i);
+          Dt.lt(e);
+          const i = new xt(ot, st, { eventType: "reaction-" + t, sessionId: this.getSessionId() });
+          Dt.lt(i);
         }
         onChatKeyUp(t) {
           t.stopPropagation();
@@ -4358,17 +4445,17 @@
             const t = this.an.find((t) => t.id === e);
             if (!t) return;
             const i = { id: t.id, title: t.title, description: t.content_description, isSticker: !1, media: t.media };
-            this.Gn(this.Yn(i), () => {
+            this.On(this.Yn(i), () => {
               this.logShare(t.id, jQuery("#gif-search")[0].value);
               const e = {
                   name: "user_click",
                   action: { description: "gif clicked", source: t.media.full.url },
                   component: { name: "chat_input_container-gif_popup-gif", type: "video", origin: "tp" }
                 },
-                i = new Qt(ut, nt, e);
-              at.lt(i);
-              const n = new Qt(ut, nt, { eventType: "gif-share", sessionId: this.getSessionId() });
-              at.lt(n);
+                i = new xt(ot, st, e);
+              Dt.lt(i);
+              const n = new xt(ot, st, { eventType: "gif-share", sessionId: this.getSessionId() });
+              Dt.lt(n);
             }),
               this.toggleGIFs();
           }
@@ -4420,7 +4507,7 @@
             }, 100);
         }
         onScrollToBottom(t) {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const e = t.target.scrollHeight - t.target.scrollTop <= t.target.clientHeight + 450;
             if (this.Zi) t.preventDefault();
             else if ("0" !== this.nn && e && this.tn < 6) {
@@ -4473,21 +4560,21 @@
           return t;
         }
         ts() {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             jQuery("#gif-results-left")[0].append(...this.es()), jQuery("#gif-results-right")[0].append(...this.es());
           });
         }
         logShare(t, e) {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const i = this.getClientLocale(),
               n = i ? `&locale=${i}` : "",
               s = `&id=${t}`,
-              u = e && e.length > 0 ? `q=${e}` : "";
-            yield fetch(`${v}/register-share?${u}${n}${s}`);
+              o = e && e.length > 0 ? `q=${e}` : "";
+            yield fetch(`${u}/register-share?${o}${n}${s}`);
           });
         }
         fetchGIFs(t) {
-          return we(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const e = yield this.getVideoTitle(),
               i = null == e ? void 0 : e.replace(/[^\w\s]/g, "");
             (this.tn = 1),
@@ -4500,14 +4587,14 @@
               this.ts();
             const n = this.getClientLocale(),
               s = n ? `&locale=${n}` : "";
-            let u = i ? `search-gifs?q=${i}` : "trending-gifs?";
-            (u = t ? `search-gifs?q=${t}` : u), (this.sn = `${v}/${u}${s}`);
-            const o = yield fetch(`${v}/${u}${s}`),
-              r = yield o.json();
-            if (r.results && r.results.length > 0) this.loadGIFs(r);
+            let o = i ? `search-gifs?q=${i}` : "trending-gifs?";
+            (o = t ? `search-gifs?q=${t}` : o), (this.sn = `${u}/${o}${s}`);
+            const r = yield fetch(`${u}/${o}${s}`),
+              a = yield r.json();
+            if (a.results && a.results.length > 0) this.loadGIFs(a);
             else if (!t) {
-              const t = yield fetch(`${v}/trending_gifs?${s}`);
-              this.sn = `${v}/trending_gifs?${s}`;
+              const t = yield fetch(`${u}/trending_gifs?${s}`);
+              this.sn = `${u}/trending_gifs?${s}`;
               const e = yield t.json();
               this.loadGIFs(e);
             }
@@ -4529,18 +4616,18 @@
         }
         onChatKeyPress(t) {
           if ((t.stopPropagation(), "Enter" !== t.key || t.shiftKey))
-            void 0 === this._n ? this.Gn(this.Jn(!0)) : clearTimeout(this._n),
+            void 0 === this._n ? this.On(this.Jn(!0)) : clearTimeout(this._n),
               (this._n = setTimeout(() => {
-                (this._n = void 0), this.Gn(this.Jn(!1));
+                (this._n = void 0), this.On(this.Jn(!1));
               }, 500));
           else {
             jQuery("#emoji-picker-container").is(":hidden") || this.toggleEmojiClicker();
             const e = jQuery("#chat-input"),
               i = e[0].textContent;
             if (i && this.ns(i)) {
-              void 0 !== this._n && (clearTimeout(this._n), (this._n = void 0), this.Gn(this.Jn(!1))),
+              void 0 !== this._n && (clearTimeout(this._n), (this._n = void 0), this.On(this.Jn(!1))),
                 e.prop("contenteditable", !1),
-                this.Gn(this.Kn(i.substring(0, 1500)), () => {
+                this.On(this.Kn(i.substring(0, 1500)), () => {
                   (e[0].textContent = ""), e.prop("contenteditable", !0), this.focusChat(), this.onInputChange();
                 });
               const t = {
@@ -4549,7 +4636,7 @@
                   message: {
                     id: (function () {
                       try {
-                        return le();
+                        return ge();
                       } catch (t) {
                         return "";
                       }
@@ -4557,8 +4644,8 @@
                     text: i.trim()
                   }
                 },
-                n = new Qt(ut, nt, t);
-              at.lt(n);
+                n = new xt(ot, st, t);
+              Dt.lt(n);
             } else t.stopImmediatePropagation(), t.preventDefault(), (e[0].textContent = ""), this.onInputChange();
           }
         }
@@ -4572,8 +4659,8 @@
             (jQuery("#emoji-picker-container").is(":hidden") || this.showEmojiPicker());
         }
         shouldShowIncreasedSize(t) {
-          const e = t.replace(b, "").replace(/[\uFE0F]/g, ""),
-            i = ((t || "").match(b) || []).length;
+          const e = t.replace(p, "").replace(/[\uFE0F]/g, ""),
+            i = ((t || "").match(p) || []).length;
           return 0 === e.length && i <= 3 && i > 0;
         }
         saveChangesListener() {
@@ -4582,12 +4669,12 @@
             .val()
             .slice(0, 25)
             .replace(/^\s+|\s+$/g, "");
-          d("saveChanges button clicked: " + e),
+          j("saveChanges button clicked: " + e),
             e !== (null === (t = this.Mn) || void 0 === t ? void 0 : t.userNickname) &&
               this.Mn &&
               (this.Mn.saveUserNickname(e),
-              this.queueMessageForFrame(pt.UPDATE_SETTINGS, { userSettings: this.Mn.userSettings }),
-              this.Gn(this.On(this.Mn.userSettings)),
+              this.queueMessageForFrame(vt.UPDATE_SETTINGS, { userSettings: this.Mn.userSettings }),
+              this.On(this.Gn(this.Mn.userSettings)),
               jQuery("#nickname-edit").attr("placeholder", e),
               jQuery("#nickname-edit").text(e)),
             this.toggleIconContainer();
@@ -4599,9 +4686,9 @@
           return this.mn;
         }
         addIconSelector() {
-          Object.keys(k).forEach((t) => {
-            if (I[t]()) {
-              const e = k[t],
+          Object.keys(Q).forEach((t) => {
+            if (x[t]()) {
+              const e = Q[t],
                 i = jQuery('\n                <ul id="icon-holder"></ul>\n            ');
               for (const n of e) this.ss(`${t}/${n}`, i, n);
               const n = jQuery(
@@ -4613,8 +4700,8 @@
         }
         inputHeightCheck() {
           const t = jQuery("#chat-input").text(),
-            e = ((t || "").match(b) || []).length,
-            i = t.replace(b, "");
+            e = ((t || "").match(p) || []).length,
+            i = t.replace(p, "");
           e <= 3 || i
             ? jQuery(".inTextEmoji").css("font-size", "24px")
             : e > 0
@@ -4663,7 +4750,7 @@
             (document.documentElement.style.overflow = "hidden"));
         }
         getVideoTitle() {
-          return Ee(this, void 0, void 0, function* () {
+          return be(this, void 0, void 0, function* () {
             return yield this.m.waitUpdateAPIState(), this.m.getSeriesName();
           });
         }
@@ -4675,7 +4762,7 @@
         }
         setChatVisible(t, e = !0) {
           const i = Object.create(null, { setChatVisible: { get: () => super.setChatVisible } });
-          return Ee(this, void 0, void 0, function* () {
+          return be(this, void 0, void 0, function* () {
             try {
               yield i.setChatVisible.call(this, t, e);
             } catch (e) {
@@ -4696,9 +4783,9 @@
           });
         }
         os(t) {
-          return Ee(this, void 0, void 0, function* () {
+          return be(this, void 0, void 0, function* () {
             t
-              ? (jQuery("video").width(window.innerWidth - l),
+              ? (jQuery("video").width(window.innerWidth - e),
                 jQuery("video").addClass("tp-video"),
                 jQuery("#chat-wrapper").addClass("chat-wrapper-short"),
                 jQuery("#chat-wrapper").show(),
@@ -4708,40 +4795,40 @@
           });
         }
         rs(t) {
-          const e = document.querySelector(S);
+          const e = document.querySelector(T);
           e &&
             ((e.style.left = t ? "-250px" : "10px"),
             console.log("Fixing skip button" + e),
             (e.onclick = (t) =>
-              Ee(this, void 0, void 0, function* () {
+              be(this, void 0, void 0, function* () {
                 return (
                   console.log("Clicked skip"),
                   t.stopPropagation(),
                   t.stopImmediatePropagation(),
                   (e.style.left = "10px"),
-                  yield u(250)(),
-                  o(e, 0.5, "mousedown"),
-                  o(e, 0.5, "mouseup"),
+                  yield y(250)(),
+                  m(e, 0.5, "mousedown"),
+                  m(e, 0.5, "mouseup"),
                   !1
                 );
               })));
-          const i = document.querySelector(T);
+          const i = document.querySelector(M);
           i && (i.style.left = t ? "-250px" : "10px");
         }
       }
-      var be = i(4296),
-        je = i.n(be);
-      class Be extends ct {
+      var Be = i(4296),
+        Ae = i.n(Be);
+      class ke extends ht {
         constructor(t, e, i) {
           super(t, e, i), (this.type = i);
         }
       }
-      class Ae extends Be {
+      class Qe extends ke {
         constructor(t, e, i) {
-          super(t, e, rt.CREATE_SESSION), (this.data = i);
+          super(t, e, at.CREATE_SESSION), (this.data = i);
         }
       }
-      const ke = new (class extends Y {
+      const Ie = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".netflix.") && t.pathname.includes("/watch");
@@ -4757,10 +4844,10 @@
         getFullscreenScript() {
           return '\n            (function() {\n                var sizingWrapper = document.getElementsByClassName("sizing-wrapper")[0];\n                    if (sizingWrapper) {\n                        sizingWrapper.requestFullscreen = function() {}\n                        document.getElementsByClassName(\'button-nfplayerFullscreen\')[0].onclick = function() {\n                            var fullScreenWrapper = document.getElementsByClassName("nf-kb-nav-wrapper")[0];\n                            fullScreenWrapper.webkitRequestFullScreen(fullScreenWrapper.ALLOW_KEYBOARD_INPUT);\n                        }\n                    }\n            })();\n        ';
         }
-      })([], ["content_scripts/netflix/netflix_content_bundled.js"], "netflix", K.NETFLIX, !1);
-      Object.freeze(ke);
-      const Qe = ke;
-      const Ie = new (class extends Y {
+      })([], ["content_scripts/netflix/netflix_content_bundled.js"], "netflix", J.NETFLIX, !1);
+      Object.freeze(Ie);
+      const xe = Ie;
+      const Se = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".hulu.") && t.pathname.includes("/watch");
@@ -4773,26 +4860,28 @@
           const e = t.pathname.match(/^.*\/([a-z\-0-9]+)\??.*/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/hulu/hulu_content_bundled.js"], "hulu", K.HULU, !1);
-      Object.freeze(Ie);
-      const xe = Ie;
-      const Se = new (class extends Y {
+      })([], ["content_scripts/hulu/hulu_content_bundled.js"], "hulu", J.HULU, !1);
+      Object.freeze(Se);
+      const Te = Se;
+      const Me = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".disneyplus.") && t.pathname.includes("/video");
           })(t);
         }
         isBrowsing(t) {
-          return t.hostname.includes(".disneyplus.");
+          return t.hostname.includes(".disneyplus.") && !t.hostname.includes("apps.disneyplus.");
         }
         getVideoId(t) {
           const e = t.pathname.match(/^.*\/([a-z\-0-9]+)\??.*/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/disney/disney_content_bundled.js"], "disney", K.DISNEY_PLUS, !1);
-      Object.freeze(Se);
-      const Te = Se;
-      const Me = new (class extends Y {
+      })([], ["content_scripts/disney/disney_content_bundled.js"], "disney", J.DISNEY_PLUS, !1, [
+        "browse_scripts/disney/disney_browse_bundled.js"
+      ]);
+      Object.freeze(Me);
+      const Pe = Me;
+      const Ve = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".amazon.") || t.hostname.includes(".primevideo.");
@@ -4805,10 +4894,10 @@
           const e = t.pathname.split("ref")[0].match(/^.*\/([a-z\-0-9.A-Z]+)(\?|\/ref)?.*/);
           return null != e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/amazon/amazon_content_bundled.js"], "amazon", K.AMAZON, !1);
-      Object.freeze(Me);
-      const Pe = Me;
-      const Ve = new (class extends Y {
+      })([], ["content_scripts/amazon/amazon_content_bundled.js"], "amazon", J.AMAZON, !1);
+      Object.freeze(Ve);
+      const $e = Ve;
+      const Ne = new (class extends K {
         isBrowsing(t) {
           return t.hostname.includes(".crunchyroll.");
         }
@@ -4821,12 +4910,12 @@
           const e = t.pathname.match(/watch\/(.*)\//);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/crunchyroll/crunchyroll_content_bundled.js"], "crunchyroll", K.CRUNCHYROLL, !1);
-      Object.freeze(Ve);
-      const $e = Ve;
-      const Ne = new (class extends Y {
+      })([], ["content_scripts/crunchyroll/crunchyroll_content_bundled.js"], "crunchyroll", J.CRUNCHYROLL, !1);
+      Object.freeze(Ne);
+      const Re = Ne;
+      const Ue = new (class extends K {
         isBrowsing(t) {
-          return !(t.href.includes(".hotstar.") || !t.href.includes("watch?"));
+          return !(t.href.includes(".hotstar.") || t.href.includes("apps.disneyplus.") || !t.href.includes("watch?"));
         }
         isValidUrl(t) {
           return (function (t) {
@@ -4840,10 +4929,10 @@
           }
           return "browsing";
         }
-      })([], ["content_scripts/youtube/youtube_content_bundled.js"], "youtube", K.YOUTUBE, !1);
-      Object.freeze(Ne);
-      const Re = Ne;
-      const Ue = new (class extends Y {
+      })([], ["content_scripts/youtube/youtube_content_bundled.js"], "youtube", J.YOUTUBE, !1);
+      Object.freeze(Ue);
+      const Oe = Ue;
+      const Ge = new (class extends K {
         isBrowsing(t) {
           return t.hostname.includes(".espn.");
         }
@@ -4856,10 +4945,10 @@
           const e = t.pathname;
           return e.substring(e.lastIndexOf("/") + 1);
         }
-      })([], ["content_scripts/espn/espn_content_bundled.js"], "espn", K.ESPN, !1);
-      Object.freeze(Ue);
-      const Ge = Ue;
-      const Oe = new (class extends Y {
+      })([], ["content_scripts/espn/espn_content_bundled.js"], "espn", J.ESPN, !1);
+      Object.freeze(Ge);
+      const Le = Ge;
+      const He = new (class extends K {
         isBrowsing(t) {
           return t.hostname.includes(".paramountplus.");
         }
@@ -4876,10 +4965,10 @@
           const i = null !== (e = t.pathname.match(/video\/([^/]+)/)) && void 0 !== e ? e : t.pathname.match(/stream\/([^/]+)/);
           return i && i.length > 1 ? i[1] : void 0;
         }
-      })([], ["content_scripts/paramount/paramount_content_bundled.js"], "paramount", K.PARAMOUNT, !1);
-      Object.freeze(Oe);
-      const Le = Oe;
-      const He = new (class extends Y {
+      })([], ["content_scripts/paramount/paramount_content_bundled.js"], "paramount", J.PARAMOUNT, !1);
+      Object.freeze(He);
+      const We = He;
+      const ze = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".hotstar.") && t.pathname.includes("/watch");
@@ -4892,10 +4981,10 @@
           const e = t.pathname.split("/");
           return e && e.length > 1 ? e[e.length - 2] : void 0;
         }
-      })([], ["content_scripts/hotstar/hotstar_content_bundled.js"], "hotstar", K.HOTSTAR, !1);
-      Object.freeze(He);
-      const We = He;
-      const ze = new (class extends Y {
+      })([], ["content_scripts/hotstar/hotstar_content_bundled.js"], "hotstar", J.HOTSTAR, !1);
+      Object.freeze(ze);
+      const Ye = ze;
+      const Ke = new (class extends K {
         isBrowsing(t) {
           return t.hostname.includes(".peacocktv.");
         }
@@ -4908,10 +4997,10 @@
           const e = t.pathname.match(/([^/?]+\/[^/?]+)(?=\?|$)/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/peacock/peacock_content_bundled.js"], "peacock", K.PEACOCK, !1);
-      Object.freeze(ze);
-      const Ye = ze;
-      const Ke = new (class extends Y {
+      })([], ["content_scripts/peacock/peacock_content_bundled.js"], "peacock", J.PEACOCK, !1);
+      Object.freeze(Ke);
+      const Je = Ke;
+      const Xe = new (class extends K {
         isBrowsing(t) {
           return t.hostname.includes(".funimation.");
         }
@@ -4923,27 +5012,27 @@
         getVideoId(t) {
           return t.pathname.split("/v/")[1];
         }
-      })([], ["content_scripts/funimation/funimation_content_bundled.js"], "funimation", K.FUNIMATION, !1);
-      Object.freeze(Ke);
-      const Je = Ke;
-      const Xe = new (class extends Y {
+      })([], ["content_scripts/funimation/funimation_content_bundled.js"], "funimation", J.FUNIMATION, !1);
+      Object.freeze(Xe);
+      const qe = Xe;
+      const Ze = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".max.") && t.pathname.includes("video/watch");
           })(t);
         }
         isBrowsing(t) {
-          return t.hostname.includes(".play.max.");
+          return t.hostname.includes("play.max.");
         }
         getVideoId(t) {
           var e;
           const i = null === (e = t.pathname) || void 0 === e ? void 0 : e.match(/(watch\/)([a-zA-Z\-_0-9]+)\??/);
           return i ? i[2] : void 0;
         }
-      })([], ["content_scripts/max/max_content_bundled.js"], "max", K.MAX, !1);
-      Object.freeze(Xe);
-      const qe = Xe;
-      const Ze = new (class extends Y {
+      })([], ["content_scripts/max/max_content_bundled.js"], "max", J.MAX, !1);
+      Object.freeze(Ze);
+      const ti = Ze;
+      const ei = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".starplus.") && t.pathname.includes("/video");
@@ -4956,10 +5045,10 @@
           const e = t.pathname.match(/^.*\/([a-z\-0-9]+)\??.*/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/starplus/starplus_content_bundled.js"], "starplus", K.STAR_PLUS, !1);
-      Object.freeze(Ze);
-      const ti = Ze;
-      const ei = new (class extends Y {
+      })([], ["content_scripts/starplus/starplus_content_bundled.js"], "starplus", J.STAR_PLUS, !1);
+      Object.freeze(ei);
+      const ii = ei;
+      const ni = new (class extends K {
         isBrowsing(t) {
           return (
             t.href.includes("/details") ||
@@ -4979,10 +5068,10 @@
         getVideoId(t) {
           return t.href.split("pluto.tv/").pop();
         }
-      })([], ["content_scripts/plutotv/plutotv_content_bundled.js"], "plutotv", K.PLUTO_TV, !1);
-      Object.freeze(ei);
-      const ii = ei;
-      const ni = new (class extends Y {
+      })([], ["content_scripts/plutotv/plutotv_content_bundled.js"], "plutotv", J.PLUTO_TV, !1);
+      Object.freeze(ni);
+      const si = ni;
+      const ui = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes("tv.apple.com");
@@ -4994,10 +5083,10 @@
         getVideoId(t) {
           return t.toString().split("https://tv.apple.com/")[1];
         }
-      })([], ["content_scripts/appletv/appletv_content_bundled.js"], "appletv", K.APPLE_TV, !1);
-      Object.freeze(ni);
-      const si = ni;
-      const ui = new (class extends Y {
+      })([], ["content_scripts/appletv/appletv_content_bundled.js"], "appletv", J.APPLE_TV, !1);
+      Object.freeze(ui);
+      const oi = ui;
+      const ri = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes(".jiocinema."),
@@ -5014,10 +5103,10 @@
         getVideoId(t) {
           return t.pathname.substring(1);
         }
-      })([], ["content_scripts/jio_cinema/jio_cinema_content_bundled.js"], "jiocinema", K.JIO_CINEMA, !1);
-      Object.freeze(ui);
-      const oi = ui;
-      const ri = new (class extends Y {
+      })([], ["content_scripts/jio_cinema/jio_cinema_content_bundled.js"], "jiocinema", J.JIO_CINEMA, !1);
+      Object.freeze(ri);
+      const ai = ri;
+      const ci = new (class extends K {
         isBrowsing(t) {
           return t.hostname.includes("tubitv.com");
         }
@@ -5029,10 +5118,10 @@
         getVideoId(t) {
           return t.pathname;
         }
-      })([], ["content_scripts/tubitv/tubitv_content_bundled.js"], "tubitv", K.TUBI_TV, !1);
-      Object.freeze(ri);
-      const ai = ri;
-      const ci = new (class extends Y {
+      })([], ["content_scripts/tubitv/tubitv_content_bundled.js"], "tubitv", J.TUBI_TV, !1);
+      Object.freeze(ci);
+      const Di = ci;
+      const hi = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes(".crave."),
@@ -5046,10 +5135,10 @@
         getVideoId(t) {
           return t.pathname.substring(1);
         }
-      })([], ["content_scripts/crave/crave_content_bundled.js"], "crave", K.CRAVE, !1);
-      Object.freeze(ci);
-      const Di = ci;
-      const hi = new (class extends Y {
+      })([], ["content_scripts/crave/crave_content_bundled.js"], "crave", J.CRAVE, !1);
+      Object.freeze(hi);
+      const di = hi;
+      const li = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes("mubi."),
@@ -5063,10 +5152,10 @@
         getVideoId(t) {
           return t.pathname.substring(1);
         }
-      })([], ["content_scripts/mubi/mubi_content_bundled.js"], "mubi", K.MUBI, !1);
-      Object.freeze(hi);
-      const di = hi;
-      const li = new (class extends Y {
+      })([], ["content_scripts/mubi/mubi_content_bundled.js"], "mubi", J.MUBI, !1);
+      Object.freeze(li);
+      const pi = li;
+      const gi = new (class extends K {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes("play.stan.com.au"),
@@ -5080,46 +5169,72 @@
         getVideoId(t) {
           return t.pathname.split("/")[2];
         }
-      })([], ["content_scripts/stan/stan_content_bundled.js"], "stan", K.STAN, !1);
-      Object.freeze(li);
-      const pi = li;
-      class gi {
+      })([], ["content_scripts/stan/stan_content_bundled.js"], "stan", J.STAN, !1);
+      Object.freeze(gi);
+      const vi = gi;
+      const Fi = new (class extends K {
+        isValidUrl(t) {
+          return (function (t) {
+            const e = t.hostname.includes("watch.sling.com"),
+              i = t.pathname.split("/");
+            return e && i.length > 0 && "watch" === i[i.length - 1];
+          })(t);
+        }
+        isBrowsing(t) {
+          return t.hostname.includes(".sling.com");
+        }
+        getVideoId(t) {
+          const e = t.pathname.split("/");
+          if (e.length > 3) return e[3];
+        }
+      })([], ["content_scripts/sling/sling_content_bundled.js"], "slingtv", J.SLING, !1);
+      Object.freeze(Fi);
+      const yi = Fi;
+      const mi = new (class extends K {
+        isValidUrl(t) {
+          return (function (t) {
+            return t.hostname.includes("apps.disneyplus.") && t.pathname.includes("/watch");
+          })(t);
+        }
+        isBrowsing(t) {
+          return t.hostname.includes("apps.disneyplus.");
+        }
+        getVideoId(t) {
+          const e = t.pathname.split("/");
+          return e && e.length > 1 ? e[e.length - 2] : void 0;
+        }
+      })([], ["content_scripts/disneymena/disneymena_content_bundled.js"], "disneymena", J.DISNEY_PLUS_MENA, !1);
+      Object.freeze(mi);
+      const fi = mi;
+      class Ci {
         constructor(t, e) {
-          var i;
-          (this.isBrowsing = !1), (this.id = e), this.videoId, (this.url = t);
-          const n = [Qe, xe, Te, X, Pe, Re, $e, Ge, Le, We, Ye, ti, qe, Je, si, ii, oi, ai, di, pi, Di];
+          (this.isBrowsing = !1), (this.needsCSPBlock = !1), (this.id = e), this.videoId, (this.url = t);
+          const i = [oi],
+            n = [xe, Te, Pe, q, $e, Oe, Re, Le, We, Ye, Je, ii, ti, qe, oi, si, ai, Di, pi, vi, di, yi, fi];
           for (const e of n) {
             if (e.isValidUrl(this.url)) {
-              (this.streamingService = e), (this.serviceName = e.name), (this.videoId = e.getVideoId(t));
+              (this.streamingService = e),
+                (this.serviceName = e.name),
+                (this.videoId = e.getVideoId(t)),
+                i.includes(e) && (this.needsCSPBlock = !0);
               break;
             }
             if (e.isBrowsing(this.url)) {
-              (this.isBrowsing = !0), (this.streamingService = e), (this.serviceName = e.name);
+              (this.isBrowsing = !0), (this.streamingService = e), (this.serviceName = e.name), i.includes(e) && (this.needsCSPBlock = !0);
               break;
             }
           }
-          this.sessionIdFromUrl =
-            null !==
-              (i = (function (t, e, i) {
-                const n = "?" + t.split("?")[i];
-                if (void 0 === n) return;
-                const s = e.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&"),
-                  u = new RegExp("[?|&]" + s + "=([^&]*)(&|$)").exec(n);
-                return null === u || u.length < 2 ? void 0 : decodeURIComponent(u[1]);
-              })(this.url.href, "npSessionId", 1)) && void 0 !== i
-              ? i
-              : void 0;
         }
         urlWithSessionId(t) {
           return this.streamingService ? this.streamingService.urlWithSessionId(t) : void 0;
         }
       }
-      class vi extends Be {
+      class wi extends ke {
         constructor(t, e, i) {
-          super(t, e, rt.RE_INJECT), (this.data = i);
+          super(t, e, at.RE_INJECT), (this.data = i);
         }
       }
-      var Fi = function (t, e, i, n) {
+      var Ei = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
@@ -5149,8 +5264,8 @@
           a((n = n.apply(t, e || [])).next());
         });
       };
-      var yi,
-        mi = function (t, e, i, n) {
+      var _i,
+        bi = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
@@ -5180,7 +5295,7 @@
             a((n = n.apply(t, e || [])).next());
           });
         };
-      class fi extends class {
+      class ji extends class {
         constructor(t) {
           var e, i, n;
           (this.cs = !1),
@@ -5194,7 +5309,7 @@
               this.shouldMenuBeVisible() ? this.vs() : this.Fs();
             }),
             console.log("Teleparty Browse Loaded " + (null === (e = window.teleparty) || void 0 === e ? void 0 : e.tabId)),
-            (this.ys = new gi(
+            (this.ys = new Ci(
               new URL(window.location.href),
               null !== (n = null === (i = window.teleparty) || void 0 === i ? void 0 : i.tabId) && void 0 !== n ? n : 0
             )),
@@ -5254,7 +5369,7 @@
             this.Es(),
             (this.ls = !0),
             this.vs(),
-            u(1e3)().then(() => {
+            y(1e3)().then(() => {
               this.ls = !1;
             }));
         }
@@ -5263,24 +5378,24 @@
         }
         js() {
           var t;
-          return Fi(this, void 0, void 0, function* () {
+          return Ei(this, void 0, void 0, function* () {
             if (this.Ds || this.fs.inSession) return;
             if ((this.Bs(), (this.Ds = !0), !(null === (t = window.teleparty) || void 0 === t ? void 0 : t.contentScriptInjected))) {
               console.log("Re injecting");
-              const t = new vi(ot, nt, { extensionTabData: this.ys });
+              const t = new wi(rt, st, { extensionTabData: this.ys });
               try {
-                yield at.lt(t);
+                yield Dt.lt(t);
               } catch (t) {
-                return console.log(t), this.As(), this._e(t), this.ks(Tt), void (this.Ds = !1);
+                return console.log(t), this.As(), this._e(t), this.ks(Pt), void (this.Ds = !1);
               }
             }
             console.log("Sending create");
             const e = this.Qs();
             try {
-              const t = yield at.lt(e);
+              const t = yield Dt.lt(e);
               t.error ? (this.ks(t.error.message), this._e(t.error.message)) : ((this.Ds = !1), this.Is(), this.enablePartyIcons());
             } catch (t) {
-              console.log(t), this.ks(Tt), this._e(t);
+              console.log(t), this.ks(Pt), this._e(t);
             }
             this.As(), (this.Ds = !1);
           });
@@ -5301,8 +5416,8 @@
             jQuery("#tp-icon-white").removeClass("hidden");
         }
         _e(t) {
-          const e = new Qt(st, nt, { name: "error", action: { description: "an error has occured", reason: t } });
-          at.lt(e);
+          const e = new xt(ut, st, { name: "error", action: { description: "an error has occured", reason: t } });
+          Dt.lt(e);
         }
         ks(t) {
           jQuery("#tp-controls-error-text").text(t),
@@ -5314,25 +5429,25 @@
         }
         xs(t) {
           return t
-            .replace(/{EXTENSION_LOGO_WHITE}/g, Q(chrome.runtime.getURL("img/icon_white.svg")))
-            .replace(/{EXTENSION_LOGO_GRADIENT}/g, Q(chrome.runtime.getURL("img/icon_gradient.svg")))
-            .replace(/{PLAY_IMAGE}/g, Q(chrome.runtime.getURL("img/play.svg")))
-            .replace(/{UNLOCKED_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_remote_inactive.svg")))
-            .replace(/{LOCKED_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_remote_active.svg")))
-            .replace(/{ARROW_RIGHT}/g, Q(chrome.runtime.getURL("img/arrow-right.svg")))
-            .replace(/{LINK_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_link_active.svg")))
-            .replace(/{LINK_ACTIVE_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_link_active.svg")))
-            .replace(/{CHAT_HIDDEN_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_chat_inactive.svg")))
-            .replace(/{CHAT_GRAY_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_chatgray_active.svg")))
-            .replace(/{CHAT_ACTIVE_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_chat_active.svg")))
-            .replace(/{DISCONNECT_IMAGE}/g, Q(chrome.runtime.getURL("img/icon_logout_active.svg")))
-            .replace(/{RESET_CHAT_IMAGE}/g, Q(chrome.runtime.getURL("img/reset_chat.svg")));
+            .replace(/{EXTENSION_LOGO_WHITE}/g, I(chrome.runtime.getURL("img/icon_white.svg")))
+            .replace(/{EXTENSION_LOGO_GRADIENT}/g, I(chrome.runtime.getURL("img/icon_gradient.svg")))
+            .replace(/{PLAY_IMAGE}/g, I(chrome.runtime.getURL("img/play.svg")))
+            .replace(/{UNLOCKED_IMAGE}/g, I(chrome.runtime.getURL("img/icon_remote_inactive.svg")))
+            .replace(/{LOCKED_IMAGE}/g, I(chrome.runtime.getURL("img/icon_remote_active.svg")))
+            .replace(/{ARROW_RIGHT}/g, I(chrome.runtime.getURL("img/arrow-right.svg")))
+            .replace(/{LINK_IMAGE}/g, I(chrome.runtime.getURL("img/icon_link_active.svg")))
+            .replace(/{LINK_ACTIVE_IMAGE}/g, I(chrome.runtime.getURL("img/icon_link_active.svg")))
+            .replace(/{CHAT_HIDDEN_IMAGE}/g, I(chrome.runtime.getURL("img/icon_chat_inactive.svg")))
+            .replace(/{CHAT_GRAY_IMAGE}/g, I(chrome.runtime.getURL("img/icon_chatgray_active.svg")))
+            .replace(/{CHAT_ACTIVE_IMAGE}/g, I(chrome.runtime.getURL("img/icon_chat_active.svg")))
+            .replace(/{DISCONNECT_IMAGE}/g, I(chrome.runtime.getURL("img/icon_logout_active.svg")))
+            .replace(/{RESET_CHAT_IMAGE}/g, I(chrome.runtime.getURL("img/reset_chat.svg")));
         }
         Fs() {
           this.ls || (this.hideError(), jQuery("#tpIconContainer").addClass("hidden"));
         }
         vs() {
-          return Fi(this, void 0, void 0, function* () {
+          return Ei(this, void 0, void 0, function* () {
             if (!this.ps && (this.gs || this.fs.inSession)) {
               this.ps = !0;
               try {
@@ -5356,9 +5471,9 @@
           return "100px";
         }
         addTpIcon() {
-          return Fi(this, void 0, void 0, function* () {
+          return Ei(this, void 0, void 0, function* () {
             if ((this.gs || this.fs.inSession) && 0 === jQuery("#tpIconContainer").length) {
-              const t = this.xs(je()),
+              const t = this.xs(Ae()),
                 e = yield this.getControlsRoot();
               e.length > 0 &&
                 (e.append(
@@ -5384,8 +5499,8 @@
             });
         }
         Vs() {
-          const t = new _t(ot, nt, L);
-          at.lt(t), this.Fs();
+          const t = new jt(rt, st, H);
+          Dt.lt(t), this.Fs();
         }
         Ms() {
           this.fs.linkIconListener(),
@@ -5395,7 +5510,7 @@
             }, 1e3);
         }
         Ps() {
-          return Fi(this, void 0, void 0, function* () {
+          return Ei(this, void 0, void 0, function* () {
             (this.ds = 0),
               this.hideMessageIndicator(),
               this.fs.isPartyWindowsActive()
@@ -5411,7 +5526,7 @@
             this.fs.isPartyWindowsActive() ? this.setResetChatButton() : this.hideMessageIndicator();
         }
         Is() {
-          return Fi(this, void 0, void 0, function* () {
+          return Ei(this, void 0, void 0, function* () {
             this.fs.inSession &&
               this.fs.shouldChatBeVisible() &&
               (jQuery("#tp-chat-close-button").removeClass("hidden"), jQuery("#tp-buttons-container").addClass("hidden"));
@@ -5421,10 +5536,10 @@
           jQuery("#tp-chat-close-button").addClass("hidden"), jQuery("#tp-buttons-container").removeClass("hidden");
         }
         Qs() {
-          return new Ae(ot, nt, this.Ns());
+          return new Qe(rt, st, this.Ns());
         }
         Ns() {
-          return { createSettings: { controlLock: this.hs }, extensionTabData: this.ys, source: "pc" };
+          return { createSettings: { controlLock: this.hs }, streamingService: this.ys.streamingService, tabId: this.ys.id, source: "pc" };
         }
         Bs() {
           jQuery("#tp-icon-container .tooltiptext").html(
@@ -5439,7 +5554,7 @@
           super(...arguments), (this.Rs = !1);
         }
         getControlsRoot() {
-          return mi(this, void 0, void 0, function* () {
+          return bi(this, void 0, void 0, function* () {
             return jQuery("body");
           });
         }
@@ -5450,7 +5565,7 @@
           return "100px";
         }
       }
-      class Ci extends class {
+      class Bi extends class {
         constructor(t, e, i, n) {
           (this.J = t),
             (this.m = e),
@@ -5459,12 +5574,12 @@
             window.teleparty && !window.teleparty.pageControls
               ? ((window.teleparty.pageControls = n), console.log("Setting Page COntrols"))
               : (n.setChatApi(this.J), console.log("Resetting Chat Api for old controls")),
-            (this.Us = new Ct(this.J, this.Et)),
-            (this.C = new Ht(this.m, this.J, this.re)),
-            (this.Gs = !1),
+            (this.Us = new Et(this.J, this.Et)),
+            (this.C = new zt(this.m, this.J, this.re)),
             (this.Os = !1),
+            (this.Gs = !1),
             (this.jn = !1),
-            (this.vt = new vt()),
+            (this.vt = new yt()),
             this.vt.addMessageListener(this.C),
             this.vt.addMessageListener(this.Us),
             this.vt.addMessageListener(this),
@@ -5472,12 +5587,12 @@
             this.Hs();
         }
         Ws() {
-          return Wt(this, void 0, void 0, function* () {
+          return Yt(this, void 0, void 0, function* () {
             yield this.Et.addTpIcon(), this.Et.startEventListener();
           });
         }
         loadBrowseButton() {
-          return Wt(this, void 0, void 0, function* () {
+          return Yt(this, void 0, void 0, function* () {
             yield this.Et.addTpIcon(), this.Et.startEventListener();
           });
         }
@@ -5485,33 +5600,33 @@
           const t = chrome.runtime.connect();
           t.onDisconnect.addListener(() => {
             console.log("Lost background script. Teardown");
-            const t = { showAlert: this.J.inSession, alertModal: U };
+            const t = { showAlert: this.J.inSession, alertModal: O };
             this.zs(t);
           }),
             t.onMessage.addListener(() => {
-              d("Got background script"), (this.Ls = !0);
+              j("Got background script"), (this.Ls = !0);
             });
         }
         onMessage(t, e, i) {
-          if (t.target == ut) {
-            if (t.type === rt.IS_CONTENT_SCRIPT_READY) {
-              if (this.Gs) {
+          if (t.target == ot) {
+            if (t.type === at.IS_CONTENT_SCRIPT_READY) {
+              if (this.Os) {
                 i({ ready: !0 });
-              } else this.Os || ((this.Os = !0), this.Ys().then(i));
+              } else (this.Gs = !0), this.Ys().then(i);
               return !0;
             }
-            if (t.type === rt.GET_INIT_DATA) {
+            if (t.type === at.GET_INIT_DATA) {
               return i(this.Ks()), !0;
             }
-            if (t.type === rt.DISCONNECT && t.sender == st) {
-              const t = new _t(ut, nt, L);
-              at.lt(t), i();
+            if (t.type === at.DISCONNECT && t.sender == ut) {
+              const t = new jt(ot, st, H);
+              Dt.lt(t), i();
             } else {
-              if (t.type == dt.TEARDOWN) {
+              if (t.type == pt.TEARDOWN) {
                 const e = t;
                 return this.zs(e.data), i(), !0;
               }
-              t.type === dt.ON_NOTIF && this.Js();
+              t.type === pt.ON_NOTIF && this.Js();
             }
           }
           return !1;
@@ -5533,51 +5648,51 @@
                 reason: null === (n = t.alertModal) || void 0 === n ? void 0 : n.content
               }
             },
-            u = new Qt(ut, nt, s);
-          at.lt(u), window.teleparty && (window.teleparty.contentScriptInjected = !1) && (window.teleparty.contentScriptReady = !1);
+            u = new xt(ot, st, s);
+          Dt.lt(u), window.teleparty && (window.teleparty.contentScriptInjected = !1) && (window.teleparty.contentScriptReady = !1);
         }
         _e(t) {
           if ("Please open a video on Amazon Prime Video then click on the Tp icon" === t) return;
-          const e = new Qt(ut, nt, { name: "error", action: { reason: t } });
-          at.lt(e);
+          const e = new xt(ot, st, { name: "error", action: { reason: t } });
+          Dt.lt(e);
         }
         Xs() {
-          return Wt(this, void 0, void 0, function* () {
-            return r(() => this.Ls, 5e3)();
+          return Yt(this, void 0, void 0, function* () {
+            return f(() => this.Ls, 5e3)();
           });
         }
         Ys() {
-          return Wt(this, void 0, void 0, function* () {
+          return Yt(this, void 0, void 0, function* () {
             try {
-              yield this.Xs();
+              console.log("Waiting for content script ready"), yield this.Xs();
               const t = yield this.qs();
               return this.Ws(), t;
             } catch (t) {
-              const e = { message: St, showButton: !1 };
-              return this._e(St), { ready: !1, error: e };
+              const e = { message: Mt, showButton: !1 };
+              return this._e(Mt), { ready: !1, error: e };
             } finally {
-              this.Os = !1;
+              this.Gs = !1;
             }
           });
         }
         qs() {
-          return Wt(this, void 0, void 0, function* () {
+          return Yt(this, void 0, void 0, function* () {
             let t;
             try {
               yield this.m.waitVideoApiReadyAsync();
               const e = yield this.Zs();
               e && e.error
-                ? (d("Error is:", e.error),
+                ? (j("Error is:", e.error),
                   (t = { message: e.error, showButton: !0 }),
-                  (this.Gs = !0),
+                  (this.Os = !0),
                   window.teleparty && (window.teleparty.contentScriptReady = !0))
                 : (e && e.showReviewMessage && (this.jn = !0),
-                  (this.Gs = !0),
+                  (this.Os = !0),
                   window.teleparty && (window.teleparty.contentScriptReady = !0));
             } catch (e) {
               (t = { message: e.message, showButton: !1 }), this._e(e.message);
             }
-            return { ready: this.Gs, error: t };
+            return { ready: this.Os, error: t };
           });
         }
         Ks() {
@@ -5590,30 +5705,30 @@
           };
         }
         Zs() {
-          return Wt(this, void 0, void 0, function* () {
+          return Yt(this, void 0, void 0, function* () {
             const t = yield this.tu();
-            return at.lt(t);
+            return Dt.lt(t);
           });
         }
         tu() {
-          return Wt(this, void 0, void 0, function* () {
+          return Yt(this, void 0, void 0, function* () {
             const t = { videoId: (yield this.m.getVideoDataAsync()).videoId };
-            return new gt(ut, nt, t);
+            return new Ft(ot, st, t);
           });
         }
       } {
         constructor() {
-          const t = new Kt(),
-            e = new _e(t),
-            i = new it(t, e);
+          const t = new Xt(),
+            e = new je(t),
+            i = new nt(t, e);
           let n;
           window.teleparty && window.teleparty.pageControls
             ? ((n = window.teleparty.pageControls), console.log("Using existing page controls"))
-            : (n = new fi(e)),
+            : (n = new ji(e)),
             super(e, t, i, n);
         }
       }
-      (window.teleparty && (null === (yi = window.teleparty) || void 0 === yi ? void 0 : yi.contentScriptInjected)) ||
-        (window.teleparty || (window.teleparty = {}), (window.teleparty.contentScriptInjected = !0), new Ci());
+      (window.teleparty && (null === (_i = window.teleparty) || void 0 === _i ? void 0 : _i.contentScriptInjected)) ||
+        (window.teleparty || (window.teleparty = {}), (window.teleparty.contentScriptInjected = !0), new Bi());
     })();
 })();

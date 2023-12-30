@@ -1,6 +1,6 @@
 body.dark {
   background-color: #1a1a1a;
-  color: white;
+  color: #fff;
 }
 body.dark .link a {
   color: #1191f6;
@@ -14,7 +14,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: #fff;
   overflow: hidden;
   font-family: Arial, sans-serif;
 }

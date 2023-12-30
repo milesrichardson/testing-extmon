@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Các ứng dụng"
+  },
+  "EndOfSupportHeader": {
+    "message": "Kết thúc Hỗ trợ Microsoft 365 Mở rộng"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Bắt đầu từ ngày 15 tháng 1 năm 2024, tiện ích mở rộng này sẽ không còn được Microsoft hỗ trợ."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Để biết thêm thông tin, vui lòng truy cập trang Hỗ trợ cho phần mở rộng này."
+  },
+  "Support": {
+    "message": "Hỗ trợ"
   }
 }

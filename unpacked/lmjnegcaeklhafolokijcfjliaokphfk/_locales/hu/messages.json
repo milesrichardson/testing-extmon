@@ -15,7 +15,7 @@
     "message": "hu"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "Rólunk"
@@ -134,7 +134,7 @@
   "adaptative": {
     "message": "Adaptív $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -187,13 +187,13 @@
   "browser_info": {
     "message": "Böngésző: $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -201,7 +201,7 @@
   "browser_locale": {
     "message": "Böngésző nyelve: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -209,7 +209,7 @@
   "build_options": {
     "message": "Build opciók: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -217,7 +217,7 @@
   "built_on": {
     "message": "Build időpontja: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -228,7 +228,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ videó",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -296,7 +296,7 @@
   "chrome_premium_hls": {
     "message": "Prémium mód nélkül HLS-letöltés csak $ARG1$ perccel az előző után kezdeményezhető",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -319,7 +319,7 @@
   "chrome_premium_source": {
     "message": "Prémium felhasználó vagy ($ARG1$ által)",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -369,7 +369,7 @@
   "coapp_latest_version": {
     "message": "A legújabb elérhető verzió: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -386,10 +386,10 @@
   "coapp_outofdate_text": {
     "message": "A társalkalmazás $ARG1$ verzióját használod, de ehhez a művelethez a(z) $ARG2$ verzióra van szükség",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -565,7 +565,7 @@
   "convrule_format": {
     "message": "$ARG1$ formátumba",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -573,7 +573,7 @@
   "convrule_from_domain": {
     "message": "$ARG1$ domainről",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -590,7 +590,7 @@
   "convrule_with_ext": {
     "message": "\"$ARG1$\" kterjesztéssel",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -607,7 +607,7 @@
   "copy_of": {
     "message": "$ARG1$ másolata",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -615,10 +615,10 @@
   "corrupted_media_file": {
     "message": "A(z) \"$ARG1$\" média információinak lekérése a(z) \"$ARG2$\" fájlból nem lehetséges. Lehetséges, hogy a fájl sérült.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -647,7 +647,7 @@
   "directory_not_exist_body": {
     "message": "A(z) \"$ARG1$\" mappa nem létezik. Létrehozza?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -697,7 +697,7 @@
   "error_not_directory": {
     "message": "\"$ARG1$\" létezik, de nem mappa",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -720,7 +720,7 @@
   "failed_aggregating": {
     "message": "A(z) \"$ARG1$\" összefűzése sikertelen",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -728,7 +728,7 @@
   "failed_converting": {
     "message": "A(z) \"$ARG1$\" konvertálása sikertelen",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -736,7 +736,7 @@
   "failed_getting_info": {
     "message": "Az információgyűjtés a(z) \"$ARG1$\"-ből  sikertelen",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -759,7 +759,7 @@
   "file_generated": {
     "message": "A(z) \"$ARG1$\" fájl létrehozva",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -767,7 +767,7 @@
   "file_ready": {
     "message": "A(z) \"$ARG1$\" kész",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -778,7 +778,7 @@
   "from_domain": {
     "message": "$ARG1$-ról",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -789,7 +789,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ fájl",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -797,7 +797,7 @@
   "gallery_from_domain": {
     "message": "Galéria a(z) $ARG1$-ról",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -805,7 +805,7 @@
   "gallery_links_from_domain": {
     "message": "Linkek a(z) $ARG1$-ról",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -846,7 +846,7 @@
   "lic_mismatch1": {
     "message": "A licensz $ARG1$-ra érvényes, de a böngésző build-je nincs meghatározva",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -854,10 +854,10 @@
   "lic_mismatch2": {
     "message": "A licensz $ARG1$-ra érvényes, de a bővítmény build-je $ARG2$-ra",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -925,7 +925,7 @@
   "network_error_status": {
     "message": "Hálózati hiba - státusz: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -942,7 +942,7 @@
   "no_audio_in_file": {
     "message": "Nincs hangsáv a(z) $ARG1$ fájlhoz.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -971,7 +971,7 @@
   "no_video_in_file": {
     "message": "Nincs videósáv a(z) $ARG1$ fájlhoz.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -985,10 +985,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1005,7 +1005,7 @@
   "overwrite_file": {
     "message": "A(z) \"$ARG1$\" fájl létezik. Felülírja?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1025,10 +1025,10 @@
   "platform_info": {
     "message": "Eszközinformációk: $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1078,10 +1078,10 @@
   "req_locale": {
     "message": "Vagy segítesz lefordítani a bővítményt \"$ARG1$\"-ra ($ARG2$ szöveg hiányzik)?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1221,7 +1221,7 @@
   "version": {
     "message": "Verzió: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1712,7 +1712,7 @@
   "you_downloaded_n_videos": {
     "message": "Sikeresen letöltötted a(z) $ARG1$. fájlodat a Video DownloadHelper-rel!",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

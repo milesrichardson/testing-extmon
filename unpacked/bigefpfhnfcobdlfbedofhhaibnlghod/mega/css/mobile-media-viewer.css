@@ -133,14 +133,19 @@
 }
 .mobile .media-viewer .video-controls {
   bottom: 100%;
+  flex-direction: row;
   padding: 6px 8px;
   position: absolute;
 }
 .mobile .media-viewer .video-controls .video-progress-block {
   padding: 11px;
 }
+.mobile .media-viewer .video-controls .bar {
+  width: auto;
+}
 .mobile .media-viewer .video-controls .bar > li {
   height: auto;
+  margin: 0;
   width: auto;
 }
 .mobile .media-viewer .video-controls button.v-btn {

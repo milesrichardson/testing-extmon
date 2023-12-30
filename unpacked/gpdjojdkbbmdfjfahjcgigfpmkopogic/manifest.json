@@ -4,7 +4,7 @@
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "6.1.2",
+  "version": "6.1.4",
   "default_locale": "en",
   "permissions": ["contextMenus", "cookies", "storage", "tabs", "activeTab", "scripting", "declarativeNetRequest"],
   "incognito": "split",

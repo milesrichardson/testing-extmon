@@ -49,7 +49,7 @@
         i = r(90881),
         s = o(r(8037)),
         u = r(56293);
-      (t.VERSION = "4.7.7"),
+      (t.VERSION = "4.7.8"),
         (t.COMPILER_REVISION = 8),
         (t.LAST_COMPATIBLE_COMPILER_REVISION = 7),
         (t.REVISION_CHANGES = {
@@ -233,8 +233,8 @@
             e && "object" == typeof e)
           )
             if (n.isArray(e)) for (var f = e.length; i < f; i++) i in e && d(i, i, i === e.length - 1);
-            else if (global.Symbol && e[global.Symbol.iterator]) {
-              for (var p = [], h = e[global.Symbol.iterator](), v = h.next(); !v.done; v = h.next()) p.push(v.value);
+            else if ("function" == typeof Symbol && e[Symbol.iterator]) {
+              for (var p = [], h = e[Symbol.iterator](), v = h.next(); !v.done; v = h.next()) p.push(v.value);
               for (f = (e = p).length; i < f; i++) d(i, i, i === e.length - 1);
             } else
               (r = void 0),
@@ -340,10 +340,10 @@
             (r.__proto__ = !1),
             {
               properties: {
-                whitelist: o.createNewLookupObject(r, e.allowedProtoProperties),
+                whitelist: n.createNewLookupObject(r, e.allowedProtoProperties),
                 defaultValue: e.allowProtoPropertiesByDefault
               },
-              methods: { whitelist: o.createNewLookupObject(t, e.allowedProtoMethods), defaultValue: e.allowProtoMethodsByDefault }
+              methods: { whitelist: n.createNewLookupObject(t, e.allowedProtoMethods), defaultValue: e.allowProtoMethodsByDefault }
             }
           );
         }),
@@ -354,9 +354,9 @@
               : void 0 !== e.defaultValue
               ? e.defaultValue
               : ((function (e) {
-                  !0 !== a[e] &&
-                    ((a[e] = !0),
-                    n.log(
+                  !0 !== l[e] &&
+                    ((l[e] = !0),
+                    a.default.log(
                       "error",
                       'Handlebars: Access has been denied to resolve the property "' +
                         e +
@@ -367,18 +367,14 @@
           })("function" == typeof e ? t.methods : t.properties, r);
         }),
         (t.resetLoggedProperties = function () {
-          Object.keys(a).forEach(function (e) {
-            delete a[e];
+          Object.keys(l).forEach(function (e) {
+            delete l[e];
           });
         });
-      var o = r(8572),
-        n = (function (e) {
-          if (e && e.__esModule) return e;
-          var t = {};
-          if (null != e) for (var r in e) Object.prototype.hasOwnProperty.call(e, r) && (t[r] = e[r]);
-          return (t.default = e), t;
-        })(r(8037)),
-        a = Object.create(null);
+      var o,
+        n = r(8572),
+        a = (o = r(8037)) && o.__esModule ? o : { default: o },
+        l = Object.create(null);
     },
     15005: (e, t) => {
       "use strict";
@@ -420,10 +416,15 @@
       "use strict";
       (t.__esModule = !0),
         (t.default = function (e) {
-          var t = "undefined" != typeof global ? global : window,
-            r = t.Handlebars;
+          "object" != typeof globalThis &&
+            (Object.prototype.__defineGetter__("__magic__", function () {
+              return this;
+            }),
+            (__magic__.globalThis = __magic__),
+            delete Object.prototype.__magic__);
+          var t = globalThis.Handlebars;
           e.noConflict = function () {
-            return t.Handlebars === e && (t.Handlebars = r), e;
+            return globalThis.Handlebars === e && (globalThis.Handlebars = t), e;
           };
         }),
         (e.exports = t.default);
@@ -514,10 +515,15 @@
               noop: t.VM.noop,
               compilerInfo: e.compiler
             };
-          function l(t) {
+          function d(t) {
             var r = arguments.length <= 1 || void 0 === arguments[1] ? {} : arguments[1],
               n = r.data;
-            l._setup(r), !r.partial && e.useData && (n = f(t, n));
+            d._setup(r),
+              !r.partial &&
+                e.useData &&
+                (n = (function (e, t) {
+                  return (t && "root" in t) || ((t = t ? l.createFrame(t) : {}).root = e), t;
+                })(t, n));
             var a = void 0,
               i = e.useBlockParams ? [] : void 0;
             function s(t) {
@@ -525,12 +531,12 @@
             }
             return (
               e.useDepths && (a = r.depths ? (t != r.depths[0] ? [t].concat(r.depths) : r.depths) : [t]),
-              (s = p(e.main, s, o, r.depths || [], n, i))(t, r)
+              (s = f(e.main, s, o, r.depths || [], n, i))(t, r)
             );
           }
           return (
-            (l.isTop = !0),
-            (l._setup = function (a) {
+            (d.isTop = !0),
+            (d._setup = function (a) {
               if (a.partial)
                 (o.protoAccessControl = a.protoAccessControl),
                   (o.helpers = a.helpers),
@@ -559,12 +565,12 @@
                 i.moveHelperToHooks(o, "helperMissing", c), i.moveHelperToHooks(o, "blockHelperMissing", c);
               }
             }),
-            (l._child = function (t, r, n, l) {
+            (d._child = function (t, r, n, l) {
               if (e.useBlockParams && !n) throw new a.default("must pass block params");
               if (e.useDepths && !l) throw new a.default("must pass parent depths");
               return c(o, t, e[t], r, 0, n, l);
             }),
-            l
+            d
           );
         }),
         (t.wrapProgram = c),
@@ -621,15 +627,12 @@
             r(e, t, e.helpers, e.partials, n.data || o, a && [n.blockParams].concat(a), i)
           );
         }
-        return ((i = p(r, i, e, l, o, a)).program = t), (i.depth = l ? l.length : 0), (i.blockParams = n || 0), i;
+        return ((i = f(r, i, e, l, o, a)).program = t), (i.depth = l ? l.length : 0), (i.blockParams = n || 0), i;
       }
       function d() {
         return "";
       }
-      function f(e, t) {
-        return (t && "root" in t) || ((t = t ? l.createFrame(t) : {}).root = e), t;
-      }
-      function p(e, t, r, o, a, l) {
+      function f(e, t, r, o, a, l) {
         if (e.decorator) {
           var i = {};
           (t = e.decorator(t, i, r, o && o[0], a, l, o)), n.extend(t, i);

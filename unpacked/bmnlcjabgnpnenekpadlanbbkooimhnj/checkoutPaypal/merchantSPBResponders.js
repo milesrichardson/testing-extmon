@@ -364,18 +364,19 @@
       },
       3982: (e, t) => {
         "use strict";
-        Object.defineProperty(t, "__esModule", { value: !0 }), (t.InternalMessageTypes = t.isRequestMessage = t.isError = void 0);
-        t.isError = (e) => Boolean(e.message);
-        (t.isRequestMessage = (e) =>
-          Boolean(
-            e &&
-              "object" == typeof e &&
-              !Array.isArray(e) &&
-              "string" == typeof e.type &&
-              "string" == typeof e.messageId &&
-              "boolean" == typeof e.isError &&
-              void 0 !== e.errorMessage
-          )),
+        Object.defineProperty(t, "__esModule", { value: !0 }),
+          (t.InternalMessageTypes = t.isRequestMessage = t.isError = void 0),
+          (t.isError = (e) => Boolean(e.message)),
+          (t.isRequestMessage = (e) =>
+            Boolean(
+              e &&
+                "object" == typeof e &&
+                !Array.isArray(e) &&
+                "string" == typeof e.type &&
+                "string" == typeof e.messageId &&
+                "boolean" == typeof e.isError &&
+                void 0 !== e.errorMessage
+            )),
           (function (e) {
             e.postMessengerConnect = "post-messenger-connect";
           })(t.InternalMessageTypes || (t.InternalMessageTypes = {}));
@@ -541,7 +542,7 @@
           if (i(t)) return o(t, e) + "";
           if (s(t)) return c ? c.call(t) : "";
           var r = t + "";
-          return "0" == r && 1 / t == -Infinity ? "-0" : r;
+          return "0" == r && 1 / t == -1 / 0 ? "-0" : r;
         };
       },
       1811: (e, t, r) => {
@@ -678,7 +679,7 @@
         e.exports = function (e) {
           var t = this.__data__,
             r = n(t, e);
-          return !(r < 0) && (r == t.length - 1 ? t.pop() : o.call(t, r, 1), --this.size, !0);
+          return !(r < 0 || (r == t.length - 1 ? t.pop() : o.call(t, r, 1), --this.size, 0));
         };
       },
       2117: (e, t, r) => {
@@ -785,7 +786,7 @@
         e.exports = function (e) {
           if ("string" == typeof e || n(e)) return e;
           var t = e + "";
-          return "0" == t && 1 / e == -Infinity ? "-0" : t;
+          return "0" == t && 1 / e == -1 / 0 ? "-0" : t;
         };
       },
       346: (e) => {
@@ -872,15 +873,15 @@
         var n;
         r.r(t),
           r.d(t, {
-            NIL: () => B,
+            NIL: () => M,
             parse: () => g,
             stringify: () => h,
             v1: () => y,
-            v3: () => S,
-            v4: () => j,
-            v5: () => T,
+            v3: () => P,
+            v4: () => S,
+            v5: () => C,
             validate: () => a,
-            version: () => R
+            version: () => T
           });
         var o = new Uint8Array(16);
         function i() {
@@ -893,10 +894,10 @@
             throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
           return n(o);
         }
-        const s = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-        const a = function (e) {
-          return "string" == typeof e && s.test(e);
-        };
+        const s = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i,
+          a = function (e) {
+            return "string" == typeof e && s.test(e);
+          };
         for (var c = [], u = 0; u < 256; ++u) c.push((u + 256).toString(16).substr(1));
         const h = function (e) {
           var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
@@ -930,56 +931,56 @@
           l = 0,
           d = 0;
         const y = function (e, t, r) {
-          var n = (t && r) || 0,
-            o = t || new Array(16),
-            s = (e = e || {}).node || f,
-            a = void 0 !== e.clockseq ? e.clockseq : p;
-          if (null == s || null == a) {
-            var c = e.random || (e.rng || i)();
-            null == s && (s = f = [1 | c[0], c[1], c[2], c[3], c[4], c[5]]), null == a && (a = p = 16383 & ((c[6] << 8) | c[7]));
-          }
-          var u = void 0 !== e.msecs ? e.msecs : Date.now(),
-            y = void 0 !== e.nsecs ? e.nsecs : d + 1,
-            g = u - l + (y - d) / 1e4;
-          if ((g < 0 && void 0 === e.clockseq && (a = (a + 1) & 16383), (g < 0 || u > l) && void 0 === e.nsecs && (y = 0), y >= 1e4))
-            throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
-          (l = u), (d = y), (p = a);
-          var v = (1e4 * (268435455 & (u += 122192928e5)) + y) % 4294967296;
-          (o[n++] = (v >>> 24) & 255), (o[n++] = (v >>> 16) & 255), (o[n++] = (v >>> 8) & 255), (o[n++] = 255 & v);
-          var m = ((u / 4294967296) * 1e4) & 268435455;
-          (o[n++] = (m >>> 8) & 255),
-            (o[n++] = 255 & m),
-            (o[n++] = ((m >>> 24) & 15) | 16),
-            (o[n++] = (m >>> 16) & 255),
-            (o[n++] = (a >>> 8) | 128),
-            (o[n++] = 255 & a);
-          for (var w = 0; w < 6; ++w) o[n + w] = s[w];
-          return t || h(o);
-        };
-        const g = function (e) {
-          if (!a(e)) throw TypeError("Invalid UUID");
-          var t,
-            r = new Uint8Array(16);
-          return (
-            (r[0] = (t = parseInt(e.slice(0, 8), 16)) >>> 24),
-            (r[1] = (t >>> 16) & 255),
-            (r[2] = (t >>> 8) & 255),
-            (r[3] = 255 & t),
-            (r[4] = (t = parseInt(e.slice(9, 13), 16)) >>> 8),
-            (r[5] = 255 & t),
-            (r[6] = (t = parseInt(e.slice(14, 18), 16)) >>> 8),
-            (r[7] = 255 & t),
-            (r[8] = (t = parseInt(e.slice(19, 23), 16)) >>> 8),
-            (r[9] = 255 & t),
-            (r[10] = ((t = parseInt(e.slice(24, 36), 16)) / 1099511627776) & 255),
-            (r[11] = (t / 4294967296) & 255),
-            (r[12] = (t >>> 24) & 255),
-            (r[13] = (t >>> 16) & 255),
-            (r[14] = (t >>> 8) & 255),
-            (r[15] = 255 & t),
-            r
-          );
-        };
+            var n = (t && r) || 0,
+              o = t || new Array(16),
+              s = (e = e || {}).node || f,
+              a = void 0 !== e.clockseq ? e.clockseq : p;
+            if (null == s || null == a) {
+              var c = e.random || (e.rng || i)();
+              null == s && (s = f = [1 | c[0], c[1], c[2], c[3], c[4], c[5]]), null == a && (a = p = 16383 & ((c[6] << 8) | c[7]));
+            }
+            var u = void 0 !== e.msecs ? e.msecs : Date.now(),
+              y = void 0 !== e.nsecs ? e.nsecs : d + 1,
+              g = u - l + (y - d) / 1e4;
+            if ((g < 0 && void 0 === e.clockseq && (a = (a + 1) & 16383), (g < 0 || u > l) && void 0 === e.nsecs && (y = 0), y >= 1e4))
+              throw new Error("uuid.v1(): Can't create more than 10M uuids/sec");
+            (l = u), (d = y), (p = a);
+            var v = (1e4 * (268435455 & (u += 122192928e5)) + y) % 4294967296;
+            (o[n++] = (v >>> 24) & 255), (o[n++] = (v >>> 16) & 255), (o[n++] = (v >>> 8) & 255), (o[n++] = 255 & v);
+            var m = ((u / 4294967296) * 1e4) & 268435455;
+            (o[n++] = (m >>> 8) & 255),
+              (o[n++] = 255 & m),
+              (o[n++] = ((m >>> 24) & 15) | 16),
+              (o[n++] = (m >>> 16) & 255),
+              (o[n++] = (a >>> 8) | 128),
+              (o[n++] = 255 & a);
+            for (var w = 0; w < 6; ++w) o[n + w] = s[w];
+            return t || h(o);
+          },
+          g = function (e) {
+            if (!a(e)) throw TypeError("Invalid UUID");
+            var t,
+              r = new Uint8Array(16);
+            return (
+              (r[0] = (t = parseInt(e.slice(0, 8), 16)) >>> 24),
+              (r[1] = (t >>> 16) & 255),
+              (r[2] = (t >>> 8) & 255),
+              (r[3] = 255 & t),
+              (r[4] = (t = parseInt(e.slice(9, 13), 16)) >>> 8),
+              (r[5] = 255 & t),
+              (r[6] = (t = parseInt(e.slice(14, 18), 16)) >>> 8),
+              (r[7] = 255 & t),
+              (r[8] = (t = parseInt(e.slice(19, 23), 16)) >>> 8),
+              (r[9] = 255 & t),
+              (r[10] = ((t = parseInt(e.slice(24, 36), 16)) / 1099511627776) & 255),
+              (r[11] = (t / 4294967296) & 255),
+              (r[12] = (t >>> 24) & 255),
+              (r[13] = (t >>> 16) & 255),
+              (r[14] = (t >>> 8) & 255),
+              (r[15] = 255 & t),
+              r
+            );
+          };
         function v(e, t, r) {
           function n(e, n, o, i) {
             if (
@@ -1029,115 +1030,114 @@
         function O(e, t, r, n, o, i, s) {
           return b(r ^ (t | ~n), e, t, o, i, s);
         }
-        const P = function (e) {
-          if ("string" == typeof e) {
-            var t = unescape(encodeURIComponent(e));
-            e = new Uint8Array(t.length);
-            for (var r = 0; r < t.length; ++r) e[r] = t.charCodeAt(r);
-          }
-          return (function (e) {
-            for (var t = [], r = 32 * e.length, n = "0123456789abcdef", o = 0; o < r; o += 8) {
-              var i = (e[o >> 5] >>> o % 32) & 255,
-                s = parseInt(n.charAt((i >>> 4) & 15) + n.charAt(15 & i), 16);
-              t.push(s);
+        const P = v("v3", 48, function (e) {
+            if ("string" == typeof e) {
+              var t = unescape(encodeURIComponent(e));
+              e = new Uint8Array(t.length);
+              for (var r = 0; r < t.length; ++r) e[r] = t.charCodeAt(r);
             }
-            return t;
-          })(
-            (function (e, t) {
-              (e[t >> 5] |= 128 << t % 32), (e[m(t) - 1] = t);
-              for (var r = 1732584193, n = -271733879, o = -1732584194, i = 271733878, s = 0; s < e.length; s += 16) {
-                var a = r,
-                  c = n,
-                  u = o,
-                  h = i;
-                (r = x(r, n, o, i, e[s], 7, -680876936)),
-                  (i = x(i, r, n, o, e[s + 1], 12, -389564586)),
-                  (o = x(o, i, r, n, e[s + 2], 17, 606105819)),
-                  (n = x(n, o, i, r, e[s + 3], 22, -1044525330)),
-                  (r = x(r, n, o, i, e[s + 4], 7, -176418897)),
-                  (i = x(i, r, n, o, e[s + 5], 12, 1200080426)),
-                  (o = x(o, i, r, n, e[s + 6], 17, -1473231341)),
-                  (n = x(n, o, i, r, e[s + 7], 22, -45705983)),
-                  (r = x(r, n, o, i, e[s + 8], 7, 1770035416)),
-                  (i = x(i, r, n, o, e[s + 9], 12, -1958414417)),
-                  (o = x(o, i, r, n, e[s + 10], 17, -42063)),
-                  (n = x(n, o, i, r, e[s + 11], 22, -1990404162)),
-                  (r = x(r, n, o, i, e[s + 12], 7, 1804603682)),
-                  (i = x(i, r, n, o, e[s + 13], 12, -40341101)),
-                  (o = x(o, i, r, n, e[s + 14], 17, -1502002290)),
-                  (r = _(r, (n = x(n, o, i, r, e[s + 15], 22, 1236535329)), o, i, e[s + 1], 5, -165796510)),
-                  (i = _(i, r, n, o, e[s + 6], 9, -1069501632)),
-                  (o = _(o, i, r, n, e[s + 11], 14, 643717713)),
-                  (n = _(n, o, i, r, e[s], 20, -373897302)),
-                  (r = _(r, n, o, i, e[s + 5], 5, -701558691)),
-                  (i = _(i, r, n, o, e[s + 10], 9, 38016083)),
-                  (o = _(o, i, r, n, e[s + 15], 14, -660478335)),
-                  (n = _(n, o, i, r, e[s + 4], 20, -405537848)),
-                  (r = _(r, n, o, i, e[s + 9], 5, 568446438)),
-                  (i = _(i, r, n, o, e[s + 14], 9, -1019803690)),
-                  (o = _(o, i, r, n, e[s + 3], 14, -187363961)),
-                  (n = _(n, o, i, r, e[s + 8], 20, 1163531501)),
-                  (r = _(r, n, o, i, e[s + 13], 5, -1444681467)),
-                  (i = _(i, r, n, o, e[s + 2], 9, -51403784)),
-                  (o = _(o, i, r, n, e[s + 7], 14, 1735328473)),
-                  (r = E(r, (n = _(n, o, i, r, e[s + 12], 20, -1926607734)), o, i, e[s + 5], 4, -378558)),
-                  (i = E(i, r, n, o, e[s + 8], 11, -2022574463)),
-                  (o = E(o, i, r, n, e[s + 11], 16, 1839030562)),
-                  (n = E(n, o, i, r, e[s + 14], 23, -35309556)),
-                  (r = E(r, n, o, i, e[s + 1], 4, -1530992060)),
-                  (i = E(i, r, n, o, e[s + 4], 11, 1272893353)),
-                  (o = E(o, i, r, n, e[s + 7], 16, -155497632)),
-                  (n = E(n, o, i, r, e[s + 10], 23, -1094730640)),
-                  (r = E(r, n, o, i, e[s + 13], 4, 681279174)),
-                  (i = E(i, r, n, o, e[s], 11, -358537222)),
-                  (o = E(o, i, r, n, e[s + 3], 16, -722521979)),
-                  (n = E(n, o, i, r, e[s + 6], 23, 76029189)),
-                  (r = E(r, n, o, i, e[s + 9], 4, -640364487)),
-                  (i = E(i, r, n, o, e[s + 12], 11, -421815835)),
-                  (o = E(o, i, r, n, e[s + 15], 16, 530742520)),
-                  (r = O(r, (n = E(n, o, i, r, e[s + 2], 23, -995338651)), o, i, e[s], 6, -198630844)),
-                  (i = O(i, r, n, o, e[s + 7], 10, 1126891415)),
-                  (o = O(o, i, r, n, e[s + 14], 15, -1416354905)),
-                  (n = O(n, o, i, r, e[s + 5], 21, -57434055)),
-                  (r = O(r, n, o, i, e[s + 12], 6, 1700485571)),
-                  (i = O(i, r, n, o, e[s + 3], 10, -1894986606)),
-                  (o = O(o, i, r, n, e[s + 10], 15, -1051523)),
-                  (n = O(n, o, i, r, e[s + 1], 21, -2054922799)),
-                  (r = O(r, n, o, i, e[s + 8], 6, 1873313359)),
-                  (i = O(i, r, n, o, e[s + 15], 10, -30611744)),
-                  (o = O(o, i, r, n, e[s + 6], 15, -1560198380)),
-                  (n = O(n, o, i, r, e[s + 13], 21, 1309151649)),
-                  (r = O(r, n, o, i, e[s + 4], 6, -145523070)),
-                  (i = O(i, r, n, o, e[s + 11], 10, -1120210379)),
-                  (o = O(o, i, r, n, e[s + 2], 15, 718787259)),
-                  (n = O(n, o, i, r, e[s + 9], 21, -343485551)),
-                  (r = w(r, a)),
-                  (n = w(n, c)),
-                  (o = w(o, u)),
-                  (i = w(i, h));
+            return (function (e) {
+              for (var t = [], r = 32 * e.length, n = "0123456789abcdef", o = 0; o < r; o += 8) {
+                var i = (e[o >> 5] >>> o % 32) & 255,
+                  s = parseInt(n.charAt((i >>> 4) & 15) + n.charAt(15 & i), 16);
+                t.push(s);
               }
-              return [r, n, o, i];
+              return t;
             })(
-              (function (e) {
-                if (0 === e.length) return [];
-                for (var t = 8 * e.length, r = new Uint32Array(m(t)), n = 0; n < t; n += 8) r[n >> 5] |= (255 & e[n / 8]) << n % 32;
-                return r;
-              })(e),
-              8 * e.length
-            )
-          );
-        };
-        const S = v("v3", 48, P);
-        const j = function (e, t, r) {
-          var n = (e = e || {}).random || (e.rng || i)();
-          if (((n[6] = (15 & n[6]) | 64), (n[8] = (63 & n[8]) | 128), t)) {
-            r = r || 0;
-            for (var o = 0; o < 16; ++o) t[r + o] = n[o];
-            return t;
-          }
-          return h(n);
-        };
-        function A(e, t, r, n) {
+              (function (e, t) {
+                (e[t >> 5] |= 128 << t % 32), (e[m(t) - 1] = t);
+                for (var r = 1732584193, n = -271733879, o = -1732584194, i = 271733878, s = 0; s < e.length; s += 16) {
+                  var a = r,
+                    c = n,
+                    u = o,
+                    h = i;
+                  (r = x(r, n, o, i, e[s], 7, -680876936)),
+                    (i = x(i, r, n, o, e[s + 1], 12, -389564586)),
+                    (o = x(o, i, r, n, e[s + 2], 17, 606105819)),
+                    (n = x(n, o, i, r, e[s + 3], 22, -1044525330)),
+                    (r = x(r, n, o, i, e[s + 4], 7, -176418897)),
+                    (i = x(i, r, n, o, e[s + 5], 12, 1200080426)),
+                    (o = x(o, i, r, n, e[s + 6], 17, -1473231341)),
+                    (n = x(n, o, i, r, e[s + 7], 22, -45705983)),
+                    (r = x(r, n, o, i, e[s + 8], 7, 1770035416)),
+                    (i = x(i, r, n, o, e[s + 9], 12, -1958414417)),
+                    (o = x(o, i, r, n, e[s + 10], 17, -42063)),
+                    (n = x(n, o, i, r, e[s + 11], 22, -1990404162)),
+                    (r = x(r, n, o, i, e[s + 12], 7, 1804603682)),
+                    (i = x(i, r, n, o, e[s + 13], 12, -40341101)),
+                    (o = x(o, i, r, n, e[s + 14], 17, -1502002290)),
+                    (r = _(r, (n = x(n, o, i, r, e[s + 15], 22, 1236535329)), o, i, e[s + 1], 5, -165796510)),
+                    (i = _(i, r, n, o, e[s + 6], 9, -1069501632)),
+                    (o = _(o, i, r, n, e[s + 11], 14, 643717713)),
+                    (n = _(n, o, i, r, e[s], 20, -373897302)),
+                    (r = _(r, n, o, i, e[s + 5], 5, -701558691)),
+                    (i = _(i, r, n, o, e[s + 10], 9, 38016083)),
+                    (o = _(o, i, r, n, e[s + 15], 14, -660478335)),
+                    (n = _(n, o, i, r, e[s + 4], 20, -405537848)),
+                    (r = _(r, n, o, i, e[s + 9], 5, 568446438)),
+                    (i = _(i, r, n, o, e[s + 14], 9, -1019803690)),
+                    (o = _(o, i, r, n, e[s + 3], 14, -187363961)),
+                    (n = _(n, o, i, r, e[s + 8], 20, 1163531501)),
+                    (r = _(r, n, o, i, e[s + 13], 5, -1444681467)),
+                    (i = _(i, r, n, o, e[s + 2], 9, -51403784)),
+                    (o = _(o, i, r, n, e[s + 7], 14, 1735328473)),
+                    (r = E(r, (n = _(n, o, i, r, e[s + 12], 20, -1926607734)), o, i, e[s + 5], 4, -378558)),
+                    (i = E(i, r, n, o, e[s + 8], 11, -2022574463)),
+                    (o = E(o, i, r, n, e[s + 11], 16, 1839030562)),
+                    (n = E(n, o, i, r, e[s + 14], 23, -35309556)),
+                    (r = E(r, n, o, i, e[s + 1], 4, -1530992060)),
+                    (i = E(i, r, n, o, e[s + 4], 11, 1272893353)),
+                    (o = E(o, i, r, n, e[s + 7], 16, -155497632)),
+                    (n = E(n, o, i, r, e[s + 10], 23, -1094730640)),
+                    (r = E(r, n, o, i, e[s + 13], 4, 681279174)),
+                    (i = E(i, r, n, o, e[s], 11, -358537222)),
+                    (o = E(o, i, r, n, e[s + 3], 16, -722521979)),
+                    (n = E(n, o, i, r, e[s + 6], 23, 76029189)),
+                    (r = E(r, n, o, i, e[s + 9], 4, -640364487)),
+                    (i = E(i, r, n, o, e[s + 12], 11, -421815835)),
+                    (o = E(o, i, r, n, e[s + 15], 16, 530742520)),
+                    (r = O(r, (n = E(n, o, i, r, e[s + 2], 23, -995338651)), o, i, e[s], 6, -198630844)),
+                    (i = O(i, r, n, o, e[s + 7], 10, 1126891415)),
+                    (o = O(o, i, r, n, e[s + 14], 15, -1416354905)),
+                    (n = O(n, o, i, r, e[s + 5], 21, -57434055)),
+                    (r = O(r, n, o, i, e[s + 12], 6, 1700485571)),
+                    (i = O(i, r, n, o, e[s + 3], 10, -1894986606)),
+                    (o = O(o, i, r, n, e[s + 10], 15, -1051523)),
+                    (n = O(n, o, i, r, e[s + 1], 21, -2054922799)),
+                    (r = O(r, n, o, i, e[s + 8], 6, 1873313359)),
+                    (i = O(i, r, n, o, e[s + 15], 10, -30611744)),
+                    (o = O(o, i, r, n, e[s + 6], 15, -1560198380)),
+                    (n = O(n, o, i, r, e[s + 13], 21, 1309151649)),
+                    (r = O(r, n, o, i, e[s + 4], 6, -145523070)),
+                    (i = O(i, r, n, o, e[s + 11], 10, -1120210379)),
+                    (o = O(o, i, r, n, e[s + 2], 15, 718787259)),
+                    (n = O(n, o, i, r, e[s + 9], 21, -343485551)),
+                    (r = w(r, a)),
+                    (n = w(n, c)),
+                    (o = w(o, u)),
+                    (i = w(i, h));
+                }
+                return [r, n, o, i];
+              })(
+                (function (e) {
+                  if (0 === e.length) return [];
+                  for (var t = 8 * e.length, r = new Uint32Array(m(t)), n = 0; n < t; n += 8) r[n >> 5] |= (255 & e[n / 8]) << n % 32;
+                  return r;
+                })(e),
+                8 * e.length
+              )
+            );
+          }),
+          S = function (e, t, r) {
+            var n = (e = e || {}).random || (e.rng || i)();
+            if (((n[6] = (15 & n[6]) | 64), (n[8] = (63 & n[8]) | 128), t)) {
+              r = r || 0;
+              for (var o = 0; o < 16; ++o) t[r + o] = n[o];
+              return t;
+            }
+            return h(n);
+          };
+        function j(e, t, r, n) {
           switch (e) {
             case 0:
               return (t & r) ^ (~t & n);
@@ -1148,69 +1148,68 @@
               return (t & r) ^ (t & n) ^ (r & n);
           }
         }
-        function C(e, t) {
+        function A(e, t) {
           return (e << t) | (e >>> (32 - t));
         }
-        const M = function (e) {
-          var t = [1518500249, 1859775393, 2400959708, 3395469782],
-            r = [1732584193, 4023233417, 2562383102, 271733878, 3285377520];
-          if ("string" == typeof e) {
-            var n = unescape(encodeURIComponent(e));
-            e = [];
-            for (var o = 0; o < n.length; ++o) e.push(n.charCodeAt(o));
-          } else Array.isArray(e) || (e = Array.prototype.slice.call(e));
-          e.push(128);
-          for (var i = e.length / 4 + 2, s = Math.ceil(i / 16), a = new Array(s), c = 0; c < s; ++c) {
-            for (var u = new Uint32Array(16), h = 0; h < 16; ++h)
-              u[h] = (e[64 * c + 4 * h] << 24) | (e[64 * c + 4 * h + 1] << 16) | (e[64 * c + 4 * h + 2] << 8) | e[64 * c + 4 * h + 3];
-            a[c] = u;
-          }
-          (a[s - 1][14] = (8 * (e.length - 1)) / Math.pow(2, 32)),
-            (a[s - 1][14] = Math.floor(a[s - 1][14])),
-            (a[s - 1][15] = (8 * (e.length - 1)) & 4294967295);
-          for (var f = 0; f < s; ++f) {
-            for (var p = new Uint32Array(80), l = 0; l < 16; ++l) p[l] = a[f][l];
-            for (var d = 16; d < 80; ++d) p[d] = C(p[d - 3] ^ p[d - 8] ^ p[d - 14] ^ p[d - 16], 1);
-            for (var y = r[0], g = r[1], v = r[2], m = r[3], w = r[4], b = 0; b < 80; ++b) {
-              var x = Math.floor(b / 20),
-                _ = (C(y, 5) + A(x, g, v, m) + w + t[x] + p[b]) >>> 0;
-              (w = m), (m = v), (v = C(g, 30) >>> 0), (g = y), (y = _);
+        const C = v("v5", 80, function (e) {
+            var t = [1518500249, 1859775393, 2400959708, 3395469782],
+              r = [1732584193, 4023233417, 2562383102, 271733878, 3285377520];
+            if ("string" == typeof e) {
+              var n = unescape(encodeURIComponent(e));
+              e = [];
+              for (var o = 0; o < n.length; ++o) e.push(n.charCodeAt(o));
+            } else Array.isArray(e) || (e = Array.prototype.slice.call(e));
+            e.push(128);
+            for (var i = e.length / 4 + 2, s = Math.ceil(i / 16), a = new Array(s), c = 0; c < s; ++c) {
+              for (var u = new Uint32Array(16), h = 0; h < 16; ++h)
+                u[h] = (e[64 * c + 4 * h] << 24) | (e[64 * c + 4 * h + 1] << 16) | (e[64 * c + 4 * h + 2] << 8) | e[64 * c + 4 * h + 3];
+              a[c] = u;
             }
-            (r[0] = (r[0] + y) >>> 0),
-              (r[1] = (r[1] + g) >>> 0),
-              (r[2] = (r[2] + v) >>> 0),
-              (r[3] = (r[3] + m) >>> 0),
-              (r[4] = (r[4] + w) >>> 0);
-          }
-          return [
-            (r[0] >> 24) & 255,
-            (r[0] >> 16) & 255,
-            (r[0] >> 8) & 255,
-            255 & r[0],
-            (r[1] >> 24) & 255,
-            (r[1] >> 16) & 255,
-            (r[1] >> 8) & 255,
-            255 & r[1],
-            (r[2] >> 24) & 255,
-            (r[2] >> 16) & 255,
-            (r[2] >> 8) & 255,
-            255 & r[2],
-            (r[3] >> 24) & 255,
-            (r[3] >> 16) & 255,
-            (r[3] >> 8) & 255,
-            255 & r[3],
-            (r[4] >> 24) & 255,
-            (r[4] >> 16) & 255,
-            (r[4] >> 8) & 255,
-            255 & r[4]
-          ];
-        };
-        const T = v("v5", 80, M),
-          B = "00000000-0000-0000-0000-000000000000";
-        const R = function (e) {
-          if (!a(e)) throw TypeError("Invalid UUID");
-          return parseInt(e.substr(14, 1), 16);
-        };
+            (a[s - 1][14] = (8 * (e.length - 1)) / Math.pow(2, 32)),
+              (a[s - 1][14] = Math.floor(a[s - 1][14])),
+              (a[s - 1][15] = (8 * (e.length - 1)) & 4294967295);
+            for (var f = 0; f < s; ++f) {
+              for (var p = new Uint32Array(80), l = 0; l < 16; ++l) p[l] = a[f][l];
+              for (var d = 16; d < 80; ++d) p[d] = A(p[d - 3] ^ p[d - 8] ^ p[d - 14] ^ p[d - 16], 1);
+              for (var y = r[0], g = r[1], v = r[2], m = r[3], w = r[4], b = 0; b < 80; ++b) {
+                var x = Math.floor(b / 20),
+                  _ = (A(y, 5) + j(x, g, v, m) + w + t[x] + p[b]) >>> 0;
+                (w = m), (m = v), (v = A(g, 30) >>> 0), (g = y), (y = _);
+              }
+              (r[0] = (r[0] + y) >>> 0),
+                (r[1] = (r[1] + g) >>> 0),
+                (r[2] = (r[2] + v) >>> 0),
+                (r[3] = (r[3] + m) >>> 0),
+                (r[4] = (r[4] + w) >>> 0);
+            }
+            return [
+              (r[0] >> 24) & 255,
+              (r[0] >> 16) & 255,
+              (r[0] >> 8) & 255,
+              255 & r[0],
+              (r[1] >> 24) & 255,
+              (r[1] >> 16) & 255,
+              (r[1] >> 8) & 255,
+              255 & r[1],
+              (r[2] >> 24) & 255,
+              (r[2] >> 16) & 255,
+              (r[2] >> 8) & 255,
+              255 & r[2],
+              (r[3] >> 24) & 255,
+              (r[3] >> 16) & 255,
+              (r[3] >> 8) & 255,
+              255 & r[3],
+              (r[4] >> 24) & 255,
+              (r[4] >> 16) & 255,
+              (r[4] >> 8) & 255,
+              255 & r[4]
+            ];
+          }),
+          M = "00000000-0000-0000-0000-000000000000",
+          T = function (e) {
+            if (!a(e)) throw TypeError("Invalid UUID");
+            return parseInt(e.substr(14, 1), 16);
+          };
       },
       2081: (e, t, r) => {
         "use strict";
@@ -1318,8 +1317,8 @@
         });
       };
       const a = new t.PostMessenger({ clientName: "merchant-spb", enableLogging: !0, types: e, useEncryption: !1 });
-      function c() {
-        return s(this, void 0, void 0, function* () {
+      !(function () {
+        s(this, void 0, void 0, function* () {
           const e = window.exports.paymentSession();
           window.top
             ? (a.bindResponders({
@@ -1347,7 +1346,6 @@
               yield a.connect({ targetOrigin: document.referrer || window.location.ancestorOrigins[0], targetWindow: window.top }))
             : console.error("window.top is null");
         });
-      }
-      c();
+      })();
     })();
 })();

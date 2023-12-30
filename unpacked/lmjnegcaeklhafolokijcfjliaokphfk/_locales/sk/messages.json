@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ Bytov",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "GB": {
     "message": "$ARG1$ GB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "KB": {
     "message": "$ARG1$ KB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -26,7 +26,7 @@
   "MB": {
     "message": "$ARG1$ MB",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -35,7 +35,7 @@
     "message": "sk"
   },
   "__missingI18nTags": {
-    "message": "[\"about_chrome_licenses\",\"appDesc\",\"chrome_inapp_no_subs\",\"chrome_license_webstore_accepted\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_label_hlsEndTimeout\"]"
+    "message": "[\"about_chrome_licenses\",\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"chrome_inapp_no_subs\",\"chrome_license_webstore_accepted\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "O programe"
@@ -151,7 +151,7 @@
   "adaptative": {
     "message": "Adaptívne $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -204,13 +204,13 @@
   "browser_info": {
     "message": "Prehliadač $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -218,7 +218,7 @@
   "browser_locale": {
     "message": "Lokalizácia prehliadača $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -226,7 +226,7 @@
   "build_options": {
     "message": "Voľby vytvorenia: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -234,7 +234,7 @@
   "built_on": {
     "message": "Vytvorenie: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -245,7 +245,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ videá",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -307,7 +307,7 @@
   "chrome_premium_hls": {
     "message": "Bez Premium status HLS download sa môže uskutočniť iba $ARG1$ minút po predošlom",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -330,7 +330,7 @@
   "chrome_premium_source": {
     "message": "Máte aktívny prémiový účet na $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -380,7 +380,7 @@
   "coapp_latest_version": {
     "message": "Posledná dostupná verzia je  $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -397,10 +397,10 @@
   "coapp_outofdate_text": {
     "message": "Pridružená apl. beží vo verzii $ARG1$, ale toto rozšírenie si vyžaduje verziu $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -576,7 +576,7 @@
   "convrule_format": {
     "message": "do formátu $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -584,7 +584,7 @@
   "convrule_from_domain": {
     "message": "z domény $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -601,7 +601,7 @@
   "convrule_with_ext": {
     "message": "s príponou '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -618,7 +618,7 @@
   "copy_of": {
     "message": "Kópia z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -626,10 +626,10 @@
   "corrupted_media_file": {
     "message": "Nedajú sa zistiť informácie o médiu '$ARG1$' zo súboru '$ARG2$'. Súbor môže byť poškodený.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -658,7 +658,7 @@
   "directory_not_exist_body": {
     "message": "Zložka '$ARG1$' neexistuje, OK vytvoriť ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -708,7 +708,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' už existuje, ale nie je adresár",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -731,7 +731,7 @@
   "failed_aggregating": {
     "message": "Nepodarila sa agregácia \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -739,7 +739,7 @@
   "failed_converting": {
     "message": "Chyba konverzie \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -747,7 +747,7 @@
   "failed_getting_info": {
     "message": "Chyba získania informácie z \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -770,7 +770,7 @@
   "file_generated": {
     "message": "Súbor \"$ARG1$\" bol vygenerovaný(á)",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -778,7 +778,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" je už pripravený(á)",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -789,7 +789,7 @@
   "from_domain": {
     "message": "Z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -800,7 +800,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ súborov",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -808,7 +808,7 @@
   "gallery_from_domain": {
     "message": "Galéria z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -816,7 +816,7 @@
   "gallery_links_from_domain": {
     "message": "Linky z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -857,7 +857,7 @@
   "lic_mismatch1": {
     "message": "Licencia je pre $ARG1$ ale verzia doplnku prehliadača nebola špecifikovaná",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -865,10 +865,10 @@
   "lic_mismatch2": {
     "message": "Licencia je pre $ARG1$ ale verzia dplnku je pre $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -936,7 +936,7 @@
   "network_error_status": {
     "message": "Chyba siete - status $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -953,7 +953,7 @@
   "no_audio_in_file": {
     "message": "Žiadna stopa so zvukom v súbore $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -982,7 +982,7 @@
   "no_video_in_file": {
     "message": "Žiadna stopa s obrazom v súbore $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -996,10 +996,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1016,7 +1016,7 @@
   "overwrite_file": {
     "message": "Prepísať súbor '$ARG1$' ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1036,10 +1036,10 @@
   "platform_info": {
     "message": "Platforma $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1089,10 +1089,10 @@
   "req_locale": {
     "message": "Alebo možno pomôžete s prekladom add-on '$ARG1$' (chýbajúce reťazce sú v $ARG2$) ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1232,7 +1232,7 @@
   "version": {
     "message": "Verzia $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1717,7 +1717,7 @@
   "you_downloaded_n_videos": {
     "message": "Práve teraz bolo dokončené stiahnutie $ARG1$ aplikáciou Pomocník sťahovania videa.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

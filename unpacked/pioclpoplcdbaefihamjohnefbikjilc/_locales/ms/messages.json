@@ -77,7 +77,7 @@
   },
   "130d74c3ba60e43c646b8d2ae2e189f7": {
     "description": "",
-    "message": "Tambah teg"
+    "message": "Tambah tag"
   },
   "132a6fcf2bc1cb48a30be9d7a1ab65e4": {
     "description": "Error message that shows when browser cookie config preventing clipper from login",
@@ -109,7 +109,7 @@
   },
   "1817c60a1a4cfeeab5ca732ff13ed65a": {
     "description": "Label for tag selection in options page",
-    "message": "Pemilihan teg"
+    "message": "Pemilihan tag"
   },
   "184daff620aca4ad23fd2bf70d0b76af": {
     "description": "Personal account type",
@@ -477,7 +477,7 @@
   },
   "7e9d5a15230c09057d559dbfa930cd91": {
     "description": "Tags not supported text",
-    "message": "Teg tidak disokong"
+    "message": "Tag tidak disokong"
   },
   "81a4815e7de724c2cef8c8ca2b39967a": {
     "description": "Generic error message for creating notebook",

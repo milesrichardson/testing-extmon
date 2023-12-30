@@ -8,9 +8,6 @@
   "Earn_Cash_Back": {
     "message": "Earn Cash Back"
   },
-  "Earn_Gold_just_for_shopping": {
-    "message": "Save. Earn. Repeat."
-  },
   "Earn_Gold_towards_gift_cards": {
     "message": "Earn Gold towards gift cards"
   },
@@ -28,9 +25,6 @@
   },
   "Honey_Gold_CB": {
     "message": "Cash back"
-  },
-  "Honey_Gold_is_our_rewards_program_where_members_can_earn_Honey_Gold_or_Gold_for_short_at_some_of_their_favorite_stores": {
-    "message": "When you shop at any of our 5,500+ participating sites, you’ll earn a percentage back in Gold points. Redeem 1,000 points for $$10 USD."
   },
   "Honey_Title": {
     "message": "PayPal Honey: Automatic Coupons & Cash Back"
@@ -64,9 +58,6 @@
   },
   "Save_money_Earn_Gold_Its_a_win_win": {
     "message": "Save money. Earn Gold. It's a win win."
-  },
-  "Share_your_link_with_your_friends_Once_they_create_an_account_and_earn_Gold_on_a_purchase_you_get_Gold": {
-    "message": "Share your link with your friends. For each friend who creates an account with your link and earns Gold points on a purchase, you’ll qualify for {POINTS}."
   },
   "TERMS_and_EXCLUSIONS_apply": {
     "message": "{TERMS} and {EXCLUSIONS} apply."

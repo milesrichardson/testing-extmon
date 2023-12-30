@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Mga App"
+  },
+  "EndOfSupportHeader": {
+    "message": "End of Support sa Extension ng Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Simula Enero 15, 2024, hindi na susuportahan ng Microsoft ang extension na ito."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Para sa higit pang impormasyon, pakibisita ang pahina ng Suporta para sa extension na ito."
+  },
+  "Support": {
+    "message": "Suporta"
   }
 }

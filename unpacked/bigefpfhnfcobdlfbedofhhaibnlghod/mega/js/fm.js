@@ -2779,8 +2779,7 @@ function closeDialog(ev) {
         onIdle($.warningCallback.bind(null, null));
         $.warningCallback = null;
       }
-      $("#msgDialog").parent().removeClass("msg-dialog-container");
-      delete $.msgDialog;
+      closeMsg();
     }
     if ($.dialog === "onboardingDialog") {
       if (mega.ui.onboarding.$hotSpotNode && mega.ui.onboarding.$hotSpotNode.hasClass("onboarding-hotspot-animation-rect")) {

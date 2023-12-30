@@ -12,21 +12,21 @@ export class Mv2DetectionHistory extends DetectionHistory {
       throw (console.error("DH: Error adding item to storage", r), r);
     }
   }
-  async deleteItem(r, e) {
-    const t = (await this.loadSavedItems()).filter((t) => t.site !== r && t.date !== e);
-    return new Promise((r, e) => {
-      (chrome.storage.sync || chrome.storage.local).set({ detectionHistory: t }, () => {
+  async deleteItem(r, t) {
+    const e = (await this.loadSavedItems()).filter((e) => e.site !== r && e.date !== t);
+    return new Promise((r, t) => {
+      chrome.storage.local.set({ detectionHistory: e }, () => {
         chrome.runtime.lastError
-          ? (console.error("Error deleting the history to storage", chrome.runtime.lastError), e(chrome.runtime.lastError))
+          ? (console.error("Error deleting the history to storage", chrome.runtime.lastError), t(chrome.runtime.lastError))
           : r(!0);
       });
     });
   }
   async deleteAllItems() {
-    return new Promise((r, e) => {
-      (chrome.storage.sync || chrome.storage.local).set({ detectionHistory: [] }, () => {
+    return new Promise((r, t) => {
+      chrome.storage.local.set({ detectionHistory: [] }, () => {
         chrome.runtime.lastError
-          ? (console.error("Error deleting the history to storage", chrome.runtime.lastError), e(chrome.runtime.lastError))
+          ? (console.error("Error deleting the history to storage", chrome.runtime.lastError), t(chrome.runtime.lastError))
           : r(!0);
       });
     });
@@ -42,21 +42,21 @@ export class Mv2DetectionHistory extends DetectionHistory {
     }
   }
   async _itemsFromStorage() {
-    return new Promise((r, e) => {
-      (chrome.storage.sync || chrome.storage.local).get("detectionHistory", (t) => {
+    return new Promise((r, t) => {
+      chrome.storage.local.get("detectionHistory", (e) => {
         chrome.runtime.lastError
-          ? (console.error("Error getting detection history from storage", chrome.runtime.lastError), e(chrome.runtime.lastError))
-          : r(t.detectionHistory);
+          ? (console.error("Error getting detection history from storage", chrome.runtime.lastError), t(chrome.runtime.lastError))
+          : r(e.detectionHistory);
       });
     });
   }
   async _saveItemToStorage(r) {
-    const e = (await this._itemsFromStorage()) || [];
-    return new Promise((t, o) => {
-      (chrome.storage.sync || chrome.storage.local).set({ detectionHistory: [r, ...e] }, () => {
+    const t = (await this._itemsFromStorage()) || [];
+    return new Promise((e, o) => {
+      chrome.storage.local.set({ detectionHistory: [r, ...t] }, () => {
         chrome.runtime.lastError
           ? (console.error("Error saving detection history item to storage", chrome.runtime.lastError), o(chrome.runtime.lastError))
-          : t();
+          : e();
       });
     });
   }

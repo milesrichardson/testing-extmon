@@ -216,6 +216,9 @@
         ig: function () {
           return g;
         },
+        E$: function () {
+          return A;
+        },
         hH: function () {
           return m;
         },
@@ -262,6 +265,7 @@
             (e.SECTION_FILLED = "[fill] section filled"),
             (e.SET_SECTIONS = "[fill] set sections"),
             (e.RESET_SECTION = "[fill] reset sections"),
+            (e.POLL_VAULT_VERSION = "[fill] poll vault version"),
             (e.MANUAL_SAVE = "[save] manual save"),
             (e.INITIATE_MANUAL_SAVE = "[save] initiate manual save"),
             (e.SAVE_ALL_ENTERED_DATA = "[save] save all entered data"),
@@ -307,6 +311,8 @@
             (e.SET_IN_CONTEXT_ONBOARDING = "[secondary onboarding] set in context onboarding"),
             (e.GET_AUTH_APP_TOTP = "[fill] get totp from lp authenticator"),
             (e.SET_EXT_REG_REDIRECT_STATE = "[fill] set extension registration ab test redirection state"),
+            (e.SHOW_FILL_CONFIRMATION_DIALOG = "[fill] show fill confirmation dialog"),
+            (e.FILL_CONFIRMATION_CONFIRMED = "[fill] user confirmed fill confirmation dialog"),
             e
           );
         })({}),
@@ -379,8 +385,15 @@
           manualAdd: function (e, t) {
             return (0, i.P)(f.MANUAL_ADD, { page: t, type: e });
           },
-          manualFill: function (e, t, n, a, o) {
-            return (0, i.P)(f.MANUAL_FILL, { page: e, vaultRecordId: t, source: n, sectionId: a, skipReprompt: o });
+          manualFill: function (e, t, n, a, o, r) {
+            return (0, i.P)(f.MANUAL_FILL, {
+              page: e,
+              vaultRecordId: t,
+              source: n,
+              sectionId: a,
+              skipReprompt: o,
+              showFillConfirmation: r
+            });
           },
           fillGeneratedPassword: function (e, t, n, a) {
             return (0, i.P)(f.FILL_GENERATED_PASSWORD, { page: e, password: t, source: n, sectionId: a });
@@ -416,6 +429,9 @@
           resetLaunchedId: function () {
             return (0, a.A)(f.RESET_LAUNCHED_ID);
           },
+          pollVaultVersion: function () {
+            return (0, i.P)(f.POLL_VAULT_VERSION);
+          },
           setLaunchedId: function (e, t) {
             return (0, i.P)(f.SET_LAUNCHED_ID, { tabId: e, id: t });
           },
@@ -433,7 +449,8 @@
                 recordId: a,
                 resetUnfilled: p,
                 source: d,
-                submissionType: g
+                submissionType: g,
+                fillItemType: c
               }),
               {
                 segment: [
@@ -568,6 +585,15 @@
           },
           setExtRegRedirectState: function (e) {
             return (0, i.P)(f.SET_EXT_REG_REDIRECT_STATE, e);
+          },
+          showFillConfirmationDialog: function (e, t) {
+            return (0, i.P)(f.SHOW_FILL_CONFIRMATION_DIALOG, { recordType: e, hostname: t });
+          },
+          confirmFillConfirmationDialog: function (e, t, n) {
+            var i = !(arguments.length > 3 && void 0 !== arguments[3]) || arguments[3];
+            return (0, o.j)((0, a.A)(f.FILL_CONFIRMATION_CONFIRMED, { isChecked: i, hostname: t }), {
+              segment: (0, r.I2)("Fill Confirmation Clicked", { Action: e, "Item Type": n, "Do Not Reprompt": i })
+            });
           }
         },
         g = (function (e) {
@@ -692,24 +718,38 @@
           setBrowserPasswordSaving: function (e) {
             return (0, i.P)(g.SET_BROWSER_PASSWORD_SAVING, { browserPasswordSavingEnabled: e });
           }
+        },
+        y = (function (e) {
+          return (e.COPY_STRING_TO_CLIPBOARD = "[clipboard] copy string to clipboard"), e;
+        })({}),
+        A = {
+          copyStringToClipboard: function (e) {
+            return (0, i.P)(y.COPY_STRING_TO_CLIPBOARD, { value: e });
+          }
         };
     },
     72363: function (e, t, n) {
       n.d(t, {
+        BL: function () {
+          return A;
+        },
+        WQ: function () {
+          return y;
+        },
         Rp: function () {
-          return h;
-        },
-        fj: function () {
-          return p;
-        },
-        ZW: function () {
           return f;
         },
+        fj: function () {
+          return h;
+        },
+        ZW: function () {
+          return m;
+        },
         KR: function () {
-          return g;
+          return v;
         },
         jO: function () {
-          return m;
+          return g;
         }
       });
       var i = n(37755),
@@ -740,40 +780,41 @@
         );
       }
       var u = n(66785),
-        c = n(76937);
-      function d(e, t, n) {
+        c = n(76937),
+        d = n(50215);
+      function p(e, t, n) {
         return { "Fill Session Id": e, Source: n, "Item Type": t };
       }
-      function p(e, t, n) {
+      function h(e, t, n) {
         return function (o, u) {
           var c = u.sections.find(function (t) {
             return t.id === e;
           });
           if (c) {
-            var p = l(c, u),
-              h = p.type,
-              f = p.sessionId,
-              m = p.source,
-              g = p.fields.find(function (e) {
+            var d = l(c, u),
+              h = d.type,
+              f = d.sessionId,
+              m = d.source,
+              g = d.fields.find(function (e) {
                 return e.id === t;
               });
             if (f && m && g && g.fill) {
               var v = g.type === s.Z.SiteNewPassword ? "Generated Password" : (0, r.Q)(h);
               return (0, a.I2)(
                 "LastPass Fill Modified",
-                (0, i.Z)((0, i.Z)({}, d(f, v, m)), {}, { "Field Type": g ? g.type : "", Language: n })
+                (0, i.Z)((0, i.Z)({}, p(f, v, m)), {}, { "Field Type": g ? g.type : "", Language: n })
               );
             }
           }
         };
       }
-      function h(e, t, n, r, s) {
+      function f(e, t, n, r, s) {
         return (0, a.I2)(
           "LastPass Fill Initiated",
-          (0, i.Z)((0, i.Z)({}, d(e, t, n)), {}, { Language: r, "Is Launch": s === o.q.Launch, "Is Auto Login": s === o.q.AutoLogin })
+          (0, i.Z)((0, i.Z)({}, p(e, t, n)), {}, { Language: r, "Is Launch": s === o.q.Launch, "Is Auto Login": s === o.q.AutoLogin })
         );
       }
-      function f(e) {
+      function m(e) {
         return e.sections
           .map(function (e) {
             return (
@@ -795,7 +836,7 @@
             return !!e;
           });
       }
-      function m(e, t) {
+      function g(e, t) {
         return (0, a.I2)("Save Prompt Viewed", {
           Source: t,
           "Save Address": e.some(function (e) {
@@ -809,7 +850,7 @@
           })
         });
       }
-      function g(e) {
+      function v(e) {
         return function (t) {
           var n = t.tabPrompt[c.U.SavePrompt];
           if (n)
@@ -827,6 +868,12 @@
               })
             });
         };
+      }
+      function y(e) {
+        return (0, d.UH)({ event: "Fill Confirmation Shown", properties: { "Item Type": e } });
+      }
+      function A(e, t) {
+        return (0, d.UH)({ event: "Fill Confirmation Clicked", properties: { Action: t, "Item Type": e } });
       }
     },
     72118: function (e, t, n) {
@@ -851,13 +898,25 @@
     },
     6809: function (e, t, n) {
       n.d(t, {
+        k: function () {
+          return a;
+        },
         q: function () {
           return i;
         }
       });
       var i = (function (e) {
-        return (e[(e.Launch = 1)] = "Launch"), (e[(e.AutoLogin = 2)] = "AutoLogin"), e;
-      })({});
+          return (e[(e.Launch = 1)] = "Launch"), (e[(e.AutoLogin = 2)] = "AutoLogin"), e;
+        })({}),
+        a = (function (e) {
+          return (
+            (e.LEARN_MORE = "Learn More"),
+            (e.CANCEL = "Cancel"),
+            (e.CONFIRM = "Confirm"),
+            (e.UNCHECK_DO_NOT_REPROMPT = "Uncheck Do Not Repromt"),
+            e
+          );
+        })({});
     },
     83462: function (e, t, n) {
       n.d(t, {
@@ -983,6 +1042,7 @@
           case u.w.Password:
           case u.w.Application:
           case u.w.CloudApp:
+          case u.w.Passkey:
             throw new Error("Invalid record type");
           case u.w.PaymentCard:
             return (0, r.Z)(
@@ -1037,7 +1097,7 @@
                 city: i(c.V.City),
                 county: i(c.V.County),
                 state: i(c.V.State),
-                zipCode: i(c.V.PostalCode),
+                zipCode: i(c.V.AddressPostalCode),
                 country: i(c.V.Country),
                 timezone: i(c.V.Timezone),
                 email: i(c.V.EmailAddress),
@@ -1080,8 +1140,9 @@
                 address: i(c.V.Address),
                 city: i(c.V.City),
                 state: i(c.V.State),
+                postalCode: i(c.V.DriversLicensePostalCode),
                 country: i(c.V.Country),
-                birthday: i(c.V.Birthday),
+                birthday: S(i(c.V.DateOfBirth)),
                 sex: i(c.V.Sex),
                 height: i(c.V.Height),
                 notes: i(c.V.Notes)
@@ -1129,6 +1190,7 @@
               {},
               {
                 recordType: u.w.Membership,
+                organization: i(c.V.Organization),
                 membershipNumber: i(c.V.MembershipNumber),
                 memberName: i(c.V.MemberName),
                 startDate: S(i(c.V.StartDate)),
@@ -1314,7 +1376,7 @@
                                             e.next = 9;
                                             break;
                                           }
-                                          return (e.next = 6), (0, v.pe)(t.filename, _, "base64");
+                                          return (e.next = 6), (0, v.pe)(t.bytes, _, "base64");
                                         case 6:
                                           (e.t0 = e.sent), (e.next = 10);
                                           break;
@@ -1483,14 +1545,14 @@
             })
           );
         },
-        V = n(39800),
-        U = n(39427),
-        H = n(84885),
-        G = n(34952),
-        j = n(81156),
-        W = n(50215),
-        Y = n(16848),
-        K = n.n(Y);
+        V = n(39427),
+        U = n(84885),
+        H = n(34952),
+        G = n(81156),
+        j = n(50215),
+        W = n(16848),
+        Y = n.n(W),
+        K = n(67662);
       e = n.hmd(e);
       var Z = n(98754).Buffer,
         z = {
@@ -1503,7 +1565,7 @@
                 {
                   key: "getOtp",
                   value: function (e) {
-                    return K()(e);
+                    return Y()(e);
                   }
                 }
               ]),
@@ -1612,7 +1674,7 @@
                                       attachments: this.dataRecord.attachments,
                                       downloadAttachment: function (e) {
                                         e.bytes
-                                          ? Ue.openAttachment(e.filename, e.bytes, e.storagekey || "")
+                                          ? Ue.openAttachment(e.filename, Z.from(e.bytes).toString("base64"), e.storagekey || "")
                                           : Se.makeRequest(
                                               (function () {
                                                 var n = (0, o.Z)(
@@ -1660,7 +1722,7 @@
                                                   return n.apply(this, arguments);
                                                 };
                                               })(),
-                                              {}
+                                              { requestSuccessOptions: { closeDialog: !1 } }
                                             );
                                       },
                                       removeAttachment: function (e) {
@@ -1838,7 +1900,7 @@
       }
       var Re = {
         getDomain: function () {
-          return (0, G.g)(new URL(we.loginUrl));
+          return (0, H.g)(new URL(we.loginUrl));
         },
         getPasswordHistory: function (e) {
           Ee.vault.history.getPasswordHistory(xe(e));
@@ -1879,7 +1941,7 @@
             })
           )
             return null;
-          var t = (0, H.AM)(e, Ie.vaultData.sharedFolders, Ie.linkedAccount),
+          var t = (0, U.AM)(e, Ie.vaultData.sharedFolders, Ie.linkedAccount),
             n = t.sharedFolderId ? Ie.encryptedVaultDataSource.sharedFolders[t.sharedFolderId] : void 0;
           return {
             isReadOnly: function () {
@@ -2037,7 +2099,7 @@
         var n = -1 !== document.location.href.indexOf("vault.php");
         e.webvault = n ? "1" : "0";
         var i = ce.createElement("iframe", "acctsiframe");
-        (i.src = n ? "iframe.php" : "iframe.html"),
+        (i.src = n ? "iframe.php" : Te.getResourcePath("iframe.html")),
           Te.addEventListener(i, "load", function () {
             i.contentWindow.goTo(Re.getBaseURL() + "acctsiframe.php?" + $.param(e), t), ce.addClass(i, "loaded");
           }),
@@ -2227,7 +2289,7 @@
         (Te.logError = function (e) {
           e = "Page: " + window.location.href + " Error: " + e;
           try {
-            console.error(e), Ze.lpReportError("VAULT_4_0: " + e);
+            console.error(e), logger.info("VAULT_4_0: " + e, { vault: "VAULT_4_0", message: e });
           } catch (He) {}
         }),
         (Te.addEventListener = function (e) {
@@ -2314,7 +2376,15 @@
       var Ue = Te;
       Te = {
         addEventListener: function (e, t, n, i) {
-          e.addEventListener(t, n, i);
+          e === document && "keydown" === t
+            ? e.addEventListener(
+                t,
+                function (e) {
+                  (13 === e.keyCode && "password" === e.target.type && e.target.className.includes("StyledDialogInput")) || n(e);
+                },
+                i
+              )
+            : e.addEventListener(t, n, i);
         },
         translate: v.I,
         logException: function (e) {
@@ -2424,7 +2494,7 @@
             Ye && Ne(w.hH.logSiteLogin(Ye, void 0, _.R.View));
           },
           sendLpImprove: function (e, t) {
-            Ne((0, W.UH)({ event: e, isLegacy: !0, properties: t }));
+            Ne((0, j.UH)({ event: e, isLegacy: !0, properties: t }));
           },
           getAllowedFileExtensions: function () {
             return [
@@ -7651,7 +7721,8 @@
                 )
                   for (var o in n) {
                     var r = n[o];
-                    void 0 !== r && null !== r && e(a, o, r);
+                    "src" === o && "function" === typeof Te.isSPA && Te.isSPA() && !r.match(/^data:/) && (r = Te.getResourcePath(r)),
+                      void 0 !== r && null !== r && e(a, o, r);
                   }
                 return void 0 !== i && (a.textContent = i), a;
               };
@@ -13433,6 +13504,8 @@
                 if (
                   ("undefined" !== typeof e.vaultItem._data && !e.vaultItem._data.save_all) ||
                   (!e.vaultItem.save_all &&
+                    e.vaultItem._sharedGroup &&
+                    e.vaultItem._sharedGroup._data &&
                     !e.vaultItem._sharedGroup._data.hasOwnProperty("tld") &&
                     !e.vaultItem._sharedGroup._data.hasOwnProperty("unencryptedUsername"))
                 )
@@ -15249,7 +15322,19 @@
           };
         return r;
       }
-      (le.Input.prototype.disableDropdown = function () {}), (Ze.LPServer = Ee), Ee.initialize(De);
+      (le.Input.prototype.disableDropdown = function () {}),
+        (Xe.prototype.handleSubmit = function (e) {
+          var t = (0, a.Z)({}, e),
+            n = this.data.sourceDialog;
+          Se.makeUpdateRequest(Re.addField, {
+            parameters: [n.vaultItem, e],
+            success: function () {
+              n.vaultItem.addField(e), n.inputFields.fields.addField(t);
+            }
+          });
+        }),
+        (Ze.LPServer = Ee),
+        Ee.initialize(De);
       var ht = {
         note: pt(l, Je, "NoteDialog"),
         site: pt(u, Qe, "SiteDialog"),
@@ -15277,7 +15362,7 @@
                         document.body.classList.add("tab"),
                         (De.base_url = Ie.user.baseUrl + "/"),
                         (u = function () {
-                          return we.recordType === b.w.Custom ? we.customData[V.V.NoteType] : we.recordType;
+                          return (0, K.k)(we);
                         }),
                         !Ye)
                       ) {
@@ -15339,7 +15424,7 @@
                                                     a(), (n.next = 10);
                                                     break;
                                                   case 7:
-                                                    (n.prev = 7), (n.t0 = n.catch(0)), n.t0 instanceof U.C ? o(n.t0.toString()) : o();
+                                                    (n.prev = 7), (n.t0 = n.catch(0)), n.t0 instanceof V.C ? o(n.t0.toString()) : o();
                                                   case 10:
                                                   case "end":
                                                     return n.stop();
@@ -15482,7 +15567,7 @@
                     case 12:
                       (h = e.sent),
                         (we = h),
-                        (f = (0, j.n)(h)),
+                        (f = (0, G.n)(h)),
                         (Re.reprompt = (function () {
                           var e = (0, o.Z)(
                             (0, i.Z)().mark(function e(t) {
@@ -15508,7 +15593,7 @@
                           url: h.loginUrl,
                           fav: we.favorite,
                           name: we.name,
-                          group: (0, H.OC)(
+                          group: (0, U.OC)(
                             we.folder,
                             we,
                             Ie.vaultData.sharedFolders,
@@ -15518,6 +15603,7 @@
                           unencryptedUsername: h.username,
                           password: h.password,
                           totp: h.totp,
+                          totpCode: h.totp ? "******" : "",
                           extra: h.notes,
                           pwprotect: h.passwordProtected,
                           autologin: h.autoLogin,
@@ -15581,7 +15667,7 @@
                               we,
                               {
                                 name: we.name,
-                                group: (0, H.OC)(
+                                group: (0, U.OC)(
                                   we.folder,
                                   we,
                                   Ie.vaultData.sharedFolders,

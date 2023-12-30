@@ -25,6 +25,9 @@
         '<td megatype="timeMd" class="time md"></td>' +
         '<td megatype="versions" class="hd-versions"></td>' +
         '<td megatype="playtime" class="playtime"></td>' +
+        '<td megatype="fileLoc" class="fileLoc">' +
+        '<span class="grid-file-location"></span>' +
+        "</td>" +
         '<td megatype="extras" class="grid-url-field own-data">' +
         '<a class="grid-url-arrow"><i class="sprite-fm-mono icon-options"></i></a>' +
         '<span class="versioning-indicator">' +
@@ -184,6 +187,9 @@
         '<td megatype="timeMd" class="time md"></td>' +
         '<td megatype="versions" class="hd-versions"></td>' +
         '<td megatype="playtime" class="playtime"></td>' +
+        '<td megatype="fileLoc" class="fileLoc">' +
+        '<span class="grid-file-location"></span>' +
+        "</td>" +
         '<td megatype="extras" class="grid-url-field own-data">' +
         '<a class="grid-url-arrow"><i class="sprite-fm-mono icon-options"></i></a>' +
         '<span class="versioning-indicator">' +
@@ -217,6 +223,24 @@
         "</span>" +
         '<span class="file-block-title"></span>' +
         "</a>"
+    ],
+
+    subtitles: [
+      // List view mode
+      "<table>" +
+        "<tr>" +
+        '<td class="space-maintainer-start"></td>' +
+        '<td megatype="fname">' +
+        '<span class="transfer-filetype-icon"><img/></span>' +
+        '<span class="tranfer-filetype-txt"></span>' +
+        "</td>" +
+        '<td megatype="size" class="size"></td>' +
+        '<td megatype="timeAd" class="time ad"></td>' +
+        '<td megatype="location" class="location">' +
+        '<span class="simpletip simpletip-breadcrumb block w-full text-ellipsis"></span>' +
+        "</td>" +
+        "</tr>" +
+        "</table>"
     ]
   };
 
@@ -224,7 +248,8 @@
     "cloud-drive": [".grid-table.fm", ".fm-blocks-view.fm .file-block-scrolling"],
     shares: [".shared-grid-view .grid-table.shared-with-me", ".shared-blocks-scrolling"],
     "out-shares": [".out-shared-grid-view .grid-table.out-shares", ".out-shared-blocks-scrolling"],
-    "file-requests": [".grid-table.fm", ".fm-blocks-view.fm .file-block-scrolling"]
+    "file-requests": [".grid-table.fm", ".fm-blocks-view.fm .file-block-scrolling"],
+    subtitles: [".mega-dialog .grid-table"]
   };
 
   var versionColumnPrepare = function (versionsNb, VersionsSize) {
@@ -297,6 +322,11 @@
       section = "out-shares";
     } else if (M.currentrootid === "file-requests") {
       section = "file-requests";
+    } else if (typeof aViewMode === "string") {
+      section = aViewMode;
+
+      // For now, only lists are landing here, no need to set to 1
+      aViewMode = 0;
     }
     if (section === "cloud-drive") {
       if (!DYNLIST_ENABLED) {
@@ -407,7 +437,7 @@
         if (M.RubbishID && M.currentdirid === M.RubbishID) {
           $(".fm-empty-trashbin").removeClass("hidden");
           $(".fm-clearbin-button").addClass("hidden");
-        } else if (String(M.currentdirid).substr(0, 7) === "search/") {
+        } else if (String(M.currentdirid).substr(0, 7) === "search/" || mega.ui.mNodeFilter.selectedFilters) {
           $(".fm-empty-search").removeClass("hidden");
         } else if (M.currentdirid === M.RootID && folderlink) {
           // FIXME: implement
@@ -871,6 +901,14 @@
             props.labelC = this.labelsColors[colourLabel];
           }
         }
+        if (aNode.su) {
+          props.parentName = l[5542];
+        } else if (aNode.p === M.RubbishID) {
+          props.parentName = l[167];
+        } else {
+          const pHandle = M.getNodeByHandle(aNode.p);
+          props.parentName = M.getNameByHandle(pHandle);
+        }
 
         return props;
       },
@@ -1065,6 +1103,7 @@
           aTemplate.querySelector(".type").textContent = aProperties.type;
           aTemplate.querySelector(".time").textContent = aProperties.time;
           aTemplate.querySelector(".time.md").textContent = aProperties.mTime;
+          aTemplate.querySelector(".fileLoc span").textContent = aProperties.parentName;
           aTemplate.querySelector(".label").textContent = aProperties.labelC || "";
 
           tmp = aTemplate.querySelector(".tranfer-filetype-txt");
@@ -1268,6 +1307,48 @@
         }
 
         return renderTemplate;
+      },
+      subtitles: function (aNode, aProperties, aTemplate) {
+        let tmp;
+        let title = [];
+
+        if (String(aProperties.name).length > 78) {
+          if (aProperties.width) {
+            title.push(`${aProperties.width}x${aProperties.height} @${aProperties.fps}fps`);
+          }
+          if (aProperties.codecs) {
+            title.push(aProperties.codecs);
+          }
+          if (aNode.s) {
+            title.push(bytesToSize(aNode.s, 0));
+          }
+          if (aProperties.name) {
+            title.push(aProperties.name);
+          }
+        }
+        title = title.join(" ");
+
+        if (aProperties.size !== undefined) {
+          aTemplate.querySelector(".size").textContent = aProperties.size;
+        }
+        aTemplate.querySelector(".time").textContent = aProperties.time;
+        aTemplate.querySelector(".location span").textContent = aNode.p === M.RootID ? l[164] : M.d[aNode.p].name;
+
+        tmp = aTemplate.querySelector(".tranfer-filetype-txt");
+        tmp.textContent = aProperties.name;
+        if (title) {
+          tmp.setAttribute("title", title);
+        }
+
+        tmp = aTemplate.querySelector(".transfer-filetype-icon");
+
+        if (aProperties.icon) {
+          tmp.classList.add(aProperties.icon);
+        }
+
+        this.addClasses(tmp, aProperties.classNames);
+
+        return aTemplate;
       }
     }),
 

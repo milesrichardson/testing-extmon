@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Uygulamalar"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 Uzantısı Destek Sonu"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "15 Ocak 2024'den itibaren bu uzantı artık Microsoft tarafından desteklenmiyor."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Daha fazla bilgi için lütfen bu uzantının Destek sayfasını ziyaret edin."
+  },
+  "Support": {
+    "message": "Destek"
   }
 }

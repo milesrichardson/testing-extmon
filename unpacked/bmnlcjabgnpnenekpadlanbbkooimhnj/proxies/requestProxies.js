@@ -1,67 +1,38 @@
 const messageId = "honey:couponResProxy";
-let fetchCounter = 0;
-let xhrCounter = 0;
-
-const handleFetch = async (functionCall, reqData) => {
-  const [url] = reqData;
+let fetchCounter = 0,
+  xhrCounter = 0;
+const handleFetch = async (e, t) => {
+  const [o] = t;
   fetchCounter += 1;
-  const requestId = `${fetchCounter}${url}`;
-
-  window.postMessage({ messageId, type: "request", requestId }, window.location.origin);
-
+  const n = `${fetchCounter}${o}`;
+  window.postMessage({ messageId, type: "request", requestId: n }, window.location.origin);
   try {
-    await functionCall;
-
-    window.postMessage({ messageId, type: "response", requestId }, window.location.origin);
-  } catch (err) {
-    // do nothing
-  }
+    await e, window.postMessage({ messageId, type: "response", requestId: n }, window.location.origin);
+  } catch (e) {}
 };
-
-// Proxy fetch
 function overrideFetch() {
   window.fetch = new Proxy(window.fetch, {
-    apply: async (targetFn, thisArg, argArray) => {
-      const functionCall = targetFn.apply(thisArg, argArray);
-
-      handleFetch(functionCall, argArray);
-
-      return functionCall;
+    apply: async (e, t, o) => {
+      const n = e.apply(t, o);
+      return handleFetch(n, o), n;
     }
   });
 }
-
-const handleXHRSend = (thisArg, argArray) => {
-  const argsString = JSON.stringify(argArray);
+const handleXHRSend = (e, t) => {
+  const o = JSON.stringify(t);
   xhrCounter += 1;
-  const requestId = `${xhrCounter}${argsString}`;
-
-  window.postMessage({ messageId, type: "request", requestId }, window.location.origin);
-
-  thisArg.addEventListener("loadend", (event) => {
-    window.postMessage({ messageId, type: "response", requestId }, window.location.origin);
-
-    return event;
-  });
+  const n = `${xhrCounter}${o}`;
+  window.postMessage({ messageId, type: "request", requestId: n }, window.location.origin),
+    e.addEventListener("loadend", (e) => (window.postMessage({ messageId, type: "response", requestId: n }, window.location.origin), e));
 };
-
-// Proxy XHR.send
 function overrideXMLHttpRequestSend() {
-  const proxyXHRSend = new Proxy(window.XMLHttpRequest.prototype.send, {
-    apply: async (target, thisArg, argArray) => {
-      const call = target.apply(thisArg, argArray);
-
-      handleXHRSend(thisArg, argArray);
-
-      return call;
+  const e = new Proxy(window.XMLHttpRequest.prototype.send, {
+    apply: async (e, t, o) => {
+      const n = e.apply(t, o);
+      return handleXHRSend(t, o), n;
     }
   });
-
-  window.XMLHttpRequest.prototype.send = proxyXHRSend;
+  window.XMLHttpRequest.prototype.send = e;
 }
-
 const isProxyAvailable = !!window.Proxy;
-if (isProxyAvailable) {
-  overrideFetch();
-  overrideXMLHttpRequestSend();
-}
+isProxyAvailable && (overrideFetch(), overrideXMLHttpRequestSend());

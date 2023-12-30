@@ -10,7 +10,7 @@
       12: 0
     };
   function u(e) {
-    return c.p + "" + e + ".8a2e4be14eed29c0caf5.js";
+    return c.p + "" + e + ".b2215ac3c45eaa93f881.js";
   }
   function c(e) {
     var t;
@@ -228,7 +228,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, o) {
@@ -265,9 +266,8 @@
         drawings: r.GoogleDrawings,
         spreadsheets: r.GoogleSheets
       },
-      a = () => {
-        const e = window.location,
-          t = e.host,
+      a = (e = window.location) => {
+        const t = e.hostname,
           o = e.pathname;
         if ("docs.google.com" === t)
           return (
@@ -280,7 +280,7 @@
           );
       },
       i = (e = window.location) => {
-        const t = e.host,
+        const t = e.hostname,
           o = e.pathname;
         if ("docs.google.com" === t) {
           let e;
@@ -511,11 +511,11 @@
     }
     (t.stringify = n), (t.parse = r);
   },
-  156: function (e, t) {
+  157: function (e, t) {
     e.exports =
       "data:image/svg+xml;charset=utf-8;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSIxMC41cHgiIGhlaWdodD0iMTAuNnB4IiB2aWV3Qm94PSIwIDAgMTAuNSAxMC42IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMC41IDEwLjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48ZGVmcz48L2RlZnM+PGc+PGc+PHJlY3QgeD0iNy44IiB5PSIwLjciIHN0eWxlPSJmaWxsOiNGRkZGRkY7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuMjtzdHJva2UtbWl0ZXJsaW1pdDoxMDsiIHdpZHRoPSIwLjYiIGhlaWdodD0iOS4xIj48L3JlY3Q+PGc+PHJlY3QgeD0iOC41IiB5PSIwLjEiIHN0eWxlPSJmaWxsOiNGRkZGRkY7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuMjtzdHJva2UtbWl0ZXJsaW1pdDoxMDsiIHdpZHRoPSIxLjkiIGhlaWdodD0iMC42Ij48L3JlY3Q+PHJlY3QgeD0iNS45IiB5PSIwLjEiIHN0eWxlPSJmaWxsOiNGRkZGRkY7c3Ryb2tlOiNGRkZGRkY7c3Ryb2tlLXdpZHRoOjAuMjtzdHJva2UtbWl0ZXJsaW1pdDoxMDsiIHdpZHRoPSIxLjkiIGhlaWdodD0iMC42Ij48L3JlY3Q+PC9nPjxnPjxyZWN0IHg9IjguNSIgeT0iOS44IiBzdHlsZT0iZmlsbDojRkZGRkZGO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7IiB3aWR0aD0iMS45IiBoZWlnaHQ9IjAuNiI+PC9yZWN0PjxyZWN0IHg9IjUuOSIgeT0iOS44IiBzdHlsZT0iZmlsbDojRkZGRkZGO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7IiB3aWR0aD0iMS45IiBoZWlnaHQ9IjAuNiI+PC9yZWN0PjwvZz48L2c+PGc+PHBhdGggc3R5bGU9ImZpbGw6I0ZGRkZGRjtzdHJva2U6I0ZGRkZGRjtzdHJva2Utd2lkdGg6MC4yO3N0cm9rZS1taXRlcmxpbWl0OjEwOyIgZD0iTTMuMSw1LjNjLTAuMSwwLTAuMiwwLTAuMy0wLjFMMC4yLDIuMyBDMC4xLDIuMiwwLjEsMiwwLjEsMS44czAuMi0wLjMsMC40LTAuM2g0LjJDNSwxLjYsNS4yLDEuOCw1LjIsMmMwLDAuMi0wLjIsMC40LTAuNCwwLjRIMS41bDEuOSwyLjFjMC4yLDAuMiwwLjEsMC40LDAsMC42IEMzLjMsNS4yLDMuMiw1LjMsMy4xLDUuM3oiPjwvcGF0aD48cGF0aCBzdHlsZT0iZmlsbDojRkZGRkZGO3N0cm9rZTojRkZGRkZGO3N0cm9rZS13aWR0aDowLjI7c3Ryb2tlLW1pdGVybGltaXQ6MTA7IiBkPSJNNC43LDguMUgwLjVDMC40LDguMSwwLjIsOCwwLjEsNy45IGMtMC4xLTAuMiwwLTAuMywwLjEtMC41bDIuNS0yLjhjMC4yLTAuMiwwLjQtMC4yLDAuNiwwYzAuMiwwLjIsMC4yLDAuNCwwLDAuNkwxLjUsNy4zaDMuM2MwLjIsMCwwLjQsMC4yLDAuNCwwLjRTNSw4LjEsNC43LDguMXoiPjwvcGF0aD48L2c+PC9nPjwvc3ZnPg==";
   },
-  157: function (e) {
+  158: function (e) {
     e.exports = JSON.parse(
       "{\"version\":1,\"questionsRoot\":\"#SchemaEditor\",\"responsesRoot\":\"#ResponsesView\",\"imageButtons\":{\"en\":\"div[role='button'][aria-label='Add inline image'], div[role='button'][aria-label='Add image to option']\",\"es\":\"div[role='button'][aria-label='A\xf1adir una imagen insertada'], div[role='button'][aria-label='A\xf1adir una imagen a la opci\xf3n']\",\"fr\":\"div[role='button'][aria-label='Ajouter une image int\xe9gr\xe9e'], div[role='button'][aria-label='Ajouter une image \xe0 l\\\\'option']\",\"it\":\"div[role='button'][aria-label='Aggiungi immagine in linea'], div[role='button'][aria-label='Aggiungi immagine all\\\\'opzione']\",\"no\":\"div[role='button'][aria-label='Legg til et innebygd bilde'], div[role='button'][aria-label='Legg til et bilde for alternativet']\",\"da\":\"div[role='button'][aria-label='Tilf\xf8j indlejret billede'], div[role='button'][aria-label='F\xf8j billede til valgmulighed']\",\"sv\":\"div[role='button'][aria-label='L\xe4gg till infogad bild'], div[role='button'][aria-label='L\xe4gg till bild i alternativ']\",\"de\":\"div[role='button'][aria-label='Inline-Bild hinzuf\xfcgen'], div[role='button'][aria-label='Bild zur Option hinzuf\xfcgen']\",\"ru\":\"div[role='button'][aria-label='\u0412\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435'], div[role='button'][aria-label='\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435']\",\"pl\":\"div[role='button'][aria-label='Dodaj obraz w tre\u015bci'], div[role='button'][aria-label='Dodaj obraz do opcji']\",\"pt\":\"div[role='button'][aria-label='Adicionar imagem inline'], div[role='button'][aria-label='Adicionar imagem \xe0 op\xe7\xe3o']\",\"tr\":\"div[role='button'][aria-label='Sat\u0131r i\xe7i resim ekle'], div[role='button'][aria-label='Se\xe7ene\u011fe resim ekle']\",\"uk\":\"div[role='button'][aria-label='\u0414\u043e\u0434\u0430\u0442\u0438 \u0432\u0431\u0443\u0434\u043e\u0432\u0430\u043d\u0435 \u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u043d\u044f'], div[role='button'][aria-label='\u0414\u043e\u0434\u0430\u0442\u0438 \u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u043d\u044f \u0434\u043e \u0432\u0430\u0440\u0456\u0430\u043d\u0442\u0443']\",\"nl\":\"div[role='button'][aria-label='Inline afbeelding toevoegen'], div[role='button'][aria-label='Afbeelding toevoegen aan optie']\",\"zh\":\"div[role='button'][aria-label='\u6dfb\u52a0\u5185\u5d4c\u56fe\u7247'], div[role='button'][aria-label='\u5c06\u56fe\u7247\u6dfb\u52a0\u5230\u9009\u9879']\"},\"imageButtonParentFilter\":{\"attribute\":\"data-action-id\",\"value\":\"freebird-add-image\"},\"fallbackImageCss\":{\"cssEle\":\"div[data-item-id] div[role='button'][aria-label][tabindex='0'] div[aria-hidden='true']\",\"cssTop\":\"-676px\",\"closestImgButton\":\"div[role='button'][aria-label]\",\"svgPath\":\"path[fill='#5F6368'][d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-7l-3 3.72L9 13l-3 4h12l-4-5z']\"},\"answerKeyInput\":\"div[data-variant='assessment'] input[data-initial-value][badinput]\",\"answerKeyDisplay\":\"div > span:first-child\",\"responseInputAreas\":\"textarea[data-initial-value], input[type=text][data-initial-value]:not([role='combobox'])\"}"
     );
@@ -1229,7 +1229,7 @@
       t.d(e, "w", function () {
         return p;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return f;
       }),
       t.d(e, "a", function () {
@@ -1253,10 +1253,10 @@
       t.d(e, "x", function () {
         return v;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return L;
       }),
-      t.d(e, "Y", function () {
+      t.d(e, "Z", function () {
         return q;
       }),
       t.d(e, "u", function () {
@@ -1271,22 +1271,22 @@
       t.d(e, "p", function () {
         return C;
       }),
-      t.d(e, "W", function () {
+      t.d(e, "X", function () {
         return I;
       }),
-      t.d(e, "fb", function () {
+      t.d(e, "gb", function () {
         return S;
       }),
-      t.d(e, "ab", function () {
-        return N;
-      }),
-      t.d(e, "cb", function () {
+      t.d(e, "bb", function () {
         return E;
       }),
       t.d(e, "db", function () {
+        return N;
+      }),
+      t.d(e, "eb", function () {
         return _;
       }),
-      t.d(e, "R", function () {
+      t.d(e, "S", function () {
         return A;
       }),
       t.d(e, "Q", function () {
@@ -1298,7 +1298,7 @@
       t.d(e, "P", function () {
         return z;
       }),
-      t.d(e, "hb", function () {
+      t.d(e, "ib", function () {
         return U;
       }),
       t.d(e, "g", function () {
@@ -1316,13 +1316,13 @@
       t.d(e, "D", function () {
         return W;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return F;
       }),
       t.d(e, "r", function () {
         return H;
       }),
-      t.d(e, "V", function () {
+      t.d(e, "W", function () {
         return J;
       }),
       t.d(e, "f", function () {
@@ -1343,7 +1343,7 @@
       t.d(e, "s", function () {
         return K;
       }),
-      t.d(e, "bb", function () {
+      t.d(e, "cb", function () {
         return $;
       }),
       t.d(e, "J", function () {
@@ -1355,13 +1355,13 @@
       t.d(e, "K", function () {
         return oe;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return re;
       }),
       t.d(e, "n", function () {
         return ne;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ae;
       }),
       t.d(e, "m", function () {
@@ -1373,7 +1373,7 @@
       t.d(e, "A", function () {
         return le;
       }),
-      t.d(e, "S", function () {
+      t.d(e, "T", function () {
         return ue;
       }),
       t.d(e, "k", function () {
@@ -1391,8 +1391,11 @@
       t.d(e, "l", function () {
         return fe;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return he;
+      }),
+      t.d(e, "R", function () {
+        return be;
       });
     var e = t(3),
       o = t.n(e),
@@ -1509,8 +1512,8 @@
         l(a.a.UpdateGoogleSheetEquations, {
           spreadsheetId: e
         }),
-      N = () => l(a.a.ShowHandwritingExceededReminder),
-      E = () => l(a.a.ShowPredictionReminder),
+      E = () => l(a.a.ShowHandwritingExceededReminder),
+      N = () => l(a.a.ShowPredictionReminder),
       _ = () => l(a.a.ShowReviewReminder),
       A = (e) =>
         l(a.a.SendAnalyticsScreen, {
@@ -1699,7 +1702,20 @@
         l(a.a.GenerateMathQuestions, {
           options: e
         }),
-      he = () => l(a.a.ShowFormsGeneratorUi);
+      he = () => l(a.a.ShowFormsGeneratorUi),
+      be = (e, t, o, r) => {
+        let n = "";
+        return (
+          window && window.location && (n = window.location.href),
+          l(a.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: o,
+            eventProps: r,
+            url: n
+          })
+        );
+      };
   },
   409: function (T, e, a) {
     "use strict";
@@ -1882,7 +1898,7 @@
         });
     }
     a(392);
-    var e = a(156),
+    var e = a(157),
       I = a.n(e);
     let o;
     const l = () => {
@@ -1939,8 +1955,8 @@
           const t = document.querySelector(".equatio-toolbar-wrapper");
           (t && t.offsetParent) || Object(C.F)();
         }),
-      N = a(157),
-      E = (r) =>
+      E = a(158),
+      N = (r) =>
         new Promise((o) => {
           chrome.storage.local.get("formsFallback", ({ formsFallback: e }) => {
             if (chrome.runtime.lastError || !e) return o();
@@ -2032,7 +2048,7 @@
                     window.top === window.self &&
                       a.includes("/forms/") &&
                       a.endsWith("/edit") &&
-                      ((f = N),
+                      ((f = E),
                       (r = (e) => {
                         const t = (e, t) => {
                           const o = new MouseEvent(t, {
@@ -2390,7 +2406,7 @@
                               for (;;)
                                 switch ((e.prev = e.next)) {
                                   case 0:
-                                    return (e.next = 2), E(f.version);
+                                    return (e.next = 2), N(f.version);
 
                                   case 2:
                                     if (((t = e.sent), (t = (f = t ? t : f).questionsRoot), (o = document.querySelector(t)))) {
@@ -2634,7 +2650,7 @@
               case 0:
                 window.top === window.self &&
                   Object(B.d)() &&
-                  ((o = N),
+                  ((o = E),
                   $(),
                   (x = "https://equatio-api.texthelp.com"),
                   (v = (e, t, o) => {
@@ -2952,7 +2968,7 @@
                           for (;;)
                             switch ((e.prev = e.next)) {
                               case 0:
-                                return (e.next = 2), E(o.version);
+                                return (e.next = 2), N(o.version);
 
                               case 2:
                                 (t = e.sent) && (o = t), Array.from(document.querySelectorAll(o.responseInputAreas)).forEach(r);

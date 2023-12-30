@@ -38,6 +38,7 @@ const e = {
     return new Promise((e) => {
       e(!1);
     });
-  }
+  },
+  validateCertificate: async () => null
 };
 export { e as privateApi };

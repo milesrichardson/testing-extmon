@@ -20,16 +20,13 @@ import { Proxy as t } from "./proxy.js";
 import { analytics as i } from "../common/analytics.js";
 import { SETTINGS as s } from "./settings.js";
 import { dcLocalStorage as r } from "../common/local-storage.js";
-import { floodgate as n } from "./floodgate.js";
-import { CACHE_PURGE_SCHEME as o } from "./constant.js";
-let a = null,
-  h = {
+let n = null,
+  o = {
     prod: {
       cloud_host: "https://cloud.acrobat.com/",
       redirect_uri: "https://createpdf.acrobat.com/static/js/aicuc/cpdf-template/sign_in_complete.html",
       cpdf_host: "https://createpdf.acrobat.com/",
-      frictionless_uri: "https://documentcloud.adobe.com/proxy/hosted-extension/iframe-index.html",
-      frictionless_uri_new: "https://acrobat.adobe.com/proxy/hosted-extension/iframe-index.html",
+      frictionless_uri: "https://acrobat.adobe.com/proxy/hosted-extension/iframe-index.html",
       env: "prod",
       viewer_ims_client_id: "dc-prod-chrome-viewer",
       acrobat_viewer_uri: "https://acrobat.adobe.com/proxy/chrome-viewer/index.html",
@@ -49,25 +46,24 @@ let a = null,
         version_template: "https://acrobat.adobe.com/proxy/chrome-viewer/{VERSION}/index.html"
       },
       version_config_uri: "https://acrobat.adobe.com/dc-chrome-extension/version-config.json",
-      popup_cdn_uri: "https://documentcloud.adobe.com/dc-hosted-extension/react-index.html",
-      popup_cdn_uri_new: "https://acrobat.adobe.com/dc-hosted-extension/react-index.html"
+      popup_cdn_uri: "https://acrobat.adobe.com/dc-hosted-extension/react-index.html"
     }
   };
 export function deriveCDNURL(e = "prod") {
-  if (!r.getItem("enableCDNVersioning")) return h[e]?.acrobat_viewer_uri;
+  if (!r.getItem("enableCDNVersioning")) return o[e]?.acrobat_viewer_uri;
   let t;
   const i = "prod" === e ? "prod" : "non_prod";
-  let s = h[e]?.viewer_uri.external_uri;
+  let s = o[e]?.viewer_uri.external_uri;
   try {
     const n = r.getItem("adobeInternal");
-    "true" === n && (s = h[e]?.viewer_uri.internal_uri);
-    const o = r.getItem("version-config");
-    o &&
-      ((t = "true" === n ? o[`iv_${i}`] : o[`ev_${i}`]),
+    "true" === n && (s = o[e]?.viewer_uri.internal_uri);
+    const a = r.getItem("version-config");
+    a &&
+      ((t = "true" === n ? a[`iv_${i}`] : a[`ev_${i}`]),
       t &&
         "" !== t &&
         null !== t &&
-        (s = "latest" === t ? h[e]?.viewer_uri.latest_uri : h[e]?.viewer_uri.version_template.replace(new RegExp("{VERSION}", "g"), t)));
+        (s = "latest" === t ? o[e]?.viewer_uri.latest_uri : o[e]?.viewer_uri.version_template.replace(new RegExp("{VERSION}", "g"), t)));
   } catch {}
   return s;
 }
@@ -75,31 +71,31 @@ export function onMessageListener(e) {
   const t = e.env;
   switch (e.requestType) {
     case "update_env": {
-      const e = h[t],
+      const e = o[t],
         i = deriveCDNURL(t),
         s = e.viewer_ims_client_id,
         n = e.viewer_ims_client_id_social,
-        o = e.ims_context_id,
-        a = e.imsURL,
-        c = e.imsLibUrl,
-        l = e.dcApiUri,
+        a = e.ims_context_id,
+        h = e.imsURL,
+        l = e.imsLibUrl,
+        c = e.dcApiUri,
         d = new URL(e.uninstall_url);
       d.searchParams.append("callingApp", chrome.runtime.id), d.searchParams.append("theme", r.getItem("theme") || "auto");
       try {
         r.setItem("cdnUrl", i),
           r.setItem("viewerImsClientId", s),
           r.setItem("viewerImsClientIdSocial", n),
-          r.setItem("imsContextId", o),
-          r.setItem("imsURL", a),
-          r.setItem("imsLibUrl", c),
-          r.setItem("dcApiUri", l),
+          r.setItem("imsContextId", a),
+          r.setItem("imsURL", h),
+          r.setItem("imsLibUrl", l),
+          r.setItem("dcApiUri", c),
           chrome.runtime.setUninstallURL(d.href);
       } catch (e) {}
       break;
     }
   }
 }
-class c {
+class a {
   constructor() {
     (this.$GET_headers = { Accept: "application/vnd.adobe.dex+json;version=1", Authorization: null, "x-api-client-id": "api_browser_ext" }),
       (this.$POST_headers = {
@@ -132,7 +128,7 @@ class c {
       auth_token: null,
       ims_host: null
     }),
-      (this.server = h[t] || h[Object.keys(h)[0]]);
+      (this.server = o[t] || o[Object.keys(o)[0]]);
     const i = this.deriveCDNURL(t);
     (this.settings = e.extend(this.settings, this.server)), (this.settings = { ...this.settings, acrobat_viewer_uri: i });
   }
@@ -143,54 +139,50 @@ class c {
     this.globals = e;
   }
   async getFrictionlessUri() {
-    return (await n.hasFlag("dc-cv-frictionless-new-domain"))
-      ? this.settings.frictionless_uri_new || h.prod.frictionless_uri_new
-      : this.settings.frictionless_uri || h.prod.frictionless_uri;
+    return this.settings.frictionless_uri || o.prod.frictionless_uri;
   }
   async getPopupCDNUrl() {
-    return (await n.hasFlag("dc-cv-frictionless-new-domain"))
-      ? this.settings.popup_cdn_uri_new || h.prod.popup_cdn_uri_new
-      : this.settings.popup_cdn_uri || h.prod.popup_cdn_uri;
+    return this.settings.popup_cdn_uri || o.prod.popup_cdn_uri;
   }
   getUninstallUrl() {
-    return this.settings.uninstall_url ? this.settings.uninstall_url : h.prod.uninstall_url;
+    return this.settings.uninstall_url ? this.settings.uninstall_url : o.prod.uninstall_url;
   }
   getVersionConfigUrl() {
-    return this.settings.version_config_uri ? this.settings.version_config_uri : h.prod.version_config_uri;
+    return this.settings.version_config_uri ? this.settings.version_config_uri : o.prod.version_config_uri;
   }
   getEnv() {
     return this.settings.env || "prod";
   }
   getViewerIMSClientId() {
-    return this.settings.viewer_ims_client_id ? this.settings.viewer_ims_client_id : h.prod.viewer_ims_client_id;
+    return this.settings.viewer_ims_client_id ? this.settings.viewer_ims_client_id : o.prod.viewer_ims_client_id;
   }
   getViewerIMSClientIdSocial() {
-    return this.settings.viewer_ims_client_id_social ? this.settings.viewer_ims_client_id_social : h.prod.viewer_ims_client_id_social;
+    return this.settings.viewer_ims_client_id_social ? this.settings.viewer_ims_client_id_social : o.prod.viewer_ims_client_id_social;
   }
   getImsContextId() {
-    return this.settings.ims_context_id ? this.settings.ims_context_id : h.prod.ims_context_id;
+    return this.settings.ims_context_id ? this.settings.ims_context_id : o.prod.ims_context_id;
   }
   getIMSurl() {
-    return this.settings.imsURL ? this.settings.imsURL : h.prod.imsURL;
+    return this.settings.imsURL ? this.settings.imsURL : o.prod.imsURL;
   }
   getImsLibUrl() {
-    return this.settings.imsLibUrl ? this.settings.imsLibUrl : h.prod.imsLibUrl;
+    return this.settings.imsLibUrl ? this.settings.imsLibUrl : o.prod.imsLibUrl;
   }
   getDcApiUri() {
-    return this.settings.dcApiUri ? this.settings.dcApiUri : h.prod.dcApiUri;
+    return this.settings.dcApiUri ? this.settings.dcApiUri : o.prod.dcApiUri;
   }
   getFloodgateuri() {
-    return this.settings.floodgateUri ? this.settings.floodgateUri : h.prod.floodgateUri;
+    return this.settings.floodgateUri ? this.settings.floodgateUri : o.prod.floodgateUri;
   }
   getWelcomePdfUrlHost() {
-    return this.settings.welcomePdfUrlHost ? this.settings.welcomePdfUrlHost : h.prod.welcomePdfUrlHost;
+    return this.settings.welcomePdfUrlHost ? this.settings.welcomePdfUrlHost : o.prod.welcomePdfUrlHost;
   }
   getLoggingUri() {
     return "development" === r.getItem("installSource")
       ? "https://dc-api-stage.adobe.io"
       : this.settings.loggingUri
       ? this.settings.loggingUri
-      : h.prod.loggingUri;
+      : o.prod.loggingUri;
   }
   GET_headers() {
     return (
@@ -414,9 +406,9 @@ class c {
     return e.Deferred().resolve();
   }
 }
-a ||
-  ((a = new c()),
+n ||
+  ((n = new a()),
   e.ajaxError(function (e, t, i, s) {
-    401 === t.status && a.clearAuth();
+    401 === t.status && n.clearAuth();
   }));
-export const common = a;
+export const common = n;

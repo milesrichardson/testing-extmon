@@ -57,7 +57,7 @@
     (o.logError = function (e) {
       e = "Page: " + window.location.href + " Error: " + e;
       try {
-        console.error(e), lpReportError("VAULT_4_0: " + e);
+        console.error(e), logger.info("VAULT_4_0: " + e, { vault: "VAULT_4_0", location: window.location.href, message: e });
       } catch (e) {}
     }),
     (o.getBackgroundInterface =

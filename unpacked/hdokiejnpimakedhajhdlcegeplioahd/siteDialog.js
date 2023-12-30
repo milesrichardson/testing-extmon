@@ -10,12 +10,12 @@ var SiteDialog = function (A) {
     var i = [],
       o = { isFavorite: !1, isFolderFieldDirty: !1 },
       n = function (A) {
-        var e = A.domain;
-        return (e = "" !== A.a ? A.a + " (" + A.domain + ")" : e);
+        var t = A.domain;
+        return (t = "" !== A.a ? A.a + " (" + A.domain + ")" : t);
       },
-      t =
+      e =
         ((SiteDialog.prototype.initialize = function (A) {
-          var e, i;
+          var t, i;
           EditableFieldsDialog.prototype.initialize.apply(this, arguments),
             (this.changePasswordButton = $("#autoChangePassword")),
             (this.addTotpSecretButton = $("#siteDialogAddTotpSecret")),
@@ -33,15 +33,15 @@ var SiteDialog = function (A) {
                 optionLabel: n,
                 elementTemplate: {
                   template: function (A) {
-                    var e =
+                    var t =
                         "" !== A.favicon
                           ? A.favicon
                           : "R0lGODlhEAAQAIcAAAAAAExnf1BpgWR0iHZ6hHeBkX+GkYiOmpeaopucoaSlqqWmqrm9w7q+xL+/wry/xcXGyc3Oz9HS1NPU1tnZ2d/h4+Di5OLj5uPl5+Tk5OXm6O7u7+7v8O/w8e/w8vDw8fHx8vLy8/Pz8/Pz9PT09fX19fX29vb29vf39/f3+Pj4+Pj4+fn5+vr6+/v7/Pz8/P39/f7+/v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAAALAAAAAAQABAAAAiQAAEIHEiw4MAFCBEmQCjBIIAFMiLK8CBjA4QIBiFu2Fgh4oYJDgpq5Chxw4KCCiqSlKigIAKVGyowYNDgAYGCB2BWsHABgwYDBQvA/CCiBAoVBQoOUNlBhAkVLV4MKCigIgenK1zAiCGgYICKIEhAhRExgFcZHEKcYEG27NkOI1K0aCvDLMEAePPqteuwr8CAADs=",
-                      t = LPTools.createElement("li", "siteTypeaheadOption"),
+                      e = LPTools.createElement("li", "siteTypeaheadOption"),
                       a = LPTools.createElement("div", "itemIcon"),
-                      e = LPTools.createElement("img", { src: "data:image/gif;base64," + e });
+                      t = LPTools.createElement("img", { src: "data:image/gif;base64," + t });
                     return (
-                      t.appendChild(a), t.appendChild(LPTools.createElement("span", "siteTypeaheadOptionText", n(A))), a.appendChild(e), t
+                      e.appendChild(a), e.appendChild(LPTools.createElement("span", "siteTypeaheadOptionText", n(A))), a.appendChild(t), e
                     );
                   },
                   value: function (A) {
@@ -55,29 +55,29 @@ var SiteDialog = function (A) {
             ((i = this).userGroupOverride = !1),
             i.inputFields.url.onChange(function (A) {
               var A = LPProxy.getDomain(A.domain),
-                e = A.indexOf("."),
-                e = A.charAt(0).toUpperCase() + A.substring(1, 0 < e ? e : A.length),
-                t,
-                e =
-                  (i.inputFields.name.setValue(e),
-                  bg.get("g_nofolder_feature_enabled") || ((t = bg.get("siteCats")) && t[A] && i.inputFields.group.setValue(t[A])),
+                t = A.indexOf("."),
+                t = A.charAt(0).toUpperCase() + A.substring(1, 0 < t ? t : A.length),
+                e,
+                t =
+                  (i.inputFields.name.setValue(t),
+                  bg.get("g_nofolder_feature_enabled") || ((e = bg.get("siteCats")) && e[A] && i.inputFields.group.setValue(e[A])),
                   bg.Policies.getSaveSiteToPersonal()),
                 a;
-              e &&
+              t &&
                 (a = LPProxy.getLinkedAccount()) &&
-                t &&
-                t[A] &&
-                -1 === e.indexOf(A) &&
-                i.inputFields.group.setValue(a._data.group + "\\" + t[A]);
+                e &&
+                e[A] &&
+                -1 === t.indexOf(A) &&
+                i.inputFields.group.setValue(a._data.group + "\\" + e[A]);
             }),
             i.inputFields.unencryptedUsername.onChange(function (A) {
-              var e, e, t;
+              var t, t, e;
               bg.Policies.getAccountSelectionBasedOnEmail() &&
                 !i.userGroupOverride &&
-                (e = LPProxy.getLinkedAccount()) &&
-                A === e._shareInfo.decsharename &&
+                (t = LPProxy.getLinkedAccount()) &&
+                A === t._shareInfo.decsharename &&
                 -1 === i.inputFields.group.getValue().indexOf(A) &&
-                ((e = i.inputFields.group.getValue()), i.inputFields.group.setValue(e ? A + "\\" + e : A));
+                ((t = i.inputFields.group.getValue()), i.inputFields.group.setValue(t ? A + "\\" + t : A));
             }),
             i.inputFields.group.onChange(function (A) {}),
             A.find("#siteDialogPasswordHistory").bind("click", function () {
@@ -87,7 +87,7 @@ var SiteDialog = function (A) {
                       LPRequest.makeRequest(LPProxy.getPasswordHistory, {
                         params: { aid: i.vaultItem.getID(), shareId: i.vaultItem.getShareID() },
                         success: function (A) {
-                          t(A, i.vaultItem, Constants.HISTORY_TYPES.PASSWORD);
+                          e(A, i.vaultItem, Constants.HISTORY_TYPES.PASSWORD);
                         },
                         requestSuccessOptions: { closeDialog: !1 }
                       }),
@@ -120,7 +120,7 @@ var SiteDialog = function (A) {
               LPRequest.makeRequest(LPProxy.getUsernameHistory, {
                 params: { aid: i.vaultItem.getID(), shareId: i.vaultItem.getShareID() },
                 success: function (A) {
-                  t(A, i.vaultItem, Constants.HISTORY_TYPES.USERNAME);
+                  e(A, i.vaultItem, Constants.HISTORY_TYPES.USERNAME);
                 },
                 requestSuccessOptions: { closeDialog: !1 }
               });
@@ -129,7 +129,7 @@ var SiteDialog = function (A) {
               LPRequest.makeRequest(LPProxy.getNoteHistory, {
                 params: { aid: i.vaultItem.getID(), shareId: i.vaultItem.getShareID() },
                 success: function (A) {
-                  t(A, i.vaultItem, Constants.HISTORY_TYPES.NOTE);
+                  e(A, i.vaultItem, Constants.HISTORY_TYPES.NOTE);
                 },
                 requestSuccessOptions: { closeDialog: !1 }
               });
@@ -151,44 +151,44 @@ var SiteDialog = function (A) {
                   );
             });
         }),
-        function (A, e, t) {
-          dialogs.fieldHistory.open({ history: A, vaultItem: e, historyType: t });
+        function (A, t, e) {
+          dialogs.fieldHistory.open({ history: A, vaultItem: t, historyType: e });
         }),
       r =
         ((SiteDialog.prototype.preSetup = function (A) {
-          var e = null,
-            t;
+          var t = null,
+            e;
           (this.siteTypeName = null),
             LPFeatures.allowOmarIA() &&
-              (t = LPProxy.getConfigTypeObject("Password")) &&
-              ((this.siteTypeName = t.name),
-              (e = A && A.vaultItem ? Strings.translateString("Edit " + t.id) : Strings.translateString("Add " + t.id))),
-            (e = e || (A && A.vaultItem ? Strings.translateString("Edit Site") : Strings.translateString("Add Site"))),
-            A && (A.title = e);
+              (e = LPProxy.getConfigTypeObject("Password")) &&
+              ((this.siteTypeName = e.name),
+              (t = A && A.vaultItem ? Strings.translateString("Edit " + e.id) : Strings.translateString("Add " + e.id))),
+            (t = t || (A && A.vaultItem ? Strings.translateString("Edit Site") : Strings.translateString("Add Site"))),
+            A && (A.title = t);
         }),
-        (SiteDialog.prototype.open = function (t) {
-          var A, e, A, A, A, a;
+        (SiteDialog.prototype.open = function (e) {
+          var A, t, A, A, A, a;
           if (
-            ((t = $.extend(t, { sourceFunction: LPProxy.getSiteModel })).saveAllData
-              ? ((A = t.saveAllData), delete t.saveAllData, (t.defaultData = { url: A.url, save_all: !0 }), r(A.formdata, t.defaultData))
-              : t.defaultData && t.defaultData.formdata && (r(t.defaultData.formdata, t.defaultData), delete t.defaultData.formdata),
-            t.defaultData &&
-              t.defaultData.url &&
-              ((e = LPProxy.getDomain(t.defaultData.url)),
+            ((e = $.extend(e, { sourceFunction: LPProxy.getSiteModel })).saveAllData
+              ? ((A = e.saveAllData), delete e.saveAllData, (e.defaultData = { url: A.url, save_all: !0 }), r(A.formdata, e.defaultData))
+              : e.defaultData && e.defaultData.formdata && (r(e.defaultData.formdata, e.defaultData), delete e.defaultData.formdata),
+            e.defaultData &&
+              e.defaultData.url &&
+              ((t = LPProxy.getDomain(e.defaultData.url)),
               (A = bg.get("siteCats")),
-              void 0 === t.defaultData.group && A[e] && !bg.get("g_nofolder_feature_enabled") && (t.defaultData.group = A[e]),
-              void 0 === t.defaultData.name) &&
-              (t.defaultData.name = e),
-            bg.Policies.getSaveSiteToPersonal() && (A = LPProxy.getLinkedAccount()) && (t.defaultData = { group: A._data.group }),
-            t.saveOptions && t.saveOptions.checkForReplacement)
+              void 0 === e.defaultData.group && A[t] && !bg.get("g_nofolder_feature_enabled") && (e.defaultData.group = A[t]),
+              void 0 === e.defaultData.name) &&
+              (e.defaultData.name = t),
+            bg.Policies.getSaveSiteToPersonal() && (A = LPProxy.getLinkedAccount()) && (e.defaultData = { group: A._data.group }),
+            e.saveOptions && e.saveOptions.checkForReplacement)
           ) {
             for (
-              var e = LPProxy.getDomain(t.defaultData.url), i = [], o = LPProxy.getSiteModels(t.defaultData.url), n = 0, s = o.length;
+              var t = LPProxy.getDomain(e.defaultData.url), i = [], o = LPProxy.getSiteModels(e.defaultData.url), n = 0, s = o.length;
               n < s;
               ++n
             ) {
               var l = o[n];
-              LPProxy.getDomain(l.getURL()) === e && t.defaultData.unencryptedUsername === l.getUsername() && i.push(l);
+              LPProxy.getDomain(l.getURL()) === t && e.defaultData.unencryptedUsername === l.getUsername() && i.push(l);
             }
             if (0 < i.length)
               return void dialogs.vaultItemSelect.open({
@@ -197,18 +197,18 @@ var SiteDialog = function (A) {
                   : Strings.translateString("Replace Site"),
                 nextButtonText: Strings.translateString("Replace"),
                 backButtonText: Strings.Vault.NO,
-                text: Strings.translateString("Would you like to replace an existing entry you have for %s?", e),
+                text: Strings.translateString("Would you like to replace an existing entry you have for %s?", t),
                 items: i,
-                closeHandler: this.createHandler(EditableFieldsDialog.prototype.open, t),
+                closeHandler: this.createHandler(EditableFieldsDialog.prototype.open, e),
                 handler: this.createDynamicHandler(function (A) {
-                  var e = t.defaultData;
-                  delete t.defaultData,
+                  var t = e.defaultData;
+                  delete e.defaultData,
                     EditableFieldsDialog.prototype.open.call(
                       this,
-                      $.extend(t, {
+                      $.extend(e, {
                         vaultItem: A[0],
                         postSetup: function (A) {
-                          A.populateFields(e);
+                          A.populateFields(t);
                         }
                       })
                     );
@@ -217,20 +217,22 @@ var SiteDialog = function (A) {
               });
           }
           if (
-            ("object" == typeof t.vaultItem || "string" == typeof t.vaultItem) &&
+            ("object" == typeof e.vaultItem || "string" == typeof e.vaultItem) &&
             "object" == typeof reduxApp &&
             reduxApp.getState().settings.features.react_save_site_dialog &&
-            ("string" == typeof t.vaultItem && ((A = LPProxy.getSiteModel(t.vaultItem)), (t.vaultItem = A)),
-            (void 0 !== t.vaultItem._data && !t.vaultItem._data.save_all) ||
-              (!t.vaultItem.save_all &&
-                !t.vaultItem._sharedGroup._data.hasOwnProperty("tld") &&
-                !t.vaultItem._sharedGroup._data.hasOwnProperty("unencryptedUsername")))
+            ("string" == typeof e.vaultItem && ((A = LPProxy.getSiteModel(e.vaultItem)), (e.vaultItem = A)),
+            (void 0 !== e.vaultItem._data && !e.vaultItem._data.save_all) ||
+              (!e.vaultItem.save_all &&
+                e.vaultItem._sharedGroup &&
+                e.vaultItem._sharedGroup._data &&
+                !e.vaultItem._sharedGroup._data.hasOwnProperty("tld") &&
+                !e.vaultItem._sharedGroup._data.hasOwnProperty("unencryptedUsername")))
           )
-            return $("#dialogLoadingOverlay").removeClass("overlay"), void reduxApp.openReactSaveSiteDialog(t, "Vault");
-          EditableFieldsDialog.prototype.open.call(this, t);
+            return $("#dialogLoadingOverlay").removeClass("overlay"), void reduxApp.openReactSaveSiteDialog(e, "Vault");
+          EditableFieldsDialog.prototype.open.call(this, e);
         }),
-        (SiteDialog.prototype.setup = function (A, e) {
-          EditableFieldsDialog.prototype.setup.call(this, A, e),
+        (SiteDialog.prototype.setup = function (A, t) {
+          EditableFieldsDialog.prototype.setup.call(this, A, t),
             this.changePasswordButton.hide(),
             this.deleteTotpSecretButton.hide(),
             this.addTotpSecretButton.show(),
@@ -239,39 +241,39 @@ var SiteDialog = function (A) {
                 "1" === this.vaultItem._data.pwch && this.changePasswordButton.show(),
                 this.inputFields.url.disableDropdown())
               : (A.find(".history").hide(), this.inputFields.url.enableDropdown()),
-            !e.vaultItem && LPFeatures.allowOmarIA() ? A.find(".dialogAllSitesButton").show() : A.find(".dialogAllSitesButton").hide(),
+            !t.vaultItem && LPFeatures.allowOmarIA() ? A.find(".dialogAllSitesButton").show() : A.find(".dialogAllSitesButton").hide(),
             "" == A.find("#siteDialogTotp")[0].value
               ? (A.find("#siteDialogDeleteTotpSecret").hide(), A.find("#siteDialogAddTotpSecret").show())
               : (A.find("#siteDialogDeleteTotpSecret").show(), A.find("#siteDialogAddTotpSecret").hide()),
             (LPProxy.isEnterpriseUser() && LPFeatures.allowTwoFactorCode()) || (A.find("#totpBlock").hide(), this.setDynamicHeight());
-          var t = document.querySelectorAll("[data-field-name]");
-          if (void 0 !== t) {
-            for (var a = 0; a < t.length; a++) i.push({ trackingName: t[a].attributes["data-field-name"].value, isDirty: !1 });
-            document.getElementById("siteDialog").addEventListener("click", function (e) {
-              ((e.target.attributes["data-field-name"] && "" !== e.target.attributes["data-field-name"].value) ||
-                "favButton" === e.target.className ||
-                e.target.classList.contains("favButtonLabel")) &&
-                ("favButton" === e.target.className || e.target.classList.contains("favButtonLabel")
+          var e = document.querySelectorAll("[data-field-name]");
+          if (void 0 !== e) {
+            for (var a = 0; a < e.length; a++) i.push({ trackingName: e[a].attributes["data-field-name"].value, isDirty: !1 });
+            document.getElementById("siteDialog").addEventListener("click", function (t) {
+              ((t.target.attributes["data-field-name"] && "" !== t.target.attributes["data-field-name"].value) ||
+                "favButton" === t.target.className ||
+                t.target.classList.contains("favButtonLabel")) &&
+                ("favButton" === t.target.className || t.target.classList.contains("favButtonLabel")
                   ? (o.isFavorite = !0)
-                  : "Folder" === e.target.attributes["data-field-name"].value
+                  : "Folder" === t.target.attributes["data-field-name"].value
                   ? (o.isFolderFieldDirty = !0)
                   : Object.keys(i).forEach(function (A) {
-                      e.target.attributes["data-field-name"].value === i[A].trackingName && (i[A].isDirty = !0);
+                      t.target.attributes["data-field-name"].value === i[A].trackingName && (i[A].isDirty = !0);
                     }));
             });
           }
         }),
         (SiteDialog.prototype.validate = function (A) {
-          var e = EditableFieldsDialog.prototype.validate.apply(this, arguments),
-            t;
+          var t = EditableFieldsDialog.prototype.validate.apply(this, arguments),
+            e;
           return (
-            "" === A.name && (this.addError("name", Strings.translateString("Name is required.")), (e = !1)),
+            "" === A.name && (this.addError("name", Strings.translateString("Name is required.")), (t = !1)),
             bg.Policies.getAccountSelectionBasedOnEmail() &&
-              (t = LPProxy.getLinkedAccount()) &&
+              (e = LPProxy.getLinkedAccount()) &&
               A.unencryptedUsername === bg.get("g_username") &&
-              -1 !== A.group.indexOf(t._shareInfo.decsharename) &&
-              (this.addError("group", Strings.translateString("Cannot save to folder, restricted by a policy")), (e = !1)),
-            e
+              -1 !== A.group.indexOf(e._shareInfo.decsharename) &&
+              (this.addError("group", Strings.translateString("Cannot save to folder, restricted by a policy")), (t = !1)),
+            t
           );
         }),
         (SiteDialog.prototype.handleSubmit = function (A) {
@@ -281,14 +283,14 @@ var SiteDialog = function (A) {
             this.vaultItem ||
             bg.setSecurityScoreAlertBadge(),
             VaultItemDialog.prototype.handleSubmit.call(this, A);
-          var e = [],
+          var t = [],
             A = this.data.vaultItem ? "edit" : "add";
           Object.keys(i).forEach(function (A) {
-            i[A].isDirty && e.push(i[A].trackingName);
+            i[A].isDirty && t.push(i[A].trackingName);
           }),
             "add" == A
               ? bg.sendLpImprove("vault_add_item_dialog_clicked", {
-                  dirty_fields: JSON.stringify(e),
+                  dirty_fields: JSON.stringify(t),
                   attachment: "No",
                   favorite: o.isFavorite ? "Yes" : "No",
                   folder: o.isFolderFieldDirty ? "Yes" : "No",
@@ -300,7 +302,7 @@ var SiteDialog = function (A) {
                 })
               : "edit" == A &&
                 bg.sendLpImprove("vault_edit_item_dialog_clicked", {
-                  dirty_fields: JSON.stringify(e),
+                  dirty_fields: JSON.stringify(t),
                   attachment: "No",
                   favorite: o.isFavorite ? "Yes" : "No",
                   folder: o.isFolderFieldDirty ? "Yes" : "No",
@@ -314,16 +316,16 @@ var SiteDialog = function (A) {
         (SiteDialog.prototype.close = function (A) {
           Dialog.prototype.close.apply(this, arguments) && (i = []);
         }),
-        function (A, e) {
-          e.fields = [];
-          for (var t = A.split("\n"), a = 0, i = t.length; a < i; ++a) {
-            var o = t[a].split("\t"),
+        function (A, t) {
+          t.fields = [];
+          for (var e = A.split("\n"), a = 0, i = e.length; a < i; ++a) {
+            var o = e[a].split("\t"),
               n = decodeURIComponent(o[0]),
               s = decodeURIComponent(o[1]),
               l = decodeURIComponent(o[2]),
               r = decodeURIComponent(o[3]);
-            if ("action" === r) e.action = l;
-            else if ("method" === r) e.method = l;
+            if ("action" === r) t.action = l;
+            else if ("method" === r) t.method = l;
             else if (s)
               switch (r) {
                 case "email":
@@ -341,7 +343,7 @@ var SiteDialog = function (A) {
                     if ("-1" !== l.substring(l.length - 2)) continue;
                     d.value = l.substring(0, l.length - 2);
                   }
-                  e.fields.push(d);
+                  t.fields.push(d);
               }
           }
         });

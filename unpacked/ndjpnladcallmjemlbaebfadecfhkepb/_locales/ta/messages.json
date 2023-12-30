@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "பயன்பாடுகள்"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 நீட்டிப்பு ஆதரவின் முடிவு"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "ஜனவரி 15, 2024 முதல், இந்த நீட்டிப்பு இனி மைக்ரோசாப்ட் நிறுவனத்தால் ஆதரிக்கப்படாது."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "மேலும் தகவலுக்கு, இந்த நீட்டிப்பிற்கான ஆதரவு பக்கத்தைப் பார்வையிடவும்."
+  },
+  "Support": {
+    "message": "ஆதரவு"
   }
 }

@@ -2,7 +2,7 @@
 (self["webpackChunkbrowser_extension"] = self["webpackChunkbrowser_extension"] || []).push([
   [374],
   {
-    /***/ 42566: /***/ (module) => {
+    /***/ 2566: /***/ (module) => {
       /*
 object-assign
 (c) Sindre Sorhus
@@ -109,9 +109,9 @@ object-assign
       /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-      var aa = __webpack_require__(70846),
-        m = __webpack_require__(42566),
-        r = __webpack_require__(30156);
+      var aa = __webpack_require__(846),
+        m = __webpack_require__(2566),
+        r = __webpack_require__(156);
       function y(a) {
         for (var b = "https://reactjs.org/docs/error-decoder.html?invariant=" + a, c = 1; c < arguments.length; c++)
           b += "&args[]=" + encodeURIComponent(arguments[c]);
@@ -6905,7 +6905,7 @@ object-assign
       /***/
     },
 
-    /***/ 76644: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 6644: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       function checkDCE() {
         /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") {
@@ -6934,7 +6934,7 @@ object-assign
       /***/
     },
 
-    /***/ 64677: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
+    /***/ 4677: /***/ (__unused_webpack_module, exports, __webpack_require__) => {
       /** @license React v17.0.2
        * react.production.min.js
        *
@@ -6943,7 +6943,7 @@ object-assign
        * This source code is licensed under the MIT license found in the
        * LICENSE file in the root directory of this source tree.
        */
-      var l = __webpack_require__(42566),
+      var l = __webpack_require__(2566),
         n = 60103,
         p = 60106;
       exports.Fragment = 60107;
@@ -7259,16 +7259,16 @@ object-assign
       /***/
     },
 
-    /***/ 70846: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 846: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       if (true) {
-        module.exports = __webpack_require__(64677);
+        module.exports = __webpack_require__(4677);
       } else {
       }
 
       /***/
     },
 
-    /***/ 55840: /***/ (__unused_webpack_module, exports) => {
+    /***/ 5840: /***/ (__unused_webpack_module, exports) => {
       /** @license React v0.20.2
        * scheduler.production.min.js
        *
@@ -7568,9 +7568,9 @@ object-assign
       /***/
     },
 
-    /***/ 30156: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+    /***/ 156: /***/ (module, __unused_webpack_exports, __webpack_require__) => {
       if (true) {
-        module.exports = __webpack_require__(55840);
+        module.exports = __webpack_require__(5840);
       } else {
       }
 
@@ -7580,7 +7580,7 @@ object-assign
   /******/ (__webpack_require__) => {
     // webpackRuntimeModules
     /******/ var __webpack_exec__ = (moduleId) => __webpack_require__((__webpack_require__.s = moduleId));
-    /******/ var __webpack_exports__ = (__webpack_exec__(70846), __webpack_exec__(76644));
+    /******/ var __webpack_exports__ = (__webpack_exec__(846), __webpack_exec__(6644));
     /******/
   }
 ]);

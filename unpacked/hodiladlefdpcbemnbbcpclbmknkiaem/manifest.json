@@ -1,40 +1,34 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
 
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Visual Effects for Google Meet",
   "description": "Virtual Green Screens, Blur, Pixelate, 3D Filters and More! Including malicious site protection for the pages you visit",
-  "version": "3.1.3",
+  "version": "3.1.7",
   "content_scripts": [
-    {
-      "matches": ["https://*/*", "http://*/*"],
-      "js": ["ad-blockers/content.js"],
-      "run_at": "document_start",
-      "all_frames": true,
-      "match_about_blank": true
-    },
     {
       "all_frames": true,
       "js": ["content/injectScripts.js"],
       "matches": ["*://meet.google.com/**-**-**"],
       "run_at": "document_start"
-    },
-    {
-      "all_frames": false,
-      "js": ["safe-meeting/content.js"],
-      "matches": ["<all_urls>"],
-      "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": ["dist/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/*"],
+      "matches": ["*://*/*"]
+    }
+  ],
   "background": {
-    "scripts": ["ad-blockers/background.js", "safe-meeting/background.js", "common.js", "background.js"]
+    "service_worker": "./background.js",
+    "type": "module"
   },
-  "browser_action": {
+  "action": {
     "default_title": "Visual Effects",
     "default_popup": "popup/consent.html"
   },
-  "permissions": ["*://meet.google.com/**-**-**", "tabs", "webNavigation", "webRequest", "storage", "http://*/*", "https://*/*"],
+  "permissions": ["alarms", "tabs", "storage", "webRequest", "webNavigation", "scripting"],
+  "host_permissions": ["*://meet.google.com/**-**-**", "<all_urls>", "http://*/*", "https://*/*"],
   "icons": {
     "32": "icons/32.png",
     "64": "icons/64.png",

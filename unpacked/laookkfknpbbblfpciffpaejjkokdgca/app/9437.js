@@ -8,7 +8,7 @@
         n = a(88026),
         o = a(51726),
         l = a.n(o),
-        d = a(34952),
+        d = a(55482),
         s = a(7838),
         u = a(35174);
       let c = {};
@@ -31,12 +31,12 @@
             delete e.dataset.justBoundMobileClickHandler);
         }
       };
-      var b = a(28692),
+      var b = a(63420),
         k = a(64398),
         Z = a(77197);
       i.ZP.use(n.Z, { name: "unreactive" }),
         i.ZP.use(l()),
-        i.ZP.use(d.InlineSvgPlugin),
+        i.ZP.use(d.qK),
         i.ZP.use(b.og),
         i.ZP.use(Z.Z),
         (i.ZP.prototype.$xhr = u.Z),

@@ -1,7 +1,6 @@
 LavaPack.loadPolicy({
   resources: {
     "@babel/runtime": { globals: { regeneratorRuntime: "write" } },
-    "@download/blockies": { globals: { "document.createElement": !0 } },
     "@ensdomains/content-hash": {
       globals: { "console.warn": !0 },
       packages: {
@@ -25,13 +24,13 @@ LavaPack.loadPolicy({
       packages: { "@ensdomains/content-hash>cids>multibase>@multiformats/base-x": !0 }
     },
     "@ensdomains/content-hash>cids>multicodec": {
-      packages: { "@ensdomains/content-hash>cids>multicodec>varint": !0, "@ensdomains/content-hash>cids>uint8arrays": !0 }
+      packages: { "@ensdomains/content-hash>cids>uint8arrays": !0, "@ensdomains/content-hash>multicodec>varint": !0 }
     },
     "@ensdomains/content-hash>cids>multihashes": {
       packages: {
         "@ensdomains/content-hash>cids>multibase": !0,
-        "@ensdomains/content-hash>cids>uint8arrays": !0,
-        "@ensdomains/content-hash>multihashes>varint": !0
+        "@ensdomains/content-hash>cids>multihashes>varint": !0,
+        "@ensdomains/content-hash>cids>uint8arrays": !0
       }
     },
     "@ensdomains/content-hash>cids>uint8arrays": {
@@ -295,6 +294,7 @@ LavaPack.loadPolicy({
     },
     "@ethersproject/providers>@ethersproject/networks": { packages: { "@ethersproject/abi>@ethersproject/logger": !0 } },
     "@ethersproject/providers>@ethersproject/random": {
+      globals: { "crypto.getRandomValues": !0 },
       packages: { "@ethersproject/abi>@ethersproject/bytes": !0, "@ethersproject/abi>@ethersproject/logger": !0 }
     },
     "@ethersproject/providers>@ethersproject/rlp": {
@@ -332,6 +332,7 @@ LavaPack.loadPolicy({
       packages: {
         "browserify>assert": !0,
         "browserify>crypto-browserify": !0,
+        "ethereumjs-util>create-hash>ripemd160": !0,
         "ethereumjs-util>ethereum-cryptography>bs58check": !0,
         "ethereumjs-util>ethereum-cryptography>secp256k1": !0,
         "koa>content-disposition>safe-buffer": !0
@@ -500,7 +501,7 @@ LavaPack.loadPolicy({
     },
     "@metamask/address-book-controller>@metamask/controller-utils>@metamask/utils": {
       globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+      packages: { "@metamask/utils>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/announcement-controller": { packages: { "@metamask/base-controller": !0 } },
     "@metamask/approval-controller": {
@@ -515,7 +516,6 @@ LavaPack.loadPolicy({
         URL: !0,
         clearInterval: !0,
         clearTimeout: !0,
-        "console.info": !0,
         "console.log": !0,
         setInterval: !0,
         setTimeout: !0
@@ -525,15 +525,15 @@ LavaPack.loadPolicy({
         "@ethersproject/contracts": !0,
         "@ethersproject/providers": !0,
         "@metamask/assets-controllers>@metamask/abi-utils": !0,
-        "@metamask/assets-controllers>@metamask/polling-controller": !0,
-        "@metamask/assets-controllers>@metamask/utils": !0,
         "@metamask/assets-controllers>multiformats": !0,
         "@metamask/base-controller": !0,
         "@metamask/contract-metadata": !0,
         "@metamask/controller-utils": !0,
-        "@metamask/controller-utils>@metamask/eth-query": !0,
+        "@metamask/eth-query": !0,
         "@metamask/metamask-eth-abis": !0,
+        "@metamask/polling-controller": !0,
         "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/utils": !0,
         "eth-json-rpc-filters>async-mutex": !0,
         "ethereumjs-util": !0,
         "single-call-balance-checker-abi": !0,
@@ -541,21 +541,7 @@ LavaPack.loadPolicy({
         "webpack>events": !0
       }
     },
-    "@metamask/assets-controllers>@metamask/abi-utils": {
-      packages: { "@metamask/assets-controllers>@metamask/abi-utils>@metamask/utils": !0, superstruct: !0 }
-    },
-    "@metamask/assets-controllers>@metamask/abi-utils>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
-    "@metamask/assets-controllers>@metamask/polling-controller": {
-      globals: { clearTimeout: !0, "console.error": !0, setTimeout: !0 },
-      packages: { "@metamask/base-controller": !0, "@metamask/snaps-utils>fast-json-stable-stringify": !0, uuid: !0 }
-    },
-    "@metamask/assets-controllers>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
+    "@metamask/assets-controllers>@metamask/abi-utils": { packages: { "@metamask/utils": !0, superstruct: !0 } },
     "@metamask/assets-controllers>multiformats": { globals: { TextDecoder: !0, TextEncoder: !0, "console.warn": !0 } },
     "@metamask/base-controller": { globals: { setTimeout: !0 }, packages: { immer: !0 } },
     "@metamask/browser-passworder": {
@@ -573,19 +559,14 @@ LavaPack.loadPolicy({
     "@metamask/controller-utils": {
       globals: { URL: !0, "console.error": !0, fetch: !0, setTimeout: !0 },
       packages: {
-        "@metamask/controller-utils>@metamask/utils": !0,
         "@metamask/controller-utils>@spruceid/siwe-parser": !0,
+        "@metamask/utils": !0,
         "browserify>buffer": !0,
         "eslint>fast-deep-equal": !0,
         "eth-ens-namehash": !0,
         "ethereumjs-util": !0,
         "ethjs>ethjs-unit": !0
       }
-    },
-    "@metamask/controller-utils>@metamask/eth-query": { packages: { "eth-query>json-rpc-random-id": !0, "watchify>xtend": !0 } },
-    "@metamask/controller-utils>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/controller-utils>@spruceid/siwe-parser": {
       globals: { "console.error": !0, "console.log": !0 },
@@ -602,26 +583,25 @@ LavaPack.loadPolicy({
       globals: { URL: !0, "console.error": !0, setTimeout: !0 },
       packages: {
         "@metamask/eth-json-rpc-middleware>@metamask/eth-sig-util": !0,
-        "@metamask/eth-json-rpc-middleware>clone": !0,
-        "@metamask/eth-json-rpc-middleware>pify": !0,
         "@metamask/eth-json-rpc-middleware>safe-stable-stringify": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
         "@metamask/utils": !0,
-        "eth-rpc-errors": !0,
-        "json-rpc-engine": !0
+        pify: !0,
+        "sass-loader>klona": !0
       }
     },
     "@metamask/eth-json-rpc-middleware>@metamask/eth-sig-util": {
       packages: {
         "@ethereumjs/tx>@ethereumjs/util": !0,
         "@ethereumjs/tx>ethereum-cryptography": !0,
-        "bn.js": !0,
+        "@metamask/assets-controllers>@metamask/abi-utils": !0,
+        "@metamask/utils": !0,
         "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
         "eth-sig-util>tweetnacl": !0,
         "eth-sig-util>tweetnacl-util": !0
       }
     },
-    "@metamask/eth-json-rpc-middleware>clone": { packages: { "browserify>buffer": !0 } },
     "@metamask/eth-keyring-controller": {
       globals: { "console.error": !0 },
       packages: {
@@ -629,8 +609,8 @@ LavaPack.loadPolicy({
         "@metamask/eth-keyring-controller>@metamask/eth-hd-keyring": !0,
         "@metamask/eth-keyring-controller>@metamask/eth-sig-util": !0,
         "@metamask/eth-keyring-controller>@metamask/eth-simple-keyring": !0,
-        "@metamask/eth-keyring-controller>@metamask/utils": !0,
         "@metamask/obs-store": !0,
+        "@metamask/utils": !0,
         "webpack>events": !0
       }
     },
@@ -662,7 +642,7 @@ LavaPack.loadPolicy({
       packages: {
         "@metamask/eth-keyring-controller>@metamask/eth-hd-keyring>ethereum-cryptography>@noble/secp256k1": !0,
         "@metamask/eth-keyring-controller>@metamask/eth-hd-keyring>ethereum-cryptography>@scure/bip32>@noble/hashes": !0,
-        "@metamask/key-tree>@scure/base": !0
+        "@metamask/utils>@scure/base": !0
       }
     },
     "@metamask/eth-keyring-controller>@metamask/eth-hd-keyring>ethereum-cryptography>@scure/bip32>@noble/hashes": {
@@ -672,12 +652,27 @@ LavaPack.loadPolicy({
       packages: {
         "@ethereumjs/tx>@ethereumjs/util": !0,
         "@ethereumjs/tx>ethereum-cryptography": !0,
-        "bn.js": !0,
+        "@metamask/eth-keyring-controller>@metamask/eth-sig-util>@metamask/abi-utils": !0,
+        "@metamask/eth-keyring-controller>@metamask/eth-sig-util>@metamask/utils": !0,
+        "@metamask/eth-keyring-controller>@metamask/eth-sig-util>ethjs-util": !0,
         "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
         "eth-sig-util>tweetnacl": !0,
         "eth-sig-util>tweetnacl-util": !0
       }
+    },
+    "@metamask/eth-keyring-controller>@metamask/eth-sig-util>@metamask/abi-utils": {
+      packages: { "@metamask/eth-keyring-controller>@metamask/eth-sig-util>@metamask/abi-utils>@metamask/utils": !0, superstruct: !0 }
+    },
+    "@metamask/eth-keyring-controller>@metamask/eth-sig-util>@metamask/abi-utils>@metamask/utils": {
+      globals: { TextDecoder: !0, TextEncoder: !0 },
+      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    },
+    "@metamask/eth-keyring-controller>@metamask/eth-sig-util>@metamask/utils": {
+      globals: { TextDecoder: !0, TextEncoder: !0 },
+      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    },
+    "@metamask/eth-keyring-controller>@metamask/eth-sig-util>ethjs-util": {
+      packages: { "browserify>buffer": !0, "ethjs>ethjs-util>is-hex-prefixed": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 }
     },
     "@metamask/eth-keyring-controller>@metamask/eth-simple-keyring": {
       packages: {
@@ -696,10 +691,6 @@ LavaPack.loadPolicy({
     "@metamask/eth-keyring-controller>@metamask/eth-simple-keyring>ethereum-cryptography>@noble/hashes": {
       globals: { TextEncoder: !0, crypto: !0 }
     },
-    "@metamask/eth-keyring-controller>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
     "@metamask/eth-ledger-bridge-keyring": {
       globals: {
         addEventListener: !0,
@@ -711,70 +702,34 @@ LavaPack.loadPolicy({
       },
       packages: {
         "@ethereumjs/tx": !0,
-        "@metamask/eth-ledger-bridge-keyring>eth-sig-util": !0,
-        "@metamask/eth-ledger-bridge-keyring>hdkey": !0,
+        "@ethereumjs/tx>@ethereumjs/rlp": !0,
+        "@ethereumjs/tx>@ethereumjs/util": !0,
+        "@keystonehq/bc-ur-registry-eth>hdkey": !0,
+        "@metamask/eth-ledger-bridge-keyring>@metamask/eth-sig-util": !0,
         "browserify>buffer": !0,
-        "ethereumjs-util": !0,
         "webpack>events": !0
       }
     },
-    "@metamask/eth-ledger-bridge-keyring>eth-sig-util": {
+    "@metamask/eth-ledger-bridge-keyring>@metamask/eth-sig-util": {
       packages: {
-        "@metamask/eth-ledger-bridge-keyring>eth-sig-util>ethereumjs-util": !0,
+        "@ethereumjs/tx>@ethereumjs/util": !0,
+        "@ethereumjs/tx>ethereum-cryptography": !0,
+        "@metamask/assets-controllers>@metamask/abi-utils": !0,
+        "@metamask/utils": !0,
         "browserify>buffer": !0,
         "eth-sig-util>tweetnacl": !0,
-        "eth-sig-util>tweetnacl-util": !0,
-        "ethereumjs-abi": !0
+        "eth-sig-util>tweetnacl-util": !0
       }
     },
-    "@metamask/eth-ledger-bridge-keyring>eth-sig-util>ethereumjs-util": {
-      packages: {
-        "@metamask/eth-ledger-bridge-keyring>eth-sig-util>ethereumjs-util>ethereum-cryptography": !0,
-        "@metamask/ppom-validator>elliptic": !0,
-        "bn.js": !0,
-        "browserify>assert": !0,
-        "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
-        "ethereumjs-util>create-hash": !0,
-        "ethereumjs-util>rlp": !0,
-        "koa>content-disposition>safe-buffer": !0
-      }
-    },
-    "@metamask/eth-ledger-bridge-keyring>eth-sig-util>ethereumjs-util>ethereum-cryptography": {
-      packages: {
-        "browserify>buffer": !0,
-        "ethereumjs-util>ethereum-cryptography>keccak": !0,
-        "ethereumjs-util>ethereum-cryptography>secp256k1": !0,
-        "mocha>serialize-javascript>randombytes": !0
-      }
-    },
-    "@metamask/eth-ledger-bridge-keyring>hdkey": {
-      packages: {
-        "@metamask/eth-ledger-bridge-keyring>hdkey>secp256k1": !0,
-        "@metamask/eth-trezor-keyring>hdkey>coinstring": !0,
-        "browserify>assert": !0,
-        "browserify>crypto-browserify": !0,
-        "koa>content-disposition>safe-buffer": !0
-      }
-    },
-    "@metamask/eth-ledger-bridge-keyring>hdkey>secp256k1": {
-      packages: {
-        "@metamask/eth-trezor-keyring>hdkey>secp256k1>bip66": !0,
-        "@metamask/ppom-validator>elliptic": !0,
-        "bn.js": !0,
-        "browserify>insert-module-globals>is-buffer": !0,
-        "ethereumjs-util>create-hash": !0,
-        "koa>content-disposition>safe-buffer": !0
-      }
-    },
+    "@metamask/eth-query": { packages: { "@metamask/eth-query>json-rpc-random-id": !0, "watchify>xtend": !0 } },
     "@metamask/eth-snap-keyring": {
       globals: { "console.error": !0 },
       packages: {
         "@ethereumjs/tx": !0,
         "@metamask/eth-snap-keyring>@metamask/eth-sig-util": !0,
-        "@metamask/eth-snap-keyring>@metamask/utils": !0,
         "@metamask/eth-snap-keyring>uuid": !0,
         "@metamask/keyring-api": !0,
+        "@metamask/utils": !0,
         superstruct: !0,
         "webpack>events": !0
       }
@@ -784,16 +739,11 @@ LavaPack.loadPolicy({
         "@ethereumjs/tx>@ethereumjs/util": !0,
         "@ethereumjs/tx>ethereum-cryptography": !0,
         "@metamask/assets-controllers>@metamask/abi-utils": !0,
-        "@metamask/eth-snap-keyring>@metamask/utils": !0,
+        "@metamask/utils": !0,
         "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
         "eth-sig-util>tweetnacl": !0,
         "eth-sig-util>tweetnacl-util": !0
       }
-    },
-    "@metamask/eth-snap-keyring>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/eth-snap-keyring>uuid": { globals: { crypto: !0 } },
     "@metamask/eth-token-tracker": {
@@ -825,7 +775,7 @@ LavaPack.loadPolicy({
       packages: {
         "@metamask/eth-token-tracker>eth-block-tracker>pify": !0,
         "@metamask/eth-token-tracker>safe-event-emitter": !0,
-        "eth-query": !0
+        "eth-json-rpc-filters>eth-query": !0
       }
     },
     "@metamask/eth-token-tracker>ethjs": {
@@ -834,12 +784,12 @@ LavaPack.loadPolicy({
         "@metamask/eth-token-tracker>ethjs>ethjs-abi": !0,
         "@metamask/eth-token-tracker>ethjs>ethjs-contract": !0,
         "@metamask/eth-token-tracker>ethjs>ethjs-query": !0,
-        "@metamask/eth-token-tracker>ethjs>ethjs-util": !0,
         "bn.js": !0,
         "browserify>buffer": !0,
         "ethjs>ethjs-filter": !0,
         "ethjs>ethjs-provider-http": !0,
         "ethjs>ethjs-unit": !0,
+        "ethjs>ethjs-util": !0,
         "ethjs>js-sha3": !0,
         "ethjs>number-to-bn": !0
       }
@@ -850,9 +800,9 @@ LavaPack.loadPolicy({
     "@metamask/eth-token-tracker>ethjs>ethjs-contract": {
       packages: {
         "@metamask/eth-token-tracker>ethjs>ethjs-contract>ethjs-abi": !0,
-        "@metamask/eth-token-tracker>ethjs>ethjs-util": !0,
         "ethjs-contract>babel-runtime": !0,
         "ethjs>ethjs-filter": !0,
+        "ethjs>ethjs-util": !0,
         "ethjs>js-sha3": !0,
         "promise-to-callback": !0
       }
@@ -869,9 +819,6 @@ LavaPack.loadPolicy({
         "promise-to-callback": !0
       }
     },
-    "@metamask/eth-token-tracker>ethjs>ethjs-util": {
-      packages: { "browserify>buffer": !0, "ethjs>ethjs-util>is-hex-prefixed": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 }
-    },
     "@metamask/eth-token-tracker>safe-event-emitter": {
       globals: { setTimeout: !0 },
       packages: { "browserify>util": !0, "webpack>events": !0 }
@@ -881,7 +828,6 @@ LavaPack.loadPolicy({
       packages: {
         "@ethereumjs/tx": !0,
         "@ethereumjs/tx>@ethereumjs/util": !0,
-        "@metamask/eth-trezor-keyring>@metamask/utils": !0,
         "@metamask/eth-trezor-keyring>@trezor/connect-plugin-ethereum": !0,
         "@metamask/eth-trezor-keyring>@trezor/connect-web": !0,
         "@metamask/eth-trezor-keyring>hdkey": !0,
@@ -893,16 +839,15 @@ LavaPack.loadPolicy({
       packages: {
         "@ethereumjs/tx>@ethereumjs/util": !0,
         "@ethereumjs/tx>ethereum-cryptography": !0,
+        "@metamask/eth-trezor-keyring>@metamask/eth-sig-util>ethjs-util": !0,
         "bn.js": !0,
         "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
         "eth-sig-util>tweetnacl": !0,
         "eth-sig-util>tweetnacl-util": !0
       }
     },
-    "@metamask/eth-trezor-keyring>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    "@metamask/eth-trezor-keyring>@metamask/eth-sig-util>ethjs-util": {
+      packages: { "browserify>buffer": !0, "ethjs>ethjs-util>is-hex-prefixed": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 }
     },
     "@metamask/eth-trezor-keyring>@trezor/connect-plugin-ethereum": {
       packages: { "@metamask/eth-trezor-keyring>@metamask/eth-sig-util": !0 }
@@ -945,7 +890,7 @@ LavaPack.loadPolicy({
       },
       packages: {
         "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>@trezor/transport": !0,
-        "mockttp>graphql-tag>tslib": !0
+        "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>tslib": !0
       }
     },
     "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>@trezor/transport": {
@@ -993,6 +938,7 @@ LavaPack.loadPolicy({
         "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>@trezor/transport>protobufjs>@protobufjs/inquire": !0
       }
     },
+    "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/connect>tslib": { globals: { define: !0 } },
     "@metamask/eth-trezor-keyring>@trezor/connect-web>@trezor/utils": {
       globals: { AbortController: !0, clearTimeout: !0, setTimeout: !0 },
       packages: { "browserify>buffer": !0 }
@@ -1028,13 +974,10 @@ LavaPack.loadPolicy({
     "@metamask/ethjs-query>ethjs-format": {
       packages: {
         "@metamask/ethjs-query>ethjs-format>ethjs-schema": !0,
-        "@metamask/ethjs-query>ethjs-format>ethjs-util": !0,
+        "ethjs>ethjs-util": !0,
         "ethjs>ethjs-util>strip-hex-prefix": !0,
         "ethjs>number-to-bn": !0
       }
-    },
-    "@metamask/ethjs-query>ethjs-format>ethjs-util": {
-      packages: { "browserify>buffer": !0, "ethjs>ethjs-util>is-hex-prefixed": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 }
     },
     "@metamask/ethjs-query>ethjs-rpc": { packages: { "promise-to-callback": !0 } },
     "@metamask/gas-fee-controller": {
@@ -1042,7 +985,7 @@ LavaPack.loadPolicy({
       packages: {
         "@metamask/base-controller": !0,
         "@metamask/gas-fee-controller>@metamask/controller-utils": !0,
-        "eth-query": !0,
+        "eth-json-rpc-filters>eth-query": !0,
         "ethereumjs-util": !0,
         "ethjs>ethjs-unit": !0,
         uuid: !0
@@ -1062,7 +1005,7 @@ LavaPack.loadPolicy({
     },
     "@metamask/gas-fee-controller>@metamask/controller-utils>@metamask/utils": {
       globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+      packages: { "@metamask/utils>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/jazzicon": {
       globals: { "document.createElement": !0, "document.createElementNS": !0 },
@@ -1082,47 +1025,35 @@ LavaPack.loadPolicy({
       packages: {
         "@metamask/key-tree>@metamask/utils": !0,
         "@metamask/key-tree>@noble/ed25519": !0,
-        "@metamask/key-tree>@noble/hashes": !0,
         "@metamask/key-tree>@noble/secp256k1": !0,
-        "@metamask/key-tree>@scure/base": !0,
-        "@metamask/scure-bip39": !0
+        "@metamask/scure-bip39": !0,
+        "@metamask/utils>@noble/hashes": !0,
+        "@metamask/utils>@scure/base": !0
       }
     },
     "@metamask/key-tree>@metamask/utils": {
       globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+      packages: { "@metamask/utils>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/key-tree>@noble/ed25519": { globals: { crypto: !0 }, packages: { "browserify>browser-resolve": !0 } },
-    "@metamask/key-tree>@noble/hashes": { globals: { TextEncoder: !0, crypto: !0 } },
     "@metamask/key-tree>@noble/secp256k1": { globals: { crypto: !0 }, packages: { "browserify>browser-resolve": !0 } },
-    "@metamask/key-tree>@scure/base": { globals: { TextDecoder: !0, TextEncoder: !0 } },
-    "@metamask/keyring-api": {
-      packages: { "@metamask/keyring-api>@metamask/utils": !0, "@metamask/keyring-api>uuid": !0, superstruct: !0 }
-    },
-    "@metamask/keyring-api>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
+    "@metamask/keyring-api": { packages: { "@metamask/keyring-api>uuid": !0, "@metamask/utils": !0, superstruct: !0 } },
     "@metamask/keyring-api>uuid": { globals: { crypto: !0 } },
     "@metamask/keyring-controller": {
       packages: {
         "@metamask/base-controller": !0,
         "@metamask/eth-keyring-controller": !0,
-        "@metamask/keyring-controller>@metamask/utils": !0,
         "@metamask/keyring-controller>ethereumjs-wallet": !0,
+        "@metamask/utils": !0,
         "eth-json-rpc-filters>async-mutex": !0,
         "ethereumjs-util": !0
       }
-    },
-    "@metamask/keyring-controller>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/keyring-controller>ethereumjs-wallet": {
       packages: {
         "@metamask/keyring-controller>ethereumjs-wallet>ethereum-cryptography": !0,
         "@metamask/keyring-controller>ethereumjs-wallet>ethereumjs-util": !0,
-        "@truffle/codec>utf8": !0,
+        "@metamask/keyring-controller>ethereumjs-wallet>utf8": !0,
         "browserify>buffer": !0,
         "browserify>crypto-browserify": !0,
         "eth-lattice-keyring>gridplus-sdk>aes-js": !0,
@@ -1185,16 +1116,11 @@ LavaPack.loadPolicy({
         "@ethereumjs/tx>@ethereumjs/util": !0,
         "@ethereumjs/tx>ethereum-cryptography": !0,
         "@metamask/assets-controllers>@metamask/abi-utils": !0,
-        "@metamask/message-manager>@metamask/utils": !0,
+        "@metamask/utils": !0,
         "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
         "eth-sig-util>tweetnacl": !0,
         "eth-sig-util>tweetnacl-util": !0
       }
-    },
-    "@metamask/message-manager>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/message-manager>jsonschema": { packages: { "browserify>url": !0 } },
     "@metamask/name-controller": {
@@ -1203,54 +1129,53 @@ LavaPack.loadPolicy({
     },
     "@metamask/name-controller>@metamask/utils": {
       globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+      packages: { "@metamask/utils>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/network-controller": {
       globals: { URL: !0, btoa: !0, fetch: !0, setTimeout: !0 },
       packages: {
         "@metamask/base-controller": !0,
         "@metamask/controller-utils": !0,
-        "@metamask/controller-utils>@metamask/eth-query": !0,
         "@metamask/eth-json-rpc-middleware": !0,
+        "@metamask/eth-query": !0,
         "@metamask/network-controller>@metamask/eth-json-rpc-infura": !0,
         "@metamask/network-controller>@metamask/eth-json-rpc-provider": !0,
         "@metamask/network-controller>@metamask/swappable-obj-proxy": !0,
-        "@metamask/network-controller>@metamask/utils": !0,
         "@metamask/network-controller>eth-block-tracker": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/utils": !0,
         "browserify>assert": !0,
-        "eth-rpc-errors": !0,
-        "json-rpc-engine": !0,
         uuid: !0
       }
     },
     "@metamask/network-controller>@metamask/eth-json-rpc-infura": {
       globals: { setTimeout: !0 },
       packages: {
-        "@metamask/network-controller>@metamask/eth-json-rpc-infura>@metamask/utils": !0,
         "@metamask/network-controller>@metamask/eth-json-rpc-provider": !0,
-        "eth-rpc-errors": !0,
-        "json-rpc-engine": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/utils": !0,
         "node-fetch": !0
       }
     },
-    "@metamask/network-controller>@metamask/eth-json-rpc-infura>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
     "@metamask/network-controller>@metamask/eth-json-rpc-provider": {
-      packages: { "@metamask/safe-event-emitter": !0, "json-rpc-engine": !0 }
+      packages: {
+        "@metamask/network-controller>@metamask/eth-json-rpc-provider>@metamask/safe-event-emitter": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0
+      }
     },
-    "@metamask/network-controller>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    "@metamask/network-controller>@metamask/eth-json-rpc-provider>@metamask/safe-event-emitter": {
+      globals: { setTimeout: !0 },
+      packages: { "webpack>events": !0 }
     },
     "@metamask/network-controller>eth-block-tracker": {
       globals: { clearTimeout: !0, "console.error": !0, setTimeout: !0 },
       packages: {
+        "@metamask/eth-query>json-rpc-random-id": !0,
         "@metamask/network-controller>eth-block-tracker>@metamask/safe-event-emitter": !0,
-        "@metamask/network-controller>eth-block-tracker>pify": !0,
         "@metamask/utils": !0,
-        "eth-query>json-rpc-random-id": !0
+        pify: !0
       }
     },
     "@metamask/network-controller>eth-block-tracker>@metamask/safe-event-emitter": {
@@ -1258,7 +1183,15 @@ LavaPack.loadPolicy({
       packages: { "webpack>events": !0 }
     },
     "@metamask/notification-controller": {
-      packages: { "@metamask/base-controller": !0, "@metamask/notification-controller>nanoid": !0, "@metamask/utils": !0 }
+      packages: {
+        "@metamask/base-controller": !0,
+        "@metamask/notification-controller>@metamask/utils": !0,
+        "@metamask/notification-controller>nanoid": !0
+      }
+    },
+    "@metamask/notification-controller>@metamask/utils": {
+      globals: { TextDecoder: !0, TextEncoder: !0 },
+      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/notification-controller>nanoid": { globals: { "crypto.getRandomValues": !0 } },
     "@metamask/obs-store": {
@@ -1270,56 +1203,84 @@ LavaPack.loadPolicy({
     "@metamask/permission-controller": {
       globals: { "console.error": !0 },
       packages: {
-        "@metamask/base-controller": !0,
-        "@metamask/controller-utils": !0,
-        "@metamask/permission-controller>@metamask/utils": !0,
+        "@metamask/permission-controller>@metamask/base-controller": !0,
+        "@metamask/permission-controller>@metamask/controller-utils": !0,
         "@metamask/permission-controller>nanoid": !0,
         "@metamask/providers>@metamask/json-rpc-engine": !0,
         "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/utils": !0,
         "deep-freeze-strict": !0,
         immer: !0
       }
     },
-    "@metamask/permission-controller>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    "@metamask/permission-controller>@metamask/base-controller": { globals: { setTimeout: !0 }, packages: { immer: !0 } },
+    "@metamask/permission-controller>@metamask/controller-utils": {
+      globals: { URL: !0, "console.error": !0, fetch: !0, setTimeout: !0 },
+      packages: {
+        "@metamask/controller-utils>@spruceid/siwe-parser": !0,
+        "@metamask/permission-controller>@metamask/controller-utils>@metamask/ethjs-unit": !0,
+        "@metamask/utils": !0,
+        "browserify>buffer": !0,
+        "eslint>fast-deep-equal": !0,
+        "eth-ens-namehash": !0,
+        "ethereumjs-util": !0
+      }
+    },
+    "@metamask/permission-controller>@metamask/controller-utils>@metamask/ethjs-unit": {
+      packages: { "bn.js": !0, "ethjs>number-to-bn": !0 }
     },
     "@metamask/permission-controller>nanoid": { globals: { "crypto.getRandomValues": !0 } },
     "@metamask/phishing-controller": {
       globals: { fetch: !0 },
       packages: {
         "@metamask/base-controller": !0,
-        "@metamask/phishing-controller>@metamask/controller-utils": !0,
+        "@metamask/controller-utils": !0,
         "@metamask/phishing-warning>eth-phishing-detect": !0,
         punycode: !0
       }
     },
-    "@metamask/phishing-controller>@metamask/controller-utils": {
-      globals: { URL: !0, "console.error": !0, fetch: !0, setTimeout: !0 },
+    "@metamask/phishing-warning>eth-phishing-detect": { packages: { "eslint>optionator>fast-levenshtein": !0 } },
+    "@metamask/polling-controller": {
+      globals: { clearTimeout: !0, "console.error": !0, setTimeout: !0 },
+      packages: { "@metamask/base-controller": !0, "@metamask/snaps-utils>fast-json-stable-stringify": !0, uuid: !0 }
+    },
+    "@metamask/post-message-stream": {
+      globals: {
+        "MessageEvent.prototype": !0,
+        WorkerGlobalScope: !0,
+        addEventListener: !0,
+        browser: !0,
+        chrome: !0,
+        "location.origin": !0,
+        postMessage: !0,
+        removeEventListener: !0
+      },
+      packages: { "@metamask/post-message-stream>@metamask/utils": !0, "@metamask/post-message-stream>readable-stream": !0 }
+    },
+    "@metamask/post-message-stream>@metamask/utils": {
+      globals: { TextDecoder: !0, TextEncoder: !0 },
+      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    },
+    "@metamask/post-message-stream>readable-stream": {
       packages: {
-        "@metamask/controller-utils>@spruceid/siwe-parser": !0,
-        "@metamask/phishing-controller>@metamask/controller-utils>@metamask/utils": !0,
+        "browserify>browser-resolve": !0,
         "browserify>buffer": !0,
-        "eslint>fast-deep-equal": !0,
-        "eth-ens-namehash": !0,
-        "ethereumjs-util": !0,
-        "ethjs>ethjs-unit": !0
+        "browserify>process": !0,
+        "browserify>string_decoder": !0,
+        "pumpify>inherits": !0,
+        "readable-stream>util-deprecate": !0,
+        "webpack>events": !0
       }
     },
-    "@metamask/phishing-controller>@metamask/controller-utils>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
-    "@metamask/phishing-warning>eth-phishing-detect": { packages: { "eslint>optionator>fast-levenshtein": !0 } },
     "@metamask/ppom-validator": {
       globals: { URL: !0, clearInterval: !0, "console.error": !0, setInterval: !0 },
       packages: {
         "@metamask/base-controller": !0,
+        "@metamask/eth-query>json-rpc-random-id": !0,
         "@metamask/ppom-validator>@metamask/controller-utils": !0,
         "@metamask/ppom-validator>elliptic": !0,
         "await-semaphore": !0,
-        "browserify>buffer": !0,
-        "eth-query>json-rpc-random-id": !0
+        "browserify>buffer": !0
       }
     },
     "@metamask/ppom-validator>@metamask/controller-utils": {
@@ -1336,7 +1297,7 @@ LavaPack.loadPolicy({
     },
     "@metamask/ppom-validator>@metamask/controller-utils>@metamask/utils": {
       globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+      packages: { "@metamask/utils>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/ppom-validator>elliptic": {
       packages: {
@@ -1360,28 +1321,38 @@ LavaPack.loadPolicy({
     "@metamask/providers>@metamask/json-rpc-engine": {
       packages: {
         "@metamask/providers>@metamask/json-rpc-engine>@metamask/safe-event-emitter": !0,
-        "@metamask/providers>@metamask/json-rpc-engine>@metamask/utils": !0,
-        "@metamask/providers>@metamask/rpc-errors": !0
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/utils": !0
       }
     },
     "@metamask/providers>@metamask/json-rpc-engine>@metamask/safe-event-emitter": {
       globals: { setTimeout: !0 },
       packages: { "webpack>events": !0 }
     },
-    "@metamask/providers>@metamask/json-rpc-engine>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
     "@metamask/providers>@metamask/object-multiplex": {
       globals: { "console.warn": !0 },
-      packages: { "end-of-stream": !0, "pump>once": !0, "readable-stream": !0 }
+      packages: { "@metamask/providers>@metamask/object-multiplex>readable-stream": !0, "pump>once": !0 }
     },
-    "@metamask/providers>@metamask/rpc-errors": {
-      packages: { "@metamask/providers>@metamask/rpc-errors>@metamask/utils": !0, "eth-rpc-errors>fast-safe-stringify": !0 }
+    "@metamask/providers>@metamask/object-multiplex>readable-stream": {
+      packages: {
+        "browserify>browser-resolve": !0,
+        "browserify>buffer": !0,
+        "browserify>process": !0,
+        "browserify>string_decoder": !0,
+        "pumpify>inherits": !0,
+        "readable-stream>util-deprecate": !0,
+        "webpack>events": !0
+      }
     },
-    "@metamask/providers>@metamask/rpc-errors>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    "@metamask/providers>@metamask/rpc-errors": { packages: { "@metamask/utils": !0, "eth-rpc-errors>fast-safe-stringify": !0 } },
+    "@metamask/queued-request-controller": {
+      packages: {
+        "@metamask/base-controller": !0,
+        "@metamask/controller-utils": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/selected-network-controller": !0
+      }
     },
     "@metamask/rate-limit-controller": { globals: { setTimeout: !0 }, packages: { "@metamask/base-controller": !0, "eth-rpc-errors": !0 } },
     "@metamask/rpc-methods-flask>nanoid": { globals: { "crypto.getRandomValues": !0 } },
@@ -1389,10 +1360,12 @@ LavaPack.loadPolicy({
     "@metamask/safe-event-emitter": { globals: { setTimeout: !0 }, packages: { "webpack>events": !0 } },
     "@metamask/scure-bip39": {
       globals: { TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@scure/base": !0, "@metamask/scure-bip39>@noble/hashes": !0 }
+      packages: { "@metamask/scure-bip39>@noble/hashes": !0, "@metamask/utils>@scure/base": !0 }
     },
     "@metamask/scure-bip39>@noble/hashes": { globals: { TextEncoder: !0, crypto: !0 } },
-    "@metamask/selected-network-controller": { packages: { "@metamask/base-controller": !0 } },
+    "@metamask/selected-network-controller": {
+      packages: { "@metamask/base-controller": !0, "@metamask/network-controller>@metamask/swappable-obj-proxy": !0 }
+    },
     "@metamask/signature-controller": {
       globals: { "console.info": !0 },
       packages: {
@@ -1414,27 +1387,11 @@ LavaPack.loadPolicy({
         "@ethersproject/bignumber": !0,
         "@ethersproject/providers": !0,
         "@metamask/base-controller": !0,
-        "@metamask/smart-transactions-controller>@metamask/controller-utils": !0,
+        "@metamask/controller-utils": !0,
         "@metamask/smart-transactions-controller>bignumber.js": !0,
         "fast-json-patch": !0,
         lodash: !0
       }
-    },
-    "@metamask/smart-transactions-controller>@metamask/controller-utils": {
-      globals: { URL: !0, "console.error": !0, fetch: !0, setTimeout: !0 },
-      packages: {
-        "@metamask/controller-utils>@spruceid/siwe-parser": !0,
-        "@metamask/smart-transactions-controller>@metamask/controller-utils>@metamask/utils": !0,
-        "browserify>buffer": !0,
-        "eslint>fast-deep-equal": !0,
-        "eth-ens-namehash": !0,
-        "ethereumjs-util": !0,
-        "ethjs>ethjs-unit": !0
-      }
-    },
-    "@metamask/smart-transactions-controller>@metamask/controller-utils>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/smart-transactions-controller>@metamask/controllers>nanoid": { globals: { "crypto.getRandomValues": !0 } },
     "@metamask/smart-transactions-controller>bignumber.js": { globals: { crypto: !0, define: !0 } },
@@ -1450,69 +1407,48 @@ LavaPack.loadPolicy({
       },
       packages: {
         "@metamask/base-controller": !0,
-        "@metamask/permission-controller": !0,
+        "@metamask/post-message-stream": !0,
         "@metamask/providers>@metamask/json-rpc-engine": !0,
         "@metamask/providers>@metamask/object-multiplex": !0,
         "@metamask/providers>@metamask/rpc-errors": !0,
-        "@metamask/snaps-controllers>@metamask/post-message-stream": !0,
-        "@metamask/snaps-controllers>@metamask/utils": !0,
+        "@metamask/snaps-controllers>@metamask/permission-controller": !0,
         "@metamask/snaps-controllers>@xstate/fsm": !0,
         "@metamask/snaps-controllers>concat-stream": !0,
         "@metamask/snaps-controllers>get-npm-tarball-url": !0,
         "@metamask/snaps-controllers>gunzip-maybe": !0,
-        "@metamask/snaps-controllers>json-rpc-middleware-stream": !0,
         "@metamask/snaps-controllers>nanoid": !0,
+        "@metamask/snaps-controllers>readable-stream": !0,
         "@metamask/snaps-controllers>readable-web-to-node-stream": !0,
         "@metamask/snaps-controllers>tar-stream": !0,
         "@metamask/snaps-rpc-methods": !0,
+        "@metamask/snaps-sdk": !0,
         "@metamask/snaps-utils": !0,
         "@metamask/snaps-utils>@metamask/snaps-registry": !0,
-        "stream-browserify": !0
+        "@metamask/utils": !0,
+        "json-rpc-middleware-stream": !0
       }
     },
     "@metamask/snaps-controllers-flask>nanoid": { globals: { "crypto.getRandomValues": !0 } },
-    "@metamask/snaps-controllers>@metamask/post-message-stream": {
-      globals: {
-        "MessageEvent.prototype": !0,
-        WorkerGlobalScope: !0,
-        addEventListener: !0,
-        browser: !0,
-        chrome: !0,
-        "location.origin": !0,
-        postMessage: !0,
-        removeEventListener: !0
-      },
+    "@metamask/snaps-controllers>@metamask/permission-controller": {
+      globals: { "console.error": !0 },
       packages: {
-        "@metamask/snaps-controllers>@metamask/post-message-stream>@metamask/utils": !0,
-        "@metamask/snaps-controllers>concat-stream>readable-stream": !0
+        "@metamask/base-controller": !0,
+        "@metamask/controller-utils": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/snaps-controllers>nanoid": !0,
+        "@metamask/utils": !0,
+        "deep-freeze-strict": !0,
+        immer: !0
       }
-    },
-    "@metamask/snaps-controllers>@metamask/post-message-stream>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
-    "@metamask/snaps-controllers>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
     },
     "@metamask/snaps-controllers>concat-stream": {
       packages: {
-        "@metamask/snaps-controllers>concat-stream>readable-stream": !0,
+        "@metamask/snaps-controllers>readable-stream": !0,
         "browserify>buffer": !0,
         "browserify>concat-stream>typedarray": !0,
         "pumpify>inherits": !0,
         "terser>source-map-support>buffer-from": !0
-      }
-    },
-    "@metamask/snaps-controllers>concat-stream>readable-stream": {
-      packages: {
-        "browserify>browser-resolve": !0,
-        "browserify>buffer": !0,
-        "browserify>process": !0,
-        "browserify>string_decoder": !0,
-        "pumpify>inherits": !0,
-        "readable-stream>util-deprecate": !0,
-        "webpack>events": !0
       }
     },
     "@metamask/snaps-controllers>gunzip-maybe": {
@@ -1579,18 +1515,18 @@ LavaPack.loadPolicy({
     "@metamask/snaps-controllers>gunzip-maybe>through2": {
       packages: { "browserify>process": !0, "browserify>util": !0, "readable-stream": !0, "watchify>xtend": !0 }
     },
-    "@metamask/snaps-controllers>json-rpc-middleware-stream": {
-      globals: { "console.warn": !0, setTimeout: !0 },
+    "@metamask/snaps-controllers>nanoid": { globals: { "crypto.getRandomValues": !0 } },
+    "@metamask/snaps-controllers>readable-stream": {
       packages: {
-        "@metamask/snaps-controllers>concat-stream>readable-stream": !0,
-        "@metamask/snaps-controllers>json-rpc-middleware-stream>@metamask/safe-event-emitter": !0
+        "browserify>browser-resolve": !0,
+        "browserify>buffer": !0,
+        "browserify>process": !0,
+        "browserify>string_decoder": !0,
+        "pumpify>inherits": !0,
+        "readable-stream>util-deprecate": !0,
+        "webpack>events": !0
       }
     },
-    "@metamask/snaps-controllers>json-rpc-middleware-stream>@metamask/safe-event-emitter": {
-      globals: { setTimeout: !0 },
-      packages: { "webpack>events": !0 }
-    },
-    "@metamask/snaps-controllers>nanoid": { globals: { "crypto.getRandomValues": !0 } },
     "@metamask/snaps-controllers>readable-web-to-node-stream": {
       packages: { "@metamask/snaps-controllers>readable-web-to-node-stream>readable-stream": !0 }
     },
@@ -1625,28 +1561,34 @@ LavaPack.loadPolicy({
     "@metamask/snaps-rpc-methods": {
       packages: {
         "@metamask/key-tree": !0,
-        "@metamask/key-tree>@noble/hashes": !0,
-        "@metamask/permission-controller": !0,
         "@metamask/providers>@metamask/rpc-errors": !0,
-        "@metamask/snaps-rpc-methods>@metamask/utils": !0,
-        "@metamask/snaps-ui": !0,
+        "@metamask/snaps-rpc-methods>@metamask/permission-controller": !0,
+        "@metamask/snaps-sdk": !0,
         "@metamask/snaps-utils": !0,
+        "@metamask/utils": !0,
+        "@metamask/utils>@noble/hashes": !0,
         superstruct: !0
       }
     },
-    "@metamask/snaps-rpc-methods>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    "@metamask/snaps-rpc-methods>@metamask/permission-controller": {
+      globals: { "console.error": !0 },
+      packages: {
+        "@metamask/base-controller": !0,
+        "@metamask/controller-utils": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/snaps-rpc-methods>@metamask/permission-controller>nanoid": !0,
+        "@metamask/utils": !0,
+        "deep-freeze-strict": !0,
+        immer: !0
+      }
     },
-    "@metamask/snaps-ui": { packages: { "@metamask/snaps-ui>@metamask/utils": !0, "@metamask/snaps-ui>is-svg": !0, superstruct: !0 } },
-    "@metamask/snaps-ui>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
-    "@metamask/snaps-ui>is-svg": { packages: { "@metamask/snaps-ui>is-svg>fast-xml-parser": !0 } },
-    "@metamask/snaps-ui>is-svg>fast-xml-parser": {
+    "@metamask/snaps-rpc-methods>@metamask/permission-controller>nanoid": { globals: { "crypto.getRandomValues": !0 } },
+    "@metamask/snaps-sdk": { packages: { "@metamask/snaps-sdk>is-svg": !0, "@metamask/utils": !0, superstruct: !0 } },
+    "@metamask/snaps-sdk>is-svg": { packages: { "@metamask/snaps-sdk>is-svg>fast-xml-parser": !0 } },
+    "@metamask/snaps-sdk>is-svg>fast-xml-parser": {
       globals: { entityName: !0, val: !0 },
-      packages: { "@metamask/snaps-ui>is-svg>fast-xml-parser>strnum": !0 }
+      packages: { "@metamask/snaps-sdk>is-svg>fast-xml-parser>strnum": !0 }
     },
     "@metamask/snaps-utils": {
       globals: {
@@ -1655,21 +1597,23 @@ LavaPack.loadPolicy({
         "console.error": !0,
         "console.log": !0,
         "console.warn": !0,
+        crypto: !0,
         "document.body.appendChild": !0,
         "document.createElement": !0
       },
       packages: {
         "@metamask/key-tree": !0,
-        "@metamask/key-tree>@noble/hashes": !0,
-        "@metamask/key-tree>@scure/base": !0,
-        "@metamask/permission-controller": !0,
         "@metamask/providers>@metamask/rpc-errors": !0,
-        "@metamask/snaps-ui>is-svg": !0,
-        "@metamask/snaps-utils>@metamask/utils": !0,
+        "@metamask/snaps-sdk": !0,
+        "@metamask/snaps-sdk>is-svg": !0,
+        "@metamask/snaps-utils>@metamask/permission-controller": !0,
         "@metamask/snaps-utils>cron-parser": !0,
         "@metamask/snaps-utils>fast-json-stable-stringify": !0,
         "@metamask/snaps-utils>rfdc": !0,
         "@metamask/snaps-utils>validate-npm-package-name": !0,
+        "@metamask/utils": !0,
+        "@metamask/utils>@noble/hashes": !0,
+        "@metamask/utils>@scure/base": !0,
         "browserify>buffer": !0,
         "browserify>path-browserify": !0,
         "browserify>process": !0,
@@ -1678,29 +1622,136 @@ LavaPack.loadPolicy({
         superstruct: !0
       }
     },
-    "@metamask/snaps-utils>@metamask/snaps-registry": {
+    "@metamask/snaps-utils>@metamask/permission-controller": {
+      globals: { "console.error": !0 },
       packages: {
-        "@metamask/key-tree>@noble/secp256k1": !0,
-        "@metamask/snaps-utils>@metamask/snaps-registry>@metamask/utils": !0,
-        superstruct: !0
+        "@metamask/base-controller": !0,
+        "@metamask/controller-utils": !0,
+        "@metamask/providers>@metamask/json-rpc-engine": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/snaps-utils>@metamask/permission-controller>nanoid": !0,
+        "@metamask/utils": !0,
+        "deep-freeze-strict": !0,
+        immer: !0
       }
     },
-    "@metamask/snaps-utils>@metamask/snaps-registry>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
-    },
-    "@metamask/snaps-utils>@metamask/utils": {
-      globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "@metamask/key-tree>@noble/hashes": !0, "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+    "@metamask/snaps-utils>@metamask/permission-controller>nanoid": { globals: { "crypto.getRandomValues": !0 } },
+    "@metamask/snaps-utils>@metamask/snaps-registry": {
+      packages: { "@metamask/key-tree>@noble/secp256k1": !0, "@metamask/utils": !0, superstruct: !0 }
     },
     "@metamask/snaps-utils>cron-parser": { packages: { "browserify>browser-resolve": !0, luxon: !0 } },
     "@metamask/snaps-utils>rfdc": { packages: { "browserify>buffer": !0 } },
     "@metamask/snaps-utils>validate-npm-package-name": { packages: { "@metamask/snaps-utils>validate-npm-package-name>builtins": !0 } },
     "@metamask/snaps-utils>validate-npm-package-name>builtins": { packages: { "browserify>process": !0, semver: !0 } },
+    "@metamask/transaction-controller": {
+      globals: { "console.error": !0, setTimeout: !0 },
+      packages: {
+        "@ethereumjs/common": !0,
+        "@ethereumjs/tx": !0,
+        "@ethersproject/abi": !0,
+        "@metamask/gas-fee-controller": !0,
+        "@metamask/metamask-eth-abis": !0,
+        "@metamask/providers>@metamask/rpc-errors": !0,
+        "@metamask/transaction-controller>@metamask/base-controller": !0,
+        "@metamask/transaction-controller>@metamask/controller-utils": !0,
+        "@metamask/transaction-controller>@metamask/eth-query": !0,
+        "@metamask/transaction-controller>eth-method-registry": !0,
+        "@metamask/transaction-controller>nonce-tracker": !0,
+        "@metamask/utils": !0,
+        "eth-json-rpc-filters>async-mutex": !0,
+        "ethereumjs-util": !0,
+        "fast-json-patch": !0,
+        lodash: !0,
+        uuid: !0,
+        "webpack>events": !0
+      }
+    },
+    "@metamask/transaction-controller>@metamask/base-controller": { globals: { setTimeout: !0 }, packages: { immer: !0 } },
+    "@metamask/transaction-controller>@metamask/controller-utils": {
+      globals: { URL: !0, "console.error": !0, fetch: !0, setTimeout: !0 },
+      packages: {
+        "@metamask/controller-utils>@spruceid/siwe-parser": !0,
+        "@metamask/permission-controller>@metamask/controller-utils>@metamask/ethjs-unit": !0,
+        "@metamask/utils": !0,
+        "browserify>buffer": !0,
+        "eslint>fast-deep-equal": !0,
+        "eth-ens-namehash": !0,
+        "ethereumjs-util": !0
+      }
+    },
+    "@metamask/transaction-controller>@metamask/eth-query": {
+      packages: { "@metamask/eth-query>json-rpc-random-id": !0, "watchify>xtend": !0 }
+    },
+    "@metamask/transaction-controller>eth-method-registry": {
+      packages: { "@metamask/transaction-controller>eth-method-registry>ethjs": !0 }
+    },
+    "@metamask/transaction-controller>eth-method-registry>ethjs": {
+      globals: { clearInterval: !0, setInterval: !0 },
+      packages: {
+        "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-abi": !0,
+        "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-contract": !0,
+        "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-query": !0,
+        "bn.js": !0,
+        "browserify>buffer": !0,
+        "ethjs>ethjs-filter": !0,
+        "ethjs>ethjs-provider-http": !0,
+        "ethjs>ethjs-unit": !0,
+        "ethjs>ethjs-util": !0,
+        "ethjs>js-sha3": !0,
+        "ethjs>number-to-bn": !0
+      }
+    },
+    "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-abi": {
+      packages: { "bn.js": !0, "browserify>buffer": !0, "ethjs>js-sha3": !0, "ethjs>number-to-bn": !0 }
+    },
+    "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-contract": {
+      packages: {
+        "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-contract>ethjs-abi": !0,
+        "ethjs-contract>babel-runtime": !0,
+        "ethjs>ethjs-filter": !0,
+        "ethjs>ethjs-util": !0,
+        "ethjs>js-sha3": !0,
+        "promise-to-callback": !0
+      }
+    },
+    "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-contract>ethjs-abi": {
+      packages: { "bn.js": !0, "browserify>buffer": !0, "ethjs>js-sha3": !0, "ethjs>number-to-bn": !0 }
+    },
+    "@metamask/transaction-controller>eth-method-registry>ethjs>ethjs-query": {
+      globals: { console: !0 },
+      packages: {
+        "@metamask/ethjs-query>ethjs-format": !0,
+        "@metamask/ethjs-query>ethjs-rpc": !0,
+        "ethjs-contract>babel-runtime": !0,
+        "promise-to-callback": !0
+      }
+    },
+    "@metamask/transaction-controller>nonce-tracker": {
+      packages: {
+        "@ethersproject/providers": !0,
+        "@metamask/network-controller>eth-block-tracker": !0,
+        "@metamask/transaction-controller>nonce-tracker>async-mutex": !0,
+        "browserify>assert": !0
+      }
+    },
+    "@metamask/transaction-controller>nonce-tracker>async-mutex": {
+      globals: { clearTimeout: !0, setTimeout: !0 },
+      packages: { "mockttp>graphql-tag>tslib": !0 }
+    },
     "@metamask/utils": {
       globals: { TextDecoder: !0, TextEncoder: !0 },
-      packages: { "browserify>buffer": !0, "nock>debug": !0, semver: !0, superstruct: !0 }
+      packages: {
+        "@metamask/utils>@noble/hashes": !0,
+        "@metamask/utils>@scure/base": !0,
+        "@metamask/utils>pony-cause": !0,
+        "browserify>buffer": !0,
+        "nock>debug": !0,
+        semver: !0,
+        superstruct: !0
+      }
     },
+    "@metamask/utils>@noble/hashes": { globals: { TextEncoder: !0, crypto: !0 } },
+    "@metamask/utils>@scure/base": { globals: { TextDecoder: !0, TextEncoder: !0 } },
     "@ngraveio/bc-ur": {
       packages: {
         "@ngraveio/bc-ur>@apocentre/alias-sampling": !0,
@@ -1864,348 +1915,12 @@ LavaPack.loadPolicy({
       packages: { "browserify>process": !0 }
     },
     "@storybook/addon-knobs>qs": { packages: { "string.prototype.matchall>side-channel": !0 } },
-    "@truffle/codec": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils": !0,
-        "@truffle/codec>@truffle/compile-common": !0,
-        "@truffle/codec>big.js": !0,
-        "@truffle/codec>cbor": !0,
-        "@truffle/codec>utf8": !0,
-        "@truffle/codec>web3-utils": !0,
-        "bn.js": !0,
-        "browserify>buffer": !0,
-        "browserify>os-browserify": !0,
-        "browserify>util": !0,
-        lodash: !0,
-        "nock>debug": !0,
-        semver: !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case": !0,
-        "@truffle/codec>@truffle/abi-utils>fast-check": !0,
-        "@truffle/codec>web3-utils": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>camel-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>constant-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>dot-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>header-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>is-lower-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>is-upper-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>lower-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>lower-case-first": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>param-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>pascal-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>path-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>sentence-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>snake-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>swap-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>title-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case-first": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>camel-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>constant-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>snake-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>dot-case": { packages: { "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0 } },
-    "@truffle/codec>@truffle/abi-utils>change-case>header-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>is-lower-case": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>lower-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>is-upper-case": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>lower-case-first": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>lower-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>no-case": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>lower-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>param-case": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>pascal-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>camel-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case-first": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>path-case": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>sentence-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case-first": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>snake-case": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>swap-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>lower-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>title-case": {
-      packages: {
-        "@truffle/codec>@truffle/abi-utils>change-case>no-case": !0,
-        "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0
-      }
-    },
-    "@truffle/codec>@truffle/abi-utils>change-case>upper-case-first": {
-      packages: { "@truffle/codec>@truffle/abi-utils>change-case>upper-case": !0 }
-    },
-    "@truffle/codec>@truffle/abi-utils>fast-check": {
-      globals: { clearTimeout: !0, "console.log": !0, setTimeout: !0 },
-      packages: { "@truffle/codec>@truffle/abi-utils>fast-check>pure-rand": !0, "browserify>buffer": !0 }
-    },
-    "@truffle/codec>@truffle/compile-common": {
-      packages: {
-        "@truffle/codec>@truffle/compile-common>@truffle/error": !0,
-        "@truffle/codec>@truffle/compile-common>colors": !0,
-        "browserify>path-browserify": !0
-      }
-    },
-    "@truffle/codec>@truffle/compile-common>colors": {
-      globals: { "console.log": !0 },
-      packages: { "browserify>os-browserify": !0, "browserify>process": !0, "browserify>util": !0 }
-    },
-    "@truffle/codec>big.js": { globals: { define: !0 } },
-    "@truffle/codec>cbor": {
-      globals: { TextDecoder: !0 },
-      packages: {
-        "@truffle/codec>cbor>bignumber.js": !0,
-        "@truffle/codec>cbor>nofilter": !0,
-        "browserify>buffer": !0,
-        "browserify>insert-module-globals>is-buffer": !0,
-        "browserify>url": !0,
-        "browserify>util": !0,
-        "stream-browserify": !0
-      }
-    },
-    "@truffle/codec>cbor>bignumber.js": { globals: { crypto: !0, define: !0 } },
-    "@truffle/codec>cbor>nofilter": { packages: { "browserify>buffer": !0, "browserify>util": !0, "stream-browserify": !0 } },
-    "@truffle/codec>web3-utils": {
-      globals: { setTimeout: !0 },
-      packages: {
-        "@truffle/codec>utf8": !0,
-        "@truffle/codec>web3-utils>ethereum-bloom-filters": !0,
-        "bn.js": !0,
-        "browserify>buffer": !0,
-        "ethereumjs-util": !0,
-        "ethjs>ethjs-unit": !0,
-        "ethjs>number-to-bn": !0,
-        "mocha>serialize-javascript>randombytes": !0
-      }
-    },
-    "@truffle/codec>web3-utils>ethereum-bloom-filters": { packages: { "@truffle/codec>web3-utils>ethereum-bloom-filters>js-sha3": !0 } },
-    "@truffle/codec>web3-utils>ethereum-bloom-filters>js-sha3": { globals: { define: !0 }, packages: { "browserify>process": !0 } },
-    "@truffle/decoder": {
-      packages: {
-        "@truffle/codec": !0,
-        "@truffle/codec>@truffle/abi-utils": !0,
-        "@truffle/codec>@truffle/compile-common": !0,
-        "@truffle/codec>web3-utils": !0,
-        "@truffle/decoder>@truffle/encoder": !0,
-        "@truffle/decoder>@truffle/source-map-utils": !0,
-        "bn.js": !0,
-        "nock>debug": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder": {
-      packages: {
-        "@ethersproject/abi>@ethersproject/address": !0,
-        "@ethersproject/bignumber": !0,
-        "@truffle/codec": !0,
-        "@truffle/codec>@truffle/abi-utils": !0,
-        "@truffle/codec>@truffle/compile-common": !0,
-        "@truffle/codec>big.js": !0,
-        "@truffle/codec>web3-utils": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs": !0,
-        "@truffle/decoder>@truffle/encoder>bignumber.js": !0,
-        lodash: !0,
-        "nock>debug": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs": {
-      globals: { "console.log": !0, "console.warn": !0, registries: !0 },
-      packages: {
-        "@babel/runtime": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>@ensdomains/address-encoder": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>@ensdomains/ens": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>@ensdomains/resolver": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>js-sha3": !0,
-        "browserify>buffer": !0,
-        "eth-ens-namehash": !0,
-        "ethereumjs-util>ethereum-cryptography>bs58check>bs58": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>@ensdomains/address-encoder": {
-      globals: { console: !0 },
-      packages: { "bn.js": !0, "browserify>buffer": !0, "browserify>crypto-browserify": !0, "ethereumjs-util>create-hash>ripemd160": !0 }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash": {
-      packages: {
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multicodec": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multihashes": !0,
-        "browserify>buffer": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids": {
-      packages: {
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids>class-is": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids>multibase": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids>multicodec": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multihashes": !0,
-        "browserify>buffer": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids>multibase": {
-      packages: { "@ensdomains/content-hash>multihashes>multibase>base-x": !0, "browserify>buffer": !0 }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>cids>multicodec": {
-      packages: { "@ensdomains/content-hash>multihashes>varint": !0, "browserify>buffer": !0 }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multicodec": {
-      packages: { "@ensdomains/content-hash>multihashes>varint": !0, "browserify>buffer": !0 }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multihashes": {
-      packages: {
-        "@ensdomains/content-hash>multihashes>varint": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multihashes>multibase": !0,
-        "browserify>buffer": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>content-hash>multihashes>multibase": {
-      packages: { "@ensdomains/content-hash>multihashes>multibase>base-x": !0, "browserify>buffer": !0 }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers": {
-      packages: {
-        "@ethersproject/abi": !0,
-        "@ethersproject/abi>@ethersproject/address": !0,
-        "@ethersproject/abi>@ethersproject/bytes": !0,
-        "@ethersproject/abi>@ethersproject/constants": !0,
-        "@ethersproject/abi>@ethersproject/hash": !0,
-        "@ethersproject/abi>@ethersproject/keccak256": !0,
-        "@ethersproject/abi>@ethersproject/logger": !0,
-        "@ethersproject/abi>@ethersproject/properties": !0,
-        "@ethersproject/abi>@ethersproject/strings": !0,
-        "@ethersproject/bignumber": !0,
-        "@ethersproject/contracts": !0,
-        "@ethersproject/hdnode": !0,
-        "@ethersproject/hdnode>@ethersproject/abstract-signer": !0,
-        "@ethersproject/hdnode>@ethersproject/basex": !0,
-        "@ethersproject/hdnode>@ethersproject/sha2": !0,
-        "@ethersproject/hdnode>@ethersproject/signing-key": !0,
-        "@ethersproject/hdnode>@ethersproject/transactions": !0,
-        "@ethersproject/hdnode>@ethersproject/wordlists": !0,
-        "@ethersproject/providers": !0,
-        "@ethersproject/providers>@ethersproject/base64": !0,
-        "@ethersproject/providers>@ethersproject/random": !0,
-        "@ethersproject/providers>@ethersproject/rlp": !0,
-        "@ethersproject/providers>@ethersproject/web": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/json-wallets": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/solidity": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/units": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/wallet": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/json-wallets": {
-      packages: {
-        "@ethersproject/abi>@ethersproject/address": !0,
-        "@ethersproject/abi>@ethersproject/bytes": !0,
-        "@ethersproject/abi>@ethersproject/keccak256": !0,
-        "@ethersproject/abi>@ethersproject/logger": !0,
-        "@ethersproject/abi>@ethersproject/properties": !0,
-        "@ethersproject/abi>@ethersproject/strings": !0,
-        "@ethersproject/hdnode": !0,
-        "@ethersproject/hdnode>@ethersproject/pbkdf2": !0,
-        "@ethersproject/hdnode>@ethersproject/transactions": !0,
-        "@ethersproject/providers>@ethersproject/random": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/json-wallets>aes-js": !0,
-        "ethereumjs-util>ethereum-cryptography>scrypt-js": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/json-wallets>aes-js": { globals: { define: !0 } },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/solidity": {
-      packages: {
-        "@ethersproject/abi>@ethersproject/bytes": !0,
-        "@ethersproject/abi>@ethersproject/keccak256": !0,
-        "@ethersproject/abi>@ethersproject/logger": !0,
-        "@ethersproject/abi>@ethersproject/strings": !0,
-        "@ethersproject/bignumber": !0,
-        "@ethersproject/hdnode>@ethersproject/sha2": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/units": {
-      packages: { "@ethersproject/abi>@ethersproject/logger": !0, "@ethersproject/bignumber": !0 }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/wallet": {
-      packages: {
-        "@ethersproject/abi>@ethersproject/address": !0,
-        "@ethersproject/abi>@ethersproject/bytes": !0,
-        "@ethersproject/abi>@ethersproject/hash": !0,
-        "@ethersproject/abi>@ethersproject/keccak256": !0,
-        "@ethersproject/abi>@ethersproject/logger": !0,
-        "@ethersproject/abi>@ethersproject/properties": !0,
-        "@ethersproject/contracts>@ethersproject/abstract-provider": !0,
-        "@ethersproject/hdnode": !0,
-        "@ethersproject/hdnode>@ethersproject/abstract-signer": !0,
-        "@ethersproject/hdnode>@ethersproject/signing-key": !0,
-        "@ethersproject/hdnode>@ethersproject/transactions": !0,
-        "@ethersproject/providers>@ethersproject/random": !0,
-        "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>ethers>@ethersproject/json-wallets": !0
-      }
-    },
-    "@truffle/decoder>@truffle/encoder>@ensdomains/ensjs>js-sha3": { globals: { define: !0 }, packages: { "browserify>process": !0 } },
-    "@truffle/decoder>@truffle/encoder>bignumber.js": { globals: { crypto: !0, define: !0 } },
-    "@truffle/decoder>@truffle/source-map-utils": {
-      packages: {
-        "@truffle/codec": !0,
-        "@truffle/codec>web3-utils": !0,
-        "@truffle/decoder>@truffle/source-map-utils>@truffle/code-utils": !0,
-        "@truffle/decoder>@truffle/source-map-utils>json-pointer": !0,
-        "@truffle/decoder>@truffle/source-map-utils>node-interval-tree": !0,
-        "nock>debug": !0
-      }
-    },
-    "@truffle/decoder>@truffle/source-map-utils>@truffle/code-utils": { packages: { "@truffle/codec>cbor": !0, "browserify>buffer": !0 } },
-    "@truffle/decoder>@truffle/source-map-utils>json-pointer": {
-      packages: { "@truffle/decoder>@truffle/source-map-utils>json-pointer>foreach": !0 }
-    },
-    "@truffle/decoder>@truffle/source-map-utils>node-interval-tree": {
-      packages: { "@truffle/decoder>@truffle/source-map-utils>node-interval-tree>shallowequal": !0 }
-    },
     "@zxing/browser": {
       globals: {
         HTMLElement: !0,
         HTMLImageElement: !0,
         HTMLVideoElement: !0,
+        "URL.createObjectURL": !0,
         clearTimeout: !0,
         "console.error": !0,
         "console.warn": !0,
@@ -2217,24 +1932,24 @@ LavaPack.loadPolicy({
     },
     "@zxing/library": {
       globals: {
-        HTMLImageElement: !0,
-        HTMLVideoElement: !0,
         TextDecoder: !0,
         TextEncoder: !0,
-        "URL.createObjectURL": !0,
         btoa: !0,
-        "console.log": !0,
-        "console.warn": !0,
-        document: !0,
-        navigator: !0,
+        clearTimeout: !0,
+        define: !0,
+        "document.createElement": !0,
+        "document.createElementNS": !0,
+        "document.getElementById": !0,
+        "navigator.mediaDevices.enumerateDevices": !0,
+        "navigator.mediaDevices.getUserMedia": !0,
         setTimeout: !0
-      },
-      packages: { "@zxing/library>ts-custom-error": !0 }
+      }
     },
     "addons-linter>sha.js": { packages: { "koa>content-disposition>safe-buffer": !0, "pumpify>inherits": !0 } },
     "await-semaphore": { packages: { "browserify>process": !0, "browserify>timers-browserify": !0 } },
     "base32-encode": { packages: { "base32-encode>to-data-view": !0 } },
     "bignumber.js": { globals: { crypto: !0, define: !0 } },
+    blo: { globals: { btoa: !0 } },
     "bn.js": { globals: { Buffer: !0 }, packages: { "browserify>browser-resolve": !0 } },
     bowser: { globals: { define: !0 } },
     "brfs>static-module>object-inspect": { globals: { HTMLElement: !0, WeakRef: !0 }, packages: { "browserify>browser-resolve": !0 } },
@@ -2374,7 +2089,6 @@ LavaPack.loadPolicy({
     },
     "browserify>has": { packages: { "browserify>has>function-bind": !0 } },
     "browserify>https-browserify": { packages: { "browserify>stream-http": !0, "browserify>url": !0 } },
-    "browserify>os-browserify": { globals: { location: !0, navigator: !0 } },
     "browserify>path-browserify": { packages: { "browserify>process": !0 } },
     "browserify>process": { globals: { clearTimeout: !0, setTimeout: !0 } },
     "browserify>punycode": { globals: { define: !0 } },
@@ -2503,12 +2217,15 @@ LavaPack.loadPolicy({
       packages: {
         "@metamask/safe-event-emitter": !0,
         "eth-json-rpc-filters>async-mutex": !0,
-        "eth-query": !0,
+        "eth-json-rpc-filters>eth-query": !0,
         "json-rpc-engine": !0,
         pify: !0
       }
     },
     "eth-json-rpc-filters>async-mutex": { globals: { setTimeout: !0 }, packages: { "mockttp>graphql-tag>tslib": !0 } },
+    "eth-json-rpc-filters>eth-query": {
+      packages: { "@metamask/eth-query>json-rpc-random-id": !0, "nock>debug": !0, "watchify>xtend": !0 }
+    },
     "eth-keyring-controller>@metamask/browser-passworder": { globals: { crypto: !0 } },
     "eth-lattice-keyring": {
       globals: { addEventListener: !0, browser: !0, clearInterval: !0, fetch: !0, open: !0, setInterval: !0 },
@@ -2645,7 +2362,6 @@ LavaPack.loadPolicy({
     "eth-lattice-keyring>gridplus-sdk>uuid": { globals: { crypto: !0 } },
     "eth-lattice-keyring>rlp": { globals: { TextEncoder: !0 } },
     "eth-method-registry": { packages: { ethjs: !0 } },
-    "eth-query": { packages: { "eth-query>json-rpc-random-id": !0, "nock>debug": !0, "watchify>xtend": !0 } },
     "eth-rpc-errors": { packages: { "eth-rpc-errors>fast-safe-stringify": !0 } },
     "eth-sig-util": {
       packages: {
@@ -2689,8 +2405,8 @@ LavaPack.loadPolicy({
         "bn.js": !0,
         "browserify>assert": !0,
         "browserify>buffer": !0,
-        "eth-sig-util>ethereumjs-util>ethjs-util": !0,
         "ethereumjs-abi>ethereumjs-util>ethereum-cryptography": !0,
+        "ethereumjs-abi>ethereumjs-util>ethjs-util": !0,
         "ethereumjs-util>create-hash": !0,
         "ethereumjs-util>rlp": !0
       }
@@ -2702,6 +2418,9 @@ LavaPack.loadPolicy({
         "ethereumjs-util>ethereum-cryptography>secp256k1": !0,
         "mocha>serialize-javascript>randombytes": !0
       }
+    },
+    "ethereumjs-abi>ethereumjs-util>ethjs-util": {
+      packages: { "browserify>buffer": !0, "ethjs>ethjs-util>is-hex-prefixed": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 }
     },
     "ethereumjs-util": {
       packages: {
@@ -2806,7 +2525,6 @@ LavaPack.loadPolicy({
     "ethereumjs-util>ethereum-cryptography>secp256k1": { packages: { "@metamask/ppom-validator>elliptic": !0 } },
     "ethereumjs-util>rlp": { packages: { "bn.js": !0, "browserify>buffer": !0 } },
     "ethereumjs-wallet>randombytes": { globals: { "crypto.getRandomValues": !0 } },
-    "ethers>@ethersproject/random": { globals: { "crypto.getRandomValues": !0 } },
     ethjs: {
       globals: { clearInterval: !0, setInterval: !0 },
       packages: {
@@ -2827,8 +2545,8 @@ LavaPack.loadPolicy({
       packages: {
         "ethjs-contract>babel-runtime": !0,
         "ethjs-contract>ethjs-abi": !0,
-        "ethjs-contract>ethjs-util": !0,
         "ethjs>ethjs-filter": !0,
+        "ethjs>ethjs-util": !0,
         "ethjs>js-sha3": !0,
         "promise-to-callback": !0
       }
@@ -2841,9 +2559,6 @@ LavaPack.loadPolicy({
     },
     "ethjs-contract>babel-runtime>regenerator-runtime": { globals: { regeneratorRuntime: "write" } },
     "ethjs-contract>ethjs-abi": { packages: { "bn.js": !0, "browserify>buffer": !0, "ethjs>js-sha3": !0, "ethjs>number-to-bn": !0 } },
-    "ethjs-contract>ethjs-util": {
-      packages: { "browserify>buffer": !0, "ethjs>ethjs-util>is-hex-prefixed": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 }
-    },
     "ethjs-query>babel-runtime": { packages: { "@babel/runtime": !0 } },
     "ethjs>ethjs-abi": { packages: { "bn.js": !0, "browserify>buffer": !0, "ethjs>js-sha3": !0, "ethjs>number-to-bn": !0 } },
     "ethjs>ethjs-filter": { globals: { clearInterval: !0, setInterval: !0 } },
@@ -2860,7 +2575,18 @@ LavaPack.loadPolicy({
     "ethjs>ethjs-util>strip-hex-prefix": { packages: { "ethjs>ethjs-util>is-hex-prefixed": !0 } },
     "ethjs>js-sha3": { packages: { "browserify>process": !0 } },
     "ethjs>number-to-bn": { packages: { "bn.js": !0, "ethjs>ethjs-util>strip-hex-prefix": !0 } },
-    "extension-port-stream": { packages: { "browserify>buffer": !0, "stream-browserify": !0 } },
+    "extension-port-stream": { packages: { "browserify>buffer": !0, "extension-port-stream>readable-stream": !0 } },
+    "extension-port-stream>readable-stream": {
+      globals: { AbortController: !0, AggregateError: !0, Blob: !0, new: !0, target: !0 },
+      packages: {
+        "browserify>buffer": !0,
+        "browserify>process": !0,
+        "browserify>string_decoder": !0,
+        "extension-port-stream>readable-stream>abort-controller": !0,
+        "webpack>events": !0
+      }
+    },
+    "extension-port-stream>readable-stream>abort-controller": { globals: { AbortController: !0 } },
     "fast-json-patch": { globals: { addEventListener: !0, clearTimeout: !0, removeEventListener: !0, setTimeout: !0 } },
     "fuse.js": { globals: { console: !0, define: !0 } },
     "globalthis>define-properties": {
@@ -2870,7 +2596,19 @@ LavaPack.loadPolicy({
     "json-rpc-engine": { packages: { "@metamask/safe-event-emitter": !0, "eth-rpc-errors": !0 } },
     "json-rpc-middleware-stream": {
       globals: { "console.warn": !0, setTimeout: !0 },
-      packages: { "@metamask/safe-event-emitter": !0, "readable-stream": !0 }
+      packages: { "json-rpc-middleware-stream>@metamask/safe-event-emitter": !0, "json-rpc-middleware-stream>readable-stream": !0 }
+    },
+    "json-rpc-middleware-stream>@metamask/safe-event-emitter": { globals: { setTimeout: !0 }, packages: { "webpack>events": !0 } },
+    "json-rpc-middleware-stream>readable-stream": {
+      packages: {
+        "browserify>browser-resolve": !0,
+        "browserify>buffer": !0,
+        "browserify>process": !0,
+        "browserify>string_decoder": !0,
+        "pumpify>inherits": !0,
+        "readable-stream>util-deprecate": !0,
+        "webpack>events": !0
+      }
     },
     "koa>content-disposition>safe-buffer": { packages: { "browserify>buffer": !0 } },
     "koa>is-generator-function": { packages: { "koa>is-generator-function>has-tostringtag": !0 } },
@@ -2911,14 +2649,13 @@ LavaPack.loadPolicy({
       globals: { crypto: !0, msCrypto: !0 },
       packages: { "browserify>process": !0, "koa>content-disposition>safe-buffer": !0 }
     },
-    "mockttp>graphql-tag>tslib": { globals: { define: !0 } },
+    "mockttp>graphql-tag>tslib": { globals: { SuppressedError: !0, define: !0 } },
     nanoid: { globals: { crypto: !0, msCrypto: !0, navigator: !0 } },
     "nock>debug": {
       globals: { console: !0, document: !0, localStorage: !0, navigator: !0, process: !0 },
       packages: { "browserify>process": !0, "nock>debug>ms": !0 }
     },
     "node-fetch": { globals: { Headers: !0, Request: !0, Response: !0, fetch: !0 } },
-    "nonce-tracker": { packages: { "await-semaphore": !0, "browserify>assert": !0, "ethjs>ethjs-query": !0 } },
     "obj-multiplex": { globals: { "console.warn": !0 }, packages: { "end-of-stream": !0, "pump>once": !0, "readable-stream": !0 } },
     "promise-to-callback": { packages: { "promise-to-callback>is-fn": !0, "promise-to-callback>set-immediate-shim": !0 } },
     "promise-to-callback>set-immediate-shim": { globals: { "setTimeout.apply": !0 }, packages: { "browserify>timers-browserify": !0 } },

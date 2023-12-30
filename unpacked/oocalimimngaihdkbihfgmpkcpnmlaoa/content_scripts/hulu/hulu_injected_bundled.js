@@ -839,6 +839,28 @@
     const logger = new Logger("ext:ContentScripts:Hulu:hulu_injected");
     window.seekScriptLoaded = true;
     window.offset = 0;
+    const IS_SAFARI = "chrome" === "safari";
+    const getHuluPlayer = function () {
+      const elementRoot = document.querySelector(".Timeline__sliderContainer");
+      if (elementRoot == null) {
+        return null;
+      }
+      const keys = Object.keys(elementRoot);
+      let key = null;
+      for (let i = 0; i < keys.length; i++) {
+        if (keys[i].startsWith("__reactInternalInstance")) {
+          key = keys[i];
+          break;
+        }
+      }
+      if (key == null) {
+        return null;
+      }
+      if (typeof elementRoot[key] === "undefined") {
+        return null;
+      }
+      return elementRoot[key].child.alternate.sibling.stateNode.context.storeState.player;
+    };
     var seekInteraction = function (event) {
       if (event.source !== window) {
         logger.debug({ methodName: "seekInteraction", message: `event.source !== window` });
@@ -851,21 +873,37 @@
       logger.debug({ methodName: "seekInteraction", message: `event_type[${event_type}]` });
       switch (event_type) {
         case "SEEK": {
-          document.querySelector("#content-video-player").__HuluDashPlayer__.currentTime = event.data.time / 1000 + window.offset;
+          if (IS_SAFARI) {
+            getHuluPlayer().seek(event.data.time / 1000);
+          } else {
+            document.querySelector("#content-video-player").__HuluDashPlayer__.currentTime = event.data.time / 1000 + window.offset;
+          }
           break;
         }
         case "UpdateState": {
-          const video = document.querySelector("#content-video-player");
-          const paused = video.__HuluDashPlayer__._paused;
-          //const streamTime = video.__HuluDashPlayer__._player.currentTimeInStream < 1 ? video.__HuluDashPlayer__._player.currentTimeInTimeline : video.__HuluDashPlayer__._player.currentTimeInStream
-          const streamTime = video.__HuluDashPlayer__._player.currentTimeInTimeline - window.offset;
-          const offset = video.__HuluDashPlayer__._player.currentTimeInTimeline - video.__HuluDashPlayer__._player.currentTimeInStream;
-          if (offset < 50) {
-            window.offset = offset;
+          if (IS_SAFARI) {
+            const evt = new CustomEvent("FromNode", {
+              detail: {
+                type: "UpdateState",
+                paused: getHuluPlayer().paused,
+                currentTime: getHuluPlayer().currentTime * 1000,
+                updatedAt: Date.now()
+              }
+            });
+            window.dispatchEvent(evt);
+          } else {
+            const video = document.querySelector("#content-video-player");
+            const paused = video.__HuluDashPlayer__._paused;
+            //const streamTime = video.__HuluDashPlayer__._player.currentTimeInStream < 1 ? video.__HuluDashPlayer__._player.currentTimeInTimeline : video.__HuluDashPlayer__._player.currentTimeInStream
+            const streamTime = video.__HuluDashPlayer__._player.currentTimeInTimeline - window.offset;
+            const offset = video.__HuluDashPlayer__._player.currentTimeInTimeline - video.__HuluDashPlayer__._player.currentTimeInStream;
+            if (offset < 50) {
+              window.offset = offset;
+            }
+            const currentTime = streamTime * 1000;
+            const evt = new CustomEvent("FromNode", { detail: { type: "UpdateState", paused, currentTime, updatedAt: Date.now() } });
+            window.dispatchEvent(evt);
           }
-          const currentTime = streamTime * 1000;
-          var evt = new CustomEvent("FromNode", { detail: { type: "UpdateState", paused, currentTime, updatedAt: Date.now() } });
-          window.dispatchEvent(evt);
           break;
         }
         case "teardown": {

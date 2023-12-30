@@ -101,7 +101,7 @@ d = {
   ja: "MMM d('a'), EEE",
   ra: "y MMM d('a'), EEE",
   o: "d",
-  pa: "MMM d('a'), HH:mm zzzz"
+  pa: "MMM d('a') (HH:mm zzzz)"
 };
 var h = {
   B: ["BC", "AD"],
@@ -148,7 +148,7 @@ h = {
   g: ["AM", "PM"],
   l: ["y('e')'ko' MMMM'ren' d('a'), EEEE", "y('e')'ko' MMMM'ren' d('a')", "y('e')'ko' MMM d('a')", "yy/M/d"],
   ha: ["HH:mm:ss (zzzz)", "HH:mm:ss (z)", "HH:mm:ss", "HH:mm"],
-  m: ["{1} ({0})", "{1} ({0})", "{1}, {0}", "{1}, {0}"],
+  m: ["{1} ({0})", "{1} ({0})", "{1} ({0})", "{1} ({0})"],
   D: 0,
   ka: [5, 6],
   F: 3

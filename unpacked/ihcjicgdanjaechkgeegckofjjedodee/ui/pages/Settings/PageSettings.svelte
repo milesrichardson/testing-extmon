@@ -10,6 +10,7 @@
         ExclusionType,
     } from "@/domain/types/exclusion";
     import {SETTING_GTLD, SETTING_SKIMMER_PROTECTION} from "@/domain/types/settings";
+    import { translateText } from "@/utils/locales";
 
     let adsProtectionEnabled = false;
     let malwareProtectionEnabled = false;
@@ -76,8 +77,9 @@
 
 <div class="flex flex-col justify-start items-start w-full h-full pt-6 dark:text-white dark:text-opacity-80">
     <p class="text-sm font-normal mb-8">
-        These protection settings apply to all websites. Settings can be
-        customized for individual websites in the Current website tab.
+        {translateText("settingsSummaryText")}
+        <!-- These protection settings apply to all websites. Settings can be
+        customized for individual websites in the Current website tab. -->
     </p>
 
     <div class="max-h-[350px] overflow-y-scroll overflow-x-hidden pr-4">
@@ -85,15 +87,15 @@
         class="flex flex-col w-full gap-2 h-fit"
     >
         <SettingsItem
-            title="All protection settings"
-            description="Turn the Browser Guard extension on/off."
+            title={translateText("settingsAllProtectionLabel")}
+            description={translateText("settingsAllProtectionDescription")}
             enabled={allProtectionEnabled}
             onChanged={toggleAllProtections}
         />
         <Divider class="mb-2 mt-2" />
         <SettingsItem
             title="Ads/Trackers"
-            description="Blocks third-party ads and trackers that monitor your online activity."
+            description={translateText("settingsAdsDescription")}
             isSubItem
             enabled={adsProtectionEnabled}
             onChanged={(enabled) => toggleProtection(EXCLUSION_ADS, enabled)}
@@ -101,7 +103,7 @@
         <Divider class="mb-2 mt-2 ml-6" />
         <SettingsItem
             title="Malware"
-            description="Blocks malicious programs or code."
+            description={translateText("settingsMalwareDescription")}
             isSubItem
             enabled={malwareProtectionEnabled}
             onChanged={(enabled) =>
@@ -110,7 +112,7 @@
         <Divider class="mb-2 mt-2 ml-6" />
         <SettingsItem
             title="Scams"
-            description="Blocks online scams, including technical support scams, browser lockers and phishing."
+            description={translateText("settingsScamsDescription")}
             isSubItem
             enabled={scamProtectionEnabled}
             onChanged={(enabled) => toggleProtection(EXCLUSION_SCAMS, enabled)}
@@ -118,14 +120,14 @@
         <Divider class="mb-2 mt-2" />
         <SettingsItem
             title="gTLD domains"
-            description="Block suspicious top level domains (TLD) that are frequently used by scam or phishing sites."
+            description={translateText("settingsGtldDescription")}
             enabled={gtldProtectionEnabled}
             onChanged={(enabled) => toggleGtld(enabled)}
         />
         <Divider class="mb-2 mt-2" />
         <SettingsItem
-            title="Advanced Skimmer Protection"
-            description="Protect your card number on checkout pages."
+            title={translateText("settingsToggleSkimmerLabel")}
+            description={translateText("settingsToggleSkimmerDescription")}
             enabled={skimmerProtectionEnabled}
             onChanged={(enabled) => toggleSkimmerProtection(enabled)}
         />

@@ -3,23 +3,24 @@
       271: (e, t, n) => {
         "use strict";
         n.d(t, { Z: () => r });
-        const r = { version: "2.12.9", environment: "production", apiUrl: "https://api.momentumdash.com/", platform: "chrome" };
+        const r = { version: "2.12.11", environment: "production", apiUrl: "https://api.momentumdash.com/", platform: "chrome" };
       },
       468: (e, t, n) => {
         "use strict";
-        n.r(t), n.d(t, { default: () => c });
+        n.r(t), n.d(t, { default: () => h });
         var r = n(271),
           s = n(973),
           i = n(31);
         const a = r.Z.version,
           o = r.Z.environment,
-          u = new URL(
+          u = "extension",
+          l = new URL(
             `https://browser-http-intake.logs.datadoghq.com/v1/input/pub18ef9128dd80db1a80dfc3f9180b55b5?ddsource=browser&ddtags=${encodeURIComponent(
-              `env:${o},service:extension,version:${a}`
+              `env:${o},service:${u},version:${a}`
             )}`
           ).toString(),
-          l = "chrome" === r.Z.platform;
-        class c {
+          c = "chrome" === r.Z.platform;
+        class h {
           constructor(e, t = 1e-5) {
             (this.name = e), (this.defaultSampleRate = t), (this.sampleRate = null);
           }
@@ -33,10 +34,10 @@
             return this._log(e, t, "info");
           }
           async _log(...e) {
-            if (!l || !(await this._isEligibleForSubmission())) return;
+            if (!c || !(await this._isEligibleForSubmission())) return;
             const [t, n, r] = this._parseArgs(e),
-              s = { status: r, date: Date.now(), service: "extension", message: t, _logger: this.name, ...n };
-            this.tabId && (s.tabId = this.tabId), await (0, i.Z)({ method: "POST", url: u, data: s });
+              s = { status: r, date: Date.now(), service: u, message: t, _logger: this.name, ...n };
+            this.tabId && (s.tabId = this.tabId), await (0, i.Z)({ method: "POST", url: l, data: s });
           }
           _convertUndefinedPropertiesToStrings(e) {
             const t = {};
@@ -68,28 +69,29 @@
       },
       973: (e, t, n) => {
         "use strict";
-        n.d(t, { Z: () => u });
+        n.d(t, { Z: () => l });
         var r = n(31);
         const s = new (n(602).ZP)("misc", 1);
         var i = n(271);
-        let a = null,
-          o = null;
-        async function u(e) {
+        const a = "https://api.momentumdash.com/";
+        let o = null,
+          u = null;
+        async function l(e) {
           return (
-            a ||
-              (o
-                ? await o
-                : ((o = (0, r.Z)({ url: "https://api.momentumdash.com/config", headers: { "X-Momentum-Version": i.Z.version } })
+            o ||
+              (u
+                ? await u
+                : ((u = (0, r.Z)({ url: a + "config", headers: { "X-Momentum-Version": i.Z.version } })
                     .then(({ data: e }) => {
                       if (!e) throw "Request for config from API failed";
                       return e;
                     })
                     .catch((e) => (console.error(e), s.get("config").then((e) => e || {})))),
-                  (a = await o),
-                  a && (await s.set("config", a)))),
+                  (o = await u),
+                  o && (await s.set("config", o)))),
             (function (e, t) {
               return t ? t.split(".").reduce((e, t) => (null == e ? void 0 : e[t]), e) : e;
-            })(a, e)
+            })(o, e)
           );
         }
       },
@@ -236,23 +238,23 @@
           }
           async get(e) {
             const t = await this.transaction("readonly", (t) => t.get(e));
-            return t && a(t) ? t._value : null;
+            return t && a(t) ? t[i] : null;
           }
           async transaction(e, t) {
             const n = await this.db;
-            return new Promise((s, i) => {
-              const o = n.transaction([r], e);
-              o.onerror = () => i(u.error);
-              const u = t(o.objectStore(r));
-              u.onsuccess = () => {
-                const e = u.result;
+            return new Promise((i, o) => {
+              const u = n.transaction([r], e);
+              u.onerror = () => o(l.error);
+              const l = t(u.objectStore(r));
+              l.onsuccess = () => {
+                const e = l.result;
                 if (
                   !(function (e) {
                     return void 0 === e || "string" == typeof e || a(e);
                   })(e)
                 )
-                  throw new Error("Transaction result does not match schema (does not contain a property matching _key)");
-                s(e);
+                  throw new Error(`Transaction result does not match schema (does not contain a property matching ${s})`);
+                i(e);
               };
             });
           }
@@ -330,13 +332,13 @@
         };
       }
       const p = Object.getOwnPropertyDescriptor;
-      function m(e, t) {
+      function y(e, t) {
         let n;
-        return p(e, t) || ((n = o(e)) && m(n, t));
+        return p(e, t) || ((n = o(e)) && y(n, t));
       }
-      const y = [].slice;
+      const m = [].slice;
       function g(e, t, n) {
-        return y.call(e, t, n);
+        return m.call(e, t, n);
       }
       function v(e, t) {
         return t(e);
@@ -344,21 +346,21 @@
       function b(e) {
         if (!e) throw new Error("Assertion Failed");
       }
-      function _(e) {
+      function w(e) {
         r.setImmediate ? setImmediate(e) : setTimeout(e, 0);
       }
-      function w(e, t) {
+      function _(e, t) {
         return e.reduce((e, n, r) => {
           var s = t(n, r);
           return s && (e[s[0]] = s[1]), e;
         }, {});
       }
-      function x(e, t) {
+      function k(e, t) {
         if (l(e, t)) return e[t];
         if (!t) return e;
         if ("string" != typeof t) {
           for (var n = [], r = 0, s = t.length; r < s; ++r) {
-            var i = x(e, t[r]);
+            var i = k(e, t[r]);
             n.push(i);
           }
           return n;
@@ -366,14 +368,14 @@
         var a = t.indexOf(".");
         if (-1 !== a) {
           var o = e[t.substr(0, a)];
-          return void 0 === o ? void 0 : x(o, t.substr(a + 1));
+          return void 0 === o ? void 0 : k(o, t.substr(a + 1));
         }
       }
-      function k(e, t, n) {
+      function x(e, t, n) {
         if (e && void 0 !== t && (!("isFrozen" in Object) || !Object.isFrozen(e)))
           if ("string" != typeof t && "length" in t) {
             b("string" != typeof n && "length" in n);
-            for (var r = 0, s = t.length; r < s; ++r) k(e, t[r], n[r]);
+            for (var r = 0, s = t.length; r < s; ++r) x(e, t[r], n[r]);
           } else {
             var a = t.indexOf(".");
             if (-1 !== a) {
@@ -382,7 +384,7 @@
               if ("" === u) void 0 === n ? (i(e) && !isNaN(parseInt(o)) ? e.splice(o, 1) : delete e[o]) : (e[o] = n);
               else {
                 var c = e[o];
-                (c && l(e, o)) || (c = e[o] = {}), k(c, u, n);
+                (c && l(e, o)) || (c = e[o] = {}), x(c, u, n);
               }
             } else void 0 === n ? (i(e) && !isNaN(parseInt(t)) ? e.splice(t, 1) : delete e[t]) : (e[t] = n);
           }
@@ -402,7 +404,7 @@
             .concat(q([8, 16, 32, 64].map((e) => ["Int", "Uint", "Float"].map((t) => t + e + "Array"))))
             .filter((e) => r[e]),
         T = P.map((e) => r[e]);
-      w(P, (e) => [e, !0]);
+      _(P, (e) => [e, !0]);
       let I = null;
       function A(e) {
         I = "undefined" != typeof WeakMap && new WeakMap();
@@ -473,7 +475,7 @@
           }
         return new Error();
       }
-      function L(e, t) {
+      function V(e, t) {
         var n = e.stack;
         return n
           ? ((t = t || 0),
@@ -486,7 +488,7 @@
               .join(""))
           : "";
       }
-      var V = [
+      var L = [
           "Unknown",
           "Constraint",
           "Data",
@@ -519,7 +521,7 @@
           "DatabaseClosed",
           "PrematureCommit",
           "ForeignAwait"
-        ].concat(V),
+        ].concat(L),
         Y = {
           VersionChanged: "Database version changed by other database connection",
           DatabaseClosed: "Database has been closed",
@@ -555,7 +557,7 @@
         .extend({
           stack: {
             get: function () {
-              return this._stack || (this._stack = this.name + ": " + this.message + L(this._e, 2));
+              return this._stack || (this._stack = this.name + ": " + this.message + V(this._e, 2));
             }
           },
           toString: function () {
@@ -580,7 +582,7 @@
         return f(r).from(J), (e[t] = r), e;
       }, {});
       (ee.Syntax = SyntaxError), (ee.Type = TypeError), (ee.Range = RangeError);
-      var te = V.reduce((e, t) => ((e[t + "Error"] = ee[t]), e), {}),
+      var te = L.reduce((e, t) => ((e[t + "Error"] = ee[t]), e), {}),
         ne = Q.reduce((e, t) => (-1 === ["Syntax", "Type", "Range"].indexOf(t) && (e[t + "Error"] = ee[t]), e), {});
       function re() {}
       function se(e) {
@@ -668,7 +670,8 @@
       }
       (ne.ModifyError = H), (ne.DexieError = Z), (ne.BulkError = X);
       var de = {};
-      const [fe, pe, me] =
+      const fe = 100,
+        [pe, ye, me] =
           "undefined" == typeof Promise
             ? []
             : (() => {
@@ -677,77 +680,77 @@
                 const t = crypto.subtle.digest("SHA-512", new Uint8Array([0]));
                 return [t, o(t), e];
               })(),
-        ye = pe && pe.then,
-        ge = fe && fe.constructor,
-        ve = !!me;
-      var be = !1,
+        ge = ye && ye.then,
+        ve = pe && pe.constructor,
+        be = !!me;
+      var we = !1,
         _e = me
           ? () => {
-              me.then(We);
+              me.then(Ve);
             }
           : r.setImmediate
-          ? setImmediate.bind(null, We)
+          ? setImmediate.bind(null, Ve)
           : r.MutationObserver
           ? () => {
               var e = document.createElement("div");
               new MutationObserver(() => {
-                We(), (e = null);
+                Ve(), (e = null);
               }).observe(e, { attributes: !0 }),
                 e.setAttribute("i", "1");
             }
           : () => {
-              setTimeout(We, 0);
+              setTimeout(Ve, 0);
             },
-        we = function (e, t) {
-          Ae.push([e, t]), ke && (_e(), (ke = !1));
+        ke = function (e, t) {
+          Ce.push([e, t]), Ee && (_e(), (Ee = !1));
         },
         xe = !0,
-        ke = !0,
-        Ee = [],
+        Ee = !0,
         Se = [],
-        qe = null,
-        Pe = se,
-        Te = {
+        qe = [],
+        Pe = null,
+        Te = se,
+        Ie = {
           id: "global",
           global: !0,
           ref: 0,
           unhandleds: [],
-          onunhandled: ft,
+          onunhandled: yt,
           pgp: !1,
           env: {},
           finalize: function () {
             this.unhandleds.forEach((e) => {
               try {
-                ft(e[0], e[1]);
+                yt(e[0], e[1]);
               } catch (e) {}
             });
           }
         },
-        Ie = Te,
-        Ae = [],
-        Ce = 0,
-        Oe = [];
-      function Re(e) {
+        Ae = Ie,
+        Ce = [],
+        Oe = 0,
+        Re = [];
+      function Ke(e) {
         if ("object" != typeof this) throw new TypeError("Promises must be constructed via new");
         (this._listeners = []), (this.onuncatched = re), (this._lib = !1);
-        var t = (this._PSD = Ie);
+        var t = (this._PSD = Ae);
         if ((N && ((this._stackHolder = W()), (this._prev = null), (this._numPrev = 0)), "function" != typeof e)) {
           if (e !== de) throw new TypeError("Not a function");
-          return (this._state = arguments[1]), (this._value = arguments[2]), void (!1 === this._state && Be(this, this._value));
+          return (this._state = arguments[1]), (this._value = arguments[2]), void (!1 === this._state && Me(this, this._value));
         }
-        (this._state = null), (this._value = null), ++t.ref, De(this, e);
+        (this._state = null), (this._value = null), ++t.ref, Be(this, e);
       }
-      const Ke = {
+      const je = {
         get: function () {
-          var e = Ie,
-            t = Je;
+          var e = Ae,
+            t = et;
           function n(n, r) {
-            var s = !e.global && (e !== Ie || t !== Je);
-            const i = s && !rt();
-            var a = new Re((t, a) => {
-              Ne(this, new je(ht(n, e, s, i), ht(r, e, s, i), t, a, e));
+            var s = !e.global && (e !== Ae || t !== et);
+            const i = s && !st();
+            var a = new Ke((t, a) => {
+              Fe(this, new De(dt(n, e, s, i), dt(r, e, s, i), t, a, e));
             });
-            return N && Ue(a, this), a;
+            return N && We(a, this), a;
           }
           return (n.prototype = de), n;
         },
@@ -756,24 +759,24 @@
             this,
             "then",
             e && e.prototype === de
-              ? Ke
+              ? je
               : {
                   get: function () {
                     return e;
                   },
-                  set: Ke.set
+                  set: je.set
                 }
           );
         }
       };
-      function je(e, t, n, r, s) {
+      function De(e, t, n, r, s) {
         (this.onFulfilled = "function" == typeof e ? e : null),
           (this.onRejected = "function" == typeof t ? t : null),
           (this.resolve = n),
           (this.reject = r),
           (this.psd = s);
       }
-      function De(e, t) {
+      function Be(e, t) {
         try {
           t(
             (t) => {
@@ -781,23 +784,23 @@
                 if (t === e) throw new TypeError("A promise cannot be resolved with itself.");
                 var n = e._lib && Le();
                 t && "function" == typeof t.then
-                  ? De(e, (e, n) => {
-                      t instanceof Re ? t._then(e, n) : t.then(e, n);
+                  ? Be(e, (e, n) => {
+                      t instanceof Ke ? t._then(e, n) : t.then(e, n);
                     })
-                  : ((e._state = !0), (e._value = t), Me(e)),
-                  n && Ve();
+                  : ((e._state = !0), (e._value = t), Ne(e)),
+                  n && Qe();
               }
             },
-            Be.bind(null, e)
+            Me.bind(null, e)
           );
         } catch (t) {
-          Be(e, t);
+          Me(e, t);
         }
       }
-      function Be(e, t) {
-        if ((Se.push(t), null === e._state)) {
+      function Me(e, t) {
+        if ((qe.push(t), null === e._state)) {
           var n = e._lib && Le();
-          (t = Pe(t)),
+          (t = Te(t)),
             (e._state = !1),
             (e._value = t),
             N &&
@@ -809,216 +812,216 @@
                   e.apply(null, void 0);
                 } catch (e) {}
               })(() => {
-                var n = m(t, "stack");
-                (t._promise = e), d(t, "stack", { get: () => (be ? n && (n.get ? n.get.apply(t) : n.value) : e.stack) });
+                var n = y(t, "stack");
+                (t._promise = e), d(t, "stack", { get: () => (we ? n && (n.get ? n.get.apply(t) : n.value) : e.stack) });
               }),
             (function (e) {
-              Ee.some((t) => t._value === e._value) || Ee.push(e);
+              Se.some((t) => t._value === e._value) || Se.push(e);
             })(e),
-            Me(e),
-            n && Ve();
+            Ne(e),
+            n && Qe();
         }
       }
-      function Me(e) {
+      function Ne(e) {
         var t = e._listeners;
         e._listeners = [];
-        for (var n = 0, r = t.length; n < r; ++n) Ne(e, t[n]);
+        for (var n = 0, r = t.length; n < r; ++n) Fe(e, t[n]);
         var s = e._PSD;
         --s.ref || s.finalize(),
-          0 === Ce &&
-            (++Ce,
-            we(() => {
-              0 == --Ce && Qe();
+          0 === Oe &&
+            (++Oe,
+            ke(() => {
+              0 == --Oe && Ye();
             }, []));
       }
-      function Ne(e, t) {
+      function Fe(e, t) {
         if (null !== e._state) {
           var n = e._state ? t.onFulfilled : t.onRejected;
           if (null === n) return (e._state ? t.resolve : t.reject)(e._value);
-          ++t.psd.ref, ++Ce, we(Fe, [n, e, t]);
+          ++t.psd.ref, ++Oe, ke($e, [n, e, t]);
         } else e._listeners.push(t);
       }
-      function Fe(e, t, n) {
+      function $e(e, t, n) {
         try {
-          qe = t;
+          Pe = t;
           var r,
             s = t._value;
           t._state
             ? (r = e(s))
-            : (Se.length && (Se = []),
+            : (qe.length && (qe = []),
               (r = e(s)),
-              -1 === Se.indexOf(s) &&
+              -1 === qe.indexOf(s) &&
                 (function (e) {
-                  for (var t = Ee.length; t; ) if (Ee[--t]._value === e._value) return void Ee.splice(t, 1);
+                  for (var t = Se.length; t; ) if (Se[--t]._value === e._value) return void Se.splice(t, 1);
                 })(t)),
             n.resolve(r);
         } catch (e) {
           n.reject(e);
         } finally {
-          (qe = null), 0 == --Ce && Qe(), --n.psd.ref || n.psd.finalize();
+          (Pe = null), 0 == --Oe && Ye(), --n.psd.ref || n.psd.finalize();
         }
       }
-      function $e(e, t, n) {
+      function Ue(e, t, n) {
         if (t.length === n) return t;
         var r = "";
         if (!1 === e._state) {
           var s,
             i,
             a = e._value;
-          null != a ? ((s = a.name || "Error"), (i = a.message || a), (r = L(a, 0))) : ((s = a), (i = "")),
+          null != a ? ((s = a.name || "Error"), (i = a.message || a), (r = V(a, 0))) : ((s = a), (i = "")),
             t.push(s + (i ? ": " + i : "") + r);
         }
-        return N && ((r = L(e._stackHolder, 2)) && -1 === t.indexOf(r) && t.push(r), e._prev && $e(e._prev, t, n)), t;
+        return N && ((r = V(e._stackHolder, 2)) && -1 === t.indexOf(r) && t.push(r), e._prev && Ue(e._prev, t, n)), t;
       }
-      function Ue(e, t) {
+      function We(e, t) {
         var n = t ? t._numPrev + 1 : 0;
         n < 100 && ((e._prev = t), (e._numPrev = n));
       }
-      function We() {
-        Le() && Ve();
+      function Ve() {
+        Le() && Qe();
       }
       function Le() {
         var e = xe;
-        return (xe = !1), (ke = !1), e;
+        return (xe = !1), (Ee = !1), e;
       }
-      function Ve() {
+      function Qe() {
         var e, t, n;
         do {
-          for (; Ae.length > 0; )
-            for (e = Ae, Ae = [], n = e.length, t = 0; t < n; ++t) {
+          for (; Ce.length > 0; )
+            for (e = Ce, Ce = [], n = e.length, t = 0; t < n; ++t) {
               var r = e[t];
               r[0].apply(null, r[1]);
             }
-        } while (Ae.length > 0);
-        (xe = !0), (ke = !0);
+        } while (Ce.length > 0);
+        (xe = !0), (Ee = !0);
       }
-      function Qe() {
-        var e = Ee;
-        (Ee = []),
+      function Ye() {
+        var e = Se;
+        (Se = []),
           e.forEach((e) => {
             e._PSD.onunhandled.call(null, e._value, e);
           });
-        for (var t = Oe.slice(0), n = t.length; n; ) t[--n]();
+        for (var t = Re.slice(0), n = t.length; n; ) t[--n]();
       }
-      function Ye(e) {
-        return new Re(de, !1, e);
+      function Ze(e) {
+        return new Ke(de, !1, e);
       }
-      function Ze(e, t) {
-        var n = Ie;
+      function ze(e, t) {
+        var n = Ae;
         return function () {
           var r = Le(),
-            s = Ie;
+            s = Ae;
           try {
-            return ot(n, !0), e.apply(this, arguments);
+            return ut(n, !0), e.apply(this, arguments);
           } catch (e) {
             t && t(e);
           } finally {
-            ot(s, !1), r && Ve();
+            ut(s, !1), r && Qe();
           }
         };
       }
-      c(Re.prototype, {
-        then: Ke,
+      c(Ke.prototype, {
+        then: je,
         _then: function (e, t) {
-          Ne(this, new je(null, null, e, t, Ie));
+          Fe(this, new De(null, null, e, t, Ae));
         },
         catch: function (e) {
           if (1 === arguments.length) return this.then(null, e);
           var t = arguments[0],
             n = arguments[1];
           return "function" == typeof t
-            ? this.then(null, (e) => (e instanceof t ? n(e) : Ye(e)))
-            : this.then(null, (e) => (e && e.name === t ? n(e) : Ye(e)));
+            ? this.then(null, (e) => (e instanceof t ? n(e) : Ze(e)))
+            : this.then(null, (e) => (e && e.name === t ? n(e) : Ze(e)));
         },
         finally: function (e) {
           return this.then(
             (t) => (e(), t),
-            (t) => (e(), Ye(t))
+            (t) => (e(), Ze(t))
           );
         },
         stack: {
           get: function () {
             if (this._stack) return this._stack;
             try {
-              be = !0;
-              var e = $e(this, [], 20).join("\nFrom previous: ");
+              we = !0;
+              var e = Ue(this, [], 20).join("\nFrom previous: ");
               return null !== this._state && (this._stack = e), e;
             } finally {
-              be = !1;
+              we = !1;
             }
           }
         },
         timeout: function (e, t) {
           return e < 1 / 0
-            ? new Re((n, r) => {
+            ? new Ke((n, r) => {
                 var s = setTimeout(() => r(new ee.Timeout(t)), e);
                 this.then(n, r).finally(clearTimeout.bind(null, s));
               })
             : this;
         }
       }),
-        "undefined" != typeof Symbol && Symbol.toStringTag && d(Re.prototype, Symbol.toStringTag, "Dexie.Promise"),
-        (Te.env = ut()),
-        c(Re, {
+        "undefined" != typeof Symbol && Symbol.toStringTag && d(Ke.prototype, Symbol.toStringTag, "Dexie.Promise"),
+        (Ie.env = lt()),
+        c(Ke, {
           all: function () {
-            var e = B.apply(null, arguments).map(st);
-            return new Re(function (t, n) {
+            var e = B.apply(null, arguments).map(it);
+            return new Ke(function (t, n) {
               0 === e.length && t([]);
               var r = e.length;
               e.forEach((s, i) =>
-                Re.resolve(s).then((n) => {
+                Ke.resolve(s).then((n) => {
                   (e[i] = n), --r || t(e);
                 }, n)
               );
             });
           },
           resolve: (e) => {
-            if (e instanceof Re) return e;
+            if (e instanceof Ke) return e;
             if (e && "function" == typeof e.then)
-              return new Re((t, n) => {
+              return new Ke((t, n) => {
                 e.then(t, n);
               });
-            var t = new Re(de, !0, e);
-            return Ue(t, qe), t;
+            var t = new Ke(de, !0, e);
+            return We(t, Pe), t;
           },
-          reject: Ye,
+          reject: Ze,
           race: function () {
-            var e = B.apply(null, arguments).map(st);
-            return new Re((t, n) => {
-              e.map((e) => Re.resolve(e).then(t, n));
+            var e = B.apply(null, arguments).map(it);
+            return new Ke((t, n) => {
+              e.map((e) => Ke.resolve(e).then(t, n));
             });
           },
-          PSD: { get: () => Ie, set: (e) => (Ie = e) },
-          totalEchoes: { get: () => Je },
-          newPSD: tt,
-          usePSD: lt,
+          PSD: { get: () => Ae, set: (e) => (Ae = e) },
+          totalEchoes: { get: () => et },
+          newPSD: nt,
+          usePSD: ct,
           scheduler: {
-            get: () => we,
+            get: () => ke,
             set: (e) => {
-              we = e;
+              ke = e;
             }
           },
           rejectionMapper: {
-            get: () => Pe,
+            get: () => Te,
             set: (e) => {
-              Pe = e;
+              Te = e;
             }
           },
           follow: (e, t) =>
-            new Re((n, r) =>
-              tt(
+            new Ke((n, r) =>
+              nt(
                 (t, n) => {
-                  var r = Ie;
+                  var r = Ae;
                   (r.unhandleds = []),
                     (r.onunhandled = n),
                     (r.finalize = ae(function () {
                       !(function (e) {
-                        Oe.push(function t() {
-                          e(), Oe.splice(Oe.indexOf(t), 1);
+                        Re.push(function t() {
+                          e(), Re.splice(Re.indexOf(t), 1);
                         }),
-                          ++Ce,
-                          we(() => {
-                            0 == --Ce && Qe();
+                          ++Oe,
+                          ke(() => {
+                            0 == --Oe && Ye();
                           }, []);
                       })(() => {
                         0 === this.unhandleds.length ? t() : n(this.unhandleds[0]);
@@ -1032,16 +1035,16 @@
               )
             )
         }),
-        ge &&
-          (ge.allSettled &&
-            d(Re, "allSettled", function () {
-              const e = B.apply(null, arguments).map(st);
-              return new Re((t) => {
+        ve &&
+          (ve.allSettled &&
+            d(Ke, "allSettled", function () {
+              const e = B.apply(null, arguments).map(it);
+              return new Ke((t) => {
                 0 === e.length && t([]);
                 let n = e.length;
                 const r = new Array(n);
                 e.forEach((e, s) =>
-                  Re.resolve(e)
+                  Ke.resolve(e)
                     .then(
                       (e) => (r[s] = { status: "fulfilled", value: e }),
                       (e) => (r[s] = { status: "rejected", reason: e })
@@ -1050,16 +1053,16 @@
                 );
               });
             }),
-          ge.any &&
+          ve.any &&
             "undefined" != typeof AggregateError &&
-            d(Re, "any", function () {
-              const e = B.apply(null, arguments).map(st);
-              return new Re((t, n) => {
+            d(Ke, "any", function () {
+              const e = B.apply(null, arguments).map(it);
+              return new Ke((t, n) => {
                 0 === e.length && n(new AggregateError([]));
                 let r = e.length;
                 const s = new Array(r);
                 e.forEach((e, i) =>
-                  Re.resolve(e).then(
+                  Ke.resolve(e).then(
                     (e) => t(e),
                     (e) => {
                       (s[i] = e), --r || n(new AggregateError(s));
@@ -1068,29 +1071,29 @@
                 );
               });
             }));
-      const ze = { awaits: 0, echoes: 0, id: 0 };
-      var He = 0,
-        Xe = [],
-        Ge = 0,
+      const He = { awaits: 0, echoes: 0, id: 0 };
+      var Xe = 0,
+        Ge = [],
         Je = 0,
-        et = 0;
-      function tt(e, t, n, r) {
-        var s = Ie,
+        et = 0,
+        tt = 0;
+      function nt(e, t, n, r) {
+        var s = Ae,
           i = Object.create(s);
-        (i.parent = s), (i.ref = 0), (i.global = !1), (i.id = ++et);
-        var o = Te.env;
-        (i.env = ve
+        (i.parent = s), (i.ref = 0), (i.global = !1), (i.id = ++tt);
+        var o = Ie.env;
+        (i.env = be
           ? {
-              Promise: Re,
-              PromiseProp: { value: Re, configurable: !0, writable: !0 },
-              all: Re.all,
-              race: Re.race,
-              allSettled: Re.allSettled,
-              any: Re.any,
-              resolve: Re.resolve,
-              reject: Re.reject,
-              nthen: dt(o.nthen, i),
-              gthen: dt(o.gthen, i)
+              Promise: Ke,
+              PromiseProp: { value: Ke, configurable: !0, writable: !0 },
+              all: Ke.all,
+              race: Ke.race,
+              allSettled: Ke.allSettled,
+              any: Ke.any,
+              resolve: Ke.resolve,
+              reject: Ke.reject,
+              nthen: ft(o.nthen, i),
+              gthen: ft(o.gthen, i)
             }
           : {}),
           t && a(i, t),
@@ -1098,40 +1101,40 @@
           (i.finalize = function () {
             --this.parent.ref || this.parent.finalize();
           });
-        var u = lt(i, e, n, r);
+        var u = ct(i, e, n, r);
         return 0 === i.ref && i.finalize(), u;
       }
-      function nt() {
-        return ze.id || (ze.id = ++He), ++ze.awaits, (ze.echoes += 100), ze.id;
-      }
       function rt() {
-        return !!ze.awaits && (0 == --ze.awaits && (ze.id = 0), (ze.echoes = 100 * ze.awaits), !0);
+        return He.id || (He.id = ++Xe), ++He.awaits, (He.echoes += fe), He.id;
       }
-      function st(e) {
-        return ze.echoes && e && e.constructor === ge
-          ? (nt(),
+      function st() {
+        return !!He.awaits && (0 == --He.awaits && (He.id = 0), (He.echoes = He.awaits * fe), !0);
+      }
+      function it(e) {
+        return He.echoes && e && e.constructor === ve
+          ? (rt(),
             e.then(
-              (e) => (rt(), e),
-              (e) => (rt(), pt(e))
+              (e) => (st(), e),
+              (e) => (st(), mt(e))
             ))
           : e;
       }
-      function it(e) {
-        ++Je, (ze.echoes && 0 != --ze.echoes) || (ze.echoes = ze.id = 0), Xe.push(Ie), ot(e, !0);
+      function at(e) {
+        ++et, (He.echoes && 0 != --He.echoes) || (He.echoes = He.id = 0), Ge.push(Ae), ut(e, !0);
       }
-      function at() {
-        var e = Xe[Xe.length - 1];
-        Xe.pop(), ot(e, !1);
+      function ot() {
+        var e = Ge[Ge.length - 1];
+        Ge.pop(), ut(e, !1);
       }
-      function ot(e, t) {
-        var n = Ie;
+      function ut(e, t) {
+        var n = Ae;
         if (
-          ((t ? !ze.echoes || (Ge++ && e === Ie) : !Ge || (--Ge && e === Ie)) || ct(t ? it.bind(null, e) : at),
-          e !== Ie && ((Ie = e), n === Te && (Te.env = ut()), ve))
+          ((t ? !He.echoes || (Je++ && e === Ae) : !Je || (--Je && e === Ae)) || ht(t ? at.bind(null, e) : ot),
+          e !== Ae && ((Ae = e), n === Ie && (Ie.env = lt()), be))
         ) {
-          var s = Te.env.Promise,
+          var s = Ie.env.Promise,
             i = e.env;
-          (pe.then = i.nthen),
+          (ye.then = i.nthen),
             (s.prototype.then = i.gthen),
             (n.global || e.global) &&
               (Object.defineProperty(r, "Promise", i.PromiseProp),
@@ -1143,9 +1146,9 @@
               i.any && (s.any = i.any));
         }
       }
-      function ut() {
+      function lt() {
         var e = r.Promise;
-        return ve
+        return be
           ? {
               Promise: e,
               PromiseProp: Object.getOwnPropertyDescriptor(r, "Promise"),
@@ -1155,41 +1158,43 @@
               any: e.any,
               resolve: e.resolve,
               reject: e.reject,
-              nthen: pe.then,
+              nthen: ye.then,
               gthen: e.prototype.then
             }
           : {};
       }
-      function lt(e, t, n, r, s) {
-        var i = Ie;
+      function ct(e, t, n, r, s) {
+        var i = Ae;
         try {
-          return ot(e, !0), t(n, r, s);
+          return ut(e, !0), t(n, r, s);
         } finally {
-          ot(i, !1);
+          ut(i, !1);
         }
       }
-      function ct(e) {
-        ye.call(fe, e);
+      function ht(e) {
+        ge.call(pe, e);
       }
-      function ht(e, t, n, r) {
+      function dt(e, t, n, r) {
         return "function" != typeof e
           ? e
           : function () {
-              var s = Ie;
-              n && nt(), ot(t, !0);
+              var s = Ae;
+              n && rt(), ut(t, !0);
               try {
                 return e.apply(this, arguments);
               } finally {
-                ot(s, !1), r && ct(rt);
+                ut(s, !1), r && ht(st);
               }
             };
       }
-      function dt(e, t) {
+      function ft(e, t) {
         return function (n, r) {
-          return e.call(this, ht(n, t), ht(r, t));
+          return e.call(this, dt(n, t), dt(r, t));
         };
       }
-      function ft(e, t) {
+      -1 === ("" + ge).indexOf("[native code]") && (rt = st = re);
+      const pt = "unhandledrejection";
+      function yt(e, t) {
         var n;
         try {
           n = t.onuncatched(e);
@@ -1200,8 +1205,8 @@
               i = { promise: t, reason: e };
             if (
               (r.document && document.createEvent
-                ? ((s = document.createEvent("Event")).initEvent("unhandledrejection", !0, !0), a(s, i))
-                : r.CustomEvent && a((s = new CustomEvent("unhandledrejection", { detail: i })), i),
+                ? ((s = document.createEvent("Event")).initEvent(pt, !0, !0), a(s, i))
+                : r.CustomEvent && a((s = new CustomEvent(pt, { detail: i })), i),
               s && r.dispatchEvent && (dispatchEvent(s), !r.PromiseRejectionEvent && r.onunhandledrejection))
             )
               try {
@@ -1210,35 +1215,40 @@
             N && s && !s.defaultPrevented && console.warn(`Unhandled rejection: ${e.stack || e}`);
           } catch (e) {}
       }
-      -1 === ("" + ye).indexOf("[native code]") && (nt = rt = re);
-      var pt = Re.reject;
-      function mt(e, t, n, r) {
-        if (e.idbdb && (e._state.openComplete || Ie.letThrough || e._vip)) {
+      var mt = Ke.reject;
+      function gt(e, t, n, r) {
+        if (e.idbdb && (e._state.openComplete || Ae.letThrough || e._vip)) {
           var s = e._createTransaction(t, n, e._dbSchema);
           try {
             s.create(), (e._state.PR1398_maxLoop = 3);
           } catch (s) {
             return s.name === G.InvalidState && e.isOpen() && --e._state.PR1398_maxLoop > 0
-              ? (console.warn("Dexie: Need to reopen db"), e._close(), e.open().then(() => mt(e, t, n, r)))
-              : pt(s);
+              ? (console.warn("Dexie: Need to reopen db"), e._close(), e.open().then(() => gt(e, t, n, r)))
+              : mt(s);
           }
-          return s._promise(t, (e, t) => tt(() => ((Ie.trans = s), r(e, t, s)))).then((e) => s._completion.then(() => e));
+          return s._promise(t, (e, t) => nt(() => ((Ae.trans = s), r(e, t, s)))).then((e) => s._completion.then(() => e));
         }
-        if (e._state.openComplete) return pt(new ee.DatabaseClosed(e._state.dbOpenError));
+        if (e._state.openComplete) return mt(new ee.DatabaseClosed(e._state.dbOpenError));
         if (!e._state.isBeingOpened) {
-          if (!e._options.autoOpen) return pt(new ee.DatabaseClosed());
+          if (!e._options.autoOpen) return mt(new ee.DatabaseClosed());
           e.open().catch(re);
         }
-        return e._state.dbReadyPromise.then(() => mt(e, t, n, r));
+        return e._state.dbReadyPromise.then(() => gt(e, t, n, r));
       }
-      const yt = String.fromCharCode(65535),
-        gt = "Invalid key provided. Keys must be of type string, number, Date or Array<string | number | Date>.",
-        vt = [],
-        bt = "undefined" != typeof navigator && /(MSIE|Trident|Edge)/.test(navigator.userAgent),
-        _t = bt,
-        wt = bt,
-        xt = (e) => !/(dexie\.js|dexie\.min\.js)/.test(e);
-      function kt(e, t) {
+      const vt = "3.2.4",
+        bt = String.fromCharCode(65535),
+        wt = -1 / 0,
+        _t = "Invalid key provided. Keys must be of type string, number, Date or Array<string | number | Date>.",
+        kt = "String expected.",
+        xt = [],
+        Et = "undefined" != typeof navigator && /(MSIE|Trident|Edge)/.test(navigator.userAgent),
+        St = Et,
+        qt = Et,
+        Pt = (e) => !/(dexie\.js|dexie\.min\.js)/.test(e),
+        Tt = "__dbnames",
+        It = "readonly",
+        At = "readwrite";
+      function Ct(e, t) {
         return e
           ? t
             ? function () {
@@ -1247,13 +1257,13 @@
             : e
           : t;
       }
-      const Et = { type: 3, lower: -1 / 0, lowerOpen: !1, upper: [[]], upperOpen: !1 };
-      function St(e) {
+      const Ot = { type: 3, lower: -1 / 0, lowerOpen: !1, upper: [[]], upperOpen: !1 };
+      function Rt(e) {
         return "string" != typeof e || /\./.test(e) ? (e) => e : (t) => (void 0 === t[e] && e in t && delete (t = A(t))[e], t);
       }
-      class qt {
+      class Kt {
         _trans(e, t, n) {
-          const r = this._tx || Ie.trans,
+          const r = this._tx || Ae.trans,
             s = this.name;
           function i(e, n, r) {
             if (!r.schema[s]) throw new ee.NotFound("Table " + s + " not part of transaction");
@@ -1262,12 +1272,12 @@
           const a = Le();
           try {
             return r && r.db === this.db
-              ? r === Ie.trans
+              ? r === Ae.trans
                 ? r._promise(e, i, n)
-                : tt(() => r._promise(e, i, n), { trans: r, transless: Ie.transless || Ie })
-              : mt(this.db, e, [this.name], i);
+                : nt(() => r._promise(e, i, n), { trans: r, transless: Ae.transless || Ae })
+              : gt(this.db, e, [this.name], i);
           } finally {
-            a && Ve();
+            a && Qe();
           }
         }
         get(e, t) {
@@ -1283,7 +1293,7 @@
           const n = this.schema.indexes
             .concat(this.schema.primKey)
             .filter((e) => e.compound && t.every((t) => e.keyPath.indexOf(t) >= 0) && e.keyPath.every((e) => t.indexOf(e) >= 0))[0];
-          if (n && this.db._maxKey !== yt) return this.where(n.name).equals(n.keyPath.map((t) => e[t]));
+          if (n && this.db._maxKey !== bt) return this.where(n.name).equals(n.keyPath.map((t) => e[t]));
           !n && N && console.warn(`The query ${JSON.stringify(e)} on ${this.name} would benefit of a compound index [${t.join("+")}]`);
           const { idxByName: r } = this.schema,
             a = this.db._deps.indexedDB;
@@ -1301,14 +1311,14 @@
               return [
                 t || a,
                 t || !a
-                  ? kt(
+                  ? Ct(
                       n,
                       a && a.multi
                         ? (e) => {
-                            const t = x(e, s);
+                            const t = k(e, s);
                             return i(t) && t.some((e) => o(u, e));
                           }
-                        : (e) => o(u, x(e, s))
+                        : (e) => o(u, k(e, s))
                     )
                   : n
               ];
@@ -1372,13 +1382,13 @@
           const { auto: n, keyPath: r } = this.schema.primKey;
           let s = e;
           return (
-            r && n && (s = St(r)(e)),
+            r && n && (s = Rt(r)(e)),
             this._trans("readwrite", (e) => this.core.mutate({ trans: e, type: "add", keys: null != t ? [t] : null, values: [s] }))
-              .then((e) => (e.numFailures ? Re.reject(e.failures[0]) : e.lastResult))
+              .then((e) => (e.numFailures ? Ke.reject(e.failures[0]) : e.lastResult))
               .then((t) => {
                 if (r)
                   try {
-                    k(e, r, t);
+                    x(e, r, t);
                   } catch (e) {}
                 return t;
               })
@@ -1387,12 +1397,12 @@
         update(e, t) {
           if ("object" != typeof e || i(e)) return this.where(":id").equals(e).modify(t);
           {
-            const n = x(e, this.schema.primKey.keyPath);
-            if (void 0 === n) return pt(new ee.InvalidArgument("Given object does not contain its primary key"));
+            const n = k(e, this.schema.primKey.keyPath);
+            if (void 0 === n) return mt(new ee.InvalidArgument("Given object does not contain its primary key"));
             try {
               "function" != typeof t
                 ? s(t).forEach((n) => {
-                    k(e, n, t[n]);
+                    x(e, n, t[n]);
                   })
                 : t(e, { value: e, primKey: n });
             } catch (e) {}
@@ -1403,13 +1413,13 @@
           const { auto: n, keyPath: r } = this.schema.primKey;
           let s = e;
           return (
-            r && n && (s = St(r)(e)),
+            r && n && (s = Rt(r)(e)),
             this._trans("readwrite", (e) => this.core.mutate({ trans: e, type: "put", values: [s], keys: null != t ? [t] : null }))
-              .then((e) => (e.numFailures ? Re.reject(e.failures[0]) : e.lastResult))
+              .then((e) => (e.numFailures ? Ke.reject(e.failures[0]) : e.lastResult))
               .then((t) => {
                 if (r)
                   try {
-                    k(e, r, t);
+                    x(e, r, t);
                   } catch (e) {}
                 return t;
               })
@@ -1417,12 +1427,12 @@
         }
         delete(e) {
           return this._trans("readwrite", (t) => this.core.mutate({ trans: t, type: "delete", keys: [e] })).then((e) =>
-            e.numFailures ? Re.reject(e.failures[0]) : void 0
+            e.numFailures ? Ke.reject(e.failures[0]) : void 0
           );
         }
         clear() {
-          return this._trans("readwrite", (e) => this.core.mutate({ trans: e, type: "deleteRange", range: Et })).then((e) =>
-            e.numFailures ? Re.reject(e.failures[0]) : void 0
+          return this._trans("readwrite", (e) => this.core.mutate({ trans: e, type: "deleteRange", range: Ot })).then((e) =>
+            e.numFailures ? Ke.reject(e.failures[0]) : void 0
           );
         }
         bulkGet(e) {
@@ -1438,7 +1448,7 @@
             if (i && r) throw new ee.InvalidArgument("bulkAdd(): keys argument invalid on tables with inbound keys");
             if (r && r.length !== e.length) throw new ee.InvalidArgument("Arguments objects and keys must have the same length");
             const a = e.length;
-            let o = i && n ? e.map(St(i)) : e;
+            let o = i && n ? e.map(Rt(i)) : e;
             return this.core
               .mutate({ trans: t, type: "add", keys: r, values: o, wantResults: s })
               .then(({ numFailures: e, results: t, lastResult: n, failures: r }) => {
@@ -1455,7 +1465,7 @@
             if (i && r) throw new ee.InvalidArgument("bulkPut(): keys argument invalid on tables with inbound keys");
             if (r && r.length !== e.length) throw new ee.InvalidArgument("Arguments objects and keys must have the same length");
             const a = e.length;
-            let o = i && n ? e.map(St(i)) : e;
+            let o = i && n ? e.map(Rt(i)) : e;
             return this.core
               .mutate({ trans: t, type: "put", keys: r, values: o, wantResults: s })
               .then(({ numFailures: e, results: t, lastResult: n, failures: r }) => {
@@ -1474,7 +1484,7 @@
           );
         }
       }
-      function Pt(e) {
+      function jt(e) {
         var t = {},
           n = function (n, r) {
             if (r) {
@@ -1486,34 +1496,34 @@
         n.addEventType = o;
         for (var r = 1, a = arguments.length; r < a; ++r) o(arguments[r]);
         return n;
-        function o(e, r, s) {
-          if ("object" == typeof e) return u(e);
-          r || (r = ce), s || (s = re);
-          var i = {
-            subscribers: [],
-            fire: s,
-            subscribe: function (e) {
-              -1 === i.subscribers.indexOf(e) && (i.subscribers.push(e), (i.fire = r(i.fire, e)));
-            },
-            unsubscribe: function (e) {
-              (i.subscribers = i.subscribers.filter(function (t) {
-                return t !== e;
-              })),
-                (i.fire = i.subscribers.reduce(r, s));
-            }
-          };
-          return (t[e] = n[e] = i), i;
-        }
-        function u(e) {
-          s(e).forEach(function (t) {
-            var n = e[t];
-            if (i(n)) o(t, e[t][0], e[t][1]);
+        function o(e, r, a) {
+          if ("object" != typeof e) {
+            var u;
+            r || (r = ce), a || (a = re);
+            var l = {
+              subscribers: [],
+              fire: a,
+              subscribe: function (e) {
+                -1 === l.subscribers.indexOf(e) && (l.subscribers.push(e), (l.fire = r(l.fire, e)));
+              },
+              unsubscribe: function (e) {
+                (l.subscribers = l.subscribers.filter(function (t) {
+                  return t !== e;
+                })),
+                  (l.fire = l.subscribers.reduce(r, a));
+              }
+            };
+            return (t[e] = n[e] = l), l;
+          }
+          s((u = e)).forEach(function (e) {
+            var t = u[e];
+            if (i(t)) o(e, u[e][0], u[e][1]);
             else {
-              if ("asap" !== n) throw new ee.InvalidArgument("Invalid event config");
-              var r = o(t, se, function () {
+              if ("asap" !== t) throw new ee.InvalidArgument("Invalid event config");
+              var n = o(e, se, function () {
                 for (var e = arguments.length, t = new Array(e); e--; ) t[e] = arguments[e];
-                r.subscribers.forEach(function (e) {
-                  _(function () {
+                n.subscribers.forEach(function (e) {
+                  w(function () {
                     e.apply(null, t);
                   });
                 });
@@ -1522,27 +1532,27 @@
           });
         }
       }
-      function Tt(e, t) {
+      function Dt(e, t) {
         return f(t).from({ prototype: e }), t;
       }
-      function It(e, t) {
+      function Bt(e, t) {
         return !(e.filter || e.algorithm || e.or) && (t ? e.justLimit : !e.replayFilter);
       }
-      function At(e, t) {
-        e.filter = kt(e.filter, t);
+      function Mt(e, t) {
+        e.filter = Ct(e.filter, t);
       }
-      function Ct(e, t, n) {
+      function Nt(e, t, n) {
         var r = e.replayFilter;
-        (e.replayFilter = r ? () => kt(r(), t()) : t), (e.justLimit = n && !r);
+        (e.replayFilter = r ? () => Ct(r(), t()) : t), (e.justLimit = n && !r);
       }
-      function Ot(e, t) {
+      function Ft(e, t) {
         if (e.isPrimKey) return t.primaryKey;
         const n = t.getIndexByKeyPath(e.index);
         if (!n) throw new ee.Schema("KeyPath " + e.index + " on object store " + t.name + " is not indexed");
         return n;
       }
-      function Rt(e, t, n) {
-        const r = Ot(e, t.schema);
+      function $t(e, t, n) {
+        const r = Ft(e, t.schema);
         return t.openCursor({
           trans: n,
           values: !e.keysOnly,
@@ -1551,8 +1561,8 @@
           query: { index: r, range: e.range }
         });
       }
-      function Kt(e, t, n, r) {
-        const s = e.replayFilter ? kt(e.filter, e.replayFilter()) : e.filter;
+      function Ut(e, t, n, r) {
+        const s = e.replayFilter ? Ct(e.filter, e.replayFilter()) : e.filter;
         if (e.or) {
           const i = {},
             a = (e, n, r) => {
@@ -1570,12 +1580,12 @@
                 "[object ArrayBuffer]" === o && (o = "" + new Uint8Array(a)), l(i, o) || ((i[o] = !0), t(e, n, r));
               }
             };
-          return Promise.all([e.or._iterate(a, n), jt(Rt(e, r, n), e.algorithm, a, !e.keysOnly && e.valueMapper)]);
+          return Promise.all([e.or._iterate(a, n), Wt($t(e, r, n), e.algorithm, a, !e.keysOnly && e.valueMapper)]);
         }
-        return jt(Rt(e, r, n), kt(e.algorithm, s), t, !e.keysOnly && e.valueMapper);
+        return Wt($t(e, r, n), Ct(e.algorithm, s), t, !e.keysOnly && e.valueMapper);
       }
-      function jt(e, t, n, r) {
-        var s = Ze(r ? (e, t, s) => n(r(e), t, s) : n);
+      function Wt(e, t, n, r) {
+        var s = ze(r ? (e, t, s) => n(r(e), t, s) : n);
         return e.then((e) => {
           if (e)
             return e.start(() => {
@@ -1596,10 +1606,10 @@
             });
         });
       }
-      function Dt(e, t) {
+      function Vt(e, t) {
         try {
-          const n = Bt(e),
-            r = Bt(t);
+          const n = Lt(e),
+            r = Lt(t);
           if (n !== r)
             return "Array" === n
               ? 1
@@ -1630,14 +1640,14 @@
                   s = n < r ? n : r;
                 for (let n = 0; n < s; ++n) if (e[n] !== t[n]) return e[n] < t[n] ? -1 : 1;
                 return n === r ? 0 : n < r ? -1 : 1;
-              })(Mt(e), Mt(t));
+              })(Qt(e), Qt(t));
             case "Array":
               return (function (e, t) {
                 const n = e.length,
                   r = t.length,
                   s = n < r ? n : r;
                 for (let n = 0; n < s; ++n) {
-                  const r = Dt(e[n], t[n]);
+                  const r = Vt(e[n], t[n]);
                   if (0 !== r) return r;
                 }
                 return n === r ? 0 : n < r ? -1 : 1;
@@ -1646,35 +1656,35 @@
         } catch (e) {}
         return NaN;
       }
-      function Bt(e) {
+      function Lt(e) {
         const t = typeof e;
         if ("object" !== t) return t;
         if (ArrayBuffer.isView(e)) return "binary";
         const n = R(e);
         return "ArrayBuffer" === n ? "binary" : n;
       }
-      function Mt(e) {
+      function Qt(e) {
         return e instanceof Uint8Array
           ? e
           : ArrayBuffer.isView(e)
           ? new Uint8Array(e.buffer, e.byteOffset, e.byteLength)
           : new Uint8Array(e);
       }
-      class Nt {
+      class Yt {
         _read(e, t) {
           var n = this._ctx;
-          return n.error ? n.table._trans(null, pt.bind(null, n.error)) : n.table._trans("readonly", e).then(t);
+          return n.error ? n.table._trans(null, mt.bind(null, n.error)) : n.table._trans("readonly", e).then(t);
         }
         _write(e) {
           var t = this._ctx;
-          return t.error ? t.table._trans(null, pt.bind(null, t.error)) : t.table._trans("readwrite", e, "locked");
+          return t.error ? t.table._trans(null, mt.bind(null, t.error)) : t.table._trans("readwrite", e, "locked");
         }
         _addAlgorithm(e) {
           var t = this._ctx;
-          t.algorithm = kt(t.algorithm, e);
+          t.algorithm = Ct(t.algorithm, e);
         }
         _iterate(e, t) {
-          return Kt(this._ctx, e, t, this._ctx.table.core);
+          return Ut(this._ctx, e, t, this._ctx.table.core);
         }
         clone(e) {
           var t = Object.create(this.constructor.prototype),
@@ -1686,16 +1696,16 @@
         }
         each(e) {
           var t = this._ctx;
-          return this._read((n) => Kt(t, e, n, t.table.core));
+          return this._read((n) => Ut(t, e, n, t.table.core));
         }
         count(e) {
           return this._read((e) => {
             const t = this._ctx,
               n = t.table.core;
-            if (It(t, !0))
-              return n.count({ trans: e, query: { index: Ot(t, n.schema), range: t.range } }).then((e) => Math.min(e, t.limit));
+            if (Bt(t, !0))
+              return n.count({ trans: e, query: { index: Ft(t, n.schema), range: t.range } }).then((e) => Math.min(e, t.limit));
             var r = 0;
-            return Kt(t, () => (++r, !1), e, n).then(() => r);
+            return Ut(t, () => (++r, !1), e, n).then(() => r);
           }).then(e);
         }
         sortBy(e, t) {
@@ -1718,16 +1728,16 @@
         toArray(e) {
           return this._read((e) => {
             var t = this._ctx;
-            if ("next" === t.dir && It(t, !0) && t.limit > 0) {
+            if ("next" === t.dir && Bt(t, !0) && t.limit > 0) {
               const { valueMapper: n } = t,
-                r = Ot(t, t.table.core.schema);
+                r = Ft(t, t.table.core.schema);
               return t.table.core
                 .query({ trans: e, limit: t.limit, values: !0, query: { index: r, range: t.range } })
                 .then(({ result: e }) => (n ? e.map(n) : e));
             }
             {
               const n = [];
-              return Kt(t, (e) => n.push(e), e, t.table.core).then(() => n);
+              return Ut(t, (e) => n.push(e), e, t.table.core).then(() => n);
             }
           }, e);
         }
@@ -1736,8 +1746,8 @@
           return (
             e <= 0 ||
               ((t.offset += e),
-              It(t)
-                ? Ct(t, () => {
+              Bt(t)
+                ? Nt(t, () => {
                     var t = e;
                     return (e, n) =>
                       0 === t ||
@@ -1748,7 +1758,7 @@
                           }),
                           !1));
                   })
-                : Ct(t, () => {
+                : Nt(t, () => {
                     var t = e;
                     return () => --t < 0;
                   })),
@@ -1758,7 +1768,7 @@
         limit(e) {
           return (
             (this._ctx.limit = Math.min(this._ctx.limit, e)),
-            Ct(
+            Nt(
               this._ctx,
               () => {
                 var t = e;
@@ -1773,7 +1783,7 @@
         }
         until(e, t) {
           return (
-            At(this._ctx, function (n, r, s) {
+            Mt(this._ctx, function (n, r, s) {
               return !e(n.value) || (r(s), t);
             }),
             this
@@ -1792,12 +1802,12 @@
         filter(e) {
           var t, n;
           return (
-            At(this._ctx, function (t) {
+            Mt(this._ctx, function (t) {
               return e(t.value);
             }),
             (t = this._ctx),
             (n = e),
-            (t.isMatch = kt(t.isMatch, n)),
+            (t.isMatch = Ct(t.isMatch, n)),
             this
           );
         }
@@ -1852,9 +1862,9 @@
         }
         primaryKeys(e) {
           var t = this._ctx;
-          if ("next" === t.dir && It(t, !0) && t.limit > 0)
+          if ("next" === t.dir && Bt(t, !0) && t.limit > 0)
             return this._read((e) => {
-              var n = Ot(t, t.table.core.schema);
+              var n = Ft(t, t.table.core.schema);
               return t.table.core.query({ trans: e, values: !1, limit: t.limit, query: { index: n, range: t.range } });
             })
               .then(({ result: e }) => e)
@@ -1888,7 +1898,7 @@
           if (!t || !t.multi) return this;
           var n = {};
           return (
-            At(this._ctx, function (e) {
+            Mt(this._ctx, function (e) {
               var t = e.primaryKey.toString(),
                 r = l(n, t);
               return (n[t] = !0), !r;
@@ -1908,7 +1918,7 @@
                 for (var n = !1, r = 0; r < a; ++r) {
                   var s = i[r],
                     o = e[s];
-                  x(t, s) !== o && (k(t, s, o), (n = !0));
+                  k(t, s) !== o && (x(t, s, o), (n = !0));
                 }
                 return n;
               };
@@ -1931,8 +1941,8 @@
                   const h = Math.min(c, s.length - a);
                   return o.getMany({ trans: n, keys: s.slice(a, a + h), cache: "immutable" }).then((d) => {
                     const f = [],
-                      m = [],
-                      y = u ? [] : null,
+                      y = [],
+                      m = u ? [] : null,
                       g = [];
                     for (let e = 0; e < h; ++e) {
                       const t = d[e],
@@ -1940,11 +1950,11 @@
                       !1 !== r.call(n, n.value, n) &&
                         (null == n.value
                           ? g.push(s[a + e])
-                          : u || 0 === Dt(l(t), l(n.value))
-                          ? (m.push(n.value), u && y.push(s[a + e]))
+                          : u || 0 === Vt(l(t), l(n.value))
+                          ? (y.push(n.value), u && m.push(s[a + e]))
                           : (g.push(s[a + e]), f.push(n.value)));
                     }
-                    const v = It(t) && t.limit === 1 / 0 && ("function" != typeof e || e === Ft) && { index: t.index, range: t.range };
+                    const v = Bt(t) && t.limit === 1 / 0 && ("function" != typeof e || e === Zt) && { index: t.index, range: t.range };
                     return Promise.resolve(
                       f.length > 0 &&
                         o.mutate({ trans: n, type: "add", values: f }).then((e) => {
@@ -1954,14 +1964,14 @@
                     )
                       .then(
                         () =>
-                          (m.length > 0 || (v && "object" == typeof e)) &&
+                          (y.length > 0 || (v && "object" == typeof e)) &&
                           o
-                            .mutate({ trans: n, type: "put", keys: y, values: m, criteria: v, changeSpec: "function" != typeof e && e })
-                            .then((e) => p(m.length, e))
+                            .mutate({ trans: n, type: "put", keys: m, values: y, criteria: v, changeSpec: "function" != typeof e && e })
+                            .then((e) => p(y.length, e))
                       )
                       .then(
                         () =>
-                          (g.length > 0 || (v && e === Ft)) &&
+                          (g.length > 0 || (v && e === Zt)) &&
                           o.mutate({ trans: n, type: "delete", keys: g, criteria: v }).then((e) => p(g.length, e))
                       )
                       .then(() => s.length > a + h && i(a + c));
@@ -1977,7 +1987,7 @@
         delete() {
           var e = this._ctx,
             t = e.range;
-          return It(e) && ((e.isPrimKey && !wt) || 3 === t.type)
+          return Bt(e) && ((e.isPrimKey && !qt) || 3 === t.type)
             ? this._write((n) => {
                 const { primaryKey: r } = e.table.core.schema,
                   s = t;
@@ -1995,24 +2005,24 @@
                     })
                 );
               })
-            : this.modify(Ft);
+            : this.modify(Zt);
         }
       }
-      const Ft = (e, t) => (t.value = null);
-      function $t(e, t) {
+      const Zt = (e, t) => (t.value = null);
+      function zt(e, t) {
         return e < t ? -1 : e === t ? 0 : 1;
       }
-      function Ut(e, t) {
+      function Ht(e, t) {
         return e > t ? -1 : e === t ? 0 : 1;
       }
-      function Wt(e, t, n) {
-        var r = e instanceof zt ? new e.Collection(e) : e;
+      function Xt(e, t, n) {
+        var r = e instanceof rn ? new e.Collection(e) : e;
         return (r._ctx.error = n ? new n(t) : new TypeError(t)), r;
       }
-      function Lt(e) {
-        return new e.Collection(e, () => Zt("")).limit(0);
+      function Gt(e) {
+        return new e.Collection(e, () => nn("")).limit(0);
       }
-      function Vt(e, t, n, r, s, i) {
+      function Jt(e, t, n, r, s, i) {
         for (var a = Math.min(e.length, r.length), o = -1, u = 0; u < a; ++u) {
           var l = t[u];
           if (l !== r[u])
@@ -2033,7 +2043,7 @@
           ? null
           : e.substr(0, o) + r[o] + n.substr(o + 1);
       }
-      function Qt(e, t, n, r) {
+      function en(e, t, n, r) {
         var s,
           i,
           a,
@@ -2042,7 +2052,7 @@
           l,
           c,
           h = n.length;
-        if (!n.every((e) => "string" == typeof e)) return Wt(e, "String expected.");
+        if (!n.every((e) => "string" == typeof e)) return Xt(e, kt);
         function d(e) {
           (s = (function (e) {
             return "next" === e ? (e) => e.toUpperCase() : (e) => e.toLowerCase();
@@ -2050,7 +2060,7 @@
             (i = (function (e) {
               return "next" === e ? (e) => e.toLowerCase() : (e) => e.toUpperCase();
             })(e)),
-            (a = "next" === e ? $t : Ut);
+            (a = "next" === e ? zt : Ht);
           var t = n
             .map(function (e) {
               return { lower: i(e), upper: s(e) };
@@ -2068,7 +2078,7 @@
             (c = "next" === e ? "" : r);
         }
         d("next");
-        var f = new e.Collection(e, () => Yt(o[0], u[h - 1] + r));
+        var f = new e.Collection(e, () => tn(o[0], u[h - 1] + r));
         f._ondirectionchange = function (e) {
           d(e);
         };
@@ -2079,9 +2089,9 @@
             if ("string" != typeof s) return !1;
             var d = i(s);
             if (t(d, u, p)) return !0;
-            for (var f = null, m = p; m < h; ++m) {
-              var y = Vt(s, d, o[m], u[m], a, l);
-              null === y && null === f ? (p = m + 1) : (null === f || a(f, y) > 0) && (f = y);
+            for (var f = null, y = p; y < h; ++y) {
+              var m = Jt(s, d, o[y], u[y], a, l);
+              null === m && null === f ? (p = y + 1) : (null === f || a(f, m) > 0) && (f = m);
             }
             return (
               n(
@@ -2097,13 +2107,13 @@
           f
         );
       }
-      function Yt(e, t, n, r) {
+      function tn(e, t, n, r) {
         return { type: 2, lower: e, upper: t, lowerOpen: n, upperOpen: r };
       }
-      function Zt(e) {
+      function nn(e) {
         return { type: 1, lower: e, upper: e };
       }
-      class zt {
+      class rn {
         get Collection() {
           return this._ctx.table.db.Collection;
         }
@@ -2111,43 +2121,43 @@
           (n = !1 !== n), (r = !0 === r);
           try {
             return this._cmp(e, t) > 0 || (0 === this._cmp(e, t) && (n || r) && (!n || !r))
-              ? Lt(this)
-              : new this.Collection(this, () => Yt(e, t, !n, !r));
+              ? Gt(this)
+              : new this.Collection(this, () => tn(e, t, !n, !r));
           } catch (e) {
-            return Wt(this, gt);
+            return Xt(this, _t);
           }
         }
         equals(e) {
-          return null == e ? Wt(this, gt) : new this.Collection(this, () => Zt(e));
+          return null == e ? Xt(this, _t) : new this.Collection(this, () => nn(e));
         }
         above(e) {
-          return null == e ? Wt(this, gt) : new this.Collection(this, () => Yt(e, void 0, !0));
+          return null == e ? Xt(this, _t) : new this.Collection(this, () => tn(e, void 0, !0));
         }
         aboveOrEqual(e) {
-          return null == e ? Wt(this, gt) : new this.Collection(this, () => Yt(e, void 0, !1));
+          return null == e ? Xt(this, _t) : new this.Collection(this, () => tn(e, void 0, !1));
         }
         below(e) {
-          return null == e ? Wt(this, gt) : new this.Collection(this, () => Yt(void 0, e, !1, !0));
+          return null == e ? Xt(this, _t) : new this.Collection(this, () => tn(void 0, e, !1, !0));
         }
         belowOrEqual(e) {
-          return null == e ? Wt(this, gt) : new this.Collection(this, () => Yt(void 0, e));
+          return null == e ? Xt(this, _t) : new this.Collection(this, () => tn(void 0, e));
         }
         startsWith(e) {
-          return "string" != typeof e ? Wt(this, "String expected.") : this.between(e, e + yt, !0, !0);
+          return "string" != typeof e ? Xt(this, kt) : this.between(e, e + bt, !0, !0);
         }
         startsWithIgnoreCase(e) {
-          return "" === e ? this.startsWith(e) : Qt(this, (e, t) => 0 === e.indexOf(t[0]), [e], yt);
+          return "" === e ? this.startsWith(e) : en(this, (e, t) => 0 === e.indexOf(t[0]), [e], bt);
         }
         equalsIgnoreCase(e) {
-          return Qt(this, (e, t) => e === t[0], [e], "");
+          return en(this, (e, t) => e === t[0], [e], "");
         }
         anyOfIgnoreCase() {
           var e = B.apply(D, arguments);
-          return 0 === e.length ? Lt(this) : Qt(this, (e, t) => -1 !== t.indexOf(e), e, "");
+          return 0 === e.length ? Gt(this) : en(this, (e, t) => -1 !== t.indexOf(e), e, "");
         }
         startsWithAnyOfIgnoreCase() {
           var e = B.apply(D, arguments);
-          return 0 === e.length ? Lt(this) : Qt(this, (e, t) => t.some((t) => 0 === e.indexOf(t)), e, yt);
+          return 0 === e.length ? Gt(this) : en(this, (e, t) => t.some((t) => 0 === e.indexOf(t)), e, bt);
         }
         anyOf() {
           const e = B.apply(D, arguments);
@@ -2155,10 +2165,10 @@
           try {
             e.sort(t);
           } catch (e) {
-            return Wt(this, gt);
+            return Xt(this, _t);
           }
-          if (0 === e.length) return Lt(this);
-          const n = new this.Collection(this, () => Yt(e[0], e[e.length - 1]));
+          if (0 === e.length) return Gt(this);
+          const n = new this.Collection(this, () => tn(e[0], e[e.length - 1]));
           n._ondirectionchange = (n) => {
             (t = "next" === n ? this._ascending : this._descending), e.sort(t);
           };
@@ -2181,7 +2191,7 @@
         notEqual(e) {
           return this.inAnyRange(
             [
-              [-1 / 0, e],
+              [wt, e],
               [e, this.db._maxKey]
             ],
             { includeLowers: !1, includeUppers: !1 }
@@ -2193,9 +2203,9 @@
           try {
             e.sort(this._ascending);
           } catch (e) {
-            return Wt(this, gt);
+            return Xt(this, _t);
           }
-          const t = e.reduce((e, t) => (e ? e.concat([[e[e.length - 1][1], t]]) : [[-1 / 0, t]]), null);
+          const t = e.reduce((e, t) => (e ? e.concat([[e[e.length - 1][1], t]]) : [[wt, t]]), null);
           return t.push([e[e.length - 1], this.db._maxKey]), this.inAnyRange(t, { includeLowers: !1, includeUppers: !1 });
         }
         inAnyRange(e, t) {
@@ -2204,9 +2214,9 @@
             s = this._descending,
             i = this._min,
             a = this._max;
-          if (0 === e.length) return Lt(this);
+          if (0 === e.length) return Gt(this);
           if (!e.every((e) => void 0 !== e[0] && void 0 !== e[1] && r(e[0], e[1]) <= 0))
-            return Wt(
+            return Xt(
               this,
               "First argument to inAnyRange() must be an Array of two-value Arrays [lower,upper] where upper must not be lower than lower",
               ee.InvalidArgument
@@ -2233,19 +2243,19 @@
             }, [])),
               l.sort(h);
           } catch (e) {
-            return Wt(this, gt);
+            return Xt(this, _t);
           }
           let d = 0;
           const f = u ? (e) => r(e, l[d][1]) > 0 : (e) => r(e, l[d][1]) >= 0,
             p = o ? (e) => s(e, l[d][0]) > 0 : (e) => s(e, l[d][0]) >= 0;
-          let m = f;
-          const y = new this.Collection(this, () => Yt(l[0][0], l[l.length - 1][1], !o, !u));
+          let y = f;
+          const m = new this.Collection(this, () => tn(l[0][0], l[l.length - 1][1], !o, !u));
           return (
-            (y._ondirectionchange = (e) => {
-              "next" === e ? ((m = f), (c = r)) : ((m = p), (c = s)), l.sort(h);
+            (m._ondirectionchange = (e) => {
+              "next" === e ? ((y = f), (c = r)) : ((y = p), (c = s)), l.sort(h);
             }),
-            y._addAlgorithm((e, t, n) => {
-              for (var s = e.key; m(s); ) if ((++d, d === l.length)) return t(n), !1;
+            m._addAlgorithm((e, t, n) => {
+              for (var s = e.key; y(s); ) if ((++d, d === l.length)) return t(n), !1;
               return (
                 !!(function (e) {
                   return !f(e) && !p(e);
@@ -2258,43 +2268,45 @@
                 !1)
               );
             }),
-            y
+            m
           );
         }
         startsWithAnyOf() {
           const e = B.apply(D, arguments);
           return e.every((e) => "string" == typeof e)
             ? 0 === e.length
-              ? Lt(this)
-              : this.inAnyRange(e.map((e) => [e, e + yt]))
-            : Wt(this, "startsWithAnyOf() only works with strings");
+              ? Gt(this)
+              : this.inAnyRange(e.map((e) => [e, e + bt]))
+            : Xt(this, "startsWithAnyOf() only works with strings");
         }
       }
-      function Ht(e) {
-        return Ze(function (t) {
-          return Xt(t), e(t.target.error), !1;
+      function sn(e) {
+        return ze(function (t) {
+          return an(t), e(t.target.error), !1;
         });
       }
-      function Xt(e) {
+      function an(e) {
         e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault();
       }
-      const Gt = Pt(null, "storagemutated");
-      class Jt {
+      const on = "storagemutated",
+        un = "x-storagemutated-1",
+        ln = jt(null, on);
+      class cn {
         _lock() {
-          return b(!Ie.global), ++this._reculock, 1 !== this._reculock || Ie.global || (Ie.lockOwnerFor = this), this;
+          return b(!Ae.global), ++this._reculock, 1 !== this._reculock || Ae.global || (Ae.lockOwnerFor = this), this;
         }
         _unlock() {
-          if ((b(!Ie.global), 0 == --this._reculock))
-            for (Ie.global || (Ie.lockOwnerFor = null); this._blockedFuncs.length > 0 && !this._locked(); ) {
+          if ((b(!Ae.global), 0 == --this._reculock))
+            for (Ae.global || (Ae.lockOwnerFor = null); this._blockedFuncs.length > 0 && !this._locked(); ) {
               var e = this._blockedFuncs.shift();
               try {
-                lt(e[1], e[0]);
+                ct(e[1], e[0]);
               } catch (e) {}
             }
           return this;
         }
         _locked() {
-          return this._reculock && Ie.lockOwnerFor !== this;
+          return this._reculock && Ae.lockOwnerFor !== this;
         }
         create(e) {
           if (!this.mode) return this;
@@ -2316,40 +2328,40 @@
               e ||
               (this.db.core
                 ? this.db.core.transaction(this.storeNames, this.mode, { durability: this.chromeTransactionDurability })
-                : t.transaction(this.storeNames, this.mode, { durability: this.chromeTransactionDurability }))).onerror = Ze((t) => {
-              Xt(t), this._reject(e.error);
+                : t.transaction(this.storeNames, this.mode, { durability: this.chromeTransactionDurability }))).onerror = ze((t) => {
+              an(t), this._reject(e.error);
             })),
-            (e.onabort = Ze((t) => {
-              Xt(t), this.active && this._reject(new ee.Abort(e.error)), (this.active = !1), this.on("abort").fire(t);
+            (e.onabort = ze((t) => {
+              an(t), this.active && this._reject(new ee.Abort(e.error)), (this.active = !1), this.on("abort").fire(t);
             })),
-            (e.oncomplete = Ze(() => {
-              (this.active = !1), this._resolve(), "mutatedParts" in e && Gt.storagemutated.fire(e.mutatedParts);
+            (e.oncomplete = ze(() => {
+              (this.active = !1), this._resolve(), "mutatedParts" in e && ln.storagemutated.fire(e.mutatedParts);
             })),
             this
           );
         }
         _promise(e, t, n) {
-          if ("readwrite" === e && "readwrite" !== this.mode) return pt(new ee.ReadOnly("Transaction is readonly"));
-          if (!this.active) return pt(new ee.TransactionInactive());
+          if ("readwrite" === e && "readwrite" !== this.mode) return mt(new ee.ReadOnly("Transaction is readonly"));
+          if (!this.active) return mt(new ee.TransactionInactive());
           if (this._locked())
-            return new Re((r, s) => {
+            return new Ke((r, s) => {
               this._blockedFuncs.push([
                 () => {
                   this._promise(e, t, n).then(r, s);
                 },
-                Ie
+                Ae
               ]);
             });
           if (n)
-            return tt(() => {
-              var e = new Re((e, n) => {
+            return nt(() => {
+              var e = new Ke((e, n) => {
                 this._lock();
                 const r = t(e, n, this);
                 r && r.then && r.then(e, n);
               });
               return e.finally(() => this._unlock()), (e._lib = !0), e;
             });
-          var r = new Re((e, n) => {
+          var r = new Ke((e, n) => {
             var r = t(e, n, this);
             r && r.then && r.then(e, n);
           });
@@ -2360,7 +2372,7 @@
         }
         waitFor(e) {
           var t = this._root();
-          const n = Re.resolve(e);
+          const n = Ke.resolve(e);
           if (t._waitingFor) t._waitingFor = t._waitingFor.then(() => n);
           else {
             (t._waitingFor = n), (t._waitingQueue = []);
@@ -2371,10 +2383,10 @@
             })();
           }
           var s = t._waitingFor;
-          return new Re((e, r) => {
+          return new Ke((e, r) => {
             n.then(
-              (n) => t._waitingQueue.push(Ze(e.bind(null, n))),
-              (e) => t._waitingQueue.push(Ze(r.bind(null, e)))
+              (n) => t._waitingQueue.push(ze(e.bind(null, n))),
+              (e) => t._waitingQueue.push(ze(r.bind(null, e)))
             ).finally(() => {
               t._waitingFor === s && (t._waitingFor = null);
             });
@@ -2392,7 +2404,7 @@
           return (r.core = this.db.core.table(e)), (t[e] = r), r;
         }
       }
-      function en(e, t, n, r, s, i, a) {
+      function hn(e, t, n, r, s, i, a) {
         return {
           name: e,
           keyPath: t,
@@ -2400,39 +2412,39 @@
           multi: r,
           auto: s,
           compound: i,
-          src: (n && !a ? "&" : "") + (r ? "*" : "") + (s ? "++" : "") + tn(t)
+          src: (n && !a ? "&" : "") + (r ? "*" : "") + (s ? "++" : "") + dn(t)
         };
       }
-      function tn(e) {
+      function dn(e) {
         return "string" == typeof e ? e : e ? "[" + [].join.call(e, "+") + "]" : "";
       }
-      function nn(e, t, n) {
-        return { name: e, primKey: t, indexes: n, mappedClass: null, idxByName: w(n, (e) => [e.name, e]) };
+      function fn(e, t, n) {
+        return { name: e, primKey: t, indexes: n, mappedClass: null, idxByName: _(n, (e) => [e.name, e]) };
       }
-      let rn = (e) => {
+      let pn = (e) => {
         try {
-          return e.only([[]]), (rn = () => [[]]), [[]];
+          return e.only([[]]), (pn = () => [[]]), [[]];
         } catch (e) {
-          return (rn = () => yt), yt;
+          return (pn = () => bt), bt;
         }
       };
-      function sn(e) {
+      function yn(e) {
         return null == e
           ? () => {}
           : "string" == typeof e
           ? (function (e) {
-              return 1 === e.split(".").length ? (t) => t[e] : (t) => x(t, e);
+              return 1 === e.split(".").length ? (t) => t[e] : (t) => k(t, e);
             })(e)
-          : (t) => x(t, e);
+          : (t) => k(t, e);
       }
-      function an(e) {
+      function mn(e) {
         return [].slice.call(e);
       }
-      let on = 0;
-      function un(e) {
+      let gn = 0;
+      function vn(e) {
         return null == e ? ":id" : "string" == typeof e ? e : `[${e.join("+")}]`;
       }
-      function ln(e, t, n) {
+      function bn(e, t, n) {
         function r(e) {
           if (3 === e.type) return null;
           if (4 === e.type) throw new Error("Cannot convert never type to IDBKeyRange");
@@ -2446,7 +2458,7 @@
             : t.bound(n, r, !!s, !!i);
         }
         const { schema: s, hasGetAll: a } = (function (e, t) {
-            const n = an(e.objectStoreNames);
+            const n = mn(e.objectStoreNames);
             return {
               schema: {
                 name: e.name,
@@ -2467,18 +2479,18 @@
                           keyPath: t,
                           autoIncrement: n,
                           unique: !0,
-                          extractKey: sn(t)
+                          extractKey: yn(t)
                         },
-                        indexes: an(e.indexNames)
+                        indexes: mn(e.indexNames)
                           .map((t) => e.index(t))
                           .map((e) => {
                             const { name: t, unique: n, multiEntry: r, keyPath: s } = e,
-                              o = { name: t, compound: i(s), keyPath: s, unique: n, multiEntry: r, extractKey: sn(s) };
-                            return (a[un(s)] = o), o;
+                              o = { name: t, compound: i(s), keyPath: s, unique: n, multiEntry: r, extractKey: yn(s) };
+                            return (a[vn(s)] = o), o;
                           }),
-                        getIndexByKeyPath: (e) => a[un(e)]
+                        getIndexByKeyPath: (e) => a[vn(e)]
                       };
-                    return (a[":id"] = o.primaryKey), null != t && (a[un(t)] = o.primaryKey), o;
+                    return (a[":id"] = o.primaryKey), null != t && (a[vn(t)] = o.primaryKey), o;
                   })
               },
               hasGetAll:
@@ -2500,7 +2512,7 @@
                 schema: e,
                 mutate: function ({ trans: e, type: n, keys: s, values: i, range: a }) {
                   return new Promise((o, u) => {
-                    o = Ze(o);
+                    o = ze(o);
                     const l = e.objectStore(t),
                       c = null == l.keyPath,
                       h = "put" === n || "add" === n;
@@ -2510,13 +2522,13 @@
                     if (0 === d) return o({ numFailures: 0, failures: {}, results: [], lastResult: void 0 });
                     let f;
                     const p = [],
-                      m = [];
-                    let y = 0;
+                      y = [];
+                    let m = 0;
                     const g = (e) => {
-                      ++y, Xt(e);
+                      ++m, an(e);
                     };
                     if ("deleteRange" === n) {
-                      if (4 === a.type) return o({ numFailures: y, failures: m, results: [], lastResult: void 0 });
+                      if (4 === a.type) return o({ numFailures: m, failures: y, results: [], lastResult: void 0 });
                       3 === a.type ? p.push((f = l.clear())) : p.push((f = l.delete(r(a))));
                     } else {
                       const [e, t] = h ? (c ? [i, s] : [i, null]) : [s, null];
@@ -2526,8 +2538,8 @@
                     }
                     const v = (e) => {
                       const t = e.target.result;
-                      p.forEach((e, t) => null != e.error && (m[t] = e.error)),
-                        o({ numFailures: y, failures: m, results: "delete" === n ? s : p.map((e) => e.result), lastResult: t });
+                      p.forEach((e, t) => null != e.error && (y[t] = e.error)),
+                        o({ numFailures: m, failures: y, results: "delete" === n ? s : p.map((e) => e.result), lastResult: t });
                     };
                     (f.onerror = (e) => {
                       g(e), v(e);
@@ -2537,7 +2549,7 @@
                 },
                 getMany: ({ trans: e, keys: n }) =>
                   new Promise((r, s) => {
-                    r = Ze(r);
+                    r = ze(r);
                     const i = e.objectStore(t),
                       a = n.length,
                       o = new Array(a);
@@ -2548,33 +2560,33 @@
                         const t = e.target;
                         (o[t._pos] = t.result), ++c === l && r(o);
                       },
-                      d = Ht(s);
+                      d = sn(s);
                     for (let e = 0; e < a; ++e) null != n[e] && ((u = i.get(n[e])), (u._pos = e), (u.onsuccess = h), (u.onerror = d), ++l);
                     0 === l && r(o);
                   }),
                 get: ({ trans: e, key: n }) =>
                   new Promise((r, s) => {
-                    r = Ze(r);
+                    r = ze(r);
                     const i = e.objectStore(t).get(n);
-                    (i.onsuccess = (e) => r(e.target.result)), (i.onerror = Ht(s));
+                    (i.onsuccess = (e) => r(e.target.result)), (i.onerror = sn(s));
                   }),
                 query: (function (e) {
                   return (n) =>
                     new Promise((s, i) => {
-                      s = Ze(s);
+                      s = ze(s);
                       const { trans: a, values: o, limit: u, query: l } = n,
                         c = u === 1 / 0 ? void 0 : u,
                         { index: h, range: d } = l,
                         f = a.objectStore(t),
                         p = h.isPrimaryKey ? f : f.index(h.name),
-                        m = r(d);
+                        y = r(d);
                       if (0 === u) return s({ result: [] });
                       if (e) {
-                        const e = o ? p.getAll(m, c) : p.getAllKeys(m, c);
-                        (e.onsuccess = (e) => s({ result: e.target.result })), (e.onerror = Ht(i));
+                        const e = o ? p.getAll(y, c) : p.getAllKeys(y, c);
+                        (e.onsuccess = (e) => s({ result: e.target.result })), (e.onerror = sn(i));
                       } else {
                         let e = 0;
-                        const t = o || !("openKeyCursor" in p) ? p.openCursor(m) : p.openKeyCursor(m),
+                        const t = o || !("openKeyCursor" in p) ? p.openCursor(y) : p.openKeyCursor(y),
                           n = [];
                         (t.onsuccess = (r) => {
                           const i = t.result;
@@ -2582,23 +2594,23 @@
                             ? (n.push(o ? i.value : i.primaryKey), ++e === u ? s({ result: n }) : void i.continue())
                             : s({ result: n });
                         }),
-                          (t.onerror = Ht(i));
+                          (t.onerror = sn(i));
                       }
                     });
                 })(a),
                 openCursor: function ({ trans: e, values: n, query: s, reverse: i, unique: a }) {
                   return new Promise((o, u) => {
-                    o = Ze(o);
+                    o = ze(o);
                     const { index: l, range: c } = s,
                       h = e.objectStore(t),
                       d = l.isPrimaryKey ? h : h.index(l.name),
                       f = i ? (a ? "prevunique" : "prev") : a ? "nextunique" : "next",
                       p = n || !("openKeyCursor" in d) ? d.openCursor(r(c), f) : d.openKeyCursor(r(c), f);
-                    (p.onerror = Ht(u)),
-                      (p.onsuccess = Ze((t) => {
+                    (p.onerror = sn(u)),
+                      (p.onsuccess = ze((t) => {
                         const n = p.result;
                         if (!n) return void o(null);
-                        (n.___id = ++on), (n.done = !1);
+                        (n.___id = ++gn), (n.done = !1);
                         const r = n.continue.bind(n);
                         let s = n.continuePrimaryKey;
                         s && (s = s.bind(n));
@@ -2614,15 +2626,15 @@
                               () => {
                                 throw new Error("Cursor not started");
                               }),
-                          (n.fail = Ze(u)),
+                          (n.fail = ze(u)),
                           (n.next = function () {
                             let e = 1;
                             return this.start(() => (e-- ? this.continue() : this.stop())).then(() => this);
                           }),
                           (n.start = (e) => {
                             const t = new Promise((e, t) => {
-                                (e = Ze(e)),
-                                  (p.onerror = Ht(t)),
+                                (e = ze(e)),
+                                  (p.onerror = sn(t)),
                                   (n.fail = t),
                                   (n.stop = (t) => {
                                     (n.stop = n.continue = n.continuePrimaryKey = n.advance = a), e(t);
@@ -2643,7 +2655,7 @@
                                     n.stop();
                               };
                             return (
-                              (p.onsuccess = Ze((e) => {
+                              (p.onsuccess = ze((e) => {
                                 (p.onsuccess = o), o();
                               })),
                               (n.continue = r),
@@ -2664,7 +2676,7 @@
                       u = s.isPrimaryKey ? o : o.index(s.name),
                       l = r(i),
                       c = l ? u.count(l) : u.count();
-                    (c.onsuccess = Ze((t) => e(t.target.result))), (c.onerror = Ht(a));
+                    (c.onsuccess = ze((t) => e(t.target.result))), (c.onerror = sn(a));
                   });
                 }
               };
@@ -2681,17 +2693,17 @@
               return u[e];
             },
             MIN_KEY: -1 / 0,
-            MAX_KEY: rn(t),
+            MAX_KEY: pn(t),
             schema: s
           }
         );
       }
-      function cn({ _novip: e }, t) {
+      function wn({ _novip: e }, t) {
         const n = t.db,
           r = (function (e, t, { IDBKeyRange: n, indexedDB: r }, s) {
             const i = (function (e, t) {
               return t.reduce((e, { create: t }) => ({ ...e, ...t(e) }), e);
-            })(ln(t, n, s), e.dbcore);
+            })(bn(t, n, s), e.dbcore);
             return { dbcore: i };
           })(e._middlewares, n, e._deps, t);
         (e.core = r.dbcore),
@@ -2700,11 +2712,11 @@
             e.core.schema.tables.some((e) => e.name === n) && ((t.core = e.core.table(n)), e[n] instanceof e.Table && (e[n].core = t.core));
           });
       }
-      function hn({ _novip: e }, t, n, r) {
+      function _n({ _novip: e }, t, n, r) {
         n.forEach((n) => {
           const s = r[n];
           t.forEach((t) => {
-            const r = m(t, n);
+            const r = y(t, n);
             (!r || ("value" in r && void 0 === r.value)) &&
               (t === e.Transaction.prototype || t instanceof e.Transaction
                 ? d(t, n, {
@@ -2719,103 +2731,102 @@
           });
         });
       }
-      function dn({ _novip: e }, t) {
+      function kn({ _novip: e }, t) {
         t.forEach((t) => {
           for (let n in t) t[n] instanceof e.Table && delete t[n];
         });
       }
-      function fn(e, t) {
+      function xn(e, t) {
         return e._cfg.version - t._cfg.version;
       }
-      function pn(e, t, n, r) {
+      function En(e, t, n, r) {
         const i = e._dbSchema,
           a = e._createTransaction("readwrite", e._storeNames, i);
         a.create(n), a._completion.catch(r);
         const o = a._reject.bind(a),
-          u = Ie.transless || Ie;
-        tt(() => {
-          (Ie.trans = a),
-            (Ie.transless = u),
+          u = Ae.transless || Ae;
+        nt(() => {
+          (Ae.trans = a),
+            (Ae.transless = u),
             0 === t
               ? (s(i).forEach((e) => {
-                  yn(n, e, i[e].primKey, i[e].indexes);
+                  qn(n, e, i[e].primKey, i[e].indexes);
                 }),
-                cn(e, n),
-                Re.follow(() => e.on.populate.fire(a)).catch(o))
+                wn(e, n),
+                Ke.follow(() => e.on.populate.fire(a)).catch(o))
               : (function ({ _novip: e }, t, n, r) {
                   const i = [],
                     a = e._versions;
-                  let o = (e._dbSchema = vn(0, e.idbdb, r)),
+                  let o = (e._dbSchema = Tn(0, e.idbdb, r)),
                     u = !1;
+                  const l = a.filter((e) => e._cfg.version >= t);
                   return (
-                    a
-                      .filter((e) => e._cfg.version >= t)
-                      .forEach((a) => {
-                        i.push(() => {
-                          const i = o,
-                            l = a._cfg.dbschema;
-                          bn(e, i, r), bn(e, l, r), (o = e._dbSchema = l);
-                          const c = mn(i, l);
-                          c.add.forEach((e) => {
-                            yn(r, e[0], e[1].primKey, e[1].indexes);
-                          }),
-                            c.change.forEach((e) => {
-                              if (e.recreate) throw new ee.Upgrade("Not yet support for changing primary key");
-                              {
-                                const t = r.objectStore(e.name);
-                                e.add.forEach((e) => gn(t, e)),
-                                  e.change.forEach((e) => {
-                                    t.deleteIndex(e.name), gn(t, e);
-                                  }),
-                                  e.del.forEach((e) => t.deleteIndex(e));
-                              }
-                            });
-                          const h = a._cfg.contentUpgrade;
-                          if (h && a._cfg.version > t) {
-                            cn(e, r), (n._memoizedTables = {}), (u = !0);
-                            let t = E(l);
-                            c.del.forEach((e) => {
-                              t[e] = i[e];
-                            }),
-                              dn(e, [e.Transaction.prototype]),
-                              hn(e, [e.Transaction.prototype], s(t), t),
-                              (n.schema = t);
-                            const a = M(h);
-                            let o;
-                            a && nt();
-                            const d = Re.follow(() => {
-                              if (((o = h(n)), o && a)) {
-                                var e = rt.bind(null, null);
-                                o.then(e, e);
-                              }
-                            });
-                            return o && "function" == typeof o.then ? Re.resolve(o) : d.then(() => o);
-                          }
+                    l.forEach((a) => {
+                      i.push(() => {
+                        const i = o,
+                          l = a._cfg.dbschema;
+                        In(e, i, r), In(e, l, r), (o = e._dbSchema = l);
+                        const c = Sn(i, l);
+                        c.add.forEach((e) => {
+                          qn(r, e[0], e[1].primKey, e[1].indexes);
                         }),
-                          i.push((t) => {
-                            (u && _t) ||
-                              (function (e, t) {
-                                [].slice.call(t.db.objectStoreNames).forEach((n) => null == e[n] && t.db.deleteObjectStore(n));
-                              })(a._cfg.dbschema, t),
-                              dn(e, [e.Transaction.prototype]),
-                              hn(e, [e.Transaction.prototype], e._storeNames, e._dbSchema),
-                              (n.schema = e._dbSchema);
+                          c.change.forEach((e) => {
+                            if (e.recreate) throw new ee.Upgrade("Not yet support for changing primary key");
+                            {
+                              const t = r.objectStore(e.name);
+                              e.add.forEach((e) => Pn(t, e)),
+                                e.change.forEach((e) => {
+                                  t.deleteIndex(e.name), Pn(t, e);
+                                }),
+                                e.del.forEach((e) => t.deleteIndex(e));
+                            }
                           });
+                        const h = a._cfg.contentUpgrade;
+                        if (h && a._cfg.version > t) {
+                          wn(e, r), (n._memoizedTables = {}), (u = !0);
+                          let t = E(l);
+                          c.del.forEach((e) => {
+                            t[e] = i[e];
+                          }),
+                            kn(e, [e.Transaction.prototype]),
+                            _n(e, [e.Transaction.prototype], s(t), t),
+                            (n.schema = t);
+                          const a = M(h);
+                          let o;
+                          a && rt();
+                          const d = Ke.follow(() => {
+                            if (((o = h(n)), o && a)) {
+                              var e = st.bind(null, null);
+                              o.then(e, e);
+                            }
+                          });
+                          return o && "function" == typeof o.then ? Ke.resolve(o) : d.then(() => o);
+                        }
                       }),
+                        i.push((t) => {
+                          (u && St) ||
+                            (function (e, t) {
+                              [].slice.call(t.db.objectStoreNames).forEach((n) => null == e[n] && t.db.deleteObjectStore(n));
+                            })(a._cfg.dbschema, t),
+                            kn(e, [e.Transaction.prototype]),
+                            _n(e, [e.Transaction.prototype], e._storeNames, e._dbSchema),
+                            (n.schema = e._dbSchema);
+                        });
+                    }),
                     (function e() {
-                      return i.length ? Re.resolve(i.shift()(n.idbtrans)).then(e) : Re.resolve();
+                      return i.length ? Ke.resolve(i.shift()(n.idbtrans)).then(e) : Ke.resolve();
                     })().then(() => {
                       var e, t;
                       (t = r),
                         s((e = o)).forEach((n) => {
-                          t.db.objectStoreNames.contains(n) || yn(t, n, e[n].primKey, e[n].indexes);
+                          t.db.objectStoreNames.contains(n) || qn(t, n, e[n].primKey, e[n].indexes);
                         });
                     })
                   );
                 })(e, t, a, n).catch(o);
         });
       }
-      function mn(e, t) {
+      function Sn(e, t) {
         const n = { del: [], add: [], change: [] };
         let r;
         for (r in e) t[r] || n.del.push(r);
@@ -2824,7 +2835,7 @@
             i = t[r];
           if (s) {
             const e = { name: r, def: i, recreate: !1, del: [], add: [], change: [] };
-            if ("" + (s.primKey.keyPath || "") != "" + (i.primKey.keyPath || "") || (s.primKey.auto !== i.primKey.auto && !bt))
+            if ("" + (s.primKey.keyPath || "") != "" + (i.primKey.keyPath || "") || (s.primKey.auto !== i.primKey.auto && !Et))
               (e.recreate = !0), n.change.push(e);
             else {
               const t = s.idxByName,
@@ -2842,33 +2853,33 @@
         }
         return n;
       }
-      function yn(e, t, n, r) {
+      function qn(e, t, n, r) {
         const s = e.db.createObjectStore(t, n.keyPath ? { keyPath: n.keyPath, autoIncrement: n.auto } : { autoIncrement: n.auto });
-        return r.forEach((e) => gn(s, e)), s;
+        return r.forEach((e) => Pn(s, e)), s;
       }
-      function gn(e, t) {
+      function Pn(e, t) {
         e.createIndex(t.name, t.keyPath, { unique: t.unique, multiEntry: t.multi });
       }
-      function vn(e, t, n) {
+      function Tn(e, t, n) {
         const r = {};
         return (
           g(t.objectStoreNames, 0).forEach((e) => {
             const t = n.objectStore(e);
             let s = t.keyPath;
-            const i = en(tn(s), s || "", !1, !1, !!t.autoIncrement, s && "string" != typeof s, !0),
+            const i = hn(dn(s), s || "", !1, !1, !!t.autoIncrement, s && "string" != typeof s, !0),
               a = [];
             for (let e = 0; e < t.indexNames.length; ++e) {
               const n = t.index(t.indexNames[e]);
               s = n.keyPath;
-              var o = en(n.name, s, !!n.unique, !!n.multiEntry, !1, s && "string" != typeof s, !1);
+              var o = hn(n.name, s, !!n.unique, !!n.multiEntry, !1, s && "string" != typeof s, !1);
               a.push(o);
             }
-            r[e] = nn(e, i, a);
+            r[e] = fn(e, i, a);
           }),
           r
         );
       }
-      function bn({ _novip: e }, t, n) {
+      function In({ _novip: e }, t, n) {
         const s = n.db.objectStoreNames;
         for (let r = 0; r < s.length; ++r) {
           const i = s[r],
@@ -2892,14 +2903,14 @@
           [].concat(navigator.userAgent.match(/Safari\/(\d*)/))[1] < 604 &&
           (e._hasGetAll = !1);
       }
-      class _n {
+      class An {
         _parseStoresSpec(e, t) {
           s(e).forEach((n) => {
             if (null !== e[n]) {
               var r = e[n].split(",").map((e, t) => {
                   const n = (e = e.trim()).replace(/([&*]|\+\+)/g, ""),
                     r = /^\[/.test(n) ? n.match(/^\[(.*)\]$/)[1].split("+") : n;
-                  return en(n, r || null, /\&/.test(e), /\*/.test(e), /\+\+/.test(e), i(r), 0 === t);
+                  return hn(n, r || null, /\&/.test(e), /\*/.test(e), /\+\+/.test(e), i(r), 0 === t);
                 }),
                 s = r.shift();
               if (s.multi) throw new ee.Schema("Primary key cannot be multi-valued");
@@ -2907,7 +2918,7 @@
                 if (e.auto) throw new ee.Schema("Only primary key can be marked as autoIncrement (++)");
                 if (!e.keyPath) throw new ee.Schema("Index must have a name and cannot be an empty string");
               }),
-                (t[n] = nn(n, s, r));
+                (t[n] = fn(n, s, r));
             }
           });
         }
@@ -2922,8 +2933,8 @@
               a(r, e._cfg.storesSource), (i = e._cfg.dbschema = {}), e._parseStoresSpec(r, i);
             }),
             (t._dbSchema = i),
-            dn(t, [t._allTables, t, t.Transaction.prototype]),
-            hn(t, [t._allTables, t, t.Transaction.prototype, this._cfg.tables], s(i), i),
+            kn(t, [t._allTables, t, t.Transaction.prototype]),
+            _n(t, [t._allTables, t, t.Transaction.prototype, this._cfg.tables], s(i), i),
             (t._storeNames = s(i)),
             this
           );
@@ -2932,24 +2943,22 @@
           return (this._cfg.contentUpgrade = he(this._cfg.contentUpgrade || re, e)), this;
         }
       }
-      function wn(e, t) {
+      function Cn(e, t) {
         let n = e._dbNamesDB;
         return (
-          n ||
-            ((n = e._dbNamesDB = new Un("__dbnames", { addons: [], indexedDB: e, IDBKeyRange: t })),
-            n.version(1).stores({ dbnames: "name" })),
+          n || ((n = e._dbNamesDB = new Gn(Tt, { addons: [], indexedDB: e, IDBKeyRange: t })), n.version(1).stores({ dbnames: "name" })),
           n.table("dbnames")
         );
       }
-      function xn(e) {
+      function On(e) {
         return e && "function" == typeof e.databases;
       }
-      function kn(e) {
-        return tt(function () {
-          return (Ie.letThrough = !0), e();
+      function Rn(e) {
+        return nt(function () {
+          return (Ae.letThrough = !0), e();
         });
       }
-      function En() {
+      function Kn() {
         var e;
         return !navigator.userAgentData &&
           /Safari\//.test(navigator.userAgent) &&
@@ -2965,7 +2974,7 @@
             })
           : Promise.resolve();
       }
-      function Sn(e) {
+      function jn(e) {
         var t = (t) => e.next(t),
           n = s(t),
           r = s((t) => e.throw(t));
@@ -2978,17 +2987,15 @@
         }
         return s(t)();
       }
-      function qn(e, t, n) {
+      function Dn(e, t, n) {
         var r = arguments.length;
         if (r < 2) throw new ee.InvalidArgument("Too few arguments");
         for (var s = new Array(r - 1); --r; ) s[r - 1] = arguments[r];
-        n = s.pop();
-        var i = q(s);
-        return [e, i, n];
+        return (n = s.pop()), [e, q(s), n];
       }
-      function Pn(e, t, n, r, s) {
-        return Re.resolve().then(() => {
-          const i = Ie.transless || Ie,
+      function Bn(e, t, n, r, s) {
+        return Ke.resolve().then(() => {
+          const i = Ae.transless || Ae,
             a = e._createTransaction(t, n, e._dbSchema, r),
             o = { trans: a, transless: i };
           if (r) a.idbtrans = r.idbtrans;
@@ -2997,36 +3004,36 @@
               a.create(), (e._state.PR1398_maxLoop = 3);
             } catch (r) {
               return r.name === G.InvalidState && e.isOpen() && --e._state.PR1398_maxLoop > 0
-                ? (console.warn("Dexie: Need to reopen db"), e._close(), e.open().then(() => Pn(e, t, n, null, s)))
-                : pt(r);
+                ? (console.warn("Dexie: Need to reopen db"), e._close(), e.open().then(() => Bn(e, t, n, null, s)))
+                : mt(r);
             }
           const u = M(s);
           let l;
-          u && nt();
-          const c = Re.follow(() => {
+          u && rt();
+          const c = Ke.follow(() => {
             if (((l = s.call(a, a)), l))
               if (u) {
-                var e = rt.bind(null, null);
+                var e = st.bind(null, null);
                 l.then(e, e);
-              } else "function" == typeof l.next && "function" == typeof l.throw && (l = Sn(l));
+              } else "function" == typeof l.next && "function" == typeof l.throw && (l = jn(l));
           }, o);
           return (
             l && "function" == typeof l.then
-              ? Re.resolve(l).then((e) =>
-                  a.active ? e : pt(new ee.PrematureCommit("Transaction committed too early. See http://bit.ly/2kdckMn"))
+              ? Ke.resolve(l).then((e) =>
+                  a.active ? e : mt(new ee.PrematureCommit("Transaction committed too early. See http://bit.ly/2kdckMn"))
                 )
               : c.then(() => l)
           )
             .then((e) => (r && a._resolve(), a._completion.then(() => e)))
-            .catch((e) => (a._reject(e), pt(e)));
+            .catch((e) => (a._reject(e), mt(e)));
         });
       }
-      function Tn(e, t, n) {
+      function Mn(e, t, n) {
         const r = i(e) ? e.slice() : [e];
         for (let e = 0; e < n; ++e) r.push(t);
         return r;
       }
-      const In = {
+      const Nn = {
         stack: "dbcore",
         name: "VirtualIndexMiddleware",
         level: 1,
@@ -3039,11 +3046,11 @@
                 s = {},
                 i = [];
               function a(e, t, n) {
-                const r = un(e),
+                const r = vn(e),
                   o = (s[r] = s[r] || []),
                   u = null == e ? 0 : "string" == typeof e ? 1 : e.length,
                   l = t > 0,
-                  c = { ...n, isVirtual: l, keyTail: t, keyLength: u, extractKey: sn(e), unique: !l && n.unique };
+                  c = { ...n, isVirtual: l, keyTail: t, keyLength: u, extractKey: yn(e), unique: !l && n.unique };
                 return (
                   o.push(c),
                   c.isPrimaryKey || i.push(c),
@@ -3067,9 +3074,9 @@
                           (s = n.keyTail),
                           {
                             type: 1 === r.type ? 2 : r.type,
-                            lower: Tn(r.lower, r.lowerOpen ? e.MAX_KEY : e.MIN_KEY, s),
+                            lower: Mn(r.lower, r.lowerOpen ? e.MAX_KEY : e.MIN_KEY, s),
                             lowerOpen: !0,
-                            upper: Tn(r.upper, r.upperOpen ? e.MIN_KEY : e.MAX_KEY, s),
+                            upper: Mn(r.upper, r.upperOpen ? e.MIN_KEY : e.MAX_KEY, s),
                             upperOpen: !0
                           })
                       }
@@ -3084,7 +3091,7 @@
                   primaryKey: o,
                   indexes: i,
                   getIndexByKeyPath: function (e) {
-                    const t = s[un(e)];
+                    const t = s[vn(e)];
                     return t && t[0];
                   }
                 },
@@ -3101,7 +3108,7 @@
                               continue: {
                                 value: function (s) {
                                   null != s
-                                    ? n.continue(Tn(s, t.reverse ? e.MAX_KEY : e.MIN_KEY, r))
+                                    ? n.continue(Mn(s, t.reverse ? e.MAX_KEY : e.MIN_KEY, r))
                                     : t.unique
                                     ? n.continue(n.key.slice(0, i).concat(t.reverse ? e.MIN_KEY : e.MAX_KEY, r))
                                     : n.continue();
@@ -3109,7 +3116,7 @@
                               },
                               continuePrimaryKey: {
                                 value(t, s) {
-                                  n.continuePrimaryKey(Tn(t, e.MAX_KEY, r), s);
+                                  n.continuePrimaryKey(Mn(t, e.MAX_KEY, r), s);
                                 }
                               },
                               primaryKey: { get: () => n.primaryKey },
@@ -3132,7 +3139,7 @@
           };
         }
       };
-      function An(e, t, n, r) {
+      function Fn(e, t, n, r) {
         return (
           (n = n || {}),
           (r = r || ""),
@@ -3142,7 +3149,7 @@
                 a = t[s];
               if ("object" == typeof i && "object" == typeof a && i && a) {
                 const e = R(i);
-                e !== R(a) ? (n[r + s] = t[s]) : "Object" === e ? An(i, a, n, r + s + ".") : i !== a && (n[r + s] = t[s]);
+                e !== R(a) ? (n[r + s] = t[s]) : "Object" === e ? Fn(i, a, n, r + s + ".") : i !== a && (n[r + s] = t[s]);
               } else i !== a && (n[r + s] = t[s]);
             } else n[r + s] = void 0;
           }),
@@ -3152,7 +3159,7 @@
           n
         );
       }
-      const Cn = {
+      const $n = {
         stack: "dbcore",
         name: "HooksMiddleware",
         level: 2,
@@ -3164,7 +3171,7 @@
               s = {
                 ...n,
                 mutate(e) {
-                  const s = Ie.trans,
+                  const s = Ae.trans,
                     { deleting: i, creating: a, updating: o } = s.table(t).hook;
                   switch (e.type) {
                     case "add":
@@ -3189,7 +3196,7 @@
                   }
                   return n.mutate(e);
                   function u(e) {
-                    const t = Ie.trans,
+                    const t = Ae.trans,
                       s =
                         e.keys ||
                         (function (e, t) {
@@ -3209,14 +3216,14 @@
                           if ("delete" === e.type) i.fire.call(h, n, c, t);
                           else if ("add" === e.type || void 0 === c) {
                             const i = a.fire.call(h, n, e.values[s], t);
-                            null == n && null != i && ((n = i), (e.keys[s] = n), r.outbound || k(e.values[s], r.keyPath, n));
+                            null == n && null != i && ((n = i), (e.keys[s] = n), r.outbound || x(e.values[s], r.keyPath, n));
                           } else {
-                            const r = An(c, e.values[s]),
+                            const r = Fn(c, e.values[s]),
                               i = o.fire.call(h, r, n, c, t);
                             if (i) {
                               const t = e.values[s];
                               Object.keys(i).forEach((e) => {
-                                l(t, e) ? (t[e] = i[e]) : k(t, e, i[e]);
+                                l(t, e) ? (t[e] = i[e]) : x(t, e, i[e]);
                               });
                             }
                           }
@@ -3257,19 +3264,19 @@
           }
         })
       };
-      function On(e, t, n) {
+      function Un(e, t, n) {
         try {
           if (!t) return null;
           if (t.keys.length < e.length) return null;
           const r = [];
           for (let s = 0, i = 0; s < t.keys.length && i < e.length; ++s)
-            0 === Dt(t.keys[s], e[i]) && (r.push(n ? A(t.values[s]) : t.values[s]), ++i);
+            0 === Vt(t.keys[s], e[i]) && (r.push(n ? A(t.values[s]) : t.values[s]), ++i);
           return r.length === e.length ? r : null;
         } catch (e) {
           return null;
         }
       }
-      const Rn = {
+      const Wn = {
         stack: "dbcore",
         level: -1,
         create: (e) => ({
@@ -3279,9 +3286,9 @@
               ...n,
               getMany: (e) => {
                 if (!e.cache) return n.getMany(e);
-                const t = On(e.keys, e.trans._cache, "clone" === e.cache);
+                const t = Un(e.keys, e.trans._cache, "clone" === e.cache);
                 return t
-                  ? Re.resolve(t)
+                  ? Ke.resolve(t)
                   : n.getMany(e).then((t) => ((e.trans._cache = { keys: e.keys, values: "clone" === e.cache ? A(t) : t }), t));
               },
               mutate: (e) => ("add" !== e.type && (e.trans._cache = null), n.mutate(e))
@@ -3289,48 +3296,48 @@
           }
         })
       };
-      function Kn(e) {
+      function Vn(e) {
         return !("from" in e);
       }
-      const jn = function (e, t) {
+      const Ln = function (e, t) {
         if (!this) {
-          const t = new jn();
+          const t = new Ln();
           return e && "d" in e && a(t, e), t;
         }
         a(this, arguments.length ? { d: 1, from: e, to: arguments.length > 1 ? t : e } : { d: 0 });
       };
-      function Dn(e, t, n) {
-        const r = Dt(t, n);
+      function Qn(e, t, n) {
+        const r = Vt(t, n);
         if (isNaN(r)) return;
         if (r > 0) throw RangeError();
-        if (Kn(e)) return a(e, { from: t, to: n, d: 1 });
+        if (Vn(e)) return a(e, { from: t, to: n, d: 1 });
         const s = e.l,
           i = e.r;
-        if (Dt(n, e.from) < 0) return s ? Dn(s, t, n) : (e.l = { from: t, to: n, d: 1, l: null, r: null }), Nn(e);
-        if (Dt(t, e.to) > 0) return i ? Dn(i, t, n) : (e.r = { from: t, to: n, d: 1, l: null, r: null }), Nn(e);
-        Dt(t, e.from) < 0 && ((e.from = t), (e.l = null), (e.d = i ? i.d + 1 : 1)),
-          Dt(n, e.to) > 0 && ((e.to = n), (e.r = null), (e.d = e.l ? e.l.d + 1 : 1));
+        if (Vt(n, e.from) < 0) return s ? Qn(s, t, n) : (e.l = { from: t, to: n, d: 1, l: null, r: null }), zn(e);
+        if (Vt(t, e.to) > 0) return i ? Qn(i, t, n) : (e.r = { from: t, to: n, d: 1, l: null, r: null }), zn(e);
+        Vt(t, e.from) < 0 && ((e.from = t), (e.l = null), (e.d = i ? i.d + 1 : 1)),
+          Vt(n, e.to) > 0 && ((e.to = n), (e.r = null), (e.d = e.l ? e.l.d + 1 : 1));
         const o = !e.r;
-        s && !e.l && Bn(e, s), i && o && Bn(e, i);
+        s && !e.l && Yn(e, s), i && o && Yn(e, i);
       }
-      function Bn(e, t) {
-        Kn(t) ||
+      function Yn(e, t) {
+        Vn(t) ||
           (function e(t, { from: n, to: r, l: s, r: i }) {
-            Dn(t, n, r), s && e(t, s), i && e(t, i);
+            Qn(t, n, r), s && e(t, s), i && e(t, i);
           })(e, t);
       }
-      function Mn(e) {
-        let t = Kn(e) ? null : { s: 0, n: e };
+      function Zn(e) {
+        let t = Vn(e) ? null : { s: 0, n: e };
         return {
           next(e) {
             const n = arguments.length > 0;
             for (; t; )
               switch (t.s) {
                 case 0:
-                  if (((t.s = 1), n)) for (; t.n.l && Dt(e, t.n.from) < 0; ) t = { up: t, n: t.n.l, s: 1 };
+                  if (((t.s = 1), n)) for (; t.n.l && Vt(e, t.n.from) < 0; ) t = { up: t, n: t.n.l, s: 1 };
                   else for (; t.n.l; ) t = { up: t, n: t.n.l, s: 1 };
                 case 1:
-                  if (((t.s = 2), !n || Dt(e, t.n.to) <= 0)) return { value: t.n, done: !1 };
+                  if (((t.s = 2), !n || Vt(e, t.n.to) <= 0)) return { value: t.n, done: !1 };
                 case 2:
                   if (t.n.r) {
                     (t.s = 3), (t = { up: t, n: t.n.r, s: 0 });
@@ -3343,7 +3350,7 @@
           }
         };
       }
-      function Nn(e) {
+      function zn(e) {
         var t, n;
         const r = ((null === (t = e.r) || void 0 === t ? void 0 : t.d) || 0) - ((null === (n = e.l) || void 0 === n ? void 0 : n.d) || 0),
           s = r > 1 ? "r" : r < -1 ? "l" : "";
@@ -3351,33 +3358,33 @@
           const t = "r" === s ? "l" : "r",
             n = { ...e },
             r = e[s];
-          (e.from = r.from), (e.to = r.to), (e[s] = r[s]), (n[s] = r[t]), (e[t] = n), (n.d = Fn(n));
+          (e.from = r.from), (e.to = r.to), (e[s] = r[s]), (n[s] = r[t]), (e[t] = n), (n.d = Hn(n));
         }
-        e.d = Fn(e);
+        e.d = Hn(e);
       }
-      function Fn({ r: e, l: t }) {
+      function Hn({ r: e, l: t }) {
         return (e ? (t ? Math.max(e.d, t.d) : e.d) : t ? t.d : 0) + 1;
       }
-      c(jn.prototype, {
+      c(Ln.prototype, {
         add(e) {
-          return Bn(this, e), this;
+          return Yn(this, e), this;
         },
         addKey(e) {
-          return Dn(this, e, e), this;
+          return Qn(this, e, e), this;
         },
         addKeys(e) {
-          return e.forEach((e) => Dn(this, e, e)), this;
+          return e.forEach((e) => Qn(this, e, e)), this;
         },
         [K]() {
-          return Mn(this);
+          return Zn(this);
         }
       });
-      const $n = {
+      const Xn = {
         stack: "dbcore",
         level: 0,
         create: (e) => {
           const t = e.schema.name,
-            n = new jn(e.MIN_KEY, e.MAX_KEY);
+            n = new Ln(e.MIN_KEY, e.MAX_KEY);
           return {
             ...e,
             table: (r) => {
@@ -3392,18 +3399,18 @@
                       u = s.mutatedParts || (s.mutatedParts = {}),
                       l = (e) => {
                         const n = `idb://${t}/${r}/${e}`;
-                        return u[n] || (u[n] = new jn());
+                        return u[n] || (u[n] = new Ln());
                       },
                       c = l(""),
                       h = l(":dels"),
                       { type: d } = e;
                     let [f, p] =
                       "deleteRange" === e.type ? [e.range] : "delete" === e.type ? [e.keys] : e.values.length < 50 ? [[], e.values] : [];
-                    const m = e.trans._cache;
+                    const y = e.trans._cache;
                     return a.mutate(e).then((e) => {
                       if (i(f)) {
                         "delete" !== d && (f = e.results), c.addKeys(f);
-                        const t = On(f, m);
+                        const t = Un(f, y);
                         t || "add" === d || h.addKeys(f),
                           (t || p) &&
                             (function (e, t, n, r) {
@@ -3416,7 +3423,7 @@
                                 (n || r).forEach((e, t) => {
                                   const s = n && a(n[t]),
                                     i = r && a(r[t]);
-                                  0 !== Dt(s, i) && (null != s && o(s), null != i && o(i));
+                                  0 !== Vt(s, i) && (null != s && o(s), null != i && o(i));
                                 });
                               });
                             })(l, o, t, p);
@@ -3432,18 +3439,18 @@
                   var r, s;
                   return [
                     t,
-                    new jn(null !== (r = n.lower) && void 0 !== r ? r : e.MIN_KEY, null !== (s = n.upper) && void 0 !== s ? s : e.MAX_KEY)
+                    new Ln(null !== (r = n.lower) && void 0 !== r ? r : e.MIN_KEY, null !== (s = n.upper) && void 0 !== s ? s : e.MAX_KEY)
                   ];
                 },
-                f = { get: (e) => [u, new jn(e.key)], getMany: (e) => [u, new jn().addKeys(e.keys)], count: d, query: d, openCursor: d };
+                f = { get: (e) => [u, new Ln(e.key)], getMany: (e) => [u, new Ln().addKeys(e.keys)], count: d, query: d, openCursor: d };
               return (
                 s(f).forEach((e) => {
                   h[e] = function (s) {
-                    const { subscr: i } = Ie;
+                    const { subscr: i } = Ae;
                     if (i) {
                       const o = (e) => {
                           const n = `idb://${t}/${r}/${e}`;
-                          return i[n] || (i[n] = new jn());
+                          return i[n] || (i[n] = new Ln());
                         },
                         u = o(""),
                         h = o(":dels"),
@@ -3488,11 +3495,11 @@
           };
         }
       };
-      class Un {
+      class Gn {
         constructor(e, t) {
           (this._middlewares = {}), (this.verno = 0);
-          const n = Un.dependencies;
-          (this._options = t = { addons: Un.addons, autoOpen: !0, indexedDB: n.indexedDB, IDBKeyRange: n.IDBKeyRange, ...t }),
+          const n = Gn.dependencies;
+          (this._options = t = { addons: Gn.addons, autoOpen: !0, indexedDB: n.indexedDB, IDBKeyRange: n.IDBKeyRange, ...t }),
             (this._deps = { indexedDB: t.indexedDB, IDBKeyRange: t.IDBKeyRange });
           const { addons: r } = t;
           (this._dbSchema = {}),
@@ -3514,19 +3521,19 @@
             PR1398_maxLoop: 3
           };
           var i;
-          (s.dbReadyPromise = new Re((e) => {
+          (s.dbReadyPromise = new Ke((e) => {
             s.dbReadyResolve = e;
           })),
-            (s.openCanceller = new Re((e, t) => {
+            (s.openCanceller = new Ke((e, t) => {
               s.cancelOpen = t;
             })),
             (this._state = s),
             (this.name = e),
-            (this.on = Pt(this, "populate", "blocked", "versionchange", "close", { ready: [he, re] })),
+            (this.on = jt(this, "populate", "blocked", "versionchange", "close", { ready: [he, re] })),
             (this.on.ready.subscribe = v(this.on.ready.subscribe, (e) => (t, n) => {
-              Un.vip(() => {
+              Gn.vip(() => {
                 const r = this._state;
-                if (r.openComplete) r.dbOpenError || Re.resolve().then(t), n && e(t);
+                if (r.openComplete) r.dbOpenError || Ke.resolve().then(t), n && e(t);
                 else if (r.onReadyBeingFired) r.onReadyBeingFired.push(t), n && e(t);
                 else {
                   e(t);
@@ -3540,9 +3547,9 @@
             })),
             (this.Collection =
               ((i = this),
-              Tt(Nt.prototype, function (e, t) {
+              Dt(Yt.prototype, function (e, t) {
                 this.db = i;
-                let n = Et,
+                let n = Ot,
                   r = null;
                 if (t)
                   try {
@@ -3574,25 +3581,25 @@
                 };
               }))),
             (this.Table = (function (e) {
-              return Tt(qt.prototype, function (t, n, r) {
+              return Dt(Kt.prototype, function (t, n, r) {
                 (this.db = e),
                   (this._tx = r),
                   (this.name = t),
                   (this.schema = n),
                   (this.hook = e._allTables[t]
                     ? e._allTables[t].hook
-                    : Pt(null, { creating: [oe, re], reading: [ie, se], updating: [le, re], deleting: [ue, re] }));
+                    : jt(null, { creating: [oe, re], reading: [ie, se], updating: [le, re], deleting: [ue, re] }));
               });
             })(this)),
             (this.Transaction = (function (e) {
-              return Tt(Jt.prototype, function (t, n, r, s, i) {
+              return Dt(cn.prototype, function (t, n, r, s, i) {
                 (this.db = e),
                   (this.mode = t),
                   (this.storeNames = n),
                   (this.schema = r),
                   (this.chromeTransactionDurability = s),
                   (this.idbtrans = null),
-                  (this.on = Pt(this, "complete", "error", "abort")),
+                  (this.on = jt(this, "complete", "error", "abort")),
                   (this.parent = i || null),
                   (this.active = !0),
                   (this._reculock = 0),
@@ -3602,7 +3609,7 @@
                   (this._waitingFor = null),
                   (this._waitingQueue = null),
                   (this._spinCount = 0),
-                  (this._completion = new Re((e, t) => {
+                  (this._completion = new Ke((e, t) => {
                     (this._resolve = e), (this._reject = t);
                   })),
                   this._completion.then(
@@ -3615,19 +3622,19 @@
                         (this.active = !1),
                         this.on.error.fire(e),
                         this.parent ? this.parent._reject(e) : t && this.idbtrans && this.idbtrans.abort(),
-                        pt(e)
+                        mt(e)
                       );
                     }
                   );
               });
             })(this)),
             (this.Version = (function (e) {
-              return Tt(_n.prototype, function (t) {
+              return Dt(An.prototype, function (t) {
                 (this.db = e), (this._cfg = { version: t, storesSource: null, dbschema: {}, tables: {}, contentUpgrade: null });
               });
             })(this)),
             (this.WhereClause = (function (e) {
-              return Tt(zt.prototype, function (t, n, r) {
+              return Dt(rn.prototype, function (t, n, r) {
                 (this.db = e), (this._ctx = { table: t, index: ":id" === n ? null : n, or: r });
                 const s = e._deps.indexedDB;
                 if (!s) throw new ee.MissingAPI();
@@ -3649,16 +3656,16 @@
                 ? console.warn(`Dexie.delete('${this.name}') was blocked`)
                 : console.warn(`Upgrade '${this.name}' blocked by other connection holding version ${e.oldVersion / 10}`);
             }),
-            (this._maxKey = rn(t.IDBKeyRange)),
+            (this._maxKey = pn(t.IDBKeyRange)),
             (this._createTransaction = (e, t, n, r) => new this.Transaction(e, t, n, this._options.chromeTransactionDurability, r)),
             (this._fireOnBlocked = (e) => {
               this.on("blocked").fire(e),
-                vt.filter((e) => e.name === this.name && e !== this && !e._state.vcFired).map((t) => t.on("versionchange").fire(e));
+                xt.filter((e) => e.name === this.name && e !== this && !e._state.vcFired).map((t) => t.on("versionchange").fire(e));
             }),
-            this.use(In),
-            this.use(Cn),
+            this.use(Nn),
             this.use($n),
-            this.use(Rn),
+            this.use(Xn),
+            this.use(Wn),
             (this.vip = Object.create(this, { _vip: { value: !0 } })),
             r.forEach((e) => e(this));
         }
@@ -3669,12 +3676,12 @@
           this.verno = Math.max(this.verno, e);
           const t = this._versions;
           var n = t.filter((t) => t._cfg.version === e)[0];
-          return n || ((n = new this.Version(e)), t.push(n), t.sort(fn), n.stores({}), (this._state.autoSchema = !1), n);
+          return n || ((n = new this.Version(e)), t.push(n), t.sort(xn), n.stores({}), (this._state.autoSchema = !1), n);
         }
         _whenReady(e) {
-          return this.idbdb && (this._state.openComplete || Ie.letThrough || this._vip)
+          return this.idbdb && (this._state.openComplete || Ae.letThrough || this._vip)
             ? e()
-            : new Re((e, t) => {
+            : new Ke((e, t) => {
                 if (this._state.openComplete) return t(new ee.DatabaseClosed(this._state.dbOpenError));
                 if (!this._state.isBeingOpened) {
                   if (!this._options.autoOpen) return void t(new ee.DatabaseClosed());
@@ -3700,7 +3707,7 @@
           return (function (e) {
             const t = e._state,
               { indexedDB: n } = e._deps;
-            if (t.isBeingOpened || e.idbdb) return t.dbReadyPromise.then(() => (t.dbOpenError ? pt(t.dbOpenError) : e));
+            if (t.isBeingOpened || e.idbdb) return t.dbReadyPromise.then(() => (t.dbOpenError ? mt(t.dbOpenError) : e));
             N && (t.openCanceller._stackHolder = W()), (t.isBeingOpened = !0), (t.dbOpenError = null), (t.openComplete = !1);
             const r = t.openCanceller;
             function i() {
@@ -3709,31 +3716,31 @@
             let a = t.dbReadyResolve,
               o = null,
               u = !1;
-            return Re.race([
+            return Ke.race([
               r,
-              ("undefined" == typeof navigator ? Re.resolve() : En()).then(
+              ("undefined" == typeof navigator ? Ke.resolve() : Kn()).then(
                 () =>
-                  new Re((r, a) => {
+                  new Ke((r, a) => {
                     if ((i(), !n)) throw new ee.MissingAPI();
                     const l = e.name,
                       c = t.autoSchema ? n.open(l) : n.open(l, Math.round(10 * e.verno));
                     if (!c) throw new ee.MissingAPI();
-                    (c.onerror = Ht(a)),
-                      (c.onblocked = Ze(e._fireOnBlocked)),
-                      (c.onupgradeneeded = Ze((r) => {
+                    (c.onerror = sn(a)),
+                      (c.onblocked = ze(e._fireOnBlocked)),
+                      (c.onupgradeneeded = ze((r) => {
                         if (((o = c.transaction), t.autoSchema && !e._options.allowEmptyDB)) {
-                          (c.onerror = Xt), o.abort(), c.result.close();
+                          (c.onerror = an), o.abort(), c.result.close();
                           const e = n.deleteDatabase(l);
-                          e.onsuccess = e.onerror = Ze(() => {
+                          e.onsuccess = e.onerror = ze(() => {
                             a(new ee.NoSuchDatabase(`Database ${l} doesnt exist`));
                           });
                         } else {
-                          o.onerror = Ht(a);
+                          o.onerror = sn(a);
                           var s = r.oldVersion > Math.pow(2, 62) ? 0 : r.oldVersion;
-                          (u = s < 1), (e._novip.idbdb = c.result), pn(e, s / 10, o, a);
+                          (u = s < 1), (e._novip.idbdb = c.result), En(e, s / 10, o, a);
                         }
                       }, a)),
-                      (c.onsuccess = Ze(() => {
+                      (c.onsuccess = ze(() => {
                         o = null;
                         const n = (e._novip.idbdb = c.result),
                           i = g(n.objectStoreNames);
@@ -3743,30 +3750,30 @@
                             t.autoSchema
                               ? (function ({ _novip: e }, t, n) {
                                   e.verno = t.version / 10;
-                                  const r = (e._dbSchema = vn(0, t, n));
-                                  (e._storeNames = g(t.objectStoreNames, 0)), hn(e, [e._allTables], s(r), r);
+                                  const r = (e._dbSchema = Tn(0, t, n));
+                                  (e._storeNames = g(t.objectStoreNames, 0)), _n(e, [e._allTables], s(r), r);
                                 })(e, n, r)
-                              : (bn(e, e._dbSchema, r),
+                              : (In(e, e._dbSchema, r),
                                 (function (e, t) {
-                                  const n = mn(vn(0, e.idbdb, t), e._dbSchema);
+                                  const n = Sn(Tn(0, e.idbdb, t), e._dbSchema);
                                   return !(n.add.length || n.change.some((e) => e.add.length || e.change.length));
                                 })(e, r) ||
                                   console.warn(
                                     "Dexie SchemaDiff: Schema was extended without increasing the number passed to db.version(). Some queries may fail."
                                   )),
-                              cn(e, r);
+                              wn(e, r);
                           } catch (e) {}
                         var a;
-                        vt.push(e),
-                          (n.onversionchange = Ze((n) => {
+                        xt.push(e),
+                          (n.onversionchange = ze((n) => {
                             (t.vcFired = !0), e.on("versionchange").fire(n);
                           })),
-                          (n.onclose = Ze((t) => {
+                          (n.onclose = ze((t) => {
                             e.on("close").fire(t);
                           })),
                           u &&
                             (function ({ indexedDB: e, IDBKeyRange: t }, n) {
-                              !xn(e) && "__dbnames" !== n && wn(e, t).put({ name: n }).catch(re);
+                              !On(e) && n !== Tt && Cn(e, t).put({ name: n }).catch(re);
                             })(e._deps, l),
                           r();
                       }, a));
@@ -3777,10 +3784,10 @@
                 () => (
                   i(),
                   (t.onReadyBeingFired = []),
-                  Re.resolve(kn(() => e.on.ready.fire(e.vip))).then(function n() {
+                  Ke.resolve(Rn(() => e.on.ready.fire(e.vip))).then(function n() {
                     if (t.onReadyBeingFired.length > 0) {
                       let r = t.onReadyBeingFired.reduce(he, re);
-                      return (t.onReadyBeingFired = []), Re.resolve(kn(() => r(e.vip))).then(n);
+                      return (t.onReadyBeingFired = []), Ke.resolve(Rn(() => r(e.vip))).then(n);
                     }
                   })
                 )
@@ -3794,7 +3801,7 @@
                 try {
                   o && o.abort();
                 } catch (e) {}
-                return r === t.openCanceller && e._close(), pt(n);
+                return r === t.openCanceller && e._close(), mt(n);
               })
               .finally(() => {
                 (t.openComplete = !0), a();
@@ -3803,17 +3810,17 @@
         }
         _close() {
           const e = this._state,
-            t = vt.indexOf(this);
-          if ((t >= 0 && vt.splice(t, 1), this.idbdb)) {
+            t = xt.indexOf(this);
+          if ((t >= 0 && xt.splice(t, 1), this.idbdb)) {
             try {
               this.idbdb.close();
             } catch (e) {}
             this._novip.idbdb = null;
           }
-          (e.dbReadyPromise = new Re((t) => {
+          (e.dbReadyPromise = new Ke((t) => {
             e.dbReadyResolve = t;
           })),
-            (e.openCanceller = new Re((t, n) => {
+            (e.openCanceller = new Ke((t, n) => {
               e.cancelOpen = n;
             }));
         }
@@ -3825,17 +3832,17 @@
         delete() {
           const e = arguments.length > 0,
             t = this._state;
-          return new Re((n, r) => {
+          return new Ke((n, r) => {
             const s = () => {
               this.close();
               var e = this._deps.indexedDB.deleteDatabase(this.name);
-              (e.onsuccess = Ze(() => {
+              (e.onsuccess = ze(() => {
                 !(function ({ indexedDB: e, IDBKeyRange: t }, n) {
-                  !xn(e) && "__dbnames" !== n && wn(e, t).delete(n).catch(re);
+                  !On(e) && n !== Tt && Cn(e, t).delete(n).catch(re);
                 })(this._deps, this.name),
                   n();
               })),
-                (e.onerror = Ht(r)),
+                (e.onerror = sn(r)),
                 (e.onblocked = this._fireOnBlocked);
             };
             if (e) throw new ee.InvalidArgument("Arguments not allowed in db.delete()");
@@ -3862,11 +3869,11 @@
           return s(this._allTables).map((e) => this._allTables[e]);
         }
         transaction() {
-          const e = qn.apply(this, arguments);
+          const e = Dn.apply(this, arguments);
           return this._transaction.apply(this, e);
         }
         _transaction(e, t, n) {
-          let r = Ie.trans;
+          let r = Ae.trans;
           (r && r.db === this && -1 === e.indexOf("!")) || (r = null);
           const s = -1 !== e.indexOf("?");
           let i, a;
@@ -3879,15 +3886,15 @@
                   throw new TypeError("Invalid table argument to Dexie.transaction(). Only Table or String are allowed");
                 return t;
               })),
-              "r" == e || "readonly" === e)
+              "r" == e || e === It)
             )
-              i = "readonly";
+              i = It;
             else {
-              if ("rw" != e && "readwrite" != e) throw new ee.InvalidArgument("Invalid transaction mode: " + e);
-              i = "readwrite";
+              if ("rw" != e && e != At) throw new ee.InvalidArgument("Invalid transaction mode: " + e);
+              i = At;
             }
             if (r) {
-              if ("readonly" === r.mode && "readwrite" === i) {
+              if (r.mode === It && i === At) {
                 if (!s)
                   throw new ee.SubTransaction("Cannot enter a sub-transaction with READWRITE mode when parent transaction is READONLY");
                 r = null;
@@ -3906,258 +3913,257 @@
               ? r._promise(null, (t, n) => {
                   n(e);
                 })
-              : pt(e);
+              : mt(e);
           }
-          const o = Pn.bind(null, this, i, a, r, n);
-          return r ? r._promise(i, o, "lock") : Ie.trans ? lt(Ie.transless, () => this._whenReady(o)) : this._whenReady(o);
+          const o = Bn.bind(null, this, i, a, r, n);
+          return r ? r._promise(i, o, "lock") : Ae.trans ? ct(Ae.transless, () => this._whenReady(o)) : this._whenReady(o);
         }
         table(e) {
           if (!l(this._allTables, e)) throw new ee.InvalidTable(`Table ${e} does not exist`);
           return this._allTables[e];
         }
       }
-      const Wn = "undefined" != typeof Symbol && "observable" in Symbol ? Symbol.observable : "@@observable";
-      class Ln {
+      const Jn = "undefined" != typeof Symbol && "observable" in Symbol ? Symbol.observable : "@@observable";
+      class er {
         constructor(e) {
           this._subscribe = e;
         }
         subscribe(e, t, n) {
           return this._subscribe(e && "function" != typeof e ? e : { next: e, error: t, complete: n });
         }
-        [Wn]() {
+        [Jn]() {
           return this;
         }
       }
-      function Vn(e, t) {
+      function tr(e, t) {
         return (
           s(t).forEach((n) => {
-            Bn(e[n] || (e[n] = new jn()), t[n]);
+            Yn(e[n] || (e[n] = new Ln()), t[n]);
           }),
           e
         );
       }
-      let Qn;
+      let nr;
       try {
-        Qn = {
+        nr = {
           indexedDB: r.indexedDB || r.mozIndexedDB || r.webkitIndexedDB || r.msIndexedDB,
           IDBKeyRange: r.IDBKeyRange || r.webkitIDBKeyRange
         };
       } catch (r) {
-        Qn = { indexedDB: null, IDBKeyRange: null };
+        nr = { indexedDB: null, IDBKeyRange: null };
       }
-      const Yn = Un;
-      function Zn(e) {
-        let t = zn;
+      const rr = Gn;
+      function sr(e) {
+        let t = ir;
         try {
-          (zn = !0), Gt.storagemutated.fire(e);
+          (ir = !0), ln.storagemutated.fire(e);
         } finally {
-          zn = t;
+          ir = t;
         }
       }
-      c(Yn, {
+      c(rr, {
         ...ne,
-        delete: (e) => new Yn(e, { addons: [] }).delete(),
+        delete: (e) => new rr(e, { addons: [] }).delete(),
         exists: (e) =>
-          new Yn(e, { addons: [] })
+          new rr(e, { addons: [] })
             .open()
             .then((e) => (e.close(), !0))
             .catch("NoSuchDatabaseError", () => !1),
         getDatabaseNames(e) {
           try {
             return (function ({ indexedDB: e, IDBKeyRange: t }) {
-              return xn(e)
-                ? Promise.resolve(e.databases()).then((e) => e.map((e) => e.name).filter((e) => "__dbnames" !== e))
-                : wn(e, t).toCollection().primaryKeys();
-            })(Yn.dependencies).then(e);
+              return On(e)
+                ? Promise.resolve(e.databases()).then((e) => e.map((e) => e.name).filter((e) => e !== Tt))
+                : Cn(e, t).toCollection().primaryKeys();
+            })(rr.dependencies).then(e);
           } catch (e) {
-            return pt(new ee.MissingAPI());
+            return mt(new ee.MissingAPI());
           }
         },
         defineClass: () =>
           function (e) {
             a(this, e);
           },
-        ignoreTransaction: (e) => (Ie.trans ? lt(Ie.transless, e) : e()),
-        vip: kn,
+        ignoreTransaction: (e) => (Ae.trans ? ct(Ae.transless, e) : e()),
+        vip: Rn,
         async: function (e) {
           return function () {
             try {
-              var t = Sn(e.apply(this, arguments));
-              return t && "function" == typeof t.then ? t : Re.resolve(t);
+              var t = jn(e.apply(this, arguments));
+              return t && "function" == typeof t.then ? t : Ke.resolve(t);
             } catch (e) {
-              return pt(e);
+              return mt(e);
             }
           };
         },
         spawn: function (e, t, n) {
           try {
-            var r = Sn(e.apply(n, t || []));
-            return r && "function" == typeof r.then ? r : Re.resolve(r);
+            var r = jn(e.apply(n, t || []));
+            return r && "function" == typeof r.then ? r : Ke.resolve(r);
           } catch (e) {
-            return pt(e);
+            return mt(e);
           }
         },
-        currentTransaction: { get: () => Ie.trans || null },
+        currentTransaction: { get: () => Ae.trans || null },
         waitFor: function (e, t) {
-          const n = Re.resolve("function" == typeof e ? Yn.ignoreTransaction(e) : e).timeout(t || 6e4);
-          return Ie.trans ? Ie.trans.waitFor(n) : n;
+          const n = Ke.resolve("function" == typeof e ? rr.ignoreTransaction(e) : e).timeout(t || 6e4);
+          return Ae.trans ? Ae.trans.waitFor(n) : n;
         },
-        Promise: Re,
+        Promise: Ke,
         debug: {
           get: () => N,
           set: (e) => {
-            F(e, "dexie" === e ? () => !0 : xt);
+            F(e, "dexie" === e ? () => !0 : Pt);
           }
         },
         derive: f,
         extend: a,
         props: c,
         override: v,
-        Events: Pt,
-        on: Gt,
+        Events: jt,
+        on: ln,
         liveQuery: function (e) {
-          return new Ln((t) => {
-            const n = M(e);
-            let r = !1,
-              i = {},
-              a = {};
-            const o = {
+          let t,
+            n = !1;
+          const r = new er((r) => {
+            const i = M(e);
+            let a = !1,
+              o = {},
+              u = {};
+            const l = {
               get closed() {
-                return r;
+                return a;
               },
               unsubscribe: () => {
-                (r = !0), Gt.storagemutated.unsubscribe(h);
+                (a = !0), ln.storagemutated.unsubscribe(f);
               }
             };
-            t.start && t.start(o);
-            let u = !1,
-              l = !1;
-            function c() {
-              return s(a).some(
+            r.start && r.start(l);
+            let c = !1,
+              h = !1;
+            function d() {
+              return s(u).some(
                 (e) =>
-                  i[e] &&
+                  o[e] &&
                   (function (e, t) {
-                    const n = Mn(t);
+                    const n = Zn(t);
                     let r = n.next();
                     if (r.done) return !1;
                     let s = r.value;
-                    const i = Mn(e);
+                    const i = Zn(e);
                     let a = i.next(s.from),
                       o = a.value;
                     for (; !r.done && !a.done; ) {
-                      if (Dt(o.from, s.to) <= 0 && Dt(o.to, s.from) >= 0) return !0;
-                      Dt(s.from, o.from) < 0 ? (s = (r = n.next(o.from)).value) : (o = (a = i.next(s.from)).value);
+                      if (Vt(o.from, s.to) <= 0 && Vt(o.to, s.from) >= 0) return !0;
+                      Vt(s.from, o.from) < 0 ? (s = (r = n.next(o.from)).value) : (o = (a = i.next(s.from)).value);
                     }
                     return !1;
-                  })(i[e], a[e])
+                  })(o[e], u[e])
               );
             }
-            const h = (e) => {
-                Vn(i, e), c() && d();
+            const f = (e) => {
+                tr(o, e), d() && p();
               },
-              d = () => {
-                if (u || r) return;
-                i = {};
+              p = () => {
+                if (c || a) return;
+                o = {};
                 const s = {},
-                  f = (function (t) {
-                    n && nt();
-                    const r = () => tt(e, { subscr: t, trans: null }),
-                      s = Ie.trans ? lt(Ie.transless, r) : r();
-                    return n && s.then(rt, rt), s;
+                  y = (function (t) {
+                    i && rt();
+                    const n = () => nt(e, { subscr: t, trans: null }),
+                      r = Ae.trans ? ct(Ae.transless, n) : n();
+                    return i && r.then(st, st), r;
                   })(s);
-                l || (Gt("storagemutated", h), (l = !0)),
-                  (u = !0),
-                  Promise.resolve(f).then(
+                h || (ln(on, f), (h = !0)),
+                  (c = !0),
+                  Promise.resolve(y).then(
                     (e) => {
-                      (u = !1), r || (c() ? d() : ((i = {}), (a = s), t.next && t.next(e)));
+                      (n = !0), (t = e), (c = !1), a || (d() ? p() : ((o = {}), (u = s), r.next && r.next(e)));
                     },
                     (e) => {
-                      (u = !1), t.error && t.error(e), o.unsubscribe();
+                      (c = !1), (n = !1), r.error && r.error(e), l.unsubscribe();
                     }
                   );
               };
-            return d(), o;
+            return p(), l;
           });
+          return (r.hasValue = () => n), (r.getValue = () => t), r;
         },
-        extendObservabilitySet: Vn,
-        getByKeyPath: x,
-        setByKeyPath: k,
+        extendObservabilitySet: tr,
+        getByKeyPath: k,
+        setByKeyPath: x,
         delByKeyPath: function (e, t) {
           "string" == typeof t
-            ? k(e, t, void 0)
+            ? x(e, t, void 0)
             : "length" in t &&
               [].map.call(t, function (t) {
-                k(e, t, void 0);
+                x(e, t, void 0);
               });
         },
         shallowClone: E,
         deepClone: A,
-        getObjectDiff: An,
-        cmp: Dt,
-        asap: _,
-        minKey: -1 / 0,
+        getObjectDiff: Fn,
+        cmp: Vt,
+        asap: w,
+        minKey: wt,
         addons: [],
-        connections: vt,
+        connections: xt,
         errnames: G,
-        dependencies: Qn,
-        semVer: "3.2.2",
-        version: "3.2.2"
+        dependencies: nr,
+        semVer: vt,
+        version: vt
           .split(".")
           .map((e) => parseInt(e))
           .reduce((e, t, n) => e + t / Math.pow(10, 2 * n))
       }),
-        (Yn.maxKey = rn(Yn.dependencies.IDBKeyRange)),
+        (rr.maxKey = pn(rr.dependencies.IDBKeyRange)),
         "undefined" != typeof dispatchEvent &&
           "undefined" != typeof addEventListener &&
-          (Gt("storagemutated", (e) => {
-            if (!zn) {
+          (ln(on, (e) => {
+            if (!ir) {
               let t;
-              bt
-                ? ((t = document.createEvent("CustomEvent")), t.initCustomEvent("x-storagemutated-1", !0, !0, e))
-                : (t = new CustomEvent("x-storagemutated-1", { detail: e })),
-                (zn = !0),
+              Et ? ((t = document.createEvent("CustomEvent")), t.initCustomEvent(un, !0, !0, e)) : (t = new CustomEvent(un, { detail: e })),
+                (ir = !0),
                 dispatchEvent(t),
-                (zn = !1);
+                (ir = !1);
             }
           }),
-          addEventListener("x-storagemutated-1", ({ detail: e }) => {
-            zn || Zn(e);
+          addEventListener(un, ({ detail: e }) => {
+            ir || sr(e);
           }));
-      let zn = !1;
+      let ir = !1;
       if ("undefined" != typeof BroadcastChannel) {
-        const e = new BroadcastChannel("x-storagemutated-1");
-        Gt("storagemutated", (t) => {
-          zn || e.postMessage(t);
-        }),
+        const e = new BroadcastChannel(un);
+        "function" == typeof e.unref && e.unref(),
+          ln(on, (t) => {
+            ir || e.postMessage(t);
+          }),
           (e.onmessage = (e) => {
-            e.data && Zn(e.data);
+            e.data && sr(e.data);
           });
       } else if ("undefined" != typeof self && "undefined" != typeof navigator) {
-        Gt("storagemutated", (e) => {
+        ln(on, (e) => {
           try {
-            zn ||
-              ("undefined" != typeof localStorage &&
-                localStorage.setItem("x-storagemutated-1", JSON.stringify({ trig: Math.random(), changedParts: e })),
+            ir ||
+              ("undefined" != typeof localStorage && localStorage.setItem(un, JSON.stringify({ trig: Math.random(), changedParts: e })),
               "object" == typeof self.clients &&
-                [...self.clients.matchAll({ includeUncontrolled: !0 })].forEach((t) =>
-                  t.postMessage({ type: "x-storagemutated-1", changedParts: e })
-                ));
+                [...self.clients.matchAll({ includeUncontrolled: !0 })].forEach((t) => t.postMessage({ type: un, changedParts: e })));
           } catch (e) {}
         }),
           "undefined" != typeof addEventListener &&
             addEventListener("storage", (e) => {
-              if ("x-storagemutated-1" === e.key) {
+              if (e.key === un) {
                 const t = JSON.parse(e.newValue);
-                t && Zn(t.changedParts);
+                t && sr(t.changedParts);
               }
             });
         const e = self.document && navigator.serviceWorker;
         e &&
           e.addEventListener("message", function ({ data: e }) {
-            e && "x-storagemutated-1" === e.type && Zn(e.changedParts);
+            e && e.type === un && sr(e.changedParts);
           });
       }
-      (Re.rejectionMapper = function (e, t) {
+      (Ke.rejectionMapper = function (e, t) {
         if (!e || e instanceof Z || e instanceof TypeError || e instanceof SyntaxError || !e.name || !te[e.name]) return e;
         var n = new te[e.name](t || e.message, e);
         return (
@@ -4170,13 +4176,13 @@
           n
         );
       }),
-        F(N, xt);
-      const Hn = {},
-        Xn = { data: "id" },
-        Gn = new (class {
+        F(N, Pt);
+      const ar = {},
+        or = { data: "id" },
+        ur = new (class {
           constructor() {
-            this.dbs = new Proxy(Hn, {
-              get: (e, t) => ((e[(t = "syncedDb:" + t)] && e[t].isOpen()) || ((e[t] = new Un(t)), e[t].version(1).stores(Xn)), e[t].data)
+            this.dbs = new Proxy(ar, {
+              get: (e, t) => ((e[(t = "syncedDb:" + t)] && e[t].isOpen()) || ((e[t] = new Gn(t)), e[t].version(1).stores(or)), e[t].data)
             });
           }
           async refresh(e, t) {
@@ -4195,10 +4201,10 @@
             return this.dbs[e].delete(t);
           }
         })(),
-        Jn = new (class {
+        lr = new (class {
           get ids() {
             return (
-              (this.db && this.db.isOpen()) || ((this.db = new Un("idMap")), this.db.version(1).stores({ ids: "sid,&cid" })), this.db.ids
+              (this.db && this.db.isOpen()) || ((this.db = new Gn("idMap")), this.db.version(1).stores({ ids: "sid,&cid" })), this.db.ids
             );
           }
           async getCid(e) {
@@ -4259,11 +4265,11 @@
             return "number" != typeof t && (["id", "ids"].includes(e) || e.endsWith("Id") || e.endsWith("Ids"));
           }
         })();
-      function er(e) {
+      function cr(e) {
         const t = parseInt(e);
         return (t >= 10 ? t : "0" + t.toString()).toString();
       }
-      function tr() {
+      function hr() {
         const e = [];
         for (let t = 0; t < 256; t++) e[t] = (t < 16 ? "0" : "") + t.toString(16);
         const t = crypto.getRandomValues(new Uint8Array(16));
@@ -4292,7 +4298,7 @@
             e[t[15]]
         );
       }
-      function nr(e) {
+      function dr(e) {
         try {
           const t = e.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"),
             n = decodeURIComponent(
@@ -4308,46 +4314,46 @@
           return null;
         }
       }
-      var rr;
+      var fr;
       !(function (e) {
         (e.Sync = "sync"), (e.Cache = "cache"), (e.Server = "server"), (e.Timestamp = "timestamp");
-      })(rr || (rr = {}));
-      const sr = rr,
-        ir = new (class {
-          async get(e, { path: t, env: n, mode: r = sr.Sync } = {}, s) {
+      })(fr || (fr = {}));
+      const pr = fr,
+        yr = new (class {
+          async get(e, { path: t, env: n, mode: r = pr.Sync } = {}, s) {
             const i = (i) =>
               self.requestQueue.enqueueRequest({ method: "get", type: e, path: t, env: n, requestId: i, sourceTabId: s, mode: r });
-            return r === sr.Server ? i(tr()) : (r !== sr.Cache && (await i()), Gn.get(e));
+            return r === pr.Server ? i(hr()) : (r !== pr.Cache && (await i()), ur.get(e));
           }
           async migrate(e, { path: t, env: n } = {}) {
-            let r = await Gn.get(e);
+            let r = await ur.get(e);
             r.length &&
               (await self.requestQueue.enqueueRequests(r.map((r) => ({ data: r, id: r.id, method: "create", type: e, path: t, env: n }))));
           }
-          async create(e, t, n, { path: r, env: s, mode: i = sr.Sync } = {}, a) {
-            i !== sr.Cache && (await self.requestQueue.enqueueRequest({ method: "create", path: r, type: e, id: t, data: n, env: s })),
-              await Gn.create(e, t, n),
-              this.refreshAllTabs(e, await Gn.get(e), a);
+          async create(e, t, n, { path: r, env: s, mode: i = pr.Sync } = {}, a) {
+            i !== pr.Cache && (await self.requestQueue.enqueueRequest({ method: "create", path: r, type: e, id: t, data: n, env: s })),
+              await ur.create(e, t, n),
+              this.refreshAllTabs(e, await ur.get(e), a);
           }
-          async update(e, t, n, { path: r, env: s, mode: i = sr.Sync, queryString: a } = {}, o) {
-            i !== sr.Cache &&
+          async update(e, t, n, { path: r, env: s, mode: i = pr.Sync, queryString: a } = {}, o) {
+            i !== pr.Cache &&
               (await self.requestQueue.enqueueRequest({ method: "update", path: r, type: e, id: t, data: n, env: s, queryString: a })),
-              await Gn.update(e, t, n),
-              this.refreshAllTabs(e, await Gn.get(e), o);
+              await ur.update(e, t, n),
+              this.refreshAllTabs(e, await ur.get(e), o);
           }
-          async delete(e, t, { path: n, env: r, mode: s = sr.Sync } = {}, i) {
-            s !== sr.Cache && (await self.requestQueue.enqueueRequest({ method: "delete", path: n, type: e, id: t, env: r })),
-              await Gn.delete(e, t),
-              this.refreshAllTabs(e, await Gn.get(e), i);
+          async delete(e, t, { path: n, env: r, mode: s = pr.Sync } = {}, i) {
+            s !== pr.Cache && (await self.requestQueue.enqueueRequest({ method: "delete", path: n, type: e, id: t, env: r })),
+              await ur.delete(e, t),
+              this.refreshAllTabs(e, await ur.get(e), i);
           }
           refreshAllTabs(e, t, n) {
             self.bus.sendToAllTabs({ msgId: e + ":refreshed", response: t }, n);
           }
           flashMessage(e, t) {
-            self.bus.sendToAllTabs({ msgId: "flashMessage", response: { message: e, error: t, id: tr() } });
+            self.bus.sendToAllTabs({ msgId: "flashMessage", response: { message: e, error: t, id: hr() } });
           }
           getSid(e) {
-            return Jn.getSid(e);
+            return lr.getSid(e);
           }
           getVersion() {
             return 3;
@@ -4356,17 +4362,17 @@
             self.skipWaiting();
           }
         })();
-      var ar = n(31);
-      class or extends Error {
+      var mr = n(31);
+      class gr extends Error {
         constructor(e) {
           super(e), (this.name = "DiscardError");
         }
       }
-      const ur = new (n(602).ZP)("timestamp", 1),
-        lr = new e.default("serviceWorker.createFailed", 1);
+      const vr = new (n(602).ZP)("timestamp", 1),
+        br = new e.default("serviceWorker.createFailed", 1);
       n(545);
-      var cr,
-        hr = n(973);
+      var wr,
+        _r = n(973);
       new (class {
         constructor() {
           (this.initialTimeout = 100),
@@ -4381,12 +4387,12 @@
         }
         get queue() {
           return (
-            (this.db && this.db.isOpen()) || ((this.db = new Un("analyticsQueue")), this.db.version(1).stores({ queue: "_key++" })),
+            (this.db && this.db.isOpen()) || ((this.db = new Gn("analyticsQueue")), this.db.version(1).stores({ queue: "_key++" })),
             this.db.queue
           );
         }
         _shouldProcessQueue() {
-          return (0, hr.Z)("posthog.samplingRate")
+          return (0, _r.Z)("posthog.samplingRate")
             .then((e) => Math.random() < e || 0)
             .catch(() => 0);
         }
@@ -4411,7 +4417,7 @@
             try {
               (e.data = ((r = e.data), new Uint8Array(Array.from(atob(r)).map((e) => e.charCodeAt())).buffer)),
                 (e.log = !1),
-                (s = await (0, ar.Z)(e));
+                (s = await (0, mr.Z)(e));
             } catch (e) {
               console.error(e), t.error("Error submitting PostHog event", e);
             }
@@ -4442,7 +4448,7 @@
         (self.context = "service worker"),
         self.addEventListener("error", (e) => {
           let n;
-          e.name === Un.errnames.OpenFailed && (n = { error: JSON.stringify(e), inner: e.inner, message: e.message, stack: e.stack }),
+          e.name === Gn.errnames.OpenFailed && (n = { error: JSON.stringify(e), inner: e.inner, message: e.message, stack: e.stack }),
             t.error(n || e);
         }),
         (self.requestQueue = new (class {
@@ -4457,7 +4463,7 @@
           get _queue() {
             return (
               (this.db && this.db.isOpen()) ||
-                ((this.db = new Un("xhrQueue")), this.db.version(1).stores({ queue: "_key++,id,method,type" })),
+                ((this.db = new Gn("xhrQueue")), this.db.version(1).stores({ queue: "_key++,id,method,type" })),
               this.db.queue
             );
           }
@@ -4520,7 +4526,7 @@
                 var n;
                 (h = await this["_" + o]({ requestId: l, ...c })), (d = null === (n = h) || void 0 === n ? void 0 : n.status);
               } catch (n) {
-                if (n instanceof or) p = !0;
+                if (n instanceof gr) p = !0;
                 else {
                   var r;
                   const a = { message: "Error processing request", e: n, queueEntry: t };
@@ -4545,7 +4551,7 @@
                       : null === (i = this.pendingRequests[l]) || void 0 === i || i.reject(n));
                 }
               }
-              401 === d && "create" === o && this._logError({ message: "Create failed due to 401", queueEntry: t, logger: lr }),
+              401 === d && "create" === o && this._logError({ message: "Create failed due to 401", queueEntry: t, logger: br }),
                 this._isSuccessful(d) || f || p
                   ? (this._resetTimeout(e), await this._queue.delete(a))
                   : this._shouldDiscard(d)
@@ -4584,7 +4590,7 @@
           async _get({ type: e, path: t, env: n, requestId: r }) {
             const s = await this._request({ url: t || e, env: n });
             if (await this._queueContainsMutationsOfType(e))
-              throw (r && (await this.enqueueRequest({ method: "get", type: e, path: t, env: n, requestId: r })), new or());
+              throw (r && (await this.enqueueRequest({ method: "get", type: e, path: t, env: n, requestId: r })), new gr());
             if (this._isSuccessful(null == s ? void 0 : s.status)) {
               var i;
               const t = null == s || null === (i = s.headers) || void 0 === i ? void 0 : i.get("Date");
@@ -4592,9 +4598,9 @@
             }
             if (s.data) {
               var a;
-              const t = await Jn.convertDataArrayToClientIds(s.data);
-              await Gn.refresh(e, t),
-                ir.refreshAllTabs(e, t),
+              const t = await lr.convertDataArrayToClientIds(s.data);
+              await ur.refresh(e, t),
+                yr.refreshAllTabs(e, t),
                 r && (null === (a = this.pendingRequests[r]) || void 0 === a || a.resolve(t));
             }
             return s;
@@ -4602,35 +4608,35 @@
           async _create({ type: e, path: t, id: n, data: r, env: s }) {
             var i;
             delete r.id;
-            const a = await this._request({ method: "POST", url: t || e, data: await Jn.convertDataToServerIds(r), env: s });
-            return null != a && null !== (i = a.data) && void 0 !== i && i.id && (await Jn.set({ cid: n, sid: a.data.id })), a;
+            const a = await this._request({ method: "POST", url: t || e, data: await lr.convertDataToServerIds(r), env: s });
+            return null != a && null !== (i = a.data) && void 0 !== i && i.id && (await lr.set({ cid: n, sid: a.data.id })), a;
           }
           async _update({ type: e, path: t, id: n, data: r, env: s, queryString: i = "" }) {
             return this._request({
               method: "PATCH",
-              url: `${t || e}/${await Jn.getSid(n)}${i}`,
-              data: await Jn.convertDataToServerIds(r),
+              url: `${t || e}/${await lr.getSid(n)}${i}`,
+              data: await lr.convertDataToServerIds(r),
               env: s
             });
           }
           async _delete({ type: e, path: t, id: n, env: r }) {
-            return this._request({ method: "DELETE", url: `${t || e}/${await Jn.getSid(n)}`, env: r });
+            return this._request({ method: "DELETE", url: `${t || e}/${await lr.getSid(n)}`, env: r });
           }
           _request({ method: e = "GET", url: t, data: n, env: r }) {
-            return (0, ar.Z)({ url: r.apiUrl + t, method: e, data: n, headers: this._getHeaders(r) });
+            return (0, mr.Z)({ url: r.apiUrl + t, method: e, data: n, headers: this._getHeaders(r) });
           }
           async _saveTimestamp(e, t) {
-            e && t && (await ur.set(e, { cache: t, server: t }));
+            e && t && (await vr.set(e, { cache: t, server: t }));
           }
           async _cleanUpFailedRequest(e) {
             const { _key: t, type: n, id: r, method: s } = e;
-            await this._queue.delete(t), "create" === s && (await Gn.delete(n, r)), ir.refreshAllTabs(n, await Gn.get(n));
+            await this._queue.delete(t), "create" === s && (await ur.delete(n, r)), yr.refreshAllTabs(n, await ur.get(n));
           }
           _alertFailedRequest(e, t) {
             var n;
             const { type: r, method: s, requestId: i, attempts: a } = e;
             this._logError({ message: "Request failed", queueEntry: e, additionalData: { statusCode: t.status, attempts: a } }),
-              ir.flashMessage(this._getFriendlyErrorMessage(r, s), !0),
+              yr.flashMessage(this._getFriendlyErrorMessage(r, s), !0),
               i && (null === (n = this.pendingRequests[i]) || void 0 === n || n.reject(t));
           }
           _getHeaders({ version: e, token: t, clientUuid: n, tabId: r }) {
@@ -4640,15 +4646,15 @@
                 (void 0 === i ? (i = new Date()) : i instanceof Date || (i = new Date(i)),
                 i.getFullYear().toString() +
                   "-" +
-                  er(i.getMonth() + 1) +
+                  cr(i.getMonth() + 1) +
                   "-" +
-                  er(i.getDate()) +
+                  cr(i.getDate()) +
                   "T" +
-                  er(i.getHours()) +
+                  cr(i.getHours()) +
                   ":" +
-                  er(i.getMinutes()) +
+                  cr(i.getMinutes()) +
                   ":" +
-                  er(i.getSeconds()))
+                  cr(i.getSeconds()))
             };
             var i;
             return t && (s.Authorization = "Bearer " + t), n && (s["X-Momentum-ClientId"] = n), r && (s["X-Momentum-TabId"] = r), s;
@@ -4664,7 +4670,7 @@
                   method: String(r.method),
                   cid: String(r.id),
                   clientUuid: String(r.env.clientUuid),
-                  userUuid: a ? (null === (u = nr(a)) || void 0 === u ? void 0 : u.user_guid) || "Parse failed" : "No token",
+                  userUuid: a ? (null === (u = dr(a)) || void 0 === u ? void 0 : u.user_guid) || "Parse failed" : "No token",
                   tabId: String(r.env.tabId)
                 }),
               s && Object.assign(o, s),
@@ -4694,7 +4700,7 @@
             })(r ? e : ((i = e), i.endsWith("s") ? i.substring(0, i.length - 1) : i)).toLowerCase())}.`;
           }
           async _recoverMissingSid({ type: e, path: t, id: n, env: r } = {}) {
-            const s = await Gn.dbs[e].get(n);
+            const s = await ur.dbs[e].get(n);
             if (!s)
               return (
                 await this._deleteAllInQueue({ id: n }),
@@ -4709,8 +4715,8 @@
                   queueEntry: arguments[0],
                   additionalData: { statusCode: i.status }
                 }),
-                await Gn.delete(e, n),
-                ir.refreshAllTabs(e, await Gn.get(e)),
+                await ur.delete(e, n),
+                yr.refreshAllTabs(e, await ur.get(e)),
                 void (await this._deleteAllInQueue({ id: n }))
               );
             await this._deleteAllInQueue({ id: n, method: "update" });
@@ -4741,7 +4747,7 @@
             navigator.onLine && !this._requestsAreProcessing && (this._resetTimeout(), this._processAllEnqueuedTypes());
           }
         })()),
-        "activated" === (null === (cr = self.serviceWorker) || void 0 === cr ? void 0 : cr.state) && self.requestQueue.activate(),
+        "activated" === (null === (wr = self.serviceWorker) || void 0 === wr ? void 0 : wr.state) && self.requestQueue.activate(),
         (self.bus = new (class {
           constructor(e) {
             (this.sync = e),
@@ -4802,7 +4808,7 @@
               Promise.resolve()
             );
           }
-        })(ir)),
+        })(yr)),
         self.addEventListener("install", function () {
           self.registration.active && self.registration.active.scriptURL.endsWith("serviceWorker.js")
             ? (self.timeout = setTimeout(() => {

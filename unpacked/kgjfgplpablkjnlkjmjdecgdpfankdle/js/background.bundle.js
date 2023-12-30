@@ -92,12 +92,12 @@
               c.trackfields && (l = c.trackfields),
               c.scheduleDefaultLockOption && (f = "true" === c.scheduleDefaultLockOption.usePMISchedule_locked));
             let m,
-              y = !1,
-              h = !1;
+              h = !1,
+              y = !1;
             if (
               (c && c.audiopac && (m = c.audiopac),
-              m && m.option_pac_enable && (y = !0),
-              c && c.option_freeuser && (h = !!c.option_freeuser && (await r.Z.hasZoomRqToken())),
+              m && m.option_pac_enable && (h = !0),
+              c && c.option_freeuser && (y = !!c.option_freeuser && (await r.Z.hasZoomRqToken())),
               "getZoomToken" == e.type)
             ) {
               let e = await r.Z.getZoomZakRequestToken();
@@ -141,12 +141,17 @@
               try {
                 o.Z.checkSyncFoVersionOrTime();
               } catch (e) {}
-              if (c && c.meetingTrashUrl) {
-                let e = c.meetingTrashUrl;
-                return "string" === s.type(e) && "/" === e[0] && (e = e.slice(1)), { meetingTrashUrl: (await r.Z.getUserBaseUrl()) + e };
+              if (c) {
+                let e = c.meetingTrashUrl,
+                  t = "";
+                return (
+                  e && ("string" === s.type(e) && "/" === e[0] && (e = e.slice(1)), (t = (await r.Z.getUserBaseUrl()) + e)),
+                  { meetingTrashUrl: t, email: c.email || "" }
+                );
               }
               return "";
             }
+            if ("saveValue" == e.type) return e.key && (await r.Z.saveValue(e.key, e.value)), {};
             if ("getReadyToSchedule" == e.type) return { readyToSchedule: await o.Z.getReadyToSchedule() };
             if ("loadAppConfig" == e.type) return { type: "postAppConfig", info: n };
             if ("passZoomExtLoginSession" == e.type) {
@@ -158,12 +163,12 @@
               }
               return {};
             }
-            if ("supportPAC" == e.type) return { hasPac: y };
+            if ("supportPAC" == e.type) return { hasPac: h };
             if ("quickschedule" == e.type) {
               if (!(await r.Z.hasZoomRqToken())) return o.Z.popupLogin(), {};
               {
                 var Z = !!(await r.Z.getValue("zoom_config_pmi")),
-                  { pwEnable: w, wrEnable: v, authEnable: _, updateAuthOptionItem: M } = await o.Z.getSecurityResult();
+                  { pwEnable: w, wrEnable: v, authEnable: _, updateAuthOptionItem: b } = await o.Z.getSecurityResult();
                 let t = await r.Z.getSecurity(),
                   a = !1;
                 if (await r.Z.getWrOp()) {
@@ -202,9 +207,22 @@
                 else o.Z.popupLogin();
                 return {};
               }
-              if ("checkUserType" == e.type) return { freeUser: h };
+              if ("checkUserType" == e.type) return { freeUser: y };
               if ("checkShowFree40MinsTip" == e.type) return { showFree40MinsTip: c?.showFree40MinsTip, isPaidAccount: c?.isPaidAccount };
               if ("isNoMeetingLicenseUser" == e.type) return { noLicenseUser: c && c.no_meeting_license_user };
+              if ("getWhiteboardData" == e.type)
+                return (await r.Z.hasZoomRqToken()) ? { hasLogin: !0, whiteboard: c?.whiteboard } : { hasLogin: !1 };
+              if ("getWhiteboardUrl" == e.type)
+                return (await r.Z.hasZoomRqToken())
+                  ? { whiteboardUrl: await o.Z.getWhiteboardUrl(), baseurl: await r.Z.getUserBaseUrl() }
+                  : (o.Z.popupLogin(), {});
+              if ("checkPreloadWb" == e.type)
+                return (await r.Z.hasZoomRqToken()) ? { hasLogin: !0, support: c?.whiteboard?.support } : { hasLogin: !1 };
+              if ("getAccountEmail" == e.type) return (await r.Z.hasZoomRqToken()) ? { email: c?.email || "" } : { email: "" };
+              if ("openUrl" == e.type) {
+                let t = e.url;
+                return t && chrome.tabs.create({ url: t }), {};
+              }
             }
           }),
           function (e, t, a) {
@@ -215,8 +233,10 @@
             console.assert("Zoom" == e.name), (l = e);
             async function t(t) {
               try {
-                let a = await o.Z._scheduleMeeting(t);
-                r.Z.saveValue("zoom_config_fte", !1), e.postMessage({ type: "schedule", meeting: a.result });
+                let a = { type: "schedule" };
+                0;
+                let i = await o.Z._scheduleMeeting(t);
+                r.Z.saveValue("zoom_config_fte", !1), (a.meeting = i.result), e.postMessage(a);
               } catch (e) {
                 let t = e.data;
                 t || (t = { errorMessage: e.statusText }),
@@ -274,41 +294,48 @@
               else if ("saveOptionsAndSchedule" == a.type)
                 if (await r.Z.hasZoomRqToken()) {
                   let {
-                      securityRes: e,
-                      allowDenyRes: i,
-                      templateRes: n,
-                      enable_alternative_host_edit_poll: l,
-                      focusModeValue: p,
-                      record_id: c,
-                      qa: u,
-                      pmc: d,
-                      enableAutoAddExternalUser: g,
-                      enableInterpretation: f,
-                      interpretation: m,
-                      topic: y,
-                      scheduleTime: h,
-                      ...Z
-                    } = a.info,
-                    w = (function (e) {
-                      if ("object" === s.type(e))
-                        try {
-                          return JSON.parse(JSON.stringify(e));
-                        } catch (e) {}
-                      return "";
-                    })(a.info.waiting_room_new);
+                    securityRes: e,
+                    allowDenyRes: i,
+                    templateRes: l,
+                    enable_alternative_host_edit_poll: p,
+                    focusModeValue: c,
+                    record_id: u,
+                    qa: g,
+                    pmc: f,
+                    enableAutoAddExternalUser: m,
+                    enableInterpretation: h,
+                    interpretation: y,
+                    topic: Z,
+                    scheduleTime: w,
+                    meetingSummary: v,
+                    meetingQuery: _,
+                    ...b
+                  } = a.info;
+                  0;
+                  let M = (function (e) {
+                    if ("object" === s.type(e))
+                      try {
+                        return JSON.parse(JSON.stringify(e));
+                      } catch (e) {}
+                    return "";
+                  })(a.info.waiting_room_new);
                   try {
-                    201 == (await o.Z.updateZoomSetting(Z)).errorCode
+                    201 == (await o.Z.updateZoomSetting(b)).errorCode
                       ? o.Z.popupLogin(!0)
                       : (r.Z.updateSecurity(e),
                         r.Z.updateAllowDeny(i),
-                        r.Z.updateAllowAlternativeHostEditPoll(l),
-                        r.Z.updateFocusMode(p),
-                        await r.Z.updateAutoRec(c),
-                        await r.Z.updateWaitingRoom2(w),
-                        await r.Z.updateQa(u),
-                        (a.info.waiting_room_new = w),
+                        r.Z.updateAllowAlternativeHostEditPoll(p),
+                        r.Z.updateFocusMode(c),
+                        await r.Z.updateAutoRec(u),
+                        await r.Z.updateWaitingRoom2(M),
+                        await r.Z.updateQa(g),
+                        await r.Z.updateGenericSimpleData(v, "meetingSummary"),
+                        await r.Z.updateGenericSimpleData(_, "meetingQuery"),
+                        (a.info.waiting_room_new = M),
                         t(a.info));
-                  } catch (e) {}
+                  } catch (e) {
+                    d(n.errors[5]);
+                  }
                 } else o.Z.popupLogin();
               else if ("saveOptionsAndQuickSchedule" == a.type)
                 if (await r.Z.hasZoomRqToken())
@@ -376,6 +403,38 @@
                   let t = await o.Z.getAdminTemplateDetailUrl(e);
                   chrome.tabs.create({ url: t });
                 }
+              } else if ("getWhiteboardToken" == a.type)
+                if (await r.Z.hasZoomRqToken())
+                  try {
+                    let t = await o.Z.getWhiteboardToken();
+                    if (t.status) {
+                      let a = 0,
+                        o = t?.result;
+                      o?.expire_time && o?.create_time && (a = 1e3 * (o?.expire_time - o?.create_time)),
+                        e.postMessage({
+                          type: "getWhiteboardTokenResult",
+                          exception: !1,
+                          info: { res: t.status, msg: t.errorMessage, access_token: o?.access_token, token_exp: a }
+                        });
+                    }
+                  } catch (t) {
+                    e.postMessage({ type: "getWhiteboardTokenResult", exception: !0, info: { msg: t?.data?.errorMessage || t } });
+                  }
+                else e.postMessage({ type: "getWhiteboardTokenResult", exception: !0, info: {} }), o.Z.popupLogin(!0);
+              else if ("getWhiteboardInfo" == a.type)
+                if (await r.Z.hasZoomRqToken())
+                  try {
+                    let t = await o.Z.getWhiteboardInfo(a.token, a.docId);
+                    if (!t?.docId) throw error;
+                    e.postMessage({ type: "getWhiteboardInfoResult", exception: !1, info: { data: t } });
+                  } catch (t) {
+                    e.postMessage({ type: "getWhiteboardInfoResult", exception: !0, info: { data: { docId: a.docId }, msg: t } });
+                  }
+                else e.postMessage({ type: "getWhiteboardInfoResult", exception: !0, info: { data: { docId: a.docId }, msg: "" } });
+              else if ("executeEditWB" == a.type) {
+                (await r.Z.hasZoomRqToken()) && (await o.Z.executeEditWB(a.info));
+              } else if ("executeDeleteWB" == a.type) {
+                (await r.Z.hasZoomRqToken()) && (await o.Z.executeDeleteWB(a.info));
               }
             });
           }),
@@ -410,10 +469,6 @@
       r = r || 0;
       for (var c = e.length; c > 0 && e[c - 1][2] > r; c--) e[c] = e[c - 1];
       e[c] = [a, i, r];
-    }),
-    (o.n = (e) => {
-      var t = e && e.__esModule ? () => e.default : () => e;
-      return o.d(t, { a: t }), t;
     }),
     (o.d = (e, t) => {
       for (var a in t) o.o(t, a) && !o.o(e, a) && Object.defineProperty(e, a, { enumerable: !0, get: t[a] });

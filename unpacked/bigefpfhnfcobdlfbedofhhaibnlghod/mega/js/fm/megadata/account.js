@@ -556,6 +556,7 @@ MegaData.prototype.showRecoveryKeyDialog = function (version) {
     });
 
     $("a.toResetLink", $dialog).rebind("click", () => {
+      closeDialog();
       loadingDialog.show();
 
       api
@@ -576,7 +577,6 @@ MegaData.prototype.showRecoveryKeyDialog = function (version) {
           tell(ex);
         })
         .finally(() => {
-          closeDialog();
           loadingDialog.hide();
         });
 

@@ -221,7 +221,7 @@ export default new Map([
   [
     "noop-1s.mp4",
     {
-      alias: "noopmp4-1s",
+      alias: ["noopmp4-1s", "abp-resource:blank-mp4"],
       data: "blob"
     }
   ],
@@ -241,6 +241,13 @@ export default new Map([
     "noop.js",
     {
       alias: ["noopjs", "abp-resource:blank-js"],
+      data: "text"
+    }
+  ],
+  [
+    "noop.json",
+    {
+      alias: ["noopjson"],
       data: "text"
     }
   ],

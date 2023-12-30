@@ -97,9 +97,10 @@ function readrsaprivatekeyhexfromdb(e, s, t, n) {
                       (console_log("RSA : readrsaprivatekeyhexfromdb : Shared folder found, we just got the key, reparse!"),
                       get_accts_local()))
                   : (console_log("RSA : readrsaprivatekeyhexfromdb : FAILED to decrypt/extract private key"),
-                    lpReportError(
+                    logger.error(
                       "readrsaprivatekeyhexfromfile : failed to extract rsa key from file - did we change our password on another PC? datahex.length=" +
-                        r.length
+                        r.length,
+                      { "datahex.length": r.length }
                     ),
                     DeleteFromDB("rsakey")))
             : (console_log("RSA : readrsaprivatekeyhexfromdb : FAILED to find in db"),
@@ -193,11 +194,11 @@ function rsa_acceptpendingshares(e) {
               ("" != t.extra && "" == c) ||
               !u
             )
-              lpReportError("lprsa_acceptpendingshares : failing autoaccept of share because we failed to decrypt at least one value");
+              logger.error("lprsa_acceptpendingshares : failing autoaccept of share because we failed to decrypt at least one value", {});
             else {
               var d = enc(p),
-                _ = enc(l),
-                g = enc(n),
+                g = enc(l),
+                _ = enc(n),
                 y = enc(i),
                 v = enc(c),
                 u = !0,
@@ -209,15 +210,18 @@ function rsa_acceptpendingshares(e) {
                 }
               if (
                 ("" != p && "" == d) ||
-                ("" != l && "" == _) ||
-                ("" != n && "" == g) ||
+                ("" != l && "" == g) ||
+                ("" != n && "" == _) ||
                 ("" != i && "" == y) ||
                 ("" != c && "" == v) ||
                 !u
               )
-                lpReportError("lprsa_acceptpendingshares : failing autoaccept of share because we failed to reencrypt at least one value");
+                logger.error(
+                  "lprsa_acceptpendingshares : failing autoaccept of share because we failed to reencrypt at least one value",
+                  {}
+                );
               else {
-                var k = { aid: t.id, name: d, group: _, username: g, password: y, extra: v },
+                var k = { aid: t.id, name: d, group: g, username: _, password: y, extra: v },
                   x = 0;
                 for (s in f) (k["afid" + x] = s), (k["afidv" + x] = f[s]), ++x;
                 (k.numafids = x), a.push(k);
@@ -231,8 +235,8 @@ function rsa_acceptpendingshares(e) {
             s;
           for (s in a) {
             var S = "&share" + b,
-              R;
-            for (R in (++b, a[s])) m += S + R + "=" + LP.en(a[s][R]);
+              A;
+            for (A in (++b, a[s])) m += S + A + "=" + LP.en(a[s][A]);
           }
           console_log("rsa_acceptpendingshares : issuing server request to autoaccept " + a.length + " shares"),
             lpMakeRequest(base_url + "showacceptshare.php", m, rsa_acceptpendingsharesresponse);
@@ -244,12 +248,16 @@ function rsa_acceptpendingsharesresponse(e) {
   4 == e.readyState &&
     (console_log("rsa_acceptpendingsharesresponse : received response from server"),
     200 != e.status
-      ? lpReportError("lprsa_acceptpendingsharesresponse : request failed status=" + e.status)
+      ? logger.error("lprsa_acceptpendingsharesresponse : request failed status=" + e.status, { "req.status": e.status })
       : null == e.responseXML || null == e.responseXML.documentElement
-      ? lpReportError("lprsa_acceptpendingsharesresponse : request failed xml invalid A text=" + e.responseText)
+      ? logger.error("lprsa_acceptpendingsharesresponse : request failed xml invalid A text=" + e.responseText, {
+          "req.responseText": e.responseText
+        })
       : (a = e.responseXML.documentElement.getElementsByTagName("ok")) && 0 != a.length
       ? get_accts()
-      : lpReportError("lprsa_acceptpendingsharesresponse : request failed xml invalid B text=" + e.responseText));
+      : logger.error("lprsa_acceptpendingsharesresponse : request failed xml invalid B text=" + e.responseText, {
+          "req.responseText": e.responseText
+        }));
 }
 function rsa_setshareeautopushests(e) {
   g_shareeautopushests = void 0 !== e && e ? 0 : new Date().getTime();
@@ -311,12 +319,16 @@ function rsa_acceptshareeautopushesresponse(e) {
   4 == e.readyState &&
     (lpdbg("sharing", "lprsa_acceptshareeautopushesresponse : received response from server"),
     200 != e.status
-      ? lpReportError("lprsa_acceptshareeautopushesresponse : request failed status=" + e.status)
+      ? logger.error("lprsa_acceptshareeautopushesresponse : request failed status=" + e.status, { "req.status": e.status })
       : null == e.responseXML || null == e.responseXML.documentElement
-      ? lpReportError("lprsa_acceptshareeautopushesresponse : request failed xml invalid A text=" + e.responseText)
+      ? logger.error("lprsa_acceptshareeautopushesresponse : request failed xml invalid A text=" + e.responseText, {
+          "req.responseText": e.responseText
+        })
       : (a = e.responseXML.documentElement.getElementsByTagName("ok")) && 0 != a.length
       ? get_accts()
-      : lpReportError("lprsa_acceptshareeautopushesresponse : request failed xml invalid B text=" + e.responseText));
+      : logger.error("lprsa_acceptshareeautopushesresponse : request failed xml invalid B text=" + e.responseText, {
+          "req.responseText": e.responseText
+        }));
 }
 function rsa_shareeautopushesresponse(e, r) {
   var a, s, t, n, o, p, l, p;
@@ -359,7 +371,7 @@ function lprsa_encryptdata(e, r) {
     if (!parse_public_key(s, e)) return console_error("Private key could not be parsed while auto accepting shares"), !1;
     a = s.encrypt(AES.hex2bin(r));
   }
-  return "" == r || (null != a && "" != a) ? a : (lpReportError("lprsa_encryptdata : Failed to rsaencrypt data using publickeyhex"), !1);
+  return "" == r || (null != a && "" != a) ? a : (logger.error("lprsa_encryptdata : Failed to rsaencrypt data using publickeyhex", {}), !1);
 }
 function lprsa_rsadecrypt(e) {
   if ("" == lp_rsaprivatekeyhex) return null;

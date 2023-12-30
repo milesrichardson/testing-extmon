@@ -7194,6 +7194,9 @@
           "gmx.net": {
             "password-rules": "minlength: 8; maxlength: 40; allowed: lower, upper, digit, [-<=>~!|()@#{}$%,.?^'&*_+`:;\"[]];"
           },
+          "gocurb.com": {
+            "password-rules": "minlength: 8; required: lower; required: upper; required: digit; required: [$%&#*?!@^];"
+          },
           "google.com": {
             "password-rules": "minlength: 8; allowed: lower, upper, digit, [-!\"#$%&'()*+,./:;<=>?@[^_{|}~]];"
           },
@@ -7394,6 +7397,9 @@
           },
           "myhealthrecord.com": {
             "password-rules": "minlength: 8; maxlength: 20; allowed: lower, upper, digit, [_.!$*=];"
+          },
+          "mysavings.breadfinancial.com": {
+            "password-rules": "minlength: 8; maxlength: 25; required: lower; required: upper; required: digit; required: [+_%@!$*~];"
           },
           "mysedgwick.com": {
             "password-rules":
@@ -7688,6 +7694,9 @@
           "wmata.com": {
             "password-rules":
               'minlength: 8; required: lower, upper; required: digit; required: digit; required: [-!@#$%^&*~/"()_=+\\|,.?[]];'
+          },
+          "worldstrides.com": {
+            "password-rules": "minlength: 8; required: lower; required: upper; required: digit; required: [-!#$%&*+=?@^_~];"
           },
           "wsj.com": {
             "password-rules": "minlength: 5; maxlength: 15; required: digit; allowed: lower, upper, [-~!@#$^*_=`|(){}[:;\"'<>,.?]];"
@@ -10573,19 +10582,25 @@
           }
           categorizeInputs() {
             const selector = this.matching.cssSelector("formInputsSelector");
+            // If there's no form container and it's just a lonely input field (this.form is an input field)
             if (this.form.matches(selector)) {
               this.addInput(this.form);
             } else {
-              let foundInputs = this.form.querySelectorAll(selector);
-              // If the markup is broken form.querySelectorAll may not return the fields, so we select from the parent
-              if (foundInputs.length === 0 && this.form instanceof HTMLFormElement && this.form.length > 0) {
-                foundInputs = this.form.parentElement?.querySelectorAll(selector) || foundInputs;
+              /** @type {Element[] | NodeList} */
+              let foundInputs = [];
+              if (this.form instanceof HTMLFormElement) {
+                // For form elements we use .elements to catch fields outside the form itself using the form attribute.
+                // It also catches all elements when the markup is broken.
+                // We use .filter to avoid fieldset, button, textarea etc.
+                foundInputs = [...this.form.elements].filter((el) => el.matches(selector));
+              } else {
+                foundInputs = this.form.querySelectorAll(selector);
               }
               if (foundInputs.length < MAX_INPUTS_PER_FORM) {
                 foundInputs.forEach((input) => this.addInput(input));
               } else {
                 // This is rather extreme, but better safe than sorry
-                this.device.scanner.stopScanner("The form has too many inputs, bailing.");
+                this.device.scanner.stopScanner(`The form has too many inputs (${foundInputs.length}), bailing.`);
                 return;
               }
             }
@@ -10658,7 +10673,7 @@
 
             // If the form has too many inputs, destroy everything to avoid performance issues
             if (this.inputs.all.size > MAX_INPUTS_PER_FORM) {
-              this.device.scanner.stopScanner("The form has too many inputs, destroying.");
+              this.device.scanner.stopScanner("The form has too many inputs, bailing.");
               return this;
             }
 
@@ -12549,7 +12564,7 @@
           /** @type {CredentialsInputTypeConfig} */
           credentials: {
             type: "credentials",
-            displayName: "Logins",
+            displayName: "passwords",
             getIconBase: (input, _ref3) => {
               let { device } = _ref3;
               if (!canBeInteractedWith(input)) return "";
@@ -12588,7 +12603,7 @@
           /** @type {CreditCardsInputTypeConfig} */
           creditCards: {
             type: "creditCards",
-            displayName: "Credit Cards",
+            displayName: "credit cards",
             getIconBase: () => "",
             getIconFilled: () => "",
             getIconAlternate: () => "",
@@ -12602,7 +12617,7 @@
           /** @type {IdentitiesInputTypeConfig} */
           identities: {
             type: "identities",
-            displayName: "Identities",
+            displayName: "identities",
             getIconBase: getIdentitiesIcon,
             getIconFilled: getIdentitiesIcon,
             getIconAlternate: getIdentitiesAlternateIcon,
@@ -13003,9 +13018,9 @@
                 cardSecurityCode:
                   'input[autocomplete="cc-csc" i], input[autocomplete="csc" i], input[autocomplete="cc-cvc" i], input[autocomplete="cvc" i], input[name="cvc" i], input[name="cc-cvc" i], input[name="cc-csc" i], input[name="csc" i], input[name*=security i][name*=code i]',
                 expirationMonth:
-                  '[autocomplete="cc-exp-month" i], [autocomplete="cc_exp_month" i], [name="ccmonth" i], [name="ppw-expirationDate_month" i], [name=cardExpiryMonth i], [name*=ExpDate_Month i], [name*=expiration i][name*=month i], [id*=expiration i][id*=month i], [name*=cc-exp-month i], [name*="card_exp-month" i], [name*=cc_exp_month i]',
+                  '[autocomplete="cc-exp-month" i], [autocomplete="cc_exp_month" i], [name="ccmonth" i], [name="ppw-expirationDate_month" i], [name=cardExpiryMonth i], [name*=ExpDate_Month i], [name*=expiration i][name*=month i], [id*=expiration i][id*=month i], [name*=cc-exp-month i], [name*="card_exp-month" i], [name*=cc_exp_month i], [id*=cc-month i]',
                 expirationYear:
-                  '[autocomplete="cc-exp-year" i], [autocomplete="cc_exp_year" i], [name="ccyear" i], [name="ppw-expirationDate_year" i], [name=cardExpiryYear i], [name*=ExpDate_Year i], [name*=expiration i][name*=year i], [id*=expiration i][id*=year i], [name*="cc-exp-year" i], [name*="card_exp-year" i], [name*=cc_exp_year i]',
+                  '[autocomplete="cc-exp-year" i], [autocomplete="cc_exp_year" i], [name="ccyear" i], [name="ppw-expirationDate_year" i], [name=cardExpiryYear i], [name*=ExpDate_Year i], [name*=expiration i][name*=year i], [id*=expiration i][id*=year i], [name*="cc-exp-year" i], [name*="card_exp-year" i], [name*=cc_exp_year i], [id*=cc-year i]',
                 expiration:
                   '[autocomplete="cc-exp" i], [name="cc-exp" i], [name="exp-date" i], [name="expirationDate" i], input[id*=expiration i]',
                 firstName:
@@ -14902,7 +14917,7 @@
             } else {
               const inputs = context.querySelectorAll(this.matching.cssSelector("formInputsSelector"));
               if (inputs.length > this.options.maxInputsPerPage) {
-                this.stopScanner("Too many input fields in the given context, stop scanning", context);
+                this.stopScanner(`Too many input fields in the given context (${inputs.length}), stop scanning`, context);
                 return this;
               }
               inputs.forEach((input) => this.addInput(input));
@@ -15231,7 +15246,7 @@
             } catch (e) {
               // these are the fallbacks for when a platform hasn't implemented the calls above. (like on android)
               if (this.globalConfig.isDDGTestMode) {
-                console.log("isDDGTestMode: getFeatureToggles: ❌", e);
+                console.log("isDDGTestMode: getEnabled: ❌", e);
               }
               return null;
             }
@@ -15265,6 +15280,10 @@
            */
           async getAvailableInputTypes() {
             try {
+              // This info is not needed in the topFrame, so we avoid calling the native app
+              if (this.globalConfig.isTopFrame) {
+                return Settings.defaults.availableInputTypes;
+              }
               return await this.deviceApi.request(new _deviceApiCalls.GetAvailableInputTypesCall(null));
             } catch (e) {
               if (this.globalConfig.isDDGTestMode) {
@@ -18884,7 +18903,6 @@ ${this.options.css}
         exports.AppleTransport = void 0;
         var _messaging = require("../../../packages/messaging/messaging.js");
         var _index = require("../../../packages/device-api/index.js");
-        var _deviceApiCalls = require("../__generated__/deviceApiCalls.js");
         class AppleTransport extends _index.DeviceApiTransport {
           /** @param {GlobalConfig} globalConfig */
           constructor(globalConfig) {
@@ -18910,9 +18928,6 @@ ${this.options.css}
                 if (this.config.isDDGTestMode) {
                   console.log("MissingWebkitHandler error for:", deviceApiCall.method);
                 }
-                if (deviceApiCall instanceof _deviceApiCalls.GetRuntimeConfigurationCall) {
-                  return deviceApiCall.result(appleSpecificRuntimeConfiguration(this.config));
-                }
                 throw new Error("unimplemented handler: " + deviceApiCall.method);
               } else {
                 throw e;
@@ -18920,32 +18935,9 @@ ${this.options.css}
             }
           }
         }
-
-        /**
-         * @param {GlobalConfig} globalConfig
-         * @returns {ReturnType<GetRuntimeConfigurationCall['result']>}
-         */
         exports.AppleTransport = AppleTransport;
-        function appleSpecificRuntimeConfiguration(globalConfig) {
-          return {
-            success: {
-              // @ts-ignore
-              contentScope: globalConfig.contentScope,
-              // @ts-ignore
-              userPreferences: globalConfig.userPreferences,
-              // @ts-ignore
-              userUnprotectedDomains: globalConfig.userUnprotectedDomains,
-              // @ts-ignore
-              availableInputTypes: globalConfig.availableInputTypes
-            }
-          };
-        }
       },
-      {
-        "../../../packages/device-api/index.js": 12,
-        "../../../packages/messaging/messaging.js": 15,
-        "../__generated__/deviceApiCalls.js": 65
-      }
+      { "../../../packages/device-api/index.js": 12, "../../../packages/messaging/messaging.js": 15 }
     ],
     70: [
       function (require, module, exports) {

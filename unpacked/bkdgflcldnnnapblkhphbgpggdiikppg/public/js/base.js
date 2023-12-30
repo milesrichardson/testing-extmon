@@ -8024,7 +8024,10 @@
               key,
               this.options && this.options.postProcessPassResolved
                 ? {
-                    i18nResolved: resolved,
+                    i18nResolved: {
+                      ...resolved,
+                      usedParams: this.getUsedParamsDetails(options)
+                    },
                     ...options
                   }
                 : options,

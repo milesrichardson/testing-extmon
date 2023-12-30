@@ -101,7 +101,7 @@ d = {
   ja: "EEE d MMM",
   ra: "EEE d MMM y",
   o: "d",
-  pa: "d MMM HH:mm zzzz"
+  pa: "d MMM, HH:mm zzzz"
 };
 var h = {
   B: ["BC", "AD"],
@@ -148,7 +148,7 @@ h = {
   g: ["a.m.", "p.m."],
   l: ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd-MM-y"],
   ha: ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
-  m: ["{1} 'om' {0}", "{1} 'om' {0}", "{1} {0}", "{1} {0}"],
+  m: ["{1} 'om' {0}", "{1} 'om' {0}", "{1}, {0}", "{1}, {0}"],
   D: 0,
   ka: [5, 6],
   F: 3

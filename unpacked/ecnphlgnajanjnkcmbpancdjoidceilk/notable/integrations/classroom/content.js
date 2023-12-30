@@ -8,34 +8,37 @@ async function injectButton(e) {
   i.forEach((e) => e.remove());
   const a = document.createElement("div");
   a.classList.add(o), a.setAttribute("kami-to-url", n);
-  if (((t.children[0] || t).appendChild(a), utils.isTeacher())) {
-    const t = e.querySelector(".cSyPgb.WInaFd.QRiHXd");
-    if (!(t && t.textContent.toLocaleLowerCase().includes("kami"))) return;
-    const o = document.createElement("div");
-    o.innerHTML = `<div class="kami-drive-viewer-toolstrip-open-and-openwith"><a class="kami-drive-viewer-toolstrip-open" role="button" data-tooltip-unhoverable="true" data-tooltip-delay="500" data-action="UpdateWork" data-tooltip-class="drive-viewer-jfk-tooltip" data-tooltip-align="b,c" data-tooltip-offset="-6" aria-hidden="false" aria-label="${chrome.i18n.getMessage(
+  (t.children[0] || t).appendChild(a);
+  const r = document.createElement("div");
+  r.innerHTML = `<div class="kami-drive-viewer-toolstrip-open-and-openwith"><a class="kami-drive-viewer-toolstrip-open" role="button" data-tooltip-unhoverable="true" data-tooltip-delay="500" data-action="OpenWithKami"  data-tooltip-class="drive-viewer-jfk-tooltip" data-tooltip-align="b,c" data-tooltip-offset="-6" aria-hidden="false" aria-label="${chrome.i18n.getMessage(
+    "OpenWithKami"
+  )}" style="user-select: none;" tabindex="0" data-tooltip="${chrome.i18n.getMessage(
+    "OpenWithKami"
+  )}"><div class="kami-drive-viewer-open-app-icon"></div><div class="kami-drive-viewer-open-label">${chrome.i18n.getMessage(
+    "OpenWithKami"
+  )}</div></a></div>`;
+  const s = await createOpenWithKamiClickHandler(n);
+  if ((r.addEventListener("click", s), a.appendChild(r), utils.isTeacher())) {
+    const o = e.querySelector(".cSyPgb.WInaFd.QRiHXd");
+    if (!(o && o.textContent.toLocaleLowerCase().includes("kami"))) {
+      const e = t.querySelector(".ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b"),
+        n = document.body.offsetWidth - (e && e.getBoundingClientRect().left);
+      return void (a.style.margin = `4px ${n}px 0px auto`);
+    }
+    const i = document.createElement("div");
+    i.innerHTML = `<div class="kami-drive-viewer-toolstrip-open-and-openwith"><a class="kami-drive-viewer-toolstrip-open" role="button" data-tooltip-unhoverable="true" data-tooltip-delay="500" data-action="UpdateWork" data-tooltip-class="drive-viewer-jfk-tooltip" data-tooltip-align="b,c" data-tooltip-offset="-6" aria-hidden="false" aria-label="${chrome.i18n.getMessage(
       "UpdateWork"
     )}" style="user-select: none;" tabindex="0" data-tooltip="${chrome.i18n.getMessage(
       "UpdateWork"
     )}"><div class="kami-drive-viewer-open-app-icon"></div><div class="kami-drive-viewer-open-label">${chrome.i18n.getMessage(
       "UpdateWork"
     )}</div></a></div>`;
-    const i = await createUpdateWorkLinkClickHandler(n);
-    o.addEventListener("click", i), a.prepend(o);
-  } else {
-    const e = document.createElement("div");
-    e.innerHTML = `<div class="kami-drive-viewer-toolstrip-open-and-openwith"><a class="kami-drive-viewer-toolstrip-open" role="button" data-tooltip-unhoverable="true" data-tooltip-delay="500" data-action="OpenWithKami"  data-tooltip-class="drive-viewer-jfk-tooltip" data-tooltip-align="b,c" data-tooltip-offset="-6" aria-hidden="false" aria-label="${chrome.i18n.getMessage(
-      "OpenWithKami"
-    )}" style="user-select: none;" tabindex="0" data-tooltip="${chrome.i18n.getMessage(
-      "OpenWithKami"
-    )}"><div class="kami-drive-viewer-open-app-icon"></div><div class="kami-drive-viewer-open-label">${chrome.i18n.getMessage(
-      "OpenWithKami"
-    )}</div></a></div>`;
-    const t = await createOpenWithKamiClickHandler(n);
-    e.addEventListener("click", t), a.appendChild(e);
+    const r = await createUpdateWorkLinkClickHandler(n);
+    i.addEventListener("click", r), a.prepend(i);
   }
-  const r = t.querySelector(".ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b"),
-    s = document.body.offsetWidth - (r && r.getBoundingClientRect().left);
-  a.style.margin = `4px ${s}px 0px auto`;
+  const c = t.querySelector(".ndfHFb-c4YZDc-Wrql6b-AeOLfc-b0t70b"),
+    d = document.body.offsetWidth - (c && c.getBoundingClientRect().left);
+  a.style.margin = `4px ${d}px 0px auto`;
 }
 const handleOpenWithKamiClick = function () {
   wrapWindowOpen();
@@ -73,7 +76,7 @@ var injectAnnotateWithKamiInterceptor = function () {
           t.classList.contains("intercepted") ||
             (t.classList.add("intercepted"),
             t.addEventListener("mouseup", function (e) {
-              const t = document.querySelector(".kami-drive-viewer-toolstrip-open");
+              const t = document.querySelector('.kami-drive-viewer-toolstrip-open[data-action="OpenWithKami"]');
               t && (e.stopImmediatePropagation(), t.click());
             }));
         }, 0);

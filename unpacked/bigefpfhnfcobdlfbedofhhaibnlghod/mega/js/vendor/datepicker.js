@@ -1638,7 +1638,7 @@
         }
 
         if (opts.onRenderCell) {
-          render = opts.onRenderCell(date, type) || {};
+          render = opts.onRenderCell(date, type, html) || {};
           html = render.html ? render.html : html;
           classes += render.classes ? " " + render.classes : "";
         }

@@ -45,86 +45,86 @@
       return Object.prototype.hasOwnProperty.call(r, n);
     }),
     (__webpack_require__.p = ""),
-    __webpack_require__((__webpack_require__.s = 271));
+    __webpack_require__((__webpack_require__.s = 270));
 })({
   0: function (r, n, i) {
     "use strict";
-    i.d(n, "g", function () {
+    i.d(n, "h", function () {
       return a;
     }),
-      i.d(n, "n", function () {
+      i.d(n, "o", function () {
         return o;
       }),
-      i.d(n, "s", function () {
+      i.d(n, "t", function () {
         return s;
       }),
-      i.d(n, "l", function () {
+      i.d(n, "m", function () {
         return y;
       }),
       i.d(n, "d", function () {
         return E;
       }),
-      i.d(n, "h", function () {
+      i.d(n, "i", function () {
         return w;
       }),
-      i.d(n, "F", function () {
+      i.d(n, "G", function () {
         return $;
       }),
-      i.d(n, "q", function () {
+      i.d(n, "r", function () {
         return ie;
       }),
-      i.d(n, "E", function () {
+      i.d(n, "F", function () {
         return oe;
       }),
-      i.d(n, "r", function () {
+      i.d(n, "s", function () {
         return he;
       }),
       i.d(n, "e", function () {
         return pe;
       }),
-      i.d(n, "J", function () {
+      i.d(n, "K", function () {
         return ge;
       }),
-      i.d(n, "w", function () {
+      i.d(n, "x", function () {
         return ve;
       }),
-      i.d(n, "I", function () {
+      i.d(n, "J", function () {
         return Se;
       }),
-      i.d(n, "p", function () {
+      i.d(n, "q", function () {
         return Oe;
       }),
-      i.d(n, "y", function () {
+      i.d(n, "z", function () {
         return we;
       }),
-      i.d(n, "x", function () {
+      i.d(n, "y", function () {
         return Ue;
       }),
-      i.d(n, "o", function () {
+      i.d(n, "p", function () {
         return je;
       }),
-      i.d(n, "v", function () {
+      i.d(n, "w", function () {
         return We;
       }),
-      i.d(n, "k", function () {
+      i.d(n, "l", function () {
         return Ye;
       }),
-      i.d(n, "t", function () {
+      i.d(n, "u", function () {
         return $e;
       }),
-      i.d(n, "m", function () {
+      i.d(n, "n", function () {
         return Xe;
       }),
-      i.d(n, "j", function () {
+      i.d(n, "k", function () {
         return et;
       }),
-      i.d(n, "C", function () {
+      i.d(n, "D", function () {
         return tt;
       }),
-      i.d(n, "B", function () {
+      i.d(n, "C", function () {
         return rt;
       }),
-      i.d(n, "u", function () {
+      i.d(n, "v", function () {
         return nt;
       }),
       i.d(n, "c", function () {
@@ -133,44 +133,47 @@
       i.d(n, "b", function () {
         return at;
       }),
-      i.d(n, "A", function () {
+      i.d(n, "B", function () {
         return ot;
       }),
-      i.d(n, "i", function () {
+      i.d(n, "j", function () {
         return st;
       }),
       i.d(n, "a", function () {
         return lt;
       }),
-      i.d(n, "H", function () {
+      i.d(n, "I", function () {
         return ct;
       }),
-      i.d(n, "K", function () {
+      i.d(n, "L", function () {
         return ut;
       }),
-      i.d(n, "N", function () {
+      i.d(n, "O", function () {
         return ht;
       }),
-      i.d(n, "M", function () {
+      i.d(n, "N", function () {
         return pt;
       }),
-      i.d(n, "L", function () {
+      i.d(n, "M", function () {
         return ft;
       }),
-      i.d(n, "O", function () {
+      i.d(n, "P", function () {
         return dt;
       }),
-      i.d(n, "D", function () {
+      i.d(n, "E", function () {
         return mt;
       }),
       i.d(n, "f", function () {
         return gt;
       }),
-      i.d(n, "z", function () {
+      i.d(n, "A", function () {
         return yt;
       }),
-      i.d(n, "G", function () {
+      i.d(n, "H", function () {
         return Et;
+      }),
+      i.d(n, "g", function () {
+        return _t;
       });
     const a = {
         PAUSED: "paused",
@@ -212,7 +215,9 @@
         INSTALL_SOURCE: "installSource",
         REFRESH_MODAL: "refreshModal",
         BADGE_STATES: "badgeStates",
-        INSTALL_EVENT_SENT: "installEventSent"
+        INSTALL_EVENT_SENT: "installEventSent",
+        HIDE_TRACKER_HOOK: "hideTrackerHook",
+        TRACKER_HOOK_LAST_TIME_CLOSED: "trackerHookLastTimeClosed"
       },
       o = {
         CATEGORIES: {
@@ -310,7 +315,11 @@
         ON_EXTENSION_INFO_UPDATED: "on-extension-info-updated",
         OPEN_EXTENSION_CHECKOUT_MODAL: "open-extension-checkout-modal",
         CLOSE_EXTENSION_CHECKOUT_MODAL: "close-extension-checkout-modal",
-        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click"
+        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click",
+        UPDATE_PREMIUM_SETTING_TOGGLE_VALUE: "update-premium-setting-toggle-value",
+        CLOSE_TRACKER_HOOK: "close-tracker-hook",
+        HIDE_TRACKER_HOOK: "hide-tracker-hook",
+        TMP_HIDE_TRACKER_HOOK: "tmp-hide-tracker-hook"
       },
       y = {
         POPUPS: "popups",
@@ -358,7 +367,8 @@
         COOKIE_PROMO_ROOT: "pb-cookie-promo-root",
         MESSAGE_NOTIFICATION_ROOT: "pb-message-notification-root",
         ADS_HOOK_ROOT: "pb-ads-hook-root",
-        CHECKOUT_MODAL: "pb-checkout-modal"
+        CHECKOUT_MODAL: "pb-checkout-modal",
+        TRACKER_BLOCKER_HOOK_ROOT: "pb-tracker-blocker-root"
       },
       ie = {
         CHROME_EXTENTION_MANAGER: "chrome://extensions",
@@ -539,10 +549,16 @@
           PANEL_EULA_DIALOG_CLOSE: "PANEL_EULA_DIALOG_CLOSE",
           PANEL_EULA_DIALOG_AGREE_CLICK: "PANEL_EULA_DIALOG_AGREE_CLICK",
           PANEL_EULA_DIALOG_DISAGREE_CLICK: "PANEL_EULA_DIALOG_DISAGREE_CLICK",
-          PANEL_OVERLAY_BANNER_BLUE_VIEW: "PANEL_OVERLAY_BANNER_BLUE_VIEW",
-          PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK",
           PANEL_OVERLAY_BANNER_RED_VIEW: "PANEL_OVERLAY_BANNER_RED_VIEW",
-          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK"
+          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST"
         },
         PAGE: { PANEL: "PANEL", PANEL_SETTINGS_TAB: "PANEL_SETTINGS_TAB" },
         FEATURE: {
@@ -639,18 +655,42 @@
         }
       },
       yt = { PAYMENT_PENDING: 0, PAYMENT_RECIEVED: 1, FREE_TRIAL: 2, PAYMENT_DEFERED: 3, CANCELED: 4, REFUNDED: 5, PAUSED: 6 },
-      Et = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" };
+      Et = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" },
+      _t = {
+        IFRAME_SOCIAL_HOOK: "IFRAME_SOCIAL_HOOK",
+        IFRAME_COOKIE_HOOK: "IFRAME_COOKIE_HOOK",
+        IFRAME_ADS_HOOK_PREFIX: "IFRAME_ADS_HOOK_",
+        IFRAME_TRACKER_HOOK: "IFRAME_TRACKER_HOOK",
+        EXTENSION_PANEL_SETTINGS_PREFIX: "EXTENSION_PANEL_SETTINGS_",
+        EXTENSION_PANEL_GO_PRO: "EXTENSION_PANEL_GO_PRO",
+        EXTENSION_PANEL_STATS_GO_PRO: "EXTENSION_PANEL_STATS_GO_PRO"
+      };
   },
   1: function (r, n, i) {
     "use strict";
-    r.exports = i(73);
+    r.exports = i(66);
   },
-  11: function (r, n, i) {
+  11: function (r, n) {
+    const i = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
+      a = ["Firefox", "Safari", "MSIE"];
+    r.exports.BrowserAPI = (() => {
+      for (const r of i) if (navigator.userAgent.indexOf(r) > -1) return !0;
+      return !1;
+    })()
+      ? chrome
+      : (() => {
+          for (const r of a) if (navigator.userAgent.indexOf(r) > -1) return !0;
+          return !1;
+        })()
+      ? browser
+      : { runtime: { sendMessage: () => {} } };
+  },
+  12: function (r, n, i) {
     "use strict";
     i.d(n, "a", function () {
       return w;
     });
-    var a = i(6),
+    var a = i(8),
       o = i(19),
       s = i(3),
       y = i(0);
@@ -663,13 +703,13 @@
           (this.lastDisplayed = -1),
           (this.doNotShowAgain = !1),
           (this.lastDisplayedPromo = -1),
-          (this.daysLeft = y.k);
+          (this.daysLeft = y.l);
       }
       async loadAndUpdate() {
         return await super.load(), await this.updateState(), this;
       }
       getDaysLeft() {
-        return y.k - Object(s.o)(this.startTime);
+        return y.l - Object(s.o)(this.startTime);
       }
       daysSinceDisplayedHook() {
         const r = Date.now(),
@@ -703,7 +743,7 @@
         this.isTrialActive() ? (this.state = 1) : this.isTrialEnded() && (this.state = 2);
         const r = this.daysLeft,
           n = Object(s.o)(this.startTime);
-        this.daysLeft = y.k - n;
+        this.daysLeft = y.l - n;
         let i = !1;
         r !== this.daysLeft && (i = !0), this.daysLeft <= 0 && (this.endTrial(), (i = !0)), i && this.save();
       }
@@ -746,7 +786,7 @@
         if (0 === r) {
           const r = this;
           if ("active" in r) {
-            const n = Object(s.o)(this.startTime) >= y.k;
+            const n = Object(s.o)(this.startTime) >= y.l;
             this.state = n ? 2 : r.active ? 1 : 0;
           }
         }
@@ -755,13 +795,13 @@
     let w = E;
     w.getDefault = (r) => new E(r);
   },
-  12: function (r, n, i) {
+  13: function (r, n, i) {
     "use strict";
     var a = i(0),
       o = i(3),
-      s = i(6),
-      y = i(11),
-      E = i(17),
+      s = i(8),
+      y = i(12),
+      E = i(18),
       w = Object.defineProperty,
       $ = Object.getOwnPropertySymbols,
       ie = Object.prototype.hasOwnProperty,
@@ -773,8 +813,8 @@
         return r;
       };
     n.a = new (class PremiumManager {
-      async startPremiumFeature() {
-        return (await Object(o.F)()) || Object(o.M)(), !1;
+      async startPremiumFeature(r = "") {
+        return (await Object(o.F)()) || Object(o.M)(r), !1;
       }
       async shouldShowDailyPromo(r) {
         const n = await y.a.getDefault(this.onTrialEnded).loadAndUpdate();
@@ -782,7 +822,7 @@
       }
       async shouldShowEndPromo(r) {
         const n = await y.a.getDefault(this.onTrialEnded).loadAndUpdate(),
-          i = n.startTime + a.k * a.w,
+          i = n.startTime + a.l * a.x,
           o = n.lastDisplayedPromo > i;
         return n.isTrialEnded() && !o;
       }
@@ -804,9 +844,9 @@
           (i || s) &&
             Object(o.a)(
               () => {
-                Object(o.Y)(a.s.SHOW_TRIAL_PROMO, { feature: r, extras: y }), this.updatePromoDisplayTime(r);
+                Object(o.Y)(a.t.SHOW_TRIAL_PROMO, { feature: r, extras: y }), this.updatePromoDisplayTime(r);
               },
-              () => Object(o.Z)({ name: a.s.SHOW_TRIAL_PROMO, data: { feature: r, extras: y } })
+              () => Object(o.Z)({ name: a.t.SHOW_TRIAL_PROMO, data: { feature: r, extras: y } })
             );
       }
       async getFeaturesTrialState() {
@@ -832,22 +872,235 @@
       }
     })();
   },
-  13: function (r, n) {
-    const i = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
-      a = ["Firefox", "Safari", "MSIE"];
-    r.exports.BrowserAPI = (() => {
-      for (const r of i) if (navigator.userAgent.indexOf(r) > -1) return !0;
-      return !1;
-    })()
-      ? chrome
-      : (() => {
-          for (const r of a) if (navigator.userAgent.indexOf(r) > -1) return !0;
-          return !1;
-        })()
-      ? browser
-      : { runtime: { sendMessage: () => {} } };
-  },
   14: function (r, n, i) {
+    "use strict";
+    i.d(n, "b", function () {
+      return o;
+    }),
+      i.d(n, "a", function () {
+        return s;
+      }),
+      i.d(n, "c", function () {
+        return getPremiumFeaturesList;
+      }),
+      i.d(n, "d", function () {
+        return isPremiumFeature;
+      });
+    var a = i(2);
+    const o = "tState",
+      s = {
+        SocialBlocker: {
+          Name: "SocialBlocker",
+          SettingsKey: "facebookAdds",
+          QuickSettings: { QuickSettingsId: a.j.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
+          HasTrial: !0,
+          Style: { "margin-top": "43px" },
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: a.c.FACEBOOK_END,
+          TotalBlocksKeys: ["fbAd", "linkedinAd", "twitterAd", "instagramAd"],
+          ShowDailyPromo: !1,
+          Analytics: {
+            EndTrialEvent: a.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_OVER_PROMOTION_VIEW,
+            PromoView: a.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_INTRIAL_PROMOTION_VIEW,
+            PromoNotificationClick: a.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
+            PromoDiscountClick: a.b.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_PROMOTION_DISCOUNT
+          }
+        },
+        CookieCrumbler: {
+          Name: "CookieCrumbler",
+          SettingsKey: "cookieCrumbler",
+          QuickSettings: { QuickSettingsId: a.j.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
+          HasTrial: !0,
+          Style: { "margin-top": "23px" },
+          ImgURL: "images/cookie-blocked.svg",
+          TitleStrId: "cookiesBlocked",
+          StartTrialBtnStrId: "startTrialcookiesBtn",
+          EndTrialBtnStrId: "removeCookieForAllGood",
+          EndTrialLottieFile: a.c.COOKIE,
+          TotalBlocksKeys: ["cookie"],
+          ShowDailyPromo: !1,
+          Analytics: {
+            EndTrialEvent: a.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_END_OF_TRIAL,
+            PromoView: a.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_IN_TRIAL,
+            PromoNotificationClick: a.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
+            PromoDiscountClick: a.b.ANALYTICS_EVENT_TYPES.CLICK_COOKIE_PROMOTION_DISCOUNT
+          }
+        },
+        AdsBlocker: {
+          Name: "AdsBlocker",
+          SettingsKey: "adsBlocker",
+          QuickSettings: { QuickSettingsId: "adsBlocker", QuickSettingsTitleId: "settingsAdsBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["ad"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: a.c.FACEBOOK_END,
+          ShowDailyPromo: !1,
+          Analytics: {
+            HookShow: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW,
+            HookShowPostTrial: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW_POSTTRIAL,
+            HookClick: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK,
+            HookClickPostTrial: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK_POSTTRIAL,
+            HookDismiss: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS,
+            HookDismissPostTrial: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS_POSTTRIAL
+          }
+        },
+        YoutubeBlocker: {
+          Name: "YoutubeBlocker",
+          SettingsKey: "youtubeBlocker",
+          QuickSettings: { QuickSettingsId: "youtubeBlocker", QuickSettingsTitleId: "settingsYoutubeAdsBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["youtubeAd"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: a.c.FACEBOOK_END,
+          ShowDailyPromo: !1,
+          Analytics: {
+            HookShow: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW,
+            HookShowPostTrial: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW_POSTTRIAL,
+            HookClick: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK,
+            HookClickPostTrial: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK_POSTTRIAL,
+            HookDismiss: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS,
+            HookDismissPostTrial: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS_POSTTRIAL
+          }
+        },
+        TrackersBlocker: {
+          Name: "TrackersBlocker",
+          SettingsKey: "trackersBlocker",
+          QuickSettings: { QuickSettingsId: "trackersBlocker", QuickSettingsTitleId: "settingsTrackersBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["tracker"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "trackersBlockerSettingsTitle",
+          EndTrialLottieFile: a.c.FACEBOOK_END,
+          Analytics: {}
+        }
+      },
+      getPremiumFeaturesList = () => Object.keys(s).map((r) => s[r]),
+      isPremiumFeature = (r) =>
+        getPremiumFeaturesList().some((n) => {
+          return (i = r), n.Name === i.Name;
+          var i;
+        });
+  },
+  15: function (r, n, i) {
+    "use strict";
+    i.d(n, "a", function () {
+      return w;
+    });
+    var a = i(14),
+      o = i(37),
+      s = i(6),
+      y = i(2);
+    const E = class extends o.a {
+      constructor(r) {
+        super(),
+          (this.onTrialEnded = r),
+          (this.state = 0),
+          (this.startTime = -1),
+          (this.lastDisplayed = -1),
+          (this.doNotShowAgain = !1),
+          (this.lastDisplayedPromo = -1),
+          (this.daysLeft = y.i);
+      }
+      async loadAndUpdate() {
+        return await super.load(), await this.updateState(), this;
+      }
+      getDaysLeft() {
+        return y.i - Object(s.d)(this.startTime);
+      }
+      daysSinceDisplayedHook() {
+        const r = Date.now(),
+          n = this.lastDisplayed < 0 ? r : this.lastDisplayed;
+        return Object(s.i)(r - n);
+      }
+      daysSinceDisplayedPromo() {
+        const r = Date.now(),
+          n = this.lastDisplayedPromo < 0 ? r : this.lastDisplayedPromo;
+        return Object(s.i)(r - n);
+      }
+      daysSinceStarted() {
+        const r = Date.now(),
+          n = this.startTime < 0 ? r : this.startTime;
+        return Object(s.i)(r - n);
+      }
+      isTrialActive() {
+        return 1 === this.state;
+      }
+      isTrialEnded() {
+        return 2 === this.state;
+      }
+      isTrialStarted() {
+        return this.isTrialActive() && !this.isTrialEnded();
+      }
+      isTrialPending() {
+        return 0 === this.state;
+      }
+      async updateState() {
+        if (!this.isTrialActive() || this.daysLeft <= 0) return;
+        this.isTrialActive() ? (this.state = 1) : this.isTrialEnded() && (this.state = 2);
+        const r = this.daysLeft,
+          n = Object(s.d)(this.startTime);
+        this.daysLeft = y.i - n;
+        let i = !1;
+        r !== this.daysLeft && (i = !0), this.daysLeft <= 0 && (this.endTrial(), (i = !0)), i && this.save();
+      }
+      async enable() {
+        return (
+          this.isTrialActive() ||
+            this.isTrialEnded() ||
+            ((this.startTime = Date.now()), (this.state = 1), (this.lastDisplayed = 0), await this.save()),
+          this
+        );
+      }
+      async endTrial() {
+        return (
+          this.isTrialEnded() ||
+            !this.isTrialActive() ||
+            ((this.daysLeft = 0), (this.state = 2), (this.doNotShowAgain = !1), await this.save(), this.onTrialEnded()),
+          this
+        );
+      }
+      toDTO() {
+        return {
+          startTime: this.startTime,
+          daysLeft: this.daysLeft,
+          lastDisplayed: this.lastDisplayed,
+          state: this.state,
+          doNotShowAgain: this.doNotShowAgain,
+          lastDisplayedPromo: this.lastDisplayedPromo
+        };
+      }
+      getKey() {
+        return a.b;
+      }
+      getLegacyKeys() {
+        return [];
+      }
+      getVersion() {
+        return 2;
+      }
+      async migrate(r) {
+        if (0 === r) {
+          const r = this;
+          if ("active" in r) {
+            const n = Object(s.d)(this.startTime) >= y.i;
+            this.state = n ? 2 : r.active ? 1 : 0;
+          }
+        }
+      }
+    };
+    let w = E;
+    w.getDefault = (r) => new E(r);
+  },
+  16: function (r, n, i) {
     "use strict";
     i.d(n, "a", function () {
       return o;
@@ -1151,7 +1404,7 @@
   cursor: pointer;
 `;
   },
-  15: function (r, n, i) {
+  17: function (r, n, i) {
     "use strict";
     i.d(n, "a", function () {
       return a;
@@ -1180,130 +1433,12 @@
       return "unknown";
     };
   },
-  16: function (r, n, i) {
+  18: function (r, n, i) {
     "use strict";
-    i.d(n, "b", function () {
-      return o;
-    }),
-      i.d(n, "a", function () {
-        return s;
-      }),
-      i.d(n, "c", function () {
-        return getPremiumFeaturesList;
-      }),
-      i.d(n, "d", function () {
-        return isPremiumFeature;
-      });
-    var a = i(2);
-    const o = "tState",
-      s = {
-        SocialBlocker: {
-          Name: "SocialBlocker",
-          SettingsKey: "facebookAdds",
-          QuickSettings: { QuickSettingsId: a.i.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
-          HasTrial: !0,
-          Style: { "margin-top": "43px" },
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: a.c.FACEBOOK_END,
-          TotalBlocksKeys: ["fbAd", "linkedinAd", "twitterAd", "instagramAd"],
-          ShowDailyPromo: !1,
-          Analytics: {
-            EndTrialEvent: a.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_OVER_PROMOTION_VIEW,
-            PromoView: a.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_INTRIAL_PROMOTION_VIEW,
-            PromoNotificationClick: a.b.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
-            PromoDiscountClick: a.b.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_PROMOTION_DISCOUNT
-          }
-        },
-        CookieCrumbler: {
-          Name: "CookieCrumbler",
-          SettingsKey: "cookieCrumbler",
-          QuickSettings: { QuickSettingsId: a.i.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
-          HasTrial: !0,
-          Style: { "margin-top": "23px" },
-          ImgURL: "images/cookie-blocked.svg",
-          TitleStrId: "cookiesBlocked",
-          StartTrialBtnStrId: "startTrialcookiesBtn",
-          EndTrialBtnStrId: "removeCookieForAllGood",
-          EndTrialLottieFile: a.c.COOKIE,
-          TotalBlocksKeys: ["cookie"],
-          ShowDailyPromo: !1,
-          Analytics: {
-            EndTrialEvent: a.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_END_OF_TRIAL,
-            PromoView: a.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_IN_TRIAL,
-            PromoNotificationClick: a.b.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
-            PromoDiscountClick: a.b.ANALYTICS_EVENT_TYPES.CLICK_COOKIE_PROMOTION_DISCOUNT
-          }
-        },
-        AdsBlocker: {
-          Name: "AdsBlocker",
-          SettingsKey: "adsBlocker",
-          QuickSettings: { QuickSettingsId: "adsBlocker", QuickSettingsTitleId: "settingsAdsBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["ad"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: a.c.FACEBOOK_END,
-          ShowDailyPromo: !1,
-          Analytics: {
-            HookShow: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW,
-            HookShowPostTrial: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW_POSTTRIAL,
-            HookClick: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK,
-            HookClickPostTrial: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK_POSTTRIAL,
-            HookDismiss: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS,
-            HookDismissPostTrial: a.b.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS_POSTTRIAL
-          }
-        },
-        YoutubeBlocker: {
-          Name: "YoutubeBlocker",
-          SettingsKey: "youtubeBlocker",
-          QuickSettings: { QuickSettingsId: "youtubeBlocker", QuickSettingsTitleId: "settingsYoutubeAdsBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["youtubeAd"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: a.c.FACEBOOK_END,
-          ShowDailyPromo: !1,
-          Analytics: {
-            HookShow: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW,
-            HookShowPostTrial: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW_POSTTRIAL,
-            HookClick: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK,
-            HookClickPostTrial: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK_POSTTRIAL,
-            HookDismiss: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS,
-            HookDismissPostTrial: a.b.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS_POSTTRIAL
-          }
-        },
-        TrackersBlocker: {
-          Name: "TrackersBlocker",
-          SettingsKey: "trackersBlocker",
-          QuickSettings: { QuickSettingsId: "trackersBlocker", QuickSettingsTitleId: "settingsTrackersBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["tracker"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "trackersBlockerSettingsTitle",
-          EndTrialLottieFile: a.c.FACEBOOK_END,
-          Analytics: {}
-        }
-      },
-      getPremiumFeaturesList = () => Object.keys(s).map((r) => s[r]),
-      isPremiumFeature = (r) =>
-        getPremiumFeaturesList().some((n) => {
-          return (i = r), n.Name === i.Name;
-          var i;
-        });
-  },
-  17: function (r, n, i) {
-    "use strict";
-    var a = i(6),
+    var a = i(8),
       o = i(0),
       s = i(9),
-      y = i(12),
+      y = i(13),
       E = i(3),
       w = Object.defineProperty,
       $ = Object.getOwnPropertySymbols,
@@ -1326,7 +1461,7 @@
           const w = {};
           return (
             (w[r.SettingsKey] = s),
-            i && (await this.updateSettings(w), Object(E.Z)({ name: o.s.SETTINGS_CHANGED, data: { feature: r, value: n } })),
+            i && (await this.updateSettings(w), Object(E.Z)({ name: o.t.SETTINGS_CHANGED, data: { feature: r, value: n } })),
             w
           );
         }),
@@ -1334,132 +1469,22 @@
             let i = {};
             for (const a of r) {
               const r = await this.setFeatureEnabled(a, n, !1);
-              (i = __spreadValues(__spreadValues({}, i), r)), Object(E.Z)({ name: o.s.SETTINGS_CHANGED, data: { feature: a, value: n } });
+              (i = __spreadValues(__spreadValues({}, i), r)), Object(E.Z)({ name: o.t.SETTINGS_CHANGED, data: { feature: a, value: n } });
             }
             await this.updateSettings(i);
           }),
           (this.isFeatureEnabled = async (r) => {
-            const n = await s.c.get(o.g.SETTINGS);
+            const n = await s.c.get(o.h.SETTINGS);
             return !(!n || !(r.SettingsKey in n)) && n[r.SettingsKey];
           }),
           (this.updateSettings = async (r) => {
-            const n = await s.c.get(o.g.SETTINGS),
+            const n = await s.c.get(o.h.SETTINGS),
               i = __spreadValues(__spreadValues({}, n), r);
-            await s.c.set(o.g.SETTINGS, i), Object(E.Z)({ name: o.s.SETTINGS_CHANGED });
+            await s.c.set(o.h.SETTINGS, i), Object(E.Z)({ name: o.t.SETTINGS_CHANGED });
           }),
-          (this.getSettings = async () => s.c.get(o.g.SETTINGS));
+          (this.getSettings = async () => s.c.get(o.h.SETTINGS));
       }
     })();
-  },
-  18: function (r, n, i) {
-    "use strict";
-    i.d(n, "a", function () {
-      return w;
-    });
-    var a = i(16),
-      o = i(44),
-      s = i(5),
-      y = i(2);
-    const E = class extends o.a {
-      constructor(r) {
-        super(),
-          (this.onTrialEnded = r),
-          (this.state = 0),
-          (this.startTime = -1),
-          (this.lastDisplayed = -1),
-          (this.doNotShowAgain = !1),
-          (this.lastDisplayedPromo = -1),
-          (this.daysLeft = y.h);
-      }
-      async loadAndUpdate() {
-        return await super.load(), await this.updateState(), this;
-      }
-      getDaysLeft() {
-        return y.h - Object(s.c)(this.startTime);
-      }
-      daysSinceDisplayedHook() {
-        const r = Date.now(),
-          n = this.lastDisplayed < 0 ? r : this.lastDisplayed;
-        return Object(s.h)(r - n);
-      }
-      daysSinceDisplayedPromo() {
-        const r = Date.now(),
-          n = this.lastDisplayedPromo < 0 ? r : this.lastDisplayedPromo;
-        return Object(s.h)(r - n);
-      }
-      daysSinceStarted() {
-        const r = Date.now(),
-          n = this.startTime < 0 ? r : this.startTime;
-        return Object(s.h)(r - n);
-      }
-      isTrialActive() {
-        return 1 === this.state;
-      }
-      isTrialEnded() {
-        return 2 === this.state;
-      }
-      isTrialStarted() {
-        return this.isTrialActive() && !this.isTrialEnded();
-      }
-      isTrialPending() {
-        return 0 === this.state;
-      }
-      async updateState() {
-        if (!this.isTrialActive() || this.daysLeft <= 0) return;
-        this.isTrialActive() ? (this.state = 1) : this.isTrialEnded() && (this.state = 2);
-        const r = this.daysLeft,
-          n = Object(s.c)(this.startTime);
-        this.daysLeft = y.h - n;
-        let i = !1;
-        r !== this.daysLeft && (i = !0), this.daysLeft <= 0 && (this.endTrial(), (i = !0)), i && this.save();
-      }
-      async enable() {
-        return (
-          this.isTrialActive() ||
-            this.isTrialEnded() ||
-            ((this.startTime = Date.now()), (this.state = 1), (this.lastDisplayed = 0), await this.save()),
-          this
-        );
-      }
-      async endTrial() {
-        return (
-          this.isTrialEnded() ||
-            !this.isTrialActive() ||
-            ((this.daysLeft = 0), (this.state = 2), (this.doNotShowAgain = !1), await this.save(), this.onTrialEnded()),
-          this
-        );
-      }
-      toDTO() {
-        return {
-          startTime: this.startTime,
-          daysLeft: this.daysLeft,
-          lastDisplayed: this.lastDisplayed,
-          state: this.state,
-          doNotShowAgain: this.doNotShowAgain,
-          lastDisplayedPromo: this.lastDisplayedPromo
-        };
-      }
-      getKey() {
-        return a.b;
-      }
-      getLegacyKeys() {
-        return [];
-      }
-      getVersion() {
-        return 2;
-      }
-      async migrate(r) {
-        if (0 === r) {
-          const r = this;
-          if ("active" in r) {
-            const n = Object(s.c)(this.startTime) >= y.h;
-            this.state = n ? 2 : r.active ? 1 : 0;
-          }
-        }
-      }
-    };
-    let w = E;
-    w.getDefault = (r) => new E(r);
   },
   19: function (r, n, i) {
     "use strict";
@@ -1496,49 +1521,49 @@
   },
   2: function (r, n, i) {
     "use strict";
-    i.d(n, "e", function () {
+    i.d(n, "f", function () {
       return a;
     }),
-      i.d(n, "j", function () {
+      i.d(n, "k", function () {
         return o;
       }),
-      i.d(n, "n", function () {
+      i.d(n, "o", function () {
         return s;
       }),
-      i.d(n, "i", function () {
+      i.d(n, "j", function () {
         return y;
       }),
       i.d(n, "c", function () {
         return E;
       }),
-      i.d(n, "q", function () {
+      i.d(n, "r", function () {
         return w;
       }),
-      i.d(n, "m", function () {
+      i.d(n, "n", function () {
         return $;
       }),
-      i.d(n, "p", function () {
+      i.d(n, "q", function () {
         return se;
       }),
       i.d(n, "d", function () {
         return le;
       }),
-      i.d(n, "t", function () {
+      i.d(n, "v", function () {
         return he;
       }),
-      i.d(n, "o", function () {
+      i.d(n, "p", function () {
         return pe;
       }),
-      i.d(n, "l", function () {
+      i.d(n, "m", function () {
         return ge;
       }),
-      i.d(n, "h", function () {
+      i.d(n, "i", function () {
         return ve;
       }),
-      i.d(n, "r", function () {
+      i.d(n, "s", function () {
         return Se;
       }),
-      i.d(n, "k", function () {
+      i.d(n, "l", function () {
         return Oe;
       }),
       i.d(n, "a", function () {
@@ -1547,14 +1572,20 @@
       i.d(n, "b", function () {
         return Ue;
       }),
-      i.d(n, "g", function () {
+      i.d(n, "h", function () {
         return je;
       }),
-      i.d(n, "f", function () {
+      i.d(n, "u", function () {
         return We;
       }),
-      i.d(n, "s", function () {
+      i.d(n, "g", function () {
         return Ye;
+      }),
+      i.d(n, "t", function () {
+        return $e;
+      }),
+      i.d(n, "e", function () {
+        return Xe;
       });
     const a = {
         PAUSED: "paused",
@@ -1596,7 +1627,9 @@
         INSTALL_SOURCE: "installSource",
         REFRESH_MODAL: "refreshModal",
         BADGE_STATES: "badgeStates",
-        INSTALL_EVENT_SENT: "installEventSent"
+        INSTALL_EVENT_SENT: "installEventSent",
+        HIDE_TRACKER_HOOK: "hideTrackerHook",
+        TRACKER_HOOK_LAST_TIME_CLOSED: "trackerHookLastTimeClosed"
       },
       o = {
         CATEGORIES: {
@@ -1694,7 +1727,11 @@
         ON_EXTENSION_INFO_UPDATED: "on-extension-info-updated",
         OPEN_EXTENSION_CHECKOUT_MODAL: "open-extension-checkout-modal",
         CLOSE_EXTENSION_CHECKOUT_MODAL: "close-extension-checkout-modal",
-        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click"
+        PAYMENT_SUCCESS_PAGE_SETTINGS_CLICK: "payment-success-page-settings-click",
+        UPDATE_PREMIUM_SETTING_TOGGLE_VALUE: "update-premium-setting-toggle-value",
+        CLOSE_TRACKER_HOOK: "close-tracker-hook",
+        HIDE_TRACKER_HOOK: "hide-tracker-hook",
+        TMP_HIDE_TRACKER_HOOK: "tmp-hide-tracker-hook"
       },
       y = {
         POPUPS: "popups",
@@ -1720,7 +1757,8 @@
         COOKIE_PROMO_ROOT: "pb-cookie-promo-root",
         MESSAGE_NOTIFICATION_ROOT: "pb-message-notification-root",
         ADS_HOOK_ROOT: "pb-ads-hook-root",
-        CHECKOUT_MODAL: "pb-checkout-modal"
+        CHECKOUT_MODAL: "pb-checkout-modal",
+        TRACKER_BLOCKER_HOOK_ROOT: "pb-tracker-blocker-root"
       },
       $ = {
         CHROME_EXTENTION_MANAGER: "chrome://extensions",
@@ -1900,10 +1938,16 @@
           PANEL_EULA_DIALOG_CLOSE: "PANEL_EULA_DIALOG_CLOSE",
           PANEL_EULA_DIALOG_AGREE_CLICK: "PANEL_EULA_DIALOG_AGREE_CLICK",
           PANEL_EULA_DIALOG_DISAGREE_CLICK: "PANEL_EULA_DIALOG_DISAGREE_CLICK",
-          PANEL_OVERLAY_BANNER_BLUE_VIEW: "PANEL_OVERLAY_BANNER_BLUE_VIEW",
-          PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_BLUE_ACTIVATE_CLICK",
           PANEL_OVERLAY_BANNER_RED_VIEW: "PANEL_OVERLAY_BANNER_RED_VIEW",
-          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK"
+          PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK: "PANEL_OVERLAY_BANNER_RED_ACTIVATE_CLICK",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_CONTROL",
+          TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_VIEW_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CLOSE_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_NEVER_SHOW_AGAIN_TEST",
+          TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST: "TRACKER_BLOCKER_HOOK_DIALOG_CLICK_CTA_TEST"
         },
         PAGE: { PANEL: "PANEL", PANEL_SETTINGS_TAB: "PANEL_SETTINGS_TAB" },
         FEATURE: {
@@ -1965,8 +2009,18 @@
         VISIBILITY: "visibility",
         OPACITY: "opacity"
       },
-      We = { KEY_COOKIE_CLASSES: "cookieClasses" },
-      Ye = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" };
+      We = { KEY_CONFIG_STORAGE: "trackersBlockerConfig" },
+      Ye = { KEY_COOKIE_CLASSES: "cookieClasses" },
+      $e = { REMINDER_INTERVAL: 24, REMINDER_TMP_INTERVAL: 12, PERIOD_DAYS_TO_DISPLAY: 7, FEATURE_ACTIVE_DATE: "2023-09-11 00:00:00" },
+      Xe = {
+        IFRAME_SOCIAL_HOOK: "IFRAME_SOCIAL_HOOK",
+        IFRAME_COOKIE_HOOK: "IFRAME_COOKIE_HOOK",
+        IFRAME_ADS_HOOK_PREFIX: "IFRAME_ADS_HOOK_",
+        IFRAME_TRACKER_HOOK: "IFRAME_TRACKER_HOOK",
+        EXTENSION_PANEL_SETTINGS_PREFIX: "EXTENSION_PANEL_SETTINGS_",
+        EXTENSION_PANEL_GO_PRO: "EXTENSION_PANEL_GO_PRO",
+        EXTENSION_PANEL_STATS_GO_PRO: "EXTENSION_PANEL_STATS_GO_PRO"
+      };
   },
   20: function (r, n, i) {
     "use strict";
@@ -1986,7 +2040,7 @@
         return getUserInfo;
       });
     var a = i(0),
-      o = i(7);
+      o = i(5);
     const fetchWithTokenRefreshIfNeeded = async (r, n, i) => {
         const o = await fetch(r, n);
         if (o.status === i) return o;
@@ -2003,19 +2057,20 @@
           const r = await fetchWithTokenRefreshIfNeeded(a.e.GET_USER, {}, 200);
           if (200 === r.status) {
             const n = await r.json();
-            return await o.a.set(a.g.USER, n.user), await o.a.set(a.g.LAST_USER_UPDATE_DATE, Date.now()), n.user || null;
+            return await o.a.set(a.h.USER, n.user), await o.a.set(a.h.LAST_USER_UPDATE_DATE, Date.now()), n.user || null;
           }
-          await o.a.remove([a.g.LAST_USER_UPDATE_DATE]);
+          await o.a.remove([a.h.LAST_USER_UPDATE_DATE]);
         } catch (r) {
-          await o.a.remove([a.g.LAST_USER_UPDATE_DATE]);
+          await o.a.remove([a.h.LAST_USER_UPDATE_DATE]);
         }
       },
       updateUserInfo = async () => {
-        const r = await o.a.get(a.g.LAST_USER_UPDATE_DATE);
-        (!r || Date.now() - r >= a.J) && (await getUser());
+        if (!(await o.a.get(a.h.USER))) return;
+        const r = await o.a.get(a.h.LAST_USER_UPDATE_DATE);
+        (!r || Date.now() - r >= a.K) && (await getUser());
       },
-      logout = async () => 200 === (await fetch(a.e.LOGOUT)).status && (await o.a.remove([a.g.USER, a.g.LAST_USER_UPDATE_DATE]), !0),
-      getUserInfo = () => o.a.get(a.g.USER);
+      logout = async () => 200 === (await fetch(a.e.LOGOUT)).status && (await o.a.remove([a.h.USER, a.h.LAST_USER_UPDATE_DATE]), !0),
+      getUserInfo = () => o.a.get(a.h.USER);
   },
   21: function (r, n, i) {
     "use strict";
@@ -2031,14 +2086,14 @@
       i.d(n, "d", function () {
         return sendAnalyticsEvent;
       });
-    var a = i(71),
+    var a = i(63),
       o = i(0),
-      s = i(36),
+      s = i(34),
       y = i(3),
       E = i(20),
-      w = i(39),
-      $ = i(24),
-      ie = i(15),
+      w = i(38),
+      $ = i(23),
+      ie = i(17),
       oe = Object.defineProperty,
       se = Object.getOwnPropertySymbols,
       le = Object.prototype.hasOwnProperty,
@@ -2149,15 +2204,16 @@
         var oe;
       },
       sendAliveAnalyticsEvent = async () => {
-        chrome.storage.local.get([o.g.LAST_ALIVE_EVENT_SENT_AT, o.g.SETTINGS], async (r) => {
-          const n = r[o.g.LAST_ALIVE_EVENT_SENT_AT] || 0,
+        chrome.storage.local.get([o.h.LAST_ALIVE_EVENT_SENT_AT, o.h.SETTINGS], async (r) => {
+          const n = r[o.h.LAST_ALIVE_EVENT_SENT_AT] || 0,
             i = Date.now(),
-            a = i - n >= o.w,
+            a = i - n >= o.x,
             s = await $.a.isOptIn(),
-            w = (await Object(y.b)()).isPinned;
+            w = (await Object(y.b)()).isPinned,
+            ie = await Object(y.F)();
           if (a) {
-            await sendAnalyticsEvent(o.c.ANALYTICS_EVENT_TYPES.ALIVE, { payload: JSON.stringify({ optin: s, pinned: w }) }),
-              chrome.storage.local.set({ [o.g.LAST_ALIVE_EVENT_SENT_AT]: i });
+            await sendAnalyticsEvent(o.c.ANALYTICS_EVENT_TYPES.ALIVE, { payload: JSON.stringify({ optin: s, pinned: w, isPremium: ie }) }),
+              chrome.storage.local.set({ [o.h.LAST_ALIVE_EVENT_SENT_AT]: i });
             if (await Object(E.c)())
               try {
                 await fetch(o.e.ALIVE, { method: "POST", headers: [["x-opt", "" + (s ? 1 : 0)]] });
@@ -2197,7 +2253,7 @@
       migrate(r) {
         if (!(r > 0))
           return new Promise((r) => {
-            s.c.get(a.g.SETTINGS).then((n) => {
+            s.c.get(a.h.SETTINGS).then((n) => {
               n && void 0 !== n.isOptIn ? (this.state = n.isOptIn ? 1 : 0) : (this.state = -1), r();
             });
           });
@@ -2208,35 +2264,6 @@
     }
   },
   23: function (r, n, i) {
-    "use strict";
-    i.d(n, "a", function () {
-      return a;
-    }),
-      i.d(n, "b", function () {
-        return getBrowserName;
-      });
-    var a = ((r) => (
-      (r.CHROME = "chrome"),
-      (r.FIREFOX = "firefox"),
-      (r.OPERA = "opera"),
-      (r.EDGE = "edge"),
-      (r.SAFARI = "safari"),
-      (r.UNKNOWN = "unknown"),
-      r
-    ))(a || {});
-    const getBrowserName = () => {
-      try {
-        const r = navigator.userAgent;
-        if (r.match(/opera|opr\//i)) return "opera";
-        if (r.match(/firefox|fxios/i)) return "firefox";
-        if (r.match(/edg/i)) return "edge";
-        if (r.match(/safari/i) && !r.match(/chrome|chromium|crios/i)) return "safari";
-        if (r.match(/chrome|chromium|crios/i)) return "chrome";
-      } catch (r) {}
-      return "unknown";
-    };
-  },
-  24: function (r, n, i) {
     "use strict";
     var a = i(22);
     n.a = new (class OptManager {
@@ -2265,20 +2292,13 @@
       }
     })();
   },
-  25: function (r, n, i) {
-    "use strict";
-    i.d(n, "a", function () {
-      return a;
-    });
-    var a = ((r) => ((r.Anonymous = "anonymous"), (r.Free = "free"), (r.Premium = "premium"), r))(a || {});
-  },
-  26: function (r, n, i) {
+  24: function (r, n, i) {
     "use strict";
     var a = i(2),
-      o = i(5),
-      s = i(16),
-      y = i(18),
-      E = i(29),
+      o = i(6),
+      s = i(14),
+      y = i(15),
+      E = i(25),
       w = Object.defineProperty,
       $ = Object.getOwnPropertySymbols,
       ie = Object.prototype.hasOwnProperty,
@@ -2290,8 +2310,8 @@
         return r;
       };
     n.a = new (class PremiumManager {
-      async startPremiumFeature() {
-        return (await Object(o.f)()) || Object(o.i)(), !1;
+      async startPremiumFeature(r = "") {
+        return (await Object(o.h)()) || Object(o.j)(r), !1;
       }
       async shouldShowDailyPromo(r) {
         const n = await y.a.getDefault(this.onTrialEnded).loadAndUpdate();
@@ -2299,7 +2319,7 @@
       }
       async shouldShowEndPromo(r) {
         const n = await y.a.getDefault(this.onTrialEnded).loadAndUpdate(),
-          i = n.startTime + a.h * a.o,
+          i = n.startTime + a.i * a.p,
           o = n.lastDisplayedPromo > i;
         return n.isTrialEnded() && !o;
       }
@@ -2312,7 +2332,7 @@
         (n.lastDisplayedPromo = Date.now()), await n.save();
       }
       async showTrialPromoIfNeeded(r, n) {
-        if (await Object(o.f)()) return;
+        if (await Object(o.h)()) return;
         const i = (await this.shouldShowDailyPromo(r)) && r.ShowDailyPromo,
           s = await this.shouldShowEndPromo(r),
           y = n || {};
@@ -2321,9 +2341,9 @@
           (i || s) &&
             Object(o.a)(
               () => {
-                Object(o.m)(a.n.SHOW_TRIAL_PROMO, { feature: r, extras: y }), this.updatePromoDisplayTime(r);
+                Object(o.n)(a.o.SHOW_TRIAL_PROMO, { feature: r, extras: y }), this.updatePromoDisplayTime(r);
               },
-              () => Object(o.n)({ name: a.n.SHOW_TRIAL_PROMO, data: { feature: r, extras: y } })
+              () => Object(o.o)({ name: a.o.SHOW_TRIAL_PROMO, data: { feature: r, extras: y } })
             );
       }
       async getFeaturesTrialState() {
@@ -2336,18 +2356,78 @@
       }
       async isPremiumFeatureAvailable(r) {
         const n = await y.a.getDefault(this.onTrialEnded).load();
-        return (await Object(o.f)()) || (r.HasTrial && n.isTrialActive());
+        return (await Object(o.h)()) || (r.HasTrial && n.isTrialActive());
       }
       async clearTrials() {
         await y.a.getDefault(this.onTrialEnded).save();
       }
       async onTrialEnded() {
-        if (!(await Object(o.f)())) for (const r of Object(s.c)()) await E.a.setFeatureEnabled(r, !1);
+        if (!(await Object(o.h)())) for (const r of Object(s.c)()) await E.a.setFeatureEnabled(r, !1);
       }
       async getTrialEntity() {
         return await y.a.getDefault(this.onTrialEnded).loadAndUpdate();
       }
     })();
+  },
+  25: function (r, n, i) {
+    "use strict";
+    var a = i(14),
+      o = i(2),
+      s = i(5),
+      y = i(24),
+      E = i(6),
+      w = Object.defineProperty,
+      $ = Object.getOwnPropertySymbols,
+      ie = Object.prototype.hasOwnProperty,
+      oe = Object.prototype.propertyIsEnumerable,
+      __defNormalProp = (r, n, i) => (n in r ? w(r, n, { enumerable: !0, configurable: !0, writable: !0, value: i }) : (r[n] = i)),
+      __spreadValues = (r, n) => {
+        for (var i in n || (n = {})) ie.call(n, i) && __defNormalProp(r, i, n[i]);
+        if ($) for (var i of $(n)) oe.call(n, i) && __defNormalProp(r, i, n[i]);
+        return r;
+      };
+    n.a = new (class SettingsHelper {
+      constructor() {
+        (this.setFeatureEnabled = async (r, n, i = !0) => {
+          let s = n;
+          if (s && Object(a.d)(r)) {
+            const n = await y.a.isPremiumFeatureAvailable(r);
+            s = s && n;
+          }
+          const w = {};
+          return (
+            (w[r.SettingsKey] = s),
+            i && (await this.updateSettings(w), Object(E.o)({ name: o.o.SETTINGS_CHANGED, data: { feature: r, value: n } })),
+            w
+          );
+        }),
+          (this.setFeaturesEnabled = async (r, n) => {
+            let i = {};
+            for (const a of r) {
+              const r = await this.setFeatureEnabled(a, n, !1);
+              (i = __spreadValues(__spreadValues({}, i), r)), Object(E.o)({ name: o.o.SETTINGS_CHANGED, data: { feature: a, value: n } });
+            }
+            await this.updateSettings(i);
+          }),
+          (this.isFeatureEnabled = async (r) => {
+            const n = await s.a.get(o.f.SETTINGS);
+            return !(!n || !(r.SettingsKey in n)) && n[r.SettingsKey];
+          }),
+          (this.updateSettings = async (r) => {
+            const n = await s.a.get(o.f.SETTINGS),
+              i = __spreadValues(__spreadValues({}, n), r);
+            await s.a.set(o.f.SETTINGS, i), Object(E.o)({ name: o.o.SETTINGS_CHANGED });
+          }),
+          (this.getSettings = async () => s.a.get(o.f.SETTINGS));
+      }
+    })();
+  },
+  26: function (r, n, i) {
+    "use strict";
+    i.d(n, "a", function () {
+      return a;
+    });
+    var a = ((r) => ((r.Anonymous = "anonymous"), (r.Free = "free"), (r.Premium = "premium"), r))(a || {});
   },
   27: function (r, n, i) {
     "use strict";
@@ -2361,14 +2441,14 @@
         }
       }
     })(),
-      (r.exports = i(74));
+      (r.exports = i(67));
   },
-  271: function (r, n, i) {
+  270: function (r, n, i) {
     "use strict";
     i.r(n);
     var a = i(0),
       o = i(3),
-      s = i(34),
+      s = i(33),
       y = i(9);
     const E = ["rootNodeQuerySelectorsOffset", "rightSponsoredDiv", "mainDiv", "feedsContainerMonitored", "firstFeeds"];
     var w = ((r) => ((r.FACEBOOK = "fbAd"), (r.LINKEDIN = "linkedinAd"), (r.TWITTER = "twitterAd"), (r.INSTAGRAM = "instagramAd"), r))(
@@ -2500,7 +2580,7 @@
     var he = i(1),
       pe = i.n(he),
       ge = i(4),
-      ve = i(14);
+      ve = i(16);
     const Se = ge.c.div`
   display: flex;
   flex-direction: column;
@@ -2754,7 +2834,7 @@
     background: ${(r) => r.theme.palette.primary.dark};
   }
 `;
-    var gt = i(31),
+    var gt = i(30),
       yt = i(27),
       Et = i(43);
     const InfeedAfterBlockNotification = (r) => {
@@ -2762,7 +2842,7 @@
       Object(he.useEffect)(() => {
         Object(Et.b)("InfeedAfterBlockNotificationAnimation", "images/freeTrial.json", "in-feed-animation", 3),
           Object(o.W)({
-            name: a.s.SEND_ANALYTICS_EVENT,
+            name: a.t.SEND_ANALYTICS_EVENT,
             eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_FEED_PROMOTION_START_TRIAL,
             eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
           }),
@@ -2790,11 +2870,11 @@
                 {
                   onClick: async () => {
                     Object(o.W)({
-                      name: a.s.SEND_ANALYTICS_EVENT,
+                      name: a.t.SEND_ANALYTICS_EVENT,
                       eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_REMOVE_ADS_FOR_GOOD_CLICK,
                       eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
                     }),
-                      Object(o.W)({ name: a.s.OPEN_URL, url: a.q.WEB_APP + "/plans" });
+                      Object(o.W)({ name: a.t.OPEN_URL, url: a.r.WEB_APP + "/plans" });
                   }
                 },
                 Object(o.r)("removeAdsForGood")
@@ -2805,14 +2885,14 @@
         )
       );
     };
-    var _t = i(12),
-      vt = i(6),
-      St = i(11),
-      bt = i(28),
-      Tt = i(17),
-      Ct = i(8),
-      At = i(19);
-    class socialAdsHook_entity_SocialAdsHookEntity extends At.a {
+    var _t = i(13),
+      vt = i(8),
+      St = i(12),
+      Tt = i(28),
+      bt = i(18),
+      Ct = i(7),
+      Ot = i(19);
+    class socialAdsHook_entity_SocialAdsHookEntity extends Ot.a {
       constructor() {
         super(), (this.isDoNotDisplay = !1);
       }
@@ -2850,7 +2930,7 @@
               i(r.isTrialEnded()), y(r.isTrialActive());
             }),
             Object(o.W)({
-              name: a.s.SEND_ANALYTICS_EVENT,
+              name: a.t.SEND_ANALYTICS_EVENT,
               eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_FEED_PROMOTION_VIEW,
               eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
             });
@@ -2858,19 +2938,19 @@
         const E = Ct.BrowserAPI.runtime.getURL("images/logoPb.svg"),
           w = Ct.BrowserAPI.runtime.getURL("images/closeInfeedNotification.svg"),
           startTrial = () => {
-            _t.a.startPremiumFeature().then((r) => {
+            _t.a.startPremiumFeature(a.g.IFRAME_SOCIAL_HOOK).then((r) => {
               r && renderBlockNotification();
             }),
               Object(o.W)({
-                name: a.s.SEND_ANALYTICS_EVENT,
+                name: a.t.SEND_ANALYTICS_EVENT,
                 eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_FEED_PROMOTION_OPEN,
                 eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
               });
           },
           enableFeature = () => {
-            Tt.a.setFeatureEnabled(vt.a.SocialBlocker, !0),
+            bt.a.setFeatureEnabled(vt.a.SocialBlocker, !0),
               Object(o.W)({
-                name: a.s.SEND_ANALYTICS_EVENT,
+                name: a.t.SEND_ANALYTICS_EVENT,
                 eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_FEED_PROMOTION_OPEN,
                 eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
               }),
@@ -2878,8 +2958,8 @@
           },
           renderBlockNotification = () => {
             const n = document.querySelector(".pb_social_blocker_adblocker_" + r.id),
-              i = Object(bt.h)(n, 1) && Object(bt.h)(n, 2),
-              a = i && Object(bt.h)(n, 3),
+              i = Object(Tt.h)(n, 1) && Object(Tt.h)(n, 2),
+              a = i && Object(Tt.h)(n, 3),
               o = document.createElement("div");
             if (((o.className = "pb_social_blocker_addblocker_block_post"), a)) {
               switch (r.siteUrl) {
@@ -2891,7 +2971,7 @@
                   a.prepend(o);
                   break;
                 case "www.instagram.com":
-                  Object(bt.l)(o, i);
+                  Object(Tt.l)(o, i);
                   break;
                 default:
                   return;
@@ -2908,8 +2988,8 @@
             Ue,
             {
               onClick: async () => {
-                const r = await Tt.a.isFeatureEnabled(vt.a.SocialBlocker);
-                n ? Object(o.W)({ name: a.s.OPEN_URL, url: a.q.WEB_APP + "/plans" }) : s && !r ? enableFeature() : startTrial();
+                const r = await bt.a.isFeatureEnabled(vt.a.SocialBlocker);
+                n ? Object(o.W)({ name: a.t.OPEN_URL, url: a.r.WEB_APP + "/plans" }) : s && !r ? enableFeature() : startTrial();
               }
             },
             pe.a.createElement(We, { src: E }),
@@ -2925,7 +3005,7 @@
           )
         );
       },
-      It =
+      At =
         (vt.a.SocialBlocker,
         (r) => {
           const [n, i] = Object(he.useState)(-1),
@@ -2946,11 +3026,11 @@
           }, []);
           const handleCTAClick = () => {
             Object(o.W)({
-              name: a.s.SEND_ANALYTICS_EVENT,
+              name: a.t.SEND_ANALYTICS_EVENT,
               eventType: a.c.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_IN_FEED_BANNER_ON_TRIAL,
               eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
             }),
-              Object(o.W)({ name: a.s.OPEN_URL, url: a.q.WEB_APP + "/plans" });
+              Object(o.W)({ name: a.t.OPEN_URL, url: a.r.WEB_APP + "/plans" });
           };
           return pe.a.createElement(
             gt.a,
@@ -2980,7 +3060,7 @@
           i = Ct.BrowserAPI.runtime.getURL("images/showPostIcon.svg");
         Object(he.useEffect)(() => {
           Object(o.W)({
-            name: a.s.SEND_ANALYTICS_EVENT,
+            name: a.t.SEND_ANALYTICS_EVENT,
             eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_CONTENT_INFEED_BANER_VIEW,
             eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
           });
@@ -3005,7 +3085,7 @@
                   i &&
                     ((i.style.display = "none"),
                     Object(o.W)({
-                      name: a.s.SEND_ANALYTICS_EVENT,
+                      name: a.t.SEND_ANALYTICS_EVENT,
                       eventType: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_CONTENT_SHOW_POST_CLICK,
                       eventPayload: { payload: JSON.stringify({ siteUrl: r.siteUrl }) }
                     }));
@@ -3016,7 +3096,7 @@
           )
         );
       };
-    var Ot = new (class adsBlocker_SocialAdsBlocker {
+    var It = new (class adsBlocker_SocialAdsBlocker {
       constructor() {
         (this.numAds = 0),
           (this.injectTrialFrameToFeed = (r, n) => {
@@ -3025,7 +3105,7 @@
               (i.className = "pb_social_blocker_adblocker_" + this.numAds),
                 n(r, i),
                 (async (r) => {
-                  const n = await Object(bt.k)(),
+                  const n = await Object(Tt.k)(),
                     i = document.getElementsByClassName("pb_social_blocker_adblocker_" + r);
                   i && Object(yt.render)(pe.a.createElement(InfeedNotification, { id: r, siteUrl: n.domain }), i[0]);
                 })(this.numAds),
@@ -3036,14 +3116,14 @@
             switch (n) {
               case "SocialBlocker":
                 (async (r) => {
-                  const n = await Object(bt.k)(),
+                  const n = await Object(Tt.k)(),
                     i = document.getElementsByClassName("pb_social_blocker_adblocker_" + r);
-                  i && Object(yt.render)(pe.a.createElement(It, { siteUrl: n.domain }), i[0]);
+                  i && Object(yt.render)(pe.a.createElement(At, { siteUrl: n.domain }), i[0]);
                 })(this.numAds);
                 break;
-              case a.l.SOCIAL_CONTENT_BLOCKER:
+              case a.m.SOCIAL_CONTENT_BLOCKER:
                 (async (r, n) => {
-                  const i = await Object(bt.k)(),
+                  const i = await Object(Tt.k)(),
                     a = document.getElementsByClassName("pb_social_blocker_adblocker_" + r);
                   a &&
                     Object(yt.render)(pe.a.createElement(InfeedBlockContentNotification, { siteUrl: i.domain, post: n, adsId: r }), a[0]);
@@ -3055,27 +3135,27 @@
             (a.className = "pb_social_blocker_adblocker_" + this.numAds), i(r, a), this.injectBlockNotification(r, n), this.numAds++;
           }),
           (this.blockAds = async (r, n, i, s, y, E) => {
-            const w = await Tt.a.isFeatureEnabled({ Name: a.l.SOCIAL_CONTENT_BLOCKER, SettingsKey: a.l.SOCIAL_CONTENT_BLOCKER });
+            const w = await bt.a.isFeatureEnabled({ Name: a.m.SOCIAL_CONTENT_BLOCKER, SettingsKey: a.m.SOCIAL_CONTENT_BLOCKER });
             switch (s) {
               case "SocialBlocker":
                 this.blockSocialAddIfNeeded(r, n, i, s, y, E);
                 break;
-              case a.l.SOCIAL_CONTENT_BLOCKER:
+              case a.m.SOCIAL_CONTENT_BLOCKER:
                 w
-                  ? (hideElement(r), this.injectBlockFrameToFeed(r, s, E), Object(o.W)({ name: a.s.UPDATE_BLOCK_COUNT, type: "keywords" }))
-                  : Object(o.W)({ name: a.s.UPDATE_UNBLOCK_COUNT, type: "keywords" });
+                  ? (hideElement(r), this.injectBlockFrameToFeed(r, s, E), Object(o.W)({ name: a.t.UPDATE_BLOCK_COUNT, type: "keywords" }))
+                  : Object(o.W)({ name: a.t.UPDATE_UNBLOCK_COUNT, type: "keywords" });
             }
           }),
           (this.blockSocialAddIfNeeded = async (r, n, i, s, y, E) => {
             const w = await Object(o.F)(),
               $ = await socialAdsHook_entity_SocialAdsHookEntity.create().load(),
-              ie = await Tt.a.isFeatureEnabled(vt.a.SocialBlocker),
+              ie = await bt.a.isFeatureEnabled(vt.a.SocialBlocker),
               oe = $.shouldDisplay();
             w
-              ? ie && (hideElement(r), Object(o.W)({ name: a.s.UPDATE_BLOCK_COUNT, type: n }))
+              ? ie && (hideElement(r), Object(o.W)({ name: a.t.UPDATE_BLOCK_COUNT, type: n }))
               : i
-              ? (oe && this.injectTrialFrameToFeed(r, y), Object(o.W)({ name: a.s.UPDATE_UNBLOCK_COUNT, type: n }))
-              : Object(o.W)({ name: a.s.UPDATE_UNBLOCK_COUNT, type: n });
+              ? (oe && this.injectTrialFrameToFeed(r, y), Object(o.W)({ name: a.t.UPDATE_UNBLOCK_COUNT, type: n }))
+              : Object(o.W)({ name: a.t.UPDATE_UNBLOCK_COUNT, type: n });
           });
       }
     })();
@@ -3085,7 +3165,7 @@
           (this.hidePost = (r, n, i) => {
             this.socialConfig.querySelectorsOffsetData.filterPost.forEach((a) => {
               const o = r.querySelector(a);
-              Ot.blockAds(o, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
+              It.blockAds(o, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
             });
           }),
           (this.injectPromoFrameToFeed = (r, n) => {
@@ -3175,12 +3255,12 @@
           });
       }
     };
-    var wt = class linkedin_Linkedin extends SocialNetwork {
+    var kt = class linkedin_Linkedin extends SocialNetwork {
       constructor(r) {
         super(r, w.LINKEDIN),
           (this.hidePost = (r, n, i) => {
             const a = r.parentNode && r.parentNode.parentNode;
-            Ot.blockAds(a, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
+            It.blockAds(a, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
           }),
           (this.changeCssPost = (r) => {
             const n = r.parentNode;
@@ -3230,12 +3310,12 @@
             }));
       }
     };
-    var kt = class twitter_Twitter extends SocialNetwork {
+    var wt = class twitter_Twitter extends SocialNetwork {
       constructor(r) {
         super(r, w.TWITTER),
           (this.hidePost = (r, n, i) => {
             const a = r.firstChild;
-            Ot.blockAds(a, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
+            It.blockAds(a, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
           }),
           (this.changeCssPost = (r) => {
             const n = r.querySelector(this.socialConfig.postStructure.postBody);
@@ -3271,12 +3351,12 @@
           });
       }
     };
-    var xt = class instagram_Instagram extends SocialNetwork {
+    var Lt = class instagram_Instagram extends SocialNetwork {
       constructor(r) {
         super(r, w.INSTAGRAM),
           (this.hidePost = (r, n, i) => {
             const a = r.firstChild;
-            Ot.blockAds(a, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
+            It.blockAds(a, this.socialType, n, i, this.injectPromoFrameToFeed.bind(this), this.injectBlockFrameToFeed.bind(this));
           }),
           (this.changeCssPost = (r) => {
             const n = r.querySelector(this.socialConfig.postStructure.postHeader);
@@ -3322,16 +3402,16 @@
           });
       }
     };
-    var Lt = new (class contentBlocker_SocialContentBlocker {
+    var xt = new (class contentBlocker_SocialContentBlocker {
         constructor() {
           (this.userKeyWords = []),
             (this.postWords = new Set([])),
             (this.loadKeyWordsFromLocalStorage = async () => {
-              const r = await y.c.get(a.g.SOCIAL_CONTENT_KEYWORDS),
+              const r = await y.c.get(a.h.SOCIAL_CONTENT_KEYWORDS),
                 n = r.map((r) => r.toLowerCase());
               this.userKeyWords = n || [];
             }),
-            (this.isFeatureEnabled = async () => (await y.c.get(a.g.SETTINGS)).socialContentBlocker || !1),
+            (this.isFeatureEnabled = async () => (await y.c.get(a.h.SETTINGS)).socialContentBlocker || !1),
             (this.getTextFromHtmlElement = (r) => {
               const n = [],
                 i = r.querySelectorAll("div,span");
@@ -3367,26 +3447,26 @@
             });
         }
       })(),
-      Nt = i(18),
-      Rt = i(16);
+      Rt = i(15),
+      Nt = i(14);
     var Dt = class socialNetworkManager_SocialNetworkManager {
         constructor(r) {
           (this.showTrialPromo = async () => {
             const r = { domain: await Object(s.d)() };
-            _t.a.showTrialPromoIfNeeded(Rt.a.SocialBlocker, r);
+            _t.a.showTrialPromoIfNeeded(Nt.a.SocialBlocker, r);
           }),
             (this.showTrialPromoIfNeeded = async () => {
               const r = await Object(o.F)(),
-                n = await Nt.a.getDefault(_t.a.onTrialEnded).loadAndUpdate();
+                n = await Rt.a.getDefault(_t.a.onTrialEnded).loadAndUpdate();
               !r && n.isTrialEnded() && window === top && (await this.showTrialPromo());
             }),
             (this.tryBlockAd = (r, n) => {
-              this.socialNetwork.isSponsoredAdDetected(r, n) && this.socialNetwork.hidePost(r, n, Rt.a.SocialBlocker.Name);
+              this.socialNetwork.isSponsoredAdDetected(r, n) && this.socialNetwork.hidePost(r, n, Nt.a.SocialBlocker.Name);
             }),
             (this.tryBlockContent = async (r) => {
               const n = this.socialNetwork.getPostContentElements(r);
-              if (Lt.isNeedBlock(n)) {
-                this.socialNetwork.isMainFeed(r) && this.socialNetwork.hidePost(r, !0, a.l.SOCIAL_CONTENT_BLOCKER);
+              if (xt.isNeedBlock(n)) {
+                this.socialNetwork.isMainFeed(r) && this.socialNetwork.hidePost(r, !0, a.m.SOCIAL_CONTENT_BLOCKER);
               }
             }),
             (this.onNewPostLoad = (r) => {
@@ -3400,19 +3480,19 @@
               await le.init(r, this.onNewPostLoad.bind(this), this.onNewRightAdsLoad.bind(this)), le.setupPageObserver();
             }),
             (this.socialNetwork = r),
-            Lt.loadKeyWordsFromLocalStorage();
+            xt.loadKeyWordsFromLocalStorage();
         }
       },
-      Ft = i(68),
+      Ft = i(74),
       Mt = Object.defineProperty,
       Bt = Object.getOwnPropertySymbols,
       Vt = Object.prototype.hasOwnProperty,
-      Ut = Object.prototype.propertyIsEnumerable,
+      Kt = Object.prototype.propertyIsEnumerable,
       social_network_features_defNormalProp = (r, n, i) =>
         n in r ? Mt(r, n, { enumerable: !0, configurable: !0, writable: !0, value: i }) : (r[n] = i),
       social_network_features_spreadValues = (r, n) => {
         for (var i in n || (n = {})) Vt.call(n, i) && social_network_features_defNormalProp(r, i, n[i]);
-        if (Bt) for (var i of Bt(n)) Ut.call(n, i) && social_network_features_defNormalProp(r, i, n[i]);
+        if (Bt) for (var i of Bt(n)) Kt.call(n, i) && social_network_features_defNormalProp(r, i, n[i]);
         return r;
       };
     window.addEventListener("beforeunload", () => {
@@ -3420,7 +3500,7 @@
     });
     const createSocialInstance = async (r) => {
       const n = await (async (r) => {
-        const n = (await y.c.get(a.g.DEFAULT_FACEBOOK_CONFIG)).config,
+        const n = (await y.c.get(a.h.DEFAULT_FACEBOOK_CONFIG)).config,
           i = n.adTexts;
         switch (r) {
           case "facebook.com":
@@ -3443,18 +3523,18 @@
         case "facebook.com":
           return new Pt(n);
         case "www.linkedin.com":
-          return new wt(n);
-        case "twitter.com":
           return new kt(n);
+        case "twitter.com":
+          return new wt(n);
         case "www.instagram.com":
-          return new xt(n);
+          return new Lt(n);
       }
     };
     (async () => {
-      Object(o.W)({ name: a.s.UPDATE_SOCIAL_BLOCKER_CONFIG });
+      Object(o.W)({ name: a.t.UPDATE_SOCIAL_BLOCKER_CONFIG });
       const r = await Object(s.d)(),
         n = await Ft.a.containsDomain(r.domain),
-        i = await y.c.get(a.g.PAUSED);
+        i = await y.c.get(a.h.PAUSED);
       if (n || i) return;
       const E = await createSocialInstance(r.domain);
       if (E) {
@@ -3507,7 +3587,7 @@
       i.d(n, "h", function () {
         return getParentByLevel;
       });
-    var a = i(37),
+    var a = i(35),
       o = i(0);
     function getPrivacyPolicy(r = null) {
       const n = a.a["privacy_policy_" + getBrowser()];
@@ -3534,8 +3614,8 @@
     }
     const getRandId = async () =>
       new Promise((r) => {
-        chrome.storage.local.get(o.g.RDID, (n) => {
-          r(n[o.g.RDID]);
+        chrome.storage.local.get(o.h.RDID, (n) => {
+          r(n[o.h.RDID]);
         });
       });
     async function randId() {
@@ -3544,7 +3624,7 @@
           return ((65536 * (1 + Math.random(Date.now() + 14))) | 0).toString(28).substring(1);
         };
         const r = rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr();
-        chrome.storage.local.set({ [o.g.RDID]: r });
+        chrome.storage.local.set({ [o.h.RDID]: r });
       }
       return await getRandId();
     }
@@ -3608,59 +3688,6 @@
         }
         return i;
       };
-  },
-  29: function (r, n, i) {
-    "use strict";
-    var a = i(16),
-      o = i(2),
-      s = i(7),
-      y = i(26),
-      E = i(5),
-      w = Object.defineProperty,
-      $ = Object.getOwnPropertySymbols,
-      ie = Object.prototype.hasOwnProperty,
-      oe = Object.prototype.propertyIsEnumerable,
-      __defNormalProp = (r, n, i) => (n in r ? w(r, n, { enumerable: !0, configurable: !0, writable: !0, value: i }) : (r[n] = i)),
-      __spreadValues = (r, n) => {
-        for (var i in n || (n = {})) ie.call(n, i) && __defNormalProp(r, i, n[i]);
-        if ($) for (var i of $(n)) oe.call(n, i) && __defNormalProp(r, i, n[i]);
-        return r;
-      };
-    n.a = new (class SettingsHelper {
-      constructor() {
-        (this.setFeatureEnabled = async (r, n, i = !0) => {
-          let s = n;
-          if (s && Object(a.d)(r)) {
-            const n = await y.a.isPremiumFeatureAvailable(r);
-            s = s && n;
-          }
-          const w = {};
-          return (
-            (w[r.SettingsKey] = s),
-            i && (await this.updateSettings(w), Object(E.n)({ name: o.n.SETTINGS_CHANGED, data: { feature: r, value: n } })),
-            w
-          );
-        }),
-          (this.setFeaturesEnabled = async (r, n) => {
-            let i = {};
-            for (const a of r) {
-              const r = await this.setFeatureEnabled(a, n, !1);
-              (i = __spreadValues(__spreadValues({}, i), r)), Object(E.n)({ name: o.n.SETTINGS_CHANGED, data: { feature: a, value: n } });
-            }
-            await this.updateSettings(i);
-          }),
-          (this.isFeatureEnabled = async (r) => {
-            const n = await s.a.get(o.e.SETTINGS);
-            return !(!n || !(r.SettingsKey in n)) && n[r.SettingsKey];
-          }),
-          (this.updateSettings = async (r) => {
-            const n = await s.a.get(o.e.SETTINGS),
-              i = __spreadValues(__spreadValues({}, n), r);
-            await s.a.set(o.e.SETTINGS, i), Object(E.n)({ name: o.n.SETTINGS_CHANGED });
-          }),
-          (this.getSettings = async () => s.a.get(o.e.SETTINGS));
-      }
-    })();
   },
   3: function (r, n, i) {
     "use strict";
@@ -3850,15 +3877,15 @@
     var a = i(0),
       o = i(21),
       s = i(9),
-      y = i(6),
-      E = i(11),
+      y = i(8),
+      E = i(12),
       w = i(20),
-      $ = i(8),
-      ie = i(17),
-      oe = i(25),
-      se = i(12),
-      le = i(15),
-      he = i(24);
+      $ = i(7),
+      ie = i(18),
+      oe = i(26),
+      se = i(13),
+      le = i(17),
+      he = i(23);
     const getBrowser = () => (/firefox/i.test(navigator.userAgent) ? "FF" : "CH"),
       getI18N = (r, n) => chrome.i18n.getMessage(r) || chrome.i18n.getMessage(n || r) || r,
       getI18NWithParams = (r, ...n) => n.reduce((r, n) => r.replace("%s", n), getI18N(r)),
@@ -3872,7 +3899,7 @@
       },
       sendGAEvent = (r, n, i, o) =>
         new Promise((s) => {
-          chrome.runtime.sendMessage({ name: a.s.GA_EVENT, category: r, action: n, label: i, isCount: o }, () => s());
+          chrome.runtime.sendMessage({ name: a.t.GA_EVENT, category: r, action: n, label: i, isCount: o }, () => s());
         }),
       sendMessageToWorker = (r) =>
         new Promise((n) => {
@@ -3918,7 +3945,7 @@
       },
       getCurrentTab = async () =>
         new Promise((r) => {
-          sendMessageToWorker({ name: a.s.REQUEST_CURRENT_TAB }).then((n) => {
+          sendMessageToWorker({ name: a.t.REQUEST_CURRENT_TAB }).then((n) => {
             r(n);
           });
         }),
@@ -3961,50 +3988,50 @@
           n = await fetch(a.e.SOCIALBLOCKER_CONFIG, { method: "GET", headers: { "Content-Type": "application/json", version: r } });
         if (200 === n.status) {
           const r = { config: await n.json(), updateTime: Date.now() };
-          chrome.storage.local.set({ [a.g.DEFAULT_FACEBOOK_CONFIG]: r });
+          chrome.storage.local.set({ [a.h.DEFAULT_FACEBOOK_CONFIG]: r });
         }
       },
       updateSocialBlockerConfig = async () => {
-        chrome.storage.local.get(a.g.DEFAULT_FACEBOOK_CONFIG, async (r) => {
-          const n = r[a.g.DEFAULT_FACEBOOK_CONFIG];
-          Date.now() - n.updateTime >= 4 * a.p && (await getDefaultSocialBlockerConfig());
+        chrome.storage.local.get(a.h.DEFAULT_FACEBOOK_CONFIG, async (r) => {
+          const n = r[a.h.DEFAULT_FACEBOOK_CONFIG];
+          Date.now() - n.updateTime >= 4 * a.q && (await getDefaultSocialBlockerConfig());
         });
       },
       updateSegmentData = async () => {
-        chrome.storage.local.get([a.g.DEFAULT_SEGMENT_CONFIG], async (r) => {
+        chrome.storage.local.get([a.h.DEFAULT_SEGMENT_CONFIG], async (r) => {
           var n;
-          const i = r[a.g.DEFAULT_SEGMENT_CONFIG],
+          const i = r[a.h.DEFAULT_SEGMENT_CONFIG],
             s = await Object(o.b)();
           if (null == s ? void 0 : s.uuid) {
             const r = await fetch(a.e.GET_USER_SEGMENT, { headers: { id: s.uuid } });
             if (200 === r.status) {
               const o = await r.json(),
-                s = null != (n = null == i ? void 0 : i.lastDisplayTime) ? n : Date.now() - 31 * a.w,
+                s = null != (n = null == i ? void 0 : i.lastDisplayTime) ? n : Date.now() - 31 * a.x,
                 y = { config: o, updateTime: Date.now(), lastDisplayTime: s, lastUpdateTime: Date.now() };
-              chrome.storage.local.set({ [a.g.DEFAULT_SEGMENT_CONFIG]: y });
+              chrome.storage.local.set({ [a.h.DEFAULT_SEGMENT_CONFIG]: y });
             }
           }
         });
       },
       updateLocalSettings = async (r) => {
-        const n = await s.c.get(a.g.SETTINGS),
+        const n = await s.c.get(a.h.SETTINGS),
           i = r.features,
           o = await he.a.isOptIn();
         for (const r in i) n[r] = i[r] || !1;
         r.features.overlays && !o && (await he.a.optIn()),
           (n.detectOverlays = i.overlays),
           await ie.a.updateSettings(n),
-          r.whitelist && (await s.c.set(a.g.WHITELIST, r.whitelist)),
-          r.socialContentKeyWords && (await s.c.set(a.g.SOCIAL_CONTENT_KEYWORDS, r.socialContentKeyWords)),
-          r.blockedElements && (await s.c.set(a.g.BLOCKED_ELEMENTS, r.blockedElements));
+          r.whitelist && (await s.c.set(a.h.WHITELIST, r.whitelist)),
+          r.socialContentKeyWords && (await s.c.set(a.h.SOCIAL_CONTENT_KEYWORDS, r.socialContentKeyWords)),
+          r.blockedElements && (await s.c.set(a.h.BLOCKED_ELEMENTS, r.blockedElements));
       },
       updateRemoteSettingsData = async () => {
-        chrome.storage.local.get([a.g.BLOCKED_ELEMENTS, a.g.SETTINGS, a.g.WHITELIST, a.g.USER], async (r) => {
-          const n = r[a.g.WHITELIST],
-            i = r[a.g.SOCIAL_CONTENT_KEYWORDS],
-            s = r[a.g.BLOCKED_ELEMENTS],
-            w = r[a.g.USER],
-            $ = r[a.g.SETTINGS],
+        chrome.storage.local.get([a.h.BLOCKED_ELEMENTS, a.h.SETTINGS, a.h.WHITELIST, a.h.USER], async (r) => {
+          const n = r[a.h.WHITELIST],
+            i = r[a.h.SOCIAL_CONTENT_KEYWORDS],
+            s = r[a.h.BLOCKED_ELEMENTS],
+            w = r[a.h.USER],
+            $ = r[a.h.SETTINGS],
             ie = null == w ? void 0 : w.isPremium,
             { version: oe } = getManifest(),
             le = {
@@ -4034,12 +4061,12 @@
         });
       },
       fetchRemoteSettingsData = async () => {
-        chrome.storage.local.get([a.g.BLOCKED_ELEMENTS, a.g.SETTINGS, a.g.WHITELIST], async (r) => {
+        chrome.storage.local.get([a.h.BLOCKED_ELEMENTS, a.h.SETTINGS, a.h.WHITELIST], async (r) => {
           try {
-            let n = r[a.g.WHITELIST],
-              i = r[a.g.SOCIAL_CONTENT_KEYWORDS],
-              s = r[a.g.BLOCKED_ELEMENTS];
-            const E = r[a.g.SETTINGS],
+            let n = r[a.h.WHITELIST],
+              i = r[a.h.SOCIAL_CONTENT_KEYWORDS],
+              s = r[a.h.BLOCKED_ELEMENTS];
+            const E = r[a.h.SETTINGS],
               $ = await Object(o.b)(),
               ie = await Object(w.a)(a.e.SETTINGS, { headers: { id: $.uuid } }, 200);
             if (ie.ok) {
@@ -4058,10 +4085,10 @@
                 (s = r.blockedElements || {}),
                 r.features.overlays && (E.detectOverlays = !0),
                 chrome.storage.local.set({
-                  [a.g.SETTINGS]: E,
-                  [a.g.WHITELIST]: n,
-                  [a.g.SOCIAL_CONTENT_KEYWORDS]: i,
-                  [a.g.BLOCKED_ELEMENTS]: s
+                  [a.h.SETTINGS]: E,
+                  [a.h.WHITELIST]: n,
+                  [a.h.SOCIAL_CONTENT_KEYWORDS]: i,
+                  [a.h.BLOCKED_ELEMENTS]: s
                 });
             }
           } catch (r) {}
@@ -4075,8 +4102,8 @@
           s = await E.a.getDefault(se.a.onTrialEnded).loadAndUpdate(),
           $ = await Object(w.c)();
         return new Promise((E) => {
-          chrome.storage.local.get([a.g.SETTINGS], (w) => {
-            const ie = w[a.g.SETTINGS],
+          chrome.storage.local.get([a.h.SETTINGS], (w) => {
+            const ie = w[a.h.SETTINGS],
               oe = !!$ && $.isPremium,
               se = {
                 popups: { isSelected: ie.popups },
@@ -4161,7 +4188,7 @@
           ie.a.updateSettings(n);
       },
       onStartCookieTrial = () => {
-        sendMessageToWorker({ name: a.s.INSERT_COOKIE_FILTERS }), sendToActiveTab(a.s.HIDE_COOKIE_CRUMBLER_PROMO);
+        sendMessageToWorker({ name: a.t.INSERT_COOKIE_FILTERS }), sendToActiveTab(a.t.HIDE_COOKIE_CRUMBLER_PROMO);
       },
       roundTime2Digit = (r) => r.toString().padStart(2, "0"),
       timeToString = (r) => `${roundTime2Digit(r.hours)}h:${roundTime2Digit(r.minutes)}m:${roundTime2Digit(r.seconds)}s`,
@@ -4172,10 +4199,10 @@
         seconds: Math.floor((r % 6e4) / 1e3)
       }),
       isPremium = async () => {
-        const r = await s.c.get(a.g.USER);
+        const r = await s.c.get(a.h.USER);
         return !!(null == r ? void 0 : r.isPremium);
       },
-      msToDays = (r) => r / a.w,
+      msToDays = (r) => r / a.x,
       isKeysExists = (r, n) => r.every((r) => r in n),
       getDaysPassed = (r) => {
         const n = r,
@@ -4191,14 +4218,14 @@
       checkIsPinned = async () => ({ isPinned: (await $.BrowserAPI.action.getUserSettings()).isOnToolbar }),
       updateBlockedCounter = (r, n = {}) => {
         backgroundSafeExec(
-          () => sendToActiveTab(a.s.UPDATE_BLOCK_COUNT, { type: r }),
-          () => sendMessageToWorker({ name: a.s.UPDATE_BLOCK_COUNT, type: r })
+          () => sendToActiveTab(a.t.UPDATE_BLOCK_COUNT, { type: r }),
+          () => sendMessageToWorker({ name: a.t.UPDATE_BLOCK_COUNT, type: r })
         );
       },
       updateUnBlockedCounter = (r) => {
         backgroundSafeExec(
-          () => sendToActiveTab(a.s.UPDATE_UNBLOCK_COUNT, { type: r }),
-          () => sendMessageToWorker({ name: a.s.UPDATE_UNBLOCK_COUNT, type: r })
+          () => sendToActiveTab(a.t.UPDATE_UNBLOCK_COUNT, { type: r }),
+          () => sendMessageToWorker({ name: a.t.UPDATE_UNBLOCK_COUNT, type: r })
         );
       };
     function cleanDomain(r) {
@@ -4212,15 +4239,15 @@
         return n;
       }
     }
-    const openPlansPage = () => {
-        const r = a.q.WEB_APP + "/settings?checkout=1";
+    const openPlansPage = (r = "") => {
+        const n = `${a.r.WEB_APP}/settings?checkout=1&source=${r}`;
         backgroundSafeExec(
-          () => chrome.tabs.create({ url: r }),
-          () => window.postMessage({ type: a.s.OPEN_EXTENSION_CHECKOUT_MODAL }, "*")
+          () => chrome.tabs.create({ url: n }),
+          () => window.postMessage({ type: a.t.OPEN_EXTENSION_CHECKOUT_MODAL, source: r }, "*")
         );
       },
       isAllowedIncognitoAccess = async () => await $.BrowserAPI.extension.isAllowedIncognitoAccess(),
-      getSocialContentKeywords = async () => await s.c.get(a.g.SOCIAL_CONTENT_KEYWORDS),
+      getSocialContentKeywords = async () => await s.c.get(a.h.SOCIAL_CONTENT_KEYWORDS),
       getUserStatus = (r) => {
         let n = oe.a.Anonymous;
         return (null == r ? void 0 : r.id) && ((n = oe.a.Free), (null == r ? void 0 : r.isPremium) && (n = oe.a.Premium)), n;
@@ -4230,9 +4257,9 @@
       generateAnalyticsEventAndSendToWorker = (r, n, i, o) => {
         let s = void 0;
         o && (s = { payload: JSON.stringify(o) }),
-          sendMessageToWorker({ name: a.s.SEND_ANALYTICS_EVENT, eventType: generateAnalyticsEventName(r, n, i), eventPayload: s });
+          sendMessageToWorker({ name: a.t.SEND_ANALYTICS_EVENT, eventType: generateAnalyticsEventName(r, n, i), eventPayload: s });
       },
-      isExtensionEnabled = async () => !!!(await s.c.get(a.g.PAUSED)),
+      isExtensionEnabled = async () => !!!(await s.c.get(a.h.PAUSED)),
       onPostLogout = async (r) => {
         r && (await se.a.clearTrials()),
           await (async () => {
@@ -4251,17 +4278,17 @@
         return n.top >= 0 && n.left >= 0 && n.bottom <= a && n.right <= i;
       },
       isProductionEnv = () => !0,
-      getInstallSource = async () => await s.c.get(a.g.INSTALL_SOURCE),
+      getInstallSource = async () => await s.c.get(a.h.INSTALL_SOURCE),
       sendGoogleForm = async (r, n, i, o, s, y, E) => {
         try {
           await fetch(
-            `${a.q.RATE_US_FORM}?entry.492049526=${E}&entry.1525226020=${r}&entry.375126611=${n}&entry.1913270847=${i}&entry.911859707=${o}&entry.1339946149=${s}&entry.1635427313=${y}`,
+            `${a.r.RATE_US_FORM}?entry.492049526=${E}&entry.1525226020=${r}&entry.375126611=${n}&entry.1913270847=${i}&entry.911859707=${o}&entry.1339946149=${s}&entry.1635427313=${y}`,
             { method: "POST", cache: "no-cache", headers: { "Content-Type": "application/json" } }
           );
         } catch (r) {}
       },
       openSettingPage = async () => {
-        await sendMessageToWorker({ name: a.s.OPEN_URL, url: a.q.WEB_APP + "/settings" });
+        await sendMessageToWorker({ name: a.t.OPEN_URL, url: a.r.WEB_APP + "/settings" });
       },
       replaceAll = (r, n, i) => {
         const a = new RegExp(`\\b${n}\\b`, "gi");
@@ -4271,19 +4298,19 @@
         let r = "";
         switch (Object(le.b)()) {
           case le.a.CHROME:
-            r = a.q.REVIEW_CH;
+            r = a.r.REVIEW_CH;
             break;
           case le.a.EDGE:
-            r = a.q.REVIEW_EDGE;
+            r = a.r.REVIEW_EDGE;
             break;
           case le.a.FIREFOX:
-            r = a.q.REVIEW_FF;
+            r = a.r.REVIEW_FF;
         }
-        r && sendMessageToWorker({ name: a.s.OPEN_URL, url: r });
+        r && sendMessageToWorker({ name: a.t.OPEN_URL, url: r });
       },
       openSettingsFromPanel = async (r) => {
-        const n = `${a.q.WEB_APP}/settings${r ? "" + r : ""}`;
-        await sendMessageToWorker({ name: a.s.OPEN_URL, url: n }), window.close();
+        const n = `${a.r.WEB_APP}/settings${r ? "" + r : ""}`;
+        await sendMessageToWorker({ name: a.t.OPEN_URL, url: n }), window.close();
       },
       throttle = (r, n) => {
         let i;
@@ -4314,10 +4341,10 @@
                 } catch (r) {}
               });
             });
-        })(a.s.POST_MESSAGE, i);
+        })(a.t.POST_MESSAGE, i);
       };
   },
-  31: function (r, n, i) {
+  30: function (r, n, i) {
     "use strict";
     var a = i(1),
       o = i.n(a),
@@ -4394,49 +4421,67 @@
     };
     n.a = ({ children: r }) => o.a.createElement(s.a, { theme: y }, r);
   },
-  32: function (r, n, i) {
+  31: function (r, n, i) {
     "use strict";
-    i.d(n, "a", function () {
-      return fetchWithTokenRefreshIfNeeded;
-    }),
-      i.d(n, "c", function () {
-        return updateUserInfo;
-      }),
-      i.d(n, "b", function () {
-        return getUserInfo;
-      });
     var a = i(2),
-      o = i(7);
-    const fetchWithTokenRefreshIfNeeded = async (r, n, i) => {
-        const o = await fetch(r, n);
-        if (o.status === i) return o;
-        if (401 === o.status) {
-          if (204 === (await fetch(a.d.REFRESH, { method: "POST", headers: { "Content-Type": "application/json" } })).status) {
-            const a = await fetch(r, n);
-            if (a.status === i) return a;
-          }
-          return { status: o.status, message: o.statusText };
-        }
-      },
-      updateUserInfo = async () => {
-        const r = await o.a.get(a.e.LAST_USER_UPDATE_DATE);
-        (!r || Date.now() - r >= a.t) &&
-          (await (async () => {
-            try {
-              const r = await fetchWithTokenRefreshIfNeeded(a.d.GET_USER, {}, 200);
-              if (200 === r.status) {
-                const n = await r.json();
-                return await o.a.set(a.e.USER, n.user), await o.a.set(a.e.LAST_USER_UPDATE_DATE, Date.now()), n.user || null;
-              }
-              await o.a.remove([a.e.LAST_USER_UPDATE_DATE]);
-            } catch (r) {
-              await o.a.remove([a.e.LAST_USER_UPDATE_DATE]);
-            }
-          })());
-      },
-      getUserInfo = () => o.a.get(a.e.USER);
+      o = i(37),
+      s = i(5),
+      y = ((r) => ((r[(r.UNKNOWN = -1)] = "UNKNOWN"), (r[(r.OUT = 0)] = "OUT"), (r[(r.IN = 1)] = "IN"), r))(y || {});
+    class opt_entity_OptEntity extends o.a {
+      constructor() {
+        super(...arguments), (this.state = -1);
+      }
+      getKey() {
+        return "opt";
+      }
+      getLegacyKeys() {
+        return [];
+      }
+      toDTO() {
+        return { state: this.state };
+      }
+      getVersion() {
+        return 1;
+      }
+      migrate(r) {
+        if (!(r > 0))
+          return new Promise((r) => {
+            s.a.get(a.f.SETTINGS).then((n) => {
+              n && void 0 !== n.isOptIn ? (this.state = n.isOptIn ? 1 : 0) : (this.state = -1), r();
+            });
+          });
+      }
+      static async getOrCreate() {
+        return await new opt_entity_OptEntity().load();
+      }
+    }
+    n.a = new (class opt_manager_OptManager {
+      async optIn() {
+        const r = await opt_entity_OptEntity.getOrCreate();
+        return (r.state = y.IN), r.save().then(() => this.onOptStateChanged(r.state));
+      }
+      async optOut() {
+        const r = await opt_entity_OptEntity.getOrCreate();
+        return (r.state = y.OUT), r.save().then(() => this.onOptStateChanged(r.state));
+      }
+      async isOptIn() {
+        return (await opt_entity_OptEntity.getOrCreate()).state == y.IN;
+      }
+      async getOptInCurrentState() {
+        return (await opt_entity_OptEntity.getOrCreate()).state;
+      }
+      async isOptInStatusUnknown() {
+        return (await opt_entity_OptEntity.getOrCreate()).state == y.UNKNOWN;
+      }
+      setOptStateChangedListener(r) {
+        this.onOptStateChangedListener = r;
+      }
+      onOptStateChanged(r) {
+        this.onOptStateChangedListener && this.onOptStateChangedListener(r);
+      }
+    })();
   },
-  34: function (r, n, i) {
+  33: function (r, n, i) {
     "use strict";
     i.d(n, "d", function () {
       return getTabUrl;
@@ -4456,7 +4501,7 @@
       i.d(n, "c", function () {
         return getParentByLevel;
       });
-    i(69);
+    i(75);
     var a = i(2);
     function getTabUrl() {
       return new Promise((r) => {
@@ -4476,8 +4521,8 @@
     }
     const getRandId = async () =>
       new Promise((r) => {
-        chrome.storage.local.get(a.e.RDID, (n) => {
-          r(n[a.e.RDID]);
+        chrome.storage.local.get(a.f.RDID, (n) => {
+          r(n[a.f.RDID]);
         });
       });
     async function randId() {
@@ -4486,7 +4531,7 @@
           return ((65536 * (1 + Math.random(Date.now() + 14))) | 0).toString(28).substring(1);
         };
         const r = rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr() + rr();
-        chrome.storage.local.set({ [a.e.RDID]: r });
+        chrome.storage.local.set({ [a.f.RDID]: r });
       }
       return await getRandId();
     }
@@ -4530,72 +4575,12 @@
       return i;
     };
   },
-  35: function (r, n, i) {
-    "use strict";
-    var a = i(2),
-      o = i(44),
-      s = i(7),
-      y = ((r) => ((r[(r.UNKNOWN = -1)] = "UNKNOWN"), (r[(r.OUT = 0)] = "OUT"), (r[(r.IN = 1)] = "IN"), r))(y || {});
-    class opt_entity_OptEntity extends o.a {
-      constructor() {
-        super(...arguments), (this.state = -1);
-      }
-      getKey() {
-        return "opt";
-      }
-      getLegacyKeys() {
-        return [];
-      }
-      toDTO() {
-        return { state: this.state };
-      }
-      getVersion() {
-        return 1;
-      }
-      migrate(r) {
-        if (!(r > 0))
-          return new Promise((r) => {
-            s.a.get(a.e.SETTINGS).then((n) => {
-              n && void 0 !== n.isOptIn ? (this.state = n.isOptIn ? 1 : 0) : (this.state = -1), r();
-            });
-          });
-      }
-      static async getOrCreate() {
-        return await new opt_entity_OptEntity().load();
-      }
-    }
-    n.a = new (class opt_manager_OptManager {
-      async optIn() {
-        const r = await opt_entity_OptEntity.getOrCreate();
-        return (r.state = y.IN), r.save().then(() => this.onOptStateChanged(r.state));
-      }
-      async optOut() {
-        const r = await opt_entity_OptEntity.getOrCreate();
-        return (r.state = y.OUT), r.save().then(() => this.onOptStateChanged(r.state));
-      }
-      async isOptIn() {
-        return (await opt_entity_OptEntity.getOrCreate()).state == y.IN;
-      }
-      async getOptInCurrentState() {
-        return (await opt_entity_OptEntity.getOrCreate()).state;
-      }
-      async isOptInStatusUnknown() {
-        return (await opt_entity_OptEntity.getOrCreate()).state == y.UNKNOWN;
-      }
-      setOptStateChangedListener(r) {
-        this.onOptStateChangedListener = r;
-      }
-      onOptStateChanged(r) {
-        this.onOptStateChangedListener && this.onOptStateChangedListener(r);
-      }
-    })();
-  },
-  36: function (r, n, i) {
+  34: function (r, n, i) {
     "use strict";
     (function (r) {
-      var a = i(65),
-        o = i(66),
-        s = i(67);
+      var a = i(59),
+        o = i(60),
+        s = i(61);
       function kMaxLength() {
         return Buffer.TYPED_ARRAY_SUPPORT ? 2147483647 : 1073741823;
       }
@@ -5510,9 +5495,9 @@
         for (var o = 0; o < a && !(o + i >= n.length || o >= r.length); ++o) n[o + i] = r[o];
         return o;
       }
-    }).call(this, i(64));
+    }).call(this, i(58));
   },
-  37: function (r, n, i) {
+  35: function (r, n, i) {
     "use strict";
     n.a = {
       thank_you_page_CH: "https://poperblocker.com/welcome",
@@ -5895,70 +5880,90 @@
       ]
     };
   },
-  38: function (r, n, i) {
+  36: function (r, n, i) {
     "use strict";
-    i.d(n, "a", function () {
-      return getOrInitAnalyticsInfoFromLocalStorage;
-    });
-    var a = i(71),
-      o = i(2),
-      s = (i(36), i(5), i(32));
-    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
-    i(35);
-    var y = i(23);
-    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
-    const getAnalyticsInfoFromLocalStorage = async () =>
-      new Promise((r) => {
-        chrome.storage.local.get(o.b.ANALYTICS_INFO_KEY, (n) => {
-          r(n[o.b.ANALYTICS_INFO_KEY]);
-        });
-      });
-    function getLocale() {
-      const r = chrome.i18n.getUILanguage().replace("_", "-");
-      return r.length < 7 ? r : "en-US";
+    var a = i(70),
+      o = {
+        childContextTypes: !0,
+        contextType: !0,
+        contextTypes: !0,
+        defaultProps: !0,
+        displayName: !0,
+        getDefaultProps: !0,
+        getDerivedStateFromError: !0,
+        getDerivedStateFromProps: !0,
+        mixins: !0,
+        propTypes: !0,
+        type: !0
+      },
+      s = { name: !0, length: !0, prototype: !0, caller: !0, callee: !0, arguments: !0, arity: !0 },
+      y = { $$typeof: !0, compare: !0, defaultProps: !0, displayName: !0, propTypes: !0, type: !0 },
+      E = {};
+    function getStatics(r) {
+      return a.isMemo(r) ? y : E[r.$$typeof] || o;
     }
-    const getOrInitAnalyticsInfoFromLocalStorage = async () => {
-      if (!(await getAnalyticsInfoFromLocalStorage())) {
-        const r = (() => {
-            switch (Object(y.b)()) {
-              case y.a.CHROME:
-                return "Chrome";
-              case y.a.FIREFOX:
-                return "Firefox";
-              case y.a.EDGE:
-                return "Microsoft Edge";
-              case y.a.OPERA:
-                return "Opera";
-              case y.a.SAFARI:
-                return "Safari";
-              case y.a.UNKNOWN:
-                return "Unknown";
-            }
-            return "Unknown";
-          })(),
-          n = await (async () => {
-            let r, n;
+    (E[a.ForwardRef] = { $$typeof: !0, render: !0, defaultProps: !0, displayName: !0, propTypes: !0 }), (E[a.Memo] = y);
+    var w = Object.defineProperty,
+      $ = Object.getOwnPropertyNames,
+      ie = Object.getOwnPropertySymbols,
+      oe = Object.getOwnPropertyDescriptor,
+      se = Object.getPrototypeOf,
+      le = Object.prototype;
+    r.exports = function hoistNonReactStatics(r, n, i) {
+      if ("string" != typeof n) {
+        if (le) {
+          var a = se(n);
+          a && a !== le && hoistNonReactStatics(r, a, i);
+        }
+        var o = $(n);
+        ie && (o = o.concat(ie(n)));
+        for (var y = getStatics(r), E = getStatics(n), he = 0; he < o.length; ++he) {
+          var pe = o[he];
+          if (!(s[pe] || (i && i[pe]) || (E && E[pe]) || (y && y[pe]))) {
+            var ge = oe(n, pe);
             try {
-              const i = await fetch(o.d.ANALYTIC_INFO);
-              200 === i.status && (r = await i.json()),
-                (n = (r && r.uuid) || Object(a.a)()),
-                await fetch(o.d.ANALYTIC_INFO, {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ uuid: n })
-                });
+              w(r, pe, ge);
             } catch (r) {}
-            return n;
-          })();
-        await Object(s.c)(),
-          chrome.storage.local.set({
-            [o.b.ANALYTICS_INFO_KEY]: { uuid: n, country: getLocale(), resource: o.b.ANALYTICS_RESOURCE_TYPES.ORGANIC, user_agent: r }
-          });
+          }
+        }
       }
-      return await getAnalyticsInfoFromLocalStorage();
+      return r;
     };
   },
-  39: function (r, n, i) {
+  37: function (r, n, i) {
+    "use strict";
+    i.d(n, "a", function () {
+      return Entity;
+    });
+    var a = i(5);
+    class Entity {
+      async load() {
+        const r = [...this.getLegacyKeys(), this.getKey()].filter((r) => void 0 !== r);
+        if (!r) return this;
+        const n = await a.a.getAll(...r);
+        return n
+          ? (this.getLegacyKeys()
+              .filter((r) => r in n)
+              .forEach((r) => {
+                this.mergeObject(n[r]);
+              }),
+            this.getKey() in n && this.mergeObject(n[this.getKey()]),
+            (!this.v || this.v < this.getVersion()) && (await this.migrate(this.v ? this.v : 0), await this.save()),
+            this)
+          : this;
+      }
+      async save() {
+        const r = Object.assign({}, this.toDTO(), { v: this.getVersion() });
+        return a.a.set(this.getKey(), r);
+      }
+      mergeObject(r) {
+        Object.keys(r).forEach((n) => {
+          this[n] = r[n];
+        });
+      }
+    }
+  },
+  38: function (r, n, i) {
     "use strict";
     i.d(n, "a", function () {
       return ga4Event;
@@ -6004,6 +6009,10 @@
         }
       };
   },
+  39: function (r, n, i) {
+    "use strict";
+    r.exports = i(73);
+  },
   4: function (r, n, i) {
     "use strict";
     (function (r) {
@@ -6013,15 +6022,15 @@
         i.d(n, "b", function () {
           return Ce;
         });
-      var a = i(46),
+      var a = i(39),
         o = i(1),
         s = i.n(o),
-        y = i(58),
+        y = i(47),
         E = i.n(y),
-        w = i(59),
-        $ = i(60),
-        ie = i(47),
-        oe = i(40),
+        w = i(48),
+        $ = i(49),
+        ie = i(40),
+        oe = i(36),
         se = i.n(oe);
       function v() {
         return (v =
@@ -7025,117 +7034,9 @@
           });
       })();
       n.c = He;
-    }).call(this, i(79));
+    }).call(this, i(72));
   },
   40: function (r, n, i) {
-    "use strict";
-    var a = i(77),
-      o = {
-        childContextTypes: !0,
-        contextType: !0,
-        contextTypes: !0,
-        defaultProps: !0,
-        displayName: !0,
-        getDefaultProps: !0,
-        getDerivedStateFromError: !0,
-        getDerivedStateFromProps: !0,
-        mixins: !0,
-        propTypes: !0,
-        type: !0
-      },
-      s = { name: !0, length: !0, prototype: !0, caller: !0, callee: !0, arguments: !0, arity: !0 },
-      y = { $$typeof: !0, compare: !0, defaultProps: !0, displayName: !0, propTypes: !0, type: !0 },
-      E = {};
-    function getStatics(r) {
-      return a.isMemo(r) ? y : E[r.$$typeof] || o;
-    }
-    (E[a.ForwardRef] = { $$typeof: !0, render: !0, defaultProps: !0, displayName: !0, propTypes: !0 }), (E[a.Memo] = y);
-    var w = Object.defineProperty,
-      $ = Object.getOwnPropertyNames,
-      ie = Object.getOwnPropertySymbols,
-      oe = Object.getOwnPropertyDescriptor,
-      se = Object.getPrototypeOf,
-      le = Object.prototype;
-    r.exports = function hoistNonReactStatics(r, n, i) {
-      if ("string" != typeof n) {
-        if (le) {
-          var a = se(n);
-          a && a !== le && hoistNonReactStatics(r, a, i);
-        }
-        var o = $(n);
-        ie && (o = o.concat(ie(n)));
-        for (var y = getStatics(r), E = getStatics(n), he = 0; he < o.length; ++he) {
-          var pe = o[he];
-          if (!(s[pe] || (i && i[pe]) || (E && E[pe]) || (y && y[pe]))) {
-            var ge = oe(n, pe);
-            try {
-              w(r, pe, ge);
-            } catch (r) {}
-          }
-        }
-      }
-      return r;
-    };
-  },
-  43: function (r, n, i) {
-    "use strict";
-    i.d(n, "b", function () {
-      return loadSvgAnimationWithParams;
-    }),
-      i.d(n, "a", function () {
-        return destroyAnimation;
-      });
-    var a = i(48),
-      o = i.n(a);
-    const loadSvgAnimationWithParams = (r, n, i = "", a = !1, s = !0) => {
-        return (
-          (y = { container: document.getElementById(r), renderer: "svg", loop: a, autoplay: s, name: i, path: chrome.runtime.getURL(n) }),
-          o.a.loadAnimation(y)
-        );
-        var y;
-      },
-      destroyAnimation = (r) => {
-        o.a.destroy(r);
-      };
-  },
-  44: function (r, n, i) {
-    "use strict";
-    i.d(n, "a", function () {
-      return Entity;
-    });
-    var a = i(7);
-    class Entity {
-      async load() {
-        const r = [...this.getLegacyKeys(), this.getKey()].filter((r) => void 0 !== r);
-        if (!r) return this;
-        const n = await a.a.getAll(...r);
-        return n
-          ? (this.getLegacyKeys()
-              .filter((r) => r in n)
-              .forEach((r) => {
-                this.mergeObject(n[r]);
-              }),
-            this.getKey() in n && this.mergeObject(n[this.getKey()]),
-            (!this.v || this.v < this.getVersion()) && (await this.migrate(this.v ? this.v : 0), await this.save()),
-            this)
-          : this;
-      }
-      async save() {
-        const r = Object.assign({}, this.toDTO(), { v: this.getVersion() });
-        return a.a.set(this.getKey(), r);
-      }
-      mergeObject(r) {
-        Object.keys(r).forEach((n) => {
-          this[n] = r[n];
-        });
-      }
-    }
-  },
-  46: function (r, n, i) {
-    "use strict";
-    r.exports = i(80);
-  },
-  47: function (r, n, i) {
     "use strict";
     function memoize(r) {
       var n = Object.create(null);
@@ -7152,7 +7053,28 @@
         return a.test(r) || (111 === r.charCodeAt(0) && 110 === r.charCodeAt(1) && r.charCodeAt(2) < 91);
       });
   },
-  48: function (module, exports, __webpack_require__) {
+  43: function (r, n, i) {
+    "use strict";
+    i.d(n, "b", function () {
+      return loadSvgAnimationWithParams;
+    }),
+      i.d(n, "a", function () {
+        return destroyAnimation;
+      });
+    var a = i(45),
+      o = i.n(a);
+    const loadSvgAnimationWithParams = (r, n, i = "", a = !1, s = !0) => {
+        return (
+          (y = { container: document.getElementById(r), renderer: "svg", loop: a, autoplay: s, name: i, path: chrome.runtime.getURL(n) }),
+          o.a.loadAnimation(y)
+        );
+        var y;
+      },
+      destroyAnimation = (r) => {
+        o.a.destroy(r);
+      };
+  },
+  45: function (module, exports, __webpack_require__) {
     "undefined" != typeof navigator &&
       (function (r, n) {
         module.exports = n();
@@ -10358,7 +10280,7 @@
         }
         var readyStateCheckInterval = setInterval(checkReady, 100);
         try {
-          ("object" === _typeof$3(exports) && void 0 !== module) || __webpack_require__(93) || (window.bodymovin = lottie);
+          ("object" === _typeof$3(exports) && void 0 !== module) || __webpack_require__(91) || (window.bodymovin = lottie);
         } catch (r) {}
         var ShapeModifiers = (function () {
           var r = {},
@@ -13826,51 +13748,51 @@
                 _t,
                 vt,
                 St,
-                bt = -1,
-                Tt = E,
+                Tt = -1,
+                bt = E,
                 Ct = se,
-                At = oe,
-                It = -1,
-                Ot = "",
+                Ot = oe,
+                At = -1,
+                It = "",
                 Pt = this.defaultPropsArray;
               if (2 === r.j || 1 === r.j) {
-                var wt = 0,
-                  kt = 0,
-                  xt = 2 === r.j ? -0.5 : -1,
-                  Lt = 0,
-                  Nt = !0;
+                var kt = 0,
+                  wt = 0,
+                  Lt = 2 === r.j ? -0.5 : -1,
+                  xt = 0,
+                  Rt = !0;
                 for (o = 0; o < s; o += 1)
                   if (et[o].n) {
-                    for (wt && (wt += kt); Lt < o; ) (et[Lt].animatorJustifyOffset = wt), (Lt += 1);
-                    (wt = 0), (Nt = !0);
+                    for (kt && (kt += wt); xt < o; ) (et[xt].animatorJustifyOffset = kt), (xt += 1);
+                    (kt = 0), (Rt = !0);
                   } else {
                     for (it = 0; it < at; it += 1)
                       (nt = je[it].a).t.propType &&
-                        (Nt && 2 === r.j && (kt += nt.t.v * xt),
+                        (Rt && 2 === r.j && (wt += nt.t.v * Lt),
                         (st = je[it].s.getMult(et[o].anIndexes[it], We.a[it].s.totalChars)).length
-                          ? (wt += nt.t.v * st[0] * xt)
-                          : (wt += nt.t.v * st * xt));
-                    Nt = !1;
+                          ? (kt += nt.t.v * st[0] * Lt)
+                          : (kt += nt.t.v * st * Lt));
+                    Rt = !1;
                   }
-                for (wt && (wt += kt); Lt < o; ) (et[Lt].animatorJustifyOffset = wt), (Lt += 1);
+                for (kt && (kt += wt); xt < o; ) (et[xt].animatorJustifyOffset = kt), (xt += 1);
               }
               for (o = 0; o < s; o += 1) {
                 if ((Ye.reset(), (ft = 1), et[o].n))
                   (i = 0),
                     (a += r.yOffset),
                     (a += ct ? 1 : 0),
-                    (E = Tt),
+                    (E = bt),
                     (ct = !1),
                     this._hasMaskedPath &&
-                      ((oe = At), (le = (he = pe[(se = Ct)].points)[oe - 1]), (ge = (w = he[oe]).partialLength), ($ = 0)),
-                    (Ot = ""),
+                      ((oe = Ot), (le = (he = pe[(se = Ct)].points)[oe - 1]), (ge = (w = he[oe]).partialLength), ($ = 0)),
+                    (It = ""),
                     (vt = ""),
                     (Et = ""),
                     (St = ""),
                     (Pt = this.defaultPropsArray);
                 else {
                   if (this._hasMaskedPath) {
-                    if (It !== et[o].line) {
+                    if (At !== et[o].line) {
                       switch (r.j) {
                         case 1:
                           E += ve - r.lineWidths[et[o].line];
@@ -13878,30 +13800,30 @@
                         case 2:
                           E += (ve - r.lineWidths[et[o].line]) / 2;
                       }
-                      It = et[o].line;
+                      At = et[o].line;
                     }
-                    bt !== et[o].ind && (et[bt] && (E += et[bt].extra), (E += et[o].an / 2), (bt = et[o].ind)),
+                    Tt !== et[o].ind && (et[Tt] && (E += et[Tt].extra), (E += et[o].an / 2), (Tt = et[o].ind)),
                       (E += Ue[0] * et[o].an * 0.005);
-                    var Rt = 0;
+                    var Nt = 0;
                     for (it = 0; it < at; it += 1)
                       (nt = je[it].a).p.propType &&
                         ((st = je[it].s.getMult(et[o].anIndexes[it], We.a[it].s.totalChars)).length
-                          ? (Rt += nt.p.v[0] * st[0])
-                          : (Rt += nt.p.v[0] * st)),
+                          ? (Nt += nt.p.v[0] * st[0])
+                          : (Nt += nt.p.v[0] * st)),
                         nt.a.propType &&
                           ((st = je[it].s.getMult(et[o].anIndexes[it], We.a[it].s.totalChars)).length
-                            ? (Rt += nt.a.v[0] * st[0])
-                            : (Rt += nt.a.v[0] * st));
+                            ? (Nt += nt.a.v[0] * st[0])
+                            : (Nt += nt.a.v[0] * st));
                     for (
                       ie = !0,
                         this._pathData.a.v &&
-                          ((E = 0.5 * et[0].an + ((ve - this._pathData.f.v - 0.5 * et[0].an - 0.5 * et[et.length - 1].an) * bt) / (s - 1)),
+                          ((E = 0.5 * et[0].an + ((ve - this._pathData.f.v - 0.5 * et[0].an - 0.5 * et[et.length - 1].an) * Tt) / (s - 1)),
                           (E += this._pathData.f.v));
                       ie;
 
                     )
-                      $ + ge >= E + Rt || !he
-                        ? ((Se = (E + Rt - $) / w.partialLength),
+                      $ + ge >= E + Nt || !he
+                        ? ((Se = (E + Nt - $) / w.partialLength),
                           (ht = le.point[0] + (w.point[0] - le.point[0]) * Se),
                           (pt = le.point[1] + (w.point[1] - le.point[1]) * Se),
                           Ye.translate(-Ue[0] * et[o].an * 0.005, -Ue[1] * lt * 0.01),
@@ -13999,7 +13921,7 @@
                     }
                     Ye.translate(ht, pt, 0),
                       (E -= Ue[0] * et[o].an * 0.005),
-                      et[o + 1] && bt !== et[o + 1].ind && ((E += et[o].an / 2), (E += 0.001 * r.tr * r.finalSize));
+                      et[o + 1] && Tt !== et[o + 1].ind && ((E += et[o].an / 2), (E += 0.001 * r.tr * r.finalSize));
                   } else {
                     switch ((Ye.translate(i, a, 0), r.ps && Ye.translate(r.ps[0], r.ps[1] + r.ascent, 0), r.j)) {
                       case 1:
@@ -14014,9 +13936,9 @@
                       (i += et[o].l + 0.001 * r.tr * r.finalSize);
                   }
                   "html" === $e
-                    ? (Ot = Ye.toCSS())
+                    ? (It = Ye.toCSS())
                     : "svg" === $e
-                    ? (Ot = Ye.to2dCSS())
+                    ? (It = Ye.to2dCSS())
                     : (Pt = [
                         Ye.props[0],
                         Ye.props[1],
@@ -14038,12 +13960,12 @@
                     (St = ft);
                 }
                 Xe <= o
-                  ? ((ot = new LetterProps(St, Et, _t, vt, Ot, Pt)),
+                  ? ((ot = new LetterProps(St, Et, _t, vt, It, Pt)),
                     this.renderedLetters.push(ot),
                     (Xe += 1),
                     (this.lettersChangedFlag = !0))
                   : ((ot = this.renderedLetters[o]),
-                    (this.lettersChangedFlag = ot.update(St, Et, _t, vt, Ot, Pt) || this.lettersChangedFlag));
+                    (this.lettersChangedFlag = ot.update(St, Et, _t, vt, It, Pt) || this.lettersChangedFlag));
               }
             }
           }),
@@ -18923,157 +18845,7 @@
         );
       });
   },
-  5: function (r, n, i) {
-    "use strict";
-    i.d(n, "d", function () {
-      return getI18N;
-    }),
-      i.d(n, "k", function () {
-        return sendGAEvent;
-      }),
-      i.d(n, "l", function () {
-        return sendMessageToWorker;
-      }),
-      i.d(n, "n", function () {
-        return sendToWorker;
-      }),
-      i.d(n, "e", function () {
-        return getManifest;
-      }),
-      i.d(n, "m", function () {
-        return sendToActiveTab;
-      }),
-      i.d(n, "p", function () {
-        return updateRemoteSettingsData;
-      }),
-      i.d(n, "f", function () {
-        return isPremium;
-      }),
-      i.d(n, "h", function () {
-        return msToDays;
-      }),
-      i.d(n, "c", function () {
-        return getDaysPassed;
-      }),
-      i.d(n, "a", function () {
-        return backgroundSafeExec;
-      }),
-      i.d(n, "b", function () {
-        return checkIsPinned;
-      }),
-      i.d(n, "i", function () {
-        return openPlansPage;
-      }),
-      i.d(n, "g", function () {
-        return isProductionEnv;
-      }),
-      i.d(n, "j", function () {
-        return replaceAll;
-      }),
-      i.d(n, "o", function () {
-        return throttle;
-      });
-    var a = i(2),
-      o = i(38),
-      s = i(7),
-      y = i(16),
-      E = i(18),
-      w = (i(32), i(13)),
-      $ = (i(29), i(26));
-    i(23), i(35);
-    const getI18N = (r, n) => chrome.i18n.getMessage(r) || chrome.i18n.getMessage(n || r) || r,
-      sendGAEvent = (r, n, i, o) =>
-        new Promise((s) => {
-          chrome.runtime.sendMessage({ name: a.n.GA_EVENT, category: r, action: n, label: i, isCount: o }, () => s());
-        }),
-      sendMessageToWorker = (r) =>
-        new Promise((n) => {
-          w.BrowserAPI.runtime.sendMessage(r, (r) => n(r));
-        }),
-      sendToWorker = (r) =>
-        new Promise((n) => {
-          w.BrowserAPI.runtime.sendMessage(r, (r) => n(r));
-        }),
-      getManifest = () => chrome.runtime.getManifest(),
-      sendToActiveTab = (r, n) => {
-        chrome.tabs &&
-          chrome.tabs.query({ active: !0, lastFocusedWindow: !0 }, function (i) {
-            const a = i && i[0] && i[0].id;
-            a && chrome.tabs.sendMessage(a, { name: r, data: n || "" });
-          });
-      },
-      updateRemoteSettingsData = async () => {
-        chrome.storage.local.get([a.e.BLOCKED_ELEMENTS, a.e.SETTINGS, a.e.WHITELIST, a.e.USER], async (r) => {
-          const n = r[a.e.WHITELIST],
-            i = r[a.e.SOCIAL_CONTENT_KEYWORDS],
-            s = r[a.e.BLOCKED_ELEMENTS],
-            w = r[a.e.USER],
-            ie = r[a.e.SETTINGS],
-            oe = null == w ? void 0 : w.isPremium,
-            { version: se } = getManifest(),
-            le = {
-              extensionVersion: se,
-              features: {
-                popups: void 0 === ie.popups || ie.popups,
-                overlays: ie.detectOverlays,
-                hideElements: void 0 === ie.hideElements || ie.hideElements,
-                pushNotification: !!ie.pushNotification && ie.pushNotification,
-                socialContentBlocker: ie.socialContentBlocker
-              },
-              whitelist: n || [],
-              socialContentKeyWords: i || [],
-              blockedElements: s || {}
-            };
-          Object(y.c)().forEach(async (r) => {
-            const n = r.SettingsKey,
-              i = await E.a.getDefault($.a.onTrialEnded).loadAndUpdate();
-            le.features[r.SettingsKey] = ie[n] && (oe || i.isTrialActive());
-          });
-          const he = await Object(o.a)();
-          await fetch(a.d.SETTINGS, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", id: he.uuid },
-            body: JSON.stringify(le)
-          });
-        });
-      },
-      isPremium = async () => {
-        const r = await s.a.get(a.e.USER);
-        return !!(null == r ? void 0 : r.isPremium);
-      },
-      msToDays = (r) => r / a.o,
-      getDaysPassed = (r) => {
-        const n = r,
-          i = Date.now() - n;
-        return Math.floor(msToDays(i));
-      },
-      backgroundSafeExec = (r, n) => {
-        void 0 !== w.BrowserAPI.tabs ? r() : n();
-      },
-      checkIsPinned = async () => ({ isPinned: (await w.BrowserAPI.action.getUserSettings()).isOnToolbar });
-    const openPlansPage = () => {
-        const r = a.m.WEB_APP + "/settings?checkout=1";
-        backgroundSafeExec(
-          () => chrome.tabs.create({ url: r }),
-          () => window.postMessage({ type: a.n.OPEN_EXTENSION_CHECKOUT_MODAL }, "*")
-        );
-      },
-      isProductionEnv = () => !0,
-      replaceAll = (r, n, i) => {
-        const a = new RegExp(`\\b${n}\\b`, "gi");
-        return r.replace(a, i);
-      },
-      throttle = (r, n) => {
-        let i;
-        return (...a) => {
-          i ||
-            (i = setTimeout(() => {
-              r(...a), (i = null);
-            }, n));
-        };
-      };
-  },
-  57: function (r, n, i) {
+  46: function (r, n, i) {
     "use strict";
     var a = Object.getOwnPropertySymbols,
       o = Object.prototype.hasOwnProperty,
@@ -19120,7 +18892,7 @@
           return E;
         };
   },
-  58: function (r, n) {
+  47: function (r, n) {
     r.exports = function shallowEqual(r, n, i, a) {
       var o = i ? i.call(a, r, n) : void 0;
       if (void 0 !== o) return !!o;
@@ -19139,7 +18911,7 @@
       return !0;
     };
   },
-  59: function (r, n, i) {
+  48: function (r, n, i) {
     "use strict";
     n.a = function stylis_min(r) {
       function X(r, n, i) {
@@ -19658,125 +19430,7 @@
       );
     };
   },
-  6: function (r, n, i) {
-    "use strict";
-    i.d(n, "b", function () {
-      return o;
-    }),
-      i.d(n, "a", function () {
-        return s;
-      }),
-      i.d(n, "c", function () {
-        return getPremiumFeaturesList;
-      }),
-      i.d(n, "d", function () {
-        return isFeatureEquals;
-      }),
-      i.d(n, "e", function () {
-        return isPremiumFeature;
-      });
-    var a = i(0);
-    const o = "tState",
-      s = {
-        SocialBlocker: {
-          Name: "SocialBlocker",
-          SettingsKey: "facebookAdds",
-          QuickSettings: { QuickSettingsId: a.l.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
-          HasTrial: !0,
-          Style: { "margin-top": "43px" },
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: a.d.FACEBOOK_END,
-          TotalBlocksKeys: ["fbAd", "linkedinAd", "twitterAd", "instagramAd"],
-          ShowDailyPromo: !1,
-          Analytics: {
-            EndTrialEvent: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_OVER_PROMOTION_VIEW,
-            PromoView: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_INTRIAL_PROMOTION_VIEW,
-            PromoNotificationClick: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
-            PromoDiscountClick: a.c.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_PROMOTION_DISCOUNT
-          }
-        },
-        CookieCrumbler: {
-          Name: "CookieCrumbler",
-          SettingsKey: "cookieCrumbler",
-          QuickSettings: { QuickSettingsId: a.l.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
-          HasTrial: !0,
-          Style: { "margin-top": "23px" },
-          ImgURL: "images/cookie-blocked.svg",
-          TitleStrId: "cookiesBlocked",
-          StartTrialBtnStrId: "startTrialcookiesBtn",
-          EndTrialBtnStrId: "removeCookieForAllGood",
-          EndTrialLottieFile: a.d.COOKIE,
-          TotalBlocksKeys: ["cookie"],
-          ShowDailyPromo: !1,
-          Analytics: {
-            EndTrialEvent: a.c.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_END_OF_TRIAL,
-            PromoView: a.c.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_IN_TRIAL,
-            PromoNotificationClick: a.c.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
-            PromoDiscountClick: a.c.ANALYTICS_EVENT_TYPES.CLICK_COOKIE_PROMOTION_DISCOUNT
-          }
-        },
-        AdsBlocker: {
-          Name: "AdsBlocker",
-          SettingsKey: "adsBlocker",
-          QuickSettings: { QuickSettingsId: "adsBlocker", QuickSettingsTitleId: "settingsAdsBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["ad"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: a.d.FACEBOOK_END,
-          ShowDailyPromo: !1,
-          Analytics: {
-            HookShow: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW,
-            HookShowPostTrial: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW_POSTTRIAL,
-            HookClick: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK,
-            HookClickPostTrial: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK_POSTTRIAL,
-            HookDismiss: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS,
-            HookDismissPostTrial: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS_POSTTRIAL
-          }
-        },
-        YoutubeBlocker: {
-          Name: "YoutubeBlocker",
-          SettingsKey: "youtubeBlocker",
-          QuickSettings: { QuickSettingsId: "youtubeBlocker", QuickSettingsTitleId: "settingsYoutubeAdsBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["youtubeAd"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "facebookadsBlocked",
-          StartTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialBtnStrId: "startTrialFacebookBtn",
-          EndTrialLottieFile: a.d.FACEBOOK_END,
-          ShowDailyPromo: !1,
-          Analytics: {
-            HookShow: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW,
-            HookShowPostTrial: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW_POSTTRIAL,
-            HookClick: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK,
-            HookClickPostTrial: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK_POSTTRIAL,
-            HookDismiss: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS,
-            HookDismissPostTrial: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS_POSTTRIAL
-          }
-        },
-        TrackersBlocker: {
-          Name: "TrackersBlocker",
-          SettingsKey: "trackersBlocker",
-          QuickSettings: { QuickSettingsId: "trackersBlocker", QuickSettingsTitleId: "settingsTrackersBlocker" },
-          HasTrial: !0,
-          TotalBlocksKeys: ["tracker"],
-          ImgURL: "images/facebook-cta.svg",
-          TitleStrId: "trackersBlockerSettingsTitle",
-          EndTrialLottieFile: a.d.FACEBOOK_END,
-          Analytics: {}
-        }
-      },
-      getPremiumFeaturesList = () => Object.keys(s).map((r) => s[r]),
-      isFeatureEquals = (r, n) => r.Name === n.Name,
-      isPremiumFeature = (r) => getPremiumFeaturesList().some((n) => isFeatureEquals(n, r));
-  },
-  60: function (r, n, i) {
+  49: function (r, n, i) {
     "use strict";
     n.a = {
       animationIterationCount: 1,
@@ -19826,7 +19480,59 @@
       strokeWidth: 1
     };
   },
-  64: function (r, n) {
+  5: function (r, n, i) {
+    "use strict";
+    var a = i(11);
+    const o = new (class Storage {
+      constructor(r) {
+        this.storageAreaName = r;
+      }
+      get(r) {
+        return new Promise((n, i) => {
+          this.getAll(r)
+            .then((i) => {
+              r || n(i), n(i && r in i ? i[r] : null);
+            })
+            .catch(i);
+        });
+      }
+      getAll(...r) {
+        return new Promise((n, i) => {
+          a.BrowserAPI.storage[this.storageAreaName].get(r, (r) => {
+            var o;
+            if (r) n(r);
+            else {
+              const r = null == (o = a.BrowserAPI.runtime) ? void 0 : o.lastError;
+              r ? i(r) : n(null);
+            }
+          });
+        });
+      }
+      set(r, n) {
+        return new Promise((i, o) => {
+          a.BrowserAPI.storage[this.storageAreaName].set({ [r]: n }, () => {
+            var r;
+            const n = null == (r = a.BrowserAPI.runtime) ? void 0 : r.lastError;
+            n ? o(n) : i();
+          });
+        });
+      }
+      remove(r) {
+        return new Promise((n, i) => {
+          let o = 0;
+          r.forEach((s) => {
+            a.BrowserAPI.storage[this.storageAreaName].remove(s, () => {
+              var s;
+              const y = null == (s = a.BrowserAPI.runtime) ? void 0 : s.lastError;
+              y ? i(y) : ++o == r.length && n();
+            });
+          });
+        });
+      }
+    })("local");
+    n.a = o;
+  },
+  58: function (r, n) {
     var i;
     i = (function () {
       return this;
@@ -19838,7 +19544,7 @@
     }
     r.exports = i;
   },
-  65: function (r, n, i) {
+  59: function (r, n, i) {
     "use strict";
     (n.byteLength = function byteLength(r) {
       var n = getLens(r),
@@ -19904,7 +19610,269 @@
     }
     (o["-".charCodeAt(0)] = 62), (o["_".charCodeAt(0)] = 63);
   },
-  66: function (r, n) {
+  6: function (r, n, i) {
+    "use strict";
+    i.d(n, "f", function () {
+      return getI18N;
+    }),
+      i.d(n, "l", function () {
+        return sendGAEvent;
+      }),
+      i.d(n, "m", function () {
+        return sendMessageToWorker;
+      }),
+      i.d(n, "o", function () {
+        return sendToWorker;
+      }),
+      i.d(n, "g", function () {
+        return getManifest;
+      }),
+      i.d(n, "n", function () {
+        return sendToActiveTab;
+      }),
+      i.d(n, "c", function () {
+        return getActiveTab;
+      }),
+      i.d(n, "q", function () {
+        return updateRemoteSettingsData;
+      }),
+      i.d(n, "h", function () {
+        return isPremium;
+      }),
+      i.d(n, "i", function () {
+        return msToDays;
+      }),
+      i.d(n, "d", function () {
+        return getDaysPassed;
+      }),
+      i.d(n, "a", function () {
+        return backgroundSafeExec;
+      }),
+      i.d(n, "b", function () {
+        return checkIsPinned;
+      }),
+      i.d(n, "j", function () {
+        return openPlansPage;
+      }),
+      i.d(n, "e", function () {
+        return getFeatureFlag;
+      }),
+      i.d(n, "k", function () {
+        return replaceAll;
+      }),
+      i.d(n, "p", function () {
+        return throttle;
+      });
+    var a = i(2),
+      o = i(63),
+      s = (i(34), i(5));
+    const fetchWithTokenRefreshIfNeeded = async (r, n, i) => {
+        const o = await fetch(r, n);
+        if (o.status === i) return o;
+        if (401 === o.status) {
+          if (204 === (await fetch(a.d.REFRESH, { method: "POST", headers: { "Content-Type": "application/json" } })).status) {
+            const a = await fetch(r, n);
+            if (a.status === i) return a;
+          }
+          return { status: o.status, message: o.statusText };
+        }
+      },
+      updateUserInfo = async () => {
+        if (!(await s.a.get(a.f.USER))) return;
+        const r = await s.a.get(a.f.LAST_USER_UPDATE_DATE);
+        (!r || Date.now() - r >= a.v) &&
+          (await (async () => {
+            try {
+              const r = await fetchWithTokenRefreshIfNeeded(a.d.GET_USER, {}, 200);
+              if (200 === r.status) {
+                const n = await r.json();
+                return await s.a.set(a.f.USER, n.user), await s.a.set(a.f.LAST_USER_UPDATE_DATE, Date.now()), n.user || null;
+              }
+              await s.a.remove([a.f.LAST_USER_UPDATE_DATE]);
+            } catch (r) {
+              await s.a.remove([a.f.LAST_USER_UPDATE_DATE]);
+            }
+          })());
+      };
+    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
+    i(31);
+    var y = ((r) => (
+      (r.CHROME = "chrome"),
+      (r.FIREFOX = "firefox"),
+      (r.OPERA = "opera"),
+      (r.EDGE = "edge"),
+      (r.SAFARI = "safari"),
+      (r.UNKNOWN = "unknown"),
+      r
+    ))(y || {});
+    const getBrowserName = () => {
+      try {
+        const r = navigator.userAgent;
+        if (r.match(/opera|opr\//i)) return "opera";
+        if (r.match(/firefox|fxios/i)) return "firefox";
+        if (r.match(/edg/i)) return "edge";
+        if (r.match(/safari/i) && !r.match(/chrome|chromium|crios/i)) return "safari";
+        if (r.match(/chrome|chromium|crios/i)) return "chrome";
+      } catch (r) {}
+      return "unknown";
+    };
+    Object.defineProperty, Object.getOwnPropertySymbols, Object.prototype.hasOwnProperty, Object.prototype.propertyIsEnumerable;
+    const getAnalyticsInfoFromLocalStorage = async () =>
+      new Promise((r) => {
+        chrome.storage.local.get(a.b.ANALYTICS_INFO_KEY, (n) => {
+          r(n[a.b.ANALYTICS_INFO_KEY]);
+        });
+      });
+    function getLocale() {
+      const r = chrome.i18n.getUILanguage().replace("_", "-");
+      return r.length < 7 ? r : "en-US";
+    }
+    const getOrInitAnalyticsInfoFromLocalStorage = async () => {
+      if (!(await getAnalyticsInfoFromLocalStorage())) {
+        const r = (() => {
+            switch (getBrowserName()) {
+              case y.CHROME:
+                return "Chrome";
+              case y.FIREFOX:
+                return "Firefox";
+              case y.EDGE:
+                return "Microsoft Edge";
+              case y.OPERA:
+                return "Opera";
+              case y.SAFARI:
+                return "Safari";
+              case y.UNKNOWN:
+                return "Unknown";
+            }
+            return "Unknown";
+          })(),
+          n = await (async () => {
+            let r, n;
+            try {
+              const i = await fetch(a.d.ANALYTIC_INFO);
+              200 === i.status && (r = await i.json()),
+                (n = (r && r.uuid) || Object(o.a)()),
+                await fetch(a.d.ANALYTIC_INFO, {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ uuid: n })
+                });
+            } catch (r) {}
+            return n;
+          })();
+        await updateUserInfo(),
+          chrome.storage.local.set({
+            [a.b.ANALYTICS_INFO_KEY]: { uuid: n, country: getLocale(), resource: a.b.ANALYTICS_RESOURCE_TYPES.ORGANIC, user_agent: r }
+          });
+      }
+      return await getAnalyticsInfoFromLocalStorage();
+    };
+    var E = i(14),
+      w = i(15),
+      $ = i(11),
+      ie = (i(25), i(24));
+    const getI18N = (r, n) => chrome.i18n.getMessage(r) || chrome.i18n.getMessage(n || r) || r,
+      sendGAEvent = (r, n, i, o) =>
+        new Promise((s) => {
+          chrome.runtime.sendMessage({ name: a.o.GA_EVENT, category: r, action: n, label: i, isCount: o }, () => s());
+        }),
+      sendMessageToWorker = (r) =>
+        new Promise((n) => {
+          $.BrowserAPI.runtime.sendMessage(r, (r) => n(r));
+        }),
+      sendToWorker = (r) =>
+        new Promise((n) => {
+          $.BrowserAPI.runtime.sendMessage(r, (r) => n(r));
+        }),
+      getManifest = () => chrome.runtime.getManifest(),
+      sendToActiveTab = (r, n) => {
+        chrome.tabs &&
+          chrome.tabs.query({ active: !0, lastFocusedWindow: !0 }, function (i) {
+            const a = i && i[0] && i[0].id;
+            a && chrome.tabs.sendMessage(a, { name: r, data: n || "" });
+          });
+      },
+      getActiveTab = () =>
+        new Promise((r) => {
+          chrome.tabs.query({ active: !0, lastFocusedWindow: !0 }, (n) => {
+            r(n[0]);
+          });
+        }),
+      updateRemoteSettingsData = async () => {
+        chrome.storage.local.get([a.f.BLOCKED_ELEMENTS, a.f.SETTINGS, a.f.WHITELIST, a.f.USER], async (r) => {
+          const n = r[a.f.WHITELIST],
+            i = r[a.f.SOCIAL_CONTENT_KEYWORDS],
+            o = r[a.f.BLOCKED_ELEMENTS],
+            s = r[a.f.USER],
+            y = r[a.f.SETTINGS],
+            $ = null == s ? void 0 : s.isPremium,
+            { version: oe } = getManifest(),
+            se = {
+              extensionVersion: oe,
+              features: {
+                popups: void 0 === y.popups || y.popups,
+                overlays: y.detectOverlays,
+                hideElements: void 0 === y.hideElements || y.hideElements,
+                pushNotification: !!y.pushNotification && y.pushNotification,
+                socialContentBlocker: y.socialContentBlocker
+              },
+              whitelist: n || [],
+              socialContentKeyWords: i || [],
+              blockedElements: o || {}
+            };
+          Object(E.c)().forEach(async (r) => {
+            const n = r.SettingsKey,
+              i = await w.a.getDefault(ie.a.onTrialEnded).loadAndUpdate();
+            se.features[r.SettingsKey] = y[n] && ($ || i.isTrialActive());
+          });
+          const le = await getOrInitAnalyticsInfoFromLocalStorage();
+          await fetch(a.d.SETTINGS, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", id: le.uuid },
+            body: JSON.stringify(se)
+          });
+        });
+      },
+      isPremium = async () => {
+        const r = await s.a.get(a.f.USER);
+        return !!(null == r ? void 0 : r.isPremium);
+      },
+      msToDays = (r) => r / a.p,
+      getDaysPassed = (r) => {
+        const n = r,
+          i = Date.now() - n;
+        return Math.floor(msToDays(i));
+      },
+      backgroundSafeExec = (r, n) => {
+        void 0 !== $.BrowserAPI.tabs ? r() : n();
+      },
+      checkIsPinned = async () => ({ isPinned: (await $.BrowserAPI.action.getUserSettings()).isOnToolbar });
+    const openPlansPage = (r = "") => {
+        const n = `${a.n.WEB_APP}/settings?checkout=1&source=${r}`;
+        backgroundSafeExec(
+          () => chrome.tabs.create({ url: n }),
+          () => window.postMessage({ type: a.o.OPEN_EXTENSION_CHECKOUT_MODAL, source: r }, "*")
+        );
+      },
+      getFeatureFlag = async (r, n) => {
+        const i = await sendToWorker({ name: a.o.GET_ALL_FEATURES_FLAGS });
+        return r in i ? i[r] : n;
+      },
+      replaceAll = (r, n, i) => {
+        const a = new RegExp(`\\b${n}\\b`, "gi");
+        return r.replace(a, i);
+      },
+      throttle = (r, n) => {
+        let i;
+        return (...a) => {
+          i ||
+            (i = setTimeout(() => {
+              r(...a), (i = null);
+            }, n));
+        };
+      };
+  },
+  60: function (r, n) {
     (n.read = function (r, n, i, a, o) {
       var s,
         y,
@@ -19954,7 +19922,7 @@
         r[i + le - he] |= 128 * pe;
       });
   },
-  67: function (r, n) {
+  61: function (r, n) {
     var i = {}.toString;
     r.exports =
       Array.isArray ||
@@ -19962,477 +19930,7 @@
         return "[object Array]" == i.call(r);
       };
   },
-  68: function (r, n, i) {
-    "use strict";
-    var a = i(3),
-      o = i(0),
-      s = i(9);
-    n.a = new (class WhitelistHelper {
-      list() {
-        return new Promise((r) => {
-          s.c.get(o.g.WHITELIST).then((n) => {
-            r(n || []);
-          });
-        });
-      }
-      add(r) {
-        return this.list().then((n) => {
-          n.push(r), s.c.set(o.g.WHITELIST, n);
-        });
-      }
-      remove(r) {
-        return this.list().then((n) => {
-          (n = n.filter((n) => n !== r)), s.c.set(o.g.WHITELIST, n);
-        });
-      }
-      async containsDomain(r) {
-        const n = await this.list();
-        return (
-          (r = Object(a.c)(r)),
-          n.some((n) => {
-            n.includes("http") || (n = "http://" + n);
-            return new URL(n).hostname === r;
-          })
-        );
-      }
-    })();
-  },
-  69: function (r, n, i) {
-    "use strict";
-    n.a = {
-      thank_you_page_CH: "https://poperblocker.com/welcome",
-      thank_you_page_FF: "https://poperblocker.com/welcome-firefox",
-      privacy_policy_CH: "https://poperblocker.com/privacy/",
-      privacy_policy_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/privacy/",
-      uninstall_page_CH: "https://poperblocker.com/uninstall/?",
-      uninstall_page_FF: "https://poperblocker.com/uninstall-firefox/?",
-      feedback_page: "https://poperblocker.com/feedback.html?from=ext",
-      contact_page: "https://poperblocker.com/contact-form.html",
-      appStore_CH: "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche",
-      appStore_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/",
-      extension_review_page_CH:
-        "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche/reviews",
-      extension_review_page_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/reviews/add",
-      twitter_share_link:
-        "https://twitter.com/intent/tweet?hashtags=popups&original_referer=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share&related=socialmediahats&text=I'm%20using%20poper%20blocker%20to%20enjoy%20a%20popup%20free%20browsing%20experience%20pic.twitter.com%2FniqVgqfmAw&url=https%3A%2F%2Fgoo.gl%2FryoaEn&via=poper_blocker",
-      facebook_share_link:
-        "https://www.facebook.com/dialog/share?app_id=1911035589168170&display=popup&href=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share%3Fhl%3Den&hashtag=%23For_No_More_Popups_Click_Below",
-      facebook_base_url: "www.facebook.com",
-      overlay_check_API: "https://api2.poperblocker.com/view/update",
-      overlay_blocking_context_item_contexts: ["page", "frame", "selection", "link", "editable", "image", "video", "audio"],
-      googleSheetID: "1dRQsmt6DYMXGo3YeTQ442kV-xxG1LJfG41wEUpnWefM",
-      dataSettings: { strKeys: ["ga_allEvent_rate", "ni"], arrKeys: ["blacklist", "whitelist"] },
-      blockCountsToShowRate: 5,
-      blockCountsToShowRateAgain: 100,
-      totalBlockingFeatures: 2,
-      blockedTypes: {
-        win: "win",
-        tab: "tab",
-        overlay: "overlay",
-        ad: "ad",
-        cookie: "cookie",
-        fbAd: "fbAd",
-        linkedinAd: "linkedinAd",
-        twitterAd: "twitterAd",
-        tracker: "tracker",
-        instagramAd: "instagramAd",
-        youtubeAd: "youtubeAd"
-      },
-      defaultBlackList: [
-        "adrunnr",
-        "successforyu.clickfunnels.com",
-        "fmovies.se",
-        "in-365-tagen.info",
-        "5000-settimanale.com",
-        "shop.mazzugioielli.com",
-        "maxigossip.com",
-        "lp.yazizim.com",
-        "beyourxfriend.com",
-        "99tab.com",
-        "zzqrt.com",
-        "canuck-method.net",
-        "bewomenly.com",
-        "playnow.guru",
-        "datingforyou-48e1.kxcdn.com",
-        "trafficnetworkads24.com",
-        "sistemadedinerogratis.com",
-        "canuckmethodprofit.co",
-        "consumerresearchnetwork.com",
-        "securemacfix.com",
-        "zz3d3.ru",
-        "zd1.quebec-bin.com",
-        "hot-games4you.xyz",
-        "om.elvenar.com",
-        "superpccleanup.com",
-        "gomediaz.com",
-        "judithi.xyz",
-        "free.atozmanuals.com",
-        "yoursuccess.ravpage.co.il",
-        "123hop.ir",
-        "quizcliente.pw",
-        "aussiemethod.biz",
-        "hlpnowp-c.com",
-        "picbumper.com",
-        "shaneless.com",
-        "anacondamonster.com",
-        "altrk1.com",
-        "health.todaydiets.com",
-        "download.weatherblink.com",
-        "happyluketh.com",
-        "go.ameinfo.com",
-        "50kaweek.net",
-        "thepornsurvey.com",
-        "ofsiite.ru",
-        "fulltab.com",
-        "1000spins.com",
-        "time2play-online.net",
-        "vintacars.com",
-        "welcome.pussysaga.com",
-        "free-desktop-games.com",
-        "download.televisionfanatic.com",
-        "theprofitsmaker.net",
-        "sgad.info",
-        "algocashmaster.net",
-        "sunmaker.com",
-        "topvipdreams.com",
-        "watchmygirlfriend.gfpornvideos.com",
-        "filesharefanatic.com",
-        "safedownloadhub.com",
-        "7awlalalam.blogspot.com",
-        "tvplusnewtab.com",
-        "trendingpatrol.com",
-        "moneymorning.com",
-        "ifileyou.com",
-        "classifiedcanada.ca",
-        "firefan.com",
-        "methode-binaire.com",
-        "letmetell.com",
-        "kenduktur.com",
-        "getafuk.com",
-        "yotraleplahnte.ru",
-        "jackpot.88beto.com",
-        "pwwysydh.com",
-        "search.queryrouter.com",
-        "v.lvztxy.com",
-        "pussysaga.com",
-        "saffamethod.com",
-        "prezzonline.com",
-        "searchprivacy.website",
-        "3d2819216eb4e1035879-7c248de0c99745406e9b749fc86ec3e4.ssl.cf1.rackcdn.com",
-        "only2date.com",
-        "mysagagame.com",
-        "themillionaireinpjs.net",
-        "wlt.kd2244.com",
-        "quickprivacycheck.com",
-        "hotchatdate.com",
-        "autotraderbot.com",
-        "z1.zedo.com",
-        "youlucky2014.com",
-        "traffic.getmyads.com",
-        "appcloudprotected.com",
-        "safensecure.com-allsites3.xyz",
-        "newpoptab.com",
-        "static.williamhill.com",
-        "myhealthyblog.co",
-        "greatestmobideals.com",
-        "sweetclarity.com",
-        "mgid.com",
-        "securepccure.com",
-        "autopengebygger.com",
-        "am15.net",
-        "es.reimageplus.com",
-        "o2.promos-info.com",
-        "it.reimageplus.com",
-        "westsluts.com",
-        "spinandwin.com-ser.pw",
-        "reimageplus.com",
-        "vodafone.promos-info.com",
-        "vinnmatpengar.se",
-        "movie.ienjoyapps.com",
-        "love4single.com",
-        "origin.getprice.com.au",
-        "ohmydating.com",
-        "lp.want-to-win.com",
-        "yabuletchrome.ru",
-        "bamdad.net",
-        "gotositenow.com",
-        "vcrypt.pw",
-        "newtabtv.com",
-        "mon.setsu.xyz",
-        "youforgottorenewyourhosting.com",
-        "zone-telechargement.ws",
-        "land.pckeeper.software",
-        "ad.adpop-1.com",
-        "advancedpctools.com",
-        "videos.randolphcountyheraldtribune.com",
-        "web-start.org",
-        "softreadynow.installupgradenowfreshandforyou.website",
-        "uplod.ws",
-        "pornhubcasino.com",
-        "maxbet.ro",
-        "2016prizefeed.com",
-        "thevideo.me",
-        "wantubad.com",
-        "tavanero.com",
-        "xcusmy.club",
-        "daclips.in",
-        "gaymenofporn.online",
-        "jackpotcitycasino.com",
-        "italian-method.com",
-        "getsearchincognito.com",
-        "youjustwonprize.com",
-        "finanz-nachrichten.me",
-        "quizcliente.site",
-        "da.reimageplus.com",
-        "jkanime.net",
-        "britmoneymethod.com",
-        "uae.souq.com",
-        "ka.azzer.net",
-        "safensecure.xyz",
-        "8t.hootingrhejkz.online",
-        "www6.blinkx.com",
-        "wizzcaster.com",
-        "comparaison-prix.com",
-        "vodlocker.lol",
-        "fr.reimageplus.com",
-        "free.fromdoctopdf.com",
-        "userscloud.com",
-        "myprivatesearch.com",
-        "fanli90.cn",
-        "tutticodicisconto.it",
-        "mediadec.com",
-        "gogamego.thewhizproducts.com",
-        "download.weatherblink.com",
-        "free.videodownloadconverter.com",
-        "we-are-gamers.com",
-        "sesso.communityadult.net",
-        "lp.blpmovies.com",
-        "search.queryrouter.com",
-        "bbb-johannesburg.localspecific.com",
-        "lp.blpmovies.com",
-        "go.ppixelm.com",
-        "r0.ru",
-        "sesso.communityadult.net",
-        "bbb-johannesburg.localspecific.com",
-        "ppixelm.com",
-        "cyberguardianspe.info",
-        "we-are-gamers.com",
-        "loginfaster.com/new",
-        "www.alfacart.com",
-        "www.foresee.com",
-        "mobile-win.com",
-        "www.plusnetwork.com",
-        "www.amicafarmacia.com",
-        "www.ienjoyapps.com",
-        "cheapcheap.io",
-        "screenaddict.thewhizproducts.com",
-        "nova.rambler.ru",
-        "free.gamingwonderland.com",
-        "p9328ujeiw1.ru",
-        "mobilecasinoclub.co.uk",
-        "pfhsystem.com",
-        "regtuneup.com",
-        "theprofitsmaker.net",
-        "bodogpromotions.eu",
-        "heroesreplay.org",
-        "financialsecrets.info",
-        "mymoneymakingapp.com",
-        "sunmaker.com",
-        "888casino-promotions.com",
-        "vogliosesso.com",
-        "scienceremix.com",
-        "allinonedocs.com",
-        "arabia.starzplay.com",
-        "allirishcasino.com",
-        "advancepctools.info",
-        "movie.ienjoyapps.com",
-        "surveyform001.s3-website-us-east-1.amazonaws.com",
-        "mgs188.com",
-        "pfhsystem.com",
-        "lpeva.com",
-        "ddsh8.com",
-        "theprofitsmaker.net",
-        "b2.ijquery11.com",
-        "sporthero.thewhizmarketing.com",
-        "securefastmac.tech",
-        "seen-on-screen.thewhizmarketing.com",
-        "1000spins.com",
-        "search.queryrouter.com",
-        "pfhsystem.com",
-        "reimageplus.com",
-        "offer.alibaba.com",
-        "searchlistings.org",
-        "search.queryrouter.com",
-        "search.queryrouter.com",
-        "mybinaryoptionsrobot.com",
-        "duplicashapp.com",
-        "search.queryrouter.com",
-        "bestgame.directory",
-        "droidclub.net",
-        ".rivalo.com",
-        "yoursuperprize.com",
-        "mediaexplained.com",
-        "om.elvenar.com",
-        "shinar.club",
-        "revitoleczemacream.com",
-        "freelotto.com",
-        "screenaddict.thewhizproducts.com",
-        "download.bringmesports.com/",
-        "allinonedocs.com",
-        "driver-fixer.com",
-        "arabydeal.com",
-        "cleanyourcomputertoday.com",
-        "arabydeal.com",
-        "music.mixplugin.com",
-        "1se.info",
-        "survey12.com",
-        "freesoftwaredlul.com",
-        "pldist01.com",
-        "ad.adpop-1.com",
-        "searchanonymous.net",
-        "abrst.pro",
-        "muzikfury.thewhizmarketing.com",
-        "lp.mbtrx.com",
-        "th1.forfun.maxisize-pro.com",
-        "watchmygirlfriend.gfpornbox.com",
-        "new.freelotto.com",
-        "desktoptrack.com",
-        "search.queryrouter.com",
-        "offer.alibaba.com",
-        "1000spins.com",
-        "promotions.coral.co.uk",
-        "search.queryrouter.com",
-        "tbsia.com",
-        "tbsia.com",
-        "multtaepyo.com",
-        "search.queryrouter.com",
-        "czechmethod.com",
-        "consumerview.co",
-        "wayretail.com",
-        "72onbase.com",
-        "funsafetab.com",
-        "search.queryrouter.com",
-        "speedyfiledownload.com",
-        "driver-fixer.com",
-        "arabydeal.com",
-        "cleanyourcomputertoday.com",
-        "arabydeal.com",
-        "music.mixplugin.com",
-        "1se.info",
-        "survey12.com",
-        "freesoftwaredlul.com",
-        "pldist01.com",
-        "ad.adpop-1.com",
-        "searchanonymous.net",
-        "abrst.pro",
-        "muzikfury.thewhizmarketing.com",
-        "lp.mbtrx.com",
-        "th1.forfun.maxisize-pro.com",
-        "watchmygirlfriend.gfpornbox.com",
-        "new.freelotto.com",
-        "desktoptrack.com",
-        "search.queryrouter.com",
-        "offer.alibaba.com",
-        "1000spins.com",
-        "promotions.coral.co.uk",
-        "search.queryrouter.com",
-        "tbsia.com",
-        "tbsia.com",
-        "surveyform001.s3-website-us-east-1.amazonaws.com",
-        "mgs188.com",
-        "pfhsystem.com",
-        "lpeva.com",
-        "ddsh8.com",
-        "theprofitsmaker.net",
-        "quantomcoding.com",
-        "sporthero.thewhizmarketing.com",
-        "popads.net",
-        "onclkds.com",
-        "consumerview.co",
-        "12kotov.ru",
-        "ruhotpair2.fingta.com",
-        "easytelevisionaccessnow.com",
-        "ahwrd.com",
-        "lpeva.com",
-        "ppgzf.com",
-        "zjstx.com",
-        "kituure.xyz",
-        "join.pro-gaming-world.com",
-        "mackeeperapp.mackeeper.com",
-        "tracknotify.com",
-        "2075.cdn.beyondhosting.net",
-        "idollash.com",
-        "ds.moviegoat.com",
-        "fulltab.com",
-        "rackcdn.com",
-        "prestoris.com",
-        "adsterra.com",
-        "swampssovuuhusp.top",
-        "streesusa.info",
-        "freesoftwaredlul.com",
-        "adreactor.com",
-        "a-static.com",
-        "codeonclick.com",
-        "heheme.com",
-        "adf.ly",
-        "seen-on-screen.thewhizmarketing.com",
-        "openload.co"
-      ]
-    };
-  },
-  7: function (r, n, i) {
-    "use strict";
-    var a = i(13);
-    const o = new (class Storage {
-      constructor(r) {
-        this.storageAreaName = r;
-      }
-      get(r) {
-        return new Promise((n, i) => {
-          this.getAll(r)
-            .then((i) => {
-              r || n(i), n(i && r in i ? i[r] : null);
-            })
-            .catch(i);
-        });
-      }
-      getAll(...r) {
-        return new Promise((n, i) => {
-          a.BrowserAPI.storage[this.storageAreaName].get(r, (r) => {
-            var o;
-            if (r) n(r);
-            else {
-              const r = null == (o = a.BrowserAPI.runtime) ? void 0 : o.lastError;
-              r ? i(r) : n(null);
-            }
-          });
-        });
-      }
-      set(r, n) {
-        return new Promise((i, o) => {
-          a.BrowserAPI.storage[this.storageAreaName].set({ [r]: n }, () => {
-            var r;
-            const n = null == (r = a.BrowserAPI.runtime) ? void 0 : r.lastError;
-            n ? o(n) : i();
-          });
-        });
-      }
-      remove(r) {
-        return new Promise((n, i) => {
-          let o = 0;
-          r.forEach((s) => {
-            a.BrowserAPI.storage[this.storageAreaName].remove(s, () => {
-              var s;
-              const y = null == (s = a.BrowserAPI.runtime) ? void 0 : s.lastError;
-              y ? i(y) : ++o == r.length && n();
-            });
-          });
-        });
-      }
-    })("local");
-    n.a = o;
-  },
-  71: function (r, n, i) {
+  63: function (r, n, i) {
     "use strict";
     var a,
       o = new Uint8Array(16);
@@ -20494,9 +19992,9 @@
       return $(a);
     };
   },
-  73: function (r, n, i) {
+  66: function (r, n, i) {
     "use strict";
-    var a = i(57),
+    var a = i(46),
       o = "function" == typeof Symbol && Symbol.for,
       s = o ? Symbol.for("react.element") : 60103,
       y = o ? Symbol.for("react.portal") : 60106,
@@ -20793,11 +20291,11 @@
       }),
       (n.version = "16.14.0");
   },
-  74: function (r, n, i) {
+  67: function (r, n, i) {
     "use strict";
     var a = i(1),
-      o = i(57),
-      s = i(75);
+      o = i(46),
+      s = i(68);
     function u(r) {
       for (var n = "https://reactjs.org/docs/error-decoder.html?invariant=" + r, i = 1; i < arguments.length; i++)
         n += "&args[]=" + encodeURIComponent(arguments[i]);
@@ -21077,10 +20575,10 @@
       _t = lt ? Symbol.for("react.suspense_list") : 60120,
       vt = lt ? Symbol.for("react.memo") : 60115,
       St = lt ? Symbol.for("react.lazy") : 60116,
-      bt = lt ? Symbol.for("react.block") : 60121,
-      Tt = "function" == typeof Symbol && Symbol.iterator;
+      Tt = lt ? Symbol.for("react.block") : 60121,
+      bt = "function" == typeof Symbol && Symbol.iterator;
     function nb(r) {
-      return null === r || "object" != typeof r ? null : "function" == typeof (r = (Tt && r[Tt]) || r["@@iterator"]) ? r : null;
+      return null === r || "object" != typeof r ? null : "function" == typeof (r = (bt && r[bt]) || r["@@iterator"]) ? r : null;
     }
     function pb(r) {
       if (null == r) return null;
@@ -21111,7 +20609,7 @@
             return (n = n.displayName || n.name || ""), r.displayName || ("" !== n ? "ForwardRef(" + n + ")" : "ForwardRef");
           case vt:
             return pb(r.type);
-          case bt:
+          case Tt:
             return pb(r.render);
           case St:
             if ((r = 1 === r._status ? r._result : null)) return pb(r);
@@ -21307,7 +20805,7 @@
       n === r._wrapperState.initialValue && "" !== n && null !== n && (r.value = n);
     }
     var Ct = "http://www.w3.org/1999/xhtml",
-      At = "http://www.w3.org/2000/svg";
+      Ot = "http://www.w3.org/2000/svg";
     function Nb(r) {
       switch (r) {
         case "svg":
@@ -21325,8 +20823,8 @@
         ? "http://www.w3.org/1999/xhtml"
         : r;
     }
-    var It,
-      Ot = (function (r) {
+    var At,
+      It = (function (r) {
         return "undefined" != typeof MSApp && MSApp.execUnsafeLocalFunction
           ? function (n, i, a, o) {
               MSApp.execUnsafeLocalFunction(function () {
@@ -21335,10 +20833,10 @@
             }
           : r;
       })(function (r, n) {
-        if (r.namespaceURI !== At || "innerHTML" in r) r.innerHTML = n;
+        if (r.namespaceURI !== Ot || "innerHTML" in r) r.innerHTML = n;
         else {
           for (
-            (It = It || document.createElement("div")).innerHTML = "<svg>" + n.valueOf().toString() + "</svg>", n = It.firstChild;
+            (At = At || document.createElement("div")).innerHTML = "<svg>" + n.valueOf().toString() + "</svg>", n = At.firstChild;
             r.firstChild;
 
           )
@@ -21363,25 +20861,25 @@
         animationstart: Sb("Animation", "AnimationStart"),
         transitionend: Sb("Transition", "TransitionEnd")
       },
-      wt = {},
-      kt = {};
+      kt = {},
+      wt = {};
     function Wb(r) {
-      if (wt[r]) return wt[r];
+      if (kt[r]) return kt[r];
       if (!Pt[r]) return r;
       var n,
         i = Pt[r];
-      for (n in i) if (i.hasOwnProperty(n) && n in kt) return (wt[r] = i[n]);
+      for (n in i) if (i.hasOwnProperty(n) && n in wt) return (kt[r] = i[n]);
       return r;
     }
     we &&
-      ((kt = document.createElement("div").style),
+      ((wt = document.createElement("div").style),
       "AnimationEvent" in window ||
         (delete Pt.animationend.animation, delete Pt.animationiteration.animation, delete Pt.animationstart.animation),
       "TransitionEvent" in window || delete Pt.transitionend.transition);
-    var xt = Wb("animationend"),
-      Lt = Wb("animationiteration"),
-      Nt = Wb("animationstart"),
-      Rt = Wb("transitionend"),
+    var Lt = Wb("animationend"),
+      xt = Wb("animationiteration"),
+      Rt = Wb("animationstart"),
+      Nt = Wb("transitionend"),
       Dt =
         "abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange seeked seeking stalled suspend timeupdate volumechange waiting".split(
           " "
@@ -21598,11 +21096,11 @@
       }
     }
     var Vt,
-      Ut,
       Kt,
+      Ut,
       Gt = !1,
-      zt = [],
-      Ht = null,
+      Ht = [],
+      zt = null,
       jt = null,
       Wt = null,
       Yt = new Map(),
@@ -21620,7 +21118,7 @@
       switch (r) {
         case "focus":
         case "blur":
-          Ht = null;
+          zt = null;
           break;
         case "dragenter":
         case "dragleave":
@@ -21641,7 +21139,7 @@
     }
     function Mc(r, n, i, a, o, s) {
       return null === r || r.nativeEvent !== s
-        ? ((r = Kc(n, i, a, o, s)), null !== n && null !== (n = Nc(n)) && Ut(n), r)
+        ? ((r = Kc(n, i, a, o, s)), null !== n && null !== (n = Nc(n)) && Kt(n), r)
         : ((r.eventSystemFlags |= a), r);
     }
     function Pc(r) {
@@ -21654,7 +21152,7 @@
               return (
                 (r.blockedOn = n),
                 void s.unstable_runWithPriority(r.priority, function () {
-                  Kt(i);
+                  Ut(i);
                 })
               );
           } else if (3 === n && i.stateNode.hydrate) return void (r.blockedOn = 3 === i.tag ? i.stateNode.containerInfo : null);
@@ -21666,7 +21164,7 @@
       var n = Rc(r.topLevelType, r.eventSystemFlags, r.container, r.nativeEvent);
       if (null !== n) {
         var i = Nc(n);
-        return null !== i && Ut(i), (r.blockedOn = n), !1;
+        return null !== i && Kt(i), (r.blockedOn = n), !1;
       }
       return !0;
     }
@@ -21674,16 +21172,16 @@
       Qc(r) && i.delete(n);
     }
     function Tc() {
-      for (Gt = !1; 0 < zt.length; ) {
-        var r = zt[0];
+      for (Gt = !1; 0 < Ht.length; ) {
+        var r = Ht[0];
         if (null !== r.blockedOn) {
           null !== (r = Nc(r.blockedOn)) && Vt(r);
           break;
         }
         var n = Rc(r.topLevelType, r.eventSystemFlags, r.container, r.nativeEvent);
-        null !== n ? (r.blockedOn = n) : zt.shift();
+        null !== n ? (r.blockedOn = n) : Ht.shift();
       }
-      null !== Ht && Qc(Ht) && (Ht = null),
+      null !== zt && Qc(zt) && (zt = null),
         null !== jt && Qc(jt) && (jt = null),
         null !== Wt && Qc(Wt) && (Wt = null),
         Yt.forEach(Sc),
@@ -21696,15 +21194,15 @@
       function b(n) {
         return Uc(n, r);
       }
-      if (0 < zt.length) {
-        Uc(zt[0], r);
-        for (var n = 1; n < zt.length; n++) {
-          var i = zt[n];
+      if (0 < Ht.length) {
+        Uc(Ht[0], r);
+        for (var n = 1; n < Ht.length; n++) {
+          var i = Ht[n];
           i.blockedOn === r && (i.blockedOn = null);
         }
       }
       for (
-        null !== Ht && Uc(Ht, r), null !== jt && Uc(jt, r), null !== Wt && Uc(Wt, r), Yt.forEach(b), $t.forEach(b), n = 0;
+        null !== zt && Uc(zt, r), null !== jt && Uc(jt, r), null !== Wt && Uc(Wt, r), Yt.forEach(b), $t.forEach(b), n = 0;
         n < qt.length;
         n++
       )
@@ -21717,11 +21215,11 @@
       tr = [
         "abort",
         "abort",
-        xt,
-        "animationEnd",
         Lt,
+        "animationEnd",
+        xt,
         "animationIteration",
-        Nt,
+        Rt,
         "animationStart",
         "canplay",
         "canPlay",
@@ -21761,7 +21259,7 @@
         "suspend",
         "timeupdate",
         "timeUpdate",
-        Rt,
+        Nt,
         "transitionEnd",
         "waiting",
         "waiting"
@@ -21832,16 +21330,16 @@
     }
     function id(r, n, i, a) {
       if (sr)
-        if (0 < zt.length && -1 < Xt.indexOf(r)) (r = Kc(null, r, n, i, a)), zt.push(r);
+        if (0 < Ht.length && -1 < Xt.indexOf(r)) (r = Kc(null, r, n, i, a)), Ht.push(r);
         else {
           var o = Rc(r, n, i, a);
           if (null === o) Lc(r, a);
-          else if (-1 < Xt.indexOf(r)) (r = Kc(o, r, n, i, a)), zt.push(r);
+          else if (-1 < Xt.indexOf(r)) (r = Kc(o, r, n, i, a)), Ht.push(r);
           else if (
             !(function Oc(r, n, i, a, o) {
               switch (n) {
                 case "focus":
-                  return (Ht = Mc(Ht, r, n, i, a, o)), !0;
+                  return (zt = Mc(zt, r, n, i, a, o)), !0;
                 case "dragenter":
                   return (jt = Mc(jt, r, n, i, a, o)), !0;
                 case "mouseover":
@@ -22193,9 +21691,9 @@
     }
     var vr = null,
       Sr = null,
-      br = null;
+      Tr = null;
     function ae() {
-      if (br) return br;
+      if (Tr) return Tr;
       var r,
         n,
         i = Sr,
@@ -22205,7 +21703,7 @@
       for (r = 0; r < a && i[r] === o[r]; r++);
       var y = a - r;
       for (n = 1; n <= y && i[a - n] === o[s - n]; n++);
-      return (br = o.slice(r, 1 < n ? 1 - n : void 0));
+      return (Tr = o.slice(r, 1 < n ? 1 - n : void 0));
     }
     function be() {
       return !0;
@@ -22297,16 +21795,16 @@
         );
       }),
       de(G);
-    var Tr = G.extend({ data: null }),
+    var br = G.extend({ data: null }),
       Cr = G.extend({ data: null }),
-      Ar = [9, 13, 27, 32],
-      Ir = we && "CompositionEvent" in window,
-      Or = null;
-    we && "documentMode" in document && (Or = document.documentMode);
-    var Pr = we && "TextEvent" in window && !Or,
-      wr = we && (!Ir || (Or && 8 < Or && 11 >= Or)),
-      kr = String.fromCharCode(32),
-      xr = {
+      Or = [9, 13, 27, 32],
+      Ar = we && "CompositionEvent" in window,
+      Ir = null;
+    we && "documentMode" in document && (Ir = document.documentMode);
+    var Pr = we && "TextEvent" in window && !Ir,
+      kr = we && (!Ar || (Ir && 8 < Ir && 11 >= Ir)),
+      wr = String.fromCharCode(32),
+      Lr = {
         beforeInput: {
           phasedRegistrationNames: { bubbled: "onBeforeInput", captured: "onBeforeInputCapture" },
           dependencies: ["compositionend", "keypress", "textInput", "paste"]
@@ -22324,11 +21822,11 @@
           dependencies: "blur compositionupdate keydown keypress keyup mousedown".split(" ")
         }
       },
-      Lr = !1;
+      xr = !1;
     function qe(r, n) {
       switch (r) {
         case "keyup":
-          return -1 !== Ar.indexOf(n.keyCode);
+          return -1 !== Or.indexOf(n.keyCode);
         case "keydown":
           return 229 !== n.keyCode;
         case "keypress":
@@ -22342,35 +21840,35 @@
     function re(r) {
       return "object" == typeof (r = r.detail) && "data" in r ? r.data : null;
     }
-    var Nr = !1;
-    var Rr = {
-        eventTypes: xr,
+    var Rr = !1;
+    var Nr = {
+        eventTypes: Lr,
         extractEvents: function (r, n, i, a) {
           var o;
-          if (Ir)
+          if (Ar)
             e: {
               switch (r) {
                 case "compositionstart":
-                  var s = xr.compositionStart;
+                  var s = Lr.compositionStart;
                   break e;
                 case "compositionend":
-                  s = xr.compositionEnd;
+                  s = Lr.compositionEnd;
                   break e;
                 case "compositionupdate":
-                  s = xr.compositionUpdate;
+                  s = Lr.compositionUpdate;
                   break e;
               }
               s = void 0;
             }
-          else Nr ? qe(r, i) && (s = xr.compositionEnd) : "keydown" === r && 229 === i.keyCode && (s = xr.compositionStart);
+          else Rr ? qe(r, i) && (s = Lr.compositionEnd) : "keydown" === r && 229 === i.keyCode && (s = Lr.compositionStart);
           return (
             s
-              ? (wr &&
+              ? (kr &&
                   "ko" !== i.locale &&
-                  (Nr || s !== xr.compositionStart
-                    ? s === xr.compositionEnd && Nr && (o = ae())
-                    : ((Sr = "value" in (vr = a) ? vr.value : vr.textContent), (Nr = !0))),
-                (s = Tr.getPooled(s, n, i, a)),
+                  (Rr || s !== Lr.compositionStart
+                    ? s === Lr.compositionEnd && Rr && (o = ae())
+                    : ((Sr = "value" in (vr = a) ? vr.value : vr.textContent), (Rr = !0))),
+                (s = br.getPooled(s, n, i, a)),
                 o ? (s.data = o) : null !== (o = re(i)) && (s.data = o),
                 Xd(s),
                 (o = s))
@@ -22381,15 +21879,15 @@
                     case "compositionend":
                       return re(n);
                     case "keypress":
-                      return 32 !== n.which ? null : ((Lr = !0), kr);
+                      return 32 !== n.which ? null : ((xr = !0), wr);
                     case "textInput":
-                      return (r = n.data) === kr && Lr ? null : r;
+                      return (r = n.data) === wr && xr ? null : r;
                     default:
                       return null;
                   }
                 })(r, i)
               : (function ue(r, n) {
-                  if (Nr) return "compositionend" === r || (!Ir && qe(r, n)) ? ((r = ae()), (br = Sr = vr = null), (Nr = !1), r) : null;
+                  if (Rr) return "compositionend" === r || (!Ar && qe(r, n)) ? ((r = ae()), (Tr = Sr = vr = null), (Rr = !1), r) : null;
                   switch (r) {
                     case "paste":
                       return null;
@@ -22400,12 +21898,12 @@
                       }
                       return null;
                     case "compositionend":
-                      return wr && "ko" !== n.locale ? null : n.data;
+                      return kr && "ko" !== n.locale ? null : n.data;
                     default:
                       return null;
                   }
                 })(r, i))
-              ? (((n = Cr.getPooled(xr.beforeInput, n, i, a)).data = r), Xd(n))
+              ? (((n = Cr.getPooled(Lr.beforeInput, n, i, a)).data = r), Xd(n))
               : (n = null),
             null === o ? n : null === n ? o : [o, n]
           );
@@ -22481,7 +21979,7 @@
       if ("input" === r || "change" === r) return De(n);
     }
     we && (Vr = oc("input") && (!document.documentMode || 9 < document.documentMode));
-    var Ur = {
+    var Kr = {
         eventTypes: Fr,
         _isInputEventSupported: Vr,
         extractEvents: function (r, n, i, a) {
@@ -22499,7 +21997,7 @@
           E && E(r, o, n), "blur" === r && (r = o._wrapperState) && r.controlled && "number" === o.type && Db(o, "number", o.value);
         }
       },
-      Kr = G.extend({ view: null, detail: null }),
+      Ur = G.extend({ view: null, detail: null }),
       Gr = { Alt: "altKey", Control: "ctrlKey", Meta: "metaKey", Shift: "shiftKey" };
     function Pe(r) {
       var n = this.nativeEvent;
@@ -22508,11 +22006,11 @@
     function Qe() {
       return Pe;
     }
-    var zr = 0,
-      Hr = 0,
+    var Hr = 0,
+      zr = 0,
       jr = !1,
       Wr = !1,
-      Yr = Kr.extend({
+      Yr = Ur.extend({
         screenX: null,
         screenY: null,
         clientX: null,
@@ -22531,13 +22029,13 @@
         },
         movementX: function (r) {
           if ("movementX" in r) return r.movementX;
-          var n = zr;
-          return (zr = r.screenX), jr ? ("mousemove" === r.type ? r.screenX - n : 0) : ((jr = !0), 0);
+          var n = Hr;
+          return (Hr = r.screenX), jr ? ("mousemove" === r.type ? r.screenX - n : 0) : ((jr = !0), 0);
         },
         movementY: function (r) {
           if ("movementY" in r) return r.movementY;
-          var n = Hr;
-          return (Hr = r.screenY), Wr ? ("mousemove" === r.type ? r.screenY - n : 0) : ((Wr = !0), 0);
+          var n = zr;
+          return (zr = r.screenY), Wr ? ("mousemove" === r.type ? r.screenY - n : 0) : ((Wr = !0), 0);
         }
       }),
       $r = Yr.extend({
@@ -22694,7 +22192,7 @@
           return "clipboardData" in r ? r.clipboardData : window.clipboardData;
         }
       }),
-      cn = Kr.extend({ relatedTarget: null });
+      cn = Ur.extend({ relatedTarget: null });
     function of(r) {
       var n = r.keyCode;
       return "charCode" in r ? 0 === (r = r.charCode) && 13 === n && (r = 13) : (r = n), 10 === r && (r = 13), 32 <= r || 13 === r ? r : 0;
@@ -22751,7 +22249,7 @@
         145: "ScrollLock",
         224: "Meta"
       },
-      pn = Kr.extend({
+      pn = Ur.extend({
         key: function (r) {
           if (r.key) {
             var n = un[r.key] || r.key;
@@ -22784,7 +22282,7 @@
         }
       }),
       fn = Yr.extend({ dataTransfer: null }),
-      dn = Kr.extend({
+      dn = Ur.extend({
         touches: null,
         targetTouches: null,
         changedTouches: null,
@@ -22849,16 +22347,16 @@
             case "touchstart":
               r = dn;
               break;
-            case xt:
             case Lt:
-            case Nt:
+            case xt:
+            case Rt:
               r = sn;
               break;
-            case Rt:
+            case Nt:
               r = mn;
               break;
             case "scroll":
-              r = Kr;
+              r = Ur;
               break;
             case "wheel":
               r = gn;
@@ -22892,7 +22390,7 @@
       (oe = Qd),
       (se = Nc),
       (le = Pd),
-      xa({ SimpleEventPlugin: yn, EnterLeaveEventPlugin: Xr, ChangeEventPlugin: Ur, SelectEventPlugin: on, BeforeInputEventPlugin: Rr });
+      xa({ SimpleEventPlugin: yn, EnterLeaveEventPlugin: Xr, ChangeEventPlugin: Kr, SelectEventPlugin: on, BeforeInputEventPlugin: Nr });
     var En = [],
       _n = -1;
     function H(r) {
@@ -22903,8 +22401,8 @@
     }
     var vn = {},
       Sn = { current: vn },
-      bn = { current: !1 },
-      Tn = vn;
+      Tn = { current: !1 },
+      bn = vn;
     function Cf(r, n) {
       var i = r.type.contextTypes;
       if (!i) return vn;
@@ -22921,11 +22419,11 @@
       return null != (r = r.childContextTypes);
     }
     function Df() {
-      H(bn), H(Sn);
+      H(Tn), H(Sn);
     }
     function Ef(r, n, i) {
       if (Sn.current !== vn) throw Error(u(168));
-      I(Sn, n), I(bn, i);
+      I(Sn, n), I(Tn, i);
     }
     function Ff(r, n, i) {
       var a = r.stateNode;
@@ -22935,49 +22433,49 @@
     }
     function Gf(r) {
       return (
-        (r = ((r = r.stateNode) && r.__reactInternalMemoizedMergedChildContext) || vn), (Tn = Sn.current), I(Sn, r), I(bn, bn.current), !0
+        (r = ((r = r.stateNode) && r.__reactInternalMemoizedMergedChildContext) || vn), (bn = Sn.current), I(Sn, r), I(Tn, Tn.current), !0
       );
     }
     function Hf(r, n, i) {
       var a = r.stateNode;
       if (!a) throw Error(u(169));
-      i ? ((r = Ff(r, n, Tn)), (a.__reactInternalMemoizedMergedChildContext = r), H(bn), H(Sn), I(Sn, r)) : H(bn), I(bn, i);
+      i ? ((r = Ff(r, n, bn)), (a.__reactInternalMemoizedMergedChildContext = r), H(Tn), H(Sn), I(Sn, r)) : H(Tn), I(Tn, i);
     }
     var Cn = s.unstable_runWithPriority,
-      An = s.unstable_scheduleCallback,
-      In = s.unstable_cancelCallback,
-      On = s.unstable_requestPaint,
+      On = s.unstable_scheduleCallback,
+      An = s.unstable_cancelCallback,
+      In = s.unstable_requestPaint,
       Pn = s.unstable_now,
-      wn = s.unstable_getCurrentPriorityLevel,
-      kn = s.unstable_ImmediatePriority,
-      xn = s.unstable_UserBlockingPriority,
-      Ln = s.unstable_NormalPriority,
-      Nn = s.unstable_LowPriority,
-      Rn = s.unstable_IdlePriority,
+      kn = s.unstable_getCurrentPriorityLevel,
+      wn = s.unstable_ImmediatePriority,
+      Ln = s.unstable_UserBlockingPriority,
+      xn = s.unstable_NormalPriority,
+      Rn = s.unstable_LowPriority,
+      Nn = s.unstable_IdlePriority,
       Dn = {},
       Fn = s.unstable_shouldYield,
-      Mn = void 0 !== On ? On : function () {},
+      Mn = void 0 !== In ? In : function () {},
       Bn = null,
       Vn = null,
-      Un = !1,
-      Kn = Pn(),
+      Kn = !1,
+      Un = Pn(),
       Gn =
-        1e4 > Kn
+        1e4 > Un
           ? Pn
           : function () {
-              return Pn() - Kn;
+              return Pn() - Un;
             };
     function ag() {
-      switch (wn()) {
-        case kn:
+      switch (kn()) {
+        case wn:
           return 99;
-        case xn:
-          return 98;
         case Ln:
+          return 98;
+        case xn:
           return 97;
-        case Nn:
-          return 96;
         case Rn:
+          return 96;
+        case Nn:
           return 95;
         default:
           throw Error(u(332));
@@ -22986,15 +22484,15 @@
     function bg(r) {
       switch (r) {
         case 99:
-          return kn;
+          return wn;
         case 98:
-          return xn;
-        case 97:
           return Ln;
+        case 97:
+          return xn;
         case 96:
-          return Nn;
-        case 95:
           return Rn;
+        case 95:
+          return Nn;
         default:
           throw Error(u(332));
       }
@@ -23003,21 +22501,21 @@
       return (r = bg(r)), Cn(r, n);
     }
     function dg(r, n, i) {
-      return (r = bg(r)), An(r, n, i);
+      return (r = bg(r)), On(r, n, i);
     }
     function eg(r) {
-      return null === Bn ? ((Bn = [r]), (Vn = An(kn, fg))) : Bn.push(r), Dn;
+      return null === Bn ? ((Bn = [r]), (Vn = On(wn, fg))) : Bn.push(r), Dn;
     }
     function gg() {
       if (null !== Vn) {
         var r = Vn;
-        (Vn = null), In(r);
+        (Vn = null), An(r);
       }
       fg();
     }
     function fg() {
-      if (!Un && null !== Bn) {
-        Un = !0;
+      if (!Kn && null !== Bn) {
+        Kn = !0;
         var r = 0;
         try {
           var n = Bn;
@@ -23031,9 +22529,9 @@
           }),
             (Bn = null);
         } catch (n) {
-          throw (null !== Bn && (Bn = Bn.slice(r + 1)), An(kn, gg), n);
+          throw (null !== Bn && (Bn = Bn.slice(r + 1)), On(wn, gg), n);
         } finally {
-          Un = !1;
+          Kn = !1;
         }
       }
     }
@@ -23044,16 +22542,16 @@
       if (r && r.defaultProps) for (var i in ((n = o({}, n)), (r = r.defaultProps))) void 0 === n[i] && (n[i] = r[i]);
       return n;
     }
-    var zn = { current: null },
-      Hn = null,
+    var Hn = { current: null },
+      zn = null,
       jn = null,
       Wn = null;
     function ng() {
-      Wn = jn = Hn = null;
+      Wn = jn = zn = null;
     }
     function og(r) {
-      var n = zn.current;
-      H(zn), (r.type._context._currentValue = n);
+      var n = Hn.current;
+      H(Hn), (r.type._context._currentValue = n);
     }
     function pg(r, n) {
       for (; null !== r; ) {
@@ -23067,7 +22565,7 @@
       }
     }
     function qg(r, n) {
-      (Hn = r),
+      (zn = r),
         (Wn = jn = null),
         null !== (r = r.dependencies) && null !== r.firstContext && (r.expirationTime >= n && (la = !0), (r.firstContext = null));
     }
@@ -23078,8 +22576,8 @@
           (n = { context: r, observedBits: n, next: null }),
           null === jn)
         ) {
-          if (null === Hn) throw Error(u(308));
-          (jn = n), (Hn.dependencies = { expirationTime: 0, firstContext: n, responders: null });
+          if (null === zn) throw Error(u(308));
+          (jn = n), (zn.dependencies = { expirationTime: 0, firstContext: n, responders: null });
         } else jn = jn.next = n;
       return r._currentValue;
     }
@@ -23237,7 +22735,7 @@
       return (
         "object" == typeof s && null !== s
           ? (s = sg(s))
-          : ((o = L(n) ? Tn : Sn.current), (s = (a = null != (a = n.contextTypes)) ? Cf(r, o) : vn)),
+          : ((o = L(n) ? bn : Sn.current), (s = (a = null != (a = n.contextTypes)) ? Cf(r, o) : vn)),
         (n = new n(i, s)),
         (r.memoizedState = null !== n.state && void 0 !== n.state ? n.state : null),
         (n.updater = Xn),
@@ -23257,7 +22755,7 @@
       var o = r.stateNode;
       (o.props = i), (o.state = r.memoizedState), (o.refs = qn), ug(r);
       var s = n.contextType;
-      "object" == typeof s && null !== s ? (o.context = sg(s)) : ((s = L(n) ? Tn : Sn.current), (o.context = Cf(r, s))),
+      "object" == typeof s && null !== s ? (o.context = sg(s)) : ((s = L(n) ? bn : Sn.current), (o.context = Cf(r, s))),
         zg(r, i, o, a),
         (o.state = r.memoizedState),
         "function" == typeof (s = n.getDerivedStateFromProps) && (Fg(r, n, s, i), (o.state = r.memoizedState)),
@@ -24089,7 +23587,7 @@
       ((null === r && null !== i) || (null !== r && r.ref !== i)) && (n.effectTag |= 128);
     }
     function di(r, n, i, a, o) {
-      var s = L(i) ? Tn : Sn.current;
+      var s = L(i) ? bn : Sn.current;
       return (
         (s = Cf(n, s)),
         qg(n, o),
@@ -24112,7 +23610,7 @@
         y.props = E;
         var w = y.context,
           $ = i.contextType;
-        "object" == typeof $ && null !== $ ? ($ = sg($)) : ($ = Cf(n, ($ = L(i) ? Tn : Sn.current)));
+        "object" == typeof $ && null !== $ ? ($ = sg($)) : ($ = Cf(n, ($ = L(i) ? bn : Sn.current)));
         var ie = i.getDerivedStateFromProps,
           oe = "function" == typeof ie || "function" == typeof y.getSnapshotBeforeUpdate;
         oe ||
@@ -24123,7 +23621,7 @@
         (y.state = se),
           zg(n, a, y, o),
           (w = n.memoizedState),
-          E !== a || se !== w || bn.current || Yn
+          E !== a || se !== w || Tn.current || Yn
             ? ("function" == typeof ie && (Fg(n, i, ie, a), (w = n.memoizedState)),
               (E = Yn || Kg(n, i, E, a, se, w, $))
                 ? (oe ||
@@ -24143,7 +23641,7 @@
           (E = n.memoizedProps),
           (y.props = n.type === n.elementType ? E : ig(n.type, E)),
           (w = y.context),
-          "object" == typeof ($ = i.contextType) && null !== $ ? ($ = sg($)) : ($ = Cf(n, ($ = L(i) ? Tn : Sn.current))),
+          "object" == typeof ($ = i.contextType) && null !== $ ? ($ = sg($)) : ($ = Cf(n, ($ = L(i) ? bn : Sn.current))),
           (oe = "function" == typeof (ie = i.getDerivedStateFromProps) || "function" == typeof y.getSnapshotBeforeUpdate) ||
             ("function" != typeof y.UNSAFE_componentWillReceiveProps && "function" != typeof y.componentWillReceiveProps) ||
             ((E !== a || w !== $) && Mg(n, y, a, $)),
@@ -24152,7 +23650,7 @@
           (y.state = w),
           zg(n, a, y, o),
           (se = n.memoizedState),
-          E !== a || w !== se || bn.current || Yn
+          E !== a || w !== se || Tn.current || Yn
             ? ("function" == typeof ie && (Fg(n, i, ie, a), (se = n.memoizedState)),
               (ie = Yn || Kg(n, i, E, a, w, se, $))
                 ? (oe ||
@@ -24366,7 +23864,7 @@
         case 3:
           return (
             eh(),
-            H(bn),
+            H(Tn),
             H(Sn),
             (i = n.stateNode).pendingContext && ((i.context = i.pendingContext), (i.pendingContext = null)),
             (null !== r && null !== r.child) || !Wh(n) || (n.effectTag |= 4),
@@ -24505,7 +24003,7 @@
                   "style" === y
                     ? md(r, ie)
                     : "dangerouslySetInnerHTML" === y
-                    ? null != (ie = ie ? ie.__html : void 0) && Ot(r, ie)
+                    ? null != (ie = ie ? ie.__html : void 0) && It(r, ie)
                     : "children" === y
                     ? "string" == typeof ie
                       ? ("textarea" !== s || "" !== ie) && Rb(r, ie)
@@ -24570,8 +24068,8 @@
                   !a &&
                   0 != (2 & n.mode) &&
                   ((null === r && !0 !== n.memoizedProps.unstable_avoidThisFallback) || 0 != (1 & ui.current)
-                    ? Ka === Ia && (Ka = Oa)
-                    : ((Ka !== Ia && Ka !== Oa) || (Ka = Pa), 0 !== qa && null !== Na && (xi(Na, Ua), yi(Na, qa)))),
+                    ? Ua === Aa && (Ua = Ia)
+                    : ((Ua !== Aa && Ua !== Ia) || (Ua = Pa), 0 !== qa && null !== Na && (xi(Na, Ka), yi(Na, qa)))),
                 (i || a) && (n.effectTag |= 4),
                 null)
           );
@@ -24585,7 +24083,7 @@
           if ((H(ui), null === (a = n.memoizedState))) return null;
           if (((s = 0 != (64 & n.effectTag)), null === (y = a.rendering))) {
             if (s) ri(a, !1);
-            else if (Ka !== Ia || (null !== r && 0 != (64 & r.effectTag)))
+            else if (Ua !== Aa || (null !== r && 0 != (64 & r.effectTag)))
               for (y = n.child; null !== y; ) {
                 if (null !== (r = hh(y))) {
                   for (
@@ -24668,7 +24166,7 @@
           var n = r.effectTag;
           return 4096 & n ? ((r.effectTag = (-4097 & n) | 64), r) : null;
         case 3:
-          if ((eh(), H(bn), H(Sn), 0 != (64 & (n = r.effectTag)))) throw Error(u(285));
+          if ((eh(), H(Tn), H(Sn), 0 != (64 & (n = r.effectTag)))) throw Error(u(285));
           return (r.effectTag = (-4097 & n) | 64), r;
         case 5:
           return gh(r), null;
@@ -25073,7 +24571,7 @@
               ) {
                 var y = s[o],
                   E = s[o + 1];
-                "style" === y ? md(i, E) : "dangerouslySetInnerHTML" === y ? Ot(i, E) : "children" === y ? Rb(i, E) : Xa(i, y, E, n);
+                "style" === y ? md(i, E) : "dangerouslySetInnerHTML" === y ? It(i, E) : "children" === y ? Rb(i, E) : Xa(i, y, E, n);
               }
               switch (r) {
                 case "input":
@@ -25185,15 +24683,15 @@
     var ya,
       _a = Math.ceil,
       va = ot.ReactCurrentDispatcher,
-      Aa = ot.ReactCurrentOwner,
-      Ia = 0,
-      Oa = 3,
+      Oa = ot.ReactCurrentOwner,
+      Aa = 0,
+      Ia = 3,
       Pa = 4,
       wa = 0,
       Na = null,
       Ba = null,
-      Ua = 0,
-      Ka = Ia,
+      Ka = 0,
+      Ua = Aa,
       za = null,
       Wa = 1073741823,
       Ya = 1073741823,
@@ -25219,7 +24717,7 @@
       if (0 == (2 & (n = n.mode))) return 1073741823;
       var a = ag();
       if (0 == (4 & n)) return 99 === a ? 1073741823 : 1073741822;
-      if (0 != (16 & wa)) return Ua;
+      if (0 != (16 & wa)) return Ka;
       if (null !== i) r = hg(r, 0 | i.timeoutMs || 5e3, 250);
       else
         switch (a) {
@@ -25239,7 +24737,7 @@
           default:
             throw Error(u(326));
         }
-      return null !== Na && r === Ua && --r, r;
+      return null !== Na && r === Ka && --r, r;
     }
     function Ig(r, n) {
       if (50 < so) throw ((so = 0), (lo = null), Error(u(185)));
@@ -25271,7 +24769,7 @@
           }
           a = a.return;
         }
-      return null !== o && (Na === o && (Bg(n), Ka === Pa && xi(o, Ua)), yi(o, n)), o;
+      return null !== o && (Na === o && (Bg(n), Ua === Pa && xi(o, Ka)), yi(o, n)), o;
     }
     function zj(r) {
       var n = r.lastExpiredTime;
@@ -25299,7 +24797,7 @@
           ) {
             var o = r.callbackPriority;
             if (r.callbackExpirationTime === n && o >= a) return;
-            i !== Dn && In(i);
+            i !== Dn && An(i);
           }
           (r.callbackExpirationTime = n),
             (r.callbackPriority = a),
@@ -25313,7 +24811,7 @@
       var i = zj(r);
       if (0 !== i) {
         if (((n = r.callbackNode), 0 != (48 & wa))) throw Error(u(327));
-        if ((Dj(), (r === Na && i === Ua) || Ej(r, i), null !== Ba)) {
+        if ((Dj(), (r === Na && i === Ka) || Ej(r, i), null !== Ba)) {
           var a = wa;
           wa |= 16;
           for (var o = Fj(); ; )
@@ -25323,16 +24821,16 @@
             } catch (n) {
               Hj(r, n);
             }
-          if ((ng(), (wa = a), (va.current = o), 1 === Ka)) throw ((n = za), Ej(r, i), xi(r, i), Z(r), n);
+          if ((ng(), (wa = a), (va.current = o), 1 === Ua)) throw ((n = za), Ej(r, i), xi(r, i), Z(r), n);
           if (null === Ba)
-            switch (((o = r.finishedWork = r.current.alternate), (r.finishedExpirationTime = i), (a = Ka), (Na = null), a)) {
-              case Ia:
+            switch (((o = r.finishedWork = r.current.alternate), (r.finishedExpirationTime = i), (a = Ua), (Na = null), a)) {
+              case Aa:
               case 1:
                 throw Error(u(345));
               case 2:
                 Cj(r, 2 < i ? 2 : i);
                 break;
-              case Oa:
+              case Ia:
                 if (
                   (xi(r, i),
                   i === (a = r.lastSuspendedTime) && (r.nextKnownPendingLevel = Ij(o)),
@@ -25426,7 +24924,7 @@
     function yj(r) {
       var n = r.lastExpiredTime;
       if (((n = 0 !== n ? n : 1073741823), 0 != (48 & wa))) throw Error(u(327));
-      if ((Dj(), (r === Na && n === Ua) || Ej(r, n), null !== Ba)) {
+      if ((Dj(), (r === Na && n === Ka) || Ej(r, n), null !== Ba)) {
         var i = wa;
         wa |= 16;
         for (var a = Fj(); ; )
@@ -25436,7 +24934,7 @@
           } catch (n) {
             Hj(r, n);
           }
-        if ((ng(), (wa = i), (va.current = a), 1 === Ka)) throw ((i = za), Ej(r, n), xi(r, n), Z(r), i);
+        if ((ng(), (wa = i), (va.current = a), 1 === Ua)) throw ((i = za), Ej(r, n), xi(r, n), Z(r), i);
         if (null !== Ba) throw Error(u(261));
         (r.finishedWork = r.current.alternate), (r.finishedExpirationTime = n), (Na = null), Jj(r), Z(r);
       }
@@ -25471,7 +24969,7 @@
               null != (a = a.type.childContextTypes) && Df();
               break;
             case 3:
-              eh(), H(bn), H(Sn);
+              eh(), H(Tn), H(Sn);
               break;
             case 5:
               gh(a);
@@ -25488,7 +24986,7 @@
           }
           i = i.return;
         }
-      (Na = r), (Ba = Sg(r.current, null)), (Ua = n), (Ka = Ia), (za = null), (Ya = Wa = 1073741823), ($a = null), (qa = 0), (Qa = !1);
+      (Na = r), (Ba = Sg(r.current, null)), (Ka = n), (Ua = Aa), (za = null), (Ya = Wa = 1073741823), ($a = null), (qa = 0), (Qa = !1);
     }
     function Hj(r, n) {
       for (;;) {
@@ -25498,14 +24996,14 @@
               var a = i.queue;
               null !== a && (a.pending = null), (i = i.next);
             }
-          if (((vi = 0), (Li = wi = Ti = null), (Bi = !1), null === Ba || null === Ba.return)) return (Ka = 1), (za = n), (Ba = null);
+          if (((vi = 0), (Li = wi = Ti = null), (Bi = !1), null === Ba || null === Ba.return)) return (Ua = 1), (za = n), (Ba = null);
           e: {
             var o = r,
               s = Ba.return,
               y = Ba,
               E = n;
             if (
-              ((n = Ua),
+              ((n = Ka),
               (y.effectTag |= 2048),
               (y.firstEffect = y.lastEffect = null),
               null !== E && "object" == typeof E && "function" == typeof E.then)
@@ -25568,7 +25066,7 @@
                   qb(y)
               );
             }
-            5 !== Ka && (Ka = 2), (E = Ai(E, y)), (oe = s);
+            5 !== Ua && (Ua = 2), (E = Ai(E, y)), (oe = s);
             do {
               switch (oe.tag) {
                 case 3:
@@ -25615,15 +25113,15 @@
       for (; null !== Ba && !Fn(); ) Ba = Qj(Ba);
     }
     function Qj(r) {
-      var n = ya(r.alternate, r, Ua);
-      return (r.memoizedProps = r.pendingProps), null === n && (n = Pj(r)), (Aa.current = null), n;
+      var n = ya(r.alternate, r, Ka);
+      return (r.memoizedProps = r.pendingProps), null === n && (n = Pj(r)), (Oa.current = null), n;
     }
     function Pj(r) {
       Ba = r;
       do {
         var n = Ba.alternate;
         if (((r = Ba.return), 0 == (2048 & Ba.effectTag))) {
-          if (((n = si(n, Ba, Ua)), 1 === Ua || 1 !== Ba.childExpirationTime)) {
+          if (((n = si(n, Ba, Ka)), 1 === Ka || 1 !== Ba.childExpirationTime)) {
             for (var i = 0, a = Ba.child; null !== a; ) {
               var o = a.expirationTime,
                 s = a.childExpirationTime;
@@ -25644,7 +25142,7 @@
         if (null !== (n = Ba.sibling)) return n;
         Ba = r;
       } while (null !== Ba);
-      return Ka === Ia && (Ka = 5), null;
+      return Ua === Aa && (Ua = 5), null;
     }
     function Ij(r) {
       var n = r.expirationTime;
@@ -25672,12 +25170,12 @@
           : a <= r.firstSuspendedTime && (r.firstSuspendedTime = a - 1),
         a <= r.lastPingedTime && (r.lastPingedTime = 0),
         a <= r.lastExpiredTime && (r.lastExpiredTime = 0),
-        r === Na && ((Ba = Na = null), (Ua = 0)),
+        r === Na && ((Ba = Na = null), (Ka = 0)),
         1 < i.effectTag ? (null !== i.lastEffect ? ((i.lastEffect.nextEffect = i), (o = i.firstEffect)) : (o = i)) : (o = i.firstEffect),
         null !== o)
       ) {
         var s = wa;
-        (wa |= 32), (Aa.current = null), (pr = sr);
+        (wa |= 32), (Oa.current = null), (pr = sr);
         var y = xd();
         if (yd(y)) {
           if ("selectionStart" in y) var E = { start: y.selectionStart, end: y.selectionEnd };
@@ -25932,9 +25430,9 @@
     function Oj(r, n, i) {
       var a = r.pingCache;
       null !== a && a.delete(n),
-        Na === r && Ua === i
-          ? Ka === Pa || (Ka === Oa && 1073741823 === Wa && Gn() - Za < 500)
-            ? Ej(r, Ua)
+        Na === r && Ka === i
+          ? Ua === Pa || (Ua === Ia && 1073741823 === Wa && Gn() - Za < 500)
+            ? Ej(r, Ka)
             : (Qa = !0)
           : Aj(r, i) && ((0 !== (n = r.lastPingedTime) && n < i) || ((r.lastPingedTime = i), Z(r)));
     }
@@ -25946,7 +25444,7 @@
       var a = n.expirationTime;
       if (null !== r) {
         var o = n.pendingProps;
-        if (r.memoizedProps !== o || bn.current) la = !0;
+        if (r.memoizedProps !== o || Tn.current) la = !0;
         else {
           if (a < i) {
             switch (((la = !1), n.tag)) {
@@ -25963,7 +25461,7 @@
                 dh(n, n.stateNode.containerInfo);
                 break;
               case 10:
-                (a = n.memoizedProps.value), (o = n.type._context), I(zn, o._currentValue), (o._currentValue = a);
+                (a = n.memoizedProps.value), (o = n.type._context), I(Hn, o._currentValue), (o._currentValue = a);
                 break;
               case 13:
                 if (null !== n.memoizedState)
@@ -26121,12 +25619,12 @@
           e: {
             (a = n.type._context), (o = n.pendingProps), (y = n.memoizedProps), (s = o.value);
             var E = n.type._context;
-            if ((I(zn, E._currentValue), (E._currentValue = s), null !== y))
+            if ((I(Hn, E._currentValue), (E._currentValue = s), null !== y))
               if (
                 ((E = y.value),
                 0 === (s = Qr(E, s) ? 0 : 0 | ("function" == typeof a._calculateChangedBits ? a._calculateChangedBits(E, s) : 1073741823)))
               ) {
-                if (y.children === o.children && !bn.current) {
+                if (y.children === o.children && !Tn.current) {
                   n = $h(r, n, i);
                   break e;
                 }
@@ -26281,7 +25779,7 @@
                 case St:
                   (y = 16), (a = null);
                   break e;
-                case bt:
+                case Tt:
                   y = 22;
                   break e;
               }
@@ -26497,10 +25995,10 @@
           Ig(r, n), ek(r, n);
         }
       }),
-      (Ut = function (r) {
+      (Kt = function (r) {
         13 === r.tag && (Ig(r, 3), ek(r, 3));
       }),
-      (Kt = function (r) {
+      (Ut = function (r) {
         if (13 === r.tag) {
           var n = Gg();
           Ig(r, (n = Hg(n, r, null))), ek(r, n);
@@ -26675,11 +26173,11 @@
       }),
       (n.version = "16.14.0");
   },
-  75: function (r, n, i) {
+  68: function (r, n, i) {
     "use strict";
-    r.exports = i(76);
+    r.exports = i(69);
   },
-  76: function (r, n, i) {
+  69: function (r, n, i) {
     "use strict";
     var a, o, s, y, E;
     if ("undefined" == typeof window || "function" != typeof MessageChannel) {
@@ -26974,11 +26472,26 @@
         };
       });
   },
-  77: function (r, n, i) {
-    "use strict";
-    r.exports = i(78);
+  7: function (r, n) {
+    const i = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
+      a = ["Firefox", "Safari", "MSIE"];
+    r.exports.BrowserAPI = (() => {
+      for (const r of i) if (navigator.userAgent.indexOf(r) > -1) return !0;
+      return !1;
+    })()
+      ? chrome
+      : (() => {
+          for (const r of a) if (navigator.userAgent.indexOf(r) > -1) return !0;
+          return !1;
+        })()
+      ? browser
+      : { runtime: { sendMessage: () => {} } };
   },
-  78: function (r, n, i) {
+  70: function (r, n, i) {
+    "use strict";
+    r.exports = i(71);
+  },
+  71: function (r, n, i) {
     "use strict";
     var a = "function" == typeof Symbol && Symbol.for,
       o = a ? Symbol.for("react.element") : 60103,
@@ -27107,7 +26620,7 @@
       }),
       (n.typeOf = z);
   },
-  79: function (r, n) {
+  72: function (r, n) {
     var i,
       a,
       o = (r.exports = {});
@@ -27217,22 +26730,7 @@
         return 0;
       });
   },
-  8: function (r, n) {
-    const i = ["Chrome", "Opera", "Edge", "SamsungBrowser", "YaBrowser"],
-      a = ["Firefox", "Safari", "MSIE"];
-    r.exports.BrowserAPI = (() => {
-      for (const r of i) if (navigator.userAgent.indexOf(r) > -1) return !0;
-      return !1;
-    })()
-      ? chrome
-      : (() => {
-          for (const r of a) if (navigator.userAgent.indexOf(r) > -1) return !0;
-          return !1;
-        })()
-      ? browser
-      : { runtime: { sendMessage: () => {} } };
-  },
-  80: function (r, n, i) {
+  73: function (r, n, i) {
     "use strict";
     var a,
       o = Symbol.for("react.element"),
@@ -27357,6 +26855,542 @@
       }),
       (n.typeOf = v);
   },
+  74: function (r, n, i) {
+    "use strict";
+    var a = i(3),
+      o = i(0),
+      s = i(9);
+    n.a = new (class WhitelistHelper {
+      list() {
+        return new Promise((r) => {
+          s.c.get(o.h.WHITELIST).then((n) => {
+            r(n || []);
+          });
+        });
+      }
+      add(r) {
+        return this.list().then((n) => {
+          n.push(r), s.c.set(o.h.WHITELIST, n);
+        });
+      }
+      remove(r) {
+        return this.list().then((n) => {
+          (n = n.filter((n) => n !== r)), s.c.set(o.h.WHITELIST, n);
+        });
+      }
+      async containsDomain(r) {
+        const n = await this.list();
+        return (
+          (r = Object(a.c)(r)),
+          n.some((n) => {
+            n.includes("http") || (n = "http://" + n);
+            return new URL(n).hostname === r;
+          })
+        );
+      }
+    })();
+  },
+  75: function (r, n, i) {
+    "use strict";
+    n.a = {
+      thank_you_page_CH: "https://poperblocker.com/welcome",
+      thank_you_page_FF: "https://poperblocker.com/welcome-firefox",
+      privacy_policy_CH: "https://poperblocker.com/privacy/",
+      privacy_policy_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/privacy/",
+      uninstall_page_CH: "https://poperblocker.com/uninstall/?",
+      uninstall_page_FF: "https://poperblocker.com/uninstall-firefox/?",
+      feedback_page: "https://poperblocker.com/feedback.html?from=ext",
+      contact_page: "https://poperblocker.com/contact-form.html",
+      appStore_CH: "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche",
+      appStore_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/",
+      extension_review_page_CH:
+        "https://chrome.google.com/webstore/detail/pop-up-blocker-for-chrome/bkkbcggnhapdmkeljlodobbkopceiche/reviews",
+      extension_review_page_FF: "https://addons.mozilla.org/en-US/firefox/addon/poper-blocker-pop-up-blocker/reviews/add",
+      twitter_share_link:
+        "https://twitter.com/intent/tweet?hashtags=popups&original_referer=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share&related=socialmediahats&text=I'm%20using%20poper%20blocker%20to%20enjoy%20a%20popup%20free%20browsing%20experience%20pic.twitter.com%2FniqVgqfmAw&url=https%3A%2F%2Fgoo.gl%2FryoaEn&via=poper_blocker",
+      facebook_share_link:
+        "https://www.facebook.com/dialog/share?app_id=1911035589168170&display=popup&href=https%3A%2F%2Fpoperblocker.com%3Fref%3Dfb_pp_share%3Fhl%3Den&hashtag=%23For_No_More_Popups_Click_Below",
+      facebook_base_url: "www.facebook.com",
+      overlay_check_API: "https://api2.poperblocker.com/view/update",
+      overlay_blocking_context_item_contexts: ["page", "frame", "selection", "link", "editable", "image", "video", "audio"],
+      googleSheetID: "1dRQsmt6DYMXGo3YeTQ442kV-xxG1LJfG41wEUpnWefM",
+      dataSettings: { strKeys: ["ga_allEvent_rate", "ni"], arrKeys: ["blacklist", "whitelist"] },
+      blockCountsToShowRate: 5,
+      blockCountsToShowRateAgain: 100,
+      totalBlockingFeatures: 2,
+      blockedTypes: {
+        win: "win",
+        tab: "tab",
+        overlay: "overlay",
+        ad: "ad",
+        cookie: "cookie",
+        fbAd: "fbAd",
+        linkedinAd: "linkedinAd",
+        twitterAd: "twitterAd",
+        tracker: "tracker",
+        instagramAd: "instagramAd",
+        youtubeAd: "youtubeAd"
+      },
+      defaultBlackList: [
+        "adrunnr",
+        "successforyu.clickfunnels.com",
+        "fmovies.se",
+        "in-365-tagen.info",
+        "5000-settimanale.com",
+        "shop.mazzugioielli.com",
+        "maxigossip.com",
+        "lp.yazizim.com",
+        "beyourxfriend.com",
+        "99tab.com",
+        "zzqrt.com",
+        "canuck-method.net",
+        "bewomenly.com",
+        "playnow.guru",
+        "datingforyou-48e1.kxcdn.com",
+        "trafficnetworkads24.com",
+        "sistemadedinerogratis.com",
+        "canuckmethodprofit.co",
+        "consumerresearchnetwork.com",
+        "securemacfix.com",
+        "zz3d3.ru",
+        "zd1.quebec-bin.com",
+        "hot-games4you.xyz",
+        "om.elvenar.com",
+        "superpccleanup.com",
+        "gomediaz.com",
+        "judithi.xyz",
+        "free.atozmanuals.com",
+        "yoursuccess.ravpage.co.il",
+        "123hop.ir",
+        "quizcliente.pw",
+        "aussiemethod.biz",
+        "hlpnowp-c.com",
+        "picbumper.com",
+        "shaneless.com",
+        "anacondamonster.com",
+        "altrk1.com",
+        "health.todaydiets.com",
+        "download.weatherblink.com",
+        "happyluketh.com",
+        "go.ameinfo.com",
+        "50kaweek.net",
+        "thepornsurvey.com",
+        "ofsiite.ru",
+        "fulltab.com",
+        "1000spins.com",
+        "time2play-online.net",
+        "vintacars.com",
+        "welcome.pussysaga.com",
+        "free-desktop-games.com",
+        "download.televisionfanatic.com",
+        "theprofitsmaker.net",
+        "sgad.info",
+        "algocashmaster.net",
+        "sunmaker.com",
+        "topvipdreams.com",
+        "watchmygirlfriend.gfpornvideos.com",
+        "filesharefanatic.com",
+        "safedownloadhub.com",
+        "7awlalalam.blogspot.com",
+        "tvplusnewtab.com",
+        "trendingpatrol.com",
+        "moneymorning.com",
+        "ifileyou.com",
+        "classifiedcanada.ca",
+        "firefan.com",
+        "methode-binaire.com",
+        "letmetell.com",
+        "kenduktur.com",
+        "getafuk.com",
+        "yotraleplahnte.ru",
+        "jackpot.88beto.com",
+        "pwwysydh.com",
+        "search.queryrouter.com",
+        "v.lvztxy.com",
+        "pussysaga.com",
+        "saffamethod.com",
+        "prezzonline.com",
+        "searchprivacy.website",
+        "3d2819216eb4e1035879-7c248de0c99745406e9b749fc86ec3e4.ssl.cf1.rackcdn.com",
+        "only2date.com",
+        "mysagagame.com",
+        "themillionaireinpjs.net",
+        "wlt.kd2244.com",
+        "quickprivacycheck.com",
+        "hotchatdate.com",
+        "autotraderbot.com",
+        "z1.zedo.com",
+        "youlucky2014.com",
+        "traffic.getmyads.com",
+        "appcloudprotected.com",
+        "safensecure.com-allsites3.xyz",
+        "newpoptab.com",
+        "static.williamhill.com",
+        "myhealthyblog.co",
+        "greatestmobideals.com",
+        "sweetclarity.com",
+        "mgid.com",
+        "securepccure.com",
+        "autopengebygger.com",
+        "am15.net",
+        "es.reimageplus.com",
+        "o2.promos-info.com",
+        "it.reimageplus.com",
+        "westsluts.com",
+        "spinandwin.com-ser.pw",
+        "reimageplus.com",
+        "vodafone.promos-info.com",
+        "vinnmatpengar.se",
+        "movie.ienjoyapps.com",
+        "love4single.com",
+        "origin.getprice.com.au",
+        "ohmydating.com",
+        "lp.want-to-win.com",
+        "yabuletchrome.ru",
+        "bamdad.net",
+        "gotositenow.com",
+        "vcrypt.pw",
+        "newtabtv.com",
+        "mon.setsu.xyz",
+        "youforgottorenewyourhosting.com",
+        "zone-telechargement.ws",
+        "land.pckeeper.software",
+        "ad.adpop-1.com",
+        "advancedpctools.com",
+        "videos.randolphcountyheraldtribune.com",
+        "web-start.org",
+        "softreadynow.installupgradenowfreshandforyou.website",
+        "uplod.ws",
+        "pornhubcasino.com",
+        "maxbet.ro",
+        "2016prizefeed.com",
+        "thevideo.me",
+        "wantubad.com",
+        "tavanero.com",
+        "xcusmy.club",
+        "daclips.in",
+        "gaymenofporn.online",
+        "jackpotcitycasino.com",
+        "italian-method.com",
+        "getsearchincognito.com",
+        "youjustwonprize.com",
+        "finanz-nachrichten.me",
+        "quizcliente.site",
+        "da.reimageplus.com",
+        "jkanime.net",
+        "britmoneymethod.com",
+        "uae.souq.com",
+        "ka.azzer.net",
+        "safensecure.xyz",
+        "8t.hootingrhejkz.online",
+        "www6.blinkx.com",
+        "wizzcaster.com",
+        "comparaison-prix.com",
+        "vodlocker.lol",
+        "fr.reimageplus.com",
+        "free.fromdoctopdf.com",
+        "userscloud.com",
+        "myprivatesearch.com",
+        "fanli90.cn",
+        "tutticodicisconto.it",
+        "mediadec.com",
+        "gogamego.thewhizproducts.com",
+        "download.weatherblink.com",
+        "free.videodownloadconverter.com",
+        "we-are-gamers.com",
+        "sesso.communityadult.net",
+        "lp.blpmovies.com",
+        "search.queryrouter.com",
+        "bbb-johannesburg.localspecific.com",
+        "lp.blpmovies.com",
+        "go.ppixelm.com",
+        "r0.ru",
+        "sesso.communityadult.net",
+        "bbb-johannesburg.localspecific.com",
+        "ppixelm.com",
+        "cyberguardianspe.info",
+        "we-are-gamers.com",
+        "loginfaster.com/new",
+        "www.alfacart.com",
+        "www.foresee.com",
+        "mobile-win.com",
+        "www.plusnetwork.com",
+        "www.amicafarmacia.com",
+        "www.ienjoyapps.com",
+        "cheapcheap.io",
+        "screenaddict.thewhizproducts.com",
+        "nova.rambler.ru",
+        "free.gamingwonderland.com",
+        "p9328ujeiw1.ru",
+        "mobilecasinoclub.co.uk",
+        "pfhsystem.com",
+        "regtuneup.com",
+        "theprofitsmaker.net",
+        "bodogpromotions.eu",
+        "heroesreplay.org",
+        "financialsecrets.info",
+        "mymoneymakingapp.com",
+        "sunmaker.com",
+        "888casino-promotions.com",
+        "vogliosesso.com",
+        "scienceremix.com",
+        "allinonedocs.com",
+        "arabia.starzplay.com",
+        "allirishcasino.com",
+        "advancepctools.info",
+        "movie.ienjoyapps.com",
+        "surveyform001.s3-website-us-east-1.amazonaws.com",
+        "mgs188.com",
+        "pfhsystem.com",
+        "lpeva.com",
+        "ddsh8.com",
+        "theprofitsmaker.net",
+        "b2.ijquery11.com",
+        "sporthero.thewhizmarketing.com",
+        "securefastmac.tech",
+        "seen-on-screen.thewhizmarketing.com",
+        "1000spins.com",
+        "search.queryrouter.com",
+        "pfhsystem.com",
+        "reimageplus.com",
+        "offer.alibaba.com",
+        "searchlistings.org",
+        "search.queryrouter.com",
+        "search.queryrouter.com",
+        "mybinaryoptionsrobot.com",
+        "duplicashapp.com",
+        "search.queryrouter.com",
+        "bestgame.directory",
+        "droidclub.net",
+        ".rivalo.com",
+        "yoursuperprize.com",
+        "mediaexplained.com",
+        "om.elvenar.com",
+        "shinar.club",
+        "revitoleczemacream.com",
+        "freelotto.com",
+        "screenaddict.thewhizproducts.com",
+        "download.bringmesports.com/",
+        "allinonedocs.com",
+        "driver-fixer.com",
+        "arabydeal.com",
+        "cleanyourcomputertoday.com",
+        "arabydeal.com",
+        "music.mixplugin.com",
+        "1se.info",
+        "survey12.com",
+        "freesoftwaredlul.com",
+        "pldist01.com",
+        "ad.adpop-1.com",
+        "searchanonymous.net",
+        "abrst.pro",
+        "muzikfury.thewhizmarketing.com",
+        "lp.mbtrx.com",
+        "th1.forfun.maxisize-pro.com",
+        "watchmygirlfriend.gfpornbox.com",
+        "new.freelotto.com",
+        "desktoptrack.com",
+        "search.queryrouter.com",
+        "offer.alibaba.com",
+        "1000spins.com",
+        "promotions.coral.co.uk",
+        "search.queryrouter.com",
+        "tbsia.com",
+        "tbsia.com",
+        "multtaepyo.com",
+        "search.queryrouter.com",
+        "czechmethod.com",
+        "consumerview.co",
+        "wayretail.com",
+        "72onbase.com",
+        "funsafetab.com",
+        "search.queryrouter.com",
+        "speedyfiledownload.com",
+        "driver-fixer.com",
+        "arabydeal.com",
+        "cleanyourcomputertoday.com",
+        "arabydeal.com",
+        "music.mixplugin.com",
+        "1se.info",
+        "survey12.com",
+        "freesoftwaredlul.com",
+        "pldist01.com",
+        "ad.adpop-1.com",
+        "searchanonymous.net",
+        "abrst.pro",
+        "muzikfury.thewhizmarketing.com",
+        "lp.mbtrx.com",
+        "th1.forfun.maxisize-pro.com",
+        "watchmygirlfriend.gfpornbox.com",
+        "new.freelotto.com",
+        "desktoptrack.com",
+        "search.queryrouter.com",
+        "offer.alibaba.com",
+        "1000spins.com",
+        "promotions.coral.co.uk",
+        "search.queryrouter.com",
+        "tbsia.com",
+        "tbsia.com",
+        "surveyform001.s3-website-us-east-1.amazonaws.com",
+        "mgs188.com",
+        "pfhsystem.com",
+        "lpeva.com",
+        "ddsh8.com",
+        "theprofitsmaker.net",
+        "quantomcoding.com",
+        "sporthero.thewhizmarketing.com",
+        "popads.net",
+        "onclkds.com",
+        "consumerview.co",
+        "12kotov.ru",
+        "ruhotpair2.fingta.com",
+        "easytelevisionaccessnow.com",
+        "ahwrd.com",
+        "lpeva.com",
+        "ppgzf.com",
+        "zjstx.com",
+        "kituure.xyz",
+        "join.pro-gaming-world.com",
+        "mackeeperapp.mackeeper.com",
+        "tracknotify.com",
+        "2075.cdn.beyondhosting.net",
+        "idollash.com",
+        "ds.moviegoat.com",
+        "fulltab.com",
+        "rackcdn.com",
+        "prestoris.com",
+        "adsterra.com",
+        "swampssovuuhusp.top",
+        "streesusa.info",
+        "freesoftwaredlul.com",
+        "adreactor.com",
+        "a-static.com",
+        "codeonclick.com",
+        "heheme.com",
+        "adf.ly",
+        "seen-on-screen.thewhizmarketing.com",
+        "openload.co"
+      ]
+    };
+  },
+  8: function (r, n, i) {
+    "use strict";
+    i.d(n, "b", function () {
+      return o;
+    }),
+      i.d(n, "a", function () {
+        return s;
+      }),
+      i.d(n, "c", function () {
+        return getPremiumFeaturesList;
+      }),
+      i.d(n, "d", function () {
+        return isFeatureEquals;
+      }),
+      i.d(n, "e", function () {
+        return isPremiumFeature;
+      });
+    var a = i(0);
+    const o = "tState",
+      s = {
+        SocialBlocker: {
+          Name: "SocialBlocker",
+          SettingsKey: "facebookAdds",
+          QuickSettings: { QuickSettingsId: a.m.FACEBOOK, QuickSettingsTitleId: "settingsSocialAd" },
+          HasTrial: !0,
+          Style: { "margin-top": "43px" },
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: a.d.FACEBOOK_END,
+          TotalBlocksKeys: ["fbAd", "linkedinAd", "twitterAd", "instagramAd"],
+          ShowDailyPromo: !1,
+          Analytics: {
+            EndTrialEvent: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_OVER_PROMOTION_VIEW,
+            PromoView: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_INTRIAL_PROMOTION_VIEW,
+            PromoNotificationClick: a.c.ANALYTICS_EVENT_TYPES.SOCIAL_BLOCKER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
+            PromoDiscountClick: a.c.ANALYTICS_EVENT_TYPES.CLICK_SOCIAL_BLOCKER_PROMOTION_DISCOUNT
+          }
+        },
+        CookieCrumbler: {
+          Name: "CookieCrumbler",
+          SettingsKey: "cookieCrumbler",
+          QuickSettings: { QuickSettingsId: a.m.COOKIE_CRUMBLER, QuickSettingsTitleId: "settingsCookie" },
+          HasTrial: !0,
+          Style: { "margin-top": "23px" },
+          ImgURL: "images/cookie-blocked.svg",
+          TitleStrId: "cookiesBlocked",
+          StartTrialBtnStrId: "startTrialcookiesBtn",
+          EndTrialBtnStrId: "removeCookieForAllGood",
+          EndTrialLottieFile: a.d.COOKIE,
+          TotalBlocksKeys: ["cookie"],
+          ShowDailyPromo: !1,
+          Analytics: {
+            EndTrialEvent: a.c.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_END_OF_TRIAL,
+            PromoView: a.c.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_IN_TRIAL,
+            PromoNotificationClick: a.c.ANALYTICS_EVENT_TYPES.COOKIE_CRUMBLER_TRIAL_PROMOTION_NOTIFICATION_CLICK,
+            PromoDiscountClick: a.c.ANALYTICS_EVENT_TYPES.CLICK_COOKIE_PROMOTION_DISCOUNT
+          }
+        },
+        AdsBlocker: {
+          Name: "AdsBlocker",
+          SettingsKey: "adsBlocker",
+          QuickSettings: { QuickSettingsId: "adsBlocker", QuickSettingsTitleId: "settingsAdsBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["ad"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: a.d.FACEBOOK_END,
+          ShowDailyPromo: !1,
+          Analytics: {
+            HookShow: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW,
+            HookShowPostTrial: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_SHOW_POSTTRIAL,
+            HookClick: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK,
+            HookClickPostTrial: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_CLICK_POSTTRIAL,
+            HookDismiss: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS,
+            HookDismissPostTrial: a.c.ANALYTICS_EVENT_TYPES.ADSBLOCKER_HOOK_DISMISS_POSTTRIAL
+          }
+        },
+        YoutubeBlocker: {
+          Name: "YoutubeBlocker",
+          SettingsKey: "youtubeBlocker",
+          QuickSettings: { QuickSettingsId: "youtubeBlocker", QuickSettingsTitleId: "settingsYoutubeAdsBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["youtubeAd"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "facebookadsBlocked",
+          StartTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialBtnStrId: "startTrialFacebookBtn",
+          EndTrialLottieFile: a.d.FACEBOOK_END,
+          ShowDailyPromo: !1,
+          Analytics: {
+            HookShow: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW,
+            HookShowPostTrial: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_SHOW_POSTTRIAL,
+            HookClick: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK,
+            HookClickPostTrial: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_CLICK_POSTTRIAL,
+            HookDismiss: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS,
+            HookDismissPostTrial: a.c.ANALYTICS_EVENT_TYPES.YOUTUBE_VIDEO_HOOK_DISMISS_POSTTRIAL
+          }
+        },
+        TrackersBlocker: {
+          Name: "TrackersBlocker",
+          SettingsKey: "trackersBlocker",
+          QuickSettings: { QuickSettingsId: "trackersBlocker", QuickSettingsTitleId: "settingsTrackersBlocker" },
+          HasTrial: !0,
+          TotalBlocksKeys: ["tracker"],
+          ImgURL: "images/facebook-cta.svg",
+          TitleStrId: "trackersBlockerSettingsTitle",
+          EndTrialLottieFile: a.d.FACEBOOK_END,
+          Analytics: {}
+        }
+      },
+      getPremiumFeaturesList = () => Object.keys(s).map((r) => s[r]),
+      isFeatureEquals = (r, n) => r.Name === n.Name,
+      isPremiumFeature = (r) => getPremiumFeaturesList().some((n) => isFeatureEquals(n, r));
+  },
   9: function (r, n, i) {
     "use strict";
     i.d(n, "a", function () {
@@ -27365,7 +27399,7 @@
       i.d(n, "b", function () {
         return Storage;
       });
-    var a = i(8),
+    var a = i(7),
       o = ((r) => ((r.Local = "local"), (r.Sync = "sync"), r))(o || {});
     class Storage {
       constructor(r) {
@@ -27417,7 +27451,7 @@
     const s = new Storage("local");
     n.c = s;
   },
-  93: function (r, n) {
+  91: function (r, n) {
     (function (n) {
       r.exports = n;
     }).call(this, {});

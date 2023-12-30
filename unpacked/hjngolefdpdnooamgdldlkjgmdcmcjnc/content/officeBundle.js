@@ -146,7 +146,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, r) {
@@ -162,7 +163,7 @@
     "use strict";
     var r,
       o,
-      c = {},
+      s = {},
       i = function () {
         return (r = void 0 === r ? Boolean(window && document && document.all && !window.atob) : r);
       },
@@ -204,14 +205,14 @@
     function d(e, t) {
       for (var r = 0; r < e.length; r++) {
         var n = e[r],
-          o = c[n.id],
+          o = s[n.id],
           i = 0;
         if (o) {
           for (o.refs++; i < o.parts.length; i++) o.parts[i](n.parts[i]);
           for (; i < n.parts.length; i++) o.parts.push(y(n.parts[i], t));
         } else {
           for (var a = []; i < n.parts.length; i++) a.push(y(n.parts[i], t));
-          c[n.id] = {
+          s[n.id] = {
             id: n.id,
             refs: 1,
             parts: a
@@ -219,7 +220,7 @@
         }
       }
     }
-    function u(t) {
+    function c(t) {
       var r = document.createElement("style");
       if (
         (void 0 === t.attributes.nonce && (e = n.nc) && (t.attributes.nonce = e),
@@ -236,7 +237,7 @@
       }
       return r;
     }
-    function s(e) {
+    function u(e) {
       if (null === e.parentNode) return !1;
       e.parentNode.removeChild(e);
     }
@@ -279,11 +280,11 @@
       var r, n, o, i;
       return (
         (i = e.singleton
-          ? ((r = v++), (n = g = g || u(e)), (o = h.bind(null, n, r, !1)), h.bind(null, n, r, !0))
-          : ((n = u(e)),
+          ? ((r = v++), (n = g = g || c(e)), (o = h.bind(null, n, r, !1)), h.bind(null, n, r, !0))
+          : ((n = c(e)),
             (o = m.bind(null, n, e)),
             function () {
-              s(n);
+              u(n);
             })),
         o(t),
         function (e) {
@@ -291,24 +292,24 @@
         }
       );
     }
-    e.exports = function (e, u) {
-      ((u = u || {}).attributes = "object" == typeof u.attributes ? u.attributes : {}),
-        u.singleton || "boolean" == typeof u.singleton || (u.singleton = i());
-      var s = l(e, u);
+    e.exports = function (e, c) {
+      ((c = c || {}).attributes = "object" == typeof c.attributes ? c.attributes : {}),
+        c.singleton || "boolean" == typeof c.singleton || (c.singleton = i());
+      var u = l(e, c);
       return (
-        d(s, u),
+        d(u, c),
         function (e) {
-          for (var t = [], r = 0; r < s.length; r++) {
-            var n = s[r],
-              n = c[n.id];
+          for (var t = [], r = 0; r < u.length; r++) {
+            var n = u[r],
+              n = s[n.id];
             n && (n.refs--, t.push(n));
           }
-          e && d(l(e, u), u);
+          e && d(l(e, c), c);
           for (var o = 0; o < t.length; o++) {
             var i = t[o];
             if (0 === i.refs) {
               for (var a = 0; a < i.parts.length; a++) i.parts[a]();
-              delete c[i.id];
+              delete s[i.id];
             }
           }
         }
@@ -324,7 +325,7 @@
         return a;
       }),
       r.d(t, "c", function () {
-        return u;
+        return c;
       });
     const n = ["onedrive.live.com", ".sharepoint.com", ".officeapps.live.com"],
       o = {
@@ -335,7 +336,7 @@
       },
       i = [o.Word],
       a = (e) => i.includes(e),
-      u =
+      c =
         ((t.b = (e, r = !0) => {
           if (e) {
             let t = e;
@@ -365,10 +366,10 @@
       o = r(65),
       i = r(66),
       a = r(68);
-    function u(e, t) {
+    function c(e, t) {
       return n(e) || o(e, t) || i(e, t) || a();
     }
-    (e.exports = u), (e.exports.__esModule = !0), (e.exports.default = e.exports);
+    (e.exports = c), (e.exports.__esModule = !0), (e.exports.default = e.exports);
   },
   23: function (t, e) {
     function r(e) {
@@ -389,26 +390,26 @@
     (t.exports = r), (t.exports.__esModule = !0), (t.exports.default = t.exports);
   },
   3: function (e, t) {
-    function s(e, t, r, n, o, i, a) {
+    function u(e, t, r, n, o, i, a) {
       try {
-        var u = e[i](a),
-          s = u.value;
+        var c = e[i](a),
+          u = c.value;
       } catch (e) {
         return void r(e);
       }
-      u.done ? t(s) : Promise.resolve(s).then(n, o);
+      c.done ? t(u) : Promise.resolve(u).then(n, o);
     }
-    function r(u) {
+    function r(c) {
       return function () {
         var e = this,
           a = arguments;
         return new Promise(function (t, r) {
-          var n = u.apply(e, a);
+          var n = c.apply(e, a);
           function o(e) {
-            s(n, t, r, o, i, "next", e);
+            u(n, t, r, o, i, "next", e);
           }
           function i(e) {
-            s(n, t, r, o, i, "throw", e);
+            u(n, t, r, o, i, "throw", e);
           }
           o(void 0);
         });
@@ -477,7 +478,7 @@
   4: function (q, e, t) {
     "use strict";
     t.d(e, "F", function () {
-      return c;
+      return s;
     }),
       t.d(e, "z", function () {
         return l;
@@ -491,7 +492,7 @@
       t.d(e, "w", function () {
         return p;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return h;
       }),
       t.d(e, "a", function () {
@@ -515,10 +516,10 @@
       t.d(e, "x", function () {
         return w;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return x;
       }),
-      t.d(e, "Y", function () {
+      t.d(e, "Z", function () {
         return S;
       }),
       t.d(e, "u", function () {
@@ -531,25 +532,25 @@
         return E;
       }),
       t.d(e, "p", function () {
-        return M;
-      }),
-      t.d(e, "W", function () {
         return P;
       }),
-      t.d(e, "fb", function () {
+      t.d(e, "X", function () {
+        return M;
+      }),
+      t.d(e, "gb", function () {
         return C;
       }),
-      t.d(e, "ab", function () {
-        return L;
-      }),
-      t.d(e, "cb", function () {
-        return F;
+      t.d(e, "bb", function () {
+        return A;
       }),
       t.d(e, "db", function () {
-        return G;
+        return L;
       }),
-      t.d(e, "R", function () {
-        return A;
+      t.d(e, "eb", function () {
+        return F;
+      }),
+      t.d(e, "S", function () {
+        return G;
       }),
       t.d(e, "Q", function () {
         return R;
@@ -560,7 +561,7 @@
       t.d(e, "P", function () {
         return D;
       }),
-      t.d(e, "hb", function () {
+      t.d(e, "ib", function () {
         return I;
       }),
       t.d(e, "g", function () {
@@ -578,13 +579,13 @@
       t.d(e, "D", function () {
         return W;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return B;
       }),
       t.d(e, "r", function () {
         return Q;
       }),
-      t.d(e, "V", function () {
+      t.d(e, "W", function () {
         return z;
       }),
       t.d(e, "f", function () {
@@ -605,7 +606,7 @@
       t.d(e, "s", function () {
         return V;
       }),
-      t.d(e, "bb", function () {
+      t.d(e, "cb", function () {
         return Z;
       }),
       t.d(e, "J", function () {
@@ -617,26 +618,26 @@
       t.d(e, "K", function () {
         return re;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return ne;
       }),
       t.d(e, "n", function () {
         return oe;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ie;
       }),
       t.d(e, "m", function () {
         return ae;
       }),
       t.d(e, "d", function () {
-        return ue;
+        return ce;
       }),
       t.d(e, "A", function () {
-        return se;
+        return ue;
       }),
-      t.d(e, "S", function () {
-        return ce;
+      t.d(e, "T", function () {
+        return se;
       }),
       t.d(e, "k", function () {
         return le;
@@ -653,8 +654,11 @@
       t.d(e, "l", function () {
         return he;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return me;
+      }),
+      t.d(e, "R", function () {
+        return ge;
       });
     var e = t(3),
       r = t.n(e),
@@ -677,7 +681,7 @@
         n
       );
     }
-    function u(t) {
+    function c(t) {
       for (var e = 1; e < arguments.length; e++) {
         var r = null != arguments[e] ? arguments[e] : {};
         e % 2
@@ -692,11 +696,11 @@
       }
       return t;
     }
-    const s = (o, e = {}) =>
+    const u = (o, e = {}) =>
         new Promise((r, n) => {
           chrome.runtime.sendMessage(
             "hjngolefdpdnooamgdldlkjgmdcmcjnc",
-            u(
+            c(
               {
                 action: o
               },
@@ -710,91 +714,91 @@
                 : r(e)
           );
         }),
-      c = () => s("load"),
-      l = () => s(i.a.InjectDocsRequirements),
+      s = () => u("load"),
+      l = () => u(i.a.InjectDocsRequirements),
       d = (e = !1) =>
-        s(i.a.EnsureLoggedIntoFirebase, {
+        u(i.a.EnsureLoggedIntoFirebase, {
           forceLogin: e
         }),
-      f = () => s(i.a.GetLicense),
-      p = () => s(i.a.GetUserSettings),
+      f = () => u(i.a.GetLicense),
+      p = () => u(i.a.GetUserSettings),
       h = (e, t, r) =>
-        s(i.a.UpdateUserSettings, {
+        u(i.a.UpdateUserSettings, {
           options: e,
           profile: t,
           customOptions: r
         }),
       m = (e) =>
-        s(i.a.AddFavourites, {
+        u(i.a.AddFavourites, {
           items: e
         }),
       g = (e) =>
-        s(i.a.RemoveFavourites, {
+        u(i.a.RemoveFavourites, {
           item: e
         }),
-      v = () => s(i.a.GetUserFavourites),
-      y = () => s(i.a.MergeFirebaseFavourites),
+      v = () => u(i.a.GetUserFavourites),
+      y = () => u(i.a.MergeFirebaseFavourites),
       _ = (e) =>
-        s(i.a.EnterProductCode, {
+        u(i.a.EnterProductCode, {
           code: e
         }),
       b = (e, t) =>
-        s(i.a.OpenGoogleFormsPicker, {
+        u(i.a.OpenGoogleFormsPicker, {
           url: e,
           picker: t
         }),
       w = (e) =>
-        s(i.a.GoogleFormsPickerLoaded, {
+        u(i.a.GoogleFormsPickerLoaded, {
           location: e
         }),
       x = (e) =>
-        s(i.a.SetProfileType, {
+        u(i.a.SetProfileType, {
           type: e
         }),
       S = (e = !1) =>
-        s(i.a.SetShowEquatioOnFirstRun, {
+        u(i.a.SetShowEquatioOnFirstRun, {
           value: e
         }),
-      O = () => s(i.a.GetShouldShowEquatioOnFirstRun),
+      O = () => u(i.a.GetShouldShowEquatioOnFirstRun),
       j = (e, t = null) =>
-        s(i.a.RegisterCompanionAppTarget, {
+        u(i.a.RegisterCompanionAppTarget, {
           platform: e,
           hostname: t
         }),
-      E = () => s(i.a.DisconnectCompanionDoc),
-      M = () => s(i.a.GetHandwritingCount),
-      P = (e) =>
-        s(i.a.SetHandwritingCount, {
+      E = () => u(i.a.DisconnectCompanionDoc),
+      P = () => u(i.a.GetHandwritingCount),
+      M = (e) =>
+        u(i.a.SetHandwritingCount, {
           count: e
         }),
       C = (e) =>
-        s(i.a.UpdateGoogleSheetEquations, {
+        u(i.a.UpdateGoogleSheetEquations, {
           spreadsheetId: e
         }),
-      L = () => s(i.a.ShowHandwritingExceededReminder),
-      F = () => s(i.a.ShowPredictionReminder),
-      G = () => s(i.a.ShowReviewReminder),
-      A = (e) =>
-        s(i.a.SendAnalyticsScreen, {
+      A = () => u(i.a.ShowHandwritingExceededReminder),
+      L = () => u(i.a.ShowPredictionReminder),
+      F = () => u(i.a.ShowReviewReminder),
+      G = (e) =>
+        u(i.a.SendAnalyticsScreen, {
           screenName: e
         }),
       R = (e, t = 0, r) =>
-        s(i.a.SendAnalyticsEvent, {
+        u(i.a.SendAnalyticsEvent, {
           category: e,
           value: t,
           customParams: r
         }),
-      T = () => s(i.a.CaptureScreenshot),
+      T = () => u(i.a.CaptureScreenshot),
       D = (e) =>
-        s(i.a.ScanMathpixOcr, {
+        u(i.a.ScanMathpixOcr, {
           base64: e
         }),
       I = (e, t) =>
-        s(i.a.UploadImageToProxy, {
+        u(i.a.UploadImageToProxy, {
           url: e,
           base64: t
         }),
-      k = () => s(i.a.DismissReviewReminder),
+      k = () => u(i.a.DismissReviewReminder),
       U = (function () {
         var t = r()(
           o.a.mark(function e(t) {
@@ -806,7 +810,7 @@
                     return (
                       (n = window.location.href),
                       (e.next = 3),
-                      s(i.a.OpenMathspace, {
+                      u(i.a.OpenMathspace, {
                         platformIntegrationId: t,
                         windowUrl: n
                       })
@@ -815,7 +819,7 @@
                   case 3:
                     (r = e.sent),
                       (n = () => {
-                        s(i.a.MathspaceTabClosed, {
+                        u(i.a.MathspaceTabClosed, {
                           msTabId: r
                         });
                       }),
@@ -832,52 +836,52 @@
           return t.apply(this, arguments);
         };
       })(),
-      N = () => s(i.a.InjectWebPageToolbar),
+      N = () => u(i.a.InjectWebPageToolbar),
       H = (e) =>
-        s(i.a.MathDiscovered, {
+        u(i.a.MathDiscovered, {
           value: e
         }),
-      W = () => s(i.a.IsDiscoverabilityFirstTime),
+      W = () => u(i.a.IsDiscoverabilityFirstTime),
       B = (e) =>
-        s(i.a.SetDiscoverabilityEnabled, {
+        u(i.a.SetDiscoverabilityEnabled, {
           value: e
         }),
-      Q = () => s(i.a.GetMathDiscoverability),
+      Q = () => u(i.a.GetMathDiscoverability),
       z = (e) =>
-        s(i.a.DiscoverabilitySessionDisable, {
+        u(i.a.DiscoverabilitySessionDisable, {
           disabled: e
         }),
       K = (e) =>
-        s(i.a.DismissGSuiteMathDiscover, {
+        u(i.a.DismissGSuiteMathDiscover, {
           options: e
         }),
-      Y = () => s(i.a.HasGSuiteDiscoverOverlayShown),
-      J = () => s(i.a.GetPlatformOs),
-      X = () => s(i.a.IsLockedForms),
+      Y = () => u(i.a.HasGSuiteDiscoverOverlayShown),
+      J = () => u(i.a.GetPlatformOs),
+      X = () => u(i.a.IsLockedForms),
       $ = (e, t, r, n) =>
-        s(i.a.InsertImageGoogleApi, {
+        u(i.a.InsertImageGoogleApi, {
           url: e,
           width: t,
           height: r,
           additionalOptions: n
         }),
-      V = () => s(i.a.GetMolecularFilter),
+      V = () => u(i.a.GetMolecularFilter),
       Z = (e = null, t = {}) =>
-        s(i.a.ShowInfoPopup, {
+        u(i.a.ShowInfoPopup, {
           popupType: e,
           options: t
         }),
       ee = (e, t = !1) =>
-        s(i.a.OfficeAddToClipboard, {
+        u(i.a.OfficeAddToClipboard, {
           content: e,
           isText: t
         }),
       te = (e) =>
-        s(i.a.ExtractLatexFromUrl, {
+        u(i.a.ExtractLatexFromUrl, {
           url: e
         }),
       re = (e) =>
-        s(i.a.OfficeCanUseApp, {
+        u(i.a.OfficeCanUseApp, {
           appName: e
         }),
       ne = (function () {
@@ -887,7 +891,7 @@
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
-                    return e.abrupt("return", s(i.a.SwitchAccount));
+                    return e.abrupt("return", u(i.a.SwitchAccount));
 
                   case 1:
                   case "end":
@@ -900,33 +904,33 @@
           return e.apply(this, arguments);
         };
       })(),
-      oe = () => s(i.a.GetDisplayEmail),
+      oe = () => u(i.a.GetDisplayEmail),
       ie = (e, t) =>
-        s(i.a.SetCanShowClipboardPopup, {
+        u(i.a.SetCanShowClipboardPopup, {
           value: e,
           copyBtn: t
         }),
       ae = (e) =>
-        s(i.a.GetCanShowClipboardPopup, {
+        u(i.a.GetCanShowClipboardPopup, {
           copyBtn: e
         }),
-      ue = (e, t) =>
-        s(i.a.CreateSpeechServerData, {
+      ce = (e, t) =>
+        u(i.a.CreateSpeechServerData, {
           text: e,
           options: t
         }),
-      se = (e = !1) =>
-        s(i.a.InjectHtmlEditorApi, {
+      ue = (e = !1) =>
+        u(i.a.InjectHtmlEditorApi, {
           fromToolbar: e
         }),
-      ce = (e, t, r = !1, n = null) =>
-        s(i.a.HtmlEditorApiAction, {
+      se = (e, t, r = !1, n = null) =>
+        u(i.a.HtmlEditorApiAction, {
           command: e,
           value: t,
           fromEditor: r,
           targetFrame: n
         }),
-      le = () => s(i.a.FireDatadeskUpdate),
+      le = () => u(i.a.FireDatadeskUpdate),
       de = (function () {
         var t = r()(
           o.a.mark(function e(t) {
@@ -936,7 +940,7 @@
                   case 0:
                     return e.abrupt(
                       "return",
-                      s(i.a.MathSolverFetch, {
+                      u(i.a.MathSolverFetch, {
                         url: t
                       })
                     );
@@ -952,16 +956,29 @@
           return t.apply(this, arguments);
         };
       })(),
-      fe = () => s(i.a.GetFormsApiPermission),
+      fe = () => u(i.a.GetFormsApiPermission),
       pe = (e) =>
-        s(i.a.CreateFormsQuestions, {
+        u(i.a.CreateFormsQuestions, {
           questions: e
         }),
       he = (e) =>
-        s(i.a.GenerateMathQuestions, {
+        u(i.a.GenerateMathQuestions, {
           options: e
         }),
-      me = () => s(i.a.ShowFormsGeneratorUi);
+      me = () => u(i.a.ShowFormsGeneratorUi),
+      ge = (e, t, r, n) => {
+        let o = "";
+        return (
+          window && window.location && (o = window.location.href),
+          u(i.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: r,
+            eventProps: n,
+            url: o
+          })
+        );
+      };
   },
   400: function (e, t, r) {
     var n = r(401),
@@ -985,16 +1002,16 @@
       d = r.n(t),
       t = r(1),
       a = r.n(t),
-      t = r(85),
-      u = r.n(t),
-      s = r(4),
-      c = r(69),
+      t = r(86),
+      c = r.n(t),
+      u = r(4),
+      s = r(69),
       l = (r(396), r(397), r(398), r(399), r(400), r(17)),
       n = () => {
         window.equatioCoreChunkLoading = "chrome";
         let t = !(window.equatioCoreBaseUrl = "chrome-extension://hjngolefdpdnooamgdldlkjgmdcmcjnc/"),
           r = !1;
-        Object(s.K)(Object(l.c)(window.location.hostname)).then((e) => {
+        Object(u.K)(Object(l.c)(window.location.hostname)).then((e) => {
           e && (r = !0);
         });
         const n = () => {
@@ -1004,19 +1021,23 @@
           o = () => {
             if (t) {
               const e = document.querySelector(".equatio-toolbar-wrapper");
-              e && ((e.style.display = "block" === e.style.display ? "none" : "block"), "block" === e.style.display) && Object(c.a)();
-            } else (t = !0), u()(`chrome-extension://${chrome.runtime.id}/content/docsMessagingApi.js`), Object(s.z)();
+              e &&
+                ((e.style.display = "block" === e.style.display ? "none" : "block"),
+                "block" === e.style.display
+                  ? (Object(u.R)("ApplicationOpened", "Application", "NA"), Object(s.a)())
+                  : Object(u.R)("ApplicationClosed", "Application", "NA"));
+            } else (t = !0), c()(`chrome-extension://${chrome.runtime.id}/content/docsMessagingApi.js`), Object(u.z)();
           };
         chrome.runtime.onMessage.addListener(({ action: e }) => {
           "load" === e
             ? r
               ? o()
-              : Object(s.K)(Object(l.c)(window.location.hostname)).then((e) => {
+              : Object(u.K)(Object(l.c)(window.location.hostname)).then((e) => {
                   e && ((r = !0), o());
                 })
             : "EQUATIO_CHANGE_USER" === e &&
-              Object(s.K)(Object(l.c)(window.location.hostname)).then((e) => {
-                (r = e), !t && e && Object(s.F)(), e || n();
+              Object(u.K)(Object(l.c)(window.location.hostname)).then((e) => {
+                (r = e), !t && e && Object(u.F)(), e || n();
               });
         });
       };
@@ -1027,15 +1048,15 @@
         o = atob(r),
         i = o.length,
         a = Math.ceil(i / n),
-        u = new Array(a);
+        c = new Array(a);
       for (let e = 0; e < a; ++e) {
-        const s = e * n,
-          c = Math.min(s + n, i),
-          l = new Array(c - s);
-        for (let e = s, t = 0; e < c; ++t, ++e) l[t] = o[e].charCodeAt(0);
-        u[e] = new Uint8Array(l);
+        const u = e * n,
+          s = Math.min(u + n, i),
+          l = new Array(s - u);
+        for (let e = u, t = 0; e < s; ++t, ++e) l[t] = o[e].charCodeAt(0);
+        c[e] = new Uint8Array(l);
       }
-      return new Blob(u, {
+      return new Blob(c, {
         type: t
       });
     };
@@ -1111,10 +1132,10 @@
       });
   },
   46: function (E, e, t) {
-    var M = t(23).default;
-    function P() {
+    var P = t(23).default;
+    function M() {
       "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-      (E.exports = P =
+      (E.exports = M =
         function () {
           return a;
         }),
@@ -1122,7 +1143,7 @@
         (E.exports.default = E.exports);
       var a = {},
         e = Object.prototype,
-        s = e.hasOwnProperty,
+        u = e.hasOwnProperty,
         o =
           Object.defineProperty ||
           function (e, t, r) {
@@ -1132,7 +1153,7 @@
         n = t.iterator || "@@iterator",
         r = t.asyncIterator || "@@asyncIterator",
         i = t.toStringTag || "@@toStringTag";
-      function u(e, t, r) {
+      function c(e, t, r) {
         return (
           Object.defineProperty(e, t, {
             value: r,
@@ -1144,13 +1165,13 @@
         );
       }
       try {
-        u({}, "");
+        c({}, "");
       } catch (e) {
-        u = function (e, t, r) {
+        c = function (e, t, r) {
           return (e[t] = r);
         };
       }
-      function c(e, t, r, n) {
+      function s(e, t, r, n) {
         (t = t && t.prototype instanceof f ? t : f), (t = Object.create(t.prototype)), (n = new S(n || []));
         return (
           o(t, "_invoke", {
@@ -1172,38 +1193,38 @@
           };
         }
       }
-      a.wrap = c;
+      a.wrap = s;
       var d = {};
       function f() {}
       function p() {}
       function h() {}
       var t = {},
         m =
-          (u(t, n, function () {
+          (c(t, n, function () {
             return this;
           }),
           Object.getPrototypeOf),
         m = m && m(m(O([]))),
-        g = (m && m !== e && s.call(m, n) && (t = m), (h.prototype = f.prototype = Object.create(t)));
+        g = (m && m !== e && u.call(m, n) && (t = m), (h.prototype = f.prototype = Object.create(t)));
       function v(e) {
         ["next", "throw", "return"].forEach(function (t) {
-          u(e, t, function (e) {
+          c(e, t, function (e) {
             return this._invoke(t, e);
           });
         });
       }
       function y(i, a) {
-        function u(e, t, r, n) {
+        function c(e, t, r, n) {
           var o,
             e = l(i[e], i, t);
           if ("throw" !== e.type)
-            return (t = (o = e.arg).value) && "object" == M(t) && s.call(t, "__await")
+            return (t = (o = e.arg).value) && "object" == P(t) && u.call(t, "__await")
               ? a.resolve(t.__await).then(
                   function (e) {
-                    u("next", e, r, n);
+                    c("next", e, r, n);
                   },
                   function (e) {
-                    u("throw", e, r, n);
+                    c("throw", e, r, n);
                   }
                 )
               : a.resolve(t).then(
@@ -1211,7 +1232,7 @@
                     (o.value = e), r(o);
                   },
                   function (e) {
-                    return u("throw", e, r, n);
+                    return c("throw", e, r, n);
                   }
                 );
           n(e.arg);
@@ -1221,7 +1242,7 @@
           value: function (r, n) {
             function e() {
               return new a(function (e, t) {
-                u(r, n, e, t);
+                c(r, n, e, t);
               });
             }
             return (t = t ? t.then(e, e) : e());
@@ -1312,7 +1333,7 @@
             return (
               (r = -1),
               ((e = function e() {
-                for (; ++r < t.length; ) if (s.call(t, r)) return (e.value = t[r]), (e.done = !1), e;
+                for (; ++r < t.length; ) if (u.call(t, r)) return (e.value = t[r]), (e.done = !1), e;
                 return (e.value = void 0), (e.done = !0), e;
               }).next = e)
             );
@@ -1337,14 +1358,14 @@
           value: p,
           configurable: !0
         }),
-        (p.displayName = u(h, i, "GeneratorFunction")),
+        (p.displayName = c(h, i, "GeneratorFunction")),
         (a.isGeneratorFunction = function (e) {
           e = "function" == typeof e && e.constructor;
           return !!e && (e === p || "GeneratorFunction" === (e.displayName || e.name));
         }),
         (a.mark = function (e) {
           return (
-            Object.setPrototypeOf ? Object.setPrototypeOf(e, h) : ((e.__proto__ = h), u(e, i, "GeneratorFunction")),
+            Object.setPrototypeOf ? Object.setPrototypeOf(e, h) : ((e.__proto__ = h), c(e, i, "GeneratorFunction")),
             (e.prototype = Object.create(g)),
             e
           );
@@ -1355,13 +1376,13 @@
           };
         }),
         v(y.prototype),
-        u(y.prototype, r, function () {
+        c(y.prototype, r, function () {
           return this;
         }),
         (a.AsyncIterator = y),
         (a.async = function (e, t, r, n, o) {
           void 0 === o && (o = Promise);
-          var i = new y(c(e, t, r, n), o);
+          var i = new y(s(e, t, r, n), o);
           return a.isGeneratorFunction(t)
             ? i
             : i.next().then(function (e) {
@@ -1369,11 +1390,11 @@
               });
         }),
         v(g),
-        u(g, i, "Generator"),
-        u(g, n, function () {
+        c(g, i, "Generator"),
+        c(g, n, function () {
           return this;
         }),
-        u(g, "toString", function () {
+        c(g, "toString", function () {
           return "[object Generator]";
         }),
         (a.keys = function (e) {
@@ -1407,7 +1428,7 @@
               this.tryEntries.forEach(x),
               !e)
             )
-              for (var t in this) "t" === t.charAt(0) && s.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0);
+              for (var t in this) "t" === t.charAt(0) && u.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0);
           },
           stop: function () {
             this.done = !0;
@@ -1426,15 +1447,15 @@
                 i = o.completion;
               if ("root" === o.tryLoc) return e("end");
               if (o.tryLoc <= this.prev) {
-                var a = s.call(o, "catchLoc"),
-                  u = s.call(o, "finallyLoc");
-                if (a && u) {
+                var a = u.call(o, "catchLoc"),
+                  c = u.call(o, "finallyLoc");
+                if (a && c) {
                   if (this.prev < o.catchLoc) return e(o.catchLoc, !0);
                   if (this.prev < o.finallyLoc) return e(o.finallyLoc);
                 } else if (a) {
                   if (this.prev < o.catchLoc) return e(o.catchLoc, !0);
                 } else {
-                  if (!u) throw new Error("try statement without catch or finally");
+                  if (!c) throw new Error("try statement without catch or finally");
                   if (this.prev < o.finallyLoc) return e(o.finallyLoc);
                 }
               }
@@ -1443,7 +1464,7 @@
           abrupt: function (e, t) {
             for (var r = this.tryEntries.length - 1; 0 <= r; --r) {
               var n = this.tryEntries[r];
-              if (n.tryLoc <= this.prev && s.call(n, "finallyLoc") && this.prev < n.finallyLoc) {
+              if (n.tryLoc <= this.prev && u.call(n, "finallyLoc") && this.prev < n.finallyLoc) {
                 var o = n;
                 break;
               }
@@ -1492,7 +1513,7 @@
         a
       );
     }
-    (E.exports = P), (E.exports.__esModule = !0), (E.exports.default = E.exports);
+    (E.exports = M), (E.exports.__esModule = !0), (E.exports.default = E.exports);
   },
   47: function (e, t, r) {
     var n = r(23).default,
@@ -1529,24 +1550,24 @@
           o,
           i,
           a,
-          u = [],
-          s = !0,
-          c = !1;
+          c = [],
+          u = !0,
+          s = !1;
         try {
           if (((i = (r = r.call(e)).next), 0 === t)) {
             if (Object(r) !== r) return;
-            s = !1;
-          } else for (; !(s = (n = i.call(r)).done) && (u.push(n.value), u.length !== t); s = !0);
+            u = !1;
+          } else for (; !(u = (n = i.call(r)).done) && (c.push(n.value), c.length !== t); u = !0);
         } catch (e) {
-          (c = !0), (o = e);
+          (s = !0), (o = e);
         } finally {
           try {
-            if (!s && null != r.return && ((a = r.return()), Object(a) !== a)) return;
+            if (!u && null != r.return && ((a = r.return()), Object(a) !== a)) return;
           } finally {
-            if (c) throw o;
+            if (s) throw o;
           }
         }
-        return u;
+        return c;
       }
     }
     (e.exports = r), (e.exports.__esModule = !0), (e.exports.default = e.exports);
@@ -1614,7 +1635,7 @@
     }
     (e.exports = o), (e.exports.__esModule = !0), (e.exports.default = e.exports);
   },
-  85: function (e, t) {
+  86: function (e, t) {
     function o(e, t, r) {
       t(new URIError(r.target.src + " could not be loaded"), r);
     }

@@ -193,18 +193,44 @@
 
   function isMessage(candidate) {
     return candidate !== null && typeof candidate === "object" && "type" in candidate;
-  } // CONCATENATED MODULE: ./src/unload-cleanup/shared/unload-cleanup.types.ts
+  } // CONCATENATED MODULE: ./src/unload-cleanup/content/unload-cleanup.ts
 
-  var DisplayValue;
-  (function (DisplayValue) {
-    DisplayValue["block"] = "block";
-  })(DisplayValue || (DisplayValue = {}));
-  const displayValueList = Object.values(DisplayValue);
-  const messageName = "getUnloadClassName"; // CONCATENATED MODULE: ./src/unload-cleanup/shared/index.ts
-  // CONCATENATED MODULE: ./src/unload-cleanup/content/unload-cleanup.ts
-
+  var unload_cleanup_awaiter =
+    (undefined && undefined.__awaiter) ||
+    function (thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P
+          ? value
+          : new P(function (resolve) {
+              resolve(value);
+            });
+      }
+      return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
   function prepareElementForUnload(element, displayValue) {
-    browser.runtime.sendMessage(messageName, (className) => {
+    return unload_cleanup_awaiter(this, void 0, void 0, function* () {
+      const className = yield browser.runtime.sendMessage({
+        type: "unload-cleanup.getClassName"
+      });
       if (typeof className === "undefined") {
         return;
       }
@@ -212,6 +238,13 @@
       element.style.display = "none";
     });
   } // CONCATENATED MODULE: ./src/unload-cleanup/content/index.ts
+  // CONCATENATED MODULE: ./src/unload-cleanup/shared/unload-cleanup.types.ts
+
+  var DisplayValue;
+  (function (DisplayValue) {
+    DisplayValue["block"] = "block";
+  })(DisplayValue || (DisplayValue = {}));
+  const displayValueList = Object.values(DisplayValue); // CONCATENATED MODULE: ./src/unload-cleanup/shared/index.ts
   // CONCATENATED MODULE: ./src/onpage-dialog/content/frame-manager.ts
 
   let iframe = null;
@@ -271,7 +304,7 @@
     });
     overlay.appendChild(iframe);
     document.body.appendChild(overlay);
-    prepareElementForUnload(overlay, DisplayValue.block);
+    void prepareElementForUnload(overlay, DisplayValue.block);
     if (platform === "gecko") {
       iframe.setAttribute("sandbox", "");
     }

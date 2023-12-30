@@ -1,7 +1,7 @@
 (self.webpackChunk = self.webpackChunk || []).push([
   [3429],
   {
-    43863: (e, t, n) => {
+    49820: (e, t, n) => {
       n.r(t), n.d(t, { AutomaticallyAppliedAlertUndoCard: () => Z });
       var l = n(27378),
         a = n(6726),
@@ -10,7 +10,7 @@
         r = n(54001),
         L = n(23239),
         o = n(8543),
-        s = n(28181);
+        s = n(18286);
       const C = () =>
           l.createElement(
             "svg",
@@ -158,21 +158,21 @@
           );
         };
     },
-    28181: (e) => {
+    18286: (e) => {
       e.exports = {
-        autocorrectCard: "t6n6p",
-        divider: "bSubJ",
-        footerCaption: "L6WmL",
-        settingsButton: "wiknH",
-        buttonRow: "RMPra",
-        button: "r0OaX",
-        acceptButton: "vL3RI",
-        rejectButton: "iAL2i",
-        originalText: "qGY_k",
-        listItem: "eCTpO",
-        buttonWrap: "QJgFx",
-        icon: "lvHT3",
-        caption: "E_0Bd"
+        autocorrectCard: "ADpas",
+        divider: "Jokvz",
+        footerCaption: "SiqhQ",
+        settingsButton: "lAyTY",
+        buttonRow: "EqfRz",
+        button: "mcQ_i",
+        acceptButton: "rDqi4",
+        rejectButton: "fQKaj",
+        originalText: "jQ2L1",
+        listItem: "kwCbj",
+        buttonWrap: "E26YB",
+        icon: "E8Sbi",
+        caption: "ve3js"
       };
     }
   }

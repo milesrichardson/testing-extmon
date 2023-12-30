@@ -600,7 +600,7 @@
         }
       }
       var j = s(66310);
-      class Y {
+      class K {
         constructor(e, t, s, o = e.ownerDocument ? (0, i.R)(e.ownerDocument, "keydown", { capture: !0 }) : B.E) {
           (this._textField = e),
             (this._autocompleteModel = t),
@@ -640,7 +640,7 @@
           this._subs.forEach((e) => e.unsubscribe());
         }
       }
-      var K = s(5397),
+      var Y = s(5397),
         q = s(8096),
         Q = s(4147),
         X = s(54001),
@@ -673,7 +673,7 @@
           [i, o] = w.useState(null);
         return w.createElement(
           Q.o,
-          { className: J.container, style: { zIndex: K.oJ } },
+          { className: J.container, style: { zIndex: Y.oJ } },
           w.createElement(
             "div",
             { className: J.box },
@@ -1108,7 +1108,7 @@
               this._showOnboardingHint,
               this._onOnboardingHintShown
             )),
-            (this._formController = new Y(this._textField, this._model, this._gnar)),
+            (this._formController = new K(this._textField, this._model, this._gnar)),
             (this._cardController = new y(
               this._mode,
               () => {
@@ -1168,7 +1168,7 @@
       }
     },
     8096: (e, t, s) => {
-      s.d(t, { z: () => c });
+      s.d(t, { z: () => u });
       var i = s(27378),
         o = s(31542);
       const r = ({ children: e, style: t, dataGrammarlyPart: s = "ui-kit-iframe", ...r }) => {
@@ -1189,29 +1189,45 @@
       };
       var n = s(29927),
         l = s(35111),
-        a = s.n(l);
-      const c = ({ placeholder: e, onChange: t, ariaLabel: s, iframeTitle: o, className: l }) => {
-        const [c, d] = i.useState("");
-        return (
-          i.useEffect(() => {
-            t(c);
-          }, [c]),
-          i.createElement(
-            r,
-            { dataGrammarlyPart: "ui-kit-textbox", className: l, style: { width: "100%", height: "100%" }, title: o },
-            i.createElement(n.b, null, a().__css),
-            i.createElement("div", {
-              role: "textbox",
-              className: a().textBox,
-              contentEditable: !0,
-              onInput: (e) => d(e.target.innerText),
-              "data-placeholder": e,
-              "aria-placeholder": e,
-              "aria-label": s
-            })
-          )
-        );
-      };
+        a = s.n(l),
+        c = s(19374),
+        d = s(9205);
+      const h = ({ placeholder: e, ariaLabel: t, onChange: s }) => {
+          const [o, r] = i.useState("");
+          return (
+            i.useEffect(() => {
+              s(o);
+            }, [o]),
+            i.createElement(
+              i.Fragment,
+              null,
+              i.createElement(n.b, null, a().__css),
+              i.createElement("div", {
+                role: "textbox",
+                className: a().textBox,
+                contentEditable: !0,
+                onInput: (e) => {
+                  r(e.target.innerText);
+                },
+                "data-placeholder": e,
+                "aria-placeholder": e,
+                "aria-label": t
+              })
+            )
+          );
+        },
+        u = ({ placeholder: e, onChange: t, ariaLabel: s, iframeTitle: o, className: n }) =>
+          (0, c.E)().experimentClient.isGateEnabled(d.K.CentralizeStopEventPropagation)
+            ? i.createElement(
+                "div",
+                { className: n, style: { width: "100%", height: "128px", maxHeight: "inherit" } },
+                i.createElement(h, { onChange: t, ariaLabel: s, placeholder: e })
+              )
+            : i.createElement(
+                r,
+                { dataGrammarlyPart: "ui-kit-textbox", className: n, style: { width: "100%", height: "100%" }, title: o },
+                i.createElement(h, { onChange: t, ariaLabel: s, placeholder: e })
+              );
     },
     91980: (e, t, s) => {
       var i = s(54933),

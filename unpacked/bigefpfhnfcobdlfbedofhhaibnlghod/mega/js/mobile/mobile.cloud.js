@@ -9,8 +9,8 @@ mobile.cloud = {
     "use strict";
 
     // jQuery selectors
-    var $otherPages = $("> div:not(.hidden)", "#fmholder");
-    var $excludes = $(".mobile.file-manager-block, .mobile.top-menu-popup, .mega-header, .mega-top-menu, " + ".mobile-rack", "#mainlayout");
+    var $otherPages = $("> div:not(.hidden):not(.file-manager-block)", "#fmholder");
+    var $excludes = $(".top-menu-popup, .mega-header, .mega-top-menu, .mobile-rack", mainlayout);
 
     // Render the file manager header, folders, files and footer
     this.fmEmptyState();
@@ -133,10 +133,12 @@ mobile.cloud = {
 
     if (pfcol) {
       mega.gallery.albums.initPublicAlbum($(".mobile.file-manager-block .fm-content .fm-list"));
-    } else if (M.v.length > 0) {
-      M.megaRender.renderLayout(update, M.v);
     } else {
-      document.querySelector(".file-manager-block").classList.add("hidden");
+      document.querySelector(".file-manager-block").classList.remove("hidden");
+
+      if (M.v.length > 0) {
+        M.megaRender.renderLayout(update, M.v);
+      }
     }
   },
 

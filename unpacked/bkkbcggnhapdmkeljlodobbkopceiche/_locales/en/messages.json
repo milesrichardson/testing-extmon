@@ -762,12 +762,8 @@
   "optInDisagreeDescription": {
     "message": "Clicking 'Disagree' will still enable you to use Poper Blocker, but you will not be able to\nblock advanced popups (overlays)."
   },
-  "overlayActivateBannerTitle": { "message": "Attention:" },
+  "overlayActivateBannerTitle": { "message": "Alert:" },
   "overlayActivateBannerDescription": {
-    "message": "Enjoy a peaceful browsing experience.\nClick 'Activate' to block advanced popups and distractions"
-  },
-  "overlayActivateBannerTitle2": { "message": "Alert:" },
-  "overlayActivateBannerDescription2": {
     "message": "You are not blocking advanced popups and\ndistractions. Click ‘Activate’ to block them now"
   },
   "overlayActivateBannerActivate": { "message": "Activate" },

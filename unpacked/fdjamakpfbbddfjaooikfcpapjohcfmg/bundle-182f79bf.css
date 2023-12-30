@@ -575,6 +575,10 @@
 .collapsed--BrviRkpKCo .menuItemText--imGbr2Oml6 {
   max-height: 23px;
 }
+.collapsed--BrviRkpKCo .link--iDW_9MjgBe.onboarding--jMIsKG0SDO {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
 .wrapper--wgYc0yYGn1 a {
   border: 0;
   outline: 0;
@@ -708,8 +712,10 @@ a.linkDisabled--O4Y9_A0zoq:hover {
   border-left: solid 4px transparent;
   padding: 24px 10px;
   transition:
-    border-left-color 200ms background-color 200ms,
-    color 200ms;
+    border-left-color 200ms,
+    background-color 200ms,
+    color 200ms,
+    padding 200ms;
 }
 .onboarding--jMIsKG0SDO.active--dH768QsgCa {
   border-left-color: #0e6476;
@@ -1586,7 +1592,7 @@ a.link--aUALnKm5Dx {
   gap: 8px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  padding: 16px 32px;
+  padding: 16px 24px;
   max-height: 20vh;
   overflow-y: auto;
 }
@@ -1597,7 +1603,7 @@ a.link--aUALnKm5Dx {
 .actionsContainer--cbj0zi2pPQ {
   display: -ms-flexbox;
   display: flex;
-  gap: 16px;
+  gap: 8px;
 }
 .primaryActionsTransitionGroup--fZ7I5UeDxK {
   overflow: hidden;
@@ -4035,6 +4041,45 @@ button::-moz-focus-inner {
   font-family: "Apercu Mono Pro", "Courier New", Courier, monospace;
 }
 
+.exit--j01_122ECh {
+  opacity: 1;
+  overflow: hidden;
+  max-height: 200px;
+}
+
+.exitActive--WgksVPYl96 {
+  opacity: 0;
+  max-height: 0;
+  transition:
+    max-height 200ms ease-out,
+    opacity 200ms ease-out;
+}
+
+.exitDone--Cba1DT0n2O {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.enter--PtkXHAwNeb {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.enterActive--MQ1H6Xh5br {
+  opacity: 1;
+  max-height: 200px;
+  transition:
+    max-height 200ms ease-out,
+    opacity 200ms ease-out;
+}
+
+.enterDone--f7BbzLckOh {
+  opacity: 1;
+  max-height: 200px;
+}
+
 /*
  * Custom @font-face rules are injected as a style element by
  * <AppThemeProvider /> and rely on the @dashlane/fonts dependency.
@@ -4182,76 +4227,6 @@ button::-moz-focus-inner {
   margin-bottom: 48px;
 }
 
-/*
- * Custom @font-face rules are injected as a style element by
- * <AppThemeProvider /> and rely on the @dashlane/fonts dependency.
- */
-:root {
-  /* Font family variables */
-
-  /* Password Specific Styles */
-
-  /* Font size variables */
-
-  /* Font weight variables */
-
-  /* Line heights variables */
-}
-/*
-* Refer to z-index variables & values used in ui-components before updating this file.
-*/
-:root {
-  /* 1. Base z-index, to be used for most content elements that require a z-index. */
-  /* 2. "Below" z-index, to be used when placing an element "below" another within the stacking context. */
-
-  /* 3. Various previous "Content Overlap" z-index values, can be merged with caution. */
-
-  /* 4. Panel z-index. */
-
-  /* 5. "Above Panel" z-index. */
-
-  /*
-  * All variables from here refer to previously hardcoded z-index values.
-  */
-
-  /* Base z-index, see 1, keep sorted to reduce merge conflicts */
-
-  /* "Content Overlap" z-index, see 3. */
-
-  /* Looks unused ? */
-
-  /* Panel z-index, see 4. */
-
-  /* "Above Panel" z-index, see 5. */
-}
-.listContainer--cl74B2lgbW {
-  height: 100%;
-  overflow-y: auto;
-  margin-top: 15px;
-}
-.memberHeader--qIV1sLXzIB {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-.emptyView--zOxF4QtboD {
-  overflow: hidden;
-}
-.nameCell--ael8Ms1qIt {
-  width: 100%;
-}
-.nameTitle--eHwnKrh06d {
-  margin-left: 16px;
-}
-
-.bottomBarContainer--Yi0w7sxreR {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 25px 30px 0;
-}
-
 .badgeContainer--yFQQT_dzao {
   white-space: nowrap;
 }
@@ -4298,44 +4273,87 @@ button::-moz-focus-inner {
 
   /* "Above Panel" z-index, see 5. */
 }
-.listContainer--Ce9nEZHcSS {
+.contentWrapper--wXNfojdIzc {
+  background-color: white;
+  font-size: 15px;
+  color: hsl(0, 0%, 11%);
+  white-space: nowrap;
+  position: relative;
+}
+.logo--oDgnkMCFDV {
+  width: 80px;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex: 1;
-  flex: 1;
-  margin-top: 30px;
-}
-.emptyView--dh_itz698Y {
-  overflow: hidden;
-  margin-top: 0;
-}
-.headerLineContainer--SFUqucl0T8 {
-  padding-left: 32px;
-  padding-right: 32px;
-  width: 100%;
-  height: 0;
-}
-.headerLine--oyrnuDNrbV {
-  border: 0;
-  border-bottom: 1px solid #ebe9e7;
-  margin: 0 32px;
-}
-.nameCell--bSMvrtpDGn {
-  width: 100%;
-  cursor: pointer;
-}
-.editPermissionContainer--nLtL29LH8S {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  border-bottom: 1px solid #ebe9e7;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+.icon--btXGHb1snA {
+  display: inline-block;
+  width: 48px;
+  height: 32px;
+}
+.noteIconWrapper--IpcZhznVD1 {
+  margin-right: 15px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.titleOuterWrapper--hNOoxJVSF0 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.titleWrapper--g6lgNNg_BB {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.title--P3achHBKYP {
+  -ms-flex-align: center;
+  align-items: center;
+  color: #000000;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  width: 300px;
+}
+.category--metegexdsG {
+  width: 150px;
+  display: -ms-flexbox;
+  display: flex;
+}
+.created--aIoWwEUVU5 {
+  width: 204px;
+  display: -ms-flexbox;
+  display: flex;
+}
+.updated--apwZqQd2OI {
+  width: 174px;
+  display: -ms-flexbox;
+  display: flex;
+}
+.list--jLGjTcBiYa {
+  height: calc(100vh - 72px - 60px);
+}
+.tagPlacement--HYmISxmQyS {
+  margin-left: 8px;
+}
+.titleIcon--sJGYvXXmE1 {
+  margin-left: 4px;
+}
+.titleIcon--sJGYvXXmE1 path {
+  fill: #615b57;
+}
+.container--m57WeAqC8k {
+  white-space: nowrap;
 }
 
 .groupImgIcon--wwwXS0nFWg {
@@ -5084,23 +5102,6 @@ button::-moz-focus-inner {
 
   /* "Above Panel" z-index, see 5. */
 }
-.topLevelWrapper--EQz2cvDL9R {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  background-color: #0e353d;
-  color: white;
-  height: 100%;
-  width: 100%;
-  z-index: 102;
-  overflow-y: auto;
-}
-.contentContainer--n7GRtV0A0L {
-  padding: 0 40px 40px;
-  height: 100%;
-  width: 100%;
-}
 .heading--v0RjO82Q9X {
   font-size: 40px;
 }
@@ -5111,178 +5112,6 @@ button::-moz-focus-inner {
 }
 .onboardingStepsWrapper--cIOk5IEj86 {
   padding: 80px 40px;
-}
-
-/*
- * Custom @font-face rules are injected as a style element by
- * <AppThemeProvider /> and rely on the @dashlane/fonts dependency.
- */
-:root {
-  /* Font family variables */
-
-  /* Password Specific Styles */
-
-  /* Font size variables */
-
-  /* Font weight variables */
-
-  /* Line heights variables */
-}
-/*
-* Refer to z-index variables & values used in ui-components before updating this file.
-*/
-:root {
-  /* 1. Base z-index, to be used for most content elements that require a z-index. */
-  /* 2. "Below" z-index, to be used when placing an element "below" another within the stacking context. */
-
-  /* 3. Various previous "Content Overlap" z-index values, can be merged with caution. */
-
-  /* 4. Panel z-index. */
-
-  /* 5. "Above Panel" z-index. */
-
-  /*
-  * All variables from here refer to previously hardcoded z-index values.
-  */
-
-  /* Base z-index, see 1, keep sorted to reduce merge conflicts */
-
-  /* "Content Overlap" z-index, see 3. */
-
-  /* Looks unused ? */
-
-  /* Panel z-index, see 4. */
-
-  /* "Above Panel" z-index, see 5. */
-}
-:root {
-  /* General purpose variables */
-}
-.baseComponent--rz4bn1Wt5Z {
-  -ms-flex-align: center;
-  align-items: center;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 4px;
-  height: 72px;
-  max-width: 728px;
-  margin: 0 auto 8px;
-  padding: 16px 0;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.32);
-  transition:
-    max-width 300ms,
-    background-color 300ms,
-    height 300ms;
-  font-size: 20px;
-}
-.baseComponent--rz4bn1Wt5Z .leftIcon--b7oK5CKG5s {
-  margin: 0px 28px;
-}
-.completedOnboardingStep--aVGKxAWGPD {
-  background-color: #0e6476;
-  cursor: not-allowed;
-}
-.completedOnboardingStepHeader--pC_Xip4O7D {
-  font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #9fc1c8;
-  margin-right: 40px;
-  line-height: 24px;
-}
-.completedOnboardingStep--aVGKxAWGPD .rightIcon--JRwdcdYCPB {
-  height: 28px;
-  width: 28px;
-  margin: 0 40px 0 auto;
-  border-radius: 50%;
-  background-color: #0e353d;
-}
-.onboardingStep--GZrHDcDlRr {
-  background-color: #ffffff;
-  cursor: pointer;
-  margin: 8px auto;
-  position: relative;
-}
-.onboardingStep--GZrHDcDlRr:hover {
-  max-width: 760px;
-  height: 104px;
-}
-.onboardingStep--GZrHDcDlRr .rightIcon--JRwdcdYCPB {
-  margin: 0 40px 0 auto;
-  width: 24px;
-  height: 24px;
-}
-.onboardingStepHeader--l7WxRrhxaO {
-  font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #0e353d;
-  margin-right: 40px;
-}
-.messageWrapper--ad6Hho5i93 {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.messageContent--TxDQZ7tero {
-  position: absolute;
-  top: 8px;
-  transition: top 300ms;
-}
-.onboardingStep--GZrHDcDlRr:hover .messageContent--TxDQZ7tero {
-  top: 16px;
-}
-.messageOnHover--r39XJznUKD {
-  color: #6e868b;
-  font-size: 14px;
-  line-height: 18px;
-  margin-right: 40px;
-  opacity: 0;
-  transition: opacity 300ms;
-}
-.messageOnError--o0loUR0BQE {
-  font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #fe5b33;
-  font-size: 12px;
-  position: absolute;
-  right: 20px;
-  opacity: 1;
-  transition: opacity 300ms;
-}
-.onboardingStep--GZrHDcDlRr:hover .messageOnHover--r39XJznUKD {
-  opacity: 1;
-}
-.onboardingStep--GZrHDcDlRr:hover .messageOnError--o0loUR0BQE {
-  opacity: 0;
-}
-.stepWrapper--tQfiRcKa3l {
-  text-decoration: none;
-}
-
-:root {
-  /* General purpose variables */
-}
-
-.enter--J3DVsLauyF {
-  opacity: 0;
-  transform: scale(0.9);
-}
-
-.enterActive--nk5henrU9o {
-  opacity: 1;
-  transform: scale(1);
-  transition:
-    opacity 400ms cubic-bezier(0.43, 0.01, 0, 1),
-    transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.45);
-}
-
-.exit--UTJVqVWV6K {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.exitActive--gcSdeBw0CQ {
-  opacity: 0;
-  transform: scale(0.9);
-  transition:
-    opacity 350ms cubic-bezier(0.43, 0.01, 0, 1),
-    transform 350ms cubic-bezier(0.43, 0.01, 0, 1);
 }
 
 :root {
@@ -5819,6 +5648,178 @@ button::-moz-focus-inner {
 
   /* "Above Panel" z-index, see 5. */
 }
+:root {
+  /* General purpose variables */
+}
+.baseComponent--rz4bn1Wt5Z {
+  -ms-flex-align: center;
+  align-items: center;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 4px;
+  height: 72px;
+  max-width: 728px;
+  margin: 0 auto 8px;
+  padding: 16px 0;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.32);
+  transition:
+    max-width 300ms,
+    background-color 300ms,
+    height 300ms;
+  font-size: 20px;
+}
+.baseComponent--rz4bn1Wt5Z .leftIcon--b7oK5CKG5s {
+  margin: 0px 28px;
+}
+.completedOnboardingStep--aVGKxAWGPD {
+  background-color: #0e6476;
+  cursor: not-allowed;
+}
+.completedOnboardingStepHeader--pC_Xip4O7D {
+  font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #9fc1c8;
+  margin-right: 40px;
+  line-height: 24px;
+}
+.completedOnboardingStep--aVGKxAWGPD .rightIcon--JRwdcdYCPB {
+  height: 28px;
+  width: 28px;
+  margin: 0 40px 0 auto;
+  border-radius: 50%;
+  background-color: #0e353d;
+}
+.onboardingStep--GZrHDcDlRr {
+  background-color: #ffffff;
+  cursor: pointer;
+  margin: 8px auto;
+  position: relative;
+}
+.onboardingStep--GZrHDcDlRr:hover {
+  max-width: 760px;
+  height: 104px;
+}
+.onboardingStep--GZrHDcDlRr .rightIcon--JRwdcdYCPB {
+  margin: 0 40px 0 auto;
+  width: 24px;
+  height: 24px;
+}
+.onboardingStepHeader--l7WxRrhxaO {
+  font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #0e353d;
+  margin-right: 40px;
+}
+.messageWrapper--ad6Hho5i93 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.messageContent--TxDQZ7tero {
+  position: absolute;
+  top: 8px;
+  transition: top 300ms;
+}
+.onboardingStep--GZrHDcDlRr:hover .messageContent--TxDQZ7tero {
+  top: 16px;
+}
+.messageOnHover--r39XJznUKD {
+  color: #6e868b;
+  font-size: 14px;
+  line-height: 18px;
+  margin-right: 40px;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.messageOnError--o0loUR0BQE {
+  font-family: "Public Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  color: #fe5b33;
+  font-size: 12px;
+  position: absolute;
+  right: 20px;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+.onboardingStep--GZrHDcDlRr:hover .messageOnHover--r39XJznUKD {
+  opacity: 1;
+}
+.onboardingStep--GZrHDcDlRr:hover .messageOnError--o0loUR0BQE {
+  opacity: 0;
+}
+.stepWrapper--tQfiRcKa3l {
+  text-decoration: none;
+}
+
+:root {
+  /* General purpose variables */
+}
+
+.enter--J3DVsLauyF {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.enterActive--nk5henrU9o {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 400ms cubic-bezier(0.43, 0.01, 0, 1),
+    transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.45);
+}
+
+.exit--UTJVqVWV6K {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.exitActive--gcSdeBw0CQ {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 350ms cubic-bezier(0.43, 0.01, 0, 1),
+    transform 350ms cubic-bezier(0.43, 0.01, 0, 1);
+}
+
+/*
+ * Custom @font-face rules are injected as a style element by
+ * <AppThemeProvider /> and rely on the @dashlane/fonts dependency.
+ */
+:root {
+  /* Font family variables */
+
+  /* Password Specific Styles */
+
+  /* Font size variables */
+
+  /* Font weight variables */
+
+  /* Line heights variables */
+}
+/*
+* Refer to z-index variables & values used in ui-components before updating this file.
+*/
+:root {
+  /* 1. Base z-index, to be used for most content elements that require a z-index. */
+  /* 2. "Below" z-index, to be used when placing an element "below" another within the stacking context. */
+
+  /* 3. Various previous "Content Overlap" z-index values, can be merged with caution. */
+
+  /* 4. Panel z-index. */
+
+  /* 5. "Above Panel" z-index. */
+
+  /*
+  * All variables from here refer to previously hardcoded z-index values.
+  */
+
+  /* Base z-index, see 1, keep sorted to reduce merge conflicts */
+
+  /* "Content Overlap" z-index, see 3. */
+
+  /* Looks unused ? */
+
+  /* Panel z-index, see 4. */
+
+  /* "Above Panel" z-index, see 5. */
+}
 .itemButtons--lK4NMfJDlN {
   opacity: 0;
 }
@@ -6008,129 +6009,4 @@ button::-moz-focus-inner {
 }
 .backButton--MQF1V5PPQV span {
   color: #0e353d;
-}
-
-/*
- * Custom @font-face rules are injected as a style element by
- * <AppThemeProvider /> and rely on the @dashlane/fonts dependency.
- */
-:root {
-  /* Font family variables */
-
-  /* Password Specific Styles */
-
-  /* Font size variables */
-
-  /* Font weight variables */
-
-  /* Line heights variables */
-}
-/*
-* Refer to z-index variables & values used in ui-components before updating this file.
-*/
-:root {
-  /* 1. Base z-index, to be used for most content elements that require a z-index. */
-  /* 2. "Below" z-index, to be used when placing an element "below" another within the stacking context. */
-
-  /* 3. Various previous "Content Overlap" z-index values, can be merged with caution. */
-
-  /* 4. Panel z-index. */
-
-  /* 5. "Above Panel" z-index. */
-
-  /*
-  * All variables from here refer to previously hardcoded z-index values.
-  */
-
-  /* Base z-index, see 1, keep sorted to reduce merge conflicts */
-
-  /* "Content Overlap" z-index, see 3. */
-
-  /* Looks unused ? */
-
-  /* Panel z-index, see 4. */
-
-  /* "Above Panel" z-index, see 5. */
-}
-.contentWrapper--wXNfojdIzc {
-  background-color: white;
-  font-size: 15px;
-  color: hsl(0, 0%, 11%);
-  white-space: nowrap;
-  position: relative;
-}
-.logo--oDgnkMCFDV {
-  width: 80px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 0;
-}
-.icon--btXGHb1snA {
-  display: inline-block;
-  width: 48px;
-  height: 32px;
-}
-.noteIconWrapper--IpcZhznVD1 {
-  margin-right: 15px;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.titleOuterWrapper--hNOoxJVSF0 {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-}
-.titleWrapper--g6lgNNg_BB {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-.title--P3achHBKYP {
-  -ms-flex-align: center;
-  align-items: center;
-  color: #000000;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  width: 300px;
-}
-.category--metegexdsG {
-  width: 150px;
-  display: -ms-flexbox;
-  display: flex;
-}
-.created--aIoWwEUVU5 {
-  width: 204px;
-  display: -ms-flexbox;
-  display: flex;
-}
-.updated--apwZqQd2OI {
-  width: 174px;
-  display: -ms-flexbox;
-  display: flex;
-}
-.list--jLGjTcBiYa {
-  height: calc(100vh - 72px - 60px);
-}
-.tagPlacement--HYmISxmQyS {
-  margin-left: 8px;
-}
-.titleIcon--sJGYvXXmE1 {
-  margin-left: 4px;
-}
-.titleIcon--sJGYvXXmE1 path {
-  fill: #615b57;
-}
-.container--m57WeAqC8k {
-  white-space: nowrap;
 }

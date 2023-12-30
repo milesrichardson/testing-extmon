@@ -3,12 +3,12 @@
   [8955, 9437],
   {
     99437: (e, t, a) => {
-      a.d(t, { Z: () => v });
+      a.d(t, { Z: () => p });
       var i = a(20144),
         n = a(88026),
-        l = a(51726),
-        o = a.n(l),
-        d = a(34952),
+        o = a(51726),
+        l = a.n(o),
+        d = a(55482),
         s = a(7838),
         u = a(35174);
       let c = {};
@@ -31,12 +31,12 @@
             delete e.dataset.justBoundMobileClickHandler);
         }
       };
-      var b = a(28692),
+      var b = a(63420),
         k = a(64398),
         Z = a(77197);
       i.ZP.use(n.Z, { name: "unreactive" }),
-        i.ZP.use(o()),
-        i.ZP.use(d.InlineSvgPlugin),
+        i.ZP.use(l()),
+        i.ZP.use(d.qK),
         i.ZP.use(b.og),
         i.ZP.use(Z.Z),
         (i.ZP.prototype.$xhr = u.Z),
@@ -61,12 +61,12 @@
           },
           pinia: k.Z
         });
-      const v = i.ZP;
+      const p = i.ZP;
     },
     18955: (e, t, a) => {
       a.r(t);
       var i = a(99437),
-        n = a(86640);
+        n = a(84139);
       if ((a(14333), !m.modals)) {
         const e = new i.Z({ render: (e) => e(n.Z) }).$mount();
         document.querySelector(".apps .full").appendChild(e.$el);

@@ -150,7 +150,7 @@ h = {
   g: ["ap.", "ip."],
   l: ["cccc d. MMMM y", "d. MMMM y", "d.M.y", "d.M.y"],
   ha: ["H.mm.ss zzzz", "H.mm.ss z", "H.mm.ss", "H.mm"],
-  m: ["{1} 'klo' {0}", "{1} 'klo' {0}", "{1} 'klo' {0}", "{1} {0}"],
+  m: ["{1} 'klo' {0}", "{1} 'klo' {0}", "{1} 'klo' {0}", "{1} 'klo' {0}"],
   D: 0,
   ka: [5, 6],
   F: 3

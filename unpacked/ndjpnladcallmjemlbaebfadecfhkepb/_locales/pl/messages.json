@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplikacje"
+  },
+  "EndOfSupportHeader": {
+    "message": "Koniec wsparcia technicznego dla rozszerzenia platformy Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Od 15 stycznia 2024 r. to rozszerzenie nie będzie już obsługiwane przez firmę Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Aby uzyskać więcej informacji, odwiedź stronę pomocy technicznej dla tego rozszerzenia."
+  },
+  "Support": {
+    "message": "Pomoc techniczna"
   }
 }

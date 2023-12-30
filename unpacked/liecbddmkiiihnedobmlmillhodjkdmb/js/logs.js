@@ -2,7 +2,7 @@
   try {
     var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {},
       n = new Error().stack;
-    n && ((e._sentryDebugIds = e._sentryDebugIds || {}), (e._sentryDebugIds[n] = "a200a6fe-8187-54ca-94d7-8e34dfd5e5b0"));
+    n && ((e._sentryDebugIds = e._sentryDebugIds || {}), (e._sentryDebugIds[n] = "d5dd72ae-0e6e-59fc-af32-7f0e1cfaf7b7"));
   } catch (e) {}
 })();
 (() => {
@@ -14,6 +14,7 @@
     (e.resumeRecording = "resumeRecording"),
     (e.cancelRecording = "cancelRecording"),
     (e.restartRecording = "restartRecording"),
+    (e.rewindRecording = "rewindRecording"),
     (e.isAlive = "isAlive"),
     (e.openPinnedTab = "openPinnedTab"),
     (e.focusRecordingTab = "focusRecordingTab"),
@@ -68,4 +69,4 @@
   })();
 })();
 //# sourceMappingURL=logs.js.map
-//# debugId=a200a6fe-8187-54ca-94d7-8e34dfd5e5b0
+//# debugId=d5dd72ae-0e6e-59fc-af32-7f0e1cfaf7b7

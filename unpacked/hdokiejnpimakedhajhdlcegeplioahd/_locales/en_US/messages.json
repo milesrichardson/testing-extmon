@@ -1363,7 +1363,6 @@
     "message": "City/Town is required when you enable free credit monitoring."
   },
   "_Click_the___Add_item__button_to_start_organizing_your__Vault_": { "message": "Click 'Add item' to start organizing your vault." },
-  "_Clone__Application": { "message": "Copy Application" },
   "_Cloud__Apps": { "message": "Cloud Apps" },
   "_Confirm__Deletion": { "message": "Confirm Deletion" },
   "_Confirm__Request__Access": { "message": "Emergency Access Confirmation" },
@@ -1870,6 +1869,7 @@
   },
   "_You_do_not_have_permission_to_delete_items_from__s": { "message": "You don't have permission to delete items from %s" },
   "_You_do_not_have_permission_to_move_items_to__s": { "message": "You don't have permission to move items to %s" },
+  "_Add__Application": { "message": "Add Application" },
   "_You_may_need_to_log_in_again_on_your_devices_to_apply_the_change_": {
     "message": "You may need to log in again on your devices to apply the change."
   },

@@ -124,6 +124,13 @@ const s = {
       t && t.indexOf("#") > -1 && (t = t.split("#")[0]),
       n.searchParams.append("redirect_uri", t),
       chrome.tabs.update({ url: n.href, active: !0 });
+  },
+  saveAccessToken: function (t) {
+    if (t && t.indexOf("#") > -1) {
+      const i = t.split("#")[2],
+        s = e.getItem("viewerImsClientId");
+      n.setItem("access_token", `${i}&client_id=${s}&from_ims=true&api=authorize`);
+    }
   }
 };
 export { s as signInUtil };

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Rakendused"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 laienduse tootetoe lõpp"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Microsoft ei toeta enam seda laiendust alates 15. jaanuarist 2024."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Lisateavet leiate selle laienduse tugiteenuste lehelt."
+  },
+  "Support": {
+    "message": "Kasutajatugi"
   }
 }

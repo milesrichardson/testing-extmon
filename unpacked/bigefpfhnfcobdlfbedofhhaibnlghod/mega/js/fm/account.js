@@ -205,12 +205,6 @@ accountUI.renderAccountPage = function (account) {
 
       accountUI.calls.init();
       break;
-    case "/fm/account/vpn":
-      $(".fm-account-vpn").removeClass("hidden");
-      sectionClass = "vpn";
-
-      accountUI.vpn.init();
-      break;
     default:
       // This is the main entry point for users who just had upgraded their accounts
       if (isNonActivatedAccount()) {
@@ -727,8 +721,6 @@ accountUI.leftPane = {
         return "fm/account/reseller";
       case $section.hasClass("calls"):
         return "fm/account/calls";
-      case $section.hasClass("vpn"):
-        return "fm/account/vpn";
       default:
         return "fm/account";
     }
@@ -1668,7 +1660,7 @@ accountUI.account = {
                 }
               })
               .then((twoFactorPin) => continueCancelAccount(twoFactorPin || null))
-              .catch(tell);
+              .catch((ex) => ex !== EBLOCKED && tell(ex));
           }
         });
       });
@@ -2065,7 +2057,7 @@ accountUI.plan = {
         this.$selectReasonDialog.addClass("hidden");
         this.$invalidDetailsDialog.addClass("hidden");
         this.$textareaAndErrorDialog.addClass("hidden");
-        this.$dialog.removeClass("textbox-open");
+        this.$dialog.removeClass("textbox-open select-reason");
         this.$cancelReason.removeClass("error");
         this.$textarea.val("");
         $(".cancel-option", this.$options).addClass("radioOff").removeClass("radioOn");
@@ -3265,7 +3257,7 @@ accountUI.fileManagement = {
       "use strict";
 
       // Temporarily hide versioning settings due to it not working correctly in MEGA Lite mode
-      if (mega.lite) {
+      if (mega.lite.inLiteMode) {
         $(".js-file-version-settings", accountUI.$contentBlock).addClass("hidden");
         return false;
       }
@@ -4451,14 +4443,5 @@ accountUI.calls = {
         }
       );
     }
-  }
-};
-
-accountUI.vpn = {
-  init: function () {
-    "use strict";
-
-    this.vpnPage = this.vpnPage || new VpnPage();
-    this.vpnPage.show();
   }
 };

@@ -36,8 +36,8 @@
     8742: (e) => {
       e.exports = [
         { id: "372", serverId: "exp_372", variants: [1] },
-        { id: "371", serverId: "exp_371", variants: [0.5, 0.5] },
-        { id: "373", serverId: "exp_373", variants: [0.5, 0.5] }
+        { id: "371", serverId: "exp_371v1", variants: [0.5, 0.5] },
+        { id: "373", serverId: "exp_373v1", variants: [0.5, 0.5] }
       ];
     },
     6492: (e, t, r) => {
@@ -1478,11 +1478,11 @@
         k = r(9267),
         O = r(6913),
         P = r(496),
-        j = r(4261),
-        $ = r(4881),
+        $ = r(4261),
+        j = r(4881),
         I = r(2298),
-        T = r(3789),
-        R = r(2057),
+        R = r(3789),
+        T = r(2057),
         Z = r(2952),
         D = r(8624),
         N = r(6394),
@@ -1537,9 +1537,9 @@
           history: k,
           identity: O,
           idle: P,
-          instanceID: $,
+          instanceID: j,
           i18n: I,
-          management: T,
+          management: R,
           notifications: Z,
           omnibox: D,
           pageAction: N,
@@ -1599,14 +1599,14 @@
               identity: O(),
               idle: P(),
               input: (() => {
-                let e = j();
+                let e = $();
                 if (e) return { ime: e };
               })(),
-              instanceID: $(),
+              instanceID: j(),
               i18n: I(),
-              management: T(),
+              management: R(),
               networking: (() => {
-                let e = R();
+                let e = T();
                 if (e) return { config: e };
               })(),
               notifications: Z(),
@@ -1892,43 +1892,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     },
     307: (e, t, r) => {
       "use strict";
-      r.d(t, { Z: () => a });
+      r.d(t, { Z: () => c });
       var s = r(7128),
         o = r(6492),
         n = r.n(o),
         i = r(2338);
-      const a = (async () => {
-        let e = await i.Z.get("gaRareUserId");
-        if (e) return e;
-        let t = !1;
-        try {
-          await new Promise(async (r, s) => {
-            setTimeout(() => {
-              (t = !0), s(new Error("Initial GA request timeout reached"));
-            }, 1e4);
-            const o = await fetch(n().baseUrl + "/api/v1/attributes/extintid", {
-                credentials: "include",
-                headers: { "Content-Type": "application/json" },
-                method: "GET"
-              }),
-              a = await o.json();
-            "string" == typeof (null == a ? void 0 : a.extintid) && (e = a.extintid),
-              "boolean" == typeof (null == a ? void 0 : a.created) && (await i.Z.set("gaRareUserIsNew", a.created));
-          });
-        } catch (e) {}
-        return e
-          ? (i.Z.set("gaRareUserId", e), e)
-          : ((e = (0, s.Z)()),
-            i.Z.set("gaRareUserId", e),
-            t &&
-              fetch(n().baseUrl + "/api/v1/attributes", {
-                body: JSON.stringify({ data: { extintid: e } }),
-                credentials: "include",
-                headers: { "Content-Type": "application/json" },
-                method: "POST"
-              }),
-            e);
-      })();
+      const a = location.href.includes("background"),
+        c = (async () => {
+          let e = await i.Z.get("gaRareUserId");
+          if (e) return e;
+          if (!a)
+            return new Promise((e) => {
+              const t = i.Z.onChange({
+                for: ["gaRareUserId"],
+                do: (r) => {
+                  const s = r.gaRareUserId;
+                  void 0 !== s && (e(s), t());
+                }
+              });
+            });
+          let t = !1;
+          try {
+            await new Promise(async (r, s) => {
+              setTimeout(() => {
+                (t = !0), s(new Error("Initial GA request timeout reached"));
+              }, 1e4);
+              const o = await fetch(n().baseUrl + "/api/v1/attributes/extintid", {
+                  credentials: "include",
+                  headers: { "Content-Type": "application/json" },
+                  method: "GET"
+                }),
+                a = await o.json();
+              "string" == typeof (null == a ? void 0 : a.extintid) && (e = a.extintid),
+                "boolean" == typeof (null == a ? void 0 : a.created) && (await i.Z.set("gaRareUserIsNew", a.created));
+            });
+          } catch (e) {}
+          return e
+            ? (i.Z.set("gaRareUserId", e), e)
+            : ((e = (0, s.Z)()),
+              i.Z.set("gaRareUserId", e),
+              t &&
+                fetch(n().baseUrl + "/api/v1/attributes", {
+                  body: JSON.stringify({ data: { extintid: e } }),
+                  credentials: "include",
+                  headers: { "Content-Type": "application/json" },
+                  method: "POST"
+                }),
+              e);
+        })();
     },
     9699: (e, t, r) => {
       e.exports = "undefined" != typeof browser ? r(8986) : r(4363);
@@ -2542,7 +2553,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           " for the full message or use the non-minified dev environment for full errors. "
         );
       }
-      r.d(t, { Z: () => $ });
+      r.d(t, { Z: () => j });
       var o = ("function" == typeof Symbol && Symbol.observable) || "@@observable",
         n = function () {
           return Math.random().toString(36).substring(7).split("").join(".");
@@ -3008,7 +3019,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         A = r(8363),
         _ = r(5583);
       const C = JSON.parse(
-          '{"version":20230730100006,"countries":{"at":{"timezoneOffset":120,"premium_servers":[{"host":"at11.prmsrvs.com","port":428}]},"au":{"timezoneOffset":600,"premium_servers":[{"host":"au1.prmsrvs.com","port":428},{"host":"au2.prmsrvs.com","port":428},{"host":"au3.prmsrvs.com","port":428},{"host":"au4.prmsrvs.com","port":428},{"host":"au5.prmsrvs.com","port":428},{"host":"au6.prmsrvs.com","port":428},{"host":"au7.prmsrvs.com","port":428},{"host":"au8.prmsrvs.com","port":428}]},"be":{"timezoneOffset":120,"premium_servers":[{"host":"be51.prmsrvs.com","port":428},{"host":"be52.prmsrvs.com","port":428},{"host":"be53.prmsrvs.com","port":428},{"host":"be54.prmsrvs.com","port":428},{"host":"be55.prmsrvs.com","port":428},{"host":"be56.prmsrvs.com","port":428},{"host":"be57.prmsrvs.com","port":428},{"host":"be58.prmsrvs.com","port":428},{"host":"be59.prmsrvs.com","port":428},{"host":"be60.prmsrvs.com","port":428},{"host":"be61.prmsrvs.com","port":428},{"host":"be62.prmsrvs.com","port":428},{"host":"be63.prmsrvs.com","port":428},{"host":"be64.prmsrvs.com","port":428},{"host":"be65.prmsrvs.com","port":428},{"host":"be66.prmsrvs.com","port":428},{"host":"be67.prmsrvs.com","port":428},{"host":"be68.prmsrvs.com","port":428}]},"bg":{"timezoneOffset":180,"premium_servers":[{"host":"bg1.prmsrvs.com","port":428},{"host":"bg2.prmsrvs.com","port":428},{"host":"bg3.prmsrvs.com","port":428},{"host":"bg4.prmsrvs.com","port":428}]},"br":{"timezoneOffset":-180,"premium_servers":[{"host":"br2.prmsrvs.com","port":428},{"host":"br3.prmsrvs.com","port":428}]},"ca":{"timezoneOffset":-240,"premium_servers":[{"host":"ca1.prmsrvs.com","port":428},{"host":"ca2.prmsrvs.com","port":428}]},"ch":{"timezoneOffset":120,"premium_servers":[{"host":"ch2.prmsrvs.com","port":428}]},"cl":{"timezoneOffset":-240,"premium_servers":[{"host":"cl1.prmsrvs.com","port":428}]},"cz":{"timezoneOffset":120,"premium_servers":[{"host":"cz6.prmsrvs.com","port":428}]},"de":{"timezoneOffset":120,"premium_servers":[{"host":"de1.prmsrvs.com","port":428},{"host":"de2.prmsrvs.com","port":428},{"host":"de3.prmsrvs.com","port":428},{"host":"de4.prmsrvs.com","port":428},{"host":"de5.prmsrvs.com","port":428},{"host":"de6.prmsrvs.com","port":428},{"host":"de7.prmsrvs.com","port":428},{"host":"de8.prmsrvs.com","port":428},{"host":"de9.prmsrvs.com","port":428},{"host":"de10.prmsrvs.com","port":428},{"host":"de11.prmsrvs.com","port":428},{"host":"de12.prmsrvs.com","port":428}]},"dk":{"timezoneOffset":120,"premium_servers":[{"host":"dk13.prmsrvs.com","port":428},{"host":"dk14.prmsrvs.com","port":428},{"host":"dk15.prmsrvs.com","port":428},{"host":"dk16.prmsrvs.com","port":428}]},"es":{"timezoneOffset":120,"premium_servers":[{"host":"es6.prmsrvs.com","port":428},{"host":"es7.prmsrvs.com","port":428},{"host":"es8.prmsrvs.com","port":428},{"host":"es9.prmsrvs.com","port":428},{"host":"es10.prmsrvs.com","port":428}]},"fi":{"timezoneOffset":180,"premium_servers":[{"host":"fi31.prmsrvs.com","port":428},{"host":"fi32.prmsrvs.com","port":428},{"host":"fi33.prmsrvs.com","port":428},{"host":"fi34.prmsrvs.com","port":428},{"host":"fi35.prmsrvs.com","port":428},{"host":"fi36.prmsrvs.com","port":428},{"host":"fi37.prmsrvs.com","port":428},{"host":"fi38.prmsrvs.com","port":428},{"host":"fi39.prmsrvs.com","port":428},{"host":"fi40.prmsrvs.com","port":428}]},"fr":{"timezoneOffset":120,"premium_servers":[{"host":"fr1.prmsrvs.com","port":428},{"host":"fr2.prmsrvs.com","port":428},{"host":"fr3.prmsrvs.com","port":428},{"host":"fr4.prmsrvs.com","port":428},{"host":"fr5.prmsrvs.com","port":428},{"host":"fr6.prmsrvs.com","port":428},{"host":"fr7.prmsrvs.com","port":428},{"host":"fr8.prmsrvs.com","port":428},{"host":"fr9.prmsrvs.com","port":428},{"host":"fr10.prmsrvs.com","port":428}]},"hk":{"timezoneOffset":480,"premium_servers":[{"host":"hk1.prmsrvs.com","port":428},{"host":"hk2.prmsrvs.com","port":428},{"host":"hk3.prmsrvs.com","port":428},{"host":"hk4.prmsrvs.com","port":428},{"host":"hk5.prmsrvs.com","port":428},{"host":"hk6.prmsrvs.com","port":428},{"host":"hk7.prmsrvs.com","port":428},{"host":"hk8.prmsrvs.com","port":428},{"host":"hk9.prmsrvs.com","port":428},{"host":"hk10.prmsrvs.com","port":428}]},"hu":{"timezoneOffset":120,"premium_servers":[{"host":"hu1.prmsrvs.com","port":428},{"host":"hu2.prmsrvs.com","port":428},{"host":"hu3.prmsrvs.com","port":428},{"host":"hu4.prmsrvs.com","port":428},{"host":"hu5.prmsrvs.com","port":428}]},"ie":{"timezoneOffset":60,"premium_servers":[{"host":"ie1.prmsrvs.com","port":428},{"host":"ie2.prmsrvs.com","port":428},{"host":"ie3.prmsrvs.com","port":428},{"host":"ie4.prmsrvs.com","port":428},{"host":"ie5.prmsrvs.com","port":428},{"host":"ie6.prmsrvs.com","port":428},{"host":"ie7.prmsrvs.com","port":428},{"host":"ie8.prmsrvs.com","port":428},{"host":"ie9.prmsrvs.com","port":428},{"host":"ie10.prmsrvs.com","port":428}]},"il":{"timezoneOffset":180,"premium_servers":[{"host":"il1.prmsrvs.com","port":428},{"host":"il2.prmsrvs.com","port":428}]},"in":{"timezoneOffset":330,"premium_servers":[{"host":"in3.prmsrvs.com","port":428},{"host":"in4.prmsrvs.com","port":428},{"host":"in5.prmsrvs.com","port":428},{"host":"in6.prmsrvs.com","port":428}]},"is":{"timezoneOffset":0,"premium_servers":[{"host":"is1.prmsrvs.com","port":428},{"host":"is2.prmsrvs.com","port":428},{"host":"is3.prmsrvs.com","port":428},{"host":"is4.prmsrvs.com","port":428}]},"it":{"timezoneOffset":120,"premium_servers":[{"host":"it1.prmsrvs.com","port":428},{"host":"it2.prmsrvs.com","port":428},{"host":"it3.prmsrvs.com","port":428}]},"jp":{"timezoneOffset":540,"premium_servers":[{"host":"jp1.prmsrvs.com","port":428},{"host":"jp2.prmsrvs.com","port":428},{"host":"jp3.prmsrvs.com","port":428},{"host":"jp4.prmsrvs.com","port":428},{"host":"jp5.prmsrvs.com","port":428},{"host":"jp6.prmsrvs.com","port":428},{"host":"jp7.prmsrvs.com","port":428},{"host":"jp8.prmsrvs.com","port":428},{"host":"jp9.prmsrvs.com","port":428},{"host":"jp10.prmsrvs.com","port":428},{"host":"jp11.prmsrvs.com","port":428},{"host":"jp12.prmsrvs.com","port":428},{"host":"jp13.prmsrvs.com","port":428},{"host":"jp14.prmsrvs.com","port":428},{"host":"jp15.prmsrvs.com","port":428},{"host":"jp16.prmsrvs.com","port":428},{"host":"jp17.prmsrvs.com","port":428},{"host":"jp18.prmsrvs.com","port":428},{"host":"jp19.prmsrvs.com","port":428},{"host":"jp20.prmsrvs.com","port":428},{"host":"jp21.prmsrvs.com","port":428},{"host":"jp22.prmsrvs.com","port":428},{"host":"jp23.prmsrvs.com","port":428},{"host":"jp24.prmsrvs.com","port":428},{"host":"jp25.prmsrvs.com","port":428},{"host":"jp26.prmsrvs.com","port":428},{"host":"jp27.prmsrvs.com","port":428},{"host":"jp28.prmsrvs.com","port":428},{"host":"jp29.prmsrvs.com","port":428},{"host":"jp30.prmsrvs.com","port":428},{"host":"jp31.prmsrvs.com","port":428},{"host":"jp32.prmsrvs.com","port":428},{"host":"jp33.prmsrvs.com","port":428},{"host":"jp34.prmsrvs.com","port":428},{"host":"jp35.prmsrvs.com","port":428}]},"kr":{"timezoneOffset":540,"premium_servers":[{"host":"kr1.prmsrvs.com","port":428},{"host":"kr2.prmsrvs.com","port":428},{"host":"kr3.prmsrvs.com","port":428},{"host":"kr4.prmsrvs.com","port":428},{"host":"kr5.prmsrvs.com","port":428},{"host":"kr6.prmsrvs.com","port":428},{"host":"kr7.prmsrvs.com","port":428},{"host":"kr8.prmsrvs.com","port":428},{"host":"kr9.prmsrvs.com","port":428},{"host":"kr10.prmsrvs.com","port":428},{"host":"kr11.prmsrvs.com","port":428},{"host":"kr12.prmsrvs.com","port":428}]},"lt":{"timezoneOffset":180,"premium_servers":[{"host":"lt1.prmsrvs.com","port":428},{"host":"lt2.prmsrvs.com","port":428},{"host":"lt3.prmsrvs.com","port":428}]},"lu":{"timezoneOffset":120,"premium_servers":[{"host":"lu2.prmsrvs.com","port":428}]},"lv":{"timezoneOffset":180,"premium_servers":[{"host":"lv2.prmsrvs.com","port":428}]},"mx":{"timezoneOffset":-360,"premium_servers":[{"host":"mx1.prmsrvs.com","port":428}]},"nl":{"timezoneOffset":120,"premium_servers":[{"host":"nl41.prmsrvs.com","port":428},{"host":"nl42.prmsrvs.com","port":428},{"host":"nl43.prmsrvs.com","port":428},{"host":"nl44.prmsrvs.com","port":428},{"host":"nl45.prmsrvs.com","port":428},{"host":"nl46.prmsrvs.com","port":428},{"host":"nl47.prmsrvs.com","port":428},{"host":"nl48.prmsrvs.com","port":428}],"servers":[{"host":"nl41.trafcfy.com","port":428},{"host":"nl42.trafcfy.com","port":428},{"host":"nl43.trafcfy.com","port":428},{"host":"nl44.trafcfy.com","port":428},{"host":"nl45.trafcfy.com","port":428},{"host":"nl50.trafcfy.com","port":428},{"host":"nl51.trafcfy.com","port":428},{"host":"nl52.trafcfy.com","port":428},{"host":"nl53.trafcfy.com","port":428},{"host":"nl55.trafcfy.com","port":428},{"host":"nl56.trafcfy.com","port":428},{"host":"nl57.trafcfy.com","port":428},{"host":"nl58.trafcfy.com","port":428},{"host":"nl59.trafcfy.com","port":428},{"host":"nl60.trafcfy.com","port":428},{"host":"nl61.trafcfy.com","port":428},{"host":"nl62.trafcfy.com","port":428},{"host":"nl63.trafcfy.com","port":428},{"host":"nl64.trafcfy.com","port":428},{"host":"nl65.trafcfy.com","port":428},{"host":"nl66.trafcfy.com","port":428},{"host":"nl67.trafcfy.com","port":428},{"host":"nl68.trafcfy.com","port":428},{"host":"nl69.trafcfy.com","port":428},{"host":"nl70.trafcfy.com","port":428},{"host":"nl71.trafcfy.com","port":428},{"host":"nl72.trafcfy.com","port":428},{"host":"nl73.trafcfy.com","port":428},{"host":"nl74.trafcfy.com","port":428},{"host":"nl78.trafcfy.com","port":428},{"host":"nl79.trafcfy.com","port":428},{"host":"nl80.trafcfy.com","port":428},{"host":"nl81.trafcfy.com","port":428},{"host":"nl82.trafcfy.com","port":428},{"host":"nl83.trafcfy.com","port":428},{"host":"nl84.trafcfy.com","port":428},{"host":"nl85.trafcfy.com","port":428},{"host":"nl86.trafcfy.com","port":428},{"host":"nl87.trafcfy.com","port":428},{"host":"nl88.trafcfy.com","port":428},{"host":"nl89.trafcfy.com","port":428},{"host":"nl90.trafcfy.com","port":428},{"host":"nl91.trafcfy.com","port":428},{"host":"nl92.trafcfy.com","port":428},{"host":"nl93.trafcfy.com","port":428},{"host":"nl94.trafcfy.com","port":428},{"host":"nl95.trafcfy.com","port":428}]},"no":{"timezoneOffset":120,"premium_servers":[{"host":"no1.prmsrvs.com","port":428},{"host":"no2.prmsrvs.com","port":428},{"host":"no3.prmsrvs.com","port":428},{"host":"no4.prmsrvs.com","port":428},{"host":"no5.prmsrvs.com","port":428},{"host":"no6.prmsrvs.com","port":428},{"host":"no7.prmsrvs.com","port":428}]},"nz":{"timezoneOffset":720,"premium_servers":[{"host":"nz1.prmsrvs.com","port":428}]},"pl":{"timezoneOffset":120,"premium_servers":[{"host":"pl1.prmsrvs.com","port":428},{"host":"pl2.prmsrvs.com","port":428},{"host":"pl3.prmsrvs.com","port":428}]},"ro":{"timezoneOffset":180,"premium_servers":[{"host":"ro4.prmsrvs.com","port":428},{"host":"ro5.prmsrvs.com","port":428}]},"rs":{"timezoneOffset":120,"premium_servers":[{"host":"rs1.prmsrvs.com","port":428}]},"ru":{"timezoneOffset":180,"premium_servers":[{"host":"ru6.prmsrvs.com","port":428},{"host":"ru7.prmsrvs.com","port":428},{"host":"ru8.prmsrvs.com","port":428},{"host":"ru9.prmsrvs.com","port":428},{"host":"ru10.prmsrvs.com","port":428},{"host":"ru11.prmsrvs.com","port":428},{"host":"ru12.prmsrvs.com","port":428},{"host":"ru13.prmsrvs.com","port":428}]},"se":{"timezoneOffset":120,"premium_servers":[{"host":"se10.prmsrvs.com","port":428},{"host":"se11.prmsrvs.com","port":428},{"host":"se12.prmsrvs.com","port":428}]},"sg":{"timezoneOffset":480,"servers":[{"host":"sg1.trafcfy.com","port":428},{"host":"sg2.trafcfy.com","port":428},{"host":"sg3.trafcfy.com","port":428},{"host":"sg4.trafcfy.com","port":428},{"host":"sg5.trafcfy.com","port":428},{"host":"sg6.trafcfy.com","port":428},{"host":"sg7.trafcfy.com","port":428},{"host":"sg8.trafcfy.com","port":428},{"host":"sg9.trafcfy.com","port":428},{"host":"sg10.trafcfy.com","port":428}],"premium_servers":[{"host":"sg5.prmsrvs.com","port":428},{"host":"sg6.prmsrvs.com","port":428},{"host":"sg7.prmsrvs.com","port":428},{"host":"sg8.prmsrvs.com","port":428},{"host":"sg9.prmsrvs.com","port":428},{"host":"sg10.prmsrvs.com","port":428},{"host":"sg11.prmsrvs.com","port":428},{"host":"sg12.prmsrvs.com","port":428}]},"si":{"timezoneOffset":120,"premium_servers":[{"host":"si1.prmsrvs.com","port":428},{"host":"si2.prmsrvs.com","port":428}]},"tr":{"timezoneOffset":180,"premium_servers":[{"host":"tr2.prmsrvs.com","port":428},{"host":"tr3.prmsrvs.com","port":428},{"host":"tr4.prmsrvs.com","port":428},{"host":"tr5.prmsrvs.com","port":428},{"host":"tr6.prmsrvs.com","port":428},{"host":"tr7.prmsrvs.com","port":428},{"host":"tr8.prmsrvs.com","port":428},{"host":"tr9.prmsrvs.com","port":428},{"host":"tr10.prmsrvs.com","port":428}]},"ua":{"timezoneOffset":0,"premium_servers":[{"host":"ua2.prmsrvs.com","port":428}]},"uk":{"timezoneOffset":60,"premium_servers":[{"host":"uk2.prmsrvs.com","port":428},{"host":"uk4.prmsrvs.com","port":428},{"host":"uk32.prmsrvs.com","port":428},{"host":"uk42.prmsrvs.com","port":428},{"host":"uk46.prmsrvs.com","port":428},{"host":"uk56.prmsrvs.com","port":428},{"host":"uk58.prmsrvs.com","port":428},{"host":"uk60.prmsrvs.com","port":428},{"host":"uk66.prmsrvs.com","port":428},{"host":"uk69.prmsrvs.com","port":428},{"host":"uk75.prmsrvs.com","port":428},{"host":"uk80.prmsrvs.com","port":428},{"host":"uk81.prmsrvs.com","port":428},{"host":"uk83.prmsrvs.com","port":428},{"host":"uk84.prmsrvs.com","port":428},{"host":"uk85.prmsrvs.com","port":428},{"host":"uk86.prmsrvs.com","port":428},{"host":"uk87.prmsrvs.com","port":428},{"host":"uk88.prmsrvs.com","port":428},{"host":"uk89.prmsrvs.com","port":428},{"host":"uk90.prmsrvs.com","port":428}],"servers":[{"host":"uk22.trafcfy.com","port":428},{"host":"uk23.trafcfy.com","port":428},{"host":"uk24.trafcfy.com","port":428},{"host":"uk25.trafcfy.com","port":428},{"host":"uk26.trafcfy.com","port":428},{"host":"uk27.trafcfy.com","port":428},{"host":"uk28.trafcfy.com","port":428},{"host":"uk29.trafcfy.com","port":428},{"host":"uk30.trafcfy.com","port":428},{"host":"uk31.trafcfy.com","port":428},{"host":"uk32.trafcfy.com","port":428},{"host":"uk33.trafcfy.com","port":428},{"host":"uk34.trafcfy.com","port":428},{"host":"uk35.trafcfy.com","port":428},{"host":"uk36.trafcfy.com","port":428},{"host":"uk37.trafcfy.com","port":428}]},"us":{"timezoneOffset":-240,"premium_servers":[{"host":"us1.prmsrvs.com","port":428},{"host":"us2.prmsrvs.com","port":428},{"host":"us7.prmsrvs.com","port":428},{"host":"us10.prmsrvs.com","port":428},{"host":"us11.prmsrvs.com","port":428},{"host":"us12.prmsrvs.com","port":428},{"host":"us13.prmsrvs.com","port":428},{"host":"us14.prmsrvs.com","port":428}],"servers":[{"host":"us21.trafcfy.com","port":428},{"host":"us23.trafcfy.com","port":428},{"host":"us24.trafcfy.com","port":428},{"host":"us25.trafcfy.com","port":428},{"host":"us26.trafcfy.com","port":428},{"host":"us28.trafcfy.com","port":428},{"host":"us29.trafcfy.com","port":428},{"host":"us30.trafcfy.com","port":428},{"host":"us31.trafcfy.com","port":428},{"host":"us32.trafcfy.com","port":428},{"host":"us34.trafcfy.com","port":428},{"host":"us35.trafcfy.com","port":428}]},"usw":{"timezoneOffset":-420,"premium_servers":[{"host":"usw1.prmsrvs.com","port":428},{"host":"usw2.prmsrvs.com","port":428},{"host":"usw3.prmsrvs.com","port":428},{"host":"usw4.prmsrvs.com","port":428},{"host":"usw5.prmsrvs.com","port":428},{"host":"usw6.prmsrvs.com","port":428},{"host":"usw7.prmsrvs.com","port":428},{"host":"usw8.prmsrvs.com","port":428},{"host":"usw9.prmsrvs.com","port":428},{"host":"usw10.prmsrvs.com","port":428}]},"za":{"timezoneOffset":120,"premium_servers":[{"host":"za1.prmsrvs.com","port":428},{"host":"za2.prmsrvs.com","port":428},{"host":"za3.prmsrvs.com","port":428},{"host":"za4.prmsrvs.com","port":428},{"host":"za5.prmsrvs.com","port":428},{"host":"za6.prmsrvs.com","port":428},{"host":"za7.prmsrvs.com","port":428}]}},"domains":{"free":["trafcfy.com"],"premium":["prmsrvs.com"]}}'
+          '{"version":20231130071509,"countries":{"at":{"timezoneOffset":60,"premium_servers":[{"host":"at11.prmsrvs.com","port":838}]},"au":{"timezoneOffset":660,"premium_servers":[{"host":"au9.prmsrvs.com","port":838},{"host":"au10.prmsrvs.com","port":838},{"host":"au11.prmsrvs.com","port":838},{"host":"au12.prmsrvs.com","port":838},{"host":"au13.prmsrvs.com","port":838},{"host":"au14.prmsrvs.com","port":838},{"host":"au15.prmsrvs.com","port":838},{"host":"au16.prmsrvs.com","port":838},{"host":"au17.prmsrvs.com","port":838},{"host":"au18.prmsrvs.com","port":838}]},"be":{"timezoneOffset":60,"premium_servers":[{"host":"be51.prmsrvs.com","port":838},{"host":"be52.prmsrvs.com","port":838},{"host":"be53.prmsrvs.com","port":838},{"host":"be54.prmsrvs.com","port":838},{"host":"be55.prmsrvs.com","port":838},{"host":"be56.prmsrvs.com","port":838},{"host":"be57.prmsrvs.com","port":838},{"host":"be58.prmsrvs.com","port":838},{"host":"be59.prmsrvs.com","port":838},{"host":"be60.prmsrvs.com","port":838},{"host":"be61.prmsrvs.com","port":838},{"host":"be62.prmsrvs.com","port":838},{"host":"be63.prmsrvs.com","port":838},{"host":"be64.prmsrvs.com","port":838},{"host":"be65.prmsrvs.com","port":838},{"host":"be66.prmsrvs.com","port":838},{"host":"be67.prmsrvs.com","port":838},{"host":"be68.prmsrvs.com","port":838}]},"bg":{"timezoneOffset":120,"premium_servers":[{"host":"bg1.prmsrvs.com","port":838},{"host":"bg2.prmsrvs.com","port":838},{"host":"bg3.prmsrvs.com","port":838},{"host":"bg4.prmsrvs.com","port":838}]},"br":{"timezoneOffset":-180,"premium_servers":[{"host":"br4.prmsrvs.com","port":838},{"host":"br5.prmsrvs.com","port":838}]},"ca":{"timezoneOffset":-300,"premium_servers":[{"host":"ca1.prmsrvs.com","port":838},{"host":"ca2.prmsrvs.com","port":838}]},"ch":{"timezoneOffset":60,"premium_servers":[{"host":"ch2.prmsrvs.com","port":838}]},"cl":{"timezoneOffset":-180,"premium_servers":[{"host":"cl1.prmsrvs.com","port":838}]},"cz":{"timezoneOffset":60,"premium_servers":[{"host":"cz6.prmsrvs.com","port":838}]},"de":{"timezoneOffset":60,"premium_servers":[{"host":"de1.prmsrvs.com","port":838},{"host":"de2.prmsrvs.com","port":838},{"host":"de3.prmsrvs.com","port":838},{"host":"de4.prmsrvs.com","port":838},{"host":"de5.prmsrvs.com","port":838},{"host":"de6.prmsrvs.com","port":838},{"host":"de7.prmsrvs.com","port":838},{"host":"de8.prmsrvs.com","port":838},{"host":"de9.prmsrvs.com","port":838},{"host":"de10.prmsrvs.com","port":838},{"host":"de11.prmsrvs.com","port":838},{"host":"de12.prmsrvs.com","port":838}]},"dk":{"timezoneOffset":60,"premium_servers":[{"host":"dk1.prmsrvs.com","port":838},{"host":"dk3.prmsrvs.com","port":838},{"host":"dk4.prmsrvs.com","port":838},{"host":"dk8.prmsrvs.com","port":838},{"host":"dk9.prmsrvs.com","port":838},{"host":"dk10.prmsrvs.com","port":838},{"host":"dk11.prmsrvs.com","port":838},{"host":"dk12.prmsrvs.com","port":838},{"host":"dk13.prmsrvs.com","port":838},{"host":"dk14.prmsrvs.com","port":838},{"host":"dk15.prmsrvs.com","port":838},{"host":"dk16.prmsrvs.com","port":838},{"host":"dk17.prmsrvs.com","port":838},{"host":"dk18.prmsrvs.com","port":838},{"host":"dk19.prmsrvs.com","port":838},{"host":"dk20.prmsrvs.com","port":838}]},"es":{"timezoneOffset":60,"premium_servers":[{"host":"es6.prmsrvs.com","port":838},{"host":"es7.prmsrvs.com","port":838},{"host":"es8.prmsrvs.com","port":838},{"host":"es9.prmsrvs.com","port":838},{"host":"es10.prmsrvs.com","port":838}]},"fi":{"timezoneOffset":120,"premium_servers":[{"host":"fi1.prmsrvs.com","port":838},{"host":"fi2.prmsrvs.com","port":838},{"host":"fi3.prmsrvs.com","port":838},{"host":"fi4.prmsrvs.com","port":838},{"host":"fi5.prmsrvs.com","port":838},{"host":"fi6.prmsrvs.com","port":838},{"host":"fi7.prmsrvs.com","port":838},{"host":"fi8.prmsrvs.com","port":838},{"host":"fi9.prmsrvs.com","port":838},{"host":"fi10.prmsrvs.com","port":838},{"host":"fi11.prmsrvs.com","port":838},{"host":"fi12.prmsrvs.com","port":838},{"host":"fi13.prmsrvs.com","port":838},{"host":"fi14.prmsrvs.com","port":838},{"host":"fi15.prmsrvs.com","port":838}]},"fr":{"timezoneOffset":60,"premium_servers":[{"host":"fr11.prmsrvs.com","port":838},{"host":"fr12.prmsrvs.com","port":838},{"host":"fr13.prmsrvs.com","port":838},{"host":"fr14.prmsrvs.com","port":838},{"host":"fr15.prmsrvs.com","port":838},{"host":"fr16.prmsrvs.com","port":838},{"host":"fr17.prmsrvs.com","port":838},{"host":"fr18.prmsrvs.com","port":838},{"host":"fr19.prmsrvs.com","port":838},{"host":"fr20.prmsrvs.com","port":838},{"host":"fr21.prmsrvs.com","port":838},{"host":"fr22.prmsrvs.com","port":838},{"host":"fr23.prmsrvs.com","port":838},{"host":"fr24.prmsrvs.com","port":838},{"host":"fr25.prmsrvs.com","port":838}]},"hk":{"timezoneOffset":480,"premium_servers":[{"host":"hk1.prmsrvs.com","port":838},{"host":"hk2.prmsrvs.com","port":838},{"host":"hk3.prmsrvs.com","port":838},{"host":"hk4.prmsrvs.com","port":838},{"host":"hk5.prmsrvs.com","port":838},{"host":"hk6.prmsrvs.com","port":838},{"host":"hk7.prmsrvs.com","port":838},{"host":"hk8.prmsrvs.com","port":838},{"host":"hk9.prmsrvs.com","port":838},{"host":"hk10.prmsrvs.com","port":838}]},"hu":{"timezoneOffset":60,"premium_servers":[{"host":"hu1.prmsrvs.com","port":838},{"host":"hu2.prmsrvs.com","port":838},{"host":"hu3.prmsrvs.com","port":838},{"host":"hu4.prmsrvs.com","port":838},{"host":"hu5.prmsrvs.com","port":838}]},"ie":{"timezoneOffset":0,"premium_servers":[{"host":"ie1.prmsrvs.com","port":838},{"host":"ie2.prmsrvs.com","port":838},{"host":"ie3.prmsrvs.com","port":838},{"host":"ie4.prmsrvs.com","port":838},{"host":"ie5.prmsrvs.com","port":838},{"host":"ie6.prmsrvs.com","port":838},{"host":"ie7.prmsrvs.com","port":838},{"host":"ie8.prmsrvs.com","port":838},{"host":"ie9.prmsrvs.com","port":838},{"host":"ie10.prmsrvs.com","port":838}]},"il":{"timezoneOffset":120,"premium_servers":[{"host":"il1.prmsrvs.com","port":838},{"host":"il2.prmsrvs.com","port":838}]},"in":{"timezoneOffset":330,"premium_servers":[{"host":"in3.prmsrvs.com","port":838},{"host":"in4.prmsrvs.com","port":838},{"host":"in5.prmsrvs.com","port":838},{"host":"in6.prmsrvs.com","port":838}]},"is":{"timezoneOffset":0,"premium_servers":[{"host":"is1.prmsrvs.com","port":838},{"host":"is2.prmsrvs.com","port":838},{"host":"is3.prmsrvs.com","port":838},{"host":"is4.prmsrvs.com","port":838}]},"it":{"timezoneOffset":60,"premium_servers":[{"host":"it1.prmsrvs.com","port":838},{"host":"it2.prmsrvs.com","port":838},{"host":"it3.prmsrvs.com","port":838}]},"jp":{"timezoneOffset":540,"premium_servers":[{"host":"jp26.prmsrvs.com","port":838},{"host":"jp27.prmsrvs.com","port":838},{"host":"jp28.prmsrvs.com","port":838},{"host":"jp29.prmsrvs.com","port":838},{"host":"jp30.prmsrvs.com","port":838},{"host":"jp31.prmsrvs.com","port":838},{"host":"jp32.prmsrvs.com","port":838},{"host":"jp33.prmsrvs.com","port":838},{"host":"jp34.prmsrvs.com","port":838},{"host":"jp35.prmsrvs.com","port":838},{"host":"jp36.prmsrvs.com","port":838},{"host":"jp37.prmsrvs.com","port":838},{"host":"jp38.prmsrvs.com","port":838},{"host":"jp39.prmsrvs.com","port":838},{"host":"jp40.prmsrvs.com","port":838},{"host":"jp41.prmsrvs.com","port":838},{"host":"jp42.prmsrvs.com","port":838},{"host":"jp43.prmsrvs.com","port":838},{"host":"jp44.prmsrvs.com","port":838},{"host":"jp45.prmsrvs.com","port":838},{"host":"jp46.prmsrvs.com","port":838},{"host":"jp47.prmsrvs.com","port":838},{"host":"jp48.prmsrvs.com","port":838},{"host":"jp49.prmsrvs.com","port":838},{"host":"jp50.prmsrvs.com","port":838},{"host":"jp51.prmsrvs.com","port":838},{"host":"jp52.prmsrvs.com","port":838},{"host":"jp53.prmsrvs.com","port":838},{"host":"jp54.prmsrvs.com","port":838},{"host":"jp55.prmsrvs.com","port":838}]},"kr":{"timezoneOffset":540,"premium_servers":[{"host":"kr13.prmsrvs.com","port":838},{"host":"kr14.prmsrvs.com","port":838},{"host":"kr15.prmsrvs.com","port":838},{"host":"kr16.prmsrvs.com","port":838},{"host":"kr17.prmsrvs.com","port":838},{"host":"kr18.prmsrvs.com","port":838},{"host":"kr19.prmsrvs.com","port":838},{"host":"kr20.prmsrvs.com","port":838},{"host":"kr21.prmsrvs.com","port":838},{"host":"kr22.prmsrvs.com","port":838}]},"lt":{"timezoneOffset":120,"premium_servers":[{"host":"lt1.prmsrvs.com","port":838},{"host":"lt2.prmsrvs.com","port":838},{"host":"lt3.prmsrvs.com","port":838}]},"lu":{"timezoneOffset":60,"premium_servers":[{"host":"lu2.prmsrvs.com","port":838}]},"lv":{"timezoneOffset":120,"premium_servers":[{"host":"lv2.prmsrvs.com","port":838}]},"mx":{"timezoneOffset":-360,"premium_servers":[{"host":"mx2.prmsrvs.com","port":838},{"host":"mx3.prmsrvs.com","port":838}]},"nl":{"timezoneOffset":60,"premium_servers":[{"host":"nl1.prmsrvs.com","port":838},{"host":"nl2.prmsrvs.com","port":838},{"host":"nl3.prmsrvs.com","port":838},{"host":"nl4.prmsrvs.com","port":838},{"host":"nl5.prmsrvs.com","port":838},{"host":"nl6.prmsrvs.com","port":838},{"host":"nl7.prmsrvs.com","port":838},{"host":"nl8.prmsrvs.com","port":838},{"host":"nl9.prmsrvs.com","port":838},{"host":"nl10.prmsrvs.com","port":838},{"host":"nl11.prmsrvs.com","port":838},{"host":"nl12.prmsrvs.com","port":838},{"host":"nl13.prmsrvs.com","port":838},{"host":"nl14.prmsrvs.com","port":838},{"host":"nl15.prmsrvs.com","port":838}],"servers":[{"host":"nl41.trafcfy.com","port":838},{"host":"nl42.trafcfy.com","port":838},{"host":"nl43.trafcfy.com","port":838},{"host":"nl44.trafcfy.com","port":838},{"host":"nl45.trafcfy.com","port":838},{"host":"nl50.trafcfy.com","port":838},{"host":"nl51.trafcfy.com","port":838},{"host":"nl52.trafcfy.com","port":838},{"host":"nl53.trafcfy.com","port":838},{"host":"nl55.trafcfy.com","port":838},{"host":"nl56.trafcfy.com","port":838},{"host":"nl57.trafcfy.com","port":838},{"host":"nl58.trafcfy.com","port":838},{"host":"nl59.trafcfy.com","port":838},{"host":"nl60.trafcfy.com","port":838},{"host":"nl61.trafcfy.com","port":838},{"host":"nl62.trafcfy.com","port":838},{"host":"nl63.trafcfy.com","port":838},{"host":"nl64.trafcfy.com","port":838},{"host":"nl65.trafcfy.com","port":838},{"host":"nl66.trafcfy.com","port":838},{"host":"nl67.trafcfy.com","port":838},{"host":"nl68.trafcfy.com","port":838},{"host":"nl69.trafcfy.com","port":838},{"host":"nl70.trafcfy.com","port":838},{"host":"nl71.trafcfy.com","port":838},{"host":"nl72.trafcfy.com","port":838},{"host":"nl73.trafcfy.com","port":838},{"host":"nl74.trafcfy.com","port":838},{"host":"nl78.trafcfy.com","port":838},{"host":"nl79.trafcfy.com","port":838},{"host":"nl80.trafcfy.com","port":838},{"host":"nl81.trafcfy.com","port":838},{"host":"nl82.trafcfy.com","port":838},{"host":"nl83.trafcfy.com","port":838},{"host":"nl84.trafcfy.com","port":838},{"host":"nl85.trafcfy.com","port":838},{"host":"nl86.trafcfy.com","port":838},{"host":"nl87.trafcfy.com","port":838},{"host":"nl88.trafcfy.com","port":838},{"host":"nl89.trafcfy.com","port":838},{"host":"nl90.trafcfy.com","port":838},{"host":"nl91.trafcfy.com","port":838},{"host":"nl92.trafcfy.com","port":838},{"host":"nl93.trafcfy.com","port":838},{"host":"nl94.trafcfy.com","port":838},{"host":"nl95.trafcfy.com","port":838}]},"no":{"timezoneOffset":60,"premium_servers":[{"host":"no1.prmsrvs.com","port":838},{"host":"no2.prmsrvs.com","port":838},{"host":"no3.prmsrvs.com","port":838},{"host":"no4.prmsrvs.com","port":838},{"host":"no5.prmsrvs.com","port":838},{"host":"no6.prmsrvs.com","port":838},{"host":"no7.prmsrvs.com","port":838}]},"nz":{"timezoneOffset":780,"premium_servers":[{"host":"nz1.prmsrvs.com","port":838}]},"pl":{"timezoneOffset":60,"premium_servers":[{"host":"pl2.prmsrvs.com","port":838}]},"ro":{"timezoneOffset":120,"premium_servers":[{"host":"ro4.prmsrvs.com","port":838},{"host":"ro5.prmsrvs.com","port":838}]},"rs":{"timezoneOffset":60,"premium_servers":[{"host":"rs1.prmsrvs.com","port":838}]},"ru":{"timezoneOffset":180,"premium_servers":[{"host":"ru6.prmsrvs.com","port":838},{"host":"ru7.prmsrvs.com","port":838},{"host":"ru8.prmsrvs.com","port":838},{"host":"ru9.prmsrvs.com","port":838},{"host":"ru10.prmsrvs.com","port":838},{"host":"ru11.prmsrvs.com","port":838},{"host":"ru12.prmsrvs.com","port":838},{"host":"ru13.prmsrvs.com","port":838}]},"se":{"timezoneOffset":60,"premium_servers":[{"host":"se10.prmsrvs.com","port":838},{"host":"se11.prmsrvs.com","port":838},{"host":"se12.prmsrvs.com","port":838}]},"sg":{"timezoneOffset":480,"servers":[{"host":"sg1.trafcfy.com","port":838},{"host":"sg2.trafcfy.com","port":838},{"host":"sg3.trafcfy.com","port":838},{"host":"sg4.trafcfy.com","port":838},{"host":"sg5.trafcfy.com","port":838},{"host":"sg6.trafcfy.com","port":838},{"host":"sg7.trafcfy.com","port":838},{"host":"sg8.trafcfy.com","port":838},{"host":"sg9.trafcfy.com","port":838},{"host":"sg10.trafcfy.com","port":838}],"premium_servers":[{"host":"sg5.prmsrvs.com","port":838},{"host":"sg6.prmsrvs.com","port":838},{"host":"sg7.prmsrvs.com","port":838},{"host":"sg8.prmsrvs.com","port":838},{"host":"sg9.prmsrvs.com","port":838},{"host":"sg10.prmsrvs.com","port":838},{"host":"sg11.prmsrvs.com","port":838},{"host":"sg12.prmsrvs.com","port":838}]},"si":{"timezoneOffset":60,"premium_servers":[{"host":"si1.prmsrvs.com","port":838},{"host":"si2.prmsrvs.com","port":838}]},"tr":{"timezoneOffset":180,"premium_servers":[{"host":"tr2.prmsrvs.com","port":838},{"host":"tr3.prmsrvs.com","port":838},{"host":"tr4.prmsrvs.com","port":838},{"host":"tr5.prmsrvs.com","port":838},{"host":"tr6.prmsrvs.com","port":838},{"host":"tr7.prmsrvs.com","port":838},{"host":"tr8.prmsrvs.com","port":838},{"host":"tr9.prmsrvs.com","port":838},{"host":"tr10.prmsrvs.com","port":838}]},"ua":{"timezoneOffset":0,"premium_servers":[{"host":"ua2.prmsrvs.com","port":838}]},"uk":{"timezoneOffset":0,"premium_servers":[{"host":"uk2.prmsrvs.com","port":838},{"host":"uk8.prmsrvs.com","port":838},{"host":"uk11.prmsrvs.com","port":838},{"host":"uk23.prmsrvs.com","port":838},{"host":"uk25.prmsrvs.com","port":838},{"host":"uk26.prmsrvs.com","port":838},{"host":"uk28.prmsrvs.com","port":838},{"host":"uk31.prmsrvs.com","port":838},{"host":"uk33.prmsrvs.com","port":838},{"host":"uk37.prmsrvs.com","port":838},{"host":"uk40.prmsrvs.com","port":838},{"host":"uk42.prmsrvs.com","port":838},{"host":"uk43.prmsrvs.com","port":838},{"host":"uk44.prmsrvs.com","port":838},{"host":"uk45.prmsrvs.com","port":838},{"host":"uk46.prmsrvs.com","port":838},{"host":"uk49.prmsrvs.com","port":838},{"host":"uk50.prmsrvs.com","port":838},{"host":"uk57.prmsrvs.com","port":838},{"host":"uk59.prmsrvs.com","port":838}],"servers":[{"host":"uk22.trafcfy.com","port":838},{"host":"uk23.trafcfy.com","port":838},{"host":"uk24.trafcfy.com","port":838},{"host":"uk25.trafcfy.com","port":838},{"host":"uk26.trafcfy.com","port":838},{"host":"uk27.trafcfy.com","port":838},{"host":"uk28.trafcfy.com","port":838},{"host":"uk29.trafcfy.com","port":838},{"host":"uk30.trafcfy.com","port":838},{"host":"uk31.trafcfy.com","port":838},{"host":"uk32.trafcfy.com","port":838},{"host":"uk33.trafcfy.com","port":838},{"host":"uk34.trafcfy.com","port":838},{"host":"uk35.trafcfy.com","port":838},{"host":"uk36.trafcfy.com","port":838},{"host":"uk37.trafcfy.com","port":838}]},"us":{"timezoneOffset":-300,"premium_servers":[{"host":"us1.prmsrvs.com","port":838},{"host":"us2.prmsrvs.com","port":838},{"host":"us7.prmsrvs.com","port":838},{"host":"us10.prmsrvs.com","port":838},{"host":"us11.prmsrvs.com","port":838},{"host":"us12.prmsrvs.com","port":838},{"host":"us13.prmsrvs.com","port":838},{"host":"us14.prmsrvs.com","port":838}],"servers":[{"host":"us21.trafcfy.com","port":838},{"host":"us23.trafcfy.com","port":838},{"host":"us24.trafcfy.com","port":838},{"host":"us25.trafcfy.com","port":838},{"host":"us26.trafcfy.com","port":838},{"host":"us28.trafcfy.com","port":838},{"host":"us29.trafcfy.com","port":838},{"host":"us30.trafcfy.com","port":838},{"host":"us31.trafcfy.com","port":838},{"host":"us32.trafcfy.com","port":838},{"host":"us34.trafcfy.com","port":838},{"host":"us35.trafcfy.com","port":838}]},"usw":{"timezoneOffset":-420,"premium_servers":[{"host":"usw11.prmsrvs.com","port":838},{"host":"usw12.prmsrvs.com","port":838},{"host":"usw13.prmsrvs.com","port":838},{"host":"usw14.prmsrvs.com","port":838},{"host":"usw15.prmsrvs.com","port":838},{"host":"usw16.prmsrvs.com","port":838},{"host":"usw17.prmsrvs.com","port":838},{"host":"usw18.prmsrvs.com","port":838},{"host":"usw19.prmsrvs.com","port":838},{"host":"usw20.prmsrvs.com","port":838},{"host":"usw21.prmsrvs.com","port":838},{"host":"usw22.prmsrvs.com","port":838},{"host":"usw23.prmsrvs.com","port":838},{"host":"usw24.prmsrvs.com","port":838},{"host":"usw25.prmsrvs.com","port":838}]},"za":{"timezoneOffset":120,"premium_servers":[{"host":"za1.prmsrvs.com","port":838},{"host":"za2.prmsrvs.com","port":838},{"host":"za3.prmsrvs.com","port":838},{"host":"za4.prmsrvs.com","port":838},{"host":"za5.prmsrvs.com","port":838},{"host":"za6.prmsrvs.com","port":838},{"host":"za7.prmsrvs.com","port":838}]}},"domains":{"free":["trafcfy.com"],"premium":["prmsrvs.com"]}}'
         ),
         E = async (e) => {
           const t =
@@ -3059,11 +3070,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             promotionsBlock: k,
             proxyIsBroken: O,
             reserveDomains: P,
-            timezoneChange: j,
-            userPac: $,
+            timezoneChange: $,
+            userPac: j,
             "viewed personal banners": I,
-            webrtc: T,
-            webrtcBlock: R
+            webrtc: R,
+            webrtcBlock: T
           } = t;
           return Object.assign(
             { page: "index:home" },
@@ -3159,7 +3170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
                 return e;
               })(),
-              timezoneChange: "boolean" == typeof j && j,
+              timezoneChange: "boolean" == typeof $ && $,
               user: (() => {
                 const e = o;
                 if (!e) return { type: "guest", premium: !1, timestamp: {} };
@@ -3176,39 +3187,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                   : { type: "guest", premium: !1, timestamp: {} };
               })(),
               userPac: (() => {
-                if (!(0, x.Z)($)) return { mode: "direct", country: null, broken: !1, filters: [] };
+                if (!(0, x.Z)(j)) return { mode: "direct", country: null, broken: !1, filters: [] };
                 if (
                   !(
-                    ["direct", "proxy"].includes($.mode) &&
-                    (null === $.country || "string" == typeof $.country) &&
-                    Array.isArray($.filters)
+                    ["direct", "proxy"].includes(j.mode) &&
+                    (null === j.country || "string" == typeof j.country) &&
+                    Array.isArray(j.filters)
                   )
                 )
                   return { mode: "direct", country: null, broken: !1, filters: [] };
-                if ($.filters.length)
-                  if ($.filters.some((e) => e.domain))
-                    $.filters = $.filters.map(({ country: e, disabled: t, domain: r, proxyMode: s }) => ({
+                if (j.filters.length)
+                  if (j.filters.some((e) => e.domain))
+                    j.filters = j.filters.map(({ country: e, disabled: t, domain: r, proxyMode: s }) => ({
                       country: e,
                       disabled: t,
                       format: "domain",
                       value: r,
                       proxyMode: s
                     }));
-                  else for (const e of $.filters) "regex" === e.format && (e.value = new RegExp(e.value.slice(1, -1)));
-                return $;
+                  else for (const e of j.filters) "regex" === e.format && (e.value = new RegExp(e.value.slice(1, -1)));
+                return j;
               })(),
               viewedPersonalBanners: (() => {
                 if (!Array.isArray(I)) return [];
                 return I.length && I.every((e) => "string" == typeof e) ? I : [];
               })(),
-              webrtcBlock: "boolean" == typeof R ? R : "boolean" == typeof T ? T : null
+              webrtcBlock: "boolean" == typeof T ? T : "boolean" == typeof R ? R : null
             }
           );
         };
       var k = r(950);
       const { _: O } = self,
         { _: P } = self;
-      const j = new (class {
+      const $ = new (class {
         constructor() {
           (this._callbacks = []),
             (this._dispatchDelayedData = []),
@@ -3239,7 +3250,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return this._realStore.getState();
         }
         async initiate(e) {
-          if (this.initiated) return j.ready;
+          if (this.initiated) return $.ready;
           this.initiated = !0;
           const t = c(
             (
@@ -3427,8 +3438,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             O.isEqual(r, s) || e.dispatch({ type: "WebRTC blocking: set", data: s, noStorage: !0 });
           }
         });
-      })(j);
-      const $ = j;
+      })($);
+      const j = $;
     },
     3355: (e, t, r) => {
       "use strict";
@@ -3722,7 +3733,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         index: o,
                         name: t[2],
                         strings: e,
-                        ctor: "." === t[1] ? R : "?" === t[1] ? D : "@" === t[1] ? N : T
+                        ctor: "." === t[1] ? T : "?" === t[1] ? D : "@" === t[1] ? N : R
                       });
                     } else l.push({ type: 6, index: o });
                   }
@@ -3751,7 +3762,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return (r.innerHTML = e), r;
         }
       }
-      function j(e, t, r = e, s) {
+      function $(e, t, r = e, s) {
         var o, n, i, a;
         if (t === _) return t;
         let c = void 0 !== s ? (null === (o = r._$Co) || void 0 === o ? void 0 : o[s]) : r._$Cl;
@@ -3761,11 +3772,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             (null === (n = null == c ? void 0 : c._$AO) || void 0 === n || n.call(c, !1),
             void 0 === p ? (c = void 0) : ((c = new p(e)), c._$AT(e, r, s)),
             void 0 !== s ? ((null !== (i = (a = r)._$Co) && void 0 !== i ? i : (a._$Co = []))[s] = c) : (r._$Cl = c)),
-          void 0 !== c && (t = j(e, c._$AS(e, t.values), c, s)),
+          void 0 !== c && (t = $(e, c._$AS(e, t.values), c, s)),
           t
         );
       }
-      class $ {
+      class j {
         constructor(e, t) {
           (this.u = []), (this._$AN = void 0), (this._$AD = e), (this._$AM = t);
         }
@@ -3836,7 +3847,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return this._$AB;
         }
         _$AI(e, t = this) {
-          (e = j(this, e, t)),
+          (e = $(this, e, t)),
             d(e)
               ? e === C || null == e || "" === e
                 ? (this._$AH !== C && this._$AR(), (this._$AH = C))
@@ -3864,7 +3875,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             o = "number" == typeof s ? this._$AC(e) : (void 0 === s.el && (s.el = P.createElement(s.h, this.options)), s);
           if ((null === (t = this._$AH) || void 0 === t ? void 0 : t._$AD) === o) this._$AH.p(r);
           else {
-            const e = new $(o, this),
+            const e = new j(o, this),
               t = e.v(this.options);
             e.p(r), this.T(t), (this._$AH = e);
           }
@@ -3894,7 +3905,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           void 0 === this._$AM && ((this._$Cm = e), null === (t = this._$AP) || void 0 === t || t.call(this, e));
         }
       }
-      class T {
+      class R {
         constructor(e, t, r, s, o) {
           (this.type = 1),
             (this._$AH = C),
@@ -3916,12 +3927,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _$AI(e, t = this, r, s) {
           const o = this.strings;
           let n = !1;
-          if (void 0 === o) (e = j(this, e, t, 0)), (n = !d(e) || (e !== this._$AH && e !== _)), n && (this._$AH = e);
+          if (void 0 === o) (e = $(this, e, t, 0)), (n = !d(e) || (e !== this._$AH && e !== _)), n && (this._$AH = e);
           else {
             const s = e;
             let i, a;
             for (e = o[0], i = 0; i < o.length - 1; i++)
-              (a = j(this, s[r + i], t, i)),
+              (a = $(this, s[r + i], t, i)),
                 a === _ && (a = this._$AH[i]),
                 n || (n = !d(a) || a !== this._$AH[i]),
                 a === C ? (e = C) : e !== C && (e += (null != a ? a : "") + o[i + 1]),
@@ -3933,7 +3944,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           e === C ? this.element.removeAttribute(this.name) : this.element.setAttribute(this.name, null != e ? e : "");
         }
       }
-      class R extends T {
+      class T extends R {
         constructor() {
           super(...arguments), (this.type = 3);
         }
@@ -3942,7 +3953,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       }
       const Z = n ? n.emptyScript : "";
-      class D extends T {
+      class D extends R {
         constructor() {
           super(...arguments), (this.type = 4);
         }
@@ -3950,13 +3961,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           e && e !== C ? this.element.setAttribute(this.name, Z) : this.element.removeAttribute(this.name);
         }
       }
-      class N extends T {
+      class N extends R {
         constructor(e, t, r, s, o) {
           super(e, t, r, s, o), (this.type = 5);
         }
         _$AI(e, t = this) {
           var r;
-          if ((e = null !== (r = j(this, e, t, 0)) && void 0 !== r ? r : C) === _) return;
+          if ((e = null !== (r = $(this, e, t, 0)) && void 0 !== r ? r : C) === _) return;
           const s = this._$AH,
             o = (e === C && s !== C) || e.capture !== s.capture || e.once !== s.once || e.passive !== s.passive,
             n = e !== C && (s === C || o);
@@ -3982,7 +3993,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return this._$AM._$AU;
         }
         _$AI(e) {
-          j(this, e);
+          $(this, e);
         }
       }
       const M = o.litHtmlPolyfillSupport;
@@ -4427,7 +4438,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     2857: (e) => {
       "use strict";
       e.exports = JSON.parse(
-        '["https://d34u6hk73vgwqs.cloudfront.net/","https://a703.l461.r761.fastcloudcdn.net/api/","https://ca901.l503.r843.fastcloudcdn.net/"]'
+        '["https://d3pxmstlgndb29.cloudfront.net/","https://a703.l461.r761.fastcloudcdn.net/api/","https://ca901.l503.r843.fastcloudcdn.net/"]'
       );
     }
   }

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplicacions"
+  },
+  "EndOfSupportHeader": {
+    "message": "Fi de l'assistència tècnica de l'extensió del Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "A partir del 15 de gener de 2024, Microsoft ja no serà compatible amb esta extensió."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Per obtindre més informació, visita la pàgina assistència tècnica d'aquesta extensió."
+  },
+  "Support": {
+    "message": "Suport"
   }
 }

@@ -305,16 +305,16 @@
       })()
     );
   },
-  18: function (C, t, e) {
+  18: function (x, t, e) {
     var L = e(8).default;
     function T() {
       "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-      (C.exports = T =
+      (x.exports = T =
         function () {
           return a;
         }),
-        (C.exports.__esModule = !0),
-        (C.exports.default = C.exports);
+        (x.exports.__esModule = !0),
+        (x.exports.default = x.exports);
       var a = {},
         t = Object.prototype,
         c = t.hasOwnProperty,
@@ -429,7 +429,7 @@
           if ("executing" === a) throw new Error("Generator is already running");
           if ("completed" === a) {
             if ("throw" === t) throw e;
-            return x();
+            return C();
           }
           for (i.method = t, i.arg = e; ; ) {
             var r = i.delegate;
@@ -513,10 +513,10 @@
             );
         }
         return {
-          next: x
+          next: C
         };
       }
-      function x() {
+      function C() {
         return {
           value: void 0,
           done: !0
@@ -687,7 +687,7 @@
         a
       );
     }
-    (C.exports = T), (C.exports.__esModule = !0), (C.exports.default = C.exports);
+    (x.exports = T), (x.exports.__esModule = !0), (x.exports.default = x.exports);
   },
   2: function (t, e, r) {
     r = r(18)();
@@ -833,7 +833,8 @@
       CalcLoad: "CORE_DESMOS_SCIENTIFIC_LOAD",
       CalcSetLocale: "CORE_DESMOS_SCIENTIFIC_UPDATE_LOCALE",
       CalcInitialise: "CORE_DESMOS_SCIENTIFIC_INITIALIZE",
-      CalcDestroy: "CORE_DESMOS_SCIENTIFIC_DESTROY"
+      CalcDestroy: "CORE_DESMOS_SCIENTIFIC_DESTROY",
+      GraphPredictionAnalytics: "CORE_DESMOS_PREDICTION_ANALYTICS"
     };
   },
   8: function (e, t) {

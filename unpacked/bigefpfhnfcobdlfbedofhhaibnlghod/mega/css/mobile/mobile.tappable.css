@@ -24,7 +24,7 @@
   width: auto;
 }
 .nav-elem.normal.block {
-  max-width: 382px;
+  max-width: var(--mobile-elem-max-width);
   width: 100%;
 }
 .nav-elem.normal.block .primary-text {
@@ -108,33 +108,18 @@ button.nav-elem {
   border: 2px solid var(--mobile-button-primary-pressed);
   color: var(--mobile-button-primary-pressed);
 }
-.nav-elem.destructive-outline {
-  background: none;
-  border: 2px solid var(--mobile-button-error);
-  color: var(--mobile-button-error);
-}
-.nav-elem.destructive-outline.disabled,
-.nav-elem.destructive-outline.disabled:active {
-  background: none;
-  border: 2px solid #fea3b5;
-  color: #fea3b5;
-}
-.nav-elem.destructive-outline:active {
-  background: #a11045;
-  color: var(--mobile-text-inverse);
-}
 .nav-elem.destructive {
-  background: var(--mobile-button-brand);
+  background: var(--mobile-button-error);
   color: var(--mobile-text-on-color);
 }
 .nav-elem.destructive.disabled,
 .nav-elem.destructive.disabled:active {
-  background: #fea3b5;
-  color: var(--mobile-text-disabled);
+  background: var(--mobile-button-disabled);
+  color: var(--mobile-text-on-color-disabled);
 }
 .nav-elem.destructive:active {
-  background: #a11045;
-  color: var(--mobile-text-inverse);
+  background: var(--mobile-button-error-pressed);
+  color: var(--mobile-text-on-color);
 }
 .nav-elem.no-active:active {
   background: initial;
@@ -205,6 +190,9 @@ button.nav-elem {
 }
 .nav-elem i.icon-size-16 {
   --icon-size: 16px;
+}
+.nav-elem i.icon-size-20 {
+  --icon-size: 20px;
 }
 .nav-elem i.icon-size-22 {
   --icon-size: 22px;

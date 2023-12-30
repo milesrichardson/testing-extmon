@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "แอป"
+  },
+  "EndOfSupportHeader": {
+    "message": "การสิ้นสุดการสนับสนุนส่วนขยาย Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "ตั้งแต่วันที่ 15 มกราคม 2024 Microsoft จะไม่รองรับส่วนขยายนี้อีกต่อไป"
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "สําหรับข้อมูลเพิ่มเติม โปรดไปที่หน้าการสนับสนุนสําหรับส่วนขยายนี้"
+  },
+  "Support": {
+    "message": "การสนับสนุน"
   }
 }

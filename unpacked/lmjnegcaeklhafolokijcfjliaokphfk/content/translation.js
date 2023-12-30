@@ -1,30 +1,22 @@
 (() => {
-  "use strict";
-  var e = combineReducers({ translate: translateReducer }),
-    t = createStore(e),
-    r = null;
-  try {
-    r = JSON.parse(browser.i18n.getMessage("__missingI18nTags"));
-  } catch (e) {}
-  render(
-    React.createElement(
-      Provider,
-      { store: t },
-      React.createElement(WehTranslationForm, {
-        missingTags: r,
-        footerExtra: React.createElement(
-          "a",
-          {
-            href: "#",
-            onClick: function () {
-              return weh.rpc.call("openTranslationForum");
-            }
-          },
-          "Please, share your translations"
-        )
-      })
+  weh.is_safe.then(() => {
+    let r = combineReducers({ translate: translateReducer }),
+      s = createStore(r);
+    var e = null;
+    try {
+      e = JSON.parse(browser.i18n.getMessage("__missingI18nTags"));
+    } catch {}
+    function t() {
+      return React.createElement(
+        "a",
+        { href: "#", onClick: () => weh.rpc.call("openTranslationForum") },
+        "Please, share your translations"
+      );
+    }
+    render(
+      React.createElement(Provider, { store: s }, React.createElement(WehTranslationForm, { missingTags: e, footerExtra: t() })),
+      document.getElementById("root")
     ),
-    document.getElementById("root")
-  ),
-    weh.setPageTitle(weh._("translation"));
+      weh.setPageTitle(weh._("translation"));
+  });
 })();

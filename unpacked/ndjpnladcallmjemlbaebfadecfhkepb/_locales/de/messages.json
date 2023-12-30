@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Apps"
+  },
+  "EndOfSupportHeader": {
+    "message": "Ende des Supports für Microsoft 365-Erweiterung"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Ab dem 15. Januar 2024 wird diese Erweiterung von Microsoft nicht mehr unterstützt."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Weitere Informationen finden Sie auf der Supportseite für diese Erweiterung."
+  },
+  "Support": {
+    "message": "Support"
   }
 }

@@ -243,7 +243,7 @@
     ["rgba(118, 167, 250, 0.501960784313726)", "rgba(118, 167, 250, 0.5)", "rgba(143, 143, 143, 0.34)", "rgba(0, 0, 0, 0.15)"].map((e) =>
       e.replace(/\s+/g, "")
     );
-  const s = { logError() {}, logException() {}, log() {} };
+  const s = { logError() {}, logException() {} };
   function a(e, t, n) {
     let o = 0;
     return {

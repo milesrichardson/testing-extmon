@@ -452,22 +452,41 @@
             rl.count++;
             return rl.count <= n;
           }
-          E.leaky_bucket = function leaky_bucket(size, rate) {
+          E.leaky_bucket = function leaky_bucket(size, rate, opt) {
             this.size = size;
             this.rate = rate;
             this.time = Date.now();
             this.level = 0;
+            this.opt = opt || {};
           };
-          E.leaky_bucket.prototype.inc = function (inc) {
-            if (inc === undefined) inc = 1;
+          E.leaky_bucket.prototype._update_level = function () {
             var now = Date.now();
             this.level -= this.rate * (now - this.time);
             this.time = now;
             if (this.level < 0) this.level = 0;
+          };
+          E.leaky_bucket.prototype.inc_would_exceed = function (inc) {
+            if (inc === undefined) inc = 1;
+            this._update_level();
+            var new_level = this.level + inc;
+            return new_level > this.size;
+          };
+          E.leaky_bucket.prototype.inc = function (inc) {
+            if (inc === undefined) inc = 1;
+            this._update_level();
             var new_level = this.level + inc;
             if (new_level > this.size) return false;
             this.level = new_level;
             return true;
+          };
+          E.leaky_bucket.prototype.inc_size = function (inc) {
+            if (inc === undefined) inc = 1;
+            var new_size = this.size + inc;
+            if (Number.isFinite(this.opt.min_size)) new_size = Math.max(new_size, this.opt.min_size);
+            if (Number.isFinite(this.opt.max_size)) new_size = Math.min(new_size, this.opt.max_size);
+            var factor = this.size ? new_size / this.size : 1;
+            this.size = new_size;
+            this.rate *= factor;
           };
           return E;
         }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)),
@@ -1160,4 +1179,4 @@
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/824.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/824.bundle.js.map?build=nopeer_v2

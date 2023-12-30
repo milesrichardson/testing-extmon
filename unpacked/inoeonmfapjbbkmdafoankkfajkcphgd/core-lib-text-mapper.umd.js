@@ -99,7 +99,10 @@
       return this.m_delegate;
     }
     getCaretPosition(e) {
-      return e.document.getSelection();
+      const t = e.document.activeElement;
+      return (t && "TEXTAREA" === t.tagName) || (t && "INPUT" === t.tagName)
+        ? { anchorNode: t, anchorOffset: t.selectionStart, focusNode: t, focusOffset: t.selectionEnd }
+        : e.document.getSelection();
     }
     getCaretPositionFromPoint(e, n, o) {
       return t.Utils.caretPositionFromPoint(e, n, o);
@@ -219,7 +222,7 @@
       return !1;
     }
   }
-  const m = { START: 0, CARET: 1, END: 2, NODE: 3 };
+  const m = { DOCUMENT_START: 0, CARET: 1, DOCUMENT_END: 2, NODE: 3, SELECTION_START: 4, SELECTION_END: 5 };
   class u {
     constructor(e, t = !1) {
       (this.m_origin = e),
@@ -232,17 +235,26 @@
     get origin() {
       return this.m_origin;
     }
+    set origin(e) {
+      this.m_origin = e;
+    }
     get isBackward() {
       return this.m_isBackward;
     }
-    get isFromStart() {
-      return this.m_origin === m.START;
+    get isFromDocumentStart() {
+      return this.m_origin === m.DOCUMENT_START;
     }
     get isFromCaret() {
       return this.m_origin === m.CARET;
     }
-    get isFromEnd() {
-      return this.m_origin === m.END;
+    get isFromDocumentEnd() {
+      return this.m_origin === m.DOCUMENT_END;
+    }
+    get isFromSelectionStart() {
+      return this.m_origin === m.SELECTION_START;
+    }
+    get isFromSelectionEnd() {
+      return this.m_origin === m.SELECTION_END;
     }
     get isFromNode() {
       return this.m_origin === m.NODE;
@@ -251,7 +263,7 @@
       return this.m_stopAtWordBoundary;
     }
     get positionReached() {
-      return Boolean(this.m_origin === m.START && null !== this.m_startingNode && this.m_startingOffset >= 0);
+      return this.m_origin === m.DOCUMENT_START && null !== this.m_startingNode && this.m_startingOffset >= 0;
     }
     get increment() {
       return this.m_isBackward ? -1 : 1;
@@ -277,16 +289,22 @@
       let i = 0;
       const r = e.length;
       switch (this.origin) {
-        case m.START:
+        case m.DOCUMENT_START:
           break;
         case m.CARET:
           i = o ? n.start : n.end;
           break;
-        case m.END:
+        case m.DOCUMENT_END:
           i = r;
           break;
         case m.NODE:
           i = o ? n.start : n.end;
+          break;
+        case m.SELECTION_START:
+          i = n.start;
+          break;
+        case m.SELECTION_END:
+          i = n.end;
           break;
         default:
           return -1;
@@ -492,16 +510,24 @@
       return null;
     }
     getTextContentForNode(e, t = !0) {
-      const { textContent: n } = e;
-      if (t && null !== n) {
+      let n = null;
+      if (e.nodeType === Node.ELEMENT_NODE) {
+        const t = e;
+        ("TEXTAREA" === t.tagName || "INPUT" === t.tagName) && (n = e.value);
+      }
+      if ((n || (n = e.textContent), null !== n && t)) {
         const t = this.getValueSeparatorForNode(e);
         if (t && t.length > 0) return n.concat(t);
       }
       return n;
     }
     getValueForNode(e, t = !0) {
-      const { nodeValue: n } = e;
-      if (t && null !== n) {
+      let n = null;
+      if (e.nodeType === Node.ELEMENT_NODE) {
+        const t = e;
+        ("TEXTAREA" === t.tagName || "INPUT" === t.tagName) && (n = e.value);
+      }
+      if ((n || (n = e.nodeValue), null !== n && t)) {
         const t = this.getValueSeparatorForNode(e);
         if (t && t.length > 0) return n.concat(t);
       }
@@ -688,7 +714,7 @@
       return " ";
     }
   }
-  class I extends h {
+  class T extends h {
     constructor(e) {
       super(), (this.m_delegate = e);
     }
@@ -702,7 +728,7 @@
       );
     }
   }
-  class T extends f {
+  class I extends f {
     constructor() {
       super({ type: "overdrive.reader", isEditor: !0 });
     }
@@ -710,7 +736,7 @@
       return e.document.querySelector("div.book-surface") ? e.document.documentElement : super.getRootNode(e);
     }
     createSelectionHandler() {
-      return new I(this);
+      return new T(this);
     }
   }
   class y extends f {
@@ -744,14 +770,14 @@
       return " ";
     }
   }
-  class b {
+  class v {
     doCreateDelegate(e = null) {
       return e && t.Utils.isOcrRewordifyPopupElement(e)
         ? new f()
         : t.Utils.isBookshareReader()
         ? new _()
         : t.Utils.isOverDriveReader()
-        ? new T()
+        ? new I()
         : t.Utils.isAmazonKindle()
         ? new C()
         : !t.Utils.isSruPwaApp() ||
@@ -761,19 +787,19 @@
         : new y();
     }
     static createTextMapperDelegate(e = null) {
-      const t = b.instances.length;
+      const t = v.instances.length;
       for (let n = 0; n < t; n += 1) {
-        const t = b.instances[n].doCreateDelegate(e);
+        const t = v.instances[n].doCreateDelegate(e);
         if (t) return t;
       }
       return new f();
     }
     static registerFactory(e) {
-      b.instances.unshift(e);
+      v.instances.unshift(e);
     }
   }
-  b.instances = [];
-  class v extends u {
+  v.instances = [];
+  class b extends u {
     constructor(e = !1) {
       super(m.NODE, !1),
         (this.m_node = null),
@@ -885,7 +911,7 @@
     const t = e.tagName.toUpperCase();
     return "BUTTON" !== t && "IFRAME" !== t;
   }
-  function F(e, t, n, o = (e, t, n, o) => e.caretRangeFromPoint(t, n)) {
+  function M(e, t, n, o = (e, t, n, o) => e.caretRangeFromPoint(t, n)) {
     let i = [],
       r = [];
     try {
@@ -908,43 +934,43 @@
       (i = []), (r = []);
     }
   }
-  function M(e) {
+  function F(e) {
     if ("none" === e.style.display) return !1;
     const t = e.getBoundingClientRect();
     return 0 !== t.width && 0 !== t.height;
   }
-  function w(e, t) {
+  function D(e, t) {
     if (!e) return;
     const n = e.querySelectorAll("iframe"),
       o = n.length;
     for (let e = 0; e < o; e += 1) {
       const o = n[e];
-      M(o) && "about:blank" !== o.src && (t.push(o), w(o.contentDocument, t));
+      F(o) && "about:blank" !== o.src && (t.push(o), D(o.contentDocument, t));
     }
   }
-  class D {
+  class O {
     static elementFromPoint(e, t, n) {
-      return F(e, t, n, (e, t, n, o) => o);
+      return M(e, t, n, (e, t, n, o) => o);
     }
     static caretPositionFromPoint(e, n, o) {
-      return F(e, n, o, (e, n, o, i) => {
+      return M(e, n, o, (e, n, o, i) => {
         const r = t.Utils.caretPositionFromPoint(n, o, e);
         return (r.x = n), (r.y = o), r;
       });
     }
     static caretRangeFromPoint(e, t, n) {
-      return F(e, t, n, (e, t, n, o) => {
+      return M(e, t, n, (e, t, n, o) => {
         const i = e.caretRangeFromPoint(t, n);
         return i.startContainer && i.startContainer.nodeType === Node.TEXT_NODE ? i : null;
       });
     }
     static getIFrames(e) {
       const t = [];
-      return w(e, t), t;
+      return D(e, t), t;
     }
   }
-  const P = 0.4;
-  class O {
+  const w = 0.4;
+  class P {
     static normalizeCaretPositionInfo(e) {
       (function (e) {
         e.offsetNode &&
@@ -984,8 +1010,8 @@
               t.setStart(i, 0), t.setEnd(i, i.textContent.length);
               const n = t.getBoundingClientRect(),
                 l = Math.abs(e.bcr.left - n.left);
-              if (a >= n.top && a <= n.bottom && Boolean(n.left <= e.bcr.left || l < P)) {
-                if (Boolean(n.right >= e.bcr.right || Math.abs(e.bcr.right - n.right) < P)) return void (e.offsetNode = i);
+              if (a >= n.top && a <= n.bottom && Boolean(n.left <= e.bcr.left || l < w)) {
+                if (Boolean(n.right >= e.bcr.right || Math.abs(e.bcr.right - n.right) < w)) return void (e.offsetNode = i);
                 i.parentElement === e.offsetNode && s > l && ((s = l), (r = i));
               }
               i = o.nextNode();
@@ -1004,7 +1030,7 @@
             let a = o.getBoundingClientRect();
             if (a.bottom < r || a.top > s) return;
             let l = Math.min(Math.abs(i - a.right), Math.abs(i - a.right));
-            if (l > P) {
+            if (l > w) {
               const r = e.offsetNode.nodeValue;
               if (!r) return;
               const s = r.length;
@@ -1018,7 +1044,7 @@
                   o.setEnd(e.offsetNode, d + 1),
                   (a = o.getBoundingClientRect()),
                   (l = Math.min(Math.abs(i - a.right), Math.abs(i - a.right))),
-                  l <= P)
+                  l <= w)
                 ) {
                   c = d;
                   break;
@@ -1081,7 +1107,7 @@
         t.selectNodeContents(e), (n = t.getBoundingClientRect());
       }
       const o = e.ownerDocument;
-      return !!O.isRectInViewport(n, o) && (!t || O.isElementVisible(e));
+      return !!P.isRectInViewport(n, o) && (!t || P.isElementVisible(e));
     }
     static intersectsRect(e, t) {
       return e.left < t.right && t.left < e.right && e.top < t.bottom && t.top < e.bottom;
@@ -1089,10 +1115,10 @@
     static isRectInViewport(e, t) {
       const n = t.defaultView,
         o = new DOMRect(0, 0, n.innerWidth || t.documentElement.clientWidth, n.innerHeight || t.documentElement.clientHeight);
-      if (!O.intersectsRect(o, e)) return !1;
+      if (!P.intersectsRect(o, e)) return !1;
       if (!n.frameElement || !n.frameElement.contentDocument) return !0;
       const i = n.frameElement.getBoundingClientRect();
-      return O.isRectInViewport(new DOMRect(e.x - i.left, e.y - i.top, e.width, e.height), n.frameElement.ownerDocument);
+      return P.isRectInViewport(new DOMRect(e.x - i.left, e.y - i.top, e.width, e.height), n.frameElement.ownerDocument);
     }
     static isElementVisible(e) {
       const t = e.ownerDocument.defaultView.getComputedStyle(e),
@@ -1107,7 +1133,7 @@
       return o.selectNodeContents(t), Boolean(-1 === n.compareBoundaryPoints(Range.END_TO_START, o));
     }
     static elementFromPoint(e, t, n, o) {
-      return o && o.isOverDriveReader ? D.elementFromPoint(e, t, n) : e.elementFromPoint(t, n);
+      return o && o.isOverDriveReader ? O.elementFromPoint(e, t, n) : e.elementFromPoint(t, n);
     }
   }
   class A {
@@ -1245,14 +1271,20 @@
   function L(e, t, n) {
     let o = 0;
     switch (e.origin) {
-      case m.START:
+      case m.DOCUMENT_START:
         o = 0;
         break;
       case m.CARET:
         o = t.selectionStart;
         break;
-      case m.END:
+      case m.DOCUMENT_END:
         o = n.length;
+        break;
+      case m.SELECTION_START:
+        o = t.selectionStart;
+        break;
+      case m.SELECTION_END:
+        o = t.selectionEnd;
     }
     const { increment: i } = e,
       r = n.length,
@@ -1264,9 +1296,9 @@
     for (; !(e.positionReached || ((c += i), c < 0 || c >= r)); ) e.process(t, n[c], c);
     return e.startingOffset;
   }
-  function B(e, t, n, o, i) {
+  function U(e, t, n, o, i) {
     const r = { node: e, offset: t, skipped: 0 };
-    if (e.nodeType === Node.TEXT_NODE) {
+    if (e.nodeType === Node.TEXT_NODE || "INPUT" === e.tagName || "TEXTAREA" === e.tagName) {
       const n = i.getTextContentForNode(e),
         r = t < n.length ? n[t] : void 0,
         s = t - 1,
@@ -1321,7 +1353,7 @@
     }
     return (r.offset = t), r;
   }
-  class U {
+  class B {
     constructor() {
       (this.m_startStrategy = void 0),
         (this.m_endStrategy = void 0),
@@ -1358,9 +1390,9 @@
     }
     mapDocumentText(e, t, n, o = null) {
       const i = n.element ? n : n.activeElemInfo,
-        r = o || b.createTextMapperDelegate(i?.element),
-        s = e || new u(m.START),
-        a = t || new u(m.END);
+        r = o || v.createTextMapperDelegate(i?.element),
+        s = e || new u(m.DOCUMENT_START),
+        a = t || new u(m.DOCUMENT_END);
       this.init(s, a, r);
       const l = this.getDefaultContextForDelegate(r);
       l.activeElementInfo = n.activeElemInfo || n;
@@ -1376,98 +1408,110 @@
             return null;
           })(e, (t = t || {})),
           o = n ? n.anchorNode : null,
-          i = { startNode: null, startOffset: -1, endNode: null, endOffset: -1, activeElementInfo: t, caretPosition: n },
-          r = n ? n.anchorOffset : 0;
-        let s = null === n || null === n.anchorNode;
-        const a = {
-            acceptNode(i) {
-              switch (((s = Boolean(s || i === n.anchorNode)), i.nodeType)) {
+          i = n && n.anchorNode ? (n.anchorNode === n.focusNode ? Math.min(n.anchorOffset, n.focusOffset) : n.anchorOffset) : 0,
+          r = { startNode: null, startOffset: -1, endNode: null, endOffset: -1, activeElementInfo: t, caretPosition: n };
+        let s = !1,
+          a = null === o;
+        const l = {
+            acceptNode(n) {
+              switch (((a = Boolean(s || a || n === o)), n.nodeType)) {
                 case Node.TEXT_NODE: {
-                  if (!s) return NodeFilter.FILTER_REJECT;
-                  const r = e.m_delegate.acceptNodeForMapping(i, t, o);
-                  return r === NodeFilter.FILTER_ACCEPT &&
-                    n &&
-                    n.anchorNode &&
-                    n.anchorNode !== i &&
+                  if (!a) return NodeFilter.FILTER_REJECT;
+                  const i = e.m_delegate.acceptNodeForMapping(n, t, o);
+                  return i === NodeFilter.FILTER_ACCEPT &&
+                    o &&
+                    o !== n &&
                     !e.m_startStrategy.isBackward &&
                     !e.m_endStrategy.isBackward &&
-                    O.nodeIsBeforeOtherNode(i, n.anchorNode)
+                    P.nodeIsBeforeOtherNode(n, o)
                     ? NodeFilter.FILTER_REJECT
-                    : r;
+                    : i;
                 }
                 case Node.ELEMENT_NODE: {
-                  if (o === i) return NodeFilter.FILTER_ACCEPT;
-                  const n = e.m_delegate.acceptNodeForMapping(i, t, o);
-                  return s && n === NodeFilter.FILTER_SKIP ? NodeFilter.FILTER_ACCEPT : n;
+                  if (o === n) return NodeFilter.FILTER_ACCEPT;
+                  const i = e.m_delegate.acceptNodeForMapping(n, t, o);
+                  return a && i === NodeFilter.FILTER_SKIP ? NodeFilter.FILTER_ACCEPT : i;
                 }
                 default:
                   return NodeFilter.FILTER_REJECT;
               }
             }
           },
-          l = e.m_delegate.getRootNode(t);
-        if (!l) return i;
-        const c = e.m_delegate.createTreeWalker(l.ownerDocument, l, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, a);
-        let h = c.currentNode;
-        for (; h; ) {
-          if (null === i.startNode && ((!o && h.nodeType === Node.TEXT_NODE) || h === o)) {
+          c = e.m_delegate.getRootNode(t);
+        if (!c) return r;
+        const h = e.m_delegate.createTreeWalker(c.ownerDocument, c, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, l);
+        let d = h.currentNode;
+        for (; d; ) {
+          if (null === r.startNode && ((s = (!o && d.nodeType === Node.TEXT_NODE) || d === o), s)) {
             let t = 0;
             e.m_startStrategy.isFromCaret || e.m_startStrategy.isFromNode
-              ? (t = r)
-              : e.m_startStrategy.isBackward && (t = e.m_delegate.getTextContentForNode(h, !1).length);
-            const n = B(h, t, c, e.m_startStrategy, e.m_delegate);
-            (i.startNode = n.node), (i.startOffset = n.offset);
+              ? (t = i)
+              : e.m_startStrategy.isBackward && (t = e.m_delegate.getTextContentForNode(d, !1).length);
+            const n = U(d, t, h, e.m_startStrategy, e.m_delegate);
+            (r.startNode = n.node), (r.startOffset = n.offset);
           }
-          if (i.startNode) {
+          if (r.startNode) {
             if (e.m_endStrategy.isFromCaret) {
-              (i.endNode = h), (i.endOffset = r);
+              (r.endNode = d), (r.endOffset = i);
               break;
             }
             if (e.m_endStrategy.isFromNode) {
               const n = e.m_endStrategy.getCaretPosition(t),
-                o = B(n.anchorNode, n.anchorOffset, c, e.m_endStrategy, e.m_delegate);
-              return (i.endNode = o.node), (i.endOffset = o.offset), i;
+                o = U(n.anchorNode, n.anchorOffset, h, e.m_endStrategy, e.m_delegate);
+              return (r.endNode = o.node), (r.endOffset = o.offset), r;
             }
-            if (h.nodeType === Node.TEXT_NODE) {
-              const t = e.m_delegate.getTextContentForNode(h, !1).length;
-              t > 0 && ((i.endNode = h), (i.endOffset = t));
-            } else h.firstChild || ((i.endNode = h), (i.endOffset = 0));
+            if (d.nodeType === Node.TEXT_NODE) {
+              const t = e.m_delegate.getTextContentForNode(d, !1).length;
+              t > 0 && ((r.endNode = d), (r.endOffset = t));
+            } else d.firstChild || ((r.endNode = d), (r.endOffset = 0));
           }
-          h = c.nextNode();
+          d = h.nextNode();
         }
-        if (i.endNode) {
-          let t = c.currentNode;
-          for (; h && i.endNode !== t; ) t = e.m_startStrategy.isBackward ? c.nextNode() : c.previousNode();
-          const n = B(i.endNode, i.endOffset, c, e.m_endStrategy, e.m_delegate);
-          (i.endNode = n.node), (i.endOffset = n.offset);
+        if (r.endNode) {
+          let t = h.currentNode;
+          for (; d && r.endNode !== t; ) t = e.m_startStrategy.isBackward ? h.nextNode() : h.previousNode();
+          const n = U(r.endNode, r.endOffset, h, e.m_endStrategy, e.m_delegate);
+          (r.endNode = n.node), (r.endOffset = n.offset);
         }
-        return i;
+        return r;
       })(this, n);
-      return null === h.startNode || null === h.endNode || (this.mapTextBetweenNodes(l, h), (l.extended.selection.start = l.offset)), l;
+      return (
+        null === h.startNode ||
+          null === h.endNode ||
+          (this.mapTextBetweenNodes(l, h), (l.selection.start = l.offset), (l.extended.selection.start = l.offset)),
+        l
+      );
     }
     mapDocumentSelection(e, n) {
-      const o = n.element ? n : n.activeElemInfo,
-        i = e || b.createTextMapperDelegate(o?.element),
+      let o = n.element ? n : n.activeElemInfo;
+      const i = e || v.createTextMapperDelegate(o?.element),
         r = i.textReader?.getSelectedContent();
       if (r && null != r.text && void 0 !== r.text) {
         const e = this.getDefaultContextForDelegate(i);
         return Object.assign(e, r), (e.source = i.textReader), (e.activeElementInfo = o), e;
       }
-      const s = e.selectionHandler.getSelectionContext(n);
+      const s = i.selectionHandler.getSelectionContext(n);
       let a = null;
       if (s) (a = this.getDefaultContextForDelegate(i)), Object.assign(a, s), (a.activeElementInfo = o);
       else {
         const e = n.selection ? n.selection : i.selectionHandler.getSelection(o);
         if (!e || null === e.anchorNode || null === e.focusNode || (e.anchorNode === e.focusNode && e.anchorOffset === e.focusOffset))
           return null;
-        const r = new v(),
-          s = new v(!0);
+        const r = new b(),
+          s = new b(!0);
         t.Utils.isForwardSelection(e)
           ? (r.setNodeAndOffset(e.anchorNode, e.anchorOffset, !0, !0), s.setNodeAndOffset(e.focusNode, e.focusOffset, !0, !1))
           : (r.setNodeAndOffset(e.focusNode, e.focusOffset, !0, !0), s.setNodeAndOffset(e.anchorNode, e.anchorOffset, !0, !1)),
           (a = this.mapDocumentText(r, s, n, i));
       }
-      return a && ((a.element = e.getRootNode(o)), (a.custom = a.custom || {}), Object.assign(a.custom, { selectionOffset: 0 })), a;
+      return (
+        a &&
+          (o || (o = n.element ? n : n.activeElemInfo),
+          (a.element = i.getRootNode(o)),
+          (a.custom = a.custom || {}),
+          Object.assign(a.custom, { selectionOffset: 0 })),
+        a
+      );
     }
     mapInputText(e, n, o) {
       this.m_textAreaDelegate || (this.m_textAreaDelegate = new f({ type: "input" })), this.init(e, n, this.m_textAreaDelegate);
@@ -1484,7 +1528,7 @@
           source: this.m_delegate,
           extended: { selection: { start: 0, length: 0 }, text: r }
         };
-      return (s.text = r.substring(s.start, s.end)), (s.extended.selection.start = s.start), s;
+      return (s.text = r.substring(s.start, s.end + 1)), (s.extended.selection.start = s.start), s;
     }
     init(e, t, n) {
       (this.m_delegate = new H(n || new f())),
@@ -1526,38 +1570,40 @@
         if (null === e && null === n) return null;
         if (null === e) return n.parentElement;
         if (null === n) return e.parentElement;
+        if (e === n) return e;
         const o = (e.closest ? e : e.parentElement).closest("div[dji-sru-rewordify-body]");
         return null !== o ? o : t.Utils.computeCommonAncestor(e, n);
       })(n.startNode, n.endNode);
       s || (s = this.m_delegate.getRootNode(e.activeElementInfo));
       const a = this.m_delegate.createTreeWalker(s.ownerDocument, s, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, r),
-        l = new Range(),
-        c = n.startNode.nodeType === Node.TEXT_NODE ? Math.min(n.startOffset, n.startNode.textContent.length) : n.startOffset,
-        h = n.endNode.nodeType === Node.TEXT_NODE ? Math.min(n.endOffset, n.endNode.textContent.length) : n.endOffset;
-      let { currentNode: d } = a;
-      try {
-        l.setStart(n.startNode, c), l.setEnd(n.endNode, h);
-      } catch (e) {
-        t.Logger.warn("Mapping text error: ", e), (d = null);
-      }
-      for (e.caretPosition = n.caretPosition; d; ) {
-        if (d.nodeType !== Node.TEXT_NODE) {
-          d = a.nextNode();
+        l = n.endNode.nodeType === Node.TEXT_NODE ? Math.min(n.endOffset, n.endNode.textContent.length) : n.endOffset;
+      let { currentNode: c } = a;
+      for (e.caretPosition = n.caretPosition; c; ) {
+        if (c.nodeType !== Node.TEXT_NODE && "TEXTAREA" !== c.tagName && "INPUT" !== c.tagName) {
+          c = a.nextNode();
           continue;
         }
         let o = "",
           i = 0;
-        const r = this.m_delegate.getTextContentForNode(d, !1);
-        if (d === n.startNode) (i = n.startOffset), (o = r.substring(n.startOffset, n.startNode === n.endNode ? h : r.length));
-        else if (d === n.endNode) o = r.substring(0, h);
+        const r = this.m_delegate.getTextContentForNode(c, !1);
+        if (c === n.startNode) (i = n.startOffset), (o = r.substring(n.startOffset, n.startNode === n.endNode ? l : r.length));
+        else if (c === n.endNode) o = r.substring(0, l);
         else {
-          if (1 === l.comparePoint(d, 0)) break;
+          let e = n.endNode.compareDocumentPosition(c);
+          if (e === Node.DOCUMENT_POSITION_FOLLOWING) {
+            c = a.nextNode();
+            continue;
+          }
+          if (((e = n.startNode.compareDocumentPosition(c)), e === Node.DOCUMENT_POSITION_PRECEDING)) {
+            c = a.nextNode();
+            continue;
+          }
           o = r;
         }
-        if ((this.m_compositePlugin.onAboutToMapNode(e, d, i), e.text.length > 0 || o.trim().length > 0)) {
+        if ((this.m_compositePlugin.onAboutToMapNode(e, c, i), e.text.length > 0 || o.trim().length > 0)) {
           const n = o.length;
           if (n > 0) {
-            const r = this.m_delegate.getValueSeparatorForNode(d);
+            const r = this.m_delegate.getValueSeparatorForNode(c);
             o = o.concat(r);
             const s = n + r.length;
             let a = 0;
@@ -1569,12 +1615,12 @@
               }
               s = e.isTranslatedSection ? s : t.Utils.htmlToAscii(s);
               const l = r + i;
-              this.m_compositePlugin.onMapCharacter(e, s, l, l + a, d, Boolean(r >= n && this.m_delegate.markNodeValueSeparatorAsEmbedded));
+              this.m_compositePlugin.onMapCharacter(e, s, l, l + a, c, Boolean(r >= n && this.m_delegate.markNodeValueSeparatorAsEmbedded));
             }
           }
         }
-        if ((this.m_compositePlugin.onNodeMapped(e, d), d === n.endNode)) break;
-        d = a.nextNode();
+        if ((this.m_compositePlugin.onNodeMapped(e, c), c === n.endNode)) break;
+        c = a.nextNode();
       }
       this.m_compositePlugin.onMappingAboutToEnd(e), delete e.caretPosition;
     }
@@ -1722,15 +1768,15 @@
         (this.m_tagEmbeddingPlugin = new V()),
         (this.m_nodeMappingPlugin = new j()),
         (this.m_allPlugins = [this.m_translationPlugin, this.m_tagEmbeddingPlugin, this.m_nodeMappingPlugin]),
-        (this.m_textMapper = new U()),
+        (this.m_textMapper = new B()),
         this.m_textMapper.setPlugins(this.m_allPlugins),
-        (this.m_nodeMappingStartStrategy = new v()),
-        (this.m_textMappingStartStrategy = new u(m.START)),
-        (this.m_nodeMappingEndStrategy = new v(!0)),
-        (this.m_textMappingEndStrategy = new u(m.END));
+        (this.m_nodeMappingStartStrategy = new b()),
+        (this.m_textMappingStartStrategy = new u(m.DOCUMENT_START)),
+        (this.m_nodeMappingEndStrategy = new b(!0)),
+        (this.m_textMappingEndStrategy = new u(m.DOCUMENT_END));
     }
     getContextWithParams(e) {
-      e.textMapperDelegate || (e.textMapperDelegate = b.createTextMapperDelegate(e.activeElemInfo.element));
+      e.textMapperDelegate || (e.textMapperDelegate = v.createTextMapperDelegate(e?.activeElemInfo?.element));
       const t = Boolean(e && e.entireDocument),
         n = Boolean(e && e.fromCaretToEnd);
       let o = null,
@@ -1801,7 +1847,7 @@
       return this.m_textMapper.setPlugins(i), this.m_textMapper.mapDocumentText(e, t, { ...o.activeElemInfo, requestFor: o.requestFor }, n);
     }
     getDelegate(e) {
-      return e.textMapperDelegate ? e.textMapperDelegate : b.createTextMapperDelegate(e.element);
+      return e.textMapperDelegate ? e.textMapperDelegate : v.createTextMapperDelegate(e.element);
     }
     getRectsByRange(e, t, n) {
       return e && e.source && e.source.selectionHandler ? e.source.selectionHandler.getRectsByRange(e, t, n) : null;
@@ -2018,7 +2064,7 @@
   }
   class J extends q {
     caretRangeFromPoint(e, t, n) {
-      return D.caretRangeFromPoint(e, t, n);
+      return O.caretRangeFromPoint(e, t, n);
     }
   }
   class Y {
@@ -2093,7 +2139,8 @@
     onFrameLoaded(e) {
       e.iframe &&
         e.iframe.contentDocument &&
-        (this.injectCSSInFrame(e.iframe), this.enableOrRestoreSelectionInDocument(e.iframe.contentDocument));
+        (e.iframe.contentDocument.documentElement.setAttribute("dji-sru-fullscreen-popup", ""),
+        this.enableOrRestoreSelectionInDocument(e.iframe.contentDocument));
     }
     installOrUninstallEventListeners(e) {
       const t = [document];
@@ -2175,30 +2222,8 @@
       for (let e = 0; e < n; e += 1) {
         const n = t[e].querySelectorAll("iframe"),
           o = n.length;
-        for (let e = 0; e < o; e += 1) {
-          const t = n[e];
-          this.injectCSSInFrame(t);
-        }
+        for (let e = 0; e < o; e += 1) n[e].contentDocument.documentElement.setAttribute("dji-sru-fullscreen-popup", "");
       }
-    }
-    injectCSSInFrame(e) {
-      this.injectCSSInDocument(e.contentDocument) && e.contentDocument.documentElement.setAttribute("dji-sru-fullscreen-popup", "");
-    }
-    injectCSSInDocument(e) {
-      return e && e.head
-        ? (e.querySelectorAll('head link[href$="contentScripts/speech.css"]').length > 0 ||
-            t.Utils.addMultipleCssToDocument(e, [
-              "common/ui/effects.css",
-              "contentScripts/mainContainer.css",
-              "contentScripts/toolbar.css",
-              "contentScripts/screenSelection.css",
-              "contentScripts/speech.css",
-              "contentScripts/removeDistractions.css",
-              "contentScripts/overlay.css",
-              "contentScripts/rewordify.css"
-            ]),
-          !0)
-        : (t.Logger.log("Cannot inject css files: invalid document!"), !1);
     }
     addEventListenersForElement(e) {
       e && e.addEventListener("click", this.m_mouseClickEventListener, !0);
@@ -2209,7 +2234,7 @@
     onWorkspaceMouseClick(e) {
       const t = this.m_selectionHelper.getSelection();
       if (!t || ("Range" === t.type && !t.isCollapsed)) return;
-      const n = D.caretPositionFromPoint(e.target.ownerDocument, e.clientX, e.clientY);
+      const n = O.caretPositionFromPoint(e.target.ownerDocument, e.clientX, e.clientY);
       (this.m_cache.lastClickedPosition = { x: n.x, y: n.y }), (this.m_cache.lastClickedParagraph = n.offsetNode);
     }
     getVisibleSubDocuments(e, t) {
@@ -2318,7 +2343,7 @@
     }
     getContext() {
       const e = [],
-        t = D.getIFrames(document),
+        t = O.getIFrames(document),
         n = t.length;
       for (let o = 0; o < n; o += 1) {
         const n = t[o],
@@ -2376,11 +2401,11 @@
     getContextFromStartingElement(e, t, n, o) {
       return (
         this.m_textMapper ||
-          ((this.m_textMapper = new U()),
+          ((this.m_textMapper = new B()),
           this.m_textMapper.addPlugin(new A()),
-          (this.m_textMapperDelegate = new T()),
-          (this.m_textMappingStartStrategy = new v()),
-          (this.m_textMappingEndStrategy = new u(m.END))),
+          (this.m_textMapperDelegate = new I()),
+          (this.m_textMappingStartStrategy = new b()),
+          (this.m_textMappingEndStrategy = new u(m.DOCUMENT_END))),
         this.m_textMappingStartStrategy.setNodeAndCoordinates(t, n, o, !0, !0),
         this.m_textMapper.mapDocumentText(this.m_textMappingStartStrategy, this.m_textMappingEndStrategy, e, this.m_textMapperDelegate)
       );
@@ -2570,7 +2595,7 @@
       for (let t = 1; t <= 9; t += 1) {
         const n = c + t / 3,
           o = h + t;
-        if (((d = D.caretRangeFromPoint(e.ownerDocument, n, o)), d && d.startContainer === e)) break;
+        if (((d = O.caretRangeFromPoint(e.ownerDocument, n, o)), d && d.startContainer === e)) break;
         d = null;
       }
       if (!d) return 0;
@@ -2597,7 +2622,7 @@
           for (let n = 1; n <= 6; n += 1) {
             const i = t - n / 3,
               r = o - n,
-              s = D.caretRangeFromPoint(e.ownerDocument, i, r);
+              s = O.caretRangeFromPoint(e.ownerDocument, i, r);
             if (s.startContainer === e) return s.startOffset;
           }
         }
@@ -2851,6 +2876,8 @@
           const { element: s } = r;
           return void 0 !== s.selectionStart
             ? n.mapTextInInput(r, e, i)
+            : r.document && r.document.activeElement && void 0 !== r.document.activeElement.selectionStart
+            ? ((r.element = r.document.activeElement), n.mapTextInInput(r, e, i))
             : r.isMsOfficeWord
             ? l.mapTextInMSOfficeWord(r, e, i)
             : o.mapTextInDocument(r, e, i);
@@ -2949,7 +2976,7 @@
               return e.element.setSelectionRange(t, t + n), !0;
             }),
             (e.mapTextInInput = function (e, n, i) {
-              return t.Utils.isNullOrUndefined(o) && (o = new U()), o.mapInputText(n, i, e);
+              return t.Utils.isNullOrUndefined(o) && (o = new B()), o.mapInputText(n, i, e);
             }),
             (e.selectWordInInput = function (n, o) {
               let i = n.extended.selection.start + o,
@@ -3078,19 +3105,27 @@
               const h = l.getSelection ? l.getSelection() : null;
               if (!h) return !1;
               try {
-                const n = a.element.nodeType === Node.TEXT_NODE ? a.element : a.element.firstChild;
-                if (n) {
+                let n = null;
+                if (
+                  ((n = "TEXTAREA" === a.element.tagName || a.element.nodeType === Node.TEXT_NODE ? a.element : a.element.firstChild), n)
+                ) {
                   const e = n.parentElement.tagName.toUpperCase();
                   if ("TITLE" === e || "DESC" === e) return h.empty(), !1;
                 }
                 const o = t.Utils.isSruPwaApp();
                 if ((o || "document" === e.type) && r >= 0 && r < s.length) {
-                  const e = s[r],
-                    t = o && a.offset > 0 ? a.offset - 1 : a.offset,
-                    i = e.element.nodeType === Node.TEXT_NODE ? e.element : e.element.firstChild,
-                    l = Math.min(e.offset + 1, i.textContent.length);
-                  h.setBaseAndExtent(n, t, i, l);
-                } else {
+                  const e = s[r];
+                  n = e.element;
+                  const t = o && a.offset > 0 ? a.offset - 1 : a.offset;
+                  if ("TEXTAREA" === n.tagName && "TEXTAREA" === e.element.tagName)
+                    (n.selectionStart = t), (e.element.selectionEnd = e.offset);
+                  else {
+                    const o = e.element.nodeType === Node.TEXT_NODE ? e.element : e.element.firstChild,
+                      i = Math.min(e.offset + 1, o.textContent.length);
+                    h.setBaseAndExtent(n, t, o, i);
+                  }
+                } else if ("TEXTAREA" === n.tagName) (n.selectionStart = a.offset), (n.selectionEnd = a.offset + i);
+                else {
                   h.collapse(n, a.offset);
                   for (let e = 0; e < i; e += 1) h.modify("extend", "forward", "character");
                 }
@@ -3168,7 +3203,7 @@
             }),
             (n.mapTextInDocument = function (e, n, o) {
               return (
-                t.Utils.isNullOrUndefined(i) && ((i = new U()), i.addPlugin(new W()), i.addPlugin(new j())), i.mapDocumentText(n, o, e)
+                t.Utils.isNullOrUndefined(i) && ((i = new B()), i.addPlugin(new W()), i.addPlugin(new j())), i.mapDocumentText(n, o, e)
               );
             }),
             (o = n);
@@ -3325,27 +3360,27 @@
                 S = E ? E.parentNode : null;
               for (; S && S.id.indexOf(":") < 0; ) S = S.parentNode;
               let C = S,
-                I = !0,
-                T = !0;
+                T = !0,
+                I = !0;
               if (h) {
                 const e = parseInt(t.iframes[0].style.height, 10);
-                for (; I && N; ) {
+                for (; T && N; ) {
                   g += N.innerText;
                   for (let e = 0; e < N.innerText.length; e += 1)
                     _.push({ element: N, offset: e, text: N.innerText.charAt(e), embedded: !1 });
                   for (N = p("k4w", N), C = N; C && C.id.indexOf(":") < 0; ) C = C.parentNode;
                   N
                     ? ((x = i ? i.getElementById(N.id) : N),
-                      (I = !!x && x.getBoundingClientRect().bottom < e),
-                      I && ((g += S === C ? " " : "\n"), _.push({ element: null, offset: 0, text: " ", embedded: !1 }), (S = C)))
-                    : (I = !1);
+                      (T = !!x && x.getBoundingClientRect().bottom < e),
+                      T && ((g += S === C ? " " : "\n"), _.push({ element: null, offset: 0, text: " ", embedded: !1 }), (S = C)))
+                    : (T = !1);
                 }
               } else {
                 let e = null;
                 if ((s.length, ([e] = s), !e)) return null;
                 let t = e.getBoundingClientRect();
                 const n = 4;
-                for (; I && N && T; ) {
+                for (; T && N && I; ) {
                   x = i ? i.getElementById(N.id) : N;
                   const o = N.getClientRects();
                   let r = !1;
@@ -3369,16 +3404,16 @@
                     for (N = p("k4w", N), C = N; C && C.id.indexOf(":") < 0; ) C = C.parentNode;
                     if (C !== S && !e.nextElementSibling) break;
                     N
-                      ? ((g += S === C ? " " : "\n"), _.push({ element: null, offset: 0, text: " ", embedded: !1 }), (I = !0), (S = C))
-                      : (I = !1);
-                  } else (e = e.nextElementSibling), e ? ((t = e.getBoundingClientRect()), (T = !0)) : (T = !1);
+                      ? ((g += S === C ? " " : "\n"), _.push({ element: null, offset: 0, text: " ", embedded: !1 }), (T = !0), (S = C))
+                      : (T = !1);
+                  } else (e = e.nextElementSibling), e ? ((t = e.getBoundingClientRect()), (I = !0)) : (I = !1);
                 }
               }
               const y = [],
-                b = [];
+                v = [];
               for (let e = 0; e < s.length; e += 1) y.push(s[e].cloneNode(!0));
-              for (let e = 0; e < l.length; e += 1) b.push(l[e].cloneNode(!0));
-              let v = {
+              for (let e = 0; e < l.length; e += 1) v.push(l[e].cloneNode(!0));
+              let b = {
                 type: "amazon.kindle",
                 activeElementInfo: t,
                 element: n.body,
@@ -3387,16 +3422,16 @@
                 text: g,
                 custom: { map: _, selectionOffset: 0 },
                 extended: { text: g, selection: { start: 0, length: g.length } },
-                originalSelection: { type: "amazon.kindle", leftPageSelection: y, rightPageSelection: b }
+                originalSelection: { type: "amazon.kindle", leftPageSelection: y, rightPageSelection: v }
               };
-              if ((0 === v.text.trim().length && (v = null), d && v)) {
+              if ((0 === b.text.trim().length && (b = null), d && b)) {
                 let e = s[0] ? s[0].parentNode : null;
                 for (let e = s.length - 1; e >= 0; e -= 1) s[e].parentNode.removeChild(s[e]);
                 e && 0 === e.childNodes.length && e.parentNode.removeChild(e), (e = l[0] ? l[0].parentNode : null);
                 for (let e = l.length - 1; e >= 0; e -= 1) l[e].parentNode.removeChild(l[e]);
                 e && 0 === e.childNodes.length && e.parentNode.removeChild(e);
               }
-              return v;
+              return b;
             }),
             (e.enableSelection = function (e) {
               const n = t.Utils.activeElementInfo();
@@ -3443,7 +3478,7 @@
         (function () {
           if (!t.Utils.isOverDriveReader()) return;
           const e = {},
-            n = new T(),
+            n = new I(),
             o = new Y();
           (e.addSelectionEventListener = function (e, t) {
             o.addSelectionEventListener(e, t);
@@ -3586,7 +3621,7 @@
             }),
             (e.mapTextInMSOfficeWord = function (e, r, s) {
               return (
-                t.Utils.isNullOrUndefined(o) && ((o = new U()), o.addPlugin(new X()), (i = n().getTextMapperDelegate())),
+                t.Utils.isNullOrUndefined(o) && ((o = new B()), o.addPlugin(new X()), (i = n().getTextMapperDelegate())),
                 o.mapDocumentText(r, s, e, i)
               );
             }),
@@ -3852,8 +3887,10 @@
       this.setContext(null), this.m_caretOptions.origin !== l.NONE && this.mapDocumentText();
     }
     mapDocumentText() {
-      const e = Z.getInstance().mapText(this.getStartMappingStrategy(), this.getEndMappingStrategy());
-      e && this.setContext(e);
+      const e = this.getStartMappingStrategy(),
+        t = this.getEndMappingStrategy();
+      let n = Z.getInstance().mapText(e, t);
+      n || t.origin() !== m.SELECTION_END || ((t.origin = m.DOCUMENT_END), (n = Z.getInstance().mapText(e, t))), n && this.setContext(n);
     }
     getStartMappingStrategy() {
       switch (this.m_caretOptions.origin) {
@@ -3869,7 +3906,7 @@
     getEndMappingStrategy() {
       switch (this.m_caretOptions.origin) {
         case l.FROM_CARET_TO_END:
-          return new u(m.END, !1);
+          return new ne(m.DOCUMENT_END, !1);
         case l.BACK_TO_CARET:
           return new te(this.m_caretOptions.skip, 0, this.m_caretOptions.skipConsecutiveSeparatorsAsOne);
         default:
@@ -4092,10 +4129,10 @@
       super({ type: "canvas-lms-document", isEditor: !0 });
     }
     createSelectionHandler() {
-      return new I(this);
+      return new T(this);
     }
   }
-  class Se extends b {
+  class Se extends v {
     static isCanvas(e, t = null) {
       return (t = t || window.location.hostname), !(!/^texthelp\.quiz-.*\.instructure\.com$/.test(t) || "/" === window.location.pathname);
     }
@@ -4103,14 +4140,14 @@
       return Se.isCanvas(e) ? new xe() : null;
     }
   }
-  b.registerFactory(new b()),
-    b.registerFactory(new Se()),
+  v.registerFactory(new v()),
+    v.registerFactory(new Se()),
     (e.CaretPositioner = a),
     (e.DocumentTextHighlighter = c),
-    (e.DocumentTextMapper = U),
+    (e.DocumentTextMapper = B),
     (e.DocumentTextMapperAdapter = z),
     (e.DocumentTextMapperDelegate = f),
-    (e.DocumentTextMapperUtils = O),
+    (e.DocumentTextMapperUtils = P),
     (e.DocumentTextReader = g),
     (e.MarkTextHighlighter = class extends c {
       constructor() {
@@ -4173,7 +4210,7 @@
       filterCallback(e, t, n, o) {
         const i = this.m_context.activeElementInfo.document.getSelection();
         if (!i.containsNode(e, !0)) return !0;
-        const r = O.targetOffsetFromCaretPosition(this.m_caretInfo.paragraph, e, Math.max(i.anchorOffset, 0));
+        const r = P.targetOffsetFromCaretPosition(this.m_caretInfo.paragraph, e, Math.max(i.anchorOffset, 0));
         return !(r >= t.start && r <= t.start + t.length);
       }
       adjustContextBeforeHighlighting(e, t) {
@@ -4191,20 +4228,20 @@
         const e = this.m_context.activeElementInfo.document.getSelection();
         if ("None" === e.type) return t.Logger.log("No selection!"), void this.restoreCaret();
         null !== e.anchorNode &&
-          (this.m_caretInfo.targetOffset = O.targetOffsetFromCaretPosition(this.m_caretInfo.paragraph, e.anchorNode, e.anchorOffset));
+          (this.m_caretInfo.targetOffset = P.targetOffsetFromCaretPosition(this.m_caretInfo.paragraph, e.anchorNode, e.anchorOffset));
       }
       initCaretInfo() {
         this.m_caretInfo.paragraph = this.m_context.source.paragraphIterator.getCurrentParagraph(this.m_context.activeElementInfo);
         const e = this.m_context.activeElementInfo.document.getSelection();
         null !== e.anchorNode
-          ? (this.m_caretInfo.targetOffset = O.targetOffsetFromCaretPosition(this.m_caretInfo.paragraph, e.anchorNode, e.anchorOffset))
+          ? (this.m_caretInfo.targetOffset = P.targetOffsetFromCaretPosition(this.m_caretInfo.paragraph, e.anchorNode, e.anchorOffset))
           : (this.m_caretInfo.targetOffset = 0);
       }
       restoreCaret() {
         if (this.m_context)
           try {
             const e = this.m_context.activeElementInfo.document.getSelection(),
-              n = O.caretPositionFromTargetOffset(this.m_caretInfo.paragraph, this.m_caretInfo.targetOffset);
+              n = P.caretPositionFromTargetOffset(this.m_caretInfo.paragraph, this.m_caretInfo.targetOffset);
             null !== n.offsetNode &&
               (n.offsetNode.textContent.length > n.offset && n.offset >= 0
                 ? e.collapse(n.offsetNode, n.offset)
@@ -4377,7 +4414,7 @@
     }),
     (e.TextHighlighterOrigin = l),
     (e.TextHighlightingGranularity = oe),
-    (e.TextMapperDelegateFactory = b),
+    (e.TextMapperDelegateFactory = v),
     (e.TextMappingStrategy = u),
     (e.TextMappingStrategyOrigin = m),
     Object.defineProperty(e, "__esModule", { value: !0 });

@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "برنامه‌ها"
+  },
+  "EndOfSupportHeader": {
+    "message": "پایان پشتیبانی افزونه Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "از تاریخ ۱۵ ژانویه ۲۰۲۴، این افزونه دیگر توسط Microsoft پشتیبانی نخواهد شد."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "برای کسب اطلاعات بیشتر، لطفا به صفحه پشتیبانی برای این افزونه مراجعه کنید."
+  },
+  "Support": {
+    "message": "پشتیبانی"
   }
 }

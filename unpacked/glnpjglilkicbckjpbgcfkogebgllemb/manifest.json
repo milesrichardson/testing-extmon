@@ -2,7 +2,7 @@
   "update_url": "https://clients2.google.com/service/update2/crx",
 
   "name": "Okta Browser Plugin",
-  "version": "6.24.0",
+  "version": "6.25.0",
   "manifest_version": 3,
   "description": "Work outside the perimeter",
   "icons": {

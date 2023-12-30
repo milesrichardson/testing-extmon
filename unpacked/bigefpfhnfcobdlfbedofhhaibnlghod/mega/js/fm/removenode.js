@@ -140,6 +140,8 @@ function removeUInode(h, parent) {
           $(".files-grid-view").addClass("hidden");
           if (M.isDynPage(M.currentdirid)) {
             $(`.fm-empty-${M.currentdirid}`, ".fm-right-files-block").removeClass("hidden");
+          } else if (M.currentdirid === "out-shares") {
+            $(".fm-empty-outgoing").removeClass("hidden");
           } else if (M.currentdirid !== "public-links" && M.currentdirid !== "file-requests") {
             $(".fm-empty-folder").removeClass("hidden");
           }
@@ -147,6 +149,11 @@ function removeUInode(h, parent) {
         $(".grid-table.fm tbody tr").remove();
       }
       break;
+  }
+
+  // Remove item in subtitles dialog
+  if ($.dialog === "subtitles-dialog") {
+    $(".add-subtitles-dialog #" + h).remove();
   }
 
   if (M.megaRender && M.megaRender.megaList) {

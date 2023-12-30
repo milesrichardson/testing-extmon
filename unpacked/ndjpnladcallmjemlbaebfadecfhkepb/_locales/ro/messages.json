@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplicații"
+  },
+  "EndOfSupportHeader": {
+    "message": "Sfârșitul perioadei de asistență pentru extensia Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Începând cu 15 ianuarie 2024, această extensie nu va mai fi acceptată de Microsoft."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Pentru mai multe informații, vizitați pagina de asistență pentru această extensie."
+  },
+  "Support": {
+    "message": "Asistență"
   }
 }

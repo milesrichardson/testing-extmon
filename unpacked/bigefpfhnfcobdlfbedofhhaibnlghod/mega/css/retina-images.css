@@ -426,7 +426,6 @@
   .context-bottom-arrow,
   .context-top-arrow,
   .create-folder-size-icon,
-  .file-status-icon.star,
   .fm-account-button:before,
   .fm-add-user-scrolling .nw-contact-item,
   .fm-breadcrumbs.has-next-button,
@@ -487,10 +486,8 @@
   .sorting-menu-item.active,
   .sorting-menu-item.selected,
   .star .incoming-contact-info span.incoming-call-name,
-  .taken-down .file-status-icon,
   .tiny-icon.cog,
   .transfer-bar-overlay div,
-  .undecryptable .file-status-icon,
   .verified .nw-contact-verified-icon {
     background-image: url(../imagery/mega-fm-main-sprite-2x.a89c0122eaa552cd.png);
     background-size: 48px auto;

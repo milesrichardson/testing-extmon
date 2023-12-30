@@ -10,7 +10,7 @@
       16: 0
     };
   function s(e) {
-    return l.p + "" + e + ".8a2e4be14eed29c0caf5.js";
+    return l.p + "" + e + ".b2215ac3c45eaa93f881.js";
   }
   function l(e) {
     var t;
@@ -228,7 +228,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, r) {
@@ -265,9 +266,8 @@
         drawings: n.GoogleDrawings,
         spreadsheets: n.GoogleSheets
       },
-      i = () => {
-        const e = window.location,
-          t = e.host,
+      i = (e = window.location) => {
+        const t = e.hostname,
           r = e.pathname;
         if ("docs.google.com" === t)
           return (
@@ -280,7 +280,7 @@
           );
       },
       a = (e = window.location) => {
-        const t = e.host,
+        const t = e.hostname,
           r = e.pathname;
         if ("docs.google.com" === t) {
           let e;
@@ -300,7 +300,7 @@
      * This source code is licensed under the MIT license found in the
      * LICENSE file in the root directory of this source tree.
      */
-    var l = t(88),
+    var l = t(89),
       t = "function" == typeof Symbol && Symbol.for,
       f = t ? Symbol.for("react.element") : 60103,
       c = t ? Symbol.for("react.portal") : 60106,
@@ -998,7 +998,7 @@
       t.d(e, "w", function () {
         return p;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return h;
       }),
       t.d(e, "a", function () {
@@ -1022,10 +1022,10 @@
       t.d(e, "x", function () {
         return w;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return x;
       }),
-      t.d(e, "Y", function () {
+      t.d(e, "Z", function () {
         return S;
       }),
       t.d(e, "u", function () {
@@ -1040,22 +1040,22 @@
       t.d(e, "p", function () {
         return P;
       }),
-      t.d(e, "W", function () {
+      t.d(e, "X", function () {
         return k;
       }),
-      t.d(e, "fb", function () {
+      t.d(e, "gb", function () {
         return A;
       }),
-      t.d(e, "ab", function () {
+      t.d(e, "bb", function () {
         return C;
       }),
-      t.d(e, "cb", function () {
+      t.d(e, "db", function () {
         return G;
       }),
-      t.d(e, "db", function () {
+      t.d(e, "eb", function () {
         return F;
       }),
-      t.d(e, "R", function () {
+      t.d(e, "S", function () {
         return L;
       }),
       t.d(e, "Q", function () {
@@ -1067,7 +1067,7 @@
       t.d(e, "P", function () {
         return R;
       }),
-      t.d(e, "hb", function () {
+      t.d(e, "ib", function () {
         return I;
       }),
       t.d(e, "g", function () {
@@ -1085,13 +1085,13 @@
       t.d(e, "D", function () {
         return W;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return H;
       }),
       t.d(e, "r", function () {
         return B;
       }),
-      t.d(e, "V", function () {
+      t.d(e, "W", function () {
         return Q;
       }),
       t.d(e, "f", function () {
@@ -1112,7 +1112,7 @@
       t.d(e, "s", function () {
         return K;
       }),
-      t.d(e, "bb", function () {
+      t.d(e, "cb", function () {
         return Z;
       }),
       t.d(e, "J", function () {
@@ -1124,13 +1124,13 @@
       t.d(e, "K", function () {
         return re;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return ne;
       }),
       t.d(e, "n", function () {
         return oe;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ie;
       }),
       t.d(e, "m", function () {
@@ -1142,7 +1142,7 @@
       t.d(e, "A", function () {
         return ce;
       }),
-      t.d(e, "S", function () {
+      t.d(e, "T", function () {
         return se;
       }),
       t.d(e, "k", function () {
@@ -1160,8 +1160,11 @@
       t.d(e, "l", function () {
         return he;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return me;
+      }),
+      t.d(e, "R", function () {
+        return ye;
       });
     var e = t(3),
       r = t.n(e),
@@ -1468,7 +1471,20 @@
         c(i.a.GenerateMathQuestions, {
           options: e
         }),
-      me = () => c(i.a.ShowFormsGeneratorUi);
+      me = () => c(i.a.ShowFormsGeneratorUi),
+      ye = (e, t, r, n) => {
+        let o = "";
+        return (
+          window && window.location && (o = window.location.href),
+          c(i.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: r,
+            eventProps: n,
+            url: o
+          })
+        );
+      };
   },
   46: function (E, e, t) {
     var P = t(23).default;
@@ -1983,7 +1999,7 @@
       return !(Object(o.c)(e) || Object(n.a)(r) || Object(a.a)(t) || Object(i.b)(t));
     };
   },
-  88: function (e, t, r) {
+  89: function (e, t, r) {
     "use strict";
     /*
 object-assign

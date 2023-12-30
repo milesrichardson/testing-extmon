@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "ಆಪ್‌ಗಳು"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 ವಿಸ್ತರಣೆ ಬೆಂಬಲದ ಅಂತ್ಯ"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "ಜನವರಿ 15, 2024 ರಿಂದ, ಈ ವಿಸ್ತರಣೆಯನ್ನು ಇನ್ನು ಮುಂದೆ Microsoft ಬೆಂಬಲಿಸುವುದಿಲ್ಲ."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ದಯವಿಟ್ಟು ಈ ವಿಸ್ತರಣೆಯ ಬೆಂಬಲ ಪುಟಕ್ಕೆ ಭೇಟಿ ನೀಡಿ."
+  },
+  "Support": {
+    "message": "ಬೆಂಬಲ"
   }
 }

@@ -301,6 +301,7 @@ var g_opera_button = null,
   g_is_families_trial_started = !1,
   LPDebugLogs = {},
   VAULT_PAGE = "vault.html",
+  mv3_extension_used_to_get_key = !1,
   g_multifactorProvider = "",
   g_fillSessionIds = {},
   g_fillTrackingItemModifiedIsSent = {},
@@ -1885,7 +1886,7 @@ function check_key_for_changes() {
     "" != g_local_key &&
     null != g_local_key_hash &&
     SHA256(g_local_key) != g_local_key_hash &&
-    (L("LOGGING OFF : cosmicrays"), loggedOut(), lpReportError("INVESTIGATE! KEY_HASH IS WRONG! COSMIC RAYS?")),
+    (L("LOGGING OFF : cosmicrays"), loggedOut(), logger.info("INVESTIGATE! KEY_HASH IS WRONG! COSMIC RAYS?", {})),
     this.setTimeout(check_key_for_changes, 6e4);
 }
 function isSenderSafe(e) {
@@ -2587,21 +2588,21 @@ function processCS(t, a, e) {
             (m = d.fromiframe),
           (g_didchangepw[SHA256(d.newpw + d.tld)] = new Date().getTime()),
           getsites(d.tld, !0)),
-        q = "",
+        J = "",
         b = 0,
         h = 0,
-        J = 0,
+        q = 0,
         p;
       if ("" != d.oldpw && void 0 !== d.oldpw && null !== d.oldpw) {
         for (var v in n) {
-          h++, (p = getpasswordfromacct(g_sites[v])) != d.oldpw ? (b++, (q += "," + v + ",")) : (J = v);
+          h++, (p = getpasswordfromacct(g_sites[v])) != d.oldpw ? (b++, (J += "," + v + ",")) : (q = v);
         }
-        h - b == 1 ? ((d.singleaid = J), (d.sitecount = 1)) : h != b && (d.excludeid = q);
+        h - b == 1 ? ((d.singleaid = q), (d.sitecount = 1)) : h != b && (d.excludeid = J);
       }
       if (1 == d.sitecount) {
         var y = !0,
-          w;
-        for (w in g_sites) w == d.singleaid && g_sites[w].pwprotect && (y = !1);
+          k;
+        for (k in g_sites) k == d.singleaid && g_sites[k].pwprotect && (y = !1);
         if (
           !check_for_frame_mismatch_ok(
             t,
@@ -2745,11 +2746,11 @@ function processCS(t, a, e) {
       (g_username_vals[a.url] = a.username_val),
         void 0 !== a.docstate && update_cs_docstate(t, a),
         void 0 !== a.docflags && update_cs_docflags(t, a);
-      var B = {};
+      var H = {};
       if (void 0 !== a.actionlastparts)
-        for (var k = 0; k < a.actionlastparts.length; k++)
-          void 0 !== lp_all_tlds[a.actionlastparts[k]] && (B[a.actionlastparts[k]] = lp_all_tlds[a.actionlastparts[k]]);
-      setprefs(t, a.docnum, a.url, B);
+        for (var w = 0; w < a.actionlastparts.length; w++)
+          void 0 !== lp_all_tlds[a.actionlastparts[w]] && (H[a.actionlastparts[w]] = lp_all_tlds[a.actionlastparts[w]]);
+      setprefs(t, a.docnum, a.url, H);
       break;
     case "getuuid":
       getuuid(
@@ -2823,9 +2824,9 @@ function processCS(t, a, e) {
       break;
     case "checkmultifactorsupport":
       var C = "",
-        H = "error",
+        B = "error",
         A = function () {
-          var e = { cmd: "checkmultifactorsupport", type: C, result: H };
+          var e = { cmd: "checkmultifactorsupport", type: C, result: B };
           void 0 !== a.callback ? a.callback(e) : sendCS(t, e, a.docnum);
         },
         I;
@@ -2836,7 +2837,7 @@ function processCS(t, a, e) {
               call_binary_function_if("omnikey_supported", function (e) {
                 e && (I[I.length] = "omnikey"),
                   call_binary_function_if("winbio_supported", function (e) {
-                    e && (I[I.length] = "winbio"), 0 < I.length && ((C = I.join()), (H = "done")), A();
+                    e && (I[I.length] = "winbio"), 0 < I.length && ((C = I.join()), (B = "done")), A();
                   });
               });
           }))
@@ -3013,9 +3014,6 @@ function processCS(t, a, e) {
         case "openpopoverHk":
           buttonclick();
       }
-      break;
-    case "reporterror":
-      lpReportError(a.e, "");
       break;
     case "recheckpage":
       recheckpage(!0);
@@ -3415,7 +3413,7 @@ function get_totp(n, r, i, o, s, l) {
   var e;
   void 0 !== g_usercache[n] &&
     (!i && void 0 !== g_last_get_totp[n] && new Date().getTime() - g_last_get_totp[n] < 25e3
-      ? lpReportError("skipped totp2push for domain=" + n + " because we already did it within the past 25 seconds")
+      ? logger.info("skipped totp2push for domain=" + n + " because we already did it within the past 25 seconds", { tld: n })
       : ((g_last_get_totp[n] = new Date().getTime()),
         (e =
           "tld=" +
@@ -3766,9 +3764,12 @@ function lpAddRejectedSite(e, t, a) {
 function loggedOut(e, t) {
   L("BG : loggedOut from=" + t);
   var t = reduxApp.getState().settings.extensionPreferences.clearfilledfieldsonlogoff,
-    a =
-      (reduxApp && reduxApp.logout(),
-      get_all_windows({ populate: !(g_manual_login = !1) }, function (e) {
+    a,
+    a,
+    n;
+  reduxApp && reduxApp.logout(g_token),
+    ("function" == typeof LPPlatform.isSPA && LPPlatform.isSPA()) ||
+      (get_all_windows({ populate: !(g_manual_login = !1) }, function (e) {
         for (var t = 0; t < e.length; t++)
           for (var a = 0; a < get_tabs_length(e[t]); a++) {
             var n = gettaburl(get_tabs(e[t])[a]);
@@ -3792,153 +3793,149 @@ function loggedOut(e, t) {
       sesame_cleardata(),
       grid_cleardata(),
       multifactor_cleardata(),
-      !1),
-    a,
-    n;
-  lploggedin || (a = !0),
-    (lploggedin = !1),
-    (last_idle_check = 0),
-    (g_local_hash = lphash = g_local_key_hex = g_local_key = null),
-    (g_username = lpusername = g_local_key_hash = null),
-    (lpusername_hash = g_username_hash = lphash = null),
-    (lpmpstrength = null),
-    (lpsendmpstrength = sendchallengescore = !1),
-    (g_uid = lpuid = null),
-    (g_pwdeckey = null),
-    (g_sites = {}),
-    (g_tlds = {}),
-    (g_securenotes = new Array()),
-    (g_applications = new Array()),
-    (g_prompts = new Array()),
-    (g_icons = new Array()),
-    (g_bigicons = {}),
-    (g_icons_length = 0),
-    (g_server_accts_version = g_local_accts_version = g_disablepwalerts = -1),
-    (g_identities = new Array()),
-    (g_pendings = new Array()),
-    (g_shareeautopushes = new Array()),
-    (g_formfills = new Array()),
-    (g_emer_sharees = []),
-    (g_emer_sharers = []),
-    (g_pending_shares = []),
-    (g_totp = {}),
-    (g_neverurls = new Array()),
-    (g_equivalentdomains = {}),
-    (g_strictequivalentdomains = {}),
-    (g_urlrules = new Array()),
-    (g_identity = ""),
-    (g_showcredmon = g_iscompanyadmin = g_isadmin = g_loglogins = !(g_prefoverrides = {})),
-    (g_launches = new Array()),
-    (g_fillfieldsmatches = new Array()),
-    (g_fillfieldsmatchescurridx = new Array()),
-    (lp_phpsessid = ""),
-    (g_premium_trial = 0),
-    (g_enterprisemodel = 0),
-    (g_is_company_subscription_expired = null),
-    (g_loginstarted = g_is_legacy_premium = g_loggedinonline = g_loggedinoffline = !1),
-    lpReadAllPrefs(),
-    (rotation = 0),
-    drawIconAtRotation(),
-    null != g_badgedata &&
-      ("notification" != g_badgedata.cmd || ("error" != g_badgedata.type && "mpwchange" != g_badgedata.type)) &&
-      clear_badge(),
-    rsa_clearvars(),
-    rsa_setpendingsharests(!0),
-    (g_genpws = new Array()),
-    GenPassHistory.clear(),
-    (g_master_password_saved = !1),
-    (g_persistent_notifications = new Array()),
-    (g_rejectedaddsites = new Array()),
-    (g_shares = new Array()),
-    (lpdisableoffline = !(g_datacache = [])),
-    (countryfromip = ""),
-    (g_flags = {}),
-    (g_privkeyattempts = 0),
-    sendTS({ cmd: "logoff" }),
-    (g_generate_pw_pattern_hints = {}),
-    (g_popupfill_hint = {}),
-    (g_popupfill_hint_generate = {}),
-    (g_popupfill_hint_save = {}),
-    (g_popupfill_hint_type = {}),
-    (g_popupfill_last_active = {}),
-    (g_popupfill_last_active_fieldid = {}),
-    (g_popupfill_last_active_fieldtype = {}),
-    (g_popup_tab_docnum = []),
-    (g_popup_url_by_tabid = []),
-    (g_iframe_hack_src = []),
-    (g_pending_pw_change = {}),
-    (OVERRIDENOREFRESH = !0),
-    (secondary_onboarding_skill_list = ""),
-    a ||
-      setTimeout(function () {
-        refresh_windows(OVERRIDENOREFRESH);
-      }, 500),
-    e
-      ? reduxApp && reduxApp.webLoginRedirect()
-      : ((a = ""),
+      (a = !1),
+      lploggedin || (a = !0),
+      (lploggedin = !1),
+      (last_idle_check = 0),
+      (g_local_hash = lphash = g_local_key_hex = g_local_key = null),
+      (g_username = lpusername = g_local_key_hash = null),
+      (lpusername_hash = g_username_hash = lphash = null),
+      (lpmpstrength = null),
+      (lpsendmpstrength = sendchallengescore = !1),
+      (g_uid = lpuid = null),
+      (g_pwdeckey = null),
+      (g_sites = {}),
+      (g_tlds = {}),
+      (g_securenotes = new Array()),
+      (g_applications = new Array()),
+      (g_prompts = new Array()),
+      (g_icons = new Array()),
+      (g_bigicons = {}),
+      (g_icons_length = 0),
+      (g_server_accts_version = g_local_accts_version = g_disablepwalerts = -1),
+      (g_identities = new Array()),
+      (g_pendings = new Array()),
+      (g_shareeautopushes = new Array()),
+      (g_formfills = new Array()),
+      (g_emer_sharees = []),
+      (g_emer_sharers = []),
+      (g_pending_shares = []),
+      (g_totp = {}),
+      (g_neverurls = new Array()),
+      (g_equivalentdomains = {}),
+      (g_strictequivalentdomains = {}),
+      (g_urlrules = new Array()),
+      (g_identity = ""),
+      (g_showcredmon = g_iscompanyadmin = g_isadmin = g_loglogins = !(g_prefoverrides = {})),
+      (g_launches = new Array()),
+      (g_fillfieldsmatches = new Array()),
+      (g_fillfieldsmatchescurridx = new Array()),
+      (lp_phpsessid = ""),
+      (g_premium_trial = 0),
+      (g_enterprisemodel = 0),
+      (g_is_company_subscription_expired = null),
+      (g_loginstarted = g_is_legacy_premium = g_loggedinonline = g_loggedinoffline = !1),
+      lpReadAllPrefs(),
+      (rotation = 0),
+      drawIconAtRotation(),
+      null != g_badgedata &&
+        ("notification" != g_badgedata.cmd || ("error" != g_badgedata.type && "mpwchange" != g_badgedata.type)) &&
+        clear_badge(),
+      rsa_clearvars(),
+      rsa_setpendingsharests(!0),
+      (g_genpws = new Array()),
+      GenPassHistory.clear(),
+      (g_master_password_saved = !1),
+      (g_persistent_notifications = new Array()),
+      (g_rejectedaddsites = new Array()),
+      (g_shares = new Array()),
+      (lpdisableoffline = !(g_datacache = [])),
+      (countryfromip = ""),
+      (g_flags = {}),
+      (g_privkeyattempts = 0),
+      sendTS({ cmd: "logoff" }),
+      (g_generate_pw_pattern_hints = {}),
+      (g_popupfill_hint = {}),
+      (g_popupfill_hint_generate = {}),
+      (g_popupfill_hint_save = {}),
+      (g_popupfill_hint_type = {}),
+      (g_popupfill_last_active = {}),
+      (g_popupfill_last_active_fieldid = {}),
+      (g_popupfill_last_active_fieldtype = {}),
+      (g_popup_tab_docnum = []),
+      (g_popup_url_by_tabid = []),
+      (g_iframe_hack_src = []),
+      (g_pending_pw_change = {}),
+      (OVERRIDENOREFRESH = !0),
+      (secondary_onboarding_skill_list = ""),
+      a ||
+        setTimeout(function () {
+          refresh_windows(OVERRIDENOREFRESH);
+        }, 500),
+      e ||
+        ((a = ""),
         g_token && g_token.length && (a += "&token=" + encodeURIComponent(g_token)),
         (n = new XMLHttpRequest()).open("POST", base_url + "logout.php?chrome_plugin=1&noredirect=1"),
         n.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"),
         (n.onload = function () {
-          var e, e, a;
+          var e, t;
           n &&
-          n.response &&
-          ((e = JSON.parse(n.response)), Array.isArray(e.singleLogoutUrls)) &&
-          ((e = e.singleLogoutUrls.filter(function (t) {
-            try {
-              return new URL(t), !0;
-            } catch (e) {
-              return lpReportError("invalid logout url recieved from server: " + t), !1;
-            }
-          })),
-          0 < (a = e.length))
-            ? e.forEach(function (e) {
-                var t = new XMLHttpRequest();
-                t.open("GET", e),
-                  (t.onload =
-                    t.onerror =
-                    t.onabort =
-                      function () {
-                        0 === --a && reduxApp && reduxApp.webLoginRedirect();
-                      }),
-                  t.send();
+            n.response &&
+            ((e = JSON.parse(n.response)), Array.isArray(e.singleLogoutUrls)) &&
+            e.singleLogoutUrls
+              .filter(function (t) {
+                try {
+                  return new URL(t), !0;
+                } catch (e) {
+                  return (
+                    lpReportError("invalid logout url received from server: " + t),
+                    logger.info("invalid logout url recieved from server: " + t, { url: t }),
+                    !1
+                  );
+                }
               })
-            : reduxApp && reduxApp.webLoginRedirect();
+              .forEach(function (e) {
+                var t = new XMLHttpRequest();
+                t.open("GET", e), t.send();
+              });
         }),
         n.send(a)),
-    (g_token = ""),
-    LPServer.clearCSRFToken(),
-    "undefined" != typeof g_oldpbkdf2 && (g_oldpbkdf2 = 0),
-    update_menus(!0),
-    t && clear_all_filled_fields(),
-    (g_fillfield_confirm_perfield = {}),
-    (g_fillfield_did_fillbest = {}),
-    (g_popupfill_hint = {}),
-    (g_popupfill_hint_generate = {}),
-    (g_popupfill_hint_save = {}),
-    (g_popupfill_last_active = {}),
-    (g_popupfill_last_active_fieldid = {}),
-    (g_popupfill_last_active_fieldtype = {}),
-    (g_popupfill_save_data = {}),
-    (g_popupforminput = []),
-    (g_pendo_jwt_token = void 0),
-    (g_pendo_signing_key_name = void 0),
-    g_cpwbot && CPWbot_bg && "object" == typeof CPWbot_bg && (CPWbot_bg.logout(), (CPWbot_bg = null)),
-    (g_cpw_server_initiated_tabid = null),
-    (g_cpw_aid_queue = []),
-    g_cpwbot && CPWbatch && "object" == typeof CPWbatch && (CPWbatch.cpw_set_batchjob_state(F_NONE), CPWbatch.logout(), (CPWbatch = null)),
-    cleardeccache(),
-    clear_badge_text(),
-    shutdown_push_listener(),
-    (g_usercache = {}),
-    Topics.get(Topics.CLEAR_DATA).publish(),
-    LPTabs.get({ interface: "ContentScriptInterface" }).forEach(function (e) {
-      e.forEachWindow({
-        each: function (e) {
-          void 0 !== e.Topics && e.Topics.publish(Topics.CLEAR_DATA);
-        }
-      });
-    });
+      (g_token = ""),
+      LPServer.clearCSRFToken(),
+      "undefined" != typeof g_oldpbkdf2 && (g_oldpbkdf2 = 0),
+      update_menus(!0),
+      t && clear_all_filled_fields(),
+      (g_fillfield_confirm_perfield = {}),
+      (g_fillfield_did_fillbest = {}),
+      (g_popupfill_hint = {}),
+      (g_popupfill_hint_generate = {}),
+      (g_popupfill_hint_save = {}),
+      (g_popupfill_last_active = {}),
+      (g_popupfill_last_active_fieldid = {}),
+      (g_popupfill_last_active_fieldtype = {}),
+      (g_popupfill_save_data = {}),
+      (g_popupforminput = []),
+      (g_pendo_jwt_token = void 0),
+      (g_pendo_signing_key_name = void 0),
+      g_cpwbot && CPWbot_bg && "object" == typeof CPWbot_bg && (CPWbot_bg.logout(), (CPWbot_bg = null)),
+      (g_cpw_server_initiated_tabid = null),
+      (g_cpw_aid_queue = []),
+      g_cpwbot &&
+        CPWbatch &&
+        "object" == typeof CPWbatch &&
+        (CPWbatch.cpw_set_batchjob_state(F_NONE), CPWbatch.logout(), (CPWbatch = null)),
+      cleardeccache(),
+      clear_badge_text(),
+      shutdown_push_listener(),
+      (g_usercache = {}),
+      Topics.get(Topics.CLEAR_DATA).publish(),
+      LPTabs.get({ interface: "ContentScriptInterface" }).forEach(function (e) {
+        e.forEachWindow({
+          each: function (e) {
+            void 0 !== e.Topics && e.Topics.publish(Topics.CLEAR_DATA);
+          }
+        });
+      }));
 }
 function getmenurowheight() {
   return 20;
@@ -4972,7 +4969,8 @@ function launch(e, t) {
     "function" == typeof LPPlatform.isSPA &&
     LPPlatform.isSPA() &&
     top.document.documentElement.getAttribute("data-extension-enabled") &&
-    reduxApp
+    reduxApp &&
+    reduxApp.getState().settings.features.enable_mv3_background
   )
     reduxApp.sendLaunchMessage(e);
   else {
@@ -5346,20 +5344,6 @@ function clearuuid(e) {
     ? setuuid("", e, !0)
     : (delete_file("lp.suid"), delete_file("lp.uid"), "undefined" != typeof localStorage && localStorage_removeItem("lp.uid"));
 }
-var lperrorcount = 0;
-function lpReportError(e, t) {
-  var e = e,
-    a,
-    a,
-    a;
-  0 == g_prompts.improve ||
-    100 < ++lperrorcount ||
-    ((a = e.match(/^(.*)location:\s+/)) && (e = a[1]),
-    (a = ""),
-    g_ischrome ? (a = "chrome") : g_isfirefox && (a = "firefox"),
-    (a = "msg=cr() " + a + " lp(" + lpversion + ") errors(" + lperrorcount + "): " + LP.en(e)),
-    lpMakeRequest(base_url + "error.php?", a, null, null));
-}
 function lpatob(e) {
   return atob(e);
 }
@@ -5660,7 +5644,7 @@ function refresh_windows(e) {
           (-1 == gettaburl(get_tabs(e[t])[a]).indexOf("lpnorefresh=1") || r) &&
           ((n = (n = (n = gettaburl(get_tabs(e[t])[a])).replace("&nk=1", "")).replace("&showdeleted=1", "")),
           L("refresh_windows() loadurl url:" + n),
-          sendCS(gettabid(get_tabs(e[t])[a]), { cmd: "loadurl", url: n }));
+          sendCS(gettabid(get_tabs(e[t])[a]), { cmd: "loadurl", url: n, skipSpa: !r }));
       }
   });
 }
@@ -6152,9 +6136,9 @@ function renameGroup(e, t, a, n, r) {
             );
         } else {
           var y = [],
-            w = [],
+            k = [],
             _ = [g_sites, g_securenotes, g_applications],
-            k = o ? t.substr(o.decsharename.length + 1) : "",
+            w = o ? t.substr(o.decsharename.length + 1) : "",
             d,
             u,
             f,
@@ -6166,10 +6150,10 @@ function renameGroup(e, t, a, n, r) {
                 ((y[y.length] = get_record_id(m)),
                 (P = t),
                 m.group != e && 0 < m.group.indexOf("\\") && (P = t + m.group.substr(m.group.indexOf("\\"))),
-                (w[get_record_id(m)] = P));
+                (k[get_record_id(m)] = P));
             }
           }
-          moveIntoSharedFolder(o, i, y, w, !1, !1, r, a);
+          moveIntoSharedFolder(o, i, y, k, !1, !1, r, a);
         }
       }
     }
@@ -6213,8 +6197,8 @@ function moveIntoSharedFolder(e, t, b, a, n, r, i, o) {
         return alertfrombg(gs("An error occurred") + " i=" + gs(f) + " type " + typeof f), !1;
       var m,
         y,
-        w = ("object" == typeof b[f] ? ((y = !1), (m = b[f])) : ((m = getacct(b[f])), (y = !0)), m.aid),
-        k = !1;
+        k = ("object" == typeof b[f] ? ((y = !1), (m = b[f])) : ((m = getacct(b[f])), (y = !0)), m.aid),
+        w = !1;
       if (null == m) return alertfrombg(gs("Error: This folder has already been moved?")), !1;
       if (void 0 !== m.individualshare && m.individualshare) {
         if (null != m.sharedfromaid && "" != m.sharedfromaid && "0" != m.sharedfromaid)
@@ -6225,7 +6209,7 @@ function moveIntoSharedFolder(e, t, b, a, n, r, i, o) {
           );
           if (!confirm(l)) return !1;
         }
-        k = !0;
+        w = !0;
       }
       if (!r) {
         if (void 0 !== m.sharefolderid && "" != p && m.sharefolderid != p && m.sharefolderid != g)
@@ -6234,7 +6218,7 @@ function moveIntoSharedFolder(e, t, b, a, n, r, i, o) {
           S;
         for (S in m) m.hasOwnProperty(S) && (P[S] = m[S]);
         P.attacharraychanges = { add: [], remove: [] };
-        var x = e ? a[w].substr(e.decsharename.length + 1) : a[w],
+        var x = e ? a[k].substr(e.decsharename.length + 1) : a[k],
           L,
           C,
           L,
@@ -6347,7 +6331,7 @@ function moveIntoSharedFolder(e, t, b, a, n, r, i, o) {
             void 0 !== m.attachkey &&
               "" != m.attachkey &&
               (y && (P.attachkey = enc(dec(m.attachkey, c), _)), (L += "&attachkey" + f + "=" + en(P.attachkey))),
-            (L += "&origaid" + f + "=" + LP.en(w)),
+            (L += "&origaid" + f + "=" + LP.en(k)),
             "");
         P.fields = new Array();
         for (var S = 0; S < m.fields.length; S++) {
@@ -6403,7 +6387,7 @@ function moveIntoSharedFolder(e, t, b, a, n, r, i, o) {
                   "=" +
                   en(void 0 === m.fields[S].formname ? "" : m.fields[S].formname));
         }
-        (v[w] = P), (d = d + L + A), k || n || ((u += en(w) + ","), (h[h.length] = w));
+        (v[k] = P), (d = d + L + A), w || n || ((u += en(k) + ","), (h[h.length] = k));
       }
     }
   return (
@@ -7236,12 +7220,13 @@ function have_pplastpass() {
   "undefined" != typeof document
     ? ("function" == typeof LPPlatform.isSPA && LPPlatform.isSPA()
         ? top.Topics.get(top.Topics.SPA_IFRAME_WEB_CLIENT_INITIALIZED).subscribe(function () {
-            top.document.documentElement.getAttribute("data-extension-enabled")
+            !reduxApp.singleUseRepositoryHasItem() && top.document.documentElement.getAttribute("data-extension-enabled")
               ? reduxApp.getLoginDataFromExtension().then(function (e) {
                   var t;
                   (g_local_key = AES.hex2bin(e.key)),
                     e.username &&
-                      ((g_username = e.username),
+                      ((mv3_extension_used_to_get_key = !0),
+                      (g_username = e.username),
                       (g_username_hash = SHA256(e.username)),
                       (t = 0 < e.iterations ? e.iterations : localStorage_getItem(g_username_hash + "_key_iter"))) &&
                       (reduxApp.updateIterations(e.username, t), localStorage_setItem(g_username_hash + "_key_iter", t)),
@@ -7494,13 +7479,13 @@ function frame_and_topdoc_has_same_domain(e) {
   return !!(t && e && compare_tlds(lp_gettld_url(e), lp_gettld_url(t)));
 }
 function ftd_report_error(e, t) {
-  var t = sprintf(
+  var a = sprintf(
     "cmd=showiframeconfirm type=%s tldurl=%s tldurliframe=%s",
     t,
     lpcanonizeUrl(ftd_get_topurl(e)),
     lpcanonizeUrl(ftd_get_frameparenturl(e))
   );
-  return lplog("ftd_report_error : " + t), lpReportError(t);
+  return lplog("ftd_report_error : " + a), logger.info(a, { tabid: e, typ: t });
 }
 function ftd_get_frameparenturl(e) {
   return null === g_popup_url_by_tabid || null === e || void 0 === g_popup_url_by_tabid[e] ? "" : g_popup_url_by_tabid[e];

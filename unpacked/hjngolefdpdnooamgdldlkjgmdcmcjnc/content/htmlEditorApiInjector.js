@@ -146,7 +146,8 @@
       CreateFormsQuestions: "equatio_create_forms_questions",
       GenerateMathQuestions: "equatio_generate_math_questions",
       ShowFormsGeneratorUi: "show_forms_generator_ui",
-      LoginWithNYC: "equatio_login_with_nyc"
+      LoginWithNYC: "equatio_login_with_nyc",
+      SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
     });
   },
   1: function (e, t, r) {
@@ -253,7 +254,7 @@
       t.d(e, "w", function () {
         return p;
       }),
-      t.d(e, "gb", function () {
+      t.d(e, "hb", function () {
         return h;
       }),
       t.d(e, "a", function () {
@@ -277,10 +278,10 @@
       t.d(e, "x", function () {
         return w;
       }),
-      t.d(e, "X", function () {
+      t.d(e, "Y", function () {
         return S;
       }),
-      t.d(e, "Y", function () {
+      t.d(e, "Z", function () {
         return x;
       }),
       t.d(e, "u", function () {
@@ -295,22 +296,22 @@
       t.d(e, "p", function () {
         return P;
       }),
-      t.d(e, "W", function () {
-        return L;
-      }),
-      t.d(e, "fb", function () {
+      t.d(e, "X", function () {
         return T;
       }),
-      t.d(e, "ab", function () {
-        return F;
+      t.d(e, "gb", function () {
+        return L;
       }),
-      t.d(e, "cb", function () {
+      t.d(e, "bb", function () {
         return G;
       }),
       t.d(e, "db", function () {
+        return F;
+      }),
+      t.d(e, "eb", function () {
         return I;
       }),
-      t.d(e, "R", function () {
+      t.d(e, "S", function () {
         return D;
       }),
       t.d(e, "Q", function () {
@@ -322,7 +323,7 @@
       t.d(e, "P", function () {
         return C;
       }),
-      t.d(e, "hb", function () {
+      t.d(e, "ib", function () {
         return k;
       }),
       t.d(e, "g", function () {
@@ -340,13 +341,13 @@
       t.d(e, "D", function () {
         return Q;
       }),
-      t.d(e, "U", function () {
+      t.d(e, "V", function () {
         return B;
       }),
       t.d(e, "r", function () {
         return W;
       }),
-      t.d(e, "V", function () {
+      t.d(e, "W", function () {
         return Y;
       }),
       t.d(e, "f", function () {
@@ -367,7 +368,7 @@
       t.d(e, "s", function () {
         return Z;
       }),
-      t.d(e, "bb", function () {
+      t.d(e, "cb", function () {
         return $;
       }),
       t.d(e, "J", function () {
@@ -379,13 +380,13 @@
       t.d(e, "K", function () {
         return re;
       }),
-      t.d(e, "eb", function () {
+      t.d(e, "fb", function () {
         return ne;
       }),
       t.d(e, "n", function () {
         return oe;
       }),
-      t.d(e, "T", function () {
+      t.d(e, "U", function () {
         return ie;
       }),
       t.d(e, "m", function () {
@@ -397,7 +398,7 @@
       t.d(e, "A", function () {
         return ce;
       }),
-      t.d(e, "S", function () {
+      t.d(e, "T", function () {
         return se;
       }),
       t.d(e, "k", function () {
@@ -415,8 +416,11 @@
       t.d(e, "l", function () {
         return he;
       }),
-      t.d(e, "Z", function () {
+      t.d(e, "ab", function () {
         return me;
+      }),
+      t.d(e, "R", function () {
+        return _e;
       });
     var e = t(3),
       r = t.n(e),
@@ -525,16 +529,16 @@
         }),
       j = () => c(i.a.DisconnectCompanionDoc),
       P = () => c(i.a.GetHandwritingCount),
-      L = (e) =>
+      T = (e) =>
         c(i.a.SetHandwritingCount, {
           count: e
         }),
-      T = (e) =>
+      L = (e) =>
         c(i.a.UpdateGoogleSheetEquations, {
           spreadsheetId: e
         }),
-      F = () => c(i.a.ShowHandwritingExceededReminder),
-      G = () => c(i.a.ShowPredictionReminder),
+      G = () => c(i.a.ShowHandwritingExceededReminder),
+      F = () => c(i.a.ShowPredictionReminder),
       I = () => c(i.a.ShowReviewReminder),
       D = (e) =>
         c(i.a.SendAnalyticsScreen, {
@@ -723,12 +727,25 @@
         c(i.a.GenerateMathQuestions, {
           options: e
         }),
-      me = () => c(i.a.ShowFormsGeneratorUi);
+      me = () => c(i.a.ShowFormsGeneratorUi),
+      _e = (e, t, r, n) => {
+        let o = "";
+        return (
+          window && window.location && (o = window.location.href),
+          c(i.a.SendAnalyticsEventGa4, {
+            name: e,
+            category: t,
+            feature: r,
+            eventProps: n,
+            url: o
+          })
+        );
+      };
   },
   403: function (e, t, r) {
     "use strict";
     r.r(t);
-    var t = r(85),
+    var t = r(86),
       n = r.n(t),
       o = r(19),
       i = r(4),
@@ -740,13 +757,13 @@
             const t = e.data,
               r = t.action,
               n = t.value;
-            r === o.a.SetEditor && (u = n), Object(i.S)(r, n, !0);
+            r === o.a.SetEditor && (u = n), Object(i.T)(r, n, !0);
           }
         }),
           window.addEventListener(
             "unload",
             () => {
-              u && ((u = null), Object(i.S)(o.a.SetEditor, null, !0));
+              u && ((u = null), Object(i.T)(o.a.SetEditor, null, !0));
             },
             !0
           );
@@ -762,9 +779,9 @@
   },
   46: function (j, e, t) {
     var P = t(23).default;
-    function L() {
+    function T() {
       "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
-      (j.exports = L =
+      (j.exports = T =
         function () {
           return a;
         }),
@@ -1142,7 +1159,7 @@
         a
       );
     }
-    (j.exports = L), (j.exports.__esModule = !0), (j.exports.default = j.exports);
+    (j.exports = T), (j.exports.__esModule = !0), (j.exports.default = j.exports);
   },
   47: function (e, t, r) {
     var n = r(23).default,
@@ -1182,7 +1199,7 @@
     }
     (e.exports = o), (e.exports.__esModule = !0), (e.exports.default = e.exports);
   },
-  85: function (e, t) {
+  86: function (e, t) {
     function o(e, t, r) {
       t(new URIError(r.target.src + " could not be loaded"), r);
     }

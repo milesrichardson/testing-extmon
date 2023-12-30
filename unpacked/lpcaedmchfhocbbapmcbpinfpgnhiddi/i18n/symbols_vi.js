@@ -95,7 +95,7 @@ d = {
   ta: "'th\u00e1ng' MM, y",
   K: "d MMM",
   L: "dd MMMM",
-  N: "dd/M",
+  N: "d/M",
   M: "d MMMM",
   qa: "d MMM, y",
   ja: "EEE, d MMM",
@@ -129,8 +129,8 @@ var h = {
   F: 5
 };
 h = {
-  B: ["TCN", "CN"],
-  A: ["Tr\u01b0\u1edbc Thi\u00ean Ch\u00faa", "Sau C\u00f4ng Nguy\u00ean"],
+  B: ["TCN", "SCN"],
+  A: ["Tr\u01b0\u1edbc Ch\u00faa Gi\u00e1ng Sinh", "Sau C\u00f4ng Nguy\u00ean"],
   P: "1 2 3 4 5 6 7 8 9 10 11 12".split(" "),
   ca: "1 2 3 4 5 6 7 8 9 10 11 12".split(" "),
   J: "th\u00e1ng 1;th\u00e1ng 2;th\u00e1ng 3;th\u00e1ng 4;th\u00e1ng 5;th\u00e1ng 6;th\u00e1ng 7;th\u00e1ng 8;th\u00e1ng 9;th\u00e1ng 10;th\u00e1ng 11;th\u00e1ng 12".split(
@@ -140,7 +140,9 @@ h = {
     ";"
   ),
   Y: "thg 1;thg 2;thg 3;thg 4;thg 5;thg 6;thg 7;thg 8;thg 9;thg 10;thg 11;thg 12".split(";"),
-  ea: "Thg 1;Thg 2;Thg 3;Thg 4;Thg 5;Thg 6;Thg 7;Thg 8;Thg 9;Thg 10;Thg 11;Thg 12".split(";"),
+  ea: "Th\u00e1ng 1;Th\u00e1ng 2;Th\u00e1ng 3;Th\u00e1ng 4;Th\u00e1ng 5;Th\u00e1ng 6;Th\u00e1ng 7;Th\u00e1ng 8;Th\u00e1ng 9;Th\u00e1ng 10;Th\u00e1ng 11;Th\u00e1ng 12".split(
+    ";"
+  ),
   ia: "Ch\u1ee7 Nh\u1eadt;Th\u1ee9 Hai;Th\u1ee9 Ba;Th\u1ee9 T\u01b0;Th\u1ee9 N\u0103m;Th\u1ee9 S\u00e1u;Th\u1ee9 B\u1ea3y".split(";"),
   ga: "Ch\u1ee7 Nh\u1eadt;Th\u1ee9 Hai;Th\u1ee9 Ba;Th\u1ee9 T\u01b0;Th\u1ee9 N\u0103m;Th\u1ee9 S\u00e1u;Th\u1ee9 B\u1ea3y".split(";"),
   aa: "CN;Th 2;Th 3;Th 4;Th 5;Th 6;Th 7".split(";"),
@@ -150,7 +152,7 @@ h = {
   Z: ["Q1", "Q2", "Q3", "Q4"],
   W: ["Qu\u00fd 1", "Qu\u00fd 2", "Qu\u00fd 3", "Qu\u00fd 4"],
   g: ["SA", "CH"],
-  l: ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "dd/MM/y"],
+  l: ["EEEE, d MMMM, y", "d MMMM, y", "d MMM, y", "d/M/yy"],
   ha: ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
   m: ["'l\u00fac' {0} {1}", "'l\u00fac' {0} {1}", "{0} {1}", "{0} {1}"],
   D: 0,

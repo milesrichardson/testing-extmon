@@ -5,23 +5,25 @@
   "default_locale": "en_US",
   "author": "Michel Gutierrez",
   "description": "__MSG_appDesc__",
-  "version": "8.0.0.7",
-
-  "manifest_version": 3,
-
+  "version": "8.1.1.0",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "nativeMessaging",
+    "webRequest",
+    "downloads",
+    "webNavigation",
+    "notifications",
+    "scripting",
+    "storage",
+    "declarativeNetRequest",
+    "offscreen"
+  ],
   "icons": {
     "32": "content/images/icon-32.png",
     "40": "content/images/icon-40.png",
     "48": "content/images/icon-48.png",
     "128": "content/images/icon-128.png"
-  },
-
-  "action": {
-    "default_icon": {
-      "40": "content/images/icon-40.png"
-    },
-    "default_title": "Video DownloadHelper",
-    "default_popup": "content/popup.html?panel=main"
   },
   "options_ui": {
     "page": "content/settings.html?panel=settings",
@@ -29,11 +31,11 @@
   },
   "commands": {
     "default-action": {
+      "description": "Execute default action",
       "suggested_key": {
         "default": "Alt+Down",
         "mac": "Ctrl+Shift+Down"
-      },
-      "description": "Execute default action"
+      }
     },
     "_execute_action": {
       "suggested_key": {
@@ -45,31 +47,21 @@
   "content_scripts": [
     {
       "matches": ["*://*.downloadhelper.net/*"],
-      "js": ["content/dwhelper-script.js"],
+      "js": ["injected/downloadhelper.net.js"],
       "run_at": "document_start"
     }
   ],
-
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqm/Cdcx4ikjVJbadUGpwrgJXdkc6Is8smuMiuAQbzgOg0cETVxuAY55UxgCxsh3lu4Os0RFK11bMBhu79Jbwv8tyml6mFGLLncLU2dFPZwnZWnIt5U+KC+uOvjryOacIPLxS/PeF2sXScNd0QJg/wTyl5WIizFtbcM3ZmFDFsj39FuUoH/OhO1Ux1/4Xn6dbSRb5F6qgkS2CU9ptTPQz0NJNaEmbL7vnWQkl2C8N4SjlDpRf/lC5r72Ow16hmbNmCGRhbxjPF0Dm+EO2uyF6dBw4n9V8BjBXQ7AdL5J3k4dXJk/oIOD2GQJsGyHK6TobNPPjy6W7bpPBtSfesIXS+wIDAQAB",
-
+  "manifest_version": 3,
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_title": "Video DownloadHelper",
+    "default_popup": "content/popup.html?panel=main",
+    "default_icon": {
+      "40": "content/images/icon-40.png"
+    }
+  },
   "background": {
     "service_worker": "background/main.js"
   },
-
-  "host_permissions": ["<all_urls>"],
-
-  "permissions": [
-    "tabs",
-    "contextMenus",
-    "nativeMessaging",
-    "webRequest",
-    "downloads",
-    "webNavigation",
-    "notifications",
-    "scripting",
-
-    "offscreen",
-
-    "storage"
-  ]
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqm/Cdcx4ikjVJbadUGpwrgJXdkc6Is8smuMiuAQbzgOg0cETVxuAY55UxgCxsh3lu4Os0RFK11bMBhu79Jbwv8tyml6mFGLLncLU2dFPZwnZWnIt5U+KC+uOvjryOacIPLxS/PeF2sXScNd0QJg/wTyl5WIizFtbcM3ZmFDFsj39FuUoH/OhO1Ux1/4Xn6dbSRb5F6qgkS2CU9ptTPQz0NJNaEmbL7vnWQkl2C8N4SjlDpRf/lC5r72Ow16hmbNmCGRhbxjPF0Dm+EO2uyF6dBw4n9V8BjBXQ7AdL5J3k4dXJk/oIOD2GQJsGyHK6TobNPPjy6W7bpPBtSfesIXS+wIDAQAB"
 }

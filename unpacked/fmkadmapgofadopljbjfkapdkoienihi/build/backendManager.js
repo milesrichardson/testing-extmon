@@ -1,58 +1,5 @@
 (() => {
   var e = {
-      440: (e, t) => {
-        "use strict";
-        var r = Symbol.for("react.element"),
-          n = Symbol.for("react.portal"),
-          i = Symbol.for("react.fragment"),
-          o = Symbol.for("react.strict_mode"),
-          a = Symbol.for("react.profiler"),
-          s = Symbol.for("react.provider"),
-          l = Symbol.for("react.context"),
-          u = Symbol.for("react.server_context"),
-          c = Symbol.for("react.forward_ref"),
-          h = Symbol.for("react.suspense"),
-          f = Symbol.for("react.suspense_list"),
-          p = Symbol.for("react.memo"),
-          d = Symbol.for("react.lazy"),
-          y = Symbol.for("react.offscreen"),
-          v = Symbol.for("react.cache"),
-          m = Symbol.for("react.client.reference");
-        function w(e) {
-          if ("object" == typeof e && null !== e) {
-            var t = e.$$typeof;
-            switch (t) {
-              case r:
-                switch ((e = e.type)) {
-                  case i:
-                  case a:
-                  case o:
-                  case h:
-                  case f:
-                    return e;
-                  default:
-                    switch ((e = e && e.$$typeof)) {
-                      case u:
-                      case l:
-                      case c:
-                      case d:
-                      case p:
-                      case s:
-                        return e;
-                      default:
-                        return t;
-                    }
-                }
-              case n:
-                return t;
-            }
-          }
-        }
-      },
-      2954: (e, t, r) => {
-        "use strict";
-        r(440);
-      },
       3018: (e, t, r) => {
         "use strict";
         var n = r(397);
@@ -72,8 +19,8 @@
           u = i("length"),
           c = i("lengthCalculator"),
           h = i("allowStale"),
-          f = i("maxAge"),
-          p = i("dispose"),
+          p = i("maxAge"),
+          f = i("dispose"),
           d = i("noDisposeOnSet"),
           y = i("lruList"),
           v = i("cache");
@@ -89,8 +36,8 @@
           "function" != typeof r && (r = naiveLength),
             (this[c] = r),
             (this[h] = e.stale || !1),
-            (this[f] = e.maxAge || 0),
-            (this[p] = e.dispose),
+            (this[p] = e.maxAge || 0),
+            (this[f] = e.dispose),
             (this[d] = e.noDisposeOnSet || !1),
             this.reset();
         }
@@ -107,9 +54,9 @@
           return i;
         }
         function isStale(e, t) {
-          if (!t || (!t.maxAge && !e[f])) return !1;
+          if (!t || (!t.maxAge && !e[p])) return !1;
           var r = Date.now() - t.now;
-          return t.maxAge ? r > t.maxAge : e[f] && r > e[f];
+          return t.maxAge ? r > t.maxAge : e[p] && r > e[p];
         }
         function trim(e) {
           if (e[u] > e[l])
@@ -121,7 +68,7 @@
         function del(e, t) {
           if (t) {
             var r = t.value;
-            e[p] && e[p](r.key, r.value), (e[u] -= r.length), e[v].delete(r.key), e[y].removeNode(t);
+            e[f] && e[f](r.key, r.value), (e[u] -= r.length), e[v].delete(r.key), e[y].removeNode(t);
           }
         }
         function Entry(e, t, r, n, i) {
@@ -147,10 +94,10 @@
           }),
           Object.defineProperty(LRUCache.prototype, "maxAge", {
             set: function (e) {
-              (!e || "number" != typeof e || e < 0) && (e = 0), (this[f] = e), trim(this);
+              (!e || "number" != typeof e || e < 0) && (e = 0), (this[p] = e), trim(this);
             },
             get: function () {
-              return this[f];
+              return this[p];
             },
             enumerable: !0
           }),
@@ -207,11 +154,11 @@
             }, this);
           }),
           (LRUCache.prototype.reset = function () {
-            this[p] &&
+            this[f] &&
               this[y] &&
               this[y].length &&
               this[y].forEach(function (e) {
-                this[p](e.key, e.value);
+                this[f](e.key, e.value);
               }, this),
               (this[v] = new o()),
               (this[y] = new s()),
@@ -236,14 +183,14 @@
             this[h] && ((r += "\n  allowStale: true"), (n = !0));
             var i = this[l];
             i && i !== 1 / 0 && (n && (r += ","), (r += "\n  max: " + a.inspect(i, t)), (n = !0));
-            var o = this[f];
+            var o = this[p];
             o && (n && (r += ","), (r += "\n  maxAge: " + a.inspect(o, t)), (n = !0));
             var s = this[c];
             s && s !== naiveLength && (n && (r += ","), (r += "\n  length: " + a.inspect(this[u], t)), (n = !0));
-            var p = !1;
+            var f = !1;
             return (
               this[y].forEach(function (e) {
-                p ? (r += ",\n  ") : (n && (r += ",\n"), (p = !0), (r += "\n  "));
+                f ? (r += ",\n  ") : (n && (r += ",\n"), (f = !0), (r += "\n  "));
                 var i = a.inspect(e.key).split("\n").join("\n  "),
                   l = { value: e.value };
                 e.maxAge !== o && (l.maxAge = e.maxAge),
@@ -252,18 +199,18 @@
                   (l = a.inspect(l, t).split("\n").join("\n  ")),
                   (r += i + " => " + l);
               }),
-              (p || n) && (r += "\n"),
+              (f || n) && (r += "\n"),
               (r += "}")
             );
           }),
           (LRUCache.prototype.set = function (e, t, r) {
-            var n = (r = r || this[f]) ? Date.now() : 0,
+            var n = (r = r || this[p]) ? Date.now() : 0,
               i = this[c](t, e);
             if (this[v].has(e)) {
               if (i > this[l]) return del(this, this[v].get(e)), !1;
               var o = this[v].get(e).value;
               return (
-                this[p] && (this[d] || this[p](e, o.value)),
+                this[f] && (this[d] || this[f](e, o.value)),
                 (o.now = n),
                 (o.maxAge = r),
                 (o.value = t),
@@ -276,7 +223,7 @@
             }
             var a = new Entry(e, t, i, n, r);
             return a.length > this[l]
-              ? (this[p] && this[p](e, t), !1)
+              ? (this[f] && this[f](e, t), !1)
               : ((this[u] += a.length), this[y].unshift(a), this[v].set(e, this[y].head), trim(this), !0);
           }),
           (LRUCache.prototype.has = function (e) {
@@ -640,8 +587,8 @@
           var u,
             c = "",
             h = !1,
-            f = ["{", "}"];
-          (isArray(r) && ((h = !0), (f = ["[", "]"])), isFunction(r)) && (c = " [Function" + (r.name ? ": " + r.name : "") + "]");
+            p = ["{", "}"];
+          (isArray(r) && ((h = !0), (p = ["[", "]"])), isFunction(r)) && (c = " [Function" + (r.name ? ": " + r.name : "") + "]");
           return (
             isRegExp(r) && (c = " " + RegExp.prototype.toString.call(r)),
             isDate(r) && (c = " " + Date.prototype.toUTCString.call(r)),
@@ -673,8 +620,8 @@
                     }, 0);
                     if (n > 60) return r[0] + ("" === t ? "" : t + "\n ") + " " + e.join(",\n  ") + " " + r[1];
                     return r[0] + t + " " + e.join(", ") + " " + r[1];
-                  })(u, c, f))
-              : f[0] + c + f[1]
+                  })(u, c, p))
+              : p[0] + c + p[1]
           );
         }
         function formatError(e) {
@@ -1056,7 +1003,6 @@
       Object.keys(t);
       var r = __webpack_require__(3018),
         n = __webpack_require__.n(r);
-      __webpack_require__(2954);
       Symbol.for("react.element"),
         Symbol.for("react.portal"),
         Symbol.for("react.fragment"),

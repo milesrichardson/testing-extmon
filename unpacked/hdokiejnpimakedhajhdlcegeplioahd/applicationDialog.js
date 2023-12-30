@@ -7,7 +7,7 @@ var ApplicationDialog = function (t) {
       this,
       $.extend(t, {
         sourceFunction: LPProxy.getApplicationModel,
-        title: t.vaultItem ? Strings.translateString("Edit Application") : Strings.translateString("Clone Application")
+        title: t.vaultItem ? Strings.translateString("Edit Application") : Strings.translateString("Add Application")
       })
     );
   }),
@@ -17,9 +17,9 @@ var ApplicationDialog = function (t) {
       lpFillScript: "Application fill sequence",
       lpAppCmdArgs: "Command line arguments",
       password: "Password",
-      loginUrl: "URL",
-      winAppPath: "Windows application path",
-      macBundleId: "macOS application path"
+      lpLoginUrl: "URL",
+      lpWinAppPath: "Windows application path",
+      lpMacBundleId: "macOS application path"
     };
     return i[t.type] ? Strings.translateString(i[t.type]) : EditableFieldsDialog.prototype.getFieldLabel.call(this, t);
   }),

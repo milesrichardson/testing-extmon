@@ -4,7 +4,7 @@
     46560: (e, t, n) => {
       n.d(t, { B: () => o });
       var i = n(27378);
-      const o = ({ title: e, titleId: t, desc: n, descId: o, ...r }) =>
+      const o = ({ title: e, titleId: t, desc: n, descId: o, ...a }) =>
         i.createElement(
           "svg",
           {
@@ -17,7 +17,7 @@
             stroke: "transparent",
             "aria-labelledby": t,
             "aria-describedby": o,
-            ...r
+            ...a
           },
           n ? i.createElement("desc", { id: o }, n) : null,
           e ? i.createElement("title", { id: t }, e) : null,
@@ -33,7 +33,7 @@
     23871: (e, t, n) => {
       n.d(t, { c: () => o });
       var i = n(27378);
-      const o = ({ title: e, titleId: t, desc: n, descId: o, ...r }) =>
+      const o = ({ title: e, titleId: t, desc: n, descId: o, ...a }) =>
         i.createElement(
           "svg",
           {
@@ -46,7 +46,7 @@
             stroke: "transparent",
             "aria-labelledby": t,
             "aria-describedby": o,
-            ...r
+            ...a
           },
           n ? i.createElement("desc", { id: o }, n) : null,
           e ? i.createElement("title", { id: t }, e) : null,
@@ -62,7 +62,7 @@
     70604: (e, t, n) => {
       n.d(t, { g: () => o });
       var i = n(27378);
-      const o = ({ title: e, titleId: t, desc: n, descId: o, ...r }) =>
+      const o = ({ title: e, titleId: t, desc: n, descId: o, ...a }) =>
         i.createElement(
           "svg",
           {
@@ -75,7 +75,7 @@
             stroke: "transparent",
             "aria-labelledby": t,
             "aria-describedby": o,
-            ...r
+            ...a
           },
           n ? i.createElement("desc", { id: o }, n) : null,
           e ? i.createElement("title", { id: t }, e) : null,
@@ -91,7 +91,7 @@
     49032: (e, t, n) => {
       n.d(t, { g: () => o });
       var i = n(27378);
-      const o = ({ title: e, titleId: t, desc: n, descId: o, ...r }) =>
+      const o = ({ title: e, titleId: t, desc: n, descId: o, ...a }) =>
         i.createElement(
           "svg",
           {
@@ -104,7 +104,7 @@
             stroke: "transparent",
             "aria-labelledby": t,
             "aria-describedby": o,
-            ...r
+            ...a
           },
           n ? i.createElement("desc", { id: o }, n) : null,
           e ? i.createElement("title", { id: t }, e) : null,
@@ -119,8 +119,8 @@
       n.d(t, { l: () => i });
       var i,
         o = n(50693),
-        r = n(82900),
-        a = n(74923),
+        a = n(82900),
+        r = n(74923),
         s = n(18775),
         c = n(31099),
         l = n(50858),
@@ -128,8 +128,8 @@
         u = n(71346),
         p = n(27378),
         m = n(95300),
-        f = n(60797),
-        h = n(66310),
+        h = n(60797),
+        f = n(66310),
         g = n(24209),
         v = n(85089),
         b = n(49708),
@@ -139,9 +139,9 @@
         y = n(17343),
         C = n(93508),
         I = n(77176),
-        S = n(2844),
-        _ = n(41398),
-        j = n(19751),
+        _ = n(2844),
+        j = n(41398),
+        S = n(19751),
         U = n(18625),
         N = n(5114),
         x = n(19962),
@@ -161,14 +161,14 @@
             (e.root = "root"), (e.inherit = "inherit");
           })((t = e.ContainerType || (e.ContainerType = {}))),
           (e.withViewportContainer = function (e, i) {
-            return (function (S) {
-              (0, c._)(j, S);
-              var _ = (0, u._)(j);
-              function j() {
+            return (function (_) {
+              (0, c._)(S, _);
+              var j = (0, u._)(S);
+              function S() {
                 var e;
                 return (
-                  (0, r._)(this, j),
-                  (e = _.apply(this, arguments)),
+                  (0, a._)(this, S),
+                  (e = j.apply(this, arguments)),
                   (0, s._)((0, o._)(e), "_viewportEl", new m.X(N.none)),
                   (0, s._)((0, o._)(e), "_onMount", function (t) {
                     e._viewportEl.next(N.fromNullable(t)), e.props.onMount && t && e.props.onMount(t);
@@ -177,16 +177,16 @@
                 );
               }
               return (
-                (0, a._)(j, [
+                (0, r._)(S, [
                   {
                     key: "render",
                     value: function () {
                       var o = this.props,
-                        r = o.name,
-                        a = o.children,
+                        a = o.name,
+                        r = o.children,
                         s = this._viewportEl.pipe(
-                          f.oA,
-                          h.w(function (e) {
+                          h.oA,
+                          f.w(function (e) {
                             return g
                               .T(
                                 v.Qr,
@@ -195,7 +195,7 @@
                                     return t.target === e;
                                   })
                                 ),
-                                w.of(!0).pipe(h.w(E.b2.rafScheduler))
+                                w.of(!0).pipe(f.w(E.b2.rafScheduler))
                               )
                               .pipe(y.h(e), C.O(e), I.U(x.UL.fromEl));
                           })
@@ -203,13 +203,13 @@
                         c = i.type === t.root ? n : T;
                       return p.createElement(
                         e,
-                        (0, d._)((0, l._)({}, this.props), { onMount: this._onMount, name: r }),
-                        p.createElement(c, { viewport: s, name: r }, a)
+                        (0, d._)((0, l._)({}, this.props), { onMount: this._onMount, name: a }),
+                        p.createElement(c, { viewport: s, name: a }, r)
                       );
                     }
                   }
                 ]),
-                j
+                S
               );
             })(p.Component);
           });
@@ -217,15 +217,15 @@
             var t = e.viewport,
               n = e.viewportPadding,
               o = void 0 === n ? w.of(i.Padding.empty) : n,
-              r = e.name,
-              a = e.children,
+              a = e.name,
+              r = e.children,
               s = p.useContext(i.Context);
             return p.createElement(
               M.Provider,
               {
-                key: A(r),
-                value: S.aj(t, o, L).pipe(
-                  _.M(
+                key: A(a),
+                value: _.aj(t, o, L).pipe(
+                  j.M(
                     s.pipe(
                       I.U(function (e) {
                         return e.level;
@@ -233,30 +233,30 @@
                     ),
                     i.State.nextLevel
                   ),
-                  j.shareReplay({ bufferSize: 1, refCount: !0 })
+                  S.shareReplay({ bufferSize: 1, refCount: !0 })
                 )
               },
-              a
+              r
             );
           }),
           T = (e.InheritVirtualContainer = function (e) {
             var t = e.viewport,
               n = e.viewportPadding,
               o = void 0 === n ? w.of(x.UL.empty) : n,
-              r = e.name,
-              a = e.children,
+              a = e.name,
+              r = e.children,
               s = p.useContext(i.Context);
             return p.createElement(
               M.Provider,
               {
-                key: A(r),
-                value: S.aj(
+                key: A(a),
+                value: _.aj(
                   s.pipe(
                     I.U(function (e) {
                       return e.rect;
                     })
                   ),
-                  S.aj(
+                  _.aj(
                     t ||
                       s.pipe(
                         I.U(function (e) {
@@ -271,12 +271,12 @@
                   I.U(
                     N.getOrElse(function () {
                       return (
-                        K.C8.Logging.getLogger("InheritVirtualContainer").warn("Got an empty rect for inherit viewport", { name: r }),
+                        K.C8.Logging.getLogger("InheritVirtualContainer").warn("Got an empty rect for inherit viewport", { name: a }),
                         x.UL.empty
                       );
                     })
                   ),
-                  _.M(
+                  j.M(
                     s.pipe(
                       I.U(function (e) {
                         return e.level;
@@ -284,10 +284,10 @@
                     ),
                     i.State.nextLevel
                   ),
-                  j.shareReplay({ bufferSize: 1, refCount: !0 })
+                  S.shareReplay({ bufferSize: 1, refCount: !0 })
                 )
               },
-              a
+              r
             );
           }),
           H = U.P(function () {
@@ -299,7 +299,7 @@
                 return { rect: e, level: 0 };
               })
             );
-          }).pipe(j.shareReplay({ bufferSize: 1, refCount: !0 })),
+          }).pipe(S.shareReplay({ bufferSize: 1, refCount: !0 })),
           M = (e.Context = p.createContext(H));
       })(i || (i = {}));
       var L = function (e, t) {
@@ -317,11 +317,11 @@
         };
     },
     64757: (e, t, n) => {
-      n.d(t, { L_: () => f, RZ: () => h, zx: () => m });
+      n.d(t, { L_: () => h, RZ: () => f, zx: () => m });
       var i = n(50858),
         o = n(55818),
-        r = n(27378),
-        a = n(8543),
+        a = n(27378),
+        r = n(8543),
         s = n(54001),
         c = n(31278),
         l = n(86732),
@@ -329,42 +329,42 @@
         u = n(26215),
         p = n(94632);
       function m(e) {
-        return r.createElement(u.Y, f(e, p.LI));
+        return a.createElement(u.Y, h(e, p.LI));
       }
-      function f(e, t) {
+      function h(e, t) {
         var n = (0, s.Sh)(e.className, t).className;
         return (0, o._)((0, i._)({}, e), { className: n });
       }
       !(function (e) {
         var t = (e.Animated = function (e) {
-          return r.createElement(
+          return a.createElement(
             u.Y,
             (0, o._)((0, i._)({}, e), { animationMode: Boolean(e.animationMode) ? e.animationMode : l.m.FromClickPoint })
           );
         });
         (e.Primary = function (e) {
-          return r.createElement(t, (0, i._)({ styleType: d.Z.Type.Button }, f(e, p.T$)));
+          return a.createElement(t, (0, i._)({ styleType: d.Z.Type.Button }, h(e, p.T$)));
         }),
           (e.Secondary = function (e) {
-            return r.createElement(t, (0, i._)({ styleType: d.Z.Type.Button }, f(e, p.BD)));
+            return a.createElement(t, (0, i._)({ styleType: d.Z.Type.Button }, h(e, p.BD)));
           }),
           (e.Ghost = function (e) {
-            return r.createElement(t, (0, i._)({ styleType: d.Z.Type.Button }, f(e, p.fk)));
+            return a.createElement(t, (0, i._)({ styleType: d.Z.Type.Button }, h(e, p.fk)));
           }),
           (e.Tertiary = function (e) {
-            return r.createElement(t, (0, i._)({ styleType: d.Z.Type.Base }, f(e, p.UF)));
+            return a.createElement(t, (0, i._)({ styleType: d.Z.Type.Base }, h(e, p.UF)));
           }),
           (e.Flat = function (e) {
-            return r.createElement(t, f(e, p.$H));
+            return a.createElement(t, h(e, p.$H));
           }),
           (e.White = function (e) {
-            return r.createElement(t, f(e, p.ix));
+            return a.createElement(t, h(e, p.ix));
           }),
           (e.SidebarFlat = function (e) {
-            return r.createElement(u.Y, (0, i._)({ styleType: d.Z.Type.H3Legacy }, f(e, p.HN)));
+            return a.createElement(u.Y, (0, i._)({ styleType: d.Z.Type.H3Legacy }, h(e, p.HN)));
           }),
           (e.Caps = function (e) {
-            return r.createElement(u.Y, (0, i._)({ styleType: d.Z.Type.H3Legacy }, f(e, p.Mp)));
+            return a.createElement(u.Y, (0, i._)({ styleType: d.Z.Type.H3Legacy }, h(e, p.Mp)));
           }),
           (e.Group = function (e) {
             var t = e.children,
@@ -373,31 +373,31 @@
               l = void 0 === c ? "horizontal" : c,
               d = e.sticky,
               u = e.name;
-            return r.createElement(
-              a.F.div,
+            return a.createElement(
+              r.F.div,
               (0, o._)((0, i._)({ role: "group" }, (0, s.Sh)(n, "horizontal" === l ? (!0 === d ? p.vD : p.ru) : p.oc)), { "data-name": u }),
               t
             );
           });
       })(m || (m = {}));
-      var h = function (e) {
+      var f = function (e) {
         var t = e.title,
           n = e.titleAlign,
           i = e.buttonClass,
           o = e.iconClass,
           l = e.iconWidth,
           d = e.tooltipClass;
-        return r.createElement(
+        return a.createElement(
           m,
           {
             name: "info-button",
             "aria-label": t,
             tag: u.X.div,
-            title: r.createElement(a.F.div, (0, s.Sh)(p.bC, d), r.createElement("p", null, t)),
+            title: a.createElement(r.F.div, (0, s.Sh)(p.bC, d), a.createElement("p", null, t)),
             titleAlign: n,
             className: i
           },
-          r.createElement(c.JO.Info, { width: l, className: o })
+          a.createElement(c.JO.Info, { width: l, className: o })
         );
       };
     },
@@ -405,8 +405,8 @@
       n.d(t, { a: () => se });
       var i,
         o = n(12177),
-        r = n(57050),
-        a = n(2320),
+        a = n(57050),
+        r = n(2320),
         s = n(20434),
         c = n(14601),
         l = n(41398),
@@ -417,15 +417,15 @@
       !(function (e) {
         e.empty = () => ({ currentStep: p.none, anchorNode: p.none, onboardingType: p.none });
       })(i || (i = {}));
-      var f = n(55649);
-      class h {
-        constructor(e, t, n, o, r, a = f.Y.create("knowledgeHub.onboardingViewModel")) {
+      var h = n(55649);
+      class f {
+        constructor(e, t, n, o, a, r = h.Y.create("knowledgeHub.onboardingViewModel")) {
           (this.actions = e),
             (this._isAvailable = t),
             (this._csState = n),
             (this._csActions = o),
-            (this._onHandleReject = r),
-            (this._log = a),
+            (this._onHandleReject = a),
+            (this._log = r),
             (this._subscriptions = new c.w()),
             (this._state = m.h.create(i.empty())),
             (this.state = this._state.view()),
@@ -442,7 +442,7 @@
               d.h(([{ onboardingType: e }, t]) => this._isAvailable.get() && !t[o.v3.OnboardingSeenFor[e]]),
               u.b(() => this._log.info("Showing onboarding for Knowledge Hub")),
               u.b(([{ anchorNode: e, onboardingType: t }]) => {
-                this._state.modify((n) => ({ ...n, currentStep: p.some(a.$.first()), anchorNode: p.some(e), onboardingType: p.some(t) })),
+                this._state.modify((n) => ({ ...n, currentStep: p.some(r.$.first()), anchorNode: p.some(e), onboardingType: p.some(t) })),
                   this.actions.next({ kind: s.p4.Kind.onboardingShown, onboardingType: t });
               }),
               u.b(([{ onboardingType: e }]) => this._setOnboardingSeen(e))
@@ -456,9 +456,9 @@
               u.b(() => {
                 this._state.modify((e) => ({
                   ...e,
-                  currentStep: (0, r.zG)(
+                  currentStep: (0, a.zG)(
                     e.currentStep,
-                    p.map((e) => a.$.next(e))
+                    p.map((e) => r.$.next(e))
                   )
                 }));
               })
@@ -503,9 +503,9 @@
         y = n(93508),
         C = n(22232),
         I = n(8543),
-        S = n(34217),
-        _ = n(82730),
-        j = n(55415),
+        _ = n(34217),
+        j = n(82730),
+        S = n(55415),
         U = n(31278);
       const N = ({ className: e, width: t = 48, height: n = 48 }) =>
         v.createElement(
@@ -620,8 +620,8 @@
             useArrow: n,
             dataGrammarlyPart: i = "ui-kit-popover-redux",
             referenceElement: o,
-            offsets: r,
-            boundaryAreaPadding: a,
+            offsets: a,
+            boundaryAreaPadding: r,
             theme: s = "light",
             arrowSize: c = "large",
             style: l
@@ -629,32 +629,32 @@
             const [d, u] = v.useState(null),
               [p, m] = v.useState(null),
               {
-                styles: f,
-                attributes: h,
+                styles: h,
+                attributes: f,
                 state: g
               } = (0, x.D)(o, d, {
                 placement: t,
                 modifiers: [
                   {
                     name: "offset",
-                    options: { offset: [null == r ? void 0 : r.along, ((null == r ? void 0 : r.away) || 0) + (n ? M[c].across : 0)] }
+                    options: { offset: [null == a ? void 0 : a.along, ((null == a ? void 0 : a.away) || 0) + (n ? M[c].across : 0)] }
                   },
                   { name: "arrow", options: { element: p, padding: 8 } },
-                  ...(a ? [{ name: "preventOverflow", options: { padding: a } }] : [])
+                  ...(r ? [{ name: "preventOverflow", options: { padding: r } }] : [])
                 ]
               });
             return v.createElement(
               "div",
-              { ref: u, "data-grammarly-part": i, style: { ...l, ...f.popper }, ...h.popper },
+              { ref: u, "data-grammarly-part": i, style: { ...l, ...h.popper }, ...f.popper },
               v.createElement(
                 "div",
                 { ...(0, L.Sh)(A.container, "light" === s ? A.containerLight : A.containerDark) },
                 e,
-                n ? v.createElement(F, { ref: m, style: f.arrow, placement: null == g ? void 0 : g.placement, theme: s, size: c }) : null
+                n ? v.createElement(F, { ref: m, style: h.arrow, placement: null == g ? void 0 : g.placement, theme: s, size: c }) : null
               )
             );
           };
-          (e.UIPart = S.UI.Node.make(({ state: e }) =>
+          (e.UIPart = _.UI.Node.make(({ state: e }) =>
             v.createElement(
               I.F.Fragment,
               null,
@@ -665,8 +665,8 @@
                     placement: n,
                     useArrow: i,
                     dataGrammarlyPart: o,
-                    referenceElement: r,
-                    offsets: a,
+                    referenceElement: a,
+                    offsets: r,
                     boundaryAreaPadding: s,
                     theme: c,
                     arrowSize: l,
@@ -677,8 +677,8 @@
                       placement: n,
                       useArrow: i,
                       dataGrammarlyPart: o,
-                      referenceElement: r,
-                      offsets: a,
+                      referenceElement: a,
+                      offsets: r,
                       boundaryAreaPadding: s,
                       theme: c,
                       arrowSize: l,
@@ -693,21 +693,21 @@
           (function (e) {
             let n;
             !(function (e) {
-              (e.UIPart = S.UI.Union.asOption(
-                S.UI.Composite.make(
-                  S.UI.Grid.make(({ slots: e }) => v.createElement("div", null, e.popped)),
+              (e.UIPart = _.UI.Union.asOption(
+                _.UI.Composite.make(
+                  _.UI.Grid.make(({ slots: e }) => v.createElement("div", null, e.popped)),
                   t.UIPart
                 )
               )),
                 (e.createFlow = (e) =>
-                  S.Z.composeUnion({ None: () => k.of(null), Some: S.Z.composeKnot({ value: t.createFlow(e.view("props")) }) }, () =>
+                  _.Z.composeUnion({ None: () => k.of(null), Some: _.Z.composeKnot({ value: t.createFlow(e.view("props")) }) }, () =>
                     e.view("show").view(p.fromPredicate((e) => !!e))
                   ));
             })(n || (n = {}));
-            const i = S.UI.Transition.make({ fadein: A.fadein }, { fadeout: A.fadeout });
-            (e.UIPart = S.UI.Animated.make(i, n.UIPart)),
+            const i = _.UI.Transition.make({ fadein: A.fadein }, { fadeout: A.fadeout });
+            (e.UIPart = _.UI.Animated.make(i, n.UIPart)),
               (e.createFlow = (e, t = !0) =>
-                S.Z.animatingFlow(
+                _.Z.animatingFlow(
                   n.createFlow(e),
                   (function (e) {
                     return (t, n) =>
@@ -723,14 +723,14 @@
           })(n || (n = {})),
           (e.WithChildren = (e) => {
             const [t, o] = v.useState(null),
-              r = v.useMemo(() => m.h.create({ props: e, show: e.show }), []),
-              a = v.useMemo(
+              a = v.useMemo(() => m.h.create({ props: e, show: e.show }), []),
+              r = v.useMemo(
                 () =>
                   t
-                    ? S.UI.mount(
+                    ? _.UI.mount(
                         n.UIPart,
                         n.createFlow(
-                          r.view((e) => ({ ...e, props: { ...e.props, referenceElement: t } })),
+                          a.view((e) => ({ ...e, props: { ...e.props, referenceElement: t } })),
                           e.animateBetweenStates
                         )
                       )
@@ -739,14 +739,14 @@
               );
             return (
               v.useEffect(() => {
-                r.set({ props: e, show: e.show });
+                a.set({ props: e, show: e.show });
               }),
               i(
                 v.createElement(
                   "div",
                   null,
                   v.createElement("div", { ref: o, style: e.childrenContainerStyles }, e.children),
-                  t ? a : null
+                  t ? r : null
                 ),
                 e.clickAwayOptions
               )
@@ -754,7 +754,7 @@
           }),
           (e.WithRef = (e) => {
             const t = v.useMemo(() => m.h.create({ props: e, show: e.show }), []),
-              o = v.useMemo(() => S.UI.mount(n.UIPart, n.createFlow(t, e.animateBetweenStates)), []);
+              o = v.useMemo(() => _.UI.mount(n.UIPart, n.createFlow(t, e.animateBetweenStates)), []);
             return (
               v.useEffect(() => {
                 t.set({ props: e, show: e.show });
@@ -764,7 +764,7 @@
           });
       })(O || (O = {}));
       var B = n(5397);
-      const R = S.UI.Grid.make(({ slots: e, state: t }) =>
+      const Z = _.UI.Grid.make(({ slots: e, state: t }) =>
         v.createElement(
           I.F.Fragment,
           null,
@@ -787,21 +787,21 @@
           )
         )
       );
-      var Z,
+      var R,
         G,
         z,
         q = n(16873),
         $ = n(46560);
       !(function (e) {
         (e.SUGGESTED_TERM = "Introducing Grammarly’s Knowledge Share"), (e.TERM_DETAILS = "Grammarly’s Knowledge Share is now active");
-      })(Z || (Z = {})),
+      })(R || (R = {})),
         (function (e) {
           (e.SUGGESTED_TERM =
             "Add to a shared knowledge base to help your team learn essential information. Knowledge Share provides definitions and contextual insights precisely when and where it’s needed."),
             (e.TERM_DETAILS = "Want to see how it works?");
         })(G || (G = {})),
         (function (e) {
-          const t = S.UI.Node.make(({ state: e, notify: t }) =>
+          const t = _.UI.Node.make(({ state: e, notify: t }) =>
             v.createElement(
               I.F.Fragment,
               null,
@@ -811,24 +811,24 @@
                     "div",
                     { key: "initialStep", className: q.onboarding },
                     v.createElement(N, { className: q.onboardingIcon }),
-                    v.createElement("h1", { className: q.onboardingHeader }, Z[e]),
+                    v.createElement("h1", { className: q.onboardingHeader }, R[e]),
                     v.createElement("div", { className: q.onboardingContent }, G[e]),
                     v.createElement(
                       "div",
                       { className: q.onboardingFooter },
                       v.createElement(
-                        _.o.Primary,
+                        j.o.Primary,
                         { name: "next", theme: "dark", className: q.rightButton, onClick: t({ kind: "next", onboardingType: e }) },
                         "Take a quick tour"
                       ),
                       v.createElement(
-                        _.o.Tertiary,
+                        j.o.Tertiary,
                         { name: "close", theme: "dark", onClick: t({ kind: "skip", onboardingType: e }) },
                         "No, thanks"
                       )
                     ),
                     v.createElement(
-                      _.o.Tertiary,
+                      j.o.Tertiary,
                       {
                         className: q.onboardingClose,
                         name: "close",
@@ -844,7 +844,7 @@
             )
           );
           function n(e, t) {
-            return S.Z.fromSideEffect(
+            return _.Z.fromSideEffect(
               (e) => {
                 switch (e.kind) {
                   case "next":
@@ -860,55 +860,55 @@
                     (0, C.L0)(e);
                 }
               },
-              e.pipe(b.U(j.H6("onboardingType")))
+              e.pipe(b.U(S.H6("onboardingType")))
             );
           }
-          (e.UIPart = S.UI.Knot.make(R, { content: t })),
+          (e.UIPart = _.UI.Knot.make(Z, { content: t })),
             (e.createFlow = function (e, t) {
-              return S.Z.composeKnot({ root: () => t, content: n(t.pipe(b.U((e) => ({ onboardingType: e.onboardingType }))), e) });
+              return _.Z.composeKnot({ root: () => t, content: n(t.pipe(b.U((e) => ({ onboardingType: e.onboardingType }))), e) });
             });
         })(z || (z = {}));
       var Y,
         W = n(21899),
-        V = n(92247),
-        J = n(92741);
+        J = n(92247),
+        Q = n(92741);
       !(function (e) {
-        (e.UIPart = S.UI.Node.make(({ notify: e, state: t }) =>
+        (e.UIPart = _.UI.Node.make(({ notify: e, state: t }) =>
           v.createElement(
             I.F.Fragment,
             null,
             t.pipe(
-              b.U(({ step: t, index: n, totalSteps: i, title: o, video: r, onboardingType: a }) =>
+              b.U(({ step: t, index: n, totalSteps: i, title: o, video: a, onboardingType: r }) =>
                 v.createElement(
                   "div",
-                  { className: J.onboardingDialog },
+                  { className: Q.onboardingDialog },
                   v.createElement(
                     "div",
-                    { className: J.content },
+                    { className: Q.content },
                     v.createElement(
                       "div",
-                      { className: J.viewContainer },
+                      { className: Q.viewContainer },
                       v.createElement(
                         "div",
-                        { className: J.onboardingTour },
+                        { className: Q.onboardingTour },
                         v.createElement(
                           "div",
-                          { className: J.close },
-                          v.createElement(W.PZ, { clickHandler: e({ kind: "close", step: t, onboardingType: a }) })
+                          { className: Q.close },
+                          v.createElement(W.PZ, { clickHandler: e({ kind: "close", step: t, onboardingType: r }) })
                         ),
                         v.createElement(
                           "video",
-                          { key: t, ...(0, L.Sh)(J.video), autoPlay: !0, loop: !0, muted: !0, height: 720, width: 392, preload: "auto" },
-                          v.createElement("source", { type: "video/mp4", src: r })
+                          { key: t, ...(0, L.Sh)(Q.video), autoPlay: !0, loop: !0, muted: !0, height: 720, width: 392, preload: "auto" },
+                          v.createElement("source", { type: "video/mp4", src: a })
                         ),
-                        v.createElement(V.X, {
+                        v.createElement(J.X, {
                           title: o,
                           skipText: "Skip tutorial",
                           nextText: "Next",
                           index: n,
                           totalSteps: i,
-                          onSkipClick: e({ kind: "skip", step: t, onboardingType: a }),
-                          onNextClick: e({ kind: "next", step: t, onboardingType: a })
+                          onSkipClick: e({ kind: "skip", step: t, onboardingType: r }),
+                          onNextClick: e({ kind: "next", step: t, onboardingType: r })
                         })
                       )
                     )
@@ -919,7 +919,7 @@
           )
         )),
           (e.createFlow = function (e, t) {
-            return S.Z.fromSideEffect((t) => {
+            return _.Z.fromSideEffect((t) => {
               switch (t.kind) {
                 case "next":
                   e.next({ kind: s.p4.Kind.nextStepOnboarding, step: t.step, onboardingType: t.onboardingType });
@@ -936,7 +936,7 @@
             }, t);
           });
       })(Y || (Y = {}));
-      const Q = ({ className: e, width: t = 48, height: n = 48 }) =>
+      const V = ({ className: e, width: t = 48, height: n = 48 }) =>
         v.createElement(
           U.a1,
           { className: e, width: t, height: n, viewBox: "0 0 48 48" },
@@ -980,7 +980,7 @@
         );
       var X;
       !(function (e) {
-        const t = S.UI.Node.make(({ notify: e, state: t }) =>
+        const t = _.UI.Node.make(({ notify: e, state: t }) =>
           v.createElement(
             I.F.Fragment,
             null,
@@ -989,11 +989,11 @@
                 v.createElement(
                   "div",
                   { key: "initialStep", className: q.onboarding },
-                  v.createElement(Q, { className: q.onboardingIcon }),
+                  v.createElement(V, { className: q.onboardingIcon }),
                   v.createElement("h1", { className: q.onboardingHeader }, "Your tour is complete!"),
                   v.createElement("div", { className: q.onboardingContent }, "You're ready to start using Knowledge Share!"),
                   v.createElement(
-                    _.o.Tertiary,
+                    j.o.Tertiary,
                     {
                       className: q.onboardingClose,
                       name: "close",
@@ -1009,17 +1009,17 @@
           )
         );
         function n(e, t) {
-          return S.Z.fromSideEffect(
+          return _.Z.fromSideEffect(
             (e) => {
               if ("close" === e.kind) t.next({ kind: s.p4.Kind.closeOnboarding, step: "complete", onboardingType: e.onboardingType });
               else (0, C.L0)(e.kind);
             },
-            e.pipe(b.U(j.H6("onboardingType")))
+            e.pipe(b.U(S.H6("onboardingType")))
           );
         }
-        (e.UIPart = S.UI.Knot.make(R, { content: t })),
+        (e.UIPart = _.UI.Knot.make(Z, { content: t })),
           (e.createFlow = function (e, t) {
-            return S.Z.composeKnot({ root: () => t, content: n(t.pipe(b.U((e) => ({ onboardingType: e.onboardingType }))), e) });
+            return _.Z.composeKnot({ root: () => t, content: n(t.pipe(b.U((e) => ({ onboardingType: e.onboardingType }))), e) });
           });
       })(X || (X = {}));
       var ee,
@@ -1032,9 +1032,9 @@
             (e.shown = "shown"), (e.next = "next"), (e.skip = "skip"), (e.close = "close");
           })((t = e.ActionKind || (e.ActionKind = {}))),
             (0, C.L0)(void 0);
-          const n = S.UI.Union.make("stepView", { initial: z.UIPart, fullScreen: Y.UIPart, complete: X.UIPart });
+          const n = _.UI.Union.make("stepView", { initial: z.UIPart, fullScreen: Y.UIPart, complete: X.UIPart });
           function i(e, t, n) {
-            return S.Z.composeUnion(
+            return _.Z.composeUnion(
               {
                 initial: z.createFlow(t, e),
                 fullScreen: Y.createFlow(
@@ -1096,12 +1096,12 @@
                 )
             );
           }
-          (e.UIPart = S.UI.Union.asOption(n)),
+          (e.UIPart = _.UI.Union.asOption(n)),
             (e.createFlow = function (e, t) {
-              return S.Z.composeUnion(
+              return _.Z.composeUnion(
                 {
                   None: () => k.of(null),
-                  Some: S.Z.composeKnot({
+                  Some: _.Z.composeKnot({
                     value: i(e.pipe(b.U(p.map((e) => e)), w.oA), t, te.Rd().appConfig.url.assets.knowledgeHubOnboardingTour)
                   })
                 },
@@ -1109,7 +1109,7 @@
               );
             });
         })((t = e.Content || (e.Content = {})));
-        const n = S.UI.Grid.make(({ slots: e, state: t }) =>
+        const n = _.UI.Grid.make(({ slots: e, state: t }) =>
           v.createElement(
             I.F.Fragment,
             null,
@@ -1123,7 +1123,7 @@
             )
           )
         );
-        (e.UIPart = S.UI.Knot.make(n, { content: t.UIPart })),
+        (e.UIPart = _.UI.Knot.make(n, { content: t.UIPart })),
           (e.createFlow = function (e) {
             const n = e.state.view(g.Y(p.option)),
               i = n.pipe(
@@ -1131,15 +1131,15 @@
                 E.w((e) => n.view(p.isSome).view((t) => p.some({ ...e, show: t }))),
                 y.O(p.none)
               );
-            return S.Z.composeKnot({ root: () => n, content: t.createFlow(i, e.actions) });
+            return _.Z.composeKnot({ root: () => n, content: t.createFlow(i, e.actions) });
           });
       })(ee || (ee = {}));
       var ne = n(41572),
         ie = n(91831),
         oe = n(44552),
-        re = n(4147);
-      class ae {
-        constructor(e, t = f.Y.create("knowledgeHub.onboardingInjectionManager")) {
+        ae = n(4147);
+      class re {
+        constructor(e, t = h.Y.create("knowledgeHub.onboardingInjectionManager")) {
           (this._logger = t), (this._subs = new c.w());
           const n = ie.V.get({ monitorAs: "knowledgeHub-onboarding" }).inject(
             oe.EM.fromDocument(document, "grammarly-onboarding"),
@@ -1149,7 +1149,7 @@
                 ne.L,
                 { chunkName: "knowledgeHubIntegration" },
                 v.createElement(
-                  re.o,
+                  ae.o,
                   { "data-grammarly-part": "knowledgeHub-onboarding" },
                   v.createElement(I.F.Fragment, null, e.state.view("ui"))
                 )
@@ -1167,15 +1167,15 @@
             (this._csState = t),
             (this._csActions = n),
             (this._onHandleReject = i),
-            (this._viewModel = new h(
+            (this._viewModel = new f(
               this.actions,
               m.h.create(!0),
-              this._csState.view(j.H6(o.v3.OnboardingSeenFor.TERM_DETAILS, o.v3.OnboardingSeenFor.SUGGESTED_TERM)),
+              this._csState.view(S.H6(o.v3.OnboardingSeenFor.TERM_DETAILS, o.v3.OnboardingSeenFor.SUGGESTED_TERM)),
               this._csActions,
               this._onHandleReject
             )),
-            (this.state = m.h.create({ ui: S.UI.mount(ee.UIPart, ee.createFlow(this._viewModel)) })),
-            (this._onboardingInjectionManager = new ae(this));
+            (this.state = m.h.create({ ui: _.UI.mount(ee.UIPart, ee.createFlow(this._viewModel)) })),
+            (this._onboardingInjectionManager = new re(this));
         }
         static getInstance(e, t, n, i) {
           return se._subscribersCount++, se._instance || (se._instance = new se(e, t, n, i)), se._instance;
@@ -1209,11 +1209,11 @@
         })(o || (o = {}));
     },
     20883: (e, t, n) => {
-      n.d(t, { N1: () => j, cv: () => U, u$: () => i });
+      n.d(t, { N1: () => S, cv: () => U, u$: () => i });
       var i,
         o = n(57050),
-        r = n(57073),
-        a = n(40435),
+        a = n(57073),
+        r = n(40435),
         s = n(52423),
         c = n(14601),
         l = n(2834),
@@ -1221,8 +1221,8 @@
         u = n(40151),
         p = n(598),
         m = n(2768),
-        f = n(77176),
-        h = n(93497),
+        h = n(77176),
+        f = n(93497),
         g = n(19751),
         v = n(85985),
         b = n(60797),
@@ -1232,17 +1232,17 @@
         y = n(5114),
         C = n(95195),
         I = n(20434),
-        S = n(2320),
-        _ = n(57757);
+        _ = n(2320),
+        j = n(57757);
       !(function (e) {
         (e[(e.Singleton = 0)] = "Singleton"), (e[(e.Multiton = 1)] = "Multiton");
       })(i || (i = {}));
-      class j {
+      class S {
         constructor(e) {
           (this._actions = e), (this._subscription = new c.w());
         }
         static getInstance(e) {
-          return j._subscribersCount++, j._instance || (j._instance = new j(e)), j._instance;
+          return S._subscribersCount++, S._instance || (S._instance = new S(e)), S._instance;
         }
         addEffects(...e) {
           for (const t of e)
@@ -1258,11 +1258,11 @@
             }
         }
         dispose() {
-          j._subscribersCount--,
-            0 === j._subscribersCount && (j._addedEffects.clear(), this._subscription.unsubscribe(), (j._instance = null));
+          S._subscribersCount--,
+            0 === S._subscribersCount && (S._addedEffects.clear(), this._subscription.unsubscribe(), (S._instance = null));
         }
         _addSingletonEffect(e) {
-          j._addedEffects.has(e.id) || (this._subscribeToEffect(e), j._addedEffects.add(e.id));
+          S._addedEffects.has(e.id) || (this._subscribeToEffect(e), S._addedEffects.add(e.id));
         }
         _addMultitonEffect(e) {
           this._subscribeToEffect(e);
@@ -1272,9 +1272,9 @@
         }
       }
       var U;
-      (j._instance = null),
-        (j._subscribersCount = 0),
-        (j._addedEffects = new Set()),
+      (S._instance = null),
+        (S._subscribersCount = 0),
+        (S._addedEffects = new Set()),
         (function (e) {
           (e.tracking = function (e, t) {
             return (0, o.ls)(
@@ -1302,10 +1302,10 @@
                 effect: () =>
                   e.pipe(
                     m.R(t),
-                    f.U(y.toNullable),
-                    h.n((e) => null === e),
-                    g.skipBy(r.Cn.getEqById()),
-                    f.U((e) => ({ kind: I.p4.Kind.setCardVisibleFor, item: y.fromNullable(null == e ? void 0 : e.annotation) }))
+                    h.U(y.toNullable),
+                    f.n((e) => null === e),
+                    g.skipBy(a.Cn.getEqById()),
+                    h.U((e) => ({ kind: I.p4.Kind.setCardVisibleFor, item: y.fromNullable(null == e ? void 0 : e.annotation) }))
                   )
               };
             }),
@@ -1328,8 +1328,8 @@
                 uniqueness: i.Singleton,
                 effect: (0, o.ls)(
                   I.kA.ofKind(I.p4.Kind.pointPersonCopy),
-                  d.w(({ displayName: e }) => (0, _.v)(e)),
-                  f.U((e) => ({ kind: I.p4.Kind.copyNameResult, result: e }))
+                  d.w(({ displayName: e }) => (0, j.v)(e)),
+                  h.U((e) => ({ kind: I.p4.Kind.copyNameResult, result: e }))
                 )
               };
             }),
@@ -1340,7 +1340,7 @@
                 effect: (0, o.ls)(
                   I.kA.ofKind(I.p4.Kind.copyNameResult),
                   v.h(({ result: e }) => C.isRight(e)),
-                  f.U(() => ({ kind: I.p4.Kind.showNotification, notification: { kind: a.P.Toast.Kind.textCopiedSuccess } }))
+                  h.U(() => ({ kind: I.p4.Kind.showNotification, notification: { kind: r.P.Toast.Kind.textCopiedSuccess } }))
                 )
               };
             }),
@@ -1362,7 +1362,7 @@
                 uniqueness: i.Singleton,
                 effect: (0, o.ls)(
                   I.kA.ofKind(I.p4.Kind.dismissTermResult),
-                  f.U(() => ({ kind: I.p4.Kind.showNotification, notification: { kind: a.P.Toast.Kind.termDismissedSuccess } }))
+                  h.U(() => ({ kind: I.p4.Kind.showNotification, notification: { kind: r.P.Toast.Kind.termDismissedSuccess } }))
                 )
               };
             }),
@@ -1374,7 +1374,7 @@
                     m.R(n),
                     b.oA,
                     k.q(1),
-                    f.U((e) => ({
+                    h.U((e) => ({
                       kind: I.p4.Kind.onboardingAnchorMounted,
                       anchorNode: {
                         getBoundingClientRect: () => {
@@ -1382,7 +1382,7 @@
                           return DOMRect.fromRect({ x: n.left, y: n.top, width: n.width, height: n.height });
                         }
                       },
-                      onboardingType: S.f.TERM_DETAILS
+                      onboardingType: _.f.TERM_DETAILS
                     }))
                   )
               };
@@ -1393,8 +1393,8 @@
                 uniqueness: i.Singleton,
                 effect: (0, o.ls)(
                   I.kA.ofKind(I.p4.Kind.copyDescription),
-                  d.w(({ articleContent: e }) => (0, _.v)(e)),
-                  f.U((e) => ({ kind: I.p4.Kind.copyDescriptionResult, result: e }))
+                  d.w(({ articleContent: e }) => (0, j.v)(e)),
+                  h.U((e) => ({ kind: I.p4.Kind.copyDescriptionResult, result: e }))
                 )
               };
             }),
@@ -1405,7 +1405,7 @@
                 effect: (0, o.ls)(
                   I.kA.ofKind(I.p4.Kind.copyDescriptionResult),
                   v.h(({ result: e }) => C.isRight(e)),
-                  f.U(() => ({ kind: I.p4.Kind.showNotification, notification: { kind: a.P.Toast.Kind.descriptionCopiedSuccess } }))
+                  h.U(() => ({ kind: I.p4.Kind.showNotification, notification: { kind: r.P.Toast.Kind.descriptionCopiedSuccess } }))
                 )
               };
             }),
@@ -1426,8 +1426,8 @@
     22012: (e, t, n) => {
       if ((n.d(t, { N: () => u }), 1388 == n.j)) var i = n(57050);
       if (1388 == n.j) var o = n(75581);
-      if (1388 == n.j) var r = n(5114);
-      if (1388 == n.j) var a = n(83078);
+      if (1388 == n.j) var a = n(5114);
+      if (1388 == n.j) var r = n(83078);
       if (1388 == n.j) var s = n(20434);
       if (1388 == n.j) var c = n(20883);
       function l(e) {
@@ -1444,8 +1444,8 @@
           effect: c.cv.feedback(s.p4.Kind.setCardVisibleFor, (t) =>
             (0, i.zG)(
               t.item,
-              r.map((e) => e.itemId),
-              a.bw((t) => e.get().sendKnowledgeHubFeedback({ kind: o.Lu.LOOKED, itemId: t }))
+              a.map((e) => e.itemId),
+              r.bw((t) => e.get().sendKnowledgeHubFeedback({ kind: o.Lu.LOOKED, itemId: t }))
             )
           )
         };
@@ -1458,14 +1458,14 @@
       n.d(t, { I: () => w });
       var i = n(5114),
         o = n(57050),
-        r = n(20434),
-        a = n(20883),
+        a = n(20434),
+        r = n(20883),
         s = n(9264);
       function c(e, t, n) {
         return {
           id: "trackingIntegrationCreated",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.integrationCreated, ({ mode: e }) => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.integrationCreated, ({ mode: e }) => {
             t.knowledgeHub.integrationCreated(n, e);
           })
         };
@@ -1473,16 +1473,16 @@
       function l(e, t, n) {
         return {
           id: "trackingTermDetailsCardClosed",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.hideCard, ({ duration: t, sessionUuid: r, termId: a }) => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.hideCard, ({ duration: t, sessionUuid: a, termId: r }) => {
             e.knowledgeHubTermDetailsCardClose(
               t,
               (0, o.zG)(
-                r,
+                a,
                 i.getOrElse(() => "")
               ),
               n,
-              a
+              r
             );
           })
         };
@@ -1490,8 +1490,8 @@
       function d(e, t, n) {
         return {
           id: "trackingRelatedMaterialsClick",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.relatedMaterialsClick, () => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.relatedMaterialsClick, () => {
             e.knowledgeHubAlertRelatedMaterialsClick(n), t.knowledgeHub.relatedMaterialsClick(n);
           })
         };
@@ -1499,8 +1499,8 @@
       function u(e, t, n) {
         return {
           id: "trackingContactPointPerson",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.pointPersonContact, () => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.pointPersonContact, () => {
             e.knowledgeHubAlertPointPeopleClick("redirect", n), t.knowledgeHub.pointPeopleClick(n, s.TM.redirect);
           })
         };
@@ -1508,8 +1508,8 @@
       function p(e, t, n) {
         return {
           id: "trackingCopyPointPerson",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.pointPersonCopy, () => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.pointPersonCopy, () => {
             e.knowledgeHubAlertPointPeopleClick("copyName", n), t.knowledgeHub.pointPeopleClick(n, s.TM.copyName);
           })
         };
@@ -1517,26 +1517,26 @@
       function m(e, t, n) {
         return {
           id: "trackingCopyDescription",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.copyDescription, () => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.copyDescription, () => {
             e.knowledgeHubAlertDescriptionCopyButtonClick(n), t.knowledgeHub.descriptionCopyClick(n);
-          })
-        };
-      }
-      function f(e, t, n) {
-        return {
-          id: "trackingSuggestEdit",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.suggestEdit, () => {
-            e.knowledgeHubAlertSuggestEditButtonClick(n), t.knowledgeHub.suggestEditButtonClick(n);
           })
         };
       }
       function h(e, t, n) {
         return {
+          id: "trackingSuggestEdit",
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.suggestEdit, () => {
+            e.knowledgeHubAlertSuggestEditButtonClick(n), t.knowledgeHub.suggestEditButtonClick(n);
+          })
+        };
+      }
+      function f(e, t, n) {
+        return {
           id: "trackingToggleFeature",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.toggleFeature, () => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.toggleFeature, () => {
             e.knowledgeHubFeatureToggleClick("inline", n, "off"), t.knowledgeHub.featureToggleClick(n, s.L5.off);
           })
         };
@@ -1544,8 +1544,8 @@
       function g(e, t, n) {
         return {
           id: "trackingOnboardingShow",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.onboardingShown, ({ onboardingType: i }) => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.onboardingShown, ({ onboardingType: i }) => {
             e.knowledgeHubKnowledgeHubOnboardingPopupShow(i, n), t.knowledgeHub.onboardingPopupShow(i, n);
           })
         };
@@ -1553,8 +1553,8 @@
       function v(e, t, n) {
         return {
           id: "trackingOnboardingSkipStep",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.skipStepOnboarding, ({ step: i, onboardingType: o }) => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.skipStepOnboarding, ({ step: i, onboardingType: o }) => {
             e.knowledgeHubOnboardingSkipButtonClick(o, n, i), t.knowledgeHub.onboardingSkipButtonClick(o, n, i);
           })
         };
@@ -1562,8 +1562,8 @@
       function b(e, t, n) {
         return {
           id: "trackingOnboardingNextStep",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.nextStepOnboarding, ({ step: i, onboardingType: o }) => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.nextStepOnboarding, ({ step: i, onboardingType: o }) => {
             e.knowledgeHubOnboardingNextButtonClick(o, n, i), t.knowledgeHub.onboardingNextButtonClick(o, n, i);
           })
         };
@@ -1571,8 +1571,8 @@
       function k(e, t, n) {
         return {
           id: "onboardingClose",
-          uniqueness: a.u$.Singleton,
-          effect: a.cv.tracking(r.p4.Kind.closeOnboarding, ({ step: i, onboardingType: o }) => {
+          uniqueness: r.u$.Singleton,
+          effect: r.cv.tracking(a.p4.Kind.closeOnboarding, ({ step: i, onboardingType: o }) => {
             e.knowledgeHubOnboardingCloseButtonClick(o, n, i), t.knowledgeHub.onboardingCloseButtonClick(o, n, i);
           })
         };
@@ -1580,25 +1580,25 @@
       function w(e, t, n, i = s.nk.All) {
         return i === s.nk.OnlyOnboarding
           ? [c, k, b, g, v].map((i) => i(e, t, n))
-          : [c, u, p, m, k, b, g, v, d, f, h, l].map((i) => i(e, t, n));
+          : [c, u, p, m, k, b, g, v, d, h, f, l].map((i) => i(e, t, n));
       }
     },
     34867: (e, t, n) => {
       if ((n.d(t, { r: () => s }), 1388 == n.j)) var i = n(91951);
       if (1388 == n.j) var o = n(57050);
-      if (1388 == n.j) var r = n(89456);
-      if (1388 == n.j) var a = n(52423);
+      if (1388 == n.j) var a = n(89456);
+      if (1388 == n.j) var r = n(52423);
       function s(e, t, n) {
         const s = n.reduce((e, t) => (t.top > e.top && t.left + t.width >= e.left && t.left <= e.left + e.width ? t : e), t),
-          c = (0, a.Z)(r.Wm.create(s), e.textNode.rect.getCurrent().client, e.textNode.scroll.getCurrent());
+          c = (0, r.Z)(a.Wm.create(s), e.textNode.rect.getCurrent().client, e.textNode.scroll.getCurrent());
         return DOMRect.fromRect((0, o.zG)((0, i.QK)(c, (0, i.Z2)(s)), (e) => ({ x: e.left, y: e.top, width: e.width, height: e.height })));
       }
     },
     94421: (e, t, n) => {
       if ((n.d(t, { d: () => v }), 1388 == n.j)) var i = n(17771);
       if (1388 == n.j) var o = n(57050);
-      if (1388 == n.j) var r = n(64015);
-      if (1388 == n.j) var a = n(14601);
+      if (1388 == n.j) var a = n(64015);
+      if (1388 == n.j) var r = n(14601);
       if (1388 == n.j) var s = n(77176);
       if (1388 == n.j) var c = n(41398);
       if (1388 == n.j) var l = n(2834);
@@ -1606,8 +1606,8 @@
       if (1388 == n.j) var u = n(5114);
       if (1388 == n.j) var p = n(55415);
       if (1388 == n.j) var m = n(23239);
-      if (1388 == n.j) var f = n(20434);
-      if (1388 == n.j) var h = n(34867);
+      if (1388 == n.j) var h = n(20434);
+      if (1388 == n.j) var f = n(34867);
       if (1388 == n.j) var g = n(9264);
       class v {
         constructor(e, t, n, v, b) {
@@ -1616,7 +1616,7 @@
             (this._activeAnnotation = n),
             (this._layout = v),
             (this._getSessionUuid = b),
-            (this._subscriptions = new a.w()),
+            (this._subscriptions = new r.w()),
             (this._state = m.h.create(u.none)),
             (this.state = m.h.combine(this._state, this._itemsManager.items, (e, t) =>
               (0, o.zG)(
@@ -1624,14 +1624,14 @@
                 u.chain((e) =>
                   (0, o.zG)(
                     u.fromNullable(t.get(e.docId)),
-                    u.chain(r.Ew((t) => t.id === e.item.id)),
+                    u.chain(a.Ew((t) => t.id === e.item.id)),
                     u.map((t) => ({ item: t, docId: e.docId, highlightNode: e.highlightNode, hovered: e.hovered }))
                   )
                 )
               )
             )),
             (this._handleSetCardVisibleFor = this.actions.pipe(
-              f.kA.ofKind(f.p4.Kind.setCardVisibleFor),
+              h.kA.ofKind(h.p4.Kind.setCardVisibleFor),
               s.U(p.ei("item")),
               c.M(this._activeAnnotation),
               l.b(([e, t]) =>
@@ -1645,7 +1645,7 @@
                           item: e,
                           docId: e.docId,
                           hovered: !1,
-                          highlightNode: { getBoundingClientRect: () => (0, h.r)(this._layout, t.activeHighlightRect, t.highlightRects) }
+                          highlightNode: { getBoundingClientRect: () => (0, f.r)(this._layout, t.activeHighlightRect, t.highlightRects) }
                         })
                       );
                     }
@@ -1654,7 +1654,7 @@
               )
             )),
             (this._handleCardLookedDuration = this.actions.pipe(
-              f.kA.ofKind(f.p4.Kind.setCardVisibleFor),
+              h.kA.ofKind(h.p4.Kind.setCardVisibleFor),
               s.U(({ item: e }) => e),
               s.U(
                 u.fold(
@@ -1666,7 +1666,7 @@
               s.U(([e, t]) => ({ termId: e.termId, duration: t.timestamp - e.timestamp })),
               c.M(this._getSessionUuid()),
               l.b(([{ duration: e, termId: t }, n]) => {
-                this.actions.next({ kind: f.p4.Kind.hideCard, sessionUuid: n, duration: e, termId: t });
+                this.actions.next({ kind: h.p4.Kind.hideCard, sessionUuid: n, duration: e, termId: t });
               })
             )),
             this._subscriptions.add(this._handleSetCardVisibleFor.subscribe()),
@@ -1675,7 +1675,7 @@
         }
         _handleCardHovered() {
           return this.actions
-            .pipe(f.kA.ofKind(f.p4.Kind.highlightMenuHovered))
+            .pipe(h.kA.ofKind(h.p4.Kind.highlightMenuHovered))
             .subscribe(({ hovered: e }) => this._state.modify(u.map((t) => ({ ...t, hovered: e }))));
         }
         dispose() {
@@ -1693,8 +1693,8 @@
         });
       var i = n(95948),
         o = n(55649),
-        r = n(20434),
-        a = n(20883),
+        a = n(20434),
+        r = n(20883),
         s = n(10852),
         c = n(65338),
         l = n(85985),
@@ -1702,13 +1702,13 @@
         u = n(23063),
         p = n(8125),
         m = n(9264);
-      class f {
+      class h {
         constructor(e, t) {
           (this.highlightedRectangle = e),
             (this.actions = t),
             (this._highlightedRectangleSubscription = e.subscribe(({ clientRectangle: e, onboardingType: n }) =>
               t.next({
-                kind: r.p4.Kind.onboardingAnchorMounted,
+                kind: a.p4.Kind.onboardingAnchorMounted,
                 anchorNode: { getBoundingClientRect: () => DOMRect.fromRect({ x: e.left, y: e.top, width: e.width, height: e.height }) },
                 onboardingType: n
               })
@@ -1718,7 +1718,7 @@
           this._highlightedRectangleSubscription.unsubscribe();
         }
       }
-      var h = n(42484),
+      var f = n(42484),
         g = n(2320),
         v = n(96722),
         b = n(48015),
@@ -1727,43 +1727,43 @@
         return k === m.nk.All
           ? (function (e, t, n, i, l, d, u, g, b, k = o.Y.create("knowledgeHub.completeIntegration")) {
               const w = m.JJ.fromDomain(b),
-                y = a.N1.getInstance(e),
+                y = r.N1.getInstance(e),
                 C = c.y.getInstance(e),
                 I = E(d, u, g, (0, p.Kg)(v.kK, v.Ed)),
-                S = new f(I, e),
-                _ = h.a.getInstance(e, i, l, (0, v.EI)(n, w));
+                _ = new h(I, e),
+                j = f.a.getInstance(e, i, l, (0, v.EI)(n, w));
               return (
                 y.addEffects(
-                  a.cv.logAction(o.Y.create("knowledgehub.actions")),
-                  a.cv.copyName(),
-                  a.cv.showCopyNameNotification(),
-                  a.cv.handleCopyNameError((0, v.EI)(n, w)),
-                  a.cv.copyDescription(),
-                  a.cv.showCopyDescriptionNotification(),
-                  a.cv.handleCopyDescriptionError((0, v.EI)(n, w)),
-                  a.cv.showTermDismissedNotification(),
+                  r.cv.logAction(o.Y.create("knowledgehub.actions")),
+                  r.cv.copyName(),
+                  r.cv.showCopyNameNotification(),
+                  r.cv.handleCopyNameError((0, v.EI)(n, w)),
+                  r.cv.copyDescription(),
+                  r.cv.showCopyDescriptionNotification(),
+                  r.cv.handleCopyDescriptionError((0, v.EI)(n, w)),
+                  r.cv.showTermDismissedNotification(),
                   ...(0, s.I)(t, n, w)
                 ),
                 k.debug("Knowledge Hub integration created"),
-                e.next({ kind: r.p4.Kind.integrationCreated, mode: m.nk.All }),
+                e.next({ kind: a.p4.Kind.integrationCreated, mode: m.nk.All }),
                 {
                   actions: e,
                   dispose() {
-                    y.dispose(), S.dispose(), _.dispose(), C.dispose(), k.debug("Knowledge Hub integration disposed");
+                    y.dispose(), _.dispose(), j.dispose(), C.dispose(), k.debug("Knowledge Hub integration disposed");
                   }
                 }
               );
             })(e, t, n, i, l, d, u, g, b, w)
           : (function (e, t, n, i, c, l, d, u, p, g = o.Y.create("knowledgeHub.onboardingIntegration")) {
               const b = m.JJ.fromDomain(p),
-                k = a.N1.getInstance(e),
+                k = r.N1.getInstance(e),
                 w = E(l, d, u, v.kK),
-                y = new f(w, e),
-                C = h.a.getInstance(e, i, c, (0, v.EI)(n, b));
+                y = new h(w, e),
+                C = f.a.getInstance(e, i, c, (0, v.EI)(n, b));
               return (
-                k.addEffects(a.cv.logAction(o.Y.create("knowledgehub.actions")), ...(0, s.I)(t, n, b, m.nk.OnlyOnboarding)),
+                k.addEffects(r.cv.logAction(o.Y.create("knowledgehub.actions")), ...(0, s.I)(t, n, b, m.nk.OnlyOnboarding)),
                 g.debug("Knowledge Hub Onboarding integration created"),
-                e.next({ kind: r.p4.Kind.integrationCreated, mode: m.nk.OnlyOnboarding }),
+                e.next({ kind: a.p4.Kind.integrationCreated, mode: m.nk.OnlyOnboarding }),
                 {
                   actions: e,
                   dispose() {
@@ -1807,8 +1807,8 @@
     26821: (e, t, n) => {
       if ((n.d(t, { B: () => N }), 1388 == n.j)) var i = n(57050);
       var o = n(27378);
-      if (1388 == n.j) var r = n(47258);
-      if (1388 == n.j) var a = n(1012);
+      if (1388 == n.j) var a = n(47258);
+      if (1388 == n.j) var r = n(1012);
       if (1388 == n.j) var s = n(57073);
       if (1388 == n.j) var c = n(41572);
       if (1388 == n.j) var l = n(49842);
@@ -1816,8 +1816,8 @@
       if (1388 == n.j) var u = n(11432);
       if (1388 == n.j) var p = n(83825);
       if (1388 == n.j) var m = n(48015);
-      if (1388 == n.j) var f = n(55649);
-      if (1388 == n.j) var h = n(32952);
+      if (1388 == n.j) var h = n(55649);
+      if (1388 == n.j) var f = n(32952);
       if (1388 == n.j) var g = n(55935);
       if (1388 == n.j) var v = n(85985);
       if (1388 == n.j) var b = n(77176);
@@ -1827,17 +1827,17 @@
       if (1388 == n.j) var y = n(23239);
       var C = n(34217);
       if (1388 == n.j) var I = n(54244);
-      if (1388 == n.j) var S = n(6850);
-      if (1388 == n.j) var _ = n(2597);
-      if (1388 == n.j) var j = n(20883);
+      if (1388 == n.j) var _ = n(6850);
+      if (1388 == n.j) var j = n(2597);
+      if (1388 == n.j) var S = n(20883);
       if (1388 == n.j) var U = n(94421);
       function N(e, t, n, N, x, T, K, L) {
-        const A = new h.xQ(),
+        const A = new f.xQ(),
           H = y.h.create(w.none),
           M = new U.d(x, n, H, t, L),
           F = M.state.view(w.fold(i.jv, E.ei("hovered"))),
           D = M.state.view(w.isNone).pipe(g.T(1), v.h(m.fQ)),
-          P = new a.C({
+          P = new r.C({
             textNode: e,
             textNodeLayout: t.textNode,
             mouseData: t.mouse,
@@ -1845,12 +1845,12 @@
             cardHovered: F,
             cardDismissed: D,
             getCurrentCardAnnotationState: () => (0, i.zG)(H.get(), w.toNullable),
-            offByTextPositionChange: (0, s.ss)(t.textNode, f.Y.create("HoverToOpenAnnotationStateService"))
+            offByTextPositionChange: (0, s.ss)(t.textNode, h.Y.create("HoverToOpenAnnotationStateService"))
           }),
-          O = new r.q(P),
+          O = new a.q(P),
           B = P.activeAnnotation.pipe(b.U(w.fromNullable)).subscribe(k.wW(H));
         return (
-          N.addEffects(j.cv.toggleActiveHighlightCard(H, A), j.cv.toggleActiveHighlightOnboarding(H, t, A)),
+          N.addEffects(S.cv.toggleActiveHighlightCard(H, A), S.cv.toggleActiveHighlightOnboarding(H, t, A)),
           {
             dispose: () => {
               B.unsubscribe(), M.dispose(), A.next();
@@ -1876,7 +1876,7 @@
               o.createElement(
                 c.L,
                 { chunkName: "knowledgeHubIntegration" },
-                o.createElement(u.p, { env: K(), dataGrammarlyPart: "knowledge-hub-cards" }, C.UI.mount(S.u0, (0, _.Z)(M)))
+                o.createElement(u.p, { env: K(), dataGrammarlyPart: "knowledge-hub-cards" }, C.UI.mount(_.u0, (0, j.Z)(M)))
               )
           }
         );
@@ -1885,8 +1885,8 @@
     61576: (e, t, n) => {
       if ((n.d(t, { J: () => b }), 1388 == n.j)) var i = n(57050);
       if (1388 == n.j) var o = n(64015);
-      if (1388 == n.j) var r = n(48044);
-      if (1388 == n.j) var a = n(17889);
+      if (1388 == n.j) var a = n(48044);
+      if (1388 == n.j) var r = n(17889);
       if (1388 == n.j) var s = n(13853);
       if (1388 == n.j) var c = n(85467);
       if (1388 == n.j) var l = n(9264);
@@ -1894,30 +1894,30 @@
       if (1388 == n.j) var u = n(98403);
       if (1388 == n.j) var p = n(2834);
       if (1388 == n.j) var m = n(55415);
-      if (1388 == n.j) var f = n(5114);
-      if (1388 == n.j) var h = n(23239);
+      if (1388 == n.j) var h = n(5114);
+      if (1388 == n.j) var f = n(23239);
       if (1388 == n.j) var g = n(20434);
       if (1388 == n.j) var v = n(64168);
       class b {
         constructor(e, t) {
           (this._actions = e),
-            (this._allItems = h.h.create(new Map())),
-            (this._dismissed = h.h.create(new Set())),
+            (this._allItems = f.h.create(new Map())),
+            (this._dismissed = f.h.create(new Set())),
             (this._subscriptions = new d.w()),
-            (this.items = h.h.combine(this._allItems, this._dismissed, (e, t) => (0, i.zG)(e, r.DZ(a.hX((e) => !t.has(e.termId)))))),
+            (this.items = f.h.combine(this._allItems, this._dismissed, (e, t) => (0, i.zG)(e, a.DZ(r.hX((e) => !t.has(e.termId)))))),
             this._subscriptions.add(
               t
                 .get()
                 .checks.view(
                   (0, i.ls)(
-                    r.DZ((0, i.ls)(m.ei("checks"), o.hX(c.I.KnowledgeHub.isItem), o.UI(v.t.fromStaticCheck), a.c2)),
-                    r.Su((e, t) =>
+                    a.DZ((0, i.ls)(m.ei("checks"), o.hX(c.I.KnowledgeHub.isItem), o.UI(v.t.fromStaticCheck), r.c2)),
+                    a.Su((e, t) =>
                       (0, i.zG)(
                         t,
                         o.DZ((t) =>
                           (0, i.zG)(
-                            f.fromNullable(t),
-                            f.map(() => ({
+                            h.fromNullable(t),
+                            h.map(() => ({
                               id: t.id,
                               docId: e,
                               itemId: t.itemId,
@@ -1934,10 +1934,10 @@
                             }))
                           )
                         ),
-                        a.nI
+                        r.nI
                       )
                     ),
-                    r.oA
+                    a.oA
                   )
                 )
                 .subscribe(u.wW(this._allItems))
@@ -1986,8 +1986,8 @@
       n.d(t, { p: () => g });
       var i = n(27378);
       if (1388 == n.j) var o = n(85441);
-      if (1388 == n.j) var r = n(864);
-      if (1388 == n.j) var a = n(88571);
+      if (1388 == n.j) var a = n(864);
+      if (1388 == n.j) var r = n(88571);
       if (1388 == n.j) var s = n(69552);
       if (1388 == n.j) var c = n(8307);
       if (1388 == n.j) var l = n(39914);
@@ -1995,10 +1995,10 @@
       if (1388 == n.j) var u = n(33678);
       if (1388 == n.j) var p = n(15073);
       if (1388 == n.j) var m = n(42103);
-      if (1388 == n.j) var f = n(51369);
-      if (1388 == n.j) var h = n(76974);
+      if (1388 == n.j) var h = n(51369);
+      if (1388 == n.j) var f = n(76974);
       const g = ({ env: e, children: t, className: n, dataGrammarlyPart: g }) => {
-        const v = i.useMemo(() => new r.C((0, o.nD)(e)), [e]);
+        const v = i.useMemo(() => new a.C((0, o.nD)(e)), [e]);
         return i.createElement(
           d.o,
           { className: n, "data-grammarly-part": g },
@@ -2009,15 +2009,15 @@
               u.a.Context.Provider,
               { value: v },
               i.createElement(
-                a.Q,
-                { remSize: h.of(16), setter: (e) => p.u.setRootCssVar(document.documentElement, e) },
+                r.Q,
+                { remSize: f.of(16), setter: (e) => p.u.setRootCssVar(document.documentElement, e) },
                 i.createElement(
                   m.G.DefaultProvider,
                   null,
                   t,
                   i.createElement(c.p, { regular: !0, bold: !0 }),
                   i.createElement(l.G, null),
-                  i.createElement(f.X, null)
+                  i.createElement(h.X, null)
                 )
               )
             )
@@ -2028,8 +2028,8 @@
     99947: (e, t, n) => {
       if ((n.r(t), n.d(t, { createKnowledgeHubThreadIntegration: () => b }), 1388 == n.j)) var i = n(57050);
       if (1388 == n.j) var o = n(85441);
-      if (1388 == n.j) var r = n(65338);
-      if (1388 == n.j) var a = n(55649);
+      if (1388 == n.j) var a = n(65338);
+      if (1388 == n.j) var r = n(55649);
       if (1388 == n.j) var s = n(14601);
       if (1388 == n.j) var c = n(5114);
       if (1388 == n.j) var l = n(20434);
@@ -2037,35 +2037,35 @@
       if (1388 == n.j) var u = n(20883);
       if (1388 == n.j) var p = n(61576);
       if (1388 == n.j) var m = n(22012);
-      if (1388 == n.j) var f = n(10852);
-      if (1388 == n.j) var h = n(9264);
+      if (1388 == n.j) var h = n(10852);
+      if (1388 == n.j) var f = n(9264);
       if (1388 == n.j) var g = n(42484);
       if (1388 == n.j) var v = n(96722);
-      function b(e, t, n, b, k, w, E, y = o.OB, C = a.Y.create("gmail.knowledgeHub.gmailThreadIntegration")) {
+      function b(e, t, n, b, k, w, E, y = o.OB, C = r.Y.create("gmail.knowledgeHub.gmailThreadIntegration")) {
         const I = new s.w();
         e.get().dataOptIn(!0);
-        const S = (0, l.Uh)(),
-          _ = u.N1.getInstance(S),
-          j = new p.J(S, e),
+        const _ = (0, l.Uh)(),
+          j = u.N1.getInstance(_),
+          S = new p.J(_, e),
           U = t.createIntegration({
-            annotations: j.items,
+            annotations: S.items,
             createAnnotationsView: ({ docLayout: t, docNode: n, highlightsCollection: i }) =>
-              (0, d.B)(n, t, j, _, S, i, y, () => e.get().sessionUuid)
+              (0, d.B)(n, t, S, j, _, i, y, () => e.get().sessionUuid)
           }),
-          N = r.y.getInstance(S),
-          x = g.a.getInstance(S, E, w, (0, v.EI)(k, h.JJ.gmail));
+          N = a.y.getInstance(_),
+          x = g.a.getInstance(_, E, w, (0, v.EI)(k, f.JJ.gmail));
         return (
-          _.addEffects(
-            u.cv.logAction(a.Y.create("knowledgehub.actions")),
+          j.addEffects(
+            u.cv.logAction(r.Y.create("knowledgehub.actions")),
             u.cv.copyName(),
             u.cv.showCopyNameNotification(),
             u.cv.copyDescription(),
             u.cv.showCopyDescriptionNotification(),
-            u.cv.handleCopyNameError((0, v.EI)(k, h.JJ.gmail)),
-            u.cv.handleCopyDescriptionError((0, v.EI)(k, h.JJ.gmail)),
+            u.cv.handleCopyNameError((0, v.EI)(k, f.JJ.gmail)),
+            u.cv.handleCopyDescriptionError((0, v.EI)(k, f.JJ.gmail)),
             u.cv.showTermDismissedNotification(),
             ...(0, m.N)(e),
-            ...(0, f.I)(b, k, h.JJ.gmail)
+            ...(0, h.I)(b, k, f.JJ.gmail)
           ),
           C.debug(
             `Thread integration created for thread #${
@@ -2075,9 +2075,9 @@
                 .get() || "unknown"
             }`
           ),
-          S.next({ kind: l.p4.Kind.integrationCreated, mode: h.nk.All }),
+          _.next({ kind: l.p4.Kind.integrationCreated, mode: f.nk.All }),
           () => {
-            _.dispose(), x.dispose(), N.dispose(), U.dispose(), I.unsubscribe(), C.debug("Thread integration disposed");
+            j.dispose(), x.dispose(), N.dispose(), U.dispose(), I.unsubscribe(), C.debug("Thread integration disposed");
           }
         );
       }
@@ -2086,8 +2086,8 @@
       n.d(t, { y: () => d });
       var i = n(27378);
       if (1388 == n.j) var o = n(7604);
-      if (1388 == n.j) var r = n(91951);
-      if (1388 == n.j) var a = n(77176);
+      if (1388 == n.j) var a = n(91951);
+      if (1388 == n.j) var r = n(77176);
       if (1388 == n.j) var s = n(8543);
       if (1388 == n.j) var c = n(54001);
       var l = n(80608);
@@ -2096,17 +2096,17 @@
           i.Fragment,
           null,
           n.map((p, m) => {
-            const f = n.length > 1 ? `${d}-${m}` : d;
+            const h = n.length > 1 ? `${d}-${m}` : d;
             return i.createElement(
               s.F.div,
               {
-                key: f,
-                "data-key": f,
+                key: h,
+                "data-key": h,
                 "data-grammarly-part": "kh-highlight",
-                style: t.pipe(a.U((t) => (0, r.z9)({ ...p, height: Math.max(0, p.height + e) }, t === o.pc.hovered))),
+                style: t.pipe(r.U((t) => (0, a.z9)({ ...p, height: Math.max(0, p.height + e) }, t === o.pc.hovered))),
                 ...(0, c.Sh)(l.highlight, "dark" === u ? l.dark : null)
               },
-              i.createElement(s.F.div, { ...(0, c.Sh)(l.background, t.pipe(a.U((e) => (e === o.pc.hovered ? l.hovered : null)))) })
+              i.createElement(s.F.div, { ...(0, c.Sh)(l.background, t.pipe(r.U((e) => (e === o.pc.hovered ? l.hovered : null)))) })
             );
           })
         );
@@ -2118,43 +2118,43 @@
       function o(e, t) {
         return { top: e.top - t, left: e.left - t, width: e.width + 2 * t, height: e.height + 2 * t };
       }
-      function r(e, t) {
+      function a(e, t) {
         return t ? o(e, i(e)) : e;
       }
-      n.d(t, { QK: () => o, Z2: () => i, z9: () => r });
+      n.d(t, { QK: () => o, Z2: () => i, z9: () => a });
     },
     54244: (e, t, n) => {
       n.d(t, { x: () => l });
       var i = n(27378);
       if (1388 == n.j) var o = n(7604);
-      if (1388 == n.j) var r = n(72120);
-      if (1388 == n.j) var a = n(93508);
+      if (1388 == n.j) var a = n(72120);
+      if (1388 == n.j) var r = n(93508);
       if (1388 == n.j) var s = n(28043);
       if (1388 == n.j) var c = n(10160);
       const l = ({ highlights: e, getHoverState: t, highlightsTheme: n }) =>
-        i.createElement(r.Y, {
+        i.createElement(a.Y, {
           key: "knowledgeHub-highlights",
           highlightHeightOffset: 0,
           highlightsTheme: n,
           highlights: e.geometry.view((e) => Array.from(e.values())),
           getHoverState: t,
-          highlightRenderer: (e, t, n, r) =>
+          highlightRenderer: (e, t, n, a) =>
             i.createElement(c.y, {
               key: e.meta.highlightId,
               id: e.meta.highlightId,
               rects: e.rects,
               heightOffset: n,
-              hoverState: t.pipe(a.O(o.pc.none), s.x()),
+              hoverState: t.pipe(r.O(o.pc.none), s.x()),
               annotation: e.meta.annotation,
-              theme: r
+              theme: a
             })
         });
     },
     70569: (e, t, n) => {
       if ((n.d(t, { h: () => u }), 1388 == n.j)) var i = n(77176);
       if (1388 == n.j) var o = n(93508);
-      if (1388 == n.j) var r = n(76974);
-      if (1388 == n.j) var a = n(26328);
+      if (1388 == n.j) var a = n(76974);
+      if (1388 == n.j) var r = n(26328);
       var s = n(34217);
       if (1388 == n.j) var c = n(57050);
       const l = (e) => () =>
@@ -2167,23 +2167,23 @@
             o.O([])
           ),
         d = (e) => s.Z.composeKnot({ list: l(e) }),
-        u = (e) => s.Z.composeUnion({ None: () => r.of(null), Some: s.Z.composeKnot({ value: d(e) }) }, () => e.pipe(i.U(a.nI)));
+        u = (e) => s.Z.composeUnion({ None: () => a.of(null), Some: s.Z.composeKnot({ value: d(e) }) }, () => e.pipe(i.U(r.nI)));
     },
     14395: (e, t, n) => {
       if ((n.d(t, { M: () => p }), 1388 == n.j)) var i = n(77176);
       if (1388 == n.j) var o = n(24713);
-      if (1388 == n.j) var r = n(55415);
-      var a = n(34217);
+      if (1388 == n.j) var a = n(55415);
+      var r = n(34217);
       if (1388 == n.j) var s = n(33095);
       if (1388 == n.j) var c = n(70569);
       if (1388 == n.j) var l = n(98710);
       if (1388 == n.j) var d = n(79100);
       if (1388 == n.j) var u = n(9980);
       const p = (e, t) =>
-        a.Z.composeKnot({
-          title: (0, u.F)(e.pipe(i.U(r.H6("articleTitle")))),
+        r.Z.composeKnot({
+          title: (0, u.F)(e.pipe(i.U(a.H6("articleTitle")))),
           aliases: (0, c.h)(e.pipe(o.j("aliases"))),
-          description: (0, s.B)(e.pipe(i.U(r.H6("articleContent"))), t),
+          description: (0, s.B)(e.pipe(i.U(a.H6("articleContent"))), t),
           peopleList: (0, l.a)(e.pipe(o.j("pointPeople")), t),
           relatedMaterialsList: (0, d.z)(e.pipe(o.j("relatedMaterials")), t)
         });
@@ -2192,8 +2192,8 @@
       n.d(t, { j: () => i, q: () => u });
       var i,
         o = n(27378),
-        r = n(64757),
-        a = n(77176),
+        a = n(64757),
+        r = n(77176),
         s = n(8543),
         c = n(34217),
         l = n(23871),
@@ -2206,9 +2206,9 @@
           s.F.Fragment,
           null,
           e.pipe(
-            a.U(({ articleContent: e }) =>
+            r.U(({ articleContent: e }) =>
               o.createElement(
-                r.zx,
+                a.zx,
                 {
                   name: "copy-description-button",
                   textPosition: "surrounded",
@@ -2225,30 +2225,30 @@
     24933: (e, t, n) => {
       if ((n.d(t, { C: () => l }), 1388 == n.j)) var i = n(20434);
       var o = n(34217);
-      if (1388 == n.j) var r = n(77176);
-      if (1388 == n.j) var a = n(22232);
+      if (1388 == n.j) var a = n(77176);
+      if (1388 == n.j) var r = n(22232);
       if (1388 == n.j) var s = n(55415);
       if (1388 == n.j) var c = n(35855);
       const l = (e, t) =>
         o.Z.fromSideEffect(
           (e) => {
             if (e.kind === c.j.copyDescription) t.next({ kind: i.p4.Kind.copyDescription, articleContent: e.articleContent });
-            else (0, a.L0)(e.kind);
+            else (0, r.L0)(e.kind);
           },
-          e.pipe(r.U(s.H6("articleContent")))
+          e.pipe(a.U(s.H6("articleContent")))
         );
     },
     33095: (e, t, n) => {
       if ((n.d(t, { B: () => u }), 1388 == n.j)) var i = n(57050);
       var o = n(34217);
-      if (1388 == n.j) var r = n(93508);
-      if (1388 == n.j) var a = n(76974);
+      if (1388 == n.j) var a = n(93508);
+      if (1388 == n.j) var r = n(76974);
       if (1388 == n.j) var s = n(77176);
       if (1388 == n.j) var c = n(5114);
       if (1388 == n.j) var l = n(24933);
-      const d = (e, t) => o.Z.composeKnot({ articleContent: () => (0, i.zG)(e, r.O({ articleContent: "" })), copyButton: (0, l.C)(e, t) }),
+      const d = (e, t) => o.Z.composeKnot({ articleContent: () => (0, i.zG)(e, a.O({ articleContent: "" })), copyButton: (0, l.C)(e, t) }),
         u = (e, t) =>
-          o.Z.composeUnion({ None: () => a.of(null), Some: o.Z.composeKnot({ value: d(e, t) }) }, () =>
+          o.Z.composeUnion({ None: () => r.of(null), Some: o.Z.composeKnot({ value: d(e, t) }) }, () =>
             e.pipe(s.U(c.fromPredicate(({ articleContent: e }) => "" !== e)))
           );
     },
@@ -2256,8 +2256,8 @@
       n.d(t, { bL: () => k, je: () => i });
       var i,
         o = n(64015),
-        r = n(27378),
-        a = n(49032),
+        a = n(27378),
+        r = n(49032),
         s = n(64757),
         c = n(77176),
         l = n(8543),
@@ -2268,23 +2268,23 @@
       !(function (e) {
         (e.pointPersonContact = "pointPersonContact"), (e.pointPersonCopy = "pointPersonCopy");
       })(i || (i = {}));
-      const f = d.UI.Node.make(({ state: e, notify: t }) => {
+      const h = d.UI.Node.make(({ state: e, notify: t }) => {
           const n = e.pipe(
             c.U(({ avatarUrl: e }) => e),
             c.U(
               m.fold(
-                () => r.createElement(a.g, { className: p.icon }),
-                (e) => r.createElement("img", { className: p.avatar, src: e, alt: "" })
+                () => a.createElement(r.g, { className: p.icon }),
+                (e) => a.createElement("img", { className: p.avatar, src: e, alt: "" })
               )
             )
           );
-          return r.createElement(
+          return a.createElement(
             l.F.Fragment,
             null,
             e.pipe(
               c.U(({ communicationMethods: e, displayName: o }) =>
                 e.length > 0
-                  ? r.createElement(
+                  ? a.createElement(
                       s.zx,
                       {
                         name: "point-person-details",
@@ -2297,9 +2297,9 @@
                         onClick: t({ kind: i.pointPersonContact })
                       },
                       n,
-                      r.createElement(l.F.div, { className: p.text }, o)
+                      a.createElement(l.F.div, { className: p.text }, o)
                     )
-                  : r.createElement(
+                  : a.createElement(
                       s.zx,
                       {
                         name: "point-person-details",
@@ -2308,25 +2308,25 @@
                         onClick: t({ kind: i.pointPersonCopy, personName: o })
                       },
                       n,
-                      r.createElement(l.F.div, { className: p.text }, o)
+                      a.createElement(l.F.div, { className: p.text }, o)
                     )
               )
             )
           );
         }),
-        h = d.UI.List.make(o.Bk, f),
+        f = d.UI.List.make(o.Bk, h),
         g = d.UI.Grid.make(({ slots: e }) =>
-          r.createElement("div", { "data-grammarly-part": "knowledge-hub-card-point-people-list", className: p.list }, e.list)
+          a.createElement("div", { "data-grammarly-part": "knowledge-hub-card-point-people-list", className: p.list }, e.list)
         ),
-        v = d.UI.Knot.make(g, { list: h }),
+        v = d.UI.Knot.make(g, { list: f }),
         b = d.UI.Knot.make(u.$, { content: v }),
         k = d.UI.Union.asOption(b);
     },
     98710: (e, t, n) => {
-      if ((n.d(t, { a: () => h }), 1388 == n.j)) var i = n(20434);
+      if ((n.d(t, { a: () => f }), 1388 == n.j)) var i = n(20434);
       if (1388 == n.j) var o = n(93508);
-      if (1388 == n.j) var r = n(76974);
-      if (1388 == n.j) var a = n(77176);
+      if (1388 == n.j) var a = n(76974);
+      if (1388 == n.j) var r = n(77176);
       if (1388 == n.j) var s = n(22232);
       if (1388 == n.j) var c = n(26328);
       var l = n(34217);
@@ -2349,15 +2349,15 @@
             e.pipe(o.O([]))
           ),
         m = (e, t) => l.Z.composeKnot({ list: p(e, t) }),
-        f = (e, t) => l.Z.composeKnot({ root: (0, d.B)(r.of({ title: "Point people" })), content: m(e, t) }),
-        h = (e, t) => l.Z.composeUnion({ None: () => r.of(null), Some: l.Z.composeKnot({ value: f(e, t) }) }, () => e.pipe(a.U(c.nI)));
+        h = (e, t) => l.Z.composeKnot({ root: (0, d.B)(a.of({ title: "Point people" })), content: m(e, t) }),
+        f = (e, t) => l.Z.composeUnion({ None: () => a.of(null), Some: l.Z.composeKnot({ value: h(e, t) }) }, () => e.pipe(r.U(c.nI)));
     },
     16853: (e, t, n) => {
       n.d(t, { F7: () => v, je: () => i });
       var i,
         o = n(64015),
-        r = n(27378),
-        a = n(64757),
+        a = n(27378),
+        r = n(64757),
         s = n(77176),
         c = n(8543),
         l = n(34217),
@@ -2367,13 +2367,13 @@
         e.relatedMaterialsClick = "relatedMaterialsClick";
       })(i || (i = {}));
       const p = l.UI.Node.make(({ state: e, notify: t }) =>
-          r.createElement(
+          a.createElement(
             c.F.Fragment,
             null,
             e.pipe(
               s.U((e) =>
-                r.createElement(
-                  a.zx,
+                a.createElement(
+                  r.zx,
                   {
                     name: "related-material-link",
                     key: "related-material-link",
@@ -2384,26 +2384,26 @@
                     href: e.link,
                     onClick: t({ kind: i.relatedMaterialsClick, material: e })
                   },
-                  r.createElement("img", { className: u.icon, src: e.iconUrl, alt: "" }),
-                  r.createElement("div", { className: u.text }, e.title)
+                  a.createElement("img", { className: u.icon, src: e.iconUrl, alt: "" }),
+                  a.createElement("div", { className: u.text }, e.title)
                 )
               )
             )
           )
         ),
         m = l.UI.List.make(o.Bk, p),
-        f = l.UI.Grid.make(({ slots: e }) =>
-          r.createElement("div", { "data-grammarly-part": "knowledge-hub-card-related-materials-list", className: u.list }, e.list)
+        h = l.UI.Grid.make(({ slots: e }) =>
+          a.createElement("div", { "data-grammarly-part": "knowledge-hub-card-related-materials-list", className: u.list }, e.list)
         ),
-        h = l.UI.Knot.make(f, { list: m }),
-        g = l.UI.Knot.make(d.$, { content: h }),
+        f = l.UI.Knot.make(h, { list: m }),
+        g = l.UI.Knot.make(d.$, { content: f }),
         v = l.UI.Union.asOption(g);
     },
     79100: (e, t, n) => {
-      if ((n.d(t, { z: () => h }), 1388 == n.j)) var i = n(20434);
+      if ((n.d(t, { z: () => f }), 1388 == n.j)) var i = n(20434);
       if (1388 == n.j) var o = n(93508);
-      if (1388 == n.j) var r = n(76974);
-      if (1388 == n.j) var a = n(77176);
+      if (1388 == n.j) var a = n(76974);
+      if (1388 == n.j) var r = n(77176);
       if (1388 == n.j) var s = n(22232);
       if (1388 == n.j) var c = n(26328);
       var l = n(34217);
@@ -2418,40 +2418,40 @@
             e.pipe(o.O([]))
           ),
         m = (e, t) => l.Z.composeKnot({ list: p(e, t) }),
-        f = (e, t) => l.Z.composeKnot({ root: (0, d.B)(r.of({ title: "Related Materials" })), content: m(e, t) }),
-        h = (e, t) => l.Z.composeUnion({ None: () => r.of(null), Some: l.Z.composeKnot({ value: f(e, t) }) }, () => e.pipe(a.U(c.nI)));
+        h = (e, t) => l.Z.composeKnot({ root: (0, d.B)(a.of({ title: "Related Materials" })), content: m(e, t) }),
+        f = (e, t) => l.Z.composeUnion({ None: () => a.of(null), Some: l.Z.composeKnot({ value: h(e, t) }) }, () => e.pipe(r.U(c.nI)));
     },
     69797: (e, t, n) => {
       n.d(t, { $: () => s });
       var i = n(27378),
         o = n(8543),
-        r = n(34217),
-        a = n(20920);
-      const s = r.UI.Grid.make(({ view: e, slots: t }) =>
+        a = n(34217),
+        r = n(20920);
+      const s = a.UI.Grid.make(({ view: e, slots: t }) =>
         i.createElement(
           "div",
-          { "data-grammarly-part": "knowledge-hub-card-section", className: a.section },
-          i.createElement(o.F.div, { className: a.title }, e("title")),
+          { "data-grammarly-part": "knowledge-hub-card-section", className: r.section },
+          i.createElement(o.F.div, { className: r.title }, e("title")),
           t.content
         )
       );
     },
     58561: (e, t, n) => {
-      if ((n.d(t, { B: () => r }), 1388 == n.j)) var i = n(57050);
+      if ((n.d(t, { B: () => a }), 1388 == n.j)) var i = n(57050);
       if (1388 == n.j) var o = n(93508);
-      const r = (e) => () => (0, i.zG)(e, o.O({ title: "" }));
+      const a = (e) => () => (0, i.zG)(e, o.O({ title: "" }));
     },
     9980: (e, t, n) => {
-      if ((n.d(t, { F: () => r }), 1388 == n.j)) var i = n(57050);
+      if ((n.d(t, { F: () => a }), 1388 == n.j)) var i = n(57050);
       if (1388 == n.j) var o = n(93508);
-      const r = (e) => (0, i.a9)((0, i.zG)(e, o.O({ articleTitle: "" })));
+      const a = (e) => (0, i.a9)((0, i.zG)(e, o.O({ articleTitle: "" })));
     },
     92426: (e, t, n) => {
       n.d(t, { $_: () => m, je: () => i });
       var i,
         o = n(27378),
-        r = n(83876),
-        a = n(64757),
+        a = n(83876),
+        r = n(64757),
         s = n(77176),
         c = n(8543),
         l = n(34217),
@@ -2466,7 +2466,7 @@
             e.pipe(
               s.U(({ itemId: e, termId: n }) =>
                 o.createElement(
-                  a.zx.Flat,
+                  r.zx.Flat,
                   {
                     name: "dismiss-entry-button",
                     textPosition: "surrounded",
@@ -2487,13 +2487,13 @@
             e.suggestCorrection
           )
         ),
-        m = l.UI.Knot.make(p, { suggestCorrection: r.E, dismissButton: u });
+        m = l.UI.Knot.make(p, { suggestCorrection: a.E, dismissButton: u });
     },
     970: (e, t, n) => {
       if ((n.d(t, { l: () => u }), 1388 == n.j)) var i = n(20434);
       if (1388 == n.j) var o = n(77176);
-      if (1388 == n.j) var r = n(22232);
-      if (1388 == n.j) var a = n(55415);
+      if (1388 == n.j) var a = n(22232);
+      if (1388 == n.j) var r = n(55415);
       var s = n(34217);
       if (1388 == n.j) var c = n(92426);
       if (1388 == n.j) var l = n(95529);
@@ -2501,9 +2501,9 @@
           s.Z.fromSideEffect(
             (e) => {
               if (e.kind === c.je.dismissTerm) t.next({ kind: i.p4.Kind.dismissTerm, itemId: e.itemId, termId: e.termId });
-              else (0, r.L0)(e.kind);
+              else (0, a.L0)(e.kind);
             },
-            e.pipe(o.U(a.H6("itemId", "termId")))
+            e.pipe(o.U(r.H6("itemId", "termId")))
           ),
         u = (e, t) => s.Z.composeKnot({ suggestCorrection: (0, l.H)(e, t), dismissButton: d(e, t) });
     },
@@ -2511,8 +2511,8 @@
       n.d(t, { E: () => p, j: () => i });
       var i,
         o = n(27378),
-        r = n(70604),
-        a = n(64757),
+        a = n(70604),
+        r = n(64757),
         s = n(77176),
         c = n(8543),
         l = n(34217),
@@ -2531,7 +2531,7 @@
                 () => null,
                 (e) =>
                   o.createElement(
-                    a.zx.Flat,
+                    r.zx.Flat,
                     {
                       title: "Edit",
                       key: "edit-button",
@@ -2543,7 +2543,7 @@
                       href: e,
                       onClick: t({ kind: i.suggestEditAction })
                     },
-                    o.createElement(r.g, { className: u.icon })
+                    o.createElement(a.g, { className: u.icon })
                   )
               )
             )
@@ -2554,37 +2554,37 @@
     95529: (e, t, n) => {
       if ((n.d(t, { H: () => l }), 1388 == n.j)) var i = n(20434);
       if (1388 == n.j) var o = n(77176);
-      if (1388 == n.j) var r = n(22232);
-      if (1388 == n.j) var a = n(55415);
+      if (1388 == n.j) var a = n(22232);
+      if (1388 == n.j) var r = n(55415);
       var s = n(34217);
       if (1388 == n.j) var c = n(83876);
       const l = (e, t) =>
         s.Z.fromSideEffect(
           (e) => {
             if (e.kind === c.j.suggestEditAction) t.next({ kind: i.p4.Kind.suggestEdit });
-            else (0, r.L0)(e.kind);
+            else (0, a.L0)(e.kind);
           },
-          e.pipe(o.U(a.H6("suggestCorrectionUrl")))
+          e.pipe(o.U(r.H6("suggestCorrectionUrl")))
         );
     },
     622: (e, t, n) => {
       if ((n.d(t, { A: () => p }), 1388 == n.j)) var i = n(17771);
       if (1388 == n.j) var o = n(57050);
-      if (1388 == n.j) var r = n(93508);
-      if (1388 == n.j) var a = n(77176);
+      if (1388 == n.j) var a = n(93508);
+      if (1388 == n.j) var r = n(77176);
       if (1388 == n.j) var s = n(5114);
       if (1388 == n.j) var c = n(55415);
       var l = n(34217);
-      const d = (e) => () => (0, o.zG)(e, r.O(s.none)),
-        u = (e) => () => (0, o.zG)(e, r.O({ headerText: "" })),
-        p = (e) => l.Z.composeKnot({ root: u(e), headerIcon: d(e.pipe(a.U((0, o.ls)(c.H6("headerIconSrc"), i.Y(s.option))))) });
+      const d = (e) => () => (0, o.zG)(e, a.O(s.none)),
+        u = (e) => () => (0, o.zG)(e, a.O({ headerText: "" })),
+        p = (e) => l.Z.composeKnot({ root: u(e), headerIcon: d(e.pipe(r.U((0, o.ls)(c.H6("headerIconSrc"), i.Y(s.option))))) });
     },
     6850: (e, t, n) => {
-      n.d(t, { je: () => Z, u0: () => q });
+      n.d(t, { je: () => R, u0: () => q });
       var i = n(27378),
         o = n(57050),
-        r = n(37869),
-        a = n(97867),
+        a = n(37869),
+        r = n(97867),
         s = n(5114),
         c = n(20909);
       const l = ({
@@ -2597,24 +2597,24 @@
         children: p,
         onPopperMount: m = o.Q1
       }) => {
-        const f = i.useRef(null),
-          [h, g] = i.useState(null),
+        const h = i.useRef(null),
+          [f, g] = i.useState(null),
           [v, b] = i.useState(null);
         i.useEffect(() => {
-          h && m(h);
-        }, [h]);
+          f && m(f);
+        }, [f]);
         const {
             styles: k,
             attributes: w,
             state: E
-          } = (0, r.D)(u, h, {
+          } = (0, a.D)(u, f, {
             placement: t,
             modifiers: [
               { name: "preventOverflow", options: { padding: 8 } },
               { name: "eventListeners", enabled: !1 },
               ...(n
                 ? [
-                    { name: "offset", options: { offset: [0, a.uy] } },
+                    { name: "offset", options: { offset: [0, r.uy] } },
                     { name: "arrow", options: { element: v, padding: 5 } }
                   ]
                 : [])
@@ -2623,7 +2623,7 @@
           y = (null == E ? void 0 : E.placement) || null;
         return (
           i.useEffect(() => {
-            y !== f.current && ((f.current = y), d(s.fromNullable(y)));
+            y !== h.current && ((h.current = y), d(s.fromNullable(y)));
           }),
           i.createElement(
             "div",
@@ -2636,7 +2636,7 @@
               ...w.popper
             },
             p,
-            n && i.createElement(a.QH, { ref: b, style: k.arrow, placement: y })
+            n && i.createElement(r.QH, { ref: b, style: k.arrow, placement: y })
           )
         );
       };
@@ -2644,8 +2644,8 @@
         u = n(77176),
         p = n(8543),
         m = n(34217),
-        f = n(12921),
-        h = n(16853),
+        h = n(12921),
+        f = n(16853),
         g = n(64015),
         v = n(87783);
       const b = m.UI.Node.make(({ state: e }) =>
@@ -2667,13 +2667,13 @@
         y = m.UI.Union.asOption(E);
       var C = n(48834);
       const I = m.UI.Node.make(({ view: e }) => i.createElement(p.F.div, { className: C.primaryTitle }, e("articleTitle")));
-      var S = n(6006),
-        _ = n(35855);
-      const j = m.UI.Node.make(({ view: e }) => i.createElement(p.F.div, { className: S.text }, e("articleContent"))),
+      var _ = n(6006),
+        j = n(35855);
+      const S = m.UI.Node.make(({ view: e }) => i.createElement(p.F.div, { className: _.text }, e("articleContent"))),
         U = m.UI.Grid.make(({ slots: e }) =>
           i.createElement("div", { "data-grammarly-part": "knowledge-hub-article-content" }, e.articleContent, e.copyButton)
         ),
-        N = m.UI.Knot.make(U, { articleContent: j, copyButton: _.q }),
+        N = m.UI.Knot.make(U, { articleContent: S, copyButton: j.q }),
         x = m.UI.Union.asOption(N);
       var T = n(1530);
       const K = m.UI.Grid.make(({ slots: e }) =>
@@ -2685,7 +2685,7 @@
             e.peopleList
           )
         ),
-        L = m.UI.Knot.make(K, { title: I, aliases: y, description: x, relatedMaterialsList: h.F7, peopleList: f.bL });
+        L = m.UI.Knot.make(K, { title: I, aliases: y, description: x, relatedMaterialsList: f.F7, peopleList: h.bL });
       var A = n(92426),
         H = n(91450);
       const M = m.UI.Node.make(({ view: e }) =>
@@ -2717,11 +2717,11 @@
             i.createElement("div", { "data-grammarly-part": "knowledge-hub-card", className: O.card }, e.header, e.content, e.footer)
           )
         ),
-        R = m.UI.Knot.make(B, { header: P, content: L, footer: A.$_ });
-      var Z;
+        Z = m.UI.Knot.make(B, { header: P, content: L, footer: A.$_ });
+      var R;
       !(function (e) {
         e.hovered = "hovered";
-      })(Z || (Z = {}));
+      })(R || (R = {}));
       const G = m.UI.Grid.make(({ state: e, slots: t, notify: n }) =>
           i.createElement(
             p.F.Fragment,
@@ -2736,7 +2736,7 @@
                     zIndex: d.G.knowledgeHub,
                     showArrow: !1,
                     referenceElement: e,
-                    onHover: (e) => o !== e && n({ kind: Z.hovered, hovered: e })()
+                    onHover: (e) => o !== e && n({ kind: R.hovered, hovered: e })()
                   },
                   t.content
                 )
@@ -2744,14 +2744,14 @@
             )
           )
         ),
-        z = m.UI.Knot.make(G, { content: R }),
+        z = m.UI.Knot.make(G, { content: Z }),
         q = m.UI.Union.asOption(z);
     },
     2597: (e, t, n) => {
-      if ((n.d(t, { Z: () => h }), 1388 == n.j)) var i = n(60797);
+      if ((n.d(t, { Z: () => f }), 1388 == n.j)) var i = n(60797);
       if (1388 == n.j) var o = n(77176);
-      if (1388 == n.j) var r = n(76974);
-      if (1388 == n.j) var a = n(22232);
+      if (1388 == n.j) var a = n(76974);
+      if (1388 == n.j) var r = n(22232);
       if (1388 == n.j) var s = n(5114);
       if (1388 == n.j) var c = n(55415);
       var l = n(34217);
@@ -2759,17 +2759,17 @@
       if (1388 == n.j) var u = n(14395);
       if (1388 == n.j) var p = n(970);
       if (1388 == n.j) var m = n(622);
-      if (1388 == n.j) var f = n(6850);
-      const h = (e) => {
+      if (1388 == n.j) var h = n(6850);
+      const f = (e) => {
         return l.Z.composeUnion(
           {
-            None: () => r.of(null),
+            None: () => a.of(null),
             Some: l.Z.composeKnot({
               value: l.Z.composeKnot({
                 root: l.Z.fromSideEffect(
                   (t) => {
-                    if (t.kind === f.je.hovered) e.actions.next({ kind: d.p4.Kind.highlightMenuHovered, hovered: t.hovered });
-                    else (0, a.L0)(t.kind);
+                    if (t.kind === h.je.hovered) e.actions.next({ kind: d.p4.Kind.highlightMenuHovered, hovered: t.hovered });
+                    else (0, r.L0)(t.kind);
                   },
                   e.state.view(s.map(c.H6("highlightNode", "hovered"))).pipe(i.oA)
                 ),
@@ -2816,8 +2816,8 @@
       n.d(t, { y: () => M });
       var i,
         o,
-        r = n(57050),
-        a = n(64015),
+        a = n(57050),
+        r = n(64015),
         s = n(20434),
         c = n(40435),
         l = n(14601),
@@ -2825,8 +2825,8 @@
         u = n(41398),
         p = n(2834),
         m = n(77176),
-        f = n(85985),
-        h = n(55415),
+        h = n(85985),
+        f = n(55415),
         g = n(23239);
       !(function (e) {
         e.Impl = class {
@@ -2847,7 +2847,7 @@
               .F(1e3)
               .pipe(
                 u.M(this._state),
-                p.b(() => this._state.modify(a.hX((e) => Date.now() < e.dismissTimestamp)))
+                p.b(() => this._state.modify(r.hX((e) => Date.now() < e.dismissTimestamp)))
               )
               .subscribe();
           }
@@ -2855,10 +2855,10 @@
             return this.actions
               .pipe(
                 s.kA.ofKind(s.p4.Kind.showNotification),
-                m.U(h.ei("notification")),
-                f.h(this._notificationRequestRefinement),
+                m.U(f.ei("notification")),
+                h.h(this._notificationRequestRefinement),
                 p.b((e) =>
-                  this._state.modify((0, r.ls)(a.QI(c.P.create(e, this._notificationDurationMs)), a.ke(this._maxNotificationsCountAtOnce)))
+                  this._state.modify((0, a.ls)(r.QI(c.P.create(e, this._notificationDurationMs)), r.ke(this._maxNotificationsCountAtOnce)))
                 )
               )
               .subscribe();
@@ -2867,7 +2867,7 @@
             return this.actions
               .pipe(
                 s.kA.ofKind(s.p4.Kind.dismissNotification),
-                p.b(({ notificationId: e }) => this._state.modify(a.hX((t) => t.id !== e)))
+                p.b(({ notificationId: e }) => this._state.modify(r.hX((t) => t.id !== e)))
               )
               .subscribe();
           }
@@ -2914,9 +2914,9 @@
           this._subs.unsubscribe();
         }
       }
-      var S = n(34217),
-        _ = n(17227),
-        j = n(82730),
+      var _ = n(34217),
+        j = n(17227),
+        S = n(82730),
         U = n(46560),
         N = n(76974),
         x = n(31278);
@@ -2933,10 +2933,10 @@
         );
       var K;
       !(function (e) {
-        const t = S.UI.Grid.make(({ notify: e, slots: t, state: n }) =>
+        const t = _.UI.Grid.make(({ notify: e, slots: t, state: n }) =>
             v.createElement(
               "div",
-              { className: _.notification },
+              { className: j.notification },
               t.content,
               v.createElement(
                 C.F.Fragment,
@@ -2944,11 +2944,11 @@
                 n.pipe(
                   m.U(({ id: t }) =>
                     v.createElement(
-                      j.o.Tertiary,
+                      S.o.Tertiary,
                       {
                         name: "close-notification",
                         onClick: e({ kind: "dismiss", id: t }),
-                        className: _.closeButton,
+                        className: j.closeButton,
                         theme: "dark",
                         compact: !0
                       },
@@ -2960,24 +2960,24 @@
             )
           ),
           n = (e) =>
-            S.UI.Node.make(() =>
+            _.UI.Node.make(() =>
               v.createElement(
                 "div",
-                { className: _.iconAndText },
-                v.createElement(T, { width: 24, className: _.icon }),
+                { className: j.iconAndText },
+                v.createElement(T, { width: 24, className: j.icon }),
                 v.createElement("span", null, e)
               )
             ),
-          i = S.UI.Union.make("kind", {
+          i = _.UI.Union.make("kind", {
             textCopiedSuccess: n("Name Copied"),
             descriptionCopiedSuccess: n("Description Copied"),
             termDismissedSuccess: n("Will no longer be highlighted by Knowledge Share")
           });
-        (e.UIPart = S.UI.Knot.make(t, { content: i })),
+        (e.UIPart = _.UI.Knot.make(t, { content: i })),
           (e.createFlow = function (e, t) {
-            return S.Z.composeKnot({
-              root: S.Z.fromSideEffect((e) => t.next({ kind: s.p4.Kind.dismissNotification, notificationId: e.id }), e),
-              content: S.Z.composeUnion(
+            return _.Z.composeKnot({
+              root: _.Z.fromSideEffect((e) => t.next({ kind: s.p4.Kind.dismissNotification, notificationId: e.id }), e),
+              content: _.Z.composeUnion(
                 { textCopiedSuccess: () => N.of(null), descriptionCopiedSuccess: () => N.of(null), termDismissedSuccess: () => N.of(null) },
                 () => e
               )
@@ -2988,14 +2988,14 @@
         A = n(98679),
         H = n(60797);
       !(function (e) {
-        const t = S.UI.Grid.make(({ slots: e }) => v.createElement(C.F.div, { className: A.notificationsContainer }, e.notification)),
-          n = S.UI.List.make(a.Bk, K.UIPart);
-        (e.UIPart = S.UI.Composite.make(t, n)),
+        const t = _.UI.Grid.make(({ slots: e }) => v.createElement(C.F.div, { className: A.notificationsContainer }, e.notification)),
+          n = _.UI.List.make(r.Bk, K.UIPart);
+        (e.UIPart = _.UI.Composite.make(t, n)),
           (e.createFlow = function (e) {
-            return S.Z.composeList(
-              a.Bk,
-              () => e.state.view(a.UI((e) => e.id)),
-              (t) => K.createFlow(e.state.view(a.Ew((e) => e.id === t)).pipe(H.oA), e.actions)
+            return _.Z.composeList(
+              r.Bk,
+              () => e.state.view(r.UI((e) => e.id)),
+              (t) => K.createFlow(e.state.view(r.Ew((e) => e.id === t)).pipe(H.oA), e.actions)
             );
           });
       })(L || (L = {}));
@@ -3003,7 +3003,7 @@
         constructor(e) {
           (this.actions = e),
             (this._viewModel = new o.Impl(this.actions)),
-            (this._notificationsInjectionManager = new I(() => S.UI.mount(L.UIPart, L.createFlow(this._viewModel))));
+            (this._notificationsInjectionManager = new I(() => _.UI.mount(L.UIPart, L.createFlow(this._viewModel))));
         }
         static getInstance(e) {
           return M._subscribersCount++, M._instance || (M._instance = new M(e)), M._instance;
@@ -3019,7 +3019,7 @@
       n.d(t, { P: () => i });
       var i,
         o = n(48015),
-        r = n(22232);
+        a = n(22232);
       !(function (e) {
         let t, n, i;
         !(function (e) {
@@ -3035,7 +3035,7 @@
               return e.kind in t.Kind;
             };
           })((n = e.Request || (e.Request = {}))),
-          (0, r.L0)(void 0),
+          (0, a.L0)(void 0),
           (function (e) {
             e.is = function (e) {
               return (t) => t.kind === e;
@@ -3049,7 +3049,7 @@
               case t.Kind.termDismissedSuccess:
                 return { ...e, ...i };
               default:
-                (0, r.L0)(e);
+                (0, a.L0)(e);
             }
           });
       })(i || (i = {}));
@@ -3058,7 +3058,7 @@
       n.d(t, { q: () => i });
       var i,
         o = n(69243),
-        r = n(73975);
+        a = n(73975);
       !(function (e) {
         let t;
         !(function (e) {
@@ -3066,31 +3066,31 @@
             (e.create = function (e) {
               return e;
             }),
-            (e.eq = r.yv);
+            (e.eq = a.yv);
         })((t = e.Id || (e.Id = {}))),
-          (e.eq = r.MW({ id: t.eq, span: r.MW({ s: r.lr, e: r.lr }) }));
+          (e.eq = a.MW({ id: t.eq, span: a.MW({ s: a.lr, e: a.lr }) }));
       })(i || (i = {}));
     },
     47258: (e, t, n) => {
-      if ((n.d(t, { q: () => a }), 1388 == n.j)) var i = n(7604);
+      if ((n.d(t, { q: () => r }), 1388 == n.j)) var i = n(7604);
       if (1388 == n.j) var o = n(2844);
-      if (1388 == n.j) var r = n(77176);
-      class a {
+      if (1388 == n.j) var a = n(77176);
+      class r {
         constructor(e) {
           this._annotationsStateService = e;
         }
         getHoveredStateBehavior(e) {
           return o
             .aj([this._annotationsStateService.hoveredAnnotation, this._annotationsStateService.activeAnnotation])
-            .pipe(r.U(([t, n]) => ((t && t.highlightIds.includes(e)) || (n && n.highlightIds.includes(e)) ? i.pc.hovered : i.pc.none)));
+            .pipe(a.U(([t, n]) => ((t && t.highlightIds.includes(e)) || (n && n.highlightIds.includes(e)) ? i.pc.hovered : i.pc.none)));
         }
       }
     },
     1012: (e, t, n) => {
-      if ((n.d(t, { C: () => h }), 1388 == n.j)) var i = n(55649);
+      if ((n.d(t, { C: () => f }), 1388 == n.j)) var i = n(55649);
       if (1388 == n.j) var o = n(66310);
-      if (1388 == n.j) var r = n(76974);
-      if (1388 == n.j) var a = n(13444);
+      if (1388 == n.j) var a = n(76974);
+      if (1388 == n.j) var r = n(13444);
       if (1388 == n.j) var s = n(24209);
       if (1388 == n.j) var c = n(40151);
       if (1388 == n.j) var l = n(17343);
@@ -3098,13 +3098,13 @@
       if (1388 == n.j) var u = n(23063);
       if (1388 == n.j) var p = n(93508);
       if (1388 == n.j) var m = n(19751);
-      if (1388 == n.j) var f = n(57073);
-      class h extends (1388 == n.j ? f.LH : null) {
+      if (1388 == n.j) var h = n(57073);
+      class f extends (1388 == n.j ? h.LH : null) {
         constructor(e, t = i.Y.create("HoverToOpenAnnotationStateService")) {
           super(e, t),
             (this.hoveredAnnotation = this._rawHoveredAnnotation.pipe(
               this._switchByDisplayedCard(),
-              o.w((e) => r.of(e).pipe(a.g(e || !this._options.getCurrentCardAnnotationState() ? 0 : 500))),
+              o.w((e) => a.of(e).pipe(r.g(e || !this._options.getCurrentCardAnnotationState() ? 0 : 500))),
               o.w((e) =>
                 e
                   ? s
@@ -3118,10 +3118,10 @@
                         u.q(1),
                         p.O(e)
                       )
-                  : r.of(null)
+                  : a.of(null)
               ),
               p.O(null),
-              m.skipBy(f.Cn.getEqById()),
+              m.skipBy(h.Cn.getEqById()),
               m.shareReplay({ bufferSize: 1, refCount: !0 })
             )),
             (this.activeAnnotation = this.hoveredAnnotation);
@@ -3129,10 +3129,10 @@
       }
     },
     57073: (e, t, n) => {
-      if ((n.d(t, { Cn: () => C, LH: () => _, ss: () => j }), 1388 == n.j)) var i = n(17771);
+      if ((n.d(t, { Cn: () => C, LH: () => j, ss: () => S }), 1388 == n.j)) var i = n(17771);
       if (1388 == n.j) var o = n(57050);
-      if (1388 == n.j) var r = n(17889);
-      if (1388 == n.j) var a = n(55649);
+      if (1388 == n.j) var a = n(17889);
+      if (1388 == n.j) var r = n(55649);
       if (1388 == n.j) var s = n(62874);
       if (1388 == n.j) var c = n(89456);
       if (1388 == n.j) var l = n(14505);
@@ -3140,8 +3140,8 @@
       if (1388 == n.j) var u = n(81964);
       if (1388 == n.j) var p = n(13718);
       if (1388 == n.j) var m = n(19751);
-      if (1388 == n.j) var f = n(77176);
-      if (1388 == n.j) var h = n(85985);
+      if (1388 == n.j) var h = n(77176);
+      if (1388 == n.j) var f = n(85985);
       if (1388 == n.j) var g = n(17343);
       if (1388 == n.j) var v = n(2834);
       if (1388 == n.j) var b = n(66310);
@@ -3151,20 +3151,20 @@
       if (1388 == n.j) var y = n(38194);
       var C,
         I = n(73975);
-      if (1388 == n.j) var S = n(5114);
+      if (1388 == n.j) var _ = n(5114);
       !(function (e) {
         e.getEqById = function () {
           return I.f7((e, t) => (e && t ? e.annotation.id === t.annotation.id : e === t));
         };
       })(C || (C = {}));
-      class _ {
-        constructor(e, t = a.Y.create("AnnotationsStateServiceBase")) {
+      class j {
+        constructor(e, t = r.Y.create("AnnotationsStateServiceBase")) {
           (this._options = e),
             (this._log = t),
             (this._rawHoveredAnnotation = this._options.mouseData.pipe(
               p.U(s.S.hz30),
               m.skipBy(l.Zr.eq),
-              f.U(({ client: e, offset: t }) => {
+              h.U(({ client: e, offset: t }) => {
                 if (e && t && (0, u._N)(e, this._options.textNode)) {
                   const e = this._options.highlightGeometry.geometry.get();
                   return Array.from(e.keys()).reduce((n, i) => {
@@ -3188,24 +3188,24 @@
                 }
                 return null;
               }),
-              f.U((e) => {
+              h.U((e) => {
                 if (!e) return null;
                 const t = this._options.highlightGeometry.geometry.get(),
                   n = [],
-                  a = [];
+                  r = [];
                 return (
                   t.forEach((t, i) => {
-                    t.meta.annotation.id === e.annotation.id && (n.push(i), a.push(...t.rects));
+                    t.meta.annotation.id === e.annotation.id && (n.push(i), r.push(...t.rects));
                   }),
                   (0, o.zG)(
-                    i.Y(S.option)({
-                      annotation: S.some(e.annotation),
-                      activeHighlightId: S.some(e.activeHighlightId),
-                      activeHighlightRect: S.some(e.activeHighlightRect),
-                      highlightIds: r.c2(n),
-                      highlightRects: r.c2(a)
+                    i.Y(_.option)({
+                      annotation: _.some(e.annotation),
+                      activeHighlightId: _.some(e.activeHighlightId),
+                      activeHighlightRect: _.some(e.activeHighlightRect),
+                      highlightIds: a.c2(n),
+                      highlightRects: a.c2(r)
                     }),
-                    S.toNullable
+                    _.toNullable
                   )
                 );
               }),
@@ -3214,19 +3214,19 @@
             )),
             (this._offByUpdatedGeometry = (e) =>
               this._options.highlightGeometry.geometry.pipe(
-                f.U((t) => (e && t.has(e.activeHighlightId) ? e : null)),
-                h.h((e) => null === e),
+                h.U((t) => (e && t.has(e.activeHighlightId) ? e : null)),
+                f.h((e) => null === e),
                 g.h(null),
                 v.b((e) => this._log.trace("OffByUpdatedGeometry", e))
               )),
             (this._switchByDisplayedCard = () =>
               (0, o.ls)(
-                b.w((e) => this._options.cardHovered.pipe(f.U((t) => (t ? this._options.getCurrentCardAnnotationState() : e)))),
+                b.w((e) => this._options.cardHovered.pipe(h.U((t) => (t ? this._options.getCurrentCardAnnotationState() : e)))),
                 m.skipBy(C.getEqById())
               ));
         }
       }
-      function j(e, t) {
+      function S(e, t) {
         return k
           .T(
             e.rect.changes.pipe(v.b(() => t.trace("Text field position, size has been changed"))),
@@ -3237,11 +3237,11 @@
       }
     },
     75581: (e, t, n) => {
-      n.d(t, { Lu: () => r, hX: () => i, jA: () => o });
+      n.d(t, { Lu: () => a, hX: () => i, jA: () => o });
       var i,
         o,
-        r,
-        a = n(22232);
+        a,
+        r = n(22232);
       !(function (e) {
         e.create = function (e) {
           return e;
@@ -3273,17 +3273,17 @@
             })((n = e.KnowledgeHub || (e.KnowledgeHub = {}))),
             (e.isKnowledgeHub = n.isItem);
         })(o || (o = {})),
-        (0, a.L0)(void 0),
+        (0, r.L0)(void 0),
         (function (e) {
           (e.LOOKED = "LOOKED"), (e.IGNORE = "IGNORE");
-        })(r || (r = {}));
+        })(a || (a = {}));
     },
     85467: (e, t, n) => {
       n.d(t, { I: () => i, n: () => o });
       var i,
         o,
-        r = n(22232),
-        a = n(73975);
+        a = n(22232),
+        r = n(73975);
       !(function (e) {
         let t, n;
         !(function (e) {
@@ -3295,17 +3295,17 @@
             };
           })((n = e.KnowledgeHub || (e.KnowledgeHub = {})));
       })(i || (i = {})),
-        (0, r.L0)(void 0),
+        (0, a.L0)(void 0),
         (function (e) {
-          e.eq = a.yv;
+          e.eq = r.yv;
         })(o || (o = {}));
     },
     88571: (e, t, n) => {
       n.d(t, { Q: () => c });
       var i = n(27378),
         o = n(15073),
-        r = n(60797),
-        a = n(95300),
+        a = n(60797),
+        r = n(95300),
         s = n(5114);
       const c = ({ children: e, remSize: t, setter: n }) => (
         (l += 1),
@@ -3317,10 +3317,10 @@
             e.unsubscribe(), (l -= 1), 0 === l && (d.next(s.none), n(s.none));
           };
         }, [t]),
-        i.createElement(o.u.Context.Provider, { value: d.pipe(r.oA) }, e)
+        i.createElement(o.u.Context.Provider, { value: d.pipe(a.oA) }, e)
       );
       let l = 0;
-      const d = new a.X(s.none);
+      const d = new r.X(s.none);
     },
     83825: (e, t, n) => {
       var i, o;
@@ -3336,22 +3336,22 @@
       n.d(t, { o: () => i });
       var i,
         o = n(27378),
-        r = n(64757),
-        a = n(54001),
+        a = n(64757),
+        r = n(54001),
         s = n(52102);
       !(function (e) {
         (e.Primary = ({ className: e, theme: t, compact: n, children: i, ...c }) =>
-          o.createElement(r.zx.Primary, { ...(0, a.Sh)(s.button, e, "dark" === t ? s.dark : void 0, n ? s.noPadding : void 0), ...c }, i)),
+          o.createElement(a.zx.Primary, { ...(0, r.Sh)(s.button, e, "dark" === t ? s.dark : void 0, n ? s.noPadding : void 0), ...c }, i)),
           (e.Secondary = ({ className: e, theme: t, compact: n, children: i, ...c }) =>
             o.createElement(
-              r.zx.Ghost,
-              { ...(0, a.Sh)(s.button, s.secondary, e, "dark" === t ? s.dark : void 0, n ? s.noPadding : void 0), ...c },
+              a.zx.Ghost,
+              { ...(0, r.Sh)(s.button, s.secondary, e, "dark" === t ? s.dark : void 0, n ? s.noPadding : void 0), ...c },
               i
             )),
           (e.Tertiary = ({ className: e, theme: t, compact: n, children: i, ...c }) =>
             o.createElement(
-              r.zx.Tertiary,
-              { ...(0, a.Sh)(s.button, s.tertiary, e, "dark" === t ? s.dark : void 0, n ? s.noPadding : void 0), ...c },
+              a.zx.Tertiary,
+              { ...(0, r.Sh)(s.button, s.tertiary, e, "dark" === t ? s.dark : void 0, n ? s.noPadding : void 0), ...c },
               i
             ));
       })(i || (i = {}));
@@ -3360,10 +3360,10 @@
       n.d(t, { X: () => d });
       var i = n(27378),
         o = n(21899),
-        r = n(54001),
-        a = n(55047),
-        s = n.n(a);
-      const c = ({ isActive: e }) => i.createElement("div", { ...(0, r.Sh)(s().progressDot, e && s().active) }),
+        a = n(54001),
+        r = n(55047),
+        s = n.n(r);
+      const c = ({ isActive: e }) => i.createElement("div", { ...(0, a.Sh)(s().progressDot, e && s().active) }),
         l = ({ stepIndex: e, totalSteps: t }) =>
           i.createElement(
             "div",
@@ -3371,7 +3371,7 @@
             [...Array(t).keys()].map((t) => i.createElement(c, { key: t, isActive: t === e })),
             `${e + 1}/${t}`
           ),
-        d = ({ title: e, skipText: t, nextText: n, index: r, totalSteps: a, onSkipClick: c, onNextClick: d }) =>
+        d = ({ title: e, skipText: t, nextText: n, index: a, totalSteps: r, onSkipClick: c, onNextClick: d }) =>
           i.createElement(
             "div",
             { className: s().newContent },
@@ -3379,7 +3379,7 @@
             i.createElement(
               "div",
               { className: s().buttonRow },
-              i.createElement(l, { stepIndex: r, totalSteps: a }),
+              i.createElement(l, { stepIndex: a, totalSteps: r }),
               i.createElement(
                 "div",
                 null,
@@ -3393,349 +3393,43 @@
       n.d(t, { C9: () => d, KM: () => l, PZ: () => u });
       var i = n(72154),
         o = n(27378),
-        r = n(96309),
-        a = n(54001),
+        a = n(96309),
+        r = n(54001),
         s = n(17330),
         c = n.n(s);
       const l = (e) =>
           o.createElement(
             i.M,
             { clickHandler: e.clickHandler },
-            o.createElement("button", { ...(0, a.Sh)(c().buttonPrimary, e.className) }, e.children)
+            o.createElement("button", { ...(0, r.Sh)(c().buttonPrimary, e.className) }, e.children)
           ),
         d = (e) =>
           o.createElement(
             i.M,
             { clickHandler: e.clickHandler },
-            o.createElement("button", { ...(0, a.Sh)(c().buttonTertiary, e.className) }, e.children)
+            o.createElement("button", { ...(0, r.Sh)(c().buttonTertiary, e.className) }, e.children)
           ),
         u = (e) =>
           o.createElement(
             i.M,
             { dataGrammarlyPart: "btnCloseOnboarding", clickHandler: e.clickHandler },
-            o.createElement(r.P, { color: "white" })
+            o.createElement(a.P, { color: "white" })
           );
     },
     57757: (e, t, n) => {
-      n.d(t, { v: () => r });
+      n.d(t, { v: () => a });
       var i = n(44586),
         o = n(95195);
-      function r(e, t = self) {
+      function a(e, t = self) {
         return new i.y((n) => {
-          var i, r;
-          (null === (r = null === (i = t.navigator) || void 0 === i ? void 0 : i.clipboard) || void 0 === r ? void 0 : r.writeText)
+          var i, a;
+          (null === (a = null === (i = t.navigator) || void 0 === i ? void 0 : i.clipboard) || void 0 === a ? void 0 : a.writeText)
             ? t.navigator.clipboard
                 .writeText(e)
                 .then(() => n.next(o.right(void 0)))
                 .catch((e) => n.next(o.left(new Error(String(e)))))
             : n.next(o.left(new Error("The Clipboard API is not available.")));
         });
-      }
-    },
-    13853: (e, t, n) => {
-      n.d(t, {
-        $T: () => _,
-        AO: () => c,
-        DZ: () => T,
-        Eh: () => l,
-        G: () => d,
-        G0: () => v,
-        KX: () => f,
-        Lf: () => E,
-        Lx: () => I,
-        Od: () => j,
-        Sq: () => r,
-        UI: () => u,
-        ZN: () => a,
-        cS: () => s,
-        e5: () => w,
-        hX: () => h,
-        jV: () => b,
-        nI: () => U,
-        oA: () => N,
-        oP: () => y,
-        ri: () => S,
-        t9: () => g,
-        tS: () => m,
-        tV: () => k,
-        u4: () => C,
-        xu: () => x,
-        yW: () => p
-      });
-      var i = n(73975),
-        o = n(57050);
-      function r(e) {
-        return new Set(e);
-      }
-      function a(e) {
-        return {
-          show: function (t) {
-            var n = "";
-            return (
-              t.forEach(function (t) {
-                n += e.show(t) + ", ";
-              }),
-              "" !== n && (n = n.substring(0, n.length - 2)),
-              "new Set([" + n + "])"
-            );
-          }
-        };
-      }
-      var s = new Set();
-      function c(e) {
-        return function (t) {
-          var n = [];
-          return (
-            t.forEach(function (e) {
-              return n.push(e);
-            }),
-            n.sort(e.compare)
-          );
-        };
-      }
-      function l(e) {
-        var t = f(e);
-        return (0, i.f7)(function (e, n) {
-          return t(e, n) && t(n, e);
-        });
-      }
-      function d(e) {
-        return function (t) {
-          for (var n, i = t.values(), o = !1; !o && !(n = i.next()).done; ) o = e(n.value);
-          return o;
-        };
-      }
-      function u(e) {
-        var t = g(e);
-        return function (e) {
-          return function (n) {
-            var i = new Set();
-            return (
-              n.forEach(function (n) {
-                var o = e(n);
-                t(o, i) || i.add(o);
-              }),
-              i
-            );
-          };
-        };
-      }
-      function p(e) {
-        return (0, o.ff)(d((0, o.ff)(e)));
-      }
-      function m(e) {
-        var t = g(e);
-        return function (e) {
-          return function (n) {
-            var i = new Set();
-            return (
-              n.forEach(function (n) {
-                e(n).forEach(function (e) {
-                  t(e, i) || i.add(e);
-                });
-              }),
-              i
-            );
-          };
-        };
-      }
-      function f(e) {
-        var t = g(e);
-        return function (n, i) {
-          if (void 0 === i) {
-            var o = f(e);
-            return function (e) {
-              return o(e, n);
-            };
-          }
-          return p(function (e) {
-            return t(e, i);
-          })(n);
-        };
-      }
-      function h(e) {
-        return function (t) {
-          for (var n, i = t.values(), o = new Set(); !(n = i.next()).done; ) {
-            var r = n.value;
-            e(r) && o.add(r);
-          }
-          return o;
-        };
-      }
-      function g(e) {
-        return function (t, n) {
-          if (void 0 === n) {
-            var i = g(e);
-            return function (e) {
-              return i(t, e);
-            };
-          }
-          for (var o, r = n.values(), a = !1; !a && !(o = r.next()).done; ) a = e.equals(t, o.value);
-          return a;
-        };
-      }
-      function v(e) {
-        var t = g(e);
-        return function (n, i) {
-          if (void 0 === i) {
-            var o = v(e);
-            return function (e) {
-              return o(n, e);
-            };
-          }
-          if (n === s) return i;
-          if (i === s) return n;
-          var r = new Set(n);
-          return (
-            i.forEach(function (e) {
-              t(e, r) || r.add(e);
-            }),
-            r
-          );
-        };
-      }
-      function b(e) {
-        var t = g(e);
-        return function (n, i) {
-          if (void 0 === i) {
-            var o = b(e);
-            return function (e) {
-              return o(e, n);
-            };
-          }
-          if (n === s || i === s) return s;
-          var r = new Set();
-          return (
-            n.forEach(function (e) {
-              t(e, i) && r.add(e);
-            }),
-            r
-          );
-        };
-      }
-      function k(e, t) {
-        return function (n) {
-          return function (i) {
-            for (var o, r = i.values(), a = new Set(), s = new Set(), c = g(e), l = g(t); !(o = r.next()).done; ) {
-              var d = n(o.value);
-              switch (d._tag) {
-                case "Left":
-                  c(d.left, a) || a.add(d.left);
-                  break;
-                case "Right":
-                  l(d.right, s) || s.add(d.right);
-              }
-            }
-            return { left: a, right: s };
-          };
-        };
-      }
-      function w(e) {
-        var t = g(e);
-        return function (n, i) {
-          if (void 0 === i) {
-            var o = w(e);
-            return function (e) {
-              return o(e, n);
-            };
-          }
-          return h(function (e) {
-            return !t(e, i);
-          })(n);
-        };
-      }
-      function E(e) {
-        return { concat: v(e), empty: s };
-      }
-      function y(e) {
-        return { concat: b(e) };
-      }
-      function C(e) {
-        var t = c(e);
-        return function (e, n) {
-          return function (i) {
-            return t(i).reduce(n, e);
-          };
-        };
-      }
-      function I(e, t) {
-        var n = c(e);
-        return function (e) {
-          return function (i) {
-            return n(i).reduce(function (n, i) {
-              return t.concat(n, e(i));
-            }, t.empty);
-          };
-        };
-      }
-      function S(e) {
-        return new Set([e]);
-      }
-      function _(e) {
-        var t = g(e);
-        return function (e) {
-          return function (n) {
-            if (t(e)(n)) return n;
-            var i = new Set(n);
-            return i.add(e), i;
-          };
-        };
-      }
-      function j(e) {
-        return function (t) {
-          return function (n) {
-            return h(function (n) {
-              return !e.equals(t, n);
-            })(n);
-          };
-        };
-      }
-      function U(e) {
-        return function (t) {
-          for (var n = t.length, i = new Set(), o = g(e), r = 0; r < n; r++) {
-            var a = t[r];
-            o(a, i) || i.add(a);
-          }
-          return i;
-        };
-      }
-      function N(e) {
-        return T(e)(o.yR);
-      }
-      function x(e, t) {
-        return function (n) {
-          var i = g(e),
-            o = g(t),
-            r = new Set(),
-            a = new Set();
-          return (
-            n.forEach(function (e) {
-              switch (e._tag) {
-                case "Left":
-                  i(e.left, r) || r.add(e.left);
-                  break;
-                case "Right":
-                  o(e.right, a) || a.add(e.right);
-              }
-            }),
-            { left: r, right: a }
-          );
-        };
-      }
-      function T(e) {
-        var t = g(e);
-        return function (e) {
-          return function (n) {
-            var i = new Set();
-            return (
-              n.forEach(function (n) {
-                var o = e(n);
-                "Some" !== o._tag || t(o.value, i) || i.add(o.value);
-              }),
-              i
-            );
-          };
-        };
       }
     },
     16873: (e) => {

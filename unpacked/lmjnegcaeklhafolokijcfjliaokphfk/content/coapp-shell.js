@@ -1,21 +1,22 @@
 (() => {
-  "use strict";
-  render(
-    React.createElement(
-      "div",
-      null,
-      React.createElement(WehHeader, { title: weh._("coapp_shell") }),
+  weh.is_safe.then(() => {
+    render(
       React.createElement(
-        "main",
+        "div",
         null,
-        React.createElement(NativeMessagingShell, {
-          proxyFnName: "coappProxy",
-          exitAppText: weh._("exit_natmsgsh"),
-          clearText: weh._("clear")
-        })
+        React.createElement(WehHeader, { title: weh._("coapp_shell") }),
+        React.createElement(
+          "main",
+          null,
+          React.createElement(NativeMessagingShell, {
+            proxyFnName: "coappProxy",
+            exitAppText: weh._("exit_natmsgsh"),
+            clearText: weh._("clear")
+          })
+        ),
+        React.createElement("footer", null)
       ),
-      React.createElement("footer", null)
-    ),
-    document.getElementById("root")
-  );
+      document.getElementById("root")
+    );
+  });
 })();

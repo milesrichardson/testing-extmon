@@ -84,7 +84,7 @@
               r = function (e, n) {
                 var s = new o(),
                   r = this,
-                  a = { fireOnAttributesModification: !1 };
+                  c = { fireOnAttributesModification: !1 };
                 return (
                   s.beforeAdding(function (i) {
                     var s,
@@ -100,7 +100,7 @@
                     t.observer.disconnect();
                   }),
                   (this.bindEvent = function (t, e, i) {
-                    e = u.mergeArrays(a, e);
+                    e = u.mergeArrays(c, e);
                     for (var n = u.toElementsArray(this), o = 0; o < n.length; o++) s.addEvent(n[o], t, e, i);
                   }),
                   (this.unbindEvent = function () {
@@ -137,7 +137,7 @@
                   this
                 );
               },
-              a = new (function () {
+              c = new (function () {
                 var t = { fireOnAttributesModification: !1, onceOnly: !1, existing: !1 };
                 function e(t, e, n) {
                   return (
@@ -145,7 +145,7 @@
                     (e.firedElems.push(t.D), !0)
                   );
                 }
-                var n = (a = new r(
+                var n = (c = new r(
                   function (t) {
                     var e = { attributes: !1, childList: !0, subtree: !0 };
                     return t.fireOnAttributesModification && (e.attributes = !0), e;
@@ -163,26 +163,26 @@
                   }
                 )).bindEvent;
                 return (
-                  (a.bindEvent = function (e, i, s) {
+                  (c.bindEvent = function (e, i, s) {
                     void 0 === s ? ((s = i), (i = t)) : (i = u.mergeArrays(t, i));
                     var o = u.toElementsArray(this);
                     if (i.existing) {
-                      for (var r = [], a = 0; a < o.length; a++)
-                        for (var c = o[a].querySelectorAll(e), D = 0; D < c.length; D++) r.push({ callback: s, elem: c[D] });
+                      for (var r = [], c = 0; c < o.length; c++)
+                        for (var a = o[c].querySelectorAll(e), D = 0; D < a.length; D++) r.push({ callback: s, elem: a[D] });
                       if (i.onceOnly && r.length) return s.call(r[0].elem, r[0].elem);
                       setTimeout(u.callCallbacks, 1, r);
                     }
                     n.call(this, e, i, s);
                   }),
-                  a
+                  c
                 );
               })(),
-              c = new (function () {
+              a = new (function () {
                 var t = {};
                 function e(t, e) {
                   return u.matchesSelector(t, e.selector);
                 }
-                var i = (c = new r(
+                var i = (a = new r(
                   function () {
                     return { childList: !0, subtree: !0 };
                   },
@@ -195,10 +195,10 @@
                   }
                 )).bindEvent;
                 return (
-                  (c.bindEvent = function (e, n, s) {
+                  (a.bindEvent = function (e, n, s) {
                     void 0 === s ? ((s = n), (n = t)) : (n = u.mergeArrays(t, n)), i.call(this, e, n, s);
                   }),
-                  c
+                  a
                 );
               })();
             e && d(e.fn),
@@ -208,7 +208,7 @@
               d(HTMLDocument.prototype),
               d(Window.prototype);
             var D = {};
-            return h(a, D, "unbindAllArrive"), h(c, D, "unbindAllLeave"), D;
+            return h(c, D, "unbindAllArrive"), h(a, D, "unbindAllLeave"), D;
           }
           function h(t, e, i) {
             u.addMethod(e, i, t.unbindEvent),
@@ -216,17 +216,17 @@
               u.addMethod(e, i, t.unbindEventWithSelectorAndCallback);
           }
           function d(t) {
-            (t.arrive = a.bindEvent), h(a, t, "unbindArrive"), (t.leave = c.bindEvent), h(c, t, "unbindLeave");
+            (t.arrive = c.bindEvent), h(c, t, "unbindArrive"), (t.leave = a.bindEvent), h(a, t, "unbindLeave");
           }
         })(window, "undefined" == typeof jQuery ? null : jQuery, void 0);
       },
       7206: (t) => {
         t.exports =
-          '<div id="chat-wrapper" tpInjected>\r\n    <iframe style="display: none;" id="tpChatFrame" allow="autoplay; clipboard-read; clipboard-write; payment; camera; microphone;" src="{CHAT_URL}">\r\n\r\n    </iframe>\r\n</div>';
+          '<div id="chat-wrapper" tpInjected>\n    <iframe style="display: none;" id="tpChatFrame" allow="autoplay; clipboard-read; clipboard-write; payment; camera; microphone;" src="{CHAT_URL}">\n\n    </iframe>\n</div>';
       },
       4296: (t) => {
         t.exports =
-          '<style tpInjected>\r\n    .hidden {\r\n    display: none !important;\r\n}   \r\n</style>\r\n<div class="hidden" id="tpIconContainer" tpInjected>\r\n    <div class="hidden" id="tp-buttons-container">\r\n        <button id="tp-icon-container">\r\n            <img id="tp-icon-white" src=\'{EXTENSION_LOGO_GRADIENT}\' />\r\n            <img id="play-chat-icon" class="hidden" src=\'{PLAY_CHAT}\' />\r\n            <span class="tooltiptext extension-txt" style="width: 120px;">Open Teleparty</span>\r\n            <div class="hidden" id="tp-message-indicator"></div>\r\n        </button>\r\n        <div class="tp-seperator"></div>\r\n        \x3c!-- <button class="tp-control-button" id="tp-friends-button">\r\n            <img id="tp-friends-image" src=\'{FRIENDS_IMAGE}\' />\r\n            <span class="tooltiptext extension-txt" style="width: 120px;"> Friends List</span>\r\n        </button> --\x3e\r\n        <div class="hidden" id="tp-party-active">\r\n            <button class="tp-control-button" id="tp-link-button">\r\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_IMAGE}\' />\r\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_ACTIVE_IMAGE}\' />\r\n                <span class="tooltiptext extension-txt" style="width: 120px;">Copy link</span>\r\n            </button>\r\n            <button class="tp-control-button" id="tp-chat-button">\r\n                <img id="tp-chat-reset" class="tp-center-image hidden" data-tp-id="overlay-reset_chat" src=\'{RESET_CHAT_IMAGE}\' />\r\n                <img id="tp-chat-hidden" class="tp-button-image tp-center-image" src=\'{CHAT_HIDDEN_IMAGE}\' />\r\n                <img id="tp-chat-gray" class="hidden tp-button-image tp-center-image" src=\'{CHAT_GRAY_IMAGE}\' />\r\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-show_chat" src=\'{CHAT_ACTIVE_IMAGE}\' />\r\n                <div class="hidden" id="tp-message-indicator"></div>\r\n                <span class="tooltiptext extension-txt" style="width: 120px;">Show chat</span>\r\n            </button>\r\n            <button class="tp-control-button" id="tp-disconnect-button">\r\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-leave_party"\r\n                    src=\'{DISCONNECT_IMAGE}\' />\r\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-leave_party" src=\'{DISCONNECT_IMAGE}\' />\r\n                <span class="tooltiptext extension-txt" style="width: 120px;">Leave Party</span>\r\n            </button>\r\n        </div>\r\n    </div>\r\n    \x3c!-- <button class="hidden tp-control-button" id="tp-chat-close-button">\r\n        <img id="tp-start-image" data-tp-id="overlay-hide_chat" src=\'{ARROW_RIGHT}\' />\r\n        <span class="tooltiptext extension-txt" style="width: 100px;">Hide chat</span>\r\n    </button> --\x3e\r\n    <div id="tp-error-box" class="hidden">\r\n        <p class="extension-txt-indicator" id="tp-controls-error-text">\r\n            Failed to connect to background script. Please Try again later\r\n        </p>\r\n    </div>\r\n</div>';
+          '<style tpInjected>\n    .hidden {\n    display: none !important;\n}   \n</style>\n<div class="hidden" id="tpIconContainer" tpInjected>\n    <div class="hidden" id="tp-buttons-container">\n        <button id="tp-icon-container">\n            <img id="tp-icon-white" src=\'{EXTENSION_LOGO_GRADIENT}\' />\n            <img id="play-chat-icon" class="hidden" src=\'{PLAY_CHAT}\' />\n            <span class="tooltiptext extension-txt" style="width: 120px;">Open Teleparty</span>\n            <div class="hidden" id="tp-message-indicator"></div>\n        </button>\n        <div class="tp-seperator"></div>\n        \x3c!-- <button class="tp-control-button" id="tp-friends-button">\n            <img id="tp-friends-image" src=\'{FRIENDS_IMAGE}\' />\n            <span class="tooltiptext extension-txt" style="width: 120px;"> Friends List</span>\n        </button> --\x3e\n        <div class="hidden" id="tp-party-active">\n            <button class="tp-control-button" id="tp-link-button">\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_IMAGE}\' />\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-copy_link" src=\'{LINK_ACTIVE_IMAGE}\' />\n                <span class="tooltiptext extension-txt" style="width: 120px;">Copy link</span>\n            </button>\n            <button class="tp-control-button" id="tp-chat-button">\n                <img id="tp-chat-reset" class="tp-center-image hidden" data-tp-id="overlay-reset_chat" src=\'{RESET_CHAT_IMAGE}\' />\n                <img id="tp-chat-hidden" class="tp-button-image tp-center-image" src=\'{CHAT_HIDDEN_IMAGE}\' />\n                <img id="tp-chat-gray" class="hidden tp-button-image tp-center-image" src=\'{CHAT_GRAY_IMAGE}\' />\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-show_chat" src=\'{CHAT_ACTIVE_IMAGE}\' />\n                <div class="hidden" id="tp-message-indicator"></div>\n                <span class="tooltiptext extension-txt" style="width: 120px;">Show chat</span>\n            </button>\n            <button class="tp-control-button" id="tp-disconnect-button">\n                <img class="tp-button-image tp-center-image" data-tp-id="overlay-leave_party"\n                    src=\'{DISCONNECT_IMAGE}\' />\n                <img class="tp-hover-image tp-center-image" data-tp-id="overlay-leave_party" src=\'{DISCONNECT_IMAGE}\' />\n                <span class="tooltiptext extension-txt" style="width: 120px;">Leave Party</span>\n            </button>\n        </div>\n    </div>\n    \x3c!-- <button class="hidden tp-control-button" id="tp-chat-close-button">\n        <img id="tp-start-image" data-tp-id="overlay-hide_chat" src=\'{ARROW_RIGHT}\' />\n        <span class="tooltiptext extension-txt" style="width: 100px;">Hide chat</span>\n    </button> --\x3e\n    <div id="tp-error-box" class="hidden">\n        <p class="extension-txt-indicator" id="tp-controls-error-text">\n            Failed to connect to background script. Please Try again later\n        </p>\n    </div>\n</div>';
       }
     },
     e = {};
@@ -246,21 +246,19 @@
     (i.o = (t, e) => Object.prototype.hasOwnProperty.call(t, e)),
     (() => {
       "use strict";
-      var t = console.log.bind(window.console),
-        e = i(7206),
-        n = i.n(e);
-      const s = chrome.runtime.id,
-        u = "reactionContainerOpen",
-        o = "https://sessions.teleparty.com",
-        r = "https://redirect.teleparty.com",
-        a = r,
-        c = `${r}/sidebar`,
-        D = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
-        h = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
-        d = "recentlyUsedEmojiMap",
-        l = "redirectDataMap",
-        p = '[data-testid="ad-info"]',
-        g = [
+      var t = console.log.bind(window.console);
+      const e = chrome.runtime.id,
+        n = "reactionContainerOpen",
+        s = "https://sessions.teleparty.com",
+        u = "https://redirect.teleparty.com",
+        o = u,
+        r = `${u}/sidebar`,
+        c = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
+        a = ["heart", "angry", "fire", "laugh", "surprise", "cry"],
+        D = "recentlyUsedEmojiMap",
+        h = "redirectDataMap",
+        d = '[data-testid="ad-info"]',
+        l = [
           {
             annotation: "face with tears of joy",
             group: 0,
@@ -320,9 +318,11 @@
             shortcodes: ["heart", "red_heart"]
           }
         ],
-        F =
-          /(?:\uD83D(?:\uDD73\uFE0F?|\uDC41(?:(?:\uFE0F(?:\u200D\uD83D\uDDE8\uFE0F?)?|\u200D\uD83D\uDDE8\uFE0F?))?|[\uDDE8\uDDEF]\uFE0F?|\uDC4B(?:\uD83C[\uDFFB-\uDFFF])?|\uDD90(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|[\uDD96\uDC4C\uDC48\uDC49\uDC46\uDD95\uDC47\uDC4D\uDC4E\uDC4A\uDC4F\uDE4C\uDC50\uDE4F\uDC85\uDCAA\uDC42\uDC43\uDC76\uDC66\uDC67](?:\uD83C[\uDFFB-\uDFFF])?|\uDC71(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2640\u2642]\uFE0F?))?)|\u200D(?:[\u2640\u2642]\uFE0F?)))?|\uDC68(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFC-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFE]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC68\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)|\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)))))?|\uDC69(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFC-\uDFFF]|\uDC68\uD83C[\uDFFC-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFD-\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFD\uDFFF]|\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFE]|\uDC68\uD83C[\uDFFB-\uDFFE])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])|\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])))))?|[\uDC74\uDC75](?:\uD83C[\uDFFB-\uDFFF])?|[\uDE4D\uDE4E\uDE45\uDE46\uDC81\uDE4B\uDE47\uDC6E](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD75(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC82\uDC77](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDC78(?:\uD83C[\uDFFB-\uDFFF])?|\uDC73(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC72\uDC70\uDC7C](?:\uD83C[\uDFFB-\uDFFF])?|[\uDC86\uDC87\uDEB6](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC83\uDD7A](?:\uD83C[\uDFFB-\uDFFF])?|\uDD74(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uDC6F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDEA3\uDEB4\uDEB5](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDEC0\uDECC\uDC6D\uDC6B\uDC6C](?:\uD83C[\uDFFB-\uDFFF])?|\uDDE3\uFE0F?|\uDC15(?:\u200D\uD83E\uDDBA)?|[\uDC3F\uDD4A\uDD77\uDD78\uDDFA\uDEE3\uDEE4\uDEE2\uDEF3\uDEE5\uDEE9\uDEF0\uDECE\uDD70\uDD79\uDDBC\uDD76\uDECD\uDDA5\uDDA8\uDDB1\uDDB2\uDCFD\uDD6F\uDDDE\uDDF3\uDD8B\uDD8A\uDD8C\uDD8D\uDDC2\uDDD2\uDDD3\uDD87\uDDC3\uDDC4\uDDD1\uDDDD\uDEE0\uDDE1\uDEE1\uDDDC\uDECF\uDECB\uDD49]\uFE0F?|[\uDE00\uDE03\uDE04\uDE01\uDE06\uDE05\uDE02\uDE42\uDE43\uDE09\uDE0A\uDE07\uDE0D\uDE18\uDE17\uDE1A\uDE19\uDE0B\uDE1B-\uDE1D\uDE10\uDE11\uDE36\uDE0F\uDE12\uDE44\uDE2C\uDE0C\uDE14\uDE2A\uDE34\uDE37\uDE35\uDE0E\uDE15\uDE1F\uDE41\uDE2E\uDE2F\uDE32\uDE33\uDE26-\uDE28\uDE30\uDE25\uDE22\uDE2D\uDE31\uDE16\uDE23\uDE1E\uDE13\uDE29\uDE2B\uDE24\uDE21\uDE20\uDE08\uDC7F\uDC80\uDCA9\uDC79-\uDC7B\uDC7D\uDC7E\uDE3A\uDE38\uDE39\uDE3B-\uDE3D\uDE40\uDE3F\uDE3E\uDE48-\uDE4A\uDC8B\uDC8C\uDC98\uDC9D\uDC96\uDC97\uDC93\uDC9E\uDC95\uDC9F\uDC94\uDC9B\uDC9A\uDC99\uDC9C\uDDA4\uDCAF\uDCA2\uDCA5\uDCAB\uDCA6\uDCA8\uDCA3\uDCAC\uDCAD\uDCA4\uDC40\uDC45\uDC44\uDC8F\uDC91\uDC6A\uDC64\uDC65\uDC63\uDC35\uDC12\uDC36\uDC29\uDC3A\uDC31\uDC08\uDC2F\uDC05\uDC06\uDC34\uDC0E\uDC2E\uDC02-\uDC04\uDC37\uDC16\uDC17\uDC3D\uDC0F\uDC11\uDC10\uDC2A\uDC2B\uDC18\uDC2D\uDC01\uDC00\uDC39\uDC30\uDC07\uDC3B\uDC28\uDC3C\uDC3E\uDC14\uDC13\uDC23-\uDC27\uDC38\uDC0A\uDC22\uDC0D\uDC32\uDC09\uDC33\uDC0B\uDC2C\uDC1F-\uDC21\uDC19\uDC1A\uDC0C\uDC1B-\uDC1E\uDC90\uDCAE\uDD2A\uDDFE\uDDFB\uDC92\uDDFC\uDDFD\uDD4C\uDED5\uDD4D\uDD4B\uDC88\uDE82-\uDE8A\uDE9D\uDE9E\uDE8B-\uDE8E\uDE90-\uDE9C\uDEF5\uDEFA\uDEB2\uDEF4\uDEF9\uDE8F\uDEA8\uDEA5\uDEA6\uDED1\uDEA7\uDEF6\uDEA4\uDEA2\uDEEB\uDEEC\uDCBA\uDE81\uDE9F-\uDEA1\uDE80\uDEF8\uDD5B\uDD67\uDD50\uDD5C\uDD51\uDD5D\uDD52\uDD5E\uDD53\uDD5F\uDD54\uDD60\uDD55\uDD61\uDD56\uDD62\uDD57\uDD63\uDD58\uDD64\uDD59\uDD65\uDD5A\uDD66\uDD25\uDCA7\uDEF7\uDD2E\uDC53-\uDC62\uDC51\uDC52\uDCFF\uDC84\uDC8D\uDC8E\uDD07-\uDD0A\uDCE2\uDCE3\uDCEF\uDD14\uDD15\uDCFB\uDCF1\uDCF2\uDCDE-\uDCE0\uDD0B\uDD0C\uDCBB\uDCBD-\uDCC0\uDCFA\uDCF7-\uDCF9\uDCFC\uDD0D\uDD0E\uDCA1\uDD26\uDCD4-\uDCDA\uDCD3\uDCD2\uDCC3\uDCDC\uDCC4\uDCF0\uDCD1\uDD16\uDCB0\uDCB4-\uDCB8\uDCB3\uDCB9\uDCB1\uDCB2\uDCE7-\uDCE9\uDCE4-\uDCE6\uDCEB\uDCEA\uDCEC-\uDCEE\uDCDD\uDCBC\uDCC1\uDCC2\uDCC5-\uDCD0\uDD12\uDD13\uDD0F-\uDD11\uDD28\uDD2B\uDD27\uDD29\uDD17\uDD2C\uDD2D\uDCE1\uDC89\uDC8A\uDEAA\uDEBD\uDEBF\uDEC1\uDED2\uDEAC\uDDFF\uDEAE\uDEB0\uDEB9-\uDEBC\uDEBE\uDEC2-\uDEC5\uDEB8\uDEAB\uDEB3\uDEAD\uDEAF\uDEB1\uDEB7\uDCF5\uDD1E\uDD03\uDD04\uDD19-\uDD1D\uDED0\uDD4E\uDD2F\uDD00-\uDD02\uDD3C\uDD3D\uDD05\uDD06\uDCF6\uDCF3\uDCF4\uDD31\uDCDB\uDD30\uDD1F-\uDD24\uDD34\uDFE0-\uDFE2\uDD35\uDFE3-\uDFE5\uDFE7-\uDFE9\uDFE6\uDFEA\uDFEB\uDD36-\uDD3B\uDCA0\uDD18\uDD33\uDD32\uDEA9])|\uD83E(?:[\uDD1A\uDD0F\uDD1E\uDD1F\uDD18\uDD19\uDD1B\uDD1C\uDD32\uDD33\uDDB5\uDDB6\uDDBB\uDDD2](?:\uD83C[\uDFFB-\uDFFF])?|\uDDD1(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?)))?|[\uDDD4\uDDD3](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDCF\uDD26\uDD37](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD34\uDDD5\uDD35\uDD30\uDD31\uDD36](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDB8\uDDB9\uDDD9-\uDDDD](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDDDE\uDDDF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDDCD\uDDCE\uDDD6\uDDD7\uDD38](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD3C(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDD3D\uDD3E\uDD39\uDDD8](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD23\uDD70\uDD29\uDD2A\uDD11\uDD17\uDD2D\uDD2B\uDD14\uDD10\uDD28\uDD25\uDD24\uDD12\uDD15\uDD22\uDD2E\uDD27\uDD75\uDD76\uDD74\uDD2F\uDD20\uDD73\uDD13\uDDD0\uDD7A\uDD71\uDD2C\uDD21\uDD16\uDDE1\uDD0E\uDD0D\uDD1D\uDDBE\uDDBF\uDDE0\uDDB7\uDDB4\uDD3A\uDDB0\uDDB1\uDDB3\uDDB2\uDD8D\uDDA7\uDDAE\uDD8A\uDD9D\uDD81\uDD84\uDD93\uDD8C\uDD99\uDD92\uDD8F\uDD9B\uDD94\uDD87\uDDA5\uDDA6\uDDA8\uDD98\uDDA1\uDD83\uDD85\uDD86\uDDA2\uDD89\uDDA9\uDD9A\uDD9C\uDD8E\uDD95\uDD96\uDD88\uDD8B\uDD97\uDD82\uDD9F\uDDA0\uDD40\uDD6D\uDD5D\uDD65\uDD51\uDD54\uDD55\uDD52\uDD6C\uDD66\uDDC4\uDDC5\uDD5C\uDD50\uDD56\uDD68\uDD6F\uDD5E\uDDC7\uDDC0\uDD69\uDD53\uDD6A\uDD59\uDDC6\uDD5A\uDD58\uDD63\uDD57\uDDC8\uDDC2\uDD6B\uDD6E\uDD5F-\uDD61\uDD80\uDD9E\uDD90\uDD91\uDDAA\uDDC1\uDD67\uDD5B\uDD42\uDD43\uDD64\uDDC3\uDDC9\uDDCA\uDD62\uDD44\uDDED\uDDF1\uDDBD\uDDBC\uDE82\uDDF3\uDE90\uDDE8\uDDE7\uDD47-\uDD49\uDD4E\uDD4F\uDD4D\uDD4A\uDD4B\uDD45\uDD3F\uDD4C\uDE80\uDE81\uDDFF\uDDE9\uDDF8\uDDF5\uDDF6\uDD7D\uDD7C\uDDBA\uDDE3-\uDDE6\uDD7B\uDE71-\uDE73\uDD7E\uDD7F\uDE70\uDDE2\uDE95\uDD41\uDDEE\uDE94\uDDFE\uDE93\uDDAF\uDDF0\uDDF2\uDDEA-\uDDEC\uDE78-\uDE7A\uDE91\uDE92\uDDF4\uDDF7\uDDF9-\uDDFD\uDDEF])|[\u263A\u2639\u2620\u2763\u2764]\uFE0F?|\u270B(?:\uD83C[\uDFFB-\uDFFF])?|[\u270C\u261D](?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\u270A(?:\uD83C[\uDFFB-\uDFFF])?|\u270D(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uD83C(?:\uDF85(?:\uD83C[\uDFFB-\uDFFF])?|\uDFC3(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC7\uDFC2](?:\uD83C[\uDFFB-\uDFFF])?|\uDFCC(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC4\uDFCA](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDFCB(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFF5\uDF36\uDF7D\uDFD4-\uDFD6\uDFDC-\uDFDF\uDFDB\uDFD7\uDFD8\uDFDA\uDFD9\uDFCE\uDFCD\uDF21\uDF24-\uDF2C\uDF97\uDF9F\uDF96\uDF99-\uDF9B\uDF9E\uDFF7\uDD70\uDD71\uDD7E\uDD7F\uDE02\uDE37]\uFE0F?|\uDFF4(?:(?:\u200D\u2620\uFE0F?|\uDB40\uDC67\uDB40\uDC62\uDB40(?:\uDC65\uDB40\uDC6E\uDB40\uDC67\uDB40\uDC7F|\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F|\uDC77\uDB40\uDC6C\uDB40\uDC73\uDB40\uDC7F)))?|\uDFF3(?:(?:\uFE0F(?:\u200D\uD83C\uDF08)?|\u200D\uD83C\uDF08))?|\uDDE6\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF]|\uDDE7\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF]|\uDDE8\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF]|\uDDE9\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF]|\uDDEA\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA]|\uDDEB\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7]|\uDDEC\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE]|\uDDED\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA]|\uDDEE\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9]|\uDDEF\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5]|\uDDF0\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF]|\uDDF1\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE]|\uDDF2\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF]|\uDDF3\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF]|\uDDF4\uD83C\uDDF2|\uDDF5\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE]|\uDDF6\uD83C\uDDE6|\uDDF7\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC]|\uDDF8\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF]|\uDDF9\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF]|\uDDFA\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF]|\uDDFB\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA]|\uDDFC\uD83C[\uDDEB\uDDF8]|\uDDFD\uD83C\uDDF0|\uDDFE\uD83C[\uDDEA\uDDF9]|\uDDFF\uD83C[\uDDE6\uDDF2\uDDFC]|[\uDFFB-\uDFFF\uDF38-\uDF3C\uDF37\uDF31-\uDF35\uDF3E-\uDF43\uDF47-\uDF53\uDF45\uDF46\uDF3D\uDF44\uDF30\uDF5E\uDF56\uDF57\uDF54\uDF5F\uDF55\uDF2D-\uDF2F\uDF73\uDF72\uDF7F\uDF71\uDF58-\uDF5D\uDF60\uDF62-\uDF65\uDF61\uDF66-\uDF6A\uDF82\uDF70\uDF6B-\uDF6F\uDF7C\uDF75\uDF76\uDF7E\uDF77-\uDF7B\uDF74\uDFFA\uDF0D-\uDF10\uDF0B\uDFE0-\uDFE6\uDFE8-\uDFED\uDFEF\uDFF0\uDF01\uDF03-\uDF07\uDF09\uDFA0-\uDFA2\uDFAA\uDF11-\uDF20\uDF0C\uDF00\uDF08\uDF02\uDF0A\uDF83\uDF84\uDF86-\uDF8B\uDF8D-\uDF91\uDF80\uDF81\uDFAB\uDFC6\uDFC5\uDFC0\uDFD0\uDFC8\uDFC9\uDFBE\uDFB3\uDFCF\uDFD1-\uDFD3\uDFF8\uDFA3\uDFBD\uDFBF\uDFAF\uDFB1\uDFAE\uDFB0\uDFB2\uDCCF\uDC04\uDFB4\uDFAD\uDFA8\uDF92\uDFA9\uDF93\uDFBC\uDFB5\uDFB6\uDFA4\uDFA7\uDFB7-\uDFBB\uDFA5\uDFAC\uDFEE\uDFF9\uDFE7\uDFA6\uDD8E\uDD91-\uDD9A\uDE01\uDE36\uDE2F\uDE50\uDE39\uDE1A\uDE32\uDE51\uDE38\uDE34\uDE33\uDE3A\uDE35\uDFC1\uDF8C])|\u26F7\uFE0F?|\u26F9(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\u2618\u26F0\u26E9\u2668\u26F4\u2708\u23F1\u23F2\u2600\u2601\u26C8\u2602\u26F1\u2744\u2603\u2604\u26F8\u2660\u2665\u2666\u2663\u265F\u26D1\u260E\u2328\u2709\u270F\u2712\u2702\u26CF\u2692\u2694\u2699\u2696\u26D3\u2697\u26B0\u26B1\u26A0\u2622\u2623\u2B06\u2197\u27A1\u2198\u2B07\u2199\u2B05\u2196\u2195\u2194\u21A9\u21AA\u2934\u2935\u269B\u2721\u2638\u262F\u271D\u2626\u262A\u262E\u25B6\u23ED\u23EF\u25C0\u23EE\u23F8-\u23FA\u23CF\u2640\u2642\u2695\u267E\u267B\u269C\u2611\u2714\u2716\u303D\u2733\u2734\u2747\u203C\u2049\u3030\u00A9\u00AE\u2122]\uFE0F?|[\u0023\u002A\u0030-\u0039](?:\uFE0F\u20E3|\u20E3)|[\u2139\u24C2\u3297\u3299\u25FC\u25FB\u25AA\u25AB]\uFE0F?|[\u2615\u26EA\u26F2\u26FA\u26FD\u2693\u26F5\u231B\u23F3\u231A\u23F0\u2B50\u26C5\u2614\u26A1\u26C4\u2728\u26BD\u26BE\u26F3\u267F\u26D4\u2648-\u2653\u26CE\u23E9-\u23EC\u2B55\u2705\u274C\u274E\u2795-\u2797\u27B0\u27BF\u2753-\u2755\u2757\u26AB\u26AA\u2B1B\u2B1C\u25FE\u25FD])/g,
-        v = [
+        p =
+          /(?:\uD83D(?:\uDD73\uFE0F?|\uDC41(?:(?:\uFE0F(?:\u200D\uD83D\uDDE8\uFE0F?)?|\u200D\uD83D\uDDE8\uFE0F?))?|[\uDDE8\uDDEF]\uFE0F?|\uDC4B(?:\uD83C[\uDFFB-\uDFFF])?|\uDD90(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|[\uDD96\uDC4C\uDC48\uDC49\uDC46\uDD95\uDC47\uDC4D\uDC4E\uDC4A\uDC4F\uDE4C\uDC50\uDE4F\uDC85\uDCAA\uDC42\uDC43\uDC76\uDC66\uDC67](?:\uD83C[\uDFFB-\uDFFF])?|\uDC71(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2640\u2642]\uFE0F?))?)|\u200D(?:[\u2640\u2642]\uFE0F?)))?|\uDC68(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFC-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D\uDC68\uD83C[\uDFFB-\uDFFE]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC68\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)|\u200D\uD83D(?:\uDC8B\u200D\uD83D\uDC68|\uDC68)))))?|\uDC69(?:(?:\uD83C(?:\uDFFB(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFC-\uDFFF]|\uDC68\uD83C[\uDFFC-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFC(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFD-\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFD-\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFD(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF]|\uDC68\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFE(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFD\uDFFF]|\uDC68\uD83C[\uDFFB-\uDFFD\uDFFF])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?|\uDFFF(?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83D(?:\uDC69\uD83C[\uDFFB-\uDFFE]|\uDC68\uD83C[\uDFFB-\uDFFE])|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD]|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D(?:\uDC69\u200D\uD83D(?:\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?)|\uDC66(?:\u200D\uD83D\uDC66)?|\uDC67(?:\u200D\uD83D[\uDC66\uDC67])?|[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92])|\u2708\uFE0F?|\u2764(?:\uFE0F\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])|\u200D\uD83D(?:\uDC8B\u200D\uD83D[\uDC68\uDC69]|[\uDC68\uDC69])))))?|[\uDC74\uDC75](?:\uD83C[\uDFFB-\uDFFF])?|[\uDE4D\uDE4E\uDE45\uDE46\uDC81\uDE4B\uDE47\uDC6E](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD75(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC82\uDC77](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDC78(?:\uD83C[\uDFFB-\uDFFF])?|\uDC73(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC72\uDC70\uDC7C](?:\uD83C[\uDFFB-\uDFFF])?|[\uDC86\uDC87\uDEB6](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDC83\uDD7A](?:\uD83C[\uDFFB-\uDFFF])?|\uDD74(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uDC6F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDEA3\uDEB4\uDEB5](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDEC0\uDECC\uDC6D\uDC6B\uDC6C](?:\uD83C[\uDFFB-\uDFFF])?|\uDDE3\uFE0F?|\uDC15(?:\u200D\uD83E\uDDBA)?|[\uDC3F\uDD4A\uDD77\uDD78\uDDFA\uDEE3\uDEE4\uDEE2\uDEF3\uDEE5\uDEE9\uDEF0\uDECE\uDD70\uDD79\uDDBC\uDD76\uDECD\uDDA5\uDDA8\uDDB1\uDDB2\uDCFD\uDD6F\uDDDE\uDDF3\uDD8B\uDD8A\uDD8C\uDD8D\uDDC2\uDDD2\uDDD3\uDD87\uDDC3\uDDC4\uDDD1\uDDDD\uDEE0\uDDE1\uDEE1\uDDDC\uDECF\uDECB\uDD49]\uFE0F?|[\uDE00\uDE03\uDE04\uDE01\uDE06\uDE05\uDE02\uDE42\uDE43\uDE09\uDE0A\uDE07\uDE0D\uDE18\uDE17\uDE1A\uDE19\uDE0B\uDE1B-\uDE1D\uDE10\uDE11\uDE36\uDE0F\uDE12\uDE44\uDE2C\uDE0C\uDE14\uDE2A\uDE34\uDE37\uDE35\uDE0E\uDE15\uDE1F\uDE41\uDE2E\uDE2F\uDE32\uDE33\uDE26-\uDE28\uDE30\uDE25\uDE22\uDE2D\uDE31\uDE16\uDE23\uDE1E\uDE13\uDE29\uDE2B\uDE24\uDE21\uDE20\uDE08\uDC7F\uDC80\uDCA9\uDC79-\uDC7B\uDC7D\uDC7E\uDE3A\uDE38\uDE39\uDE3B-\uDE3D\uDE40\uDE3F\uDE3E\uDE48-\uDE4A\uDC8B\uDC8C\uDC98\uDC9D\uDC96\uDC97\uDC93\uDC9E\uDC95\uDC9F\uDC94\uDC9B\uDC9A\uDC99\uDC9C\uDDA4\uDCAF\uDCA2\uDCA5\uDCAB\uDCA6\uDCA8\uDCA3\uDCAC\uDCAD\uDCA4\uDC40\uDC45\uDC44\uDC8F\uDC91\uDC6A\uDC64\uDC65\uDC63\uDC35\uDC12\uDC36\uDC29\uDC3A\uDC31\uDC08\uDC2F\uDC05\uDC06\uDC34\uDC0E\uDC2E\uDC02-\uDC04\uDC37\uDC16\uDC17\uDC3D\uDC0F\uDC11\uDC10\uDC2A\uDC2B\uDC18\uDC2D\uDC01\uDC00\uDC39\uDC30\uDC07\uDC3B\uDC28\uDC3C\uDC3E\uDC14\uDC13\uDC23-\uDC27\uDC38\uDC0A\uDC22\uDC0D\uDC32\uDC09\uDC33\uDC0B\uDC2C\uDC1F-\uDC21\uDC19\uDC1A\uDC0C\uDC1B-\uDC1E\uDC90\uDCAE\uDD2A\uDDFE\uDDFB\uDC92\uDDFC\uDDFD\uDD4C\uDED5\uDD4D\uDD4B\uDC88\uDE82-\uDE8A\uDE9D\uDE9E\uDE8B-\uDE8E\uDE90-\uDE9C\uDEF5\uDEFA\uDEB2\uDEF4\uDEF9\uDE8F\uDEA8\uDEA5\uDEA6\uDED1\uDEA7\uDEF6\uDEA4\uDEA2\uDEEB\uDEEC\uDCBA\uDE81\uDE9F-\uDEA1\uDE80\uDEF8\uDD5B\uDD67\uDD50\uDD5C\uDD51\uDD5D\uDD52\uDD5E\uDD53\uDD5F\uDD54\uDD60\uDD55\uDD61\uDD56\uDD62\uDD57\uDD63\uDD58\uDD64\uDD59\uDD65\uDD5A\uDD66\uDD25\uDCA7\uDEF7\uDD2E\uDC53-\uDC62\uDC51\uDC52\uDCFF\uDC84\uDC8D\uDC8E\uDD07-\uDD0A\uDCE2\uDCE3\uDCEF\uDD14\uDD15\uDCFB\uDCF1\uDCF2\uDCDE-\uDCE0\uDD0B\uDD0C\uDCBB\uDCBD-\uDCC0\uDCFA\uDCF7-\uDCF9\uDCFC\uDD0D\uDD0E\uDCA1\uDD26\uDCD4-\uDCDA\uDCD3\uDCD2\uDCC3\uDCDC\uDCC4\uDCF0\uDCD1\uDD16\uDCB0\uDCB4-\uDCB8\uDCB3\uDCB9\uDCB1\uDCB2\uDCE7-\uDCE9\uDCE4-\uDCE6\uDCEB\uDCEA\uDCEC-\uDCEE\uDCDD\uDCBC\uDCC1\uDCC2\uDCC5-\uDCD0\uDD12\uDD13\uDD0F-\uDD11\uDD28\uDD2B\uDD27\uDD29\uDD17\uDD2C\uDD2D\uDCE1\uDC89\uDC8A\uDEAA\uDEBD\uDEBF\uDEC1\uDED2\uDEAC\uDDFF\uDEAE\uDEB0\uDEB9-\uDEBC\uDEBE\uDEC2-\uDEC5\uDEB8\uDEAB\uDEB3\uDEAD\uDEAF\uDEB1\uDEB7\uDCF5\uDD1E\uDD03\uDD04\uDD19-\uDD1D\uDED0\uDD4E\uDD2F\uDD00-\uDD02\uDD3C\uDD3D\uDD05\uDD06\uDCF6\uDCF3\uDCF4\uDD31\uDCDB\uDD30\uDD1F-\uDD24\uDD34\uDFE0-\uDFE2\uDD35\uDFE3-\uDFE5\uDFE7-\uDFE9\uDFE6\uDFEA\uDFEB\uDD36-\uDD3B\uDCA0\uDD18\uDD33\uDD32\uDEA9])|\uD83E(?:[\uDD1A\uDD0F\uDD1E\uDD1F\uDD18\uDD19\uDD1B\uDD1C\uDD32\uDD33\uDDB5\uDDB6\uDDBB\uDDD2](?:\uD83C[\uDFFB-\uDFFF])?|\uDDD1(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1\uD83C[\uDFFB-\uDFFF]|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?))?)|\u200D(?:\uD83E(?:\uDD1D\u200D\uD83E\uDDD1|[\uDDB0\uDDB1\uDDB3\uDDB2\uDDAF\uDDBC\uDDBD])|\u2695\uFE0F?|\uD83C[\uDF93\uDFEB\uDF3E\uDF73\uDFED\uDFA4\uDFA8]|\u2696\uFE0F?|\uD83D[\uDD27\uDCBC\uDD2C\uDCBB\uDE80\uDE92]|\u2708\uFE0F?)))?|[\uDDD4\uDDD3](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDCF\uDD26\uDD37](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD34\uDDD5\uDD35\uDD30\uDD31\uDD36](?:\uD83C[\uDFFB-\uDFFF])?|[\uDDB8\uDDB9\uDDD9-\uDDDD](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDDDE\uDDDF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDDCD\uDDCE\uDDD6\uDDD7\uDD38](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDD3C(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|[\uDD3D\uDD3E\uDD39\uDDD8](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDD23\uDD70\uDD29\uDD2A\uDD11\uDD17\uDD2D\uDD2B\uDD14\uDD10\uDD28\uDD25\uDD24\uDD12\uDD15\uDD22\uDD2E\uDD27\uDD75\uDD76\uDD74\uDD2F\uDD20\uDD73\uDD13\uDDD0\uDD7A\uDD71\uDD2C\uDD21\uDD16\uDDE1\uDD0E\uDD0D\uDD1D\uDDBE\uDDBF\uDDE0\uDDB7\uDDB4\uDD3A\uDDB0\uDDB1\uDDB3\uDDB2\uDD8D\uDDA7\uDDAE\uDD8A\uDD9D\uDD81\uDD84\uDD93\uDD8C\uDD99\uDD92\uDD8F\uDD9B\uDD94\uDD87\uDDA5\uDDA6\uDDA8\uDD98\uDDA1\uDD83\uDD85\uDD86\uDDA2\uDD89\uDDA9\uDD9A\uDD9C\uDD8E\uDD95\uDD96\uDD88\uDD8B\uDD97\uDD82\uDD9F\uDDA0\uDD40\uDD6D\uDD5D\uDD65\uDD51\uDD54\uDD55\uDD52\uDD6C\uDD66\uDDC4\uDDC5\uDD5C\uDD50\uDD56\uDD68\uDD6F\uDD5E\uDDC7\uDDC0\uDD69\uDD53\uDD6A\uDD59\uDDC6\uDD5A\uDD58\uDD63\uDD57\uDDC8\uDDC2\uDD6B\uDD6E\uDD5F-\uDD61\uDD80\uDD9E\uDD90\uDD91\uDDAA\uDDC1\uDD67\uDD5B\uDD42\uDD43\uDD64\uDDC3\uDDC9\uDDCA\uDD62\uDD44\uDDED\uDDF1\uDDBD\uDDBC\uDE82\uDDF3\uDE90\uDDE8\uDDE7\uDD47-\uDD49\uDD4E\uDD4F\uDD4D\uDD4A\uDD4B\uDD45\uDD3F\uDD4C\uDE80\uDE81\uDDFF\uDDE9\uDDF8\uDDF5\uDDF6\uDD7D\uDD7C\uDDBA\uDDE3-\uDDE6\uDD7B\uDE71-\uDE73\uDD7E\uDD7F\uDE70\uDDE2\uDE95\uDD41\uDDEE\uDE94\uDDFE\uDE93\uDDAF\uDDF0\uDDF2\uDDEA-\uDDEC\uDE78-\uDE7A\uDE91\uDE92\uDDF4\uDDF7\uDDF9-\uDDFD\uDDEF])|[\u263A\u2639\u2620\u2763\u2764]\uFE0F?|\u270B(?:\uD83C[\uDFFB-\uDFFF])?|[\u270C\u261D](?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\u270A(?:\uD83C[\uDFFB-\uDFFF])?|\u270D(?:(?:\uD83C[\uDFFB-\uDFFF]|\uFE0F))?|\uD83C(?:\uDF85(?:\uD83C[\uDFFB-\uDFFF])?|\uDFC3(?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC7\uDFC2](?:\uD83C[\uDFFB-\uDFFF])?|\uDFCC(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFC4\uDFCA](?:(?:\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|\uDFCB(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\uDFF5\uDF36\uDF7D\uDFD4-\uDFD6\uDFDC-\uDFDF\uDFDB\uDFD7\uDFD8\uDFDA\uDFD9\uDFCE\uDFCD\uDF21\uDF24-\uDF2C\uDF97\uDF9F\uDF96\uDF99-\uDF9B\uDF9E\uDFF7\uDD70\uDD71\uDD7E\uDD7F\uDE02\uDE37]\uFE0F?|\uDFF4(?:(?:\u200D\u2620\uFE0F?|\uDB40\uDC67\uDB40\uDC62\uDB40(?:\uDC65\uDB40\uDC6E\uDB40\uDC67\uDB40\uDC7F|\uDC73\uDB40\uDC63\uDB40\uDC74\uDB40\uDC7F|\uDC77\uDB40\uDC6C\uDB40\uDC73\uDB40\uDC7F)))?|\uDFF3(?:(?:\uFE0F(?:\u200D\uD83C\uDF08)?|\u200D\uD83C\uDF08))?|\uDDE6\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF]|\uDDE7\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF]|\uDDE8\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF]|\uDDE9\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF]|\uDDEA\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA]|\uDDEB\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7]|\uDDEC\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE]|\uDDED\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA]|\uDDEE\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9]|\uDDEF\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5]|\uDDF0\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF]|\uDDF1\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE]|\uDDF2\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF]|\uDDF3\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF]|\uDDF4\uD83C\uDDF2|\uDDF5\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE]|\uDDF6\uD83C\uDDE6|\uDDF7\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC]|\uDDF8\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF]|\uDDF9\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF]|\uDDFA\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF]|\uDDFB\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA]|\uDDFC\uD83C[\uDDEB\uDDF8]|\uDDFD\uD83C\uDDF0|\uDDFE\uD83C[\uDDEA\uDDF9]|\uDDFF\uD83C[\uDDE6\uDDF2\uDDFC]|[\uDFFB-\uDFFF\uDF38-\uDF3C\uDF37\uDF31-\uDF35\uDF3E-\uDF43\uDF47-\uDF53\uDF45\uDF46\uDF3D\uDF44\uDF30\uDF5E\uDF56\uDF57\uDF54\uDF5F\uDF55\uDF2D-\uDF2F\uDF73\uDF72\uDF7F\uDF71\uDF58-\uDF5D\uDF60\uDF62-\uDF65\uDF61\uDF66-\uDF6A\uDF82\uDF70\uDF6B-\uDF6F\uDF7C\uDF75\uDF76\uDF7E\uDF77-\uDF7B\uDF74\uDFFA\uDF0D-\uDF10\uDF0B\uDFE0-\uDFE6\uDFE8-\uDFED\uDFEF\uDFF0\uDF01\uDF03-\uDF07\uDF09\uDFA0-\uDFA2\uDFAA\uDF11-\uDF20\uDF0C\uDF00\uDF08\uDF02\uDF0A\uDF83\uDF84\uDF86-\uDF8B\uDF8D-\uDF91\uDF80\uDF81\uDFAB\uDFC6\uDFC5\uDFC0\uDFD0\uDFC8\uDFC9\uDFBE\uDFB3\uDFCF\uDFD1-\uDFD3\uDFF8\uDFA3\uDFBD\uDFBF\uDFAF\uDFB1\uDFAE\uDFB0\uDFB2\uDCCF\uDC04\uDFB4\uDFAD\uDFA8\uDF92\uDFA9\uDF93\uDFBC\uDFB5\uDFB6\uDFA4\uDFA7\uDFB7-\uDFBB\uDFA5\uDFAC\uDFEE\uDFF9\uDFE7\uDFA6\uDD8E\uDD91-\uDD9A\uDE01\uDE36\uDE2F\uDE50\uDE39\uDE1A\uDE32\uDE51\uDE38\uDE34\uDE33\uDE3A\uDE35\uDFC1\uDF8C])|\u26F7\uFE0F?|\u26F9(?:(?:\uFE0F(?:\u200D(?:[\u2642\u2640]\uFE0F?))?|\uD83C(?:[\uDFFB-\uDFFF](?:\u200D(?:[\u2642\u2640]\uFE0F?))?)|\u200D(?:[\u2642\u2640]\uFE0F?)))?|[\u2618\u26F0\u26E9\u2668\u26F4\u2708\u23F1\u23F2\u2600\u2601\u26C8\u2602\u26F1\u2744\u2603\u2604\u26F8\u2660\u2665\u2666\u2663\u265F\u26D1\u260E\u2328\u2709\u270F\u2712\u2702\u26CF\u2692\u2694\u2699\u2696\u26D3\u2697\u26B0\u26B1\u26A0\u2622\u2623\u2B06\u2197\u27A1\u2198\u2B07\u2199\u2B05\u2196\u2195\u2194\u21A9\u21AA\u2934\u2935\u269B\u2721\u2638\u262F\u271D\u2626\u262A\u262E\u25B6\u23ED\u23EF\u25C0\u23EE\u23F8-\u23FA\u23CF\u2640\u2642\u2695\u267E\u267B\u269C\u2611\u2714\u2716\u303D\u2733\u2734\u2747\u203C\u2049\u3030\u00A9\u00AE\u2122]\uFE0F?|[\u0023\u002A\u0030-\u0039](?:\uFE0F\u20E3|\u20E3)|[\u2139\u24C2\u3297\u3299\u25FC\u25FB\u25AA\u25AB]\uFE0F?|[\u2615\u26EA\u26F2\u26FA\u26FD\u2693\u26F5\u231B\u23F3\u231A\u23F0\u2B50\u26C5\u2614\u26A1\u26C4\u2728\u26BD\u26BE\u26F3\u267F\u26D4\u2648-\u2653\u26CE\u23E9-\u23EC\u2B55\u2705\u274C\u274E\u2795-\u2797\u27B0\u27BF\u2753-\u2755\u2757\u26AB\u26AA\u2B1B\u2B1C\u25FE\u25FD])/g;
+      var g = i(7206),
+        F = i.n(g);
+      const v = [
           "Batman.svg",
           "DeadPool.svg",
           "CptAmerica.svg",
@@ -539,11 +539,11 @@
               .replace(/>/g, "&gt;")
               .replace(/[\r\n]{3,}/gm, "\n\n")
               .replace(
-                F,
+                p,
                 `<span style="font-size: ${(function (t) {
                   let e = 16;
-                  const i = t.replace(F, "").replace(/[\uFE0F]/g, ""),
-                    n = ((t || "").match(F) || []).length;
+                  const i = t.replace(p, "").replace(/[\uFE0F]/g, ""),
+                    n = ((t || "").match(p) || []).length;
                   return 0 === i.length && n <= 3 && (e = 32), e;
                 })(t)}px">$&</span>`
               )
@@ -576,19 +576,19 @@
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -599,7 +599,7 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
       const A = new (class {
@@ -619,19 +619,19 @@
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -642,7 +642,7 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
       class I {
@@ -653,7 +653,7 @@
             userNickname: null !== (i = t.userNickname) && void 0 !== i ? i : "",
             nameColor: null !== (n = t.nameColor) && void 0 !== n ? n : "",
             badge: null !== (s = t.badge) && void 0 !== s ? s : "",
-            reactions: null !== (u = t.reactions) && void 0 !== u ? u : h
+            reactions: null !== (u = t.reactions) && void 0 !== u ? u : a
           }),
             (this.p = null !== (o = t.userId) && void 0 !== o ? o : "");
         }
@@ -700,55 +700,89 @@
         T = "Popup",
         S = "Content_Script",
         M = "Page_Controls";
-      const P = new (class {
+      var P = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              c(n.next(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function r(t) {
+            try {
+              c(n.throw(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function c(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          c((n = n.apply(t, e || [])).next());
+        });
+      };
+      const $ = new (class {
         addListener(t) {
-          chrome.runtime.onMessage.addListener(t);
+          chrome.runtime.onMessage.addListener(t), chrome.runtime.onMessage.addListener(t);
         }
         removeListener(t) {
           chrome.runtime.onMessage.removeListener(t);
         }
         sendMessageToTabAsync(e, i, n = 2e4) {
-          return new Promise((s, u) => {
-            const o = setTimeout(() => {
-              u();
-            }, n);
-            try {
-              chrome.tabs.sendMessage(i, e, (i) => {
-                chrome.runtime.lastError && t(chrome.runtime.lastError.message + JSON.stringify(e)), clearTimeout(o), s(i);
-              });
-            } catch (t) {
-              clearTimeout(o), u(t);
-            }
+          return P(this, void 0, void 0, function* () {
+            return new Promise((s, u) => {
+              const o = setTimeout(() => {
+                console.log("send timeout"), u("Message Timeout");
+              }, n);
+              try {
+                chrome.tabs.sendMessage(i, e, (i) => {
+                  chrome.runtime.lastError && t(chrome.runtime.lastError.message + JSON.stringify(e)), clearTimeout(o), s(i);
+                });
+              } catch (t) {
+                clearTimeout(o), u(t);
+              }
+            });
           });
         }
-        g(t, e) {
-          return new Promise((i, n) => {
-            let u = null;
-            e &&
-              (u = setTimeout(() => {
-                n({ error: "Send Message Timeout" });
-              }, e));
-            try {
-              chrome.runtime.sendMessage(s, t, (e) => {
-                chrome.runtime.lastError && console.log(chrome.runtime.lastError.message + JSON.stringify(t)), u && clearTimeout(u), i(e);
-              });
-            } catch (t) {
-              u && clearTimeout(u), n(t);
-            }
+        g(t, i) {
+          return P(this, void 0, void 0, function* () {
+            return new Promise((n, s) => {
+              let u = null;
+              i &&
+                (u = setTimeout(() => {
+                  s({ error: "Send Message Timeout" });
+                }, i));
+              try {
+                chrome.runtime.sendMessage(e, t, (e) => {
+                  chrome.runtime.lastError && console.log(chrome.runtime.lastError.message + JSON.stringify(t)), u && clearTimeout(u), n(e);
+                });
+              } catch (t) {
+                u && clearTimeout(u), s(t);
+              }
+            });
           });
         }
       })();
-      class $ {
+      class R {
         constructor(t, e, i) {
           (this.sender = t), (this.target = e), (this.type = i);
         }
       }
-      class R extends $ {
+      class O extends R {
         constructor(t, e, i) {
           super(t, e, i), (this.F = i);
         }
       }
-      var G, L;
+      var U, G;
       !(function (t) {
         (t.BROADCAST = "brodadcast"),
           (t.BROADCAST_NEXT_EPISODE = "broadcastNextEpisode"),
@@ -764,23 +798,23 @@
           (t.SEND_REACTION = "sendReaction"),
           (t.SEND_GIF = "sendGIF"),
           (t.WEB_RTC = "webRTC");
-      })(G || (G = {}));
-      class O extends R {
+      })(U || (U = {}));
+      class L extends O {
         constructor(t, e, i) {
-          super(t, e, G.SET_TYPING), (this.data = i);
+          super(t, e, U.SET_TYPING), (this.data = i);
         }
       }
-      class U extends R {
+      class V extends O {
         constructor(t, e, i) {
-          super(t, e, G.SEND_MESSAGE), (this.data = i);
+          super(t, e, U.SEND_MESSAGE), (this.data = i);
         }
       }
-      class N extends R {
+      class N extends O {
         constructor(t, e, i) {
-          super(t, e, G.BROADCAST_USER_SETTINGS), (this.data = i);
+          super(t, e, U.BROADCAST_USER_SETTINGS), (this.data = i);
         }
       }
-      class V extends $ {
+      class H extends R {
         constructor(t, e, i) {
           super(t, e, i), (this.type = i);
         }
@@ -812,34 +846,67 @@
           (t.SET_ACTIVE_PARTY = "setActiveParty"),
           (t.FULLSCREEN_WINDOW = "fullscreenWindow"),
           (t.MAX_WINDOW = "maxWindow"),
-          (t.GET_EXPERIMENT_FLAG = "getExpFlag");
-      })(L || (L = {}));
-      class H extends V {
+          (t.GET_EXPERIMENT_FLAG = "getExpFlag"),
+          (t.USER_LIST = "userList"),
+          (t.USER_AUTHENTICATED = "userAuthenticated"),
+          (t.BLOCK_CSP = "blockCSP");
+      })(G || (G = {}));
+      class W extends H {
         constructor(t, e, i) {
-          super(t, e, L.TEARDOWN), (this.data = i);
+          super(t, e, G.TEARDOWN), (this.data = i);
         }
       }
-      class W extends V {
+      class z extends H {
         constructor(t, e, i) {
-          super(t, e, L.LOG_EVENT), (this.data = i), (this.sender = t), (this.target = e);
+          super(t, e, G.LOG_EVENT), (this.data = i), (this.sender = t), (this.target = e);
         }
       }
-      class z extends R {
+      class K extends O {
         constructor(t, e, i) {
-          super(t, e, G.SEND_REACTION), (this.data = i);
+          super(t, e, U.SEND_REACTION), (this.data = i);
         }
       }
-      class K extends R {
+      class Y extends O {
         constructor(t, e, i) {
-          super(t, e, G.SEND_GIF), (this.data = i);
+          super(t, e, U.SEND_GIF), (this.data = i);
         }
       }
-      class Y {
+      var J = function (t, e, i, n) {
+        return new (i || (i = Promise))(function (s, u) {
+          function o(t) {
+            try {
+              c(n.next(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function r(t) {
+            try {
+              c(n.throw(t));
+            } catch (t) {
+              u(t);
+            }
+          }
+          function c(t) {
+            var e;
+            t.done
+              ? s(t.value)
+              : ((e = t.value),
+                e instanceof i
+                  ? e
+                  : new i(function (t) {
+                      t(e);
+                    })).then(o, r);
+          }
+          c((n = n.apply(t, e || [])).next());
+        });
+      };
+      class q {
         constructor() {
           this.resetTasks(), (this.v = []), (this.m = 0), (this.C = Promise.resolve()), (this._ = !0);
         }
         createInstance() {
-          return new Y();
+          return new q();
         }
         pushTask(t, e) {
           if (!this._) return;
@@ -861,7 +928,11 @@
         }
         j(t) {
           return function () {
-            return t.action().catch(() => {});
+            return J(this, void 0, void 0, function* () {
+              try {
+                yield t.action();
+              } catch (t) {}
+            });
           };
         }
         get tasksInFlight() {
@@ -877,24 +948,24 @@
             console.log(this.v);
         }
       }
-      const J = new Y();
-      var q = function (t, e, i, n) {
+      const X = new q();
+      var Z = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -905,85 +976,85 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      const X = new (class {
+      const tt = new (class {
         getItemsAsync(t) {
-          return q(this, void 0, void 0, function* () {
+          return Z(this, void 0, void 0, function* () {
             return new Promise((e, i) => {
               chrome.storage.local.get(t, (t) => {
-                chrome.runtime.lastError ? i(new Error(w)) : e(t);
+                chrome.runtime.lastError ? (console.log(chrome.runtime.lastError), i(new Error(w))) : e(t);
               });
             });
           });
         }
         getAllItemsAsync() {
-          return q(this, void 0, void 0, function* () {
+          return Z(this, void 0, void 0, function* () {
             return new Promise((t, e) => {
               chrome.storage.local.get(null, (i) => {
-                chrome.runtime.lastError ? e(new Error(w)) : t(i);
+                chrome.runtime.lastError ? (console.log(chrome.runtime.lastError), e(new Error(w))) : t(i);
               });
             });
           });
         }
       })();
-      Object.freeze(X);
-      const Z = X;
-      var tt,
-        et = new Uint8Array(16);
-      function it() {
+      Object.freeze(tt);
+      const et = tt;
+      var it,
+        nt = new Uint8Array(16);
+      function st() {
         if (
-          !tt &&
-          !(tt =
+          !it &&
+          !(it =
             ("undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto)) ||
             ("undefined" != typeof msCrypto && "function" == typeof msCrypto.getRandomValues && msCrypto.getRandomValues.bind(msCrypto)))
         )
           throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
-        return tt(et);
+        return it(nt);
       }
-      const nt = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
-      const st = function (t) {
-        return "string" == typeof t && nt.test(t);
+      const ut = /^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i;
+      const ot = function (t) {
+        return "string" == typeof t && ut.test(t);
       };
-      for (var ut = [], ot = 0; ot < 256; ++ot) ut.push((ot + 256).toString(16).substr(1));
-      const rt = function (t) {
+      for (var rt = [], ct = 0; ct < 256; ++ct) rt.push((ct + 256).toString(16).substr(1));
+      const at = function (t) {
         var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 0,
           i = (
-            ut[t[e + 0]] +
-            ut[t[e + 1]] +
-            ut[t[e + 2]] +
-            ut[t[e + 3]] +
+            rt[t[e + 0]] +
+            rt[t[e + 1]] +
+            rt[t[e + 2]] +
+            rt[t[e + 3]] +
             "-" +
-            ut[t[e + 4]] +
-            ut[t[e + 5]] +
+            rt[t[e + 4]] +
+            rt[t[e + 5]] +
             "-" +
-            ut[t[e + 6]] +
-            ut[t[e + 7]] +
+            rt[t[e + 6]] +
+            rt[t[e + 7]] +
             "-" +
-            ut[t[e + 8]] +
-            ut[t[e + 9]] +
+            rt[t[e + 8]] +
+            rt[t[e + 9]] +
             "-" +
-            ut[t[e + 10]] +
-            ut[t[e + 11]] +
-            ut[t[e + 12]] +
-            ut[t[e + 13]] +
-            ut[t[e + 14]] +
-            ut[t[e + 15]]
+            rt[t[e + 10]] +
+            rt[t[e + 11]] +
+            rt[t[e + 12]] +
+            rt[t[e + 13]] +
+            rt[t[e + 14]] +
+            rt[t[e + 15]]
           ).toLowerCase();
-        if (!st(i)) throw TypeError("Stringified UUID is invalid");
+        if (!ot(i)) throw TypeError("Stringified UUID is invalid");
         return i;
       };
-      const at = function (t, e, i) {
-        var n = (t = t || {}).random || (t.rng || it)();
+      const Dt = function (t, e, i) {
+        var n = (t = t || {}).random || (t.rng || st)();
         if (((n[6] = (15 & n[6]) | 64), (n[8] = (63 & n[8]) | 128), e)) {
           i = i || 0;
           for (var s = 0; s < 16; ++s) e[i + s] = n[s];
           return e;
         }
-        return rt(n);
+        return at(n);
       };
-      var ct;
+      var ht;
       !(function (t) {
         (t.SET_USER_LIST = "setUserList"),
           (t.SET_CONNECTION_ID = "setConnectionId"),
@@ -1008,26 +1079,26 @@
           (t.OPEN_TAB = "openTab"),
           (t.ON_CHROME_STORAGE_UPDATE = "onChromeStorageUpdate"),
           (t.ON_WEB_RTC = "onWebRTC");
-      })(ct || (ct = {}));
-      const Dt = chrome.extension.getURL("img/x-circle.svg"),
-        ht = "with-chat";
-      var dt = function (t, e, i, n) {
+      })(ht || (ht = {}));
+      const dt = chrome.extension.getURL("img/x-circle.svg"),
+        lt = "with-chat";
+      var pt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -1038,10 +1109,10 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      const lt = new (class {
+      const gt = new (class {
         isUserIconValid(t) {
           return (
             !!t &&
@@ -1061,16 +1132,16 @@
           return "";
         }
         B(t) {
-          return dt(this, void 0, void 0, function* () {
+          return pt(this, void 0, void 0, function* () {
             try {
               yield k.setItemsAsync(t);
             } catch (t) {}
           });
         }
         getValidatedChromeStorageDataAsync() {
-          return dt(this, void 0, void 0, function* () {
-            const t = yield Z.getAllItemsAsync(),
-              e = lt.validateStorageData(t);
+          return pt(this, void 0, void 0, function* () {
+            const t = yield et.getAllItemsAsync(),
+              e = gt.validateStorageData(t);
             return JSON.stringify(t) !== JSON.stringify(e) && this.B(e), e;
           });
         }
@@ -1084,57 +1155,57 @@
           );
         }
       })();
-      Object.freeze(lt);
-      const pt = lt,
-        gt = 1e3,
-        Ft = 72e5,
-        vt = 12e4,
-        yt = {
+      Object.freeze(gt);
+      const Ft = gt,
+        vt = 1e3,
+        yt = 72e5,
+        mt = 12e4,
+        ft = {
           title: "Teleparty | Disconnected from party",
           content:
             "Only the owner of this party can change the episode. Click the button below to be redirected to the party, then click on the red Tp icon to rejoin.",
           buttonTitle: "Return to Party"
         },
-        mt = {
+        Ct = {
           title: "Teleparty | Are you still there?",
           content: "You will be removed from the party in 120 seconds for inactivity. Move your mouse to continue watching."
         },
-        ft = {
+        Et = {
           title: "Teleparty | Disconnected from party",
           content:
             "It looks like someone changed the video and we weren't able to connect you. Click the button below to be redirected to the party, then click on the red Tp icon to rejoin.",
           buttonTitle: "Return to Party"
         },
-        Ct = {
+        wt = {
           title: "Teleparty | Disconnected from party",
           content:
             "It looks like you lost connection to the extension. Click the button below to be redirected to the party, then click on the red Tp icon to rejoin.",
           buttonTitle: "Return to Party"
         };
-      function Et(t, e) {
-        wt();
+      function _t(t, e) {
+        bt();
         const i = e
           ? (function (t) {
-              return `\n    <div id="alert-dialog-wrapper">\n      <div id="alert-dialog-container">\n        <div id="alert-title-wrapper">\n            <div class="alert-title">\n                <p id="alert-title-txt" class="extension-title">\n                    ${t.title}\n                </p>\n                <button id="alert-x-btn">\n                    <img src="${Dt}" alt="close" />\n                </button>\n            </div>\n            <div class="extension-border-bot">\n                \n            </div>\n        </div>\n        <div id="alert-description">\n            <p id="alert-content-txt" class="extension-txt">\n              ${t.content}\n            </p>\n            <button id="alert-return-btn" class="extension-btn">${t.buttonTitle}</button>\n        </div>\n      </div>\n    </div>\n    `;
+              return `\n    <div id="alert-dialog-wrapper">\n      <div id="alert-dialog-container">\n        <div id="alert-title-wrapper">\n            <div class="alert-title">\n                <p id="alert-title-txt" class="extension-title">\n                    ${t.title}\n                </p>\n                <button id="alert-x-btn">\n                    <img src="${dt}" alt="close" />\n                </button>\n            </div>\n            <div class="extension-border-bot">\n                \n            </div>\n        </div>\n        <div id="alert-description">\n            <p id="alert-content-txt" class="extension-txt">\n              ${t.content}\n            </p>\n            <button id="alert-return-btn" class="extension-btn">${t.buttonTitle}</button>\n        </div>\n      </div>\n    </div>\n    `;
             })(t)
           : (function (t) {
-              return `\n  <div id="alert-dialog-wrapper">\n    <div id="alert-dialog-container">\n      <div id="alert-title-wrapper">\n          <div class="alert-title">\n              <p id="alert-title-txt" class="extension-title">\n                  ${t.title}\n              </p>\n              <button id="alert-x-btn">\n                  <img src="${Dt}" alt="close" />\n              </button>\n          </div>\n          <div class="extension-border-bot">\n              \n          </div>\n      </div>\n      <div id="alert-description">\n          <p id="alert-content-txt" class="extension-txt">\n            ${t.content}\n          </p>\n      </div>\n    </div>\n  </div>\n  `;
+              return `\n  <div id="alert-dialog-wrapper">\n    <div id="alert-dialog-container">\n      <div id="alert-title-wrapper">\n          <div class="alert-title">\n              <p id="alert-title-txt" class="extension-title">\n                  ${t.title}\n              </p>\n              <button id="alert-x-btn">\n                  <img src="${dt}" alt="close" />\n              </button>\n          </div>\n          <div class="extension-border-bot">\n              \n          </div>\n      </div>\n      <div id="alert-description">\n          <p id="alert-content-txt" class="extension-txt">\n            ${t.content}\n          </p>\n      </div>\n    </div>\n  </div>\n  `;
             })(t);
         document.body.insertAdjacentHTML("afterbegin", i),
           jQuery("#alert-x-btn").click(() => {
-            wt();
+            bt();
           }),
           e &&
             jQuery("#alert-return-btn").click(() => {
-              wt(), (window.location.href = e);
+              bt(), (window.location.href = e);
             });
       }
-      function wt() {
+      function bt() {
         const t = document.querySelector("#alert-dialog-wrapper");
         t && t.remove();
       }
-      const _t = { showAlert: !1 },
-        bt = {
+      const jt = { showAlert: !1 },
+        Bt = {
           showAlert: !0,
           alertModal: {
             title: "Teleparty | Disconnected from party",
@@ -1142,28 +1213,28 @@
             buttonTitle: "Return to Party"
           }
         };
-      var jt;
+      var At;
       !(function (t) {
         (t.HEART = "heart"), (t.ANGRY = "angry"), (t.FIRE = "fire"), (t.LAUGH = "laugh"), (t.CRY = "cry"), (t.SURPRISE = "surprise");
-      })(jt || (jt = {}));
-      var Bt,
-        At = function (t, e, i, n) {
+      })(At || (At = {}));
+      var kt,
+        Qt = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
-                a(n.next(t));
+                c(n.next(t));
               } catch (t) {
                 u(t);
               }
             }
             function r(t) {
               try {
-                a(n.throw(t));
+                c(n.throw(t));
               } catch (t) {
                 u(t);
               }
             }
-            function a(t) {
+            function c(t) {
               var e;
               t.done
                 ? s(t.value)
@@ -1174,10 +1245,10 @@
                         t(e);
                       })).then(o, r);
             }
-            a((n = n.apply(t, e || [])).next());
+            c((n = n.apply(t, e || [])).next());
           });
         };
-      class kt {
+      class It {
         constructor(t) {
           (this.A = this.k.bind(this)),
             (this.I = this.resetIdleTimer.bind(this)),
@@ -1193,8 +1264,8 @@
               let i = "" !== e.id ? e.id : e.className;
               i = e.getAttribute("data-tp-id") ? e.getAttribute("data-tp-id") : i;
               const n = { name: "user_click", component: { name: i, type: e.nodeName, origin: "other" } },
-                s = new W(S, x, n);
-              P.g(s),
+                s = new z(S, x, n);
+              $.g(s),
                 t.target !== jQuery("emoji-picker")[0] &&
                   t.target !== jQuery("#chat-input")[0] &&
                   jQuery("#emoji-picker-container") &&
@@ -1213,44 +1284,44 @@
               console.log("on Emoji Click");
               const e = jQuery("#chat-input")[0],
                 i = t.detail.unicode,
-                n = new W(S, x, { name: "user_click", component: { name: "chat_input_container-emoji_picker-emoji", type: i } });
-              P.g(n);
-              const s = new W(S, x, { eventType: `emoji-click-${i}`, sessionId: this.$.getSessionId() });
-              P.g(s), J.pushTask(() => this.updateFrequentlyUsed(t.detail.emoji));
+                n = new z(S, x, { name: "user_click", component: { name: "chat_input_container-emoji_picker-emoji", type: i } });
+              $.g(n);
+              const s = new z(S, x, { eventType: `emoji-click-${i}`, sessionId: this.$.getSessionId() });
+              $.g(s), X.pushTask(() => this.updateFrequentlyUsed(t.detail.emoji));
               const u = window.getSelection();
               if (!jQuery("#chat-input").is(":focus") && e.lastChild) {
                 const t = document.createRange();
                 t.setStartAfter(e.lastChild), null == u || u.removeAllRanges(), null == u || u.addRange(t);
               }
               this.$.focusChat(), this.R(i);
-              e.scrollHeight - e.scrollTop <= e.clientHeight + 40 && (e.scrollTop = e.scrollHeight), this.G(), this.$.onInputChange();
+              e.scrollHeight - e.scrollTop <= e.clientHeight + 40 && (e.scrollTop = e.scrollHeight), this.O(), this.$.onInputChange();
             }),
             (this.$ = t);
         }
-        L() {
-          t("Idle Warning called"), Et(mt);
-          const e = new W(S, x, {
+        U() {
+          t("Idle Warning called"), _t(Ct);
+          const e = new z(S, x, {
             name: "party_warning",
             action: { description: "user has been warned for being idle", reason: "user was idle for 120000 time in milliseconds." }
           });
-          P.g(e);
-          const i = new W(S, x, { eventType: "idle-warn-2hr", sessionId: this.$.getSessionId() });
-          P.g(i), (this.O = setTimeout(this.U.bind(this), vt));
+          $.g(e);
+          const i = new z(S, x, { eventType: "idle-warn-2hr", sessionId: this.$.getSessionId() });
+          $.g(i), (this.G = setTimeout(this.L.bind(this), mt));
         }
-        U() {
+        L() {
           t("Idle kick called");
-          const e = new W(S, x, {
+          const e = new z(S, x, {
               name: "party_kick",
               action: { description: "user has been kicked for being idle", reason: "user was idle for 7200000 time in milliseconds." }
             }),
-            i = new H(S, x, bt);
-          P.g(e), P.g(i);
+            i = new W(S, x, Bt);
+          $.g(e), $.g(i);
         }
         resetIdleTimer() {
-          this.N && clearTimeout(this.N), this.O && (wt(), clearTimeout(this.O)), (this.N = setTimeout(this.L.bind(this), Ft));
+          this.V && clearTimeout(this.V), this.G && (bt(), clearTimeout(this.G)), (this.V = setTimeout(this.U.bind(this), yt));
         }
-        V() {
-          (this.N = setTimeout(this.L.bind(this), Ft)),
+        N() {
+          (this.V = setTimeout(this.U.bind(this), yt)),
             (window.onmousemove = (t) => {
               t.isTrusted && this.I();
             }),
@@ -1260,15 +1331,15 @@
             (window.onkeydown = () => this.I());
         }
         H() {
-          this.N && clearTimeout(this.N),
-            this.O && clearTimeout(this.O),
+          this.V && clearTimeout(this.V),
+            this.G && clearTimeout(this.G),
             (window.onmousemove = null),
             (window.onmousedown = null),
             (window.ontouchstart = null),
             (window.onkeydown = null);
         }
         startListening() {
-          t("Listening for chat events"), this.V(), this.W(), this.initWindowListeners();
+          t("Listening for chat events"), this.N(), this.W(), this.initWindowListeners();
         }
         stopListening() {
           this.K(), this.H(), this.Y();
@@ -1324,7 +1395,7 @@
             jQuery("#gif-input-back").on("click", this.$.resetGif.bind(this.$)),
             jQuery("#reaction-btn").on("click", this.$.addReactionTab.bind(this.$)),
             jQuery("#chat-input-container").on("click", this.X.bind(this)),
-            jQuery("#chat-input").on("input", this.G.bind(this)),
+            jQuery("#chat-input").on("input", this.O.bind(this)),
             jQuery("#chat-input").on("drop", this.Z.bind(this)),
             jQuery("#gif-results-wrapper").on("scroll", this.$.onScrollToBottom.bind(this.$)),
             this.tt(),
@@ -1333,25 +1404,25 @@
         }
         tt() {
           jQuery("#tp-heart-button").on("click", () => {
-            this.$.onReactionClicked(jt.HEART);
+            this.$.onReactionClicked(At.HEART);
           }),
             jQuery("#tp-cry-button").on("click", () => {
-              this.$.onReactionClicked(jt.CRY);
+              this.$.onReactionClicked(At.CRY);
             }),
             jQuery("#tp-angry-button").on("click", () => {
-              this.$.onReactionClicked(jt.ANGRY);
+              this.$.onReactionClicked(At.ANGRY);
             }),
             jQuery("#tp-surprise-button").on("click", () => {
-              this.$.onReactionClicked(jt.SURPRISE);
+              this.$.onReactionClicked(At.SURPRISE);
             }),
             jQuery("#tp-laugh-button").on("click", () => {
-              this.$.onReactionClicked(jt.LAUGH);
+              this.$.onReactionClicked(At.LAUGH);
             }),
             jQuery("#tp-fire-button").on("click", () => {
-              this.$.onReactionClicked(jt.FIRE);
+              this.$.onReactionClicked(At.FIRE);
             });
         }
-        G() {
+        O() {
           var t, e;
           const i =
               null !== (t = jQuery("#bottom-chat-controls").outerHeight(!0)) && void 0 !== t
@@ -1399,13 +1470,13 @@
         }
         updateFrequentlyUsed(t) {
           var e;
-          return At(this, void 0, void 0, function* () {
-            const i = yield Z.getItemsAsync([d]);
-            let n = null !== (e = i.recentlyUsedEmojiMap) && void 0 !== e ? e : g;
-            this.it(n) || (n = g),
+          return Qt(this, void 0, void 0, function* () {
+            const i = yield et.getItemsAsync([D]);
+            let n = null !== (e = i.recentlyUsedEmojiMap) && void 0 !== e ? e : l;
+            this.it(n) || (n = l),
               Array.isArray(n) &&
                 (t && ((n = n.filter((e) => e.unicode != t.unicode)), n.unshift(t), (n = n.slice(0, 24))),
-                yield k.setItemsAsync({ [d]: n }),
+                yield k.setItemsAsync({ [D]: n }),
                 window.postMessage({ type: "TP_FREQ_USED", data: n }, "*"));
           });
         }
@@ -1432,21 +1503,21 @@
       }
       !(function (t) {
         (t.EPISODE = "episode"), (t.FEATURE = "feature"), (t.LIVE = "live"), (t.EXTRA = "extra"), (t.EVENT = "event"), (t.OTHER = "other");
-      })(Bt || (Bt = {}));
-      var Qt;
-      function It(t) {
+      })(kt || (kt = {}));
+      var xt;
+      function Tt(t) {
         return t.hostname.includes(".hotstar.") && t.pathname.includes("/watch");
       }
-      function xt(t) {
+      function St(t) {
         return t.includes("urn:hbo:feature")
-          ? Bt.FEATURE
+          ? kt.FEATURE
           : t.includes("urn:hbo:episode") || (t.includes("urn:hbo:page:") && t.includes(":type:episode"))
-          ? Bt.EPISODE
+          ? kt.EPISODE
           : t.includes("urn:hbo:extra")
-          ? Bt.EXTRA
-          : Bt.OTHER;
+          ? kt.EXTRA
+          : kt.OTHER;
       }
-      function Tt(t) {
+      function Mt(t) {
         return function () {
           return new Promise((e) => {
             setTimeout(() => {
@@ -1455,7 +1526,7 @@
           });
         };
       }
-      function St(t, e, i = 250) {
+      function Pt(t, e, i = 250) {
         return function () {
           const n = new Date().getTime(),
             s = function () {
@@ -1463,21 +1534,25 @@
                 ? Promise.resolve()
                 : null !== e && new Date().getTime() - n > e
                 ? Promise.reject(new Error("delayUntil timed out: " + t))
-                : Tt(i)().then(s);
+                : Mt(i)().then(s);
             };
           return s();
         };
       }
-      function Mt(t, e, i) {
+      function $t(t, e, i) {
         t.push(e), t.length > i && t.splice(0, t.length - i);
       }
-      function Pt(t) {
+      function Rt(t) {
         return t.concat().sort()[Math.floor(t.length / 2)];
       }
       !(function (t) {
-        (t.REGISTER = "register"), (t.PARTY_START = "party_start"), (t.PARTY_JOIN = "party_join"), (t.PARTY_END = "party_end");
-      })(Qt || (Qt = {}));
-      class $t {
+        (t.REGISTER = "register"),
+          (t.PARTY_START = "party_start"),
+          (t.PARTY_JOIN = "party_join"),
+          (t.PARTY_END = "party_end"),
+          (t.PARTY_SHARE = "party_share");
+      })(xt || (xt = {}));
+      class Ot {
         constructor(e) {
           (this.$ = e),
             (this.nt = []),
@@ -1567,7 +1642,7 @@
           (u.p = e.permId), (u.ft = i), (u.Ct = n), (u.Et = e), (u.wt = s);
         }
         reloadMessages() {
-          this.$.queueMessageForFrame(ct.CLEAR_MESSAGES, "");
+          this.$.queueMessageForFrame(ht.CLEAR_MESSAGES, "");
           const t = JSON.parse(JSON.stringify(this.nt));
           for (let e = 0; e < t.length; e++) {
             const i = t[e];
@@ -1606,9 +1681,9 @@
           const u = Object.assign({}, t),
             o = this.getUserIconURL(u.permId, u.userIcon),
             r = this.getUserNickname(u.permId, u.userNickname);
-          this.$.queueMessageForFrame(ct.ADD_MESSAGE, { originalMessage: u, userIcon: o, userNickname: r });
-          const a = "" === r ? this.Ft(o, u, s) : this.lt(o, r, u, s);
-          this.yt(a, u, o, r, s), this.scrollToBottom(), this.bt();
+          this.$.queueMessageForFrame(ht.ADD_MESSAGE, { originalMessage: u, userIcon: o, userNickname: r });
+          const c = "" === r ? this.Ft(o, u, s) : this.lt(o, r, u, s);
+          this.yt(c, u, o, r, s), this.scrollToBottom(), this.bt();
         }
         addGif(t, e) {
           void 0 === e && (e = this.nt.length);
@@ -1617,9 +1692,9 @@
           this.nt.push(t);
           const s = t.userIcon ? this.getUserIconURL(t.permId, t.userIcon) : this.getUserIconURL(t.permId),
             u = t.userNickname ? this.getUserNickname(t.permId, t.userNickname) : "";
-          this.$.queueMessageForFrame(ct.ADD_MESSAGE, { originalMessage: t, userIcon: s, userNickname: u });
+          this.$.queueMessageForFrame(ht.ADD_MESSAGE, { originalMessage: t, userIcon: s, userNickname: u });
           const o = "" === u ? this.vt(s, t, n) : this.gt(s, u, t, n);
-          (o[0].jt = !0), this.yt(o, t, s, u, n), Tt(100)().then(this.scrollToBottom.bind(this)), this.bt();
+          (o[0].jt = !0), this.yt(o, t, s, u, n), Mt(100)().then(this.scrollToBottom.bind(this)), this.bt();
         }
         scrollToBottom() {
           jQuery("#chat-history").scrollTop(jQuery("#chat-history").prop("scrollHeight"));
@@ -1681,7 +1756,7 @@
           }
         }
         setUserIconUrl(t) {
-          (this.dt = t), this.$.queueMessageForFrame(ct.SET_USER_ICON_URL, t);
+          (this.dt = t), this.$.queueMessageForFrame(ht.SET_USER_ICON_URL, t);
         }
         renderSidebar() {
           jQuery("#user-icon img").attr("src", this.dt), jQuery(".user-icon img").attr("src", this.dt);
@@ -1736,28 +1811,28 @@
           jQuery(
             '\n          <div class="msg-container">\n          <div class="msg-txt message-system" style="width:100%">\n          <p>\n          Thanks for using Teleparty! <br> \n          If you enjoy the extension, please leave a positive review \n          <a id="reviewLink" href="https://chrome.google.com/webstore/detail/netflix-party-is-now-tele/oocalimimngaihdkbihfgmpkcpnmlaoa/reviews" style="display:inline;color:red;text-decoration:underline;" target="none">here!</a>\n          </p>\n          </div>\n          </div>\n          '
           ).appendTo(jQuery("#chat-history"));
-          const t = new W(S, x, {
+          const t = new z(S, x, {
             name: "review-shown",
             action: { description: "review was shown on chrome", reason: "review was shown." }
           });
-          P.g(t);
+          $.g(t);
           const e = { eventType: "review-shown-chrome", sessionId: this.$.getSessionId() },
-            i = new W(S, x, e);
-          P.g(i),
+            i = new z(S, x, e);
+          $.g(i),
             jQuery("#reviewLink").click(() => {
               chrome.storage.local.set({ reviewClicked: !0 });
-              const t = new W(S, x, {
+              const t = new z(S, x, {
                 name: "review-clicked",
                 action: { description: "review was clicked on chrome", reason: "review was clicked." }
               });
-              P.g(t);
+              $.g(t);
               const e = { eventType: "review-clicked-chrome", sessionId: this.$.getSessionId() },
-                i = new W(S, x, e);
-              P.g(i);
+                i = new z(S, x, e);
+              $.g(i);
             });
         }
       }
-      class Rt {
+      class Ut {
         constructor(t) {
           (this.Qt = !1), (this.It = !1), (this.xt = !1), (this.$ = t);
         }
@@ -1792,26 +1867,26 @@
         }
         Tt() {
           const t = this.Mt();
-          this.St().text(t), this.$.queueMessageForFrame(ct.SET_PRESENCE_MESSAGE, { text: t });
+          this.St().text(t), this.$.queueMessageForFrame(ht.SET_PRESENCE_MESSAGE, { text: t });
         }
       }
       var Gt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -1822,26 +1897,26 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
       var Lt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -1852,22 +1927,22 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      class Ot extends class {
+      class Vt extends class {
         constructor() {
           (this.Pt = !1),
             (this.$t = 1),
             (this.Rt = ""),
-            (this.Gt = ""),
-            (this.Lt = "0"),
             (this.Ot = ""),
-            (this.Ut = !0),
-            (this.Nt = !1),
-            (this.Vt = 0),
+            (this.Ut = "0"),
+            (this.Gt = ""),
+            (this.Lt = !0),
+            (this.Vt = !1),
+            (this.Nt = 0),
             (this.Ht = []),
-            (this.Wt = new Y()),
+            (this.Wt = new q()),
             (this.zt = !1),
             (this.Kt = void 0),
             (this.Yt = !0),
@@ -1877,11 +1952,11 @@
             (this.te = !1),
             (this.ee = []),
             (this.logEvent = (t) => {
-              const e = new W(S, x, t);
-              P.g(e);
+              const e = new z(S, x, t);
+              $.g(e);
             }),
             (this.checkInitReactionContainer = () => {
-              Z.getItemsAsync([u]).then((t) => {
+              et.getItemsAsync([n]).then((t) => {
                 (!0 !== t.reactionContainerOpen && void 0 !== t.reactionContainerOpen) || this.showReactionHolder();
               });
             }),
@@ -1890,28 +1965,26 @@
               null === (t = this.ie) || void 0 === t || t.hideMessageIndicator();
             }),
             (this.setReactionsActive = (t) => {
-              this.Wt.pushTask(() => k.setItemsAsync({ [u]: t.active }));
+              this.Wt.pushTask(() => k.setItemsAsync({ [n]: t.active }));
             }),
             (this.onFullScreen = () => {
               var t;
               this.scrollToBottom(),
-                null != document.fullscreenElement
-                  ? (this.logEvent({ name: "fullscreen_enter" }),
-                    this.qt() && ((this.Jt = !1), this.setChatVisible(this.shouldChatBeVisible())))
-                  : (this.logEvent({ name: "fullscreen_exit" }),
-                    this.qt() && ((this.Jt = this.qt()), jQuery("#chat-wrapper").hide(), this.setChatVisible(!1, !1), this.removeChat())),
+                document.fullscreenElement || document.webkitIsFullScreen
+                  ? this.logEvent({ name: "fullscreen_enter" })
+                  : this.logEvent({ name: "fullscreen_exit" }),
                 null === (t = this.ie) || void 0 === t || t.setChatButtons();
             }),
             (this.cancelEvent = (t) => {
               t.stopPropagation();
             }),
             (this.ne = !1),
-            (this.se = new kt(this)),
-            (this.ue = new Rt(this)),
-            (this.oe = new $t(this)),
+            (this.se = new It(this)),
+            (this.ue = new Ut(this)),
+            (this.oe = new Ot(this)),
             (this.re = void 0),
-            (this.ae = void 0),
-            (this.ce = !1);
+            (this.ce = void 0),
+            (this.ae = !1);
         }
         setPageControls(t) {
           this.ie = t;
@@ -1923,12 +1996,12 @@
         setChatVisible(t, e = !0) {
           return Gt(this, void 0, void 0, function* () {
             if (this.isPartyWindowsActive()) throw new Error("Invalid Set Chat");
-            e && (this.Ut = t), t && !this.De() && this.reloadChat();
+            e && (this.Lt = t), t && !this.De() && this.reloadChat();
           });
         }
         he(t, e) {
-          const i = new W(S, x, { name: "error", action: { reason: e, description: t } });
-          P.g(i);
+          const i = new z(S, x, { name: "error", action: { reason: e, description: t } });
+          $.g(i);
         }
         getChatWindowVisible() {
           return this.Xt;
@@ -1943,16 +2016,16 @@
           return this.Jt;
         }
         shouldChatBeVisible() {
-          return this.Ut;
+          return this.Lt;
         }
         incrementEmojiCount() {
-          this.Vt++;
+          this.Nt++;
         }
         resetEmojiCount() {
-          this.Vt = 0;
+          this.Nt = 0;
         }
         getEmojiCount() {
-          return this.Vt;
+          return this.Nt;
         }
         setChatFrameReady(t) {
           this.zt && this.de(), (this.zt = !0), (this.le = t), console.log("setChatFrameReady");
@@ -1968,7 +2041,7 @@
           return Gt(this, void 0, void 0, function* () {
             const i = this.le,
               n = { type: t, data: e, target: "TP_Sidebar", tabId: i, sender: S };
-            P.g(n);
+            $.g(n);
           });
         }
         ge() {
@@ -1976,7 +2049,7 @@
           return Gt(this, void 0, void 0, function* () {
             try {
               console.log("Start delay"),
-                yield St(() => this.zt && null != this.le, 3e4)(),
+                yield Pt(() => this.zt && null != this.le, 3e4)(),
                 console.log("Chat Frame is Loaded"),
                 this.Kt && this.Fe(this.Kt),
                 null === (t = this.ie) || void 0 === t || t.setResetChatButton();
@@ -1986,27 +2059,27 @@
           });
         }
         qt() {
-          return !1;
+          return window.origin.includes(".crunchyroll.com"), window.origin.includes("tv.apple.com"), !1;
         }
         ve() {
           return Gt(this, void 0, void 0, function* () {
-            yield P.g(new V(S, x, L.LOAD_CHAT_WINDOW)), console.log(this.le);
+            yield $.g(new H(S, x, G.LOAD_CHAT_WINDOW)), console.log(this.le);
           });
         }
         resetChatWindow(t = !1) {
           var e;
           return Gt(this, void 0, void 0, function* () {
-            yield P.g(new V(S, x, L.RESET_CHAT_WINDOW)),
+            yield $.g(new H(S, x, G.RESET_CHAT_WINDOW)),
               console.log(this.le),
               (this.Xt = !0),
-              (this.Ut = !0),
+              (this.Lt = !0),
               top.postMessage({ type: "exitFullscreen" }, "*"),
               this.Zt && t && (this.resetIconListener(), null === (e = this.ie) || void 0 === e || e.setResetChatButton());
           });
         }
         hideChatWindow() {
           return Gt(this, void 0, void 0, function* () {
-            yield P.g(new V(S, x, L.HIDE_CHAT_WINDOW)), (this.Xt = !1), (this.Ut = !1);
+            yield $.g(new H(S, x, G.HIDE_CHAT_WINDOW)), (this.Xt = !1), (this.Lt = !1);
           });
         }
         ye() {
@@ -2022,14 +2095,14 @@
           return Gt(this, void 0, void 0, function* () {
             const i = Object.assign({}, t);
             if (((i.iconMap = f), (i.extensionBaseUrl = chrome.runtime.getURL("")), i.storageData)) {
-              const t = yield pt.getValidatedChromeStorageDataAsync();
+              const t = yield Ft.getValidatedChromeStorageDataAsync();
               i.storageData = t;
             }
-            this.queueMessageForFrame(ct.LOAD_INIT_DATA, i);
+            this.queueMessageForFrame(ht.LOAD_INIT_DATA, i);
             const n = yield this.getVideoTitle();
-            this.queueMessageForFrame(ct.SET_PAGE_TITLE, { pageTitle: n }),
-              this.queueMessageForFrame(ct.SET_USER_LIST, this.ee),
-              this.queueMessageForFrame(ct.UPDATE_SETTINGS, {
+            this.queueMessageForFrame(ht.SET_PAGE_TITLE, { pageTitle: n }),
+              this.queueMessageForFrame(ht.SET_USER_LIST, this.ee),
+              this.queueMessageForFrame(ht.UPDATE_SETTINGS, {
                 userSettings: null === (e = this.fe) || void 0 === e ? void 0 : e.userSettings
               });
           });
@@ -2038,16 +2111,16 @@
           return Gt(this, void 0, void 0, function* () {
             if ((console.log("Reloading chat Frame"), this.Kt && (yield this.Fe(this.Kt)), this.fe)) {
               const t = this.oe.getUserIconURL(this.fe.permId, this.fe.userIcon);
-              this.queueMessageForFrame(ct.SET_USER_ICON_URL, t);
+              this.queueMessageForFrame(ht.SET_USER_ICON_URL, t);
             }
             const t = yield this.getVideoTitle();
-            this.queueMessageForFrame(ct.SET_PAGE_TITLE, { pageTitle: t }), this.reloadMessages();
+            this.queueMessageForFrame(ht.SET_PAGE_TITLE, { pageTitle: t }), this.reloadMessages();
           });
         }
         Ce() {
           return Gt(this, void 0, void 0, function* () {
             this.Ee(),
-              yield Tt(200)(),
+              yield Mt(200)(),
               (jQuery("#tpChatFrame")[0].style.display = "block"),
               this.setChatVisible(!0),
               this.addIconSelector(),
@@ -2057,7 +2130,7 @@
           });
         }
         _e(t) {
-          this.se.initWindowListeners(), this.qt() && this.ye(), this.Wt.pushTask(this.ge.bind(this)), wt(), (this.fe = new I(t));
+          this.se.initWindowListeners(), this.qt() && this.ye(), this.Wt.pushTask(this.ge.bind(this)), bt(), (this.fe = new I(t));
           const e = this.oe.getUserIconURL(this.fe.permId, this.fe.userIcon);
           this.oe.setUserIconUrl(e),
             this.oe.renderSidebar(),
@@ -2074,7 +2147,7 @@
         }
         checkAddYoutubePromo() {
           return Gt(this, void 0, void 0, function* () {
-            "true" !== (yield Z.getItemsAsync(["seenYoutubePromo"])).seenYoutubePromo &&
+            "true" !== (yield et.getItemsAsync(["seenYoutubePromo"])).seenYoutubePromo &&
               (this.oe.addYoutubePromo(), k.setItemsAsync({ seenYoutubePromo: "true" }));
           });
         }
@@ -2084,7 +2157,7 @@
           (e.iconMap = f),
             (e.extensionBaseUrl = chrome.runtime.getURL("")),
             console.log(e),
-            this.queueMessageForFrame(ct.LOAD_INIT_DATA, e);
+            this.queueMessageForFrame(ht.LOAD_INIT_DATA, e);
         }
         reloadChat() {
           return Gt(this, void 0, void 0, function* () {
@@ -2092,9 +2165,9 @@
               this.De() ||
                 this.isPartyWindowsActive() ||
                 (this.Ee(),
-                yield Tt(200)(),
+                yield Mt(200)(),
                 (jQuery("#tpChatFrame")[0].style.display = "block"),
-                this.setChatVisible(this.Ut),
+                this.setChatVisible(this.Lt),
                 this.addIconSelector(),
                 this.je(),
                 this.we(),
@@ -2105,8 +2178,8 @@
           });
         }
         sendTeardown(t) {
-          const e = new H(S, x, t);
-          P.g(e);
+          const e = new W(S, x, t);
+          $.g(e);
         }
         De() {
           return jQuery("#chat-wrapper").length > 0;
@@ -2117,7 +2190,7 @@
         Be() {
           return Gt(this, void 0, void 0, function* () {
             try {
-              yield St(() => null !== document.querySelector("#chat-history") || this.Jt || (this.zt && this.Yt), 1e4)();
+              yield Pt(() => null !== document.querySelector("#chat-history") || this.Jt || (this.zt && this.Yt), 1e4)();
             } catch (t) {
               this.he("Failed to find chat history", t);
             }
@@ -2144,10 +2217,10 @@
           this.oe.scrollToBottom();
         }
         addReviewMessage() {
-          this.oe.addReviewMessage(), (this.ce = !0);
+          this.oe.addReviewMessage(), (this.ae = !0);
         }
         get showingReveiwMessage() {
-          return this.ce;
+          return this.ae;
         }
         set shouldReturnToVideo(t) {
           this.Zt = t;
@@ -2187,16 +2260,16 @@
           }
         }
         we() {
-          St(() => this.De(), 1e4)().then(() => {
+          Pt(() => this.De(), 1e4)().then(() => {
             this.se.startListening();
           });
         }
         je() {
-          this.se.stopListening(), this.Qe && (clearTimeout(this.Qe), (this.Nt = !1));
+          this.se.stopListening(), this.Qe && (clearTimeout(this.Qe), (this.Vt = !1));
         }
         teardown() {
           (this.ne = !1),
-            (this.Gt = void 0),
+            (this.Ot = void 0),
             (this.Ie = void 0),
             this.je(),
             jQuery("[tpInjected]").remove(),
@@ -2235,7 +2308,7 @@
             jQuery("#reaction-btn").css({ background: "", padding: "" }),
             jQuery("#reaction-holder").css({ "padding-top": "" }),
             jQuery("#chat-input-container").css({ "padding-top": "" }),
-            this.Wt.pushTask(() => k.setItemsAsync({ [u]: !1 }));
+            this.Wt.pushTask(() => k.setItemsAsync({ [n]: !1 }));
         }
         onOpenGifPicker() {
           var t, e;
@@ -2273,7 +2346,7 @@
             });
         }
         onVideoClick() {
-          this.queueMessageForFrame(ct.ON_PAGE_CLICK);
+          this.queueMessageForFrame(ht.ON_PAGE_CLICK);
         }
         toggleGIFs() {
           jQuery("#gif-picker-container").slideToggle(0, () => {
@@ -2282,38 +2355,39 @@
         }
         addEmojiPicker(t) {
           t.stopPropagation();
-          const e = new W(S, x, {
+          const e = new z(S, x, {
             name: "user_click",
             component: { name: "chat_input_container-emoji_picker", type: "button", origin: "tp" }
           });
-          P.g(e), this.toggleEmojiClicker();
+          $.g(e), this.toggleEmojiClicker();
         }
         addGifPicker(t) {
           t.stopPropagation();
-          const e = new W(S, x, {
+          const e = new z(S, x, {
             name: "user_click",
             component: { name: "chat_input_container-gif_popup", type: "button", origin: "tp" }
           });
-          P.g(e), this.toggleGIFs();
+          $.g(e), this.toggleGIFs();
         }
         addReactionTab(t) {
           t.stopPropagation();
-          const e = new W(S, x, {
+          const e = new z(S, x, {
             name: "user_click",
             component: { name: "chat_input_container-reaction_pinner", type: "button", origin: "tp" }
           });
-          P.g(e), this.toggleReactions();
+          $.g(e), this.toggleReactions();
         }
         be() {
           if (
             (t("Set Chat Html called"),
-            (this.xe = n()),
+            (this.xe = F()),
             (this.xe = this.xe.replace(/{EXTENSION_LOGO}/g, C(chrome.runtime.getURL("img/tp_logo.svg")))),
             void 0 === this.fe)
           )
             throw new Error("Attempt to set chatHtml when _userSettings is undefined.");
-          this.xe = this.xe.replace(/{CHAT_URL}/g, `${c}?t=${Date.now()}`);
-          for (const t of D) {
+          const e = chrome.runtime.getURL("");
+          this.xe = this.xe.replace(/{CHAT_URL}/g, `${r}?t=${Date.now()}&id=${encodeURIComponent(e.substring(0, e.length - 1))}`);
+          for (const t of c) {
             const e = new RegExp(`${t}_STATIC`.toUpperCase(), "g"),
               i = new RegExp(`${t}_GIF`.toUpperCase(), "g");
             (this.xe = this.xe.replace(e, chrome.runtime.getURL(`img/reactions/${t}/${t}_static.svg`))),
@@ -2339,7 +2413,7 @@
               jQuery(".chat-settings-container").slideUp(),
               jQuery("#sidebar-tabs-container").slideDown(),
               this.te ? jQuery("#chat-history-container").slideDown() : jQuery("#chat-friends-frame").slideDown(),
-              this.Nt && jQuery("#chat-ad-holder").show(),
+              this.Vt && jQuery("#chat-ad-holder").show(),
               jQuery("#chat-input-container").show(),
               jQuery("#reaction-holder").hide(),
               this.hideReactionHolder(),
@@ -2409,13 +2483,13 @@
           this.Te = t;
         }
         setSessionId(t) {
-          this.Gt = t;
+          this.Ot = t;
         }
         onWebRTC(t) {
-          this.queueMessageForFrame(ct.ON_WEB_RTC, t);
+          this.queueMessageForFrame(ht.ON_WEB_RTC, t);
         }
         setSocketConnectionId(t) {
-          this.queueMessageForFrame(ct.SET_CONNECTION_ID, t);
+          this.queueMessageForFrame(ht.SET_CONNECTION_ID, t);
         }
         loadUserList(t) {
           t.forEach((t) => {
@@ -2428,7 +2502,7 @@
           }),
             (this.ee = t),
             jQuery("#user-count").text(t.length),
-            this.queueMessageForFrame(ct.SET_USER_LIST, t);
+            this.queueMessageForFrame(ht.SET_USER_LIST, t);
         }
         setSessionCreated(t) {
           this.Ie = t;
@@ -2437,7 +2511,7 @@
           return this.Ie;
         }
         getSessionId() {
-          return this.Gt;
+          return this.Ot;
         }
         getPartyUrl() {
           return this.Rt;
@@ -2448,7 +2522,7 @@
             (t("userIconSelector button clicked: " + i),
             this.fe &&
               (this.fe.saveUserIcon(i),
-              this.queueMessageForFrame(ct.UPDATE_SETTINGS, { userSettings: this.fe.userSettings }),
+              this.queueMessageForFrame(ht.UPDATE_SETTINGS, { userSettings: this.fe.userSettings }),
               this.Ae(this.ke(this.fe.userSettings)))),
             this.toggleIconContainer();
         }
@@ -2456,19 +2530,19 @@
           this.clearUnreadCount(), jQuery("#chat-container").remove(), jQuery("#chat-wrapper").remove();
         }
         Ae(t, e) {
-          P.g(t).then(e);
+          $.g(t).then(e);
         }
         Se(t) {
-          return new z(S, x, { reactionType: t });
+          return new K(S, x, { reactionType: t });
         }
         Me(t) {
-          return new K(S, x, { gifObject: t });
+          return new Y(S, x, { gifObject: t });
         }
         Pe(t) {
-          return new U(S, x, { body: t });
+          return new V(S, x, { body: t });
         }
         $e(t) {
-          return new O(S, x, { typing: t });
+          return new L(S, x, { typing: t });
         }
         ke(t) {
           return new N(S, x, { userSettings: t });
@@ -2498,13 +2572,13 @@
         }
         onReactionClicked(t) {
           console.log(t), this.Ae(this.Se(t));
-          const e = new W(S, x, {
+          const e = new z(S, x, {
             name: "user_click",
             component: { name: "chat_input_container-reaction_holder-reaction", type: t, origin: "tp" }
           });
-          P.g(e);
-          const i = new W(S, x, { eventType: "reaction-" + t, sessionId: this.getSessionId() });
-          P.g(i);
+          $.g(e);
+          const i = new z(S, x, { eventType: "reaction-" + t, sessionId: this.getSessionId() });
+          $.g(i);
         }
         onChatKeyUp(t) {
           t.stopPropagation();
@@ -2536,15 +2610,15 @@
                   action: { description: "gif clicked", source: t.media.full.url },
                   component: { name: "chat_input_container-gif_popup-gif", type: "video", origin: "tp" }
                 },
-                i = new W(S, x, e);
-              P.g(i);
-              const n = new W(S, x, { eventType: "gif-share", sessionId: this.getSessionId() });
-              P.g(n);
+                i = new z(S, x, e);
+              $.g(i);
+              const n = new z(S, x, { eventType: "gif-share", sessionId: this.getSessionId() });
+              $.g(n);
             }),
               this.toggleGIFs();
           }
         }
-        Ge(t) {
+        Oe(t) {
           const e = document.createElement("video"),
             i = 124 / (t.media.preview.dims[0] / t.media.preview.dims[1]);
           return (
@@ -2561,7 +2635,7 @@
             e
           );
         }
-        Le(t) {
+        Ue(t) {
           const e = document.createElement("img"),
             i = 124 / (t.media.previewMobile.dims[0] / t.media.previewMobile.dims[1]);
           return (
@@ -2577,15 +2651,15 @@
         loadGIFs(t) {
           jQuery(".gif-placeholder").remove(),
             this.Ht.push(...t.results),
-            (this.Lt = t.next),
+            (this.Ut = t.next),
             t.results.forEach((t) => {
-              const e = this.shouldUseVideoGIF() ? this.Ge(t) : this.Le(t);
+              const e = this.shouldUseVideoGIF() ? this.Oe(t) : this.Ue(t);
               (jQuery("#gif-results-left")[0].scrollHeight > jQuery("#gif-results-right")[0].scrollHeight
                 ? jQuery("#gif-results-right")[0]
                 : jQuery("#gif-results-left")[0]
               ).appendChild(e);
             }),
-            this.$t < 6 && this.Oe(),
+            this.$t < 6 && this.Ge(),
             setTimeout(() => {
               this.Pt = !1;
             }, 100);
@@ -2594,9 +2668,9 @@
           return Gt(this, void 0, void 0, function* () {
             const e = t.target.scrollHeight - t.target.scrollTop <= t.target.clientHeight + 450;
             if (this.Pt) t.preventDefault();
-            else if ("0" !== this.Lt && e && this.$t < 6) {
+            else if ("0" !== this.Ut && e && this.$t < 6) {
               (this.$t += 1), (this.Pt = !0), t.preventDefault();
-              const e = yield fetch(this.Ot + `&pos=${this.Lt}`),
+              const e = yield fetch(this.Gt + `&pos=${this.Ut}`),
                 i = yield e.json();
               this.loadGIFs(i);
             }
@@ -2631,7 +2705,7 @@
           }),
             (jQuery("#category-container")[0].innerHTML = t.innerHTML);
         }
-        Ue() {
+        Le() {
           const t = [],
             e = [];
           for (let i = 0; i < 4; i++) {
@@ -2643,18 +2717,18 @@
           }
           return t;
         }
-        Oe() {
+        Ge() {
           return Gt(this, void 0, void 0, function* () {
-            jQuery("#gif-results-left")[0].append(...this.Ue()), jQuery("#gif-results-right")[0].append(...this.Ue());
+            jQuery("#gif-results-left")[0].append(...this.Le()), jQuery("#gif-results-right")[0].append(...this.Le());
           });
         }
         logShare(t, e) {
           return Gt(this, void 0, void 0, function* () {
             const i = this.getClientLocale(),
               n = i ? `&locale=${i}` : "",
-              s = `&id=${t}`,
-              u = e && e.length > 0 ? `q=${e}` : "";
-            yield fetch(`${o}/register-share?${u}${n}${s}`);
+              u = `&id=${t}`,
+              o = e && e.length > 0 ? `q=${e}` : "";
+            yield fetch(`${s}/register-share?${o}${n}${u}`);
           });
         }
         fetchGIFs(t) {
@@ -2668,17 +2742,17 @@
               (jQuery("#gif-results-left")[0].innerHTML = ""),
               (jQuery("#gif-results-right")[0].innerHTML = ""),
               (this.Ht = []),
-              this.Oe();
+              this.Ge();
             const n = this.getClientLocale(),
-              s = n ? `&locale=${n}` : "";
-            let u = i ? `search-gifs?q=${i}` : "trending-gifs?";
-            (u = t ? `search-gifs?q=${t}` : u), (this.Ot = `${o}/${u}${s}`);
-            const r = yield fetch(`${o}/${u}${s}`),
-              a = yield r.json();
-            if (a.results && a.results.length > 0) this.loadGIFs(a);
+              u = n ? `&locale=${n}` : "";
+            let o = i ? `search-gifs?q=${i}` : "trending-gifs?";
+            (o = t ? `search-gifs?q=${t}` : o), (this.Gt = `${s}/${o}${u}`);
+            const r = yield fetch(`${s}/${o}${u}`),
+              c = yield r.json();
+            if (c.results && c.results.length > 0) this.loadGIFs(c);
             else if (!t) {
-              const t = yield fetch(`${o}/trending_gifs?${s}`);
-              this.Ot = `${o}/trending_gifs?${s}`;
+              const t = yield fetch(`${s}/trending_gifs?${u}`);
+              this.Gt = `${s}/trending_gifs?${u}`;
               const e = yield t.json();
               this.loadGIFs(e);
             }
@@ -2687,15 +2761,15 @@
         onGifSearch(t) {
           t.stopPropagation();
           const e = t.target.value;
-          if ((void 0 !== this.ae && clearTimeout(this.ae), !e))
+          if ((void 0 !== this.ce && clearTimeout(this.ce), !e))
             return jQuery("#gif-input-back").hide(), jQuery("#gif-search").css("width", ""), void this.fetchGIFs();
           jQuery("#gif-input-back").show(),
             jQuery("#gif-search").css("width", "90%"),
-            (this.ae = setTimeout(() => {
+            (this.ce = setTimeout(() => {
               this.fetchGIFs(e);
             }, 500));
         }
-        Ne(t) {
+        Ve(t) {
           return "string" == typeof t && "" !== t.replace(/^\s+|\s+$/g, "");
         }
         onChatKeyPress(t) {
@@ -2708,7 +2782,7 @@
             jQuery("#emoji-picker-container").is(":hidden") || this.toggleEmojiClicker();
             const e = jQuery("#chat-input"),
               i = e[0].textContent;
-            if (i && this.Ne(i)) {
+            if (i && this.Ve(i)) {
               void 0 !== this.re && (clearTimeout(this.re), (this.re = void 0), this.Ae(this.$e(!1))),
                 e.prop("contenteditable", !1),
                 this.Ae(this.Pe(i.substring(0, 1500)), () => {
@@ -2720,7 +2794,7 @@
                   message: {
                     id: (function () {
                       try {
-                        return at();
+                        return Dt();
                       } catch (t) {
                         return "";
                       }
@@ -2728,8 +2802,8 @@
                     text: i.trim()
                   }
                 },
-                n = new W(S, x, t);
-              P.g(n);
+                n = new z(S, x, t);
+              $.g(n);
             } else t.stopImmediatePropagation(), t.preventDefault(), (e[0].textContent = ""), this.onInputChange();
           }
         }
@@ -2743,8 +2817,8 @@
             (jQuery("#emoji-picker-container").is(":hidden") || this.showEmojiPicker());
         }
         shouldShowIncreasedSize(t) {
-          const e = t.replace(F, "").replace(/[\uFE0F]/g, ""),
-            i = ((t || "").match(F) || []).length;
+          const e = t.replace(p, "").replace(/[\uFE0F]/g, ""),
+            i = ((t || "").match(p) || []).length;
           return 0 === e.length && i <= 3 && i > 0;
         }
         saveChangesListener() {
@@ -2757,7 +2831,7 @@
             i !== (null === (e = this.fe) || void 0 === e ? void 0 : e.userNickname) &&
               this.fe &&
               (this.fe.saveUserNickname(i),
-              this.queueMessageForFrame(ct.UPDATE_SETTINGS, { userSettings: this.fe.userSettings }),
+              this.queueMessageForFrame(ht.UPDATE_SETTINGS, { userSettings: this.fe.userSettings }),
               this.Ae(this.ke(this.fe.userSettings)),
               jQuery("#nickname-edit").attr("placeholder", i),
               jQuery("#nickname-edit").text(i)),
@@ -2774,7 +2848,7 @@
             if (E[t]()) {
               const e = f[t],
                 i = jQuery('\n                <ul id="icon-holder"></ul>\n            ');
-              for (const n of e) this.Ve(`${t}/${n}`, i, n);
+              for (const n of e) this.Ne(`${t}/${n}`, i, n);
               const n = jQuery(
                 `\n                <div class="icon-holder-wrap">\n                  <p class="extension-txt-indicator" data-tp-id="chat_container-new_icon_selection-category_name>${t}</p>\n                </div>\n            `
               );
@@ -2784,15 +2858,15 @@
         }
         inputHeightCheck() {
           const t = jQuery("#chat-input").text(),
-            e = ((t || "").match(F) || []).length,
-            i = t.replace(F, "");
+            e = ((t || "").match(p) || []).length,
+            i = t.replace(p, "");
           e <= 3 || i
             ? jQuery(".inTextEmoji").css("font-size", "24px")
             : e > 0
             ? jQuery(".inTextEmoji").css("font-size", "20px")
             : jQuery(".inTextEmoji").css("font-size", "18px");
         }
-        Ve(t, e, i) {
+        Ne(t, e, i) {
           jQuery(
             `\n            <a class="image-button">\n                <img class="img-class" src='${chrome.runtime.getURL(
               "img/icons/" + t
@@ -2829,7 +2903,7 @@
               );
         }
         getChatVisible() {
-          return jQuery(Ot.MAIN_WRAPPER_SELECTOR).hasClass(ht);
+          return jQuery(Vt.MAIN_WRAPPER_SELECTOR).hasClass(lt);
         }
         getVideoTitle() {
           var t;
@@ -2848,41 +2922,41 @@
             }
             t
               ? (jQuery("#chat-wrapper").show(),
-                jQuery(Ot.MAIN_WRAPPER_SELECTOR).addClass(ht),
-                jQuery("#video-container").addClass(ht),
-                jQuery('[data-testid="loader"]').parent().addClass(ht),
+                jQuery(Vt.MAIN_WRAPPER_SELECTOR).addClass(lt),
+                jQuery("#video-container").addClass(lt),
+                jQuery('[data-testid="loader"]').parent().addClass(lt),
                 document.hasFocus() || this.clearUnreadCount())
               : (jQuery("#chat-wrapper").hide(),
-                jQuery(Ot.MAIN_WRAPPER_SELECTOR).removeClass(ht),
-                jQuery("#video-container").removeClass(ht),
-                jQuery('[data-testid="loader"]').parent().removeClass(ht));
+                jQuery(Vt.MAIN_WRAPPER_SELECTOR).removeClass(lt),
+                jQuery("#video-container").removeClass(lt),
+                jQuery('[data-testid="loader"]').parent().removeClass(lt));
           });
         }
         removeChat() {
-          super.removeChat(), jQuery(Ot.MAIN_WRAPPER_SELECTOR).removeClass(ht);
+          super.removeChat(), jQuery(Vt.MAIN_WRAPPER_SELECTOR).removeClass(lt);
         }
       }
-      Ot.MAIN_WRAPPER_SELECTOR = "#page-container";
-      var Ut,
-        Nt,
-        Vt,
-        Ht = function (t, e, i, n) {
+      Vt.MAIN_WRAPPER_SELECTOR = "#page-container";
+      var Nt,
+        Ht,
+        Wt,
+        zt = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
-                a(n.next(t));
+                c(n.next(t));
               } catch (t) {
                 u(t);
               }
             }
             function r(t) {
               try {
-                a(n.throw(t));
+                c(n.throw(t));
               } catch (t) {
                 u(t);
               }
             }
-            function a(t) {
+            function c(t) {
               var e;
               t.done
                 ? s(t.value)
@@ -2893,7 +2967,7 @@
                         t(e);
                       })).then(o, r);
             }
-            a((n = n.apply(t, e || [])).next());
+            c((n = n.apply(t, e || [])).next());
           });
         };
       !(function (t) {
@@ -2903,14 +2977,15 @@
           (t.AD_PLAYING = "ad_playing"),
           (t.PAUSED = "paused"),
           (t.NOT_READY = "not_ready");
-      })(Ut || (Ut = {})),
+      })(Nt || (Nt = {})),
         (function (t) {
           (t.PAUSED = "paused"), (t.PLAYING = "playing");
-        })(Nt || (Nt = {})),
+        })(Ht || (Ht = {})),
         (function (t) {
           (t.NETFLIX = "Netflix"),
             (t.HULU = "Hulu"),
             (t.DISNEY_PLUS = "Disney"),
+            (t.DISNEY_PLUS_MENA = "DisneyMena"),
             (t.HBO_MAX = "HBOMax"),
             (t.MAX = "Max"),
             (t.YOUTUBE = "Youtube"),
@@ -2929,19 +3004,25 @@
             (t.TUBI_TV = "TubiTV"),
             (t.MUBI = "Mubi"),
             (t.STAN = "Stan"),
-            (t.CRAVE = "Crave");
-        })(Vt || (Vt = {}));
-      class Wt {
-        constructor(t, e, i, n, s) {
-          (this.requiredPermissions = t), (this.serverName = i), (this.name = n), (this.contentScripts = e), (this.syncFromEnd = s);
+            (t.CRAVE = "Crave"),
+            (t.SLING = "slingtv");
+        })(Wt || (Wt = {}));
+      class Kt {
+        constructor(t, e, i, n, s, u = []) {
+          (this.requiredPermissions = t),
+            (this.serverName = i),
+            (this.name = n),
+            (this.contentScripts = e),
+            (this.syncFromEnd = s),
+            (this.browseScripts = u);
         }
         urlWithSessionId(t) {
-          return `${a}/join/${t}`;
+          return `${o}/join/${t}`;
         }
       }
-      const zt = new (class extends Wt {
+      const Yt = new (class extends Kt {
         isValidUrl(t) {
-          return It(t);
+          return Tt(t);
         }
         isBrowsing(t) {
           return t.hostname.includes(".hotstar.");
@@ -2950,26 +3031,26 @@
           const e = t.pathname.split("/");
           return e && e.length > 1 ? e[e.length - 2] : void 0;
         }
-      })([], ["content_scripts/hotstar/hotstar_content_bundled.js"], "hotstar", Vt.HOTSTAR, !1);
-      Object.freeze(zt);
-      const Kt = zt;
-      var Yt = function (t, e, i, n) {
+      })([], ["content_scripts/hotstar/hotstar_content_bundled.js"], "hotstar", Wt.HOTSTAR, !1);
+      Object.freeze(Yt);
+      const Jt = Yt;
+      var qt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -2980,10 +3061,10 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      class Jt extends class {
+      class Xt extends class {
         constructor() {
           (this.He = 0), (this.We = !1);
         }
@@ -3011,18 +3092,18 @@
         }
         logError(t, e) {
           console.error("ERROR", t, e);
-          const i = new W(S, x, { name: "video_error", action: { description: t, reason: e } });
-          P.g(i);
+          const i = new z(S, x, { name: "video_error", action: { description: t, reason: e } });
+          $.g(i);
         }
         doAdCheck() {
-          return Ht(this, void 0, void 0, function* () {});
+          return zt(this, void 0, void 0, function* () {});
         }
       } {
         constructor() {
-          super(), (this.ze = () => document.querySelector(p)), (this.He = 0), console.log("Hotstar video");
+          super(), (this.ze = () => document.querySelector(d)), (this.He = 0), console.log("Hotstar video");
         }
         getStreamingServiceName() {
-          return Vt.HOTSTAR;
+          return Wt.HOTSTAR;
         }
         get currentlyWatchingAds() {
           return !!this.ze();
@@ -3032,10 +3113,10 @@
         }
         waitVideoReady() {
           var t;
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             if (!this.Ye)
               try {
-                yield St(() => {
+                yield Pt(() => {
                   const t = this.getVideoElement();
                   return t instanceof Element && t.readyState > 0;
                 }, 8e3)(),
@@ -3064,13 +3145,13 @@
           }
         }
         Ze() {
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             const t = this.getVideoElement();
             t && t.click();
           });
         }
         ti() {
-          return document.querySelector(".ON_IMAGE_ALT2.BUTTON3_MEDIUM") ? Bt.EPISODE : Bt.FEATURE;
+          return document.querySelector(".ON_IMAGE_ALT2.BUTTON3_MEDIUM") ? kt.EPISODE : kt.FEATURE;
         }
         ei() {
           var t, e, i;
@@ -3085,15 +3166,15 @@
           return s;
         }
         waitVideoApiReadyAsync() {
-          return Yt(this, void 0, void 0, function* () {
-            yield St(() => {
+          return qt(this, void 0, void 0, function* () {
+            yield Pt(() => {
               const t = this.ii();
               return "paused" === t || "playing" === t;
             }, 1 / 0)();
           });
         }
         waitVideoDoneLoadingAsync() {
-          return St(() => this.ii() !== Ut.LOADING, 1e4)();
+          return Pt(() => this.ii() !== Nt.LOADING, 1e4)();
         }
         getStateAsync() {
           return new Promise((t, e) => {
@@ -3109,9 +3190,9 @@
               u = null !== (i = this.ui()) && void 0 !== i ? i : "",
               o = null !== (n = this.oi()) && void 0 !== n ? n : "",
               r = this.getScreenSize(),
-              a = this.ti(),
-              c = this.ei(),
-              D = this.getVideoContent(u, o, window.location.href, a, c);
+              c = this.ti(),
+              a = this.ei(),
+              D = this.getVideoContent(u, o, window.location.href, c, a);
             void 0 !== s && void 0 !== u && void 0 !== o
               ? t({
                   videoId: u,
@@ -3127,51 +3208,51 @@
         }
         jumpToNextEpisode(t) {
           var e;
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             this.He += 1;
-            Kt.getVideoId(new URL(window.location.href)) != t.videoId &&
+            Jt.getVideoId(new URL(window.location.href)) != t.videoId &&
               (yield null === (e = this.Ke) || void 0 === e ? void 0 : e.reloadNextEpisode()),
               (this.He -= 1);
           });
         }
         freeze(t) {
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             this.He += 1;
             try {
-              yield this.pause(), yield Tt(t)(), yield this.play();
+              yield this.pause(), yield Mt(t)(), yield this.play();
             } finally {
               this.He -= 1;
             }
           });
         }
         pause() {
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             this.He += 1;
             try {
               const t = this.getVideoElement();
               t && t.pause();
             } catch (t) {
-              if (this.ii() !== Ut.PAUSED) throw (this.logError("video was unable to pause correctly", t), t);
+              if (this.ii() !== Nt.PAUSED) throw (this.logError("video was unable to pause correctly", t), t);
             } finally {
               this.He -= 1;
             }
           });
         }
         play() {
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             this.He += 1;
             try {
               const t = this.getVideoElement();
               t && t.play();
             } catch (t) {
-              if (this.ii() !== Ut.PLAYING) throw (this.logError("video was unable to play correctly", t), t);
+              if (this.ii() !== Nt.PLAYING) throw (this.logError("video was unable to play correctly", t), t);
             } finally {
               this.He -= 1;
             }
           });
         }
         setCurrentTime(e) {
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             t("Seeking: " + e), (this.He += 1);
             try {
               const t = this.getVideoElement();
@@ -3189,7 +3270,7 @@
         }
         ii() {
           const t = this.getVideoElement();
-          return null == t ? Ut.NOT_READY : t.readyState < t.HAVE_FUTURE_DATA ? Ut.LOADING : t.paused ? Ut.PAUSED : Ut.PLAYING;
+          return null == t ? Nt.NOT_READY : t.readyState < t.HAVE_FUTURE_DATA ? Nt.LOADING : t.paused ? Nt.PAUSED : Nt.PLAYING;
         }
         ni() {
           const t = this.getVideoElement();
@@ -3202,7 +3283,7 @@
         }
         ui() {
           var t;
-          return null !== (t = Kt.getVideoId(new URL(window.location.href))) && void 0 !== t ? t : "";
+          return null !== (t = Jt.getVideoId(new URL(window.location.href))) && void 0 !== t ? t : "";
         }
         oi() {
           var t;
@@ -3210,31 +3291,31 @@
           if (e) return null !== (t = e.textContent) && void 0 !== t ? t : void 0;
         }
         getUpdateSessionDataAsync() {
-          return Yt(this, void 0, void 0, function* () {
+          return qt(this, void 0, void 0, function* () {
             const t = this.ni();
             if (void 0 === t) throw new Error();
             const e = this.getVideoElement();
-            return { state: e && !e.paused ? Nt.PLAYING : Nt.PAUSED, lastKnownTime: t, lastKnownTimeUpdatedAt: Date.now() };
+            return { state: e && !e.paused ? Ht.PLAYING : Ht.PAUSED, lastKnownTime: t, lastKnownTimeUpdatedAt: Date.now() };
           });
         }
       }
-      var qt = function (t, e, i, n) {
+      var Zt = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -3245,28 +3326,28 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      var Xt,
-        Zt,
-        te = function (t, e, i, n) {
+      var te,
+        ee,
+        ie = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
-                a(n.next(t));
+                c(n.next(t));
               } catch (t) {
                 u(t);
               }
             }
             function r(t) {
               try {
-                a(n.throw(t));
+                c(n.throw(t));
               } catch (t) {
                 u(t);
               }
             }
-            function a(t) {
+            function c(t) {
               var e;
               t.done
                 ? s(t.value)
@@ -3277,47 +3358,47 @@
                         t(e);
                       })).then(o, r);
             }
-            a((n = n.apply(t, e || [])).next());
+            c((n = n.apply(t, e || [])).next());
           });
         };
-      class ee extends class {
+      class ne extends class {
         constructor(t) {
           (this.ri = t), console.log("Video Event Listener");
         }
         getCurrentStatus() {
-          return qt(this, void 0, void 0, function* () {
+          return Zt(this, void 0, void 0, function* () {
             return "";
           });
         }
         getStatusMetaData() {
-          return qt(this, void 0, void 0, function* () {});
+          return Zt(this, void 0, void 0, function* () {});
         }
         reloadNextEpisode() {
           var t;
-          return qt(this, void 0, void 0, function* () {
+          return Zt(this, void 0, void 0, function* () {
             yield null === (t = this.Te) || void 0 === t ? void 0 : t.reloadPartyAsync();
           });
         }
         startListening() {
-          this.ai();
-        }
-        stopListening() {
           this.ci();
         }
-        ai() {
+        stopListening() {
+          this.ai();
+        }
+        ci() {
           const t = navigator;
           t.mediaSession.setActionHandler("play", () =>
-            qt(this, void 0, void 0, function* () {
+            Zt(this, void 0, void 0, function* () {
               this.Di(), this.ri.play(), console.log("Bluetooth device played the video");
             })
           ),
             t.mediaSession.setActionHandler("pause", () =>
-              qt(this, void 0, void 0, function* () {
+              Zt(this, void 0, void 0, function* () {
                 this.Di(), this.ri.pause(), console.log("Bluetooth device paused the video");
               })
             );
         }
-        ci() {
+        ai() {
           const t = navigator;
           t.mediaSession.setActionHandler("play", null), t.mediaSession.setActionHandler("pause", null);
         }
@@ -3366,12 +3447,12 @@
             (this.yi = this.hi.bind(this)),
             (this.mi = this.fi.bind(this)),
             (this.Ci = () =>
-              te(this, void 0, void 0, function* () {
-                yield this.ri.play(), yield St(() => (document.querySelector(p) || this.pi(), !document.querySelector(p)), 1 / 0)();
+              ie(this, void 0, void 0, function* () {
+                yield this.ri.play(), yield Pt(() => (document.querySelector(d) || this.pi(), !document.querySelector(d)), 1 / 0)();
               })),
             (this.Ei = () =>
-              te(this, void 0, void 0, function* () {
-                document.querySelector(p) && (this.li(), yield this.Ci());
+              ie(this, void 0, void 0, function* () {
+                document.querySelector(d) && (this.li(), yield this.Ci());
               })),
             (this.ri = e),
             (this.$ = i),
@@ -3417,11 +3498,11 @@
             window.removeEventListener("message", this.mi, !1);
         }
         loadNewVideoAsync(e) {
-          return te(this, void 0, void 0, function* () {
+          return ie(this, void 0, void 0, function* () {
             const i = performance.now();
             yield new Promise((n, s) => {
               const u = setInterval(() => {
-                if (Kt.getVideoId(new URL(window.location.href)) === e) {
+                if (Jt.getVideoId(new URL(window.location.href)) === e) {
                   const e = this.ri.getVideoElement();
                   if (e instanceof Element && e.src) return t("Loaded new Hotstar video"), clearInterval(u), void n();
                 }
@@ -3440,17 +3521,17 @@
                   (t("***********************************"),
                   t("Content script received: " + e.data.text),
                   t(window.location.href),
-                  !It(new URL(window.location.href)))
+                  !Tt(new URL(window.location.href)))
                 )
-                  return void this.vi(_t);
+                  return void this.vi(jt);
                 {
-                  const e = Kt.getVideoId(new URL(window.location.href));
-                  if (!e) return t("No video found. Tearing down"), void this.vi(_t);
+                  const e = Jt.getVideoId(new URL(window.location.href));
+                  if (!e) return t("No video found. Tearing down"), void this.vi(jt);
                   e !== (null === (i = this.Te) || void 0 === i ? void 0 : i.videoId) &&
                     (this.$.setChatVisible(this.$.shouldChatBeVisible()), this.Fi(e));
                 }
               }
-            } else this.vi(_t);
+            } else this.vi(jt);
         }
       }
       !(function (t) {
@@ -3468,17 +3549,18 @@
           (t.EMAIL_SIGN_IN = "emailSignIn"),
           (t.FORGOT_PASSWORD = "forgotPassword"),
           (t.EMAIL_SIGN_UP = "emailSignUp"),
+          (t.ON_GOOGLE_SIGN_IN = "OnGoogleSignIn"),
           (t.CREATE_SCHEDULED_EVENT = "createScheduledEvent"),
           (t.DELETE_SCHEDULED_EVENT = "deleteScheduledEvent"),
           (t.SET_USER_STATUS = "SET_USER_STATUS"),
           (t.SIGN_IN_CREATE = "SIGN_IN_CREATE");
-      })(Xt || (Xt = {}));
-      class ie extends R {
+      })(te || (te = {}));
+      class se extends O {
         constructor(t, e, i) {
-          super(t, e, G.GET_SESSION_DATA), (this.data = i);
+          super(t, e, U.GET_SESSION_DATA), (this.data = i);
         }
       }
-      class ne {
+      class ue {
         constructor() {
           (this._i = this.bi.bind(this)), (this.ji = []), this.Bi();
         }
@@ -3489,10 +3571,10 @@
           this.ji = this.ji.filter((t) => {});
         }
         Bi() {
-          P.addListener(this._i);
+          $.addListener(this._i);
         }
         teardown() {
-          (this.ji = []), P.removeListener(this._i);
+          (this.ji = []), $.removeListener(this._i);
         }
         bi(t, e, i) {
           if (!this.Ai(t)) return !1;
@@ -3523,25 +3605,25 @@
           (t.ON_LOG_EVENT = "onLogEvent"),
           (t.USER_LIST = "userList"),
           (t.ON_WEB_RTC = "onWebRTC");
-      })(Zt || (Zt = {}));
-      var se,
-        ue = function (t, e, i, n) {
+      })(ee || (ee = {}));
+      var oe,
+        re = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
-                a(n.next(t));
+                c(n.next(t));
               } catch (t) {
                 u(t);
               }
             }
             function r(t) {
               try {
-                a(n.throw(t));
+                c(n.throw(t));
               } catch (t) {
                 u(t);
               }
             }
-            function a(t) {
+            function c(t) {
               var e;
               t.done
                 ? s(t.value)
@@ -3552,87 +3634,87 @@
                         t(e);
                       })).then(o, r);
             }
-            a((n = n.apply(t, e || [])).next());
+            c((n = n.apply(t, e || [])).next());
           });
         };
-      class oe {
+      class ce {
         constructor(e, i) {
           (this.$ = e), (this.ie = i), t("Chat forwarder");
         }
         onMessage(t, e, i) {
           var n;
           switch (t.type) {
-            case L.LOAD_SESSION: {
+            case G.LOAD_SESSION: {
               const e = t;
               return this.Qi(e.data), !1;
             }
-            case Zt.ON_MESSAGE: {
+            case ee.ON_MESSAGE: {
               const e = t;
               return this.T(e), this.ie.onChatMessage(), !1;
             }
-            case Zt.ON_BUFFER: {
+            case ee.ON_BUFFER: {
               const e = t;
               return this.Ii(e), !1;
             }
-            case Zt.ON_TYPING: {
+            case ee.ON_TYPING: {
               const e = t;
               return this.xi(e), !1;
             }
-            case Zt.ON_WATCHING_ADS: {
+            case ee.ON_WATCHING_ADS: {
               const e = t;
               return this.Ti(e), !1;
             }
-            case Zt.UPDATE_SETTINGS: {
+            case ee.UPDATE_SETTINGS: {
               const e = t;
               return this.Si(e), !1;
             }
-            case Zt.ON_REACTION: {
+            case ee.ON_REACTION: {
               const e = t;
               return this.Mi(e), !1;
             }
-            case Zt.ON_GIF: {
+            case ee.ON_GIF: {
               const e = t;
               return this.Pi(e), !1;
             }
-            case Zt.USER_LIST: {
+            case ee.USER_LIST: {
               const e = t;
               return this.$i(e), !1;
             }
-            case Zt.ON_WEB_RTC:
+            case ee.ON_WEB_RTC:
               return this.$.onWebRTC(t.data), !0;
-            case Xt.SET_CHAT_VISIBLE: {
+            case te.SET_CHAT_VISIBLE: {
               const e = t;
               return this.Ri(e.data), i(), !1;
             }
-            case ct.SIDEBAR_MESSAGING_READY: {
+            case ht.SIDEBAR_MESSAGING_READY: {
               console.log("Sidebar Ready");
               const t = null === (n = window.teleparty) || void 0 === n ? void 0 : n.tabId;
               return console.log(t), this.$.setChatFrameReady(null != t ? t : 0), i(), !0;
             }
-            case ct.DISPLAY_MODAL: {
+            case ht.DISPLAY_MODAL: {
               const e = t.data;
               return console.log(e), !0;
             }
-            case ct.ON_UPDATE_SETTINGS: {
+            case ht.ON_UPDATE_SETTINGS: {
               const e = t.data;
               return this.$.doUpdateSettings(e), i(), !0;
             }
-            case ct.ON_CHROME_STORAGE_UPDATE:
+            case ht.ON_CHROME_STORAGE_UPDATE:
               try {
                 chrome.storage.local.set(t.data);
               } catch (t) {
                 console.log("Failed to update chrome storage");
               }
               return i(), !0;
-            case ct.SET_REACTIONS_ACTIVE: {
+            case ht.SET_REACTIONS_ACTIVE: {
               const e = t.data;
               return this.$.setReactionsActive(e), i(), !0;
             }
-            case ct.RESET_VIEW:
+            case ht.RESET_VIEW:
               return this.$.resetChatWindow(!0), i(), !0;
-            case ct.ON_FOCUS:
+            case ht.ON_FOCUS:
               return this.$.onSidebarFocus(), i(), !0;
-            case ct.PREVIEW_REACTION: {
+            case ht.PREVIEW_REACTION: {
               const e = t.data;
               return this.$.showReaction(e), i(), !0;
             }
@@ -3648,7 +3730,7 @@
           this.$.teardown();
         }
         Ri(t) {
-          return ue(this, void 0, void 0, function* () {
+          return re(this, void 0, void 0, function* () {
             this.$.isPartyWindowsActive()
               ? t.visible
                 ? yield this.$.resetChatWindow()
@@ -3658,7 +3740,7 @@
         }
         Qi(t) {
           const e = t.sessionCallbackData.sessionId,
-            i = `${a}/join/${e}`;
+            i = `${o}/join/${e}`;
           if (
             (this.$.loadInitData(t),
             this.$.setPartyUrl(i),
@@ -3704,62 +3786,62 @@
           (t.REBOOT_SESSION = "rebootSession"),
           (t.GET_SERVER_TIME = "getServerTime"),
           (t.RELOAD_PARTY = "reloadParty");
-      })(se || (se = {}));
-      class re extends R {
+      })(oe || (oe = {}));
+      class ae extends O {
         constructor(t, e, i) {
-          super(t, e, G.BROADCAST), (this.data = i);
-        }
-      }
-      class ae extends $ {
-        constructor(t, e, i) {
-          super(t, e, i), (this.type = i);
-        }
-      }
-      class ce extends ae {
-        constructor(t, e) {
-          super(t, e, se.GET_SERVER_TIME);
+          super(t, e, U.BROADCAST), (this.data = i);
         }
       }
       class De extends R {
         constructor(t, e, i) {
-          super(t, e, G.BROADCAST_NEXT_EPISODE), (this.data = i);
+          super(t, e, i), (this.type = i);
         }
       }
-      class he extends R {
+      class he extends De {
+        constructor(t, e) {
+          super(t, e, oe.GET_SERVER_TIME);
+        }
+      }
+      class de extends O {
         constructor(t, e, i) {
-          super(t, e, G.SET_BUFFERING), (this.data = i);
+          super(t, e, U.BROADCAST_NEXT_EPISODE), (this.data = i);
         }
       }
-      class de extends R {
+      class le extends O {
         constructor(t, e, i) {
-          super(t, e, G.SET_WATCHING_ADS), (this.data = i);
+          super(t, e, U.SET_BUFFERING), (this.data = i);
         }
       }
-      const le = "PING",
-        pe = "SYNC",
-        ge = "BROADCAST";
-      class Fe extends V {
+      class pe extends O {
         constructor(t, e, i) {
-          super(t, e, L.STAY_ALIVE), (this.data = i);
+          super(t, e, U.SET_WATCHING_ADS), (this.data = i);
         }
       }
-      var ve = function (t, e, i, n) {
+      const ge = "PING",
+        Fe = "SYNC",
+        ve = "BROADCAST";
+      class ye extends H {
+        constructor(t, e, i) {
+          super(t, e, G.STAY_ALIVE), (this.data = i);
+        }
+      }
+      var me = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -3770,69 +3852,70 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      const ye = new (class {
+      const fe = new (class {
         getRedirectDataForTabAsync(t) {
-          return ve(this, void 0, void 0, function* () {
-            const e = (yield Z.getItemsAsync([l])).redirectDataMap,
-              i = this.Gi(t);
+          return me(this, void 0, void 0, function* () {
+            const e = (yield et.getItemsAsync([h])).redirectDataMap,
+              i = this.Oi(t);
             if (e && e[i]) {
               const t = e[i];
-              if (this.Li(t)) return t;
+              if (this.Ui(t)) return t;
             }
           });
         }
         deleteRedirectDataForTabAsync(t) {
-          return ve(this, void 0, void 0, function* () {
-            const e = (yield Z.getItemsAsync([l])).redirectDataMap,
-              i = this.Gi(t);
-            e && e[i] && delete e[i], yield k.setItemsAsync({ [l]: e });
-          });
-        }
-        Gi(t) {
-          return t;
-        }
-        storeRedirectDataForTabAsync(t, e) {
-          return ve(this, void 0, void 0, function* () {
-            const i = this.Gi(e);
-            let n = yield Z.getItemsAsync([l]);
-            (n[i] = t), (n = this.Oi(n)), yield k.setItemsAsync({ [l]: n });
+          return me(this, void 0, void 0, function* () {
+            const e = (yield et.getItemsAsync([h])).redirectDataMap,
+              i = this.Oi(t);
+            e && e[i] && delete e[i], yield k.setItemsAsync({ [h]: e });
           });
         }
         Oi(t) {
+          return t;
+        }
+        storeRedirectDataForTabAsync(t, e) {
+          return me(this, void 0, void 0, function* () {
+            console.log("store data for tab " + t);
+            const i = this.Oi(e);
+            let n = yield et.getItemsAsync([h]);
+            (n[i] = t), (n = this.Gi(n)), yield k.setItemsAsync({ [h]: n });
+          });
+        }
+        Gi(t) {
           return (function (t, e) {
             const i = {};
             let n;
             for (n in t) t.hasOwnProperty(n) && e(t[n]) && (i[n] = t[n]);
             return i;
-          })(t, this.Li);
+          })(t, this.Ui);
         }
-        Li(t) {
+        Ui(t) {
           const e = t.date;
           return void 0 !== e && "number" == typeof e && e <= Date.now() && Date.now() - e < 108e5;
         }
       })();
-      Object.freeze(ye);
-      const me = ye;
-      var fe = function (t, e, i, n) {
+      Object.freeze(fe);
+      const Ce = fe;
+      var Ee = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -3843,14 +3926,14 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      class Ce {
+      class we {
         constructor(e, i, n) {
-          (this.Ui = []),
-            (this.Ni = 0),
+          (this.Li = []),
             (this.Vi = 0),
+            (this.Ni = 0),
             (this.Hi = []),
             (this.Wi = !1),
             (this.xt = !1),
@@ -3858,7 +3941,7 @@
             (this.zi = !1),
             (this.Ki = void 0),
             (this.Yi = () =>
-              fe(this, void 0, void 0, function* () {
+              Ee(this, void 0, void 0, function* () {
                 try {
                   yield fetch("https://www3.doubleclick.net", { method: "HEAD", mode: "no-cors", cache: "no-store" }), (this.Ki = !1);
                 } catch (t) {
@@ -3866,7 +3949,7 @@
                 }
               })),
             (this.Ji = (t = !1, e = !1) =>
-              fe(this, void 0, void 0, function* () {
+              Ee(this, void 0, void 0, function* () {
                 if (this.qi) return;
                 if (this.We) return void this.forceSync();
                 if (!this.zi && !e) return;
@@ -3880,9 +3963,9 @@
                 }
               })),
             (this.nn = () =>
-              fe(this, void 0, void 0, function* () {
+              Ee(this, void 0, void 0, function* () {
                 if (
-                  (this.sn == Nt.PAUSED &&
+                  (this.sn == Ht.PAUSED &&
                     this.un &&
                     (clearInterval(this.un),
                     (this.un = setInterval(() => {
@@ -3893,7 +3976,7 @@
                   return;
                 if ((yield this.ri.waitVideoDoneLoadingAsync(), this.rn())) return;
                 const t = yield this.ri.getStateAsync();
-                this.sn == Nt.PAUSED ? yield this.an(t) : this.sn == Nt.PLAYING && (yield this.cn(t)), !1 === this.zi && (this.zi = !0);
+                this.sn == Ht.PAUSED ? yield this.cn(t) : this.sn == Ht.PLAYING && (yield this.an(t)), !1 === this.zi && (this.zi = !0);
               })),
             (this.ri = e),
             (this.$ = i),
@@ -3901,7 +3984,7 @@
             this.Ke.setMessageForwarder(this),
             (this.Dn = 0),
             (this.qi = !1),
-            (this.sn = Nt.PAUSED),
+            (this.sn = Ht.PAUSED),
             (this.hn = 0),
             (this.dn = 0),
             (this.ln = 0),
@@ -3911,27 +3994,27 @@
         }
         onMessage(t, e, i) {
           switch (t.type) {
-            case L.GET_VIDEO_DATA:
+            case G.GET_VIDEO_DATA:
               return this.gn(i), !0;
-            case L.LOAD_SESSION: {
+            case G.LOAD_SESSION: {
               const e = t;
               return this.Fn(e.data), !1;
             }
-            case se.UPDATE_SESSION: {
+            case oe.UPDATE_SESSION: {
               const e = t;
               return this.vn(e.data), !1;
             }
-            case se.NEXT_EPISODE: {
+            case oe.NEXT_EPISODE: {
               const e = t;
               return this.yn(e.data), !1;
             }
-            case se.REBOOT_SESSION: {
+            case oe.REBOOT_SESSION: {
               const e = t;
               return this.mn(e.data, i), !0;
             }
-            case se.RELOAD_PARTY:
+            case oe.RELOAD_PARTY:
               return this.reloadPartyAsync().then(() => console.log("Party Reloaded")), !0;
-            case Zt.ON_WATCHING_ADS: {
+            case ee.ON_WATCHING_ADS: {
               const e = t;
               return this.Ti(e), !1;
             }
@@ -3940,7 +4023,7 @@
           }
         }
         Ti(t) {
-          t.data.anyoneWatchingAds && !this.xt && (J.pushTask(this.ri.doAdCheck.bind(this.ri)), this.forceSync()),
+          t.data.anyoneWatchingAds && !this.xt && (X.pushTask(this.ri.doAdCheck.bind(this.ri)), this.forceSync()),
             (this.xt = t.data.anyoneWatchingAds);
         }
         get videoId() {
@@ -3950,95 +4033,95 @@
           this.Cn = t;
         }
         sendTeardown(t) {
-          const e = new H(S, x, t);
-          P.g(e);
+          const e = new W(S, x, t);
+          $.g(e);
         }
         teardown() {
-          (this.Gt = void 0),
+          (this.Ot = void 0),
             this.En && clearInterval(this.En),
             this.un && clearInterval(this.un),
             this.ri.pause(),
-            J.disable(),
+            X.disable(),
             this.Ke.stopListening();
         }
         mn(t, e) {
-          J.resetTasks(), this.Cn == t.videoId && this.vn(t), e(this.Cn == t.videoId);
-          const i = new W(S, x, { eventType: "reboot", sessionId: this.Gt });
-          P.g(i);
+          X.resetTasks(), this.Cn == t.videoId && this.vn(t), e(this.Cn == t.videoId);
+          const i = new z(S, x, { eventType: "reboot", sessionId: this.Ot });
+          $.g(i);
         }
         tryBroadcast(t = !1) {
           this.Wi ||
             (this.We
               ? this.forceSync()
-              : 0 != this.ri.uiEventsHappening || this.qi || !this.Gt || J.hasTaskInQueue(ge) || J.pushTask(() => this.Ji(t), ge));
+              : 0 != this.ri.uiEventsHappening || this.qi || !this.Ot || X.hasTaskInQueue(ve) || X.pushTask(() => this.Ji(t), ve));
         }
         setBuffering(t) {
-          if (this.Gt) {
-            const e = new he(S, x, { buffering: t });
-            P.g(e);
+          if (this.Ot) {
+            const e = new le(S, x, { buffering: t });
+            $.g(e);
           }
         }
         isWatchingAds() {
           return this.Wi;
         }
         setWatchingAds(t, e) {
-          if (this.Gt) {
+          if (this.Ot) {
             this.Wi = t;
-            const i = new de(S, x, { watchingAds: t, adDurationLeft: e });
-            P.g(i);
+            const i = new pe(S, x, { watchingAds: t, adDurationLeft: e });
+            $.g(i);
           }
         }
         sendNextEpisodeAsync(t) {
-          return fe(this, void 0, void 0, function* () {
-            if (this.Gt && t !== this.Cn && t !== this.wn) {
+          return Ee(this, void 0, void 0, function* () {
+            if (this.Ot && t !== this.Cn && t !== this.wn) {
               (this.wn = t), (this.qi = !0);
-              const e = new De(S, x, { nextEpisode: t }),
-                i = yield P.g(e);
+              const e = new de(S, x, { nextEpisode: t }),
+                i = yield $.g(e);
               i && "Locked Session" === i.errorMessage && (yield this._n(t));
             }
           });
         }
         _n(t) {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             try {
-              yield St(() => t == this.Cn, 1e4)(), (this.qi = !1);
+              yield Pt(() => t == this.Cn, 1e4)(), (this.qi = !1);
             } catch (t) {
               this.he("An error has occured when trying to wait till the episode changed videos");
-              const e = { showAlert: !0, alertModal: yt };
+              const e = { showAlert: !0, alertModal: ft };
               this.sendTeardown(e);
             }
           });
         }
         Zi(t, e) {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             if (null == t.lastKnownTime || null == t.lastKnownTimeUpdatedAt || null == t.state) return !1;
-            if (e && t.state === Nt.PAUSED && t.lastKnownTime < gt) return !1;
+            if (e && t.state === Ht.PAUSED && t.lastKnownTime < vt) return !1;
             const i = Math.abs(t.lastKnownTime - this.bn());
-            if (t.state == this.sn && i < gt) return !1;
-            if (i >= gt) {
-              const t = new W(S, x, { name: "video_seek", action: { source: "self" } });
-              P.g(t), this.pn == Vt.AMAZON || this.pn == Vt.PARAMOUNT ? yield Tt(200)() : this.pn == Vt.HBO_MAX && (yield Tt(500)());
+            if (t.state == this.sn && i < vt) return !1;
+            if (i >= vt) {
+              const t = new z(S, x, { name: "video_seek", action: { source: "self" } });
+              $.g(t), this.pn == Wt.AMAZON || this.pn == Wt.PARAMOUNT ? yield Mt(200)() : this.pn == Wt.HBO_MAX && (yield Mt(500)());
             }
             return !0;
           });
         }
         Xi() {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             const t = yield this.ri.getUpdateSessionDataAsync();
-            (t.lastKnownTimeUpdatedAt -= this.Vi), (t.lastKnownTime = Math.round(t.lastKnownTime));
-            return new re(S, x, t);
+            (t.lastKnownTimeUpdatedAt -= this.Ni), (t.lastKnownTime = Math.round(t.lastKnownTime));
+            return new ae(S, x, t);
           });
         }
         forceSync() {
-          J.pushTask(this.nn, pe);
+          X.pushTask(this.nn, Fe);
         }
         yn(t) {
-          return fe(this, void 0, void 0, function* () {
-            (this.Dn = Date.now()), J.pushTask(() => this.jn(t));
+          return Ee(this, void 0, void 0, function* () {
+            (this.Dn = Date.now()), X.pushTask(() => this.jn(t));
           });
         }
         jn(e) {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             try {
               t("Continue next episode called"),
                 (this.qi = !0),
@@ -4047,16 +4130,16 @@
                 t("After load new video"),
                 this.Ke.reloadListeners(),
                 this.ln < this.Dn &&
-                  ((this.sn = Nt.PAUSED),
+                  ((this.sn = Ht.PAUSED),
                   (this.hn = 0),
                   (this.dn = Date.now()),
                   t("Sending broadcast after next episode"),
-                  J.pushTask(() => this.Ji(!0, !0), ge),
-                  J.removeTask(pe)),
+                  X.pushTask(() => this.Ji(!0, !0), ve),
+                  X.removeTask(Fe)),
                 (this.Cn = e.videoId),
                 (this.qi = !1);
-              const i = new W(S, x, { name: "video_start", action: { description: "video session has begun" } });
-              P.g(i);
+              const i = new z(S, x, { name: "video_start", action: { description: "video session has begun" } });
+              $.g(i);
             } catch (t) {
               this.he("Error loading new video."), console.log("Error was", t), yield this.reloadPartyAsync();
             }
@@ -4064,34 +4147,35 @@
         }
         persistExtension(t) {
           var e, i;
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             console.log("persist here");
             const n = null !== (i = null === (e = window.teleparty) || void 0 === e ? void 0 : e.tabId) && void 0 !== i ? i : 0,
-              s = new Fe(S, x, { tabId: n, persist: t });
-            P.g(s);
+              s = new ye(S, x, { tabId: n, persist: t });
+            $.g(s);
             const u = yield this.Bn();
-            (u.date = Date.now()), me.storeRedirectDataForTabAsync(u, n);
+            (u.date = Date.now()), Ce.storeRedirectDataForTabAsync(u, n);
           });
         }
         reloadPartyAsync() {
           var t, e;
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             try {
+              console.log("Reloading party");
               const i = yield this.Bn();
               i.date = Date.now();
               const n = yield this.An(i),
                 s = null !== (e = null === (t = window.teleparty) || void 0 === t ? void 0 : t.tabId) && void 0 !== e ? e : 0,
-                u = new Fe(S, x, { tabId: s, persist: !1 });
-              yield P.g(u), yield me.storeRedirectDataForTabAsync(i, s), (window.location.href = n);
+                u = new ye(S, x, { tabId: s, persist: !1 });
+              yield $.g(u), yield Ce.storeRedirectDataForTabAsync(i, s), console.log("Redirect URL is", n), (window.location.href = n);
             } catch (t) {
               console.log("Error reloading party", t), this.he("Failed to fix next episode.");
-              const e = new H(S, x, { showAlert: !0, alertModal: ft });
-              P.g(e);
+              const e = new W(S, x, { showAlert: !0, alertModal: Et });
+              $.g(e);
             }
           });
         }
         Bn() {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             return new Promise((t, e) => {
               const i = new XMLHttpRequest();
               (i.timeout = 1e4),
@@ -4107,7 +4191,7 @@
                       e(t), this.he("Unable to get video endpoint data to reload session");
                     }
                 }),
-                i.open("GET", "https://api.teleparty.com/video?session=" + this.Gt, !0),
+                i.open("GET", "https://api.teleparty.com/video?session=" + this.Ot, !0),
                 i.send(null);
             });
           });
@@ -4152,6 +4236,8 @@
                 return `https://www.paramountplus.com/${this.mapToParamountType(t.videoType)}/video/${t.videoId}/`;
               case "hotstar":
                 return `https://www.hotstar.com/${t.videoId}/watch`;
+              case "disneymena":
+                return `https://apps.disneyplus.com/${t.videoId}/watch`;
               case "max":
                 return `https://play.max.com/video/watch/${t.videoId}`;
               case "plutotv":
@@ -4166,6 +4252,8 @@
                 return `https://mubi.com/${t.videoId}`;
               case "stan":
                 return `https://play.stan.com.au/programs/${t.videoId}/play`;
+              case "slingtv":
+                return `https://watch.sling.com/1/asset/${t.videoId}/watch`;
               default:
                 throw new Error();
             }
@@ -4174,32 +4262,32 @@
           throw new Error("Invalid Session Response");
         }
         vn(t) {
-          (this.ln = Date.now()), J.pushTask(this.kn(t).bind(this));
+          (this.ln = Date.now()), X.pushTask(this.kn(t).bind(this));
         }
         kn(t) {
-          if (t.state === Nt.PAUSED && this.sn === Nt.PLAYING) {
+          if (t.state === Ht.PAUSED && this.sn === Ht.PLAYING) {
             this.on();
-            const t = new W(S, x, {
+            const t = new z(S, x, {
               name: "video_pause",
               action: { description: "video was played from pause", reason: "Video was played" }
             });
-            P.g(t);
-          } else if (t.state === Nt.PLAYING && this.sn === Nt.PAUSED) {
-            const t = new W(S, x, {
+            $.g(t);
+          } else if (t.state === Ht.PLAYING && this.sn === Ht.PAUSED) {
+            const t = new z(S, x, {
               name: "video_resume",
               action: { description: "video was played from pause", reason: "Video was played" }
             });
-            P.g(t), this.on();
+            $.g(t), this.on();
           }
           return (this.sn = t.state), (this.hn = t.lastKnownTime), (this.dn = t.lastKnownTimeUpdatedAt), this.nn;
         }
         gn(t) {
           var e;
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             try {
               const e = yield this.ri.getVideoDataAsync(),
                 i = yield this.ri.getStateAsync();
-              (e.is_player_fullscreen = null !== document.fullscreenElement),
+              (e.is_player_fullscreen = null != document.fullscreenElement || document.webkitIsFullScreen),
                 (e.is_chat_visible = this.$.getChatVisible()),
                 (e.is_adblock_enabled = this.Ki),
                 (e.video_ts_ms = Math.round(i.playbackPositionMilliseconds)),
@@ -4211,18 +4299,18 @@
           });
         }
         he(t) {
-          const e = new W(S, x, {
+          const e = new z(S, x, {
             name: "video_error",
             action: { description: t, reason: "An errors has occurred during video playback" }
           });
-          P.g(e);
+          $.g(e);
         }
         en(t) {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             return new Promise((e) => {
               const i = performance.now(),
                 n = () =>
-                  fe(this, void 0, void 0, function* () {
+                  Ee(this, void 0, void 0, function* () {
                     if (performance.now() - i >= 2500) e(!1);
                     else {
                       const i = yield this.Xi();
@@ -4238,45 +4326,45 @@
           });
         }
         tn(t) {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             if (this.qi || this.Wi) return;
             const e = this.sn;
             if (t.data.bufferingState) {
-              (t.data.state = Nt.PAUSED), yield P.g(t, 1e3), yield this.ri.waitVideoDoneLoadingAsync();
+              (t.data.state = Ht.PAUSED), yield $.g(t, 1e3), yield this.ri.waitVideoDoneLoadingAsync();
               const i = yield this.Xi();
-              (i.data.bufferingState = !0), e == Nt.PLAYING && (i.data.state = Nt.PLAYING), yield P.g(i, 1e3);
-            } else yield P.g(t, 1e3);
+              (i.data.bufferingState = !0), e == Ht.PLAYING && (i.data.state = Ht.PLAYING), yield $.g(i, 1e3);
+            } else yield $.g(t, 1e3);
           });
         }
         Fn(t) {
-          return fe(this, void 0, void 0, function* () {
+          return Ee(this, void 0, void 0, function* () {
             const e = t.sessionCallbackData;
-            (this.Gt = e.sessionId),
+            (this.Ot = e.sessionId),
               (this.sn = e.state),
               (this.hn = Number(e.lastKnownTime)),
               (this.dn = Number(e.lastKnownTimeUpdatedAt)),
               (this.Cn = e.videoId),
               (this.xt = !1),
               "true" == e.controlLock && (this.We = !0),
-              t.isCreate ? ((this.zi = !0), J.pushTask(this.Ji.bind(this), ge)) : this.forceSync();
-            const i = new W(S, x, { name: "video_start", action: { description: "video session has begun" } });
-            P.g(i), this.Ke.startListening(), this.Qn();
+              t.isCreate ? ((this.zi = !0), X.pushTask(this.Ji.bind(this), ve)) : this.forceSync();
+            const i = new z(S, x, { name: "video_start", action: { description: "video session has begun" } });
+            $.g(i), this.Ke.startListening(), this.Qn();
           });
         }
         In() {
           return new Promise((e) => {
-            const i = new ce(S, x),
+            const i = new he(S, x),
               n = Date.now();
-            P.g(i)
+            $.g(i)
               .then((t) => {
                 const e = Date.now();
                 if (t) {
                   const i = t.serverTime;
                   i &&
-                    (Mt(this.Ui, e - n, 5),
-                    (this.Ni = Pt(this.Ui)),
-                    Mt(this.Hi, e - Math.round(this.Ni / 2) - i, 5),
-                    (this.Vi = Pt(this.Hi)));
+                    ($t(this.Li, e - n, 5),
+                    (this.Vi = Rt(this.Li)),
+                    $t(this.Hi, e - Math.round(this.Vi / 2) - i, 5),
+                    (this.Ni = Rt(this.Hi)));
                 }
               })
               .catch((e) => {
@@ -4286,49 +4374,49 @@
           });
         }
         on() {
-          const t = new W(S, x, { name: "video_heartbeat", action: { description: "new heartbeat", reason: "Heartbeat session was due" } });
-          P.g(t);
+          const t = new z(S, x, { name: "video_heartbeat", action: { description: "new heartbeat", reason: "Heartbeat session was due" } });
+          $.g(t);
         }
         Qn() {
           this.En && clearInterval(this.En),
             this.un && clearInterval(this.un),
             (this.En = setInterval(() => {
-              J.hasTaskInQueue(pe) || J.pushTask(this.nn, pe);
+              X.hasTaskInQueue(Fe) || X.pushTask(this.nn, Fe);
             }, 5e3)),
             (this.un = setInterval(() => {
               this.on();
             }, 6e4)),
             (this.xn = setInterval(() => {
-              J.hasTaskInQueue(le) || J.pushTask(this.In.bind(this), le);
+              X.hasTaskInQueue(ge) || X.pushTask(this.In.bind(this), ge);
             }, 12500)),
             this.In();
         }
         rn() {
-          return !this.Gt || this.ri.uiEventsHappening > 0 || this.Wi || this.qi || !this.Ke.shouldSync();
+          return !this.Ot || this.ri.uiEventsHappening > 0 || this.Wi || this.qi || !this.Ke.shouldSync();
         }
-        an(t) {
-          return fe(this, void 0, void 0, function* () {
+        cn(t) {
+          return Ee(this, void 0, void 0, function* () {
             const { playbackState: e, playbackPositionMilliseconds: i } = t;
-            if ((e !== Ut.PAUSED && (yield this.ri.pause()), Math.abs(this.hn - i) > 2500)) {
+            if ((e !== Nt.PAUSED && (yield this.ri.pause()), Math.abs(this.hn - i) > 2500)) {
               yield this.ri.setCurrentTime(this.hn);
-              const t = new W(S, x, { name: "video_seek", action: { source: "another user" } });
-              P.g(t);
+              const t = new z(S, x, { name: "video_seek", action: { source: "another user" } });
+              $.g(t);
             }
           });
         }
-        cn(t) {
-          return fe(this, void 0, void 0, function* () {
+        an(t) {
+          return Ee(this, void 0, void 0, function* () {
             const { playbackState: e, playbackPositionMilliseconds: i } = t,
               n = this.bn();
-            if ((e == Ut.PAUSED && (yield this.ri.play()), Math.abs(n - i) > 2500)) {
+            if ((e == Nt.PAUSED && (yield this.ri.play()), Math.abs(n - i) > 2500)) {
               yield this.ri.setCurrentTime(n), yield this.ri.play();
-              const t = new W(S, x, { name: "video_seek", action: { source: "another user" } });
-              P.g(t);
+              const t = new z(S, x, { name: "video_seek", action: { source: "another user" } });
+              $.g(t);
             }
           });
         }
         Tn() {
-          return this.sn === Nt.PLAYING ? Date.now() - (this.dn + this.Vi) : 0;
+          return this.sn === Ht.PLAYING ? Date.now() - (this.dn + this.Ni) : 0;
         }
         bn() {
           return this.hn + this.Tn();
@@ -4341,23 +4429,23 @@
         }
       }
       i(5640);
-      var Ee = function (t, e, i, n) {
+      var _e = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -4368,22 +4456,22 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      var we = i(4296),
-        _e = i.n(we);
-      class be extends $ {
+      var be = i(4296),
+        je = i.n(be);
+      class Be extends R {
         constructor(t, e, i) {
           super(t, e, i), (this.type = i);
         }
       }
-      class je extends be {
+      class Ae extends Be {
         constructor(t, e, i) {
-          super(t, e, Xt.CREATE_SESSION), (this.data = i);
+          super(t, e, te.CREATE_SESSION), (this.data = i);
         }
       }
-      const Be = new (class extends Wt {
+      const ke = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".netflix.") && t.pathname.includes("/watch");
@@ -4399,10 +4487,10 @@
         getFullscreenScript() {
           return '\n            (function() {\n                var sizingWrapper = document.getElementsByClassName("sizing-wrapper")[0];\n                    if (sizingWrapper) {\n                        sizingWrapper.requestFullscreen = function() {}\n                        document.getElementsByClassName(\'button-nfplayerFullscreen\')[0].onclick = function() {\n                            var fullScreenWrapper = document.getElementsByClassName("nf-kb-nav-wrapper")[0];\n                            fullScreenWrapper.webkitRequestFullScreen(fullScreenWrapper.ALLOW_KEYBOARD_INPUT);\n                        }\n                    }\n            })();\n        ';
         }
-      })([], ["content_scripts/netflix/netflix_content_bundled.js"], "netflix", Vt.NETFLIX, !1);
-      Object.freeze(Be);
-      const Ae = Be;
-      const ke = new (class extends Wt {
+      })([], ["content_scripts/netflix/netflix_content_bundled.js"], "netflix", Wt.NETFLIX, !1);
+      Object.freeze(ke);
+      const Qe = ke;
+      const Ie = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".hulu.") && t.pathname.includes("/watch");
@@ -4415,36 +4503,38 @@
           const e = t.pathname.match(/^.*\/([a-z\-0-9]+)\??.*/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/hulu/hulu_content_bundled.js"], "hulu", Vt.HULU, !1);
-      Object.freeze(ke);
-      const Qe = ke;
-      const Ie = new (class extends Wt {
+      })([], ["content_scripts/hulu/hulu_content_bundled.js"], "hulu", Wt.HULU, !1);
+      Object.freeze(Ie);
+      const xe = Ie;
+      const Te = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".disneyplus.") && t.pathname.includes("/video");
           })(t);
         }
         isBrowsing(t) {
-          return t.hostname.includes(".disneyplus.");
+          return t.hostname.includes(".disneyplus.") && !t.hostname.includes("apps.disneyplus.");
         }
         getVideoId(t) {
           const e = t.pathname.match(/^.*\/([a-z\-0-9]+)\??.*/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/disney/disney_content_bundled.js"], "disney", Vt.DISNEY_PLUS, !1);
-      Object.freeze(Ie);
-      const xe = Ie;
-      const Te = new (class extends Wt {
+      })([], ["content_scripts/disney/disney_content_bundled.js"], "disney", Wt.DISNEY_PLUS, !1, [
+        "browse_scripts/disney/disney_browse_bundled.js"
+      ]);
+      Object.freeze(Te);
+      const Se = Te;
+      const Me = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
-            return (t.hostname.includes(".hbomax.") && "other" !== xt(t.pathname)) || t.pathname.includes("urn:hbo:page");
+            return (t.hostname.includes(".hbomax.") && "other" !== St(t.pathname)) || t.pathname.includes("urn:hbo:page");
           })(t);
         }
         isBrowsing(t) {
           return t.hostname.includes(".hbomax.");
         }
         getVideoId(t) {
-          const e = "urn:hbo:" + xt(t.pathname) + ":",
+          const e = "urn:hbo:" + St(t.pathname) + ":",
             i = t.pathname.split(e);
           let n = null != i && i.length > 1 && null != i[1] ? i[1].match(/^([a-zA-Z\-_0-9]+)\??.*/) : null;
           const s = null != n && 0 !== n.length ? i[1].match(/^([a-zA-Z\-_0-9]+)\??.*/) : void 0;
@@ -4452,12 +4542,12 @@
           return u || ((n = t.pathname.match(/(page:)([a-zA-Z\-_0-9]+)\??.*/)), (u = null != n && 3 == n.length ? n[2] : void 0)), u;
         }
         getVideoType(t) {
-          return xt(t.pathname);
+          return St(t.pathname);
         }
-      })([], ["content_scripts/hbo_max/hbo_max_content_bundled.js"], "hbomax", Vt.HBO_MAX, !1);
-      Object.freeze(Te);
-      const Se = Te;
-      const Me = new (class extends Wt {
+      })([], ["content_scripts/hbo_max/hbo_max_content_bundled.js"], "hbomax", Wt.HBO_MAX, !1);
+      Object.freeze(Me);
+      const Pe = Me;
+      const $e = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".amazon.") || t.hostname.includes(".primevideo.");
@@ -4470,10 +4560,10 @@
           const e = t.pathname.split("ref")[0].match(/^.*\/([a-z\-0-9.A-Z]+)(\?|\/ref)?.*/);
           return null != e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/amazon/amazon_content_bundled.js"], "amazon", Vt.AMAZON, !1);
-      Object.freeze(Me);
-      const Pe = Me;
-      const $e = new (class extends Wt {
+      })([], ["content_scripts/amazon/amazon_content_bundled.js"], "amazon", Wt.AMAZON, !1);
+      Object.freeze($e);
+      const Re = $e;
+      const Oe = new (class extends Kt {
         isBrowsing(t) {
           return t.hostname.includes(".crunchyroll.");
         }
@@ -4486,12 +4576,12 @@
           const e = t.pathname.match(/watch\/(.*)\//);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/crunchyroll/crunchyroll_content_bundled.js"], "crunchyroll", Vt.CRUNCHYROLL, !1);
-      Object.freeze($e);
-      const Re = $e;
-      const Ge = new (class extends Wt {
+      })([], ["content_scripts/crunchyroll/crunchyroll_content_bundled.js"], "crunchyroll", Wt.CRUNCHYROLL, !1);
+      Object.freeze(Oe);
+      const Ue = Oe;
+      const Ge = new (class extends Kt {
         isBrowsing(t) {
-          return !(t.href.includes(".hotstar.") || !t.href.includes("watch?"));
+          return !(t.href.includes(".hotstar.") || t.href.includes("apps.disneyplus.") || !t.href.includes("watch?"));
         }
         isValidUrl(t) {
           return (function (t) {
@@ -4505,10 +4595,10 @@
           }
           return "browsing";
         }
-      })([], ["content_scripts/youtube/youtube_content_bundled.js"], "youtube", Vt.YOUTUBE, !1);
+      })([], ["content_scripts/youtube/youtube_content_bundled.js"], "youtube", Wt.YOUTUBE, !1);
       Object.freeze(Ge);
       const Le = Ge;
-      const Oe = new (class extends Wt {
+      const Ve = new (class extends Kt {
         isBrowsing(t) {
           return t.hostname.includes(".espn.");
         }
@@ -4521,10 +4611,10 @@
           const e = t.pathname;
           return e.substring(e.lastIndexOf("/") + 1);
         }
-      })([], ["content_scripts/espn/espn_content_bundled.js"], "espn", Vt.ESPN, !1);
-      Object.freeze(Oe);
-      const Ue = Oe;
-      const Ne = new (class extends Wt {
+      })([], ["content_scripts/espn/espn_content_bundled.js"], "espn", Wt.ESPN, !1);
+      Object.freeze(Ve);
+      const Ne = Ve;
+      const He = new (class extends Kt {
         isBrowsing(t) {
           return t.hostname.includes(".paramountplus.");
         }
@@ -4541,10 +4631,10 @@
           const i = null !== (e = t.pathname.match(/video\/([^/]+)/)) && void 0 !== e ? e : t.pathname.match(/stream\/([^/]+)/);
           return i && i.length > 1 ? i[1] : void 0;
         }
-      })([], ["content_scripts/paramount/paramount_content_bundled.js"], "paramount", Vt.PARAMOUNT, !1);
-      Object.freeze(Ne);
-      const Ve = Ne;
-      const He = new (class extends Wt {
+      })([], ["content_scripts/paramount/paramount_content_bundled.js"], "paramount", Wt.PARAMOUNT, !1);
+      Object.freeze(He);
+      const We = He;
+      const ze = new (class extends Kt {
         isBrowsing(t) {
           return t.hostname.includes(".peacocktv.");
         }
@@ -4557,10 +4647,10 @@
           const e = t.pathname.match(/([^/?]+\/[^/?]+)(?=\?|$)/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/peacock/peacock_content_bundled.js"], "peacock", Vt.PEACOCK, !1);
-      Object.freeze(He);
-      const We = He;
-      const ze = new (class extends Wt {
+      })([], ["content_scripts/peacock/peacock_content_bundled.js"], "peacock", Wt.PEACOCK, !1);
+      Object.freeze(ze);
+      const Ke = ze;
+      const Ye = new (class extends Kt {
         isBrowsing(t) {
           return t.hostname.includes(".funimation.");
         }
@@ -4572,27 +4662,27 @@
         getVideoId(t) {
           return t.pathname.split("/v/")[1];
         }
-      })([], ["content_scripts/funimation/funimation_content_bundled.js"], "funimation", Vt.FUNIMATION, !1);
-      Object.freeze(ze);
-      const Ke = ze;
-      const Ye = new (class extends Wt {
+      })([], ["content_scripts/funimation/funimation_content_bundled.js"], "funimation", Wt.FUNIMATION, !1);
+      Object.freeze(Ye);
+      const Je = Ye;
+      const qe = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".max.") && t.pathname.includes("video/watch");
           })(t);
         }
         isBrowsing(t) {
-          return t.hostname.includes(".play.max.");
+          return t.hostname.includes("play.max.");
         }
         getVideoId(t) {
           var e;
           const i = null === (e = t.pathname) || void 0 === e ? void 0 : e.match(/(watch\/)([a-zA-Z\-_0-9]+)\??/);
           return i ? i[2] : void 0;
         }
-      })([], ["content_scripts/max/max_content_bundled.js"], "max", Vt.MAX, !1);
-      Object.freeze(Ye);
-      const Je = Ye;
-      const qe = new (class extends Wt {
+      })([], ["content_scripts/max/max_content_bundled.js"], "max", Wt.MAX, !1);
+      Object.freeze(qe);
+      const Xe = qe;
+      const Ze = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes(".starplus.") && t.pathname.includes("/video");
@@ -4605,10 +4695,10 @@
           const e = t.pathname.match(/^.*\/([a-z\-0-9]+)\??.*/);
           return e && e.length > 0 ? e[1] : void 0;
         }
-      })([], ["content_scripts/starplus/starplus_content_bundled.js"], "starplus", Vt.STAR_PLUS, !1);
-      Object.freeze(qe);
-      const Xe = qe;
-      const Ze = new (class extends Wt {
+      })([], ["content_scripts/starplus/starplus_content_bundled.js"], "starplus", Wt.STAR_PLUS, !1);
+      Object.freeze(Ze);
+      const ti = Ze;
+      const ei = new (class extends Kt {
         isBrowsing(t) {
           return (
             t.href.includes("/details") ||
@@ -4628,10 +4718,10 @@
         getVideoId(t) {
           return t.href.split("pluto.tv/").pop();
         }
-      })([], ["content_scripts/plutotv/plutotv_content_bundled.js"], "plutotv", Vt.PLUTO_TV, !1);
-      Object.freeze(Ze);
-      const ti = Ze;
-      const ei = new (class extends Wt {
+      })([], ["content_scripts/plutotv/plutotv_content_bundled.js"], "plutotv", Wt.PLUTO_TV, !1);
+      Object.freeze(ei);
+      const ii = ei;
+      const ni = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             return t.hostname.includes("tv.apple.com");
@@ -4643,10 +4733,10 @@
         getVideoId(t) {
           return t.toString().split("https://tv.apple.com/")[1];
         }
-      })([], ["content_scripts/appletv/appletv_content_bundled.js"], "appletv", Vt.APPLE_TV, !1);
-      Object.freeze(ei);
-      const ii = ei;
-      const ni = new (class extends Wt {
+      })([], ["content_scripts/appletv/appletv_content_bundled.js"], "appletv", Wt.APPLE_TV, !1);
+      Object.freeze(ni);
+      const si = ni;
+      const ui = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes(".jiocinema."),
@@ -4663,10 +4753,10 @@
         getVideoId(t) {
           return t.pathname.substring(1);
         }
-      })([], ["content_scripts/jio_cinema/jio_cinema_content_bundled.js"], "jiocinema", Vt.JIO_CINEMA, !1);
-      Object.freeze(ni);
-      const si = ni;
-      const ui = new (class extends Wt {
+      })([], ["content_scripts/jio_cinema/jio_cinema_content_bundled.js"], "jiocinema", Wt.JIO_CINEMA, !1);
+      Object.freeze(ui);
+      const oi = ui;
+      const ri = new (class extends Kt {
         isBrowsing(t) {
           return t.hostname.includes("tubitv.com");
         }
@@ -4678,10 +4768,10 @@
         getVideoId(t) {
           return t.pathname;
         }
-      })([], ["content_scripts/tubitv/tubitv_content_bundled.js"], "tubitv", Vt.TUBI_TV, !1);
-      Object.freeze(ui);
-      const oi = ui;
-      const ri = new (class extends Wt {
+      })([], ["content_scripts/tubitv/tubitv_content_bundled.js"], "tubitv", Wt.TUBI_TV, !1);
+      Object.freeze(ri);
+      const ci = ri;
+      const ai = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes(".crave."),
@@ -4695,10 +4785,10 @@
         getVideoId(t) {
           return t.pathname.substring(1);
         }
-      })([], ["content_scripts/crave/crave_content_bundled.js"], "crave", Vt.CRAVE, !1);
-      Object.freeze(ri);
-      const ai = ri;
-      const ci = new (class extends Wt {
+      })([], ["content_scripts/crave/crave_content_bundled.js"], "crave", Wt.CRAVE, !1);
+      Object.freeze(ai);
+      const Di = ai;
+      const hi = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes("mubi."),
@@ -4712,10 +4802,10 @@
         getVideoId(t) {
           return t.pathname.substring(1);
         }
-      })([], ["content_scripts/mubi/mubi_content_bundled.js"], "mubi", Vt.MUBI, !1);
-      Object.freeze(ci);
-      const Di = ci;
-      const hi = new (class extends Wt {
+      })([], ["content_scripts/mubi/mubi_content_bundled.js"], "mubi", Wt.MUBI, !1);
+      Object.freeze(hi);
+      const di = hi;
+      const li = new (class extends Kt {
         isValidUrl(t) {
           return (function (t) {
             const e = t.hostname.includes("play.stan.com.au"),
@@ -4729,62 +4819,88 @@
         getVideoId(t) {
           return t.pathname.split("/")[2];
         }
-      })([], ["content_scripts/stan/stan_content_bundled.js"], "stan", Vt.STAN, !1);
-      Object.freeze(hi);
-      const di = hi;
-      class li {
+      })([], ["content_scripts/stan/stan_content_bundled.js"], "stan", Wt.STAN, !1);
+      Object.freeze(li);
+      const pi = li;
+      const gi = new (class extends Kt {
+        isValidUrl(t) {
+          return (function (t) {
+            const e = t.hostname.includes("watch.sling.com"),
+              i = t.pathname.split("/");
+            return e && i.length > 0 && "watch" === i[i.length - 1];
+          })(t);
+        }
+        isBrowsing(t) {
+          return t.hostname.includes(".sling.com");
+        }
+        getVideoId(t) {
+          const e = t.pathname.split("/");
+          if (e.length > 3) return e[3];
+        }
+      })([], ["content_scripts/sling/sling_content_bundled.js"], "slingtv", Wt.SLING, !1);
+      Object.freeze(gi);
+      const Fi = gi;
+      const vi = new (class extends Kt {
+        isValidUrl(t) {
+          return (function (t) {
+            return t.hostname.includes("apps.disneyplus.") && t.pathname.includes("/watch");
+          })(t);
+        }
+        isBrowsing(t) {
+          return t.hostname.includes("apps.disneyplus.");
+        }
+        getVideoId(t) {
+          const e = t.pathname.split("/");
+          return e && e.length > 1 ? e[e.length - 2] : void 0;
+        }
+      })([], ["content_scripts/disneymena/disneymena_content_bundled.js"], "disneymena", Wt.DISNEY_PLUS_MENA, !1);
+      Object.freeze(vi);
+      const yi = vi;
+      class mi {
         constructor(t, e) {
-          var i;
-          (this.isBrowsing = !1), (this.id = e), this.videoId, (this.url = t);
-          const n = [Ae, Qe, xe, Se, Pe, Le, Re, Ue, Ve, Kt, We, Xe, Je, Ke, ii, ti, si, oi, Di, di, ai];
+          (this.isBrowsing = !1), (this.needsCSPBlock = !1), (this.id = e), this.videoId, (this.url = t);
+          const i = [si],
+            n = [Qe, xe, Se, Pe, Re, Le, Ue, Ne, We, Jt, Ke, ti, Xe, Je, si, ii, oi, ci, di, pi, Di, Fi, yi];
           for (const e of n) {
             if (e.isValidUrl(this.url)) {
-              (this.streamingService = e), (this.serviceName = e.name), (this.videoId = e.getVideoId(t));
+              (this.streamingService = e),
+                (this.serviceName = e.name),
+                (this.videoId = e.getVideoId(t)),
+                i.includes(e) && (this.needsCSPBlock = !0);
               break;
             }
             if (e.isBrowsing(this.url)) {
-              (this.isBrowsing = !0), (this.streamingService = e), (this.serviceName = e.name);
+              (this.isBrowsing = !0), (this.streamingService = e), (this.serviceName = e.name), i.includes(e) && (this.needsCSPBlock = !0);
               break;
             }
           }
-          this.sessionIdFromUrl =
-            null !==
-              (i = (function (t, e, i) {
-                const n = "?" + t.split("?")[i];
-                if (void 0 === n) return;
-                const s = e.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&"),
-                  u = new RegExp("[?|&]" + s + "=([^&]*)(&|$)").exec(n);
-                return null === u || u.length < 2 ? void 0 : decodeURIComponent(u[1]);
-              })(this.url.href, "npSessionId", 1)) && void 0 !== i
-              ? i
-              : void 0;
         }
         urlWithSessionId(t) {
           return this.streamingService ? this.streamingService.urlWithSessionId(t) : void 0;
         }
       }
-      class pi extends be {
+      class fi extends Be {
         constructor(t, e, i) {
-          super(t, e, Xt.RE_INJECT), (this.data = i);
+          super(t, e, te.RE_INJECT), (this.data = i);
         }
       }
-      var gi = function (t, e, i, n) {
+      var Ci = function (t, e, i, n) {
         return new (i || (i = Promise))(function (s, u) {
           function o(t) {
             try {
-              a(n.next(t));
+              c(n.next(t));
             } catch (t) {
               u(t);
             }
           }
           function r(t) {
             try {
-              a(n.throw(t));
+              c(n.throw(t));
             } catch (t) {
               u(t);
             }
           }
-          function a(t) {
+          function c(t) {
             var e;
             t.done
               ? s(t.value)
@@ -4795,27 +4911,27 @@
                       t(e);
                     })).then(o, r);
           }
-          a((n = n.apply(t, e || [])).next());
+          c((n = n.apply(t, e || [])).next());
         });
       };
-      var Fi,
-        vi = function (t, e, i, n) {
+      var Ei,
+        wi = function (t, e, i, n) {
           return new (i || (i = Promise))(function (s, u) {
             function o(t) {
               try {
-                a(n.next(t));
+                c(n.next(t));
               } catch (t) {
                 u(t);
               }
             }
             function r(t) {
               try {
-                a(n.throw(t));
+                c(n.throw(t));
               } catch (t) {
                 u(t);
               }
             }
-            function a(t) {
+            function c(t) {
               var e;
               t.done
                 ? s(t.value)
@@ -4826,10 +4942,10 @@
                         t(e);
                       })).then(o, r);
             }
-            a((n = n.apply(t, e || [])).next());
+            c((n = n.apply(t, e || [])).next());
           });
         };
-      class yi extends class {
+      class _i extends class {
         constructor(t) {
           var e, i, n;
           (this.Sn = !1),
@@ -4837,21 +4953,21 @@
             (this.Pn = !1),
             (this.$n = 0),
             (this.Rn = !1),
-            (this.Gn = !1),
-            (this.Ln = !1),
+            (this.On = !1),
+            (this.Un = !1),
             (this.checkShowMenu = () => {
-              this.shouldMenuBeVisible() ? this.On() : this.Un();
+              this.shouldMenuBeVisible() ? this.Gn() : this.Ln();
             }),
             console.log("Teleparty Browse Loaded " + (null === (e = window.teleparty) || void 0 === e ? void 0 : e.tabId)),
-            (this.Nn = new li(
+            (this.Vn = new mi(
               new URL(window.location.href),
               null !== (n = null === (i = window.teleparty) || void 0 === i ? void 0 : i.tabId) && void 0 !== n ? n : 0
             )),
-            (this.Vn = t),
-            this.Vn.setPageControls(this);
+            (this.Nn = t),
+            this.Nn.setPageControls(this);
         }
         setChatApi(t) {
-          (this.Vn = t), this.Vn.setPageControls(this);
+          (this.Nn = t), this.Nn.setPageControls(this);
         }
         Hn() {
           jQuery("#tp-control-lock-button .tooltiptext").text(this.Pn ? "Only I have control" : "Everyone has control"),
@@ -4863,9 +4979,9 @@
           this.Mn || ((this.Pn = !this.Pn), this.Hn());
         }
         setResetChatButton() {
-          this.Vn.getChatWindowVisible()
+          this.Nn.getChatWindowVisible()
             ? (jQuery("#tp-chat-button .tooltiptext").text("Reset View"),
-              this.Vn.shouldReturnToVideo && jQuery("#tp-chat-button .tooltiptext").text("Return to Video"),
+              this.Nn.shouldReturnToVideo && jQuery("#tp-chat-button .tooltiptext").text("Return to Video"),
               jQuery("#tp-chat-reset").removeClass("hidden"),
               jQuery("#tp-chat-gray").addClass("hidden"),
               jQuery("#tp-chat-button .tp-hover-image").addClass("hidden"),
@@ -4878,7 +4994,7 @@
         }
         zn() {
           jQuery("#tp-chat-hidden").addClass("hidden"),
-            this.Vn.isPartyWindowsActive()
+            this.Nn.isPartyWindowsActive()
               ? (this.setResetChatButton(), jQuery("#tp-message-indicator").removeClass("hidden"))
               : (jQuery("#tp-message-indicator").removeClass("hidden"),
                 jQuery("#tp-chat-button .tooltiptext").text(`${this.$n} unread ${1 == this.$n ? "message" : "messages"}`),
@@ -4888,7 +5004,7 @@
         }
         hideMessageIndicator() {
           jQuery("#tp-message-indicator").addClass("hidden"),
-            this.Vn.isPartyWindowsActive()
+            this.Nn.isPartyWindowsActive()
               ? this.setResetChatButton()
               : (jQuery("#tp-chat-button .tp-hover-image").removeClass("hidden"),
                 jQuery("#tp-chat-button .tooltiptext").text("Show chat"),
@@ -4897,28 +5013,28 @@
                 jQuery("#tp-chat-reset").addClass("hidden"));
         }
         onChatMessage() {
-          this.Vn.shouldChatBeVisible() ||
-            this.Vn.isPartyWindowsActive() ||
+          this.Nn.shouldChatBeVisible() ||
+            this.Nn.isPartyWindowsActive() ||
             (this.$n++,
             this.zn(),
             (this.Rn = !0),
-            this.On(),
-            Tt(1e3)().then(() => {
+            this.Gn(),
+            Mt(1e3)().then(() => {
               this.Rn = !1;
             }));
         }
         teardown() {
-          this.Kn(), this.Un(), this.Yn && clearInterval(this.Yn);
+          this.Kn(), this.Ln(), this.Yn && clearInterval(this.Yn);
         }
         Jn() {
           var t;
-          return gi(this, void 0, void 0, function* () {
-            if (this.Mn || this.Vn.inSession) return;
+          return Ci(this, void 0, void 0, function* () {
+            if (this.Mn || this.Nn.inSession) return;
             if ((this.qn(), (this.Mn = !0), !(null === (t = window.teleparty) || void 0 === t ? void 0 : t.contentScriptInjected))) {
               console.log("Re injecting");
-              const t = new pi(M, x, { extensionTabData: this.Nn });
+              const t = new fi(M, x, { extensionTabData: this.Vn });
               try {
-                yield P.g(t);
+                yield $.g(t);
               } catch (t) {
                 return console.log(t), this.Xn(), this.he(t), this.Zn(j), void (this.Mn = !1);
               }
@@ -4926,7 +5042,7 @@
             console.log("Sending create");
             const e = this.ts();
             try {
-              const t = yield P.g(e);
+              const t = yield $.g(e);
               t.error ? (this.Zn(t.error.message), this.he(t.error.message)) : ((this.Mn = !1), this.es(), this.enablePartyIcons());
             } catch (t) {
               console.log(t), this.Zn(j), this.he(t);
@@ -4950,8 +5066,8 @@
             jQuery("#tp-icon-white").removeClass("hidden");
         }
         he(t) {
-          const e = new W(T, x, { name: "error", action: { description: "an error has occured", reason: t } });
-          P.g(e);
+          const e = new z(T, x, { name: "error", action: { description: "an error has occured", reason: t } });
+          $.g(e);
         }
         Zn(t) {
           jQuery("#tp-controls-error-text").text(t),
@@ -4977,20 +5093,20 @@
             .replace(/{DISCONNECT_IMAGE}/g, C(chrome.runtime.getURL("img/icon_logout_active.svg")))
             .replace(/{RESET_CHAT_IMAGE}/g, C(chrome.runtime.getURL("img/reset_chat.svg")));
         }
-        Un() {
+        Ln() {
           this.Rn || (this.hideError(), jQuery("#tpIconContainer").addClass("hidden"));
         }
-        On() {
-          return gi(this, void 0, void 0, function* () {
-            if (!this.Gn && (this.Ln || this.Vn.inSession)) {
-              this.Gn = !0;
+        Gn() {
+          return Ci(this, void 0, void 0, function* () {
+            if (!this.On && (this.Un || this.Nn.inSession)) {
+              this.On = !0;
               try {
                 yield this.addTpIcon(),
-                  this.Vn.inSession ? this.enablePartyIcons() : this.Kn(),
+                  this.Nn.inSession ? this.enablePartyIcons() : this.Kn(),
                   jQuery("#tpIconContainer").removeClass("hidden"),
                   this.setChatButtons();
               } finally {
-                this.Gn = !1;
+                this.On = !1;
               }
             }
           });
@@ -5005,9 +5121,9 @@
           return "100px";
         }
         addTpIcon() {
-          return gi(this, void 0, void 0, function* () {
-            if ((this.Ln || this.Vn.inSession) && 0 === jQuery("#tpIconContainer").length) {
-              const t = this.ns(_e()),
+          return Ci(this, void 0, void 0, function* () {
+            if ((this.Un || this.Nn.inSession) && 0 === jQuery("#tpIconContainer").length) {
+              const t = this.ns(je()),
                 e = yield this.getControlsRoot();
               e.length > 0 &&
                 (e.append(
@@ -5033,36 +5149,36 @@
             });
         }
         cs() {
-          const t = new H(M, x, _t);
-          P.g(t), this.Un();
+          const t = new W(M, x, jt);
+          $.g(t), this.Ln();
         }
         os() {
-          this.Vn.linkIconListener(),
+          this.Nn.linkIconListener(),
             jQuery("#tp-link-button .tooltiptext").text("Link copied"),
             setTimeout(() => {
               jQuery("#tp-link-button .tooltiptext").text("Copy join link");
             }, 1e3);
         }
         rs() {
-          return gi(this, void 0, void 0, function* () {
+          return Ci(this, void 0, void 0, function* () {
             (this.$n = 0),
               this.hideMessageIndicator(),
-              this.Vn.isPartyWindowsActive()
-                ? this.Vn.resetChatWindow(!0)
-                : (this.Vn.shouldChatBeVisible(), yield this.Vn.setChatVisible(!this.Vn.shouldChatBeVisible()), this.setChatButtons());
+              this.Nn.isPartyWindowsActive()
+                ? this.Nn.resetChatWindow(!0)
+                : (this.Nn.shouldChatBeVisible(), yield this.Nn.setChatVisible(!this.Nn.shouldChatBeVisible()), this.setChatButtons());
           });
         }
         onInitChat() {
-          this.Sn && this.On();
+          this.Sn && this.Gn();
         }
         setChatButtons() {
-          this.Vn.inSession && this.Vn.getChatVisible() ? this.es() : this.Ds(),
-            this.Vn.isPartyWindowsActive() ? this.setResetChatButton() : this.hideMessageIndicator();
+          this.Nn.inSession && this.Nn.getChatVisible() ? this.es() : this.Ds(),
+            this.Nn.isPartyWindowsActive() ? this.setResetChatButton() : this.hideMessageIndicator();
         }
         es() {
-          return gi(this, void 0, void 0, function* () {
-            this.Vn.inSession &&
-              this.Vn.shouldChatBeVisible() &&
+          return Ci(this, void 0, void 0, function* () {
+            this.Nn.inSession &&
+              this.Nn.shouldChatBeVisible() &&
               (jQuery("#tp-chat-close-button").removeClass("hidden"), jQuery("#tp-buttons-container").addClass("hidden"));
           });
         }
@@ -5070,10 +5186,10 @@
           jQuery("#tp-chat-close-button").addClass("hidden"), jQuery("#tp-buttons-container").removeClass("hidden");
         }
         ts() {
-          return new je(M, x, this.hs());
+          return new Ae(M, x, this.hs());
         }
         hs() {
-          return { createSettings: { controlLock: this.Pn }, extensionTabData: this.Nn, source: "pc" };
+          return { createSettings: { controlLock: this.Pn }, streamingService: this.Vn.streamingService, tabId: this.Vn.id, source: "pc" };
         }
         qn() {
           jQuery("#tp-icon-container .tooltiptext").html(
@@ -5089,7 +5205,7 @@
           return !t || "none" !== t.style.cursor;
         }
         getControlsRoot() {
-          return vi(this, void 0, void 0, function* () {
+          return wi(this, void 0, void 0, function* () {
             return jQuery('[data-testid="player-space-container"]');
           });
         }
@@ -5100,7 +5216,7 @@
           this.stopEventListener(), this.startEventListener();
         }
       }
-      class mi extends class {
+      class bi extends class {
         constructor(t, e, i, n) {
           (this.$ = t),
             (this.ri = e),
@@ -5109,12 +5225,12 @@
             window.teleparty && !window.teleparty.pageControls
               ? ((window.teleparty.pageControls = n), console.log("Setting Page COntrols"))
               : (n.setChatApi(this.$), console.log("Resetting Chat Api for old controls")),
-            (this.ds = new oe(this.$, this.ie)),
-            (this.Te = new Ce(this.ri, this.$, this.Ke)),
+            (this.ds = new ce(this.$, this.ie)),
+            (this.Te = new we(this.ri, this.$, this.Ke)),
             (this.ls = !1),
             (this.ps = !1),
-            (this.ce = !1),
-            (this._i = new ne()),
+            (this.ae = !1),
+            (this._i = new ue()),
             this._i.addMessageListener(this.Te),
             this._i.addMessageListener(this.ds),
             this._i.addMessageListener(this),
@@ -5122,12 +5238,12 @@
             this.Fs();
         }
         vs() {
-          return Ee(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             yield this.ie.addTpIcon(), this.ie.startEventListener();
           });
         }
         loadBrowseButton() {
-          return Ee(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             yield this.ie.addTpIcon(), this.ie.startEventListener();
           });
         }
@@ -5135,7 +5251,7 @@
           const e = chrome.runtime.connect();
           e.onDisconnect.addListener(() => {
             console.log("Lost background script. Teardown");
-            const t = { showAlert: this.$.inSession, alertModal: Ct };
+            const t = { showAlert: this.$.inSession, alertModal: wt };
             this.ys(t);
           }),
             e.onMessage.addListener(() => {
@@ -5144,24 +5260,24 @@
         }
         onMessage(t, e, i) {
           if (t.target == S) {
-            if (t.type === Xt.IS_CONTENT_SCRIPT_READY) {
+            if (t.type === te.IS_CONTENT_SCRIPT_READY) {
               if (this.ls) {
                 i({ ready: !0 });
-              } else this.ps || ((this.ps = !0), this.fs().then(i));
+              } else (this.ps = !0), this.fs().then(i);
               return !0;
             }
-            if (t.type === Xt.GET_INIT_DATA) {
+            if (t.type === te.GET_INIT_DATA) {
               return i(this.Cs()), !0;
             }
-            if (t.type === Xt.DISCONNECT && t.sender == T) {
-              const t = new H(S, x, _t);
-              P.g(t), i();
+            if (t.type === te.DISCONNECT && t.sender == T) {
+              const t = new W(S, x, jt);
+              $.g(t), i();
             } else {
-              if (t.type == L.TEARDOWN) {
+              if (t.type == G.TEARDOWN) {
                 const e = t;
                 return this.ys(e.data), i(), !0;
               }
-              t.type === L.ON_NOTIF && this.Es();
+              t.type === G.ON_NOTIF && this.Es();
             }
           }
           return !1;
@@ -5173,7 +5289,7 @@
           var e, i, n;
           if (t.showAlert && t.alertModal) {
             const i = null !== (e = t.buttonUrl) && void 0 !== e ? e : this.$.getPartyUrl();
-            Et(t.alertModal, i);
+            _t(t.alertModal, i);
           }
           this.ie.teardown(), this.Te.teardown(), this.ds.teardown(), this._i.teardown();
           const s = {
@@ -5183,23 +5299,23 @@
                 reason: null === (n = t.alertModal) || void 0 === n ? void 0 : n.content
               }
             },
-            u = new W(S, x, s);
-          P.g(u), window.teleparty && (window.teleparty.contentScriptInjected = !1) && (window.teleparty.contentScriptReady = !1);
+            u = new z(S, x, s);
+          $.g(u), window.teleparty && (window.teleparty.contentScriptInjected = !1) && (window.teleparty.contentScriptReady = !1);
         }
         he(t) {
           if ("Please open a video on Amazon Prime Video then click on the Tp icon" === t) return;
-          const e = new W(S, x, { name: "error", action: { reason: t } });
-          P.g(e);
+          const e = new z(S, x, { name: "error", action: { reason: t } });
+          $.g(e);
         }
         ws() {
-          return Ee(this, void 0, void 0, function* () {
-            return St(() => this.gs, 5e3)();
+          return _e(this, void 0, void 0, function* () {
+            return Pt(() => this.gs, 5e3)();
           });
         }
         fs() {
-          return Ee(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             try {
-              yield this.ws();
+              console.log("Waiting for content script ready"), yield this.ws();
               const t = yield this._s();
               return this.vs(), t;
             } catch (t) {
@@ -5211,7 +5327,7 @@
           });
         }
         _s() {
-          return Ee(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             let e;
             try {
               yield this.ri.waitVideoApiReadyAsync();
@@ -5221,7 +5337,7 @@
                   (e = { message: i.error, showButton: !0 }),
                   (this.ls = !0),
                   window.teleparty && (window.teleparty.contentScriptReady = !0))
-                : (i && i.showReviewMessage && (this.ce = !0),
+                : (i && i.showReviewMessage && (this.ae = !0),
                   (this.ls = !0),
                   window.teleparty && (window.teleparty.contentScriptReady = !0));
             } catch (t) {
@@ -5240,29 +5356,29 @@
           };
         }
         bs() {
-          return Ee(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const t = yield this.js();
-            return P.g(t);
+            return $.g(t);
           });
         }
         js() {
-          return Ee(this, void 0, void 0, function* () {
+          return _e(this, void 0, void 0, function* () {
             const t = { videoId: (yield this.ri.getVideoDataAsync()).videoId };
-            return new ie(S, x, t);
+            return new se(S, x, t);
           });
         }
       } {
         constructor() {
-          const e = new Ot(),
-            i = new Jt();
+          const e = new Vt(),
+            i = new Xt();
           let n;
           window.teleparty && window.teleparty.pageControls
             ? ((n = window.teleparty.pageControls), console.log("Using existing page controls"))
-            : (n = new yi(e));
-          super(e, i, new ee(i, e, n), n), t("Hotstar Content Script");
+            : (n = new _i(e));
+          super(e, i, new ne(i, e, n), n), t("Hotstar Content Script");
         }
       }
-      (window.teleparty && (null === (Fi = window.teleparty) || void 0 === Fi ? void 0 : Fi.contentScriptInjected)) ||
-        (window.teleparty || (window.teleparty = {}), (window.teleparty.contentScriptInjected = !0), new mi(), t("Listening to messages"));
+      (window.teleparty && (null === (Ei = window.teleparty) || void 0 === Ei ? void 0 : Ei.contentScriptInjected)) ||
+        (window.teleparty || (window.teleparty = {}), (window.teleparty.contentScriptInjected = !0), new bi(), t("Listening to messages"));
     })();
 })();

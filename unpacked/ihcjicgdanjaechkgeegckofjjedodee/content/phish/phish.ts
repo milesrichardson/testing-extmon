@@ -142,8 +142,8 @@ function phishDetection() {
           type: MSG_QUERY_FEATURE_FLAG,
           payload: { feature: FLAG_ENABLE_SUSPICIOUS_TITLE_DETECTION }
         },
-        (enableSuspiciousTitleDetection) => {
-          if (!enableSuspiciousTitleDetection) {
+        (response) => {
+          if (!response.isEnabled) {
             return;
           }
 
@@ -189,6 +189,10 @@ function phishDetection() {
   );
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 getTabId().then((tabId) => {
   sendBackgroundMessage<IsExcludedRequest, IsExcludedResponse>({
     type: MSG_IS_EXCLUDED,
@@ -199,7 +203,9 @@ getTabId().then((tabId) => {
     }
   }).then((resp) => {
     if (resp && !resp.payload?.excluded) {
-      phishDetection();
+      sleep(400).then(() => {
+        phishDetection();
+      });
     }
   });
 });

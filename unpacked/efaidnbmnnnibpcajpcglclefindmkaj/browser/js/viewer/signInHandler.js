@@ -20,20 +20,13 @@ import { signInUtil as n } from "./signInUtils.js";
 !(function () {
   let t;
   function o() {
-    const o = e.getItem("csrf"),
-      r = n.parseCSRF(new URL(t));
-    e.removeItem("csrf");
-    !o || !r || r !== o
-      ? (n.sendAnalytics("DCBrowserExt:Viewer:User:Error:NonMatchingCsrfToken:FailedToLogin"), n.sign_out(t))
-      : (function () {
-          try {
-            let e = t;
-            e && e.indexOf("#") > -1 && n.signInAnalyticsLogging(e);
-            let o = n.getSearchParamFromURL("mimePdfUrl", t),
-              r = o && decodeURIComponent(o);
-            chrome.tabs.update({ url: r });
-          } catch (e) {}
-        })();
+    try {
+      let e = t;
+      e && e.indexOf("#") > -1 && n.signInAnalyticsLogging(e), n.saveAccessToken(e);
+      let o = n.getSearchParamFromURL("mimePdfUrl", t),
+        r = o && decodeURIComponent(o);
+      chrome.tabs.update({ url: r });
+    } catch (e) {}
   }
   const r = () => {
     chrome.tabs.query({ active: !0, lastFocusedWindow: !0 }, function (r) {
@@ -44,7 +37,13 @@ import { signInUtil as n } from "./signInUtils.js";
             o = e && decodeURIComponent(e);
           return void chrome.tabs.update({ url: o });
         }
-        o();
+        !(function () {
+          if (t.indexOf("newSignIn=1") > -1) return void o();
+          const r = e.getItem("csrf"),
+            i = n.parseCSRF(new URL(t));
+          e.removeItem("csrf"),
+            r && i && i === r ? o() : (n.sendAnalytics("DCBrowserExt:Viewer:User:Error:NonMatchingCsrfToken:FailedToLogin"), n.sign_out(t));
+        })();
       }
     });
   };

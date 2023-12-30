@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Alkalmazások"
+  },
+  "EndOfSupportHeader": {
+    "message": "A Microsoft 365 bővítmény támogatása megszűnik"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "2024. január 15-től a Microsoft már nem támogatja ezt a bővítményt."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "További információért, kérjük, látogasson el a bővítmény támogatási lapjára."
+  },
+  "Support": {
+    "message": "Támogatás"
   }
 }

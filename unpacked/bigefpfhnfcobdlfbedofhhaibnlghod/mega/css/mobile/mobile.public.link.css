@@ -59,7 +59,7 @@
   list-style: disc;
 }
 .mobile.decrypt-button.nav-elem.normal {
-  max-width: 382px;
+  max-width: var(--mobile-elem-max-width);
   min-height: 48px;
   width: 100%;
 }

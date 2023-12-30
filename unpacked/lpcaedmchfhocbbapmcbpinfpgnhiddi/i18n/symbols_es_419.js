@@ -101,7 +101,7 @@ d = {
   ja: "EEE, d MMM",
   ra: "EEE, d MMM y",
   o: "d",
-  pa: "d MMM, HH:mm zzzz"
+  pa: "d MMM, h:mm\u202fa zzzz"
 };
 var h = {
   B: ["BC", "AD"],
@@ -145,9 +145,9 @@ h = {
   da: "DLMMJVS".split(""),
   Z: ["T1", "T2", "T3", "T4"],
   W: ["1.\u00ba trimestre", "2.\u00ba trimestre", "3.\u00ba trimestre", "4.\u00ba trimestre"],
-  g: ["a.\u00a0m.", "p.\u00a0m."],
+  g: ["a.m.", "p.m."],
   l: ["EEEE, d 'de' MMMM 'de' y", "d 'de' MMMM 'de' y", "d MMM y", "d/M/yy"],
-  ha: ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
+  ha: ["h:mm:ss\u202fa zzzz", "h:mm:ss\u202fa z", "h:mm:ss\u202fa", "h:mm\u202fa"],
   m: ["{1}, {0}", "{1}, {0}", "{1}, {0}", "{1}, {0}"],
   D: 0,
   ka: [5, 6],
@@ -183,7 +183,7 @@ l = {
   O: "NaN",
   s: "#,##0.###",
   X: "#E0",
-  T: "#,##0\u00a0%",
+  T: "#,##0%",
   j: "\u00a4#,##0.00",
   v: "MXN"
 };

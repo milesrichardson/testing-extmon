@@ -19,41 +19,42 @@ import { events as e } from "../../common/analytics.js";
 import { util as t } from "./content-util.js";
 import { privateApi as a } from "./content-privateApi.js";
 import { dcLocalStorage as o } from "../../common/local-storage.js";
-import { OptionPageActions as n, OptionsPageToggles as i } from "../../common/constant.js";
+import { updateExtUserState as n } from "../../common/util.js";
+import { OptionPageActions as i, OptionsPageToggles as r } from "../../common/constant.js";
 await o.init();
-const r = o.getItem("appLocale");
-let c, s, l, p, m;
-const d = new Promise((e) => (m = e)),
-  _ = $("#cdn-iframe"),
-  g = await chrome.tabs.query({ active: !0, lastFocusedWindow: !0 });
-function E(e) {
+const c = o.getItem("appLocale");
+let s, l, p, m, d;
+const _ = new Promise((e) => (d = e)),
+  g = $("#cdn-iframe"),
+  E = await chrome.tabs.query({ active: !0, lastFocusedWindow: !0 });
+function f(e) {
   let t = e;
-  return e.tab || (t = { ...e, tab: g[0] }), chrome.runtime.sendMessage(t);
+  return e.tab || (t = { ...e, tab: E[0] }), chrome.runtime.sendMessage(t);
 }
-function f(e, t) {
-  E({ main_op: "analytics", analytics: [[e, t]] });
+function u(e, t) {
+  f({ main_op: "analytics", analytics: [[e, t]] });
 }
-const u = (e) => {
+const h = (e) => {
     try {
-      const t = new URL(c),
+      const t = new URL(s),
         a = [/^https:\/\/([a-zA-Z\d-]+\.){0,}(adobe|acrobat)\.com(:[0-9]*)?$/];
       return e === t.origin && !!a.find((t) => t.test(e));
     } catch (e) {
       return !1;
     }
   },
-  h = async (e, t) => {
-    const a = _[0];
-    if (a && u(t)) {
+  I = async (e, t) => {
+    const a = g[0];
+    if (a && h(t)) {
       const o = new Promise((e) => setTimeout(() => e(!1), 1e5));
-      (await Promise.race([d, o])) && a.contentWindow.postMessage(e, t);
+      (await Promise.race([_, o])) && a.contentWindow.postMessage(e, t);
     }
   };
-async function I(r) {
+async function w(n) {
   let c = { main_op: "send-analytics" };
-  r.target.checked && o.setItem("viewer-enabled-source", "ownership-consent"),
+  n.target.checked && o.setItem("viewer-enabled-source", "ownership-consent"),
     o.getWithTTL("ownership-upgrade") &&
-      !r.target.checked &&
+      !n.target.checked &&
       (t.analytics(c, e.USE_ACROBAT_VIEWER_DISABLED_DEFAULT_OWNERSHIP, { SOURCE: "trefoilMenu" }),
       t.analytics(c, e.USE_ACROBAT_VIEWER_DISABLED_DEFAULT_OWNERSHIP_EXPERIMENT, {
         SOURCE: "trefoilMenu",
@@ -61,13 +62,13 @@ async function I(r) {
       }),
       o.removeItem("ownership-upgrade"),
       o.removeItem("defaultOwnerShipExperiment")),
-    o.setItem("pdfViewer", `${r.target.checked}`);
-  const s = r.target.checked ? "enabled" : "disabled";
+    o.setItem("pdfViewer", `${n.target.checked}`);
+  const s = n.target.checked ? "enabled" : "disabled";
   await a.setViewerState(s);
   try {
     o.removeItem("netAccAdT"), o.removeItem("netAcc"), o.removeItem("netAccCN");
   } catch (e) {}
-  r.target.checked
+  n.target.checked
     ? t.isEdge()
       ? t.analytics(c, e.USE_ACROBAT_IN_EDGE_ENABLED)
       : t.isChrome() && t.analytics(c, e.USE_ACROBAT_IN_CHROME_ENABLED)
@@ -75,35 +76,35 @@ async function I(r) {
     ? t.analytics(c, e.USE_ACROBAT_IN_EDGE_DISABLED)
     : t.isChrome() && t.analytics(c, e.USE_ACROBAT_IN_CHROME_DISABLED),
     setTimeout(() => {
-      p ? E({ panel_op: "viewer_menu", reload_in_native: !0, tabId: g[0].id }) : l && chrome.tabs.reload(),
-        E(c),
-        E({
+      m ? f({ panel_op: "viewer_menu", reload_in_native: !0, tabId: E[0].id }) : p && chrome.tabs.reload(),
+        f(c),
+        f({
           panel_op: "options_page",
-          requestType: n.OPTIONS_UPDATE_TOGGLE,
-          toggleId: i.ViewerOwnershipTitle,
-          toggleVal: r.target.checked
+          requestType: i.OPTIONS_UPDATE_TOGGLE,
+          toggleId: r.ViewerOwnershipTitle,
+          toggleVal: n.target.checked
         }),
-        t.isEdge() && E({ main_op: "pdfViewerChanged", value: `${r.target.checked}` });
+        t.isEdge() && f({ main_op: "pdfViewerChanged", value: `${n.target.checked}` });
     }, 20);
 }
-function w() {
-  f(e.TREFOIL_SETTINGS_ICON_CLICKED),
+function T() {
+  u(e.TREFOIL_SETTINGS_ICON_CLICKED),
     chrome.runtime.openOptionsPage((t) => {
-      chrome.runtime.lastError && f(e.TREFOIL_SETTINGS_FAILED_TO_OPEN);
+      chrome.runtime.lastError && u(e.TREFOIL_SETTINGS_FAILED_TO_OPEN);
     });
 }
-function T() {
-  f(e.TREFOIL_ACROBAT_LABEL_CLICKED), E({ main_op: "go_to_aonline", verb: "acrobat_label" });
+function A() {
+  u(e.TREFOIL_ACROBAT_LABEL_CLICKED), f({ main_op: "go_to_aonline", verb: "acrobat_label" });
 }
 window.addEventListener("message", async (e) => {
-  if (!u(e.origin)) return;
+  if (!h(e.origin)) return;
   const t = { ...e.data };
   switch (t.main_op) {
     case "cdnReady":
-      m(!0);
+      d(!0);
       break;
     case "go_to_aonline":
-      E({ ...t, locale: r || o.getItem("locale") });
+      f({ ...t, locale: c || o.getItem("locale") });
       break;
     case "convertToPDFPopupMenu":
     case "appendToExistingPDFPopupMenu":
@@ -112,20 +113,20 @@ window.addEventListener("message", async (e) => {
     case "open_converted_file":
     case "get-frictionless-url":
     case "timing_info":
-      E(t);
+      f(t);
       break;
     case "relay_to_content":
-      (t.main_op = "external_msg"), (t.data = e.data), (t.timeStamp = Date.now()), E(t);
+      (t.main_op = "external_msg"), (t.data = e.data), (t.timeStamp = Date.now()), f(t);
       break;
     case "branding-clicked":
-      T();
+      A();
       break;
     case "settings-clicked":
-      w();
+      T();
       break;
     case "viewership-toggle": {
       const { checked: e } = t;
-      I({ target: { checked: e } });
+      w({ target: { checked: e } });
       break;
     }
   }
@@ -135,17 +136,17 @@ window.addEventListener("message", async (e) => {
       case "status": {
         const { action: t } = e,
           a = { type: 0 === t ? "convertToPDFPopupMenu" : "appendToExistingPDFPopupMenu", ...e };
-        h(a, s);
+        I(a, l);
         break;
       }
       case "load-frictionless": {
         const t = (function (e, t) {
-          if (e.hide_spinner) return void _.removeClass("loader");
+          if (e.hide_spinner) return void g.removeClass("loader");
           const a = e.frictionless_uri;
           let n = new URL(a);
           if (
             (t &&
-              ((t.locale = r || chrome.i18n.getMessage("@@ui_locale")),
+              ((t.locale = c || chrome.i18n.getMessage("@@ui_locale")),
               Object.keys(t).forEach((e) => {
                 n.searchParams.append(e, t[e]);
               })),
@@ -159,51 +160,52 @@ window.addEventListener("message", async (e) => {
               n = "";
             }
           }
-          return E({ iframe_call_time: Date.now(), main_op: "timing_info" }), n;
+          return f({ iframe_call_time: Date.now(), main_op: "timing_info" }), n;
         })(e, { verb: e.pdf_action, workflow: e.frictionless_workflow, dropzone2: "true" });
-        t && h({ type: "frictionless-url", url: t.href }, s);
+        t && I({ type: "frictionless-url", url: t.href }, l);
         break;
       }
     }
   }),
   (async function () {
     const a = performance.now();
-    f(e.EXT_MENU_ICON_CLICKED),
+    n(),
+      u(e.EXT_MENU_ICON_CLICKED),
       $("#pdfOwnershipExploreAcrobat").text(t.getTranslation("pdfOwnershipExploreAcrobat")),
       $("#offlineModeTitle").text(t.getTranslation("popupNoConnection")),
       $("#offlineModeMessage").text(t.getTranslation("popupOfflineMessage"));
-    const n = "true" === o.getItem("pdfViewer");
-    n || _.addClass("iframe-with-footer");
-    const i = await E({ main_op: "initialise-popup" }),
-      { action: m, current_status: d, hostedURL: g, is_pdf: u, is_viewer: A } = i;
-    (c = g), (l = u), (p = A), d && (c = 0 === m ? `${c}#/web-to-pdf` : `${c}#/add-webpage-to-pdf`);
-    const b = new URL(c);
-    s = b.origin;
-    const O = "false" !== o.getItem("logAnalytics"),
-      C = "false" !== o.getItem("ANALYTICS_OPT_IN_ADMIN");
-    let L = o.getItem("viewer-locale");
-    L || (L = o.getItem("locale")),
-      b.searchParams.append("locale", r || L),
-      b.searchParams.append("la", O && C),
-      b.searchParams.append("ao", o.getItem("aoem")),
-      o.getItem("enableExtMenuDarkMode") && b.searchParams.append("theme", o.getItem("theme") || "auto");
+    const i = "true" === o.getItem("pdfViewer");
+    i || g.addClass("iframe-with-footer");
+    const r = await f({ main_op: "initialise-popup" }),
+      { action: d, current_status: _, hostedURL: E, is_pdf: h, is_viewer: b } = r;
+    (s = E), (p = h), (m = b), _ && (s = 0 === d ? `${s}#/web-to-pdf` : `${s}#/add-webpage-to-pdf`);
+    const O = new URL(s);
+    l = O.origin;
+    const C = "false" !== o.getItem("logAnalytics"),
+      L = "false" !== o.getItem("ANALYTICS_OPT_IN_ADMIN");
+    let k = o.getItem("viewer-locale");
+    k || (k = o.getItem("locale")),
+      O.searchParams.append("locale", c || k),
+      O.searchParams.append("la", C && L),
+      O.searchParams.append("ao", o.getItem("aoem")),
+      o.getItem("enableExtMenuDarkMode") && O.searchParams.append("theme", o.getItem("theme") || "auto");
     try {
-      if (!(await fetch(b, { method: "HEAD" })).ok) throw new Error();
-      _.attr("src", b.href),
-        (_[0].onload = () => {
+      if (!(await fetch(O, { method: "HEAD" })).ok) throw new Error();
+      g.attr("src", O.href),
+        (g[0].onload = () => {
           const e = (performance.now() - a) / 1e3,
             t = Number.parseFloat(e).toFixed(2);
-          h({ ...i, isViewerEnabled: n, timeToLoad: t, type: "init" }, s);
+          I({ ...r, isViewerEnabled: i, timeToLoad: t, type: "init" }, l);
         });
     } catch {
       !(function () {
-        f(e.EXT_MENU_CDN_OFFLINE), _.remove();
+        u(e.EXT_MENU_CDN_OFFLINE), g.remove();
         const t = "true" === o.getItem("pdfViewer");
         $("#toggle-input").prop("checked", t),
           t || $("#footer").removeClass("hidden"),
-          $(".settings-icon").click(w),
-          $("#toggle-input").click(I),
-          $("#branding").click(T),
+          $(".settings-icon").click(T),
+          $("#toggle-input").click(w),
+          $("#branding").click(A),
           $("#offline-mode").removeClass("hidden");
       })();
     }

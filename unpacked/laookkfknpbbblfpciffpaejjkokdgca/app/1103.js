@@ -3,7 +3,7 @@
   [1103],
   {
     71103: (e, t, i) => {
-      i.r(t), i.d(t, { default: () => f });
+      i.r(t), i.d(t, { default: () => b });
       var r = i(99437),
         s = i(58725),
         a = i(2770),
@@ -189,11 +189,11 @@
         u = i(40671),
         h = i(13990),
         p = i(61250);
-      const c = () => Promise.all([i.e(3554), i.e(5084), i.e(7864)]).then(i.bind(i, 6612)),
-        v = () => i.e(6425).then(i.bind(i, 56425)),
-        y = () => i.e(8586).then(i.bind(i, 38586)),
-        g = () => i.e(9509).then(i.bind(i, 69509)),
-        f = new (r.Z.extend({
+      const c = () => Promise.all([i.e(9965), i.e(4427), i.e(940)]).then(i.bind(i, 59594)),
+        v = () => i.e(9152).then(i.bind(i, 99152)),
+        y = () => i.e(159).then(i.bind(i, 20159)),
+        g = () => i.e(3636).then(i.bind(i, 43636)),
+        b = new (r.Z.extend({
           mixins: [
             n.FZ,
             n.cl,
@@ -376,7 +376,7 @@
                   r.forEach((e) => {
                     const t = e.id;
                     let i = null;
-                    this.providers.hasOwnProperty(t)
+                    Object.prototype.hasOwnProperty.call(this.providers, t)
                       ? (i = this.providers[t])
                       : ((i = new o()), (i.teamUuid = this.teamUuid), this.$set(this.providers.items, t, i)),
                       i.updateData(e);

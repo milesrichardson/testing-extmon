@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "యాప్‌లు"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 పొడిగింపు మద్దతు ముగింపు"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "జనవరి 15, 2024 నుంచి ఈ పొడిగింపుకు మైక్రోసాఫ్ట్ సపోర్ట్ చేయదు."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "మరింత సమాచారం కోసం, దయచేసి ఈ పొడిగింపు కోసం మద్దతు పేజీని సందర్శించండి."
+  },
+  "Support": {
+    "message": "మద్దతు"
   }
 }

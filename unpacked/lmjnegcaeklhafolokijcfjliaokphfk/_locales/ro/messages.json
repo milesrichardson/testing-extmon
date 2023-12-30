@@ -2,7 +2,7 @@
   "Bytes": {
     "message": "$ARG1$ Octeți",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -10,7 +10,7 @@
   "KB": {
     "message": "$ARG1$ KO",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -18,7 +18,7 @@
   "MB": {
     "message": "$ARG1$ MO",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -27,7 +27,7 @@
     "message": "ro"
   },
   "__missingI18nTags": {
-    "message": "[\"GB\",\"about_alpha_extra7_fx\",\"about_alpha_intro\",\"about_beta_intro\",\"about_chrome_licenses\",\"action_avplay_description\",\"action_avplay_title\",\"action_bulkdownload_description\",\"action_bulkdownload_title\",\"action_bulkdownloadconvert_description\",\"action_bulkdownloadconvert_title\",\"action_openlocalcontainer_description\",\"action_openlocalcontainer_title\",\"action_pin_description\",\"action_stop_description\",\"action_stop_title\",\"appDesc\",\"blacklist_add_domain\",\"blacklist_add_placeholder\",\"blacklist_edit_descr\",\"blacklist_empty\",\"browser_info\",\"browser_locale\",\"build_options\",\"built_on\",\"bulk_in_progress\",\"bulk_n_videos\",\"change\",\"chrome_basic_mode\",\"chrome_inapp_descr_premium_lifetime\",\"chrome_inapp_descr_premium_monthly\",\"chrome_inapp_descr_premium_yearly\",\"chrome_inapp_no_subs\",\"chrome_inapp_not_avail\",\"chrome_inapp_premium_lifetime\",\"chrome_inapp_premium_monthly\",\"chrome_inapp_premium_yearly\",\"chrome_install_firefox\",\"chrome_install_fx_vdh\",\"chrome_license_webstore_accepted\",\"chrome_licensing\",\"chrome_noyt_text\",\"chrome_noyt_text2\",\"chrome_noyt_text3\",\"chrome_premium_audio\",\"chrome_premium_check_error\",\"chrome_premium_hls\",\"chrome_premium_mode\",\"chrome_premium_need_sign\",\"chrome_premium_not_signed\",\"chrome_premium_recheck\",\"chrome_premium_required\",\"chrome_premium_source\",\"chrome_product_intro\",\"chrome_req_review\",\"chrome_signing_in\",\"chrome_verif_premium\",\"chrome_verif_premium_error\",\"chrome_warning_yt\",\"clear\",\"clear_logs\",\"coapp\",\"coapp_error\",\"coapp_found\",\"coapp_install\",\"coapp_installed\",\"coapp_latest_version\",\"coapp_not_installed\",\"coapp_outdated\",\"coapp_outofdate\",\"coapp_outofdate_text\",\"coapp_path\",\"coapp_recheck\",\"coapp_required\",\"coapp_required_text\",\"coapp_shell\",\"coapp_unchecked\",\"coapp_update\",\"collecting\",\"confirmation_required\",\"conversion_create_rule\",\"conversion_rules\",\"conversion_update_rule\",\"converter_queued\",\"convrule_format\",\"convrule_from_domain\",\"convrule_no_convert\",\"convrule_output_format\",\"convrule_refresh_formats\",\"convrule_with_ext\",\"convrules_add_rule\",\"convrules_edit_descr\",\"convrules_empty\",\"corrupted_media_file\",\"create\",\"dash_streaming\",\"default\",\"dev_build\",\"directory_not_exist\",\"directory_not_exist_body\",\"download_error\",\"download_method\",\"download_method_not_again\",\"download_modes1\",\"download_modes2\",\"download_with_browser\",\"download_with_coapp\",\"edge_req_review\",\"error\",\"error_not_directory\",\"exit_natmsgsh\",\"export\",\"failed_opening_directory\",\"failed_playing_file\",\"file_dialog_date\",\"file_dialog_size\",\"help_translating\",\"hit_go_to_tab\",\"hls_streaming\",\"homepage\",\"import\",\"import_invalid_format\",\"lic_mismatch1\",\"lic_mismatch2\",\"lic_not_needed_linux\",\"lic_status_accepted\",\"lic_status_blocked\",\"lic_status_error\",\"lic_status_locked\",\"lic_status_mismatch\",\"lic_status_nocoapp\",\"lic_status_unneeded\",\"lic_status_unset\",\"lic_status_unverified\",\"lic_status_verifying\",\"license\",\"licensing\",\"merge_error\",\"merge_local_files\",\"network_error_no_response\",\"network_error_status\",\"new_sub_directory\",\"next\",\"no\",\"no_audio_in_file\",\"no_coapp_license_unverified\",\"no_license_registered\",\"no_such_hit\",\"no_validate_without_coapp\",\"no_video_in_file\",\"ok\",\"output_configuration\",\"overwrite_file\",\"per_month\",\"per_year\",\"platform\",\"platform_info\",\"powered_by_weh\",\"preferences\",\"prod_build\",\"recheck_license\",\"reload_addon\",\"reload_addon_confirm\",\"req_locale\",\"reset_settings\",\"save_as\",\"save_file_as\",\"select_audio_file_to_merge\",\"select_output_config\",\"select_output_directory\",\"select_video_file_to_merge\",\"selected_media\",\"smartname_add_domain\",\"smartname_create_rule\",\"smartname_define\",\"smartname_edit_descr\",\"smartname_empty\",\"smartname_update_rule\",\"smartnaming_rule\",\"smartnaming_rules\",\"sub_directory_name\",\"support_forum\",\"tbsn_quality_hd\",\"tbsn_quality_sd\",\"translation\",\"up\",\"weh_prefs_alertDialogType_option_panel\",\"weh_prefs_alertDialogType_option_tab\",\"weh_prefs_coappDownloads_option_ask\",\"weh_prefs_coappDownloads_option_browser\",\"weh_prefs_coappDownloads_option_coapp\",\"weh_prefs_dashOnAdp_option_audio\",\"weh_prefs_dashOnAdp_option_audio_video\",\"weh_prefs_dashOnAdp_option_video\",\"weh_prefs_description_alertDialogType\",\"weh_prefs_description_autoPin\",\"weh_prefs_description_avplayEnabled\",\"weh_prefs_description_blacklistEnabled\",\"weh_prefs_description_bulkEnabled\",\"weh_prefs_description_checkCoappOnStartup\",\"weh_prefs_description_chunkedCoappDataRequests\",\"weh_prefs_description_chunkedCoappManifestsRequests\",\"weh_prefs_description_chunksConcurrentDownloads\",\"weh_prefs_description_chunksEnabled\",\"weh_prefs_description_chunksPrefetchCount\",\"weh_prefs_description_coappDownloads\",\"weh_prefs_description_coappIdleExit\",\"weh_prefs_description_coappRestartDelay\",\"weh_prefs_description_coappUseProxy\",\"weh_prefs_description_contentRedirectEnabled\",\"weh_prefs_description_contextMenuEnabled\",\"weh_prefs_description_convertControlledMax\",\"weh_prefs_description_converterKeepTmpFiles\",\"weh_prefs_description_converterThreads\",\"weh_prefs_description_dashEnabled\",\"weh_prefs_description_dashHideM4s\",\"weh_prefs_description_dashOnAdp\",\"weh_prefs_description_dialogAutoClose\",\"weh_prefs_description_downloadControlledMax\",\"weh_prefs_description_downloadStreamControlledMax\",\"weh_prefs_description_fileDialogType\",\"weh_prefs_description_galleryNaming\",\"weh_prefs_description_hitsGotoTab\",\"weh_prefs_description_hlsDownloadAsM2ts\",\"weh_prefs_description_hlsEnabled\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_description_hlsRememberPrevLiveChunks\",\"weh_prefs_description_iconActivation\",\"weh_prefs_description_iconBadge\",\"weh_prefs_description_ignoreProtectedVariants\",\"weh_prefs_description_lastDownloadDirectory\",\"weh_prefs_description_mediaExtensions\",\"weh_prefs_description_medialinkAutoDetect\",\"weh_prefs_description_medialinkExtensions\",\"weh_prefs_description_medialinkMaxHits\",\"weh_prefs_description_medialinkMinFilesPerGroup\",\"weh_prefs_description_medialinkMinImgSize\",\"weh_prefs_description_medialinkScanImages\",\"weh_prefs_description_medialinkScanLinks\",\"weh_prefs_description_mediaweightMinSize\",\"weh_prefs_description_mediaweightThreshold\",\"weh_prefs_description_monitorNetworkRequests\",\"weh_prefs_description_mpegtsHideTs\",\"weh_prefs_description_networkFilterOut\",\"weh_prefs_description_networkProbe\",\"weh_prefs_description_orphanExpiration\",\"weh_prefs_description_qualitiesMaxVariants\",\"weh_prefs_description_rememberLastDir\",\"weh_prefs_description_smartnamerFnameMaxlen\",\"weh_prefs_description_smartnamerFnameSpaces\",\"weh_prefs_description_tbsnEnabled\",\"weh_prefs_description_titleMode\",\"weh_prefs_description_toolsMenuEnabled\",\"weh_prefs_fileDialogType_option_panel\",\"weh_prefs_fileDialogType_option_tab\",\"weh_prefs_galleryNaming_option_index_url\",\"weh_prefs_galleryNaming_option_type_index\",\"weh_prefs_galleryNaming_option_url\",\"weh_prefs_label_adpHide\",\"weh_prefs_label_alertDialogType\",\"weh_prefs_label_autoPin\",\"weh_prefs_label_avplayEnabled\",\"weh_prefs_label_blacklistEnabled\",\"weh_prefs_label_bulkEnabled\",\"weh_prefs_label_checkCoappOnStartup\",\"weh_prefs_label_chunkedCoappDataRequests\",\"weh_prefs_label_chunkedCoappManifestsRequests\",\"weh_prefs_label_chunksConcurrentDownloads\",\"weh_prefs_label_chunksEnabled\",\"weh_prefs_label_chunksPrefetchCount\",\"weh_prefs_label_coappDownloads\",\"weh_prefs_label_coappIdleExit\",\"weh_prefs_label_coappRestartDelay\",\"weh_prefs_label_coappUseProxy\",\"weh_prefs_label_contentRedirectEnabled\",\"weh_prefs_label_contextMenuEnabled\",\"weh_prefs_label_convertControlledMax\",\"weh_prefs_label_converterAggregTuneH264\",\"weh_prefs_label_converterKeepTmpFiles\",\"weh_prefs_label_dashEnabled\",\"weh_prefs_label_dashHideM4s\",\"weh_prefs_label_dashOnAdp\",\"weh_prefs_label_dialogAutoClose\",\"weh_prefs_label_downloadControlledMax\",\"weh_prefs_label_downloadRetries\",\"weh_prefs_label_downloadRetryDelay\",\"weh_prefs_label_downloadStreamControlledMax\",\"weh_prefs_label_fileDialogType\",\"weh_prefs_label_galleryNaming\",\"weh_prefs_label_hitsGotoTab\",\"weh_prefs_label_hlsDownloadAsM2ts\",\"weh_prefs_label_hlsEnabled\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_hlsRememberPrevLiveChunks\",\"weh_prefs_label_iconActivation\",\"weh_prefs_label_iconBadge\",\"weh_prefs_label_lastDownloadDirectory\",\"weh_prefs_label_medialinkAutoDetect\",\"weh_prefs_label_medialinkExtensions\",\"weh_prefs_label_medialinkMaxHits\",\"weh_prefs_label_medialinkMinFilesPerGroup\",\"weh_prefs_label_mediaweightMinSize\",\"weh_prefs_label_mediaweightThreshold\",\"weh_prefs_label_monitorNetworkRequests\",\"weh_prefs_label_mpegtsHideTs\",\"weh_prefs_label_networkFilterOut\",\"weh_prefs_label_noPrivateNotification\",\"weh_prefs_label_notifyReady\",\"weh_prefs_label_orphanExpiration\",\"weh_prefs_label_qualitiesMaxVariants\",\"weh_prefs_label_rememberLastDir\",\"weh_prefs_label_smartnamerFnameMaxlen\",\"weh_prefs_label_smartnamerFnameSpaces\",\"weh_prefs_label_tbsnEnabled\",\"weh_prefs_label_titleMode\",\"weh_prefs_label_toolsMenuEnabled\",\"weh_prefs_titleMode_option_left\",\"weh_prefs_titleMode_option_multiline\",\"weh_prefs_titleMode_option_right\",\"yes\"]"
+    "message": "[\"GB\",\"about_alpha_extra7_fx\",\"about_alpha_intro\",\"about_beta_intro\",\"about_chrome_licenses\",\"action_avplay_description\",\"action_avplay_title\",\"action_bulkdownload_description\",\"action_bulkdownload_title\",\"action_bulkdownloadconvert_description\",\"action_bulkdownloadconvert_title\",\"action_openlocalcontainer_description\",\"action_openlocalcontainer_title\",\"action_pin_description\",\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"action_stop_description\",\"action_stop_title\",\"blacklist_add_domain\",\"blacklist_add_placeholder\",\"blacklist_edit_descr\",\"blacklist_empty\",\"browser_info\",\"browser_locale\",\"build_options\",\"built_on\",\"bulk_in_progress\",\"bulk_n_videos\",\"change\",\"chrome_basic_mode\",\"chrome_inapp_descr_premium_lifetime\",\"chrome_inapp_descr_premium_monthly\",\"chrome_inapp_descr_premium_yearly\",\"chrome_inapp_no_subs\",\"chrome_inapp_not_avail\",\"chrome_inapp_premium_lifetime\",\"chrome_inapp_premium_monthly\",\"chrome_inapp_premium_yearly\",\"chrome_install_firefox\",\"chrome_install_fx_vdh\",\"chrome_license_webstore_accepted\",\"chrome_licensing\",\"chrome_noyt_text\",\"chrome_noyt_text2\",\"chrome_noyt_text3\",\"chrome_premium_audio\",\"chrome_premium_check_error\",\"chrome_premium_hls\",\"chrome_premium_mode\",\"chrome_premium_need_sign\",\"chrome_premium_not_signed\",\"chrome_premium_recheck\",\"chrome_premium_required\",\"chrome_premium_source\",\"chrome_product_intro\",\"chrome_req_review\",\"chrome_signing_in\",\"chrome_verif_premium\",\"chrome_verif_premium_error\",\"chrome_warning_yt\",\"clear\",\"clear_logs\",\"coapp\",\"coapp_error\",\"coapp_found\",\"coapp_install\",\"coapp_installed\",\"coapp_latest_version\",\"coapp_not_installed\",\"coapp_outdated\",\"coapp_outofdate\",\"coapp_outofdate_text\",\"coapp_path\",\"coapp_recheck\",\"coapp_required\",\"coapp_required_text\",\"coapp_shell\",\"coapp_unchecked\",\"coapp_update\",\"collecting\",\"confirmation_required\",\"conversion_create_rule\",\"conversion_rules\",\"conversion_update_rule\",\"converter_queued\",\"convrule_format\",\"convrule_from_domain\",\"convrule_no_convert\",\"convrule_output_format\",\"convrule_refresh_formats\",\"convrule_with_ext\",\"convrules_add_rule\",\"convrules_edit_descr\",\"convrules_empty\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"corrupted_media_file\",\"create\",\"dash_streaming\",\"default\",\"dev_build\",\"directory_not_exist\",\"directory_not_exist_body\",\"download_error\",\"download_method\",\"download_method_not_again\",\"download_modes1\",\"download_modes2\",\"download_with_browser\",\"download_with_coapp\",\"edge_req_review\",\"error\",\"error_not_directory\",\"exit_natmsgsh\",\"export\",\"failed_opening_directory\",\"failed_playing_file\",\"file_dialog_date\",\"file_dialog_size\",\"help_translating\",\"hit_go_to_tab\",\"hls_streaming\",\"homepage\",\"import\",\"import_invalid_format\",\"lic_mismatch1\",\"lic_mismatch2\",\"lic_not_needed_linux\",\"lic_status_accepted\",\"lic_status_blocked\",\"lic_status_error\",\"lic_status_locked\",\"lic_status_mismatch\",\"lic_status_nocoapp\",\"lic_status_unneeded\",\"lic_status_unset\",\"lic_status_unverified\",\"lic_status_verifying\",\"license\",\"licensing\",\"merge_error\",\"merge_local_files\",\"network_error_no_response\",\"network_error_status\",\"new_sub_directory\",\"next\",\"no\",\"no_audio_in_file\",\"no_coapp_license_unverified\",\"no_license_registered\",\"no_such_hit\",\"no_validate_without_coapp\",\"no_video_in_file\",\"ok\",\"output_configuration\",\"overwrite_file\",\"per_month\",\"per_year\",\"platform\",\"platform_info\",\"powered_by_weh\",\"preferences\",\"prod_build\",\"recheck_license\",\"reload_addon\",\"reload_addon_confirm\",\"req_locale\",\"reset_settings\",\"save_as\",\"save_file_as\",\"select_audio_file_to_merge\",\"select_output_config\",\"select_output_directory\",\"select_video_file_to_merge\",\"selected_media\",\"smartname_add_domain\",\"smartname_create_rule\",\"smartname_define\",\"smartname_edit_descr\",\"smartname_empty\",\"smartname_update_rule\",\"smartnaming_rule\",\"smartnaming_rules\",\"sub_directory_name\",\"support_forum\",\"tbsn_quality_hd\",\"tbsn_quality_sd\",\"translation\",\"up\",\"weh_prefs_alertDialogType_option_panel\",\"weh_prefs_alertDialogType_option_tab\",\"weh_prefs_coappDownloads_option_ask\",\"weh_prefs_coappDownloads_option_browser\",\"weh_prefs_coappDownloads_option_coapp\",\"weh_prefs_dashOnAdp_option_audio\",\"weh_prefs_dashOnAdp_option_audio_video\",\"weh_prefs_dashOnAdp_option_video\",\"weh_prefs_description_alertDialogType\",\"weh_prefs_description_autoPin\",\"weh_prefs_description_avplayEnabled\",\"weh_prefs_description_blacklistEnabled\",\"weh_prefs_description_bulkEnabled\",\"weh_prefs_description_checkCoappOnStartup\",\"weh_prefs_description_chunkedCoappDataRequests\",\"weh_prefs_description_chunkedCoappManifestsRequests\",\"weh_prefs_description_chunksConcurrentDownloads\",\"weh_prefs_description_chunksEnabled\",\"weh_prefs_description_chunksPrefetchCount\",\"weh_prefs_description_coappDownloads\",\"weh_prefs_description_coappIdleExit\",\"weh_prefs_description_coappRestartDelay\",\"weh_prefs_description_coappUseProxy\",\"weh_prefs_description_contentRedirectEnabled\",\"weh_prefs_description_contextMenuEnabled\",\"weh_prefs_description_convertControlledMax\",\"weh_prefs_description_converterKeepTmpFiles\",\"weh_prefs_description_converterThreads\",\"weh_prefs_description_dashEnabled\",\"weh_prefs_description_dashHideM4s\",\"weh_prefs_description_dashOnAdp\",\"weh_prefs_description_dialogAutoClose\",\"weh_prefs_description_downloadControlledMax\",\"weh_prefs_description_downloadStreamControlledMax\",\"weh_prefs_description_fileDialogType\",\"weh_prefs_description_galleryNaming\",\"weh_prefs_description_hitsGotoTab\",\"weh_prefs_description_hlsDownloadAsM2ts\",\"weh_prefs_description_hlsEnabled\",\"weh_prefs_description_hlsEndTimeout\",\"weh_prefs_description_hlsRememberPrevLiveChunks\",\"weh_prefs_description_iconActivation\",\"weh_prefs_description_iconBadge\",\"weh_prefs_description_ignoreProtectedVariants\",\"weh_prefs_description_lastDownloadDirectory\",\"weh_prefs_description_mediaExtensions\",\"weh_prefs_description_medialinkAutoDetect\",\"weh_prefs_description_medialinkExtensions\",\"weh_prefs_description_medialinkMaxHits\",\"weh_prefs_description_medialinkMinFilesPerGroup\",\"weh_prefs_description_medialinkMinImgSize\",\"weh_prefs_description_medialinkScanImages\",\"weh_prefs_description_medialinkScanLinks\",\"weh_prefs_description_mediaweightMinSize\",\"weh_prefs_description_mediaweightThreshold\",\"weh_prefs_description_monitorNetworkRequests\",\"weh_prefs_description_mpegtsHideTs\",\"weh_prefs_description_networkFilterOut\",\"weh_prefs_description_networkProbe\",\"weh_prefs_description_orphanExpiration\",\"weh_prefs_description_qualitiesMaxVariants\",\"weh_prefs_description_rememberLastDir\",\"weh_prefs_description_smartnamerFnameMaxlen\",\"weh_prefs_description_smartnamerFnameSpaces\",\"weh_prefs_description_tbsnEnabled\",\"weh_prefs_description_titleMode\",\"weh_prefs_description_toolsMenuEnabled\",\"weh_prefs_fileDialogType_option_panel\",\"weh_prefs_fileDialogType_option_tab\",\"weh_prefs_galleryNaming_option_index_url\",\"weh_prefs_galleryNaming_option_type_index\",\"weh_prefs_galleryNaming_option_url\",\"weh_prefs_label_adpHide\",\"weh_prefs_label_alertDialogType\",\"weh_prefs_label_autoPin\",\"weh_prefs_label_avplayEnabled\",\"weh_prefs_label_blacklistEnabled\",\"weh_prefs_label_bulkEnabled\",\"weh_prefs_label_checkCoappOnStartup\",\"weh_prefs_label_chunkedCoappDataRequests\",\"weh_prefs_label_chunkedCoappManifestsRequests\",\"weh_prefs_label_chunksConcurrentDownloads\",\"weh_prefs_label_chunksEnabled\",\"weh_prefs_label_chunksPrefetchCount\",\"weh_prefs_label_coappDownloads\",\"weh_prefs_label_coappIdleExit\",\"weh_prefs_label_coappRestartDelay\",\"weh_prefs_label_coappUseProxy\",\"weh_prefs_label_contentRedirectEnabled\",\"weh_prefs_label_contextMenuEnabled\",\"weh_prefs_label_convertControlledMax\",\"weh_prefs_label_converterAggregTuneH264\",\"weh_prefs_label_converterKeepTmpFiles\",\"weh_prefs_label_dashEnabled\",\"weh_prefs_label_dashHideM4s\",\"weh_prefs_label_dashOnAdp\",\"weh_prefs_label_dialogAutoClose\",\"weh_prefs_label_downloadControlledMax\",\"weh_prefs_label_downloadRetries\",\"weh_prefs_label_downloadRetryDelay\",\"weh_prefs_label_downloadStreamControlledMax\",\"weh_prefs_label_fileDialogType\",\"weh_prefs_label_galleryNaming\",\"weh_prefs_label_hitsGotoTab\",\"weh_prefs_label_hlsDownloadAsM2ts\",\"weh_prefs_label_hlsEnabled\",\"weh_prefs_label_hlsEndTimeout\",\"weh_prefs_label_hlsRememberPrevLiveChunks\",\"weh_prefs_label_iconActivation\",\"weh_prefs_label_iconBadge\",\"weh_prefs_label_lastDownloadDirectory\",\"weh_prefs_label_medialinkAutoDetect\",\"weh_prefs_label_medialinkExtensions\",\"weh_prefs_label_medialinkMaxHits\",\"weh_prefs_label_medialinkMinFilesPerGroup\",\"weh_prefs_label_mediaweightMinSize\",\"weh_prefs_label_mediaweightThreshold\",\"weh_prefs_label_monitorNetworkRequests\",\"weh_prefs_label_mpegtsHideTs\",\"weh_prefs_label_networkFilterOut\",\"weh_prefs_label_noPrivateNotification\",\"weh_prefs_label_notifyReady\",\"weh_prefs_label_orphanExpiration\",\"weh_prefs_label_qualitiesMaxVariants\",\"weh_prefs_label_rememberLastDir\",\"weh_prefs_label_smartnamerFnameMaxlen\",\"weh_prefs_label_smartnamerFnameSpaces\",\"weh_prefs_label_tbsnEnabled\",\"weh_prefs_label_tbvwsExtractionMethod\",\"weh_prefs_label_titleMode\",\"weh_prefs_label_toolsMenuEnabled\",\"weh_prefs_titleMode_option_left\",\"weh_prefs_titleMode_option_multiline\",\"weh_prefs_titleMode_option_right\",\"yes\"]"
   },
   "about": {
     "message": "Despre"
@@ -101,7 +101,7 @@
   "adaptative": {
     "message": "Adaptiv $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -277,7 +277,7 @@
   "copy_of": {
     "message": "Copie a $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -315,7 +315,7 @@
   "failed_aggregating": {
     "message": "A eșuat agregarea \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -323,7 +323,7 @@
   "failed_converting": {
     "message": "A eșuat conversia \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -331,7 +331,7 @@
   "failed_getting_info": {
     "message": "A eșuat obținerea informațiilor de la \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -342,7 +342,7 @@
   "file_generated": {
     "message": "Fișierul \"$ARG1$\" a fost generat.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -350,7 +350,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" este gata",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -361,7 +361,7 @@
   "from_domain": {
     "message": "De la $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -372,7 +372,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ fișiere",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -380,7 +380,7 @@
   "gallery_from_domain": {
     "message": "Galerie de la  $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -388,7 +388,7 @@
   "gallery_links_from_domain": {
     "message": "Legături de la $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -438,10 +438,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -545,7 +545,7 @@
   "version": {
     "message": "Versiune $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -634,7 +634,7 @@
   "you_downloaded_n_videos": {
     "message": "Tocmai ați descărcat cu succes al $ARG1$th fișier cu Video DownloadHelper.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

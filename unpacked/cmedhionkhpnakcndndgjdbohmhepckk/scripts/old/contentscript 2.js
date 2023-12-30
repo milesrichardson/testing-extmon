@@ -2,11 +2,7 @@ const WEBSTORE_LINK = `https://chrome.google.com/webstore/detail/${chrome.runtim
 
 class Blocker {
   constructor(enabled) {
-    this.filters = [
-      new CosmeticFilter(enabled),
-      new Branding(enabled),
-      new Dialog(enabled),
-    ];
+    this.filters = [new CosmeticFilter(enabled), new Branding(enabled), new Dialog(enabled)];
     this.enabled = enabled;
 
     this.pressNextButtonsWhenMounted();
@@ -104,7 +100,7 @@ class Dialog {
             }
           }).observe(target, {
             attributes: true,
-            attributeFilter: ["is-watch-page"],
+            attributeFilter: ["is-watch-page"]
           });
         },
         100
@@ -131,9 +127,7 @@ class Dialog {
 
     // Create header
     const header = document.createElement("DIV");
-    header.appendChild(
-      document.createTextNode(chrome.i18n.getMessage("extension_name"))
-    );
+    header.appendChild(document.createTextNode(chrome.i18n.getMessage("extension_name")));
     header.classList.add("ab4yt-dialog-header");
     dialog.appendChild(header);
 
@@ -142,9 +136,7 @@ class Dialog {
     webstoreLink.classList.add("ab4yt-webstore-link");
     webstoreLink.setAttribute("href", `${WEBSTORE_LINK}/reviews`);
     webstoreLink.setAttribute("target", "_blank");
-    webstoreLink.appendChild(
-      document.createTextNode(chrome.i18n.getMessage("rate_this_extension"))
-    );
+    webstoreLink.appendChild(document.createTextNode(chrome.i18n.getMessage("rate_this_extension")));
     webstoreLink.addEventListener("click", this.handleClose);
     dialog.appendChild(webstoreLink);
 
@@ -244,9 +236,7 @@ class Branding {
     this.enabled = enabled;
 
     this.BRANDING_TEXT = `${chrome.i18n.getMessage("branding")} `;
-    this.FACEBOOK_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      WEBSTORE_LINK
-    )}`;
+    this.FACEBOOK_SHARE_URL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(WEBSTORE_LINK)}`;
 
     waitFor(
       "#watch-header, ytd-video-primary-info-renderer",
@@ -267,16 +257,7 @@ class Branding {
     shareLink.setAttribute("target", "_blank");
     shareLink.appendChild(document.createTextNode("Share"));
     shareLink.onclick = function () {
-      window.open(
-        this.href,
-        "Share",
-        "left=20," +
-          "top=20," +
-          "width=550," +
-          "height=500," +
-          "toolbar=1," +
-          "resizable=0"
-      );
+      window.open(this.href, "Share", "left=20," + "top=20," + "width=550," + "height=500," + "toolbar=1," + "resizable=0");
       return false;
     };
 
@@ -486,11 +467,7 @@ function headReady(callback) {
   }
   const observer = new MutationObserver(function (mutations) {
     mutations.forEach(function (m) {
-      if (
-        m.addedNodes &&
-        m.addedNodes[0] &&
-        m.addedNodes[0].nodeName === "BODY"
-      ) {
+      if (m.addedNodes && m.addedNodes[0] && m.addedNodes[0].nodeName === "BODY") {
         callback();
         observer.disconnect();
       }
@@ -504,7 +481,7 @@ function domReady(callback) {
     callback();
   } else {
     window.addEventListener("load", callback, {
-      once: true,
+      once: true
     });
   }
 }
@@ -527,21 +504,21 @@ function onSkipBtnMounted(selector, callback) {
   }
 
   console.log("mount observer");
-  if (document.querySelector('ytd-display-ad-renderer')) {
-    document.querySelector('ytd-display-ad-renderer').closest('ytd-rich-item-renderer').style.display = 'none'
+  if (document.querySelector("ytd-display-ad-renderer")) {
+    document.querySelector("ytd-display-ad-renderer").closest("ytd-rich-item-renderer").style.display = "none";
   }
 
   const observer = new MutationObserver(check);
   observer.observe(player, {
     childList: true,
-    subtree: true,
+    subtree: true
   });
 }
 
 // Notify background so it can inject cosmetic filter
 chrome.runtime.sendMessage(
   {
-    action: "PAGE_READY",
+    action: "PAGE_READY"
   },
   ({ yt, enabled }) => {
     if (!yt) {

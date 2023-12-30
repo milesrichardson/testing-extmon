@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Програми"
+  },
+  "EndOfSupportHeader": {
+    "message": "Кінець підтримки розширення Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "З 15 січня 2024 року корпорація Майкрософт більше не підтримуватиме це розширення."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Щоб отримати додаткові відомості, відвідайте сторінку підтримки для цього розширення."
+  },
+  "Support": {
+    "message": "Підтримка"
   }
 }

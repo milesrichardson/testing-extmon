@@ -210,6 +210,54 @@ button {
   cursor: pointer;
 }
 
-form:not(:last-of-type) {
+form {
   border-bottom: 1px solid #ebe9e7;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ebe9e7;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+input[type="text"] {
+  border: 1px solid #ebe9e7;
+  border-radius: 8px;
+}
+
+label.text-field {
+  margin: 2px 0 2px 0;
+  display: flex;
+  justify-content: stretch;
+  gap: 4px;
+}
+
+.text-field > span {
+  width: 300px;
+  text-align: right;
+}
+
+label.text-field > input[type="text"] {
+  width: 100%;
+  height: 20px;
+  border: 1px solid #9faeb1;
+  border-radius: 4px;
+}
+
+.saved-checkmark {
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 14px;
+  width: 7px;
+  border-bottom: 3px solid #0e6476;
+  border-right: 3px solid #0e6476;
+  opacity: 1;
+  margin-bottom: 4px;
+}
+
+.saved-checkmark-hidden {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
 }

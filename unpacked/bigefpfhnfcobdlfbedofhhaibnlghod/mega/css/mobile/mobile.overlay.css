@@ -103,7 +103,7 @@
 }
 .overlay-wrap .actions .button {
   height: 48px;
-  max-width: 382px;
+  max-width: var(--mobile-elem-max-width);
   width: 100%;
 }
 .overlay-wrap .image {
@@ -139,6 +139,12 @@
 }
 .overlay-wrap .image i.key {
   background-image: url(../imagery/mobile-key.2c2c3654bb2a3b51.png);
+}
+.overlay-wrap .image i.reload {
+  background-image: url(../imagery/mobile-reload.33f8ee628d472e7e.png);
+}
+.overlay-wrap .image i.key,
+.overlay-wrap .image i.reload {
   background-size: contain;
   height: 96px;
   width: 96px;

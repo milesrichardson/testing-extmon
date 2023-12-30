@@ -1094,6 +1094,10 @@
           let ext = get_bg_module("be_ext");
           return (ext && ext.get("install_ts")) || Date.now();
         };
+        E.last_install_ts = () => {
+          let ext = get_bg_module("be_ext");
+          return (ext && ext.get("last_install_ts")) || E.install_ts();
+        };
         var check_opera = /\bOPR\b\/(\d+)/i;
         E.browser = () => {
           if (E.browser_guess.hola_browser) return "hola";
@@ -1187,6 +1191,7 @@
               const total_watch_time = be_trial.get_param_from_state("total_watch_time");
               if (total_watch_time) info.trial_watch_time = date.dur_to_str(total_watch_time);
               if_set(be_trial.get_watch_time_ms() || undefined, info, "trial_watch_time_ms");
+              if_set(!!storage.get_int("rebranding"), info, "rebranding");
             }
             if (be_ab_test) if_set(be_ab_test.get_ab_test_str(), info, "ab_test");
             let f;
@@ -1229,7 +1234,7 @@
               info.update_ms = diff;
             }
           }
-          info.last_install_ts = storage.get("install_perr_ts");
+          info.last_install_ts = ext && ext.get("last_install_ts");
           info.since_init_ms = Date.now() - init_ts;
           if (E.is_v3) info.since_state_init_ms = Date.now() - state.get("init_ts");
           return info;
@@ -2504,7 +2509,7 @@
                 return m.grace_end ? "updating" : m.plan == "manual" ? "Other" : "Google Play";
             }
           };
-          const gateway_id_path = (gateway) => {
+          E.gateway_id_path = (gateway) => {
             switch (gateway) {
               case "paypal":
               case "paypal2":
@@ -2550,7 +2555,7 @@
               case "avangate":
               case "stripe":
               case "paymill":
-                return zutil.get(m, gateway_id_path(gateway));
+                return zutil.get(m, E.gateway_id_path(gateway));
             }
           };
           E.get_gateway_name = (m, gateway) => {
@@ -2728,7 +2733,7 @@
             }
             return seq;
           };
-          const omit_meta = (o) => (!o ? null : zutil.omit(o, ["actual_from", "actual_to"]));
+          const omit_meta = (o) => (!o ? null : zutil.omit(o, ["actual_from", "actual_to", "update_res", "reported"]));
           E.parse_period = (period) => {
             const m = ("" + period).match(/^(\d+)\s?([dwmy])$/i);
             if (!m) return;
@@ -2773,7 +2778,7 @@
           E.get_root_url = (url) => {
             if (url == "chrome://newtab/") return "newtab";
             const n = (url || "").match(/^https?:\/\/([^\/]+)(\/.*)?$/);
-            if (!n) return null;
+            if (!n || !n[1]) return null;
             return E.get_root_domain(n[1]);
           };
           E.find_rule = (rules, opt) => {
@@ -2969,13 +2974,26 @@
             if (operator == "gte") return (a, b) => a >= b;
             if (operator == "lt") return (a, b) => a < b;
             if (operator == "lte") return (a, b) => a <= b;
-            if (operator == "in") return (a, b) => Array.isArray(b) && b.includes(a);
             if (operator == "re") return (a, b) => b.test(a);
-            return (a, b) => {
-              if (!Array.isArray(a)) return a == b;
-              if (!Array.isArray(b)) b = [b];
-              return b.every((i) => a.includes(i));
-            };
+            if (operator == "in" || operator == "nin") {
+              return (a, b) => {
+                let found;
+                if (!Array.isArray(b)) return false;
+                if (!Array.isArray(a)) found = b.includes(a);
+                else found = b.some((i) => a.includes(i));
+                return operator == "in" ? found : !found;
+              };
+            }
+            if (operator == "eq" || operator == "neq") {
+              return (a, b) => {
+                let equal;
+                if (!Array.isArray(a)) equal = a == b;
+                else if (!Array.isArray(b)) equal = a.includes(b);
+                else equal = b.every((i) => a.includes(i));
+                return operator == "eq" ? equal : !equal;
+              };
+            }
+            return (a, b) => false;
           };
           E.match_filter = (query, filter) => {
             if (!filter) return true;
@@ -2985,15 +3003,19 @@
               if (key.endsWith("_ts") && query.now) query["since_" + key] = query.now - query[key];
             }
             for (let f_key in filter) {
-              let m = f_key.match(/^(.*)_(gt|gte|lt|lte|in|re)$/);
+              let m = f_key.match(/^(.*)_(gt|gte|lt|lte|in|nin|re|eq|neq)$/);
               let q_key = m ? m[1] : f_key;
               let operator = m ? m[2] : "eq";
-              if ((operator == "in" && !Array.isArray(filter[f_key])) || (operator == "re" && !(filter[f_key] instanceof RegExp))) {
+              if (
+                (operator == "in" && !Array.isArray(filter[f_key])) ||
+                (operator == "nin" && !Array.isArray(filter[f_key])) ||
+                (operator == "re" && !(filter[f_key] instanceof RegExp))
+              ) {
                 q_key = f_key;
                 operator = "eq";
               }
               let op1, op2;
-              if (q_key.endsWith("_ver") && operator != "in" && operator != "re") {
+              if (q_key.endsWith("_ver") && /(gt|gte|lt|lte|eq|neq)/.test(operator)) {
                 op1 = version_util.cmp(query[q_key], filter[f_key]);
                 op2 = 0;
               } else {
@@ -5023,6 +5045,48 @@
           E.is_allowed = function (code) {
             return E.list[code] && !E.unallowed_list[code];
           };
+          E.gdpr_countries = [
+            "AT",
+            "BE",
+            "BG",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GF",
+            "GP",
+            "GR",
+            "HR",
+            "HU",
+            "IC",
+            "IE",
+            "IS",
+            "IT",
+            "JE",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MF",
+            "MQ",
+            "MT",
+            "NL",
+            "NO",
+            "PL",
+            "PT",
+            "RE",
+            "RO",
+            "SI",
+            "SK",
+            "SW",
+            "YT",
+            "UK"
+          ];
           E.dialing_code_list = {
             AF: "93",
             AL: "355",
@@ -7442,4 +7506,4 @@
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/202.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/202.bundle.js.map?build=nopeer_v2

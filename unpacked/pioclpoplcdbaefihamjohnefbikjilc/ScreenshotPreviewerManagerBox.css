@@ -11,7 +11,7 @@
   background-color: #404040;
   border-radius: 4px;
   max-width: 198px;
-  border: 1px solid #666666;
+  border: 1px solid #666;
   flex-direction: column;
 }
 .internalBox {
@@ -24,11 +24,11 @@
   align-content: center;
 }
 .internalBox.screenshotZoomLevel {
-  color: white;
+  color: #fff;
   font-weight: 500;
   margin-bottom: 2px;
 }
 .internalBox.screenshotShortcutAnnouncement {
-  color: #cccccc;
+  color: #ccc;
   font-weight: 400;
 }

@@ -484,6 +484,10 @@
             if (E.is_hola_domain(hostname) || (zutil.is_mocha() && hostname == "localhost"))
               return "https://" + hostname + encodeURI(u.path);
           };
+          E.alt_holaorg = function (domain, kw) {
+            if (domain == "hola.org" && kw && kw.hola_org_blocked) return "hola-vpn.com";
+            return domain;
+          };
           return E;
         }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)),
         __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -642,7 +646,7 @@
             if (!obj) obj = {};
             for (var i = 1; i < arguments.length; i++) {
               var source = arguments[i];
-              if (obj === undefined) continue;
+              if (source === undefined) continue;
               for (var prop in source) {
                 if (obj[prop] === undefined) obj[prop] = source[prop];
               }
@@ -793,6 +797,7 @@
           E.forEach = function (obj, fn, _this) {
             for (var i in obj) fn.call(_this, obj[i], i, obj);
           };
+          E.each = E.forEach;
           E.find = function (obj, fn, _this) {
             for (var i in obj) {
               if (fn.call(_this, obj[i], i, obj)) return obj[i];
@@ -836,6 +841,20 @@
             var values = [];
             for (var i in obj) values.push(obj[i]);
             return values;
+          };
+          E.min_by = function (array, iteratee) {
+            var result;
+            if (!array == null) return result;
+            var computed;
+            for (var i = 0; i < array.length; i++) {
+              var value = array[i];
+              var current = iteratee(value);
+              if (computed === undefined || current < computed) {
+                computed = current;
+                result = value;
+              }
+            }
+            return result;
           };
           E.path = function (path) {
             if (Array.isArray(path)) return path;
@@ -973,6 +992,7 @@
           E.has_own = function (obj, prop) {
             return Object.prototype.hasOwnProperty.call(obj, prop);
           };
+          E.noop = function () {};
           return E;
         }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)),
         __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -980,4 +1000,4 @@
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/423.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/423.bundle.js.map?build=nopeer_v2

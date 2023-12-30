@@ -3,7 +3,7 @@ Do Not Translate or Localize
 
 
 --------------------------------------------------------------------------------
-@babel/runtime v7.23.1 - The Babel Team (https://babel.dev/team)
+@babel/runtime v7.23.4 - The Babel Team (https://babel.dev/team)
 https://github.com/babel/babel.git
 --------------------------------------------------------------------------------
 
@@ -470,7 +470,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 --------------------------------------------------------------------------------
-@datadog/browser-core v4.50.0
+@datadog/browser-core v5.4.0
 https://github.com/DataDog/browser-sdk.git
 --------------------------------------------------------------------------------
 
@@ -678,7 +678,7 @@ limitations under the License.
 
 
 --------------------------------------------------------------------------------
-@datadog/browser-logs v4.50.0
+@datadog/browser-logs v5.4.0
 https://github.com/DataDog/browser-sdk.git
 --------------------------------------------------------------------------------
 
@@ -1431,7 +1431,7 @@ limitations under the License.
 
 
 --------------------------------------------------------------------------------
-@optimizely/js-sdk-event-processor v0.9.5 - jordangarcia <jordan@optimizely.com>
+@optimizely/js-sdk-event-processor v0.10.0 - jordangarcia <jordan@optimizely.com>
 git+https://github.com/optimizely/javascript-sdk.git
 --------------------------------------------------------------------------------
 
@@ -2058,7 +2058,7 @@ limitations under the License.
 
 
 --------------------------------------------------------------------------------
-@optimizely/optimizely-sdk v4.9.4
+@optimizely/optimizely-sdk v4.10.0
 git+https://github.com/optimizely/javascript-sdk.git
 --------------------------------------------------------------------------------
 
@@ -3872,7 +3872,7 @@ git://github.com/perezd/node-murmurhash.git
 Unlicense
 
 --------------------------------------------------------------------------------
-nanoid v3.3.6 - Andrey Sitnik <andrey@sitnik.ru>
+nanoid v3.3.7 - Andrey Sitnik <andrey@sitnik.ru>
 ai/nanoid
 --------------------------------------------------------------------------------
 
@@ -4084,7 +4084,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 --------------------------------------------------------------------------------
-postcss v8.4.24 - Andrey Sitnik <andrey@sitnik.ru>
+postcss v8.4.32 - Andrey Sitnik <andrey@sitnik.ru>
 postcss/postcss
 --------------------------------------------------------------------------------
 

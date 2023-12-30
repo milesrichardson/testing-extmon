@@ -333,13 +333,13 @@
       queueMicrotask(() => s4.ui.render());
     }
 
-    const $fmRightHeader = $(".fm-right-header", ".fm-right-files-block");
-    const $resultsCount = $(".fm-search-count", $fmRightHeader);
+    const $fmRightFilesBlock = $(".fm-right-files-block");
+    const $fmRightHeader = $(".fm-right-header", $fmRightFilesBlock);
+    const $resultsCount = $(".fm-search-count", $fmRightHeader).addClass("hidden");
 
     $(".nw-fm-tree-item.opened").removeClass("opened");
     $(".fm-notification-block.duplicated-items-found").removeClass("visible");
-    $(".fm-breadcrumbs-wrapper", $fmRightHeader).removeClass("hidden");
-    $resultsCount.addClass("hidden");
+    $(".fm-breadcrumbs-wrapper, .column-settings.overlap", $fmRightFilesBlock).removeClass("hidden");
 
     if ((folderlink && !pfcol) || (id !== M.RootID && M.currentrootid === M.RootID)) {
       this.gallery = 0;
@@ -352,6 +352,19 @@
       $(".fm-files-view-icon").filter(".media-view").removeClass("hidden");
     } else {
       $(".fm-files-view-icon").filter(".media-view").addClass("hidden");
+    }
+
+    if (mega.flags.ab_fchips) {
+      // XXX: Do not reset the filter selections if navigated to the same location.
+      let stash = this.previousdirid === this.currentdirid;
+
+      if (!stash && this.previousdirid) {
+        stash = this.search && String(this.previousdirid).substr(0, 6) === "search";
+      }
+
+      if (mega.ui.mNodeFilter) {
+        mega.ui.mNodeFilter.resetFilterSelections(stash);
+      }
     }
 
     if (id === undefined && folderlink) {
@@ -384,11 +397,11 @@
         });
       }
     } else {
-      $(".fm-right-files-block").removeClass("hidden");
-
       if (d) {
         console.time("time for rendering");
       }
+
+      $fmRightFilesBlock.removeClass("hidden");
 
       if (id === "transfers") {
         this.v = [];
@@ -422,6 +435,7 @@
       } else if (id.substr(0, 6) === "search") {
         this.filterBySearch(this.currentdirid);
         $(".fm-breadcrumbs-wrapper", $fmRightHeader).addClass("hidden");
+        $(".column-settings.overlap").addClass("hidden");
         $resultsCount.removeClass("hidden");
         $resultsCount.text(mega.icu.format(l.search_results_count, M.v.length));
       } else if (this.currentCustomView) {
@@ -603,11 +617,12 @@
     let cv = this.isCustomView(id);
 
     const $viewIcons = $(`.fm-files-view-icon${pfid ? "" : ":not(.media-view)"}`).removeClass("hidden");
-    $(".fm-right-account-block, .fm-right-block").addClass("hidden");
+    $(".fm-right-account-block, .fm-right-block, .fm-filter-chips-wrapper").addClass("hidden");
 
     this.chat = false;
     this.search = false;
     this.recents = false;
+    this.albums = false;
 
     if (this.gallery && (mega.gallery.sections[id] || (pfid && $viewIcons.filter(".media-view").hasClass("active")))) {
       // @todo call completion (?)
@@ -744,6 +759,7 @@
 
       this.gallery = 2;
     } else if (cv.type === "gallery" || window.pfcol) {
+      this.albums = 1;
       this.gallery = 1;
     } else if (cv.type === "s4") {
       id = cv.nodeID;
@@ -761,6 +777,8 @@
         loadSubPage("fm/chat/contacts");
       }
       return EAGAIN;
+    } else if (id && id.startsWith("albums")) {
+      this.albums = true;
     } else if (id !== "transfers") {
       if (id && id.substr(0, 9) === "versions/") {
         id = id.substr(9);
@@ -845,6 +863,10 @@
       }
 
       if (handles.length) {
+        if (mega.infinity && !$.inSharesRebuild) {
+          // @todo validate which nodes are legit to query here
+          loadingDialog.show();
+        }
         await dbfetch.geta(handles).catch(dump);
       }
 
@@ -864,7 +886,7 @@
     }
 
     // In MEGA Lite mode, remove this temporary class
-    if (mega.lite) {
+    if (mega.lite.inLiteMode) {
       $(".files-grid-view.fm").removeClass("mega-lite-hidden");
     }
 

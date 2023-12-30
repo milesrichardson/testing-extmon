@@ -1,5 +1,6 @@
 <script lang="ts">
     import Switch from "@/ui/components/Switch.svelte";
+    import { translateText } from "@/utils/locales";
 
     export let currentUrlIsValid = false;
     export let adsProtectionEnabled: boolean;
@@ -14,7 +15,8 @@
 <div class="flex flex-col w-full items-start justify-start pt-6 dark:text-white dark:text-opacity-80">
     {#if currentUrlIsValid}
         <h5 class="text-textPrimary font-semibold text-sm pb-4 dark:text-white dark:text-opacity-80">
-            Protection for this website:
+            {translateText("currentWebsiteProtectionHeader")}
+            <!-- Protection for this website: -->
         </h5>
 
         <div class="flex flex-row w-full justify-between items-center py-4">
@@ -42,8 +44,9 @@
         </div>
     {:else}
         <p class="text-left text-sm font-normal">
-            System pages are addresses which are part of the browser or an
-            extension, we do not block content on these pages.
+            {translateText("currentWebsiteSystemPage")}
+            <!-- System pages are addresses which are part of the browser or an
+            extension, we do not block content on these pages. -->
         </p>
     {/if}
 </div>

@@ -92,7 +92,7 @@
         document.getElementById("velocity-player-package").style.position = "fixed";
         document.getElementById("velocity-controls-package").style.position = "fixed";
         let targetSettings = document.getElementById("velocity-controls-package");
-        //settingsObserver.observe(targetSettings, { attributes: true, childList: true, subtree: true })
+        settingsObserver.observe(targetSettings, { attributes: true, childList: true, subtree: true });
         if (video) {
           video.addEventListener("loadstart", () => {
             _relayMessage({ type: "videoLoadStart" });

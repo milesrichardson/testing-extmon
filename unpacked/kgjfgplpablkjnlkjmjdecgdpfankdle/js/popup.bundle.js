@@ -94,7 +94,15 @@
               return (
                 u("Connecting"),
                 o.Z.logout(function () {
-                  p();
+                  p(),
+                    (async function () {
+                      let [t] = await chrome.tabs.query({ active: !0, currentWindow: !0 });
+                      try {
+                        chrome.tabs.sendMessage(t.id, { type: "notificationSignout" }, function () {
+                          chrome.runtime.lastError;
+                        });
+                      } catch (t) {}
+                    })();
                 }),
                 !1
               );
@@ -169,10 +177,6 @@
       i = i || 0;
       for (var u = t.length; u > 0 && t[u - 1][2] > i; u--) t[u] = t[u - 1];
       t[u] = [n, a, i];
-    }),
-    (o.n = (t) => {
-      var e = t && t.__esModule ? () => t.default : () => t;
-      return o.d(e, { a: e }), e;
     }),
     (o.d = (t, e) => {
       for (var n in e) o.o(e, n) && !o.o(t, n) && Object.defineProperty(t, n, { enumerable: !0, get: e[n] });

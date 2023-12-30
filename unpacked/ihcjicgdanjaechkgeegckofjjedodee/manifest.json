@@ -6,7 +6,7 @@
   "name": "Malwarebytes Browser Guard",
   "description": "__MSG_appDesc__",
   "default_locale": "en",
-  "version": "2.6.15",
+  "version": "2.6.17",
   "icons": {
     "128": "app/assets/icon.png"
   },

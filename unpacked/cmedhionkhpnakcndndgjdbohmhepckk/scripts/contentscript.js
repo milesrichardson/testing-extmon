@@ -661,36 +661,36 @@ const POPUPS_MAP = {
     css: windowsPopupCss,
     restrictionKey: CONFIGURABLE_POPUP_RESTRICTION_KEY,
     doNotShowKey: CONFIGURABLE_POPUP_DO_NOT_SHOW_KEY,
-    needSetDoNotShow: true,
+    needSetDoNotShow: true
   },
   mobile: {
     html: mobilePopupHtml,
     css: mobilePopupCss,
     restrictionKey: CONFIGURABLE_POPUP_RESTRICTION_KEY,
     doNotShowKey: CONFIGURABLE_POPUP_DO_NOT_SHOW_KEY,
-    needSetDoNotShow: true,
+    needSetDoNotShow: true
   },
   update: {
     html: updatePopupHtml,
     css: updatePopupCss,
     restrictionKey: UPDATE_POPUP_RESTRICTION_KEY,
     doNotShowKey: UPDATE_POPUP_DO_NOT_SHOW_KEY,
-    needSetDoNotShow: false,
+    needSetDoNotShow: false
   },
   "anti-adblock": {
     html: antiAdblockDetectedHtml,
     css: antiAdblockDetectedCss,
     restrictionKey: ANTI_ADBLOCK_POPUP_RESTRICTION_KEY,
     doNotShowKey: ANTI_ADBLOCK_POPUP_DO_NOT_SHOW_KEY,
-    needSetDoNotShow: false,
+    needSetDoNotShow: false
   },
   "other-streaming": {
     html: otherStreamingPopupHtml,
     css: otherStreamingPopupCss,
     restrictionKey: OTHER_STREAMING_RESTRICTION_KEY,
     doNotShowKey: OTHER_STREAMING_POPUP_DO_NOT_SHOW_KEY,
-    needSetDoNotShow: false,
-  },
+    needSetDoNotShow: false
+  }
 };
 
 const minutesToMilliseconds = (minutes) => {
@@ -707,11 +707,7 @@ const isIframe = () => {
 
 class YoutubeBlocker {
   constructor(enabled, adBlockSelectors, popupConfig) {
-    const filters = [
-      new CosmeticFilter(adBlockSelectors),
-      new Dialog(popupConfig),
-      new SkipVideoAds(),
-    ];
+    const filters = [new CosmeticFilter(adBlockSelectors), new Dialog(popupConfig), new SkipVideoAds()];
 
     if (enabled) {
       filters.forEach((filter) => {
@@ -723,35 +719,29 @@ class YoutubeBlocker {
 
 const getIsCommonPopupRestrictionsExpired = async () => {
   return new Promise((resolve) => {
-    chrome.storage.local.get(
-      [INSTALLED_AT_KEY, POPUP_GENERAL_RESTRICTION_KEY],
-      (result) => {
-        if (chrome.runtime.lastError) {
-          console.error(chrome.runtime.lastError);
-          resolve(false);
-        }
-
-        const now = Date.now();
-        const installedAt = result[INSTALLED_AT_KEY];
-        const popupGeneralRestriction = result[POPUP_GENERAL_RESTRICTION_KEY];
-
-        if (!installedAt || now - installedAt < MIN_USER_LIVE_FOR_POPUP) {
-          console.log("User is too new");
-          resolve(false);
-        }
-
-        if (
-          popupGeneralRestriction &&
-          now - popupGeneralRestriction < GENERAL_POPUPS_RESTRICTION_TIME
-        ) {
-          console.log("General popup restriction");
-
-          resolve(false);
-        }
-
-        resolve(true);
+    chrome.storage.local.get([INSTALLED_AT_KEY, POPUP_GENERAL_RESTRICTION_KEY], (result) => {
+      if (chrome.runtime.lastError) {
+        console.error(chrome.runtime.lastError);
+        resolve(false);
       }
-    );
+
+      const now = Date.now();
+      const installedAt = result[INSTALLED_AT_KEY];
+      const popupGeneralRestriction = result[POPUP_GENERAL_RESTRICTION_KEY];
+
+      if (!installedAt || now - installedAt < MIN_USER_LIVE_FOR_POPUP) {
+        console.log("User is too new");
+        resolve(false);
+      }
+
+      if (popupGeneralRestriction && now - popupGeneralRestriction < GENERAL_POPUPS_RESTRICTION_TIME) {
+        console.log("General popup restriction");
+
+        resolve(false);
+      }
+
+      resolve(true);
+    });
   });
 };
 
@@ -774,7 +764,7 @@ class Dialog {
 
       const storageKeyRestriction = {
         [dateRestrictionKey]: Date.now(),
-        [POPUP_GENERAL_RESTRICTION_KEY]: Date.now(),
+        [POPUP_GENERAL_RESTRICTION_KEY]: Date.now()
       };
 
       if (isInputChecked) {
@@ -785,17 +775,12 @@ class Dialog {
     });
   }
 
-  addLinkClickListener(
-    dialog,
-    dateRestrictionKey,
-    doNotShowKey,
-    needSetDoNotShow
-  ) {
+  addLinkClickListener(dialog, dateRestrictionKey, doNotShowKey, needSetDoNotShow) {
     dialog.querySelectorAll(".link").forEach((link) => {
       link.addEventListener("click", () => {
         const restrictionConfig = {
           [dateRestrictionKey]: Date.now(),
-          [POPUP_GENERAL_RESTRICTION_KEY]: Date.now(),
+          [POPUP_GENERAL_RESTRICTION_KEY]: Date.now()
         };
 
         if (needSetDoNotShow) {
@@ -823,25 +808,15 @@ class Dialog {
     if (!popupLayout) {
       return;
     }
-    const { html, css, restrictionKey, doNotShowKey, needSetDoNotShow } =
-      popupLayout;
+    const { html, css, restrictionKey, doNotShowKey, needSetDoNotShow } = popupLayout;
 
     const configurablePopup = document.createElement("DIV");
     configurablePopup.classList.add("ab4yt-popup");
     configurablePopup.innerHTML = html;
 
-    this.addLinkClickListener(
-      configurablePopup,
-      restrictionKey,
-      doNotShowKey,
-      needSetDoNotShow
-    );
+    this.addLinkClickListener(configurablePopup, restrictionKey, doNotShowKey, needSetDoNotShow);
 
-    this.addCloseButtonListener(
-      configurablePopup,
-      restrictionKey,
-      doNotShowKey
-    );
+    this.addCloseButtonListener(configurablePopup, restrictionKey, doNotShowKey);
 
     const stylesheet = document.createElement("style");
     stylesheet.setAttribute("type", "text/css");
@@ -856,7 +831,7 @@ class Dialog {
     const handleClose = () => {
       this.handlePopupClose(dialog, {
         [RATING_POPUP_RESTRICTION_KEY]: true,
-        [POPUP_GENERAL_RESTRICTION_KEY]: Date.now(),
+        [POPUP_GENERAL_RESTRICTION_KEY]: Date.now()
       });
     };
 
@@ -873,9 +848,7 @@ class Dialog {
 
     // Create header
     const header = document.createElement("DIV");
-    header.appendChild(
-      document.createTextNode(chrome.i18n.getMessage("extension_name"))
-    );
+    header.appendChild(document.createTextNode(chrome.i18n.getMessage("extension_name")));
     header.classList.add("ab4yt-dialog-header");
     dialog.appendChild(header);
 
@@ -884,9 +857,7 @@ class Dialog {
     webstoreLink.classList.add("ab4yt-webstore-link");
     webstoreLink.setAttribute("href", `${WEBSTORE_LINK}/reviews`);
     webstoreLink.setAttribute("target", "_blank");
-    webstoreLink.appendChild(
-      document.createTextNode(chrome.i18n.getMessage("rate_this_extension"))
-    );
+    webstoreLink.appendChild(document.createTextNode(chrome.i18n.getMessage("rate_this_extension")));
     webstoreLink.addEventListener("click", handleClose);
     dialog.appendChild(webstoreLink);
 
@@ -965,39 +936,24 @@ class Dialog {
 
   checkAntiAdBlock() {
     document.addEventListener("yt-navigate-finish", () => {
-      chrome.storage.local.get(
-        [
-          ANTI_ADBLOCK_POPUP_DO_NOT_SHOW_KEY,
-          ANTI_ADBLOCK_POPUP_RESTRICTION_KEY,
-        ],
-        async (result) => {
-          const now = Date.now();
+      chrome.storage.local.get([ANTI_ADBLOCK_POPUP_DO_NOT_SHOW_KEY, ANTI_ADBLOCK_POPUP_RESTRICTION_KEY], async (result) => {
+        const now = Date.now();
 
-          const antiAdblockPopupRestriction =
-            result[ANTI_ADBLOCK_POPUP_RESTRICTION_KEY];
-          const antiAdblockPopupDoNotShow =
-            result[ANTI_ADBLOCK_POPUP_DO_NOT_SHOW_KEY];
+        const antiAdblockPopupRestriction = result[ANTI_ADBLOCK_POPUP_RESTRICTION_KEY];
+        const antiAdblockPopupDoNotShow = result[ANTI_ADBLOCK_POPUP_DO_NOT_SHOW_KEY];
 
-          if (
-            !antiAdblockPopupDoNotShow &&
-            (!antiAdblockPopupRestriction ||
-              now - antiAdblockPopupRestriction >
-                ANTI_ADBLOCK_POPUP_RESTRICTION_TIME)
-          ) {
-            setTimeout(() => {
-              if (
-                window.location.href.includes("/watch") &&
-                document.querySelector("#error-screen")?.children.length !== 0
-              ) {
-                document
-                  .querySelectorAll(".ab4yt-dialog,.ab4yt-popup")
-                  .forEach((dialog) => dialog.remove());
-                this.createConfigurablePopup("anti-adblock");
-              }
-            }, 1000);
-          }
+        if (
+          !antiAdblockPopupDoNotShow &&
+          (!antiAdblockPopupRestriction || now - antiAdblockPopupRestriction > ANTI_ADBLOCK_POPUP_RESTRICTION_TIME)
+        ) {
+          setTimeout(() => {
+            if (window.location.href.includes("/watch") && document.querySelector("#error-screen")?.children.length !== 0) {
+              document.querySelectorAll(".ab4yt-dialog,.ab4yt-popup").forEach((dialog) => dialog.remove());
+              this.createConfigurablePopup("anti-adblock");
+            }
+          }, 1000);
         }
-      );
+      });
     });
   }
 
@@ -1013,25 +969,19 @@ class Dialog {
         UPDATE_POPUP_DO_NOT_SHOW_KEY,
         CONFIGURABLE_POPUP_RESTRICTION_KEY,
         CONFIGURABLE_POPUP_DO_NOT_SHOW_KEY,
-        RATING_POPUP_RESTRICTION_KEY,
+        RATING_POPUP_RESTRICTION_KEY
       ],
       async (result) => {
-        const isCommonRestrictionsExpired =
-          await getIsCommonPopupRestrictionsExpired();
+        const isCommonRestrictionsExpired = await getIsCommonPopupRestrictionsExpired();
 
         const now = Date.now();
 
         const updatePopupRestriction = result[UPDATE_POPUP_RESTRICTION_KEY];
         const updatePopupDoNotShow = result[UPDATE_POPUP_DO_NOT_SHOW_KEY];
 
-        const configurablePopupRestriction =
-          result[CONFIGURABLE_POPUP_RESTRICTION_KEY];
-        const configurablePopupDoNotShow =
-          result[CONFIGURABLE_POPUP_DO_NOT_SHOW_KEY];
-        const configurablePopupDoNotShowAgainMilliseconds =
-          minutesToMilliseconds(
-            this.popupConfig.configurablePopup.doNotShowAgainMinutes
-          );
+        const configurablePopupRestriction = result[CONFIGURABLE_POPUP_RESTRICTION_KEY];
+        const configurablePopupDoNotShow = result[CONFIGURABLE_POPUP_DO_NOT_SHOW_KEY];
+        const configurablePopupDoNotShowAgainMilliseconds = minutesToMilliseconds(this.popupConfig.configurablePopup.doNotShowAgainMinutes);
 
         const ratingPopupRestriction = result[RATING_POPUP_RESTRICTION_KEY];
 
@@ -1043,11 +993,7 @@ class Dialog {
           this.checkAntiAdBlock();
         }
 
-        if (
-          !updatePopupRestriction &&
-          !updatePopupDoNotShow &&
-          this.popupConfig.isUpdatePopupEnabled
-        ) {
+        if (!updatePopupRestriction && !updatePopupDoNotShow && this.popupConfig.isUpdatePopupEnabled) {
           this.createConfigurablePopup("update");
           return;
         }
@@ -1055,9 +1001,7 @@ class Dialog {
         if (
           !configurablePopupDoNotShow &&
           this.popupConfig.configurablePopup.isEnabled &&
-          (!configurablePopupRestriction ||
-            now - configurablePopupRestriction >
-              configurablePopupDoNotShowAgainMilliseconds)
+          (!configurablePopupRestriction || now - configurablePopupRestriction > configurablePopupDoNotShowAgainMilliseconds)
         ) {
           this.createConfigurablePopup(this.popupConfig.configurablePopup.type);
           return;
@@ -1127,9 +1071,7 @@ class SkipVideoAds {
 
     const observer = new MutationObserver(() => {
       try {
-        const isAd =
-          playerContainer.classList.contains("ad-interrupting") ||
-          playerContainer.classList.contains("ad-showing");
+        const isAd = playerContainer.classList.contains("ad-interrupting") || playerContainer.classList.contains("ad-showing");
         const preText = document.querySelector(".ytp-ad-preview-text-modern");
         if (isAd && preText) {
           this.runSkipping();
@@ -1143,7 +1085,7 @@ class SkipVideoAds {
     observer.observe(playerContainer, {
       subtree: !0,
       childList: !0,
-      attributes: !0,
+      attributes: !0
     });
   }
 }
@@ -1167,7 +1109,7 @@ class DailymotionDialog {
 
       const storageKeyRestriction = {
         [dateRestrictionKey]: Date.now(),
-        [POPUP_GENERAL_RESTRICTION_KEY]: Date.now(),
+        [POPUP_GENERAL_RESTRICTION_KEY]: Date.now()
       };
 
       if (isInputChecked) {
@@ -1178,17 +1120,12 @@ class DailymotionDialog {
     });
   }
 
-  addLinkClickListener(
-    dialog,
-    dateRestrictionKey,
-    doNotShowKey,
-    needSetDoNotShow
-  ) {
+  addLinkClickListener(dialog, dateRestrictionKey, doNotShowKey, needSetDoNotShow) {
     dialog.querySelectorAll(".link").forEach((link) => {
       link.addEventListener("click", () => {
         const restrictionConfig = {
           [dateRestrictionKey]: Date.now(),
-          [POPUP_GENERAL_RESTRICTION_KEY]: Date.now(),
+          [POPUP_GENERAL_RESTRICTION_KEY]: Date.now()
         };
 
         if (needSetDoNotShow) {
@@ -1216,25 +1153,15 @@ class DailymotionDialog {
     if (!popupLayout) {
       return;
     }
-    const { html, css, restrictionKey, doNotShowKey, needSetDoNotShow } =
-      popupLayout;
+    const { html, css, restrictionKey, doNotShowKey, needSetDoNotShow } = popupLayout;
 
     const configurablePopup = document.createElement("DIV");
     configurablePopup.classList.add("ab4yt-popup");
     configurablePopup.innerHTML = html;
 
-    this.addLinkClickListener(
-      configurablePopup,
-      restrictionKey,
-      doNotShowKey,
-      needSetDoNotShow
-    );
+    this.addLinkClickListener(configurablePopup, restrictionKey, doNotShowKey, needSetDoNotShow);
 
-    this.addCloseButtonListener(
-      configurablePopup,
-      restrictionKey,
-      doNotShowKey
-    );
+    this.addCloseButtonListener(configurablePopup, restrictionKey, doNotShowKey);
 
     const stylesheet = document.createElement("style");
     stylesheet.setAttribute("type", "text/css");
@@ -1252,23 +1179,15 @@ class DailymotionDialog {
     // this.createConfigurablePopup('update');
 
     chrome.storage.local.get(
-      [
-        OTHER_STREAMING_RESTRICTION_KEY,
-        OTHER_STREAMING_POPUP_DO_NOT_SHOW_KEY,
-        IS_ADDITIONAL_BLOCKING_ENABLED,
-      ],
+      [OTHER_STREAMING_RESTRICTION_KEY, OTHER_STREAMING_POPUP_DO_NOT_SHOW_KEY, IS_ADDITIONAL_BLOCKING_ENABLED],
       async (result) => {
-        const isCommonRestrictionsExpired =
-          await getIsCommonPopupRestrictionsExpired();
+        const isCommonRestrictionsExpired = await getIsCommonPopupRestrictionsExpired();
         const now = Date.now();
 
-        const otherStreamingRestriction =
-          result[OTHER_STREAMING_RESTRICTION_KEY];
-        const otherStreamingPopupDoNotShow =
-          result[OTHER_STREAMING_POPUP_DO_NOT_SHOW_KEY];
+        const otherStreamingRestriction = result[OTHER_STREAMING_RESTRICTION_KEY];
+        const otherStreamingPopupDoNotShow = result[OTHER_STREAMING_POPUP_DO_NOT_SHOW_KEY];
 
-        const isAdditionalBlockingEnabled =
-          result[IS_ADDITIONAL_BLOCKING_ENABLED];
+        const isAdditionalBlockingEnabled = result[IS_ADDITIONAL_BLOCKING_ENABLED];
 
         if (!isCommonRestrictionsExpired) {
           return;
@@ -1278,8 +1197,7 @@ class DailymotionDialog {
           !otherStreamingPopupDoNotShow &&
           !isAdditionalBlockingEnabled &&
           this.popupConfig.isOtherStreamingPopupEnabled &&
-          (!otherStreamingRestriction ||
-            now - otherStreamingRestriction > OTHER_STREAMING_RESTRICTION_TIME)
+          (!otherStreamingRestriction || now - otherStreamingRestriction > OTHER_STREAMING_RESTRICTION_TIME)
         ) {
           this.createConfigurablePopup("other-streaming");
           return;
@@ -1317,14 +1235,12 @@ class AdditionalBlockingEnableHandler {
   }
 
   async init() {
-    const additionalActivateButtons = await waitForElement(
-      ".activate_additional_blocking_X3patIvPJ8"
-    );
+    const additionalActivateButtons = await waitForElement(".activate_additional_blocking_X3patIvPJ8");
 
     additionalActivateButtons.addEventListener("click", () => {
       chrome.runtime.sendMessage(
         {
-          action: "ENABLE_ADDITIONAL_BLOCKING",
+          action: "ENABLE_ADDITIONAL_BLOCKING"
         },
         () => {
           if (chrome.runtime.lastError) {
@@ -1341,7 +1257,7 @@ function domReady(callback) {
     callback();
   } else {
     window.addEventListener("load", callback, {
-      once: true,
+      once: true
     });
   }
 }
@@ -1361,7 +1277,7 @@ const waitForElement = async (selector) => {
 
     observer.observe(document.documentElement, {
       childList: !0,
-      subtree: !0,
+      subtree: !0
     });
   });
 };
@@ -1369,27 +1285,15 @@ const waitForElement = async (selector) => {
 // Notify background so it can inject cosmetic filter
 chrome.runtime.sendMessage(
   {
-    action: "PAGE_READY",
+    action: "PAGE_READY"
   },
-  ({
-    yt,
-    enabled,
-    adBlockSelectors,
-    popupConfig,
-    isDailymotionTab,
-    dailymotionAdBlockingSelectors,
-  }) => {
+  ({ yt, enabled, adBlockSelectors, popupConfig, isDailymotionTab, dailymotionAdBlockingSelectors }) => {
     const pageUrl = new URL(window.location.href);
 
     if (/youtube\.com/.test(window.location.origin) && yt) {
       new YoutubeBlocker(enabled, adBlockSelectors, popupConfig);
     } else if (/dailymotion\.com/.test(window.location.origin)) {
-      new DailymotionBlocker(
-        enabled,
-        dailymotionAdBlockingSelectors,
-        isDailymotionTab,
-        popupConfig
-      );
+      new DailymotionBlocker(enabled, dailymotionAdBlockingSelectors, isDailymotionTab, popupConfig);
     } else if (pageUrl.searchParams.get("key") === "VZg4e13bFF1WkoDw9DNH") {
       new AdditionalBlockingEnableHandler(enabled);
     }

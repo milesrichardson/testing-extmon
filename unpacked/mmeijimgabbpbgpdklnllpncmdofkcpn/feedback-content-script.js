@@ -42466,12 +42466,13 @@
                 "ingestDestinationToggle",
                 "syncButton",
                 "navigationRedesign",
-                "lti"
+                "lti",
+                "monthlyPricingToggle"
               ])
             ),
             a(["v2_route_survey", "v2_route_watch", "v2_route_account", "v2_route_videos", "v2_route_manage_videos"])
           ),
-          ["useApiProxy"]
+          ["useApiProxy", "freeTierRestriction"]
         );
       var wm,
         km = n(53474),

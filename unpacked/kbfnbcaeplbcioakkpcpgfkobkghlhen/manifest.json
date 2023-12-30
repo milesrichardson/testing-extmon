@@ -234,7 +234,8 @@
     }
   ],
   "content_security_policy": {
-    "extension_pages": "default-src 'none'; font-src 'self' data:; img-src * data: blob:; media-src https://assets.extension.grammarly.com; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src https://auth.grammarly.com https://assets.grammarly.com/ https://data.grammarly.com https://capi.grammarly.com https://dox.grammarly.com https://institution.grammarly.com wss://capi.grammarly.com https://gnar.grammarly.com https://f-log-extension.grammarly.io https://f-log-editor.grammarly.io https://config.extension.grammarly.com https://chipmunk.grammarly.com https://treatment.grammarly.com https://gates.grammarly.com https://goldengate.grammarly.com https://femetrics.grammarly.io https://extension.femetrics.grammarly.io https://rwsgfy.grammarly.com https://assets.extension.grammarly.com https://api.iterable.com ;  report-uri https://f-log-extension.grammarly.io/logv2; "
+    "extension_pages": "default-src 'none'; font-src 'self' data:; img-src * data: blob:; media-src https://assets.extension.grammarly.com; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src https://auth.grammarly.com https://assets.grammarly.com/ https://data.grammarly.com https://capi.grammarly.com https://dox.grammarly.com https://institution.grammarly.com wss://capi.grammarly.com https://gnar.grammarly.com https://f-log-extension.grammarly.io https://f-log-editor.grammarly.io https://config.extension.grammarly.com https://chipmunk.grammarly.com https://treatment.grammarly.com https://gates.grammarly.com https://goldengate.grammarly.com https://femetrics.grammarly.io https://extension.femetrics.grammarly.io https://rwsgfy.grammarly.com https://assets.extension.grammarly.com https://api.iterable.com https://skills.grammarly.com https://skills-proxy.grammarly.com ;  report-uri https://f-log-extension.grammarly.io/logv2; ",
+    "sandbox": "sandbox allow-scripts; default-src *"
   },
   "description": "Improve your writing with all-in-one communication assistance—including grammar check, generative AI, and more.",
   "externally_connectable": {
@@ -249,7 +250,7 @@
   "manifest_version": 3,
   "name": "Grammarly: Grammar Checker and AI Writing App",
   "permissions": ["scripting", "tabs", "notifications", "cookies", "storage"],
-  "version": "14.1138.0",
+  "version": "14.1147.0",
   "web_accessible_resources": [
     {
       "resources": [
@@ -260,7 +261,8 @@
         "src/images/*.jpg",
         "src/images/*.gif",
         "src/js/*.js",
-        "src/css/*.css"
+        "src/css/*.css",
+        "src/gOS-sandbox.html"
       ],
       "matches": ["http://*/*", "https://*/*"]
     }
@@ -268,5 +270,8 @@
   "storage": {
     "managed_schema": "src/schema.json"
   },
-  "minimum_chrome_version": "88"
+  "minimum_chrome_version": "88",
+  "sandbox": {
+    "pages": ["src/gOS-sandbox.html"]
+  }
 }

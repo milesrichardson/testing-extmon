@@ -28,12 +28,11 @@ lazy(mega.gallery, "AlbumTimeline", () => {
       const selections = Object.keys(albums.grid.timeline.selections);
       const albumId = scope.getAlbumIdFromPath();
       const album = albums.store[albumId];
+      const { filterFn, at, eIds, nodes } = album;
       const options = [];
       let selectionsPreviewable = false;
 
-      const isCoverChangeable = !album.filterFn && selections.length === 1 && (!album.at.c || album.eIds[album.at.c] !== selections[0]);
-
-      const onlyImagesSelected = !selections.some((h) => !!scope.isVideo(M.d[h]));
+      const isCoverChangeable = !filterFn && selections.length === 1 && (!at.c || eIds[at.c] !== selections[0]);
 
       for (let i = 0; i < selections.length; i++) {
         if (scope.isPreviewable(M.d[selections[i]])) {
@@ -42,7 +41,7 @@ lazy(mega.gallery, "AlbumTimeline", () => {
         }
       }
 
-      if (onlyImagesSelected) {
+      if (scope.nodesAllowSlideshow(nodes)) {
         options.push({
           label: l.album_play_slideshow,
           icon: "play-square",
@@ -97,7 +96,7 @@ lazy(mega.gallery, "AlbumTimeline", () => {
         });
       }
 
-      if (!album.filterFn) {
+      if (!filterFn) {
         options.push(
           {},
           {
@@ -122,9 +121,9 @@ lazy(mega.gallery, "AlbumTimeline", () => {
       const selections = Object.keys(albums.grid.timeline.selections);
 
       const albumId = scope.getAlbumIdFromPath();
+      const { nodes } = albums.store[albumId];
       const options = [];
 
-      const oneImageSelected = selections.length === 1 && !!scope.isImage(M.d[selections[0]]);
       const hasImageSelected = selections.some((h) => !!scope.isImage(M.d[h]));
       const onlyPlayableVideosSelected = selections.every(
         (h) => !!(scope.isVideo(M.d[h]) && scope.isVideo(M.d[h]).isPreviewable && MediaAttribute.getMediaType(M.d[h]))
@@ -138,16 +137,16 @@ lazy(mega.gallery, "AlbumTimeline", () => {
             scope.playSlideshow(albumId);
           }
         });
-      }
 
-      if (oneImageSelected) {
-        options.push({
-          label: l.album_play_slideshow,
-          icon: "play-square",
-          click: () => {
-            scope.playSlideshow(albumId, true);
-          }
-        });
+        if (scope.nodesAllowSlideshow(nodes)) {
+          options.push({
+            label: l.album_play_slideshow,
+            icon: "play-square",
+            click: () => {
+              scope.playSlideshow(albumId, true);
+            }
+          });
+        }
       }
 
       if (onlyPlayableVideosSelected) {
@@ -170,6 +169,7 @@ lazy(mega.gallery, "AlbumTimeline", () => {
               return;
             }
 
+            eventlog(99954);
             M.addDownload(selections);
           }
         },

@@ -125,7 +125,10 @@ export function flushLogs(): Promise<any> {
       store = db.createObjectStore(logStoreName, { keyPath: "logs" });
     };
 
-    request.onerror = res;
+    request.onerror = (e) => {
+      console.error("LTI: error opening log IDB: ", e);
+      res(null);
+    };
 
     request.onsuccess = async () => {
       db = request.result;

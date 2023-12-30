@@ -2,7 +2,7 @@
   "update_url": "https://clients2.google.com/service/update2/crx",
 
   "name": "__MSG_appName__",
-  "version": "2.1.147",
+  "version": "2.1.188",
   "description": "__MSG_appDesc__",
   "default_locale": "en_US",
   "manifest_version": 3,
@@ -100,6 +100,10 @@
     {
       "resources": ["rewordify-worker.js", "sr-rewordify.wasm", "sr-rewordify.pvfs", "rewordify.html"],
       "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["onboarding/onboarding.html", "onboarding/onboarding.js"],
+      "matches": ["<all_urls>"]
     }
   ],
   "host_permissions": ["<all_urls>"],
@@ -120,8 +124,8 @@
       "https://www.googleapis.com/auth/drive.file",
       "https://www.googleapis.com/auth/drive.install",
       "https://www.googleapis.com/auth/drive.apps.readonly",
-      "https://www.googleapis.com/auth/drive",
-      "https://www.googleapis.com/auth/drive.appdata"
+      "https://www.googleapis.com/auth/drive.appdata",
+      "https://www.googleapis.com/auth/drive.appfolder"
     ]
   },
   "commands": {

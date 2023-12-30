@@ -2606,21 +2606,21 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/adblocker/content.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/adblocker/content.js":
       /*!***********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/adblocker/content.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/adblocker/content.js ***!
   \***********************************************************************************************/
       /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
         "use strict";
 
         var _adblockerCosmetics = _interopRequireDefault(
           __webpack_require__(
-            /*! ../platform/lib/adblocker-cosmetics */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/lib/adblocker-cosmetics.js"
+            /*! ../platform/lib/adblocker-cosmetics */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/lib/adblocker-cosmetics.js"
           )
         );
 
         var _register = __webpack_require__(
-          /*! ../core/content/register */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js"
+          /*! ../core/content/register */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js"
         );
 
         function _interopRequireDefault(obj) {
@@ -2663,9 +2663,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/antitracking/content.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/antitracking/content.js":
       /*!**************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/antitracking/content.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/antitracking/content.js ***!
   \**************************************************************************************************/
       /***/ () => {
         "use strict";
@@ -2680,9 +2680,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/config.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/config.js":
       /*!*****************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/config.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/config.js ***!
   \*****************************************************************************************/
       /***/ (__unused_webpack_module, exports) => {
         "use strict";
@@ -2813,27 +2813,27 @@
           ],
           environment: "development",
           isBeta: false,
-          EXTENSION_VERSION: "1.3.12",
-          VERSION: "1.3.12"
+          EXTENSION_VERSION: "1.3.13",
+          VERSION: "1.3.13"
         };
         exports["default"] = _default;
 
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content-script.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content-script.js":
       /*!*************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content-script.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content-script.js ***!
   \*************************************************************************************************/
       /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
         "use strict";
 
         __webpack_require__(
-          /*! ../module-content-script */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/module-content-script.js"
+          /*! ../module-content-script */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/module-content-script.js"
         );
 
         var _run = _interopRequireDefault(
-          __webpack_require__(/*! ./content/run */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/run.js")
+          __webpack_require__(/*! ./content/run */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/run.js")
         );
 
         function _interopRequireDefault(obj) {
@@ -2929,19 +2929,19 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content.js":
       /*!******************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content.js ***!
   \******************************************************************************************/
       /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
         "use strict";
 
         var _helpers = __webpack_require__(
-          /*! ./content/helpers */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/helpers.js"
+          /*! ./content/helpers */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/helpers.js"
         );
 
         var _register = __webpack_require__(
-          /*! ./content/register */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js"
+          /*! ./content/register */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js"
         );
 
         /*!
@@ -3121,9 +3121,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/actions-manager.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/actions-manager.js":
       /*!**********************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/actions-manager.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/actions-manager.js ***!
   \**********************************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -3135,13 +3135,13 @@
 
         var _remoteActionProvider = _interopRequireDefault(
           __webpack_require__(
-            /*! ../../core/helpers/remote-action-provider */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/helpers/remote-action-provider.js"
+            /*! ../../core/helpers/remote-action-provider */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/helpers/remote-action-provider.js"
           )
         );
 
         var _runtime = _interopRequireDefault(
           __webpack_require__(
-            /*! ../../platform/runtime */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/runtime.js"
+            /*! ../../platform/runtime */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/runtime.js"
           )
         );
 
@@ -3274,9 +3274,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/console.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/console.js":
       /*!**************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/console.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/console.js ***!
   \**************************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -3287,11 +3287,11 @@
         exports["default"] = void 0;
 
         var _globals = __webpack_require__(
-          /*! ../../platform/content/globals */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/content/globals.js"
+          /*! ../../platform/content/globals */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/content/globals.js"
         );
 
         var _config = _interopRequireDefault(
-          __webpack_require__(/*! ../config */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/config.js")
+          __webpack_require__(/*! ../config */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/config.js")
         );
 
         function _interopRequireDefault(obj) {
@@ -3328,9 +3328,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/helpers.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/helpers.js":
       /*!**************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/helpers.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/helpers.js ***!
   \**************************************************************************************************/
       /***/ (__unused_webpack_module, exports) => {
         "use strict";
@@ -3376,9 +3376,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/match-patterns.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/match-patterns.js":
       /*!*********************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/match-patterns.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/match-patterns.js ***!
   \*********************************************************************************************************/
       /***/ (__unused_webpack_module, exports) => {
         "use strict";
@@ -3582,9 +3582,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js":
       /*!***************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js ***!
   \***************************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -3597,16 +3597,16 @@
 
         var _matchPatterns = _interopRequireDefault(
           __webpack_require__(
-            /*! ./match-patterns */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/match-patterns.js"
+            /*! ./match-patterns */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/match-patterns.js"
           )
         );
 
         var _helpers = __webpack_require__(
-          /*! ./helpers */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/helpers.js"
+          /*! ./helpers */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/helpers.js"
         );
 
         var _console = _interopRequireDefault(
-          __webpack_require__(/*! ./console */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/console.js")
+          __webpack_require__(/*! ./console */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/console.js")
         );
 
         function _interopRequireDefault(obj) {
@@ -3758,9 +3758,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/run.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/run.js":
       /*!**********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/run.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/run.js ***!
   \**********************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -3771,23 +3771,23 @@
         exports["default"] = _default;
 
         var _globals = __webpack_require__(
-          /*! ../../platform/content/globals */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/content/globals.js"
+          /*! ../../platform/content/globals */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/content/globals.js"
         );
 
         var _runtime = _interopRequireDefault(
           __webpack_require__(
-            /*! ../../platform/runtime */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/runtime.js"
+            /*! ../../platform/runtime */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/runtime.js"
           )
         );
 
         var _actionsManager = _interopRequireDefault(
           __webpack_require__(
-            /*! ./actions-manager */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/actions-manager.js"
+            /*! ./actions-manager */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/actions-manager.js"
           )
         );
 
         var _register = __webpack_require__(
-          /*! ./register */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js"
+          /*! ./register */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js"
         );
 
         function _interopRequireDefault(obj) {
@@ -3907,9 +3907,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/decorators.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/decorators.js":
       /*!*********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/decorators.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/decorators.js ***!
   \*********************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -3927,12 +3927,12 @@
 
         var _sleep = _interopRequireDefault(
           __webpack_require__(
-            /*! ./helpers/sleep */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/helpers/sleep.js"
+            /*! ./helpers/sleep */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/helpers/sleep.js"
           )
         );
 
         var _timers = __webpack_require__(
-          /*! ../core/timers */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/timers.js"
+          /*! ../core/timers */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/timers.js"
         );
 
         function _interopRequireDefault(obj) {
@@ -4035,9 +4035,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/helpers/remote-action-provider.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/helpers/remote-action-provider.js":
       /*!*****************************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/helpers/remote-action-provider.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/helpers/remote-action-provider.js ***!
   \*****************************************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -4049,7 +4049,7 @@
 
         var _runtime = _interopRequireDefault(
           __webpack_require__(
-            /*! ../../platform/runtime */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/runtime.js"
+            /*! ../../platform/runtime */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/runtime.js"
           )
         );
 
@@ -4108,9 +4108,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/helpers/sleep.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/helpers/sleep.js":
       /*!************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/helpers/sleep.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/helpers/sleep.js ***!
   \************************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -4121,7 +4121,7 @@
         exports["default"] = sleep;
 
         var _timers = __webpack_require__(
-          /*! ../timers */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/timers.js"
+          /*! ../timers */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/timers.js"
         );
 
         /*!
@@ -4138,9 +4138,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/timers.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/timers.js":
       /*!*****************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/timers.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/timers.js ***!
   \*****************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -4174,15 +4174,15 @@
         });
 
         var _timers = __webpack_require__(
-          /*! ../platform/timers */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/timers.js"
+          /*! ../platform/timers */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/timers.js"
         );
 
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/human-web/ad-detection.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/human-web/ad-detection.js":
       /*!****************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/human-web/ad-detection.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/human-web/ad-detection.js ***!
   \****************************************************************************************************/
       /***/ (__unused_webpack_module, exports) => {
         "use strict";
@@ -4240,9 +4240,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/human-web/content.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/human-web/content.js":
       /*!***********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/human-web/content.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/human-web/content.js ***!
   \***********************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -4254,20 +4254,20 @@
 
         var _runtime = _interopRequireDefault(
           __webpack_require__(
-            /*! ../platform/runtime */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/runtime.js"
+            /*! ../platform/runtime */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/runtime.js"
           )
         );
 
         var _register = __webpack_require__(
-          /*! ../core/content/register */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js"
+          /*! ../core/content/register */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js"
         );
 
         var _decorators = __webpack_require__(
-          /*! ../core/decorators */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/decorators.js"
+          /*! ../core/decorators */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/decorators.js"
         );
 
         var _adDetection = __webpack_require__(
-          /*! ./ad-detection */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/human-web/ad-detection.js"
+          /*! ./ad-detection */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/human-web/ad-detection.js"
         );
 
         function _interopRequireDefault(obj) {
@@ -4474,19 +4474,19 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/insights/content.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/insights/content.js":
       /*!**********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/insights/content.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/insights/content.js ***!
   \**********************************************************************************************/
       /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
         "use strict";
 
         var _register = __webpack_require__(
-          /*! ../core/content/register */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content/register.js"
+          /*! ../core/content/register */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content/register.js"
         );
 
         var _timers = __webpack_require__(
-          /*! ../core/timers */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/timers.js"
+          /*! ../core/timers */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/timers.js"
         );
 
         /*!
@@ -4535,37 +4535,37 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/module-content-script.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/module-content-script.js":
       /*!***************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/module-content-script.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/module-content-script.js ***!
   \***************************************************************************************************/
       /***/ (__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
         "use strict";
 
-        __webpack_require__(/*! ./core/content */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content.js");
+        __webpack_require__(/*! ./core/content */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content.js");
 
         __webpack_require__(
-          /*! ./human-web/content */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/human-web/content.js"
+          /*! ./human-web/content */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/human-web/content.js"
         );
 
         __webpack_require__(
-          /*! ./antitracking/content */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/antitracking/content.js"
+          /*! ./antitracking/content */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/antitracking/content.js"
         );
 
         __webpack_require__(
-          /*! ./adblocker/content */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/adblocker/content.js"
+          /*! ./adblocker/content */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/adblocker/content.js"
         );
 
         __webpack_require__(
-          /*! ./insights/content */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/insights/content.js"
+          /*! ./insights/content */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/insights/content.js"
         );
 
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/content/globals.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/content/globals.js":
       /*!******************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/content/globals.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/content/globals.js ***!
   \******************************************************************************************************/
       /***/ (__unused_webpack_module, exports) => {
         "use strict";
@@ -4590,9 +4590,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/lib/adblocker-cosmetics.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/lib/adblocker-cosmetics.js":
       /*!**************************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/lib/adblocker-cosmetics.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/lib/adblocker-cosmetics.js ***!
   \**************************************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -4614,9 +4614,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/runtime.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/runtime.js":
       /*!**********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/runtime.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/runtime.js ***!
   \**********************************************************************************************/
       /***/ (__unused_webpack_module, exports, __webpack_require__) => {
         "use strict";
@@ -4650,9 +4650,9 @@
         /***/
       },
 
-    /***/ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/timers.js":
+    /***/ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/timers.js":
       /*!*********************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/platform/timers.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/platform/timers.js ***!
   \*********************************************************************************************/
       /***/ (__unused_webpack_module, exports) => {
         "use strict";
@@ -4762,11 +4762,11 @@
   (() => {
     "use strict";
     /*!********************************************************************************************************!*\
-  !*** ../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content-script.bundle.js ***!
+  !*** ../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content-script.bundle.js ***!
   \********************************************************************************************************/
 
     __webpack_require__(
-      /*! ./content-script */ "../../../../../tmp/broccoli-2005GX3hw8LKL0FT/out-40-funnel/modules/core/content-script.js"
+      /*! ./content-script */ "../../../../../tmp/broccoli-2053Bf7hUeJZRsxJ/out-40-funnel/modules/core/content-script.js"
     );
   })();
 

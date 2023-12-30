@@ -916,7 +916,8 @@ object-assign
         CreateFormsQuestions: "equatio_create_forms_questions",
         GenerateMathQuestions: "equatio_generate_math_questions",
         ShowFormsGeneratorUi: "show_forms_generator_ui",
-        LoginWithNYC: "equatio_login_with_nyc"
+        LoginWithNYC: "equatio_login_with_nyc",
+        SendAnalyticsEventGa4: "equatio_analytic_event_ga4"
       });
     function a(t, o) {
       var M,

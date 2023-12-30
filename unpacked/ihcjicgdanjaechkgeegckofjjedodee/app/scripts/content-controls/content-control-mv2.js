@@ -79,7 +79,7 @@ export class Mv2ContentControls extends ContentControls {
   }
   async _itemsFromStorage() {
     return new Promise((t, e) => {
-      (chrome.storage.sync || chrome.storage.local).get("contentControls", (o) => {
+      chrome.storage.local.get("contentControls", (o) => {
         chrome.runtime.lastError
           ? (console.error("Error getting content controls from storage", chrome.runtime.lastError), e(chrome.runtime.lastError))
           : t(o.contentControls);
@@ -88,7 +88,7 @@ export class Mv2ContentControls extends ContentControls {
   }
   async _saveItemsToStorage(t) {
     return new Promise((e, o) => {
-      (chrome.storage.sync || chrome.storage.local).set({ contentControls: t }, () => {
+      chrome.storage.local.set({ contentControls: t }, () => {
         chrome.runtime.lastError
           ? (console.error("Error saving content controls to storage", chrome.runtime.lastError), o(chrome.runtime.lastError))
           : e();

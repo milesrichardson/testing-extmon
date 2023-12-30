@@ -5,7 +5,7 @@
   "name": "Screencastify - Screen Video Recorder",
   "short_name": "Screencastify",
   "description": "The leading screen recorder for Chrome. Capture, edit and share videos in seconds.",
-  "version": "3.21.0.5038",
+  "version": "3.23.0.5069",
   "icons": {
     "16": "assets/images/icon16.png",
     "48": "assets/images/icon48.png",
@@ -79,5 +79,5 @@
   },
   "content_security_policy": "    script-src 'unsafe-inline' 'unsafe-eval' 'self' https://www.google-analytics.com https://apis.google.com https://app.pendo.io https://pendo-io-static.storage.googleapis.com https://cdn.pendo.io https://pendo-static-5576174479474688.storage.googleapis.com https://data.pendo.io;    object-src 'self';    img-src https://*.googleusercontent.com https://cdn.pendo.io https://app.pendo.io https://pendo-static-5576174479474688.storage.googleapis.com https://data.pendo.io;    style-src 'self' 'unsafe-inline' https://app.pendo.io https://cdn.pendo.io https://pendo-static-5576174479474688.storage.googleapis.com;    frame-src https://app.pendo.io;    child-src https://app.pendo.io;    ",
   "web_accessible_resources": ["assets/fonts/draw/*.woff2", "cam-frame.html", "app.html*"],
-  "version_name": "3.21.0-2a78add88"
+  "version_name": "3.23.0-c3ab2198d"
 }

@@ -3623,6 +3623,22 @@
     );
   }
 
+  function cachedFactory(factory, size) {
+    const cache = new Map();
+    return (key) => {
+      if (cache.has(key)) {
+        return cache.get(key);
+      }
+      const value = factory(key);
+      cache.set(key, value);
+      if (cache.size > size) {
+        const first = cache.keys().next().value;
+        cache.delete(first);
+      }
+      return value;
+    };
+  }
+
   const simpleIPV6Regex = /\[[0-9:a-zA-Z]+?\]/;
   function isIPV6(url) {
     const openingBracketIndex = simpleIPV6Regex.exec(url);
@@ -3662,56 +3678,139 @@
   function isURLMatched(url, urlTemplate) {
     const isFirstIPV6 = isIPV6(url);
     const isSecondIPV6 = isIPV6(urlTemplate);
-    if (isFirstIPV6 && isSecondIPV6) {
+    if (isRegExp(urlTemplate)) {
+      const regexp = createRegExp(urlTemplate);
+      return regexp ? regexp.test(url) : false;
+    } else if (isFirstIPV6 && isSecondIPV6) {
       return compareIPV6(url, urlTemplate);
     } else if (!isFirstIPV6 && !isSecondIPV6) {
-      const regex = createUrlRegex(urlTemplate);
-      return regex !== null && Boolean(url.match(regex));
+      return matchURLPattern(url, urlTemplate);
     }
     return false;
   }
-  function createUrlRegex(urlTemplate) {
+  const URL_CACHE_SIZE = 32;
+  const prepareURL = cachedFactory((url) => {
+    let parsed;
     try {
-      urlTemplate = urlTemplate.trim();
-      const exactBeginning = urlTemplate[0] === "^";
-      const exactEnding = urlTemplate[urlTemplate.length - 1] === "$";
-      const hasLastSlash = /\/\$?$/.test(urlTemplate);
-      urlTemplate = urlTemplate
-        .replace(/^\^/, "")
-        .replace(/\$$/, "")
-        .replace(/^.*?\/{2,3}/, "")
-        .replace(/\?.*$/, "")
-        .replace(/\/$/, "");
-      let slashIndex;
-      let beforeSlash;
-      let afterSlash;
-      if ((slashIndex = urlTemplate.indexOf("/")) >= 0) {
-        beforeSlash = urlTemplate.substring(0, slashIndex);
-        afterSlash = urlTemplate.replace(/\$/g, "").substring(slashIndex);
-      } else {
-        beforeSlash = urlTemplate.replace(/\$/g, "");
-      }
-      let result = exactBeginning ? "^(.*?\\:\\/{2,3})?" : "^(.*?\\:\\/{2,3})?([^/]*?\\.)?";
-      const hostParts = beforeSlash.split(".");
-      result += "(";
-      for (let i = 0; i < hostParts.length; i++) {
-        if (hostParts[i] === "*") {
-          hostParts[i] = "[^\\.\\/]+?";
-        }
-      }
-      result += hostParts.join("\\.");
-      result += ")";
-      if (afterSlash) {
-        result += "(";
-        result += afterSlash.replace("/", "\\/");
-        result += ")";
-      }
-      result += exactEnding ? "(\\/?(\\?[^/]*?)?)$" : `(\\/${hasLastSlash ? "" : "?"}.*?)$`;
-      return new RegExp(result, "i");
-    } catch (e) {
+      parsed = new URL(url);
+    } catch (err) {
       return null;
     }
+    const { hostname, pathname, protocol, port } = parsed;
+    const hostParts = hostname.split(".").reverse();
+    const pathParts = pathname.split("/").slice(1);
+    if (!pathParts[pathParts.length - 1]) {
+      pathParts.splice(pathParts.length - 1, 1);
+    }
+    return {
+      hostParts,
+      pathParts,
+      port,
+      protocol
+    };
+  }, URL_CACHE_SIZE);
+  const URL_MATCH_CACHE_SIZE = 32 * 1024;
+  const preparePattern = cachedFactory((pattern) => {
+    if (!pattern) {
+      return null;
+    }
+    const exactStart = pattern.startsWith("^");
+    const exactEnd = pattern.endsWith("$");
+    if (exactStart) {
+      pattern = pattern.substring(1);
+    }
+    if (exactEnd) {
+      pattern = pattern.substring(0, pattern.length - 1);
+    }
+    let protocol = "";
+    const protocolIndex = pattern.indexOf("://");
+    if (protocolIndex > 0) {
+      protocol = pattern.substring(0, protocolIndex + 1);
+      pattern = pattern.substring(protocolIndex + 3);
+    }
+    const slashIndex = pattern.indexOf("/");
+    const host = slashIndex < 0 ? pattern : pattern.substring(0, slashIndex);
+    let hostName = host;
+    let port = "*";
+    const portIndex = host.indexOf(":");
+    if (portIndex >= 0) {
+      hostName = host.substring(0, portIndex);
+      port = host.substring(portIndex + 1);
+    }
+    const hostParts = hostName.split(".").reverse();
+    const path = slashIndex < 0 ? "" : pattern.substring(slashIndex + 1);
+    const pathParts = path.split("/");
+    if (!pathParts[pathParts.length - 1]) {
+      pathParts.splice(pathParts.length - 1, 1);
+    }
+    return {
+      hostParts,
+      pathParts,
+      port,
+      exactStart,
+      exactEnd,
+      protocol
+    };
+  }, URL_MATCH_CACHE_SIZE);
+  function matchURLPattern(url, pattern) {
+    const u = prepareURL(url);
+    const p = preparePattern(pattern);
+    if (
+      !(u && p) ||
+      p.hostParts.length > u.hostParts.length ||
+      (p.exactStart && p.hostParts.length !== u.hostParts.length) ||
+      (p.exactEnd && p.pathParts.length !== u.pathParts.length) ||
+      (p.port !== "*" && p.port !== u.port) ||
+      (p.protocol && p.protocol !== u.protocol)
+    ) {
+      return false;
+    }
+    for (let i = 0; i < p.hostParts.length; i++) {
+      const pHostPart = p.hostParts[i];
+      const uHostPart = u.hostParts[i];
+      if (pHostPart !== "*" && pHostPart !== uHostPart) {
+        return false;
+      }
+    }
+    if (
+      p.hostParts.length >= 2 &&
+      p.hostParts.at(-1) !== "*" &&
+      (p.hostParts.length < u.hostParts.length - 1 || (p.hostParts.length === u.hostParts.length - 1 && u.hostParts.at(-1) !== "www"))
+    ) {
+      return false;
+    }
+    if (p.pathParts.length === 0) {
+      return true;
+    }
+    if (p.pathParts.length > u.pathParts.length) {
+      return false;
+    }
+    for (let i = 0; i < p.pathParts.length; i++) {
+      const pPathPart = p.pathParts[i];
+      const uPathPart = u.pathParts[i];
+      if (pPathPart !== "*" && pPathPart !== uPathPart) {
+        return false;
+      }
+    }
+    return true;
   }
+  function isRegExp(pattern) {
+    return pattern.startsWith("/") && pattern.endsWith("/") && pattern.length > 2;
+  }
+  const REGEXP_CACHE_SIZE = 1024;
+  const createRegExp = cachedFactory((pattern) => {
+    if (pattern.startsWith("/")) {
+      pattern = pattern.substring(1);
+    }
+    if (pattern.endsWith("/")) {
+      pattern = pattern.substring(0, pattern.length - 1);
+    }
+    try {
+      return new RegExp(pattern);
+    } catch (err) {
+      return null;
+    }
+  }, REGEXP_CACHE_SIZE);
   function isPDF(url) {
     try {
       const { hostname, pathname } = new URL(url);
@@ -3748,10 +3847,10 @@
     if (isPDF(url)) {
       return userSettings.enableForPDF;
     }
-    const isURLInUserList = isURLInList(url, userSettings.siteList);
-    const isURLInEnabledList = isURLInList(url, userSettings.siteListEnabled);
-    if (userSettings.applyToListedOnly) {
-      return isURLInEnabledList || isURLInUserList;
+    const isURLInDisabledList = isURLInList(url, userSettings.disabledFor);
+    const isURLInEnabledList = isURLInList(url, userSettings.enabledFor);
+    if (!userSettings.enabledByDefault) {
+      return isURLInEnabledList;
     }
     if (isURLInEnabledList) {
       return true;
@@ -3759,7 +3858,7 @@
     if (isInDarkList || (userSettings.detectDarkTheme && isDarkThemeDetected)) {
       return false;
     }
-    return !isURLInUserList;
+    return !isURLInDisabledList;
   }
   function isLocalFile(url) {
     return Boolean(url) && url.startsWith("file:///");
@@ -4168,7 +4267,7 @@
   function MoreSiteSettings({ data, actions, isExpanded, onClose }) {
     function toggleEnabledByDefault() {
       actions.changeSettings({
-        applyToListedOnly: !data.settings.applyToListedOnly
+        enabledByDefault: !data.settings.enabledByDefault
       });
     }
     function toggleDetectDarkTheme() {
@@ -4209,7 +4308,7 @@
           },
           m$1(CheckBox, {
             class: "header__more-settings__enabled-by-default__checkbox",
-            checked: !data.settings.applyToListedOnly,
+            checked: data.settings.enabledByDefault,
             onchange: toggleEnabledByDefault
           }),
           m$1(
@@ -4217,7 +4316,7 @@
             {
               class: {
                 "header__more-settings__enabled-by-default__button": true,
-                "header__more-settings__enabled-by-default__button--active": !data.settings.applyToListedOnly
+                "header__more-settings__enabled-by-default__button--active": data.settings.enabledByDefault
               },
               onclick: toggleEnabledByDefault
             },
@@ -5178,14 +5277,15 @@
     immediateModify: false
   };
   const DEFAULT_SETTINGS = {
+    schemeVersion: 0,
     enabled: true,
     fetchNews: true,
     theme: DEFAULT_THEME,
     presets: [],
     customThemes: [],
-    siteList: [],
-    siteListEnabled: [],
-    applyToListedOnly: false,
+    enabledByDefault: true,
+    enabledFor: [],
+    disabledFor: [],
     changeBrowserTheme: false,
     syncSettings: true,
     syncSitesFixes: false,
@@ -5800,12 +5900,12 @@
 
   function EnabledByDefaultGroup(props) {
     function onEnabledByDefaultChange(checked) {
-      props.actions.changeSettings({ applyToListedOnly: !checked });
+      props.actions.changeSettings({ enabledByDefault: checked });
     }
     return m$1(CheckButton, {
-      checked: !props.data.settings.applyToListedOnly,
+      checked: props.data.settings.enabledByDefault,
       label: "Enable by default",
-      description: props.data.settings.applyToListedOnly ? "Disabled on all websites by default" : "Enabled on all websites by default",
+      description: props.data.settings.enabledByDefault ? "Enabled on all websites by default" : "Disabled on all websites by default",
       onChange: onEnabledByDefaultChange
     });
   }
@@ -5984,7 +6084,7 @@
     }
     function reset() {
       context.store.isDialogVisible = false;
-      props.actions.changeSettings({ siteList: [] });
+      props.actions.changeSettings({ enabledFor: [], disabledFor: [] });
     }
     const dialog = context.store.isDialogVisible
       ? m$1(MessageBox, {
@@ -6001,8 +6101,11 @@
   }
 
   function SiteListPage(props) {
+    const { settings } = props.data;
+    const { enabledByDefault } = settings;
     function onSiteListChange(sites) {
-      props.actions.changeSettings({ siteList: sites });
+      const changes = enabledByDefault ? { disabledFor: sites } : { enabledFor: sites };
+      props.actions.changeSettings(changes);
     }
     function onInvertPDFChange(checked) {
       props.actions.changeSettings({ enableForPDF: checked });
@@ -6010,28 +6113,26 @@
     function onEnableForProtectedPages(value) {
       props.actions.changeSettings({ enableForProtectedPages: value });
     }
-    const label = props.data.settings.applyToListedOnly ? "Enable on these websites" : "Disable on these websites";
+    const label = enabledByDefault ? "Disable on these websites" : "Enable on these websites";
+    const sites = enabledByDefault ? settings.disabledFor : settings.enabledFor;
     return m$1(
       "div",
       { class: "site-list-page" },
       m$1("label", { class: "site-list-page__label" }, label),
-      props.data.settings.siteList.length ? m$1(RemoveAllButton, { ...props }) : null,
-      m$1(SiteList, {
-        siteList: props.data.settings.siteList,
-        onChange: onSiteListChange
-      }),
+      sites.length ? m$1(RemoveAllButton, { ...props }) : null,
+      m$1(SiteList, { siteList: sites, onChange: onSiteListChange }),
       m$1("label", { class: "site-list-page__description" }, "Enter website name and press Enter"),
       m$1(CheckButton, {
-        checked: props.data.settings.enableForPDF,
+        checked: settings.enableForPDF,
         label: "Enable for PDF files",
-        description: props.data.settings.enableForPDF ? "Enabled for PDF documents" : "Disabled for PDF documents",
+        description: settings.enableForPDF ? "Enabled for PDF documents" : "Disabled for PDF documents",
         onChange: onInvertPDFChange
       }),
       m$1(CheckButton, {
-        checked: props.data.settings.enableForProtectedPages,
+        checked: settings.enableForProtectedPages,
         onChange: onEnableForProtectedPages,
         label: "Enable on restricted pages",
-        description: props.data.settings.enableForProtectedPages
+        description: settings.enableForProtectedPages
           ? "You should enable it in browser flags too"
           : "Disabled for web store and other pages"
       })
@@ -6378,6 +6479,7 @@
       const { errors: themeErrors } = validateTheme(theme);
       return themeErrors.length === 0;
     };
+    validateProperty(settings, "schemeVersion", isNumber, DEFAULT_SETTINGS);
     validateProperty(settings, "enabled", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "fetchNews", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "theme", isPlainObject, DEFAULT_SETTINGS);
@@ -6405,11 +6507,11 @@
       presetValidator.validateProperty(custom, "theme", isValidPresetTheme, custom);
       return presetValidator.errors.length === 0;
     });
-    validateProperty(settings, "siteList", isArray, DEFAULT_SETTINGS);
-    validateArray(settings, "siteList", isNonEmptyString);
-    validateProperty(settings, "siteListEnabled", isArray, DEFAULT_SETTINGS);
-    validateArray(settings, "siteListEnabled", isNonEmptyString);
-    validateProperty(settings, "applyToListedOnly", isBoolean, DEFAULT_SETTINGS);
+    validateProperty(settings, "enabledFor", isArray, DEFAULT_SETTINGS);
+    validateArray(settings, "enabledFor", isNonEmptyString);
+    validateProperty(settings, "disabledFor", isArray, DEFAULT_SETTINGS);
+    validateArray(settings, "disabledFor", isNonEmptyString);
+    validateProperty(settings, "enabledByDefault", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "changeBrowserTheme", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "syncSettings", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "syncSitesFixes", isBoolean, DEFAULT_SETTINGS);
@@ -7021,19 +7123,20 @@
       { class: "site-list-settings" },
       m$1(Toggle, {
         class: "site-list-settings__toggle",
-        checked: data.settings.applyToListedOnly,
+        checked: !data.settings.enabledByDefault,
         labelOn: getLocalMessage("invert_listed_only"),
         labelOff: getLocalMessage("not_invert_listed"),
-        onChange: (value) => actions.changeSettings({ applyToListedOnly: value })
+        onChange: (value) => actions.changeSettings({ enabledByDefault: !value })
       }),
       m$1(TextList, {
         class: "site-list-settings__text-list",
         placeholder: "google.com/maps",
-        values: data.settings.siteList,
+        values: data.settings.enabledByDefault ? data.settings.disabledFor : data.settings.enabledFor,
         isFocused: isFocused,
         onChange: (values) => {
           const siteList = values.filter(isSiteUrlValid);
-          actions.changeSettings({ siteList });
+          const changes = data.settings.enabledByDefault ? { disabledFor: siteList } : { enabledFor: siteList };
+          actions.changeSettings(changes);
         }
       }),
       m$1(ShortcutLink, {

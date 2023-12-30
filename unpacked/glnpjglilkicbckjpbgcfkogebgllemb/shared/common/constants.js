@@ -82,8 +82,11 @@ Okta.Constants = (function () {
           GET_TEST_RESULTS: "getTestResults",
           CLEAR_TEST_RESULTS: "clearTestResults",
           PROCESS_USER_INPUT: "processUserInput",
+          GET_ALLOWED_INCOGNITO_ACCESS: "getAllowedIncognitoAccess",
+          UPDATE_TEST_RESULTS_SUBSCRIPTION: "updateTestResultsSubscription",
           SIGN_IN_TO_OKTA: "signInToOkta",
-          SET_SECURITY_ANSWER: "setSecurityAnswer"
+          SET_SECURITY_ANSWER: "setSecurityAnswer",
+          TEST_RESULTS_UPDATED: "testResultsUpdated"
         }
       },
       SamlTester: { APP_EMBED_LINK_REGEX: "[^/]+/home/([^/]+)/([^/]+)/[^/]+" },
@@ -179,7 +182,8 @@ Okta.Constants = (function () {
         ["USER_PINNED_ON_TOOLBAR", { def: !1 }],
         ["SECRET_KEY", { def: null, multiAccount: !0 }],
         ["HAS_POKTA_MONOLITH_VAULT", { def: null, multiAccount: !0 }],
-        ["POKTA_CORE_SERVICE_VAULT_INPUT_FORMAT", { def: null, multiAccount: !0 }]
+        ["POKTA_CORE_SERVICE_VAULT_INPUT_FORMAT", { def: null, multiAccount: !0 }],
+        ["POKTA_BANNER_DISMISSED", { def: !1 }]
       ],
       function (e) {
         E(_, "Persistent", e[0], e[1]);

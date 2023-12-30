@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "אפליקציות"
+  },
+  "EndOfSupportHeader": {
+    "message": "סיום התמיכה של הרחבת Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "החל מ- 15 בינואר 2024, Microsoft לא ת תומך עוד בהרחבה זו."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "לקבלת מידע נוסף, בקר בדף התמיכה של הרחבה זו."
+  },
+  "Support": {
+    "message": "תמיכה"
   }
 }

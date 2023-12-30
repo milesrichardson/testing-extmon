@@ -1290,7 +1290,7 @@ var reduxApp,
                       }
                     ]
                   })
-                : ("undefined" === Et &&
+                : (("undefined" === Et || ("function" == typeof LPPlatform.isSPA && LPPlatform.isSPA())) &&
                     !d.isExtensionDownloaded() &&
                     LPFeatures.allowLicenseExpiration() &&
                     (VaultLicenseExpiration.premiumTrialStatusChecker() || VaultLicenseExpiration.companyLicenseStatusChecker()) &&
@@ -1584,9 +1584,7 @@ var reduxApp,
               d.welcomeExperimentShown() &&
                 (g.removeClass("onBoardingDrawerOpened"), g.addClass("onBoardingWidget"), reduxApp.minimizeSecondaryOnboarding()),
               n.click(function () {
-                LPFeatures.importPasswordsInVaultEnabled()
-                  ? (d.openImportPasswords("Empty Welcome Screen"), bg.sendLpImprove("import_welcome_screen_click", { option: "import" }))
-                  : LPProxy.import("welcome_screen");
+                LPFeatures.importPasswordsInVaultEnabled() ? d.openImportPasswords("empty_vault_screen") : LPProxy.import("welcome_screen");
               }),
               i.click(function () {
                 dialogs.addItem.open(), bg.sendLpImprove("import_welcome_screen_click", { option: "add_item_dialog" });
@@ -1621,25 +1619,41 @@ var reduxApp,
                   SW_cache_count: 0,
                   SW_cache_miss_count: 0
                 });
-            "serviceWorker" in navigator
-              ? navigator.serviceWorker
+            isSPA && "serviceWorker" in navigator
+              ? (bg.get("mv3_extension_used_to_get_key") ||
+                  navigator.serviceWorker.ready.then(function (e) {
+                    e.active.postMessage({ type: "logout-other-spa-tabs" });
+                  }),
+                navigator.serviceWorker
                   .getRegistration()
                   .then(function (e) {
-                    function t(e) {
-                      "cache-status" === e.data.type &&
-                        ((a.SW_cache_size = e.data.cacheSize),
-                        (a.SW_cache_count = e.data.cacheCount),
-                        (a.SW_cache_miss_count = e.data.cacheMissCount),
-                        bg.sendLpImprove("vault_all_items_load", a),
-                        navigator.serviceWorker.removeEventListener("message", t));
+                    function t(t, n) {
+                      var i = function (e) {
+                        e.data.type === t && (navigator.serviceWorker.removeEventListener("message", i), n(e));
+                      };
+                      navigator.serviceWorker.addEventListener("message", i);
                     }
                     e && e.active
-                      ? (navigator.serviceWorker.addEventListener("message", t), e.active.postMessage({ type: "get-cache-size" }))
+                      ? (t("cache-status", function (e) {
+                          (a.SW_cache_size = e.data.cacheSize),
+                            (a.SW_cache_count = e.data.cacheCount),
+                            (a.SW_cache_miss_count = e.data.cacheMissCount),
+                            bg.sendLpImprove("vault_all_items_load", a);
+                        }),
+                        e.active.postMessage({ type: "get-cache-size" }),
+                        t("caching-is-done", function (t) {
+                          var n = $('<div id="sw-caching-is-done"/>');
+                          Object.keys(t.data.results || {}).forEach(function (e) {
+                            n.attr(e, t.data.results[e]);
+                          }),
+                            $("body").append(n);
+                        }),
+                        e.active.postMessage({ type: "is-caching-done" }))
                       : bg.sendLpImprove("vault_all_items_load", a);
                   })
                   .catch(function (e) {
                     bg.sendLpImprove("vault_all_items_load", a), console.log("error occured during getting sw registration ", e);
-                  })
+                  }))
               : bg.sendLpImprove("vault_all_items_load", a),
               reduxApp && reduxApp.initFinished && reduxApp.initFinished();
           }
@@ -1869,7 +1883,7 @@ var reduxApp,
               reduxApp.setExpiredFamiliesPurchaseFlowType(LPProxy.getFamilyMemberType(), "Direct Link");
             break;
           case "import":
-            reduxApp && LPFeatures.importPasswordsInVaultEnabled() ? d.openImportPasswords() : LPProxy.import("advanced_options");
+            reduxApp && LPFeatures.importPasswordsInVaultEnabled() ? d.openImportPasswords("import") : LPProxy.import("advanced_options");
             break;
           case "startpasswordlessenrollmentsetup":
             var a = "true" === t.enablePasswordlessOnOtherDevice;
@@ -2366,7 +2380,7 @@ var reduxApp,
         ze.show();
       }),
       (d.openImportPasswords = function (e) {
-        Ye.show(), e && bg.sendLpImprove("Import Start Viewed", { source: e });
+        Ye.show(), e && bg.sendLpImprove("import_start_viewed", { origin: e });
       }),
       (d.openFamiliesInVault = function () {
         qe.show();
@@ -2530,7 +2544,7 @@ var reduxApp,
           bg.get("g_is_restricted")
             ? d.openVaultDeviceLimitDialog()
             : LPFeatures.importPasswordsInVaultEnabled()
-            ? d.openImportPasswords("Advanced Options")
+            ? d.openImportPasswords("advanced_options")
             : LPProxy.import("advanced_options");
         }),
         LPPlatform.addEventListener(u.getElementById("toolsExport"), "click", function () {
@@ -3047,6 +3061,10 @@ var reduxApp,
                                     case o.TYPE.Password:
                                       dialogs.site.open(),
                                         bg.sendLpImprove("vault_add_item_click", { item_type: "Password", os_type: v, browser_type: _ });
+                                      break;
+                                    case o.TYPE.Application:
+                                      dialogs.application.open(),
+                                        bg.sendLpImprove("vault_add_item_click", { item_type: "Application", os_type: v, browser_type: _ });
                                       break;
                                     case o.TYPE.Custom:
                                       dialogs.addItem.open({ isExpanded: !0 }),

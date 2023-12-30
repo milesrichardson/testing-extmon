@@ -33,7 +33,7 @@
 
       const addonName = "adblockpluschrome";
       const baseName = "adblockplus";
-      const addonVersion = "3.21";
+      const addonVersion = "3.21.1";
       let application = null;
       let applicationVersion;
       const platform = "chromium";
@@ -42266,7 +42266,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       /***/
     },
 
-    /***/ 880: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 99: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
       // ESM COMPAT FLAG
       __webpack_require__.r(__webpack_exports__);
@@ -42284,8 +42284,8 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       );
       // EXTERNAL MODULE: ./node_modules/@eyeo/webext-sdk/dist/ewe-api.js
       var ewe_api = __webpack_require__(502);
-      // EXTERNAL MODULE: ./src/ipm/background/index.ts + 13 modules
-      var background = __webpack_require__(216);
+      // EXTERNAL MODULE: ./src/ipm/background/index.ts + 2 modules
+      var background = __webpack_require__(128);
       // EXTERNAL MODULE: ./src/premium/background/index.ts + 1 modules
       var premium_background = __webpack_require__(282);
       // EXTERNAL MODULE: ./adblockpluschrome/lib/messaging/port.js
@@ -43043,39 +43043,121 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         void ewe_api.notifications.showNext();
       });
 
-      ewe_api.notifications.addShowListener(showNotification); // CONCATENATED MODULE: ./src/unload-cleanup/background/unload-cleanup.types.ts
+      ewe_api.notifications.addShowListener(showNotification);
 
-      const className = "__adblockplus__injected"; // CONCATENATED MODULE: ./src/unload-cleanup/shared/unload-cleanup.types.ts
+      // EXTERNAL MODULE: ./src/polyfills/shared/polyfill.ts
+      var polyfill = __webpack_require__(455); // CONCATENATED MODULE: ./src/unload-cleanup/shared/unload-cleanup.ts
+      function isGetClassNameMessage(candidate) {
+        return (0, polyfill /* isMessage */.c)(candidate) && candidate.type === "unload-cleanup.getClassName";
+      } // CONCATENATED MODULE: ./src/unload-cleanup/shared/unload-cleanup.types.ts
 
       var DisplayValue;
       (function (DisplayValue) {
         DisplayValue["block"] = "block";
       })(DisplayValue || (DisplayValue = {}));
-      const displayValueList = Object.values(DisplayValue);
-      const messageName = "getUnloadClassName"; // CONCATENATED MODULE: ./src/unload-cleanup/shared/index.ts
-      // CONCATENATED MODULE: ./src/unload-cleanup/background/unload-cleanup.ts
+      const displayValueList = Object.values(DisplayValue); // CONCATENATED MODULE: ./src/unload-cleanup/shared/index.ts
+      // CONCATENATED MODULE: ./src/unload-cleanup/background/unload-cleanup.types.ts
+
+      const className = "__adblockplus__injected"; // CONCATENATED MODULE: ./src/unload-cleanup/background/unload-cleanup.ts
+
+      var __awaiter =
+        (undefined && undefined.__awaiter) ||
+        function (thisArg, _arguments, P, generator) {
+          function adopt(value) {
+            return value instanceof P
+              ? value
+              : new P(function (resolve) {
+                  resolve(value);
+                });
+          }
+          return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) {
+              try {
+                step(generator.next(value));
+              } catch (e) {
+                reject(e);
+              }
+            }
+            function rejected(value) {
+              try {
+                step(generator["throw"](value));
+              } catch (e) {
+                reject(e);
+              }
+            }
+            function step(result) {
+              result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+            }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+          });
+        };
 
       const css = displayValueList
         .map((displayValue) => `.${className}--${displayValue} {display: ${displayValue} !important;}`)
         .join("\n");
       function handleMessage(message, sender) {
-        if (message !== messageName) {
-          return;
-        }
-        if (info_chrome_js.application !== "firefox" || typeof sender.tab === "undefined") {
-          return;
-        }
-        return browser.tabs
-          .insertCSS(sender.tab.id, {
+        return __awaiter(this, void 0, void 0, function* () {
+          if (!isGetClassNameMessage(message)) {
+            return;
+          }
+          if (info_chrome_js.application !== "firefox" || typeof sender.page === "undefined") {
+            return;
+          }
+          yield browser.tabs.insertCSS(sender.page.id, {
             code: css,
-            frameId: sender.frameId,
+            frameId: sender.frame.id,
             runAt: "document_start"
-          })
-          .then(() => className);
+          });
+          return className;
+        });
       }
       function unload_cleanup_start() {
-        browser.runtime.onMessage.addListener(handleMessage);
+        port.port.on("unload-cleanup.getClassName", handleMessage);
+        ext.addTrustedMessageTypes(null, ["unload-cleanup.getClassName"]);
       } // CONCATENATED MODULE: ./src/unload-cleanup/background/index.ts
+
+      // EXTERNAL MODULE: ./src/ipm/background/telemetry.ts + 2 modules
+      var telemetry = __webpack_require__(887); // CONCATENATED MODULE: ./src/testing/ping-ipm/background/ping-ipm.ts
+      var ping_ipm_awaiter =
+        (undefined && undefined.__awaiter) ||
+        function (thisArg, _arguments, P, generator) {
+          function adopt(value) {
+            return value instanceof P
+              ? value
+              : new P(function (resolve) {
+                  resolve(value);
+                });
+          }
+          return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) {
+              try {
+                step(generator.next(value));
+              } catch (e) {
+                reject(e);
+              }
+            }
+            function rejected(value) {
+              try {
+                step(generator["throw"](value));
+              } catch (e) {
+                reject(e);
+              }
+            }
+            function step(result) {
+              result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+            }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+          });
+        };
+
+      function ping_ipm_start() {
+        port.port.on("testing.ping_ipm_server", () =>
+          ping_ipm_awaiter(this, void 0, void 0, function* () {
+            yield prefs.Prefs.untilLoaded;
+            (0, telemetry /* sendPing */._)();
+          })
+        );
+      } // CONCATENATED MODULE: ./src/testing/ping-ipm/background/index.ts
       // CONCATENATED MODULE: ./adblockpluschrome/lib/subscriptionInit.js
 
       /*
@@ -43233,6 +43315,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
           .BL();
         void (0, background /* startTelemetry */.VL)();
         unload_cleanup_start();
+        ping_ipm_start();
         setReadyState(ReadyState.started);
 
         /**
@@ -43293,7 +43376,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         _eyeo_webext_sdk__WEBPACK_IMPORTED_MODULE_1__
       );
       /* harmony import */ var _prefs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(968);
-      /* harmony import */ var _subscriptionInit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(880);
+      /* harmony import */ var _subscriptionInit_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(99);
       /*
        * This file is part of Adblock Plus <https://adblockplus.org/>,
        * Copyright (C) 2006-present eyeo GmbH
@@ -43452,7 +43535,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
 
       const info = __webpack_require__(503);
       const { Prefs } = __webpack_require__(968);
-      const { setNotifyUserCallback } = __webpack_require__(880);
+      const { setNotifyUserCallback } = __webpack_require__(99);
 
       const { showProblemNotification, showUpdatesNotification } = __webpack_require__(954);
       const { updatesVersion } = __webpack_require__(578);
@@ -46363,40 +46446,19 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       /***/
     },
 
-    /***/ 216: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    /***/ 42: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
       "use strict";
-
-      // EXPORTS
-      __webpack_require__.d(__webpack_exports__, {
-        G7: () => /* reexport */ CommandName,
-        qX: () => /* reexport */ createSafeOriginUrl,
-        _E: () => /* reexport */ dismissCommand,
-        J: () => /* reexport */ getBehavior,
-        L5: () => /* reexport */ getContent,
-        UE: () => /* reexport */ isNotEmpty,
-        w6: () => /* reexport */ isSafeUrl,
-        h8: () => /* reexport */ isValidDomainList,
-        Ny: () => /* reexport */ recordEvent,
-        yA: () => /* reexport */ setCommandActor,
-        VL: () => /* reexport */ telemetry_start,
-        uU: () => /* reexport */ validateParams
-      }); // CONCATENATED MODULE: ./src/ipm/background/command-library.types.ts
-
-      // UNUSED EXPORTS: CommandVersion, DataType, LicenseState, PlatformStatus, PlatformType, clearEvents, commandLibraryVersion, eventStorageKey, executeIPMCommand, getPayload, isNumeric
-
-      const commandLibraryVersion = 1;
-      var CommandName;
-      (function (CommandName) {
-        CommandName["createOnPageDialog"] = "create_on_page_dialog";
-      })(CommandName || (CommandName = {}));
-      const CommandVersion = {
-        [CommandName.createOnPageDialog]: 2
-      };
-
-      // EXTERNAL MODULE: ./src/logger/background/index.ts + 2 modules
-      var background = __webpack_require__(678);
-      // EXTERNAL MODULE: ./adblockpluschrome/lib/prefs.js
-      var prefs = __webpack_require__(968); // CONCATENATED MODULE: ./src/ipm/background/command-library.ts
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ J: () => /* binding */ getBehavior,
+        /* harmony export */ L5: () => /* binding */ getContent,
+        /* harmony export */ LE: () => /* binding */ executeIPMCommand,
+        /* harmony export */ _E: () => /* binding */ dismissCommand,
+        /* harmony export */ yA: () => /* binding */ setCommandActor
+        /* harmony export */
+      });
+      /* harmony import */ var _command_library_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(822);
+      /* harmony import */ var _logger_background__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(678);
+      /* harmony import */ var _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(968);
       var __awaiter =
         (undefined && undefined.__awaiter) ||
         function (thisArg, _arguments, P, generator) {
@@ -46429,7 +46491,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
           });
         };
 
-      const knownCommandsList = Object.values(CommandName);
+      const knownCommandsList = Object.values(_command_library_types__WEBPACK_IMPORTED_MODULE_0__ /* .CommandName */.G7);
       const commandStorageKey = "ipm_commands";
       const actorByCommandName = new Map();
       const unexecutableCommands = new Map();
@@ -46447,16 +46509,19 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         retryExecuteCommands(commandName);
       }
       function canProcessCommand(command) {
-        return knownCommandsList.includes(command.command_name) && command.version === CommandVersion[command.command_name];
+        return (
+          knownCommandsList.includes(command.command_name) &&
+          command.version === _command_library_types__WEBPACK_IMPORTED_MODULE_0__ /* .CommandVersion */.Pk[command.command_name]
+        );
       }
       function dismissCommand(ipmId) {
         const command = getCommand(ipmId);
         if (!command) {
           return;
         }
-        const commandStorage = prefs.Prefs.get(commandStorageKey);
+        const commandStorage = _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.get(commandStorageKey);
         delete commandStorage[command.ipm_id];
-        prefs.Prefs.set(commandStorageKey, commandStorage);
+        _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.set(commandStorageKey, commandStorage);
       }
       function getBehavior(ipmId) {
         const command = getCommand(ipmId);
@@ -46470,7 +46535,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         return actor.getBehavior(command);
       }
       function getCommand(ipmId) {
-        const commandStorage = prefs.Prefs.get(commandStorageKey);
+        const commandStorage = _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.get(commandStorageKey);
         return commandStorage[ipmId] || null;
       }
       function getContent(ipmId) {
@@ -46485,7 +46550,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         return actor.getContent(command);
       }
       function hasProcessedCommand(ipmId) {
-        const commandStorage = prefs.Prefs.get(commandStorageKey);
+        const commandStorage = _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.get(commandStorageKey);
         return ipmId in commandStorage;
       }
       function retryExecuteCommands(commandName) {
@@ -46498,36 +46563,36 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         }
       }
       function storeCommand(command) {
-        const storage = prefs.Prefs.get(commandStorageKey);
+        const storage = _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.get(commandStorageKey);
         storage[command.ipm_id] = command;
-        prefs.Prefs.set(commandStorageKey, storage);
+        _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.set(commandStorageKey, storage);
       }
       function executeIPMCommand(command, isInitialization = false) {
         if (!isCommand(command)) {
-          background /* error */
+          _logger_background__WEBPACK_IMPORTED_MODULE_1__ /* .error */
             .vU("[ipm]: Invalid command received.");
           return;
         }
         if (!canProcessCommand(command)) {
-          background /* error */
+          _logger_background__WEBPACK_IMPORTED_MODULE_1__ /* .error */
             .vU("[ipm]: Unknown command name received:", command.command_name);
           return;
         }
         const actor = actorByCommandName.get(command.command_name);
         if (!actor) {
-          background /* debug */
+          _logger_background__WEBPACK_IMPORTED_MODULE_1__ /* .debug */
             .fF("[ipm]: No actor found:", command.command_name);
           unexecutableCommands.set(command, isInitialization);
           return;
         }
         if (!actor.isValidCommand(command)) {
-          background /* error */
+          _logger_background__WEBPACK_IMPORTED_MODULE_1__ /* .error */
             .vU("[ipm]: Invalid parameters received.");
           return;
         }
         if (!isInitialization) {
           if (hasProcessedCommand(command.ipm_id)) {
-            background /* error */
+            _logger_background__WEBPACK_IMPORTED_MODULE_1__ /* .error */
               .vU("[ipm]: Campaign already processed:", command.ipm_id);
             return;
           }
@@ -46537,86 +46602,60 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       }
       function start() {
         return __awaiter(this, void 0, void 0, function* () {
-          yield prefs.Prefs.untilLoaded;
-          const commandStorage = prefs.Prefs.get(commandStorageKey);
+          yield _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.untilLoaded;
+          const commandStorage = _adblockpluschrome_lib_prefs__WEBPACK_IMPORTED_MODULE_2__.Prefs.get(commandStorageKey);
           for (const command of Object.values(commandStorage)) {
             executeIPMCommand(command, true);
           }
         });
       }
-      void start().catch(background /* error */.vU);
+      void start().catch(_logger_background__WEBPACK_IMPORTED_MODULE_1__ /* .error */.vU);
 
-      // EXTERNAL MODULE: ./src/core/url/shared/url.ts
-      var url = __webpack_require__(88); // CONCATENATED MODULE: ./src/ipm/background/url.ts
-      function createSafeOriginUrl(url) {
-        const safeOrigin = prefs.Prefs.get("ipm_safe_origin");
-        let safeOriginUrl;
-        try {
-          safeOriginUrl = new URL(url, safeOrigin);
-        } catch (ex) {
-          return null;
-        }
-        if (safeOriginUrl.origin !== safeOrigin) {
-          return null;
-        }
-        return safeOriginUrl.href;
-      } // CONCATENATED MODULE: ./src/ipm/background/param-validator.ts
+      /***/
+    },
 
-      const isNumeric = (param) => typeof param === "number" && !Number.isNaN(param);
-      const isNotEmpty = (param) => typeof param === "string" && param.length > 0;
-      const isSafeUrl = (param) => {
-        if (typeof param !== "string") {
-          return false;
-        }
-        const url = createSafeOriginUrl(param);
-        return typeof url === "string";
+    /***/ 822: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ AB: () => /* binding */ commandLibraryVersion,
+        /* harmony export */ G7: () => /* binding */ CommandName,
+        /* harmony export */ Pk: () => /* binding */ CommandVersion
+        /* harmony export */
+      });
+      const commandLibraryVersion = 1;
+      var CommandName;
+      (function (CommandName) {
+        CommandName["createOnPageDialog"] = "create_on_page_dialog";
+      })(CommandName || (CommandName = {}));
+      const CommandVersion = {
+        [CommandName.createOnPageDialog]: 2
       };
-      const isValidDomainList = (param) => {
-        if (!param) {
-          return true;
-        }
-        if (typeof param !== "string") {
-          return false;
-        }
-        return (0, url /* isDomainList */.Vx)(param);
-      };
-      function validateParams(command, paramDefinitions) {
-        return paramDefinitions
-          .map((definition) => {
-            const name = String(definition.name);
-            const param = command[name];
-            return definition.validate(param) ? "" : `Invalid value for parameter "${name}", got "${param}":`;
-          })
-          .filter((result) => result !== "");
-      }
+
+      /***/
+    },
+
+    /***/ 575: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        QF: () => /* binding */ clearEvents,
+        He: () => /* binding */ getPayload,
+        Ny: () => /* binding */ recordEvent
+      });
 
       // EXTERNAL MODULE: ./build/webext/templates/info.chrome.js.tmpl
       var info_chrome_js = __webpack_require__(503);
       // EXTERNAL MODULE: ./node_modules/webextension-polyfill/dist/browser-polyfill.js
-      var browser_polyfill = __webpack_require__(935); // CONCATENATED MODULE: ./src/ipm/background/data-collection.types.ts
-      var DataType;
-      (function (DataType) {
-        DataType["customer"] = "customer";
-        DataType["device"] = "device";
-        DataType["event"] = "event";
-      })(DataType || (DataType = {}));
-      var PlatformType;
-      (function (PlatformType) {
-        PlatformType["web"] = "web";
-      })(PlatformType || (PlatformType = {}));
-      var LicenseState;
-      (function (LicenseState) {
-        LicenseState["active"] = "active";
-        LicenseState["inactive"] = "inactive";
-      })(LicenseState || (LicenseState = {}));
-      var PlatformStatus;
-      (function (PlatformStatus) {
-        PlatformStatus["true"] = "true";
-      })(PlatformStatus || (PlatformStatus = {}));
-      const eventStorageKey = "ipm_events";
-
+      var browser_polyfill = __webpack_require__(935);
+      // EXTERNAL MODULE: ./adblockpluschrome/lib/prefs.js
+      var prefs = __webpack_require__(968);
+      // EXTERNAL MODULE: ./src/ipm/background/command-library.types.ts
+      var command_library_types = __webpack_require__(822);
+      // EXTERNAL MODULE: ./src/ipm/background/data-collection.types.ts
+      var data_collection_types = __webpack_require__(385);
       // EXTERNAL MODULE: ./src/premium/background/index.ts + 1 modules
-      var premium_background = __webpack_require__(282); // CONCATENATED MODULE: ./src/id/shared/uuid.ts
+      var background = __webpack_require__(282); // CONCATENATED MODULE: ./src/id/shared/uuid.ts
       const { crypto: uuid_crypto } = self;
       function generateUUID() {
         const uuid = new Uint16Array(8);
@@ -46636,7 +46675,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       } // CONCATENATED MODULE: ./src/id/shared/index.ts
       // CONCATENATED MODULE: ./src/id/background/id.ts
 
-      var id_awaiter =
+      var __awaiter =
         (undefined && undefined.__awaiter) ||
         function (thisArg, _arguments, P, generator) {
           function adopt(value) {
@@ -46670,7 +46709,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
 
       const installationIdStorageKey = "installation_id";
       function getInstallationId() {
-        return id_awaiter(this, void 0, void 0, function* () {
+        return __awaiter(this, void 0, void 0, function* () {
           yield prefs.Prefs.untilLoaded;
           let id = prefs.Prefs.get(installationIdStorageKey);
           if (id === "") {
@@ -46741,7 +46780,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
             os: (yield browser_polyfill.runtime.getPlatformInfo()).os,
             language_tag: browser_polyfill.i18n.getUILanguage(),
             app_version: info_chrome_js.addonVersion,
-            command_library_version: commandLibraryVersion,
+            command_library_version: command_library_types /* commandLibraryVersion */.AB,
             install_type: (yield browser_polyfill.management.getSelf()).installType
           };
         });
@@ -46749,16 +46788,16 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       function getEventData(ipmId, command, name) {
         return data_collection_awaiter(this, void 0, void 0, function* () {
           return {
-            type: DataType.event,
+            type: data_collection_types /* DataType.event */.g.event,
             device_id: yield getInstallationId(),
             action: name,
-            platform: PlatformType.web,
+            platform: data_collection_types /* PlatformType.web */.zh.web,
             app_version: info_chrome_js.addonVersion,
             user_time: getLocalTimeStamp(),
             attributes: Object.assign(Object.assign({}, yield getBaseAttributes()), {
               ipm_id: ipmId,
               command_name: command,
-              command_version: CommandVersion[command]
+              command_version: command_library_types /* CommandVersion */.Pk[command]
             })
           };
         });
@@ -46767,11 +46806,13 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         return data_collection_awaiter(this, void 0, void 0, function* () {
           yield prefs.Prefs.untilLoaded;
           return {
-            type: DataType.device,
+            type: data_collection_types /* DataType.device */.g.device,
             device_id: yield getInstallationId(),
             attributes: Object.assign(Object.assign({}, yield getBaseAttributes()), {
               blocked_total: 0,
-              license_status: (0, premium_background /* getPremiumState */.rh)().isActive ? LicenseState.active : LicenseState.inactive
+              license_status: (0, background /* getPremiumState */.rh)().isActive
+                ? data_collection_types /* LicenseState.active */.uN.active
+                : data_collection_types /* LicenseState.inactive */.uN.inactive
             })
           };
         });
@@ -46779,8 +46820,13 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       function getUserData() {
         return data_collection_awaiter(this, void 0, void 0, function* () {
           return {
-            type: DataType.customer,
-            platforms: [{ platform: PlatformType.web, active: PlatformStatus["true"] }],
+            type: data_collection_types /* DataType.customer */.g.customer,
+            platforms: [
+              {
+                platform: data_collection_types /* PlatformType.web */.zh.web,
+                active: data_collection_types /* PlatformStatus.true */.ag["true"]
+              }
+            ],
             attributes: yield getBaseAttributes()
           };
         });
@@ -46790,36 +46836,170 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
           yield prefs.Prefs.untilLoaded;
           const user = yield getUserData();
           const device = yield getDeviceData();
-          const events = prefs.Prefs.get(eventStorageKey);
+          const events = prefs.Prefs.get(data_collection_types /* eventStorageKey */.x0);
           return { user, device, events };
         });
       }
       function clearEvents() {
         return data_collection_awaiter(this, void 0, void 0, function* () {
           yield prefs.Prefs.untilLoaded;
-          prefs.Prefs.set(eventStorageKey, []);
+          prefs.Prefs.set(data_collection_types /* eventStorageKey */.x0, []);
         });
       }
       function recordEvent(ipmId, command, name) {
         return data_collection_awaiter(this, void 0, void 0, function* () {
           yield prefs.Prefs.untilLoaded;
           const eventData = yield getEventData(ipmId, command, name);
-          const eventStorage = prefs.Prefs.get(eventStorageKey);
+          const eventStorage = prefs.Prefs.get(data_collection_types /* eventStorageKey */.x0);
           eventStorage.push(eventData);
-          prefs.Prefs.set(eventStorageKey, eventStorage);
+          prefs.Prefs.set(data_collection_types /* eventStorageKey */.x0, eventStorage);
         });
       }
 
+      /***/
+    },
+
+    /***/ 385: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ ag: () => /* binding */ PlatformStatus,
+        /* harmony export */ g: () => /* binding */ DataType,
+        /* harmony export */ uN: () => /* binding */ LicenseState,
+        /* harmony export */ x0: () => /* binding */ eventStorageKey,
+        /* harmony export */ zh: () => /* binding */ PlatformType
+        /* harmony export */
+      });
+      var DataType;
+      (function (DataType) {
+        DataType["customer"] = "customer";
+        DataType["device"] = "device";
+        DataType["event"] = "event";
+      })(DataType || (DataType = {}));
+      var PlatformType;
+      (function (PlatformType) {
+        PlatformType["web"] = "web";
+      })(PlatformType || (PlatformType = {}));
+      var LicenseState;
+      (function (LicenseState) {
+        LicenseState["active"] = "active";
+        LicenseState["inactive"] = "inactive";
+      })(LicenseState || (LicenseState = {}));
+      var PlatformStatus;
+      (function (PlatformStatus) {
+        PlatformStatus["true"] = "true";
+      })(PlatformStatus || (PlatformStatus = {}));
+      const eventStorageKey = "ipm_events";
+
+      /***/
+    },
+
+    /***/ 128: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        G7: () => /* reexport */ command_library_types /* CommandName */.G7,
+        qX: () => /* reexport */ createSafeOriginUrl,
+        _E: () => /* reexport */ command_library /* dismissCommand */._E,
+        J: () => /* reexport */ command_library /* getBehavior */.J,
+        L5: () => /* reexport */ command_library /* getContent */.L5,
+        UE: () => /* reexport */ isNotEmpty,
+        w6: () => /* reexport */ isSafeUrl,
+        h8: () => /* reexport */ isValidDomainList,
+        Ny: () => /* reexport */ data_collection /* recordEvent */.Ny,
+        yA: () => /* reexport */ command_library /* setCommandActor */.yA,
+        VL: () => /* reexport */ telemetry /* start */.B,
+        uU: () => /* reexport */ validateParams
+      });
+
+      // UNUSED EXPORTS: CommandVersion, DataType, LicenseState, PlatformStatus, PlatformType, clearEvents, commandLibraryVersion, eventStorageKey, executeIPMCommand, getPayload, isNumeric
+
+      // EXTERNAL MODULE: ./src/ipm/background/command-library.ts
+      var command_library = __webpack_require__(42);
+      // EXTERNAL MODULE: ./src/ipm/background/command-library.types.ts
+      var command_library_types = __webpack_require__(822);
+      // EXTERNAL MODULE: ./src/core/url/shared/url.ts
+      var url = __webpack_require__(88);
+      // EXTERNAL MODULE: ./adblockpluschrome/lib/prefs.js
+      var prefs = __webpack_require__(968); // CONCATENATED MODULE: ./src/ipm/background/url.ts
+      function createSafeOriginUrl(url) {
+        const safeOrigin = prefs.Prefs.get("ipm_safe_origin");
+        let safeOriginUrl;
+        try {
+          safeOriginUrl = new URL(url, safeOrigin);
+        } catch (ex) {
+          return null;
+        }
+        if (safeOriginUrl.origin !== safeOrigin) {
+          return null;
+        }
+        return safeOriginUrl.href;
+      } // CONCATENATED MODULE: ./src/ipm/background/param-validator.ts
+
+      const isNumeric = (param) => typeof param === "number" && !Number.isNaN(param);
+      const isNotEmpty = (param) => typeof param === "string" && param.length > 0;
+      const isSafeUrl = (param) => {
+        if (typeof param !== "string") {
+          return false;
+        }
+        const url = createSafeOriginUrl(param);
+        return typeof url === "string";
+      };
+      const isValidDomainList = (param) => {
+        if (!param) {
+          return true;
+        }
+        if (typeof param !== "string") {
+          return false;
+        }
+        return (0, url /* isDomainList */.Vx)(param);
+      };
+      function validateParams(command, paramDefinitions) {
+        return paramDefinitions
+          .map((definition) => {
+            const name = String(definition.name);
+            const param = command[name];
+            return definition.validate(param) ? "" : `Invalid value for parameter "${name}", got "${param}":`;
+          })
+          .filter((result) => result !== "");
+      }
+
+      // EXTERNAL MODULE: ./src/ipm/background/data-collection.ts + 4 modules
+      var data_collection = __webpack_require__(575);
+      // EXTERNAL MODULE: ./src/ipm/background/data-collection.types.ts
+      var data_collection_types = __webpack_require__(385);
+      // EXTERNAL MODULE: ./src/ipm/background/telemetry.ts + 2 modules
+      var telemetry = __webpack_require__(887); // CONCATENATED MODULE: ./src/ipm/background/index.ts
+
+      /***/
+    },
+
+    /***/ 887: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+
+      // EXPORTS
+      __webpack_require__.d(__webpack_exports__, {
+        _: () => /* binding */ sendPing,
+        B: () => /* binding */ start
+      });
+
+      // EXTERNAL MODULE: ./adblockpluschrome/lib/prefs.js
+      var prefs = __webpack_require__(968);
       // EXTERNAL MODULE: ./src/core/scheduled-event-emitter/background/scheduled-event-emitter.ts
       var scheduled_event_emitter = __webpack_require__(621);
       // EXTERNAL MODULE: ./src/core/scheduled-event-emitter/background/scheduled-event-emitter.types.ts
       var scheduled_event_emitter_types = __webpack_require__(220); // CONCATENATED MODULE: ./src/core/scheduled-event-emitter/background/index.ts
-      // CONCATENATED MODULE: ./src/ipm/background/telemetry.types.ts
+      // EXTERNAL MODULE: ./src/ipm/background/command-library.ts
+      var command_library = __webpack_require__(42);
+      // EXTERNAL MODULE: ./src/ipm/background/data-collection.ts + 4 modules
+      var data_collection = __webpack_require__(575);
+      // EXTERNAL MODULE: ./src/logger/background/index.ts + 2 modules
+      var background = __webpack_require__(678); // CONCATENATED MODULE: ./src/ipm/background/telemetry.types.ts
       const scheduleName = "ipm_ping_schedule";
       const intervalKey = "ipm_ping_interval";
       const serverUrlKey = "ipm_server_url"; // CONCATENATED MODULE: ./src/ipm/background/telemetry.ts
 
-      var telemetry_awaiter =
+      var __awaiter =
         (undefined && undefined.__awaiter) ||
         function (thisArg, _arguments, P, generator) {
           function adopt(value) {
@@ -46852,7 +47032,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         };
 
       function processResponse(response) {
-        return telemetry_awaiter(this, void 0, void 0, function* () {
+        return __awaiter(this, void 0, void 0, function* () {
           if (!response.ok) {
             (0, background /* error */.vU)(`[Telemetry]: Bad response status from IPM server: ${response.status}`);
             return;
@@ -46863,16 +47043,16 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
           }
           try {
             const command = JSON.parse(body);
-            executeIPMCommand(command);
+            (0, command_library /* executeIPMCommand */.LE)(command);
           } catch (error) {
             (0, background /* error */.vU)("[Telemetry]: Error parsing IPM response.", error);
           }
         });
       }
       function sendPing() {
-        return telemetry_awaiter(this, void 0, void 0, function* () {
-          const payload = yield getPayload();
-          void clearEvents();
+        return __awaiter(this, void 0, void 0, function* () {
+          const payload = yield (0, data_collection /* getPayload */.He)();
+          void (0, data_collection /* clearEvents */.QF)();
           void fetch(prefs.Prefs.get(serverUrlKey), {
             method: "POST",
             cache: "no-cache",
@@ -46885,8 +47065,8 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
             });
         });
       }
-      function telemetry_start() {
-        return telemetry_awaiter(this, void 0, void 0, function* () {
+      function start() {
+        return __awaiter(this, void 0, void 0, function* () {
           (0, scheduled_event_emitter.setListener)(scheduleName, sendPing);
           if (!(0, scheduled_event_emitter.hasSchedule)(scheduleName)) {
             yield prefs.Prefs.untilLoaded;
@@ -46898,7 +47078,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
             );
           }
         });
-      } // CONCATENATED MODULE: ./src/ipm/background/index.ts
+      }
 
       /***/
     },
@@ -46940,7 +47120,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       /***/
     },
 
-    /***/ 858: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+    /***/ 482: /***/ (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
       "use strict";
 
       // EXTERNAL MODULE: ./node_modules/@eyeo/webext-sdk/dist/ewe-api.js
@@ -46958,14 +47138,12 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         };
       }
 
-      // EXTERNAL MODULE: ./src/ipm/background/index.ts + 13 modules
-      var background = __webpack_require__(216);
+      // EXTERNAL MODULE: ./src/ipm/background/index.ts + 2 modules
+      var background = __webpack_require__(128);
       // EXTERNAL MODULE: ./src/logger/background/index.ts + 2 modules
-      var logger_background = __webpack_require__(678); // CONCATENATED MODULE: ./src/polyfills/shared/polyfill.ts
-      function isMessage(candidate) {
-        return candidate !== null && typeof candidate === "object" && "type" in candidate;
-      }
-
+      var logger_background = __webpack_require__(678);
+      // EXTERNAL MODULE: ./src/polyfills/shared/polyfill.ts
+      var polyfill = __webpack_require__(455);
       // EXTERNAL MODULE: ./src/premium/background/index.ts + 1 modules
       var premium_background = __webpack_require__(282); // CONCATENATED MODULE: ./src/onpage-dialog/background/middleware/ipm-onpage-dialog.types.ts
       var Timing;
@@ -47305,7 +47483,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
       }
       function forwardMessage(message, sender) {
         return tab_manager_awaiter(this, void 0, void 0, function* () {
-          if (!isMessage(message)) {
+          if (!(0, polyfill /* isMessage */.c)(message)) {
             return;
           }
           return sendMessage(sender.page.id, message);
@@ -47508,6 +47686,19 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
         });
       }
       void tab_manager_start().catch(logger_background /* error */.vU); // CONCATENATED MODULE: ./src/onpage-dialog/background/index.ts
+
+      /***/
+    },
+
+    /***/ 455: /***/ (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+      "use strict";
+      /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */ c: () => /* binding */ isMessage
+        /* harmony export */
+      });
+      function isMessage(candidate) {
+        return candidate !== null && typeof candidate === "object" && "type" in candidate;
+      }
 
       /***/
     },
@@ -76475,7 +76666,7 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
   /******/ __webpack_require__(909);
   /******/ __webpack_require__(384);
   /******/ // This entry module is referenced by other modules so it can't be inlined
-  /******/ __webpack_require__(880);
+  /******/ __webpack_require__(99);
   /******/ __webpack_require__(997);
   /******/ __webpack_require__(398);
   /******/ __webpack_require__(252);
@@ -76486,8 +76677,8 @@ A2LS9qa7eNdIonehrzG20cECAwEAAQ==`
   /******/ __webpack_require__(311);
   /******/ __webpack_require__(850);
   /******/ __webpack_require__(821);
-  /******/ __webpack_require__(216);
-  /******/ __webpack_require__(858);
+  /******/ __webpack_require__(128);
+  /******/ __webpack_require__(482);
   /******/ __webpack_require__(665);
   /******/ var __webpack_exports__ = __webpack_require__(104);
   /******/

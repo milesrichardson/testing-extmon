@@ -488,6 +488,22 @@
     return { get };
   }
 
+  function cachedFactory(factory, size) {
+    const cache = new Map();
+    return (key) => {
+      if (cache.has(key)) {
+        return cache.get(key);
+      }
+      const value = factory(key);
+      cache.set(key, value);
+      if (cache.size > size) {
+        const first = cache.keys().next().value;
+        cache.delete(first);
+      }
+      return value;
+    };
+  }
+
   const simpleIPV6Regex = /\[[0-9:a-zA-Z]+?\]/;
   function isIPV6(url) {
     const openingBracketIndex = simpleIPV6Regex.exec(url);
@@ -530,56 +546,139 @@
   function isURLMatched(url, urlTemplate) {
     const isFirstIPV6 = isIPV6(url);
     const isSecondIPV6 = isIPV6(urlTemplate);
-    if (isFirstIPV6 && isSecondIPV6) {
+    if (isRegExp(urlTemplate)) {
+      const regexp = createRegExp(urlTemplate);
+      return regexp ? regexp.test(url) : false;
+    } else if (isFirstIPV6 && isSecondIPV6) {
       return compareIPV6(url, urlTemplate);
     } else if (!isFirstIPV6 && !isSecondIPV6) {
-      const regex = createUrlRegex(urlTemplate);
-      return regex !== null && Boolean(url.match(regex));
+      return matchURLPattern(url, urlTemplate);
     }
     return false;
   }
-  function createUrlRegex(urlTemplate) {
+  const URL_CACHE_SIZE = 32;
+  const prepareURL = cachedFactory((url) => {
+    let parsed;
     try {
-      urlTemplate = urlTemplate.trim();
-      const exactBeginning = urlTemplate[0] === "^";
-      const exactEnding = urlTemplate[urlTemplate.length - 1] === "$";
-      const hasLastSlash = /\/\$?$/.test(urlTemplate);
-      urlTemplate = urlTemplate
-        .replace(/^\^/, "")
-        .replace(/\$$/, "")
-        .replace(/^.*?\/{2,3}/, "")
-        .replace(/\?.*$/, "")
-        .replace(/\/$/, "");
-      let slashIndex;
-      let beforeSlash;
-      let afterSlash;
-      if ((slashIndex = urlTemplate.indexOf("/")) >= 0) {
-        beforeSlash = urlTemplate.substring(0, slashIndex);
-        afterSlash = urlTemplate.replace(/\$/g, "").substring(slashIndex);
-      } else {
-        beforeSlash = urlTemplate.replace(/\$/g, "");
-      }
-      let result = exactBeginning ? "^(.*?\\:\\/{2,3})?" : "^(.*?\\:\\/{2,3})?([^/]*?\\.)?";
-      const hostParts = beforeSlash.split(".");
-      result += "(";
-      for (let i = 0; i < hostParts.length; i++) {
-        if (hostParts[i] === "*") {
-          hostParts[i] = "[^\\.\\/]+?";
-        }
-      }
-      result += hostParts.join("\\.");
-      result += ")";
-      if (afterSlash) {
-        result += "(";
-        result += afterSlash.replace("/", "\\/");
-        result += ")";
-      }
-      result += exactEnding ? "(\\/?(\\?[^/]*?)?)$" : `(\\/${hasLastSlash ? "" : "?"}.*?)$`;
-      return new RegExp(result, "i");
-    } catch (e) {
+      parsed = new URL(url);
+    } catch (err) {
       return null;
     }
+    const { hostname, pathname, protocol, port } = parsed;
+    const hostParts = hostname.split(".").reverse();
+    const pathParts = pathname.split("/").slice(1);
+    if (!pathParts[pathParts.length - 1]) {
+      pathParts.splice(pathParts.length - 1, 1);
+    }
+    return {
+      hostParts,
+      pathParts,
+      port,
+      protocol
+    };
+  }, URL_CACHE_SIZE);
+  const URL_MATCH_CACHE_SIZE = 32 * 1024;
+  const preparePattern = cachedFactory((pattern) => {
+    if (!pattern) {
+      return null;
+    }
+    const exactStart = pattern.startsWith("^");
+    const exactEnd = pattern.endsWith("$");
+    if (exactStart) {
+      pattern = pattern.substring(1);
+    }
+    if (exactEnd) {
+      pattern = pattern.substring(0, pattern.length - 1);
+    }
+    let protocol = "";
+    const protocolIndex = pattern.indexOf("://");
+    if (protocolIndex > 0) {
+      protocol = pattern.substring(0, protocolIndex + 1);
+      pattern = pattern.substring(protocolIndex + 3);
+    }
+    const slashIndex = pattern.indexOf("/");
+    const host = slashIndex < 0 ? pattern : pattern.substring(0, slashIndex);
+    let hostName = host;
+    let port = "*";
+    const portIndex = host.indexOf(":");
+    if (portIndex >= 0) {
+      hostName = host.substring(0, portIndex);
+      port = host.substring(portIndex + 1);
+    }
+    const hostParts = hostName.split(".").reverse();
+    const path = slashIndex < 0 ? "" : pattern.substring(slashIndex + 1);
+    const pathParts = path.split("/");
+    if (!pathParts[pathParts.length - 1]) {
+      pathParts.splice(pathParts.length - 1, 1);
+    }
+    return {
+      hostParts,
+      pathParts,
+      port,
+      exactStart,
+      exactEnd,
+      protocol
+    };
+  }, URL_MATCH_CACHE_SIZE);
+  function matchURLPattern(url, pattern) {
+    const u = prepareURL(url);
+    const p = preparePattern(pattern);
+    if (
+      !(u && p) ||
+      p.hostParts.length > u.hostParts.length ||
+      (p.exactStart && p.hostParts.length !== u.hostParts.length) ||
+      (p.exactEnd && p.pathParts.length !== u.pathParts.length) ||
+      (p.port !== "*" && p.port !== u.port) ||
+      (p.protocol && p.protocol !== u.protocol)
+    ) {
+      return false;
+    }
+    for (let i = 0; i < p.hostParts.length; i++) {
+      const pHostPart = p.hostParts[i];
+      const uHostPart = u.hostParts[i];
+      if (pHostPart !== "*" && pHostPart !== uHostPart) {
+        return false;
+      }
+    }
+    if (
+      p.hostParts.length >= 2 &&
+      p.hostParts.at(-1) !== "*" &&
+      (p.hostParts.length < u.hostParts.length - 1 || (p.hostParts.length === u.hostParts.length - 1 && u.hostParts.at(-1) !== "www"))
+    ) {
+      return false;
+    }
+    if (p.pathParts.length === 0) {
+      return true;
+    }
+    if (p.pathParts.length > u.pathParts.length) {
+      return false;
+    }
+    for (let i = 0; i < p.pathParts.length; i++) {
+      const pPathPart = p.pathParts[i];
+      const uPathPart = u.pathParts[i];
+      if (pPathPart !== "*" && pPathPart !== uPathPart) {
+        return false;
+      }
+    }
+    return true;
   }
+  function isRegExp(pattern) {
+    return pattern.startsWith("/") && pattern.endsWith("/") && pattern.length > 2;
+  }
+  const REGEXP_CACHE_SIZE = 1024;
+  const createRegExp = cachedFactory((pattern) => {
+    if (pattern.startsWith("/")) {
+      pattern = pattern.substring(1);
+    }
+    if (pattern.endsWith("/")) {
+      pattern = pattern.substring(0, pattern.length - 1);
+    }
+    try {
+      return new RegExp(pattern);
+    } catch (err) {
+      return null;
+    }
+  }, REGEXP_CACHE_SIZE);
   function isPDF(url) {
     try {
       const { hostname, pathname } = new URL(url);
@@ -616,10 +715,10 @@
     if (isPDF(url)) {
       return userSettings.enableForPDF;
     }
-    const isURLInUserList = isURLInList(url, userSettings.siteList);
-    const isURLInEnabledList = isURLInList(url, userSettings.siteListEnabled);
-    if (userSettings.applyToListedOnly) {
-      return isURLInEnabledList || isURLInUserList;
+    const isURLInDisabledList = isURLInList(url, userSettings.disabledFor);
+    const isURLInEnabledList = isURLInList(url, userSettings.enabledFor);
+    if (!userSettings.enabledByDefault) {
+      return isURLInEnabledList;
     }
     if (isURLInEnabledList) {
       return true;
@@ -627,7 +726,7 @@
     if (isInDarkList || (userSettings.detectDarkTheme && isDarkThemeDetected)) {
       return false;
     }
-    return !isURLInUserList;
+    return !isURLInDisabledList;
   }
   function isFullyQualifiedDomain(candidate) {
     return /^[a-z0-9\.\-]+$/i.test(candidate) && candidate.indexOf("..") === -1;
@@ -1138,14 +1237,15 @@
     }
   };
   const DEFAULT_SETTINGS = {
+    schemeVersion: 0,
     enabled: true,
     fetchNews: true,
     theme: DEFAULT_THEME,
     presets: [],
     customThemes: [],
-    siteList: [],
-    siteListEnabled: [],
-    applyToListedOnly: false,
+    enabledByDefault: true,
+    enabledFor: [],
+    disabledFor: [],
     changeBrowserTheme: false,
     syncSettings: true,
     syncSitesFixes: false,
@@ -1286,6 +1386,20 @@
   async function writeLocalStorage(values) {
     return new Promise(async (resolve) => {
       chrome.storage.local.set(values, () => {
+        resolve();
+      });
+    });
+  }
+  async function removeSyncStorage(keys) {
+    return new Promise(async (resolve) => {
+      chrome.storage.sync.remove(keys, () => {
+        resolve();
+      });
+    });
+  }
+  async function removeLocalStorage(keys) {
+    return new Promise(async (resolve) => {
+      chrome.storage.local.remove(keys, () => {
         resolve();
       });
     });
@@ -1443,6 +1557,7 @@
       const { errors: themeErrors } = validateTheme(theme);
       return themeErrors.length === 0;
     };
+    validateProperty(settings, "schemeVersion", isNumber, DEFAULT_SETTINGS);
     validateProperty(settings, "enabled", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "fetchNews", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "theme", isPlainObject, DEFAULT_SETTINGS);
@@ -1470,11 +1585,11 @@
       presetValidator.validateProperty(custom, "theme", isValidPresetTheme, custom);
       return presetValidator.errors.length === 0;
     });
-    validateProperty(settings, "siteList", isArray, DEFAULT_SETTINGS);
-    validateArray(settings, "siteList", isNonEmptyString);
-    validateProperty(settings, "siteListEnabled", isArray, DEFAULT_SETTINGS);
-    validateArray(settings, "siteListEnabled", isNonEmptyString);
-    validateProperty(settings, "applyToListedOnly", isBoolean, DEFAULT_SETTINGS);
+    validateProperty(settings, "enabledFor", isArray, DEFAULT_SETTINGS);
+    validateArray(settings, "enabledFor", isNonEmptyString);
+    validateProperty(settings, "disabledFor", isArray, DEFAULT_SETTINGS);
+    validateArray(settings, "disabledFor", isNonEmptyString);
+    validateProperty(settings, "enabledByDefault", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "changeBrowserTheme", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "syncSettings", isBoolean, DEFAULT_SETTINGS);
     validateProperty(settings, "syncSitesFixes", isBoolean, DEFAULT_SETTINGS);
@@ -1603,12 +1718,50 @@
         delete settings.automationBehaviour;
       }
     }
+    static migrateSiteListsV2(deprecated) {
+      var _b, _c, _d;
+      const settings = {};
+      settings.enabledByDefault = !deprecated.applyToListedOnly;
+      if (settings.enabledByDefault) {
+        settings.disabledFor = (_b = deprecated.siteList) !== null && _b !== void 0 ? _b : [];
+        settings.enabledFor = (_c = deprecated.siteListEnabled) !== null && _c !== void 0 ? _c : [];
+      } else {
+        settings.disabledFor = [];
+        settings.enabledFor = (_d = deprecated.siteList) !== null && _d !== void 0 ? _d : [];
+      }
+      return settings;
+    }
     static async loadSettingsFromStorage() {
       if (_a$1.loadBarrier) {
         return await _a$1.loadBarrier.entry();
       }
       _a$1.loadBarrier = new PromiseBarrier();
-      const local = await readLocalStorage(DEFAULT_SETTINGS);
+      let local = await readLocalStorage(DEFAULT_SETTINGS);
+      if (local.schemeVersion < 2) {
+        const sync = await readSyncStorage({ schemeVersion: 0 });
+        if (!sync || sync.schemeVersion < 2) {
+          const deprecatedDefaults = {
+            siteList: [],
+            siteListEnabled: [],
+            applyToListedOnly: false
+          };
+          const localDeprecated = await readLocalStorage(deprecatedDefaults);
+          const localTransformed = _a$1.migrateSiteListsV2(localDeprecated);
+          await writeLocalStorage({
+            schemeVersion: 2,
+            ...localTransformed
+          });
+          await removeLocalStorage(Object.keys(deprecatedDefaults));
+          const syncDeprecated = await readSyncStorage(deprecatedDefaults);
+          const syncTransformed = _a$1.migrateSiteListsV2(syncDeprecated);
+          await writeSyncStorage({
+            schemeVersion: 2,
+            ...syncTransformed
+          });
+          await removeSyncStorage(Object.keys(deprecatedDefaults));
+          local = await readLocalStorage(DEFAULT_SETTINGS);
+        }
+      }
       const { errors: localCfgErrors } = validateSettings(local);
       localCfgErrors.forEach((err) => logWarn(err));
       if (local.syncSettings == null) {
@@ -1655,18 +1808,18 @@
       if (!_a$1.settings) {
         return;
       }
-      if ($settings.siteList) {
-        if (!Array.isArray($settings.siteList)) {
+      const filterSiteList = (siteList) => {
+        if (!Array.isArray(siteList)) {
           const list = [];
-          for (const key in $settings.siteList) {
+          for (const key in siteList) {
             const index = Number(key);
             if (!isNaN(index)) {
-              list[index] = $settings.siteList[key];
+              list[index] = siteList[key];
             }
           }
-          $settings.siteList = list;
+          siteList = list;
         }
-        const siteList = $settings.siteList.filter((pattern) => {
+        return siteList.filter((pattern) => {
           let isOK = false;
           try {
             isURLMatched("https://google.com/", pattern);
@@ -1675,9 +1828,16 @@
           } catch (err) {}
           return isOK && pattern !== "/";
         });
-        $settings = { ...$settings, siteList };
+      };
+      const { enabledFor, disabledFor } = $settings;
+      const updatedSettings = { ..._a$1.settings, ...$settings };
+      if (enabledFor) {
+        updatedSettings.enabledFor = filterSiteList(enabledFor);
       }
-      _a$1.settings = { ..._a$1.settings, ...$settings };
+      if (disabledFor) {
+        updatedSettings.disabledFor = filterSiteList(disabledFor);
+      }
+      _a$1.settings = updatedSettings;
     }
   }
   _a$1 = UserStorage;
@@ -1752,6 +1912,10 @@
     colorSchemes: {
       remote: `${CONFIG_URL_BASE}/color-schemes.drconf`,
       local: "../config/color-schemes.drconf"
+    },
+    detectorHints: {
+      remote: `${CONFIG_URL_BASE}/detector-hints.config`,
+      local: "../config/detector-hints.config"
     }
   };
   const REMOTE_TIMEOUT_MS = getDuration({ seconds: 10 });
@@ -1794,6 +1958,16 @@
       ConfigManager.raw.darkSites = sites;
       ConfigManager.handleDarkSites();
     }
+    static async loadDetectorHints({ local }) {
+      const $config = await ConfigManager.loadConfig({
+        name: "Detector Hints",
+        local,
+        localURL: CONFIG_URLs.detectorHints.local,
+        remoteURL: CONFIG_URLs.detectorHints.remote
+      });
+      ConfigManager.raw.detectorHints = $config;
+      ConfigManager.handleDetectorHints();
+    }
     static async loadDynamicThemeFixes({ local }) {
       const fixes = await ConfigManager.loadConfig({
         name: "Dynamic Theme Fixes",
@@ -1834,6 +2008,7 @@
       await Promise.all([
         ConfigManager.loadColorSchemes(config),
         ConfigManager.loadDarkSites(config),
+        ConfigManager.loadDetectorHints(config),
         ConfigManager.loadDynamicThemeFixes(config),
         ConfigManager.loadInversionFixes(config),
         ConfigManager.loadStaticThemes(config)
@@ -1851,6 +2026,11 @@
     static handleDarkSites() {
       const $sites = ConfigManager.overrides.darkSites || ConfigManager.raw.darkSites;
       ConfigManager.DARK_SITES_INDEX = indexSiteListConfig($sites || "");
+    }
+    static handleDetectorHints() {
+      const $hints = ConfigManager.overrides.detectorHints || ConfigManager.raw.detectorHints || "";
+      ConfigManager.DETECTOR_HINTS_INDEX = indexSitesFixesConfig($hints);
+      ConfigManager.DETECTOR_HINTS_RAW = $hints;
     }
     static handleDynamicThemeFixes() {
       const $fixes = ConfigManager.overrides.dynamicThemeFixes || ConfigManager.raw.dynamicThemeFixes || "";
@@ -1873,6 +2053,7 @@
   }
   ConfigManager.raw = {
     darkSites: null,
+    detectorHints: null,
     dynamicThemeFixes: null,
     inversionFixes: null,
     staticThemes: null,
@@ -1880,6 +2061,7 @@
   };
   ConfigManager.overrides = {
     darkSites: null,
+    detectorHints: null,
     dynamicThemeFixes: null,
     inversionFixes: null,
     staticThemes: null
@@ -4269,6 +4451,32 @@
     }
   }
 
+  const detectorHintsCommands = {
+    TARGET: "target",
+    MATCH: "match",
+    "NO DARK THEME": "noDarkTheme"
+  };
+  const detectorParserOptions = {
+    commands: Object.keys(detectorHintsCommands),
+    getCommandPropName: (command) => detectorHintsCommands[command],
+    parseCommandValue: (command, value) => {
+      if (command === "TARGET") {
+        return value.trim();
+      }
+      if (command === "NO DARK THEME") {
+        return true;
+      }
+      return parseArray(value);
+    }
+  };
+  function getDetectorHintsFor(url, text, index) {
+    const fixes = getSitesFixesFor(url, text, index, detectorParserOptions);
+    if (fixes.length === 0) {
+      return null;
+    }
+    return fixes;
+  }
+
   function createSVGFilterStylesheet(config, url, isTopFrame, fixes, index) {
     let filterValue;
     let reverseFilterValue;
@@ -4422,6 +4630,21 @@
         }
       }
     }
+    static runWakeDetector() {
+      const WAKE_CHECK_INTERVAL = getDuration({ minutes: 1 });
+      const WAKE_CHECK_INTERVAL_ERROR = getDuration({ seconds: 10 });
+      if (this.wakeInterval >= 0) {
+        clearInterval(this.wakeInterval);
+      }
+      let lastRun = Date.now();
+      this.wakeInterval = setInterval(() => {
+        const now = Date.now();
+        if (now - lastRun > WAKE_CHECK_INTERVAL + WAKE_CHECK_INTERVAL_ERROR) {
+          _a.handleAutomationCheck();
+        }
+        lastRun = now;
+      }, WAKE_CHECK_INTERVAL);
+    }
     static async start() {
       _a.init();
       await Promise.all([ConfigManager.load({ local: true }), _a.MV3syncSystemColorStateManager(null), UserStorage.loadSettings()]);
@@ -4436,6 +4659,7 @@
         await ConfigManager.load({ local: false });
       }
       _a.updateAutoState();
+      _a.runWakeDetector();
       _a.onAppToggle();
       logInfo("loaded", UserStorage.settings);
       {
@@ -4641,7 +4865,11 @@
       const host = getURLHostOrProtocol(url);
       function getToggledList(sourceList) {
         const list = sourceList.slice();
-        const index = list.indexOf(host);
+        let index = list.indexOf(host);
+        if (index < 0 && host.startsWith("www.")) {
+          const noWwwHost = host.substring(4);
+          index = list.indexOf(noWwwHost);
+        }
         if (index < 0) {
           list.push(host);
         } else {
@@ -4649,14 +4877,20 @@
         }
         return list;
       }
-      const darkThemeDetected = !settings.applyToListedOnly && settings.detectDarkTheme && tab.isDarkThemeDetected;
-      if (isInDarkList || darkThemeDetected || settings.siteListEnabled.includes(host)) {
-        const toggledList = getToggledList(settings.siteListEnabled);
-        _a.changeSettings({ siteListEnabled: toggledList }, true);
+      const darkThemeDetected = settings.enabledByDefault && settings.detectDarkTheme && tab.isDarkThemeDetected;
+      if (!settings.enabledByDefault || isInDarkList || darkThemeDetected) {
+        const toggledList = getToggledList(settings.enabledFor);
+        _a.changeSettings({ enabledFor: toggledList }, true);
         return;
       }
-      const toggledList = getToggledList(settings.siteList);
-      _a.changeSettings({ siteList: toggledList }, true);
+      if (settings.enabledByDefault && settings.enabledFor.includes(host)) {
+        const enabledFor = getToggledList(settings.enabledFor);
+        const disabledFor = getToggledList(settings.disabledFor);
+        _a.changeSettings({ enabledFor, disabledFor }, true);
+        return;
+      }
+      const toggledList = getToggledList(settings.disabledFor);
+      _a.changeSettings({ disabledFor: toggledList }, true);
     }
     static onAppToggle() {
       if (_a.isExtensionSwitchedOn()) {
@@ -4709,6 +4943,7 @@
       _a.loadData().then(() => _a.handleAutomationCheck());
     }
   };
+  Extension.wakeInterval = -1;
   Extension.onCommandInternal = async (command, tabId, frameId, frameURL) => {
     if (_a.startBarrier.isPending()) {
       await _a.startBarrier.entry();
@@ -4797,18 +5032,21 @@
       _a.stateManager.saveState();
     }
   };
-  Extension.getTabMessage = (tabURl, url, isTopFrame) => {
+  Extension.getTabMessage = (tabURL, url, isTopFrame) => {
     const settings = UserStorage.settings;
-    const tabInfo = _a.getTabInfo(tabURl);
-    if (_a.isExtensionSwitchedOn() && isURLEnabled(tabURl, settings, tabInfo)) {
-      const custom = settings.customThemes.find(({ url: urlList }) => isURLInList(tabURl, urlList));
-      const preset = custom ? null : settings.presets.find(({ urls }) => isURLInList(tabURl, urls));
+    const tabInfo = _a.getTabInfo(tabURL);
+    if (_a.isExtensionSwitchedOn() && isURLEnabled(tabURL, settings, tabInfo)) {
+      const custom = settings.customThemes.find(({ url: urlList }) => isURLInList(tabURL, urlList));
+      const preset = custom ? null : settings.presets.find(({ urls }) => isURLInList(tabURL, urls));
       let theme = custom ? custom.theme : preset ? preset.theme : settings.theme;
       if (_a.autoState === "scheme-dark" || _a.autoState === "scheme-light") {
         const mode = _a.autoState === "scheme-dark" ? 1 : 0;
         theme = { ...theme, mode };
       }
-      const detectDarkTheme = isTopFrame && settings.detectDarkTheme && !isURLInList(tabURl, settings.siteListEnabled) && !isPDF(tabURl);
+      const detectDarkTheme = isTopFrame && settings.detectDarkTheme && !isURLInList(tabURL, settings.enabledFor) && !isPDF(tabURL);
+      const detectorHints = detectDarkTheme
+        ? getDetectorHintsFor(url, ConfigManager.DETECTOR_HINTS_RAW, ConfigManager.DETECTOR_HINTS_INDEX)
+        : null;
       logInfo(`Custom theme ${custom ? "was found" : "was not found"}, Preset theme ${preset ? "was found" : "was not found"}
             The theme(${custom ? "custom" : preset ? "preset" : "global"} settings) used is: ${JSON.stringify(theme)}`);
       switch (theme.engine) {
@@ -4823,7 +5061,8 @@
                 ConfigManager.INVERSION_FIXES_RAW,
                 ConfigManager.INVERSION_FIXES_INDEX
               ),
-              detectDarkTheme
+              detectDarkTheme,
+              detectorHints
             }
           };
         }
@@ -4840,7 +5079,8 @@
               ),
               svgMatrix: getSVGFilterMatrixValue(theme),
               svgReverseMatrix: getSVGReverseFilterMatrixValue(),
-              detectDarkTheme
+              detectDarkTheme,
+              detectorHints
             }
           };
         }
@@ -4852,7 +5092,8 @@
                 theme.stylesheet && theme.stylesheet.trim()
                   ? theme.stylesheet
                   : createStaticStylesheet(theme, url, isTopFrame, ConfigManager.STATIC_THEMES_RAW, ConfigManager.STATIC_THEMES_INDEX),
-              detectDarkTheme: settings.detectDarkTheme
+              detectDarkTheme: settings.detectDarkTheme,
+              detectorHints
             }
           };
         }
@@ -4870,7 +5111,8 @@
               theme,
               fixes,
               isIFrame: !isTopFrame,
-              detectDarkTheme
+              detectDarkTheme,
+              detectorHints
             }
           };
         }

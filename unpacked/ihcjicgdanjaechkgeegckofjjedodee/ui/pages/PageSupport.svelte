@@ -17,6 +17,7 @@
     import SpinnerIcon from "../svgs/SpinnerIcon.svelte";
     import CheckmarkIcon from "../svgs/CheckmarkIcon.svelte";
     import CheckMarkWhiteIcon from "../svgs/CheckMarkWhiteIcon.svelte";
+    import { translateText } from "@/utils/locales";
 
     let isDownloadingLogs = false;
     let extensionVersion = "0.0.0";
@@ -24,7 +25,7 @@
     let isUpdating = false;
     let updateCompleted = false;
     let updateFailed = false;
-    let updateBtnText = "Check for database updates";
+    let updateBtnText = translateText("supportCheckForUpdates"); // "Check for database updates";
 
     let showFactoryResetConfirmation = false;
 
@@ -47,29 +48,30 @@
 
     const hooks = {
         onUpdateStart: () => {
-            updateBtnText = "Updating";
+            updateBtnText = translateText('supportDbUpdating');
             console.debug("PageSupport: onUpdateStart");
         },
         onDownloadComplete: () => {
-            updateBtnText = "Updating";
+            updateBtnText = translateText('supportDbUpdating');
             console.debug("PageSupport: onDownloadComplete");
         },
         onSuccess: () => {
             isUpdating = false;
-            updateBtnText = "Databases are up to date";
+            updateBtnText = translateText('supportDbComplete');
             updateCompleted = true;
             console.debug("PageSupport: onSuccess");
         },
         onUpdateError: () => {
             isUpdating = false;
             updateFailed = true;
-            updateBtnText = "Check for database updates";
+            updateBtnText = translateText('supportCheckForUpdates');
             console.debug("PageSupport: onUpdateError");
         },
     };
 
     function checkForUpdatesClicked() {
         isUpdating = true;
+        updateCompleted = false;
         getUpdaterService().update(hooks);
     }
 
@@ -121,7 +123,7 @@
         <div
             class="w-full flex flex-col items-start gap-4 text-textPrimary dark:text-white dark:text-opacity-80"
         >
-            <h3 class="text-base font-medium">Product information</h3>
+            <h3 class="text-base font-medium">{translateText("supportProductInfo")}</h3>
             <div class="flex flex-col items-start font-normal text-sm">
                 <p>Malwarebytes Browser Guard Version</p>
                 <p>{extensionVersion}</p>
@@ -132,9 +134,7 @@
                 <PrimaryButton
                     outlined
                     on:click={isUpdating ? null : checkForUpdatesClicked}
-                    class="gap-2 {updateCompleted
-                        ? '!border-[#1C1B1F] !text-[#1C1B1F]'
-                        : ''}"
+                    class="gap-2 {updateCompleted ? '!border-[#1C1B1F] !text-[#1C1B1F] dark:!border-white dark:!text-white' : ''}"
                     disabled={updateCompleted}
                 >
                     {#if isUpdating}
@@ -147,10 +147,8 @@
                             />
                         </div>
                     {:else if updateCompleted}
-                        <div
-                            class="flex flex-col justify-center items-center"
-                        >
-                            <CheckMarkWhiteIcon fill="#1C1B1F" />
+                        <div class="flex flex-col justify-center items-center">
+                            <CheckMarkWhiteIcon fill="#FFFFFF" />
                         </div>
                     {/if}
 
@@ -158,8 +156,9 @@
                 </PrimaryButton>
             </div>
             {#if updateFailed}
-                <span class="text-red-500 font-normal text-sm">
-                    An error occurred. Please try again or contact Support
+                <span class="text-red-500 font-normal text-sm flex flex-col justify-start">
+                    {translateText('supportCheckErrorLine1')}
+                    {translateText('supportCheckErrorLine2')}
                 </span>
             {/if}
         </div>
@@ -169,33 +168,33 @@
         <div
             class="w-full flex flex-col items-start gap-4 text-textPrimary dark:text-white dark:text-opacity-80"
         >
-            <h3 class="text-base font-medium">Product support</h3>
+            <h3 class="text-base font-medium">{translateText("supportResourcesTitle")}</h3>
             <a
                 href="https://www.malwarebytes.com/?guard=1&x-source=company"
-                target="_blank">Malwarebytes website</a
+                target="_blank">{translateText("supportMbLink", "Malwarebytes")}</a
             >
             <a
                 href="https://links.malwarebytes.com/support/browserguard/?guard=1&x-source=support"
-                target="_blank">Browser Guard support</a
+                target="_blank">{translateText("supportMbSupportLink")}</a
             >
             <a
                 href="https://links.malwarebytes.com/support/browserguard_guide?guard=1&x-source=userguide"
-                target="_blank">Product user guides</a
+                target="_blank">{translateText("supportUserGuideLink")}</a
             >
             <a
                 href="https://blog.malwarebytes.com/?guard=1&x-source=labs"
-                target="_blank">Malwarebytes Labs news</a
+                target="_blank">{translateText("supportMbLabsLink", "Malwarebytes")}</a
             >
         </div>
         <div class="w-full flex flex-col items-start justify-start gap-4">
-            <h3 class="text-base font-medium">Legal and Policy</h3>
+            <h3 class="text-base font-medium">{translateText("supportLegalAndPolicy")}</h3>
             <a
                 href="https://www.malwarebytes.com/privacy/policy-for-browser-guard/?guard=1&x-source=policy"
-                target="_blank">Privacy Policy</a
+                target="_blank">{translateText("privacyPolicyText")}</a
             >
             <a
                 href="https://www.malwarebytes.com/eula/?guard=1&x-source=eula"
-                target="_blank">End User License Agreement (EULA)</a
+                target="_blank">{translateText("supportLicenseLinkText")}</a
             >
         </div>
     </div>
@@ -212,17 +211,17 @@
                 </p>
             {:else}
                 <a href="/" on:click|preventDefault={downloadDebugLogsClicked}
-                    >Download Debug Logs</a
+                    >{translateText("supportDownloadLogs")}</a
                 >
             {/if}
             <a href="/" on:click|preventDefault={factoryResetClicked}
-                >Factory Reset</a
+                >{translateText("supportFactoryReset")}</a
             >
         </div>
         <div
             class="w-full flex flex-col items-start gap-4 text-textPrimary dark:text-white dark:text-opacity-80"
         >
-            <div class="flex flex-row gap-[14px] justify-start">
+            <!-- <div class="flex flex-row gap-[14px] justify-start">
                 <div>
                     <Switch
                         checked={telemetryConsent}
@@ -238,15 +237,15 @@
                 <p class="text-sm font-normal text-left">
                     Share anonymous detection and device data with Malwarebytes
                 </p>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
 
 <ConfirmModal
-    title="Factory reset"
-    message="Are you sure you want to reset your Browser Guard installation?"
-    confirmLabel="Yes, reset"
+    title={translateText("supportFactoryReset")}
+    message={translateText("supportFactoryResetMessage")}
+    confirmLabel={translateText("supportFactoryResetYes")}
     open={showFactoryResetConfirmation}
     onConfirm={() => {
         sendBackgroundMessage({

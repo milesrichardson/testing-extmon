@@ -1317,26 +1317,25 @@
             }),
             b.push(["rgb", X]),
             (n.prototype.luminance = function (e, r) {
-              var n, t, f, a, u;
+              var n, t, f, a;
               return (
                 null == r && (r = "rgb"),
                 arguments.length
-                  ? ((a = this._rgb),
+                  ? ((f = this._rgb),
                     0 === e
-                      ? (a = [0, 0, 0, this._rgb[3]])
+                      ? (f = [0, 0, 0, this._rgb[3]])
                       : 1 === e
-                      ? (a = [255, 255, 255, this[3]])
+                      ? (f = [255, 255, 255, this[3]])
                       : ((n = he(this._rgb)),
-                        (t = 1e-7),
-                        (f = 20),
-                        (u = function (n, a) {
-                          var o, c;
+                        (t = 20),
+                        (a = function (n, f) {
+                          var u, o;
                           return (
-                            (o = (c = n.interpolate(a, 0.5, r)).luminance()), Math.abs(e - o) < t || !f-- ? c : o > e ? u(n, c) : u(c, a)
+                            (u = (o = n.interpolate(f, 0.5, r)).luminance()), Math.abs(e - u) < 1e-7 || !t-- ? o : u > e ? a(n, o) : a(o, f)
                           );
                         }),
-                        (a = n > e ? u(A("black"), this).rgba() : u(this, A("white")).rgba())),
-                    A(a).alpha(this.alpha()))
+                        (f = n > e ? a(A("black"), this).rgba() : a(this, A("white")).rgba())),
+                    A(f).alpha(this.alpha()))
                   : he(this._rgb)
               );
             }),
@@ -1354,10 +1353,10 @@
               );
             }),
             (pe = function () {
-              var e, r, n, t, f, a, u, o;
-              for (f = (a = _e(arguments))[0], a[1], e = a[2], t = 1e3, n = 4e4, r = 0.4; n - t > r; )
-                (u = xe((o = 0.5 * (n + t))))[2] / u[0] >= e / f ? (n = o) : (t = o);
-              return ve(o);
+              var e, r, n, t, f, a, u;
+              for (t = (f = _e(arguments))[0], f[1], e = f[2], n = 1e3, r = 4e4; r - n > 0.4; )
+                (a = xe((u = 0.5 * (r + n))))[2] / a[0] >= e / t ? (r = u) : (n = u);
+              return ve(u);
             }),
             (A.temperature = A.kelvin =
               function () {

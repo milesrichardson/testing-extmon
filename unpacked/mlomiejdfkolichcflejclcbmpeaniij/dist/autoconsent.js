@@ -4,10 +4,10 @@ typeof browser < "u" && (chrome = browser),
         86782: (S, L, s) => {
           var t = { "./card.js": 43730, "./header.js": 58489 };
           function v(y) {
-            var l = k(y);
+            var l = x(y);
             return s(l);
           }
-          function k(y) {
+          function x(y) {
             if (!s.o(t, y)) {
               var l = new Error("Cannot find module '" + y + "'");
               throw ((l.code = "MODULE_NOT_FOUND"), l);
@@ -17,17 +17,17 @@ typeof browser < "u" && (chrome = browser),
           (v.keys = function () {
             return Object.keys(t);
           }),
-            (v.resolve = k),
+            (v.resolve = x),
             (S.exports = v),
             (v.id = 86782);
         },
         72782: (S, L, s) => {
           var t = { "./confirm.js": 44915, "./home.js": 18589, "./main.js": 57269 };
           function v(y) {
-            var l = k(y);
+            var l = x(y);
             return s(l);
           }
-          function k(y) {
+          function x(y) {
             if (!s.o(t, y)) {
               var l = new Error("Cannot find module '" + y + "'");
               throw ((l.code = "MODULE_NOT_FOUND"), l);
@@ -37,7 +37,7 @@ typeof browser < "u" && (chrome = browser),
           (v.keys = function () {
             return Object.keys(t);
           }),
-            (v.resolve = k),
+            (v.resolve = x),
             (S.exports = v),
             (v.id = 72782);
         },
@@ -53,10 +53,10 @@ typeof browser < "u" && (chrome = browser),
             "./tracker-wheel.js": 62254
           };
           function v(y) {
-            var l = k(y);
+            var l = x(y);
             return s(l);
           }
-          function k(y) {
+          function x(y) {
             if (!s.o(t, y)) {
               var l = new Error("Cannot find module '" + y + "'");
               throw ((l.code = "MODULE_NOT_FOUND"), l);
@@ -66,7 +66,7 @@ typeof browser < "u" && (chrome = browser),
           (v.keys = function () {
             return Object.keys(t);
           }),
-            (v.resolve = k),
+            (v.resolve = x),
             (S.exports = v),
             (v.id = 23998);
         },
@@ -121,7 +121,7 @@ typeof browser < "u" && (chrome = browser),
           s.r(L), s.d(L, { default: () => E });
           var t = s(77540),
             v = s(72020),
-            k = s(67132),
+            x = s(67132),
             y = s(9300);
           function l(u) {
             (0, t.WI)(u, "closeiframe", { bubbles: !0, detail: { reload: u.enabled } });
@@ -132,10 +132,10 @@ typeof browser < "u" && (chrome = browser),
     <template layout="column margin:3 gap:4">
       <div layout="column items:center gap margin:0:5">
         <ui-text type="display-s" layout="block:center">
-          ${u ? k.WI`Never-Consent is Enabled` : k.WI`Never-Consent is Disabled`}
+          ${u ? x.WI`Never-Consent is Enabled` : x.WI`Never-Consent is Disabled`}
         </ui-text>
         <ui-text layout="block:center">
-          ${k.WI.html`You can always change these settings in the&nbsp;<strong>Ghostery control panel</strong>.`}
+          ${x.WI.html`You can always change these settings in the&nbsp;<strong>Ghostery control panel</strong>.`}
         </ui-text>
       </div>
       <div layout="grid:2 gap:2">
@@ -155,7 +155,7 @@ typeof browser < "u" && (chrome = browser),
           s.r(L), s.d(L, { default: () => u });
           var t = s(77540),
             v = s(9300),
-            k = s(72020),
+            x = s(72020),
             y = s(44915);
           const l = new URLSearchParams(window.location.search).get("default");
           function E(f) {
@@ -166,7 +166,7 @@ typeof browser < "u" && (chrome = browser),
           const u = {
             [v.Z.connect]: { stack: [y.default] },
             scope: l === "all" ? "all" : "selected",
-            content: ({ scope: f }) => k.dy`
+            content: ({ scope: f }) => x.dy`
     <template layout="column margin:3 gap:4">
       <div layout="column items:center gap">
         <ui-text type="display-s" layout="block:center">
@@ -186,7 +186,7 @@ typeof browser < "u" && (chrome = browser),
               type="radio"
               name="scope"
               value="selected"
-              onchange="${k.dy.set("scope")}"
+              onchange="${x.dy.set("scope")}"
               checked="${f === "selected"}"
               layout="margin:0"
               style="accent-color: var(--ui-color-primary-700)"
@@ -198,7 +198,7 @@ typeof browser < "u" && (chrome = browser),
               type="radio"
               name="scope"
               value="all"
-              onchange="${k.dy.set("scope")}"
+              onchange="${x.dy.set("scope")}"
               checked="${f === "all"}"
               layout="margin:0"
               style="accent-color: var(--ui-color-primary-700)"
@@ -234,7 +234,7 @@ typeof browser < "u" && (chrome = browser),
           s.r(L), s.d(L, { default: () => u });
           var t = s(77540),
             v = s(9300),
-            k = s(72020),
+            x = s(72020),
             y = s(67132),
             l = s(18589);
           function E(f, T) {
@@ -244,7 +244,7 @@ typeof browser < "u" && (chrome = browser),
             tag: "ui-autoconsent",
             stack: (0, v.Z)([l.default]),
             categories: { get: (f, T = []) => T, set: (f, T) => T || [] },
-            content: ({ stack: f, categories: T }) => k.dy`
+            content: ({ stack: f, categories: T }) => x.dy`
     <template layout="grid::min|1|min">
       <ui-autoconsent-card oncloseiframe="${E}">
         <ui-autoconsent-header></ui-autoconsent-header>
@@ -252,7 +252,7 @@ typeof browser < "u" && (chrome = browser),
       </ui-autoconsent-card>
       ${
         v.Z.active(l.default) &&
-        k.dy`
+        x.dy`
         <ui-autoconsent-card layout="margin:top:0.5">
           <section layout="row margin:2 gap:2">
             <div layout="area:1:2">
@@ -328,7 +328,7 @@ typeof browser < "u" && (chrome = browser),
             type: "primary",
             size: "",
             disabled: !1,
-            render: ({ size: k }) => t.dy`<slot></slot>`.css`
+            render: () => t.dy`<slot></slot>`.css`
       :host {
         box-sizing: border-box;
         display: grid;
@@ -337,7 +337,7 @@ typeof browser < "u" && (chrome = browser),
         border-radius: 24px;
         white-space: nowrap;
         transition: opacity 0.2s, color 0.2s, background-color 0.2s, border-color 0.2s;
-        font: var(--ui-font-button-${k === "small" ? "s" : "m"});
+        font: var(--ui-font-button-m);
         text-transform: uppercase;
       }
 
@@ -378,7 +378,7 @@ typeof browser < "u" && (chrome = browser),
         --ui-button-hover-background: var(--ui-color-white);
       }
 
-      @media (hover: hover) and (pointer: fine) { 
+      @media (hover: hover) and (pointer: fine) {
         :host(:hover), :host(:focus-within) {
           color: var(--ui-button-hover-color);
           border-color: var(--ui-button-hover-border);
@@ -392,6 +392,7 @@ typeof browser < "u" && (chrome = browser),
 
       :host([size="small"]) {
         height: 40px;
+        font: var(--ui-font-button-s);
       }
 
       :host([disabled]) {
@@ -445,7 +446,7 @@ typeof browser < "u" && (chrome = browser),
               name: "",
               color: "",
               render: ({ name: y, color: l }) => t.dy`
-    <template layout="block">${k[y] || ""}</template>
+    <template layout="block">${x[y] || ""}</template>
   `.css`
     :host {
       ${l ? `color: var(--ui-color-${l});` : ""}
@@ -458,7 +459,7 @@ typeof browser < "u" && (chrome = browser),
     }
    `
             },
-            k = {
+            x = {
               "arrow-right": t.dy`
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -849,11 +850,11 @@ typeof browser < "u" && (chrome = browser),
           var t = s(72020);
           const v = {
             color: "gray-200",
-            render: ({ color: k }) => t.dy`
+            render: ({ color: x }) => t.dy`
     <template layout="block height:1px shrink:0"></template>
   `.css`
     :host {
-      background: var(--ui-color-${k});
+      background: var(--ui-color-${x});
     }
   `
           };
@@ -865,13 +866,13 @@ typeof browser < "u" && (chrome = browser),
           const v = {
             disabled: !1,
             href: "",
-            render: ({ disabled: k, href: y }) => t.dy`
+            render: ({ disabled: x, href: y }) => t.dy`
     <template
       layout="column content:center relative"
       layout[disabled]="height::120px"
     >
       ${
-        k &&
+        x &&
         t.dy`
         <section
           id="disabled"
@@ -932,10 +933,10 @@ typeof browser < "u" && (chrome = browser),
             color: "",
             ellipsis: !1,
             underline: !1,
-            render: ({ type: k, mobileType: y, color: l }) => t.dy`<slot></slot>`.css`
+            render: ({ type: x, mobileType: y, color: l }) => t.dy`<slot></slot>`.css`
     :host {
       display: block;
-      font: var(--ui-font-${y || k});
+      font: var(--ui-font-${y || x});
       color: var(--ui-text-color, inherit);
     }
 
@@ -943,7 +944,7 @@ typeof browser < "u" && (chrome = browser),
       y
         ? `
           @media screen and (min-width: 768px) {
-            :host { font: var(--ui-font-${k}); }
+            :host { font: var(--ui-font-${x}); }
           }
         `
         : ""
@@ -1003,7 +1004,7 @@ typeof browser < "u" && (chrome = browser),
           s.r(L), s.d(L, { default: () => y });
           var t = s(72020);
           const v = new WeakMap();
-          let k = null;
+          let x = null;
           const y = {
             autohide: 2,
             wrap: !1,
@@ -1014,7 +1015,7 @@ typeof browser < "u" && (chrome = browser),
               observe: (l, E) => {
                 const u = l.render().querySelector("#tooltip");
                 if (((u.hidden = !E), (u.style.transform = ""), E)) {
-                  k && k !== l && (k.show = !1), (k = l);
+                  x && x !== l && (x.show = !1), (x = l);
                   const { left: f, width: T } = u.getBoundingClientRect(),
                     H = f + T + 8 - window.innerWidth,
                     j = f - 8;
@@ -1082,7 +1083,7 @@ typeof browser < "u" && (chrome = browser),
           s.r(L), s.d(L, { default: () => E });
           var t = s(72020),
             v = s(4182),
-            k = s(56570);
+            x = s(56570);
           function y(u, f) {
             const { clientX: T, clientY: H } = f,
               { left: j, top: X } = u.getBoundingClientRect(),
@@ -1129,7 +1130,7 @@ typeof browser < "u" && (chrome = browser),
         show="${T}"
       >
         <span slot="content"
-          >${k.b[(0, v.EQ)(T)]}:
+          >${x.b[(0, v.EQ)(T)]}:
           ${u.reduce(l(T), 0)}</span
         >
       </ui-tooltip>
@@ -1201,7 +1202,7 @@ typeof browser < "u" && (chrome = browser),
               other: "#D5DBE5"
             },
             v = { ...t, site_analytics: "#87D7EF", unidentified: "#DBDFE7" },
-            k = null;
+            x = null;
           function y(f) {
             return t[f] ? f : "unidentified";
           }
@@ -1215,16 +1216,16 @@ typeof browser < "u" && (chrome = browser),
             return (T, H) => {
               const j = y(f(T)),
                 X = y(f(H));
-              return k.indexOf(j) - k.indexOf(X);
+              return x.indexOf(j) - x.indexOf(X);
             };
           }
         },
         56570: (S, L, s) => {
           "use strict";
-          s.d(L, { b: () => k });
+          s.d(L, { b: () => x });
           var t = s(67132),
             v = s(9664);
-          const k = {
+          const x = {
             advertising: t.WI`Advertising | Tracker category name`,
             site_analytics: t.WI`Site Analytics | Tracker category name`,
             consent: t.WI`Consent Management | Tracker category name - includes trackers used for cookie consent management, allowing websites different levels of tracking user activity`,
@@ -1249,17 +1250,17 @@ typeof browser < "u" && (chrome = browser),
           s.d(L, { N7: () => H, NE: () => _, U2: () => f, t8: () => T, z6: () => b });
           var t = s(17337);
           const v = new WeakMap(),
-            k = new Set();
+            x = new Set();
           function y(g) {
-            const p = new Set(),
-              d = p.values();
+            const p = [];
+            let d = 0;
             for (; g; ) {
               if (((g.resolved = !1), g.deps)) {
                 for (const r of g.deps) r.contexts.delete(g);
                 g.deps.clear();
               }
-              if (g.contexts) for (const r of g.contexts) k.has(r) || (p.add(r), g.contexts.delete(r));
-              g.observe && t.I(g.observe), (g = d.next().value);
+              if (g.contexts) for (const r of g.contexts) x.has(r) || (p.includes(r) || p.push(r), g.contexts.delete(r));
+              g.observe && t.I(g.observe), (g = p[d++]);
             }
           }
           function l(g, p) {
@@ -1295,10 +1296,10 @@ typeof browser < "u" && (chrome = browser),
               return r.value;
             const c = u;
             try {
-              if (k.has(r)) throw Error(`Circular get invocation is forbidden: '${p}'`);
-              (u = r), k.add(r), (r.value = d(g, r.value)), (r.resolved = !0), (u = c), k.delete(r);
+              if (x.has(r)) throw Error(`Circular get invocation is forbidden: '${p}'`);
+              (u = r), x.add(r), (r.value = d(g, r.value)), (r.resolved = !0), (u = c), x.delete(r);
             } catch (V) {
-              throw ((u = c), k.delete(r), u && (u.deps.delete(r), r.contexts.delete(u)), V);
+              throw ((u = c), x.delete(r), u && (u.deps.delete(r), r.contexts.delete(u)), V);
             }
             return r.value;
           }
@@ -1352,7 +1353,7 @@ typeof browser < "u" && (chrome = browser),
           s.d(L, { A: () => E, Z: () => o1 });
           var t = s(96806),
             v = s(17337),
-            k = s(77540),
+            x = s(77540),
             y = s(43945),
             l = s(13436);
           const E = new WeakMap(),
@@ -1400,7 +1401,7 @@ typeof browser < "u" && (chrome = browser),
                   throw TypeError(
                     `Invalid property descriptor for '${r}' property - it must not have 'value' and 'set' properties at the same time.`
                   );
-                const K = (0, k.Dk)(r),
+                const K = (0, x.Dk)(r),
                   t1 = c.get || ((C1, Q) => Q);
                 c.get = (C1, Q) => (Q === void 0 && (Q = c.set(C1, C1.getAttribute(K) || Q)), t1(C1, Q));
               }
@@ -1432,8 +1433,8 @@ typeof browser < "u" && (chrome = browser),
           const T = new Map();
           function H(b) {
             T.size ||
-              k.gX.then(() => {
-                (0, k.N7)(globalThis.document.body, (_) => {
+              x.gX.then(() => {
+                (0, x.N7)(globalThis.document.body, (_) => {
                   if (T.has(_.constructor)) {
                     const g = T.get(_.constructor),
                       p = E.get(_.constructor);
@@ -1441,7 +1442,7 @@ typeof browser < "u" && (chrome = browser),
                     for (const d of Object.keys(p)) {
                       const r = typeof p[d],
                         c = r !== "object" && r !== "function" && p[d] !== g[d];
-                      c && _.removeAttribute((0, k.Dk)(d)), t.z6(_, d, { clearValue: c });
+                      c && _.removeAttribute((0, x.Dk)(d)), t.z6(_, d, { clearValue: c });
                     }
                     _.connectedCallback();
                   }
@@ -1463,7 +1464,7 @@ typeof browser < "u" && (chrome = browser),
             for (const p of Object.keys(b)) {
               const d = b[p];
               if (!d.tag) {
-                const r = (0, k.Dk)(
+                const r = (0, x.Dk)(
                   []
                     .concat(_)
                     .reduce((c, V) => c.replace(V, ""), p)
@@ -1481,10 +1482,10 @@ typeof browser < "u" && (chrome = browser),
         },
         17337: (S, L, s) => {
           "use strict";
-          s.d(L, { I: () => k, Z: () => y });
+          s.d(L, { I: () => x, Z: () => y });
           var t = s(77540);
           const v = new Set();
-          function k(E) {
+          function x(E) {
             v.size || t.gX.then(l), v.add(E);
           }
           function y(E) {
@@ -1505,7 +1506,7 @@ typeof browser < "u" && (chrome = browser),
           s.d(L, { NC: () => o1, U2: () => j, WI: () => g, eL: () => f });
           var t = s(58768),
             v = s(77540),
-            k = s(72020);
+            x = s(72020);
           const y = new Map(),
             l = new Map();
           let E = null;
@@ -1596,7 +1597,7 @@ typeof browser < "u" && (chrome = browser),
           }
           (g.html = function (d, ...r) {
             const c = b(d, r);
-            return (0, k.MY)(
+            return (0, x.MY)(
               c.replace(_, (V, K) => (0, t.ph)(K)),
               r,
               !1,
@@ -1605,7 +1606,7 @@ typeof browser < "u" && (chrome = browser),
           }),
             (g.svg = function (d, ...r) {
               const c = b(d, r);
-              return (0, k.MY)(
+              return (0, x.MY)(
                 c.replace(_, (V, K) => (0, t.ph)(K)),
                 r,
                 !0,
@@ -1616,9 +1617,9 @@ typeof browser < "u" && (chrome = browser),
         43945: (S, L, s) => {
           "use strict";
           s.d(L, { Z: () => t });
-          function t(v, k) {
+          function t(v, x) {
             return {
-              get: k
+              get: x
                 ? (y) => {
                     const l = v(y),
                       E = y.shadowRoot || y.attachShadow({ mode: "open", delegatesFocus: v.delegatesFocus || !1 });
@@ -1639,7 +1640,7 @@ typeof browser < "u" && (chrome = browser),
           s.d(L, { Z: () => j1 });
           var t = s(96806),
             v = s(77540),
-            k = s(90384);
+            x = s(90384);
           const y = Symbol("router.connect"),
             l = new WeakMap(),
             E = new WeakMap(),
@@ -1702,12 +1703,12 @@ typeof browser < "u" && (chrome = browser),
           const r = ["scrollToTop"];
           function c(i, h) {
             const [C, w = ""] = i.split("?"),
-              $ = w ? w.split(",") : [],
+              Z = w ? w.split(",") : [],
               M = C.replace(/^\//, "").split("/"),
               O = M.reduce((D, P) => {
                 if (P.startsWith(":")) {
                   const B = P.slice(1);
-                  if ($.includes(B)) throw Error(`The '${B}' already used in search params`);
+                  if (Z.includes(B)) throw Error(`The '${B}' already used in search params`);
                   if (D.includes(B)) throw Error(`The '${B}' already used in pathname`);
                   D.push(B);
                 }
@@ -1716,7 +1717,7 @@ typeof browser < "u" && (chrome = browser),
             return {
               browserUrl: i,
               pathnameParams: O,
-              paramsKeys: [...$, ...O],
+              paramsKeys: [...Z, ...O],
               url(D, P = !1) {
                 let B = "";
                 for (let N of M) {
@@ -1729,7 +1730,7 @@ typeof browser < "u" && (chrome = browser),
                 }
                 const A = new URL(B, globalThis.location.origin);
                 for (const N of Object.keys(D))
-                  O.includes(N) || (P && (r.includes(N) || !$.includes(N))) || A.searchParams.append(N, d(D[N]));
+                  O.includes(N) || (P && (r.includes(N) || !Z.includes(N))) || A.searchParams.append(N, d(D[N]));
                 return A;
               },
               match(D) {
@@ -1760,10 +1761,10 @@ typeof browser < "u" && (chrome = browser),
             return (
               typeof i == "function" && (i = i()),
               (i = [].concat(i)),
-              i.map(($) => {
-                const M = l.get($);
+              i.map((Z) => {
+                const M = l.get(Z);
                 if (M && V(M, C)) throw Error(`<${M.id}> cannot be in the stack of <${C.id}>, as it is an ancestor in the stack tree`);
-                return E1($, h, C, w);
+                return E1(Z, h, C, w);
               })
             );
           }
@@ -1785,13 +1786,13 @@ typeof browser < "u" && (chrome = browser),
             return l.get(h);
           }
           function E1(i, h, C, w) {
-            const $ = i.tag;
-            let M = Q($);
+            const Z = i.tag;
+            let M = Q(Z);
             if ((M && M.hybrids !== i && (M = null), M)) (M.parent = C), (M.nestedParent = w);
             else {
-              const D = globalThis.customElements.get($);
-              if (!D || k.A.get(D) !== i)
-                throw Error(`<${$}> view must be defined by 'define()' function before it can be used in router factory`);
+              const D = globalThis.customElements.get(Z);
+              if (!D || x.A.get(D) !== i)
+                throw Error(`<${Z}> view must be defined by 'define()' function before it can be used in router factory`);
               let P = null;
               const B = { dialog: !1, guard: !1, multiple: !1, replace: !1, ...i[y] },
                 { connects: A } = D;
@@ -1817,12 +1818,12 @@ typeof browser < "u" && (chrome = browser),
               const N = [];
               for (const R of Object.keys(D.prototype)) Object.getOwnPropertyDescriptor(D.prototype, R).set && N.push(R);
               if (B.url) {
-                if (B.dialog) throw Error(`The 'url' option is not supported for dialogs - remove it from <${$}>`);
-                if (typeof B.url != "string") throw TypeError(`The 'url' option in <${$}> must be a string: ${typeof B.url}`);
-                P = c(B.url, $);
+                if (B.dialog) throw Error(`The 'url' option is not supported for dialogs - remove it from <${Z}>`);
+                if (typeof B.url != "string") throw TypeError(`The 'url' option in <${Z}> must be a string: ${typeof B.url}`);
+                P = c(B.url, Z);
                 for (const R of P.paramsKeys) {
                   const q = Object.getOwnPropertyDescriptor(D.prototype, R);
-                  if (!q || !q.set) throw Error(`'${R}' parameter from the url is not ${q ? "writable" : "defined"} in <${$}>`);
+                  if (!q || !q.set) throw Error(`'${R}' parameter from the url is not ${q ? "writable" : "defined"} in <${Z}>`);
                 }
               }
               const W = N.filter((R) => !h.params.includes(R) && !r.includes(R)),
@@ -1843,7 +1844,7 @@ typeof browser < "u" && (chrome = browser),
                     if (!r1) return;
                     const c1 = globalThis.history.state;
                     let h1 = c1[0];
-                    for (; h1.id !== $ && h1.nested; ) h1 = h1.nested;
+                    for (; h1.id !== Z && h1.nested; ) h1 = h1.nested;
                     J = { ...h1.params, ...J };
                     for (const B1 of a1) J[B1] === void 0 && delete J[B1];
                     globalThis.history.replaceState([M.getEntry(J), ...c1.slice(1)], "", P ? M.url(J, !0) : "");
@@ -1861,7 +1862,7 @@ typeof browser < "u" && (chrome = browser),
                     }
                   }),
                 (M = {
-                  id: $,
+                  id: Z,
                   hybrids: i,
                   dialog: B.dialog,
                   multiple: B.multiple,
@@ -1876,7 +1877,7 @@ typeof browser < "u" && (chrome = browser),
                     url(R) {
                       const q = new URL("", globalThis.location.origin);
                       for (const J of Object.keys(R)) q.searchParams.append(J, d(R[J]));
-                      return new URL(`${h.url}#@${$}${q.search}`, globalThis.location.origin);
+                      return new URL(`${h.url}#@${Z}${q.search}`, globalThis.location.origin);
                     },
                     match(R) {
                       const q = {};
@@ -1891,7 +1892,7 @@ typeof browser < "u" && (chrome = browser),
                   getEntry(R = {}, q) {
                     let J = {};
                     for (const h1 of Object.keys(R)) N.includes(h1) && (J[h1] = R[h1]);
-                    const r1 = { id: $, params: J, ...q },
+                    const r1 = { id: Z, params: J, ...q },
                       c1 = M.parentsWithGuards.find((h1) => !h1.guard());
                     if (c1) return c1.getEntry(R, { from: r1 });
                     if (M.guard && M.guard()) return { ...M.stack[0].getEntry(R) };
@@ -1905,7 +1906,7 @@ typeof browser < "u" && (chrome = browser),
                 C && !C.stack.includes(M) && C.stack.push(M),
                 B.stack)
               ) {
-                if (B.dialog) throw Error(`The 'stack' option is not supported for dialogs - remove it from <${$}>`);
+                if (B.dialog) throw Error(`The 'stack' option is not supported for dialogs - remove it from <${Z}>`);
                 t1(B.stack, h, M, w);
               }
             }
@@ -1936,14 +1937,14 @@ typeof browser < "u" && (chrome = browser),
             }
             let w = C[0];
             if (i) for (; w.nested; ) w = w.nested;
-            let $ = Q(w.id).parent;
-            if ($) {
-              for (; $ && $.guard; ) $ = $.parent;
-              if ($) return $.url(H1(C[0]));
+            let Z = Q(w.id).parent;
+            if (Z) {
+              for (; Z && Z.guard; ) Z = Z.parent;
+              if (Z) return Z.url(H1(C[0]));
             }
             return "";
           }
-          function $1(i = {}) {
+          function Z1(i = {}) {
             const h = globalThis.history.state;
             if (!h) return "";
             const C = h[0];
@@ -1963,12 +1964,12 @@ typeof browser < "u" && (chrome = browser),
             return C
               ? ((i = [].concat(i)),
                 i.some((w) => {
-                  const $ = l.get(w);
-                  if (!$) throw TypeError(`Provided view is not connected to the router: ${w}`);
+                  const Z = l.get(w);
+                  if (!Z) throw TypeError(`Provided view is not connected to the router: ${w}`);
                   let M = C[0];
                   for (; M; ) {
                     const O = Q(M.id);
-                    if (O === $ || (h && V($, O))) return !0;
+                    if (O === Z || (h && V(Z, O))) return !0;
                     M = M.nested;
                   }
                   return !1;
@@ -1979,9 +1980,9 @@ typeof browser < "u" && (chrome = browser),
             let h;
             const [C, w] = i.hash.split("?");
             if ((C && C.match(/^#@.+-.+/) && ((h = Q(C.split("@")[1])), (i = new URL(`?${w}`, globalThis.location.origin))), !h)) {
-              for (const $ of H) {
-                const M = $.match(i);
-                if (M) return $.getEntry(M);
+              for (const Z of H) {
+                const M = Z.match(i);
+                if (M) return Z.getEntry(M);
               }
               return null;
             }
@@ -2017,12 +2018,12 @@ typeof browser < "u" && (chrome = browser),
               h === b1 && (v1(w), (b1 = null));
             });
           }
-          function Z1(i, h, C) {
+          function $1(i, h, C) {
             let w = u.get(i);
-            const $ = [];
-            for (const [P, B] of h.entries()) (P === 0 || h[P - 1].id !== B.id || Q(B.id).multiple) && $.push(B);
-            const M = w.length - $.length;
-            (w = $.map((P, B) => {
+            const Z = [];
+            for (const [P, B] of h.entries()) (P === 0 || h[P - 1].id !== B.id || Q(B.id).multiple) && Z.push(B);
+            const M = w.length - Z.length;
+            (w = Z.map((P, B) => {
               const A = w[B + M],
                 N = Q(P.id);
               let W;
@@ -2042,22 +2043,22 @@ typeof browser < "u" && (chrome = browser),
           }
           function R1(i) {
             const h = [];
-            for (let [$, M] of globalThis.history.state.entries()) {
+            for (let [Z, M] of globalThis.history.state.entries()) {
               let O = 0;
-              for (; M; ) (h[O] = h[O] || []), (h[O][$] = M), (M = M.nested), (O += 1);
+              for (; M; ) (h[O] = h[O] || []), (h[O][Z] = M), (M = M.nested), (O += 1);
             }
             let C = 0,
               w = 0;
             for (; i; ) {
-              const $ = Q(i.id);
+              const Z = Q(i.id);
               let M = C;
               for (; M < h[w].length; M += 1) {
                 const O = h[w][M];
-                if ($.dialog) return O.id !== i.id ? -1 : C;
+                if (Z.dialog) return O.id !== i.id ? -1 : C;
                 if (O.id === i.id)
-                  if ($.multiple) {
+                  if (Z.multiple) {
                     if (
-                      ($.pathnameParams && $.pathnameParams.every((P) => i.params[P] === O.params[P])) ||
+                      (Z.pathnameParams && Z.pathnameParams.every((P) => i.params[P] === O.params[P])) ||
                       Object.entries(i.params).every(([P, B]) => O.params[P] === B)
                     ) {
                       C = M;
@@ -2068,8 +2069,8 @@ typeof browser < "u" && (chrome = browser),
                     break;
                   }
                 const D = Q(O.id);
-                if (V(D, $)) {
-                  if ($.multiple && h[w][0].id === i.id) {
+                if (V(D, Z)) {
+                  if (Z.multiple && h[w][0].id === i.id) {
                     C -= 1;
                     break;
                   }
@@ -2090,21 +2091,21 @@ typeof browser < "u" && (chrome = browser),
               return;
             }
             const { dialog: w } = l.get(i[0].constructor),
-              $ =
+              Z =
                 (w && "dialog") ||
                 (h.length && ((i.length > h.length && "forward") || (i.length < h.length && "backward") || (i[0] !== h[0] && "replace"))) ||
                 "";
-            C.setAttribute("router-transition", $);
+            C.setAttribute("router-transition", Z);
           }
           function I1(i, h, C) {
             function w() {
               const A = u.get(i),
-                N = Z1(i, globalThis.history.state, C);
+                N = $1(i, globalThis.history.state, C);
               C.transition && L1(N, A), h();
               const W = N[0];
               l.get(W).dialog || p(W);
             }
-            function $(A, N, W) {
+            function Z(A, N, W) {
               const a1 = globalThis.history.state,
                 p1 = globalThis.history.state[A],
                 R = A < a1.length - 1 && a1.length > 2 ? 1 : 0;
@@ -2126,7 +2127,7 @@ typeof browser < "u" && (chrome = browser),
               const a1 = Q(W.id),
                 p1 = a1.browserUrl ? a1.url(W.params, !0) : C.url,
                 R = R1(A);
-              if (R > -1) $(R, A, p1);
+              if (R > -1) Z(R, A, p1);
               else {
                 let q = u.get(i);
                 _(q[0]), (globalThis.history.scrollRestoration = "manual"), globalThis.history.pushState([A, ...N], "", p1), w();
@@ -2158,7 +2159,7 @@ typeof browser < "u" && (chrome = browser),
               }
               if (N > -1) {
                 const W = P[N + 1];
-                $(P.length - N - 1, W || D[0].getEntry(P[0].params), C.url);
+                Z(P.length - N - 1, W || D[0].getEntry(P[0].params), C.url);
               } else {
                 let W = P[0];
                 for (; W.nested; ) W = W.nested;
@@ -2189,7 +2190,7 @@ typeof browser < "u" && (chrome = browser),
           }
           function O1(i, h, C) {
             const w = l.get(i);
-            function $() {
+            function Z() {
               return globalThis.history.state
                 .map((O) => {
                   for (; O; ) {
@@ -2201,9 +2202,9 @@ typeof browser < "u" && (chrome = browser),
                 .filter((O) => O);
             }
             function M() {
-              Z1(i, $(), C), h();
+              $1(i, Z(), C), h();
             }
-            if (!$()[0]) {
+            if (!Z()[0]) {
               const O = globalThis.history.state;
               globalThis.history.replaceState([w.nestedRoots[0].getEntry(O[0].params), ...O.slice(1)], "");
             }
@@ -2213,19 +2214,19 @@ typeof browser < "u" && (chrome = browser),
             h = { url: globalThis.location.href.replace(/#.*$/, ""), params: [], ...h, views: i };
             const C = {
               get: (w) => {
-                const $ = u.get(w) || [];
-                return $.slice(0, $.findIndex((M) => !l.get(M).dialog) + 1).reverse();
+                const Z = u.get(w) || [];
+                return Z.slice(0, Z.findIndex((M) => !l.get(M).dialog) + 1).reverse();
               },
-              connect: (w, $, M) => {
+              connect: (w, Z, M) => {
                 for (const O of h.params)
                   if (!(O in w)) throw Error(`Property '${O}' for global parameters is not defined in <${w.tagName.toLowerCase()}>`);
                 return u.has(w) || u.set(w, []), l.has(w) ? O1(w, M, h) : I1(w, M, h);
               },
               observe:
                 j &&
-                ((w, $, M) => {
-                  const O = $.length - 1,
-                    D = $[O];
+                ((w, Z, M) => {
+                  const O = Z.length - 1,
+                    D = Z[O];
                   if (M && D === M[O]) return;
                   let P = l.get(w),
                     B = globalThis.history.state[0],
@@ -2239,7 +2240,7 @@ typeof browser < "u" && (chrome = browser),
             return f.set(C, h), C;
           }
           const j1 = Object.freeze(
-            Object.assign(P1, { connect: y, debug: X, url: D1, backUrl: A1, guardUrl: $1, currentUrl: S1, resolve: W1, active: N1 })
+            Object.assign(P1, { connect: y, debug: X, url: D1, backUrl: A1, guardUrl: Z1, currentUrl: S1, resolve: W1, active: N1 })
           );
         },
         72020: (S, L, s) => {
@@ -2249,7 +2250,7 @@ typeof browser < "u" && (chrome = browser),
           s.r(t), s.d(t, { resolve: () => D, set: () => N, transition: () => a1 });
           var v = {};
           s.r(v), s.d(v, { css: () => q, key: () => p1, style: () => R, use: () => J });
-          var k = s(77540),
+          var x = s(77540),
             y = s(67132);
           const l = !!(globalThis.document && globalThis.document.adoptedStyleSheets),
             E = /^\d+$/,
@@ -2266,12 +2267,12 @@ typeof browser < "u" && (chrome = browser),
               shrink: (o, e = 1) => ({ "flex-shrink": e }),
               basis: (o, e) => ({ "flex-basis": H(e) }),
               order: (o, e = 0) => ({ order: e }),
-              grid: (o, e = "1", n = "", a = "", x = "") => ({
+              grid: (o, e = "1", n = "", a = "", k = "") => ({
                 display: "grid",
-                ...["columns", "rows"].reduce((m, Z) => {
-                  const z = Z === "columns" ? e : n;
+                ...["columns", "rows"].reduce((m, $) => {
+                  const z = $ === "columns" ? e : n;
                   return (
-                    (m[`grid-template-${Z}`] =
+                    (m[`grid-template-${$}`] =
                       z &&
                       z
                         .split("|")
@@ -2280,7 +2281,7 @@ typeof browser < "u" && (chrome = browser),
                     m
                   );
                 }, {}),
-                "grid-auto-flow": `${a} ${x && "dense"}`
+                "grid-auto-flow": `${a} ${k && "dense"}`
               }),
               area: (o, e = "", n = "") => ({ "grid-column": e.match(E) ? `span ${e}` : e, "grid-row": n.match(E) ? `span ${n}` : n }),
               gap: (o, e = 1, n = "") => ({ "column-gap": H(e), "row-gap": H(n || e) }),
@@ -2294,10 +2295,10 @@ typeof browser < "u" && (chrome = browser),
               ratio: (o, e) => ({ "aspect-ratio": e }),
               overflow: (o, e = "hidden", n = "") => {
                 const a = n ? `-${e}` : "",
-                  x = n || e;
+                  k = n || e;
                 return {
-                  [`overflow${a}`]: x,
-                  ...(x === "scroll"
+                  [`overflow${a}`]: k,
+                  ...(k === "scroll"
                     ? {
                         "flex-grow": o["flex-grow"] || 1,
                         "flex-basis": 0,
@@ -2307,10 +2308,10 @@ typeof browser < "u" && (chrome = browser),
                     : {})
                 };
               },
-              margin: (o, e = "1", n, a, x) =>
-                e.match(/top|bottom|left|right/) ? { [`margin-${e}`]: H(n || "1") } : { margin: `${H(e)} ${H(n)} ${H(a)} ${H(x)}` },
-              padding: (o, e = "1", n, a, x) =>
-                e.match(/top|bottom|left|right/) ? { [`padding-${e}`]: H(n || "1") } : { padding: `${H(e)} ${H(n)} ${H(a)} ${H(x)}` },
+              margin: (o, e = "1", n, a, k) =>
+                e.match(/top|bottom|left|right/) ? { [`margin-${e}`]: H(n || "1") } : { margin: `${H(e)} ${H(n)} ${H(a)} ${H(k)}` },
+              padding: (o, e = "1", n, a, k) =>
+                e.match(/top|bottom|left|right/) ? { [`padding-${e}`]: H(n || "1") } : { padding: `${H(e)} ${H(n)} ${H(a)} ${H(k)}` },
               absolute: { position: "absolute" },
               relative: { position: "relative" },
               fixed: { position: "fixed" },
@@ -2357,18 +2358,18 @@ typeof browser < "u" && (chrome = browser),
               if (e === globalThis.document) return;
               let a = o1.get(e);
               a || ((a = globalThis.document.createElement("style")), e.appendChild(a), o1.set(e, a));
-              let x = "";
-              for (let m = 0; m < n.cssRules.length; m++) x += n.cssRules[m].cssText;
-              a.textContent = x;
+              let k = "";
+              for (let m = 0; m < n.cssRules.length; m++) k += n.cssRules[m].cssText;
+              a.textContent = k;
             }
             b.add(e);
           }
           const g = new Map();
           function p(o, e, n, a) {
-            let x = g.get(o);
-            x || ((x = `l-${Math.random().toString(36).substr(2, 5)}`), g.set(o, x)), l || (b = new WeakSet());
+            let k = g.get(o);
+            k || ((k = `l-${Math.random().toString(36).substr(2, 5)}`), g.set(o, k)), l || (b = new WeakSet());
             const m = X(),
-              [Z, z = ""] = e.split("@"),
+              [$, z = ""] = e.split("@"),
               s1 = Object.entries(
                 n
                   .replace(/\s+/g, " ")
@@ -2383,44 +2384,44 @@ typeof browser < "u" && (chrome = browser),
               ).reduce((F, [I, n1]) => (n1 !== void 0 && n1 !== "" ? F + `${I}: ${n1};` : F), ""),
               f1 = z.split(":").reduce((F, I) => (I === "" ? F : F + ` and (${T[I] || `min-width: ${I}`})`), "@media screen");
             if (a) {
-              const F = `:host(:where(.${x}-s${Z}))`,
-                I = `:where(.${x}-c${Z})`;
+              const F = `:host(:where(.${k}-s${$}))`,
+                I = `:where(.${k}-c${$})`;
               [F, I].forEach((n1) => {
                 m.insertRule(z ? `${f1} { ${n1} { ${s1} } }` : `${n1} { ${s1} }`, m.cssRules.length - 1);
               });
             } else {
-              const F = `.${x}${Z}`;
+              const F = `.${k}${$}`;
               m.insertRule(z ? `${f1} { ${F} { ${s1} } }` : `${F} { ${s1} }`, m.cssRules.length - 1);
             }
-            return x;
+            return k;
           }
           var d = s(58768);
           const r = new WeakMap();
           function c(o, e) {
             const n = (0, d.xZ)(o),
               a = n.startNode,
-              x = (0, d.cc)(n.endNode);
+              k = (0, d.cc)(n.endNode);
             e.parentNode.insertBefore(o, e.nextSibling);
             let m = o,
-              Z = a;
-            for (; Z; ) {
-              const z = Z.nextSibling;
-              m.parentNode.insertBefore(Z, m.nextSibling), (m = Z), (Z = z !== x.nextSibling && z);
+              $ = a;
+            for (; $; ) {
+              const z = $.nextSibling;
+              m.parentNode.insertBefore($, m.nextSibling), (m = $), ($ = z !== k.nextSibling && z);
             }
           }
-          function V(o, e, n, a, x) {
+          function V(o, e, n, a, k) {
             let m = r.get(e);
-            const Z = n.map((F, I) => ({ id: hasOwnProperty.call(F, "id") ? F.id : I, value: F, placeholder: null, available: !0 }));
-            if ((r.set(e, Z), m)) {
+            const $ = n.map((F, I) => ({ id: hasOwnProperty.call(F, "id") ? F.id : I, value: F, placeholder: null, available: !0 }));
+            if ((r.set(e, $), m)) {
               const F = new Set();
-              for (const I of Z) F.add(I.id);
+              for (const I of $) F.add(I.id);
               m = m.filter((I) => (F.has(I.id) ? !0 : ((0, d.CK)(I.placeholder), I.placeholder.parentNode.removeChild(I.placeholder), !1)));
             }
             let z = e;
             const s1 = n.length - 1,
               f1 = (0, d.xZ)(e);
-            for (let F = 0; F < Z.length; F += 1) {
-              const I = Z[F];
+            for (let F = 0; F < $.length; F += 1) {
+              const I = $[F];
               let n1;
               if (m) {
                 for (let y1 = 0; y1 < m.length; y1 += 1)
@@ -2433,10 +2434,10 @@ typeof browser < "u" && (chrome = browser),
                 ? ((n1.available = !1),
                   (I.placeholder = n1.placeholder),
                   I.placeholder.previousSibling !== z && c(I.placeholder, z),
-                  n1.value !== I.value && a(o, I.placeholder, I.value, n1.value, x))
+                  n1.value !== I.value && a(o, I.placeholder, I.value, n1.value, k))
                 : ((I.placeholder = globalThis.document.createTextNode("")),
                   z.parentNode.insertBefore(I.placeholder, z.nextSibling),
-                  a(o, I.placeholder, I.value, void 0, x)),
+                  a(o, I.placeholder, I.value, void 0, k)),
                 (z = (0, d.cc)((0, d.xZ)(I.placeholder, {}).endNode || I.placeholder)),
                 F === 0 && (f1.startNode = I.placeholder),
                 F === s1 && (f1.endNode = z);
@@ -2456,23 +2457,23 @@ typeof browser < "u" && (chrome = browser),
             }
             return e;
           }
-          function C1(o, e, n, a, x) {
+          function C1(o, e, n, a, k) {
             const m = t1(n),
-              Z = t1(a);
+              $ = t1(a);
             switch (
-              (Z !== "undefined" &&
-                m !== Z &&
-                (m !== "function" && (0, d.CK)(e), Z === "array" ? r.delete(e) : Z !== "node" && Z !== "function" && (e.textContent = "")),
+              ($ !== "undefined" &&
+                m !== $ &&
+                (m !== "function" && (0, d.CK)(e), $ === "array" ? r.delete(e) : $ !== "node" && $ !== "function" && (e.textContent = "")),
               m)
             ) {
               case "array":
-                V(o, e, n, C1, x);
+                V(o, e, n, C1, k);
                 break;
               case "node":
                 K(o, e, n);
                 break;
               case "function":
-                x && (n.useLayout = !0), n(o, e);
+                k && (n.useLayout = !0), n(o, e);
                 break;
               default:
                 e.textContent = m === "number" || n ? n : "";
@@ -2480,17 +2481,17 @@ typeof browser < "u" && (chrome = browser),
           }
           const Q = new WeakMap();
           function E1(o) {
-            return (e, n, a, x) => {
-              if (x) {
+            return (e, n, a, k) => {
+              if (k) {
                 const m = Q.get(n);
-                n.removeEventListener(o, m.get(x), x.options !== void 0 ? x.options : !1);
+                n.removeEventListener(o, m.get(k), k.options !== void 0 ? k.options : !1);
               }
               if (a) {
                 if (typeof a != "function") throw Error(`Event listener must be a function: ${typeof a}`);
                 let m = Q.get(n);
                 m || ((m = new WeakMap()), Q.set(n, m));
-                const Z = a.bind(null, e);
-                m.set(a, Z), n.addEventListener(o, Z, a.options !== void 0 ? a.options : !1);
+                const $ = a.bind(null, e);
+                m.set(a, $), n.addEventListener(o, $, a.options !== void 0 ? a.options : !1);
               }
             };
           }
@@ -2503,23 +2504,23 @@ typeof browser < "u" && (chrome = browser),
           const H1 = new WeakMap();
           function A1(o, e, n) {
             const a = H1.get(e) || new Set(),
-              x = D1(n);
-            H1.set(e, x);
-            for (const m of x) e.classList.add(m), a.delete(m);
+              k = D1(n);
+            H1.set(e, k);
+            for (const m of k) e.classList.add(m), a.delete(m);
             for (const m of a) e.classList.remove(m);
           }
-          const $1 = new WeakMap();
+          const Z1 = new WeakMap();
           function S1(o, e, n) {
-            if (n === null || typeof n != "object") throw TypeError(`Style value must be an object in ${(0, k.r4)(e)}:`, n);
-            const a = $1.get(e) || new Map(),
-              x = new Map();
+            if (n === null || typeof n != "object") throw TypeError(`Style value must be an object in ${(0, x.r4)(e)}:`, n);
+            const a = Z1.get(e) || new Map(),
+              k = new Map();
             for (const m of Object.keys(n)) {
-              const Z = (0, k.Dk)(m),
+              const $ = (0, x.Dk)(m),
                 z = n[m];
-              !z && z !== 0 ? e.style.removeProperty(Z) : e.style.setProperty(Z, z), x.set(Z, z), a.delete(Z);
+              !z && z !== 0 ? e.style.removeProperty($) : e.style.setProperty($, z), k.set($, z), a.delete($);
             }
             for (const m of a.keys()) e.style[m] = "";
-            $1.set(e, x);
+            Z1.set(e, k);
           }
           function N1(o, e, n) {
             if (e.substr(0, 2) === "on") {
@@ -2533,11 +2534,11 @@ typeof browser < "u" && (chrome = browser),
                 return S1;
               default: {
                 let a = !1;
-                return (x, m, Z) => {
-                  if (((a = a || (!n && !(m instanceof globalThis.SVGElement) && e in m)), a)) m[e] = Z;
-                  else if (Z === !1 || Z === void 0 || Z === null) m.removeAttribute(o);
+                return (k, m, $) => {
+                  if (((a = a || (!n && !(m instanceof globalThis.SVGElement) && e in m)), a)) m[e] = $;
+                  else if ($ === !1 || $ === void 0 || $ === null) m.removeAttribute(o);
                   else {
-                    const z = Z === !0 ? "" : String(Z);
+                    const z = $ === !0 ? "" : String($);
                     m.setAttribute(o, z);
                   }
                 };
@@ -2548,7 +2549,7 @@ typeof browser < "u" && (chrome = browser),
             v1 = new RegExp(`^${_1}$`),
             b1 = new RegExp(_1, "g"),
             W1 = /^[^A-Za-z]+$/;
-          function Z1(o) {
+          function $1(o) {
             let e = o[0],
               n = !1;
             for (let a = 1; a < o.length; a += 1)
@@ -2578,7 +2579,7 @@ typeof browser < "u" && (chrome = browser),
             if (n > -1) {
               let a = 0 - e - 2;
               for (n += 1; o[n] === " " && n < o.length; n += 1) a += 1;
-              return o.replace(/\n +/g, (x) => x.substr(0, Math.max(x.length - a, 1)));
+              return o.replace(/\n +/g, (k) => k.substr(0, Math.max(k.length - a, 1)));
             }
             return o;
           }
@@ -2589,13 +2590,13 @@ typeof browser < "u" && (chrome = browser),
                 `
 `
               )
-              .filter((x) => x)
-              .map((x) => {
-                const m = x.indexOf(n);
+              .filter((k) => k)
+              .map((k) => {
+                const m = k.indexOf(n);
                 return m > -1
-                  ? `| ${x}
+                  ? `| ${k}
 --${"-".repeat(m)}${"^".repeat(6)}`
-                  : `| ${x}`;
+                  : `| ${k}`;
               })
               .join(
                 `
@@ -2611,19 +2612,19 @@ typeof browser < "u" && (chrome = browser),
             const a =
               e &&
               e.map((m) => {
-                let Z = m;
+                let $ = m;
                 return (
-                  Z instanceof globalThis.CSSStyleSheet ||
-                    ((Z = P1.get(m)), Z || ((Z = new globalThis.CSSStyleSheet()), Z.replaceSync(m), P1.set(m, Z))),
-                  Z
+                  $ instanceof globalThis.CSSStyleSheet ||
+                    (($ = P1.get(m)), $ || (($ = new globalThis.CSSStyleSheet()), $.replaceSync(m), P1.set(m, $))),
+                  $
                 );
               });
-            let x;
+            let k;
             if (n) {
-              if (a && a.length === n.length && a.every((m, Z) => m === n[Z])) return;
-              x = o.adoptedStyleSheets.filter((m) => !n.includes(m));
+              if (a && a.length === n.length && a.every((m, $) => m === n[$])) return;
+              k = o.adoptedStyleSheets.filter((m) => !n.includes(m));
             }
-            a && (x = (x || o.adoptedStyleSheets).concat(a)), (o.adoptedStyleSheets = x), j1.set(o, a);
+            a && (k = (k || o.adoptedStyleSheets).concat(a)), (o.adoptedStyleSheets = k), j1.set(o, a);
           }
           const h = new WeakMap();
           function C(o, e) {
@@ -2641,21 +2642,21 @@ typeof browser < "u" && (chrome = browser),
             } else n && (n.parentNode.removeChild(n), h.set(o, null));
           }
           const w = new WeakMap();
-          function $(o, e) {
+          function Z(o, e) {
             let n = w.get(o);
             n || ((n = o.adoptedStyleSheets ? i : C), w.set(o, n)), n(o, e);
           }
           function M(o, e, n, a) {
-            let x = globalThis.document.createElement("template");
+            let k = globalThis.document.createElement("template");
             const m = {},
-              Z = n ? o : Z1(o);
-            if (((x.innerHTML = e ? `<svg>${Z}</svg>` : Z), e)) {
-              const U = x.content.firstChild;
-              x.content.removeChild(U);
-              for (const Y of Array.from(U.childNodes)) x.content.appendChild(Y);
+              $ = n ? o : $1(o);
+            if (((k.innerHTML = e ? `<svg>${$}</svg>` : $), e)) {
+              const U = k.content.firstChild;
+              k.content.removeChild(U);
+              for (const Y of Array.from(U.childNodes)) k.content.appendChild(Y);
             }
             let z;
-            const s1 = x.content.children[0];
+            const s1 = k.content.children[0];
             if (s1 instanceof globalThis.HTMLTemplateElement) {
               for (const U of Array.from(s1.attributes)) {
                 const Y = U.value.trim();
@@ -2664,11 +2665,11 @@ typeof browser < "u" && (chrome = browser),
                   z = p(s1, U.name.substr(6), Y, !0);
                 }
               }
-              if (z !== void 0 && x.content.children.length > 1)
+              if (z !== void 0 && k.content.children.length > 1)
                 throw Error("Template, which uses layout system must have only the '<template>' root element");
-              (a = z || s1.hasAttribute("layout")), (x = s1);
+              (a = z || s1.hasAttribute("layout")), (k = s1);
             }
-            const f1 = L1(x.content),
+            const f1 = L1(k.content),
               F = [];
             let I = 0,
               n1 = null;
@@ -2728,7 +2729,7 @@ typeof browser < "u" && (chrome = browser),
                   (!n1 &&
                     (U.getAttribute("translate") === "no" || U.tagName.toLowerCase() === "script" || U.tagName.toLowerCase() === "style") &&
                     (n1 = U),
-                  k.$H)
+                  x.$H)
                 ) {
                   const Y = U.tagName.toLowerCase();
                   Y.match(/.+-.+/) && !globalThis.customElements.get(Y) && !F.includes(Y) && F.push(Y);
@@ -2772,15 +2773,15 @@ typeof browser < "u" && (chrome = browser),
               }
               I += 1;
             }
-            k.$H &&
+            x.$H &&
               F.length &&
               console.warn(`Not defined ${F.map((U) => `<${U}>`).join(", ")} element${F.length > 1 ? "s" : ""} found in the template:
-${O1(Z, -1)}`);
+${O1($, -1)}`);
             const y1 = Object.keys(m);
             return function (Y, i1, w1, { styleSheets: d1 }) {
               let G = (0, d.xZ)(i1);
-              if (x !== G.template) {
-                const e1 = globalThis.document.importNode(x.content, !0),
+              if (k !== G.template) {
+                const e1 = globalThis.document.importNode(k.content, !0),
                   l1 = L1(e1),
                   u1 = [];
                 let k1 = 0,
@@ -2795,7 +2796,7 @@ ${O1(Z, -1)}`);
                   (G.hostLayout && Y.classList.remove(G.hostLayout),
                   (0, d.CK)(i1),
                   (G = (0, d.xZ)(i1)),
-                  (G.template = x),
+                  (G.template = k),
                   (G.markers = u1),
                   i1.nodeType === globalThis.Node.TEXT_NODE)
                 ) {
@@ -2812,7 +2813,7 @@ ${O1(Z, -1)}`);
                 }
                 a && _(i1);
               }
-              $(i1, d1);
+              Z(i1, d1);
               for (const e1 of G.markers) {
                 const l1 = w1[e1.index],
                   u1 = G.prevArgs && G.prevArgs[e1.index];
@@ -2821,8 +2822,8 @@ ${O1(Z, -1)}`);
                     e1.fn(Y, e1.node, l1, u1, a);
                   } catch (k1) {
                     throw (
-                      (console.error(`Error while updating template expression in ${(0, k.r4)(Y)}:
-${O1(Z, e1.index)}`),
+                      (console.error(`Error while updating template expression in ${(0, x.r4)(Y)}:
+${O1($, e1.index)}`),
                       k1)
                     );
                   }
@@ -2832,16 +2833,16 @@ ${O1(Z, e1.index)}`),
           }
           const O = new WeakMap();
           function D(o, e, n = 200) {
-            return function a(x, m) {
-              const Z = a.useLayout;
+            return function a(k, m) {
+              const $ = a.useLayout;
               let z;
               e &&
                 (z = setTimeout(() => {
-                  (z = void 0), C1(x, m, e, void 0, Z);
+                  (z = void 0), C1(k, m, e, void 0, $);
                 }, n)),
                 O.set(m, o),
                 o.then((s1) => {
-                  z && clearTimeout(z), O.get(m) === o && (C1(x, m, s1, e && !z ? e : void 0, Z), O.set(m, null));
+                  z && clearTimeout(z), O.get(m) === o && (C1(k, m, s1, e && !z ? e : void 0, $), O.set(m, null));
                 });
             };
           }
@@ -2871,15 +2872,15 @@ ${O1(Z, e1.index)}`),
             if (!o) throw Error(`The first argument must be a property name or an object instance: ${o}`);
             if (typeof o == "object") {
               if (e === void 0) throw Error("For model instance property the second argument must be defined");
-              const a = k.Qz.get(o);
+              const a = x.Qz.get(o);
               if (!a) throw Error("Provided object must be a model instance of the store");
               return e === null
                 ? () => {
                     a.set(o, null);
                   }
-                : (x, m) => {
-                    P(m, (Z) => {
-                      a.set(o, B(e, Z));
+                : (k, m) => {
+                    P(m, ($) => {
+                      a.set(o, B(e, $));
                     });
                   };
             }
@@ -2890,8 +2891,8 @@ ${O1(Z, e1.index)}`),
             let n = A.get(o);
             return (
               n ||
-                ((n = (a, x) => {
-                  P(x, (m) => {
+                ((n = (a, k) => {
+                  P(k, (m) => {
                     a[o] = m;
                   });
                 }),
@@ -2904,17 +2905,17 @@ ${O1(Z, e1.index)}`),
             (globalThis.document &&
               globalThis.document.startViewTransition !== void 0 &&
               function (e) {
-                return function n(a, x) {
+                return function n(a, k) {
                   if (W) {
-                    console.warn(`${(0, k.r4)(a)}: view transition already started in ${(0, k.r4)(W)}`), e(a, x);
+                    console.warn(`${(0, x.r4)(a)}: view transition already started in ${(0, x.r4)(W)}`), e(a, k);
                     return;
                   }
                   (e.useLayout = n.useLayout),
                     (W = a),
                     globalThis.document.startViewTransition(
                       () => (
-                        e(a, x),
-                        k.gX.then(() => {
+                        e(a, k),
+                        x.gX.then(() => {
                           W = void 0;
                         })
                       )
@@ -2943,21 +2944,21 @@ ${O1(Z, e1.index)}`),
             B1 = (0, d.ph)("layout"),
             z1 = new Map();
           function U1(o, e, n, a) {
-            function x(m, Z = m) {
+            function k(m, $ = m) {
               let z = a ? o + h1 : o.join(r1);
               n && (z += c1);
-              const s1 = x.useLayout;
+              const s1 = k.useLayout;
               s1 && (z += B1);
               let f1 = z1.get(z);
               f1 || ((f1 = M(o, n, a, s1)), z1.set(z, f1)),
-                x.plugins
-                  ? x.plugins.reduce(
+                k.plugins
+                  ? k.plugins.reduce(
                       (F, I) => I(F),
-                      () => f1(m, Z, e, x)
-                    )(m, Z)
-                  : f1(m, Z, e, x);
+                      () => f1(m, $, e, k)
+                    )(m, $)
+                  : f1(m, $, e, k);
             }
-            return Object.assign(x, v);
+            return Object.assign(k, v);
           }
           function F1(o, ...e) {
             return U1(o, e, !1, !1);
@@ -2969,13 +2970,13 @@ ${O1(Z, e1.index)}`),
         },
         58768: (S, L, s) => {
           "use strict";
-          s.d(L, { CK: () => y, cc: () => k, ph: () => E, xZ: () => v });
+          s.d(L, { CK: () => y, cc: () => x, ph: () => E, xZ: () => v });
           const t = new WeakMap();
           function v(u) {
             let f = t.get(u);
             return f || (t.set(u, (f = {})), f);
           }
-          function k(u) {
+          function x(u) {
             let f;
             for (; u && (f = v(u)) && f.endNode; ) u = f.endNode;
             return u;
@@ -2984,7 +2985,7 @@ ${O1(Z, e1.index)}`),
             if (u.nodeType === globalThis.Node.TEXT_NODE) {
               const f = t.get(u);
               if (f && f.startNode) {
-                const T = k(f.endNode);
+                const T = x(f.endNode);
                 let H = f.startNode;
                 const j = T.nextSibling;
                 for (; H; ) {
@@ -3004,13 +3005,13 @@ ${O1(Z, e1.index)}`),
         },
         77540: (S, L, s) => {
           "use strict";
-          s.d(L, { $H: () => f, Dk: () => v, N7: () => l, Qz: () => u, WI: () => k, gX: () => E, r4: () => y });
+          s.d(L, { $H: () => f, Dk: () => v, N7: () => l, Qz: () => u, WI: () => x, gX: () => E, r4: () => y });
           const t = new Map();
           function v(T) {
             let H = t.get(T);
             return H === void 0 && ((H = T.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase()), t.set(T, H)), H;
           }
-          function k(T, H, j = {}) {
+          function x(T, H, j = {}) {
             return T.dispatchEvent(new globalThis.CustomEvent(H, { bubbles: !1, ...j }));
           }
           function y(T) {
@@ -3051,7 +3052,7 @@ ${O1(Z, e1.index)}`),
                 return T ? T(l, E, u) : (l.hasAttribute(u) && l.removeAttribute(u), E);
               }
             },
-            k = {
+            x = {
               string: (l, E) => l.getAttribute(E),
               number: (l, E) => Number(l.getAttribute(E)) || 0,
               boolean: (l, E) => l.hasAttribute(E),
@@ -3060,7 +3061,7 @@ ${O1(Z, e1.index)}`),
           function y(l, E) {
             const u = typeof E.value,
               f = v[u],
-              T = k[u];
+              T = x[u];
             if (!f) throw TypeError(`Invalid default value for '${l}' property - it must be a string, number, boolean or undefined: ${u}`);
             const H = (0, t.Dk)(l);
             return {
@@ -3098,7 +3099,7 @@ ${O1(Z, e1.index)}`),
         s = g1(77540);
       const t = new WeakMap(),
         v = new WeakMap();
-      function k(b, _) {
+      function x(b, _) {
         const g = v.get(b);
         if (g === _) return;
         const p = S.Z.compile(_);
@@ -3191,6 +3192,7 @@ ${O1(Z, e1.index)}`),
           { prefix: "ui-autoconsent", root: ["components"] }
         );
       function E(b, _ = "440px") {
+        if (document.querySelector("ghostery-iframe-wrapper")) return;
         const g = document.createElement("ghostery-iframe-wrapper"),
           p = g.attachShadow({ mode: "closed" }),
           d = document.createElement("template");
@@ -3258,10 +3260,10 @@ ${O1(Z, e1.index)}`),
               }
               case "ghostery-close-iframe":
                 c.data.clear && chrome.runtime.sendMessage({ action: "clearIframe", url: b }),
-                  c.data.reload ? window.location.reload() : setTimeout(() => g.parentElement.removeChild(g), 0);
+                  c.data.reload ? window.location.reload() : g.parentElement && setTimeout(() => g.parentElement.removeChild(g), 0);
                 break;
               case "ghostery-clear-iframe":
-                r.src === c.data.url && setTimeout(() => g.parentElement.removeChild(g), 0);
+                r.src === c.data.url && g.parentElement && setTimeout(() => g.parentElement.removeChild(g), 0);
                 break;
               default:
                 break;
@@ -3314,7 +3316,7 @@ ${O1(Z, e1.index)}`),
         for (let r = 0; r < g.trackerCount; r += 1) d.push("advertising");
         return d;
       }
-      k(document.body, {
+      x(document.body, {
         categories: {
           value: void 0,
           connect: (b, _) => {

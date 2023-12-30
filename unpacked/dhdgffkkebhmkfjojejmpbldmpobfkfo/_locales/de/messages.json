@@ -144,6 +144,10 @@
   "Content_Script": { "message": "Content-Script" },
   "Content_Script_API": { "message": "Content-Script-API" },
   "Context_Menu": { "message": "Context Menü" },
+  "Controls_how_deleted_scripts_are_handled__0enabled0_moves_scripts_to_a_virtual_trash__0disabled0_permanently_deletes_scripts__0cleanAfterSession0_automatically_deletes_all_on_session_end_": {
+    "message": "Steuert, wie gelöschte Userscripts behandelt werden. '$enabled$' verschiebt sie in einen virtuellen Mülleimer zur möglichen Wiederherstellung. '$disabled$' löscht sie dauerhaft nach Bestätigung. '$cleanAfterSession$' leert den Mülleimer automatisch nach Ende der Browsersitzung.",
+    "placeholders": { "enabled": { "content": "$1" }, "disabled": { "content": "$2" }, "cleanAfterSession": { "content": "$3" } }
+  },
   "Convert_CDATA_sections_into_a_chrome_compatible_format": {
     "message": "CDATA-Abschnitte in ein Browser-kompatibles Format konvertieren"
   },
@@ -361,6 +365,7 @@
   "Original_excludes": { "message": "Original Exclude" },
   "Original_includes": { "message": "Original Include" },
   "Original_matches": { "message": "Original Match" },
+  "Overwrite": { "message": "Überschreiben" },
   "Page_Filter_Mode": { "message": "Filtere Seiten nach" },
   "Password": { "message": "Passwort" },
   "Please_check_the_0editor0_documentation_for_more_details_": {
@@ -368,6 +373,9 @@
     "placeholders": { "editor": { "content": "$1" } }
   },
   "Please_consider_a_contribution": { "message": "Unterstütze die Entwicklung" },
+  "Please_enable_anonymous_statistics_and_help_to_improve_this_extension_": {
+    "message": "Bitte aktivieren Sie die anonyme Statistik für die Optimierung dieser Erweiterung. Es werden technische Daten und Informationen zur Interaktion mit der Erweiterung gesammelt. Klicken Sie hier für mehr Infos zu den Daten."
+  },
   "Please_select_a_file": { "message": "Bitte wählen Sie eine Datei aus" },
   "Please_wait___": { "message": "Bitte warten..." },
   "Press_ctrl_to_toggle_all_checkboxes": { "message": "Halten Sie Strg/Cmd gedrückt, um alle Kontrollkästchen zu ändern" },
@@ -499,6 +507,13 @@
   },
   "The_script_was_successfully_deleted_": { "message": "Das Script wurde erfolgreich gelöscht." },
   "The_script_was_successfully_moved_to_the_trash_": { "message": "Das Script wurde erfolgreich in den Papierkorb verschoben." },
+  "The_script_was_modified_locally_on_0date0__Updating_it_will_overwrite_your_changes_": {
+    "message": "Das Script wurde am $date$ lokal modifiziert. Ein Update wird diese Änderungen überschreiben!",
+    "placeholders": { "date": { "content": "$1" } }
+  },
+  "Modifying_a_script_will_disable_automatic_script_updates_": {
+    "message": "Das Bearbeiten des Scripts deaktiviert die automatischen Updates!"
+  },
   "The_update_url_has_changed_from_0oldurl0_to__0newurl0": {
     "message": "Die Update-URL hat sich von:\n    '$oldurl$'\nzu:\n    '$newurl$'\nverändert.\n",
     "placeholders": { "newurl": { "content": "$2" }, "oldurl": { "content": "$1" } }
@@ -529,6 +544,9 @@
   "This_page_is_blacklisted_at_the_security_settings": { "message": "Durch Sicherheitsoptionen geblockt" },
   "This_script_does_not_provide_any__include_information_": { "message": "Dieses Userscript beinhaltet keine @include-Informationen." },
   "This_script_does_not_require_any_special_powers_": { "message": "Dieses Script verlangt keine besonderen Rechte." },
+  "This_script_has_local_modifications_and_needs_to_be_updated_manually": {
+    "message": "Dieses Script wurde lokal modifiziert und muss manuell aktualisiert werden!"
+  },
   "This_script_has_access_to_https_pages": { "message": "Dieses Element hat Zugriff auf verschlüsselte Seiten." },
   "This_script_has_full_web_access": { "message": "Dieses Userscript hat vollen Internet-Zugang." },
   "This_script_is_blacklisted_": { "message": "Dieses Userscript steht in der Negativliste!" },

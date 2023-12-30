@@ -121,24 +121,23 @@ class MobileMegaRender {
     }
 
     if (this.container.classList.contains("grid-view")) {
-      $(window).rebind(
-        "resize.createFillerNode",
-        SoonFc(40, () => {
-          if (!this.container) {
-            return;
-          }
+      const _createFiller = () => {
+        if (!this.container) {
+          return;
+        }
 
-          if (this.container.classList.contains("bigger-node") ^ (this.container.offsetWidth > 700)) {
-            this.megaList.updateOptions(this.getMListOptions());
-          }
+        if (this.container.classList.contains("bigger-node") ^ (this.container.offsetWidth > 700)) {
+          this.megaList.updateOptions(this.getMListOptions());
+        }
 
-          if (typeof this.megaList.options.renderAdapter.createFiller === "function") {
-            this.megaList.options.renderAdapter.createFiller();
-          }
-        })
-      );
+        if (typeof this.megaList.options.renderAdapter.createFiller === "function") {
+          this.megaList.options.renderAdapter.createFiller();
+        }
+      };
 
-      $(window).trigger("resize.createFillerNode");
+      $(window).rebind("resize.createFillerNode", SoonFc(40, _createFiller));
+
+      _createFiller();
     } else {
       $(window).off("resize.createFillerNode");
     }

@@ -185,7 +185,7 @@
       function r() {
         return a.createElement(
           "div",
-          { style: { display: "flex", justifyItems: "flex-start", gap: "8px" } },
+          { "data-grammarly-part": "plagiarism-footer-loader", style: { display: "flex", justifyItems: "flex-start", gap: "8px" } },
           a.createElement("div", null, s.m),
           a.createElement("p", { style: { fontSize: "12px", color: "#6D758D" } }, "One moment, checking updated text ...")
         );
@@ -258,7 +258,7 @@
       const c = l.Pj(l.GG({ denali: r.m.holder, assistant: a.holder }))(() => ({ denali: {} }));
     },
     18430: (e, t, i) => {
-      i.d(t, { t: () => B });
+      i.d(t, { t: () => N });
       var a = i(57050),
         s = i(67534),
         r = i(7604),
@@ -378,8 +378,8 @@
         L = i(5114),
         F = i(22232),
         D = i(71249),
-        N = i(95574);
-      class B {
+        B = i(95574);
+      class N {
         constructor(e, t, i, s, l, c, g = d.Y.create("DenaliViewAdapter"), f, b) {
           (this._highlights = e),
             (this._textObserver = t),
@@ -454,7 +454,7 @@
             (this.activeWord = new x.X(L.none)),
             (this.clickedWord = new x.X(L.none)),
             (this.ongoingSelection = new x.X(!1)),
-            this._log.info(`${B.name} created`),
+            this._log.info(`${N.name} created`),
             this._subs.push(this._subscribeToContentUpdates(), this._subscribeToSelectedHighlight(), this._trackFocusedAlert());
         }
         _trackFocusedAlert() {
@@ -623,13 +623,13 @@
         getPossibleCursorPosition(e, t) {
           return (
             this._log.trace("getPossibleCursorPosition", { _x: e, _y: t }),
-            N.vM(() => {
+            B.vM(() => {
               throw new Error("Not implemented");
             })
           );
         }
         dispose() {
-          this._highlightUpdater.clearAll(), this._subs.dispose(), this._log.info(`${B.name} disposed`), (this._disposed = !0);
+          this._highlightUpdater.clearAll(), this._subs.dispose(), this._log.info(`${N.name} disposed`), (this._disposed = !0);
         }
       }
     },
@@ -792,20 +792,20 @@
         };
       }
     },
-    29914: (e, t, i) => {
+    81414: (e, t, i) => {
       i.r(t),
         i.d(t, {
           AssistantController: () => a.AssistantController,
-          AssistantControllerImpl: () => Hr,
+          AssistantControllerImpl: () => Pr,
           AssistantControllerInjectedParams: () => a.AssistantControllerInjectedParams,
-          AssistantService: () => Qr,
+          AssistantService: () => Wr,
           AssistantServiceInjectedParams: () => s.AssistantServiceInjectedParams,
           LocalAssistantHighlightCollection: () => r.c
         });
       var a = {};
-      i.r(a), i.d(a, { Z: () => Hr });
+      i.r(a), i.d(a, { Z: () => Pr });
       var s = {};
-      i.r(s), i.d(s, { e: () => Qr });
+      i.r(s), i.d(s, { e: () => Wr });
       var r = i(74564),
         n = i(40327),
         o = i(27378),
@@ -813,88 +813,46 @@
         c = i(20236),
         d = i(31528),
         u = i(25952),
-        p = i(35214),
-        m = i(20641),
-        g = i(48015),
-        h = i(68169),
-        v = i(46680),
-        f = i(72578),
-        b = i(39758),
-        w = i(72833);
-      const S = "Assistant",
-        y = v.i.WARN;
-      const E = (e) => (t) => {
-        switch (t.level) {
-          case v.i.DEBUG:
-            e(t.logger).debug(t.message);
-            break;
-          case v.i.ERROR:
-            const i = ((e) => {
-              const t = (0, m.Tb)(),
-                i = ((e) => e.replace(/^.*\./, ""))(e);
-              return i === h.SC.loggerName ? t.assistant.alertManagerError.bind(t) : null;
-            })(t.logger);
-            null !== i && i(t.exception, t.extra, t.message), e(t.logger).error(t.message);
-            break;
-          case v.i.FATAL:
-            e(t.logger).fatal(t.message);
-            break;
-          case v.i.INFO:
-            e(t.logger).info(t.message);
-            break;
-          case v.i.TRACE:
-            e(t.logger).trace(t.message);
-            break;
-          case v.i.WARN:
-            e(t.logger).warn(t.message);
-            break;
-          case v.i.OFF:
-            break;
-          default:
-            return (0, g.vE)(t.level);
-        }
-        return Promise.resolve();
-      };
-      var C = i(22027),
-        k = i(92693),
-        _ = i(57050),
-        A = i(85441),
-        I = i(95294),
-        x = i(7737),
-        T = i(26109),
-        M = i(59881),
-        R = i(89131),
-        P = i(62623),
-        L = i(33194),
-        F = i(9205),
-        D = i(14601),
-        N = i(77176),
-        B = i(28043),
-        V = i(2844),
-        H = i(98403),
-        O = i(23239);
-      class U {
+        p = i(22027),
+        m = i(92693),
+        g = i(57050),
+        h = i(85441),
+        v = i(95294),
+        f = i(7737),
+        b = i(26109),
+        w = i(59881),
+        S = i(89131),
+        y = i(62623),
+        E = i(33194),
+        C = i(9205),
+        k = i(14601),
+        _ = i(77176),
+        A = i(28043),
+        I = i(2844),
+        x = i(98403),
+        T = i(23239);
+      class M {
         constructor(e, t, i, a) {
           if (
             ((this._cardsViewModel = t),
-            (this._subs = new D.w()),
-            (this._successReportFooterBulkDismissAlertsCount = O.h.create(0)),
+            (this._subs = new k.w()),
+            (this._successReportFooterBulkDismissAlertsCount = T.h.create(0)),
             (this.showBulkDismissFeed = () => {
               this._cardsViewModel.actionEvents.next(
-                L.fr.create([{ type: "pushAssistantFeed", feedId: L.D1.AssistantFeed.BULK_DISMISS_CARD_FEED_ID }])
+                E.fr.create([{ type: "pushAssistantFeed", feedId: E.D1.AssistantFeed.BULK_DISMISS_CARD_FEED_ID }])
               );
             }),
-            a.isGateEnabled(F.K.SduiBulkDismiss))
+            a.isGateEnabled(C.K.SduiBulkDismiss))
           ) {
             const t = e.pipe(
-              N.U(L.D1.StrongAlertRef.getStrongAlertRefBulkDismissAlertIds),
-              N.U((e) => e.size),
-              B.x()
+              _.U(E.D1.StrongAlertRef.getStrongAlertRefBulkDismissAlertIds),
+              _.U((e) => e.size),
+              A.x()
             );
             this._subs.add(
-              V.aj([t, i.pipe(B.x())])
-                .pipe(N.U(([e, t]) => (t ? e : 0)))
-                .subscribe(H.wW(this._successReportFooterBulkDismissAlertsCount))
+              I.aj([t, i.pipe(A.x())])
+                .pipe(_.U(([e, t]) => (t ? e : 0)))
+                .subscribe(x.wW(this._successReportFooterBulkDismissAlertsCount))
             );
           }
         }
@@ -905,31 +863,32 @@
           this._subs.unsubscribe();
         }
       }
-      var j,
-        G = i(74660),
-        W = i(16892),
-        z = i(48521),
-        q = i(35416),
-        K = i(6100),
-        Z = i(5114),
-        X = i(45701),
-        Y = i(8125),
-        Q = i(34217),
-        J = i(52976),
-        $ = i(98182),
-        ee = i(74813),
-        te = i(60984),
-        ie = i(52726);
+      var R,
+        P = i(35214),
+        L = i(74660),
+        F = i(16892),
+        D = i(48521),
+        B = i(35416),
+        N = i(6100),
+        V = i(5114),
+        H = i(45701),
+        U = i(8125),
+        O = i(34217),
+        j = i(52976),
+        G = i(98182),
+        W = i(74813),
+        z = i(60984),
+        q = i(52726);
       !(function (e) {
-        const t = (e) => (0, n.pipe)(q.In.getActiveItemOfType(a)(e), Z.chain(J.P.Capabilities.toAlertItem));
+        const t = (e) => (0, n.pipe)(B.In.getActiveItemOfType(a)(e), V.chain(j.P.Capabilities.toAlertItem));
         function i(e) {
-          return q.nL.Items.mapper((e) => e.kind, { [J.P.Kind]: e });
+          return B.nL.Items.mapper((e) => e.kind, { [j.P.Kind]: e });
         }
         function a(e) {
-          return e.kind === J.P.Kind;
+          return e.kind === j.P.Kind;
         }
         function s() {
-          return { viewState: () => (e) => (e.kind, J.P.Kind, { view: e, kind: "alertRefSDUI" }) };
+          return { viewState: () => (e) => (e.kind, j.P.Kind, { view: e, kind: "alertRefSDUI" }) };
         }
         (e.isSelectableItem = a),
           (e.getActiveItemWithAlert = function (e) {
@@ -940,38 +899,38 @@
           (e.checksFeedItemsMapper = i),
           (e.isAlertRefSDUI = a),
           (e.defaultOrd = (t) =>
-            (0, p.fold)(X.getMonoid())([
-              (0, n.pipe)(X.ordBoolean, X.contramap((0, Y.ff)(J.P.Item.isBulkAcceptSDUI))),
-              (0, n.pipe)(X.ordBoolean, X.contramap(J.P.Item.isBulkDismissSDUI)),
+            (0, P.fold)(H.getMonoid())([
+              (0, n.pipe)(H.ordBoolean, H.contramap((0, U.ff)(j.P.Item.isBulkAcceptSDUI))),
+              (0, n.pipe)(H.ordBoolean, H.contramap(j.P.Item.isBulkDismissSDUI)),
               e.getByActiveAlertPositionOrd(t)
             ])),
           (e.sduiToChecksFeedOrd = function (t) {
             return (i) =>
-              X.fromCompare((a, s) =>
-                $.e.isSDUIItem(a) && $.e.isSDUIItem(s) ? $.e.getOrd(i).compare(a, s) : e.getByActiveAlertPositionOrd(t).compare(a, s)
+              H.fromCompare((a, s) =>
+                G.e.isSDUIItem(a) && G.e.isSDUIItem(s) ? G.e.getOrd(i).compare(a, s) : e.getByActiveAlertPositionOrd(t).compare(a, s)
               );
           }),
           (e.getByActiveAlertPositionOrd = (e) =>
-            (0, p.fold)(X.getMonoid())([
+            (0, P.fold)(H.getMonoid())([
               (0, n.pipe)(
-                G.h$.ordHRange,
-                X.contramap((t) =>
+                L.h$.ordHRange,
+                H.contramap((t) =>
                   (0, n.pipe)(
                     e.hasActiveAlert(t),
-                    Z.map((e) => e.alert),
-                    Z.getOrElse(() => ({ getHighlightRanges: () => [{ start: 0, end: 0 }] }))
+                    V.map((e) => e.alert),
+                    V.getOrElse(() => ({ getHighlightRanges: () => [{ start: 0, end: 0 }] }))
                   )
                 )
               )
             ])),
-          (e.item = (e) => Q.UI.Union.make("kind", { alertRefSDUI: ee.p.SingleCard(e), empty: te.Q.Empty })),
+          (e.item = (e) => O.UI.Union.make("kind", { alertRefSDUI: W.p.SingleCard(e), empty: z.Q.Empty })),
           (e.viewState = s),
-          (e.createCardListFlow = ie.p),
-          (e.listItemOrd = (e) => X.contramap((e) => e.cell.item.view)(e).compare);
-        const r = { equals: (e, t) => e.kind === t.kind && W.s.eqById.equals(e, t) },
+          (e.createCardListFlow = q.p),
+          (e.listItemOrd = (e) => H.contramap((e) => e.cell.item.view)(e).compare);
+        const r = { equals: (e, t) => e.kind === t.kind && F.s.eqById.equals(e, t) },
           o = (e) => ({
             equals: (t, i) => {
-              const a = { [J.P.Kind]: e };
+              const a = { [j.P.Kind]: e };
               return (
                 r.equals(t, i) &&
                 (function (e, t) {
@@ -981,78 +940,78 @@
             }
           });
         function l() {
-          return { changePosition: (e) => i(J.P.Capabilities.changePosition(e)) };
+          return { changePosition: (e) => i(j.P.Capabilities.changePosition(e)) };
         }
         function c() {
           return {
-            completeTransition: (e) => i(J.P.Capabilities.animatable.completeTransition(e)),
-            transitionTo: (e) => i(J.P.Capabilities.animatable.transitionTo(e)),
-            changeVisualState: (e) => i(J.P.Capabilities.animatable.changeVisualState(e))
+            completeTransition: (e) => i(j.P.Capabilities.animatable.completeTransition(e)),
+            transitionTo: (e) => i(j.P.Capabilities.animatable.transitionTo(e)),
+            changeVisualState: (e) => i(j.P.Capabilities.animatable.changeVisualState(e))
           };
         }
         function d() {
           return {
-            select: (e, t) => i(J.P.Capabilities.select.select(e, t)),
-            selectByAlert: (e, t, a) => i(J.P.Capabilities.select.selectByAlert(e, t, a)),
-            unselect: (e, t) => i(J.P.Capabilities.select.unselect((0, _.MZ)(e), t))
+            select: (e, t) => i(j.P.Capabilities.select.select(e, t)),
+            selectByAlert: (e, t, a) => i(j.P.Capabilities.select.selectByAlert(e, t, a)),
+            unselect: (e, t) => i(j.P.Capabilities.select.unselect((0, g.MZ)(e), t))
           };
         }
         function u() {
           return {
             removeAlertFromItem: (e, t) =>
-              i((i) => (i.id === L.D1.SuccessReport.ID ? i : J.P.Capabilities.removeAlert.removeAlertFromItem(e, t)(i)))
+              i((i) => (i.id === E.D1.SuccessReport.ID ? i : j.P.Capabilities.removeAlert.removeAlertFromItem(e, t)(i)))
           };
         }
-        function m() {
-          return { remove: (e, t) => i(J.P.Capabilities.remove.remove(e, t)) };
+        function p() {
+          return { remove: (e, t) => i(j.P.Capabilities.remove.remove(e, t)) };
         }
-        function g() {
-          return { updateWithAlerts: (e) => i(_.yR) };
+        function m() {
+          return { updateWithAlerts: (e) => i(g.yR) };
         }
         function h() {
-          return { nextAlert: i(() => Z.none), prevAlert: i(() => Z.none) };
+          return { nextAlert: i(() => V.none), prevAlert: i(() => V.none) };
         }
         function v() {
-          return { updateUserInput: (e) => i(_.yR) };
+          return { updateUserInput: (e) => i(g.yR) };
         }
-        (e.equatable = { structEq: o(J.P.eq), idEq: o(r), visualStateEq: o(J.P.eq) }),
+        (e.equatable = { structEq: o(j.P.eq), idEq: o(r), visualStateEq: o(j.P.eq) }),
           (e.changePosition = l),
-          (e.disposable = { isScheduledToDispose: i(J.P.Capabilities.disposable.isScheduledToDispose) }),
-          (e.hidable = { isHidden: i(z.o.isHidden) }),
+          (e.disposable = { isScheduledToDispose: i(j.P.Capabilities.disposable.isScheduledToDispose) }),
+          (e.hidable = { isHidden: i(D.o.isHidden) }),
           (e.animatableItem = c),
           (e.hasAlertsQueries = {
-            isSelectableByAlert: (e) => i(J.P.Capabilities.hasAlerts.isSelectableByAlert(e)),
-            hasAlert: (e) => i(J.P.Capabilities.hasAlerts.hasAlert(e)),
-            hasActiveAlert: i(J.P.Capabilities.hasAlerts.hasActiveAlert)
+            isSelectableByAlert: (e) => i(j.P.Capabilities.hasAlerts.isSelectableByAlert(e)),
+            hasAlert: (e) => i(j.P.Capabilities.hasAlerts.hasAlert(e)),
+            hasActiveAlert: i(j.P.Capabilities.hasAlerts.hasActiveAlert)
           }),
-          (e.changePositionStrategyQueries = { useReferenceHeightOnRemove: i(_.jv) }),
+          (e.changePositionStrategyQueries = { useReferenceHeightOnRemove: i(g.jv) }),
           (e.select = d),
           (e.removeAlert = u),
-          (e.remove = m),
-          (e.updateWithAlert = g),
-          (e.releaseAlert = () => K.v.Capabilities.getAlertReleaser({ ...u(), ...e.disposable })),
-          (e.unselectable = () => K.v.Capabilities.getUnselectable(q.In.getActiveItem, { ...d(), ...e.disposable })),
+          (e.remove = p),
+          (e.updateWithAlert = m),
+          (e.releaseAlert = () => N.v.Capabilities.getAlertReleaser({ ...u(), ...e.disposable })),
+          (e.unselectable = () => N.v.Capabilities.getUnselectable(B.In.getActiveItem, { ...d(), ...e.disposable })),
           (e.selectableByAlert = () =>
-            K.v.Capabilities.getSelectableByAlert(q.In.getActiveItem, {
+            N.v.Capabilities.getSelectableByAlert(B.In.getActiveItem, {
               ...e.hasAlertsQueries,
               ...d(),
-              ...K.v.Capabilities.getHasChecksFeed(),
+              ...N.v.Capabilities.getHasChecksFeed(),
               ...e.disposable
             })),
-          (e.selectableById = () => K.v.Capabilities.getSelectableById(q.In.getActiveItem, { ...d(), ...e.disposable })),
-          (e.updateMeta = () => ({ updateMeta: K.v.Capabilities.getMetaUpdatable().updateMeta })),
-          (e.animatableFeed = (e) => K.v.Capabilities.getAnimatable(e, { ...u(), ...c(), ...K.v.Capabilities.getHasChecksFeed() })),
-          (e.hasPriorityToggle = () => K.v.WithPriority.getHasPriorityToggle({ ...c(), ...e.hasAlertsQueries, ...e.disposable })),
+          (e.selectableById = () => N.v.Capabilities.getSelectableById(B.In.getActiveItem, { ...d(), ...e.disposable })),
+          (e.updateMeta = () => ({ updateMeta: N.v.Capabilities.getMetaUpdatable().updateMeta })),
+          (e.animatableFeed = (e) => N.v.Capabilities.getAnimatable(e, { ...u(), ...c(), ...N.v.Capabilities.getHasChecksFeed() })),
+          (e.hasPriorityToggle = () => N.v.WithPriority.getHasPriorityToggle({ ...c(), ...e.hasAlertsQueries, ...e.disposable })),
           (e.alignable = { isValidToAlign: i((t) => !e.disposable.isScheduledToDispose(t)) }),
           (e.alertIterator = h),
-          (e.itemReleaser = () => K.v.Capabilities.getItemReleaser()),
-          (e.hasAlerts = K.v.Capabilities.getHasAlerts),
+          (e.itemReleaser = () => N.v.Capabilities.getItemReleaser()),
+          (e.hasAlerts = N.v.Capabilities.getHasAlerts),
           (e.hasUserInput = v),
-          (e.verifiable = () => K.v.Capabilities.getVerifiable(e.disposable)),
-          (e.cloneable = () => ({ clone: i(W.s.Capabilities.getPojoCloneable().clone) }));
+          (e.verifiable = () => N.v.Capabilities.getVerifiable(e.disposable)),
+          (e.cloneable = () => ({ clone: i(F.s.Capabilities.getPojoCloneable().clone) }));
         const f = {
           getFeatures: i((e) =>
-            J.P.Item.isBulkDismissSDUI(e) ? [J.P.Features.BulkDismiss] : J.P.Item.isBulkAcceptSDUI(e) ? [J.P.Features.BulkAccept] : []
+            j.P.Item.isBulkDismissSDUI(e) ? [j.P.Features.BulkDismiss] : j.P.Item.isBulkAcceptSDUI(e) ? [j.P.Features.BulkAccept] : []
           )
         };
         e.getCapabilities = function (t, i) {
@@ -1066,9 +1025,9 @@
             ...l(),
             ...c(),
             ...d(),
-            ...m(),
+            ...p(),
             ...u(),
-            ...g(),
+            ...m(),
             ...e.hasAlertsQueries,
             ...e.changePositionStrategyQueries,
             ...e.alignable,
@@ -1086,25 +1045,25 @@
             ...e.hasAlerts(h(), i, () => e.isSelectableItem, { ...e.hasAlertsQueries, ...e.disposable })
           };
         };
-      })(j || (j = {}));
-      var ae = i(60797),
-        se = i(41398),
-        re = i(71249);
-      class ne {
+      })(R || (R = {}));
+      var K = i(60797),
+        Z = i(41398),
+        X = i(71249);
+      class Q {
         constructor(e, t) {
-          this._sub = new D.w();
+          this._sub = new k.w();
           const i = (0, n.pipe)(
             e,
-            N.U(
-              (0, _.ls)(
+            _.U(
+              (0, g.ls)(
                 (e) => e.actions,
-                re.Ew((e) => "openCreateSnippetModal" === e.type)
+                X.Ew((e) => "openCreateSnippetModal" === e.type)
               )
             ),
-            ae.oA
+            K.oA
           );
           this._sub.add(
-            (0, n.pipe)(i, se.M(t.pipe(N.U(Z.getOrElseW(() => null))))).subscribe(([e, t]) => {
+            (0, n.pipe)(i, Z.M(t.pipe(_.U(V.getOrElseW(() => null))))).subscribe(([e, t]) => {
               t && t.showSnippetsEditor(e.snippetContent);
             })
           );
@@ -1113,9 +1072,9 @@
           this._sub.unsubscribe();
         }
       }
-      var oe,
-        le = i(86061);
-      class ce {
+      var Y,
+        J = i(86061);
+      class $ {
         constructor(e, t) {
           (this._domain = e), (this._gnar = t);
         }
@@ -1123,24 +1082,24 @@
           return this._domain;
         }
         submitFeedback(e) {
-          this._gnar.assistantFeedbackSubmitButtonClick("single_card_assistant", e.domain, e.text, (0, le.dK)(e) ? e.score : void 0);
+          this._gnar.assistantFeedbackSubmitButtonClick("single_card_assistant", e.domain, e.text, (0, J.dK)(e) ? e.score : void 0);
         }
       }
       !(function (e) {
         (e.AccountCreation = "accountCreation"), (e.Tour = "tour"), (e.TryWebsite = "tryWebsite"), (e.ViewApps = "viewApps");
-      })(oe || (oe = {}));
-      const de = { completedItems: [] };
-      var ue, pe;
+      })(Y || (Y = {}));
+      const ee = { completedItems: [] };
+      var te, ie;
       !(function (e) {
         (e.installed = "installed"), (e.notInstalled = "notInstalled");
-      })(ue || (ue = {})),
+      })(te || (te = {})),
         (function (e) {
           (e.macExtension = "macExtension"),
             (e.windowsExtension = "windowsExtension"),
             (e.mobileIOS = "mobile-ios"),
             (e.mobileAndroid = "mobile-android");
-        })(pe || (pe = {}));
-      class me {
+        })(ie || (ie = {}));
+      class ae {
         constructor(e, t, i, a) {
           (this.anonymous = e),
             (this.state = t),
@@ -1157,7 +1116,7 @@
             });
         }
         get userClientState() {
-          return (e = this.state.user), new Map(Object.values(pe).map((t) => [t, e.groups.includes(t) ? ue.installed : ue.notInstalled]));
+          return (e = this.state.user), new Map(Object.values(ie).map((t) => [t, e.groups.includes(t) ? te.installed : te.notInstalled]));
           var e;
         }
         get isStudent() {
@@ -1180,52 +1139,52 @@
                     return { ...i, completedItems: e };
                   }
                 } catch (e) {
-                  return de;
+                  return ee;
                 }
-                return de;
+                return ee;
               })(this.state.dapi["DN:getStartedChecklistSettings"])
-            : de;
+            : ee;
         }
       }
-      var ge,
-        he = i(14532);
+      var se,
+        re = i(14532);
       !(function (e) {
         (e.correct = "correct"), (e.incorrect = "incorrect"), (e.neutral = "neutral");
-      })(ge || (ge = {}));
-      class ve {
+      })(se || (se = {}));
+      class ne {
         constructor(e, t, i, a, s) {
-          (this._learnMoreInfo = O.h.create(null)), (this._sub = new D.w());
+          (this._learnMoreInfo = T.h.create(null)), (this._sub = new k.w());
           const r = (0, n.pipe)(
             a,
-            N.U(
-              (0, _.ls)(
+            _.U(
+              (0, g.ls)(
                 (e) => e.actions,
-                re.Ew((e) => "openLearnMore" === e.type || ("switchView" === e.type && "learn-more" === e.selected))
+                X.Ew((e) => "openLearnMore" === e.type || ("switchView" === e.type && "learn-more" === e.selected))
               )
             ),
-            ae.oA
+            K.oA
           );
           this._sub.add(
             (0, n.pipe)(
               r,
-              se.M(e),
-              N.U(([e, a]) => {
+              Z.M(e),
+              _.U(([e, a]) => {
                 let r = null;
-                if (q.nL.hasItems(a)) {
+                if (B.nL.hasItems(a)) {
                   const o = (0, n.pipe)(
                       s(a.currentLens),
-                      Z.getOrElseW(() => null)
+                      V.getOrElseW(() => null)
                     ),
                     l = o
                       ? (0, n.pipe)(
                           t.getById(o.activeAlert.id),
-                          Z.getOrElseW(() => null)
+                          V.getOrElseW(() => null)
                         )
                       : null,
                     d = (0, n.pipe)(
-                      Z.fromNullable(l),
-                      Z.chain(G.bZ.getRawId),
-                      Z.getOrElseW(() => null)
+                      V.fromNullable(l),
+                      V.chain(L.bZ.getRawId),
+                      V.getOrElseW(() => null)
                     ),
                     u = d ? i.alerts.getAlertById(d) : null;
                   u &&
@@ -1235,16 +1194,16 @@
                       showTitleOnContent: "switchView" === e.type,
                       details: u.details || u.explanation,
                       examples: (0, n.pipe)(
-                        he.J.parse(u.examples, u.point.includes("Italicization")),
-                        Z.map((e) =>
+                        re.J.parse(u.examples, u.point.includes("Italicization")),
+                        V.map((e) =>
                           e
                             .map((e) =>
                               e.map((e) => ({
-                                type: e.color === he.J.Color.green ? ge.correct : e.color === he.J.Color.red ? ge.incorrect : ge.neutral,
+                                type: e.color === re.J.Color.green ? se.correct : e.color === re.J.Color.red ? se.incorrect : se.neutral,
                                 title: (0, n.pipe)(
                                   e.title,
-                                  Z.map((e) => `${e}:`),
-                                  Z.getOrElseW(() => null)
+                                  V.map((e) => `${e}:`),
+                                  V.getOrElseW(() => null)
                                 ),
                                 text: e.text,
                                 useItalicText: !e.hasItalic
@@ -1252,13 +1211,13 @@
                             )
                             .flat()
                         ),
-                        Z.getOrElseW(() => [])
+                        V.getOrElseW(() => [])
                       )
                     });
                 }
                 return r;
               })
-            ).subscribe(H.wW(this._learnMoreInfo))
+            ).subscribe(x.wW(this._learnMoreInfo))
           );
         }
         get learnMoreInfo() {
@@ -1268,36 +1227,36 @@
           this._sub.unsubscribe();
         }
       }
-      var fe = i(32952),
-        be = i(9922),
-        we = i(2834);
-      class Se {
+      var oe = i(32952),
+        le = i(9922),
+        ce = i(2834);
+      class de {
         get header() {
           return this._header;
         }
         constructor(e, t) {
-          (this.popView = new fe.xQ()),
-            (this._header = O.h.create(Z.none)),
-            (this._subs = new be.w.Keeper()),
+          (this.popView = new oe.xQ()),
+            (this._header = T.h.create(V.none)),
+            (this._subs = new le.w.Keeper()),
             this._subs.push(
-              (0, _.zG)(
+              (0, g.zG)(
                 this.popView,
-                se.M(V.aj([t.sduiManager.state, t.sduiFeedManager.feed])),
-                N.U(([e, [t, i]]) => L.D1.AssistantFeed.Header.getSelectedViewBackButtonActions(t, i.feedId)),
-                ae.oA,
-                we.b((t) => e.actionEvents.next(L.fr.create(t)))
+                Z.M(I.aj([t.sduiManager.state, t.sduiFeedManager.feed])),
+                _.U(([e, [t, i]]) => E.D1.AssistantFeed.Header.getSelectedViewBackButtonActions(t, i.feedId)),
+                K.oA,
+                ce.b((t) => e.actionEvents.next(E.fr.create(t)))
               ).subscribe()
             ),
-            this._subs.push(t.sduiFeedManager.header.pipe(N.U(Z.of)).subscribe(H.wW(this._header)));
+            this._subs.push(t.sduiFeedManager.header.pipe(_.U(V.of)).subscribe(x.wW(this._header)));
         }
         dispose() {
           this._subs.dispose();
         }
       }
-      var ye = i(10389),
-        Ee = i(9629),
-        Ce = i(66268);
-      class ke {
+      var ue = i(10389),
+        pe = i(9629),
+        me = i(66268);
+      class ge {
         constructor(e, t, i, a, s, r) {
           (this._cardEvents = e),
             (this._alertProcessor = t),
@@ -1305,8 +1264,8 @@
             (this._actions = a),
             (this._experimentClient = s),
             (this._gnar = r),
-            (this._subs = new D.w()),
-            (this.currentCard = O.h.create(void 0)),
+            (this._subs = new k.w()),
+            (this.currentCard = T.h.create(void 0)),
             (this._getExtraFooterOutcomeType = (e) => {
               var t, i;
               if (e) {
@@ -1314,7 +1273,7 @@
                 if (a && c.S.isCapiAlert(a)) {
                   const e = a.outcome;
                   if (
-                    (0, ye.wF)(e) &&
+                    (0, ue.wF)(e) &&
                     !(null === (i = null === (t = this._pageState.get().lifetimeAlertStats) || void 0 === t ? void 0 : t.seen) ||
                     void 0 === i
                       ? void 0
@@ -1328,105 +1287,105 @@
               var e;
               this._gnar.firstAcceptFooterShow(null !== (e = this.extraFooterOutcomeType.get()) && void 0 !== e ? e : "other", "assistant");
             }),
-            this._pageState.get().showFirstSuggestionFooters && "test" === this._experimentClient.getTreatment(Ee.p.ProgressiveExposure)
+            this._pageState.get().showFirstSuggestionFooters && "test" === this._experimentClient.getTreatment(pe.p.ProgressiveExposure)
               ? (this._subs.add(
                   this._cardEvents.subscribe((e) => {
-                    if (e.type === Ce.eI.Kind.completeTransitionTo) {
+                    if (e.type === me.eI.Kind.completeTransitionTo) {
                       const t = e.id;
                       ("number" != typeof t && "string" != typeof t) || this.currentCard.set(t);
                     }
                   })
                 ),
                 (this.extraFooterOutcomeType = this.currentCard.view((e) => this._getExtraFooterOutcomeType(e))))
-              : (this.extraFooterOutcomeType = O.h.create(void 0));
+              : (this.extraFooterOutcomeType = T.h.create(void 0));
         }
         dispose() {
           this._subs.unsubscribe();
         }
       }
-      var _e = i(80800),
-        Ae = i(66310),
-        Ie = i(40151),
-        xe = i(95195),
-        Te = i(18208),
-        Me = i(40330),
-        Re = i(79880),
-        Pe = i(26393),
-        Le = i(85985),
-        Fe = i(93508);
-      const De = (e) =>
+      var he = i(80800),
+        ve = i(66310),
+        fe = i(40151),
+        be = i(95195),
+        we = i(18208),
+        Se = i(40330),
+        ye = i(79880),
+        Ee = i(26393),
+        Ce = i(85985),
+        ke = i(93508);
+      const _e = (e) =>
           e.pipe(
-            Le.h((e) => "sdui_add" === e.kind || "sdui_update" === e.kind),
-            N.U((e) => e.sdui),
-            Le.h((e) => "assistantFeed" === e.type && "default-feed" === e.id),
-            N.U((e) => Pe.ab.getCardPropsForFeed(e)),
-            Fe.O({})
+            Ce.h((e) => "sdui_add" === e.kind || "sdui_update" === e.kind),
+            _.U((e) => e.sdui),
+            Ce.h((e) => "assistantFeed" === e.type && "default-feed" === e.id),
+            _.U((e) => Ee.ab.getCardPropsForFeed(e)),
+            ke.O({})
           ),
-        Ne = (e, t, i) => [
+        Ae = (e, t, i) => [
           {
             type: "text",
-            id: Me.JX.from("text"),
+            id: Se.JX.from("text"),
             meta: { label: "You accepted " },
-            size: Re.yH.Regular,
+            size: ye.yH.Regular,
             text: "You accepted ",
-            textColor: Re.Il.CoreNeutral50,
+            textColor: ye.Il.CoreNeutral50,
             format: []
           },
           {
             type: "text",
-            id: Me.JX.from("text"),
+            id: Se.JX.from("text"),
             meta: { label: `${i}` },
-            size: Re.yH.Regular,
+            size: ye.yH.Regular,
             text: `${i}`,
-            textColor: Re.Il.CoreNeutral50,
-            format: [Re.SQ.Bold]
+            textColor: ye.Il.CoreNeutral50,
+            format: [ye.SQ.Bold]
           },
           {
             type: "text",
-            id: Me.JX.from("text"),
+            id: Se.JX.from("text"),
             meta: { label: " suggestions and improved your quality score by " },
-            size: Re.yH.Regular,
+            size: ye.yH.Regular,
             text: " suggestions and improved your quality score by ",
-            textColor: Re.Il.CoreNeutral50,
+            textColor: ye.Il.CoreNeutral50,
             format: []
           },
           {
             type: "text",
-            id: Me.JX.from("text"),
+            id: Se.JX.from("text"),
             meta: { label: "" + (e - t) },
-            size: Re.yH.Regular,
+            size: ye.yH.Regular,
             text: "" + (e - t),
-            textColor: Re.Il.CoreNeutral50,
-            format: [Re.SQ.Bold]
+            textColor: ye.Il.CoreNeutral50,
+            format: [ye.SQ.Bold]
           },
           {
             type: "text",
-            id: Me.JX.from("text"),
+            id: Se.JX.from("text"),
             meta: { label: " points." },
-            size: Re.yH.Regular,
+            size: ye.yH.Regular,
             text: " points.",
-            textColor: Re.Il.CoreNeutral50,
+            textColor: ye.Il.CoreNeutral50,
             format: []
           }
         ],
-        Be = [
+        Ie = [
           {
             type: "text",
-            id: Me.JX.from("text"),
+            id: Se.JX.from("text"),
             meta: { label: "Keep it up! You’ve earned a perfect quality score." },
-            size: Re.yH.Regular,
+            size: ye.yH.Regular,
             text: "Keep it up! You’ve earned a perfect quality score.",
-            textColor: Re.Il.CoreNeutral50,
+            textColor: ye.Il.CoreNeutral50,
             format: []
           }
         ];
-      var Ve;
+      var xe;
       !(function (e) {
         (e[(e.default = 0)] = "default"),
           (e[(e.withQualityScore = 1)] = "withQualityScore"),
           (e[(e.withPerformanceScore = 2)] = "withPerformanceScore");
-      })(Ve || (Ve = {}));
-      class He {
+      })(xe || (xe = {}));
+      class Te {
         constructor(e, t, i, a, s, r, o, l) {
           (this._sduiManager = e),
             (this._sduiBufferService = i),
@@ -1434,71 +1393,71 @@
             (this._upgradeHookCardExists = r),
             (this._sessionModel = o),
             (this._experimentClient = l),
-            (this._subs = new D.w()),
+            (this._subs = new k.w()),
             (this.shouldShowSuccessReportWithPerformanceScore = (e, t) =>
-              e === _e.v0.ScoresStatus.OK && t >= 3 && "test" === this._experimentClient.getTreatment(Ee.p.PerformanceScoreSuccessState)),
+              e === he.v0.ScoresStatus.OK && t >= 3 && "test" === this._experimentClient.getTreatment(pe.p.PerformanceScoreSuccessState)),
             (this.shouldShowSuccessReportWithQualityScore = (e) =>
-              e === _e.v0.ScoresStatus.OK &&
-              ("text" === this._experimentClient.getTreatment(Ee.p.QualityScore) ||
-                "progress_bar" === this._experimentClient.getTreatment(Ee.p.QualityScore))),
+              e === he.v0.ScoresStatus.OK &&
+              ("text" === this._experimentClient.getTreatment(pe.p.QualityScore) ||
+                "progress_bar" === this._experimentClient.getTreatment(pe.p.QualityScore))),
             (this.focusSuccessReportStateTransformer = ({ state: e, metadata: t }) => {
-              if (!q.nL.hasCards(e)) return xe.left({ state: e, metadata: t });
-              const i = q.nL.Prism.getLens();
-              return xe.left({
+              if (!B.nL.hasCards(e)) return be.left({ state: e, metadata: t });
+              const i = B.nL.Prism.getLens();
+              return be.left({
                 state: i.modify(
                   (e) =>
-                    Z.isSome(e.cardIndex) ||
+                    V.isSome(e.cardIndex) ||
                     e.items.size > 1 ||
                     (0, n.pipe)(
                       e.items.getAt(0),
-                      Z.map((e) => e.id !== L.D1.SuccessReport.ID),
-                      Z.getOrElse(_.jv)
+                      V.map((e) => e.id !== E.D1.SuccessReport.ID),
+                      V.getOrElse(g.jv)
                     )
                       ? e
-                      : { ...e, cardIndex: Z.some(0) },
+                      : { ...e, cardIndex: V.some(0) },
                   e
                 ),
                 metadata: t
               });
             });
           const c = this._sduiManager.state.pipe(
-              N.U((e) => L.D1.GButton.getPushAssistantFeedAction(e, L.D1.GButton.DEFAULT_GBUTTON_ID)),
-              ae.oA,
-              N.U((e) => e.feedId)
+              _.U((e) => E.D1.GButton.getPushAssistantFeedAction(e, E.D1.GButton.DEFAULT_GBUTTON_ID)),
+              K.oA,
+              _.U((e) => e.feedId)
             ),
             d = s.pipe(
-              N.U(
+              _.U(
                 (e) =>
-                  q.nL.hasSuccess(e) &&
-                  q.nL.hasItems(e) &&
+                  B.nL.hasSuccess(e) &&
+                  B.nL.hasItems(e) &&
                   (0 === e.currentLens.items.size ||
                     (0, n.pipe)(
                       e.currentLens.items.getAt(0),
-                      Z.map((e) => e.id === L.D1.SuccessReport.ID),
-                      Z.getOrElse(_.jv)
+                      V.map((e) => e.id === E.D1.SuccessReport.ID),
+                      V.getOrElse(g.jv)
                     ))
               )
             ),
             u = t.feed.pipe(
-              se.M(c),
-              N.U(([e, t]) => e.feedId === t)
+              Z.M(c),
+              _.U(([e, t]) => e.feedId === t)
             );
-          this.isSuccess = V.aj([d, u]).pipe(N.U(([e, t]) => e && t));
+          this.isSuccess = I.aj([d, u]).pipe(_.U(([e, t]) => e && t));
         }
         _getSuccessMessages(e, t) {
           return {
-            title: t < 2 ? "Looking good so far" : e > 0 ? `${e} ${Te._6(e, "issue addressed", "issues addressed")}` : "Nice job!",
+            title: t < 2 ? "Looking good so far" : e > 0 ? `${e} ${we._6(e, "issue addressed", "issues addressed")}` : "Nice job!",
             subTitle: t < 2 ? "Keep writing to see suggestions." : e > 0 ? "All clear!" : "You made that look easy!"
           };
         }
         _getSduiKnownId(e) {
           switch (e) {
-            case Ve.withQualityScore:
-              return L.D1.SuccessReport.SUCCESS_REPORT_WITH_QUALITY_SCORE_CARD_ID;
-            case Ve.withPerformanceScore:
-              return L.D1.SuccessReport.SUCCESS_REPORT_WITH_PERFORMANCE_SCORE_CARD_ID;
+            case xe.withQualityScore:
+              return E.D1.SuccessReport.SUCCESS_REPORT_WITH_QUALITY_SCORE_CARD_ID;
+            case xe.withPerformanceScore:
+              return E.D1.SuccessReport.SUCCESS_REPORT_WITH_PERFORMANCE_SCORE_CARD_ID;
             default:
-              return L.D1.SuccessReport.SUCCESS_REPORT_CARD_ID;
+              return E.D1.SuccessReport.SUCCESS_REPORT_CARD_ID;
           }
         }
         _getSuccessReportSDUI(e, t, i, a) {
@@ -1506,357 +1465,357 @@
             n = [
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [
                   {
                     type: "image",
-                    id: Me.JX.from("image"),
+                    id: Se.JX.from("image"),
                     meta: {},
-                    name: Me.yL.unknown("success_report_image"),
+                    name: Se.yL.unknown("success_report_image"),
                     url: "https://assets.grammarly.com/icons/v1/notification-ok.svg",
                     width: 2,
                     height: 2
                   }
                 ],
-                name: Me.yL.unknown("success_report_image_block"),
-                spacing: { top: Re.T.D1, right: Re.T.D0, bottom: Re.T.D075, left: Re.T.D0 },
-                horizontalAlign: Re.Kq.Center
+                name: Se.yL.unknown("success_report_image_block"),
+                spacing: { top: ye.T.D1, right: ye.T.D0, bottom: ye.T.D075, left: ye.T.D0 },
+                horizontalAlign: ye.Kq.Center
               },
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [
                   {
                     type: "text",
-                    id: Me.JX.from("text"),
-                    size: Re.yH.Regular,
+                    id: Se.JX.from("text"),
+                    size: ye.yH.Regular,
                     meta: { label: s },
                     text: s,
-                    textColor: Re.Il.CoreNeutral90,
-                    format: [Re.SQ.Bold]
+                    textColor: ye.Il.CoreNeutral90,
+                    format: [ye.SQ.Bold]
                   }
                 ],
-                name: Me.yL.unknown("success_report_title_block"),
-                horizontalAlign: Re.Kq.Center
+                name: Se.yL.unknown("success_report_title_block"),
+                horizontalAlign: ye.Kq.Center
               },
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [
                   {
                     type: "text",
-                    id: Me.JX.from("text"),
-                    size: Re.yH.Regular,
+                    id: Se.JX.from("text"),
+                    size: ye.yH.Regular,
                     meta: { label: r },
                     text: r,
-                    textColor: Re.Il.CoreNeutral50,
+                    textColor: ye.Il.CoreNeutral50,
                     format: []
                   }
                 ],
-                name: Me.yL.unknown("success_report_subtitle_block"),
-                horizontalAlign: Re.Kq.Center
+                name: Se.yL.unknown("success_report_subtitle_block"),
+                horizontalAlign: ye.Kq.Center
               },
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [],
-                name: Me.yL.unknown("success_report_subtitle_space_1_block"),
-                spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 }
+                name: Se.yL.unknown("success_report_subtitle_space_1_block"),
+                spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 }
               },
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [],
-                name: Me.yL.unknown("success_report_subtitle_space_2_block"),
-                spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 }
+                name: Se.yL.unknown("success_report_subtitle_space_2_block"),
+                spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 }
               },
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [],
-                name: Me.yL.unknown("success_report_subtitle_space_3_block"),
-                spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 }
+                name: Se.yL.unknown("success_report_subtitle_space_3_block"),
+                spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 }
               },
               {
                 type: "block",
-                id: Me.JX.from("block"),
+                id: Se.JX.from("block"),
                 parts: [],
-                name: Me.yL.unknown("success_report_subtitle_space_4_block"),
-                spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 }
+                name: Se.yL.unknown("success_report_subtitle_space_4_block"),
+                spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 }
               }
             ],
             o = this._getSduiKnownId(null == a ? void 0 : a.layout),
             l = a
               ? ((t) => {
                   switch (t.layout) {
-                    case Ve.withPerformanceScore:
+                    case xe.withPerformanceScore:
                       return ((e, t, i) => [
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [],
-                          name: Me.yL.unknown("success_report_top_spacing_block"),
-                          spacing: { top: Re.T.D1, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 }
+                          name: Se.yL.unknown("success_report_top_spacing_block"),
+                          spacing: { top: ye.T.D1, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 }
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [
                             {
                               type: "text",
-                              id: Me.JX.from("text"),
+                              id: Se.JX.from("text"),
                               meta: { label: `${e}` },
-                              size: Re.yH.HeadingLevel1,
+                              size: ye.yH.HeadingLevel1,
                               text: `${e}`,
-                              textColor: Re.Il.CoreNeutral90,
-                              format: [Re.SQ.Bold]
+                              textColor: ye.Il.CoreNeutral90,
+                              format: [ye.SQ.Bold]
                             }
                           ],
-                          name: Me.yL.unknown("success_report_score_block"),
-                          spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D025, left: Re.T.D0 },
-                          horizontalAlign: Re.Kq.Center
+                          name: Se.yL.unknown("success_report_score_block"),
+                          spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D025, left: ye.T.D0 },
+                          horizontalAlign: ye.Kq.Center
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [
                             {
                               type: "text",
-                              id: Me.JX.from("text"),
+                              id: Se.JX.from("text"),
                               meta: { label: "Out of 100" },
-                              size: Re.yH.Medium,
+                              size: ye.yH.Medium,
                               text: "Out of 100",
-                              textColor: Re.Il.CoreNeutral90,
-                              format: [Re.SQ.Bold]
+                              textColor: ye.Il.CoreNeutral90,
+                              format: [ye.SQ.Bold]
                             }
                           ],
-                          name: Me.yL.unknown("success_report_out_of_100_block"),
-                          horizontalAlign: Re.Kq.Center
+                          name: Se.yL.unknown("success_report_out_of_100_block"),
+                          horizontalAlign: ye.Kq.Center
                         },
                         {
                           type: "row",
-                          id: Me.JX.from("row"),
+                          id: Se.JX.from("row"),
                           left: [
                             {
                               type: "block",
-                              id: Me.JX.from("block"),
+                              id: Se.JX.from("block"),
                               parts: [],
-                              name: Me.yL.unknown("success_report_you_corrected_left_spacing_block"),
+                              name: Se.yL.unknown("success_report_you_corrected_left_spacing_block"),
                               fraction: 1,
-                              horizontalAlign: Re.Kq.Center
+                              horizontalAlign: ye.Kq.Center
                             },
                             {
                               type: "block",
-                              id: Me.JX.from("block"),
+                              id: Se.JX.from("block"),
                               parts: [
                                 {
                                   type: "text",
-                                  id: Me.JX.from("text"),
+                                  id: Se.JX.from("text"),
                                   meta: { label: "You corrected " },
-                                  size: Re.yH.Regular,
+                                  size: ye.yH.Regular,
                                   text: "You corrected ",
-                                  textColor: Re.Il.CoreNeutral50,
+                                  textColor: ye.Il.CoreNeutral50,
                                   format: []
                                 },
                                 {
                                   type: "text",
-                                  id: Me.JX.from("text"),
+                                  id: Se.JX.from("text"),
                                   meta: { label: `${i}` },
-                                  size: Re.yH.Regular,
+                                  size: ye.yH.Regular,
                                   text: `${i}`,
-                                  textColor: Re.Il.CoreNeutral50,
-                                  format: [Re.SQ.Bold]
+                                  textColor: ye.Il.CoreNeutral50,
+                                  format: [ye.SQ.Bold]
                                 },
                                 {
                                   type: "text",
-                                  id: Me.JX.from("text"),
+                                  id: Se.JX.from("text"),
                                   meta: { label: " issues and improved your writing by " },
-                                  size: Re.yH.Regular,
+                                  size: ye.yH.Regular,
                                   text: " issues and improved your writing by ",
-                                  textColor: Re.Il.CoreNeutral50,
+                                  textColor: ye.Il.CoreNeutral50,
                                   format: []
                                 },
                                 {
                                   type: "text",
-                                  id: Me.JX.from("text"),
+                                  id: Se.JX.from("text"),
                                   meta: { label: "" + (e - t) },
-                                  size: Re.yH.Regular,
+                                  size: ye.yH.Regular,
                                   text: "" + (e - t),
-                                  textColor: Re.Il.CoreNeutral50,
-                                  format: [Re.SQ.Bold]
+                                  textColor: ye.Il.CoreNeutral50,
+                                  format: [ye.SQ.Bold]
                                 },
                                 {
                                   type: "text",
-                                  id: Me.JX.from("text"),
+                                  id: Se.JX.from("text"),
                                   meta: { label: " points." },
-                                  size: Re.yH.Regular,
+                                  size: ye.yH.Regular,
                                   text: " points.",
-                                  textColor: Re.Il.CoreNeutral50,
+                                  textColor: ye.Il.CoreNeutral50,
                                   format: []
                                 }
                               ],
-                              name: Me.yL.unknown("success_report_you_corrected_text_block"),
+                              name: Se.yL.unknown("success_report_you_corrected_text_block"),
                               fraction: 4,
-                              horizontalAlign: Re.Kq.Center
+                              horizontalAlign: ye.Kq.Center
                             },
                             {
                               type: "block",
-                              id: Me.JX.from("block"),
+                              id: Se.JX.from("block"),
                               parts: [],
-                              name: Me.yL.unknown("success_report_you_corrected_right_spacing_block"),
+                              name: Se.yL.unknown("success_report_you_corrected_right_spacing_block"),
                               fraction: 1,
-                              horizontalAlign: Re.Kq.Center
+                              horizontalAlign: ye.Kq.Center
                             }
                           ],
                           right: [],
-                          verticalAlign: Re.g$.Middle,
-                          name: Me.yL.unknown("success_report_you_corrected_row"),
-                          spacing: { top: Re.T.D025, right: Re.T.D0, bottom: Re.T.D025, left: Re.T.D0 }
+                          verticalAlign: ye.g$.Middle,
+                          name: Se.yL.unknown("success_report_you_corrected_row"),
+                          spacing: { top: ye.T.D025, right: ye.T.D0, bottom: ye.T.D025, left: ye.T.D0 }
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [
                             {
                               type: "button",
-                              id: L.D1.SuccessReport.OPEN_PERFORMANCE_SCORE_INTERACTION_ID,
+                              id: E.D1.SuccessReport.OPEN_PERFORMANCE_SCORE_INTERACTION_ID,
                               meta: { label: "See Details" },
-                              name: Me.yL.unknown("success_report_see_details_button"),
-                              kind: Re.Lv.Primary,
-                              state: Re.BN.Enabled,
+                              name: Se.yL.unknown("success_report_see_details_button"),
+                              kind: ye.Lv.Primary,
+                              state: ye.BN.Enabled,
                               label: {
                                 type: "block",
-                                id: Me.JX.from("block"),
+                                id: Se.JX.from("block"),
                                 parts: [
                                   {
                                     type: "text",
-                                    id: Me.JX.from("text"),
+                                    id: Se.JX.from("text"),
                                     meta: { label: "See Details" },
-                                    size: Re.yH.Regular,
+                                    size: ye.yH.Regular,
                                     text: "See Details",
-                                    textColor: Re.Il.CoreNeutral0,
+                                    textColor: ye.Il.CoreNeutral0,
                                     format: []
                                   }
                                 ],
-                                name: Me.yL.unknown("textContainer"),
-                                spacing: { top: Re.T.D0, right: Re.T.D05, bottom: Re.T.D0, left: Re.T.D05 },
-                                verticalAlign: Re.g$.Middle
+                                name: Se.yL.unknown("textContainer"),
+                                spacing: { top: ye.T.D0, right: ye.T.D05, bottom: ye.T.D0, left: ye.T.D05 },
+                                verticalAlign: ye.g$.Middle
                               },
                               actions: [
                                 { type: "pushAssistantFeed", feedId: "performance-score-feed" },
-                                { type: "notify", userAction: Re.nz.Click }
+                                { type: "notify", userAction: ye.nz.Click }
                               ],
-                              shape: Re.jL.Square
+                              shape: ye.jL.Square
                             }
                           ],
-                          name: Me.yL.unknown("success_report_cta_block"),
-                          spacing: { top: Re.T.D025, right: Re.T.D0, bottom: Re.T.D0, left: Re.T.D0 },
-                          horizontalAlign: Re.Kq.Center
+                          name: Se.yL.unknown("success_report_cta_block"),
+                          spacing: { top: ye.T.D025, right: ye.T.D0, bottom: ye.T.D0, left: ye.T.D0 },
+                          horizontalAlign: ye.Kq.Center
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [],
-                          name: Me.yL.unknown("success_report_bottom_spacing_block"),
-                          spacing: { top: Re.T.D1, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 }
+                          name: Se.yL.unknown("success_report_bottom_spacing_block"),
+                          spacing: { top: ye.T.D1, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 }
                         }
                       ])(t.score, t.lowestScore, e);
-                    case Ve.withQualityScore:
+                    case xe.withQualityScore:
                       return ((e, t, i) => [
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [],
-                          name: Me.yL.unknown("success_report_top_spacing_block"),
-                          spacing: { top: Re.T.D125, right: Re.T.D0, bottom: Re.T.D125, left: Re.T.D0 }
+                          name: Se.yL.unknown("success_report_top_spacing_block"),
+                          spacing: { top: ye.T.D125, right: ye.T.D0, bottom: ye.T.D125, left: ye.T.D0 }
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [
                             {
                               type: "image",
-                              id: Me.JX.from("image"),
+                              id: Se.JX.from("image"),
                               meta: {},
-                              name: Me.yL.unknown("illustration"),
+                              name: Se.yL.unknown("illustration"),
                               url: "https://assets.grammarly.com/sdui/v1/paper-plane.svg",
                               width: 5,
                               height: 5
                             }
                           ],
-                          name: Me.yL.unknown("success_report_illustration_block"),
-                          spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D1, left: Re.T.D0 },
-                          horizontalAlign: Re.Kq.Center
+                          name: Se.yL.unknown("success_report_illustration_block"),
+                          spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D1, left: ye.T.D0 },
+                          horizontalAlign: ye.Kq.Center
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [
                             {
                               type: "text",
-                              id: Me.JX.from("text"),
+                              id: Se.JX.from("text"),
                               meta: { label: "Quality Score: " },
-                              size: Re.yH.Medium,
+                              size: ye.yH.Medium,
                               text: "Quality Score: ",
-                              textColor: Re.Il.CoreNeutral90,
-                              format: [Re.SQ.Bold]
+                              textColor: ye.Il.CoreNeutral90,
+                              format: [ye.SQ.Bold]
                             },
                             {
                               type: "text",
-                              id: Me.JX.from("text"),
+                              id: Se.JX.from("text"),
                               meta: { label: `${e}` },
-                              size: Re.yH.Medium,
+                              size: ye.yH.Medium,
                               text: `${e}`,
-                              textColor: Re.Il.CoreNeutral90,
-                              format: [Re.SQ.Bold]
+                              textColor: ye.Il.CoreNeutral90,
+                              format: [ye.SQ.Bold]
                             }
                           ],
-                          name: Me.yL.unknown("success_report_quality_score_block"),
-                          horizontalAlign: Re.Kq.Center
+                          name: Se.yL.unknown("success_report_quality_score_block"),
+                          horizontalAlign: ye.Kq.Center
                         },
                         {
                           type: "row",
-                          id: Me.JX.from("row"),
+                          id: Se.JX.from("row"),
                           left: [
                             {
                               type: "block",
-                              id: Me.JX.from("block"),
+                              id: Se.JX.from("block"),
                               parts: [],
-                              name: Me.yL.unknown("success_report_you_accepted_left_spacing_block"),
+                              name: Se.yL.unknown("success_report_you_accepted_left_spacing_block"),
                               fraction: 8,
-                              horizontalAlign: Re.Kq.Center
+                              horizontalAlign: ye.Kq.Center
                             },
                             {
                               type: "block",
-                              id: Me.JX.from("block"),
-                              parts: e >= 100 && t >= 100 ? Be : Ne(e, t, i),
-                              name: Me.yL.unknown("success_report_you_accepted_text_block"),
+                              id: Se.JX.from("block"),
+                              parts: e >= 100 && t >= 100 ? Ie : Ae(e, t, i),
+                              name: Se.yL.unknown("success_report_you_accepted_text_block"),
                               fraction: 84,
-                              horizontalAlign: Re.Kq.Center
+                              horizontalAlign: ye.Kq.Center
                             },
                             {
                               type: "block",
-                              id: Me.JX.from("block"),
+                              id: Se.JX.from("block"),
                               parts: [],
-                              name: Me.yL.unknown("success_report_you_accepted_right_spacing_block"),
+                              name: Se.yL.unknown("success_report_you_accepted_right_spacing_block"),
                               fraction: 8,
-                              horizontalAlign: Re.Kq.Center
+                              horizontalAlign: ye.Kq.Center
                             }
                           ],
                           right: [],
-                          verticalAlign: Re.g$.Middle,
-                          name: Me.yL.unknown("success_report_you_accepted_row"),
-                          spacing: { top: Re.T.D0, right: Re.T.D0, bottom: Re.T.D0, left: Re.T.D0 }
+                          verticalAlign: ye.g$.Middle,
+                          name: Se.yL.unknown("success_report_you_accepted_row"),
+                          spacing: { top: ye.T.D0, right: ye.T.D0, bottom: ye.T.D0, left: ye.T.D0 }
                         },
                         {
                           type: "block",
-                          id: Me.JX.from("block"),
+                          id: Se.JX.from("block"),
                           parts: [],
-                          name: Me.yL.unknown("success_report_bottom_spacing_block"),
-                          spacing: { top: Re.T.D125, right: Re.T.D0, bottom: Re.T.D125, left: Re.T.D0 }
+                          name: Se.yL.unknown("success_report_bottom_spacing_block"),
+                          spacing: { top: ye.T.D125, right: ye.T.D0, bottom: ye.T.D125, left: ye.T.D0 }
                         }
                       ])(t.score, t.lowestScore, e);
-                    case Ve.default:
+                    case xe.default:
                       return n;
                   }
                 })(a)
@@ -1871,9 +1830,9 @@
               views: {
                 "default-suggestion": {
                   type: "column",
-                  id: Me.JX.from("column"),
+                  id: Se.JX.from("column"),
                   children: l,
-                  name: Me.yL.unknown("success_report_content_column")
+                  name: Se.yL.unknown("success_report_content_column")
                 },
                 "tone-insights": { type: "nativeToneInsightsModal", id: "card-nativeToneInsightsModal" },
                 feedback: { type: "nativeFeedbackModal", id: "card-nativeFeedbackModal" },
@@ -1885,7 +1844,7 @@
               { type: "switchView", where: "openToneDetectorButton-viewStack", selected: "show-open-tone-detector-button" },
               { type: "switchView", where: "card-viewStack", selected: "default-suggestion" },
               { type: "switchView", where: "header-viewStack", selected: "default-suggestion" },
-              { type: "notify", userAction: Re.nz.Focus }
+              { type: "notify", userAction: ye.nz.Focus }
             ],
             onBlur: [],
             properties: i
@@ -1893,21 +1852,21 @@
         }
         initSuccessReportSDUIEmulation() {
           const e = this._statisticsService.sessionStats.view((e) => (e ? e.alertsStats.accepted.total : 0)),
-            t = this._statisticsService.generalScore.view((e) => (null != e ? e : 0)).pipe(B.x()),
-            i = this._statisticsService.lowestGeneralScore.view((e) => (null != e ? e : 0)).pipe(B.x()),
-            a = this._sessionModel.scoreStatus.pipe(B.x(), N.U(Z.getOrElse(() => _e.v0.ScoresStatus.ERROR)));
+            t = this._statisticsService.generalScore.view((e) => (null != e ? e : 0)).pipe(A.x()),
+            i = this._statisticsService.lowestGeneralScore.view((e) => (null != e ? e : 0)).pipe(A.x()),
+            a = this._sessionModel.scoreStatus.pipe(A.x(), _.U(V.getOrElse(() => he.v0.ScoresStatus.ERROR)));
           this._subs.add(
-            V.aj([
-              this.isSuccess.pipe(B.x()),
-              this._sduiManager.state.pipe(N.U(L.D1.SuccessReport.findSuccessReportSduiItem), N.U(Z.isSome), B.x()),
+            I.aj([
+              this.isSuccess.pipe(A.x()),
+              this._sduiManager.state.pipe(_.U(E.D1.SuccessReport.findSuccessReportSduiItem), _.U(V.isSome), A.x()),
               this._upgradeHookCardExists,
               t,
               i,
               a
             ])
               .pipe(
-                se.M(De(this._sduiBufferService.capiEvents)),
-                N.U(([[e, t, i, a, s, r], n]) => {
+                Z.M(_e(this._sduiBufferService.capiEvents)),
+                _.U(([[e, t, i, a, s, r], n]) => {
                   var o, l, c, d;
                   const u =
                       null !==
@@ -1932,7 +1891,7 @@
                     return (
                       !(!e || !t) ||
                       (!(e || !t) &&
-                        (this._sduiBufferService.pushCapiSduiEvent({ kind: "sdui_remove", rev: 0, sduiRootId: L.D1.SuccessReport.ID }), !1))
+                        (this._sduiBufferService.pushCapiSduiEvent({ kind: "sdui_remove", rev: 0, sduiRootId: E.D1.SuccessReport.ID }), !1))
                     );
                   {
                     const e = this._getSuccessReportSDUI(
@@ -1940,21 +1899,21 @@
                       m,
                       n,
                       g
-                        ? { layout: Ve.withPerformanceScore, score: a, lowestScore: s }
+                        ? { layout: xe.withPerformanceScore, score: a, lowestScore: s }
                         : h
-                        ? { layout: Ve.withQualityScore, score: a, lowestScore: s }
-                        : { layout: Ve.default }
+                        ? { layout: xe.withQualityScore, score: a, lowestScore: s }
+                        : { layout: xe.default }
                     );
                     return (
-                      this._sduiBufferService.pushCapiSduiEvent({ kind: "sdui_add", rev: 0, sduiRootId: L.D1.SuccessReport.ID, sdui: e }),
+                      this._sduiBufferService.pushCapiSduiEvent({ kind: "sdui_add", rev: 0, sduiRootId: E.D1.SuccessReport.ID, sdui: e }),
                       !0
                     );
                   }
                 }),
-                Ae.w((s) =>
+                ve.w((s) =>
                   s
-                    ? V.aj([e, this._statisticsService.wordsCount, t, i, a, De(this._sduiBufferService.capiEvents)]).pipe(
-                        we.b(([e, t, i, a, s, r]) => {
+                    ? I.aj([e, this._statisticsService.wordsCount, t, i, a, _e(this._sduiBufferService.capiEvents)]).pipe(
+                        ce.b(([e, t, i, a, s, r]) => {
                           var n, o;
                           const l =
                               null !==
@@ -1971,20 +1930,20 @@
                               t,
                               r,
                               c
-                                ? { layout: Ve.withPerformanceScore, score: i, lowestScore: a }
+                                ? { layout: xe.withPerformanceScore, score: i, lowestScore: a }
                                 : d
-                                ? { layout: Ve.withQualityScore, score: i, lowestScore: a }
-                                : { layout: Ve.default }
+                                ? { layout: xe.withQualityScore, score: i, lowestScore: a }
+                                : { layout: xe.default }
                             );
                           this._sduiBufferService.pushCapiSduiEvent({
                             kind: "sdui_update",
                             rev: 0,
-                            sduiRootId: L.D1.SuccessReport.ID,
+                            sduiRootId: E.D1.SuccessReport.ID,
                             sdui: u
                           });
                         })
                       )
-                    : Ie.E
+                    : fe.E
                 )
               )
               .subscribe()
@@ -1995,21 +1954,22 @@
         }
       }
       i(92310);
-      const Oe =
+      const Me =
         /(?:[\u2700-\u27bf]|(?:\ud83c[\udde6-\uddff]){2}|[\ud800-\udbff][\udc00-\udfff]|[\u0023-\u0039]\ufe0f?\u20e3|\u3299|\u3297|\u303d|\u3030|\u24c2|\ud83c[\udd70-\udd71]|\ud83c[\udd7e-\udd7f]|\ud83c\udd8e|\ud83c[\udd91-\udd9a]|\ud83c[\udde6-\uddff]|[\ud83c[\ude01-\ude02]|\ud83c\ude1a|\ud83c\ude2f|[\ud83c[\ude32-\ude3a]|[\ud83c[\ude50-\ude51]|\u203c|\u2049|[\u25aa-\u25ab]|\u25b6|\u25c0|[\u25fb-\u25fe]|\u00a9|\u00ae|\u2122|\u2139|\ud83c\udc04|[\u2600-\u26FF]|\u2b05|\u2b06|\u2b07|\u2b1b|\u2b1c|\u2b50|\u2b55|\u231a|\u231b|\u2328|\u23cf|[\u23e9-\u23f3]|[\u23f8-\u23fa]|\ud83c\udccf|\u2934|\u2935|[\u2190-\u21ff])/g;
-      var Ue = i(8901),
-        je = i(4390),
-        Ge = i(24209),
-        We = i(83078),
-        ze = i(44358);
-      const qe = {
+      var Re = i(8901),
+        Pe = i(20641),
+        Le = i(4390),
+        Fe = i(24209),
+        De = i(83078),
+        Be = i(44358);
+      const Ne = {
           "Style/ToneImprovement/ConfidentRewrite/ToneAI": "1f91d",
           "Style/ToneImprovement/PersonableRewrite/ToneAI": "1f917",
           "Style/ToneImprovement/PositiveFraming/ToneAI": "1f64c"
         },
-        Ke = ["Style/Sensitivity/SupportUkraine/WarLanguage", "Style/Sensitivity/ExtremelySensitive/SuicideIdeation"],
-        Ze = (e) => e.patternName.startsWith("Style/Sensitivity") && !Ke.some((t) => e.patternName === t);
-      var Xe;
+        Ve = ["Style/Sensitivity/SupportUkraine/WarLanguage", "Style/Sensitivity/ExtremelySensitive/SuicideIdeation"],
+        He = (e) => e.patternName.startsWith("Style/Sensitivity") && !Ve.some((t) => e.patternName === t);
+      var Ue;
       !(function (e) {
         (e.isToneImprovementSuggestionInfo = function (e) {
           return "emojiId" in e;
@@ -2019,10 +1979,10 @@
           }),
           (e.createToneImprovementSuggestionUphookInfo = function (e) {
             const t = e._raw.minicardTitle || e._raw.title || "",
-              i = t.replace(Oe, "").trim(),
-              a = t.match(Oe),
+              i = t.replace(Me, "").trim(),
+              a = t.match(Me),
               s = a && a.length ? a[0] : null,
-              r = qe[e.patternName];
+              r = Ne[e.patternName];
             return {
               ...(s ? { emojiLiteral: s } : r ? { emojiId: r } : {}),
               title: i,
@@ -2035,8 +1995,8 @@
           (e.isToneImprovementSuggestionUphookInfo = function (e) {
             return "isUphook" in e && e.isUphook;
           });
-      })(Xe || (Xe = {}));
-      class Ye {
+      })(Ue || (Ue = {}));
+      class Oe {
         constructor(e, t, i, a, s, r, n, o, l, c) {
           (this._alertsReader = e),
             (this._getSessionUuid = i),
@@ -2045,27 +2005,27 @@
             (this._upgradeViewModel = n),
             (this._cardActions = l),
             (this._sduiItems = c),
-            (this._toneSuggestionInfo = O.h.create(void 0)),
-            (this._sub = new D.w());
-          const d = this._sduiItems.view(L.D1.StrongAlertRef.getStrongAlertRefBulkDismissAlertIds),
-            u = O.h.combine(t, d, (e, t) => je.p.reduce([], (e, i) => (t.has(i.id) || e.push(i.alert), e))(e)),
+            (this._toneSuggestionInfo = T.h.create(void 0)),
+            (this._sub = new k.w());
+          const d = this._sduiItems.view(E.D1.StrongAlertRef.getStrongAlertRefBulkDismissAlertIds),
+            u = T.h.combine(t, d, (e, t) => Le.p.reduce([], (e, i) => (t.has(i.id) || e.push(i.alert), e))(e)),
             p = r.viewState.view("isBrandTonesEnabled"),
             m = o.view("isPremium"),
-            g = O.h.combine(u, p, m, (e, t, i) => Ye.getToneSuggestionInfoFromAlerts(e, t, i)),
-            h = g.pipe(Le.h((e) => void 0 === e || !Xe.isToneImprovementSuggestionUphookInfo(e))),
+            g = T.h.combine(u, p, m, (e, t, i) => Oe.getToneSuggestionInfoFromAlerts(e, t, i)),
+            h = g.pipe(Ce.h((e) => void 0 === e || !Ue.isToneImprovementSuggestionUphookInfo(e))),
             v = g.pipe(
-              Le.h((e) => void 0 !== e && Xe.isToneImprovementSuggestionUphookInfo(e) && "test" === s.getTreatment(Ee.p.ToneDetectorUphook))
+              Ce.h((e) => void 0 !== e && Ue.isToneImprovementSuggestionUphookInfo(e) && "test" === s.getTreatment(pe.p.ToneDetectorUphook))
             );
-          this._sub.add(Ge.T(h, v).subscribe(H.wW(this._toneSuggestionInfo))), (this.toneSuggestionInfo = this._toneSuggestionInfo.view());
+          this._sub.add(Fe.T(h, v).subscribe(x.wW(this._toneSuggestionInfo))), (this.toneSuggestionInfo = this._toneSuggestionInfo.view());
         }
         static getToneSuggestionInfoFromAlerts(e, t, i) {
           let a;
           if (i) {
             a = e
-              .filter((e) => e.patternName.startsWith("Style/ToneImprovement") || Ze(e))
+              .filter((e) => e.patternName.startsWith("Style/ToneImprovement") || He(e))
               .map((e) => {
                 var t, i, a;
-                return Ze(e)
+                return He(e)
                   ? {
                       iconId: null !== (t = e._raw.extra_properties.icon_id) && void 0 !== t ? t : "",
                       title: e.miniCardTitle,
@@ -2075,7 +2035,7 @@
                     }
                   : {
                       emojiId: null !== (i = e._raw.extra_properties.emoji_id) && void 0 !== i ? i : "",
-                      title: G.bZ.isToneAI(e) ? e.miniCardTitle : e.miniCardTitle.replace(Oe, "").trim(),
+                      title: L.bZ.isToneAI(e) ? e.miniCardTitle : e.miniCardTitle.replace(Me, "").trim(),
                       alertId: e.id,
                       toneCategory: null !== (a = e._raw.extra_properties.tone) && void 0 !== a ? a : "",
                       patternName: e.patternName
@@ -2084,7 +2044,7 @@
           } else {
             a = e
               .filter((e) => e._raw.hidden && ((e) => e.patternName.startsWith("Style/ToneImprovement"))(e))
-              .map(Xe.createToneImprovementSuggestionUphookInfo);
+              .map(Ue.createToneImprovementSuggestionUphookInfo);
           }
           const s = new Set(a.map((e) => e.toneCategory)),
             r = a[0],
@@ -2094,42 +2054,42 @@
         _getCurrentSessionUuid() {
           return (0, n.pipe)(
             this._getSessionUuid(),
-            Z.getOrElse(() => "")
+            V.getOrElse(() => "")
           );
         }
         onShowToneSuggestionInfo(e) {
-          const t = Xe.isToneImprovementSuggestionInfo(e)
+          const t = Ue.isToneImprovementSuggestionInfo(e)
               ? e.emojiId
-              : Xe.isInclusiveLanguageToneSuggestionInfo(e)
+              : Ue.isInclusiveLanguageToneSuggestionInfo(e)
               ? e.iconId
               : e.emojiId || e.emojiLiteral || "",
-            i = Xe.isToneImprovementSuggestionUphookInfo(e);
+            i = Ue.isToneImprovementSuggestionUphookInfo(e);
           this._gnar.toneDetectorToneSuggestionInfoShow(i, e.patternName, this._getCurrentSessionUuid(), e.title, t),
             i &&
-              ((0, ze.n)(this._gnar, { placement: "toneDetector", upgradeHookName: "toneDetector", upgradeHookSlot: "emogenieReport" }),
-              (0, m.Tb)().upgradeHooks.showUpgradeHook("toneDetector", "emogenieReport"));
+              ((0, Be.n)(this._gnar, { placement: "toneDetector", upgradeHookName: "toneDetector", upgradeHookSlot: "emogenieReport" }),
+              (0, Pe.Tb)().upgradeHooks.showUpgradeHook("toneDetector", "emogenieReport"));
         }
         onClickToneSuggestionInfoCta(e) {
-          const t = Xe.isToneImprovementSuggestionInfo(e)
+          const t = Ue.isToneImprovementSuggestionInfo(e)
               ? e.emojiId
-              : Xe.isInclusiveLanguageToneSuggestionInfo(e)
+              : Ue.isInclusiveLanguageToneSuggestionInfo(e)
               ? e.iconId
               : e.emojiId || e.emojiLiteral || "",
-            i = Xe.isToneImprovementSuggestionUphookInfo(e);
+            i = Ue.isToneImprovementSuggestionUphookInfo(e);
           if ((this._gnar.toneDetectorToneSuggestionInfoCtaClick(i, e.patternName, this._getCurrentSessionUuid(), e.title, t), i))
-            (0, ze.Q)(this._gnar, { placement: "toneDetector", upgradeHookName: "toneDetector", upgradeHookSlot: "emogenieReport" }),
-              (0, m.Tb)().upgradeHooks.clickUpgradeHook("toneDetector", "emogenieReport"),
-              this._upgradeViewModel.openUpgradeUrl(Ue.L.Place.toneSuggestion);
+            (0, Be.Q)(this._gnar, { placement: "toneDetector", upgradeHookName: "toneDetector", upgradeHookSlot: "emogenieReport" }),
+              (0, Pe.Tb)().upgradeHooks.clickUpgradeHook("toneDetector", "emogenieReport"),
+              this._upgradeViewModel.openUpgradeUrl(Re.L.Place.toneSuggestion);
           else {
             const t = this._sduiItems.get(),
               i = (0, n.pipe)(
                 this._alertsReader.getById(e.alertId),
-                Z.chain(G.bZ.getRawId),
-                Z.chain((e) => L.D1.getByAlertId(t, e)),
-                We.MH
+                V.chain(L.bZ.getRawId),
+                V.chain((e) => E.D1.getByAlertId(t, e)),
+                De.MH
               );
             this._cardActions.next(
-              L.fr.create([L.D1.AssistantFeed.createPushAssistantFeedAction(L.D1.AssistantFeed.TONE_INSIGHTS_SUGGESTIONS_FEED_ID, i.id)])
+              E.fr.create([E.D1.AssistantFeed.createPushAssistantFeedAction(E.D1.AssistantFeed.TONE_INSIGHTS_SUGGESTIONS_FEED_ID, i.id)])
             );
           }
         }
@@ -2137,36 +2097,37 @@
           this._sub.unsubscribe();
         }
       }
-      var Qe = i(66896),
-        Je = i(60682),
-        $e = i(50628),
-        et = i(73975),
-        tt = i(22232),
-        it = i(7992);
-      const at = (e) => {
+      var je = i(66896),
+        Ge = i(60682),
+        We = i(50628),
+        ze = i(73975),
+        qe = i(22232),
+        Ke = i(7992),
+        Ze = i(79031);
+      const Xe = (e) => {
           switch (e) {
-            case Qe.R.Type.Critical:
-            case Qe.R.Type.Correctness:
-              return Re.Il.CoreRed50;
-            case Qe.R.Type.Clarity:
-              return Re.Il.CoreBlue50;
-            case Qe.R.Type.Engagement:
-              return Re.Il.CoreGreen60;
-            case Qe.R.Type.Delivery:
-              return Re.Il.CorePurple40;
-            case Qe.R.Type.Vox:
-              return Re.Il.CoreNeutral50;
-            case Qe.R.Type.Plagiarism:
-              return Re.Il.CoreCyan50;
-            case Qe.R.Type.Advanced:
-            case Qe.R.Type.Other:
-            case Qe.R.Type.KnowledgeHub:
+            case je.R.Type.Critical:
+            case je.R.Type.Correctness:
+              return ye.Il.CoreRed50;
+            case je.R.Type.Clarity:
+              return ye.Il.CoreBlue50;
+            case je.R.Type.Engagement:
+              return ye.Il.CoreGreen60;
+            case je.R.Type.Delivery:
+              return ye.Il.CorePurple40;
+            case je.R.Type.Vox:
+              return ye.Il.CoreNeutral50;
+            case je.R.Type.Plagiarism:
+              return ye.Il.CoreCyan50;
+            case je.R.Type.Advanced:
+            case je.R.Type.Other:
+            case je.R.Type.KnowledgeHub:
               return;
             default:
-              return (0, tt.vE)(e);
+              return (0, qe.vE)(e);
           }
         },
-        st = (e, t) => {
+        Qe = (e, t) => {
           var i;
           const a = ((i = e),
             Object.values(
@@ -2174,149 +2135,149 @@
                 const i = t.lensType;
                 return (
                   e[i]
-                    ? (e[i] = { ...e[i], lensNames: re.jj(et.w4)([...e[i].lensNames, t.lensName]), alertsCount: e[i].alertsCount + 1 })
+                    ? (e[i] = { ...e[i], lensNames: X.jj(ze.w4)([...e[i].lensNames, t.lensName]), alertsCount: e[i].alertsCount + 1 })
                     : (e[i] = { lensNames: [t.lensName], lensType: t.lensType, alertsCount: 1 }),
                   e
                 );
               }, {})
             )).map((e) => {
               var t;
-              return Me.X2.create(
+              return Se.X2.create(
                 [
                   {
                     type: "block",
                     fraction: 1,
-                    horizontalAlign: Re.Kq.Center,
-                    id: Me.JX.from("block"),
-                    name: Me.yL.unknown("upgrade_hook_counter"),
-                    parts: [Me.XF.create(e.alertsCount.toString(), null !== (t = at(e.lensType)) && void 0 !== t ? t : Re.Il.CoreNeutral50)]
+                    horizontalAlign: ye.Kq.Center,
+                    id: Se.JX.from("block"),
+                    name: Se.yL.unknown("upgrade_hook_counter"),
+                    parts: [Se.XF.create(e.alertsCount.toString(), null !== (t = Xe(e.lensType)) && void 0 !== t ? t : ye.Il.CoreNeutral50)]
                   },
                   {
                     type: "block",
                     fraction: 11,
-                    id: Me.JX.from("block"),
-                    name: Me.yL.unknown("upgrade_hook_alert_group"),
+                    id: Se.JX.from("block"),
+                    name: Se.yL.unknown("upgrade_hook_alert_group"),
                     parts: [
-                      Me.xv.create(Te.kC(e.lensType), Re.yH.Regular, [], Re.Il.CoreNeutral90, void 0, void 0),
-                      Me.xv.create(` · ${e.lensNames.join(", ")}`, Re.yH.Regular, [], Re.Il.CoreNeutral50, void 0, void 0)
+                      Se.xv.create(we.kC(e.lensType), ye.yH.Regular, [], ye.Il.CoreNeutral90, void 0, void 0),
+                      Se.xv.create(` · ${e.lensNames.join(", ")}`, ye.yH.Regular, [], ye.Il.CoreNeutral50, void 0, void 0)
                     ]
                   }
                 ],
                 [],
-                Me.Ki.create("0.5", "0.25", "0.25", "0.75"),
-                Re.g$.Middle
+                Se.Ki.create("0.5", "0.25", "0.25", "0.75"),
+                ye.g$.Middle
               );
             }),
-            s = Me.sg.create([
-              Me.X2.create(
+            s = Se.sg.create([
+              Se.X2.create(
                 [
-                  Me.gO.create(
+                  Se.gO.create(
                     "title",
                     void 0,
                     void 0,
-                    Me.xv.create("Premium suggestions available:", Re.yH.Regular, [Re.SQ.Bold], Re.Il.CoreNeutral90, void 0, void 0)
+                    Se.xv.create("Premium suggestions available:", ye.yH.Regular, [ye.SQ.Bold], ye.Il.CoreNeutral90, void 0, void 0)
                   )
                 ],
                 [],
-                Me.Ki.create("0.75", "0.25", "0.5", "0.75"),
-                Re.g$.Middle
+                Se.Ki.create("0.75", "0.25", "0.5", "0.75"),
+                ye.g$.Middle
               ),
-              Me.gO.create("content", void 0, void 0, ...a),
-              Me.X2.create(
+              Se.gO.create("content", void 0, void 0, ...a),
+              Se.X2.create(
                 [
                   {
-                    ...Me.gO.create(
+                    ...Se.gO.create(
                       "actions",
                       void 0,
-                      Me.n4.create("0.5", "0"),
+                      Se.n4.create("0.5", "0"),
                       {
                         type: "button",
                         meta: {},
-                        id: Me.JX.from("goPremium"),
-                        name: Me.yL.unknown("goPremium"),
-                        shape: Re.jL.Square,
-                        actions: [{ type: "upgradeToPremium" }, { type: "notify", userAction: Re.nz.Click }],
-                        kind: Re.Lv.Primary,
-                        state: Re.BN.Enabled,
+                        id: Se.JX.from("goPremium"),
+                        name: Se.yL.unknown("goPremium"),
+                        shape: ye.jL.Square,
+                        actions: [{ type: "upgradeToPremium" }, { type: "notify", userAction: ye.nz.Click }],
+                        kind: ye.Lv.Primary,
+                        state: ye.BN.Enabled,
                         label: {
-                          ...Me.gO.create(
+                          ...Se.gO.create(
                             "",
-                            Me.Ki.create("0", "0.5", "0", "0.25"),
-                            Me.n4.create("0.25", "0.25"),
-                            Me.JO.create(Me.JO.Source.createKnown(Re.Tb.Diamond), void 0),
-                            Me.xv.create("Unlock Premium", Re.yH.Regular, [], Re.Il.CoreYellow80, void 0, void 0)
+                            Se.Ki.create("0", "0.5", "0", "0.25"),
+                            Se.n4.create("0.25", "0.25"),
+                            Se.JO.create(Se.JO.Source.createKnown(ye.Tb.Diamond), void 0),
+                            Se.xv.create("Unlock Premium", ye.yH.Regular, [], ye.Il.CoreYellow80, void 0, void 0)
                           ),
-                          verticalAlign: Re.g$.Middle
+                          verticalAlign: ye.g$.Middle
                         }
                       },
                       {
                         type: "button",
                         meta: {},
-                        id: Me.JX.from("button"),
-                        name: Me.yL.unknown("dismiss"),
-                        shape: Re.jL.Square,
-                        actions: [{ type: "removeRoot" }, { type: "notify", userAction: Re.nz.Click }],
-                        kind: Re.Lv.Secondary,
-                        state: Re.BN.Enabled,
-                        label: Me.gO.create(
+                        id: Se.JX.from("button"),
+                        name: Se.yL.unknown("dismiss"),
+                        shape: ye.jL.Square,
+                        actions: [{ type: "removeRoot" }, { type: "notify", userAction: ye.nz.Click }],
+                        kind: ye.Lv.Secondary,
+                        state: ye.BN.Enabled,
+                        label: Se.gO.create(
                           "",
-                          Me.Ki.create("0", "0.5", "0", "0.5"),
-                          { horizontal: Re.T.D025, vertical: Re.T.D0 },
-                          Me.xv.create("Dismiss", Re.yH.Regular, [], Re.Il.CoreNeutral50, void 0, void 0)
+                          Se.Ki.create("0", "0.5", "0", "0.5"),
+                          { horizontal: ye.T.D025, vertical: ye.T.D0 },
+                          Se.xv.create("Dismiss", ye.yH.Regular, [], ye.Il.CoreNeutral50, void 0, void 0)
                         )
                       }
                     ),
-                    verticalAlign: Re.g$.Middle
+                    verticalAlign: ye.g$.Middle
                   }
                 ],
                 [
-                  Me.gO.create(
+                  Se.gO.create(
                     "navigation-arrows",
                     void 0,
                     void 0,
-                    Me.zx.createIcon(
-                      Re.MU.ButtonPrev,
-                      Me.JO.Source.createKnown(Re.Tb.ArrowLeft),
+                    Se.zx.createIcon(
+                      ye.MU.ButtonPrev,
+                      Se.JO.Source.createKnown(ye.Tb.ArrowLeft),
                       [
                         { type: "prevCard" },
                         {
                           type: "transition",
                           fromName: "content",
                           toName: "content",
-                          animateFrom: Re.c1.SlideRight,
-                          animateTo: Re.c1.SlideRight
+                          animateFrom: ye.c1.SlideRight,
+                          animateTo: ye.c1.SlideRight
                         },
                         {
                           type: "transition",
                           fromName: "title",
                           toName: "title",
-                          animateFrom: Re.c1.SlideRight,
-                          animateTo: Re.c1.SlideRight
+                          animateFrom: ye.c1.SlideRight,
+                          animateTo: ye.c1.SlideRight
                         },
-                        { type: "notify", userAction: Re.nz.Click }
+                        { type: "notify", userAction: ye.nz.Click }
                       ],
-                      Re.Lv.Secondary,
+                      ye.Lv.Secondary,
                       "Previous suggestion"
                     ),
-                    Me.zx.createIcon(
-                      Re.MU.ButtonNext,
-                      Me.JO.Source.createKnown(Re.Tb.ArrowRight),
-                      [{ type: "nextCard" }, { type: "notify", userAction: Re.nz.Click }],
-                      Re.Lv.Secondary,
+                    Se.zx.createIcon(
+                      ye.MU.ButtonNext,
+                      Se.JO.Source.createKnown(ye.Tb.ArrowRight),
+                      [{ type: "nextCard" }, { type: "notify", userAction: ye.nz.Click }],
+                      ye.Lv.Secondary,
                       "Next suggestion"
                     )
                   )
                 ],
-                Me.Ki.create("0.5", "0.25", "1", "0.75"),
-                Re.g$.Middle
+                Se.Ki.create("0.5", "0.25", "1", "0.75"),
+                ye.g$.Middle
               )
             ]);
           return {
-            id: L.D1.NativeUpgradeHook.ID,
+            id: E.D1.NativeUpgradeHook.ID,
             type: "assistantCard",
             meta: { label: "Premium suggestions available:" },
             child: {
-              ...Me.XJ.create("default-suggestion", {
+              ...Se.XJ.create("default-suggestion", {
                 "default-suggestion": s,
                 feedback: { type: "nativeFeedbackModal", id: "card-nativeFeedbackModal" },
                 settings: { type: "nativeSettingsModal", id: "card-nativeSettingsModal" },
@@ -2328,46 +2289,46 @@
               { type: "switchView", where: "openToneDetectorButton-viewStack", selected: "show-open-tone-detector-button" },
               { type: "switchView", where: "card-viewStack", selected: "default-suggestion" },
               { type: "switchView", where: "header-viewStack", selected: "default-suggestion" },
-              { type: "notify", userAction: Re.nz.Focus }
+              { type: "notify", userAction: ye.nz.Focus }
             ],
             onBlur: [],
             properties: { ...t, "feed-order": 1 }
           };
         };
-      var rt = i(71242);
-      class nt {
+      var Ye = i(71242);
+      class Je {
         constructor(e) {
-          (this._subs = new D.w()),
-            (this._upgradeHookCard = O.h.create(Z.none)),
-            (this._upgradeHookCardFocused = O.h.create(!1)),
+          (this._subs = new k.w()),
+            (this._upgradeHookCard = T.h.create(V.none)),
+            (this._upgradeHookCardFocused = T.h.create(!1)),
             (this.processUpgradeHookSduiCardActions = (e, t, i, a, s) =>
               e
                 .pipe(
-                  se.M(this._upgradeHookCard),
-                  N.U(([{ actions: e, cardId: r }, n]) => {
+                  Z.M(this._upgradeHookCard),
+                  _.U(([{ actions: e, cardId: r }, n]) => {
                     e.forEach((e) => {
                       "upgradeToPremium" === e.type
-                        ? t.openUpgradeUrl(Ue.L.Place.assistantCardList)
+                        ? t.openUpgradeUrl(Re.L.Place.assistantCardList)
                         : "notify" === e.type &&
-                          e.userAction === Re.nz.Focus &&
-                          (0, _.zG)(
+                          e.userAction === ye.nz.Focus &&
+                          (0, g.zG)(
                             n,
-                            Z.fold(_.jv, (e) => e.id.toString() === r),
+                            V.fold(g.jv, (e) => e.id.toString() === r),
                             (e) => {
-                              this._upgradeHookCardFocused.set(e), e && i.upgradeHooksExp.upgradeHookCardShown(a, s, (0, it.ge)());
+                              this._upgradeHookCardFocused.set(e), e && i.upgradeHooksExp.upgradeHookCardShown(a, s, (0, Ke.ge)());
                             }
                           );
                     });
                   })
                 )
                 .subscribe()),
-            this._subs.add(e.pipe(N.U(L.D1.StrongAlertRef.findStrongAlertRefUpgradeHookSduiItem)).subscribe(H.wW(this._upgradeHookCard)));
+            this._subs.add(e.pipe(_.U(E.D1.StrongAlertRef.findStrongAlertRefUpgradeHookSduiItem)).subscribe(x.wW(this._upgradeHookCard)));
         }
         get upgradeHookCard() {
           return this._upgradeHookCard.view();
         }
         get upgradeHookCardExists() {
-          return this._upgradeHookCard.view(Z.isSome);
+          return this._upgradeHookCard.view(V.isSome);
         }
         get upgradeHookCardFocused() {
           return this._upgradeHookCardFocused.view();
@@ -2376,34 +2337,34 @@
           this._subs.unsubscribe();
         }
       }
-      var ot = i(64757),
-        lt = i(1509),
-        ct = i(54001);
-      const dt = {
+      var $e = i(64757),
+        et = i(1509),
+        tt = i(54001);
+      const it = {
           caption: "Compose an email",
           buttons: [
             { id: "gmail", icon: "gmail", label: "Gmail", href: "https://mail.google.com/#compose" },
             { id: "outlook", icon: "outlook", label: "Outlook", href: "https://outlook.office.com/mail/" }
           ]
         },
-        ut = {
+        at = {
           caption: "Edit a document",
           buttons: [
             { id: "gDocs", icon: "gdocs", label: "Google Docs", href: "https://docs.google.com/" },
             { id: "word", icon: "word", label: "Word", href: "https://www.microsoft365.com/launch/word" }
           ]
         },
-        pt = [
-          dt,
-          ut,
+        st = [
+          it,
+          at,
           {
             caption: "Update your profile",
             buttons: [{ id: "linkedIn", icon: "linkedIn", label: "LinkedIn", href: "https://www.linkedin.com/feed/" }]
           }
         ],
-        mt = [
-          dt,
-          ut,
+        rt = [
+          it,
+          at,
           {
             caption: "Send a message",
             buttons: [
@@ -2412,49 +2373,49 @@
             ]
           }
         ];
-      var gt = i(22484),
-        ht = i(31926);
-      const vt = ({ isStudent: e }) => (
+      var nt = i(22484),
+        ot = i(31926);
+      const lt = ({ isStudent: e }) => (
         o.useEffect(() => {
-          gt.J.getStartedUseCasesShow();
+          nt.J.getStartedUseCasesShow();
         }, []),
         o.createElement(
           "div",
-          { className: ht.getStartedUseCases },
+          { className: ot.getStartedUseCases },
           o.createElement(
             "section",
-            { className: ht.copyContainer },
-            o.createElement("p", { className: ht.title }, "Now, see Grammarly in action"),
-            o.createElement("p", { className: ht.subtitle }, "Start writing something new, or proofread a piece of text you already wrote.")
+            { className: ot.copyContainer },
+            o.createElement("p", { className: ot.title }, "Now, see Grammarly in action"),
+            o.createElement("p", { className: ot.subtitle }, "Start writing something new, or proofread a piece of text you already wrote.")
           ),
           o.createElement(
             "section",
-            { className: ht.ctaContainer },
-            (e ? pt : mt).map(({ caption: e, buttons: t }) =>
+            { className: ot.ctaContainer },
+            (e ? st : rt).map(({ caption: e, buttons: t }) =>
               o.createElement(
                 "div",
                 { key: e },
-                o.createElement("p", { className: ht.ctaCaption }, e),
+                o.createElement("p", { className: ot.ctaCaption }, e),
                 o.createElement(
                   "div",
-                  { className: ht.ctaButtons },
+                  { className: ot.ctaButtons },
                   t.map(({ id: e, icon: t, label: i, href: a }) =>
                     o.createElement(
-                      ot.zx,
+                      $e.zx,
                       {
                         key: e,
-                        className: ht.externalLink,
+                        className: ot.externalLink,
                         "data-part": `use-case-link-${e}`,
                         "aria-label": e,
                         name: `get-started-use-cases-${e}`,
-                        styleType: lt.Z.Type.Base,
+                        styleType: et.Z.Type.Base,
                         href: a,
                         target: "_blank",
                         onClick: () => {
-                          gt.J.getStartedUseCasesLinkClick(e);
+                          nt.J.getStartedUseCasesLinkClick(e);
                         }
                       },
-                      t && o.createElement("div", { ...(0, ct.Sh)(ht.icon, ht[t]) }),
+                      t && o.createElement("div", { ...(0, tt.Sh)(ot.icon, ot[t]) }),
                       o.createElement("span", null, i)
                     )
                   )
@@ -2464,160 +2425,160 @@
           )
         )
       );
-      var ft = i(2639),
-        bt = i(12764);
-      const wt = [
+      var ct = i(2639),
+        dt = i(12764);
+      const ut = [
           {
-            id: oe.AccountCreation,
+            id: Y.AccountCreation,
             title: "Create an account",
             description: "Sign up for free or sign in to an existing account to start receiving writing insights."
           },
-          { id: oe.Tour, title: "Take a quick tour", description: "Want to see how Grammarly works?" },
+          { id: Y.Tour, title: "Take a quick tour", description: "Want to see how Grammarly works?" },
           {
-            id: oe.TryWebsite,
+            id: Y.TryWebsite,
             title: "Try writing with Grammarly",
             description: "Get suggestions wherever you write online with the browser extension."
           },
           {
-            id: oe.ViewApps,
+            id: Y.ViewApps,
             title: "Explore other Grammarly products",
             description: "Get suggestions from Grammarly when you write on all your favorite platforms and devices."
           }
         ],
-        St = [
+        pt = [
           { id: "gmail", text: "Try it in Gmail", icon: "gmail", href: "https://mail.google.com/#compose" },
           { id: "outlook", text: "Try it in Microsoft Outlook", icon: "outlook", href: "https://outlook.live.com/mail" },
           { id: "gDocs", text: "Try it in Google Docs", icon: "gdocs", href: "https://docs.google.com" }
         ],
-        yt = [
+        mt = [
           { id: "desktop", text: "Grammarly for Desktop", href: "https://www.grammarly.com/desktop" },
           { id: "keyboard", text: "The Grammarly Keyboard", href: "https://www.grammarly.com/mobile" }
         ];
-      var Et = i(93405);
-      const Ct = ({ label: e, href: t, onClick: i }) =>
+      var gt = i(93405);
+      const ht = ({ label: e, href: t, onClick: i }) =>
           o.createElement(
-            ot.zx.Primary,
-            { className: Et.link, "data-part": e.toLowerCase().split(" ").join("-"), onClick: i, target: t ? "_blank" : "_self", href: t },
+            $e.zx.Primary,
+            { className: gt.link, "data-part": e.toLowerCase().split(" ").join("-"), onClick: i, target: t ? "_blank" : "_self", href: t },
             e
           ),
-        kt = ({ items: e, onClick: t }) =>
+        vt = ({ items: e, onClick: t }) =>
           o.createElement(
             o.Fragment,
             null,
             e.map(({ id: e, text: i, icon: a, href: s }) =>
               o.createElement(
-                ot.zx,
+                $e.zx,
                 {
                   key: e,
-                  className: Et.externalLink,
+                  className: gt.externalLink,
                   "data-part": `try-${e}`,
                   "aria-label": e,
                   name: `get-started-${e}`,
-                  styleType: lt.Z.Type.Base,
+                  styleType: et.Z.Type.Base,
                   href: s,
                   target: "_blank",
                   onClick: () => t(e)
                 },
-                a && o.createElement("div", { ...(0, ct.Sh)(Et.icon, Et[a]) }),
+                a && o.createElement("div", { ...(0, tt.Sh)(gt.icon, gt[a]) }),
                 o.createElement("span", null, i)
               )
             )
           ),
-        _t = (e, t) => {
+        ft = (e, t) => {
           const i = e.find((e) => !t.has(e.id));
           return null == i ? void 0 : i.id;
         };
-      var At = i(91308);
-      const It = ({ completed: e, total: t }) =>
+      var bt = i(91308);
+      const wt = ({ completed: e, total: t }) =>
         o.createElement(
           "div",
-          { className: At.progressBarBg },
+          { className: bt.progressBarBg },
           o.createElement("div", {
             "data-name": "progress-bar",
             "aria-label": "completionProgress",
-            className: At.progressBar,
+            className: bt.progressBar,
             role: "progressbar",
             "aria-valuenow": e,
             style: { width: (e <= t && e >= 0 ? (e / t) * 100 : e < 0 ? 0 : 100) + "%" }
           })
         );
-      var xt,
-        Tt,
-        Mt = i(52426);
+      var St,
+        yt,
+        Et = i(52426);
       !(function (e) {
         (e.Complete = "complete"), (e.Incomplete = "incomplete");
-      })(xt || (xt = {})),
+      })(St || (St = {})),
         (function (e) {
           (e.macDesktop = "macDesktop"), (e.winDesktop = "winDesktop"), (e.android = "android"), (e.iOS = "iOS");
-        })(Tt || (Tt = {}));
-      const Rt = (e) => {
+        })(yt || (yt = {}));
+      const Ct = (e) => {
           switch (e) {
-            case pe.macExtension:
-              return Tt.macDesktop;
-            case pe.windowsExtension:
-              return Tt.winDesktop;
-            case pe.mobileAndroid:
-              return Tt.android;
-            case pe.mobileIOS:
-              return Tt.iOS;
+            case ie.macExtension:
+              return yt.macDesktop;
+            case ie.windowsExtension:
+              return yt.winDesktop;
+            case ie.mobileAndroid:
+              return yt.android;
+            case ie.mobileIOS:
+              return yt.iOS;
             default:
-              (0, tt.vE)(e);
+              (0, qe.vE)(e);
           }
         },
-        Pt = ({ getStartedChecklistViewModel: e, notify: t }) => {
+        kt = ({ getStartedChecklistViewModel: e, notify: t }) => {
           const { anonymous: i, checklistState: a, gnar: s, actions: r, userClientState: n } = e,
             [l, c] = o.useState(() => {
-              const e = new Set([...a.completedItems, ...(i ? [] : [oe.AccountCreation])]);
+              const e = new Set([...a.completedItems, ...(i ? [] : [Y.AccountCreation])]);
               return { items: e, count: e.size };
             }),
             [d, u] = o.useState(
               ((e, t) => {
-                const i = _t(e, t);
+                const i = ft(e, t);
                 return i ? new Set([i]) : new Set();
-              })(wt, l.items)
+              })(ut, l.items)
             ),
             p = (e, i) => {
               const o = new Set(),
                 d = new Set(l.items);
-              if (e !== oe.AccountCreation) {
-                l.items.has(e) || (d.add(e), c({ items: d, count: d.size }), Object.values(oe).every((e) => d.has(e)) && t());
-                const p = _t(wt, d);
+              if (e !== Y.AccountCreation) {
+                l.items.has(e) || (d.add(e), c({ items: d, count: d.size }), Object.values(Y).every((e) => d.has(e)) && t());
+                const p = ft(ut, d);
                 o.delete(e), p && o.add(p), u(o);
-                const m = Object.values(pe)
-                  .filter((e) => n.get(e) === ue.installed)
-                  .map(Rt);
-                s.getStartedLinkClick(m, i, e, d.size, wt.length), r.updateChecklistState({ ...a, completedItems: [...d] });
+                const m = Object.values(ie)
+                  .filter((e) => n.get(e) === te.installed)
+                  .map(Ct);
+                s.getStartedLinkClick(m, i, e, d.size, ut.length), r.updateChecklistState({ ...a, completedItems: [...d] });
               }
             },
-            m = (e) => (l.items.has(e) ? xt.Complete : xt.Incomplete);
+            m = (e) => (l.items.has(e) ? St.Complete : St.Incomplete);
           return (
             o.useEffect(() => {
-              s.getStartedChecklistShow(Array.from(l.items), _t(wt, l.items));
+              s.getStartedChecklistShow(Array.from(l.items), ft(ut, l.items));
             }, []),
             o.createElement(
               "div",
-              { className: Mt.getStartedChecklist },
-              o.createElement("div", { className: Mt.logo }),
-              o.createElement(lt.Z.H3, { className: Mt.title }, "Welcome! Here are a few steps to get you started."),
+              { className: Et.getStartedChecklist },
+              o.createElement("div", { className: Et.logo }),
+              o.createElement(et.Z.H3, { className: Et.title }, "Welcome! Here are a few steps to get you started."),
               o.createElement(
-                lt.Z.Base,
-                { className: Mt.progressCaption },
+                et.Z.Base,
+                { className: Et.progressCaption },
                 "You’ve completed ",
                 o.createElement("strong", null, l.count),
                 " out of",
                 " ",
-                o.createElement("strong", null, wt.length),
+                o.createElement("strong", null, ut.length),
                 " steps."
               ),
-              o.createElement(It, { total: wt.length, completed: l.count }),
-              o.createElement(ft.W, {
-                allChecklistItems: wt,
+              o.createElement(wt, { total: ut.length, completed: l.count }),
+              o.createElement(ct.W, {
+                allChecklistItems: ut,
                 completedItems: l,
                 expandedItems: d,
                 onExpandItem: (e) => {
                   const t = new Set(),
                     a = m(e),
-                    r = i ? oe.AccountCreation : e,
+                    r = i ? Y.AccountCreation : e,
                     n = m(r);
                   if ((s.getStartedSectionClick(a, e), 0 === d.size)) t.add(r), s.getStartedItemExpand(n, r);
                   else {
@@ -2630,22 +2591,22 @@
                   ((e, t) => {
                     switch (e) {
                       case "accountCreation":
-                        return o.createElement(Ct, {
+                        return o.createElement(ht, {
                           label: "Sign up",
                           href: "https://www.grammarly.com/signup",
-                          onClick: () => t(oe.AccountCreation, oe.AccountCreation)
+                          onClick: () => t(Y.AccountCreation, Y.AccountCreation)
                         });
                       case "tour":
-                        return o.createElement(Ct, {
+                        return o.createElement(ht, {
                           label: "Start tour",
                           onClick: () => {
-                            t(oe.Tour, oe.Tour), (0, A.OB)().bgRpc.api.sendToFocusTab({ kind: bt.B.Kind.showOnboardingDialog });
+                            t(Y.Tour, Y.Tour), (0, h.OB)().bgRpc.api.sendToFocusTab({ kind: dt.B.Kind.showOnboardingDialog });
                           }
                         });
                       case "tryWebsite":
-                        return o.createElement(kt, { items: St, onClick: (e) => t(oe.TryWebsite, e) });
+                        return o.createElement(vt, { items: pt, onClick: (e) => t(Y.TryWebsite, e) });
                       case "viewApps":
-                        return o.createElement(kt, { items: yt, onClick: (e) => t(oe.ViewApps, e) });
+                        return o.createElement(vt, { items: mt, onClick: (e) => t(Y.ViewApps, e) });
                       default:
                         return null;
                     }
@@ -2654,106 +2615,106 @@
             )
           );
         };
-      var Lt = i(31699);
-      const Ft = ({ htmlToSanitize: e, ...t }) =>
-        o.createElement("div", { ...t, dangerouslySetInnerHTML: { __html: (0, Lt.sanitize)(e) } });
-      var Dt = i(25079);
-      const Nt = ({ title: e, details: t, examples: i }) =>
+      var _t = i(31699);
+      const At = ({ htmlToSanitize: e, ...t }) =>
+        o.createElement("div", { ...t, dangerouslySetInnerHTML: { __html: (0, _t.sanitize)(e) } });
+      var It = i(25079);
+      const xt = ({ title: e, details: t, examples: i }) =>
         o.createElement(
           "div",
-          { className: Dt.learnMore },
-          void 0 !== e ? o.createElement("div", { className: Dt.learnMoreTitle }, Te.kC(e)) : null,
-          o.createElement(Ft, { htmlToSanitize: t }),
+          { className: It.learnMore },
+          void 0 !== e ? o.createElement("div", { className: It.learnMoreTitle }, we.kC(e)) : null,
+          o.createElement(At, { htmlToSanitize: t }),
           i.map((e, t) => {
-            const i = e.type === ge.correct,
-              a = e.type === ge.incorrect,
+            const i = e.type === se.correct,
+              a = e.type === se.incorrect,
               s =
                 i || a
                   ? o.createElement("div", {
-                      ...(0, ct.Sh)(
-                        Dt.learnMoreExampleIcon,
-                        i ? Dt.learnMoreExampleCorrectIcon : null,
-                        a ? Dt.learnMoreExampleIncorrectIcon : null
+                      ...(0, tt.Sh)(
+                        It.learnMoreExampleIcon,
+                        i ? It.learnMoreExampleCorrectIcon : null,
+                        a ? It.learnMoreExampleIncorrectIcon : null
                       )
                     })
                   : null;
             return o.createElement(
               "div",
-              { className: Dt.learnMoreExample, key: `learn-more-example-${t}` },
+              { className: It.learnMoreExample, key: `learn-more-example-${t}` },
               e.title
                 ? o.createElement(
                     o.Fragment,
                     null,
                     o.createElement(
                       "div",
-                      { className: Dt.learnMoreExampleIconAndTitle },
+                      { className: It.learnMoreExampleIconAndTitle },
                       s,
-                      o.createElement("div", { className: Dt.learnMoreExampleTitle }, e.title)
+                      o.createElement("div", { className: It.learnMoreExampleTitle }, e.title)
                     ),
-                    o.createElement(Ft, {
-                      ...(0, ct.Sh)(s ? Dt.learnMoreExampleTextMarginLeft : null, e.useItalicText ? Dt.learnMoreExampleTextItalic : null),
+                    o.createElement(At, {
+                      ...(0, tt.Sh)(s ? It.learnMoreExampleTextMarginLeft : null, e.useItalicText ? It.learnMoreExampleTextItalic : null),
                       htmlToSanitize: e.text
                     })
                   )
-                : o.createElement(Ft, { ...(0, ct.Sh)(e.useItalicText ? Dt.learnMoreExampleTextItalic : null), htmlToSanitize: e.text })
+                : o.createElement(At, { ...(0, tt.Sh)(e.useItalicText ? It.learnMoreExampleTextItalic : null), htmlToSanitize: e.text })
             );
           })
         );
-      var Bt = i(8543);
-      const Vt = ({ learnMoreInfo: e }) =>
+      var Tt = i(8543);
+      const Mt = ({ learnMoreInfo: e }) =>
         o.createElement(
-          Bt.F.Fragment,
+          Tt.F.Fragment,
           null,
           e.view((e) =>
-            e ? o.createElement(Nt, { title: e.showTitleOnContent ? e.title : void 0, details: e.details, examples: e.examples }) : null
+            e ? o.createElement(xt, { title: e.showTitleOnContent ? e.title : void 0, details: e.details, examples: e.examples }) : null
           )
         );
-      var Ht = i(31480),
-        Ot = i(15346),
-        Ut = i(72154);
-      const jt = ({
+      var Rt = i(31480),
+        Pt = i(15346),
+        Lt = i(72154);
+      const Ft = ({
         children: e,
         popActiveView: t,
         panelClassName: i,
         contentClassName: a,
         footer: s,
         onClickBack: r,
-        hideBackButton: n = O.h.create(!1),
+        hideBackButton: n = T.h.create(!1),
         dataPartName: l
       }) =>
         o.createElement(
           "div",
-          { className: Ot.viewOverlay, "data-grammarly-part": "assistant-view-overlay" },
+          { className: Pt.viewOverlay, "data-grammarly-part": "assistant-view-overlay" },
           o.createElement(
-            Bt.F.Fragment,
+            Tt.F.Fragment,
             null,
             n.view(
               (e) =>
                 !e &&
                 o.createElement(
-                  Ut.M,
-                  { className: Ot.viewOverlayGoBack, clickHandler: () => (r ? r() : t()), dataGrammarlyPart: "assistant-go-back" },
+                  Lt.M,
+                  { className: Pt.viewOverlayGoBack, clickHandler: () => (r ? r() : t()), dataGrammarlyPart: "assistant-go-back" },
                   "<- Back"
                 )
             )
           ),
           o.createElement(
             "div",
-            { className: i || Ot.defaultViewOverlayPanel },
-            o.createElement("div", { className: a || Ot.content, "data-grammarly-part": l }, e),
-            s && o.createElement("div", { className: Ot.footer }, s)
+            { className: i || Pt.defaultViewOverlayPanel },
+            o.createElement("div", { className: a || Pt.content, "data-grammarly-part": l }, e),
+            s && o.createElement("div", { className: Pt.footer }, s)
           )
         );
-      var Gt = i(73385);
-      const Wt = ({ popActiveView: e, browser: t, onClickBack: i, children: a }) => {
+      var Dt = i(73385);
+      const Bt = ({ popActiveView: e, browser: t, onClickBack: i, children: a }) => {
         const [s, r] = o.useState(!1);
         return o.createElement(
-          jt,
-          { dataPartName: "proofit-view-overlay", popActiveView: e, panelClassName: Ht.proofitViewOverlayPanel, onClickBack: i },
+          Ft,
+          { dataPartName: "proofit-view-overlay", popActiveView: e, panelClassName: Rt.proofitViewOverlayPanel, onClickBack: i },
           o.createElement(
             "div",
             {
-              className: Ht.proofitViewOverlayContent,
+              className: Rt.proofitViewOverlayContent,
               tabIndex: -1,
               ref: (e) => {
                 null === e || s || (e.focus(), r(!0));
@@ -2761,63 +2722,63 @@
             },
             o.createElement(
               "div",
-              { className: Ot.defaultViewOverlayHeader },
+              { className: Pt.defaultViewOverlayHeader },
               o.createElement(
                 "div",
-                { className: Ht.proofitViewOverlayHeader },
+                { className: Rt.proofitViewOverlayHeader },
                 "Expert Writing Help",
-                o.createElement(Gt.v, { browser: t, className: Ht.proofitViewOverlayHeaderBetaBadge })
+                o.createElement(Dt.v, { browser: t, className: Rt.proofitViewOverlayHeaderBetaBadge })
               )
             ),
             a
           )
         );
       };
-      var zt = i(78002),
-        qt = i(62369),
-        Kt = i(68610),
-        Zt = i(80860);
-      var Xt = i(78258),
-        Yt = i(92647),
-        Qt = i(96528);
-      const Jt = ({ turnaroundTime: e }) =>
+      var Nt = i(78002),
+        Vt = i(62369),
+        Ht = i(68610),
+        Ut = i(80860);
+      var Ot = i(78258),
+        jt = i(92647),
+        Gt = i(96528);
+      const Wt = ({ turnaroundTime: e }) =>
           o.createElement(
             "div",
-            { className: Yt.proofitHowItWorksSteps },
+            { className: jt.proofitHowItWorksSteps },
             o.createElement(
               "div",
-              { ...(0, ct.Sh)(Yt.proofitHowItWorksStep, Yt.proofitHowItWorksStepOne) },
+              { ...(0, tt.Sh)(jt.proofitHowItWorksStep, jt.proofitHowItWorksStepOne) },
               "Your draft will be minimized and shared with writing experts.",
               o.createElement(
                 "div",
-                { ...(0, ct.Sh)(Yt.proofitHowItWorksStepNumberContainer, Yt.proofitHowItWorksStepOneNumberContainer) },
-                o.createElement("div", { ...(0, ct.Sh)(Yt.proofitHowItWorksStepNumber, Yt.proofitHowItWorksStepOneNumber) }, "1")
+                { ...(0, tt.Sh)(jt.proofitHowItWorksStepNumberContainer, jt.proofitHowItWorksStepOneNumberContainer) },
+                o.createElement("div", { ...(0, tt.Sh)(jt.proofitHowItWorksStepNumber, jt.proofitHowItWorksStepOneNumber) }, "1")
               )
             ),
             o.createElement(
               "div",
-              { ...(0, ct.Sh)(Yt.proofitHowItWorksStep, Yt.proofitHowItWorksStepTwo) },
+              { ...(0, tt.Sh)(jt.proofitHowItWorksStep, jt.proofitHowItWorksStepTwo) },
               "You will see progress indication. The average turnaround is ",
               e,
               " seconds.",
               o.createElement(
                 "div",
-                { ...(0, ct.Sh)(Yt.proofitHowItWorksStepNumberContainer, Yt.proofitHowItWorksStepTwoNumberContainer) },
-                o.createElement("div", { ...(0, ct.Sh)(Yt.proofitHowItWorksStepNumber, Yt.proofitHowItWorksStepTwoNumber) }, "2")
+                { ...(0, tt.Sh)(jt.proofitHowItWorksStepNumberContainer, jt.proofitHowItWorksStepTwoNumberContainer) },
+                o.createElement("div", { ...(0, tt.Sh)(jt.proofitHowItWorksStepNumber, jt.proofitHowItWorksStepTwoNumber) }, "2")
               )
             ),
             o.createElement(
               "div",
-              { ...(0, ct.Sh)(Yt.proofitHowItWorksStep, Yt.proofitHowItWorksStepThree) },
+              { ...(0, tt.Sh)(jt.proofitHowItWorksStep, jt.proofitHowItWorksStepThree) },
               "Your draft will re-open with revisions highlighted.",
               o.createElement(
                 "div",
-                { ...(0, ct.Sh)(Yt.proofitHowItWorksStepNumberContainer, Yt.proofitHowItWorksStepThreeNumberContainer) },
-                o.createElement("div", { ...(0, ct.Sh)(Yt.proofitHowItWorksStepNumber, Yt.proofitHowItWorksStepThreeNumber) }, "3")
+                { ...(0, tt.Sh)(jt.proofitHowItWorksStepNumberContainer, jt.proofitHowItWorksStepThreeNumberContainer) },
+                o.createElement("div", { ...(0, tt.Sh)(jt.proofitHowItWorksStepNumber, jt.proofitHowItWorksStepThreeNumber) }, "3")
               )
             )
           ),
-        $t = ({
+        zt = ({
           turnaroundTime: e,
           freeTrialQuota: t,
           onSubmit: i,
@@ -2857,106 +2818,106 @@
             { "data-grammarly-part": "proofit-request-form", style: { width: "100%", height: "100%", ...r } },
             o.createElement(
               "div",
-              { className: Qt.proofitRequestForm },
+              { className: Gt.proofitRequestForm },
               m
                 ? o.createElement(
                     o.Fragment,
                     null,
-                    o.createElement("div", { className: Qt.proofitRequestFormPrivacyInfoTitle }, "How we protect you"),
+                    o.createElement("div", { className: Gt.proofitRequestFormPrivacyInfoTitle }, "How we protect you"),
                     o.createElement(
                       "div",
-                      { className: Qt.proofitRequestFormPrivacyInfoDescription },
+                      { className: Gt.proofitRequestFormPrivacyInfoDescription },
                       o.createElement(
                         "div",
-                        { className: Qt.proofitRequestFormPrivacyInfoDescriptionItem },
-                        o.createElement("div", { className: Qt.proofitRequestFormPrivacyInfoDescriptionItemBulletPoint }),
+                        { className: Gt.proofitRequestFormPrivacyInfoDescriptionItem },
+                        o.createElement("div", { className: Gt.proofitRequestFormPrivacyInfoDescriptionItemBulletPoint }),
                         o.createElement(
                           "div",
-                          { className: Qt.proofitRequestFormPrivacyInfoDescriptionItemText },
+                          { className: Gt.proofitRequestFormPrivacyInfoDescriptionItemText },
                           "Our writing experts will see only your current email draft—no prior messages or contact details."
                         )
                       ),
                       o.createElement(
                         "div",
-                        { className: Qt.proofitRequestFormPrivacyInfoDescriptionItem },
-                        o.createElement("div", { className: Qt.proofitRequestFormPrivacyInfoDescriptionItemBulletPoint }),
+                        { className: Gt.proofitRequestFormPrivacyInfoDescriptionItem },
+                        o.createElement("div", { className: Gt.proofitRequestFormPrivacyInfoDescriptionItemBulletPoint }),
                         o.createElement(
                           "div",
-                          { className: Qt.proofitRequestFormPrivacyInfoDescriptionItemText },
+                          { className: Gt.proofitRequestFormPrivacyInfoDescriptionItemText },
                           "We will not sell, rent, or make public any of your personal data."
                         )
                       )
                     ),
-                    o.createElement(qt.z, { kind: "outlined", onClick: () => g(!1) }, "Continue")
+                    o.createElement(Vt.z, { kind: "outlined", onClick: () => g(!1) }, "Continue")
                   )
                 : o.createElement(
                     o.Fragment,
                     null,
                     h
-                      ? o.createElement(Jt, { turnaroundTime: e })
+                      ? o.createElement(Wt, { turnaroundTime: e })
                       : o.createElement(
                           o.Fragment,
                           null,
-                          o.createElement("div", { className: Qt.proofitRequestFormImg }),
-                          o.createElement("div", { className: Qt.proofitRequestFormTitle }, "Get instant writing help"),
+                          o.createElement("div", { className: Gt.proofitRequestFormImg }),
+                          o.createElement("div", { className: Gt.proofitRequestFormTitle }, "Get instant writing help"),
                           o.createElement(
                             "div",
-                            { className: Qt.proofitRequestFormDescription },
+                            { className: Gt.proofitRequestFormDescription },
                             "Our writing experts are standing by to review your email."
                           ),
                           o.createElement(
                             "div",
-                            { className: Qt.proofitRequestFormCostAndTime },
+                            { className: Gt.proofitRequestFormCostAndTime },
                             o.createElement(
                               "div",
-                              { className: Qt.proofitRequestFormCost },
+                              { className: Gt.proofitRequestFormCost },
                               o.createElement(
                                 "div",
-                                { className: Qt.proofitRequestFormCostAndTimeTitle },
+                                { className: Gt.proofitRequestFormCostAndTimeTitle },
                                 f,
                                 " free ",
-                                Te._6(f, "review", "reviews")
+                                we._6(f, "review", "reviews")
                               ),
                               o.createElement(
                                 "div",
-                                { className: Qt.proofitRequestFormCostAndTimeSubtitle },
+                                { className: Gt.proofitRequestFormCostAndTimeSubtitle },
                                 "left this month",
                                 o.createElement("sup", null, "*")
                               )
                             ),
                             o.createElement(
                               "div",
-                              { className: Qt.proofitRequestFormTime },
-                              o.createElement("div", { className: Qt.proofitRequestFormCostAndTimeTitle }, e, " seconds"),
-                              o.createElement("div", { className: Qt.proofitRequestFormCostAndTimeSubtitle }, "average turnaround")
+                              { className: Gt.proofitRequestFormTime },
+                              o.createElement("div", { className: Gt.proofitRequestFormCostAndTimeTitle }, e, " seconds"),
+                              o.createElement("div", { className: Gt.proofitRequestFormCostAndTimeSubtitle }, "average turnaround")
                             )
                           )
                         ),
                     o.createElement(
-                      qt.z,
-                      { kind: "primary", className: Qt.proofitRequestFormRequestBtn, disabled: Boolean(a || s), onClick: S },
+                      Vt.z,
+                      { kind: "primary", className: Gt.proofitRequestFormRequestBtn, disabled: Boolean(a || s), onClick: S },
                       s
-                        ? o.createElement("div", { className: Xt.proofitRequestFormBtnLoadingSpinner })
+                        ? o.createElement("div", { className: Ot.proofitRequestFormBtnLoadingSpinner })
                         : c || h
                         ? "Start review"
                         : "Request now"
                     ),
                     a || s
                       ? a
-                        ? o.createElement("div", { className: Qt.proofitRequestFormUnavailableMsg }, o.createElement(Zt.Q, { info: a }))
+                        ? o.createElement("div", { className: Gt.proofitRequestFormUnavailableMsg }, o.createElement(Ut.Q, { info: a }))
                         : null
-                      : o.createElement(qt.z, { kind: "link", onClick: () => g(!0) }, "Learn how we protect your privacy"),
+                      : o.createElement(Vt.z, { kind: "link", onClick: () => g(!0) }, "Learn how we protect your privacy"),
                     o.createElement(
                       "div",
                       {
-                        ...(0, ct.Sh)(
-                          Qt.proofitRequestFormFootnote,
-                          h ? Qt.proofitRequestFormFootnoteHowItWorksDontShowAgainCheckbox : Qt.proofitRequestFormFootnoteFreeTrial
+                        ...(0, tt.Sh)(
+                          Gt.proofitRequestFormFootnote,
+                          h ? Gt.proofitRequestFormFootnoteHowItWorksDontShowAgainCheckbox : Gt.proofitRequestFormFootnoteFreeTrial
                         )
                       },
                       h
                         ? o.createElement(
-                            Kt.J,
+                            Ht.J,
                             { labelId: "proofit-request-form-how-it-works-dont-show-again", onChange: d },
                             "Don't show this again"
                           )
@@ -2966,15 +2927,15 @@
             )
           );
         };
-      var ei = i(20067);
-      const ti = ({ proofitVM: e, ...t }) => {
-        const i = (0, ei.fW)(),
+      var qt = i(20067);
+      const Kt = ({ proofitVM: e, ...t }) => {
+        const i = (0, qt.fW)(),
           [a, s] = o.useState(!1),
           [r, n] = o.useState(!1),
           l = o.createElement(
-            Bt.F.Fragment,
+            Tt.F.Fragment,
             null,
-            (0, V.aj)([
+            (0, I.aj)([
               e.feature.layoutCreated,
               e.feature.requestInfo,
               e.feature.turnaroundTime,
@@ -2982,15 +2943,15 @@
               e.feature.requestDisabledInfo,
               e.feature.disableHowItWorksInfo
             ]).pipe(
-              (0, N.U)(([t, l, c, d, u, p]) =>
-                t && l.status !== zt.eE.REVIEWING
-                  ? o.createElement($t, {
+              (0, _.U)(([t, l, c, d, u, p]) =>
+                t && l.status !== Nt.eE.REVIEWING
+                  ? o.createElement(zt, {
                       turnaroundTime: c,
                       freeTrialQuota: d,
                       onSubmit: () => e.onSubmitRequest(i),
                       style: { height: "calc(100% - 48px)" },
                       disabledInfo: u,
-                      isLoading: l.status === zt.eE.PREPARING || l.status === zt.eE.PRE_SUBMIT,
+                      isLoading: l.status === Nt.eE.PREPARING || l.status === Nt.eE.PRE_SUBMIT,
                       showPrivacyInfo: a,
                       onTogglePrivacyInfo: s,
                       disableHowItWorksInfo: p,
@@ -3005,7 +2966,7 @@
         return t.insideSingleCardAssistant
           ? l
           : o.createElement(
-              Wt,
+              Bt,
               {
                 popActiveView: t.popActiveView,
                 browser: t.browser,
@@ -3016,29 +2977,29 @@
               l
             );
       };
-      var ii = i(60561),
-        ai = i(21023);
-      const si = ({ suggestionsMade: e, onAccept: t, onFeedbackFormSubmitted: i, experimentClient: a }) =>
+      var Zt = i(60561),
+        Xt = i(21023);
+      const Qt = ({ suggestionsMade: e, onAccept: t, onFeedbackFormSubmitted: i, experimentClient: a }) =>
           o.createElement(
             "div",
-            { className: ai.proofitReviewForm, "data-grammarly-part": "proofit-review-form" },
+            { className: Xt.proofitReviewForm, "data-grammarly-part": "proofit-review-form" },
             o.createElement(
               "div",
-              { className: ai.proofitReviewFormTitle },
+              { className: Xt.proofitReviewFormTitle },
               "Our experts made ",
               e,
               " ",
-              Te._6(e, "suggestion", "suggestions")
+              we._6(e, "suggestion", "suggestions")
             ),
             o.createElement(
               "div",
-              { className: ai.proofitReviewFormDescription },
+              { className: Xt.proofitReviewFormDescription },
               "Are you satisfied with the suggestions that our experts provided?"
             ),
             o.createElement(
               "div",
-              { className: ai.proofitFeedbackForm },
-              o.createElement(ii.q, {
+              { className: Xt.proofitFeedbackForm },
+              o.createElement(Zt.q, {
                 hideLogo: !0,
                 hideTitle: !0,
                 hideTextBoxTitle: !0,
@@ -3049,17 +3010,17 @@
                 experimentClient: a
               })
             ),
-            o.createElement("div", { className: ai.proofitDoneButton }, o.createElement(qt.z, { kind: "link", onClick: t }, "Done"))
+            o.createElement("div", { className: Xt.proofitDoneButton }, o.createElement(Vt.z, { kind: "link", onClick: t }, "Done"))
           ),
-        ri = ({ proofitVM: e, experimentClient: t, ...i }) => {
-          const a = (0, ei.fW)(),
+        Yt = ({ proofitVM: e, experimentClient: t, ...i }) => {
+          const a = (0, qt.fW)(),
             s = o.createElement(
-              Bt.F.Fragment,
+              Tt.F.Fragment,
               null,
-              (0, V.aj)([e.feature.layoutCreated, e.feature.requestInfo]).pipe(
-                (0, N.U)(([i, s]) =>
-                  i && s.status === zt.eE.REVIEWING
-                    ? o.createElement(si, {
+              (0, I.aj)([e.feature.layoutCreated, e.feature.requestInfo]).pipe(
+                (0, _.U)(([i, s]) =>
+                  i && s.status === Nt.eE.REVIEWING
+                    ? o.createElement(Qt, {
                         suggestionsMade: s.suggestionsMade,
                         onAccept: () => e.onCompleteRequest(a),
                         onFeedbackFormSubmitted: (t) => {
@@ -3071,35 +3032,35 @@
                 )
               )
             );
-          return i.insideSingleCardAssistant ? s : o.createElement(Wt, { popActiveView: i.popActiveView, browser: i.browser }, s);
+          return i.insideSingleCardAssistant ? s : o.createElement(Bt, { popActiveView: i.popActiveView, browser: i.browser }, s);
         };
-      var ni = i(31470),
-        oi = i(5397),
-        li = i(6726),
-        ci = i(69324),
-        di = i(70836),
-        ui = i(6943);
-      const pi = ({ feedbackVM: e, entryPoint: t }) =>
+      var Jt = i(31470),
+        $t = i(5397),
+        ei = i(6726),
+        ti = i(69324),
+        ii = i(70836),
+        ai = i(6943);
+      const si = ({ feedbackVM: e, entryPoint: t }) =>
         o.createElement(
-          li.u,
-          { showDelay: oi.gk, message: "Leave feedback" },
+          ei.u,
+          { showDelay: $t.gk, message: "Leave feedback" },
           o.createElement(
             "div",
-            { className: ui.feedbackButton, onClick: () => e.openFeedback(t), "data-grammarly-part": "assistant-feedback-btn" },
-            o.createElement(ci.A, { color: di.Z.blue50 }),
+            { className: ai.feedbackButton, onClick: () => e.openFeedback(t), "data-grammarly-part": "assistant-feedback-btn" },
+            o.createElement(ti.A, { color: ii.Z.blue50 }),
             "Anything we can improve?"
           )
         );
-      var mi = i(3736),
-        gi = i(56913),
-        hi = i(33394),
-        vi = i(75463),
-        fi = i(40303),
-        bi = i(2005),
-        wi = i(31212),
-        Si = i(21928),
-        yi = i(50445);
-      const Ei = ({
+      var ri = i(3736),
+        ni = i(56913),
+        oi = i(33394),
+        li = i(75463),
+        ci = i(40303),
+        di = i(2005),
+        ui = i(31212),
+        pi = i(21928),
+        mi = i(50445);
+      const gi = ({
           assistantSettingsViewModel: e,
           upgradeViewModel: t,
           experimentClient: i,
@@ -3108,72 +3069,72 @@
           children: r
         }) => {
           const { domain: n, actions: l, state: c } = e,
-            d = o.useCallback(() => t.openUpgradeUrl(Ue.L.Place.extensionSettingsAssistant), [t]),
+            d = o.useCallback(() => t.openUpgradeUrl(Re.L.Place.extensionSettingsAssistant), [t]),
             [u, p] = o.useState(!!c.view("page", "enabled").get()),
-            g = { checked: u, update: p },
-            h = o.createElement(
-              Bt.F.div,
+            m = { checked: u, update: p },
+            g = o.createElement(
+              Tt.F.div,
               { role: "region", "aria-label": "Grammarly settings" },
               c.view(({ user: e, page: t, dynamicConfig: a, dapi: s }) =>
-                o.createElement(mi.a, {
+                o.createElement(ri.a, {
                   actions: l,
                   config: { enabled: !0, domain: n },
                   settings: t,
                   user: e,
                   dapi: s,
                   dynamicConfig: a,
-                  siteCategory: fi.y.other,
+                  siteCategory: ci.y.other,
                   openGBLanding: (e) => {
-                    const t = (0, hi.Z4)(e, "gbExtensionSettingsAssistant");
-                    self.open(t), gt.J.getGBButtonClick("gbExtAssistantSettings", "ExploreGrammarlyBusiness");
+                    const t = (0, oi.Z4)(e, "gbExtensionSettingsAssistant");
+                    self.open(t), nt.J.getGBButtonClick("gbExtAssistantSettings", "ExploreGrammarlyBusiness");
                   },
-                  isReportBugFeatureAllowed: !i.isGateEnabled(F.K.HideReportBugByGrammarlyEmployeeFeature),
+                  isReportBugFeatureAllowed: !i.isGateEnabled(C.K.HideReportBugByGrammarlyEmployeeFeature),
                   openReportBugForm: (e) => {
-                    self.open(Si.WY(e));
+                    self.open(pi.WY(e));
                   },
                   openUrl: (e) => self.open(e),
-                  showGBUpHook: (0, gi.i7)(),
+                  showGBUpHook: (0, ni.i7)(),
                   placement: "assistant",
                   showCitationBuilderToggle: !1,
-                  siteSwitcherChecked: g,
+                  siteSwitcherChecked: m,
                   isIndianEnglishDialectSupported:
-                    i.isGateEnabled(F.K.IndianEnglishDialect) || i.isGateEnabled(F.K.IndianEnglishDialectInternal),
-                  isAutoApplySupported: i.isGateEnabled(F.K.SuggestionDeliveryAutoApply),
-                  downloadDebugReports: () => yi.B.download(),
-                  isKeyboardAccessible: i.isGateEnabled(F.K.ExtensionA11yKeyboardNavigation)
+                    i.isGateEnabled(C.K.IndianEnglishDialect) || i.isGateEnabled(C.K.IndianEnglishDialectInternal),
+                  isAutoApplySupported: i.isGateEnabled(C.K.SuggestionDeliveryAutoApply),
+                  downloadDebugReports: () => mi.B.download(),
+                  isKeyboardAccessible: i.isGateEnabled(C.K.ExtensionA11yKeyboardNavigation)
                 })
               ),
-              a ? o.createElement(pi, { feedbackVM: a, entryPoint: ni.Q.settings }) : null
+              a ? o.createElement(si, { feedbackVM: a, entryPoint: Jt.Q.settings }) : null
             ),
-            v = o.createElement(
-              qt.z,
+            h = o.createElement(
+              Vt.z,
               {
                 kind: "primary",
                 type: "submit",
                 onClick: () => {
                   l.toggleSite(u, n),
-                    gt.J.checkingToggleClick("assistant", fi.y.other, u ? "on" : "off"),
-                    (0, m.Tb)().toggleExtension(u, "assistant", (0, vi.FN)(n)),
+                    nt.J.checkingToggleClick("assistant", ci.y.other, u ? "on" : "off"),
+                    (0, Pe.Tb)().toggleExtension(u, "assistant", (0, li.FN)(n)),
                     null == s || s();
                 },
-                className: bi.settingsViewDoneButton,
+                className: di.settingsViewDoneButton,
                 dataGrammarlyPart: "single-card-assistant-settings-done-button"
               },
               "Done"
             );
           return r({
-            content: h,
+            content: g,
             footer: o.createElement(
-              Bt.F.Fragment,
+              Tt.F.Fragment,
               null,
-              c.view(({ user: e }) => o.createElement(wi.Z, { user: e, openSubscriptionDialog: d, isAssistant: !0 })),
-              v
+              c.view(({ user: e }) => o.createElement(ui.Z, { user: e, openSubscriptionDialog: d, isAssistant: !0 })),
+              h
             )
           });
         },
-        Ci = ({ viewModels: e, experimentClient: t }) =>
+        hi = ({ viewModels: e, experimentClient: t }) =>
           o.createElement(
-            Ei,
+            gi,
             {
               onClose: () => e.assistantLayoutViewModel.popActiveView(),
               assistantSettingsViewModel: e.assistantSettingsViewModel,
@@ -3183,21 +3144,21 @@
             },
             ({ content: t, footer: i }) =>
               o.createElement(
-                jt,
+                Ft,
                 {
                   dataPartName: "settings-view-overlay",
                   popActiveView: () => e.assistantLayoutViewModel.popActiveView(),
-                  panelClassName: bi.settingsViewOverlayPanel,
-                  contentClassName: bi.settingsViewOverlayContent,
+                  panelClassName: di.settingsViewOverlayPanel,
+                  contentClassName: di.settingsViewOverlayContent,
                   footer: i
                 },
                 t
               )
           );
-      var ki = i(89872),
-        _i = i(67506),
-        Ai = i(40578);
-      const Ii = ({
+      var vi = i(89872),
+        fi = i(67506),
+        bi = i(40578);
+      const wi = ({
         message: e,
         children: t,
         placement: i,
@@ -3222,11 +3183,11 @@
             );
           }, [s]),
           o.createElement(
-            _i.J,
+            fi.J,
             {
               dataGrammarlyPart: n,
               isOutsideReferenceElement: !1,
-              headerContent: o.createElement("div", { className: Ai.popoverNotificationMessage }, e),
+              headerContent: o.createElement("div", { className: bi.popoverNotificationMessage }, e),
               mainContent: null,
               show: l,
               placement: i,
@@ -3241,50 +3202,50 @@
           )
         );
       };
-      var xi = i(37902),
-        Ti = i(31742),
-        Mi = i(37522),
-        Ri = i(84966),
-        Pi = i(31278),
-        Li = i(3618);
-      const Fi = ({ emotion: e, isBrandTonesEnabled: t, index: i, onFeedback: a }) => {
+      var Si = i(37902),
+        yi = i(31742),
+        Ei = i(37522),
+        Ci = i(84966),
+        ki = i(31278),
+        _i = i(3618);
+      const Ai = ({ emotion: e, isBrandTonesEnabled: t, index: i, onFeedback: a }) => {
         const [s, r] = o.useState(0),
           n = o.createElement(
-            li.u,
+            ei.u,
             { message: `${e.prevalence} intensity`, showDelay: 300 },
             o.createElement(
               "div",
-              { className: Li.emogenieReportItemEmotionIntensity },
+              { className: _i.emogenieReportItemEmotionIntensity },
               [0, 1, 2, 3, 4].map((t) => {
                 const i = t / 5 <= e.confidence;
                 return o.createElement("div", {
                   key: `${e.name}-intensity-${t}`,
-                  ...(0, ct.Sh)(Li.emogenieReportItemEmotionIntensityDot, i && Li.emogenieReportItemEmotionIntensityDotActive)
+                  ...(0, tt.Sh)(_i.emogenieReportItemEmotionIntensityDot, i && _i.emogenieReportItemEmotionIntensityDotActive)
                 });
               })
             )
           ),
           l = o.createElement(
-            li.u,
+            ei.u,
             { message: e.brandToneDescription, showDelay: 300 },
             o.createElement(
               "div",
               null,
-              o.createElement(Pi.JO.Info, {
+              o.createElement(ki.JO.Info, {
                 width: 10,
-                className: "off" === e.brandToneLabel ? Li.emogenieBrandToneInfoIconOff : Li.emogenieBrandToneInfoIconOn
+                className: "off" === e.brandToneLabel ? _i.emogenieBrandToneInfoIconOff : _i.emogenieBrandToneInfoIconOn
               })
             )
           ),
-          c = o.createElement(ki.C, {
+          c = o.createElement(vi.C, {
             title: o.createElement(o.Fragment, null, e.brandToneLabel, "-BRAND ", l),
             kind: "off" === e.brandToneLabel ? "error" : "primary"
           }),
           d = e.brandToneLabel ? c : n;
         return o.createElement(
-          Bt.F.div,
+          Tt.F.div,
           {
-            ...(0, ct.Sh)(Li.emogenieReportItem, t ? Li.emogenieReportItemBrandTone : null),
+            ...(0, tt.Sh)(_i.emogenieReportItem, t ? _i.emogenieReportItemBrandTone : null),
             "data-grammarly-part": "tone-detector-emotion",
             "data-tone-detector-emotion-name": e.name
           },
@@ -3293,12 +3254,12 @@
             { role: `emotion-${i}-${e.name}` },
             o.createElement(
               "div",
-              { className: Li.emogenieReportItemEmotion },
+              { className: _i.emogenieReportItemEmotion },
               o.createElement(
                 "div",
-                { className: Li.emogenieReportItemEmotionEmojiAndNameContainer },
+                { className: _i.emogenieReportItemEmotionEmojiAndNameContainer },
                 o.createElement(
-                  Ii,
+                  wi,
                   {
                     dataGrammarlyPart: "tone-detector-emotion-feedback-notification",
                     message: "Thank you for the feedback!",
@@ -3309,20 +3270,20 @@
                   },
                   o.createElement(
                     "div",
-                    { className: Li.emogenieReportItemEmotionEmojiAndName },
-                    o.createElement(xi.dy, {
+                    { className: _i.emogenieReportItemEmotionEmojiAndName },
+                    o.createElement(Si.dy, {
                       size: "small-medium",
                       unicodeHexArray: [e.emojiId],
                       unicodeLiteral: e.emoji,
-                      className: Li.emogenieReportItemEmotionEmoji
+                      className: _i.emogenieReportItemEmotionEmoji
                     }),
-                    o.createElement("span", { className: Li.emogenieReportItemEmotionName }, e.name)
+                    o.createElement("span", { className: _i.emogenieReportItemEmotionName }, e.name)
                   )
                 )
               ),
-              o.createElement("div", { className: Li.emogenieReportItemEmotionBadgeOrIntensity }, d),
+              o.createElement("div", { className: _i.emogenieReportItemEmotionBadgeOrIntensity }, d),
               o.createElement(
-                Ti.m,
+                yi.m,
                 {
                   dataGrammarlyPart: "tone-detector-emotion-actions-menu",
                   ariaMenuId: `${e.name}-emotion-actions-menu`,
@@ -3333,18 +3294,18 @@
                       items: [
                         {
                           id: "tone-detector-emotion-actions-menu-item-like",
-                          icon: o.createElement("div", { className: Li.emogenieReportItemEmootionActionsMenuThumsUpIcon }),
+                          icon: o.createElement("div", { className: _i.emogenieReportItemEmootionActionsMenuThumsUpIcon }),
                           label: "Tone seems correct",
                           onClick: () => {
-                            a({ emotionName: e.name, feedbackType: Ri.y_.EMOTION_LIKE }), r(1200);
+                            a({ emotionName: e.name, feedbackType: Ci.y_.EMOTION_LIKE }), r(1200);
                           }
                         },
                         {
                           id: "tone-detector-emotion-actions-menu-item-dislike",
-                          icon: o.createElement("div", { className: Li.emogenieReportItemEmootionActionsMenuThumsDownIcon }),
+                          icon: o.createElement("div", { className: _i.emogenieReportItemEmootionActionsMenuThumsDownIcon }),
                           label: "Tone seems incorrect",
                           onClick: () => {
-                            a({ emotionName: e.name, feedbackType: Ri.y_.EMOTION_DISLIKE }), r(1200);
+                            a({ emotionName: e.name, feedbackType: Ci.y_.EMOTION_DISLIKE }), r(1200);
                           }
                         }
                       ]
@@ -3354,21 +3315,21 @@
                   placement: "left"
                 },
                 o.createElement(
-                  Mi.h,
+                  Ei.h,
                   {
                     dataGrammarlyPart: "tone-detector-emotion-actions-menu-button",
-                    className: Li.emogenieReportItemEmotionActionsMenuButton
+                    className: _i.emogenieReportItemEmotionActionsMenuButton
                   },
-                  o.createElement("div", { className: Li.emogenieReportItemEmotionActionsMenuIcon })
+                  o.createElement("div", { className: _i.emogenieReportItemEmotionActionsMenuIcon })
                 )
               )
             )
           )
         );
       };
-      var Di = i(24812),
-        Ni = i(65515);
-      const Bi = ({ emotions: e, isBrandTonesEnabled: t, toneSuggestionInfo: i, onMount: a, onReportEmotionFeedback: s, ...r }) => {
+      var Ii = i(24812),
+        xi = i(65515);
+      const Ti = ({ emotions: e, isBrandTonesEnabled: t, toneSuggestionInfo: i, onMount: a, onReportEmotionFeedback: s, ...r }) => {
           let n;
           switch ((o.useEffect(a, []), !0)) {
             case e.some((e) => e.brandToneLabel && "off" === e.brandToneLabel && e.confidence > 0.75):
@@ -3385,59 +3346,59 @@
           }
           return o.createElement(
             "div",
-            { className: Di.emogenieReport, "data-grammarly-part": "tone-detector" },
+            { className: Ii.emogenieReport, "data-grammarly-part": "tone-detector" },
             o.createElement(
               "div",
-              { className: Di.emogenieReportHeader },
-              o.createElement("div", { className: Di.emogenieReportHeaderTitle }, n),
-              r.showBetaLabel ? o.createElement(Gt.v, { browser: r.browser }) : null
+              { className: Ii.emogenieReportHeader },
+              o.createElement("div", { className: Ii.emogenieReportHeaderTitle }, n),
+              r.showBetaLabel ? o.createElement(Dt.v, { browser: r.browser }) : null
             ),
             o.createElement(
               "div",
-              { className: Di.emogenieReportItems, "data-grammarly-part": "tone-detector-emotions" },
-              e.map((e, i) => o.createElement(Fi, { key: e.name, index: i, emotion: e, isBrandTonesEnabled: t, onFeedback: s }))
+              { className: Ii.emogenieReportItems, "data-grammarly-part": "tone-detector-emotions" },
+              e.map((e, i) => o.createElement(Ai, { key: e.name, index: i, emotion: e, isBrandTonesEnabled: t, onFeedback: s }))
             ),
-            i ? o.createElement(Vi, { ...i }) : null
+            i ? o.createElement(Mi, { ...i }) : null
           );
         },
-        Vi = ({ onMount: e, emojiId: t, emojiLiteral: i, iconId: a, title: s, onClickCta: r, ctaText: n, isUphook: l }) => (
+        Mi = ({ onMount: e, emojiId: t, emojiLiteral: i, iconId: a, title: s, onClickCta: r, ctaText: n, isUphook: l }) => (
           o.useEffect(e, []),
           o.createElement(
             "div",
-            { className: Di.emogenieReportToneSuggestionInfo },
+            { className: Ii.emogenieReportToneSuggestionInfo },
             o.createElement(
               "div",
-              { className: Di.emogenieReportToneSuggestionInfoEmojiAndTitle },
+              { className: Ii.emogenieReportToneSuggestionInfoEmojiAndTitle },
               t
-                ? o.createElement(xi.dy, {
+                ? o.createElement(Si.dy, {
                     size: "small-medium",
                     unicodeHexArray: [t],
                     unicodeLiteral: null,
-                    className: Di.emogenieReportToneSuggestionInfoEmoji
+                    className: Ii.emogenieReportToneSuggestionInfoEmoji
                   })
                 : i
-                ? o.createElement(xi.dy, {
+                ? o.createElement(Si.dy, {
                     size: "small-medium",
                     unicodeHexArray: null,
                     unicodeLiteral: i,
-                    className: Di.emogenieReportToneSuggestionInfoEmoji
+                    className: Ii.emogenieReportToneSuggestionInfoEmoji
                   })
                 : a
                 ? o.createElement("img", {
                     alt: a,
                     src: `https://assets.grammarly.com/icons/v1/${a}.svg`,
                     style: { width: 20, height: 20 },
-                    className: Di.emogenieReportToneSuggestionInfoEmoji
+                    className: Ii.emogenieReportToneSuggestionInfoEmoji
                   })
                 : null,
               o.createElement("div", null, s)
             ),
             l
-              ? o.createElement(Ni.Y, { onClick: r, dataGrammarlyPart: "tone-detector-tone-suggestion-info-cta" })
-              : o.createElement(qt.z, { kind: "primary", onClick: r, dataGrammarlyPart: "tone-detector-tone-suggestion-info-cta" }, n)
+              ? o.createElement(xi.Y, { onClick: r, dataGrammarlyPart: "tone-detector-tone-suggestion-info-cta" })
+              : o.createElement(Vt.z, { kind: "primary", onClick: r, dataGrammarlyPart: "tone-detector-tone-suggestion-info-cta" }, n)
           )
         ),
-        Hi = ({
+        Ri = ({
           emogenieService: e,
           toneSuggestionInfo: t,
           onShowToneSuggestionInfo: i,
@@ -3446,9 +3407,9 @@
           browser: r
         }) =>
           o.createElement(
-            Bt.F.Fragment,
+            Tt.F.Fragment,
             null,
-            O.h.combine(e.viewState, null != t ? t : O.h.create(void 0), ({ report: t, isBrandTonesEnabled: n }, l) => {
+            T.h.combine(e.viewState, null != t ? t : T.h.create(void 0), ({ report: t, isBrandTonesEnabled: n }, l) => {
               let c;
               if (
                 (l &&
@@ -3463,9 +3424,9 @@
                     ctaText: "See suggestions",
                     isUphook: !1
                   }),
-                  Xe.isToneImprovementSuggestionUphookInfo(l) &&
+                  Ue.isToneImprovementSuggestionUphookInfo(l) &&
                     (c = { ...c, isUphook: !0, emojiId: l.emojiId, emojiLiteral: l.emojiLiteral }),
-                  (c = Xe.isInclusiveLanguageToneSuggestionInfo(l) ? { ...c, iconId: l.iconId } : { ...c, emojiId: l.emojiId })),
+                  (c = Ue.isInclusiveLanguageToneSuggestionInfo(l) ? { ...c, iconId: l.iconId } : { ...c, emojiId: l.emojiId })),
                 t && Array.isArray(t.emotions))
               ) {
                 const i = {
@@ -3475,19 +3436,19 @@
                   onReportEmotionFeedback: (t) => e.actions.reportEmotionFeedback(t),
                   toneSuggestionInfo: c
                 };
-                return s ? o.createElement(Bi, { ...i, showBetaLabel: !0, browser: r }) : o.createElement(Bi, { ...i, showBetaLabel: !1 });
+                return s ? o.createElement(Ti, { ...i, showBetaLabel: !0, browser: r }) : o.createElement(Ti, { ...i, showBetaLabel: !1 });
               }
               return null;
             })
           );
-      var Oi = i(77678),
-        Ui = i(94632),
-        ji = i(89894),
-        Gi = i(46324),
-        Wi = i(89572),
-        zi = i(38575);
-      const qi = ({ children: e }) => o.createElement("div", { className: zi.gbUpsellFooter }, e),
-        Ki = () =>
+      var Pi = i(77678),
+        Li = i(94632),
+        Fi = i(89894),
+        Di = i(46324),
+        Bi = i(89572),
+        Ni = i(38575);
+      const Vi = ({ children: e }) => o.createElement("div", { className: Ni.gbUpsellFooter }, e),
+        Hi = () =>
           o.createElement(
             "svg",
             { width: "24", height: "24", fill: "none", xmlns: "http://www.w3.org/2000/svg", "aria-hidden": "true" },
@@ -3510,46 +3471,46 @@
               fill: "#05735A"
             })
           ),
-        Zi = (e) => (
+        Ui = (e) => (
           o.useEffect(() => {
             e.trackShow();
           }, []),
           o.createElement(
-            qi,
+            Vi,
             null,
-            o.createElement("div", { className: zi.icon }, o.createElement(Ki, null)),
+            o.createElement("div", { className: Ni.icon }, o.createElement(Hi, null)),
             o.createElement(
               "div",
               null,
               "Want your team to save time and write more consistently? Explore style guides in",
               " ",
-              o.createElement("span", { className: zi.clickableLink, onClick: e.onClick }, "Grammarly Business.")
+              o.createElement("span", { className: Ni.clickableLink, onClick: e.onClick }, "Grammarly Business.")
             )
           )
         ),
-        Xi = (e) => (
+        Oi = (e) => (
           o.useEffect(() => {
             e.trackShow();
           }, []),
           o.createElement(
-            qi,
+            Vi,
             null,
             o.createElement(
               "div",
               null,
               "Want your team to use a consistent brand voice wherever they write? Explore brand tones in",
               " ",
-              o.createElement("span", { className: zi.clickableLink, onClick: e.onClick }, "Grammarly Business.")
+              o.createElement("span", { className: Ni.clickableLink, onClick: e.onClick }, "Grammarly Business.")
             )
           )
         );
-      var Yi;
+      var ji;
       !(function (e) {
         (e.Feedback = "feedback"), (e.Settings = "settings"), (e.ToneInsight = "toneInsight"), (e.LearnMore = "learnMore");
-      })(Yi || (Yi = {}));
-      const Qi = o.createContext({ isEnabled: !1, currentView: null, setCurrentView: () => {} }),
-        Ji = ({ children: e, view: t }) => {
-          const { setCurrentView: i, isEnabled: a } = o.useContext(Qi);
+      })(ji || (ji = {}));
+      const Gi = o.createContext({ isEnabled: !1, currentView: null, setCurrentView: () => {} }),
+        Wi = ({ children: e, view: t }) => {
+          const { setCurrentView: i, isEnabled: a } = o.useContext(Gi);
           return (
             o.useEffect(() => {
               if (a) return i(t), () => i(null);
@@ -3557,118 +3518,118 @@
             o.createElement(o.Fragment, null, e)
           );
         };
-      var $i = i(711),
-        ea = i(54678),
-        ta = i(64015);
-      const ia = (e) => {
+      var zi = i(711),
+        qi = i(54678),
+        Ki = i(64015);
+      const Zi = (e) => {
           const t = (t) =>
             "known" === t.source.kind
               ? o.createElement(e.designSystem.icon[t.source.name], { key: t.source.name, backgroundColor: t.backgroundColor })
               : o.createElement(e.designSystem.image, { key: t.source.name, backgroundColor: t.backgroundColor, ...t.source });
           return o.createElement(
-            ea.v.Dropdown,
+            qi.v.Dropdown,
             {
               label: t(e.icon),
               placement: "top right",
-              theme: { button: ra.button, item: ra.item },
+              theme: { button: Yi.button, item: Yi.item },
               "aria-label": e.menu.meta.label,
               onAction: (t) =>
-                (0, _.zG)(
+                (0, g.zG)(
                   e.menu.sections,
-                  ta.tS((e) => e.items),
-                  ta.Ew((e) => e.id === String(t)),
-                  We.bw((t) => e.onClick(t.onClickActions, t.id)())
+                  Ki.tS((e) => e.items),
+                  Ki.Ew((e) => e.id === String(t)),
+                  De.bw((t) => e.onClick(t.onClickActions, t.id)())
                 )
             },
             e.menu.sections.map((e, i) =>
               o.createElement(
-                ea.v.Section,
+                qi.v.Section,
                 { key: i, title: e.title },
-                e.items.map((e) => o.createElement(ea.v.Item, { key: e.id, textValue: e.id }, e.icon && t(e.icon), e.text))
+                e.items.map((e) => o.createElement(qi.v.Item, { key: e.id, textValue: e.id }, e.icon && t(e.icon), e.text))
               )
             )
           );
         },
-        aa = { flexShrink: 0, alignItems: "center", justifyContent: "center", height: ji.ux.rem(2), width: ji.ux.rem(2) },
-        sa = { $nest: { "& i": { height: ji.ux.rem(2), width: ji.ux.rem(2) } } },
-        ra = ji.ux.stylesheet({ button: [aa], item: [sa] }),
-        na = {
-          ...(0, Ui.T)({ default: {}, hovered: { backgroundColor: Oi.CoreNeutral10 }, clicked: {}, disabled: {}, toggled: {}, hidden: {} })
+        Xi = { flexShrink: 0, alignItems: "center", justifyContent: "center", height: Fi.ux.rem(2), width: Fi.ux.rem(2) },
+        Qi = { $nest: { "& i": { height: Fi.ux.rem(2), width: Fi.ux.rem(2) } } },
+        Yi = Fi.ux.stylesheet({ button: [Xi], item: [Qi] }),
+        Ji = {
+          ...(0, Li.T)({ default: {}, hovered: { backgroundColor: Pi.CoreNeutral10 }, clicked: {}, disabled: {}, toggled: {}, hidden: {} })
         },
-        oa = ji.ux.stylesheet({
-          main: [Gi.o_],
-          primary: [Gi.U8],
-          secondary: [na, Gi.P5],
-          toggle: Gi.hc,
-          round: [Gi.$O],
-          yellow: Gi.g2,
-          outlined: [na, Gi.Yf],
-          link: [Gi.wy],
-          darkPrimary: [Gi.hx],
-          darkSecondary: [Gi.kG],
-          ggoPrimary: [Gi.KF]
+        $i = Fi.ux.stylesheet({
+          main: [Di.o_],
+          primary: [Di.U8],
+          secondary: [Ji, Di.P5],
+          toggle: Di.hc,
+          round: [Di.$O],
+          yellow: Di.g2,
+          outlined: [Ji, Di.Yf],
+          link: [Di.wy],
+          darkPrimary: [Di.hx],
+          darkSecondary: [Di.kG],
+          ggoPrimary: [Di.KF]
         });
-      const la = ({ children: e }) => o.createElement("div", { className: $i.singleCardAssistantNativeContentWithPadding }, e),
-        ca = ({ children: e, maxHeight: t }) => o.createElement("div", { style: { maxHeight: t, overflowY: "auto" } }, e),
-        da = ji.ux.style(
-          Gi.o_,
-          (0, Ui.T)({
+      const ea = ({ children: e }) => o.createElement("div", { className: zi.singleCardAssistantNativeContentWithPadding }, e),
+        ta = ({ children: e, maxHeight: t }) => o.createElement("div", { style: { maxHeight: t, overflowY: "auto" } }, e),
+        ia = Fi.ux.style(
+          Di.o_,
+          (0, Li.T)({
             default: {
-              backgroundColor: Oi.CoreYellow20,
-              color: Oi.CoreYellow80,
-              lineHeight: ji.ux.rem(2),
+              backgroundColor: Pi.CoreYellow20,
+              color: Pi.CoreYellow80,
+              lineHeight: Fi.ux.rem(2),
               transitionDuration: ".2s",
-              $nest: { "& span": { color: Oi.CoreYellow80 } }
+              $nest: { "& span": { color: Pi.CoreYellow80 } }
             },
             hovered: {
-              backgroundColor: Oi.CoreYellow30,
-              $nest: { "& i": { fill: Oi.CoreYellow80, stroke: Oi.CoreYellow80 }, "& span": { color: Oi.CoreYellow80 } }
+              backgroundColor: Pi.CoreYellow30,
+              $nest: { "& i": { fill: Pi.CoreYellow80, stroke: Pi.CoreYellow80 }, "& span": { color: Pi.CoreYellow80 } }
             },
             disabled: {},
             clicked: {},
             toggled: {},
             hidden: {}
           }),
-          { $nest: { "& i": { fill: Oi.CoreYellow80, stroke: Oi.CoreYellow80 }, "& span": { color: Oi.CoreYellow80 } } }
+          { $nest: { "& i": { fill: Pi.CoreYellow80, stroke: Pi.CoreYellow80 }, "& span": { color: Pi.CoreYellow80 } } }
         ),
-        ua = () => {
-          const e = (0, Gi.ND)(),
+        aa = () => {
+          const e = (0, Di.ND)(),
             t = e.primary;
           return {
             ...e,
             primary: (e) =>
               "goPremium" === e.name
-                ? o.createElement(ot.zx.Primary, { name: e.name, onClick: e.onClick, className: da }, e.text)
+                ? o.createElement($e.zx.Primary, { name: e.name, onClick: e.onClick, className: ia }, e.text)
                 : o.createElement(t, { ...e })
           };
         };
-      var pa = i(55563),
-        ma = i(864),
-        ga = i(13299),
-        ha = i(52098),
-        va = i(14592),
-        fa = i(52622),
-        ba = i(13313),
-        wa = i(21619),
-        Sa = i(54216),
-        ya = i(54466),
-        Ea = i(92485),
-        Ca = i(20594),
-        ka = i(35607),
-        _a = i(4890),
-        Aa = i(73841),
-        Ia = i(89770),
-        xa = i(39920),
-        Ta = i(30013),
-        Ma = i(66866),
-        Ra = i(55935),
-        Pa = i(76974),
-        La = i(95574),
-        Fa = i(81531),
-        Da = i(84174),
-        Na = i(8821),
-        Ba = i(64998);
-      class Va {
+      var sa = i(55563),
+        ra = i(864),
+        na = i(13299),
+        oa = i(52098),
+        la = i(14592),
+        ca = i(52622),
+        da = i(13313),
+        ua = i(21619),
+        pa = i(54216),
+        ma = i(54466),
+        ga = i(92485),
+        ha = i(20594),
+        va = i(35607),
+        fa = i(4890),
+        ba = i(73841),
+        wa = i(89770),
+        Sa = i(39920),
+        ya = i(30013),
+        Ea = i(66866),
+        Ca = i(55935),
+        ka = i(76974),
+        _a = i(95574),
+        Aa = i(81531),
+        Ia = i(84174),
+        xa = i(8821),
+        Ta = i(64998);
+      class Ma {
         constructor(e, t, i, a) {
           (this._gnar = e),
             (this.experimentClient = t),
@@ -3677,7 +3638,7 @@
             (this.shouldShowGBUpgradeFooter = (e) =>
               this.user.isPremium && !this.user.institutionInfo && "test" === this.experimentClient.getTreatment(e)),
             (this.onClick = (e, t) => {
-              this._gnar.getGBButtonClick(e, void 0, this.hasToneSuggestions(e)), self.open((0, hi.Z4)(t, e));
+              this._gnar.getGBButtonClick(e, void 0, this.hasToneSuggestions(e)), self.open((0, oi.Z4)(t, e));
             }),
             (this.trackShow = (e) => {
               this._gnar.getGBButtonShow(e, this.hasToneSuggestions(e));
@@ -3687,109 +3648,112 @@
           return "gbToneDetector" === e ? void 0 !== this.toneDetectorViewModel.toneSuggestionInfo.get() : void 0;
         }
       }
-      var Ha = i(26804);
-      const Oa = (e, t, i, a, s, r, l, c, u, p, g, h, v, f, b, w, S, y, E, W, z, X, Y, Q, $, ee, te, ie, ae) => {
-        const re = Fa.C8.Logging.getLogger("SingleCardAssistant.ViewModels"),
-          oe = O.h.create(ba.A.defaultState),
-          le = Sa.t.create(Sa.t.defaultLensFilters, {
-            ...Sa.t.defaultTextFilters,
-            [Qe.R.SpecialId.Closed]: _.jv,
-            [Qe.R.SpecialId.AllAlerts]: G.bZ.belongsToAllAlerts
+      var Ra = i(26804);
+      const Pa = (e, t, i, a, s, r, l, c, u, P, F, D, H, U, O, G, W, z, q, K, X, Y, J, ee, te, ie, se, re, le) => {
+        const ue = Aa.C8.Logging.getLogger("SingleCardAssistant.ViewModels"),
+          me = T.h.create(da.A.defaultState),
+          he = pa.t.create(pa.t.defaultLensFilters, {
+            ...pa.t.defaultTextFilters,
+            [je.R.SpecialId.Closed]: g.jv,
+            [je.R.SpecialId.AllAlerts]: L.bZ.belongsToAllAlerts
           }),
-          de = ba.A.get(e.alertsList.state, e.alertsList.lensesScores, le).subscribe(H.wW(oe)),
-          ue = new ha.t(oe.view("lenses"), le, e.sessionModel.scoreStatus),
-          pe = (0, Ea.$y)((0, fa.a)(t).getContents),
-          ge = {
-            features: new Set([Ca.IG.Features.showCardLabelInOutcomes]),
-            cardLayoutDensityMode: _a.j.Density.minimal,
-            shouldAnimateAlertApply: Ca.IG.Default.shouldAnimateAlertApply,
-            cardVisualMode: O.h.create(_a.j.CardVisualMode.RegularLightMode)
+          we = da.A.get(e.alertsList.state, e.alertsList.lensesScores, he).subscribe(x.wW(me)),
+          Se = new oa.t(me.view("lenses"), he, e.sessionModel.scoreStatus),
+          Ee = (0, ga.$y)((0, ca.a)(t).getContents),
+          ke = {
+            features: new Set([ha.IG.Features.showCardLabelInOutcomes]),
+            cardLayoutDensityMode: fa.j.Density.minimal,
+            shouldAnimateAlertApply: ha.IG.Default.shouldAnimateAlertApply,
+            cardVisualMode: T.h.create(fa.j.CardVisualMode.RegularLightMode)
           },
-          he = (0, Ca.Ls)(pe, e.alertsReader, ge, () => Pa.of(Z.none), e.mutingAlertsReader),
-          be = O.h.create(16),
-          ye = j.getCapabilities(he, e.alertsReader),
-          Ce = new xa.gi(j.equatable.structEq, j.defaultOrd(ye)),
-          _e = () => () => _.yR,
-          Te = Ta.v.createWithInitialAlerts(Ce, _e, le, (0, _.ff)(G.bZ.isMuted), ye),
-          Me = new Ia.oq(e.alertsList.state, e.alertsReader, oe.view("lenses"), e.positionManager, ue, Te, _e, ye, le),
-          Pe = O.h.create(Me.emptyState(Qe.R.SpecialId.AllAlerts).patch({ alertSource: G.l$.sidebar }));
-        i.next({ kind: pa.R.ChangeLens, selectedLens: "all" });
-        const Fe = new ma.C((0, A.nD)(S())),
-          Ne = new ya.Xx(
+          Ae = (0, ha.Ls)(Ee, e.alertsReader, ke, () => ka.of(V.none), e.mutingAlertsReader),
+          Ie = T.h.create(16),
+          xe = R.getCapabilities(Ae, e.alertsReader),
+          Me = new Sa.gi(R.equatable.structEq, R.defaultOrd(xe)),
+          Le = () => () => g.yR,
+          Fe = ya.v.createWithInitialAlerts(Me, Le, he, (0, g.ff)(L.bZ.isMuted), xe),
+          Be = new wa.oq(e.alertsList.state, e.alertsReader, me.view("lenses"), e.positionManager, Se, Fe, Le, xe, he),
+          Ne = T.h.create(Be.emptyState(je.R.SpecialId.AllAlerts).patch({ alertSource: L.l$.sidebar }));
+        i.next({ kind: sa.R.ChangeLens, selectedLens: "all" });
+        const Ve = new ra.C((0, h.nD)(W())),
+          He = new ma.Xx(
             { flush: () => t.flushChanges() },
-            new fe.xQ(),
-            he,
+            new oe.xQ(),
+            Ae,
             e.alertsService,
             e.alertsReader,
             () => Promise.resolve(),
             () => Promise.resolve(),
-            (0, _.zG)(
+            (0, g.zG)(
               e.mutedAlertsCategoriesModel,
-              Z.map((e) => ({ model: e, openSuggestionsManagement: () => self.open((0, gi.Um)().suggestionsSettings) }))
+              V.map((e) => ({ model: e, openSuggestionsManagement: () => self.open((0, ni.Um)().suggestionsSettings) }))
             ),
-            Z.some(T.B.getCardsViewModelSendToURLExperiment(Fe, l)),
-            _.jv,
-            j.getActiveItemWithAlert,
-            ye,
-            Pe,
-            Fe,
-            { bufferTransitions: !0, showGbPrompt: T.B.shouldShow(u.get()) }
+            V.some(b.B.getCardsViewModelSendToURLExperiment(Ve, l)),
+            g.jv,
+            R.getActiveItemWithAlert,
+            xe,
+            Ne,
+            Ve,
+            { bufferTransitions: !0, showGbPrompt: b.B.shouldShow(u.get()) }
           ),
-          Be = new Da.q(z.sduiFeedbackService, ye, Pe, z.sduiManager, z.sduiFeedManager, e.alertsReader, e.plagiarismClient, Ne, Fe),
-          Ve = Be.sduiActionEvents.subscribe(({ actions: e }) =>
+          Ue = new Ia.q(X.sduiFeedbackService, xe, Ne, X.sduiManager, X.sduiFeedManager, e.alertsReader, e.plagiarismClient, He, Ve),
+          ze = Ue.sduiActionEvents.subscribe(({ actions: e }) =>
             e.forEach((e) => {
-              "closeCard" === e.type && p();
+              "closeCard" === e.type && P();
             })
           ),
-          Oe = new ce(c, l),
-          je = new x.y(Ne.actionEvents, l, e.alertsReader),
-          Ge = new ka.o(() => xe.right(void 0)),
-          ze = O.h.create(!1),
-          qe = new Ue.x(e.alertsList, Pe, 3, ae, l),
-          Ke = O.h.create(!1),
-          { nativeUpgradeHook: Ze, upgradeHookExperiment: Xe, experimentGroup: et } = (0, rt.o)(y),
-          tt = Xe.name;
-        ie.upgradeHooksExp.upgradeHookExperimentPeek(tt, et, c);
-        const at = new nt(z.sduiManager.state),
-          ot = ((e, t, i, a, s, r) => {
-            const n = t.pipe(N.U(L.D1.NativeUpgradeHook.findUpgradeHookSduiItem), N.U(Z.isSome));
+          qe = new $(c, l),
+          Xe = new f.y(He.actionEvents, l, e.alertsReader),
+          $e = new va.o(() => be.right(void 0)),
+          et = T.h.create(!1),
+          tt = new Re.x(e.alertsList, Ne, 3, le, l),
+          it = T.h.create(!1),
+          { nativeUpgradeHook: at, upgradeHookExperiment: st, experimentGroup: rt } = (0, Ye.o)(z),
+          nt = st.name;
+        re.upgradeHooksExp.upgradeHookExperimentPeek(nt, rt, c);
+        const ot = new Je(X.sduiManager.state),
+          ct = ((e, t, i, a, s, r) => {
+            const n = t.pipe(_.U(E.D1.NativeUpgradeHook.findUpgradeHookSduiItem), _.U(V.isSome));
             return e.pipe(
-              se.M(n, i),
-              N.U(([{ actions: e }, t, i]) => {
+              Z.M(n, i),
+              _.U(([{ actions: e }, t, i]) => {
                 e.forEach((e) => {
                   "pushAssistantFeed" === e.type &&
                     "default-feed" === e.feedId &&
                     (t || i) &&
-                    a.upgradeHooksExp.upgradeHookFeedRendered(s, r, (0, it.ge)());
+                    a.upgradeHooksExp.upgradeHookFeedRendered(s, r, (0, Ke.ge)());
                 });
               })
             );
-          })(Be.sduiActionEvents, z.sduiManager.state, at.upgradeHookCardExists, ie, tt, et).subscribe(),
-          lt = Ze
-            ? ((e, t, i, a, s) =>
-                Je.B.getPremiumAlerts(e, t)
-                  .pipe(
-                    B.x((e, t) => {
-                      const i = new Set(e.map((e) => e.id));
-                      return e.length === t.length && t.every((e) => i.has(e.id));
-                    }),
-                    se.M(a.pipe(N.U(L.D1.NativeUpgradeHook.findUpgradeHookSduiItem), N.U(Z.isSome)), s, De(i.capiEvents)),
-                    we.b(([e, t, a, s]) => {
-                      if (0 === e.length && t) i.pushCapiSduiEvent({ kind: "sdui_remove", rev: 0, sduiRootId: L.D1.NativeUpgradeHook.ID });
-                      else if (e.length > 0 && !a) {
-                        let a;
-                        (a = t ? "sdui_update" : "sdui_add"),
-                          i.pushCapiSduiEvent({ kind: a, rev: 0, sduiRootId: L.D1.NativeUpgradeHook.ID, sdui: st(e, s) });
-                      }
-                    })
-                  )
-                  .subscribe())(e.alertsList.state, Pe, z.sduiBufferService, z.sduiManager.state, Ke)
-            : D.w.EMPTY,
-          ct = Ze
+          })(Ue.sduiActionEvents, X.sduiManager.state, ot.upgradeHookCardExists, re, nt, rt).subscribe(),
+          dt = at
+            ? ((e, t, i, a, s, r) =>
+                (0, Ze.z4)(r)
+                  ? k.w.EMPTY
+                  : Ge.B.getPremiumAlerts(e, t)
+                      .pipe(
+                        A.x((e, t) => {
+                          const i = new Set(e.map((e) => e.id));
+                          return e.length === t.length && t.every((e) => i.has(e.id));
+                        }),
+                        Z.M(a.pipe(_.U(E.D1.NativeUpgradeHook.findUpgradeHookSduiItem), _.U(V.isSome)), s, _e(i.capiEvents)),
+                        ce.b(([e, t, a, s]) => {
+                          if (0 === e.length && t)
+                            i.pushCapiSduiEvent({ kind: "sdui_remove", rev: 0, sduiRootId: E.D1.NativeUpgradeHook.ID });
+                          else if (e.length > 0 && !a) {
+                            let a;
+                            (a = t ? "sdui_update" : "sdui_add"),
+                              i.pushCapiSduiEvent({ kind: a, rev: 0, sduiRootId: E.D1.NativeUpgradeHook.ID, sdui: Qe(e, s) });
+                          }
+                        })
+                      )
+                      .subscribe())(e.alertsList.state, Ne, X.sduiBufferService, X.sduiManager.state, it, z)
+            : k.w.EMPTY,
+          ut = at
             ? ((e, t, i, a, s, r, n) =>
                 e
                   .pipe(
-                    N.U(({ actions: e, cardId: o }) =>
+                    _.U(({ actions: e, cardId: o }) =>
                       e.forEach((e) => {
                         "upgradeToPremium" === e.type
                           ? (i.trackUpgradeButtonClick({
@@ -3798,9 +3762,9 @@
                               upgradeHookName: "advancedIssues",
                               upgradeHookSlot: "singleCardAssistant"
                             }),
-                            i.openUpgradeUrl(Ue.L.Place.assistantCardList))
-                          : "notify" === e.type && e.userAction === Re.nz.Focus
-                          ? o === L.D1.NativeUpgradeHook.ID
+                            i.openUpgradeUrl(Re.L.Place.assistantCardList))
+                          : "notify" === e.type && e.userAction === ye.nz.Focus
+                          ? o === E.D1.NativeUpgradeHook.ID
                             ? (t.set(!0),
                               i.trackUpgradeButtonShow({
                                 placement: "advancedIssues",
@@ -3808,195 +3772,204 @@
                                 upgradeHookName: "advancedIssues",
                                 upgradeHookSlot: "singleCardAssistant"
                               }),
-                              (0, m.Tb)().upgradeHooksExp.upgradeHookCardShown(r, n, (0, it.ge)()))
+                              (0, Pe.Tb)().upgradeHooksExp.upgradeHookCardShown(r, n, (0, Ke.ge)()))
                             : t.set(!1)
                           : "removeRoot" === e.type &&
-                            o === L.D1.NativeUpgradeHook.ID &&
+                            o === E.D1.NativeUpgradeHook.ID &&
                             (t.set(!1),
                             s.set(!0),
-                            a.pushCapiSduiEvent({ kind: "sdui_remove", rev: 0, sduiRootId: L.D1.NativeUpgradeHook.ID }));
+                            a.pushCapiSduiEvent({ kind: "sdui_remove", rev: 0, sduiRootId: E.D1.NativeUpgradeHook.ID }));
                       })
                     )
                   )
-                  .subscribe())(Be.sduiActionEvents, ze, qe, z.sduiBufferService, Ke, tt, et)
-            : at.processUpgradeHookSduiCardActions(Be.sduiActionEvents, qe, ie, tt, et),
-          dt = Ze ? ze : at.upgradeHookCardFocused,
-          ut = dt.subscribe((e) => {
-            e && Ha.p.dismissInlineYellowUnderlines.set(!0);
+                  .subscribe())(Ue.sduiActionEvents, et, tt, X.sduiBufferService, it, nt, rt)
+            : ot.processUpgradeHookSduiCardActions(Ue.sduiActionEvents, tt, re, nt, rt),
+          pt = at ? et : ot.upgradeHookCardFocused,
+          mt = T.h.create((0, Ze.z4)(z)),
+          gt = pt.subscribe((e) => {
+            e && Ra.p.dismissInlineYellowUnderlines.set(!0);
           }),
-          pt = z.sduiFeedManager.feed.pipe(N.U((e) => e.feedId === L.D1.AssistantFeed.PERFORMANCE_SCORE_FEED)),
-          mt = O.h.create(!1),
-          gt = V.aj([dt, pt])
-            .pipe(N.U(([e, t]) => e || t))
-            .subscribe(H.wW(mt)),
-          ht = ((e, t, i) =>
-            i.pipe(Le.h(Boolean), $e.P()).subscribe(() => {
-              t !== Ee.p.UpgradeCardGBRebrand && e.getTreatment(t);
-            }))(y, Xe, mt),
-          ft = V.aj([(0, va.gM)(z.sduiManager.state, z.sduiFeedManager.feed), mt]).pipe(
-            N.U(
+          ht = X.sduiFeedManager.feed.pipe(_.U((e) => e.feedId === E.D1.AssistantFeed.PERFORMANCE_SCORE_FEED)),
+          vt = T.h.create(!1),
+          ft = I.aj([pt, ht, mt])
+            .pipe(_.U(([e, t, i]) => e || t || i))
+            .subscribe(x.wW(vt)),
+          bt = ((e, t, i) =>
+            i.pipe(Ce.h(Boolean), We.P()).subscribe(() => {
+              t !== pe.p.UpgradeCardGBRebrand && e.getTreatment(t);
+            }))(z, st, vt),
+          wt = I.aj([(0, la.gM)(X.sduiManager.state, X.sduiFeedManager.feed), vt]).pipe(
+            _.U(
               ([e, t]) =>
                 (i) =>
-                  (e(i) && !G.bZ.isHidden(i)) || (t && G.bZ.isPremium(i) && G.bZ.isHidden(i))
+                  (e(i) && !L.bZ.isHidden(i)) || (t && L.bZ.isPremium(i) && L.bZ.isHidden(i))
             )
           ),
-          bt = new va.o$(e.alertsList, e.alertsReader, e.positionManager, e.alertsService, t, Pe, ft, j.getActiveItemWithAlert, a, !0, mt),
-          wt = (0, ga.hp)(Pe, bt, be, Ge, t, re),
-          St = Pe.view(q.nL.getActiveAlertHighlight(j.getActiveItemWithAlert)),
-          yt = new wa.mN(
+          St = new la.o$(e.alertsList, e.alertsReader, e.positionManager, e.alertsService, t, Ne, wt, R.getActiveItemWithAlert, a, !0, vt),
+          yt = (0, na.hp)(Ne, St, Ie, $e, t, ue),
+          Et = Ne.view(B.nL.getActiveAlertHighlight(R.getActiveItemWithAlert)),
+          Ct = new ua.mN(
             t,
-            bt,
-            e.alertsReader,
             St,
-            Pe.view((e) => e.currentLens.meta.filter)
+            e.alertsReader,
+            Et,
+            Ne.view((e) => e.currentLens.meta.filter)
           ),
-          Et = new Ye(
+          _t = new Oe(
             e.alertsReader,
             e.alertsList.state,
-            () => Z.fromNullable(null == v ? void 0 : v.sessionUuid),
+            () => V.fromNullable(null == H ? void 0 : H.sessionUuid),
             l,
-            y,
-            W,
-            qe,
+            z,
+            K,
+            tt,
             u,
-            Ne.actionEvents,
-            z.sduiManager.state
+            He.actionEvents,
+            X.sduiManager.state
           ),
-          Ct = new ve(Pe, e.alertsReader, h, Be.sduiActionEvents, j.getActiveItemWithAlert),
-          kt = new ne(Be.sduiActionEvents, te),
-          _t = new He(z.sduiManager, z.sduiFeedManager, z.sduiBufferService, b, Pe, at.upgradeHookCardExists, e.sessionModel, y);
-        _t.initSuccessReportSDUIEmulation();
-        const At = new U(z.sduiManager.state, Ne, _t.isSuccess, y),
-          It = yt.alertClicked
+          At = new ne(Ne, e.alertsReader, D, Ue.sduiActionEvents, R.getActiveItemWithAlert),
+          It = new Q(Ue.sduiActionEvents, se),
+          xt = new Te(X.sduiManager, X.sduiFeedManager, X.sduiBufferService, O, Ne, ot.upgradeHookCardExists, e.sessionModel, z);
+        xt.initSuccessReportSDUIEmulation();
+        const Tt = new M(X.sduiManager.state, He, xt.isSuccess, z),
+          Rt = Ct.alertClicked
             .pipe(
-              Ra.T(1),
-              Ae.w(Z.fold(() => Ie.E, Pa.of)),
-              Le.h((e) => e.alert.lensId !== Qe.R.SpecialId.Premium),
-              se.M(z.sduiManager.state),
-              N.U(([t, i]) =>
-                (0, _.zG)(
+              Ca.T(1),
+              ve.w(V.fold(() => fe.E, ka.of)),
+              Ce.h((e) => e.alert.lensId !== je.R.SpecialId.Premium),
+              Z.M(X.sduiManager.state),
+              _.U(([t, i]) =>
+                (0, g.zG)(
                   e.alertsReader.getById(t.alert.id),
-                  Z.chain(G.bZ.getRawId),
-                  Z.chain((e) => L.D1.getByAlertId(i, e)),
-                  We.MH
+                  V.chain(L.bZ.getRawId),
+                  V.chain((e) => E.D1.getByAlertId(i, e)),
+                  De.MH
                 )
               ),
-              se.M(z.sduiFeedManager.feed)
+              Z.M(X.sduiFeedManager.feed)
             )
             .subscribe(([e, t]) => {
               let i;
               (i =
-                t.feedId === L.D1.AssistantFeed.TONE_INSIGHTS_CARD_FEED_ID || t.feedId === L.D1.AssistantFeed.PERFORMANCE_SCORE_FEED
-                  ? [L.D1.AssistantFeed.createPopAssistantFeedAction(), L.D1.AssistantFeed.createFocusAssistantCardAction(e.id)]
-                  : [L.D1.AssistantFeed.createFocusAssistantCardAction(e.id)]),
-                Ne.actionEvents.next(L.fr.create(i));
+                t.feedId === E.D1.AssistantFeed.TONE_INSIGHTS_CARD_FEED_ID || t.feedId === E.D1.AssistantFeed.PERFORMANCE_SCORE_FEED
+                  ? [E.D1.AssistantFeed.createPopAssistantFeedAction(), E.D1.AssistantFeed.createFocusAssistantCardAction(e.id)]
+                  : [E.D1.AssistantFeed.createFocusAssistantCardAction(e.id)]),
+                He.actionEvents.next(E.fr.create(i));
             }),
-          xt = ((e, t, i, a) =>
+          Pt = ((e, t, i, a, s, r) =>
             e
               .pipe(
-                Ra.T(1),
-                Ae.w(Z.fold(() => Ie.E, Pa.of)),
-                Le.h((e) => e.alert.lensId === Qe.R.SpecialId.Premium),
-                se.M(t, i)
+                Ca.T(1),
+                ve.w(V.fold(() => fe.E, ka.of)),
+                Ce.h((e) => e.alert.lensId === je.R.SpecialId.Premium),
+                Z.M(t, i, s, r)
               )
-              .subscribe(([e, t, i]) => {
-                if (i.feedId === L.D1.AssistantFeed.PERFORMANCE_SCORE_FEED) {
-                  const e = (0, _.zG)(
+              .subscribe(([e, t, i, s, r]) => {
+                if (i.feedId !== E.D1.AssistantFeed.PERFORMANCE_SCORE_FEED || s)
+                  s &&
+                    (0, g.zG)(
+                      E.D1.StrongAlertRef.findStrongAlertRefLockedUiItem(r),
+                      V.map(({ id: e }) => [
+                        E.D1.AssistantFeed.createPopAssistantFeedAction(),
+                        E.D1.AssistantFeed.createFocusAssistantCardAction(e)
+                      ]),
+                      V.map((0, g.ls)(E.fr.create.bind(E.fr), a.next.bind(a)))
+                    );
+                else {
+                  const e = (0, g.zG)(
                       t,
-                      Z.fold(
-                        () => L.D1.NativeUpgradeHook.ID,
+                      V.fold(
+                        () => E.D1.NativeUpgradeHook.ID,
                         (e) => e.id
                       )
                     ),
-                    i = [L.D1.AssistantFeed.createPopAssistantFeedAction(), L.D1.AssistantFeed.createFocusAssistantCardAction(e)];
-                  a.next(L.fr.create(i));
+                    i = [E.D1.AssistantFeed.createPopAssistantFeedAction(), E.D1.AssistantFeed.createFocusAssistantCardAction(e)];
+                  a.next(E.fr.create(i));
                 }
-              }))(yt.alertClicked, at.upgradeHookCard, z.sduiFeedManager.feed, Ne.actionEvents),
-          Tt = [
-            (0, _.zG)(
-              Ma.EQ.focusMarkByActiveAlert(
-                Pe,
-                bt,
+              }))(Ct.alertClicked, ot.upgradeHookCard, X.sduiFeedManager.feed, He.actionEvents, mt, X.sduiManager.state),
+          Lt = [
+            (0, g.zG)(
+              Ea.EQ.focusMarkByActiveAlert(
+                Ne,
+                St,
                 e.alertsReader,
-                j.getActiveFocusableItem,
-                re.getLogger("MarksEffects.focusMarkByActiveAlert")
+                R.getActiveFocusableItem,
+                ue.getLogger("MarksEffects.focusMarkByActiveAlert")
               ),
-              q.nL.Effect.Producer.delayed(a)
+              B.nL.Effect.Producer.delayed(a)
             ),
-            ...Ne.getApplicatorEffects(),
-            ...Be.getApplicatorEffects(),
-            (0, _.zG)((0, ga.k9)(Pe, wt, O.h.create(Z.none), j.getActiveAlignableItem, ye), q.nL.Effect.Producer.delayed(a)),
-            Na.N.PrevNextNavigation.sideEffect(Na.N.PrevNextNavigation.Events.fromSduiCardActions(Be.sduiActionEvents), Pe, ye),
-            J.P.SideEffects.createSDUIFeedSideEffect(ye, z.sduiFeedManager.feed, j.sduiToChecksFeedOrd(ye), e.alertsReader)
+            ...He.getApplicatorEffects(),
+            ...Ue.getApplicatorEffects(),
+            (0, g.zG)((0, na.k9)(Ne, yt, T.h.create(V.none), R.getActiveAlignableItem, xe), B.nL.Effect.Producer.delayed(a)),
+            xa.N.PrevNextNavigation.sideEffect(xa.N.PrevNextNavigation.Events.fromSduiCardActions(Ue.sduiActionEvents), Ne, xe),
+            j.P.SideEffects.createSDUIFeedSideEffect(xe, X.sduiFeedManager.feed, R.sduiToChecksFeedOrd(xe), e.alertsReader)
           ],
-          Mt = Ze
+          Ft = at
             ? ({ state: e, metadata: t }) => {
-                if (!q.nL.hasCards(e)) return xe.left({ state: e, metadata: t });
-                const i = q.nL.Prism.getLens();
-                return xe.left({
+                if (!B.nL.hasCards(e)) return be.left({ state: e, metadata: t });
+                const i = B.nL.Prism.getLens();
+                return be.left({
                   state: i.modify(
                     (e) =>
-                      Z.isSome(e.cardIndex) ||
+                      V.isSome(e.cardIndex) ||
                       e.items.size > 1 ||
                       (0, n.pipe)(
                         e.items.getAt(0),
-                        Z.map((e) => e.id !== L.D1.NativeUpgradeHook.ID),
-                        Z.getOrElse(_.jv)
+                        V.map((e) => e.id !== E.D1.NativeUpgradeHook.ID),
+                        V.getOrElse(g.jv)
                       )
                         ? e
-                        : { ...e, cardIndex: Z.some(0) },
+                        : { ...e, cardIndex: V.some(0) },
                     e
                   ),
                   metadata: t
                 });
               }
-            : xe.left,
-          Rt = K.v.Items.getRemoveDisposedItemsTransformer(ye),
-          Lt = Ba.i.DisablePrevNextButtons.create(ye),
-          Ft = K.v.Items.getSingleItemFeedPositionsUpdateTransformer(ye),
-          Dt = (0, _.ls)(Mt, La.L9(_t.focusSuccessReportStateTransformer), La.L9(Rt), La.L9(Lt), La.L9(Ft)),
-          Nt = new Aa.l(Pe, Me, e.alertsReader, e.alertsService, Tt, j.getActiveItemWithAlert, Dt),
-          Bt = new P.X(s, r, ee, c),
-          Ht = Ne.actionEvents.subscribe(
-            (0, _.ls)(
-              (0, I.JH)(e.alertsReader, I.SV.Source.assistant),
-              We.bw((e) => (e.kind === I.SV.Kind.alertApply && e.source === I.SV.Source.assistant && E.incrementCounter(), f.next(e)))
+            : be.left,
+          Dt = N.v.Items.getRemoveDisposedItemsTransformer(xe),
+          Bt = Ta.i.DisablePrevNextButtons.create(xe),
+          Nt = N.v.Items.getSingleItemFeedPositionsUpdateTransformer(xe),
+          Vt = (0, g.ls)(Ft, _a.L9(xt.focusSuccessReportStateTransformer), _a.L9(Dt), _a.L9(Bt), _a.L9(Nt)),
+          Ht = new ba.l(Ne, Be, e.alertsReader, e.alertsService, Lt, R.getActiveItemWithAlert, Vt),
+          Ut = new y.X(s, r, ie, c),
+          Ot = He.actionEvents.subscribe(
+            (0, g.ls)(
+              (0, v.JH)(e.alertsReader, v.SV.Source.assistant),
+              De.bw((e) => (e.kind === v.SV.Kind.alertApply && e.source === v.SV.Source.assistant && q.incrementCounter(), U.next(e)))
             )
           ),
-          Ot = (0, M.W)(g),
-          Ut = w
-            .pipe(
-              Ae.w(
-                Z.fold(
-                  () => Ie.E,
-                  (t) => t.initSingleCardAssistantActionsProcessing(e.alertsReader, (0, C.X5)(yt, Pe))
-                )
+          jt = (0, w.W)(F),
+          Gt = G.pipe(
+            ve.w(
+              V.fold(
+                () => fe.E,
+                (t) => t.initSingleCardAssistantActionsProcessing(e.alertsReader, (0, p.X5)(Ct, Ne))
               )
             )
-            .subscribe(),
-          jt = new Se(Ne, z),
-          Gt = new k.D(l, Q, $, X),
-          Wt = (0, _.zG)(
-            Y,
-            Z.map((e) => new R.S(Gt, e, p, l))
+          ).subscribe(),
+          Wt = new de(He, X),
+          zt = new m.D(l, ee, te, Y),
+          qt = (0, g.zG)(
+            J,
+            V.map((e) => new S.S(zt, e, P, l))
           ),
-          zt = new ke(Ne.actionEvents, h, s.view("page"), r, y, l),
-          qt = new Va(l, y, u.get(), Et),
-          Kt = new me(u.get().isAnonymous, s.get(), l, ee),
-          Zt = (function (e, t, i, a, s, r, n, l, c, u, p) {
+          Xt = new ge(He.actionEvents, D, s.view("page"), r, z, l),
+          Qt = new Ma(l, z, u.get(), _t),
+          Jt = new ae(u.get().isAnonymous, s.get(), l, ie),
+          $t = (function (e, t, i, a, s, r, n, l, c, u, p) {
             const m = () => n.next();
             return {
-              ...Wi.k,
-              button: ua(),
-              dropDownMenuButton: r.isGateEnabled(F.K.ExtensionA11ySingleCardAssistantDragging) ? ia : Wi.k.dropDownMenuButton,
+              ...Bi.k,
+              button: aa(),
+              dropDownMenuButton: r.isGateEnabled(C.K.ExtensionA11ySingleCardAssistantDragging) ? Zi : Bi.k.dropDownMenuButton,
               nativeToneInsightsModal: () =>
                 o.createElement(
-                  Ji,
-                  { view: Yi.ToneInsight },
+                  Wi,
+                  { view: ji.ToneInsight },
                   o.createElement(
-                    la,
+                    ea,
                     null,
-                    o.createElement(Hi, {
+                    o.createElement(Ri, {
                       emogenieService: e.emogenieService,
                       toneSuggestionInfo: e.toneSuggestionInfo,
                       onShowToneSuggestionInfo: (t) => e.onShowToneSuggestionInfo(t),
@@ -4008,22 +3981,22 @@
                 ),
               nativeLearnMoreModal: () =>
                 o.createElement(
-                  Ji,
-                  { view: Yi.LearnMore },
+                  Wi,
+                  { view: ji.LearnMore },
                   o.createElement(
-                    ca,
+                    ta,
                     { maxHeight: 216 },
-                    o.createElement(la, null, o.createElement(Vt, { learnMoreInfo: t.learnMoreInfo }))
+                    o.createElement(ea, null, o.createElement(Mt, { learnMoreInfo: t.learnMoreInfo }))
                   )
                 ),
               nativeFeedbackModal: () =>
                 o.createElement(
-                  Ji,
-                  { view: Yi.Feedback },
+                  Wi,
+                  { view: ji.Feedback },
                   o.createElement(
-                    la,
+                    ea,
                     null,
-                    o.createElement(ii.q, {
+                    o.createElement(Zt.q, {
                       domain: i.getDomain(),
                       hideDomainHelpText: !0,
                       onClose: m,
@@ -4044,157 +4017,157 @@
                 ),
               nativeSettingsModal: () =>
                 o.createElement(
-                  Ji,
-                  { view: Yi.Settings },
+                  Wi,
+                  { view: ji.Settings },
                   o.createElement(
-                    la,
+                    ea,
                     null,
                     o.createElement(
-                      Ei,
+                      gi,
                       { onClose: m, assistantSettingsViewModel: a, upgradeViewModel: s, experimentClient: r },
                       ({ content: e, footer: t }) => o.createElement(o.Fragment, null, e, t)
                     )
                   )
                 ),
               nativeProofitModal: () =>
-                (0, _.zG)(
+                (0, g.zG)(
                   c,
-                  Z.fold(
+                  V.fold(
                     () => null,
                     (e) => {
                       const t = e.feature.dialogCaller().type;
                       return t === d.WT.proofitReview
                         ? o.createElement(
-                            la,
+                            ea,
                             null,
-                            o.createElement(ri, { proofitVM: e, experimentClient: r, insideSingleCardAssistant: !0 })
+                            o.createElement(Yt, { proofitVM: e, experimentClient: r, insideSingleCardAssistant: !0 })
                           )
                         : t === d.WT.proofitRequest
-                        ? o.createElement(la, null, o.createElement(ti, { proofitVM: e, insideSingleCardAssistant: !0 }))
+                        ? o.createElement(ea, null, o.createElement(Kt, { proofitVM: e, insideSingleCardAssistant: !0 }))
                         : null;
                     }
                   )
                 ),
               nativeExperimentalGBConsistencyUpsellFooter: () => {
                 const { onClick: e, trackShow: t, shouldShowGBUpgradeFooter: i } = u;
-                return i(Ee.p.GBUphookStyleGuideFooterV1)
-                  ? o.createElement(Zi, {
-                      onClick: () => e("gbInconsistencyCard", (0, gi.Um)().businessStyleGuide),
+                return i(pe.p.GBUphookStyleGuideFooterV1)
+                  ? o.createElement(Ui, {
+                      onClick: () => e("gbInconsistencyCard", (0, ni.Um)().businessStyleGuide),
                       trackShow: () => t("gbInconsistencyCard")
                     })
                   : null;
               },
               nativeExperimentalGBToneInsightsUpsellFooter: () => {
                 const { onClick: e, trackShow: t, shouldShowGBUpgradeFooter: i } = u;
-                return i(Ee.p.GBUphookBrandTonesFooterV1)
-                  ? o.createElement(Xi, {
-                      onClick: () => e("gbToneDetector", (0, gi.Um)().businessBrandTones),
+                return i(pe.p.GBUphookBrandTonesFooterV1)
+                  ? o.createElement(Oi, {
+                      onClick: () => e("gbToneDetector", (0, ni.Um)().businessBrandTones),
                       trackShow: () => t("gbToneDetector")
                     })
                   : null;
               },
               nativeGetStartedChecklistModal: ({ notify: e }) => {
-                const t = "test" === r.getTreatment(Ee.p.ChecklistUX);
+                const t = "test" === r.getTreatment(pe.p.ChecklistUX);
                 return o.createElement(
-                  la,
+                  ea,
                   null,
-                  t ? o.createElement(vt, { isStudent: p.isStudent }) : o.createElement(Pt, { getStartedChecklistViewModel: p, notify: e })
+                  t ? o.createElement(lt, { isStudent: p.isStudent }) : o.createElement(kt, { getStartedChecklistViewModel: p, notify: e })
                 );
               }
             };
-          })(Et, Ct, Oe, Bt, qe, y, jt.popView, X, Wt, qt, Kt),
-          Xt = { ...Wi.k, button: (0, Gi.ND)(oa) },
-          Yt = Pe.lens(q.nL.Prism.getLens());
+          })(_t, At, qe, Ut, tt, z, Wt.popView, Y, qt, Qt, Jt),
+          ei = { ...Bi.k, button: (0, Di.ND)($i) },
+          ti = Ne.lens(B.nL.Prism.getLens());
         return {
-          checksFeedItem: () => j.item(Zt),
-          checksFeedFlow: () => j.createCardListFlow(Yt, ye),
-          lensState: Pe,
-          cardsViewModel: Ne,
-          lensPreviewViewModel: ue,
-          cardsListScrollManager: Ge,
-          alertProcessor: h,
-          checkingService: v,
-          assistantFeedbackViewModel: Oe,
-          assistantSettingsViewModel: Bt,
-          getStartedChecklistViewModel: Kt,
-          marksViewModel: bt,
-          upgradeViewModel: qe,
+          checksFeedItem: () => R.item($t),
+          checksFeedFlow: () => R.createCardListFlow(ti, xe),
+          lensState: Ne,
+          cardsViewModel: He,
+          lensPreviewViewModel: Se,
+          cardsListScrollManager: $e,
+          alertProcessor: D,
+          checkingService: H,
+          assistantFeedbackViewModel: qe,
+          assistantSettingsViewModel: Ut,
+          getStartedChecklistViewModel: Jt,
+          marksViewModel: St,
+          upgradeViewModel: tt,
           gnar: l,
           user: u,
-          positionViewModel: Ot,
-          remSize: be,
+          positionViewModel: jt,
+          remSize: Ie,
           isSingleCardAssistant: !0,
-          statisticsService: b,
-          toneDetectorViewModel: Et,
-          learnMoreViewModel: Ct,
-          createSnippetModalViewModel: kt,
-          closeAssistant: p,
-          bulkDismissViewModel: At,
-          nativeViewsViewModel: jt,
-          successReportViewModel: _t,
-          outcomeExtraFooterViewModel: zt,
-          designSystem: Zt,
-          headerDesignSystem: Xt,
-          sduiEngine: z,
-          sduiCardsViewModel: Be,
+          statisticsService: O,
+          toneDetectorViewModel: _t,
+          learnMoreViewModel: At,
+          createSnippetModalViewModel: It,
+          closeAssistant: P,
+          bulkDismissViewModel: Tt,
+          nativeViewsViewModel: Wt,
+          successReportViewModel: xt,
+          outcomeExtraFooterViewModel: Xt,
+          designSystem: $t,
+          headerDesignSystem: ei,
+          sduiEngine: X,
+          sduiCardsViewModel: Ue,
           dispose: () => {
-            Ht.unsubscribe(),
-              Ne.dispose(),
-              Nt.dispose(),
-              bt.dispose(),
-              de.unsubscribe(),
-              je.dispose(),
-              Ut.unsubscribe(),
-              kt.dispose(),
-              Ct.dispose(),
-              Et.dispose(),
-              null == At || At.dispose(),
-              null == jt || jt.dispose(),
+            Ot.unsubscribe(),
+              He.dispose(),
+              Ht.dispose(),
+              St.dispose(),
+              we.unsubscribe(),
+              Xe.dispose(),
+              Gt.unsubscribe(),
+              It.dispose(),
+              At.dispose(),
               _t.dispose(),
-              It.unsubscribe(),
-              xt.unsubscribe(),
-              lt.unsubscribe(),
+              null == Tt || Tt.dispose(),
+              null == Wt || Wt.dispose(),
+              xt.dispose(),
+              Rt.unsubscribe(),
+              Pt.unsubscribe(),
+              dt.unsubscribe(),
+              ut.unsubscribe(),
+              ze.unsubscribe(),
+              Ue.dispose(),
+              Xt.dispose(),
+              ot.dispose(),
+              bt.unsubscribe(),
               ct.unsubscribe(),
-              Ve.unsubscribe(),
-              Be.dispose(),
-              zt.dispose(),
-              at.dispose(),
-              ht.unsubscribe(),
-              ot.unsubscribe(),
-              gt.unsubscribe(),
-              ut.unsubscribe();
+              ft.unsubscribe(),
+              gt.unsubscribe();
           }
         };
       };
-      var Ua = i(45854),
-        ja = i(46149),
-        Ga = i(98325),
-        Wa = i(84447),
-        za = i(42466),
-        qa = i(95305),
-        Ka = i(73607),
-        Za = i(94785),
-        Xa = i(19962),
-        Ya = i(94895),
-        Qa = i(83598),
-        Ja = i(50474),
-        $a = i(89379),
-        es = i(43805),
-        ts = i(30280);
-      const is = o.forwardRef(({ successView: e }, t) => {
-          const i = o.useContext(Ja.m.Context),
-            a = (0, $a.hM)((0, $a.JT)((0, n.pipe)(e, ae.oA), i));
+      var La = i(45854),
+        Fa = i(98325),
+        Da = i(84447),
+        Ba = i(42466),
+        Na = i(95305),
+        Va = i(73607),
+        Ha = i(36156),
+        Ua = i(94785),
+        Oa = i(19962),
+        ja = i(94895),
+        Ga = i(83598),
+        Wa = i(50474),
+        za = i(89379),
+        qa = i(43805),
+        Ka = i(30280);
+      const Za = o.forwardRef(({ successView: e }, t) => {
+          const i = o.useContext(Wa.m.Context),
+            a = (0, za.hM)((0, za.JT)((0, n.pipe)(e, K.oA), i));
           return o.createElement(
             "div",
-            { className: ts.compactSuccessLens, ref: t },
-            o.createElement("div", { className: ts.compactSuccessLensContainer }, Ya.UI.mount(es.q, a))
+            { className: Ka.compactSuccessLens, ref: t },
+            o.createElement("div", { className: Ka.compactSuccessLensContainer }, ja.UI.mount(qa.q, a))
           );
         }),
-        as = o.forwardRef(function ({ viewModels: e }, t) {
+        Xa = o.forwardRef(function ({ viewModels: e }, t) {
           return o.createElement(
             "div",
-            { className: Qa.mainView },
-            o.createElement(rs, {
+            { className: Ga.mainView },
+            o.createElement(Ya, {
               ref: t,
               state: e.lensState,
               cardsViewModel: e.cardsViewModel,
@@ -4208,23 +4181,23 @@
             })
           );
         }),
-        ss = ({ position: e, isSuccess: t, children: i }) =>
+        Qa = ({ position: e, isSuccess: t, children: i }) =>
           o.createElement(
-            Bt.F.Fragment,
+            Tt.F.Fragment,
             null,
             e.pipe(
-              B.x((e, t) => e.offset === t.offset && e.visible === t.visible),
-              N.U((e) =>
+              A.x((e, t) => e.offset === t.offset && e.visible === t.visible),
+              _.U((e) =>
                 e.visible
                   ? o.createElement(
-                      Bt.F.div,
+                      Tt.F.div,
                       {
-                        ...(0, ct.Sh)(
-                          Qa.cardListFooterStatic,
-                          e.animationInProgress ? Qa.cardListFooterAnimate : void 0,
-                          t ? void 0 : Qa.cardListFooterDynamic
+                        ...(0, tt.Sh)(
+                          Ga.cardListFooterStatic,
+                          e.animationInProgress ? Ga.cardListFooterAnimate : void 0,
+                          t ? void 0 : Ga.cardListFooterDynamic
                         ),
-                        style: t ? {} : { transform: Xa.ux.translateY(e.offset) }
+                        style: t ? {} : { transform: Oa.ux.translateY(e.offset) }
                       },
                       i
                     )
@@ -4232,66 +4205,66 @@
               )
             )
           ),
-        rs = o.forwardRef(function (
+        Ya = o.forwardRef(function (
           { state: e, assistantCardListViewModel: t, cardsViewModel: i, cardsListScrollManager: a, capabilities: s, ...r },
           l
         ) {
-          const c = H.jw((e) => {
+          const c = x.jw((e) => {
               let t = 7;
-              return (t = 31 * t + (0, ja.AC)(e.currentLens.id)), (t = 31 * t + (K.v.WithSuccess.State.isInSuccess(s)(e) ? 1231 : 1237)), t;
+              return (t = 31 * t + (0, Ha.AC)(e.currentLens.id)), (t = 31 * t + (N.v.WithSuccess.State.isInSuccess(s)(e) ? 1231 : 1237)), t;
             }, e),
             d = (0, n.pipe)(
               c,
-              N.U((e) => {
+              _.U((e) => {
                 const t = e.get();
-                return K.v.WithSuccess.State.isInSuccess(s)(t);
+                return N.v.WithSuccess.State.isInSuccess(s)(t);
               })
             ),
             u = (0, n.pipe)(
-              (0, Ka.ux)(e, a, s),
-              se.M(e),
-              N.U(([e, t]) => ({
-                visible: !q.nL.hasCards(t) || Z.isNone(t.currentLens.items.find((e) => !e.positionState.isHeightValid)),
+              (0, Va.ux)(e, a, s),
+              Z.M(e),
+              _.U(([e, t]) => ({
+                visible: !B.nL.hasCards(t) || V.isNone(t.currentLens.items.find((e) => !e.positionState.isHeightValid)),
                 offset: e + 6,
                 animationInProgress: !0
               })),
-              Fe.O({ visible: !1, offset: 0, animationInProgress: !0 })
+              ke.O({ visible: !1, offset: 0, animationInProgress: !0 })
             );
           return o.createElement(
-            qa.C,
+            Na.C,
             {
-              className: Qa.cardList,
+              className: Ga.cardList,
               onClick: (e) => {
-                e.target.getAttribute("class") === Qa.cardList && t.assistantActions.next({ type: Ga.lo.Type.clickOnEmpty });
+                e.target.getAttribute("class") === Ga.cardList && t.assistantActions.next({ type: Fa.lo.Type.clickOnEmpty });
               },
               footer: o.createElement(
-                Bt.F.Fragment,
+                Tt.F.Fragment,
                 null,
                 (0, n.pipe)(
                   d,
-                  N.U((e) =>
+                  _.U((e) =>
                     o.createElement(
-                      ss,
+                      Qa,
                       { key: "assistant-footer", position: u, isSuccess: e },
-                      o.createElement(za.pL, { predictionsVM: r.predictionsPreviewViewModel })
+                      o.createElement(Ba.pL, { predictionsVM: r.predictionsPreviewViewModel })
                     )
                   )
                 )
               ),
               ref: (e) => {
-                t.cardListViewportHeight.set(Z.fromNullable(null == e ? void 0 : e.offsetHeight));
+                t.cardListViewportHeight.set(V.fromNullable(null == e ? void 0 : e.offsetHeight));
               }
             },
             (r) =>
               o.createElement(
-                Bt.F.Fragment,
+                Tt.F.Fragment,
                 null,
                 (0, n.pipe)(
-                  V.aj([d, t.havePremiumAlerts]),
-                  N.U(([n, c]) =>
+                  I.aj([d, t.havePremiumAlerts]),
+                  _.U(([n, c]) =>
                     n && !c
-                      ? o.createElement(o.Fragment, null, o.createElement(is, { successView: t.successView, ref: l }))
-                      : o.createElement(Ka.hz, {
+                      ? o.createElement(o.Fragment, null, o.createElement(Za, { successView: t.successView, ref: l }))
+                      : o.createElement(Va.hz, {
                           state: e,
                           cardsViewModel: i,
                           cardsListScrollManager: a,
@@ -4303,12 +4276,12 @@
                             c
                               ? o.createElement(
                                   "div",
-                                  { className: Qa.upgradeHookWrapper, "data-role": "uphook-wrapper" },
-                                  Ya.UI.mount(Za.n.TogglablePanel, t.upgradeHookFlow)
+                                  { className: Ga.upgradeHookWrapper, "data-role": "uphook-wrapper" },
+                                  ja.UI.mount(Ua.n.TogglablePanel, t.upgradeHookFlow)
                                 )
                               : null
                           ),
-                          comparator: Wa.O.listItemOrd,
+                          comparator: Da.O.listItemOrd,
                           capabilities: s
                         })
                   )
@@ -4316,51 +4289,51 @@
               )
           );
         }),
-        ns = o.forwardRef(function ({ viewModels: e, header: t, footer: i, className: a }, s) {
+        Ja = o.forwardRef(function ({ viewModels: e, header: t, footer: i, className: a }, s) {
           return o.createElement(
-            qa.C,
+            Na.C,
             {
               ref: (t) => {
                 "function" == typeof s ? s(t) : s && (s.current = t),
-                  e.assistantCardListViewModel.cardListViewportHeight.set(Z.fromNullable(null == t ? void 0 : t.offsetHeight));
+                  e.assistantCardListViewModel.cardListViewportHeight.set(V.fromNullable(null == t ? void 0 : t.offsetHeight));
               },
               className: a
             },
             (a) =>
-              o.createElement(Ka.hz, {
+              o.createElement(Va.hz, {
                 state: e.lensState,
                 cardsViewModel: e.cardsViewModel,
                 cardsListScrollManager: e.cardsListScrollManager,
                 connectorElements: a,
                 header: t,
                 footer: i,
-                comparator: Wa.O.listItemOrd,
+                comparator: Da.O.listItemOrd,
                 capabilities: e.capabilities
               })
           );
         });
-      var os = i(41572),
-        ls = i(64012),
-        cs = i(40643);
-      const ds = o.lazy(() =>
+      var $a = i(41572),
+        es = i(64012),
+        ts = i(40643);
+      const is = o.lazy(() =>
           i
             .e(2826)
             .then(i.bind(i, 53262))
             .then(({ BrandTonesActivationUphookView: e }) => ({ default: e }))
         ),
-        us = o.forwardRef(function ({ emogenieService: e, viewModels: t }, i) {
+        as = o.forwardRef(function ({ emogenieService: e, viewModels: t }, i) {
           const a = o.createElement(
             o.Fragment,
             null,
-            o.createElement(ps, {
+            o.createElement(ss, {
               isBrandTonesEnabled: e.viewState.view("isBrandTonesEnabled"),
               institutionLogo: e.viewState.view("report").view((e) => (null == e ? void 0 : e.institutionLogo)),
               institutionName: e.viewState.view("institutionName"),
               browser: t.assistantLayoutViewModel.browser
             }),
-            o.createElement(Hi, { emogenieService: e, showBetaLabel: !1, browser: t.assistantLayoutViewModel.browser }),
+            o.createElement(Ri, { emogenieService: e, showBetaLabel: !1, browser: t.assistantLayoutViewModel.browser }),
             o.createElement(
-              Bt.F.Fragment,
+              Tt.F.Fragment,
               null,
               e.viewState.view(
                 (t) =>
@@ -4372,9 +4345,9 @@
                     o.Suspense,
                     { fallback: o.createElement(o.Fragment, null) },
                     o.createElement(
-                      os.L,
+                      $a.L,
                       { chunkName: "brandTonesActivationUphook" },
-                      o.createElement(ds, {
+                      o.createElement(is, {
                         trackShow: e.actions.trackBrandToneActivationUphookShow,
                         onActivateClick: e.actions.brandToneActivationUphookCTAClick,
                         onDismissClick: e.actions.brandToneActivationUphookDismissClick
@@ -4385,22 +4358,22 @@
             )
           );
           return o.createElement(
-            jt,
+            Ft,
             {
               dataPartName: "emogenie-view-overlay",
               popActiveView: () => t.assistantLayoutViewModel.popActiveView(),
-              panelClassName: Ot.gradientViewOverlayPanel,
+              panelClassName: Pt.gradientViewOverlayPanel,
               hideBackButton: t.user.view((e) => e.isAnonymous)
             },
             o.createElement(
-              Bt.F.Fragment,
+              Tt.F.Fragment,
               null,
-              t.lensPreviewViewModel.getLens(Qe.R.SpecialId.PredictionEmogenie).pipe(
-                N.U((e) => e.count > 0),
-                B.x(),
-                N.U((e) =>
+              t.lensPreviewViewModel.getLens(je.R.SpecialId.PredictionEmogenie).pipe(
+                _.U((e) => e.count > 0),
+                A.x(),
+                _.U((e) =>
                   e
-                    ? o.createElement(ns, {
+                    ? o.createElement(Ja, {
                         key: "emogeniePredictionCardList",
                         viewModels: t,
                         ref: i,
@@ -4408,44 +4381,44 @@
                           o.Fragment,
                           null,
                           a,
-                          o.createElement("div", { className: cs.relatedSuggestionsTitle }, "RELATED SUGGESTIONS")
+                          o.createElement("div", { className: ts.relatedSuggestionsTitle }, "RELATED SUGGESTIONS")
                         )
                       })
-                    : o.createElement("div", { className: Ot.gradientViewOverlayContent }, a)
+                    : o.createElement("div", { className: Pt.gradientViewOverlayContent }, a)
                 )
               )
             )
           );
         });
-      us.displayName = "EmogenieView";
-      const ps = ({ isBrandTonesEnabled: e, institutionLogo: t, institutionName: i, browser: a }) =>
+      as.displayName = "EmogenieView";
+      const ss = ({ isBrandTonesEnabled: e, institutionLogo: t, institutionName: i, browser: a }) =>
           o.createElement(
-            Bt.F.Fragment,
+            Tt.F.Fragment,
             null,
-            O.h.combine(e, t, i, (e, t, i) =>
+            T.h.combine(e, t, i, (e, t, i) =>
               o.createElement(
                 "div",
-                { className: Ot.defaultViewOverlayHeader },
+                { className: Pt.defaultViewOverlayHeader },
                 o.createElement(
                   "div",
-                  { className: ls.emogenieViewOverlayHeader },
+                  { className: es.emogenieViewOverlayHeader },
                   e
-                    ? o.createElement("div", null, t ? o.createElement("img", { className: Ot.logo, src: t }) : null, i, " Tone detector")
+                    ? o.createElement("div", null, t ? o.createElement("img", { className: Pt.logo, src: t }) : null, i, " Tone detector")
                     : "Tone detector",
-                  o.createElement(Gt.v, { browser: a, className: ls.emogenieViewOverlayHeaderBetaBadge })
+                  o.createElement(Dt.v, { browser: a, className: es.emogenieViewOverlayHeaderBetaBadge })
                 )
               )
             )
           ),
-        ms = ({ feedbackVM: e, layoutVM: t, experimentClient: i }) =>
+        rs = ({ feedbackVM: e, layoutVM: t, experimentClient: i }) =>
           o.createElement(
-            jt,
-            { dataPartName: "feedback-view-overlay", popActiveView: () => t.popActiveView(), panelClassName: Ot.gradientViewOverlayPanel },
+            Ft,
+            { dataPartName: "feedback-view-overlay", popActiveView: () => t.popActiveView(), panelClassName: Pt.gradientViewOverlayPanel },
             o.createElement(
               "div",
-              { className: Ot.gradientViewOverlayContent },
-              o.createElement("div", { className: Ot.defaultViewOverlayHeader }, "Product Feedback"),
-              o.createElement(ii.q, {
+              { className: Pt.gradientViewOverlayContent },
+              o.createElement("div", { className: Pt.defaultViewOverlayHeader }, "Product Feedback"),
+              o.createElement(Zt.q, {
                 domain: e.getDomain(),
                 onClose: () => t.popActiveView(),
                 align: "left",
@@ -4458,27 +4431,27 @@
               })
             )
           );
-      var gs = i(57796),
-        hs = i(76875);
-      const vs = o.memo(({ width: e, strokeWidth: t, generalScore: i, componentStyle: a, fontSize: s = 9, isLoading: r }) => {
+      var ns = i(57796),
+        os = i(76875);
+      const ls = o.memo(({ width: e, strokeWidth: t, generalScore: i, componentStyle: a, fontSize: s = 9, isLoading: r }) => {
         const n = e / 2,
           l = n - t / 2,
           c = 2 * l * Math.PI,
           d = ((r ? 75 : i) / 100) * c,
           u = c - d,
           p = ((e) => {
-            const { red40: t, yellow50: i, green50: a } = di.Z;
+            const { red40: t, yellow50: i, green50: a } = ii.Z;
             return e < 65 ? t : e < 95 ? i : a;
           })(i);
         return o.createElement(
           "div",
-          { ...(0, ct.Sh)(hs.scoreRing, r && hs.loading), style: a },
+          { ...(0, tt.Sh)(os.scoreRing, r && os.loading), style: a },
           o.createElement(
             "svg",
             { width: e, height: e, viewBox: `0 0 ${e} ${e}` },
             o.createElement("circle", { fill: "white", r: l, cx: n, cy: n }),
             o.createElement("circle", {
-              stroke: di.Z.neutral20,
+              stroke: ii.Z.neutral20,
               fill: "transparent",
               strokeWidth: t,
               style: { strokeDashoffset: d },
@@ -4498,36 +4471,36 @@
             }),
             o.createElement(
               "text",
-              { className: hs.scoreText, x: "50%", y: "-35%", fontSize: s, fill: "black", textAnchor: "middle", transform: "rotate(90)" },
+              { className: os.scoreText, x: "50%", y: "-35%", fontSize: s, fill: "black", textAnchor: "middle", transform: "rotate(90)" },
               i > 0 && !r ? i : ""
             )
           )
         );
       });
-      var fs = i(93756),
-        bs = i(83178);
-      const ws = (e) => {
-          const t = Ya.Z.animatingFlow(() => e.headerVM.logoScore, Ss);
-          return o.createElement("div", { className: bs.logo_score }, Ya.UI.mount(_s, t));
+      var cs = i(93756),
+        ds = i(83178);
+      const us = (e) => {
+          const t = ja.Z.animatingFlow(() => e.headerVM.logoScore, ps);
+          return o.createElement("div", { className: ds.logo_score }, ja.UI.mount(fs, t));
         },
-        Ss = (e, t) =>
+        ps = (e, t) =>
           (0, n.pipe)(
             e,
-            Z.filter((e) => e.type !== t.type),
-            Z.map(() => fs.Hk("fadeout", "fadein"))
+            V.filter((e) => e.type !== t.type),
+            V.map(() => cs.Hk("fadeout", "fadein"))
           ),
-        ys = Ya.UI.Node.make(() => o.createElement(gs.K, { className: bs.grammarly_logo, size: 22 })),
-        Es = Ya.UI.Node.make(({ view: e }) =>
+        ms = ja.UI.Node.make(() => o.createElement(ns.K, { className: ds.grammarly_logo, size: 22 })),
+        gs = ja.UI.Node.make(({ view: e }) =>
           o.createElement(
-            Bt.F.div,
-            { className: bs.score_container, "data-grammarly-part": "assistant-score" },
+            Tt.F.div,
+            { className: ds.score_container, "data-grammarly-part": "assistant-score" },
             (0, n.pipe)(
               e("score"),
-              (0, N.U)(({ capiScore: e, isLoading: t }) =>
+              (0, _.U)(({ capiScore: e, isLoading: t }) =>
                 o.createElement(
                   o.Fragment,
                   null,
-                  o.createElement(vs, {
+                  o.createElement(ls, {
                     generalScore: e,
                     strokeWidth: 2,
                     width: 22,
@@ -4540,32 +4513,32 @@
             )
           )
         ),
-        Cs = Ya.UI.Union.make("type", { logo: ys, score: Es }),
-        ks = Ya.UI.Transition.make({ fadein: bs.logoscore_fadein }, { fadeout: bs.logoscore_fadeout }),
-        _s = Ya.UI.Animated.make(ks, Cs);
-      var As = i(96309),
-        Is = i(20330);
-      const xs = (e) => {
+        hs = ja.UI.Union.make("type", { logo: ms, score: gs }),
+        vs = ja.UI.Transition.make({ fadein: ds.logoscore_fadein }, { fadeout: ds.logoscore_fadeout }),
+        fs = ja.UI.Animated.make(vs, hs);
+      var bs = i(96309),
+        ws = i(20330);
+      const Ss = (e) => {
           const [t, i] = o.useState(!1),
             [a, s] = o.useState(!1),
             r = e.viewModels.assistantLayoutViewModel,
             l = e.viewModels.assistantHeaderViewModel,
-            c = o.useContext(Ua.O.Context),
+            c = o.useContext(La.O.Context),
             d = (0, n.pipe)(
               e.viewModels.assistantProofitViewModel,
-              Z.map((e) => e.feature),
-              Z.map((t) =>
+              V.map((e) => e.feature),
+              V.map((t) =>
                 o.createElement(
-                  Bt.F.Fragment,
+                  Tt.F.Fragment,
                   null,
-                  V.aj([t.layoutCreated, r.activeView.view((e) => e.type === t.assistantViewType())]).pipe(
-                    N.U(([i, a]) =>
+                  I.aj([t.layoutCreated, r.activeView.view((e) => e.type === t.assistantViewType())]).pipe(
+                    _.U(([i, a]) =>
                       i
                         ? o.createElement(
-                            li.u,
-                            { message: c.proofitTooltip, showDelay: oi.gk, disabled: a },
+                            ei.u,
+                            { message: c.proofitTooltip, showDelay: $t.gk, disabled: a },
                             o.createElement(
-                              Mi.h,
+                              Ei.h,
                               {
                                 onClick: () => {
                                   a
@@ -4575,7 +4548,7 @@
                                 },
                                 dataGrammarlyPart: "assistant-header-action-btn-proofit"
                               },
-                              o.createElement("div", { className: bs.headerActionBtnProofitIcon })
+                              o.createElement("div", { className: ds.headerActionBtnProofitIcon })
                             )
                           )
                         : null
@@ -4583,24 +4556,24 @@
                   )
                 )
               ),
-              Z.toNullable
+              V.toNullable
             ),
-            u = o.createElement(As.P, {
+            u = o.createElement(bs.P, {
               onClick: l.close,
               tooltipMessage: "Close panel",
               dataGrammarlyPart: "assistant-header-action-btn-close"
             });
           return o.createElement(
-            li.u,
-            { message: "Grab and drag to move panel", showDelay: oi.gk, disabled: t },
+            ei.u,
+            { message: "Grab and drag to move panel", showDelay: $t.gk, disabled: t },
             o.createElement(
               "div",
-              { ...(0, ct.Sh)(bs.header, a && bs.actions_hovered), ref: e.draggableRef, onMouseDown: () => i(!0), onMouseOut: () => i(!1) },
-              o.createElement(ws, { headerVM: l }),
-              o.createElement(Ts, null),
+              { ...(0, tt.Sh)(ds.header, a && ds.actions_hovered), ref: e.draggableRef, onMouseDown: () => i(!0), onMouseOut: () => i(!1) },
+              o.createElement(us, { headerVM: l }),
+              o.createElement(ys, null),
               o.createElement(
-                Bt.F.div,
-                { className: bs.headerActions, onMouseOver: () => s(!0), onMouseOut: () => s(!1) },
+                Tt.F.div,
+                { className: ds.headerActions, onMouseOver: () => s(!0), onMouseOut: () => s(!1) },
                 r.isHeaderNavigationEnabled.view((e) =>
                   e
                     ? o.createElement(
@@ -4608,31 +4581,31 @@
                         null,
                         d,
                         o.createElement(
-                          Bt.F.Fragment,
+                          Tt.F.Fragment,
                           null,
                           l.showSetGoalsActionButton.view(
                             (e) =>
                               e &&
                               o.createElement(
-                                li.u,
-                                { message: c.setGoalsTooltip, showDelay: oi.gk },
+                                ei.u,
+                                { message: c.setGoalsTooltip, showDelay: $t.gk },
                                 o.createElement(
-                                  Mi.h,
+                                  Ei.h,
                                   { onClick: () => l.open("setGoals"), dataGrammarlyPart: "assistant-header-action-btn-set-goals" },
-                                  o.createElement("div", { className: bs.headerActionBtnGoalsIcon })
+                                  o.createElement("div", { className: ds.headerActionBtnGoalsIcon })
                                 )
                               )
                           )
                         ),
                         o.createElement(
-                          Bt.F.Fragment,
+                          Tt.F.Fragment,
                           null,
-                          O.h.combine(l.showSettingsActionButton, r.activeView, (e, t) => {
-                            const i = t.type === k.a.Type.settings;
+                          T.h.combine(l.showSettingsActionButton, r.activeView, (e, t) => {
+                            const i = t.type === m.a.Type.settings;
                             return (
                               e &&
-                              o.createElement(Is.l, {
-                                onClick: () => (i ? r.popActiveView() : r.pushActiveView({ type: k.a.Type.settings })),
+                              o.createElement(ws.l, {
+                                onClick: () => (i ? r.popActiveView() : r.pushActiveView({ type: m.a.Type.settings })),
                                 enableTooltip: !i,
                                 dataGrammarlyPart: "assistant-header-action-btn-settings"
                               })
@@ -4647,40 +4620,40 @@
             )
           );
         },
-        Ts = () =>
+        ys = () =>
           o.createElement(
             "div",
-            { className: bs.draggableWrapper, "data-grammarly-part": "assistant-draggable-handler" },
-            o.createElement("div", { className: bs.draggable })
+            { className: ds.draggableWrapper, "data-grammarly-part": "assistant-draggable-handler" },
+            o.createElement("div", { className: ds.draggable })
           );
-      var Ms = i(85665),
-        Rs = i(78249),
-        Ps = i(88571),
-        Ls = i(25814),
-        Fs = i(84021),
-        Ds = i(33895),
-        Ns = i(53211),
-        Bs = i(42455),
-        Vs = i(98805),
-        Hs = i(51369),
-        Os = i(42103),
-        Us = i(33678),
-        js = i(15073),
-        Gs = i(101),
-        Ws = i(16118),
-        zs = i(85089),
-        qs = i(83401),
-        Ks = i(89068),
-        Zs = i(78674),
-        Xs = i(72481),
-        Ys = i(91463);
-      const Qs = ({ children: e, experimentClient: t }) => {
-          const i = t.isGateEnabled(F.K.ExtensionA11yUIFixes),
+      var Es = i(85665),
+        Cs = i(78249),
+        ks = i(88571),
+        _s = i(25814),
+        As = i(84021),
+        Is = i(33895),
+        xs = i(53211),
+        Ts = i(42455),
+        Ms = i(98805),
+        Rs = i(51369),
+        Ps = i(42103),
+        Ls = i(33678),
+        Fs = i(15073),
+        Ds = i(101),
+        Bs = i(16118),
+        Ns = i(85089),
+        Vs = i(83401),
+        Hs = i(89068),
+        Us = i(78674),
+        Os = i(72481),
+        js = i(91463);
+      const Gs = ({ children: e, experimentClient: t }) => {
+          const i = t.isGateEnabled(C.K.ExtensionA11yUIFixes),
             [a, s] = o.useState(null),
             r = o.useMemo(() => ({ currentView: a, setCurrentView: s, isEnabled: i }), [a, i]);
-          return o.createElement(Qi.Provider, { value: r }, e);
+          return o.createElement(Gi.Provider, { value: r }, e);
         },
-        Js = o.memo(function ({
+        Ws = o.memo(function ({
           viewModels: e,
           experimentClient: t,
           emogenieService: i,
@@ -4688,45 +4661,45 @@
           ready: s,
           OuterElementsPortalSource: r
         }) {
-          const l = new ma.C((0, A.nD)());
-          (0, Y.iR)("viewModels", e);
-          const c = (0, ei.IQ)(),
-            d = (0, ei.e8)(),
-            u = o.useContext(ei.Dg).state.pipe(
-              Le.h((e) => !e.dragging),
-              Fe.O(Fs.h.create())
+          const l = new ra.C((0, h.nD)());
+          (0, U.iR)("viewModels", e);
+          const c = (0, qt.IQ)(),
+            d = (0, qt.e8)(),
+            u = o.useContext(qt.Dg).state.pipe(
+              Ce.h((e) => !e.dragging),
+              ke.O(As.h.create())
             ),
-            p = o.useContext(Ds.Y4),
-            m = (0, Ns.C7)(),
-            g = O.h.create(Xa.UL.empty);
-          (0, Bs.A)(
-            V.aj([u, p]).pipe(
-              N.U(([e, t]) => {
+            p = o.useContext(Is.Y4),
+            g = (0, xs.C7)(),
+            v = T.h.create(Oa.UL.empty);
+          (0, Ts.A)(
+            I.aj([u, p]).pipe(
+              _.U(([e, t]) => {
                 const i = t.top + e.translate.y,
                   a = t.left + e.translate.x,
-                  s = m.height - i - t.height,
-                  r = m.width - a - t.width;
+                  s = g.height - i - t.height,
+                  r = g.width - a - t.width;
                 return { height: t.height, width: t.width, top: i, left: a, bottom: s, right: r };
               }),
-              we.b(H.wW(g))
+              ce.b(x.wW(v))
             )
           ),
-            (0, Bs.A)(u.pipe(we.b((t) => e.positionViewModel.onDrag(t)))),
-            (0, Bs.A)(
+            (0, Ts.A)(u.pipe(ce.b((t) => e.positionViewModel.onDrag(t)))),
+            (0, Ts.A)(
               e.assistantLayoutViewModel.activeView.pipe(
-                Ws.G(),
-                we.b(([t, i]) => {
-                  t.type !== i.type && k.a.isDefault(i) && e.cardsListScrollManager.paddingTop.set(0);
+                Bs.G(),
+                ce.b(([t, i]) => {
+                  t.type !== i.type && m.a.isDefault(i) && e.cardsListScrollManager.paddingTop.set(0);
                 })
               )
             );
-          const h = o.useRef(null);
+          const f = o.useRef(null);
           return (
             o.useEffect(() => {
-              e.assistantCardListViewModel.cardListContext.next(Z.fromNullable(h.current));
-              const t = h.current ? zs.rl(h.current, { subtree: !0, childList: !0 }) : qs.C,
-                i = g.view((e) => ({ top: e.top, left: e.left })),
-                a = (0, n.pipe)(t, Ks.V((0, Vs.m9)(1)), Zs.b(10), $e.P()).subscribe(
+              e.assistantCardListViewModel.cardListContext.next(V.fromNullable(f.current));
+              const t = f.current ? Ns.rl(f.current, { subtree: !0, childList: !0 }) : Vs.C,
+                i = v.view((e) => ({ top: e.top, left: e.left })),
+                a = (0, n.pipe)(t, Hs.V((0, Ms.m9)(1)), Us.b(10), We.P()).subscribe(
                   () => s(i, c),
                   () => {
                     s(i, c, !0);
@@ -4737,45 +4710,45 @@
               };
             }, []),
             o.createElement(
-              $s,
-              { remSize: e.remSize, environment: l, viewport: g, experimentClient: t },
+              zs,
+              { remSize: e.remSize, environment: l, viewport: v, experimentClient: t },
               o.createElement(
-                Bt.F.div,
+                Tt.F.div,
                 {
                   "data-grammarly-part": "assistant-popup-content",
-                  ...(0, ct.Sh)(
-                    Qa.assistant,
+                  ...(0, tt.Sh)(
+                    Ga.assistant,
                     c.pipe(
-                      Fe.O(!1),
-                      N.U((e) => (e ? Qa.dragging : null))
+                      ke.O(!1),
+                      _.U((e) => (e ? Ga.dragging : null))
                     )
                   ),
                   style: { height: a, maxHeight: "90vh" }
                 },
-                o.createElement(xs, { viewModels: e, draggableRef: d }),
+                o.createElement(Ss, { viewModels: e, draggableRef: d }),
                 e.assistantLayoutViewModel.activeView.view((a) =>
-                  k.a.isDefault(a)
-                    ? o.createElement(as, { viewModels: e, ref: h, key: "default-view" })
-                    : k.a.isEmogenie(a)
-                    ? o.createElement(us, { emogenieService: i, viewModels: e, key: "emogenie-view", ref: h })
-                    : k.a.isFeedback(a)
-                    ? o.createElement(ms, {
+                  m.a.isDefault(a)
+                    ? o.createElement(Xa, { viewModels: e, ref: f, key: "default-view" })
+                    : m.a.isEmogenie(a)
+                    ? o.createElement(as, { emogenieService: i, viewModels: e, key: "emogenie-view", ref: f })
+                    : m.a.isFeedback(a)
+                    ? o.createElement(rs, {
                         feedbackVM: e.assistantFeedbackViewModel,
                         layoutVM: e.assistantLayoutViewModel,
                         experimentClient: t,
                         key: "feedback-view"
                       })
-                    : k.a.isSettings(a)
-                    ? o.createElement(Ci, { viewModels: e, experimentClient: t, key: "settings-view" })
-                    : k.a.isProofitRequest(a) && Z.isSome(e.assistantProofitViewModel)
-                    ? o.createElement(ti, {
+                    : m.a.isSettings(a)
+                    ? o.createElement(hi, { viewModels: e, experimentClient: t, key: "settings-view" })
+                    : m.a.isProofitRequest(a) && V.isSome(e.assistantProofitViewModel)
+                    ? o.createElement(Kt, {
                         browser: e.assistantLayoutViewModel.browser,
                         popActiveView: () => e.assistantLayoutViewModel.popActiveView(),
                         proofitVM: e.assistantProofitViewModel.value,
                         key: "proofit-request-view"
                       })
-                    : k.a.isProofitReview(a) && Z.isSome(e.assistantProofitViewModel)
-                    ? o.createElement(ri, {
+                    : m.a.isProofitReview(a) && V.isSome(e.assistantProofitViewModel)
+                    ? o.createElement(Yt, {
                         browser: e.assistantLayoutViewModel.browser,
                         popActiveView: () => e.assistantLayoutViewModel.popActiveView(),
                         proofitVM: e.assistantProofitViewModel.value,
@@ -4785,47 +4758,47 @@
                     : null
                 )
               ),
-              o.createElement(r, null, o.createElement(Ls.jv, null, o.createElement(Rs.L, { modalManager: e.assistantModalManager }))),
-              o.createElement(Hs.X, null)
+              o.createElement(r, null, o.createElement(_s.jv, null, o.createElement(Cs.L, { modalManager: e.assistantModalManager }))),
+              o.createElement(Rs.X, null)
             )
           );
         }),
-        $s = ({ environment: e, viewport: t, children: i, remSize: a, experimentClient: s }) => {
+        zs = ({ environment: e, viewport: t, children: i, remSize: a, experimentClient: s }) => {
           var r;
-          const n = o.useRef((0, Ua.I)(Ja.m.getConfig(e.has(ma.U.Flag.isAppleSystem) ? "mac" : "windows"))),
-            l = null === (r = o.useContext(Ms.nS.Context)) || void 0 === r ? void 0 : r.host;
+          const n = o.useRef((0, La.I)(Wa.m.getConfig(e.has(ra.U.Flag.isAppleSystem) ? "mac" : "windows"))),
+            l = null === (r = o.useContext(Es.nS.Context)) || void 0 === r ? void 0 : r.host;
           return o.createElement(
-            Ps.Q,
-            { remSize: a, setter: (e) => js.u.setRootCssVar(l || document.documentElement, e) },
+            ks.Q,
+            { remSize: a, setter: (e) => Fs.u.setRootCssVar(l || document.documentElement, e) },
             o.createElement(
-              Xs.p.Manager,
+              Os.p.Manager,
               {
-                cardWidth: Xs.p.withCardWidthEffect(Xs.p.defaultSizeObserver, (e) => {
-                  Xs.p.setRootCssVar(l || document.documentElement, e);
+                cardWidth: Os.p.withCardWidthEffect(Os.p.defaultSizeObserver, (e) => {
+                  Os.p.setRootCssVar(l || document.documentElement, e);
                 })
               },
               o.createElement(
-                ma.U.Context.Provider,
+                ra.U.Context.Provider,
                 { value: e },
                 o.createElement(
-                  Us.a.Context.Provider,
+                  Ls.a.Context.Provider,
                   { value: e },
                   o.createElement(
-                    Ua.O.Context.Provider,
+                    La.O.Context.Provider,
                     { value: n.current.assistant },
                     o.createElement(
-                      Ja.m.Context.Provider,
+                      Wa.m.Context.Provider,
                       { value: n.current.denali },
                       o.createElement(
-                        Ys.TG.ContextMock,
+                        js.TG.ContextMock,
                         null,
                         o.createElement(
-                          Gs.l.RootVirtualContainer,
+                          Ds.l.RootVirtualContainer,
                           { viewport: t, name: "draggable" },
                           o.createElement(
-                            Os.G.DefaultProvider,
+                            Ps.G.DefaultProvider,
                             null,
-                            o.createElement(Ls.jv, null, o.createElement(Qs, { experimentClient: s }, i))
+                            o.createElement(_s.jv, null, o.createElement(Gs, { experimentClient: s }, i))
                           )
                         )
                       )
@@ -4836,19 +4809,19 @@
             )
           );
         };
-      var er = i(59358),
-        tr = i(70063),
-        ir = i(89456),
-        ar = i(59421);
-      const sr = ({ textFieldRect: e, viewModels: t, gButtonRect: i, draggableGButtonType: a, children: s }) => {
+      var qs = i(59358),
+        Ks = i(70063),
+        Zs = i(89456),
+        Xs = i(59421);
+      const Qs = ({ textFieldRect: e, viewModels: t, gButtonRect: i, draggableGButtonType: a, children: s }) => {
         const { initialPositionOffset: r } = t.positionViewModel,
-          n = ir.UL.shift(i, tr.E9.minus(e.client, e.page)),
+          n = Zs.UL.shift(i, Ks.E9.minus(e.client, e.page)),
           l = null === a ? { ...e.client, ...e.size } : n,
-          c = (0, Ns.C7)(),
-          d = null === a ? t.assistantLayoutViewModel.layout : er.V.draggableGButtonAssistantLayout(n, e);
-        return o.createElement(ar._, { bounds: c, hasDragHandle: !0 }, ({ translate: e }) =>
+          c = (0, xs.C7)(),
+          d = null === a ? t.assistantLayoutViewModel.layout : qs.V.draggableGButtonAssistantLayout(n, e);
+        return o.createElement(Xs._, { bounds: c, hasDragHandle: !0 }, ({ translate: e }) =>
           o.createElement(
-            Ds.sX,
+            Is.sX,
             {
               anchorRect: l,
               viewportRect: c,
@@ -4865,16 +4838,16 @@
                 "div",
                 {
                   "data-grammarly-part": "assistant-popup",
-                  style: { position: "fixed", transform: `translate(${e.x}px, ${e.y}px)`, zIndex: oi.Eq, top: t, left: i }
+                  style: { position: "fixed", transform: `translate(${e.x}px, ${e.y}px)`, zIndex: $t.Eq, top: t, left: i }
                 },
                 s
               )
           )
         );
       };
-      var rr = i(46544),
-        nr = i(98429);
-      const or = ({
+      var Ys = i(46544),
+        Js = i(98429);
+      const $s = ({
         alignmentRect: e,
         viewModels: t,
         onDomRectChange: i,
@@ -4884,9 +4857,9 @@
         onMaxHeightChange: n,
         children: l
       }) => {
-        const c = (0, Ns.C7)(),
-          { top: d, setTop: u, left: p, setLeft: m, width: g, height: h, positionerRef: v } = (0, rr.G)(),
-          { x: f, y: b, setDragState: w } = (0, nr.f)(d, u, p, m),
+        const c = (0, xs.C7)(),
+          { top: d, setTop: u, left: p, setLeft: m, width: g, height: h, positionerRef: v } = (0, Ys.G)(),
+          { x: f, y: b, setDragState: w } = (0, Js.f)(d, u, p, m),
           S = r ? c.height : 0;
         o.useEffect(() => {
           const e = c.height - d - h,
@@ -4910,10 +4883,10 @@
                 anchorMargin: { top: 4, bottom: 4, left: 0, right: 0 },
                 repositioning: [{ horizontal: "translate", vertical: "flip" }]
               }
-            : (0, tt.vE)(a);
+            : (0, qe.vE)(a);
         let E;
-        s.isGateEnabled(F.K.ExtensionA11yUIFixes) && (E = (e) => !e.target.closest("button"));
-        const { bottom: C, right: k } = (function (e, t, i, a, s) {
+        s.isGateEnabled(C.K.ExtensionA11yUIFixes) && (E = (e) => !e.target.closest("button"));
+        const { bottom: k, right: _ } = (function (e, t, i, a, s) {
           const r = s.height - a,
             n = s.width - i,
             o = Math.max(0, Math.min(r, r - e)),
@@ -4921,10 +4894,10 @@
           return { bottom: o, right: l };
         })(d, p, g, h, c);
         return o.createElement(
-          ar._,
+          Xs._,
           { hasDragHandle: !0, bounds: c, onChangeDragState: w, dragEventFilter: E },
           o.createElement(
-            Ds.sX,
+            Is.sX,
             {
               ...y,
               anchorRect: e,
@@ -4943,9 +4916,9 @@
                 style: {
                   position: "fixed",
                   transform: `translate(${f}px, ${b}px)`,
-                  zIndex: oi.Eq,
-                  bottom: r ? C : c.height - d - h,
-                  right: r ? k : c.width - p - g
+                  zIndex: $t.Eq,
+                  bottom: r ? k : c.height - d - h,
+                  right: r ? _ : c.width - p - g
                 }
               },
               l
@@ -4953,32 +4926,32 @@
           )
         );
       };
-      var lr = i(78594),
-        cr = i(75397),
-        dr = i.n(cr);
-      const ur = {
-          [Yi.Settings]: "Grammarly settings are active",
-          [Yi.Feedback]: "Grammarly feedback form is active",
-          [Yi.ToneInsight]: "Grammarly tone settings are active",
-          [Yi.LearnMore]: "Additional information about Grammarly suggestion is active"
+      var er = i(78594),
+        tr = i(75397),
+        ir = i.n(tr);
+      const ar = {
+          [ji.Settings]: "Grammarly settings are active",
+          [ji.Feedback]: "Grammarly feedback form is active",
+          [ji.ToneInsight]: "Grammarly tone settings are active",
+          [ji.LearnMore]: "Additional information about Grammarly suggestion is active"
         },
-        pr = () => {
-          const { currentView: e, isEnabled: t } = o.useContext(Qi);
+        sr = () => {
+          const { currentView: e, isEnabled: t } = o.useContext(Gi);
           if (!t) return null;
-          const i = null === e ? "Grammarly assistant is active" : ur[e];
+          const i = null === e ? "Grammarly assistant is active" : ar[e];
           return o.createElement(
             "div",
             {
               "aria-live": "assertive",
               "aria-atomic": !0,
-              className: dr().viewAnnouncer,
+              className: ir().viewAnnouncer,
               "data-grammarly-part": "assistant-view-announcer"
             },
             o.createElement("p", null, i)
           );
         };
-      var mr = i(81237);
-      const gr = ({
+      var rr = i(81237);
+      const nr = ({
         dragHandle: e,
         headerContent: t,
         className: i,
@@ -5004,7 +4977,7 @@
           return (
             v.current
               ? (null === (e = w.current) || void 0 === e || e.disconnect(),
-                (w.current = lr.N.getResizeObserver(() => {
+                (w.current = er.N.getResizeObserver(() => {
                   v.current && u(v.current.getBoundingClientRect().height);
                 })),
                 w.current.observe(v.current))
@@ -5021,7 +4994,7 @@
           return (
             f.current
               ? (null === (e = S.current) || void 0 === e || e.disconnect(),
-                (S.current = lr.N.getResizeObserver(() => {
+                (S.current = er.N.getResizeObserver(() => {
                   f.current && m(f.current.getBoundingClientRect().height);
                 })),
                 S.current.observe(f.current))
@@ -5039,7 +5012,7 @@
             return (
               b.current
                 ? (null === (e = y.current) || void 0 === e || e.disconnect(),
-                  (y.current = lr.N.getResizeObserver(() => {
+                  (y.current = er.N.getResizeObserver(() => {
                     b.current && h(b.current.getBoundingClientRect().height);
                   })),
                   y.current.observe(b.current))
@@ -5059,7 +5032,7 @@
             o.createElement(
               "div",
               {
-                ...(0, ct.Sh)(mr.singleCardAssistant, i),
+                ...(0, tt.Sh)(rr.singleCardAssistant, i),
                 style: l ? { maxHeight: l, overflowY: "auto" } : void 0,
                 "data-grammarly-part": n,
                 role: "region",
@@ -5070,18 +5043,18 @@
                 {
                   "data-grammarly-part": n + "-header",
                   "aria-label": "Grammarly assistant toolbar",
-                  ...(0, ct.Sh)(mr.singleCardAssistantHeader, e ? mr.singleCardAssistantHeaderDraggable : null),
+                  ...(0, tt.Sh)(rr.singleCardAssistantHeader, e ? rr.singleCardAssistantHeaderDraggable : null),
                   ref: (t) => {
                     (v.current = t), null == e || e(t);
                   }
                 },
-                o.createElement(Bt.F.Fragment, null, t)
+                o.createElement(Tt.F.Fragment, null, t)
               ),
               o.createElement(
                 "div",
                 {
                   "data-grammarly-part": n + "-content",
-                  ...(0, ct.Sh)(mr.singleCardAssistantContent, s ? mr.singleCardAssistantContentWithPadding : null),
+                  ...(0, tt.Sh)(rr.singleCardAssistantContent, s ? rr.singleCardAssistantContentWithPadding : null),
                   ref: f
                 },
                 a
@@ -5089,50 +5062,50 @@
               r
                 ? o.createElement(
                     "footer",
-                    { "data-grammarly-part": n + "-footer", className: mr.singleCardAssistantFooter, ref: b, onClick: () => r.onClick() },
-                    o.createElement("div", { className: mr.singleCardAssistantFooterText }, r.content),
+                    { "data-grammarly-part": n + "-footer", className: rr.singleCardAssistantFooter, ref: b, onClick: () => r.onClick() },
+                    o.createElement("div", { className: rr.singleCardAssistantFooterText }, r.content),
                     r.tooltip &&
                       o.createElement(
-                        li.u,
-                        { message: r.tooltip, showDelay: oi.gk },
+                        ei.u,
+                        { message: r.tooltip, showDelay: $t.gk },
                         o.createElement(
-                          Mi.h,
+                          Ei.h,
                           { onClick: () => r.onClick() },
-                          o.createElement("div", { className: mr.singleCardAssistantFooterButtonIcon })
+                          o.createElement("div", { className: rr.singleCardAssistantFooterButtonIcon })
                         )
                       )
                   )
                 : null
             ),
-            o.createElement(pr, null)
+            o.createElement(sr, null)
           )
         );
       };
-      var hr = i(17766),
-        vr = i(45711),
-        fr = i(23447),
-        br = i(74453),
-        wr = i(35583),
-        Sr = i.n(wr);
-      const yr = { clarity: hr.G, correctness: vr.a, tone: fr.D, engagement: br.L },
-        Er = ({ suggestionType: e }) => {
-          const t = yr[e];
-          return o.createElement("div", { className: Sr().container }, o.createElement(t, null), "Your first ", e, " suggestion!");
+      var or = i(17766),
+        lr = i(45711),
+        cr = i(23447),
+        dr = i(74453),
+        ur = i(35583),
+        pr = i.n(ur);
+      const mr = { clarity: or.G, correctness: lr.a, tone: cr.D, engagement: dr.L },
+        gr = ({ suggestionType: e }) => {
+          const t = mr[e];
+          return o.createElement("div", { className: pr().container }, o.createElement(t, null), "Your first ", e, " suggestion!");
         };
-      var Cr = i(18702),
-        kr = i(94810);
-      const _r = o.memo(function ({ viewModels: e, height: t, domRect: i, ready: a, maxHeight: s, experimentClient: r }) {
-        const l = new ma.C((0, A.nD)());
-        (0, Y.iR)("viewModels", e);
-        const c = (0, ei.IQ)(),
-          d = (0, ei.e8)(),
-          u = o.useContext(ei.Dg).state.pipe(
-            Le.h((e) => !e.dragging),
-            Fe.O(Fs.h.create())
+      var hr = i(18702),
+        vr = i(94810);
+      const fr = o.memo(function ({ viewModels: e, height: t, domRect: i, ready: a, maxHeight: s, experimentClient: r }) {
+        const l = new ra.C((0, h.nD)());
+        (0, U.iR)("viewModels", e);
+        const c = (0, qt.IQ)(),
+          d = (0, qt.e8)(),
+          u = o.useContext(qt.Dg).state.pipe(
+            Ce.h((e) => !e.dragging),
+            ke.O(As.h.create())
           );
-        (0, Bs.A)(
+        (0, Ts.A)(
           u.pipe(
-            we.b((t) => {
+            ce.b((t) => {
               e.positionViewModel.onDrag(t);
             })
           )
@@ -5142,34 +5115,34 @@
             a(e, c);
           }, []);
         const p = e.nativeViewsViewModel.header.view(
-            Z.fold(
+            V.fold(
               () => o.createElement(o.Fragment, null),
               (t) =>
-                o.createElement(Cr.P, {
+                o.createElement(hr.P, {
                   key: "header",
                   sduiRootId: t.id,
                   content: t,
                   designSystem: e.headerDesignSystem,
                   notify: (i, a, s) =>
                     e.cardsViewModel.actionEvents.next({
-                      type: Ce.lY.Type.sduiCardAction,
+                      type: me.lY.Type.sduiCardAction,
                       sourceId: i,
                       cardId: t.id,
                       actions: a,
                       scope: s
                     }),
                   transitions: [],
-                  prevContent: Z.none,
-                  onAnimationEnd: Y.Q1,
-                  onMount: Y.Q1
+                  prevContent: V.none,
+                  onAnimationEnd: U.Q1,
+                  onMount: U.Q1
                 })
             )
           ),
           m = e.checksFeedFlow(),
           g = (0, n.pipe)(
             m,
-            Q.Z.extendActions(
-              we.b((t) => {
+            O.Z.extendActions(
+              ce.b((t) => {
                 "content" === t.key &&
                   "card" === t.action.key &&
                   "alertRefSDUI" === t.action.action.key &&
@@ -5178,36 +5151,36 @@
             )
           );
         return o.createElement(
-          $s,
+          zs,
           { remSize: e.remSize, environment: l, viewport: i, experimentClient: r },
           o.createElement(
-            Bt.F.Fragment,
+            Tt.F.Fragment,
             null,
-            V.aj([
+            I.aj([
               e.bulkDismissViewModel.successReportFooterBulkDismissAlertsCount,
               e.outcomeExtraFooterViewModel.extraFooterOutcomeType
             ]).pipe(
-              N.U(([i, a]) =>
+              _.U(([i, a]) =>
                 o.createElement(
-                  gr,
+                  nr,
                   {
                     key: "single-card-assistant",
-                    className: $i.singleCardAssistant,
+                    className: zi.singleCardAssistant,
                     dragHandle: d,
                     headerContent: p,
                     maxHeight: s,
-                    footer: Ar(e, i, a),
+                    footer: br(e, i, a),
                     onHeightChange: (e) => t.set(e)
                   },
-                  Q.UI.mount(kr.c.assistant(e.checksFeedItem(e.cardsViewModel.actionEvents)), g)
+                  O.UI.mount(vr.c.assistant(e.checksFeedItem(e.cardsViewModel.actionEvents)), g)
                 )
               )
             )
           ),
-          o.createElement(Hs.X, null)
+          o.createElement(Rs.X, null)
         );
       });
-      function Ar(e, t, i) {
+      function br(e, t, i) {
         return t > 0
           ? (function (e, t) {
               return {
@@ -5217,11 +5190,11 @@
                   "We hid ",
                   t,
                   " ",
-                  Te._6(t, "suggestion", "suggestions"),
+                  we._6(t, "suggestion", "suggestions"),
                   " ",
                   "that didn’t seem relevant to your text. Want to review",
                   " ",
-                  Te._6(t, "it", "them"),
+                  we._6(t, "it", "them"),
                   "?"
                 ),
                 tooltip: "Review suggestions",
@@ -5232,90 +5205,102 @@
             })(e, t)
           : void 0 !== i
           ? (function (e) {
-              return { content: o.createElement(Er, { suggestionType: e }), onClick: () => null };
+              return { content: o.createElement(gr, { suggestionType: e }), onClick: () => null };
             })(i)
           : void 0;
       }
-      var Ir = i(51129),
-        xr = i(79692),
-        Tr = i(49708),
-        Mr = i(2768),
-        Rr = i(14454),
-        Pr = i(55826),
-        Lr = i(31442),
-        Fr = i(80358);
-      var Dr = i(28811),
-        Nr = i(21038);
-      function Br(e, t) {
-        return (0, _.zG)(
+      var wr = i(51129),
+        Sr = i(79692),
+        yr = i(49708),
+        Er = i(2768),
+        Cr = i(14454),
+        kr = i(55826),
+        _r = i(31442),
+        Ar = i(80358);
+      var Ir = i(28811),
+        xr = i(21038),
+        Tr = i(17771);
+      function Mr(e, t) {
+        return (0, g.zG)(
           t,
-          Z.fold(
+          V.fold(
             () => e,
             ({ feedId: t }) => e.filter((e) => "pushAssistantFeed" === e.type && e.feedId !== t)
           )
         );
       }
-      function Vr(e, t) {
+      function Rr(e, t) {
         if (e.isSingleCardAssistant) {
           if (t.type === d.WT.sdui) {
             const i = (function (e) {
-              const t = (0, _.zG)(
-                e.find((e) => "pushAssistantFeed" === e.type),
-                Z.fromNullable,
-                Z.fold(
-                  () => [],
-                  (e) => (null != e.cardId ? [e.cardId, e.feedId] : [e.feedId])
-                ),
-                re.UI((e) => (0, _.ls)(Dr.a.get(Nr.j.Item.Id.from(e)), Z.isSome))
+                const t = (0, g.zG)(
+                  e.find((e) => "pushAssistantFeed" === e.type),
+                  V.fromNullable,
+                  V.fold(
+                    () => [],
+                    (e) => (null != e.cardId ? [e.cardId, e.feedId] : [e.feedId])
+                  ),
+                  X.UI((e) => (0, g.ls)(Ir.a.get(xr.j.Item.Id.from(e)), V.isSome))
+                );
+                return (e) => t.every((t) => t(e));
+              })(t.action.actions),
+              a = (e) => i(e) || V.isSome(E.D1.StrongAlertRef.findStrongAlertRefLockedUiItem(e));
+            return e.sduiEngine.sduiManager.state.pipe(Ce.h(a), We.P()).subscribe((a) => {
+              if (i(a)) return e.cardsViewModel.actionEvents.next(t.action);
+              const s = E.D1.StrongAlertRef.findStrongAlertRefLockedUiItem(a),
+                r = E.D1.GButton.getPushAssistantFeedAction(a, E.D1.GButton.DEFAULT_GBUTTON_ID);
+              return (0, g.zG)(
+                Tr.g(V.option)(r, s),
+                V.map(([{ feedId: e }, { id: t }]) => [e, t.toString()]),
+                V.map(([t, i]) => e.cardsViewModel.actionEvents.next(E.fr.create([E.D1.AssistantFeed.createPushAssistantFeedAction(t, i)])))
               );
-              return (e) => t.every((t) => t(e));
-            })(t.action.actions);
-            return e.sduiEngine.sduiManager.state.pipe(Le.h(i), $e.P()).subscribe((i) => e.cardsViewModel.actionEvents.next(t.action));
+            });
           }
-          const i = (0, _.zG)(
+          const i = (0, g.zG)(
             (function (e) {
               const t = e.type;
               switch (t) {
                 case d.WT.gButton:
                 case d.WT.card:
-                  return Z.some({ id: L.D1.GButton.DEFAULT_GBUTTON_ID, getContent: L.D1.GButton.getContent });
+                  return V.some({ id: E.D1.GButton.DEFAULT_GBUTTON_ID, getContent: E.D1.GButton.getContent });
+                case d.WT.activationSystem:
                 case d.WT.emogenie:
-                  return Z.some({ id: L.D1.GButton.TONE_GBUTTON_ID, getContent: L.D1.GButton.getContent });
+                  return V.some({ id: E.D1.GButton.TONE_GBUTTON_ID, getContent: E.D1.GButton.getContent });
                 case d.WT.getStartedChecklist:
-                  return Z.some({ id: L.D1.GButton.GET_STARTED_GBUTTON_ID, getContent: L.D1.GButton.getContent });
+                  return V.some({ id: E.D1.GButton.GET_STARTED_GBUTTON_ID, getContent: E.D1.GButton.getContent });
                 case d.WT.proofitRequest:
                 case d.WT.proofitReview:
-                  return Z.some({ id: L.D1.Proofit.ID, getContent: L.D1.Proofit.getContent });
+                  return V.some({ id: E.D1.Proofit.ID, getContent: E.D1.Proofit.getContent });
                 default:
-                  (0, tt.L0)(t);
+                  (0, qe.L0)(t);
               }
             })(t),
-            Z.getOrElse(() => ({ id: L.D1.GButton.DEFAULT_GBUTTON_ID, getContent: L.D1.GButton.getContent }))
+            V.getOrElse(() => ({ id: E.D1.GButton.DEFAULT_GBUTTON_ID, getContent: E.D1.GButton.getContent }))
           );
           return e.sduiEngine.sduiManager.state
             .pipe(
-              N.U((e) => i.getContent(e, i.id)),
-              ae.oA,
-              $e.P(),
-              se.M(e.sduiEngine.sduiManager.state),
-              N.U(([e, i]) => {
+              _.U((e) => i.getContent(e, i.id)),
+              K.oA,
+              We.P(),
+              Z.M(e.sduiEngine.sduiManager.state),
+              _.U(([e, i]) => {
                 const a = t.type === d.WT.card ? t.alertId : null;
-                return (0, _.zG)(
-                  Z.fromNullable(a),
-                  Z.chain((e) => L.D1.getByAlertId(i, e)),
-                  Z.map((e) => e.id),
-                  Z.fold(
-                    () => ({ initialSduiItemId: Z.none, openingButtonActions: e.actions }),
-                    (t) => ({ initialSduiItemId: Z.some(t), openingButtonActions: e.actions })
+                return (0, g.zG)(
+                  V.fromNullable(a),
+                  V.chain((e) => E.D1.getByAlertId(i, e)),
+                  V.map((e) => e.id),
+                  V.fold(
+                    () => ({ initialSduiItemId: V.none, openingButtonActions: e.actions }),
+                    (t) => ({ initialSduiItemId: V.some(t), openingButtonActions: e.actions })
                   )
                 );
               }),
-              N.U(({ initialSduiItemId: i, openingButtonActions: a }) => {
-                const s = Br(a, e.sduiEngine.sduiFeedManager.currentFeed),
-                  r = L.fr.create(s);
-                return (0, _.zG)(
+              _.U(({ initialSduiItemId: i, openingButtonActions: a }) => {
+                const s = Mr(a, e.sduiEngine.sduiFeedManager.currentFeed),
+                  r = E.fr.create(s);
+                return (0, g.zG)(
                   i,
-                  Z.fold(
+                  V.fold(
                     () => (
                       (t.type === d.WT.proofitRequest || t.type === d.WT.proofitReview) &&
                         s.some((e) => "pushAssistantFeed" === e.type) &&
@@ -5331,51 +5316,30 @@
         }
         return (
           t.type === d.WT.emogenie
-            ? e.assistantLayoutViewModel.pushActiveView({ type: k.a.Type.emogenie })
+            ? e.assistantLayoutViewModel.pushActiveView({ type: m.a.Type.emogenie })
             : t.type === d.WT.proofitRequest
-            ? e.assistantLayoutViewModel.pushActiveView({ type: k.a.Type.proofitRequest })
+            ? e.assistantLayoutViewModel.pushActiveView({ type: m.a.Type.proofitRequest })
             : t.type === d.WT.proofitReview
-            ? e.assistantLayoutViewModel.pushActiveView({ type: k.a.Type.proofitReview })
-            : e.assistantLayoutViewModel.pushActiveView({ type: k.a.Type.default }),
-          D.w.EMPTY
+            ? e.assistantLayoutViewModel.pushActiveView({ type: m.a.Type.proofitReview })
+            : e.assistantLayoutViewModel.pushActiveView({ type: m.a.Type.default }),
+          k.w.EMPTY
         );
       }
-      !(function () {
-        const e = l.Y.create("denaliPlatform.metric"),
-          t = new b.d5((t) => e.trace(t));
-        b.EF.configure(t);
-        const i = (function (e, t) {
-          const i = f.u3,
-            a = (0, n.pipe)(
-              ((s = "Assistant.log"),
-              (0, n.pipe)(
-                E((e) => l.Y.create(`${s}.${e}`)),
-                f.ui()
-              )),
-              f.w9(e.logLevelGetter)
-            );
-          var s;
-          const r = f.w9(e.logLevelGetter)(f.u3),
-            o = [t.collectLogs ? a : f.lw, t.copyLogsToConsole ? r : f.lw];
-          return f.O0(S, e.rootLogLevelGetter)((0, p.fold)(f.aP(i))(o));
-        })({ rootLogLevelGetter: () => y, logLevelGetter: () => y }, { collectLogs: !0, copyLogsToConsole: !0 });
-        w.cx.configure(i);
-      })();
-      class Hr {
+      class Pr {
         constructor(e, t) {
           (this._params = e),
             (this._felog = t),
             (this._log = l.Y.create("AssistantControllerImpl")),
             (this._integration = null),
-            (this._viewModels = O.h.create(null)),
-            (this._assistantPopupIsReady = new fe.xQ()),
+            (this._viewModels = T.h.create(null)),
+            (this._assistantPopupIsReady = new oe.xQ()),
             (this._initPerformance = void 0),
             (this._openMeasure = void 0),
-            (this._height = O.h.create(0)),
-            (this._domRect = O.h.create(Xa.UL.empty)),
-            (this._maxHeight = O.h.create((0, Ns.C7)().height)),
-            (this._openState = O.h.create("closed")),
-            (this._subs = new be.w.Keeper()),
+            (this._height = T.h.create(0)),
+            (this._domRect = T.h.create(Oa.UL.empty)),
+            (this._maxHeight = T.h.create((0, xs.C7)().height)),
+            (this._openState = T.h.create("closed")),
+            (this._subs = new le.w.Keeper()),
             (this.openState = this._openState.view()),
             (this.open = (e) => {
               var t, i;
@@ -5387,12 +5351,12 @@
                     experiments: e.experiments,
                     customFields: e.customFields,
                     institutionInfo: e.institutionInfo,
-                    isGrammarlyEmployee: Ir.n5.isGrammarlyEmployee(e),
-                    isTestUser: Ir.n5.isTestUser(e),
-                    isFreeTrial: Ir.n5.isFreeTrial(e)
+                    isGrammarlyEmployee: wr.n5.isGrammarlyEmployee(e),
+                    isTestUser: wr.n5.isTestUser(e),
+                    isFreeTrial: wr.n5.isFreeTrial(e)
                   })),
                 s = this._viewModels.get();
-              if (null !== s) this._subs.push(Vr(s, e));
+              if (null !== s) this._subs.push(Rr(s, e));
               else {
                 this._openMeasure = this._felog.assistant.openTime.startMeasure();
                 const s = this._felog.assistant.initTime.startMeasure();
@@ -5411,19 +5375,19 @@
                     void this._openMeasure.cancelMeasure()
                   );
                 null === (i = (t = this._params).onOpen) || void 0 === i || i.call(t, o), (this._integration = o);
-                const l = (0, n.pipe)(Z.fromNullable(e.type === d.WT.card ? e.alertId : null), Z.map(Ri.wQ.Id.create)),
-                  c = Z.isSome(o.engine.sduiEngine)
+                const l = (0, n.pipe)(V.fromNullable(e.type === d.WT.card ? e.alertId : null), V.map(Ci.wQ.Id.create)),
+                  c = V.isSome(o.engine.sduiEngine)
                     ? (0, n.pipe)(
-                        We.MH(o.engine.sduiEngine),
+                        De.MH(o.engine.sduiEngine),
                         ({ sduiBufferService: e, sduiFeedbackService: t, sduiPopoverManager: i }) =>
                           ((e, t, i, a, s) => {
                             const r = (0, n.pipe)(
                                 e.capiEvents,
-                                Le.h(Fr.h.is("sdui_add", "sdui_remove", "sdui_update")),
-                                Le.h((e) => "sdui_remove" === e.kind || !L.D1.InlineCard.isInlineCard(e.sdui))
+                                Ce.h(Ar.h.is("sdui_add", "sdui_remove", "sdui_update")),
+                                Ce.h((e) => "sdui_remove" === e.kind || !E.D1.InlineCard.isInlineCard(e.sdui))
                               ),
-                              o = new Pr.A(t, r, i, s),
-                              l = new Lr._(o.state);
+                              o = new kr.A(t, r, i, s),
+                              l = new _r._(o.state);
                             return {
                               sduiBufferService: e,
                               sduiFeedbackService: a,
@@ -5435,7 +5399,7 @@
                             };
                           })(e, o.engine.alertsList.state, o.engine.getByRawAlertId, t, i),
                         (e) => {
-                          const t = Oa(
+                          const t = Pa(
                             o.engine,
                             o.denaliViewAdapter,
                             r.sidebarEvents,
@@ -5458,7 +5422,7 @@
                             this._params.emogenieService,
                             e,
                             this._params.browser,
-                            Z.fromNullable(this._params.proofitFeature),
+                            V.fromNullable(this._params.proofitFeature),
                             this._params.assistantService.selectedHighlightsTracker,
                             this._params.assistantService.isTextFieldEmpty,
                             this._params.dapiActions,
@@ -5474,7 +5438,7 @@
                           };
                         }
                       )
-                    : (0, C.n)(
+                    : (0, p.n)(
                         o.engine,
                         o.denaliViewAdapter,
                         o.document.settings.lens("selectedLens"),
@@ -5482,7 +5446,7 @@
                         this._params.toneAIFeature,
                         this._params.ethicalAIFeature,
                         this._params.snippetsFeature,
-                        Z.fromNullable(this._params.proofitFeature),
+                        V.fromNullable(this._params.proofitFeature),
                         r.sidebarEvents,
                         this._assistantPopupIsReady,
                         l,
@@ -5504,15 +5468,15 @@
                         this._params.dapiActions,
                         () => this._params.checkingService
                       );
-                this._subs.push(Vr(c, e)),
+                this._subs.push(Rr(c, e)),
                   c.isSingleCardAssistant &&
                     this._subs.push(
                       c.cardsViewModel.actionEvents
                         .pipe(
-                          Le.h(Rr.t.isSduiCardAction),
-                          Le.h((e) => e.sourceId === L.D1.Proofit.ID),
-                          N.U((e) => Br(e.actions, c.sduiEngine.sduiFeedManager.currentFeed)),
-                          Le.h((e) => e.length > 0)
+                          Ce.h(Cr.t.isSduiCardAction),
+                          Ce.h((e) => e.sourceId === E.D1.Proofit.ID),
+                          _.U((e) => Mr(e.actions, c.sduiEngine.sduiFeedManager.currentFeed)),
+                          Ce.h((e) => e.length > 0)
                         )
                         .subscribe(() => {
                           c.gnar.proofitButtonClick("assistant_header");
@@ -5527,10 +5491,10 @@
               null !== this._viewModels.get() &&
                 (this._trackAssistantClose(),
                 (0, n.pipe)(
-                  Z.fromNullable(this._integration),
-                  Z.chain((e) => e.engine.sduiEngine),
-                  Z.map(() => this._viewModels.get()),
-                  Z.map((e) => e.sduiCardsViewModel.onAssistantClose())
+                  V.fromNullable(this._integration),
+                  V.chain((e) => e.engine.sduiEngine),
+                  V.map(() => this._viewModels.get()),
+                  V.map((e) => e.sduiCardsViewModel.onAssistantClose())
                 ),
                 null === (t = (e = this._params).onClose) || void 0 === t || t.call(e),
                 this._openState.set("closed"),
@@ -5545,7 +5509,7 @@
               return (t, i, a) => {
                 const s = e.endMeasure();
                 let r;
-                if (((0, tt.kG)(!!this._openMeasure, "Expected Assistant to be open"), a)) this._openMeasure.cancelMeasure();
+                if (((0, qe.kG)(!!this._openMeasure, "Expected Assistant to be open"), a)) this._openMeasure.cancelMeasure();
                 else {
                   const e = this._openMeasure.endMeasure();
                   (r = null == e ? void 0 : e.duration),
@@ -5559,7 +5523,7 @@
                         total: e.duration
                       });
                 }
-                this._asyncReadyCbSub = xr.E.schedule(() => {
+                this._asyncReadyCbSub = Sr.E.schedule(() => {
                   this._openState.set("open"),
                     this._assistantPopupIsReady.next(),
                     this._trackAssistantOpen(t, r),
@@ -5582,16 +5546,16 @@
             });
         }
         get view() {
-          const e = this._params.experimentClient.isGateEnabled(F.K.ExtensionA11ySingleCardAssistantDragging);
+          const e = this._params.experimentClient.isGateEnabled(C.K.ExtensionA11ySingleCardAssistantDragging);
           return this._viewModels.pipe(
-            Ae.w((t) =>
+            ve.w((t) =>
               null === t
-                ? Pa.of(null)
-                : V.aj([Tr.R(self, "resize").pipe(Fe.O(null)), this._maxHeight]).pipe(
-                    se.M(this._params.layout.textField.rect.behavior),
-                    se.M(
-                      V.aj([this._params.layout.gbutton.positionBehavior, this._params.layout.gbutton.sizeBehavior]).pipe(
-                        N.U(([e, t]) => {
+                ? ka.of(null)
+                : I.aj([yr.R(self, "resize").pipe(ke.O(null)), this._maxHeight]).pipe(
+                    Z.M(this._params.layout.textField.rect.behavior),
+                    Z.M(
+                      I.aj([this._params.layout.gbutton.positionBehavior, this._params.layout.gbutton.sizeBehavior]).pipe(
+                        _.U(([e, t]) => {
                           const i = t.draggable ? t.width : t.heightAndWidth,
                             a = t.draggable ? t.height : t.heightAndWidth;
                           return {
@@ -5603,11 +5567,11 @@
                         })
                       )
                     ),
-                    N.U(([[[i, a], s], r]) => {
+                    _.U(([[[i, a], s], r]) => {
                       const n = this._applyIframeOffset(s),
                         l = this._getReadyFn();
                       let c;
-                      const d = "test" === this._params.experimentClient.getTreatment(Ee.p.SingleCardAssistantNextToTextField);
+                      const d = "test" === this._params.experimentClient.getTreatment(pe.p.SingleCardAssistantNextToTextField);
                       let p;
                       return (
                         (c = d ? { ...n.client, ...n.size } : r),
@@ -5617,7 +5581,7 @@
                           }),
                         t.isSingleCardAssistant
                           ? o.createElement(
-                              or,
+                              $s,
                               {
                                 isAccessible: e,
                                 anchor: d ? "textField" : "GButton",
@@ -5629,7 +5593,7 @@
                                 onMaxHeightChange: p,
                                 experimentClient: this._params.experimentClient
                               },
-                              o.createElement(_r, {
+                              o.createElement(fr, {
                                 viewModels: t,
                                 height: this._height,
                                 ready: l,
@@ -5639,13 +5603,13 @@
                               })
                             )
                           : o.createElement(
-                              sr,
+                              Qs,
                               { textFieldRect: n, gButtonRect: r, viewModels: t, draggableGButtonType: this._params.draggableGButtonType },
-                              o.createElement(Js, {
+                              o.createElement(Ws, {
                                 viewModels: t,
                                 experimentClient: this._params.experimentClient,
                                 emogenieService: this._params.emogenieService,
-                                height: (0, u.Y)(t, n).pipe(Mr.R(this._assistantPopupIsReady.asObservable()), we.b(H.wW(this._height))),
+                                height: (0, u.Y)(t, n).pipe(Er.R(this._assistantPopupIsReady.asObservable()), ce.b(x.wW(this._height))),
                                 ready: l,
                                 OuterElementsPortalSource: this._params.OuterElementsPortalSource
                               })
@@ -5658,13 +5622,13 @@
         }
         get activeView() {
           return this._viewModels.pipe(
-            Ae.w((e) => {
+            ve.w((e) => {
               var t;
               return (null == e ? void 0 : e.isSingleCardAssistant)
-                ? Pa.of(null)
+                ? ka.of(null)
                 : null !== (t = null == e ? void 0 : e.assistantLayoutViewModel.activeView) && void 0 !== t
                 ? t
-                : Pa.of(null);
+                : ka.of(null);
             })
           );
         }
@@ -5692,7 +5656,7 @@
               e.get().left,
               e.get().top,
               o.unmutedCapiAlerts,
-              o.filter((e) => c.S.isCapiAlert(e) && e.outcome === ye.TC.clarity).visibleNotInlineCapiAlerts,
+              o.filter((e) => c.S.isCapiAlert(e) && e.outcome === ue.TC.clarity).visibleNotInlineCapiAlerts,
               o.visibleInlineCapiAlerts,
               o.filter((e) => c.S.isCapiAlert(e) && "priority" === e.assistantView).unmutedCapiAlerts,
               n.wordsCount.get(),
@@ -5713,11 +5677,11 @@
               ? "default"
               : null !== (e = null == a ? void 0 : a.assistantLayoutViewModel.activeView.get().type) && void 0 !== e
               ? e
-              : k.a.Type.default;
+              : m.a.Type.default;
           this._params.gnar.assistantPopupCloseButtonClick(
             s,
             i.unmutedCapiAlerts,
-            i.filter((e) => c.S.isCapiAlert(e) && e.outcome === ye.TC.clarity).visibleNotInlineCapiAlerts,
+            i.filter((e) => c.S.isCapiAlert(e) && e.outcome === ue.TC.clarity).visibleNotInlineCapiAlerts,
             i.visibleInlineCapiAlerts,
             i.filter((e) => c.S.isCapiAlert(e) && "priority" === e.assistantView).unmutedCapiAlerts,
             void 0
@@ -5729,24 +5693,24 @@
           this._subs.push(
             t
               .pipe(
-                Ws.G(),
-                Le.h(([e, t]) => e && !t)
+                Bs.G(),
+                Ce.h(([e, t]) => e && !t)
               )
               .subscribe(() => {
                 const t = e.get();
-                tr.E9.l1Distance(t, a) < 10 ||
+                Ks.E9.l1Distance(t, a) < 10 ||
                   (this._params.gnar.assistantPopupDrag(t.left, t.top, this._height.get(), i.left, i.top), (a = t));
               })
           );
         }
       }
-      var Or = i(23167),
-        Ur = i(18430),
-        jr = i(7177),
-        Gr = i(30627),
-        Wr = i(99111),
-        zr = i(41127);
-      class qr {
+      var Lr = i(23167),
+        Fr = i(18430),
+        Dr = i(7177),
+        Br = i(30627),
+        Nr = i(99111),
+        Vr = i(41127);
+      class Hr {
         constructor(e, t, i, a, s, r, n, o, l, c) {
           (this.connectionState = e),
             (this.gnar = t),
@@ -5762,7 +5726,7 @@
         }
         static create(e) {
           var t;
-          const i = new Ur.t(
+          const i = new Fr.t(
               e.highlights,
               e.textObserver,
               e.replacementService,
@@ -5773,7 +5737,7 @@
               e.requestAwaitService,
               null === (t = e.formattingService) || void 0 === t ? void 0 : t.get()
             ),
-            a = Gr.p.create(
+            a = Br.p.create(
               e.checkingService.get(),
               e.checkingServiceInitialState,
               e.alertsTransformer,
@@ -5781,7 +5745,7 @@
               e.sidebarEvents,
               e.customEventsFilter
             ),
-            s = (0, Wr.r)(
+            s = (0, Nr.r)(
               a,
               i,
               e.document.settings.lens("context"),
@@ -5789,7 +5753,7 @@
                 var t, i;
                 return null !== (i = null === (t = e.getExistingAlerts) || void 0 === t ? void 0 : t.call(e)) && void 0 !== i
                   ? i
-                  : (0, jr.q)(e.alertProcessor);
+                  : (0, Dr.q)(e.alertProcessor);
               },
               e.textObserver,
               () => e.checkingServiceInitialState.value.lastStart,
@@ -5798,21 +5762,21 @@
               e.sduiPopoverManager,
               e.felog,
               e.experimentClient,
-              (t) => t.forEach((t) => e.alertProcessor.removeAlert(t, { _tag: zr.i.alertAccepted }))
+              (t) => t.forEach((t) => e.alertProcessor.removeAlert(t, { _tag: Vr.i.alertAccepted }))
             );
-          return new qr(e.connectionState, e.gnar, e.user, e.hoverProvider, e.document, e.formattingService, i, a, s, e.experimentClient);
+          return new Hr(e.connectionState, e.gnar, e.user, e.hoverProvider, e.document, e.formattingService, i, a, s, e.experimentClient);
         }
         dispose() {
           this.capiProxy.dispose(), this.denaliViewAdapter.dispose(), this.engine.shutdown(), this._hoverProvider.removeAssistantHover();
         }
       }
-      var Kr = i(26035),
-        Zr = i(74789);
-      class Xr {
+      var Ur = i(26035),
+        Or = i(74789);
+      class jr {
         constructor({ layout: e }) {
-          this._scroller = (0, Kr.t)({
+          this._scroller = (0, Ur.t)({
             scrollToMarkRect(t, i) {
-              (0, Zr.W)(e, t, null == i ? void 0 : i.paddingTop);
+              (0, Or.W)(e, t, null == i ? void 0 : i.paddingTop);
             },
             scrollToRange() {}
           });
@@ -5821,25 +5785,25 @@
           return this._scroller.scrollToMark(e, t);
         }
       }
-      var Yr = i(44248);
-      class Qr {
+      var Gr = i(44248);
+      class Wr {
         constructor(e) {
           (this._params = e),
-            (this.sidebarEvents = new fe.xQ()),
-            (this.hoverProvider = new Or.f(this._params.hoverProvider)),
+            (this.sidebarEvents = new oe.xQ()),
+            (this.hoverProvider = new Lr.f(this._params.hoverProvider)),
             (this.selectedHighlightsTracker = this._params.highlights.getSelectedHighlightsTracker({
               textField: this._params.originalTextField,
               selectionService: this._params.selectionService
             })),
-            (this.positionModel = (0, Yr.j)(
+            (this.positionModel = (0, Gr.j)(
               this._params.originalTextField,
               this._params.state,
               this._params.fieldSettings,
               this._params.actions
             )),
             (this.isTextFieldEmpty = this._params.textObserver.contentChanges.async.pipe(
-              N.U((e) => "" === e.newText.trim()),
-              B.x()
+              _.U((e) => "" === e.newText.trim()),
+              A.x()
             )),
             (this._checkingService = null);
         }
@@ -5868,9 +5832,9 @@
           if (null == this._checkingService) return null;
           const g = null === (i = (t = this._params).getCheckingServicePreviousState) || void 0 === i ? void 0 : i.call(t);
           g && (this._checkingService.state.value = g);
-          const h = this._params.createAssistantScroller ? this._params.createAssistantScroller() : new Xr({ layout: a }),
+          const h = this._params.createAssistantScroller ? this._params.createAssistantScroller() : new jr({ layout: a }),
             { user: v } = l.get();
-          return qr.create({
+          return Hr.create({
             layout: a,
             alertProcessor: o,
             connectionState: l.view((e) => e.connection),
@@ -5886,9 +5850,9 @@
               isAnonymous: v.anonymous,
               experiments: v.experiments,
               customFields: v.customFields,
-              isGrammarlyEmployee: Ir.n5.isGrammarlyEmployee(v),
-              isTestUser: Ir.n5.isTestUser(v),
-              isFreeTrial: Ir.n5.isFreeTrial(v)
+              isGrammarlyEmployee: wr.n5.isGrammarlyEmployee(v),
+              isTestUser: wr.n5.isTestUser(v),
+              isFreeTrial: wr.n5.isFreeTrial(v)
             },
             hoverProvider: this.hoverProvider,
             selectedHighlightsTracker: this.selectedHighlightsTracker,
@@ -5949,19 +5913,19 @@
         L = i(67434),
         F = i(41398),
         D = i(2834),
-        N = i(78674),
-        B = i(77176),
+        B = i(78674),
+        N = i(77176),
         V = i(98403),
         H = i(93508),
-        O = i(16118),
-        U = i(95195),
+        U = i(16118),
+        O = i(95195),
         j = i(95574),
         G = i(71249),
         W = i(92843),
         z = i(31903),
         q = i(17771),
         K = i(9205);
-      const Z = (e, t, i, C, M, H, O, W, Z, Y, Q, J) => {
+      const Z = (e, t, i, C, M, H, U, W, Z, Q, Y, J) => {
           const $ = v.Y.create("createEngine"),
             ee = new P.w.Keeper(),
             te = (function (e, t, i) {
@@ -5998,13 +5962,13 @@
                   f.RI.isReset(i)
                     ? (0, r.pipe)(
                         i.text,
-                        U.fold(() => t.getText(), a.yR)
+                        O.fold(() => t.getText(), a.yR)
                       )
                     : f.RI.isDelta(i)
                     ? (0, r.pipe)(
                         f.RI.resFromText(e).compose(i),
                         j.VS((e) => e.text),
-                        U.fold(() => t.getText(), a.yR)
+                        O.fold(() => t.getText(), a.yR)
                       )
                     : e,
                 ""
@@ -6018,7 +5982,7 @@
                   if ("alert_received" === e.kind) {
                     const i = (0, g.IM)(e.alert, h.Q.fromString("fake"));
                     m.$.isConsistentWithText(i, t) ||
-                      (Y.alerts.inconsistentAlertWithText("assistant", null == i ? void 0 : i._tag), (0, n.i)($, i, t, "logging"));
+                      (Q.alerts.inconsistentAlertWithText("assistant", null == i ? void 0 : i._tag), (0, n.i)($, i, t, "logging"));
                   }
                 })
               )
@@ -6069,9 +6033,9 @@
               .subscribe(),
             M.contentChanges.async
               .pipe(
-                N.b(300),
-                B.U((e) => e.newText),
-                B.U((e) => ({ full: e.length - 1, trimmed: e.trim().length })),
+                B.b(300),
+                N.U((e) => e.newText),
+                N.U((e) => ({ full: e.length - 1, trimmed: e.trim().length })),
                 D.b(V.wW(te.documentLength))
               )
               .subscribe()
@@ -6088,7 +6052,7 @@
               G.oA([
                 c.some((e) =>
                   (0, r.pipe)(
-                    O.get(),
+                    U.get(),
                     c.fold(
                       () => e,
                       (t) => t.addSnippetsTriggerToAlert(e)
@@ -6113,7 +6077,7 @@
           ),
             e.loadAlerts(C()),
             oe.flushAlerts(),
-            Q.isGateEnabled(K.K.DontSyncAlertApplicationsWithInlineMode) || ee.push(X(oe.state, J));
+            Y.isGateEnabled(K.K.DontSyncAlertApplicationsWithInlineMode) || ee.push(X(oe.state, J));
           const de = c.some(x.J.CategoriesModel.create(e.events, e, oe.state, ce, w.JW.ScopeType.GLOBAL)),
             ue = c.some(T.k.create(le)),
             pe = (0, r.pipe)(
@@ -6141,9 +6105,9 @@
           e
             .pipe(
               H.O(M.p.empty),
-              O.G(),
-              B.U(([e, t]) => M.p.diff(e, t)),
-              B.U((e) =>
+              U.G(),
+              N.U(([e, t]) => M.p.diff(e, t)),
+              N.U((e) =>
                 (0, r.pipe)(
                   e,
                   W.v.reduce(
@@ -6170,7 +6134,7 @@
             });
     },
     22027: (e, t, i) => {
-      i.d(t, { aU: () => Ne, X5: () => Be, n: () => Ve });
+      i.d(t, { aU: () => Be, X5: () => Ne, n: () => Ve });
       var a,
         s = i(57050),
         r = i(35214),
@@ -6324,12 +6288,12 @@
       var L = i(89131),
         F = i(62623),
         D = i(13299),
-        N = i(74660),
-        B = i(66268),
+        B = i(74660),
+        N = i(66268),
         V = i(35416),
         H = i(66866),
-        O = i(66310),
-        U = i(91402),
+        U = i(66310),
+        O = i(91402),
         j = i(40151),
         G = i(76974),
         W = i(85985),
@@ -6343,11 +6307,11 @@
           when: T.R.isWithAlertsId,
           what: V.nL.Effect.SwitchAlert.create(
             e.actionEvents.pipe(
-              O.w((e) => {
+              U.w((e) => {
                 const r = t.get();
-                if (!V.nL.hasCards(r)) return U._(new C.ej("Cannot update state without cards"));
+                if (!V.nL.hasCards(r)) return O._(new C.ej("Cannot update state without cards"));
                 switch (e.type) {
-                  case B.lY.Type.alertMinicardButtonClick:
+                  case N.lY.Type.alertMinicardButtonClick:
                     return (0, o.pipe)(
                       i.getRegistered(e.alertHighlight.alert.id),
                       n.fold(
@@ -6355,7 +6319,7 @@
                         () => G.of(e.alertHighlight)
                       )
                     );
-                  case B.lY.Type.cardMatchesNavigationButtonClick:
+                  case N.lY.Type.cardMatchesNavigationButtonClick:
                     const t = e.transitionTo;
                     switch (t.kind) {
                       case "anotherAlert":
@@ -6383,12 +6347,12 @@
                     return j.E;
                 }
               }),
-              w.U((e) => ({ alertHighlight: e, alertSource: N.l$.sidebar, options: { order: "lensOrder" } }))
+              w.U((e) => ({ alertHighlight: e, alertSource: B.l$.sidebar, options: { order: "lensOrder" } }))
             )
           )
         };
       }
-      function Y(e, t, i) {
+      function Q(e, t, i) {
         const a = e.pipe(
           W.h(V.nL.hasCards),
           z.b(0),
@@ -6406,7 +6370,7 @@
             )
           ),
           q.oA,
-          W.h((e) => e.state.type === N.bZ.State.Type.REGISTERED),
+          W.h((e) => e.state.type === B.bZ.State.Type.REGISTERED),
           S.x()
         );
         return {
@@ -6417,14 +6381,14 @@
               K.M(e),
               w.U(([e, t]) => ({
                 lensId: t.currentLens.id,
-                alertSource: N.l$.text,
+                alertSource: B.l$.text,
                 options: { order: "lensOrder", toFocus: V.nL.Effect.FocusBehavior.focusAlert({ alert: e, highlightIndex: 0 }) }
               }))
             )
           )
         };
       }
-      function Q(e, t, i) {
+      function Y(e, t, i) {
         const a = e.pipe(
           w.U(
             (e) => (a) =>
@@ -6432,7 +6396,7 @@
                 ? a.patch({
                     currentLens: (0, o.pipe)(
                       Z.tryCatch(
-                        () => (N.bZ.isApplicableAlert(e.alert) ? t.finishApplyAnimation([e.alert])(a.currentLens) : a.currentLens),
+                        () => (B.bZ.isApplicableAlert(e.alert) ? t.finishApplyAnimation([e.alert])(a.currentLens) : a.currentLens),
                         (e) => i.error("could not update lens state on applied animation finish", e)
                       ),
                       Z.getOrElse(() => a.currentLens)
@@ -6454,7 +6418,7 @@
               W.h(([e, t]) => e.lensId !== t),
               w.U(([e]) => ({
                 lensId: e.lensId,
-                alertSource: N.l$.sidebar,
+                alertSource: B.l$.sidebar,
                 options: {
                   order: "lensOrder",
                   toFocus: e.focusFirstCard ? V.nL.Effect.FocusBehavior.focusFirst : V.nL.Effect.FocusBehavior.noFocus
@@ -6470,7 +6434,7 @@
       !(function (e) {
         const t = (e, t) =>
           e.pipe(
-            W.h(B.lY.isCreateSnippetAction),
+            W.h(N.lY.isCreateSnippetAction),
             w.U(({ id: e }) => (i) => {
               const a = (0, s.zG)(
                 i.currentLens.items.update(e, t({ type: "success", clockwise: !0 })),
@@ -6519,7 +6483,7 @@
         Le = i(8125),
         Fe = i(95574),
         De = i(81531);
-      const Ne = (e) =>
+      const Be = (e) =>
           e
             .view((e) =>
               (0, o.pipe)(
@@ -6543,7 +6507,7 @@
               }),
               Te.J()
             ),
-        Be = (e, t) =>
+        Ne = (e, t) =>
           e.alertClicked.pipe(
             w.U((e) =>
               (0, o.pipe)(
@@ -6570,8 +6534,8 @@
             W.h(([e, t]) => e.id !== (null == t ? void 0 : t.id)),
             w.U(([e, t]) => e)
           ),
-        Ve = (e, t, i, a, v, y, C, x, R, U, z, q, K, te, Te, Ve, He, Oe, Ue, je, Ge, We, ze, qe, Ke, Ze, Xe, Ye) => {
-          const Qe = De.C8.Logging.getLogger("view_models"),
+        Ve = (e, t, i, a, v, y, C, x, R, O, z, q, K, te, Te, Ve, He, Ue, Oe, je, Ge, We, ze, qe, Ke, Ze, Xe, Qe) => {
+          const Ye = De.C8.Logging.getLogger("view_models"),
             Je = _.h.create(me.A.defaultState),
             $e = _.h.create(!1),
             et = _.h.create(!1),
@@ -6580,19 +6544,19 @@
             at = (e) =>
               (0, Le.W9)(
                 () => !et.get(),
-                (0, Le.W9)((e) => !tt.get() || N.bZ.isInline(e), e)
+                (0, Le.W9)((e) => !tt.get() || B.bZ.isInline(e), e)
               ),
             st = he.t.create(
               {
                 ...he.t.defaultLensFilters,
-                [T.R.SpecialId.Priority]: N.bZ.belongsToPriorityLens,
-                [T.R.SpecialId.AllAlerts]: N.bZ.belongsToAllAlerts
+                [T.R.SpecialId.Priority]: B.bZ.belongsToPriorityLens,
+                [T.R.SpecialId.AllAlerts]: B.bZ.belongsToAllAlerts
               },
               {
                 ...he.t.defaultTextFilters,
                 [T.R.SpecialId.Closed]: s.jv,
-                [T.R.SpecialId.Priority]: at(N.bZ.belongsToPriorityLens),
-                [T.R.SpecialId.AllAlerts]: at(N.bZ.belongsToAllAlerts)
+                [T.R.SpecialId.Priority]: at(B.bZ.belongsToPriorityLens),
+                [T.R.SpecialId.AllAlerts]: at(B.bZ.belongsToAllAlerts)
               }
             ),
             rt = Me.T(et, $e, tt).pipe(Re.h(M.PU)),
@@ -6619,13 +6583,13 @@
             ft = (0, Ae.is)(dt, ht),
             bt = new Ae.ad((e) => e.id === T.R.SpecialId.Priority, vt, m.O.equatable.structEq, m.O.bundlesOrd),
             wt = (0, Ae.kn)(ut, ct, (e) => e === T.R.SpecialId.Priority, ft, ht),
-            St = Ie.v.createWithInitialAlerts(bt, wt, st, (0, s.ff)(N.bZ.isMuted), ht),
+            St = Ie.v.createWithInitialAlerts(bt, wt, st, (0, s.ff)(B.bZ.isMuted), ht),
             yt = new _e.oq(e.alertsList.state, e.alertsReader, Je.view("lenses"), e.positionManager, ot, St, wt, ht, st),
             Et = i.get(),
-            Ct = _.h.create(yt.emptyState(Et).patch({ alertSource: N.l$.sidebar }));
+            Ct = _.h.create(yt.emptyState(Et).patch({ alertSource: B.l$.sidebar }));
           R.next({ kind: ie.R.ChangeLens, selectedLens: Et === T.R.SpecialId.Priority ? "priority" : "all" });
           const kt = (0, be.u0)(() => t.getCursor().index, yt),
-            _t = new le.x(e.alertsList, Ct, 3, Ye, te),
+            _t = new le.x(e.alertsList, Ct, 3, Qe, te),
             At = new b.EQ(new oe.o(e.sessionModel, _t, Ve.get().isPremium, te)),
             It = new ae.C((0, l.nD)(Ke())),
             xt = new ee.Xx(
@@ -6649,7 +6613,7 @@
               { bufferTransitions: !0, showGbPrompt: h.B.shouldShow(Ve.get()) }
             ),
             Tt = new u.y(xt.actionEvents, te, e.alertsReader),
-            Mt = new f.D(te, Oe, Ue, ze, qe),
+            Mt = new f.D(te, Ue, Oe, ze, qe),
             Rt = new P(ot, Mt, a, e.sessionModel, te),
             Pt = new p.WY(Ct, Rt, _t, ht, te, it),
             Lt = new Se.o(() => Z.right(void 0)),
@@ -6660,7 +6624,7 @@
               )
               .subscribe(M.wW($e)),
             Dt = (0, ne.xl)(Ct, st, rt, $e),
-            Nt = new ne.o$(
+            Bt = new ne.o$(
               e.alertsList,
               e.alertsReader,
               e.positionManager,
@@ -6669,15 +6633,15 @@
               Ct,
               Dt,
               m.O.getActiveItemWithAlert,
-              U,
+              O,
               !0,
               $e
             ),
-            Bt = (0, D.hp)(Ct, Nt, _.h.create(16), Lt, t, Qe),
+            Nt = (0, D.hp)(Ct, Bt, _.h.create(16), Lt, t, Ye),
             Vt = new Pe.xQ(),
             Ht = Ct.pipe(w.U((e) => e.currentLens.id)),
-            Ot = new A(e.sessionModel, Mt, At, Ve, te, He),
-            Ut = Mt.activeView
+            Ut = new A(e.sessionModel, Mt, At, Ve, te, He),
+            Ot = Mt.activeView
               .pipe(
                 w.U((e) => e.type),
                 xe.O(f.a.Type.startupPlaceholder),
@@ -6694,16 +6658,16 @@
             zt = Ct.view(V.nL.getActiveAlertHighlight(m.O.getActiveItemWithAlert)),
             qt = new ge.mN(
               t,
-              Nt,
+              Bt,
               e.alertsReader,
               zt,
               Ct.view((e) => e.currentLens.meta.filter)
             ),
-            Kt = Ne(Ct),
-            Zt = Be(qt, Ct),
+            Kt = Be(Ct),
+            Zt = Ne(qt, Ct),
             Xt = v
               .pipe(
-                O.w(
+                U.w(
                   n.fold(
                     () => j.E,
                     (t) => t.initAssistantCardActionsProcessing(xt.actionEvents, e.alertsReader, Ct, Kt, Zt)
@@ -6711,9 +6675,9 @@
                 )
               )
               .subscribe(),
-            Yt = y
+            Qt = y
               .pipe(
-                O.w(
+                U.w(
                   n.fold(
                     () => j.E,
                     (t) => t.initCardActionsProcessing(xt.actionEvents, e.alertsReader, Kt, Zt, Ct)
@@ -6721,8 +6685,8 @@
                 )
               )
               .subscribe(),
-            Qt = C.pipe(
-              O.w(
+            Yt = C.pipe(
+              U.w(
                 n.fold(
                   () => j.E,
                   (t) => t.initCardActionsProcessing(xt.actionEvents, e.alertsReader, Kt, Ct)
@@ -6734,7 +6698,7 @@
                 z,
                 n.fold(
                   () => D.CV.skip,
-                  () => N.l$.text
+                  () => B.l$.text
                 ),
                 n.some
               )
@@ -6744,20 +6708,20 @@
               (0, o.pipe)(
                 H.EQ.focusMarkByActiveAlert(
                   Ct,
-                  Nt,
+                  Bt,
                   e.alertsReader,
                   m.O.getActiveFocusableItem,
-                  Qe.getLogger("MarksEffects.focusMarkByActiveAlert")
+                  Ye.getLogger("MarksEffects.focusMarkByActiveAlert")
                 ),
-                V.nL.Effect.Producer.delayed(U)
+                V.nL.Effect.Producer.delayed(O)
               ),
-              Q(Nt.events, ht, Qe.getLogger("createOnAlertApplySideEffect")),
-              X(xt, Ct, e.alertsReader, dt, Qe),
-              Y(Ct, Jt, Pt.autoFocusEnabled),
+              Y(Bt.events, ht, Ye.getLogger("createOnAlertApplySideEffect")),
+              X(xt, Ct, e.alertsReader, dt, Ye),
+              Q(Ct, Jt, Pt.autoFocusEnabled),
               ...xt.getApplicatorEffects(),
               Pt.applicatorEffects,
               ye.R7(Ct, Lt, ht, (0, s.MZ)(xt.actionEvents), { cardsAroundActive: 10, cardsBeyondViewport: 10 }),
-              (0, o.pipe)((0, D.k9)(Ct, Bt, Jt, m.O.getActiveAlignableItem, ht), V.nL.Effect.Producer.delayed(U)),
+              (0, o.pipe)((0, D.k9)(Ct, Nt, Jt, m.O.getActiveAlignableItem, ht), V.nL.Effect.Producer.delayed(O)),
               ye.XU(Ct, Lt, ht),
               J(Vt, Ht),
               ee.dv.createSendActiveAlertFeedbacksEffect(
@@ -6765,7 +6729,7 @@
                 m.O.getActiveItemWithAlert,
                 e.alertsService,
                 e.alertsReader,
-                Qe.getLogger("CardsViewModelEffects.createSendActiveAlertFeedbacksEffect")
+                Ye.getLogger("CardsViewModelEffects.createSendActiveAlertFeedbacksEffect")
               ),
               ...$.applicatorEffects(xt.actionEvents, ht.transitionTo)
             ],
@@ -6870,7 +6834,7 @@
               )
               .subscribe(([e, t]) => Vt.next({ lensId: e, focusFirstCard: t })),
             mi = new F.X(q, K, Xe, Te),
-            gi = xt.actionEvents.pipe(W.h(B.lY.isOpenIdeasGallery)).subscribe(() => self.open((0, ce.Um)().grammarlyIdeasSales, "_blank")),
+            gi = xt.actionEvents.pipe(W.h(N.lY.isOpenIdeasGallery)).subscribe(() => self.open((0, ce.Um)().grammarlyIdeasSales, "_blank")),
             hi = (0, I.W)(je),
             vi = xt.actionEvents.subscribe(
               (0, s.ls)(
@@ -6889,7 +6853,7 @@
             cardsListScrollManager: Lt,
             upgradeViewModel: _t,
             alertProcessor: Ge,
-            assistantHeaderViewModel: Ot,
+            assistantHeaderViewModel: Ut,
             assistantLayoutViewModel: Mt,
             assistantCardListViewModel: Pt,
             lensChanged: Vt,
@@ -6898,7 +6862,7 @@
             assistantSettingsViewModel: mi,
             assistantProofitViewModel: Wt,
             assistantModalManager: At,
-            marksViewModel: Nt,
+            marksViewModel: Bt,
             gnar: te,
             positionViewModel: hi,
             user: Ve,
@@ -6909,20 +6873,20 @@
               vi.unsubscribe(),
                 xt.dispose(),
                 di.dispose(),
-                Nt.dispose(),
+                Bt.dispose(),
                 Rt.dispose(),
                 ui.unsubscribe(),
                 nt.unsubscribe(),
                 pi.unsubscribe(),
-                Ot.dispose(),
+                Ut.dispose(),
                 Pt.dispose(),
                 At.hideAll(),
                 ti.unsubscribe(),
                 jt.unsubscribe(),
-                Ut.unsubscribe(),
+                Ot.unsubscribe(),
                 gi.unsubscribe(),
-                Yt.unsubscribe(),
                 Qt.unsubscribe(),
+                Yt.unsubscribe(),
                 Xt.unsubscribe(),
                 Ft.unsubscribe(),
                 (0, o.pipe)(
@@ -6988,7 +6952,7 @@
             });
     },
     98325: (e, t, i) => {
-      i.d(t, { WY: () => U, lo: () => a });
+      i.d(t, { WY: () => O, lo: () => a });
       var a,
         s = i(57050),
         r = i(40327),
@@ -7022,32 +6986,32 @@
         L = i(35416),
         F = i(6100),
         D = i(27125),
-        N = i(5114),
-        B = i(8125),
+        B = i(5114),
+        N = i(8125),
         V = i(23239),
         H = i(94895),
-        O = i(44358);
+        U = i(44358);
       !(function (e) {
         let t;
         !(function (e) {
           (e.clickOnEmpty = "clickOnEmpty"), (e.clickOnFakeCard = "clickOnFakeCard"), (e.clickOnUpgradeCard = "clickOnUpgradeCard");
         })((t = e.Type || (e.Type = {})));
       })(a || (a = {}));
-      class U {
-        constructor(e, t, i, U, j, G) {
+      class O {
+        constructor(e, t, i, O, j, G) {
           (this._lensState = e),
             (this._predictionsVM = t),
             (this._upgradeViewModel = i),
-            (this._capabilities = U),
+            (this._capabilities = O),
             (this._gnar = j),
             (this._isYellowUnderlinesExperimentActive = G),
             (this._subs = new h.w.Keeper()),
             (this.activeAlert = this._lensState.pipe(
-              v.U((e) => (L.nL.hasCards(e) && u.R.isMainLens(e.currentLens.id) ? n.O.getActiveItemWithAlert(e.currentLens) : N.none)),
+              v.U((e) => (L.nL.hasCards(e) && u.R.isMainLens(e.currentLens.id) ? n.O.getActiveItemWithAlert(e.currentLens) : B.none)),
               v.U((e) =>
                 (0, r.pipe)(
                   e,
-                  N.fold(
+                  B.fold(
                     () => null,
                     (e) => e.activeAlert
                   )
@@ -7057,14 +7021,14 @@
             (this.successView = V.h.combine(this._lensState, this._predictionsVM.previewState, (e, t) =>
               F.v.WithSuccess.State.isInSuccess(this._capabilities)(e)
                 ? t.kind === o.fA.visible
-                  ? N.some(D.g.SuccessType.applied)
-                  : N.some(D.g.SuccessType.small)
-                : N.none
+                  ? B.some(D.g.SuccessType.applied)
+                  : B.some(D.g.SuccessType.small)
+                : B.none
             )),
             (this._premiumAlertsCount = this._upgradeViewModel.advancedAlerts.view(
               (0, s.ls)(
-                N.map((e) => e.count),
-                N.getOrElse(() => 0)
+                B.map((e) => e.count),
+                B.getOrElse(() => 0)
               )
             )),
             (this.havePremiumAlerts = this._premiumAlertsCount.view((e) => e > 0)),
@@ -7076,7 +7040,7 @@
                 w.b((e) => {
                   e.key === g.n.State.expanded
                     ? "upgrade" === e.action.kind
-                      ? ((0, O.Q)(this._gnar, {
+                      ? ((0, U.Q)(this._gnar, {
                           placement: "advancedIssues",
                           bannerType: "SeeWhatsInPremium",
                           upgradeHookName: "advancedIssues",
@@ -7113,10 +7077,10 @@
               ),
               H.Z.patchState(w.b((e) => this._upgradeHookExpanded.next("expanded" === e.kind)))
             )),
-            (this.cardListContext = new f.X(N.none)),
+            (this.cardListContext = new f.X(B.none)),
             (this.assistantActions = new y.xQ()),
             (this.autoFocusEnabled = V.h.create(!0)),
-            (this.cardListViewportHeight = V.h.create(N.none)),
+            (this.cardListViewportHeight = V.h.create(B.none)),
             (this._onUpgradeButtonMount = new E.t()),
             (this._upgradeHookExpandReason = new E.t()),
             (this._onUpgradeHookShown = new y.xQ()),
@@ -7133,7 +7097,7 @@
                   e.patch({
                     currentLens: (0, r.pipe)(
                       L.In.getActiveItem(e.currentLens),
-                      N.fold(
+                      B.fold(
                         () => e.currentLens,
                         (t) => (L.nL.hasItems(e) ? this._capabilities.unselectItem()(e.currentLens) : e.currentLens)
                       )
@@ -7163,7 +7127,7 @@
                   A.oA,
                   I.a(this.cardListContext.pipe(A.oA, x.P())),
                   T.w(([e, t]) => M.n(e, { root: t }).pipe(x.P())),
-                  C.h(B.Dw),
+                  C.h(N.Dw),
                   v.U((e) => Math.trunc(100 * e[0].intersectionRatio)),
                   R.M(this._upgradeHookExpandReason, this._premiumAlertsCount)
                 )
@@ -7175,7 +7139,7 @@
                   C.h(L.nL.hasCards),
                   v.U((e) => L.In.getActiveItem(e.currentLens)),
                   P.G(),
-                  C.h(([e, t]) => N.isNone(e) && N.isSome(t))
+                  C.h(([e, t]) => B.isNone(e) && B.isSome(t))
                 )
                 .subscribe((e) => {
                   this.autoFocusEnabled.set(!0);
@@ -7194,7 +7158,7 @@
             v.U(([e, t]) =>
               (0, r.pipe)(
                 t,
-                N.fold(
+                B.fold(
                   () => ({ kind: g.n.State.hidden }),
                   (e) => ({ kind: g.n.State.minimized, alertsCount: e.count })
                 )
@@ -7204,7 +7168,7 @@
         }
         _autoOpenUpgradeHook() {
           return this._lensState.pipe(
-            C.h((e) => (0, r.pipe)(e.currentLens.id, (0, B.Kg)(u.R.isPriority, u.R.isAllAlerts))),
+            C.h((e) => (0, r.pipe)(e.currentLens.id, (0, N.Kg)(u.R.isPriority, u.R.isAllAlerts))),
             v.U(F.v.WithSuccess.State.isInSuccess(this._capabilities)),
             I.a(this.havePremiumAlerts, (e, t) => e && t),
             b.x(),
@@ -7215,7 +7179,7 @@
             v.U(([e, t]) =>
               (0, r.pipe)(
                 t,
-                N.fold(
+                B.fold(
                   () => ({ kind: g.n.State.hidden }),
                   (t) =>
                     e
@@ -7383,16 +7347,16 @@
           (e.animatableFeed = (e, t, i, a) =>
             b.v.Capabilities.getAnimatable(e, { ...L(e, t, i, a), ...R(e, a), ...b.v.Capabilities.getHasChecksFeed() })),
           (e.hasPriorityToggle = (t, i) => b.v.WithPriority.getHasPriorityToggle({ ...R(t, i), ...e.hasAlertsQueries, ...e.disposable }));
-        const N = (t) => ["focused", "expanded"].includes(t.visualState.transition.type) && !e.disposable.isScheduledToDispose(t);
-        function B(e) {
+        const B = (t) => ["focused", "expanded"].includes(t.visualState.transition.type) && !e.disposable.isScheduledToDispose(t);
+        function N(e) {
           const i = m.Mq.getCardSelections(e);
           return { nextAlert: t(i.nextAlert, i.nextAlert), prevAlert: t(i.prevAlert, i.prevAlert) };
         }
         function V() {
           return { updateUserInput: (e) => t(u.X.updateUserInput(e), p.R.changeUserInput(e)) };
         }
-        (e.alignable = { isValidToAlign: t(N, N) }),
-          (e.alertIterator = B),
+        (e.alignable = { isValidToAlign: t(B, B) }),
+          (e.alertIterator = N),
           (e.itemReleaser = () => b.v.Capabilities.getItemReleaser()),
           (e.hasAlerts = b.v.Capabilities.getHasAlerts),
           (e.getDefaultNextAlertItemFilter = (t) =>
@@ -7441,7 +7405,7 @@
               ...e.itemReleaser(),
               ...e.verifiable(),
               ...e.cloneable(),
-              ...e.hasAlerts(B(a), a, () => e.isSelectableWithAlertItem, { ...e.hasAlertsQueries, ...e.disposable })
+              ...e.hasAlerts(N(a), a, () => e.isSelectableWithAlertItem, { ...e.hasAlertsQueries, ...e.disposable })
             };
           });
       })(a || (a = {}));
@@ -7873,13 +7837,13 @@
         L = i(17343),
         F = i(19751),
         D = i(5114),
-        N = i(19962),
-        B = i(8543),
+        B = i(19962),
+        N = i(8543),
         V = i(81531),
         H = i(94895),
-        O = i(66853);
-      const U = H.UI.Grid.make(({ slots: e, view: t }) =>
-        s.createElement(B.F.div, { style: { marginBottom: t("spacing").pipe(v.U(l.ux.rem)) } }, e.children)
+        U = i(66853);
+      const O = H.UI.Grid.make(({ slots: e, view: t }) =>
+        s.createElement(N.F.div, { style: { marginBottom: t("spacing").pipe(v.U(l.ux.rem)) } }, e.children)
       );
       function j(e) {
         return e === o.R.SpecialId.Priority ? 0.75 : 1;
@@ -7912,10 +7876,10 @@
               s.Fragment,
               null,
               l
-                ? s.createElement(B.F.div, { className: O.headerOrFooterWrapper, mount: (e) => o.lens("title").set(D.fromNullable(e)) }, l)
+                ? s.createElement(N.F.div, { className: U.headerOrFooterWrapper, mount: (e) => o.lens("title").set(D.fromNullable(e)) }, l)
                 : null,
               s.createElement(
-                B.F.div,
+                N.F.div,
                 { mount: y },
                 E.view((e) => {
                   return e
@@ -7929,7 +7893,7 @@
                             "item"
                           )((e) =>
                             (0, a.zG)(
-                              H.UI.Knot.make(U, { children: e.child }),
+                              H.UI.Knot.make(O, { children: e.child }),
                               H.UI.squash,
                               H.UI.contramapState((e) => ({ children: e, root: { spacing: s } }))
                             )
@@ -7941,7 +7905,7 @@
                   var s;
                 })
               ),
-              p ? s.createElement(B.F.div, { className: O.headerOrFooterWrapper }, p) : null
+              p ? s.createElement(N.F.div, { className: U.headerOrFooterWrapper }, p) : null
             )
           );
         }),
@@ -8003,7 +7967,7 @@
             t.view("title").pipe(
               _.w(
                 D.fold(
-                  () => S.of(N.UL.empty),
+                  () => S.of(B.UL.empty),
                   (e) => I.YC(e)
                 )
               ),
@@ -8030,10 +7994,10 @@
     95305: (e, t, i) => {
       i.d(t, { C: () => R, S: () => M });
       var a = i(57050),
-        s = i(46149),
-        r = i(27378),
-        n = i(84447),
-        o = i(73607),
+        s = i(27378),
+        r = i(84447),
+        n = i(73607),
+        o = i(36156),
         l = i(101),
         c = i(66896),
         d = i(94785),
@@ -8052,7 +8016,7 @@
         C = i(10339);
       const k = ({ upgradeViewModel: e }) => {
         const t = e.advancedAlerts.pipe(h.U(f.map((e) => ({ count: e.count, alerts: e.alerts() }))));
-        return r.createElement(
+        return s.createElement(
           b.F.div,
           { className: C.premiumLens },
           w.UI.mount(
@@ -8082,37 +8046,37 @@
         I = i(43805),
         x = i(11102);
       const T = ({ successLensViewModel: e }) => {
-          const t = (0, A.hM)((0, A.wK)(e.successState.view("type"), r.useContext(_.m.Context)));
-          return r.createElement(b.F.div, { className: x.successLens }, w.UI.mount(I.q, t));
+          const t = (0, A.hM)((0, A.wK)(e.successState.view("type"), s.useContext(_.m.Context)));
+          return s.createElement(b.F.div, { className: x.successLens }, w.UI.mount(I.q, t));
         },
-        M = r.forwardRef(function (
+        M = s.forwardRef(function (
           { state: e, cardsViewModel: t, upgradeViewModel: i, cardsListScrollManager: a, capabilities: l, upgradeHookFlow: p, ...g },
           h
         ) {
           const v = m.jw((e) => {
             let t = 7;
-            return (t = 31 * t + (0, s.AC)(e.currentLens.id)), (t = 31 * t + (u.v.WithSuccess.State.isInSuccess(l)(e) ? 1231 : 1237)), t;
+            return (t = 31 * t + (0, o.AC)(e.currentLens.id)), (t = 31 * t + (u.v.WithSuccess.State.isInSuccess(l)(e) ? 1231 : 1237)), t;
           }, e);
-          return r.createElement(R, { ref: h }, (e) =>
-            r.createElement(
+          return s.createElement(R, { ref: h }, (e) =>
+            s.createElement(
               b.F.Fragment,
               null,
-              v.view((s) => {
-                const m = s.get();
+              v.view((o) => {
+                const m = o.get();
                 return m.currentLens.id === c.R.SpecialId.Premium
-                  ? r.createElement(k, { upgradeViewModel: i })
+                  ? s.createElement(k, { upgradeViewModel: i })
                   : u.v.WithSuccess.State.isInSuccess(l)(m)
-                  ? r.createElement(T, { successLensViewModel: g.successLensViewModel })
-                  : r.createElement(
+                  ? s.createElement(T, { successLensViewModel: g.successLensViewModel })
+                  : s.createElement(
                       "div",
                       null,
-                      r.createElement(o.hz, {
-                        state: s,
+                      s.createElement(n.hz, {
+                        state: o,
                         cardsViewModel: t,
                         cardsListScrollManager: a,
                         connectorElements: e,
                         header: w.UI.mount(d.n.TogglablePanel, p),
-                        comparator: n.O.listItemOrd,
+                        comparator: r.O.listItemOrd,
                         capabilities: l
                       })
                     );
@@ -8120,10 +8084,10 @@
             )
           );
         }),
-        R = r.forwardRef(function ({ children: e, onClick: t, className: i = S.cardList, footer: s, ...n }, o) {
+        R = s.forwardRef(function ({ children: e, onClick: t, className: i = S.cardList, footer: r, ...n }, o) {
           const c = p.d.Elements.create(),
             d = (0, a.zG)(c.view("viewport"), g.oA, h.U(v.UL.fromEl));
-          return r.createElement(
+          return s.createElement(
             "div",
             {
               ...n,
@@ -8135,8 +8099,8 @@
                 c.lens("scrollConsumer").set(t), c.lens("scrollProvider").set(t), c.lens("viewport").set(t);
               }
             },
-            r.createElement(l.l.RootVirtualContainer, { name: "cardListConnector", viewport: d }, e(c)),
-            s
+            s.createElement(l.l.RootVirtualContainer, { name: "cardListConnector", viewport: d }, e(c)),
+            r
           );
         });
     },
@@ -8534,12 +8498,12 @@
       if (3075 == i.j) var L = i(22232);
       if (3075 == i.j) var F = i(8543);
       if (3075 == i.j) var D = i(23239);
-      var N = i(31584),
-        B = i(3320),
+      var B = i(31584),
+        N = i(3320),
         V = i(2479);
       if (3075 == i.j) var H = i(45828);
-      if (3075 == i.j) var O = i(72944);
-      if (3075 == i.j) var U = i(85441);
+      if (3075 == i.j) var U = i(72944);
+      if (3075 == i.j) var O = i(85441);
       if (3075 == i.j) var j = i(4694);
       if (3075 == i.j) var G = i(56143);
       const W = ({
@@ -8561,7 +8525,7 @@
         experimentClient: x,
         gnar: T
       }) => {
-        const M = new O.W(P.none),
+        const M = new U.W(P.none),
           R = (0, H.O)(T);
         (0, g.A)(
           ((e, t) =>
@@ -8584,12 +8548,12 @@
                 _.w(({ trackPlagiarismAlertsEditing: e }) => e(t.plagiarismAlertEditToLook))
               ))(S, R)
           );
-        const N = a.lazy(() =>
+        const B = a.lazy(() =>
             Promise.all([i.e(5068), i.e(2043), i.e(9366)])
               .then(i.bind(i, 73726))
               .then(({ Plagiarism: e }) => ({ default: e }))
           ),
-          U = a.createElement(
+          O = a.createElement(
             F.F.Fragment,
             null,
             M.activeSidebarPage.view((i) => {
@@ -8624,7 +8588,7 @@
                     a.createElement(
                       a.Suspense,
                       { fallback: a.createElement("div", null) },
-                      a.createElement(N, {
+                      a.createElement(B, {
                         cardsListScrollManager: u,
                         plagiarismEngine: M.unsafeGetPlagiarismVM().plagiarismEngine,
                         notificationManager: G.u,
@@ -8650,7 +8614,7 @@
         return a.createElement(
           p._,
           { className: V.sidebarContainer },
-          U,
+          O,
           "none" !== f.priorityLens.kind
             ? null
             : a.createElement(o.Z, {
@@ -8677,8 +8641,8 @@
             manager: m,
             views: d.P,
             theme: {
-              grid: { container: B.container, bottomLeft: B.bottomLeft, bottomRight: B.bottomRight, top: B.top },
-              view: { wrapper: B.notificationWrapper }
+              grid: { container: N.container, bottomLeft: N.bottomLeft, bottomRight: N.bottomRight, top: N.top },
+              view: { wrapper: N.notificationWrapper }
             }
           })
         );
@@ -8700,7 +8664,7 @@
         }) =>
           function () {
             const w = t.engine,
-              S = new s.C((0, U.nD)()),
+              S = new s.C((0, O.nD)()),
               y = D.h.create(!1),
               {
                 lensState: E,
@@ -8711,8 +8675,8 @@
                 dispose: R,
                 cardsListScrollManager: L,
                 notificationManager: F,
-                lensPreviewViewModel: N,
-                modalManager: B,
+                lensPreviewViewModel: B,
+                modalManager: N,
                 capabilities: V,
                 upgradeHookFlow: H
               } = (0, m.G)(
@@ -8733,10 +8697,8 @@
                 y,
                 b
               ),
-              O = D.h.create(P.none),
-              j = I.P(() =>
-                Promise.all([i.e(5068), i.e(4650), i.e(2812), i.e(2043), i.e(1442), i.e(6209), i.e(1196)]).then(i.bind(i, 87982))
-              )
+              U = D.h.create(P.none),
+              j = I.P(() => Promise.all([i.e(5068), i.e(4650), i.e(2812), i.e(2043), i.e(4986), i.e(1196)]).then(i.bind(i, 87982)))
                 .pipe(
                   A.U(({ setupSduiManagement: e, createPlagiarismViewModels: i, createPlagiarismEntities: a }) => {
                     const { sduiFeedbackService: s, capiClient: r, sduiManager: n } = e(l, u, w.alertsList.state);
@@ -8750,7 +8712,7 @@
                     });
                   })
                 )
-                .subscribe(x.wW(O));
+                .subscribe(x.wW(U));
             return (
               T.P.useEffectOnWillUnmount(() => {
                 w.shutdown(), j.unsubscribe(), R();
@@ -8768,17 +8730,17 @@
                   upgradeViewModel: M,
                   cardsListScrollManager: L,
                   notificationManager: F,
-                  lensPreviewViewModel: N,
-                  modalManager: B,
+                  lensPreviewViewModel: B,
+                  modalManager: N,
                   features: t.features,
                   capabilities: V,
                   upgradeHookFlow: H,
-                  plagiarismEntities: O,
+                  plagiarismEntities: U,
                   onTogglePlagiarism: (e) => y.set(e),
                   plagiarismCheckingState: v,
                   experimentClient: h
                 }),
-                a.createElement(c.L, { modalManager: B }),
+                a.createElement(c.L, { modalManager: N }),
                 a.createElement(f.X, null)
               )
             );
@@ -8812,12 +8774,12 @@
           a.createElement(
             a.Fragment,
             null,
-            a.createElement(v.o, { "data-grammarly-part": "gdocs-sidebar", className: N.wrapper }, e),
+            a.createElement(v.o, { "data-grammarly-part": "gdocs-sidebar", className: B.wrapper }, e),
             a.createElement(h.p, { thin: !0, thinItalic: !0, regular: !0, italic: !0, bold: !0, boldItalic: !0, semiBold: !0 })
           );
     },
     13299: (e, t, i) => {
-      i.d(t, { CV: () => V, hp: () => B, k9: () => H });
+      i.d(t, { CV: () => V, hp: () => N, k9: () => H });
       var a = i(57050),
         s = i(40327),
         r = i(55649),
@@ -8851,7 +8813,7 @@
         L = i(5114),
         F = i(83078),
         D = i(23239);
-      class N {
+      class B {
         constructor(e, t) {
           (this._cardPositions = e), (this._markPositions = t), (this._log = r.Y.create("SidebarAlignmentViewModelImpl"));
         }
@@ -8960,7 +8922,7 @@
             );
         }
       }
-      const B = (e, t, i, a, s, r) => new N(x.eZ.getSuperScrollMapper(e, a, D.h.create(16)), x.UC.getMapper(t, s, r));
+      const N = (e, t, i, a, s, r) => new B(x.eZ.getSuperScrollMapper(e, a, D.h.create(16)), x.UC.getMapper(t, s, r));
       var V;
       !(function (e) {
         e.skip = "skip";
@@ -9263,12 +9225,12 @@
       if (3075 == i.j) var L = i(24209);
       if (3075 == i.j) var F = i(60797);
       if (3075 == i.j) var D = i(23063);
-      if (3075 == i.j) var N = i(93508);
-      if (3075 == i.j) var B = i(55935);
+      if (3075 == i.j) var B = i(93508);
+      if (3075 == i.j) var N = i(55935);
       if (3075 == i.j) var V = i(2834);
       if (3075 == i.j) var H = i(2844);
-      if (3075 == i.j) var O = i(17343);
-      if (3075 == i.j) var U = i(28043);
+      if (3075 == i.j) var U = i(17343);
+      if (3075 == i.j) var O = i(28043);
       if (3075 == i.j) var j = i(66310);
       if (3075 == i.j) var G = i(40151);
       if (3075 == i.j) var W = i(21619);
@@ -9277,8 +9239,8 @@
       if (3075 == i.j) var K = i(92485);
       if (3075 == i.j) var Z = i(91549);
       if (3075 == i.j) var X = i(83167);
-      if (3075 == i.j) var Y = i(20594);
-      if (3075 == i.j) var Q = i(35607);
+      if (3075 == i.j) var Q = i(20594);
+      if (3075 == i.j) var Y = i(35607);
       if (3075 == i.j) var J = i(20291);
       if (3075 == i.j) var $ = i(4890);
       if (3075 == i.j) var ee = i(35416);
@@ -9305,41 +9267,41 @@
       if (3075 == i.j) var ye = i(85441);
       const Ee = (e, t, i, Ee, Ce, ke, _e, Ae, Ie, xe, Te, Me, Re, Pe, Le, Fe) => {
         const De = he.C8.Logging.getLogger("view_models"),
-          Ne = ge.h.create(A.A.defaultState),
-          Be = ge.h.create(!1),
+          Be = ge.h.create(A.A.defaultState),
+          Ne = ge.h.create(!1),
           Ve = z.t.create(z.t.defaultLensFilters, z.t.defaultTextFilters),
-          He = e.alertsList.state.pipe((t) => A.A.get(t, e.alertsList.lensesScores, Ve)).subscribe(T.wW(Ne)),
-          Oe = new we.t(Ne.view("lenses"), Ve, e.sessionModel.scoreStatus),
-          Ue = (0, K.$y)((0, y.a)(t).getContents),
+          He = e.alertsList.state.pipe((t) => A.A.get(t, e.alertsList.lensesScores, Ve)).subscribe(T.wW(Be)),
+          Ue = new we.t(Be.view("lenses"), Ve, e.sessionModel.scoreStatus),
+          Oe = (0, K.$y)((0, y.a)(t).getContents),
           je = {
             features: (() => {
               const e = new Set();
-              return e.add(Y.IG.Features.showCardLabelInOutcomes), e;
+              return e.add(Q.IG.Features.showCardLabelInOutcomes), e;
             })(),
             cardLayoutDensityMode: $.j.Density.compact,
             shouldAnimateAlertApply: a.jv,
             cardVisualMode: ge.h.create($.j.CardVisualMode.RegularLightMode)
           },
-          Ge = (0, Y.Ls)(Ue, e.alertsReader, je, () => M.of(ce.none), e.mutingAlertsReader),
-          We = Z.R.ItemFactory.create(Ue, e.mutingAlertsReader, je, () => M.of(ce.none)),
-          ze = l.O.getCapabilities(Ge, We, e.alertsReader, Ue),
+          Ge = (0, Q.Ls)(Oe, e.alertsReader, je, () => M.of(ce.none), e.mutingAlertsReader),
+          We = Z.R.ItemFactory.create(Oe, e.mutingAlertsReader, je, () => M.of(ce.none)),
+          ze = l.O.getCapabilities(Ge, We, e.alertsReader, Oe),
           qe = new se.gi(l.O.equatable.structEq, l.O.defaultOrd),
           Ke = (0, se.is)(Ge, ze),
           Ze = re.v.createWithInitialAlerts(qe, Ke, Ve, (0, a.ff)(k.bZ.isMuted), ze),
-          Xe = new ae.oq(e.alertsList.state, e.alertsReader, Ne.view("lenses"), e.positionManager, Oe, Ze, Ke, ze, Ve),
-          Ye = _.R.SpecialId.AllAlerts;
+          Xe = new ae.oq(e.alertsList.state, e.alertsReader, Be.view("lenses"), e.positionManager, Ue, Ze, Ke, ze, Ve),
+          Qe = _.R.SpecialId.AllAlerts;
         i.next({ kind: c.R.ChangeLens, selectedLens: "all" });
-        const Qe = ge.h.create(Xe.emptyState(Ye)),
-          Je = Qe.pipe(
+        const Ye = ge.h.create(Xe.emptyState(Qe)),
+          Je = Ye.pipe(
             R.U((e) => e.currentLens.id),
             P.h(n.U.SelectedLens.filter)
           ).subscribe((e) => Ae.set(e)),
           $e = (0, X.u0)(() => t.getCursor().index, Xe),
-          et = new v.x(e.alertsList, Qe, 5, Fe, Ce),
-          tt = new f.r(e.alertsList, Qe),
+          et = new v.x(e.alertsList, Ye, 5, Fe, Ce),
+          tt = new f.r(e.alertsList, Ye),
           it = Re.isGateEnabled(b.K.StudentsOFEGdocs) || Re.isGateEnabled(b.K.StudentsOFEInternal),
           at = new E.EQ(new Se.o(e.sessionModel, et, ke.isPremium, Ce, it)),
-          st = new h.$(Qe, Oe, i, at, t, Ie, Ce, ne.z.all),
+          st = new h.$(Ye, Ue, i, at, t, Ie, Ce, ne.z.all),
           rt = new q.Xx(
             { flush: () => t.flushChanges() },
             st.events,
@@ -9356,7 +9318,7 @@
             () => !1,
             l.O.getActiveItemWithAlert,
             ze,
-            Qe,
+            Ye,
             new d.C((0, ye.nD)()),
             { bufferTransitions: !0, showGbPrompt: !1 },
             m.D.updateCitationStyle(e.sessionModel, Ce)
@@ -9371,15 +9333,15 @@
                       F.oA,
                       R.U((e) => ({ kind: I.n.State.expanded, showCloseButton: !0, alertsState: { count: e.count, alerts: e.alerts() } })),
                       D.q(1),
-                      N.O({ kind: I.n.State.minimized, alertsCount: 0 })
+                      B.O({ kind: I.n.State.minimized, alertsCount: 0 })
                     ),
-                    (0, x.d)(et.advancedAlerts)(e).pipe(B.T(1))
+                    (0, x.d)(et.advancedAlerts)(e).pipe(N.T(1))
                   )
               : (0, x.d)(et.advancedAlerts),
             ve.Z.extendActions(
               V.b((e) => {
-                e.key === I.n.State.minimized && "onClick" === e.action.action && ot && Be.set(!0),
-                  e.key === I.n.State.expanded && "collapse" === e.action.kind && Be.set(!1),
+                e.key === I.n.State.minimized && "onClick" === e.action.action && ot && Ne.set(!0),
+                  e.key === I.n.State.expanded && "collapse" === e.action.kind && Ne.set(!1),
                   e.key === I.n.State.expanded &&
                     "upgrade" === e.action.kind &&
                     (et.trackUpgradeButtonClick({
@@ -9400,17 +9362,17 @@
               })
             )
           ),
-          ct = H.aj([Be, Le]).pipe(O.h(T.PU)),
+          ct = H.aj([Ne, Le]).pipe(U.h(T.PU)),
           dt = tt.freeAlerts
             .pipe(
               R.U((e) => {
                 var t;
                 return !(null === (t = (0, s.pipe)(e, de.Fc)) || void 0 === t ? void 0 : t.count) && ot;
               }),
-              U.x()
+              O.x()
             )
-            .subscribe(T.wW(Be)),
-          ut = (0, g.xl)(Qe, Ve, ct, Be, ge.h.create(!1)),
+            .subscribe(T.wW(Ne)),
+          ut = (0, g.xl)(Ye, Ve, ct, Ne, ge.h.create(!1)),
           pt = H.aj(ut, Le).pipe(R.U(([e, t]) => (t ? a.jv : e))),
           mt = new g.o$(
             e.alertsList,
@@ -9418,27 +9380,27 @@
             e.positionManager,
             e.alertsService,
             t,
-            Qe,
+            Ye,
             pt,
             l.O.getActiveItemWithAlert,
             xe,
             !1,
-            Be
+            Ne
           ),
-          gt = new Q.o(() => ue.right(void 0)),
-          ht = (0, fe.hp)(Qe, mt, ge.h.create(16), gt, t, De),
-          vt = Qe.view(ee.nL.getActiveAlertHighlight(l.O.getActiveItemWithAlert)),
+          gt = new Y.o(() => ue.right(void 0)),
+          ht = (0, fe.hp)(Ye, mt, ge.h.create(16), gt, t, De),
+          vt = Ye.view(ee.nL.getActiveAlertHighlight(l.O.getActiveItemWithAlert)),
           ft = new W.mN(
             t,
             mt,
             e.alertsReader,
             vt,
-            Qe.view((e) => e.currentLens.meta.filter)
+            Ye.view((e) => e.currentLens.meta.filter)
           ),
           bt = new C.y(ge.h.create([]), u.I.createFactory(), 3, 5e3),
           wt = [
             q.dv.changeAlertEffect(
-              Qe,
+              Ye,
               rt,
               Ge,
               l.O.getActiveItemWithAlert,
@@ -9448,12 +9410,12 @@
               De.getLogger("CardsViewModelEffects.changeAlertEffect")
             ),
             ...rt.getApplicatorEffects(),
-            J.R7(Qe, gt, ze, (0, a.MZ)(rt.actionEvents), { cardsAroundActive: 25, cardsBeyondViewport: 25 }),
-            be.A7(ft, Qe),
-            (0, fe.k9)(Qe, ht, ge.h.create(ce.none), l.O.getActiveAlignableItem, ze),
-            J.XU(Qe, gt, ze),
+            J.R7(Ye, gt, ze, (0, a.MZ)(rt.actionEvents), { cardsAroundActive: 25, cardsBeyondViewport: 25 }),
+            be.A7(ft, Ye),
+            (0, fe.k9)(Ye, ht, ge.h.create(ce.none), l.O.getActiveAlignableItem, ze),
+            J.XU(Ye, gt, ze),
             oe.EQ.focusMarkByActiveAlert(
-              Qe,
+              Ye,
               mt,
               e.alertsReader,
               l.O.getActiveFocusableItem,
@@ -9461,14 +9423,14 @@
             ),
             be.uo(Ee, bt),
             q.dv.createSendActiveAlertFeedbacksEffect(
-              Qe,
+              Ye,
               l.O.getActiveItemWithAlert,
               e.alertsService,
               e.alertsReader,
               De.getLogger("CardsViewModelEffects.createSendActiveAlertFeedbacksEffect")
             ),
-            be.Ng(Oe, Qe, ze),
-            be.CH(Oe, Qe),
+            be.Ng(Ue, Ye, ze),
+            be.CH(Ue, Ye),
             st.lensChangeEffect
           ],
           St =
@@ -9488,9 +9450,9 @@
           ),
           kt = te.v.Items.getItemsPositionsUpdateTransformer(ze),
           _t = (0, a.ls)(Ct, me.L9(kt)),
-          At = new ie.l(Qe, Xe, e.alertsReader, e.alertsService, wt, l.O.getActiveItemWithAlert, _t),
+          At = new ie.l(Ye, Xe, e.alertsReader, e.alertsService, wt, l.O.getActiveItemWithAlert, _t),
           It = new le.L(
-            Qe,
+            Ye,
             e.sessionModel,
             a.Q1,
             ze,
@@ -9504,7 +9466,7 @@
             j.w(
               ce.fold(
                 () => G.E,
-                (t) => t.initCardActionsProcessing(rt.actionEvents, e.alertsReader, (0, o.aU)(Qe), (0, o.X5)(ft, Qe), Qe)
+                (t) => t.initCardActionsProcessing(rt.actionEvents, e.alertsReader, (0, o.aU)(Ye), (0, o.X5)(ft, Ye), Ye)
               )
             )
           ).subscribe(),
@@ -9515,14 +9477,14 @@
             )
           );
         return {
-          lensState: Qe,
+          lensState: Ye,
           lensStateManager: At,
           cardsViewModel: rt,
           marksViewModel: mt,
           navigationViewModel: st,
           successLensViewModel: It,
           alignmentViewModel: ht,
-          lensPreviewViewModel: Oe,
+          lensPreviewViewModel: Ue,
           cardsListScrollManager: gt,
           notificationManager: bt,
           upgradeViewModel: et,
@@ -9714,7 +9676,7 @@
       }
     },
     14592: (e, t, i) => {
-      i.d(t, { gM: () => X, o$: () => Q, xl: () => Y });
+      i.d(t, { gM: () => X, o$: () => Y, xl: () => Q });
       var a,
         s = i(57050),
         r = i(40327),
@@ -9748,12 +9710,12 @@
         L = i(16118),
         F = i(40151),
         D = i(2834),
-        N = i(60797),
-        B = i(24713),
+        B = i(60797),
+        N = i(24713),
         V = i(92843),
         H = i(71249),
-        O = i(8125),
-        U = i(5114),
+        U = i(8125),
+        O = i(5114),
         j = i(95195),
         G = i(83078),
         W = i(55415),
@@ -9828,7 +9790,7 @@
             k.U(([e, t, i, a, s, r]) => (i || a ? (t) => !e.has(t.id) : s || r ? (e) => t.has(e.id) : (i) => t.has(i.id) && !e.has(i.id)))
           );
         },
-        Y = (e, t, i, a = q.h.create(!1), s = q.h.create(!1)) =>
+        Q = (e, t, i, a = q.h.create(!1), s = q.h.create(!1)) =>
           I.T(
             e.pipe(
               x.h((e) => e.currentLens.id !== p.R.SpecialId.Premium),
@@ -9851,13 +9813,13 @@
             M.M(a, s),
             k.U(([e, i, a]) =>
               i
-                ? (0, O.W9)(m.bZ.isPremium, m.bZ.isHidden)
+                ? (0, U.W9)(m.bZ.isPremium, m.bZ.isHidden)
                 : a
                 ? m.bZ.isPlagiarism
                 : t.alertVisibleInText(e.currentLens.id, E.v.WithPriority.nonPriorityAlertsVisible(e))
             )
           );
-      class Q {
+      class Y {
         constructor(e, t, i, c, u, f, E, _, A = R.of(void 0), I = !1, T = q.h.create(!1)) {
           (this._alertList = e),
             (this._alertsReader = t),
@@ -9870,18 +9832,18 @@
             (this._readyObs = A),
             (this._emulateAppliedAlertAnimation = I),
             (this._showYellowUnderlines = T),
-            (this._highlightedAlert = U.none),
-            (this._focusedAlert = U.none),
+            (this._highlightedAlert = O.none),
+            (this._focusedAlert = O.none),
             (this._marksMap = new Map()),
             (this._subs = new v.w.Keeper()),
             (this.events = new P.xQ()),
             (this._alertStateDiff = this._alertList.state.pipe(
               L.G(),
               k.U(([e, t]) => h.p.diff(e, t)),
-              x.h((0, O.ff)(V.v.isEmpty))
+              x.h((0, U.ff)(V.v.isEmpty))
             )),
             (this._alertsFilter = q.h.create(s.jv)),
-            (this._filteredAlerts = q.h.create(U.none)),
+            (this._filteredAlerts = q.h.create(O.none)),
             (this._ready = !1),
             (this._log = K.C8.Logging.getLogger("marks_view_model")),
             (this.unhighlightAlertHighlight = () => {
@@ -9890,48 +9852,49 @@
             (this.getMarkByAlert = (e) =>
               (0, r.pipe)(
                 this._marksMap.get(e.alert.id),
-                U.fromNullable,
-                U.chain((t) => t.markByIndex(e.highlightIndex))
+                O.fromNullable,
+                O.chain((t) => t.markByIndex(e.highlightIndex))
               )),
             (this.getAlertByMark = (e) =>
               (0, r.pipe)(
                 this._alertsReader.getRegistered(g.P.fromRangeIdToAlertId(e.id)),
-                U.chain((t) =>
+                O.chain((t) =>
                   (0, r.pipe)(
                     C.$A.getHighlightIndex(t, e.range()),
                     j.map((e) => ({ alert: S.$.fromModel(t), highlightIndex: e })),
-                    U.fromEither
+                    O.fromEither
                   )
                 )
               )),
             (this.ensureAlertHighlightInViewport = (e, t, i) =>
               (0, r.pipe)(
                 this.getMarkByAlert(e),
-                U.fold(
+                O.fold(
                   () => F.E,
                   (e) => this._ded.scrollToMark(e.id, { animate: i, paddingTop: t })
                 )
               )),
-            (this._createMA = (e, t) => {
-              const i = t && m.bZ.isPremium(e) && m.bZ.isHidden(e),
-                c = G.MH(e.rawId),
+            (this._createMA = (e, t, i) => {
+              const c = t && m.bZ.isPremium(e) && m.bZ.isHidden(e),
+                u = G.MH(e.rawId),
                 {
-                  impact: u,
-                  cardLayout: { outcome: h },
-                  extra_properties: v
+                  impact: h,
+                  cardLayout: { outcome: v },
+                  extra_properties: f
                 } = e.toRawAlert(),
-                f = n.M.getHighlightColor(
-                  { outcome: l.DD.createOutcomeType(h), impact: u, extraProperties: v, patternName: e.patternName },
+                E = n.M.getHighlightColor(
+                  { inline: e.inline, outcome: l.DD.createOutcomeType(v), impact: h, extraProperties: f, patternName: e.patternName },
+                  c,
                   i
                 ),
-                E = this._lensState.view(y.nL.getActiveItem(o.O.getActiveItemWithAlert)).view(
+                k = this._lensState.view(y.nL.getActiveItem(o.O.getActiveItemWithAlert)).view(
                   (0, s.ls)(
-                    U.filter((t) => t.activeAlert.id === e.id),
-                    U.map((e) => e.activeHighlightIndex),
-                    U.getOrElse(() => 0)
+                    O.filter((t) => t.activeAlert.id === e.id),
+                    O.map((e) => e.activeHighlightIndex),
+                    O.getOrElse(() => 0)
                   )
                 ),
-                k = (e) => (t, i) => {
+                _ = (e) => (t, i) => {
                   const a = g.x.isEnclosingView(t),
                     s = e.getHighlightRanges().some(g.x.isEnclosingView),
                     o = g.x.isMainView(t),
@@ -9941,8 +9904,8 @@
                       (0, r.pipe)(
                         c,
                         H.cx((e) => e.start === t.start && e.end === t.end),
-                        U.getOrElse(() => 0)
-                      ) === E.get(),
+                        O.getOrElse(() => 0)
+                      ) === k.get(),
                     u = m.bZ.isSuperAlert(e);
                   return n.M.getHighlightDisplayFormat({
                     isEnclosing: a,
@@ -9954,28 +9917,28 @@
                     belongsToSuperAlert: u
                   });
                 },
-                _ = p.R.getSortOrder(e.lensType),
-                A = new w.v(
+                A = p.R.getSortOrder(e.lensType),
+                I = new w.v(
                   (t) =>
                     (0, r.pipe)(
                       this._alertsReader.getById(e.id),
-                      U.alt(() => (t && this._log.warn("Could not find alert for provided MarkAlert", { alert: e, source: t }), U.some(e))),
-                      U.map(S.$.fromModel),
+                      O.alt(() => (t && this._log.warn("Could not find alert for provided MarkAlert", { alert: e, source: t }), O.some(e))),
+                      O.map(S.$.fromModel),
                       G.MH
                     ),
                   this._alertsService,
                   this._alertsService,
                   (e) => this._ded.changeMarks(e),
-                  a.create(c, () => d.sO.Change.VisualState.Source.api, f, k(e), null, _),
-                  a.update(c, () => J.getAlertSource(e, this._lensState.get(), this._getActiveItemWithAlert), f, k(e), null, _),
-                  a.remove(c),
+                  a.create(u, () => d.sO.Change.VisualState.Source.api, E, _(e), null, A),
+                  a.update(u, () => J.getAlertSource(e, this._lensState.get(), this._getActiveItemWithAlert), E, _(e), null, A),
+                  a.remove(u),
                   (t) => {
                     t.to.visualState === b.Bd.applied &&
                       (this.events.next({ type: C.ay.Type.AppliedAlertAnimationFinished, alert: e }),
                       this._handleRemovedAlerts([e]).forEach((e) => e.apply()));
                   }
                 );
-              return this._marksMap.set(e.id, A), A;
+              return this._marksMap.set(e.id, I), I;
             }),
             (this._handleRemovedAlerts = (e) =>
               e.map(({ id: e }) => {
@@ -9987,15 +9950,15 @@
                 .map((e) =>
                   m.bZ.isRegistered(e) && !m.bZ.isMuted(e)
                     ? (0, r.pipe)(
-                        U.fromNullable(this._marksMap.get(e.id)),
-                        U.fold(
+                        O.fromNullable(this._marksMap.get(e.id)),
+                        O.fold(
                           () => (this._alertsFilter.get()(e) ? this._createMA(e, t) : null),
                           (e) => (e.scheduleUpdate(), b.Oe.isOrWillBe(b.Bd.success)(e) && e.scheduleApply(b.Bd.highlighted), e)
                         )
                       )
                     : (0, r.pipe)(
-                        U.fromNullable(this._marksMap.get(e.id)),
-                        U.fold(
+                        O.fromNullable(this._marksMap.get(e.id)),
+                        O.fold(
                           () => {},
                           (t) => (
                             e.allowUpdate && m.bZ.isCapiDone(e) && m.bZ.isRated(e) && b.Oe.isOrWillBe(b.Bd.highlighted)(t)
@@ -10034,7 +9997,7 @@
                       (t.state.reason === m.bZ.State.Removed.Reason.capiDone || t.state.reason === m.bZ.State.Removed.Reason.textChange),
                     s.jv
                   ),
-                  (0, O.ff)(V.v.isEmpty)
+                  (0, U.ff)(V.v.isEmpty)
                 )
               ),
               D.b(() => e())
@@ -10044,25 +10007,25 @@
           return this._ready
             ? (0, r.pipe)(
                 this._marksMap.get(e.alert.id),
-                U.fromNullable,
-                U.map((t) => {
-                  (this._focusedAlert = U.some(e.alert.id)), t.scheduleApply(b.Bd.highlighted), t.scheduleForceUpdate(), t.apply();
+                O.fromNullable,
+                O.map((t) => {
+                  (this._focusedAlert = O.some(e.alert.id)), t.scheduleApply(b.Bd.highlighted), t.scheduleForceUpdate(), t.apply();
                 }),
                 j.fromOption(() => new Error("Unknown alert")),
                 j.map(() => ({
                   dispose: () => {
-                    U.exists((t) => t === e.alert.id)(this._focusedAlert) && (this._highlightedAlert = U.none),
+                    O.exists((t) => t === e.alert.id)(this._focusedAlert) && (this._highlightedAlert = O.none),
                       (0, r.pipe)(
                         this._marksMap.get(e.alert.id),
-                        U.fromNullable,
-                        U.filter(
+                        O.fromNullable,
+                        O.filter(
                           () =>
                             !(0, r.pipe)(
                               this._highlightedAlert,
-                              U.exists((t) => t === e.alert.id)
+                              O.exists((t) => t === e.alert.id)
                             )
                         ),
-                        U.map((e) => {
+                        O.map((e) => {
                           e.scheduleApply(b.Bd.visible), e.apply();
                         })
                       );
@@ -10075,25 +10038,25 @@
           return this._ready
             ? (0, r.pipe)(
                 this._marksMap.get(e.id),
-                U.fromNullable,
-                U.map((t) => {
-                  (this._highlightedAlert = U.some(e.id)), t.scheduleApply(b.Bd.highlighted), t.apply();
+                O.fromNullable,
+                O.map((t) => {
+                  (this._highlightedAlert = O.some(e.id)), t.scheduleApply(b.Bd.highlighted), t.apply();
                 }),
                 j.fromOption(() => new Error("Unknown alert")),
                 j.map(() => ({
                   dispose: () => {
-                    U.exists((t) => t === e.id)(this._highlightedAlert) && (this._highlightedAlert = U.none),
+                    O.exists((t) => t === e.id)(this._highlightedAlert) && (this._highlightedAlert = O.none),
                       (0, r.pipe)(
                         this._marksMap.get(e.id),
-                        U.fromNullable,
-                        U.filter(
+                        O.fromNullable,
+                        O.filter(
                           () =>
                             !(0, r.pipe)(
                               this._focusedAlert,
-                              U.exists((t) => t === e.id)
+                              O.exists((t) => t === e.id)
                             )
                         ),
-                        U.map((e) => {
+                        O.map((e) => {
                           e.scheduleApply(b.Bd.visible), e.apply();
                         })
                       );
@@ -10106,10 +10069,10 @@
           return this._ready
             ? (0, r.pipe)(
                 this._marksMap.get(e.alert.id),
-                U.fromNullable,
-                U.chain((t) => t.markByIndex(e.highlightIndex)),
-                U.chain((e) => U.fromEither(e.range())),
-                U.fold(
+                O.fromNullable,
+                O.chain((t) => t.markByIndex(e.highlightIndex)),
+                O.chain((e) => O.fromEither(e.range())),
+                O.fold(
                   () => j.left(new Error("Cannot find mark for given range")),
                   (e) => {
                     const { index: i, length: a } = this._ded.getCursor();
@@ -10129,7 +10092,7 @@
         _listenAlertsUpdates() {
           const e = (e) => ({ activeAlerts: [], updatedAlerts: [], removedAlerts: [], acceptedAlerts: [], hiddenMarkAlerts: [], ...e });
           return I.T(
-            this._filteredAlerts.pipe(N.cp(({ visible: t, hidden: i }) => R.of(e({ activeAlerts: W.qo(t), removedAlerts: W.qo(i) })))),
+            this._filteredAlerts.pipe(B.cp(({ visible: t, hidden: i }) => R.of(e({ activeAlerts: W.qo(t), removedAlerts: W.qo(i) })))),
             this._alertStateDiff.pipe(
               M.M(this._alertsFilter),
               k.U(([t, i]) =>
@@ -10153,9 +10116,9 @@
                   (r = r.concat(
                     e
                       .filter(
-                        (0, O.W9)(
-                          (0, O.Kg)((e) => s && m.bZ.isPremium(e) && m.bZ.isHidden(e), (0, O.ff)(m.bZ.isPremium)),
-                          (e) => U.isSome(e.rawId)
+                        (0, U.W9)(
+                          (0, U.Kg)((e) => s && m.bZ.isPremium(e) && m.bZ.isHidden(e), (0, U.ff)(m.bZ.isPremium)),
+                          (e) => O.isSome(e.rawId)
                         )
                       )
                       .map((e) => {
@@ -10188,7 +10151,7 @@
         _listenRangesUpdates() {
           return this._positionManager.rangeChanged
             .pipe(
-              B.j("changed"),
+              N.j("changed"),
               k.U((e) => e.filter((e) => g.P.is(e) && g.x.isVisible(e) && this._marksMap.has(e.meta.alertId))),
               x.h((e) => e.length > 0)
             )
@@ -10197,8 +10160,8 @@
                   (e, t) =>
                     (0, r.pipe)(
                       this._alertsReader.getById(t.meta.alertId),
-                      U.chain((e) => this._alertsReader.getRegistered(e.id)),
-                      U.chain((e) => U.fromNullable(this._marksMap.get(e.id))),
+                      O.chain((e) => this._alertsReader.getRegistered(e.id)),
+                      O.chain((e) => O.fromNullable(this._marksMap.get(e.id))),
                       G.bw((t) => e.set(t.alert.id, t)),
                       (0, s.a9)(e)
                     ),
@@ -10234,7 +10197,7 @@
                       e(i.alert) && m.bZ.isRegistered(i.alert) ? (t.visible[i.alert.id] = i.alert) : (t.hidden[i.alert.id] = i.alert), t
                     )
                   ),
-                  (e) => U.some(e)
+                  (e) => O.some(e)
                 )
               )
             )
@@ -10261,7 +10224,7 @@
             y.nL.hasCards(i)
               ? (0, r.pipe)(
                   a(i.currentLens),
-                  U.fold(
+                  O.fold(
                     () => d.sO.Change.VisualState.Source.api,
                     (a) => (a.activeAlert.id === t.id ? e.toSidebarFluidMarkSource(i.alertSource) : d.sO.Change.VisualState.Source.api)
                   )
@@ -10733,7 +10696,7 @@
       };
     },
     8096: (e, t, i) => {
-      i.d(t, { z: () => c });
+      i.d(t, { z: () => p });
       var a = i(27378),
         s = i(31542);
       const r = ({ children: e, style: t, dataGrammarlyPart: i = "ui-kit-iframe", ...r }) => {
@@ -10754,29 +10717,45 @@
       };
       var n = i(29927),
         o = i(35111),
-        l = i.n(o);
-      const c = ({ placeholder: e, onChange: t, ariaLabel: i, iframeTitle: s, className: o }) => {
-        const [c, d] = a.useState("");
-        return (
-          a.useEffect(() => {
-            t(c);
-          }, [c]),
-          a.createElement(
-            r,
-            { dataGrammarlyPart: "ui-kit-textbox", className: o, style: { width: "100%", height: "100%" }, title: s },
-            a.createElement(n.b, null, l().__css),
-            a.createElement("div", {
-              role: "textbox",
-              className: l().textBox,
-              contentEditable: !0,
-              onInput: (e) => d(e.target.innerText),
-              "data-placeholder": e,
-              "aria-placeholder": e,
-              "aria-label": i
-            })
-          )
-        );
-      };
+        l = i.n(o),
+        c = i(19374),
+        d = i(9205);
+      const u = ({ placeholder: e, ariaLabel: t, onChange: i }) => {
+          const [s, r] = a.useState("");
+          return (
+            a.useEffect(() => {
+              i(s);
+            }, [s]),
+            a.createElement(
+              a.Fragment,
+              null,
+              a.createElement(n.b, null, l().__css),
+              a.createElement("div", {
+                role: "textbox",
+                className: l().textBox,
+                contentEditable: !0,
+                onInput: (e) => {
+                  r(e.target.innerText);
+                },
+                "data-placeholder": e,
+                "aria-placeholder": e,
+                "aria-label": t
+              })
+            )
+          );
+        },
+        p = ({ placeholder: e, onChange: t, ariaLabel: i, iframeTitle: s, className: n }) =>
+          (0, c.E)().experimentClient.isGateEnabled(d.K.CentralizeStopEventPropagation)
+            ? a.createElement(
+                "div",
+                { className: n, style: { width: "100%", height: "128px", maxHeight: "inherit" } },
+                a.createElement(u, { onChange: t, ariaLabel: i, placeholder: e })
+              )
+            : a.createElement(
+                r,
+                { dataGrammarlyPart: "ui-kit-textbox", className: n, style: { width: "100%", height: "100%" }, title: s },
+                a.createElement(u, { onChange: t, ariaLabel: i, placeholder: e })
+              );
     },
     57226: (e, t, i) => {
       i.d(t, { d: () => s });
@@ -10805,7 +10784,7 @@
         a.createElement(
           s.z,
           { kind: "premium", onClick: e, dataGrammarlyPart: t, ...(0, o.Sh)(c().premiumButton, i) },
-          a.createElement(r.J, { icon: n.O, variant: "premium", accessibilityLabel: "" }),
+          a.createElement(r.J, { icon: n.O, variant: "premium", accessibilityLabel: "", size: "large" }),
           a.createElement("span", null, "Unlock Premium")
         );
     },
@@ -11597,7 +11576,7 @@
         );
     },
     3736: (e, t, i) => {
-      i.d(t, { a: () => B });
+      i.d(t, { a: () => N });
       var a = i(42356),
         s = i(27378),
         r = i(49405),
@@ -11686,7 +11665,16 @@
           s.createElement(
             "div",
             { className: r.cheetahLabelAndButton },
-            s.createElement("div", { className: r.cheetahLabel }, s.createElement("b", null, "GrammarlyGO")),
+            s.createElement(
+              "div",
+              null,
+              s.createElement("div", { className: r.cheetahLabel }, s.createElement("b", null, "Generative AI")),
+              s.createElement(
+                "div",
+                { className: r.llamaDescription },
+                "Brainstorm, write, and rewrite with Grammarly’s generative AI assistance."
+              )
+            ),
             s.createElement(
               c.z,
               {
@@ -11728,12 +11716,11 @@
               dataGrammarlyPart: "settings-toggle-include-serengeti-context",
               isKeyboardAccessible: e.isKeyboardAccessible
             },
-            "Use organizational context in",
+            "Use organizational context",
             " ",
             s.createElement(
               "span",
               { className: r.nobr },
-              "GrammarlyGO ",
               s.createElement(d.v, { browser: (0, v.qs)(), color: "green", title: "internal" })
             )
           ),
@@ -11780,7 +11767,7 @@
             s.createElement("br", null),
             e.domain
           ),
-        N = ({ showReportBugButton: e, ...t }) =>
+        B = ({ showReportBugButton: e, ...t }) =>
           s.createElement(
             "div",
             { "data-grammarly-part": "debugMenu" },
@@ -11877,8 +11864,8 @@
               )
             )
           ),
-        B = (e) => {
-          var t, i, r, d, p, m, B, V, H, O, U, j, G, W, z, q, K, Z, X, Y, Q;
+        N = (e) => {
+          var t, i, r, d, p, m, N, V, H, U, O, j, G, W, z, q, K, Z, X, Q, Y;
           const {
             actions: J,
             activeTab: $,
@@ -11999,7 +11986,7 @@
                 null,
                 s.createElement(M, { manageButtonClick: () => e.openUrl((0, v.Um)().featuresSettings) }),
                 s.createElement(R, {
-                  label: s.createElement(s.Fragment, null, "Show GrammarlyGO on text selection"),
+                  label: s.createElement(s.Fragment, null, "Show on text selection"),
                   enabled:
                     !1 !==
                       (null === (r = null === (i = te.cheetah) || void 0 === i ? void 0 : i.status) || void 0 === r
@@ -12015,23 +12002,23 @@
                         : m.inlineRewriteEnabled),
                   disabled:
                     !1 ===
-                    (null === (V = null === (B = te.cheetah) || void 0 === B ? void 0 : B.status) || void 0 === V
+                    (null === (V = null === (N = te.cheetah) || void 0 === N ? void 0 : N.status) || void 0 === V
                       ? void 0
                       : V.cheetahEnabled),
                   toggle: (e) => J.cheetahToggleInlineRewrite(e),
                   isKeyboardAccessible: e.isKeyboardAccessible
                 }),
                 s.createElement(R, {
-                  label: s.createElement(s.Fragment, null, "Show GrammarlyGO for quick replies"),
+                  label: s.createElement(s.Fragment, null, "Show for quick replies"),
                   enabled:
                     !1 !==
-                      (null === (O = null === (H = te.cheetah) || void 0 === H ? void 0 : H.status) || void 0 === O
+                      (null === (U = null === (H = te.cheetah) || void 0 === H ? void 0 : H.status) || void 0 === U
                         ? void 0
-                        : O.cheetahEnabled) &&
+                        : U.cheetahEnabled) &&
                     !1 !==
                       (null ===
                         (G =
-                          null === (j = null === (U = te.cheetah) || void 0 === U ? void 0 : U.status) || void 0 === j
+                          null === (j = null === (O = te.cheetah) || void 0 === O ? void 0 : O.status) || void 0 === j
                             ? void 0
                             : j.entryPointsConfig) || void 0 === G
                         ? void 0
@@ -12044,7 +12031,7 @@
                   toggle: (e) => J.cheetahToggleInlineQuickReply(e),
                   isKeyboardAccessible: e.isKeyboardAccessible
                 }),
-                s.createElement("div", { className: _.separator })
+                !fe && s.createElement("div", { className: _.separator })
               ),
             fe &&
               s.createElement(
@@ -12122,9 +12109,9 @@
             }),
             (!ve ||
               !1 ===
-                (null === (Q = null === (Y = te.cheetah) || void 0 === Y ? void 0 : Y.status) || void 0 === Q
+                (null === (Y = null === (Q = te.cheetah) || void 0 === Q ? void 0 : Q.status) || void 0 === Y
                   ? void 0
-                  : Q.cheetahEnabled)) &&
+                  : Y.cheetahEnabled)) &&
               s.createElement(
                 s.Fragment,
                 null,
@@ -12150,7 +12137,7 @@
             }),
             Ae && s.createElement(g.Z, { openGBLanding: re, showTitle: "popup" === oe, showBackground: "popup" === oe }),
             (te.isDebugMenuVisible || _e) &&
-              s.createElement(N, {
+              s.createElement(B, {
                 isAdvancedEnabled: te.advancedHistoryLoggerEnabled,
                 isEnabled: te.historyLoggerEnabled,
                 advancedHistoryLoggerEnabledUntil: te.advancedHistoryLoggerEnabledUntil,

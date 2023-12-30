@@ -627,7 +627,6 @@
                     return chatRoom.scheduledMeeting ? null : chatRoom.trigger("onNewMeetingReady");
                   }
                   chatRoom.trigger("showGetChatLinkDialog");
-                  affiliateUI.registeredDialog.show();
                 });
               }
             })

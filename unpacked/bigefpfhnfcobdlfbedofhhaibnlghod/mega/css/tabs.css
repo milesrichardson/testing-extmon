@@ -20,6 +20,7 @@
   flex-wrap: wrap;
   height: 48px;
   min-width: 700px;
+  padding-left: 20px;
 }
 .gallery-tabs-bl .gallery-section-tabs {
   padding-top: 14px;

@@ -349,7 +349,7 @@
     },
     63943: (t, e, s) => {
       s.r(e), s.d(e, { default: () => h, makeTabsStore: () => o, useTabsStore: () => d });
-      var i = s(28692),
+      var i = s(63420),
         a = s(94787),
         n = s(9128),
         r = s(20144);

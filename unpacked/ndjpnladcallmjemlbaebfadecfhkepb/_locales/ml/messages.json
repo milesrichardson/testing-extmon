@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "ആപ്പുകൾ"
+  },
+  "EndOfSupportHeader": {
+    "message": "Microsoft 365 വിപുലീകരണ പിന്തുണയുടെ അവസാനം"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "2024 ജനുവരി 15 മുതൽ ഈ വിപുലീകരണത്തെ മൈക്രോസോഫ്റ്റ് പിന്തുണയ്ക്കില്ല."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "കൂടുതൽ വിവരങ്ങൾക്ക്, ഈ വിപുലീകരണത്തിനായി പിന്തുണാ പേജ് സന്ദർശിക്കുക."
+  },
+  "Support": {
+    "message": "പിന്തുണ"
   }
 }

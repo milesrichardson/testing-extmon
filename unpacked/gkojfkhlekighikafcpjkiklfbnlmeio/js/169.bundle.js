@@ -27,69 +27,65 @@
       );
       var _util_escape_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(4336);
       var _util_escape_js__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(_util_escape_js__WEBPACK_IMPORTED_MODULE_8__);
-      var _util_version_util_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6262);
-      var _util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(
-        _util_version_util_js__WEBPACK_IMPORTED_MODULE_9__
+      var _util_storage_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(8915);
+      var _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(_util_storage_js__WEBPACK_IMPORTED_MODULE_9__);
+      var _util_ajax_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(918);
+      var _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(_util_ajax_js__WEBPACK_IMPORTED_MODULE_10__);
+      var _util_util_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(1291);
+      var _util_util_js__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(_util_util_js__WEBPACK_IMPORTED_MODULE_11__);
+      var _util_date_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(932);
+      var _util_date_js__WEBPACK_IMPORTED_MODULE_12___default = __webpack_require__.n(_util_date_js__WEBPACK_IMPORTED_MODULE_12__);
+      var _util_string_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(5516);
+      var _util_string_js__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(_util_string_js__WEBPACK_IMPORTED_MODULE_13__);
+      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(4130);
+      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default = __webpack_require__.n(
+        _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14__
       );
-      var _util_storage_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(8915);
-      var _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(_util_storage_js__WEBPACK_IMPORTED_MODULE_10__);
-      var _util_ajax_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(918);
-      var _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(_util_ajax_js__WEBPACK_IMPORTED_MODULE_11__);
-      var _util_util_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(1291);
-      var _util_util_js__WEBPACK_IMPORTED_MODULE_12___default = __webpack_require__.n(_util_util_js__WEBPACK_IMPORTED_MODULE_12__);
-      var _util_date_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(932);
-      var _util_date_js__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(_util_date_js__WEBPACK_IMPORTED_MODULE_13__);
-      var _util_string_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(5516);
-      var _util_string_js__WEBPACK_IMPORTED_MODULE_14___default = __webpack_require__.n(_util_string_js__WEBPACK_IMPORTED_MODULE_14__);
-      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(4130);
-      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default = __webpack_require__.n(
-        _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15__
+      var _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(9651);
+      var _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(8084);
+      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(3727);
+      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default = __webpack_require__.n(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17__);
+      var _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(8076);
+      var _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(9265);
+      var _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(1679);
+      var _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(7666);
+      var _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(7362);
+      var _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(3886);
+      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(2227);
+      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_24___default = __webpack_require__.n(
+        _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_24__
       );
-      var _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(9651);
-      var _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(8084);
-      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(3727);
-      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default = __webpack_require__.n(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18__);
-      var _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(8076);
-      var _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(9265);
-      var _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(1679);
-      var _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(7666);
-      var _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(7362);
-      var _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(3886);
-      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(2227);
-      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_25___default = __webpack_require__.n(
-        _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_25__
+      var _bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(6210);
+      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(5250);
+      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default = __webpack_require__.n(
+        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26__
       );
-      var _bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(6210);
-      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(5250);
-      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default = __webpack_require__.n(
-        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27__
+      var _bext_vpn_util_no_log_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(2181);
+      var _bext_vpn_bg_mode_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(1002);
+      var _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(4968);
+      var conf__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(9641);
+      var _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(39);
+      var _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_31___default = __webpack_require__.n(
+        _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_31__
       );
-      var _bext_vpn_util_no_log_js__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(2181);
-      var _bext_vpn_bg_mode_js__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(1002);
-      var _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(4968);
-      var conf__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(9641);
-      var _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(39);
-      var _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_32___default = __webpack_require__.n(
-        _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_32__
+      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(5371);
+      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_32___default = __webpack_require__.n(
+        _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_32__
       );
-      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(5371);
-      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_33___default = __webpack_require__.n(
-        _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_33__
+      var cookie__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(9813);
+      var cookie__WEBPACK_IMPORTED_MODULE_33___default = __webpack_require__.n(cookie__WEBPACK_IMPORTED_MODULE_33__);
+      var _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(9370);
+      var _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(1225);
+      var _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_35___default = __webpack_require__.n(
+        _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_35__
       );
-      var cookie__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(9813);
-      var cookie__WEBPACK_IMPORTED_MODULE_34___default = __webpack_require__.n(cookie__WEBPACK_IMPORTED_MODULE_34__);
-      var _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(9370);
-      var _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(1225);
-      var _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_36___default = __webpack_require__.n(
-        _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_36__
-      );
-      var _bext_vpn_bg_start_worker_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(2955);
-      var _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(7676);
-      var _pub_state_js__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(7619);
+      var _bext_vpn_bg_start_worker_js__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(2955);
+      var _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(7676);
+      var _pub_state_js__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(7619);
       // LICENSE_CODE ZON
       const v3 = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().is_v3;
-      _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().assert_bg("be_bg_main");
-      if (!_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().is_mocha())
+      _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().assert_bg("be_bg_main");
+      if (!_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_mocha())
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().set_zerr(_util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default());
       _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().set_exception_handler("be", (id, info, err) =>
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr(id, info, { err })
@@ -101,19 +97,28 @@
       const chrome = self.chrome;
       const assign = Object.assign;
       const browser = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().browser();
-      const mem_leak_period = 3 * _util_date_js__WEBPACK_IMPORTED_MODULE_13___default().ms.SEC;
+      const mem_leak_period = 3 * _util_date_js__WEBPACK_IMPORTED_MODULE_12___default().ms.SEC;
+      const { get_param, persist_param } = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"];
       let state;
-      let new_uuid, reused_uuid;
+      let new_uuid;
       const on_install = () =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
           E.install_ts = +self.hola.t.l_start || _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now();
-          yield persist_param("install_ts", E.install_ts);
-          yield persist_param("install_version", _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version());
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set(
-            "install_version",
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version()
-          );
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_ts", E.install_ts);
+          let ver = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version();
+          let first_install_ts = +(yield get_param("install_ts", true));
+          let first_install_ver = yield get_param("install_version", true);
+          if (!first_install_ts) {
+            first_install_ts = E.install_ts;
+            yield persist_param("install_ts", first_install_ts, true);
+          }
+          if (!first_install_ver) {
+            first_install_ver = ver;
+            yield persist_param("install_version", first_install_ver, true);
+          }
+          yield persist_param("last_install_ts", E.install_ts);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("install_version", first_install_ver);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("install_ts", first_install_ts);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("last_install_ts", E.install_ts);
           send_install_perr();
         });
       const E = new (_bext_pub_backbone_js__WEBPACK_IMPORTED_MODULE_1___default().model.extend({
@@ -123,33 +128,33 @@
           this.on("update", on_update);
           this.on("up", on_up);
           this.on("destroy", () => E.uninit());
-          this.set("ver", conf__WEBPACK_IMPORTED_MODULE_31__.version);
+          this.set("ver", conf__WEBPACK_IMPORTED_MODULE_30__.version);
           self.addEventListener("unload", () => E._destroy());
         }
       }))();
       E.be_util = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default();
       E.zerr = self.hola.zerr = _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default();
       E.be_browser = _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_7___default();
-      E.be_tabs = _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default();
-      E.tabs = _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default();
-      E.be_ext = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default();
-      E.be_vpn = _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z;
+      E.be_tabs = _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default();
+      E.tabs = _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default();
+      E.be_ext = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default();
+      E.be_vpn = _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z;
       E.etask = _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default();
-      E.unblocker_lib = _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_25___default();
-      E.be_info = _bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_26__["default"];
-      E.pac_engine = _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_36___default();
-      E.be_rule = _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_19__.Z;
-      E.be_premium = _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"];
-      E.be_mode = _bext_vpn_bg_mode_js__WEBPACK_IMPORTED_MODULE_29__.Z;
-      E.be_trial = _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__["default"];
-      E.be_ab_test = _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z;
-      E.be_tpopup = _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_30__.Z;
+      E.unblocker_lib = _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_24___default();
+      E.be_info = _bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_25__["default"];
+      E.pac_engine = _bext_vpn_bg_pac_engine_js__WEBPACK_IMPORTED_MODULE_35___default();
+      E.be_rule = _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_18__.Z;
+      E.be_premium = _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"];
+      E.be_mode = _bext_vpn_bg_mode_js__WEBPACK_IMPORTED_MODULE_28__.Z;
+      E.be_trial = _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__["default"];
+      E.be_ab_test = _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z;
+      E.be_tpopup = _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_29__.Z;
       E.be_util.rmt = E;
       function get_post_install_url() {
         const qs = { ext_ver: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version(), uuid: E.get("uuid") };
-        if (_bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__["default"].get_trial_conf("rebranding")) qs.rebranding = 1;
+        if (_bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__["default"].is_rebranding_enabled()) qs.rebranding = 1;
         return _util_escape_js__WEBPACK_IMPORTED_MODULE_8___default().uri(
-          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.hola_url() + "/access/install",
+          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.hola_url() + "/access/install",
           qs
         );
       }
@@ -186,14 +191,14 @@
             !E.install_ts ||
             !E.get("agree_ts") ||
             E.install_perr_ts ||
-            !_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].get("updated")
+            !_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].get("updated")
           ) {
             return;
           }
           const now = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now(),
             url = get_post_install_url();
           let info = {};
-          const cookies = yield _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().get_hola_cookies([
+          const cookies = yield _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().get_hola_cookies([
             "ui_testing",
             "post_install",
             "be_usage",
@@ -205,7 +210,7 @@
           const { post_install, aff_id, ext_ref, install_src } = cookies;
           if (post_install) {
             try {
-              _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_30__.Z.set(
+              _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_29__.Z.set(
                 "post_install_redirect",
                 JSON.parse(decodeURIComponent(post_install)).redirect_url
               );
@@ -218,10 +223,9 @@
             _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().notice("open post insall page %s", url);
             _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].open_hola_tab({ url, force_active: true });
           }
-          if (_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(chrome, "runtime.getManifest"))
-            info = _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().pick(chrome.runtime.getManifest(), "permissions");
-          _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().if_set(new_uuid, info, "new_uuid");
-          _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().if_set(reused_uuid, info, "reused_uuid");
+          if (_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(chrome, "runtime.getManifest"))
+            info = _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().pick(chrome.runtime.getManifest(), "permissions");
+          _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().if_set(new_uuid, info, "new_uuid");
           if (cookies.be_usage) {
             try {
               info.be_usage = JSON.parse(decodeURIComponent(cookies.be_usage));
@@ -234,7 +238,7 @@
           if (ui_test) build[ui_test.active_test_name] = ui_test.active_value;
           const perr_opt = assign({ aff_id, install_src, ext_ref }, info);
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("install", perr_opt, { build });
-          _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().set("install_perr_ts", now);
+          _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set("install_perr_ts", now);
         });
       E.t = { get_post_install_url, send_install_perr };
       function on_update(prev) {
@@ -244,15 +248,15 @@
         );
         let ts = self.hola.t.l_start;
         persist_param("update_ts", ts);
-        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("update_ts", ts);
+        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("update_ts", ts);
         _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].storage_local_remove("last_ab_conf_hash");
       }
       function on_up() {
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("up");
       }
       function ccgi_init() {
-        _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_23__.Z.init(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default());
-        chrome.tabs.query({ url: conf__WEBPACK_IMPORTED_MODULE_31__.hola_match }, (tabs) =>
+        _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_22__.Z.init(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default());
+        chrome.tabs.query({ url: conf__WEBPACK_IMPORTED_MODULE_30__.hola_match }, (tabs) =>
           underscore__WEBPACK_IMPORTED_MODULE_0___default().each(tabs, (tab) => {
             try {
               if (v3) {
@@ -275,111 +279,31 @@
                   return v3 ? null : yield localStorage.getItem("uuid");
                 }),
                 cookie: _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
-                  return yield cookie__WEBPACK_IMPORTED_MODULE_34___default().get("uuid");
+                  return yield cookie__WEBPACK_IMPORTED_MODULE_33___default().get("uuid");
                 }),
                 ccgi: _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().cb_apply(
-                  !_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().is_mocha() && chrome.cookies,
+                  !_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_mocha() && chrome.cookies,
                   ".get",
-                  [{ url: conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi, name: "uuid" }]
+                  [{ url: conf__WEBPACK_IMPORTED_MODULE_30__.url_ccgi, name: "uuid" }]
                 )
               }
             );
-            get_uuid.last_error = collect_errors(ret);
+            get_uuid.last_error = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].collect_errors(ret);
             const uuid =
-              _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(ret, "local.uuid") ||
+              _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(ret, "local.uuid") ||
               ret.localStorage ||
               ret.cookie ||
-              _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(ret, "ccgi.value");
+              _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(ret, "ccgi.value");
             if (!uuid) return;
-            _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().assert(
+            _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().assert(
               typeof uuid == "string" && uuid.length >= 8,
               new Error("invalid_uuid")
             );
-            if (
-              uuid != _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(ret, "local.uuid") ||
-              uuid != ret.localStorage ||
-              uuid != ret.cookie ||
-              uuid != _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(ret, "ccgi.value")
-            ) {
-              reused_uuid = true;
-            }
             return uuid;
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("unreachable", "get_uuid", { err: e });
           }
         });
-      }
-      const get_param = (name, read_cookies) =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* _get_param() {
-          try {
-            const ret = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().all(
-              { allow_fail: true },
-              {
-                local: _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].storage_local_get(name),
-                local_storage: v3 ? null : _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get(name),
-                cookie:
-                  read_cookies &&
-                  _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
-                    return yield cookie__WEBPACK_IMPORTED_MODULE_34___default().get(name);
-                  }),
-                ccgi:
-                  read_cookies &&
-                  _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().cb_apply(
-                    !_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().is_mocha() && chrome.cookies,
-                    ".get",
-                    [{ url: conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi, name }]
-                  )
-              }
-            );
-            const ext_storage_value = _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(ret, ["local", name]);
-            const res_value =
-              ext_storage_value ||
-              ret.local_storage ||
-              ret.cookie ||
-              _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(ret, "ccgi.value");
-            if (res_value && !ext_storage_value) {
-              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("persist_param_in_ext_storage", { [name]: res_value });
-              persist_param(name, res_value);
-            }
-            return res_value;
-          } catch (e) {
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("unreachable", `get_${name}`, { err: e });
-          }
-        });
-      let persist_param_errors = {};
-      function persist_param(name, value, set_cookie) {
-        return _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()({ name: `persist_${name}` }, function* () {
-          try {
-            const ret = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().all(
-              { allow_fail: true },
-              {
-                local: _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].storage_local_set({ [name]: value }),
-                localStorage: _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* persist_param_ls_() {
-                  if (!v3) yield localStorage.setItem(name, value);
-                }),
-                cookie:
-                  set_cookie &&
-                  _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* persist_param_cookie_() {
-                    yield cookie__WEBPACK_IMPORTED_MODULE_34___default().set(name, value, { expires: 36500, path: "/" });
-                  })
-              }
-            );
-            persist_param_errors[name] = collect_errors(ret);
-            return underscore__WEBPACK_IMPORTED_MODULE_0___default().isEmpty(ret);
-          } catch (e) {
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("unreachable", `persist_${name}`, { err: e });
-          }
-        });
-      }
-      function collect_errors(ret) {
-        var arr = [];
-        underscore__WEBPACK_IMPORTED_MODULE_0___default().each(ret, (v, k) => {
-          if (!_util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().is_err(v)) return;
-          var e = {};
-          e[k] = "" + v.error;
-          arr.push(e);
-        });
-        return arr;
       }
       E.gen_uuid = () => {
         var buf = new Uint8Array(16),
@@ -410,51 +334,6 @@
           return uuid;
         });
       }
-      const fixup_storage = () =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
-          if (_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().is_mocha()) return;
-          let install_ver = yield get_param("install_version");
-          if (!install_ver || !_util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().valid(install_ver)) {
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_fixup_install_ver", { install_ver });
-            yield persist_param("install_version", _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version());
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set(
-              "install_version",
-              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version()
-            );
-          }
-          let install_ts = +(yield get_param("install_ts")),
-            now = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now();
-          if (!install_ts || install_ts > now) {
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_fixup_install_ts", { install_ts });
-            yield persist_param("install_ts", now);
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_ts", now);
-          }
-        });
-      const verify_install_ts = () =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
-          const uuid_info = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("uuid_info") || {};
-          if (!uuid_info) return;
-          if (uuid_info.install_version) {
-            const install_ver = yield get_param("install_version");
-            if (
-              !install_ver ||
-              !_util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().valid(install_ver) ||
-              _util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().cmp(uuid_info.install_version, install_ver) < 0
-            ) {
-              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_install_ver_server_fix", { install_ver, uuid_info });
-              yield persist_param("install_version", uuid_info.install_version);
-              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_version", uuid_info.install_version);
-            }
-          }
-          if (uuid_info.install_ts) {
-            const install_ts = yield get_param("install_ts");
-            if (!install_ts || uuid_info.install_ts < install_ts) {
-              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_install_ts_server_fix", { install_ts, uuid_info });
-              yield persist_param("install_ts", uuid_info.install_ts);
-              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_ts", uuid_info.install_ts);
-            }
-          }
-        });
       const handle_install = () =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* handle_install_() {
           try {
@@ -464,13 +343,13 @@
             if (new_uuid && reason != "install")
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("switch_uuid_err", { reason });
             if (["install", "update"].includes(reason)) {
-              E.trigger(reason, _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("ver"));
-              _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().set(
+              E.trigger(reason, _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("ver"));
+              _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set(
                 "ver",
                 _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version()
               );
             }
-            if (reason != "install") fixup_storage();
+            if (reason != "install") _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].fixup_install_data();
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("handle_install_err", {}, { err: e });
           }
@@ -481,19 +360,19 @@
         var d = now - uninstall_url_cb.ts;
         let last_use = state.get("last_use");
         var update =
-          !last_use || (last_use && last_use.name != name) || d > 15 * _util_date_js__WEBPACK_IMPORTED_MODULE_13___default().ms.MIN;
+          !last_use || (last_use && last_use.name != name) || d > 15 * _util_date_js__WEBPACK_IMPORTED_MODULE_12___default().ms.MIN;
         state.set("last_use", { name, ts: now });
-        if (update || d > _util_date_js__WEBPACK_IMPORTED_MODULE_13___default().ms.HOUR) uninstall_url_cb();
+        if (update || d > _util_date_js__WEBPACK_IMPORTED_MODULE_12___default().ms.HOUR) uninstall_url_cb();
       };
       const uninstall_url_cb = () =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
-          let ui_testing = yield _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().get_hola_cookie("ui_testing");
+          let ui_testing = yield _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().get_hola_cookie("ui_testing");
           let ui_test = get_active_test_from_cookies(ui_testing);
           let now = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now();
           uninstall_url_cb.ts = now;
           let qs = { perr: 1, uuid: E.get("uuid"), browser, version: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version() };
           let last_use = state.get("last_use");
-          if (last_use && now - last_use.ts < 15 * _util_date_js__WEBPACK_IMPORTED_MODULE_13___default().ms.MIN) {
+          if (last_use && now - last_use.ts < 15 * _util_date_js__WEBPACK_IMPORTED_MODULE_12___default().ms.MIN) {
             qs.last = btoa(last_use.name);
             if (last_use.is_mitm) qs.mitm = 1;
           }
@@ -504,24 +383,22 @@
             qs.u_t_n = ui_test.active_test_name;
             qs.u_t = ui_test.active_value;
           }
-          let ab_test = _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z.get_ab_test_str();
+          let ab_test = _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z.get_ab_test_str();
           if (ab_test) qs.ab = ab_test;
           let url =
-            _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.get_selected_url({
+            _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.get_selected_url({
               name: "ccgi",
-              url: conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi
+              url: conf__WEBPACK_IMPORTED_MODULE_30__.url_ccgi
             }) +
             "/uninstall?" +
             _util_escape_js__WEBPACK_IMPORTED_MODULE_8___default().qs(qs);
           url = url.substr(0, 255);
-          if (_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(chrome, "runtime.setUninstallURL"))
+          if (_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(chrome, "runtime.setUninstallURL"))
             chrome.runtime.setUninstallURL(url);
         });
       const get_agree_ts = () =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
-          if (!conf__WEBPACK_IMPORTED_MODULE_31__.check_agree_ts) return 1;
-          const ver_install = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("install_version");
-          if (ver_install && _util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().cmp(ver_install, "1.131.737") < 0) return 1;
+          if (!conf__WEBPACK_IMPORTED_MODULE_30__.check_agree_ts) return 1;
           return yield get_param("agree_ts");
         });
       E.set_agree_ts = (val) => {
@@ -529,24 +406,24 @@
         persist_param("agree_ts", val);
       };
       E.debug_set_install_ts = (val) => {
-        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_ts", val);
-        persist_param("install_ts", val);
+        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("install_ts", val);
+        persist_param("install_ts", val, true);
       };
       E.debug_set_install_ver = (val) => {
-        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_version", val);
-        persist_param("install_version", val);
+        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("install_version", val);
+        persist_param("install_version", val, true);
       };
       function set_upgrade_ext_interval() {
-        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().clear_interval(set_upgrade_ext_interval.interval);
+        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().clear_interval(set_upgrade_ext_interval.interval);
         _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].upgrade_ext();
-        set_upgrade_ext_interval.interval = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().set_interval(
+        set_upgrade_ext_interval.interval = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().set_interval(
           _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].upgrade_ext,
-          24 * _util_date_js__WEBPACK_IMPORTED_MODULE_13___default().ms.HOUR,
+          24 * _util_date_js__WEBPACK_IMPORTED_MODULE_12___default().ms.HOUR,
           { sp: E.sp }
         );
       }
       function ajax_do_op(o) {
-        var op = _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(o, "op");
+        var op = _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(o, "op");
         if (!op) return;
         switch (op) {
           case "reload_ext":
@@ -554,7 +431,7 @@
               "do_op_reload_ext " + _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().json(o)
             );
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_reload_ext_ajax_op");
-            _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().set_timeout(
+            _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().set_timeout(
               () => _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().reload_ext_native(),
               500
             );
@@ -573,25 +450,25 @@
         }
       }
       function dev_mode_cb() {
-        const level = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("dev_mode") ? "NOTICE" : "WARN";
+        const level = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("dev_mode") ? "NOTICE" : "WARN";
         _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].set_dbg_conf("debug.zerr", { level });
         _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().set_level(level);
       }
       function debug_cb() {
         _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().set_level(
-          _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("debug.zerr"),
+          _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("debug.zerr"),
             "level"
           )
         );
       }
       const check_user_agent = () => {
-        let prev_ua = _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("ua"),
+        let prev_ua = _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("ua"),
           ua = navigator.userAgent;
         if (prev_ua == ua) return;
-        _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().set("ua", ua);
+        _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set("ua", ua);
         if (!prev_ua) return;
-        _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().set(
+        _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set(
           "ua_update_ts",
           _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now()
         );
@@ -607,114 +484,114 @@
             return;
           }
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_no_permission");
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("no_permission", true);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("no_permission", true);
         });
       const all_urls = v3 ? "*://*/*" : "<all_urls>";
       const on_permission_added = (data) => {
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_permission_added", data);
         if (data && data.origins && data.origins.includes(all_urls)) {
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("no_permission", false);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("no_permission", false);
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().reload_ext_native();
         }
       };
       const on_permission_removed = (data) => {
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_permission_removed", data);
         if (data && data.origins && data.origins.includes(all_urls))
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("no_permission", true);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("no_permission", true);
       };
       const on_agree_ts = () => {
         active_cb();
-        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().set_timeout(send_install_perr, 2e3);
+        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().set_timeout(send_install_perr, 2e3);
       };
       const init_sync = () => {
         chrome.permissions.onAdded.addListener(on_permission_added);
         chrome.permissions.onRemoved.addListener(on_permission_removed);
       };
       const get_initial_config = () => {
-        let last_conf = _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get_json("bext_config_last");
-        return last_conf && last_conf.stamp > (_bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_32___default().build_ts || 0)
+        let last_conf = _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get_json("bext_config_last");
+        return last_conf && last_conf.stamp > (_bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_31___default().build_ts || 0)
           ? last_conf
-          : _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_32___default();
+          : _bext_vpn_bg_bext_config_js__WEBPACK_IMPORTED_MODULE_31___default();
       };
       E.init = (opt) =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
           opt = opt || {};
           if (E.inited) return;
-          if (v3) yield _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().init();
-          state = new _pub_state_js__WEBPACK_IMPORTED_MODULE_39__["default"](
+          if (v3) yield _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().init();
+          state = new _pub_state_js__WEBPACK_IMPORTED_MODULE_38__["default"](
             "bg_main_state",
             { last_use: null, bg_init_info: null },
             { persistent: false }
           );
           yield state.load();
-          E.sp = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().new_etask("be_bg_main");
+          E.sp = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().new_etask("be_bg_main");
           const uuid = yield ensure_uuid();
           _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().notice("uuid: " + uuid);
           E.set("uuid", uuid);
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("uuid", uuid);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("uuid", uuid);
           assert_no_listeners();
           E.inited = (E.inited || 0) + 1;
-          _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().set_conf(conf__WEBPACK_IMPORTED_MODULE_31__);
-          _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z.set_bext_config(get_initial_config());
+          _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().set_conf(conf__WEBPACK_IMPORTED_MODULE_30__);
+          _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z.set_bext_config(get_initial_config());
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().set_bext_config_cb(() =>
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("bext_config")
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("bext_config")
           );
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().set_now_cb(() =>
             _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now()
           );
-          _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default().do_op = ajax_do_op;
+          _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default().do_op = ajax_do_op;
           _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_7___default().init();
-          _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default().init(
-            _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_33___default()
+          _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default().init(
+            _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_32___default()
           );
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().init();
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().init();
           ccgi_init();
-          yield _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z.load_state();
-          yield _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].init(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_19__.Z);
-          yield _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__["default"].init(
-            _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_19__.Z,
-            _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_30__.Z,
-            _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_33___default()
+          yield _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z.load_state();
+          yield _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].init(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_18__.Z);
+          yield _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__["default"].init(
+            _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_18__.Z,
+            _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_29__.Z,
+            _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_32___default()
           );
-          _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_21__["default"].init();
-          _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_35__.Z.init(E);
+          _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_20__["default"].init();
+          _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_34__.Z.init(E);
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().set_hola_org_cookie(
             "ext_ver",
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version()
           );
-          _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().clr("ajax_timeout");
-          _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().clr("be_ajax_simulator");
+          _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().clr("ajax_timeout");
+          _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().clr("be_ajax_simulator");
           E.on("change:inited", inited_cb);
-          if (_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(chrome, "runtime.setUninstallURL")) {
+          if (_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(chrome, "runtime.setUninstallURL")) {
             E.on_init("change:uuid change:cid", uninstall_url_cb);
-            E.listen_to(_bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z, "change:ccgi_selected", uninstall_url_cb);
-            E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "ab_test_change", uninstall_url_cb);
+            E.listen_to(_bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z, "change:ccgi_selected", uninstall_url_cb);
+            E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "ab_test_change", uninstall_url_cb);
           }
           E.listen_to(
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(),
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(),
             "change:session_key change:enabled " + "change:ext.conflict change:uuid",
             active_cb
           );
-          E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:ext.suspended", suspend_cb);
-          E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:debug.zerr", debug_cb);
-          E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:dev_mode", dev_mode_cb);
-          if (!v3) _bext_vpn_bg_start_worker_js__WEBPACK_IMPORTED_MODULE_37__.Z.start_monitor_worker();
+          E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:ext.suspended", suspend_cb);
+          E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:debug.zerr", debug_cb);
+          E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:dev_mode", dev_mode_cb);
+          if (!v3) _bext_vpn_bg_start_worker_js__WEBPACK_IMPORTED_MODULE_36__.Z.start_monitor_worker();
           check_user_agent();
           check_permissions();
           if (!v3 && chrome.permissions && chrome.permissions.onAdded) chrome.permissions.onAdded.addListener(on_permission_added);
           if (!v3 && chrome.permissions && chrome.permissions.onRemoved) chrome.permissions.onRemoved.addListener(on_permission_removed);
-          const install_reason = _util_util_js__WEBPACK_IMPORTED_MODULE_12___default().get(opt, "install_details.reason", "");
+          const install_reason = _util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get(opt, "install_details.reason", "");
           if (install_reason) E.set("install_reason", install_reason);
           E.sp.spawn(
             _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* init_() {
               try {
-                _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z.set_user_message(get_initial_config());
-                _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_ts", yield get_param("install_ts"));
-                _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("install_version", yield get_param("install_version"));
+                _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z.set_user_message(get_initial_config());
+                _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("last_install_ts", +(yield get_param("last_install_ts")));
+                _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("install_ts", +(yield get_param("install_ts", true)));
+                _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("install_version", yield get_param("install_version", true));
                 E.set("agree_ts", yield get_agree_ts());
                 E.set("aff_id", yield get_param("aff_id"));
                 E.on("change:agree_ts", on_agree_ts);
-                E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:uuid_info", verify_install_ts);
                 E.sp.spawn(handle_install());
                 E.trigger("up");
                 E.set("inited", true);
@@ -722,7 +599,7 @@
                 _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("init_err", {}, { err: e });
               } finally {
                 const get = get_uuid.last_error || [];
-                const set = persist_param_errors.uuid || [];
+                const set = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].persist_param_errors.uuid || [];
                 if (get.length || set.length)
                   _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr(
                     "uuid_storage_err",
@@ -732,20 +609,20 @@
             })
           );
           set_upgrade_ext_interval();
-          if (_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].get("updated")) send_install_perr();
-          else E.listen_to(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"], "change:updated", send_install_perr);
+          if (_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].get("updated")) send_install_perr();
+          else E.listen_to(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"], "change:updated", send_install_perr);
         });
       E.uninit = function () {
         if (!E.inited) return;
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("bg_main_uninit", {
           stack: new Error("bg_uninit").stack,
-          reload_ext: _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get_json("reload_ext")
+          reload_ext: _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get_json("reload_ext")
         });
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr(
           "bg_main_uninit_log",
           {
             stack: new Error("bg_uninit").stack,
-            reload_ext: _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get_json("reload_ext")
+            reload_ext: _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get_json("reload_ext")
           },
           { with_log: true }
         );
@@ -753,38 +630,38 @@
         E.off();
         E.stopListening();
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().del_hola_org_cookie("ext_ver");
-        set_upgrade_ext_interval.interval = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_27___default().clear_interval(
+        set_upgrade_ext_interval.interval = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_26___default().clear_interval(
           set_upgrade_ext_interval.interval
         );
         if (monitor_active.sp) monitor_active.sp.return();
         if (monitor_suspended.sp) monitor_suspended.sp.return();
         if (chrome.permissions && chrome.permissions.onAdded) chrome.permissions.onAdded.removeListener(on_permission_added);
         if (chrome.permissions && chrome.permissions.onRemoved) chrome.permissions.onRemoved.removeListener(on_permission_removed);
-        if (_util_util_js__WEBPACK_IMPORTED_MODULE_12___default().is_mocha()) {
-          _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z.uninit();
-          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].uninit();
-          _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__["default"].uninit();
-          _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_17__.Z.uninit();
-          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.uninit();
-          _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_23__.Z.uninit();
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().uninit();
-          _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default().uninit();
-          _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_21__["default"].uninit();
-          _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_35__.Z.uninit();
-          _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z.uninit();
+        if (_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_mocha()) {
+          _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z.uninit();
+          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].uninit();
+          _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__["default"].uninit();
+          _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_16__.Z.uninit();
+          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.uninit();
+          _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_22__.Z.uninit();
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().uninit();
+          _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default().uninit();
+          _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_20__["default"].uninit();
+          _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_34__.Z.uninit();
+          _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z.uninit();
           _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_7___default().uninit();
         } else {
-          _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z._destroy();
-          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"]._destroy();
-          _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__["default"]._destroy();
-          _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_17__.Z._destroy();
-          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z._destroy();
-          _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_23__.Z._destroy();
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default()._destroy();
-          _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default()._destroy();
-          _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_21__["default"]._destroy();
-          _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_35__.Z._destroy();
-          _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z._destroy();
+          _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z._destroy();
+          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"]._destroy();
+          _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__["default"]._destroy();
+          _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_16__.Z._destroy();
+          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z._destroy();
+          _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_22__.Z._destroy();
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default()._destroy();
+          _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default()._destroy();
+          _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_20__["default"]._destroy();
+          _bext_vpn_bg_ui_api_js__WEBPACK_IMPORTED_MODULE_34__.Z._destroy();
+          _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z._destroy();
           _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_7___default()._destroy();
         }
         E.inited = false;
@@ -792,34 +669,34 @@
         assert_no_listeners();
       };
       function assert_no_listeners() {
-        _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z.assert_no_listeners();
-        _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].assert_no_listeners();
-        _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_22__["default"].assert_no_listeners();
-        _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_17__.Z.assert_no_listeners();
-        _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.assert_no_listeners();
-        _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_23__.Z.assert_no_listeners();
-        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().assert_no_listeners();
-        _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_15___default().assert_no_listeners();
-        _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_21__["default"].assert_no_listeners();
-        _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_19__.Z.assert_no_listeners();
-        _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z.assert_no_listeners();
+        _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z.assert_no_listeners();
+        _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].assert_no_listeners();
+        _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_21__["default"].assert_no_listeners();
+        _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_16__.Z.assert_no_listeners();
+        _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.assert_no_listeners();
+        _bext_vpn_bg_ccgi_js__WEBPACK_IMPORTED_MODULE_22__.Z.assert_no_listeners();
+        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().assert_no_listeners();
+        _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_14___default().assert_no_listeners();
+        _bext_vpn_bg_dev_mode_js__WEBPACK_IMPORTED_MODULE_20__["default"].assert_no_listeners();
+        _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_18__.Z.assert_no_listeners();
+        _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z.assert_no_listeners();
       }
       function inited_cb() {
         if (!E.get("inited")) return;
         E.off("change:inited", inited_cb);
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* inited_cb_() {
           try {
-            const ext_state = yield _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("ext_state");
+            const ext_state = yield _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("ext_state");
             E.set("enabled", ext_state != "disabled");
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("enabled", ext_state != "disabled");
-            _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_17__.Z.init();
-            yield _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.init(
-              _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_33___default()
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("enabled", ext_state != "disabled");
+            _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_16__.Z.init();
+            yield _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.init(
+              _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_32___default()
             );
-            E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:uuid change:session_key", background_init);
+            E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:uuid change:session_key", background_init);
             E.on("recover", () => background_init(true));
-            if (yield _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("suspended_ext_ts"))
-              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("ext.suspended", true);
+            if (yield _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("suspended_ext_ts"))
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("ext.suspended", true);
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_bg_main_init_err", {}, { err: e });
           }
@@ -831,17 +708,17 @@
             this.finally(() => delete monitor_active.sp);
             yield _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().sleep(mem_leak_period);
             let prev_ps = _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().ps() || "";
-            let a = _util_string_js__WEBPACK_IMPORTED_MODULE_14___default().split_nl(prev_ps).length;
+            let a = _util_string_js__WEBPACK_IMPORTED_MODULE_13___default().split_nl(prev_ps).length;
             yield _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().sleep(mem_leak_period);
             let ps = _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default().ps(),
-              b = _util_string_js__WEBPACK_IMPORTED_MODULE_14___default().split_nl(ps).length;
+              b = _util_string_js__WEBPACK_IMPORTED_MODULE_13___default().split_nl(ps).length;
             if (b > a) {
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr(
                 "be_ext_off_leak",
                 {
                   before_n: a,
                   after_n: b,
-                  reason: _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.conflict") ? "conflict" : "disable"
+                  reason: _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.conflict") ? "conflict" : "disable"
                 },
                 { rate_limit: { count: 1 }, filehead: "before: " + prev_ps + "\nafter: " + ps }
               );
@@ -850,63 +727,63 @@
         );
       };
       function active_cb() {
-        let uuid = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("uuid");
+        let uuid = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("uuid");
         let active = !!(
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("enabled") &&
-          !_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.conflict") &&
-          !(conf__WEBPACK_IMPORTED_MODULE_31__.check_agree_ts && !E.get("agree_ts")) &&
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("enabled") &&
+          !_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.conflict") &&
+          !(conf__WEBPACK_IMPORTED_MODULE_30__.check_agree_ts && !E.get("agree_ts")) &&
           uuid &&
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("session_key")
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("session_key")
         );
-        _bext_vpn_util_no_log_js__WEBPACK_IMPORTED_MODULE_28__["default"].set_uuid(uuid);
-        let prev = !!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.active");
-        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().safe_set({ "ext.active": active });
+        _bext_vpn_util_no_log_js__WEBPACK_IMPORTED_MODULE_27__["default"].set_uuid(uuid);
+        let prev = !!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.active");
+        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().safe_set({ "ext.active": active });
         if (prev == active) return;
         if (active) {
           if (monitor_active.sp) monitor_active.sp = void monitor_active.sp.return();
-          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].init(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_19__.Z);
+          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].init(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_18__.Z);
         } else {
           if (!monitor_active.sp) monitor_active();
-          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].uninit({ keep_user: true });
+          _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].uninit({ keep_user: true });
         }
       }
       E.suspend_client = (permanent) => {
-        if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.suspended")) {
-          if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.suspended").permanent != permanent)
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("ext.suspended", { permanent });
+        if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.suspended")) {
+          if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.suspended").permanent != permanent)
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("ext.suspended", { permanent });
           return;
         }
         _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("suspend_client");
-        _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().set(
+        _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set(
           "suspended_ext_ts",
           _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now()
         );
-        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("ext.suspended", { permanent });
-        _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"].refresh_user();
+        _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("ext.suspended", { permanent });
+        _bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"].refresh_user();
         let url = _util_url_js__WEBPACK_IMPORTED_MODULE_6___default().qs_add(
-          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.hola_url() + "/signin",
+          _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.hola_url() + "/signin",
           { force_signin: 1, signin_redirect: true, next: "/cp" }
         );
         _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].open_hola_tab({ url, force_active: true });
       };
       E.check_suspend_status = () =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* _check_suspend_status() {
-          if (!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.suspended")) return;
+          if (!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.suspended")) return;
           try {
-            let location = _bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_26__["default"].get("location");
-            let qs = assign({ ip: location && location.ip }, _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().auth());
-            let res = yield _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.ccgi_ajax({
-              url: conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi + "/user_status",
+            let location = _bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_25__["default"].get("location");
+            let qs = assign({ ip: location && location.ip }, _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().auth());
+            let res = yield _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.ccgi_ajax({
+              url: conf__WEBPACK_IMPORTED_MODULE_30__.url_ccgi + "/user_status",
               qs
             });
             if (res && res.active) {
-              _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().clr("suspended_ext_ts");
-              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("ext.suspended", false);
+              _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().clr("suspended_ext_ts");
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("ext.suspended", false);
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("suspend_restore");
               background_init(true);
             }
             if (res && res.blocked)
-              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("ext.suspended", { permanent: res.permanent });
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("ext.suspended", { permanent: res.permanent });
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr(
               "suspend_status_check_fail",
@@ -920,21 +797,21 @@
           (monitor_suspended.sp = _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* _monitor_suspended() {
             let check_rl = underscore__WEBPACK_IMPORTED_MODULE_0___default().throttle(
               E.check_suspend_status,
-              2 * _util_date_js__WEBPACK_IMPORTED_MODULE_13___default().ms.SEC
+              2 * _util_date_js__WEBPACK_IMPORTED_MODULE_12___default().ms.SEC
             );
             this.finally(() => {
               delete monitor_suspended.sp;
-              E.stopListening(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"], "user_updated", check_rl);
-              E.stopListening(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:uuid change:session_key", check_rl);
+              E.stopListening(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"], "user_updated", check_rl);
+              E.stopListening(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:uuid change:session_key", check_rl);
             });
-            E.listen_to(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_20__["default"], "user_updated", check_rl);
-            E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:uuid change:session_key", check_rl);
+            E.listen_to(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_19__["default"], "user_updated", check_rl);
+            E.listen_to(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:uuid change:session_key", check_rl);
             yield this.wait();
           }))
         );
       };
       let suspend_cb = () => {
-        if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("ext.suspended")) {
+        if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("ext.suspended")) {
           if (!monitor_suspended.sp) monitor_suspended();
         } else {
           if (monitor_suspended.sp) monitor_suspended.sp = void monitor_suspended.sp.return();
@@ -945,8 +822,8 @@
         return _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* set_enabled_() {
           try {
             E.set("enabled", !!on);
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("enabled", !!on);
-            return yield _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().set("ext_state", on ? "enabled" : "disabled");
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("enabled", !!on);
+            return yield _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set("ext_state", on ? "enabled" : "disabled");
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_bg_main_set_enable_err", {}, { err: e });
           }
@@ -960,55 +837,55 @@
             json: 1,
             data: { login: 1, ver: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version() },
             qs: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().qs_ajax({
-              uuid: _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("uuid")
+              uuid: _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("uuid")
             }),
-            url: conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi + "/background_init",
+            url: conf__WEBPACK_IMPORTED_MODULE_30__.url_ccgi + "/background_init",
             with_credentials: true
           };
           let err,
             retries = 5;
           for (let i = 0; i < retries; i++)
             try {
-              return yield _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_16__.Z.ccgi_ajax(req);
+              return yield _bext_vpn_bg_bg_ajax_js__WEBPACK_IMPORTED_MODULE_15__.Z.ccgi_ajax(req);
             } catch (e) {
               err = e;
             }
           _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_ccgi_failed", { req, retries }, { err });
           req.url = "https://client.zspeed-cdn.com/client_cgi/background_init";
           try {
-            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default()(req);
+            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default()(req);
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_zspeed_cdn_failed", { req }, { err: e });
           }
           req.url = "https://perr.hola.org/background_init";
           try {
-            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default()(req);
+            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default()(req);
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_perr_init_failed", { req }, { err: e });
           }
           req.method = "GET";
-          req.url = conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi + "/background_init";
+          req.url = conf__WEBPACK_IMPORTED_MODULE_30__.url_ccgi + "/background_init";
           try {
-            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default()(req);
+            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default()(req);
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_get_ccgi_failed", { req }, { err: e });
           }
           req.url = "https://client.zspeed-cdn.com/client_cgi/background_init";
           try {
-            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default()(req);
+            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default()(req);
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_get_zspeed_cdn_failed", { req }, { err: e });
           }
           req.url = "https://perr.hola.org/background_init";
           try {
-            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default()(req);
+            return yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default()(req);
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_get_perr_init_failed", { req }, { err: e });
           }
           if (!_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().CG("disable_background_init_agent_test")) {
             req = { url: "http://208.68.38.214:22222/myip" };
             try {
-              let res = yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_11___default()(req);
+              let res = yield _util_ajax_js__WEBPACK_IMPORTED_MODULE_10___default()(req);
               if (res.ip) _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_agent_ok");
             } catch (e) {
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_agent_err", { req }, { err: e });
@@ -1022,7 +899,7 @@
           try {
             _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().notice("background_init called %s", E.get("status"));
             if (["busy", "ready"].includes(E.get("status"))) return;
-            if (!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("uuid"))
+            if (!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("uuid"))
               return void _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().notice("background_init no uuid");
             E.set("status", "busy");
             req = {
@@ -1030,9 +907,9 @@
               method: "POST",
               data: { login: 1, ver: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().version() },
               qs: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().qs_ajax({
-                uuid: _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().get("uuid")
+                uuid: _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().get("uuid")
               }),
-              url: conf__WEBPACK_IMPORTED_MODULE_31__.url_ccgi + "/background_init",
+              url: conf__WEBPACK_IMPORTED_MODULE_30__.url_ccgi + "/background_init",
               with_credentials: true
             };
             let info;
@@ -1046,10 +923,10 @@
               E.suspend_client(info.permanent);
               throw new Error("background_init_ajax blocked");
             }
-            E.stopListening(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default(), "change:uuid change:session_key", background_init);
-            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_18___default().set("session_key", info.key);
-            yield _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z.init();
-            _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_38__.Z.init();
+            E.stopListening(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default(), "change:uuid change:session_key", background_init);
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_17___default().set("session_key", info.key);
+            yield _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z.init();
+            _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_37__.Z.init();
             E.set("status", "ready");
             t.r_init = _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_4__["default"].now();
             let start = t.new_ver || t.l_start,
@@ -1059,24 +936,24 @@
               diff
             );
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_ok", { diff, req });
-            if (_util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("reload_ext_ts")) {
+            if (_util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("reload_ext_ts")) {
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_recover_ok", {
-                ts: _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("reload_ext_ts")
+                ts: _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("reload_ext_ts")
               });
-              _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().clr("reload_ext_ts");
+              _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().clr("reload_ext_ts");
             }
           } catch (e) {
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr("be_background_init_err", { req }, { err: e });
             E.set("status", "error");
-            if (_util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("reload_ext_ts")) {
+            if (_util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("reload_ext_ts")) {
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_3___default().perr(
                 "be_recover_failed",
-                { ts: _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().get("reload_ext_ts") },
+                { ts: _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().get("reload_ext_ts") },
                 { err: e }
               );
-              _util_storage_js__WEBPACK_IMPORTED_MODULE_10___default().clr("reload_ext_ts");
+              _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().clr("reload_ext_ts");
             }
-            _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_24__.Z.uninit();
+            _bext_vpn_bg_vpn_js__WEBPACK_IMPORTED_MODULE_23__.Z.uninit();
           }
         });
       let dumped_errors = {};
@@ -1193,12 +1070,51 @@
             },
             test_rebranding: {
               ver: 3,
-              min_ver: "1.216.587",
+              min_ver: "1.217.263",
               value: [
                 [0, 0.9999, "off"],
                 [0.9999, 1, "on"]
               ],
               www_tests: ["test_new_hp_design", "test_new_hp_design_mac"],
+              ref_prefix: true
+            },
+            test_rebranding_ext: {
+              ver: 3,
+              min_ver: "1.217.263",
+              min_install_ts: 1700634559e3,
+              filter: { install_ts_lt: 17015889e5 },
+              value: [
+                [0, 0.5, "off"],
+                [0.5, 1, "on"]
+              ],
+              ref_prefix: true
+            },
+            test_rebranding_ext_all: {
+              ver: 1,
+              min_ver: "1.217.263",
+              min_install_ts: 17015889e5,
+              value: [
+                [0, 5e-324, "off"],
+                [5e-324, 1, "on"]
+              ]
+            },
+            test_rebranding_ext_new: {
+              ver: 1,
+              min_ver: "1.218.793",
+              filter: { last_install_ts_gt: 17015889e5 },
+              value: [
+                [0, 5e-324, "off"],
+                [5e-324, 1, "on"]
+              ]
+            },
+            test_suggest_rebranding: {
+              ver: 2,
+              min_ver: "1.218.292",
+              filter: { install_ts_lt: 1700634559e3 },
+              value: [
+                [0, 0.8, "off"],
+                [0.8, 1, "on"]
+              ],
               ref_prefix: true
             },
             test_promote_1m: {
@@ -1237,14 +1153,44 @@
               ],
               ref_prefix: true
             },
-            test_dummy_02_Oct_2023: {
-              ver: 1,
-              min_ver: "1.1.1",
+            test_ru_trial: {
+              ver: 2,
+              min_ver: "9.216.954",
+              min_install_ts: 17000562e5,
               value: [
-                [0, 0, "off"],
-                [0, 1, "on"]
+                [0, 0.5, "off"],
+                [0.5, 1, "on"]
               ],
-              ref_prefix: false
+              ref_prefix: true,
+              filter: { src_country: "RU" }
+            },
+            test_premium_value: {
+              ver: 1,
+              min_ver: "9.218.292",
+              min_install_ts: 170228519e4,
+              value: [
+                [0, 0.9, "off"],
+                [0.9, 1, "on"]
+              ],
+              ref_prefix: true
+            },
+            test_suggested_countries: {
+              ver: 1,
+              min_ver: "1.218.476",
+              value: [
+                [0, 0.5, "off"],
+                [0.5, 1, "on"]
+              ],
+              ref_prefix: true
+            },
+            test_plans_radio: {
+              ver: 1,
+              min_ver: "9.999.999",
+              value: [
+                [0, 0.9, "off"],
+                [0.9, 1, "on"]
+              ],
+              ref_prefix: true
             }
           },
           user_message: [
@@ -1476,11 +1422,16 @@
               conf: { watermark: { bonus_logo: true }, popcorn_watermark: false }
             },
             { filter: { src_country_in: ["RU", "TR"] }, conf: { skip_trial: true } },
+            { filter: { ab_test: "test_ru_trial_on", src_country: "RU" }, conf: { skip_trial: false } },
             { filter: { ab_test: "test_welcome_plans_ui_on" }, conf: { show_welcome_plans_ui: true } },
             { filter: { ab_test: "test_placebo_on" }, conf: { menu_title: "Hola Free" } },
             { filter: { ab_test: "test_wait_for_conn_on" }, conf: { middle_wait: { rate: 0.3, ms: 25e3 } } },
             { filter: { ab_test: "test_skip_plan_selection_on" }, conf: { skip_plan_selection: "josh_3y" } },
             { filter: { ab_test: "test_rebranding_on" }, conf: { rebranding: true, wm_rebranding: true } },
+            { filter: { ab_test: "test_rebranding_ext_on" }, conf: { rebranding: true, wm_rebranding: true } },
+            { filter: { ab_test: "test_rebranding_ext_all_on" }, conf: { rebranding: true, wm_rebranding: true } },
+            { filter: { ab_test: "test_rebranding_ext_new_on" }, conf: { rebranding: true, wm_rebranding: true } },
+            { filter: { ab_test: "test_suggest_rebranding_on" }, conf: { suggest_rebranding: true } },
             {
               filter: { ab_test: "test_promote_1m_on" },
               conf: {
@@ -1538,14 +1489,24 @@
                   "f542472e29cf9d783bd0c9ea9460003e",
                   "31f551ed835ca9cb5c959e6f62938562",
                   "e84d278ba221be50b93790b3890c44f1",
+                  "8d78ea9f55293e8507d8bdb682ad9ab8",
                   "8463d617985adc01fefd23877b43a812",
-                  "d5c067bff05c51509529a188753569d8"
+                  "fb437d7240225450b70fe037cfd97622",
+                  "a0f63562b49eef69cc9d3ba560678633",
+                  "d5c067bff05c51509529a188753569d8",
+                  "c0467191ca08cd5ca67bee2af5cbe6b3",
+                  "ad3642f5eca5281317092a49e19efbcd"
                 ]
               },
-              conf: { watermark: { banner: { type: "all_plans" }, watermark_mm: { enabled: true, type: "fall_special" } } }
+              conf: { watermark: { banner: { type: "all_plans" }, top_banner: { enabled: true, type: "holiday_season", show_delay: 6e4 } } }
             },
             { filter: { ext_ver_gte: "1.210.914" }, conf: { new_ui: true } },
-            { filter: { since_install_ts_lt: 6e5 }, conf: { hide_premium_link: true } },
+            { filter: { ab_test: "test_premium_value_on" }, conf: { watermark: { banner: { type: "premium_value" } } } },
+            {
+              filter: { ab_test: "test_suggested_countries_on" },
+              conf: { suggested_countries: ["us", "gb", "de", "fr", "ca", "br", "it", "ar"] }
+            },
+            { filter: { ab_test: "test_plans_radio_on" }, conf: { plans_radio: true } },
             {
               filter: { uuid_md5_in: ["b2d7dee66ff1a769c5402a1f57cd750f"] },
               conf: {
@@ -1562,7 +1523,19 @@
                 cycle: 36e5
               }
             },
-            { filter: { ab_test: "test_dummy_02_Oct_2023_on" }, conf: { dummy_02_Oct_2023: true, dummy_03_Oct_2023: true } }
+            {
+              filter: { uuid_md5_in: ["8d63890f5394cbaf0ca4a03679fd07b6"] },
+              conf: {
+                intervals: [
+                  { dur: 12e4, conf: { wait: 12e4 } },
+                  { dur: 15e4, conf: { wait: 12e4 } },
+                  { dur: 18e4, conf: { wait: 12e4 } },
+                  { dur: 21e4, conf: { wait: 12e4 } },
+                  { dur: 24e4, conf: { wait: 12e4 } }
+                ],
+                cycle: 36e5
+              }
+            }
           ],
           sites_default: { min_ver: "1.174.223", install_min_ver: "1.1.1", require_plus: false },
           sites: {
@@ -2464,8 +2437,13 @@
                     "f542472e29cf9d783bd0c9ea9460003e",
                     "31f551ed835ca9cb5c959e6f62938562",
                     "e84d278ba221be50b93790b3890c44f1",
+                    "8d78ea9f55293e8507d8bdb682ad9ab8",
                     "8463d617985adc01fefd23877b43a812",
-                    "d5c067bff05c51509529a188753569d8"
+                    "fb437d7240225450b70fe037cfd97622",
+                    "a0f63562b49eef69cc9d3ba560678633",
+                    "d5c067bff05c51509529a188753569d8",
+                    "c0467191ca08cd5ca67bee2af5cbe6b3",
+                    "ad3642f5eca5281317092a49e19efbcd"
                   ]
                 },
                 conf: { reasons: { redirect: { enable: true, mode: "auto" }, timeout: { enable: true, mode: "manual" } } }
@@ -2554,7 +2532,9 @@
             watermark_plan_ids: ["josh_3y", "y12005", "m12005"],
             trial_plan_ids: ["josh_3y", "y12005", "m12005"],
             bonus_plan_id: "y12005d",
-            mm_plan_ids: ["josh_3y", "y12005", "m12005f1"]
+            mm_plan_ids: ["josh_3y", "y12005", "m12005f1"],
+            plan_ids: ["josh_3y", "y12005", "m12005"],
+            wm_popup_plan_ids: ["m12005", "y12005", "josh_3y"]
           },
           verify_period_ms: 864e5,
           verify_proxy: { min_ver: "1.156.341", period_ms: 864e5, disable_verify: false, verify_err: { period: 864e5, count: 1e4 } },
@@ -2605,7 +2585,7 @@
             allow_rule_rating_google_min_ver: "9.999.999"
           },
           use_server_ts_min_ver: "1.216.281",
-          force_server_ts_update_threshold: 6e5,
+          force_server_ts_update_threshold: 0,
           trustpilot_rating: 4.5,
           dialogs: {
             trial_running: {
@@ -2754,7 +2734,7 @@
           perr_rate_limit: { be_ui_vpn_click_no_fix_it: 100, be_trial_next_ts: 1 },
           menu_survey: { id: "s1", title: "Help us make Hola better!", debug: true },
           stamp: 0,
-          build_ts: 1698826437786,
+          build_ts: 1703189341354,
           proxy_rules: {
             exceptions: {
               dynamic: ["netflix.com", "hulu.com", "hulu.jp", "itv.com", "channel4.com", "rte.ie"],
@@ -2978,7 +2958,12 @@
               "innowee.eu": true,
               "trckswrm.com": true,
               "stripe.com": true,
-              "netweak.com": true
+              "netweak.com": true,
+              "typhoonadvertising.com": true,
+              "dry-bag.nl": true,
+              "hamoptiek.nl": true,
+              "de-verkleedkist.nl": true,
+              "mulderoptiek.nl": true
             },
             enable: true,
             stamp: 0,
@@ -3260,6 +3245,38 @@
                   }
                 ]
               },
+              laligaplus_laliga_com: {
+                match: {
+                  root_urls: ["laligaplus.laliga.com"],
+                  rules: [
+                    {
+                      proxy_country: ["US"],
+                      cmds: [
+                        {
+                          hosts: [
+                            "liga-llstv-subscriptions.llt-services.com",
+                            "liga-llstv-backend.llt-services.com",
+                            "liga-llstv-backend.llt-services.com"
+                          ],
+                          then: "PROXY US.PEER",
+                          if: []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                cmds: [
+                  {
+                    hosts: [
+                      "liga-llstv-subscriptions.llt-services.com",
+                      "liga-llstv-backend.llt-services.com",
+                      "liga-llstv-backend.llt-services.com"
+                    ],
+                    then: "PROXY US.PEER",
+                    if: []
+                  }
+                ]
+              },
               hibbett_com: {
                 match: {
                   root_urls: ["hibbett.com"],
@@ -3537,6 +3554,18 @@
                   ]
                 },
                 cmds: [{ hosts: ["ruv-vod-app-dcp-v4.secure.footprint.net"], then: "PROXY IS.PEER", if: [] }]
+              },
+              binge_com_au: {
+                match: {
+                  root_urls: ["binge.com.au"],
+                  rules: [
+                    {
+                      proxy_country: ["AU"],
+                      cmds: [{ hosts: ["binge.com.au", "billingapi.streamotion.com.au"], then: "PROXY AU.PEER", if: [] }]
+                    }
+                  ]
+                },
+                cmds: [{ hosts: ["binge.com.au", "billingapi.streamotion.com.au"], then: "PROXY AU.PEER", if: [] }]
               },
               tf1_fr: {
                 match: {
@@ -3903,6 +3932,13 @@
                   rules: [{ proxy_country: ["US"], cmds: [{ root_urls: ["snipesusa.com"], then: "PROXY US.PEER", if: [] }] }]
                 },
                 cmds: [{ root_urls: ["snipesusa.com"], then: "PROXY US.PEER", if: [] }]
+              },
+              vtmgo_be: {
+                match: {
+                  root_urls: ["vtmgo.be"],
+                  rules: [{ proxy_country: ["BE"], cmds: [{ hosts: ["videoplayer-service.dpgmedia.net"], then: "PROXY BE.PEER", if: [] }] }]
+                },
+                cmds: [{ hosts: ["videoplayer-service.dpgmedia.net"], then: "PROXY BE.PEER", if: [] }]
               },
               walgreens_com: {
                 match: {
@@ -4810,7 +4846,7 @@
               },
               npostart_nl: {
                 match: {
-                  root_urls: ["npostart.nl"],
+                  root_urls: ["npostart.nl", "npo.nl"],
                   rules: [
                     {
                       proxy_country: ["NL"],
@@ -4823,7 +4859,8 @@
                             "npo.prd.cdn.bcms.kpn.com",
                             "atconnect.npo.nl",
                             "start-player.npo.nl",
-                            "tellerapi.npo.nl"
+                            "tellerapi.npo.nl",
+                            "prod.npoplayer.nl"
                           ],
                           then: "PROXY NL.PEER",
                           if: []
@@ -4841,7 +4878,8 @@
                       "npo.prd.cdn.bcms.kpn.com",
                       "atconnect.npo.nl",
                       "start-player.npo.nl",
-                      "tellerapi.npo.nl"
+                      "tellerapi.npo.nl",
+                      "prod.npoplayer.nl"
                     ],
                     then: "PROXY NL.PEER",
                     if: []
@@ -8355,7 +8393,8 @@
                             "feed.entertainment.tv.theplatform.eu",
                             "api.mediaset.net",
                             "secure-it.imrworldwide.com",
-                            "vod06.msf.cdn.mediaset.net"
+                            "vod06.msf.cdn.mediaset.net",
+                            "mediasetinfinity.mediaset.it"
                           ],
                           then: "PROXY IT.PEER",
                           if: []
@@ -8374,7 +8413,8 @@
                       "feed.entertainment.tv.theplatform.eu",
                       "api.mediaset.net",
                       "secure-it.imrworldwide.com",
-                      "vod06.msf.cdn.mediaset.net"
+                      "vod06.msf.cdn.mediaset.net",
+                      "mediasetinfinity.mediaset.it"
                     ],
                     then: "PROXY IT.PEER",
                     if: []
@@ -9144,7 +9184,8 @@
                             "apis-jiovoot.voot.com",
                             "jcstreamingdash.akamaized.net",
                             "auth-jiocinema.voot.com",
-                            "apis-jiocinema.voot.com"
+                            "apis-jiocinema.voot.com",
+                            "engage.jiocinema.com"
                           ],
                           then: "PROXY IN.POOL_lum_in_shared",
                           if: []
@@ -9164,7 +9205,8 @@
                       "apis-jiovoot.voot.com",
                       "jcstreamingdash.akamaized.net",
                       "auth-jiocinema.voot.com",
-                      "apis-jiocinema.voot.com"
+                      "apis-jiocinema.voot.com",
+                      "engage.jiocinema.com"
                     ],
                     then: "PROXY IN.POOL_lum_in_shared",
                     if: []
@@ -9330,6 +9372,20 @@
                 },
                 cmds: [{ hosts: ["adjarabet.com"], then: "PROXY GE.PEER", if: [] }]
               },
+              vfsglobal_com: {
+                match: {
+                  root_urls: ["vfsglobal.com"],
+                  rules: [{ proxy_country: ["RU"], cmds: [{ hosts: ["vfsglobal.com"], then: "PROXY RU.PEER", if: [] }] }]
+                },
+                cmds: [{ hosts: ["vfsglobal.com"], then: "PROXY RU.PEER", if: [] }]
+              },
+              tax_ohio_gov: {
+                match: {
+                  root_urls: ["tax.ohio.gov"],
+                  rules: [{ proxy_country: ["US"], cmds: [{ hosts: ["tax.ohio.gov"], then: "PROXY US.PEER", if: [] }] }]
+                },
+                cmds: [{ hosts: ["tax.ohio.gov"], then: "PROXY US.PEER", if: [] }]
+              },
               kayosports_com_au: {
                 match: {
                   root_urls: ["kayosports.com.au"],
@@ -9441,13 +9497,6 @@
                   ]
                 },
                 cmds: [{ hosts: ["growtopiagame.com"], then: "PROXY XX.PEER", if: [] }]
-              },
-              vtmgo_be: {
-                match: {
-                  root_urls: ["vtmgo.be"],
-                  rules: [{ proxy_country: ["BE"], cmds: [{ hosts: ["vtmgo.be"], then: "PROXY BE.PEER", if: [] }] }]
-                },
-                cmds: [{ hosts: ["vtmgo.be"], then: "PROXY BE.PEER", if: [] }]
               },
               kimdesene_org: {
                 match: {
@@ -9800,6 +9849,38 @@
                   }
                 ]
               },
+              laligaplus_laliga_com: {
+                match: {
+                  root_urls: ["laligaplus.laliga.com"],
+                  rules: [
+                    {
+                      proxy_country: ["US"],
+                      cmds: [
+                        {
+                          hosts: [
+                            "liga-llstv-subscriptions.llt-services.com",
+                            "liga-llstv-backend.llt-services.com",
+                            "liga-llstv-backend.llt-services.com"
+                          ],
+                          then: "PROXY US.PEER",
+                          if: []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                cmds: [
+                  {
+                    hosts: [
+                      "liga-llstv-subscriptions.llt-services.com",
+                      "liga-llstv-backend.llt-services.com",
+                      "liga-llstv-backend.llt-services.com"
+                    ],
+                    then: "PROXY US.PEER",
+                    if: []
+                  }
+                ]
+              },
               hibbett_com: {
                 match: {
                   root_urls: ["hibbett.com"],
@@ -10077,6 +10158,18 @@
                   ]
                 },
                 cmds: [{ hosts: ["ruv-vod-app-dcp-v4.secure.footprint.net"], then: "PROXY IS.PEER", if: [] }]
+              },
+              binge_com_au: {
+                match: {
+                  root_urls: ["binge.com.au"],
+                  rules: [
+                    {
+                      proxy_country: ["AU"],
+                      cmds: [{ hosts: ["binge.com.au", "billingapi.streamotion.com.au"], then: "PROXY AU.PEER", if: [] }]
+                    }
+                  ]
+                },
+                cmds: [{ hosts: ["binge.com.au", "billingapi.streamotion.com.au"], then: "PROXY AU.PEER", if: [] }]
               },
               tf1_fr: {
                 match: {
@@ -10443,6 +10536,13 @@
                   rules: [{ proxy_country: ["US"], cmds: [{ root_urls: ["snipesusa.com"], then: "PROXY US.PEER", if: [] }] }]
                 },
                 cmds: [{ root_urls: ["snipesusa.com"], then: "PROXY US.PEER", if: [] }]
+              },
+              vtmgo_be: {
+                match: {
+                  root_urls: ["vtmgo.be"],
+                  rules: [{ proxy_country: ["BE"], cmds: [{ hosts: ["videoplayer-service.dpgmedia.net"], then: "PROXY BE.PEER", if: [] }] }]
+                },
+                cmds: [{ hosts: ["videoplayer-service.dpgmedia.net"], then: "PROXY BE.PEER", if: [] }]
               },
               walgreens_com: {
                 match: {
@@ -11350,7 +11450,7 @@
               },
               npostart_nl: {
                 match: {
-                  root_urls: ["npostart.nl"],
+                  root_urls: ["npostart.nl", "npo.nl"],
                   rules: [
                     {
                       proxy_country: ["NL"],
@@ -11363,7 +11463,8 @@
                             "npo.prd.cdn.bcms.kpn.com",
                             "atconnect.npo.nl",
                             "start-player.npo.nl",
-                            "tellerapi.npo.nl"
+                            "tellerapi.npo.nl",
+                            "prod.npoplayer.nl"
                           ],
                           then: "PROXY NL.PEER",
                           if: []
@@ -11381,7 +11482,8 @@
                       "npo.prd.cdn.bcms.kpn.com",
                       "atconnect.npo.nl",
                       "start-player.npo.nl",
-                      "tellerapi.npo.nl"
+                      "tellerapi.npo.nl",
+                      "prod.npoplayer.nl"
                     ],
                     then: "PROXY NL.PEER",
                     if: []
@@ -14895,7 +14997,8 @@
                             "feed.entertainment.tv.theplatform.eu",
                             "api.mediaset.net",
                             "secure-it.imrworldwide.com",
-                            "vod06.msf.cdn.mediaset.net"
+                            "vod06.msf.cdn.mediaset.net",
+                            "mediasetinfinity.mediaset.it"
                           ],
                           then: "PROXY IT.PEER",
                           if: []
@@ -14914,7 +15017,8 @@
                       "feed.entertainment.tv.theplatform.eu",
                       "api.mediaset.net",
                       "secure-it.imrworldwide.com",
-                      "vod06.msf.cdn.mediaset.net"
+                      "vod06.msf.cdn.mediaset.net",
+                      "mediasetinfinity.mediaset.it"
                     ],
                     then: "PROXY IT.PEER",
                     if: []
@@ -15684,7 +15788,8 @@
                             "apis-jiovoot.voot.com",
                             "jcstreamingdash.akamaized.net",
                             "auth-jiocinema.voot.com",
-                            "apis-jiocinema.voot.com"
+                            "apis-jiocinema.voot.com",
+                            "engage.jiocinema.com"
                           ],
                           then: "PROXY IN.POOL_lum_in_shared",
                           if: []
@@ -15704,7 +15809,8 @@
                       "apis-jiovoot.voot.com",
                       "jcstreamingdash.akamaized.net",
                       "auth-jiocinema.voot.com",
-                      "apis-jiocinema.voot.com"
+                      "apis-jiocinema.voot.com",
+                      "engage.jiocinema.com"
                     ],
                     then: "PROXY IN.POOL_lum_in_shared",
                     if: []
@@ -15870,6 +15976,20 @@
                 },
                 cmds: [{ hosts: ["adjarabet.com"], then: "PROXY GE.PEER", if: [] }]
               },
+              vfsglobal_com: {
+                match: {
+                  root_urls: ["vfsglobal.com"],
+                  rules: [{ proxy_country: ["RU"], cmds: [{ hosts: ["vfsglobal.com"], then: "PROXY RU.PEER", if: [] }] }]
+                },
+                cmds: [{ hosts: ["vfsglobal.com"], then: "PROXY RU.PEER", if: [] }]
+              },
+              tax_ohio_gov: {
+                match: {
+                  root_urls: ["tax.ohio.gov"],
+                  rules: [{ proxy_country: ["US"], cmds: [{ hosts: ["tax.ohio.gov"], then: "PROXY US.PEER", if: [] }] }]
+                },
+                cmds: [{ hosts: ["tax.ohio.gov"], then: "PROXY US.PEER", if: [] }]
+              },
               kayosports_com_au: {
                 match: {
                   root_urls: ["kayosports.com.au"],
@@ -15981,13 +16101,6 @@
                   ]
                 },
                 cmds: [{ hosts: ["growtopiagame.com"], then: "PROXY XX.PEER", if: [] }]
-              },
-              vtmgo_be: {
-                match: {
-                  root_urls: ["vtmgo.be"],
-                  rules: [{ proxy_country: ["BE"], cmds: [{ hosts: ["vtmgo.be"], then: "PROXY BE.PEER", if: [] }] }]
-                },
-                cmds: [{ hosts: ["vtmgo.be"], then: "PROXY BE.PEER", if: [] }]
               },
               kimdesene_org: {
                 match: {
@@ -16250,7 +16363,8 @@
           install_ver:
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().install_version() ||
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().version(),
-          install_ts: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().install_ts() || Date.now(),
+          install_ts: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().install_ts(),
+          last_install_ts: _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().last_install_ts(),
           signed_in: !!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_5___default().get("user_id"),
           is_premium: !!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_5___default().get("is_premium"),
           src_country: (_bext_vpn_bg_info_js__WEBPACK_IMPORTED_MODULE_11__["default"].get("country") || "").toUpperCase(),
@@ -16352,15 +16466,18 @@
           _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_5___default().trigger("ab_test_change");
           update_ref();
         });
+      const sent_perrs = {};
       E.report = (filter_str, conf_key) => {
         for (let [test_name, state] of Object.entries(ab_states)) {
-          if (filter_str.startsWith(test_name)) {
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().perr(
-              `be_ab_test_report_${test_name}_${state.value}`,
-              { conf_key },
-              { rate_limit: { count: 1, ms: _util_date_js__WEBPACK_IMPORTED_MODULE_2___default().ms.DAY } }
-            );
-          }
+          if (!filter_str.startsWith(test_name)) continue;
+          let id = `be_ab_test_report_${test_name}_${state.value}`;
+          if (sent_perrs[id]) continue;
+          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_6___default().perr(
+            id,
+            { conf_key },
+            { rate_limit: { count: 1, ms: _util_date_js__WEBPACK_IMPORTED_MODULE_2___default().ms.DAY } }
+          );
+          sent_perrs[id] = true;
         }
       };
       E.init = () => {
@@ -16792,6 +16909,11 @@
         }
         let _this = this;
         return _util_etask_js__WEBPACK_IMPORTED_MODULE_3___default()(function* check_agents_connectivity_() {
+          this.finally(() => {
+            _this.agents_check_et = undefined;
+          });
+          if (_this.agents_check_et) return yield this.wait_ext(_this.agents_check_et);
+          _this.agents_check_et = this;
           let selected = _this.agents_check.selected;
           if (selected && force) {
             _this.reset("agents");
@@ -16799,14 +16921,22 @@
           }
           if (!selected) {
             yield _this.agents_check.run({ force });
-            if (!_this.agents_check) return;
+            if (!_this.agents_check || !_this.agents_check.selected) return;
             selected = _this.agents_check.selected;
             state.set("selected_agents", selected);
           }
           let fallback_rule = selected && selected.agent && selected.agent.fallback_rule;
+          if (_this.agent_fallback_rule && !fallback_rule) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr(
+              "be_agent_domain_fallback_reset",
+              { fallback_rule: _this.agent_fallback_rule, force },
+              { with_log: true }
+            );
+          }
           _this.agent_fallback_rule = fallback_rule;
-          if (fallback_rule)
-            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr("be_agent_domain_fallback", { agent: selected.agent });
+          if (fallback_rule) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr("be_agent_domain_fallback", { agent: selected.agent, force });
+          }
         });
       };
       BgAjax.prototype.need_agent_domain_fallback = function () {
@@ -16861,7 +16991,9 @@
       BgAjax.prototype.reset = function (type) {
         let c = type + "_check",
           now = Date.now();
-        if (!this[c] || (this[c].error_ts && now - this[c].error_ts < 5 * MIN)) return;
+        if (!this[c] || this[c].et || (this[c].error_ts && now - this[c].error_ts < 5 * MIN)) {
+          return;
+        }
         state.set("selected_" + type, null);
         this[c].reset();
         this[c].error_ts = now;
@@ -17046,6 +17178,7 @@
         });
       E.reset = function (force) {
         if (!bg_ajax && !force) return;
+        _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr("be_bg_ajax_reset", { force });
         if (bg_ajax) bg_ajax.uninit();
         bg_ajax = new BgAjax();
         bg_ajax.init();
@@ -17199,6 +17332,13 @@
         );
         for (let host of E.hola_mirrors.concat(agent_domains)) {
           if (!E.hola_domains.includes(host)) E.hola_domains.push(host);
+        }
+        if (!E.hola_mirrors.length || !E.agent_domain_fallback_rules.length) {
+          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr(
+            "be_bg_ajax_empty_mirrors",
+            { hola_mirrors: E.hola_mirrors, agent_domain_fallback_rules: E.agent_domain_fallback_rules },
+            { with_log: true }
+          );
         }
         if (
           (prev_hola_mirrors.length &&
@@ -17827,20 +17967,21 @@
       var _util_util_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(1291);
       var _util_util_js__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_util_util_js__WEBPACK_IMPORTED_MODULE_6__);
       var _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(8076);
-      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5371);
-      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(
-        _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_8__
+      var _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(7666);
+      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(5371);
+      var _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(
+        _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_9__
       );
-      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(4130);
-      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(
-        _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9__
+      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(4130);
+      var _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(
+        _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10__
       );
-      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(5250);
-      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(
-        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_10__
+      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(5250);
+      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(
+        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11__
       );
       // LICENSE_CODE ZON
-      _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_10___default().assert_bg("be_icon");
+      _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().assert_bg("be_icon");
       const E = new (_bext_pub_backbone_js__WEBPACK_IMPORTED_MODULE_1___default().task_model.extend({ model_name: "icon" }))();
       const chrome = self.chrome,
         assign = Object.assign;
@@ -17850,6 +17991,7 @@
       const images = {
         gray: { 19: "bext/vpn/ui/img/icon19_gray.png", 38: "bext/vpn/ui/img/icon38_gray.png" },
         ok: { 19: "bext/vpn/ui/img/icon19.png", 38: "bext/vpn/ui/img/icon38.png" },
+        ok_new: { 16: "bext/vpn/ui/img/icon16_new.png", 48: "bext/vpn/ui/img/icon48_new.png" },
         mitm_icon: { 19: "bext/vpn/ui/img/ic_unblock19.png", 38: "bext/vpn/ui/img/ic_unblock38.png" },
         error_icon: { 19: "bext/vpn/ui/img/ic_error_19.png", 38: "bext/vpn/ui/img/ic_error_38.png" }
       };
@@ -17865,7 +18007,7 @@
       E.init = () => {
         if (E.get("inited")) return;
         E.set("inited", true);
-        E.sp = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_10___default().new_etask("be_icon");
+        E.sp = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().new_etask("be_icon");
         E.on("destroy", E.uninit);
         E.on("refresh", on_refresh);
         E.listenTo(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_3___default(), "change:enabled", refresh_all);
@@ -17875,13 +18017,13 @@
         E.listenTo(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_7__.Z, "change:stamp", refresh_active);
         E.listenTo(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_7__.Z, "change:rules", refresh_active);
         E.listenTo(_bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_7__.Z, "change:tabs_stub_rules", refresh_active);
-        E.listenTo(_bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_8___default(), "change:tab_load_err", refresh_active);
-        E.listenTo(_bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default(), "change:active.url change:active.id", refresh_active);
-        E.listenTo(_bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default(), "updated", (o) => {
+        E.listenTo(_bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_9___default(), "change:tab_load_err", refresh_active);
+        E.listenTo(_bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10___default(), "change:active.url change:active.id", refresh_active);
+        E.listenTo(_bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10___default(), "updated", (o) => {
           if (!o.info.url && !o.info.status) return;
           E.refresh({ tab: o.tab });
         });
-        E.listenTo(_bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default(), "completed", (o) => {
+        E.listenTo(_bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10___default(), "completed", (o) => {
           if (!o.frameId && o.tabId >= 0) E.refresh({ tabId: o.tabId });
         });
         refresh_all();
@@ -17938,7 +18080,7 @@
         if (
           stub_rule &&
           stub_rule.enabled &&
-          _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_10___default().is_stub_url(
+          _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_stub_url(
             url,
             _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_3___default().get("is_premium")
           )
@@ -17967,14 +18109,15 @@
           if (
             _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_4___default().proxy_error_ui_enabled("icon") &&
             tab_id &&
-            _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_8___default().get_tab_load_err(tab_id)
+            _bext_vpn_bg_tab_unblocker_js__WEBPACK_IMPORTED_MODULE_9___default().get_tab_load_err(tab_id)
           ) {
             yield set_icon(tab_opt(tab, { name: "error_icon" }), cb);
             return;
           }
           const rule = get_rule(url, tab_id);
           if (!_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_3___default().get("enabled") || !rule || !rule.enabled || !rule.country) {
-            yield set_icon(tab_opt(tab, { name: "ok" }), cb);
+            let name = _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_8__["default"].is_rebranding_enabled() ? "ok_new" : "ok";
+            yield set_icon(tab_opt(tab, { name }), cb);
             if (rule && !rule.country) {
               _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_4___default().perr(
                 "icon_no_country_err",
@@ -17998,8 +18141,8 @@
                 o && o.tab
                   ? o.tab
                   : o && o.tabId
-                  ? yield _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default().get_tab(o.tabId)
-                  : yield _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default().active();
+                  ? yield _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10___default().get_tab(o.tabId)
+                  : yield _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_10___default().active();
               if (!tab) return;
               return yield refresh(tab, o && o.retry);
             } catch (e) {
@@ -19149,7 +19292,7 @@
         E.timer = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_6___default().set_timeout(
           function pac_slow() {
             var ts =
-              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_2___default().get("install_ts") ||
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_2___default().get("last_install_ts") ||
               _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_2___default().get("update_ts");
             if (!first_reported && ts != self.hola.t.l_start) return reset(pac_slow, true);
             var send;
@@ -19781,6 +19924,7 @@
               state.set("uuid_info", uuid_info);
             }
             _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_7___default().set("uuid_info", uuid_info);
+            yield _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_16__["default"].verify_install_ts(uuid_info);
           } catch (e) {
             _util_zerr_js__WEBPACK_IMPORTED_MODULE_18___default().warn(
               "update_uuid_info failed %s",
@@ -20752,7 +20896,7 @@
         if (!data) throw "no data";
         let ret = { status: {} };
         ret.raw = data;
-        if (data.connected_js) ret.proxyjs_connected = true;
+        if (data.connected) ret.proxyjs_connected = true;
         if (data.full_vpn) ret.status.full_vpn = data.full_vpn;
         return Object.assign(ret, {
           appid: data.appid || "",
@@ -23853,8 +23997,7 @@
           if (zutil.get(chrome, "webNavigation.onCommitted")) chrome.webNavigation.onCommitted.removeListener(on_committed);
         }
         E.get_tab = (tab_id) => {
-          if (!tab_id) return null;
-          return etask.cb_apply(chrome.tabs, ".get", [tab_id]);
+          if (tab_id > 0) return etask.cb_apply(chrome.tabs, ".get", [tab_id]);
         };
         E.get_nav_tab_url = (id) => nav_tabs[id];
         E.get_nav_tabs = () => nav_tabs;
@@ -24089,9 +24232,7 @@
       };
       const is_rebranding_enabled = () => {
         if (_util_util_js__WEBPACK_IMPORTED_MODULE_15___default().is_mocha()) return false;
-        let wm_rebranding =
-          CG("debug.wm_rebranding") || _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_19__["default"].get_trial_conf("wm_rebranding");
-        return _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_19__["default"].get_trial_conf("rebranding") && wm_rebranding;
+        return _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_19__["default"].is_rebranding_enabled();
       };
       const get_tpopup_opt = ({ tab_id, url, root_url }) =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_2___default()(function* () {
@@ -24973,7 +25114,7 @@
       const assign = Object.assign;
       const { SEC } = _util_date_js__WEBPACK_IMPORTED_MODULE_5___default().ms;
       let is_user_updated;
-      let state;
+      let state, monitor_state;
       let activation_tracker;
       const E = new (_bext_pub_backbone_js__WEBPACK_IMPORTED_MODULE_2___default().task_model.extend({
         model_name: "trial",
@@ -25107,12 +25248,9 @@
           let watch_time_ms = E.get_watch_time_ms();
           let trial_usage = 0,
             it = 0;
-          let ended = {},
-            wait_ended = {},
-            grace_ended = {},
-            cleared = {};
+          const monitor_perr = (id, info) => perr(it > 0 ? id : id + "_delayed", info);
           return yield _util_etask_js__WEBPACK_IMPORTED_MODULE_3___default().interval(interval_ms, () => {
-            if (_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_7___default().get("is_premium")) return;
+            if (!user_trials.is_enabled(_svc_vpn_pub_trial_lib_js__WEBPACK_IMPORTED_MODULE_11___default().get_client_params())) return;
             let active_sites = get_active_sites();
             if (active_sites.length) active_sites = active_sites.concat("total");
             update_active_tab_trial_ui();
@@ -25126,36 +25264,34 @@
                   _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().set_json("trial_watch_time_ms", (watch_time_ms += interval_ms));
                 }
                 is_active = true;
-                ended[tkey] = cleared[tkey] = undefined;
+                monitor_state.delete(`ended${tkey}`);
                 continue;
               }
               if (trial.is_wait_ended()) {
-                if (!wait_ended[tkey]) {
+                if (!monitor_state.get(`wait_ended${tkey}`)) {
                   log_timeline(`trial_wait_end ${tkey}`);
-                  if (it > 0 && !trial_obj.conf.autostart_after_wait) perr("be_trial_cycle_wait_ready", { trial_obj });
+                  if (!trial_obj.conf.autostart_after_wait) monitor_perr("be_trial_cycle_wait_ready", { trial_obj });
                   _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_7___default().trigger("trial_wait_end", trial_obj);
-                  wait_ended[tkey] = true;
+                  monitor_state.set(`wait_ended${tkey}`, true);
                 }
-              } else wait_ended[tkey] = undefined;
-              if (!ended[tkey]) {
+              } else monitor_state.delete(`wait_ended${tkey}`);
+              if (!monitor_state.get(`ended${tkey}`)) {
                 _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_7___default().trigger("trial_end", trial_obj);
                 let remaining_time = E.get_remaining_cycle_time(trial.state.root_url);
                 log_timeline(`trial_end ${tkey} ` + `remaining time ${remaining_time}ms (monitor)`);
-                if (it > 0) {
-                  if (remaining_time > 0) perr("be_trial_cycle_wait", { trial_obj });
-                  else perr("be_trial_cycle_end", { trial_obj });
-                  perr("be_trial_end", { type: "site", entity: trial.state.root_url });
-                }
+                if (remaining_time > 0) monitor_perr("be_trial_cycle_wait", { trial_obj });
+                else monitor_perr("be_trial_cycle_end", { trial_obj });
+                monitor_perr("be_trial_end", { type: "site", entity: trial.state.root_url });
                 for (let site of active_sites) record_site_interruption(trial, site);
-                ended[tkey] = true;
+                monitor_state.set(`ended${tkey}`, true);
               }
               if (trial.is_grace_ended(true)) {
-                if (!grace_ended[tkey]) {
+                if (!monitor_state.get(`grace_ended${tkey}`)) {
                   _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_7___default().trigger("trial_grace_end", trial_obj);
-                  grace_ended[tkey] = true;
-                  if (it > 0) perr("be_trial_grace_end", { trial_obj });
+                  monitor_state.set(`grace_ended${tkey}`, true);
+                  monitor_perr("be_trial_grace_end", { trial_obj });
                 }
-              } else grace_ended[tkey] = undefined;
+              } else monitor_state.delete(`grace_ended${tkey}`);
             }
             if (is_active) trial_usage++;
             else {
@@ -25587,7 +25723,9 @@
         }
       };
       E.can_start_trial_silently = (root_url) => {
-        if (E.need_signin(root_url) || E.get_trial_wait(root_url)) return false;
+        if (E.need_signin(root_url) || (E.get_trial_wait(root_url) && !E.is_wait_ended(root_url))) {
+          return false;
+        }
         let next_ts = E.get_next_trial_ts(root_url);
         return !next_ts || next_ts < _bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_17__["default"].now();
       };
@@ -25620,6 +25758,12 @@
             { persistent: false }
           );
           yield state.load();
+          monitor_state = new _pub_state_js__WEBPACK_IMPORTED_MODULE_20__["default"](
+            "be_trial_monitor",
+            { ended: {}, wait_ended: {}, grace_ended: {} },
+            { persistent: true, ttl: Infinity }
+          );
+          yield monitor_state.load();
           user_trials = new (_svc_vpn_pub_trial_lib_js__WEBPACK_IMPORTED_MODULE_11___default().User_trials)();
           activation_tracker = new (_svc_vpn_pub_trial_lib_js__WEBPACK_IMPORTED_MODULE_11___default().Activation_tracker)(state);
           E.be_rule = be_rule;
@@ -25652,12 +25796,14 @@
               _bext_vpn_bg_tabs_js__WEBPACK_IMPORTED_MODULE_9___default().get("active.id")
             );
             let root_url = _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().get_root_url(url);
-            if (root_url && !E.get_trial_active(root_url, true)) return;
+            if (!root_url || !state.get("trial_states") || !E.get_trial_active(root_url, true)) {
+              return;
+            }
             update_active_tab_trial_ui();
             if (_bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_17__["default"].need_date_sync()) fetch_server_ts();
           });
           E.listenTo(be_tpopup, "mouseenter body_click", () => {
-            if (!E.get_trial_active(null, true)) return;
+            if (!state.get("trial_states") || !E.get_trial_active(null, true)) return;
             if (_bext_vpn_bg_util_js__WEBPACK_IMPORTED_MODULE_17__["default"].need_date_sync()) fetch_server_ts();
           });
           E.listenTo(_bext_vpn_bg_premium_js__WEBPACK_IMPORTED_MODULE_13__["default"], "user_updated", () => (is_user_updated = true));
@@ -25721,6 +25867,8 @@
         let client_params = _svc_vpn_pub_trial_lib_js__WEBPACK_IMPORTED_MODULE_11___default().get_client_params();
         user_trials.notify_survey_done(client_params);
       };
+      E.is_rebranding_enabled = () =>
+        !!E.get_trial_conf("rebranding") || !!_util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_int("force_rebranding");
       if (false) {
       }
       const __WEBPACK_DEFAULT_EXPORT__ = E;
@@ -25774,9 +25922,10 @@
       var _bext_vpn_bg_tpopup_js__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(4968);
       var _bext_vpn_bg_svc_js__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(737);
       var _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(7676);
-      var _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(1211);
-      var _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_26___default = __webpack_require__.n(
-        _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_26__
+      var _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(8084);
+      var _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(1211);
+      var _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_27___default = __webpack_require__.n(
+        _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_27__
       );
       // LICENSE_CODE ZON
       _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_9___default().assert_bg("bg_ui_api");
@@ -25912,14 +26061,14 @@
           });
         });
         E.on("popup_open", on_popup_open);
-        _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_26___default().backbone.server.start(E, "bg_ui_api");
+        _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_27___default().backbone.server.start(E, "bg_ui_api");
         E.listenTo(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default(), "change:is_premium", on_premium_change);
         E.inited = true;
       };
       E.uninit = () => {
         if (!E.inited) return;
         E.inited = false;
-        _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_26___default().backbone.server.stop("bg_ui_api");
+        _bext_pub_browser_js__WEBPACK_IMPORTED_MODULE_27___default().backbone.server.stop("bg_ui_api");
         E.stopListening();
         E.off("popup_open", on_popup_open);
       };
@@ -26206,6 +26355,8 @@
       E.get_suggested_survey_id = _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_19__["default"].get_suggested_survey_id;
       E.notify_survey_suggested = _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_19__["default"].notify_survey_suggested;
       E.ab_test_report = _bext_vpn_bg_ab_test_js__WEBPACK_IMPORTED_MODULE_25__.Z.report;
+      E.is_rebranding_enabled = _bext_vpn_bg_trial_js__WEBPACK_IMPORTED_MODULE_19__["default"].is_rebranding_enabled;
+      E.refresh_icon = _bext_vpn_bg_icon_js__WEBPACK_IMPORTED_MODULE_26__.Z.refresh;
       if (false) {
       }
       E.t = { get_rate_us_url, review_urls };
@@ -26219,44 +26370,51 @@
       var underscore__WEBPACK_IMPORTED_MODULE_0___default = __webpack_require__.n(underscore__WEBPACK_IMPORTED_MODULE_0__);
       var md5__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2033);
       var md5__WEBPACK_IMPORTED_MODULE_1___default = __webpack_require__.n(md5__WEBPACK_IMPORTED_MODULE_1__);
-      var _util_util_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1291);
-      var _util_util_js__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(_util_util_js__WEBPACK_IMPORTED_MODULE_2__);
-      var _util_url_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5305);
-      var _util_url_js__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(_util_url_js__WEBPACK_IMPORTED_MODULE_3__);
-      var _util_zerr_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9824);
-      var _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default = __webpack_require__.n(_util_zerr_js__WEBPACK_IMPORTED_MODULE_4__);
-      var _util_storage_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8915);
-      var _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default = __webpack_require__.n(_util_storage_js__WEBPACK_IMPORTED_MODULE_5__);
-      var _util_date_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(932);
-      var _util_date_js__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_util_date_js__WEBPACK_IMPORTED_MODULE_6__);
-      var _util_etask_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(6386);
-      var _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default = __webpack_require__.n(_util_etask_js__WEBPACK_IMPORTED_MODULE_7__);
-      var _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(843);
-      var _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(
-        _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_8__
+      var cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9813);
+      var cookie__WEBPACK_IMPORTED_MODULE_2___default = __webpack_require__.n(cookie__WEBPACK_IMPORTED_MODULE_2__);
+      var _util_util_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1291);
+      var _util_util_js__WEBPACK_IMPORTED_MODULE_3___default = __webpack_require__.n(_util_util_js__WEBPACK_IMPORTED_MODULE_3__);
+      var _util_url_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5305);
+      var _util_url_js__WEBPACK_IMPORTED_MODULE_4___default = __webpack_require__.n(_util_url_js__WEBPACK_IMPORTED_MODULE_4__);
+      var _util_zerr_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9824);
+      var _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default = __webpack_require__.n(_util_zerr_js__WEBPACK_IMPORTED_MODULE_5__);
+      var _util_storage_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(8915);
+      var _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default = __webpack_require__.n(_util_storage_js__WEBPACK_IMPORTED_MODULE_6__);
+      var _util_date_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(932);
+      var _util_date_js__WEBPACK_IMPORTED_MODULE_7___default = __webpack_require__.n(_util_date_js__WEBPACK_IMPORTED_MODULE_7__);
+      var _util_etask_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(6386);
+      var _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default = __webpack_require__.n(_util_etask_js__WEBPACK_IMPORTED_MODULE_8__);
+      var _util_version_util_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(6262);
+      var _util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(
+        _util_version_util_js__WEBPACK_IMPORTED_MODULE_9__
       );
-      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(2227);
-      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_9___default = __webpack_require__.n(
-        _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_9__
+      var _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(843);
+      var _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(
+        _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10__
       );
-      var _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(7345);
-      var _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default = __webpack_require__.n(_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10__);
-      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(5250);
-      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(
-        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11__
+      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(2227);
+      var _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_11___default = __webpack_require__.n(
+        _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_11__
       );
-      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(3727);
-      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_12___default = __webpack_require__.n(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_12__);
-      var conf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(9641);
+      var _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(7345);
+      var _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default = __webpack_require__.n(_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12__);
+      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(5250);
+      var _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13___default = __webpack_require__.n(
+        _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13__
+      );
+      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(3727);
+      var _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default = __webpack_require__.n(_bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14__);
+      var conf__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(9641);
       // LICENSE_CODE ZON
       const E = {};
       const chrome = self.chrome,
         assign = Object.assign;
-      const { www_host } = conf__WEBPACK_IMPORTED_MODULE_13__;
-      const { CG } = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default();
+      const { www_host } = conf__WEBPACK_IMPORTED_MODULE_15__;
+      const { CG } = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default();
+      const v3 = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().is_v3;
       E.is_private_network = (hostname, is_in_net) => {
-        if (_util_url_js__WEBPACK_IMPORTED_MODULE_3___default().get_top_level_domain(hostname) == "localhost") return true;
-        if (is_in_net && _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_ip(hostname)) {
+        if (_util_url_js__WEBPACK_IMPORTED_MODULE_4___default().get_top_level_domain(hostname) == "localhost") return true;
+        if (is_in_net && _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_ip(hostname)) {
           if (
             is_in_net(hostname, "10.0.0.0", "255.0.0.0") ||
             is_in_net(hostname, "172.16.0.0", "255.240.0.0") ||
@@ -26271,10 +26429,10 @@
       E.is_vpn_allowed = (_url, is_main, is_in_net, rule) => {
         let protocol,
           hostname,
-          url = _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().parse(_url),
+          url = _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().parse(_url),
           port = url.port;
         if (!(protocol = url.protocol) || !(hostname = url.hostname)) return false;
-        if (_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_all_browser(rule)) return true;
+        if (_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13___default().is_all_browser(rule)) return true;
         if (!hostname.includes(".")) return false;
         const protocols = { "http:": 1, "https:": 1, "wss:": 1, "ws:": 1 };
         if (!protocols[protocol]) return false;
@@ -26283,16 +26441,16 @@
         }
         if (
           E.is_private_network(hostname, is_in_net) ||
-          (_util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_ip(hostname) && (is_main || !is_in_net))
+          (_util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_ip(hostname) && (is_main || !is_in_net))
         ) {
           return false;
         }
-        return CG("allow_hola_domain_vpn", true) || _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_hola_domain(hostname);
+        return CG("allow_hola_domain_vpn", true) || _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_hola_domain(hostname);
       };
       E.get_root_link = (rule, href) => {
         if (!href) return rule.link;
-        let proto = _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().get_proto(href) || "http";
-        return proto + "://" + _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().get_host(href);
+        let proto = _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().get_proto(href) || "http";
+        return proto + "://" + _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().get_host(href);
       };
       const add_rule_ratings = (opt) => {
         const proxy_country = opt.proxy_country,
@@ -26304,24 +26462,24 @@
           (cr) => cr.proxy_country == proxy_country
         );
         if (country_ratings) {
-          _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().forEach(country_ratings.rules, (r) => {
+          _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().forEach(country_ratings.rules, (r) => {
             if (r.rating <= 0) return;
-            let r_rule = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().clone(
-              _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_8___default().find_rule(rules, r) ||
-                _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_8___default().find_rule(groups && groups.unblocker_rules, r)
+            let r_rule = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().clone(
+              _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().find_rule(rules, r) ||
+                _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().find_rule(groups && groups.unblocker_rules, r)
             );
             if (!r_rule) {
-              r_rule = _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_9___default().gen_rule({
+              r_rule = _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_11___default().gen_rule({
                 name: r.name,
                 type: r.type,
                 country: r.country,
                 supported: true
               });
             }
-            let rule = _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_8___default().find_rule(rules, r_rule);
+            let rule = _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().find_rule(rules, r_rule);
             if (!rule) {
               if (!r_rule.root_url) return;
-              rule = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().clone(r_rule);
+              rule = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().clone(r_rule);
               rules.push(rule);
             }
             rule.ratings = r;
@@ -26339,8 +26497,8 @@
         const all_rules = opt.rules,
           url = opt.url,
           root_url = opt.root_url;
-        let rules = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().clone(
-          _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().get_rules(all_rules, url) || []
+        let rules = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().clone(
+          _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13___default().get_rules(all_rules, url) || []
         );
         rules = underscore__WEBPACK_IMPORTED_MODULE_0___default().filter(rules, (r) => r.country == proxy_country);
         rules = add_rule_ratings({ proxy_country, rules, root_url, url, rule_ratings, groups: opt.groups });
@@ -26348,7 +26506,7 @@
           !underscore__WEBPACK_IMPORTED_MODULE_0___default().find(rules, (r) => r.type == "url" && r.name == root_url && r.md5 != "premium")
         ) {
           rules.push(
-            _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_9___default().gen_rule({
+            _svc_vpn_pub_unblocker_lib_js__WEBPACK_IMPORTED_MODULE_11___default().gen_rule({
               name: root_url,
               mitm: opt.mitm,
               country: proxy_country,
@@ -26376,25 +26534,25 @@
       };
       E.update_tab = (tab_id, url) => chrome.tabs.update(tab_id, { url, active: true });
       E.open_new_tab = (opt) => {
-        const _opt = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().clone(opt);
+        const _opt = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().clone(opt);
         _opt.force_new = 1;
         return open_tab(_opt);
       };
       E.open_hola_tab = (opt) => {
-        const _opt = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().clone(opt);
+        const _opt = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().clone(opt);
         const www_host_esc = www_host.replace(/\./g, "\\.");
         _opt.tab_match = chrome ? { url: "*://" + www_host + "/*" } : { url_re: "^https?:\\/\\/" + www_host_esc + "\\/" };
         _opt.exclude_re = new RegExp(www_host_esc + "/access/([^/]*)/using/vpn-" + "([^?/]*)$", "gi");
-        if (_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().browser() == "chrome") {
+        if (_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().browser() == "chrome") {
           _opt.tab_match.url = [_opt.tab_match.url, "*://chrome.google.com/*/" + chrome.runtime.id + "*"];
         }
         return open_tab(_opt);
       };
       E.open_be_tab = (opt) => {
-        opt = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().clone(opt);
+        opt = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().clone(opt);
         const url = chrome.runtime.getURL("").slice(0, -1);
         opt.tab_match = { url: url + "/*" };
-        if (_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().browser() != "firefox") opt.url = "js/" + opt.url;
+        if (_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().browser() != "firefox") opt.url = "js/" + opt.url;
         return open_tab(opt);
       };
       E.Rules_set = class Rules_set {
@@ -26404,7 +26562,7 @@
           if (!host) return;
           this.add(host);
           let id,
-            sets_map = _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().get_json("be_rules_sets") || {};
+            sets_map = _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_json("be_rules_sets") || {};
           if (!(id = sets_map[host])) return;
           Object.entries(sets_map).forEach((e) => {
             if (e[1] == id) this.add(e[0]);
@@ -26419,13 +26577,13 @@
           return Object.keys(data).filter((k) => data[k]);
         }
         save() {
-          let sets_map = _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().get_json("be_rules_sets") || {};
-          let id = +_util_date_js__WEBPACK_IMPORTED_MODULE_6___default()();
+          let sets_map = _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_json("be_rules_sets") || {};
+          let id = +_util_date_js__WEBPACK_IMPORTED_MODULE_7___default()();
           Object.keys(this._data).forEach((host) => {
             if (!!this._data[host] ^ this._invert) sets_map[host] = id;
             else delete sets_map[host];
           });
-          _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().set_json("be_rules_sets", sets_map);
+          _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().set_json("be_rules_sets", sets_map);
         }
       };
       E.tabid2api = (tabid) => {
@@ -26433,16 +26591,16 @@
         return tabid;
       };
       E.upgrade_ext = function upgrade_ext() {
-        _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default().notice("upgrade_ext");
-        if (!_util_util_js__WEBPACK_IMPORTED_MODULE_2___default().get(chrome, "runtime.requestUpdateCheck")) return;
+        _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().notice("upgrade_ext");
+        if (!_util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(chrome, "runtime.requestUpdateCheck")) return;
         chrome.runtime.requestUpdateCheck((status) =>
-          _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default().notice("update check: " + status)
+          _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().notice("update check: " + status)
         );
       };
       const storage_get_fn = (area) => (items) =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(function* _storage_get_fn() {
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* _storage_get_fn() {
           try {
-            const data = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.storage[area], ".get", [items]);
+            const data = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.storage[area], ".get", [items]);
             if (chrome.runtime.lastError) {
               storage_err("storage_" + area + "_get", items, chrome.runtime.lastError);
             }
@@ -26452,9 +26610,9 @@
           }
         });
       const storage_set_fn = (area) => (items) =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(function* _storage_set_fn() {
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* _storage_set_fn() {
           try {
-            yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.storage[area], ".set", [items]);
+            yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.storage[area], ".set", [items]);
             if (chrome.runtime.lastError) {
               storage_err("storage_" + area + "_set", items, chrome.runtime.lastError);
             }
@@ -26464,39 +26622,39 @@
           }
         });
       const storage_remove_fn = (area) => (items) =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(function* _storage_remove_fn() {
-          yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.storage[area], ".remove", [items]);
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* _storage_remove_fn() {
+          yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.storage[area], ".remove", [items]);
           if (chrome.runtime.lastError) {
             storage_err("storage_" + area + "_remove", items, chrome.runtime.lastError);
           }
         });
       let perr_sent;
       const storage_err = (name, items, err) => {
-        const s = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().get(err, "message");
+        const s = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(err, "message");
         const msg =
-          name + " " + _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default().json(items) + " failed " + s + " " + (err && err.stack);
+          name + " " + _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().json(items) + " failed " + s + " " + (err && err.stack);
         if (!perr_sent) {
           perr_sent = true;
           const id = s == "The browser is shutting down." ? "storage_browser_shutdown" : "storage_lib_err";
-          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr(
+          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr(
             id,
             {
               name,
               items,
               err_str:
                 err instanceof Error
-                  ? _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default().e2s(err)
-                  : _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default().json(err)
+                  ? _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().e2s(err)
+                  : _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default().json(err)
             },
             { err }
           );
         }
-        _util_zerr_js__WEBPACK_IMPORTED_MODULE_4___default()(msg);
+        _util_zerr_js__WEBPACK_IMPORTED_MODULE_5___default()(msg);
         throw new Error(msg);
       };
       let _uuid_md5;
       E.get_uuid_md5 = () => {
-        let uuid = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_12___default().get("uuid");
+        let uuid = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().get("uuid");
         if (!uuid) return;
         if (!_uuid_md5 || _uuid_md5.uuid != uuid) _uuid_md5 = { uuid, md5: md5__WEBPACK_IMPORTED_MODULE_1___default()(uuid) };
         return _uuid_md5.md5;
@@ -26508,32 +26666,32 @@
       E.storage_session_set = storage_set_fn("session");
       E.storage_session_remove = storage_remove_fn("session");
       E.get_site_storage = (root_url, path, def) => {
-        const key = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().get_site_key(root_url) || root_url;
-        const data = _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().get_json("site_storage") || {};
-        return _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().get(data[key], path, def);
+        const key = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().get_site_key(root_url) || root_url;
+        const data = _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_json("site_storage") || {};
+        return _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(data[key], path, def);
       };
       E.set_site_storage = (root_url, path, val) => {
-        const key = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().get_site_key(root_url) || root_url;
-        const data = _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().get_json("site_storage") || {};
+        const key = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().get_site_key(root_url) || root_url;
+        const data = _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_json("site_storage") || {};
         data[key] = data[key] || {};
-        _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().set(data[key], path, val);
-        _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().set_json("site_storage", data);
+        _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().set(data[key], path, val);
+        _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().set_json("site_storage", data);
       };
       E.set_dbg_conf = (path, value) => {
-        const _conf = _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().get_json("hola_conf") || {};
-        _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().set(_conf, path, value);
-        _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().set_json("hola_conf", _conf);
+        const _conf = _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_json("hola_conf") || {};
+        _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().set(_conf, path, value);
+        _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().set_json("hola_conf", _conf);
       };
       E.get_dbg_conf = (path) =>
-        _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().get(
-          _util_storage_js__WEBPACK_IMPORTED_MODULE_5___default().get_json("hola_conf"),
+        _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(
+          _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get_json("hola_conf"),
           path
         );
       const status_regex = /^HTTP\/(\d\.\d) (0|\d{3})( (.*))?$/;
       E.http_status_to_node = (code, line) => {
         let n = (line || "").match(status_regex);
         if (!n) {
-          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr("bad_status_line", { code, line }, { rate_limit: { count: 2 } });
+          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("bad_status_line", { code, line }, { rate_limit: { count: 2 } });
           n = [null, "1.1", code, " ", ""];
         }
         return { httpVersion: n[1], statusCode: +n[2] || 0, reasonPhrase: n[4] || "", headers: {} };
@@ -26546,7 +26704,7 @@
             ret.headers[hdr.name.toLowerCase()] = hdr.value;
           });
         } catch (e) {
-          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr(
+          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr(
             "response_headers_error",
             { statusLine: details.statusLine, url: details.url, method: details.method, statusCode: details.statusCode },
             { rate_limit: { count: 2 } }
@@ -26560,7 +26718,7 @@
           else this.data = {};
         }
         _send(acc) {
-          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().perr("req_bw", {
+          _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("req_bw", {
             len: acc.len,
             ms: acc.ms,
             bw: (acc.len * 1e3) / acc.ms,
@@ -26572,8 +26730,8 @@
           else delete this.data[acc.id];
         }
         push(bw_rule, req) {
-          const agent = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().get(req, "agent.host");
-          const country = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().get(req, "opt.rule.country");
+          const agent = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(req, "agent.host");
+          const country = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(req, "opt.rule.country");
           const id = bw_rule.id + (bw_rule.sid ? "_" + bw_rule.sid : "");
           let acc = this.state ? this.state.get(["bw_perr_acc", id]) : this.data[id];
           if (acc && acc.country != country) {
@@ -26591,16 +26749,16 @@
         }
       };
       E.create_window = ({ url, width, height }) =>
-        _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(function* () {
-          let cur_win = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.windows, ".getCurrent", []);
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* () {
+          let cur_win = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.windows, ".getCurrent", []);
           if (!cur_win) return;
-          if (cur_win.state == "fullscreen" && _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().os_mac()) {
-            yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.windows, ".update", [
+          if (cur_win.state == "fullscreen" && _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().os_mac()) {
+            yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.windows, ".update", [
               cur_win.id,
               { state: "normal" }
             ]);
-            yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().sleep(1e3);
-            cur_win = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.windows, ".getCurrent", []);
+            yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().sleep(1e3);
+            cur_win = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.windows, ".getCurrent", []);
           }
           let opt = {
             url,
@@ -26611,12 +26769,12 @@
             type: "popup",
             state: "normal"
           };
-          if (_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().browser() != "firefox") opt.focused = true;
-          return yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().cb_apply(chrome.windows, ".create", [opt]);
+          if (_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().browser() != "firefox") opt.focused = true;
+          return yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.windows, ".create", [opt]);
         });
       let _date;
       E.now = () => {
-        if (!_date || !_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().check_min_ver(CG("use_server_ts_min_ver")))
+        if (!_date || !_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().check_min_ver(CG("use_server_ts_min_ver")))
           return Date.now();
         return Math.round(performance.now()) + _date.perf_diff;
       };
@@ -26627,19 +26785,22 @@
         let prev_perf_diff = _date && _date.perf_diff;
         _date = { server_ts, local_ts, perf_diff, date_diff: server_ts - Date.now() };
         if (!prev_perf_diff || 50 < Math.abs(_date.perf_diff - prev_perf_diff))
-          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_12___default().trigger("local_time_change", server_ts);
+          _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().trigger("local_time_change", server_ts);
       };
       E.check_conf_ver = (conf_ver) => {
         if (conf_ver == CG("version")) return;
-        if (!CG("disable_conf_ver_update")) _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_12___default().trigger("conf_ver_change", conf_ver);
+        if (!CG("disable_conf_ver_update")) _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().trigger("conf_ver_change", conf_ver);
       };
       E.need_date_sync = (server_ts) => {
-        if (!_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().check_min_ver(CG("use_server_ts_min_ver"))) return;
+        if (!_bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().check_min_ver(CG("use_server_ts_min_ver"))) return;
         if (!_date) return true;
-        if (server_ts) return 1e3 < Math.abs(server_ts - E.now());
+        let perf_diff = Math.abs(server_ts - E.now());
         let date_diff = E.now() - Date.now();
+        let date_drift = Math.abs(_date.date_diff - date_diff);
         let threshold = CG("force_server_ts_update_threshold");
-        return threshold && threshold < Math.abs(_date.date_diff - date_diff);
+        let threshold_crossed = threshold && threshold < date_drift;
+        if (server_ts) return 1e3 < perf_diff || threshold_crossed;
+        return threshold_crossed;
       };
       E.Proxied_hosts = class Proxied_hosts {
         constructor(sp) {
@@ -26655,13 +26816,13 @@
         init() {
           const _this = this;
           this.sp.spawn(
-            (this.et = _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(
+            (this.et = _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(
               { name: "proxied_hosts", cancel: true },
               function* _proxied_hosts() {
                 this.finally(() => (_this.et = null));
                 while (true) {
                   const { interval, threshold } = _this.conf;
-                  yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().sleep(interval);
+                  yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().sleep(interval);
                   const root_urls = Object.keys(_this.data).filter((r) => Date.now() - _this.data[r].first_ts >= threshold);
                   if (root_urls.length) yield _this.send({ root_urls });
                 }
@@ -26676,7 +26837,7 @@
         }
         send(opt) {
           const _this = this;
-          _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(function* proxied_hosts_send() {
+          _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* proxied_hosts_send() {
             const { tab_id, root_url, root_urls } = opt || {};
             if (!_this.conf.enabled) return;
             const data = {};
@@ -26694,27 +26855,27 @@
             if (!Object.keys(data).length) return;
             yield E.be_bg_ajax.ccgi_ajax({
               url:
-                conf__WEBPACK_IMPORTED_MODULE_13__.url_ccgi +
+                conf__WEBPACK_IMPORTED_MODULE_15__.url_ccgi +
                 "/proxied_hosts?be_ver=" +
-                _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_10___default().version(),
+                _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().version(),
               method: "POST",
               data,
-              timeout: 10 * _util_date_js__WEBPACK_IMPORTED_MODULE_6___default().ms.SEC
+              timeout: 10 * _util_date_js__WEBPACK_IMPORTED_MODULE_7___default().ms.SEC
             });
           });
         }
         add(root_url, host, initiator, tab_id) {
           if (!this.conf.enabled) return;
           if (
-            !_util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_valid_domain(root_url) ||
-            _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_hola_domain(root_url) ||
-            !_util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_valid_domain(host) ||
-            _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().is_hola_domain(host)
+            !_util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_valid_domain(root_url) ||
+            _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_hola_domain(root_url) ||
+            !_util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_valid_domain(host) ||
+            _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().is_hola_domain(host)
           ) {
             return;
           }
-          initiator = initiator ? _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().get_host_gently(initiator) : host;
-          const initiator_root_url = _util_url_js__WEBPACK_IMPORTED_MODULE_3___default().get_root_domain(initiator);
+          initiator = initiator ? _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().get_host_gently(initiator) : host;
+          const initiator_root_url = _util_url_js__WEBPACK_IMPORTED_MODULE_4___default().get_root_domain(initiator);
           if (!this.data[root_url] && initiator_root_url !== root_url) return;
           const o = (this.data[root_url] = this.data[root_url] || { first_ts: Date.now(), hosts: {}, tab_id });
           if (o.sent) return;
@@ -26723,25 +26884,157 @@
         }
         get(rules) {
           let _this = this;
-          return _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default()(function* proxied_hosts_load() {
+          return _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* proxied_hosts_load() {
             if (!rules || !rules.length || CG("debug.disable_proxied_hosts")) return (_this.server_data = {});
-            const url = conf__WEBPACK_IMPORTED_MODULE_13__.url_ccgi + "/proxied_hosts?root_url=";
+            const url = conf__WEBPACK_IMPORTED_MODULE_15__.url_ccgi + "/proxied_hosts?root_url=";
             const tasks = {};
             for (const r of rules) {
               if (
-                !_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_all_browser(r) &&
-                !_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_11___default().is_debug_peer(r)
+                !_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13___default().is_all_browser(r) &&
+                !_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_13___default().is_debug_peer(r)
               ) {
                 tasks[r.name] = E.be_bg_ajax.ccgi_ajax({ url: url + r.name });
               }
             }
-            return (_this.server_data = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_7___default().all(tasks));
+            return (_this.server_data = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().all(tasks));
           });
         }
         is_unknown_site(root_url) {
           return !this.server_data[root_url];
         }
       };
+      E.collect_errors = (ret) => {
+        var arr = [];
+        underscore__WEBPACK_IMPORTED_MODULE_0___default().each(ret, (v, k) => {
+          if (!_util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().is_err(v)) return;
+          var e = {};
+          e[k] = "" + v.error;
+          arr.push(e);
+        });
+        return arr;
+      };
+      E.get_param = (name, read_cookies) =>
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* get_param() {
+          try {
+            const ret = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().all(
+              { allow_fail: true },
+              {
+                local: E.storage_local_get(name),
+                local_storage: v3 ? null : _util_storage_js__WEBPACK_IMPORTED_MODULE_6___default().get(name),
+                cookie:
+                  !_util_util_js__WEBPACK_IMPORTED_MODULE_3___default().is_mocha() &&
+                  read_cookies &&
+                  _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* () {
+                    return yield cookie__WEBPACK_IMPORTED_MODULE_2___default().get(name);
+                  }),
+                ccgi:
+                  !_util_util_js__WEBPACK_IMPORTED_MODULE_3___default().is_mocha() &&
+                  read_cookies &&
+                  _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().cb_apply(chrome.cookies, ".get", [
+                    { url: conf__WEBPACK_IMPORTED_MODULE_15__.url_ccgi, name }
+                  ])
+              }
+            );
+            const ext_storage_value = _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(ret, ["local", name]);
+            const res_value =
+              ext_storage_value ||
+              ret.local_storage ||
+              ret.cookie ||
+              _util_util_js__WEBPACK_IMPORTED_MODULE_3___default().get(ret, "ccgi.value");
+            if (res_value && !ext_storage_value) {
+              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("persist_param_in_ext_storage", { [name]: res_value });
+              E.persist_param(name, res_value);
+            }
+            return res_value;
+          } catch (e) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("unreachable", `get_${name}`, { err: e });
+          }
+        });
+      E.persist_param_errors = {};
+      E.persist_param = (name, value, set_cookie) =>
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* persist_param() {
+          try {
+            const ret = yield _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default().all(
+              { allow_fail: true },
+              {
+                local: E.storage_local_set({ [name]: value }),
+                localStorage: _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* persist_param_ls_() {
+                  if (!v3) yield localStorage.setItem(name, value);
+                }),
+                cookie:
+                  set_cookie &&
+                  _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* persist_param_cookie_() {
+                    yield cookie__WEBPACK_IMPORTED_MODULE_2___default().set(name, value, { expires: 36500, path: "/" });
+                  })
+              }
+            );
+            E.persist_param_errors[name] = E.collect_errors(ret);
+            return underscore__WEBPACK_IMPORTED_MODULE_0___default().isEmpty(ret);
+          } catch (e) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("unreachable", `persist_${name}`, { err: e });
+          }
+        });
+      E.fixup_install_data = () =>
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* fixup_install_data() {
+          if (_util_util_js__WEBPACK_IMPORTED_MODULE_3___default().is_mocha()) return;
+          let install_ver = yield E.get_param("install_version", true);
+          if (!install_ver || !_util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().valid(install_ver)) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("be_fixup_install_ver", { install_ver });
+            yield E.persist_param("install_version", _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().version(), true);
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().set(
+              "install_version",
+              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().version()
+            );
+          }
+          let install_ts = +(yield E.get_param("install_ts", true));
+          let now = E.now();
+          if (!install_ts || install_ts > now) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("be_fixup_install_ts", { install_ts });
+            yield E.persist_param("install_ts", now, true);
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().set("install_ts", now);
+          }
+          let last_install_ts = +(yield E.get_param("last_install_ts"));
+          if (!last_install_ts || last_install_ts > now) {
+            _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("be_fixup_last_install_ts", { last_install_ts });
+            yield E.persist_param("last_install_ts", now);
+            _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().set("last_install_ts", now);
+          }
+        });
+      E.verify_install_ts = (uuid_info) =>
+        _util_etask_js__WEBPACK_IMPORTED_MODULE_8___default()(function* verify_install_ts() {
+          if (!uuid_info) return;
+          if (uuid_info.install_version) {
+            const install_ver = yield E.get_param("install_version", true);
+            if (
+              !install_ver ||
+              !_util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().valid(install_ver) ||
+              _util_version_util_js__WEBPACK_IMPORTED_MODULE_9___default().cmp(uuid_info.install_version, install_ver) < 0
+            ) {
+              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("be_install_ver_server_fix", { install_ver, uuid_info });
+              yield E.persist_param("install_version", uuid_info.install_version, true);
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().set("install_version", uuid_info.install_version);
+            }
+          }
+          if (uuid_info.first_install_ts) {
+            const install_ts = +(yield E.get_param("install_ts", true));
+            if (!install_ts || uuid_info.first_install_ts < install_ts) {
+              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("be_install_ts_server_fix", { install_ts, uuid_info });
+              yield E.persist_param("install_ts", uuid_info.first_install_ts, true);
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().set("install_ts", uuid_info.first_install_ts);
+            }
+          }
+          if (uuid_info.install_ts) {
+            const last_install_ts = +(yield E.get_param("last_install_ts"));
+            if (!last_install_ts) {
+              _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().perr("be_last_install_ts_server_fix", {
+                last_install_ts,
+                uuid_info
+              });
+              yield E.persist_param("last_install_ts", uuid_info.install_ts);
+              _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_14___default().set("last_install_ts", uuid_info.install_ts);
+            }
+          }
+        });
       const __WEBPACK_DEFAULT_EXPORT__ = E;
     },
     3886: (__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
@@ -27256,7 +27549,7 @@
           if (!data || typeof data != "object") data = {};
           return data;
         };
-        let ts = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_3___default().get("install_ts");
+        let ts = _bext_pub_ext_js__WEBPACK_IMPORTED_MODULE_3___default().get("last_install_ts");
         const install_period = 5,
           max_period = 60;
         let period = ts == self.hola.t.l_start ? install_period : max_period;
@@ -28199,7 +28492,6 @@
           return void _bext_vpn_bg_mitm_js__WEBPACK_IMPORTED_MODULE_30__.Z.set_ignore(root_url, tab_id);
         const rule = E.rule_get(url);
         if (!rule) return;
-        _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_7___default().perr("be_ui_vpn_stop", { root_url, country: rule.country });
         _bext_vpn_bg_rule_js__WEBPACK_IMPORTED_MODULE_9__.Z.trigger("set_rule", {
           name: rule.name,
           root_url,
@@ -28210,6 +28502,7 @@
         });
       };
       E.get_site_conf = (url) => {
+        if (!url) return;
         const root_url = _svc_vpn_pub_util_js__WEBPACK_IMPORTED_MODULE_12___default().get_root_url(url);
         return _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_7___default().get_site_conf(root_url);
       };
@@ -28568,7 +28861,7 @@
         else;
         !((__WEBPACK_AMD_DEFINE_ARRAY__ = [
           __webpack_require__(6449),
-          __webpack_require__(7439),
+          __webpack_require__(1291),
           __webpack_require__(6386),
           __webpack_require__(1291),
           __webpack_require__(901),
@@ -29276,6 +29569,7 @@
               os: get_param("os"),
               appid: get_param("appid"),
               campaign: is_win && get_param("campaign"),
+              product: is_win && get_param("product"),
               user_token: is_win && get_param("user_token"),
               user_token_md5: is_win && api.md5(get_param("user_token") || ""),
               svc_detected: +get_param("svc_detected") || 0,
@@ -29285,8 +29579,11 @@
               src_country: get_param("src_country"),
               install_ver: get_param("install_ver") || ext_ver,
               install_ts: +get_param("install_ts") || now,
+              last_install_ts: +get_param("last_install_ts") || now,
               first_start_ts,
+              total_interval_n: +get_param("total_interval_n") || 0,
               total_watch_time: +get_param("total_watch_time") || 0,
+              cycle_n: +get_param("cycle_n") || 0,
               signed_in: +get_param("signed_in") || 0,
               is_premium: +get_param("is_premium") || 0,
               is_pro_grace_period: +get_param("is_pro_grace_period") || 0,
@@ -29300,7 +29597,6 @@
               last_downloaded_svc_ts: +get_param("last_downloaded_svc_ts") || 0,
               now
             };
-            if (is_win) assign(client_params, { cycle_n: get_param("cycle_n") || 0 });
             if (!query_conf(assign({}, client_params, { root_url: domain, apk })).key) return { error: "trial_forbidden_domain" };
             return client_params;
           };
@@ -29321,6 +29617,7 @@
               os: api.be_util.os_guess.os,
               install_ver: api.be_util.install_version() || ext_ver,
               install_ts: api.be_util.install_ts() || now,
+              last_install_ts: api.be_util.last_install_ts() || now,
               first_start_ts: api.get_param_from_state("first_start_ts"),
               total_watch_time: api.get_param_from_state("total_watch_time"),
               cycle_n: api.get_param_from_state("cycle_n") || 0,
@@ -29355,12 +29652,15 @@
               user_token_md5: api.md5(api.info_get("user_token") || ""),
               appid: api.info_get("appid"),
               campaign: api.info_get("campaign"),
+              product: api.info_get("product"),
               is_premium: api.info_get("premium"),
               signed_in: api.info_get("signed_in"),
               ab_test: api.info_get("ab_test"),
               install_ver: api.info_get("install_ver"),
               install_ts: api.info_get("install_ts"),
               first_start_ts: api.get_param_from_state("first_start_ts"),
+              total_interval_n: api.get_param_from_state("total_interval_n"),
+              total_watch_time: api.get_param_from_state("total_watch_time"),
               cycle_n: api.get_param_from_state("cycle_n") || 0
             };
             return client_params;
@@ -29383,14 +29683,18 @@
               return states;
             }
             get_trial(client_params, ignore_signin) {
-              if (client_params.is_premium) return;
               let conf = query_conf(client_params);
-              if (!conf.key || conf.skip_trial) return;
+              if (!this.is_enabled(client_params, conf)) return;
               if (!ignore_signin && this.need_signin(client_params, conf)) return;
               let trial = this.trials[conf.key];
               if (!trial) return;
               trial._conf = conf;
               return trial;
+            }
+            is_enabled(client_params, conf) {
+              if (client_params.is_premium) return false;
+              conf = conf || query_conf(client_params);
+              return !!conf.key && !conf.skip_trial;
             }
             start_trial(client_params) {
               let conf = query_conf(client_params);
@@ -29430,6 +29734,10 @@
               if (!conf.key) return;
               let trial = this.trials[conf.key];
               return trial && this.need_trial(client_params, conf) && !trial.is_running();
+            }
+            is_ended(client_params) {
+              let trial = this.get_trial(client_params);
+              return trial && trial.is_ended();
             }
             can_hide_watermark(client_params) {
               let trial = this.get_trial(client_params);
@@ -29481,15 +29789,11 @@
               if (trial) return trial.close_bonus_tooltip();
             }
             need_trial(client_params, conf) {
-              if (client_params.is_premium) return;
-              conf = conf || query_conf(client_params);
-              if (!conf.key || conf.skip_trial) return;
+              if (!this.is_enabled(client_params, conf)) return;
               return !this.get_trial_active(client_params);
             }
             is_vpn_forbidden(client_params, is_client) {
-              if (client_params.is_premium) return false;
-              let conf = query_conf(client_params);
-              if (!conf.key || conf.skip_trial) return false;
+              if (!this.is_enabled(client_params)) return false;
               let trial = this.get_trial(client_params, true);
               if (!trial) return "no_trial";
               if (client_params.trial_popup_abuse_ts > trial.state.expire_ts) return "popup_abuse";
@@ -29522,13 +29826,37 @@
               if (subtract_wait) return interval.min_start_ts || interval.min_ts;
               return interval.min_ts;
             }
+            get_next_interval_dur(client_params) {
+              let trial = this.get_trial(client_params);
+              let interval = trial && trial.get_next_interval();
+              if (!trial || !interval) return this.get_trial_conf(client_params, "intervals.0.dur");
+              return interval.dur;
+            }
+            get_last_interval_start_ts(client_params) {
+              let trial = this.get_trial(client_params);
+              if (trial) return trial.state.interval_ts;
+            }
             get_last_interval_end_ts(client_params) {
               let trial = this.get_trial(client_params);
               if (trial) return trial.state.expire_ts;
             }
+            get_last_interval_dur(client_params) {
+              let start_ts = this.get_last_interval_start_ts(client_params);
+              let end_ts = start_ts && this.get_last_interval_end_ts(client_params);
+              return start_ts && end_ts && end_ts - start_ts;
+            }
+            get_last_interval_wait_start_ts(client_params) {
+              let trial = this.get_trial(client_params);
+              if (trial) return trial.state.wait_start_ts;
+            }
             get_last_interval_wait_end_ts(client_params) {
               let trial = this.get_trial(client_params);
               if (trial) return trial.state.wait_end_ts;
+            }
+            get_last_interval_wait_dur(client_params) {
+              let start_ts = this.get_last_interval_wait_start_ts(client_params);
+              let end_ts = start_ts && this.get_last_interval_wait_end_ts(client_params);
+              return start_ts && end_ts && end_ts - start_ts;
             }
             get_interval_dur(client_params) {
               let trial = this.get_trial(client_params);
@@ -29550,7 +29878,7 @@
               let interval = trial.get_current_interval();
               if (!interval) return 0;
               let { intervals } = trial.get_conf();
-              let sum = subtract_current ? 0 : interval.dur;
+              let sum = subtract_current && trial.is_running() ? 0 : interval.dur;
               for (let i = 0; i < interval.n && intervals[i]; i++) sum += intervals[i].dur;
               return sum;
             }
@@ -29862,6 +30190,7 @@
               info.push("total watch time: " + date.dur_to_str(this.state.total_watch_time || 0, drop_ms));
               let first_start_ts = api.get_param_from_state("first_start_ts");
               info.push("since first_start_ts: " + date.dur_to_str(api.now() - first_start_ts || 0, drop_ms));
+              info.push(`current interval: ${this.state.interval_n || 0}`);
               return { is_new: true, key: this._conf.key, domain: root_url, apk, state, info };
             }
           }
@@ -30969,6 +31298,7 @@
               if (!_this.agents.length && _this.exclude.length && _this.exclude.every((a) => a.is_verify_err())) {
                 api.perr({
                   id: "verify_all_failed",
+                  with_log: true,
                   info: { agents: _this.exclude.map((a) => a.info()), route: _this.route },
                   rate_limit: { count: 1 }
                 });
@@ -31572,6 +31902,7 @@
                 if (more_tests) {
                   let res = yield _this.check(_this.states.connectivity, this, mode);
                   if (res && res.connected) continue;
+                  _this.perr({ id: "connectivity_check_no_internet", rate_limit: { count: 5 }, info: { check_name: _this.opt.name, res } });
                   if (--_this.opt.connectivity_retries < 0) break;
                   i = -1;
                   if (!zutil.is_mocha()) yield etask.sleep(_this.states.wait.wait);
@@ -31667,7 +31998,7 @@
               let diff = now - (r.ts || 0);
               if (!r.enabled) continue;
               if (r.country == country && diff > ms.DAY && r.mode != "protect" && r.src_country && r.src_country != country) {
-                zerr.notice("disabled rule after country change site %s %s -> %s", r.name, r.src_country, r.country);
+                zerr.notice("disabled rule after country change site");
                 api.perr({
                   id: "disable_rule_country_changed",
                   with_log: true,
@@ -34001,8 +34332,8 @@
     },
     4118: (module) => {
       "use strict";
-      module.exports = JSON.parse('{"BUILDTYPE_DEBUG":false,"ZON_VERSION":"1.216.954","_RELEASE":true,"_RELEASE_LEVEL":2}');
+      module.exports = JSON.parse('{"BUILDTYPE_DEBUG":false,"ZON_VERSION":"1.218.811","_RELEASE":true,"_RELEASE_LEVEL":2}');
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/169.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/169.bundle.js.map?build=nopeer_v2

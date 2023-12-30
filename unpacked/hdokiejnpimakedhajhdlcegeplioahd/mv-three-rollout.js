@@ -24,6 +24,7 @@ function loadScript(url) {
     ["background-redux-new.js"].forEach((script) => loadScript(script));
   } else {
     [
+      "logger.js",
       "background-redux.js",
       "oidc-client.min.js",
       "lpfulllib.js",

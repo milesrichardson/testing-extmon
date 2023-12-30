@@ -6,7 +6,7 @@
       var map = {
         "./af.json": [9546, 832],
         "./ar.json": [3182, 832],
-        "./az.json": [3237, 832],
+        "./az.json": [5299, 832],
         "./be.json": [3199, 832],
         "./bg.json": [1480, 832],
         "./bn.json": [7825, 832],
@@ -547,11 +547,7 @@
                 is_unlimited_trial = yield _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_7__.Z.is_unlimited_trial(root_url);
               }
               let new_ui = (yield _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_7__.Z.get_trial_conf("new_ui")) || CG("debug.new_ui");
-              let wm_rebranding =
-                CG("debug.wm_rebranding") || (yield _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_7__.Z.get_trial_conf("wm_rebranding"));
-              let rebranding =
-                (yield _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_7__.Z.get_trial_conf("rebranding")) &&
-                (!_bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_6___default().is_tpopup() || wm_rebranding);
+              let rebranding = yield _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_7__.Z.is_rebranding_enabled();
               _util_storage_js__WEBPACK_IMPORTED_MODULE_9___default().set("rebranding", rebranding ? 1 : 0);
               _util_zerr_js__WEBPACK_IMPORTED_MODULE_2___default().notice(
                 "ui context update_trial root_url: %s, " +
@@ -1272,7 +1268,7 @@
           const info = _util_util_js__WEBPACK_IMPORTED_MODULE_2___default().pick(qs, "ref", "plan_id");
           let rules = E.get_rules();
           info.rules_count = (rules && rules.unblocker_rules && Object.keys(rules.unblocker_rules).length) || 0;
-          perr("be_open_payment_page", info);
+          perr("be_open_payment_page", info, { add_trial_info: true });
         }
         const open_url = _util_url_js__WEBPACK_IMPORTED_MODULE_6___default().is_hola_url(url)
           ? _util_url_js__WEBPACK_IMPORTED_MODULE_6___default().url_qs_encode_qid(url)
@@ -1457,7 +1453,7 @@
           }
           return _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_17___default().get_popular_country({ host: root_url, rule_ratings });
         });
-      const get_popular_by_ratings = ({ root_url, src_country, ratings, prev_country }) => {
+      const get_popular_by_ratings = ({ root_url, src_country, ratings, prev_country, suggested_countries }) => {
         let site_conf = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_16___default().get_site_conf(root_url);
         let suggestion_conf = _bext_pub_util_js__WEBPACK_IMPORTED_MODULE_16___default().get_suggestion_conf(site_conf, src_country);
         let suggested = ((suggestion_conf || {}).proxy || []).filter((c) => c != "*");
@@ -1468,12 +1464,17 @@
           _util_array_js__WEBPACK_IMPORTED_MODULE_9___default().rm_elm(res, elm);
           res.unshift(elm);
         }
+        if (suggested_countries && res.length < suggested_countries.length) {
+          let limit = suggested_countries.length;
+          res = res.concat(suggested_countries.map((c) => c.toUpperCase()).filter((c) => !res.includes(c))).slice(0, limit);
+        }
         return res;
       };
       E.get_popular_countries = ({ root_url, src_country, prev_country }) =>
         _util_etask_js__WEBPACK_IMPORTED_MODULE_3___default()(function* () {
           let ratings = yield E.get_popular_ratings({ root_url, src_country });
-          return get_popular_by_ratings({ root_url, src_country, ratings, prev_country });
+          let suggested_countries = yield E.get_trial_conf("suggested_countries");
+          return get_popular_by_ratings({ root_url, src_country, ratings, prev_country, suggested_countries });
         });
       E.get_default_countries = ({ root_url, src_country, prev_country }) => {
         let ratings = _bext_vpn_util_util_js__WEBPACK_IMPORTED_MODULE_17___default().get_popular_country({ host: root_url });
@@ -1721,6 +1722,7 @@
       E.get_vpn_tpopup_initial_size = () => ({ width: 360, height: 545 });
       E.plus_ref = (ref, extra, ultra) => {
         extra = assign({}, extra);
+        extra.rebranding = !!_util_storage_js__WEBPACK_IMPORTED_MODULE_1___default().get_int("rebranding");
         let rules = E.get_rules();
         if (extra.root_url) {
           let is_active =
@@ -1816,10 +1818,23 @@
         );
         return rp_conf && rp_conf.on ? rp.replace : null;
       };
-      E.get_plans = (for_trial, trial_state, opt = {}) => {
+      E.get_plans = (src, trial_state, opt = {}) => {
         let payment_conf = E.get_payment_conf(trial_state);
-        let trial_plans = opt.mm_plans ? payment_conf.mm_plan_ids : payment_conf.trial_plan_ids;
-        let plan_ids = for_trial ? trial_plans : payment_conf.watermark_plan_ids;
+        let plan_ids;
+        if (typeof src == "string") {
+          plan_ids =
+            src == "ext_popup"
+              ? payment_conf.ext_popup_plan_ids
+              : src == "wm_popup"
+              ? payment_conf.wm_popup_plan_ids
+              : src == "wm_banner"
+              ? payment_conf.wm_banner_plan_ids
+              : payment_conf.plan_ids;
+          plan_ids = plan_ids || payment_conf.plan_ids;
+        } else {
+          let trial_plans = opt.mm_plans ? payment_conf.mm_plan_ids : payment_conf.trial_plan_ids;
+          plan_ids = src ? trial_plans : payment_conf.watermark_plan_ids;
+        }
         plan_ids = plan_ids || ["3y", "1y", "1m"];
         let all_plans = payment_conf.all_plans || [
           { period: "1 M", id: "1m", price: 11.95 },
@@ -1929,6 +1944,12 @@
         _util_storage_js__WEBPACK_IMPORTED_MODULE_1___default().set("survey_start_ts", E.now());
         E.open_page(`https://${www_host}/survey/${survey_id}`);
       };
+      E.force_rebranding = (val) => {
+        _util_storage_js__WEBPACK_IMPORTED_MODULE_1___default().set("force_rebranding", val ? 1 : 0);
+        if (val) _util_storage_js__WEBPACK_IMPORTED_MODULE_1___default().clr("keep_rebranding_click");
+        E.refresh_icon();
+        window.location.reload();
+      };
       const bg_attributes = qw`is_premium is_ultra ext_active enabled bext_config
     uuid active_tab_url active_tab_id rules user membership
     vpn_last_rating rate_on_store country location user_id ref_prefix
@@ -1975,7 +1996,8 @@
     start_trial dev_get dev_set dev_force_tpopup is_user_geo_blocked
     get_trial_conf update_user_geo_block need_trial_middle_wait
     start_trial_middle_wait get_trial_middle_wait_end_ts
-    get_suggested_survey_id notify_survey_suggested ab_test_report`;
+    get_suggested_survey_id notify_survey_suggested ab_test_report
+    is_rebranding_enabled refresh_icon`;
       if (false) {
       }
       const bg_et_parent =
@@ -3883,7 +3905,7 @@
               set_start_error(true);
             }
           });
-        const cycle_wait = E.use_countdown(state.next_trial_ts, 10 * ms.SEC);
+        const cycle_wait = E.use_countdown(state.next_trial_ts, 10 * ms.SEC) && !waited;
         const now = _bext_vpn_ui_ui_api_js__WEBPACK_IMPORTED_MODULE_15__.Z.now();
         const waiting = wait_end_ts > now;
         const is_wait_ended = waited || state.is_trial_wait_ended;
@@ -4204,7 +4226,8 @@
               currency,
               bluesnap: !!plan.bluesnap_id,
               paypal: !!plan.paypal_id,
-              stripe: !!plan.stripe_id
+              stripe: !!plan.stripe_id,
+              is_plan: true
             },
             zutil.pick(
               plan,
@@ -4503,8 +4526,8 @@
     },
     4118: (module) => {
       "use strict";
-      module.exports = JSON.parse('{"BUILDTYPE_DEBUG":false,"ZON_VERSION":"1.216.954","_RELEASE":true,"_RELEASE_LEVEL":2}');
+      module.exports = JSON.parse('{"BUILDTYPE_DEBUG":false,"ZON_VERSION":"1.218.811","_RELEASE":true,"_RELEASE_LEVEL":2}');
     }
   }
 ]);
-//# sourceMappingURL=https://hola.org/be_source_map/1.216.954/529.bundle.js.map?build=nopeer_v2
+//# sourceMappingURL=https://hola.org/be_source_map/1.218.811/529.bundle.js.map?build=nopeer_v2

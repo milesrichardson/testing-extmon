@@ -420,6 +420,9 @@
     "placeholders": { "editor": { "content": "$1" } }
   },
   "Please_consider_a_contribution": { "message": "Ве молиме поднесете донација <3" },
+  "Please_enable_anonymous_statistics_and_help_to_improve_this_extension_": {
+    "message": "Ве молиме овозможете анонимна статистика и помогнете во оптимизацијата на оваа екстензија. Се собираат само технички и податоци за интеракција со екстензијата. Кликнете тука за повеќе информации за податоците."
+  },
   "Please_select_a_file": { "message": "Ве молиме одберете датотека" },
   "Please_wait___": { "message": "Ве молиме почекајте..." },
   "Position_": { "message": "Позиција" },

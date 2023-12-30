@@ -118,7 +118,7 @@ l = {
   X: ["Q1", "Q2", "Q3", "Q4"],
   U: ["1st quarter", "2nd quarter", "3rd quarter", "4th quarter"],
   g: ["am", "pm"],
-  i: ["EEEE, d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
+  i: ["EEEE d MMMM y", "d MMMM y", "d MMM y", "dd/MM/y"],
   fa: ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
   j: ["{1} 'at' {0}", "{1} 'at' {0}", "{1}, {0}", "{1}, {0}"],
   B: 0,

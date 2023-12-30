@@ -58,7 +58,7 @@
     },
     8481: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.refreshUserABTest = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(41075),
         n = r(70252),
         i = r(30913),
@@ -166,28 +166,27 @@
     },
     66650: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.editContactInfoHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
-        n = r(45956),
-        i = r(16593),
-        s = r(5464),
-        c = {
+        n = r(16593),
+        i = r(5464),
+        s = {
           contact_email_required: a.EditContactInfoErrorCode.EMPTY_EMAIL,
-          invalid_contact_email: a.EditContactInfoErrorCode.INVALID_EMAIL,
-          UNKNOWN_ERROR: a.EditContactInfoErrorCode.UNKNOWN_ERROR
+          contact_phone_required: a.EditContactInfoErrorCode.UNKNOWN_ERROR,
+          invalid_contact_email: a.EditContactInfoErrorCode.INVALID_EMAIL
         };
       t.editContactInfoHandler = async function (e, t) {
-        const { storeService: r, wsService: l, sessionService: d } = e,
-          u = r.getState(),
-          p = (0, i.userLoginSelector)(u);
+        const { storeService: r, wsService: c, sessionService: l } = e,
+          d = r.getState(),
+          u = (0, n.userLoginSelector)(d);
         if (!r.isAuthenticated()) return { success: !1, error: { code: a.EditContactInfoErrorCode.UNKNOWN_ERROR } };
         try {
-          const e = await (0, o.updateContactInfo)(r, p, t);
+          const e = await (0, o.updateContactInfo)(r, u, t);
           return (0, o.isApiError)(e)
-            ? { success: !1, error: { code: c[e.code] } }
-            : (await (0, s.getAndTriggerRefreshAccountInfo)(r, d, l), { success: !0 });
+            ? { success: !1, error: { code: s[e.code] ?? a.EditContactInfoErrorCode.UNKNOWN_ERROR } }
+            : (await (0, i.getAndTriggerRefreshAccountInfo)(r, l, c), { success: !0 });
         } catch (e) {
-          return { success: !1, error: { code: c[n.UnknownError] } };
+          return { success: !1, error: { code: a.EditContactInfoErrorCode.UNKNOWN_ERROR } };
         }
       };
     },
@@ -240,7 +239,7 @@
     },
     71703: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeAccountCreationController = t.encryptSettings = t.checkLogin = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(70252),
         n = r(32074),
         i = r(39362),
@@ -437,8 +436,8 @@
     },
     751: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.createSSOAccount = t.prepareRemoteDataEncryptionServices = void 0);
-      const a = r(28354),
-        o = r(53576),
+      const a = r(35088),
+        o = r(32626),
         n = r(71703),
         i = r(39362),
         s = r(56915),
@@ -489,7 +488,7 @@
             };
           await (0, n.encryptSettings)(c, l, C);
           const E = c.getAccountCreation(),
-            { content: D, time: _ } = await E.settings.promise,
+            { content: _, time: D } = await E.settings.promise,
             O = await E.accountKey.promise,
             M = (0, S.makeSafeCountry)(c.getLocation().country || A);
           if ("server_carbon_unknown" === T) throw new Error("Unexpected uninitialized platform info");
@@ -499,7 +498,7 @@
               appVersion: w,
               sdkVersion: "1.0.0.0",
               platform: T,
-              settings: { content: D, time: _ },
+              settings: { content: _, time: D },
               consents: d,
               deviceName: u,
               country: M,
@@ -546,8 +545,8 @@
     },
     39362: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.firstSync = t.createAccount = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(25963),
         i = r(37898),
         s = r(25576),
@@ -586,15 +585,15 @@
         const { monitor: b, getSyncEvent: I } = (0, y.makeEventLoggerSyncMonitor)(e.eventLoggerService, { sendLogOnSyncComplete: !1 }),
           C = (0, g.setupProbe)(b, (0, h.makeDiagnosticReportMonitor)(), (0, v.makeSyncLoggerMonitor)()),
           E = { accessKey: r.deviceAccessKey, secretKey: r.deviceSecretKey },
-          D = (0, w.convertDeviceKeysToUki)(E),
-          _ = l.useRemoteKey ? e.remoteDataEncryptorService : e.masterPasswordEncryptorService,
+          _ = (0, w.convertDeviceKeysToUki)(E),
+          D = l.useRemoteKey ? e.remoteDataEncryptorService : e.masterPasswordEncryptorService,
           O = Date.now(),
           M = i.SyncType.FULL_SYNC,
           N = {
             storeService: e.storeService,
-            dataEncryptorService: _,
+            dataEncryptorService: D,
             login: f,
-            uki: D,
+            uki: _,
             lastSyncTimestamp: O,
             personalData: T,
             syncType: M,
@@ -1021,17 +1020,13 @@
       t.deleteUserPublicSettings = (e) => ({ type: t.DELETE_USER_PUBLIC_SETTINGS, logins: e });
     },
     59600: (e, t, r) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }), (t.getEmptyApplicationSettings = t.ApplicationBuildType = void 0);
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.getEmptyApplicationSettings = void 0);
       const a = r(2356);
-      !(function (e) {
-        (e.DEV = "DEV"), (e.QA = "QA"), (e.NIGHTLY = "NIGHTLY"), (e.BETA = "BETA"), (e.PRODUCTION = "PRODUCTION");
-      })(t.ApplicationBuildType || (t.ApplicationBuildType = {}));
       (t.getEmptyApplicationSettings = () => ({
         sync: { syncWithLocalClients: !1 },
         userABTestNames: [],
         migratedToSAEX: void 0,
         desktopLogin: void 0,
-        buildType: void 0,
         publicUsersSettings: void 0,
         commonApplicationSettings: void 0
       })),
@@ -1068,21 +1063,19 @@
         (t.commonApplicationSettingsSelector =
           t.publicUsersSettingsSelector =
           t.userPublicSettingsSelector =
-          t.applicationBuildTypeSelector =
           t.migratedToSAEXSelector =
           t.abTestsNamesSelector =
             void 0);
       const r = {};
       t.abTestsNamesSelector = (e) => e.device.application.settings.userABTestNames;
       t.migratedToSAEXSelector = (e) => e.device.application.settings.migratedToSAEX;
-      t.applicationBuildTypeSelector = (e) => e.device.application.settings.buildType;
       t.userPublicSettingsSelector = (e, t) => e.device.application.settings.publicUsersSettings?.[t];
       t.publicUsersSettingsSelector = (e) => e.device.application.settings.publicUsersSettings ?? r;
       t.commonApplicationSettingsSelector = (e) => e.device.application.settings.commonApplicationSettings;
     },
     87855: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.ensureDeviceId = t.initAuthenticatedCarbonApplication = void 0);
-      const a = r(28354),
+      const a = r(35088),
         o = r(2246),
         n = r(95623),
         i = r(17338),
@@ -1445,7 +1438,7 @@
     },
     95626: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.requestEmailToken = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16593);
       t.requestEmailToken = async function (e) {
         try {
@@ -1462,17 +1455,10 @@
     },
     3914: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.setReactivationStatusHandler = void 0);
-      const a = r(48990);
+      const a = r(9344);
       t.setReactivationStatusHandler = function ({ storeService: e }, { reactivationStatus: t }) {
         return e.dispatch((0, a.reactivationStatusUpdated)(t)), Promise.resolve();
       };
-    },
-    57839: (e, t) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.UserVerificationMethod = void 0),
-        (function (e) {
-          (e.MasterPassword = "masterPassword"), (e.Webauthn = "webauthn");
-        })(t.UserVerificationMethod || (t.UserVerificationMethod = {}));
     },
     6231: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.persistUserAuthenticationData = t.loadUserAuthenticationData = void 0);
@@ -1653,7 +1639,7 @@
         }
       });
     },
-    48990: (e, t, r) => {
+    9344: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.reactivationStatusUpdated = t.localAccountsListUpdated = void 0);
       const a = r(52968);
       t.localAccountsListUpdated = (e) => ({ type: a.LOCAL_ACCOUNTS_LIST_UPDATED, localAccounts: e });
@@ -1927,7 +1913,7 @@
     46474: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.TwoFactorAuthenticationDisableFlowStages = t.TwoFactorAuthenticationDisableFlowConfig = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(73714),
         n = r(24216),
         i = r(18747),
@@ -2032,7 +2018,7 @@
     24216: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.disableTwoFactorAuthenticationLogoutRequiredHandler = t.disableTwoFactorAuthenticationCodeHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(51554),
         n = r(46796),
         i = r(5689),
@@ -2122,7 +2108,7 @@
     18747: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.disableTwoFactorAuthenticationBackupCodeViewMapper = t.disableTwoFactorAuthenticationCodeViewMapper = void 0);
-      const a = r(53576);
+      const a = r(32626);
       t.disableTwoFactorAuthenticationCodeViewMapper = (e) => {
         const { stageData: t } = e.userSession.twoFactorAuthenticationDisableFlow;
         if (t && !t.success) {
@@ -2158,7 +2144,7 @@
     },
     44527: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.enableTwoFactorAuthenticationBackupCodesHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(15441),
         n = r(69631);
       t.enableTwoFactorAuthenticationBackupCodesHandler = async (e, t) => {
@@ -2175,7 +2161,7 @@
     },
     72387: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.enableTwoFactorAuthenticationBackupPhoneHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
         n = r(15441),
         i = r(69631),
@@ -2201,7 +2187,7 @@
     },
     14732: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.enableTwoFactorAuthenticationCodeHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(15441),
         n = r(69631),
         i = r(86370),
@@ -2267,7 +2253,7 @@
     },
     33778: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.enableTwoFactorAuthenticationTypeHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(57903),
         n = r(19546),
         i = r(69631),
@@ -2276,8 +2262,8 @@
         l = r(16593),
         d = r(46298),
         u = r(61984),
-        p = r(60765),
-        S = r(53576);
+        p = r(93039),
+        S = r(32626);
       t.enableTwoFactorAuthenticationTypeHandler = async (e, t, { authenticationType: r }) => {
         const { storeService: m } = e,
           g = (0, i.getTwoFactorAuthenticationEnableFlowData)(m.getState());
@@ -2421,7 +2407,7 @@
     13610: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.TwoFactorAuthenticationEnableFlowStages = t.TwoFactorAuthenticationEnableFlowConfig = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(62669),
         n = r(58206),
         i = r(46667),
@@ -2608,7 +2594,7 @@
     96171: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.TwoFactorAuthenticationReducer = t.getEmptyTwoFactorAuthenticationState = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(6836),
         n = r(16478);
       t.getEmptyTwoFactorAuthenticationState = () => ({ status: a.TwoFactorAuthenticationInfoRequestStatus.UNKNOWN });
@@ -2647,7 +2633,7 @@
     },
     70245: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.refreshU2FDevicesListHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
         n = r(16593),
         i = r(72355);
@@ -2668,7 +2654,7 @@
     },
     40970: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.removeU2FAuthenticatorHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(14656),
         n = r(92263),
         i = r(46298),
@@ -2722,7 +2708,7 @@
     16478: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.ENFORCE_2FA_POLICY_REFRESH_TIMER_INTERVAL = t.TwoFactorAuthenticationEnabled = void 0);
-      const a = r(53576);
+      const a = r(32626);
       (t.TwoFactorAuthenticationEnabled = [
         a.TwoFactorAuthenticationType.DEVICE_REGISTRATION,
         a.TwoFactorAuthenticationType.LOGIN,
@@ -2732,7 +2718,7 @@
     },
     9819: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.disableTwoFactorAuthenticationTOTP1Handler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298);
       t.disableTwoFactorAuthenticationTOTP1Handler = async (e, t) => {
         const { storeService: r } = e,
@@ -2743,7 +2729,7 @@
     },
     99445: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.disableTwoFactorAuthenticationTOTP2Handler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(61740),
         n = r(46298),
         i = r(33740),
@@ -2776,9 +2762,9 @@
             I = p.getUserSession().masterPassword,
             C = e.localStorageService.getInstance(),
             E = await C.doesLocalKeyExist();
-          let D = null;
-          E && (D = await C.getLocalKey());
-          const { publicKey: _ } = T,
+          let _ = null;
+          E && (_ = await C.getLocalKey());
+          const { publicKey: D } = T,
             O = await (0, i.decipherPrivateKey)(p, S, T);
           await (0, o.cleanRememberMeStorageData)(p, g);
           const M = "",
@@ -2799,7 +2785,7 @@
               timestamp: A,
               transactions: (0, i.formatTransaction)(U),
               updateVerification: F,
-              sharingKeys: { publicKey: _, privateKey: L },
+              sharingKeys: { publicKey: D, privateKey: L },
               authTicket: t
             },
             R = await (0, n.uploadDataForMasterPasswordChange)(p, h, k);
@@ -2808,7 +2794,7 @@
               ((0, i.revertOnError)(e, S, { currentPassword: I, serverKey: w }),
               new Error("2FA Disable Flow - Unable to uploadDataForMasterPasswordChange"))
             );
-          D && (await m.getInstance().user.persistLocalKey(D)),
+          _ && (await m.getInstance().user.persistLocalKey(_)),
             await v.session.commands.flushLocalData(),
             await (0, u.storeSessionCredentialForRecovery)(p, e.localStorageService);
         } catch (e) {
@@ -2832,7 +2818,7 @@
     },
     52284: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.enableTwoFactorAuthenticationTOTP2Handler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(61740),
         n = r(46298),
         i = r(33740),
@@ -2872,8 +2858,8 @@
               sharingKeys: { publicKey: a, privateKey: C },
               authTicket: t
             },
-            D = await (0, n.uploadDataForMasterPasswordChange)(y, P, E);
-          if ((0, n.isApiError)(D)) throw new Error("2FA Enable Flow - Unable to uploadDataForMasterPasswordChange");
+            _ = await (0, n.uploadDataForMasterPasswordChange)(y, P, E);
+          if ((0, n.isApiError)(_)) throw new Error("2FA Enable Flow - Unable to uploadDataForMasterPasswordChange");
           y.dispatch((0, d.updateServerKey)(m)),
             await e.applicationModulesAccess
               .createClients()
@@ -2908,7 +2894,7 @@
     },
     35823: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.completeTotpActivationHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
         n = r(16593),
         i = r(34569);
@@ -2923,7 +2909,7 @@
     },
     49109: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.endTwoFactorAuthenticationHandler = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(16194);
       t.endTwoFactorAuthenticationHandler = async ({ sessionService: e, storeService: t }) => (
         t.dispatch((0, o.changeMPDone)()), await e.getInstance().user.attemptSync(a.Trigger.SettingsChange), { success: !0 }
@@ -3023,7 +3009,7 @@
     },
     14762: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.performTotpVerificationService = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
         n = r(92263),
         i = r(14656),
@@ -3059,7 +3045,7 @@
         n = r(16478),
         i = r(56915),
         s = r(6836),
-        c = r(53576),
+        c = r(32626),
         l = {
           email_token: c.TwoFactorAuthenticationType.EMAIL_TOKEN,
           totp_login: c.TwoFactorAuthenticationType.LOGIN,
@@ -3103,7 +3089,7 @@
     },
     56733: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.requestTOTPActivationService = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
         n = r(92263),
         i = r(14656),
@@ -3207,7 +3193,7 @@
     },
     33088: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.disableWebAuthnAuthentication = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16593),
         n = r(86903);
       t.disableWebAuthnAuthentication = async function (e) {
@@ -3225,7 +3211,7 @@
     },
     92694: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.enableWebAuthnAuthentication = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(56915),
         n = r(16593),
         i = r(86903),
@@ -3272,8 +3258,8 @@
     },
     89805: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.initEnableWebAuthnAuthentication = void 0);
-      const a = r(28354),
-        o = r(53576),
+      const a = r(35088),
+        o = r(32626),
         n = r(46298),
         i = r(16593),
         s = r(56915),
@@ -3310,8 +3296,8 @@
     },
     22770: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.initOpenSessionWithWebAuthnAuthenticator = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(68299),
         i = r(38945),
         s = r(658);
@@ -3346,8 +3332,8 @@
     },
     41762: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.initRegisterWebAuthnAuthenticator = void 0);
-      const a = r(28354),
-        o = r(53576),
+      const a = r(35088),
+        o = r(32626),
         n = r(46298),
         i = r(8246),
         s = r(16593),
@@ -3375,7 +3361,7 @@
     },
     22170: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.initUserVerificationWithWebAuthn = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(68299),
         n = r(38945),
         i = r(16593),
@@ -3404,7 +3390,7 @@
     },
     49904: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.openSessionWithWebAuthnAuthenticator = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(88610),
         n = r(658);
       t.openSessionWithWebAuthnAuthenticator = async function (e, t) {
@@ -3434,7 +3420,7 @@
     },
     29010: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.refreshAvailableWebAuthnAuthenticators = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(56915),
         n = r(46298),
         i = r(8246);
@@ -3455,7 +3441,7 @@
     },
     3433: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.refreshWebAuthnAuthenticators = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298),
         n = r(16593),
         i = r(8246);
@@ -3474,7 +3460,7 @@
     },
     52198: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.registerWebAuthnAuthenticator = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16593),
         n = r(46298),
         i = r(56915),
@@ -3509,7 +3495,7 @@
     },
     82862: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.removeWebAuthnAuthenticator = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16593),
         n = r(46298),
         i = r(56915),
@@ -3667,11 +3653,12 @@
           t.dashlaneServerDeltaTimestampSelector =
           t.appKeysSelector =
             void 0);
-      const a = r(92215),
-        o = r(2246),
-        n = r(86797),
-        i = r(57839),
-        s = r(38981);
+      const a = r(32626),
+        o = r(92215),
+        n = r(2246),
+        i = r(86797),
+        s = r(38981),
+        c = r(25421);
       t.appKeysSelector = (e) => e.userSession.sdkAuthentication.appKeys;
       t.dashlaneServerDeltaTimestampSelector = (e) => e.userSession.sdkAuthentication.dashlaneServerDeltaTimestamp;
       t.ukiSelector = (e) => {
@@ -3680,18 +3667,18 @@
           t ||
           (e.authentication.currentUser &&
             e.authentication.currentUser.deviceKeys &&
-            (0, a.convertDeviceKeysToUki)(e.authentication.currentUser.deviceKeys)) ||
+            (0, o.convertDeviceKeysToUki)(e.authentication.currentUser.deviceKeys)) ||
           null
         );
       };
       t.deviceKeysSelector = (e) => {
         if (e.authentication.currentUser && e.authentication.currentUser.deviceKeys) return e.authentication.currentUser.deviceKeys;
         const t = e.userSession.localSettings.uki;
-        return (0, a.convertUkiToDeviceKeys)(t);
+        return (0, o.convertUkiToDeviceKeys)(t);
       };
       t.getDeviceIdSelector = (e, t) => {
         const r = e.authentication.localUsers[t];
-        return r && r.deviceAccessKey ? r.deviceAccessKey : (0, o.getCommonAppSetting)("deviceId") || null;
+        return r && r.deviceAccessKey ? r.deviceAccessKey : (0, n.getCommonAppSetting)("deviceId") || null;
       };
       t.getDeviceAccessKeySelector = (e, r) => (0, t.getDeviceIdSelector)(e, r);
       t.sessionKeysSelector = ({ userSession: { session: e } }) =>
@@ -3704,7 +3691,7 @@
       t.localUsersAuthenticationDataSelector = (e) => e.authentication.localUsers;
       t.userAuthenticationDataSelector = (e) => e.authentication.currentUser;
       t.otpTypeSelector = (e) => (e.userSession?.account ? e.userSession.account.otpType : null);
-      t.hasOtp2TypeSelector = (e) => (0, t.otpTypeSelector)(e) === n.OtpType.OTP_LOGIN;
+      t.hasOtp2TypeSelector = (e) => (0, t.otpTypeSelector)(e) === i.OtpType.OTP_LOGIN;
       t.platformInfoSelector = (e) => e.device.platform.info;
       t.webAuthnAuthenticationSelector = (e) => e.authentication.webAuthnAuthentication;
       t.webAuthnUserIdSelector = (e) => e.authentication.webAuthnAuthentication.webAuthnUserId;
@@ -3717,10 +3704,11 @@
       t.rememberMeFor14DaysOptedInSelector = (e) => "autologin" === (0, t.rememberMeTypeSelector)(e);
       t.reactivationStatusSelector = (e) => e.authentication.localAccounts.reactivationStatus;
       t.availableUserVerificationMethodsSelector = (e) => {
-        const r = [];
+        const r = [],
+          o = "masterPassword" !== (0, c.accountAuthenticationTypeSelector)(e);
         return (
-          (0, t.webAuthnAuthenticationOptedInSelector)(e) && r.push(i.UserVerificationMethod.Webauthn),
-          (0, s.isSSOUserSelector)(e) || r.push(i.UserVerificationMethod.MasterPassword),
+          (0, t.webAuthnAuthenticationOptedInSelector)(e) && r.push(a.UserVerificationMethods.Webauthn),
+          (0, s.isSSOUserSelector)(e) || o || r.push(a.UserVerificationMethods.MasterPassword),
           Promise.resolve(r)
         );
       };
@@ -3789,8 +3777,8 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getDomainMatchTypeForHermes = t.getAgeFromIdentity = t.defaultToZero = t.defaultToUS = t.defaultToEmptyString = void 0);
       const a = r(16516),
-        o = r(53576),
-        n = r(60765),
+        o = r(32626),
+        n = r(93039),
         i = r(72099),
         s = r(88083);
       (t.defaultToEmptyString = (0, a.defaultTo)("")),
@@ -3863,7 +3851,7 @@
           t.autofillViewedAddressSelector =
             void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(21178),
         i = r(99281),
         s = r(16018),
@@ -3887,125 +3875,125 @@
         I = r(63566),
         C = r(91210),
         E = r(52102),
-        D = r(83687),
-        _ = r(55346),
+        _ = r(83687),
+        D = r(55346),
         O = r(18665);
       (t.autofillViewedAddressSelector = (e, t) => {
         const r = (0, i.addressSelector)(e, t);
-        return (0, _.addressAutofillView)(r);
+        return (0, D.addressAutofillView)(r);
       }),
-        (t.autofillViewedQueriedAddressesSelector = (0, a.compose)((0, I.viewListResults)(_.addressListView), i.queryAddressesSelector));
+        (t.autofillViewedQueriedAddressesSelector = (0, a.compose)((0, I.viewListResults)(D.addressListView), i.queryAddressesSelector));
       (t.autofillViewedBankAccountSelector = (e, t) => {
         const r = (0, s.bankAccountSelector)(e, t);
-        return (0, _.bankAccountAutofillView)(r);
+        return (0, D.bankAccountAutofillView)(r);
       }),
         (t.autofillViewedQueriedBankAccountsSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.bankAccountListView),
+          (0, I.viewListResults)(D.bankAccountListView),
           s.queryBankAccountsSelector
         ));
       (t.autofillViewedCompanySelector = (e, t) => {
         const r = (0, c.companySelector)(e, t);
-        return (0, _.companyAutofillView)(r);
+        return (0, D.companyAutofillView)(r);
       }),
-        (t.autofillViewedQueriedCompaniesSelector = (0, a.compose)((0, I.viewListResults)(_.companyListView), c.queryCompaniesSelector));
+        (t.autofillViewedQueriedCompaniesSelector = (0, a.compose)((0, I.viewListResults)(D.companyListView), c.queryCompaniesSelector));
       t.autofillViewedCredentialSelector = (e, { credentialId: t, rootDomain: r }) => {
         const a = (0, l.credentialSelector)(e, t),
           o = (0, C.limitedSharingItemsSelector)(e),
           n = (0, E.sharingDataSelector)(e),
           i = (0, b.userIdSelector)(e),
-          s = (0, D.getSharingStatusDetail)(o, n, i)(t);
-        return (0, _.credentialAutofillView)(r, a, s);
+          s = (0, _.getSharingStatusDetail)(o, n, i)(t);
+        return (0, D.credentialAutofillView)(r, a, s);
       };
       t.autofillViewedQueriedCredentialsByDomainSelector = (e, t) => {
         const r = (0, C.limitedSharingItemsSelector)(e),
           a = (0, E.sharingDataSelector)(e),
           o = (0, b.userIdSelector)(e),
-          n = (0, D.getSharingStatusDetail)(r, a, o),
+          n = (0, _.getSharingStatusDetail)(r, a, o),
           { domain: i, ...s } = t,
           c = (i ? (0, d.getQueryByDomainSelector)(i) : u.querySelector)(e, s),
           l = { ...c, items: c.items.map((e) => ({ credential: e, domain: i, sharingStatus: n(e.Id) })) };
-        return (0, I.viewListResults)(_.credentialListView)(l);
+        return (0, I.viewListResults)(D.credentialListView)(l);
       };
       (t.autofillViewedDriverLicenseSelector = (e, t) => {
         const r = (0, p.driverLicenseWithIdentitySelector)(e, t);
-        return (0, _.driverLicenseAutofillView)(r);
+        return (0, D.driverLicenseAutofillView)(r);
       }),
         (t.autofillViewedQueriedDriverLicensesSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.driverLicenseListView),
+          (0, I.viewListResults)(D.driverLicenseListView),
           p.queryDriverLicensesSelector
         ));
       (t.autofillViewedEmailSelector = (e, t) => {
         const r = (0, S.emailSelector)(e, t);
-        return (0, _.emailAutofillView)(r);
+        return (0, D.emailAutofillView)(r);
       }),
-        (t.autofillViewedQueriedEmailsSelector = (0, a.compose)((0, I.viewListResults)(_.emailListView), S.queryEmailsSelector));
+        (t.autofillViewedQueriedEmailsSelector = (0, a.compose)((0, I.viewListResults)(D.emailListView), S.queryEmailsSelector));
       (t.autofillViewedFiscalIdSelector = (e, t) => {
         const r = (0, m.fiscalIdSelector)(e, t);
-        return (0, _.fiscalIdAutofillView)(r);
+        return (0, D.fiscalIdAutofillView)(r);
       }),
-        (t.autofillViewedQueriedFiscalIdsSelector = (0, a.compose)((0, I.viewListResults)(_.fiscalIdListView), m.queryFiscalIdsSelector));
+        (t.autofillViewedQueriedFiscalIdsSelector = (0, a.compose)((0, I.viewListResults)(D.fiscalIdListView), m.queryFiscalIdsSelector));
       (t.autofillViewedGeneratedPasswordSelector = (e, t) => {
         const r = (0, g.generatedPasswordSelector)(e, t);
-        return (0, _.generatedPasswordAutofillView)(r);
+        return (0, D.generatedPasswordAutofillView)(r);
       }),
         (t.autofillViewedQueriedGeneratedPasswordsSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.generatedPasswordListView),
+          (0, I.viewListResults)(D.generatedPasswordListView),
           g.queryGeneratedPasswordsSelector
         ));
       (t.autofillViewedIdCardSelector = (e, t) => {
         const r = (0, y.idCardWithIdentitySelector)(e, t);
-        return (0, _.idCardAutofillView)(r);
+        return (0, D.idCardAutofillView)(r);
       }),
-        (t.autofillViewedQueriedIdCardsSelector = (0, a.compose)((0, I.viewListResults)(_.idCardListView), y.queryIdCardsSelector));
+        (t.autofillViewedQueriedIdCardsSelector = (0, a.compose)((0, I.viewListResults)(D.idCardListView), y.queryIdCardsSelector));
       (t.autofillViewedIdentitySelector = (e, t) => {
         const r = (0, v.identitySelector)(e, t);
-        return (0, _.identityAutofillView)(r);
+        return (0, D.identityAutofillView)(r);
       }),
-        (t.autofillViewedQueriedIdentitiesSelector = (0, a.compose)((0, I.viewListResults)(_.identityListView), v.queryIdentitiesSelector));
+        (t.autofillViewedQueriedIdentitiesSelector = (0, a.compose)((0, I.viewListResults)(D.identityListView), v.queryIdentitiesSelector));
       (t.autofillViewedNoteSelector = (e, t) => {
         const r = (0, h.noteSelector)(e, t);
-        return (0, _.noteAutofillView)(r);
+        return (0, D.noteAutofillView)(r);
       }),
-        (t.autofillViewedQueriedNotesSelector = (0, a.compose)((0, I.viewListResults)(_.noteListView), h.queryNotesSelector));
+        (t.autofillViewedQueriedNotesSelector = (0, a.compose)((0, I.viewListResults)(D.noteListView), h.queryNotesSelector));
       t.autofillViewedPasskeySelector = (e, t) => {
         const r = (0, O.passkeySelector)(e, t);
-        return (0, _.passkeyAutofillView)(r);
+        return (0, D.passkeyAutofillView)(r);
       };
       (t.autofillViewedPassportSelector = (e, t) => {
         const r = (0, f.passportWithIdentitySelector)(e, t);
-        return (0, _.passportAutofillView)(r);
+        return (0, D.passportAutofillView)(r);
       }),
         (t.autofillViewedQueriedPassportsSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.passportListView),
+          (0, I.viewListResults)(D.passportListView),
           f.queryPassportsWithIdentitySelector
         ));
       (t.autofillViewedPaymentCardSelector = (e, t) => {
         const r = (0, w.paymentCardSelector)(e, t);
-        return (0, _.paymentCardAutofillView)(r);
+        return (0, D.paymentCardAutofillView)(r);
       }),
         (t.autofillViewedQueriedPaymentCardsSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.paymentCardListView),
+          (0, I.viewListResults)(D.paymentCardListView),
           w.queryPaymentCardsSelector
         ));
       (t.autofillViewedPhoneSelector = (e, t) => {
         const r = (0, P.phoneSelector)(e, t);
-        return (0, _.phoneAutofillView)(r);
+        return (0, D.phoneAutofillView)(r);
       }),
-        (t.autofillViewedQueriedPhonesSelector = (0, a.compose)((0, I.viewListResults)(_.phoneListView), P.queryPhonesSelector));
+        (t.autofillViewedQueriedPhonesSelector = (0, a.compose)((0, I.viewListResults)(D.phoneListView), P.queryPhonesSelector));
       (t.autofillViewedPersonalWebsiteSelector = (e, t) => {
         const r = (0, A.personalWebsiteSelector)(e, t);
-        return (0, _.personalWebsiteAutofillView)(r);
+        return (0, D.personalWebsiteAutofillView)(r);
       }),
         (t.autofillViewedQueriedPersonalWebsitesSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.personalWebsiteListView),
+          (0, I.viewListResults)(D.personalWebsiteListView),
           A.queryPersonalWebsitesSelector
         ));
       (t.autofillViewedSocialSecurityIdSelector = (e, t) => {
         const r = (0, T.socialSecurityIdWithIdentitySelector)(e, t);
-        return (0, _.socialSecurityIdAutofillView)(r);
+        return (0, D.socialSecurityIdAutofillView)(r);
       }),
         (t.autofillViewedQueriedSocialSecurityIdsSelector = (0, a.compose)(
-          (0, I.viewListResults)(_.socialSecurityIdListView),
+          (0, I.viewListResults)(D.socialSecurityIdListView),
           T.querySocialSecurityIdsSelector
         ));
       t.getAutofillSettingOnUrlForAutofillSelector = (e, t) => {
@@ -4313,7 +4301,7 @@
     },
     19083: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.changeMasterPassword = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(50059),
         n = r(33740),
         i = r(13141),
@@ -4326,7 +4314,7 @@
         S = r(16593),
         m = r(16194),
         g = r(61740),
-        y = r(60765),
+        y = r(93039),
         h = r(61984),
         v = r(18948),
         f = r(61475),
@@ -4341,8 +4329,8 @@
             storeService: I,
             masterPasswordEncryptorService: C,
             remoteDataEncryptorService: E,
-            sessionService: D,
-            localStorageService: _,
+            sessionService: _,
+            localStorageService: D,
             storageService: O,
             eventLoggerService: M
           } = e,
@@ -4385,8 +4373,8 @@
         const { timestamp: x } = H,
           { transactions: G, sharingKeys: $ } = H.data;
         try {
-          const d = await (0, n.deCipherAllTransactions)(D, V, G),
-            S = _.getInstance(),
+          const d = await (0, n.deCipherAllTransactions)(_, V, G),
+            S = D.getInstance(),
             w = await S.doesLocalKeyExist();
           let C = null;
           w && (C = await S.getLocalKey());
@@ -4425,8 +4413,8 @@
             await (0, P.sendExceptionLog)({ error: t });
           }
           let K, q;
-          C && (await D.getInstance().user.persistLocalKey(C)),
-            await (0, p.storeSessionCredentialForRecovery)(I, _),
+          C && (await _.getInstance().user.persistLocalKey(C)),
+            await (0, p.storeSessionCredentialForRecovery)(I, D),
             (0, o.emitChangeMasterPasswordStatus)({ type: a.ChangeMasterPasswordStepNeeded.DONE, value: 100 }),
             await (0, n.resetMigrationState)(e, L),
             L === a.ChangeMPFlowPath.ADMIN_ASSISTED_RECOVERY || L === a.ChangeMPFlowPath.MP_TO_SSO || L === a.ChangeMPFlowPath.SSO_TO_MP
@@ -4471,8 +4459,8 @@
     },
     13141: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.handleMigrationToEmailToken = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(16593),
         i = r(50059),
         s = r(33740),
@@ -4496,7 +4484,7 @@
         const { authTicket: I } = (0, n.authTicketInfoSelector)(P),
           C = await (0, s.cipherTransactionWithNewMP)(m, g, y, r, f),
           E = await (0, s.cipherPrivateKey)(y, u),
-          D = {
+          _ = {
             timestamp: S,
             transactions: (0, s.formatTransaction)(C),
             updateVerification: { type: "email_token" },
@@ -4504,12 +4492,12 @@
             authTicket: I
           };
         (0, i.emitChangeMasterPasswordStatus)({ type: o.ChangeMasterPasswordStepNeeded.UPLOADING, value: 95 });
-        const _ = await (0, c.uploadDataForMasterPasswordChange)(m, T, D);
-        if ((0, c.isApiError)(_))
+        const D = await (0, c.uploadDataForMasterPasswordChange)(m, T, _);
+        if ((0, c.isApiError)(D))
           return (
             (0, d.logChangeMasterPasswordError)(h, a.ChangeMasterPasswordError.UploadError),
             (0, s.revertOnError)(e, y, { currentPassword: w, serverKey: A }),
-            (0, s.makeUnexpectedErrorObject)(_.message, f)
+            (0, s.makeUnexpectedErrorObject)(D.message, f)
           );
         const O = await (0, c.confirmMasterPasswordChangeDone)(m, T, {});
         return (0, c.isApiError)(O)
@@ -4527,8 +4515,8 @@
     },
     37515: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.handleMigrationMPtoSso = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(751),
         i = r(16593),
         s = r(50059),
@@ -4550,17 +4538,17 @@
           I = { type: "sso", ssoServerKey: T },
           { authTicket: C } = (0, i.authTicketInfoSelector)(w),
           E = await (0, c.cipherTransactionWithNewMP)(m, g, y, r, f),
-          D = await (0, c.cipherPrivateKey)(y, u),
-          _ = {
+          _ = await (0, c.cipherPrivateKey)(y, u),
+          D = {
             timestamp: S,
             transactions: (0, c.formatTransaction)(E),
             remoteKeys: b,
             updateVerification: I,
-            sharingKeys: { publicKey: p, privateKey: D },
+            sharingKeys: { publicKey: p, privateKey: _ },
             authTicket: C
           };
         (0, s.emitChangeMasterPasswordStatus)({ type: o.ChangeMasterPasswordStepNeeded.UPLOADING, value: 95 });
-        const O = await (0, l.uploadDataForMasterPasswordChange)(m, A, _);
+        const O = await (0, l.uploadDataForMasterPasswordChange)(m, A, D);
         if ((0, l.isApiError)(O))
           return (
             (0, d.logChangeMasterPasswordError)(h, a.ChangeMasterPasswordError.UploadError),
@@ -4583,8 +4571,8 @@
     },
     78238: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.handleMigrationSSOtoMP = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(16593),
         i = r(50059),
         s = r(33740),
@@ -4622,11 +4610,11 @@
             (0, s.logoutUserOnError)(e),
             (0, s.makeUnexpectedErrorObject)(E.message, f)
           );
-        const D = await (0, c.confirmMasterPasswordChangeDone)(m, A, {});
-        return (0, c.isApiError)(D)
+        const _ = await (0, c.confirmMasterPasswordChangeDone)(m, A, {});
+        return (0, c.isApiError)(_)
           ? ((0, d.logChangeMasterPasswordError)(h, a.ChangeMasterPasswordError.ConfirmationError),
             (0, s.logoutUserOnError)(e),
-            (0, s.makeUnexpectedErrorObject)(D.message, f))
+            (0, s.makeUnexpectedErrorObject)(_.message, f))
           : (await e.applicationModulesAccess
               .createClients()
               .session.commands.updateUserSessionKey({
@@ -4638,8 +4626,8 @@
     },
     41383: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.handleUserChangingMP = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(16593),
         i = r(50059),
         s = r(33740),
@@ -4675,11 +4663,11 @@
             (0, s.revertOnError)(e, y, { currentPassword: A, serverKey: P }),
             (0, s.makeUnexpectedErrorObject)(E.message, w)
           );
-        const D = await (0, c.confirmMasterPasswordChangeDone)(m, T, {});
-        return (0, c.isApiError)(D)
+        const _ = await (0, c.confirmMasterPasswordChangeDone)(m, T, {});
+        return (0, c.isApiError)(_)
           ? ((0, d.logChangeMasterPasswordError)(h, a.ChangeMasterPasswordError.ConfirmationError),
             (0, s.revertOnError)(e, y, { currentPassword: A, serverKey: P }),
-            (0, s.makeUnexpectedErrorObject)(D.message, w))
+            (0, s.makeUnexpectedErrorObject)(_.message, w))
           : (await e.applicationModulesAccess
               .createClients()
               .session.commands.updateUserSessionKey({
@@ -4707,7 +4695,7 @@
           t.logChangeMasterPasswordCancel =
           t.logChangeMasterPasswordStart =
             void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = (e, t, r, o, n) => {
           e.logEvent(new a.UserChangeMasterPasswordEvent({ flowStep: t, errorName: r || void 0, isLeaked: o, isWeak: n }));
         };
@@ -4733,7 +4721,7 @@
     },
     17696: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.cipherTransactionWithNewMP = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(33740),
         n = r(27627),
         i = r(16859),
@@ -4776,7 +4764,7 @@
     },
     68328: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deCipherAllTransactions = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(83638),
         n = r(33740),
         i = r(27627),
@@ -4881,7 +4869,7 @@
     },
     39463: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.initializeProgress = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(50059);
       t.initializeProgress = (e, t, r) => {
         const n = e === a.ChangeMasterPasswordStepNeeded.DECRYPTING ? 10 : 50;
@@ -4919,7 +4907,7 @@
     },
     99849: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeReturnErrorObject = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(50059),
         n = r(70252);
       t.makeReturnErrorObject = (e, t) => {
@@ -4930,7 +4918,7 @@
     },
     14224: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeUnexpectedErrorObject = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(70252);
       t.makeUnexpectedErrorObject = (e, t) => {
         const r = new Error(`[ChangeMP] - Unexpected - ${t}: ${e}`);
@@ -4941,7 +4929,7 @@
     },
     61484: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.preValidationForChangeMP = t.extractCurrentPassword = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(61380),
         n = r(57903),
         i = r(64948),
@@ -4998,7 +4986,7 @@
     },
     16494: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.resetMigrationState = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(95363),
         n = r(7624);
       t.resetMigrationState = async (e, t) => {
@@ -5310,8 +5298,8 @@
         const r = (0, s.getCoreServices)(t),
           { applicationModulesAccess: A, storeService: P, localStorageService: T, wsService: b, sessionService: I, storageService: C } = r,
           E = (0, a.makeAccountCreationController)(r),
-          D = (0, c.makeSessionController)(r),
-          _ = (0, d.makeLoginController)(r),
+          _ = (0, c.makeSessionController)(r),
+          D = (0, d.makeLoginController)(r),
           O = (0, f.makeDataManagementController)(r),
           M = (0, u.makeRecoveryController)(P, b),
           N = (0, v.makeSettingsController)(P, b),
@@ -5325,66 +5313,66 @@
             sharingService: U
           }),
           k = (0, y.makeStaticDataController)();
-        e.getUki.on(() => D.getUki()),
+        e.getUki.on(() => _.getUki()),
           e.savePaymentCard.on((e) => {
             O.savePaymentCardFromClient(e);
           }),
           e.savePersonalDataItem.on((e) => O.savePersonalDataItem(e)),
           e.removePersonalDataItem.on((e) => O.removePersonalDataItem(e.id)),
-          e.getAccountInfo.on(() => D.getAndTriggerRefreshAccountInfo()),
-          e.getDevicesList.on(() => D.getDevicesList().then((e) => ({ devicesList: e }))),
+          e.getAccountInfo.on(() => _.getAndTriggerRefreshAccountInfo()),
+          e.getDevicesList.on(() => _.getDevicesList().then((e) => ({ devicesList: e }))),
           e.getLocalAccountsList.on(() => (0, i.getLocalAccounts)(P, C).then((e) => ({ localAccounts: e }))),
-          e.getTemporaryToken.on(() => D.getTemporaryToken().then((e) => ({ temporaryToken: e }))),
+          e.getTemporaryToken.on(() => _.getTemporaryToken().then((e) => ({ temporaryToken: e }))),
           e.deactivateDevice.on((e) => {
-            D.deactivateDevice(e.deviceId);
+            _.deactivateDevice(e.deviceId);
           }),
           e.changeDeviceName.on((e) => {
-            D.changeDeviceName(e.deviceId, e.updatedName);
+            _.changeDeviceName(e.deviceId, e.updatedName);
           }),
-          e.cancelPremiumSubscription.on(() => D.cancelPremiumSubscription()),
-          e.getInvoices.on(() => D.getInvoices().then((e) => ({ invoices: e }))),
-          e.closeSession.on(() => D.closeSession()),
-          e.lockSession.on(() => D.lockSession()),
-          e.resumeSession.on(() => D.resumeSession()),
-          e.getPersonalSettings.on(() => D.getPersonalSettings().then((e) => e)),
-          e.openSession.on(({ login: e, password: t }) => _.openSession(e, { password: t })),
+          e.cancelPremiumSubscription.on(() => _.cancelPremiumSubscription()),
+          e.getInvoices.on(() => _.getInvoices().then((e) => ({ invoices: e }))),
+          e.closeSession.on(() => _.closeSession()),
+          e.lockSession.on(() => _.lockSession()),
+          e.resumeSession.on(() => _.resumeSession()),
+          e.getPersonalSettings.on(() => _.getPersonalSettings().then((e) => e)),
+          e.openSession.on(({ login: e, password: t }) => D.openSession(e, { password: t })),
           e.openSessionWithToken.on(({ login: e, password: t, token: r, persistData: a, deviceName: o }) => {
-            _.openSessionWithToken(e, t, r, a ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO, o);
+            D.openSessionWithToken(e, t, r, a ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO, o);
           }),
           e.openSessionWithDashlaneAuthenticator.on(({ login: e, password: t, persistData: r, deviceName: a }) => {
-            _.openSessionWithDashlaneAuthenticator(e, t, r ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO, a);
+            D.openSessionWithDashlaneAuthenticator(e, t, r ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO, a);
           }),
           e.cancelDashlaneAuthenticatorRegistration.on(() => {
-            _.cancelDashlaneAuthenticatorRegistration();
+            D.cancelDashlaneAuthenticatorRegistration();
           }),
           e.openSessionResendToken.on((e) => {
-            _.openSessionResendToken(e.login);
+            D.openSessionResendToken(e.login);
           }),
           e.openSessionWithOTP.on((e) => {
-            _.openSessionWithOTP(e.login, e.password, e.otp, void 0, e.withBackupCode);
+            D.openSessionWithOTP(e.login, e.password, e.otp, void 0, e.withBackupCode);
           }),
           e.openSessionWithOTPForNewDevice.on(({ login: e, password: t, otp: r, persistData: a, deviceName: o, withBackupCode: i }) => {
-            _.openSessionWithOTPForNewDevice(e, t, r, a ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO, o, i);
+            D.openSessionWithOTPForNewDevice(e, t, r, a ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO, o, i);
           }),
           e.openSessionWithMasterPassword.on((e) =>
-            _.openSessionWithMasterPassword(e.login, e.password, {
+            D.openSessionWithMasterPassword(e.login, e.password, {
               rememberMasterPassword: e.rememberPassword,
               requiredPermissions: e.requiredPermissions,
               serverKey: e.serverKey
             })
           ),
           e.openExtraDeviceSession.on((e) => {
-            _.openExtraDeviceSession(e.login, { password: e.password, serverKey: e.serverKey });
+            D.openExtraDeviceSession(e.login, { password: e.password, serverKey: e.serverKey });
           }),
           e.openSessionWithExtraDeviceToken.on((e) =>
-            _.openSessionWithExtraDeviceToken(
+            D.openSessionWithExtraDeviceToken(
               e.login,
               e.extraDeviceToken,
               e.persistData ? n.PersistData.PERSIST_DATA_YES : n.PersistData.PERSIST_DATA_NO,
               { password: e.password, deviceName: e.deviceName }
             )
           ),
-          e.sessionForceSync.on((e) => D.sessionForceSync(e.trigger)),
+          e.sessionForceSync.on((e) => _.sessionForceSync(e.trigger)),
           e.exceptionLog.on((e) => (0, o.sendTypedExceptionLog)("leelooException", e)),
           e.teamUpdated.on((e) => F.teamUpdateHandler(e).then((e) => ({ errors: e }))),
           e.createUserGroup.on((e) => F.createUserGroupAction(I, e)),
@@ -5398,7 +5386,7 @@
           e.checkLogin.on((e) => E.checkLogin(e)),
           e.getMasterPasswordResetDemandList.on((e) => M.getMasterPasswordResetDemandList(e)),
           e.acceptMasterPasswordResetDemand.on((e) => M.acceptMasterPasswordResetDemand(e)),
-          e.checkIfMasterPasswordIsValid.on((e) => D.validateMasterPassword(e.masterPassword).then((e) => ({ isMasterPasswordValid: e }))),
+          e.checkIfMasterPasswordIsValid.on((e) => _.validateMasterPassword(e.masterPassword).then((e) => ({ isMasterPasswordValid: e }))),
           e.declineMasterPasswordResetDemand.on((e) => M.declineMasterPasswordResetDemand(e)),
           e.getMembers.on((e) => F.getMembers(e)),
           e.addTeamAdmin.on((e) => F.addTeamAdmin(e)),
@@ -5464,7 +5452,7 @@
             void 0);
       const a = r(18948),
         o = r(3343),
-        n = r(53576),
+        n = r(32626),
         i = r(7944),
         s = r(88205),
         c = r(65675),
@@ -5494,7 +5482,7 @@
     },
     57193: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.changeUserCrypto = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(55696),
         n = r(48238);
       t.changeUserCrypto = async function (e, { newDerivationMethod: t }) {
@@ -5536,7 +5524,7 @@
     },
     73909: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getDataToMigrate = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(46298),
         n = r(16593);
       t.getDataToMigrate = async function (e, t) {
@@ -5553,7 +5541,7 @@
     },
     48238: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getNewCryptoPayload = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(65675);
       t.getNewCryptoPayload = function (e) {
         switch (e) {
@@ -5570,7 +5558,7 @@
     },
     18767: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.reEncryptAllUserData = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(33740),
         n = r(16859);
       t.reEncryptAllUserData = async function (e, { clearTransactions: t, clearPrivateKey: r }, i) {
@@ -5598,7 +5586,7 @@
     },
     36116: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateAndPersistLocalData = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(16038),
         n = r(55623),
         i = r(27517);
@@ -5617,7 +5605,7 @@
     },
     34726: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.uploadDataOnServer = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(33740),
         n = r(46298),
         i = r(69214),
@@ -5636,8 +5624,8 @@
     },
     55696: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.migrateUserCrypto = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(65675),
         i = r(70252),
         s = r(57903),
@@ -5699,7 +5687,7 @@
     63549: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.setupSubscriptions = void 0);
       const a = r(55696),
-        o = r(60765),
+        o = r(93039),
         n = r(75653),
         i = r(65675),
         s = r(16593);
@@ -5749,7 +5737,7 @@
     },
     52921: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getDarkWebInsightsReportResults = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16593),
         n = r(46298),
         i = r(82512);
@@ -5771,7 +5759,7 @@
     },
     31858: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getDarkWebInsightsSummary = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16593),
         n = r(46298),
         i = r(19667);
@@ -5849,8 +5837,8 @@
         I = r(60309),
         C = r(45665),
         E = r(74172),
-        D = r(2105),
-        _ = r(11230),
+        _ = r(2105),
+        D = r(11230),
         O = r(16458);
       t.config = {
         commands: {
@@ -5868,7 +5856,7 @@
           ...T.config.commands,
           ...f.config.commands,
           ...l.config.commands,
-          ..._.importApiConfig.commands,
+          ...D.importApiConfig.commands,
           ...P.config.commands,
           ...d.config.commands,
           ...u.config.commands,
@@ -5876,7 +5864,7 @@
           ...S.config.commands,
           ...w.config.commands,
           ...A.config.commands,
-          ...D.config.commands,
+          ..._.config.commands,
           ...b.config.commands,
           ...E.config.commands,
           ...I.config.commands,
@@ -5896,7 +5884,7 @@
           ...T.config.queries,
           ...f.config.queries,
           ...l.config.queries,
-          ..._.importApiConfig.queries,
+          ...D.importApiConfig.queries,
           ...P.config.queries,
           ...d.config.queries,
           ...u.config.queries,
@@ -5904,7 +5892,7 @@
           ...S.config.queries,
           ...w.config.queries,
           ...A.config.queries,
-          ...D.config.queries,
+          ..._.config.queries,
           ...b.config.queries,
           ...I.config.queries,
           ...m.config.queries,
@@ -5922,7 +5910,7 @@
           ...T.config.liveQueries,
           ...f.config.liveQueries,
           ...l.config.liveQueries,
-          ..._.importApiConfig.liveQueries,
+          ...D.importApiConfig.liveQueries,
           ...P.config.liveQueries,
           ...d.config.liveQueries,
           ...u.config.liveQueries,
@@ -5930,7 +5918,7 @@
           ...S.config.liveQueries,
           ...w.config.liveQueries,
           ...A.config.liveQueries,
-          ...D.config.liveQueries,
+          ..._.config.liveQueries,
           ...b.config.liveQueries,
           ...I.config.liveQueries,
           ...m.config.liveQueries
@@ -5957,8 +5945,8 @@
     },
     14369: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addBankAccountHandler = t.getNewBankAccount = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(23136),
         i = r(92882),
         s = r(48313),
@@ -6008,8 +5996,8 @@
     },
     3242: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteBankAccountHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(16018),
         i = r(23136),
         s = r(45291),
@@ -6066,8 +6054,8 @@
     31570: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.updateBankAccountHandler = t.getUpdatedBankAccount = t.getBankAccountModifiedProperties = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(16018),
         i = r(23136),
         s = r(48313),
@@ -6128,7 +6116,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getBankInfoFromBankAccountData = t.defaultToUS = t.defaultToEmptyString = void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(85406);
       (t.defaultToEmptyString = (0, a.defaultTo)("")), (t.defaultToUS = (0, a.defaultTo)(o.Country.US));
       t.getBankInfoFromBankAccountData = (e) => {
@@ -6301,7 +6289,7 @@
     },
     95303: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.clearInstance = t.getInstance = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(70252),
         n = r(90622),
         i = r(16593),
@@ -6406,7 +6394,7 @@
     },
     36017: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getChangesFromIncomingBreaches = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(90073),
         n = r(67083),
         i = r(86715),
@@ -6478,7 +6466,7 @@
     },
     25656: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeBreachFromContent = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(78320),
         n = r(67083);
       t.makeBreachFromContent = (e, t) => ({
@@ -6495,7 +6483,7 @@
     },
     44444: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateBreachStatus = t.updateBreachStatusHandler = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(48313),
         n = r(23136),
         i = r(70252),
@@ -6524,7 +6512,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.BreachesWS = void 0);
       const a = r(16516),
         o = r(14656),
-        n = r(53576),
+        n = r(32626),
         i = r(35587),
         s = r(36513),
         c = r(56984),
@@ -6768,7 +6756,7 @@
           t.deduplicateBreachContents =
             void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(67083),
         i = r(86715),
         s = (0, a.takeLast)(1);
@@ -7098,7 +7086,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getUpdatedItemChangeHistory = t.isChangeHistoryCandidate = t.getEmptyChangeHistory = void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(78320),
         i = r(40220),
         s = r(84977),
@@ -7170,8 +7158,8 @@
     },
     55740: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addCollectionHandler = t.getNewCollection = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(23136),
         i = r(48313),
         s = r(53),
@@ -7214,8 +7202,8 @@
     },
     9833: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteCollectionHandler = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(23136),
         i = r(70252),
         s = r(45291);
@@ -7290,7 +7278,7 @@
     },
     6366: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateCollectionHandler = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(23136),
         n = r(48313),
         i = r(53),
@@ -7378,7 +7366,7 @@
         S = r(73567),
         m = r(9763),
         g = r(52109),
-        y = r(39546),
+        y = r(78222),
         h = r(70853),
         v = r(8766),
         f = r(15171);
@@ -7463,7 +7451,7 @@
     },
     52109: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteCredentialHandler = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(76496),
         n = r(23136),
         i = r(95623),
@@ -7485,11 +7473,11 @@
         }
       };
     },
-    39546: (e, t, r) => {
+    78222: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteCredentialsInBulkHandler = void 0);
-      const a = r(28354),
-        o = r(60765),
-        n = r(59360),
+      const a = r(35088),
+        o = r(93039),
+        n = r(78924),
         i = r(10770),
         s = r(76496),
         c = r(23136),
@@ -7567,7 +7555,7 @@
             void 0);
       const a = r(16516),
         o = r(50415),
-        n = r(53576),
+        n = r(32626),
         i = r(21178),
         s = r(47975),
         c = r(87496),
@@ -7582,7 +7570,7 @@
         y = r(83687),
         h = r(92307),
         v = r(90451),
-        f = r(53576);
+        f = r(32626);
       t.sharedFields = [
         "Email",
         "Login",
@@ -7831,7 +7819,7 @@
     8777: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.canUserAddNewCredentialSelector = void 0);
       const a = r(32034),
-        o = r(53576),
+        o = r(32626),
         n = r(7657);
       t.canUserAddNewCredentialSelector = (0, a.createSelector)(
         n.credentialLimitStatusSelector,
@@ -7935,7 +7923,7 @@
     7657: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.credentialLimitStatusSelector = void 0);
       const a = r(32034),
-        o = r(53576),
+        o = r(32626),
         n = r(51319),
         i = r(16593);
       t.credentialLimitStatusSelector = (0, a.createSelector)(i.nodePremiumStatusSelector, n.credentialsSelector, (e, t) => {
@@ -8283,7 +8271,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.createCredential = t.createBaseCredentialModel = void 0);
       const a = r(16516),
         o = r(21178),
-        n = r(53576),
+        n = r(32626),
         i = r(61923),
         s = r(13675),
         c = r(47975),
@@ -8320,12 +8308,12 @@
             I = (0, a.defaultTo)("", g.password),
             C = (0, a.defaultTo)(h, g.spaceId),
             E = I ? await (0, c.evaluatePasswordStrength)(I) : 0,
-            D = y || (() => ({})),
-            _ = new o.ParsedURL(g.url).getRootDomain(),
+            _ = y || (() => ({})),
+            D = new o.ParsedURL(g.url).getRootDomain(),
             O = (0, s.sanitizeInputPersonalData)({
               ...(0, t.createBaseCredentialModel)(n.Country[T.country]),
               AutoProtected: g.protectWithMasterPassword,
-              Title: _,
+              Title: D,
               Email: f,
               Login: w,
               SubdomainOnly: g.onlyForThisSubdomain,
@@ -8337,7 +8325,7 @@
               SpaceId: C,
               AutoLogin: g.autoLogin ?? !0,
               ...v,
-              ...D(g)
+              ..._(g)
             });
           return (
             (0, u.saveCredentialAsPersonalDataItem)(
@@ -8373,8 +8361,8 @@
     },
     90771: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.saveCredentialAsPersonalDataItem = void 0);
-      const a = r(59360),
-        o = r(60765),
+      const a = r(78924),
+        o = r(93039),
         n = r(48313),
         i = r(12362),
         s = r(86691),
@@ -8608,7 +8596,7 @@
     },
     19065: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeDataManagementController = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(35834),
         n = r(50886),
         i = r(76496),
@@ -8747,7 +8735,7 @@
     76496: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deletePersonalDataItem = t.findPersonalDataItemToDelete = void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(58107),
         i = r(71646),
         s = r(95623),
@@ -8762,10 +8750,10 @@
         y = r(16593),
         h = r(76089),
         v = r(79980),
-        f = r(60765),
+        f = r(93039),
         w = r(92310),
         A = r(78163),
-        P = r(59360),
+        P = r(78924),
         T = [
           "addresses",
           "bankAccounts",
@@ -8811,15 +8799,15 @@
             FORBIDDEN_GROUP_ITEM: I,
             FORBIDDEN_LAST_ADMIN: C,
             INTERNAL_ERROR: E,
-            LEAVE_SHARING_FAILED: D,
-            NOT_AUTHORIZED: _,
+            LEAVE_SHARING_FAILED: _,
+            NOT_AUTHORIZED: D,
             NOT_FOUND: O
           } = o.RemovePersonalDataItemFailureReason;
           let M = null;
           try {
             if (!e.isAuthenticated()) {
               const e = "No session available to delete personal item";
-              return s.Debugger.log(e), { success: !1, reason: _, message: e };
+              return s.Debugger.log(e), { success: !1, reason: D, message: e };
             }
             const { itemToDelete: u } = b(e, d);
             if (!u) {
@@ -8827,7 +8815,7 @@
               return s.Debugger.error(e), { success: !1, reason: O, message: e };
             }
             const E = (0, o.isCredential)(u);
-            if (E || (0, o.isNote)(u)) {
+            if (E || (0, o.isNote)(u) || (0, o.isSecret)(u)) {
               const r = await (0, S.makeCryptoService)(),
                 a = e.getUserLogin(),
                 o = (0, g.ukiSelector)(e.getState()),
@@ -8846,7 +8834,7 @@
                     n = s(e, t, null);
                   await r(a, o, n);
                 } catch (e) {
-                  return { success: !1, reason: D, message: `${e}` };
+                  return { success: !1, reason: _, message: `${e}` };
                 }
               }
               M = (0, l.getRemoveChangeHistory)(e, u);
@@ -8877,31 +8865,31 @@
         });
     },
     57779: (e, t, r) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }), (t.duplicateNoteOrCredential = void 0);
-      const a = r(53576),
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.duplicateSharedElements = void 0);
+      const a = r(32626),
         o = r(48313),
         n = r(78320),
         i = r(49551),
         s = r(12362),
         c = r(86691);
-      t.duplicateNoteOrCredential = async function (e, t) {
+      t.duplicateSharedElements = async function (e, t) {
         let r = null;
         const l = (0, s.getInstance)(),
           d = (0, c.getInstance)(),
-          { notes: u, credentials: p, changeHistories: S } = e.getPersonalData(),
-          m = [...u, ...p],
-          g = (0, i.findDataModelObject)(t, m);
-        if (!g) return null;
-        const y = (0, n.generateItemUuid)(),
-          h = { ...g, Id: y },
-          v = S.find((e) => e.ObjectId.toUpperCase() === t.toUpperCase());
-        if ((0, a.isCredential)(g)) {
+          { notes: u, credentials: p, changeHistories: S, secrets: m } = e.getPersonalData(),
+          g = [...u, ...p, ...m],
+          y = (0, i.findDataModelObject)(t, g);
+        if (!y) return null;
+        const h = (0, n.generateItemUuid)(),
+          v = { ...y, Id: h },
+          f = S.find((e) => e.ObjectId.toUpperCase() === t.toUpperCase());
+        if ((0, a.isCredential)(y)) {
           r = d.lockTopic("iconsUpdates");
-          const e = { credentialIds: [y], type: "credentialUpdates" };
+          const e = { credentialIds: [h], type: "credentialUpdates" };
           await l.add("iconsUpdates", e);
         }
-        const f = (0, o.savePersonalDataItem)(h, h.kwType, v);
-        return e.dispatch(f), r && d.releaseTopic("iconsUpdates", r), y;
+        const w = (0, o.savePersonalDataItem)(v, v.kwType, f);
+        return e.dispatch(w), r && d.releaseTopic("iconsUpdates", r), h;
       };
     },
     75912: (e, t, r) => {
@@ -8924,7 +8912,7 @@
     },
     24108: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getCredentialsExport = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(33553),
         n = r(28780),
         i = (e) =>
@@ -9225,7 +9213,7 @@
     57012: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getPersonalDataExport = t.getFilteredPersonalData = t.filterNonExportableData = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(54130),
         n = r(72365),
         i = r(65675),
@@ -9238,25 +9226,24 @@
         S = r(10770),
         m = r(80624),
         g = r(51319),
-        y = r(79895),
-        h = r(23437),
-        v = r(9774),
-        f = r(26147),
-        w = r(41092),
-        A = r(28074),
-        P = r(81904),
-        T = r(75705),
-        b = r(18665),
-        I = r(65401),
-        C = r(58235),
-        E = r(81473),
-        D = r(82439),
+        y = r(23437),
+        h = r(9774),
+        v = r(26147),
+        f = r(41092),
+        w = r(28074),
+        A = r(81904),
+        P = r(75705),
+        T = r(18665),
+        b = r(65401),
+        I = r(58235),
+        C = r(81473),
+        E = r(82439),
         _ = r(27147),
-        O = r(40086),
-        M = r(88096),
-        N = "";
+        D = r(40086),
+        O = r(88096),
+        M = "";
       t.filterNonExportableData = (e, t) => {
-        const r = (0, O.isForcedDomainsEnabledSelector)(e),
+        const r = (0, D.isForcedDomainsEnabledSelector)(e),
           o = (0, c.limitedSharingItemsSelector)(e);
         return t.filter((e) => {
           let t = !1;
@@ -9264,30 +9251,29 @@
           return r && (0, a.isDataModelObject)(e) && (t = e.SpaceId !== s.PERSONAL_SPACE_ID), !t && !n;
         });
       };
-      const F = (e, r) => {
+      const N = (e, r) => {
         const a = (0, l.quarantinedSpacesSelector)(e);
         return (0, t.filterNonExportableData)(e, (0, d.filterOutQuarantinedItems)(r(e), a));
       };
       (t.getFilteredPersonalData = (e) => ({
-        addresses: F(e, u.addressesSelector),
-        bankAccounts: F(e, p.bankAccountsSelector),
-        collections: F(e, S.collectionsSelector),
-        companies: F(e, m.companiesSelector),
-        credentials: F(e, g.credentialsSelector),
-        credentialCategories: (0, t.filterNonExportableData)(e, (0, y.credentialCategoriesSelector)(e)),
-        driverLicenses: F(e, v.driverLicensesSelector),
-        emails: F(e, f.emailsSelector),
-        fiscalIds: F(e, w.fiscalIdsSelector),
-        idCards: F(e, h.idCardsSelector),
-        identities: F(e, A.identitiesSelector),
-        notes: F(e, T.notesSelector),
-        passkeys: F(e, b.passkeysSelector),
-        passports: F(e, I.passportsSelector),
-        paymentCards: F(e, C.paymentCardsSelector),
-        personalWebsites: F(e, E.personalWebsitesSelector),
-        phones: F(e, D.phonesSelector),
-        secrets: F(e, P.secretsSelector),
-        socialSecurityIds: F(e, _.socialSecurityIdsSelector)
+        addresses: N(e, u.addressesSelector),
+        bankAccounts: N(e, p.bankAccountsSelector),
+        collections: N(e, S.collectionsSelector),
+        companies: N(e, m.companiesSelector),
+        credentials: N(e, g.credentialsSelector),
+        driverLicenses: N(e, h.driverLicensesSelector),
+        emails: N(e, v.emailsSelector),
+        fiscalIds: N(e, f.fiscalIdsSelector),
+        idCards: N(e, y.idCardsSelector),
+        identities: N(e, w.identitiesSelector),
+        notes: N(e, P.notesSelector),
+        passkeys: N(e, T.passkeysSelector),
+        passports: N(e, b.passportsSelector),
+        paymentCards: N(e, I.paymentCardsSelector),
+        personalWebsites: N(e, C.personalWebsitesSelector),
+        phones: N(e, E.phonesSelector),
+        secrets: N(e, A.secretsSelector),
+        socialSecurityIds: N(e, _.socialSecurityIdsSelector)
       })),
         (t.getPersonalDataExport = async function (e, r) {
           const { storeService: s } = e,
@@ -9296,12 +9282,12 @@
             u = (0, t.getFilteredPersonalData)(c);
           switch (l) {
             case "csv":
-              return { success: !0, response: { filename: "dashlane-credential-export.zip", content: await (0, M.getCSVExport)(u) } };
+              return { success: !0, response: { filename: "dashlane-credential-export.zip", content: await (0, O.getCSVExport)(u) } };
             case "secure-dashlane": {
               if (!d) return { success: !1, error: { code: a.GetPersonalDataExportErrorMessage.UNDEFINED_PASSWORD_ERROR } };
               const e = (0, n.makeDataEncryptorService)(s),
                 t = (0, i.makeFlexibleMarkerCryptoConfig)("argon2d");
-              e.setInstance({ raw: d }, N, t);
+              e.setInstance({ raw: d }, M, t);
               const r = Object.values(u)
                 .flat()
                 .map((e) => ({ ...e }));
@@ -9317,8 +9303,8 @@
     },
     29375: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getPersonalInfoExport = void 0);
-      const a = r(33321),
-        o = r(53576),
+      const a = r(22630),
+        o = r(32626),
         n = r(33553),
         i = r(28780),
         s = (e) => {
@@ -9554,7 +9540,7 @@
     },
     94170: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.createGeneratedPassword = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(78320),
         n = r(53);
       t.createGeneratedPassword = ({
@@ -9599,7 +9585,7 @@
       const a = r(28255),
         o = r(16516),
         n = r(85465),
-        i = r(53576),
+        i = r(32626),
         s = r(95623),
         c = r(78320),
         l = r(53),
@@ -9852,7 +9838,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.IconsUpdater = void 0);
       const a = r(18948),
         o = r(3343),
-        n = r(28354),
+        n = r(35088),
         i = r(21342),
         s = r(19736),
         c = r(51319),
@@ -10175,7 +10161,7 @@
     },
     60445: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addDriverLicenseHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(72099),
         n = r(58452),
         i = ({ expirationDate: e, idNumber: t, issueDate: r, name: n, state: i }) => ({
@@ -10369,7 +10355,7 @@
     },
     46033: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addFiscalIdHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(58452),
         n = ({ idNumber: e, teledeclarantNumber: t }) => ({
           FiscalNumber: e ?? "",
@@ -10529,7 +10515,7 @@
     },
     38052: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addIdCardHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(72099),
         n = r(58452),
         i = ({ expirationDate: e, idNumber: t, issueDate: r, name: n }) => ({
@@ -10720,7 +10706,7 @@
     },
     57237: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addPassportHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(72099),
         n = r(58452),
         i = ({ expirationDate: e, idNumber: t, issueDate: r, name: n, deliveryPlace: i }) => ({
@@ -10929,7 +10915,7 @@
     },
     6702: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addSocialSecurityIdHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(58452),
         n = (e) => ({
           DateOfBirth: "",
@@ -11101,8 +11087,8 @@
     },
     58452: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addIdHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(48313),
         s = r(53),
@@ -11134,12 +11120,11 @@
             const e = await (0, n.getDefaultSpaceId)(t);
             c.SpaceId = e;
           }
-          const l = c.kwType;
-          t.dispatch((0, i.savePersonalDataItem)(c, l)), e.getInstance().user.persistPersonalData();
+          t.dispatch((0, i.savePersonalDataItem)(c, c.kwType)), e.getInstance().user.persistPersonalData();
           return (
             (0, n.getDebounceSync)(t, e)({ immediateCall: !0 }, a.Trigger.Save),
             (0, S.logAddVaultItem)(t, r, c),
-            Promise.resolve({ success: !0 })
+            Promise.resolve({ success: !0, id: c.Id })
           );
         } catch (e) {
           const t = new Error(`[IDs] - addIdHandler: ${e}`);
@@ -11154,8 +11139,8 @@
     },
     9979: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteIdHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(45291),
         s = r(95623),
@@ -11186,8 +11171,8 @@
     },
     22388: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateIdHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(48313),
         s = r(53),
@@ -11235,7 +11220,7 @@
           t.epochToDate =
           t.ZERO_INDEX_BASED_MONTH_OFFSET =
             void 0);
-      const a = r(53576);
+      const a = r(32626);
       t.ZERO_INDEX_BASED_MONTH_OFFSET = 1;
       t.epochToDate = (e) => new Date(1e3 * e);
       t.viewDateToVaultDate = (e) =>
@@ -11283,7 +11268,7 @@
     },
     94746: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.dismissDataImportHandler = t.dismissDataImport = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(43691);
       t.dismissDataImport = async (e) => {
         await e.waitReady(), e.onNewState({ status: a.ImportPersonalDataStateType.Idle });
@@ -11292,7 +11277,7 @@
     },
     28927: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.importPersonalDataHandler = t.importPersonalData = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(95623),
         n = r(70252),
         i = r(43691);
@@ -11334,7 +11319,7 @@
     },
     76295: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.previewPersonalDataHandler = t.previewPersonalData = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(43691);
       t.previewPersonalData = async (e, t) => {
         if (!e.canDoImport()) return { success: !1, error: a.PreviewPersonalDataErrorType.Unavailable };
@@ -11359,7 +11344,7 @@
     29613: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.isImportPersonalDataAvailableSelector = t.importPersonalDataStateSelector = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(62844);
       t.importPersonalDataStateSelector = (e) => e.userSession.importPersonalData.state ?? { status: a.ImportPersonalDataStateType.Idle };
       t.isImportPersonalDataAvailableSelector = (e) =>
@@ -11527,7 +11512,7 @@
     47437: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getImportableItemsFromUserFile = t.getExistingVaultItemUniqueIdentifiers = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(26634),
         n = r(13675),
         i = r(49901),
@@ -11598,8 +11583,8 @@
     },
     20485: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.importPersonalDataItems = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(72678),
         i = r(92310),
         s = r(78163),
@@ -11623,7 +11608,10 @@
               e,
               t
             ),
-            e !== a.DataModelType.KWCollection && (y += t.length),
+            e !== a.DataModelType.KWCollection &&
+              e !== a.DataModelType.KWSecureNoteCategory &&
+              e !== a.DataModelType.KWAuthCategory &&
+              (y += t.length),
             e === a.DataModelType.KWAuthentifiant && (0, s.hasVaultAuditLogsFFActivated)(S))
           ) {
             const e = (0, i.currentTeamIdSelector)(m);
@@ -11642,8 +11630,8 @@
           t.prepareCredentialForImport =
           t.convertImportable =
             void 0);
-      const a = r(53576),
-        o = r(59360),
+      const a = r(32626),
+        o = r(78924),
         n = r(48313),
         i = r(56915),
         s = r(73566),
@@ -11739,7 +11727,7 @@
     },
     43691: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.makeImportService = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(56915),
         n = r(17825),
         i = r(3343),
@@ -11790,7 +11778,7 @@
     },
     89586: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getFieldLevelProcessor = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(85803),
         n = (e, t) => ("title" === e ? null : t),
         i = (e, t) => {
@@ -11821,7 +11809,7 @@
     },
     62754: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getItemTypeProcessor = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(85803);
       t.getItemTypeProcessor = (e) => (e === a.ImportSource.Lastpass ? o.itemTypeProcessorForLastPass : null);
     },
@@ -11850,7 +11838,7 @@
           t.LAST_PASS_SECURE_NOTE_URL =
             void 0);
       const a = r(77672),
-        o = r(53576),
+        o = r(32626),
         n = r(97437),
         i = r(38959);
       var s, c;
@@ -12004,7 +11992,7 @@
     },
     99474: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getImportablePersonalData = t.parseCSV = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(21178),
         n = r(92522),
         i = r(85803),
@@ -12118,7 +12106,7 @@
     32814: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getSaveEventsFromDash = t.getXmlData = t.checkPassword = t.parseDashData = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(80469),
         n = r(53628),
         i = r(56668),
@@ -12184,7 +12172,7 @@
           t.CREDENTIAL_HEADERS =
           t.SECURE_NOTES_HEADERS =
             void 0);
-      const a = r(53576);
+      const a = r(32626);
       (t.SECURE_NOTES_HEADERS = { Title: new Set(["title", "name"]), Content: new Set(["note", "notes", "comments", "extra", "content"]) }),
         (t.CREDENTIAL_HEADERS = {
           Title: new Set(["title", "name", "account", "site name"]),
@@ -12246,7 +12234,7 @@
           t.formatCredentialData =
           t.buildNoteContent =
             void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(21178),
         n = r(9763),
         i = r(23439),
@@ -12539,7 +12527,7 @@
     },
     36784: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.ImportDataStateReducer = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(61655);
       t.ImportDataStateReducer = (e, t) =>
         t.type === o.NOTIFY_NEW_PERSONAL_DATA_STATE
@@ -12548,7 +12536,7 @@
     },
     15171: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateLinkedWebsitesHandler = t.areStringListsEquivalent = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(95623),
         n = r(70252),
         i = r(19736),
@@ -12663,8 +12651,8 @@
     },
     70863: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addPasskeyHandler = t.getNewPasskey = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(48313),
         s = r(53),
@@ -12698,16 +12686,16 @@
       (t.getNewPasskey = u),
         (t.addPasskeyHandler = async function (e, t) {
           try {
-            await (async function ({ storeService: e, sessionService: t }, r) {
+            const r = await (async function ({ storeService: e, sessionService: t }, r) {
               if (!e.isAuthenticated()) throw new Error("No session available to savePasskey");
               const a = u((0, d.sanitizeInputPersonalData)(r));
               if (!a.SpaceId) {
                 const t = await (0, n.getDefaultSpaceId)(e);
                 a.SpaceId = t;
               }
-              e.dispatch((0, i.savePersonalDataItem)(a, a.kwType)), t.getInstance().user.persistPersonalData();
+              return e.dispatch((0, i.savePersonalDataItem)(a, a.kwType)), t.getInstance().user.persistPersonalData(), a.Id;
             })(e, t);
-            return (0, n.getDebounceSync)(e.storeService, e.sessionService)({ immediateCall: !0 }, a.Trigger.Save), { success: !0 };
+            return (0, n.getDebounceSync)(e.storeService, e.sessionService)({ immediateCall: !0 }, a.Trigger.Save), { success: !0, id: r };
           } catch (e) {
             return (0, l.sendExceptionLog)({ error: e }), { success: !1 };
           }
@@ -12715,8 +12703,8 @@
     },
     20308: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deletePasskeyHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(18665),
         i = r(23136),
         s = r(45291),
@@ -12771,7 +12759,7 @@
     89979: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.updatePasskeyHandler = t.getUpdatedPasskey = t.getPasskeyModifiedProperties = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(18665),
         n = r(23136),
         i = r(48313),
@@ -12990,7 +12978,7 @@
     36859: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.passwordHistoryItemMatch = t.searchGettersForGeneratedPassword = t.searchGettersForCredential = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(82234),
         n = r(64455),
         i = r(6205);
@@ -13022,7 +13010,7 @@
           t.hasPasswordHistorySelector =
           t.passwordHistorySelector =
             void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(21178),
         n = r(32034),
         i = r(18948),
@@ -13150,8 +13138,8 @@
       };
       const C = (0, n.createSelector)(t.passwordHistorySelector, m.getPasswordHistoryMappers),
         E = (0, y.createOptimizedSortTokenSelector)((e, { sortToken: t }) => t, i.identity),
-        D = (0, y.createOptimizedFilterTokenSelector)((e, { filterToken: t }) => t, i.identity);
-      t.passwordHistoryQuerySelector = (0, n.createSelector)(m.getPasswordHistoryMappers, b, E, D, t.passwordHistorySelector, y.queryData);
+        _ = (0, y.createOptimizedFilterTokenSelector)((e, { filterToken: t }) => t, i.identity);
+      t.passwordHistoryQuerySelector = (0, n.createSelector)(m.getPasswordHistoryMappers, b, E, _, t.passwordHistorySelector, y.queryData);
       t.getViewedPasswordHistoryBatchSelector = (e) => {
         const { sortToken: r, filterToken: a } = e,
           o = (0, S.getPasswordHistoryBatch)(e),
@@ -13168,7 +13156,7 @@
     },
     2104: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.listView = void 0);
-      const a = r(53576);
+      const a = r(32626);
       t.listView = (e, t, r) =>
         r.map((r) =>
           r.type === a.PasswordHistoryItemType.Credential
@@ -13215,8 +13203,8 @@
     },
     19738: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addPaymentCardHandler = t.getNewPaymentCard = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(42316),
         s = r(48313),
@@ -13289,8 +13277,8 @@
     },
     37028: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deletePaymentCardHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(58235),
         s = r(70252),
@@ -13345,8 +13333,8 @@
     },
     65468: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updatePaymentCardHandler = t.getUpdatedPaymentCard = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(58235),
         i = r(23136),
         s = r(42316),
@@ -13421,7 +13409,7 @@
           t.defaultToEmptyString =
             void 0);
       const a = r(16516),
-        o = r(53576);
+        o = r(32626);
       (t.defaultToEmptyString = (0, a.defaultTo)("")),
         (t.defaultToFallbackColor = (0, a.defaultTo)(o.PaymentCardColor.BLUE_1)),
         (t.defaultColor = "BLUE_1"),
@@ -13456,7 +13444,7 @@
     35834: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getUpdatedPaymentCard = t.getNewPaymentCard = t.savePaymentCard = void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(95623),
         i = r(45291),
         s = r(78320),
@@ -13508,6 +13496,7 @@
             Name: (0, a.defaultTo)("Card", t.cardName),
             OwnerName: (0, d.defaultToEmptyString)(t.ownerName),
             SecurityCode: (0, d.defaultToEmptyString)(t.securityCode),
+            SpaceId: (0, d.defaultToEmptyString)(t.spaceId),
             Type: (0, d.getPaymentTypeFromCardNumber)(t.cardNumber),
             UserModificationDatetime: o,
             CCNote: (0, d.defaultToEmptyString)(t.personalNote)
@@ -13640,8 +13629,8 @@
     },
     79980: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.logDeleteVaultItem = t.logAddVaultItem = t.logEditVaultItem = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(21178),
         i = r(49901),
         s = r(53966),
@@ -13689,8 +13678,8 @@
     53966: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.getUpdatedProperties = t.getHermesFieldFromProperty = t.dataModelTypeToItemType = void 0);
-      const a = r(60765),
-        o = r(53576);
+      const a = r(93039),
+        o = r(32626);
       t.dataModelTypeToItemType = {
         [o.DataModelType.KWAuthentifiant]: a.ItemType.Credential,
         [o.DataModelType.KWSecureNote]: a.ItemType.SecureNote,
@@ -13888,8 +13877,8 @@
     50886: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.updatePersonalDataUsageMetadata = t.addPersonalDataItem = t.makePersonalDataItem = void 0);
-      const a = r(53576),
-        o = r(59360),
+      const a = r(32626),
+        o = r(78924),
         n = r(84977),
         i = r(87496),
         s = r(73566),
@@ -13913,9 +13902,10 @@
         I = r(13675),
         C = r(56915),
         E = r(79980),
-        D = r(49551),
-        _ = r(78163),
-        O = {
+        _ = r(49551),
+        D = r(78163),
+        O = r(96850),
+        M = {
           [a.DataModelType.KWAddress]: { create: f.makeNewAddress, update: f.makeUpdatedAddress },
           [a.DataModelType.KWAuthentifiant]: {
             beforeChange: A.beforeCredentialChange,
@@ -13934,9 +13924,14 @@
             create: w.makeNewNote,
             update: w.makeUpdatedNote,
             notifySharersOnUpdate: w.notifySharersNoteUpdated
+          },
+          [a.DataModelType.KWSecret]: {
+            create: O.makeNewSecret,
+            update: O.makeUpdatedSecret,
+            notifySharersOnUpdate: O.notifySharersSecretUpdated
           }
         };
-      async function M(e, t, r) {
+      async function N(e, t, r) {
         t.content ||
           (p.default.error(`[Data] PersonalInfoItem: ${t.kwType}, has no content`),
           d.sendExceptionLog({
@@ -13947,9 +13942,9 @@
         let o = null;
         if (t.content.id) {
           const e = (0, l.getCurrentItems)(t.kwType, r);
-          o = (0, D.findDataModelObject)(t.content.id, e);
+          o = (0, _.findDataModelObject)(t.content.id, e);
         }
-        const n = O[t.kwType];
+        const n = M[t.kwType];
         if (!n) return p.default.error(`[Data] Could not make PersonalDataItem of kwType: ${t.kwType}`), null;
         let i;
         return (
@@ -13961,14 +13956,14 @@
           i
         );
       }
-      (t.makePersonalDataItem = M),
+      (t.makePersonalDataItem = N),
         (t.addPersonalDataItem = async function (
           { storeService: e, sessionService: t, eventLoggerService: r, applicationModulesAccess: i },
           d
         ) {
           if (!e.isAuthenticated()) return p.default.log("No session available to addPersonalDataItem"), { success: !1, itemId: "" };
           const u = e.getPersonalData(),
-            m = await M(e, d, u);
+            m = await N(e, d, u);
           if (!m.SpaceId) {
             const t = await (0, l.getDefaultSpaceId)(e);
             m.SpaceId = t;
@@ -13980,7 +13975,7 @@
             v = (0, b.getInstance)();
           if (g) {
             const t = n.default[m.kwType],
-              a = (0, D.findDataModelObject)(m.Id, u[t]);
+              a = (0, _.findDataModelObject)(m.Id, u[t]);
             (0, E.logEditVaultItem)(e, r, m, a);
           } else (0, E.logAddVaultItem)(e, r, m);
           const f = (0, C.platformInfoSelector)(e.getState()),
@@ -14001,13 +13996,13 @@
               "************" === m?.Password && (0, p.logWarn)({ message: "Saving credentials using a placeholder", tag: "Credentials" });
             const { commands: r } = i.createClients().vaultItemsCrud;
             await r.emitTemporaryVaultItemEvent({ ids: [m.Id], eventType: g ? o.EventType.Updated : o.EventType.Created }),
-              (0, _.shouldSendCreateOrModifiedCredentialActivityLog)(e, i, m, d.origin) &&
+              (0, D.shouldSendCreateOrModifiedCredentialActivityLog)(e, i, m, d.origin) &&
                 (d.content.id?.length
-                  ? await (0, _.computeAndSendModifiedCredentialActivityLog)(i, { domainUrl: d.content.url })
-                  : await (0, _.computeAndSendCreatedCredentialActivityLog)(i, { domainUrl: d.content.url }));
+                  ? await (0, D.computeAndSendModifiedCredentialActivityLog)(i, { domainUrl: d.content.url })
+                  : await (0, D.computeAndSendCreatedCredentialActivityLog)(i, { domainUrl: d.content.url }));
           }
           return (
-            O[d.kwType]?.afterSave && O[d.kwType].afterSave(e, m),
+            M[d.kwType]?.afterSave && M[d.kwType].afterSave(e, m),
             y && v.releaseTopic("iconsUpdates", y),
             t.getInstance().user.persistPersonalData(),
             { success: !0, itemId: m.Id }
@@ -14017,7 +14012,7 @@
           const s = n.default[o],
             c = (0, i.cleanUrlForPersonalData)(r),
             l = e.getPersonalData()[s],
-            m = Array.isArray(l) ? (0, D.findDataModelObject)(t, l) : null;
+            m = Array.isArray(l) ? (0, _.findDataModelObject)(t, l) : null;
           if (!m)
             return void d.sendExceptionLog({
               message: `[PersonalData] - updatePersonalDataUsageMetadata: No ${s} found for provided ID to update usage metadata`,
@@ -14074,7 +14069,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.makeAddressSpecificProps = t.makeNewAddress = t.makeUpdatedAddress = void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(78163),
         i = r(10360),
         s = r(53),
@@ -14534,7 +14529,7 @@
         return (0, a.pipe)((0, o.map)(t), (0, o.distinctUntilChanged)());
       };
     },
-    15044: (e, t, r) => {
+    22742: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getIdentityMappers = void 0);
       const a = r(83539);
       t.getIdentityMappers = () => ({ spaceId: (e) => e.SpaceId, lastUse: a.lastUseMapper, id: (e) => e.Id });
@@ -14575,7 +14570,7 @@
         c = r(97006),
         l = r(49551),
         d = r(32034),
-        u = r(15044),
+        u = r(22742),
         p = r(40602),
         S = r(57989);
       (t.identitiesSelector = (0, d.createSelector)(
@@ -14775,8 +14770,8 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.parsePhoneNumbers = t.makePhoneSpecificProps = t.makeNewPhone = t.makeUpdatedPhone = void 0);
       const a = r(16516),
-        o = r(33321),
-        n = r(53576),
+        o = r(22630),
+        n = r(32626),
         i = r(78163),
         s = r(86056),
         c = r(10360),
@@ -14801,9 +14796,10 @@
         const a = ((0, c.isProposedLocaleLocalized)(t) && n.Country[t]) || n.Country[(0, s.getPlatformInfo)().country] || n.Country.US;
         if (!(a ? (0, o.isValidNumber)(r, a) : (0, o.isValidNumber)(r)))
           return { Number: (0, d.removeNonDigitCharacters)(r), NumberInternational: r, NumberNational: r };
-        const i = (0, o.formatNumber)({ country: a, phone: r }, "National"),
-          l = (0, o.formatNumber)({ country: a, phone: r }, "International");
-        return { Number: (0, d.removeNonDigitCharacters)(r), NumberInternational: l, NumberNational: i };
+        const i = (0, o.parsePhoneNumber)(r, a),
+          l = i.formatNational(),
+          u = i.formatInternational();
+        return { Number: (0, d.removeNonDigitCharacters)(r), NumberInternational: u, NumberNational: l };
       }
       (t.makeUpdatedPhone = async function (e, t) {
         return (
@@ -14979,10 +14975,20 @@
         }
       };
     },
+    71498: (e, t, r) => {
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.handleLimitedSharedSecrets = void 0);
+      const a = r(89489),
+        o = r(37275);
+      t.handleLimitedSharedSecrets = function (e, t, r) {
+        const n = (0, o.getSharingDataWithCollections)(t),
+          i = (0, a.getLimitedSharedItemIds)(t, n.collections, n.itemGroups, r);
+        return e.map((e) => ({ ...e, ...(i[e.Id] ? { limitedPermissions: !0 } : {}) }));
+      };
+    },
     96391: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addSecretHandler = t.secretFormatter = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(98900),
         s = r(48313),
@@ -15045,7 +15051,7 @@
     },
     56823: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteSecretHandler = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(23136),
         n = r(64202),
         i = r(70252),
@@ -15060,7 +15066,7 @@
         g = r(45157),
         y = r(16593),
         h = r(52102),
-        v = r(53576),
+        v = r(32626),
         f = async ({ storeService: e, eventLoggerService: t, wsService: r }, a) => {
           const o = e.getState();
           try {
@@ -15096,8 +15102,8 @@
               }
             }
             i = (0, g.getRemoveChangeHistory)(e, f);
-            const D = (0, s.removePersonalItem)(f.kwType, f.Id, i);
-            return e.dispatch(D), (0, c.logDeleteVaultItem)(e, t, f), { success: !0 };
+            const _ = (0, s.removePersonalItem)(f.kwType, f.Id, i);
+            return e.dispatch(_), (0, c.logDeleteVaultItem)(e, t, f), { success: !0 };
           } catch (e) {
             const t = new Error(`[Secrets] - deleteSecret: ${e}`);
             return (0, i.sendExceptionLog)({ error: t }), { success: !1, error: { code: v.DeleteSecretErrorCode.INTERNAL_ERROR } };
@@ -15139,8 +15145,8 @@
     },
     94915: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateSecretHandler = t.getUpdatedSecret = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(64202),
         i = r(23136),
         s = r(98900),
@@ -15196,14 +15202,14 @@
         });
     },
     98900: (e, t, r) => {
-      Object.defineProperty(t, "__esModule", { value: !0 }), (t.updatedAt = t.createdAt = t.getCategory = t.RequestError = void 0);
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.updatedAt = t.createdAt = t.RequestError = void 0);
       const a = r(16516);
       class o extends Error {
         constructor(e, t) {
           super(e), Object.setPrototypeOf(this, new.target.prototype), (this.name = "RequestError"), (this.code = t);
         }
       }
-      (t.RequestError = o), (t.getCategory = (0, a.curry)((e, t) => e.find((e) => e.Id === t)));
+      t.RequestError = o;
       t.createdAt = (e) => ((0, a.isNil)(e.CreationDatetime) ? 0 : e.CreationDatetime);
       t.updatedAt = (e) => ((0, a.isNil)(e.UserModificationDatetime) ? 0 : e.UserModificationDatetime);
     },
@@ -15504,8 +15510,8 @@
     },
     24465: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addSecureFileHandler = t.createSecureFile = void 0);
-      const a = r(53576),
-        o = r(28354),
+      const a = r(32626),
+        o = r(35088),
         n = r(90622),
         i = r(16593),
         s = r(69530),
@@ -15666,7 +15672,7 @@
     },
     49006: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteSecureFileHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(90622),
         n = r(76496),
         i = r(16593),
@@ -15694,7 +15700,7 @@
     },
     90489: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.downloadSecureFileHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16516),
         n = r(20810),
         i = r(22349),
@@ -15718,8 +15724,8 @@
     },
     37403: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.initSecureFilesStorageInfoHandler = void 0);
-      const a = r(28354),
-        o = r(53576),
+      const a = r(35088),
+        o = r(32626),
         n = r(90622),
         i = r(16593),
         s = r(20810);
@@ -15743,7 +15749,7 @@
     },
     32818: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.validateSecureFileHandler = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(99994);
       t.validateSecureFileHandler = async function (e, t) {
         return (0, o.validateSecureFile)(t.fileName, t.fileType)
@@ -15772,7 +15778,7 @@
           t.secureFileDownloadSelector =
           t.secureFileInfoSelector =
             void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(16516);
       t.secureFileInfoSelector = (e) => e.userSession.personalData.secureFileInfo;
       t.secureFileDownloadSelector = (e, t) => {
@@ -15884,7 +15890,7 @@
     },
     94187: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.setupDefaultNoteCategoriesHandler = void 0);
-      const a = r(60765),
+      const a = r(93039),
         o = r(54565),
         n = r(23136);
       t.setupDefaultNoteCategoriesHandler = async function (e, t) {
@@ -15974,8 +15980,8 @@
     },
     67859: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.addSecureNoteHandler = t.noteFormatter = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(71141),
         s = r(48313),
@@ -16042,8 +16048,8 @@
     },
     5948: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.deleteSecureNoteHandler = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(23136),
         i = r(81438),
         s = r(70252),
@@ -16093,8 +16099,8 @@
               }
             }
             s = (0, y.getRemoveChangeHistory)(e, f);
-            const D = (0, c.removePersonalItem)(f.kwType, f.Id, s);
-            return e.dispatch(D), (0, l.logDeleteVaultItem)(e, t, f), { success: !0 };
+            const _ = (0, c.removePersonalItem)(f.kwType, f.Id, s);
+            return e.dispatch(_), (0, l.logDeleteVaultItem)(e, t, f), { success: !0 };
           } catch (e) {
             const t = new Error(`[SecureNotes] - deleteSecureNote: ${e}`);
             return (0, s.sendExceptionLog)({ error: t }), { success: !1, error: { code: o.DeleteSecureNoteErrorCode.INTERNAL_ERROR } };
@@ -16136,8 +16142,8 @@
     },
     71407: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.updateSecureNoteHandler = t.getUpdatedSecureNote = void 0);
-      const a = r(60765),
-        o = r(53576),
+      const a = r(93039),
+        o = r(32626),
         n = r(81438),
         i = r(23136),
         s = r(71141),
@@ -16577,8 +16583,8 @@
     17250: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.updateAutofillSettingsHandler = t.toggleDashlaneHandler = t.updateProtectPasswordsSettingHandler = void 0);
-      const a = r(53576),
-        o = r(60765),
+      const a = r(32626),
+        o = r(93039),
         n = r(70252),
         i = r(23136),
         s = r(29954),
@@ -16704,7 +16710,7 @@
           t.isTeamSpaceQuarantined =
             void 0);
       const a = r(16516),
-        o = r(53576),
+        o = r(32626),
         n = r(68979),
         i = r(87496),
         s = r(43145),
@@ -16799,7 +16805,7 @@
     },
     76226: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.applyTeamSpaceContentControlRules = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(70252),
         n = r(45291),
         i = r(24525),
@@ -16859,7 +16865,7 @@
     },
     45962: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.controlTeamSpacesContent = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(17825),
         n = r(49901),
         i = r(68979),
@@ -17018,7 +17024,7 @@
     },
     69105: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getDefaultPersonalSpace = t.isSpaceItem = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(49901);
       t.isSpaceItem = (e) => "SpaceId" in e && "string" == typeof e.SpaceId;
       t.getDefaultPersonalSpace = () => ({
@@ -17040,16 +17046,16 @@
         teamAdmins: [],
         teamId: o.PERSONAL_SPACE_ID,
         teamName: null,
-        tier: a.SpaceTier.Free,
+        tier: a.SpaceTiers.Free,
         shouldDelete: !1
       });
     },
     95458: (e, t) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.isQuarantined = t.isPremiumStatusSpaceQuarantined = void 0);
       t.isPremiumStatusSpaceQuarantined = (e) =>
-        e?.status &&
+        !!e?.status &&
         "accepted" !== e.status.toLowerCase() &&
-        e.info &&
+        !!e.info &&
         Array.isArray(e.info.teamDomains) &&
         e.info.teamDomains.length > 0 &&
         Boolean(e.info.removeForcedContentEnabled);
@@ -17119,7 +17125,7 @@
     },
     56316: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.autofillProtectionContextSelector = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(19736),
         n = r(27147),
         i = r(58235),
@@ -17168,8 +17174,8 @@
           t.makeUpdatedPersonalDataItemBase =
             void 0);
       const a = r(18948),
-        o = r(28354),
-        n = r(53576),
+        o = r(35088),
+        n = r(32626),
         i = r(61475),
         s = r(97494),
         c = r(21178),
@@ -17325,7 +17331,7 @@
     },
     10360: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getValidState = t.isProposedLocaleLocalized = t.getLocaleFormat = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(38495),
         n = r(86056),
         i = r(95623);
@@ -17368,7 +17374,8 @@
           "versionedBreaches",
           "secureFileInfo",
           "noteCategories",
-          "paypalAccounts"
+          "paypalAccounts",
+          "credentialCategories"
         ]),
         (t.isDataKeyVaultItem = function (e) {
           return !t.PERSONAL_DATA_META_DATA.includes(e);
@@ -17434,9 +17441,10 @@
     8581: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.config = void 0);
       const a = r(5600),
-        o = r(56915);
+        o = r(56915),
+        n = r(61078);
       t.config = {
-        commands: {},
+        commands: { cleanRemotelyRemovedProfiles: { handler: n.cleanRemotelyRemovedProfilesHandler } },
         queries: {
           getAnonymousComputerId: { selector: a.anonymousComputerIdSelector },
           getPlatformInfo: { selector: o.platformInfoSelector }
@@ -17453,7 +17461,7 @@
     },
     88322: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.loadAnonymousApplicationId = t.ANONYMOUS_APPLICATION_ID_KEY = void 0);
-      const a = r(28354),
+      const a = r(35088),
         o = r(93564),
         n = r(95623),
         i = r(70252),
@@ -17518,6 +17526,43 @@
       t.bootstrap = (e) => {
         e.register(a.config);
       };
+    },
+    78806: (e, t, r) => {
+      Object.defineProperty(t, "__esModule", { value: !0 }), (t.cleanRemotelyRemovedProfilesHandler = void 0);
+      const a = r(1965);
+      t.cleanRemotelyRemovedProfilesHandler = async function (e) {
+        try {
+          await (0, a.deviceRemoteDeletion)(e.storeService, e.storageService, e.applicationModulesAccess);
+        } catch (e) {
+          throw new Error("Failed to perform device remote deletion");
+        }
+      };
+    },
+    61078: function (e, t, r) {
+      var a =
+          (this && this.__createBinding) ||
+          (Object.create
+            ? function (e, t, r, a) {
+                void 0 === a && (a = r);
+                var o = Object.getOwnPropertyDescriptor(t, r);
+                (o && !("get" in o ? !t.__esModule : o.writable || o.configurable)) ||
+                  (o = {
+                    enumerable: !0,
+                    get: function () {
+                      return t[r];
+                    }
+                  }),
+                  Object.defineProperty(e, a, o);
+              }
+            : function (e, t, r, a) {
+                void 0 === a && (a = r), (e[a] = t[r]);
+              }),
+        o =
+          (this && this.__exportStar) ||
+          function (e, t) {
+            for (var r in e) "default" === r || Object.prototype.hasOwnProperty.call(t, r) || a(t, e, r);
+          };
+      Object.defineProperty(t, "__esModule", { value: !0 }), o(r(78806), t);
     },
     55861: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.bootstrap = void 0);
@@ -17664,7 +17709,7 @@
     },
     306: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getFamilyDetailsRequest = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(66374),
         n = r(95623),
         i = r(46298),
@@ -17699,7 +17744,7 @@
     },
     66374: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getSpots = t.getMembersCount = t.getMembersByRole = t.getAdmin = void 0);
-      const a = r(53576);
+      const a = r(32626);
       function o(e, t) {
         return e.filter((e) => e.role === t);
       }
@@ -17717,7 +17762,7 @@
     },
     3698: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getRenewalInformation = void 0);
-      const a = r(53576),
+      const a = r(32626),
         o = r(46298);
       t.getRenewalInformation = (e) => {
         if (!e || e.state === o.FamilyStopRenewalState.STOPPED) return { showRenewalMessage: !1 };
@@ -17735,7 +17780,7 @@
     },
     68385: (e, t, r) => {
       Object.defineProperty(t, "__esModule", { value: !0 }), (t.getUserStatus = void 0);
-      const a = r(53576);
+      const a = r(32626);
       t.getUserStatus = (e, t) => {
         switch (e) {
           case a.PremiumStatusCode.NEW_USER:

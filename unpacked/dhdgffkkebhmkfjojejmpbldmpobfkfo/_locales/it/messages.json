@@ -22,6 +22,7 @@
     "message": "È disponibile $name$ $version$.\nPer iniziare l'aggiornamento ri-avvia il browser!",
     "placeholders": { "name": { "content": "$1" }, "version": { "content": "$2" } }
   },
+  "0name0_Your_service_bot": { "message": "$name$ - Bot di servizio", "placeholders": { "name": { "content": "$1" } } },
   "15_Seconds": { "message": "15 secondi" },
   "1_Hour": { "message": "1 ora" },
   "1_Minute": { "message": "1 minuto" },
@@ -35,7 +36,55 @@
     "message": "Una richiesta di accesso ad una risorsa di origini cross non è così inusuale.\nDevi solo verificare se lo script ha un buon moitvo per accedere a questo dominio.\nAd esempio ci sono solo poche ragioni per uno script per contattare la tua banca.\n\nNota che l'autore di uno script può evitare questa finestra aggiungendo [url=$connect$]@connect tags[/url] al suo script.\n\nPuoi decidere quello che credi e puoi cambiare la tua opinione in qualsiasi momento nello script in [url=$settings$]settings tab[/url].",
     "placeholders": { "connect": { "content": "$1" }, "settings": { "content": "$2" } }
   },
-  "A_userscript_wants_to_access_a_cross_origin_resource_": { "message": "Uno script vuole accedere ad una risorsa di origini cross." },
+  "A_userscript_wants_to_access_a_cross_origin_resource_": { "message": "Uno script utente vuole accedere ad una risorsa multiorigine." },
+  "There_are_no_active_scripts__Do_you_want_to_search_for_userscripts_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Non ci sono script attivi. Vuoi cercare gli userscript?"
+  },
+  "Do_you_need_help_working_with_Tampermonkey_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Hai bisogno di aiuto per lavorare con Tampermonkey?"
+  },
+  "Do_you_need_help_installing_new_scripts_to_Tampermonkey_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Hai bisogno di aiuto per installare nuovi script su Tampermonkey?"
+  },
+  "Would_you_like_to_know_how_to_overwrite_or_extend_a_script_s_includes_and_or_excludes_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Vuoi sapere come sovrascrivere o estendere le inclusioni e/o le esclusioni di uno script?"
+  },
+  "Do_you_need_help_syncing_all_your_installed_scripts_to_another_browser_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Hai bisogno di aiuto per sincronizzare tutti gli script installati in un altro browser?"
+  },
+  "Would_you_like_to_learn_how_to_export_and_import_your_scripts_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Vuoi imparare come esportare e importare i tuoi script?"
+  },
+  "Do_you_want_to_know_how_to_allow_Tampermonkey_access_to_local_file_URIs_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Vuoi sapere come consentire a Tampermonkey di accedere agli URI dei file locali?"
+  },
+  "One_of_your_scripts_is_blacklisted__Would_you_like_to_know_why_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Uno degli script è nella lista nera. Vuoi sapere perché?"
+  },
+  "Do_you_need_help_viewing_and_editing_values_stored_by_a_userscript_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Hai bisogno di aiuto per visualizzare e modificare i valori memorizzati da uno script utente?"
+  },
+  "Do_you_want_to_use_an_external_editor_to_edit_your_scripts__nWould_you_like_to_know_how_to_set_this_up_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Vuoi usre un editor esterno per modificare i tuoi script?\nVuoi sapere come impostarlo?"
+  },
+  "Are_you_unsure_about_what__sandbox_value_to_use_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Non sei sicuro di quale valore @sandbox usare?"
+  },
+  "Do_you_need_help_finding_Tampermonkey_s_console_output_": {
+    "description": "Una domanda posta dal bot di servizio",
+    "message": "Hai bisogno di aiuto per trovare l'output della console di Tampermonkey?"
+  },
   "Aborted_by_user": { "message": "Interrotto da utente" },
   "Action": { "message": "Azione" },
   "Action_Menu": { "message": "Menu azione" },
@@ -160,6 +209,10 @@
   "Content_Script": { "message": "Script contenuti" },
   "Content_Script_API": { "message": "API script contenuto" },
   "Context_Menu": { "message": "Menu contestuale" },
+  "Controls_how_deleted_scripts_are_handled__0enabled0_moves_scripts_to_a_virtual_trash__0disabled0_permanently_deletes_scripts__0cleanAfterSession0_automatically_deletes_all_on_session_end_": {
+    "message": "Controlla come vengono gestiti gli script eliminati. '%enabled%' sposta gli script in un cestino virtuale per un'eventuale recupero. '%disabled%' elimina definitivamente gli script dopo conferma. '%cleanAfterSession%' svuota automaticamente il cestino al termine della sessione del browser.",
+    "placeholders": { "enabled": { "content": "$1" }, "disabled": { "content": "$2" }, "cleanAfterSession": { "content": "$3" } }
+  },
   "Convert_CDATA_sections_into_a_chrome_compatible_format": {
     "message": "Converti sezioni CDATA in un formato compatibile con il browser"
   },
@@ -408,6 +461,7 @@
   "Original_excludes": { "message": "Esclusioni originali" },
   "Original_includes": { "message": "Inclusioni originali" },
   "Original_matches": { "message": "Corrispondenze originali" },
+  "Overwrite": { "message": "Sovrascrivi" },
   "Page_Filter_Mode": { "message": "Modo filtro pagina" },
   "Password": { "message": "Password" },
   "Paste": { "message": "Incolla" },
@@ -417,6 +471,9 @@
     "placeholders": { "editor": { "content": "$1" } }
   },
   "Please_consider_a_contribution": { "message": "Fai una donazione" },
+  "Please_enable_anonymous_statistics_and_help_to_improve_this_extension_": {
+    "message": "Si prega di abilitare le statistiche anonime e aiutare a ottimizzare questa estensione. Vengono raccolti solo dati tecnici e dati di interazione con l'estensione. Clicca qui per maggiori informazioni sui dati."
+  },
   "Please_select_a_file": { "message": "Seleziona un file" },
   "Please_wait___": { "message": "Attendi..." },
   "Position_": { "message": "Posizione" },
@@ -542,6 +599,7 @@
   "Tab_URL": { "message": "Scheda URL" },
   "Tab_types": { "message": "Tipi scheda" },
   "Tabs": { "message": "Tabulazioni" },
+  "Tam": { "message": "Tam", "description": "Nome bot di servizio" },
   "Tampermonkey_and_script_version": { "message": "Tampermonkey + versione script" },
   "Tampermonkey_has_no_access_to_this_page": { "message": "Tampermonkey non ha accesso a questa pagina" },
   "Tampermonkey_has_no_file_access_permission_": { "message": "Tampermonkey non ha il permesso di accedere ai file locali!" },
@@ -569,6 +627,11 @@
   },
   "The_script_was_successfully_deleted_": { "message": "Lo script è stato correttamente eliminato." },
   "The_script_was_successfully_moved_to_the_trash_": { "message": "Lo script è stato correttamente spostato nel cestino." },
+  "Modifying_a_script_will_disable_automatic_script_updates_": { "message": "Modifying a script will disable automatic script updates!" },
+  "The_script_was_modified_locally_on_0date0__Updating_it_will_overwrite_your_changes_": {
+    "message": "Lo script è stato modificato localmente in data $date$.\nL'aggiornamento sovrascriverà le modifiche!",
+    "placeholders": { "date": { "content": "$1" } }
+  },
   "The_update_url_has_changed_from_0oldurl0_to__0newurl0": {
     "message": "L'URL per l'aggiornamento è cambiata da:\n    '$oldurl$'\n    a:\n    '$newurl$'\n",
     "placeholders": { "oldurl": { "content": "$1" }, "newurl": { "content": "$2" } }
@@ -598,6 +661,9 @@
   "This_script_does_not_require_any_special_powers_": { "message": "Questo script non richiede nessuna opzione speciale." },
   "This_script_has_access_to_https_pages": { "message": "Questo script ha accesso a pagine https." },
   "This_script_has_full_web_access": { "message": "Questo script ha pieno accesso a internet." },
+  "This_script_has_local_modifications_and_needs_to_be_updated_manually": {
+    "message": "Questo script ha modifiche locali e deve essere aggiornato manualmente!"
+  },
   "This_script_is_blacklisted_": { "message": "Questo script è nell'elenco vietati!" },
   "This_script_stores_data": { "message": "Questo script memorizza dati per Tampermonkey." },
   "This_script_was_deleted": { "message": "Questo script è stato eliminato" },

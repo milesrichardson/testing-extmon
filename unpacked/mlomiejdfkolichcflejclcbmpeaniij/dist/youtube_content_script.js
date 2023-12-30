@@ -1,13 +1,39 @@
 typeof browser < "u" && (chrome = browser),
   (() => {
     "use strict";
-    var h = {};
-    function m(t, a = "440px") {
+    var y = {};
+    const c = [
+      "ytd-watch-flexy:not([hidden]) ytd-enforcement-message-view-model > div.ytd-enforcement-message-view-model",
+      "yt-playability-error-supported-renderers#error-screen ytd-enforcement-message-view-model",
+      "tp-yt-paper-dialog .ytd-enforcement-message-view-model"
+    ];
+    function m(r) {
+      let t = null;
+      const e = new MutationObserver(() => {
+        t ||
+          (t = setTimeout(() => {
+            var o;
+            if (((o = document.querySelector(c)) == null ? void 0 : o.clientHeight) > 0)
+              try {
+                r();
+              } catch {}
+            else t = null;
+          }, 1e3));
+      });
+      document.addEventListener("yt-navigate-start", () => {
+        clearTimeout(t), (t = null);
+      }),
+        document.addEventListener("DOMContentLoaded", () => {
+          e.observe(document.body, { childList: !0, subtree: !0, attributeFilter: ["src", "style"] });
+        });
+    }
+    function u(r, t = "440px") {
+      if (document.querySelector("ghostery-iframe-wrapper")) return;
       const e = document.createElement("ghostery-iframe-wrapper"),
-        i = e.attachShadow({ mode: "closed" }),
-        s = document.createElement("template");
-      (s.innerHTML = `
-    <iframe src="${t}" frameborder="0"></iframe>
+        o = e.attachShadow({ mode: "closed" }),
+        i = document.createElement("template");
+      (i.innerHTML = `
+    <iframe src="${r}" frameborder="0"></iframe>
     <style>
       :host {
         all: initial;
@@ -25,7 +51,7 @@ typeof browser < "u" && (chrome = browser),
       iframe {
         display: block;
         flex-grow: 1;
-        width: min(100%, ${a});
+        width: min(100%, ${t});
         pointer-events: auto;
         box-shadow: 30px 60px 160px rgba(0, 0, 0, 0.4);
         border-radius: 16px;
@@ -49,45 +75,45 @@ typeof browser < "u" && (chrome = browser),
         iframe {
           flex-grow: 0;
           transform: translateY(-20px);
-          max-width: ${a};
+          max-width: ${t};
         }
       }
     </style>
   `),
-        i.appendChild(s.content),
+        o.appendChild(i.content),
         document.documentElement.appendChild(e);
-      const r = i.querySelector("iframe");
+      const n = o.querySelector("iframe");
       setTimeout(() => {
-        r.classList.add("active");
+        n.classList.add("active");
       }, 100),
-        window.addEventListener("message", (o) => {
+        window.addEventListener("message", (a) => {
           var d;
-          switch ((d = o.data) == null ? void 0 : d.type) {
+          switch ((d = a.data) == null ? void 0 : d.type) {
             case "ghostery-resize-iframe": {
-              const { height: p, width: l } = o.data;
-              (r.style.height = p + "px"), l && (r.style.width = l + "px");
+              const { height: p, width: l } = a.data;
+              (n.style.height = p + "px"), l && (n.style.width = l + "px");
               break;
             }
             case "ghostery-close-iframe":
-              o.data.clear && chrome.runtime.sendMessage({ action: "clearIframe", url: t }),
-                o.data.reload ? window.location.reload() : setTimeout(() => e.parentElement.removeChild(e), 0);
+              a.data.clear && chrome.runtime.sendMessage({ action: "clearIframe", url: r }),
+                a.data.reload ? window.location.reload() : e.parentElement && setTimeout(() => e.parentElement.removeChild(e), 0);
               break;
             case "ghostery-clear-iframe":
-              r.src === o.data.url && setTimeout(() => e.parentElement.removeChild(e), 0);
+              n.src === a.data.url && e.parentElement && setTimeout(() => e.parentElement.removeChild(e), 0);
               break;
             default:
               break;
           }
         });
     }
-    function c(t = !1, a = !1) {
+    function f(r = !1, t = !1) {
       setTimeout(() => {
-        window.parent.postMessage({ type: "ghostery-close-iframe", reload: t, clear: a }, "*");
+        window.parent.postMessage({ type: "ghostery-close-iframe", reload: r, clear: t }, "*");
       }, 100);
     }
-    function u(t) {
+    function w(r) {
       new ResizeObserver(() => {
-        window.parent.postMessage({ type: "ghostery-resize-iframe", height: document.body.clientHeight, width: t }, "*");
+        window.parent.postMessage({ type: "ghostery-resize-iframe", height: document.body.clientHeight, width: r }, "*");
       }).observe(document.body, { box: "border-box" }),
         (document.body.style.overflow = "hidden"),
         chrome.runtime.onMessage.addListener((e) => {
@@ -95,22 +121,24 @@ typeof browser < "u" && (chrome = browser),
             (console.log("clearIframe", e.url), window.parent.postMessage({ type: "ghostery-clear-iframe", url: e.url }, "*"));
         });
     }
-    const f = ["ytd-watch-flexy:not([hidden]) ytd-enforcement-message-view-model > div.ytd-enforcement-message-view-model"];
-    let n = !1;
-    chrome.storage.local.get(["youtube_dont_show_again"], (t) => {
-      t.youtube_dont_show_again ||
-        chrome.extension.inIncognitoContext ||
+    function s() {
+      return new Promise((r) => {
+        chrome.storage.local.get(["youtube_dont_show_again"], (t) => {
+          r(t.youtube_dont_show_again);
+        });
+      });
+    }
+    chrome.extension.inIncognitoContext ||
+      (async () =>
+        (await s()) ||
         (window.addEventListener(
           "yt-navigate-start",
           () => {
-            (n = !1), c();
+            f();
           },
           !0
         ),
-        setInterval(() => {
-          !n &&
-            document.querySelectorAll(f).length > 0 &&
-            (m(chrome.runtime.getURL(`app/templates/youtube.html?url=${encodeURIComponent(window.location.href)}`), "460px"), (n = !0));
-        }, 2e3));
-    });
+        m(async () => {
+          (await s()) || u(chrome.runtime.getURL(`app/templates/youtube.html?url=${encodeURIComponent(window.location.href)}`), "460px");
+        })))();
   })();

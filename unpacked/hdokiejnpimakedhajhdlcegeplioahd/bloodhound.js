@@ -1,769 +1,956 @@
-!(function (e, i) {
-  "function" == typeof define && define.amd
-    ? define("bloodhound", ["jquery"], function (t) {
-        return (e.Bloodhound = i(t));
-      })
-    : "object" == typeof exports
-    ? (module.exports = i(require("jquery")))
-    : (e.Bloodhound = i(jQuery));
-})(this, function (l) {
-  var f = (function () {
-      "use strict";
-      return {
-        isMsie: function () {
-          return !!/(msie|trident)/i.test(navigator.userAgent) && navigator.userAgent.match(/(msie |rv:)(\d+(.\d+)?)/i)[2];
-        },
-        isBlankString: function (t) {
-          return !t || /^\s*$/.test(t);
-        },
-        escapeRegExChars: function (t) {
-          return t.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-        },
-        isString: function (t) {
-          return "string" == typeof t;
-        },
-        isNumber: function (t) {
-          return "number" == typeof t;
-        },
-        isArray: l.isArray,
-        isFunction: l.isFunction,
-        isObject: l.isPlainObject,
-        isUndefined: function (t) {
-          return void 0 === t;
-        },
-        isElement: function (t) {
-          return !(!t || 1 !== t.nodeType);
-        },
-        isJQuery: function (t) {
-          return t instanceof l;
-        },
-        toStr: function t(e) {
-          return f.isUndefined(e) || null === e ? "" : e + "";
-        },
-        bind: l.proxy,
-        each: function (t, i) {
-          function e(t, e) {
-            return i(e, t);
-          }
-          l.each(t, e);
-        },
-        map: l.map,
-        filter: l.grep,
-        every: function (i, r) {
-          var n = !0;
-          return i
-            ? (l.each(i, function (t, e) {
-                if (!(n = r.call(null, e, t, i))) return !1;
-              }),
-              !!n)
-            : n;
-        },
-        some: function (i, r) {
-          var n = !1;
-          return i
-            ? (l.each(i, function (t, e) {
-                if ((n = r.call(null, e, t, i))) return !1;
-              }),
-              !!n)
-            : n;
-        },
-        mixin: l.extend,
-        identity: function (t) {
-          return t;
-        },
-        clone: function (t) {
-          return l.extend(!0, {}, t);
-        },
-        getIdGenerator: function () {
-          var t = 0;
-          return function () {
-            return t++;
-          };
-        },
-        templatify: function t(e) {
-          return l.isFunction(e) ? e : i;
-          function i() {
-            return String(e);
-          }
-        },
-        defer: function (t) {
-          setTimeout(function () {
-            t();
-          }, 0);
-        },
-        debounce: function (n, s, o) {
-          var u, c;
-          return function () {
-            var t = this,
-              e = arguments,
-              i,
-              r,
-              i = function () {
-                (u = null), o || (c = n.apply(t, e));
-              },
-              r = o && !u;
-            return (
-              clearTimeout(u),
-              (u = setTimeout(function () {
-                i();
-              }, s)),
-              (c = r ? n.apply(t, e) : c)
-            );
-          };
-        },
-        throttle: function (i, r) {
-          var n,
-            s,
-            o,
-            u,
-            c,
-            a,
-            c = 0,
-            a = function () {
-              (c = new Date()), (o = null), (u = i.apply(n, s));
-            };
-          return function () {
-            var t = new Date(),
-              e = r - (t - c);
-            return (
-              (n = this),
-              (s = arguments),
-              e <= 0
-                ? (clearTimeout(o), (o = null), (c = t), (u = i.apply(n, s)))
-                : (o =
-                    o ||
-                    setTimeout(function () {
-                      a();
-                    }, e)),
-              u
-            );
-          };
-        },
-        stringify: function (t) {
-          return f.isString(t) ? t : JSON.stringify(t);
-        },
-        noop: function () {}
-      };
-    })(),
-    u = "0.11.1",
-    t = (function () {
-      "use strict";
-      return { nonword: e, whitespace: t, obj: { nonword: i(e), whitespace: i(t) } };
-      function t(t) {
-        return (t = f.toStr(t)) ? t.split(/\s+/) : [];
-      }
-      function e(t) {
-        return (t = f.toStr(t)) ? t.split(/\W+/) : [];
-      }
-      function i(n) {
-        return function t(r) {
-          return (
-            (r = f.isArray(r) ? r : [].slice.call(arguments, 0)),
-            function t(e) {
-              var i = [];
-              return (
-                f.each(r, function (t) {
-                  i = i.concat(n(f.toStr(e[t])));
-                }),
-                i
-              );
-            }
-          );
-        };
-      }
-    })(),
-    i = (function () {
-      "use strict";
-      function t(t) {
-        (this.maxSize = f.isNumber(t) ? t : 100), this.reset(), this.maxSize <= 0 && (this.set = this.get = l.noop);
-      }
-      function e() {
-        this.head = this.tail = null;
-      }
-      function n(t, e) {
-        (this.key = t), (this.val = e), (this.prev = this.next = null);
-      }
-      return (
-        f.mixin(t.prototype, {
-          set: function t(e, i) {
-            var r = this.list.tail,
-              r;
-            this.size >= this.maxSize && (this.list.remove(r), delete this.hash[r.key], this.size--),
-              (r = this.hash[e])
-                ? ((r.val = i), this.list.moveToFront(r))
-                : ((r = new n(e, i)), this.list.add(r), (this.hash[e] = r), this.size++);
-          },
-          get: function t(e) {
-            var e = this.hash[e];
-            if (e) return this.list.moveToFront(e), e.val;
-          },
-          reset: function t() {
-            (this.size = 0), (this.hash = {}), (this.list = new e());
-          }
-        }),
-        f.mixin(e.prototype, {
-          add: function t(e) {
-            this.head && ((e.next = this.head), (this.head.prev = e)), (this.head = e), (this.tail = this.tail || e);
-          },
-          remove: function t(e) {
-            e.prev ? (e.prev.next = e.next) : (this.head = e.next), e.next ? (e.next.prev = e.prev) : (this.tail = e.prev);
-          },
-          moveToFront: function (t) {
-            this.remove(t), this.add(t);
-          }
-        }),
-        t
-      );
-    })(),
-    e = (function () {
-      "use strict";
-      var s;
-      try {
-        (s = window.localStorage).setItem("~~~", "!"), s.removeItem("~~~");
-      } catch (t) {
-        s = null;
-      }
-      function t(t, e) {
-        (this.prefix = ["__", t, "__"].join("")),
-          (this.ttlKey = "__ttl__"),
-          (this.keyMatcher = new RegExp("^" + f.escapeRegExChars(this.prefix))),
-          (this.ls = e || s),
-          this.ls || this._noop();
-      }
-      return (
-        f.mixin(t.prototype, {
-          _prefix: function (t) {
-            return this.prefix + t;
-          },
-          _ttlKey: function (t) {
-            return this._prefix(t) + this.ttlKey;
-          },
-          _noop: function () {
-            this.get = this.set = this.remove = this.clear = this.isExpired = f.noop;
-          },
-          _safeSet: function (t, e) {
-            try {
-              this.ls.setItem(t, e);
-            } catch (t) {
-              "QuotaExceededError" === t.name && (this.clear(), this._noop());
-            }
-          },
-          get: function (t) {
-            return this.isExpired(t) && this.remove(t), e(this.ls.getItem(this._prefix(t)));
-          },
-          set: function (t, e, i) {
-            return (
-              f.isNumber(i) ? this._safeSet(this._ttlKey(t), n(r() + i)) : this.ls.removeItem(this._ttlKey(t)),
-              this._safeSet(this._prefix(t), n(e))
-            );
-          },
-          remove: function (t) {
-            return this.ls.removeItem(this._ttlKey(t)), this.ls.removeItem(this._prefix(t)), this;
-          },
-          clear: function () {
-            for (var t, e = i(this.keyMatcher), t = e.length; t--; ) this.remove(e[t]);
-            return this;
-          },
-          isExpired: function (t) {
-            var t = e(this.ls.getItem(this._ttlKey(t)));
-            return !!(f.isNumber(t) && r() > t);
-          }
-        }),
-        t
-      );
-      function r() {
-        return new Date().getTime();
-      }
-      function n(t) {
-        return JSON.stringify(f.isUndefined(t) ? null : t);
-      }
-      function e(t) {
-        return l.parseJSON(t);
-      }
-      function i(t) {
-        for (var e, i, r = [], n = s.length, e = 0; e < n; e++) (i = s.key(e)).match(t) && r.push(i.replace(t, ""));
-        return r;
-      }
-    })(),
-    r = (function () {
-      "use strict";
-      var c = 0,
-        a = {},
-        h = 6,
-        e = new i(10);
-      function t(t) {
-        (t = t || {}),
-          (this.cancelled = !1),
-          (this.lastReq = null),
-          (this._send = t.transport),
-          (this._get = t.limiter ? t.limiter(this._get) : this._get),
-          (this._cache = !1 === t.cache ? new i(0) : e);
-      }
-      return (
-        (t.setMaxPendingRequests = function t(e) {
-          h = e;
-        }),
-        (t.resetCache = function t() {
-          e.reset();
-        }),
-        f.mixin(t.prototype, {
-          _fingerprint: function t(e) {
-            return (e = e || {}).url + e.type + l.param(e.data || {});
-          },
-          _get: function (t, e) {
-            var i = this,
-              r,
-              n;
-            function s(t) {
-              e(null, t), i._cache.set(r, t);
-            }
-            function o() {
-              e(!0);
-            }
-            function u() {
-              c--, delete a[r], i.onDeckRequestArgs && (i._get.apply(i, i.onDeckRequestArgs), (i.onDeckRequestArgs = null));
-            }
-            (r = this._fingerprint(t)),
-              this.cancelled ||
-                r !== this.lastReq ||
-                ((n = a[r])
-                  ? n.done(s).fail(o)
-                  : c < h
-                  ? (c++, (a[r] = this._send(t).done(s).fail(o).always(u)))
-                  : (this.onDeckRequestArgs = [].slice.call(arguments, 0)));
-          },
-          get: function (t, e) {
-            var i, i;
-            (e = e || l.noop),
-              (t = f.isString(t) ? { url: t } : t || {}),
-              (i = this._fingerprint(t)),
-              (this.cancelled = !1),
-              (this.lastReq = i),
-              (i = this._cache.get(i)) ? e(null, i) : this._get(t, e);
-          },
-          cancel: function () {
-            this.cancelled = !0;
-          }
-        }),
-        t
-      );
-    })(),
-    n = (window.SearchIndex = (function () {
-      "use strict";
-      var t = "c",
-        e = "i";
-      function i(t) {
-        ((t = t || {}).datumTokenizer && t.queryTokenizer) || l.error("datumTokenizer and queryTokenizer are both required"),
-          (this.identify = t.identify || f.stringify),
-          (this.datumTokenizer = t.datumTokenizer),
-          (this.queryTokenizer = t.queryTokenizer),
-          this.reset();
-      }
-      return (
-        f.mixin(i.prototype, {
-          bootstrap: function t(e) {
-            (this.datums = e.datums), (this.trie = e.trie);
-          },
-          add: function (t) {
-            var s = this;
-            (t = f.isArray(t) ? t : [t]),
-              f.each(t, function (t) {
-                var n, t;
-                (s.datums[(n = s.identify(t))] = t),
-                  (t = r(s.datumTokenizer(t))),
-                  f.each(t, function (t) {
-                    for (var e, i, r, e = s.trie, i = t.split(""); (r = i.shift()); ) (e = e.c[r] || (e.c[r] = o())).i.push(n);
-                  });
-              });
-          },
-          get: function t(e) {
-            var i = this;
-            return f.map(e, function (t) {
-              return i.datums[t];
-            });
-          },
-          search: function t(e) {
-            var n = this,
-              e,
-              s,
-              e = r(this.queryTokenizer(e));
-            return (
-              f.each(e, function (t) {
-                var e, i, r, t;
-                if (s && 0 === s.length) return !1;
-                for (e = n.trie, i = t.split(""); e && (r = i.shift()); ) e = e.c[r];
-                if (!e || 0 !== i.length) return !(s = []);
-                (t = e.i.slice(0)), (s = s ? c(s, t) : t);
-              }),
-              s
-                ? f.map(u(s), function (t) {
-                    return n.datums[t];
-                  })
-                : []
-            );
-          },
-          all: function t() {
-            var e = [],
-              i;
-            for (i in this.datums) e.push(this.datums[i]);
-            return e;
-          },
-          reset: function t() {
-            (this.datums = {}), (this.trie = o());
-          },
-          serialize: function t() {
-            return { datums: this.datums, trie: this.trie };
-          }
-        }),
-        i
-      );
-      function r(t) {
-        return (
-          (t = f.filter(t, function (t) {
-            return !!t;
-          })),
-          (t = f.map(t, function (t) {
-            return t.toLowerCase();
-          }))
-        );
-      }
-      function o() {
-        var t = { i: [], c: {} };
-        return t;
-      }
-      function u(t) {
-        for (var e = {}, i = [], r = 0, n = t.length; r < n; r++) e[t[r]] || ((e[t[r]] = !0), i.push(t[r]));
-        return i;
-      }
-      function c(t, e) {
-        for (var i = 0, r = 0, n = [], s = ((t = t.sort()), (e = e.sort()), t.length), o = e.length; i < s && r < o; )
-          t[i] < e[r] ? i++ : (t[i] > e[r] || (n.push(t[i]), i++), r++);
-        return n;
-      }
-    })()),
-    s = (function () {
-      "use strict";
-      var r;
-      function t(t) {
-        (this.url = t.url),
-          (this.ttl = t.ttl),
-          (this.cache = t.cache),
-          (this.prepare = t.prepare),
-          (this.transform = t.transform),
-          (this.transport = t.transport),
-          (this.thumbprint = t.thumbprint),
-          (this.storage = new e(t.cacheKey));
-      }
-      return (
-        (r = { data: "data", protocol: "protocol", thumbprint: "thumbprint" }),
-        f.mixin(t.prototype, {
-          _settings: function t() {
-            return { url: this.url, type: "GET", dataType: "json" };
-          },
-          store: function t(e) {
-            this.cache &&
-              (this.storage.set(r.data, e, this.ttl),
-              this.storage.set(r.protocol, location.protocol, this.ttl),
-              this.storage.set(r.thumbprint, this.thumbprint, this.ttl));
-          },
-          fromCache: function t() {
-            var e = {},
-              i;
-            return this.cache &&
-              ((e.data = this.storage.get(r.data)),
-              (e.protocol = this.storage.get(r.protocol)),
-              (e.thumbprint = this.storage.get(r.thumbprint)),
-              (i = e.thumbprint !== this.thumbprint || e.protocol !== location.protocol),
-              e.data) &&
-              !i
-              ? e.data
-              : null;
-          },
-          fromNetwork: function (e) {
-            var i = this,
-              t;
-            function r() {
-              e(!0);
-            }
-            function n(t) {
-              e(null, i.transform(t));
-            }
-            e && ((t = this.prepare(this._settings())), this.transport(t).fail(r).done(n));
-          },
-          clear: function t() {
-            return this.storage.clear(), this;
-          }
-        }),
-        t
-      );
-    })(),
-    o = (function () {
-      "use strict";
-      function t(t) {
-        (this.url = t.url),
-          (this.prepare = t.prepare),
-          (this.transform = t.transform),
-          (this.transport = new r({ cache: t.cache, limiter: t.limiter, transport: t.transport }));
-      }
-      return (
-        f.mixin(t.prototype, {
-          _settings: function t() {
-            return { url: this.url, type: "GET", dataType: "json" };
-          },
-          get: function t(e, i) {
-            var r = this,
-              e;
-            if (i) return (e = this.prepare((e = e || ""), this._settings())), this.transport.get(e, n);
-            function n(t, e) {
-              i(t ? [] : r.transform(e));
-            }
-          },
-          cancelLastRequest: function t() {
-            this.transport.cancel();
-          }
-        }),
-        t
-      );
-    })(),
-    c = (function () {
-      "use strict";
-      return function t(e) {
-        var i,
-          r,
-          i = {
-            initialize: !0,
-            identify: f.stringify,
-            datumTokenizer: null,
-            queryTokenizer: null,
-            sufficient: 5,
-            sorter: null,
-            local: [],
-            prefetch: null,
-            remote: null
-          };
-        return (
-          (e = f.mixin(i, e || {})).datumTokenizer || l.error("datumTokenizer is required"),
-          e.queryTokenizer || l.error("queryTokenizer is required"),
-          (r = e.sorter),
-          (e.sorter = r
-            ? function (t) {
-                return t.sort(r);
-              }
-            : f.identity),
-          (e.local = f.isFunction(e.local) ? e.local() : e.local),
-          (e.prefetch = n(e.prefetch)),
-          (e.remote = s(e.remote)),
-          e
-        );
-      };
-      function n(t) {
-        var e;
-        return t
-          ? ((e = {
-              url: null,
-              ttl: 864e5,
-              cache: !0,
-              cacheKey: null,
-              thumbprint: "",
-              prepare: f.identity,
-              transform: f.identity,
-              transport: null
-            }),
-            (t = f.isString(t) ? { url: t } : t),
-            (t = f.mixin(e, t)).url || l.error("prefetch requires url to be set"),
-            (t.transform = t.filter || t.transform),
-            (t.cacheKey = t.cacheKey || t.url),
-            (t.thumbprint = u + t.thumbprint),
-            (t.transport = t.transport ? o(t.transport) : l.ajax),
-            t)
-          : null;
-      }
-      function s(t) {
-        var e;
-        if (t)
-          return (
-            (e = {
-              url: null,
-              cache: !0,
-              prepare: null,
-              replace: null,
-              wildcard: null,
-              limiter: null,
-              rateLimitBy: "debounce",
-              rateLimitWait: 300,
-              transform: f.identity,
-              transport: null
-            }),
-            (t = f.isString(t) ? { url: t } : t),
-            (t = f.mixin(e, t)).url || l.error("remote requires url to be set"),
-            (t.transform = t.filter || t.transform),
-            (t.prepare = i(t)),
-            (t.limiter = r(t)),
-            (t.transport = t.transport ? o(t.transport) : l.ajax),
-            delete t.replace,
-            delete t.wildcard,
-            delete t.rateLimitBy,
-            delete t.rateLimitWait,
-            t
-          );
-      }
-      function i(t) {
-        var e,
-          i,
-          r,
-          e = t.prepare,
-          i = t.replace,
-          r = t.wildcard;
-        return (e = e || (i ? n : t.wildcard ? s : o));
-        function n(t, e) {
-          return (e.url = i(e.url, t)), e;
-        }
-        function s(t, e) {
-          return (e.url = e.url.replace(r, encodeURIComponent(t))), e;
-        }
-        function o(t, e) {
-          return e;
-        }
-      }
-      function r(t) {
-        var e,
-          i,
-          t,
-          e = t.limiter,
-          i = t.rateLimitBy,
-          t = t.rateLimitWait;
-        return (e = e || (/^throttle$/i.test(i) ? n : r)(t));
-        function r(i) {
-          return function t(e) {
-            return f.debounce(e, i);
-          };
-        }
-        function n(i) {
-          return function t(e) {
-            return f.throttle(e, i);
-          };
-        }
-      }
-      function o(s) {
-        return function t(e) {
-          var i = l.Deferred();
-          return s(e, r, n), i;
-          function r(t) {
-            f.defer(function () {
-              i.resolve(t);
-            });
-          }
-          function n(t) {
-            f.defer(function () {
-              i.reject(t);
-            });
-          }
-        };
-      }
-    })(),
-    a;
-  return (function () {
+/*!
+ * typeahead.js 0.11.1
+ * https://github.com/twitter/typeahead.js
+ * Copyright 2013-2015 Twitter, Inc. and other contributors; Licensed MIT
+ */
+
+(function (root, factory) {
+  if (typeof define === "function" && define.amd) {
+    define("bloodhound", ["jquery"], function (a0) {
+      return (root["Bloodhound"] = factory(a0));
+    });
+  } else if (typeof exports === "object") {
+    module.exports = factory(require("jquery"));
+  } else {
+    root["Bloodhound"] = factory(jQuery);
+  }
+})(this, function ($) {
+  var _ = (function () {
     "use strict";
-    var e;
-    function i(t) {
-      (t = c(t)),
-        (this.sorter = t.sorter),
-        (this.identify = t.identify),
-        (this.sufficient = t.sufficient),
-        (this.local = t.local),
-        (this.remote = t.remote ? new o(t.remote) : null),
-        (this.prefetch = t.prefetch ? new s(t.prefetch) : null),
-        (this.index = new n({ identify: this.identify, datumTokenizer: t.datumTokenizer, queryTokenizer: t.queryTokenizer })),
-        !1 !== t.initialize && this.initialize();
-    }
-    return (
-      (e = window && window.Bloodhound),
-      (i.noConflict = function t() {
-        return window && (window.Bloodhound = e), i;
-      }),
-      (i.tokenizers = t),
-      f.mixin(i.prototype, {
-        __ttAdapter: function t() {
-          var r = this;
-          return this.remote ? e : i;
-          function e(t, e, i) {
-            return r.search(t, e, i);
-          }
-          function i(t, e) {
-            return r.search(t, e);
-          }
-        },
-        _loadPrefetch: function t() {
-          var i = this,
-            r,
-            e,
-            r = l.Deferred();
-          return (
-            this.prefetch
-              ? (e = this.prefetch.fromCache())
-                ? (this.index.bootstrap(e), r.resolve())
-                : this.prefetch.fromNetwork(n)
-              : r.resolve(),
-            r.promise()
-          );
-          function n(t, e) {
-            if (t) return r.reject();
-            i.add(e), i.prefetch.store(i.index.serialize()), r.resolve();
-          }
-        },
-        _initialize: function t() {
-          var e = this,
-            i;
-          return this.clear(), (this.initPromise = this._loadPrefetch()).done(r), this.initPromise;
-          function r() {
-            e.add(e.local);
-          }
-        },
-        initialize: function t(e) {
-          return !this.initPromise || e ? this._initialize() : this.initPromise;
-        },
-        add: function t(e) {
-          return this.index.add(e), this;
-        },
-        get: function t(e) {
-          return (e = f.isArray(e) ? e : [].slice.call(arguments)), this.index.get(e);
-        },
-        search: function t(e, i, r) {
-          var n = this,
-            s,
-            s = this.sorter(this.index.search(e));
-          return (
-            i(this.remote ? s.slice() : s),
-            this.remote && s.length < this.sufficient ? this.remote.get(e, o) : this.remote && this.remote.cancelLastRequest(),
-            this
-          );
-          function o(t) {
-            var i = [];
-            f.each(t, function (e) {
-              f.some(s, function (t) {
-                return n.identify(e) === n.identify(t);
-              }) || i.push(e);
-            }),
-              r && r(i);
-          }
-        },
-        all: function t() {
-          return this.index.all();
-        },
-        clear: function t() {
-          return this.index.reset(), this;
-        },
-        clearPrefetchCache: function t() {
-          return this.prefetch && this.prefetch.clear(), this;
-        },
-        clearRemoteCache: function t() {
-          return r.resetCache(), this;
-        },
-        ttAdapter: function t() {
-          return this.__ttAdapter();
+    return {
+      isMsie: function () {
+        return /(msie|trident)/i.test(navigator.userAgent) ? navigator.userAgent.match(/(msie |rv:)(\d+(.\d+)?)/i)[2] : false;
+      },
+      isBlankString: function (str) {
+        return !str || /^\s*$/.test(str);
+      },
+      escapeRegExChars: function (str) {
+        return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+      },
+      isString: function (obj) {
+        return typeof obj === "string";
+      },
+      isNumber: function (obj) {
+        return typeof obj === "number";
+      },
+      isArray: $.isArray,
+      isFunction: $.isFunction,
+      isObject: $.isPlainObject,
+      isUndefined: function (obj) {
+        return typeof obj === "undefined";
+      },
+      isElement: function (obj) {
+        return !!(obj && obj.nodeType === 1);
+      },
+      isJQuery: function (obj) {
+        return obj instanceof $;
+      },
+      toStr: function toStr(s) {
+        return _.isUndefined(s) || s === null ? "" : s + "";
+      },
+      bind: $.proxy,
+      each: function (collection, cb) {
+        $.each(collection, reverseArgs);
+        function reverseArgs(index, value) {
+          return cb(value, index);
         }
-      }),
-      i
-    );
+      },
+      map: $.map,
+      filter: $.grep,
+      every: function (obj, test) {
+        var result = true;
+        if (!obj) {
+          return result;
+        }
+        $.each(obj, function (key, val) {
+          if (!(result = test.call(null, val, key, obj))) {
+            return false;
+          }
+        });
+        return !!result;
+      },
+      some: function (obj, test) {
+        var result = false;
+        if (!obj) {
+          return result;
+        }
+        $.each(obj, function (key, val) {
+          if ((result = test.call(null, val, key, obj))) {
+            return false;
+          }
+        });
+        return !!result;
+      },
+      mixin: $.extend,
+      identity: function (x) {
+        return x;
+      },
+      clone: function (obj) {
+        return $.extend(true, {}, obj);
+      },
+      getIdGenerator: function () {
+        var counter = 0;
+        return function () {
+          return counter++;
+        };
+      },
+      templatify: function templatify(obj) {
+        return $.isFunction(obj) ? obj : template;
+        function template() {
+          return String(obj);
+        }
+      },
+      defer: function (fn) {
+        setTimeout(fn, 0);
+      },
+      debounce: function (func, wait, immediate) {
+        var timeout, result;
+        return function () {
+          var context = this,
+            args = arguments,
+            later,
+            callNow;
+          later = function () {
+            timeout = null;
+            if (!immediate) {
+              result = func.apply(context, args);
+            }
+          };
+          callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) {
+            result = func.apply(context, args);
+          }
+          return result;
+        };
+      },
+      throttle: function (func, wait) {
+        var context, args, timeout, result, previous, later;
+        previous = 0;
+        later = function () {
+          previous = new Date();
+          timeout = null;
+          result = func.apply(context, args);
+        };
+        return function () {
+          var now = new Date(),
+            remaining = wait - (now - previous);
+          context = this;
+          args = arguments;
+          if (remaining <= 0) {
+            clearTimeout(timeout);
+            timeout = null;
+            previous = now;
+            result = func.apply(context, args);
+          } else if (!timeout) {
+            timeout = setTimeout(later, remaining);
+          }
+          return result;
+        };
+      },
+      stringify: function (val) {
+        return _.isString(val) ? val : JSON.stringify(val);
+      },
+      noop: function () {}
+    };
   })();
+  var VERSION = "0.11.1";
+  var tokenizers = (function () {
+    "use strict";
+    return {
+      nonword: nonword,
+      whitespace: whitespace,
+      obj: {
+        nonword: getObjTokenizer(nonword),
+        whitespace: getObjTokenizer(whitespace)
+      }
+    };
+    function whitespace(str) {
+      str = _.toStr(str);
+      return str ? str.split(/\s+/) : [];
+    }
+    function nonword(str) {
+      str = _.toStr(str);
+      return str ? str.split(/\W+/) : [];
+    }
+    function getObjTokenizer(tokenizer) {
+      return function setKey(keys) {
+        keys = _.isArray(keys) ? keys : [].slice.call(arguments, 0);
+        return function tokenize(o) {
+          var tokens = [];
+          _.each(keys, function (k) {
+            tokens = tokens.concat(tokenizer(_.toStr(o[k])));
+          });
+          return tokens;
+        };
+      };
+    }
+  })();
+  var LruCache = (function () {
+    "use strict";
+    function LruCache(maxSize) {
+      this.maxSize = _.isNumber(maxSize) ? maxSize : 100;
+      this.reset();
+      if (this.maxSize <= 0) {
+        this.set = this.get = $.noop;
+      }
+    }
+    _.mixin(LruCache.prototype, {
+      set: function set(key, val) {
+        var tailItem = this.list.tail,
+          node;
+        if (this.size >= this.maxSize) {
+          this.list.remove(tailItem);
+          delete this.hash[tailItem.key];
+          this.size--;
+        }
+        if ((node = this.hash[key])) {
+          node.val = val;
+          this.list.moveToFront(node);
+        } else {
+          node = new Node(key, val);
+          this.list.add(node);
+          this.hash[key] = node;
+          this.size++;
+        }
+      },
+      get: function get(key) {
+        var node = this.hash[key];
+        if (node) {
+          this.list.moveToFront(node);
+          return node.val;
+        }
+      },
+      reset: function reset() {
+        this.size = 0;
+        this.hash = {};
+        this.list = new List();
+      }
+    });
+    function List() {
+      this.head = this.tail = null;
+    }
+    _.mixin(List.prototype, {
+      add: function add(node) {
+        if (this.head) {
+          node.next = this.head;
+          this.head.prev = node;
+        }
+        this.head = node;
+        this.tail = this.tail || node;
+      },
+      remove: function remove(node) {
+        node.prev ? (node.prev.next = node.next) : (this.head = node.next);
+        node.next ? (node.next.prev = node.prev) : (this.tail = node.prev);
+      },
+      moveToFront: function (node) {
+        this.remove(node);
+        this.add(node);
+      }
+    });
+    function Node(key, val) {
+      this.key = key;
+      this.val = val;
+      this.prev = this.next = null;
+    }
+    return LruCache;
+  })();
+  var PersistentStorage = (function () {
+    "use strict";
+    var LOCAL_STORAGE;
+    try {
+      LOCAL_STORAGE = window.localStorage;
+      LOCAL_STORAGE.setItem("~~~", "!");
+      LOCAL_STORAGE.removeItem("~~~");
+    } catch (err) {
+      LOCAL_STORAGE = null;
+    }
+    function PersistentStorage(namespace, override) {
+      this.prefix = ["__", namespace, "__"].join("");
+      this.ttlKey = "__ttl__";
+      this.keyMatcher = new RegExp("^" + _.escapeRegExChars(this.prefix));
+      this.ls = override || LOCAL_STORAGE;
+      !this.ls && this._noop();
+    }
+    _.mixin(PersistentStorage.prototype, {
+      _prefix: function (key) {
+        return this.prefix + key;
+      },
+      _ttlKey: function (key) {
+        return this._prefix(key) + this.ttlKey;
+      },
+      _noop: function () {
+        this.get = this.set = this.remove = this.clear = this.isExpired = _.noop;
+      },
+      _safeSet: function (key, val) {
+        try {
+          this.ls.setItem(key, val);
+        } catch (err) {
+          if (err.name === "QuotaExceededError") {
+            this.clear();
+            this._noop();
+          }
+        }
+      },
+      get: function (key) {
+        if (this.isExpired(key)) {
+          this.remove(key);
+        }
+        return decode(this.ls.getItem(this._prefix(key)));
+      },
+      set: function (key, val, ttl) {
+        if (_.isNumber(ttl)) {
+          this._safeSet(this._ttlKey(key), encode(now() + ttl));
+        } else {
+          this.ls.removeItem(this._ttlKey(key));
+        }
+        return this._safeSet(this._prefix(key), encode(val));
+      },
+      remove: function (key) {
+        this.ls.removeItem(this._ttlKey(key));
+        this.ls.removeItem(this._prefix(key));
+        return this;
+      },
+      clear: function () {
+        var i,
+          keys = gatherMatchingKeys(this.keyMatcher);
+        for (i = keys.length; i--; ) {
+          this.remove(keys[i]);
+        }
+        return this;
+      },
+      isExpired: function (key) {
+        var ttl = decode(this.ls.getItem(this._ttlKey(key)));
+        return _.isNumber(ttl) && now() > ttl ? true : false;
+      }
+    });
+    return PersistentStorage;
+    function now() {
+      return new Date().getTime();
+    }
+    function encode(val) {
+      return JSON.stringify(_.isUndefined(val) ? null : val);
+    }
+    function decode(val) {
+      return $.parseJSON(val);
+    }
+    function gatherMatchingKeys(keyMatcher) {
+      var i,
+        key,
+        keys = [],
+        len = LOCAL_STORAGE.length;
+      for (i = 0; i < len; i++) {
+        if ((key = LOCAL_STORAGE.key(i)).match(keyMatcher)) {
+          keys.push(key.replace(keyMatcher, ""));
+        }
+      }
+      return keys;
+    }
+  })();
+  var Transport = (function () {
+    "use strict";
+    var pendingRequestsCount = 0,
+      pendingRequests = {},
+      maxPendingRequests = 6,
+      sharedCache = new LruCache(10);
+    function Transport(o) {
+      o = o || {};
+      this.cancelled = false;
+      this.lastReq = null;
+      this._send = o.transport;
+      this._get = o.limiter ? o.limiter(this._get) : this._get;
+      this._cache = o.cache === false ? new LruCache(0) : sharedCache;
+    }
+    Transport.setMaxPendingRequests = function setMaxPendingRequests(num) {
+      maxPendingRequests = num;
+    };
+    Transport.resetCache = function resetCache() {
+      sharedCache.reset();
+    };
+    _.mixin(Transport.prototype, {
+      _fingerprint: function fingerprint(o) {
+        o = o || {};
+        return o.url + o.type + $.param(o.data || {});
+      },
+      _get: function (o, cb) {
+        var that = this,
+          fingerprint,
+          jqXhr;
+        fingerprint = this._fingerprint(o);
+        if (this.cancelled || fingerprint !== this.lastReq) {
+          return;
+        }
+        if ((jqXhr = pendingRequests[fingerprint])) {
+          jqXhr.done(done).fail(fail);
+        } else if (pendingRequestsCount < maxPendingRequests) {
+          pendingRequestsCount++;
+          pendingRequests[fingerprint] = this._send(o).done(done).fail(fail).always(always);
+        } else {
+          this.onDeckRequestArgs = [].slice.call(arguments, 0);
+        }
+        function done(resp) {
+          cb(null, resp);
+          that._cache.set(fingerprint, resp);
+        }
+        function fail() {
+          cb(true);
+        }
+        function always() {
+          pendingRequestsCount--;
+          delete pendingRequests[fingerprint];
+          if (that.onDeckRequestArgs) {
+            that._get.apply(that, that.onDeckRequestArgs);
+            that.onDeckRequestArgs = null;
+          }
+        }
+      },
+      get: function (o, cb) {
+        var resp, fingerprint;
+        cb = cb || $.noop;
+        o = _.isString(o)
+          ? {
+              url: o
+            }
+          : o || {};
+        fingerprint = this._fingerprint(o);
+        this.cancelled = false;
+        this.lastReq = fingerprint;
+        if ((resp = this._cache.get(fingerprint))) {
+          cb(null, resp);
+        } else {
+          this._get(o, cb);
+        }
+      },
+      cancel: function () {
+        this.cancelled = true;
+      }
+    });
+    return Transport;
+  })();
+  var SearchIndex = (window.SearchIndex = (function () {
+    "use strict";
+    var CHILDREN = "c",
+      IDS = "i";
+    function SearchIndex(o) {
+      o = o || {};
+      if (!o.datumTokenizer || !o.queryTokenizer) {
+        $.error("datumTokenizer and queryTokenizer are both required");
+      }
+      this.identify = o.identify || _.stringify;
+      this.datumTokenizer = o.datumTokenizer;
+      this.queryTokenizer = o.queryTokenizer;
+      this.reset();
+    }
+    _.mixin(SearchIndex.prototype, {
+      bootstrap: function bootstrap(o) {
+        this.datums = o.datums;
+        this.trie = o.trie;
+      },
+      add: function (data) {
+        var that = this;
+        data = _.isArray(data) ? data : [data];
+        _.each(data, function (datum) {
+          var id, tokens;
+          that.datums[(id = that.identify(datum))] = datum;
+          tokens = normalizeTokens(that.datumTokenizer(datum));
+          _.each(tokens, function (token) {
+            var node, chars, ch;
+            node = that.trie;
+            chars = token.split("");
+            while ((ch = chars.shift())) {
+              node = node[CHILDREN][ch] || (node[CHILDREN][ch] = newNode());
+              node[IDS].push(id);
+            }
+          });
+        });
+      },
+      get: function get(ids) {
+        var that = this;
+        return _.map(ids, function (id) {
+          return that.datums[id];
+        });
+      },
+      search: function search(query) {
+        var that = this,
+          tokens,
+          matches;
+        tokens = normalizeTokens(this.queryTokenizer(query));
+        _.each(tokens, function (token) {
+          var node, chars, ch, ids;
+          if (matches && matches.length === 0) {
+            return false;
+          }
+          node = that.trie;
+          chars = token.split("");
+          while (node && (ch = chars.shift())) {
+            node = node[CHILDREN][ch];
+          }
+          if (node && chars.length === 0) {
+            ids = node[IDS].slice(0);
+            matches = matches ? getIntersection(matches, ids) : ids;
+          } else {
+            matches = [];
+            return false;
+          }
+        });
+        return matches
+          ? _.map(unique(matches), function (id) {
+              return that.datums[id];
+            })
+          : [];
+      },
+      all: function all() {
+        var values = [];
+        for (var key in this.datums) {
+          values.push(this.datums[key]);
+        }
+        return values;
+      },
+      reset: function reset() {
+        this.datums = {};
+        this.trie = newNode();
+      },
+      serialize: function serialize() {
+        return {
+          datums: this.datums,
+          trie: this.trie
+        };
+      }
+    });
+    return SearchIndex;
+    function normalizeTokens(tokens) {
+      tokens = _.filter(tokens, function (token) {
+        return !!token;
+      });
+      tokens = _.map(tokens, function (token) {
+        return token.toLowerCase();
+      });
+      return tokens;
+    }
+    function newNode() {
+      var node = {};
+      node[IDS] = [];
+      node[CHILDREN] = {};
+      return node;
+    }
+    function unique(array) {
+      var seen = {},
+        uniques = [];
+      for (var i = 0, len = array.length; i < len; i++) {
+        if (!seen[array[i]]) {
+          seen[array[i]] = true;
+          uniques.push(array[i]);
+        }
+      }
+      return uniques;
+    }
+    function getIntersection(arrayA, arrayB) {
+      var ai = 0,
+        bi = 0,
+        intersection = [];
+      arrayA = arrayA.sort();
+      arrayB = arrayB.sort();
+      var lenArrayA = arrayA.length,
+        lenArrayB = arrayB.length;
+      while (ai < lenArrayA && bi < lenArrayB) {
+        if (arrayA[ai] < arrayB[bi]) {
+          ai++;
+        } else if (arrayA[ai] > arrayB[bi]) {
+          bi++;
+        } else {
+          intersection.push(arrayA[ai]);
+          ai++;
+          bi++;
+        }
+      }
+      return intersection;
+    }
+  })());
+  var Prefetch = (function () {
+    "use strict";
+    var keys;
+    keys = {
+      data: "data",
+      protocol: "protocol",
+      thumbprint: "thumbprint"
+    };
+    function Prefetch(o) {
+      this.url = o.url;
+      this.ttl = o.ttl;
+      this.cache = o.cache;
+      this.prepare = o.prepare;
+      this.transform = o.transform;
+      this.transport = o.transport;
+      this.thumbprint = o.thumbprint;
+      this.storage = new PersistentStorage(o.cacheKey);
+    }
+    _.mixin(Prefetch.prototype, {
+      _settings: function settings() {
+        return {
+          url: this.url,
+          type: "GET",
+          dataType: "json"
+        };
+      },
+      store: function store(data) {
+        if (!this.cache) {
+          return;
+        }
+        this.storage.set(keys.data, data, this.ttl);
+        this.storage.set(keys.protocol, location.protocol, this.ttl);
+        this.storage.set(keys.thumbprint, this.thumbprint, this.ttl);
+      },
+      fromCache: function fromCache() {
+        var stored = {},
+          isExpired;
+        if (!this.cache) {
+          return null;
+        }
+        stored.data = this.storage.get(keys.data);
+        stored.protocol = this.storage.get(keys.protocol);
+        stored.thumbprint = this.storage.get(keys.thumbprint);
+        isExpired = stored.thumbprint !== this.thumbprint || stored.protocol !== location.protocol;
+        return stored.data && !isExpired ? stored.data : null;
+      },
+      fromNetwork: function (cb) {
+        var that = this,
+          settings;
+        if (!cb) {
+          return;
+        }
+        settings = this.prepare(this._settings());
+        this.transport(settings).fail(onError).done(onResponse);
+        function onError() {
+          cb(true);
+        }
+        function onResponse(resp) {
+          cb(null, that.transform(resp));
+        }
+      },
+      clear: function clear() {
+        this.storage.clear();
+        return this;
+      }
+    });
+    return Prefetch;
+  })();
+  var Remote = (function () {
+    "use strict";
+    function Remote(o) {
+      this.url = o.url;
+      this.prepare = o.prepare;
+      this.transform = o.transform;
+      this.transport = new Transport({
+        cache: o.cache,
+        limiter: o.limiter,
+        transport: o.transport
+      });
+    }
+    _.mixin(Remote.prototype, {
+      _settings: function settings() {
+        return {
+          url: this.url,
+          type: "GET",
+          dataType: "json"
+        };
+      },
+      get: function get(query, cb) {
+        var that = this,
+          settings;
+        if (!cb) {
+          return;
+        }
+        query = query || "";
+        settings = this.prepare(query, this._settings());
+        return this.transport.get(settings, onResponse);
+        function onResponse(err, resp) {
+          err ? cb([]) : cb(that.transform(resp));
+        }
+      },
+      cancelLastRequest: function cancelLastRequest() {
+        this.transport.cancel();
+      }
+    });
+    return Remote;
+  })();
+  var oParser = (function () {
+    "use strict";
+    return function parse(o) {
+      var defaults, sorter;
+      defaults = {
+        initialize: true,
+        identify: _.stringify,
+        datumTokenizer: null,
+        queryTokenizer: null,
+        sufficient: 5,
+        sorter: null,
+        local: [],
+        prefetch: null,
+        remote: null
+      };
+      o = _.mixin(defaults, o || {});
+      !o.datumTokenizer && $.error("datumTokenizer is required");
+      !o.queryTokenizer && $.error("queryTokenizer is required");
+      sorter = o.sorter;
+      o.sorter = sorter
+        ? function (x) {
+            return x.sort(sorter);
+          }
+        : _.identity;
+      o.local = _.isFunction(o.local) ? o.local() : o.local;
+      o.prefetch = parsePrefetch(o.prefetch);
+      o.remote = parseRemote(o.remote);
+      return o;
+    };
+    function parsePrefetch(o) {
+      var defaults;
+      if (!o) {
+        return null;
+      }
+      defaults = {
+        url: null,
+        ttl: 24 * 60 * 60 * 1e3,
+        cache: true,
+        cacheKey: null,
+        thumbprint: "",
+        prepare: _.identity,
+        transform: _.identity,
+        transport: null
+      };
+      o = _.isString(o)
+        ? {
+            url: o
+          }
+        : o;
+      o = _.mixin(defaults, o);
+      !o.url && $.error("prefetch requires url to be set");
+      o.transform = o.filter || o.transform;
+      o.cacheKey = o.cacheKey || o.url;
+      o.thumbprint = VERSION + o.thumbprint;
+      o.transport = o.transport ? callbackToDeferred(o.transport) : $.ajax;
+      return o;
+    }
+    function parseRemote(o) {
+      var defaults;
+      if (!o) {
+        return;
+      }
+      defaults = {
+        url: null,
+        cache: true,
+        prepare: null,
+        replace: null,
+        wildcard: null,
+        limiter: null,
+        rateLimitBy: "debounce",
+        rateLimitWait: 300,
+        transform: _.identity,
+        transport: null
+      };
+      o = _.isString(o)
+        ? {
+            url: o
+          }
+        : o;
+      o = _.mixin(defaults, o);
+      !o.url && $.error("remote requires url to be set");
+      o.transform = o.filter || o.transform;
+      o.prepare = toRemotePrepare(o);
+      o.limiter = toLimiter(o);
+      o.transport = o.transport ? callbackToDeferred(o.transport) : $.ajax;
+      delete o.replace;
+      delete o.wildcard;
+      delete o.rateLimitBy;
+      delete o.rateLimitWait;
+      return o;
+    }
+    function toRemotePrepare(o) {
+      var prepare, replace, wildcard;
+      prepare = o.prepare;
+      replace = o.replace;
+      wildcard = o.wildcard;
+      if (prepare) {
+        return prepare;
+      }
+      if (replace) {
+        prepare = prepareByReplace;
+      } else if (o.wildcard) {
+        prepare = prepareByWildcard;
+      } else {
+        prepare = idenityPrepare;
+      }
+      return prepare;
+      function prepareByReplace(query, settings) {
+        settings.url = replace(settings.url, query);
+        return settings;
+      }
+      function prepareByWildcard(query, settings) {
+        settings.url = settings.url.replace(wildcard, encodeURIComponent(query));
+        return settings;
+      }
+      function idenityPrepare(query, settings) {
+        return settings;
+      }
+    }
+    function toLimiter(o) {
+      var limiter, method, wait;
+      limiter = o.limiter;
+      method = o.rateLimitBy;
+      wait = o.rateLimitWait;
+      if (!limiter) {
+        limiter = /^throttle$/i.test(method) ? throttle(wait) : debounce(wait);
+      }
+      return limiter;
+      function debounce(wait) {
+        return function debounce(fn) {
+          return _.debounce(fn, wait);
+        };
+      }
+      function throttle(wait) {
+        return function throttle(fn) {
+          return _.throttle(fn, wait);
+        };
+      }
+    }
+    function callbackToDeferred(fn) {
+      return function wrapper(o) {
+        var deferred = $.Deferred();
+        fn(o, onSuccess, onError);
+        return deferred;
+        function onSuccess(resp) {
+          _.defer(function () {
+            deferred.resolve(resp);
+          });
+        }
+        function onError(err) {
+          _.defer(function () {
+            deferred.reject(err);
+          });
+        }
+      };
+    }
+  })();
+  var Bloodhound = (function () {
+    "use strict";
+    var old;
+    old = window && window.Bloodhound;
+    function Bloodhound(o) {
+      o = oParser(o);
+      this.sorter = o.sorter;
+      this.identify = o.identify;
+      this.sufficient = o.sufficient;
+      this.local = o.local;
+      this.remote = o.remote ? new Remote(o.remote) : null;
+      this.prefetch = o.prefetch ? new Prefetch(o.prefetch) : null;
+      this.index = new SearchIndex({
+        identify: this.identify,
+        datumTokenizer: o.datumTokenizer,
+        queryTokenizer: o.queryTokenizer
+      });
+      o.initialize !== false && this.initialize();
+    }
+    Bloodhound.noConflict = function noConflict() {
+      window && (window.Bloodhound = old);
+      return Bloodhound;
+    };
+    Bloodhound.tokenizers = tokenizers;
+    _.mixin(Bloodhound.prototype, {
+      __ttAdapter: function ttAdapter() {
+        var that = this;
+        return this.remote ? withAsync : withoutAsync;
+        function withAsync(query, sync, async) {
+          return that.search(query, sync, async);
+        }
+        function withoutAsync(query, sync) {
+          return that.search(query, sync);
+        }
+      },
+      _loadPrefetch: function loadPrefetch() {
+        var that = this,
+          deferred,
+          serialized;
+        deferred = $.Deferred();
+        if (!this.prefetch) {
+          deferred.resolve();
+        } else if ((serialized = this.prefetch.fromCache())) {
+          this.index.bootstrap(serialized);
+          deferred.resolve();
+        } else {
+          this.prefetch.fromNetwork(done);
+        }
+        return deferred.promise();
+        function done(err, data) {
+          if (err) {
+            return deferred.reject();
+          }
+          that.add(data);
+          that.prefetch.store(that.index.serialize());
+          deferred.resolve();
+        }
+      },
+      _initialize: function initialize() {
+        var that = this,
+          deferred;
+        this.clear();
+        (this.initPromise = this._loadPrefetch()).done(addLocalToIndex);
+        return this.initPromise;
+        function addLocalToIndex() {
+          that.add(that.local);
+        }
+      },
+      initialize: function initialize(force) {
+        return !this.initPromise || force ? this._initialize() : this.initPromise;
+      },
+      add: function add(data) {
+        this.index.add(data);
+        return this;
+      },
+      get: function get(ids) {
+        ids = _.isArray(ids) ? ids : [].slice.call(arguments);
+        return this.index.get(ids);
+      },
+      search: function search(query, sync, async) {
+        var that = this,
+          local;
+        local = this.sorter(this.index.search(query));
+        sync(this.remote ? local.slice() : local);
+        if (this.remote && local.length < this.sufficient) {
+          this.remote.get(query, processRemote);
+        } else if (this.remote) {
+          this.remote.cancelLastRequest();
+        }
+        return this;
+        function processRemote(remote) {
+          var nonDuplicates = [];
+          _.each(remote, function (r) {
+            !_.some(local, function (l) {
+              return that.identify(r) === that.identify(l);
+            }) && nonDuplicates.push(r);
+          });
+          async && async(nonDuplicates);
+        }
+      },
+      all: function all() {
+        return this.index.all();
+      },
+      clear: function clear() {
+        this.index.reset();
+        return this;
+      },
+      clearPrefetchCache: function clearPrefetchCache() {
+        this.prefetch && this.prefetch.clear();
+        return this;
+      },
+      clearRemoteCache: function clearRemoteCache() {
+        Transport.resetCache();
+        return this;
+      },
+      ttAdapter: function ttAdapter() {
+        return this.__ttAdapter();
+      }
+    });
+    return Bloodhound;
+  })();
+  return Bloodhound;
 });

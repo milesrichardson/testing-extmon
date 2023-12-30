@@ -15,7 +15,7 @@
     "message": "cs"
   },
   "__missingI18nTags": {
-    "message": "[]"
+    "message": "[\"action_quicksidedownload_description\",\"action_quicksidedownload_title\",\"action_sidedownload_description\",\"action_sidedownload_title\",\"action_sidedownloadconvert_description\",\"action_sidedownloadconvert_title\",\"copy_settings_info_to_clipboard\",\"copy_settings_info_to_clipboard_success\",\"weh_prefs_label_tbvwsExtractionMethod\"]"
   },
   "about": {
     "message": "O apce"
@@ -182,13 +182,13 @@
   "browser_info": {
     "message": "Prohlížeč $ARG1$ $ARG2$ $ARG3$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       },
-      "arg3": {
+      "ARG3": {
         "content": "$3"
       }
     }
@@ -196,7 +196,7 @@
   "browser_locale": {
     "message": "Jazyk prohlížeče: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -204,7 +204,7 @@
   "build_options": {
     "message": "Možnosti sestavení: $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -212,7 +212,7 @@
   "built_on": {
     "message": "Postaveno na $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -223,7 +223,7 @@
   "bulk_n_videos": {
     "message": "$ARG1$ videí",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -291,7 +291,7 @@
   "chrome_premium_hls": {
     "message": "Bez prémiového statusu, stahování HLS může být provedeno pouze $ARG1$ minut po předchozím",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -314,7 +314,7 @@
   "chrome_premium_source": {
     "message": "Jste prémiový uživatel přes $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -364,7 +364,7 @@
   "coapp_latest_version": {
     "message": "Poslední dostupná verze je $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -381,10 +381,10 @@
   "coapp_outofdate_text": {
     "message": "Používáte verzi $ARG1$ pomocné aplikace, ale tato funkce vyžaduje funkci $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -560,7 +560,7 @@
   "convrule_format": {
     "message": "na formát $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -568,7 +568,7 @@
   "convrule_from_domain": {
     "message": "z domény $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -585,7 +585,7 @@
   "convrule_with_ext": {
     "message": "s příponou '$ARG1$'",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -602,7 +602,7 @@
   "copy_of": {
     "message": "Kopie $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -610,10 +610,10 @@
   "corrupted_media_file": {
     "message": "Nepodařilo se získat info o médiu '$ARG1$' ze souboru '$ARG2$'. Soubor bude asi poškozen.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -642,7 +642,7 @@
   "directory_not_exist_body": {
     "message": "Složka '$ARG1$' neexistuje, mohu ji vytvořit ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -692,7 +692,7 @@
   "error_not_directory": {
     "message": "'$ARG1$' existuje ale není to adresář",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -715,7 +715,7 @@
   "failed_aggregating": {
     "message": "Chyba při agregování \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -723,7 +723,7 @@
   "failed_converting": {
     "message": "Chyba při konverzi \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -731,7 +731,7 @@
   "failed_getting_info": {
     "message": "Chyba při získávání info z \"$ARG1$\"",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -754,7 +754,7 @@
   "file_generated": {
     "message": "Soubor \"$ARG1$\" byl vygenerován.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -762,7 +762,7 @@
   "file_ready": {
     "message": "\"$ARG1$\" je připraveno.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -773,7 +773,7 @@
   "from_domain": {
     "message": "Z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -784,7 +784,7 @@
   "gallery_files_types": {
     "message": "$ARG1$ soubory",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -792,7 +792,7 @@
   "gallery_from_domain": {
     "message": "Galerie z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -800,7 +800,7 @@
   "gallery_links_from_domain": {
     "message": "Odkazy z $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -841,7 +841,7 @@
   "lic_mismatch1": {
     "message": "Licence je pro $ARG1$ ale nebylo specifikováno sestavení rozšíření prohlížeče",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -849,10 +849,10 @@
   "lic_mismatch2": {
     "message": "Licence je pro $ARG1$ ale sestavení rozšíření je pro $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -920,7 +920,7 @@
   "network_error_status": {
     "message": "Chyba sítě - status $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -937,7 +937,7 @@
   "no_audio_in_file": {
     "message": "Žádný audio proud v souboru $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -966,7 +966,7 @@
   "no_video_in_file": {
     "message": "Žádný video proud v souboru $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -980,10 +980,10 @@
   "number_type": {
     "message": "$ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1000,7 +1000,7 @@
   "overwrite_file": {
     "message": "Přepsat soubor '$ARG1$' ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1020,10 +1020,10 @@
   "platform_info": {
     "message": "Platforma $ARG1$ $ARG2$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1073,10 +1073,10 @@
   "req_locale": {
     "message": "Nebo možná pomoci přeložením rozšíření do '$ARG1$' (nějaké $ARG2$ vlákna chybí) ?",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       },
-      "arg2": {
+      "ARG2": {
         "content": "$2"
       }
     }
@@ -1216,7 +1216,7 @@
   "version": {
     "message": "Verze $ARG1$",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }
@@ -1707,7 +1707,7 @@
   "you_downloaded_n_videos": {
     "message": "Právě jste úspěšně stáhli váš $ARG1$tý soubor s Video DownloadHelperem.",
     "placeholders": {
-      "arg1": {
+      "ARG1": {
         "content": "$1"
       }
     }

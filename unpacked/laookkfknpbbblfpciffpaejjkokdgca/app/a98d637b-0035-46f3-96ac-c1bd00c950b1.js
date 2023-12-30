@@ -1,5 +1,5 @@
 var fn_addin = function (e, t, n) {
-  var s = s || {};
+  var s = {};
   return (
     (s.styles = s.styles || {}),
     (s.commands = s.commands || {}),

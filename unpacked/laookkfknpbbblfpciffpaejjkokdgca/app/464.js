@@ -2,133 +2,61 @@
 (globalThis.webpackChunkmomentum = globalThis.webpackChunkmomentum || []).push([
   [464],
   {
-    70464: (e, t, r) => {
-      r.d(t, { rBN: () => w, S1d: () => u });
-      var o = r(20144);
-      function p(e) {
+    70464: (e, t, n) => {
+      n.d(t, { rBN: () => m, S1d: () => g });
+      var o = n(20144);
+      function i(e) {
         return !!(0, o.nZ)() && ((0, o.EB)(e), !0);
       }
-      function y(e) {
+      function r(e) {
         return "function" == typeof e ? e() : (0, o.SU)(e);
       }
-      o.ZP,
-        o.ZP.util.warn,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable;
-      const n = "undefined" != typeof window,
-        O = (e) => null != e,
-        b = (Object.prototype.toString, () => {});
-      function c(e) {
-        var t;
-        const r = y(e);
-        return null != (t = null == r ? void 0 : r.$el) ? t : r;
+      o.ZP.util.warn;
+      const u = "undefined" != typeof window && "undefined" != typeof document,
+        l = ("undefined" != typeof WorkerGlobalScope && (globalThis, WorkerGlobalScope), (e) => null != e),
+        a = Object.prototype.toString,
+        s = (e) => "[object Object]" === a.call(e),
+        c = () => {};
+      function d(e) {
+        const t = Object.create(null);
+        return (n) => t[n] || (t[n] = e(n));
       }
-      Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        o.ZP,
-        o.ZP.util.warn,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable;
-      const s = n ? window : void 0;
-      function j(...e) {
-        let t, r, n, O;
-        if (("string" == typeof e[0] || Array.isArray(e[0]) ? (([r, n, O] = e), (t = s)) : ([t, r, n, O] = e), !t)) return b;
-        Array.isArray(r) || (r = [r]), Array.isArray(n) || (n = [n]);
-        const j = [],
-          i = () => {
-            j.forEach((e) => e()), (j.length = 0);
+      const f = /\B([A-Z])/g,
+        v = (d((e) => e.replace(f, "-$1").toLowerCase()), /-(\w)/g);
+      function p(e) {
+        var t;
+        const n = r(e);
+        return null != (t = null == n ? void 0 : n.$el) ? t : n;
+      }
+      d((e) => e.replace(v, (e, t) => (t ? t.toUpperCase() : ""))), o.ZP.util.warn;
+      const w = u ? window : void 0;
+      function h(...e) {
+        let t, n, u, l;
+        if (("string" == typeof e[0] || Array.isArray(e[0]) ? (([n, u, l] = e), (t = w)) : ([t, n, u, l] = e), !t)) return c;
+        Array.isArray(n) || (n = [n]), Array.isArray(u) || (u = [u]);
+        const a = [],
+          d = () => {
+            a.forEach((e) => e()), (a.length = 0);
           },
-          P = (0, o.YP)(
-            () => [c(t), y(O)],
+          f = (0, o.YP)(
+            () => [p(t), r(l)],
             ([e, t]) => {
-              i(),
-                e &&
-                  j.push(
-                    ...r.flatMap((r) =>
-                      n.map((o) => ((e, t, r, o) => (e.addEventListener(t, r, o), () => e.removeEventListener(t, r, o)))(e, r, o, t))
-                    )
-                  );
+              if ((d(), !e)) return;
+              const o = s(t) ? { ...t } : t;
+              a.push(
+                ...n.flatMap((t) =>
+                  u.map((n) => ((e, t, n, o) => (e.addEventListener(t, n, o), () => e.removeEventListener(t, n, o)))(e, t, n, o))
+                )
+              );
             },
             { immediate: !0, flush: "post" }
           ),
-          l = () => {
-            P(), i();
+          v = () => {
+            f(), d();
           };
-        return p(l), l;
+        return i(v), v;
       }
-      function i(e) {
+      function b(e) {
         const t = (function () {
           const e = (0, o.iH)(!1);
           return (
@@ -141,31 +69,115 @@
         })();
         return (0, o.Fl)(() => (t.value, Boolean(e())));
       }
-      n && window.document,
-        n && window.navigator,
-        n && window.location,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
+      function m(e, t = {}) {
+        const { reset: n = !0, windowResize: r = !0, windowScroll: u = !0, immediate: l = !0 } = t,
+          a = (0, o.iH)(0),
+          s = (0, o.iH)(0),
+          c = (0, o.iH)(0),
+          d = (0, o.iH)(0),
+          f = (0, o.iH)(0),
+          v = (0, o.iH)(0),
+          m = (0, o.iH)(0),
+          g = (0, o.iH)(0);
+        function y() {
+          const t = p(e);
+          if (!t)
+            return void (
+              n && ((a.value = 0), (s.value = 0), (c.value = 0), (d.value = 0), (f.value = 0), (v.value = 0), (m.value = 0), (g.value = 0))
+            );
+          const o = t.getBoundingClientRect();
+          (a.value = o.height),
+            (s.value = o.bottom),
+            (c.value = o.left),
+            (d.value = o.right),
+            (f.value = o.top),
+            (v.value = o.width),
+            (m.value = o.x),
+            (g.value = o.y);
+        }
+        return (
+          (function (e, t, n = {}) {
+            const { window: r = w, ...u } = n;
+            let l;
+            const a = b(() => r && "ResizeObserver" in r),
+              s = () => {
+                l && (l.disconnect(), (l = void 0));
+              },
+              c = (0, o.Fl)(() => (Array.isArray(e) ? e.map((e) => p(e)) : [p(e)])),
+              d = (0, o.YP)(
+                c,
+                (e) => {
+                  if ((s(), a.value && r)) {
+                    l = new ResizeObserver(t);
+                    for (const t of e) t && l.observe(t, u);
+                  }
+                },
+                { immediate: !0, flush: "post", deep: !0 }
+              ),
+              f = () => {
+                s(), d();
+              };
+            i(f);
+          })(e, y),
+          (0, o.YP)(
+            () => p(e),
+            (e) => !e && y()
+          ),
+          u && h("scroll", y, { capture: !0, passive: !0 }),
+          r && h("resize", y, { passive: !0 }),
+          (function (e, t = !0) {
+            (0, o.FN)() ? (0, o.bv)(e) : t ? e() : (0, o.Y3)(e);
+          })(() => {
+            l && y();
+          }),
+          { height: a, bottom: s, left: c, right: d, top: f, width: v, x: m, y: g, update: y }
+        );
+      }
+      function g(e, t, n = {}) {
+        const { root: u, rootMargin: a = "0px", threshold: s = 0.1, window: d = w, immediate: f = !0 } = n,
+          v = b(() => d && "IntersectionObserver" in d),
+          h = (0, o.Fl)(() => {
+            const t = r(e);
+            return (Array.isArray(t) ? t : [t]).map(p).filter(l);
+          });
+        let m = c;
+        const g = (0, o.iH)(f),
+          y = v.value
+            ? (0, o.YP)(
+                () => [h.value, p(u), g.value],
+                ([e, n]) => {
+                  if ((m(), !g.value)) return;
+                  if (!e.length) return;
+                  const o = new IntersectionObserver(t, { root: p(n), rootMargin: a, threshold: s });
+                  e.forEach((e) => e && o.observe(e)),
+                    (m = () => {
+                      o.disconnect(), (m = c);
+                    });
+                },
+                { immediate: f, flush: "post" }
+              )
+            : c,
+          A = () => {
+            m(), y(), (g.value = !1);
+          };
+        return (
+          i(A),
+          {
+            isSupported: v,
+            isActive: g,
+            pause() {
+              m(), (g.value = !1);
+            },
+            resume() {
+              g.value = !0;
+            },
+            stop: A
+          }
+        );
+      }
+      u && window.document,
+        u && window.navigator,
+        u && window.location,
         "undefined" != typeof globalThis
           ? globalThis
           : "undefined" != typeof window
@@ -173,236 +185,7 @@
           : "undefined" != typeof global
           ? global
           : "undefined" != typeof self && self,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable;
-      var P = Object.getOwnPropertySymbols,
-        l = Object.prototype.hasOwnProperty,
-        a = Object.prototype.propertyIsEnumerable;
-      function w(e, t = {}) {
-        const { reset: r = !0, windowResize: y = !0, windowScroll: n = !0, immediate: O = !0 } = t,
-          b = (0, o.iH)(0),
-          w = (0, o.iH)(0),
-          u = (0, o.iH)(0),
-          m = (0, o.iH)(0),
-          d = (0, o.iH)(0),
-          f = (0, o.iH)(0),
-          g = (0, o.iH)(0),
-          h = (0, o.iH)(0);
-        function v() {
-          const t = c(e);
-          if (!t)
-            return void (
-              r && ((b.value = 0), (w.value = 0), (u.value = 0), (m.value = 0), (d.value = 0), (f.value = 0), (g.value = 0), (h.value = 0))
-            );
-          const o = t.getBoundingClientRect();
-          (b.value = o.height),
-            (w.value = o.bottom),
-            (u.value = o.left),
-            (m.value = o.right),
-            (d.value = o.top),
-            (f.value = o.width),
-            (g.value = o.x),
-            (h.value = o.y);
-        }
-        return (
-          (function (e, t, r = {}) {
-            const y = r,
-              { window: n = s } = y,
-              O = ((e, t) => {
-                var r = {};
-                for (var o in e) l.call(e, o) && t.indexOf(o) < 0 && (r[o] = e[o]);
-                if (null != e && P) for (var o of P(e)) t.indexOf(o) < 0 && a.call(e, o) && (r[o] = e[o]);
-                return r;
-              })(y, ["window"]);
-            let b;
-            const j = i(() => n && "ResizeObserver" in n),
-              w = () => {
-                b && (b.disconnect(), (b = void 0));
-              },
-              u = (0, o.Fl)(() => (Array.isArray(e) ? e.map((e) => c(e)) : [c(e)])),
-              m = (0, o.YP)(
-                u,
-                (e) => {
-                  if ((w(), j.value && n)) {
-                    b = new ResizeObserver(t);
-                    for (const t of e) t && b.observe(t, O);
-                  }
-                },
-                { immediate: !0, flush: "post", deep: !0 }
-              ),
-              d = () => {
-                w(), m();
-              };
-            p(d);
-          })(e, v),
-          (0, o.YP)(
-            () => c(e),
-            (e) => !e && v()
-          ),
-          n && j("scroll", v, { capture: !0, passive: !0 }),
-          y && j("resize", v, { passive: !0 }),
-          (function (e, t = !0) {
-            (0, o.FN)() ? (0, o.bv)(e) : t ? e() : (0, o.Y3)(e);
-          })(() => {
-            O && v();
-          }),
-          { height: b, bottom: w, left: u, right: m, top: d, width: f, x: g, y: h, update: v }
-        );
-      }
-      function u(e, t, r = {}) {
-        const { root: n, rootMargin: j = "0px", threshold: P = 0.1, window: l = s, immediate: a = !0 } = r,
-          w = i(() => l && "IntersectionObserver" in l),
-          u = (0, o.Fl)(() => {
-            const t = y(e);
-            return (Array.isArray(t) ? t : [t]).map(c).filter(O);
-          });
-        let m = b;
-        const d = (0, o.iH)(a),
-          f = w.value
-            ? (0, o.YP)(
-                () => [u.value, c(n), d.value],
-                ([e, r]) => {
-                  if ((m(), !d.value)) return;
-                  if (!e.length) return;
-                  const o = new IntersectionObserver(t, { root: c(r), rootMargin: j, threshold: P });
-                  e.forEach((e) => e && o.observe(e)),
-                    (m = () => {
-                      o.disconnect(), (m = b);
-                    });
-                },
-                { immediate: a, flush: "post" }
-              )
-            : b,
-          g = () => {
-            m(), f(), (d.value = !1);
-          };
-        return (
-          p(g),
-          {
-            isSupported: w,
-            isActive: d,
-            pause() {
-              m(), (d.value = !1);
-            },
-            resume() {
-              d.value = !0;
-            },
-            stop: g
-          }
-        );
-      }
-      Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable,
-        Object.defineProperty,
-        Object.defineProperties,
-        Object.getOwnPropertyDescriptors,
-        Object.getOwnPropertySymbols,
-        Object.prototype.hasOwnProperty,
-        Object.prototype.propertyIsEnumerable;
+        Number.POSITIVE_INFINITY;
     }
   }
 ]);

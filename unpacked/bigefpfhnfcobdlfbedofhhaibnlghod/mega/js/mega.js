@@ -983,6 +983,7 @@ scparser.$add("t", function (a, scnodes) {
   let i;
   const ufsc = new UFSSizeCache();
   let rootNode = (scnodes.length && scnodes[0]) || false;
+  let share = M.d[rootNode.h];
 
   // is this tree a new inshare with root scinshare.h? set share-relevant
   // attributes in its root node.
@@ -994,7 +995,10 @@ scparser.$add("t", function (a, scnodes) {
         scnodes[i].sk = scinshare.sk;
         rootNode = scnodes[i];
 
-        if (M.d[rootNode.h]) {
+        // XXX: With Infinity, we may did retrieve the node API-side prior to parsing "t" ...
+        share = M.d[rootNode.h];
+
+        if (share) {
           // save r/su/sk, we'll break next...
           M.addNode(rootNode);
         }
@@ -1005,7 +1009,7 @@ scparser.$add("t", function (a, scnodes) {
     }
     scinshare.h = false;
   }
-  if (M.d[rootNode.h]) {
+  if (share) {
     // skip repetitive notification of (share) nodes
     if (d) {
       console.debug("skipping repetitive notification of (share) nodes");
@@ -1502,6 +1506,9 @@ scparser.$add("sqac", (a) => {
         } else {
           M.accountData();
         }
+      }
+      if (u_attr) {
+        delete u_attr.tq;
       }
       M.storageQuotaCache = null;
 
@@ -2501,7 +2508,7 @@ async function fetchfm(sn) {
 
   if (fmdb && mega.infinity) {
     payload.inc = parseInt(localStorage.inclvl) | 1;
-  } else if (!pfid && mega.lite) {
+  } else if (!pfid) {
     // Decide whether to show MEGA Lite mode dialog or not
     tryCatch(() => mega.lite.recommendLiteMode())();
   }
@@ -2510,7 +2517,7 @@ async function fetchfm(sn) {
     if (!mega.infinity) {
       decWorkerPool.cleanup();
 
-      if (!pfid && mega.lite) {
+      if (!pfid) {
         mega.lite.abort();
       }
     }
@@ -3659,6 +3666,9 @@ function loadfm_callback(res) {
 
   // If we have shares, and if a share is for this node, record it on the nodes share list
   if (res.s) {
+    if (d) {
+      console.info(`[f.s(${res.s.length})] %s`, res.s.map((n) => `${n.h}*${n.u}`).sort());
+    }
     for (let i = res.s.length; i--; ) {
       M.nodeShare(res.s[i].h, res.s[i]);
     }
@@ -4045,7 +4055,7 @@ function fm_thumbnails(mode, nodeList, callback) {
     return pwd === M.currentdirid && (mode === "standalone" || isVisible.dom(n));
   };
   isVisible.dom = M.megaRender
-    ? (n) => n.seen && M.megaRender.isDOMNodeVisible(n.h)
+    ? (n) => n.seen && M.megaRender && M.megaRender.isDOMNodeVisible(n.h)
     : (n) => elementIsVisible(document.getElementById(n.h));
 
   const setSrcAttribute = (n, uri) => {

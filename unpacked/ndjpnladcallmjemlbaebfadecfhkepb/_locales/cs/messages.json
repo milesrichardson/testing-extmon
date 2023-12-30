@@ -304,5 +304,17 @@
   },
   "AppsSectionHeader": {
     "message": "Aplikace"
+  },
+  "EndOfSupportHeader": {
+    "message": "Konec podpory rozšíření Microsoft 365"
+  },
+  "EndOfSupportMessagePart1": {
+    "message": "Od 15. ledna 2024 už Microsoft toto rozšíření nebude podporovat."
+  },
+  "EndOfSupportMessagePart2": {
+    "message": "Další informace najdete na stránce podpory pro toto rozšíření."
+  },
+  "Support": {
+    "message": "Podpora"
   }
 }
