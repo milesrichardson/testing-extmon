@@ -1,0 +1,50 @@
+{
+  "extName": {
+    "message": "Foxit PDF Creator"
+  },
+  "extDesc": {
+    "message": "Slik konverterer du nettsiden til Foxit PDF"
+  },
+  "default_title": {
+    "message": "Slik konverterer du nettsiden til Foxit PDF"
+  },
+  "ConvertToFoxitPDF": {
+    "message": "Konverter til Foxit PDF"
+  },
+  "AppendToExistingPDF": {
+    "message": "Tilføy til en annen PDF"
+  },
+  "CreateAndEmail": {
+    "message": "Opprett og send via e-post"
+  },
+  "ConvertLinkTargetToPDF": {
+    "message": "Konverter koblet side til Foxit PDF"
+  },
+  "AppendLinkTargetToExistingPDF": {
+    "message": "Tilføy koblet side til en annen PDF"
+  },
+  "ViewPDFResults": {
+    "message": "Vis PDF-resultat"
+  },
+  "Preferences": {
+    "message": "Innstillinger"
+  },
+  "Uninstall": {
+    "message": "Avinstaller"
+  },
+  "Reinstall": {
+    "message": "Installer på nytt"
+  },
+  "UninstallTip": {
+    "message": "AVINSTALLERINGEN kan ikke tilbakestilles. Vær forsiktig!"
+  },
+  "UninstallSureTip": {
+    "message": "AVINSTALLERINGEN kan ikke tilbakestilles. Er du sikker på at du vil avinstallere?"
+  },
+  "UninstallSuccessTip": {
+    "message": "\"Foxit PhantomPDF – opprett PDF\"-utvidelsen er avinstallert. Avinstalleringen trer i kraft når du har startet nettleseren på nytt."
+  },
+  "OptionsTitle": {
+    "message": "Alternativer for Foxit PhantomPDF-utvidelse"
+  }
+}

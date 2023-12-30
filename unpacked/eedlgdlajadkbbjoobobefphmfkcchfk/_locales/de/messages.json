@@ -1,0 +1,14 @@
+{
+  "store_shortdesc_new": {
+    "message": "Mit dieser Erweiterung kannst du Ecosia als Standardsuchmaschine einrichten und deine neuen Browsertabs anpassen, sodass du mit jeder Suche Bäume pflanzen kannst.",
+    "description": ""
+  },
+  "store_title_new": {
+    "message": "Ecosia – Die Suchmaschine, die Bäume pflanzt",
+    "description": ""
+  },
+  "browser_action_hover": {
+    "message": "Ecosia Suche",
+    "description": ""
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Avira Safe Shopping",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "Finden Sie bessere Preise und Angebote von vertrauenswürdigen Anbietern und Webseiten.",
+    "description": "Extension description."
+  }
+}

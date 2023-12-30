@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Găsiți cele mai bune prețuri, oferte și cupoane de reduceri la cumpărături online, cu extensia Avast pentru comparația de prețuri și cupoane.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "Găsiți cele mai bune prețuri, oferte și cupoane de reduceri la cumpărături online, extensia AVG pentru comparația de prețuri și cupoane.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Economisiți"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | Comparație de prețuri, oferte și cupoane pe site-uri de cumpărături securizate – Economisiți bani"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | Comparație de prețuri, oferte și cupoane pe site-uri de cumpărături securizate – Economisiți bani"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | Comparație de prețuri, oferte, cupoane"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | Comparații, oferte, cupoane"
+  },
+  "sasHintSettings": {
+    "message": "Setări"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Sunteți mulțumiți de utilizarea <br> Avast SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Sunteți mulțumiți de utilizarea <br> AVG SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Suntem încântați că vă place!"
+  },
+  "sasSorry": {
+    "message": "Ne pare rău să aflăm acest lucru"
+  },
+  "sasAnswerYes": {
+    "message": "da"
+  },
+  "sasAnswerNo": {
+    "message": "nu"
+  },
+  "safePriceLeaveRating": {
+    "message": "Lăsați-ne o evaluare privind satisfacția dumneavoastră.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Faceți evaluarea acum"
+  },
+  "safePriceAskMeLater": {
+    "message": "Să fiu întrebat mai târziu",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Setări Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "Setări AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "Oferte"
+  },
+  "spCouponsTab": {
+    "message": "Cupoane"
+  },
+  "spOthersTab": {
+    "message": "Altele"
+  },
+  "spAdditionalFees": {
+    "message": "Se pot aplica taxe și comisioane suplimentare"
+  },
+  "spShippingLabel": {
+    "message": "Livrare/manipulare pornind de la"
+  },
+  "spGetCouponCode": {
+    "message": "Obținere cod"
+  },
+  "spApply": {
+    "message": "Aplicare cupon"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Copiați și lipiți la momentul plății:"
+  },
+  "spCouponApplied": {
+    "message": "Cupon aplicat."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Se caută oferte..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Merită să așteptați, nu veți fi dezamăgit(ă)."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Economisiți bani prin utilizarea cupoanelor"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Economisiți până la"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Ia te uită!<br> Mai multe oferte"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "prețuri pornind de la"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Ia te uită! Mai multe oferte"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "S-au găsit oferte și cupoane. Ce șansă!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Mai multe oferte,<br> mai multe economii!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Mai multe oferte, mai multe economii!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Hoteluri populare:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "S-au găsit și alte hoteluri!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Hoteluri alternative"
+  },
+  "spShowNotificationMessage": {
+    "message": "AFIȘARE"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Iată ce am găsit!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "AFIȘARE OFERTĂ"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Mai multe"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Mai puține"
+  },
+  "spNothingFound": {
+    "message": "O, nu.<br>Nu s-a găsit nimic…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "O, nu...<br>Nu am găsit niciun cupon..."
+  },
+  "spNothingFoundOffers": {
+    "message": "O, nu...<br>Nu am găsit nicio ofertă..."
+  },
+  "spNothingFoundOthers": {
+    "message": "O, nu...<br>Nu am găsit nicio ofertă specială..."
+  },
+  "spCouponsSelected": {
+    "message": "Cupoane selectate: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Selectate"
+  },
+  "spCouponsAvailableText": {
+    "message": "Disponibile"
+  },
+  "spCouponsExpiration": {
+    "message": "Expiră la: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Notificări"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Oferte"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "Oferte de la magazine electronice"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Afișare de fiecare dată când sunt disponibile oferte de la magazine electronice"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Afișare numai când sunt disponibile oferte de la magazine electronice, mai bune decât prețul original"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Nu vreau să primesc notificări despre ofertele de la magazine electronice"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(puteți vedea întotdeauna ofertele, făcând clic pe pictograma din bara de instrumente)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Oferte de cazare"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Afișare întotdeauna când este disponibil un preț mai bun pentru hotel"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Afișare hoteluri alternative la ceea ce solicit"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Afișare hoteluri populare în zona solicitată"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Cupoane"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Afișare de fiecare dată când este disponibil un cupon"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Se afișează numai o singură dată pe fiecare site Web"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Nu vreau să primesc notificări despre cupoane"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(puteți vedea întotdeauna cupoanele, făcând clic pe pictograma din bara de instrumente)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Altele"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Oferte speciale"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Vreau să primesc notificări despre oferte speciale pentru alte categorii (transport, finanțe, alimentare cu energie și altele)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Listă particularizată"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Nu se afișează nicio notificare despre aceste site-uri Web:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(puteți vedea întotdeauna ofertele și cupoanele, făcând clic pe pictograma din bara de instrumente)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Confidențialitate"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Permiteți analiza performanței și a utilizării datelor, pentru dezvoltarea unui nou produs"
+  },
+  "spSettingsPageHelp": {
+    "message": "Ajutor"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Notificări"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Când SafePrice găsește o ofertă sau un cupon corespunzătoare căutării, va apărea o notificare. Faceți clic pe butonul mare verde pentru a vedea ce am găsit pentru dvs."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Oferte"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Făcând clic pe o ofertă veți ajunge la magazinul online de încredere al unui partener, unde veți găsi noul preț prezentat în notificare."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Cupoane"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Pentru a utiliza un cupon, tot ce trebuie să faceți este să dați clic pe el. În cazul în care se dezvăluie un cod, trebuie să-l inserați în câmpul adecvat în timpul plății. În caz contrar, cuponul este aplicat în mod automat."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Altele"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Făcând clic pe o ofertă specială afișată, veți ajunge la magazinul online de încredere al unui partener."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Aflați mai multe din <span class='asp-faqs-span'>Întrebări frecvente</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Adăugare site"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Adăugare"
+  },
+  "spSettingsPageCancel": {
+    "message": "Anulare"
+  },
+  "spSettingsPageSave": {
+    "message": "Salvare"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Codul este copiat în clipboard."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Cupon aplicat pe această pagină"
+  },
+  "sasOpenShop": {
+    "message": "Deschidere magazin"
+  },
+  "spSocialShare": {
+    "message": "Vă place să faceți economii? Trimiteți și altora!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Partajare",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Trimitere mesaj pe Tweeter",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Închidere"
+  },
+  "spMinimizeTooltip": {
+    "message": "Minimizare"
+  },
+  "spHelpTooltip": {
+    "message": "Ajutor"
+  },
+  "spSettingsTooltip": {
+    "message": "Setări"
+  },
+  "spProductsSearchInput": {
+    "message": "Căutare produse"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Căutarea unui produs"
+  },
+  "spSearchForOffers": {
+    "message": "Pentru a obține oferte, căutați <br> un produs"
+  },
+  "spCouponsSearchInput": {
+    "message": "Căutați mărci de produse sau magazine online"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Căutare cupoane"
+  },
+  "spSearchForCoupons": {
+    "message": "Pentru a obține cupoane, căutați <br> o marcă de produse sau un magazin online"
+  },
+  "spNoResultsFound": {
+    "message": "Nu s-a găsit niciun rezultat pentru <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Nu s-a găsit niciun cupon pentru <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Nu s-a găsit nicio ofertă pentru <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Nu s-a găsit nicio ofertă în acest moment",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Nu s-a găsit niciun cupon în acest moment",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Nu s-a găsit nicio ofertă specială <br> în acest moment"
+  },
+  "spShowAll": {
+    "message": "AFIȘARE TOATE"
+  },
+  "spGreatDeal": {
+    "message": "Ofertă excelentă"
+  },
+  "spSiteVerified": {
+    "message": "Acest site este verificat și puteți face cumpărături în siguranță"
+  },
+  "spSiteNotVerified": {
+    "message": "Acest site este lipsit de încredere și nu vă sfătuim să faceți cumpărături"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Acest site Web a fost identificat ca fiind lipsit de încredere. Fiecare ofertă pe care o găsim provine de la un site Web securizat, așa că vă sugerăm să faceți clic pe una din ofertele de mai sus sau să încercați pe alt site."
+  },
+  "spConnectionSecure": {
+    "message": "Această conexiune este securizată"
+  },
+  "spConnectionNotSecure": {
+    "message": "Această conexiune nu este securizată"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Acest site Web nu are un certificat https valid; în consecință, nu vă poate proteja complet confidențialitatea."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Acest site Web a fost identificat ca fiind lipsit de încredere"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Vă sugerăm să faceți cumpărăturile în altă parte, întrucât acest site a fost evaluat negativ de clienți."
+  },
+  "spLeaveSite": {
+    "message": "părăsire site"
+  },
+  "spITrustThisSite": {
+    "message": "Am încredere în acest site"
+  },
+  "spPhishingSite": {
+    "message": "Acest site Web a fost marcat ca site de phishing"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Phishingul este încercarea de a dobândi informații sensibile, cum ar fi nume de utilizator, parole și detalii despre cardurile de credit."
+  },
+  "spRecommendESHop": {
+    "message": "Recomandare magazin electronic"
+  },
+  "spRecommendWhy": {
+    "message": "De ce recomandați acest magazin electronic?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Au o excelentă gamă de produse."
+  },
+  "spRecommendGreatValue": {
+    "message": "Oferă un excelent raport calitate-preț."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Au un excelent serviciu pentru clienți."
+  },
+  "spReportESHop": {
+    "message": "Raportare probleme despre un magazin electronic"
+  },
+  "spReportWhy": {
+    "message": "Ce probleme raportați în legătură cu acest magazin electronic?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Am plătit pentru un produs și nu l-am primit."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Am primit altceva decât am comandat."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "M-au tratat necorespunzător calității mele de client."
+  },
+  "spRequired": {
+    "message": "*obligatoriu"
+  },
+  "spOther": {
+    "message": "Altele"
+  },
+  "spTellUsMore": {
+    "message": "Dați-ne mai multe informații"
+  },
+  "spEShopName": {
+    "message": "Numele magazinului electronic*"
+  },
+  "spProductOrdered": {
+    "message": "Produsul comandat"
+  },
+  "spLinkToProductPage": {
+    "message": "Legătura la pagina produsului"
+  },
+  "spReport": {
+    "message": "raportare"
+  },
+  "spRecommend": {
+    "message": "recomandare"
+  },
+  "spThanksForVoting": {
+    "message": "Vă mulțumim că ne ajutați să îmbunătățim aplicația SafePrice"
+  },
+  "spAvailableOffers": {
+    "message": "Oferte disponibile"
+  },
+  "spAvailableHotels": {
+    "message": "Hoteluri disponibile"
+  },
+  "spAvailableCoupons": {
+    "message": "Cupoane disponibile"
+  },
+  "spSelectedCoupons": {
+    "message": "Cupoane selectate"
+  },
+  "spAvailableOthers": {
+    "message": "Ofertă specială"
+  },
+  "spClickThenPaste": {
+    "message": "Faceți clic și lipiți la momentul plății:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Faceți clic și lipiți la momentul plății, la <span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "copiat"
+  },
+  "spCouponWorks": {
+    "message": "A funcționat acest cupon?"
+  },
+  "spCouponCodeWorks": {
+    "message": "A funcționat acest cod?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Cupon aplicat la <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Puteți găsi întotdeauna ofertele și cupoanele SafePrice, făcând clic pe pictograma din bara de instrumente.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "AM ÎNȚELES!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Feedback"
+  },
+  "spFeedbackShare": {
+    "message": "Împărtășiți-vă feedbackul"
+  },
+  "spFeedbackGeneral": {
+    "message": "Feedback general"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Povestiți-ne despre experiența proprie cu SafePrice, ce v-a plăcut și ce putem îmbunătăți."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Reclamați un magazin online"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Povestiți-ne despre site-rile false sau care nu inspiră încredere și care pot pune în pericol și alte persoane."
+  },
+  "spFeedbackSPExp": {
+    "message": "Povestiți-ne despre experiența dvs. cu SafePrice:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Scrieți un comentariu"
+  },
+  "spFeedbackback": {
+    "message": "înapoi"
+  },
+  "spFeedbackNext": {
+    "message": "următorul"
+  },
+  "spFeedbackSend": {
+    "message": "trimitere"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Ce magazin online doriți să reclamați? <span class='asp-required-span'>(*obligatoriu)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Nume magazin online*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Distribuitor sau comerciant"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Produsul comandat"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Legătură la o pagină de produs"
+  },
+  "spFeedbackProblem": {
+    "message": "Care a fost problema?  <span class='asp-required-span'>(obligatoriu)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Am primit altceva decât am comandat."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Am plătit pentru un produs și nu l-am primit."
+  },
+  "spFeedbackOther": {
+    "message": "Altele"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Explicați pe scurt care a fost problema."
+  },
+  "spFeedbackThanks": {
+    "message": "Vă mulțumim pentru feedback!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Vă mulțumim."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Stabiliți frecvența cu care doriți să vedeți oferte și cupoane"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "ok"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Începeți căutarea de oferte aici"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Începeți căutarea de cupoane aici"
+  },
+  "spTrySearchInAmazon": {
+    "message": "Încercați să căutați pe %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "căutare pe %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Încercați căutarea de oferte pe %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "S-au găsit mai multe oferte: "
+  },
+  "spOptInTitle": {
+    "message": "Dacă acceptați, SafePrice vă va prezenta oferte mai bune atunci când faceți cumpărături online"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Dacă acceptați, Avast SafePrice</span> <br> vă va prezenta oferte mai bune și cupoane de reducere, atunci când faceți cumpărături online"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Dacă acceptați, AVG SafePrice</span> <br> vă va prezenta oferte mai bune și cupoane de reducere, atunci când faceți cumpărături online"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice va scana site-urile Web pe care le vizitați, pentru a găsi oferte mai bune și cupoane de reducere la magazinele electronice verificate. Pentru această funcționalitate, este necesar să trimiteți următoarele date către serverele sale:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice va scana site-urile Web pe care le vizitați, pentru a găsi oferte mai bune și cupoane de reducere la magazinele electronice verificate. Pentru această funcționalitate, este necesar să trimiteți următoarele date către serverele sale:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice va scana site-urile Web pe care le vizitați, pentru a găsi oferte mai bune și cupoane de reducere la magazinele electronice verificate. Pentru această funcționalitate, este necesar să trimiteți următoarele date către serverele sale:"
+  },
+  "spOptInPolice1": {
+    "message": "Domeniu sau URL pentru site-ul de cumpărături"
+  },
+  "spOptInPolice2": {
+    "message": "Identificatori de extensie (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Limba browserului"
+  },
+  "spOptInPoliceLink": {
+    "message": "Pentru detalii complete, consultați <a href='#' class='opt-in-box-buttons-policy'>Politica de confidențialitate pentru extensii</a>."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Da, trimit datele"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Da, permit"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Nu, mulțumesc"
+  },
+  "spOptInSecondTitle": {
+    "message": "Ne pare rău, SafePrice nu vă poate prezenta oferte mai bune fără consimțământul dvs."
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Ne pare rău, Avast SafePrice nu vă poate prezenta oferte mai bune fără consimțământul dvs."
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "Ne pare rău, AVG SafePrice nu vă poate prezenta oferte mai bune fără consimțământul dvs."
+  },
+  "spOptInSecondText": {
+    "message": "Fără acesta, extensia nu va funcționa. O puteți dezinstala."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Revenire la consimțământ"
+  },
+  "spOptInSecondClose": {
+    "message": "Închidere"
+  },
+  "spAsbCouponsFound": {
+    "message": "Acest site are cupoane!"
+  },
+  "spAsbOffersFound": {
+    "message": "Există și alte oferte!"
+  }
+}

@@ -1,0 +1,307 @@
+{
+  "stylishExtensionStatus": {
+    "message": "Stylish extension - $status$",
+    "placeholders": {
+      "status": {
+        "content": "$1"
+      }
+    }
+  },
+  "appName": {
+    "message": "Stylish - Custom themes for any website"
+  },
+  "appDesc": {
+    "message": "With hundreds of thousands of themes, skins & free backgrounds, you can customize any website with your own color scheme in a click."
+  },
+  "generalError": {
+    "message": "An error occurred, please try later"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "createNewStyle": {
+    "message": "Create new style"
+  },
+  "login": {
+    "message": "Login"
+  },
+  "logout": {
+    "message": "Logout"
+  },
+  "gallery": {
+    "message": "Gallery"
+  },
+  "myStyles": {
+    "message": "My Styles"
+  },
+  "editor": {
+    "message": "Editor"
+  },
+  "turnStyleOn": {
+    "message": "Add style"
+  },
+  "noStylesMessage": {
+    "message": "No Styles Installed"
+  },
+  "on": {
+    "message": "ON"
+  },
+  "off": {
+    "message": "OFF"
+  },
+  "currentWebsite": {
+    "message": "Current Website"
+  },
+  "allOtherStyles": {
+    "message": "All The Other Styles"
+  },
+  "stylishOptions": {
+    "message": "Stylish Options"
+  },
+  "enableAllStyles": {
+    "message": "Enable All Styles"
+  },
+  "showNumberOfStylesBadge": {
+    "message": "Show number of styles active for the current site on the toolbar button"
+  },
+  "sendBrowsingDataToStylish": {
+    "message": "Send de-identified browsing data to Stylish to access style suggestions through the toolbar menu"
+  },
+  "showOneClickInstallWidget": {
+    "message": "Show website suggestions widget"
+  },
+  "getStylesFromUserStyles": {
+    "message": "Get styles on userstyles.org"
+  },
+  "getHelp": {
+    "message": "Get help"
+  },
+  "readPrivacy": {
+    "message": "Read the privacy policy"
+  },
+  "optInMsg": {
+    "message": "We’re *BEST* at showing you styles for sites *WHEN* you visit them"
+  },
+  "optInMsg2": {
+    "message": "we need access to that information. "
+  },
+  "optInMsg3": {
+    "message": "we're gonna need your agreement"
+  },
+  "optInDisclaimer": {
+    "message": "If you hit cancel you’ll still be able to use Stylish and install styles but only through our "
+  },
+  "website": {
+    "message": "website"
+  },
+  "agree": {
+    "message": "agree"
+  },
+  "cancel": {
+    "message": "cancel"
+  },
+  "meaning": {
+    "message": "meaning"
+  },
+  "browseMore": {
+    "message": "Browse more!"
+  },
+  "showMe": {
+    "message": "Show Me!"
+  },
+  "noStylesFoundTitle1": {
+    "message": "NO STYLES"
+  },
+  "noStylesFoundTitle2": {
+    "message": "FOR *THIS* SITE"
+  },
+  "noStylesFoundSubtitle1": {
+    "message": "But don’t just stand there."
+  },
+  "noStylesFoundSubtitle2": {
+    "message": "MAKE ONE!"
+  },
+  "iKnowCSS": {
+    "message": "I Know CSS"
+  },
+  "unsupportedViewTitle": {
+    "message": "Oh. Party Poopers"
+  },
+  "unsupportedViewSubtitle": {
+    "message": "*Not you. Chrome.*<br/>Stylish can’t run on<br/>some pages, Looks like<br/>this is one of them."
+  },
+  "unsupportedButtonText": {
+    "message": "Meh"
+  },
+  "menuShowBadge": {
+    "message": "Show active style count"
+  },
+  "editorNewStyle": {
+    "message": "New Style"
+  },
+  "editorStyleNamePlaceholder": {
+    "message": "Name your style"
+  },
+  "editorRollback": {
+    "message": "Rollback"
+  },
+  "editorRollbackTooltip": {
+    "message": "Rollback to last saved version"
+  },
+  "editorPreview": {
+    "message": "Preview"
+  },
+  "editorSave": {
+    "message": "save"
+  },
+  "privateStyleLabel": {
+    "message": "Private"
+  },
+  "editedStyleLabel": {
+    "message": "Edited"
+  },
+  "enjoyingStylish": {
+    "message": "Enjoyin’ Stylish?"
+  },
+  "rateUs": {
+    "message": "Rate us"
+  },
+  "thanks": {
+    "message": "Thanks!"
+  },
+  "spreadTheWord": {
+    "message": "Spread the word why don’t cha"
+  },
+  "rateStylish": {
+    "message": "Rate Stylish"
+  },
+  "WhatsWrong": {
+    "message": "What’s wrong?"
+  },
+  "howCanWeBetter": {
+    "message": "How can we do better..."
+  },
+  "submitFeedback": {
+    "message": "Submit Feedback"
+  },
+  "styleNotWorking": {
+    "message": "Style not working"
+  },
+  "tooComplicated": {
+    "message": "Too complicated"
+  },
+  "thereIsBug": {
+    "message": "There's a bug"
+  },
+  "InappropriateContent": {
+    "message": "Inappropriate content"
+  },
+  "didNotFind": {
+    "message": "Didn't find what I was looking for"
+  },
+  "thankYou": {
+    "message": "Thank you"
+  },
+  "thankYouText": {
+    "message": "We’re doing all that we can to improve stylish for the community"
+  },
+  "oneClickWidgetMenuTitle": {
+    "message": "Suggestions Settings"
+  },
+  "oneClickWidgetMuteForSite": {
+    "message": "Mute for this site"
+  },
+  "oneClickWidgetMuteForPeriod": {
+    "message": "Mute for two weeks"
+  },
+  "oneClickWidgetDoNotShowAgain": {
+    "message": "Do not show this again"
+  },
+  "oneClickWidgetLooking": {
+    "message": "Looking"
+  },
+  "oneClickWidgetStyleUp": {
+    "message": "Style Up"
+  },
+  "oneClickWidgetGood": {
+    "message": "gooooood"
+  },
+  "oneClickWidgetThisPage": {
+    "message": "this page!"
+  },
+  "oneClickWidgetTryItOut": {
+    "message": "Try it out"
+  },
+  "oneClickWidgetSeeWhatElse": {
+    "message": "See what else"
+  },
+  "oneClickWidgetIsThere": {
+    "message": "is there"
+  },
+  "oneClickWidgetShowMeMore": {
+    "message": "Show me more"
+  },
+  "oneClickWidgetNewDay": {
+    "message": "A new day"
+  },
+  "oneClickWidgetNewStyle": {
+    "message": "A new style!"
+  },
+  "oneClickWidgetCheckThisOne": {
+    "message": "Check this one out !"
+  },
+  "oneClickWidgetLooks": {
+    "message": "Looks"
+  },
+  "seeAllStyles": {
+    "message": "See all styles"
+  },
+  "stylesInstalledToday": {
+    "message": "Styles installed today!"
+  },
+  "tryThisStyle": {
+    "message": "Try this style!"
+  },
+  "shuffle": {
+    "message": "Shuffle"
+  },
+  "howIs": {
+    "message": "How’s"
+  },
+  "theNew": {
+    "message": "the new"
+  },
+  "look": {
+    "message": "look"
+  },
+  "didNotFindSomethingYouLike": {
+    "message": "Didn't find something you like?"
+  },
+  "checkOutMoreStyles": {
+    "message": "Check out more styles on our website"
+  },
+  "lotsOf": {
+    "message": "Lots of"
+  },
+  "whatsNewTitle": {
+    "message": "What's News!"
+  },
+  "whatsNewItem_1": {
+    "message": "Suggested styles<br/>just for you!"
+  },
+  "whatsNewItem_2": {
+    "message": "'Inspector' feature <br/>to import CSS code"
+  },
+  "whatsNewItem_3": {
+    "message": "Coming soon: dynamic styles!"
+  },
+  "tryIt": {
+    "message": "Try it"
+  },
+  "toTheSite": {
+    "message": "To the site"
+  },
+  "haveAlook": {
+    "message": "Have a look"
+  }
+}

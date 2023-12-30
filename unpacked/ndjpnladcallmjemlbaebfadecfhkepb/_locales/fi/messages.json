@@ -1,0 +1,308 @@
+{
+  "AppName": {
+    "message": "Microsoft 365"
+  },
+  "AppShortName": {
+    "message": "Microsoft 365"
+  },
+  "AppNameEdge": {
+    "message": "Microsoft 365"
+  },
+  "AppFolderName": {
+    "message": "Microsoft 365 -selainlaajennus"
+  },
+  "AppDescription": {
+    "message": "Tarkastele, muokkaa ja luo tiedostoja selaimessa."
+  },
+  "AppDescriptionWithEditor": {
+    "message": "Tarkastele, muokkaa ja luo tiedostoja selaimessa ja luo parhaat kirjoituksesi verkossa."
+  },
+  "AppLongDescription": {
+    "message": "Luotu Chromelle – Käytä Wordia, Excelia, PowerPointia, OneNotea ja Sway Onlinea ilman Microsoft 365:n asentamista.\r\n\r\nVarmuutta luomiseen – Käytä tuttuja muotoiluja ja asetteluvaihtoehtoja ideoidesi esilletuontiin.\r\n\r\nTyöskentele liikkeellä ollessa – Nouda tiedostosi mistä tahansa OneDrive- ja OneDrive for Business -integraation ansiosta.\r\n\r\nAsentamalla sovelluksen hyväksyt nämä käyttöehdot: http://aka.ms/officechromeextensionterms\r\n\r\nTietosuojakäytäntö: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionWithEditor": {
+    "message": "Luotu Chromelle – Käytä Wordin, Excelin, PowerPointin, OneNoten ja Swayn verkkoversioita ilman Microsoft 365:n asentamista.\r\n\r\nLuo luottavaisin mielin – Käytä tuttuja muotoilu- ja asetteluominaisuuksia ilmaistaksesi ideoitasi tarkasti.\r\n\r\nTyöskentele tien päällä – Käytä tiedostojasi missä tahansa OneDrive- ja OneDrive for Business -integroinnin avulla.\r\n\r\nMicrosoft 365:n selainlaajennus sisältää nyt sisällön tarkistuksen*. Se muodostaa yhteyden Microsoftin verkkopalveluun, joka tarjoaa tekstiisi oikeinkirjoitus-, kielioppi- ja parannusehdotuksia useimmilla sivustoilla ja on saatavilla yli 365 kielellä.\r\n\r\n*Tämä ominaisuus ei ehkä ole kaikkien käyttäjien käytettävissä.\r\n\r\nAsentamalla sovelluksen hyväksyt seuraavat ehdot: http://aka.ms/officechromeextensionterms\r\n\r\nTietosuojakäytäntö: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionEdge": {
+    "message": "Microsoft 365 -selainlaajennus asettaa Microsoft Edge -työkaluriville kuvakkeen, jonka kautta pääset suoraan Microsoft 365 -tiedostoihin, olivatpa ne tallennettuna verkkoon tai tietokoneelle.\r\n\r\nMicrosoft 365 -verkkolaajennus voi avata OneDriveen ja OneDrive for Businessiin tallennettuja tiedostoja.\r\n\r\nSaat Wordin, Excelin, PowerPointin, OneNoten ja Swayn ominaisuudet selaimeesi ilman Microsoft 365:n asentamista.\r\n\r\nMicrosoft 365:n selainlaajennus sisältää nyt sisällön tarkistuksen*. Se muodostaa yhteyden Microsoftin verkkopalveluun, joka tarjoaa tekstiisi oikeinkirjoitus-, kielioppi- ja parannusehdotuksia useimmilla sivustoilla ja on saatavilla yli 365 kielellä.\r\n\r\n*Tämä ominaisuus ei ehkä ole kaikkien käyttäjien käytettävissä.\r\n\r\nAsentamalla sovelluksen hyväksyt seuraavat ehdot: \r\n\r\n"
+  },
+  "AppTermsOfServiceLCA": {
+    "message": "PLEASE NOTE: Refer to your license terms for Microsoft 365 browser extension software (the \"software\") to identify the entity licensing this supplement to you and for support information. You may use a copy of this supplement with each validly licensed copy of the software. You may not use the supplement if you do not have a license for the software. The license terms for the software apply to your use of this supplement."
+  },
+  "BrowseToOpenLabel": {
+    "message": "Lataa palvelimeen ja avaa..."
+  },
+  "UploadToOneDriveLabel": {
+    "message": "Lataa OneDriveen"
+  },
+  "UploadToOneDriveBusinessLabel": {
+    "message": "Lataa OneDrive for Businessiin"
+  },
+  "AppListLabel": {
+    "message": "Verkkosovellukset"
+  },
+  "RecentDocsLabel": {
+    "message": "Asiakirjat"
+  },
+  "RecentDocsItemAriaLabel": {
+    "message": "linkki avautuu uuteen välilehteen."
+  },
+  "CreateDocsMessageLabel": {
+    "message": "Ei äskettäin tarkasteltuja asiakirjoja."
+  },
+  "DocumentsNotFoundMessageLabel": {
+    "message": "Viimeksi avattujen tiedostojen luettelon hakeminen ei onnistu."
+  },
+  "LoadingRecentsLabel": {
+    "message": "Ladataan..."
+  },
+  "CreateNewLabel": {
+    "message": "Uusi"
+  },
+  "OfflineLabel": {
+    "message": "Olet offline-tilassa. Muodosta yhteys uudelleen, jotta voit käyttää Microsoft 365-selainlaajennusta."
+  },
+  "OpenDocumentLabel": {
+    "message": "Avaa"
+  },
+  "AccountLabel": {
+    "message": "Tili"
+  },
+  "UsernameLabel": {
+    "message": "Ei kirjautuneena sisään"
+  },
+  "SettingsLabel": {
+    "message": "Asetukset"
+  },
+  "ExcelAppName": {
+    "message": "Excel"
+  },
+  "ExcelOnlineAppName": {
+    "message": "Excel"
+  },
+  "OneDriveAppName": {
+    "message": "OneDrive"
+  },
+  "SharePointAppName": {
+    "message": "SharePoint"
+  },
+  "SharePointSiteAppName": {
+    "message": "SharePoint"
+  },
+  "OutlookAppName": {
+    "message": "Outlook"
+  },
+  "TeamsAppName": {
+    "message": "Teams"
+  },
+  "OneDriveFilesLabel": {
+    "message": "OneDrivesta"
+  },
+  "O365FilesLabel": {
+    "message": "OneDrive for Businessista"
+  },
+  "OneNoteAppName": {
+    "message": "OneNote"
+  },
+  "OneNoteOnlineAppName": {
+    "message": "OneNote"
+  },
+  "PowerPointAppName": {
+    "message": "PowerPoint"
+  },
+  "PowerPointOnlineAppName": {
+    "message": "PowerPoint"
+  },
+  "SignInLabel": {
+    "message": "Kirjaudu sisään"
+  },
+  "SignInMSALabel": {
+    "message": "Kirjaudu sisään Microsoft-tilillä"
+  },
+  "SignInO365Label": {
+    "message": "Kirjaudu sisään työpaikan tai oppilaitoksen tilillä"
+  },
+  "SignOutLabel": {
+    "message": "Kirjaudu ulos"
+  },
+  "CreateAccountLabel": {
+    "message": "Luo tili"
+  },
+  "SwayAppName": {
+    "message": "Sway"
+  },
+  "TelemetrySettingLabel": {
+    "message": "Lähetä automaattisesti tietoja, jotta voit auttaa meitä parantamaan tuotteitamme."
+  },
+  "WebRedirectSettingLabel": {
+    "message": "Avaa Microsoft 365 tiedostot suoraan selaimessa Microsoft 365 avulla."
+  },
+  "MoreFilesLabel": {
+    "message": "Lisää asiakirjoja"
+  },
+  "WordAppName": {
+    "message": "Word"
+  },
+  "WordOnlineAppName": {
+    "message": "Word"
+  },
+  "SignInHeaderLabel": {
+    "message": "Mihin haluat tallentaa tiedostosi?"
+  },
+  "NextLabel": {
+    "message": "Kirjaudu sisään"
+  },
+  "CopyrightLabel": {
+    "message": "Microsoft Corporation 2015"
+  },
+  "FileTypeErrorMessage": {
+    "message": "Tiedostotyyppiä ei tueta. Valitse Word-, Excel- tai PowerPoint-asiakirja."
+  },
+  "NotificationFileAccess": {
+    "message": "Valitse laajennusasetuksissa Salli pääsy tiedoston URL-osoitteisiin -valintaruutu, jos haluat vetää ja pudottaa tiedostot selaimeen."
+  },
+  "NotificationFileMaxSizeByteLimitReached": {
+    "message": "Microsoft 365 -selainlaajennus ei voi avata asiakirjaa koon takia. Avaa asiakirja lataamalla se suoraan OneDriveen."
+  },
+  "NotificationFileUploadFailureGeneric": {
+    "message": "Valitettavasti emme voi avata tiedostoasi."
+  },
+  "NotificationFileUploadFailureServer": {
+    "message": "Valitettavasti emme voi avata tiedostoasi. Yritä myöhemmin uudelleen."
+  },
+  "NotificationFileUploadFailureUnsupportedMedia": {
+    "message": "Valitettavasti emme voi avata tiedostoasi. Valitse Wordilla, Excelillä tai PowerPointilla luotu tiedosto."
+  },
+  "NotificationFileUploadInProgress": {
+    "message": "Lataamme parhaillaan asiakirjaasi/asiakirjojasi."
+  },
+  "NotificationSetDefault": {
+    "message": "Avaa asiakirjat Microsoft 365:ssa napauttamalla asiakirjoja kahdella sormella Tiedostot-sovelluksessa."
+  },
+  "NotificationAutoSaveToOneDrive": {
+    "message": "Tallensimme tiedostosi Microsoft 365:n selainlaajennuskansioon OneDrivessa."
+  },
+  "NotificationAutoSaveToSharePoint": {
+    "message": "Tallensimme tiedostosi Microsoft 365:n selainlaajennuskansioon OneDrive for Businessissa."
+  },
+  "NotificationAutoSaveButton": {
+    "message": "Älä näytä tätä uudelleen"
+  },
+  "NotificationNotSignedIn": {
+    "message": "Kirjaudu sisään laajennukseen, jotta voit tarkastella ja muokata tiedostoja Microsoft 365:n verkkoversiossa."
+  },
+  "NotificationUnsupportedFileType": {
+    "message": "Valitse Wordilla, Excelillä tai PowerPointilla luotu tiedosto."
+  },
+  "NotificationInvalidSubscription": {
+    "message": "Microsoft 365 -tilauksesi on ehkä vanhentunut tai se ei sisällä OneDrive for Businessia. Tarkista tilauksesi tai kirjaudu sisään sen sijaan Microsoft-tilillä."
+  },
+  "NotificationWebDocRedirect": {
+    "message": "Microsoft 365 -laajennus avaa asiakirjan selaimessa"
+  },
+  "NotificationWebDocRedirectButton": {
+    "message": "Älä näytä tätä uudelleen"
+  },
+  "OfficeOnlineAppName": {
+    "message": "Microsoft 365"
+  },
+  "ShareMessage": {
+    "message": "Jaa"
+  },
+  "SharePermissionsTooltip": {
+    "message": "Sinulla ei ole jakamisoikeutta"
+  },
+  "SharePermissionsErrorMessage": {
+    "message": "Käyttöoikeus vaaditaan"
+  },
+  "SupportPageLabel": {
+    "message": "Tarvitsetko apua kirjautumiseen?"
+  },
+  "MyAccountLabel": {
+    "message": "Näytä oma tili"
+  },
+  "EditorSpellingToggleLabel": {
+    "message": "Oikeinkirjoitus"
+  },
+  "EditorGrammarToggleLabel": {
+    "message": "Kielioppi"
+  },
+  "EditorRefinementsToggleLabel": {
+    "message": "Hienosäätö"
+  },
+  "DisableEditorOnThisSiteLabel": {
+    "message": "Poista Kirjoitusavustaja käytöstä osoitteessa $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EnableEditorOnThisSiteLabel": {
+    "message": "Ota Kirjoitusavustaja käyttöön osoitteessa $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsDisabledOnThisSiteLabel": {
+    "message": "Kirjoitusavustaja ei ole tällä hetkellä käytössä osoitteessa $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsBlockedOnThisSiteLabel": {
+    "message": "Kirjoitusavustajaa ei tällä hetkellä tueta osoitteessa $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorPreviewLabel": {
+    "message": "(Esikatselu)"
+  },
+  "EditorBrandText": {
+    "message": "Kirjoitusavustaja"
+  },
+  "EditorIsOffLabel": {
+    "message": "Kirjoitusavustaja on poistettu käytöstä."
+  },
+  "TurnOnEditorLabel": {
+    "message": "Ota Kirjoitusavustaja käyttöön"
+  },
+  "EditorRefinementsTooltip": {
+    "message": "Tarkennukset ovat edistyneitä kirjoitusehdotuksia, jotka tekevät tekstistä selkeämpää, tiiviimpää ja muodollisempaa."
+  },
+  "EditorRefinementsGoPremiumTooltip": {
+    "message": "Kun siirryt Premium-versioon, saat lisää kirjoitusehdotuksia ja yhden teratavun tallennustilaa."
+  },
+  "StandaloneExtensionInstalledLabel": {
+    "message": "Editoripalvelun tarjoaa Microsoft Editor -laajennus."
+  },
+  "EditorNativeSupportOnThisSiteLabel": {
+    "message": "Kirjoitusavustaja sisältyy $host$:een",
+    "placeholders": {
+      "host": {
+        "content": "1 $",
+        "example": "outlook.com"
+      }
+    }
+  },
+  "EditorPriorityShutdownLabel": {
+    "message": "Editoripalvelun tarjoaa Microsoft Editor -laajennus."
+  },
+  "AppsModuleLinkText": {
+    "message": "Tutustu kaikkiin sovelluksiisi"
+  },
+  "AppsSectionHeader": {
+    "message": "Sovellukset"
+  }
+}

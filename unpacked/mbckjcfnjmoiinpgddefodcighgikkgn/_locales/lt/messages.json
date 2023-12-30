@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "„Avast SafePrice“"
+  },
+  "avastAppDesc": {
+    "message": "Raskite geriausias kainas, pasiūlymus ir nuolaidų kuponus pirkdami internete, naudodami „Avast“ kainų lyginimo ir kuponų pratęsimo paslaugas.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "„AVG SafePrice“"
+  },
+  "avgAppDesc": {
+    "message": "Raskite geriausias kainas, pasiūlymus ir nuolaidų kuponus pirkdami internete, naudodami AVG kainų lyginimo ir kuponų pratęsimo paslaugas.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Įrašyti"
+  },
+  "avastAppLongName": {
+    "message": "„Avast SafePrice“ | Kainų palyginimas, pasiūlymai ir kuponai saugiose apsipirkimo svetainėse - taupykite pinigus"
+  },
+  "avgAppLongName": {
+    "message": "„AVG SafePrice“ | Kainų palyginimas, pasiūlymai ir kuponai saugiose apsipirkimo svetainėse – taupykite pinigus"
+  },
+  "avastAppShortName": {
+    "message": "„Avast SafePrice“ | Palyginimas, pasiūlymai, kuponai"
+  },
+  "avgAppShortName": {
+    "message": "„AVG SafePrice“ | Palyginimas, pasiūlymai, kuponai"
+  },
+  "sasHintSettings": {
+    "message": "Nustatymai"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Ar mėgstate naudoti <br> „Avast SafePrice“?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Ar mėgstate naudoti <br> „AVG SafePrice“?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Džiaugiamės, kad patinka!"
+  },
+  "sasSorry": {
+    "message": "Nesmagu girdėti"
+  },
+  "sasAnswerYes": {
+    "message": "taip"
+  },
+  "sasAnswerNo": {
+    "message": "ne"
+  },
+  "safePriceLeaveRating": {
+    "message": "Įvertinkite mūsų programą.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Vertinti dabar"
+  },
+  "safePriceAskMeLater": {
+    "message": "Paklauskite manęs vėliau",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "„Avast SafePrice“ nuostatos"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "„AVG SafePrice“ nuostatos"
+  },
+  "spOffersTab": {
+    "message": "Pasiūlymai"
+  },
+  "spCouponsTab": {
+    "message": "Kuponai"
+  },
+  "spOthersTab": {
+    "message": "Kiti"
+  },
+  "spAdditionalFees": {
+    "message": "Gali būti taikomi papildomi mokesčiai"
+  },
+  "spShippingLabel": {
+    "message": "S/T iš"
+  },
+  "spGetCouponCode": {
+    "message": "Gauti kodą"
+  },
+  "spApply": {
+    "message": "Taikyti kuponą"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Perkopijuoti baigiant apsipirkimą:"
+  },
+  "spCouponApplied": {
+    "message": "Kuponas pritaikytas."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Ieškoma pasiūlymų..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Laukti verta, prižadame."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Taupykite pinigus naudodami kuponus"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Sutaupykite iki"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Tik pažvelkite!<br> Daugiau pasiūlymų"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "mažiausia kaina"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Tik pažvelkite! Daugiau pasiūlymų"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Rasta pasiūlymų ir kuponų. Jums pasisekė!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Daugiau pasiūlymų,<br> daugiau sutaupytų pinigų!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Daugiau pasiūlymų, daugiau sutaupytų pinigų!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Populiarūs viešbučiai:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "Rasta alternatyvių viešbučių!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Alternatyvūs viešbučiai"
+  },
+  "spShowNotificationMessage": {
+    "message": "RODYTI"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Tik pažiūrėkite, ką radome!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "RODYTI PASIŪLYMĄ"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Daugiau"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Mažiau"
+  },
+  "spNothingFound": {
+    "message": "Oi.<br>Nieko neradome…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "Oi...<br>Kuponų nerasta..."
+  },
+  "spNothingFoundOffers": {
+    "message": "Oi...<br>Pasiūlymų nerasta..."
+  },
+  "spNothingFoundOthers": {
+    "message": "Oi...<br>Specialių pasiūlymų nerasta..."
+  },
+  "spCouponsSelected": {
+    "message": "Pasirinkti kuponai: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Pasirinkta"
+  },
+  "spCouponsAvailableText": {
+    "message": "Prieinama"
+  },
+  "spCouponsExpiration": {
+    "message": "Galioja iki: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Pranešimai"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Pasiūlymai"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "E. parduotuvės pasiūlymai"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Rodyti, ar yra e. parduotuvės pasiūlymų"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Rodyti tik tada, kai e. parduotuvės pasiūlymas geresnis nei pradinė kaina"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Apie e. parduotuvės pasiūlymus man nepranešinėti"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(pasiūlymus pamatysite spragtelėję piktogramą mygtukų juostoje)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Apgyvendinimo pasiūlymai"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Rodyti, ar yra geresnių viešbučio kainų"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Rodyti alternatyvas mano pageidautiems viešbučiams"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Rodyti pageidautoje vietoje esančius populiarius viešbučius"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Kuponai"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Rodyti, kai yra kuponas"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Kiekvienoje svetainėje rodyti tik kartą"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Nepranešti apie kuponus"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(kuponus pamatysite spragtelėję piktogramą mygtukų juostoje)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Kiti"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Specialūs pasiūlymai"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Pranešti apie kitų kategorijų specialius pasiūlymus (gabenimas, finansai, energijos tiekimas ir kt.)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Individualizuotas sąrašas"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Nerodyti jokių su šiomis interneto svetainėmis susijusių pranešimų:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(pasiūlymus ir kuponus vis vien galėsite pamatyti spragtelėję piktogramą įrankių juostoje)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Privatumas"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Leisti atlikti produkto veikimo bei duomenų naudojimo analizę naujų produktų kūrimui"
+  },
+  "spSettingsPageHelp": {
+    "message": "Žinynas"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Pranešimai"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Kai „SafePrice“ rande pasiūlymą ar kuponą, susijusį su jūsų paieška, iškylančiajame lange pasirodys pranešimas. Spauskite didelį žalią mygtuką, kad pamatytumėte, ką radome."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Pasiūlymai"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Paspaudę pasiūlymą, būsite nukreipti į patikimą partnerio el. parduotuvę, kur galėsite įsigyti prekę pranešime nurodyta kaina."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Kuponai"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Norėdami panaudoti kuponą, tiesiog jį spragtelėkite. Jei atsiras kodas, jį reikės įdėti į atitinkamą laukelį apmokant pirkinius. Jei kodo nėra, kuponas automatiškai pritaikomas."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Kiti"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Paspaudę nurodytą specialų pasiūlymą, būsite nukreipti į patikimą partnerio el. parduotuvę."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Sužinokite daugiau skiltyje <span class='asp-faqs-span'>DUK</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Pridėti svetainę"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Pridėti"
+  },
+  "spSettingsPageCancel": {
+    "message": "Atšaukti"
+  },
+  "spSettingsPageSave": {
+    "message": "Įrašyti"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Kodas nukopijuotas į iškarpinę"
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Šiame puslapyje naudojamas kuponas"
+  },
+  "sasOpenShop": {
+    "message": "Atidaryti parduotuvę"
+  },
+  "spSocialShare": {
+    "message": "Patinka taupyti? Skleiskite meilę!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Dalintis",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Siųsti tviterio žinutę",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Užverti"
+  },
+  "spMinimizeTooltip": {
+    "message": "Sumažinti"
+  },
+  "spHelpTooltip": {
+    "message": "Žinynas"
+  },
+  "spSettingsTooltip": {
+    "message": "Nustatymai"
+  },
+  "spProductsSearchInput": {
+    "message": "Ieškoti produktų"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Ieškoti produkto"
+  },
+  "spSearchForOffers": {
+    "message": "Norėdami gauti pasiūlymų, ieškokite <br> produkto"
+  },
+  "spCouponsSearchInput": {
+    "message": "Ieškoti prekių ženklų ar e. parduotuvių"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Ieškoti kuponų"
+  },
+  "spSearchForCoupons": {
+    "message": "Norėdami gauti kuponų, ieškokite <br> prekių ženklo ar e. parduotuvės"
+  },
+  "spNoResultsFound": {
+    "message": "Nerasta rezultatų ieškant <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Nerasta kuponų <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Nerasta pasiūlymų <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Šiuo metu pasiūlymų nerasta",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Šiuo metu kuponų nerasta",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Šiuo metu nerasta specialių pasiūlymų <br>"
+  },
+  "spShowAll": {
+    "message": "RODYTI VISKĄ"
+  },
+  "spGreatDeal": {
+    "message": "Puikus pasiūlymas"
+  },
+  "spSiteVerified": {
+    "message": "Ši svetainė patikrinta ir joje pirkti saugu"
+  },
+  "spSiteNotVerified": {
+    "message": "Šioje svetainėje pirkti nepatikima"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Ši interneto svetainė yra nepatikima. Visų mūsų pateikiami pasiūlymai randami saugiose interneto svetainėse, todėl rekomenduojame spausti kurį nors iš pirmiau pateiktų pasiūlymų arba ieškoti kitur."
+  },
+  "spConnectionSecure": {
+    "message": "Šis ryšys yra saugus"
+  },
+  "spConnectionNotSecure": {
+    "message": "Šis ryšys yra nesaugus"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Ši svetainė neturi galiojančio https sertifikato, todėl ji negali visiškai apsaugoti jūsų privatumo."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Ši svetainė buvo identifikuota kaip nepatikima"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Apsipirkti patariame kitur, nes klientai šią svetainę įvertino prastai."
+  },
+  "spLeaveSite": {
+    "message": "palikti svetainę"
+  },
+  "spITrustThisSite": {
+    "message": "Pasitikiu šia svetaine"
+  },
+  "spPhishingSite": {
+    "message": "Ši interneto svetainė buvo pažymėta kaip sukčiavimo interneto svetainė"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Sukčiavimas yra bandymas gauti svarbius duomenis, tokius kaip naudotojų vardai, slaptažodžiai ir kredito kortelių informacija."
+  },
+  "spRecommendESHop": {
+    "message": "Rekomenduokite e. parduotuvę"
+  },
+  "spRecommendWhy": {
+    "message": "Kodėl rekomenduojate šią e. parduotuvę? *"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Jie turi puikų produktų pasirinkimą."
+  },
+  "spRecommendGreatValue": {
+    "message": "Jie siūlo puikią kainą."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Jie puikiai aptarnauja klientus."
+  },
+  "spReportESHop": {
+    "message": "Praneškite apie e. parduotuvę"
+  },
+  "spReportWhy": {
+    "message": "Kodėl jūs pranešate apie šią e. parduotuvę? *"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Aš sumokėjau už produktą ir jo negavau."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Aš gavau ne tai, ką užsakiau."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "Jie su manimi, kaip su klientu, elgėsi blogai."
+  },
+  "spRequired": {
+    "message": "*būtina"
+  },
+  "spOther": {
+    "message": "Kita"
+  },
+  "spTellUsMore": {
+    "message": "Papasakokite daugiau"
+  },
+  "spEShopName": {
+    "message": "E. parduotuvės pavadinimas*"
+  },
+  "spProductOrdered": {
+    "message": "Užsakytas produktas"
+  },
+  "spLinkToProductPage": {
+    "message": "Nuoroda į produkto tinklalapį"
+  },
+  "spReport": {
+    "message": "pranešti"
+  },
+  "spRecommend": {
+    "message": "rekomenduoti"
+  },
+  "spThanksForVoting": {
+    "message": "Dėkojame, kad mums padedate „SafePrice“ padaryti geresnę"
+  },
+  "spAvailableOffers": {
+    "message": "Prieinami pasiūlymai"
+  },
+  "spAvailableHotels": {
+    "message": "Prieinami viešbučiai"
+  },
+  "spAvailableCoupons": {
+    "message": "Prieinami kuponai"
+  },
+  "spSelectedCoupons": {
+    "message": "Pasirinkti kuponai"
+  },
+  "spAvailableOthers": {
+    "message": "Specialus pasiūlymas"
+  },
+  "spClickThenPaste": {
+    "message": "Spustelėkite, tada įdėkite baigdami apsipirkimą:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Spustelėkite, tada įdėkite baigdami apsipirkimą <span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "nukopijuota"
+  },
+  "spCouponWorks": {
+    "message": "Ar šis kuponas tiko?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Ar šis kodas tiko?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Kuponas panaudotas <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "„SafePrice“ pasiūlymus ir kuponus pamatysite spragtelėję piktogramą mygtukų juostoje.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "SUPRATAU!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Atsiliepimai"
+  },
+  "spFeedbackShare": {
+    "message": "Pasidalinkite savo atsiliepimu"
+  },
+  "spFeedbackGeneral": {
+    "message": "Bendrasis atsiliepimas"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Papasakokite apie savo įspūdžius naudojant „SafePrice“: kas patiko, o ką reikėtų tobulinti."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Pranešti apie e. parduotuvę"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Papasakokite mums apie nepatikimas arba apgavikiškas svetaines, galinčias sukelti pavojų kitiems."
+  },
+  "spFeedbackSPExp": {
+    "message": "Papasakokite mums apie savo potyrius naudojant „SafePrice“:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Rašyti komentarą"
+  },
+  "spFeedbackback": {
+    "message": "atgal"
+  },
+  "spFeedbackNext": {
+    "message": "toliau"
+  },
+  "spFeedbackSend": {
+    "message": "siųsti"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Apie kurią nesąžiningą e. parduotuvę pranešate? <span class='asp-required-span'>(*privaloma nurodyti)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "E. parduotuvės pavadinimas *"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Mažmenininkas arba pardavėjas"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Užsakytas produktas"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Nuoroda į produkto puslapį"
+  },
+  "spFeedbackProblem": {
+    "message": "Su kokia problema susidūrėte? <span class='asp-required-span'>(privaloma nurodyti)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Aš gavau ne tai, ką užsakiau."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Aš sumokėjau už produktą ir jo negavau."
+  },
+  "spFeedbackOther": {
+    "message": "Kita"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Trumpai apibūdinkite problemą."
+  },
+  "spFeedbackThanks": {
+    "message": "Dėkojame už jūsų atsiliepimą!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Ačiū."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Nustatykite kaip dažnai norite matyti pasiūlymus ir kuponus"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "gerai"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Pasiūlymų pradėkite ieškoti čia"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Kuponų pradėkite ieškoti čia"
+  },
+  "spTrySearchInAmazon": {
+    "message": "Bandykite ieškoti %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "ieškoti %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Pamėginkite pasiūlymų ieškoti %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Rasta daugiau pasiūlymų: "
+  },
+  "spOptInTitle": {
+    "message": "Jei sutinkate, apsipirkinėjant internete „SafePrice“ rodys pigesnius pasiūlymus"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Jei sutinkate, „Avast SafePrice“</span> <br> rodys jums pigesnius pasiūlymus ir kuponus, kai apsipirkinėsite internete"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Jei sutinkate, „AVG SafePrice“</span> <br> rodys jums pigesnius pasiūlymus ir kuponus, kai apsipirkinėsite internete"
+  },
+  "spOptInPolice": {
+    "message": "„SafePrice“ skenuos tinklalapius, kuriuose apsilankote, kad rastų geresnius pasiūlymus ir nuolaidų kuponus patvirtintose e. parduotuvėse. Norint vykdyti šį funkcionalumą, į savo serverius programa turės siųsti šiuos duomenis:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "„Avast SafePrice“ skenuos tinklalapius, kuriuose apsilankote, kad rastų geresnius pasiūlymus ir nuolaidų kuponus patvirtintose e. parduotuvėse. Norint vykdyti šį funkcionalumą, į savo serverius programa turės siųsti šiuos duomenis:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "„AVG SafePrice“ skenuos tinklalapius, kuriuose apsilankote, kad rastų geresnius pasiūlymus ir nuolaidų kuponus patvirtintose e. parduotuvėse. Norint vykdyti šį funkcionalumą, į savo serverius programa turės siųsti šiuos duomenis:"
+  },
+  "spOptInPolice1": {
+    "message": "Apsipirkimo tinklalapio domeną arba URL"
+  },
+  "spOptInPolice2": {
+    "message": "Plėtinių identifikatorius (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Naršyklės kalba"
+  },
+  "spOptInPoliceLink": {
+    "message": "Visą informaciją rasite <a href='#' class='opt-in-box-buttons-policy'>Privatumo politikos</a> plėtinyje."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Taip, siųsti duomenis"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Taip, įjungti"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Ne, ačiū"
+  },
+  "spOptInSecondTitle": {
+    "message": "Atsiprašome, „SafePrice“ be jūsų sutikimo negali rodyti geresnių pasiūlymų"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Atsiprašome, „Avast SafePrice“ be jūsų sutikimo negali rodyti geresnių pasiūlymų"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "Atsiprašome, „AVG SafePrice“ be jūsų sutikimo negali rodyti geresnių pasiūlymų"
+  },
+  "spOptInSecondText": {
+    "message": "Be to plėtinys neveiks. Galite jį pašalinti."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Peržiūrėti sutikimą"
+  },
+  "spOptInSecondClose": {
+    "message": "Uždaryti"
+  },
+  "spAsbCouponsFound": {
+    "message": "Ši svetainė turi kuponus!"
+  },
+  "spAsbOffersFound": {
+    "message": "Yra kitų pasiūlymų!"
+  }
+}

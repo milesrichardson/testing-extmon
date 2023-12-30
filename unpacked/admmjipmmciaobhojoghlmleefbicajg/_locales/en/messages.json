@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Norton Password Manager",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "Free password security you can trust.",
+    "description": "Extension description."
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "AppName": {
+    "message": "Microsoft 365"
+  },
+  "AppShortName": {
+    "message": "Microsoft 365"
+  },
+  "AppNameEdge": {
+    "message": "„Microsoft 365“"
+  },
+  "AppFolderName": {
+    "message": "„Microsoft 365“ naršyklės plėtinys"
+  },
+  "AppDescription": {
+    "message": "Peržiūrėkite, redaguokite ir kurkite dokumentus naršyklėje."
+  },
+  "AppDescriptionWithEditor": {
+    "message": "Peržiūrėkite, redaguokite ir kurkite failus naršyklėje ir atskleiskite geriausius savo rašymo įgūdžius žiniatinklyje."
+  },
+  "AppLongDescription": {
+    "message": "Sukurta naršyklei „Chrome“ – naudokite „Word“, Excel“, „PowerPoint“, „OneNote“ ir „Sway Online“ neįdiegę „Microsoft 365“.\r\n\r\nKurkite užtikrintai – naudokite žinomas formatavimo ir maketo parinktis visoms savo idėjoms išreikšti.\r\n\r\nDirbkite keliaudami – pasiekite savo failus iš bet kurios vietos pasinaudoję integruotomis „OneDrive ir „OneDrive“ verslui.\r\n\r\nĮdiegdami programą, sutinkate su šiomis sąlygomis: http://aka.ms/officechromeextensionterms\r\n\r\nPrivatumo strategija: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionWithEditor": {
+    "message": "Sukurta naršyklei „Chrome“ – naudokite „Word“, „Excel“, „PowerPoint“, „OneNote“ ir „Sway Online“, neįdiegę „Microsoft 365“.\r\n\r\nKurkite užtikrintai – naudokite žinomas formatavimo ir maketo parinktis visoms savo idėjoms išreikšti.\r\n\r\nDirbkite keliaudami – pasiekite savo failus iš bet kurios vietos pasinaudoję integruotomis „OneDrive“ ir „OneDrive“ verslui.\r\n\r\n„Microsoft 365“ naršyklės plėtinyje dabar yra jūsų turinio tikrinimo funkcija*. Plėtinys jungiasi prie „Microsoft“ internetinės tarnybos, teikiančios rašybos, gramatikos ir stiliaus pasiūlymus jūsų tekstui daugumoje svetainių daugiau nei 80 kalbų.\r\n\r\n*Ši funkcija gali būti pasiekiama ne visiems vartotojams.\r\n\r\nĮdiegdami programą, sutinkate su šiomis sąlygomis: http://aka.ms/officechromeextensionterms\r\n\r\nPrivatumo strategija: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionEdge": {
+    "message": "„Microsoft 365“ naršyklės plėtinys „Microsoft Edge“ įrankių juostoje padeda piktogramą, kuri leidžia tiesiogiai pasiekti „Microsoft 365“ failus, nesvarbu, ar jie saugomi internete, ar jūsų kompiuteryje.\r\n\r\n„Microsoft 365“ žiniatinklio plėtinys gali atidaryti failus, saugomus „OneDrive“ ir „OneDrive“ verslui.\r\n\r\nGalite naudotis „Word“, „Excel“, „PowerPoint“, „OneNote“ ir „Sway“ funkcijomis tiesiogiai naršyklėje, neįdiegę „Microsoft 365“.\r\n\r\n„Microsoft 365“ naršyklės plėtinyje dabar yra jūsų turinio tikrinimo funkcija*. Plėtinys jungiasi prie „Microsoft“ internetinės tarnybos, teikiančios rašybos, gramatikos ir stiliaus pasiūlymus jūsų tekstui daugumoje svetainių daugiau nei 80 kalbų.\r\n\r\n*Ši funkcija gali būti pasiekiama ne visiems vartotojams.\r\n\r\nĮdiegdami programą, sutinkate su šiomis sąlygomis: \r\n\r\n"
+  },
+  "AppTermsOfServiceLCA": {
+    "message": "PLEASE NOTE: Refer to your license terms for Microsoft 365 browser extension software (the \"software\") to identify the entity licensing this supplement to you and for support information. You may use a copy of this supplement with each validly licensed copy of the software. You may not use the supplement if you do not have a license for the software. The license terms for the software apply to your use of this supplement."
+  },
+  "BrowseToOpenLabel": {
+    "message": "Nusiųsti ir atidaryti..."
+  },
+  "UploadToOneDriveLabel": {
+    "message": "Nusiųsti į „OneDrive“"
+  },
+  "UploadToOneDriveBusinessLabel": {
+    "message": "Nusiųsti į „OneDrive“ verslui"
+  },
+  "AppListLabel": {
+    "message": "Web Apps"
+  },
+  "RecentDocsLabel": {
+    "message": "Dokumentai"
+  },
+  "RecentDocsItemAriaLabel": {
+    "message": "saitas bus atidarytas naujame skirtuke."
+  },
+  "CreateDocsMessageLabel": {
+    "message": "Nėra vėliausiai peržiūrėtų dokumentų."
+  },
+  "DocumentsNotFoundMessageLabel": {
+    "message": "Šiuo metu negalime gauti naujausių jūsų dokumentų sąrašo."
+  },
+  "LoadingRecentsLabel": {
+    "message": "Įkeliama..."
+  },
+  "CreateNewLabel": {
+    "message": "Naujas"
+  },
+  "OfflineLabel": {
+    "message": "Esate neprisijungę. Prisijunkite iš naujo, kad galėtumėte naudoti Microsoft 365 naršyklės plėtinį."
+  },
+  "OpenDocumentLabel": {
+    "message": "Atidaryti"
+  },
+  "AccountLabel": {
+    "message": "Paskyra"
+  },
+  "UsernameLabel": {
+    "message": "Neprisijungęs"
+  },
+  "SettingsLabel": {
+    "message": "Parametrai"
+  },
+  "ExcelAppName": {
+    "message": "Excel"
+  },
+  "ExcelOnlineAppName": {
+    "message": "Excel"
+  },
+  "OneDriveAppName": {
+    "message": "OneDrive"
+  },
+  "SharePointAppName": {
+    "message": "SharePoint"
+  },
+  "SharePointSiteAppName": {
+    "message": "SharePoint"
+  },
+  "OutlookAppName": {
+    "message": "Outlook"
+  },
+  "TeamsAppName": {
+    "message": "Komandos"
+  },
+  "OneDriveFilesLabel": {
+    "message": "Iš „OneDrive“"
+  },
+  "O365FilesLabel": {
+    "message": "Iš „OneDrive“ verslui"
+  },
+  "OneNoteAppName": {
+    "message": "OneNote"
+  },
+  "OneNoteOnlineAppName": {
+    "message": "OneNote"
+  },
+  "PowerPointAppName": {
+    "message": "PowerPoint"
+  },
+  "PowerPointOnlineAppName": {
+    "message": "PowerPoint"
+  },
+  "SignInLabel": {
+    "message": "Prisijungti"
+  },
+  "SignInMSALabel": {
+    "message": "Prisijunkite naudodami „Microsoft“ paskyrą"
+  },
+  "SignInO365Label": {
+    "message": "Prisijunkite naudodami darbo arba mokymo įstaigos paskyrą"
+  },
+  "SignOutLabel": {
+    "message": "Atsijungti"
+  },
+  "CreateAccountLabel": {
+    "message": "Kurti paskyrą"
+  },
+  "SwayAppName": {
+    "message": "Sway"
+  },
+  "TelemetrySettingLabel": {
+    "message": "Automatiškai siųskite duomenis, kad padėtumėte tobulinti mūsų produktus."
+  },
+  "WebRedirectSettingLabel": {
+    "message": "Atidarykite Microsoft 365 failus naršyklėje naudodami Microsoft 365."
+  },
+  "MoreFilesLabel": {
+    "message": "Daugiau dokumentų"
+  },
+  "WordAppName": {
+    "message": "Word"
+  },
+  "WordOnlineAppName": {
+    "message": "Word"
+  },
+  "SignInHeaderLabel": {
+    "message": "Kur norite įrašyti failus?"
+  },
+  "NextLabel": {
+    "message": "Prisijungti"
+  },
+  "CopyrightLabel": {
+    "message": "Microsoft Corporation 2015"
+  },
+  "FileTypeErrorMessage": {
+    "message": "Failo tipas nepalaikomas. Pasirinkite „Word“, „Excel“ arba „PowerPoint“ dokumentą."
+  },
+  "NotificationFileAccess": {
+    "message": "Jei norite nuvilkti failus, plėtinio parametruose pasirinkite žymės langelį „Leisti prieigą prie failų URL“."
+  },
+  "NotificationFileMaxSizeByteLimitReached": {
+    "message": "„Microsoft 365“ naršyklės plėtinys negali atidaryti jūsų dokumento, nes jis per didelis. Norėdami atidaryti dokumentą, nusiųskite jį tiesiogiai į „OneDrive“."
+  },
+  "NotificationFileUploadFailureGeneric": {
+    "message": "Deja, nepavyko atidaryti jūsų failo."
+  },
+  "NotificationFileUploadFailureServer": {
+    "message": "Deja, nepavyko atidaryti jūsų failo. Bandykite dar kartą vėliau."
+  },
+  "NotificationFileUploadFailureUnsupportedMedia": {
+    "message": "Deja, nepavyko atidaryti jūsų failo. Pasirinkite failą, sukurtą naudojant „Word“, „Excel“ arba „PowerPoint“"
+  },
+  "NotificationFileUploadInProgress": {
+    "message": "Šiuo metu įkeliame jūsų dokumentus."
+  },
+  "NotificationSetDefault": {
+    "message": "Norėdami atidaryti dokumentus naudodami „Microsoft 365“, programėlėje Failai bakstelėkite juos dviem pirštais."
+  },
+  "NotificationAutoSaveToOneDrive": {
+    "message": "Failą įrašėme į jūsų „OneDrive“ aplanką „Microsoft 365“ naršyklės plėtinys“."
+  },
+  "NotificationAutoSaveToSharePoint": {
+    "message": "Failą įrašėme į jūsų „OneDrive“ verslui aplanką „Microsoft 365“ naršyklės plėtinys“."
+  },
+  "NotificationAutoSaveButton": {
+    "message": "Daugiau to nerodyti"
+  },
+  "NotificationNotSignedIn": {
+    "message": "Prisijunkite prie plėtinio norėdami peržiūrėti ir redaguoti „Microsoft 365“ failus internete."
+  },
+  "NotificationUnsupportedFileType": {
+    "message": "Pasirinkite failą, sukurtą naudojant „Word“, „Excel“ arba „PowerPoint“."
+  },
+  "NotificationInvalidSubscription": {
+    "message": "Jūsų „Microsoft 365“ prenumerata pasibaigusi arba į ją neįtraukta „OneDrive“ verslui. Patikrinkite prenumeratą arba prisijunkite naudodami „Microsoft“ paskyrą."
+  },
+  "NotificationWebDocRedirect": {
+    "message": "Microsoft 365 plėtinys atidaro dokumentą naršyklėje"
+  },
+  "NotificationWebDocRedirectButton": {
+    "message": "Daugiau nerodyti"
+  },
+  "OfficeOnlineAppName": {
+    "message": "Microsoft 365"
+  },
+  "ShareMessage": {
+    "message": "Bendrinti"
+  },
+  "SharePermissionsTooltip": {
+    "message": "Neturite teisės bendrinti"
+  },
+  "SharePermissionsErrorMessage": {
+    "message": "Reikalingos teisės"
+  },
+  "SupportPageLabel": {
+    "message": "Reikia pagalbos prisijungiant?"
+  },
+  "MyAccountLabel": {
+    "message": "Rodyti mano paskyrą"
+  },
+  "EditorSpellingToggleLabel": {
+    "message": "Rašyba"
+  },
+  "EditorGrammarToggleLabel": {
+    "message": "Gramatika"
+  },
+  "EditorRefinementsToggleLabel": {
+    "message": "Patobulinimai"
+  },
+  "DisableEditorOnThisSiteLabel": {
+    "message": "Išjungti Redaktorių svetainėje $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EnableEditorOnThisSiteLabel": {
+    "message": "Įjungti Redaktorių svetainėje $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsDisabledOnThisSiteLabel": {
+    "message": "Redaktorius šiuo metu svetainėje $host$ išjungtas",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsBlockedOnThisSiteLabel": {
+    "message": "Redaktorius šiuo metu svetainėje $host$ nepalaikomas",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorPreviewLabel": {
+    "message": "(peržiūros versija)"
+  },
+  "EditorBrandText": {
+    "message": "Redaktorius"
+  },
+  "EditorIsOffLabel": {
+    "message": "Redaktorius išjungtas."
+  },
+  "TurnOnEditorLabel": {
+    "message": "Įjungti Redaktorių"
+  },
+  "EditorRefinementsTooltip": {
+    "message": "Patobulinimai – tai išplėstiniai rašymo pasiūlymai, kurie padės jums rašyti aiškiau, naudoti mažiau nereikalingų žodžių ar pasirinkti oficialesnį stilių."
+  },
+  "EditorRefinementsGoPremiumTooltip": {
+    "message": "Gaukite pažangių rašymo idėjų ir 1 TB saugyklą pasirinkę „Premium“."
+  },
+  "StandaloneExtensionInstalledLabel": {
+    "message": "Redaktoriaus paslaugą teikia „Microsoft“ redaktoriaus plėtinys."
+  },
+  "EditorNativeSupportOnThisSiteLabel": {
+    "message": "Teksto rengyklė yra įtraukta į $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "outlook.com"
+      }
+    }
+  },
+  "EditorPriorityShutdownLabel": {
+    "message": "Redaktoriaus paslaugą teikia „Microsoft“ redaktoriaus plėtinys."
+  },
+  "AppsModuleLinkText": {
+    "message": "Naršykite visas savo programas"
+  },
+  "AppsSectionHeader": {
+    "message": "Programos"
+  }
+}

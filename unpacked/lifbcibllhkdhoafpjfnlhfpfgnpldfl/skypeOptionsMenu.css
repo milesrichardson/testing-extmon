@@ -1,0 +1,190 @@
+body {
+  font-family: "Segoe UI Local", "Segoe WP", "Segoe UI Web", Tahoma, "Helvetica Neue", Helvetica, "Meiryo UI", Meiryo, "Arial Unicode MS",
+    sans-serif;
+}
+
+body header {
+  height: 16vh;
+  text-align: center;
+}
+
+body header img {
+  vertical-align: middle;
+}
+
+body header .message {
+  margin: 5px;
+  padding: 8px;
+  background-color: #e8f9ff;
+  border-radius: 5px;
+  font-size: 0.97em;
+}
+
+body header .info.noDisplay {
+  visibility: hidden;
+}
+
+body .body {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 50vw;
+  font-size: 1em;
+  margin: auto;
+}
+body .body a {
+  text-decoration: none;
+  color: #0078ca;
+}
+body .body .title {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+body .body .title .logo {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+body .body .title .logo img {
+  width: 64px;
+}
+body .body .title .info {
+  padding-left: 15px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+body .body .title .info .heading h1 {
+  font-weight: 200;
+  font-size: 2em;
+  margin: 0;
+}
+body .body .title .info .company-branding {
+  font-size: 0.9em;
+}
+body .body .about {
+  margin-top: 15px;
+}
+
+body .body .toggle-button {
+  width: 46px;
+  height: 24px;
+  margin-top: 0px;
+  border: 2px solid transparent;
+  transition-property: border-color, background-color;
+  transition-duration: 0.2s;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  background-color: #a2c5d3;
+}
+
+body .body .toggle-button.checked {
+  background-color: #7fba00;
+}
+
+body .body .toggle-button::after {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 1.25px 1.25px rgba(0, 0, 0, 0.1);
+  content: "";
+  position: absolute;
+  transition-property: all;
+  transition-duration: 0.2s;
+  left: 0;
+  top: 0;
+}
+
+body .body .toggle-button.checked::after {
+  left: 22px;
+}
+
+.setting {
+  margin-bottom: 14px;
+}
+
+.setting span {
+  height: 20px;
+  vertical-align: super;
+  font-size: 16px;
+}
+
+.account {
+  visibility: hidden;
+}
+
+#signout-spinner {
+  width: 32px;
+  height: 32px;
+  margin-right: 4px;
+  display: none;
+}
+
+#signout {
+  box-sizing: border-box;
+  border-radius: 100px;
+  width: 100%;
+  min-height: 60px;
+  margin-top: 20px;
+  cursor: pointer;
+  color: #0078ca;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  background-color: white;
+  border: 1px solid #0078ca;
+  padding: 10px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#account-info-container {
+  flex-direction: column;
+}
+
+#account-loading-spinner-container {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  visibility: collapse;
+}
+
+#account-loading-spinner {
+  align-self: center;
+  height: 50px;
+  width: 50px;
+}
+
+#footer-container {
+  flex-direction: row;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}

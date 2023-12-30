@@ -1,0 +1,308 @@
+{
+  "AppName": {
+    "message": "Microsoft 365"
+  },
+  "AppShortName": {
+    "message": "Microsoft 365"
+  },
+  "AppNameEdge": {
+    "message": "Microsoft 365"
+  },
+  "AppFolderName": {
+    "message": "Microsoft 365 extensió del navegador"
+  },
+  "AppDescription": {
+    "message": "Visualitzeu, editeu i creeu documents al navegador."
+  },
+  "AppDescriptionWithEditor": {
+    "message": "Visualitzeu, editeu i creeu fitxers al navegador i doneu una ullada a la vostra millor escriptura al web."
+  },
+  "AppLongDescription": {
+    "message": "Creat per al Chrome: feu servir el Word, l'Excel, el PowerPoint, el OneNote i el Sway Online sense haver instal·lar el Microsoft 365.\r\n\r\nCreeu amb confiança: feu servir les opcions de format i disseny que ja coneixeu per expressar les vostres idees amb precisió.\r\n\r\nTreballeu des de qualsevol lloc: obteniu els fitxers sigueu on sigueu gràcies a la integració amb el OneDrive i el OneDrive for Business.\r\n\r\nEn instal·lar l'aplicació, accepteu aquests termes i condicions: http://aka.ms/officechromeextensionterms\r\n\r\nDeclaració de privadesa: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionWithEditor": {
+    "message": "Dissenyat per fer servir el Word, l'Excel, el PowerPoint, el OneNote i el Sway Online sense haver d’instal·lar el Microsoft 365.\r\n\r\nCreeu amb confiança: feu servir les opcions de format i disseny que ja coneixeu per expressar les vostres idees amb precisió.\r\n\r\nTreballeu des de qualsevol lloc: obteniu els fitxers sigueu on sigueu gràcies a la integració amb el OneDrive i el OneDrive for Business.\r\n\r\nAra l’extensió per al navegador del Microsoft 365 inclou la correcció del contingut*. Es connecta a un servei en línia de Microsoft que ofereix suggeriments d'ortografia, gramàtica i perfeccionament per a la vostra escriptura a la majoria de llocs web i està disponible en més de 80 llengües.\r\n\r\n*És possible que aquesta característica no estigui disponible per a tots els usuaris.\r\n\r\nEn instal·lar l'aplicació, accepteu aquests termes i condicions: http://aka.ms/officechromeextensionterms\r\n\r\nDeclaració de privadesa: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionEdge": {
+    "message": "L'extensió del navegador del Microsoft 365 col·loca una icona a la barra d'eines del Microsoft Edge que proporciona accés directe als fitxers del Microsoft 365, tant si els teniu emmagatzemats en línia com si estan a l'ordinador.\r\n\r\nL’extensió web del Microsoft 365 pot obrir fitxers emmagatzemats al OneDrive i al OneDrive for Business.\r\n\r\nObtindreu les característiques del Word, l'Excel, el PowerPoint, el OneNote i el Sway des del navegador sense haver d’instal·lar el Microsoft 365.\r\n\r\nAra l’extensió per al navegador del Microsoft 365 inclou la correcció del contingut*. Es connecta a un servei en línia de Microsoft que ofereix suggeriments d'ortografia, gramàtica i perfeccionament per a la vostra escriptura a la majoria de llocs web i està disponible en més de 80 llengües.\r\n\r\n*És possible que aquesta característica no estigui disponible per a tots els usuaris.\r\n\r\nEn instal·lar l'aplicació, accepteu aquests termes i condicions: \r\n\r\n"
+  },
+  "AppTermsOfServiceLCA": {
+    "message": "PLEASE NOTE: Refer to your license terms for Microsoft 365 browser extension software (the \"software\") to identify the entity licensing this supplement to you and for support information. You may use a copy of this supplement with each validly licensed copy of the software. You may not use the supplement if you do not have a license for the software. The license terms for the software apply to your use of this supplement."
+  },
+  "BrowseToOpenLabel": {
+    "message": "Carrega i obre..."
+  },
+  "UploadToOneDriveLabel": {
+    "message": "Puja-ho al OneDrive"
+  },
+  "UploadToOneDriveBusinessLabel": {
+    "message": "Puja-ho al OneDrive for Business"
+  },
+  "AppListLabel": {
+    "message": "Aplicacions web"
+  },
+  "RecentDocsLabel": {
+    "message": "Documents"
+  },
+  "RecentDocsItemAriaLabel": {
+    "message": "l'enllaç s'obrirà en una pestanya nova."
+  },
+  "CreateDocsMessageLabel": {
+    "message": "No hi ha cap document vist recentment."
+  },
+  "DocumentsNotFoundMessageLabel": {
+    "message": "No podem obtenir la llista de documents recents."
+  },
+  "LoadingRecentsLabel": {
+    "message": "S'està carregant..."
+  },
+  "CreateNewLabel": {
+    "message": "Crea"
+  },
+  "OfflineLabel": {
+    "message": "Esteu fora de línia. Torneu-vos a connectar per utilitzar l'Microsoft 365 del navegador."
+  },
+  "OpenDocumentLabel": {
+    "message": "Obre"
+  },
+  "AccountLabel": {
+    "message": "Compte"
+  },
+  "UsernameLabel": {
+    "message": "No s'ha iniciat la sessió"
+  },
+  "SettingsLabel": {
+    "message": "Configuració"
+  },
+  "ExcelAppName": {
+    "message": "Excel"
+  },
+  "ExcelOnlineAppName": {
+    "message": "Excel"
+  },
+  "OneDriveAppName": {
+    "message": "OneDrive"
+  },
+  "SharePointAppName": {
+    "message": "SharePoint"
+  },
+  "SharePointSiteAppName": {
+    "message": "SharePoint"
+  },
+  "OutlookAppName": {
+    "message": "Outlook"
+  },
+  "TeamsAppName": {
+    "message": "Teams"
+  },
+  "OneDriveFilesLabel": {
+    "message": "Des del OneDrive"
+  },
+  "O365FilesLabel": {
+    "message": "Des del OneDrive for Business"
+  },
+  "OneNoteAppName": {
+    "message": "OneNote"
+  },
+  "OneNoteOnlineAppName": {
+    "message": "OneNote"
+  },
+  "PowerPointAppName": {
+    "message": "PowerPoint"
+  },
+  "PowerPointOnlineAppName": {
+    "message": "PowerPoint"
+  },
+  "SignInLabel": {
+    "message": "Inicia la sessió"
+  },
+  "SignInMSALabel": {
+    "message": "Inicia la sessió amb un compte de Microsoft."
+  },
+  "SignInO365Label": {
+    "message": "Inicia la sessió amb un compte laboral o acadèmic."
+  },
+  "SignOutLabel": {
+    "message": "Tanca la sessió"
+  },
+  "CreateAccountLabel": {
+    "message": "Crea un compte"
+  },
+  "SwayAppName": {
+    "message": "Sway"
+  },
+  "TelemetrySettingLabel": {
+    "message": "Envia dades automàticament per ajudar-nos a millorar els nostres productes."
+  },
+  "WebRedirectSettingLabel": {
+    "message": "Obriu Microsoft 365 fitxers directament al navegador amb Microsoft 365."
+  },
+  "MoreFilesLabel": {
+    "message": "Més documents"
+  },
+  "WordAppName": {
+    "message": "Word"
+  },
+  "WordOnlineAppName": {
+    "message": "Word"
+  },
+  "SignInHeaderLabel": {
+    "message": "On voleu desar els fitxers?"
+  },
+  "NextLabel": {
+    "message": "Inicia la sessió"
+  },
+  "CopyrightLabel": {
+    "message": "Microsoft Corporation 2015"
+  },
+  "FileTypeErrorMessage": {
+    "message": "El tipus de fitxer no és compatible. Trieu un document del Word, de l'Excel o del PowerPoint."
+  },
+  "NotificationFileAccess": {
+    "message": "A la configuració de les extensions, activeu la casella \"Permet l'accés a les adreces URL dels fitxers\" si voleu arrossegar i deixar anar fitxers al navegador web."
+  },
+  "NotificationFileMaxSizeByteLimitReached": {
+    "message": "L'extensió del navegador Microsoft 365 no pot obrir el document a causa de la mida. Per obrir el document, carrega'l directament al OneDrive."
+  },
+  "NotificationFileUploadFailureGeneric": {
+    "message": "No hem pogut obrir el fitxer."
+  },
+  "NotificationFileUploadFailureServer": {
+    "message": "No hem pogut obrir el fitxer. Torneu-ho a provar més tard."
+  },
+  "NotificationFileUploadFailureUnsupportedMedia": {
+    "message": "No hem pogut obrir el fitxer. Trieu un fitxer que s'hagi creat amb el Word, l'Excel o el PowerPoint"
+  },
+  "NotificationFileUploadInProgress": {
+    "message": "Estem carregant els vostres documents en aquest moment."
+  },
+  "NotificationSetDefault": {
+    "message": "A l'aplicació Fitxers, toca els documents amb dos dits per obrir-los amb Microsoft 365."
+  },
+  "NotificationAutoSaveToOneDrive": {
+    "message": "Hem desat el fitxer a la carpeta \"Microsoft 365 del navegador\" del teu OneDrive."
+  },
+  "NotificationAutoSaveToSharePoint": {
+    "message": "Hem desat el teu fitxer a la carpeta \"Extensió de Microsoft 365\" del OneDrive for Business."
+  },
+  "NotificationAutoSaveButton": {
+    "message": "No ho tornis a mostrar"
+  },
+  "NotificationNotSignedIn": {
+    "message": "Inicieu la sessió a l'extensió per veure i editar fitxers al Microsoft 365 al web."
+  },
+  "NotificationUnsupportedFileType": {
+    "message": "Trieu un fitxer que s'hagi creat amb el Word, l'Excel o el PowerPoint."
+  },
+  "NotificationInvalidSubscription": {
+    "message": "Pot ser que la vostra subscripció al Microsoft 365 hagi caducat o bé que no inclogui el OneDrive for Business. Consulteu la subscripció o inicieu la sessió amb un compte de Microsoft."
+  },
+  "NotificationWebDocRedirect": {
+    "message": "L'Microsoft 365'aplicació està obrint el document al navegador"
+  },
+  "NotificationWebDocRedirectButton": {
+    "message": "No ho tornis a mostrar"
+  },
+  "OfficeOnlineAppName": {
+    "message": "Microsoft 365"
+  },
+  "ShareMessage": {
+    "message": "Comparteix"
+  },
+  "SharePermissionsTooltip": {
+    "message": "No tens permís per compartir"
+  },
+  "SharePermissionsErrorMessage": {
+    "message": "Es requereix permís"
+  },
+  "SupportPageLabel": {
+    "message": "Necessites ajuda per iniciar la sessió?"
+  },
+  "MyAccountLabel": {
+    "message": "Mostra el meu compte"
+  },
+  "EditorSpellingToggleLabel": {
+    "message": "Ortografia"
+  },
+  "EditorGrammarToggleLabel": {
+    "message": "Gramàtica"
+  },
+  "EditorRefinementsToggleLabel": {
+    "message": "Millores"
+  },
+  "DisableEditorOnThisSiteLabel": {
+    "message": "Inhabilita l'Editor a $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EnableEditorOnThisSiteLabel": {
+    "message": "Habilita l'Editor a $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsDisabledOnThisSiteLabel": {
+    "message": "L'Editor està desactivat actualment a $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsBlockedOnThisSiteLabel": {
+    "message": "L'Editor no és compatible actualment amb $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorPreviewLabel": {
+    "message": "(versió preliminar)"
+  },
+  "EditorBrandText": {
+    "message": "Editor"
+  },
+  "EditorIsOffLabel": {
+    "message": "L'Editor està desactivat."
+  },
+  "TurnOnEditorLabel": {
+    "message": "Activa l'Editor"
+  },
+  "EditorRefinementsTooltip": {
+    "message": "Els refinaments són suggeriments d'escriptura avançada per ajudar a fer que la teva redacció sigui més clara, menys prolixa o més formal."
+  },
+  "EditorRefinementsGoPremiumTooltip": {
+    "message": "Obtén idees d'escriptura avançada i 1 TB d'emmagatzematge quan canviïs a prèmium."
+  },
+  "StandaloneExtensionInstalledLabel": {
+    "message": "El servei Editor el proporciona l'extensió de l'editor de text de Microsoft"
+  },
+  "EditorNativeSupportOnThisSiteLabel": {
+    "message": "L'editor s'inclou amb $host$",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "outlook.com"
+      }
+    }
+  },
+  "EditorPriorityShutdownLabel": {
+    "message": "El servei Editor el proporciona l'extensió de l'editor de text de Microsoft"
+  },
+  "AppsModuleLinkText": {
+    "message": "Explorar totes les aplicacions"
+  },
+  "AppsSectionHeader": {
+    "message": "Aplicacions"
+  }
+}

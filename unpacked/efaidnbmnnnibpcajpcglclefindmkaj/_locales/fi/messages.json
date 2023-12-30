@@ -1,0 +1,450 @@
+{
+  "web2pdfExtnName": {
+    "message": "Adobe Acrobat: PDF-tiedostojen muokkaus-, muunnos- ja allekirjoitustyökalut"
+  },
+  "web2pdfExtnNameBeta": {
+    "message": "Adobe Acrobat Beta"
+  },
+  "web2pdfExtnNameStage": {
+    "message": "Adobe Acrobat Stage"
+  },
+  "web2pdfExtnDescriptionChrome": {
+    "message": "Tee Google Chromessa Adobe Acrobatin PDF-työkaluilla entistä enemmän. Tarkastele, täytä, kommentoi, allekirjoita sekä kokeile muunnos- ja pakkaustyökaluja."
+  },
+  "web2pdfExtnDescriptionEdge": {
+    "message": "Tee Microsoft Edgessä Adobe Acrobatin PDF-työkaluilla entistä enemmän. Tarkastele, täytä, kommentoi, allekirjoita sekä kokeile muunnos- ja pakkaustyökaluja."
+  },
+  "web2pdfExtnNameEdge": {
+    "message": "Adobe Acrobat: PDF-tiedostojen muokkaus-, muunnos- ja allekirjoitustyökalut"
+  },
+  "web2pdfExtnDescription": {
+    "message": "Käytä Acrobatia selaimessa PDF-tiedostojen tarkastelemiseen, muuntamiseen, pakkaamiseen ja allekirjoittamiseen"
+  },
+  "web2pdfExtnDescriptionBeta": {
+    "message": "Käytä Acrobatia selaimessa PDF-tiedostojen tarkastelemiseen, muuntamiseen, pakkaamiseen ja allekirjoittamiseen"
+  },
+  "web2pdfConvertButtonToolTip": {
+    "message": "Acrobat-laajennus – Pikavalinta kaikkiin PDF-työkaluihisi."
+  },
+  "web2pdfConvertButtonToolTipReader": {
+    "message": "Avaa PDF-tiedosto Acrobat Readerissa"
+  },
+  "web2pdfConvertButtonToolTipERPReader": {
+    "message": "Acrobat Reader -laajennus on tällä hetkellä poistettu käytöstä. Ota yhteyttä järjestelmänvalvojaan."
+  },
+  "web2pdfOpenButtonText": {
+    "message": "Avaa Acrobatissa"
+  },
+  "web2pdfOpenButtonTextReader": {
+    "message": "Avaa Acrobat Readerissa"
+  },
+  "web2pdfOpenButtonTextOlder": {
+    "message": "Lataa Adobe PDF"
+  },
+  "web2pdfFillSignAcrobatButtonText": {
+    "message": "Täytä ja allekirjoita"
+  },
+  "web2pdfConvertButtonText": {
+    "message": "Muunna sivu PDF:ksi..."
+  },
+  "web2pdfAddButtonText": {
+    "message": "Lisää aiempaan PDF:ään..."
+  },
+  "web2pdfVisitButtonText": {
+    "message": "Luo PDF Online"
+  },
+  "web2pdfOpenInDCButtonText": {
+    "message": "Avaa PDF Acrobatissa"
+  },
+  "web2pdfPreferencesButtonText": {
+    "message": "Oletusarvot..."
+  },
+  "web2pdfCopyText": {
+    "message": "Kopioidaan Acrobatiin"
+  },
+  "web2pdfFilename": {
+    "message": "Tiedostonimi:"
+  },
+  "web2pdfDestinationText": {
+    "message": "Kohdekansio:"
+  },
+  "web2pdfNoFoldersText": {
+    "message": "Acrobat DC -säilössä ei ole kansioita."
+  },
+  "web2pdfDoneButtonText": {
+    "message": "Valmis"
+  },
+  "web2pdfConvertPageContextMenu": {
+    "message": "Muunna verkkosivu Adobe PDF -muotoon..."
+  },
+  "web2pdfAppendPageContextMenu": {
+    "message": "Lisää verkkosivu olemassa olevaan PDF-tiedostoon..."
+  },
+  "web2pdfConvertLinkContextMenu": {
+    "message": "Muunna linkin kohde Adobe PDF -muotoon"
+  },
+  "web2pdfAppendLinkContextMenu": {
+    "message": "Liitä linkin kohde aiemmin luotuun PDF-tiedostoon"
+  },
+  "web2pdfUntitledFileName": {
+    "message": "nimetön"
+  },
+  "web2pdfStatusWaiting": {
+    "message": "Odotetaan muunnosta..."
+  },
+  "web2pdfStatusDownloading": {
+    "message": "Ladataan muunnosta varten..."
+  },
+  "web2pdfStatusInProgress": {
+    "message": "Muunnos käynnissä..."
+  },
+  "web2pdfStatusCancelled": {
+    "message": "Muunnos peruutettu."
+  },
+  "web2pdfStatusComplete": {
+    "message": "Muunnos onnistui."
+  },
+  "web2pdfClickToOpen": {
+    "message": "Avaa PDF-tiedosto Acrobatissa napsauttamalla alla olevaa linkkiä."
+  },
+  "web2pdfStatusFailure": {
+    "message": "Muunnosvirhe"
+  },
+  "web2pdfUnsupportedAcrobatVersion": {
+    "message": "Acrobatin tuettua versiota ei löytynyt. Asenna <a target='_blank' href='https://acrobat.adobe.com/fi/fi/free-trial-download.html?trackingid=29NMCS7T&mv=other'>7 päivän maksuton kokeiluversio</a>."
+  },
+  "web2pdfStatusUnknownFailure": {
+    "message": "Tuntematon virhe"
+  },
+  "web2pdfFileLockedError": {
+    "message": "Tiedostoa ei voi tallentaa, sillä se on toisen prosessin käytössä."
+  },
+  "web2pdfReplaceWarning": {
+    "message": "on jo olemassa.\n Haluatko korvata sen?"
+  },
+  "web2pdfNoWritePermissionOnSelectedFile": {
+    "message": "Sinulla ei ole kirjoitusoikeuksia valittuun tiedosoon."
+  },
+  "web2pdfHTMLTooLarge": {
+    "message": "HTML-sisältö on liian suuri käsiteltäväksi."
+  },
+  "web2pdfHTMLJSError": {
+    "message": "Verkkosivua käsiteltäessä tapahtui virhe."
+  },
+  "web2pdfOptionsTitle": {
+    "message": "Adobe Acrobatin oletusarvot"
+  },
+  "web2pdfMissingMac": {
+    "message": "Adobe Acrobat for Chrome ei ole vielä saatavana Maciin."
+  },
+  "web2pdfMissingMacEdge": {
+    "message": "Adobe Acrobat for Microsoft Edge ei ole vielä saatavana Maciin."
+  },
+  "web2pdfOptOut": {
+    "message": "Tämä laajennus lähettää tuotteen ominaisuuksien parantamiseksi Adobelle tietoja tavastasi käyttää tuotetta."
+  },
+  "web2pdfOptOutDisabled": {
+    "message": "Käyttötietojasi ei jaeta."
+  },
+  "web2pdfOptions": {
+    "message": "Asetukset"
+  },
+  "web2pdfSave": {
+    "message": "Tallenna"
+  },
+  "web2pdfStatusDownloadingPDF": {
+    "message": "Ladataan PDF-tiedostoa"
+  },
+  "web2pdfPDFOpening": {
+    "message": "Avataan PDF-tiedostoa"
+  },
+  "web2pdfPDFOpenFailed": {
+    "message": "PDF-tiedoston avaaminen epäonnistui"
+  },
+  "web2pdfPDFOpenFailedv2": {
+    "message": "Avaaminen epäonnistui."
+  },
+  "web2pdfPDFOpened": {
+    "message": "PDF-tiedosto on avattu"
+  },
+  "web2pdfAlwaysShow": {
+    "message": "Näytä automaattisesti PDF-tiedostoja varten"
+  },
+  "web2pdfShowPersistentOpen": {
+    "message": "Näytä ”Avaa Acrobatissa”"
+  },
+  "web2pdfShowPersistentOpenAlways": {
+    "message": "Näytä aina ”Avaa Acrobatissa”"
+  },
+  "web2pdfFrictionlessUrl": {
+    "message": "https://www.adobe.com/go/fl_chromeext_fi"
+  },
+  "web2pdfFrictionlessUrlEdge": {
+    "message": "https://www.adobe.com/fi/acrobat/online.html?x_api_client_id=edge_extension&x_api_client_location=trefoil&mv=other&mv2=edge_extension:trefoil&trackingid=HM85XB76"
+  },
+  "web2pdfPrivacy": {
+    "message": "Tietoja Adobe Acrobatista"
+  },
+  "web2pdfTitle": {
+    "message": "Adobe Acrobat"
+  },
+  "web2pdfBadVersion": {
+    "message": "Tämä Chromen versio ei tue Adobe Acrobatia. Vähimmäisversio on $version$.",
+    "placeholders": {
+      "version": {
+        "content": "$1"
+      }
+    }
+  },
+  "web2pdfBadVersionEdge": {
+    "message": "Tämä Edgen versio ei tue Adobe Acrobatia. Vähimmäisversio on $version$.",
+    "placeholders": {
+      "version": {
+        "content": "$1"
+      }
+    }
+  },
+  "stripTextOpenAcrobat": {
+    "message": "Avaa Acrobatissa"
+  },
+  "stripTextOpenFillnSign": {
+    "message": "Täytä ja allekirjoita Acrobatissa"
+  },
+  "convertMegaVerbText": {
+    "message": "Muunna"
+  },
+  "editMegaVerbText": {
+    "message": "Muokkaa"
+  },
+  "signMegaVerbText": {
+    "message": "Allekirjoita"
+  },
+  "ConvertVerbDescription": {
+    "message": "Muunna dokumentteja PDF-muodosta tai PDF-muotoon."
+  },
+  "EditVerbDescription": {
+    "message": "Järjestä, kierrä tai poista PDF-tiedoston sivuja."
+  },
+  "SignVerbDescription": {
+    "message": "Täytä ja allekirjoita PDF-tiedostoja tai pyydä allekirjoituksia."
+  },
+  "web2pdfEditPDFText": {
+    "message": "Muokkaa PDF-tiedostoa"
+  },
+  "web2pdfEditRotatePDFText": {
+    "message": "Kierrä sivuja"
+  },
+  "web2pdfEditDeletePDFText": {
+    "message": "Poista sivut"
+  },
+  "web2pdfEditReorderPDFText": {
+    "message": "Järjestä sivut uudelleen"
+  },
+  "web2pdfFillandSignText": {
+    "message": "Täytä ja allekirjoita"
+  },
+  "web2pdfRequestSignaturesText": {
+    "message": "Pyydä allekirjoituksia"
+  },
+  "web2pdfCreatePDFText": {
+    "message": "Muunna PDF-muotoon"
+  },
+  "web2pdfCompressPDFText": {
+    "message": "Pakkaa PDF"
+  },
+  "web2pdfShowPDFTools": {
+    "message": "Näytä Googlen hakutulosten kanssa"
+  },
+  "web2pdfGoToAOnlineButtonText": {
+    "message": "Siirry Acrobatin verkkoversioon"
+  },
+  "web2pdfInfoHoverPopup": {
+    "message": "Adobe Acrobat -laajennus suosittelee PDF-työkaluja, jotka helpottavat työsi suorittamista. Suosituksemme perustuu hakuihisi, ja toiminto suoritetaan laitteella; hakuja ei lähetetä Adobelle. Napsauta <span class = \"tooltip-content-settings\">tätä</span>, jos haluat poistaa tämän toiminnon käytöstä."
+  },
+  "web2pdfLoaderTitle": {
+    "message": "Ladataan..."
+  },
+  "web2pdfExportPDFToWordText": {
+    "message": "PDF Wordiksi"
+  },
+  "web2pdfExportPDFToJPGText": {
+    "message": "PDF JPG:ksi"
+  },
+  "web2pdfExportPDFToExcelText": {
+    "message": "PDF:stä Exceliksi"
+  },
+  "web2pdfExportPDFToPPTText": {
+    "message": "PDF:stä PPT:ksi"
+  },
+  "web2pdfShowPDFViewerOption": {
+    "message": "Käytä Acrobatia oletusarvoisena PDF-katseluohjelmana "
+  },
+  "pdfOwnershipExploreAcrobat": {
+    "message": "Käytä Acrobatia Chromessa"
+  },
+  "pdfOwnershipExploreAcrobatEdge": {
+    "message": "Käytä Acrobatia Microsoft Edgessä"
+  },
+  "pdfOwnershipPromptContent": {
+    "message": "Aseta Adobe Acrobat oletuskatseluohjelmaksi, niin voit tehdä PDF-tiedostoilla Chromessa enemmän."
+  },
+  "pdfOwnershipPromptContent2": {
+    "message": "Aseta Acrobat oletusarvoiseksi PDF-katseluohjelmaksi, niin voit käyttää PDF-tiedostoja Google Chromessa. Kommentoi, täytä, allekirjoita ja kokeile jopa muunnos- ja pakkaustyökaluja."
+  },
+  "pdfOwnershipPromptContentEdge": {
+    "message": "Aseta Adobe Acrobat oletuskatseluohjelmaksi, niin voit tehdä PDF-tiedostoilla Microsoft Edgessä enemmän."
+  },
+  "pdfOwnershipPromptCancel": {
+    "message": "Ei nyt"
+  },
+  "pdfOwnershipPromptDeny": {
+    "message": "Ei, kiitos"
+  },
+  "pdfOwnershipPromptOk": {
+    "message": "Aseta oletukseksi"
+  },
+  "pdfOwnershipPromptOkFullscreen": {
+    "message": "Kokeile nyt"
+  },
+  "sharepointPreferenceMessage": {
+    "message": "Salli SharePoint-tiedostojen uloskuittaus Acrobatissa."
+  },
+  "LearnMoreURL": {
+    "message": "https://helpx.adobe.com/fi/acrobat/kb/acrobat-pro-aip-for-chrome.html"
+  },
+  "LearnMoreURLEdge": {
+    "message": "https://helpx.adobe.com/fi/acrobat/kb/acrobat-pro-aip-for-edge.html"
+  },
+  "analyticsOptinTitle": {
+    "message": "Lähetä käyttötiedot"
+  },
+  "web2pdfOpenConvertedPDFTitle": {
+    "message": "Avaa muunnetut PDF-tiedostot automaattisesti Acrobatissa"
+  },
+  "web2pdfShowPersistentOpenDescription": {
+    "message": "Näytä PDF-tiedoston avausmahdollisuus Acrobatissa joka kerta."
+  },
+  "web2pdfOpenConvertedPDFDescription": {
+    "message": "Avaa muunnettu PDF-tiedosto automaattisesti Acrobatissa, kun verkkosivun muunnos PDF-tiedostoksi on suoritettu."
+  },
+  "pdfOwnershipExploreOptionsTitle": {
+    "message": "Avaa PDF-tiedostot Acrobatissa"
+  },
+  "pdfOwnershipExploreOptionsDescription": {
+    "message": "Tee Acrobatista selaimesi oletusarvoinen PDF-katseluohjelma, jotta voit käyttää kommentointia, täyttämistä ja allekirjoittamista sekä muita PDF-työkaluja."
+  },
+  "optionsSuccessPrompt": {
+    "message": "Oletusarvojen tallentaminen onnistui."
+  },
+  "optionsFailurePrompt": {
+    "message": "Muutoksia ei voi tallentaa. Yritä myöhemmin uudelleen."
+  },
+  "web2pdfFrictionlessToggleDescription": {
+    "message": "Adobe Acrobat -laajennus suosittelee PDF-työkaluja, jotka helpottavat työsi suorittamista. Suosituksemme perustuu hakuihisi, ja toiminto suoritetaan laitteella; hakuja ei lähetetä Adobelle."
+  },
+  "web2pdfSaveButton": {
+    "message": "Tallenna oletusarvot"
+  },
+  "web2pdfPreferencesNewText": {
+    "message": "Muuntoasetukset..."
+  },
+  "fteSideCardPrimaryHeader": {
+    "message": "Käytä Acrobatia"
+  },
+  "fteSideCardSecondaryHeader": {
+    "message": "suoraan Chromessa"
+  },
+  "pdfOwnershipDefSideCardcontent": {
+    "message": "Tarkastele, kommentoi, täytä lomakkeita, allekirjoita ja suorita muita toimintoja asettamalla Adobe Acrobat oletusarvoiseksi PDF-katseluohjelmaksi."
+  },
+  "pdfOwnerShipDmbConfirmBtn": {
+    "message": "Jatka"
+  },
+  "pdfOwnerShipSideRedCardConfirmBtn": {
+    "message": "Jatka"
+  },
+  "fteOwnershipSideRedCardContent": {
+    "message": "Kommentoi, täytä lomakkeita, allekirjoita ja suorita muita toimintoja suoraan Chromessa asettamalla Acrobat oletusarvoiseksi PDF-katseluohjelmaksi."
+  },
+  "appearancePrefTitle": {
+    "message": "Tumman tilan asetukset"
+  },
+  "appearancePrefDesc": {
+    "message": "Vaihda tumman ja vaalean teeman välillä"
+  },
+  "appearancePrefOp1": {
+    "message": "Käytä järjestelmäasetusta"
+  },
+  "appearancePrefOp2": {
+    "message": "Tumma teema"
+  },
+  "appearancePrefOp3": {
+    "message": "Vaalea teema"
+  },
+  "adobeYoloMessage": {
+    "message": "Sinut kirjataan Acrobatiin..."
+  },
+  "saveLocationPreferenceTitle": {
+    "message": "Tallenna tiedostosijainti"
+  },
+  "saveLocationPreferenceDescription": {
+    "message": "Aseta sijainti tiedostojen tallennusta varten"
+  },
+  "saveLocationOp1": {
+    "message": "Kysy minulta joka kerta"
+  },
+  "saveLocationOp2": {
+    "message": "Adoben pilvitallennustila"
+  },
+  "saveLocationOp3": {
+    "message": "Oma tietokone"
+  },
+  "localFteTitle": {
+    "message": "Vaihda Acrobatiin paikallisten tiedostojen avaamista varten"
+  },
+  "localFteDescription": {
+    "message": "Hyödynnä Acrobat-laajennusta parhaalla mahdollisella tavalla ja avaa sillä kaikki PDF-tiedostot. Ota Myönnä oikeudet tiedostojen URL-osoitteisiin -asetus laajennuksen asetuksissa käyttöön."
+  },
+  "localFteDontShowAgainText": {
+    "message": "Älä näytä tätä uudelleen"
+  },
+  "localFteContinue": {
+    "message": "Siirry asetuksiin"
+  },
+  "localFileOptionTitle": {
+    "message": "Avataan paikallisia PDF-tiedostoja Acrobatissa"
+  },
+  "localFileOptionDesc": {
+    "message": "Myönnä Acrobat-laajennukselle oikeudet paikallisten tiedostojen URL-osoitteisiin, jotta kaikki PDF-tiedostot voidaan avata Acrobatilla Chromessa."
+  },
+  "Enable": {
+    "message": "Päälle"
+  },
+  "Disable": {
+    "message": "Poista käytöstä"
+  },
+  "adobeYoloErrorMessage": {
+    "message": "Tämä linkki ei valitettavasti kelpaa."
+  },
+  "popupNoConnection": {
+    "message": "Ei yhteyttä"
+  },
+  "popupOfflineMessage": {
+    "message": "Ota yhteyttä järjestelmänvalvojaan yhteyden muodostamiseksi uudelleen"
+  },
+  "webpagePDFConversion": {
+    "message": "Verkkosivu PDF:ksi -muunnosasetus"
+  },
+  "webpagePDFConversionDescription": {
+    "message": "Kun tallennat verkkosivut PDF-tiedostoina, voit määrittää reunukset, kirjasimet ja muita asetteluun liittyviä yksityiskohtia"
+  },
+  "extensionMenuTitle": {
+    "message": "Acrobat-laajennus – pikavalinta kaikkiin PDF-työkaluihisi"
+  },
+  "userLocale": {
+    "message": "Käyttäjän aluekohtaiset asetukset"
+  },
+  "dcWebBookmarkTitle": {
+    "message": "Adobe Acrobatin Aloitus-sivu"
+  }
+}

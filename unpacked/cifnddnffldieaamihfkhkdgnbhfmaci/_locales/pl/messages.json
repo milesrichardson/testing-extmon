@@ -1,0 +1,50 @@
+{
+  "extName": {
+    "message": "Foxit PDF Creator"
+  },
+  "extDesc": {
+    "message": "Aby przekonwertować stronę internetową do pliku Foxit PDF"
+  },
+  "default_title": {
+    "message": "Aby przekonwertować stronę internetową do pliku Foxit PDF"
+  },
+  "ConvertToFoxitPDF": {
+    "message": "Konwertuj do pliku Foxit PDF"
+  },
+  "AppendToExistingPDF": {
+    "message": "Dołącz do innego pliku PDF"
+  },
+  "CreateAndEmail": {
+    "message": "Utwórz i wyślij pocztą e-mail"
+  },
+  "ConvertLinkTargetToPDF": {
+    "message": "Konwertuj połączoną stronę na plik Foxit PDF"
+  },
+  "AppendLinkTargetToExistingPDF": {
+    "message": "Dołącz powiązaną stronę do innego pliku PDF"
+  },
+  "ViewPDFResults": {
+    "message": "Wyświetl wynik PDF"
+  },
+  "Preferences": {
+    "message": "Preferencje"
+  },
+  "Uninstall": {
+    "message": "Odinstaluj"
+  },
+  "Reinstall": {
+    "message": "Zainstaluj ponownie"
+  },
+  "UninstallTip": {
+    "message": "Operacji ODINSTALOWANIA nie można cofnąć, zachowaj ostrożność!"
+  },
+  "UninstallSureTip": {
+    "message": "Operacji ODINSTALOWANIA nie można cofnąć, czy na pewno chcesz to zrobić?"
+  },
+  "UninstallSuccessTip": {
+    "message": "Pomyślnie odinstalowano rozszerzenie Foxit PhantomPDF — Utwórz PDF. Zmiany zostaną wprowadzone przy ponownym uruchomieniu przeglądarki."
+  },
+  "OptionsTitle": {
+    "message": "Opcje rozszerzenia Foxit PhantomPDF"
+  }
+}

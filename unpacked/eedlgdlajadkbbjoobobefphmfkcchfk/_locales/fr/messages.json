@@ -1,0 +1,14 @@
+{
+  "store_shortdesc_new": {
+    "message": "Cette extension permet de faire d'Ecosia votre moteur de recherche et de personnaliser la page « Nouvel onglet » de votre navigateur afin de planter des arbres à chaque recherche.",
+    "description": ""
+  },
+  "store_title_new": {
+    "message": "Ecosia – Le moteur de recherche qui plante des arbres",
+    "description": ""
+  },
+  "browser_action_hover": {
+    "message": "Recherche Ecosia",
+    "description": ""
+  }
+}

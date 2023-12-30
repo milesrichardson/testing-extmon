@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "在线购物时，通过 Avast 提供的价格比较和优惠券扩展功能，寻找最划算的价格、交易和优惠券。",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "在线购物时，通过 AVG 提供的价格比较和优惠券扩展功能，寻找最划算的价格、交易和优惠券。",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "节省"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | 安全购物网站上的价格比较、交易和优惠券 — 省钱"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | 安全购物网站上的价格比较、交易和优惠券 — 省钱"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | 比较、交易、优惠券"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | 比较、交易、优惠券"
+  },
+  "sasHintSettings": {
+    "message": "设置"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "使用<br>Avast SafePrice 的体验如何？",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "使用<br>AVG SafePrice 的体验如何？",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "很高兴您喜欢！"
+  },
+  "sasSorry": {
+    "message": "很抱歉听到这个消息"
+  },
+  "sasAnswerYes": {
+    "message": "是"
+  },
+  "sasAnswerNo": {
+    "message": "否"
+  },
+  "safePriceLeaveRating": {
+    "message": "给我们留下体现您所喜欢物品的评价。",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "立即评价"
+  },
+  "safePriceAskMeLater": {
+    "message": "稍后询问我",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Avast SafePrice 设置"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "AVG SafePrice 设置"
+  },
+  "spOffersTab": {
+    "message": "优惠"
+  },
+  "spCouponsTab": {
+    "message": "优惠券"
+  },
+  "spOthersTab": {
+    "message": "其他"
+  },
+  "spAdditionalFees": {
+    "message": "可能收取附加费用和税费"
+  },
+  "spShippingLabel": {
+    "message": "S/H 低至"
+  },
+  "spGetCouponCode": {
+    "message": "获取验证码"
+  },
+  "spApply": {
+    "message": "使用优惠券"
+  },
+  "spCopyAtCheckOut": {
+    "message": "结账时复制粘贴："
+  },
+  "spCouponApplied": {
+    "message": "优惠券已使用。"
+  },
+  "spLoadingNotificationMessage": {
+    "message": "正在搜索优惠..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "我们保证，绝不会让您白等。"
+  },
+  "spCouponsNotificationMessage": {
+    "message": "使用优惠券省钱"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "最多节省"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "哦，您看！<br>这里有更多优惠"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "价格低至"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "哦，您看！这里有更多优惠"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "已找到的折扣和优惠券。您运气真不错！"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "更优惠，<br>更省钱！"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "更优惠，更省钱！"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "受欢迎的酒店："
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "找到的同类型酒店！"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "同类型酒店"
+  },
+  "spShowNotificationMessage": {
+    "message": "显示"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "看看我们找到了什么！"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "显示优惠"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "更多"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "更少"
+  },
+  "spNothingFound": {
+    "message": "啊哦，<br>什么也没找到…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "啊哦...<br>未找到优惠券..."
+  },
+  "spNothingFoundOffers": {
+    "message": "啊哦...<br>未找到优惠..."
+  },
+  "spNothingFoundOthers": {
+    "message": "啊哦...<br>未找到特惠..."
+  },
+  "spCouponsSelected": {
+    "message": "选中的优惠券： "
+  },
+  "spCouponsSelectedText": {
+    "message": "已选择"
+  },
+  "spCouponsAvailableText": {
+    "message": "可用"
+  },
+  "spCouponsExpiration": {
+    "message": "到期时间： "
+  },
+  "spSettingsTabNotifications": {
+    "message": "通知"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "优惠"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "电商优惠"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "有可用的电商优惠时显示"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "仅在电商提供的优惠价格低于原始价格时显示"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "不要通知我电商优惠信息"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "（单击工具栏图标即可随时查看优惠信息）"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "住宿优惠"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "当有更好的酒店价格时显示"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "根据我的要求显示同类型酒店"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "显示指定区域内的热门酒店"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "优惠券"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "有可用优惠券时显示"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "每个网站仅显示一次"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "不要通知我优惠券信息"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "（单击工具栏图标随时可以查看优惠信息）"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "其他"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "特惠"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "通知我其他类别的特惠（交通、金融、电力等）"
+  },
+  "spSettingsPageCustomList": {
+    "message": "自定义列表"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "不要在这些网站显示任何通知："
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "（您仍可以单击工具栏图标即可随时查看优惠及优惠券信息）"
+  },
+  "spSettingsPrivacy": {
+    "message": "隐私"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "允许分析产品性能和数据使用情况，方便研发新产品"
+  },
+  "spSettingsPageHelp": {
+    "message": "帮助"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. 通知"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "SafePrice 找到与您搜索相关的优惠或优惠券时，会弹出一个通知。点击绿色大按钮，查看我们为您找到的优惠。"
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. 优惠"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "点击优惠即会带您进入受信任的合作伙伴在线商店，在那里，您将在通知区域看到列出的新价格。"
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. 优惠券"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "点击即可使用优惠券。如果显示了优惠码，您需要在付款时将它粘贴到相应区域，否则会自动使用优惠券。"
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. 其他"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "点击列表中的特惠即会带您进入受信任的合作伙伴在线商店。"
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "查看<span class='asp-faqs-span'>常见问题</span>，了解更多信息。"
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "添加站点"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "添加"
+  },
+  "spSettingsPageCancel": {
+    "message": "取消"
+  },
+  "spSettingsPageSave": {
+    "message": "保存"
+  },
+  "sasCouponCodeCopied": {
+    "message": "已将代码复制到剪贴板。"
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "在此页面上使用优惠券"
+  },
+  "sasOpenShop": {
+    "message": "打开商店"
+  },
+  "spSocialShare": {
+    "message": "喜欢省钱？快分享给他人！",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "分享",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Tweet",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "关闭"
+  },
+  "spMinimizeTooltip": {
+    "message": "最小化"
+  },
+  "spHelpTooltip": {
+    "message": "帮助"
+  },
+  "spSettingsTooltip": {
+    "message": "设置"
+  },
+  "spProductsSearchInput": {
+    "message": "搜索产品"
+  },
+  "spProductsSearchIconHover": {
+    "message": "搜索产品"
+  },
+  "spSearchForOffers": {
+    "message": "如需获得优惠，请搜索<br>产品"
+  },
+  "spCouponsSearchInput": {
+    "message": "搜索品牌或在线商店"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "搜索优惠券"
+  },
+  "spSearchForCoupons": {
+    "message": "如需获得优惠券，请搜索<br>品牌或在线商店"
+  },
+  "spNoResultsFound": {
+    "message": "没有找到关于 <br>%s 的结果",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "没有找到关于 <br>%s 的优惠券",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "没有找到关于 <br>%s 的优惠",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "目前没有找到任何优惠",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "目前没有找到任何优惠券",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "<br>目前没有找到任何特惠"
+  },
+  "spShowAll": {
+    "message": "显示全部"
+  },
+  "spGreatDeal": {
+    "message": "特大优惠"
+  },
+  "spSiteVerified": {
+    "message": "此网站已通过验证，可安全购物"
+  },
+  "spSiteNotVerified": {
+    "message": "此网站不可信，请不要在此购物"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "已确认此网站不可信。我们找到的所有优惠均来自安全网站，因此建议您点击我们提供的以上优惠，或尝试其他网站。"
+  },
+  "spConnectionSecure": {
+    "message": "此连接安全"
+  },
+  "spConnectionNotSecure": {
+    "message": "此连接不安全"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "此网站的 https 证书无效，因而无法全面保护您的隐私。"
+  },
+  "spSiteUntrustworthy": {
+    "message": "已确认此网站不可信"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "我们建议您前往其他网站购物，因为该网站的顾客评价很低。"
+  },
+  "spLeaveSite": {
+    "message": "离开网站"
+  },
+  "spITrustThisSite": {
+    "message": "我信任此网站"
+  },
+  "spPhishingSite": {
+    "message": "此网站已被标记为钓鱼网站。"
+  },
+  "spPhishingSiteDesc": {
+    "message": "网络钓鱼是指获取敏感信息的不良企图，如用户名、密码和信用卡详细信息等。"
+  },
+  "spRecommendESHop": {
+    "message": "推荐电商"
+  },
+  "spRecommendWhy": {
+    "message": "您为何推荐此电商？*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "该店拥有种类繁多的优质商品。"
+  },
+  "spRecommendGreatValue": {
+    "message": "该店物超所值。"
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "该店的客户服务非常优质。"
+  },
+  "spReportESHop": {
+    "message": "举报电商"
+  },
+  "spReportWhy": {
+    "message": "您为何举报此电商？*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "我购买了商品但没有收到。"
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "我收到的商品和订购商品不一致。"
+  },
+  "spReportTreatedMePoorly": {
+    "message": "该店的客户服务态度很差。"
+  },
+  "spRequired": {
+    "message": "*必填"
+  },
+  "spOther": {
+    "message": "其他"
+  },
+  "spTellUsMore": {
+    "message": "告诉我们更多信息"
+  },
+  "spEShopName": {
+    "message": "电商名称*"
+  },
+  "spProductOrdered": {
+    "message": "订购的产品"
+  },
+  "spLinkToProductPage": {
+    "message": "产品页面链接"
+  },
+  "spReport": {
+    "message": "报告"
+  },
+  "spRecommend": {
+    "message": "推荐"
+  },
+  "spThanksForVoting": {
+    "message": "感谢您帮助我们改进 SafePrice"
+  },
+  "spAvailableOffers": {
+    "message": "可用优惠"
+  },
+  "spAvailableHotels": {
+    "message": "可用酒店"
+  },
+  "spAvailableCoupons": {
+    "message": "可用优惠券"
+  },
+  "spSelectedCoupons": {
+    "message": "选定优惠券"
+  },
+  "spAvailableOthers": {
+    "message": "特惠"
+  },
+  "spClickThenPaste": {
+    "message": "单击，然后在结账时粘贴："
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "单击，然后在 <span class='asp-shopname-span'>%s</span> 结账时粘贴：",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "已复制"
+  },
+  "spCouponWorks": {
+    "message": "此优惠券是否有效？"
+  },
+  "spCouponCodeWorks": {
+    "message": "此代码是否有效？"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "适用于 <span class='asp-shopname-span'>%s</span> 优惠券。",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "您可以单击工具栏图标随时查找 SafePrice 优惠及优惠券。",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "明白了！",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "反馈"
+  },
+  "spFeedbackShare": {
+    "message": "分享您的反馈"
+  },
+  "spFeedbackGeneral": {
+    "message": "一般反馈"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "请告诉我们您的 SafePrice 体验，包括您喜欢的方面，以及希望我们改进的方面。"
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "举报在线商店"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "请告诉我们可能令他人面临风险的不可信或虚假网站。"
+  },
+  "spFeedbackSPExp": {
+    "message": "请告诉我们您的 SafePrice 体验："
+  },
+  "spFeedbackWriteAComment": {
+    "message": "写评论"
+  },
+  "spFeedbackback": {
+    "message": "返回"
+  },
+  "spFeedbackNext": {
+    "message": "下一步"
+  },
+  "spFeedbackSend": {
+    "message": "发送"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "您要举报哪家在线商店？<span class='asp-required-span'>（*必填）</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "在线商店名称*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "零售商或批发商"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "订购的产品"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "产品页面链接"
+  },
+  "spFeedbackProblem": {
+    "message": "具体问题是什么？<span class='asp-required-span'>（必填）</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "我收到的商品和订购商品不一致。"
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "我购买了商品但没有收到。"
+  },
+  "spFeedbackOther": {
+    "message": "其他"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "简要说明问题。"
+  },
+  "spFeedbackThanks": {
+    "message": "感谢您的反馈！"
+  },
+  "spRateCouponsThanks": {
+    "message": "感谢您。"
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "根据需要设置查看优惠和优惠券的频率"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "确定"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "开始在此处搜索优惠"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "开始在此处搜索优惠券"
+  },
+  "spTrySearchInAmazon": {
+    "message": "试试在 %s 上搜索",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "在 %s 上搜索",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "尝试在 %s 上搜索优惠",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "找到更多优惠： "
+  },
+  "spOptInTitle": {
+    "message": "如果您同意，当您在线购物时，SafePrice 将为您显示更便宜的价格"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>如果您同意，Avast SafePrice </span><br>将在您在线购物时为您显示更便宜的价格和优惠券"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>如果您同意，AVG SafePrice </span><br>将在您在线购物时为您显示更便宜的价格和优惠券"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice 会扫描您访问的网站，为您搜寻经过验证的电子商店提供的更优价格和优惠券。为了实现此功能，它需要将以下数据发送至其服务器："
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice 会扫描您访问的网站，为您搜寻经验证的网上商城提供的更优价格和优惠券。为了实现此功能，它需要将以下数据发送至其服务器："
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice 会扫描您访问的网站，为您搜寻经验证的网上商城提供的更优价格和优惠券。为了实现此功能，它需要将以下数据发送至其服务器："
+  },
+  "spOptInPolice1": {
+    "message": "购物网站域名或 URL"
+  },
+  "spOptInPolice2": {
+    "message": "扩展标识符 (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "浏览器语言"
+  },
+  "spOptInPoliceLink": {
+    "message": "阅读<a href='#' class='opt-in-box-buttons-policy'>扩展程序的隐私政策</a>，了解详情。"
+  },
+  "spOptInPoliceAccept": {
+    "message": "是，发送数据"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "是的，启用"
+  },
+  "spOptInPoliceDeny": {
+    "message": "不，谢谢"
+  },
+  "spOptInSecondTitle": {
+    "message": "抱歉，未经您同意，SafePrice 无法为您显示更便宜的价格"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "抱歉，未经您同意，Avast SafePrice 无法为您显示更便宜的价格"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "抱歉，未经您同意，AVG SafePrice 无法为您显示更便宜的价格"
+  },
+  "spOptInSecondText": {
+    "message": "没有它，扩展程序将无法工作。您可以卸载它。"
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "重新访问同意页面"
+  },
+  "spOptInSecondClose": {
+    "message": "关闭"
+  },
+  "spAsbCouponsFound": {
+    "message": "此网站有优惠券！"
+  },
+  "spAsbOffersFound": {
+    "message": "还有其他优惠！"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "UpdateWork": {
+    "message": "Update work"
+  },
+  "UpdateWithKami": {
+    "message": "Update with Kami"
+  },
+  "MakeEditsToAssignedWorkAndPublishChangesToAllStudentsCopies": {
+    "message": "Make edits to assigned work and publish changes to all students' copies."
+  },
+  "GradeWithKami": {
+    "message": "Grade with Kami"
+  },
+  "KamiAssignment": {
+    "message": "Kami Assignment"
+  },
+  "OpenWithKami": {
+    "message": "Open with Kami"
+  },
+  "GotIt": {
+    "message": "Got it"
+  },
+  "LearnMore": {
+    "message": "Learn more"
+  },
+  "KamiIsAttachingYourFile": {
+    "message": "Kami is attaching your file"
+  },
+  "PleaseKeepThisWindowOpenAndOnTop": {
+    "message": "Please keep this window open and on top"
+  },
+  "UnknownErrorCouldNotGetMessageFromErrorCard": {
+    "message": "Unknown error: Could not get message from error card"
+  },
+  "AnnotateWithKami": {
+    "message": "Annotate with Kami"
+  },
+  "CheckingAssignmentType": {
+    "message": "Checking assignment type..."
+  }
+}

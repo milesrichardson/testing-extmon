@@ -1,0 +1,50 @@
+{
+  "extName": {
+    "message": "Foxit PDF Creator"
+  },
+  "extDesc": {
+    "message": "要將網頁轉換成 Foxit PDF"
+  },
+  "default_title": {
+    "message": "要將網頁轉換成 Foxit PDF"
+  },
+  "ConvertToFoxitPDF": {
+    "message": "轉換成 Foxit PDF"
+  },
+  "AppendToExistingPDF": {
+    "message": "附加至另一個 PDF"
+  },
+  "CreateAndEmail": {
+    "message": "建立並透過電子郵件傳送"
+  },
+  "ConvertLinkTargetToPDF": {
+    "message": "將連結頁面轉換成 Foxit PDF"
+  },
+  "AppendLinkTargetToExistingPDF": {
+    "message": "將連結頁面附加至另一個 PDF"
+  },
+  "ViewPDFResults": {
+    "message": "檢視 PDF 結果"
+  },
+  "Preferences": {
+    "message": "喜好設定"
+  },
+  "Uninstall": {
+    "message": "解除安裝"
+  },
+  "Reinstall": {
+    "message": "重新安裝"
+  },
+  "UninstallTip": {
+    "message": "解除安裝將無法復原，請小心操作！"
+  },
+  "UninstallSureTip": {
+    "message": "解除安裝將無法復原，是否確定要解除安裝？"
+  },
+  "UninstallSuccessTip": {
+    "message": "\"Foxit PhantomPDF - 建立 PDF\" 擴充功能已成功解除安裝，重新啟動瀏覽器後生效。"
+  },
+  "OptionsTitle": {
+    "message": "Foxit PhantomPDF 擴充功能的選項"
+  }
+}

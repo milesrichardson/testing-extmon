@@ -1,0 +1,14 @@
+{
+  "store_shortdesc_new": {
+    "message": "This extension sets your search engine to Ecosia and customizes your new tab page so you can plant trees with every search.",
+    "description": ""
+  },
+  "store_title_new": {
+    "message": "Ecosia - The search engine that plants trees",
+    "description": ""
+  },
+  "browser_action_hover": {
+    "message": "Ecosia Search",
+    "description": ""
+  }
+}

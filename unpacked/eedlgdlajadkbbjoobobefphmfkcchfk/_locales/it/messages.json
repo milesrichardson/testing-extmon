@@ -1,0 +1,14 @@
+{
+  "store_shortdesc_new": {
+    "message": "Questa estensione imposta Ecosia come motore di ricerca e personalizza la nuova scheda, così puoi piantare alberi a ogni ricerca.",
+    "description": ""
+  },
+  "store_title_new": {
+    "message": "Ecosia - Il motore di ricerca che pianta alberi",
+    "description": ""
+  },
+  "browser_action_hover": {
+    "message": "Ecosia Search",
+    "description": ""
+  }
+}

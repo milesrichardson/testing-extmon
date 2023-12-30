@@ -1,0 +1,115 @@
+/*!
+ * Rakuten Cash Back Button v5.35.0
+ * Copyrights 2023 Ebates Inc. dba Rakuten
+ */
+.rr-mini-toast .badge {
+  box-shadow: none;
+}
+.rr-mini-toast .badge--light {
+  background: #f4f3fe;
+  color: #8529cd !important;
+}
+.rr-mini-toast .badge--white {
+  border: 0.5px solid #b9b9b9;
+}
+.rr-product {
+  flex-direction: column;
+  min-width: auto;
+  overflow: visible;
+  transition: 0.2s;
+}
+.rr-product__mini {
+  border-radius: inherit;
+  display: flex;
+}
+.rr-product__mini__logo {
+  background: #8529cd no-repeat 50%/20px url(chrome-extension://__MSG_@@extension_id__/img/rakuten/icon-rakuten-white.svg);
+  flex: 1;
+  height: 48px;
+  width: 48px;
+}
+.rr-product__mini__logo:hover {
+  background-color: #9b50d6;
+}
+.rr-product__mini__arrows {
+  background: #8529cd no-repeat 50%/7px url(chrome-extension://__MSG_@@extension_id__/img/pm-arrows.svg);
+  height: 48px;
+  width: 26px;
+}
+.rr-product--minimized {
+  border-radius: 4px 0 0 4px !important;
+  cursor: move;
+  height: 48px;
+  overflow: hidden;
+  width: 74px;
+}
+.rr-product--dragging {
+  transition: none;
+}
+.rr-product--hover {
+  bottom: auto;
+}
+.rr-product__content-wrapper {
+  height: inherit;
+}
+.rr-product__content {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+}
+.rr-product__product-logo {
+  background: no-repeat 50% / contain;
+  height: 90px;
+  width: 160px;
+}
+.rr-product__product-logo[rel="click"] {
+  cursor: pointer;
+}
+.rr-product__merchant-logo {
+  background: no-repeat 50% / contain;
+  height: 28px;
+  width: 100px;
+}
+.rr-product__merchant-logo[rel="click"] {
+  cursor: pointer;
+}
+.rr-product .rr-product__details {
+  width: 100%;
+}
+.rr-product .rr-product__details td:last-child {
+  text-align: right;
+}
+.r-tag-inline-badge {
+  align-items: center;
+  border-radius: 4px;
+  cursor: default;
+  display: inline-flex;
+  max-width: max-content;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+.rr-pm-serp-details__merchant-logo {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 40px;
+  width: 100%;
+}
+.rr-price-magic-serp {
+  display: inline-block;
+}
+.rr-price-magic-serp .rr-popover__arrow {
+  left: -10px !important;
+}
+.rr-gift-card__merchant-logo {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid #e4e9f5;
+  border-radius: 5px;
+  box-shadow: 0 4px 11px rgba(10, 22, 70, 0.2);
+  box-sizing: border-box;
+  height: 100px;
+  margin: 0 auto 24px;
+  width: 149px;
+}

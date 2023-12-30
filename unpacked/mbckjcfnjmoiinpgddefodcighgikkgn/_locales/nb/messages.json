@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Finn de beste prisene, tilbudene og kupongene mens du handler på nettet, med utvidelsen for prissammenligning og kuponger fra Avast.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "Finn de beste prisene, tilbudene og kupongene mens du handler på nettet, med utvidelsen for prissammenligning og kuponger fra AVG.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Spar"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | Prissammenligning, tilbud og kuponger på trygge nettbutikker – spar penger"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | Prissammenligning, tilbud og kuponger på trygge nettbutikker – spar penger"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | Sammenligning, tilbud, kuponger"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | Sammenligning, tilbud, kuponger"
+  },
+  "sasHintSettings": {
+    "message": "Innstillinger"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Liker du å bruke <br> Avast SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Liker du å bruke <br> AVG SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Så fint at du liker det!"
+  },
+  "sasSorry": {
+    "message": "Det var leit"
+  },
+  "sasAnswerYes": {
+    "message": "ja"
+  },
+  "sasAnswerNo": {
+    "message": "nei"
+  },
+  "safePriceLeaveRating": {
+    "message": "Gi oss en vurdering for å vise hvor godt du liker oss.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Vurder nå"
+  },
+  "safePriceAskMeLater": {
+    "message": "Spør meg senere",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Innstillinger for Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "Innstillinger for AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "Tilbud"
+  },
+  "spCouponsTab": {
+    "message": "Kuponger"
+  },
+  "spOthersTab": {
+    "message": "Annet"
+  },
+  "spAdditionalFees": {
+    "message": "Tilleggsavgifter kan påløpe"
+  },
+  "spShippingLabel": {
+    "message": "Frakt og gebyrer fra"
+  },
+  "spGetCouponCode": {
+    "message": "Få kode"
+  },
+  "spApply": {
+    "message": "Bruk kupong"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Kopier, og lim inn ved betaling:"
+  },
+  "spCouponApplied": {
+    "message": "Kupong brukt."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Søker etter tilbud …"
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Vi lover at det er verdt ventetiden."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Spar penger med kuponger"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Spar opptil"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Se her!<br> Flere tilbud"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "priser så lave som"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Se her! Flere tilbud"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Tilbud og kuponger er funnet. Du er heldig!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Flere tilbud,<br> mer å spare!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Jo flere tilbud, jo mer sparer du!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Populære hoteller:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "Alternative hoteller ble funnet!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Alternative hoteller"
+  },
+  "spShowNotificationMessage": {
+    "message": "VIS"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Se hva vi fant!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "VIS TILBUD"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Mer"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Mindre"
+  },
+  "spNothingFound": {
+    "message": "Uff.<br>Vi fant ingenting …"
+  },
+  "spNothingFoundCoupons": {
+    "message": "Uff.<br>Vi fant ingen kuponger …"
+  },
+  "spNothingFoundOffers": {
+    "message": "Uff.<br>Vi fant ingen tilbud …"
+  },
+  "spNothingFoundOthers": {
+    "message": "Uff.<br>Vi fant ingen spesialtilbud …"
+  },
+  "spCouponsSelected": {
+    "message": "Kuponger valgt: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Valgt"
+  },
+  "spCouponsAvailableText": {
+    "message": "Tilgjengelig"
+  },
+  "spCouponsExpiration": {
+    "message": "Utløper: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Varsler"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Tilbud"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "Tilbud fra nettbutikker"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Vis når tilbud fra nettbutikker er tilgjengelige"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Bare vis når tilbud fra nettbutikker er bedre en den opprinnelige prisen"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Ikke varsle meg om tilbud fra nettbutikker"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(du kan alltid se tilbudene ved å klikke på verktøylinjen)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Overnattingstilbud"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Vis når bedre hotellpriser er tilgjengelige"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Vis alternative hoteller"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Vis populære hoteller i området"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Kuponger"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Vis når en kupong er tilgjengelig"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Vis bare én gang på hvert nettsted"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Ikke varsle meg om kuponger"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(du kan alltid se kupongene ved å klikke på ikonet på verktøylinjen)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Annet"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Spesialtilbud"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Varsle meg om spesialtilbud for andre kategorier (transport, økonomi, strømforsyning osv.)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Egendefinert liste"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Ikke vis varsler på disse nettstedene:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(du kan fortsatt se tilbud og kuponger ved å klikke på ikonet på verktøylinjen)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Personvern"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Tillat analyse av produktytelse og databruk til utvikling av nye produkter"
+  },
+  "spSettingsPageHelp": {
+    "message": "Hjelp"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Varsler"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Når SafePrice finner et tilbud eller en kupong som er relatert til søket ditt, dukker det opp et varsel. Klikk på den store grønne knappen for å se hva vi fant for deg."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Tilbud"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Når du klikker på et tilbud, kommer du til en klarert nettbutikk der du får den nye prisen som vises i varselet."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Kuponger"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "For å bruke en kupong trenger du bare å klikke på den. Hvis det blir vist en kode, må du lime den inn i det aktuelle feltet i kassen. Ellers brukes kupongen automatisk."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Annet"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Når du klikker på et spesialtilbud, kommer du til en klarert nettbutikk som tilhører en av partnerne våre."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Finn ut mer i <span class='asp-faqs-span'>spørsmål og svar</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Legg til nettsted"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Legg til"
+  },
+  "spSettingsPageCancel": {
+    "message": "Avbryt"
+  },
+  "spSettingsPageSave": {
+    "message": "Lagre"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Koden er kopiert til utklippstavlen."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Kupong brukt på denne siden"
+  },
+  "sasOpenShop": {
+    "message": "Åpne butikk"
+  },
+  "spSocialShare": {
+    "message": "Liker du rabatter? Spre budskapet!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Del",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Tweet",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Lukk"
+  },
+  "spMinimizeTooltip": {
+    "message": "Minimer"
+  },
+  "spHelpTooltip": {
+    "message": "Hjelp"
+  },
+  "spSettingsTooltip": {
+    "message": "Innstillinger"
+  },
+  "spProductsSearchInput": {
+    "message": "Søk etter produkter"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Søk etter et produkt"
+  },
+  "spSearchForOffers": {
+    "message": "Søk etter et produkt <br> for å finne tilbud"
+  },
+  "spCouponsSearchInput": {
+    "message": "Søk etter merker eller nettbutikker"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Søk etter kuponger"
+  },
+  "spSearchForCoupons": {
+    "message": "Søk etter et merke eller <br> en nettbutikk for å finne kuponger"
+  },
+  "spNoResultsFound": {
+    "message": "Fant ingen resultater for <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Fant ingen kuponger for <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Fant ingen tilbud for <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Finner ingen tilbud for øyeblikket",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Finner ingen kuponger for øyeblikket",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Finner ingen spesialtilbud <br> for øyeblikket"
+  },
+  "spShowAll": {
+    "message": "VIS ALLE"
+  },
+  "spGreatDeal": {
+    "message": "Kjempetilbud"
+  },
+  "spSiteVerified": {
+    "message": "Dette nettstedet er bekreftet og trygt å handle på"
+  },
+  "spSiteNotVerified": {
+    "message": "Dette nettstedet er ikke trygt å handle på"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Dette nettstedet har blitt identifisert som upålitelig. Alle tilbudene vi finner, kommer fra sikre nettsteder, så vi foreslår at du klikker på ett av tilbudene ovenfor eller prøver et annet sted."
+  },
+  "spConnectionSecure": {
+    "message": "Denne tilkoblingen er sikker"
+  },
+  "spConnectionNotSecure": {
+    "message": "Denne tilkoblingen er ikke sikker"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Dette nettstedet har ikke et gyldig HTTPS-sertifikat. Personvernet ditt er derfor ikke fullstendig beskyttet."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Dette nettstedet har blitt identifisert som upålitelig"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Nettstedet får dårlige tilbakemeldinger fra kundene. Vi foreslår at du handler et annet sted."
+  },
+  "spLeaveSite": {
+    "message": "forlat nettstedet"
+  },
+  "spITrustThisSite": {
+    "message": "Jeg stoler på dette nettstedet"
+  },
+  "spPhishingSite": {
+    "message": "Dette nettstedet har blitt merket som et phishing-nettsted (nettfisking)"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Phishing er forsøk på å få tilgang til sensitiv informasjon som blant annet brukernavn, passord og kredittkortopplysninger."
+  },
+  "spRecommendESHop": {
+    "message": "Anbefalt nettbutikk"
+  },
+  "spRecommendWhy": {
+    "message": "Hvorfor anbefaler du denne nettbutikken?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "De har et stort utvalg produkter."
+  },
+  "spRecommendGreatValue": {
+    "message": "Du får mye for pengene."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "De har god kundeservice."
+  },
+  "spReportESHop": {
+    "message": "Rapporter nettbutikk"
+  },
+  "spReportWhy": {
+    "message": "Hvorfor rapporterer du denne nettbutikken?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Jeg betalte for et produkt, men fikk det ikke."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Jeg fikk noe annet enn det jeg bestilte."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "De behandlet meg dårlig som kunde."
+  },
+  "spRequired": {
+    "message": "*påkrevd"
+  },
+  "spOther": {
+    "message": "Annet"
+  },
+  "spTellUsMore": {
+    "message": "Fortell oss mer"
+  },
+  "spEShopName": {
+    "message": "Nettbutikkens navn*"
+  },
+  "spProductOrdered": {
+    "message": "Bestilt produkt"
+  },
+  "spLinkToProductPage": {
+    "message": "Kobling til produktsiden"
+  },
+  "spReport": {
+    "message": "rapporter"
+  },
+  "spRecommend": {
+    "message": "anbefal"
+  },
+  "spThanksForVoting": {
+    "message": "Takk for at du hjelper oss med å gjøre SafePrice bedre"
+  },
+  "spAvailableOffers": {
+    "message": "Tilgjengelige tilbud"
+  },
+  "spAvailableHotels": {
+    "message": "Tilgjengelige hoteller"
+  },
+  "spAvailableCoupons": {
+    "message": "Tilgjengelige kuponger"
+  },
+  "spSelectedCoupons": {
+    "message": "Valgte kuponger"
+  },
+  "spAvailableOthers": {
+    "message": "Spesialtilbud"
+  },
+  "spClickThenPaste": {
+    "message": "Klikk, og lim inn ved betaling:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Klikk, og lim inn ved betaling på <span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "kopiert"
+  },
+  "spCouponWorks": {
+    "message": "Fungerte kupongen?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Fungerte koden?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Kupongen ble brukt på <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Du kan alltid finne SafePrice-tilbud og -kuponger ved å klikke på ikonet på verktøylinjen.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "GREIT!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Tilbakemelding"
+  },
+  "spFeedbackShare": {
+    "message": "Gi oss tilbakemelding"
+  },
+  "spFeedbackGeneral": {
+    "message": "Generell tilbakemelding"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Fortell oss hva du synes om SafePrice, hva du likte og hva vi kan forbedre."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Rapporter nettbutikk"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Fortell oss om upålitelige eller falske nettsteder som kan utsette andre for risiko."
+  },
+  "spFeedbackSPExp": {
+    "message": "Fortell oss hva du synes om SafePrice:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Skriv en kommentar"
+  },
+  "spFeedbackback": {
+    "message": "tilbake"
+  },
+  "spFeedbackNext": {
+    "message": "neste"
+  },
+  "spFeedbackSend": {
+    "message": "send"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Hvilken nettbutikk rapporterer du? <span class='asp-required-span'>(*må fylles ut)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Navn på nettbutikk*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Forhandler"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Bestilt produkt"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Kobling til en produktside"
+  },
+  "spFeedbackProblem": {
+    "message": "Hva var problemet?  <span class='asp-required-span'>(må fylles ut)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Jeg fikk noe annet enn det jeg bestilte."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Jeg betalte for et produkt, men fikk det ikke."
+  },
+  "spFeedbackOther": {
+    "message": "Annet"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Forklar kort hva problemet var."
+  },
+  "spFeedbackThanks": {
+    "message": "Takk for tilbakemeldingen!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Takk."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Angi hvor ofte du vil se tilbud og kuponger"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "ok"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Begynn å søke etter tilbud her"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Begynn å søke etter kuponger her"
+  },
+  "spTrySearchInAmazon": {
+    "message": "Prøv å søke på %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "søk på %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Prøv å søke etter tilbud på %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Flere tilbud funnet: "
+  },
+  "spOptInTitle": {
+    "message": "Hvis du samtykker, kommer SafePrice til å vise deg bedre tilbud når du handler på nettet"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Hvis du samtykker, kan Avast SafePrice</span> <br> vise deg bedre tilbud og kuponger når du handler på nettet."
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Hvis du samtykker, kan AVG SafePrice</span> <br> vise deg bedre tilbud og kuponger når du handler på nettet."
+  },
+  "spOptInPolice": {
+    "message": "SafePrice søker gjennom nettstedene du besøker for å finne bedre tilbud og rabattkuponger i bekreftede nettbutikker. Utvidelsen må sende følgende data til serverne sine for at denne funksjonen skal virke:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice søker gjennom nettstedene du besøker for å finne bedre tilbud og rabattkuponger i bekreftede nettbutikker. Utvidelsen må sende følgende data til serverne sine for at denne funksjonen skal virke:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice søker gjennom nettstedene du besøker for å finne bedre tilbud og rabattkuponger i bekreftede nettbutikker. Utvidelsen må sende følgende data til serverne sine for at denne funksjonen skal virke:"
+  },
+  "spOptInPolice1": {
+    "message": "Domene eller nettadresse til nettbutikken"
+  },
+  "spOptInPolice2": {
+    "message": "Utvidelsesidentifikatorer (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Nettleserspråk"
+  },
+  "spOptInPoliceLink": {
+    "message": "Se <a href='#' class='opt-in-box-buttons-policy'>retningslinjene for personvern for utvidelsen</a> for å få alle detaljene."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Ja, send data"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Ja, aktiver"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Nei takk"
+  },
+  "spOptInSecondTitle": {
+    "message": "SafePrice kan ikke vise deg bedre tilbud uten ditt samtykke"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Avast SafePrice kan ikke vise deg bedre tilbud uten ditt samtykke."
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "AVG SafePrice kan ikke vise deg bedre tilbud uten ditt samtykke."
+  },
+  "spOptInSecondText": {
+    "message": "Utvidelsen fungerer ikke uten. Du kan avinstallere den."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Gå tilbake til samtykke"
+  },
+  "spOptInSecondClose": {
+    "message": "Lukk"
+  },
+  "spAsbCouponsFound": {
+    "message": "Dette nettstedet har kuponger!"
+  },
+  "spAsbOffersFound": {
+    "message": "Det er andre tilbud!"
+  }
+}

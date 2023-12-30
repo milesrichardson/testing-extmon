@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Effects</title>
+    <style>
+      body,
+      html {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        width: 360px;
+        height: 360px;
+        font-family: system-ui;
+      }
+
+      body * {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      p {
+        font-size: 0.9em;
+      }
+
+      h2 {
+        font-size: 2em;
+        margin-bottom: -0.1em;
+      }
+
+      button#agree {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        background-color: #2a7d78;
+        font-size: 1.2em;
+        font-weight: bold;
+        width: 30%;
+      }
+
+      #agree:hover {
+        cursor: pointer;
+      }
+
+      a#disagree {
+        color: #779f9d;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.7em;
+      }
+
+      #policy {
+        box-sizing: border-box;
+        padding: 0px 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Visual Effects is now offering Safe-Meeting</h2>
+    <p class="subhead" id="policy">
+      To allow us to enable integrated anti-mining and malicious site protection for the pages you visit please click agree to allow us
+      access to your visited websites. Any and all data collected will be strictly anonymous. (We only collect broad region and clickstream
+      data)
+    </p>
+    <br /><br />
+    <button id="agree">Agree</button>
+    <br /><br />
+    <a id="disagree" href="#s">Disagree</a>
+    <script src="consentpopup.js"></script>
+  </body>
+</html>

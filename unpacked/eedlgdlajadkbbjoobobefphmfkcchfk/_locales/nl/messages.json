@@ -1,0 +1,14 @@
+{
+  "store_shortdesc_new": {
+    "message": "Deze extensie stelt Ecosia als je standaard zoekmachine in en past je nieuwe tabs-pagina aan zodat je met elke zoekopdracht bomen plant.",
+    "description": ""
+  },
+  "store_title_new": {
+    "message": "Ecosia - de zoekmachine die bomen plant",
+    "description": ""
+  },
+  "browser_action_hover": {
+    "message": "Ecosia Zoeken",
+    "description": ""
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "extName": {
+    "message": "Foxit PDF Creator"
+  },
+  "extDesc": {
+    "message": "Para converter a página da Web em um Foxit PDF"
+  },
+  "default_title": {
+    "message": "Para converter a página da Web em um Foxit PDF"
+  },
+  "ConvertToFoxitPDF": {
+    "message": "Converter em Foxit PDF"
+  },
+  "AppendToExistingPDF": {
+    "message": "Acrescentar a outro PDF"
+  },
+  "CreateAndEmail": {
+    "message": "Criar e Enviar por E-mail"
+  },
+  "ConvertLinkTargetToPDF": {
+    "message": "Converter a Página Vinculada em um Foxit PDF"
+  },
+  "AppendLinkTargetToExistingPDF": {
+    "message": "Acrescentar Página Vinculada a outro PDF"
+  },
+  "ViewPDFResults": {
+    "message": "Exibir Resultado em PDF"
+  },
+  "Preferences": {
+    "message": "Preferências"
+  },
+  "Uninstall": {
+    "message": "Desinstalar"
+  },
+  "Reinstall": {
+    "message": "Reinstalar"
+  },
+  "UninstallTip": {
+    "message": "A operação de DESINSTALAR será irrecuperável. Execute-a com cautela!"
+  },
+  "UninstallSureTip": {
+    "message": "A operação de DESINSTALAR será irrecuperável. Tem certeza de que deseja desinstalar?"
+  },
+  "UninstallSuccessTip": {
+    "message": "A Extensão \"Foxit PhantomPDF - Criar PDF\" foi desinstalada com êxito. A alteração entrará em vigor depois que você reiniciar o navegador."
+  },
+  "OptionsTitle": {
+    "message": "Opções da Extensão Foxit PhantomPDF"
+  }
+}

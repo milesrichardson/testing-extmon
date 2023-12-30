@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "בקניות באינטרנט, מצא את המחירים, את המבצעים ואת קופוני ההנחה הטובים ביותר בעזרת הרחבת השוואת המחירים והקופונים של Avast.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "בקניות באינטרנט, מצא את המחירים, את המבצעים ואת קופוני ההנחה הטובים ביותר בעזרת הרחבת השוואת המחירים והקופונים של AVG.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "חסוך"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | השוואת מחירים, מבצעים וקופונים באתרי קניות בטוחים - חסוך כסף"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | השוואת מחירים, מבצעים וקופונים באתרי קניות בטוחים - חסוך כסף"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | השוואה, מבצעים, קופונים"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | השוואה, מבצעים, קופונים"
+  },
+  "sasHintSettings": {
+    "message": "הגדרות"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "נהנה <br>מ-Avast SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "נהנה <br>מ-AVG SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "אנחנו שמחים שאהבת!"
+  },
+  "sasSorry": {
+    "message": "מצטערים לשמוע"
+  },
+  "sasAnswerYes": {
+    "message": "כן"
+  },
+  "sasAnswerNo": {
+    "message": "לא"
+  },
+  "safePriceLeaveRating": {
+    "message": "דרג אותנו כדי להביע את הערכתך.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "דרג עכשיו"
+  },
+  "safePriceAskMeLater": {
+    "message": "שאל אותי אחר כך",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "הגדרות Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "הגדרות AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "הצעות"
+  },
+  "spCouponsTab": {
+    "message": "קופונים"
+  },
+  "spOthersTab": {
+    "message": "אחרים"
+  },
+  "spAdditionalFees": {
+    "message": "ייתכן שיחולו תשלומים ומיסים נוספים"
+  },
+  "spShippingLabel": {
+    "message": "קניות/טיפול מ"
+  },
+  "spGetCouponCode": {
+    "message": "קבל קוד"
+  },
+  "spApply": {
+    "message": "נצל קופון"
+  },
+  "spCopyAtCheckOut": {
+    "message": "העתק והדבק בקופה:"
+  },
+  "spCouponApplied": {
+    "message": "הקופון נוצל."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "מחפש מבצעים..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "שווה לחכות, אנחנו מבטיחים."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "חסוך כסף באמצעות קופונים"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "חסוך עד"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "תראה!<br> עוד הצעות"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "מחירים החל מ-"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "תראה! עוד הצעות"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "נמצאו הצעות וקופונים. יש לך מזל!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "עוד מבצעים,<br> עוד חיסכון!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "עוד מבצעים, עוד חיסכון!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "מלונות פופולריים:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "נמצאו מלונות חלופיים!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "מלונות חלופיים"
+  },
+  "spShowNotificationMessage": {
+    "message": "הצג"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "תראה מה מצאנו!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "הצג מבצע"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "עוד"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "פחות"
+  },
+  "spNothingFound": {
+    "message": "אוי.<br>לא מצאנו כלום…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "אוי...<br>לא נמצאו קופונים..."
+  },
+  "spNothingFoundOffers": {
+    "message": "אוי...<br>לא נמצאו הצעות..."
+  },
+  "spNothingFoundOthers": {
+    "message": "אוי...<br>לא נמצאו מבצעים מיוחדים..."
+  },
+  "spCouponsSelected": {
+    "message": "הקופונים שנבחרו: "
+  },
+  "spCouponsSelectedText": {
+    "message": "נבחר"
+  },
+  "spCouponsAvailableText": {
+    "message": "זמין"
+  },
+  "spCouponsExpiration": {
+    "message": "בתוקף עד: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "הודעות"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "הצעות"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "הצעות מחנויות אלקטרוניות"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "הצג כל הצעה מחנויות אלקטרוניות"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "הצג רק כשההצעה מהחנות האלקטרונית טובה יותר מהמחיר המקורי"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "אל תודיע לי על הצעות מחנויות אלקטרוניות"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(תמיד אפשר ללחוץ על האייקון בסרגל הכלים ולראות הצעות)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "הצעות לינה"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "הצג כשיש מחיר טוב יותר של מלון"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "הצג מלונות חלופיים למה שביקשתי"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "הצג מלונות פופולריים באזור המבוקש"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "קופונים"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "הצג בכל פעם שיש קופון"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "הצג רק פעם אחת בכל אתר"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "אל תודיע לי על קופונים"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(תמיד אפשר ללחוץ על האייקון בסרגל הכלים ולראות קופונים)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "אחרים"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "מבצעים מיוחדים"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "הודע לי על מבצעים מיוחדים בקטגוריות אחרות (תחבורה, כספים, אספקת חשמל ועוד)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "רשימה מותאמת"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "אל תציג הודעות על האתרים הבאים:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(תמיד אפשר ללחוץ על האייקון בסרגל הכלים ולראות הצעות וקופונים)"
+  },
+  "spSettingsPrivacy": {
+    "message": "פרטיות"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "אפשר ניתוח של ביצועי המוצר ושל השימוש בנתונים, בשביל פיתוח מוצרים חדשים"
+  },
+  "spSettingsPageHelp": {
+    "message": "עזרה"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. הודעות"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "כש-SafePrice מוצא הצעה או קופון שקשורים לחיפוש, תוצג הודעה מוקפצת. לחץ על הלחצן הירוק הגדול כדי לראות מה מצאנו בשבילך."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. הצעות"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "לחיצה על הצעה תיקח אותך לחנות מקוונת מהימנה של שותף, ושם תקבל את המחיר החדש המוצג בהודעה."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. קופונים"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "כדי להשתמש בקופון, צריך רק ללחוץ עליו. אם מתגלה קוד, יש להדביק אותו בשדה המתאים בשלב התשלום בקופה. אם לא - הקופון מופעל אוטומטית."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. הודעות אחרות"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "לחיצה על עסקה מיוחדת תיקח אותך לחנות מקוונת מהימנה של שותף."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "למידע נוסף, עיין <span class='asp-faqs-span'>בשאלות הנפוצות</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "הוסף אתר"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "הוסף"
+  },
+  "spSettingsPageCancel": {
+    "message": "ביטול"
+  },
+  "spSettingsPageSave": {
+    "message": "שמירה"
+  },
+  "sasCouponCodeCopied": {
+    "message": "הקוד הועתק ללוח."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "קופון נוצל בדף הזה"
+  },
+  "sasOpenShop": {
+    "message": "פתח חנות"
+  },
+  "spSocialShare": {
+    "message": "אוהב לחסוך? שתף את כולם!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "שיתוף",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "ציוץ",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "סגור"
+  },
+  "spMinimizeTooltip": {
+    "message": "הקטנה"
+  },
+  "spHelpTooltip": {
+    "message": "עזרה"
+  },
+  "spSettingsTooltip": {
+    "message": "הגדרות"
+  },
+  "spProductsSearchInput": {
+    "message": "חפש מוצרים"
+  },
+  "spProductsSearchIconHover": {
+    "message": "חפש מוצר"
+  },
+  "spSearchForOffers": {
+    "message": "לקבלת הצעות, חפש מוצר <br>"
+  },
+  "spCouponsSearchInput": {
+    "message": "חפש מותגים או חנויות מקוונות"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "חפש קופונים"
+  },
+  "spSearchForCoupons": {
+    "message": "לקבלת קופונים, חפש <br> מותג או חנות מקוונת"
+  },
+  "spNoResultsFound": {
+    "message": "אין תוצאות עבור <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "לא נמצאו קופונים בשביל <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "לא נמצאו הצעות בשביל <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "אין הצעות כרגע",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "אין קופונים כרגע",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "אין כרגע מבצעים מיוחדים <br>"
+  },
+  "spShowAll": {
+    "message": "הצג הכול"
+  },
+  "spGreatDeal": {
+    "message": "מבצע מעולה"
+  },
+  "spSiteVerified": {
+    "message": "האתר הזה נבדק ואפשר לקנות בו בבטחה"
+  },
+  "spSiteNotVerified": {
+    "message": "אי אפשר לקנות בבטחה באתר הזה"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "אתר זה זוהה כאתר לא אמין. המבצעים שאנחנו מוצאים מגיעים מאתרים בטוחים, ולכן אנחנו מציעים שתלחץ על אחת ההצעות למעלה או פשוט תנסה במקום אחר."
+  },
+  "spConnectionSecure": {
+    "message": "החיבור הזה מאובטח"
+  },
+  "spConnectionNotSecure": {
+    "message": "החיבור הזה לא מאובטח"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "לאתר הזה אין אישור https תקף, ולכן הוא לא יכול לשמור על הפרטיות שלך שמירה מלאה."
+  },
+  "spSiteUntrustworthy": {
+    "message": "האתר הזה נבדק ונמצא לא בטוח"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "אנחנו מציעים שתעשה את הקניות שלך במקום אחר, כי לקוחות נתנו לאתר הזה דירוג נמוך."
+  },
+  "spLeaveSite": {
+    "message": "צא מהאתר"
+  },
+  "spITrustThisSite": {
+    "message": "אני מכיר את האתר הזה ובוטח בו"
+  },
+  "spPhishingSite": {
+    "message": "אתר זה סומן כאתר דיוג"
+  },
+  "spPhishingSiteDesc": {
+    "message": "דיוג הוא ניסיון להשיג מידע רגיש כגון שמות משתמש, סיסמאות ופרטים של כרטיסי אשראי."
+  },
+  "spRecommendESHop": {
+    "message": "המלץ על חנות אלקטרונית"
+  },
+  "spRecommendWhy": {
+    "message": "למה אתה ממליץ על החנות האלקטרונית הזאת?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "מבחר המוצרים שלהם מצוין."
+  },
+  "spRecommendGreatValue": {
+    "message": "הם נותנים תמורה מעולה לכסף."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "שירות הלקוחות שלהם מעולה."
+  },
+  "spReportESHop": {
+    "message": "דווח על חנות אלקטרונית"
+  },
+  "spReportWhy": {
+    "message": "למה אתה מדווח על החנות האלקטרונית הזאת?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "שילמתי על מוצר ולא קיבלתי אותו."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "קיבלתי מוצר שונה מהמוצר שהזמנתי."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "הם לא התייחסו אליי יפה כלקוח."
+  },
+  "spRequired": {
+    "message": "*חובה"
+  },
+  "spOther": {
+    "message": "אחר"
+  },
+  "spTellUsMore": {
+    "message": "ספר לנו עוד"
+  },
+  "spEShopName": {
+    "message": "שם החנות האלקטרונית*"
+  },
+  "spProductOrdered": {
+    "message": "המוצר שהוזמן"
+  },
+  "spLinkToProductPage": {
+    "message": "קישור לדף המוצר"
+  },
+  "spReport": {
+    "message": "דווח"
+  },
+  "spRecommend": {
+    "message": "המלץ"
+  },
+  "spThanksForVoting": {
+    "message": "תודה שעזרת לנו לשפר את SafePrice"
+  },
+  "spAvailableOffers": {
+    "message": "ההצעות הזמינות"
+  },
+  "spAvailableHotels": {
+    "message": "המלונות הזמינים"
+  },
+  "spAvailableCoupons": {
+    "message": "הקופונים הזמינים"
+  },
+  "spSelectedCoupons": {
+    "message": "קופונים נבחרים"
+  },
+  "spAvailableOthers": {
+    "message": "מבצע מיוחד"
+  },
+  "spClickThenPaste": {
+    "message": "לחץ ולאחר מכן הדבק בקופה:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "לחץ ולאחר מכן הדבק ב-<span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "הועתק"
+  },
+  "spCouponWorks": {
+    "message": "הקופון הזה עבד?"
+  },
+  "spCouponCodeWorks": {
+    "message": "הקוד הזה עבד?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "הקופון נוצל ב-<span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "תמיד אפשר ללחוץ על האייקון בסרגל הכלים ולראות את ההצעות והקופונים של SafePrice.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "הבנתי!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "משוב"
+  },
+  "spFeedbackShare": {
+    "message": "שלח משוב"
+  },
+  "spFeedbackGeneral": {
+    "message": "משוב כללי"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "ספר לנו על ההתרשמות שלך מ-SafePrice. מה אהבת ומה אנחנו יכולים לשפר."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "דווח על חנות מקוונת"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "ספר לנו על אתרים לא מהימנים או מזויפים שעלולים לסכן אחרים."
+  },
+  "spFeedbackSPExp": {
+    "message": "ספר לנו איך התרשמת מ-SafePrice:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "כתוב הערה"
+  },
+  "spFeedbackback": {
+    "message": "הקודם"
+  },
+  "spFeedbackNext": {
+    "message": "הבא"
+  },
+  "spFeedbackSend": {
+    "message": "שלח"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "על איזו חנות מקוונת אתה מדווח? <span class='asp-required-span'>(*חובה)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "שם החנות המקוונת*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "המוכר או הסוחר"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "המוצר שהוזמן"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "קישור לדף המוצר"
+  },
+  "spFeedbackProblem": {
+    "message": "מה הייתה הבעיה? <span class='asp-required-span'>(חובה)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "קיבלתי מוצר שונה מהמוצר שהזמנתי."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "שילמתי על מוצר ולא קיבלתי אותו."
+  },
+  "spFeedbackOther": {
+    "message": "בעיה אחרת"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "הסבר בקצרה מה הייתה הבעיה."
+  },
+  "spFeedbackThanks": {
+    "message": "תודה על המשוב!"
+  },
+  "spRateCouponsThanks": {
+    "message": "תודה."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "קבע באיזו תדירות ברצונך לראות מבצעים וקופונים"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "אישור"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "התחל לחפש עסקאות כאן"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "התחל לחפש קופונים כאן"
+  },
+  "spTrySearchInAmazon": {
+    "message": "נסה לחפש ב-%s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "חפש ב-%s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "נסה לחפש עסקאות ב-%s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "נמצאו עוד הצעות: "
+  },
+  "spOptInTitle": {
+    "message": "אם תסכים, SafePrice יציג לך עסקאות זולות יותר במהלך הקניות באינטרנט"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>אם תסכים לכך, Avast SafePrice</span> <br> יציג לך עסקאות זולות יותר וקופונים בזמן הקניות שלך אונליין"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>אם תסכים לכך, AVG SafePrice</span> <br> יציג לך עסקאות זולות יותר וקופונים בזמן הקניות שלך אונליין"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice יסרוק את האתרים שנכנסת אליהם כדי למצוא בשבילך עסקאות יותא טובות וקופוני הנחה בחנויות אלקטרוניות מאושרות. בשביל הפונקציונליות הזאת, הוא צריך לשלוח את הנתונים הבאים לשרתים שלו:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice יסרוק את האתרים שנכנסת אליהם כדי למצוא בשבילך עסקאות יותר טובות וקופוני הנחה בחנויות אלקטרוניות מאושרות. בשביל הפונקציונליות הזאת, הוא צריך לשלוח לשרתים שלו את הנתונים הבאים:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice יסרוק את האתרים שנכנסת אליהם כדי למצוא בשבילך עסקאות יותר טובות וקופוני הנחה בחנויות אלקטרוניות מאושרות. בשביל הפונקציונליות הזאת, הוא צריך לשלוח לשרתים שלו את הנתונים הבאים:"
+  },
+  "spOptInPolice1": {
+    "message": "הדומיין או כתובת ה-URL של אתר הקניות"
+  },
+  "spOptInPolice2": {
+    "message": "מזהי הרחבה (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "שפת הדפדפן"
+  },
+  "spOptInPoliceLink": {
+    "message": "לפרטים המלאים, עיין <a href='#' class='opt-in-box-buttons-policy'>במדיניות הפרטיות של ההרחבה</a>."
+  },
+  "spOptInPoliceAccept": {
+    "message": "כן, שלח את הנתונים"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "כן, הפעל"
+  },
+  "spOptInPoliceDeny": {
+    "message": "לא, תודה"
+  },
+  "spOptInSecondTitle": {
+    "message": "מצטערים, בלי הסכמתך SafePrice לא יוכל להציג לך עסקאות זולות יותר"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "מצטערים, בלי הסכמתך Avast SafePrice לא יוכל להציג לך עסקאות זולות יותר"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "מצטערים, בלי הסכמתך AVG SafePrice לא יוכל להציג לך עסקאות זולות יותר"
+  },
+  "spOptInSecondText": {
+    "message": "בלעדיה ההרחבה לא עובדת. אפשר להסיר את התקנתה."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "שקילה מחודשת של ההסכמה"
+  },
+  "spOptInSecondClose": {
+    "message": "סגירה"
+  },
+  "spAsbCouponsFound": {
+    "message": "לאתר הזה יש קופונים!"
+  },
+  "spAsbOffersFound": {
+    "message": "יש עוד הצעות!"
+  }
+}

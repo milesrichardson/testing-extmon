@@ -1,0 +1,443 @@
+{
+  "action_app_website": {
+    "message": "Trang web {app_name}"
+  },
+  "action_browser_settings": {
+    "message": "Cài đặt {browser_name}"
+  },
+  "action_chrome_web_store": {
+    "message": "Cửa hàng Web {browser_name}"
+  },
+  "action_convert_to": {
+    "message": "Chuyển đổi sang {file_type}"
+  },
+  "appDesc": {
+    "message": "Công cụ PDF dễ sử dụng để Chỉnh sửa, Chuyển đổi, Trộn, Tách và Nén các tệp PDF."
+  },
+  "appName": {
+    "message": "Smallpdf - Chỉnh sửa, Nén và Chuyển đổi PDF"
+  },
+  "compress": {
+    "message": "Nén"
+  },
+  "converter": {
+    "message": "Chuyển đổi"
+  },
+  "delete": {
+    "message": "Xóa Trang"
+  },
+  "downloadCta": {
+    "message": "Tải về ngay"
+  },
+  "edit": {
+    "message": "Chỉnh sửa"
+  },
+  "excel": {
+    "message": "Excel sang PDF"
+  },
+  "extract": {
+    "message": "PDF sang JPG"
+  },
+  "file_type_excel": {
+    "message": "Excel"
+  },
+  "file_type_generic_image": {
+    "message": "Hình ảnh"
+  },
+  "file_type_generic_image_plural": {
+    "message": "Hình ảnh"
+  },
+  "file_type_generic_office": {
+    "message": "Office"
+  },
+  "file_type_pdf_plural": {
+    "message": "PDF"
+  },
+  "file_type_powerpoint_long": {
+    "message": "PowerPoint"
+  },
+  "file_type_word": {
+    "message": "Word"
+  },
+  "jpg": {
+    "message": "JPG sang PDF"
+  },
+  "list_conjunction_long_end": {
+    "message": "{0} và {1}"
+  },
+  "list_conjunction_long_middle": {
+    "message": "{0}, {1}"
+  },
+  "list_conjunction_long_pair": {
+    "message": "{0} và {1}"
+  },
+  "list_conjunction_long_start": {
+    "message": "{0}, {1}"
+  },
+  "list_disjunction_long_end": {
+    "message": "{0} hoặc {1}"
+  },
+  "list_disjunction_long_middle": {
+    "message": "{0}, {1}"
+  },
+  "list_disjunction_long_pair": {
+    "message": "{0} hoặc {1}"
+  },
+  "list_disjunction_long_start": {
+    "message": "{0}, {1}"
+  },
+  "merge": {
+    "message": "Gộp"
+  },
+  "noInternetConnection": {
+    "message": "Không có kết nối internet"
+  },
+  "options_extension_version": {
+    "message": "Phần mở rộng {browser_name} / {version}"
+  },
+  "options_setting_local_files_description": {
+    "message": "Cho phép {app_name} truy cập URL tệp tin địa phương của bạn để mở {file_types} trong {browser_name}."
+  },
+  "options_setting_local_files_title": {
+    "message": "Bật phần mở rộng {app_name} trong các tệp tin địa phương"
+  },
+  "options_setting_status_disabled": {
+    "message": "Tắt"
+  },
+  "pdf_to_excel": {
+    "message": "PDF sang Excel"
+  },
+  "pdf_to_ppt": {
+    "message": "PDF sang PPT"
+  },
+  "pdf_to_word": {
+    "message": "PDF sang Word"
+  },
+  "ppt": {
+    "message": "PPT sang PDF"
+  },
+  "processingFailedMessage": {
+    "message": "Xin lỗi, đã xảy ra sự cố khi xử lý tệp tin của bạn"
+  },
+  "processingFailedTitle": {
+    "message": "Xử lý không thành công"
+  },
+  "protect": {
+    "message": "Bảo vệ"
+  },
+  "rotate": {
+    "message": "Xoay"
+  },
+  "sign": {
+    "message": "Ký tên"
+  },
+  "split": {
+    "message": "Phân chia"
+  },
+  "tools": {
+    "message": "Công cụ"
+  },
+  "unlock": {
+    "message": "Mở khóa"
+  },
+  "uploadFailed": {
+    "message": "Xin lỗi bạn đã tải lên không thành công"
+  },
+  "word": {
+    "message": "Word sang PDF"
+  },
+  "search": {
+    "message": "Tìm kiếm"
+  },
+  "113bx69": {
+    "message": "Test translation with a placeholder: {{placeholder_name}} and a styled element <styled>Styled content</styled>"
+  },
+  "114rvhu": {
+    "message": "Đăng nhập Smallpdf"
+  },
+  "114rvnf": {
+    "message": "HOẶC"
+  },
+  "114rvpe": {
+    "message": "Email"
+  },
+  "114rvqv": {
+    "message": "Mật khẩu"
+  },
+  "114rvrt": {
+    "message": "Quên mật khẩu?"
+  },
+  "114rvti": {
+    "message": "Đăng nhập"
+  },
+  "114rvvm": {
+    "message": "Bạn chưa có tài khoản?"
+  },
+  "114rvyk": {
+    "message": "Tạo tài khoản"
+  },
+  "114rw18": {
+    "message": "Tài khoản"
+  },
+  "114rw2d": {
+    "message": "Dùng thử Smallpdf Pro"
+  },
+  "114rw3q": {
+    "message": "Cài đặt tài khoản"
+  },
+  "114rw4o": {
+    "message": "Trợ giúp"
+  },
+  "114rw5s": {
+    "message": "Tải xuống ứng dụng"
+  },
+  "114rw6m": {
+    "message": "Đăng xuất"
+  },
+  "114rw86": {
+    "message": "Sai email hoặc mật khẩu."
+  },
+  "114rwft": {
+    "message": "Chúng tôi không thể xử lý được tập tin này. Vui lòng thử lại."
+  },
+  "114rwo7": {
+    "message": "Tập tin của bạn được bảo mật bằng mật khẩu"
+  },
+  "114rwpn": {
+    "message": "Vui lòng xóa mật khẩu và tải tập tin lên một lần nữa."
+  },
+  "114rwrd": {
+    "message": "Ôi trời! Tập tin này đã bị hỏng"
+  },
+  "114rwsa": {
+    "message": "Vui lòng thử lại với file khác."
+  },
+  "114rwye": {
+    "message": "Bạn có chắc là bạn muốn rời đi?"
+  },
+  "114rwzh": {
+    "message": "Tập tin của bạn sẽ bị xóa. Hãy nhớ tải tập tin xuống trước khi bạn rời đi!"
+  },
+  "114rx0l": {
+    "message": "Rời đi"
+  },
+  "114rx4t": {
+    "message": "Ở lại"
+  },
+  "114rx78": {
+    "message": "Đổi tên tập tin của bạn"
+  },
+  "114rx9b": {
+    "message": "Đổi tên"
+  },
+  "114rxav": {
+    "message": "Thả tập tin ở đây để bắt đầu"
+  },
+  "114rxc0": {
+    "message": "Thêm tập tin"
+  },
+  "114rxcw": {
+    "message": "Thả tập tin của bạn ở đây"
+  },
+  "114rxhe": {
+    "message": "Tập tin của bạn"
+  },
+  "114rxii": {
+    "message": "Không thể tải lên tập tin của bạn"
+  },
+  "114rxjj": {
+    "message": "Không hỗ trợ loại tập tin này"
+  },
+  "114rxk1": {
+    "message": "Vui lòng thử lại với một tập tin PDF."
+  },
+  "114rxp1": {
+    "message": "Số tác vụ miễn phí mỗi ngày còn lại"
+  },
+  "114rxqs": {
+    "message": "Hoặc bắt đầu với một công cụ"
+  },
+  "114rxs1": {
+    "message": "Mở một công cụ trên ứng dụng trang web"
+  },
+  "114rxzd": {
+    "message": "Trở thành cao thủ PDF!"
+  },
+  "114ry1m": {
+    "message": "Sử dụng bản Pro—hoàn toàn miễn phí!"
+  },
+  "114ry2l": {
+    "message": "Nâng cấp lên bản Pro và tận hưởng khả năng truy cập không giới hạn vào các công cụ yêu thích của bạn và nhiều tính năng khác!"
+  },
+  "114ry41": {
+    "message": "Hãy kiểm soát tài liệu PDF! Mở khóa thế giới công cụ PDF tiện dụng với bản dùng thử miễn phí trong 7 ngày."
+  },
+  "114ry4i": {
+    "message": "Bạn sẽ được sử dụng những công cụ gì?"
+  },
+  "114ry60": {
+    "message": "Các công cụ và tính năng của phiên bản Pro"
+  },
+  "114ry6y": {
+    "message": "Các công cụ và tính năng độc quyền của phiên bản Pro"
+  },
+  "114ry85": {
+    "message": "Nén mạnh, chuyển đổi từ tập tin PDF sang Office, tính năng OCR (Nhận dạng ký tự quang học) và nhiều tính năng khác."
+  },
+  "114ry8l": {
+    "message": "Quyền truy cập cao cấp vào các công cụ và tính năng PDF của phiên bản Pro."
+  },
+  "114ry9k": {
+    "message": "Không giới hạn"
+  },
+  "114ryam": {
+    "message": "Không giới hạn với các tập tin và tác vụ mỗi ngày. Tuyệt vời!"
+  },
+  "114ryc1": {
+    "message": "Làm việc khi đang di chuyển"
+  },
+  "114rycg": {
+    "message": "Làm việc mọi lúc, mọi nơi"
+  },
+  "114ryd0": {
+    "message": "Quyền truy cập cao cấp vào các nền tảng trang web, máy tính để bàn và các ứng dụng di động."
+  },
+  "114rydg": {
+    "message": "Mở khóa tất cả các nền tảng và ứng dụng—trên các thiết bị di động đến máy tính để bàn và trang web!"
+  },
+  "114rydy": {
+    "message": "Nâng cấp tài khoản của bạn"
+  },
+  "114ryfe": {
+    "message": "Đăng nhập"
+  },
+  "114ryfx": {
+    "message": "Dùng thử miễn phí trong {{trial_days}} ngày"
+  },
+  "114rylw": {
+    "message": "Sắp xong rồi...\\nSao bạn không pha một ly cà phê, chơi với thú cưng hay tập vài động tác giãn cơ nhỉ? ☕🐶"
+  },
+  "114rys4": {
+    "message": "Quay lại để bắt đầu"
+  },
+  "114ryvl": {
+    "message": "Quay lại với các công cụ"
+  },
+  "114rz0g": {
+    "message": "Chọn loại nén"
+  },
+  "114rz1n": {
+    "message": "Cơ bản"
+  },
+  "114rz2h": {
+    "message": "Kích thước tệp trung bình, chất lượng cao."
+  },
+  "114rz3e": {
+    "message": "Mạnh"
+  },
+  "114rz44": {
+    "message": "Kích thước tệp nhỏ nhất, chất lượng tốt."
+  },
+  "114rz68": {
+    "message": "Chọn loại chuyển đổi"
+  },
+  "114rz7c": {
+    "message": "Các tùy chọn"
+  },
+  "114rz83": {
+    "message": "Với tính năng OCR (Nhận dạng ký tự quang học)"
+  },
+  "114rz8u": {
+    "message": "Các trang được quét sẽ được chuyển đổi thành tài liệu Word có thể chỉnh sửa. Định dạng có thể thay đổi."
+  },
+  "114rzll": {
+    "message": "Change conversion type"
+  },
+  "114rzly": {
+    "message": "Quay lại để chuyển đổi"
+  },
+  "114rzmr": {
+    "message": "Các trang được quét sẽ được chuyển đổi thành tài liệu Excel có thể chỉnh sửa. Định dạng có thể thay đổi."
+  },
+  "cancel": {
+    "message": "Hủy bỏ"
+  },
+  "download": {
+    "message": "Tải xuống"
+  },
+  "error_try_later": {
+    "message": "Ôi trời! Có lỗi xảy ra"
+  },
+  "format_excel": {
+    "message": "Excel (.xlsx)"
+  },
+  "format_image": {
+    "message": "JPG (.jpg)"
+  },
+  "format_ppt": {
+    "message": "PowerPoint (.pptx)"
+  },
+  "format_word": {
+    "message": "Word (.docx)"
+  },
+  "okay": {
+    "message": "Ok"
+  },
+  "please_try_again": {
+    "message": "Vui lòng thử lại."
+  },
+  "try_again": {
+    "message": "Hãy thử lại"
+  },
+  "uh_something_wrong": {
+    "message": "Ôi trời! Có lỗi xảy ra"
+  },
+  "uploading": {
+    "message": "Đang tải lên..."
+  },
+  "114s0il": {
+    "message": "Tự động tải xuống tập tin của tôi"
+  },
+  "114s0jf": {
+    "message": "Chúng tôi sẽ tự động tải xuống tập tin của bạn ngay sau khi hoàn tất quá trình xử lý."
+  },
+  "114s1u3": {
+    "message": "Chuyển đổi từ tập tin PDF sang một PowerPoint."
+  },
+  "114tq39": {
+    "message": "Chuyển đổi toàn bộ các trang"
+  },
+  "114tq47": {
+    "message": "Trích xuất các hình ảnh đơn lẻ"
+  },
+  "114tq8x": {
+    "message": "PDF sang PowerPoint"
+  },
+  "1167iyh": {
+    "message": "Bạn đã đăng nhập thất bại quá nhiều lần. Vui lòng kiểm tra thông tin đăng nhập và thử lại sau."
+  },
+  "11wp338": {
+    "message": "Chỉnh sửa PDF"
+  },
+  "11wp39c": {
+    "message": "PDF sang Word"
+  },
+  "11wp3g5": {
+    "message": "Nén PDF"
+  },
+  "11wp3gn": {
+    "message": "eSign PDF"
+  },
+  "11wp3j6": {
+    "message": "Ghép PDF"
+  },
+  "11wp3jn": {
+    "message": "Công cụ chuyển đổi PDF"
+  },
+  "11wp3k6": {
+    "message": "Các công cụ PDF khác"
+  },
+  "11wp3o4": {
+    "message": "Công cụ Smallpdf"
+  }
+}

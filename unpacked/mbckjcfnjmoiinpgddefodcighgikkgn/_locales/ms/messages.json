@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Cari harga, tawaran dan kupon diskaun terbaik sambil beli-belah dlm talian dgn perbandingan harga dan smbgn kupon oleh Avast.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "Cari harga, tawaran dan kupon diskaun terbaik sambil beli-belah dlm talian dgn perbandingan harga dan smbgn kupon oleh AVG.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Jimat"
+  },
+  "avastAppLongName": {
+    "message": "SafePrice | Perbandingan harga, tawaran dan kupon di tapak membeli-belah yang selamat – Jimat Wang"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | Perbandingan harga, tawaran dan kupon di tapak membeli-belah yang selamat – Jimat Wang"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | Perbandingan, tawaran, kupon"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | Perbandingan, tawaran, kupon"
+  },
+  "sasHintSettings": {
+    "message": "Tetapan"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Seronok menggunakan <br> Avast SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Seronok menggunakan <br> AVG SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Kami gembira anda menyukainya!"
+  },
+  "sasSorry": {
+    "message": "Kami sedih mendengarnya"
+  },
+  "sasAnswerYes": {
+    "message": "ya"
+  },
+  "sasAnswerNo": {
+    "message": "tidak"
+  },
+  "safePriceLeaveRating": {
+    "message": "Berikan kami penilaian untuk menunjukkan yang anda suka.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Nilaikan sekarang"
+  },
+  "safePriceAskMeLater": {
+    "message": "Tanya saya kemudian",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Tetapan Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "Tetapan AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "Tawaran"
+  },
+  "spCouponsTab": {
+    "message": "Kupon"
+  },
+  "spOthersTab": {
+    "message": "Lain-lain"
+  },
+  "spAdditionalFees": {
+    "message": "Bayaran & Cukai tambahan mungkin dikenakan"
+  },
+  "spShippingLabel": {
+    "message": "P/P dari"
+  },
+  "spGetCouponCode": {
+    "message": "Dapatkan Kod"
+  },
+  "spApply": {
+    "message": "Gunakan kupon"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Salin dan tampal semasa pembayaran:"
+  },
+  "spCouponApplied": {
+    "message": "Kupon digunakan."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Mencari tawaran..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Berbaloi menunggu, kami berjanji."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Jimat wang menggunakan kupon"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Jimat sehingga"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Oh lihat!<br> Lebih banyak tawaran"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "harga serendah"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Oh lihat! Lebih banyak tawaran"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Tawaran & kupon ditemui. Anda sungguh bertuah!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Lebih banyak tawaran,<br> lebih banyak penjimatan!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Lebih banyak tawaran, lebih banyak penjimatan!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Hotel popular:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "Hotel alternatif ditemui!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Hotel alternatif"
+  },
+  "spShowNotificationMessage": {
+    "message": "TUNJUK"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Lihat apa yang kami temui!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "TUNJUKKAN TAWARAN"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Lagi"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Kurang"
+  },
+  "spNothingFound": {
+    "message": "Uh oh.<br>Tiada apa-apa yang ditemui…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "Uh oh...<br>Tiada kupon ditemui..."
+  },
+  "spNothingFoundOffers": {
+    "message": "Uh oh...<br>Tiada tawaran ditemui..."
+  },
+  "spNothingFoundOthers": {
+    "message": "Uh oh...<br>Tiada tawaran istimewa ditemui..."
+  },
+  "spCouponsSelected": {
+    "message": "Kupon dipilih: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Dipilih"
+  },
+  "spCouponsAvailableText": {
+    "message": "Tersedia"
+  },
+  "spCouponsExpiration": {
+    "message": "Tamat tempoh: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Pemberitahuan"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Tawaran"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "Tawaran e-kedai"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Tunjukkan setiap kali terdapat tawaran e-kedai"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Hanya tunjukkan apabila terdapat tawaran e-kedai yang lebih baik daripada harga asal"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Jangan maklumkan saya tentang tawaran e-kedai"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(anda boleh melihat tawaran pada bila-bila masa dengan mengklik pada ikon bar alat)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Tawaran penginapan"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Tunjukkan setiap kali terdapat harga hotel yang lebih baik"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Tunjukkan hotel yang serupa dengan permintaan saya"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Tunjukkan hotel popular di kawasan yang diminta"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Kupon"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Tunjukkan setiap kali terdapat kupon"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Tunjukkan sekali pada setiap tapak web sahaja"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Jangan maklumkan saya tentang kupon"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(anda boleh melihat kupon pada bila-bila masa dengan mengklik pada ikon bar alat)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Lain-lain"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Tawaran istimewa"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Maklumkan saya tentang tawaran istimewa untuk kategori lain (pengangkutan, kewangan, bekalan kuasa dan banyak lagi)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Senarai tersuai"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Jangan tunjukkan sebarang pemberitahuan pada tapak web ini:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(anda masih boleh melihat tawaran dan kupon pada bila-bila masa dengan mengklik pada ikon bar alat)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Privasi"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Benarkan analisis prestasi produk dan penggunaan data untuk pembangunan produk baharu"
+  },
+  "spSettingsPageHelp": {
+    "message": "Bantuan"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Pemberitahuan"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Apabila SafePrice menemui tawaran atau kupon yang berkaitan dengan carian anda, pemberitahuan akan dipaparkan. Klik butang besar berwarna hijau untuk melihat penemuan kami."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Tawaran"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Apabila anda mengklik tawaran, anda akan dibawa ke kedai dalam talian rakan kongsi yang dipercayai, tempat anda akan mendapat harga baharu yang disenaraikan pada pemberitahuan."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Kupon"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Untuk menggunakan kupon, anda hanya perlu klik pada kupon itu. Jika kupon itu memaparkan kod, anda perlu menampal kod itu dalam medan yang sewajarnya semasa membayar. Jika tidak, kupon itu akan digunakan secara automatik."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Lain-lain"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Apabila anda mengklik pada tawaran istimewa yang disenaraikan, anda akan dibawa ke kedai dalam talian rakan kongsi yang dipercayai."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Ketahui lebih lanjut dalam <span class='asp-faqs-span'>Soalan Lazim</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Tambah tapak"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Tambah"
+  },
+  "spSettingsPageCancel": {
+    "message": "Batal"
+  },
+  "spSettingsPageSave": {
+    "message": "Simpan"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Kod disalin ke papan klip."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Kupon digunakan pada halaman ini"
+  },
+  "sasOpenShop": {
+    "message": "Buka kedai"
+  },
+  "spSocialShare": {
+    "message": "Suka penjimatan? Sebarkan kasih sayang!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Kongsi",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Tweet",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Tutup"
+  },
+  "spMinimizeTooltip": {
+    "message": "Minimumkan"
+  },
+  "spHelpTooltip": {
+    "message": "Bantuan"
+  },
+  "spSettingsTooltip": {
+    "message": "Tetapan"
+  },
+  "spProductsSearchInput": {
+    "message": "Cari produk"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Cari produk"
+  },
+  "spSearchForOffers": {
+    "message": "Untuk dapatkan tawaran, cari <br> produk"
+  },
+  "spCouponsSearchInput": {
+    "message": "Cari jenama atau kedai dalam talian"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Cari kupon"
+  },
+  "spSearchForCoupons": {
+    "message": "Untuk mendapatkan kupon, cari <br> untuk jenama atau kedai dalam talian"
+  },
+  "spNoResultsFound": {
+    "message": "Tiada hasil carian ditemui untuk <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Kupon tidak ditemui untuk <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Tawaran tidak ditemui untuk <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Tiada tawaran ditemui pada masa ini",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Tiada kupon ditemui pada masa ini",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Tiada tawaran istimewa ditemui <br> pada masa ini"
+  },
+  "spShowAll": {
+    "message": "TUNJUKKAN SEMUA"
+  },
+  "spGreatDeal": {
+    "message": "Tawaran hebat"
+  },
+  "spSiteVerified": {
+    "message": "Tapak ini disahkan dan selamat untuk membeli-belah"
+  },
+  "spSiteNotVerified": {
+    "message": "Tapak ini tidak boleh dipercayai untuk membeli-belah"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Tapak web ini telah dikenal pasti sebagai tidak boleh dipercayai. Setiap tawaran yang kami temui datang dari tapak web yang selamat. Oleh itu, kami mencadangkan supaya anda mengklik salah satu tawaran di atas atau cuba tawaran di tempat lain."
+  },
+  "spConnectionSecure": {
+    "message": "Sambungan ini selamat"
+  },
+  "spConnectionNotSecure": {
+    "message": "Sambungan ini tidak selamat"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Tapak web ini tiada sijil https yang sah. Oleh itu, ia tidak dapat melindungi privasi anda sepenuhnya."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Tapak web ini telah dikenal pasti sebagai tidak boleh dipercayai"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Kami mencadangkan anda pergi ke tapak web lain untuk membeli-belah kerana tapak ini telah dinilaikan tidak bagus oleh pelanggan."
+  },
+  "spLeaveSite": {
+    "message": "tinggalkan tapak"
+  },
+  "spITrustThisSite": {
+    "message": "Saya percaya tapak ini"
+  },
+  "spPhishingSite": {
+    "message": "Tapak web ini telah ditandakan sebagai tapak pemancingan data"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Pemancingan data ialah cubaan untuk mendapatkan maklumat sensitif seperti nama pengguna, kata laluan dan butiran kad kredit."
+  },
+  "spRecommendESHop": {
+    "message": "Syorkan e-kedai"
+  },
+  "spRecommendWhy": {
+    "message": "Mengapakah anda mengesyorkan e-kedai ini?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Mereka mempunyai pilihan produk yang terbaik."
+  },
+  "spRecommendGreatValue": {
+    "message": "Mereka menawarkan nilai yang hebat."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Mereka mempunyai khidmat pelanggan yang bagus."
+  },
+  "spReportESHop": {
+    "message": "Laporkan e-kedai"
+  },
+  "spReportWhy": {
+    "message": "Mengapakah anda melaporkan e-kedai ini?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Saya membayar untuk membeli suatu produk tetapi tidak mendapatnya."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Saya mendapat sesuatu yang berbeza daripada yang saya pesan."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "Mereka melayan saya dengan buruk sebagai pelanggan."
+  },
+  "spRequired": {
+    "message": "*diperlukan"
+  },
+  "spOther": {
+    "message": "Lain-lain"
+  },
+  "spTellUsMore": {
+    "message": "Beritahu kami lebih lanjut"
+  },
+  "spEShopName": {
+    "message": "Nama e-kedai*"
+  },
+  "spProductOrdered": {
+    "message": "Produk dipesan"
+  },
+  "spLinkToProductPage": {
+    "message": "Pautan ke halaman produk"
+  },
+  "spReport": {
+    "message": "laporkan"
+  },
+  "spRecommend": {
+    "message": "syorkan"
+  },
+  "spThanksForVoting": {
+    "message": "Terima kasih kerana membantu kami menjadikan SafePrice lebih baik"
+  },
+  "spAvailableOffers": {
+    "message": "Tawaran yang tersedia"
+  },
+  "spAvailableHotels": {
+    "message": "Hotel yang tersedia"
+  },
+  "spAvailableCoupons": {
+    "message": "Kupon yang tersedia"
+  },
+  "spSelectedCoupons": {
+    "message": "Kupon yang dipilih"
+  },
+  "spAvailableOthers": {
+    "message": "Tawaran istimewa"
+  },
+  "spClickThenPaste": {
+    "message": "Klik, kemudian tampal semasa pembayaran:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Klik, kemudian tampal semasa pembayaran di <span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "disalin"
+  },
+  "spCouponWorks": {
+    "message": "Adakah kupon ini berfungsi?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Adakah kod ini berfungsi?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Kupon digunakan di <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Anda sentiasa boleh mencari tawaran dan kupon SafePrice dengan mengklik pada ikon bar alat.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "FAHAM!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Maklum balas"
+  },
+  "spFeedbackShare": {
+    "message": "Kongsi maklum balas anda"
+  },
+  "spFeedbackGeneral": {
+    "message": "Maklum balas umum"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Beritahu kami tentang pengalaman SafePrice anda, perkara yang anda suka dan perkara yang boleh kami pertingkatkan."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Laporkan kedai dalam talian"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Beritahu kami tentang tapak yang tidak boleh dipercayai atau palsu yang boleh membahayakan orang lain."
+  },
+  "spFeedbackSPExp": {
+    "message": "Beritahu kami tentang pengalaman SafePrice anda:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Tuliskan komen"
+  },
+  "spFeedbackback": {
+    "message": "kembali"
+  },
+  "spFeedbackNext": {
+    "message": "seterusnya"
+  },
+  "spFeedbackSend": {
+    "message": "hantar"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Kedai dalam talian manakah yang anda laporkan? <span class='asp-required-span'>(*diperlukan)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Nama kedai dalam talian*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Peruncit atau pedagang"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Produk dipesan"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Pautan ke halaman produk"
+  },
+  "spFeedbackProblem": {
+    "message": "Apakah masalahnya?  <span class='asp-required-span'>(diperlukan)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Saya mendapat sesuatu yang berbeza daripada yang saya pesan."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Saya membayar untuk membeli suatu produk tetapi tidak mendapatnya."
+  },
+  "spFeedbackOther": {
+    "message": "Lain-lain"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Terangkan secara ringkas masalah tersebut."
+  },
+  "spFeedbackThanks": {
+    "message": "Terima kasih atas maklum balas anda!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Terima kasih."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Tetapkan berapa kerap anda mahu lihat tawaran dan kupon"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "ok"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Mula mencari tawaran di sini"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Mula mencari kupon di sini"
+  },
+  "spTrySearchInAmazon": {
+    "message": "Cuba mencari di %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "cari di %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Cuba mencari tawaran di %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Lebih banyak tawaran dijumpai: "
+  },
+  "spOptInTitle": {
+    "message": "Jika anda bersetuju, SafePrice akan menunjukkan tawaran yang lebih murah semasa anda membeli dalam talian"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Jika anda bersetuju, Avast SafePrice</span> <br> akan menunjukkan tawaran dan kupon yang lebih murah kepada anda semasa membeli dalam talian"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Jika anda bersetuju, AVG SafePrice</span> <br> akan menunjukkan tawaran dan kupon yang lebih murah kepada anda semasa membeli dalam talian"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice akan mengimbas tapak web yang anda lawati untuk mencari tawaran yang lebih baik dan kupon diskaun pada e-kedai yang disahkan. Untuk fungsi ini, ia perlu menghantar data berikut kepada pelayannya:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice akan mengimbas tapak web yang anda lawati untuk mencari tawaran yang lebih baik dan kupon diskaun pada e-kedai yang disahkan. Untuk fungsi ini, program ini perlu menghantar data berikut kepada pelayannya:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice akan mengimbas tapak web yang anda lawati untuk mencari tawaran yang lebih baik dan kupon diskaun pada e-kedai yang disahkan. Untuk fungsi ini, program ini perlu menghantar data berikut kepada pelayannya:"
+  },
+  "spOptInPolice1": {
+    "message": "Domain atau URL tapak beli-belah"
+  },
+  "spOptInPolice2": {
+    "message": "Pengecam sambungan (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Bahasa pelayar"
+  },
+  "spOptInPoliceLink": {
+    "message": "Lihat <a href='#' class='opt-in-box-buttons-policy'>Dasar Privasi sambungan</a> untuk mendapatkan butiran lengkap."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Ya, hantar data"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Ya, dayakan"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Tidak mengapa"
+  },
+  "spOptInSecondTitle": {
+    "message": "Maaf, SafePrice tidak boleh menunjukkan tawaran yang lebih murah tanpa persetujuan anda"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Maaf, Avast SafePrice tidak boleh menunjukkan tawaran yang lebih murah tanpa persetujuan anda"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "Maaf, AVG SafePrice tidak boleh menunjukkan tawaran yang lebih murah tanpa persetujuan anda"
+  },
+  "spOptInSecondText": {
+    "message": "Tanpa persetujuan ini, sambungan tidak akan berfungsi. Anda boleh menyahpasangnya."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Lawati semula kandungan"
+  },
+  "spOptInSecondClose": {
+    "message": "Tutup"
+  },
+  "spAsbCouponsFound": {
+    "message": "Tapak ini ada kupon!"
+  },
+  "spAsbOffersFound": {
+    "message": "Tiada tawaran lain!"
+  }
+}

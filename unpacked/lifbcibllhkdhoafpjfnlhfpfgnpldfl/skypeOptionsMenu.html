@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="ISO-8859-5">
+    <link rel="stylesheet" type="text/css" href="skypeOptionsMenu.css"/>
+</head>
+<body>
+    <div class="body">
+        <div class="title">
+            <div class="logo">
+                <img src="skypelogo_128.png" alt="Skype">
+            </div>
+            <div class="info">
+                <div class="heading">
+                    <h1 id="heading">SKYPE</h1>
+                </div>
+                <div id="company-branding" class="company-branding">
+                    <strong>BY MICROSOFT CORPORATION</strong>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="about">
+            <h1>ABOUT</h1>
+            <div id="description" class="description">
+                <p id="description-content"></p>
+                <b>
+                    <p id="description-lineone-title"></p>
+                </b>
+                <p id="description-lineone"></p>
+                <b>
+                    <p id="description-linetwo-title"></p>
+                </b>
+                <p id="description-linetwo"></p>
+            </div>
+        </div>
+        <div id="account" class="account">
+            <div id="account-loading-spinner-container">
+                <img id="account-loading-spinner" src="./spinner.gif"/>
+            </div>
+            <div id="account-info-container">
+                <p id="account-info-name"></p>
+                <p id="account-info-id"></p>
+            </div>
+            <button id='signout'>
+                <img alt aria-hidden="true" id="signout-spinner" src="spinner.gif"/>
+                <span id="signout-text" class="signout-text">Sign out</span>
+            </button>
+        </div>
+        </br>
+    </div>
+    <footer>
+        <div class="body" id="footer-container">
+            <p>
+                <!-- TODO: LOCALIZE -->
+                <a href="https://go.skype.com/skype.extension.faq" target="_blank" rel='noopener noreferrer'>Learn more</a> <span>about the Skype Extension</span>
+            </p>
+        </div>
+    </footer>
+    <script src="skypeOptionsMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+{
+  "AppName": {
+    "message": "Microsoft 365"
+  },
+  "AppShortName": {
+    "message": "Microsoft 365"
+  },
+  "AppNameEdge": {
+    "message": "Microsoft 365"
+  },
+  "AppFolderName": {
+    "message": "Microsoft 365 બ્રાઉઝર એક્સ્ટેંશન"
+  },
+  "AppDescription": {
+    "message": "તમારા બ્રાઉઝરમાં દસ્તાવેજોને જુઓ, સંપાદિત કરો અને બનાવો."
+  },
+  "AppDescriptionWithEditor": {
+    "message": "ફાઇલોને બ્રાઉઝરની અંદર જુઓ, સંપાદિત કરો અને બનાવો તથા સમગ્ર વેબ પર તમારું શ્રેષ્ઠ લેખન બહાર લાવો."
+  },
+  "AppLongDescription": {
+    "message": "Chrome માટે બનાવેલ – Microsoft 365ને ઇન્સ્ટોલ કરવાની જરૂરિયાત વિના Word, Excel, PowerPoint, OneNote અને Sway Onlineનો ઉપયોગ કરો.\r\n\r\nવિશ્વાસ સાથે બનાવો – તમારા વિચારોને ખુલ્લા મને વ્યક્ત કરવા માટે પરિચિત સ્વરૂપણ અને લેઆઉટ વિકલ્પોનો ઉપયોગ કરો.\r\n\r\nસફરમાં કાર્ય કરો – ગમે ત્યાંથી તમારી ફાઇલો મેળવો, OneDrive અને OneDrive for Business સાથેના સંકલનનો આભાર.\r\n\r\nએપ્લિકેશનને ઇન્સ્ટોલ કરીને, તમે આ નિયમો અને શરતોથી સંમત થાઓ છો: http://aka.ms/officechromeextensionterms\r\n\r\nગોપનીયતા નીતિ: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionWithEditor": {
+    "message": "Chrome માટે બનાવેલ – Microsoft 365 ઇન્સ્ટોલ કરવાની જરૂરિયાત વગર Word, Excel, PowerPoint, OneNote અને Sway નો ઑનલાઇન ઉપયોગ કરો.\r\n\r\nઆત્મવિશ્વાસથી બનાવો - તમારા વિચારોને સંપૂર્ણ નિષ્ઠાથી વ્યક્ત કરવા માટે જાણીતા સ્વરૂપણ અને લેઆઉટ વિકલ્પોનો ઉપયોગ કરો.\r\n\r\nસફરમાં કાર્ય કરો - તમારી ફાઇલોને ગમે ત્યાંથી મેળવો, OneDrive અને OneDrive for Business સાથેના એકીકરણ બદલ આભાર.\r\n\r\nMicrosoft 365 બ્રાઉઝર એક્સ્ટેન્શનમાં હવે તમારી સામગ્રી*ની અશુદ્ધિ તપાસ સામેલ છે. તે મોટાભાગની વેબસાઇટ્સ પર તમારા લેખન માટે જોડણી, વ્યાકરણ અને શુદ્ધતા સૂચનો પ્રદાન કરતી Microsoft ઑનલાઇન સેવાથી કનેક્ટ છે અને તે 80થી વધુ ભાષામાં ઉપલબ્ધ છે.\r\n\r\n*આ સુવિધા બધા ઉપયોગકર્તા માટે ઉપલબ્ધ ન પણ હોય શકે. \r\n\r\nએપ્લિકેશન ઇન્સ્ટોલ કરીને, તમે આ નિયમો અને શરતોથી સંમત થાઓ છો: http://aka.ms/officechromeextensionterms\r\n\r\nગોપનીયતા નીતિ: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionEdge": {
+    "message": "Microsoft 365 બ્રાઉઝર એક્સ્ટેન્શન Microsoft Edge ટુલબાર પર એક આઇકૉન મુકે છે જે તમને તમારી Microsoft 365 ફાઇલોની સીધી ઍક્સેસ પ્રદાન કરે છે, પછી ભલે તેઓ ઑનલાઇન સ્ટોર થયેલ હોય કે તમારા કમ્પ્યુટર પર.\r\n\r\nMicrosoft 365 વેબ એક્સ્ટેન્શન OneDrive અને OneDrive for Business માં સ્ટોર થયેલ ફાઇલોને ખોલી શકે છે.\r\n\r\nMicrosoft 365 ઇન્સ્ટોલ કરવાની જરૂરીયાત વગર તમારા બ્રાઉઝરમાં જ તમે Word, Excel, PowerPoint, OneNote અને Sway ની સુવિધાઓ મેળવો છો.\r\n\r\nMicrosoft 365 બ્રાઉઝર એક્સ્ટેન્શનમાં હવે તમારી સામગ્રીની અશુદ્ધિ તપાસ સામેલ છે*. તે મોટાભાગની વેબસાઇટ્સ પર તમારા લેખન માટે જોડણી, વ્યાકરણ અને શુદ્ધતા સૂચનો પ્રદાન કરતી Microsoft ઑનલાઇન સેવાથી કનેક્ટ છે અને તે 80થી વધુ ભાષામાં ઉપલબ્ધ છે.\r\n\r\n*આ સુવિધા બધા ઉપયોગકર્તા માટે ઉપલબ્ધ ન હોય તેવું બની શકે. \r\n\r\nએપ્લિકેશન ઇન્સ્ટોલ કરીને, તમે આ નિયમો અને શરતોથી સંમત થાઓ છો:\r\n\r\n"
+  },
+  "AppTermsOfServiceLCA": {
+    "message": "PLEASE NOTE: Refer to your license terms for Microsoft 365 browser extension software (the \"software\") to identify the entity licensing this supplement to you and for support information. You may use a copy of this supplement with each validly licensed copy of the software. You may not use the supplement if you do not have a license for the software. The license terms for the software apply to your use of this supplement."
+  },
+  "BrowseToOpenLabel": {
+    "message": "અપલોડ કરો અને ખોલો..."
+  },
+  "UploadToOneDriveLabel": {
+    "message": "OneDrive ને અપલોડ કરો"
+  },
+  "UploadToOneDriveBusinessLabel": {
+    "message": "OneDrive for Business ને અપલોડ કરો"
+  },
+  "AppListLabel": {
+    "message": "વેબ એપ્લિકેશન્સ"
+  },
+  "RecentDocsLabel": {
+    "message": "દસ્તાવેજો"
+  },
+  "RecentDocsItemAriaLabel": {
+    "message": "લિંક નવી ટૅબમાં ખુલશે."
+  },
+  "CreateDocsMessageLabel": {
+    "message": "તાજેતરમાં જોયેલા કોઈ દસ્તાવેજો નથી."
+  },
+  "DocumentsNotFoundMessageLabel": {
+    "message": "અમે આ સમયે તમારા તાજેતરના દસ્તાવેજોની સૂચી મેળવી શકતા નથી."
+  },
+  "LoadingRecentsLabel": {
+    "message": "લોડ થઈ રહ્યું છે..."
+  },
+  "CreateNewLabel": {
+    "message": "નવું"
+  },
+  "OfflineLabel": {
+    "message": "તમે ઑફલાઇન છો. કૃપયા Microsoft 365 બ્રાઉઝર એક્સ્ટેંશનનો ઉપયોગ કરવા માટે ફરીથી કનેક્ટ કરો."
+  },
+  "OpenDocumentLabel": {
+    "message": "ખોલો"
+  },
+  "AccountLabel": {
+    "message": "ખાતું"
+  },
+  "UsernameLabel": {
+    "message": "સાઇન ઇન કરેલ નથી"
+  },
+  "SettingsLabel": {
+    "message": "સેટિંગ્સ"
+  },
+  "ExcelAppName": {
+    "message": "Excel"
+  },
+  "ExcelOnlineAppName": {
+    "message": "Excel"
+  },
+  "OneDriveAppName": {
+    "message": "OneDrive"
+  },
+  "SharePointAppName": {
+    "message": "SharePoint"
+  },
+  "SharePointSiteAppName": {
+    "message": "SharePoint"
+  },
+  "OutlookAppName": {
+    "message": "Outlook"
+  },
+  "TeamsAppName": {
+    "message": "Teams"
+  },
+  "OneDriveFilesLabel": {
+    "message": "OneDrive થી"
+  },
+  "O365FilesLabel": {
+    "message": "OneDrive for Business થી"
+  },
+  "OneNoteAppName": {
+    "message": "OneNote"
+  },
+  "OneNoteOnlineAppName": {
+    "message": "OneNote"
+  },
+  "PowerPointAppName": {
+    "message": "PowerPoint"
+  },
+  "PowerPointOnlineAppName": {
+    "message": "PowerPoint"
+  },
+  "SignInLabel": {
+    "message": "સાઇન ઇન કરો"
+  },
+  "SignInMSALabel": {
+    "message": "એક Microsoft ખાતા સાથે સાઇન ઇન કરો"
+  },
+  "SignInO365Label": {
+    "message": "એક કાર્ય અથવા શાળા ખાતા સાથે સાઇન ઇન કરો"
+  },
+  "SignOutLabel": {
+    "message": "સાઇન આઉટ કરો"
+  },
+  "CreateAccountLabel": {
+    "message": "ખાતું બનાવો"
+  },
+  "SwayAppName": {
+    "message": "Sway"
+  },
+  "TelemetrySettingLabel": {
+    "message": "અમારા ઉત્પાદનોને બહેતર બનાવવામાં અમારી મદદ કરવા માટે સ્વયંચાલિત રૂપે ડેટા મોકલો."
+  },
+  "WebRedirectSettingLabel": {
+    "message": "Microsoft 365 સાથે Microsoft 365 ફાઇલોને સીધી બ્રાઉઝરમાં ખોલો."
+  },
+  "MoreFilesLabel": {
+    "message": "વધુ દસ્તાવેજો"
+  },
+  "WordAppName": {
+    "message": "Word"
+  },
+  "WordOnlineAppName": {
+    "message": "Word"
+  },
+  "SignInHeaderLabel": {
+    "message": "તમે તમારી ફાઇલોને ક્યાં સાચવવા માંગો છો?"
+  },
+  "NextLabel": {
+    "message": "સાઇન ઇન કરો"
+  },
+  "CopyrightLabel": {
+    "message": "Microsoft Corporation 2015"
+  },
+  "FileTypeErrorMessage": {
+    "message": "ફાઇલ પ્રકાર સમર્થિત નથી. કૃપયા Word, Excel અથવા PowerPoint દસ્તાવેજ પસંદ કરો."
+  },
+  "NotificationFileAccess": {
+    "message": "જો તમે બ્રાઉઝરમાં ફાઇલોને ખેંચવા અને છોડવા માંગો છો, તો એક્સ્ટેન્શન સેટિંગ્સમાં, \"ફાઇલ URLs ની ઍક્સેસની પરવાનગી આપો\" ચેકબૉક્સ પસંદ કરો."
+  },
+  "NotificationFileMaxSizeByteLimitReached": {
+    "message": "કદના કારણે Microsoft 365 બ્રાઉઝર એક્સ્ટેંશન તમારા દસ્તાવેજને ખોલવામાં અસમર્થ છે.  કૃપયા દસ્તાવેજને ખોલવા માટે સીધું OneDrive પર અપલોડ કરો."
+  },
+  "NotificationFileUploadFailureGeneric": {
+    "message": "ક્ષમા કરશો, અમે તમારી ફાઇલને ખોલવામાં અસમર્થ હતાં."
+  },
+  "NotificationFileUploadFailureServer": {
+    "message": "ક્ષમા કરશો, અમે તમારી ફાઇલને ખોલવામાં અસમર્થ હતાં.  કૃપયા પછીથી ફરી પ્રયાસ કરો."
+  },
+  "NotificationFileUploadFailureUnsupportedMedia": {
+    "message": "ક્ષમા કરશો, અમે તમારી ફાઇલને ખોલવામાં અસમર્થ હતાં.  કૃપયા Word, Excel અથવા PowerPoint સાથે બનાવેલી કોઈ ફાઇલ પસંદ કરો"
+  },
+  "NotificationFileUploadInProgress": {
+    "message": "અમે વર્તમાનમાં તમારા દસ્તાવેજ(દસ્તાવેજો)ને અપલોડ કરી રહ્યાં છે."
+  },
+  "NotificationSetDefault": {
+    "message": "ફાઇલો એપ્લિકેશનમાં, Microsoft 365 સાથે ખોલવા માટે દસ્તાવેજોને બે આંગળીઓ વડે ટૅપ કરો."
+  },
+  "NotificationAutoSaveToOneDrive": {
+    "message": "અમે તમારી ફાઇલને તમારી OneDrive પર \"Microsoft 365 બ્રાઉઝર એક્સ્ટેંશન\" ફોલ્ડરમાં સાચવી છે."
+  },
+  "NotificationAutoSaveToSharePoint": {
+    "message": "અમે તમારી ફાઇલને તમારા OneDrive for Business પર \"Microsoft 365 બ્રાઉઝર એક્સ્ટેંશન\" ફોલ્ડરમાં સાચવી છે."
+  },
+  "NotificationAutoSaveButton": {
+    "message": "આ ફરીથી દેખાડશો નહીં"
+  },
+  "NotificationNotSignedIn": {
+    "message": "વેબ પર Microsoft 365માં ફાઇલોને જોવા અને સંપાદિત કરવા માટે એક્સ્ટેન્શનમાં સાઇન ઇન કરો."
+  },
+  "NotificationUnsupportedFileType": {
+    "message": "Word, Excel અથવા PowerPoint સાથે બનાવેલ ફાઇલ પસંદ કરો."
+  },
+  "NotificationInvalidSubscription": {
+    "message": "તમારી Microsoft 365 સદસ્યતાની સમયસીમા સમાપ્ત થઈ ગઈ હોઈ શકે છે અથવા તો તેમાં OneDrive for Business સામેલ હોઈ શકતું નથી. તમારી સદસ્યતાને તપાસો અથવા તેના બદલે Microsoft ખાતા વડે લૉગ ઇન કરો."
+  },
+  "NotificationWebDocRedirect": {
+    "message": "Microsoft 365 એક્સ્ટેંશન તમારા દસ્તાવેજને બ્રાઉઝરમાં ખોલી રહ્યું છે"
+  },
+  "NotificationWebDocRedirectButton": {
+    "message": "આ ફરીથી દેખાડશો નહીં"
+  },
+  "OfficeOnlineAppName": {
+    "message": "Microsoft 365"
+  },
+  "ShareMessage": {
+    "message": "શેર કરો"
+  },
+  "SharePermissionsTooltip": {
+    "message": "તમને શેર કરવાની અનુમતિ નથી"
+  },
+  "SharePermissionsErrorMessage": {
+    "message": "અનુમતિ આવશ્યક છે"
+  },
+  "SupportPageLabel": {
+    "message": "લૉગ ઇન કરવામાં મદદ જોઈએ છે?"
+  },
+  "MyAccountLabel": {
+    "message": "મારું ખાતું જુઓ"
+  },
+  "EditorSpellingToggleLabel": {
+    "message": "જોડણી"
+  },
+  "EditorGrammarToggleLabel": {
+    "message": "વ્યાકરણ"
+  },
+  "EditorRefinementsToggleLabel": {
+    "message": "શુદ્ધતા"
+  },
+  "DisableEditorOnThisSiteLabel": {
+    "message": "$host$ પરનાં સંપાદકને અક્ષમ કરો",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EnableEditorOnThisSiteLabel": {
+    "message": "$host$ પર સંપાદકને સક્ષમ કરો",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsDisabledOnThisSiteLabel": {
+    "message": "સંપાદક વર્તમાનમાં $host$ પર અક્ષમ નથી",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsBlockedOnThisSiteLabel": {
+    "message": "સંપાદક વર્તમાનમાં $host$ પર સમર્થિત નથી",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorPreviewLabel": {
+    "message": "(પૂર્વાવલોકન)"
+  },
+  "EditorBrandText": {
+    "message": "સંપાદક"
+  },
+  "EditorIsOffLabel": {
+    "message": "સંપાદક બંધ છે."
+  },
+  "TurnOnEditorLabel": {
+    "message": "સંપાદક ચાલુ કરો"
+  },
+  "EditorRefinementsTooltip": {
+    "message": "શુદ્ધતા એ તમારા લેખનને વધુ સ્પષ્ટ, ઓછા શબ્દોમાં અથવા વધુ ઔપચારિક બનાવવામાં મદદ કરવા માટેનાં લેખિત સૂચનો છે."
+  },
+  "EditorRefinementsGoPremiumTooltip": {
+    "message": "જ્યારે તમે પ્રીમિયમ અજમાવો ત્યારે પ્રગત લેખન સૂચનો અને 1 TB સંગ્રહણ મેળવો."
+  },
+  "StandaloneExtensionInstalledLabel": {
+    "message": "Microsoft સંપાદક એક્સ્ટેન્શન દ્વારા સંપાદક સેવા પુરી પાડવામાં આવી રહી છે."
+  },
+  "EditorNativeSupportOnThisSiteLabel": {
+    "message": "$હોસ્ટ$ સાથે સંપાદક સમાવિષ્ટ",
+    "placeholders": {
+      "host": {
+        "content": "$1",
+        "example": "outlook.com"
+      }
+    }
+  },
+  "EditorPriorityShutdownLabel": {
+    "message": "Microsoft સંપાદક એક્સ્ટેન્શન દ્વારા સંપાદક સેવા પુરી પાડવામાં આવી રહી છે."
+  },
+  "AppsModuleLinkText": {
+    "message": "તમારી બધી એપ્લિકેશન્સને એક્સપ્લોર કરો"
+  },
+  "AppsSectionHeader": {
+    "message": "એપ્લિકેશન્સ"
+  }
+}

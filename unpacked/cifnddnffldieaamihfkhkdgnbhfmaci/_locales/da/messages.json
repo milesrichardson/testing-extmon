@@ -1,0 +1,50 @@
+{
+  "extName": {
+    "message": "Foxit PDF Creator"
+  },
+  "extDesc": {
+    "message": "For at konvertere websiden til Foxit PDF"
+  },
+  "default_title": {
+    "message": "For at konvertere websiden til Foxit PDF"
+  },
+  "ConvertToFoxitPDF": {
+    "message": "Konverter til Foxit PDF"
+  },
+  "AppendToExistingPDF": {
+    "message": "Tilføj til en anden PDF"
+  },
+  "CreateAndEmail": {
+    "message": "Opret og mail"
+  },
+  "ConvertLinkTargetToPDF": {
+    "message": "Konverter den linkede side til Foxit PDF"
+  },
+  "AppendLinkTargetToExistingPDF": {
+    "message": "Tilføj den linkede side til en anden PDF"
+  },
+  "ViewPDFResults": {
+    "message": "Vis PDF-resultat"
+  },
+  "Preferences": {
+    "message": "Indstillinger"
+  },
+  "Uninstall": {
+    "message": "Afinstaller"
+  },
+  "Reinstall": {
+    "message": "Geninstaller"
+  },
+  "UninstallTip": {
+    "message": "Bemærk, at handlingen AFINSTALLER ikke kan fortrydes!"
+  },
+  "UninstallSureTip": {
+    "message": "Handlingen AFINSTALLER ikke kan fortrydes - Er du sikker på, at du vil afinstallere?"
+  },
+  "UninstallSuccessTip": {
+    "message": "\"Foxit PhantomPDF - Opret PDF\" Filtypenavnet blev afinstalleret og træder i kraft, når du har genstartet din browser."
+  },
+  "OptionsTitle": {
+    "message": "Indstillinger for filtypenavnet for Foxit PhantomPDF"
+  }
+}

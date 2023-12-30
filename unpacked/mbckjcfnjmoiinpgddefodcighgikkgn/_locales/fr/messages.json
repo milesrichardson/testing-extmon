@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Trouvez les meilleurs prix, promotions et bons de réduction lors de vos achats en ligne avec l’extension de comparaison de prix et de réductions gérée par Avast.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "Trouvez les meilleurs prix, promotions et bons de réduction lors de vos achats en ligne avec l’extension de comparaison de prix et de réductions d'AVG.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Économisez"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | Comparateur de prix, offres et coupons sur sites d'achat sécurisés – Économisez de l'argent"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | Comparateur de prix, offres et coupons sur sites d'achat sécurisés – Économisez de l'argent"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | Comparateur de prix, offres, coupons"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | Comparateur de prix, offres, coupons"
+  },
+  "sasHintSettings": {
+    "message": "Paramètres"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Vous aimez <br> Avast SafePrice ?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Vous aimez <br> AVG SafePrice ?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Nous en sommes ravis !"
+  },
+  "sasSorry": {
+    "message": "Nous sommes désolés"
+  },
+  "sasAnswerYes": {
+    "message": "oui"
+  },
+  "sasAnswerNo": {
+    "message": "non"
+  },
+  "safePriceLeaveRating": {
+    "message": "Laissez-nous une note.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Noter maintenant"
+  },
+  "safePriceAskMeLater": {
+    "message": "Me demander plus tard",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Paramètres Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "Paramètres AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "Offres"
+  },
+  "spCouponsTab": {
+    "message": "Coupons"
+  },
+  "spOthersTab": {
+    "message": "Autres"
+  },
+  "spAdditionalFees": {
+    "message": "Des frais et taxes supplémentaires peuvent s'appliquer"
+  },
+  "spShippingLabel": {
+    "message": "Livraison à partir de"
+  },
+  "spGetCouponCode": {
+    "message": "Obtenir un code"
+  },
+  "spApply": {
+    "message": "Appliquer le coupon"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Copier et coller pour le paiement :"
+  },
+  "spCouponApplied": {
+    "message": "Coupon appliqué."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Recherche d'offres..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Patientez quelques instants, vous ne serez pas déçu."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Économisez de l'argent à l'aide de coupons"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Économisez jusqu'à"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Regardez !<br> Plus d'offres"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "prices as low as"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Regardez ! Plus d'offres"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Nous avons trouvé des offres et coupons. Quelle chance !"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Plus d'offres,<br> plus d'économies !"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Plus d'offres, plus d'économies !"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Hôtels populaires :"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "On a trouvé d'autres hôtels !"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Hôtels alternatifs"
+  },
+  "spShowNotificationMessage": {
+    "message": "AFFICHER"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Regardez ce que nous avons trouvé !"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "AFFICHER L'OFFRE"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Plus"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Moins"
+  },
+  "spNothingFound": {
+    "message": "Oups.<br>Nous n'avons rien trouvé…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "Oups...<br>Aucun coupon trouvé..."
+  },
+  "spNothingFoundOffers": {
+    "message": "Oups...<br>Aucune offre trouvée..."
+  },
+  "spNothingFoundOthers": {
+    "message": "Oups...<br>Aucune offre spéciale trouvée..."
+  },
+  "spCouponsSelected": {
+    "message": "Coupons sélectionnés : "
+  },
+  "spCouponsSelectedText": {
+    "message": "Sélectionné"
+  },
+  "spCouponsAvailableText": {
+    "message": "Disponible"
+  },
+  "spCouponsExpiration": {
+    "message": "Expire le : "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Notifications"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Offres"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "Offres d'e-boutiques"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Afficher quand des offres d'e-boutiques sont disponibles"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Afficher uniquement les offres d'e-boutiques plus avantageuses que le prix d'origine"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Ne pas m'envoyer de notifications sur les offres d'e-boutiques"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(vous pouvez toujours voir les offres en cliquant sur l'icône de la barre d'outils)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Offres d'hébergement"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Afficher quand des prix d'hôtels plus avantageux sont disponibles"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Afficher les hôtels alternatifs par rapport à ma requête"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Afficher les hôtels populaires dans la zone demandée"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Coupons"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Afficher quand un coupon est disponible"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Afficher une seule fois par site Internet"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Ne pas m'envoyer de notifications sur les coupons"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(vous pouvez toujours voir les coupons en cliquant sur l'icône de la barre d'outils)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Autres"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Offres spéciales"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "M'envoyer une notification sur les offres spéciales d'autres catégories (transports, finances, alimentation en énergie, etc.)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Liste personnalisée"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Ne pas afficher de notifications sur ces sites Internet :"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(vous pouvez toujours voir les offres et coupons en cliquant sur l'icône de la barre d'outils)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Confidentialité"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Autoriser l'analyse des performances et de l'utilisation du produit pour le développement de nouveaux produits"
+  },
+  "spSettingsPageHelp": {
+    "message": "Aide"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Notifications"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Lorsque SafePrice trouve une offre ou un coupon associé à votre recherche, il affiche une notification. Pour voir ce que nous avons trouvé, vous n'avez qu'à cliquer sur le gros bouton vert."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Offres"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "En cliquant sur une offre, vous serez redirigé vers l'e-boutique d'un partenaire de confiance, d'où vous pourrez bénéficier du prix indiqué dans la notification."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Coupons"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Pour utiliser un coupon, il vous suffit de cliquer dessus. S'il révèle un code, vous devrez le copier dans le champ pertinent sur la page de paiement. Sinon, le coupon sera automatiquement appliqué."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Autres"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Si vous cliquez sur une offre spéciale, vous serez redirigé vers l'e-boutique d'un partenaire de confiance."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Plus d'infos dans nos <span class='asp-faqs-span'>FAQ</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Ajouter un site"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Ajouter"
+  },
+  "spSettingsPageCancel": {
+    "message": "Annuler"
+  },
+  "spSettingsPageSave": {
+    "message": "Sauv."
+  },
+  "sasCouponCodeCopied": {
+    "message": "Code copié dans le presse-papier."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Coupon appliqué sur cette page"
+  },
+  "sasOpenShop": {
+    "message": "Ouvrir la boutique"
+  },
+  "spSocialShare": {
+    "message": "Vous aimez faire des économies ? Parlez-en autour de vous !",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Partager",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Tweeter",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Fermer"
+  },
+  "spMinimizeTooltip": {
+    "message": "Réduire"
+  },
+  "spHelpTooltip": {
+    "message": "Aide"
+  },
+  "spSettingsTooltip": {
+    "message": "Paramètres"
+  },
+  "spProductsSearchInput": {
+    "message": "Rechercher des produits"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Rechercher un produit"
+  },
+  "spSearchForOffers": {
+    "message": "Pour obtenir des offres, recherchez <br> un produit"
+  },
+  "spCouponsSearchInput": {
+    "message": "Rechercher des marques ou des e-boutiques"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Rechercher des coupons"
+  },
+  "spSearchForCoupons": {
+    "message": "Pour obtenir des coupons, recherchez <br> une marque ou une e-boutique"
+  },
+  "spNoResultsFound": {
+    "message": "Aucun résultat trouvé pour <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Aucun coupon trouvé pour <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Aucune offre trouvée pour <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Aucune offre trouvée pour le moment",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Aucun coupon trouvé pour le moment",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Aucune offre spéciale trouvée <br> pour le moment"
+  },
+  "spShowAll": {
+    "message": "TOUT AFFICHER"
+  },
+  "spGreatDeal": {
+    "message": "Super offre"
+  },
+  "spSiteVerified": {
+    "message": "Ce site a été vérifié, vous pouvez y faire vos achats en toute sécurité"
+  },
+  "spSiteNotVerified": {
+    "message": "Ce site n'est pas assez sûr pour y réaliser des achats"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Ce site a été identifié comme peu fiable. Toutes nos offres proviennent de sites sécurisés, c'est pourquoi nous vous suggérons de cliquer sur l'une des offres ci-dessus ou de juste tenter votre chance ailleurs."
+  },
+  "spConnectionSecure": {
+    "message": "Cette connexion est sécurisée"
+  },
+  "spConnectionNotSecure": {
+    "message": "Cette connexion n'est pas sécurisée"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Ce site n'a pas de certificat HTTPS valide, il ne peut donc pas protéger entièrement votre confidentialité."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Ce site a été identifié comme peu fiable"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Nous vous suggérons d'aller faire vos achats sur un autre site, car ce site a été mal noté par des clients."
+  },
+  "spLeaveSite": {
+    "message": "quitter le site"
+  },
+  "spITrustThisSite": {
+    "message": "Je fais confiance à ce site"
+  },
+  "spPhishingSite": {
+    "message": "Ce site a été marqué comme site de hameçonnage (phishing)"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Le hameçonnage est une technique visant à obtenir des informations sensibles (nom d'utilisateur, mots de passe, informations de carte de paiement...)."
+  },
+  "spRecommendESHop": {
+    "message": "Recommander une e-boutique"
+  },
+  "spRecommendWhy": {
+    "message": "Pourquoi recommandez-vous cette e-boutique ?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Elle propose une excellente gamme de produits."
+  },
+  "spRecommendGreatValue": {
+    "message": "Elle offre un excellent rapport qualité-prix."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Son service client est excellent."
+  },
+  "spReportESHop": {
+    "message": "Signaler l'e-boutique"
+  },
+  "spReportWhy": {
+    "message": "Pourquoi signalez-vous cette e-boutique ?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "J'ai acheté un produit et je ne l'ai pas reçu."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "J'ai reçu un autre produit que celui que j'avais commandé."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "En tant que client, je ne me suis pas senti bien traité."
+  },
+  "spRequired": {
+    "message": "* requis"
+  },
+  "spOther": {
+    "message": "Autre"
+  },
+  "spTellUsMore": {
+    "message": "Dites-nous-en plus"
+  },
+  "spEShopName": {
+    "message": "Nom de l'e-boutique*"
+  },
+  "spProductOrdered": {
+    "message": "Produit commandé"
+  },
+  "spLinkToProductPage": {
+    "message": "Lien vers la page du produit"
+  },
+  "spReport": {
+    "message": "signaler"
+  },
+  "spRecommend": {
+    "message": "recommander"
+  },
+  "spThanksForVoting": {
+    "message": "Merci de nous aider à améliorer SafePrice"
+  },
+  "spAvailableOffers": {
+    "message": "Offres disponibles"
+  },
+  "spAvailableHotels": {
+    "message": "Hôtels disponibles"
+  },
+  "spAvailableCoupons": {
+    "message": "Coupons disponibles"
+  },
+  "spSelectedCoupons": {
+    "message": "Coupons sélectionnés"
+  },
+  "spAvailableOthers": {
+    "message": "Offre spéciale"
+  },
+  "spClickThenPaste": {
+    "message": "Cliquez, puis collez ce code dans la page de paiement :"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Cliquez, puis collez ce code dans la page de paiement du site <span class='asp-shopname-span'>%s</span> :",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "copié"
+  },
+  "spCouponWorks": {
+    "message": "Ce coupon a-t-il fonctionné ?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Ce code a-t-il fonctionné ?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Le coupon s'applique au site <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Vous pouvez toujours trouver les offres et coupons SafePrice en cliquant sur l'icône de la barre d'outils.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "OK !",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Commentaire"
+  },
+  "spFeedbackShare": {
+    "message": "Envoyer un commentaire"
+  },
+  "spFeedbackGeneral": {
+    "message": "Commentaire général"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Parlez-nous de votre expérience SafePrice, de ce que vous avez aimé et ce que nous pourrions améliorer."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Signaler une e-boutique"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Parlez-nous des sites frauduleux ou peu fiables qui pourraient mettre d'autres utilisateurs en péril."
+  },
+  "spFeedbackSPExp": {
+    "message": "Parlez-nous de votre expérience SafePrice :"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Rédiger un commentaire"
+  },
+  "spFeedbackback": {
+    "message": "retour"
+  },
+  "spFeedbackNext": {
+    "message": "suivant"
+  },
+  "spFeedbackSend": {
+    "message": "envoyer"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Quelle e-boutique voulez-vous signaler ? <span class='asp-required-span'>(*champ obligatoire)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Nom de l'e-boutique*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Détaillant ou commerçant"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Produit commandé"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Lien vers une page de produit"
+  },
+  "spFeedbackProblem": {
+    "message": "Quel problème avez-vous rencontré ? <span class='asp-required-span'>(champ obligatoire)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "J'ai reçu un autre produit que celui que j'avais commandé."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "J'ai acheté un produit et je ne l'ai pas reçu."
+  },
+  "spFeedbackOther": {
+    "message": "Autre"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Expliquez le problème en quelques mots."
+  },
+  "spFeedbackThanks": {
+    "message": "Merci pour votre commentaire !"
+  },
+  "spRateCouponsThanks": {
+    "message": "Merci."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Définissez la fréquence à laquelle vous souhaitez recevoir des offres et coupons"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "ok"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Commencez à rechercher des offres ici"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Commencez à rechercher des coupons ici"
+  },
+  "spTrySearchInAmazon": {
+    "message": "Essayez de rechercher sur %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "rechercher sur %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Essayez de rechercher des offres sur %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Plus d'offre trouvées : "
+  },
+  "spOptInTitle": {
+    "message": "Si vous acceptez d'envoyer vos données, SafePrice vous montrera les meilleures offres lorsque vous ferez vos achats en ligne"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Si vous acceptez, Avast SafePrice</span> <br> vous montrera les meilleures offres et réductions pendant vos achats en ligne"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Si vous acceptez, AVG SafePrice</span> <br> vous montrera les meilleures offres et réductions pendant vos achats en ligne"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice analyse les sites Web que vous visitez afin de trouver les meilleures offres et des coupons de réduction sur des boutiques en ligne vérifiées. Pour cela, il doit envoyer les données suivantes à ses serveurs :"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice analyse les sites Web que vous visitez afin de trouver les meilleures offres et réductions sur des boutiques en ligne vérifiées. Pour cela, il doit envoyer les données suivantes à ses serveurs :"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice analyse les sites Web que vous visitez afin de trouver les meilleures offres et réductions sur des boutiques en ligne vérifiées. Pour cela, il doit envoyer les données suivantes à ses serveurs :"
+  },
+  "spOptInPolice1": {
+    "message": "Nom de domaine ou URL de la boutique en ligne"
+  },
+  "spOptInPolice2": {
+    "message": "Identifiants d'extension (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Langue du navigateur"
+  },
+  "spOptInPoliceLink": {
+    "message": "Pour plus de détails, consultez la <a href='#' class='opt-in-box-buttons-policy'>Politique de confidentialité sur les extensions</a>."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Oui, envoyer les données"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Oui, accepter"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Non, merci"
+  },
+  "spOptInSecondTitle": {
+    "message": "Nous sommes désolés, SafePrice ne peut pas vous montrer d'offres moins chères sans votre consentement"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Sans votre consentement, Avast SafePrice ne peut malheureusement pas vous montrer de meilleures offres"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "Sans votre consentement, AVG SafePrice ne peut malheureusement pas vous montrer de meilleures offres"
+  },
+  "spOptInSecondText": {
+    "message": "L'extension ne fonctionnera pas sans. Vous pouvez la désinstaller."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Retourner à la demande de consentement"
+  },
+  "spOptInSecondClose": {
+    "message": "Fermer"
+  },
+  "spAsbCouponsFound": {
+    "message": "Ce site a des coupons !"
+  },
+  "spAsbOffersFound": {
+    "message": "Il y a d'autres offres !"
+  }
+}

@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "هنگام خرید آنلاین، بهترین قیمت‌ها، تخفیف‌ها و کوپن‌های خرید اینترنتی را از طریق مقایسه قیمت‌ها و افزونه کوپن ارائه شده توسط Avast پیدا کنید.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "هنگام خرید آنلاین، بهترین قیمت‌ها، تخفیف‌ها و کوپن‌های خرید اینترنتی را از طریق مقایسه قیمت‌ها و افزونه کوپن ارائه شده توسط AVG پیدا کنید.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "ذخیره"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | مقایسه قیمت، معاملات و کوپن‌ها در سایت‌های خرید مطمئن - صرفه‌جویی کنید"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | مقایسه قیمت، معاملات و کوپن‌ها در سایت‌های خرید مطمئن - صرفه‌جویی کنید"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | مقایسه، تخفیفات و کوپن‌ها"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | مقایسه، تخفیفات و کوپن‌ها"
+  },
+  "sasHintSettings": {
+    "message": "تنظیمات"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "از Avast SafePrice ‏<br> لذت می‌برید؟",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "از <br> AVG SafePrice لذت می‌برید؟",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "خوشحالیم که آن را می‌پسندید!"
+  },
+  "sasSorry": {
+    "message": "باعث تاسف است که این را می‌شنویم"
+  },
+  "sasAnswerYes": {
+    "message": "بله"
+  },
+  "sasAnswerNo": {
+    "message": "خیر"
+  },
+  "safePriceLeaveRating": {
+    "message": "میزان علاقه‌مندی خود را با یک رتبه مشخص کنید.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "اکنون رتبه بدهید"
+  },
+  "safePriceAskMeLater": {
+    "message": "بعداً از من بپرسید",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "تنظیمات Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "تنظیمات AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "پیشنهادات"
+  },
+  "spCouponsTab": {
+    "message": "کوپن‌ها"
+  },
+  "spOthersTab": {
+    "message": "سایر موارد"
+  },
+  "spAdditionalFees": {
+    "message": "ممکن است کارمزدها و عوارض اضافی اعمال شوند"
+  },
+  "spShippingLabel": {
+    "message": "هزینه ی ارسال/رسیدگی از"
+  },
+  "spGetCouponCode": {
+    "message": "دریافت کد"
+  },
+  "spApply": {
+    "message": "اعمال کوپن"
+  },
+  "spCopyAtCheckOut": {
+    "message": "کپی و چسباندن در حین بررسی:"
+  },
+  "spCouponApplied": {
+    "message": "کوپن اعمال شد."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "در حال جستجوی فروش‌های ویژه..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "ارزش صبر کردن دارد، قول می‌دهیم."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "با استفاده از کوپن‌ها، صرفه‌جویی کنید"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "صرفه‌جویی تا"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "اینجا را ببینید!<br> پیشنهادات بیشتر"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "قیمت‌های پایین تا"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "اینجا را ببینید! پیشنهادات بیشتر"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "پیشنهادات و کوپن‌ها یافت شدند. خوش بحال‌تان!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "هر چه تخفیف بیشتر،<br> صرفه‌جویی بیشتر!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "هر چه تخفیف بیشتر، صرفه‌جویی بیشتر!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "هتل‌های پرطرفدار:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "هتل‌های جایگزین یافت شدند!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "هتل‌های جایگزین"
+  },
+  "spShowNotificationMessage": {
+    "message": "نمایش"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "ببینید چه چیزی پیدا کردیم!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "نمایش فروش ویژه"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "موارد بیشتر"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "موارد کمتر"
+  },
+  "spNothingFound": {
+    "message": "با عرض تأسف...<br>چیزی پیدا نشد…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "با عرض تأسف...<br>هیچ کوپنی یافت نشد..."
+  },
+  "spNothingFoundOffers": {
+    "message": "با عرض تأسف...<br>هیچ پیشنهادی یافت نشد..."
+  },
+  "spNothingFoundOthers": {
+    "message": "با عرض تأسف...<br>هیچ تخفیف خاصی یافت نشد..."
+  },
+  "spCouponsSelected": {
+    "message": "کوپن‌های انتخاب‌شده: "
+  },
+  "spCouponsSelectedText": {
+    "message": "انتخاب‌شده"
+  },
+  "spCouponsAvailableText": {
+    "message": "موجود"
+  },
+  "spCouponsExpiration": {
+    "message": "تاریخ انقضاء: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "اعلان‌ها"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "پیشنهادات"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "پیشنهادات فروش‌های اینترنتی"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "هر وقت پیشنهادات فروش اینترنتی وجود دارد نمایش داده شوند"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "تنها زمانی نمایش یابند که پیشنهادات فروش اینترنتی بهتر از قیمت اولیه موجود هستند"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "درباره پیشنهادات فروش اینترنتی برای من اعلان نمایش داده نشود"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(همیشه می‌توانید با کلیک روی نماد نوار ابزار، پیشنهادات را مشاهده کنید)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "پیشنهادات اقامت"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "هر وقت قیمت هتل بهتری وجود دارد نشان داده شود"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "هتل‌های مشابه درخواست من نمایش داده شوند"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "هتل‌های پرطرفدار در منطقه درخواستی نشان داده شوند"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "کوپن‌ها"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "هر وقت کوپنی وجود دارد نمایش داده شود"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "تنها یک بار در هر وب‌سایت نمایش داده شوند"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "درباره کوپن‌ها برای من اعلان نمایش داده نشود"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(همیشه می‌توانید با کلیک روی نماد نوار ابزار، کوپن‌ها را مشاهده کنید)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "سایر موارد"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "فروش‌های ویژه"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "درباره فروش‌های ویژه مربوط به سایر دسته‌ها (حمل‌ونقل، مالی، تأمین برق و موارد دیگر) برای من اعلان ارسال شود"
+  },
+  "spSettingsPageCustomList": {
+    "message": "لیست سفارشی"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "هیچ اعلانی در وب‌سایت‌های زیر نمایش داده نشود:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(همیشه می‌توانید با کلیک روی نماد نوار ابزار، پیشنهادات و کوپن‌ها را مشاهده کنید)"
+  },
+  "spSettingsPrivacy": {
+    "message": "حریم خصوصی"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "تحلیل عملکرد محصول و مصرف دیتا به منظور توسعه محصول جدید را اجازه بدهید"
+  },
+  "spSettingsPageHelp": {
+    "message": "راهنما"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. اعلان‌ها"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "وقتی SafePrice یک پیشنهاد یا کوپن مرتبط با جستجوی شما پیدا می‌کند، یک اعلان در صفحه بالا خواهد آمد. برای مشاهده آنچه برایتان پیدا کرده‌ایم، روی دکمه سبزرنگ بزرگ کلیک کنید."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. پیشنهادات"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "با کلیک روی یک پیشنهاد، به یکی از فروشگاه‌های آنلاین مورد اعتماد طرف قرارداد برده می‌شوید که در آنجا قیمت جدید فهرست شده در اعلان را مشاهده خواهید کرد."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. کوپن‌ها"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "برای استفاده از یک کوپن، کافی است روی آن کلیک کنید. چنانچه یک کد نمایش یافت، آن را کپی کرده و حین ثبت سفارش، در کادر مربوطه جاگذاری کنید. در غیر این صورت، کوپن به طور خودکار اعمال می‌شود."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. سایر موارد"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "با کلیک روی یک مورد در لیست فروش‌های ویژه به فروشگاه آنلاین مورد اعتماد طرف قرارداد انتقال داده می‌شوید."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "اطلاعات بیشتر را در <span class='asp-faqs-span'>پرسش‌های متداول</span> کسب کنید."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "افزودن سایت"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "افزودن"
+  },
+  "spSettingsPageCancel": {
+    "message": "لغو"
+  },
+  "spSettingsPageSave": {
+    "message": "ذخیره"
+  },
+  "sasCouponCodeCopied": {
+    "message": "کد در کلیپ بورد کپی شد."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "کوپن اعمال‌شده در این صفحه"
+  },
+  "sasOpenShop": {
+    "message": "فروشگاه باز"
+  },
+  "spSocialShare": {
+    "message": "از صرفه‌جویی لذت بردید؟ همه را خبر کنید!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "اشتراک‌گذاری",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "توییت کردن",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "بستن"
+  },
+  "spMinimizeTooltip": {
+    "message": "کوچک کردن"
+  },
+  "spHelpTooltip": {
+    "message": "راهنما"
+  },
+  "spSettingsTooltip": {
+    "message": "تنظیمات"
+  },
+  "spProductsSearchInput": {
+    "message": "جستجوی محصولات"
+  },
+  "spProductsSearchIconHover": {
+    "message": "جستجوی یک محصول"
+  },
+  "spSearchForOffers": {
+    "message": "برای دریافت پیشنهادات، یک محصول <br> را جستجو کنید"
+  },
+  "spCouponsSearchInput": {
+    "message": "جستجوی برندها یا فروشگاه‌های آنلاین"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "جستجوی کوپن‌ها"
+  },
+  "spSearchForCoupons": {
+    "message": "برای دریافت کوپن‌ها، یک برند یا <br> فروشگاه آنلاین را جستجو کنید"
+  },
+  "spNoResultsFound": {
+    "message": "هیچ نتیجه‌ای برای <br> %s یافت نشد",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "هیچ کوپنی برای <br> %s یافت نشد",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "هیچ پیشنهادی برای <br> %s یافت نشد",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "در حال حاضر هیچ پیشنهادی وجود ندارد",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "در حال حاضر هیچ کوپنی وجود ندارد",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "هیچ تخفیف ویژه‌ای <br> در حال حاضر وجود ندارد"
+  },
+  "spShowAll": {
+    "message": "نمایش همه"
+  },
+  "spGreatDeal": {
+    "message": "خرید عالی"
+  },
+  "spSiteVerified": {
+    "message": "این سایت تأیید شده است و خرید در آن امن است"
+  },
+  "spSiteNotVerified": {
+    "message": "این سایت برای خرید غیرقابل اعتماد است"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "این وب‌سایت غیرقابل اعتماد شناخته شده است. هر وقت که تشخیص دهیم یک پیشنهاد فروش ویژه از وب‌سایتی مطمئن منشأ گرفته است، پیشنهاد می کنیم روی یکی از پیشنهادات فوق کلیک کنید یا چیز دیگری را امتحان کنید."
+  },
+  "spConnectionSecure": {
+    "message": "این اتصال امن است"
+  },
+  "spConnectionNotSecure": {
+    "message": "این اتصال امن نیست"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "این وب‌سایت فاقد یک گواهی https معتبر است، بنابراین نمی‌تواند حریم خصوصی شما را به طور کامل محافظت نماید."
+  },
+  "spSiteUntrustworthy": {
+    "message": "این وب‌سایت غیرقابل اعتماد تشخیص داده شده است"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "پیشنهاد می‌کنیم از جای دیگری خرید کنید، زیرا مشتریان امتیاز بسیار ضعیفی به این سایت داده‌اند."
+  },
+  "spLeaveSite": {
+    "message": "ترک سایت"
+  },
+  "spITrustThisSite": {
+    "message": "به این سایت اعتماد دارم"
+  },
+  "spPhishingSite": {
+    "message": "این وب‌سایت به عنوان سایت فیشینگ علامت‌گذاری شده است"
+  },
+  "spPhishingSiteDesc": {
+    "message": "فیشینگ بمنزله تلاش برای دستیابی به اطلاعات حساس مانند نام‌های کاربری، رمزهای عبور و جزئیات کارت‌های اعتباری است."
+  },
+  "spRecommendESHop": {
+    "message": "توصیه این فروشگاه اینترنتی"
+  },
+  "spRecommendWhy": {
+    "message": "چرا این فروشگاه اینترنتی را توصیه می‌کنید؟*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "تنوع محصولات آنها فوق‌العاده است."
+  },
+  "spRecommendGreatValue": {
+    "message": "قیمت‌های آنها بسیار خوب است."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "آنها خدمات مشتریان بسیار خوبی دارند."
+  },
+  "spReportESHop": {
+    "message": "گزارش فروشگاه اینترنتی"
+  },
+  "spReportWhy": {
+    "message": "چرا درباره این فروشگاه اینترنتی گزارش می‌دهید؟*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "برای یک محصول پول دادم اما آن را دریافت نکردم."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "چیزی که دریافت کردم با سفارش من متفاوت بوده است."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "آنها برای من به عنوان یک مشتری احترام چندانی قائل نبودند."
+  },
+  "spRequired": {
+    "message": "*ضروری"
+  },
+  "spOther": {
+    "message": "سایر موارد"
+  },
+  "spTellUsMore": {
+    "message": "بیشتر توضیح بدهید"
+  },
+  "spEShopName": {
+    "message": "نام فروشگاه اینترنتی*"
+  },
+  "spProductOrdered": {
+    "message": "محصول سفارش داده شده"
+  },
+  "spLinkToProductPage": {
+    "message": "پیوند به صفحه محصول"
+  },
+  "spReport": {
+    "message": "گزارش"
+  },
+  "spRecommend": {
+    "message": "توصیه شده"
+  },
+  "spThanksForVoting": {
+    "message": "بابت همکاری برای بهتر کردن SafePrice سپاسگزاریم"
+  },
+  "spAvailableOffers": {
+    "message": "پیشنهادات موجود"
+  },
+  "spAvailableHotels": {
+    "message": "هتل‌های موجود"
+  },
+  "spAvailableCoupons": {
+    "message": "کوپن‌های موجود"
+  },
+  "spSelectedCoupons": {
+    "message": "کوپن‌های انتخاب‌شده"
+  },
+  "spAvailableOthers": {
+    "message": "فروش ویژه"
+  },
+  "spClickThenPaste": {
+    "message": "کلیک کنید و سپس در کادر مربوطه جاگذاری نمایید:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "کلیک کنید و سپس در <span class='asp-shopname-span'>%s</span> جاگذاری نمایید:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "کپی شد"
+  },
+  "spCouponWorks": {
+    "message": "آیا این کوپن کار کرد؟"
+  },
+  "spCouponCodeWorks": {
+    "message": "آیا این کد کار کرد؟"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "کوپن در <span class='asp-shopname-span'>%s</span> اعمال شد.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "همیشه می‌توانید با کلیک روی نماد نوار ابزار، پیشنهادات و کوپن‌های SafePrice را مشاهده کنید.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "متوجه شدم!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "بازخورد"
+  },
+  "spFeedbackShare": {
+    "message": "اشتراک‌گذاری بازخورد"
+  },
+  "spFeedbackGeneral": {
+    "message": "بازخورد کلی"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "درباره تجربه خود از کار با SafePrice به ما بگویید، از چه چیزی خوشتان آمد و چه چیزی را می‌توانیم بهبود دهیم."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "گزارش فروشگاه آنلاین"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "درباره سایت‌های نامطمئن یا جعلی که می‌|توانند دیگران را در معرض خطر قرار دهند، به ما اطلاع دهید."
+  },
+  "spFeedbackSPExp": {
+    "message": "درباره تجربه خود از کار با SafePrice به ما بگویید:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "یک نظر بنویسید"
+  },
+  "spFeedbackback": {
+    "message": "بازگشت"
+  },
+  "spFeedbackNext": {
+    "message": "بعدی"
+  },
+  "spFeedbackSend": {
+    "message": "ارسال"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "درباره کدام فروشگاه آنلاین گزارش می‌دهید؟ <span class='asp-required-span'>(*الزامی)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "نام فروشگاه آنلاین*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "فروشگاه یا نمایندگی"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "محصول سفارش داده شده"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "پیوند به صفحه محصول"
+  },
+  "spFeedbackProblem": {
+    "message": "مشکل چه بود؟  <span class='asp-required-span'>(الزامی)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "چیزی که دریافت کردم با سفارش من متفاوت بوده است."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "برای یک محصول پول دادم اما آن را دریافت نکردم."
+  },
+  "spFeedbackOther": {
+    "message": "سایر موارد"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "مشکل را به اختصار توضیح دهید."
+  },
+  "spFeedbackThanks": {
+    "message": "بابت ارائه نظرات شما متشکریم!"
+  },
+  "spRateCouponsThanks": {
+    "message": "سپاسگزارم."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "تنظیم کنید مایلید هر چند وقت پیشنهادات و کوپن‌ها را ملاحظه کنید"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "تأیید"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "تخفیف‌های ویژه را از اینجا جستجو کنید"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "کوپن‌ها را از اینجا جستجو کنید"
+  },
+  "spTrySearchInAmazon": {
+    "message": "جستجو در %s را امتحان کنید",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "جستجو در %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "تخفیفات را در %s جستجو کنید",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "پیشنهادات بیشتر یافت شده: "
+  },
+  "spOptInTitle": {
+    "message": "اگر موافقت کنید، SafePrice هنگام خرید آنلاین گزینه‌های ارزان‌قیمت‌تری نمایش خواهد داد"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>اگر موافقت کنید، Avast SafePrice</span> <br> هنگام خرید آنلاین گزینه‌های ارزان‌قیمت‌تر و کوپن‌های تخفیف نمایش خواهد داد"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>اگر موافقت کنید، AVG SafePrice</span> <br> هنگام خرید آنلاین گزینه‌های ارزان‌قیمت‌تر و کوپن‌های تخفیف نمایش خواهد داد"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice وب‌سایت‌هایی که بازدید می‌کنید را اسکن می‌کند تا بتواند در فروشگاه‌های اینترنتی معتبر گزینه‌های خرید بهتر و کوپن‌های تخفیف برای شما پیدا کند. به همین منظور، نیاز دارد داده‌های زیر را به سرورهای خود ارسال کند:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice وب‌سایت‌هایی که بازدید می‌کنید را اسکن می‌کند تا بتواند در فروشگاه‌های اینترنتی معتبر گزینه‌های خرید بهتر و کوپن‌های تخفیف برای شما پیدا کند. به همین منظور، نیاز دارد داده‌های زیر را به سرورهای خود ارسال کند:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice وب‌سایت‌هایی که بازدید می‌کنید را اسکن می‌کند تا بتواند در فروشگاه‌های اینترنتی معتبر گزینه‌های خرید بهتر و کوپن‌های تخفیف برای شما پیدا کند. به همین منظور، نیاز دارد داده‌های زیر را به سرورهای خود ارسال کند:"
+  },
+  "spOptInPolice1": {
+    "message": "دامنه یا URL سایت فروشگاهی"
+  },
+  "spOptInPolice2": {
+    "message": "شناسه‌های افزونه (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "زبان مرورگر"
+  },
+  "spOptInPoliceLink": {
+    "message": "جهت مشاهده جزئیات کامل، بخش <a href='#' class='opt-in-box-buttons-policy'>سیاست حریم خصوصی افزونه</a> را ملاحظه کنید."
+  },
+  "spOptInPoliceAccept": {
+    "message": "بلی، داده‌ها ارسال شوند"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "بله، فعال شود"
+  },
+  "spOptInPoliceDeny": {
+    "message": "خیر، متشکرم"
+  },
+  "spOptInSecondTitle": {
+    "message": "با عرض تأسف، SafePrice نمی‌تواند بدون موافقت شما، گزینه‌های ارزان‌قیمت‌تر برایتان نمایش دهد"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "با عرض تأسف، Avast SafePrice نمی‌تواند بدون موافقت شما، گزینه‌های ارزان‌قیمت‌تر برایتان نمایش دهد"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "با عرض تأسف، AVG SafePrice نمی‌تواند بدون موافقت شما، گزینه‌های ارزان‌قیمت‌تر برایتان نمایش دهد"
+  },
+  "spOptInSecondText": {
+    "message": "بدون موافقت شما، افزونه کار نخواهد کرد. شما می‌توانید آن را لغو نصب کنید."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "بازدید مجدد بخش موافقت"
+  },
+  "spOptInSecondClose": {
+    "message": "بستن"
+  },
+  "spAsbCouponsFound": {
+    "message": "این سایت کوپن دارد!"
+  },
+  "spAsbOffersFound": {
+    "message": "پیشنهادات دیگری وجود دارد!"
+  }
+}

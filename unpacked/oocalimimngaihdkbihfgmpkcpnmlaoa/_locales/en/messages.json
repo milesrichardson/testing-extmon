@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Netflix Party is now Teleparty",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Watch Netflix, Youtube, Disney Plus, Hulu, HBO, and Amazon Prime Video in sync with friends",
+    "description": "Extension description"
+  }
+}

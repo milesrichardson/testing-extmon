@@ -1,0 +1,32 @@
+.mb-clipboard-notification-box {
+  background: #1c1b1f;
+}
+
+.mb-text {
+  color: white;
+}
+
+.mb-box-header-content {
+  background: #282a32;
+}
+
+.mb-top {
+  background: #282a32;
+}
+
+svg {
+  fill: #ffffff;
+}
+
+.mb-top-banner {
+  fill: #282a32;
+}
+
+.mb-top-banner-text {
+  fill: #fff;
+}
+
+#mb-disable-shell-warning {
+  color: #9eb2eb !important;
+  background: none;
+}

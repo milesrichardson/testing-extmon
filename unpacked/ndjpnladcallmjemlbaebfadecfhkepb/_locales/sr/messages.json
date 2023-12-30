@@ -1,0 +1,308 @@
+{
+  "AppName": {
+    "message": "Microsoft 365"
+  },
+  "AppShortName": {
+    "message": "Microsoft 365"
+  },
+  "AppNameEdge": {
+    "message": "Microsoft 365"
+  },
+  "AppFolderName": {
+    "message": "Microsoft 365 proširenje pregledača"
+  },
+  "AppDescription": {
+    "message": "Prikažite, uredite i kreirajte dokumente u pregledaču."
+  },
+  "AppDescriptionWithEditor": {
+    "message": "Prikažite, uredite i kreirajte datoteke u pregledaču i pišite najbolje što možete na vebu."
+  },
+  "AppLongDescription": {
+    "message": "Napravljeno za Chrome – Koristite Word, Excel, PowerPoint, OneNote i Sway Online bez potrebe za instaliranjem sistema Microsoft 365.\r\n\r\nKreirajte sa samopouzdanjem – Koristite poznate opcije oblikovanja i rasporeda kako biste izrazili svoje ideje uz potpunu preciznost.\r\n\r\nRadite u pokretu – Pristupite datotekama sa bilo koje lokacije, zahvaljujući integraciji sa programima OneDrive i OneDrive for Business.\r\n\r\nAko instalirate ovu aplikaciju, pristajete na ove odredbe i uslove: http://aka.ms/officechromeextensionterms\r\n\r\nSmernice za privatnost: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionWithEditor": {
+    "message": "Napravljeno za Chrome – Koristite Word, Excel, PowerPoint, OneNote i Sway Online bez potrebe za instaliranjem sistema Microsoft 365.\r\n\r\nKreirajte sa samopouzdanjem – Koristite poznate opcije oblikovanja i rasporeda kako biste izrazili svoje ideje uz potpunu preciznost.\r\n\r\nRadite u pokretu – Pristupite datotekama sa bilo koje lokacije, zahvaljujući integraciji sa programima OneDrive i OneDrive for Business.\r\n\r\nMicrosoft 365 proširenje sada obuhvata proveru sadržaja*. Povezuje se sa Microsoft uslugom na mreži koja nudi predloge pravopisa, gramatike i poboljšanja pisanja na većini veb sajtova i dostupno je na više od 80 jezika.\r\n\r\n*Ova funkcija možda nije dostupna za sve korisnike.\r\n\r\nAko instalirate ovu aplikaciju, prihvatate ove odredbe i uslove: http://aka.ms/officechromeextensionterms\r\n\r\nSmernice za privatnost: http://aka.ms/privacy\r\n"
+  },
+  "AppLongDescriptionEdge": {
+    "message": "Microsoft 365 proširenje stavlja ikonu na traci sa alatkama pregledača Microsoft Edge koja pruža direktan pristup Microsoft 365 datotekama, bez obzira na to da li se skladište na mreži ili na računaru.\r\n\r\nMicrosoft 365 veb proširenje može da otvori datoteke uskladištene u uslugama OneDrive i OneDrive for Business.\r\n\r\nDobijate funkcije programa Word, Excel, PowerPoint, OneNote i Sway u pregledaču, bez potrebe za instaliranjem sistema Microsoft 365.\r\n\r\nMicrosoft 365 proširenje sada obuhvata proveru sadržaja*. Povezuje se sa Microsoft uslugom na mreži koja nudi predloge pravopisa, gramatike i poboljšanja pisanja na većini veb sajtova i dostupno je na više od 80 jezika.\r\n\r\n*Ova funkcija možda nije dostupna za sve korisnike.\r\n\r\nAko instalirate ovu aplikaciju, pristajete na ove odredbe i uslove: \r\n\r\n"
+  },
+  "AppTermsOfServiceLCA": {
+    "message": "PLEASE NOTE: Refer to your license terms for Microsoft 365 browser extension software (the \"software\") to identify the entity licensing this supplement to you and for support information. You may use a copy of this supplement with each validly licensed copy of the software. You may not use the supplement if you do not have a license for the software. The license terms for the software apply to your use of this supplement."
+  },
+  "BrowseToOpenLabel": {
+    "message": "Otpremi i otvori..."
+  },
+  "UploadToOneDriveLabel": {
+    "message": "Otpremanje u OneDrive"
+  },
+  "UploadToOneDriveBusinessLabel": {
+    "message": "Otpremanje u OneDrive for Business"
+  },
+  "AppListLabel": {
+    "message": "Web Apps"
+  },
+  "RecentDocsLabel": {
+    "message": "Dokumenti"
+  },
+  "RecentDocsItemAriaLabel": {
+    "message": "veza će se otvoriti na novoj kartici."
+  },
+  "CreateDocsMessageLabel": {
+    "message": "Nema nedavno prikazanih dokumenata."
+  },
+  "DocumentsNotFoundMessageLabel": {
+    "message": "Trenutno ne možemo da preuzmemo listu nedavnih dokumenata."
+  },
+  "LoadingRecentsLabel": {
+    "message": "Učitavanje..."
+  },
+  "CreateNewLabel": {
+    "message": "Novi"
+  },
+  "OfflineLabel": {
+    "message": "Van mreže ste. Ponovo se povežite da biste koristili Microsoft 365 proširenje pregledača."
+  },
+  "OpenDocumentLabel": {
+    "message": "Otvori"
+  },
+  "AccountLabel": {
+    "message": "Nalog"
+  },
+  "UsernameLabel": {
+    "message": "Niste prijavljeni"
+  },
+  "SettingsLabel": {
+    "message": "Postavke"
+  },
+  "ExcelAppName": {
+    "message": "Excel"
+  },
+  "ExcelOnlineAppName": {
+    "message": "Excel"
+  },
+  "OneDriveAppName": {
+    "message": "OneDrive"
+  },
+  "SharePointAppName": {
+    "message": "SharePoint"
+  },
+  "SharePointSiteAppName": {
+    "message": "SharePoint"
+  },
+  "OutlookAppName": {
+    "message": "Outlook"
+  },
+  "TeamsAppName": {
+    "message": "Teams"
+  },
+  "OneDriveFilesLabel": {
+    "message": "Iz usluge OneDrive"
+  },
+  "O365FilesLabel": {
+    "message": "Iz usluge OneDrive for Business"
+  },
+  "OneNoteAppName": {
+    "message": "OneNote"
+  },
+  "OneNoteOnlineAppName": {
+    "message": "OneNote"
+  },
+  "PowerPointAppName": {
+    "message": "PowerPoint"
+  },
+  "PowerPointOnlineAppName": {
+    "message": "PowerPoint"
+  },
+  "SignInLabel": {
+    "message": "Prijavite se"
+  },
+  "SignInMSALabel": {
+    "message": "Prijavite se pomoću Microsoft naloga"
+  },
+  "SignInO365Label": {
+    "message": "Prijavite se pomoću poslovnog ili školskog naloga"
+  },
+  "SignOutLabel": {
+    "message": "Odjavite se"
+  },
+  "CreateAccountLabel": {
+    "message": "Kreiranje naloga"
+  },
+  "SwayAppName": {
+    "message": "Sway"
+  },
+  "TelemetrySettingLabel": {
+    "message": "Automatski šaljite podatke da biste nam pomogli da poboljšamo proizvode."
+  },
+  "WebRedirectSettingLabel": {
+    "message": "Otvorite Microsoft 365 datoteke direktno u pregledaču pomoću Microsoft 365."
+  },
+  "MoreFilesLabel": {
+    "message": "Još dokumenata"
+  },
+  "WordAppName": {
+    "message": "Word"
+  },
+  "WordOnlineAppName": {
+    "message": "Word"
+  },
+  "SignInHeaderLabel": {
+    "message": "Gde želite da sačuvate datoteke?"
+  },
+  "NextLabel": {
+    "message": "Prijavite se"
+  },
+  "CopyrightLabel": {
+    "message": "Microsoft Corporation 2015"
+  },
+  "FileTypeErrorMessage": {
+    "message": "Tip datoteke nije podržan. Odaberite Word, Excel ili PowerPoint dokument."
+  },
+  "NotificationFileAccess": {
+    "message": "U postavkama proširenja, potvrdite izbor u polju za potvrdu „Dozvoli pristup URL adresama datoteka“ ako želite da prevučete i otpustite datoteke u pregledač."
+  },
+  "NotificationFileMaxSizeByteLimitReached": {
+    "message": "Microsoft 365 proširenje pregledača ne može da otvori dokument zbog veličine. Otpremite direktno u OneDrive da biste otvorili dokument."
+  },
+  "NotificationFileUploadFailureGeneric": {
+    "message": "Žao nam je, nismo mogli da otvorimo datoteku."
+  },
+  "NotificationFileUploadFailureServer": {
+    "message": "Žao nam je, nismo mogli da otvorimo datoteku. Pokušajte ponovo kasnije."
+  },
+  "NotificationFileUploadFailureUnsupportedMedia": {
+    "message": "Žao nam je, nismo mogli da otvorimo datoteku. Odaberite datoteku kreiranu pomoću programa Word, Excel ili PowerPoint"
+  },
+  "NotificationFileUploadInProgress": {
+    "message": "Trenutno otpremamo dokument(e)."
+  },
+  "NotificationSetDefault": {
+    "message": "U aplikaciji „Datoteke“ dodirnite dokumente pomoću dva prsta da biste ih otvorili koristeći Microsoft 365."
+  },
+  "NotificationAutoSaveToOneDrive": {
+    "message": "Sačuvali smo datoteku u fascikli „Microsoft 365 proširenje pregledača“ u usluzi OneDrive."
+  },
+  "NotificationAutoSaveToSharePoint": {
+    "message": "Sačuvali smo datoteku u fascikli „Microsoft 365 proširenje pregledača“ u usluzi OneDrive for Business."
+  },
+  "NotificationAutoSaveButton": {
+    "message": "Ne prikazuj ovo više"
+  },
+  "NotificationNotSignedIn": {
+    "message": "Prijavite se u proširenje da biste prikazali i uredili datoteke u sistemu Microsoft 365 na vebu."
+  },
+  "NotificationUnsupportedFileType": {
+    "message": "Odaberite datoteku kreiranu pomoću programa Word, Excel ili PowerPoint."
+  },
+  "NotificationInvalidSubscription": {
+    "message": "Vaša Microsoft 365 pretplata je možda istekla ili ne sadrži uslugu OneDrive for Business. Proverite pretplatu ili se prijavite pomoću Microsoft naloga umesto toga."
+  },
+  "NotificationWebDocRedirect": {
+    "message": "Microsoft 365 proširenje otvara vaš dokument u pregledaču"
+  },
+  "NotificationWebDocRedirectButton": {
+    "message": "Ne prikazuj ovo više"
+  },
+  "OfficeOnlineAppName": {
+    "message": "Microsoft 365"
+  },
+  "ShareMessage": {
+    "message": "Deli"
+  },
+  "SharePermissionsTooltip": {
+    "message": "Nemate dozvolu za deljenje"
+  },
+  "SharePermissionsErrorMessage": {
+    "message": "Potrebna je dozvola"
+  },
+  "SupportPageLabel": {
+    "message": "Potrebna vam je pomoć oko prijavljivanja?"
+  },
+  "MyAccountLabel": {
+    "message": "Prikaz mog naloga"
+  },
+  "EditorSpellingToggleLabel": {
+    "message": "Pravopis"
+  },
+  "EditorGrammarToggleLabel": {
+    "message": "Gramatika"
+  },
+  "EditorRefinementsToggleLabel": {
+    "message": "Poboljšanja"
+  },
+  "DisableEditorOnThisSiteLabel": {
+    "message": "Onemogući uređivač u hostu $host$",
+    "placeholders": {
+      "host": {
+        "content": "1 USD",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EnableEditorOnThisSiteLabel": {
+    "message": "Omogući uređivač u hostu $host$",
+    "placeholders": {
+      "host": {
+        "content": "1 USD",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsDisabledOnThisSiteLabel": {
+    "message": "Uređivač je trenutno onemogućen u hostu $host$",
+    "placeholders": {
+      "host": {
+        "content": "1 USD",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorIsBlockedOnThisSiteLabel": {
+    "message": "Uređivač trenutno nije podržan u hostu $host$",
+    "placeholders": {
+      "host": {
+        "content": "1 USD",
+        "example": "facebook.com"
+      }
+    }
+  },
+  "EditorPreviewLabel": {
+    "message": "(pregled)"
+  },
+  "EditorBrandText": {
+    "message": "Uređivač"
+  },
+  "EditorIsOffLabel": {
+    "message": "Uređivač je isključen."
+  },
+  "TurnOnEditorLabel": {
+    "message": "Uključi uređivač"
+  },
+  "EditorRefinementsTooltip": {
+    "message": "Poboljšanja predstavljaju napredne predloge za pisanje koji vam pomažu da pisanje učinite jasnijim, sažetijim i formalnijim."
+  },
+  "EditorRefinementsGoPremiumTooltip": {
+    "message": "Nabavite napredne ideje za pisanje i 1 TB skladišta kada pređete na premijum verziju."
+  },
+  "StandaloneExtensionInstalledLabel": {
+    "message": "Uslugu uređivača pruža proširenje Microsoft uređivač."
+  },
+  "EditorNativeSupportOnThisSiteLabel": {
+    "message": "Uređivač teksta je uključen u $host$",
+    "placeholders": {
+      "host": {
+        "content": "1 USD",
+        "example": "outlook.com"
+      }
+    }
+  },
+  "EditorPriorityShutdownLabel": {
+    "message": "Uslugu uređivača pruža proširenje Microsoft uređivač."
+  },
+  "AppsModuleLinkText": {
+    "message": "Istražite sve svoje aplikacije"
+  },
+  "AppsSectionHeader": {
+    "message": "Aplikacije"
+  }
+}

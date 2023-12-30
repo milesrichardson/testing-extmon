@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Tìm giá, ưu đãi và phiếu giảm giá hấp dẫn nhất khi mua trực tuyến với phần mở rộng so sánh giá và phiếu giảm giá của Avast.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "Tìm giá, ưu đãi và phiếu giảm giá hấp dẫn nhất khi mua trực tuyến với phần mở rộng so sánh giá và phiếu giảm giá của AVG.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Tiết kiệm"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | So sánh giá cả, ưu đãi và phiếu giảm giá trên các trang web mua sắm - Tiết kiệm tiền"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | So sánh giá cả, ưu đãi và phiếu giảm giá trên các trang web mua sắm - Tiết kiệm tiền"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | So sánh, ưu đãi, phiếu giảm giá"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | So sánh, ưu đãi, phiếu giảm giá"
+  },
+  "sasHintSettings": {
+    "message": "Thiết lập"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Bạn thích dùng <br> Avast SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Bạn thích dùng <br> AVG SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Rất vui là bạn thích!"
+  },
+  "sasSorry": {
+    "message": "Chúng tôi rất tiếc"
+  },
+  "sasAnswerYes": {
+    "message": "có"
+  },
+  "sasAnswerNo": {
+    "message": "không"
+  },
+  "safePriceLeaveRating": {
+    "message": "Đánh giá chúng tôi để thể hiện sự ủng hộ của bạn.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Đánh giá ngay"
+  },
+  "safePriceAskMeLater": {
+    "message": "Hỏi lại sau",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Cài đặt Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "Cài đặt AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "Ưu đãi"
+  },
+  "spCouponsTab": {
+    "message": "Phiếu giảm giá"
+  },
+  "spOthersTab": {
+    "message": "Khác"
+  },
+  "spAdditionalFees": {
+    "message": "Có thể áp dụng các khoản Phí & Thuế bổ sung"
+  },
+  "spShippingLabel": {
+    "message": "S/H từ"
+  },
+  "spGetCouponCode": {
+    "message": "Nhận Mã"
+  },
+  "spApply": {
+    "message": "Áp dụng phiếu giảm giá"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Sao chép và dán khi thanh toán:"
+  },
+  "spCouponApplied": {
+    "message": "Đã áp dụng phiếu giảm giá."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Đang tìm kiếm ưu đãi..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Đáng để chờ, chúng tôi hứa đó."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Tiết kiệm tiền bằng cách sử dụng phiếu giảm giá"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Tiết kiệm tới"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Xem này!<br> Nhiều ưu đãi hơn"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "giá thấp nhất là"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Xem này! Nhiều ưu đãi hơn"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Đã tìm thấy ưu đãi & phiếu giảm giá. Chúc bạn may mắn!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Ưu đãi nhiều hơn,<br> tiết kiệm nhiều hơn!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Ưu đãi nhiều hơn, tiết kiệm nhiều hơn!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Các khách sạn phổ biến:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "Đã tìm thấy khách sạn thay thế!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Các khách sạn thay thế"
+  },
+  "spShowNotificationMessage": {
+    "message": "HIỂN THỊ"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Xem chúng tôi tìm được gì này!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "HIỂN THỊ ƯU ĐÃI"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Thêm"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Ít hơn"
+  },
+  "spNothingFound": {
+    "message": "Ôi trời.<br>Không tìm thấy gì…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "Ôi trời...<br>Không tìm thấy phiếu giảm giá nào..."
+  },
+  "spNothingFoundOffers": {
+    "message": "Ôi trời...<br>Không tìm thấy ưu đãi nào..."
+  },
+  "spNothingFoundOthers": {
+    "message": "Ôi trời...<br>Không tìm thấy ưu đãi đặc biệt nào..."
+  },
+  "spCouponsSelected": {
+    "message": "Phiếu giảm giá đã chọn: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Đã chọn"
+  },
+  "spCouponsAvailableText": {
+    "message": "Khả dụng"
+  },
+  "spCouponsExpiration": {
+    "message": "Hết hạn: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Thông báo"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Ưu đãi"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "Ưu đãi trên cửa hàng trực tuyến"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Hiển thị khi có ưu đãi trên cửa hàng trực tuyến"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Chỉ hiển thị khi có ưu đãi trên cửa hàng trực tuyến có giá rẻ hơn giá gốc"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Không thông báo cho tôi về ưu đãi trên cửa hàng trực tuyến"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(bạn luôn có thể xem ưu đãi bằng cách nhấp vào biểu tượng thanh công cụ)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Ưu đãi về lưu trú"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Hiển thị khi có giá khách sạn rẻ hơn"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Hiển thị các khách sạn khác cho những nơi tôi yêu cầu"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Hiển thị các khách sạn được yêu thích trong khu vực được yêu cầu"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Phiếu giảm giá"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Hiển thị khi có phiếu giảm giá"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Chỉ hiển thị một lần trên mỗi trang web"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Không thông báo phiếu giảm giá với tôi"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(bạn luôn có thể xem phiếu giảm giá bằng cách nhấp vào biểu tượng thanh công cụ)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Khác"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Ưu đãi đặc biệt"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Thông báo cho tôi về ưu đãi đặc biệt từ các lĩnh vực khác (như giao thông, tài chính, điện và nhiều hơn thế)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Danh sách tùy chỉnh"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Không hiển thị thông báo trên những trang web này:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(bạn luôn có thể xem ưu đãi và phiếu giảm giá bằng cách nhấp vào biểu tượng thanh công cụ)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Quyền riêng tư"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Cho phép phân tích mức sử dụng dữ liệu và hiệu suất sản phẩm để phát triển sản phẩm mới"
+  },
+  "spSettingsPageHelp": {
+    "message": "Trợ giúp"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Thông báo"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Khi SafePrice tìm thấy ưu đãi hoặc phiếu giảm giá liên quan đến tìm kiếm của bạn, cửa sổ thông báo sẽ hiện ra. Nhấp vào nút to màu xanh lá để xem chúng tôi tìm được gì cho bạn."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Ưu đãi"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Nhấp vào một ưu đãi sẽ đưa bạn đến cửa hàng trực tuyến đáng tin cậy của một đối tác, nơi bạn sẽ nhận được giá mới liệt kê trong thông báo."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Phiếu giảm giá"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Để sử dụng một phiếu giảm giá, bạn chỉ cần nhấp vào đó. Nếu xuất hiện một mã, bạn cần dán mã đó vào trường thích hợp trong khi thanh toán. Nếu không, phiếu giảm giá sẽ tự động được áp dụng."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Khác"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Nhấp vào ưu đãi đặc biệt được liệt kê sẽ đưa bạn đến cửa hàng trực tuyến đáng tin cậy của một đối tác."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Tìm hiểu thêm trong <span class='asp-faqs-span'>Câu hỏi Thường gặp</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Thêm trang web"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Thêm"
+  },
+  "spSettingsPageCancel": {
+    "message": "Hủy"
+  },
+  "spSettingsPageSave": {
+    "message": "Lưu"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Mã đã được sao chép tới bộ nhớ tạm."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Phiếu giảm giá được áp dụng trên trang này"
+  },
+  "sasOpenShop": {
+    "message": "Mở cửa hàng"
+  },
+  "spSocialShare": {
+    "message": "Bạn thích tiết kiệm? Hãy chia sẻ với mọi người!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Chia sẻ",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Đăng tweet",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Đóng"
+  },
+  "spMinimizeTooltip": {
+    "message": "Thu nhỏ tối đa"
+  },
+  "spHelpTooltip": {
+    "message": "Trợ giúp"
+  },
+  "spSettingsTooltip": {
+    "message": "Thiết lập"
+  },
+  "spProductsSearchInput": {
+    "message": "Tìm kiếm sản phẩm"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Tìm sản phẩm"
+  },
+  "spSearchForOffers": {
+    "message": "Để nhận được ưu đãi, hãy tìm kiếm <br> một sản phẩm"
+  },
+  "spCouponsSearchInput": {
+    "message": "Tìm kiếm thương hiệu hoặc cửa hàng trực tuyến"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Tìm phiếu giảm giá"
+  },
+  "spSearchForCoupons": {
+    "message": "Để nhận phiếu giảm giá, hãy tìm kiếm <br> một thương hiệu hoặc một cửa hàng trực tuyến"
+  },
+  "spNoResultsFound": {
+    "message": "Không tìm thấy kết quả cho <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Không tìm thấy mã giảm giá cho <br> %s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Không tìm thấy ưu đãi cho <br> %s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Không tìm thấy ưu đãi tại thời điểm này",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Hiện không tìm thấy phiếu giảm giá",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Không tìm thấy ưu đãi đặc biệt <br> tại thời điểm này"
+  },
+  "spShowAll": {
+    "message": "HIỂN THỊ TẤT CẢ"
+  },
+  "spGreatDeal": {
+    "message": "Ưu đãi lớn"
+  },
+  "spSiteVerified": {
+    "message": "Trang này đã được xác minh và an toàn để mua sắm"
+  },
+  "spSiteNotVerified": {
+    "message": "Trang này không đáng tin cậy để mua sắm"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Trang web này đã được xác định là không đáng tin cậy. Mọi ưu đãi chúng tôi tìm thấy đều đến từ một trang web an toàn, vì vậy chúng tôi khuyên bạn nhấp vào một trong những mức giá tốt nhất ở trên hoặc chỉ cần truy cập vào trang khác."
+  },
+  "spConnectionSecure": {
+    "message": "Kết nối này an toàn"
+  },
+  "spConnectionNotSecure": {
+    "message": "Kết nối này không an toàn"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Trang web này không có chứng chỉ https hợp lệ, do đó trang không thể bảo vệ đầy đủ quyền riêng tư của bạn."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Trang web này đã được xác định là không tin cậy"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Chúng tôi khuyên bạn nên thực hiện mua sắm ở trang khác vì trang này bị khách hàng xếp hạng kém."
+  },
+  "spLeaveSite": {
+    "message": "rời khỏi trang"
+  },
+  "spITrustThisSite": {
+    "message": "Tôi tin tưởng trang này"
+  },
+  "spPhishingSite": {
+    "message": "Trang web này đã được đánh dấu là trang lừa đảo"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Lừa đảo là hành động tìm cách thu thập thông tin nhạy cảm như tên người dùng, mật khẩu và chi tiết thẻ tín dụng."
+  },
+  "spRecommendESHop": {
+    "message": "Đề xuất cửa hàng điện tử"
+  },
+  "spRecommendWhy": {
+    "message": "Tại sao bạn lại đề xuất cửa hàng điện tử này?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Họ có các sản phẩm được chọn lọc tốt."
+  },
+  "spRecommendGreatValue": {
+    "message": "Họ có mức giá rất tuyệt vời."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Họ có dịch vụ khách hàng tuyệt hảo."
+  },
+  "spReportESHop": {
+    "message": "Báo cáo cửa hàng điện tử"
+  },
+  "spReportWhy": {
+    "message": "Tại sao bạn lại báo cáo cửa hàng điện tử này?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Tôi đã trả tiền nhưng không nhận được sản phẩm."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Tôi nhận được sản phẩm không giống với đơn đặt hàng."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "Tôi là khách hàng và họ đối xử với tôi rất tồi."
+  },
+  "spRequired": {
+    "message": "*bắt buộc"
+  },
+  "spOther": {
+    "message": "Khác"
+  },
+  "spTellUsMore": {
+    "message": "Cho chúng tôi biết thêm"
+  },
+  "spEShopName": {
+    "message": "Tên cửa hàng điện tử*"
+  },
+  "spProductOrdered": {
+    "message": "Sản phẩm đã đặt"
+  },
+  "spLinkToProductPage": {
+    "message": "Liên kết đến trang sản phẩm"
+  },
+  "spReport": {
+    "message": "báo cáo"
+  },
+  "spRecommend": {
+    "message": "đề xuất"
+  },
+  "spThanksForVoting": {
+    "message": "Cảm ơn bạn vì đã giúp chúng tôi cải thiện SafePrice tốt hơn"
+  },
+  "spAvailableOffers": {
+    "message": "Ưu đãi hiện có"
+  },
+  "spAvailableHotels": {
+    "message": "Khách sạn còn phòng trống"
+  },
+  "spAvailableCoupons": {
+    "message": "Phiếu giảm giá hiện có"
+  },
+  "spSelectedCoupons": {
+    "message": "Phiếu giảm giá đã chọn"
+  },
+  "spAvailableOthers": {
+    "message": "Ưu đãi đặc biệt"
+  },
+  "spClickThenPaste": {
+    "message": "Nhấp vào rồi dán khi thanh toán:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Nhấp vào rồi dán khi thanh toán tại <span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "đã sao chép"
+  },
+  "spCouponWorks": {
+    "message": "Phiếu giảm giá này có hiệu lực không?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Mã này có hiệu lực không?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Phiếu giảm giá áp dụng tại <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Bạn luôn có thể tìm ưu đãi và phiếu giảm giá SafePrice bằng cách nhấp vào biểu tượng trên thanh công cụ.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "ĐÃ HIỂU!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Phản hồi"
+  },
+  "spFeedbackShare": {
+    "message": "Chia sẻ phản hồi của bạn"
+  },
+  "spFeedbackGeneral": {
+    "message": "Phản hồi chung"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Hãy cho chúng tôi biết về trải nghiệm SafePrice của bạn, bạn thích những gì và chúng tôi cần cải thiện những gì."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Báo cáo cửa hàng trực tuyến"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Hãy cho chúng tôi biết về những trang web không đáng tin cậy hoặc giả mạo có thể khiến người khác gặp rủi ro."
+  },
+  "spFeedbackSPExp": {
+    "message": "Hãy cho chúng tôi biết về trải nghiệm SafePrice của bạn:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Viết nhận xét"
+  },
+  "spFeedbackback": {
+    "message": "quay lại"
+  },
+  "spFeedbackNext": {
+    "message": "tiếp theo"
+  },
+  "spFeedbackSend": {
+    "message": "gửi"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Bạn đang báo cáo về cửa hàng trực tuyến nào? <span class='asp-required-span'>(*bắt buộc)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Tên cửa hàng trực tuyến*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Nhà bán lẻ hoặc thương nhân"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Sản phẩm đã đặt"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Liên kết đến trang sản phẩm"
+  },
+  "spFeedbackProblem": {
+    "message": "Bạn gặp phải vấn đề gì? <span class='asp-required-span'>(bắt buộc)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Tôi nhận được sản phẩm không giống với đơn đặt hàng."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Tôi đã trả tiền nhưng không nhận được sản phẩm."
+  },
+  "spFeedbackOther": {
+    "message": "Khác"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Giải thích ngắn gọn về vấn đề đã xảy ra."
+  },
+  "spFeedbackThanks": {
+    "message": "Cám ơn bạn đã phản hồi!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Cảm ơn bạn."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Đặt tần suất bạn muốn xem ưu đãi và phiếu giảm giá"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "ok"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Bắt đầu tìm kiếm ưu đãi ở đây"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Bắt đầu tìm kiếm phiếu giảm giá ở đây"
+  },
+  "spTrySearchInAmazon": {
+    "message": "Thử tìm kiếm trên %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "tìm kiếm trên %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Thử tìm kiếm các ưu đãi trên %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Tìm thấy thêm ưu đãi: "
+  },
+  "spOptInTitle": {
+    "message": "Nếu bạn đồng ý, SafePrice hiển thị ưu đãi rẻ hơn khi bạn mua sắm trực tuyến"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Nếu bạn đồng ý, Avast SafePrice</span> <br> sẽ hiển thị cho bạn các ưu đãi và mã giảm giá hấp dẫn hơn khi bạn mua sắm trực tuyến"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Nếu bạn đồng ý, AVG SafePrice</span> <br> sẽ hiển thị cho bạn các ưu đãi và mã giảm giá hấp dẫn hơn khi bạn mua sắm trực tuyến"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice sẽ quét các trang web bạn truy cập để có thể tìm ra ưu đãi và mức giảm giá tốt hơn trên các cửa hàng trực tuyến đã được xác minh. Để chức năng này hoạt động, SafePrice cần gửi những dữ liệu sau đây đến máy chủ:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice sẽ quét các trang web bạn truy cập để có thể tìm ra ưu đãi và mức giảm giá tốt hơn trên các cửa hàng trực tuyến đã được xác minh. Để chức năng này hoạt động, phần mở rộng này cần gửi những dữ liệu sau đây đến máy chủ:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice sẽ quét các trang web bạn truy cập để có thể tìm ra ưu đãi và mức giảm giá tốt hơn trên các cửa hàng trực tuyến đã được xác minh. Để chức năng này hoạt động, phần mở rộng này cần gửi những dữ liệu sau đây đến máy chủ:"
+  },
+  "spOptInPolice1": {
+    "message": "Miền hoặc URL của trang web mua sắm"
+  },
+  "spOptInPolice2": {
+    "message": "Mã nhận dạng phần mở rộng (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Ngôn ngữ của trình duyệt"
+  },
+  "spOptInPoliceLink": {
+    "message": "Hãy xem <a href='#' class='opt-in-box-buttons-policy'>Chính sách quyền riêng tư của phần mở rộng</a> để biết thông tin chi tiết."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Có, gửi dữ liệu"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Có, bật lên"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Không, cảm ơn"
+  },
+  "spOptInSecondTitle": {
+    "message": "Rất tiếc, SafePrice không thể hiển thị cho bạn ưu đãi rẻ hơn khi chưa có sự đồng ý của bạn"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Rất tiếc, Avast SafePrice không thể hiển thị cho bạn ưu đãi tốt hơn khi chưa có sự đồng ý của bạn"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "Rất tiếc, AVG SafePrice không thể hiển thị cho bạn ưu đãi tốt hơn khi chưa có sự đồng ý của bạn"
+  },
+  "spOptInSecondText": {
+    "message": "Nếu bạn không đồng ý, thì phần mở rộng sẽ không hoạt động. Bạn có thể gỡ cài đặt phần mở rộng."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Xem lại sự đồng ý"
+  },
+  "spOptInSecondClose": {
+    "message": "Đóng"
+  },
+  "spAsbCouponsFound": {
+    "message": "Trang này có phiếu giảm giá!"
+  },
+  "spAsbOffersFound": {
+    "message": "Có các ưu đãi khác!"
+  }
+}

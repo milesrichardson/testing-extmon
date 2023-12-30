@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Avast'ın fiyat karşılaştırma ve kupon eklentisiyle çevrim içi alışveriş yaparken en iyi fiyatları, fırsatları ve indirim kuponlarını bulun.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "AVG'nin fiyat karşılaştırma ve kupon eklentisiyle çevrim içi alışveriş yaparken en iyi fiyatları, fırsatları ve indirim kuponlarını bulun.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Kazancınız"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | Güvenli alışveriş sitelerinde fiyat karşılaştırma, fırsatlar ve kuponlar - Tasarruf Edin"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | Güvenli alışveriş sitelerinde fiyat karşılaştırma, fırsatlar ve kuponlar - Tasarruf Edin"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | Fiyat karşılaştırması, fırsatlar, kuponlar"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | Fiyat karşılaştırması, fırsatlar, kuponlar"
+  },
+  "sasHintSettings": {
+    "message": "Ayarlar"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Avast SafePrice'tan <br> memnun musunuz?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "AVG SafePrice'tan <br> memnun musunuz?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Beğenmenize sevindik!"
+  },
+  "sasSorry": {
+    "message": "Bunu duyduğumuza üzüldük"
+  },
+  "sasAnswerYes": {
+    "message": "evet"
+  },
+  "sasAnswerNo": {
+    "message": "hayır"
+  },
+  "safePriceLeaveRating": {
+    "message": "Beğendiğinizi göstermek için bizi derecelendirin.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Şimdi derecelendir"
+  },
+  "safePriceAskMeLater": {
+    "message": "Daha sonra sor",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Avast SafePrice Ayarları"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "AVG SafePrice Ayarları"
+  },
+  "spOffersTab": {
+    "message": "Kampanyalar"
+  },
+  "spCouponsTab": {
+    "message": "Kuponlar"
+  },
+  "spOthersTab": {
+    "message": "Diğer"
+  },
+  "spAdditionalFees": {
+    "message": "Ek ücretler ve vergiler uygulanabilir"
+  },
+  "spShippingLabel": {
+    "message": "Kargo ücreti"
+  },
+  "spGetCouponCode": {
+    "message": "Kod Edinin"
+  },
+  "spApply": {
+    "message": "Kupon uygula"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Kopyalayıp ödeme sayfasında yapıştırın:"
+  },
+  "spCouponApplied": {
+    "message": "Kupon uygulandı."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Fırsatlar aranıyor..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Beklemeye değer, söz veriyoruz."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Kuponları kullanarak tasarruf edin"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Şuna varan tasarruf:"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Bakın!<br> Daha çok kampanya"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "başlangıç fiyatı"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Bakın! Daha çok kampanya"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Kampanyalar ve kuponlar bulundu. Şanslısınız!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Daha çok fırsat,<br>daha çok tasarruf!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Daha çok fırsat, daha çok tasarruf!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Popüler oteller:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "Alternatif oteller bulundu!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Alternatif oteller"
+  },
+  "spShowNotificationMessage": {
+    "message": "GÖSTER"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Bakın ne bulduk!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "FIRSATI GÖSTER"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Daha fazla"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Daha az"
+  },
+  "spNothingFound": {
+    "message": "Üzgünüz.<br>Hiçbir şey bulamadık…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "Üzgünüz...<br>Kupon bulunamadı..."
+  },
+  "spNothingFoundOffers": {
+    "message": "Üzgünüz...<br>Kampanya bulunamadı..."
+  },
+  "spNothingFoundOthers": {
+    "message": "Üzgünüz...<br>Özel fırsat bulunamadı..."
+  },
+  "spCouponsSelected": {
+    "message": "Seçilen kuponlar: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Seçili"
+  },
+  "spCouponsAvailableText": {
+    "message": "Kullanılabilir"
+  },
+  "spCouponsExpiration": {
+    "message": "Son kullanma tarihi: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Bildirimler"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Kampanyalar"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "E-alışveriş kampanyaları"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "E-alışveriş kampanyaları olduğunda göster"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Yalnızca orijinal fiyattan daha iyi bir e-alışveriş kampanyası olduğunda göster"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "E-alışveriş kampanyalarını bildirme"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(araç çubuğu simgesine tıklayarak kampanyaları istediğiniz zaman görebilirsiniz)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Konaklama kampanyaları"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Daha iyi bir otel fiyatı olduğunda göster"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "İstediğime alternatif otelleri göster"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "İstediğim bölgedeki popüler otelleri göster"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Kuponlar"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Kupon olduğunda her zaman göster"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Her web sitesinde yalnızca bir kez göster"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Kuponları bana bildirme"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(araç çubuğu simgesine tıklayarak kuponları istediğiniz zaman görebilirsiniz)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Diğer"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Özel fırsatlar"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Diğer kategoriler için özel fırsatlar olduğunda bildir (ulaşım, finans, elektronik ve diğerleri)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Özel liste"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Aşağıdaki web sitelerinde bildirim gösterme:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(araç çubuğu simgesine tıklayarak kampanyaları ve kuponları istediğiniz zaman görebilirsiniz)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Gizlilik"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Yeni ürün geliştirmek amacıyla ürün performansının ve veri kullanımının analiz edilmesine izin ver"
+  },
+  "spSettingsPageHelp": {
+    "message": "Yardım"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Bildirimler"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "SafePrice aramanızla ilgili bir kampanya veya kupon bulduğunda bir bildirim göreceksiniz. Sizin için bulduklarımıza göz atmak için büyük yeşil düğmeye tıklayın."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Kampanyalar"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Bir kampanyaya tıkladığınızda bildirimde listelenen yeni fiyattan yararlanacağınız iş ortağının güvenilir çevrim içi mağazasına yönlendirilirsiniz."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Kuponlar"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Kupon kullanmak için kupona tıklamanız yeterlidir. Bir kod görüntülenirse bu kodu ödeme aşamasında uygun alana yapıştırmanız gerekir. Kod yoksa kupon otomatik olarak uygulanır."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Diğer"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Listelenen özel kampanyaya tıkladığınızda bir iş ortağımızın güvenilir çevrim içi mağazasına yönlendirileceksiniz."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "<span class='asp-faqs-span'>SSS</span> bölümünden daha fazla bilgi edinebilirsiniz."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Site ekle"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Ekle"
+  },
+  "spSettingsPageCancel": {
+    "message": "İptal"
+  },
+  "spSettingsPageSave": {
+    "message": "Kaydet"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Kod panoya kopyalandı."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Bu sayfada uygulanan kupon"
+  },
+  "sasOpenShop": {
+    "message": "Mağazayı aç"
+  },
+  "spSocialShare": {
+    "message": "Tasarruf etmekten memnun musunuz? Bunu herkesle paylaşın!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Paylaş",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Tweetle",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Kapat"
+  },
+  "spMinimizeTooltip": {
+    "message": "Küçült"
+  },
+  "spHelpTooltip": {
+    "message": "Yardım"
+  },
+  "spSettingsTooltip": {
+    "message": "Ayarlar"
+  },
+  "spProductsSearchInput": {
+    "message": "Ürünleri arayın"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Bir ürün arayın"
+  },
+  "spSearchForOffers": {
+    "message": "Kampanyaları görmek için <br> bir ürün arayın"
+  },
+  "spCouponsSearchInput": {
+    "message": "Markaları ve çevrim içi mağazaları arayın"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Kupon arayın"
+  },
+  "spSearchForCoupons": {
+    "message": "Kupon edinmek için <br> bir marka veya çevrim içi mağaza arayın"
+  },
+  "spNoResultsFound": {
+    "message": "%s için <br> sonuç bulunamadı",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "%s için <br> kupon bulunamadı",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "%s için <br> kampanya bulunamadı",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Şu anda bir kampanya bulunamıyor",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Şu anda kupon bulunamıyor",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Şu anda özel fırsat <br> bulunamıyor"
+  },
+  "spShowAll": {
+    "message": "TÜMÜNÜ GÖSTER"
+  },
+  "spGreatDeal": {
+    "message": "Büyük fırsat"
+  },
+  "spSiteVerified": {
+    "message": "Bu site doğrulandı ve alışveriş yapmak için güvenli"
+  },
+  "spSiteNotVerified": {
+    "message": "Bu sitede alışveriş yapmak güvenli değil"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Bu web sitesi güvenilmez olarak tanımlanmıştır. Bulduğumuz her fırsat güvenli bir web sitesinden alınmaktadır ve bu nedenle yukarıdaki kampanyalardan birine tıklamanızı veya başka bir siteyi denemenizi öneriyoruz."
+  },
+  "spConnectionSecure": {
+    "message": "Bu bağlantı güvenli"
+  },
+  "spConnectionNotSecure": {
+    "message": "Bu bağlantı güvenli değil"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "Bu web sitesinin geçerli bir https sertifikası bulunmadığından gizliliğinizi tam olarak koruyamaz."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Bu web sitesi güvenilmez olarak tanımlanmıştır"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Bu sitenin müşteri değerlendirmeleri olumsuz olduğundan alışverişinizi başka bir siteden yapmanızı öneririz."
+  },
+  "spLeaveSite": {
+    "message": "siteden ayrıl"
+  },
+  "spITrustThisSite": {
+    "message": "Bu siteye güveniyorum"
+  },
+  "spPhishingSite": {
+    "message": "Bu web sitesi kimlik avı yapan bir site olarak işaretlendi"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Kimlik avı; kullanıcı adları, parolalar ve kredi kartı bilgileri gibi hassas verileri ele geçirme girişimidir."
+  },
+  "spRecommendESHop": {
+    "message": "E-mağazayı öner"
+  },
+  "spRecommendWhy": {
+    "message": "Bu e-mağazayı neden öneriyorsunuz?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Harika bir ürün yelpazeleri var."
+  },
+  "spRecommendGreatValue": {
+    "message": "Fiyatları çok uygun."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Müşteri hizmetleri oldukça iyi."
+  },
+  "spReportESHop": {
+    "message": "E-mağazayı bildir"
+  },
+  "spReportWhy": {
+    "message": "Bu e-mağazayı neden bildiriyorsunuz?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Ürünün parasını ödedim, ancak bana ulaşmadı."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Teslim aldığım ürün sipariş ettiğimden farklıydı."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "Müşteri olarak bana kötü davrandılar."
+  },
+  "spRequired": {
+    "message": "*zorunlu"
+  },
+  "spOther": {
+    "message": "Diğer"
+  },
+  "spTellUsMore": {
+    "message": "Daha fazla bilgi verin"
+  },
+  "spEShopName": {
+    "message": "E-mağaza adı*"
+  },
+  "spProductOrdered": {
+    "message": "Sipariş edilen ürün"
+  },
+  "spLinkToProductPage": {
+    "message": "Ürün sayfasına giden bağlantı"
+  },
+  "spReport": {
+    "message": "bildir"
+  },
+  "spRecommend": {
+    "message": "öner"
+  },
+  "spThanksForVoting": {
+    "message": "SafePrice'ı daha iyi hâle getirmemize yardımcı olduğunuz için teşekkür ederiz"
+  },
+  "spAvailableOffers": {
+    "message": "Mevcut kampanyalar"
+  },
+  "spAvailableHotels": {
+    "message": "Mevcut oteller"
+  },
+  "spAvailableCoupons": {
+    "message": "Mevcut kuponlar"
+  },
+  "spSelectedCoupons": {
+    "message": "Seçili kuponlar"
+  },
+  "spAvailableOthers": {
+    "message": "Özel fırsat"
+  },
+  "spClickThenPaste": {
+    "message": "Tıklayın, ardından ödeme aşamasında yapıştırın:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Tıklayın, ardından <span class='asp-shopname-span'>%s</span> sitesindeki ödeme aşamasında yapıştırın:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "kopyalandı"
+  },
+  "spCouponWorks": {
+    "message": "Bu kupon işe yaradı mı?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Bu kod işe yaradı mı?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Kupon <span class='asp-shopname-span'>%s</span> sitesinde uygulandı.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Araç çubuğu simgesine tıklayarak SafePrice kampanyalarını ve kuponlarını istediğiniz zaman bulabilirsiniz.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "ANLADIM!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Geri bildirim"
+  },
+  "spFeedbackShare": {
+    "message": "Geri bildiriminizi paylaşın"
+  },
+  "spFeedbackGeneral": {
+    "message": "Genel geri bildirim"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "SafePrice deneyiminizden bize bahsedin; neleri beğendiniz, neleri iyileştirebiliriz?"
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Çevrim içi mağaza bildir"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Başka kişileri de riske atabilecek güvenli olmayan veya sahte siteleri bize bildirin."
+  },
+  "spFeedbackSPExp": {
+    "message": "SafePrice deneyiminizden bize bahsedin:"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Bir yorum yazın"
+  },
+  "spFeedbackback": {
+    "message": "geri"
+  },
+  "spFeedbackNext": {
+    "message": "ileri"
+  },
+  "spFeedbackSend": {
+    "message": "gönder"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "Hangi çevrim içi mağazayı bildiriyorsunuz? <span class='asp-required-span'>(*zorunlu)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Çevrim içi mağaza adı*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Satıcı veya tüccar"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Sipariş edilen ürün"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Ürün sayfasına giden bağlantı"
+  },
+  "spFeedbackProblem": {
+    "message": "Nasıl bir sorun yaşadınız? <span class='asp-required-span'>(zorunlu)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Teslim aldığım ürün sipariş ettiğimden farklıydı."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Ürünün parasını ödedim, ancak bana ulaşmadı."
+  },
+  "spFeedbackOther": {
+    "message": "Diğer"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Sorunun ne olduğunu kısaca açıklayın."
+  },
+  "spFeedbackThanks": {
+    "message": "Geri bildiriminiz için teşekkür ederiz!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Teşekkürler."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Kampanyaları ve kuponları hangi sıklıkla görmek istediğinizi ayarlayın"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "tamam"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Fırsatları aramaya buradan başlayın"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Kuponları aramaya buradan başlayın"
+  },
+  "spTrySearchInAmazon": {
+    "message": "%s adresinde aramayı deneyin",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "%s adresinde ara",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "%s adresindeki fırsatları aramayı deneyin",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Daha fazla kampanya bulundu: "
+  },
+  "spOptInTitle": {
+    "message": "Kabul ederseniz, çevrim içi alışverişlerinizde SafePrice size daha ucuz fırsatlar gösterecek"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>Kabul ederseniz, Avast SafePrice</span> <br> çevrim içi alışverişlerinizde daha uygun fiyatlı kampanya ve kuponları size gösterecek"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>Kabul ederseniz, AVG SafePrice</span> <br> çevrim içi alışverişlerinizde daha uygun fiyatlı kampanya ve kuponları size gösterecek"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice ziyaret ettiğiniz web sitelerini tarayarak doğrulanmış e-mağazalardan sizin için daha uygun fırsatları ve indirim kuponlarını bulur. Bu işlevi yerine getirebilmesi için aşağıdaki verileri sunucularına göndermesi gerekir:"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice ziyaret ettiğiniz web sitelerini tarayarak doğrulanmış e-mağazalardan sizin için daha uygun fırsatları ve indirim kuponlarını bulur. Bu işlevi yerine getirebilmesi için aşağıdaki verileri sunucularına göndermesi gerekir:"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice ziyaret ettiğiniz web sitelerini tarayarak doğrulanmış e-mağazalardan sizin için daha uygun fırsatları ve indirim kuponlarını bulur. Bu işlevi yerine getirebilmesi için aşağıdaki verileri sunucularına göndermesi gerekir:"
+  },
+  "spOptInPolice1": {
+    "message": "Alışveriş sitesinin etki alanı veya URL'si"
+  },
+  "spOptInPolice2": {
+    "message": "Uzantının tanımlayıcıları (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Tarayıcının dili"
+  },
+  "spOptInPoliceLink": {
+    "message": "Daha detaylı bilgi için <a href='#' class='opt-in-box-buttons-policy'>uzantının Gizlilik Politikası</a>'na göz atın."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Evet, verileri gönder"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Evet, etkinleştir"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Hayır, teşekkürler"
+  },
+  "spOptInSecondTitle": {
+    "message": "Üzgünüz, onayınız olmadan SafePrice size daha ucuz fırsatlar gösteremez"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "Üzgünüz, onayınız olmadan Avast SafePrice size daha ucuz fırsatlar gösteremez"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "Üzgünüz, onayınız olmadan AVG SafePrice size daha ucuz fırsatlar gösteremez"
+  },
+  "spOptInSecondText": {
+    "message": "Onayınız olmadan uzantı çalışmaz. Kaldırabilirsiniz."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Onay sayfasına geri dön"
+  },
+  "spOptInSecondClose": {
+    "message": "Kapat"
+  },
+  "spAsbCouponsFound": {
+    "message": "Bu sitede kuponlar var!"
+  },
+  "spAsbOffersFound": {
+    "message": "Başka kampanyalar var!"
+  }
+}

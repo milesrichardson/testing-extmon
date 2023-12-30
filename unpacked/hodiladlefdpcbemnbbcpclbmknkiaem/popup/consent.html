@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Effects</title>
+    <style>
+      body,
+      html {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        width: 256px;
+        height: 256px;
+        font-family: system-ui;
+      }
+      body * {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      h2 {
+        font-size: 1.5em;
+        margin-bottom: -0.1em;
+      }
+      button#agree {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        background-color: #2a7d78;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+      #agree:hover {
+        cursor: pointer;
+      }
+      a#disagree {
+        color: #779f9d;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.7em;
+      }
+      #policy {
+        box-sizing: border-box;
+        padding: 0px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Visual Effects</h2>
+    <p class="subhead" id="policy">
+      Please click "Agree" to allow us to enable integrated Anti-Mining protection for the pages you visit by giving us access to your
+      visited URLS and clickstream data, keeping your browser safe and your meetings colorful.
+    </p>
+    <br /><br />
+    <button id="agree">Agree</button>
+    <br />
+    <a id="disagree" href="#s">Disagree</a>
+  </body>
+  <script src="consent.js"></script>
+</html>

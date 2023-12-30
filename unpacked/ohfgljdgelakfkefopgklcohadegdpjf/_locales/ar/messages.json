@@ -1,0 +1,443 @@
+{
+  "action_app_website": {
+    "message": "موقع {app_name}"
+  },
+  "action_browser_settings": {
+    "message": "إعدادات {browser_name}"
+  },
+  "action_chrome_web_store": {
+    "message": "مخزن الموقع {browser_name}"
+  },
+  "action_convert_to": {
+    "message": "التحويل إلى {file_type}"
+  },
+  "appDesc": {
+    "message": "أدوات PDF سهلة الاستخدام لتعديل وتحويل ودمج ملفات PDF وتقسيمها وضغطها."
+  },
+  "appName": {
+    "message": "Smallpdf- قم بتعديل وضغط ملفات PDF وتحويلها"
+  },
+  "compress": {
+    "message": "ضغط"
+  },
+  "converter": {
+    "message": "تحويل"
+  },
+  "delete": {
+    "message": "حذف الصفحات"
+  },
+  "downloadCta": {
+    "message": "تنزيل تطبيق الآن"
+  },
+  "edit": {
+    "message": "تعديل"
+  },
+  "excel": {
+    "message": "Excel إلىPDF"
+  },
+  "extract": {
+    "message": "PDF إلى JPG"
+  },
+  "file_type_excel": {
+    "message": "إكسل"
+  },
+  "file_type_generic_image": {
+    "message": "صورة"
+  },
+  "file_type_generic_image_plural": {
+    "message": "صور"
+  },
+  "file_type_generic_office": {
+    "message": "مكتب"
+  },
+  "file_type_pdf_plural": {
+    "message": "ملفات PDF"
+  },
+  "file_type_powerpoint_long": {
+    "message": "باوربوينت"
+  },
+  "file_type_word": {
+    "message": "ملف وورد"
+  },
+  "jpg": {
+    "message": "JPG إلىPDF"
+  },
+  "list_conjunction_long_end": {
+    "message": "{0}, و{1}"
+  },
+  "list_conjunction_long_middle": {
+    "message": "{0}, {1}"
+  },
+  "list_conjunction_long_pair": {
+    "message": "{0} و{1}"
+  },
+  "list_conjunction_long_start": {
+    "message": "{0}, {1}"
+  },
+  "list_disjunction_long_end": {
+    "message": "{0}, أو {1}"
+  },
+  "list_disjunction_long_middle": {
+    "message": "{0}, {1}"
+  },
+  "list_disjunction_long_pair": {
+    "message": "{0} أو {1}"
+  },
+  "list_disjunction_long_start": {
+    "message": "{0}, {1}"
+  },
+  "merge": {
+    "message": "دمج"
+  },
+  "noInternetConnection": {
+    "message": "لا يوجد اتصال بالإنترنت"
+  },
+  "options_extension_version": {
+    "message": "امتداد {browser_name}/ {version}"
+  },
+  "options_setting_local_files_description": {
+    "message": "منح {app_name} حق الوصول إلى عناوين رابط URL لملفك المحلي لتمكين {file_types} من فتحه في {browser_name}."
+  },
+  "options_setting_local_files_title": {
+    "message": "تمكين امتداد {app_name} على الملفات المحلية"
+  },
+  "options_setting_status_disabled": {
+    "message": "مُعطل"
+  },
+  "pdf_to_excel": {
+    "message": "PDF إلى Excel"
+  },
+  "pdf_to_ppt": {
+    "message": "PDF إلى PPT"
+  },
+  "pdf_to_word": {
+    "message": "PDF إلى Word"
+  },
+  "ppt": {
+    "message": "PPT إلى PDF"
+  },
+  "processingFailedMessage": {
+    "message": "عذرًا، حدث خطأ في معالجة ملفك"
+  },
+  "processingFailedTitle": {
+    "message": "فشلت المعالجة"
+  },
+  "protect": {
+    "message": "حماية"
+  },
+  "rotate": {
+    "message": "استدارة"
+  },
+  "sign": {
+    "message": "توقيع"
+  },
+  "split": {
+    "message": "انفصال"
+  },
+  "tools": {
+    "message": "أدوات"
+  },
+  "unlock": {
+    "message": "فتح القفل"
+  },
+  "uploadFailed": {
+    "message": "عذرًا، فشل التحميل"
+  },
+  "word": {
+    "message": "Word إلىPDF"
+  },
+  "search": {
+    "message": "بحث"
+  },
+  "113bx69": {
+    "message": "Test translation with a placeholder: {{placeholder_name}} and a styled element <styled>Styled content</styled>"
+  },
+  "114rvhu": {
+    "message": "تسجيل الدخول إلى حساب Smallpdf"
+  },
+  "114rvnf": {
+    "message": "أو"
+  },
+  "114rvpe": {
+    "message": "البريد الإلكتروني"
+  },
+  "114rvqv": {
+    "message": "كلمة المرور"
+  },
+  "114rvrt": {
+    "message": "هل نسيت كلمة المرور؟"
+  },
+  "114rvti": {
+    "message": "تسجيل الدخول"
+  },
+  "114rvvm": {
+    "message": "هل ليس لديك حسابًا بعد؟"
+  },
+  "114rvyk": {
+    "message": "إنشاء حساب"
+  },
+  "114rw18": {
+    "message": "الحساب"
+  },
+  "114rw2d": {
+    "message": "تجربة حساب Smallpdf الاحترافي"
+  },
+  "114rw3q": {
+    "message": "إعدادات الحساب"
+  },
+  "114rw4o": {
+    "message": "المساعدة"
+  },
+  "114rw5s": {
+    "message": "تنزيل التطبيقات"
+  },
+  "114rw6m": {
+    "message": "تسجيل الخروج"
+  },
+  "114rw86": {
+    "message": "خطأ في البريد الإلكتروني أو كلمة المرور."
+  },
+  "114rwft": {
+    "message": "لا يمكننا معالجة هذا الملف. يُرجى المحاولة مرة أخرى."
+  },
+  "114rwo7": {
+    "message": "ملفك محمي بكلمة مرور"
+  },
+  "114rwpn": {
+    "message": "يُرجى إزالة كلمة المرور وتحميل الملف مرة أخرى."
+  },
+  "114rwrd": {
+    "message": "عذرًا! هذا الملف تالف"
+  },
+  "114rwsa": {
+    "message": "يُرجى المحاولة مرة أخرى بملف آخر."
+  },
+  "114rwye": {
+    "message": "هل أنت متأكد أنك تريد المغادرة؟"
+  },
+  "114rwzh": {
+    "message": "سوف يتم حذف ملفك. تذكر تنزيله قبل المغادرة!"
+  },
+  "114rx0l": {
+    "message": "مغادرة"
+  },
+  "114rx4t": {
+    "message": "استمرار"
+  },
+  "114rx78": {
+    "message": "أعِد تسمية ملفك"
+  },
+  "114rx9b": {
+    "message": "إعادة تسمية"
+  },
+  "114rxav": {
+    "message": "أفلت الملف هنا للبدء"
+  },
+  "114rxc0": {
+    "message": "إضافة ملف"
+  },
+  "114rxcw": {
+    "message": "أفلت ملفك هنا"
+  },
+  "114rxhe": {
+    "message": "ملفك"
+  },
+  "114rxii": {
+    "message": "لقد فشل تحميل ملفك"
+  },
+  "114rxjj": {
+    "message": "نوع هذا الملف غير مدعوم"
+  },
+  "114rxk1": {
+    "message": "يُرجى المحاولة مرة أخرى باستخدام ملف PDF."
+  },
+  "114rxp1": {
+    "message": "المهام اليومية المجانية المتبقية"
+  },
+  "114rxqs": {
+    "message": "أو ابدأ في استخدام أداة"
+  },
+  "114rxs1": {
+    "message": "افتح أداة في تطبيق الويب"
+  },
+  "114rxzd": {
+    "message": "كن محترفًا في معالجة ملفات PDF!"
+  },
+  "114ry1m": {
+    "message": "استخدم حسابًا احترافيًا - مجانًا!"
+  },
+  "114ry2l": {
+    "message": "قم بترقية حسابك إلى حساب احترافي واستمتع بوصول غير محدود إلى أدواتك المفضلة وأكثر من ذلك!"
+  },
+  "114ry41": {
+    "message": "أظهر تميزك في معالجة ملفات PDF! تمتع بالوصول إلى أدوات PDF الرائعة من خلال الفترة التجريبية المجانية التي مدتها 7 أيام."
+  },
+  "114ry4i": {
+    "message": "على ماذا تحصل؟"
+  },
+  "114ry60": {
+    "message": "الميزات والأدوات الاحترافية"
+  },
+  "114ry6y": {
+    "message": "الميزات والأدوات الاحترافية الحصرية"
+  },
+  "114ry85": {
+    "message": "ضغط قوي، وتحويل ملفات PDF إلى Office، وأداة التعرف البصري على الأحرف، والمزيد."
+  },
+  "114ry8l": {
+    "message": "الوصول المتميز إلى أدوات وميزات PDF الاحترافية."
+  },
+  "114ry9k": {
+    "message": "انعدام القيود"
+  },
+  "114ryam": {
+    "message": "معالجة عدد غير محدود من الملفات والمهام في اليوم. وهذا أمر رائع!"
+  },
+  "114ryc1": {
+    "message": "العمل أثناء التنقل"
+  },
+  "114rycg": {
+    "message": "العمل في أي وقت، ومن أي مكان"
+  },
+  "114ryd0": {
+    "message": "وصول متميز إلى منصتنا على الويب، وتطبيقات لأجهزة سطح المكتب والأجهزة المحمولة."
+  },
+  "114rydg": {
+    "message": "فتح جميع المنصات والتطبيقات - من الأجهزة المحمولة إلى أجهزة سطح المكتب وعبر الويب!"
+  },
+  "114rydy": {
+    "message": "قم بترقية حسابك"
+  },
+  "114ryfe": {
+    "message": "تسجيل الدخول"
+  },
+  "114ryfx": {
+    "message": "جرِّب {{trial_days}} أيام مجانًا"
+  },
+  "114rylw": {
+    "message": "أنت على وشك الانتهاء...\\nما رأيك في احتساء بعض القهوة أو ممارسة تمرين التمدد؟ ☕"
+  },
+  "114rys4": {
+    "message": "عودة إلى صفحة البدء"
+  },
+  "114ryvl": {
+    "message": "عودة إلى الأدوات"
+  },
+  "114rz0g": {
+    "message": "اختر نوع الضغط"
+  },
+  "114rz1n": {
+    "message": "أساسي"
+  },
+  "114rz2h": {
+    "message": "حجم ملف متوسط وجودة عالية."
+  },
+  "114rz3e": {
+    "message": "قوي"
+  },
+  "114rz44": {
+    "message": "أصغر حجم ملف ونوعية جيدة."
+  },
+  "114rz68": {
+    "message": "اختر نوع التحويل"
+  },
+  "114rz7c": {
+    "message": "الخيارات"
+  },
+  "114rz83": {
+    "message": "مع أداة التعرف البصري على الأحرف"
+  },
+  "114rz8u": {
+    "message": "سيتم تحويل الصفحات الممسوحة ضوئيًا إلى مستند Word قابل للتحرير. قد يتغير التنسيق."
+  },
+  "114rzll": {
+    "message": "Change conversion type"
+  },
+  "114rzly": {
+    "message": "عودة إلى التحويل"
+  },
+  "114rzmr": {
+    "message": "سيتم تحويل الصفحات الممسوحة ضوئيًا إلى مستند Excel قابل للتحرير. قد يتغير التنسيق."
+  },
+  "cancel": {
+    "message": "إلغاء"
+  },
+  "download": {
+    "message": "تنزيل"
+  },
+  "error_try_later": {
+    "message": "عذرًا! لقد حدث خطأ ما"
+  },
+  "format_excel": {
+    "message": "Excel‏ (.xlsx)"
+  },
+  "format_image": {
+    "message": "JPG (.jpg)"
+  },
+  "format_ppt": {
+    "message": "PowerPoint‏ (.pptx)"
+  },
+  "format_word": {
+    "message": "Word‏ (.docx)"
+  },
+  "okay": {
+    "message": "موافق"
+  },
+  "please_try_again": {
+    "message": "يُرجى المحاولة مرة أخرى."
+  },
+  "try_again": {
+    "message": "حاول مرة أخرى"
+  },
+  "uh_something_wrong": {
+    "message": "عذرًا! لقد حدث خطأ ما"
+  },
+  "uploading": {
+    "message": "جارٍ التحميل..."
+  },
+  "114s0il": {
+    "message": "تنزيل ملفي تلقائيًا"
+  },
+  "114s0jf": {
+    "message": "سوف يتم تنزيل ملفك تلقائيًا بمجرد انتهاء معالجته."
+  },
+  "114s1u3": {
+    "message": "حوِّل ملف PDF الخاص بك إلى ملف PowerPoint."
+  },
+  "114tq39": {
+    "message": "تحويل الصفحات بالكامل"
+  },
+  "114tq47": {
+    "message": "استخراج صور فردية"
+  },
+  "114tq8x": {
+    "message": "PDF إلى PowerPoint"
+  },
+  "1167iyh": {
+    "message": "تم إجراء الكثير من المحاولات الفاشلة. يُرجى التحقق من بيانات تسجيل الدخول والمحاولة مرة أخرى لاحقًا."
+  },
+  "11wp338": {
+    "message": "تحرير ملفات PDF"
+  },
+  "11wp39c": {
+    "message": "PDF إلى Word‏"
+  },
+  "11wp3g5": {
+    "message": "ضغط PDF"
+  },
+  "11wp3gn": {
+    "message": "التوقيع الإلكتروني على ملفات PDF"
+  },
+  "11wp3j6": {
+    "message": "دمج PDF"
+  },
+  "11wp3jn": {
+    "message": "محول PDF"
+  },
+  "11wp3k6": {
+    "message": "المزيد من أدوات PDF"
+  },
+  "11wp3o4": {
+    "message": "أدوات Smallpdf"
+  }
+}

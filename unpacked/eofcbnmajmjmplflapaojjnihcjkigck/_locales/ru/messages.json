@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "Avast SafePrice"
+  },
+  "avastAppDesc": {
+    "message": "Покупая в Интернете, находите лучшие цены, предложения и купоны на скидку с помощью расширения Avast, позволяющего сравнивать цены и купоны.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG SafePrice"
+  },
+  "avgAppDesc": {
+    "message": "Покупая в Интернете, находите лучшие цены, предложения и купоны на скидку с помощью расширения AVG, позволяющего сравнивать цены и купоны.",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": "Сэкономьте"
+  },
+  "avastAppLongName": {
+    "message": "Avast SafePrice | Сравнение цен, предложений и купонов на безопасных сайтах для покупок — экономия"
+  },
+  "avgAppLongName": {
+    "message": "AVG SafePrice | Сравнение цен, предложений и купонов на безопасных сайтах для покупок — экономия"
+  },
+  "avastAppShortName": {
+    "message": "Avast SafePrice | Сравнения, предложения, купоны"
+  },
+  "avgAppShortName": {
+    "message": "AVG SafePrice | Сравнения, предложения, купоны"
+  },
+  "sasHintSettings": {
+    "message": "Настройки"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "Вы довольны <br>Avast SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "Вы довольны <br>AVG SafePrice?",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "Рады это слышать!"
+  },
+  "sasSorry": {
+    "message": "Нам очень жаль"
+  },
+  "sasAnswerYes": {
+    "message": "да"
+  },
+  "sasAnswerNo": {
+    "message": "нет"
+  },
+  "safePriceLeaveRating": {
+    "message": "Поставьте оценку, чтобы об этом узнали остальные.",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "Оценить"
+  },
+  "safePriceAskMeLater": {
+    "message": "Спросить позже",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "Настройки Avast SafePrice"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "Настройки AVG SafePrice"
+  },
+  "spOffersTab": {
+    "message": "Предложения"
+  },
+  "spCouponsTab": {
+    "message": "Купоны"
+  },
+  "spOthersTab": {
+    "message": "Другое"
+  },
+  "spAdditionalFees": {
+    "message": "Могут взиматься дополнительные сборы и налоги"
+  },
+  "spShippingLabel": {
+    "message": "Доставка и обработка от"
+  },
+  "spGetCouponCode": {
+    "message": "Получить код"
+  },
+  "spApply": {
+    "message": "Использовать купон"
+  },
+  "spCopyAtCheckOut": {
+    "message": "Скопируйте и вставьте при оформлении заказа:"
+  },
+  "spCouponApplied": {
+    "message": "Купон использован."
+  },
+  "spLoadingNotificationMessage": {
+    "message": "Поиск предложений..."
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "Даем слово, ожидание того стоит."
+  },
+  "spCouponsNotificationMessage": {
+    "message": "Экономьте с помощью купонов"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "Экономия до"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "Смотрите!<br> Еще предложения"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "всего"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "Смотрите! Еще предложения"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "Найдены предложения и купоны. Вам везет!"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "Больше предложений —<br>больше экономия!"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "Больше предложений — больше экономия!"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "Популярные гостиницы:"
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "Найдены другие гостиницы!"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "Другие гостиницы"
+  },
+  "spShowNotificationMessage": {
+    "message": "ПОКАЗАТЬ"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "Взгляните, что мы нашли!"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "ПОКАЗАТЬ ПРЕДЛОЖЕНИЕ"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "Больше"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "Меньше"
+  },
+  "spNothingFound": {
+    "message": "К сожалению, <br>ничего не найдено…"
+  },
+  "spNothingFoundCoupons": {
+    "message": "К сожалению, <br>купонов не найдено..."
+  },
+  "spNothingFoundOffers": {
+    "message": "К сожалению, <br>предложений не найдено..."
+  },
+  "spNothingFoundOthers": {
+    "message": "К сожалению, <br>специальных предложений не найдено..."
+  },
+  "spCouponsSelected": {
+    "message": "Выбранные купоны: "
+  },
+  "spCouponsSelectedText": {
+    "message": "Выбрано"
+  },
+  "spCouponsAvailableText": {
+    "message": "Доступно"
+  },
+  "spCouponsExpiration": {
+    "message": "Действует до: "
+  },
+  "spSettingsTabNotifications": {
+    "message": "Уведомления"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "Предложения"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "Предложения интернет-магазинов"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "Показывать всякий раз при появлении предложений от интернет-магазинов"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "Показывать только при наличии предложений от интернет-магазинов с более выгодной ценой"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "Не уведомлять о предложениях от интернет-магазинов"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "(можно в любой момент посмотреть предложения, нажав значок на панели инструментов)"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "Предложения проживания"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "Показывать всякий раз при появлении гостиницы с более выгодной ценой"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "Показывать другие гостиницы по моему запросу"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "Показывать популярные гостиницы в заданном районе"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "Купоны"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "Показывать всякий раз при появлении купона"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "Показывать только раз на каждом сайте"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "Не уведомлять о купонах"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "(можно в любой момент посмотреть купоны, нажав значок на панели инструментов)"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "Другое"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "Специальные предложения"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "Уведомлять о специальных предложениях в других категориях (транспорт, финансы, электроэнергия и др.)"
+  },
+  "spSettingsPageCustomList": {
+    "message": "Свой список"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "Сайты, на которых не нужно показывать уведомления:"
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "(вы всегда сможете посмотреть предложения и купоны, нажав значок на панели инструментов)"
+  },
+  "spSettingsPrivacy": {
+    "message": "Конфиденциальность"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "Разрешить анализ производительности и использования данных для разработки новых продуктов"
+  },
+  "spSettingsPageHelp": {
+    "message": "Справка"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. Уведомления"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "Когда SafePrice находит предложения или купоны, связанные с вашим запросом, появляется уведомление. Чтобы посмотреть, что мы для вас нашли, нажмите большую зеленую кнопку."
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. Предложения"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "Нажав на предложение, вы перейдете в надежный интернет-магазин партнера, где будет отображаться новая цена, указанная в уведомлении."
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. Купоны"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "Чтобы использовать купон, достаточно нажать на него. Если появится код, его нужно вставить в соответствующее поле при оформлении заказа. В противном случае купон применяется автоматически."
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. Другое"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "Нажав на специальное предложение из списка, вы перейдете в надежный интернет-магазин партнера."
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "Узнать больше можно в разделе <span class='asp-faqs-span'>Вопросы и ответы</span>."
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "Добавить сайт"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "Добавить"
+  },
+  "spSettingsPageCancel": {
+    "message": "Отмена"
+  },
+  "spSettingsPageSave": {
+    "message": "Сохранить"
+  },
+  "sasCouponCodeCopied": {
+    "message": "Код скопирован в буфер обмена."
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "Купон применен на этой странице"
+  },
+  "sasOpenShop": {
+    "message": "Открыть магазин"
+  },
+  "spSocialShare": {
+    "message": "Понравилось экономить? Расскажите о нас!",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "Поделиться",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "Поделиться в Twitter",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "Закрыть"
+  },
+  "spMinimizeTooltip": {
+    "message": "Свернуть"
+  },
+  "spHelpTooltip": {
+    "message": "Справка"
+  },
+  "spSettingsTooltip": {
+    "message": "Настройки"
+  },
+  "spProductsSearchInput": {
+    "message": "Поиск продуктов"
+  },
+  "spProductsSearchIconHover": {
+    "message": "Поиск продукта"
+  },
+  "spSearchForOffers": {
+    "message": "Чтобы просмотреть предложения, выполните поиск <br>по продукту"
+  },
+  "spCouponsSearchInput": {
+    "message": "Поиск по брендам или интернет-магазинам"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "Поиск купонов"
+  },
+  "spSearchForCoupons": {
+    "message": "Чтобы просмотреть купоны, выполните поиск <br>по брендам или интернет-магазинам"
+  },
+  "spNoResultsFound": {
+    "message": "Нет результатов для <br>%s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "Не найдено купонов для <br>%s",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "Не найдено предложений для <br>%s",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "Предложений сейчас нет",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "Сейчас нет купонов",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "Специальных предложений <br>сейчас нет"
+  },
+  "spShowAll": {
+    "message": "ПОКАЗАТЬ ВСЕ"
+  },
+  "spGreatDeal": {
+    "message": "Стоящее предложение"
+  },
+  "spSiteVerified": {
+    "message": "Этот сайт проверен и безопасен для совершения покупок"
+  },
+  "spSiteNotVerified": {
+    "message": "Этот сайт небезопасен для совершения покупок"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "Сайт классифицирован как небезопасный. Каждое отобранное нами предложение найдено на безопасном сайте. Рекомендуем нажать на одно из предложений выше или просто поискать что-то другое."
+  },
+  "spConnectionSecure": {
+    "message": "Это подключение безопасно"
+  },
+  "spConnectionNotSecure": {
+    "message": "Это подключение небезопасно"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "У этого сайта нет действительного сертификата HTTPS, поэтому он не может обеспечить полную защиту конфиденциальности."
+  },
+  "spSiteUntrustworthy": {
+    "message": "Этот сайт классифицирован как ненадежный"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "Рекомендуем не совершать покупки на этом сайте, так как он получил плохие оценки от пользователей."
+  },
+  "spLeaveSite": {
+    "message": "покинуть сайт"
+  },
+  "spITrustThisSite": {
+    "message": "Я доверяю этому сайту"
+  },
+  "spPhishingSite": {
+    "message": "Этот сайт отмечен как фишинговый"
+  },
+  "spPhishingSiteDesc": {
+    "message": "Фишинг — это попытки получить конфиденциальную информацию, включая имена пользователя, пароли и данные кредитных карт."
+  },
+  "spRecommendESHop": {
+    "message": "Порекомендовать интернет-магазин"
+  },
+  "spRecommendWhy": {
+    "message": "Почему вы рекомендуете этот интернет-магазин?*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "Здесь отличный выбор товаров."
+  },
+  "spRecommendGreatValue": {
+    "message": "Здесь качественные товары и выгодные цены."
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "Хорошее обслуживание клиентов."
+  },
+  "spReportESHop": {
+    "message": "Пожаловаться на интернет-магазин"
+  },
+  "spReportWhy": {
+    "message": "Почему вы хотите пожаловаться на этот интернет-магазин?*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "Мне не пришел оплаченный товар."
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "Полученный товар отличался от заказанного."
+  },
+  "spReportTreatedMePoorly": {
+    "message": "Обслуживание клиентов на низком уровне."
+  },
+  "spRequired": {
+    "message": "* обязательное поле"
+  },
+  "spOther": {
+    "message": "Другое"
+  },
+  "spTellUsMore": {
+    "message": "Расскажите подробнее"
+  },
+  "spEShopName": {
+    "message": "Название интернет-магазина*"
+  },
+  "spProductOrdered": {
+    "message": "Заказанный товар"
+  },
+  "spLinkToProductPage": {
+    "message": "Ссылка на страницу товара"
+  },
+  "spReport": {
+    "message": "пожаловаться"
+  },
+  "spRecommend": {
+    "message": "порекомендовать"
+  },
+  "spThanksForVoting": {
+    "message": "Спасибо за помощь в улучшении SafePrice!"
+  },
+  "spAvailableOffers": {
+    "message": "Доступные предложения"
+  },
+  "spAvailableHotels": {
+    "message": "Доступные гостиницы"
+  },
+  "spAvailableCoupons": {
+    "message": "Доступные купоны"
+  },
+  "spSelectedCoupons": {
+    "message": "Выбранные купоны"
+  },
+  "spAvailableOthers": {
+    "message": "Специальное предложение"
+  },
+  "spClickThenPaste": {
+    "message": "Нажмите, а потом вставьте при оформлении заказа:"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "Нажмите, а потом вставьте при оформлении заказа на сайте <span class='asp-shopname-span'>%s</span>:",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "скопировано"
+  },
+  "spCouponWorks": {
+    "message": "Сработал ли этот купон?"
+  },
+  "spCouponCodeWorks": {
+    "message": "Сработал ли этот код?"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "Купон применен на сайте <span class='asp-shopname-span'>%s</span>.",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "Предложения и купоны SafePrice всегда можно найти, нажав значок на панели инструментов.",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "ЯСНО!",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "Отзыв"
+  },
+  "spFeedbackShare": {
+    "message": "Оставьте свой отзыв"
+  },
+  "spFeedbackGeneral": {
+    "message": "Общий отзыв"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "Поделитесь с нами своими впечатлениями от использования SafePrice: что вам понравилось, а что следует усовершенствовать."
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "Пожаловаться на интернет-магазин"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "Расскажите нам о ненадежных или поддельных сайтах, которые могут быть опасными."
+  },
+  "spFeedbackSPExp": {
+    "message": "Поделитесь с нами своими впечатлениями от использования SafePrice."
+  },
+  "spFeedbackWriteAComment": {
+    "message": "Напишите комментарий"
+  },
+  "spFeedbackback": {
+    "message": "назад"
+  },
+  "spFeedbackNext": {
+    "message": "далее"
+  },
+  "spFeedbackSend": {
+    "message": "отправить"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "На какой интернет-магазин вы жалуетесь? <span class='asp-required-span'>(* обязательное поле)</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "Название интернет-магазина*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "Розничный или оптовый продавец"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "Заказанный товар"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "Ссылка на страницу товара"
+  },
+  "spFeedbackProblem": {
+    "message": "С чем связана проблема? <span class='asp-required-span'>(обязательное поле)</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "Полученный товар отличался от заказанного."
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "Мне не пришел оплаченный товар."
+  },
+  "spFeedbackOther": {
+    "message": "Другое"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "Кратко объясните суть проблемы."
+  },
+  "spFeedbackThanks": {
+    "message": "Благодарим за отзыв!"
+  },
+  "spRateCouponsThanks": {
+    "message": "Спасибо."
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "Укажите, как часто вы хотите видеть предложения и купоны."
+  },
+  "spOnboardingSettingsButton": {
+    "message": "OK"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "Начните поиск предложений здесь."
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "Начните поиск купонов здесь."
+  },
+  "spTrySearchInAmazon": {
+    "message": "Попробуйте поискать на сайте %s.",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "поиск на %s",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "Попробуйте поискать предложения на сайте %s",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "Найдены другие предложения: "
+  },
+  "spOptInTitle": {
+    "message": "В случае вашего согласия SafePrice будет показывать вам более выгодные предложения при совершении онлайн-покупок"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>В случае вашего согласия Avast SafePrice</span> <br> будет показывать вам более выгодные предложения и купоны при совершении онлайн-покупок"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>В случае вашего согласия AVG SafePrice</span> <br> будет показывать вам более выгодные предложения и купоны при совершении онлайн-покупок"
+  },
+  "spOptInPolice": {
+    "message": "SafePrice будет сканировать посещаемые вами сайты и находить более выгодные предложения и купоны на скидки в надежных онлайн-магазинах. Для работы этой функции необходимо отправлять на ее серверы указанные ниже данные."
+  },
+  "spOptInPoliceBAvast": {
+    "message": "Avast SafePrice будет сканировать посещаемые вами сайты и находить более выгодные предложения и купоны на скидки в надежных онлайн-магазинах. Для работы этой функции необходимо отправлять на ее серверы указанные ниже данные."
+  },
+  "spOptInPoliceBAVG": {
+    "message": "AVG SafePrice будет сканировать посещаемые вами сайты и находить более выгодные предложения и купоны на скидки в надежных онлайн-магазинах. Для работы этой функции необходимо отправлять на ее серверы указанные ниже данные."
+  },
+  "spOptInPolice1": {
+    "message": "Домен или URL-адрес сайта магазина"
+  },
+  "spOptInPolice2": {
+    "message": "Идентификаторы расширений (GUID)"
+  },
+  "spOptInPolice3": {
+    "message": "Язык браузера"
+  },
+  "spOptInPoliceLink": {
+    "message": "Полная информация содержится в <a href='#' class='opt-in-box-buttons-policy'>Политике конфиденциальности этого расширения</a>."
+  },
+  "spOptInPoliceAccept": {
+    "message": "Да, отправлять данные"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "Да, включить"
+  },
+  "spOptInPoliceDeny": {
+    "message": "Нет, спасибо"
+  },
+  "spOptInSecondTitle": {
+    "message": "К сожалению, без вашего согласия SafePrice не сможет показывать вам более выгодные предложения"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "К сожалению, без вашего согласия Avast SafePrice не сможет показывать вам более выгодные предложения"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "К сожалению, без вашего согласия AVG SafePrice не сможет показывать вам более выгодные предложения"
+  },
+  "spOptInSecondText": {
+    "message": "Без него расширение не будет работать. Его можно удалить."
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "Вернуться к запросу согласия"
+  },
+  "spOptInSecondClose": {
+    "message": "Закрыть"
+  },
+  "spAsbCouponsFound": {
+    "message": "Для этого сайта есть купоны!"
+  },
+  "spAsbOffersFound": {
+    "message": "Есть другие предложения!"
+  }
+}

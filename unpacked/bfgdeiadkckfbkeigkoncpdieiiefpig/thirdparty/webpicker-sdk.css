@@ -1,0 +1,524 @@
+.bitmoji-search-bar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+.bitmoji-search-bar input {
+  width: 270px;
+  height: 34px;
+  border: none;
+  outline: none;
+  font-family:
+    Avenir Next,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d3034;
+  line-height: 32px;
+  padding-top: 3px;
+  display: block;
+  padding-left: 8px;
+}
+.bitmoji-search-bar input::-webkit-input-placeholder {
+  color: #adb7c2;
+  font-weight: 400;
+}
+.bitmoji-search-bar .icon-search {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/search.svg?43d582fb1edd562ea1f30e3675ae8be9) no-repeat;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-size: contain;
+  float: left;
+}
+.bitmoji-search-bar .clear-search-button {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/search-clear.svg?27398e914f588612f5c26592867d78e8) no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+  float: right;
+  width: 16px;
+  height: 16px;
+  margin-top: -26px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.bitmoji-search-bar .icon-active-search {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/search-active.svg?d5a6f46851a5819781c1952a2973cc07) no-repeat;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-size: contain;
+  float: left;
+}
+.bitmoji-image-container {
+  width: 100%;
+  float: left;
+  display: block;
+}
+.bitmoji-image-container.hide-spin {
+  background-image: none;
+}
+.bitmoji-image-container .bitmoji-image {
+  width: 100%;
+  cursor: pointer;
+}
+.clientmoji-image-container {
+  width: 84px;
+  height: 84px;
+  float: left;
+  display: block;
+  background-size: 50% 50%;
+}
+.hidden {
+  display: none;
+}
+.clientmoji-image {
+  width: 83px;
+  height: 83px;
+  border-bottom: 1px solid #f7f9fa;
+  border-right: 1px solid #f7f9fa;
+  float: left;
+  display: block;
+}
+.bitmoji-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.bitmoji-no-search-image-container {
+  width: 200px;
+  font-size: 14px;
+  color: #adb7c2;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-left: -100px;
+}
+.bitmoji-no-search-image-container img {
+  width: 200px;
+  z-index: -1;
+}
+.bitmoji-no-search-image-container p {
+  display: inline;
+}
+.bitmoji-sdk-top-bar {
+  display: block;
+  background-color: #37ca8e;
+  height: 36px;
+}
+.bitmoji-sdk-top-bar > .title-icon {
+  height: 30px;
+  width: 70px;
+  position: absolute;
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/bitmoji-logo.svg?a84ba36178f52f7220f09aef4be59845) 0 0 / contain
+    no-repeat;
+  top: 10px;
+  left: 132px;
+}
+.bitmoji-sdk-top-bar > .close-button {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/close.svg?70880d043eadae3f7710ee45124eb773) 0 0 / contain no-repeat;
+}
+.bitmoji-sdk-top-bar > .logout-button {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  right: 10px;
+  top: 11px;
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/logout.svg?37dde2487a3853b75ddad3db2aa18d20) 0 0 / contain
+    no-repeat;
+}
+.bitmoji-sdk-top-bar > .logout-button:hover {
+  cursor: pointer;
+}
+.bitmoji-sdk-top-bar div {
+  display: block;
+}
+.bitmoji-sdk-bottom-bar-tab {
+  float: left;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 16.66667%;
+  text-align: center;
+  height: 33px;
+  cursor: pointer;
+}
+.popular {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/popular.svg?99b74f2b71904d86c0b11beb5192977e) 50% no-repeat;
+  background-size: 24px;
+}
+.hibye {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/greetings.svg?7811c0f32db61c91f1f17adf2e235ba8) 50% no-repeat;
+  background-size: 24px;
+}
+.romance {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/romantic.svg?2141678614483498c1a958fd4933f9ed) 50% no-repeat;
+  background-size: 24px;
+}
+.happy {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/happy.svg?da867faf434b810c959c264f6ecce4b3) 50% no-repeat;
+  background-size: 24px;
+}
+.nuanced {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/nuanced.svg?2a33c563704ad08b9f188de96b50d0fc) 50% no-repeat;
+  background-size: 24px;
+}
+.occasional {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/occasional.svg?4ee064f6efe70a2429f2390c2d1ad615) 50% no-repeat;
+  background-size: 24px;
+}
+.popular:hover {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/popular-sel.svg?2742720a6bce230eeca5fd06feed94fb) 50% no-repeat;
+  background-size: 24px;
+}
+.hibye:hover {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/greetings-sel.svg?6eb9c7beb6bbc2960a9eb63401f6d4be) 50% no-repeat;
+  background-size: 24px;
+}
+.romance:hover {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/romantic-sel.svg?094a37de37bf636d7fe758ecbe10153c) 50% no-repeat;
+  background-size: 24px;
+}
+.happy:hover {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/happy-sel.svg?66b12dddaf97d526e0f4168d3ae7083e) 50% no-repeat;
+  background-size: 24px;
+}
+.nuanced:hover {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/nuanced-sel.svg?e156ca03f27772313ebe95c9e7349d3b) 50% no-repeat;
+  background-size: 24px;
+}
+.occasional:hover {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/occasional-sel.svg?66e125928b5d05870f8cbbdaef8ff3f0) 50% no-repeat;
+  background-size: 24px;
+}
+.popular.selected {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/popular-sel.svg?2742720a6bce230eeca5fd06feed94fb) 50% no-repeat;
+  background-size: 24px;
+}
+.hibye.selected {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/greetings-sel.svg?6eb9c7beb6bbc2960a9eb63401f6d4be) 50% no-repeat;
+  background-size: 24px;
+}
+.romance.selected {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/romantic-sel.svg?094a37de37bf636d7fe758ecbe10153c) 50% no-repeat;
+  background-size: 24px;
+}
+.happy.selected {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/happy-sel.svg?66b12dddaf97d526e0f4168d3ae7083e) 50% no-repeat;
+  background-size: 24px;
+}
+.nuanced.selected {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/nuanced-sel.svg?e156ca03f27772313ebe95c9e7349d3b) 50% no-repeat;
+  background-size: 24px;
+}
+.occasional.selected {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/occasional-sel.svg?66e125928b5d05870f8cbbdaef8ff3f0) 50% no-repeat;
+  background-size: 24px;
+}
+.bitmoji-sdk-bottom-bar {
+  display: block;
+  background: #fff;
+  height: 36px;
+}
+.notification {
+  visibility: hidden;
+  width: 340px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 1;
+  margin-top: -205px;
+  padding-top: 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.notification p {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+  display: inline;
+}
+.notification span {
+  font-size: 12px;
+  display: block;
+  color: #adb7c2;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.notification.show {
+  visibility: visible;
+  font-size: 14px;
+  -webkit-animation: fade-in 0.5s;
+  animation: fade-in 0.5s;
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.clientmoji-tooltip {
+  visibility: hidden;
+  background-color: #0eadff;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  z-index: 1;
+  padding: 8px 12px;
+  bottom: 36px;
+  margin: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.clientmoji-tooltip p {
+  font-family: Avenir Next;
+  font-weight: Demi Bold;
+  font-size: 13px;
+  color: #fff;
+  display: inline;
+  line-height: 18px;
+}
+.clientmoji-tooltip.show {
+  visibility: visible;
+  font-size: 14px;
+  animation-duration: 1s;
+  animation-delay: 7s;
+  animation-fill-mode: forwards;
+  animation-name: fade-out;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 7s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-name: fade-out;
+}
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.bitmoji-web-picker {
+  position: relative;
+  background: #f7f9fa;
+  overflow: hidden;
+  zindex: 4000;
+  width: 340px;
+  height: 476px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+.bitmoji-content {
+  display: block;
+  height: 364px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #f7f9fa;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.tab-heading {
+  width: 100%;
+  display: block;
+  color: #fff;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  clear: both;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  text-align: left;
+  letter-spacing: 2px;
+  font-family:
+    Avenir Next,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-weight: 600;
+}
+.tab-heading.popular {
+  background: #48a6e2;
+}
+.tab-heading.recent {
+  background: #f44360;
+}
+.no-recents {
+  margin: 15px auto;
+}
+.no-recents img {
+  width: 25px;
+  vertical-align: bottom;
+}
+.no-recents p {
+  display: table;
+  font-weight: 400;
+  text-align: left;
+  padding-left: 8px;
+  color: #adb7c2;
+}
+.no-recents-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/recents.svg?e6a7c35df8986fdb5cc4146f645f06d0) no-repeat;
+  background-size: contain;
+  float: left;
+  margin-left: 10px;
+}
+.App {
+  text-align: center;
+}
+.App-logo {
+  animation: App-logo-spin 20s linear infinite;
+  height: 80px;
+}
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: #fff;
+}
+.App-intro {
+  font-size: large;
+}
+@keyframes App-logo-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+.get-started {
+  background: url(https://s3.amazonaws.com/www.bitmoji.com/account/images/pattern-bg.png);
+  height: 478px;
+  width: 342px;
+  padding: 76px 0 10px;
+  box-sizing: border-box;
+}
+.bitmoji-logo {
+  background: url(https://s3.amazonaws.com/www.bitmoji.com/account/images/logo-white.png) 0 0 no-repeat;
+  background-size: contain;
+  height: 63px;
+  width: 206px;
+  margin: 0 auto;
+}
+.get-started-tagline {
+  padding: 10px 0 50px;
+  margin: 0;
+  color: #387059;
+  text-align: center;
+  font-size: 16px;
+}
+.mood-strip {
+  background: url(https://s3.amazonaws.com/www.bitmoji.com/account/images/mood-strip.png) 0 0 no-repeat;
+  background-size: contain;
+  width: 342px;
+  height: 78px;
+}
+.get-started-button {
+  background-color: #2a5943;
+  width: 90%;
+  padding: 15px 0;
+  margin-bottom: 34px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+.get-started-button:hover {
+  cursor: pointer;
+}
+.get-avatar {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/bitmoji-pattern-bg.png?8610d167fb53885036a55370b7b2f57a);
+  height: 478px;
+  width: 342px;
+  padding: 76px 0 10px;
+  box-sizing: border-box;
+}
+.get-avatar .bitmoji-logo {
+  background: url(chrome-extension://__MSG_@@extension_id__/static/media/bitmoji-logo-white.png?3fa33d8bef706324e5d1de59e523faf5) 0 0
+    no-repeat;
+  background-size: contain;
+  height: 63px;
+  width: 206px;
+  padding-top: 24px;
+}
+.get-avatar .graphic-no-avatar {
+  height: 160px;
+  width: 160px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/static/media/graphic-noavatar-large.png?ac4c2698be1913283981ed332fbbc8e2);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.get-avatar .logout-button {
+  background-color: #2a5943;
+  width: 90%;
+  padding: 15px 0;
+  margin-bottom: 34px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+}
+.logout-button:hover {
+  cursor: pointer;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family:
+    Avenir Next,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+}

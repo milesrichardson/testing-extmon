@@ -1,0 +1,170 @@
+{
+  "popup_title": {
+    "message": "Zoom Chrome Extension",
+    "description": ""
+  },
+  "popup_loading": {
+    "message": "\u52A0\u8F7D",
+    "description": ""
+  },
+  "popup_setting": {
+    "message": "\u8BBE\u7F6E",
+    "description": ""
+  },
+  "popup_signin": {
+    "message": "\u8C37\u6B4C\u767B\u9646",
+    "description": ""
+  },
+  "popup_schedule": {
+    "message": "\u5B89\u6392\u4F1A\u8BAE",
+    "description": ""
+  },
+  "popup_start": {
+    "message": "\u5F00\u59CB\u4F1A\u8BAE",
+    "description": ""
+  },
+  "popup_videooff": {
+    "message": "\u89C6\u9891\u5173\u95ED",
+    "description": ""
+  },
+  "popup_videoon": {
+    "message": "\u89C6\u9891\u6253\u5F00",
+    "description": ""
+  },
+  "popup_signout": {
+    "message": "\u767B\u51FA",
+    "description": ""
+  },
+  "setting_title": {
+    "message": "Zoom Extension Settings",
+    "description": ""
+  },
+  "setting_h1": {
+    "message": "Zoom Extension Options",
+    "description": ""
+  },
+  "setting_schedulefor": {
+    "message": "Schedule For",
+    "description": ""
+  },
+  "setting_myself": {
+    "message": "Myself",
+    "description": ""
+  },
+  "setting_alloweach": {
+    "message": "Allow me to choose each time",
+    "description": ""
+  },
+  "setting_video": {
+    "message": "\u89C6\u9891\u9009\u9879",
+    "description": ""
+  },
+  "setting_video_host": {
+    "message": "\u4E3B\u6301\u4EBA",
+    "description": ""
+  },
+  "setting_video_participant": {
+    "message": "\u53C2\u4F1A\u8005",
+    "description": ""
+  },
+  "setting_video_on": {
+    "message": "\u6253\u5F00",
+    "description": ""
+  },
+  "setting_video_off": {
+    "message": "\u5173\u95ED",
+    "description": ""
+  },
+  "setting_audio": {
+    "message": "\u97F3\u9891\u9009\u9879",
+    "description": ""
+  },
+  "setting_audio_tel": {
+    "message": "\u53EA\u4F7F\u7528\u7535\u8BDD",
+    "description": ""
+  },
+  "setting_audio_voip": {
+    "message": "\u53EA\u4F7F\u7528Voip",
+    "description": ""
+  },
+  "setting_audio_both": {
+    "message": "\u4F7F\u7528\u7535\u8BDD\u548CVoip",
+    "description": ""
+  },
+  "setting_audio_3rd": {
+    "message": "3rd Party Audio",
+    "description": ""
+  },
+  "setting_opts": {
+    "message": "\u4F1A\u8BAE\u9009\u9879",
+    "description": ""
+  },
+  "setting_opts_requirepwd": {
+    "message": "\u8BBE\u7F6E\u4F1A\u8BAE\u5BC6\u7801",
+    "description": ""
+  },
+  "setting_opts_randpwd": {
+    "message": "Random password",
+    "description": ""
+  },
+  "setting_opts_manulpwd": {
+    "message": "Manually input password",
+    "description": ""
+  },
+  "setting_opts_jbh": {
+    "message": "\u5141\u8BB8\u5728\u4E3B\u6301\u4EBA\u5165\u4F1A\u4E4B\u524D\u52A0\u5165",
+    "description": ""
+  },
+  "setting_opts_pmi": {
+    "message": "Use Personal Meeting ID ",
+    "description": ""
+  },
+  "setting_opts_althost": {
+    "message": "Alternative hosts",
+    "description": ""
+  },
+  "setting_opts_sign1": {
+    "message": "Only signed-in users can join meetings",
+    "description": ""
+  },
+  "setting_opts_sign2": {
+    "message": "Only signed-in users with specified domains can join meetings",
+    "description": ""
+  },
+  "setting_opts_errtext": {
+    "message": "Enter valid domains. Separate multiple domains by semicolon",
+    "description": ""
+  },
+  "setting_pac": {
+    "message": "Personal Audio Conference",
+    "description": ""
+  },
+  "setting_pac_account1": {
+    "message": "Account 1",
+    "description": ""
+  },
+  "setting_pac_account2": {
+    "message": "Account 2",
+    "description": ""
+  },
+  "setting_pac_dailin": {
+    "message": "Dedicated Dail-In Numbers",
+    "description": ""
+  },
+  "setting_pac_dailin2": {
+    "message": "Global Dial-In Numbers",
+    "description": ""
+  },
+  "setting_pac_mtgid": {
+    "message": "Meeting ID",
+    "description": ""
+  },
+  "setting_save_change": {
+    "message": "Save Changes",
+    "description": ""
+  },
+  "setting_cancel": {
+    "message": "Cancel",
+    "description": ""
+  }
+}

@@ -1,0 +1,665 @@
+{
+  "avastAppName": {
+    "message": "アバスト セーフプライス"
+  },
+  "avastAppDesc": {
+    "message": "オンライン ショッピングの際にアバストによる価格比較とクーポンの期間延長を利用して、最もお得な価格、プロモーションや割引クーポンを見つけることができます。",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "avgAppName": {
+    "message": "AVG セーフプライス"
+  },
+  "avgAppDesc": {
+    "message": "オンライン ショッピングの際に AVG による価格比較とクーポンの期間延長を利用して、最もお得な価格、プロモーションや割引クーポンを見つけることができます。",
+    "description": "max 132 chars are allowed for this message"
+  },
+  "save": {
+    "message": " お得"
+  },
+  "avastAppLongName": {
+    "message": "アバストセーフプライス | 安全なショッピング サイトでの価格比較、お得な情報、クーポン - お金を節約"
+  },
+  "avgAppLongName": {
+    "message": "AVG セーフプライス | 安全なショッピング サイトでの価格比較、お得な情報、クーポン - お金を節約"
+  },
+  "avastAppShortName": {
+    "message": "アバスト セーフプライス | 比較、お得な情報、クーポン"
+  },
+  "avgAppShortName": {
+    "message": "AVG セーフプライス | 比較、お得な情報、クーポン"
+  },
+  "sasHintSettings": {
+    "message": "設定"
+  },
+  "safePriceEnjoyQuestion_Avast": {
+    "message": "アバスト セーフプライスを<br>ご活用いただいていますか？",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "safePriceEnjoyQuestion_AVG": {
+    "message": "AVG セーフプライスを<br>ご活用いただいていますか？",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasGladYouLike": {
+    "message": "気に入っていただけて何よりです!"
+  },
+  "sasSorry": {
+    "message": "それは残念です"
+  },
+  "sasAnswerYes": {
+    "message": "はい"
+  },
+  "sasAnswerNo": {
+    "message": "いいえ"
+  },
+  "safePriceLeaveRating": {
+    "message": "ぜひ評価を残してお気持ちをお聞かせください。",
+    "description": "It is showed to offer the user the chance of rating our shopping extension"
+  },
+  "sasRate": {
+    "message": "評価する"
+  },
+  "safePriceAskMeLater": {
+    "message": "後で確認する",
+    "description": "It is showed to the user on the rating screen in order to offer it to rate extension later"
+  },
+  "spSettingsPageTitleAvast": {
+    "message": "アバスト セーフプライス設定"
+  },
+  "spSettingsPageTitleAvg": {
+    "message": "AVG セーフプライス設定"
+  },
+  "spOffersTab": {
+    "message": "おすすめ"
+  },
+  "spCouponsTab": {
+    "message": "クーポン"
+  },
+  "spOthersTab": {
+    "message": "その他"
+  },
+  "spAdditionalFees": {
+    "message": "追加の手数料や税金がかかることがあります"
+  },
+  "spShippingLabel": {
+    "message": "送料："
+  },
+  "spGetCouponCode": {
+    "message": "コードを取得"
+  },
+  "spApply": {
+    "message": "クーポンを適用"
+  },
+  "spCopyAtCheckOut": {
+    "message": "チェックアウト時にコピー＆ペースト："
+  },
+  "spCouponApplied": {
+    "message": "クーポンを適用しました。"
+  },
+  "spLoadingNotificationMessage": {
+    "message": "お得な情報を探しています。"
+  },
+  "spLoadingNotificationDescriptionMessage": {
+    "message": "とてもお得な情報があります。もうしばらくお待ちください。"
+  },
+  "spCouponsNotificationMessage": {
+    "message": "クーポンを使って節約"
+  },
+  "spCouponsNotificationSaveTextMessage": {
+    "message": "最大節約額"
+  },
+  "spBetterOffersNotificationMessage": {
+    "message": "ご覧ください！<br>その他のおすすめ"
+  },
+  "spBetterOfferLowerPricesNotificationMessage": {
+    "message": "最低価格"
+  },
+  "spBetterOffersNotificationBarMessage": {
+    "message": "ご覧ください！その他のおすすめ"
+  },
+  "spOffersAndCouponsNotificationMessage": {
+    "message": "おすすめとクーポンが見つかりました！"
+  },
+  "spBetterSpecialDealsNotificationMessage": {
+    "message": "組み合わせて<br>さらに節約！"
+  },
+  "spBetterSpecialDealsNotificationBarMessage": {
+    "message": "組み合わせてさらに節約！"
+  },
+  "spCityHotelNotificationMessage": {
+    "message": "人気のホテル："
+  },
+  "spSimilarHotelsNotificationMessage": {
+    "message": "近い条件のホテルが見つかりました！"
+  },
+  "spSimilarHotelsMessage": {
+    "message": "近い条件のホテル"
+  },
+  "spShowNotificationMessage": {
+    "message": "表示"
+  },
+  "spShowNotificationRedirectMessage": {
+    "message": "検索結果は次のとおりです。"
+  },
+  "spNotificationRedirectShowRedirectMessage": {
+    "message": "お得な情報を表示"
+  },
+  "spNotificationRedirectShowMoreMessage": {
+    "message": "詳細"
+  },
+  "spNotificationRedirectShowLessMessage": {
+    "message": "簡易"
+  },
+  "spNothingFound": {
+    "message": "残念ながら、<br>何も見つかりませんでした。"
+  },
+  "spNothingFoundCoupons": {
+    "message": "残念ながら...<br>クーポンはありませんでした。"
+  },
+  "spNothingFoundOffers": {
+    "message": "残念ながら...<br>おすすめはありませんでした。"
+  },
+  "spNothingFoundOthers": {
+    "message": "残念ながら...<br>特別なプロモーションはありませんでした。"
+  },
+  "spCouponsSelected": {
+    "message": "選択したクーポン："
+  },
+  "spCouponsSelectedText": {
+    "message": "選択済み"
+  },
+  "spCouponsAvailableText": {
+    "message": "利用可能"
+  },
+  "spCouponsExpiration": {
+    "message": "有効期限："
+  },
+  "spSettingsTabNotifications": {
+    "message": "通知"
+  },
+  "spSettingsTabNotificationsOffers": {
+    "message": "おすすめ"
+  },
+  "spSettingsTabNotificationsOffersTitle": {
+    "message": "E ショップのおすすめ"
+  },
+  "spSettingsTabNotificationsOffersShowAll": {
+    "message": "E ショップのおすすめが利用可能なときは常に表示"
+  },
+  "spSettingsTabNotificationsOffersBetter": {
+    "message": "値引きがある場合のみ E ショップのおすすめを表示"
+  },
+  "spSettingsTabNotificationsOffersHideAll": {
+    "message": "E ショップのおすすめを通知しない"
+  },
+  "spSettingsTabNotificationsOffersHideAllDesc": {
+    "message": "（随時、ツールバーのアイコンをクリックしておすすめを表示できます）"
+  },
+  "spSettingsTabNotificationAccommodationsTitle": {
+    "message": "ホテルのおすすめ"
+  },
+  "spSettingsTabNotificationsAccommodationsShowBetter": {
+    "message": "より安い宿泊料金があるときは常に表示"
+  },
+  "spSettingsTabNotificationsAccommodationsSimilar": {
+    "message": "リクエストと近い条件のホテルを表示"
+  },
+  "spSettingsTabNotificationsAccommodationsPopular": {
+    "message": "リクエストした地域で人気のホテルを表示"
+  },
+  "spSettingsTabNotificationsCoupons": {
+    "message": "クーポン"
+  },
+  "spSettingsTabNotificationsCouponsShowAll": {
+    "message": "クーポンが利用可能なときは常に表示"
+  },
+  "spSettingsTabNotificationsCouponsShowOnce": {
+    "message": "各ウェブサイトで 1 回のみ表示"
+  },
+  "spSettingsTabNotificationsCouponsHide": {
+    "message": "クーポンを通知しない"
+  },
+  "spSettingsTabNotificationsCouponsHideDesc": {
+    "message": "（随時、ツールバーのアイコンをクリックしてクーポンを表示できます）"
+  },
+  "spSettingsTabNotificationsOthers": {
+    "message": "その他"
+  },
+  "spSettingsTabNotificationsOthersTitle": {
+    "message": "特別なプロモーション"
+  },
+  "spSettingsTabNotificationsOthersDesc": {
+    "message": "その他のカテゴリ（運輸、金融、電源装置など）の特別なプロモーションを通知する"
+  },
+  "spSettingsPageCustomList": {
+    "message": "カスタム リスト"
+  },
+  "spSettingsPageCustomListTitle": {
+    "message": "通知を表示しないウェブサイト："
+  },
+  "spSettingsPageCustomListTitleDesc": {
+    "message": "（随時、ツールバーのアイコンをクリックしておすすめやクーポンを表示できます）"
+  },
+  "spSettingsPrivacy": {
+    "message": "プライバシー"
+  },
+  "spSettingsPrivacyNotice": {
+    "message": "新製品の開発を目的として、製品のパフォーマンスとデータの使用状況の分析を許可します"
+  },
+  "spSettingsPageHelp": {
+    "message": "ヘルプ"
+  },
+  "spSettingsPageHelpNotificationsTitle": {
+    "message": "1. 通知"
+  },
+  "spSettingsPageHelpNotificationsTitleDesc": {
+    "message": "セーフプライスでは、検索内容に関連するおすすめやクーポンが見つかるたび、通知がポップアップ表示されます。大きい緑色のボタンをクリックすると、見つかった情報を表示できます。"
+  },
+  "spSettingsPageHelpOffersTitle": {
+    "message": "2. おすすめ"
+  },
+  "spSettingsPageHelpOffersTitleDesc": {
+    "message": "おすすめをクリックすると、パートナーの信頼できるオンライン ストアに遷移し、通知どおりの新しい価格が適用されます。"
+  },
+  "spSettingsPageHelpCouponsTitle": {
+    "message": "3. クーポン"
+  },
+  "spSettingsPageHelpCouponsTitleDesc": {
+    "message": "クーポンを使用するには、該当するクーポンをクリックする必要があります。コードが表示された場合、チェック アウト時に適切なフィールドに貼り付ける必要があります。表示されない場合、クーポンは自動的に適用されます。"
+  },
+  "spSettingsPageHelpOthersTitle": {
+    "message": "4. その他"
+  },
+  "spSettingsPageHelpOthersTitleDesc": {
+    "message": "表示された特別なプロモーションをクリックすると、パートナーの信頼できるオンライン ストアに遷移します。"
+  },
+  "spSettingsPageHelpFAQsTitle": {
+    "message": "詳しくは、<span class='asp-faqs-span'>よくある質問</span>をご覧ください。"
+  },
+  "spSettingsPageCustomListItemAddSite": {
+    "message": "サイトを追加"
+  },
+  "spSettingsPageCustomListItemAdd": {
+    "message": "追加"
+  },
+  "spSettingsPageCancel": {
+    "message": "キャンセル"
+  },
+  "spSettingsPageSave": {
+    "message": "保存"
+  },
+  "sasCouponCodeCopied": {
+    "message": "割引クーポンをクリップボードにコピーしました。"
+  },
+  "sasCouponAppliedOnPage": {
+    "message": "このページでクーポンが適用されました"
+  },
+  "sasOpenShop": {
+    "message": "ショップを開く"
+  },
+  "spSocialShare": {
+    "message": "割引を利用したら、みんなに教えてあげましょう！",
+    "description": "It is showed up to users in order to make them share SafePrice on Social Networks"
+  },
+  "spSocialShareFb": {
+    "message": "共有",
+    "description": "It is showed up to users in order to make them share SafePrice on Facebook"
+  },
+  "spSocialSharetttr": {
+    "message": "ツイート",
+    "description": "It is showed up to users in order to make them share SafePrice on Twitter"
+  },
+  "spCloseTooltip": {
+    "message": "閉じる"
+  },
+  "spMinimizeTooltip": {
+    "message": "最小化"
+  },
+  "spHelpTooltip": {
+    "message": "ヘルプ"
+  },
+  "spSettingsTooltip": {
+    "message": "設定"
+  },
+  "spProductsSearchInput": {
+    "message": "製品を検索"
+  },
+  "spProductsSearchIconHover": {
+    "message": "製品を検索"
+  },
+  "spSearchForOffers": {
+    "message": "おすすめを入手するには、<br>製品を検索してください"
+  },
+  "spCouponsSearchInput": {
+    "message": "ブランドまたはオンライン ストアを検索"
+  },
+  "spCouponsSearchIconHover": {
+    "message": "クーポンを検索"
+  },
+  "spSearchForCoupons": {
+    "message": "クーポンを取得するには、<br>ブランドかオンライン ストアを検索します"
+  },
+  "spNoResultsFound": {
+    "message": "%s の結果は<br>ありません",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundCoupons": {
+    "message": "%s のクーポンは<br>ありません",
+    "description": "%s is the domain where we couldn't find coupons or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffersBasedOnQuery": {
+    "message": "%s のおすすめは<br>ありません",
+    "description": "%s is the title of the product for which we couldn't find offers or can be also, what the user wrote on our seach input"
+  },
+  "spNoResultsFoundOffers": {
+    "message": "現在、おすすめはありません",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoResultsFoundCouponsNow": {
+    "message": "現在、クーポンはありません",
+    "description": "%s is the domain where we couldn't find offer"
+  },
+  "spNoresultsFoundForOthers": {
+    "message": "現在、特別なプロモーションは<br>実施していません"
+  },
+  "spShowAll": {
+    "message": "すべて表示"
+  },
+  "spGreatDeal": {
+    "message": "お買い得"
+  },
+  "spSiteVerified": {
+    "message": "このサイトは認証済みのため、安全にお買い物ができます"
+  },
+  "spSiteNotVerified": {
+    "message": "このサイトでのお買い物は信頼できません"
+  },
+  "spSiteNotVerifiedHover": {
+    "message": "このウェブサイトは信頼できないものとして認識されています。当社がご案内するお得な情報はすべて、安全なウェブサイトから入手したものです。上記のおすすめのいずれかをクリックするか、他のウェブサイトをお試しください。"
+  },
+  "spConnectionSecure": {
+    "message": "接続が保護されています"
+  },
+  "spConnectionNotSecure": {
+    "message": "接続が保護されていません"
+  },
+  "spConnectionNotSecureHover": {
+    "message": "このウェブサイトには有効な https 証明書がないため、完全にプライバシーを保護することはできません。"
+  },
+  "spSiteUntrustworthy": {
+    "message": "このウェブサイトは信頼できないものとして認識されています"
+  },
+  "spSiteUntrustworthyDesc": {
+    "message": "このサイトはユーザーの評価が低いため、他のサイトでの買い物をおすすめします。"
+  },
+  "spLeaveSite": {
+    "message": "サイトを離れる"
+  },
+  "spITrustThisSite": {
+    "message": "このサイトを信頼しています"
+  },
+  "spPhishingSite": {
+    "message": "このサイトはフィッシング サイトであると認識されています"
+  },
+  "spPhishingSiteDesc": {
+    "message": "フィッシングとは、ユーザー名、パスワード、クレジットカードの情報など、秘密情報を取得しようとする行為です。"
+  },
+  "spRecommendESHop": {
+    "message": "E ショップを推奨する"
+  },
+  "spRecommendWhy": {
+    "message": "こちらの E ショップを推奨する理由を教えてください。*"
+  },
+  "spRecommendExcellentSelectionOfProducts": {
+    "message": "取り扱い製品が豊富。"
+  },
+  "spRecommendGreatValue": {
+    "message": "価格が良心的。"
+  },
+  "spRecommendGreatCcustomerService": {
+    "message": "顧客サービスが良い。"
+  },
+  "spReportESHop": {
+    "message": "E ショップを報告する"
+  },
+  "spReportWhy": {
+    "message": "こちらの E ショップを報告する理由を教えてください。*"
+  },
+  "spReportPaidAndNotGet": {
+    "message": "代金を支払ったにもかかわらず製品が届かなかった。"
+  },
+  "spReportGetSomethingDifferent": {
+    "message": "注文したものとは異なる製品が届いた。"
+  },
+  "spReportTreatedMePoorly": {
+    "message": "顧客対応が悪かった。"
+  },
+  "spRequired": {
+    "message": "* 必須"
+  },
+  "spOther": {
+    "message": "その他"
+  },
+  "spTellUsMore": {
+    "message": "詳細をご記入ください"
+  },
+  "spEShopName": {
+    "message": "E ショップ名 *"
+  },
+  "spProductOrdered": {
+    "message": "注文した製品"
+  },
+  "spLinkToProductPage": {
+    "message": "製品ページへのリンク"
+  },
+  "spReport": {
+    "message": "報告"
+  },
+  "spRecommend": {
+    "message": "推奨"
+  },
+  "spThanksForVoting": {
+    "message": "セーフプライスの改善にご協力いただきありがとうございます"
+  },
+  "spAvailableOffers": {
+    "message": "利用可能なお得な情報"
+  },
+  "spAvailableHotels": {
+    "message": "利用可能なホテル"
+  },
+  "spAvailableCoupons": {
+    "message": "利用可能なクーポン"
+  },
+  "spSelectedCoupons": {
+    "message": "選択したクーポン"
+  },
+  "spAvailableOthers": {
+    "message": "特別なプロモーション"
+  },
+  "spClickThenPaste": {
+    "message": "チェックアウト時に以下をクリックし、貼り付けます。"
+  },
+  "spClickThenPasteSearchResult": {
+    "message": "チェックアウト時に以下をクリックし、<span class='asp-shopname-span'>%s</span>に貼り付けます。",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spCodeCopied": {
+    "message": "コピー済み"
+  },
+  "spCouponWorks": {
+    "message": "このクーポンは機能しましたか？"
+  },
+  "spCouponCodeWorks": {
+    "message": "このコードは機能しましたか？"
+  },
+  "spSearchCouponAppliedOnPage": {
+    "message": "クーポンは<span class='asp-shopname-span'>%s</span>に適用されました。",
+    "description": "%s is the name of the domain where coupon was applied"
+  },
+  "spAfterCloseTooltip": {
+    "message": "随時、ツールバーのアイコンをクリックしてセーフプライスのオファーやクーポンをお探しいただけます。",
+    "description": "Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spAfterCloseTooltipGotIt": {
+    "message": "了解！",
+    "description": "Confirm message showed on Small tooltips showed to the user after closing UI in order to remain users how to get UI back."
+  },
+  "spFeedback": {
+    "message": "フィードバック"
+  },
+  "spFeedbackShare": {
+    "message": "フィードバックをお寄せください"
+  },
+  "spFeedbackGeneral": {
+    "message": "一般的なフィードバック"
+  },
+  "spFeedbackGeneralDesc": {
+    "message": "セーフプライスの使用感、気に入ったところ、改善できる点について教えてください。"
+  },
+  "spFeedbackReportOnlineStore": {
+    "message": "オンライン ストアを報告"
+  },
+  "spFeedbackReportOnlineStoreDesc": {
+    "message": "他の人が危険にさらされる可能性のある、信頼できないサイトや偽のサイトについて教えてください。"
+  },
+  "spFeedbackSPExp": {
+    "message": "セーフプライスの使用感について教えてください。"
+  },
+  "spFeedbackWriteAComment": {
+    "message": "コメントを書く"
+  },
+  "spFeedbackback": {
+    "message": "戻る"
+  },
+  "spFeedbackNext": {
+    "message": "次へ"
+  },
+  "spFeedbackSend": {
+    "message": "送信"
+  },
+  "spFeedbackWhichOnlineStoreReporting": {
+    "message": "どのオンライン ストアについて報告しますか？<span class='asp-required-span'>（* 必須）</span>"
+  },
+  "spFeedbackOnlineStoreName": {
+    "message": "オンライン ストア名*"
+  },
+  "spFeedbackRetailerMerchant": {
+    "message": "ショップ名または販売人"
+  },
+  "spFeedbackProductOrdered": {
+    "message": "注文した製品"
+  },
+  "spFeedbackLinkToProductPage": {
+    "message": "製品ページへのリンク"
+  },
+  "spFeedbackProblem": {
+    "message": "どのような問題がありましたか？<span class='asp-required-span'>（必須）</span>"
+  },
+  "spFeedbackSomethingDifferent": {
+    "message": "注文したものとは異なる製品が届いた。"
+  },
+  "spFeedbackPaidAndNotGet": {
+    "message": "代金を支払ったにもかかわらず製品が届かなかった。"
+  },
+  "spFeedbackOther": {
+    "message": "その他"
+  },
+  "spFeedbackWhatWasTheProblem": {
+    "message": "どのような問題があったか簡単に説明してください。"
+  },
+  "spFeedbackThanks": {
+    "message": "フィードバックをいただきありがとうございました！"
+  },
+  "spRateCouponsThanks": {
+    "message": "ありがとうございます。"
+  },
+  "spOnboardingSettingsMsg": {
+    "message": "おすすめやクーポンを表示する頻度を設定します"
+  },
+  "spOnboardingSettingsButton": {
+    "message": "OK"
+  },
+  "spOnboardingSearchOffers": {
+    "message": "ここでお得な情報を検索する"
+  },
+  "spOnboardingSearchCoupons": {
+    "message": "ここでクーポンを検索する"
+  },
+  "spTrySearchInAmazon": {
+    "message": "%s で検索してみる",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spSearchInAmazon": {
+    "message": "%s で検索する",
+    "description": "%s is the name of the domain. Ex: amazon"
+  },
+  "spTrySearchDeals": {
+    "message": "%s でお得な情報を検索する",
+    "description": "%s is the domain. Ex: Amazon.com"
+  },
+  "spMoreOffersFound": {
+    "message": "その他のおすすめ： "
+  },
+  "spOptInTitle": {
+    "message": "同意すると、オンライン ショッピングの際に、SafePrice によってよりお得な取引条件が表示されます"
+  },
+  "spOptInTitleBAvast": {
+    "message": "<span class='asp-title-span'>同意すると、アバスト セーフプライス</span> <br>が、オンライン ショッピングでご利用いただけるお得な取引条件やクーポンを表示します"
+  },
+  "spOptInTitleBAVG": {
+    "message": "<span class='asp-title-span'>同意すると、AVG セーフプライス</span> <br>が、オンライン ショッピングでご利用いただけるお得な取引条件やクーポンを表示します"
+  },
+  "spOptInPolice": {
+    "message": "ユーザーがアクセスするウェブサイトをSafePrice がスキャンすることにより、認証された E ショップの中からよりお得な取引条件や割引クーポンを見つけられます。この機能を使用するには、SafePrice のサーバーに次のデータを送信する必要があります。"
+  },
+  "spOptInPoliceBAvast": {
+    "message": "ユーザーがアクセスするウェブサイトをアバスト セーフプライスがスキャンすることにより、認証された E ショップの中からよりお得な取引条件や割引クーポンを見つけられます。この機能を使用するには、セーフプライスのサーバーに次のデータを送信する必要があります。"
+  },
+  "spOptInPoliceBAVG": {
+    "message": "ユーザーがアクセスするウェブサイトを AVG セーフプライスがスキャンすることにより、認証された E ショップの中からよりお得な取引条件や割引クーポンを見つけられます。この機能を使用するには、セーフプライスのサーバーに次のデータを送信する必要があります。"
+  },
+  "spOptInPolice1": {
+    "message": "ショッピング サイトのドメインまたは URL"
+  },
+  "spOptInPolice2": {
+    "message": "拡張機能 ID（GUID）"
+  },
+  "spOptInPolice3": {
+    "message": "ブラウザーの言語"
+  },
+  "spOptInPoliceLink": {
+    "message": "詳細については<a href='#' class='opt-in-box-buttons-policy'>拡張機能のプライバシー ポリシー</a>をご覧ください。"
+  },
+  "spOptInPoliceAccept": {
+    "message": "はい、データを送信します"
+  },
+  "spOptInPoliceAcceptB": {
+    "message": "はい、有効にします"
+  },
+  "spOptInPoliceDeny": {
+    "message": "いいえ、結構です"
+  },
+  "spOptInSecondTitle": {
+    "message": "お客様の同意がない限り、SafePrice はよりお得な取引条件を表示できません"
+  },
+  "spOptInSecondTitleBAvast": {
+    "message": "お客様の同意がない限り、アバスト セーフプライスはよりお得な取引条件を表示できません"
+  },
+  "spOptInSecondTitleBAVG": {
+    "message": "お客様の同意がない限り、AVG セーフプライスはよりお得な取引条件を表示できません"
+  },
+  "spOptInSecondText": {
+    "message": "同意がない場合、拡張機能は使用できません。拡張機能をアンインストールしてください。"
+  },
+  "spOptInSecondReviewConsent": {
+    "message": "同意を再検討する"
+  },
+  "spOptInSecondClose": {
+    "message": "閉じる"
+  },
+  "spAsbCouponsFound": {
+    "message": "このサイトはクーポンがあります！"
+  },
+  "spAsbOffersFound": {
+    "message": "他にもオファーがあります！"
+  }
+}
